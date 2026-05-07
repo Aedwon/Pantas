@@ -1,0 +1,4 @@
+#include "Generated.xcconfig"
+FLUTTER_TARGET=lib/main_dev.dart
+PRODUCT_BUNDLE_IDENTIFIER=com.aedwon.csecetreviewer.dev
+DISPLAY_NAME=CSE/CET Reviewer Dev
