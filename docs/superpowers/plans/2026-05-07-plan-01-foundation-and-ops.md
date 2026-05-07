@@ -607,7 +607,7 @@ dependencies:
   # Util
   collection: ^1.19.0
   meta: ^1.15.0
-  intl: ^0.19.0
+  intl: ^0.20.0
   uuid: ^4.5.1
 
 dev_dependencies:
