@@ -16,7 +16,7 @@
 - **Exam-agnostic architecture:** No exam IDs hardcoded anywhere in scaffolding. All exam config flows from content.
 
 **Placeholders requiring user confirmation before Task 6:**
-- **App bundle ID base:** `com.aerolbalayon.csecetreviewer` (dev: `.dev` suffix, staging: `.staging` suffix, prod: bare). If you have a domain, use reverse-DNS of that instead. Confirm before running `flutter create`.
+- **App bundle ID base:** `com.aedwon.csecetreviewer` (reverse-DNS of `aedwon.com`, owned by Aerol). Dev: `.dev` suffix, staging: `.staging` suffix, prod: bare.
 - **Display name:** "CSE/CET Reviewer" (final marketing name TBD).
 - **Package name:** `cse_cet_reviewer`.
 
@@ -104,7 +104,7 @@ Capture this in a scratch note:
 - DTI/SEC registration number (if business-registered) — sole proprietors need DTI Business Name Registration first if not yet done
 - Registered business address
 - DPO designation: **you (Aerol Balayon)** for v1
-- DPO email: a dedicated address, e.g. `dpo@<domain>` or `aerol.balayon+dpo@gmail.com` if no domain yet
+- DPO email: a dedicated address, e.g. `dpo@aedwon.com` or `aerol.balayon+dpo@gmail.com` if no domain yet
 - Description of data processing systems: "Mobile reviewer app collecting display name, learning attempts, and entitlement state. Payment processing via RevenueCat (PCI-DSS-compliant third party). Storage in Firebase Firestore (`asia-southeast1`)."
 - Records of Processing Activities (ROPA) draft
 
@@ -399,7 +399,7 @@ Expected: `Flutter 3.27.0` or later, channel `stable`. If older, run `flutter up
 
 - [ ] **Step 2: Confirm bundle ID base with user**
 
-The plan placeholder is `com.aerolbalayon.csecetreviewer`. If a different reverse-DNS is preferred, substitute below. Lowercase only, no hyphens (some store tooling rejects hyphens).
+The plan placeholder is `com.aedwon.csecetreviewer`. If a different reverse-DNS is preferred, substitute below. Lowercase only, no hyphens (some store tooling rejects hyphens).
 
 - [ ] **Step 3: Run `flutter create` in the existing project root**
 
@@ -407,7 +407,7 @@ The plan placeholder is `com.aerolbalayon.csecetreviewer`. If a different revers
 cd "/Users/aedwon/Documents/Dev Projects/CSE:CET Reviewer App"
 flutter create \
   --project-name cse_cet_reviewer \
-  --org com.aerolbalayon \
+  --org com.aedwon \
   --platforms=android,ios \
   --description "Gamified Philippine exam reviewer with spaced repetition." \
   .
@@ -497,7 +497,7 @@ Create `ios/Flutter/Dev.xcconfig`:
 ```
 #include "Generated.xcconfig"
 FLUTTER_TARGET=lib/main_dev.dart
-PRODUCT_BUNDLE_IDENTIFIER=com.aerolbalayon.csecetreviewer.dev
+PRODUCT_BUNDLE_IDENTIFIER=com.aedwon.csecetreviewer.dev
 DISPLAY_NAME=CSE/CET Reviewer Dev
 ```
 
@@ -505,7 +505,7 @@ Create `ios/Flutter/Staging.xcconfig`:
 ```
 #include "Generated.xcconfig"
 FLUTTER_TARGET=lib/main_staging.dart
-PRODUCT_BUNDLE_IDENTIFIER=com.aerolbalayon.csecetreviewer.staging
+PRODUCT_BUNDLE_IDENTIFIER=com.aedwon.csecetreviewer.staging
 DISPLAY_NAME=CSE/CET Reviewer Staging
 ```
 
@@ -513,7 +513,7 @@ Create `ios/Flutter/Prod.xcconfig`:
 ```
 #include "Generated.xcconfig"
 FLUTTER_TARGET=lib/main_prod.dart
-PRODUCT_BUNDLE_IDENTIFIER=com.aerolbalayon.csecetreviewer
+PRODUCT_BUNDLE_IDENTIFIER=com.aedwon.csecetreviewer
 DISPLAY_NAME=CSE/CET Reviewer
 ```
 
@@ -528,7 +528,7 @@ Document in `docs/OPERATIONS.md` (Task 32) that this manual step was completed.
 ```bash
 flutter run --flavor dev -t lib/main_dev.dart
 ```
-Expected: Default Flutter counter app launches (we replace it in Task 11). Bundle ID on device should be `com.aerolbalayon.csecetreviewer.dev`. Stop the run with `q`.
+Expected: Default Flutter counter app launches (we replace it in Task 11). Bundle ID on device should be `com.aedwon.csecetreviewer.dev`. Stop the run with `q`.
 
 - [ ] **Step 10: Commit**
 
@@ -1707,8 +1707,8 @@ cd "/Users/aedwon/Documents/Dev Projects/CSE:CET Reviewer App"
 flutterfire configure \
   --project=cse-cet-reviewer-dev \
   --out=lib/firebase_options_dev.dart \
-  --ios-bundle-id=com.aerolbalayon.csecetreviewer.dev \
-  --android-package-name=com.aerolbalayon.csecetreviewer.dev \
+  --ios-bundle-id=com.aedwon.csecetreviewer.dev \
+  --android-package-name=com.aedwon.csecetreviewer.dev \
   --platforms=ios,android \
   --yes
 ```
@@ -1726,8 +1726,8 @@ mv android/app/google-services.json android/app/src/dev/google-services.json
 flutterfire configure \
   --project=cse-cet-reviewer-prod \
   --out=lib/firebase_options_prod.dart \
-  --ios-bundle-id=com.aerolbalayon.csecetreviewer \
-  --android-package-name=com.aerolbalayon.csecetreviewer \
+  --ios-bundle-id=com.aedwon.csecetreviewer \
+  --android-package-name=com.aedwon.csecetreviewer \
   --platforms=ios,android \
   --yes
 ```
@@ -2590,7 +2590,7 @@ workflows:
         # APP_STORE_CONNECT_KEY_IDENTIFIER
         # APP_STORE_CONNECT_PRIVATE_KEY
         # CERTIFICATE_PRIVATE_KEY
-        BUNDLE_ID: "com.aerolbalayon.csecetreviewer"
+        BUNDLE_ID: "com.aedwon.csecetreviewer"
     triggering:
       events:
         - tag
@@ -2625,7 +2625,7 @@ workflows:
         # CM_KEY_ALIAS
         # CM_KEY_PASSWORD
         # GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
-        PACKAGE_NAME: "com.aerolbalayon.csecetreviewer"
+        PACKAGE_NAME: "com.aedwon.csecetreviewer"
     triggering:
       events:
         - tag
@@ -2714,7 +2714,7 @@ Save a screenshot for compliance audit trail.
 **Last updated:** [auto-update at publication]
 **Effective date:** [TBD — pre-soft-launch]
 **Legal entity:** [Aerol Balayon, sole proprietor — confirm pending DTI registration]
-**DPO:** Aerol Balayon · dpo@[domain TBD]
+**DPO:** Aerol Balayon · dpo@aedwon.com
 **NPC reference:** [insert post-Task 1 confirmation]
 
 ## 1. Scope
@@ -2788,7 +2788,7 @@ Material changes will be notified in-app at least 30 days before taking effect.
 
 ## 11. Contact
 
-DPO: Aerol Balayon · dpo@[domain TBD]
+DPO: Aerol Balayon · dpo@aedwon.com
 NPC: complaints@privacy.gov.ph
 
 ---
@@ -2887,7 +2887,7 @@ We will notify material changes in-app at least 30 days before they take effect.
 ## 13. Contact
 
 aerol.balayon@gmail.com (general support)
-dpo@[domain TBD] (privacy)
+dpo@aedwon.com (privacy)
 
 ---
 
@@ -3067,9 +3067,9 @@ Last updated: 2026-05-07
 
 - Team ID: TBD
 - Bundle IDs:
-  - Dev: `com.aerolbalayon.csecetreviewer.dev`
-  - Staging: `com.aerolbalayon.csecetreviewer.staging`
-  - Prod: `com.aerolbalayon.csecetreviewer`
+  - Dev: `com.aedwon.csecetreviewer.dev`
+  - Staging: `com.aedwon.csecetreviewer.staging`
+  - Prod: `com.aedwon.csecetreviewer`
 
 ### Google Play
 
@@ -3232,7 +3232,7 @@ Searched the plan for "TBD", "TODO", "fill in", "implement later", "appropriate 
 - `AppException` subclasses used consistently across Tasks 10 (no use yet — script only) and 11 (definition).
 - `Result<T, E>` API is consistent: `unwrap()`, `unwrapErr()`, `map()`, `mapErr()`, `isOk`, `isErr`. No mismatches.
 - `Flavor` enum (`dev`, `staging`, `prod`) consistent across `lib/app/flavor.dart` (Task 12), all three `main_*.dart` files (Tasks 6, 17), and `App` widget (Tasks 12, 13).
-- Bundle ID convention (`com.aerolbalayon.csecetreviewer[.dev|.staging]`) consistent across Tasks 6, 16, 27.
+- Bundle ID convention (`com.aedwon.csecetreviewer[.dev|.staging]`) consistent across Tasks 6, 16, 27.
 - Project IDs (`cse-cet-reviewer-dev`, `cse-cet-reviewer-prod`) consistent across Tasks 15, 16, 18, 32.
 
 ### Scope check
