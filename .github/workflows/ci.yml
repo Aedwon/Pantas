@@ -1,0 +1,61 @@
+name: CI (PR)
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: '3.41.x'
+
+      - name: pub get
+        run: flutter pub get
+
+      - name: dart format check
+        run: dart format --output=none --set-exit-if-changed .
+
+      - name: dart analyze
+        run: flutter analyze
+
+      - name: Layering check
+        run: dart run tool/check_layering.dart
+
+      - name: AI-attribution check
+        run: dart run tool/check_no_ai_attribution.dart
+
+      - name: Unit + widget tests
+        run: flutter test --coverage
+
+      - name: Coverage gate (overall >= 70%)
+        run: |
+          if [ ! -f coverage/lcov.info ]; then
+            echo "no coverage produced"; exit 1
+          fi
+          covered=$(grep -h '^DA:' coverage/lcov.info | awk -F, '$2 != "0" {c++} END {print c+0}')
+          total=$(grep -hc '^DA:' coverage/lcov.info)
+          if [ "$total" -eq 0 ]; then
+            echo "no DA lines in lcov"; exit 1
+          fi
+          pct=$(awk -v c="$covered" -v t="$total" 'BEGIN { printf "%.1f", (c/t)*100 }')
+          echo "Coverage: $pct%"
+          awk -v p="$pct" 'BEGIN { exit !(p+0 >= 70.0) }' || {
+            echo "coverage $pct% < 70%"; exit 1
+          }
+
+      - name: gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          config-path: .gitleaks.toml
