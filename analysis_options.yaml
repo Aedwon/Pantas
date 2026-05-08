@@ -9,8 +9,6 @@ analyzer:
     invalid_annotation_target: ignore
     todo: ignore
     fixme: warning
-    always_use_package_imports: ignore
-    directives_ordering: ignore
   exclude:
     - "**/*.g.dart"
     - "**/*.freezed.dart"
