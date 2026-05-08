@@ -73,3 +73,15 @@ jobs:
             p/dart
             p/flutter
             p/secrets
+
+  osv:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: google/osv-scanner-action/osv-scanner-action@v1
+        with:
+          scan-args: |-
+            --recursive
+            --skip-git
+            ./
