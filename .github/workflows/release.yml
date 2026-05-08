@@ -1,0 +1,43 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: '3.41.x'
+      - run: flutter pub get
+      - name: Build Android App Bundle (prod, unsigned)
+        run: flutter build appbundle --release --flavor prod -t lib/main_prod.dart
+      - uses: actions/upload-artifact@v4
+        with:
+          name: app-prod-release-aab-${{ github.ref_name }}
+          path: build/app/outputs/bundle/prodRelease/app-prod-release.aab
+          retention-days: 90
+
+  build-ios:
+    runs-on: macos-13
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: '3.41.x'
+      - run: flutter pub get
+      - name: Build iOS archive (prod, unsigned)
+        run: flutter build ipa --release --flavor prod -t lib/main_prod.dart --no-codesign
+      - uses: actions/upload-artifact@v4
+        with:
+          name: app-prod-release-ipa-${{ github.ref_name }}
+          path: build/ios/archive/Runner.xcarchive
+          retention-days: 90
