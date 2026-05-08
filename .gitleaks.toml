@@ -1,0 +1,31 @@
+title = "gitleaks config — CSE/CET Reviewer"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "firebase-private-key"
+description = "Firebase service account private key"
+regex = '''-----BEGIN PRIVATE KEY-----[\s\S]+?-----END PRIVATE KEY-----'''
+
+[[rules]]
+id = "sanity-write-token"
+description = "Sanity write/admin token (sk*)"
+regex = '''\bsk[a-zA-Z0-9]{40,}\b'''
+
+[[rules]]
+id = "revenuecat-secret-key"
+description = "RevenueCat secret key (sk_*)"
+regex = '''\bsk_[a-zA-Z0-9]{32,}\b'''
+
+[[rules]]
+id = "android-keystore-password"
+description = "Android keystore password reference"
+regex = '''(?i)(keyAlias|keyPassword|storePassword)\s*=\s*['"][^'"]{4,}['"]'''
+
+[allowlist]
+description = "Allow placeholder strings used in this plan"
+paths = [
+  '''docs/superpowers/plans/.*\.md''',
+  '''docs/superpowers/specs/.*\.md''',
+]
