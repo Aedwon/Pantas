@@ -1,0 +1,70 @@
+workflows:
+  ios-release:
+    name: iOS Release (TestFlight)
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      xcode: 15.4
+      cocoapods: default
+      vars:
+        # Wire these in Codemagic UI in Plan 8:
+        # APP_STORE_CONNECT_ISSUER_ID
+        # APP_STORE_CONNECT_KEY_IDENTIFIER
+        # APP_STORE_CONNECT_PRIVATE_KEY
+        # CERTIFICATE_PRIVATE_KEY
+        BUNDLE_ID: "com.aedwon.csecetreviewer"
+    triggering:
+      events:
+        - tag
+      tag_patterns:
+        - pattern: 'v*'
+          include: true
+    scripts:
+      - name: pub get
+        script: flutter pub get
+      - name: Build iOS (prod)
+        script: flutter build ipa --release --flavor prod -t lib/main_prod.dart --export-options-plist=/Users/builder/export_options.plist
+    artifacts:
+      - build/ios/ipa/*.ipa
+    publishing:
+      app_store_connect:
+        # Activated in Plan 8.
+        # api_key: $APP_STORE_CONNECT_PRIVATE_KEY
+        # key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER
+        # issuer_id: $APP_STORE_CONNECT_ISSUER_ID
+        submit_to_testflight: false  # flip to true in Plan 8
+
+  android-release:
+    name: Android Release (Play Internal)
+    instance_type: linux_x2
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      vars:
+        # Wire in Plan 8:
+        # CM_KEYSTORE
+        # CM_KEYSTORE_PASSWORD
+        # CM_KEY_ALIAS
+        # CM_KEY_PASSWORD
+        # GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+        PACKAGE_NAME: "com.aedwon.csecetreviewer"
+    triggering:
+      events:
+        - tag
+      tag_patterns:
+        - pattern: 'v*'
+          include: true
+    scripts:
+      - name: pub get
+        script: flutter pub get
+      - name: Build Android App Bundle (prod)
+        script: flutter build appbundle --release --flavor prod -t lib/main_prod.dart
+    artifacts:
+      - build/app/outputs/bundle/prodRelease/*.aab
+    publishing:
+      google_play:
+        # Activated in Plan 8.
+        # credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+        # track: internal
+        # submit_as_draft: true
