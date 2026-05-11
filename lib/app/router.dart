@@ -1,14 +1,40 @@
+import 'package:cse_cet_reviewer/features/shell/presentation/app_shell.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
-    initialLocation: '/',
+    initialLocation: '/home',
     routes: [
-      GoRoute(
-        path: '/',
-        builder: (_, __) => const _Stub('Home'),
+      StatefulShellRoute.indexedStack(
+        builder: (context, state, shell) => AppShell(navigationShell: shell),
+        branches: [
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: '/home',
+                builder: (_, __) => const _TabStub('Home'),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: '/learn',
+                builder: (_, __) => const _TabStub('Learn'),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: '/more',
+                builder: (_, __) => const _TabStub('More'),
+              ),
+            ],
+          ),
+        ],
       ),
       GoRoute(
         path: '/onboarding',
@@ -49,6 +75,18 @@ final routerProvider = Provider<GoRouter>((ref) {
     ],
   );
 });
+
+class _TabStub extends StatelessWidget {
+  const _TabStub(this.label);
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(child: Text('$label — placeholder')),
+    );
+  }
+}
 
 class _Stub extends StatelessWidget {
   const _Stub(this.label);

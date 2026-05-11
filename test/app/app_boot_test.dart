@@ -4,14 +4,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('App boots and renders the home stub', (tester) async {
+  testWidgets('App boots and renders the navigation shell', (tester) async {
     await tester.pumpWidget(
       const ProviderScope(child: App(flavor: Flavor.dev)),
     );
     await tester.pumpAndSettle();
 
-    // Home stub is the initial route.
-    expect(find.text('Home'), findsOneWidget);
-    expect(find.text('Home — placeholder'), findsOneWidget);
+    // Shell renders with three tabs visible.
+    expect(find.text('Home'), findsWidgets);
+    expect(find.text('Learn'), findsWidgets);
+    expect(find.text('More'), findsWidgets);
   });
 }
