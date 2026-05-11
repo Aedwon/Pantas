@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-09T00:00:00Z",
+  "exams": [
+    {
+      "id": "exam_cse_pro",
+      "code": "CSE_PRO",
+      "name": "Civil Service Examination — Professional",
+      "shortName": "CSE Pro",
+      "language": "en",
+      "isActive": true,
+      "subjects": [
+        {
+          "id": "subj_cse_verbal",
+          "examId": "exam_cse_pro",
+          "name": "Verbal Ability",
+          "ordering": 1
+        }
+      ]
+    },
+    {
+      "id": "exam_upcat",
+      "code": "UPCAT",
+      "name": "UP College Admission Test",
+      "shortName": "UPCAT",
+      "language": "en",
+      "isActive": true,
+      "subjects": [
+        {
+          "id": "subj_upcat_lp",
+          "examId": "exam_upcat",
+          "name": "Language Proficiency",
+          "ordering": 1
+        }
+      ]
+    }
+  ],
+  "topics": [
+    {
+      "id": "topic_cse_vocab",
+      "subjectId": "subj_cse_verbal",
+      "name": "Vocabulary",
+      "ordering": 1
+    },
+    {
+      "id": "topic_upcat_grammar",
+      "subjectId": "subj_upcat_lp",
+      "name": "Grammar",
+      "ordering": 1
+    }
+  ],
+  "questions": [
+    {
+      "id": "q_001",
+      "version": 1,
+      "examIds": ["exam_cse_pro"],
+      "topicId": "topic_cse_vocab",
+      "language": "en",
+      "stem": "Which word is closest in meaning to 'ephemeral'?",
+      "choices": [
+        {"id": "c_001_a", "label": "A", "text": "Eternal", "isCorrect": false},
+        {"id": "c_001_b", "label": "B", "text": "Fleeting", "isCorrect": true},
+        {"id": "c_001_c", "label": "C", "text": "Tangible", "isCorrect": false},
+        {"id": "c_001_d", "label": "D", "text": "Verbose", "isCorrect": false}
+      ],
+      "explanation": "Ephemeral means lasting a very short time."
+    },
+    {
+      "id": "q_002",
+      "version": 1,
+      "examIds": ["exam_cse_pro"],
+      "topicId": "topic_cse_vocab",
+      "language": "en",
+      "stem": "Choose the correct synonym for 'meticulous'.",
+      "choices": [
+        {"id": "c_002_a", "label": "A", "text": "Careless", "isCorrect": false},
+        {"id": "c_002_b", "label": "B", "text": "Lazy", "isCorrect": false},
+        {"id": "c_002_c", "label": "C", "text": "Thorough", "isCorrect": true},
+        {"id": "c_002_d", "label": "D", "text": "Hurried", "isCorrect": false}
+      ],
+      "explanation": "Meticulous people pay great attention to detail."
+    },
+    {
+      "id": "q_003",
+      "version": 1,
+      "examIds": ["exam_upcat"],
+      "topicId": "topic_upcat_grammar",
+      "language": "en",
+      "stem": "Identify the correctly punctuated sentence.",
+      "choices": [
+        {"id": "c_003_a", "label": "A", "text": "She said, 'hello.'", "isCorrect": true},
+        {"id": "c_003_b", "label": "B", "text": "She said hello.", "isCorrect": false},
+        {"id": "c_003_c", "label": "C", "text": "She, said hello.", "isCorrect": false},
+        {"id": "c_003_d", "label": "D", "text": "She said hello,", "isCorrect": false}
+      ],
+      "explanation": "Direct speech requires quotation marks and proper punctuation."
+    },
+    {
+      "id": "q_004",
+      "version": 1,
+      "examIds": ["exam_upcat", "exam_cse_pro"],
+      "topicId": "topic_upcat_grammar",
+      "language": "en",
+      "stem": "Which sentence uses the subjunctive mood correctly?",
+      "choices": [
+        {"id": "c_004_a", "label": "A", "text": "If I was you, I would leave.", "isCorrect": false},
+        {"id": "c_004_b", "label": "B", "text": "If I were you, I would leave.", "isCorrect": true},
+        {"id": "c_004_c", "label": "C", "text": "If I am you, I would leave.", "isCorrect": false},
+        {"id": "c_004_d", "label": "D", "text": "If I be you, I would leave.", "isCorrect": false}
+      ],
+      "explanation": "The subjunctive uses 'were' for hypothetical conditions."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "les_vocab_intro",
+      "topicId": "topic_cse_vocab",
+      "title": "Building a CSE Vocabulary",
+      "summary": "Strategies for memorizing high-frequency CSE vocabulary words.",
+      "bodyJson": [
+        {"type": "paragraph", "text": "Vocabulary growth comes from spaced repetition, not cramming."}
+      ],
+      "estimatedMinutes": 5
+    }
+  ]
+}
