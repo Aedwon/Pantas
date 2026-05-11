@@ -16,18 +16,7 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
     required this.mathBody,
   });
 
-  final TextStyle displayLarge;
-  final TextStyle displaySmall;
-  final TextStyle headlineMedium;
-  final TextStyle headlineSmall;
-  final TextStyle bodyLarge;
-  final TextStyle bodyMedium;
-  final TextStyle bodySmall;
-  final TextStyle labelLarge;
-  final TextStyle labelSmall;
-  final TextStyle mathBody;
-
-  static AppTextStyles create() => AppTextStyles(
+  factory AppTextStyles.create() => AppTextStyles(
         displayLarge: GoogleFonts.poppins(
           fontSize: 28,
           fontWeight: FontWeight.w700,
@@ -80,6 +69,17 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
           height: 1.5,
         ),
       );
+
+  final TextStyle displayLarge;
+  final TextStyle displaySmall;
+  final TextStyle headlineMedium;
+  final TextStyle headlineSmall;
+  final TextStyle bodyLarge;
+  final TextStyle bodyMedium;
+  final TextStyle bodySmall;
+  final TextStyle labelLarge;
+  final TextStyle labelSmall;
+  final TextStyle mathBody;
 
   @override
   AppTextStyles copyWith({

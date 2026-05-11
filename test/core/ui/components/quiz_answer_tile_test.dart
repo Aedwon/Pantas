@@ -1,5 +1,4 @@
 import 'package:cse_cet_reviewer/core/ui/components/quiz_answer_tile.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/pump_app.dart';
@@ -18,7 +17,10 @@ void main() {
       var tapped = false;
       await tester.pumpApp(
         QuizAnswerTile(
-            letter: 'B', text: 'Option B', onTap: () => tapped = true),
+          letter: 'B',
+          text: 'Option B',
+          onTap: () => tapped = true,
+        ),
       );
       await tester.tap(find.byType(QuizAnswerTile));
       expect(tapped, isTrue);
@@ -28,7 +30,11 @@ void main() {
         (tester) async {
       await tester.pumpApp(
         QuizAnswerTile(
-            letter: 'A', text: 'Option', onTap: () {}, isSelected: true),
+          letter: 'A',
+          text: 'Option',
+          onTap: () {},
+          isSelected: true,
+        ),
       );
       // Letter 'A' is still shown (not replaced in selected state)
       expect(find.text('A'), findsOneWidget);
@@ -37,10 +43,11 @@ void main() {
     testWidgets('correct state shows checkmark icon', (tester) async {
       await tester.pumpApp(
         QuizAnswerTile(
-            letter: 'A',
-            text: 'Right answer',
-            onTap: () {},
-            state: TileState.correct),
+          letter: 'A',
+          text: 'Right answer',
+          onTap: () {},
+          state: TileState.correct,
+        ),
       );
       expect(find.text('✅'), findsOneWidget);
       expect(find.text('A'), findsNothing);
@@ -50,10 +57,11 @@ void main() {
         (tester) async {
       await tester.pumpApp(
         QuizAnswerTile(
-            letter: 'B',
-            text: 'Wrong answer',
-            onTap: () {},
-            state: TileState.incorrect),
+          letter: 'B',
+          text: 'Wrong answer',
+          onTap: () {},
+          state: TileState.incorrect,
+        ),
       );
       expect(find.text('❌'), findsOneWidget);
     });
@@ -61,10 +69,11 @@ void main() {
     testWidgets('correctMissed state shows bulb icon', (tester) async {
       await tester.pumpApp(
         QuizAnswerTile(
-            letter: 'C',
-            text: 'Correct option',
-            onTap: () {},
-            state: TileState.correctMissed),
+          letter: 'C',
+          text: 'Correct option',
+          onTap: () {},
+          state: TileState.correctMissed,
+        ),
       );
       expect(find.text('💡'), findsOneWidget);
     });

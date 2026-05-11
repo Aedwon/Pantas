@@ -23,18 +23,18 @@ class AppCard extends StatelessWidget {
     final colors = context.colors;
 
     Border? border;
-    Color bgColor = colors.surface;
+    var bgColor = colors.surface;
     Gradient? resolvedGradient;
 
     switch (variant) {
       case AppCardVariant.plain:
-        border = Border.all(color: colors.border, width: 1);
+        border = Border.all(color: colors.border);
       case AppCardVariant.accent:
         border = Border(
           top: BorderSide(color: colors.primary, width: 3),
-          left: BorderSide(color: colors.border, width: 1),
-          right: BorderSide(color: colors.border, width: 1),
-          bottom: BorderSide(color: colors.border, width: 1),
+          left: BorderSide(color: colors.border),
+          right: BorderSide(color: colors.border),
+          bottom: BorderSide(color: colors.border),
         );
       case AppCardVariant.gradient:
         resolvedGradient = gradient;

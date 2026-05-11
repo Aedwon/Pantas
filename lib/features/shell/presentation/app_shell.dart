@@ -37,7 +37,7 @@ class _AppNavBar extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: colors.surface,
-        border: Border(top: BorderSide(color: colors.border, width: 1)),
+        border: Border(top: BorderSide(color: colors.border)),
       ),
       padding: EdgeInsets.only(bottom: bottomPadding),
       child: SizedBox(

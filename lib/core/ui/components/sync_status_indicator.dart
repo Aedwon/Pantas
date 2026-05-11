@@ -38,8 +38,9 @@ class _SyncStatusIndicatorState extends State<SyncStatusIndicator>
     if (widget.state == SyncState.syncing) {
       _pulse.repeat(reverse: true);
     } else {
-      _pulse.stop();
-      _pulse.value = 1;
+      _pulse
+        ..stop()
+        ..value = 1;
     }
   }
 

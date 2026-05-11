@@ -25,12 +25,12 @@ void main() {
     testWidgets('gradient variant renders a gradient decoration',
         (tester) async {
       await tester.pumpApp(
-        AppCard(
+        const AppCard(
           variant: AppCardVariant.gradient,
-          gradient: const LinearGradient(
+          gradient: LinearGradient(
             colors: [Color(0xFFF59E0B), Color(0xFFF97316)],
           ),
-          child: const Text('Streak'),
+          child: Text('Streak'),
         ),
       );
       expect(find.text('Streak'), findsOneWidget);

@@ -54,8 +54,10 @@ void main() {
   group('AppColors.lerp', () {
     test('lerps between light and dark primary at t=0.5', () {
       final lerped = AppColors.light.lerp(AppColors.dark, 0.5);
-      expect(lerped.primary,
-          Color.lerp(AppColors.light.primary, AppColors.dark.primary, 0.5));
+      expect(
+        lerped.primary,
+        Color.lerp(AppColors.light.primary, AppColors.dark.primary, 0.5),
+      );
     });
 
     test('returns self when other is null', () {
