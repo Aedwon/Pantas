@@ -1,0 +1,17 @@
+import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'choice.freezed.dart';
+part 'choice.g.dart';
+
+@freezed
+class Choice with _$Choice {
+  const factory Choice({
+    required ChoiceId id,
+    required String label,
+    required String text,
+    required bool isCorrect,
+  }) = _Choice;
+
+  factory Choice.fromJson(Map<String, dynamic> json) => _$ChoiceFromJson(json);
+}

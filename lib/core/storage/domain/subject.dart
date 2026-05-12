@@ -1,0 +1,18 @@
+import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'subject.freezed.dart';
+part 'subject.g.dart';
+
+@freezed
+class Subject with _$Subject {
+  const factory Subject({
+    required SubjectId id,
+    required ExamId examId,
+    required String name,
+    required int ordering,
+  }) = _Subject;
+
+  factory Subject.fromJson(Map<String, dynamic> json) =>
+      _$SubjectFromJson(json);
+}
