@@ -8,7 +8,6 @@ import 'package:cse_cet_reviewer/core/storage/domain/lesson.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/subject.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
-import 'package:drift/drift.dart';
 
 class ContentRepository {
   ContentRepository(this._db);
