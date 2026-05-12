@@ -21,7 +21,10 @@ class FsrsScheduler {
     if (prev.stage == ReviewStage.newCard) {
       return _scheduleNew(prev: prev, rating: rating, now: now);
     }
-    throw UnimplementedError('non-new-card path implemented in Task 4');
+    if (rating == Rating.again) {
+      return _scheduleLapse(prev: prev, now: now);
+    }
+    return _scheduleSuccess(prev: prev, rating: rating, now: now);
   }
 
   // ----- new-card path -----
@@ -50,6 +53,52 @@ class FsrsScheduler {
       elapsedDays: 0,
       scheduledDays: interval,
     );
+  }
+
+  // ----- review paths -----
+
+  ReviewState _scheduleSuccess({
+    required ReviewState prev,
+    required Rating rating,
+    required DateTime now,
+  }) {
+    final elapsedDays = now.difference(prev.lastReview).inSeconds / 86400.0;
+    final r = _retrievability(elapsedDays, prev.stability);
+
+    final hardPenalty = rating == Rating.hard ? weights[15] : 1.0;
+    final easyBonus = rating == Rating.easy ? weights[16] : 1.0;
+
+    final factor = math.exp(weights[8]) *
+        (11 - prev.difficulty) *
+        math.pow(prev.stability, -weights[9]) *
+        (math.exp(weights[10] * (1 - r)) - 1) *
+        hardPenalty *
+        easyBonus;
+
+    final newStability = _clampStability(prev.stability * (1 + factor));
+    final newDifficulty = _clampDifficulty(
+      _meanRevertedDifficulty(
+          prev.difficulty - weights[6] * (rating.grade - 3)),
+    );
+    final interval = _nextInterval(newStability);
+
+    return prev.copyWith(
+      stage: ReviewStage.review,
+      stability: newStability,
+      difficulty: newDifficulty,
+      due: now.add(Duration(milliseconds: (interval * 86400 * 1000).round())),
+      lastReview: now,
+      reps: prev.reps + 1,
+      elapsedDays: elapsedDays,
+      scheduledDays: interval,
+    );
+  }
+
+  ReviewState _scheduleLapse({
+    required ReviewState prev,
+    required DateTime now,
+  }) {
+    throw UnimplementedError('lapse path implemented in Task 5');
   }
 
   // ----- helpers -----
