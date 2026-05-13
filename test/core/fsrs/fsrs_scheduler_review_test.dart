@@ -6,20 +6,20 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   // A card reviewed once before, due exactly when expected.
-  final lastReview = DateTime.utc(2026, 5, 1);
+  final lastReview = DateTime.utc(2026, 5);
   final now = DateTime.utc(2026, 5, 4); // 3 days elapsed
   final prev = ReviewState(
     questionId: 'q',
     questionVersion: 1,
     stage: ReviewStage.review,
-    stability: 3.0,
-    difficulty: 5.0,
+    stability: 3,
+    difficulty: 5,
     due: now,
     lastReview: lastReview,
     reps: 1,
     lapses: 0,
     elapsedDays: 0,
-    scheduledDays: 3.0,
+    scheduledDays: 3,
   );
   const scheduler = FsrsScheduler();
 

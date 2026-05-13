@@ -78,7 +78,8 @@ class FsrsScheduler {
     final newStability = _clampStability(prev.stability * (1 + factor));
     final newDifficulty = _clampDifficulty(
       _meanRevertedDifficulty(
-          prev.difficulty - weights[6] * (rating.grade - 3)),
+        prev.difficulty - weights[6] * (rating.grade - 3),
+      ),
     );
     final interval = _nextInterval(newStability);
 
