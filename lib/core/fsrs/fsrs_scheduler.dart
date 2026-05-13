@@ -99,7 +99,36 @@ class FsrsScheduler {
     required ReviewState prev,
     required DateTime now,
   }) {
-    throw UnimplementedError('lapse path implemented in Task 5');
+    final elapsedDays = now.difference(prev.lastReview).inSeconds / 86400.0;
+    final r = _retrievability(elapsedDays, prev.stability);
+
+    final newStability = _clampStability(
+      weights[11] *
+          math.pow(prev.difficulty, -weights[12]).toDouble() *
+          (math.pow(prev.stability + 1, weights[13]).toDouble() - 1) *
+          math.exp(weights[14] * (1 - r)),
+    );
+
+    // Again is grade=1; rating - 3 = -2 → difficulty rises by 2*w[6].
+    final newDifficulty = _clampDifficulty(
+      _meanRevertedDifficulty(
+        prev.difficulty - weights[6] * (Rating.again.grade - 3),
+      ),
+    );
+
+    final interval = _nextInterval(newStability);
+
+    return prev.copyWith(
+      stage: ReviewStage.relearning,
+      stability: newStability,
+      difficulty: newDifficulty,
+      due: now.add(Duration(milliseconds: (interval * 86400 * 1000).round())),
+      lastReview: now,
+      reps: prev.reps + 1,
+      lapses: prev.lapses + 1,
+      elapsedDays: elapsedDays,
+      scheduledDays: interval,
+    );
   }
 
   // ----- helpers -----
