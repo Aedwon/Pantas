@@ -1,6 +1,7 @@
 import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_math_fork/flutter_math.dart';
 
 class PortableTextRenderer extends StatelessWidget {
   const PortableTextRenderer({required this.blocks, super.key});
@@ -84,10 +85,14 @@ class _BlockRenderer extends StatelessWidget {
     final marks = (child['marks'] as List? ?? []).cast<String>();
 
     if (marks.contains('latex')) {
-      // Replaced by flutter_math_fork in Task 7
-      return WidgetSpan(
-        child: Text(text, style: base),
-      );
+      try {
+        return WidgetSpan(
+          child: Math.tex(text, mathStyle: MathStyle.text),
+        );
+      } catch (_) {
+        return WidgetSpan(
+            child: _UnknownBlockPlaceholder(blockType: 'latex-inline'));
+      }
     }
 
     return TextSpan(text: text, style: base);

@@ -1,5 +1,6 @@
 import 'package:cse_cet_reviewer/core/ui/components/portable_text_renderer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/pump_app.dart';
@@ -52,6 +53,54 @@ void main() {
         PortableTextRenderer(
           blocks: const [
             {'_type': 'someNewType', 'data': 'x'}
+          ],
+        ),
+      );
+
+      expect(find.text('Content unavailable — update the app'), findsOneWidget);
+    });
+  });
+
+  group('inline latex span', () {
+    testWidgets('renders Math widget for span with latex mark', (tester) async {
+      await tester.pumpApp(
+        PortableTextRenderer(
+          blocks: const [
+            {
+              '_type': 'block',
+              'style': 'normal',
+              'children': [
+                {'_type': 'span', 'text': 'See ', 'marks': []},
+                {
+                  '_type': 'span',
+                  'text': 'E=mc^2',
+                  'marks': ['latex']
+                },
+              ]
+            }
+          ],
+        ),
+      );
+
+      expect(find.byType(Math), findsOneWidget);
+    });
+
+    testWidgets('malformed inline latex renders placeholder, does not throw',
+        (tester) async {
+      await tester.pumpApp(
+        PortableTextRenderer(
+          blocks: const [
+            {
+              '_type': 'block',
+              'style': 'normal',
+              'children': [
+                {
+                  '_type': 'span',
+                  'text': r'\badcommand{{{',
+                  'marks': ['latex']
+                },
+              ]
+            }
           ],
         ),
       );
