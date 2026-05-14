@@ -1,3 +1,6 @@
+import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_page.dart';
+import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_results_page.dart';
+import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_tab_home.dart';
 import 'package:cse_cet_reviewer/features/shell/presentation/app_shell.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -42,7 +45,19 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: '/quiz',
-        builder: (_, __) => const _Stub('Quiz'),
+        builder: (_, __) => const QuizTabHome(),
+        routes: [
+          GoRoute(
+            path: 'quick/:examId',
+            builder: (_, state) =>
+                QuizPage(examId: state.pathParameters['examId']!),
+          ),
+          GoRoute(
+            path: 'results/:attemptId',
+            builder: (_, state) =>
+                QuizResultsPage(attemptId: state.pathParameters['attemptId']!),
+          ),
+        ],
       ),
       GoRoute(
         path: '/lesson',
