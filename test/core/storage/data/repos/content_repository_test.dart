@@ -39,6 +39,24 @@ void main() {
             ordering: 1,
           ),
         );
+    await db.into(db.lessons).insert(
+          LessonsCompanion.insert(
+            id: 'l1',
+            topicId: 't1',
+            title: 'Vocabulary Basics',
+            summary: 'Core vocabulary concepts',
+            bodyJson: jsonEncode([
+              {
+                '_type': 'block',
+                'style': 'normal',
+                'children': [
+                  {'_type': 'span', 'text': 'Hello world', 'marks': []}
+                ]
+              }
+            ]),
+            estimatedMinutes: 5,
+          ),
+        );
     await db.into(db.questions).insert(
           QuestionsCompanion.insert(
             id: 'q1',
@@ -75,5 +93,28 @@ void main() {
 
   test('questionById returns null when not found', () async {
     expect(await repo.questionById('missing'), isNull);
+  });
+
+  test('lessonById returns Lesson when found', () async {
+    final lesson = await repo.lessonById('l1');
+    expect(lesson, isNotNull);
+    expect(lesson!.id, equals('l1'));
+    expect(lesson.title, equals('Vocabulary Basics'));
+    expect(lesson.bodyJson, hasLength(1));
+  });
+
+  test('lessonById returns null when not found', () async {
+    expect(await repo.lessonById('missing'), isNull);
+  });
+
+  test('topicById returns Topic when found', () async {
+    final topic = await repo.topicById('t1');
+    expect(topic, isNotNull);
+    expect(topic!.id, equals('t1'));
+    expect(topic.name, equals('Vocabulary'));
+  });
+
+  test('topicById returns null when not found', () async {
+    expect(await repo.topicById('nope'), isNull);
   });
 }

@@ -90,6 +90,34 @@ class ContentRepository {
     ];
   }
 
+  Future<Lesson?> lessonById(LessonId id) async {
+    final row = await (_db.select(_db.lessons)..where((l) => l.id.equals(id)))
+        .getSingleOrNull();
+    if (row == null) return null;
+    return Lesson(
+      id: row.id,
+      topicId: row.topicId,
+      title: row.title,
+      summary: row.summary,
+      bodyJson: List<Map<String, dynamic>>.from(
+        jsonDecode(row.bodyJson) as List,
+      ),
+      estimatedMinutes: row.estimatedMinutes,
+    );
+  }
+
+  Future<Topic?> topicById(TopicId id) async {
+    final row = await (_db.select(_db.topics)..where((t) => t.id.equals(id)))
+        .getSingleOrNull();
+    if (row == null) return null;
+    return Topic(
+      id: row.id,
+      subjectId: row.subjectId,
+      name: row.name,
+      ordering: row.ordering,
+    );
+  }
+
   Question _hydrateQuestion(QuestionRow r) {
     final examIds = (jsonDecode(r.examIdsJson) as List).cast<String>();
     final choices = (jsonDecode(r.choicesJson) as List)
