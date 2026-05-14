@@ -53,6 +53,9 @@ dependencies:
   # Secure storage (Keychain / Keystore)
   flutter_secure_storage: ^9.2.2
 
+  # Networking / caching
+  cached_network_image: ^3.3.1
+
   # Util
   collection: ^1.19.0
   meta: ^1.15.0
