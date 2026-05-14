@@ -45,7 +45,7 @@ void main() {
       subjects: [Subject(id: 's1', examId: 'e1', name: 'S1', ordering: 1)],
     );
     final topics = [
-      const Topic(id: 't1', subjectId: 's1', name: 'T1', ordering: 1)
+      const Topic(id: 't1', subjectId: 's1', name: 'T1', ordering: 1),
     ];
     final questions = [makeQ('q1', 't1'), makeQ('q2', 't1'), makeQ('q3', 't1')];
 
@@ -70,10 +70,11 @@ void main() {
     when(() => content.listExams()).thenAnswer((_) async => const []);
     expect(
       () => useCase(
-          examId: 'e1',
-          count: 10,
-          now: DateTime.utc(2026, 5, 9),
-          randomSeed: 1),
+        examId: 'e1',
+        count: 10,
+        now: DateTime.utc(2026, 5, 9),
+        randomSeed: 1,
+      ),
       throwsStateError,
     );
   });
