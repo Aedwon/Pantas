@@ -99,14 +99,23 @@ class _BlockRenderer extends StatelessWidget {
   }
 }
 
-// Stub — replaced by flutter_math_fork in Task 8
 class _LatexBlockRenderer extends StatelessWidget {
   const _LatexBlockRenderer({required this.block});
   final Map<String, dynamic> block;
 
   @override
   Widget build(BuildContext context) {
-    return _UnknownBlockPlaceholder(blockType: 'latex');
+    final text = block['body'] as String? ?? '';
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: Center(
+        child: Math.tex(
+          text,
+          mathStyle: MathStyle.display,
+          onErrorFallback: (_) => _UnknownBlockPlaceholder(blockType: 'latex'),
+        ),
+      ),
+    );
   }
 }
 

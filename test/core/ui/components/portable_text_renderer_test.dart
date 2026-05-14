@@ -108,4 +108,31 @@ void main() {
       expect(find.text('Content unavailable — update the app'), findsOneWidget);
     });
   });
+
+  group('latex block type', () {
+    testWidgets('renders display-mode Math widget', (tester) async {
+      await tester.pumpApp(
+        PortableTextRenderer(
+          blocks: const [
+            {'_type': 'latex', 'body': r'\sum_{i=1}^{n} x_i'}
+          ],
+        ),
+      );
+
+      expect(find.byType(Math), findsOneWidget);
+    });
+
+    testWidgets('malformed latex block renders placeholder, does not throw',
+        (tester) async {
+      await tester.pumpApp(
+        PortableTextRenderer(
+          blocks: const [
+            {'_type': 'latex', 'body': r'\bad{{{'}
+          ],
+        ),
+      );
+
+      expect(find.text('Content unavailable — update the app'), findsOneWidget);
+    });
+  });
 }
