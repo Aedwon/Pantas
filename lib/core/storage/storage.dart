@@ -5,6 +5,10 @@ import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart
 import 'package:cse_cet_reviewer/core/storage/data/repos/review_state_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/streak_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/seeder.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/exam.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/lesson.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -40,3 +44,27 @@ Future<List<Override>> bootstrapStorageOverrides() async {
   final db = await openEncryptedDatabase();
   return [appDatabaseProvider.overrideWithValue(db)];
 }
+
+final examListProvider = FutureProvider<List<Exam>>((ref) async {
+  return ref.watch(contentRepositoryProvider).listExams();
+});
+
+final topicsBySubjectProvider =
+    FutureProvider.family<List<Topic>, SubjectId>((ref, subjectId) async {
+  return ref.watch(contentRepositoryProvider).topicsBySubject(subjectId);
+});
+
+final topicByIdProvider =
+    FutureProvider.family<Topic?, TopicId>((ref, topicId) async {
+  return ref.watch(contentRepositoryProvider).topicById(topicId);
+});
+
+final lessonByIdProvider =
+    FutureProvider.family<Lesson?, LessonId>((ref, id) async {
+  return ref.watch(contentRepositoryProvider).lessonById(id);
+});
+
+final topicLessonsProvider =
+    FutureProvider.family<List<Lesson>, TopicId>((ref, topicId) async {
+  return ref.watch(contentRepositoryProvider).lessonsByTopic(topicId);
+});
