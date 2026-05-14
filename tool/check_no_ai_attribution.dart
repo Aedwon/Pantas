@@ -26,7 +26,7 @@ const _excludePaths = <String>[
   'tool/check_no_ai_attribution.dart', // this file mentions the patterns
   '.git/',
   'docs/superpowers/specs/2026-05-07-cse-cet-reviewer-app-design.md', // ref §13
-  'docs/superpowers/plans/',                                          // ref this plan
+  'docs/superpowers/plans/', // ref this plan
 ];
 
 void main(List<String> args) async {
@@ -36,9 +36,8 @@ void main(List<String> args) async {
     exit(2);
   }
 
-  final files = (result.stdout as String)
-      .split('\n')
-      .where((s) => s.isNotEmpty);
+  final files =
+      (result.stdout as String).split('\n').where((s) => s.isNotEmpty);
   final hits = <String>[];
 
   for (final f in files) {

@@ -78,8 +78,7 @@ void main(List<String> args) {
       }
 
       // R2: features must not cross-import
-      if (inFeatures &&
-          imp.startsWith('package:cse_cet_reviewer/features/')) {
+      if (inFeatures && imp.startsWith('package:cse_cet_reviewer/features/')) {
         final importedFeature = _featureFromImport(imp);
         if (importedFeature != null && importedFeature != featurePrefix) {
           violations.add('R2 $relPath imports $imp');
@@ -113,8 +112,8 @@ String? _featureName(String relPath) {
 }
 
 String? _featureFromImport(String imp) {
-  final m = RegExp('^package:cse_cet_reviewer/features/([^/]+)/')
-      .firstMatch(imp);
+  final m =
+      RegExp('^package:cse_cet_reviewer/features/([^/]+)/').firstMatch(imp);
   return m?.group(1);
 }
 
