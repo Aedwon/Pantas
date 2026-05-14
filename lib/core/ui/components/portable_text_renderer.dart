@@ -85,14 +85,14 @@ class _BlockRenderer extends StatelessWidget {
     final marks = (child['marks'] as List? ?? []).cast<String>();
 
     if (marks.contains('latex')) {
-      try {
-        return WidgetSpan(
-          child: Math.tex(text, mathStyle: MathStyle.text),
-        );
-      } catch (_) {
-        return WidgetSpan(
-            child: _UnknownBlockPlaceholder(blockType: 'latex-inline'));
-      }
+      return WidgetSpan(
+        child: Math.tex(
+          text,
+          mathStyle: MathStyle.text,
+          onErrorFallback: (_) =>
+              _UnknownBlockPlaceholder(blockType: 'latex-inline'),
+        ),
+      );
     }
 
     return TextSpan(text: text, style: base);
