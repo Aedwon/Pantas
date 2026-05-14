@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cse_cet_reviewer/core/ui/components/portable_text_renderer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
@@ -133,6 +134,23 @@ void main() {
       );
 
       expect(find.text('Content unavailable — update the app'), findsOneWidget);
+    });
+  });
+
+  group('image block type', () {
+    testWidgets('renders CachedNetworkImage for image block', (tester) async {
+      await tester.pumpApp(
+        PortableTextRenderer(
+          blocks: const [
+            {
+              '_type': 'image',
+              'asset': {'url': 'https://cdn.sanity.io/images/test/image.jpg'}
+            }
+          ],
+        ),
+      );
+
+      expect(find.byType(CachedNetworkImage), findsOneWidget);
     });
   });
 }

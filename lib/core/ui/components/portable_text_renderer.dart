@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cse_cet_reviewer/core/ui/components/skeleton_loader.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
@@ -119,14 +121,28 @@ class _LatexBlockRenderer extends StatelessWidget {
   }
 }
 
-// Stub — replaced by CachedNetworkImage in Task 9
 class _ImageBlockRenderer extends StatelessWidget {
   const _ImageBlockRenderer({required this.block});
   final Map<String, dynamic> block;
 
   @override
   Widget build(BuildContext context) {
-    return _UnknownBlockPlaceholder(blockType: 'image');
+    final asset = block['asset'] as Map<String, dynamic>? ?? {};
+    final url = asset['url'] as String? ?? '';
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(AppDimensions.radiusMD),
+        child: CachedNetworkImage(
+          imageUrl: url,
+          fit: BoxFit.cover,
+          placeholder: (_, __) => const SkeletonBox(height: 200),
+          errorWidget: (_, __, ___) =>
+              _UnknownBlockPlaceholder(blockType: 'image'),
+        ),
+      ),
+    );
   }
 }
 
