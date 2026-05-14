@@ -1,0 +1,142 @@
+import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/complete_quiz.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_quick_quiz.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/submit_answer.dart';
+import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_controller.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
+
+class _MockStart extends Mock implements StartQuickQuiz {}
+
+class _MockSubmit extends Mock implements SubmitAnswer {}
+
+class _MockComplete extends Mock implements CompleteQuiz {}
+
+class _FakeQuestion extends Fake implements Question {}
+
+class _FakeQuizSession extends Fake implements QuizSession {}
+
+void main() {
+  setUpAll(() {
+    registerFallbackValue(_FakeQuestion());
+    registerFallbackValue(_FakeQuizSession());
+  });
+
+  const q1 = Question(
+    id: 'q1',
+    version: 1,
+    examIds: ['e'],
+    topicId: 't',
+    language: 'en',
+    stem: 's1',
+    choices: [
+      Choice(id: 'c1a', label: 'A', text: 'x', isCorrect: true),
+      Choice(id: 'c1b', label: 'B', text: 'y', isCorrect: false),
+    ],
+    explanation: 'e',
+  );
+
+  late _MockStart start;
+  late _MockSubmit submit;
+  late _MockComplete complete;
+
+  ProviderContainer makeContainer() {
+    final container = ProviderContainer(
+      overrides: [
+        startQuickQuizProvider.overrideWithValue(start),
+        submitAnswerProvider.overrideWithValue(submit),
+        completeQuizProvider.overrideWithValue(complete),
+        nowProvider.overrideWithValue(() => DateTime.utc(2026, 5, 9, 12)),
+      ],
+    );
+    addTearDown(container.dispose);
+    return container;
+  }
+
+  setUp(() {
+    start = _MockStart();
+    submit = _MockSubmit();
+    complete = _MockComplete();
+  });
+
+  test('start() loads questions and transitions to running', () async {
+    final session = QuizSession.start(
+      sessionId: 'sess',
+      examId: 'e',
+      questions: const [q1],
+      startedAt: DateTime.utc(2026, 5, 9, 12),
+    );
+    when(
+      () => start(
+        examId: any(named: 'examId'),
+        count: any(named: 'count'),
+        now: any(named: 'now'),
+        randomSeed: any(named: 'randomSeed'),
+      ),
+    ).thenAnswer((_) async => session);
+
+    final container = makeContainer();
+    final notifier = container.read(quizControllerProvider.notifier);
+    await notifier.start(examId: 'e', count: 1);
+
+    final state = container.read(quizControllerProvider);
+    expect(state, isA<QuizRunning>());
+    expect((state as QuizRunning).session.questions, hasLength(1));
+  });
+
+  test('answer() advances the session and persists via SubmitAnswer', () async {
+    final session = QuizSession.start(
+      sessionId: 'sess',
+      examId: 'e',
+      questions: const [q1],
+      startedAt: DateTime.utc(2026, 5, 9, 12),
+    );
+    when(
+      () => start(
+        examId: any(named: 'examId'),
+        count: any(named: 'count'),
+        now: any(named: 'now'),
+        randomSeed: any(named: 'randomSeed'),
+      ),
+    ).thenAnswer((_) async => session);
+    when(
+      () => submit(
+        question: any(named: 'question'),
+        chosenChoiceId: any(named: 'chosenChoiceId'),
+        responseMs: any(named: 'responseMs'),
+        now: any(named: 'now'),
+      ),
+    ).thenAnswer(
+      (_) async => const AnswerOutcome(
+        questionId: 'q1',
+        questionVersion: 1,
+        chosenChoiceId: 'c1a',
+        correctChoiceId: 'c1a',
+        responseMs: 1500,
+      ),
+    );
+    when(
+      () => complete(session: any(named: 'session'), now: any(named: 'now')),
+    ).thenAnswer(
+      (_) async => Attempt(
+        id: 'sess',
+        examId: 'e',
+        startedAt: DateTime.utc(2026, 5, 9, 12),
+        completedAt: DateTime.utc(2026, 5, 9, 12, 1),
+        items: const [],
+      ),
+    );
+
+    final container = makeContainer();
+    final notifier = container.read(quizControllerProvider.notifier);
+    await notifier.start(examId: 'e', count: 1);
+    await notifier.answer(chosenChoiceId: 'c1a');
+
+    final state = container.read(quizControllerProvider);
+    expect(state, isA<QuizComplete>());
+  });
+}
