@@ -75,35 +75,13 @@ class ContentRepository {
     final rows = await (_db.select(_db.lessons)
           ..where((l) => l.topicId.equals(topicId)))
         .get();
-    return [
-      for (final r in rows)
-        Lesson(
-          id: r.id,
-          topicId: r.topicId,
-          title: r.title,
-          summary: r.summary,
-          bodyJson: List<Map<String, dynamic>>.from(
-            jsonDecode(r.bodyJson) as List,
-          ),
-          estimatedMinutes: r.estimatedMinutes,
-        ),
-    ];
+    return rows.map(_hydrateLesson).toList();
   }
 
   Future<Lesson?> lessonById(LessonId id) async {
     final row = await (_db.select(_db.lessons)..where((l) => l.id.equals(id)))
         .getSingleOrNull();
-    if (row == null) return null;
-    return Lesson(
-      id: row.id,
-      topicId: row.topicId,
-      title: row.title,
-      summary: row.summary,
-      bodyJson: List<Map<String, dynamic>>.from(
-        jsonDecode(row.bodyJson) as List,
-      ),
-      estimatedMinutes: row.estimatedMinutes,
-    );
+    return row == null ? null : _hydrateLesson(row);
   }
 
   Future<Topic?> topicById(TopicId id) async {
@@ -115,6 +93,19 @@ class ContentRepository {
       subjectId: row.subjectId,
       name: row.name,
       ordering: row.ordering,
+    );
+  }
+
+  Lesson _hydrateLesson(LessonRow r) {
+    return Lesson(
+      id: r.id,
+      topicId: r.topicId,
+      title: r.title,
+      summary: r.summary,
+      bodyJson: List<Map<String, dynamic>>.from(
+        jsonDecode(r.bodyJson) as List,
+      ),
+      estimatedMinutes: r.estimatedMinutes,
     );
   }
 

@@ -101,6 +101,7 @@ void main() {
     expect(lesson!.id, equals('l1'));
     expect(lesson.title, equals('Vocabulary Basics'));
     expect(lesson.bodyJson, hasLength(1));
+    expect(lesson.bodyJson.first['_type'], equals('block'));
   });
 
   test('lessonById returns null when not found', () async {
