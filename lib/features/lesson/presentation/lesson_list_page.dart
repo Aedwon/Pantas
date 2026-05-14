@@ -5,6 +5,7 @@ import 'package:cse_cet_reviewer/core/ui/components/app_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/app_card.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
 import 'package:cse_cet_reviewer/core/ui/components/skeleton_loader.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -66,8 +67,9 @@ class _LessonCard extends StatelessWidget {
     final colors = context.colors;
     final examParam = examId != null ? '?examId=$examId' : '';
 
-    return GestureDetector(
+    return InkWell(
       onTap: () => context.push('/lesson/${lesson.id}$examParam'),
+      borderRadius: BorderRadius.circular(AppDimensions.radiusLG),
       child: AppCard(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
