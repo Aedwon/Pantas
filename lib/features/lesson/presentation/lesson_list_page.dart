@@ -55,40 +55,53 @@ class LessonListPage extends ConsumerWidget {
   }
 }
 
-class _LessonCard extends StatelessWidget {
+class _LessonCard extends ConsumerWidget {
   const _LessonCard({required this.lesson, this.examId});
 
   final Lesson lesson;
   final String? examId;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final textStyles = context.textStyles;
     final colors = context.colors;
     final examParam = examId != null ? '?examId=$examId' : '';
+    final isRead =
+        ref.watch(isLessonReadProvider(lesson.id)).valueOrNull ?? false;
 
     return InkWell(
       onTap: () => context.push('/lesson/${lesson.id}$examParam'),
       borderRadius: BorderRadius.circular(AppDimensions.radiusLG),
       child: AppCard(
-        child: Column(
+        child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(lesson.title, style: textStyles.headlineSmall),
-            const SizedBox(height: 4),
-            Text(
-              lesson.summary,
-              style:
-                  textStyles.bodySmall.copyWith(color: colors.onSurfaceMuted),
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(lesson.title, style: textStyles.headlineSmall),
+                  const SizedBox(height: 4),
+                  Text(
+                    lesson.summary,
+                    style: textStyles.bodySmall
+                        .copyWith(color: colors.onSurfaceMuted),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    '${lesson.estimatedMinutes} min read',
+                    style: textStyles.labelSmall
+                        .copyWith(color: colors.onSurfaceMuted),
+                  ),
+                ],
+              ),
             ),
-            const SizedBox(height: 8),
-            Text(
-              '${lesson.estimatedMinutes} min read',
-              style:
-                  textStyles.labelSmall.copyWith(color: colors.onSurfaceMuted),
-            ),
+            if (isRead) ...[
+              const SizedBox(width: 12),
+              Icon(Icons.check_circle, color: colors.success),
+            ],
           ],
         ),
       ),
