@@ -1,5 +1,6 @@
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/learn_tab_home.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -50,5 +51,32 @@ void main() {
 
     expect(find.text('Civil Service Exam'), findsOneWidget);
     expect(find.text('UPCAT'), findsOneWidget);
+  });
+
+  testWidgets('shows error banner when provider fails', (tester) async {
+    await tester.pumpAppWithProviders(
+      const LearnTabHome(),
+      overrides: [
+        examListProvider.overrideWith(
+          (ref) => Future.error(Exception('db error')),
+        ),
+      ],
+    );
+    await tester.pumpAndSettle();
+    expect(find.byType(ErrorBanner), findsOneWidget);
+  });
+
+  testWidgets('expands exam to show subject names', (tester) async {
+    await tester.pumpAppWithProviders(
+      const LearnTabHome(),
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    await tester.pumpAndSettle();
+
+    // Tap the Civil Service Exam expansion tile
+    await tester.tap(find.text('Civil Service Exam'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Verbal'), findsOneWidget);
   });
 }

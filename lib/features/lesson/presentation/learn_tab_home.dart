@@ -5,6 +5,7 @@ import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/app_card.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
 import 'package:cse_cet_reviewer/core/ui/components/skeleton_loader.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -51,6 +52,12 @@ class _ExamAccordion extends ConsumerWidget {
     return AppCard(
       padding: EdgeInsets.zero,
       child: ExpansionTile(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppDimensions.radiusLG),
+        ),
+        collapsedShape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppDimensions.radiusLG),
+        ),
         title: Text(exam.name, style: textStyles.headlineSmall),
         subtitle: exam.shortName != exam.name
             ? Text(
