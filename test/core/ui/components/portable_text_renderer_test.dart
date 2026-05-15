@@ -10,15 +10,15 @@ void main() {
   group('block type', () {
     testWidgets('normal block renders its text content', (tester) async {
       await tester.pumpApp(
-        PortableTextRenderer(
-          blocks: const [
+        const PortableTextRenderer(
+          blocks: [
             {
               '_type': 'block',
               'style': 'normal',
               'children': [
-                {'_type': 'span', 'text': 'Hello world', 'marks': []}
-              ]
-            }
+                {'_type': 'span', 'text': 'Hello world', 'marks': <String>[]},
+              ],
+            },
           ],
         ),
       );
@@ -29,15 +29,15 @@ void main() {
     testWidgets('h2 block uses a larger text style than normal',
         (tester) async {
       await tester.pumpApp(
-        PortableTextRenderer(
-          blocks: const [
+        const PortableTextRenderer(
+          blocks: [
             {
               '_type': 'block',
               'style': 'h2',
               'children': [
-                {'_type': 'span', 'text': 'A Heading', 'marks': []}
-              ]
-            }
+                {'_type': 'span', 'text': 'A Heading', 'marks': <String>[]},
+              ],
+            },
           ],
         ),
       );
@@ -51,9 +51,9 @@ void main() {
     testWidgets('renders placeholder for unrecognised block type',
         (tester) async {
       await tester.pumpApp(
-        PortableTextRenderer(
-          blocks: const [
-            {'_type': 'someNewType', 'data': 'x'}
+        const PortableTextRenderer(
+          blocks: [
+            {'_type': 'someNewType', 'data': 'x'},
           ],
         ),
       );
@@ -65,20 +65,20 @@ void main() {
   group('inline latex span', () {
     testWidgets('renders Math widget for span with latex mark', (tester) async {
       await tester.pumpApp(
-        PortableTextRenderer(
-          blocks: const [
+        const PortableTextRenderer(
+          blocks: [
             {
               '_type': 'block',
               'style': 'normal',
               'children': [
-                {'_type': 'span', 'text': 'See ', 'marks': []},
+                {'_type': 'span', 'text': 'See ', 'marks': <String>[]},
                 {
                   '_type': 'span',
                   'text': 'E=mc^2',
-                  'marks': ['latex']
+                  'marks': ['latex'],
                 },
-              ]
-            }
+              ],
+            },
           ],
         ),
       );
@@ -89,8 +89,8 @@ void main() {
     testWidgets('malformed inline latex renders placeholder, does not throw',
         (tester) async {
       await tester.pumpApp(
-        PortableTextRenderer(
-          blocks: const [
+        const PortableTextRenderer(
+          blocks: [
             {
               '_type': 'block',
               'style': 'normal',
@@ -98,10 +98,10 @@ void main() {
                 {
                   '_type': 'span',
                   'text': r'\badcommand{{{',
-                  'marks': ['latex']
+                  'marks': ['latex'],
                 },
-              ]
-            }
+              ],
+            },
           ],
         ),
       );
@@ -113,9 +113,9 @@ void main() {
   group('latex block type', () {
     testWidgets('renders display-mode Math widget', (tester) async {
       await tester.pumpApp(
-        PortableTextRenderer(
-          blocks: const [
-            {'_type': 'latex', 'body': r'\sum_{i=1}^{n} x_i'}
+        const PortableTextRenderer(
+          blocks: [
+            {'_type': 'latex', 'body': r'\sum_{i=1}^{n} x_i'},
           ],
         ),
       );
@@ -126,9 +126,9 @@ void main() {
     testWidgets('malformed latex block renders placeholder, does not throw',
         (tester) async {
       await tester.pumpApp(
-        PortableTextRenderer(
-          blocks: const [
-            {'_type': 'latex', 'body': r'\bad{{{'}
+        const PortableTextRenderer(
+          blocks: [
+            {'_type': 'latex', 'body': r'\bad{{{'},
           ],
         ),
       );
@@ -140,12 +140,12 @@ void main() {
   group('image block type', () {
     testWidgets('renders CachedNetworkImage for image block', (tester) async {
       await tester.pumpApp(
-        PortableTextRenderer(
-          blocks: const [
+        const PortableTextRenderer(
+          blocks: [
             {
               '_type': 'image',
-              'asset': {'url': 'https://cdn.sanity.io/images/test/image.jpg'}
-            }
+              'asset': {'url': 'https://cdn.sanity.io/images/test/image.jpg'},
+            },
           ],
         ),
       );

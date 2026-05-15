@@ -43,14 +43,14 @@ void main() {
             topicId: 't1',
             title: 'Vocabulary Basics',
             summary: 'Core vocab',
-            bodyJson: jsonEncode([
+            bodyJson: jsonEncode(<Map<String, Object?>>[
               {
                 '_type': 'block',
                 'style': 'normal',
-                'children': [
-                  {'_type': 'span', 'text': 'Study hard.', 'marks': []}
-                ]
-              }
+                'children': <Map<String, Object?>>[
+                  {'_type': 'span', 'text': 'Study hard.', 'marks': <String>[]},
+                ],
+              },
             ]),
             estimatedMinutes: 5,
           ),
@@ -64,7 +64,8 @@ void main() {
 
   tearDown(() => db.close());
 
-  testWidgets('shows Mark as read button when lesson is unread', (tester) async {
+  testWidgets('shows Mark as read button when lesson is unread',
+      (tester) async {
     await tester.pumpAppWithProviders(
       const LessonPage(lessonId: 'l1'),
       overrides: [appDatabaseProvider.overrideWithValue(db)],
@@ -89,7 +90,8 @@ void main() {
     expect(find.text('Mark as read'), findsNothing);
   });
 
-  testWidgets('shows Lesson complete on open when already read', (tester) async {
+  testWidgets('shows Lesson complete on open when already read',
+      (tester) async {
     await db.into(db.lessonProgressLocal).insert(
           LessonProgressLocalCompanion.insert(
             lessonId: 'l1',

@@ -150,8 +150,7 @@ void main() {
     expect(questions, isEmpty);
   });
 
-  test('selects at least one question per topic when topic count exceeds 35',
-      () async {
+  test('respects the 35-question cap when topic count exceeds 35', () async {
     await db.into(db.subjects).insert(
           SubjectsCompanion.insert(
             id: 's_many',
@@ -177,9 +176,7 @@ void main() {
     final questions = await selector.select('e1');
 
     expect(questions, isNotEmpty);
-    expect(
-      questions.where((q) => q.topicId.startsWith('t_many_')).length,
-      equals(36),
-    );
+    expect(questions, hasLength(35));
+    expect(questions.map((q) => q.topicId).toSet(), hasLength(35));
   });
 }

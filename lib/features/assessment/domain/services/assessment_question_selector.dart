@@ -10,6 +10,8 @@ import 'package:cse_cet_reviewer/features/assessment/domain/models/assessment_qu
 class AssessmentQuestionSelector {
   AssessmentQuestionSelector(this._content, this._reviewRepo);
 
+  static const _maxQuestions = 35;
+
   final ContentRepository _content;
   final ReviewStateRepository _reviewRepo;
 
@@ -17,7 +19,8 @@ class AssessmentQuestionSelector {
     final topics = await _content.topicsByExam(examId);
     if (topics.isEmpty) return [];
 
-    final questionsPerTopic = math.max(1, math.min(3, 35 ~/ topics.length));
+    final questionsPerTopic =
+        math.max(1, math.min(3, _maxQuestions ~/ topics.length));
     final buckets = <List<AssessmentQuestion>>[];
 
     for (final topic in topics) {
@@ -49,6 +52,6 @@ class AssessmentQuestionSelector {
         if (i < bucket.length) result.add(bucket[i]);
       }
     }
-    return result;
+    return result.take(_maxQuestions).toList();
   }
 }

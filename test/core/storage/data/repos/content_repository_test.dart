@@ -45,14 +45,14 @@ void main() {
             topicId: 't1',
             title: 'Vocabulary Basics',
             summary: 'Core vocabulary concepts',
-            bodyJson: jsonEncode([
+            bodyJson: jsonEncode(<Map<String, Object?>>[
               {
                 '_type': 'block',
                 'style': 'normal',
-                'children': [
-                  {'_type': 'span', 'text': 'Hello world', 'marks': []}
-                ]
-              }
+                'children': <Map<String, Object?>>[
+                  {'_type': 'span', 'text': 'Hello world', 'marks': <String>[]},
+                ],
+              },
             ]),
             estimatedMinutes: 5,
           ),

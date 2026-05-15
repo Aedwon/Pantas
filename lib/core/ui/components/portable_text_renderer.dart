@@ -43,7 +43,7 @@ class _BlockRenderer extends StatelessWidget {
         (block['children'] as List? ?? []).cast<Map<String, dynamic>>();
     final textStyles = context.textStyles;
 
-    final TextStyle baseStyle = switch (style) {
+    final baseStyle = switch (style) {
       'h1' => textStyles.displayLarge,
       'h2' => textStyles.displaySmall,
       'h3' => textStyles.headlineMedium,
@@ -54,7 +54,7 @@ class _BlockRenderer extends StatelessWidget {
     };
 
     final hasLatex = children.any((child) {
-      final marks = (child['marks'] as List? ?? []);
+      final marks = child['marks'] as List? ?? [];
       return marks.contains('latex');
     });
 
@@ -92,7 +92,7 @@ class _BlockRenderer extends StatelessWidget {
           text,
           mathStyle: MathStyle.text,
           onErrorFallback: (_) =>
-              _UnknownBlockPlaceholder(blockType: 'latex-inline'),
+              const _UnknownBlockPlaceholder(blockType: 'latex-inline'),
         ),
       );
     }
@@ -113,8 +113,8 @@ class _LatexBlockRenderer extends StatelessWidget {
       child: Center(
         child: Math.tex(
           text,
-          mathStyle: MathStyle.display,
-          onErrorFallback: (_) => _UnknownBlockPlaceholder(blockType: 'latex'),
+          onErrorFallback: (_) =>
+              const _UnknownBlockPlaceholder(blockType: 'latex'),
         ),
       ),
     );
@@ -139,7 +139,7 @@ class _ImageBlockRenderer extends StatelessWidget {
           fit: BoxFit.cover,
           placeholder: (_, __) => const SkeletonBox(height: 200),
           errorWidget: (_, __, ___) =>
-              _UnknownBlockPlaceholder(blockType: 'image'),
+              const _UnknownBlockPlaceholder(blockType: 'image'),
         ),
       ),
     );

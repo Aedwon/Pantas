@@ -65,6 +65,14 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
       _pendingCompleteSession = null;
     });
     try {
+      final alreadyCompleted =
+          await ref.read(assessmentCompletedProvider(widget.examId).future);
+      if (!mounted) return;
+      if (alreadyCompleted) {
+        context.go('/assessment/${widget.examId}/results');
+        return;
+      }
+
       final session =
           await ref.read(_startAssessmentProvider).call(widget.examId);
       if (!mounted) return;

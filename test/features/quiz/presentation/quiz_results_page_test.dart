@@ -39,7 +39,11 @@ void main() {
 
     await tester.pumpAppWithProviders(
       const QuizResultsPage(attemptId: 'a1'),
-      overrides: [attemptsRepositoryProvider.overrideWithValue(attempts)],
+      overrides: [
+        attemptsRepositoryProvider.overrideWithValue(attempts),
+        assessmentCompletedProvider('e').overrideWith((_) async => true),
+        countForExamProvider('e').overrideWith((_) async => 0),
+      ],
     );
     await tester.pumpAndSettle();
 

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
+import 'package:cse_cet_reviewer/core/storage/data/repos/assessment_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/assessment/presentation/assessment_page.dart';
 import 'package:flutter/material.dart';
@@ -102,6 +103,24 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Results'), findsOneWidget);
+  });
+
+  testWidgets('redirects to results when assessment is already completed',
+      (tester) async {
+    await AssessmentRepository(db).saveResult(
+      'e1',
+      DateTime.utc(2026, 5, 11),
+      [const TopicScore(topicId: 't1', correct: 1, total: 1)],
+    );
+
+    await tester.pumpAppWithRouter(
+      _buildRouter('e1'),
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Results'), findsOneWidget);
+    expect(find.text('Question 1 of 1'), findsNothing);
   });
 
   testWidgets('back navigation shows confirm dialog', (tester) async {

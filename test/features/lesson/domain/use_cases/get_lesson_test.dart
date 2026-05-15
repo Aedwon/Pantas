@@ -10,12 +10,12 @@ void main() {
   late _MockContent content;
   late GetLesson useCase;
 
-  final lesson = Lesson(
+  const lesson = Lesson(
     id: 'l1',
     topicId: 't1',
     title: 'Test Lesson',
     summary: 'Summary',
-    bodyJson: const [],
+    bodyJson: [],
     estimatedMinutes: 3,
   );
 
