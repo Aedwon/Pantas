@@ -2,6 +2,8 @@ import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/database_opener.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
+import 'package:cse_cet_reviewer/core/storage/data/repos/lesson_progress_repository.dart';
+import 'package:cse_cet_reviewer/core/storage/data/repos/quiz_nudge_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/review_state_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/streak_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/seeder.dart';
@@ -67,4 +69,30 @@ final lessonByIdProvider =
 final topicLessonsProvider =
     FutureProvider.family<List<Lesson>, TopicId>((ref, topicId) async {
   return ref.watch(contentRepositoryProvider).lessonsByTopic(topicId);
+});
+
+final lessonProgressRepositoryProvider = Provider<LessonProgressRepository>(
+  (ref) => LessonProgressRepository(ref.watch(appDatabaseProvider)),
+);
+
+final quizNudgeRepositoryProvider = Provider<QuizNudgeRepository>(
+  (ref) => QuizNudgeRepository(ref.watch(appDatabaseProvider)),
+);
+
+final isLessonReadProvider =
+    FutureProvider.family<bool, LessonId>((ref, lessonId) async {
+  return ref.watch(lessonProgressRepositoryProvider).isRead(lessonId);
+});
+
+final readCountForTopicProvider =
+    FutureProvider.family<int, TopicId>((ref, topicId) async {
+  return ref.watch(lessonProgressRepositoryProvider).readCountForTopic(topicId);
+});
+
+final anyLessonReadProvider = FutureProvider<bool>((ref) async {
+  return ref.watch(lessonProgressRepositoryProvider).hasAnyRead();
+});
+
+final quizNudgeDismissedProvider = FutureProvider<bool>((ref) async {
+  return ref.watch(quizNudgeRepositoryProvider).hasDismissed();
 });
