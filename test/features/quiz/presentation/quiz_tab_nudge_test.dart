@@ -2,48 +2,26 @@ import 'dart:convert';
 
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_colors.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_text_styles.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_tab_home.dart';
 import 'package:drift/drift.dart' show Value;
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../../helpers/in_memory_database.dart';
+import '../../../helpers/pump_app.dart';
 
-Future<void> _pumpQuizTab(
-  WidgetTester tester,
-  AppDatabase db,
-) async {
-  GoogleFonts.config.allowRuntimeFetching = false;
-  final router = GoRouter(
-    initialLocation: '/',
-    routes: [
-      GoRoute(path: '/', builder: (_, __) => const QuizTabHome()),
-      GoRoute(
-        path: '/quiz/quick/:examId',
-        builder: (_, __) => const SizedBox(),
-      ),
-      GoRoute(path: '/learn', builder: (_, __) => const SizedBox()),
-    ],
-  );
-  await tester.pumpWidget(
-    ProviderScope(
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
-      child: MaterialApp.router(
-        theme: ThemeData(
-          useMaterial3: true,
-          extensions: [AppColors.light, AppTextStyles.create()],
+GoRouter _buildRouter() => GoRouter(
+      initialLocation: '/',
+      routes: [
+        GoRoute(path: '/', builder: (_, __) => const QuizTabHome()),
+        GoRoute(
+          path: '/quiz/quick/:examId',
+          builder: (_, __) => const SizedBox(),
         ),
-        routerConfig: router,
-      ),
-    ),
-  );
-  await tester.pump();
-}
+        GoRoute(path: '/learn', builder: (_, __) => const SizedBox()),
+      ],
+    );
 
 void main() {
   late AppDatabase db;
@@ -91,7 +69,10 @@ void main() {
 
   testWidgets('shows nudge bottom sheet on first quiz tap with no lessons read',
       (tester) async {
-    await _pumpQuizTab(tester, db);
+    await tester.pumpAppWithRouter(
+      _buildRouter(),
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
     await tester.pumpAndSettle();
 
     await tester.tap(find.text('Start Quick Quiz'));
@@ -109,7 +90,10 @@ void main() {
           ),
         );
 
-    await _pumpQuizTab(tester, db);
+    await tester.pumpAppWithRouter(
+      _buildRouter(),
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
     await tester.pumpAndSettle();
 
     await tester.tap(find.text('Start Quick Quiz'));
@@ -127,7 +111,10 @@ void main() {
           ),
         );
 
-    await _pumpQuizTab(tester, db);
+    await tester.pumpAppWithRouter(
+      _buildRouter(),
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
     await tester.pumpAndSettle();
 
     await tester.tap(find.text('Start Quick Quiz'));

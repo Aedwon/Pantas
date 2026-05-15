@@ -51,16 +51,17 @@ class _ExamCard extends ConsumerWidget {
       if (!context.mounted) return;
       await showModalBottomSheet<void>(
         context: context,
-        builder: (_) => _QuizNudgeSheet(
+        builder: (sheetContext) => _QuizNudgeSheet(
           onReadLessons: () {
-            Navigator.of(context).pop();
+            Navigator.of(sheetContext).pop();
             context.go('/learn');
           },
           onStartAnyway: () async {
             await ref.read(quizNudgeRepositoryProvider).markDismissed();
             ref.invalidate(quizNudgeDismissedProvider);
+            if (!sheetContext.mounted) return;
+            Navigator.of(sheetContext).pop();
             if (!context.mounted) return;
-            Navigator.of(context).pop();
             context.go('/quiz/quick/${exam.id}');
           },
         ),
