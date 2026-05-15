@@ -1,5 +1,6 @@
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/sync_state.dart';
 import 'package:drift/drift.dart';
 
 class LessonProgressRepository {
@@ -8,11 +9,13 @@ class LessonProgressRepository {
   final AppDatabase _db;
 
   Future<void> markRead(LessonId lessonId) async {
+    // readAt updates on every call — records most-recent confirmation,
+    // not first-read time.
     await _db.into(_db.lessonProgressLocal).insertOnConflictUpdate(
           LessonProgressLocalCompanion(
             lessonId: Value(lessonId),
             readAt: Value(DateTime.now()),
-            syncState: const Value('pending'),
+            syncState: Value(SyncState.pending.name),
           ),
         );
   }
