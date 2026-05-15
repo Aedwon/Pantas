@@ -58,6 +58,17 @@ class ContentRepository {
     ]..sort((a, b) => a.ordering.compareTo(b.ordering));
   }
 
+  Future<List<Topic>> topicsByExam(ExamId examId) async {
+    final subjectRows = await (_db.select(_db.subjects)
+          ..where((s) => s.examId.equals(examId)))
+        .get();
+    final allTopics = <Topic>[];
+    for (final s in subjectRows) {
+      allTopics.addAll(await topicsBySubject(s.id));
+    }
+    return allTopics;
+  }
+
   Future<List<Question>> questionsByTopic(TopicId topicId) async {
     final rows = await (_db.select(_db.questions)
           ..where((q) => q.topicId.equals(topicId)))

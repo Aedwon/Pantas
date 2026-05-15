@@ -60,6 +60,13 @@ class AttemptsRepository {
     });
   }
 
+  Future<int> countForExam(ExamId examId) async {
+    final rows = await (_db.select(_db.attemptsLocal)
+          ..where((t) => t.examId.equals(examId)))
+        .get();
+    return rows.length;
+  }
+
   Future<AttemptLocalRow> rawRowById(AttemptId id) =>
       (_db.select(_db.attemptsLocal)..where((t) => t.id.equals(id)))
           .getSingle();

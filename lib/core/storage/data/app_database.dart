@@ -8,6 +8,7 @@ import 'package:cse_cet_reviewer/core/storage/data/tables/review_state_local_tab
 import 'package:cse_cet_reviewer/core/storage/data/tables/streak_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/subjects_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/topics_table.dart';
+import 'package:cse_cet_reviewer/core/storage/data/tables/assessment_results_local_table.dart';
 import 'package:drift/drift.dart';
 
 part 'app_database.g.dart';
@@ -24,13 +25,14 @@ part 'app_database.g.dart';
     StreakLocal,
     LessonProgressLocal,
     QuizNudgeDismissedLocal,
+    AssessmentResultsLocal,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 2;
+  int get schemaVersion => 3;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -39,6 +41,9 @@ class AppDatabase extends _$AppDatabase {
           if (from < 2) {
             await m.createTable(lessonProgressLocal);
             await m.createTable(quizNudgeDismissedLocal);
+          }
+          if (from < 3) {
+            await m.createTable(assessmentResultsLocal);
           }
         },
       );
