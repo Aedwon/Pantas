@@ -1,17 +1,21 @@
 import 'dart:convert';
 
+import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/assessment_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../helpers/in_memory_database.dart';
+import '../../../../helpers/in_memory_database.dart';
 
 void main() {
+  late AppDatabase db;
   late AssessmentRepository repo;
 
   setUp(() {
-    final db = inMemoryDatabase();
+    db = inMemoryDatabase();
     repo = AssessmentRepository(db);
   });
+
+  tearDown(() => db.close());
 
   group('resultForExam', () {
     test('returns null when no result exists', () async {
@@ -19,7 +23,7 @@ void main() {
     });
 
     test('returns row after saveResult', () async {
-      final now = DateTime(2026, 1, 1);
+      final now = DateTime(2026);
       await repo.saveResult('exam1', now, [
         const TopicScore(topicId: 't1', correct: 2, total: 3),
       ]);
@@ -49,9 +53,10 @@ void main() {
   });
 
   group('saveResult upsert', () {
-    test('second saveResult for same exam overwrites, not duplicates', () async {
-      final t1 = DateTime(2026, 1, 1);
-      final t2 = DateTime(2026, 2, 1);
+    test('second saveResult for same exam overwrites, not duplicates',
+        () async {
+      final t1 = DateTime(2026);
+      final t2 = DateTime(2026, 2);
       await repo.saveResult('exam1', t1, [
         const TopicScore(topicId: 't1', correct: 1, total: 3),
       ]);

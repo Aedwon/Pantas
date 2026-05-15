@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/assessment_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_results_page.dart';
 import 'package:drift/drift.dart' show Value;
@@ -28,14 +27,15 @@ GoRouter _buildRouter(String attemptId) => GoRouter(
       ],
     );
 
-// Seeds `count` attempts for exam 'e1', plus a specific attempt with the given id.
+// Seeds `count` attempts for exam 'e1', including the attempt with the given
+// id.
 Future<void> _seedAttempts(
   AppDatabase db, {
   required String id,
   required int count,
 }) async {
-  final now = DateTime(2026, 1, 1);
-  for (var i = 0; i < count; i++) {
+  final now = DateTime(2026);
+  for (var i = 0; i < count - 1; i++) {
     await db.into(db.attemptsLocal).insertOnConflictUpdate(
           AttemptsLocalCompanion.insert(
             id: '${id}_bg_$i',
@@ -46,7 +46,7 @@ Future<void> _seedAttempts(
           ),
         );
   }
-  // The result page loads by this specific attemptId
+  // The result page loads by this specific attemptId.
   await db.into(db.attemptsLocal).insertOnConflictUpdate(
         AttemptsLocalCompanion.insert(
           id: id,
@@ -67,8 +67,7 @@ void main() {
 
   tearDown(() => db.close());
 
-  testWidgets(
-      'shows bottom sheet nudge after first attempt with no assessment',
+  testWidgets('shows bottom sheet nudge after first attempt with no assessment',
       (tester) async {
     await _seedAttempts(db, id: 'a1', count: 1);
 
@@ -87,8 +86,7 @@ void main() {
   testWidgets('does not show nudge when assessment already completed',
       (tester) async {
     await _seedAttempts(db, id: 'a1', count: 1);
-    await AssessmentRepository(db)
-        .saveResult('e1', DateTime(2026, 1, 1), []);
+    await AssessmentRepository(db).saveResult('e1', DateTime(2026), []);
 
     await tester.pumpAppWithRouter(
       _buildRouter('a1'),

@@ -17,7 +17,7 @@ class AssessmentQuestionSelector {
     final topics = await _content.topicsByExam(examId);
     if (topics.isEmpty) return [];
 
-    final questionsPerTopic = math.min(3, 35 ~/ topics.length);
+    final questionsPerTopic = math.max(1, math.min(3, 35 ~/ topics.length));
     final buckets = <List<AssessmentQuestion>>[];
 
     for (final topic in topics) {

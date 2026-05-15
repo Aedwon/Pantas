@@ -34,34 +34,42 @@ void main() {
   setUp(() async {
     db = inMemoryDatabase();
 
-    await db.into(db.exams).insert(ExamsCompanion.insert(
-      id: 'e1',
-      code: 'CSE',
-      name: 'Civil Service Exam',
-      shortName: 'CSE',
-      language: 'en',
-    ));
-    await db.into(db.subjects).insert(SubjectsCompanion.insert(
-      id: 's1',
-      examId: 'e1',
-      name: 'Verbal',
-      ordering: 1,
-    ));
-    await db.into(db.topics).insert(TopicsCompanion.insert(
-      id: 't1',
-      subjectId: 's1',
-      name: 'Vocabulary',
-      ordering: 1,
-    ));
-    await db.into(db.topics).insert(TopicsCompanion.insert(
-      id: 't2',
-      subjectId: 's1',
-      name: 'Reading Comprehension',
-      ordering: 2,
-    ));
+    await db.into(db.exams).insert(
+          ExamsCompanion.insert(
+            id: 'e1',
+            code: 'CSE',
+            name: 'Civil Service Exam',
+            shortName: 'CSE',
+            language: 'en',
+          ),
+        );
+    await db.into(db.subjects).insert(
+          SubjectsCompanion.insert(
+            id: 's1',
+            examId: 'e1',
+            name: 'Verbal',
+            ordering: 1,
+          ),
+        );
+    await db.into(db.topics).insert(
+          TopicsCompanion.insert(
+            id: 't1',
+            subjectId: 's1',
+            name: 'Vocabulary',
+            ordering: 1,
+          ),
+        );
+    await db.into(db.topics).insert(
+          TopicsCompanion.insert(
+            id: 't2',
+            subjectId: 's1',
+            name: 'Reading Comprehension',
+            ordering: 2,
+          ),
+        );
 
     // t1: 0/3 = 0% (weak), t2: 3/3 = 100% (strong)
-    await AssessmentRepository(db).saveResult('e1', DateTime(2026, 1, 1), [
+    await AssessmentRepository(db).saveResult('e1', DateTime(2026), [
       const TopicScore(topicId: 't1', correct: 0, total: 3),
       const TopicScore(topicId: 't2', correct: 3, total: 3),
     ]);
@@ -79,8 +87,7 @@ void main() {
     expect(find.text('Vocabulary'), findsWidgets);
     expect(find.text('Reading Comprehension'), findsWidgets);
 
-    final vocabY =
-        tester.getTopLeft(find.text('Vocabulary').first).dy;
+    final vocabY = tester.getTopLeft(find.text('Vocabulary').first).dy;
     final readingY =
         tester.getTopLeft(find.text('Reading Comprehension').first).dy;
     expect(vocabY, lessThan(readingY));

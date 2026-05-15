@@ -12,18 +12,12 @@ class AssessmentResult {
     required this.topicMasteries,
   });
 
-  final ExamId examId;
-  final DateTime completedAt;
-
-  /// Sorted weakest-first (ascending accuracy).
-  final List<TopicMastery> topicMasteries;
-
   factory AssessmentResult.fromRow(
     AssessmentResultLocalRow row,
     List<Topic> topics,
   ) {
-    final raw = (jsonDecode(row.topicScoresJson) as List)
-        .cast<Map<String, dynamic>>();
+    final raw =
+        (jsonDecode(row.topicScoresJson) as List).cast<Map<String, dynamic>>();
     final topicById = {for (final t in topics) t.id: t};
     final masteries = raw
         .where((s) => topicById.containsKey(s['topicId'] as String))
@@ -42,4 +36,10 @@ class AssessmentResult {
       topicMasteries: masteries,
     );
   }
+
+  final ExamId examId;
+  final DateTime completedAt;
+
+  /// Sorted weakest-first (ascending accuracy).
+  final List<TopicMastery> topicMasteries;
 }

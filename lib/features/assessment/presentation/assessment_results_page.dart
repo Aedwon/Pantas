@@ -10,6 +10,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+final assessmentResultProvider =
+    FutureProvider.family<AssessmentResult?, ExamId>((ref, examId) async {
+  final row =
+      await ref.watch(assessmentRepositoryProvider).resultForExam(examId);
+  if (row == null) return null;
+  final topics =
+      await ref.watch(contentRepositoryProvider).topicsByExam(examId);
+  return AssessmentResult.fromRow(row, topics);
+});
+
 class AssessmentResultsPage extends ConsumerWidget {
   const AssessmentResultsPage({required this.examId, super.key});
 
@@ -77,8 +87,7 @@ class _ResultsBody extends StatelessWidget {
         const SizedBox(height: 4),
         Text(
           'Your recommendations update as you study',
-          style:
-              textStyles.bodySmall.copyWith(color: colors.onSurfaceMuted),
+          style: textStyles.bodySmall.copyWith(color: colors.onSurfaceMuted),
         ),
         const SizedBox(height: 12),
         for (var i = 0; i < weak.length; i++) ...[
@@ -100,7 +109,7 @@ class _TopicBar extends StatelessWidget {
     final textStyles = context.textStyles;
     final colors = context.colors;
 
-    final Color barColor = switch (mastery.level) {
+    final barColor = switch (mastery.level) {
       MasteryLevel.weak => colors.error,
       MasteryLevel.moderate => colors.warning,
       MasteryLevel.strong => colors.success,
@@ -122,8 +131,8 @@ class _TopicBar extends StatelessWidget {
             ),
             Text(
               '$pct%',
-              style: textStyles.bodySmall
-                  .copyWith(color: colors.onSurfaceMuted),
+              style:
+                  textStyles.bodySmall.copyWith(color: colors.onSurfaceMuted),
             ),
           ],
         ),
@@ -182,8 +191,8 @@ class _TopicCta extends StatelessWidget {
                   ),
                   child: Text(
                     'Start here',
-                    style: textStyles.labelSmall
-                        .copyWith(color: colors.primary),
+                    style:
+                        textStyles.labelSmall.copyWith(color: colors.primary),
                   ),
                 ),
             ],

@@ -67,7 +67,9 @@ class CompleteAssessment {
             questionVersion: aq.question.version,
             now: now,
           );
-      await _reviewRepo.upsert(_scheduler.next(prev: prev, rating: rating, now: now));
+      await _reviewRepo.upsert(
+        _scheduler.next(prev: prev, rating: rating, now: now),
+      );
     }
 
     // Hydrate result with Topic models

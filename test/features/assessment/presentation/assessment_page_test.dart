@@ -27,39 +27,47 @@ GoRouter _buildRouter(String examId) => GoRouter(
 
 Future<AppDatabase> _seedDb() async {
   final db = inMemoryDatabase();
-  await db.into(db.exams).insert(ExamsCompanion.insert(
-    id: 'e1',
-    code: 'CSE',
-    name: 'CSE',
-    shortName: 'CSE',
-    language: 'en',
-  ));
-  await db.into(db.subjects).insert(SubjectsCompanion.insert(
-    id: 's1',
-    examId: 'e1',
-    name: 'Verbal',
-    ordering: 1,
-  ));
-  await db.into(db.topics).insert(TopicsCompanion.insert(
-    id: 't1',
-    subjectId: 's1',
-    name: 'Vocabulary',
-    ordering: 1,
-  ));
+  await db.into(db.exams).insert(
+        ExamsCompanion.insert(
+          id: 'e1',
+          code: 'CSE',
+          name: 'CSE',
+          shortName: 'CSE',
+          language: 'en',
+        ),
+      );
+  await db.into(db.subjects).insert(
+        SubjectsCompanion.insert(
+          id: 's1',
+          examId: 'e1',
+          name: 'Verbal',
+          ordering: 1,
+        ),
+      );
+  await db.into(db.topics).insert(
+        TopicsCompanion.insert(
+          id: 't1',
+          subjectId: 's1',
+          name: 'Vocabulary',
+          ordering: 1,
+        ),
+      );
   final choices = jsonEncode([
     {'id': 'c_a', 'label': 'A', 'text': 'Option A', 'isCorrect': true},
     {'id': 'c_b', 'label': 'B', 'text': 'Option B', 'isCorrect': false},
   ]);
-  await db.into(db.questions).insert(QuestionsCompanion.insert(
-    id: 'q1',
-    version: 1,
-    examIdsJson: jsonEncode(['e1']),
-    topicId: 't1',
-    language: 'en',
-    stem: 'What does ephemeral mean?',
-    choicesJson: choices,
-    explanation: 'Short-lived.',
-  ));
+  await db.into(db.questions).insert(
+        QuestionsCompanion.insert(
+          id: 'q1',
+          version: 1,
+          examIdsJson: jsonEncode(['e1']),
+          topicId: 't1',
+          language: 'en',
+          stem: 'What does ephemeral mean?',
+          choicesJson: choices,
+          explanation: 'Short-lived.',
+        ),
+      );
   return db;
 }
 
@@ -103,9 +111,9 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    final NavigatorState navigator =
-        tester.state(find.byType(Navigator).first);
-    navigator.maybePop();
+    final navigator =
+        tester.state<NavigatorState>(find.byType(Navigator).first);
+    await navigator.maybePop();
     await tester.pumpAndSettle();
 
     expect(find.text('Leave assessment?'), findsOneWidget);

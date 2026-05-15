@@ -3,7 +3,7 @@ import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dar
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../helpers/in_memory_database.dart';
+import '../../../../helpers/in_memory_database.dart';
 
 void main() {
   late AppDatabase db;
@@ -21,15 +21,33 @@ void main() {
   });
 
   test('countForExam counts only attempts for the given exam', () async {
-    final now = DateTime(2026, 1, 1);
+    final now = DateTime(2026);
     await repo.save(
-      Attempt(id: 'a1', examId: 'e1', startedAt: now, completedAt: now, items: []),
+      Attempt(
+        id: 'a1',
+        examId: 'e1',
+        startedAt: now,
+        completedAt: now,
+        items: [],
+      ),
     );
     await repo.save(
-      Attempt(id: 'a2', examId: 'e1', startedAt: now, completedAt: now, items: []),
+      Attempt(
+        id: 'a2',
+        examId: 'e1',
+        startedAt: now,
+        completedAt: now,
+        items: [],
+      ),
     );
     await repo.save(
-      Attempt(id: 'a3', examId: 'e2', startedAt: now, completedAt: now, items: []),
+      Attempt(
+        id: 'a3',
+        examId: 'e2',
+        startedAt: now,
+        completedAt: now,
+        items: [],
+      ),
     );
     expect(await repo.countForExam('e1'), equals(2));
     expect(await repo.countForExam('e2'), equals(1));

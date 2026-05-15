@@ -1,9 +1,9 @@
 import 'package:cse_cet_reviewer/core/ui/components/empty_state.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
+import 'package:cse_cet_reviewer/core/ui/components/question_card.dart';
+import 'package:cse_cet_reviewer/core/ui/components/quiz_progress_bar.dart';
 import 'package:cse_cet_reviewer/core/ui/components/skeleton_loader.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_controller.dart';
-import 'package:cse_cet_reviewer/features/quiz/presentation/widgets/question_card.dart';
-import 'package:cse_cet_reviewer/features/quiz/presentation/widgets/quiz_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';

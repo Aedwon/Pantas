@@ -24,41 +24,49 @@ void main() {
       {'id': '${id}_a', 'label': 'A', 'text': 'Option A', 'isCorrect': true},
       {'id': '${id}_b', 'label': 'B', 'text': 'Option B', 'isCorrect': false},
     ];
-    await db.into(db.questions).insert(QuestionsCompanion.insert(
-      id: id,
-      version: 1,
-      examIdsJson: jsonEncode(['e1']),
-      topicId: topicId,
-      language: 'en',
-      stem: 'Question $id?',
-      choicesJson: jsonEncode(choices),
-      explanation: 'Explanation',
-    ));
+    await db.into(db.questions).insert(
+          QuestionsCompanion.insert(
+            id: id,
+            version: 1,
+            examIdsJson: jsonEncode(['e1']),
+            topicId: topicId,
+            language: 'en',
+            stem: 'Question $id?',
+            choicesJson: jsonEncode(choices),
+            explanation: 'Explanation',
+          ),
+        );
   }
 
   setUp(() async {
     db = inMemoryDatabase();
     useCase = _makeUseCase(db);
 
-    await db.into(db.exams).insert(ExamsCompanion.insert(
-      id: 'e1',
-      code: 'CSE',
-      name: 'CSE',
-      shortName: 'CSE',
-      language: 'en',
-    ));
-    await db.into(db.subjects).insert(SubjectsCompanion.insert(
-      id: 's1',
-      examId: 'e1',
-      name: 'Verbal',
-      ordering: 1,
-    ));
-    await db.into(db.topics).insert(TopicsCompanion.insert(
-      id: 't1',
-      subjectId: 's1',
-      name: 'Vocabulary',
-      ordering: 1,
-    ));
+    await db.into(db.exams).insert(
+          ExamsCompanion.insert(
+            id: 'e1',
+            code: 'CSE',
+            name: 'CSE',
+            shortName: 'CSE',
+            language: 'en',
+          ),
+        );
+    await db.into(db.subjects).insert(
+          SubjectsCompanion.insert(
+            id: 's1',
+            examId: 'e1',
+            name: 'Verbal',
+            ordering: 1,
+          ),
+        );
+    await db.into(db.topics).insert(
+          TopicsCompanion.insert(
+            id: 't1',
+            subjectId: 's1',
+            name: 'Vocabulary',
+            ordering: 1,
+          ),
+        );
     await seedQuestion('q1', 't1');
     await seedQuestion('q2', 't1');
   });
@@ -79,30 +87,34 @@ void main() {
   });
 
   test('throws StateError when exam has no questions', () async {
-    final emptyDb = inMemoryDatabase();
-    addTearDown(() => emptyDb.close());
-    await emptyDb.into(emptyDb.exams).insert(ExamsCompanion.insert(
-      id: 'empty',
-      code: 'XX',
-      name: 'Empty',
-      shortName: 'XX',
-      language: 'en',
-    ));
-    await emptyDb.into(emptyDb.subjects).insert(SubjectsCompanion.insert(
-      id: 's_empty',
-      examId: 'empty',
-      name: 'S',
-      ordering: 1,
-    ));
-    await emptyDb.into(emptyDb.topics).insert(TopicsCompanion.insert(
-      id: 't_empty',
-      subjectId: 's_empty',
-      name: 'T',
-      ordering: 1,
-    ));
+    await db.into(db.exams).insert(
+          ExamsCompanion.insert(
+            id: 'empty',
+            code: 'XX',
+            name: 'Empty',
+            shortName: 'XX',
+            language: 'en',
+          ),
+        );
+    await db.into(db.subjects).insert(
+          SubjectsCompanion.insert(
+            id: 's_empty',
+            examId: 'empty',
+            name: 'S',
+            ordering: 1,
+          ),
+        );
+    await db.into(db.topics).insert(
+          TopicsCompanion.insert(
+            id: 't_empty',
+            subjectId: 's_empty',
+            name: 'T',
+            ordering: 1,
+          ),
+        );
 
     expect(
-      () => _makeUseCase(emptyDb).call('empty'),
+      useCase.call('empty'),
       throwsStateError,
     );
   });

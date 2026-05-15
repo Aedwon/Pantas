@@ -1,17 +1,15 @@
 import 'package:cse_cet_reviewer/core/fsrs/fsrs_scheduler.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/assessment_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/review_state_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
+import 'package:cse_cet_reviewer/core/ui/components/question_card.dart';
+import 'package:cse_cet_reviewer/core/ui/components/quiz_progress_bar.dart';
 import 'package:cse_cet_reviewer/core/ui/components/skeleton_loader.dart';
 import 'package:cse_cet_reviewer/features/assessment/domain/models/assessment_session.dart';
 import 'package:cse_cet_reviewer/features/assessment/domain/services/assessment_question_selector.dart';
 import 'package:cse_cet_reviewer/features/assessment/domain/use_cases/complete_assessment.dart';
 import 'package:cse_cet_reviewer/features/assessment/domain/use_cases/start_assessment.dart';
-import 'package:cse_cet_reviewer/features/quiz/presentation/widgets/question_card.dart';
-import 'package:cse_cet_reviewer/features/quiz/presentation/widgets/quiz_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -49,8 +47,8 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
   String? _errorMessage;
   bool _completing = false;
 
-  // When completing fails, we keep the session alive so the user can retry
-  // without re-answering. _pendingCompleteSession holds the session that failed.
+  // When completing fails, keep the session alive so the user can retry without
+  // re-answering.
   AssessmentSession? _pendingCompleteSession;
 
   @override

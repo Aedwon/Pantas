@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/storage/data/tables/assessment_results_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/attempts_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/exams_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/lesson_progress_local_table.dart';
@@ -8,7 +9,6 @@ import 'package:cse_cet_reviewer/core/storage/data/tables/review_state_local_tab
 import 'package:cse_cet_reviewer/core/storage/data/tables/streak_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/subjects_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/topics_table.dart';
-import 'package:cse_cet_reviewer/core/storage/data/tables/assessment_results_local_table.dart';
 import 'package:drift/drift.dart';
 
 part 'app_database.g.dart';

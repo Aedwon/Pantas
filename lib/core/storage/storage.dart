@@ -3,7 +3,6 @@ import 'package:cse_cet_reviewer/core/storage/data/database_opener.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/assessment_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
-import 'package:cse_cet_reviewer/features/assessment/domain/models/assessment_result.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/lesson_progress_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/quiz_nudge_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/review_state_repository.dart';
@@ -103,22 +102,9 @@ final assessmentRepositoryProvider = Provider<AssessmentRepository>(
   (ref) => AssessmentRepository(ref.watch(appDatabaseProvider)),
 );
 
-final assessmentResultProvider =
-    FutureProvider.family<AssessmentResult?, ExamId>((ref, examId) async {
-  final row = await ref
-      .watch(assessmentRepositoryProvider)
-      .resultForExam(examId);
-  if (row == null) return null;
-  final topics =
-      await ref.watch(contentRepositoryProvider).topicsByExam(examId);
-  return AssessmentResult.fromRow(row, topics);
-});
-
 final assessmentCompletedProvider =
     FutureProvider.family<bool, ExamId>((ref, examId) async {
-  return ref
-      .watch(assessmentRepositoryProvider)
-      .hasCompletedForExam(examId);
+  return ref.watch(assessmentRepositoryProvider).hasCompletedForExam(examId);
 });
 
 final countForExamProvider =

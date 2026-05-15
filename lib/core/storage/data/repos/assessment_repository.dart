@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:drift/drift.dart';
 
 class TopicScore {
   const TopicScore({
@@ -36,8 +35,7 @@ class AssessmentRepository {
           AssessmentResultsLocalCompanion.insert(
             examId: examId,
             completedAt: completedAt,
-            topicScoresJson:
-                jsonEncode(scores.map((s) => s.toJson()).toList()),
+            topicScoresJson: jsonEncode(scores.map((s) => s.toJson()).toList()),
           ),
         );
   }

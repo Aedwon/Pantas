@@ -65,15 +65,15 @@ class _ResultsBodyState extends ConsumerState<_ResultsBody> {
   Future<void> _maybeShowNudge() async {
     if (!mounted) return;
     final examId = widget.attempt.examId;
-    final isDone =
-        await ref.read(assessmentCompletedProvider(examId).future);
+    final isDone = await ref.read(assessmentCompletedProvider(examId).future);
     if (isDone || !mounted) return;
     final count = await ref.read(countForExamProvider(examId).future);
     if (!mounted) return;
 
     if (count == 1) {
       await _showNudgeSheet(
-        'Get your personalized study plan — see exactly where to focus for this exam.',
+        'Get your personalized study plan — see exactly where to focus for '
+        'this exam.',
       );
     } else if (count == 3) {
       await _showNudgeSheet(
@@ -125,7 +125,8 @@ class _ResultsBodyState extends ConsumerState<_ResultsBody> {
     final (correct, total) = attempt.score;
     final percent = total == 0 ? 0 : ((correct / total) * 100).round();
 
-    final isDone = ref.watch(assessmentCompletedProvider(examId)).valueOrNull ?? true;
+    final isDone =
+        ref.watch(assessmentCompletedProvider(examId)).valueOrNull ?? true;
     final count = ref.watch(countForExamProvider(examId)).valueOrNull ?? 0;
     final showBanner = !isDone && count >= 5;
 
