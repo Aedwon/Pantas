@@ -7,12 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-void _tryGo(BuildContext context, String location) {
-  try {
-    context.go(location);
-  } catch (_) {}
-}
-
 class QuizTabHome extends ConsumerWidget {
   const QuizTabHome({super.key});
 
@@ -60,21 +54,21 @@ class _ExamCard extends ConsumerWidget {
         builder: (_) => _QuizNudgeSheet(
           onReadLessons: () {
             Navigator.of(context).pop();
-            _tryGo(context, '/learn');
+            context.go('/learn');
           },
           onStartAnyway: () async {
             await ref.read(quizNudgeRepositoryProvider).markDismissed();
             ref.invalidate(quizNudgeDismissedProvider);
             if (!context.mounted) return;
             Navigator.of(context).pop();
-            _tryGo(context, '/quiz/quick/${exam.id}');
+            context.go('/quiz/quick/${exam.id}');
           },
         ),
       );
       return;
     }
 
-    _tryGo(context, '/quiz/quick/${exam.id}');
+    context.go('/quiz/quick/${exam.id}');
   }
 
   @override
@@ -105,7 +99,7 @@ class _ExamCard extends ConsumerWidget {
           AppButton(
             label: 'Browse Lessons',
             variant: AppButtonVariant.secondary,
-            onPressed: () => _tryGo(context, '/learn'),
+            onPressed: () => context.go('/learn'),
           ),
         ],
       ),
