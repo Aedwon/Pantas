@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-09T00:00:00Z",
+  "generatedAt": "2026-05-10T00:00:00Z",
   "exams": [
     {
       "id": "exam_cse_pro",
@@ -117,10 +117,664 @@
       "topicId": "topic_cse_vocab",
       "title": "Building a CSE Vocabulary",
       "summary": "Strategies for memorizing high-frequency CSE vocabulary words.",
+      "estimatedMinutes": 5,
       "bodyJson": [
-        {"type": "paragraph", "text": "Vocabulary growth comes from spaced repetition, not cramming."}
-      ],
-      "estimatedMinutes": 5
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Vocabulary is one of the most heavily tested areas in the CSE. The Civil Service Commission tests your ability to understand the meaning of words in context — not just memorize definitions. This means the best approach combines wide reading with deliberate review.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "h2",
+          "children": [
+            {"_type": "span", "text": "The Spaced Repetition Principle", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Spaced repetition works by reviewing words at increasing intervals — right before you're about to forget them. This forces your brain to retrieve the memory, which strengthens it each time. Cramming the night before floods short-term memory but leaves almost no trace a week later.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "h2",
+          "children": [
+            {"_type": "span", "text": "High-Frequency CSE Words to Know", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "These words appear repeatedly across past CSE exams:",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "Ephemeral", "marks": ["strong"]},
+            {"_type": "span", "text": " — lasting a very short time (syn: fleeting, transient, momentary)", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "Meticulous", "marks": ["strong"]},
+            {"_type": "span", "text": " — showing great attention to detail (syn: thorough, precise, painstaking)", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "Ambiguous", "marks": ["strong"]},
+            {"_type": "span", "text": " — open to more than one interpretation (syn: unclear, vague, equivocal)", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "Benevolent", "marks": ["strong"]},
+            {"_type": "span", "text": " — well-meaning and kindly (syn: charitable, generous, altruistic)", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "h2",
+          "children": [
+            {"_type": "span", "text": "Study Tip: Learn in Clusters", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Instead of learning one word at a time, study synonym clusters. Knowing that ephemeral, fleeting, transient, and momentary all mean roughly the same thing multiplies your vocabulary four-fold for the same study effort. When you see any one of them in a question, you recognize the whole family.",
+              "marks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "les_vocab_synonyms",
+      "topicId": "topic_cse_vocab",
+      "title": "Synonyms and Antonyms",
+      "summary": "How to identify synonyms and antonyms quickly under exam conditions.",
+      "estimatedMinutes": 6,
+      "bodyJson": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "CSE synonym and antonym questions ask you to pick the word closest in meaning — or most opposite — to the underlined word. Speed matters here: you'll have less than a minute per question in the actual exam.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "h2",
+          "children": [
+            {"_type": "span", "text": "The Process of Elimination Strategy", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "When you don't know the target word, start by eliminating the choices you're sure are wrong. If you can narrow it down to two, the odds are now 50-50 instead of 25%. In synonym questions, watch for traps: choices that sound similar to the target word but mean something different (e.g., 'prescribe' vs. 'proscribe').",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "h2",
+          "children": [
+            {"_type": "span", "text": "Word Roots as Clues", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Many English words share Latin and Greek roots. Recognizing a root lets you make educated guesses on unfamiliar words:",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "bene-", "marks": ["strong"]},
+            {"_type": "span", "text": " (good): benefit, benevolent, benefactor", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "mal-", "marks": ["strong"]},
+            {"_type": "span", "text": " (bad): malevolent, malicious, malfunction", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "port-", "marks": ["strong"]},
+            {"_type": "span", "text": " (carry): transport, portable, export", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "vis-", "marks": ["strong"]},
+            {"_type": "span", "text": " (see): visible, vision, visionary", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "h2",
+          "children": [
+            {"_type": "span", "text": "Common Antonym Pairs to Memorize", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "These opposite pairs have appeared frequently in past CSE exams: loquacious ↔ taciturn, candid ↔ evasive, frugal ↔ extravagant, diligent ↔ indolent, obscure ↔ prominent.",
+              "marks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "les_vocab_context",
+      "topicId": "topic_cse_vocab",
+      "title": "Reading Context Clues",
+      "summary": "Use the surrounding sentence to unlock unfamiliar words without memorizing every definition.",
+      "estimatedMinutes": 4,
+      "bodyJson": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Context clue questions give you a sentence and ask for the meaning of one underlined word. Even if you've never seen the word, the sentence itself gives you enough information to answer correctly — if you know where to look.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "h2",
+          "children": [
+            {"_type": "span", "text": "Four Types of Context Clues", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "1. Definition clue:", "marks": ["strong"]},
+            {"_type": "span", "text": " The sentence restates the word's meaning. \"The senator was loquacious — he talked endlessly during every session.\" → loquacious = talks a lot.", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "2. Contrast clue:", "marks": ["strong"]},
+            {"_type": "span", "text": " A word like 'but', 'however', or 'unlike' signals the opposite meaning. \"Unlike her gregarious sister, Maria was reticent at parties.\" → reticent = quiet/shy.", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "3. Example clue:", "marks": ["strong"]},
+            {"_type": "span", "text": " Examples reveal the category. \"Fauna such as tamaraws, tarsiers, and eagles are endemic to the Philippines.\" → fauna = animals.", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "4. Inference clue:", "marks": ["strong"]},
+            {"_type": "span", "text": " General tone and logic point toward the meaning. \"After the grueling 12-hour exam, she was utterly enervated.\" → enervated = drained/exhausted.", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "h2",
+          "children": [
+            {"_type": "span", "text": "Practice Habit", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "When you encounter an unknown word while reading — in the news, in books, anywhere — resist looking it up immediately. First, guess the meaning from context. Then check. This builds the skill you'll need under exam pressure, when a dictionary isn't an option.",
+              "marks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "les_grammar_sva",
+      "topicId": "topic_upcat_grammar",
+      "title": "Subject-Verb Agreement",
+      "summary": "The rules that determine whether a verb is singular or plural — and the tricky exceptions.",
+      "estimatedMinutes": 7,
+      "bodyJson": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Subject-verb agreement is one of the most tested grammar concepts on the UPCAT Language Proficiency section. The core rule is simple: a singular subject takes a singular verb, and a plural subject takes a plural verb. The difficulty lies in the exceptions.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "h2",
+          "children": [
+            {"_type": "span", "text": "Intervening Phrases", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Phrases between the subject and verb don't change the verb form. The subject is still singular even when followed by a plural phrase:",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "✗ ", "marks": []},
+            {"_type": "span", "text": "The box of chocolates ", "marks": []},
+            {"_type": "span", "text": "are", "marks": ["strong"]},
+            {"_type": "span", "text": " on the table.", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "✓ ", "marks": []},
+            {"_type": "span", "text": "The box of chocolates ", "marks": []},
+            {"_type": "span", "text": "is", "marks": ["strong"]},
+            {"_type": "span", "text": " on the table.", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "h2",
+          "children": [
+            {"_type": "span", "text": "Indefinite Pronouns", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "These indefinite pronouns are always singular: each, every, either, neither, one, anyone, everyone, someone, no one, anybody, everybody, somebody, nobody.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "\"Each of the students is responsible for their own work.\" — singular verb because 'each' is singular.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "h2",
+          "children": [
+            {"_type": "span", "text": "Compound Subjects", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Subjects joined by 'and' are usually plural. But when joined by 'or' or 'nor', the verb agrees with the subject closest to it:",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "\"Neither the principal nor the teachers were informed.\" — 'teachers' is nearest, so the verb is plural.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "h2",
+          "children": [
+            {"_type": "span", "text": "Collective Nouns", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Collective nouns (team, committee, group, class) take a singular verb when they act as a unit: \"The committee has reached a decision.\" They take plural verbs when members act individually: \"The committee are divided on the issue.\"",
+              "marks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "les_grammar_tenses",
+      "topicId": "topic_upcat_grammar",
+      "title": "Verb Tenses",
+      "summary": "A clear map of the 12 English verb tenses with Filipino exam examples.",
+      "estimatedMinutes": 8,
+      "bodyJson": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "English has 12 tenses: four aspects (simple, continuous, perfect, perfect continuous) across three time frames (past, present, future). UPCAT questions often focus on choosing the correct tense to match the meaning of a sentence.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "h2",
+          "children": [
+            {"_type": "span", "text": "Simple Tenses", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "Simple past:", "marks": ["strong"]},
+            {"_type": "span", "text": " A completed action. \"She reviewed her notes last night.\"", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "Simple present:", "marks": ["strong"]},
+            {"_type": "span", "text": " A habit or general truth. \"The sun rises in the east.\"", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "Simple future:", "marks": ["strong"]},
+            {"_type": "span", "text": " A planned or certain action. \"She will submit the form tomorrow.\"", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "h2",
+          "children": [
+            {"_type": "span", "text": "Perfect Tenses", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Perfect tenses signal a relationship between two time points. They use 'have/has/had + past participle'.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "Present perfect:", "marks": ["strong"]},
+            {"_type": "span", "text": " Action started in the past that continues or has present relevance. \"I have studied for three hours.\"", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "Past perfect:", "marks": ["strong"]},
+            {"_type": "span", "text": " Action completed before another past action. \"She had already eaten when we arrived.\"", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "h2",
+          "children": [
+            {"_type": "span", "text": "Common UPCAT Trap: Present vs. Present Perfect", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Use simple past with specific time markers ('yesterday', 'last year', 'in 2020'). Use present perfect with unspecified time or continuing relevance ('already', 'yet', 'just', 'since', 'for').",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "✗ ", "marks": []},
+            {"_type": "span", "text": "I have seen her yesterday.", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "✓ ", "marks": []},
+            {"_type": "span", "text": "I saw her yesterday.", "marks": []}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "les_grammar_sentence",
+      "topicId": "topic_upcat_grammar",
+      "title": "Sentence Structure",
+      "summary": "How to identify and fix run-ons, fragments, and dangling modifiers.",
+      "estimatedMinutes": 6,
+      "bodyJson": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Sentence structure questions on the UPCAT test whether you can identify correctly formed sentences and spot common errors. The three most common problem types are fragments, run-ons, and misplaced or dangling modifiers.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "h2",
+          "children": [
+            {"_type": "span", "text": "Fragments", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "A sentence fragment is missing a subject, a verb, or both. It cannot stand alone as a complete thought.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "Fragment:", "marks": ["strong"]},
+            {"_type": "span", "text": " \"Running through the hallway.\" (no subject)", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "Complete:", "marks": ["strong"]},
+            {"_type": "span", "text": " \"She was running through the hallway.\"", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "h2",
+          "children": [
+            {"_type": "span", "text": "Run-On Sentences", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "A run-on joins two independent clauses without proper punctuation or a conjunction. Fix it with a period, a semicolon, or a coordinating conjunction (for, and, nor, but, or, yet, so — FANBOYS).",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "Run-on:", "marks": ["strong"]},
+            {"_type": "span", "text": " \"The exam was long she finished early.\"", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "Fixed:", "marks": ["strong"]},
+            {"_type": "span", "text": " \"The exam was long, but she finished early.\"", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "h2",
+          "children": [
+            {"_type": "span", "text": "Dangling Modifiers", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "A dangling modifier is a descriptive phrase that doesn't logically connect to the subject of the main clause.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "Dangling:", "marks": ["strong"]},
+            {"_type": "span", "text": " \"Walking to school, the rain started.\" (The rain wasn't walking.)", "marks": []}
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {"_type": "span", "text": "Fixed:", "marks": ["strong"]},
+            {"_type": "span", "text": " \"Walking to school, she got caught in the rain.\"", "marks": []}
+          ]
+        }
+      ]
     }
   ]
 }

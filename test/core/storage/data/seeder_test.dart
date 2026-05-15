@@ -26,7 +26,7 @@ void main() {
     expect(await db.select(db.subjects).get(), hasLength(2));
     expect(await db.select(db.topics).get(), hasLength(2));
     expect(await db.select(db.questions).get(), hasLength(4));
-    expect(await db.select(db.lessons).get(), hasLength(1));
+    expect(await db.select(db.lessons).get(), hasLength(6));
   });
 
   test('maybeSeed is idempotent (running twice does not duplicate rows)',
