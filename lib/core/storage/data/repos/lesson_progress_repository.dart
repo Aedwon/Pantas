@@ -9,9 +9,10 @@ class LessonProgressRepository {
 
   Future<void> markRead(LessonId lessonId) async {
     await _db.into(_db.lessonProgressLocal).insertOnConflictUpdate(
-          LessonProgressLocalCompanion.insert(
-            lessonId: lessonId,
-            readAt: DateTime.now(),
+          LessonProgressLocalCompanion(
+            lessonId: Value(lessonId),
+            readAt: Value(DateTime.now()),
+            syncState: const Value('pending'),
           ),
         );
   }
