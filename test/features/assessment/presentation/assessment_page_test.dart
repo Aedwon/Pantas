@@ -1,0 +1,113 @@
+import 'dart:convert';
+
+import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
+import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/features/assessment/presentation/assessment_page.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../helpers/in_memory_database.dart';
+import '../../../helpers/pump_app.dart';
+
+GoRouter _buildRouter(String examId) => GoRouter(
+      initialLocation: '/assessment/$examId',
+      routes: [
+        GoRoute(
+          path: '/assessment/:examId',
+          builder: (_, state) =>
+              AssessmentPage(examId: state.pathParameters['examId']!),
+        ),
+        GoRoute(
+          path: '/assessment/:examId/results',
+          builder: (_, __) => const Scaffold(body: Text('Results')),
+        ),
+      ],
+    );
+
+Future<AppDatabase> _seedDb() async {
+  final db = inMemoryDatabase();
+  await db.into(db.exams).insert(ExamsCompanion.insert(
+    id: 'e1',
+    code: 'CSE',
+    name: 'CSE',
+    shortName: 'CSE',
+    language: 'en',
+  ));
+  await db.into(db.subjects).insert(SubjectsCompanion.insert(
+    id: 's1',
+    examId: 'e1',
+    name: 'Verbal',
+    ordering: 1,
+  ));
+  await db.into(db.topics).insert(TopicsCompanion.insert(
+    id: 't1',
+    subjectId: 's1',
+    name: 'Vocabulary',
+    ordering: 1,
+  ));
+  final choices = jsonEncode([
+    {'id': 'c_a', 'label': 'A', 'text': 'Option A', 'isCorrect': true},
+    {'id': 'c_b', 'label': 'B', 'text': 'Option B', 'isCorrect': false},
+  ]);
+  await db.into(db.questions).insert(QuestionsCompanion.insert(
+    id: 'q1',
+    version: 1,
+    examIdsJson: jsonEncode(['e1']),
+    topicId: 't1',
+    language: 'en',
+    stem: 'What does ephemeral mean?',
+    choicesJson: choices,
+    explanation: 'Short-lived.',
+  ));
+  return db;
+}
+
+void main() {
+  late AppDatabase db;
+
+  setUp(() async {
+    db = await _seedDb();
+  });
+
+  tearDown(() => db.close());
+
+  testWidgets('shows progress bar when assessment is running', (tester) async {
+    await tester.pumpAppWithRouter(
+      _buildRouter('e1'),
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Question 1 of 1'), findsOneWidget);
+  });
+
+  testWidgets('answering last question navigates to results page',
+      (tester) async {
+    await tester.pumpAppWithRouter(
+      _buildRouter('e1'),
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Option A'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Results'), findsOneWidget);
+  });
+
+  testWidgets('back navigation shows confirm dialog', (tester) async {
+    await tester.pumpAppWithRouter(
+      _buildRouter('e1'),
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    await tester.pumpAndSettle();
+
+    final NavigatorState navigator =
+        tester.state(find.byType(Navigator).first);
+    navigator.maybePop();
+    await tester.pumpAndSettle();
+
+    expect(find.text('Leave assessment?'), findsOneWidget);
+  });
+}
