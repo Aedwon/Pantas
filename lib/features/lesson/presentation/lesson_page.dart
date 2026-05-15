@@ -44,16 +44,18 @@ class LessonPage extends ConsumerWidget {
   }
 }
 
-class _LessonBody extends StatelessWidget {
+class _LessonBody extends ConsumerWidget {
   const _LessonBody({required this.lesson, this.examId});
 
   final Lesson lesson;
   final String? examId;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final textStyles = context.textStyles;
     final colors = context.colors;
+    final asyncIsRead = ref.watch(isLessonReadProvider(lesson.id));
+    final isRead = asyncIsRead.valueOrNull ?? false;
 
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16),
@@ -75,6 +77,24 @@ class _LessonBody extends StatelessWidget {
               ),
             ],
           ),
+          const SizedBox(height: 16),
+          if (isRead)
+            AppButton(
+              label: 'Lesson complete ✓',
+              variant: AppButtonVariant.secondary,
+              onPressed: null,
+            )
+          else
+            AppButton(
+              label: 'Mark as read',
+              onPressed: () async {
+                await ref
+                    .read(lessonProgressRepositoryProvider)
+                    .markRead(lesson.id);
+                ref.invalidate(isLessonReadProvider(lesson.id));
+                ref.invalidate(anyLessonReadProvider);
+              },
+            ),
           if (examId != null) ...[
             const SizedBox(height: 16),
             AppButton(
