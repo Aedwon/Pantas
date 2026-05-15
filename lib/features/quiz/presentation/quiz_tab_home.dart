@@ -67,6 +67,12 @@ class _ExamCard extends StatelessWidget {
             label: 'Start Quick Quiz',
             onPressed: () => context.go('/quiz/quick/${exam.id}'),
           ),
+          const SizedBox(height: 8),
+          AppButton(
+            label: 'Browse Lessons',
+            variant: AppButtonVariant.secondary,
+            onPressed: () => context.go('/learn'),
+          ),
         ],
       ),
     );

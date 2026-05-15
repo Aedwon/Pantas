@@ -1,3 +1,6 @@
+import 'package:cse_cet_reviewer/features/lesson/presentation/learn_tab_home.dart';
+import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_list_page.dart';
+import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_results_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_tab_home.dart';
@@ -25,7 +28,16 @@ final routerProvider = Provider<GoRouter>((ref) {
             routes: [
               GoRoute(
                 path: '/learn',
-                builder: (_, __) => const _TabStub('Learn'),
+                builder: (_, __) => const LearnTabHome(),
+                routes: [
+                  GoRoute(
+                    path: 'topic/:topicId',
+                    builder: (_, state) => LessonListPage(
+                      topicId: state.pathParameters['topicId']!,
+                      examId: state.uri.queryParameters['examId'],
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
@@ -60,8 +72,11 @@ final routerProvider = Provider<GoRouter>((ref) {
         ],
       ),
       GoRoute(
-        path: '/lesson',
-        builder: (_, __) => const _Stub('Lesson'),
+        path: '/lesson/:lessonId',
+        builder: (_, state) => LessonPage(
+          lessonId: state.pathParameters['lessonId']!,
+          examId: state.uri.queryParameters['examId'],
+        ),
       ),
       GoRoute(
         path: '/review',
