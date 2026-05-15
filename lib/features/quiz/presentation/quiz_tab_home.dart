@@ -69,6 +69,7 @@ class _ExamCard extends ConsumerWidget {
       return;
     }
 
+    if (!context.mounted) return;
     context.go('/quiz/quick/${exam.id}');
   }
 
@@ -129,12 +130,15 @@ class _QuizNudgeSheet extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Study first for better results',
-                style: textStyles.headlineSmall),
+            Text(
+              'Study first for better results',
+              style: textStyles.headlineSmall,
+            ),
             const SizedBox(height: 12),
             Text(
               "You haven't read any lessons for this exam yet. "
-              'Reading the material before quizzing helps you retain it longer.',
+              'Reading the material before quizzing helps you retain it '
+              'longer.',
               style:
                   textStyles.bodyMedium.copyWith(color: colors.onSurfaceMuted),
             ),

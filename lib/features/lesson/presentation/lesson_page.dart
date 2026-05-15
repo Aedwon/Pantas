@@ -79,7 +79,7 @@ class _LessonBody extends ConsumerWidget {
           ),
           const SizedBox(height: 16),
           if (isRead)
-            AppButton(
+            const AppButton(
               label: 'Lesson complete ✓',
               variant: AppButtonVariant.disabled,
               onPressed: null,
@@ -91,8 +91,9 @@ class _LessonBody extends ConsumerWidget {
                 await ref
                     .read(lessonProgressRepositoryProvider)
                     .markRead(lesson.id);
-                ref.invalidate(isLessonReadProvider(lesson.id));
-                ref.invalidate(anyLessonReadProvider);
+                ref
+                  ..invalidate(isLessonReadProvider(lesson.id))
+                  ..invalidate(anyLessonReadProvider);
               },
             ),
           if (examId != null) ...[
