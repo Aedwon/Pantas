@@ -81,7 +81,7 @@ class _LessonBody extends ConsumerWidget {
           if (isRead)
             AppButton(
               label: 'Lesson complete ✓',
-              variant: AppButtonVariant.secondary,
+              variant: AppButtonVariant.disabled,
               onPressed: null,
             )
           else
