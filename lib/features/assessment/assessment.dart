@@ -1,0 +1,9 @@
+export 'domain/models/assessment_question.dart';
+export 'domain/models/assessment_result.dart';
+export 'domain/models/assessment_session.dart';
+export 'domain/models/topic_mastery.dart';
+export 'domain/services/assessment_question_selector.dart';
+export 'domain/use_cases/complete_assessment.dart';
+export 'domain/use_cases/start_assessment.dart';
+export 'presentation/assessment_page.dart';
+export 'presentation/assessment_results_page.dart';

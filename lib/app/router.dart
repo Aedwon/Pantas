@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/features/assessment/assessment.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/learn_tab_home.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_list_page.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_page.dart';
@@ -77,6 +78,18 @@ final routerProvider = Provider<GoRouter>((ref) {
           lessonId: state.pathParameters['lessonId']!,
           examId: state.uri.queryParameters['examId'],
         ),
+      ),
+      GoRoute(
+        path: '/assessment/:examId',
+        builder: (_, state) =>
+            AssessmentPage(examId: state.pathParameters['examId']!),
+        routes: [
+          GoRoute(
+            path: 'results',
+            builder: (_, state) =>
+                AssessmentResultsPage(examId: state.pathParameters['examId']!),
+          ),
+        ],
       ),
       GoRoute(
         path: '/review',
