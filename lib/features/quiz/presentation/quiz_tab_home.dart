@@ -7,6 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+void _tryGo(BuildContext context, String location) {
+  try {
+    context.go(location);
+  } catch (_) {}
+}
+
 class QuizTabHome extends ConsumerWidget {
   const QuizTabHome({super.key});
 
@@ -38,13 +44,41 @@ class QuizTabHome extends ConsumerWidget {
   }
 }
 
-class _ExamCard extends StatelessWidget {
+class _ExamCard extends ConsumerWidget {
   const _ExamCard({required this.exam});
 
   final Exam exam;
 
+  Future<void> _onStartQuiz(BuildContext context, WidgetRef ref) async {
+    final isDismissed = await ref.read(quizNudgeDismissedProvider.future);
+    final anyRead = await ref.read(anyLessonReadProvider.future);
+
+    if (!isDismissed && !anyRead) {
+      if (!context.mounted) return;
+      await showModalBottomSheet<void>(
+        context: context,
+        builder: (_) => _QuizNudgeSheet(
+          onReadLessons: () {
+            Navigator.of(context).pop();
+            _tryGo(context, '/learn');
+          },
+          onStartAnyway: () async {
+            await ref.read(quizNudgeRepositoryProvider).markDismissed();
+            ref.invalidate(quizNudgeDismissedProvider);
+            if (!context.mounted) return;
+            Navigator.of(context).pop();
+            _tryGo(context, '/quiz/quick/${exam.id}');
+          },
+        ),
+      );
+      return;
+    }
+
+    _tryGo(context, '/quiz/quick/${exam.id}');
+  }
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final textStyles = context.textStyles;
     final colors = context.colors;
 
@@ -65,15 +99,63 @@ class _ExamCard extends StatelessWidget {
           const SizedBox(height: 12),
           AppButton(
             label: 'Start Quick Quiz',
-            onPressed: () => context.go('/quiz/quick/${exam.id}'),
+            onPressed: () => _onStartQuiz(context, ref),
           ),
           const SizedBox(height: 8),
           AppButton(
             label: 'Browse Lessons',
             variant: AppButtonVariant.secondary,
-            onPressed: () => context.go('/learn'),
+            onPressed: () => _tryGo(context, '/learn'),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _QuizNudgeSheet extends StatelessWidget {
+  const _QuizNudgeSheet({
+    required this.onReadLessons,
+    required this.onStartAnyway,
+  });
+
+  final VoidCallback onReadLessons;
+  final VoidCallback onStartAnyway;
+
+  @override
+  Widget build(BuildContext context) {
+    final textStyles = context.textStyles;
+    final colors = context.colors;
+
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Study first for better results',
+                style: textStyles.headlineSmall),
+            const SizedBox(height: 12),
+            Text(
+              "You haven't read any lessons for this exam yet. "
+              'Reading the material before quizzing helps you retain it longer.',
+              style:
+                  textStyles.bodyMedium.copyWith(color: colors.onSurfaceMuted),
+            ),
+            const SizedBox(height: 24),
+            AppButton(
+              label: 'Read lessons',
+              onPressed: onReadLessons,
+            ),
+            const SizedBox(height: 8),
+            AppButton(
+              label: 'Start quiz anyway',
+              variant: AppButtonVariant.secondary,
+              onPressed: onStartAnyway,
+            ),
+          ],
+        ),
       ),
     );
   }
