@@ -4,7 +4,9 @@
 
 **Goal:** Build a one-time per-exam placement assessment that samples questions from all topics, seeds FSRS from day one, and surfaces a prioritized study plan via a results screen; include a progressive nudge on QuizResultsPage for users who haven't taken the assessment.
 
-**Architecture:** Pure local-first — assessment session is in-memory only (lost on app background), results are persisted to a new `AssessmentResultsLocal` Drift table (schemaVersion → 3). Domain logic lives in feature-scoped use cases; UI reuses existing `QuestionCard` and `QuizProgressBar` components. Nudge logic is injected into the existing `QuizResultsPage` by converting `_ResultsBody` to a `ConsumerStatefulWidget`.
+**Architecture:** Pure local-first — assessment session is in-memory only (lost on app background), results are persisted to a new `AssessmentResultsLocal` Drift table (schemaVersion → 3). Domain logic lives in feature-scoped use cases; shared question UI lives in `core/ui/components` so quiz and assessment can reuse `QuestionCard` and `QuizProgressBar` without feature cross-imports. Nudge logic is injected into the existing `QuizResultsPage` by converting `_ResultsBody` to a `ConsumerStatefulWidget`.
+
+**Implementation status:** Implemented and post-review fixed. Commit `eed5c77` fixed review findings, added the selector regression for exams with more than 35 topics, corrected test helper imports, and moved shared quiz/assessment question widgets into `core/ui/components` to satisfy layering hooks.
 
 **Tech Stack:** Flutter, Drift (local SQLite), Riverpod (FutureProvider.family, Provider), GoRouter, FSRS scheduler
 
@@ -22,17 +24,21 @@
 - `lib/features/assessment/domain/services/assessment_question_selector.dart`
 - `lib/features/assessment/domain/use_cases/start_assessment.dart`
 - `lib/features/assessment/domain/use_cases/complete_assessment.dart`
+- `lib/core/ui/components/question_card.dart` — shared question card moved from quiz feature
+- `lib/core/ui/components/quiz_progress_bar.dart` — shared question progress indicator moved from quiz feature
 - `lib/features/assessment/presentation/assessment_page.dart`
 - `lib/features/assessment/presentation/assessment_results_page.dart`
 - `lib/features/assessment/assessment.dart` — barrel export
 
 **Modified files:**
 - `lib/core/storage/data/app_database.dart` — add table, schemaVersion → 3, migration
-- `lib/core/storage/storage.dart` — add 4 providers
+- `lib/core/storage/storage.dart` — add repository/completion/count providers
 - `lib/core/storage/data/repos/content_repository.dart` — add `topicsByExam`
 - `lib/core/storage/data/repos/attempts_repository.dart` — add `countForExam`
 - `lib/app/router.dart` — add 2 assessment routes
 - `lib/features/quiz/presentation/quiz_results_page.dart` — add assessment nudge
+- `lib/features/quiz/presentation/quiz_page.dart` — import shared core question UI
+- `lib/features/assessment/presentation/assessment_results_page.dart` — owns `assessmentResultProvider` to avoid core → feature imports
 
 **Test files:**
 - `test/core/storage/data/app_database_test.dart` — update schemaVersion assertion
@@ -955,7 +961,7 @@ class AssessmentQuestionSelector {
     final topics = await _content.topicsByExam(examId);
     if (topics.isEmpty) return [];
 
-    final questionsPerTopic = math.min(3, 35 ~/ topics.length);
+    final questionsPerTopic = math.max(1, math.min(3, 35 ~/ topics.length));
     final buckets = <List<AssessmentQuestion>>[];
 
     for (final topic in topics) {
@@ -1541,10 +1547,11 @@ git commit -m "feat(assessment): add CompleteAssessment use case"
 
 ---
 
-### Task 8: Providers in storage.dart
+### Task 8: Providers and layer-safe result hydration
 
 **Files:**
 - Modify: `lib/core/storage/storage.dart`
+- Modify: `lib/features/assessment/presentation/assessment_results_page.dart`
 
 - [ ] **Step 1: Add imports to storage.dart**
 
@@ -1552,7 +1559,6 @@ Add to the import section of `lib/core/storage/storage.dart`:
 
 ```dart
 import 'package:cse_cet_reviewer/core/storage/data/repos/assessment_repository.dart';
-import 'package:cse_cet_reviewer/features/assessment/domain/models/assessment_result.dart';
 ```
 
 - [ ] **Step 2: Add providers at the bottom of storage.dart**
@@ -1564,17 +1570,6 @@ final assessmentRepositoryProvider = Provider<AssessmentRepository>(
   (ref) => AssessmentRepository(ref.watch(appDatabaseProvider)),
 );
 
-final assessmentResultProvider =
-    FutureProvider.family<AssessmentResult?, ExamId>((ref, examId) async {
-  final row = await ref
-      .watch(assessmentRepositoryProvider)
-      .resultForExam(examId);
-  if (row == null) return null;
-  final topics =
-      await ref.watch(contentRepositoryProvider).topicsByExam(examId);
-  return AssessmentResult.fromRow(row, topics);
-});
-
 final assessmentCompletedProvider =
     FutureProvider.family<bool, ExamId>((ref, examId) async {
   return ref
@@ -1585,6 +1580,24 @@ final assessmentCompletedProvider =
 final countForExamProvider =
     FutureProvider.family<int, ExamId>((ref, examId) async {
   return ref.watch(attemptsRepositoryProvider).countForExam(examId);
+});
+```
+
+Add `assessmentResultProvider` in
+`lib/features/assessment/presentation/assessment_results_page.dart` instead of
+`core/storage/storage.dart`, because `tool/check_layering.dart` forbids
+`lib/core/**` importing from `lib/features/**`:
+
+```dart
+final assessmentResultProvider =
+    FutureProvider.family<AssessmentResult?, ExamId>((ref, examId) async {
+  final row = await ref
+      .watch(assessmentRepositoryProvider)
+      .resultForExam(examId);
+  if (row == null) return null;
+  final topics =
+      await ref.watch(contentRepositoryProvider).topicsByExam(examId);
+  return AssessmentResult.fromRow(row, topics);
 });
 ```
 

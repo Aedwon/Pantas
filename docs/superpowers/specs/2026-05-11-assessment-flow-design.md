@@ -1,7 +1,7 @@
 # Assessment Flow — Design Spec
 
 **Date:** 2026-05-11
-**Status:** Approved
+**Status:** Implemented
 **Sub-project:** 1 of 2 (Assessment Flow; Home Tab / Study Plan is sub-project 2)
 
 ---
@@ -125,12 +125,11 @@ File: `lib/core/storage/data/repos/assessment_repository.dart`
 Provider added to `storage.dart`:
 ```dart
 final assessmentRepositoryProvider = Provider<AssessmentRepository>(...);
-
-final assessmentResultProvider =
-    FutureProvider.family<AssessmentResult?, ExamId>((ref, examId) async {
-  // reads row → hydrates AssessmentResult with Topic models from ContentRepository
-});
 ```
+
+`assessmentResultProvider` lives in
+`lib/features/assessment/presentation/assessment_results_page.dart` so
+`core/storage` does not import feature-layer assessment models.
 
 ---
 
@@ -142,7 +141,7 @@ File: `lib/features/assessment/domain/services/assessment_question_selector.dart
 
 **Algorithm:**
 1. Load all topics for the exam via `ContentRepository.topicsByExam` (new method — fetches all subjects for the exam, then all topics per subject, returns flat `List<Topic>`)
-2. For each topic, compute `questionsPerTopic = min(3, floor(35 / topicCount))`
+2. For each topic, compute `questionsPerTopic = max(1, min(3, floor(35 / topicCount)))`
 3. For each topic, load candidate questions; prefer `ReviewState.stage == newCard` (never seen), fall back to lowest `stability`
 4. Interleave the selected questions across topics (round-robin by topic index, shuffled within each slot)
 5. Return a flat `List<AssessmentQuestion>`
@@ -184,18 +183,21 @@ final assessmentRepositoryProvider = Provider<AssessmentRepository>(
   (ref) => AssessmentRepository(ref.watch(appDatabaseProvider)),
 );
 
+final assessmentCompletedProvider =
+    FutureProvider.family<bool, ExamId>((ref, examId) async {
+  return ref.watch(assessmentRepositoryProvider).hasCompletedForExam(examId);
+});
+```
+
+Added to `assessment_results_page.dart`:
+
+```dart
 final assessmentResultProvider =
     FutureProvider.family<AssessmentResult?, ExamId>((ref, examId) async {
   final row = await ref.watch(assessmentRepositoryProvider).resultForExam(examId);
   if (row == null) return null;
-  // hydrate with Topic models
   final topics = await ref.watch(contentRepositoryProvider).topicsByExam(examId);
   return AssessmentResult.fromRow(row, topics);
-});
-
-final assessmentCompletedProvider =
-    FutureProvider.family<bool, ExamId>((ref, examId) async {
-  return ref.watch(assessmentRepositoryProvider).hasCompletedForExam(examId);
 });
 ```
 
@@ -330,7 +332,9 @@ test/features/quiz/presentation/quiz_results_nudge_test.dart
 **Modified files:**
 ```
 lib/core/storage/data/app_database.dart       Add table, bump schemaVersion to 3
-lib/core/storage/storage.dart                 Add repo + 2 providers
+lib/core/storage/storage.dart                 Add repo + completion/count providers
+lib/core/ui/components/question_card.dart     Shared question card used by quiz + assessment
+lib/core/ui/components/quiz_progress_bar.dart Shared question progress bar used by quiz + assessment
 lib/core/storage/data/repos/content_repository.dart   Add topicsByExam method
 lib/core/storage/data/repos/attempts_repository.dart   Add countForExam method
 lib/app/router.dart                           Add 2 assessment routes
