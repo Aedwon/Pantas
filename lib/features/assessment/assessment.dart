@@ -5,5 +5,7 @@ export 'domain/models/topic_mastery.dart';
 export 'domain/services/assessment_question_selector.dart';
 export 'domain/use_cases/complete_assessment.dart';
 export 'domain/use_cases/start_assessment.dart';
+export 'presentation/assessment_home_tab.dart';
 export 'presentation/assessment_page.dart';
+export 'presentation/assessment_result_providers.dart';
 export 'presentation/assessment_results_page.dart';

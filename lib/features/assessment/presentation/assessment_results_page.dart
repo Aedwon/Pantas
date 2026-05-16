@@ -6,19 +6,10 @@ import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/assessment/domain/models/assessment_result.dart';
 import 'package:cse_cet_reviewer/features/assessment/domain/models/topic_mastery.dart';
+import 'package:cse_cet_reviewer/features/assessment/presentation/assessment_result_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-
-final assessmentResultProvider =
-    FutureProvider.family<AssessmentResult?, ExamId>((ref, examId) async {
-  final row =
-      await ref.watch(assessmentRepositoryProvider).resultForExam(examId);
-  if (row == null) return null;
-  final topics =
-      await ref.watch(contentRepositoryProvider).topicsByExam(examId);
-  return AssessmentResult.fromRow(row, topics);
-});
 
 final _assessmentExamNameProvider =
     FutureProvider.family<String, ExamId>((ref, examId) async {
@@ -223,7 +214,7 @@ class _TopicCta extends StatelessWidget {
                 child: AppButton(
                   label: 'Study →',
                   onPressed: () => context.push(
-                    '/learn/topic/${mastery.topic.id}?examId=$examId',
+                    '/study/topic/${mastery.topic.id}?examId=$examId',
                   ),
                 ),
               ),

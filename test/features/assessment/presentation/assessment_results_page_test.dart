@@ -18,7 +18,7 @@ GoRouter _buildRouter(String examId) => GoRouter(
               AssessmentResultsPage(examId: state.pathParameters['examId']!),
         ),
         GoRoute(
-          path: '/learn/topic/:topicId',
+          path: '/study/topic/:topicId',
           builder: (_, __) => const Scaffold(body: Text('Lessons')),
         ),
         GoRoute(
@@ -124,6 +124,19 @@ void main() {
 
     expect(find.text('Study →'), findsWidgets);
     expect(find.text('Quiz →'), findsWidgets);
+  });
+
+  testWidgets('Study button opens lessons using study route', (tester) async {
+    await tester.pumpAppWithRouter(
+      _buildRouter('e1'),
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Study →').first);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Lessons'), findsOneWidget);
   });
 
   testWidgets('Quiz button starts quiz scoped to weak topic', (tester) async {
