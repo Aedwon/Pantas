@@ -1,0 +1,1249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Assessment Home Study Plan Mockup</title>
+    <style>
+      :root {
+        --primary: #1f6bff;
+        --primary-ink: #0f3f9a;
+        --primary-soft: #eff6ff;
+        --success: #22c55e;
+        --success-soft: #f0fdf4;
+        --warning: #f59e0b;
+        --warning-soft: #fffbeb;
+        --error: #ef4444;
+        --error-soft: #fef2f2;
+        --ink: #1e293b;
+        --muted: #64748b;
+        --line: #e2e8f0;
+        --paper: #ffffff;
+        --wash: #f8fafc;
+        --shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--ink);
+        background:
+          linear-gradient(135deg, rgba(31, 107, 255, 0.08), transparent 28%),
+          linear-gradient(315deg, rgba(34, 197, 94, 0.08), transparent 32%),
+          var(--wash);
+        font-family:
+          -apple-system,
+          BlinkMacSystemFont,
+          SF Pro Display,
+          SF Pro Text,
+          Helvetica Neue,
+          system-ui,
+          sans-serif;
+      }
+
+      .workspace {
+        display: grid;
+        grid-template-columns: minmax(260px, 340px) minmax(360px, 430px) minmax(280px, 1fr);
+        gap: 28px;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 32px;
+        align-items: start;
+      }
+
+      .panel {
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(226, 232, 240, 0.9);
+        border-radius: 18px;
+        box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+        padding: 18px;
+        backdrop-filter: blur(14px);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      .eyebrow {
+        color: var(--primary);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .title {
+        margin-top: 8px;
+        font-size: 28px;
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+
+      .subtitle {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .decision-list {
+        display: grid;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .decision-group {
+        margin-top: 22px;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+      }
+
+      .decision-group h2 {
+        font-size: 13px;
+        line-height: 1.2;
+      }
+
+      .decision-group p {
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.4;
+      }
+
+      .decision-button {
+        width: 100%;
+        min-height: 48px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--paper);
+        color: var(--ink);
+        padding: 12px;
+        text-align: left;
+        cursor: pointer;
+        font: inherit;
+      }
+
+      .decision-button strong {
+        display: block;
+        font-size: 14px;
+      }
+
+      .decision-button span {
+        display: block;
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.35;
+      }
+
+      .decision-button.active {
+        border-color: var(--primary);
+        background: var(--primary-soft);
+        box-shadow: inset 4px 0 0 var(--primary);
+      }
+
+      .comparison-grid {
+        display: grid;
+        gap: 12px;
+        margin-top: 12px;
+      }
+
+      .mini-preview {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: white;
+        padding: 12px;
+      }
+
+      .mini-preview.active {
+        border-color: var(--primary);
+        background: var(--primary-soft);
+      }
+
+      .mini-preview h3 {
+        font-size: 14px;
+        line-height: 1.25;
+      }
+
+      .mini-preview p {
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.4;
+      }
+
+      .mini-list {
+        display: grid;
+        gap: 5px;
+        margin-top: 10px;
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .phone {
+        width: min(100%, 390px);
+        min-height: 790px;
+        margin: 0 auto;
+        overflow: hidden;
+        background: var(--wash);
+        border: 10px solid #111827;
+        border-radius: 38px;
+        box-shadow: var(--shadow);
+      }
+
+      .statusbar {
+        height: 26px;
+        background: var(--primary);
+      }
+
+      .appbar {
+        padding: 14px 18px 18px;
+        background: var(--primary);
+        color: white;
+      }
+
+      .appbar.clean {
+        padding: 44px 18px 20px;
+        background: var(--wash);
+        color: #020617;
+      }
+
+      .appbar h2 {
+        font-size: 22px;
+        line-height: 1.2;
+      }
+
+      .appbar p {
+        margin-top: 3px;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 13px;
+        font-weight: 650;
+      }
+
+      .appbar.clean p {
+        color: #8b8d95;
+      }
+
+      .screen {
+        padding: 16px;
+      }
+
+      .search {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 48px;
+        margin: 0 16px 16px;
+        border-radius: 24px;
+        background: #e5e7ee;
+        color: #8b8d95;
+        padding: 0 16px;
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--paper);
+        padding: 14px;
+        box-shadow: 0 1px 4px rgba(15, 23, 42, 0.05);
+      }
+
+      .card + .card,
+      .card + .text-link {
+        margin-top: 12px;
+      }
+
+      .focus-card {
+        border-top: 3px solid var(--primary);
+      }
+
+      .label {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 650;
+      }
+
+      .exam-row {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+
+      .exam-name {
+        margin-top: 3px;
+        font-size: 18px;
+        font-weight: 800;
+        line-height: 1.2;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        min-height: 24px;
+        border-radius: 999px;
+        padding: 4px 8px;
+        white-space: nowrap;
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .badge.primary {
+        color: var(--primary);
+        background: var(--primary-soft);
+      }
+
+      .badge.success {
+        color: #15803d;
+        background: var(--success-soft);
+      }
+
+      .badge.warning {
+        color: #a16207;
+        background: var(--warning-soft);
+      }
+
+      .badge.error {
+        color: #b91c1c;
+        background: var(--error-soft);
+      }
+
+      .section-title {
+        margin-top: 2px;
+        font-size: 18px;
+        font-weight: 850;
+        line-height: 1.2;
+      }
+
+      .body {
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.48;
+      }
+
+      .body.tight {
+        max-width: 260px;
+      }
+
+      .illustration {
+        position: relative;
+        width: 150px;
+        height: 128px;
+        margin: 4px auto 18px;
+      }
+
+      .illustration::before {
+        position: absolute;
+        inset: 4px 8px 0;
+        border-radius: 50%;
+        background: #eff6ff;
+        content: "";
+      }
+
+      .magnifier {
+        position: absolute;
+        left: 48px;
+        top: 24px;
+        width: 54px;
+        height: 54px;
+        border: 7px solid #1f6bff;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .magnifier::after {
+        position: absolute;
+        right: -24px;
+        bottom: -14px;
+        width: 34px;
+        height: 8px;
+        border-radius: 999px;
+        background: #1f6bff;
+        transform: rotate(42deg);
+        content: "";
+      }
+
+      .topic-stack {
+        position: absolute;
+        left: 18px;
+        bottom: 24px;
+        display: grid;
+        gap: 5px;
+      }
+
+      .topic-line {
+        width: 48px;
+        height: 12px;
+        border-radius: 999px;
+        background: #bfdbfe;
+      }
+
+      .topic-line.hot {
+        width: 62px;
+        background: #fecaca;
+      }
+
+      .mini-chart {
+        position: absolute;
+        right: 24px;
+        top: 22px;
+        width: 44px;
+        height: 42px;
+        border: 3px solid #bfdbfe;
+        border-radius: 8px;
+        background: #ffffff;
+      }
+
+      .mini-chart::before,
+      .mini-chart::after {
+        position: absolute;
+        bottom: 7px;
+        width: 7px;
+        border-radius: 4px 4px 0 0;
+        content: "";
+      }
+
+      .mini-chart::before {
+        left: 10px;
+        height: 12px;
+        background: #ef4444;
+      }
+
+      .mini-chart::after {
+        left: 24px;
+        height: 24px;
+        background: #22c55e;
+      }
+
+      .target-dot {
+        position: absolute;
+        left: 66px;
+        top: 42px;
+        width: 18px;
+        height: 18px;
+        border: 5px solid #ef4444;
+        border-radius: 50%;
+        background: #ffffff;
+      }
+
+      .benefits {
+        display: grid;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .benefit {
+        display: grid;
+        grid-template-columns: 22px 1fr;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      .benefit-icon {
+        color: var(--warning);
+        font-weight: 900;
+      }
+
+      .button-stack,
+      .button-row {
+        display: grid;
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .button-row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cta {
+        min-height: 48px;
+        border: 0;
+        border-radius: 10px;
+        padding: 0 14px;
+        font: inherit;
+        font-size: 14px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .cta.primary {
+        color: white;
+        background: var(--primary);
+        box-shadow: 0 8px 18px rgba(31, 107, 255, 0.25);
+      }
+
+      .cta.secondary {
+        color: var(--primary);
+        background: white;
+        border: 2px solid var(--primary);
+      }
+
+      .completion-line {
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .recommendation {
+        margin-top: 14px;
+        padding: 13px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: linear-gradient(180deg, #ffffff, #f8fbff);
+      }
+
+      .topic-topline {
+        display: flex;
+        gap: 8px;
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+
+      .topic-name {
+        font-size: 18px;
+        font-weight: 850;
+        line-height: 1.2;
+      }
+
+      .score-line {
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 650;
+      }
+
+      .microcopy {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.35;
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .chip {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: white;
+        padding: 8px 10px;
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 750;
+      }
+
+      .chip.action {
+        border-color: var(--primary);
+        color: var(--primary);
+        background: var(--primary-soft);
+        cursor: pointer;
+      }
+
+      .chip.results {
+        border-style: dashed;
+        cursor: pointer;
+      }
+
+      .chip span {
+        color: var(--muted);
+        font-weight: 700;
+      }
+
+      .text-link {
+        display: block;
+        width: 100%;
+        min-height: 48px;
+        border: 0;
+        background: transparent;
+        color: var(--primary);
+        font: inherit;
+        font-size: 14px;
+        font-weight: 850;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      .empty {
+        display: grid;
+        min-height: 520px;
+        place-items: center;
+        text-align: center;
+      }
+
+      .empty-icon {
+        font-size: 46px;
+      }
+
+      .empty h3 {
+        margin-top: 16px;
+        font-size: 18px;
+      }
+
+      .empty p {
+        max-width: 280px;
+        margin: 8px auto 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.45;
+      }
+
+      .notes {
+        display: grid;
+        gap: 12px;
+      }
+
+      .note {
+        border-left: 4px solid var(--primary);
+        padding-left: 12px;
+      }
+
+      .note h3 {
+        font-size: 14px;
+      }
+
+      .note p {
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      .nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        height: 62px;
+        border-top: 1px solid var(--line);
+        background: white;
+      }
+
+      .nav.floating {
+        width: calc(100% - 28px);
+        height: 70px;
+        margin: 0 auto 14px;
+        border: 1px solid rgba(226, 232, 240, 0.9);
+        border-radius: 34px;
+        box-shadow: 0 18px 35px rgba(15, 23, 42, 0.12);
+        overflow: hidden;
+      }
+
+      .nav-item {
+        display: grid;
+        place-items: center;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .nav-item.active {
+        color: var(--primary);
+      }
+
+      .learn-dot {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--primary);
+        color: white;
+        box-shadow: 0 8px 20px rgba(31, 107, 255, 0.34);
+      }
+
+      @media (max-width: 1040px) {
+        .workspace {
+          grid-template-columns: 1fr;
+        }
+
+        .phone {
+          min-height: 760px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="workspace">
+      <aside class="panel">
+        <div class="eyebrow">Decision Mockup</div>
+        <h1 class="title">Assessment Home Study Plan</h1>
+        <p class="subtitle">
+          Click states as we answer each product decision. This is a visual
+          companion only, not Flutter implementation.
+        </p>
+        <div class="decision-list" aria-label="Mockup states" style="display:none">
+          <button class="decision-button active" data-state="complete-weak">
+            <strong>Assessment complete</strong>
+            <span>One primary recommendation plus secondary focus chips.</span>
+          </button>
+          <button class="decision-button" data-state="no-assessment">
+            <strong>Assessment not taken</strong>
+            <span>Assessment-first, with quiz as secondary escape hatch.</span>
+          </button>
+          <button class="decision-button" data-state="all-strong">
+            <strong>All topics strong</strong>
+            <span>Same layout, reframed as Keep sharp.</span>
+          </button>
+          <button class="decision-button" data-state="no-focus">
+            <strong>No selected exam fallback</strong>
+            <span>Defensive state if onboarding was skipped or local focus is gone.</span>
+          </button>
+        </div>
+        <div class="decision-group" style="display:none">
+          <h2>Current Decision: Secondary Chips</h2>
+          <p>What should the compact secondary focus topics do?</p>
+          <div class="decision-list" aria-label="Secondary chip behavior options">
+            <button class="decision-button active" data-chip-mode="display">
+              <strong>Option B: Display-only</strong>
+              <span>Chips give context. Main actions remain Study, Quiz, View results.</span>
+            </button>
+            <button class="decision-button" data-chip-mode="study">
+              <strong>Option A: Tap to Study</strong>
+              <span>Chips become quick shortcuts to lesson lists for those topics.</span>
+            </button>
+            <button class="decision-button" data-chip-mode="results">
+              <strong>Option C: Tap to Results</strong>
+              <span>Chips imply a filtered/scrolled results view, which is not built yet.</span>
+            </button>
+          </div>
+        </div>
+        <div class="decision-group" style="display:none">
+          <h2>High-Level Direction</h2>
+          <p>Compare the two product priorities for this Home sub-project.</p>
+          <div class="comparison-grid">
+            <button class="decision-button active" data-priority="first">
+              <strong>First-time clarity</strong>
+              <span>Guide the user from selected exam to assessment to one next step.</span>
+            </button>
+            <button class="decision-button" data-priority="returning">
+              <strong>Returning daily use</strong>
+              <span>Optimize for repeat study sessions, streaks, reviews, and progress.</span>
+            </button>
+          </div>
+        </div>
+        <div class="decision-group" style="display:none">
+          <h2>Current Decision: Future Dashboard Cards</h2>
+          <p>Should Phase 1 show modules that are not implemented yet?</p>
+          <div class="decision-list" aria-label="Future dashboard card options">
+            <button class="decision-button active" data-future-mode="omit">
+              <strong>Option A: Omit future cards</strong>
+              <span>Only show working assessment study-plan UI.</span>
+            </button>
+            <button class="decision-button" data-future-mode="disabled">
+              <strong>Option B: Disabled coming-soon cards</strong>
+              <span>Preview streak and weekly performance as unavailable modules.</span>
+            </button>
+          </div>
+        </div>
+        <div class="decision-group">
+          <h2>Current Decision: Exam Switching</h2>
+          <p>Where should users change their selected exam?</p>
+          <div class="decision-list" aria-label="Exam switching options">
+            <button class="decision-button active" data-switch-mode="more">
+              <strong>Option A: More / Settings only</strong>
+              <span>Tabs stay focused. Switching is deliberate.</span>
+            </button>
+            <button class="decision-button" data-switch-mode="header">
+              <strong>Option B: Header switcher</strong>
+              <span>Very discoverable, but adds a control to every main screen.</span>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="phone" aria-label="Phone mockup">
+        <div class="statusbar"></div>
+        <header class="appbar clean" id="appbar">
+          <h2>Home</h2>
+          <p id="exam-subtitle">Civil Service Exam</p>
+        </header>
+        <div id="search-slot"></div>
+        <div class="screen" id="screen"></div>
+        <nav class="nav" id="bottom-nav" aria-label="Bottom navigation">
+          <div class="nav-item active">⌂<br />Home</div>
+          <div class="nav-item">▰<br />Study</div>
+          <div class="nav-item"><span class="learn-dot">▶</span>Quiz</div>
+          <div class="nav-item">•••<br />More</div>
+        </nav>
+      </section>
+
+      <aside class="panel notes" id="notes"></aside>
+    </main>
+
+    <script>
+      let currentState = "no-assessment";
+      let chipMode = "display";
+      let priorityMode = "first";
+      let futureMode = "omit";
+      let emptyMode = "focused";
+      let completeMode = "expanded";
+      let actionRule = "adaptive";
+      let emphasisRule = "first";
+      let scoreCopy = "minimal";
+      let secondaryLabel = "try";
+      let headerMode = "clean";
+      let searchMode = "none";
+      let navMode = "floating";
+      let switchMode = "more";
+
+      function chipMarkup(topic, score) {
+        if (chipMode === "study") {
+          return `<button class="chip action">${topic} <span>${score}</span> → Study</button>`;
+        }
+        if (chipMode === "results") {
+          return `<button class="chip results">${topic} <span>${score}</span> → Results</button>`;
+        }
+        return `<span class="chip">${topic} <span>${score}</span></span>`;
+      }
+
+      function chipNote() {
+        if (chipMode === "study") {
+          return ["Chip behavior", "Secondary chips are tappable shortcuts to Study. Useful, but the tap target behavior is less explicit than the main buttons."];
+        }
+        if (chipMode === "results") {
+          return ["Chip behavior", "Secondary chips would open a filtered or scrolled results view. This is informative but implies results-page behavior that does not exist yet."];
+        }
+        return ["Chip behavior", "Secondary chips are display-only. This keeps Home directive: one primary next step, then View full results for exploration."];
+      }
+
+      function priorityNotes() {
+        if (priorityMode === "returning") {
+          return [
+            ["Primary user", "Returning users who already have routines and want fast daily actions."],
+            ["Screen shape", "Would need due reviews, streak, recent progress, and maybe lesson/quiz history."],
+            ["Risk", "This pulls the project beyond assessment Home into a broader dashboard foundation."],
+          ];
+        }
+        return [
+            ["Design principle", "Keep Home simple: one screen, one recommendation, one obvious primary action."],
+            ["Copy rule", "Use short labels and progressive disclosure. Full explanations belong in Results, not Home."],
+            ["Scope", "This sub-project stays assessment-driven. Daily dashboard features come later."],
+        ];
+      }
+
+      function priorityBanner() {
+        if (priorityMode === "returning") {
+          return `
+            <section class="card" style="margin-bottom:12px">
+              <div class="label">Returning daily dashboard direction</div>
+              <div class="mini-list">
+                <span>Due reviews today: 18</span>
+                <span>Current streak: 4 days</span>
+                <span>Last quiz: 7/10</span>
+              </div>
+              <p class="body">This is useful later, but it depends on broader progress and review features.</p>
+            </section>
+          `;
+        }
+        return "";
+      }
+
+      function futureModules() {
+        if (futureMode === "disabled") {
+          return `
+            <section class="card" style="margin-top:12px; opacity:.68">
+              <div class="label">Coming later</div>
+              <div class="section-title" style="margin-top:6px">Daily streak</div>
+              <p class="body">Track your study habit for this exam.</p>
+            </section>
+            <section class="card" style="margin-top:12px; opacity:.68">
+              <div class="label">Coming later</div>
+              <div class="section-title" style="margin-top:6px">Weekly quiz performance</div>
+              <p class="body">See how your practice changed this week.</p>
+            </section>
+          `;
+        }
+        return "";
+      }
+
+      function futureNote() {
+        if (futureMode === "disabled") {
+          return ["Future cards", "Disabled future modules show the dashboard vision, but they add clutter and make Phase 1 feel unfinished."];
+        }
+        return ["Future cards", "Future dashboard modules are omitted until they work. This keeps Phase 1 focused and avoids unfinished UI."];
+      }
+
+      function emptyAssessmentCard() {
+        const secondaryText =
+          secondaryLabel === "instead"
+            ? "Quiz instead"
+            : secondaryLabel === "skip"
+              ? "Skip for now"
+              : "Quiz for now";
+        if (emptyMode === "compact") {
+          return `
+            <section class="card">
+              <div class="exam-row">
+                <div>
+                  <h3 class="section-title" style="margin-top:12px">Build your study plan</h3>
+                  <p class="body tight">Find what to study first.</p>
+                </div>
+                <div class="illustration" aria-hidden="true" style="width:92px;height:84px;margin:0">
+                  <div class="topic-stack" style="left:8px;bottom:12px;transform:scale(.72);transform-origin:left bottom">
+                    <div class="topic-line"></div>
+                    <div class="topic-line hot"></div>
+                    <div class="topic-line"></div>
+                  </div>
+                  <div class="magnifier" style="left:28px;top:17px;transform:scale(.66);transform-origin:left top"></div>
+                  <div class="target-dot" style="left:42px;top:30px;transform:scale(.7);transform-origin:left top"></div>
+                </div>
+              </div>
+              <div class="button-stack">
+                <button class="cta primary">Start assessment</button>
+                <button class="cta secondary">${secondaryText}</button>
+              </div>
+            </section>
+          `;
+        }
+
+        return `
+          <section class="card">
+            <div class="illustration" aria-hidden="true">
+              <div class="topic-stack">
+                <div class="topic-line"></div>
+                <div class="topic-line hot"></div>
+                <div class="topic-line"></div>
+              </div>
+              <div class="magnifier"></div>
+              <div class="target-dot"></div>
+              <div class="mini-chart"></div>
+            </div>
+            <h3 class="section-title" style="margin-top:14px">Build your study plan</h3>
+            <p class="body tight">Take the assessment to find what to study first.</p>
+            <div class="button-stack">
+              <button class="cta primary">Start assessment</button>
+              <button class="cta secondary">${secondaryText}</button>
+            </div>
+          </section>
+        `;
+      }
+
+      function completedAssessmentCard(kind) {
+          if (completeMode === "expanded") {
+          return `
+            <section class="card">
+              <div class="completion-line" style="margin-top:0;margin-bottom:8px">Assessment last taken on May 12, 2026</div>
+              <div class="recommendation">
+                <div class="label">${kind === "strong" ? "Keep sharp" : "Your study plan"}</div>
+                ${topicRow(kind === "strong" ? "Algebra" : "Vocabulary", kind === "strong" ? "78%" : "0%", kind === "strong" ? "Strong" : "Weak", true, kind)}
+                ${topicRow(kind === "strong" ? "Geometry" : "Grammar", kind === "strong" ? "82%" : "33%", kind === "strong" ? "Strong" : "Weak", false, kind)}
+                ${topicRow(kind === "strong" ? "Biology" : "Reading", kind === "strong" ? "85%" : "40%", kind === "strong" ? "Strong" : "Weak", false, kind)}
+              </div>
+              <button class="text-link">View full results</button>
+            </section>
+          `;
+        }
+
+        return `
+          <section class="card">
+            <div class="completion-line" style="margin-top:0;margin-bottom:8px">Assessment last taken on May 12, 2026</div>
+            <div class="recommendation">
+              <div class="label">${kind === "strong" ? "Keep sharp" : "Start here"}</div>
+              <div class="topic-topline">
+                <div class="topic-name">${kind === "strong" ? "Algebra" : "Vocabulary"}</div>
+                <span class="badge ${kind === "strong" ? "success" : "error"}">${kind === "strong" ? "Strong" : "Weak"}</span>
+              </div>
+              <div class="score-line">${kind === "strong" ? "Strong · 78% on assessment" : "0% on assessment"}</div>
+              <p class="microcopy">${kind === "strong" ? "Keep momentum with quick practice." : "Review first. Practice after."}</p>
+              <div class="button-row">
+                ${kind === "strong"
+                  ? '<button class="cta primary">Quiz</button><button class="cta secondary">Study</button>'
+                  : '<button class="cta primary">Study</button><button class="cta secondary">Quiz</button>'}
+              </div>
+            </div>
+
+            <p class="body">${kind === "strong" ? "Also keep fresh" : "Also watch"}</p>
+            <div class="chips">
+              ${kind === "strong" ? chipMarkup("Geometry", "82%") + chipMarkup("Biology", "85%") : chipMarkup("Grammar", "33%") + chipMarkup("Reading", "40%")}
+            </div>
+
+            <button class="text-link">View full results</button>
+          </section>
+        `;
+      }
+
+      function topicAction(kind) {
+        if (actionRule === "study") return "Study";
+        if (actionRule === "quiz") return "Quiz";
+        return kind === "strong" ? "Quiz" : "Study";
+      }
+
+      function scoreText(score) {
+        return scoreCopy === "minimal" ? score : `${score} on assessment`;
+      }
+
+      function topicRow(topic, score, level, first, kind) {
+        const action = topicAction(kind);
+        const emphasized = emphasisRule === "first" && first;
+        return `
+          <div style="display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:${emphasized ? "12px 0" : "10px 0"};border-top:1px solid var(--line)">
+            <div>
+              <div style="font-size:14px;font-weight:850">${topic}</div>
+              <div class="completion-line">${scoreText(score)}</div>
+            </div>
+            <button class="cta ${emphasized ? "primary" : "secondary"}" style="min-height:40px">${action}</button>
+          </div>
+        `;
+      }
+
+      const states = {
+        "complete-weak": {
+          notes: () => [
+            ...priorityNotes(),
+            ["Decision", "Home answers: What should I do next for my selected exam?"],
+            ["Exam focus", "The selected exam is passive here. Switching belongs in More/Settings."],
+            ["Recommendation", "Study stays primary because the weakest topic needs review before drilling."],
+            chipNote(),
+            futureNote(),
+          ],
+          html: () => `
+            ${priorityBanner()}
+            ${completedAssessmentCard("weak")}
+            ${futureModules()}
+          `,
+        },
+        "no-assessment": {
+          notes: () => [
+            ...priorityNotes(),
+            ["Decision", "Before assessment, Home is assessment-first."],
+            ["Escape hatch", "Quiz is still available, but visually secondary."],
+            ["Illustration", "No-assessment is a friendly first-run state with a study-planning illustration, not a plain dashboard card."],
+            ["Out of scope", "No quiz/lesson activity is read here, even if the user practiced already."],
+            futureNote(),
+          ],
+          html: () => `
+            ${priorityBanner()}
+            ${emptyAssessmentCard()}
+            ${futureModules()}
+          `,
+        },
+        "all-strong": {
+          notes: () => [
+            ...priorityNotes(),
+            ["Decision", "When all scores are strong, avoid weak-area language."],
+            ["Framing", "Keep sharp still gives a next action without punishing success."],
+            ["Topics", "The primary topic is the lowest strong topic, with up to two secondary chips."],
+            chipNote(),
+            futureNote(),
+          ],
+          html: () => `
+            ${priorityBanner()}
+            ${completedAssessmentCard("strong")}
+            ${futureModules()}
+          `,
+        },
+        "no-focus": {
+          notes: () => [
+            ...priorityNotes(),
+            ["Decision", "This should be rare because onboarding should require exam selection."],
+            ["Purpose", "It protects dev builds, corrupted local state, and deep links."],
+            ["CTA", "Routes to onboarding or the future exam-focus picker."],
+            futureNote(),
+          ],
+          html: () => `
+            <section class="empty">
+              <div>
+                <div class="empty-icon">📚</div>
+                <h3>Choose your exam</h3>
+                <p>Pick the exam you are reviewing for so Home, Learn, and Quiz stay focused.</p>
+                <div class="button-stack">
+                  <button class="cta primary">Choose exam</button>
+                </div>
+              </div>
+            </section>
+          `,
+        },
+      };
+
+      const screen = document.querySelector("#screen");
+      const notes = document.querySelector("#notes");
+      const stateButtons = [...document.querySelectorAll("[data-state]")];
+      const chipButtons = [...document.querySelectorAll("[data-chip-mode]")];
+      const priorityButtons = [...document.querySelectorAll("[data-priority]")];
+      const futureButtons = [...document.querySelectorAll("[data-future-mode]")];
+      const emptyButtons = [...document.querySelectorAll("[data-empty-mode]")];
+      const completeButtons = [...document.querySelectorAll("[data-complete-mode]")];
+      const actionButtons = [...document.querySelectorAll("[data-action-rule]")];
+      const emphasisButtons = [...document.querySelectorAll("[data-emphasis-rule]")];
+      const scoreButtons = [...document.querySelectorAll("[data-score-copy]")];
+      const secondaryButtons = [...document.querySelectorAll("[data-secondary-label]")];
+      const headerButtons = [...document.querySelectorAll("[data-header-mode]")];
+      const searchButtons = [...document.querySelectorAll("[data-search-mode]")];
+      const navButtons = [...document.querySelectorAll("[data-nav-mode]")];
+      const switchButtons = [...document.querySelectorAll("[data-switch-mode]")];
+
+      function render(stateName) {
+        currentState = stateName;
+        const state = states[stateName];
+        screen.innerHTML = state.html();
+        notes.innerHTML = state.notes()
+          .map(([title, body]) => `<div class="note"><h3>${title}</h3><p>${body}</p></div>`)
+          .join("");
+        stateButtons.forEach((button) => {
+          button.classList.toggle("active", button.dataset.state === stateName);
+        });
+        chipButtons.forEach((button) => {
+          button.classList.toggle("active", button.dataset.chipMode === chipMode);
+        });
+        priorityButtons.forEach((button) => {
+          button.classList.toggle("active", button.dataset.priority === priorityMode);
+        });
+        futureButtons.forEach((button) => {
+          button.classList.toggle("active", button.dataset.futureMode === futureMode);
+        });
+        emptyButtons.forEach((button) => {
+          button.classList.toggle("active", button.dataset.emptyMode === emptyMode);
+        });
+        completeButtons.forEach((button) => {
+          button.classList.toggle("active", button.dataset.completeMode === completeMode);
+        });
+        actionButtons.forEach((button) => {
+          button.classList.toggle("active", button.dataset.actionRule === actionRule);
+        });
+        emphasisButtons.forEach((button) => {
+          button.classList.toggle("active", button.dataset.emphasisRule === emphasisRule);
+        });
+        scoreButtons.forEach((button) => {
+          button.classList.toggle("active", button.dataset.scoreCopy === scoreCopy);
+        });
+        secondaryButtons.forEach((button) => {
+          button.classList.toggle("active", button.dataset.secondaryLabel === secondaryLabel);
+        });
+        headerButtons.forEach((button) => {
+          button.classList.toggle("active", button.dataset.headerMode === headerMode);
+        });
+        searchButtons.forEach((button) => {
+          button.classList.toggle("active", button.dataset.searchMode === searchMode);
+        });
+        navButtons.forEach((button) => {
+          button.classList.toggle("active", button.dataset.navMode === navMode);
+        });
+        switchButtons.forEach((button) => {
+          button.classList.toggle("active", button.dataset.switchMode === switchMode);
+        });
+        document.querySelector("#appbar").classList.toggle("clean", headerMode === "clean");
+        document.querySelector("#bottom-nav").classList.toggle("floating", navMode === "floating");
+        document.querySelector("#search-slot").innerHTML =
+          searchMode === "show" ? '<div class="search">⌕ Search topics...</div>' : "";
+        document.querySelector("#exam-subtitle").textContent =
+          stateName === "all-strong"
+            ? switchMode === "header" ? "UPCAT ▾" : "UPCAT"
+            : stateName === "no-focus"
+              ? "Choose exam"
+              : switchMode === "header" ? "Civil Service Exam ▾" : "Civil Service Exam";
+      }
+
+      stateButtons.forEach((button) => {
+        button.addEventListener("click", () => render(button.dataset.state));
+      });
+
+      chipButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          chipMode = button.dataset.chipMode;
+          render(currentState);
+        });
+      });
+
+      priorityButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          priorityMode = button.dataset.priority;
+          render(currentState);
+        });
+      });
+
+      futureButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          futureMode = button.dataset.futureMode;
+          render(currentState);
+        });
+      });
+
+      emptyButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          emptyMode = button.dataset.emptyMode;
+          render("no-assessment");
+        });
+      });
+
+      completeButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          completeMode = button.dataset.completeMode;
+          render("complete-weak");
+        });
+      });
+
+      actionButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          actionRule = button.dataset.actionRule;
+          render(currentState);
+        });
+      });
+
+      emphasisButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          emphasisRule = button.dataset.emphasisRule;
+          render("complete-weak");
+        });
+      });
+
+      scoreButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          scoreCopy = button.dataset.scoreCopy;
+          render("complete-weak");
+        });
+      });
+
+      secondaryButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          secondaryLabel = button.dataset.secondaryLabel;
+          render("no-assessment");
+        });
+      });
+
+      headerButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          headerMode = button.dataset.headerMode;
+          render(currentState);
+        });
+      });
+
+      searchButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          searchMode = button.dataset.searchMode;
+          render(currentState);
+        });
+      });
+
+      navButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          navMode = button.dataset.navMode;
+          render(currentState);
+        });
+      });
+
+      switchButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          switchMode = button.dataset.switchMode;
+          render(currentState);
+        });
+      });
+
+      render("no-assessment");
+    </script>
+  </body>
+</html>

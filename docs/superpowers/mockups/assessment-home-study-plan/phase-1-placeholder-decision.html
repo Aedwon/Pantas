@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Phase 1 Placeholder Decision</title>
+    <style>
+      :root {
+        --primary: #1f6bff;
+        --primary-soft: #eff6ff;
+        --error: #ef4444;
+        --ink: #1e293b;
+        --muted: #64748b;
+        --line: #e2e8f0;
+        --paper: #ffffff;
+        --wash: #f8fafc;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--ink);
+        background: var(--wash);
+        font-family:
+          -apple-system,
+          BlinkMacSystemFont,
+          "SF Pro Text",
+          "Helvetica Neue",
+          Arial,
+          sans-serif;
+      }
+
+      .page {
+        display: grid;
+        gap: 24px;
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 32px;
+      }
+
+      .note {
+        max-width: 680px;
+      }
+
+      .choices {
+        display: grid;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .choice {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: white;
+        padding: 14px;
+      }
+
+      .choice.selected {
+        border-color: var(--primary);
+        background: var(--primary-soft);
+        box-shadow: inset 4px 0 0 var(--primary);
+      }
+
+      .choice strong {
+        display: block;
+        font-size: 14px;
+      }
+
+      .choice span {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      h1,
+      h2,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 28px;
+        line-height: 1.15;
+      }
+
+      p {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.45;
+      }
+
+      .phone {
+        position: relative;
+        width: min(100%, 390px);
+        min-height: 780px;
+        overflow: hidden;
+        border: 10px solid #111827;
+        border-radius: 38px;
+        background: var(--wash);
+        box-shadow: 0 20px 60px rgba(15, 23, 42, 0.18);
+      }
+
+      .appbar {
+        padding: 44px 20px 18px;
+      }
+
+      .appbar h2 {
+        font-size: 28px;
+        line-height: 1.1;
+      }
+
+      .appbar p {
+        margin-top: 4px;
+        color: #8b8d95;
+        font-size: 14px;
+        font-weight: 650;
+      }
+
+      .screen {
+        padding: 6px 16px 104px;
+      }
+
+      .hero {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--paper);
+        padding: 18px;
+        box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+      }
+
+      .placeholder {
+        position: relative;
+        height: 132px;
+        margin-bottom: 18px;
+        display: grid;
+        place-items: center;
+      }
+
+      .blob {
+        width: 184px;
+        height: 112px;
+        border-radius: 24px;
+        background: var(--primary-soft);
+      }
+
+      .bars {
+        position: absolute;
+        left: 50px;
+        top: 38px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .bar {
+        height: 12px;
+        border-radius: 999px;
+        background: var(--primary);
+        opacity: 0.35;
+      }
+
+      .bar:nth-child(1) {
+        width: 70px;
+      }
+
+      .bar:nth-child(2) {
+        width: 96px;
+        background: var(--error);
+        opacity: 0.4;
+      }
+
+      .bar:nth-child(3) {
+        width: 58px;
+      }
+
+      .lens {
+        position: absolute;
+        width: 76px;
+        height: 76px;
+        border: 8px solid var(--primary);
+        border-radius: 50%;
+        background: white;
+      }
+
+      .lens::after {
+        position: absolute;
+        right: -24px;
+        bottom: -12px;
+        width: 38px;
+        height: 8px;
+        border-radius: 999px;
+        background: var(--primary);
+        content: "";
+        transform: rotate(42deg);
+      }
+
+      .target {
+        position: absolute;
+        inset: 21px;
+        border: 6px solid var(--error);
+        border-radius: 50%;
+      }
+
+      .hero h2 {
+        font-size: 24px;
+        line-height: 1.15;
+      }
+
+      .hero p {
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .actions {
+        display: grid;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      button {
+        min-height: 48px;
+        border: 0;
+        border-radius: 14px;
+        font: inherit;
+        font-size: 15px;
+        font-weight: 750;
+      }
+
+      .primary {
+        color: white;
+        background: var(--primary);
+      }
+
+      .secondary {
+        color: var(--primary);
+        background: var(--primary-soft);
+      }
+
+      .nav {
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        min-height: 66px;
+        border: 1px solid rgba(226, 232, 240, 0.95);
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.94);
+        box-shadow: 0 16px 36px rgba(15, 23, 42, 0.14);
+      }
+
+      .nav span {
+        display: grid;
+        place-items: center;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 750;
+      }
+
+      .nav span:first-child {
+        color: var(--primary);
+      }
+
+      @media (min-width: 760px) {
+        .page {
+          grid-template-columns: 1fr 390px;
+          align-items: start;
+        }
+
+        .note {
+          padding-top: 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="note">
+        <h1>Decision: native placeholder, no SVG dependency</h1>
+        <p>
+          Phase 1 reserves visual space for the future diagnostic illustration
+          using Flutter containers and icons. This keeps the implementation
+          dependency-light while matching the no-assessment Home layout.
+        </p>
+        <div class="choices" aria-label="Placeholder options">
+          <div class="choice selected">
+            <strong>Selected: Native Flutter placeholder</strong>
+            <span>Use containers and icons. No dependency, easy to replace later.</span>
+          </div>
+          <div class="choice">
+            <strong>Not selected: SVG asset</strong>
+            <span>More precise, but would add flutter_svg for one temporary visual.</span>
+          </div>
+          <div class="choice">
+            <strong>Not selected: Icon-only spacing</strong>
+            <span>Fastest, but the card would feel unfinished for Phase 1.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="phone" aria-label="Home no-assessment mockup">
+        <header class="appbar">
+          <h2>Home</h2>
+          <p>Civil Service Exam</p>
+        </header>
+
+        <div class="screen">
+          <article class="hero">
+            <div class="placeholder" aria-hidden="true">
+              <div class="blob"></div>
+              <div class="bars">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+              </div>
+              <div class="lens">
+                <div class="target"></div>
+              </div>
+            </div>
+
+            <h2>Build your study plan</h2>
+            <p>Take the assessment to find what to study first.</p>
+
+            <div class="actions">
+              <button class="primary">Start assessment</button>
+              <button class="secondary">Quiz for now</button>
+            </div>
+          </article>
+        </div>
+
+        <nav class="nav" aria-label="Bottom navigation">
+          <span>Home</span>
+          <span>Study</span>
+          <span>Quiz</span>
+          <span>More</span>
+        </nav>
+      </section>
+    </main>
+  </body>
+</html>
