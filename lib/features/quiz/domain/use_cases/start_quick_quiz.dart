@@ -16,19 +16,24 @@ class StartQuickQuiz {
     required ExamId examId,
     required int count,
     required DateTime now,
+    TopicId? topicId,
     int? randomSeed,
   }) async {
-    final exams = await _content.listExams();
-    final exam = exams.firstWhere(
-      (e) => e.id == examId,
-      orElse: () => throw StateError('Exam not found: $examId'),
-    );
-
     final allQuestions = <Question>[];
-    for (final subject in exam.subjects) {
-      final topics = await _content.topicsBySubject(subject.id);
-      for (final topic in topics) {
-        allQuestions.addAll(await _content.questionsByTopic(topic.id));
+    if (topicId != null) {
+      allQuestions.addAll(await _content.questionsByTopic(topicId));
+    } else {
+      final exams = await _content.listExams();
+      final exam = exams.firstWhere(
+        (e) => e.id == examId,
+        orElse: () => throw StateError('Exam not found: $examId'),
+      );
+
+      for (final subject in exam.subjects) {
+        final topics = await _content.topicsBySubject(subject.id);
+        for (final topic in topics) {
+          allQuestions.addAll(await _content.questionsByTopic(topic.id));
+        }
       }
     }
     if (allQuestions.isEmpty) {

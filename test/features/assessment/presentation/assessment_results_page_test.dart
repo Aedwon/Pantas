@@ -23,7 +23,9 @@ GoRouter _buildRouter(String examId) => GoRouter(
         ),
         GoRoute(
           path: '/quiz/quick/:examId',
-          builder: (_, __) => const Scaffold(body: Text('Quiz')),
+          builder: (_, state) => Scaffold(
+            body: Text('Quiz ${state.uri.queryParameters['topicId']}'),
+          ),
         ),
       ],
     );
@@ -93,6 +95,16 @@ void main() {
     expect(vocabY, lessThan(readingY));
   });
 
+  testWidgets('shows exam-specific profile header', (tester) async {
+    await tester.pumpAppWithRouter(
+      _buildRouter('e1'),
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Your Civil Service Exam Profile'), findsOneWidget);
+  });
+
   testWidgets('weak topic shows Start here badge', (tester) async {
     await tester.pumpAppWithRouter(
       _buildRouter('e1'),
@@ -112,5 +124,18 @@ void main() {
 
     expect(find.text('Study →'), findsWidgets);
     expect(find.text('Quiz →'), findsWidgets);
+  });
+
+  testWidgets('Quiz button starts quiz scoped to weak topic', (tester) async {
+    await tester.pumpAppWithRouter(
+      _buildRouter('e1'),
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Quiz →').first);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Quiz t1'), findsOneWidget);
   });
 }

@@ -2010,7 +2010,9 @@ GoRouter _buildRouter(String examId) => GoRouter(
         ),
         GoRoute(
           path: '/quiz/quick/:examId',
-          builder: (_, __) => const Scaffold(body: Text('Quiz')),
+          builder: (_, state) => Scaffold(
+            body: Text('Quiz ${state.uri.queryParameters['topicId']}'),
+          ),
         ),
       ],
     );
@@ -2315,7 +2317,12 @@ class _TopicCta extends StatelessWidget {
                 child: AppButton(
                   label: 'Quiz →',
                   variant: AppButtonVariant.secondary,
-                  onPressed: () => context.go('/quiz/quick/$examId'),
+                  onPressed: () => context.go(
+                    Uri(
+                      path: '/quiz/quick/$examId',
+                      queryParameters: {'topicId': mastery.topic.id},
+                    ).toString(),
+                  ),
                 ),
               ),
             ],
@@ -2574,10 +2581,14 @@ class _ResultsBodyState extends ConsumerState<_ResultsBody> {
     if (isDone || !mounted) return;
     final count = await ref.read(countForExamProvider(examId).future);
     if (!mounted) return;
+    final examName = await ref
+        .read(_examNameProvider(examId).future)
+        .catchError((Object _) => 'this exam');
+    if (!mounted) return;
 
     if (count == 1) {
       await _showNudgeSheet(
-        'Get your personalized study plan — see exactly where to focus for this exam.',
+        'Get your personalized study plan — see exactly where to focus for $examName.',
       );
     } else if (count == 3) {
       await _showNudgeSheet(

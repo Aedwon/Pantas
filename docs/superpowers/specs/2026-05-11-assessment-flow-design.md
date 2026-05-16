@@ -232,8 +232,8 @@ Route: `/assessment/:examId/results`
   [Topic Name]
   [Study →]  [Quiz →]
   ```
-  - "Study →" → navigates to `/topic/:topicId` (lesson list)
-  - "Quiz →" → navigates to `/quiz/quick/:examId` (scoped to topic — handled in quiz router)
+  - "Study →" → navigates to `/learn/topic/:topicId?examId=:examId` (lesson list)
+  - "Quiz →" → navigates to `/quiz/quick/:examId?topicId=:topicId` (quick quiz filtered to the topic)
 - Weakest topic gets a "Start here" badge
 - Below CTAs: small muted text — *"Your recommendations update as you study"*
 

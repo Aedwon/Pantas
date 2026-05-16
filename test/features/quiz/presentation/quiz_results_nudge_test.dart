@@ -69,6 +69,15 @@ void main() {
 
   testWidgets('shows bottom sheet nudge after first attempt with no assessment',
       (tester) async {
+    await db.into(db.exams).insert(
+          ExamsCompanion.insert(
+            id: 'e1',
+            code: 'CSE',
+            name: 'Civil Service Exam',
+            shortName: 'CSE',
+            language: 'en',
+          ),
+        );
     await _seedAttempts(db, id: 'a1', count: 1);
 
     await tester.pumpAppWithRouter(
@@ -78,7 +87,10 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(
-      find.textContaining('Get your personalized study plan'),
+      find.text(
+        'Get your personalized study plan — see exactly where to focus for '
+        'Civil Service Exam.',
+      ),
       findsOneWidget,
     );
   });

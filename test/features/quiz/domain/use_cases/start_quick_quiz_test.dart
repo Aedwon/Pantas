@@ -66,6 +66,30 @@ void main() {
     expect(session.currentIndex, equals(0));
   });
 
+  test('limits questions to requested topic when topicId is provided',
+      () async {
+    final questions = [
+      makeQ('q1', 't1'),
+      makeQ('q2', 't1'),
+      makeQ('q3', 't2'),
+    ];
+
+    when(() => content.questionsByTopic('t1')).thenAnswer(
+      (_) async => questions.where((q) => q.topicId == 't1').toList(),
+    );
+
+    final session = await useCase(
+      examId: 'e1',
+      topicId: 't1',
+      count: 10,
+      now: DateTime.utc(2026, 5, 9),
+      randomSeed: 42,
+    );
+
+    expect(session.questions, hasLength(2));
+    expect(session.questions.every((q) => q.topicId == 't1'), isTrue);
+  });
+
   test('throws StateError when no questions are available', () async {
     when(() => content.listExams()).thenAnswer((_) async => const []);
     expect(

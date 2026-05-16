@@ -47,6 +47,7 @@ void main() {
     when(
       () => start(
         examId: any(named: 'examId'),
+        topicId: any(named: 'topicId'),
         count: any(named: 'count'),
         now: any(named: 'now'),
         randomSeed: any(named: 'randomSeed'),
@@ -74,5 +75,46 @@ void main() {
     expect(find.text('Stem One'), findsOneWidget);
     expect(find.text('AlphaText'), findsOneWidget);
     expect(find.text('Question 1 of 1'), findsOneWidget);
+  });
+
+  testWidgets('passes topicId to quick quiz start when provided',
+      (tester) async {
+    when(
+      () => start(
+        examId: any(named: 'examId'),
+        topicId: any(named: 'topicId'),
+        count: any(named: 'count'),
+        now: any(named: 'now'),
+        randomSeed: any(named: 'randomSeed'),
+      ),
+    ).thenAnswer(
+      (_) async => QuizSession.start(
+        sessionId: 'sess',
+        examId: 'e',
+        questions: const [q1],
+        startedAt: DateTime.utc(2026, 5, 9, 12),
+      ),
+    );
+
+    await tester.pumpAppWithProviders(
+      const QuizPage(examId: 'e', topicId: 't'),
+      overrides: [
+        startQuickQuizProvider.overrideWithValue(start),
+        submitAnswerProvider.overrideWithValue(submit),
+        completeQuizProvider.overrideWithValue(complete),
+        nowProvider.overrideWithValue(() => DateTime.utc(2026, 5, 9, 12)),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    verify(
+      () => start(
+        examId: 'e',
+        topicId: 't',
+        count: any(named: 'count'),
+        now: any(named: 'now'),
+        randomSeed: any(named: 'randomSeed'),
+      ),
+    ).called(1);
   });
 }

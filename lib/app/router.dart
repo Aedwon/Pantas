@@ -62,8 +62,10 @@ final routerProvider = Provider<GoRouter>((ref) {
         routes: [
           GoRoute(
             path: 'quick/:examId',
-            builder: (_, state) =>
-                QuizPage(examId: state.pathParameters['examId']!),
+            builder: (_, state) => QuizPage(
+              examId: state.pathParameters['examId']!,
+              topicId: state.uri.queryParameters['topicId'],
+            ),
           ),
           GoRoute(
             path: 'results/:attemptId',

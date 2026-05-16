@@ -70,6 +70,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
 
   Future<void> start({
     required ExamId examId,
+    TopicId? topicId,
     int count = 10,
     int? randomSeed,
   }) async {
@@ -78,6 +79,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
       final now = _ref.read(nowProvider)();
       final session = await _ref.read(startQuickQuizProvider)(
         examId: examId,
+        topicId: topicId,
         count: count,
         now: now,
         randomSeed: randomSeed,

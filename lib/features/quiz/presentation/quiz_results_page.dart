@@ -13,6 +13,12 @@ final attemptByIdProvider =
   return ref.watch(attemptsRepositoryProvider).byId(id);
 });
 
+final _examNameProvider =
+    FutureProvider.family<String, String>((ref, examId) async {
+  final exams = await ref.watch(contentRepositoryProvider).listExams();
+  return exams.firstWhere((exam) => exam.id == examId).name;
+});
+
 class QuizResultsPage extends ConsumerWidget {
   const QuizResultsPage({required this.attemptId, super.key});
 
@@ -69,11 +75,15 @@ class _ResultsBodyState extends ConsumerState<_ResultsBody> {
     if (isDone || !mounted) return;
     final count = await ref.read(countForExamProvider(examId).future);
     if (!mounted) return;
+    final examName = await ref
+        .read(_examNameProvider(examId).future)
+        .catchError((Object _) => 'this exam');
+    if (!mounted) return;
 
     if (count == 1) {
       await _showNudgeSheet(
         'Get your personalized study plan — see exactly where to focus for '
-        'this exam.',
+        '$examName.',
       );
     } else if (count == 3) {
       await _showNudgeSheet(

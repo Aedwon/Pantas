@@ -9,8 +9,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 class QuizPage extends ConsumerStatefulWidget {
-  const QuizPage({required this.examId, super.key});
+  const QuizPage({required this.examId, this.topicId, super.key});
   final String examId;
+  final String? topicId;
 
   @override
   ConsumerState<QuizPage> createState() => _QuizPageState();
@@ -21,7 +22,10 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(quizControllerProvider.notifier).start(examId: widget.examId);
+      ref.read(quizControllerProvider.notifier).start(
+            examId: widget.examId,
+            topicId: widget.topicId,
+          );
     });
   }
 
@@ -72,7 +76,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
               actionLabel: 'Retry',
               onAction: () => ref
                   .read(quizControllerProvider.notifier)
-                  .start(examId: widget.examId),
+                  .start(examId: widget.examId, topicId: widget.topicId),
             ),
         },
       ),

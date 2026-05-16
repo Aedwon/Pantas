@@ -20,6 +20,12 @@ final assessmentResultProvider =
   return AssessmentResult.fromRow(row, topics);
 });
 
+final _assessmentExamNameProvider =
+    FutureProvider.family<String, ExamId>((ref, examId) async {
+  final exams = await ref.watch(contentRepositoryProvider).listExams();
+  return exams.firstWhere((exam) => exam.id == examId).name;
+});
+
 class AssessmentResultsPage extends ConsumerWidget {
   const AssessmentResultsPage({required this.examId, super.key});
 
@@ -28,6 +34,8 @@ class AssessmentResultsPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final asyncResult = ref.watch(assessmentResultProvider(examId));
+    final examName =
+        ref.watch(_assessmentExamNameProvider(examId)).valueOrNull ?? examId;
 
     return Scaffold(
       appBar: AppBar(title: const Text('Your Profile')),
@@ -46,7 +54,11 @@ class AssessmentResultsPage extends ConsumerWidget {
           if (result == null) {
             return const Center(child: Text('No assessment found.'));
           }
-          return _ResultsBody(result: result, examId: examId);
+          return _ResultsBody(
+            result: result,
+            examId: examId,
+            examName: examName,
+          );
         },
       ),
     );
@@ -54,10 +66,15 @@ class AssessmentResultsPage extends ConsumerWidget {
 }
 
 class _ResultsBody extends StatelessWidget {
-  const _ResultsBody({required this.result, required this.examId});
+  const _ResultsBody({
+    required this.result,
+    required this.examId,
+    required this.examName,
+  });
 
   final AssessmentResult result;
   final ExamId examId;
+  final String examName;
 
   List<TopicMastery> get _weakTopics {
     final weak = result.topicMasteries
@@ -76,6 +93,8 @@ class _ResultsBody extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
+        Text('Your $examName Profile', style: textStyles.headlineSmall),
+        const SizedBox(height: 16),
         Text('Topic Breakdown', style: textStyles.headlineSmall),
         const SizedBox(height: 12),
         for (final mastery in result.topicMasteries) ...[
@@ -213,7 +232,12 @@ class _TopicCta extends StatelessWidget {
                 child: AppButton(
                   label: 'Quiz →',
                   variant: AppButtonVariant.secondary,
-                  onPressed: () => context.go('/quiz/quick/$examId'),
+                  onPressed: () => context.go(
+                    Uri(
+                      path: '/quiz/quick/$examId',
+                      queryParameters: {'topicId': mastery.topic.id},
+                    ).toString(),
+                  ),
                 ),
               ),
             ],
