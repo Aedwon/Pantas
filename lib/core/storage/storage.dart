@@ -1,5 +1,6 @@
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/database_opener.dart';
+import 'package:cse_cet_reviewer/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/assessment_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
@@ -35,6 +36,10 @@ final reviewStateRepositoryProvider = Provider<ReviewStateRepository>(
 
 final streakRepositoryProvider = Provider<StreakRepository>(
   (ref) => StreakRepository(ref.watch(appDatabaseProvider)),
+);
+
+final appPreferencesRepositoryProvider = Provider<AppPreferencesRepository>(
+  (ref) => AppPreferencesRepository(ref.watch(appDatabaseProvider)),
 );
 
 final seederProvider = Provider<Seeder>(

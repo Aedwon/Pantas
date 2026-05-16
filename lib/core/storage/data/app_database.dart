@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/storage/data/tables/app_preferences_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/assessment_results_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/attempts_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/exams_table.dart';
@@ -26,13 +27,14 @@ part 'app_database.g.dart';
     LessonProgressLocal,
     QuizNudgeDismissedLocal,
     AssessmentResultsLocal,
+    AppPreferencesLocal,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 3;
+  int get schemaVersion => 4;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -44,6 +46,9 @@ class AppDatabase extends _$AppDatabase {
           }
           if (from < 3) {
             await m.createTable(assessmentResultsLocal);
+          }
+          if (from < 4) {
+            await m.createTable(appPreferencesLocal);
           }
         },
       );
