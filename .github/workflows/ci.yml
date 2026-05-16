@@ -38,20 +38,7 @@ jobs:
         run: flutter test --coverage
 
       - name: Coverage gate (overall >= 70%)
-        run: |
-          if [ ! -f coverage/lcov.info ]; then
-            echo "no coverage produced"; exit 1
-          fi
-          covered=$(grep -h '^DA:' coverage/lcov.info | awk -F, '$2 != "0" {c++} END {print c+0}')
-          total=$(grep -hc '^DA:' coverage/lcov.info)
-          if [ "$total" -eq 0 ]; then
-            echo "no DA lines in lcov"; exit 1
-          fi
-          pct=$(awk -v c="$covered" -v t="$total" 'BEGIN { printf "%.1f", (c/t)*100 }')
-          echo "Coverage: $pct%"
-          awk -v p="$pct" 'BEGIN { exit !(p+0 >= 70.0) }' || {
-            echo "coverage $pct% < 70%"; exit 1
-          }
+        run: dart run tool/check_coverage.dart --min 70 --write-filtered coverage/lcov.filtered.info
 
       - name: gitleaks
         uses: gitleaks/gitleaks-action@v2
