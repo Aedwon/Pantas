@@ -2,7 +2,7 @@
 
 **Date:** 2026-05-16
 **Status:** Approved, drives subsequent brainstorming sessions
-**Target soft launch:** 2026-06-28 (matches original launch plan)
+**Target soft launch:** 2026-06-28 (Android-only; iOS follows in v1.x)
 **Owner:** Aerol Balayon
 
 ---
@@ -17,12 +17,12 @@ It is a **plan-of-plans**, not an implementation plan itself. Each spec listed b
 
 ## 2. Scope decisions locked in this session
 
-- **All features ship in v1.** No deferrals to v1.0.1.
+- **All features ship in v1** on Android. No feature deferrals.
+- **Android-only soft launch.** Apple Developer enrollment is deferred (budget constraint). iOS ships as a v1.x follow-up when funded — small additive work then: enroll, flip on Apple Sign In, set up App Store Connect + iOS IAP, add iOS app to RevenueCat, submit. ~3-5 days net.
 - **Pentest is cut.** Solo-founder risk acceptance documented here.
 - **Study Plan is core to v1**, full D-hybrid form (exam-date pacing + adaptive reshuffle + multi-week curriculum view + daily action plan). It is a marketing pillar.
 - **NPC registration is already complete.** No regulatory blocker for paid launch with PII.
-- **Apple Developer enrollment must start today** — it is the longest external dependency.
-- **No closed beta longer than 3-5 days.** TestFlight + Play Internal to invited testers only.
+- **No closed beta longer than 3-5 days.** Play Internal Testing to invited testers only.
 
 ---
 
@@ -56,12 +56,12 @@ It is a **plan-of-plans**, not an implementation plan itself. Each spec listed b
 - ✅ NPC registration: done
 - ✅ Google Play Developer account: active
 - ✅ Sanity project: created (questions not yet entered)
-- ❌ Apple Developer account: not enrolled
+- ⏸️ Apple Developer account: deferred (budget) — iOS launch becomes v1.x
+- ⏸️ App Store Connect record: deferred (depends on Apple enrollment)
+- ⏸️ App Store Connect IAP products: deferred
 - ❌ Firebase project: not created
-- ❌ App Store Connect record: not created (blocked on Apple enrollment)
-- ❌ App Store Connect IAP products: not created
 - ❌ Google Play Console IAP products: not created
-- ❌ RevenueCat dashboard project: not created
+- ❌ RevenueCat dashboard project: not created (Android side only when created)
 
 ---
 
@@ -71,9 +71,9 @@ Each spec below will be brainstormed in its own session via the `superpowers:bra
 
 ### Spec 1 — Firebase + Auth (size: L)
 
-**Scope:** `flutterfire configure` to generate `firebase_options.dart`. `Firebase.initializeApp` in `main.dart` before runApp. App Check enforcement (Play Integrity on Android, DeviceCheck + App Attest on iOS). Anonymous sign-in on first launch. Apple Sign In + Google Sign In flows. `currentUserProvider` (Riverpod) exposing `User?`. Anonymous-to-named migration on first OAuth sign-in (merge anon UID's data into the named account, then `linkWithCredential`). Sign-out flow returns user to anonymous state. Crashlytics enabled.
+**Scope:** `flutterfire configure` to generate `firebase_options.dart`. `Firebase.initializeApp` in `main.dart` before runApp. App Check enforcement (Play Integrity on Android; iOS DeviceCheck/App Attest config deferred until iOS launch). Anonymous sign-in on first launch. **Google Sign In flow only** (Apple Sign In deferred — code structured so it's an additive change when iOS lands, not a refactor). `currentUserProvider` (Riverpod) exposing `User?`. Anonymous-to-named migration on first OAuth sign-in (merge anon UID's data into the named account, then `linkWithCredential`). Sign-out flow returns user to anonymous state. Crashlytics enabled.
 
-**Dependencies:** External — Firebase project created; Apple Developer enrollment cleared (for Apple Sign In capability).
+**Dependencies:** External — Firebase project created.
 
 **Open questions to resolve during brainstorm:**
 - What happens when an anonymous user tries to sign in with a Google/Apple account that already has data in Firestore? Merge, replace, or refuse?
@@ -157,7 +157,7 @@ The current `start_quick_quiz.dart` pulls every question across every subject/to
 
 ### Spec 7 — Paywall + RevenueCat + entitlement gate (size: L)
 
-**Scope:** RevenueCat SDK init at boot with API key from `--dart-define`. Paywall screen showing 3 SKUs (Monthly ₱99 / Yearly ₱499 with 7-day free trial / Lifetime ₱1499). Yearly is the visually-recommended option; Lifetime is second-prominent. Purchase flow with platform-native confirmation sheets. Restore Purchases button (mandatory for App Store). `entitlementProvider` (Riverpod) reading from RevenueCat's `CustomerInfo`. Pro-route redirect in `router.dart` → paywall instead of 404. Cloud Function webhook receiver: RevenueCat → Firebase Auth custom claim `pro=true`. Locale-aware price display via RevenueCat's `priceString`.
+**Scope:** RevenueCat SDK init at boot with Android API key from `--dart-define`. Paywall screen showing 3 SKUs (Monthly ₱99 / Yearly ₱499 with 7-day free trial / Lifetime ₱1,499). Yearly is the visually-recommended option; Lifetime is second-prominent. Google Play purchase flow with platform-native confirmation sheets. Restore Purchases button (still important for Play — handles reinstalls). `entitlementProvider` (Riverpod) reading from RevenueCat's `CustomerInfo`. Pro-route redirect in `router.dart` → paywall instead of 404. Cloud Function webhook receiver: RevenueCat → Firebase Auth custom claim `pro=true`. Locale-aware price display via RevenueCat's `priceString`. **iOS-side RevenueCat app registration + iOS IAP products deferred** until Apple enrollment lands (additive — flip on iOS API key, add iOS app to RevenueCat dashboard, no app-side refactor needed).
 
 **Dependencies:** Spec 1 (auth state for entitlement claims), Spec 5 (Pro features exist to gate).
 
@@ -180,7 +180,7 @@ The current `start_quick_quiz.dart` pulls every question across every subject/to
 
 ### Spec 9 — Notifications (FCM) (size: M)
 
-**Scope:** Permission request flow (iOS APNs prompt + Android 13+ POST_NOTIFICATIONS). FCM token registration on sign-in / anon-user-creation, deregistration on sign-out. Daily review reminder scheduled via local notifications (not server push — fires offline, doesn't burn FCM quota). Reminder time configured in settings. Reminder text tied to Study Plan's daily target ("14 reviews + 1 lesson today"). Permission re-request flow if user denied initially.
+**Scope:** Permission request flow (Android 13+ POST_NOTIFICATIONS for v1; iOS APNs prompt added when iOS ships). FCM token registration on sign-in / anon-user-creation, deregistration on sign-out. Daily review reminder scheduled via local notifications (not server push — fires offline, doesn't burn FCM quota). Reminder time configured in settings. Reminder text tied to Study Plan's daily target ("14 reviews + 1 lesson today"). Permission re-request flow if user denied initially. **iOS APNs auth key setup deferred** until Apple enrollment lands.
 
 **Dependencies:** Spec 1 (FCM init via Firebase), Spec 6 (Study Plan's daily target), Spec 8 (settings UI for time picker).
 
@@ -217,41 +217,45 @@ The current `start_quick_quiz.dart` pulls every question across every subject/to
 
 ```
 Week 1 (May 16-22): Spec 1, Spec 2
-  External (parallel): Apple Developer enrollment, Firebase project,
-                       Sanity content authoring begins (~10 questions
-                       first, validate schema, then bulk-enter)
+  External (parallel): Firebase project, Sanity content authoring begins
+                       (~10 questions first, validate schema, then bulk-enter)
 
 Week 2 (May 23-29): Spec 3, Spec 4, Spec 5
-  External: RevenueCat dashboard project, App Store Connect app record
-            (once Apple enrollment clears)
+  External: RevenueCat dashboard project (Android side)
 
 Week 3 (May 30 - Jun 5): Spec 6 (Study Plan — the big one), Spec 7 (Paywall)
-  External: App Store Connect + Play Console IAP products created and
-            submitted, RevenueCat product mappings finalized
+  External: Play Console IAP products created, RevenueCat product
+            mappings finalized
 
 Week 4 (Jun 6-12): Spec 8, Spec 9, Spec 10, Spec 11
 
-Week 5 (Jun 13-19): Closed TestFlight + Play Internal beta
+Week 5 (Jun 13-19): Closed Play Internal beta
                     (3-5 days, invited testers only, daily bug fixes)
-                    Submit to App Store + Play Store
+                    Submit to Play Store
 
-Week 6 (Jun 20-28): Address store review feedback
-                    Final QA on Galaxy A15 + recent iPhone
-                    Soft launch: 2026-06-28
+Week 6 (Jun 20-28): Address Play review feedback
+                    Final QA on Galaxy A15
+                    Soft launch: 2026-06-28 (Android)
+
+Post-launch (v1.x): iOS launch when Apple Developer enrollment funded
+                    (+~3-5 days net work: enroll, App Store Connect,
+                    iOS IAP products, RevenueCat iOS, Apple Sign In,
+                    APNs key, store assets, submission)
 ```
 
 ### 5.1 Items that must hold
 
-- Apple Developer enrollment started **today (May 16)**. Slipping this slips everything.
-- Sanity content for the first ~10 questions entered by end of Week 1 to validate Spec 2's schema assumptions.
-- IAP products created in both stores by end of Week 3 so they're reviewed alongside the app submission in Week 5.
+- Firebase project created and Sanity content (first ~10 questions) entered by end of Week 1, so Spec 2 brainstorm can be grounded in real data.
+- Play Console IAP products created by end of Week 3 so they're reviewed alongside the app submission in Week 5.
 - `core/fsrs/` 100% test coverage maintained as Study Plan touches it.
 - Real-device QA on Galaxy A15 (PH bandwidth-constrained target hardware) in Week 5.
+- Spec 1's auth code structured so Apple Sign In is an additive flip when iOS lands, not a refactor.
 
 ### 5.2 Acceptable slip
 
-- 1-2 week slip into early July if any of: Apple review rejects twice, Sanity content authoring runs long, Study Plan algorithm needs a second design pass, Spec 4 quiz-modes scope expansion eats into Week 2 (now three L-sized specs in one week — the tightest week in the schedule).
+- 1-2 week slip into early July if any of: Sanity content authoring runs long, Study Plan algorithm needs a second design pass, Spec 4 quiz-modes scope expansion eats into Week 2 (three L-sized specs in one week — the tightest), Play Store review rejects.
 - Pentest is cut (solo-founder risk acceptance).
+- iOS launch slipped to v1.x (budget constraint — Apple Developer enrollment deferred).
 
 ### 5.3 Not acceptable for launch
 
@@ -268,22 +272,31 @@ Week 6 (Jun 20-28): Address store review feedback
 These do not need their own brainstorm sessions — they are operational checklists. The Firebase + Auth spec (#1) will reference the Firebase setup checklist; the Paywall spec (#7) will reference the App Store Connect + Play Console + RevenueCat checklists.
 
 **Today (May 16):**
-- Apple Developer Program enrollment ($99/year, expect 1-7 day wait)
 - Firebase project `cse-cet-reviewer-prod` in `asia-southeast1`, Blaze plan, all products enabled with security configured
 - Sanity: enter 5-10 representative questions to validate schema in upcoming Spec 2 brainstorm
 
 **Week 2:**
-- RevenueCat dashboard project created (Android side configurable immediately; iOS side blocked on Apple enrollment)
-- Once Apple clears: App Store Connect app record + APNs auth key
+- RevenueCat dashboard project created (Android app added)
 
 **Week 3:**
-- IAP products created in both stores (`pro_monthly`, `pro_yearly`, `pro_lifetime`)
+- Google Play Console IAP products created (`pro_monthly`, `pro_yearly`, `pro_lifetime`)
 - RevenueCat product mappings + Entitlements + Offerings
 
 **Week 5:**
-- Store listing assets (screenshots, copy, privacy labels, age ratings)
-- TestFlight + Play Internal builds uploaded
-- Production builds submitted to both stores
+- Play Store listing assets (screenshots, copy, privacy labels, age ratings)
+- Play Internal Testing build uploaded
+- Production build submitted to Play Store
+
+**Deferred (until Apple Developer enrollment funded):**
+- Apple Developer Program enrollment ($99/year, 1-7 day wait)
+- App Store Connect app record
+- APNs auth key
+- App Store Connect IAP products
+- RevenueCat iOS app + iOS API key
+- Sign In with Apple capability in Firebase Auth
+- iOS App Check (DeviceCheck + App Attest)
+- TestFlight build + App Store submission
+- iOS screenshots and store assets
 
 ---
 
@@ -298,4 +311,4 @@ These do not need their own brainstorm sessions — they are operational checkli
 
 ## 8. Next step
 
-Brainstorm **Spec 1 — Firebase + Auth** via `superpowers:brainstorming`. This is the critical-path head and unblocks Specs 2, 3, 7, 9, 10. While brainstorming, the user starts Apple Developer enrollment and creates the Firebase project in parallel.
+Brainstorm **Spec 1 — Firebase + Auth** via `superpowers:brainstorming`. This is the critical-path head and unblocks Specs 2, 3, 7, 9, 10. While brainstorming, the user creates the Firebase project in parallel.
