@@ -1,4 +1,5 @@
 import 'package:cse_cet_reviewer/core/storage/domain/exam.dart';
+import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/app_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/app_card.dart';
@@ -12,28 +13,56 @@ class QuizTabHome extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final asyncExams = ref.watch(examListProvider);
+    final asyncFocus = ref.watch(activeExamFocusProvider);
 
     return Scaffold(
       appBar: AppBar(title: const Text('Quiz')),
-      body: asyncExams.when(
+      body: asyncFocus.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text('Error: $e')),
-        data: (exams) {
-          if (exams.isEmpty) {
-            return const Center(child: Text('No exams available.'));
+        data: (focus) {
+          if (focus.needsSelection || focus.exam == null) {
+            return const _ChooseExamFallback();
           }
-          return ListView.separated(
+          return ListView(
             padding: const EdgeInsets.all(16),
-            itemCount: exams.length,
-            separatorBuilder: (_, __) => const SizedBox(height: 12),
-            itemBuilder: (context, index) {
-              final exam = exams[index];
-              return _ExamCard(exam: exam);
-            },
+            children: [_ExamCard(exam: focus.exam!)],
           );
         },
       ),
+    );
+  }
+}
+
+class _ChooseExamFallback extends StatelessWidget {
+  const _ChooseExamFallback();
+
+  @override
+  Widget build(BuildContext context) {
+    final textStyles = context.textStyles;
+
+    return ListView(
+      padding: const EdgeInsets.all(16),
+      children: [
+        AppCard(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Choose your exam', style: textStyles.headlineSmall),
+              const SizedBox(height: 6),
+              Text(
+                'Pick the exam you are reviewing for.',
+                style: textStyles.bodyMedium,
+              ),
+              const SizedBox(height: 16),
+              AppButton(
+                label: 'Choose exam',
+                onPressed: () => context.go('/onboarding'),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
@@ -54,7 +83,7 @@ class _ExamCard extends ConsumerWidget {
         builder: (sheetContext) => _QuizNudgeSheet(
           onReadLessons: () {
             Navigator.of(sheetContext).pop();
-            context.go('/learn');
+            context.go('/study');
           },
           onStartAnyway: () async {
             await ref.read(quizNudgeRepositoryProvider).markDismissed();
@@ -99,9 +128,9 @@ class _ExamCard extends ConsumerWidget {
           ),
           const SizedBox(height: 8),
           AppButton(
-            label: 'Browse Lessons',
+            label: 'Study',
             variant: AppButtonVariant.secondary,
-            onPressed: () => context.go('/learn'),
+            onPressed: () => context.go('/study'),
           ),
         ],
       ),
@@ -144,7 +173,7 @@ class _QuizNudgeSheet extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             AppButton(
-              label: 'Read lessons',
+              label: 'Study',
               onPressed: onReadLessons,
             ),
             const SizedBox(height: 8),

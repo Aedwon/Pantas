@@ -1,14 +1,42 @@
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
+import 'package:cse_cet_reviewer/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/learn_tab_home.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
 
 void main() {
   late AppDatabase db;
+
+  GoRouter buildRouter() => GoRouter(
+        initialLocation: '/study',
+        routes: [
+          GoRoute(
+            path: '/onboarding',
+            builder: (_, __) => const Text('Onboarding'),
+          ),
+          GoRoute(
+            path: '/study',
+            builder: (_, __) => const StudyTabHome(),
+            routes: [
+              GoRoute(
+                path: 'topic/:topicId',
+                builder: (_, state) => Scaffold(
+                  body: Text(
+                    'Topic ${state.pathParameters['topicId']} '
+                    '${state.uri.queryParameters['examId']}',
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      );
 
   setUp(() async {
     db = inMemoryDatabase();
@@ -38,24 +66,52 @@ void main() {
             ordering: 1,
           ),
         );
+    await db.into(db.subjects).insert(
+          SubjectsCompanion.insert(
+            id: 's2',
+            examId: 'e2',
+            name: 'Language Proficiency',
+            ordering: 1,
+          ),
+        );
+    await db.into(db.topics).insert(
+          TopicsCompanion.insert(
+            id: 't1',
+            subjectId: 's1',
+            name: 'Vocabulary',
+            ordering: 1,
+          ),
+        );
+    await db.into(db.topics).insert(
+          TopicsCompanion.insert(
+            id: 't2',
+            subjectId: 's2',
+            name: 'Grammar',
+            ordering: 1,
+          ),
+        );
   });
 
   tearDown(() => db.close());
 
-  testWidgets('shows exam names from seeded database', (tester) async {
-    await tester.pumpAppWithProviders(
-      const LearnTabHome(),
+  testWidgets('shows only selected exam content', (tester) async {
+    await AppPreferencesRepository(db).setSelectedExamId('e1');
+
+    await tester.pumpAppWithRouter(
+      buildRouter(),
       overrides: [appDatabaseProvider.overrideWithValue(db)],
     );
     await tester.pumpAndSettle();
 
     expect(find.text('Civil Service Exam'), findsOneWidget);
-    expect(find.text('UPCAT'), findsOneWidget);
+    expect(find.text('UPCAT'), findsNothing);
+    expect(find.text('Verbal'), findsOneWidget);
+    expect(find.text('Language Proficiency'), findsNothing);
   });
 
   testWidgets('shows error banner when provider fails', (tester) async {
     await tester.pumpAppWithProviders(
-      const LearnTabHome(),
+      const StudyTabHome(),
       overrides: [
         examListProvider.overrideWith(
           (ref) => Future.error(Exception('db error')),
@@ -66,17 +122,32 @@ void main() {
     expect(find.byType(ErrorBanner), findsOneWidget);
   });
 
-  testWidgets('expands exam to show subject names', (tester) async {
-    await tester.pumpAppWithProviders(
-      const LearnTabHome(),
+  testWidgets('tapping topic opens study topic route', (tester) async {
+    await AppPreferencesRepository(db).setSelectedExamId('e1');
+
+    await tester.pumpAppWithRouter(
+      buildRouter(),
       overrides: [appDatabaseProvider.overrideWithValue(db)],
     );
     await tester.pumpAndSettle();
 
-    // Tap the Civil Service Exam expansion tile
-    await tester.tap(find.text('Civil Service Exam'));
+    await tester.tap(find.text('Verbal'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Vocabulary'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Verbal'), findsOneWidget);
+    expect(find.text('Topic t1 e1'), findsOneWidget);
+  });
+
+  testWidgets('missing selected focus shows choose exam fallback',
+      (tester) async {
+    await tester.pumpAppWithRouter(
+      buildRouter(),
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Choose your exam'), findsOneWidget);
+    expect(find.text('Pick the exam you are reviewing for.'), findsOneWidget);
   });
 }

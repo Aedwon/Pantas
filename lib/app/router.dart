@@ -21,15 +21,15 @@ final routerProvider = Provider<GoRouter>((ref) {
             routes: [
               GoRoute(
                 path: '/home',
-                builder: (_, __) => const _TabStub('Home'),
+                builder: (_, __) => const AssessmentHomeTab(),
               ),
             ],
           ),
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: '/learn',
-                builder: (_, __) => const LearnTabHome(),
+                path: '/study',
+                builder: (_, __) => const StudyTabHome(),
                 routes: [
                   GoRoute(
                     path: 'topic/:topicId',
@@ -39,6 +39,14 @@ final routerProvider = Provider<GoRouter>((ref) {
                     ),
                   ),
                 ],
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: '/quiz',
+                builder: (_, __) => const QuizTabHome(),
               ),
             ],
           ),
@@ -57,22 +65,16 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (_, __) => const _Stub('Onboarding'),
       ),
       GoRoute(
-        path: '/quiz',
-        builder: (_, __) => const QuizTabHome(),
-        routes: [
-          GoRoute(
-            path: 'quick/:examId',
-            builder: (_, state) => QuizPage(
-              examId: state.pathParameters['examId']!,
-              topicId: state.uri.queryParameters['topicId'],
-            ),
-          ),
-          GoRoute(
-            path: 'results/:attemptId',
-            builder: (_, state) =>
-                QuizResultsPage(attemptId: state.pathParameters['attemptId']!),
-          ),
-        ],
+        path: '/quiz/quick/:examId',
+        builder: (_, state) => QuizPage(
+          examId: state.pathParameters['examId']!,
+          topicId: state.uri.queryParameters['topicId'],
+        ),
+      ),
+      GoRoute(
+        path: '/quiz/results/:attemptId',
+        builder: (_, state) =>
+            QuizResultsPage(attemptId: state.pathParameters['attemptId']!),
       ),
       GoRoute(
         path: '/lesson/:lessonId',

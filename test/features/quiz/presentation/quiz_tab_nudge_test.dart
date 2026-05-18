@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
+import 'package:cse_cet_reviewer/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_tab_home.dart';
 import 'package:drift/drift.dart' show Value;
@@ -17,9 +18,14 @@ GoRouter _buildRouter() => GoRouter(
         GoRoute(path: '/', builder: (_, __) => const QuizTabHome()),
         GoRoute(
           path: '/quiz/quick/:examId',
-          builder: (_, __) => const SizedBox(),
+          builder: (_, state) =>
+              Text('Quick ${state.pathParameters['examId']}'),
         ),
-        GoRoute(path: '/learn', builder: (_, __) => const SizedBox()),
+        GoRoute(path: '/study', builder: (_, __) => const Text('Study')),
+        GoRoute(
+          path: '/onboarding',
+          builder: (_, __) => const Text('Onboarding'),
+        ),
       ],
     );
 
@@ -34,6 +40,15 @@ void main() {
             code: 'CSE',
             name: 'Civil Service Exam',
             shortName: 'CSE',
+            language: 'en',
+          ),
+        );
+    await db.into(db.exams).insert(
+          ExamsCompanion.insert(
+            id: 'e2',
+            code: 'UPCAT',
+            name: 'UPCAT',
+            shortName: 'UPCAT',
             language: 'en',
           ),
         );
@@ -63,6 +78,7 @@ void main() {
             estimatedMinutes: 5,
           ),
         );
+    await AppPreferencesRepository(db).setSelectedExamId('e1');
   });
 
   tearDown(() => db.close());
@@ -79,6 +95,37 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Study first for better results'), findsOneWidget);
+  });
+
+  testWidgets('shows only selected exam quiz entry', (tester) async {
+    await tester.pumpAppWithRouter(
+      _buildRouter(),
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Civil Service Exam'), findsOneWidget);
+    expect(find.text('UPCAT'), findsNothing);
+  });
+
+  testWidgets('start quick quiz uses selected exam id', (tester) async {
+    await db.into(db.quizNudgeDismissedLocal).insert(
+          QuizNudgeDismissedLocalCompanion.insert(
+            id: const Value(1),
+            dismissedAt: DateTime.now(),
+          ),
+        );
+
+    await tester.pumpAppWithRouter(
+      _buildRouter(),
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Start Quick Quiz'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Quick e1'), findsOneWidget);
   });
 
   testWidgets('does not show nudge when nudge already dismissed',
@@ -121,5 +168,22 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Study first for better results'), findsNothing);
+  });
+
+  testWidgets('missing selected focus shows choose exam fallback',
+      (tester) async {
+    await AppPreferencesRepository(db).setSelectedExamId('removed');
+
+    await tester.pumpAppWithRouter(
+      _buildRouter(),
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Choose your exam'), findsOneWidget);
+    await tester.tap(find.text('Choose exam'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Onboarding'), findsOneWidget);
   });
 }

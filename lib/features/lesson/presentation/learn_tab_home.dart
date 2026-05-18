@@ -1,7 +1,9 @@
 import 'package:cse_cet_reviewer/core/storage/domain/exam.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/subject.dart';
+import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/core/ui/components/app_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/app_card.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
 import 'package:cse_cet_reviewer/core/ui/components/skeleton_loader.dart';
@@ -16,11 +18,20 @@ class LearnTabHome extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final asyncExams = ref.watch(examListProvider);
+    return const StudyTabHome();
+  }
+}
+
+class StudyTabHome extends ConsumerWidget {
+  const StudyTabHome({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final asyncFocus = ref.watch(activeExamFocusProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Learn')),
-      body: asyncExams.when(
+      appBar: AppBar(title: const Text('Study')),
+      body: asyncFocus.when(
         loading: () => const _LoadingSkeleton(),
         error: (e, _) => Padding(
           padding: const EdgeInsets.all(16),
@@ -29,13 +40,49 @@ class LearnTabHome extends ConsumerWidget {
             message: e.toString(),
           ),
         ),
-        data: (exams) => ListView.separated(
-          padding: const EdgeInsets.all(16),
-          itemCount: exams.length,
-          separatorBuilder: (_, __) => const SizedBox(height: 8),
-          itemBuilder: (_, i) => _ExamAccordion(exam: exams[i]),
-        ),
+        data: (focus) {
+          if (focus.needsSelection || focus.exam == null) {
+            return const _ChooseExamFallback();
+          }
+          return ListView(
+            padding: const EdgeInsets.all(16),
+            children: [_ExamAccordion(exam: focus.exam!)],
+          );
+        },
       ),
+    );
+  }
+}
+
+class _ChooseExamFallback extends StatelessWidget {
+  const _ChooseExamFallback();
+
+  @override
+  Widget build(BuildContext context) {
+    final textStyles = context.textStyles;
+
+    return ListView(
+      padding: const EdgeInsets.all(16),
+      children: [
+        AppCard(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Choose your exam', style: textStyles.headlineSmall),
+              const SizedBox(height: 6),
+              Text(
+                'Pick the exam you are reviewing for.',
+                style: textStyles.bodyMedium,
+              ),
+              const SizedBox(height: 16),
+              AppButton(
+                label: 'Choose exam',
+                onPressed: () => context.go('/onboarding'),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
@@ -52,6 +99,7 @@ class _ExamAccordion extends ConsumerWidget {
     return AppCard(
       padding: EdgeInsets.zero,
       child: ExpansionTile(
+        initiallyExpanded: true,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppDimensions.radiusLG),
         ),
@@ -104,7 +152,7 @@ class _SubjectExpansion extends ConsumerWidget {
                   title: Text(topic.name, style: textStyles.bodyMedium),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () => context.push(
-                    '/learn/topic/${topic.id}?examId=$examId',
+                    '/study/topic/${topic.id}?examId=$examId',
                   ),
                 ),
             ],
