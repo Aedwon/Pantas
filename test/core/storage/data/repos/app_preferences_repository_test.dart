@@ -46,7 +46,7 @@ void main() {
     addTearDown(db.close);
     final repo = AppPreferencesRepository(db);
 
-    await repo.setPassedAgeGate(true);
+    await repo.setPassedAgeGate(value: true);
 
     expect(await repo.hasPassedAgeGate(), isTrue);
   });
@@ -56,8 +56,8 @@ void main() {
     addTearDown(db.close);
     final repo = AppPreferencesRepository(db);
 
-    await repo.setPassedAgeGate(true);
-    await repo.setPassedAgeGate(false);
+    await repo.setPassedAgeGate(value: true);
+    await repo.setPassedAgeGate(value: false);
 
     expect(await repo.hasPassedAgeGate(), isFalse);
   });

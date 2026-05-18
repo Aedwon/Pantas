@@ -36,7 +36,8 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
     }
     setState(() => _saving = true);
     try {
-      await ref.read(appPreferencesRepositoryProvider).setPassedAgeGate(true);
+      final repo = ref.read(appPreferencesRepositoryProvider);
+      await repo.setPassedAgeGate(value: true);
       ref.invalidate(appPreferencesRepositoryProvider);
       widget.onAgeGatePassed();
     } finally {

@@ -31,7 +31,7 @@ class AppPreferencesRepository {
     return row?.value == 'true';
   }
 
-  Future<void> setPassedAgeGate(bool value) async {
+  Future<void> setPassedAgeGate({required bool value}) async {
     await _db.into(_db.appPreferencesLocal).insertOnConflictUpdate(
           AppPreferencesLocalCompanion.insert(
             key: _passedAgeGateKey,

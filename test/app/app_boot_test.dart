@@ -21,7 +21,7 @@ void main() {
             language: 'en',
           ),
         );
-    await AppPreferencesRepository(db).setPassedAgeGate(true);
+    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await AppPreferencesRepository(db).setSelectedExamId('cse');
 
     await tester.pumpWidget(

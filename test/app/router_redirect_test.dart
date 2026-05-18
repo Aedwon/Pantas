@@ -13,20 +13,24 @@ void main() {
 
   setUp(() async {
     db = inMemoryDatabase();
-    await db.into(db.exams).insert(ExamsCompanion.insert(
-          id: 'cse',
-          code: 'CSE',
-          name: 'Civil Service Exam',
-          shortName: 'CSE',
-          language: 'en',
-        ));
-    await db.into(db.exams).insert(ExamsCompanion.insert(
-          id: 'upcat',
-          code: 'UPCAT',
-          name: 'UPCAT',
-          shortName: 'UPCAT',
-          language: 'en',
-        ));
+    await db.into(db.exams).insert(
+          ExamsCompanion.insert(
+            id: 'cse',
+            code: 'CSE',
+            name: 'Civil Service Exam',
+            shortName: 'CSE',
+            language: 'en',
+          ),
+        );
+    await db.into(db.exams).insert(
+          ExamsCompanion.insert(
+            id: 'upcat',
+            code: 'UPCAT',
+            name: 'UPCAT',
+            shortName: 'UPCAT',
+            language: 'en',
+          ),
+        );
   });
 
   tearDown(() => db.close());
@@ -50,14 +54,14 @@ void main() {
   testWidgets(
       'age gate passed, needs selection → boot lands on onboarding picker',
       (tester) async {
-    await AppPreferencesRepository(db).setPassedAgeGate(true);
+    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await pumpApp(tester);
     expect(find.text('Choose your exam'), findsOneWidget);
   });
 
   testWidgets('age gate passed, valid selection → boot lands on home',
       (tester) async {
-    await AppPreferencesRepository(db).setPassedAgeGate(true);
+    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await AppPreferencesRepository(db).setSelectedExamId('cse');
     await pumpApp(tester);
     expect(find.text('Home'), findsWidgets);
@@ -66,7 +70,7 @@ void main() {
 
   testWidgets('age gate passed, invalid persisted exam id → onboarding picker',
       (tester) async {
-    await AppPreferencesRepository(db).setPassedAgeGate(true);
+    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await AppPreferencesRepository(db).setSelectedExamId('removed-exam');
     await pumpApp(tester);
     expect(find.text('Choose your exam'), findsOneWidget);

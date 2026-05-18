@@ -28,7 +28,7 @@ void main() {
   });
 
   test('returns true after setPassedAgeGate(true)', () async {
-    await AppPreferencesRepository(db).setPassedAgeGate(true);
+    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     container.invalidate(passedAgeGateProvider);
 
     expect(await container.read(passedAgeGateProvider.future), isTrue);
