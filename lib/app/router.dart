@@ -19,7 +19,7 @@ final routerProvider = Provider<GoRouter>((ref) {
     passedAgeGateProvider,
     activeExamFocusProvider,
   ]);
-  return GoRouter(
+  final router = GoRouter(
     initialLocation: '/home',
     refreshListenable: refreshListenable,
     redirect: (context, state) {
@@ -143,6 +143,8 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
     ],
   );
+  ref.onDispose(router.dispose);
+  return router;
 });
 
 class _TabStub extends StatelessWidget {
