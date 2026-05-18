@@ -1,7 +1,11 @@
+import 'package:cse_cet_reviewer/app/router_refresh_listenable.dart';
+import 'package:cse_cet_reviewer/core/storage/age_gate.dart';
+import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/features/assessment/assessment.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/learn_tab_home.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_list_page.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_page.dart';
+import 'package:cse_cet_reviewer/features/onboarding/onboarding.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_results_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_tab_home.dart';
@@ -11,8 +15,26 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
+  final refreshListenable = RouterRefreshListenable(ref, [
+    passedAgeGateProvider,
+    activeExamFocusProvider,
+  ]);
   return GoRouter(
     initialLocation: '/home',
+    refreshListenable: refreshListenable,
+    redirect: (context, state) {
+      final passedAsync = ref.read(passedAgeGateProvider);
+      final focusAsync = ref.read(activeExamFocusProvider);
+      final passed = passedAsync.valueOrNull;
+      final focus = focusAsync.valueOrNull;
+      if (passed == null || focus == null) return null;
+      final atOnboarding = state.matchedLocation == '/onboarding';
+      final needsSelection = focus.needsSelection;
+      if (!passed && !atOnboarding) return '/onboarding';
+      if (passed && needsSelection && !atOnboarding) return '/onboarding';
+      if (passed && !needsSelection && atOnboarding) return '/home';
+      return null;
+    },
     routes: [
       StatefulShellRoute.indexedStack(
         builder: (context, state, shell) => AppShell(navigationShell: shell),
@@ -62,7 +84,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: '/onboarding',
-        builder: (_, __) => const _Stub('Onboarding'),
+        builder: (_, __) => const OnboardingPage(),
       ),
       GoRoute(
         path: '/quiz/quick/:examId',
