@@ -32,4 +32,33 @@ void main() {
 
     expect(await repo.selectedExamId(), equals('upcat'));
   });
+
+  test('hasPassedAgeGate returns false when unset', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = AppPreferencesRepository(db);
+
+    expect(await repo.hasPassedAgeGate(), isFalse);
+  });
+
+  test('setPassedAgeGate persists true', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = AppPreferencesRepository(db);
+
+    await repo.setPassedAgeGate(true);
+
+    expect(await repo.hasPassedAgeGate(), isTrue);
+  });
+
+  test('setPassedAgeGate overwrites previous value', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = AppPreferencesRepository(db);
+
+    await repo.setPassedAgeGate(true);
+    await repo.setPassedAgeGate(false);
+
+    expect(await repo.hasPassedAgeGate(), isFalse);
+  });
 }
