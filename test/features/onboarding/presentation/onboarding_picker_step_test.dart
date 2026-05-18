@@ -9,7 +9,7 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../../helpers/in_memory_database.dart';
 
 class _ThrowingPrefsRepo extends AppPreferencesRepository {
-  _ThrowingPrefsRepo() : super(inMemoryDatabase());
+  _ThrowingPrefsRepo(super.db);
 
   @override
   Future<void> setSelectedExamId(String examId) async {
@@ -111,7 +111,7 @@ void main() {
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
           appPreferencesRepositoryProvider.overrideWith(
-            (ref) => _ThrowingPrefsRepo(),
+            (ref) => _ThrowingPrefsRepo(db),
           ),
         ],
         child: MaterialApp(
