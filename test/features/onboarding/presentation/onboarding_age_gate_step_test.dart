@@ -53,7 +53,8 @@ void main() {
 
     final picker = find.byType(CupertinoPicker);
     expect(picker, findsOneWidget);
-    // Default selection is currentYear - 18 = 2008. Drag down to confirm a year.
+    // Default selection is currentYear - 18 = 2008. Drag down to
+    // confirm a year.
     await tester.drag(picker, const Offset(0, -32));
     await tester.pumpAndSettle();
 
@@ -71,8 +72,8 @@ void main() {
 
     // Scroll wheel up enough to reach a year > 2013 (under 13 in 2026).
     final picker = find.byType(CupertinoPicker);
-    // Default index lands at 2008 (currentYear - 18). To reach 2014 we scroll down
-    // by 6 items. CupertinoPicker default item extent is 32.
+    // Default index lands at 2008 (currentYear - 18). To reach 2014 we
+    // scroll down by 6 items. CupertinoPicker default item extent is 32.
     await tester.drag(picker, const Offset(0, -32.0 * 6));
     await tester.pumpAndSettle();
 

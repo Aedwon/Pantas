@@ -14,8 +14,10 @@ void main() {
     );
 
     expect(find.text('Build your study plan'), findsOneWidget);
-    expect(find.text("Pick your exam — we'll guide what to study first."),
-        findsOneWidget);
+    expect(
+      find.text("Pick your exam — we'll guide what to study first."),
+      findsOneWidget,
+    );
     expect(find.text('Get started'), findsOneWidget);
   });
 
