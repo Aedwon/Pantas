@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class OnboardingWelcomeStep extends StatelessWidget {
-  const OnboardingWelcomeStep({super.key, required this.onAdvance});
+  const OnboardingWelcomeStep({required this.onAdvance, super.key});
 
   final VoidCallback onAdvance;
 
@@ -22,8 +22,11 @@ class OnboardingWelcomeStep extends StatelessWidget {
                 borderRadius: BorderRadius.circular(24),
               ),
               alignment: Alignment.center,
-              child: Icon(Icons.menu_book_rounded,
-                  size: 64, color: theme.colorScheme.primary),
+              child: Icon(
+                Icons.menu_book_rounded,
+                size: 64,
+                color: theme.colorScheme.primary,
+              ),
             ),
             const SizedBox(height: 32),
             Text(
@@ -43,7 +46,8 @@ class OnboardingWelcomeStep extends StatelessWidget {
               style: FilledButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(14)),
+                  borderRadius: BorderRadius.circular(14),
+                ),
               ),
               child: const Text('Get started'),
             ),

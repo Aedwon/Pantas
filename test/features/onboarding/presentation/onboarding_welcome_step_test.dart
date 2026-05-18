@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('renders headline, subtitle, and Get started CTA', (tester) async {
+  testWidgets('renders headline, subtitle, and Get started CTA',
+      (tester) async {
     await tester.pumpWidget(
       MaterialApp(
-        home: OnboardingWelcomeStep(onAdvance: () {}),
+        home: Scaffold(
+          body: OnboardingWelcomeStep(onAdvance: () {}),
+        ),
       ),
     );
 
@@ -20,7 +23,9 @@ void main() {
     var advanced = 0;
     await tester.pumpWidget(
       MaterialApp(
-        home: OnboardingWelcomeStep(onAdvance: () => advanced++),
+        home: Scaffold(
+          body: OnboardingWelcomeStep(onAdvance: () => advanced++),
+        ),
       ),
     );
 
