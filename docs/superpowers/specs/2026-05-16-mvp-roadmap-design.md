@@ -33,7 +33,7 @@ It is a **plan-of-plans**, not an implementation plan itself. Each spec listed b
 - Frontend foundation (theme, components, routing scaffold)
 - Local data layer (Drift schema, repositories)
 - FSRS engine (100% test coverage)
-- Quiz feature (quick quiz + drill UI)
+- Quiz feature — quick quiz only, random across all topics; the route accepts `?topicId=` but no UI surfaces it yet (drill/retake-mistakes ship in Spec 4)
 - Lesson reader (Portable Text, math rendering)
 - Assessment / diagnostic (10-question adaptive)
 - Lesson progress tracking
@@ -104,16 +104,33 @@ Each spec below will be brainstormed in its own session via the `superpowers:bra
 - What's the failure handling for a sync that has been failing for 24 hours? Surface to user, retry forever, or give up?
 - Does the queue persist across reinstalls (Drift, yes) or only across launches (memory)?
 
-### Spec 4 — Review queue (size: M)
+### Spec 4 — Review queue + quiz modes (size: L)
 
-**Scope:** Computes the daily FSRS-driven review queue from `next_due` state. UI: queue overview screen + session UI (reuses the existing quiz session widget). Streak update on session completion. Daily cap configurable in settings (default: no cap on free tier — this is the engagement driver).
+**Scope:** Two related concerns that share the same "intelligent question selection" domain layer, specced and built together.
 
-**Dependencies:** None new (FSRS + quiz UI shipped).
+**4a. Review queue (FSRS-driven daily):**
+- Computes the daily review queue from `next_due` FSRS state.
+- Queue overview screen + session UI (reuses the existing quiz session widget).
+- Streak update on session completion.
+- Daily cap configurable in settings (default: no cap on free tier — engagement driver).
+
+**4b. Quiz modes (replaces the current random-only quick quiz):**
+
+The current `start_quick_quiz.dart` pulls every question across every subject/topic of the exam and shuffles randomly. This is the placeholder MVP behavior and is replaced. Three modes ship in v1:
+
+- **Quick Quiz** (button on Quiz tab): app picks the questions. Composition: weakness-targeted (drawn from low-mastery topics per assessment) + FSRS-prioritized (overdue cards bumped to the front) + recency-spread (no two consecutive questions from the same topic). When the Study Plan is active, this button surfaces the Study Plan's daily drill recommendation. This is the default lazy-mode button.
+- **Drill** (subject/topic browser): user picks a subject → topic → "Drill this topic" button. Sources from `questionsByTopic` (already exists). Configurable question count.
+- **Retake Mistakes**: question pool is the user's recent incorrect answers (last 30 days, across all topics). Useful for reinforcement before a mock exam.
+
+**Dependencies:** None new (FSRS done, content repo done, assessment topic-mastery data done, quiz session UI done). External: assumes Sanity content is real (Spec 2 has shipped), so the question pool is meaningful.
 
 **Open questions:**
 - Streak rules: does a 1-card review count as "studied today" or is there a minimum? What about timezone changes / travel?
-- If the queue is empty (no cards due), what does the screen show? "Add new cards" CTA?
-- Does the review queue feed into the Study Plan's daily target, or is the Study Plan the source of truth?
+- If the FSRS queue is empty (no cards due), what does the Review tab show? "Add new cards via drill" CTA?
+- Does the Review queue feed into the Study Plan's daily target, or is the Study Plan the source of truth? (Resolved in Spec 6 brainstorm; flagged here for tracking.)
+- Quick Quiz composition: what's the mix ratio between weakness-targeted vs FSRS-due vs "new" questions? Hard-coded weights, configurable, or adaptive?
+- Retake Mistakes window: 30 days fixed, or user-configurable?
+- Does the existing `quiz_nudge` ("study lessons first") apply to all three modes, or only Quick Quiz?
 
 ### Spec 5 — Mock exam (size: L)
 
@@ -233,7 +250,7 @@ Week 6 (Jun 20-28): Address store review feedback
 
 ### 5.2 Acceptable slip
 
-- 1-2 week slip into early July if any of: Apple review rejects twice, Sanity content authoring runs long, Study Plan algorithm needs a second design pass.
+- 1-2 week slip into early July if any of: Apple review rejects twice, Sanity content authoring runs long, Study Plan algorithm needs a second design pass, Spec 4 quiz-modes scope expansion eats into Week 2 (now three L-sized specs in one week — the tightest week in the schedule).
 - Pentest is cut (solo-founder risk acceptance).
 
 ### 5.3 Not acceptable for launch
