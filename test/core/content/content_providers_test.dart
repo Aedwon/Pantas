@@ -39,4 +39,17 @@ void main() {
 
     expect(container.read(contentDatabaseProvider), same(db));
   });
+
+  test('content repository providers use contentDatabaseProvider', () {
+    final db = ContentDatabase(NativeDatabase.memory());
+    addTearDown(db.close);
+    final container = ProviderContainer(
+      overrides: [contentDatabaseProvider.overrideWithValue(db)],
+    );
+    addTearDown(container.dispose);
+
+    expect(container.read(examRepoProvider).database, same(db));
+    expect(container.read(questionRepoProvider).database, same(db));
+    expect(container.read(lessonRepoProvider).database, same(db));
+  });
 }
