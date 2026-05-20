@@ -1,4 +1,20 @@
 import 'package:cse_cet_reviewer/core/auth/auth_state.dart';
+import 'package:cse_cet_reviewer/core/auth/sign_in_result.dart';
+
+typedef Clock = DateTime Function();
+
+class GoogleAuthTokens {
+  const GoogleAuthTokens({this.idToken, this.accessToken});
+
+  final String? idToken;
+  final String? accessToken;
+}
+
+class AuthGatewayException implements Exception {
+  const AuthGatewayException(this.code);
+
+  final String code;
+}
 
 abstract interface class AuthGateway {
   AuthSession? get currentSession;
@@ -6,12 +22,38 @@ abstract interface class AuthGateway {
   Stream<AuthSession?> get authStateChanges;
 
   Future<AuthSession> signInAnonymously();
+
+  Future<AuthSession> linkWithGoogleCredential(GoogleAuthTokens tokens);
+
+  Future<AuthSession> signInWithGoogleCredential(GoogleAuthTokens tokens);
+
+  Future<void> signOut();
 }
 
 class AuthRepository {
-  const AuthRepository({required AuthGateway gateway}) : _gateway = gateway;
+  AuthRepository({
+    required AuthGateway gateway,
+    GoogleSignInGateway? googleGateway,
+    AuthFunctionsGateway? functionsGateway,
+    LocalStateWiper? localStateWiper,
+    CloudProgressGateway? cloudProgressGateway,
+    Clock? clock,
+  })  : _gateway = gateway,
+        _googleGateway =
+            googleGateway ?? const UnconfiguredGoogleSignInGateway(),
+        _functionsGateway =
+            functionsGateway ?? const UnconfiguredAuthFunctionsGateway(),
+        _localStateWiper = localStateWiper ?? const NoopLocalStateWiper(),
+        _cloudProgressGateway =
+            cloudProgressGateway ?? const EmptyCloudProgressGateway(),
+        _clock = clock ?? DateTime.now;
 
   final AuthGateway _gateway;
+  final GoogleSignInGateway _googleGateway;
+  final AuthFunctionsGateway _functionsGateway;
+  final LocalStateWiper _localStateWiper;
+  final CloudProgressGateway _cloudProgressGateway;
+  final Clock _clock;
 
   Stream<AuthState> get authState {
     return _gateway.authStateChanges.map(AuthState.fromSession);
@@ -21,4 +63,132 @@ class AuthRepository {
     if (_gateway.currentSession != null) return;
     await _gateway.signInAnonymously();
   }
+
+  Future<SignInResult> signInWithGoogle() async {
+    final tokens = await _googleGateway.signIn();
+    if (tokens == null) return const SignInResult.cancelled();
+
+    try {
+      await _gateway.linkWithGoogleCredential(tokens);
+      await _functionsGateway.recordSignInEvent();
+      return const SignInResult.linkedExisting();
+    } on AuthGatewayException catch (error) {
+      if (error.code != 'credential-already-in-use') {
+        return SignInResult.failed(reason: error.code);
+      }
+      return _switchToExistingGoogleAccount(tokens);
+    }
+  }
+
+  Future<void> signOut() async {
+    await _localStateWiper.wipeAll();
+    await _gateway.signOut();
+    await _googleGateway.signOut();
+    await ensureAnonymous();
+  }
+
+  Future<Uri> exportData() {
+    return _functionsGateway.exportData();
+  }
+
+  Future<void> deleteAccount() async {
+    final session = _gateway.currentSession;
+    final lastSignInTime = session?.lastSignInTime;
+    if (lastSignInTime == null ||
+        _clock().difference(lastSignInTime) > const Duration(minutes: 5)) {
+      final tokens = await _googleGateway.signIn();
+      if (tokens != null) {
+        await _gateway.signInWithGoogleCredential(tokens);
+      }
+    }
+
+    await _functionsGateway.deleteAccount();
+    await _localStateWiper.wipeAll();
+  }
+
+  Future<SignInResult> _switchToExistingGoogleAccount(
+    GoogleAuthTokens tokens,
+  ) async {
+    final meaningfulLocalData = await _localStateWiper.hasMeaningfulProgress();
+    try {
+      await _gateway.signOut();
+      final session = await _gateway.signInWithGoogleCredential(tokens);
+      final meaningfulCloudData =
+          await _cloudProgressGateway.hasMeaningfulProgress(session.uid);
+      await _functionsGateway.recordSignInEvent();
+      return SignInResult.switchedToExisting(
+        meaningfulCloudData: meaningfulCloudData,
+        meaningfulLocalData: meaningfulLocalData,
+      );
+    } on AuthGatewayException catch (error) {
+      await ensureAnonymous();
+      return SignInResult.failed(reason: error.code);
+    }
+  }
+}
+
+abstract interface class GoogleSignInGateway {
+  Future<GoogleAuthTokens?> signIn();
+
+  Future<void> signOut();
+}
+
+abstract interface class AuthFunctionsGateway {
+  Future<void> recordSignInEvent();
+
+  Future<Uri> exportData();
+
+  Future<void> deleteAccount();
+}
+
+abstract interface class LocalStateWiper {
+  Future<bool> hasMeaningfulProgress();
+
+  Future<void> wipeAll();
+}
+
+abstract interface class CloudProgressGateway {
+  Future<bool> hasMeaningfulProgress(String uid);
+}
+
+class UnconfiguredGoogleSignInGateway implements GoogleSignInGateway {
+  const UnconfiguredGoogleSignInGateway();
+
+  @override
+  Future<GoogleAuthTokens?> signIn() async => null;
+
+  @override
+  Future<void> signOut() async {}
+}
+
+class UnconfiguredAuthFunctionsGateway implements AuthFunctionsGateway {
+  const UnconfiguredAuthFunctionsGateway();
+
+  @override
+  Future<void> recordSignInEvent() async {}
+
+  @override
+  Future<void> deleteAccount() async {}
+
+  @override
+  Future<Uri> exportData() async {
+    throw StateError('exportData callable is not configured');
+  }
+}
+
+class NoopLocalStateWiper implements LocalStateWiper {
+  const NoopLocalStateWiper();
+
+  @override
+  Future<bool> hasMeaningfulProgress() async => false;
+
+  @override
+  Future<void> wipeAll() async {}
+}
+
+class EmptyCloudProgressGateway implements CloudProgressGateway {
+  const EmptyCloudProgressGateway();
+
+  @override
+  Future<bool> hasMeaningfulProgress(String uid) async => false;
 }

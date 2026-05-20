@@ -8,6 +8,7 @@ class AuthSession {
     this.displayName,
     this.photoUrl,
     this.isPro = false,
+    this.lastSignInTime,
   });
 
   final String uid;
@@ -16,6 +17,7 @@ class AuthSession {
   final String? displayName;
   final String? photoUrl;
   final bool isPro;
+  final DateTime? lastSignInTime;
 }
 
 sealed class AuthState {

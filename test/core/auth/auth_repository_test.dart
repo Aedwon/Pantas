@@ -76,4 +76,18 @@ class FakeAuthGateway implements AuthGateway {
     _controller.add(_currentSession);
     return _currentSession!;
   }
+
+  @override
+  Future<AuthSession> linkWithGoogleCredential(GoogleAuthTokens tokens) async {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> signOut() async {}
+
+  @override
+  Future<AuthSession> signInWithGoogleCredential(
+      GoogleAuthTokens tokens) async {
+    throw UnimplementedError();
+  }
 }
