@@ -1,0 +1,10 @@
+{
+  "name": "cse-cet-reviewer-functions",
+  "private": true,
+  "engines": {
+    "node": "20"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  }
+}
