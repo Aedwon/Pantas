@@ -52,7 +52,8 @@ class SignOutAuthGateway implements AuthGateway {
 
   @override
   Future<AuthSession> signInWithGoogleCredential(
-      GoogleAuthTokens tokens) async {
+    GoogleAuthTokens tokens,
+  ) async {
     throw UnimplementedError();
   }
 }

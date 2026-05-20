@@ -15,9 +15,7 @@ void main() {
     expect(functions.exportDataCalls, 1);
   });
 
-  test(
-      'deleteAccount reauthenticates when last sign-in is older than five minutes',
-      () async {
+  test('deleteAccount reauthenticates for stale sign-in', () async {
     final google = PrivacyGoogleGateway();
     final functions = PrivacyFunctionsGateway();
     final repo = AuthRepository(
@@ -64,7 +62,8 @@ class PrivacyAuthGateway implements AuthGateway {
 
   @override
   Future<AuthSession> signInWithGoogleCredential(
-      GoogleAuthTokens tokens) async {
+    GoogleAuthTokens tokens,
+  ) async {
     currentSession = const AuthSession(uid: 'user-1');
     return currentSession!;
   }

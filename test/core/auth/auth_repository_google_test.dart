@@ -88,7 +88,8 @@ class FakeAuthGateway implements AuthGateway {
 
   @override
   Future<AuthSession> signInWithGoogleCredential(
-      GoogleAuthTokens tokens) async {
+    GoogleAuthTokens tokens,
+  ) async {
     currentSession = const AuthSession(uid: 'user-1');
     return currentSession!;
   }

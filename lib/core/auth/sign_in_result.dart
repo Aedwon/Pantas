@@ -1,3 +1,6 @@
+import 'package:meta/meta.dart';
+
+@immutable
 sealed class SignInResult {
   const SignInResult();
 
@@ -14,6 +17,7 @@ sealed class SignInResult {
       FailedSignInResult;
 }
 
+@immutable
 class LinkedExistingSignInResult extends SignInResult {
   const LinkedExistingSignInResult();
 
@@ -24,6 +28,7 @@ class LinkedExistingSignInResult extends SignInResult {
   int get hashCode => Object.hash(LinkedExistingSignInResult, 0);
 }
 
+@immutable
 class SwitchedToExistingSignInResult extends SignInResult {
   const SwitchedToExistingSignInResult({
     required this.meaningfulCloudData,
@@ -50,6 +55,7 @@ class SwitchedToExistingSignInResult extends SignInResult {
   }
 }
 
+@immutable
 class CancelledSignInResult extends SignInResult {
   const CancelledSignInResult();
 
@@ -60,6 +66,7 @@ class CancelledSignInResult extends SignInResult {
   int get hashCode => Object.hash(CancelledSignInResult, 0);
 }
 
+@immutable
 class FailedSignInResult extends SignInResult {
   const FailedSignInResult({required this.reason});
 

@@ -9,8 +9,8 @@ void main() {
       gateway: gateway,
       googleGateway: OneTokenGoogleGateway(),
       functionsGateway: CountingFunctionsGateway(),
-      localStateWiper: const MeaningfulLocalStateWiper(true),
-      cloudProgressGateway: const MeaningfulCloudProgressGateway(true),
+      localStateWiper: const MeaningfulLocalStateWiper(hasData: true),
+      cloudProgressGateway: const MeaningfulCloudProgressGateway(hasData: true),
     );
 
     final result = await repo.signInWithGoogle();
@@ -35,8 +35,9 @@ void main() {
       gateway: CollisionAuthGateway(),
       googleGateway: OneTokenGoogleGateway(),
       functionsGateway: functions,
-      localStateWiper: const MeaningfulLocalStateWiper(false),
-      cloudProgressGateway: const MeaningfulCloudProgressGateway(false),
+      localStateWiper: const MeaningfulLocalStateWiper(hasData: false),
+      cloudProgressGateway:
+          const MeaningfulCloudProgressGateway(hasData: false),
     );
 
     await repo.signInWithGoogle();
@@ -51,8 +52,9 @@ void main() {
       gateway: gateway,
       googleGateway: OneTokenGoogleGateway(),
       functionsGateway: CountingFunctionsGateway(),
-      localStateWiper: const MeaningfulLocalStateWiper(true),
-      cloudProgressGateway: const MeaningfulCloudProgressGateway(false),
+      localStateWiper: const MeaningfulLocalStateWiper(hasData: true),
+      cloudProgressGateway:
+          const MeaningfulCloudProgressGateway(hasData: false),
     );
 
     final result = await repo.signInWithGoogle();
@@ -101,7 +103,8 @@ class CollisionAuthGateway implements AuthGateway {
 
   @override
   Future<AuthSession> signInWithGoogleCredential(
-      GoogleAuthTokens tokens) async {
+    GoogleAuthTokens tokens,
+  ) async {
     operations.add('signInWithCredential');
     if (failFallbackSignIn) {
       throw const AuthGatewayException('fallback-failed');
@@ -137,7 +140,7 @@ class CountingFunctionsGateway implements AuthFunctionsGateway {
 }
 
 class MeaningfulLocalStateWiper implements LocalStateWiper {
-  const MeaningfulLocalStateWiper(this.hasData);
+  const MeaningfulLocalStateWiper({required this.hasData});
 
   final bool hasData;
 
@@ -149,7 +152,7 @@ class MeaningfulLocalStateWiper implements LocalStateWiper {
 }
 
 class MeaningfulCloudProgressGateway implements CloudProgressGateway {
-  const MeaningfulCloudProgressGateway(this.hasData);
+  const MeaningfulCloudProgressGateway({required this.hasData});
 
   final bool hasData;
 

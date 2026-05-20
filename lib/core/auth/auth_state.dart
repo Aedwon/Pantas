@@ -1,5 +1,7 @@
 import 'package:cse_cet_reviewer/core/auth/auth_user.dart';
+import 'package:meta/meta.dart';
 
+@immutable
 class AuthSession {
   const AuthSession({
     required this.uid,
@@ -23,16 +25,9 @@ class AuthSession {
 sealed class AuthState {
   const AuthState();
 
-  static const unknown = UnknownAuthState();
-
   const factory AuthState.anonymous({required String uid}) = AnonymousAuthState;
 
-  const factory AuthState.signedIn({required AuthUser user}) =
-      SignedInAuthState;
-
-  const factory AuthState.signedOut() = SignedOutAuthState;
-
-  static AuthState fromSession(AuthSession? session) {
+  factory AuthState.fromSession(AuthSession? session) {
     if (session == null) return const AuthState.signedOut();
     if (session.isAnonymous) {
       return AuthState.anonymous(uid: session.uid);
@@ -47,8 +42,16 @@ sealed class AuthState {
       ),
     );
   }
+
+  const factory AuthState.signedIn({required AuthUser user}) =
+      SignedInAuthState;
+
+  const factory AuthState.signedOut() = SignedOutAuthState;
+
+  static const unknown = UnknownAuthState();
 }
 
+@immutable
 class UnknownAuthState extends AuthState {
   const UnknownAuthState();
 
@@ -59,6 +62,7 @@ class UnknownAuthState extends AuthState {
   int get hashCode => Object.hash(UnknownAuthState, 0);
 }
 
+@immutable
 class AnonymousAuthState extends AuthState {
   const AnonymousAuthState({required this.uid});
 
@@ -73,6 +77,7 @@ class AnonymousAuthState extends AuthState {
   int get hashCode => Object.hash(AnonymousAuthState, uid);
 }
 
+@immutable
 class SignedInAuthState extends AuthState {
   const SignedInAuthState({required this.user});
 
@@ -87,6 +92,7 @@ class SignedInAuthState extends AuthState {
   int get hashCode => Object.hash(SignedInAuthState, user);
 }
 
+@immutable
 class SignedOutAuthState extends AuthState {
   const SignedOutAuthState();
 

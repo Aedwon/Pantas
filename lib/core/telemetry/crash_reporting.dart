@@ -1,5 +1,6 @@
 import 'package:cse_cet_reviewer/core/auth/auth.dart';
 
+// ignore: one_member_abstracts
 abstract interface class CrashReportingSink {
   Future<void> setUserIdentifier(String identifier);
 }

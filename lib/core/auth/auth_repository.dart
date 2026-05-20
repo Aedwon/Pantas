@@ -147,6 +147,7 @@ abstract interface class LocalStateWiper {
   Future<void> wipeAll();
 }
 
+// ignore: one_member_abstracts
 abstract interface class CloudProgressGateway {
   Future<bool> hasMeaningfulProgress(String uid);
 }

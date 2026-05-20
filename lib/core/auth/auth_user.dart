@@ -1,3 +1,6 @@
+import 'package:meta/meta.dart';
+
+@immutable
 class AuthUser {
   const AuthUser({
     required this.uid,
