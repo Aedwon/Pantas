@@ -37,6 +37,10 @@ jobs:
       - name: Unit + widget tests
         run: flutter test --coverage
 
+      - name: Backend static tests
+        run: npm test
+        working-directory: functions
+
       - name: Coverage gate (overall >= 70%)
         run: dart run tool/check_coverage.dart --min 70 --write-filtered coverage/lcov.filtered.info
 

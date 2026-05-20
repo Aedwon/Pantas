@@ -21,6 +21,8 @@ jobs:
       - run: dart run tool/check_layering.dart
       - run: dart run tool/check_no_ai_attribution.dart
       - run: flutter test --coverage
+      - run: npm test
+        working-directory: functions
 
       - name: Build dev APK (debug, unsigned)
         run: flutter build apk --debug --flavor dev -t lib/main_dev.dart
