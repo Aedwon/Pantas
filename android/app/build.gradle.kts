@@ -20,10 +20,7 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.aedwon.csecetreviewer"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
+        applicationId = "com.aerol.csecet"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
@@ -34,25 +31,25 @@ android {
     productFlavors {
         create("dev") {
             dimension = "default"
-            applicationIdSuffix = ".dev"
+            applicationId = "com.aerol.csecet.dev"
             versionNameSuffix = "-dev"
             resValue("string", "app_name", "CSE/CET Reviewer Dev")
         }
         create("staging") {
             dimension = "default"
-            applicationIdSuffix = ".staging"
+            applicationId = "com.aerol.csecet.dev.staging"
             versionNameSuffix = "-staging"
             resValue("string", "app_name", "CSE/CET Reviewer Staging")
         }
         create("prod") {
             dimension = "default"
+            applicationId = "com.aerol.csecet"
             resValue("string", "app_name", "CSE/CET Reviewer")
         }
     }
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig = signingConfigs.getByName("debug")
         }
