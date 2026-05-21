@@ -1,0 +1,107 @@
+{
+  "exam": {
+    "_id": "exam_cse",
+    "_updatedAt": "2026-05-17T00:00:00Z",
+    "schemaVersion": 1,
+    "isActive": true,
+    "code": "CSE",
+    "name": "Civil Service Exam",
+    "shortName": "CSE",
+    "language": "en",
+    "ordering": 1
+  },
+  "subject": {
+    "_id": "subject_verbal",
+    "_updatedAt": "2026-05-17T00:00:00Z",
+    "schemaVersion": 1,
+    "isActive": true,
+    "exam": {"_ref": "exam_cse"},
+    "name": "Verbal",
+    "ordering": 1
+  },
+  "topic": {
+    "_id": "topic_vocab",
+    "_updatedAt": "2026-05-17T00:00:00Z",
+    "schemaVersion": 1,
+    "isActive": true,
+    "subject": {"_ref": "subject_verbal"},
+    "name": "Vocabulary",
+    "ordering": 1
+  },
+  "question": {
+    "_id": "q_001",
+    "_updatedAt": "2026-05-17T00:00:00Z",
+    "schemaVersion": 1,
+    "isActive": true,
+    "topic": {"_ref": "topic_vocab"},
+    "examIds": [{"_ref": "exam_cse"}],
+    "language": "en",
+    "stem": [
+      {
+        "_type": "block",
+        "children": [
+          {"_type": "span", "text": "Pick the synonym.", "marks": []}
+        ]
+      }
+    ],
+    "explanation": [
+      {
+        "_type": "block",
+        "children": [
+          {"_type": "span", "text": "Same meaning.", "marks": []}
+        ]
+      }
+    ],
+    "version": 1,
+    "choices": [
+      {"_key": "choice_a", "label": "A", "text": "Different", "isCorrect": false},
+      {"_key": "choice_b", "label": "B", "text": "Same", "isCorrect": true}
+    ]
+  },
+  "lesson": {
+    "_id": "lesson_vocab",
+    "_updatedAt": "2026-05-17T00:00:00Z",
+    "schemaVersion": 1,
+    "isActive": true,
+    "topic": {"_ref": "topic_vocab"},
+    "title": "Vocabulary Basics",
+    "summary": "Core words",
+    "estimatedMinutes": 5,
+    "body": [
+      {
+        "_type": "block",
+        "children": [
+          {"_type": "span", "text": "Read carefully.", "marks": []}
+        ]
+      }
+    ]
+  },
+  "mockBlueprint": {
+    "_id": "blueprint_cse",
+    "_updatedAt": "2026-05-17T00:00:00Z",
+    "schemaVersion": 1,
+    "isActive": true,
+    "exam": {"_ref": "exam_cse"},
+    "name": "CSE Practice",
+    "durationMinutes": 90,
+    "sections": [{"subjectId": "subject_verbal", "questionCount": 10}]
+  },
+  "mockExam": {
+    "_id": "mock_cse_1",
+    "_updatedAt": "2026-05-17T00:00:00Z",
+    "schemaVersion": 1,
+    "isActive": true,
+    "blueprint": {"_ref": "blueprint_cse"},
+    "name": "Mock 1",
+    "publishedAt": "2026-05-17T00:00:00Z"
+  },
+  "diagnosticSet": {
+    "_id": "diag_cse",
+    "_updatedAt": "2026-05-17T00:00:00Z",
+    "schemaVersion": 1,
+    "isActive": true,
+    "exam": {"_ref": "exam_cse"},
+    "name": "CSE Diagnostic",
+    "questionIds": [{"_ref": "q_001"}, {"_ref": "q_002"}]
+  }
+}
