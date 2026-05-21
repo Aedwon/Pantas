@@ -1,6 +1,8 @@
+import 'package:cse_cet_reviewer/core/storage/data/tables/account_prefs_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/app_preferences_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/assessment_results_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/attempts_local_table.dart';
+import 'package:cse_cet_reviewer/core/storage/data/tables/device_prefs_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/exams_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/lesson_progress_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/pending_sync_table.dart';
@@ -32,13 +34,15 @@ part 'app_database.g.dart';
     AppPreferencesLocal,
     PendingSync,
     SyncMeta,
+    DevicePrefs,
+    AccountPrefs,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 5;
+  int get schemaVersion => 6;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -57,6 +61,14 @@ class AppDatabase extends _$AppDatabase {
           if (from < 5) {
             await m.createTable(pendingSync);
             await m.createTable(syncMeta);
+          }
+          if (from < 6) {
+            await m.createTable(devicePrefs);
+            await m.createTable(accountPrefs);
+            await customStatement(
+              'INSERT OR REPLACE INTO device_prefs (key, value) '
+              'SELECT key, value FROM app_preferences_local',
+            );
           }
         },
       );

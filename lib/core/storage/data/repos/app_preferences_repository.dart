@@ -9,15 +9,20 @@ class AppPreferencesRepository {
   final AppDatabase _db;
 
   Future<String?> selectedExamId() async {
-    final row = await (_db.select(_db.appPreferencesLocal)
+    final row = await (_db.select(_db.devicePrefs)
           ..where((p) => p.key.equals(_selectedExamIdKey)))
         .getSingleOrNull();
-    return row?.value;
+    if (row != null) return row.value;
+
+    final legacyRow = await (_db.select(_db.appPreferencesLocal)
+          ..where((p) => p.key.equals(_selectedExamIdKey)))
+        .getSingleOrNull();
+    return legacyRow?.value;
   }
 
   Future<void> setSelectedExamId(String examId) async {
-    await _db.into(_db.appPreferencesLocal).insertOnConflictUpdate(
-          AppPreferencesLocalCompanion.insert(
+    await _db.into(_db.devicePrefs).insertOnConflictUpdate(
+          DevicePrefsCompanion.insert(
             key: _selectedExamIdKey,
             value: examId,
           ),
@@ -25,15 +30,20 @@ class AppPreferencesRepository {
   }
 
   Future<bool> hasPassedAgeGate() async {
-    final row = await (_db.select(_db.appPreferencesLocal)
+    final row = await (_db.select(_db.devicePrefs)
           ..where((p) => p.key.equals(_passedAgeGateKey)))
         .getSingleOrNull();
-    return row?.value == 'true';
+    if (row != null) return row.value == 'true';
+
+    final legacyRow = await (_db.select(_db.appPreferencesLocal)
+          ..where((p) => p.key.equals(_passedAgeGateKey)))
+        .getSingleOrNull();
+    return legacyRow?.value == 'true';
   }
 
   Future<void> setPassedAgeGate({required bool value}) async {
-    await _db.into(_db.appPreferencesLocal).insertOnConflictUpdate(
-          AppPreferencesLocalCompanion.insert(
+    await _db.into(_db.devicePrefs).insertOnConflictUpdate(
+          DevicePrefsCompanion.insert(
             key: _passedAgeGateKey,
             value: value ? 'true' : 'false',
           ),
