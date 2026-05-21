@@ -59,6 +59,9 @@ fastlane/.env*
 coverage/
 *.lcov
 
+# Generated content seed
+assets/seed/content.db
+
 # OS junk
 Thumbs.db
 ehthumbs.db

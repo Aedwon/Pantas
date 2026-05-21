@@ -1,0 +1,11 @@
+{
+  "name": "build-content-seed",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "fetch": "node build.mjs"
+  },
+  "dependencies": {
+    "@sanity/client": "^6.22.5"
+  }
+}
