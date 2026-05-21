@@ -32,9 +32,9 @@ void main() {
 
     final response = await client.query<String>(
       r'*[_type == "exam" && _updatedAt > $since]',
-      params: {'since': '2026-05-17T00:00:00Z'},
       doctype: 'exam',
       parse: (doc) => doc['_id']! as String,
+      params: {'since': '2026-05-17T00:00:00Z'},
     );
 
     expect(response, isA<SanityOk<String>>());
@@ -42,8 +42,10 @@ void main() {
     expect(adapter.lastUri.host, equals('abc123.apicdn.sanity.io'));
     expect(adapter.lastUri.path, equals('/v2024-01-01/data/query/production'));
     expect(adapter.lastUri.queryParameters['query'], contains('_type'));
-    expect(adapter.lastUri.queryParameters['\$since'],
-        equals('2026-05-17T00:00:00Z'));
+    expect(
+      adapter.lastUri.queryParameters[r'$since'],
+      equals('2026-05-17T00:00:00Z'),
+    );
   });
 
   test('SanityClient returns networkError for Dio failures', () async {
@@ -119,7 +121,7 @@ class ThrowingAdapter implements HttpClientAdapter {
     Stream<Uint8List>? requestStream,
     Future<void>? cancelFuture,
   ) {
-    throw DioException(requestOptions: options, type: DioExceptionType.unknown);
+    throw DioException(requestOptions: options);
   }
 
   @override

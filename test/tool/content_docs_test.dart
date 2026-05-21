@@ -11,9 +11,7 @@ void main() {
     expect(text, contains('schemaVersion'));
   });
 
-  test(
-      'Sanity setup docs mention project id dataset CDN validation and CI secrets',
-      () {
+  test('Sanity setup docs mention required setup values', () {
     final text = File('docs/content/sanity-setup.md').readAsStringSync();
 
     expect(text, contains('SANITY_PROJECT_ID'));

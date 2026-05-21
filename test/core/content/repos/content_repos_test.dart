@@ -163,48 +163,52 @@ Future<void> _seedCoreContent(ContentDatabase db, DateTime updatedAt) async {
         ),
       );
   await db.batch((batch) {
-    batch.insertAll(db.contentChoices, [
-      ContentChoicesCompanion.insert(
-        id: 'choice_a',
-        schemaVersion: 1,
-        updatedAt: updatedAt,
-        questionId: 'q_active',
-        label: 'A',
-        textValue: 'Different',
-        isCorrect: false,
-        ordering: 1,
-      ),
-      ContentChoicesCompanion.insert(
-        id: 'choice_b',
-        schemaVersion: 1,
-        updatedAt: updatedAt,
-        questionId: 'q_active',
-        label: 'B',
-        textValue: 'Same',
-        isCorrect: true,
-        ordering: 2,
-      ),
-      ContentChoicesCompanion.insert(
-        id: 'choice_retired',
-        schemaVersion: 1,
-        updatedAt: updatedAt,
-        questionId: 'q_retired',
-        label: 'A',
-        textValue: 'Retired',
-        isCorrect: true,
-        ordering: 1,
-      ),
-    ]);
-    batch.insertAll(db.contentQuestionExams, [
-      ContentQuestionExamsCompanion.insert(
-        questionId: 'q_active',
-        examId: 'exam_cse',
-      ),
-      ContentQuestionExamsCompanion.insert(
-        questionId: 'q_retired',
-        examId: 'exam_cse',
-      ),
-    ]);
+    batch
+      ..insertAll(db.contentChoices, [
+        ContentChoicesCompanion.insert(
+          id: 'choice_a',
+          schemaVersion: 1,
+          updatedAt: updatedAt,
+          questionId: 'q_active',
+          label: 'A',
+          textValue: 'Different',
+          isCorrect: false,
+          ordering: 1,
+        ),
+        ContentChoicesCompanion.insert(
+          id: 'choice_b',
+          schemaVersion: 1,
+          updatedAt: updatedAt,
+          questionId: 'q_active',
+          label: 'B',
+          textValue: 'Same',
+          isCorrect: true,
+          ordering: 2,
+        ),
+        ContentChoicesCompanion.insert(
+          id: 'choice_retired',
+          schemaVersion: 1,
+          updatedAt: updatedAt,
+          questionId: 'q_retired',
+          label: 'A',
+          textValue: 'Retired',
+          isCorrect: true,
+          ordering: 1,
+        ),
+      ])
+      ..insertAll(
+        db.contentQuestionExams,
+        [
+          ContentQuestionExamsCompanion.insert(
+            questionId: 'q_active',
+            examId: 'exam_cse',
+          ),
+          ContentQuestionExamsCompanion.insert(
+            questionId: 'q_retired',
+            examId: 'exam_cse',
+          ),
+        ],
+      );
   });
   await db.into(db.contentLessons).insert(
         ContentLessonsCompanion.insert(

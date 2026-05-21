@@ -55,13 +55,14 @@ Future<void> writeContentSeed({
         await db
             .into(db.contentQuestions)
             .insertOnConflictUpdate(parsed.question);
-        await db.batch((batch) {
-          batch.insertAllOnConflictUpdate(db.contentChoices, parsed.choices);
-          batch.insertAllOnConflictUpdate(
-            db.contentQuestionExams,
-            parsed.examLinks,
-          );
-        });
+        await db.batch(
+          (batch) => batch
+            ..insertAllOnConflictUpdate(db.contentChoices, parsed.choices)
+            ..insertAllOnConflictUpdate(
+              db.contentQuestionExams,
+              parsed.examLinks,
+            ),
+        );
       });
       await _insertMaybeList(json['lesson'], (doc) {
         return db

@@ -11,17 +11,16 @@ class SanityClient {
 
   Future<SanityResponse<T>> query<T>(
     String groq, {
-    Map<String, Object?> params = const {},
     required String doctype,
     required T Function(Map<String, Object?> doc) parse,
+    Map<String, Object?> params = const {},
   }) async {
     final uri = Uri.https(
       '${config.projectId}.apicdn.sanity.io',
       '/$apiVersion/data/query/${config.dataset}',
       {
         'query': groq,
-        for (final entry in params.entries)
-          r'$' '${entry.key}': '${entry.value}',
+        for (final entry in params.entries) '\$${entry.key}': '${entry.value}',
       },
     );
     try {

@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:cse_cet_reviewer/core/content/content_database_opener.dart';
 import 'package:flutter/services.dart';

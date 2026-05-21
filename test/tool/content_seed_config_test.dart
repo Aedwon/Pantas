@@ -26,8 +26,11 @@ void main() {
       'diagnosticSet',
     ]) {
       expect(node, contains(doctype), reason: 'queries.mjs $doctype');
-      expect(dart, contains("'$doctype'"),
-          reason: 'groq_queries.dart $doctype');
+      expect(
+        dart,
+        contains("'$doctype'"),
+        reason: 'groq_queries.dart $doctype',
+      );
     }
   });
 

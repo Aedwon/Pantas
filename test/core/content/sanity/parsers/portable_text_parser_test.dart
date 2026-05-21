@@ -27,7 +27,7 @@ void main() {
         'asset': {'_ref': 'image-abc'},
         'alt': 'Diagram',
       },
-      {'_type': 'math', 'body': r'x^2 + y^2'},
+      {'_type': 'math', 'body': 'x^2 + y^2'},
     ]);
 
     final decoded = jsonDecode(json) as List;

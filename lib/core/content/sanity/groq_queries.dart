@@ -1,5 +1,5 @@
 abstract final class GroqQueries {
-  static const examsFull = r'''
+  static const examsFull = '''
 *[_type == "exam" && language == "en"]{
   _id, _updatedAt, schemaVersion, code, name, shortName, language, ordering,
   "isActive": coalesce(isActive, true)
@@ -13,7 +13,7 @@ abstract final class GroqQueries {
 }
 ''';
 
-  static const subjectsFull = r'''
+  static const subjectsFull = '''
 *[_type == "subject"]{
   _id, _updatedAt, schemaVersion, exam, name, ordering,
   "isActive": coalesce(isActive, true)
@@ -27,7 +27,7 @@ abstract final class GroqQueries {
 }
 ''';
 
-  static const topicsFull = r'''
+  static const topicsFull = '''
 *[_type == "topic"]{
   _id, _updatedAt, schemaVersion, subject, name, ordering,
   "isActive": coalesce(isActive, true)
@@ -41,7 +41,7 @@ abstract final class GroqQueries {
 }
 ''';
 
-  static const questionsFull = r'''
+  static const questionsFull = '''
 *[_type == "question" && language == "en"]{
   _id, _updatedAt, schemaVersion, topic, examIds, language, stem, explanation,
   version, choices, "isActive": coalesce(isActive, true)
@@ -55,7 +55,7 @@ abstract final class GroqQueries {
 }
 ''';
 
-  static const lessonsFull = r'''
+  static const lessonsFull = '''
 *[_type == "lesson"]{
   _id, _updatedAt, schemaVersion, topic, title, summary, estimatedMinutes, body,
   "isActive": coalesce(isActive, true)
@@ -69,7 +69,7 @@ abstract final class GroqQueries {
 }
 ''';
 
-  static const mockBlueprintsFull = r'''
+  static const mockBlueprintsFull = '''
 *[_type == "mockBlueprint"]{
   _id, _updatedAt, schemaVersion, exam, name, durationMinutes, sections,
   "isActive": coalesce(isActive, true)
@@ -83,7 +83,7 @@ abstract final class GroqQueries {
 }
 ''';
 
-  static const mockExamsFull = r'''
+  static const mockExamsFull = '''
 *[_type == "mockExam"]{
   _id, _updatedAt, schemaVersion, blueprint, name, publishedAt,
   "isActive": coalesce(isActive, true)
@@ -97,7 +97,7 @@ abstract final class GroqQueries {
 }
 ''';
 
-  static const diagnosticSetsFull = r'''
+  static const diagnosticSetsFull = '''
 *[_type == "diagnosticSet"]{
   _id, _updatedAt, schemaVersion, exam, name, questionIds,
   "isActive": coalesce(isActive, true)

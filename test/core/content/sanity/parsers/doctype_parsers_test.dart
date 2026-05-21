@@ -22,15 +22,22 @@ void main() {
   });
 
   test('each parser accepts the fixture happy path', () {
-    expect(parseExam(fixture['exam'] as Map<String, Object?>).id.value,
-        equals('exam_cse'));
     expect(
-        parseSubject(fixture['subject'] as Map<String, Object?>).examId.value,
-        equals('exam_cse'));
-    expect(parseTopic(fixture['topic'] as Map<String, Object?>).subjectId.value,
-        equals('subject_verbal'));
-    expect(parseLesson(fixture['lesson'] as Map<String, Object?>).title.value,
-        equals('Vocabulary Basics'));
+      parseExam(fixture['exam'] as Map<String, Object?>).id.value,
+      equals('exam_cse'),
+    );
+    expect(
+      parseSubject(fixture['subject'] as Map<String, Object?>).examId.value,
+      equals('exam_cse'),
+    );
+    expect(
+      parseTopic(fixture['topic'] as Map<String, Object?>).subjectId.value,
+      equals('subject_verbal'),
+    );
+    expect(
+      parseLesson(fixture['lesson'] as Map<String, Object?>).title.value,
+      equals('Vocabulary Basics'),
+    );
     expect(
       parseMockBlueprint(fixture['mockBlueprint'] as Map<String, Object?>)
           .durationMinutes
@@ -38,8 +45,9 @@ void main() {
       equals(90),
     );
     expect(
-        parseMockExam(fixture['mockExam'] as Map<String, Object?>).name.value,
-        equals('Mock 1'));
+      parseMockExam(fixture['mockExam'] as Map<String, Object?>).name.value,
+      equals('Mock 1'),
+    );
     expect(
       parseDiagnosticSet(fixture['diagnosticSet'] as Map<String, Object?>)
           .questionIdsJson
@@ -74,10 +82,14 @@ void main() {
     final parsed = parseQuestion(fixture['question'] as Map<String, Object?>);
 
     expect(parsed.question.id.value, equals('q_001'));
-    expect(parsed.choices.map((choice) => choice.id.value),
-        equals(['choice_a', 'choice_b']));
-    expect(parsed.examLinks.map((link) => link.examId.value),
-        equals(['exam_cse']));
+    expect(
+      parsed.choices.map((choice) => choice.id.value),
+      equals(['choice_a', 'choice_b']),
+    );
+    expect(
+      parsed.examLinks.map((link) => link.examId.value),
+      equals(['exam_cse']),
+    );
   });
 
   test('lesson parser rejects malformed body Portable Text', () {
@@ -99,6 +111,8 @@ void main() {
         parseDiagnosticSet(fixture['diagnosticSet'] as Map<String, Object?>);
 
     expect(
-        parsed.questionIdsJson.value, equals(jsonEncode(['q_001', 'q_002'])));
+      parsed.questionIdsJson.value,
+      equals(jsonEncode(['q_001', 'q_002'])),
+    );
   });
 }
