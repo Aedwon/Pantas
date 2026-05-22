@@ -24,4 +24,15 @@ void main() {
     expect(docs, contains('Play Integrity'));
     expect(docs, contains('prod'));
   });
+
+  test('OPERATIONS documents Firebase sync setup', () {
+    final docs = File('docs/OPERATIONS.md').readAsStringSync();
+
+    expect(docs, contains('resetCloudUserData'));
+    expect(docs, contains('App Check enforcement'));
+    expect(docs, contains('firestore.rules'));
+    expect(docs, contains('real-device'));
+    expect(docs, contains('content.db'));
+    expect(docs, contains('out of user-data sync scope'));
+  });
 }

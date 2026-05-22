@@ -25,6 +25,20 @@ Last updated: 2026-05-07
   - Dev:  https://cse-cet-reviewer-dev.web.app
   - Prod: https://cse-cet-reviewer-prod.web.app
 
+#### User-data sync setup
+
+- [ ] Deploy Firestore owner rules: `firebase deploy --only firestore:rules`
+  and confirm the deployed ruleset matches `firestore.rules`.
+- [ ] Deploy the reset callable:
+  `firebase deploy --only functions:resetCloudUserData`.
+- [ ] Validate App Check enforcement for Firestore and Functions in dev and
+  prod after debug tokens and Play Integrity are registered.
+- [ ] Run one real-device sync verification before release: create local
+  progress, sign in, choose "keep this device", reinstall, sign in again,
+  choose "keep my account", and confirm progress restores.
+- [ ] Confirm `content.db` remains out of user-data sync scope. It is
+  regenerable Sanity content; only `app.db` user-data rows sync to Firestore.
+
 ### Sanity
 
 - Project ID: TBD
