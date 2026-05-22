@@ -94,6 +94,8 @@ void main() {
         );
 
     expect(
-        await AppPreferencesRepository(db).selectedExamId(), equals('upcat'));
+      await AppPreferencesRepository(db).selectedExamId(),
+      equals('upcat'),
+    );
   });
 }

@@ -7,8 +7,7 @@ void main() {
       now: () => DateTime.utc(2026, 5, 18),
     );
 
-    tracker.recordFailure(collection: 'quiz_attempts');
-    tracker.recordFailure(collection: 'quiz_attempts');
+    recordFailures(tracker, 'quiz_attempts', count: 2);
     final status = tracker.recordFailure(collection: 'quiz_attempts');
 
     expect(status, isA<SyncPartialFailure>());
@@ -19,7 +18,7 @@ void main() {
     var now = DateTime.utc(2026, 5, 18);
     final tracker = SyncFailureTracker(now: () => now);
 
-    tracker.recordFailure(collection: 'fsrs_cards');
+    recordFailures(tracker, 'fsrs_cards', count: 1);
     now = now.add(const Duration(hours: 24, seconds: 1));
     final status = tracker.recordFailure(collection: 'fsrs_cards');
 
@@ -32,10 +31,20 @@ void main() {
       now: () => DateTime.utc(2026, 5, 18, 1),
     );
 
-    tracker.recordFailure(collection: 'lesson_progress');
+    recordFailures(tracker, 'lesson_progress', count: 1);
     final status = tracker.recordSuccess(pendingCount: 0);
 
     expect(status, isA<SyncOk>());
     expect((status as SyncOk).pendingCount, 0);
   });
+}
+
+void recordFailures(
+  SyncFailureTracker tracker,
+  String collection, {
+  required int count,
+}) {
+  for (var i = 0; i < count; i += 1) {
+    tracker.recordFailure(collection: collection);
+  }
 }

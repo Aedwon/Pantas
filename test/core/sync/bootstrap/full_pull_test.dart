@@ -20,9 +20,13 @@ void main() {
     expect((await db.select(db.attemptsLocal).get()).single.id, 'cloud_a1');
     expect(await db.select(db.assessmentResultsLocal).get(), hasLength(1));
     expect(
-        (await db.select(db.reviewStateLocal).get()).single.questionId, 'q2');
-    expect((await db.select(db.lessonProgressLocal).get()).single.lessonId,
-        'lesson_2');
+      (await db.select(db.reviewStateLocal).get()).single.questionId,
+      'q2',
+    );
+    expect(
+      (await db.select(db.lessonProgressLocal).get()).single.lessonId,
+      'lesson_2',
+    );
   });
 
   test('full pull mirrors root preferences into account_prefs', () async {

@@ -38,7 +38,6 @@ class AttemptMapper implements SyncMapper {
       itemsJson: doc['itemsJson']! as String,
       syncState: 'synced',
       syncAttempts: 0,
-      lastSyncError: null,
     );
   }
 

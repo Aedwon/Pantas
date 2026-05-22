@@ -5,8 +5,8 @@ import 'package:cse_cet_reviewer/core/storage/data/tables/attempts_local_table.d
 import 'package:cse_cet_reviewer/core/storage/data/tables/device_prefs_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/exams_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/lesson_progress_local_table.dart';
-import 'package:cse_cet_reviewer/core/storage/data/tables/pending_sync_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/lessons_table.dart';
+import 'package:cse_cet_reviewer/core/storage/data/tables/pending_sync_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/questions_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/quiz_nudge_dismissed_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/review_state_local_table.dart';

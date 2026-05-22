@@ -45,7 +45,7 @@ class FullPullBootstrap {
   }
 
   Future<void> _applyCloudRows() async {
-    final attempts = const AttemptMapper();
+    const attempts = AttemptMapper();
     for (final doc
         in await _gateway.readCollection('users/$_uid/quiz_attempts')) {
       await _db.into(_db.attemptsLocal).insertOnConflictUpdate(
@@ -53,7 +53,7 @@ class FullPullBootstrap {
           );
     }
 
-    final assessments = const AssessmentMapper();
+    const assessments = AssessmentMapper();
     for (final doc
         in await _gateway.readCollection('users/$_uid/assessments')) {
       await _db.into(_db.assessmentResultsLocal).insertOnConflictUpdate(
@@ -61,14 +61,14 @@ class FullPullBootstrap {
           );
     }
 
-    final fsrs = const FsrsCardMapper();
+    const fsrs = FsrsCardMapper();
     for (final doc in await _gateway.readCollection('users/$_uid/fsrs_cards')) {
       await _db.into(_db.reviewStateLocal).insertOnConflictUpdate(
             fsrs.toCompanion(fsrs.fromFirestore(doc)),
           );
     }
 
-    final lessons = const LessonProgressMapper();
+    const lessons = LessonProgressMapper();
     for (final doc
         in await _gateway.readCollection('users/$_uid/lesson_progress')) {
       await _db.into(_db.lessonProgressLocal).insertOnConflictUpdate(

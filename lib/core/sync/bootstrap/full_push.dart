@@ -49,11 +49,11 @@ class FullPushBootstrap {
 
   Future<List<FirestoreWrite>> _buildWrites() async {
     final updatedAt = _now();
-    final attempts = const AttemptMapper();
-    final assessments = const AssessmentMapper();
-    final fsrs = const FsrsCardMapper();
-    final lessons = const LessonProgressMapper();
-    final preferences = const PreferencesMapper();
+    const attempts = AttemptMapper();
+    const assessments = AssessmentMapper();
+    const fsrs = FsrsCardMapper();
+    const lessons = LessonProgressMapper();
+    const preferences = PreferencesMapper();
 
     return [
       for (final row in await _db.select(_db.attemptsLocal).get())

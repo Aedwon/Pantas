@@ -39,11 +39,9 @@ void main() {
       id: 'attempt_2',
       examId: 'upcat',
       startedAt: DateTime.utc(2026, 5, 18, 1),
-      completedAt: null,
       itemsJson: '[]',
       syncState: 'pending',
       syncAttempts: 0,
-      lastSyncError: null,
     );
 
     final doc = const AttemptMapper().toFirestore(

@@ -16,9 +16,8 @@ void main() {
       const FirestoreWrite.set(
         path: 'users/u1',
         data: {
-          'preferences': {'reminder_time': '07:30'}
+          'preferences': {'reminder_time': '07:30'},
         },
-        merge: true,
       ),
     ]);
 

@@ -37,7 +37,9 @@ void main() {
       'originDeviceId': 'device-1',
       'schemaVersion': 1,
     });
-    expect(const AssessmentMapper().fromFirestore(doc).topicScoresJson,
-        '{"vocab":0.8}');
+    expect(
+      const AssessmentMapper().fromFirestore(doc).topicScoresJson,
+      '{"vocab":0.8}',
+    );
   });
 }

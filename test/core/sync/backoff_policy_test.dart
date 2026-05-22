@@ -27,10 +27,15 @@ void main() {
   test('reconnect reset restarts backoff at 1s', () {
     final policy = BackoffPolicy();
 
-    policy.nextDelay();
-    policy.nextDelay();
-    policy.reset();
+    advanceTwiceAndReset(policy);
 
     expect(policy.nextDelay(), const Duration(seconds: 1));
   });
+}
+
+void advanceTwiceAndReset(BackoffPolicy policy) {
+  policy
+    ..nextDelay()
+    ..nextDelay()
+    ..reset();
 }
