@@ -18,6 +18,10 @@ class FirestoreWrite {
 
 abstract interface class FirestoreGateway {
   Future<void> commitBatch(List<FirestoreWrite> writes);
+
+  Future<List<Map<String, Object?>>> readCollection(String path);
+
+  Future<Map<String, Object?>?> readDocument(String path);
 }
 
 class SyncGatewayException implements Exception {
@@ -28,9 +32,21 @@ class SyncGatewayException implements Exception {
 
 class FakeFirestoreGateway implements FirestoreGateway {
   final committedBatches = <List<FirestoreWrite>>[];
+  final collections = <String, List<Map<String, Object?>>>{};
+  final documents = <String, Map<String, Object?>>{};
 
   @override
   Future<void> commitBatch(List<FirestoreWrite> writes) async {
     committedBatches.add(List.unmodifiable(writes));
+  }
+
+  @override
+  Future<List<Map<String, Object?>>> readCollection(String path) async {
+    return collections[path] ?? const [];
+  }
+
+  @override
+  Future<Map<String, Object?>?> readDocument(String path) async {
+    return documents[path];
   }
 }
