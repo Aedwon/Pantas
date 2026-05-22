@@ -20,6 +20,12 @@ abstract interface class FirestoreGateway {
   Future<void> commitBatch(List<FirestoreWrite> writes);
 }
 
+class SyncGatewayException implements Exception {
+  const SyncGatewayException(this.code);
+
+  final String code;
+}
+
 class FakeFirestoreGateway implements FirestoreGateway {
   final committedBatches = <List<FirestoreWrite>>[];
 
