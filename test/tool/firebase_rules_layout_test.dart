@@ -19,6 +19,29 @@ void main() {
     );
   });
 
+  test('firestore.rules includes all synced user-data subcollections', () {
+    final rules = File('firestore.rules').readAsStringSync();
+
+    for (final path in [
+      'lesson_progress/{lessonId}',
+      'quiz_attempts/{attemptId}',
+      'fsrs_cards/{cardId}',
+      'assessments/{assessmentId}',
+      'study_plan/{docId}',
+      'mock_exam_attempts/{attemptId}',
+    ]) {
+      expect(rules, contains('match /$path'));
+    }
+  });
+
+  test('firestore.rules limits root user updates to allowed keys', () {
+    final rules = File('firestore.rules').readAsStringSync();
+
+    expect(rules, contains('affectedKeys().hasOnly'));
+    expect(rules, contains("'preferences'"));
+    expect(rules, isNot(contains("'pro'")));
+  });
+
   test('firebase.json points at firestore.rules and local emulators', () {
     final config = File('firebase.json').readAsStringSync();
 
