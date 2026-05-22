@@ -1,5 +1,6 @@
 export { exportData } from './exportData.js';
 export { deleteAccount } from './deleteAccount.js';
+export { resetCloudUserData } from './resetCloudUserData.js';
 export { recordSignInEvent } from './recordSignInEvent.js';
 export { onUserCreated } from './onUserCreated.js';
 export { cleanupOrphanAnons } from './cleanupOrphanAnons.js';

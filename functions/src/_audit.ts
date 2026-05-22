@@ -5,7 +5,8 @@ export type AuditEvent =
   | 'accountCreated'
   | 'signInLinked'
   | 'dataExported'
-  | 'accountDeleted';
+  | 'accountDeleted'
+  | 'cloudDataReset';
 
 export interface AuditLogInput {
   uid: string;
