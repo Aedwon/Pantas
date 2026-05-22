@@ -8,6 +8,7 @@ class ContentLessons extends Table {
   BoolColumn get isActive => boolean().withDefault(const Constant(true))();
   DateTimeColumn get updatedAt => dateTime()();
   TextColumn get topicId => text().references(ContentTopics, #id)();
+  TextColumn get subtopicId => text().nullable()();
   TextColumn get title => text()();
   TextColumn get summary => text()();
   IntColumn get estimatedMinutes => integer()();

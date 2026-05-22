@@ -34,6 +34,7 @@
     "schemaVersion": 1,
     "isActive": true,
     "topic": {"_ref": "topic_vocab"},
+    "subtopic": {"_ref": "subtopic_synonyms"},
     "examIds": [{"_ref": "exam_cse"}],
     "language": "en",
     "stem": [
@@ -64,6 +65,7 @@
     "schemaVersion": 1,
     "isActive": true,
     "topic": {"_ref": "topic_vocab"},
+    "subtopic": {"_ref": "subtopic_synonyms"},
     "title": "Vocabulary Basics",
     "summary": "Core words",
     "estimatedMinutes": 5,

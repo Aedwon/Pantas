@@ -32,7 +32,7 @@ class ContentDatabase extends _$ContentDatabase {
   ContentDatabase(super.executor);
 
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 2;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(

@@ -8,6 +8,7 @@ class ContentQuestions extends Table {
   BoolColumn get isActive => boolean().withDefault(const Constant(true))();
   DateTimeColumn get updatedAt => dateTime()();
   TextColumn get topicId => text().references(ContentTopics, #id)();
+  TextColumn get subtopicId => text().nullable()();
   TextColumn get language => text()();
   TextColumn get stemJson => text()();
   TextColumn get explanationJson => text()();

@@ -17,6 +17,7 @@ ContentLessonsCompanion parseLesson(Map<String, Object?> doc) {
     isActive: Value(boolField(doc, doctype, 'isActive')),
     updatedAt: dateTimeField(doc, doctype, '_updatedAt'),
     topicId: refField(doc, doctype, 'topic'),
+    subtopicId: Value(optionalRefField(doc, doctype, 'subtopic')),
     title: stringField(doc, doctype, 'title'),
     summary: stringField(doc, doctype, 'summary'),
     estimatedMinutes: intField(doc, doctype, 'estimatedMinutes'),

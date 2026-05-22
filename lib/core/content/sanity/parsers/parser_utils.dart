@@ -75,6 +75,15 @@ String refField(Map<String, Object?> doc, String doctype, String field) {
   );
 }
 
+String? optionalRefField(
+  Map<String, Object?> doc,
+  String doctype,
+  String field,
+) {
+  if (!doc.containsKey(field) || doc[field] == null) return null;
+  return refField(doc, doctype, field);
+}
+
 List<String> refListField(
   Map<String, Object?> doc,
   String doctype,

@@ -23,9 +23,9 @@ void main() {
     return rows.map((row) => row.read<String>('name')).toList();
   }
 
-  test('content database creates all content tables at schema version 1',
+  test('content database creates all content tables at schema version 2',
       () async {
-    expect(db.schemaVersion, equals(1));
+    expect(db.schemaVersion, equals(2));
     expect(
       await tableNames(db),
       containsAll(<String>[
@@ -135,5 +135,16 @@ void main() {
 
     final row = await db.select(db.contentMeta).getSingle();
     expect(row.value, equals('2026-05-17T06:00:00.000Z'));
+  });
+
+  test('content questions and lessons include nullable subtopic columns',
+      () async {
+    Future<List<String>> columns(String table) async {
+      final rows = await db.customSelect('PRAGMA table_info($table)').get();
+      return rows.map((row) => row.read<String>('name')).toList();
+    }
+
+    expect(await columns('content_questions'), contains('subtopic_id'));
+    expect(await columns('content_lessons'), contains('subtopic_id'));
   });
 }

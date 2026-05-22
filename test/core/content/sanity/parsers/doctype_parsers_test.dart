@@ -82,6 +82,7 @@ void main() {
     final parsed = parseQuestion(fixture['question'] as Map<String, Object?>);
 
     expect(parsed.question.id.value, equals('q_001'));
+    expect(parsed.question.subtopicId.value, equals('subtopic_synonyms'));
     expect(
       parsed.choices.map((choice) => choice.id.value),
       equals(['choice_a', 'choice_b']),
@@ -90,6 +91,23 @@ void main() {
       parsed.examLinks.map((link) => link.examId.value),
       equals(['exam_cse']),
     );
+  });
+
+  test('question parser accepts missing subtopic for old seed compatibility',
+      () {
+    final doc = Map<String, Object?>.from(fixture['question'] as Map);
+    doc.remove('subtopic');
+
+    final parsed = parseQuestion(doc);
+
+    expect(parsed.question.subtopicId.present, isTrue);
+    expect(parsed.question.subtopicId.value, isNull);
+  });
+
+  test('lesson parser reads subtopic reference when present', () {
+    final parsed = parseLesson(fixture['lesson'] as Map<String, Object?>);
+
+    expect(parsed.subtopicId.value, equals('subtopic_synonyms'));
   });
 
   test('lesson parser rejects malformed body Portable Text', () {

@@ -33,6 +33,7 @@ ParsedQuestion parseQuestion(Map<String, Object?> doc) {
       isActive: Value(boolField(doc, doctype, 'isActive')),
       updatedAt: updatedAt,
       topicId: refField(doc, doctype, 'topic'),
+      subtopicId: Value(optionalRefField(doc, doctype, 'subtopic')),
       language: stringField(doc, doctype, 'language'),
       stemJson:
           portableTextToJson(doc['stem'], doctype: doctype, field: 'stem'),
