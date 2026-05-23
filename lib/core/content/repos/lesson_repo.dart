@@ -32,6 +32,7 @@ class LessonRepo {
     return Lesson(
       id: row.id,
       topicId: row.topicId,
+      subtopicId: row.subtopicId,
       title: row.title,
       summary: row.summary,
       bodyJson: (jsonDecode(row.bodyJson) as List).cast<Map<String, dynamic>>(),

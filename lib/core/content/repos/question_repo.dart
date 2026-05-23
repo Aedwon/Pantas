@@ -23,6 +23,17 @@ class QuestionRepo {
     return Future.wait(rows.map(_hydrateQuestion));
   }
 
+  Future<List<Question>> bySubtopic(SubtopicId subtopicId, {int? limit}) async {
+    final query = _db.select(_db.contentQuestions)
+      ..where(
+        (row) => row.subtopicId.equals(subtopicId) & row.isActive.equals(true),
+      )
+      ..orderBy([(row) => OrderingTerm.asc(row.id)]);
+    if (limit != null) query.limit(limit);
+    final rows = await query.get();
+    return Future.wait(rows.map(_hydrateQuestion));
+  }
+
   Future<List<Question>> byExam(ExamId examId, {int? limit}) async {
     final junctionRows = await (_db.select(_db.contentQuestionExams)
           ..where((row) => row.examId.equals(examId)))

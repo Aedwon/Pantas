@@ -49,6 +49,13 @@ void main() {
     expect(questions.single.correctChoice.id, equals('choice_b'));
   });
 
+  test('QuestionRepo.bySubtopic returns active questions for a subtopic',
+      () async {
+    final questions = await QuestionRepo(db).bySubtopic('subtopic_synonyms');
+
+    expect(questions.map((question) => question.id), equals(['q_active']));
+  });
+
   test('QuestionRepo.byExam uses content_question_exams junction', () async {
     final questions = await QuestionRepo(db).byExam('exam_cse');
 
@@ -68,6 +75,13 @@ void main() {
 
     expect(lessons.map((lesson) => lesson.id), equals(['lesson_active']));
     expect(lessons.single.bodyJson.single['_type'], equals('block'));
+  });
+
+  test('LessonRepo.findById exposes nullable subtopic id', () async {
+    final lesson = await LessonRepo(db).findById('lesson_active');
+
+    expect(lesson, isNotNull);
+    expect(lesson!.subtopicId, equals('subtopic_synonyms'));
   });
 }
 
@@ -143,6 +157,7 @@ Future<void> _seedCoreContent(ContentDatabase db, DateTime updatedAt) async {
           schemaVersion: 1,
           updatedAt: updatedAt,
           topicId: 'topic_vocab',
+          subtopicId: const Value('subtopic_synonyms'),
           language: 'en',
           stemJson: _pt('Pick the synonym.'),
           explanationJson: _pt('Same meaning.'),
@@ -156,6 +171,7 @@ Future<void> _seedCoreContent(ContentDatabase db, DateTime updatedAt) async {
           isActive: const Value(false),
           updatedAt: updatedAt,
           topicId: 'topic_vocab',
+          subtopicId: const Value('subtopic_synonyms'),
           language: 'en',
           stemJson: _pt('Retired question.'),
           explanationJson: _pt('Retired explanation.'),
@@ -216,6 +232,7 @@ Future<void> _seedCoreContent(ContentDatabase db, DateTime updatedAt) async {
           schemaVersion: 1,
           updatedAt: updatedAt,
           topicId: 'topic_vocab',
+          subtopicId: const Value('subtopic_synonyms'),
           title: 'Vocabulary Basics',
           summary: 'Core vocabulary concepts',
           estimatedMinutes: 5,
