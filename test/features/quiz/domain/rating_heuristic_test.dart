@@ -14,39 +14,28 @@ void main() {
     );
   });
 
-  test('correct + fast (<2500ms) → Easy', () {
+  test('correct + fast under eight seconds is capped to Good for new cards',
+      () {
     expect(
       RatingHeuristic.from(isCorrect: true, responseMs: 1200),
-      equals(Rating.easy),
-    );
-    expect(
-      RatingHeuristic.from(isCorrect: true, responseMs: 2499),
-      equals(Rating.easy),
+      equals(Rating.good),
     );
   });
 
-  test('correct + normal (2500..8000ms) → Good', () {
-    expect(
-      RatingHeuristic.from(isCorrect: true, responseMs: 2500),
-      equals(Rating.good),
-    );
-    expect(
-      RatingHeuristic.from(isCorrect: true, responseMs: 5000),
-      equals(Rating.good),
-    );
+  test('correct + normal pace derives Good', () {
     expect(
       RatingHeuristic.from(isCorrect: true, responseMs: 8000),
       equals(Rating.good),
     );
-  });
-
-  test('correct + slow (>8000ms) → Hard', () {
-    expect(
-      RatingHeuristic.from(isCorrect: true, responseMs: 8001),
-      equals(Rating.hard),
-    );
     expect(
       RatingHeuristic.from(isCorrect: true, responseMs: 25000),
+      equals(Rating.good),
+    );
+  });
+
+  test('correct + slow over 25 seconds derives Hard', () {
+    expect(
+      RatingHeuristic.from(isCorrect: true, responseMs: 25001),
       equals(Rating.hard),
     );
   });
