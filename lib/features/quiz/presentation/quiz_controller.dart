@@ -6,6 +6,7 @@ import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repositor
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_preferences_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/complete_quiz.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_drill.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_quick_quiz.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_today_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/submit_answer.dart';
@@ -52,6 +53,13 @@ final startQuickQuizProvider = Provider<StartQuickQuiz>(
 
 final startTodaySessionProvider = Provider<StartTodaySession>(
   (ref) => StartTodaySession(
+    content: ref.watch(contentRepositoryProvider),
+    sessions: ref.watch(quizSessionRepositoryProvider),
+  ),
+);
+
+final startDrillProvider = Provider<StartDrill>(
+  (ref) => StartDrill(
     content: ref.watch(contentRepositoryProvider),
     sessions: ref.watch(quizSessionRepositoryProvider),
   ),
