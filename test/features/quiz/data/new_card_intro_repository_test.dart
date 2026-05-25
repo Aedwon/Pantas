@@ -32,7 +32,6 @@ void main() {
       userId: 'user',
       examId: 'exam',
       day: DateTime(2026, 5, 18, 23, 59),
-      by: 1,
     );
 
     expect(
@@ -56,7 +55,6 @@ void main() {
       userId: 'user',
       examId: 'exam',
       day: DateTime(2026, 5, 18),
-      by: 1,
     );
     await repo.incrementForDay(
       userId: 'other',

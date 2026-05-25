@@ -22,8 +22,9 @@ GoRouter _buildRouter() => GoRouter(
               Text('Today ${state.pathParameters['examId']}'),
         ),
         GoRoute(
-            path: '/quiz/drill/:examId',
-            builder: (_, __) => const Text('Drill')),
+          path: '/quiz/drill/:examId',
+          builder: (_, __) => const Text('Drill'),
+        ),
         GoRoute(
           path: '/quiz/retake/:examId',
           builder: (_, __) => const Text('Retake'),

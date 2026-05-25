@@ -1,9 +1,9 @@
 import 'package:cse_cet_reviewer/core/fsrs/fsrs_scheduler.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/review_state_repository.dart';
-import 'package:cse_cet_reviewer/core/sync/engine/pending_queue.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/review_state.dart';
+import 'package:cse_cet_reviewer/core/sync/engine/pending_queue.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/new_card_intro_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/submit_answer.dart';
@@ -131,7 +131,6 @@ void main() {
         userId: 'user',
         examId: 'exam',
         day: DateTime.utc(2026, 5, 9),
-        by: 1,
       ),
     ).called(1);
   });
@@ -142,7 +141,7 @@ void main() {
       (_) async => ReviewState.seed(
         questionId: 'q1',
         questionVersion: 1,
-        now: DateTime.utc(2026, 5, 1),
+        now: DateTime.utc(2026, 5),
       ),
     );
 
