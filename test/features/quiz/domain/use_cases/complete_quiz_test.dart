@@ -2,6 +2,7 @@ import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dar
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/complete_quiz.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -60,9 +61,35 @@ void main() {
 
     expect(attempt.id, equals('sess'));
     expect(attempt.examId, equals('e'));
+    expect(attempt.origin, equals(SessionOrigin.todayTopic.storageValue));
     expect(attempt.startedAt, equals(start));
     expect(attempt.completedAt, equals(end));
     expect(attempt.items, hasLength(1));
+    verify(() => attempts.save(attempt)).called(1);
+  });
+
+  test('saves the session origin on the completed attempt', () async {
+    final start = DateTime.utc(2026, 5, 9, 12);
+    final end = DateTime.utc(2026, 5, 9, 12, 5);
+    final session = QuizSession.start(
+      sessionId: 'sess',
+      examId: 'e',
+      questions: const [q1],
+      startedAt: start,
+      origin: SessionOrigin.drill,
+    ).record(
+      const AnswerOutcome(
+        questionId: 'q1',
+        questionVersion: 1,
+        chosenChoiceId: 'c1a',
+        correctChoiceId: 'c1a',
+        responseMs: 1500,
+      ),
+    );
+
+    final attempt = await useCase(session: session, now: end);
+
+    expect(attempt.origin, equals(SessionOrigin.drill.storageValue));
     verify(() => attempts.save(attempt)).called(1);
   });
 

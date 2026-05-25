@@ -17,6 +17,7 @@ class CompleteQuiz {
     final attempt = Attempt(
       id: session.sessionId,
       examId: session.examId,
+      origin: session.origin.storageValue,
       startedAt: session.startedAt,
       completedAt: now,
       items: session.outcomes
