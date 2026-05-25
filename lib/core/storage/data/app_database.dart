@@ -8,12 +8,14 @@ import 'package:cse_cet_reviewer/core/storage/data/tables/lesson_progress_local_
 import 'package:cse_cet_reviewer/core/storage/data/tables/lessons_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/pending_sync_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/questions_table.dart';
+import 'package:cse_cet_reviewer/core/storage/data/tables/quiz_sessions_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/quiz_nudge_dismissed_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/review_state_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/streak_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/subjects_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/sync_meta_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/topics_table.dart';
+import 'package:cse_cet_reviewer/core/storage/data/tables/daily_new_card_intro_table.dart';
 import 'package:drift/drift.dart';
 
 part 'app_database.g.dart';
@@ -36,13 +38,15 @@ part 'app_database.g.dart';
     SyncMeta,
     DevicePrefs,
     AccountPrefs,
+    QuizSessions,
+    DailyNewCardIntro,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 6;
+  int get schemaVersion => 7;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -69,6 +73,10 @@ class AppDatabase extends _$AppDatabase {
               'INSERT OR REPLACE INTO device_prefs (key, value) '
               'SELECT key, value FROM app_preferences_local',
             );
+          }
+          if (from < 7) {
+            await m.createTable(quizSessions);
+            await m.createTable(dailyNewCardIntro);
           }
         },
       );
