@@ -2,6 +2,7 @@ import 'package:cse_cet_reviewer/core/fsrs/fsrs_scheduler.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/core/sync/engine/pending_queue.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/new_card_intro_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_preferences_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
@@ -109,6 +110,9 @@ final submitAnswerProvider = Provider<SubmitAnswer>(
   (ref) => SubmitAnswer(
     reviewRepo: ref.watch(reviewStateRepositoryProvider),
     scheduler: ref.watch(fsrsSchedulerProvider),
+    sessions: ref.watch(quizSessionRepositoryProvider),
+    pendingQueue: ref.watch(pendingQueueProvider),
+    newCards: ref.watch(newCardIntroRepositoryProvider),
   ),
 );
 
@@ -120,7 +124,12 @@ final completeQuizProvider = Provider<CompleteQuiz>(
   (ref) => CompleteQuiz(
     ref.watch(attemptsRepositoryProvider),
     streakEvaluator: ref.watch(streakEvaluatorProvider),
+    pendingQueue: ref.watch(pendingQueueProvider),
   ),
+);
+
+final pendingQueueProvider = Provider<PendingQueue>(
+  (ref) => PendingQueue(ref.watch(appDatabaseProvider)),
 );
 
 final quizPreferencesRepositoryProvider = Provider<QuizPreferencesRepository>(

@@ -1,4 +1,5 @@
 import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dart';
+import 'package:cse_cet_reviewer/core/sync/engine/pending_queue.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
@@ -13,23 +14,40 @@ class _MockAttempts extends Mock implements AttemptsRepository {}
 
 class _MockStreakEvaluator extends Mock implements StreakEvaluator {}
 
+class _MockPendingQueue extends Mock implements PendingQueue {}
+
 class _FakeAttempt extends Fake implements Attempt {}
 
 void main() {
   setUpAll(() {
     registerFallbackValue(_FakeAttempt());
     registerFallbackValue(SessionOrigin.todayTopic);
+    registerFallbackValue(PendingSyncOp.upsert);
   });
 
   late _MockAttempts attempts;
   late _MockStreakEvaluator streaks;
+  late _MockPendingQueue pendingQueue;
   late CompleteQuiz useCase;
 
   setUp(() {
     attempts = _MockAttempts();
     streaks = _MockStreakEvaluator();
-    useCase = CompleteQuiz(attempts, streakEvaluator: streaks);
+    pendingQueue = _MockPendingQueue();
+    useCase = CompleteQuiz(
+      attempts,
+      streakEvaluator: streaks,
+      pendingQueue: pendingQueue,
+    );
     when(() => attempts.save(any())).thenAnswer((_) async {});
+    when(
+      () => pendingQueue.enqueue(
+        tableType: any(named: 'tableType'),
+        rowId: any(named: 'rowId'),
+        op: any(named: 'op'),
+        queuedAt: any(named: 'queuedAt'),
+      ),
+    ).thenAnswer((_) async {});
     when(
       () => streaks.evaluate(
         origin: any(named: 'origin'),
@@ -86,6 +104,14 @@ void main() {
     expect(attempt.completedAt, equals(end));
     expect(attempt.items, hasLength(1));
     verify(() => attempts.save(attempt)).called(1);
+    verify(
+      () => pendingQueue.enqueue(
+        tableType: 'quiz_attempts',
+        rowId: 'sess',
+        op: PendingSyncOp.upsert,
+        queuedAt: end,
+      ),
+    ).called(1);
     verify(
       () => streaks.evaluate(
         origin: SessionOrigin.todayTopic,

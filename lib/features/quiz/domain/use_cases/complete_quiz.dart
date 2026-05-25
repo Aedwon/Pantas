@@ -1,14 +1,20 @@
 import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
+import 'package:cse_cet_reviewer/core/sync/engine/pending_queue.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/streak/streak_evaluator.dart';
 
 class CompleteQuiz {
-  CompleteQuiz(this._attempts, {StreakEvaluator? streakEvaluator})
-      : _streakEvaluator = streakEvaluator;
+  CompleteQuiz(
+    this._attempts, {
+    StreakEvaluator? streakEvaluator,
+    PendingQueue? pendingQueue,
+  })  : _streakEvaluator = streakEvaluator,
+        _pendingQueue = pendingQueue;
 
   final AttemptsRepository _attempts;
   final StreakEvaluator? _streakEvaluator;
+  final PendingQueue? _pendingQueue;
 
   Future<Attempt> call({
     required QuizSession session,
@@ -36,6 +42,12 @@ class CompleteQuiz {
           .toList(),
     );
     await _attempts.save(attempt);
+    await _pendingQueue?.enqueue(
+      tableType: 'quiz_attempts',
+      rowId: attempt.id,
+      op: PendingSyncOp.upsert,
+      queuedAt: now,
+    );
     await _streakEvaluator?.evaluate(
       origin: session.origin,
       completedAt: now,
