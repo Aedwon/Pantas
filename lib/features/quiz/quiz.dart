@@ -1,3 +1,4 @@
+export 'data/repos/new_card_intro_repository.dart';
 export 'data/repos/quiz_preferences_repository.dart';
 export 'data/repos/quiz_session_repository.dart';
 export 'domain/models/quiz_preferences.dart';

@@ -2,6 +2,7 @@ import 'package:cse_cet_reviewer/core/fsrs/fsrs_scheduler.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/features/quiz/data/repos/new_card_intro_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_preferences_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
@@ -99,6 +100,10 @@ final quizPreferencesRepositoryProvider = Provider<QuizPreferencesRepository>(
 
 final quizSessionRepositoryProvider = Provider<QuizSessionRepository>(
   (ref) => QuizSessionRepository(ref.watch(appDatabaseProvider)),
+);
+
+final newCardIntroRepositoryProvider = Provider<NewCardIntroRepository>(
+  (ref) => NewCardIntroRepository(ref.watch(appDatabaseProvider)),
 );
 
 final quizControllerProvider =
