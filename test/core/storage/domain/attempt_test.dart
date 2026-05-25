@@ -37,4 +37,8 @@ void main() {
     expect(sample.isCompleted, isTrue);
     expect(sample.copyWith(completedAt: null).isCompleted, isFalse);
   });
+
+  test('defaults origin to today topic for backward compatibility', () {
+    expect(sample.origin, 'today_topic');
+  });
 }

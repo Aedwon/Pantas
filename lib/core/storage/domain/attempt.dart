@@ -32,6 +32,7 @@ class Attempt with _$Attempt {
     required ExamId examId,
     required DateTime startedAt,
     required List<AttemptItem> items,
+    @Default('today_topic') String origin,
     DateTime? completedAt,
   }) = _Attempt;
 

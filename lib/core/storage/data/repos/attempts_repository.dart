@@ -18,6 +18,7 @@ class AttemptsRepository {
             examId: attempt.examId,
             startedAt: attempt.startedAt,
             completedAt: Value(attempt.completedAt),
+            origin: Value(attempt.origin),
             itemsJson:
                 jsonEncode(attempt.items.map((i) => i.toJson()).toList()),
           ),
@@ -81,6 +82,7 @@ class AttemptsRepository {
       examId: r.examId,
       startedAt: r.startedAt,
       completedAt: r.completedAt,
+      origin: r.origin,
       items: items,
     );
   }

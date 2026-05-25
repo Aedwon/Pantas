@@ -7,6 +7,7 @@ class AttemptsLocal extends Table {
   TextColumn get examId => text()();
   DateTimeColumn get startedAt => dateTime()();
   DateTimeColumn get completedAt => dateTime().nullable()();
+  TextColumn get origin => text().withDefault(const Constant('today_topic'))();
   TextColumn get itemsJson => text()();
   TextColumn get syncState => text().withDefault(const Constant('pending'))();
   IntColumn get syncAttempts => integer().withDefault(const Constant(0))();
