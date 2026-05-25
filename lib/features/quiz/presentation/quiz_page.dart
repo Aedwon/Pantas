@@ -1,9 +1,11 @@
 import 'package:cse_cet_reviewer/core/ui/components/confirmation_dialog.dart';
-import 'package:cse_cet_reviewer/core/ui/components/empty_state.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
 import 'package:cse_cet_reviewer/core/ui/components/question_card.dart';
 import 'package:cse_cet_reviewer/core/ui/components/quiz_progress_bar.dart';
 import 'package:cse_cet_reviewer/core/ui/components/skeleton_loader.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
+import 'package:cse_cet_reviewer/features/quiz/presentation/done_for_today_celebration.dart';
+import 'package:cse_cet_reviewer/features/quiz/presentation/post_answer_toast.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -62,9 +64,12 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(quizControllerProvider);
-    ref.listen(quizControllerProvider, (_, next) {
-      if (next is QuizComplete) {
-        context.go('/quiz/results/${next.attempt.id}');
+    ref.listen(quizControllerProvider, (previous, next) {
+      final outcome = _latestNewOutcome(previous, next);
+      if (outcome != null) {
+        ScaffoldMessenger.of(context)
+          ..hideCurrentSnackBar()
+          ..showSnackBar(PostAnswerToast.snackBar(outcome));
       }
     });
 
@@ -102,12 +107,10 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                 ),
               ],
             ),
-          QuizComplete(:final attempt) => EmptyState(
-              illustration: '⏳',
-              headline: 'Wrapping up…',
-              body: 'Loading your results.',
-              ctaLabel: 'Continue',
-              onCta: () => context.go('/quiz/results/${attempt.id}'),
+          QuizComplete(:final attempt, :final session) =>
+            DoneForTodayCelebration(
+              attempt: attempt,
+              session: session,
             ),
           QuizFailure(:final message) => ErrorBanner(
               variant: ErrorBannerVariant.error,
@@ -144,5 +147,25 @@ class _QuizPageState extends ConsumerState<QuizPage> {
         context.go('/quiz');
       },
     );
+  }
+
+  AnswerOutcome? _latestNewOutcome(
+    QuizControllerState? previous,
+    QuizControllerState next,
+  ) {
+    final previousCount = switch (previous) {
+      QuizRunning(:final session) => session.outcomes.length,
+      QuizComplete(:final session) => session.outcomes.length,
+      _ => 0,
+    };
+    final nextOutcomes = switch (next) {
+      QuizRunning(:final session) => session.outcomes,
+      QuizComplete(:final session) => session.outcomes,
+      _ => const <AnswerOutcome>[],
+    };
+    if (nextOutcomes.length <= previousCount || nextOutcomes.isEmpty) {
+      return null;
+    }
+    return nextOutcomes.last;
   }
 }

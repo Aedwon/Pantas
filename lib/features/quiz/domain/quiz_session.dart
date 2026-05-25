@@ -1,4 +1,5 @@
 // ignore_for_file: sort_unnamed_constructors_first
+import 'package:cse_cet_reviewer/core/fsrs/rating.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
@@ -16,6 +17,8 @@ class AnswerOutcome with _$AnswerOutcome {
     required ChoiceId chosenChoiceId,
     required ChoiceId correctChoiceId,
     required int responseMs,
+    @Default(Rating.good) Rating derivedRating,
+    @Default(1) int nextReviewIntervalDays,
   }) = _AnswerOutcome;
 
   bool get isCorrect => chosenChoiceId == correctChoiceId;

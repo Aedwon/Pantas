@@ -51,6 +51,7 @@ class SubmitAnswer {
     final rating =
         RatingHeuristic.from(isCorrect: isCorrect, responseMs: responseMs);
     final next = _scheduler.next(prev: prev, rating: rating, now: now);
+    final nextIntervalDays = next.scheduledDays.ceil();
     await _reviewRepo.upsert(next);
     if (sessionId != null) {
       await _sessions?.recordAnswer(
@@ -79,6 +80,8 @@ class SubmitAnswer {
       chosenChoiceId: chosenChoiceId,
       correctChoiceId: correctId,
       responseMs: responseMs,
+      derivedRating: rating,
+      nextReviewIntervalDays: nextIntervalDays < 1 ? 1 : nextIntervalDays,
     );
   }
 }

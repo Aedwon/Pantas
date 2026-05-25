@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
@@ -35,6 +36,31 @@ void main() {
     ],
     explanation: 'e',
   );
+  const q2 = Question(
+    id: 'q2',
+    version: 1,
+    examIds: ['e'],
+    topicId: 't',
+    language: 'en',
+    stem: 'Stem Two',
+    choices: [
+      Choice(id: 'c2a', label: 'A', text: 'GammaText', isCorrect: false),
+      Choice(id: 'c2b', label: 'B', text: 'DeltaText', isCorrect: true),
+    ],
+    explanation: 'e',
+  );
+
+  setUpAll(() {
+    registerFallbackValue(q1);
+    registerFallbackValue(
+      QuizSession.start(
+        sessionId: 'fallback',
+        examId: 'e',
+        questions: const [q1],
+        startedAt: DateTime.utc(2026, 5, 9, 12),
+      ),
+    );
+  });
 
   setUp(() {
     start = _MockStart();
@@ -153,5 +179,139 @@ void main() {
 
     expect(find.text('Quit session?'), findsOneWidget);
     expect(find.text('Your progress is saved.'), findsOneWidget);
+  });
+
+  testWidgets('submitting an answer shows the FSRS feedback toast',
+      (tester) async {
+    when(
+      () => start(
+        examId: any(named: 'examId'),
+        topicId: any(named: 'topicId'),
+        count: any(named: 'count'),
+        now: any(named: 'now'),
+        randomSeed: any(named: 'randomSeed'),
+      ),
+    ).thenAnswer(
+      (_) async => QuizSession.start(
+        sessionId: 'sess',
+        examId: 'e',
+        questions: const [q1, q2],
+        startedAt: DateTime.utc(2026, 5, 9, 12),
+      ),
+    );
+    when(
+      () => submit(
+        question: any(named: 'question'),
+        chosenChoiceId: any(named: 'chosenChoiceId'),
+        responseMs: any(named: 'responseMs'),
+        now: any(named: 'now'),
+        sessionId: any(named: 'sessionId'),
+        userId: any(named: 'userId'),
+        examId: any(named: 'examId'),
+      ),
+    ).thenAnswer(
+      (_) async => const AnswerOutcome(
+        questionId: 'q1',
+        questionVersion: 1,
+        chosenChoiceId: 'c1a',
+        correctChoiceId: 'c1a',
+        responseMs: 1000,
+        nextReviewIntervalDays: 4,
+      ),
+    );
+
+    await tester.pumpAppWithProviders(
+      const QuizPage(examId: 'e'),
+      overrides: [
+        startQuickQuizProvider.overrideWithValue(start),
+        submitAnswerProvider.overrideWithValue(submit),
+        completeQuizProvider.overrideWithValue(complete),
+        nowProvider.overrideWithValue(() => DateTime.utc(2026, 5, 9, 12)),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('AlphaText'));
+    await tester.pump();
+
+    expect(find.text('Good · next review in 4d'), findsOneWidget);
+  });
+
+  testWidgets('completion shows a lightweight done surface', (tester) async {
+    when(
+      () => start(
+        examId: any(named: 'examId'),
+        topicId: any(named: 'topicId'),
+        count: any(named: 'count'),
+        now: any(named: 'now'),
+        randomSeed: any(named: 'randomSeed'),
+      ),
+    ).thenAnswer(
+      (_) async => QuizSession.start(
+        sessionId: 'sess',
+        examId: 'e',
+        questions: const [q1],
+        startedAt: DateTime.utc(2026, 5, 9, 12),
+      ),
+    );
+    when(
+      () => submit(
+        question: any(named: 'question'),
+        chosenChoiceId: any(named: 'chosenChoiceId'),
+        responseMs: any(named: 'responseMs'),
+        now: any(named: 'now'),
+        sessionId: any(named: 'sessionId'),
+        userId: any(named: 'userId'),
+        examId: any(named: 'examId'),
+      ),
+    ).thenAnswer(
+      (_) async => const AnswerOutcome(
+        questionId: 'q1',
+        questionVersion: 1,
+        chosenChoiceId: 'c1a',
+        correctChoiceId: 'c1a',
+        responseMs: 1000,
+      ),
+    );
+    when(
+      () => complete(
+        session: any(named: 'session'),
+        now: any(named: 'now'),
+      ),
+    ).thenAnswer(
+      (_) async => Attempt(
+        id: 'sess',
+        examId: 'e',
+        startedAt: DateTime.utc(2026, 5, 9, 12),
+        completedAt: DateTime.utc(2026, 5, 9, 12, 1),
+        items: const [
+          AttemptItem(
+            questionId: 'q1',
+            questionVersion: 1,
+            chosenChoiceId: 'c1a',
+            correctChoiceId: 'c1a',
+            responseMs: 1000,
+          ),
+        ],
+      ),
+    );
+
+    await tester.pumpAppWithProviders(
+      const QuizPage(examId: 'e'),
+      overrides: [
+        startQuickQuizProvider.overrideWithValue(start),
+        submitAnswerProvider.overrideWithValue(submit),
+        completeQuizProvider.overrideWithValue(complete),
+        nowProvider.overrideWithValue(() => DateTime.utc(2026, 5, 9, 12)),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('AlphaText'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Done for today'), findsOneWidget);
+    expect(find.text('1/1 correct'), findsOneWidget);
+    expect(find.text('Review results'), findsOneWidget);
   });
 }

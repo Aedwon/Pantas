@@ -44,8 +44,12 @@ class QuizRunning extends QuizControllerState {
 }
 
 class QuizComplete extends QuizControllerState {
-  const QuizComplete(this.attempt);
+  const QuizComplete({
+    required this.attempt,
+    required this.session,
+  });
   final Attempt attempt;
+  final QuizSession session;
 }
 
 class QuizFailure extends QuizControllerState {
@@ -316,7 +320,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
     if (updated.isComplete) {
       final attempt =
           await _ref.read(completeQuizProvider)(session: updated, now: now);
-      state = QuizComplete(attempt);
+      state = QuizComplete(attempt: attempt, session: updated);
     } else {
       state = QuizRunning(
         session: updated,

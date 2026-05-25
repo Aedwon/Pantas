@@ -95,6 +95,8 @@ void main() {
     );
     expect(outcome.isCorrect, isTrue);
     expect(outcome.correctChoiceId, equals('c_b'));
+    expect(outcome.derivedRating.name, equals('good'));
+    expect(outcome.nextReviewIntervalDays, greaterThanOrEqualTo(1));
     verify(() => repo.upsert(any())).called(1);
   });
 
