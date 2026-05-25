@@ -1,5 +1,6 @@
 import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -93,5 +94,35 @@ void main() {
     );
     expect(s.isComplete, isTrue);
     expect(s.score, equals((1, 2)));
+  });
+
+  test('start stores origin topic subtopic lesson and ordered questions', () {
+    final s = QuizSession.start(
+      sessionId: 'sess',
+      examId: 'e',
+      questions: [q1, q2],
+      startedAt: DateTime.utc(2026),
+      origin: SessionOrigin.inline,
+      topicId: 't',
+      subtopicId: 'subtopic_synonyms',
+      lessonId: 'lesson_vocab',
+    );
+
+    expect(s.origin, SessionOrigin.inline);
+    expect(s.topicId, equals('t'));
+    expect(s.subtopicId, equals('subtopic_synonyms'));
+    expect(s.lessonId, equals('lesson_vocab'));
+    expect(s.questions.map((question) => question.id), equals(['q1', 'q2']));
+  });
+
+  test('today origins are recognized as streak eligible', () {
+    expect(SessionOrigin.todayTopic.isStreakEligible, isTrue);
+    expect(SessionOrigin.todayInterleaved.isStreakEligible, isTrue);
+  });
+
+  test('drill retake and inline origins are not streak eligible', () {
+    expect(SessionOrigin.drill.isStreakEligible, isFalse);
+    expect(SessionOrigin.retake.isStreakEligible, isFalse);
+    expect(SessionOrigin.inline.isStreakEligible, isFalse);
   });
 }

@@ -1,6 +1,7 @@
 // ignore_for_file: sort_unnamed_constructors_first
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'quiz_session.freezed.dart';
@@ -31,6 +32,10 @@ class QuizSession with _$QuizSession {
     required int currentIndex,
     required List<AnswerOutcome> outcomes,
     required DateTime startedAt,
+    @Default(SessionOrigin.todayTopic) SessionOrigin origin,
+    TopicId? topicId,
+    SubtopicId? subtopicId,
+    LessonId? lessonId,
   }) = _QuizSession;
 
   factory QuizSession.start({
@@ -38,6 +43,10 @@ class QuizSession with _$QuizSession {
     required ExamId examId,
     required List<Question> questions,
     required DateTime startedAt,
+    SessionOrigin origin = SessionOrigin.todayTopic,
+    TopicId? topicId,
+    SubtopicId? subtopicId,
+    LessonId? lessonId,
   }) =>
       QuizSession(
         sessionId: sessionId,
@@ -46,6 +55,10 @@ class QuizSession with _$QuizSession {
         currentIndex: 0,
         outcomes: const [],
         startedAt: startedAt,
+        origin: origin,
+        topicId: topicId,
+        subtopicId: subtopicId,
+        lessonId: lessonId,
       );
 
   Question get currentQuestion => questions[currentIndex];
