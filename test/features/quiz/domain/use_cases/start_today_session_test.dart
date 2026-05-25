@@ -32,8 +32,8 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   test(
-      'per-topic start builds context for selected topic and stores today_topic origin',
-      () async {
+      'per-topic start builds context for selected topic and stores '
+      'today_topic origin', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     await Seeder(db, bundle: rootBundle).maybeSeed();
@@ -58,8 +58,10 @@ void main() {
     expect(session.topicId, topic.id);
     expect(session.questions, isNotEmpty);
     expect(session.questions.length, lessThanOrEqualTo(10));
-    expect(session.questions.every((question) => question.topicId == topic.id),
-        isTrue);
+    expect(
+      session.questions.every((question) => question.topicId == topic.id),
+      isTrue,
+    );
 
     final row = await QuizSessionRepository(db)
         .activeFor(userId: 'user', examId: 'exam_cse_pro');
@@ -116,8 +118,10 @@ void main() {
     );
 
     expect(result, isA<StartTodaySessionNoQuestions>());
-    expect((result as StartTodaySessionNoQuestions).message,
-        'No questions are available for today.');
+    expect(
+      (result as StartTodaySessionNoQuestions).message,
+      'No questions are available for today.',
+    );
     expect(
       await QuizSessionRepository(db).activeFor(
         userId: 'user',

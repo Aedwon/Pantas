@@ -83,8 +83,8 @@ void main() {
     final session = (result as StartInlineLessonQuizStarted).session;
     expect(lesson.subtopicId, isNull);
     expect(
-        session.questions
-            .every((question) => question.topicId == lesson.topicId),
-        isTrue);
+      session.questions.every((question) => question.topicId == lesson.topicId),
+      isTrue,
+    );
   });
 }

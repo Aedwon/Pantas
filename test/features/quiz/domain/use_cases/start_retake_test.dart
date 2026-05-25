@@ -43,7 +43,9 @@ void main() {
     final session = (result as StartRetakeStarted).session;
     expect(session.origin, SessionOrigin.retake);
     expect(
-        session.questions.map((question) => question.id), ['q_001', 'q_002']);
+      session.questions.map((question) => question.id),
+      ['q_001', 'q_002'],
+    );
 
     final row = await QuizSessionRepository(db)
         .activeFor(userId: 'user', examId: 'exam_cse_pro');

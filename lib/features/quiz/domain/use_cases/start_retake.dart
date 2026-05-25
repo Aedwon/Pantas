@@ -57,7 +57,6 @@ class StartRetake {
       examId: examId,
       now: now,
       window: mistakeWindow,
-      limit: maxQuestions,
     );
     if (missedIds.isEmpty) {
       return const StartRetakeNoQuestions('No recent mistakes to retake.');
