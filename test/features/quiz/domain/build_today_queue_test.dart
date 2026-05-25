@@ -22,7 +22,7 @@ void main() {
   test('caught up topics remain visible with zero counts', () {
     final rows = BuildTodayQueue.call(
       topics: const [
-        TopicQueueInput(topicId: 'clerical', topicName: 'Clerical')
+        TopicQueueInput(topicId: 'clerical', topicName: 'Clerical'),
       ],
       dueCounts: const {},
       weaknessCounts: const {},
@@ -50,7 +50,7 @@ void main() {
   test('new-card cap reached reports zero new cards', () {
     final rows = BuildTodayQueue.call(
       topics: const [
-        TopicQueueInput(topicId: 'vocab', topicName: 'Vocabulary')
+        TopicQueueInput(topicId: 'vocab', topicName: 'Vocabulary'),
       ],
       dueCounts: const {},
       weaknessCounts: const {'vocab': 2},

@@ -16,7 +16,7 @@ void main() {
     final selected = FsrsDueSelector.select(
       states: [
         _state('q1', due: now.subtract(const Duration(days: 1)), lapses: 1),
-        _state('q2', due: now.subtract(const Duration(days: 2)), lapses: 0),
+        _state('q2', due: now.subtract(const Duration(days: 2))),
         _state('q3', due: now.subtract(const Duration(days: 1)), lapses: 3),
       ],
       questionsById: questions,

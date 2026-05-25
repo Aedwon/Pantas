@@ -19,8 +19,10 @@ abstract final class WeaknessSelector {
   static const double weaknessThreshold = 0.4;
   static const int minAttempts = 5;
 
-  static List<Question> select(List<WeaknessCandidate> candidates,
-      {int? limit}) {
+  static List<Question> select(
+    List<WeaknessCandidate> candidates, {
+    int? limit,
+  }) {
     final ranked = candidates
         .where((candidate) => candidate.attemptCount >= minAttempts)
         .where(

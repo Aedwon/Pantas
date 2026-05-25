@@ -8,7 +8,8 @@ class TodayInterleavedPicker implements QuestionPicker {
   @override
   List<Question> pick(PickContext context) {
     return RecencyFilter.noConsecutiveSameTopic(
-        _composeForInterleaved(context));
+      _composeForInterleaved(context),
+    );
   }
 }
 

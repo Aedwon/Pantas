@@ -36,11 +36,12 @@ List<Question> _compose(PickContext context) {
   final picked = <Question>[];
   final used = <String>{};
   void addFrom(List<Question> source, int target) {
+    var remaining = target;
     for (final question in source) {
-      if (picked.length >= requested || target <= 0) break;
+      if (picked.length >= requested || remaining <= 0) break;
       if (used.add(question.id)) {
         picked.add(question);
-        target--;
+        remaining--;
       }
     }
   }

@@ -5,12 +5,12 @@ import 'package:cse_cet_reviewer/features/quiz/domain/selectors/subtopic_filter.
 class PickContext {
   const PickContext({
     required this.allQuestions,
+    required this.requestedLength,
     this.dueQuestions = const [],
     this.weaknessQuestions = const [],
     this.newQuestions = const [],
     this.subtopicCandidates = const [],
     this.retakeQuestionIds = const [],
-    required this.requestedLength,
     this.topicId,
     this.subtopicId,
   });

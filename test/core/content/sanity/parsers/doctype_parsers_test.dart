@@ -96,9 +96,7 @@ void main() {
   test('question parser accepts missing subtopic for old seed compatibility',
       () {
     final doc = Map<String, Object?>.from(fixture['question'] as Map);
-    doc.remove('subtopic');
-
-    final parsed = parseQuestion(doc);
+    final parsed = parseQuestion(doc..remove('subtopic'));
 
     expect(parsed.question.subtopicId.present, isTrue);
     expect(parsed.question.subtopicId.value, isNull);

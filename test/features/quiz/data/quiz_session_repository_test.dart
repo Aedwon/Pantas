@@ -1,6 +1,5 @@
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/in_memory_database.dart';

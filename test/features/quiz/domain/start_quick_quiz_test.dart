@@ -1,6 +1,5 @@
-import 'package:cse_cet_reviewer/core/storage/data/seeder.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/core/storage/data/seeder.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_quick_quiz.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -28,8 +27,10 @@ void main() {
     );
 
     expect(session.questions, isNotEmpty);
-    expect(session.questions.every((question) => question.topicId == topic.id),
-        isTrue);
+    expect(
+      session.questions.every((question) => question.topicId == topic.id),
+      isTrue,
+    );
   });
 
   test('keeps deterministic random ordering when a seed is supplied', () async {

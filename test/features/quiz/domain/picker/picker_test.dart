@@ -22,8 +22,10 @@ void main() {
       ),
     );
 
-    expect(picked.map((question) => question.id),
-        equals(['d1', 'd2', 'w1', 'n1']));
+    expect(
+      picked.map((question) => question.id),
+      equals(['d1', 'd2', 'w1', 'n1']),
+    );
   });
 
   test('TodayTopicPicker uses weakness and new composition with no due cards',
@@ -31,7 +33,6 @@ void main() {
     final picked = TodayTopicPicker().pick(
       PickContext(
         allQuestions: [_q('w1'), _q('w2'), _q('n1')],
-        dueQuestions: const [],
         weaknessQuestions: [_q('w1'), _q('w2')],
         newQuestions: [_q('n1')],
         requestedLength: 3,
@@ -48,15 +49,13 @@ void main() {
         allQuestions: [
           _q('a1', topicId: 'a'),
           _q('a2', topicId: 'a'),
-          _q('b1', topicId: 'b')
+          _q('b1', topicId: 'b'),
         ],
         dueQuestions: [
           _q('a1', topicId: 'a'),
           _q('a2', topicId: 'a'),
-          _q('b1', topicId: 'b')
+          _q('b1', topicId: 'b'),
         ],
-        weaknessQuestions: const [],
-        newQuestions: const [],
         requestedLength: 3,
       ),
     );

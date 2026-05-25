@@ -6,7 +6,7 @@ class RetakePicker implements QuestionPicker {
   @override
   List<Question> pick(PickContext context) {
     final byId = {
-      for (final question in context.allQuestions) question.id: question
+      for (final question in context.allQuestions) question.id: question,
     };
     final picked = <Question>[];
     final used = <String>{};

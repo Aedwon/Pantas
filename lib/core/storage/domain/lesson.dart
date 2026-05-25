@@ -9,11 +9,11 @@ class Lesson with _$Lesson {
   const factory Lesson({
     required LessonId id,
     required TopicId topicId,
-    SubtopicId? subtopicId,
     required String title,
     required String summary,
     required List<Map<String, dynamic>> bodyJson,
     required int estimatedMinutes,
+    SubtopicId? subtopicId,
   }) = _Lesson;
 
   factory Lesson.fromJson(Map<String, dynamic> json) => _$LessonFromJson(json);
