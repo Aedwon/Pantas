@@ -7,6 +7,9 @@ import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_preferences_repos
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/complete_quiz.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/quit_session.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/restart_session.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/resume_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_drill.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_inline_lesson_quiz.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_quick_quiz.dart';
@@ -78,6 +81,24 @@ final startRetakeProvider = Provider<StartRetake>(
 
 final startInlineLessonQuizProvider = Provider<StartInlineLessonQuiz>(
   (ref) => StartInlineLessonQuiz(
+    content: ref.watch(contentRepositoryProvider),
+    sessions: ref.watch(quizSessionRepositoryProvider),
+  ),
+);
+
+final resumeSessionProvider = Provider<ResumeSession>(
+  (ref) => ResumeSession(
+    content: ref.watch(contentRepositoryProvider),
+    sessions: ref.watch(quizSessionRepositoryProvider),
+  ),
+);
+
+final quitSessionProvider = Provider<QuitSession>(
+  (ref) => QuitSession(ref.watch(quizSessionRepositoryProvider)),
+);
+
+final restartSessionProvider = Provider<RestartSession>(
+  (ref) => RestartSession(
     content: ref.watch(contentRepositoryProvider),
     sessions: ref.watch(quizSessionRepositoryProvider),
   ),
