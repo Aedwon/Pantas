@@ -6,6 +6,7 @@ export 'domain/rating_heuristic.dart';
 export 'domain/use_cases/complete_quiz.dart';
 export 'domain/use_cases/start_drill.dart';
 export 'domain/use_cases/start_quick_quiz.dart';
+export 'domain/use_cases/start_retake.dart';
 export 'domain/use_cases/start_today_session.dart';
 export 'domain/use_cases/submit_answer.dart';
 export 'presentation/quiz_controller.dart';

@@ -1,0 +1,143 @@
+import 'dart:convert';
+
+import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
+import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dart';
+import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
+import 'package:cse_cet_reviewer/core/storage/data/seeder.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
+import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_retake.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+import '../../../../helpers/in_memory_database.dart';
+
+void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  test('start retake stores retake origin and dedupes missed question ids',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await Seeder(db, bundle: rootBundle).maybeSeed();
+    final attempts = AttemptsRepository(db);
+    await attempts.save(
+      _attempt(
+        id: 'a1',
+        questionIds: const ['q_001', 'q_001', 'q_002'],
+        completedAt: DateTime.utc(2026, 5, 18),
+      ),
+    );
+
+    final result = await StartRetake(
+      content: ContentRepository(db),
+      attempts: attempts,
+      sessions: QuizSessionRepository(db),
+    )(
+      userId: 'user',
+      examId: 'exam_cse_pro',
+      now: DateTime.utc(2026, 5, 18, 1),
+    );
+
+    final session = (result as StartRetakeStarted).session;
+    expect(session.origin, SessionOrigin.retake);
+    expect(
+        session.questions.map((question) => question.id), ['q_001', 'q_002']);
+
+    final row = await QuizSessionRepository(db)
+        .activeFor(userId: 'user', examId: 'exam_cse_pro');
+    expect(row?.origin, SessionOrigin.retake.storageValue);
+  });
+
+  test('start retake caps the pool at 50 questions', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await Seeder(db, bundle: rootBundle).maybeSeed();
+    await _insertExtraQuestions(db, count: 55);
+    final attempts = AttemptsRepository(db);
+    await attempts.save(
+      _attempt(
+        id: 'a1',
+        questionIds: [for (var i = 0; i < 55; i++) 'extra_$i'],
+        completedAt: DateTime.utc(2026, 5, 18),
+      ),
+    );
+
+    final result = await StartRetake(
+      content: ContentRepository(db),
+      attempts: attempts,
+      sessions: QuizSessionRepository(db),
+    )(
+      userId: 'user',
+      examId: 'exam_cse_pro',
+      now: DateTime.utc(2026, 5, 18, 1),
+    );
+
+    expect((result as StartRetakeStarted).session.questions, hasLength(50));
+  });
+
+  test('empty mistake pool returns an empty-state result', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await Seeder(db, bundle: rootBundle).maybeSeed();
+
+    final result = await StartRetake(
+      content: ContentRepository(db),
+      attempts: AttemptsRepository(db),
+      sessions: QuizSessionRepository(db),
+    )(
+      userId: 'user',
+      examId: 'exam_cse_pro',
+      now: DateTime.utc(2026, 5, 18, 1),
+    );
+
+    expect(result, isA<StartRetakeNoQuestions>());
+  });
+}
+
+Attempt _attempt({
+  required String id,
+  required List<String> questionIds,
+  required DateTime completedAt,
+}) {
+  return Attempt(
+    id: id,
+    examId: 'exam_cse_pro',
+    origin: SessionOrigin.todayTopic.storageValue,
+    startedAt: completedAt.subtract(const Duration(minutes: 5)),
+    completedAt: completedAt,
+    items: [
+      for (final questionId in questionIds)
+        AttemptItem(
+          questionId: questionId,
+          questionVersion: 1,
+          chosenChoiceId: 'wrong',
+          correctChoiceId: 'correct',
+          responseMs: 1000,
+        ),
+    ],
+  );
+}
+
+Future<void> _insertExtraQuestions(AppDatabase db, {required int count}) async {
+  final topic = (await db.select(db.topics).get()).first;
+  final choices = jsonEncode([
+    {'id': 'wrong', 'label': 'A', 'text': 'Wrong', 'isCorrect': false},
+    {'id': 'correct', 'label': 'B', 'text': 'Correct', 'isCorrect': true},
+  ]);
+  for (var i = 0; i < count; i++) {
+    await db.into(db.questions).insert(
+          QuestionsCompanion.insert(
+            id: 'extra_$i',
+            version: 1,
+            examIdsJson: jsonEncode(['exam_cse_pro']),
+            topicId: topic.id,
+            language: 'en',
+            stem: 'Extra $i',
+            choicesJson: choices,
+            explanation: 'Explanation',
+          ),
+        );
+  }
+}
