@@ -33,9 +33,14 @@ class QuizLoading extends QuizControllerState {
 }
 
 class QuizRunning extends QuizControllerState {
-  const QuizRunning({required this.session, required this.questionShownAt});
+  const QuizRunning({
+    required this.session,
+    required this.questionShownAt,
+    this.persisted = false,
+  });
   final QuizSession session;
   final DateTime questionShownAt;
+  final bool persisted;
 }
 
 class QuizComplete extends QuizControllerState {
@@ -176,6 +181,119 @@ class QuizController extends StateNotifier<QuizControllerState> {
     }
   }
 
+  Future<void> startToday({
+    required ExamId examId,
+    TopicId? topicId,
+  }) async {
+    state = const QuizLoading();
+    try {
+      final now = _ref.read(nowProvider)();
+      final preferences =
+          await _ref.read(quizPreferencesRepositoryProvider).read();
+      final result = await _ref.read(startTodaySessionProvider)(
+        userId: _localUserId,
+        examId: examId,
+        topicId: topicId,
+        preferences: preferences,
+        now: now,
+      );
+      switch (result) {
+        case StartTodaySessionStarted(:final session):
+          state = QuizRunning(
+            session: session,
+            questionShownAt: now,
+            persisted: true,
+          );
+        case StartTodaySessionNoQuestions(:final message):
+          state = QuizFailure(message);
+      }
+    } catch (e) {
+      state = QuizFailure(e.toString());
+    }
+  }
+
+  Future<void> startDrill({
+    required ExamId examId,
+    required TopicId topicId,
+    int requestedLength = 10,
+  }) async {
+    state = const QuizLoading();
+    try {
+      final now = _ref.read(nowProvider)();
+      final result = await _ref.read(startDrillProvider)(
+        userId: _localUserId,
+        examId: examId,
+        topicId: topicId,
+        requestedLength: requestedLength,
+        now: now,
+      );
+      switch (result) {
+        case StartDrillStarted(:final session):
+          state = QuizRunning(
+            session: session,
+            questionShownAt: now,
+            persisted: true,
+          );
+        case StartDrillNoQuestions(:final message):
+          state = QuizFailure(message);
+      }
+    } catch (e) {
+      state = QuizFailure(e.toString());
+    }
+  }
+
+  Future<void> startRetake({required ExamId examId}) async {
+    state = const QuizLoading();
+    try {
+      final now = _ref.read(nowProvider)();
+      final result = await _ref.read(startRetakeProvider)(
+        userId: _localUserId,
+        examId: examId,
+        now: now,
+      );
+      switch (result) {
+        case StartRetakeStarted(:final session):
+          state = QuizRunning(
+            session: session,
+            questionShownAt: now,
+            persisted: true,
+          );
+        case StartRetakeNoQuestions(:final message):
+          state = QuizFailure(message);
+      }
+    } catch (e) {
+      state = QuizFailure(e.toString());
+    }
+  }
+
+  Future<void> startInline({
+    required ExamId examId,
+    required LessonId lessonId,
+  }) async {
+    state = const QuizLoading();
+    try {
+      final now = _ref.read(nowProvider)();
+      final result = await _ref.read(startInlineLessonQuizProvider)(
+        userId: _localUserId,
+        examId: examId,
+        lessonId: lessonId,
+        now: now,
+      );
+      switch (result) {
+        case StartInlineLessonQuizStarted(:final session):
+          state = QuizRunning(
+            session: session,
+            questionShownAt: now,
+            persisted: true,
+          );
+        case StartInlineLessonQuizNoQuestions(:final message):
+          state = QuizFailure(message);
+      }
+    } catch (e) {
+      state = QuizFailure(e.toString());
+    }
+  }
+
   Future<void> answer({required ChoiceId chosenChoiceId}) async {
     final s = state;
     if (s is! QuizRunning) {
@@ -189,6 +307,9 @@ class QuizController extends StateNotifier<QuizControllerState> {
       chosenChoiceId: chosenChoiceId,
       responseMs: responseMs,
       now: now,
+      sessionId: s.persisted ? s.session.sessionId : null,
+      userId: s.persisted ? _localUserId : null,
+      examId: s.persisted ? s.session.examId : null,
     );
 
     final updated = s.session.record(outcome);
@@ -197,9 +318,15 @@ class QuizController extends StateNotifier<QuizControllerState> {
           await _ref.read(completeQuizProvider)(session: updated, now: now);
       state = QuizComplete(attempt);
     } else {
-      state = QuizRunning(session: updated, questionShownAt: now);
+      state = QuizRunning(
+        session: updated,
+        questionShownAt: now,
+        persisted: s.persisted,
+      );
     }
   }
 
   void reset() => state = const QuizIdle();
 }
+
+const _localUserId = 'local';

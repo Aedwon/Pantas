@@ -8,10 +8,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+enum QuizPageMode { quick, today, drill, retake, inline }
+
 class QuizPage extends ConsumerStatefulWidget {
-  const QuizPage({required this.examId, this.topicId, super.key});
+  const QuizPage({
+    required this.examId,
+    this.topicId,
+    this.lessonId,
+    this.mode = QuizPageMode.quick,
+    super.key,
+  });
   final String examId;
   final String? topicId;
+  final String? lessonId;
+  final QuizPageMode mode;
 
   @override
   ConsumerState<QuizPage> createState() => _QuizPageState();
@@ -22,10 +32,29 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(quizControllerProvider.notifier).start(
-            examId: widget.examId,
-            topicId: widget.topicId,
-          );
+      final controller = ref.read(quizControllerProvider.notifier);
+      switch (widget.mode) {
+        case QuizPageMode.quick:
+          controller.start(examId: widget.examId, topicId: widget.topicId);
+        case QuizPageMode.today:
+          controller.startToday(examId: widget.examId, topicId: widget.topicId);
+        case QuizPageMode.drill:
+          final topicId = widget.topicId;
+          if (topicId == null) {
+            controller.startToday(examId: widget.examId);
+          } else {
+            controller.startDrill(examId: widget.examId, topicId: topicId);
+          }
+        case QuizPageMode.retake:
+          controller.startRetake(examId: widget.examId);
+        case QuizPageMode.inline:
+          final lessonId = widget.lessonId;
+          if (lessonId == null) {
+            controller.startToday(examId: widget.examId);
+          } else {
+            controller.startInline(examId: widget.examId, lessonId: lessonId);
+          }
+      }
     });
   }
 
@@ -39,7 +68,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     });
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Quick Quiz')),
+      appBar: AppBar(title: Text(_titleFor(widget.mode))),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: switch (state) {
@@ -82,4 +111,12 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       ),
     );
   }
+
+  String _titleFor(QuizPageMode mode) => switch (mode) {
+        QuizPageMode.quick => 'Quick Quiz',
+        QuizPageMode.today => "Today's Session",
+        QuizPageMode.drill => 'Drill',
+        QuizPageMode.retake => 'Retake Mistakes',
+        QuizPageMode.inline => 'Quiz yourself',
+      };
 }

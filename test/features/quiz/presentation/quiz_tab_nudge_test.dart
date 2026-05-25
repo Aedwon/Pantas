@@ -17,9 +17,16 @@ GoRouter _buildRouter() => GoRouter(
       routes: [
         GoRoute(path: '/', builder: (_, __) => const QuizTabHome()),
         GoRoute(
-          path: '/quiz/quick/:examId',
+          path: '/quiz/today/:examId',
           builder: (_, state) =>
-              Text('Quick ${state.pathParameters['examId']}'),
+              Text('Today ${state.pathParameters['examId']}'),
+        ),
+        GoRoute(
+            path: '/quiz/drill/:examId',
+            builder: (_, __) => const Text('Drill')),
+        GoRoute(
+          path: '/quiz/retake/:examId',
+          builder: (_, __) => const Text('Retake'),
         ),
         GoRoute(path: '/study', builder: (_, __) => const Text('Study')),
         GoRoute(
@@ -91,7 +98,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Start Quick Quiz'));
+    await tester.tap(find.text("Start Today's Session"));
     await tester.pumpAndSettle();
 
     expect(find.text('Study first for better results'), findsOneWidget);
@@ -108,7 +115,7 @@ void main() {
     expect(find.text('UPCAT'), findsNothing);
   });
 
-  testWidgets('start quick quiz uses selected exam id', (tester) async {
+  testWidgets('start today session uses selected exam id', (tester) async {
     await db.into(db.quizNudgeDismissedLocal).insert(
           QuizNudgeDismissedLocalCompanion.insert(
             id: const Value(1),
@@ -122,10 +129,21 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Start Quick Quiz'));
+    await tester.tap(find.text("Start Today's Session"));
     await tester.pumpAndSettle();
 
-    expect(find.text('Quick e1'), findsOneWidget);
+    expect(find.text('Today e1'), findsOneWidget);
+  });
+
+  testWidgets('renders Retake and Drill practice CTAs', (tester) async {
+    await tester.pumpAppWithRouter(
+      _buildRouter(),
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Retake Mistakes'), findsOneWidget);
+    expect(find.text('Drill a topic'), findsOneWidget);
   });
 
   testWidgets('does not show nudge when nudge already dismissed',
@@ -143,7 +161,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Start Quick Quiz'));
+    await tester.tap(find.text("Start Today's Session"));
     await tester.pumpAndSettle();
 
     expect(find.text('Study first for better results'), findsNothing);
@@ -164,7 +182,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Start Quick Quiz'));
+    await tester.tap(find.text("Start Today's Session"));
     await tester.pumpAndSettle();
 
     expect(find.text('Study first for better results'), findsNothing);

@@ -67,6 +67,11 @@ final topicByIdProvider =
   return ref.watch(contentRepositoryProvider).topicById(topicId);
 });
 
+final topicsByExamProvider =
+    FutureProvider.family<List<Topic>, ExamId>((ref, examId) async {
+  return ref.watch(contentRepositoryProvider).topicsByExam(examId);
+});
+
 final lessonByIdProvider =
     FutureProvider.family<Lesson?, LessonId>((ref, id) async {
   return ref.watch(contentRepositoryProvider).lessonById(id);

@@ -99,9 +99,10 @@ class _LessonBody extends ConsumerWidget {
           if (examId != null) ...[
             const SizedBox(height: 16),
             AppButton(
-              label: 'Quiz this topic',
+              label: 'Quiz yourself',
               variant: AppButtonVariant.secondary,
-              onPressed: () => context.push('/quiz/quick/$examId'),
+              onPressed: () =>
+                  context.push('/quiz/inline/$examId/${lesson.id}'),
             ),
           ],
         ],

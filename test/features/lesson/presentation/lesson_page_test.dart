@@ -3,7 +3,9 @@ import 'dart:convert';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_page.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
@@ -84,5 +86,39 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.textContaining('5 min'), findsOneWidget);
+  });
+
+  testWidgets('lesson page renders Quiz yourself card after lesson body',
+      (tester) async {
+    final router = GoRouter(
+      initialLocation: '/lesson/l1?examId=e1',
+      routes: [
+        GoRoute(
+          path: '/lesson/:lessonId',
+          builder: (_, state) => LessonPage(
+            lessonId: state.pathParameters['lessonId']!,
+            examId: state.uri.queryParameters['examId'],
+          ),
+        ),
+        GoRoute(
+          path: '/quiz/inline/:examId/:lessonId',
+          builder: (_, state) => Text(
+            'Inline ${state.pathParameters['examId']} '
+            '${state.pathParameters['lessonId']}',
+          ),
+        ),
+      ],
+    );
+
+    await tester.pumpAppWithRouter(
+      router,
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Quiz yourself'), findsOneWidget);
+    await tester.tap(find.text('Quiz yourself'));
+    await tester.pumpAndSettle();
+    expect(find.text('Inline e1 l1'), findsOneWidget);
   });
 }

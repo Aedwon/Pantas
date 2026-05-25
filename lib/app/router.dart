@@ -6,6 +6,7 @@ import 'package:cse_cet_reviewer/features/lesson/presentation/learn_tab_home.dar
 import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_list_page.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_page.dart';
 import 'package:cse_cet_reviewer/features/onboarding/onboarding.dart';
+import 'package:cse_cet_reviewer/features/quiz/presentation/drill_subtopic_browser.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_results_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_tab_home.dart';
@@ -87,10 +88,48 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (_, __) => const OnboardingPage(),
       ),
       GoRoute(
+        path: '/quiz/today/:examId',
+        builder: (_, state) => QuizPage(
+          examId: state.pathParameters['examId']!,
+          mode: QuizPageMode.today,
+          topicId: state.uri.queryParameters['topicId'],
+        ),
+      ),
+      GoRoute(
         path: '/quiz/quick/:examId',
         builder: (_, state) => QuizPage(
           examId: state.pathParameters['examId']!,
           topicId: state.uri.queryParameters['topicId'],
+        ),
+      ),
+      GoRoute(
+        path: '/quiz/drill/:examId',
+        builder: (_, state) {
+          final examId = state.pathParameters['examId']!;
+          final topicId = state.uri.queryParameters['topicId'];
+          if (topicId != null) {
+            return QuizPage(
+              examId: examId,
+              topicId: topicId,
+              mode: QuizPageMode.drill,
+            );
+          }
+          return DrillSubtopicBrowser(examId: examId);
+        },
+      ),
+      GoRoute(
+        path: '/quiz/retake/:examId',
+        builder: (_, state) => QuizPage(
+          examId: state.pathParameters['examId']!,
+          mode: QuizPageMode.retake,
+        ),
+      ),
+      GoRoute(
+        path: '/quiz/inline/:examId/:lessonId',
+        builder: (_, state) => QuizPage(
+          examId: state.pathParameters['examId']!,
+          lessonId: state.pathParameters['lessonId'],
+          mode: QuizPageMode.inline,
         ),
       ),
       GoRoute(

@@ -91,7 +91,7 @@ class _ExamCard extends ConsumerWidget {
             if (!sheetContext.mounted) return;
             Navigator.of(sheetContext).pop();
             if (!context.mounted) return;
-            context.go('/quiz/quick/${exam.id}');
+            context.go('/quiz/today/${exam.id}');
           },
         ),
       );
@@ -99,7 +99,7 @@ class _ExamCard extends ConsumerWidget {
     }
 
     if (!context.mounted) return;
-    context.go('/quiz/quick/${exam.id}');
+    context.go('/quiz/today/${exam.id}');
   }
 
   @override
@@ -123,8 +123,20 @@ class _ExamCard extends ConsumerWidget {
           ),
           const SizedBox(height: 12),
           AppButton(
-            label: 'Start Quick Quiz',
+            label: "Start Today's Session",
             onPressed: () => _onStartQuiz(context, ref),
+          ),
+          const SizedBox(height: 8),
+          AppButton(
+            label: 'Retake Mistakes',
+            variant: AppButtonVariant.secondary,
+            onPressed: () => context.go('/quiz/retake/${exam.id}'),
+          ),
+          const SizedBox(height: 8),
+          AppButton(
+            label: 'Drill a topic',
+            variant: AppButtonVariant.secondary,
+            onPressed: () => context.go('/quiz/drill/${exam.id}'),
           ),
           const SizedBox(height: 8),
           AppButton(
