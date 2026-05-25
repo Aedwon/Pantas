@@ -24,11 +24,23 @@ void main() {
     final files = [
       File('CONTRIBUTING.md'),
       File('docs/content/sanity-setup.md'),
+      File('docs/quiz-modes.md'),
     ];
 
     for (final file in files) {
       final text = file.readAsStringSync().toLowerCase();
       expect(text, isNot(contains('ai-generated')), reason: file.path);
     }
+  });
+
+  test('quiz mode docs mention storage and scope boundaries', () {
+    final text = File('docs/quiz-modes.md').readAsStringSync();
+    final lower = text.toLowerCase();
+
+    expect(text, contains('content.db'));
+    expect(text, contains('app.db'));
+    expect(text, contains('quiz_attempts'));
+    expect(text, contains('Mock Exam'));
+    expect(lower, contains('paywall'));
   });
 }
