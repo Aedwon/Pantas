@@ -7,6 +7,7 @@ import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_preferences_repos
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/complete_quiz.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_drill.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_inline_lesson_quiz.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_quick_quiz.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_retake.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_today_session.dart';
@@ -70,6 +71,13 @@ final startRetakeProvider = Provider<StartRetake>(
   (ref) => StartRetake(
     content: ref.watch(contentRepositoryProvider),
     attempts: ref.watch(attemptsRepositoryProvider),
+    sessions: ref.watch(quizSessionRepositoryProvider),
+  ),
+);
+
+final startInlineLessonQuizProvider = Provider<StartInlineLessonQuiz>(
+  (ref) => StartInlineLessonQuiz(
+    content: ref.watch(contentRepositoryProvider),
     sessions: ref.watch(quizSessionRepositoryProvider),
   ),
 );

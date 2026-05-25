@@ -5,6 +5,7 @@ export 'domain/models/quiz_preferences.dart';
 export 'domain/rating_heuristic.dart';
 export 'domain/use_cases/complete_quiz.dart';
 export 'domain/use_cases/start_drill.dart';
+export 'domain/use_cases/start_inline_lesson_quiz.dart';
 export 'domain/use_cases/start_quick_quiz.dart';
 export 'domain/use_cases/start_retake.dart';
 export 'domain/use_cases/start_today_session.dart';
