@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/ui/components/confirmation_dialog.dart';
 import 'package:cse_cet_reviewer/core/ui/components/empty_state.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
 import 'package:cse_cet_reviewer/core/ui/components/question_card.dart';
@@ -68,7 +69,16 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     });
 
     return Scaffold(
-      appBar: AppBar(title: Text(_titleFor(widget.mode))),
+      appBar: AppBar(
+        title: Text(_titleFor(widget.mode)),
+        leading: state is QuizRunning
+            ? IconButton(
+                tooltip: 'Quit session',
+                icon: const Icon(Icons.close),
+                onPressed: () => _confirmQuit(context, ref),
+              )
+            : null,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: switch (state) {
@@ -119,4 +129,20 @@ class _QuizPageState extends ConsumerState<QuizPage> {
         QuizPageMode.retake => 'Retake Mistakes',
         QuizPageMode.inline => 'Quiz yourself',
       };
+
+  Future<void> _confirmQuit(BuildContext context, WidgetRef ref) {
+    return showAppConfirmationDialog(
+      context: context,
+      icon: '!',
+      title: 'Quit session?',
+      body: 'Your progress is saved.',
+      cancelLabel: 'Keep going',
+      confirmLabel: 'Quit',
+      onCancel: () {},
+      onConfirm: () {
+        ref.read(quizControllerProvider.notifier).reset();
+        context.go('/quiz');
+      },
+    );
+  }
 }

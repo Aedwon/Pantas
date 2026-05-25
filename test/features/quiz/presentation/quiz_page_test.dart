@@ -117,4 +117,41 @@ void main() {
       ),
     ).called(1);
   });
+
+  testWidgets('quit button shows confirmation while a session is running',
+      (tester) async {
+    when(
+      () => start(
+        examId: any(named: 'examId'),
+        topicId: any(named: 'topicId'),
+        count: any(named: 'count'),
+        now: any(named: 'now'),
+        randomSeed: any(named: 'randomSeed'),
+      ),
+    ).thenAnswer(
+      (_) async => QuizSession.start(
+        sessionId: 'sess',
+        examId: 'e',
+        questions: const [q1],
+        startedAt: DateTime.utc(2026, 5, 9, 12),
+      ),
+    );
+
+    await tester.pumpAppWithProviders(
+      const QuizPage(examId: 'e'),
+      overrides: [
+        startQuickQuizProvider.overrideWithValue(start),
+        submitAnswerProvider.overrideWithValue(submit),
+        completeQuizProvider.overrideWithValue(complete),
+        nowProvider.overrideWithValue(() => DateTime.utc(2026, 5, 9, 12)),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.byTooltip('Quit session'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Quit session?'), findsOneWidget);
+    expect(find.text('Your progress is saved.'), findsOneWidget);
+  });
 }
