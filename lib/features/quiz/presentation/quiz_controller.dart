@@ -2,6 +2,7 @@ import 'package:cse_cet_reviewer/core/fsrs/fsrs_scheduler.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_preferences_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/complete_quiz.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_quick_quiz.dart';
@@ -56,6 +57,10 @@ final submitAnswerProvider = Provider<SubmitAnswer>(
 
 final completeQuizProvider = Provider<CompleteQuiz>(
   (ref) => CompleteQuiz(ref.watch(attemptsRepositoryProvider)),
+);
+
+final quizPreferencesRepositoryProvider = Provider<QuizPreferencesRepository>(
+  (ref) => QuizPreferencesRepository(ref.watch(appDatabaseProvider)),
 );
 
 final quizControllerProvider =

@@ -1,4 +1,6 @@
+export 'data/repos/quiz_preferences_repository.dart';
 export 'domain/quiz_session.dart';
+export 'domain/models/quiz_preferences.dart';
 export 'domain/rating_heuristic.dart';
 export 'domain/use_cases/complete_quiz.dart';
 export 'domain/use_cases/start_quick_quiz.dart';

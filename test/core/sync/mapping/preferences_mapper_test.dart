@@ -44,4 +44,21 @@ void main() {
     expect(preferences, isNot(contains('selected_exam_id')));
     expect(preferences, isNot(contains('passed_age_gate')));
   });
+
+  test('preferences mapper includes quiz preference keys from account_prefs',
+      () {
+    final doc = const PreferencesMapper().toFirestore([
+      const AccountPrefRow(key: 'quiz_session_length', value: '20'),
+      const AccountPrefRow(key: 'quiz_today_interleaved', value: 'true'),
+      const AccountPrefRow(key: 'quiz_new_card_cap', value: '5'),
+    ]);
+
+    expect(doc, {
+      'preferences': {
+        'quiz_session_length': '20',
+        'quiz_today_interleaved': 'true',
+        'quiz_new_card_cap': '5',
+      },
+    });
+  });
 }
