@@ -112,12 +112,15 @@ final submitAnswerProvider = Provider<SubmitAnswer>(
   ),
 );
 
-final completeQuizProvider = Provider<CompleteQuiz>(
-  (ref) => CompleteQuiz(ref.watch(attemptsRepositoryProvider)),
-);
-
 final streakEvaluatorProvider = Provider<StreakEvaluator>(
   (ref) => StreakEvaluator(ref.watch(streakRepositoryProvider)),
+);
+
+final completeQuizProvider = Provider<CompleteQuiz>(
+  (ref) => CompleteQuiz(
+    ref.watch(attemptsRepositoryProvider),
+    streakEvaluator: ref.watch(streakEvaluatorProvider),
+  ),
 );
 
 final quizPreferencesRepositoryProvider = Provider<QuizPreferencesRepository>(

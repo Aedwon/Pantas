@@ -1,11 +1,14 @@
 import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/streak/streak_evaluator.dart';
 
 class CompleteQuiz {
-  CompleteQuiz(this._attempts);
+  CompleteQuiz(this._attempts, {StreakEvaluator? streakEvaluator})
+      : _streakEvaluator = streakEvaluator;
 
   final AttemptsRepository _attempts;
+  final StreakEvaluator? _streakEvaluator;
 
   Future<Attempt> call({
     required QuizSession session,
@@ -33,6 +36,10 @@ class CompleteQuiz {
           .toList(),
     );
     await _attempts.save(attempt);
+    await _streakEvaluator?.evaluate(
+      origin: session.origin,
+      completedAt: now,
+    );
     return attempt;
   }
 }
