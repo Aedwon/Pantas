@@ -4,6 +4,7 @@ export 'data/repos/quiz_session_repository.dart';
 export 'domain/models/quiz_preferences.dart';
 export 'domain/quiz_session.dart';
 export 'domain/rating_heuristic.dart';
+export 'domain/streak/streak_evaluator.dart';
 export 'domain/use_cases/complete_quiz.dart';
 export 'domain/use_cases/quit_session.dart';
 export 'domain/use_cases/restart_session.dart';

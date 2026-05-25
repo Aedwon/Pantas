@@ -52,4 +52,21 @@ class StreakRepository {
           ),
         );
   }
+
+  Future<void> writeSnapshot({
+    required int current,
+    required int longest,
+    required DateTime lastActiveDate,
+    required int freezesRemaining,
+  }) async {
+    await _db.into(_db.streakLocal).insertOnConflictUpdate(
+          StreakLocalCompanion.insert(
+            id: const Value(1),
+            current: Value(current),
+            longest: Value(longest),
+            lastActiveDate: Value(lastActiveDate),
+            freezesRemaining: Value(freezesRemaining),
+          ),
+        );
+  }
 }

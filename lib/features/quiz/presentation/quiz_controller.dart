@@ -6,6 +6,7 @@ import 'package:cse_cet_reviewer/features/quiz/data/repos/new_card_intro_reposit
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_preferences_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/streak/streak_evaluator.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/complete_quiz.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/quit_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/restart_session.dart';
@@ -113,6 +114,10 @@ final submitAnswerProvider = Provider<SubmitAnswer>(
 
 final completeQuizProvider = Provider<CompleteQuiz>(
   (ref) => CompleteQuiz(ref.watch(attemptsRepositoryProvider)),
+);
+
+final streakEvaluatorProvider = Provider<StreakEvaluator>(
+  (ref) => StreakEvaluator(ref.watch(streakRepositoryProvider)),
 );
 
 final quizPreferencesRepositoryProvider = Provider<QuizPreferencesRepository>(
