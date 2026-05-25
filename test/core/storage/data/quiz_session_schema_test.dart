@@ -5,12 +5,12 @@ import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test('app database creates quiz session tables at schema version 7',
+  test('app database creates quiz session tables at schema version 8',
       () async {
     final db = AppDatabase(NativeDatabase.memory());
     addTearDown(db.close);
 
-    expect(db.schemaVersion, equals(7));
+    expect(db.schemaVersion, equals(8));
     expect(await _tableNames(db), contains('quiz_sessions'));
     expect(await _tableNames(db), contains('daily_new_card_intro'));
   });
