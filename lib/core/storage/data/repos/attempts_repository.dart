@@ -68,6 +68,34 @@ class AttemptsRepository {
     return rows.length;
   }
 
+  Future<List<QuestionId>> recentIncorrects({
+    required ExamId examId,
+    required DateTime now,
+    required Duration window,
+    int limit = 50,
+  }) async {
+    final cutoff = now.subtract(window);
+    final rows = await (_db.select(_db.attemptsLocal)
+          ..where(
+            (t) =>
+                t.examId.equals(examId) &
+                t.startedAt.isBiggerOrEqualValue(cutoff),
+          )
+          ..orderBy([(t) => OrderingTerm.desc(t.startedAt)]))
+        .get();
+    final questionIds = <QuestionId>[];
+    final seen = <QuestionId>{};
+    for (final row in rows) {
+      final attempt = _hydrate(row);
+      for (final item in attempt.items) {
+        if (item.isCorrect || !seen.add(item.questionId)) continue;
+        questionIds.add(item.questionId);
+        if (questionIds.length >= limit) return questionIds;
+      }
+    }
+    return questionIds;
+  }
+
   Future<AttemptLocalRow> rawRowById(AttemptId id) =>
       (_db.select(_db.attemptsLocal)..where((t) => t.id.equals(id)))
           .getSingle();

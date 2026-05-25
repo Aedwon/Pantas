@@ -60,4 +60,69 @@ void main() {
     expect(row.lastSyncError, equals('timeout'));
     expect(SyncState.fromString(row.syncState), equals(SyncState.failed));
   });
+
+  test('recentIncorrects returns incorrect question ids from last 30 days',
+      () async {
+    final now = DateTime.utc(2026, 5, 18);
+    await repo.save(
+      Attempt(
+        id: 'recent_wrong',
+        examId: 'exam_cse_pro',
+        startedAt: now.subtract(const Duration(days: 1)),
+        completedAt: now.subtract(const Duration(days: 1)),
+        items: const [
+          AttemptItem(
+            questionId: 'q_wrong',
+            questionVersion: 1,
+            chosenChoiceId: 'c_a',
+            correctChoiceId: 'c_b',
+            responseMs: 1000,
+          ),
+        ],
+      ),
+    );
+    await repo.save(
+      Attempt(
+        id: 'old_wrong',
+        examId: 'exam_cse_pro',
+        startedAt: now.subtract(const Duration(days: 31)),
+        completedAt: now.subtract(const Duration(days: 31)),
+        items: const [
+          AttemptItem(
+            questionId: 'q_old',
+            questionVersion: 1,
+            chosenChoiceId: 'c_a',
+            correctChoiceId: 'c_b',
+            responseMs: 1000,
+          ),
+        ],
+      ),
+    );
+    await repo.save(
+      Attempt(
+        id: 'recent_correct',
+        examId: 'exam_cse_pro',
+        startedAt: now,
+        completedAt: now,
+        items: const [
+          AttemptItem(
+            questionId: 'q_correct',
+            questionVersion: 1,
+            chosenChoiceId: 'c_b',
+            correctChoiceId: 'c_b',
+            responseMs: 1000,
+          ),
+        ],
+      ),
+    );
+
+    expect(
+      await repo.recentIncorrects(
+        examId: 'exam_cse_pro',
+        now: now,
+        window: const Duration(days: 30),
+      ),
+      equals(['q_wrong']),
+    );
+  });
 }
