@@ -2,10 +2,12 @@ import 'package:cse_cet_reviewer/core/fsrs/fsrs_scheduler.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_preferences_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/complete_quiz.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_quick_quiz.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_today_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/submit_answer.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -48,6 +50,13 @@ final startQuickQuizProvider = Provider<StartQuickQuiz>(
   (ref) => StartQuickQuiz(ref.watch(contentRepositoryProvider)),
 );
 
+final startTodaySessionProvider = Provider<StartTodaySession>(
+  (ref) => StartTodaySession(
+    content: ref.watch(contentRepositoryProvider),
+    sessions: ref.watch(quizSessionRepositoryProvider),
+  ),
+);
+
 final submitAnswerProvider = Provider<SubmitAnswer>(
   (ref) => SubmitAnswer(
     reviewRepo: ref.watch(reviewStateRepositoryProvider),
@@ -61,6 +70,10 @@ final completeQuizProvider = Provider<CompleteQuiz>(
 
 final quizPreferencesRepositoryProvider = Provider<QuizPreferencesRepository>(
   (ref) => QuizPreferencesRepository(ref.watch(appDatabaseProvider)),
+);
+
+final quizSessionRepositoryProvider = Provider<QuizSessionRepository>(
+  (ref) => QuizSessionRepository(ref.watch(appDatabaseProvider)),
 );
 
 final quizControllerProvider =
