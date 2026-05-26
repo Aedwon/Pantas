@@ -1,5 +1,6 @@
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_attempt.dart';
+import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_results.dart';
 import 'package:drift/drift.dart';
 
 class MockAttemptRepo {
@@ -83,6 +84,28 @@ class MockAttemptRepo {
       MockAttemptsCompanion(
         status: Value(MockAttemptStatus.discarded.value),
         updatedAt: Value(discardedAt),
+      ),
+    );
+  }
+
+  Future<void> submit({
+    required String attemptId,
+    required MockAttemptStatus status,
+    required MockResults results,
+    required String sectionResultsJson,
+    required DateTime submittedAt,
+  }) async {
+    await (_db.update(_db.mockAttempts)
+          ..where((attempt) => attempt.id.equals(attemptId)))
+        .write(
+      MockAttemptsCompanion(
+        status: Value(status.value),
+        scoreRaw: Value(results.scoreRaw),
+        scoreTotal: Value(results.scoreTotal),
+        sectionResultsJson: Value(sectionResultsJson),
+        totalTimeSeconds: Value(results.totalTimeSeconds),
+        submittedAt: Value(submittedAt),
+        updatedAt: Value(submittedAt),
       ),
     );
   }
