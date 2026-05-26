@@ -128,6 +128,12 @@ class _ExamCard extends ConsumerWidget {
           ),
           const SizedBox(height: 8),
           AppButton(
+            label: 'Study Plan',
+            variant: AppButtonVariant.secondary,
+            onPressed: () => context.go('/plan'),
+          ),
+          const SizedBox(height: 8),
+          AppButton(
             label: 'Retake Mistakes',
             variant: AppButtonVariant.secondary,
             onPressed: () => context.go('/quiz/retake/${exam.id}'),
