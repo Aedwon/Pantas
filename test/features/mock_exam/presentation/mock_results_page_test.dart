@@ -14,7 +14,9 @@ void main() {
     expect(find.text('1 / 2'), findsOneWidget);
     expect(find.text('Part 1'), findsOneWidget);
     expect(find.text('Practice these next'), findsOneWidget);
-    expect(find.text('See every answer and why it is right'), findsOneWidget);
+    expect(
+        find.text('This is what Pro shows after every mock.'), findsOneWidget);
+    expect(find.text('Try Pro free'), findsOneWidget);
   });
 
   testWidgets('pro results show per-question review section', (tester) async {

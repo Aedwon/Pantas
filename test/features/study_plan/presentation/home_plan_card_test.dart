@@ -67,4 +67,50 @@ void main() {
 
     expect(find.text('plan route'), findsOneWidget);
   });
+
+  testWidgets('free study plan Pro depth tap shows inline upgrade chip',
+      (tester) async {
+    await tester.pumpApp(
+      const HomePlanCard(
+        view: PlanView(
+          examId: 'cse',
+          examName: 'Civil Service Exam',
+          weeksToExam: 13,
+          paceStatus: PaceStatus.onPace,
+          today: today,
+          upcoming: [],
+          usedFallbackMastery: false,
+        ),
+        proIsActive: false,
+      ),
+    );
+
+    await tester.tap(find.text('See more'));
+    await tester.pump();
+
+    expect(find.textContaining('Pro shows the full breakdown'), findsOneWidget);
+  });
+
+  testWidgets('pro study plan Pro depth tap opens depth content seam',
+      (tester) async {
+    await tester.pumpApp(
+      const HomePlanCard(
+        view: PlanView(
+          examId: 'cse',
+          examName: 'Civil Service Exam',
+          weeksToExam: 13,
+          paceStatus: PaceStatus.onPace,
+          today: today,
+          upcoming: [],
+          usedFallbackMastery: false,
+        ),
+        proIsActive: true,
+      ),
+    );
+
+    await tester.tap(find.text('See more'));
+    await tester.pump();
+
+    expect(find.text('Subtopic depth ready'), findsOneWidget);
+  });
 }

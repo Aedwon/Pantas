@@ -76,7 +76,14 @@ class MockResultsPage extends StatelessWidget {
             const AppCard(child: Text('Answer review'))
           else
             const AppCard(
-              child: Text('See every answer and why it is right'),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('This is what Pro shows after every mock.'),
+                  SizedBox(height: 8),
+                  Text('Try Pro free'),
+                ],
+              ),
             ),
         ],
       ),

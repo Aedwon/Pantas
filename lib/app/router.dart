@@ -7,6 +7,7 @@ import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_list_page.d
 import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_page.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/mock_exam.dart';
 import 'package:cse_cet_reviewer/features/onboarding/onboarding.dart';
+import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/drill_subtopic_browser.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_results_page.dart';
@@ -21,6 +22,7 @@ final routerProvider = Provider<GoRouter>((ref) {
   final refreshListenable = RouterRefreshListenable(ref, [
     passedAgeGateProvider,
     activeExamFocusProvider,
+    entitlementProvider,
   ]);
   final router = GoRouter(
     initialLocation: '/home',
@@ -32,10 +34,19 @@ final routerProvider = Provider<GoRouter>((ref) {
       final focus = focusAsync.valueOrNull;
       if (passed == null || focus == null) return null;
       final atOnboarding = state.matchedLocation == '/onboarding';
+      final atPaywall = state.matchedLocation == '/paywall';
       final needsSelection = focus.needsSelection;
       if (!passed && !atOnboarding) return '/onboarding';
       if (passed && needsSelection && !atOnboarding) return '/onboarding';
       if (passed && !needsSelection && atOnboarding) return '/home';
+      if (_isProRoute(state.matchedLocation) && !atPaywall) {
+        final entitlement = ref.read(entitlementProvider).valueOrNull;
+        if (entitlement == null) return null;
+        if (!entitlement.proIsActive) {
+          final returnTo = Uri.encodeComponent(state.uri.toString());
+          return '/paywall?returnTo=$returnTo';
+        }
+      }
       return null;
     },
     routes: [
@@ -92,6 +103,12 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/plan',
         builder: (_, __) => const PlanPage(),
+      ),
+      GoRoute(
+        path: '/plan/dossier/:mockId',
+        builder: (_, state) => _Stub(
+          'Pro dossier: ${state.pathParameters['mockId']}',
+        ),
       ),
       GoRoute(
         path: '/quiz/today/:examId',
@@ -180,7 +197,9 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: '/paywall',
-        builder: (_, __) => const _Stub('Paywall'),
+        builder: (_, state) => PaywallPage(
+          returnTo: state.uri.queryParameters['returnTo'],
+        ),
       ),
       GoRoute(
         path: '/settings',
@@ -195,6 +214,10 @@ final routerProvider = Provider<GoRouter>((ref) {
   ref.onDispose(router.dispose);
   return router;
 });
+
+bool _isProRoute(String matchedLocation) {
+  return matchedLocation.startsWith('/plan/dossier/');
+}
 
 class _TabStub extends StatelessWidget {
   const _TabStub(this.label);

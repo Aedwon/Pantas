@@ -4,6 +4,7 @@ import 'package:cse_cet_reviewer/app/router.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -41,7 +42,12 @@ void main() {
   Future<void> pumpApp(WidgetTester tester) async {
     await tester.pumpWidget(
       ProviderScope(
-        overrides: [appDatabaseProvider.overrideWithValue(db)],
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          entitlementProvider.overrideWith(
+            (_) => Stream.value(const Entitlement.free()),
+          ),
+        ],
         child: const App(flavor: Flavor.dev),
       ),
     );
@@ -84,6 +90,67 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Mock setup'), findsOneWidget);
+  });
+
+  testWidgets('/paywall route builds real paywall page', (tester) async {
+    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
+    await AppPreferencesRepository(db).setSelectedExamId('cse');
+    await pumpApp(tester);
+
+    final container = ProviderScope.containerOf(
+      tester.element(find.text('Home').first),
+    );
+    final router = container.read(routerProvider);
+    router.go('/paywall?returnTo=/plan');
+    await tester.pumpAndSettle();
+
+    expect(find.text('Try Pro'), findsOneWidget);
+    expect(find.textContaining('Pro plans are unavailable'), findsOneWidget);
+  });
+
+  testWidgets('free user opening Pro dossier route redirects to paywall',
+      (tester) async {
+    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
+    await AppPreferencesRepository(db).setSelectedExamId('cse');
+    await pumpApp(tester);
+
+    final container = ProviderScope.containerOf(
+      tester.element(find.text('Home').first),
+    );
+    final router = container.read(routerProvider);
+    router.go('/plan/dossier/mock_1');
+    await tester.pumpAndSettle();
+
+    expect(find.text('Try Pro'), findsOneWidget);
+  });
+
+  testWidgets('pro user opening Pro dossier route reaches placeholder',
+      (tester) async {
+    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
+    await AppPreferencesRepository(db).setSelectedExamId('cse');
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          entitlementProvider.overrideWith(
+            (_) => Stream.value(
+              const Entitlement(plan: EntitlementPlan.monthly),
+            ),
+          ),
+        ],
+        child: const App(flavor: Flavor.dev),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final container = ProviderScope.containerOf(
+      tester.element(find.text('Home').first),
+    );
+    final router = container.read(routerProvider);
+    router.go('/plan/dossier/mock_1');
+    await tester.pumpAndSettle();
+
+    expect(find.text('Pro dossier: mock_1'), findsOneWidget);
   });
 
   testWidgets('age gate passed, invalid persisted exam id → onboarding picker',
