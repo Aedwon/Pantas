@@ -24,4 +24,19 @@ class Entitlement {
 
   bool get proIsActive => plan != EntitlementPlan.free;
   bool get isLifetime => plan == EntitlementPlan.lifetime;
+
+  @override
+  bool operator ==(Object other) {
+    return other is Entitlement &&
+        other.plan == plan &&
+        other.productId == productId &&
+        other.expiresAt == expiresAt &&
+        other.isTrial == isTrial &&
+        other.willRenew == willRenew;
+  }
+
+  @override
+  int get hashCode {
+    return Object.hash(plan, productId, expiresAt, isTrial, willRenew);
+  }
 }

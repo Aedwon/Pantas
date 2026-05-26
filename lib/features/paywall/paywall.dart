@@ -3,4 +3,6 @@ export 'data/revenuecat_gateway.dart';
 export 'domain/entitlement.dart';
 export 'domain/paywall_package.dart';
 export 'domain/paywall_recommendation.dart';
+export 'domain/pro_welcome.dart';
+export 'domain/trial_notice.dart';
 export 'presentation/paywall_page.dart';
