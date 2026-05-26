@@ -7,6 +7,7 @@ import 'package:cse_cet_reviewer/core/storage/data/tables/device_prefs_table.dar
 import 'package:cse_cet_reviewer/core/storage/data/tables/exams_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/lesson_progress_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/lessons_table.dart';
+import 'package:cse_cet_reviewer/core/storage/data/tables/mock_attempts_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/pending_sync_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/questions_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/quiz_nudge_dismissed_local_table.dart';
@@ -40,13 +41,14 @@ part 'app_database.g.dart';
     AccountPrefs,
     QuizSessions,
     DailyNewCardIntro,
+    MockAttempts,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 8;
+  int get schemaVersion => 9;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -80,6 +82,9 @@ class AppDatabase extends _$AppDatabase {
           }
           if (from < 8) {
             await m.addColumn(attemptsLocal, attemptsLocal.origin);
+          }
+          if (from < 9) {
+            await m.createTable(mockAttempts);
           }
         },
       );

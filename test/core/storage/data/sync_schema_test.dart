@@ -15,12 +15,13 @@ void main() {
     return rows.map((row) => row.read<String>('name')).toList();
   }
 
-  test('app database creates pending_sync and sync_meta at schema version 8',
+  test(
+      'app database creates pending_sync and sync_meta at current schema version',
       () async {
     final db = AppDatabase(NativeDatabase.memory());
     addTearDown(db.close);
 
-    expect(db.schemaVersion, equals(8));
+    expect(db.schemaVersion, equals(9));
     expect(
       await tableNames(db),
       containsAll(<String>[
