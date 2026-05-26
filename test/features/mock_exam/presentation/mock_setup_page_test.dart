@@ -10,15 +10,15 @@ void main() {
       (tester) async {
     await tester.pumpApp(
       MockSetupPage(
-        parsedBlueprint: ParsedMockBlueprint(
-          blueprint: const MockBlueprint(
+        parsedBlueprint: const ParsedMockBlueprint(
+          blueprint: MockBlueprint(
             id: 'bp_cse',
             examId: 'exam_cse',
             name: 'CSE Practice',
             durationMinutes: 90,
             sectionsJson: '[]',
           ),
-          sections: const [
+          sections: [
             BlueprintSection(
               id: 's1',
               name: 'General Information',

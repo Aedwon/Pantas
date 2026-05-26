@@ -105,8 +105,8 @@ class _TopicStats {
   _TopicStats(this.topicId);
 
   final String topicId;
-  var correct = 0;
-  var total = 0;
+  int correct = 0;
+  int total = 0;
 
   void add({required bool isCorrect}) {
     total += 1;

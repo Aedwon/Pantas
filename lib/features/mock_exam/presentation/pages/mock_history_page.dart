@@ -20,9 +20,11 @@ class _MockHistoryPageState extends State<MockHistoryPage> {
   @override
   Widget build(BuildContext context) {
     final attempts = widget.attempts.toList()
-      ..sort((a, b) => (b.submittedAt ?? b.updatedAt).compareTo(
-            a.submittedAt ?? a.updatedAt,
-          ));
+      ..sort(
+        (a, b) => (b.submittedAt ?? b.updatedAt).compareTo(
+          a.submittedAt ?? a.updatedAt,
+        ),
+      );
     final visible = _showAll ? attempts : attempts.take(10).toList();
 
     return Scaffold(

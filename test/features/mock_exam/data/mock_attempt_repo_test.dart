@@ -61,10 +61,9 @@ void main() {
   });
 
   test('findInProgress returns newest active attempt for user', () async {
-    await insertAttempt(id: 'older', userId: 'user_1', startedAt: startedAt);
+    await insertAttempt(id: 'older', startedAt: startedAt);
     await insertAttempt(
       id: 'newer',
-      userId: 'user_1',
       startedAt: startedAt.add(const Duration(minutes: 1)),
     );
     await insertAttempt(id: 'other_user', userId: 'user_2');
@@ -75,34 +74,35 @@ void main() {
   });
 
   test(
-      'flushProgress updates elapsed flags answers current index and flush time',
-      () async {
-    await insertAttempt(id: 'mock_1');
-    final flushedAt = startedAt.add(const Duration(seconds: 30));
+    'flushProgress updates elapsed flags answers current index and flush time',
+    () async {
+      await insertAttempt(id: 'mock_1');
+      final flushedAt = startedAt.add(const Duration(seconds: 30));
 
-    await repo.flushProgress(
-      attemptId: 'mock_1',
-      elapsedSeconds: 30,
-      accumulatedPausedSeconds: 5,
-      pausedAtLastFlush: true,
-      answersJson: '{"q1":{"idx":1,"atSec":30}}',
-      flagsJson: '["q2"]',
-      currentIndex: 2,
-      flushedAt: flushedAt,
-      updateSyncTimestamp: false,
-    );
+      await repo.flushProgress(
+        attemptId: 'mock_1',
+        elapsedSeconds: 30,
+        accumulatedPausedSeconds: 5,
+        pausedAtLastFlush: true,
+        answersJson: '{"q1":{"idx":1,"atSec":30}}',
+        flagsJson: '["q2"]',
+        currentIndex: 2,
+        flushedAt: flushedAt,
+        updateSyncTimestamp: false,
+      );
 
-    final attempt = await repo.findById('mock_1');
+      final attempt = await repo.findById('mock_1');
 
-    expect(attempt!.elapsedSeconds, 30);
-    expect(attempt.accumulatedPausedSeconds, 5);
-    expect(attempt.pausedAtLastFlush, isTrue);
-    expect(attempt.answersJson, contains('"q1"'));
-    expect(attempt.flagsJson, '["q2"]');
-    expect(attempt.currentIndex, 2);
-    expect(attempt.lastFlushedAt, flushedAt);
-    expect(attempt.updatedAt, startedAt);
-  });
+      expect(attempt!.elapsedSeconds, 30);
+      expect(attempt.accumulatedPausedSeconds, 5);
+      expect(attempt.pausedAtLastFlush, isTrue);
+      expect(attempt.answersJson, contains('"q1"'));
+      expect(attempt.flagsJson, '["q2"]');
+      expect(attempt.currentIndex, 2);
+      expect(attempt.lastFlushedAt, flushedAt);
+      expect(attempt.updatedAt, startedAt);
+    },
+  );
 
   test('discard marks terminal without consuming cooldown', () async {
     await insertAttempt(id: 'mock_1');

@@ -26,6 +26,7 @@ class BlueprintSection {
   final List<String> topicIds;
   final Map<String, double> topicWeights;
 
+  // ignore: prefer_constructors_over_static_methods
   static List<BlueprintSection> parseList(String sectionsJson) {
     final Object? decoded;
     try {
@@ -44,6 +45,7 @@ class BlueprintSection {
     ];
   }
 
+  // ignore: prefer_constructors_over_static_methods
   static BlueprintSection _parseSection(Object? value, {required int index}) {
     if (value is! Map<String, Object?>) {
       throw BlueprintParseException('section[$index] must be an object');

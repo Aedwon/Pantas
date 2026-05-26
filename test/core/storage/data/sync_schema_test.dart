@@ -16,20 +16,21 @@ void main() {
   }
 
   test(
-      'app database creates pending_sync and sync_meta at current schema version',
-      () async {
-    final db = AppDatabase(NativeDatabase.memory());
-    addTearDown(db.close);
+    'app database creates pending_sync and sync_meta at current schema version',
+    () async {
+      final db = AppDatabase(NativeDatabase.memory());
+      addTearDown(db.close);
 
-    expect(db.schemaVersion, equals(9));
-    expect(
-      await tableNames(db),
-      containsAll(<String>[
-        'pending_sync',
-        'sync_meta',
-      ]),
-    );
-  });
+      expect(db.schemaVersion, equals(9));
+      expect(
+        await tableNames(db),
+        containsAll(<String>[
+          'pending_sync',
+          'sync_meta',
+        ]),
+      );
+    },
+  );
 
   test('pending_sync coalesces tableType and rowId through a unique index',
       () async {

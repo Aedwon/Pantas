@@ -1,5 +1,8 @@
+import 'package:meta/meta.dart';
+
 enum ScoreBand { pass, borderline, fail }
 
+@immutable
 class MockAnswer {
   const MockAnswer({
     required this.selectedIndex,

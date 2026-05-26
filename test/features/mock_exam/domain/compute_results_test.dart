@@ -45,9 +45,9 @@ void main() {
 
   test('computes section time from max answer atSec boundaries', () {
     final results = ComputeMockResults().call(
-      sample: MockSample(
+      sample: const MockSample(
         expectedQuestionCount: 4,
-        sections: const [
+        sections: [
           SampledMockSection(
             sectionId: 's1',
             name: 'Part 1',
@@ -115,7 +115,9 @@ void main() {
     );
 
     expect(
-        results.topWeak.map((topic) => topic.topicId), ['topic_a', 'topic_b']);
+      results.topWeak.map((topic) => topic.topicId),
+      ['topic_a', 'topic_b'],
+    );
     expect(results.topWeak.map((topic) => topic.drillRoute), [
       '/quiz/drill?topicId=topic_a',
       '/quiz/drill?topicId=topic_b',
@@ -150,9 +152,17 @@ Question _question(
     stem: 'Question $id',
     choices: [
       Choice(
-          id: '${id}_a', label: 'A', text: 'A', isCorrect: correctIndex == 0),
+        id: '${id}_a',
+        label: 'A',
+        text: 'A',
+        isCorrect: correctIndex == 0,
+      ),
       Choice(
-          id: '${id}_b', label: 'B', text: 'B', isCorrect: correctIndex == 1),
+        id: '${id}_b',
+        label: 'B',
+        text: 'B',
+        isCorrect: correctIndex == 1,
+      ),
     ],
     explanation: 'Because.',
   );

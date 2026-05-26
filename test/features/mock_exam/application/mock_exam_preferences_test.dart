@@ -19,15 +19,15 @@ void main() {
   });
 
   test('strict mock mode persists in account preferences', () async {
-    await prefs.setStrictMockMode(true);
+    await prefs.setStrictMockMode(value: true);
     expect(await prefs.strictMockMode(), isTrue);
 
-    await prefs.setStrictMockMode(false);
+    await prefs.setStrictMockMode(value: false);
     expect(await prefs.strictMockMode(), isFalse);
   });
 
   test('startMock snapshots strict mode onto the attempt', () async {
-    await prefs.setStrictMockMode(true);
+    await prefs.setStrictMockMode(value: true);
     final repo = MockAttemptRepo(db);
     final start = StartMock(repo: repo);
 

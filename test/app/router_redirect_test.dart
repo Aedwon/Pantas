@@ -9,6 +9,8 @@ import 'package:flutter_test/flutter_test.dart';
 
 import '../helpers/in_memory_database.dart';
 
+// ignore_for_file: cascade_invocations
+
 void main() {
   late AppDatabase db;
 
@@ -74,9 +76,10 @@ void main() {
     await AppPreferencesRepository(db).setSelectedExamId('cse');
     await pumpApp(tester);
 
-    final router = ProviderScope.containerOf(
+    final container = ProviderScope.containerOf(
       tester.element(find.text('Home').first),
-    ).read(routerProvider);
+    );
+    final router = container.read(routerProvider);
     router.go('/quiz/mock/setup?examId=cse');
     await tester.pumpAndSettle();
 

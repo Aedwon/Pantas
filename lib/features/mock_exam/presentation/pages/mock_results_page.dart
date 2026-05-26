@@ -24,16 +24,20 @@ class MockResultsPage extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         children: [
           if (forfeited) ...[
-            Text('Forfeited during strict mode',
-                style: textStyles.headlineSmall),
+            Text(
+              'Forfeited during strict mode',
+              style: textStyles.headlineSmall,
+            ),
             const SizedBox(height: 12),
           ],
           AppCard(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('${results.scoreRaw} / ${results.scoreTotal}',
-                    style: textStyles.headlineMedium),
+                Text(
+                  '${results.scoreRaw} / ${results.scoreTotal}',
+                  style: textStyles.headlineMedium,
+                ),
                 Text('${results.percent.toStringAsFixed(0)}%'),
               ],
             ),

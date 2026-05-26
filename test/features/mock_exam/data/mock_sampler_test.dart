@@ -30,7 +30,7 @@ void main() {
 
   test('uses uniform weights when topicWeights is absent', () {
     final sampler = MockSampler();
-    final section = const BlueprintSection(
+    const section = BlueprintSection(
       id: 's1',
       name: 'Section 1',
       questionCount: 4,
@@ -71,7 +71,9 @@ void main() {
     );
 
     expect(
-        sample.sections.single.questionIds, unorderedEquals(['new1', 'new2']));
+      sample.sections.single.questionIds,
+      unorderedEquals(['new1', 'new2']),
+    );
   });
 
   test('falls back to unfiltered pool when recency filter would underfill', () {
@@ -145,7 +147,9 @@ void main() {
     );
 
     expect(
-        first.sections.single.questionIds, second.sections.single.questionIds);
+      first.sections.single.questionIds,
+      second.sections.single.questionIds,
+    );
   });
 }
 

@@ -1,15 +1,17 @@
 import 'package:cse_cet_reviewer/features/mock_exam/mock_exam.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+// ignore_for_file: cascade_invocations, unnecessary_lambdas
+
 void main() {
   test('answer change records answer index and elapsed atSec', () {
     final controller = MockSessionController.initial(
       attemptId: 'mock_1',
       durationSeconds: 600,
       questionIds: ['q1', 'q2'],
-    )..tickTo(42);
-
-    controller.answerCurrent(1);
+    )
+      ..tickTo(42)
+      ..answerCurrent(1);
 
     final state = controller.state as MockSessionInProgress;
     expect(state.answers['q1'], const MockAnswer(selectedIndex: 1, atSec: 42));
@@ -75,11 +77,12 @@ void main() {
 
   test('remaining zero submits with timeUp', () {
     MockSubmitReason? reason;
+    void capture(MockSubmitReason value) => reason = value;
     final controller = MockSessionController.initial(
       attemptId: 'mock_1',
       durationSeconds: 60,
       questionIds: ['q1'],
-      onSubmit: (value) => reason = value,
+      onSubmit: capture,
     );
 
     controller.tickTo(60);
@@ -90,12 +93,13 @@ void main() {
 
   test('strict background forfeit submits with strictBackground', () {
     MockSubmitReason? reason;
+    void capture(MockSubmitReason value) => reason = value;
     final controller = MockSessionController.initial(
       attemptId: 'mock_1',
       durationSeconds: 60,
       questionIds: ['q1'],
       strictMode: true,
-      onSubmit: (value) => reason = value,
+      onSubmit: capture,
     );
 
     controller.strictBackgroundExceeded();

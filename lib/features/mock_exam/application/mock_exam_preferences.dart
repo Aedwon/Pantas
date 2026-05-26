@@ -14,7 +14,7 @@ class MockExamPreferences {
     return row?.value == 'true';
   }
 
-  Future<void> setStrictMockMode(bool value) async {
+  Future<void> setStrictMockMode({required bool value}) async {
     await _db.into(_db.accountPrefs).insertOnConflictUpdate(
           AccountPrefsCompanion.insert(
             key: strictMockModeKey,

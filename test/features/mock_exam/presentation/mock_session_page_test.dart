@@ -4,6 +4,8 @@ import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/pump_app.dart';
 
+// ignore_for_file: avoid_dynamic_calls
+
 void main() {
   testWidgets('session page renders current question and countdown',
       (tester) async {
@@ -66,7 +68,9 @@ void main() {
       ),
     );
 
-    final dynamic widgetsAppState = tester.state(find.byType(WidgetsApp));
+    final widgetsAppState = tester.state<State<WidgetsApp>>(
+      find.byType(WidgetsApp),
+    ) as dynamic;
     await widgetsAppState.didPopRoute();
     await tester.pumpAndSettle();
 

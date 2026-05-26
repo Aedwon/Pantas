@@ -1,5 +1,3 @@
-library mock_exam;
-
 export 'application/mock_availability_provider.dart';
 export 'application/mock_blueprint_providers.dart';
 export 'application/mock_exam_preferences.dart';
@@ -21,8 +19,8 @@ export 'domain/use_cases/start_mock.dart';
 export 'domain/use_cases/submit_mock.dart';
 export 'presentation/pages/mock_history_page.dart';
 export 'presentation/pages/mock_results_page.dart';
-export 'presentation/pages/mock_setup_page.dart';
 export 'presentation/pages/mock_session_page.dart';
+export 'presentation/pages/mock_setup_page.dart';
 export 'presentation/widgets/mock_quiz_tab_tile.dart';
 export 'presentation/widgets/mock_resume_sheet.dart';
 export 'presentation/widgets/mock_status_card.dart';

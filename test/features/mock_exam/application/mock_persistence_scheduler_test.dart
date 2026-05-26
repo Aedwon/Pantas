@@ -1,16 +1,19 @@
 import 'package:cse_cet_reviewer/features/mock_exam/mock_exam.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+// ignore_for_file: cascade_invocations
+
 void main() {
   test('answer mutations debounce into one flush', () {
     final flushed = <MockFlushPayload>[];
     final scheduler = MockPersistenceScheduler(onFlush: flushed.add);
     final payload = _payload(elapsedSeconds: 1);
 
-    scheduler.markChanged(payload);
-    scheduler.elapse(const Duration(milliseconds: 250));
-    scheduler.markChanged(_payload(elapsedSeconds: 2));
-    scheduler.elapse(const Duration(milliseconds: 499));
+    scheduler
+      ..markChanged(payload)
+      ..elapse(const Duration(milliseconds: 250))
+      ..markChanged(_payload(elapsedSeconds: 2))
+      ..elapse(const Duration(milliseconds: 499));
 
     expect(flushed, isEmpty);
 
@@ -23,8 +26,9 @@ void main() {
     final flushed = <MockFlushPayload>[];
     final scheduler = MockPersistenceScheduler(onFlush: flushed.add);
 
-    scheduler.heartbeat(_payload(elapsedSeconds: 30));
-    scheduler.elapse(const Duration(seconds: 29));
+    scheduler
+      ..heartbeat(_payload(elapsedSeconds: 30))
+      ..elapse(const Duration(seconds: 29));
     expect(flushed, isEmpty);
 
     scheduler.elapse(const Duration(seconds: 1));
@@ -35,8 +39,9 @@ void main() {
     final flushed = <MockFlushPayload>[];
     final scheduler = MockPersistenceScheduler(onFlush: flushed.add);
 
-    scheduler.forceFlush(_payload(elapsedSeconds: 10, pausedAtLastFlush: true));
-    scheduler.forceFlush(_payload(elapsedSeconds: 10));
+    scheduler
+      ..forceFlush(_payload(elapsedSeconds: 10, pausedAtLastFlush: true))
+      ..forceFlush(_payload(elapsedSeconds: 10));
 
     expect(flushed.map((payload) => payload.pausedAtLastFlush), [true, false]);
   });
