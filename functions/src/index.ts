@@ -2,6 +2,7 @@ export { exportData } from './exportData.js';
 export { deleteAccount } from './deleteAccount.js';
 export { resetCloudUserData } from './resetCloudUserData.js';
 export { revenuecatWebhook } from './revenuecatWebhook.js';
+export { getProContent } from './getProContent.js';
 export { recordSignInEvent } from './recordSignInEvent.js';
 export { onUserCreated } from './onUserCreated.js';
 export { cleanupOrphanAnons } from './cleanupOrphanAnons.js';

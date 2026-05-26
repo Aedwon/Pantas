@@ -9,6 +9,7 @@ test('index exports privacy and audit callables', () => {
   assert.match(source, /export \{ deleteAccount \}/);
   assert.match(source, /export \{ resetCloudUserData \}/);
   assert.match(source, /export \{ revenuecatWebhook \}/);
+  assert.match(source, /export \{ getProContent \}/);
   assert.match(source, /export \{ recordSignInEvent \}/);
   assert.match(source, /export \{ onUserCreated \}/);
 });
