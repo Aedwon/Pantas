@@ -8,6 +8,16 @@ class MockAnswer {
 
   final int selectedIndex;
   final int atSec;
+
+  @override
+  bool operator ==(Object other) {
+    return other is MockAnswer &&
+        other.selectedIndex == selectedIndex &&
+        other.atSec == atSec;
+  }
+
+  @override
+  int get hashCode => Object.hash(selectedIndex, atSec);
 }
 
 class MockResults {
