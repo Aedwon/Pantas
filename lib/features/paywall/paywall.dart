@@ -1,6 +1,7 @@
 export 'application/paywall_providers.dart';
 export 'application/paywall_controller.dart';
 export 'application/revenuecat_bootstrap.dart';
+export 'application/trial_reminder_scheduler.dart';
 export 'data/revenuecat_config.dart';
 export 'data/revenuecat_gateway.dart';
 export 'domain/entitlement.dart';
@@ -10,3 +11,7 @@ export 'domain/pro_welcome.dart';
 export 'domain/trial_notice.dart';
 export 'presentation/paywall_page.dart';
 export 'presentation/paywall_package_card.dart';
+export 'presentation/pro_upgrade_chip.dart';
+export 'presentation/pro_welcome_banner.dart';
+export 'presentation/subscription_panel.dart';
+export 'presentation/trial_notice_banner.dart';
