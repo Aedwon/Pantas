@@ -1,0 +1,43 @@
+import 'package:cse_cet_reviewer/core/content/domain/mock_blueprint.dart';
+import 'package:cse_cet_reviewer/features/mock_exam/mock_exam.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+import '../../../helpers/pump_app.dart';
+
+void main() {
+  testWidgets(
+      'setup page shows blueprint duration section count and start button',
+      (tester) async {
+    await tester.pumpApp(
+      MockSetupPage(
+        parsedBlueprint: ParsedMockBlueprint(
+          blueprint: const MockBlueprint(
+            id: 'bp_cse',
+            examId: 'exam_cse',
+            name: 'CSE Practice',
+            durationMinutes: 90,
+            sectionsJson: '[]',
+          ),
+          sections: const [
+            BlueprintSection(
+              id: 's1',
+              name: 'General Information',
+              questionCount: 10,
+              suggestedMinutes: 12,
+              topicIds: ['topic'],
+              topicWeights: {'topic': 1},
+            ),
+          ],
+        ),
+        onStart: () {},
+      ),
+    );
+
+    expect(find.text('Ready to practice?'), findsOneWidget);
+    expect(find.text('CSE Practice'), findsOneWidget);
+    expect(find.text('90 min'), findsOneWidget);
+    expect(find.text('10 questions'), findsOneWidget);
+    expect(find.text('General Information'), findsOneWidget);
+    expect(find.text('Start mock'), findsOneWidget);
+  });
+}

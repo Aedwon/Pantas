@@ -19,3 +19,5 @@ export 'domain/use_cases/discard_mock.dart';
 export 'domain/use_cases/resume_mock.dart';
 export 'domain/use_cases/start_mock.dart';
 export 'domain/use_cases/submit_mock.dart';
+export 'presentation/pages/mock_setup_page.dart';
+export 'presentation/widgets/mock_quiz_tab_tile.dart';

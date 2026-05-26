@@ -5,6 +5,7 @@ import 'package:cse_cet_reviewer/features/assessment/assessment.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/learn_tab_home.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_list_page.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_page.dart';
+import 'package:cse_cet_reviewer/features/mock_exam/mock_exam.dart';
 import 'package:cse_cet_reviewer/features/onboarding/onboarding.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/drill_subtopic_browser.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_page.dart';
@@ -136,6 +137,10 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: '/quiz/results/:attemptId',
         builder: (_, state) =>
             QuizResultsPage(attemptId: state.pathParameters['attemptId']!),
+      ),
+      GoRoute(
+        path: '/quiz/mock/setup',
+        builder: (_, __) => const MockSetupPlaceholderPage(),
       ),
       GoRoute(
         path: '/lesson/:lessonId',

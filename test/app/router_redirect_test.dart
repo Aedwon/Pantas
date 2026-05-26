@@ -1,5 +1,6 @@
 import 'package:cse_cet_reviewer/app/app.dart';
 import 'package:cse_cet_reviewer/app/flavor.dart';
+import 'package:cse_cet_reviewer/app/router.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
@@ -66,6 +67,20 @@ void main() {
     await pumpApp(tester);
     expect(find.text('Home'), findsWidgets);
     expect(find.text('Choose your exam'), findsNothing);
+  });
+
+  testWidgets('router accepts mock setup route', (tester) async {
+    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
+    await AppPreferencesRepository(db).setSelectedExamId('cse');
+    await pumpApp(tester);
+
+    final router = ProviderScope.containerOf(
+      tester.element(find.text('Home').first),
+    ).read(routerProvider);
+    router.go('/quiz/mock/setup?examId=cse');
+    await tester.pumpAndSettle();
+
+    expect(find.text('Mock setup'), findsOneWidget);
   });
 
   testWidgets('age gate passed, invalid persisted exam id → onboarding picker',
