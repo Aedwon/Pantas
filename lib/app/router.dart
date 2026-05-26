@@ -12,6 +12,7 @@ import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_results_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_tab_home.dart';
 import 'package:cse_cet_reviewer/features/shell/presentation/app_shell.dart';
+import 'package:cse_cet_reviewer/features/study_plan/presentation/plan_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -87,6 +88,10 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/onboarding',
         builder: (_, __) => const OnboardingPage(),
+      ),
+      GoRoute(
+        path: '/plan',
+        builder: (_, __) => const PlanPage(),
       ),
       GoRoute(
         path: '/quiz/today/:examId',
