@@ -73,7 +73,7 @@ final studyPlanViewProvider = FutureProvider<StudyPlanState>((ref) async {
   final today = ref.watch(studyPlanTodayProvider);
 
   return StudyPlanReady(
-    ComputePlanView().call(
+    const ComputePlanView().call(
       ComputePlanInput(
         today: today,
         examId: exam.id,

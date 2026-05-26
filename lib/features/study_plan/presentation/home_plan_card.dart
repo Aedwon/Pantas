@@ -27,7 +27,8 @@ class HomePlanCard extends StatelessWidget {
           Text(view.today.headline, style: textStyles.headlineSmall),
           const SizedBox(height: 6),
           Text(
-            '${view.weeksToExam} weeks to exam · ${_paceLabel(view.paceStatus.name)}',
+            '${view.weeksToExam} weeks to exam · '
+            '${_paceLabel(view.paceStatus.name)}',
             style: textStyles.bodySmall.copyWith(color: colors.onSurfaceMuted),
           ),
           const SizedBox(height: 12),

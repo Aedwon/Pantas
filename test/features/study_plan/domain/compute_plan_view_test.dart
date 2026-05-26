@@ -33,9 +33,9 @@ void main() {
   }
 
   test(
-      'today action includes review count lesson recommendation drill recommendation and CTA target',
-      () {
-    final view = ComputePlanView().call(input());
+      'today action includes review count lesson recommendation drill '
+      'recommendation and CTA target', () {
+    final view = const ComputePlanView().call(input());
 
     expect(view.today.reviewCount, 14);
     expect(view.today.lessonId, 'lesson-probability');
@@ -44,37 +44,37 @@ void main() {
   });
 
   test('upcoming contains exactly three future days by default', () {
-    final view = ComputePlanView().call(input());
+    final view = const ComputePlanView().call(input());
 
     expect(view.upcoming, hasLength(3));
     expect(view.upcoming.first.date, DateTime(2026, 5, 22));
   });
 
   test('nearest mock appears when a mock week is within two weeks', () {
-    final view = ComputePlanView().call(input(hasMockWithinTwoWeeks: true));
+    final view =
+        const ComputePlanView().call(input(hasMockWithinTwoWeeks: true));
 
     expect(view.nearestMock, isNotNull);
     expect(view.nearestMock!.title, 'Mock week is close');
   });
 
-  test(
-      'missing diagnostic uses start mastery fallback and diagnostic prompt copy',
-      () {
-    final view = ComputePlanView().call(input(startMastery: null));
+  test('missing diagnostic uses fallback mastery and prompt copy', () {
+    final view = const ComputePlanView().call(input(startMastery: null));
 
     expect(view.usedFallbackMastery, isTrue);
     expect(view.today.why, contains('diagnostic'));
   });
 
   test('exam date too close produces compressed-plan warning', () {
-    final view = ComputePlanView().call(input(examDate: DateTime(2026, 5, 25)));
+    final view =
+        const ComputePlanView().call(input(examDate: DateTime(2026, 5, 25)));
 
     expect(view.warning, contains('compressed'));
   });
 
   test('all topics at target shifts today to FSRS review mode', () {
-    final view = ComputePlanView().call(
-      input(actualMastery: 0.80, targetMastery: 0.75),
+    final view = const ComputePlanView().call(
+      input(actualMastery: 0.80),
     );
 
     expect(view.today.mode, TodayPlanMode.reviewOnly);
@@ -82,7 +82,7 @@ void main() {
   });
 
   test('coach copy never uses scolding phrases', () {
-    final view = ComputePlanView().call(input());
+    final view = const ComputePlanView().call(input());
     const banned = ['lazy', 'failed', 'behind again', 'punishment'];
 
     for (final phrase in banned) {

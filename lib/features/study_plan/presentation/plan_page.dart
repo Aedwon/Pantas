@@ -28,7 +28,8 @@ class PlanPage extends ConsumerWidget {
                 padding: const EdgeInsets.all(16),
                 children: [
                   Text(
-                    'Week ${view.weeksToExam} to exam · ${_paceLabel(view.paceStatus.name)}',
+                    'Week ${view.weeksToExam} to exam · '
+                    '${_paceLabel(view.paceStatus.name)}',
                     style: context.textStyles.bodySmall
                         .copyWith(color: context.colors.onSurfaceMuted),
                   ),

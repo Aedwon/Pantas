@@ -7,7 +7,9 @@ void main() {
     expect(Directory('lib/features/study_plan/domain').existsSync(), isTrue);
     expect(Directory('lib/features/study_plan/data').existsSync(), isTrue);
     expect(
-        Directory('lib/features/study_plan/presentation').existsSync(), isTrue);
+      Directory('lib/features/study_plan/presentation').existsSync(),
+      isTrue,
+    );
   });
 
   test(

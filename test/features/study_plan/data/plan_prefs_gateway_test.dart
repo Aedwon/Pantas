@@ -28,6 +28,8 @@ void main() {
     );
 
     expect(
-        update.fields, {'lastPlanAcknowledgedAt': '2026-05-21T06:30:00.000Z'});
+      update.fields,
+      {'lastPlanAcknowledgedAt': '2026-05-21T06:30:00.000Z'},
+    );
   });
 }

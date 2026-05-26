@@ -41,7 +41,7 @@ void main() {
     final repo = DriftPlanPrefsRepository(db);
 
     await repo.setExamDate(
-      DateTime(2026, 9, 1),
+      DateTime(2026, 9),
       today: DateTime(2026, 5, 21),
     );
 

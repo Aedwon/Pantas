@@ -40,9 +40,7 @@ void main() {
     expect((view as StudyPlanReady).view.examId, 'cse');
   });
 
-  test(
-      'studyPlanViewProvider emits selection-needed state without an active exam',
-      () async {
+  test('emits selection-needed state without an active exam', () async {
     final state =
         await container(exam: null).read(studyPlanViewProvider.future);
 

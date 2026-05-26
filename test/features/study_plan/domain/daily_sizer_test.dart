@@ -23,32 +23,30 @@ void main() {
   }
 
   test('standard intensity uses one rest day per week', () {
-    final sizing = DailySizer().size(input());
+    final sizing = const DailySizer().size(input());
     expect(sizing.restDaysPerWeek, 1);
   });
 
   test('light intensity uses two rest days per week', () {
     final sizing =
-        DailySizer().size(input(intensity: StudyPlanIntensity.light));
+        const DailySizer().size(input(intensity: StudyPlanIntensity.light));
     expect(sizing.restDaysPerWeek, 2);
   });
 
   test('intense intensity uses no rest days', () {
     final sizing =
-        DailySizer().size(input(intensity: StudyPlanIntensity.intense));
+        const DailySizer().size(input(intensity: StudyPlanIntensity.intense));
     expect(sizing.restDaysPerWeek, 0);
   });
 
   test('per day count respects floor on active days', () {
-    final sizing = DailySizer().size(input(totalQuestions: 3));
+    final sizing = const DailySizer().size(input(totalQuestions: 3));
     expect(sizing.activeDayQuestionCount, 5);
   });
 
   test('per day count respects one point five times baseline cap', () {
-    final sizing = DailySizer().size(
+    final sizing = const DailySizer().size(
       input(
-        totalQuestions: 140,
-        daysRemaining: 14,
         paceStatus: PaceStatus.behind,
       ),
     );
@@ -56,19 +54,21 @@ void main() {
   });
 
   test('behind pace increases active day load without exceeding cap', () {
-    final onPace = DailySizer().size(input());
-    final behind = DailySizer().size(input(paceStatus: PaceStatus.behind));
+    final onPace = const DailySizer().size(input());
+    final behind =
+        const DailySizer().size(input(paceStatus: PaceStatus.behind));
 
-    expect(behind.activeDayQuestionCount,
-        greaterThan(onPace.activeDayQuestionCount));
+    expect(
+      behind.activeDayQuestionCount,
+      greaterThan(onPace.activeDayQuestionCount),
+    );
     expect(behind.activeDayQuestionCount, lessThanOrEqualTo(15));
   });
 
   test('all topics at target produces review only sizing', () {
-    final sizing = DailySizer().size(
+    final sizing = const DailySizer().size(
       input(
         actualMastery: 0.80,
-        targetMastery: 0.75,
       ),
     );
 

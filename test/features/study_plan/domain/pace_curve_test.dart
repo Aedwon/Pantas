@@ -3,10 +3,9 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   final curve = PaceCurve(
-    planStart: DateTime(2026, 5, 1),
+    planStart: DateTime(2026, 5),
     examDate: DateTime(2026, 5, 31),
     startMastery: 0.25,
-    targetMastery: 0.75,
   );
 
   test('expected mastery equals start mastery on plan start date', () {
@@ -49,7 +48,6 @@ void main() {
       planStart: DateTime(2026, 5),
       examDate: DateTime(2026, 6),
       startMastery: 0.80,
-      targetMastery: 0.75,
     );
 
     expect(completed.expectedMastery(on: DateTime(2026, 5, 15)), 0.75);

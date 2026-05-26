@@ -82,9 +82,11 @@ void main() {
         GoRoute(path: '/plan', builder: (_, __) => const PlanPage()),
         GoRoute(
           path: '/quiz/today/:examId',
-          builder: (_, state) => Text(
-            'quiz ${state.pathParameters['examId']} ${state.uri.queryParameters['topicId']}',
-          ),
+          builder: (_, state) {
+            final examId = state.pathParameters['examId'];
+            final topicId = state.uri.queryParameters['topicId'];
+            return Text('quiz $examId $topicId');
+          },
         ),
       ],
     );

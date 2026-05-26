@@ -2,17 +2,13 @@ import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/features/study_plan/domain/plan_prefs.dart';
 import 'package:drift/drift.dart';
 
-abstract class PlanPrefsRepository {
-  Future<PlanPrefs> read();
-}
-
 class PastExamDateException implements Exception {
   const PastExamDateException(this.date);
 
   final DateTime date;
 }
 
-class DriftPlanPrefsRepository implements PlanPrefsRepository {
+class DriftPlanPrefsRepository {
   DriftPlanPrefsRepository(this._db);
 
   static const _examDateKey = 'study_plan.exam_date';
@@ -23,7 +19,6 @@ class DriftPlanPrefsRepository implements PlanPrefsRepository {
 
   final AppDatabase _db;
 
-  @override
   Future<PlanPrefs> read() async {
     final rows = await _db.select(_db.accountPrefs).get();
     final values = {for (final row in rows) row.key: row.value};
