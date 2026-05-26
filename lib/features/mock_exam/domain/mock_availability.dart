@@ -1,0 +1,44 @@
+import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_attempt.dart';
+
+enum MockAvailabilityState { available, cooldown, inProgress }
+
+class MockAvailability {
+  const MockAvailability({
+    required this.state,
+    this.cooldownRemaining,
+    this.activeAttempt,
+  });
+
+  const MockAvailability.available()
+      : state = MockAvailabilityState.available,
+        cooldownRemaining = null,
+        activeAttempt = null;
+
+  const MockAvailability.cooldown(this.cooldownRemaining)
+      : state = MockAvailabilityState.cooldown,
+        activeAttempt = null;
+
+  const MockAvailability.inProgress(this.activeAttempt)
+      : state = MockAvailabilityState.inProgress,
+        cooldownRemaining = null;
+
+  final MockAvailabilityState state;
+  final Duration? cooldownRemaining;
+  final MockAttempt? activeAttempt;
+}
+
+class MockAvailabilityRequest {
+  const MockAvailabilityRequest({
+    required this.userId,
+    required this.examId,
+  });
+
+  final String userId;
+  final String examId;
+}
+
+class MockEntitlementSnapshot {
+  const MockEntitlementSnapshot({required this.proIsActive});
+
+  final bool proIsActive;
+}
