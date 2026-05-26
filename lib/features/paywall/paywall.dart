@@ -1,4 +1,5 @@
 export 'application/paywall_providers.dart';
+export 'data/revenuecat_config.dart';
 export 'data/revenuecat_gateway.dart';
 export 'domain/entitlement.dart';
 export 'domain/paywall_package.dart';
