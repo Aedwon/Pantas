@@ -1,7 +1,9 @@
 library mock_exam;
 
 export 'application/mock_blueprint_providers.dart';
+export 'application/mock_persistence_scheduler.dart';
 export 'application/mock_session_controller.dart';
+export 'application/strict_mode_lifecycle.dart';
 export 'data/blueprint_section.dart';
 export 'data/mock_attempt_repo.dart';
 export 'data/mock_sampler.dart';
