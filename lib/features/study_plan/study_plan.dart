@@ -1,4 +1,5 @@
 export 'application/study_plan_providers.dart';
+export 'data/plan_prefs_gateway.dart';
 export 'domain/compute_plan_view.dart';
 export 'domain/daily_sizer.dart';
 export 'domain/pace_curve.dart';
