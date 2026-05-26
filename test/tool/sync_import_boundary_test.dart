@@ -17,6 +17,15 @@ void main() {
     expect(contentOffenders, isEmpty);
   });
 
+  test('sync module does not import paywall feature files', () {
+    final offenders = _dartFiles('lib/core/sync')
+        .where((file) => file.readAsStringSync().contains('/features/paywall/'))
+        .map((file) => file.path)
+        .toList();
+
+    expect(offenders, isEmpty);
+  });
+
   test('only sync firestore gateway files import Firebase SDK packages', () {
     final offenders = <String>[];
     for (final file in _dartFiles('lib/core/sync')) {

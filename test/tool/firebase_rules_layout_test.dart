@@ -42,6 +42,18 @@ void main() {
     expect(rules, isNot(contains("'pro'")));
   });
 
+  test('firestore.rules gates Pro paths with the pro custom claim', () {
+    final rules = File('firestore.rules').readAsStringSync();
+
+    expect(rules, contains('function isProUser()'));
+    expect(rules, contains('request.auth.token.pro == true'));
+    expect(rules, contains('match /proDossiers/{dossierId}'));
+    expect(
+      rules,
+      contains('match /examTracks/{trackId}/proContent/{contentId}'),
+    );
+  });
+
   test('firebase.json points at firestore.rules and local emulators', () {
     final config = File('firebase.json').readAsStringSync();
 

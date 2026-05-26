@@ -14,6 +14,10 @@ service cloud.firestore {
       return isNamedUser() && request.auth.uid == uid;
     }
 
+    function isProUser() {
+      return isNamedUser() && request.auth.token.pro == true;
+    }
+
     match /users/{uid} {
       allow read: if isOwner(uid);
       allow create: if isOwner(uid)
@@ -52,6 +56,16 @@ service cloud.firestore {
       match /mock_exam_attempts/{attemptId} {
         allow read, write: if isOwner(uid);
       }
+
+      match /proDossiers/{dossierId} {
+        allow read: if isOwner(uid) && request.auth.token.pro == true;
+        allow write: if false;
+      }
+    }
+
+    match /examTracks/{trackId}/proContent/{contentId} {
+      allow read: if isProUser();
+      allow write: if false;
     }
 
     match /audit_logs/{logId} {
