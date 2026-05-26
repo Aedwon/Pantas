@@ -2,6 +2,7 @@ import 'package:cse_cet_reviewer/core/sync/mapping/assessment_mapper.dart';
 import 'package:cse_cet_reviewer/core/sync/mapping/attempt_mapper.dart';
 import 'package:cse_cet_reviewer/core/sync/mapping/fsrs_card_mapper.dart';
 import 'package:cse_cet_reviewer/core/sync/mapping/lesson_progress_mapper.dart';
+import 'package:cse_cet_reviewer/core/sync/mapping/mock_attempt_mapper.dart';
 import 'package:cse_cet_reviewer/core/sync/mapping/preferences_mapper.dart';
 import 'package:cse_cet_reviewer/core/sync/mapping/sync_mapper.dart';
 
@@ -11,12 +12,23 @@ class SyncCollectionEntry {
     required this.firestorePath,
     required this.mapper,
     this.isActive = true,
+    this.shouldSync = _alwaysSync,
   });
 
   final String tableType;
   final String firestorePath;
   final SyncMapper mapper;
   final bool isActive;
+  final bool Function(Map<String, Object?> row) shouldSync;
+}
+
+bool _alwaysSync(Map<String, Object?> row) => true;
+
+bool _isTerminalMockAttempt(Map<String, Object?> row) {
+  return switch (row['status']) {
+    'completed' || 'discarded' || 'forfeited' => true,
+    _ => false,
+  };
 }
 
 const syncCollections = <SyncCollectionEntry>[
@@ -54,8 +66,8 @@ const syncCollections = <SyncCollectionEntry>[
   SyncCollectionEntry(
     tableType: 'mock_exam_attempts',
     firestorePath: 'mock_exam_attempts',
-    mapper: PlaceholderSyncMapper('mock_exam_attempts'),
-    isActive: false,
+    mapper: MockAttemptMapper(),
+    shouldSync: _isTerminalMockAttempt,
   ),
 ];
 
