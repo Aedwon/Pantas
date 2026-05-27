@@ -1,0 +1,174 @@
+import 'package:cse_cet_reviewer/core/auth/auth_user.dart';
+import 'package:cse_cet_reviewer/core/auth/providers.dart';
+import 'package:cse_cet_reviewer/core/sync/providers.dart';
+import 'package:cse_cet_reviewer/core/sync/sync_status.dart';
+import 'package:cse_cet_reviewer/features/settings/presentation/widgets/ios_switch.dart';
+import 'package:cse_cet_reviewer/features/settings/presentation/widgets/settings_row.dart';
+import 'package:cse_cet_reviewer/features/settings/presentation/widgets/settings_section.dart';
+import 'package:cse_cet_reviewer/features/settings/presentation/widgets/theme_segmented_control.dart';
+import 'package:cse_cet_reviewer/features/settings/settings.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+
+class SettingsHomePage extends ConsumerWidget {
+  const SettingsHomePage({
+    this.subscriptionSubtitle = 'Free · Try Pro',
+    super.key,
+  });
+
+  final String subscriptionSubtitle;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final userSettings =
+        ref.watch(userSettingsProvider).valueOrNull ?? UserSettings.defaults();
+    final theme = ref.watch(themePreferenceProvider).valueOrNull ??
+        ThemePreference.system;
+    final currentUser = ref.watch(currentUserProvider).valueOrNull;
+    final isAnonymous = ref.watch(isAnonymousProvider).valueOrNull ?? false;
+    final syncStatus = ref.watch(syncStatusProvider).valueOrNull;
+
+    return Scaffold(
+      appBar: AppBar(title: const Text('Settings')),
+      body: ListView(
+        children: [
+          SettingsSection(
+            title: 'Preferences',
+            children: [
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                child: Row(
+                  children: [
+                    const Expanded(child: Text('Theme')),
+                    ThemeSegmentedControl(
+                      value: theme,
+                      onChanged: (value) => ref
+                          .read(themePreferenceControllerProvider.notifier)
+                          .setThemePreference(value),
+                    ),
+                  ],
+                ),
+              ),
+              SettingsRow(
+                title: 'Daily reminder',
+                subtitle: userSettings.dailyReminderTime?.storageValue ??
+                    'Not set - notifications setup lands in Spec 9',
+                onTap: () {},
+              ),
+              SettingsRow(
+                title: 'Exam date',
+                subtitle: _formatDate(userSettings.examDate) ??
+                    'Not set - tap to add',
+                onTap: () {},
+              ),
+              SettingsRow(
+                title: 'Strict mock mode',
+                subtitle: 'Removes pause during mock exams',
+                trailing: IosSettingsSwitch(
+                  value: userSettings.strictMockMode,
+                  onChanged: (value) => ref
+                      .read(settingsActionsProvider)
+                      .setStrictMockMode(enabled: value),
+                ),
+                onTap: () => ref
+                    .read(settingsActionsProvider)
+                    .setStrictMockMode(enabled: !userSettings.strictMockMode),
+              ),
+              SettingsRow(
+                title: 'Help improve the app',
+                subtitle: 'Share anonymous usage data',
+                trailing: IosSettingsSwitch(
+                  value: userSettings.helpImproveApp,
+                  onChanged: (value) => ref
+                      .read(settingsActionsProvider)
+                      .setHelpImproveApp(enabled: value),
+                ),
+                onTap: () => ref
+                    .read(settingsActionsProvider)
+                    .setHelpImproveApp(enabled: !userSettings.helpImproveApp),
+              ),
+            ],
+          ),
+          SettingsSection(
+            title: 'Account',
+            children: [
+              SettingsRow(
+                title: 'Account',
+                subtitle: _accountSubtitle(
+                  user: currentUser,
+                  isAnonymous: isAnonymous,
+                ),
+                onTap: () => _go(context, '/settings/account'),
+              ),
+              SettingsRow(
+                title: 'Subscription',
+                subtitle: subscriptionSubtitle,
+                onTap: () => _go(context, '/settings/subscription'),
+              ),
+              SettingsRow(
+                title: 'Backup',
+                subtitle: _backupSubtitle(
+                  isAnonymous: isAnonymous,
+                  status: syncStatus,
+                ),
+                onTap: () => _go(context, '/settings/backup'),
+              ),
+            ],
+          ),
+          SettingsSection(
+            title: 'About',
+            children: [
+              SettingsRow(
+                title: 'App info',
+                subtitle: 'Version 0.1.0 - Legal - Contact DPO',
+                onTap: () => _go(context, '/settings/about'),
+              ),
+              SettingsRow(
+                title: 'Send feedback',
+                onTap: () {},
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  static void _go(BuildContext context, String location) {
+    final router = GoRouter.maybeOf(context);
+    if (router != null) router.go(location);
+  }
+
+  static String _accountSubtitle({
+    required AuthUser? user,
+    required bool isAnonymous,
+  }) {
+    if (user != null) return user.email;
+    if (isAnonymous) return 'Signed in anonymously';
+    return 'Not signed in';
+  }
+
+  static String _backupSubtitle({
+    required bool isAnonymous,
+    required SyncStatus? status,
+  }) {
+    if (isAnonymous) return 'Sign in to back up your progress';
+    return switch (status) {
+      Syncing(:final pendingCount) => 'Backing up... $pendingCount items',
+      SyncPartialFailure() || SyncFailedSince() => "Couldn't back up",
+      SyncOk(:final pendingCount) when pendingCount > 0 =>
+        'Your progress is saved - $pendingCount pending',
+      SyncOk() || SyncIdle() => 'Your progress is saved',
+      null => 'Backup status unavailable',
+    };
+  }
+
+  static String? _formatDate(DateTime? date) {
+    if (date == null) return null;
+    return '${date.year.toString().padLeft(4, '0')}-'
+        '${date.month.toString().padLeft(2, '0')}-'
+        '${date.day.toString().padLeft(2, '0')}';
+  }
+}

@@ -70,9 +70,9 @@ class _AppNavBar extends StatelessWidget {
                 onTap: () => onTap(2),
               ),
               _NavItem(
-                icon: Icons.more_horiz,
-                activeIcon: Icons.more_horiz,
-                label: 'More',
+                icon: Icons.settings_outlined,
+                activeIcon: Icons.settings,
+                label: 'Settings',
                 isActive: currentIndex == 3,
                 onTap: () => onTap(3),
               ),

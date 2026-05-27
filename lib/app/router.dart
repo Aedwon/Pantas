@@ -13,6 +13,7 @@ import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_results_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_tab_home.dart';
 import 'package:cse_cet_reviewer/features/shell/presentation/app_shell.dart';
+import 'package:cse_cet_reviewer/features/settings/presentation/settings_home_page.dart';
 import 'package:cse_cet_reviewer/features/study_plan/presentation/plan_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -90,7 +91,14 @@ final routerProvider = Provider<GoRouter>((ref) {
             routes: [
               GoRoute(
                 path: '/more',
-                builder: (_, __) => const _TabStub('More'),
+                builder: (_, __) {
+                  final entitlement =
+                      ref.watch(entitlementProvider).valueOrNull ??
+                          const Entitlement.free();
+                  return SettingsHomePage(
+                    subscriptionSubtitle: _subscriptionSubtitle(entitlement),
+                  );
+                },
               ),
             ],
           ),
@@ -217,6 +225,15 @@ final routerProvider = Provider<GoRouter>((ref) {
 
 bool _isProRoute(String matchedLocation) {
   return matchedLocation.startsWith('/plan/dossier/');
+}
+
+String _subscriptionSubtitle(Entitlement entitlement) {
+  return switch (entitlement.plan) {
+    EntitlementPlan.free => 'Free · Try Pro',
+    EntitlementPlan.monthly => 'Pro · Monthly',
+    EntitlementPlan.yearly => 'Pro · Yearly',
+    EntitlementPlan.lifetime => 'Pro · Lifetime',
+  };
 }
 
 class _TabStub extends StatelessWidget {

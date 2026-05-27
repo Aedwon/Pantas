@@ -108,6 +108,22 @@ void main() {
     expect(find.textContaining('Pro plans are unavailable'), findsOneWidget);
   });
 
+  testWidgets('/more renders Settings home', (tester) async {
+    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
+    await AppPreferencesRepository(db).setSelectedExamId('cse');
+    await pumpApp(tester);
+
+    final container = ProviderScope.containerOf(
+      tester.element(find.text('Home').first),
+    );
+    final router = container.read(routerProvider);
+    router.go('/more');
+    await tester.pumpAndSettle();
+
+    expect(find.text('Settings'), findsWidgets);
+    expect(find.text('PREFERENCES'), findsOneWidget);
+  });
+
   testWidgets('free user opening Pro dossier route redirects to paywall',
       (tester) async {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
