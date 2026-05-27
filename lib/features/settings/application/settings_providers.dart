@@ -4,6 +4,29 @@ import 'package:cse_cet_reviewer/features/settings/domain/theme_preference.dart'
 import 'package:cse_cet_reviewer/features/settings/domain/user_settings.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+enum ReminderSaveResult { notificationDeliveryPendingSpec9 }
+
+abstract interface class StudyPlanRebalanceGateway {
+  Future<void> onSettingsExamDateChanged(
+    DateTime date, {
+    required DateTime today,
+  });
+}
+
+class NoopStudyPlanRebalanceGateway implements StudyPlanRebalanceGateway {
+  const NoopStudyPlanRebalanceGateway();
+
+  @override
+  Future<void> onSettingsExamDateChanged(
+    DateTime date, {
+    required DateTime today,
+  }) async {}
+}
+
+final studyPlanRebalanceGatewayProvider = Provider<StudyPlanRebalanceGateway>(
+  (ref) => const NoopStudyPlanRebalanceGateway(),
+);
+
 final analyticsConsentGatewayProvider = Provider<AnalyticsConsentGateway>(
   (ref) => const NoopAnalyticsConsentGateway(),
 );
@@ -77,5 +100,25 @@ class SettingsActions {
         .read(settingsRepositoryProvider)
         .updateExamDate(date, today: today);
     _ref.invalidate(userSettingsProvider);
+  }
+
+  Future<String> saveExamDate(DateTime date, {required DateTime today}) async {
+    await _ref
+        .read(settingsRepositoryProvider)
+        .updateExamDate(date, today: today);
+    await _ref
+        .read(studyPlanRebalanceGatewayProvider)
+        .onSettingsExamDateChanged(
+          date,
+          today: today,
+        );
+    _ref.invalidate(userSettingsProvider);
+    return 'Your study plan is being rebalanced.';
+  }
+
+  Future<ReminderSaveResult> saveReminderTime(SettingsTime time) async {
+    await _ref.read(settingsRepositoryProvider).updateReminderTime(time);
+    _ref.invalidate(userSettingsProvider);
+    return ReminderSaveResult.notificationDeliveryPendingSpec9;
   }
 }

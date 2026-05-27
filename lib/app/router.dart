@@ -17,6 +17,7 @@ import 'package:cse_cet_reviewer/features/shell/presentation/app_shell.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/about_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/account_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/backup_page.dart';
+import 'package:cse_cet_reviewer/features/settings/presentation/pages/debug_settings_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/delete_account_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/settings_home_page.dart';
 import 'package:cse_cet_reviewer/features/settings/settings.dart';
@@ -257,6 +258,10 @@ final routerProvider = Provider<GoRouter>((ref) {
           version: '0.1.0',
           buildNumber: '1',
         ),
+      ),
+      GoRoute(
+        path: '/settings/_debug',
+        builder: (_, __) => const DebugSettingsPage(),
       ),
       GoRoute(
         path: '/legal/:doc',
