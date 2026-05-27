@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/settings/settings.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -53,12 +54,16 @@ void main() {
     );
   });
 
-  test('saving reminder time writes settings and reports Spec 9 unavailable',
+  test('saving reminder time writes settings and calls notification scheduler',
       () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
+    final notifications = RecordingNotificationService();
     final container = ProviderContainer(
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        notificationServiceProvider.overrideWithValue(notifications),
+      ],
     );
     addTearDown(container.dispose);
 
@@ -66,10 +71,14 @@ void main() {
         .read(settingsActionsProvider)
         .saveReminderTime(const SettingsTime(hour: 19, minute: 0));
 
-    expect(result, ReminderSaveResult.notificationDeliveryPendingSpec9);
+    expect(result, ReminderSaveResult.scheduled);
     expect(
       (await DriftSettingsRepository(db).readUserSettings()).dailyReminderTime,
       const SettingsTime(hour: 19, minute: 0),
+    );
+    expect(
+      notifications.scheduled,
+      [const NotificationTime(hour: 19, minute: 0)],
     );
   });
 }
@@ -83,5 +92,31 @@ class RecordingStudyPlanRebalanceGateway implements StudyPlanRebalanceGateway {
     required DateTime today,
   }) async {
     dates.add(date);
+  }
+}
+
+class RecordingNotificationService implements NotificationService {
+  final scheduled = <NotificationTime>[];
+
+  @override
+  Future<void> cancelAll() async {}
+
+  @override
+  Future<void> onSessionCompleted() async {}
+
+  @override
+  Future<void> openAppNotificationSettings() async {}
+
+  @override
+  Future<NotificationPermission> requestPermission() async {
+    return NotificationPermission.granted;
+  }
+
+  @override
+  Future<void> rescheduleForForeground() async {}
+
+  @override
+  Future<void> scheduleDailyReminder(NotificationTime time) async {
+    scheduled.add(time);
   }
 }

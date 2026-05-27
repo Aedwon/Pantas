@@ -1,5 +1,5 @@
+import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/features/notifications/domain/notification_payload.dart';
-import 'package:cse_cet_reviewer/features/notifications/domain/notification_permission.dart';
 
 class ScheduledNotification {
   const ScheduledNotification({

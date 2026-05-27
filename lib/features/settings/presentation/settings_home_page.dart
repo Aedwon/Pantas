@@ -1,5 +1,6 @@
 import 'package:cse_cet_reviewer/core/auth/auth_user.dart';
 import 'package:cse_cet_reviewer/core/auth/providers.dart';
+import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/core/sync/providers.dart';
 import 'package:cse_cet_reviewer/core/sync/sync_status.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/widgets/ios_switch.dart';
@@ -28,6 +29,10 @@ class SettingsHomePage extends ConsumerWidget {
     final currentUser = ref.watch(currentUserProvider).valueOrNull;
     final isAnonymous = ref.watch(isAnonymousProvider).valueOrNull ?? false;
     final syncStatus = ref.watch(syncStatusProvider).valueOrNull;
+    final notificationPermission =
+        ref.watch(notificationPermissionStatusProvider).valueOrNull;
+    final notificationsDenied =
+        notificationPermission == NotificationPermission.denied;
 
     return Scaffold(
       appBar: AppBar(title: const Text('Settings')),
@@ -53,9 +58,14 @@ class SettingsHomePage extends ConsumerWidget {
               ),
               SettingsRow(
                 title: 'Daily reminder',
-                subtitle: userSettings.dailyReminderTime?.storageValue ??
-                    'Not set - notifications setup lands in Spec 9',
-                onTap: () {},
+                subtitle: notificationsDenied
+                    ? 'Notifications are off - tap to enable'
+                    : userSettings.dailyReminderTime?.storageValue ?? 'Not set',
+                onTap: notificationsDenied
+                    ? () => ref
+                        .read(notificationServiceProvider)
+                        .openAppNotificationSettings()
+                    : () {},
               ),
               SettingsRow(
                 title: 'Exam date',

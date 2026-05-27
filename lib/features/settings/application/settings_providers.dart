@@ -1,10 +1,11 @@
+import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/settings/data/settings_repository.dart';
 import 'package:cse_cet_reviewer/features/settings/domain/theme_preference.dart';
 import 'package:cse_cet_reviewer/features/settings/domain/user_settings.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-enum ReminderSaveResult { notificationDeliveryPendingSpec9 }
+enum ReminderSaveResult { scheduled }
 
 // ignore: one_member_abstracts
 abstract interface class StudyPlanRebalanceGateway {
@@ -119,7 +120,10 @@ class SettingsActions {
 
   Future<ReminderSaveResult> saveReminderTime(SettingsTime time) async {
     await _ref.read(settingsRepositoryProvider).updateReminderTime(time);
+    await _ref.read(notificationServiceProvider).scheduleDailyReminder(
+          NotificationTime(hour: time.hour, minute: time.minute),
+        );
     _ref.invalidate(userSettingsProvider);
-    return ReminderSaveResult.notificationDeliveryPendingSpec9;
+    return ReminderSaveResult.scheduled;
   }
 }

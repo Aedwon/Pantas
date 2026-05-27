@@ -1,22 +1,9 @@
+import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/features/notifications/data/notifications_gateway.dart';
 import 'package:cse_cet_reviewer/features/notifications/domain/notification_body_composer.dart';
 import 'package:cse_cet_reviewer/features/notifications/domain/notification_payload.dart';
-import 'package:cse_cet_reviewer/features/notifications/domain/notification_permission.dart';
-import 'package:cse_cet_reviewer/features/notifications/domain/notification_time.dart';
 import 'package:cse_cet_reviewer/features/notifications/domain/reminder_schedule.dart';
 import 'package:cse_cet_reviewer/features/notifications/domain/streak_save_policy.dart';
-
-abstract interface class NotificationService {
-  Future<void> scheduleDailyReminder(NotificationTime time);
-
-  Future<void> onSessionCompleted();
-
-  Future<void> rescheduleForForeground();
-
-  Future<NotificationPermission> requestPermission();
-
-  Future<void> cancelAll();
-}
 
 class NotificationSettingsSnapshot {
   const NotificationSettingsSnapshot.none() : reminderTime = null;
@@ -114,6 +101,11 @@ class NotificationServiceImpl implements NotificationService {
 
   @override
   Future<void> cancelAll() => _gateway.cancelAll();
+
+  @override
+  Future<void> openAppNotificationSettings() {
+    return _gateway.openAppNotificationSettings();
+  }
 
   @override
   Future<void> onSessionCompleted() =>

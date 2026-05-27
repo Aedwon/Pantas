@@ -1,7 +1,2 @@
-enum NotificationPermission {
-  notYetAsked,
-  granted,
-  denied;
-
-  bool get canSchedule => this == NotificationPermission.granted;
-}
+export 'package:cse_cet_reviewer/core/notifications/notification_service.dart'
+    show NotificationPermission;
