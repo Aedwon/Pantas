@@ -1,0 +1,81 @@
+import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/features/settings/data/settings_repository.dart';
+import 'package:cse_cet_reviewer/features/settings/domain/theme_preference.dart';
+import 'package:cse_cet_reviewer/features/settings/domain/user_settings.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+final analyticsConsentGatewayProvider = Provider<AnalyticsConsentGateway>(
+  (ref) => const NoopAnalyticsConsentGateway(),
+);
+
+final settingsRepositoryProvider = Provider<DriftSettingsRepository>((ref) {
+  return DriftSettingsRepository(
+    ref.watch(appDatabaseProvider),
+    analytics: ref.watch(analyticsConsentGatewayProvider),
+  );
+});
+
+final userSettingsProvider = FutureProvider<UserSettings>((ref) async {
+  return ref.watch(settingsRepositoryProvider).readUserSettings();
+});
+
+final themePreferenceProvider = FutureProvider<ThemePreference>((ref) async {
+  return ref.watch(settingsRepositoryProvider).readThemePreference();
+});
+
+final themePreferenceControllerProvider = StateNotifierProvider<
+    ThemePreferenceController, AsyncValue<ThemePreference>>((ref) {
+  return ThemePreferenceController(ref);
+});
+
+class ThemePreferenceController
+    extends StateNotifier<AsyncValue<ThemePreference>> {
+  ThemePreferenceController(this._ref)
+      : super(const AsyncValue.data(ThemePreference.system));
+
+  final Ref _ref;
+
+  Future<void> setThemePreference(ThemePreference preference) async {
+    state = AsyncValue.data(preference);
+    await _ref
+        .read(settingsRepositoryProvider)
+        .updateThemePreference(preference);
+    _ref.invalidate(themePreferenceProvider);
+  }
+}
+
+final settingsActionsProvider = Provider<SettingsActions>((ref) {
+  return SettingsActions(ref);
+});
+
+class SettingsActions {
+  SettingsActions(this._ref);
+
+  final Ref _ref;
+
+  Future<void> setHelpImproveApp({required bool enabled}) async {
+    await _ref
+        .read(settingsRepositoryProvider)
+        .updateHelpImproveApp(enabled: enabled);
+    _ref.invalidate(userSettingsProvider);
+  }
+
+  Future<void> setStrictMockMode({required bool enabled}) async {
+    await _ref
+        .read(settingsRepositoryProvider)
+        .updateStrictMockMode(enabled: enabled);
+    _ref.invalidate(userSettingsProvider);
+  }
+
+  Future<void> setReminderTime(SettingsTime time) async {
+    await _ref.read(settingsRepositoryProvider).updateReminderTime(time);
+    _ref.invalidate(userSettingsProvider);
+  }
+
+  Future<void> setExamDate(DateTime date, {required DateTime today}) async {
+    await _ref
+        .read(settingsRepositoryProvider)
+        .updateExamDate(date, today: today);
+    _ref.invalidate(userSettingsProvider);
+  }
+}

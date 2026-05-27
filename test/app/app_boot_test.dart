@@ -3,6 +3,8 @@ import 'package:cse_cet_reviewer/app/flavor.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/features/settings/settings.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -37,5 +39,24 @@ void main() {
     expect(find.text('Quiz'), findsWidgets);
     expect(find.text('More'), findsWidgets);
     expect(find.text('Learn'), findsNothing);
+  });
+
+  testWidgets('App applies selected device theme mode', (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await DriftSettingsRepository(db).updateThemePreference(
+      ThemePreference.dark,
+    );
+
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [appDatabaseProvider.overrideWithValue(db)],
+        child: const App(flavor: Flavor.dev),
+      ),
+    );
+    await tester.pump();
+
+    final app = tester.widget<MaterialApp>(find.byType(MaterialApp));
+    expect(app.themeMode, ThemeMode.dark);
   });
 }
