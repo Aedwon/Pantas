@@ -1,5 +1,8 @@
+import 'package:meta/meta.dart';
+
 enum EntitlementPlan { free, monthly, yearly, lifetime }
 
+@immutable
 class Entitlement {
   const Entitlement({
     required this.plan,

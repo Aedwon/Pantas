@@ -1,8 +1,7 @@
+import 'package:cse_cet_reviewer/features/paywall/application/paywall_providers.dart';
+import 'package:cse_cet_reviewer/features/paywall/data/revenuecat_config.dart';
+import 'package:cse_cet_reviewer/features/paywall/data/revenuecat_gateway.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../data/revenuecat_config.dart';
-import '../data/revenuecat_gateway.dart';
-import 'paywall_providers.dart';
 
 class RevenueCatBootstrapper {
   RevenueCatBootstrapper(this._gateway);

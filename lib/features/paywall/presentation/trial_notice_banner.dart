@@ -1,7 +1,6 @@
+import 'package:cse_cet_reviewer/features/paywall/domain/trial_notice.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
-import '../domain/trial_notice.dart';
 
 class TrialNoticeBanner extends StatelessWidget {
   const TrialNoticeBanner({required this.notice, super.key});

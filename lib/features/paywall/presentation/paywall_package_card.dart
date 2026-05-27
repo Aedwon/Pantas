@@ -1,6 +1,5 @@
+import 'package:cse_cet_reviewer/features/paywall/domain/paywall_package.dart';
 import 'package:flutter/material.dart';
-
-import '../domain/paywall_package.dart';
 
 class PaywallPackageCard extends StatelessWidget {
   const PaywallPackageCard({

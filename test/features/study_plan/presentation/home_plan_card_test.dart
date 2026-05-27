@@ -81,7 +81,6 @@ void main() {
           upcoming: [],
           usedFallbackMastery: false,
         ),
-        proIsActive: false,
       ),
     );
 

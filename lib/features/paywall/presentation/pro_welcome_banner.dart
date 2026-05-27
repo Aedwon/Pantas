@@ -37,7 +37,8 @@ class ProWelcomeBanner extends StatelessWidget {
               ],
             ),
             const Text(
-              "Pro adjusts your plan based on what you actually struggle with. Let's get to it.",
+              'Pro adjusts your plan based on what you actually struggle with. '
+              "Let's get to it.",
             ),
             TextButton(
               onPressed: onPlanTap,

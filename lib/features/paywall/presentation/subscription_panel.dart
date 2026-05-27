@@ -1,8 +1,7 @@
+import 'package:cse_cet_reviewer/features/paywall/domain/entitlement.dart';
+import 'package:cse_cet_reviewer/features/paywall/domain/trial_notice.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
-import '../domain/entitlement.dart';
-import '../domain/trial_notice.dart';
 
 class SubscriptionPanel extends StatelessWidget {
   const SubscriptionPanel({

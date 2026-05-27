@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import '../domain/entitlement.dart';
-import '../domain/paywall_package.dart';
+import 'package:cse_cet_reviewer/features/paywall/domain/entitlement.dart';
+import 'package:cse_cet_reviewer/features/paywall/domain/paywall_package.dart';
 
 abstract interface class RevenueCatGateway {
   Stream<Entitlement> get customerInfoUpdates;

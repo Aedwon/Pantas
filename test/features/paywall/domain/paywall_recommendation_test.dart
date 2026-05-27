@@ -39,7 +39,7 @@ void main() {
   test('yearly is recommended beyond twenty four months', () {
     final sku = recommendedSkuForExamDate(
       today: DateTime.utc(2026, 5, 21),
-      examDate: DateTime.utc(2028, 6, 1),
+      examDate: DateTime.utc(2028, 6),
     );
 
     expect(sku, PaywallSku.yearly);
@@ -47,7 +47,9 @@ void main() {
 
   test('yearly is recommended when exam date is missing', () {
     expect(
-      recommendedSkuForExamDate(today: DateTime.utc(2026, 5, 21)),
+      recommendedSkuForExamDate(
+        today: DateTime.utc(2026, 5, 21),
+      ),
       PaywallSku.yearly,
     );
   });
@@ -63,7 +65,7 @@ void main() {
 
   test('lifetime is never auto recommended', () {
     final cases = [
-      DateTime.utc(2026, 6, 1),
+      DateTime.utc(2026, 6),
       DateTime.utc(2027, 5, 21),
       DateTime.utc(2030, 5, 21),
     ];

@@ -5,23 +5,27 @@ import '../../../helpers/pump_app.dart';
 
 void main() {
   testWidgets(
-      'free results show score sections weak topics and pro review card',
-      (tester) async {
-    await tester.pumpApp(
-      MockResultsPage(results: _results(), proIsActive: false),
-    );
+    'free results show score sections weak topics and pro review card',
+    (tester) async {
+      await tester.pumpApp(
+        MockResultsPage(results: _results(), proIsActive: false),
+      );
 
-    expect(find.text('1 / 2'), findsOneWidget);
-    expect(find.text('Part 1'), findsOneWidget);
-    expect(find.text('Practice these next'), findsOneWidget);
-    expect(
-        find.text('This is what Pro shows after every mock.'), findsOneWidget);
-    expect(find.text('Try Pro free'), findsOneWidget);
-  });
+      expect(find.text('1 / 2'), findsOneWidget);
+      expect(find.text('Part 1'), findsOneWidget);
+      expect(find.text('Practice these next'), findsOneWidget);
+      expect(
+        find.text('This is what Pro shows after every mock.'),
+        findsOneWidget,
+      );
+      expect(find.text('Try Pro free'), findsOneWidget);
+    },
+  );
 
   testWidgets('pro results show per-question review section', (tester) async {
-    await tester
-        .pumpApp(MockResultsPage(results: _results(), proIsActive: true));
+    await tester.pumpApp(
+      MockResultsPage(results: _results(), proIsActive: true),
+    );
 
     expect(find.text('Answer review'), findsOneWidget);
   });
@@ -39,8 +43,9 @@ void main() {
   });
 
   testWidgets('weak topic practice button exposes drill route', (tester) async {
-    await tester
-        .pumpApp(MockResultsPage(results: _results(), proIsActive: false));
+    await tester.pumpApp(
+      MockResultsPage(results: _results(), proIsActive: false),
+    );
 
     expect(find.text('/quiz/drill?topicId=topic_a'), findsOneWidget);
   });

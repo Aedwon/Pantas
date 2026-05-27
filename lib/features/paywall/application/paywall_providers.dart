@@ -1,10 +1,9 @@
+import 'package:cse_cet_reviewer/features/paywall/application/paywall_controller.dart';
+import 'package:cse_cet_reviewer/features/paywall/data/revenuecat_gateway.dart';
+import 'package:cse_cet_reviewer/features/paywall/domain/entitlement.dart';
+import 'package:cse_cet_reviewer/features/paywall/domain/paywall_recommendation.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../domain/paywall_recommendation.dart';
-import '../data/revenuecat_gateway.dart';
-import '../domain/entitlement.dart';
-import 'paywall_controller.dart';
 
 final revenueCatGatewayProvider = Provider<RevenueCatGateway>(
   (ref) => const DisabledRevenueCatGateway(),

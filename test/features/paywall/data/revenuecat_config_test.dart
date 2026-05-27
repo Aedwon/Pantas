@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('config is disabled when Android API key is missing', () {
-    final config = RevenueCatConfig.fromEnvironment(androidApiKey: '');
+    final config = RevenueCatConfig.fromEnvironment();
 
     expect(config.isEnabled, isFalse);
     expect(config.androidApiKey, isNull);

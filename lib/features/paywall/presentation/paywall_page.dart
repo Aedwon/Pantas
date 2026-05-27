@@ -1,10 +1,8 @@
+import 'package:cse_cet_reviewer/features/paywall/application/paywall_controller.dart';
+import 'package:cse_cet_reviewer/features/paywall/domain/paywall_package.dart';
+import 'package:cse_cet_reviewer/features/paywall/domain/paywall_recommendation.dart';
+import 'package:cse_cet_reviewer/features/paywall/presentation/paywall_package_card.dart';
 import 'package:flutter/material.dart';
-
-import '../application/paywall_controller.dart';
-import '../domain/entitlement.dart';
-import '../domain/paywall_package.dart';
-import '../domain/paywall_recommendation.dart';
-import 'paywall_package_card.dart';
 
 class PaywallPage extends StatefulWidget {
   const PaywallPage({

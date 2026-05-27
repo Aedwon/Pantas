@@ -1,4 +1,4 @@
-import 'entitlement.dart';
+import 'package:cse_cet_reviewer/features/paywall/domain/entitlement.dart';
 
 class ProWelcomeState {
   const ProWelcomeState._();

@@ -4,38 +4,48 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test(
-      'paywall module exists with domain data application and presentation layers',
-      () {
-    expect(Directory('lib/features/paywall/domain').existsSync(), isTrue);
-    expect(Directory('lib/features/paywall/data').existsSync(), isTrue);
-    expect(Directory('lib/features/paywall/application').existsSync(), isTrue);
-    expect(Directory('lib/features/paywall/presentation').existsSync(), isTrue);
-  });
+    'paywall module exists with domain data application and presentation '
+    'layers',
+    () {
+      expect(Directory('lib/features/paywall/domain').existsSync(), isTrue);
+      expect(Directory('lib/features/paywall/data').existsSync(), isTrue);
+      expect(
+        Directory('lib/features/paywall/application').existsSync(),
+        isTrue,
+      );
+      expect(
+        Directory('lib/features/paywall/presentation').existsSync(),
+        isTrue,
+      );
+    },
+  );
 
-  test('paywall domain files do not import framework or persistence packages',
-      () {
-    final offenders = <String>[];
-    final dir = Directory('lib/features/paywall/domain');
-    if (!dir.existsSync()) {
-      fail('lib/features/paywall/domain does not exist');
-    }
+  test(
+    'paywall domain files do not import framework or persistence packages',
+    () {
+      final offenders = <String>[];
+      final dir = Directory('lib/features/paywall/domain');
+      if (!dir.existsSync()) {
+        fail('lib/features/paywall/domain does not exist');
+      }
 
-    for (final file in _dartFiles(dir.path)) {
-      final source = file.readAsStringSync();
-      final importsForbiddenPackage = source.contains('package:flutter/') ||
-          source.contains('package:flutter_riverpod/') ||
-          source.contains('package:firebase_') ||
-          source.contains('package:cloud_firestore/') ||
-          source.contains('package:cloud_functions/') ||
-          source.contains('package:purchases_flutter/') ||
-          source.contains('package:drift/') ||
-          source.contains('package:dio/') ||
-          source.contains('package:go_router/');
-      if (importsForbiddenPackage) offenders.add(file.path);
-    }
+      for (final file in _dartFiles(dir.path)) {
+        final source = file.readAsStringSync();
+        final importsForbiddenPackage = source.contains('package:flutter/') ||
+            source.contains('package:flutter_riverpod/') ||
+            source.contains('package:firebase_') ||
+            source.contains('package:cloud_firestore/') ||
+            source.contains('package:cloud_functions/') ||
+            source.contains('package:purchases_flutter/') ||
+            source.contains('package:drift/') ||
+            source.contains('package:dio/') ||
+            source.contains('package:go_router/');
+        if (importsForbiddenPackage) offenders.add(file.path);
+      }
 
-    expect(offenders, isEmpty);
-  });
+      expect(offenders, isEmpty);
+    },
+  );
 
   test('only the RevenueCat gateway adapter imports purchases_flutter', () {
     final offenders = <String>[];

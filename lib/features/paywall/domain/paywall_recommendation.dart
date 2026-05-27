@@ -1,4 +1,4 @@
-import 'paywall_package.dart';
+import 'package:cse_cet_reviewer/features/paywall/domain/paywall_package.dart';
 
 PaywallSku recommendedSkuForExamDate({
   required DateTime today,
@@ -29,8 +29,8 @@ String ctaCopyFor(PaywallPackage package) {
 }
 
 List<PaywallPackage> paywallDisplayOrder(List<PaywallPackage> packages) {
-  final sorted = [...packages];
-  sorted.sort((a, b) => _skuRank(a.sku).compareTo(_skuRank(b.sku)));
+  final sorted = [...packages]
+    ..sort((a, b) => _skuRank(a.sku).compareTo(_skuRank(b.sku)));
   return sorted;
 }
 

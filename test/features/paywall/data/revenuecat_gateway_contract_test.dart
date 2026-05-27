@@ -5,27 +5,28 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test(
-      'gateway contract exposes configure offerings purchase restore and stream',
-      () async {
-    final gateway = RecordingRevenueCatGateway();
-    const package = PaywallPackage(
-      sku: PaywallSku.monthly,
-      productId: 'pro_monthly',
-      priceString: '₱99',
-    );
+    'gateway contract exposes configure offerings purchase restore and stream',
+    () async {
+      final gateway = RecordingRevenueCatGateway();
+      const package = PaywallPackage(
+        sku: PaywallSku.monthly,
+        productId: 'pro_monthly',
+        priceString: '₱99',
+      );
 
-    await gateway.configure(androidApiKey: 'key');
-    await gateway.logIn('uid_1');
-    final offerings = await gateway.currentOffering();
-    final purchased = await gateway.purchase(package);
-    final restored = await gateway.restorePurchases();
+      await gateway.configure(androidApiKey: 'key');
+      await gateway.logIn('uid_1');
+      final offerings = await gateway.currentOffering();
+      final purchased = await gateway.purchase(package);
+      final restored = await gateway.restorePurchases();
 
-    expect(gateway.configuredKey, 'key');
-    expect(gateway.loggedInUid, 'uid_1');
-    expect(offerings.single.productId, 'pro_monthly');
-    expect(purchased.proIsActive, isTrue);
-    expect(restored.proIsActive, isTrue);
-  });
+      expect(gateway.configuredKey, 'key');
+      expect(gateway.loggedInUid, 'uid_1');
+      expect(offerings.single.productId, 'pro_monthly');
+      expect(purchased.proIsActive, isTrue);
+      expect(restored.proIsActive, isTrue);
+    },
+  );
 
   test('gateway stream emits optimistic cached entitlement', () async {
     final gateway = RecordingRevenueCatGateway();
