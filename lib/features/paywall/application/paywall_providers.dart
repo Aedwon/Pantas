@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../domain/paywall_recommendation.dart';
@@ -10,6 +11,9 @@ final revenueCatGatewayProvider = Provider<RevenueCatGateway>(
 );
 
 final entitlementProvider = StreamProvider<Entitlement>((ref) {
+  if (kDebugMode && const bool.fromEnvironment('FAKE_PRO')) {
+    return Stream.value(const Entitlement(plan: EntitlementPlan.monthly));
+  }
   final gateway = ref.watch(revenueCatGatewayProvider);
   final cached = gateway.cachedEntitlement ?? const Entitlement.free();
   return gateway.customerInfoUpdates.distinct().startWith(cached);
