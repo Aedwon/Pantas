@@ -25,7 +25,7 @@ void main() {
   test('functions do not add notification sender or device token storage', () {
     final offenders = <String>[];
     final forbidden = RegExp(
-      r'(sendMulticast|sendEachForMulticast|fcmToken|deviceTokens|/devices/)',
+      '(sendMulticast|sendEachForMulticast|fcmToken|deviceTokens|/devices/)',
     );
 
     for (final file in _files('functions/src')) {

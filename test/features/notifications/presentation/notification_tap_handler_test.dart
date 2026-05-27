@@ -30,7 +30,7 @@ void main() {
   });
 
   test('malformed or plan-not-ready payload opens home', () {
-    final handler = NotificationTapHandler(now: DateTime.now);
+    const handler = NotificationTapHandler(now: DateTime.now);
 
     expect(handler.targetFor('not-json'), '/home');
     expect(

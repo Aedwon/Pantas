@@ -9,6 +9,8 @@ import 'package:cse_cet_reviewer/features/lesson/presentation/learn_tab_home.dar
 import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_list_page.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_page.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/mock_exam.dart';
+import 'package:cse_cet_reviewer/features/notifications/application/notifications_providers.dart';
+import 'package:cse_cet_reviewer/features/notifications/presentation/permission_rationale_page.dart';
 import 'package:cse_cet_reviewer/features/onboarding/onboarding.dart';
 import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/drill_subtopic_browser.dart';
@@ -33,6 +35,7 @@ final routerProvider = Provider<GoRouter>((ref) {
     passedAgeGateProvider,
     activeExamFocusProvider,
     entitlementProvider,
+    notificationRationaleShownProvider,
   ]);
   final router = GoRouter(
     initialLocation: '/home',
@@ -44,11 +47,23 @@ final routerProvider = Provider<GoRouter>((ref) {
       final focus = focusAsync.valueOrNull;
       if (passed == null || focus == null) return null;
       final atOnboarding = state.matchedLocation == '/onboarding';
+      final atNotificationRationale =
+          state.matchedLocation == '/notifications/rationale';
       final atPaywall = state.matchedLocation == '/paywall';
       final needsSelection = focus.needsSelection;
       if (!passed && !atOnboarding) return '/onboarding';
       if (passed && needsSelection && !atOnboarding) return '/onboarding';
-      if (passed && !needsSelection && atOnboarding) return '/home';
+      if (passed && !needsSelection && atOnboarding) {
+        final rationaleShown =
+            ref.read(notificationRationaleShownProvider).valueOrNull;
+        if (rationaleShown == false) return '/notifications/rationale';
+        return '/home';
+      }
+      if (passed && !needsSelection && atNotificationRationale) {
+        final rationaleShown =
+            ref.read(notificationRationaleShownProvider).valueOrNull;
+        if (rationaleShown ?? false) return '/home';
+      }
       if (_isProRoute(state.matchedLocation) && !atPaywall) {
         final entitlement = ref.read(entitlementProvider).valueOrNull;
         if (entitlement == null) return null;
@@ -116,6 +131,10 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/onboarding',
         builder: (_, __) => const OnboardingPage(),
+      ),
+      GoRoute(
+        path: '/notifications/rationale',
+        builder: (_, __) => const PermissionRationalePage(),
       ),
       GoRoute(
         path: '/plan',

@@ -28,6 +28,10 @@ abstract interface class NotificationsGateway {
 
   Future<NotificationPermission> requestPermission();
 
+  Future<String?> initialNotificationTapPayload();
+
+  Stream<String?> get notificationTapPayloads;
+
   Future<void> schedule(ScheduledNotification notification);
 
   Future<void> cancel(int id);

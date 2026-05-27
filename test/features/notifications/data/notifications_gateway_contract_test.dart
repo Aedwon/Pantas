@@ -60,6 +60,7 @@ class RecordingNotificationsGateway implements NotificationsGateway {
   final log = <String>[];
   final _permissionController =
       StreamController<NotificationPermission>.broadcast();
+  final _tapController = StreamController<String?>.broadcast();
   NotificationPermission _permission = NotificationPermission.notYetAsked;
 
   NotificationPermission get permission => _permission;
@@ -77,6 +78,12 @@ class RecordingNotificationsGateway implements NotificationsGateway {
 
   @override
   Future<void> initialize() async => log.add('initialize');
+
+  @override
+  Future<String?> initialNotificationTapPayload() async => null;
+
+  @override
+  Stream<String?> get notificationTapPayloads => _tapController.stream;
 
   @override
   Future<void> openAppNotificationSettings() async => log.add('openSettings');

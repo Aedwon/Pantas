@@ -130,6 +130,12 @@ class RecordingNotificationsGateway implements NotificationsGateway {
   Future<void> initialize() async => log.add('initialize');
 
   @override
+  Future<String?> initialNotificationTapPayload() async => null;
+
+  @override
+  Stream<String?> get notificationTapPayloads => const Stream.empty();
+
+  @override
   Future<void> openAppNotificationSettings() async => log.add('openSettings');
 
   @override

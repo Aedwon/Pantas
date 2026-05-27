@@ -16,6 +16,7 @@ class FlutterLocalNotificationsGateway implements NotificationsGateway {
   final FlutterLocalNotificationsPlugin _plugin;
   final _permissionController =
       StreamController<NotificationPermission>.broadcast();
+  final _tapController = StreamController<String?>.broadcast();
   var _initialized = false;
 
   @override
@@ -26,6 +27,9 @@ class FlutterLocalNotificationsGateway implements NotificationsGateway {
     const darwinInit = DarwinInitializationSettings();
     await _plugin.initialize(
       const InitializationSettings(android: androidInit, iOS: darwinInit),
+      onDidReceiveNotificationResponse: (response) {
+        _tapController.add(response.payload);
+      },
     );
     final android = _plugin.resolvePlatformSpecificImplementation<
         AndroidFlutterLocalNotificationsPlugin>();
@@ -34,6 +38,17 @@ class FlutterLocalNotificationsGateway implements NotificationsGateway {
     _initialized = true;
     _permissionController.add(await permissionStatus());
   }
+
+  @override
+  Future<String?> initialNotificationTapPayload() async {
+    await initialize();
+    final details = await _plugin.getNotificationAppLaunchDetails();
+    if (details?.didNotificationLaunchApp != true) return null;
+    return details?.notificationResponse?.payload;
+  }
+
+  @override
+  Stream<String?> get notificationTapPayloads => _tapController.stream;
 
   @override
   Future<void> cancel(int id) => _plugin.cancel(id);

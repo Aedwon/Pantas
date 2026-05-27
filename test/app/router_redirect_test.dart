@@ -4,6 +4,7 @@ import 'package:cse_cet_reviewer/app/router.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/features/notifications/application/notifications_providers.dart';
 import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -72,9 +73,30 @@ void main() {
       (tester) async {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await AppPreferencesRepository(db).setSelectedExamId('cse');
+    await NotificationRationaleRepository(db).markShown();
     await pumpApp(tester);
     expect(find.text('Home'), findsWidgets);
     expect(find.text('Choose your exam'), findsNothing);
+  });
+
+  testWidgets('completed onboarding can continue to notification rationale',
+      (tester) async {
+    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
+    await AppPreferencesRepository(db).setSelectedExamId('cse');
+    await pumpApp(tester);
+
+    final container = ProviderScope.containerOf(
+      tester.element(find.text('Home').first),
+    );
+    final router = container.read(routerProvider);
+    router.go('/onboarding');
+    await tester.pumpAndSettle();
+
+    expect(find.text("I'll be your coach."), findsOneWidget);
+    expect(
+      router.routerDelegate.currentConfiguration.uri.toString(),
+      '/notifications/rationale',
+    );
   });
 
   testWidgets('router accepts mock setup route', (tester) async {
