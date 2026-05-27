@@ -124,6 +124,33 @@ void main() {
     expect(find.text('PREFERENCES'), findsOneWidget);
   });
 
+  testWidgets('settings detail routes build', (tester) async {
+    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
+    await AppPreferencesRepository(db).setSelectedExamId('cse');
+    await pumpApp(tester);
+
+    final container = ProviderScope.containerOf(
+      tester.element(find.text('Home').first),
+    );
+    final router = container.read(routerProvider);
+
+    router.go('/settings/account');
+    await tester.pumpAndSettle();
+    expect(find.text('Account'), findsWidgets);
+
+    router.go('/settings/backup');
+    await tester.pumpAndSettle();
+    expect(find.text('Backup'), findsWidgets);
+
+    router.go('/settings/about');
+    await tester.pumpAndSettle();
+    expect(find.text('About'), findsWidgets);
+
+    router.go('/settings/subscription');
+    await tester.pumpAndSettle();
+    expect(find.text('Subscription'), findsWidgets);
+  });
+
   testWidgets('free user opening Pro dossier route redirects to paywall',
       (tester) async {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);

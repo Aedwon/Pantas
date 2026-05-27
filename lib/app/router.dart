@@ -1,4 +1,5 @@
 import 'package:cse_cet_reviewer/app/router_refresh_listenable.dart';
+import 'package:cse_cet_reviewer/core/auth/providers.dart';
 import 'package:cse_cet_reviewer/core/storage/age_gate.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/features/assessment/assessment.dart';
@@ -13,7 +14,12 @@ import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_results_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_tab_home.dart';
 import 'package:cse_cet_reviewer/features/shell/presentation/app_shell.dart';
+import 'package:cse_cet_reviewer/features/settings/presentation/pages/about_page.dart';
+import 'package:cse_cet_reviewer/features/settings/presentation/pages/account_page.dart';
+import 'package:cse_cet_reviewer/features/settings/presentation/pages/backup_page.dart';
+import 'package:cse_cet_reviewer/features/settings/presentation/pages/delete_account_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/settings_home_page.dart';
+import 'package:cse_cet_reviewer/features/settings/settings.dart';
 import 'package:cse_cet_reviewer/features/study_plan/presentation/plan_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -211,7 +217,46 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: '/settings',
-        builder: (_, __) => const _Stub('Settings'),
+        redirect: (_, __) => '/more',
+      ),
+      GoRoute(
+        path: '/settings/account',
+        builder: (_, __) => const AccountPage(),
+      ),
+      GoRoute(
+        path: '/settings/account/delete',
+        builder: (_, __) {
+          final entitlement = ref.watch(entitlementProvider).valueOrNull ??
+              const Entitlement.free();
+          final isAnonymous =
+              ref.watch(isAnonymousProvider).valueOrNull ?? false;
+          return DeleteAccountPage(
+            isAnonymous: isAnonymous,
+            entitlement: _settingsEntitlement(entitlement),
+          );
+        },
+      ),
+      GoRoute(
+        path: '/settings/subscription',
+        builder: (_, __) {
+          final entitlement = ref.watch(entitlementProvider).valueOrNull ??
+              const Entitlement.free();
+          return Scaffold(
+            appBar: AppBar(title: const Text('Subscription')),
+            body: SubscriptionPanel(entitlement: entitlement),
+          );
+        },
+      ),
+      GoRoute(
+        path: '/settings/backup',
+        builder: (_, __) => const BackupPage(),
+      ),
+      GoRoute(
+        path: '/settings/about',
+        builder: (_, __) => const AboutPage(
+          version: '0.1.0',
+          buildNumber: '1',
+        ),
       ),
       GoRoute(
         path: '/legal/:doc',
@@ -234,6 +279,20 @@ String _subscriptionSubtitle(Entitlement entitlement) {
     EntitlementPlan.yearly => 'Pro · Yearly',
     EntitlementPlan.lifetime => 'Pro · Lifetime',
   };
+}
+
+SettingsEntitlementSnapshot _settingsEntitlement(Entitlement entitlement) {
+  return SettingsEntitlementSnapshot(
+    plan: switch (entitlement.plan) {
+      EntitlementPlan.free => SettingsEntitlementPlan.free,
+      EntitlementPlan.monthly => SettingsEntitlementPlan.monthly,
+      EntitlementPlan.yearly => SettingsEntitlementPlan.yearly,
+      EntitlementPlan.lifetime => SettingsEntitlementPlan.lifetime,
+    },
+    expiresAt: entitlement.expiresAt,
+    isTrial: entitlement.isTrial,
+    willRenew: entitlement.willRenew,
+  );
 }
 
 class _TabStub extends StatelessWidget {
