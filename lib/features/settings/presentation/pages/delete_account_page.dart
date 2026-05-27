@@ -32,8 +32,8 @@ class DeleteAccountPage extends StatelessWidget {
             isAnonymous
                 ? 'Your progress on this device will be permanently deleted. '
                     'Sign in first if you want to keep it.'
-                : "You'll lose everything you've done in the app - your "
-                    'study plan, quiz history, mock exam results, and progress.',
+                : "You'll lose everything you've done in the app - your study "
+                    'plan, quiz history, mock exam results, and progress.',
           ),
           if (billingLine != null) ...[
             const SizedBox(height: 16),

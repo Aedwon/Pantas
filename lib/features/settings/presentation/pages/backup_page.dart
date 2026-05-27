@@ -30,8 +30,10 @@ class _BackupPageState extends ConsumerState<BackupPage> {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          Text(state.headline,
-              style: Theme.of(context).textTheme.headlineSmall),
+          Text(
+            state.headline,
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
           const SizedBox(height: 8),
           Text(state.subtitle),
           if (state.actionLabel != null) ...[

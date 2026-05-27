@@ -7,7 +7,6 @@ import 'package:cse_cet_reviewer/features/settings/presentation/pages/account_pa
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/backup_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/delete_account_page.dart';
 import 'package:cse_cet_reviewer/features/settings/settings.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/pump_app.dart';

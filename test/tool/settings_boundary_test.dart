@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test(
-    'settings domain files do not import Flutter Firebase Drift GoRouter or presentation',
+    'settings domain files do not import framework or presentation packages',
     () {
       final offenders = <String>[];
       for (final file in _dartFiles('lib/features/settings/domain')) {

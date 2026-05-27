@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 enum ReminderSaveResult { notificationDeliveryPendingSpec9 }
 
+// ignore: one_member_abstracts
 abstract interface class StudyPlanRebalanceGateway {
   Future<void> onSettingsExamDateChanged(
     DateTime date, {

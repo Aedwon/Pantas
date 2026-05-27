@@ -3,8 +3,8 @@ import 'package:meta/meta.dart';
 @immutable
 class SettingsTime {
   const SettingsTime({required this.hour, required this.minute})
-      : assert(hour >= 0 && hour <= 23),
-        assert(minute >= 0 && minute <= 59);
+      : assert(hour >= 0 && hour <= 23, 'hour must be 0 through 23'),
+        assert(minute >= 0 && minute <= 59, 'minute must be 0 through 59');
 
   final int hour;
   final int minute;

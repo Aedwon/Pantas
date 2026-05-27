@@ -16,7 +16,7 @@ class DebugSettingsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Debug settings')),
       body: ListView(
-        children: [
+        children: const [
           ListTile(title: Text('Wipe local data')),
           ListTile(title: Text('Current entitlement state')),
           ListTile(title: Text('Force resync')),

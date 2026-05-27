@@ -1,3 +1,5 @@
+// ignore_for_file: directives_ordering
+
 import 'package:cse_cet_reviewer/app/router_refresh_listenable.dart';
 import 'package:cse_cet_reviewer/core/auth/providers.dart';
 import 'package:cse_cet_reviewer/core/storage/age_gate.dart';
@@ -14,13 +16,13 @@ import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_results_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_tab_home.dart';
 import 'package:cse_cet_reviewer/features/shell/presentation/app_shell.dart';
+import 'package:cse_cet_reviewer/features/settings/settings.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/about_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/account_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/backup_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/debug_settings_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/delete_account_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/settings_home_page.dart';
-import 'package:cse_cet_reviewer/features/settings/settings.dart';
 import 'package:cse_cet_reviewer/features/study_plan/presentation/plan_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -298,18 +300,6 @@ SettingsEntitlementSnapshot _settingsEntitlement(Entitlement entitlement) {
     isTrial: entitlement.isTrial,
     willRenew: entitlement.willRenew,
   );
-}
-
-class _TabStub extends StatelessWidget {
-  const _TabStub(this.label);
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(child: Text('$label — placeholder')),
-    );
-  }
 }
 
 class _Stub extends StatelessWidget {

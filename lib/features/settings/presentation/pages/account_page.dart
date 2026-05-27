@@ -37,9 +37,11 @@ class AccountPage extends ConsumerWidget {
               onTap: () => _go(context, '/settings/account/delete'),
             ),
           ] else ...[
-            Text(user?.displayName.isNotEmpty == true
-                ? user!.displayName
-                : 'Account'),
+            Text(
+              user?.displayName.isNotEmpty ?? false
+                  ? user!.displayName
+                  : 'Account',
+            ),
             const SizedBox(height: 4),
             Text(user?.email ?? ''),
             const SizedBox(height: 24),
@@ -70,7 +72,9 @@ class AccountPage extends ConsumerWidget {
   }
 
   static Future<void> _confirmSignOut(
-      BuildContext context, WidgetRef ref) async {
+    BuildContext context,
+    WidgetRef ref,
+  ) async {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(

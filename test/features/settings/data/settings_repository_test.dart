@@ -71,7 +71,9 @@ void main() {
       rows,
       contains(
         const AccountPrefRow(
-            key: SettingsPrefKeys.strictMockMode, value: 'true'),
+          key: SettingsPrefKeys.strictMockMode,
+          value: 'true',
+        ),
       ),
     );
   });

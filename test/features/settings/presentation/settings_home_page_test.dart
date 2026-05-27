@@ -107,8 +107,10 @@ void main() {
     await tester.tap(find.text('Dark'));
     await tester.pumpAndSettle();
 
-    expect(await DriftSettingsRepository(db).readThemePreference(),
-        ThemePreference.dark);
+    expect(
+      await DriftSettingsRepository(db).readThemePreference(),
+      ThemePreference.dark,
+    );
   });
 
   testWidgets('strict mock and help improve app switches call actions',

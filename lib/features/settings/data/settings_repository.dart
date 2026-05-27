@@ -5,6 +5,7 @@ import 'package:drift/drift.dart';
 
 typedef SettingsClock = DateTime Function();
 
+// ignore: one_member_abstracts
 abstract interface class AnalyticsConsentGateway {
   Future<void> setAnalyticsCollectionEnabled({required bool enabled});
 }

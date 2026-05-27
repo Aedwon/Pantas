@@ -31,8 +31,10 @@ void main() {
     );
     addTearDown(container.dispose);
 
-    expect(await container.read(themePreferenceProvider.future),
-        ThemePreference.dark);
+    expect(
+      await container.read(themePreferenceProvider.future),
+      ThemePreference.dark,
+    );
   });
 
   test('themeModeController writes selected theme', () async {
@@ -47,10 +49,14 @@ void main() {
         .read(themePreferenceControllerProvider.notifier)
         .setThemePreference(ThemePreference.light);
 
-    expect(await DriftSettingsRepository(db).readThemePreference(),
-        ThemePreference.light);
-    expect(await container.read(themePreferenceProvider.future),
-        ThemePreference.light);
+    expect(
+      await DriftSettingsRepository(db).readThemePreference(),
+      ThemePreference.light,
+    );
+    expect(
+      await container.read(themePreferenceProvider.future),
+      ThemePreference.light,
+    );
   });
 
   test('analytics consent gateway is invoked when help improve app changes',

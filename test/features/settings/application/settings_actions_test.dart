@@ -47,8 +47,10 @@ void main() {
       throwsA(isA<InvalidExamDateException>()),
     );
 
-    expect((await DriftSettingsRepository(db).readUserSettings()).examDate,
-        isNull);
+    expect(
+      (await DriftSettingsRepository(db).readUserSettings()).examDate,
+      isNull,
+    );
   });
 
   test('saving reminder time writes settings and reports Spec 9 unavailable',
