@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/sync/local_state_wiper.dart';
 import 'package:drift/drift.dart';
@@ -6,6 +7,21 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../helpers/in_memory_database.dart';
 
 void main() {
+  test('wipeAll cancels notifications before deleting synced state', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await _seedMeaningfulProgress(db);
+    final notifications = RecordingNotificationService();
+
+    await SyncLocalStateWiper(
+      db,
+      notifications: notifications,
+    ).wipeAll();
+
+    expect(notifications.log, ['cancelAll']);
+    expect(await db.select(db.attemptsLocal).get(), isEmpty);
+  });
+
   test('wipeAll deletes synced state and pending sync', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
@@ -60,6 +76,30 @@ void main() {
     expect(await db.select(db.quizNudgeDismissedLocal).get(), hasLength(1));
     expect((await db.select(db.syncMeta).get()).single.key, 'deviceId');
   });
+}
+
+class RecordingNotificationService implements NotificationService {
+  final log = <String>[];
+
+  @override
+  Future<void> cancelAll() async => log.add('cancelAll');
+
+  @override
+  Future<void> onSessionCompleted() async {}
+
+  @override
+  Future<void> openAppNotificationSettings() async {}
+
+  @override
+  Future<NotificationPermission> requestPermission() async {
+    return NotificationPermission.granted;
+  }
+
+  @override
+  Future<void> rescheduleForForeground() async {}
+
+  @override
+  Future<void> scheduleDailyReminder(NotificationTime time) async {}
 }
 
 Future<void> _seedMeaningfulProgress(AppDatabase db) async {

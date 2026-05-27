@@ -1,10 +1,15 @@
 import 'package:cse_cet_reviewer/core/auth/auth_repository.dart';
+import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 
 class SyncLocalStateWiper implements LocalStateWiper {
-  SyncLocalStateWiper(this._db);
+  SyncLocalStateWiper(
+    this._db, {
+    NotificationService? notifications,
+  }) : _notifications = notifications;
 
   final AppDatabase _db;
+  final NotificationService? _notifications;
 
   @override
   Future<bool> hasMeaningfulProgress() async {
@@ -20,6 +25,7 @@ class SyncLocalStateWiper implements LocalStateWiper {
 
   @override
   Future<void> wipeAll() async {
+    await _notifications?.cancelAll();
     await _db.transaction(() async {
       await _db.delete(_db.attemptsLocal).go();
       await _db.delete(_db.assessmentResultsLocal).go();

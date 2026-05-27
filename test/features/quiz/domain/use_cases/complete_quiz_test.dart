@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
@@ -16,6 +17,8 @@ class _MockStreakEvaluator extends Mock implements StreakEvaluator {}
 
 class _MockPendingQueue extends Mock implements PendingQueue {}
 
+class _MockNotificationService extends Mock implements NotificationService {}
+
 class _FakeAttempt extends Fake implements Attempt {}
 
 void main() {
@@ -28,16 +31,19 @@ void main() {
   late _MockAttempts attempts;
   late _MockStreakEvaluator streaks;
   late _MockPendingQueue pendingQueue;
+  late _MockNotificationService notifications;
   late CompleteQuiz useCase;
 
   setUp(() {
     attempts = _MockAttempts();
     streaks = _MockStreakEvaluator();
     pendingQueue = _MockPendingQueue();
+    notifications = _MockNotificationService();
     useCase = CompleteQuiz(
       attempts,
       streakEvaluator: streaks,
       pendingQueue: pendingQueue,
+      notifications: notifications,
     );
     when(() => attempts.save(any())).thenAnswer((_) async {});
     when(
@@ -60,6 +66,7 @@ void main() {
         current: 1,
       ),
     );
+    when(() => notifications.onSessionCompleted()).thenAnswer((_) async {});
   });
 
   const q1 = Question(
@@ -118,6 +125,7 @@ void main() {
         completedAt: end,
       ),
     ).called(1);
+    verify(() => notifications.onSessionCompleted()).called(1);
   });
 
   test('saves the session origin on the completed attempt', () async {

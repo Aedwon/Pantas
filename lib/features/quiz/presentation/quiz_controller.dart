@@ -1,4 +1,5 @@
 import 'package:cse_cet_reviewer/core/fsrs/fsrs_scheduler.dart';
+import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
@@ -134,6 +135,7 @@ final completeQuizProvider = Provider<CompleteQuiz>(
     ref.watch(attemptsRepositoryProvider),
     streakEvaluator: ref.watch(streakEvaluatorProvider),
     pendingQueue: ref.watch(pendingQueueProvider),
+    notifications: ref.watch(notificationServiceProvider),
   ),
 );
 

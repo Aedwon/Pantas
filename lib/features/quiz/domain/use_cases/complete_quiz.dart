@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:cse_cet_reviewer/core/sync/engine/pending_queue.dart';
@@ -9,12 +10,15 @@ class CompleteQuiz {
     this._attempts, {
     StreakEvaluator? streakEvaluator,
     PendingQueue? pendingQueue,
+    NotificationService? notifications,
   })  : _streakEvaluator = streakEvaluator,
-        _pendingQueue = pendingQueue;
+        _pendingQueue = pendingQueue,
+        _notifications = notifications;
 
   final AttemptsRepository _attempts;
   final StreakEvaluator? _streakEvaluator;
   final PendingQueue? _pendingQueue;
+  final NotificationService? _notifications;
 
   Future<Attempt> call({
     required QuizSession session,
@@ -52,6 +56,7 @@ class CompleteQuiz {
       origin: session.origin,
       completedAt: now,
     );
+    await _notifications?.onSessionCompleted();
     return attempt;
   }
 }
