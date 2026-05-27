@@ -173,6 +173,24 @@ void main() {
     expect(find.text('Subscription'), findsWidgets);
   });
 
+  testWidgets('/legal/privacy route builds real legal page', (tester) async {
+    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
+    await AppPreferencesRepository(db).setSelectedExamId('cse');
+    await NotificationRationaleRepository(db).markShown();
+    await pumpApp(tester);
+
+    final container = ProviderScope.containerOf(
+      tester.element(find.text('Home').first),
+    );
+    final router = container.read(routerProvider);
+    router.go('/legal/privacy');
+    await tester.pumpAndSettle();
+
+    expect(find.text('Privacy Policy'), findsWidgets);
+    expect(find.textContaining('RA 10173'), findsWidgets);
+    expect(find.textContaining('Legal: privacy'), findsNothing);
+  });
+
   testWidgets('free user opening Pro dossier route redirects to paywall',
       (tester) async {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);

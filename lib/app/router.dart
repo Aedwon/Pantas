@@ -8,6 +8,8 @@ import 'package:cse_cet_reviewer/features/assessment/assessment.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/learn_tab_home.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_list_page.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_page.dart';
+import 'package:cse_cet_reviewer/features/legal/legal.dart';
+import 'package:cse_cet_reviewer/features/legal/presentation/legal_document_page.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/mock_exam.dart';
 import 'package:cse_cet_reviewer/features/notifications/application/notifications_providers.dart';
 import 'package:cse_cet_reviewer/features/notifications/presentation/permission_rationale_page.dart';
@@ -286,7 +288,10 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: '/legal/:doc',
-        builder: (_, state) => _Stub('Legal: ${state.pathParameters['doc']}'),
+        builder: (_, state) => LegalDocumentPage(
+          documentId: state.pathParameters['doc']!,
+          contact: ref.watch(legalContactProvider),
+        ),
       ),
     ],
   );
