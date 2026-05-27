@@ -26,6 +26,22 @@ void main() {
     expect(offenders, isEmpty);
   });
 
+  test('sync registry syncs account preferences and never content database',
+      () {
+    final registry = File('lib/core/sync/engine/collection_registry.dart')
+        .readAsStringSync();
+
+    expect(registry, contains("tableType: 'preferences'"));
+    expect(registry, contains("firestorePath: 'preferences'"));
+
+    final offenders = _dartFiles('lib/core/sync')
+        .where((file) => file.readAsStringSync().contains('ContentDatabase'))
+        .map((file) => file.path)
+        .toList();
+
+    expect(offenders, isEmpty);
+  });
+
   test('only sync firestore gateway files import Firebase SDK packages', () {
     final offenders = <String>[];
     for (final file in _dartFiles('lib/core/sync')) {
