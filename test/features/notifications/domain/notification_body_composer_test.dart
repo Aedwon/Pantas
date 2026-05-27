@@ -26,7 +26,8 @@ void main() {
       expect(copy.title, 'Mock exam day');
       expect(
         copy.body,
-        "Take your time and treat it like the real thing. You've prepped for this.",
+        'Take your time and treat it like the real thing. '
+        "You've prepped for this.",
       );
     });
 
@@ -76,12 +77,20 @@ void main() {
 
   group('streak save copy', () {
     test('streak save copy covers key tiers', () {
-      final composer = const NotificationBodyComposer();
+      const composer = NotificationBodyComposer();
 
       expect(
-          composer.streakSave(streakLength: 1).title, "Don't lose your streak");
-      expect(composer.streakSave(streakLength: 2).title, 'Five more minutes?');
-      expect(composer.streakSave(streakLength: 6).title, 'Five more minutes?');
+        composer.streakSave(streakLength: 1).title,
+        "Don't lose your streak",
+      );
+      expect(
+        composer.streakSave(streakLength: 2).title,
+        'Five more minutes?',
+      );
+      expect(
+        composer.streakSave(streakLength: 6).title,
+        'Five more minutes?',
+      );
       expect(
         composer.streakSave(streakLength: 7).title,
         "Your 7-day streak's still alive",
@@ -103,7 +112,8 @@ void main() {
       expect(copy.title, "Your 5-day streak's safe tonight");
       expect(
         copy.body,
-        "If you skip, your streak's freeze will save it (1 left this month). Want to keep the freeze and study anyway?",
+        "If you skip, your streak's freeze will save it "
+        '(1 left this month). Want to keep the freeze and study anyway?',
       );
     });
   });

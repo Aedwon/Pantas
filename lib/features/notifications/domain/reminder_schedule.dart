@@ -1,4 +1,4 @@
-import 'notification_time.dart';
+import 'package:cse_cet_reviewer/features/notifications/domain/notification_time.dart';
 
 abstract final class NotificationIds {
   static const dailyReminder = 9001;

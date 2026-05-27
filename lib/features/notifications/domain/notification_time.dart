@@ -1,3 +1,6 @@
+import 'package:meta/meta.dart';
+
+@immutable
 class NotificationTime {
   const NotificationTime({required this.hour, required this.minute})
       : assert(hour >= 0 && hour <= 23, 'hour must be 0 through 23'),

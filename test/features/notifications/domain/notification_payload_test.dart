@@ -19,12 +19,14 @@ void main() {
   test('payload rejects unknown kind and malformed scheduled timestamp', () {
     expect(
       NotificationPayload.tryDecode(
-          '{"kind":"server_push","scheduled_for":"2026-05-22T19:00:00+08:00"}'),
+        '{"kind":"server_push","scheduled_for":"2026-05-22T19:00:00+08:00"}',
+      ),
       isNull,
     );
     expect(
       NotificationPayload.tryDecode(
-          '{"kind":"daily_reminder","scheduled_for":"soon"}'),
+        '{"kind":"daily_reminder","scheduled_for":"soon"}',
+      ),
       isNull,
     );
   });
