@@ -97,13 +97,17 @@ class AuthRepository {
     if (lastSignInTime == null ||
         _clock().difference(lastSignInTime) > const Duration(minutes: 5)) {
       final tokens = await _googleGateway.signIn();
-      if (tokens != null) {
-        await _gateway.signInWithGoogleCredential(tokens);
+      if (tokens == null) {
+        throw const AuthGatewayException('requires-recent-login');
       }
+      await _gateway.signInWithGoogleCredential(tokens);
     }
 
     await _functionsGateway.deleteAccount();
     await _localStateWiper.wipeAll();
+    await _gateway.signOut();
+    await _googleGateway.signOut();
+    await ensureAnonymous();
   }
 
   Future<SignInResult> _switchToExistingGoogleAccount(
