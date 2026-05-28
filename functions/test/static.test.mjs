@@ -108,3 +108,14 @@ test('deleteAccount audit write appears before recursive delete', () => {
   assert.ok(auditIndex < deleteIndex);
   assert.ok(userDocIndex < deleteIndex);
 });
+
+test('exportData remains app check enforced if kept', () => {
+  const source = readFileSync(
+    new URL('../src/exportData.ts', import.meta.url),
+    'utf8',
+  );
+
+  assert.match(source, /enforceAppCheck: true/);
+  assert.match(source, /consumeAppCheckToken: true/);
+  assert.match(source, /assertNamedUser\(request\.auth\)/);
+});

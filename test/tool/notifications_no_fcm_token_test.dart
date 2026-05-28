@@ -44,6 +44,26 @@ void main() {
 
     expect(offenders, isEmpty);
   });
+
+  test('no FCM token storage appears in legal deletion scope', () {
+    final offenders = <String>[];
+    final forbidden =
+        RegExp('(FirebaseMessaging|getToken|fcmToken|deviceTokens)');
+
+    for (final path in [
+      'lib/features/legal',
+      'lib/features/settings',
+      'lib/core/auth',
+      'functions/src/deleteAccount.ts',
+    ]) {
+      for (final file in _files(path)) {
+        final source = file.readAsStringSync();
+        if (forbidden.hasMatch(source)) offenders.add(file.path);
+      }
+    }
+
+    expect(offenders, isEmpty);
+  });
 }
 
 Iterable<File> _dartFiles(String path) {

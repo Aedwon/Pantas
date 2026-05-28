@@ -31,6 +31,26 @@ void main() {
 
     expect(offenders, isEmpty);
   });
+
+  test('settings UI does not expose export my data row', () {
+    final offenders = <String>[];
+    final forbidden = RegExp(r'(Export my data|exportData\()');
+    for (final file in _dartFiles('lib/features/settings')) {
+      final source = file.readAsStringSync();
+      if (forbidden.hasMatch(source)) offenders.add(file.path);
+    }
+
+    expect(offenders, isEmpty);
+  });
+
+  test('legal text points export requests to DPO email path', () {
+    final source = File('lib/features/legal/domain/legal_document.dart')
+        .readAsStringSync();
+
+    expect(source, contains('export or correction'));
+    expect(source, contains('Data Protection Officer'));
+    expect(source, isNot(contains('/export')));
+  });
 }
 
 Iterable<File> _dartFiles(String path) {
