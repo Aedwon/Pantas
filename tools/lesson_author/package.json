@@ -1,0 +1,13 @@
+{
+  "name": "lesson_author",
+  "private": true,
+  "type": "module",
+  "description": "Local authoring tool for Pantas lesson content",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "katex": "^0.16.11",
+    "marked": "^14.1.2"
+  }
+}

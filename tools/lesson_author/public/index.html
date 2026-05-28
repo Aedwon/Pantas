@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pantas Lesson Author</title>
+<link rel="stylesheet" href="/vendor/katex.min.css">
+<style>
+  :root {
+    --paper: #FBF9F4;
+    --panel: #FFFFFF;
+    --ink: #26221B;
+    --ink-soft: #6E675C;
+    --line: #E5DFD3;
+    --board: #1D5C50;      /* blackboard green: progress, done, save */
+    --board-soft: #E3EFEA;
+    --amber: #9A6B15;      /* unsupported-formatting warnings */
+    --amber-soft: #FBF3DF;
+    --danger: #A33B2E;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    font: 15px/1.5 -apple-system, system-ui, "Segoe UI", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    background: var(--board);
+    color: #F4F1E8;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  header h1 {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin: 0;
+    white-space: nowrap;
+  }
+  header h1 span { opacity: 0.55; font-weight: 400; }
+  .selectors { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; flex: 1; }
+  .selectors select {
+    font: inherit;
+    font-size: 13px;
+    padding: 5px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.12);
+    color: #F4F1E8;
+    max-width: 300px;
+  }
+  .selectors select option { color: var(--ink); background: #fff; }
+  .progress { display: flex; align-items: center; gap: 10px; min-width: 190px; }
+  .progress .count { font-size: 13px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .meter {
+    flex: 1; height: 8px; min-width: 110px;
+    background: rgba(255,255,255,0.18);
+    border-radius: 99px; overflow: hidden;
+  }
+  .meter > div { height: 100%; background: #F4F1E8; border-radius: 99px; width: 0%; transition: width 0.4s ease; }
+
+  /* ---------- Layout ---------- */
+  .app { flex: 1; display: flex; min-height: 0; }
+  nav {
+    width: 270px; flex-shrink: 0;
+    border-right: 1px solid var(--line);
+    overflow-y: auto;
+    background: var(--panel);
+    padding: 10px 0 30px;
+  }
+  nav .topic-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--ink-soft);
+    padding: 12px 16px 4px;
+  }
+  nav button.lesson-item {
+    display: flex; align-items: baseline; gap: 8px;
+    width: 100%; text-align: left;
+    font: inherit; font-size: 13px;
+    padding: 7px 16px;
+    border: 0; background: none; color: var(--ink);
+    cursor: pointer;
+  }
+  nav button.lesson-item:hover { background: var(--paper); }
+  nav button.lesson-item.current { background: var(--board-soft); font-weight: 600; }
+  nav .dot {
+    flex-shrink: 0; width: 14px; height: 14px; border-radius: 50%;
+    border: 1.5px solid var(--line);
+    position: relative; top: 2px;
+    background: var(--panel);
+  }
+  nav .done .dot { background: var(--board); border-color: var(--board); }
+  nav .done .dot::after {
+    content: ""; position: absolute; left: 4px; top: 1.5px;
+    width: 3px; height: 7px;
+    border: solid #fff; border-width: 0 1.5px 1.5px 0;
+    transform: rotate(45deg);
+  }
+
+  main { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+
+  /* ---------- Metadata ---------- */
+  .meta {
+    display: grid;
+    grid-template-columns: 1fr 110px;
+    gap: 8px 12px;
+    padding: 14px 20px 10px;
+    border-bottom: 1px solid var(--line);
+    background: var(--panel);
+  }
+  .meta label { display: flex; flex-direction: column; gap: 3px; font-size: 11px; font-weight: 600; color: var(--ink-soft); }
+  .meta input {
+    font: inherit; font-size: 14px;
+    padding: 6px 9px;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: var(--paper); color: var(--ink);
+  }
+  .meta input:focus { outline: 2px solid var(--board); outline-offset: -1px; }
+  .meta .title-field { grid-column: 1; }
+  .meta .minutes-field input { width: 100%; }
+  .meta .summary-field { grid-column: 1 / -1; }
+
+  .sections {
+    grid-column: 1 / -1;
+    display: flex; gap: 6px; flex-wrap: wrap; align-items: center;
+  }
+  .sections .hint { font-size: 11px; color: var(--ink-soft); margin-right: 2px; }
+  .sections button {
+    font: inherit; font-size: 12px;
+    padding: 3px 10px;
+    border: 1px solid var(--line); border-radius: 99px;
+    background: var(--paper); color: var(--ink);
+    cursor: pointer;
+  }
+  .sections button:hover { border-color: var(--board); color: var(--board); }
+
+  /* ---------- Editor / preview ---------- */
+  .workspace { flex: 1; display: flex; min-height: 0; }
+  .workspace textarea {
+    flex: 1; min-width: 0;
+    border: 0; resize: none;
+    padding: 18px 20px;
+    font: 13.5px/1.65 ui-monospace, "SF Mono", Menlo, monospace;
+    background: var(--panel); color: var(--ink);
+    border-right: 1px solid var(--line);
+  }
+  .workspace textarea:focus { outline: none; background: #FFFDF9; }
+  .preview {
+    flex: 1; min-width: 0;
+    overflow-y: auto;
+    padding: 18px 24px 60px;
+  }
+  .preview-body { font: 16px/1.7 Georgia, "Iowan Old Style", serif; max-width: 620px; }
+  .preview-body h1, .preview-body h2, .preview-body h3, .preview-body h4 {
+    font-family: -apple-system, system-ui, sans-serif;
+    line-height: 1.25; margin: 1.3em 0 0.4em;
+  }
+  .preview-body h1 { font-size: 26px; }
+  .preview-body h2 { font-size: 21px; }
+  .preview-body h3 { font-size: 17px; }
+  .preview-body h4 { font-size: 15px; }
+  .preview-body p { margin: 0.6em 0; }
+  .preview-body blockquote {
+    margin: 0.8em 0; padding: 2px 14px;
+    border-left: 3px solid var(--board);
+    color: var(--ink-soft); font-style: italic;
+  }
+  .preview-body img { max-width: 100%; border-radius: 8px; }
+  .preview-body .katex-display { margin: 0.9em 0; }
+  .preview-body .math-error { color: var(--danger); font-family: monospace; font-size: 13px; }
+  .preview-body .unsupported { outline: 1.5px dashed var(--amber); outline-offset: 2px; border-radius: 2px; }
+  .preview-empty { color: var(--ink-soft); font-style: italic; }
+
+  .format-warning {
+    display: none;
+    margin: 0 0 14px;
+    padding: 8px 12px;
+    font: 12.5px/1.5 -apple-system, system-ui, sans-serif;
+    background: var(--amber-soft); color: var(--amber);
+    border: 1px solid #EAD9AE; border-radius: 8px;
+  }
+  .format-warning.visible { display: block; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 20px;
+    border-top: 1px solid var(--line);
+    background: var(--panel);
+  }
+  footer .status { flex: 1; font-size: 13px; color: var(--ink-soft); }
+  footer .status.saved { color: var(--board); }
+  footer .status.error { color: var(--danger); }
+  footer button {
+    font: inherit; font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: var(--panel); color: var(--ink);
+    cursor: pointer;
+  }
+  footer button:hover { background: var(--paper); }
+  footer button.save {
+    background: var(--board); border-color: var(--board);
+    color: #fff; font-weight: 600;
+    padding: 8px 26px;
+  }
+  footer button.save:hover { background: #17493F; }
+  footer button:focus-visible, nav button:focus-visible, .sections button:focus-visible {
+    outline: 2px solid var(--board); outline-offset: 1px;
+  }
+
+  @media (max-width: 900px) {
+    nav { display: none; }
+    .workspace { flex-direction: column; }
+    .workspace textarea { border-right: 0; border-bottom: 1px solid var(--line); min-height: 40vh; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Pantas <span>· Lesson Author</span></h1>
+  <div class="selectors">
+    <select id="subjectSelect" aria-label="Subject"></select>
+    <select id="topicSelect" aria-label="Topic"></select>
+    <select id="lessonSelect" aria-label="Lesson"></select>
+  </div>
+  <div class="progress">
+    <div class="meter"><div id="meterFill"></div></div>
+    <span class="count" id="progressCount">0 / 0</span>
+  </div>
+</header>
+
+<div class="app">
+  <nav id="lessonNav" aria-label="Lessons in this topic"></nav>
+  <main>
+    <div class="meta">
+      <label class="title-field">Title
+        <input id="titleInput" placeholder="Lesson title">
+      </label>
+      <label class="minutes-field">Est. minutes
+        <input id="minutesInput" type="number" min="1" step="1" placeholder="8">
+      </label>
+      <label class="summary-field">Summary (one or two sentences shown in the lesson list)
+        <input id="summaryInput" placeholder="What will the student learn here?">
+      </label>
+      <div class="sections" id="sectionChips"></div>
+    </div>
+    <div class="workspace">
+      <textarea id="editor" placeholder="Write the lesson in Markdown.
+
+## Headings make sections
+Plain paragraphs, > blockquotes, and images are supported.
+
+Math works too: inline $x^2$ or display
+
+$$\frac{-b \pm \sqrt{b^2-4ac}}{2a}$$" spellcheck="true"></textarea>
+      <div class="preview">
+        <div class="format-warning" id="formatWarning"></div>
+        <div class="preview-body" id="previewBody"><p class="preview-empty">The preview appears here as you type.</p></div>
+      </div>
+    </div>
+    <footer>
+      <span class="status" id="statusLine">Loading…</span>
+      <button id="prevBtn" type="button">◀ Prev</button>
+      <button id="nextBtn" type="button">Next ▶</button>
+      <button class="save" id="saveBtn" type="button">Save lesson</button>
+    </footer>
+  </main>
+</div>
+
+<script src="/vendor/marked.js"></script>
+<script src="/vendor/katex.min.js"></script>
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const els = {
+    subject: $('subjectSelect'), topic: $('topicSelect'), lesson: $('lessonSelect'),
+    nav: $('lessonNav'), chips: $('sectionChips'),
+    title: $('titleInput'), summary: $('summaryInput'), minutes: $('minutesInput'),
+    editor: $('editor'), preview: $('previewBody'), warning: $('formatWarning'),
+    status: $('statusLine'), save: $('saveBtn'), prev: $('prevBtn'), next: $('nextBtn'),
+    meter: $('meterFill'), count: $('progressCount'),
+  };
+
+  let outline = null;
+  let statuses = {};        // id -> {exists, title, summary, estimatedMinutes}
+  let flat = [];            // ordered [{id, subjectIdx, topicIdx, lessonIdx, lesson}]
+  let currentIdx = 0;
+  let dirty = false;
+  let loading = false;      // suppress dirty/draft while programmatically filling fields
+
+  const lessonId = (topic, lesson) => `lesson-${topic.slug}-${lesson.slug}`;
+  const draftKey = (id) => `pantas-draft-${id}`;
+
+  // ---------- Rendering (markdown + KaTeX) ----------
+
+  const UNSUPPORTED = {
+    'ul,ol': 'lists', 'strong,b': 'bold', 'em,i': 'italics', 'a': 'links',
+    'code,pre': 'code', 'table': 'tables', 'hr': 'dividers', 'del': 'strikethrough',
+  };
+
+  function renderMath(source) {
+    const chunks = [];
+    const stash = (tex, displayMode) => {
+      let html;
+      try {
+        html = katex.renderToString(tex, { displayMode, throwOnError: true });
+      } catch (e) {
+        html = `<span class="math-error">math error: ${String(e.message).replace(/[<>&]/g, '')}</span>`;
+      }
+      chunks.push(html);
+      return ` MATH${chunks.length - 1} `;
+    };
+    let text = source.replace(/\$\$([\s\S]+?)\$\$/g, (_, tex) => stash(tex.trim(), true));
+    text = text.replace(/\$([^$\n]+?)\$/g, (_, tex) => stash(tex.trim(), false));
+    return { text, restore: (html) => html.replace(/ MATH(\d+) /g, (_, i) => chunks[+i]) };
+  }
+
+  function renderPreview() {
+    const source = els.editor.value;
+    if (!source.trim()) {
+      els.preview.innerHTML = '<p class="preview-empty">The preview appears here as you type.</p>';
+      els.warning.classList.remove('visible');
+      return;
+    }
+    const { text, restore } = renderMath(source);
+    els.preview.innerHTML = restore(marked.parse(text, { gfm: true }));
+
+    const found = new Set();
+    for (const [selector, label] of Object.entries(UNSUPPORTED)) {
+      for (const node of els.preview.querySelectorAll(selector)) {
+        if (node.closest('.katex')) continue;
+        node.classList.add('unsupported');
+        found.add(label);
+      }
+    }
+    if (found.size) {
+      els.warning.textContent =
+        `Heads up: the app can't display ${[...found].join(', ')} yet — the dashed parts will show as plain text on the phone.`;
+      els.warning.classList.add('visible');
+    } else {
+      els.warning.classList.remove('visible');
+    }
+  }
+
+  // ---------- Navigation ----------
+
+  function buildFlat() {
+    flat = [];
+    outline.subjects.forEach((subject, si) => {
+      subject.topics.forEach((topic, ti) => {
+        topic.lessons.forEach((lesson, li) => {
+          flat.push({ id: lessonId(topic, lesson), si, ti, li, subject, topic, lesson });
+        });
+      });
+    });
+  }
+
+  function fillSelect(select, items, selectedIdx) {
+    select.innerHTML = '';
+    items.forEach((label, i) => {
+      const option = document.createElement('option');
+      option.value = i;
+      option.textContent = label;
+      if (i === selectedIdx) option.selected = true;
+      select.append(option);
+    });
+  }
+
+  function renderSelectors() {
+    const cur = flat[currentIdx];
+    fillSelect(els.subject, outline.subjects.map((s) => s.name), cur.si);
+    fillSelect(els.topic, cur.subject.topics.map((t) => t.name), cur.ti);
+    fillSelect(els.lesson, cur.topic.lessons.map((l, i) => {
+      const id = lessonId(cur.topic, l);
+      return `${statuses[id]?.exists ? '✓ ' : ''}${l.title}`;
+    }), cur.li);
+  }
+
+  function renderNav() {
+    const cur = flat[currentIdx];
+    els.nav.innerHTML = '';
+    const label = document.createElement('div');
+    label.className = 'topic-label';
+    label.textContent = cur.topic.name;
+    els.nav.append(label);
+    cur.topic.lessons.forEach((lesson, li) => {
+      const id = lessonId(cur.topic, lesson);
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'lesson-item'
+        + (statuses[id]?.exists ? ' done' : '')
+        + (li === cur.li ? ' current' : '');
+      btn.innerHTML = '<span class="dot"></span>';
+      btn.append(lesson.title);
+      btn.addEventListener('click', () => goTo(flat.findIndex((f) => f.id === id)));
+      els.nav.append(btn);
+    });
+  }
+
+  function renderChips() {
+    const cur = flat[currentIdx];
+    els.chips.innerHTML = '';
+    if (!cur.lesson.sections.length) return;
+    const hint = document.createElement('span');
+    hint.className = 'hint';
+    hint.textContent = 'Suggested sections — click to insert:';
+    els.chips.append(hint);
+    for (const section of cur.lesson.sections) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = section;
+      btn.addEventListener('click', () => {
+        const editor = els.editor;
+        const insert = `\n## ${section}\n\n`;
+        const at = editor.selectionStart ?? editor.value.length;
+        editor.value = editor.value.slice(0, at) + insert + editor.value.slice(at);
+        editor.focus();
+        editor.selectionStart = editor.selectionEnd = at + insert.length;
+        onEdited();
+      });
+      els.chips.append(btn);
+    }
+  }
+
+  function renderProgress() {
+    const done = flat.filter((f) => statuses[f.id]?.exists).length;
+    els.count.textContent = `${done} / ${flat.length} lessons`;
+    els.meter.style.width = `${(100 * done) / flat.length}%`;
+  }
+
+  // ---------- Lesson loading / saving ----------
+
+  function setStatus(text, kind = '') {
+    els.status.textContent = text;
+    els.status.className = `status ${kind}`;
+  }
+
+  async function loadCurrent() {
+    const cur = flat[currentIdx];
+    loading = true;
+    dirty = false;
+
+    let data = null;
+    if (statuses[cur.id]?.exists) {
+      try {
+        data = await (await fetch(`/api/lesson?id=${encodeURIComponent(cur.id)}`)).json();
+      } catch { /* fall through to defaults */ }
+    }
+    els.title.value = data?.title ?? cur.lesson.title;
+    els.summary.value = data?.summary ?? '';
+    els.minutes.value = data?.estimatedMinutes ?? 8;
+    els.editor.value = data?.body ?? '';
+
+    const draft = localStorage.getItem(draftKey(cur.id));
+    if (draft !== null) {
+      const parsed = JSON.parse(draft);
+      if (parsed.body !== els.editor.value || parsed.title !== els.title.value
+          || parsed.summary !== els.summary.value) {
+        els.title.value = parsed.title;
+        els.summary.value = parsed.summary;
+        els.minutes.value = parsed.minutes;
+        els.editor.value = parsed.body;
+        dirty = true;
+        setStatus('Restored an unsaved draft — save to keep it.');
+      }
+    }
+    if (!dirty) {
+      setStatus(statuses[cur.id]?.exists
+        ? 'Saved lesson loaded — edit away.'
+        : 'New lesson — not written yet.');
+    }
+
+    loading = false;
+    renderSelectors();
+    renderNav();
+    renderChips();
+    renderProgress();
+    renderPreview();
+    document.title = `${cur.lesson.title} — Pantas Lesson Author`;
+  }
+
+  function goTo(idx) {
+    if (idx < 0 || idx >= flat.length || idx === currentIdx) return;
+    currentIdx = idx;
+    loadCurrent();
+  }
+
+  function onEdited() {
+    if (loading) return;
+    dirty = true;
+    const cur = flat[currentIdx];
+    localStorage.setItem(draftKey(cur.id), JSON.stringify({
+      title: els.title.value,
+      summary: els.summary.value,
+      minutes: els.minutes.value,
+      body: els.editor.value,
+    }));
+    setStatus('Unsaved changes…');
+    renderPreview();
+  }
+
+  async function save() {
+    const cur = flat[currentIdx];
+    setStatus('Saving…');
+    let result;
+    try {
+      const response = await fetch('/api/lesson', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id: cur.id,
+          title: els.title.value,
+          summary: els.summary.value,
+          estimatedMinutes: Number(els.minutes.value),
+          body: els.editor.value,
+        }),
+      });
+      result = await response.json();
+      if (!response.ok) throw new Error(result.error ?? 'Save failed');
+    } catch (error) {
+      setStatus(String(error.message ?? error), 'error');
+      return;
+    }
+    dirty = false;
+    localStorage.removeItem(draftKey(cur.id));
+    statuses[cur.id] = {
+      exists: true,
+      title: els.title.value,
+      summary: els.summary.value,
+      estimatedMinutes: Number(els.minutes.value),
+    };
+    setStatus(`Saved ✓  (${new Date().toLocaleTimeString()})`, 'saved');
+    renderSelectors();
+    renderNav();
+    renderProgress();
+  }
+
+  // ---------- Wiring ----------
+
+  els.subject.addEventListener('change', () => {
+    const si = Number(els.subject.value);
+    goTo(flat.findIndex((f) => f.si === si));
+  });
+  els.topic.addEventListener('change', () => {
+    const cur = flat[currentIdx];
+    const ti = Number(els.topic.value);
+    goTo(flat.findIndex((f) => f.si === cur.si && f.ti === ti));
+  });
+  els.lesson.addEventListener('change', () => {
+    const cur = flat[currentIdx];
+    const li = Number(els.lesson.value);
+    goTo(flat.findIndex((f) => f.si === cur.si && f.ti === cur.ti && f.li === li));
+  });
+  els.prev.addEventListener('click', () => goTo(currentIdx - 1));
+  els.next.addEventListener('click', () => goTo(currentIdx + 1));
+  els.save.addEventListener('click', save);
+  for (const el of [els.title, els.summary, els.minutes]) el.addEventListener('input', onEdited);
+  els.editor.addEventListener('input', onEdited);
+  document.addEventListener('keydown', (event) => {
+    if ((event.metaKey || event.ctrlKey) && event.key === 's') {
+      event.preventDefault();
+      save();
+    }
+  });
+  window.addEventListener('beforeunload', (event) => {
+    if (dirty) event.preventDefault();
+  });
+
+  // ---------- Boot ----------
+
+  (async () => {
+    const [outlineRes, statusRes] = await Promise.all([
+      fetch('/outline.json'), fetch('/api/lessons'),
+    ]);
+    outline = await outlineRes.json();
+    statuses = await statusRes.json();
+    buildFlat();
+    // Resume where you left off: first lesson without a saved file.
+    const firstUnwritten = flat.findIndex((f) => !statuses[f.id]?.exists);
+    currentIdx = firstUnwritten === -1 ? 0 : firstUnwritten;
+    await loadCurrent();
+  })();
+})();
+</script>
+</body>
+</html>
