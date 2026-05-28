@@ -277,10 +277,15 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: '/settings/about',
-        builder: (_, __) => const AboutPage(
-          version: '0.1.0',
-          buildNumber: '1',
-        ),
+        builder: (_, __) {
+          final contact = ref.watch(legalContactProvider);
+          return AboutPage(
+            version: '0.1.0',
+            buildNumber: '1',
+            dpoEmail: contact.dpoEmail,
+            physicalAddress: contact.physicalAddress,
+          );
+        },
       ),
       GoRoute(
         path: '/settings/_debug',

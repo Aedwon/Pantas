@@ -6,11 +6,15 @@ class AboutPage extends StatelessWidget {
   const AboutPage({
     required this.version,
     required this.buildNumber,
+    required this.dpoEmail,
+    required this.physicalAddress,
     super.key,
   });
 
   final String version;
   final String buildNumber;
+  final String dpoEmail;
+  final String physicalAddress;
 
   @override
   Widget build(BuildContext context) {
@@ -37,13 +41,14 @@ class AboutPage extends StatelessWidget {
           const Text('DATA & PRIVACY'),
           SettingsRow(
             title: 'Contact our DPO',
-            subtitle: 'dpo@example.com',
+            subtitle: dpoEmail,
             onTap: () {},
           ),
           const SizedBox(height: 8),
-          const Text(
+          Text(
             'For data export, correction, or other privacy requests, email '
-            'our Data Protection Officer.',
+            'our Data Protection Officer at $dpoEmail. '
+            'Controller address: $physicalAddress.',
           ),
         ],
       ),

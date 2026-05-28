@@ -21,6 +21,16 @@ void main() {
     expect(offenders, isEmpty);
     expect(foundGuardedFlag, isTrue);
   });
+
+  test('settings files do not contain example.com legal placeholders', () {
+    final offenders = <String>[];
+    for (final file in _dartFiles('lib/features/settings')) {
+      final source = file.readAsStringSync();
+      if (source.contains('example.com')) offenders.add(file.path);
+    }
+
+    expect(offenders, isEmpty);
+  });
 }
 
 Iterable<File> _dartFiles(String path) {

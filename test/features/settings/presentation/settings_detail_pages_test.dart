@@ -2,12 +2,15 @@ import 'package:cse_cet_reviewer/core/auth/auth_user.dart';
 import 'package:cse_cet_reviewer/core/auth/providers.dart';
 import 'package:cse_cet_reviewer/core/sync/providers.dart';
 import 'package:cse_cet_reviewer/core/sync/sync_status.dart';
+import 'package:cse_cet_reviewer/features/legal/legal.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/about_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/account_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/backup_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/delete_account_page.dart';
 import 'package:cse_cet_reviewer/features/settings/settings.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../helpers/pump_app.dart';
 
@@ -93,7 +96,12 @@ void main() {
 
   testWidgets('about page renders legal and DPO seams', (tester) async {
     await tester.pumpApp(
-      const AboutPage(version: '0.1.0', buildNumber: '1'),
+      AboutPage(
+        version: '0.1.0',
+        buildNumber: '1',
+        dpoEmail: defaultLegalContact.dpoEmail,
+        physicalAddress: defaultLegalContact.physicalAddress,
+      ),
     );
 
     expect(find.text('CSE Reviewer'), findsOneWidget);
@@ -102,5 +110,68 @@ void main() {
     expect(find.text('Terms of Service'), findsOneWidget);
     expect(find.text('Contact our DPO'), findsOneWidget);
     expect(find.textContaining('data export, correction'), findsOneWidget);
+  });
+
+  testWidgets('about page shows configured DPO email and physical address',
+      (tester) async {
+    await tester.pumpApp(
+      AboutPage(
+        version: '0.1.0',
+        buildNumber: '1',
+        dpoEmail: defaultLegalContact.dpoEmail,
+        physicalAddress: defaultLegalContact.physicalAddress,
+      ),
+    );
+
+    expect(find.text(defaultLegalContact.dpoEmail), findsOneWidget);
+    expect(
+      find.textContaining(defaultLegalContact.physicalAddress),
+      findsOneWidget,
+    );
+    expect(find.textContaining('example.com'), findsNothing);
+  });
+
+  testWidgets('about page privacy and terms rows navigate to legal routes',
+      (tester) async {
+    var location = '/settings/about';
+    final router = GoRouter(
+      initialLocation: location,
+      routes: [
+        GoRoute(
+          path: '/settings/about',
+          builder: (_, __) => AboutPage(
+            version: '0.1.0',
+            buildNumber: '1',
+            dpoEmail: defaultLegalContact.dpoEmail,
+            physicalAddress: defaultLegalContact.physicalAddress,
+          ),
+        ),
+        GoRoute(
+          path: '/legal/:doc',
+          builder: (_, state) => Scaffold(
+            body: Text('Legal ${state.pathParameters['doc']}'),
+          ),
+        ),
+      ],
+      redirect: (_, state) {
+        location = state.uri.toString();
+        return null;
+      },
+    );
+
+    await tester.pumpAppWithRouter(router);
+
+    await tester.tap(find.text('Privacy Policy'));
+    await tester.pumpAndSettle();
+    expect(location, '/legal/privacy');
+    expect(find.text('Legal privacy'), findsOneWidget);
+
+    router.go('/settings/about');
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Terms of Service'));
+    await tester.pumpAndSettle();
+    expect(location, '/legal/terms');
+    expect(find.text('Legal terms'), findsOneWidget);
   });
 }
