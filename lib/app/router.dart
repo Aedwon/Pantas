@@ -2,6 +2,9 @@
 
 import 'package:cse_cet_reviewer/app/router_refresh_listenable.dart';
 import 'package:cse_cet_reviewer/core/auth/providers.dart';
+import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
+import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/core/sync/local_state_wiper.dart';
 import 'package:cse_cet_reviewer/core/storage/age_gate.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/features/assessment/assessment.dart';
@@ -254,9 +257,12 @@ final routerProvider = Provider<GoRouter>((ref) {
               const Entitlement.free();
           final isAnonymous =
               ref.watch(isAnonymousProvider).valueOrNull ?? false;
+          final contact = ref.watch(legalContactProvider);
           return DeleteAccountPage(
             isAnonymous: isAnonymous,
             entitlement: _settingsEntitlement(entitlement),
+            dpoEmail: contact.dpoEmail,
+            onDelete: () => _deleteAccount(ref, isAnonymous: isAnonymous),
           );
         },
       ),
@@ -329,6 +335,31 @@ SettingsEntitlementSnapshot _settingsEntitlement(Entitlement entitlement) {
     isTrial: entitlement.isTrial,
     willRenew: entitlement.willRenew,
   );
+}
+
+Future<void> _deleteAccount(Ref ref, {required bool isAnonymous}) async {
+  await deleteAccountFromSettings(
+    isAnonymous: isAnonymous,
+    cancelNotifications: ref.read(notificationServiceProvider).cancelAll,
+    deleteNamedAccount: ref.read(authRepositoryProvider).deleteAccount,
+    wipeAnonymousData: SyncLocalStateWiper(
+      ref.read(appDatabaseProvider),
+    ).wipeAll,
+  );
+}
+
+Future<void> deleteAccountFromSettings({
+  required bool isAnonymous,
+  required Future<void> Function() cancelNotifications,
+  required Future<void> Function() deleteNamedAccount,
+  required Future<void> Function() wipeAnonymousData,
+}) async {
+  await cancelNotifications();
+  if (isAnonymous) {
+    await wipeAnonymousData();
+    return;
+  }
+  await deleteNamedAccount();
 }
 
 class _Stub extends StatelessWidget {

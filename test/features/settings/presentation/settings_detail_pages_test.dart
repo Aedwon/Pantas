@@ -58,11 +58,13 @@ void main() {
   testWidgets('delete account page renders billing warning and destructive CTA',
       (tester) async {
     await tester.pumpApp(
-      const DeleteAccountPage(
+      DeleteAccountPage(
         isAnonymous: false,
-        entitlement: SettingsEntitlementSnapshot(
+        entitlement: const SettingsEntitlementSnapshot(
           plan: SettingsEntitlementPlan.monthly,
         ),
+        dpoEmail: defaultLegalContact.dpoEmail,
+        onDelete: _noopDelete,
       ),
     );
 
@@ -175,3 +177,5 @@ void main() {
     expect(find.text('Legal terms'), findsOneWidget);
   });
 }
+
+Future<void> _noopDelete() async {}
