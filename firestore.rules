@@ -72,6 +72,22 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
+    // Hosted Wrapped cards. The landing-page Cloud Function reads these via
+    // the Admin SDK (bypassing rules), so client reads stay closed. Owners
+    // may create their own card and may only flip `revoked` to true.
+    match /wrapped_shares/{shareId} {
+      allow read: if false;
+      allow create: if isNamedUser()
+          && request.resource.data.ownerUid == request.auth.uid
+          && request.resource.data.revoked == false;
+      allow update: if isNamedUser()
+          && resource.data.ownerUid == request.auth.uid
+          && request.resource.data.diff(resource.data)
+              .affectedKeys().hasOnly(['revoked'])
+          && request.resource.data.revoked == true;
+      allow delete: if false;
+    }
+
     match /{document=**} {
       allow read, write: if false;
     }

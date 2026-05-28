@@ -9,6 +9,16 @@
     "source": "functions",
     "runtime": "nodejs20"
   },
+  "hosting": {
+    "public": "public",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "/wrapped/**",
+        "function": "renderWrappedPage"
+      }
+    ]
+  },
   "emulators": {
     "auth": {
       "port": 9099

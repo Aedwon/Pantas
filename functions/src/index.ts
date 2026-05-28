@@ -1,5 +1,6 @@
 export { exportData } from './exportData.js';
 export { deleteAccount } from './deleteAccount.js';
+export { renderWrappedPage } from './renderWrappedPage.js';
 export { resetCloudUserData } from './resetCloudUserData.js';
 export { revenuecatWebhook } from './revenuecatWebhook.js';
 export { getProContent } from './getProContent.js';
