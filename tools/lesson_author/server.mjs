@@ -260,11 +260,13 @@ if (!existsSync(join(toolDir, 'node_modules'))) {
 
 server.on('error', (error) => {
   if (error.code === 'EADDRINUSE') {
-    console.error(
-      `Port ${PORT} is already in use — the Lesson Author is probably already running.\n` +
-        `Open http://localhost:${PORT} in your browser, or quit the other copy first.`,
+    console.log(
+      `The Lesson Author is already running — opening http://localhost:${PORT} in your browser.`,
     );
-    process.exit(1);
+    if (process.platform === 'darwin') {
+      spawn('open', [`http://localhost:${PORT}`], { stdio: 'ignore', detached: true }).unref();
+    }
+    process.exit(0);
   }
   throw error;
 });
