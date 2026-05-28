@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
-import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_share_url.dart';
 import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_payload.dart';
+import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_share_url.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
@@ -102,12 +102,12 @@ class WrappedPngRenderer {
   void _drawQrCode(Canvas canvas, String data) {
     const qrSize = 240.0;
     const padding = 16.0;
-    final left = width - 84 - qrSize;
+    const left = width - 84 - qrSize;
     const top = 1480.0;
     // White quiet-zone background so the QR scans against the gradient.
     canvas.drawRRect(
       RRect.fromRectAndRadius(
-        Rect.fromLTWH(
+        const Rect.fromLTWH(
           left - padding,
           top - padding,
           qrSize + padding * 2,
@@ -130,8 +130,9 @@ class WrappedPngRenderer {
         color: Color(0xFF16213E),
       ),
     );
-    canvas.save();
-    canvas.translate(left, top);
+    canvas
+      ..save()
+      ..translate(left, top);
     painter.paint(canvas, const Size(qrSize, qrSize));
     canvas.restore();
   }

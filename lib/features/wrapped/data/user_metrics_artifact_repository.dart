@@ -24,6 +24,27 @@ class UserMetricsArtifactEntry {
   final String? sharePlatform;
 }
 
+/// A published Wrapped card as surfaced in the "My shared cards" list.
+class HostedWrappedCard {
+  const HostedWrappedCard({
+    required this.userId,
+    required this.examId,
+    required this.artifactId,
+    required this.shareId,
+    required this.archetypeId,
+    required this.title,
+    required this.sharedAt,
+  });
+
+  final String userId;
+  final String examId;
+  final String artifactId;
+  final String shareId;
+  final String archetypeId;
+  final String title;
+  final DateTime sharedAt;
+}
+
 class UserMetricsArtifactRepository {
   const UserMetricsArtifactRepository(this._db);
 
@@ -92,6 +113,7 @@ class UserMetricsArtifactRepository {
     required String artifactId,
     required DateTime sharedAt,
     required String sharePlatform,
+    required String shareId,
   }) async {
     await (_db.update(_db.userMetricsArtifactsLocal)
           ..where(
@@ -104,6 +126,53 @@ class UserMetricsArtifactRepository {
       UserMetricsArtifactsLocalCompanion(
         sharedAt: Value(sharedAt),
         sharePlatform: Value(sharePlatform),
+        shareId: Value(shareId),
+      ),
+    );
+  }
+
+  /// Cards the user has published to a `pantas.app` link, newest first.
+  Future<List<HostedWrappedCard>> listShared() async {
+    final rows = await (_db.select(_db.userMetricsArtifactsLocal)
+          ..where((table) => table.sharedAt.isNotNull())
+          ..orderBy([
+            (table) => OrderingTerm(
+                  expression: table.sharedAt,
+                  mode: OrderingMode.desc,
+                ),
+          ]))
+        .get();
+    return [
+      for (final row in rows)
+        HostedWrappedCard(
+          userId: row.userId,
+          examId: row.examId,
+          artifactId: row.artifactId,
+          shareId: row.shareId,
+          archetypeId: _fromJson(row.payloadJson).archetypeId,
+          title: _fromJson(row.payloadJson).title,
+          sharedAt: row.sharedAt!,
+        ),
+    ];
+  }
+
+  /// Drops a card from the local shared list after it is revoked server-side.
+  Future<void> setLocalRevoked({
+    required String userId,
+    required String examId,
+    required String artifactId,
+  }) async {
+    await (_db.update(_db.userMetricsArtifactsLocal)
+          ..where(
+            (table) =>
+                table.userId.equals(userId) &
+                table.examId.equals(examId) &
+                table.artifactId.equals(artifactId),
+          ))
+        .write(
+      const UserMetricsArtifactsLocalCompanion(
+        sharedAt: Value(null),
+        sharePlatform: Value(null),
       ),
     );
   }

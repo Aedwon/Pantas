@@ -30,10 +30,17 @@ class SharePrivacySheet extends StatelessWidget {
   final SharePrivacySelection selection;
   final ValueChanged<SharePrivacySelection> onChanged;
 
+  /// Disclosure shown before publishing a card to a public link
+  /// (landing-page spec §3.1, decision #2).
+  static const String hostingDisclosure =
+      'Sharing publishes this card to a pantas.app link anyone can view.';
+
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Column(
       mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SwitchListTile(
           title: const Text('Include archetype'),
@@ -47,6 +54,22 @@ class SharePrivacySheet extends StatelessWidget {
           value: selection.includeScore,
           onChanged: (value) =>
               onChanged(selection.copyWith(includeScore: value)),
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Icon(Icons.public, size: 18),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  hostingDisclosure,
+                  style: theme.textTheme.bodySmall,
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );

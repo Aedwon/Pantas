@@ -1,6 +1,7 @@
 import 'package:cse_cet_reviewer/features/wrapped/application/wrapped_providers.dart';
 import 'package:cse_cet_reviewer/features/wrapped/application/wrapped_share_flow.dart';
 import 'package:cse_cet_reviewer/features/wrapped/data/user_metrics_artifact_repository.dart';
+import 'package:cse_cet_reviewer/features/wrapped/presentation/my_shared_cards_page.dart';
 import 'package:cse_cet_reviewer/features/wrapped/presentation/share_privacy_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -25,7 +26,20 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
   Widget build(BuildContext context) {
     final asyncEntry = ref.watch(wrappedArtifactProvider(widget.artifactId));
     return Scaffold(
-      appBar: AppBar(title: const Text('Wrapped')),
+      appBar: AppBar(
+        title: const Text('Wrapped'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.collections_bookmark_outlined),
+            tooltip: 'My shared cards',
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(
+                builder: (_) => const MySharedCardsPage(),
+              ),
+            ),
+          ),
+        ],
+      ),
       body: asyncEntry.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (_, __) => const Center(child: Text('Wrapped is unavailable.')),
@@ -73,6 +87,7 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
     try {
       final flow = WrappedShareFlow(
         repository: ref.read(userMetricsArtifactRepositoryProvider),
+        host: ref.read(wrappedShareHostProvider),
       );
       await flow.renderAndMarkShared(
         entry: entry,
