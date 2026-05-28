@@ -5,12 +5,12 @@ service firebase.storage {
       allow read, write: if false;
     }
 
-    // Wrapped card images. Owners (named users) upload their own; public reads
-    // are served through the renderWrappedPage function, never the bucket.
+    // Wrapped card images. Any signed-in user (incl. anonymous) uploads their
+    // own; public reads are served through the renderWrappedPage function,
+    // never the bucket. App Check gates genuine app installs.
     match /wrapped/{uid}/{fileName} {
       allow read: if false;
       allow write: if request.auth != null
-          && request.auth.token.firebase.sign_in_provider != 'anonymous'
           && request.auth.uid == uid;
     }
 
