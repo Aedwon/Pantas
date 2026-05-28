@@ -59,14 +59,14 @@ Write the response as plain Markdown using ONLY these constructs:
   example, each trap).
 - Plain paragraphs, 1–3 short sentences each. This is read on a 5-inch phone
   screen — prefer many short paragraphs over dense blocks.
+- Bullet lists and numbered lists (numbered lists for solution steps).
+- **Bold** for key terms and *italics* for gentle emphasis — sparingly.
 - Blockquotes (>) for mnemonics, warnings, and key takeaways.
 - Math in LaTeX: $...$ for inline, $$...$$ on its own line for display
   equations. Never use \( \), \[ \], or code fences for math.
 
-NEVER use: bullet points, numbered lists, bold, italics, tables, code blocks,
-links, or horizontal rules. Where you would normally write a list, use short
-paragraphs or "###" sub-headings instead. For solutions, start plain
-paragraphs with "Step 1:", "Step 2:", and so on.
+NEVER use: tables, code blocks, links, or horizontal rules. Where you would
+normally use a table, use a list or short paragraphs instead.
 
 Keep every display equation narrow enough for a phone screen — break long
 derivations into several consecutive $$ lines rather than one wide one.

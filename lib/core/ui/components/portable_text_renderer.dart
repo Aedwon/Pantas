@@ -12,11 +12,32 @@ class PortableTextRenderer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final children = <Widget>[];
+    // Numbered-list counters per indent level. Any non-list block ends the
+    // list, so counters reset; a deeper level resets counters below it.
+    final numberCounters = <int, int>{};
+    for (final block in blocks) {
+      final listItem =
+          block['_type'] == 'block' ? block['listItem'] as String? : null;
+      if (listItem == null) {
+        numberCounters.clear();
+        children.add(_dispatch(context, block));
+        continue;
+      }
+      final level = (block['level'] as num?)?.toInt() ?? 1;
+      numberCounters.removeWhere((l, _) => l > level);
+      String marker;
+      if (listItem == 'number') {
+        numberCounters[level] = (numberCounters[level] ?? 0) + 1;
+        marker = '${numberCounters[level]}.';
+      } else {
+        marker = '•';
+      }
+      children.add(_BlockRenderer(block: block, marker: marker, level: level));
+    }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        for (final block in blocks) _dispatch(context, block),
-      ],
+      children: children,
     );
   }
 
@@ -32,9 +53,15 @@ class PortableTextRenderer extends StatelessWidget {
 }
 
 class _BlockRenderer extends StatelessWidget {
-  const _BlockRenderer({required this.block});
+  const _BlockRenderer({required this.block, this.marker, this.level = 1});
 
   final Map<String, dynamic> block;
+
+  /// List marker ("•" or "3.") when this block is a list item.
+  final String? marker;
+
+  /// List indent level (1-based); only meaningful when [marker] is set.
+  final int level;
 
   @override
   Widget build(BuildContext context) {
@@ -53,36 +80,24 @@ class _BlockRenderer extends StatelessWidget {
       _ => textStyles.bodyMedium,
     };
 
-    final hasLatex = children.any((child) {
-      final marks = child['marks'] as List? ?? [];
-      return marks.contains('latex');
-    });
-
-    if (hasLatex) {
-      return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 4),
-        child: Text.rich(
-          TextSpan(
-            children: [
-              for (final child in children) _buildInlineSpan(child, baseStyle),
-            ],
-          ),
-        ),
-      );
-    }
-
-    final text = children.map((c) => c['text'] as String? ?? '').join();
+    final indent =
+        marker == null ? 0.0 : 12.0 + 16.0 * (level - 1).clamp(0, 4);
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
-      child: Text(text, style: baseStyle),
+      padding: EdgeInsets.only(top: 4, bottom: 4, left: indent),
+      child: Text.rich(
+        TextSpan(
+          children: [
+            if (marker != null) TextSpan(text: '$marker  '),
+            for (final child in children) _buildInlineSpan(child),
+          ],
+        ),
+        style: baseStyle,
+      ),
     );
   }
 
-  InlineSpan _buildInlineSpan(
-    Map<String, dynamic> child,
-    TextStyle base,
-  ) {
+  InlineSpan _buildInlineSpan(Map<String, dynamic> child) {
     final text = child['text'] as String? ?? '';
     final marks = (child['marks'] as List? ?? []).cast<String>();
 
@@ -97,7 +112,23 @@ class _BlockRenderer extends StatelessWidget {
       );
     }
 
-    return TextSpan(text: text, style: base);
+    TextStyle? style;
+    if (marks.contains('strong')) {
+      style = const TextStyle(fontWeight: FontWeight.w700);
+    }
+    if (marks.contains('em')) {
+      style =
+          (style ?? const TextStyle()).copyWith(fontStyle: FontStyle.italic);
+    }
+    final decorations = <TextDecoration>[
+      if (marks.contains('underline')) TextDecoration.underline,
+      if (marks.contains('strike-through')) TextDecoration.lineThrough,
+    ];
+    if (decorations.isNotEmpty) {
+      style = (style ?? const TextStyle())
+          .copyWith(decoration: TextDecoration.combine(decorations));
+    }
+    return TextSpan(text: text, style: style);
   }
 }
 

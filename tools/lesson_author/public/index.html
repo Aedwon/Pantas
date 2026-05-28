@@ -185,6 +185,8 @@
   .preview-body h3 { font-size: 17px; }
   .preview-body h4 { font-size: 15px; }
   .preview-body p { margin: 0.6em 0; }
+  .preview-body ul, .preview-body ol { margin: 0.6em 0; padding-left: 1.5em; }
+  .preview-body li { margin: 0.25em 0; }
   .preview-body blockquote {
     margin: 0.8em 0; padding: 2px 14px;
     border-left: 3px solid var(--board);
@@ -280,7 +282,7 @@
       <textarea id="editor" placeholder="Write the lesson in Markdown.
 
 ## Headings make sections
-Plain paragraphs, > blockquotes, and images are supported.
+Paragraphs, **bold**, *italics*, lists, > blockquotes, and images are supported.
 
 Math works too: inline $x^2$ or display
 
@@ -328,8 +330,7 @@ $$\frac{-b \pm \sqrt{b^2-4ac}}{2a}$$" spellcheck="true"></textarea>
   // ---------- Rendering (markdown + KaTeX) ----------
 
   const UNSUPPORTED = {
-    'ul,ol': 'lists', 'strong,b': 'bold', 'em,i': 'italics', 'a': 'links',
-    'code,pre': 'code', 'table': 'tables', 'hr': 'dividers', 'del': 'strikethrough',
+    'a': 'links', 'code,pre': 'code', 'table': 'tables', 'hr': 'dividers',
   };
 
   function renderMath(source) {

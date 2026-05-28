@@ -137,6 +137,173 @@ void main() {
     });
   });
 
+  group('inline marks', () {
+    TextSpan? findSpanWithText(InlineSpan root, String text) {
+      TextSpan? found;
+      root.visitChildren((span) {
+        if (span is TextSpan && span.text == text) {
+          found = span;
+          return false;
+        }
+        return true;
+      });
+      return found;
+    }
+
+    testWidgets('strong mark renders bold', (tester) async {
+      await tester.pumpApp(
+        const PortableTextRenderer(
+          blocks: [
+            {
+              '_type': 'block',
+              'style': 'normal',
+              'children': [
+                {'_type': 'span', 'text': 'plain ', 'marks': <String>[]},
+                {
+                  '_type': 'span',
+                  'text': 'important',
+                  'marks': ['strong'],
+                },
+              ],
+            },
+          ],
+        ),
+      );
+
+      final textWidget = tester.widget<Text>(find.text('plain important'));
+      final span = findSpanWithText(textWidget.textSpan!, 'important');
+      expect(span?.style?.fontWeight, FontWeight.w700);
+    });
+
+    testWidgets('strike-through mark renders line-through', (tester) async {
+      await tester.pumpApp(
+        const PortableTextRenderer(
+          blocks: [
+            {
+              '_type': 'block',
+              'style': 'normal',
+              'children': [
+                {
+                  '_type': 'span',
+                  'text': 'wrong',
+                  'marks': ['strike-through'],
+                },
+              ],
+            },
+          ],
+        ),
+      );
+
+      final textWidget = tester.widget<Text>(find.text('wrong'));
+      final span = findSpanWithText(textWidget.textSpan!, 'wrong');
+      expect(
+        span?.style?.decoration?.contains(TextDecoration.lineThrough),
+        isTrue,
+      );
+    });
+
+    testWidgets(r'inline latex \cancel renders Math, not placeholder',
+        (tester) async {
+      await tester.pumpApp(
+        const PortableTextRenderer(
+          blocks: [
+            {
+              '_type': 'block',
+              'style': 'normal',
+              'children': [
+                {
+                  '_type': 'span',
+                  'text': r'\cancel{2x}',
+                  'marks': ['latex'],
+                },
+              ],
+            },
+          ],
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.byType(Math), findsOneWidget);
+      expect(find.text('Content unavailable — update the app'), findsNothing);
+    });
+
+    testWidgets('em mark renders italic', (tester) async {
+      await tester.pumpApp(
+        const PortableTextRenderer(
+          blocks: [
+            {
+              '_type': 'block',
+              'style': 'normal',
+              'children': [
+                {
+                  '_type': 'span',
+                  'text': 'gently',
+                  'marks': ['em'],
+                },
+              ],
+            },
+          ],
+        ),
+      );
+
+      final textWidget = tester.widget<Text>(find.text('gently'));
+      final span = findSpanWithText(textWidget.textSpan!, 'gently');
+      expect(span?.style?.fontStyle, FontStyle.italic);
+    });
+  });
+
+  group('list items', () {
+    Map<String, dynamic> listBlock(String text, String kind, {int level = 1}) {
+      return {
+        '_type': 'block',
+        'style': 'normal',
+        'listItem': kind,
+        'level': level,
+        'children': [
+          {'_type': 'span', 'text': text, 'marks': <String>[]},
+        ],
+      };
+    }
+
+    testWidgets('bullet items render with bullet markers', (tester) async {
+      await tester.pumpApp(
+        PortableTextRenderer(
+          blocks: [
+            listBlock('First', 'bullet'),
+            listBlock('Second', 'bullet'),
+          ],
+        ),
+      );
+
+      expect(find.text('•  First'), findsOneWidget);
+      expect(find.text('•  Second'), findsOneWidget);
+    });
+
+    testWidgets('numbered items count up and reset after a normal block',
+        (tester) async {
+      await tester.pumpApp(
+        PortableTextRenderer(
+          blocks: [
+            listBlock('Step one', 'number'),
+            listBlock('Step two', 'number'),
+            const {
+              '_type': 'block',
+              'style': 'normal',
+              'children': [
+                {'_type': 'span', 'text': 'A paragraph.', 'marks': <String>[]},
+              ],
+            },
+            listBlock('Restarted', 'number'),
+          ],
+        ),
+      );
+
+      expect(find.text('1.  Step one'), findsOneWidget);
+      expect(find.text('2.  Step two'), findsOneWidget);
+      expect(find.text('1.  Restarted'), findsOneWidget);
+    });
+  });
+
   group('image block type', () {
     testWidgets('renders CachedNetworkImage for image block', (tester) async {
       await tester.pumpApp(
