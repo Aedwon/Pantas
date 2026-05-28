@@ -143,6 +143,22 @@
   }
   .sections button:hover { border-color: var(--board); color: var(--board); }
 
+  .ai-tools {
+    grid-column: 1 / -1;
+    display: flex; gap: 8px; align-items: center;
+    padding-top: 2px;
+  }
+  .ai-tools button {
+    font: inherit; font-size: 12.5px; font-weight: 600;
+    padding: 5px 14px;
+    border: 1px solid var(--board); border-radius: 99px;
+    background: var(--board-soft); color: var(--board);
+    cursor: pointer;
+  }
+  .ai-tools button:hover { background: var(--board); color: #fff; }
+  .ai-tools button:focus-visible { outline: 2px solid var(--board); outline-offset: 1px; }
+  .ai-tools .hint { font-size: 11px; color: var(--ink-soft); }
+
   /* ---------- Editor / preview ---------- */
   .workspace { flex: 1; display: flex; min-height: 0; }
   .workspace textarea {
@@ -254,6 +270,11 @@
         <input id="summaryInput" placeholder="What will the student learn here?">
       </label>
       <div class="sections" id="sectionChips"></div>
+      <div class="ai-tools">
+        <button id="copyPromptBtn" type="button">Copy AI prompt for this lesson</button>
+        <button id="pasteResultBtn" type="button">Paste generated lesson</button>
+        <span class="hint">Copy → generate with your AI of choice → paste. Edit the wording in prompt_template.md.</span>
+      </div>
     </div>
     <div class="workspace">
       <textarea id="editor" placeholder="Write the lesson in Markdown.
@@ -290,9 +311,11 @@ $$\frac{-b \pm \sqrt{b^2-4ac}}{2a}$$" spellcheck="true"></textarea>
     editor: $('editor'), preview: $('previewBody'), warning: $('formatWarning'),
     status: $('statusLine'), save: $('saveBtn'), prev: $('prevBtn'), next: $('nextBtn'),
     meter: $('meterFill'), count: $('progressCount'),
+    copyPrompt: $('copyPromptBtn'), pasteResult: $('pasteResultBtn'),
   };
 
   let outline = null;
+  let promptTemplate = '';
   let statuses = {};        // id -> {exists, title, summary, estimatedMinutes}
   let flat = [];            // ordered [{id, subjectIdx, topicIdx, lessonIdx, lesson}]
   let currentIdx = 0;
@@ -546,6 +569,78 @@ $$\frac{-b \pm \sqrt{b^2-4ac}}{2a}$$" spellcheck="true"></textarea>
     renderProgress();
   }
 
+  // ---------- AI prompt round-trip ----------
+
+  function buildPrompt() {
+    const cur = flat[currentIdx];
+    const sectionsBlock = cur.lesson.sections.length
+      ? `REQUIRED COVERAGE: organize "The Core Concept" around these sub-sections, `
+        + `each with its own "###" heading: ${cur.lesson.sections.join('; ')}.`
+      : '';
+    return promptTemplate
+      .replaceAll('{{LESSON_TITLE}}', els.title.value.trim() || cur.lesson.title)
+      .replaceAll('{{SUBJECT}}', cur.subject.name)
+      .replaceAll('{{TOPIC}}', cur.topic.name)
+      .replaceAll('{{SECTIONS_BLOCK}}', sectionsBlock)
+      .replace(/\n{3,}/g, '\n\n');
+  }
+
+  async function copyPrompt() {
+    if (!promptTemplate) {
+      setStatus('Prompt template missing — check prompt_template.md.', 'error');
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(buildPrompt());
+    } catch {
+      setStatus('Could not write to the clipboard — click the page once and try again.', 'error');
+      return;
+    }
+    setStatus('Prompt copied — paste it into your AI, then bring the result back here.', 'saved');
+  }
+
+  async function pasteResult() {
+    let text;
+    try {
+      text = await navigator.clipboard.readText();
+    } catch {
+      setStatus('Could not read the clipboard — allow paste access, or paste into the editor manually.', 'error');
+      return;
+    }
+    if (!text.trim()) {
+      setStatus('Clipboard is empty — copy the AI\'s answer first.', 'error');
+      return;
+    }
+    if (els.editor.value.trim()
+        && !confirm('Replace the current lesson content with what\'s on the clipboard?')) {
+      return;
+    }
+    const lines = text.split('\n');
+    const body = [];
+    let foundSummary = false;
+    let foundMinutes = false;
+    for (const line of lines) {
+      const summaryMatch = !foundSummary && line.match(/^\s*SUMMARY:\s*(.+)$/i);
+      if (summaryMatch) {
+        els.summary.value = summaryMatch[1].trim();
+        foundSummary = true;
+        continue;
+      }
+      const minutesMatch = !foundMinutes && line.match(/^\s*MINUTES:\s*(\d+)/i);
+      if (minutesMatch) {
+        els.minutes.value = minutesMatch[1];
+        foundMinutes = true;
+        continue;
+      }
+      body.push(line);
+    }
+    els.editor.value = body.join('\n').replace(/^\s+/, '');
+    onEdited();
+    setStatus(foundSummary
+      ? 'Pasted — summary and minutes filled in. Review the content, then save.'
+      : 'Pasted into the editor. Fill in the summary and minutes, review, then save.');
+  }
+
   // ---------- Wiring ----------
 
   els.subject.addEventListener('change', () => {
@@ -565,6 +660,8 @@ $$\frac{-b \pm \sqrt{b^2-4ac}}{2a}$$" spellcheck="true"></textarea>
   els.prev.addEventListener('click', () => goTo(currentIdx - 1));
   els.next.addEventListener('click', () => goTo(currentIdx + 1));
   els.save.addEventListener('click', save);
+  els.copyPrompt.addEventListener('click', copyPrompt);
+  els.pasteResult.addEventListener('click', pasteResult);
   for (const el of [els.title, els.summary, els.minutes]) el.addEventListener('input', onEdited);
   els.editor.addEventListener('input', onEdited);
   document.addEventListener('keydown', (event) => {
@@ -580,11 +677,12 @@ $$\frac{-b \pm \sqrt{b^2-4ac}}{2a}$$" spellcheck="true"></textarea>
   // ---------- Boot ----------
 
   (async () => {
-    const [outlineRes, statusRes] = await Promise.all([
-      fetch('/outline.json'), fetch('/api/lessons'),
+    const [outlineRes, statusRes, promptRes] = await Promise.all([
+      fetch('/outline.json'), fetch('/api/lessons'), fetch('/prompt_template.md'),
     ]);
     outline = await outlineRes.json();
     statuses = await statusRes.json();
+    promptTemplate = promptRes.ok ? await promptRes.text() : '';
     buildFlat();
     // Resume where you left off: first lesson without a saved file.
     const firstUnwritten = flat.findIndex((f) => !statuses[f.id]?.exists);

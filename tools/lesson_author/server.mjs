@@ -85,6 +85,10 @@ function parseLessonFile(raw) {
 const staticRoutes = {
   '/': { file: join(toolDir, 'public', 'index.html'), type: 'text/html; charset=utf-8' },
   '/outline.json': { file: join(toolDir, 'outline.json'), type: 'application/json' },
+  '/prompt_template.md': {
+    file: join(toolDir, 'prompt_template.md'),
+    type: 'text/plain; charset=utf-8',
+  },
   '/vendor/marked.js': {
     file: join(toolDir, 'node_modules', 'marked', 'marked.min.js'),
     type: 'text/javascript',
