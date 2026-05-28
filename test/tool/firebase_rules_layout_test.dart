@@ -42,6 +42,13 @@ void main() {
     expect(rules, isNot(contains("'pro'")));
   });
 
+  test('firestore.rules deny users root delete', () {
+    final rules = File('firestore.rules').readAsStringSync();
+
+    expect(rules, contains('match /users/{uid}'));
+    expect(rules, contains('allow delete: if false;'));
+  });
+
   test('firestore.rules gates Pro paths with the pro custom claim', () {
     final rules = File('firestore.rules').readAsStringSync();
 

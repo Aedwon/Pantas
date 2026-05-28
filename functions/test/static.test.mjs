@@ -63,3 +63,48 @@ test('resetCloudUserData is App Check enforced and wipes sync collections', () =
   }
   assert.match(source, /cloudDataReset/);
 });
+
+test('deleteAccount uses asia-southeast1 app check replay protection', () => {
+  const source = readFileSync(
+    new URL('../src/deleteAccount.ts', import.meta.url),
+    'utf8',
+  );
+
+  assert.match(source, /region: 'asia-southeast1'/);
+  assert.match(source, /enforceAppCheck: true/);
+  assert.match(source, /consumeAppCheckToken: true/);
+});
+
+test('deleteAccount checks recent auth before destructive work', () => {
+  const source = readFileSync(
+    new URL('../src/deleteAccount.ts', import.meta.url),
+    'utf8',
+  );
+
+  const authTimeIndex = source.indexOf('auth_time');
+  const recentLoginIndex = source.indexOf('requires-recent-login');
+  const deleteIndex = source.indexOf('recursiveDelete');
+
+  assert.notEqual(authTimeIndex, -1);
+  assert.notEqual(recentLoginIndex, -1);
+  assert.notEqual(deleteIndex, -1);
+  assert.ok(authTimeIndex < deleteIndex);
+  assert.ok(recentLoginIndex < deleteIndex);
+});
+
+test('deleteAccount audit write appears before recursive delete', () => {
+  const source = readFileSync(
+    new URL('../src/deleteAccount.ts', import.meta.url),
+    'utf8',
+  );
+
+  const auditIndex = source.indexOf('writeAuditLog');
+  const deleteIndex = source.indexOf('recursiveDelete');
+  const userDocIndex = source.indexOf("collection('users').doc(uid)");
+
+  assert.notEqual(auditIndex, -1);
+  assert.notEqual(deleteIndex, -1);
+  assert.notEqual(userDocIndex, -1);
+  assert.ok(auditIndex < deleteIndex);
+  assert.ok(userDocIndex < deleteIndex);
+});
