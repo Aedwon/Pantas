@@ -35,4 +35,15 @@ void main() {
     expect(docs, contains('content.db'));
     expect(docs, contains('out of user-data sync scope'));
   });
+
+  test('firebase setup docs mention legal callable manual validation', () {
+    final docs = File(
+      'docs/superpowers/specs/2026-05-23-legal-ra10173-implementation-notes.md',
+    ).readAsStringSync();
+
+    expect(docs, contains('deleteAccount'));
+    expect(docs, contains('App Check'));
+    expect(docs, contains('asia-southeast1'));
+    expect(docs, contains('throwaway account'));
+  });
 }

@@ -43,4 +43,15 @@ void main() {
     expect(text, contains('Mock Exam'));
     expect(lower, contains('paywall'));
   });
+
+  test('content docs mention legal Sanity publication requirement', () {
+    final text = File(
+      'docs/superpowers/specs/2026-05-23-legal-ra10173-implementation-notes.md',
+    ).readAsStringSync();
+
+    expect(text, contains('Sanity'));
+    expect(text, contains('Privacy Policy'));
+    expect(text, contains('Terms of Service'));
+    expect(text, contains('legal review'));
+  });
 }
