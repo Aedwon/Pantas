@@ -9,13 +9,14 @@ void main() {
     expect(document, isNotNull);
     expect(document!.title, 'Privacy Policy');
     expect(
-        document.sections.map((section) => section.body).join('\n'),
-        allOf([
-          contains('RA 10173'),
-          contains('export'),
-          contains('correction'),
-          contains('/settings/account'),
-        ]));
+      document.sections.map((section) => section.body).join('\n'),
+      allOf([
+        contains('RA 10173'),
+        contains('export'),
+        contains('correction'),
+        contains('/settings/account'),
+      ]),
+    );
   });
 
   test('terms fallback has stable title and last updated date', () {

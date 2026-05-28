@@ -14,9 +14,13 @@ void main() {
     final container = ProviderContainer();
     addTearDown(container.dispose);
 
-    expect(container.read(legalDocumentProvider('privacy'))?.title,
-        'Privacy Policy');
-    expect(container.read(legalDocumentProvider('terms'))?.title,
-        'Terms of Service');
+    expect(
+      container.read(legalDocumentProvider('privacy'))?.title,
+      'Privacy Policy',
+    );
+    expect(
+      container.read(legalDocumentProvider('terms'))?.title,
+      'Terms of Service',
+    );
   });
 }

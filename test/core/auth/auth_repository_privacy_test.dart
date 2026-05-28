@@ -2,6 +2,10 @@ import 'package:cse_cet_reviewer/core/auth/auth.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  const staleReauthCancelledTestName =
+      'deleteAccount stops before callable when reauth is cancelled and auth '
+      'is stale';
+
   test('exportData calls exportData callable and returns a Uri', () async {
     final functions = PrivacyFunctionsGateway();
     final repo = AuthRepository(
@@ -38,8 +42,8 @@ void main() {
   });
 
   test(
-      'deleteAccount signs out to a fresh anonymous session after callable and local wipe',
-      () async {
+      'deleteAccount signs out to a fresh anonymous session after callable '
+      'and local wipe', () async {
     final operations = <String>[];
     final gateway = PrivacyAuthGateway(
       operations: operations,
@@ -68,13 +72,13 @@ void main() {
       'googleSignOut',
       'signInAnonymously',
     ]);
-    expect(gateway.currentSession,
-        const AuthSession(uid: 'anon-1', isAnonymous: true));
+    expect(
+      gateway.currentSession,
+      const AuthSession(uid: 'anon-1', isAnonymous: true),
+    );
   });
 
-  test(
-      'deleteAccount stops before callable when reauth is cancelled and auth is stale',
-      () async {
+  test(staleReauthCancelledTestName, () async {
     final functions = PrivacyFunctionsGateway();
     final repo = AuthRepository(
       gateway: PrivacyAuthGateway(

@@ -41,8 +41,10 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text(defaultLegalContact.dpoEmail), findsOneWidget);
-    expect(find.textContaining(defaultLegalContact.physicalAddress),
-        findsOneWidget);
+    expect(
+      find.textContaining(defaultLegalContact.physicalAddress),
+      findsOneWidget,
+    );
 
     await tester.tap(find.text('Manage account data'));
     await tester.pumpAndSettle();

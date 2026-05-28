@@ -118,10 +118,11 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
       if (!mounted) return;
       setState(() => _error = 'delete_failed');
     } finally {
-      if (!mounted) return;
-      setState(() {
-        _isDeleting = false;
-      });
+      if (mounted) {
+        setState(() {
+          _isDeleting = false;
+        });
+      }
     }
   }
 }
