@@ -87,7 +87,10 @@ When this amendment enters implementation, the plan should:
 
 ---
 
-## 5. Open questions
+## 5. Decisions & remaining open questions
 
-- Should `wrapped.streak_milestone` and `wrapped.mastery_crossing` be batched if multiple fire on the same day (e.g., a user crosses two topics to mastery in the same session)? Default proposal: yes, batch into a single notification with combined copy ("2 new milestones today — tap to see your Wrapped").
+**Resolved (2026-06-10, confirmed with Codex):**
+- **Same-day batching:** when multiple `wrapped.streak_milestone` / `wrapped.mastery_crossing` triggers fire on the same local day (e.g., two topics cross to mastery in one session), batch them into a **single reveal/notification per local day**, with the payload carrying multiple artifact entries. Combined copy, e.g. "2 new milestones today — tap to see your Wrapped". (Confirms the original default proposal.)
+
+**Open / deferred to implementation:**
 - Quiet hours for time-zoned users: Wrapped triggers compute against the user's local time (same rule as Spec 9 baseline). Confirm during implementation.

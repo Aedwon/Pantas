@@ -12,8 +12,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+typedef AssessmentHomeSlotBuilder = Widget Function(
+  BuildContext context,
+  WidgetRef ref,
+  ExamId examId,
+);
+
 class AssessmentHomeTab extends ConsumerWidget {
-  const AssessmentHomeTab({super.key});
+  const AssessmentHomeTab({super.key, this.afterHeaderBuilder});
+
+  final AssessmentHomeSlotBuilder? afterHeaderBuilder;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -31,6 +39,7 @@ class AssessmentHomeTab extends ConsumerWidget {
             return _SelectedExamHome(
               examId: focus.exam!.id,
               examName: focus.exam!.name,
+              afterHeaderBuilder: afterHeaderBuilder,
             );
           },
         ),
@@ -43,14 +52,17 @@ class _SelectedExamHome extends ConsumerWidget {
   const _SelectedExamHome({
     required this.examId,
     required this.examName,
+    this.afterHeaderBuilder,
   });
 
   final ExamId examId;
   final String examName;
+  final AssessmentHomeSlotBuilder? afterHeaderBuilder;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final asyncResult = ref.watch(assessmentResultProvider(examId));
+    final afterHeader = afterHeaderBuilder?.call(context, ref, examId);
 
     return asyncResult.when(
       loading: () => const _HomeLoading(),
@@ -60,6 +72,7 @@ class _SelectedExamHome extends ConsumerWidget {
         children: [
           _DashboardHeader(title: 'Home', subtitle: examName),
           const SizedBox(height: 18),
+          if (afterHeader != null) ...[afterHeader, const SizedBox(height: 14)],
           if (result == null)
             _NoAssessmentCard(examId: examId)
           else

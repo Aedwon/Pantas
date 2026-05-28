@@ -13,11 +13,14 @@ import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_list_page.d
 import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_page.dart';
 import 'package:cse_cet_reviewer/features/legal/legal.dart';
 import 'package:cse_cet_reviewer/features/legal/presentation/legal_document_page.dart';
+import 'package:cse_cet_reviewer/features/metrics/atoms/home_atom_chip.dart';
+import 'package:cse_cet_reviewer/features/metrics/providers/home_atom_provider.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/mock_exam.dart';
 import 'package:cse_cet_reviewer/features/notifications/application/notifications_providers.dart';
 import 'package:cse_cet_reviewer/features/notifications/presentation/permission_rationale_page.dart';
 import 'package:cse_cet_reviewer/features/onboarding/onboarding.dart';
 import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
+import 'package:cse_cet_reviewer/features/progress/presentation/progress_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/drill_subtopic_browser.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_results_page.dart';
@@ -31,6 +34,7 @@ import 'package:cse_cet_reviewer/features/settings/presentation/pages/debug_sett
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/delete_account_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/settings_home_page.dart';
 import 'package:cse_cet_reviewer/features/study_plan/presentation/plan_page.dart';
+import 'package:cse_cet_reviewer/features/wrapped/presentation/wrapped_reveal_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -87,7 +91,10 @@ final routerProvider = Provider<GoRouter>((ref) {
             routes: [
               GoRoute(
                 path: '/home',
-                builder: (_, __) => const AssessmentHomeTab(),
+                builder: (_, __) => AssessmentHomeTab(
+                  afterHeaderBuilder: (_, ref, examId) =>
+                      _HomeMetricsAtomSlot(examId: examId),
+                ),
               ),
             ],
           ),
@@ -234,7 +241,17 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: '/progress',
-        builder: (_, __) => const _Stub('Progress'),
+        builder: (_, __) {
+          final entitlement = ref.watch(entitlementProvider).valueOrNull ??
+              const Entitlement.free();
+          return ProgressPage(proIsActive: entitlement.proIsActive);
+        },
+      ),
+      GoRoute(
+        path: '/wrapped/:artifactId',
+        builder: (_, state) => WrappedRevealPage(
+          artifactId: state.pathParameters['artifactId']!,
+        ),
       ),
       GoRoute(
         path: '/paywall',
@@ -371,6 +388,33 @@ class _Stub extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text(label)),
       body: Center(child: Text('$label — placeholder')),
+    );
+  }
+}
+
+class _HomeMetricsAtomSlot extends ConsumerWidget {
+  const _HomeMetricsAtomSlot({required this.examId});
+
+  final String examId;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final now = DateTime.now();
+    final localDate = DateTime(now.year, now.month, now.day);
+    final asyncAtom = ref.watch(
+      homeAtomProvider(
+        HomeAtomRequest(
+          examId: examId,
+          userId: 'local',
+          localDate: localDate,
+          now: localDate.add(const Duration(hours: 23, minutes: 59)),
+        ),
+      ),
+    );
+    return asyncAtom.maybeWhen(
+      data: (chip) =>
+          chip == null ? const SizedBox.shrink() : HomeAtomChip(chip: chip),
+      orElse: () => const SizedBox.shrink(),
     );
   }
 }

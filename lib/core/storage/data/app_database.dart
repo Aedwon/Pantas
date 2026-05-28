@@ -17,6 +17,8 @@ import 'package:cse_cet_reviewer/core/storage/data/tables/streak_local_table.dar
 import 'package:cse_cet_reviewer/core/storage/data/tables/subjects_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/sync_meta_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/topics_table.dart';
+import 'package:cse_cet_reviewer/core/storage/data/tables/user_metrics_archetypes_local_table.dart';
+import 'package:cse_cet_reviewer/core/storage/data/tables/user_metrics_artifacts_local_table.dart';
 import 'package:drift/drift.dart';
 
 part 'app_database.g.dart';
@@ -42,13 +44,15 @@ part 'app_database.g.dart';
     QuizSessions,
     DailyNewCardIntro,
     MockAttempts,
+    UserMetricsArchetypesLocal,
+    UserMetricsArtifactsLocal,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 9;
+  int get schemaVersion => 11;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -85,6 +89,12 @@ class AppDatabase extends _$AppDatabase {
           }
           if (from < 9) {
             await m.createTable(mockAttempts);
+          }
+          if (from < 10) {
+            await m.createTable(userMetricsArchetypesLocal);
+          }
+          if (from < 11) {
+            await m.createTable(userMetricsArtifactsLocal);
           }
         },
       );

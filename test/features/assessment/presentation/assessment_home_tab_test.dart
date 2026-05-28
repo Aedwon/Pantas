@@ -3,7 +3,11 @@ import 'package:cse_cet_reviewer/core/storage/data/repos/app_preferences_reposit
 import 'package:cse_cet_reviewer/core/storage/data/repos/assessment_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/assessment/presentation/assessment_home_tab.dart';
+import 'package:cse_cet_reviewer/features/metrics/atoms/home_atom_chip.dart';
+import 'package:cse_cet_reviewer/features/metrics/providers/home_atom_provider.dart';
+import 'package:drift/drift.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 
@@ -15,7 +19,30 @@ GoRouter _buildRouter() => GoRouter(
       routes: [
         GoRoute(
           path: '/home',
-          builder: (_, __) => const AssessmentHomeTab(),
+          builder: (_, __) => AssessmentHomeTab(
+            afterHeaderBuilder: (_, ref, examId) {
+              final now = DateTime.now();
+              final localDate = DateTime(now.year, now.month, now.day);
+              final atom = ref.watch(
+                homeAtomProvider(
+                  HomeAtomRequest(
+                    examId: examId,
+                    userId: 'local',
+                    localDate: localDate,
+                    now: localDate.add(
+                      const Duration(hours: 23, minutes: 59),
+                    ),
+                  ),
+                ),
+              );
+              return atom.maybeWhen(
+                data: (chip) => chip == null
+                    ? const SizedBox.shrink()
+                    : HomeAtomChip(chip: chip),
+                orElse: () => const SizedBox.shrink(),
+              );
+            },
+          ),
         ),
         GoRoute(
           path: '/onboarding',
@@ -133,11 +160,29 @@ void main() {
   testWidgets('no assessment shows focused hero and CTAs', (tester) async {
     await insertExam(id: 'cse', name: 'Civil Service Exam');
     await AppPreferencesRepository(db).setSelectedExamId('cse');
+    final base = DateTime.now().subtract(const Duration(days: 1));
+    final sharpHour = DateTime(base.year, base.month, base.day, 21);
+    for (var i = 0; i < 7; i += 1) {
+      await db.into(db.quizSessions).insert(
+            QuizSessionsCompanion.insert(
+              id: 'session_$i',
+              userId: 'local',
+              examId: 'cse',
+              origin: 'today_topic',
+              questionIdsJson: '[]',
+              currentIndex: const Value(10),
+              correctCount: const Value(8),
+              startedAt: sharpHour,
+              completedAt: Value(sharpHour.add(const Duration(minutes: 10))),
+            ),
+          );
+    }
 
     await pumpHome(tester);
 
     expect(find.text('Home'), findsOneWidget);
     expect(find.text('Civil Service Exam'), findsOneWidget);
+    expect(find.byType(HomeAtomChip), findsOneWidget);
     expect(find.text('Build your study plan'), findsOneWidget);
     expect(
       find.text('Take the assessment to find what to study first.'),
