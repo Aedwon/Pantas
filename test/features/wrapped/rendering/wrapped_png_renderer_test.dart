@@ -23,4 +23,24 @@ void main() {
     expect(frame.image.height, WrappedPngRenderer.height);
     expect(bytes.length, greaterThan(1000));
   });
+
+  test('renders a card with the share URL and QR baked in', () async {
+    final bytes = await const WrappedPngRenderer().render(
+      payload: const WrappedPayload(
+        title: 'Day 30 Streak',
+        slides: [WrappedSlide(title: 'Streak', body: 'Thirty days strong.')],
+        archetypeId: 'steady_builder',
+        shareId: 'deadbeefdeadbeefdeadbeefdeadbeef',
+      ),
+      includeArchetype: true,
+      shareId: 'deadbeefdeadbeefdeadbeefdeadbeef',
+    );
+
+    final codec = await ui.instantiateImageCodec(bytes);
+    final frame = await codec.getNextFrame();
+
+    expect(frame.image.width, WrappedPngRenderer.width);
+    expect(frame.image.height, WrappedPngRenderer.height);
+    expect(bytes.length, greaterThan(1000));
+  });
 }

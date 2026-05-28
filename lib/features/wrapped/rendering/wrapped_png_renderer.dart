@@ -1,8 +1,10 @@
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
+import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_share_url.dart';
 import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_payload.dart';
 import 'package:flutter/material.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class WrappedPngRenderer {
   const WrappedPngRenderer();
@@ -13,7 +15,11 @@ class WrappedPngRenderer {
   Future<Uint8List> render({
     required WrappedPayload payload,
     required bool includeArchetype,
+    String? shareId,
   }) async {
+    final shareUrl = shareId == null
+        ? WrappedShareUrl.base
+        : WrappedShareUrl.forShareId(shareId);
     final recorder = ui.PictureRecorder();
     final canvas = Canvas(recorder);
     const rect = Rect.fromLTWH(0, 0, 1080, 1920);
@@ -66,7 +72,7 @@ class WrappedPngRenderer {
     }
     _drawText(
       canvas,
-      'pantas.app/wrapped',
+      shareUrl.replaceFirst('https://', ''),
       const Offset(84, 1700),
       34,
       Colors.white70,
@@ -82,6 +88,7 @@ class WrappedPngRenderer {
       FontWeight.w500,
       width - 168,
     );
+    _drawQrCode(canvas, shareUrl);
 
     final picture = recorder.endRecording();
     final image = await picture.toImage(width, height);
@@ -90,6 +97,43 @@ class WrappedPngRenderer {
       throw StateError('Unable to render Wrapped PNG.');
     }
     return byteData.buffer.asUint8List();
+  }
+
+  void _drawQrCode(Canvas canvas, String data) {
+    const qrSize = 240.0;
+    const padding = 16.0;
+    final left = width - 84 - qrSize;
+    const top = 1480.0;
+    // White quiet-zone background so the QR scans against the gradient.
+    canvas.drawRRect(
+      RRect.fromRectAndRadius(
+        Rect.fromLTWH(
+          left - padding,
+          top - padding,
+          qrSize + padding * 2,
+          qrSize + padding * 2,
+        ),
+        const Radius.circular(16),
+      ),
+      Paint()..color = Colors.white,
+    );
+    final painter = QrPainter(
+      data: data,
+      version: QrVersions.auto,
+      gapless: true,
+      eyeStyle: const QrEyeStyle(
+        eyeShape: QrEyeShape.square,
+        color: Color(0xFF16213E),
+      ),
+      dataModuleStyle: const QrDataModuleStyle(
+        dataModuleShape: QrDataModuleShape.square,
+        color: Color(0xFF16213E),
+      ),
+    );
+    canvas.save();
+    canvas.translate(left, top);
+    painter.paint(canvas, const Size(qrSize, qrSize));
+    canvas.restore();
   }
 
   void _drawText(
