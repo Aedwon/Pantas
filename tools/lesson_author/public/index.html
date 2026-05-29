@@ -149,12 +149,14 @@
     padding-top: 2px;
   }
   .ai-tools button {
+    display: inline-flex; align-items: center; gap: 6px;
     font: inherit; font-size: 12.5px; font-weight: 600;
     padding: 5px 14px;
     border: 1px solid var(--board); border-radius: 99px;
     background: var(--board-soft); color: var(--board);
     cursor: pointer;
   }
+  .ai-tools button svg { width: 13px; height: 13px; }
   .ai-tools button:hover { background: var(--board); color: #fff; }
   .ai-tools button:focus-visible { outline: 2px solid var(--board); outline-offset: 1px; }
   .ai-tools .hint { font-size: 11px; color: var(--ink-soft); }
@@ -273,9 +275,15 @@
       </label>
       <div class="sections" id="sectionChips"></div>
       <div class="ai-tools">
-        <button id="copyPromptBtn" type="button">Copy AI prompt for this lesson</button>
-        <button id="pasteResultBtn" type="button">Paste generated lesson</button>
-        <span class="hint">Copy → generate with your AI of choice → paste. Edit the wording in prompt_template.md.</span>
+        <button id="copyPromptBtn" type="button" title="Copy the AI prompt for this lesson">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+        <button id="pasteResultBtn" type="button" title="Paste the generated lesson from your clipboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+          Paste
+        </button>
+        <span class="hint">Copy the prompt → generate with your AI → paste the result.</span>
       </div>
     </div>
     <div class="workspace">
