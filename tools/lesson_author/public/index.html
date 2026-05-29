@@ -292,7 +292,7 @@ Paragraphs, **bold**, *italics*, lists, > blockquotes, and images are supported.
 
 Math works too: inline $x^2$ or display
 
-$$\frac{-b \pm \sqrt{b^2-4ac}}{2a}$$" spellcheck="true"></textarea>
+$$\dfrac{-b \pm \sqrt{b^2-4ac}}{2a}$$" spellcheck="true"></textarea>
       <div class="preview">
         <div class="format-warning" id="formatWarning"></div>
         <div class="preview-body" id="previewBody"><p class="preview-empty">The preview appears here as you type.</p></div>
@@ -581,7 +581,7 @@ $$\frac{-b \pm \sqrt{b^2-4ac}}{2a}$$" spellcheck="true"></textarea>
   function buildPrompt() {
     const cur = flat[currentIdx];
     const sectionsBlock = cur.lesson.sections.length
-      ? `REQUIRED COVERAGE: organize "The Core Concept" around these sub-sections, `
+      ? `REQUIRED COVERAGE: cover these sub-topics (usually inside "Core Concept"), `
         + `each with its own "###" heading: ${cur.lesson.sections.join('; ')}.`
       : '';
     return promptTemplate
