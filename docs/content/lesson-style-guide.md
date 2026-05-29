@@ -73,6 +73,24 @@ When in doubt, imitate `arithmetic-number-sense/order-of-operations.md`.
 - NEVER: tables, links, code blocks, horizontal rules, images (until the
   image pipeline exists).
 
+## Illustration placeholders
+
+Wherever a figure, diagram, or picture would genuinely help learning
+(geometry figures, graphs, cell diagrams, figure-series patterns, gear
+setups), insert an HTML comment at the exact spot the image belongs:
+
+```
+<!-- ILLUSTRATION: labeled right triangle with legs 3 and 4, hypotenuse x -->
+```
+
+- One line, specific enough that an artist could draw it without reading
+  the whole lesson.
+- Invisible in the app and the preview; greppable later with
+  `grep -rn "ILLUSTRATION:" content/lessons`.
+- The surrounding text must still teach without the image (describe the
+  figure in words) — the illustration upgrades the lesson, it must not be
+  load-bearing.
+
 ## Frontmatter
 
 Exactly this shape (strings JSON-double-quoted, order preserved):
