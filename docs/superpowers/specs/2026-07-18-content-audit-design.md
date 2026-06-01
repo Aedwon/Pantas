@@ -16,11 +16,23 @@ subject, compile a tested-topics checklist from published exam scopes and
 reviewer coverage, then diff the corpus against it. DepEd curriculum
 coverage beyond the CETs is out of scope.
 
-## Process: two-layer audit
+## Process: three-layer audit
 
-Run layer 1 (mechanical) across all lessons first, then layer 2
-(judgment) topic by topic. Record findings as they are found; checkpoint
-after each topic so the audit survives context loss.
+Run layer 0 (outline coverage) first, then layer 1 (mechanical) across
+all lessons, then layer 2 (judgment) topic by topic. Record findings as
+they are found; checkpoint after each topic so the audit survives
+context loss.
+
+### Layer 0 — outline coverage check
+
+Diff `tools/lesson_author/outline.json` (every subject, topic, lesson,
+and section) against the researched scope of each benchmark exam,
+including the DOST-SEI scholarship exam's distinct areas (it tests
+science aptitude and self-assessment sections the university CETs do
+not). Output: missing lessons or topics to add to the outline, plus any
+outline entries no exam tests (candidates to deprioritize, flagged but
+never deleted without approval). The user has checked this before; the
+audit re-verifies it against sources rather than assuming it.
 
 ### Layer 1 — mechanical sweeps (scripted, exhaustive)
 
