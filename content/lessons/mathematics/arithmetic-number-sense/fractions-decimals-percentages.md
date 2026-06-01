@@ -35,6 +35,8 @@ When working with fractions, remember what the percent sign looks like.
 
 Express $0.125$ as a fraction in its simplest form.
 
+**Solution:**
+
 1. Read the decimal out loud. The last digit is in the "thousandths" place.
 2. This means the number is $125$ over $1000$.
 
@@ -51,6 +53,8 @@ $$\dfrac{1}{8}$$
 ### #2: Mixed Operations
 
 Evaluate $\dfrac{3}{4} + 0.50 - 25\%$ and express the answer as a decimal.
+
+**Solution:**
 
 1. You cannot do math when the numbers wear different outfits. Change them all to decimals/fractions/percentages first. For this example, let's use decimals since the final answer is also in decimal.
 2. Change $\dfrac{3}{4}$ to a decimal. Think of $3$ quarters in money. That is $0.75$.
@@ -70,6 +74,8 @@ $$1.25 - 0.25 = 1.00$$
 ### #3: "Of" Translation
 
 If $40\%$ of a number is $72$, what is $15\%$ of the same number?
+
+**Solution:**
 
 1. Translate the English into math. The word "of" means multiply. The word "is" means equals. Let $x$ be the missing number.
 2. Change $40\%$ to a decimal ($0.40$). Write the equation.
@@ -99,6 +105,8 @@ $$0.15 \times 180 = 27$$
 
 What percent of $\dfrac{5}{8}$ is $\dfrac{1}{4}$?
 
+**Solution:**
+
 1. Translate the words into math. Let $P$ be the missing percent.
 
 $$P \times \dfrac{5}{8} = \dfrac{1}{4}$$
@@ -124,6 +132,8 @@ $$P = \dfrac{40}{100}$$
 ### #5: Successive Percentages
 
 A retail store owner applies a $20\%$ discount on a jacket. During a clearance sale, an additional $25\%$ discount is applied to the discounted price. What is the total equivalent percentage discount from the original price?
+
+**Solution:**
 
 1. When a problem does not give you a starting price, use $100$. It makes percent math very easy. Let the original jacket cost $100$.
 2. Take away the first $20\%$ discount. $20\%$ of $100$ is $20$.

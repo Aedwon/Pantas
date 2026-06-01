@@ -37,6 +37,8 @@ This three-step rhyme is all you need for partitive problems. Add the ratio numb
 
 A bakery uses $4$ cups of flour to make $24$ large muffins. At this rate, how many cups of flour will the baker need to make $84$ large muffins?
 
+**Solution:**
+
 1. This is direct proportion. More muffins need more flour.
 2. Set up two equal fractions using the D & D rule.
 
@@ -66,6 +68,8 @@ The baker needs $14$ cups of flour.
 
 A contractor estimates that it will take $6$ construction workers $15$ days to pave a stretch of road. If the contractor instead hires $9$ workers working at the exact same rate, how many days will it take to finish the job?
 
+**Solution:**
+
 1. This is inverse proportion. More workers mean fewer days.
 2. Use the I & M rule. Multiply the numbers that belong together.
 
@@ -87,6 +91,8 @@ It will take the $9$ workers $10$ days to finish.
 ### #3: Basic Partitive Proportion
 
 Three business partners, Alice, Bob, and Charlie, agreed to divide their total annual profit of $₱120,000$ in the ratio $2:3:5$. How much is Charlie’s share of the profit?
+
+**Solution:**
 
 1. This is partitive proportion. We are splitting a total amount.
 2. Use the rhyme. First, *add the parts*.
@@ -110,6 +116,8 @@ Charlie gets $₱60,000$.
 ### #4: Partitive Proportion with a Given Difference
 
 A piece of copper wire is cut into two pieces in the ratio $4:7$. If the longer piece is $21$ meters longer than the shorter piece, what was the original length of the uncut wire?
+
+**Solution:**
 
 1. This is a trickier partitive problem. We do not know the total length. We only know the difference.
 2. Find the difference in the ratio parts.
@@ -138,6 +146,8 @@ The original wire was $77$ meters long.
 ### #5: Inverse Proportion with Mid-Job Changes
 
 A military garrison of $40$ soldiers has enough food provisions to last for $30$ days. After $10$ days, $10$ soldiers are transferred to another camp. How many more days will the remaining food last for the soldiers left behind?
+
+**Solution:**
 
 1. This is a classic exam trap. The timeline changes in the middle of the story.
 2. First, subtract the days that already passed.

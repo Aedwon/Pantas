@@ -57,6 +57,8 @@ To remember what the discriminant tells you, use this short rhyme:
 
 Find the roots of the equation $x^2 - 8x + 15 = 0$.
 
+**Solution:**
+
 1. Look at $c$, which is $15$. Look at $b$, which is $-8$.
 2. Find two numbers that multiply to $15$ and add to $-8$. These numbers are $-3$ and $-5$.
 3. Write the parts like this:
@@ -69,6 +71,8 @@ $$(x - 3)(x - 5) = 0$$
 ### #2: Leading Coefficient Greater Than 1
 
 What are the solutions to the quadratic equation $2x^2 + 7x + 3 = 0$?
+
+**Solution:**
 
 1. Multiply $a$ ($2$) by $c$ ($3$). The answer is $6$.
 2. Find two numbers that multiply to $6$ and add to $b$ ($7$). These numbers are $6$ and $1$.
@@ -90,6 +94,8 @@ $$(2x + 1)(x + 3) = 0$$
 ### #3: Nature of the Roots
 
 For what values of $k$ will the equation $x^2 + kx + 9 = 0$ possess exactly one real root?
+
+**Solution:**
 
 1. The phrase "exactly one real root" is a clue. It means the discriminant ($b^2 - 4ac$) must be $0$.
 2. Find your letters. Here, $a = 1$, $b = k$, and $c = 9$.
@@ -113,6 +119,8 @@ $$k^2 = 36$$
 ### #4: Sum and Product of Roots
 
 If $r_1$ and $r_2$ are the roots of the equation $3x^2 - 12x + 7 = 0$, what is the exact value of $\dfrac{1}{r_1} + \dfrac{1}{r_2}$?
+
+**Solution:**
 
 1. Do not use the big formula to find the actual roots. The answers will be ugly fractions. It will waste your time.
 2. First, combine the two fractions into one. The common bottom part is $r_1 \times r_2$. The top part becomes $r_1 + r_2$.

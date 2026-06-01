@@ -45,6 +45,8 @@ When you have a root plus or minus a number at the bottom of a fraction, use a *
 
 Simplify the radical expression $\sqrt{72x^3y^4}$.
 
+**Solution:**
+
 1. Break down $72$ into prime numbers. It is $2 \cdot 2 \cdot 2 \cdot 3 \cdot 3$.
 2. Break down the letters. $x^3$ is $x \cdot x \cdot x$. $y^4$ is $y \cdot y \cdot y \cdot y$.
 3. Look for pairs. We have a pair of $2$s and a pair of $3$s.
@@ -66,6 +68,8 @@ $$6xy^2\sqrt{2x}$$
 
 Find the exact value of the expression $3\sqrt{20} - \sqrt{45} + 2\sqrt{5}$.
 
+**Solution:**
+
 1. You can only add roots if the insides are exactly the same. Right now, they are different.
 2. Simplify $\sqrt{20}$. It is $\sqrt{4 \cdot 5}$, which becomes $2\sqrt{5}$.
 3. Multiply it by the $3$ outside. This makes $6\sqrt{5}$.
@@ -85,6 +89,8 @@ $$5\sqrt{5}$$
 ### #3: Rationalizing a Simple Denominator
 
 Rationalize the denominator of the fraction $\dfrac{10}{\sqrt{5x}}$.
+
+**Solution:**
 
 1. We cannot leave $\sqrt{5x}$ at the bottom.
 2. Multiply the top and bottom by $\sqrt{5x}$.
@@ -107,6 +113,8 @@ $$\dfrac{2\sqrt{5x}}{x}$$
 ### #4: Rationalizing with a Binomial
 
 Simplify the expression $\dfrac{4}{3 - \sqrt{5}}$ by rationalizing the denominator.
+
+**Solution:**
 
 1. The bottom has two parts. We must use the conjugate.
 2. The conjugate of $3 - \sqrt{5}$ is $3 + \sqrt{5}$.
@@ -141,6 +149,8 @@ $$3 + \sqrt{5}$$
 ### #5: Rationalizing Higher Roots
 
 Rationalize the denominator of the expression $\dfrac{2}{\sqrt[3]{4x}}$.
+
+**Solution:**
 
 1. This is a cube root. We need groups of three to escape, not pairs.
 2. Break down the bottom. $4x$ is $2 \cdot 2 \cdot x$.

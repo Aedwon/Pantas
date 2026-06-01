@@ -45,6 +45,8 @@ This helps you find sale prices faster. If a shirt has a $20\%$ discount, do not
 
 A pair of shoes originally priced at Php $1,500$ is on sale for $20\%$ off. What is the final selling price of the shoes?
 
+**Solution:**
+
 1. Find the percentage you actually have to pay. The whole price is $100\%$.
 2. Subtract the discount:
 
@@ -62,6 +64,8 @@ $$1500 \times 0.80 = 1200$$
 ### #2: Successive Discounts
 
 A laptop listed at Php $30,000$ is given successive trade discounts of $20\%$ and $10\%$. What is the net price of the laptop?
+
+**Solution:**
 
 1. Never add the two discounts together! You must do them one by one.
 2. First, take off the $20\%$ discount. You will pay $80\%$ of the price.
@@ -82,6 +86,8 @@ $$24000 \times 0.90 = 21600$$
 
 A retailer buys a gadget for Php $1,200$ and wants to realize a markup of $25\%$ based on cost. At what price should the gadget be sold?
 
+**Solution:**
+
 1. Find out how much extra money the retailer wants to add.
 2. Multiply the starting cost by the markup percentage. Remember that $25\%$ is $0.25$.
 
@@ -99,6 +105,8 @@ $$1200 + 300 = 1500$$
 ### #4: Finding Simple Interest Time
 
 How many years will it take for an investment of Php $15,000$ to earn Php $4,500$ in interest if it is invested at a simple interest rate of $6\%$ per annum?
+
+**Solution:**
 
 1. Write down the simple interest formula.
 
@@ -130,6 +138,8 @@ $$T = 5$$
 ### #5: Compound Interest
 
 An amount of Php $10,000$ is deposited into a savings account that yields an annual interest rate of $4\%$ compounded semi-annually. What is the total amount in the account after $2$ years? (Assume $1.02^4 \approx 1.0824$)
+
+**Solution:**
 
 1. Notice the word "semi-annually". This means the bank gives you interest twice a year.
 2. You must cut the annual rate in half. The rate per period is:

@@ -29,6 +29,8 @@ College entrance exams will test you on $4$ main types of sequences.
 
 What is the $25^{\text{th}}$ term of the sequence $4, 7, 10, 13, \dots$?
 
+**Solution:**
+
 1. Find the pattern. The numbers are jumping up by $3$. So, our common difference $d$ is $3$.
 2. Identify the first term. Our first term $a_1$ is $4$.
 3. Use the arithmetic term formula. The formula is:
@@ -51,6 +53,8 @@ $$a_{25} = 76$$
 ### #2: Arithmetic Series in a Word Problem
 
 A theater has $20$ seats in the first row, $24$ seats in the second row, and $28$ seats in the third row. If there are exactly $15$ rows in total, what is the seating capacity of the theater?
+
+**Solution:**
 
 1. Spot the sequence. The seats go $20, 24, 28$. This is arithmetic. The jump $d$ is $4$. The first term $a_1$ is $20$. The number of rows $n$ is $15$.
 2. Notice the question type. "Seating capacity" means total seats. We need the sum of all rows.
@@ -83,6 +87,8 @@ $$S_{15} = 720$$
 
 Find the $8^{\text{th}}$ term of the geometric sequence $3, -6, 12, -24, \dots$
 
+**Solution:**
+
 1. Find the common ratio $r$. To get from $3$ to $-6$, you multiply by $-2$. Let us check the next one. $-6$ times $-2$ is $12$. It works! So, $r = -2$. The first term $a_1$ is $3$.
 2. Use the geometric term formula.
 
@@ -108,6 +114,8 @@ $$a_8 = -384$$
 ### #4: Evaluating an Infinite Geometric Series
 
 Evaluate the sum of the infinite geometric series: $18 + 6 + 2 + \dfrac{2}{3} + \dots$
+
+**Solution:**
 
 1. Find the ratio $r$. To get from $18$ to $6$, you divide by $3$. In math, dividing by $3$ is the same as multiplying by $\dfrac{1}{3}$. So, $r = \dfrac{1}{3}$. The first term $a_1$ is $18$.
 2. Use the infinite sum formula. You can only use this if the numbers are getting smaller over time. Since $18, 6, 2$ are shrinking, we can use it.
@@ -137,6 +145,8 @@ $$S = 27$$
 
 Find the $6^{\text{th}}$ term of the harmonic sequence $\dfrac{1}{2}, \dfrac{1}{5}, \dfrac{1}{8}, \dots$
 
+**Solution:**
+
 1. Do the handstand. Flip all the fractions upside down to make a normal arithmetic sequence. The new list is $2, 5, 8, \dots$
 2. Find the rule for this new list. It jumps up by $3$ every time. So, $d = 3$.
 3. Find the $6^{\text{th}}$ term of this new list.
@@ -156,6 +166,8 @@ $$a_6 = 17$$
 ### #6: Fibonacci Sequence with Variables
 
 If $x, y, z$ are three consecutive terms in a Fibonacci sequence, and $x = 2a+1$ and $y = 3a-2$, what is $z$ in terms of $a$?
+
+**Solution:**
 
 1. Remember the Fibonacci rule. The rule is simply that adding two numbers gives you the next number. So, $x + y = z$.
 2. Substitute the expressions given in the problem.

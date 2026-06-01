@@ -67,6 +67,8 @@ This is the most common trick on the DOST and UPCAT exams.
 
 If the five-digit number $57,x81$ is completely divisible by $9$, what is the value of the digit $x$?
 
+**Solution:**
+
 1. Use the rule for $9$. Add all the digits together.
 
 $$5 + 7 + x + 8 + 1$$
@@ -93,6 +95,8 @@ A shipping company packs exactly $6$ books per box. Which of the following total
 * C) $24,536$
 * D) $24,538$
 
+**Solution:**
+
 1. The problem asks which number is divisible by $6$.
 2. The rule for $6$ is a combo. The number must pass the rule for $2$ AND the rule for $3$.
 3. Check the rule for $2$. All choices end in an even number. They all pass.
@@ -108,6 +112,8 @@ A shipping company packs exactly $6$ books per box. Which of the following total
 ### #3: Rule of $11$ Edge Case
 
 The six-digit number $3a42b1$ is exactly divisible by $11$. If $a = 5$, what is the value of $b$?
+
+**Solution:**
 
 1. First, plug in the value of $a$. The number becomes $3542b1$.
 2. Use the "Jumper" rule for $11$. Group the alternating digits.
@@ -142,6 +148,8 @@ $$b = 1$$
 ### #4: Two-Variable Trap
 
 The five-digit number $5X34Y$ is a multiple of $72$. Find the value of $X + Y$.
+
+**Solution:**
 
 1. This is a classic UPCAT question. There is no standard rule for $72$. You must split it into two rules.
 2. We split $72$ into $8 \times 9$. The number must be divisible by both $8$ and $9$.

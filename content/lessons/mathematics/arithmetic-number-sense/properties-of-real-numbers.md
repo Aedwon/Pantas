@@ -66,6 +66,8 @@ Which of the following illustrates the commutative property of multiplication?
 - C. $3 \times (4 + 5) = (3 \times 4) + (3 \times 5)$
 - D. $3 \times 1 = 3$
 
+**Solution:**
+
 1. Commutative means commuting or moving. The numbers must swap places.
 2. Choice A changes the parenthesis. That is associative.
 3. Choice B swaps $3$ and $4$. This is the commutative property.
@@ -78,6 +80,8 @@ What is the additive inverse of the multiplicative inverse of $-\dfrac{2}{3}$?
 - B. $-\dfrac{3}{2}$
 - C. $\dfrac{2}{3}$
 - D. $-\dfrac{2}{3}$
+
+**Solution:**
 
 1. Take it one step at a time. Read from right to left.
 2. First, find the multiplicative inverse of $-\dfrac{2}{3}$.
@@ -93,6 +97,8 @@ Simplify the expression: $4(2x - 3y) - 2(x + 5y)$
 - B. $6x - 2y$
 - C. $8x - 22y$
 - D. $8x + 2y$
+
+**Solution:**
 
 1. Use the distributive property. Deal the outside number to the inside terms.
 2. For the first part: $4$ times $2x$ is $8x$. $4$ times $-3y$ is $-12y$.
@@ -125,6 +131,8 @@ Evaluate: $847 \times 63 + 847 \times 37$
 - B. $8,470$
 - C. $847,000$
 - D. $100,000$
+
+**Solution:**
 
 1. Do not compute this the long way. Look for a pattern.
 2. Both parts share the number $847$.

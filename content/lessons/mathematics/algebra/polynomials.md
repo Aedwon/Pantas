@@ -47,6 +47,8 @@ Use this when factoring the sum or difference of two cubes. It tells you exactly
 
 If $A = 3x^2 - 2x + 5$ and $B = -x^2 + 4x - 1$, what is the simplified form of $2A - B$?
 
+**Solution:**
+
 1. First, multiply all parts of $A$ by $2$.
 
 $$2(3x^2 - 2x + 5)$$
@@ -75,6 +77,8 @@ $$7x^2 - 8x + 11$$
 
 What is the product of $(x - 3)(x + 3)(x^2 + 9)$?
 
+**Solution:**
+
 1. Look at the first two groups. They are a difference of two squares.
 2. Multiply them using the shortcut pattern.
 
@@ -95,6 +99,8 @@ $$x^4 - 81$$
 ### #3: Factoring a Quadratic Expression
 
 Factor the expression completely: $6x^2 - 7x - 3$.
+
+**Solution:**
 
 1. Multiply the first number and the last number. This is called the AC method.
 
@@ -123,6 +129,8 @@ $$(3x + 1)(2x - 3)$$
 
 What is the remainder when $P(x) = x^4 - 3x^3 + 2x - 5$ is divided by $x - 2$?
 
+**Solution:**
+
 1. Find the test number. Set $x - 2 = 0$, so $x = 2$.
 2. Use the Remainder Theorem. Just put $2$ wherever you see an $x$.
 
@@ -144,6 +152,8 @@ $$16 - 24 + 4 - 5 = -9$$
 ### #5: The Factor Theorem with Unknowns
 
 If $x - 3$ is a factor of $x^3 - kx^2 + 4x - 12$, what is the value of $k$?
+
+**Solution:**
 
 1. Since it is a factor, the Remainder Theorem says the answer must be $0$.
 2. The test number is $3$.
@@ -176,6 +186,8 @@ $$k = 3$$
 ### #6: Finding Coefficients with Multiple Factors
 
 If the polynomial $P(x) = 2x^3 + ax^2 + bx - 6$ is exactly divisible by $x^2 - x - 2$, find the value of $a + b$.
+
+**Solution:**
 
 1. Factor the divisor first.
 

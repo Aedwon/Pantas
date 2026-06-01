@@ -37,6 +37,8 @@ When you use prime factorization to find GCF and LCM, remember **P.I.G.** and **
 
 Which of the following represents the prime factorization of $360$?
 
+**Solution:**
+
 1. We start dividing $360$ by the smallest prime number, which is $2$.
 2. $360$ divided by $2$ is $180$.
 3. $180$ divided by $2$ is $90$.
@@ -54,6 +56,8 @@ $$2^3 \times 3^2 \times 5$$
 ### #2: GCF and LCM with Variables
 
 Find the greatest common factor and the least common multiple of the algebraic expressions $12x^3y^2$ and $18xy^4$.
+
+**Solution:**
 
 1. First, find the prime factorization of the numbers.
 
@@ -95,6 +99,8 @@ $$\text{LCM} = 36x^3y^4$$
 
 A relief operations team has 84 cans of sardines, 126 packs of noodles, and 210 kilos of rice. They want to pack these into identical relief bags such that no items are left over. What is the greatest number of relief bags they can create?
 
+**Solution:**
+
 1. The problem asks us to group things right now. This means we need the GCF.
 2. Find the prime factorization of all three numbers.
 
@@ -123,6 +129,8 @@ $$2 \times 3 \times 7 = 42$$
 ### #4: "Repeating Schedule" Word Problem
 
 Three campus shuttles depart from the main gate at exactly $7:00$ AM. Shuttle A completes its route every $15$ minutes, Shuttle B every $20$ minutes, and Shuttle C every $25$ minutes. At what time will all three shuttles depart from the main gate together again?
+
+**Solution:**
 
 1. The problem looks ahead to a future event. This means we need the LCM.
 2. Find the prime factorization of $15$, $20$, and $25$.
@@ -158,6 +166,8 @@ $$300 \div 60 = 5 \text{ hours}$$
 ### #5: Remainder Problem
 
 What is the smallest positive integer that leaves a remainder of $3$ when divided by $6$, $8$, and $10$?
+
+**Solution:**
 
 1. The phrase "smallest positive integer" is a big clue. It points to the Least Common Multiple.
 2. First, find the LCM of $6, 8,$ and $10$.

@@ -45,6 +45,8 @@ Always flip the inequality sign around when you multiply or divide both sides by
 
 If $\dfrac{3x - 1}{2} = \dfrac{x + 4}{3}$, what is the value of $x$?
 
+**Solution:**
+
 1. Cross-multiply to remove the fractions.
 
 $$3(3x - 1) = 2(x + 4)$$
@@ -73,6 +75,8 @@ $$x = \dfrac{11}{7}$$
 
 What is the solution set of $-2(x - 4) > 3x + 13$?
 
+**Solution:**
+
 1. Distribute the $-2$.
 
 $$-2x + 8 > 3x + 13$$
@@ -97,6 +101,8 @@ $$x < -1$$
 ### #3: Finding the Equation of a Line
 
 What is the equation of the line passing through $(3, -1)$ and perpendicular to the line $2x + 5y = 10$?
+
+**Solution:**
 
 1. Find the slope of the given line. The shortcut formula is $m = \dfrac{-A}{B}$.
 
@@ -137,6 +143,8 @@ $$5x - 2y = 17$$
 
 The shaded region of a linear inequality includes the point $(0, 0)$. Its boundary is a dashed line passing through $(0, 3)$ and $(3, 0)$. Which inequality defines this region?
 
+**Solution:**
+
 1. Find the slope of the boundary line using the two points.
 
 $$m = \dfrac{0 - 3}{3 - 0}$$
@@ -170,6 +178,8 @@ $$x + y < 3$$
 ### #5: System of Equations (Word Problem)
 
 A store sells basic calculators for $\text{Php } 150$ and scientific calculators for $\text{Php } 400$. If the store sold $30$ calculators and earned a total revenue of $\text{Php } 7000$, how many basic calculators were sold?
+
+**Solution:**
 
 1. Let $b$ be basic calculators. Let $s$ be scientific calculators. Write two equations.
 

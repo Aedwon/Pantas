@@ -39,6 +39,8 @@ Always follow this order when you evaluate an expression. Do everything inside p
 
 Translate the following phrase into an algebraic expression: "Four less than three times a number $k$."
 
+**Solution:**
+
 1. Look at the phrase "three times a number $k$." This means we multiply $3$ and $k$.
 2. Write this part as $3k$.
 3. Look at the phrase "Four less than." Remember our trick: the word "than" means we swap the order.
@@ -48,6 +50,8 @@ Translate the following phrase into an algebraic expression: "Four less than thr
 ### #2: Simplifying Expressions
 
 Simplify the algebraic expression: $4(2a - 3b) - 2(a - 5b)$.
+
+**Solution:**
 
 1. First, distribute the outside numbers. This means multiply the number outside the parentheses by everything inside.
 2. For the first group, multiply $4$ by $2a$ and $4$ by $-3b$.
@@ -76,6 +80,8 @@ $$(8a - 2a) + (-12b + 10b)$$
 
 If $x = -2$ and $y = 3$, evaluate the expression $x^3 - 4xy + y^2$.
 
+**Solution:**
+
 1. Replace every $x$ with $(-2)$ and every $y$ with $(3)$. Always use parentheses when plugging in numbers!
 
 $$(-2)^3 - 4(-2)(3) + (3)^2$$
@@ -101,6 +107,8 @@ $$16 + 9$$
 ### #4: The UPCAT Word Problem Setup
 
 The sum of three consecutive even integers is $S$. Express the largest integer in terms of $S$.
+
+**Solution:**
 
 1. Let the smallest even integer be $x$.
 2. Even numbers jump by $2$. So, the next even number is $x + 2$. The largest is $x + 4$.
