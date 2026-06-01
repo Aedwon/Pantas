@@ -211,25 +211,25 @@ The exact same destruction happens in reverse. If you see $\log_7(7^x)$, the log
 
 ## Traps to Watch For
 
-### The Multiplication Trap
+### #1: The Multiplication Trap
 
 > Do not multiply the exponents when you multiply the big base numbers. Add them!
 
 Many students see $x^2 \times x^3$ and think the answer is $x^6$. This is completely wrong. You must add the exponents together to get $x^5$.
 
-### The Distributive Trap
+### #2: The Distributive Trap
 
 > Never pass an exponent inside parentheses if there is a plus or minus sign.
 
 If you see $(x + y)^2$, it does not equal $x^2 + y^2$. This is a huge trap on the exam! You have to write it out $2$ times as $(x + y)(x + y)$ and multiply everything out properly.
 
-### The Log Addition Trap
+### #3: The Log Addition Trap
 
 > You cannot break apart a logarithm that has addition hiding inside its parentheses.
 
 If the exam asks you to expand $\log(x + y)$, leave it alone. There is absolutely no rule for breaking apart addition inside a logarithm. Test makers will offer $\log(x) + \log(y)$ as a trick choice. Do not pick it.
 
-### The Invisible Base Trap
+### #4: The Invisible Base Trap
 
 > An empty base on a logarithm always means the base is the number $10$.
 

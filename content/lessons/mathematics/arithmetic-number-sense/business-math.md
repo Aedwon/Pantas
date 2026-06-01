@@ -170,19 +170,19 @@ Let us try it with $20\%$ and $10\%$ discounts. Add them to get $30$. Then multi
 
 ## Traps to Watch For
 
-### 1: Adding Successive Discounts
+### #1: Adding Successive Discounts
 
 > Never add two discount percentages together!
 
 If a store says "Take $20\%$ off, and then take another $20\%$ off at the register," the total discount is NOT $40\%$. The second discount is taken from a smaller, already-discounted price. The true discount is always smaller than adding them up.
 
-### 2: Forgetting Time is in Years
+### #2: Forgetting Time is in Years
 
 > Time in the simple interest formula must always be in years.
 
 If a question asks for the interest after $6$ months, do not use $6$ for the time. Six months is half of a year. You must use $0.5$ or $\dfrac{1}{2}$ for the time in your formula.
 
-### 3: Missing the Compound Word
+### #3: Missing the Compound Word
 
 > Always check if the interest rate is divided into smaller pieces.
 

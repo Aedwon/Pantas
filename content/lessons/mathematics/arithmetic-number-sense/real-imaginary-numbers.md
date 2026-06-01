@@ -7,15 +7,15 @@ topic: "topic-arithmetic-number-sense"
 estimatedMinutes: 8
 isActive: true
 ---
-## The Core Concept
+## Core Concept
 
 Numbers belong to different groups. Think of them as boxes inside bigger boxes.
 
-**Natural numbers** are counting numbers: 1, 2, 3, and so on.
+**Natural numbers** are counting numbers: $1$, $2$, $3$, and so on.
 
-**Whole numbers** add the number 0 to the natural numbers.
+**Whole numbers** add the number $0$ to the natural numbers.
 
-**Integers** add negative whole numbers. Examples are -2, -1, 0, 1, and 2.
+**Integers** add negative whole numbers. Examples are $-2$, $-1$, $0$, $1$, and $2$.
 
 **Rational numbers** are numbers you can write as a fraction. This includes decimals that stop. It also includes decimals that repeat a pattern.
 
@@ -23,7 +23,7 @@ Numbers belong to different groups. Think of them as boxes inside bigger boxes.
 
 Put all rational and irrational numbers together. You get the **Real numbers**. This is the biggest box of normal numbers.
 
-~~***insert graphic here***~~
+<!-- ILLUSTRATION: nested boxes diagram, smallest box labeled Natural Numbers inside a bigger box labeled Whole Numbers inside a bigger box labeled Integers inside a bigger box labeled Rational Numbers, with a separate Irrational Numbers box, both joined together inside the biggest outer box labeled Real Numbers -->
 
 But what happens if you take the square root of a negative number? There is no real number for $\sqrt{-1}$.
 
@@ -62,7 +62,9 @@ B) The number zero is considered a natural number.
 C) All irrational numbers are real numbers.
 D) A repeating non-terminating decimal is a rational number.
 
-1. Look at choice A. Integers like 5 can be written as fractions like $5/1$. This is true.
+**Solution:**
+
+1. Look at choice A. Integers like $5$ can be written as fractions like $\dfrac{5}{1}$. This is true.
 2. Look at choice B. Natural numbers are counting numbers. You start counting from $1$. Zero is a whole number, not a natural number. This is false.
 3. Look at choice C. Real numbers include all rational and irrational numbers. This is true.
 4. Look at choice D. Decimals that repeat forever can be turned into fractions. This is true.
@@ -72,16 +74,20 @@ D) A repeating non-terminating decimal is a rational number.
 
 Evaluate the expression $i^{143} + i^{2024}$.
 
-1. The powers of $i$ repeat every 4 steps. Divide the exponent by 4 to find the remainder.
-2. For 143, divide by 4. You get 35 with a remainder of 3.
+**Solution:**
+
+1. The powers of $i$ repeat every $4$ steps. Divide the exponent by $4$ to find the remainder.
+2. For $143$, divide by $4$. You get $35$ with a remainder of $3$.
 3. This means $i^{143}$ is the same as $i^3$. From our memory trick, $i^3 = -i$.
-4. For 2024, divide by 4. It divides perfectly. The remainder is 0.
-5. A remainder of 0 means it is the last step in the cycle. So, $i^{2024} = i^4 = 1$.
+4. For $2024$, divide by $4$. It divides perfectly. The remainder is $0$.
+5. A remainder of $0$ means it is the last step in the cycle. So, $i^{2024} = i^4 = 1$.
 6. Add them together. The answer is $1 - i$.
 
 ### #3: Multiplying Complex Numbers
 
 What is the product of $(3 - 4i)$ and $(2 + 5i)$?
+
+**Solution:**
 
 1. Use the FOIL method. FOIL means multiply the First, Outer, Inner, and Last terms.
 2. Multiply the First terms: $3 \times 2 = 6$.
@@ -101,6 +107,8 @@ $$6 + 15i - 8i - 20i^2$$
 ### #4: Dividing Complex Numbers
 
 Express the quotient $\dfrac{2 + 3i}{1 - i}$ in the standard form $a + bi$.
+
+**Solution:**
 
 1. You cannot leave an imaginary number in the bottom of a fraction.
 2. You must multiply the top and bottom by the **conjugate** of the bottom. A conjugate just changes the plus or minus sign in the middle.
@@ -122,7 +130,7 @@ $$(1 - i)(1 + i)$$
 $$= 1^2 - i^2$$
 
 
-7. Change $i^2$ to $-1$. The bottom becomes $1 - (-1)$, which is 2.
+7. Change $i^2$ to $-1$. The bottom becomes $1 - (-1)$, which is $2$.
 8. Put the top over the bottom:
 
 $$\dfrac{-1 + 5i}{2}$$
@@ -132,24 +140,24 @@ $$\dfrac{-1 + 5i}{2}$$
 
 ## Speed Tricks & Shortcuts
 
-1. When dividing a large exponent by 4, you only need to look at the last two digits. For $i^{1997}$, just divide 97 by 4. The remainder is 1. So, $i^{1997} = i^1 = i$. This saves you a lot of time.
+1. When dividing a large exponent by $4$, you only need to look at the last two digits. For $i^{1997}$, just divide $97$ by $4$. The remainder is $1$. So, $i^{1997} = i^1 = i$. This saves you a lot of time.
 
 2. When multiplying a complex number by its conjugate, use a fast shortcut. Do not use full FOIL. Just square the real part and square the imaginary number part, then add them.
 
 
 $$(a + bi)(a - bi) = a^2 + b^2$$
 
-For example, $(3 + 4i)(3 - 4i)$ is just $3^2 + 4^2$. This equals $9 + 16$, which is 25.
+For example, $(3 + 4i)(3 - 4i)$ is just $3^2 + 4^2$. This equals $9 + 16$, which is $25$.
 
 ## Traps to Watch For
 
-### The Negative Root Trap
+### #1: The Negative Root Trap
 
 > Always pull out the $i$ before multiplying square roots!
 
 If you multiply $\sqrt{-4} \times \sqrt{-9}$, do not say it is $\sqrt{36} = 6$. This is completely wrong. You must change them to $2i$ and $3i$ first. Then multiply them to get $6i^2$. Because $i^2 = -1$, the real answer is $-6$.
 
-### The Zero Trap
+### #2: The Zero Trap
 
 > Zero is a whole number, but it is not a natural number.
 
