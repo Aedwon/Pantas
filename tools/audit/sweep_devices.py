@@ -24,7 +24,8 @@ def run(root=None):
                                 "(markdown cannot underline)")
         for ln, title, blk in lib.examples(les):
             joined = "\n".join(t for _, t in blk)
-            has_choices = any(CHOICE.match(t.strip()) for _, t in blk)
+            has_choices = (any(CHOICE.match(t.strip()) for _, t in blk)
+                           or re.search(r"\(A\).+\(B\)", joined, re.S))
             for l, t in blk:
                 if QUESTION_CUES.search(t) and not has_choices:
                     lib.finding("DEVICE", "blocker", les, l,
