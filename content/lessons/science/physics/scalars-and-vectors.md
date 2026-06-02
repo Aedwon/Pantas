@@ -50,6 +50,9 @@ Check whether a direction is specified.
 
 A hiker walks $3 \text{ km}$ east, then $4 \text{ km}$ north. Find the magnitude of the hiker's total displacement.
 
+<!-- ILLUSTRATION: a right triangle of vectors — 3 km east arrow, then 4 km north arrow, with the resultant displacement drawn from start to end as the 5 km hypotenuse -->
+
+
 **Solution:**
 The two vectors are perpendicular, so use the Pythagorean theorem.
 
@@ -71,6 +74,9 @@ $$R = 5 \text{ km}$$
 
 A force of $10 \text{ N}$ is applied at an angle of $30°$ above the horizontal. Find its horizontal and vertical components.
 
+<!-- ILLUSTRATION: a 10 N force vector at 30° above the horizontal, with dashed lines dropping to its horizontal component (10cos30°) and vertical component (10sin30°) forming a right triangle -->
+
+
 **Solution:**
 Apply the component formulas with $V = 10$ and $\theta = 30°$.
 
@@ -87,6 +93,9 @@ $$V_y = 10 \sin 30° = 10 \times \dfrac{1}{2} = 5 \text{ N}$$
 ### #4: Vectors in Opposite Directions
 
 Two tug-of-war teams pull on a rope. Team A pulls with $600 \text{ N}$ to the left; Team B pulls with $450 \text{ N}$ to the right. Find the net force and its direction.
+
+<!-- ILLUSTRATION: a rope with a 600 N arrow pointing left (Team A) and a 450 N arrow pointing right (Team B), and a net 150 N arrow pointing left -->
+
 
 **Solution:**
 Since the forces are in opposite directions, subtract the smaller from the larger.

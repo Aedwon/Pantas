@@ -39,6 +39,9 @@ Correlation is not causation: ice cream sales and drowning rise together because
 
 A family's monthly budget of $12{,}000$ pesos is shown in a pie chart. The food sector has a central angle of $90^\circ$. How much goes to food?
 
+<!-- ILLUSTRATION: a pie chart of a monthly budget with the food sector marked as a 90° slice (one quarter of the circle) -->
+
+
 **Solution:**
 Convert the angle to a fraction of the whole.
 
@@ -56,6 +59,9 @@ $$\dfrac{1}{4} \times 12000 = 3000$$
 
 A survey shows $35\%$ of students walk to school. In a pie chart of the survey, what central angle represents the walkers?
 
+<!-- ILLUSTRATION: a pie chart with the "walkers" sector labeled 35% and its central angle marked "?" (out of 360°) -->
+
+
 **Solution:**
 Percent times $360^\circ$.
 
@@ -68,6 +74,9 @@ $$0.35 \times 360 = 126$$
 ### #3: Bar Graph Comparison
 
 A bar graph shows a store's weekly sales: Monday $40$, Tuesday $55$, Wednesday $35$, Thursday $60$, Friday $85$ (in thousands of pesos). By how much do Friday's sales exceed the average of the other four days?
+
+<!-- ILLUSTRATION: a bar graph of weekly sales (thousands of pesos) with bars Mon 40, Tue 55, Wed 35, Thu 60, Fri 85; a y-axis starting at 0 -->
+
 
 **Solution:**
 Two reads and a subtraction — but the average comes first.
@@ -86,6 +95,9 @@ $$85 - 47.5 = 37.5$$
 
 A scatter plot pairs each student's hours of sleep with their mistake count on a quiz. The dots slope downward from upper left to lower right. What correlation is shown, and what does it mean?
 
+<!-- ILLUSTRATION: a scatter plot with hours of sleep on the x-axis and mistake count on the y-axis, dots trending downward from upper-left to lower-right (negative correlation) -->
+
+
 **Solution:**
 Downward drift means the two variables move in opposite directions.
 
@@ -96,6 +108,9 @@ Downward drift means the two variables move in opposite directions.
 ### #5: Percent Change from a Graph (Exam Level)
 
 A bar graph shows a school's enrollment: $1{,}500$ students in $2023$ and $1{,}800$ students in $2024$. Find the percent increase.
+
+<!-- ILLUSTRATION: a bar graph with two bars, 2023 enrollment 1,500 and 2024 enrollment 1,800, y-axis starting at 0 -->
+
 
 **Solution:**
 Percent change always divides by the original value.

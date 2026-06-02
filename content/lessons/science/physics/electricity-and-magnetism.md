@@ -64,6 +64,9 @@ $$2^2 = 4$$
 
 A circuit has a resistance of $10 \text{ ohms}$ and a current of $2 \text{ amperes}$ flowing through it. Find the voltage.
 
+<!-- ILLUSTRATION: a simple circuit with a battery, a 10 ohm resistor, and a 2 A current arrow, with the voltage across the battery marked "?" -->
+
+
 **Solution:**
 Apply Ohm's law directly.
 
@@ -78,6 +81,9 @@ $$V = 20 \text{ volts}$$
 ### #3: Series vs. Parallel Behavior
 
 In a series circuit with two light bulbs, one bulb suddenly burns out. In a separate parallel circuit with two light bulbs, one bulb burns out. Predict what happens to the other bulb in each case.
+
+<!-- ILLUSTRATION: two circuits side by side — a series circuit with two bulbs on one loop (one burned out, the other goes dark) and a parallel circuit with two bulbs on separate branches (one burned out, the other stays lit) -->
+
 
 **Solution:**
 Recall how each circuit type responds to a broken path.

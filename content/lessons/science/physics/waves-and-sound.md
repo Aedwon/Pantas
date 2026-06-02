@@ -43,6 +43,9 @@ The **Doppler effect** is the change in a wave's observed frequency (and pitch, 
 
 A wave has a frequency of $5 \text{ Hz}$ and a wavelength of $2 \text{ m}$. Find its speed.
 
+<!-- ILLUSTRATION: a transverse wave with one full wavelength labeled 2 m (crest to crest) and a note that 5 such waves pass each second (5 Hz) -->
+
+
 **Solution:**
 Apply the wave speed formula.
 
@@ -86,6 +89,9 @@ Check whether the wave requires a physical medium.
 ### #4: Applying the Doppler Effect
 
 An ambulance siren sounds higher in pitch as it approaches you, then suddenly sounds lower in pitch as it speeds away after passing you. Explain this using the Doppler effect.
+
+<!-- ILLUSTRATION: a moving ambulance with sound wavefronts bunched together (shorter wavelength, higher pitch) ahead of it and spread apart (longer wavelength, lower pitch) behind it -->
+
 
 **Solution:**
 Connect the direction of relative motion to the change in observed frequency.

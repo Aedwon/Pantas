@@ -41,6 +41,9 @@ This constantly changing direction means the object is accelerating, even at con
 
 A ball rolls off a table with a horizontal velocity of $3 \text{ m/s}$ and takes $0.5$ seconds to hit the floor. Find the horizontal distance it travels, and the height of the table (use $g = 9.8 \text{ m/s}^2$).
 
+<!-- ILLUSTRATION: a ball leaving a table edge horizontally at 3 m/s, following a curved projectile path to the floor, with the table height and horizontal distance both marked "?" -->
+
+
 **Solution:**
 Handle horizontal and vertical motion completely separately.
 
@@ -61,6 +64,9 @@ $$y = 1.225 \text{ m}$$
 ### #2: Launched at an Angle
 
 A projectile is launched at $20 \text{ m/s}$ at an angle of $30°$ above the horizontal. Find its initial horizontal and vertical velocity components.
+
+<!-- ILLUSTRATION: a 20 m/s launch velocity vector at 30° above the horizontal, resolved into its horizontal component (20cos30°) and vertical component (20sin30°) as a right triangle -->
+
 
 **Solution:**
 Split the launch velocity into components using the angle.
