@@ -59,6 +59,15 @@ For the same paragraph, is "Reading is good" a good main idea statement? Explain
 2. It fails to capture the specific point the paragraph makes (that fiction offers benefits beyond entertainment, backed by specific supporting details).
 3. This statement is too broad/vague; it misses the paragraph's specific claim and the concrete benefits it names.
 
+### #5: Paksa ng Talata (Filipino Passage)
+
+Basahin ang talata. "Maraming benepisyo ang pagtatanim ng gulay sa bakuran. Nakakatipid ang pamilya dahil hindi na kailangang bumili ng ilang sangkap sa palengke. Nagkakaroon din ng sariwang pagkain na walang kemikal. Bukod pa rito, nagiging libangan ng buong pamilya ang pag-aalaga ng halaman." Ano ang paksa ng talata?
+
+**Solution:**
+1. Tingnan ang unang pangungusap. Madalas nakalagay dito ang pangunahing ideya: maraming benepisyo ang pagtatanim ng gulay sa bakuran.
+2. Suriin ang iba pang pangungusap. Bawat isa ay nagbibigay ng tiyak na benepisyo: nakakatipid, sariwang pagkain, at libangan.
+3. Lahat ng detalye ay sumusuporta sa unang pangungusap. Ang paksa ng talata: maraming benepisyo ang pagtatanim ng gulay sa bakuran.
+
 ## Speed Tricks & Shortcuts
 
 **Check the first and last sentences first.** Topic sentences most often appear at the beginning of a paragraph, though sometimes a paragraph builds up to its main idea and states it at the end instead.

@@ -66,12 +66,32 @@ scientific names are italicized/underlined by hand — not a broken question)
 and `reading-comprehension/.../sequencing-of-events.md:64` ("underline
 time-signal words as you read" — a study instruction).
 
-## Status: Phase 1 complete
+## Status (fixes applied)
 
-All 6 blockers are fixed and the two target formula gaps are closed;
-`run_all.py` now reports **0 blockers**. LANG-VOC-004 (answer-leak) was
-withdrawn on review — it is a deliberate synonym-clue example, not a
-defect. The list below is kept as the record of what was fixed.
+- **Phase 1 — blockers + formula gaps: DONE.** All 6 blockers fixed, both
+  target formula gaps closed; `run_all.py` reports **0 blockers**.
+  LANG-VOC-004 (answer-leak) withdrawn on review — a deliberate synonym-clue
+  example, not a defect.
+- **Phase 2 — style guide v2: DONE.** De-AI emphasis rules, per-subject
+  section aliases, formula-in-Core-Concept rule, illustration load-bearing
+  exceptions; prompt template updated so new lessons comply.
+- **Phase 3 — de-AI pass: DONE (dominant tells).** ALL-CAPS emphasis
+  3,980 → 70 (remaining are real acronyms/logic operators/UP); "This lesson
+  teaches you" summaries 90 → 0. Em-dashes (399) and "test-makers" (29)
+  left as-is: on inspection they are varied, mid-sentence, and
+  domain-appropriate, not a uniform template.
+- **Phase 4 — Filipino: PARTIAL.** Added a correct *paksa ng talata*
+  Filipino passage to `main-idea.md`. Grammar-side Filipino expansion
+  (7 lessons) is deferred for Filipino-language review — auto-generating
+  parallel grammar rules risks inaccuracy, since Filipino grammar is not a
+  1:1 map of English.
+- **Phase 5 — illustrations: PARTIAL (load-bearing done).** Added 44
+  per-example placeholders to all 10 reasoning lessons and visual-media —
+  the sets where the figure *is* the question. Corpus ILLUS 143 → 99. The
+  remaining ~99 are "upgrade" placeholders (geometry, trig, physics, etc.)
+  where the prose already teaches; a clearly-scoped continuation.
+
+The list below is kept as the record of what was fixed.
 
 ## Top blockers (now fixed)
 
