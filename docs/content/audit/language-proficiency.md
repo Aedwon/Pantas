@@ -44,14 +44,12 @@ four cases.
 
 ## Answer-leaking questions
 
-### LANG-VOC-004 [important] context-clues.md:32 — the question defines its own answer
-Evidence: "The king's **edict**, *or official command*, forced all
-citizens…" The appositive "or official command" hands over the meaning;
-the correct choice is C) law. A vocabulary item that glosses its own target
-word tests nothing.
-Fix: remove the appositive so the surrounding context (taxes, citizens,
-crown, "forced") is what signals the meaning — that is the actual
-context-clue skill.
+### LANG-VOC-004 [WITHDRAWN] context-clues.md:32 — not a defect
+On review this is not a flaw. Example #1 is titled "Synonym Clue" and
+deliberately teaches the appositive/synonym clue type: the reader learns
+that "or official command" is a synonym signal for **edict**. The
+definition-in-sentence is the pedagogical point, so the appositive stays.
+Only the wording (LANG-VOC-001) was fixed.
 
 ## Filipino coverage
 

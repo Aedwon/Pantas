@@ -66,7 +66,14 @@ scientific names are italicized/underlined by hand — not a broken question)
 and `reading-comprehension/.../sequencing-of-events.md:64` ("underline
 time-signal words as you read" — a study instruction).
 
-## Top blockers (fix first)
+## Status: Phase 1 complete
+
+All 6 blockers are fixed and the two target formula gaps are closed;
+`run_all.py` now reports **0 blockers**. LANG-VOC-004 (answer-leak) was
+withdrawn on review — it is a deliberate synonym-clue example, not a
+defect. The list below is kept as the record of what was fixed.
+
+## Top blockers (now fixed)
 
 1. LANG-VOC-001/002 — `context-clues.md:32,81`: questions say "underlined
    word" but the target is bold.
