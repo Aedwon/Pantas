@@ -18,6 +18,18 @@ real exam items — authentic difficulty and authentic exam wording. Students
 must practice reading real exam English. The step-by-step SOLUTIONS below
 each question go back to very simple English.
 
+EMPHASIS AND NATURAL WRITING (very important):
+Do NOT use ALL-CAPS words for emphasis. Use bold for a key term the first
+time you define it, and italics rarely for light stress. Capitalize only
+real acronyms (DNA, ATP, GCF) and proper nouns. If a question refers to a
+marked word, make that word bold and call it "the word in bold" — never
+"underlined" (markdown cannot underline). Use at most one em dash per
+paragraph, and only for a real mid-sentence aside. Avoid stock phrases like
+"it's important to note", "delve", "crucial", "plays a vital role", and the
+"not just X but Y" construction. Vary how sentences and traps open — do not
+start every trap with "Test-makers often". Write the frontmatter summary as
+one plain sentence; do not begin it with "This lesson teaches you".
+
 ACCURACY (very important):
 Solve every example yourself, step by step, and double-check every
 arithmetic step before writing it down — a wrong worked solution is worse
