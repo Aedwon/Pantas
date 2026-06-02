@@ -32,6 +32,9 @@ Picking the ratio is mechanical:
 
 From a point $30$ meters from the base of a tree, the angle of elevation of the treetop is $60^\circ$. How tall is the tree?
 
+<!-- ILLUSTRATION: a right triangle with a 30 m horizontal ground distance from an observer to a tree, the 60° angle of elevation at the observer, and the tree height marked "?" -->
+
+
 **Solution:**
 Height (opposite) and ground distance (adjacent): tangent.
 
@@ -53,6 +56,9 @@ $$h = 30\sqrt{3}$$
 
 A $10$-meter ladder leans against a wall, with its foot $5$ meters from the wall. What angle does the ladder make with the ground?
 
+<!-- ILLUSTRATION: a right triangle with a 10 m ladder as the hypotenuse against a wall, the foot 5 m from the wall along the ground, the angle with the ground marked "?" -->
+
+
 **Solution:**
 We know the hypotenuse (ladder) and the adjacent side (ground): cosine.
 
@@ -69,6 +75,9 @@ $$\theta = 60^\circ$$
 ### #3: Angle of Depression
 
 From the top of a $50$-meter lighthouse, the angle of depression of a boat is $30^\circ$. How far is the boat from the base of the lighthouse?
+
+<!-- ILLUSTRATION: a 50 m lighthouse with a horizontal line at the top, the 30° angle of depression down to a boat, and the horizontal distance from the base to the boat marked "?" -->
+
 
 **Solution:**
 Slide the depression angle down: the angle of elevation at the boat is also $30^\circ$. Now it is a tangent problem.
@@ -113,6 +122,9 @@ $$b = 40 \cos 35^\circ$$
 ### #5: Two Observation Points (Exam Level)
 
 From point $A$ on level ground, the angle of elevation of the top of a building is $30^\circ$. After walking $100$ meters straight toward the building to point $B$, the angle of elevation becomes $60^\circ$. Find the height of the building.
+
+<!-- ILLUSTRATION: a building of height "?" with two observation points on the ground; point A farther away with a 30° angle of elevation, point B 100 m closer with a 60° angle of elevation -->
+
 
 **Solution:**
 Two triangles share the same height. Let $x$ be the distance from $B$ to the building.

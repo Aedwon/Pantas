@@ -49,6 +49,9 @@ For the reciprocals, match them by avoiding the same first letter: **s**in pairs
 
 A right triangle has legs $3$ and $4$ and hypotenuse $5$. If $\theta$ is the angle opposite the side of length $3$, find $\sin \theta$, $\cos \theta$, and $\tan \theta$.
 
+<!-- ILLUSTRATION: a right triangle with legs 3 (opposite θ) and 4 (adjacent to θ) and hypotenuse 5, with angle θ marked at the vertex opposite the side of length 3 -->
+
+
 **Solution:**
 Label the sides relative to $\theta$: opposite is $3$, adjacent is $4$, hypotenuse is $5$.
 
@@ -67,6 +70,9 @@ $$\tan \theta = \dfrac{3}{4}$$
 ### #2: One Ratio Gives the Others
 
 If $\sin \theta = \dfrac{5}{13}$ and $\theta$ is acute, find $\cos \theta$ and $\tan \theta$.
+
+<!-- ILLUSTRATION: a right triangle with the side opposite θ = 5 and hypotenuse = 13, the adjacent side computed as 12 by the Pythagorean theorem -->
+
 
 **Solution:**
 Build the triangle behind the ratio: opposite $5$, hypotenuse $13$. Find the missing adjacent side.
@@ -88,6 +94,9 @@ $$\cos \theta = \dfrac{12}{13} \qquad \tan \theta = \dfrac{5}{12}$$
 ### #3: Finding a Missing Side
 
 In a right triangle, the hypotenuse is $20$ and one acute angle measures $30^\circ$. Find the side opposite the $30^\circ$ angle.
+
+<!-- ILLUSTRATION: a right triangle with hypotenuse 20, one acute angle marked 30°, and the side opposite the 30° angle marked "?" -->
+
 
 **Solution:**
 We know the hypotenuse and want the opposite: that is sine territory.
@@ -128,6 +137,9 @@ $$\cot \theta = \dfrac{4}{3}$$
 ### #5: Exam-Level Combination
 
 In a right triangle, $\tan \theta = \dfrac{3}{4}$ and the hypotenuse measures $20$. Find the two legs and the value of $\sin \theta$.
+
+<!-- ILLUSTRATION: a right triangle where tan θ = 3/4 (opposite 3k, adjacent 4k) with hypotenuse 20, scaling to legs 12 and 16 -->
+
 
 **Solution:**
 The tangent gives the shape of the triangle; the hypotenuse gives its size.

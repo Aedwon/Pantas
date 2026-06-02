@@ -91,6 +91,9 @@ $$-45^\circ = -\dfrac{\pi}{4}$$
 
 Find the angle between $0^\circ$ and $360^\circ$ that is coterminal with $400^\circ$, and the one coterminal with $-120^\circ$.
 
+<!-- ILLUSTRATION: two coordinate planes; one showing 400° wrapping past 360° to land at 40°, the other showing -120° measured clockwise landing at 240° -->
+
+
 **Solution:**
 Add or subtract full turns of $360^\circ$ until you land inside the range.
 
@@ -108,6 +111,9 @@ $$-120 + 360 = 240$$
 ### #5: Arc Length
 
 A circle has a radius of $10$ cm. Find the length of the arc cut off by a central angle of $\dfrac{\pi}{5}$ radians. Then find the arc for a $72^\circ$ central angle.
+
+<!-- ILLUSTRATION: a circle of radius 10 cm with a central angle of π/5 radians (= 72°) and the intercepted arc highlighted -->
+
 
 **Solution:**
 Use $s = r\theta$, but $\theta$ must be in radians.

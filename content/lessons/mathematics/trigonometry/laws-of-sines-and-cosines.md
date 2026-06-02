@@ -36,6 +36,9 @@ Memory hook: the Law of Sines needs a matched pair (a side with its opposite ang
 
 In triangle $ABC$, angle $A = 30^\circ$, angle $B = 45^\circ$, and side $a = 10$. Find side $b$.
 
+<!-- ILLUSTRATION: a triangle ABC with angle A = 30°, angle B = 45°, side a = 10 opposite A, and side b opposite B marked "?" -->
+
+
 **Solution:**
 We have the pair ($a$ with $A$), so the Law of Sines works.
 
@@ -71,6 +74,9 @@ $$C = 180 - 30 - 45 = 105^\circ$$
 
 Two sides of a triangle measure $5$ and $8$, and the angle between them is $60^\circ$. Find the third side.
 
+<!-- ILLUSTRATION: a triangle with two sides 5 and 8 meeting at a 60° included angle, the third side (opposite the 60°) marked "?" -->
+
+
 **Solution:**
 Two sides with the included angle: Law of Cosines.
 
@@ -93,6 +99,9 @@ $$c = 7$$
 ### #4: Law of Cosines (SSS) for an Angle
 
 A triangle has sides $3$, $5$, and $7$. Find its largest angle.
+
+<!-- ILLUSTRATION: a triangle with sides 3, 5, and 7; the angle opposite the longest side (7) marked "?" as the largest angle -->
+
 
 **Solution:**
 The largest angle sits opposite the largest side, $7$. Solve the Law of Cosines for that angle.
@@ -124,6 +133,9 @@ $$C = 120^\circ$$
 ### #5: Two Ships (Exam Level)
 
 Two ships leave the same port at the same time. After one hour, ship $X$ has sailed $3$ km and ship $Y$ has sailed $8$ km, and the angle between their paths is $60^\circ$. How far apart are the ships?
+
+<!-- ILLUSTRATION: a port point with two paths diverging at a 60° angle; ship X's path 3 km and ship Y's path 8 km, the dashed distance between the two ships marked "?" -->
+
 
 **Solution:**
 The port and the two ships form a triangle: two sides and the included angle. Law of Cosines.

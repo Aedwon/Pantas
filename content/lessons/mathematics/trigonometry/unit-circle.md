@@ -51,6 +51,9 @@ For the sine values of $0^\circ, 30^\circ, 45^\circ, 60^\circ, 90^\circ$, use th
 
 Find the exact value of $\cos 120^\circ$.
 
+<!-- ILLUSTRATION: a unit circle with the terminal ray at 120° in Quadrant II, its 60° reference angle to the negative x-axis marked, and the point (-1/2, √3/2) labeled -->
+
+
 **Solution:**
 Reference angle first, then sign.
 
@@ -66,6 +69,9 @@ $$\cos 120^\circ = -\dfrac{1}{2}$$
 ### #2: A Quadrant III Value
 
 Find the exact value of $\sin 225^\circ$.
+
+<!-- ILLUSTRATION: a unit circle with the terminal ray at 225° in Quadrant III, its 45° reference angle marked, and the point (-√2/2, -√2/2) labeled -->
+
 
 **Solution:**
 Same two tools.
@@ -83,6 +89,9 @@ $$\sin 225^\circ = -\dfrac{\sqrt{2}}{2}$$
 
 Find the exact value of $\tan 300^\circ$.
 
+<!-- ILLUSTRATION: a unit circle with the terminal ray at 300° in Quadrant IV, its 60° reference angle marked, and the point (1/2, -√3/2) labeled -->
+
+
 **Solution:**
 Reference angle, size, sign.
 
@@ -98,6 +107,9 @@ $$\tan 300^\circ = -\sqrt{3}$$
 ### #4: Negative and Axis Angles
 
 Find $\sin(-30^\circ)$, $\cos 180^\circ$, and $\sin 90^\circ$.
+
+<!-- ILLUSTRATION: a unit circle marking three positions — -30° (below the positive x-axis), 180° (point (-1, 0)), and 90° (point (0, 1)) -->
+
 
 **Solution:**
 Negative angles swing clockwise. Axis angles sit right on the axes, so read their coordinates directly.

@@ -80,6 +80,9 @@ $$\arctan(-\sqrt{3}) = -60^\circ$$
 
 Evaluate $\sin\left(\arccos \dfrac{3}{5}\right)$.
 
+<!-- ILLUSTRATION: a right triangle where the angle has cosine 3/5 (adjacent 3, hypotenuse 5), the opposite side computed as 4, so its sine is 4/5 -->
+
+
 **Solution:**
 Name the inside first: let $\theta = \arccos \dfrac{3}{5}$, an acute angle whose cosine is $\dfrac{3}{5}$. Now find its sine by building the triangle.
 
@@ -99,6 +102,9 @@ $$\sin \theta = \dfrac{4}{5}$$
 ### #5: Composition at Exam Level
 
 Evaluate $\tan\left(\arcsin \dfrac{5}{13}\right)$.
+
+<!-- ILLUSTRATION: a right triangle where the angle has sine 5/13 (opposite 5, hypotenuse 13), the adjacent side computed as 12, so its tangent is 5/12 -->
+
 
 **Solution:**
 Same triangle method.

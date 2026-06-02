@@ -39,6 +39,9 @@ The main strategy for simplifying: convert everything to sines and cosines, then
 
 If $\sin \theta = \dfrac{3}{5}$ and $\theta$ is acute, find $\cos \theta$ using an identity.
 
+<!-- ILLUSTRATION: a right triangle with opposite 3 and hypotenuse 5 (so sin θ = 3/5), the adjacent side 4 giving cos θ = 4/5, confirming the Pythagorean identity -->
+
+
 **Solution:**
 Use $\sin^2 \theta + \cos^2 \theta = 1$.
 
