@@ -1,7 +1,7 @@
 ---
 _id: "lesson-algebra-exponents-and-logarithms"
 title: "Laws of Exponents and Logarithms"
-summary: "This lesson teaches you the exact rules for combining and shrinking numbers with exponents and logarithms."
+summary: "The exact rules for combining and shrinking numbers with exponents and logarithms."
 subject: "subject-mathematics"
 topic: "topic-algebra"
 estimatedMinutes: 10
@@ -17,9 +17,9 @@ College entrance exams love these two topics. Exams will give you a long, messy 
 
 ## Mnemonics & Memory Aids
 
-Use the made-up word MADSPM to remember your exponent rules. It tells you exactly what to do with the little exponents when you see different math operations.
+Use the made-up word madspm to remember your exponent rules. It tells you exactly what to do with the little exponents when you see different math operations.
 
-> **MADSPM**: **M**ultiply bases to **A**dd, **D**ivide to **S**ubtract, **P**ower to **M**ultiply.
+> **madspm**: **M**ultiply bases to **A**dd, **D**ivide to **S**ubtract, **P**ower to **M**ultiply.
 
 To convert a logarithm back into a normal exponent, use the Circle Rule. You visually draw a circle starting from the tiny bottom number.
 
@@ -40,14 +40,14 @@ $$\dfrac{(x^3 y^2)(x^4 y^{-1})}{x^2 y^3}$$
 
 **Solution:**
 
-$1$. Use the MADSPM rule for the top part. When you multiply the big letter bases, you add their tiny exponents.
+$1$. Use the madspm rule for the top part. When you multiply the big letter bases, you add their tiny exponents.
 $2$. For $x$, add $3$ and $4$ to get $7$. For $y$, add $2$ and $-1$ to get $1$.
 
 
 $$\dfrac{x^7 y^1}{x^2 y^3}$$
 
 
-$3$. Now use the MADSPM rule for division. When you divide bases, you subtract the bottom exponent from the top exponent.
+$3$. Now use the madspm rule for division. When you divide bases, you subtract the bottom exponent from the top exponent.
 $4$. For $x$, subtract $2$ from $7$ to get $5$. For $y$, subtract $3$ from $1$ to get $-2$.
 
 
@@ -154,7 +154,7 @@ $2$. The number $4$ is $2^2$. The number $8$ is $2^3$.
 $$(2^2)^{2x-1} = (2^3)^{x+1}$$
 
 
-$3$. Use the MADSPM rule. When a power is raised to another power, you multiply them. Distribute the outside numbers inside.
+$3$. Use the madspm rule. When a power is raised to another power, you multiply them. Distribute the outside numbers inside.
 
 
 $$2^{4x-2} = 2^{3x+3}$$

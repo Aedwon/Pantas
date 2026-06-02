@@ -1,7 +1,7 @@
 ---
 _id: "lesson-geometry-parallel-perpendicular-lines"
 title: "Parallel and Perpendicular Lines (Transversals, Angle Pairs)"
-summary: "This lesson teaches you the angle pairs formed when a line crosses two parallel lines and how to solve for missing angles."
+summary: "The angle pairs formed when a line crosses two parallel lines and how to solve for missing angles."
 subject: "subject-mathematics"
 topic: "topic-geometry"
 estimatedMinutes: 12
@@ -13,22 +13,22 @@ isActive: true
 
 **Perpendicular lines** cross at exactly $90^\circ$. We write $l \perp m$.
 
-A **transversal** is a line that cuts across two or more lines. When a transversal cuts two PARALLEL lines, it creates eight angles with beautiful rules.
+A **transversal** is a line that cuts across two or more lines. When a transversal cuts two parallel lines, it creates eight angles with beautiful rules.
 
 <!-- ILLUSTRATION: two horizontal parallel lines cut by a slanted transversal, with the eight angles numbered 1 to 8 (1-4 at the top intersection, 5-8 at the bottom) -->
 
 The equal pairs:
 
-- **Corresponding angles** sit in the same corner position at each crossing (like both "top left"). They are EQUAL.
-- **Alternate interior angles** sit between the parallel lines on opposite sides of the transversal, forming a letter Z. They are EQUAL.
-- **Alternate exterior angles** sit outside the parallel lines on opposite sides. They are EQUAL.
-- **Vertical angles** at each crossing are EQUAL, as always.
+- **Corresponding angles** sit in the same corner position at each crossing (like both "top left"). They are equal.
+- **Alternate interior angles** sit between the parallel lines on opposite sides of the transversal, forming a letter Z. They are equal.
+- **Alternate exterior angles** sit outside the parallel lines on opposite sides. They are equal.
+- **Vertical angles** at each crossing are equal, as always.
 
 The supplementary pair:
 
-- **Same-side interior angles** (also called co-interior) sit between the parallel lines on the SAME side of the transversal, forming a letter C. They add up to $180^\circ$.
+- **Same-side interior angles** (also called co-interior) sit between the parallel lines on the same side of the transversal, forming a letter C. They add up to $180^\circ$.
 
-Here is the shortcut view: once you know ONE of the eight angles, you know all eight. Every angle is either equal to it or supplementary to it.
+Here is the shortcut view: once you know one of the eight angles, you know all eight. Every angle is either equal to it or supplementary to it.
 
 These rules also work in reverse. If a transversal makes equal corresponding angles, the two lines must be parallel. Test-makers use this to ask "which lines are parallel?"
 
@@ -46,7 +46,7 @@ Every angle in the figure is either $65^\circ$ or its supplement.
 $$180 - 65 = 115$$
 
 2. The linear pair neighbor is $115^\circ$.
-3. The corresponding angle at the bottom crossing is EQUAL: $65^\circ$.
+3. The corresponding angle at the bottom crossing is equal: $65^\circ$.
 4. The same-side interior angle must add with $65^\circ$ to make $180^\circ$, so it is $115^\circ$.
 
 ### #2: Corresponding Angles with Algebra
@@ -72,7 +72,7 @@ $$40 = x$$
 Lines $a$ and $b$ are parallel. Two same-side interior angles measure $(3x + 20)^\circ$ and $(2x - 15)^\circ$. Find both angles.
 
 **Solution:**
-Same-side interior angles are supplementary, so they ADD to $180^\circ$.
+Same-side interior angles are supplementary, so they add to $180^\circ$.
 
 1. Write the sum equation.
 
@@ -96,7 +96,7 @@ $$x = 35$$
 Lines $l$ and $m$ are parallel. An alternate interior angle pair measures $(4x)^\circ$ and $(3x + 18)^\circ$. Solve for $x$.
 
 **Solution:**
-First decide: equal pair or supplementary pair? Alternate interior angles form the letter Z and are EQUAL.
+First decide: equal pair or supplementary pair? Alternate interior angles form the letter Z and are equal.
 
 1. Set the expressions equal.
 
@@ -124,7 +124,7 @@ This is a classic CET figure. The trick: draw a helper line through $P$ parallel
 
 $$30 + 40 = 70$$
 
-5. The angle at $P$ is $70^\circ$. Remember the pattern: the bent angle equals the SUM of the two given angles.
+5. The angle at $P$ is $70^\circ$. Remember the pattern: the bent angle equals the sum of the two given angles.
 
 ## Speed Tricks & Shortcuts
 
@@ -138,18 +138,18 @@ For the zigzag figure (Example $5$), skip the helper-line work on exam day: the 
 
 ### #1: The Lines Might Not Be Parallel
 
-> The angle rules only work when the lines are PARALLEL.
+> The angle rules only work when the lines are parallel.
 
-If the problem never says the lines are parallel (in words or with matching arrow marks in the figure), you cannot use corresponding or alternate angle rules. Test-makers draw lines that LOOK parallel and hope you assume. Check the given information first.
+If the problem never says the lines are parallel (in words or with matching arrow marks in the figure), you cannot use corresponding or alternate angle rules. Test-makers draw lines that look parallel and hope you assume. Check the given information first.
 
 ### #2: Equal or Supplementary?
 
-> Same-side interior angles are NOT equal. They add to $180^\circ$.
+> Same-side interior angles are not equal. They add to $180^\circ$.
 
-The most common wrong equation is setting same-side interior angles equal to each other. If both expressions sit between the parallel lines on the same side of the transversal (the letter C), write a SUM equation, not an equal equation.
+The most common wrong equation is setting same-side interior angles equal to each other. If both expressions sit between the parallel lines on the same side of the transversal (the letter C), write a sum equation, not an equal equation.
 
 ### #3: Corresponding vs. Alternate Confusion
 
-> Corresponding angles are on the SAME side of the transversal; alternate angles are on OPPOSITE sides.
+> Corresponding angles are on the same side of the transversal; alternate angles are on opposite sides.
 
-Both pairs are equal when lines are parallel, so for computation the mix-up may not hurt. But CETs also ask you to NAME the relationship, and "corresponding" vs. "alternate interior" is exactly the kind of one-point gift you should not miss.
+Both pairs are equal when lines are parallel, so for computation the mix-up may not hurt. But CETs also ask you to name the relationship, and "corresponding" vs. "alternate interior" is exactly the kind of one-point gift you should not miss.

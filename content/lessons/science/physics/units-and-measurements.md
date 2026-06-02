@@ -1,7 +1,7 @@
 ---
 _id: "lesson-physics-units-and-measurements"
 title: "Units, Measurements, and Conversions (Dimensional Analysis)"
-summary: "This lesson teaches you the seven base SI units and how to convert between units using dimensional analysis."
+summary: "The seven base SI units and how to convert between units using dimensional analysis."
 subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 10
@@ -9,11 +9,11 @@ isActive: true
 ---
 ## Core Concept
 
-Physics describes the world with NUMBERS attached to UNITS. A measurement without a unit is meaningless — saying a rope is "$5$ long" tells you nothing until you know if that means $5$ meters or $5$ centimeters.
+Physics describes the world with numbers attached to units. A measurement without a unit is meaningless — saying a rope is "$5$ long" tells you nothing until you know if that means $5$ meters or $5$ centimeters.
 
 ### The Seven SI Base Units
 
-Scientists worldwide use the **International System of Units (SI)**, built from SEVEN base units, from which every other unit is derived:
+Scientists worldwide use the **International System of Units (SI)**, built from seven base units, from which every other unit is derived:
 
 - **Length**: meter ($m$)
 - **Mass**: kilogram ($kg$)
@@ -23,15 +23,15 @@ Scientists worldwide use the **International System of Units (SI)**, built from 
 - **Amount of substance**: mole ($mol$)
 - **Luminous intensity**: candela ($cd$)
 
-Every other unit in physics (like speed in $m/s$, or force in $kg \cdot m/s^2$, called a newton) is a COMBINATION of these seven base units.
+Every other unit in physics (like speed in $m/s$, or force in $kg \cdot m/s^2$, called a newton) is a combination of these seven base units.
 
 <!-- ILLUSTRATION: seven labeled icons representing the base quantities, a ruler for length, a weight for mass, a clock for time, a battery/current symbol for electric current, a thermometer for temperature, a flask for amount of substance, and a light bulb for luminous intensity -->
 
 ### Dimensional Analysis
 
-**Dimensional analysis** is a method for converting between units by multiplying by **conversion factors**: fractions equal to $1$, built from equivalent measurements (like $\dfrac{1 \text{ m}}{100 \text{ cm}}$, since $1$ meter equals $100$ centimeters). Multiplying by a conversion factor never changes the actual quantity, only the UNITS it is expressed in, because you are really just multiplying by $1$.
+**Dimensional analysis** is a method for converting between units by multiplying by **conversion factors**: fractions equal to $1$, built from equivalent measurements (like $\dfrac{1 \text{ m}}{100 \text{ cm}}$, since $1$ meter equals $100$ centimeters). Multiplying by a conversion factor never changes the actual quantity, only the units it is expressed in, because you are really just multiplying by $1$.
 
-The trick is to arrange each conversion factor so the UNWANTED unit cancels out (appearing once on top and once on bottom), leaving only the units you want.
+The trick is to arrange each conversion factor so the unwanted unit cancels out (appearing once on top and once on bottom), leaving only the units you want.
 
 ## Examples
 
@@ -94,24 +94,24 @@ Always write out units alongside numbers during a calculation, not just at the e
 
 Memorize a small set of common metric prefixes as powers of $10$: kilo- ($1000$, or $10^3$), centi- ($0.01$, or $10^{-2}$), milli- ($0.001$, or $10^{-3}$). Converting between these and the base unit is just a matter of moving the decimal point.
 
-For chained conversions (like $km/h$ to $m/s$), handle the top unit and the bottom unit SEPARATELY, one conversion factor at a time, rather than trying to do both changes in a single confusing step.
+For chained conversions (like $km/h$ to $m/s$), handle the top unit and the bottom unit separately, one conversion factor at a time, rather than trying to do both changes in a single confusing step.
 
 ## Traps to Watch For
 
 ### #1: Flipping the Conversion Factor Upside Down
 
-> Always arrange a conversion factor so the UNWANTED unit is on the OPPOSITE side from where it appears in your starting value, so it cancels out.
+> Always arrange a conversion factor so the unwanted unit is on the opposite side from where it appears in your starting value, so it cancels out.
 
-Multiplying $250 \text{ cm}$ by $\dfrac{100 \text{ cm}}{1 \text{ m}}$ (the upside-down version) leaves you with units of $\text{cm}^2/\text{m}$, a nonsense result, and a number that is wildly too large. Check that units actually CANCEL before trusting the arithmetic.
+Multiplying $250 \text{ cm}$ by $\dfrac{100 \text{ cm}}{1 \text{ m}}$ (the upside-down version) leaves you with units of $\text{cm}^2/\text{m}$, a nonsense result, and a number that is wildly too large. Check that units actually cancel before trusting the arithmetic.
 
 ### #2: Mixing Units Within the Same Calculation
 
-> Convert ALL quantities to the SAME unit system before combining them in a formula.
+> Convert all quantities to the same unit system before combining them in a formula.
 
 Plugging a distance in kilometers directly into a formula alongside a time in seconds (without converting one of them first) produces a meaningless result. Always check that every value going into a formula shares compatible units.
 
 ### #3: Forgetting That Squaring or Cubing a Unit Also Squares the Conversion Factor
 
-> Converting an AREA or VOLUME unit requires squaring or cubing the LENGTH conversion factor too, not just reusing the plain factor.
+> Converting an area or volume unit requires squaring or cubing the length conversion factor too, not just reusing the plain factor.
 
-Converting $1 \text{ m}^2$ to $\text{cm}^2$ is NOT simply multiplying by $100$ (the length conversion factor); since area is length TIMES length, the conversion factor must also be squared: $1 \text{ m}^2 = (100 \text{ cm})^2 = 10{,}000 \text{ cm}^2$.
+Converting $1 \text{ m}^2$ to $\text{cm}^2$ is not simply multiplying by $100$ (the length conversion factor); since area is length times length, the conversion factor must also be squared: $1 \text{ m}^2 = (100 \text{ cm})^2 = 10{,}000 \text{ cm}^2$.

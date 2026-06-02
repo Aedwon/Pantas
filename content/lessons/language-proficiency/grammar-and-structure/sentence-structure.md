@@ -9,15 +9,15 @@ isActive: true
 ---
 ## Core Concept
 
-English sentences fall into FOUR structural types, based on how many independent and dependent clauses they contain.
+English sentences fall into four structural types, based on how many independent and dependent clauses they contain.
 
-A **simple sentence** has exactly ONE independent clause and no dependent clause. "The dog barked." It can still have a compound subject or verb ("The dog and the cat barked and ran"), but it remains simple as long as there is only ONE clause overall.
+A **simple sentence** has exactly one independent clause and no dependent clause. "The dog barked." It can still have a compound subject or verb ("The dog and the cat barked and ran"), but it remains simple as long as there is only one clause overall.
 
-A **compound sentence** has TWO OR MORE independent clauses, joined by a coordinating conjunction (*and*, *but*, *or*, *so*, *for*, *nor*, *yet*) or a semicolon. "The dog barked, *and* the cat ran." Each half could stand alone as its own complete sentence.
+A **compound sentence** has two or more independent clauses, joined by a coordinating conjunction (*and*, *but*, *or*, *so*, *for*, *nor*, *yet*) or a semicolon. "The dog barked, *and* the cat ran." Each half could stand alone as its own complete sentence.
 
-A **complex sentence** has ONE independent clause PLUS at least one dependent clause. "*Because the dog barked*, the cat ran." The dependent clause ("Because the dog barked") cannot stand alone; it depends on the independent clause ("the cat ran") to form a complete thought.
+A **complex sentence** has one independent clause plus at least one dependent clause. "*Because the dog barked*, the cat ran." The dependent clause ("Because the dog barked") cannot stand alone; it depends on the independent clause ("the cat ran") to form a complete thought.
 
-A **compound-complex sentence** combines BOTH structures: it has TWO OR MORE independent clauses AND at least one dependent clause. "*Because the dog barked*, the cat ran, and it hid under the bed." Here, "Because the dog barked" is dependent, while "the cat ran" and "it hid under the bed" are two independent clauses joined by "and."
+A **compound-complex sentence** combines both structures: it has two or more independent clauses and at least one dependent clause. "*Because the dog barked*, the cat ran, and it hid under the bed." Here, "Because the dog barked" is dependent, while "the cat ran" and "it hid under the bed" are two independent clauses joined by "and."
 
 <!-- ILLUSTRATION: four labeled sentence diagrams, a single box for simple, two connected boxes for compound, one small box attached to one large box for complex, and one small box attached to two connected large boxes for compound-complex -->
 
@@ -28,35 +28,35 @@ A **compound-complex sentence** combines BOTH structures: it has TWO OR MORE ind
 Classify this sentence: "The teacher and her students prepared and rehearsed the play."
 
 **Solution:**
-1. Despite having a COMPOUND subject ("teacher and students") and a COMPOUND verb ("prepared and rehearsed"), there is only ONE clause overall (one complete thought, no dependent clause attached).
-2. This is a SIMPLE sentence, since compound subjects/verbs alone do not create additional clauses.
+1. Despite having a compound subject ("teacher and students") and a compound verb ("prepared and rehearsed"), there is only one clause overall (one complete thought, no dependent clause attached).
+2. This is a simple sentence, since compound subjects/verbs alone do not create additional clauses.
 
 ### #2: Identifying a Compound Sentence
 
 Classify this sentence: "She wanted to travel abroad, but she could not afford the airfare."
 
 **Solution:**
-1. "She wanted to travel abroad" and "she could not afford the airfare" are both INDEPENDENT clauses (each could stand alone as its own sentence).
+1. "She wanted to travel abroad" and "she could not afford the airfare" are both independent clauses (each could stand alone as its own sentence).
 2. They are joined by the coordinating conjunction "but."
-3. This is a COMPOUND sentence.
+3. This is a compound sentence.
 
 ### #3: Identifying a Complex Sentence
 
 Classify this sentence: "Although the storm was severe, the town suffered minimal damage."
 
 **Solution:**
-1. "Although the storm was severe" is a DEPENDENT clause (cannot stand alone; the word "although" leaves it incomplete).
-2. "The town suffered minimal damage" is an INDEPENDENT clause (can stand alone).
-3. One dependent clause plus one independent clause: this is a COMPLEX sentence.
+1. "Although the storm was severe" is a dependent clause (cannot stand alone; the word "although" leaves it incomplete).
+2. "The town suffered minimal damage" is an independent clause (can stand alone).
+3. One dependent clause plus one independent clause: this is a complex sentence.
 
 ### #4: Identifying a Compound-Complex Sentence
 
 Classify this sentence: "When the bell rang, the students grabbed their bags, and they rushed out the door."
 
 **Solution:**
-1. "When the bell rang" is a DEPENDENT clause.
-2. "The students grabbed their bags" and "they rushed out the door" are TWO separate INDEPENDENT clauses, joined by "and."
-3. One dependent clause PLUS two independent clauses: this is a COMPOUND-COMPLEX sentence.
+1. "When the bell rang" is a dependent clause.
+2. "The students grabbed their bags" and "they rushed out the door" are two separate independent clauses, joined by "and."
+3. One dependent clause plus two independent clauses: this is a compound-complex sentence.
 
 ## Speed Tricks & Shortcuts
 
@@ -64,24 +64,24 @@ Classify this sentence: "When the bell rang, the students grabbed their bags, an
 
 **Watch for subordinating words** (*although*, *because*, *since*, *when*, *if*, *while*) to spot a dependent clause quickly — their presence signals the sentence is at least complex, or compound-complex if multiple independent clauses are also present.
 
-**Do not be fooled by compound subjects or verbs.** A sentence with "A and B" as the subject, or "did X and Y" as the verb, is still SIMPLE as long as there is only one overall clause — compound elements within a single clause do not create a compound sentence.
+**Do not be fooled by compound subjects or verbs.** A sentence with "A and B" as the subject, or "did X and Y" as the verb, is still simple as long as there is only one overall clause — compound elements within a single clause do not create a compound sentence.
 
 ## Traps to Watch For
 
 ### #1: Mistaking a Compound Subject or Verb for a Compound Sentence
 
-> A compound SUBJECT or compound VERB within ONE clause does NOT make a sentence compound — a compound sentence needs TWO OR MORE full independent CLAUSES.
+> A compound subject or compound verb within one clause does not make a sentence compound — a compound sentence needs two or more full independent clauses.
 
-"The dog and cat played" has a compound subject but is still a SIMPLE sentence, since there is only one clause (one subject-verb unit) overall, not two separate complete thoughts joined together.
+"The dog and cat played" has a compound subject but is still a simple sentence, since there is only one clause (one subject-verb unit) overall, not two separate complete thoughts joined together.
 
 ### #2: Confusing Complex with Compound
 
-> COMPOUND sentences join two INDEPENDENT clauses (both can stand alone). COMPLEX sentences join an independent clause with a DEPENDENT clause (only one can stand alone).
+> Compound sentences join two independent clauses (both can stand alone). Complex sentences join an independent clause with a dependent clause (only one can stand alone).
 
 Look for a subordinating word like "although," "because," or "since" — its presence signals a dependent clause, making the sentence complex (or compound-complex), not simply compound.
 
 ### #3: Missing One Clause Type in a Compound-Complex Sentence
 
-> A compound-complex sentence needs ALL THREE ingredients: at least one dependent clause, AND at least two independent clauses — missing any one of these makes it a different sentence type instead.
+> A compound-complex sentence needs all three ingredients: at least one dependent clause, and at least two independent clauses — missing any one of these makes it a different sentence type instead.
 
-A sentence with a dependent clause and only ONE independent clause is complex, not compound-complex; carefully count both the independent clauses AND check for a dependent clause before finalizing your classification.
+A sentence with a dependent clause and only one independent clause is complex, not compound-complex; carefully count both the independent clauses and check for a dependent clause before finalizing your classification.

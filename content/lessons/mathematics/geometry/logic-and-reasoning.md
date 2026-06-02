@@ -1,7 +1,7 @@
 ---
 _id: "lesson-geometry-logic-and-reasoning"
 title: "Logic and Reasoning (Conditional Statements, Converses, Inverses, Contrapositives)"
-summary: "This lesson teaches you how to rewrite if-then statements and tell which versions must be true."
+summary: "How to rewrite if-then statements and tell which versions must be true."
 subject: "subject-mathematics"
 topic: "topic-geometry"
 estimatedMinutes: 10
@@ -17,13 +17,13 @@ From one conditional, you can build three new statements:
 
 - **Converse**: swap the parts. "If $q$, then $p$."
 - **Inverse**: negate both parts. "If not $p$, then not $q$."
-- **Contrapositive**: swap AND negate. "If not $q$, then not $p$."
+- **Contrapositive**: swap and negate. "If not $q$, then not $p$."
 
-Here is the most important fact in this lesson. A conditional and its **contrapositive** always have the SAME truth value. They are **logically equivalent**. The converse and the inverse are also equivalent to each other, but NOT to the original.
+Here is the most important fact in this lesson. A conditional and its **contrapositive** always have the same truth value. They are **logically equivalent**. The converse and the inverse are also equivalent to each other, but not to the original.
 
-To prove a statement FALSE, you need a **counterexample**: one case where the hypothesis is true but the conclusion is false. One counterexample kills a statement.
+To prove a statement false, you need a **counterexample**: one case where the hypothesis is true but the conclusion is false. One counterexample kills a statement.
 
-A **biconditional** uses "if and only if". It means the conditional AND its converse are both true.
+A **biconditional** uses "if and only if". It means the conditional and its converse are both true.
 
 CETs test this two ways: "write the contrapositive of..." and "which statement is logically equivalent to...". Both become easy with one memory trick below.
 
@@ -33,7 +33,7 @@ To build the contrapositive, remember:
 
 > Flip and negate.
 
-The converse only flips. The inverse only negates. The contrapositive does BOTH, and doing both is what keeps the truth value safe.
+The converse only flips. The inverse only negates. The contrapositive does both, and doing both is what keeps the truth value safe.
 
 ## Examples
 
@@ -69,7 +69,7 @@ Look for one case with a wet ground but no rain.
 
 1. A janitor mops the floor. The ground is wet, but it is not raining.
 2. The hypothesis (wet ground) is true, but the conclusion (raining) is false.
-3. That single counterexample makes the converse FALSE.
+3. That single counterexample makes the converse false.
 4. Lesson: a true statement can have a false converse. Never assume the converse for free.
 
 ### #4: Picking the Equivalent Statement
@@ -112,18 +112,18 @@ To check any "always true" claim, hunt for a counterexample first. Finding one w
 
 ### #1: Believing the Converse
 
-> A true statement does NOT make its converse true.
+> A true statement does not make its converse true.
 
 "All squares have four sides" is true, but "all four-sided figures are squares" is false. Test-makers state a true conditional and offer the converse as a conclusion. Refuse it unless the problem says "if and only if".
 
 ### #2: Mixing Up Inverse and Contrapositive
 
-> The inverse only negates. The contrapositive negates AND swaps.
+> The inverse only negates. The contrapositive negates and swaps.
 
-Students negate both parts, forget to swap them, and pick the inverse thinking it is the contrapositive. The inverse is NOT equivalent to the original. Always do both moves: flip and negate.
+Students negate both parts, forget to swap them, and pick the inverse thinking it is the contrapositive. The inverse is not equivalent to the original. Always do both moves: flip and negate.
 
 ### #3: A Bad Counterexample
 
-> A counterexample needs a TRUE hypothesis and a FALSE conclusion.
+> A counterexample needs a true hypothesis and a false conclusion.
 
 To disprove "If a number is prime, then it is odd", the counterexample is $2$: prime (hypothesis true) but even (conclusion false). The number $9$ is not a counterexample; it is odd but not prime, so its hypothesis is false and it proves nothing.

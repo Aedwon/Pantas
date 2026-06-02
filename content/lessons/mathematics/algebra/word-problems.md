@@ -1,7 +1,7 @@
 ---
 _id: "lesson-algebra-word-problems"
 title: "Word Problems (Age, Motion, Work, Mixture, Coin, and Digit Problems)"
-summary: "This lesson teaches you how to turn the six classic word problem types into equations you can solve."
+summary: "How to turn the six classic word problem types into equations you can solve."
 subject: "subject-mathematics"
 topic: "topic-algebra"
 estimatedMinutes: 15
@@ -14,7 +14,7 @@ Word problems are just equations wearing a costume. Your job is to remove the co
 1. Pick a letter for the unknown. Write down exactly what it stands for.
 2. Turn each sentence into math, one fact at a time.
 3. Solve the equation.
-4. Re-read the question and answer what it ASKS.
+4. Re-read the question and answer what it asks.
 
 Each classic type has one key relationship to remember.
 
@@ -63,7 +63,7 @@ $$b = 6$$
 Two cars leave the same gas station at the same time and drive in opposite directions. One travels at $60$ kph and the other at $80$ kph. After how many hours will they be $350$ km apart?
 
 **Solution:**
-Moving in opposite directions, their distances ADD.
+Moving in opposite directions, their distances add.
 
 1. In $t$ hours, one car covers $60t$ km and the other covers $80t$ km.
 
@@ -95,7 +95,7 @@ $$\dfrac{1}{6} + \dfrac{1}{3} = \dfrac{1}{6} + \dfrac{2}{6} = \dfrac{3}{6} = \df
 
 $$t = \dfrac{1}{\dfrac{1}{2}} = 2$$
 
-4. Working together, they finish in $2$ hours. Notice the answer is SMALLER than both solo times, which makes sense: two workers are faster than one.
+4. Working together, they finish in $2$ hours. Notice the answer is smaller than both solo times, which makes sense: two workers are faster than one.
 
 ### #4: Mixture Problem
 
@@ -128,7 +128,7 @@ $$x = 16$$
 A jar contains $1$-peso and $5$-peso coins. There are $20$ coins in all, worth $52$ pesos. How many $5$-peso coins are there?
 
 **Solution:**
-Write one equation for the COUNT and one for the VALUE. Let $x$ be the number of $1$-peso coins and $y$ the number of $5$-peso coins.
+Write one equation for the count and one for the value. Let $x$ be the number of $1$-peso coins and $y$ the number of $5$-peso coins.
 
 1. The count equation.
 
@@ -196,7 +196,7 @@ Before solving, estimate. In Example $4$, the target $30\%$ is much closer to $2
 
 ### #1: Time Passes for Everyone
 
-> In age problems, add the years to BOTH people.
+> In age problems, add the years to both people.
 
 If the problem says "in $5$ years", every person in the problem becomes $5$ years older. Students often age only one person, writing $x + 5 = 2y$ instead of $x + 5 = 2(y + 5)$. That wrong equation produces one of the trap choices.
 
@@ -204,7 +204,7 @@ If the problem says "in $5$ years", every person in the problem becomes $5$ year
 
 > Solve for $x$, then re-read what the question asks.
 
-In Example $1$, solving gives $b = 6$, but the question asks for ANA's age, which is $18$. In coin problems, they may ask for the number of $1$-peso coins after you solved for the $5$-peso coins. The unasked value is always in the choices.
+In Example $1$, solving gives $b = 6$, but the question asks for ana's age, which is $18$. In coin problems, they may ask for the number of $1$-peso coins after you solved for the $5$-peso coins. The unasked value is always in the choices.
 
 ### #3: Averaging the Work Times
 

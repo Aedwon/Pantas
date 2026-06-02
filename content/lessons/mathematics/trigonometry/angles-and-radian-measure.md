@@ -1,7 +1,7 @@
 ---
 _id: "lesson-trigonometry-angles-and-radian-measure"
 title: "Angles and Radian Measure (Conversion)"
-summary: "This lesson teaches you what radians are and how to convert between degrees and radians quickly."
+summary: "What radians are and how to convert between degrees and radians quickly."
 subject: "subject-mathematics"
 topic: "topic-trigonometry"
 estimatedMinutes: 10
@@ -28,7 +28,7 @@ From this one fact come both conversion rules:
 
 An angle in **standard position** starts from the positive $x$-axis. Counterclockwise is positive, clockwise is negative. Angles that end at the same spot are called **coterminal**; they differ by full turns of $360^\circ$ (or $2\pi$).
 
-Radians also give the cleanest arc length formula. For a central angle $\theta$ in RADIANS and radius $r$:
+Radians also give the cleanest arc length formula. For a central angle $\theta$ in radians and radius $r$:
 
 $$s = r\theta$$
 
@@ -110,7 +110,7 @@ $$-120 + 360 = 240$$
 A circle has a radius of $10$ cm. Find the length of the arc cut off by a central angle of $\dfrac{\pi}{5}$ radians. Then find the arc for a $72^\circ$ central angle.
 
 **Solution:**
-Use $s = r\theta$, but $\theta$ MUST be in radians.
+Use $s = r\theta$, but $\theta$ must be in radians.
 
 1. First arc: the angle is already in radians.
 
@@ -132,7 +132,7 @@ Memorize the anchor conversions and build everything from them: $30^\circ = \dfr
 
 To place a radian angle in its quadrant without converting: compare it to $\dfrac{\pi}{2} \approx 1.57$, $\pi \approx 3.14$, and $\dfrac{3\pi}{2} \approx 4.71$. An angle like $2$ radians sits between $1.57$ and $3.14$, so it is in Quadrant II.
 
-For coterminal questions, you may need MORE than one turn: $800^\circ - 360^\circ = 440^\circ$, still too big, so subtract again to get $80^\circ$. Keep going until you land in range.
+For coterminal questions, you may need more than one turn: $800^\circ - 360^\circ = 440^\circ$, still too big, so subtract again to get $80^\circ$. Keep going until you land in range.
 
 ## Traps to Watch For
 
@@ -144,7 +144,7 @@ Use the wrong one and the answer explodes or shrinks absurdly. Sanity check: a n
 
 ### #2: Degrees Inside $s = r\theta$
 
-> The arc length formula only accepts RADIANS.
+> The arc length formula only accepts radians.
 
 Plugging $72^\circ$ straight into $s = r\theta$ gives $720$, a nonsense arc for a circle of radius $10$. Convert to radians first, every time. Test-makers pick angle values that produce believable-looking wrong answers.
 

@@ -98,7 +98,7 @@ A shipping company packs exactly $6$ books per box. Which of the following total
 **Solution:**
 
 1. The problem asks which number is divisible by $6$.
-2. The rule for $6$ is a combo. The number must pass the rule for $2$ AND the rule for $3$.
+2. The rule for $6$ is a combo. The number must pass the rule for $2$ and the rule for $3$.
 3. Check the rule for $2$. All choices end in an even number. They all pass.
 4. Check the rule for $3$. Add the digits of each choice.
 

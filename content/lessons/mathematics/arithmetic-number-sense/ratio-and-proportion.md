@@ -1,7 +1,7 @@
 ---
 _id: "lesson-arithmetic-number-sense-ratio-and-proportion"
 title: "Ratio and Proportion (Direct, Inverse, Partitive)"
-summary: "This lesson teaches you how to identify and solve direct, inverse, and partitive proportion problems quickly for your college entrance exams."
+summary: "How to identify and solve direct, inverse, and partitive proportion problems quickly for your college entrance exams."
 subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 estimatedMinutes: 12

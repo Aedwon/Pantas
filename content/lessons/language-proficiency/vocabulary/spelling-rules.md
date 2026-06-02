@@ -1,7 +1,7 @@
 ---
 _id: "lesson-vocabulary-spelling-rules"
 title: "Spelling Rules"
-summary: "This lesson teaches you the most tested spelling rules and their sneaky exceptions in both English and Filipino."
+summary: "The most tested spelling rules and their sneaky exceptions in both English and Filipino."
 subject: "subject-language-proficiency"
 topic: "topic-vocabulary"
 estimatedMinutes: 10
@@ -86,7 +86,7 @@ D. ocurrence
 
 1. Find the root word, which is "occur". Note that it starts with two "c"s.
 2. The root word ends in a consonant-vowel-consonant pattern (c-u-r).
-3. The spoken stress lands on the last syllable (oc-CUR).
+3. The spoken stress lands on the last syllable (oc-cur).
 4. Because of this, we must double the final consonant "r" before adding the suffix.
 
 $$\text{occur} + \text{r} + \text{ence} = \text{occurrence}$$

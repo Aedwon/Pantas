@@ -23,9 +23,9 @@ If you pick the wrong word, the whole sentence changes its meaning. Here are the
 
 ## Mnemonics & Memory Aids
 
-> **RAVEN**
+> **raven**
 
-Use RAVEN to remember the difference between affect and effect.
+Use raven to remember the difference between affect and effect.
 
 * **R**emember
 * **A**ffect = **V**erb
@@ -52,7 +52,7 @@ D) effects
 $$\text{Missing Word} = \text{Action (Verb)}$$
 
 
-2. Remember the RAVEN rule. Affect is the verb.
+2. Remember the raven rule. Affect is the verb.
 3. The word "severely" describes the action. We need the base form of the verb after "will".
 
 $$\text{Answer: A}$$
@@ -180,4 +180,4 @@ Many Filipinos say "Sila Maria" when talking casually. This is grammatically wro
 
 > Do not use "nang" for a specific clock time.
 
-You use *nang* to mean "when" for an event (like "Nang umulan"). But if the sentence gives an exact clock time or a specific day, you must use *ng*. For example, "Umalis siya **ng** $5$:00 PM." Test makers will try to confuse you here because both deal with time.
+You use *nang* to mean "when" for an event (like "Nang umulan"). But if the sentence gives an exact clock time or a specific day, you must use *ng*. For example, "Umalis siya **ng** $5$:00 pm." Test makers will try to confuse you here because both deal with time.

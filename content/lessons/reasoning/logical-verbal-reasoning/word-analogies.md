@@ -9,9 +9,9 @@ isActive: true
 ---
 ## Core Concept
 
-A **word analogy** tests whether you can identify the RELATIONSHIP between one pair of words, then find a SECOND pair with the exact SAME relationship. Analogies are usually written as "A is to B as C is to D," or in shorthand: A : B :: C : D.
+A **word analogy** tests whether you can identify the relationship between one pair of words, then find a second pair with the exact same relationship. Analogies are usually written as "A is to B as C is to D," or in shorthand: A : B :: C : D.
 
-The FIRST step is always to describe the relationship between the first pair in a clear SENTENCE. "Puppy is to dog as kitten is to cat" — the relationship is "a ___ is a baby ___." Once you have that sentence, TEST each answer choice by plugging it into the same sentence pattern.
+The first step is always to describe the relationship between the first pair in a clear sentence. "Puppy is to dog as kitten is to cat" — the relationship is "a ___ is a baby ___." Once you have that sentence, test each answer choice by plugging it into the same sentence pattern.
 
 Common analogy relationship types:
 
@@ -26,7 +26,7 @@ Common analogy relationship types:
 
 <!-- ILLUSTRATION: a simple diagram showing "puppy" with an arrow labeled "is a baby" pointing to "dog," matched beside "kitten" with the same arrow labeled "is a baby" pointing to "cat," illustrating the shared relationship pattern -->
 
-A **double analogy** extends this to involve relationships in BOTH directions or two separate paired relationships within a single question, requiring you to check that the connecting logic holds consistently across all four (or more) words.
+A **double analogy** extends this to involve relationships in both directions or two separate paired relationships within a single question, requiring you to check that the connecting logic holds consistently across all four (or more) words.
 
 ## Examples
 
@@ -37,59 +37,59 @@ Complete the analogy: Pen is to write as scissors is to ______. (A) sharp, (B) c
 **Solution:**
 1. Build the relationship sentence: "A pen is used to write."
 2. Apply the same sentence structure: "Scissors are used to ______."
-3. The word that fits this FUNCTION relationship is "cut" (B): scissors are used to cut.
+3. The word that fits this function relationship is "cut" (B): scissors are used to cut.
 
 ### #2: Identifying the Relationship Type
 
 Complete the analogy: Author is to book as director is to ______. (A) actor, (B) movie, (C) theater, (D) camera.
 
 **Solution:**
-1. Build the relationship sentence: "An author CREATES a book."
-2. Apply the same structure: "A director CREATES a ______."
-3. The word matching this CREATOR relationship is "movie" (B): a director creates a movie.
+1. Build the relationship sentence: "An author creates a book."
+2. Apply the same structure: "A director creates a ______."
+3. The word matching this creator relationship is "movie" (B): a director creates a movie.
 
 ### #3: Distinguishing Category from Function
 
 Complete the analogy: Hammer is to tool as oak is to ______. (A) wood, (B) tree, (C) leaf, (D) forest.
 
 **Solution:**
-1. Build the relationship sentence: "A hammer is a TYPE OF tool" (category relationship).
-2. Apply the same structure: "An oak is a TYPE OF ______."
-3. "Tree" (B) fits: an oak is a type of tree. (Note: "wood" describes the MATERIAL, not the category, so it does not match the same relationship type.)
+1. Build the relationship sentence: "A hammer is a type of tool" (category relationship).
+2. Apply the same structure: "An oak is a type of ______."
+3. "Tree" (B) fits: an oak is a type of tree. (Note: "wood" describes the material, not the category, so it does not match the same relationship type.)
 
 ### #4: A Double Analogy
 
 Complete the analogy: Puppy is to dog as calf is to ______, in the same way that petal is to flower as ______ is to tree. Choose the missing pair. (A) cow, leaf (B) cow, branch (C) cat, leaf (D) horse, root.
 
 **Solution:**
-1. First relationship pair: "puppy is a baby dog," so "calf is a baby ______" — a calf is a baby COW.
-2. Second relationship pair: "a petal is a PART of a flower," so "______ is a part of a tree" — a LEAF is a part of a tree.
-3. Checking both relationships together (baby-animal pattern, then part-to-whole pattern) against the choices, (A) "cow, leaf" satisfies BOTH relationships correctly.
+1. First relationship pair: "puppy is a baby dog," so "calf is a baby ______" — a calf is a baby cow.
+2. Second relationship pair: "a petal is a part of a flower," so "______ is a part of a tree" — a leaf is a part of a tree.
+3. Checking both relationships together (baby-animal pattern, then part-to-whole pattern) against the choices, (A) "cow, leaf" satisfies both relationships correctly.
 
 ## Speed Tricks & Shortcuts
 
-**Always build a sentence linking the first pair BEFORE looking at the answer choices.** A clear sentence ("A ___ is a baby ___," "A ___ is used to ___") makes testing each choice mechanical and fast.
+**Always build a sentence linking the first pair before looking at the answer choices.** A clear sentence ("A ___ is a baby ___," "A ___ is used to ___") makes testing each choice mechanical and fast.
 
-**Make your sentence as SPECIFIC as possible.** A vague sentence like "these are related" allows multiple wrong answers to seem plausible; a precise sentence like "a hammer is a TYPE OF tool" (not just "hammer relates to tool somehow") narrows down the correct choice quickly.
+**Make your sentence as specific as possible.** A vague sentence like "these are related" allows multiple wrong answers to seem plausible; a precise sentence like "a hammer is a type of tool" (not just "hammer relates to tool somehow") narrows down the correct choice quickly.
 
-**For double analogies, solve EACH pair separately first**, then check that your combined answer satisfies BOTH relationships at once.
+**For double analogies, solve each pair separately first**, then check that your combined answer satisfies both relationships at once.
 
 ## Traps to Watch For
 
 ### #1: Choosing a Word That's Merely "Related" Without Matching the Exact Relationship
 
-> The correct answer must match the SAME SPECIFIC relationship as the first pair, not just be generally associated with the given word.
+> The correct answer must match the same specific relationship as the first pair, not just be generally associated with the given word.
 
-In the hammer analogy, "wood" is clearly related to "oak," but it does not match the CATEGORY relationship ("type of") that the original pair (hammer : tool) established. Always test with your specific sentence, not a general association.
+In the hammer analogy, "wood" is clearly related to "oak," but it does not match the category relationship ("type of") that the original pair (hammer : tool) established. Always test with your specific sentence, not a general association.
 
 ### #2: Building a Sentence That's Too Vague
 
 > A vague relationship sentence lets multiple choices seem to "fit," making it hard to identify the single correct answer.
 
-"Pen and write are related" is too vague; "a pen is USED TO write" is specific enough to correctly eliminate wrong choices like "paper" (which is used WITH a pen, not the function OF a pen).
+"Pen and write are related" is too vague; "a pen is used to write" is specific enough to correctly eliminate wrong choices like "paper" (which is used with a pen, not the function of a pen).
 
 ### #3: Reversing the Direction of the Relationship
 
-> Check whether the relationship goes from FIRST word to SECOND word, or the reverse — and apply that SAME direction to the second pair.
+> Check whether the relationship goes from first word to second word, or the reverse — and apply that same direction to the second pair.
 
-"Author is to book" (author creates book) is different from "book is to author" (book was created by author) — while related ideas, keeping the direction CONSISTENT between the first and second pairs is essential for a correct match.
+"Author is to book" (author creates book) is different from "book is to author" (book was created by author) — while related ideas, keeping the direction consistent between the first and second pairs is essential for a correct match.

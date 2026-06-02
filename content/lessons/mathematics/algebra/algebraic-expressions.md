@@ -21,11 +21,11 @@ This lesson is about three main skills you need for college entrance exams.
 
 ## Mnemonics & Memory Aids
 
-> **"Less THAN" means "Swap the PLAN."**
+> **"Less than" means "Swap the plan."**
 
-If you see the word "than" or "from", you must write the parts in reverse order. For example, "$5$ less than $x$" becomes $x - 5$. It is NOT $5 - x$.
+If you see the word "than" or "from", you must write the parts in reverse order. For example, "$5$ less than $x$" becomes $x - 5$. It is not $5 - x$.
 
-> **IS means EQUALS. OF means MULTIPLY. PER means DIVIDE.**
+> **is means equals. Of means multiply. Per means divide.**
 
 These are the most common translation keywords. When a problem asks for "$50\%$ of $y$", you multiply them. When a car goes "$60$ kilometers per hour", you divide distance by time.
 
@@ -166,4 +166,4 @@ Exponents only apply to what they directly touch. If there are no parentheses, t
 
 ### #3: When subtracting a group, you must flip every sign inside the group.
 
-If you have $10 - (x - 4)$, the minus sign hits the $x$ AND it hits the $-4$. A negative times a negative is a positive. The correct result is $10 - x + 4$, which simplifies to $14 - x$. Many students forget to flip the second sign.
+If you have $10 - (x - 4)$, the minus sign hits the $x$ and it hits the $-4$. A negative times a negative is a positive. The correct result is $10 - x + 4$, which simplifies to $14 - x$. Many students forget to flip the second sign.

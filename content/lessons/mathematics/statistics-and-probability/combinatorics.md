@@ -1,7 +1,7 @@
 ---
 _id: "lesson-statistics-and-probability-combinatorics"
 title: "Combinatorics"
-summary: "This lesson teaches you how to count arrangements and selections using the counting principle, permutations, and combinations."
+summary: "How to count arrangements and selections using the counting principle, permutations, and combinations."
 subject: "subject-mathematics"
 topic: "topic-statistics-and-probability"
 estimatedMinutes: 13
@@ -9,13 +9,13 @@ isActive: true
 ---
 ## Core Concept
 
-Combinatorics is the art of counting WITHOUT listing. Three tools handle nearly every exam question.
+Combinatorics is the art of counting without listing. Three tools handle nearly every exam question.
 
 First, know the **factorial**: $n!$ means multiply all whole numbers from $n$ down to $1$. So $5! = 5 \times 4 \times 3 \times 2 \times 1 = 120$. Special rule: $0! = 1$.
 
 ### Fundamental Counting Principle
 
-If one task can be done in $m$ ways and a second task in $n$ ways, the two together can be done in $m \times n$ ways. Choices in a SEQUENCE multiply.
+If one task can be done in $m$ ways and a second task in $n$ ways, the two together can be done in $m \times n$ ways. Choices in a sequence multiply.
 
 Choosing a shirt ($4$ options) and pants ($3$ options) gives $4 \times 3 = 12$ outfits. Every branch of the first choice sprouts all the branches of the second.
 
@@ -23,7 +23,7 @@ Choosing a shirt ($4$ options) and pants ($3$ options) gives $4 \times 3 = 12$ o
 
 ### Permutations
 
-A **permutation** is an arrangement where ORDER MATTERS: gold-silver-bronze, seating in a row, officer positions. The number of ways to arrange $r$ items chosen from $n$ different items:
+A **permutation** is an arrangement where order matters: gold-silver-bronze, seating in a row, officer positions. The number of ways to arrange $r$ items chosen from $n$ different items:
 
 $$P(n, r) = \dfrac{n!}{(n - r)!}$$
 
@@ -31,11 +31,11 @@ In practice: multiply $r$ falling numbers starting at $n$. So $P(7, 3) = 7 \time
 
 ### Combinations
 
-A **combination** is a selection where order does NOT matter: a committee, a fruit basket, a hand of cards. Choosing the same people in a different order is the same committee.
+A **combination** is a selection where order does not matter: a committee, a fruit basket, a hand of cards. Choosing the same people in a different order is the same committee.
 
 $$C(n, r) = \dfrac{n!}{r!(n - r)!}$$
 
-A combination is a permutation DIVIDED by $r!$, to erase the orderings you no longer care about.
+A combination is a permutation divided by $r!$, to erase the orderings you no longer care about.
 
 The exam decision: ask "if I swap two chosen items, is the result different?" Yes: permutation. No: combination.
 
@@ -56,7 +56,7 @@ $$4 \times 3 \times 2 = 24$$
 
 ### #2: No Repetition Allowed
 
-How many $4$-digit PIN codes use four DIFFERENT digits?
+How many $4$-digit pin codes use four different digits?
 
 **Solution:**
 Each slot has one fewer option than the last.
@@ -104,7 +104,7 @@ From a club of $10$ members: (a) in how many ways can a president and a vice pre
 **Solution:**
 Same numbers, different logic — this pairing is the heart of the topic.
 
-1. For (a), the two positions are DIFFERENT jobs. Ana-president with Ben-vice differs from Ben-president with Ana-vice. Order matters.
+1. For (a), the two positions are different jobs. Ana-president with Ben-vice differs from Ben-president with Ana-vice. Order matters.
 
 $$10 \times 9 = 90$$
 
@@ -126,15 +126,15 @@ Keywords sort the problems fast: "arrange", "order", "line up", "ranking", "offi
 
 ### #1: Permutation for a Committee
 
-> If swapping the chosen items changes nothing, you MUST divide out the orderings.
+> If swapping the chosen items changes nothing, you must divide out the orderings.
 
 Using $10 \times 9 = 90$ for a $2$-member committee double-counts every pair. The choices will contain both $90$ and $45$; only the division-by-$2!$ answer is right. Run the swap test before you compute anything.
 
 ### #2: Adding Instead of Multiplying
 
-> Sequential choices MULTIPLY. Either-or choices ADD.
+> Sequential choices multiply. Either-or choices add.
 
-Choosing a sandwich AND a drink: $4 \times 3$. Choosing a sandwich OR a drink (just one item): $4 + 3$. The words "and" and "or" in the problem are the switches. Mixing them up gives answers that are wildly too small or too large.
+Choosing a sandwich and a drink: $4 \times 3$. Choosing a sandwich or a drink (just one item): $4 + 3$. The words "and" and "or" in the problem are the switches. Mixing them up gives answers that are wildly too small or too large.
 
 ### #3: Forgetting $0! = 1$
 
@@ -144,6 +144,6 @@ The formula $C(n, n)$ needs it: choosing all $8$ from $8$ gives $\dfrac{8!}{8! \
 
 ### #4: Repetition Rules Unread
 
-> Check whether repeats are allowed BEFORE setting up the slots.
+> Check whether repeats are allowed before setting up the slots.
 
 Digits of a code may repeat unless the problem says "distinct" or "no repetition"; people can never repeat (one person cannot fill two seats). The $10^4$ versus $10 \times 9 \times 8 \times 7$ split in Example $2$ is exactly this reading step, and both answers always appear in the choices.

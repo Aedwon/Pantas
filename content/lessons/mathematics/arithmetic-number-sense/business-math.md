@@ -1,7 +1,7 @@
 ---
 _id: "lesson-arithmetic-number-sense-business-math"
 title: "Business Math"
-summary: "This lesson teaches you how to solve for missing prices, discounts, and interest in money problems."
+summary: "How to solve for missing prices, discounts, and interest in money problems."
 subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 estimatedMinutes: 15
@@ -188,7 +188,7 @@ Let us try it with $20\%$ and $10\%$ discounts. Add them to get $30$. Then multi
 
 > Never add two discount percentages together!
 
-If a store says "Take $20\%$ off, and then take another $20\%$ off at the register," the total discount is NOT $40\%$. The second discount is taken from a smaller, already-discounted price. The true discount is always smaller than adding them up.
+If a store says "Take $20\%$ off, and then take another $20\%$ off at the register," the total discount is not $40\%$. The second discount is taken from a smaller, already-discounted price. The true discount is always smaller than adding them up.
 
 ### #2: Forgetting Time is in Years
 

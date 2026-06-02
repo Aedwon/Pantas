@@ -1,7 +1,7 @@
 ---
 _id: "lesson-geometry-quadrilaterals-and-polygons"
 title: "Quadrilaterals and Polygons (Properties, Interior and Exterior Angle Sums)"
-summary: "This lesson teaches you the special quadrilaterals and the formulas for the angles of any polygon."
+summary: "The special quadrilaterals and the formulas for the angles of any polygon."
 subject: "subject-mathematics"
 topic: "topic-geometry"
 estimatedMinutes: 12
@@ -13,7 +13,7 @@ A **polygon** is a closed figure made of straight sides. It is named by its side
 
 Two formulas run this whole topic. For a polygon with $n$ sides:
 
-The sum of the INTERIOR angles:
+The sum of the interior angles:
 
 $$S = (n - 2) \times 180^\circ$$
 
@@ -21,20 +21,20 @@ Why $n - 2$? Because you can slice any polygon into $n - 2$ triangles from one c
 
 <!-- ILLUSTRATION: hexagon with diagonals drawn from one vertex, splitting it into 4 shaded triangles -->
 
-The sum of the EXTERIOR angles (one at each vertex) is ALWAYS:
+The sum of the exterior angles (one at each vertex) is always:
 
 $$360^\circ$$
 
-This is true for EVERY polygon, whether it has $3$ sides or $100$ sides. Walk around the polygon once and you turn one full circle.
+This is true for every polygon, whether it has $3$ sides or $100$ sides. Walk around the polygon once and you turn one full circle.
 
 For a regular polygon, divide either sum by $n$ to get each single angle.
 
 **Quadrilaterals** ($n = 4$, interior sum $360^\circ$) form a family tree:
 
-- **Parallelogram**: both pairs of opposite sides parallel. Opposite sides are equal, opposite angles are equal, consecutive angles are supplementary, and the diagonals BISECT each other (cut each other in half).
-- **Rectangle**: a parallelogram with four right angles. Its diagonals are EQUAL.
-- **Rhombus**: a parallelogram with four equal sides. Its diagonals are PERPENDICULAR and bisect the corner angles.
-- **Square**: rectangle AND rhombus at once. It has every property above.
+- **Parallelogram**: both pairs of opposite sides parallel. Opposite sides are equal, opposite angles are equal, consecutive angles are supplementary, and the diagonals bisect each other (cut each other in half).
+- **Rectangle**: a parallelogram with four right angles. Its diagonals are equal.
+- **Rhombus**: a parallelogram with four equal sides. Its diagonals are perpendicular and bisect the corner angles.
+- **Square**: rectangle and rhombus at once. It has every property above.
 - **Trapezoid**: exactly one pair of parallel sides. Not a parallelogram.
 
 <!-- ILLUSTRATION: quadrilateral family tree, parallelogram branching to rectangle and rhombus, both merging into square, with trapezoid on a separate branch -->
@@ -117,7 +117,7 @@ $$n = \dfrac{360}{24} = 15$$
 In parallelogram $ABCD$, opposite angles $A$ and $C$ measure $(3x + 10)^\circ$ and $(5x - 30)^\circ$. Find the measure of angle $B$.
 
 **Solution:**
-Opposite angles of a parallelogram are EQUAL. Consecutive angles are supplementary.
+Opposite angles of a parallelogram are equal. Consecutive angles are supplementary.
 
 1. Set the opposite angles equal.
 
@@ -158,7 +158,7 @@ $$x = 36$$
 
 ## Speed Tricks & Shortcuts
 
-For each interior angle of a regular polygon, it is often faster through the BACK DOOR: find the exterior angle first ($360 \div n$), then subtract from $180$. For a regular octagon: $360 \div 8 = 45$, and $180 - 45 = 135$. Two easy divisions instead of one big multiplication.
+For each interior angle of a regular polygon, it is often faster through the back door: find the exterior angle first ($360 \div n$), then subtract from $180$. For a regular octagon: $360 \div 8 = 45$, and $180 - 45 = 135$. Two easy divisions instead of one big multiplication.
 
 Memorize the small interior sums: quadrilateral $360^\circ$, pentagon $540^\circ$, hexagon $720^\circ$. Each extra side adds exactly $180^\circ$.
 
@@ -168,24 +168,24 @@ For "how many sides" questions with exterior angles, just divide $360$ by the gi
 
 ### #1: Exterior Angles Do Not Grow
 
-> The exterior angle sum is $360^\circ$ for EVERY polygon.
+> The exterior angle sum is $360^\circ$ for every polygon.
 
-Students assume a bigger polygon has a bigger exterior sum and reach for $(n - 2) \times 180$. Only the INTERIOR sum grows. The exterior sum is stuck at $360^\circ$ forever, and test-makers hide easy one-step problems behind this fact.
+Students assume a bigger polygon has a bigger exterior sum and reach for $(n - 2) \times 180$. Only the interior sum grows. The exterior sum is stuck at $360^\circ$ forever, and test-makers hide easy one-step problems behind this fact.
 
 ### #2: Consecutive Is Not Opposite
 
-> In a parallelogram, OPPOSITE angles are equal; NEIGHBORING angles add to $180^\circ$.
+> In a parallelogram, opposite angles are equal; neighboring angles add to $180^\circ$.
 
 Setting two consecutive angles equal to each other (or making opposite angles supplementary) builds the wrong equation and produces a clean-looking wrong answer. Say the positions out loud: across means equal, next-door means supplementary.
 
 ### #3: Every Square Is a Rhombus, Not the Reverse
 
-> Properties flow DOWN the family tree, not up.
+> Properties flow down the family tree, not up.
 
-A square is always a rectangle and always a rhombus. But a rhombus is usually NOT a square. True-or-false items like "every rhombus is a square" (false) and "every square is a rhombus" (true) differ only in word order. Read direction carefully.
+A square is always a rectangle and always a rhombus. But a rhombus is usually not a square. True-or-false items like "every rhombus is a square" (false) and "every square is a rhombus" (true) differ only in word order. Read direction carefully.
 
 ### #4: Whose Diagonals Do What
 
-> Rectangle diagonals are EQUAL. Rhombus diagonals are PERPENDICULAR.
+> Rectangle diagonals are equal. Rhombus diagonals are perpendicular.
 
-These two get swapped constantly. Remember: the rhombus is the "pointy" one, and its diagonals cross at sharp right angles. Only the square, being both, has diagonals that are equal AND perpendicular.
+These two get swapped constantly. Remember: the rhombus is the "pointy" one, and its diagonals cross at sharp right angles. Only the square, being both, has diagonals that are equal and perpendicular.

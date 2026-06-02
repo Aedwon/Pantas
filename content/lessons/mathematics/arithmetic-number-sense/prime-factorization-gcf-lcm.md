@@ -21,9 +21,9 @@ Every whole number is made of smaller building blocks. These blocks are called *
 
 To know when to use GCF or LCM in a word problem, remember these two phrases:
 
-> **G**CF is for **G**rouping things right now.
+> **G**cf is for **G**rouping things right now.
 
-> **L**CM is for **L**ooking ahead to the future.
+> **L**cm is for **L**ooking ahead to the future.
 
 When you use prime factorization to find GCF and LCM, remember **P.I.G.** and **A.L.L.**:
 
@@ -133,7 +133,7 @@ $$2 \times 3 \times 7 = 42$$
 
 ### #4: "Repeating Schedule" Word Problem
 
-Three campus shuttles depart from the main gate at exactly $7:00$ AM. Shuttle A completes its route every $15$ minutes, Shuttle B every $20$ minutes, and Shuttle C every $25$ minutes. At what time will all three shuttles depart from the main gate together again?
+Three campus shuttles depart from the main gate at exactly $7:00$ am. Shuttle A completes its route every $15$ minutes, Shuttle B every $20$ minutes, and Shuttle C every $25$ minutes. At what time will all three shuttles depart from the main gate together again?
 
 **Solution:**
 
@@ -166,7 +166,7 @@ $$\text{LCM} = 4 \times 3 \times 25 = 300$$
 $$300 \div 60 = 5 \text{ hours}$$
 
 
-8. Add $5$ hours to $7:00$ AM. The answer is $12:00$ PM.
+8. Add $5$ hours to $7:00$ am. The answer is $12:00$ pm.
 
 ### #5: Remainder Problem
 
@@ -207,7 +207,7 @@ $$120 + 3 = 123$$
 
 The **Continuous Division Method** is faster than making factor trees. Write your numbers in a row. Divide them all by a common prime number. Write the answers below. Keep doing this until they share no common prime factor.
 
-The numbers on the left side give you the GCF. Just multiply them. The numbers on the left side AND the bottom row give you the LCM. Multiply them all to get the LCM. This gives you both answers at the same time!
+The numbers on the left side give you the GCF. Just multiply them. The numbers on the left side and the bottom row give you the LCM. Multiply them all to get the LCM. This gives you both answers at the same time!
 
 Another great trick is the **Product Formula**. This only works if you have exactly two numbers. The GCF times the LCM always equals the first number times the second number.
 

@@ -1,7 +1,7 @@
 ---
 _id: "lesson-geometry-coordinate-geometry"
 title: "Coordinate (Analytic) Geometry"
-summary: "This lesson teaches you how to measure distances, find midpoints, compute slopes, and write equations of lines on the coordinate plane."
+summary: "How to measure distances, find midpoints, compute slopes, and write equations of lines on the coordinate plane."
 subject: "subject-mathematics"
 topic: "topic-geometry"
 estimatedMinutes: 13
@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-The coordinate plane puts geometry on a grid. Every point gets an address $(x, y)$: steps right or left, then steps up or down. With addresses, we can CALCULATE geometry instead of drawing it.
+The coordinate plane puts geometry on a grid. Every point gets an address $(x, y)$: steps right or left, then steps up or down. With addresses, we can calculate geometry instead of drawing it.
 
 ### Distance and Midpoint Formulas
 
@@ -31,11 +31,11 @@ $$M = \left( \dfrac{x_1 + x_2}{2}, \dfrac{y_1 + y_2}{2} \right)$$
 
 $$m = \dfrac{y_2 - y_1}{x_2 - x_1}$$
 
-Read slopes at a glance: uphill left-to-right is positive, downhill is negative, a horizontal line has slope $0$, and a vertical line has UNDEFINED slope (you cannot divide by zero).
+Read slopes at a glance: uphill left-to-right is positive, downhill is negative, a horizontal line has slope $0$, and a vertical line has undefined slope (you cannot divide by zero).
 
 Two rules the CETs adore:
 
-- **Parallel lines** have EQUAL slopes.
+- **Parallel lines** have equal slopes.
 - **Perpendicular lines** have slopes that are negative reciprocals: flip the fraction and switch the sign. A slope of $2$ pairs with $-\dfrac{1}{2}$, and their product is $-1$.
 
 ### Equations of a Line
@@ -168,7 +168,7 @@ $$y = -6$$
 
 ## Speed Tricks & Shortcuts
 
-A faster route to a missing endpoint (Example $5$): the midpoint is the CENTER, so keep moving the same amount again. From $A(7, 4)$ to $M(3, -1)$ you move $-4$ in $x$ and $-5$ in $y$. Move the same again from $M$: $(3 - 4, -1 - 5) = (-1, -6)$. No equations needed.
+A faster route to a missing endpoint (Example $5$): the midpoint is the center, so keep moving the same amount again. From $A(7, 4)$ to $M(3, -1)$ you move $-4$ in $x$ and $-5$ in $y$. Move the same again from $M$: $(3 - 4, -1 - 5) = (-1, -6)$. No equations needed.
 
 Before using the distance formula, check if the points share an $x$ or a $y$. Points like $(2, 5)$ and $(2, 9)$ lie on a vertical line; the distance is just $9 - 5 = 4$. No square roots.
 
@@ -178,24 +178,24 @@ To read the slope from standard form $Ax + By = C$ without rearranging: $m = -\d
 
 ### #1: Subtracting in Mismatched Order
 
-> In the slope formula, both subtractions must go in the SAME direction.
+> In the slope formula, both subtractions must go in the same direction.
 
 Computing $\dfrac{y_2 - y_1}{x_1 - x_2}$ (top one way, bottom the other) flips the sign of the slope. Pick a "first point" and subtract it in both the top and bottom. A sign-flipped slope is always among the choices.
 
 ### #2: Reciprocal Without the Sign Switch
 
-> Perpendicular slope means flip AND negate.
+> Perpendicular slope means flip and negate.
 
 Given slope $\dfrac{2}{3}$, the perpendicular slope is $-\dfrac{3}{2}$. Students flip without negating ($\dfrac{3}{2}$) or negate without flipping ($-\dfrac{2}{3}$), and both wrong versions sit in the choices. Test with the product: it must equal $-1$.
 
 ### #3: Distance Signs Vanish, Coordinates Do Not
 
-> Squaring kills minus signs in DISTANCE, but midpoints keep their signs.
+> Squaring kills minus signs in distance, but midpoints keep their signs.
 
 Some students drop negative signs everywhere. In the distance formula that accident is harmless, but a midpoint of $(2, -3)$ and $(-4, 7)$ is $(-1, 2)$, not $(1, 2)$ or $(3, 5)$. Track signs in every average.
 
 ### #4: Zero Slope vs. No Slope
 
-> Horizontal lines have slope $0$. Vertical lines have UNDEFINED slope.
+> Horizontal lines have slope $0$. Vertical lines have undefined slope.
 
 These are different things: $0$ is a perfectly fine number, while undefined means the formula breaks (division by zero). A question asking for the slope of $x = 5$ wants "undefined", and $0$ is the planted wrong answer. For $y = 5$, the slope is $0$.

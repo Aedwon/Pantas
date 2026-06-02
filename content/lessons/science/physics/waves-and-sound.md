@@ -1,7 +1,7 @@
 ---
 _id: "lesson-physics-waves-and-sound"
 title: "Waves and Sound (Wave Properties, Mechanical vs. Electromagnetic Waves, Doppler Effect)"
-summary: "This lesson teaches you the basic properties of waves, the difference between mechanical and electromagnetic waves, and why sound pitch changes with motion."
+summary: "The basic properties of waves, the difference between mechanical and electromagnetic waves, and why sound pitch changes with motion."
 subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 12
@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-A **wave** carries ENERGY from one place to another WITHOUT the medium itself traveling along with it permanently — think of a stadium wave, where people stand and sit but stay in their seats, while the "wave" itself travels around the stadium.
+A **wave** carries energy from one place to another without the medium itself traveling along with it permanently — think of a stadium wave, where people stand and sit but stay in their seats, while the "wave" itself travels around the stadium.
 
 ### Wave Properties
 
@@ -17,7 +17,7 @@ A **wave** carries ENERGY from one place to another WITHOUT the medium itself tr
 
 **Frequency** ($f$): the number of complete waves passing a point per second, measured in **hertz** ($Hz$).
 
-**Amplitude**: the maximum displacement of the wave from its resting position, related to how much ENERGY the wave carries (bigger amplitude means more energy).
+**Amplitude**: the maximum displacement of the wave from its resting position, related to how much energy the wave carries (bigger amplitude means more energy).
 
 **Wave speed** ($v$): connects wavelength and frequency directly:
 
@@ -27,15 +27,15 @@ $$v = f\lambda$$
 
 ### Mechanical vs. Electromagnetic Waves
 
-A **mechanical wave** requires a physical MEDIUM (like air, water, or a rope) to travel through — no medium, no wave. Sound waves, water waves, and seismic waves are all mechanical.
+A **mechanical wave** requires a physical medium (like air, water, or a rope) to travel through — no medium, no wave. Sound waves, water waves, and seismic waves are all mechanical.
 
-An **electromagnetic wave** requires NO medium at all — it can travel through the vacuum of empty space. Light, radio waves, and X-rays are all electromagnetic.
+An **electromagnetic wave** requires no medium at all — it can travel through the vacuum of empty space. Light, radio waves, and X-rays are all electromagnetic.
 
-Waves are also classified by how their particles move relative to the wave's direction of travel: a **transverse wave** has particles moving PERPENDICULAR to the wave's direction (like light, or a shaken rope); a **longitudinal wave** has particles moving PARALLEL to (back and forth ALONG) the wave's direction, creating compressions and stretches (like sound).
+Waves are also classified by how their particles move relative to the wave's direction of travel: a **transverse wave** has particles moving perpendicular to the wave's direction (like light, or a shaken rope); a **longitudinal wave** has particles moving parallel to (back and forth along) the wave's direction, creating compressions and stretches (like sound).
 
 ### The Doppler Effect
 
-The **Doppler effect** is the change in a wave's OBSERVED frequency (and pitch, for sound) caused by relative motion between the source and the observer. If the source moves TOWARD the observer (or the observer moves toward the source), the observed frequency INCREASES (higher pitch for sound). If the source moves AWAY, the observed frequency DECREASES (lower pitch).
+The **Doppler effect** is the change in a wave's observed frequency (and pitch, for sound) caused by relative motion between the source and the observer. If the source moves toward the observer (or the observer moves toward the source), the observed frequency increases (higher pitch for sound). If the source moves away, the observed frequency decreases (lower pitch).
 
 ## Examples
 
@@ -80,8 +80,8 @@ Classify each wave as mechanical or electromagnetic: (a) sound traveling through
 **Solution:**
 Check whether the wave requires a physical medium.
 
-1. (a) Sound REQUIRES air (or another medium) to travel; it cannot travel through a vacuum: MECHANICAL.
-2. (b) Light travels through empty space with no medium needed: ELECTROMAGNETIC.
+1. (a) Sound requires air (or another medium) to travel; it cannot travel through a vacuum: Mechanical.
+2. (b) Light travels through empty space with no medium needed: Electromagnetic.
 
 ### #4: Applying the Doppler Effect
 
@@ -90,40 +90,40 @@ An ambulance siren sounds higher in pitch as it approaches you, then suddenly so
 **Solution:**
 Connect the direction of relative motion to the change in observed frequency.
 
-1. While the ambulance APPROACHES you, the source is moving TOWARD you, compressing the sound waves reaching your ears closer together, INCREASING the observed frequency — you hear a HIGHER pitch.
-2. After the ambulance PASSES and moves AWAY from you, the source is now moving away, stretching out the sound waves reaching your ears, DECREASING the observed frequency — you hear a LOWER pitch.
+1. While the ambulance approaches you, the source is moving toward you, compressing the sound waves reaching your ears closer together, increasing the observed frequency — you hear a higher pitch.
+2. After the ambulance passes and moves away from you, the source is now moving away, stretching out the sound waves reaching your ears, decreasing the observed frequency — you hear a lower pitch.
 3. This shift in perceived pitch, purely due to the relative motion between source and observer, is the Doppler effect.
 
 ## Speed Tricks & Shortcuts
 
 Remember the wave speed formula as one triangle relationship: $v = f\lambda$. Given any two of the three quantities (speed, frequency, wavelength), rearrange to solve for the third.
 
-For mechanical versus electromagnetic, ask ONE question: "can this wave travel through the vacuum of space?" Yes means electromagnetic (light, radio waves); no means mechanical (sound, water waves) — mechanical waves always need SOME kind of matter to travel through.
+For mechanical versus electromagnetic, ask one question: "can this wave travel through the vacuum of space?" Yes means electromagnetic (light, radio waves); no means mechanical (sound, water waves) — mechanical waves always need some kind of matter to travel through.
 
-For Doppler effect questions, remember: APPROACHING means HIGHER observed frequency (and higher pitch, for sound); RECEDING (moving away) means LOWER observed frequency (and lower pitch).
+For Doppler effect questions, remember: Approaching means higher observed frequency (and higher pitch, for sound); receding (moving away) means lower observed frequency (and lower pitch).
 
 ## Traps to Watch For
 
 ### #1: Assuming Sound Can Travel Through a Vacuum
 
-> Sound is a MECHANICAL wave and REQUIRES a medium (like air) — it CANNOT travel through the vacuum of space.
+> Sound is a mechanical wave and requires a medium (like air) — it cannot travel through the vacuum of space.
 
 This is why explosions in movies set in space are not physically realistic — with no air (or any matter) to vibrate, there would be no sound at all. Only electromagnetic waves like light can cross a true vacuum.
 
 ### #2: Confusing Transverse and Longitudinal Wave Motion
 
-> TRANSVERSE waves have particles moving PERPENDICULAR to the wave's travel direction. LONGITUDINAL waves have particles moving PARALLEL to (along) the travel direction.
+> Transverse waves have particles moving perpendicular to the wave's travel direction. Longitudinal waves have particles moving parallel to (along) the travel direction.
 
-Light and shaken-rope waves are transverse; sound waves are longitudinal, with air particles compressing and stretching along the SAME direction the sound travels, not side to side.
+Light and shaken-rope waves are transverse; sound waves are longitudinal, with air particles compressing and stretching along the same direction the sound travels, not side to side.
 
 ### #3: Thinking the Doppler Effect Changes the Wave's Actual Speed
 
-> The Doppler effect changes the OBSERVED FREQUENCY (and pitch), not the actual SPEED of the wave through its medium.
+> The Doppler effect changes the observed frequency (and pitch), not the actual speed of the wave through its medium.
 
-A common misconception assumes an approaching sound source makes the sound waves travel FASTER through the air. In reality, the wave speed through a given medium stays constant; it is the FREQUENCY the observer perceives that changes, due to the wave crests bunching together or spreading apart as the source moves.
+A common misconception assumes an approaching sound source makes the sound waves travel faster through the air. In reality, the wave speed through a given medium stays constant; it is the frequency the observer perceives that changes, due to the wave crests bunching together or spreading apart as the source moves.
 
 ### #4: Mixing Up Which Direction Increases vs. Decreases Frequency
 
-> A source (or observer) moving TOWARD the other results in a HIGHER observed frequency; moving AWAY results in a LOWER observed frequency.
+> A source (or observer) moving toward the other results in a higher observed frequency; moving away results in a lower observed frequency.
 
-Reversing this relationship (assuming approaching sources sound LOWER) contradicts the everyday experience of hearing a siren's pitch RISE as it approaches and FALL as it recedes — a useful real-world check for this rule.
+Reversing this relationship (assuming approaching sources sound lower) contradicts the everyday experience of hearing a siren's pitch rise as it approaches and fall as it recedes — a useful real-world check for this rule.

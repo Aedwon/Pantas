@@ -1,7 +1,7 @@
 ---
 _id: "lesson-geometry-circles"
 title: "Circles (Radii, Diameters, Chords, Tangents, Secants, Arcs, Sectors)"
-summary: "This lesson teaches you the parts of a circle and how to compute arcs, angles, sectors, and tangent lengths."
+summary: "The parts of a circle and how to compute arcs, angles, sectors, and tangent lengths."
 subject: "subject-mathematics"
 topic: "topic-geometry"
 estimatedMinutes: 13
@@ -15,9 +15,9 @@ The parts, from the inside out:
 
 - **Radius** ($r$): from the center to the edge.
 - **Diameter** ($d$): all the way across through the center. Always $d = 2r$.
-- **Chord**: a segment joining any two points on the circle. The diameter is the LONGEST chord.
+- **Chord**: a segment joining any two points on the circle. The diameter is the longest chord.
 - **Secant**: a line that cuts through the circle at two points (a chord that keeps going).
-- **Tangent**: a line that touches the circle at exactly ONE point. A tangent is always PERPENDICULAR to the radius at the touching point.
+- **Tangent**: a line that touches the circle at exactly one point. A tangent is always perpendicular to the radius at the touching point.
 
 <!-- ILLUSTRATION: circle with labeled radius, diameter, chord, secant line crossing through, and tangent line touching at one point with a square mark against the radius -->
 
@@ -32,14 +32,14 @@ Circumference $C$ is the distance around; area $A$ is the space inside.
 
 The two angle rules that CETs test most:
 
-- A **central angle** (vertex at the center) EQUALS its intercepted arc.
-- An **inscribed angle** (vertex on the circle) equals HALF its intercepted arc.
+- A **central angle** (vertex at the center) equals its intercepted arc.
+- An **inscribed angle** (vertex on the circle) equals half its intercepted arc.
 
 <!-- ILLUSTRATION: one circle showing a central angle of 80 degrees and an inscribed angle of 40 degrees intercepting the same arc -->
 
-A famous special case: an angle inscribed in a SEMICIRCLE is always $90^\circ$. If one side of an inscribed triangle is a diameter, that triangle is a right triangle.
+A famous special case: an angle inscribed in a semicircle is always $90^\circ$. If one side of an inscribed triangle is a diameter, that triangle is a right triangle.
 
-Arcs and sectors are just FRACTIONS of the circle. An arc of $60^\circ$ is $\dfrac{60}{360} = \dfrac{1}{6}$ of everything: one sixth of the circumference, and its sector is one sixth of the area.
+Arcs and sectors are just fractions of the circle. An arc of $60^\circ$ is $\dfrac{60}{360} = \dfrac{1}{6}$ of everything: one sixth of the circumference, and its sector is one sixth of the area.
 
 ## Examples
 
@@ -87,7 +87,7 @@ $$\dfrac{36\pi}{6} = 6\pi$$
 
 ### #3: Inscribed Angle
 
-An inscribed angle intercepts an arc of $100^\circ$. Find the inscribed angle. Then: a central angle intercepting the SAME arc would measure how much?
+An inscribed angle intercepts an arc of $100^\circ$. Find the inscribed angle. Then: a central angle intercepting the same arc would measure how much?
 
 **Solution:**
 Inscribed means half; central means equal.
@@ -159,30 +159,30 @@ Treat every arc and sector problem as a fraction problem. Compute the fraction $
 
 If a diameter appears in an inscribed triangle, the right angle is automatic and it is across from the diameter. Jump straight to the Pythagorean theorem, and check for triples before squaring.
 
-Given the diameter, halve it IMMEDIATELY and write $r =$ on your scratch paper before touching any formula. This one habit prevents the most common circle error on the exam.
+Given the diameter, halve it immediately and write $r =$ on your scratch paper before touching any formula. This one habit prevents the most common circle error on the exam.
 
 ## Traps to Watch For
 
 ### #1: Diameter in the Radius Formula
 
-> The formulas use the RADIUS. Halve the diameter first.
+> The formulas use the radius. Halve the diameter first.
 
 If the diameter is $10$, the area is $\pi(5)^2 = 25\pi$, not $\pi(10)^2 = 100\pi$. Test-makers give the diameter on purpose, and $100\pi$ will absolutely be one of the choices.
 
 ### #2: Inscribed or Central?
 
-> Central angle EQUALS the arc. Inscribed angle is HALF the arc.
+> Central angle equals the arc. Inscribed angle is half the arc.
 
 Check where the vertex sits before you compute. Vertex at the center: equal. Vertex on the circle: half. The doubled and halved answers are both in the choices every single time.
 
 ### #3: Arc Length vs. Sector Area
 
-> Arc length is a piece of the CIRCUMFERENCE. Sector area is a piece of the AREA.
+> Arc length is a piece of the circumference. Sector area is a piece of the area.
 
-Both use the same fraction of $360$, so students grab the wrong base formula. Length questions ($2\pi r$) answer in plain units; area questions ($\pi r^2$) answer in SQUARE units. Let the units of the choices tip you off.
+Both use the same fraction of $360$, so students grab the wrong base formula. Length questions ($2\pi r$) answer in plain units; area questions ($\pi r^2$) answer in square units. Let the units of the choices tip you off.
 
 ### #4: A Chord Is Not Always a Diameter
 
-> A chord only equals the diameter when it passes through the CENTER.
+> A chord only equals the diameter when it passes through the center.
 
 Given a chord of length $12$, do not conclude the radius is $6$. The diameter is the longest chord, so the radius is at least $6$, but any chord missing the center is shorter than the diameter. Problems that give a chord usually want the perpendicular-from-center right triangle, not a free radius.

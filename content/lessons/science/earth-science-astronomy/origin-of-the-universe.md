@@ -1,7 +1,7 @@
 ---
 _id: "lesson-earth-science-astronomy-origin-of-the-universe"
 title: "Origin of the Universe and Solar System (Big Bang Theory, Nebular Hypothesis)"
-summary: "This lesson teaches you the Big Bang theory of the universe and the nebular hypothesis for how the solar system formed."
+summary: "The Big Bang theory of the universe and the nebular hypothesis for how the solar system formed."
 subject: "subject-science"
 topic: "topic-earth-science-astronomy"
 estimatedMinutes: 10
@@ -23,24 +23,24 @@ The Big Bang theory was first proposed by the physicist Georges Lemaître in $19
 
 The **nebular hypothesis** explains how our own Sun and planets formed. It says the whole solar system came from one giant, slowly spinning cloud of gas and dust, called a **nebula**.
 
-Gravity pulled the cloud's material inward. As the cloud got smaller, it spun FASTER, the same way a spinning ice skater speeds up when they pull their arms in. Most of the material collapsed into the center and became so hot and dense that it ignited, forming the **Sun**. The leftover material flattened into a wide spinning disk around the new Sun.
+Gravity pulled the cloud's material inward. As the cloud got smaller, it spun faster, the same way a spinning ice skater speeds up when they pull their arms in. Most of the material collapsed into the center and became so hot and dense that it ignited, forming the **Sun**. The leftover material flattened into a wide spinning disk around the new Sun.
 
 <!-- ILLUSTRATION: sequence showing a large slowly spinning cloud of gas and dust collapsing into a flattened disk with a bright center forming the Sun and small clumps forming planets along the disk -->
 
-Inside that disk, smaller clumps of matter stuck together through collisions, growing bigger and bigger over millions of years. These growing clumps became the planets, moons, and asteroids. This is why all the planets in our solar system orbit the Sun in roughly the SAME flat plane and in the SAME direction: they all formed from one flat, spinning disk.
+Inside that disk, smaller clumps of matter stuck together through collisions, growing bigger and bigger over millions of years. These growing clumps became the planets, moons, and asteroids. This is why all the planets in our solar system orbit the Sun in roughly the same flat plane and in the same direction: they all formed from one flat, spinning disk.
 
 ## Examples
 
 ### #1: Evidence for the Big Bang
 
-Which piece of evidence BEST supports the idea that the universe is still expanding today?
+Which piece of evidence best supports the idea that the universe is still expanding today?
 
 **Solution:**
 "Best supports" means find the strongest clue.
 
 1. Consider the choices: leftover heat in the sky, distant galaxies moving away, the flat shape of the solar system, and the composition of rocks on Earth.
-2. Hubble's observation that distant galaxies are moving away from us, and moving away FASTER the farther they are, directly shows that space is still stretching apart right now.
-3. The cosmic microwave background is strong evidence for a hot BEGINNING, but the galaxies' motion is the direct evidence of ongoing EXPANSION.
+2. Hubble's observation that distant galaxies are moving away from us, and moving away faster the farther they are, directly shows that space is still stretching apart right now.
+3. The cosmic microwave background is strong evidence for a hot beginning, but the galaxies' motion is the direct evidence of ongoing expansion.
 4. The best answer is: galaxies moving away from Earth, faster with distance.
 
 ### #2: The Nebular Hypothesis in Action
@@ -52,7 +52,7 @@ Trace the idea back to the shape of the original cloud.
 
 1. The solar system began as one large, spinning cloud of gas and dust.
 2. As the cloud collapsed under gravity, its spin caused it to flatten into a wide disk, the same way spinning pizza dough flattens out.
-3. All the planets formed from clumps of material within that SAME flat disk.
+3. All the planets formed from clumps of material within that same flat disk.
 4. Because they all came from one flat disk, the planets ended up orbiting in nearly the same plane, moving in the same direction.
 
 ### #3: Connecting Two Big Clues
@@ -62,7 +62,7 @@ A student claims the cosmic microwave background is "the light from the first st
 **Solution:**
 Check the claim against what the cosmic microwave background actually is.
 
-1. The cosmic microwave background is leftover HEAT RADIATION from the hot, early universe itself, not light given off by stars.
+1. The cosmic microwave background is leftover heat radiation from the hot, early universe itself, not light given off by stars.
 2. It was discovered in $1965$ by Penzias and Wilson as a faint glow coming from every direction in the sky.
 3. Stars had not even formed yet when this radiation was released; it comes from a much earlier, hotter stage of the universe.
 4. The corrected statement: the cosmic microwave background is the cooled-down leftover heat from the Big Bang itself, not starlight.
@@ -71,24 +71,24 @@ Check the claim against what the cosmic microwave background actually is.
 
 Keep two numbers ready: the universe is about $13.8$ billion years old (Big Bang), and Hubble's discovery was in $1929$. Exam questions about "when" almost always want one of these two anchor facts.
 
-Separate the TWO theories in this lesson by their JOB: the Big Bang theory explains the whole UNIVERSE's beginning; the nebular hypothesis explains how OUR SOLAR SYSTEM formed from a cloud of gas and dust. If a question mentions "planets" or "the Sun," think nebular hypothesis. If it mentions "galaxies" or "the universe," think Big Bang.
+Separate the two theories in this lesson by their job: the Big Bang theory explains the whole universe's beginning; the nebular hypothesis explains how our solar system formed from a cloud of gas and dust. If a question mentions "planets" or "the Sun," think nebular hypothesis. If it mentions "galaxies" or "the universe," think Big Bang.
 
 ## Traps to Watch For
 
 ### #1: Confusing the Two Theories
 
-> The Big Bang explains the UNIVERSE. The nebular hypothesis explains the SOLAR SYSTEM.
+> The Big Bang explains the universe. The nebular hypothesis explains the solar system.
 
 These are two different scales of "beginning." Test-makers may describe the nebular hypothesis's spinning cloud of gas and label it "the Big Bang" as a wrong choice. Match the theory to its correct scale: whole universe, or just our own Sun and planets.
 
 ### #2: Mixing Up Hubble and Lemaître
 
-> Lemaître FIRST proposed the theory in $1927$; Hubble's $1929$ observation gave it strong evidence.
+> Lemaître first proposed the theory in $1927$; Hubble's $1929$ observation gave it strong evidence.
 
 A choice may credit Hubble with "inventing" the Big Bang theory. Hubble's contribution was the observational evidence (galaxies moving apart), which supported a theory that Lemaître had already proposed two years earlier using Einstein's equations.
 
 ### #3: Thinking the Big Bang Happened "in One Spot" in Space
 
-> The Big Bang was the expansion of SPACE ITSELF, not an explosion happening inside space.
+> The Big Bang was the expansion of space itself, not an explosion happening inside space.
 
 Students imagine the Big Bang like a bomb going off at one location, with matter flying outward into empty space that was already there. In fact, space itself stretched out everywhere at once; there was no empty space "outside" the expansion for matter to fly into.

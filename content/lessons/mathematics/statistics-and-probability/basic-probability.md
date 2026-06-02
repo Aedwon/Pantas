@@ -1,7 +1,7 @@
 ---
 _id: "lesson-statistics-and-probability-basic-probability"
 title: "Basic Probability (Independent vs. Dependent Events, Mutually Exclusive Events)"
-summary: "This lesson teaches you how to compute probabilities for single and combined events, with and without replacement."
+summary: "How to compute probabilities for single and combined events, with and without replacement."
 subject: "subject-mathematics"
 topic: "topic-statistics-and-probability"
 estimatedMinutes: 13
@@ -21,25 +21,25 @@ $$P(\text{not } A) = 1 - P(A)$$
 
 Combining two events needs two questions.
 
-**Question 1 for AND (both happen): do the events affect each other?**
+**Question 1 for and (both happen): do the events affect each other?**
 
-- **Independent events**: the first result does not change the second. Coin flips, dice rolls, draws WITH replacement. Multiply straight:
+- **Independent events**: the first result does not change the second. Coin flips, dice rolls, draws with replacement. Multiply straight:
 
 $$P(A \text{ and } B) = P(A) \times P(B)$$
 
-- **Dependent events**: the first result CHANGES the situation, like drawing cards without putting them back. Multiply, but update the second fraction to reflect what is left.
+- **Dependent events**: the first result changes the situation, like drawing cards without putting them back. Multiply, but update the second fraction to reflect what is left.
 
-**Question 2 for OR (either happens): can both happen at once?**
+**Question 2 for or (either happens): can both happen at once?**
 
-- **Mutually exclusive events** cannot happen together (a card cannot be a king AND a queen). Just add:
+- **Mutually exclusive events** cannot happen together (a card cannot be a king and a queen). Just add:
 
 $$P(A \text{ or } B) = P(A) + P(B)$$
 
-- Overlapping events CAN happen together (a card can be a king AND a heart). Add, then subtract the overlap so it is not counted twice:
+- Overlapping events can happen together (a card can be a king and a heart). Add, then subtract the overlap so it is not counted twice:
 
 $$P(A \text{ or } B) = P(A) + P(B) - P(A \text{ and } B)$$
 
-Shorthand worth memorizing: AND means multiply, OR means add (minus any overlap).
+Shorthand worth memorizing: And means multiply, or means add (minus any overlap).
 
 ## Examples
 
@@ -70,7 +70,7 @@ $$P = \dfrac{6}{36} = \dfrac{1}{6}$$
 
 ### #3: Independent Events
 
-A coin is tossed and a die is rolled. Find the probability of getting a head AND a $6$.
+A coin is tossed and a die is rolled. Find the probability of getting a head and a $6$.
 
 **Solution:**
 The coin cannot influence the die: independent. Multiply.
@@ -81,7 +81,7 @@ $$P = \dfrac{1}{2} \times \dfrac{1}{6} = \dfrac{1}{12}$$
 
 ### #4: Dependent Events (No Replacement)
 
-A bag holds $5$ red and $3$ blue marbles. Two marbles are drawn one after another WITHOUT replacement. Find the probability that both are red.
+A bag holds $5$ red and $3$ blue marbles. Two marbles are drawn one after another without replacement. Find the probability that both are red.
 
 **Solution:**
 The first draw changes the bag: dependent. Update the second fraction.
@@ -109,7 +109,7 @@ Part (a) has no overlap; part (b) does.
 
 $$\dfrac{4}{52} + \dfrac{4}{52} = \dfrac{8}{52} = \dfrac{2}{13}$$
 
-2. For (b): the king of hearts is BOTH. Add and subtract the overlap.
+2. For (b): the king of hearts is both. Add and subtract the overlap.
 
 $$\dfrac{4}{52} + \dfrac{13}{52} - \dfrac{1}{52} = \dfrac{16}{52} = \dfrac{4}{13}$$
 
@@ -130,7 +130,7 @@ $$P(\text{at least one head}) = 1 - \dfrac{1}{8} = \dfrac{7}{8}$$
 
 ## Speed Tricks & Shortcuts
 
-The phrase "at least one" should trigger the complement instantly: compute the probability of NONE, subtract from $1$. Counting the "at least" cases directly means adding many branches; the complement is always one branch.
+The phrase "at least one" should trigger the complement instantly: compute the probability of none, subtract from $1$. Counting the "at least" cases directly means adding many branches; the complement is always one branch.
 
 Deck facts to keep loaded: $52$ cards, $4$ suits of $13$, $26$ red and $26$ black, $12$ face cards, $4$ of each rank. Most card questions are these numbers in disguise.
 
@@ -142,17 +142,17 @@ Sanity bounds kill wrong choices: every probability lives between $0$ and $1$, a
 
 > "Or" with overlapping events needs the subtraction.
 
-For king-or-heart, adding $\dfrac{4}{52} + \dfrac{13}{52} = \dfrac{17}{52}$ counts the king of hearts twice. The planted choice $\dfrac{17}{52}$ appears every time. Before adding, ask: can one outcome satisfy BOTH descriptions?
+For king-or-heart, adding $\dfrac{4}{52} + \dfrac{13}{52} = \dfrac{17}{52}$ counts the king of hearts twice. The planted choice $\dfrac{17}{52}$ appears every time. Before adding, ask: can one outcome satisfy both descriptions?
 
 ### #2: Ignoring the Missing Marble
 
-> Without replacement, the second fraction MUST change, top and bottom.
+> Without replacement, the second fraction must change, top and bottom.
 
 Writing $\dfrac{5}{8} \times \dfrac{5}{8}$ for two reds treats the draws as independent. One marble is gone: the pool drops to $7$ and the reds drop to $4$. The words "without replacement" or "one after another" signal dependent events.
 
 ### #3: The Gambler's Fallacy
 
-> A fair coin has NO memory. Past flips never change the next one.
+> A fair coin has no memory. Past flips never change the next one.
 
 After five heads in a row, the probability of another head is still exactly $\dfrac{1}{2}$. Questions phrase this as "the coin is due for tails" — a false statement. Independent means independent, no matter how streaky the history looks.
 

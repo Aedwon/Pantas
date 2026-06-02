@@ -1,7 +1,7 @@
 ---
 _id: "lesson-physics-kinematics"
 title: "Kinematics"
-summary: "This lesson teaches you how to describe motion in a straight line using displacement, velocity, and acceleration, and how objects behave in free fall."
+summary: "How to describe motion in a straight line using displacement, velocity, and acceleration, and how objects behave in free fall."
 subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 13
@@ -9,13 +9,13 @@ isActive: true
 ---
 ## Core Concept
 
-**Kinematics** describes HOW things move, without worrying about WHY (the forces causing it).
+**Kinematics** describes how things move, without worrying about why (the forces causing it).
 
 ### One-Dimensional Motion (Displacement, Velocity, Acceleration)
 
-**Displacement** ($d$ or $\Delta x$) is the change in position (a vector, with direction). **Velocity** ($v$) is the RATE of change of displacement (speed WITH direction). **Acceleration** ($a$) is the RATE of change of velocity — how quickly velocity itself is changing.
+**Displacement** ($d$ or $\Delta x$) is the change in position (a vector, with direction). **Velocity** ($v$) is the rate of change of displacement (speed with direction). **Acceleration** ($a$) is the rate of change of velocity — how quickly velocity itself is changing.
 
-Four key kinematic equations connect these quantities for motion with CONSTANT acceleration, using initial velocity $v_0$, final velocity $v$, acceleration $a$, time $t$, and displacement $d$:
+Four key kinematic equations connect these quantities for motion with constant acceleration, using initial velocity $v_0$, final velocity $v$, acceleration $a$, time $t$, and displacement $d$:
 
 $$v = v_0 + at$$
 
@@ -25,13 +25,13 @@ $$v^2 = v_0^2 + 2ad$$
 
 $$d = \dfrac{(v_0 + v)}{2} t$$
 
-Each equation uses only $4$ of the $5$ total variables ($v_0, v, a, t, d$), so you can pick whichever equation already contains the values you KNOW and the one you want to FIND.
+Each equation uses only $4$ of the $5$ total variables ($v_0, v, a, t, d$), so you can pick whichever equation already contains the values you know and the one you want to find.
 
 <!-- ILLUSTRATION: a car shown at three moments along a straight road, with arrows and labels showing increasing velocity vectors and a curved arrow indicating constant acceleration -->
 
 ### Free Fall Equations
 
-**Free fall** is motion under the influence of GRAVITY ALONE (ignoring air resistance). Near Earth's surface, every falling object accelerates downward at the SAME rate, $g \approx 9.8 \text{ m/s}^2$, REGARDLESS of the object's mass. The same four kinematic equations apply directly, just substituting $a = g$ (and being careful with the sign, usually taking "downward" as positive for a falling object, or "upward" as positive with $a = -g$).
+**Free fall** is motion under the influence of gravity alone (ignoring air resistance). Near Earth's surface, every falling object accelerates downward at the same rate, $g \approx 9.8 \text{ m/s}^2$, regardless of the object's mass. The same four kinematic equations apply directly, just substituting $a = g$ (and being careful with the sign, usually taking "downward" as positive for a falling object, or "upward" as positive with $a = -g$).
 
 ## Examples
 
@@ -92,7 +92,7 @@ $$v = 0 + (9.8)(3) = 29.4 \text{ m/s}$$
 
 ### #4: Using the No-Time Equation
 
-A car traveling at $10 \text{ m/s}$ accelerates at $2 \text{ m/s}^2$ over a distance of $60 \text{ m}$. Find its final velocity, WITHOUT using time.
+A car traveling at $10 \text{ m/s}$ accelerates at $2 \text{ m/s}^2$ over a distance of $60 \text{ m}$. Find its final velocity, without using time.
 
 **Solution:**
 Known: $v_0 = 10$, $a = 2$, $d = 60$. Time is not given or asked for, so use $v^2 = v_0^2 + 2ad$.
@@ -111,17 +111,17 @@ $$v = \sqrt{340} \approx 18.4 \text{ m/s}$$
 
 ## Speed Tricks & Shortcuts
 
-Before choosing a kinematic equation, list the FOUR values you know and the ONE you want to find, from the five possible variables ($v_0, v, a, t, d$). Then pick the equation that is MISSING exactly the one variable you don't have and don't need — this instantly identifies the correct formula.
+Before choosing a kinematic equation, list the four values you know and the one you want to find, from the five possible variables ($v_0, v, a, t, d$). Then pick the equation that is missing exactly the one variable you don't have and don't need — this instantly identifies the correct formula.
 
 For "starts from rest" problems, immediately set $v_0 = 0$, which simplifies every equation (the $v_0 t$ term vanishes, and $v_0^2$ vanishes).
 
-For free fall problems, remember that mass NEVER appears in the equations — a heavy rock and a light pebble (ignoring air resistance) fall with the EXACT SAME acceleration and reach the ground at the same time if dropped from the same height together.
+For free fall problems, remember that mass never appears in the equations — a heavy rock and a light pebble (ignoring air resistance) fall with the exact same acceleration and reach the ground at the same time if dropped from the same height together.
 
 ## Traps to Watch For
 
 ### #1: Picking an Equation That's Missing the Wrong Variable
 
-> Match the equation to what you KNOW and what you WANT — don't just grab a formula at random.
+> Match the equation to what you know and what you want — don't just grab a formula at random.
 
 Using $v = v_0 + at$ when time is not given (and not being asked for) forces you to solve for an unknown you do not need. Always check which variable each equation excludes before selecting one, especially when time is absent from the problem.
 
@@ -133,12 +133,12 @@ Missing this detail forces you to treat $v_0$ as unknown, when the problem has a
 
 ### #3: Ignoring Sign Conventions in Free Fall
 
-> Decide on a POSITIVE direction (usually "up" or "down") at the start, and apply that sign CONSISTENTLY to every quantity in the problem.
+> Decide on a positive direction (usually "up" or "down") at the start, and apply that sign consistently to every quantity in the problem.
 
-Mixing a positive initial velocity (thrown upward) with a positive acceleration due to gravity (which should be NEGATIVE if up is positive, since gravity always pulls down) creates contradictory signs and an incorrect answer. Pick one direction as positive and stick with it throughout the entire problem.
+Mixing a positive initial velocity (thrown upward) with a positive acceleration due to gravity (which should be negative if up is positive, since gravity always pulls down) creates contradictory signs and an incorrect answer. Pick one direction as positive and stick with it throughout the entire problem.
 
 ### #4: Assuming Heavier Objects Fall Faster
 
-> In free fall (ignoring air resistance), ALL objects accelerate at the SAME rate, $g$, regardless of their mass.
+> In free fall (ignoring air resistance), all objects accelerate at the same rate, $g$, regardless of their mass.
 
 This misconception long predates modern physics. Mass does not appear anywhere in the free fall kinematic equations, confirming that a bowling ball and a tennis ball, dropped together from the same height with no air resistance, hit the ground at exactly the same time.

@@ -1,7 +1,7 @@
 ---
 _id: "lesson-algebra-quadratic-equations"
 title: "Quadratic Equations"
-summary: "This lesson teaches you how to solve quadratic equations and find their roots quickly."
+summary: "How to solve quadratic equations and find their roots quickly."
 subject: "subject-mathematics"
 topic: "topic-algebra"
 estimatedMinutes: 8
@@ -45,7 +45,7 @@ If it is more than $0$, you get two real answers. If it is exactly $0$, you get 
 
 Memorizing the big formula can be hard. Think of a short story to remember all the signs and letters.
 
-> A negative boy ($-b$) could not decide ($\pm$) to go to a radical party ($\sqrt{\quad}$). Inside, the boy was square ($b^2$) and lost four awesome cats ($-4ac$). The whole thing was over at 2 AM ($/2a$).
+> A negative boy ($-b$) could not decide ($\pm$) to go to a radical party ($\sqrt{\quad}$). Inside, the boy was square ($b^2$) and lost four awesome cats ($-4ac$). The whole thing was over at 2 am ($/2a$).
 
 To remember what the discriminant tells you, use this short rhyme:
 

@@ -15,54 +15,54 @@ An object's **base of support** is the area on the ground enclosed by its points
 
 <!-- ILLUSTRATION: two triangular shapes standing upright, one short and wide with a low center of gravity marked well within its wide base, and one tall and narrow with a high center of gravity marked near the edge of its narrow base, the tall narrow one shown tipping over -->
 
-The core STABILITY rule: an object remains stable (will NOT tip over) as long as an imaginary vertical line dropped straight down from its center of gravity falls WITHIN its base of support. If that vertical line falls OUTSIDE the base of support (for example, if the object is tilted too far), the object becomes unstable and TIPS OVER.
+The core stability rule: an object remains stable (will not tip over) as long as an imaginary vertical line dropped straight down from its center of gravity falls within its base of support. If that vertical line falls outside the base of support (for example, if the object is tilted too far), the object becomes unstable and tips over.
 
 This leads to two general principles for improving stability:
 
-- A LOWER center of gravity makes an object MORE stable (harder to tip), since it takes a LARGER tilt before the vertical line from the center of gravity can be pushed outside the base of support.
-- A WIDER base of support makes an object MORE stable, since there is more "room" for the vertical line from the center of gravity to stay within before tipping.
+- A lower center of gravity makes an object more stable (harder to tip), since it takes a larger tilt before the vertical line from the center of gravity can be pushed outside the base of support.
+- A wider base of support makes an object more stable, since there is more "room" for the vertical line from the center of gravity to stay within before tipping.
 
 ## Examples
 
 ### #1: Comparing Two Shapes' Stability
 
-A short, wide pyramid and a tall, narrow pyramid have the SAME weight and are made of the same uniform material. Which one is more stable, and why?
+A short, wide pyramid and a tall, narrow pyramid have the same weight and are made of the same uniform material. Which one is more stable, and why?
 
 **Solution:**
-1. The short, wide pyramid has a LOWER center of gravity (since it is shorter) and a WIDER base of support (since it is wider).
-2. Both factors — lower center of gravity AND wider base — independently improve stability.
-3. The SHORT, WIDE pyramid is more stable.
+1. The short, wide pyramid has a lower center of gravity (since it is shorter) and a wider base of support (since it is wider).
+2. Both factors — lower center of gravity and wider base — independently improve stability.
+3. The short, wide pyramid is more stable.
 
 ### #2: Predicting When an Object Tips Over
 
 A rectangular box is slowly tilted to one side. At what point does the box tip over, rather than settling back down?
 
 **Solution:**
-1. The box remains stable as long as the vertical line dropped from its center of gravity stays WITHIN its base of support (the bottom edge still touching the ground).
-2. As the box tilts further, this vertical line shifts closer to the EDGE of the base of support.
-3. The box tips over at the exact moment this vertical line moves BEYOND the edge of the base of support (falls outside the remaining contact edge with the ground) — beyond that point, gravity pulls the box the rest of the way over instead of back down to its original position.
+1. The box remains stable as long as the vertical line dropped from its center of gravity stays within its base of support (the bottom edge still touching the ground).
+2. As the box tilts further, this vertical line shifts closer to the edge of the base of support.
+3. The box tips over at the exact moment this vertical line moves beyond the edge of the base of support (falls outside the remaining contact edge with the ground) — beyond that point, gravity pulls the box the rest of the way over instead of back down to its original position.
 
 ### #3: Why Lowering a Load Increases Stability
 
-A moving truck carries cargo either stacked very HIGH or spread out LOWER (same total weight either way). Which loading method makes the truck more stable while turning corners?
+A moving truck carries cargo either stacked very high or spread out lower (same total weight either way). Which loading method makes the truck more stable while turning corners?
 
 **Solution:**
-1. Stacking cargo HIGH raises the truck's overall center of gravity; spreading cargo LOWER keeps the center of gravity closer to the ground.
-2. A LOWER center of gravity requires a LARGER tilt (like from a sharp turn) before the vertical line from the center of gravity could be pushed outside the truck's base of support (the width between its wheels).
-3. Loading the cargo LOWER makes the truck MORE stable while turning, since it can tilt further before tipping compared to a high-stacked load.
+1. Stacking cargo high raises the truck's overall center of gravity; spreading cargo lower keeps the center of gravity closer to the ground.
+2. A lower center of gravity requires a larger tilt (like from a sharp turn) before the vertical line from the center of gravity could be pushed outside the truck's base of support (the width between its wheels).
+3. Loading the cargo lower makes the truck more stable while turning, since it can tilt further before tipping compared to a high-stacked load.
 
 ### #4: Widening the Base of Support
 
 A person standing normally with feet close together is compared to the same person standing with feet spread wider apart. Which stance is more stable against being pushed sideways?
 
 **Solution:**
-1. Spreading the feet WIDER apart increases the person's base of support (the ground area between the feet).
-2. A WIDER base of support means the vertical line from the person's center of gravity can shift FARTHER sideways (due to a push) before falling outside that base.
-3. The WIDER stance (feet spread apart) is more stable against sideways pushes.
+1. Spreading the feet wider apart increases the person's base of support (the ground area between the feet).
+2. A wider base of support means the vertical line from the person's center of gravity can shift farther sideways (due to a push) before falling outside that base.
+3. The wider stance (feet spread apart) is more stable against sideways pushes.
 
 ## Speed Tricks & Shortcuts
 
-**Remember the two-factor stability rule together: LOWER center of gravity + WIDER base of support = MORE stable.** Most stability comparison questions can be answered by checking these two factors against each other.
+**Remember the two-factor stability rule together: Lower center of gravity + wider base of support = more stable.** Most stability comparison questions can be answered by checking these two factors against each other.
 
 **Picture the "vertical line" test**: imagine dropping a straight line down from the center of gravity to the ground, and check whether that line stays within the object's base of support at the given tilt angle — this mental model directly predicts tipping.
 
@@ -72,18 +72,18 @@ A person standing normally with feet close together is compared to the same pers
 
 ### #1: Assuming Only Height (Not Base Width) Matters for Stability
 
-> Stability depends on BOTH the center of gravity's height AND the base of support's width — considering only one factor while ignoring the other gives an incomplete comparison.
+> Stability depends on both the center of gravity's height and the base of support's width — considering only one factor while ignoring the other gives an incomplete comparison.
 
-An object could have a LOW center of gravity but still be UNSTABLE if its base of support is extremely narrow; both factors must be considered together, not just one in isolation.
+An object could have a low center of gravity but still be unstable if its base of support is extremely narrow; both factors must be considered together, not just one in isolation.
 
 ### #2: Assuming a Heavier Object Is Automatically More Stable
 
-> Stability depends on the LOCATION of the center of gravity RELATIVE TO the base of support, not simply on how much an object weighs overall.
+> Stability depends on the location of the center of gravity relative to the base of support, not simply on how much an object weighs overall.
 
-A very heavy object with a HIGH center of gravity and a NARROW base can still tip over easily, despite its large weight — weight alone does not guarantee stability; the geometry (height and base width) is what matters.
+A very heavy object with a high center of gravity and a narrow base can still tip over easily, despite its large weight — weight alone does not guarantee stability; the geometry (height and base width) is what matters.
 
 ### #3: Forgetting That Tipping Depends on the Tilt Angle, Not Just the Static Position
 
-> An object can be perfectly stable while sitting still, but become UNSTABLE once tilted enough that the center of gravity's vertical line moves outside the base of support — stability is not a fixed, permanent property regardless of orientation.
+> An object can be perfectly stable while sitting still, but become unstable once tilted enough that the center of gravity's vertical line moves outside the base of support — stability is not a fixed, permanent property regardless of orientation.
 
-Assuming an object "is stable" as an absolute, unchanging fact (rather than "is stable AT THIS SPECIFIC tilt angle") misses that further tilting can push ANY object past its tipping point, given enough tilt.
+Assuming an object "is stable" as an absolute, unchanging fact (rather than "is stable at this specific tilt angle") misses that further tilting can push any object past its tipping point, given enough tilt.

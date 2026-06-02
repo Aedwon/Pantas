@@ -1,7 +1,7 @@
 ---
 _id: "lesson-algebra-systems-of-equations"
 title: "Systems of Linear and Non-Linear Equations (Substitution, Elimination, Graphing)"
-summary: "This lesson teaches you how to find the values that make two equations true at the same time."
+summary: "How to find the values that make two equations true at the same time."
 subject: "subject-mathematics"
 topic: "topic-algebra"
 estimatedMinutes: 12
@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-A **system of equations** is a group of two or more equations that share the same variables. To "solve the system" means to find the values that make ALL the equations true at the same time.
+A **system of equations** is a group of two or more equations that share the same variables. To "solve the system" means to find the values that make all the equations true at the same time.
 
 Think of it like finding a meeting place. Each equation is a road. The solution is the exact spot where the roads cross.
 
@@ -184,7 +184,7 @@ $$x = 1: \quad y = 3(1) - 6 = -3$$
 
 $$x = 2: \quad y = 3(2) - 6 = 0$$
 
-5. There are TWO solutions: $(1, -3)$ and $(2, 0)$. The line cuts through the parabola twice.
+5. There are two solutions: $(1, -3)$ and $(2, 0)$. The line cuts through the parabola twice.
 
 <!-- ILLUSTRATION: parabola y = x^2 - 4 crossed by the line y = 3x - 6 at labeled points (1, -3) and (2, 0) -->
 
@@ -208,13 +208,13 @@ Another quick check: to know how many solutions a linear system has, compare the
 
 ### #1: Stopping at $x$
 
-> Find BOTH variables, then re-read the question.
+> Find both variables, then re-read the question.
 
 Many students solve for $x$, see their $x$ value in the choices, and shade it. But the question may ask for $y$, or for $x + y$, or for the product $xy$. The test-makers always put the plain $x$ value in the choices as bait.
 
 ### #2: Sign Mistakes When Subtracting Equations
 
-> Subtracting an equation means subtracting EVERY term, signs included.
+> Subtracting an equation means subtracting every term, signs included.
 
 When you subtract $4x + 10y = 36$ from $15x + 10y = 80$, students often write $80 - 36$ correctly but forget to subtract on the left side properly. Distribute the minus sign to every term: $15x - 4x$ and $10y - 10y$. One missed sign flips the whole answer.
 

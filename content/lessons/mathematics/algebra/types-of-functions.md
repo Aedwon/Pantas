@@ -1,7 +1,7 @@
 ---
 _id: "lesson-algebra-types-of-functions"
 title: "Types of Functions (Linear, Quadratic, Rational, Absolute Value, Exponential, Logarithmic, Piecewise)"
-summary: "This lesson teaches you the seven function families you will meet on the exam and how to recognize and solve each one."
+summary: "The seven function families you will meet on the exam and how to recognize and solve each one."
 subject: "subject-mathematics"
 topic: "topic-algebra"
 estimatedMinutes: 14
@@ -19,7 +19,7 @@ Functions come in families. Each family has its own equation shape and its own g
 
 **Absolute value**: $f(x) = |x|$. The graph is a V-shape. Absolute value means distance from zero, so the output is never negative.
 
-**Exponential**: $f(x) = a^x$, where the variable is in the EXPONENT, like $f(x) = 2^x$. The graph grows very fast in one direction and flattens toward the $x$-axis in the other.
+**Exponential**: $f(x) = a^x$, where the variable is in the exponent, like $f(x) = 2^x$. The graph grows very fast in one direction and flattens toward the $x$-axis in the other.
 
 **Logarithmic**: $f(x) = \log_a x$. This is the inverse of the exponential. The statement $\log_2 8 = 3$ just asks: "$2$ raised to what power gives $8$?" The answer is $3$.
 
@@ -40,7 +40,7 @@ Look at where the variable sits.
 
 1. In $f(x) = 3x - 7$, the variable $x$ has power $1$. This is **linear**.
 2. In $g(x) = 5^x$, the variable is in the exponent. This is **exponential**.
-3. In $h(x) = x^5$, the variable is in the base and the exponent is a fixed number. This is NOT exponential. It is a polynomial (power) function.
+3. In $h(x) = x^5$, the variable is in the base and the exponent is a fixed number. This is not exponential. It is a polynomial (power) function.
 4. The pair $5^x$ and $x^5$ is a classic exam trick. The variable's position decides the family.
 
 ### #2: Vertex of a Quadratic
@@ -155,7 +155,7 @@ $$f(2) + f(-3) = 5 + 9 = 14$$
 
 For "which graph matches this equation" questions, you often need only two facts: the family shape and one easy point. Plug in $x = 0$. If $f(0) = 3$, the graph must cross the $y$-axis at $3$. That one check usually kills three wrong choices.
 
-For a quadratic's maximum or minimum VALUE (not point), you only need the $y$-coordinate of the vertex. Compute $x = \dfrac{-b}{2a}$, plug it in once, and stop.
+For a quadratic's maximum or minimum value (not point), you only need the $y$-coordinate of the vertex. Compute $x = \dfrac{-b}{2a}$, plug it in once, and stop.
 
 For exponential equations, memorize the small powers: $2^5 = 32$, $2^{10} = 1024$, $3^4 = 81$, $5^3 = 125$. Matching bases becomes instant.
 
@@ -163,7 +163,7 @@ For exponential equations, memorize the small powers: $2^5 = 32$, $2^{10} = 1024
 
 ### #1: The Impossible Absolute Value
 
-> If an absolute value equals a negative number, there is NO solution.
+> If an absolute value equals a negative number, there is no solution.
 
 An equation like $|3x + 2| = -5$ has no solution at all, because distance can never be negative. Do not split it into two cases and "solve" it. The choice "no solution" is correct, and the worked-out numbers are the bait.
 
@@ -181,6 +181,6 @@ At $x = 10$, $x^2$ gives $100$ but $2^x$ gives $1024$. When a question says "whi
 
 ### #4: Logs of Zero and Negatives
 
-> You can only take the logarithm of a POSITIVE number.
+> You can only take the logarithm of a positive number.
 
 Expressions like $\log_2 0$ and $\log_2(-8)$ are undefined. No power of $2$ gives zero or a negative number. So the domain of $f(x) = \log_a x$ is $x > 0$, and solutions that make the inside of a log negative must be thrown away.

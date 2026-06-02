@@ -1,7 +1,7 @@
 ---
 _id: "lesson-arithmetic-number-sense-order-of-operations"
 title: "Order of Operations (PEMDAS/GEMDAS)"
-summary: "This lesson teaches you the correct order to solve math problems with multiple operations like adding, multiplying, and exponents."
+summary: "The correct order to solve math problems with multiple operations like adding, multiplying, and exponents."
 subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 estimatedMinutes: 8

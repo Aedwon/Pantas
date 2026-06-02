@@ -9,13 +9,13 @@ isActive: true
 ---
 ## Core Concept
 
-**Parallelism** (or **parallel structure**) means that similar parts of a sentence — items in a list, choices joined by "or," or ideas linked by "and" — should all use the SAME grammatical FORM.
+**Parallelism** (or **parallel structure**) means that similar parts of a sentence — items in a list, choices joined by "or," or ideas linked by "and" — should all use the same grammatical form.
 
 "She likes *swimming*, *hiking*, and *reading*." All three items are "-ing" words (gerunds), so the list is parallel and reads smoothly.
 
 "She likes *swimming*, *to hike*, and *reading*." This list mixes forms: two "-ing" words and one "to + verb" phrase. This breaks parallelism and sounds awkward, even though each individual item is grammatically fine on its own.
 
-Parallelism especially matters with **correlative conjunctions**, word PAIRS that connect two balanced parts: *either...or*, *neither...nor*, *not only...but also*, *both...and*. Whatever grammatical form follows the FIRST word of the pair must be MATCHED by the same form after the SECOND word.
+Parallelism especially matters with **correlative conjunctions**, word pairs that connect two balanced parts: *either...or*, *neither...nor*, *not only...but also*, *both...and*. Whatever grammatical form follows the first word of the pair must be matched by the same form after the second word.
 
 "She wanted *not only* to travel *but also* to save money." Both halves use "to + verb." "She wanted *not only* traveling *but also* to save money" breaks this matching pattern.
 
@@ -47,7 +47,7 @@ Choose the sentence with correct parallel structure: (A) "The manual explains ho
 
 **Solution:**
 1. In (A), the list mixes "install" (base verb), "updating" (-ing), and "troubleshoot" (base verb).
-2. In (B), all three items — "install," "update," and "troubleshoot" — use the SAME base verb form.
+2. In (B), all three items — "install," "update," and "troubleshoot" — use the same base verb form.
 3. The correct sentence is (B).
 
 ### #4: Parallelism in Comparisons
@@ -73,16 +73,16 @@ Identify and fix the parallelism error: "Reading a book is more relaxing than to
 
 > Break a long sentence down into its individual list items or paired halves, and check each one's form separately.
 
-Long, complex sentences can hide a parallelism error in the middle, especially when the mismatched item is not the LAST one in the list. Always check every item, not just the first and last.
+Long, complex sentences can hide a parallelism error in the middle, especially when the mismatched item is not the last one in the list. Always check every item, not just the first and last.
 
 ### #2: Assuming Each Item Only Needs to Be Grammatically Correct on Its Own
 
-> Parallel structure requires matching FORM across all items, even if each individual item would be fine as a standalone sentence.
+> Parallel structure requires matching form across all items, even if each individual item would be fine as a standalone sentence.
 
-"She enjoys hiking and to swim" — both "hiking" and "to swim" are perfectly correct phrases individually, but placed together in a list, their MISMATCHED forms break parallelism.
+"She enjoys hiking and to swim" — both "hiking" and "to swim" are perfectly correct phrases individually, but placed together in a list, their mismatched forms break parallelism.
 
-### #3: Forgetting That Correlative Conjunctions Need Matching Forms on BOTH Sides
+### #3: Forgetting That Correlative Conjunctions Need Matching Forms on both Sides
 
-> Whatever word or phrase form immediately follows the FIRST half of a correlative pair (*either*, *not only*, *both*) must be echoed by the SAME form after the SECOND half (*or*, *but also*, *and*).
+> Whatever word or phrase form immediately follows the first half of a correlative pair (*either*, *not only*, *both*) must be echoed by the same form after the second half (*or*, *but also*, *and*).
 
 A sentence like "He wanted either to win or winning" breaks this rule; both halves need the same form: "either *to win* or *to lose* gracefully," or "either *winning* or *losing* gracefully."

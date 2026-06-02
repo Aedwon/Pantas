@@ -1,7 +1,7 @@
 ---
 _id: "lesson-vocabulary-idioms-and-figures-of-speech"
 title: "Idioms and Figures of Speech / Sawikain at Tayutay"
-summary: "This lesson teaches you how to identify and understand the hidden meanings of English idioms, Filipino sawikain, and common figures of speech."
+summary: "How to identify and understand the hidden meanings of English idioms, Filipino sawikain, and common figures of speech."
 subject: "subject-language-proficiency"
 topic: "topic-vocabulary"
 estimatedMinutes: 10
@@ -17,7 +17,7 @@ In the English and Filipino parts of college exams, you will see these phrases i
 
 Many students use this word to remember the $7$ most common figures of speech in English:
 
-> SHAMPOO
+> Shampoo
 
 * **S** - Simile (comparing two things using "like" or "as")
 * **H** - Hyperbole (making an extreme exaggeration)

@@ -1,7 +1,7 @@
 ---
 _id: "lesson-trigonometry-laws-of-sines-and-cosines"
 title: "Laws of Sines and Cosines"
-summary: "This lesson teaches you how to solve triangles that have no right angle using the Law of Sines and the Law of Cosines."
+summary: "How to solve triangles that have no right angle using the Law of Sines and the Law of Cosines."
 subject: "subject-mathematics"
 topic: "topic-trigonometry"
 estimatedMinutes: 13
@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-SOH-CAH-TOA only works on RIGHT triangles. For every other (oblique) triangle, you need two bigger laws. Standard labeling: side $a$ is opposite angle $A$, side $b$ opposite angle $B$, side $c$ opposite angle $C$.
+SOH-CAH-TOA only works on right triangles. For every other (oblique) triangle, you need two bigger laws. Standard labeling: side $a$ is opposite angle $A$, side $b$ opposite angle $B$, side $c$ opposite angle $C$.
 
 **Law of Sines** — every side dances with its opposite angle at the same ratio:
 
@@ -21,14 +21,14 @@ $$c^2 = a^2 + b^2 - 2ab\cos C$$
 
 Notice: if $C = 90^\circ$, then $\cos C = 0$ and the correction disappears, leaving plain Pythagoras.
 
-Which law do you grab? Look at what is GIVEN:
+Which law do you grab? Look at what is given:
 
 - Two angles and any side (ASA or AAS): **Law of Sines**.
-- Two sides and the angle OPPOSITE one of them (SSA): **Law of Sines**, carefully (this is the ambiguous case).
-- Two sides and the INCLUDED angle (SAS): **Law of Cosines**.
+- Two sides and the angle opposite one of them (SSA): **Law of Sines**, carefully (this is the ambiguous case).
+- Two sides and the included angle (SAS): **Law of Cosines**.
 - All three sides (SSS): **Law of Cosines** to find an angle.
 
-Memory hook: the Law of Sines needs a matched PAIR (a side with its opposite angle). No complete pair given? Then it must be the Law of Cosines.
+Memory hook: the Law of Sines needs a matched pair (a side with its opposite angle). No complete pair given? Then it must be the Law of Cosines.
 
 ## Examples
 
@@ -51,7 +51,7 @@ $$\dfrac{10}{\dfrac{1}{2}} = \dfrac{b}{\dfrac{\sqrt{2}}{2}}$$
 
 $$b = 20 \times \dfrac{\sqrt{2}}{2} = 10\sqrt{2}$$
 
-4. Side $b = 10\sqrt{2}$, about $14.14$. Sanity check: angle $B$ is bigger than angle $A$, so side $b$ SHOULD be longer than $10$. It is.
+4. Side $b = 10\sqrt{2}$, about $14.14$. Sanity check: angle $B$ is bigger than angle $A$, so side $b$ should be longer than $10$. It is.
 
 ### #2: The Third Angle Comes Free
 
@@ -72,7 +72,7 @@ $$C = 180 - 30 - 45 = 105^\circ$$
 Two sides of a triangle measure $5$ and $8$, and the angle between them is $60^\circ$. Find the third side.
 
 **Solution:**
-Two sides with the INCLUDED angle: Law of Cosines.
+Two sides with the included angle: Law of Cosines.
 
 1. Set up with $a = 5$, $b = 8$, $C = 60^\circ$.
 
@@ -150,7 +150,7 @@ $$d = 7$$
 
 ## Speed Tricks & Shortcuts
 
-Decision shortcut: ask "do I have a side AND its opposite angle?" Yes: Law of Sines. No: Law of Cosines. This one question routes every problem correctly.
+Decision shortcut: ask "do I have a side and its opposite angle?" Yes: Law of Sines. No: Law of Cosines. This one question routes every problem correctly.
 
 CET writers love angles of $60^\circ$ and $120^\circ$ in Law of Cosines problems because $\cos 60^\circ = \dfrac{1}{2}$ and $\cos 120^\circ = -\dfrac{1}{2}$ keep the arithmetic whole-number clean. Expect the correction term $2ab\cos C$ to simplify to just $ab$ (or $-ab$).
 
@@ -160,24 +160,24 @@ Always run the size check at the end: the answer must keep big sides across from
 
 ### #1: Losing the Sign of the Cosine
 
-> For obtuse angles, $\cos C$ is NEGATIVE, and subtracting a negative ADDS.
+> For obtuse angles, $\cos C$ is negative, and subtracting a negative adds.
 
 With $C = 120^\circ$, the term $-2ab\cos C$ becomes $-2ab \times \left(-\dfrac{1}{2}\right) = +ab$. Students drop the sign and subtract instead, getting a third side that is too short. Track the sign all the way through.
 
 ### #2: Mismatched Pairs in the Law of Sines
 
-> Each fraction must hold a side and its OWN opposite angle.
+> Each fraction must hold a side and its own opposite angle.
 
 Writing $\dfrac{a}{\sin B}$ scrambles the proportion. Before computing, point at the triangle: side $a$, the angle across from it is... only then write the fraction. Mislabeling is the top cause of wrong Law of Sines answers.
 
 ### #3: The Ambiguous Case (SSA)
 
-> Two sides and a NON-included angle can build TWO different triangles.
+> Two sides and a non-included angle can build two different triangles.
 
-Given $a$, $b$, and angle $A$, the Law of Sines produces $\sin B$, and there may be two valid angles: $B$ and $180^\circ - B$. If both keep the angle sum under $180^\circ$, BOTH triangles exist. When a question asks "how many triangles are possible", the answer can be $0$, $1$, or $2$ — check before assuming one.
+Given $a$, $b$, and angle $A$, the Law of Sines produces $\sin B$, and there may be two valid angles: $B$ and $180^\circ - B$. If both keep the angle sum under $180^\circ$, both triangles exist. When a question asks "how many triangles are possible", the answer can be $0$, $1$, or $2$ — check before assuming one.
 
 ### #4: Answering with $c^2$
 
-> The Law of Cosines gives the SQUARE of the side. Finish with the square root.
+> The Law of Cosines gives the square of the side. Finish with the square root.
 
 After the clean computation $c^2 = 49$, tired students shade $49$. The choices include it on purpose. The side is $7$. Circle the final square-root step in your scratch work so you never skip it.

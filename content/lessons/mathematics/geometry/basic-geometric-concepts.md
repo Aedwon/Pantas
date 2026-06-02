@@ -1,7 +1,7 @@
 ---
 _id: "lesson-geometry-basic-geometric-concepts"
 title: "Basic Geometric Concepts (Points, Lines, Planes, Angles)"
-summary: "This lesson teaches you the building blocks of geometry: points, lines, planes, and the different kinds of angles and angle pairs."
+summary: "The building blocks of geometry: points, lines, planes, and the different kinds of angles and angle pairs."
 subject: "subject-mathematics"
 topic: "topic-geometry"
 estimatedMinutes: 12
@@ -13,11 +13,11 @@ All of geometry is built from three undefined ideas: the point, the line, and th
 
 A **point** is an exact location. It has no size at all. We name it with a capital letter, like point $A$.
 
-A **line** goes on forever in BOTH directions. Through any two points, exactly one line can be drawn. We write line $AB$ as $\overleftrightarrow{AB}$.
+A **line** goes on forever in both directions. Through any two points, exactly one line can be drawn. We write line $AB$ as $\overleftrightarrow{AB}$.
 
 A **line segment** is a piece of a line with two endpoints. Segment $AB$, written $\overline{AB}$, has a definite length. Its **midpoint** is the point that cuts it into two equal halves.
 
-A **ray** starts at one endpoint and goes on forever in ONE direction, like a laser beam. Ray $AB$, written $\overrightarrow{AB}$, starts at $A$ and passes through $B$.
+A **ray** starts at one endpoint and goes on forever in one direction, like a laser beam. Ray $AB$, written $\overrightarrow{AB}$, starts at $A$ and passes through $B$.
 
 A **plane** is a flat surface that extends forever, like an endless tabletop. Points on the same line are **collinear**. Points on the same plane are **coplanar**.
 
@@ -33,13 +33,13 @@ An **angle** is formed by two rays that share an endpoint called the **vertex**.
 
 <!-- ILLUSTRATION: five small angles side by side labeled acute, right (with square corner mark), obtuse, straight, reflex -->
 
-Angles also come in important PAIRS.
+Angles also come in important pairs.
 
 **Complementary angles** add up to $90^\circ$. **Supplementary angles** add up to $180^\circ$.
 
 **Adjacent angles** share a vertex and one side. A **linear pair** is two adjacent angles on a straight line; they are automatically supplementary.
 
-**Vertical angles** are the opposite angles formed when two lines cross, like the top and bottom of the letter X. Vertical angles are always EQUAL.
+**Vertical angles** are the opposite angles formed when two lines cross, like the top and bottom of the letter X. Vertical angles are always equal.
 
 <!-- ILLUSTRATION: two lines crossing in an X, with the two pairs of vertical angles marked equal and one linear pair shaded -->
 
@@ -178,7 +178,7 @@ $$x = 25$$
 
 To find a complement fast, subtract from $90$: the complement of $37^\circ$ is $90 - 37 = 53^\circ$. To find a supplement, subtract from $180$: the supplement of $37^\circ$ is $143^\circ$. Notice the supplement is always the complement plus $90$.
 
-When two lines cross, you only ever need ONE angle. Its vertical angle is equal, and its two neighbors are $180^\circ$ minus it. Given one angle of $55^\circ$, the four angles are $55$, $125$, $55$, $125$ in order around the point.
+When two lines cross, you only ever need one angle. Its vertical angle is equal, and its two neighbors are $180^\circ$ minus it. Given one angle of $55^\circ$, the four angles are $55$, $125$, $55$, $125$ in order around the point.
 
 For ratio problems like Example $2$, add the ratio parts first ($2 + 3 = 5$), divide the total by that ($180 \div 5 = 36$), then multiply back. This works for any "angles in a ratio" question, including triangles with $180^\circ$.
 
@@ -192,13 +192,13 @@ This swap is the most common trap in the whole topic. Test-makers write a comple
 
 ### #2: Vertical Angles Are Equal, Not Supplementary
 
-> When two lines cross, the OPPOSITE angles are equal.
+> When two lines cross, the opposite angles are equal.
 
-Students see two expressions at a crossing and automatically add them to $180$. That is only right for a linear pair, the two angles that are side by side. Angles across the X from each other are set EQUAL. Look at the figure carefully before writing the equation.
+Students see two expressions at a crossing and automatically add them to $180$. That is only right for a linear pair, the two angles that are side by side. Angles across the X from each other are set equal. Look at the figure carefully before writing the equation.
 
 ### #3: Giving Half When Asked for the Whole
 
-> A midpoint question may ask for the half OR the whole. Read twice.
+> A midpoint question may ask for the half or the whole. Read twice.
 
 In Example $4$, solving gives $x = 10$ and a half-length of $23$. The choices will include $10$, $23$, and $46$. Only re-reading the question tells you which one to shade.
 

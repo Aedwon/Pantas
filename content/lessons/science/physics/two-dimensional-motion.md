@@ -1,7 +1,7 @@
 ---
 _id: "lesson-physics-two-dimensional-motion"
 title: "Two-Dimensional Motion (Projectile Motion, Uniform Circular Motion)"
-summary: "This lesson teaches you how to analyze projectile motion by splitting it into horizontal and vertical parts, and the basics of circular motion."
+summary: "How to analyze projectile motion by splitting it into horizontal and vertical parts, and the basics of circular motion."
 subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 12
@@ -11,9 +11,9 @@ isActive: true
 
 ### Projectile Motion
 
-A **projectile** is any object launched into the air and then moving under gravity alone (ignoring air resistance), like a thrown ball or a launched cannonball. The KEY INSIGHT: horizontal and vertical motion happen INDEPENDENTLY of each other, and can be analyzed SEPARATELY.
+A **projectile** is any object launched into the air and then moving under gravity alone (ignoring air resistance), like a thrown ball or a launched cannonball. The key insight: horizontal and vertical motion happen independently of each other, and can be analyzed separately.
 
-**Horizontally**: NO acceleration acts (ignoring air resistance), so horizontal velocity stays CONSTANT throughout the flight.
+**Horizontally**: No acceleration acts (ignoring air resistance), so horizontal velocity stays constant throughout the flight.
 
 $$x = v_x t$$
 
@@ -23,17 +23,17 @@ $$v_y = v_{y0} - gt \qquad y = v_{y0}t - \dfrac{1}{2}gt^2$$
 
 <!-- ILLUSTRATION: parabolic path of a projectile launched at an angle, with the horizontal velocity component shown as constant-length arrows at several points along the path, and the vertical velocity component shown shrinking to zero at the peak then growing downward -->
 
-For a projectile launched at an ANGLE $\theta$ with initial speed $v_0$, split the initial velocity into components FIRST:
+For a projectile launched at an angle $\theta$ with initial speed $v_0$, split the initial velocity into components first:
 
 $$v_{x0} = v_0 \cos\theta \qquad v_{y0} = v_0 \sin\theta$$
 
-The horizontal component stays constant the whole flight; only the vertical component changes due to gravity. At the very TOP of the projectile's path, the vertical velocity is momentarily ZERO (though the horizontal velocity is still moving).
+The horizontal component stays constant the whole flight; only the vertical component changes due to gravity. At the very top of the projectile's path, the vertical velocity is momentarily zero (though the horizontal velocity is still moving).
 
 ### Uniform Circular Motion
 
-An object moving in a CIRCLE at CONSTANT speed undergoes **uniform circular motion**. Even though its SPEED never changes, its VELOCITY is constantly changing, because velocity is a vector and the DIRECTION keeps changing as the object curves around the circle.
+An object moving in a circle at constant speed undergoes **uniform circular motion**. Even though its speed never changes, its velocity is constantly changing, because velocity is a vector and the direction keeps changing as the object curves around the circle.
 
-This constantly changing direction means the object is ACCELERATING, even at constant speed. This acceleration points TOWARD THE CENTER of the circle (called **centripetal acceleration**), which is why an unbalanced force (called **centripetal force**) must also point toward the center to keep the object moving in a circle rather than flying off in a straight line.
+This constantly changing direction means the object is accelerating, even at constant speed. This acceleration points toward the center of the circle (called **centripetal acceleration**), which is why an unbalanced force (called **centripetal force**) must also point toward the center to keep the object moving in a circle rather than flying off in a straight line.
 
 ## Examples
 
@@ -92,21 +92,21 @@ $$t = \dfrac{10}{9.8} \approx 1.02 \text{ s}$$
 
 ### #4: Uniform Circular Motion Concept
 
-A satellite moves at a constant speed in a perfectly circular orbit around Earth. Explain why the satellite is still considered to be ACCELERATING, even though its speed never changes.
+A satellite moves at a constant speed in a perfectly circular orbit around Earth. Explain why the satellite is still considered to be accelerating, even though its speed never changes.
 
 **Solution:**
 Recall the vector definition of velocity and acceleration.
 
-1. Velocity is a VECTOR: it has both magnitude (speed) AND direction.
-2. Even though the satellite's SPEED stays constant, its DIRECTION is constantly changing as it curves around the circular path.
-3. Since velocity is changing (due to the changing direction, even with constant speed), the satellite IS accelerating.
-4. This acceleration points toward the CENTER of the circular orbit (centripetal acceleration), which is why a centripetal force (in this case, gravity) must continuously act toward Earth's center to maintain the circular path.
+1. Velocity is a vector: it has both magnitude (speed) and direction.
+2. Even though the satellite's speed stays constant, its direction is constantly changing as it curves around the circular path.
+3. Since velocity is changing (due to the changing direction, even with constant speed), the satellite is accelerating.
+4. This acceleration points toward the center of the circular orbit (centripetal acceleration), which is why a centripetal force (in this case, gravity) must continuously act toward Earth's center to maintain the circular path.
 
 ## Speed Tricks & Shortcuts
 
-For any projectile problem, immediately split it into TWO separate, simpler problems: a horizontal, constant-velocity problem, and a vertical, free-fall problem. Solve each independently, then combine results only at the very end if needed.
+For any projectile problem, immediately split it into two separate, simpler problems: a horizontal, constant-velocity problem, and a vertical, free-fall problem. Solve each independently, then combine results only at the very end if needed.
 
-At a projectile's peak height, remember one fact instantly: vertical velocity equals ZERO (though horizontal velocity is unchanged and nonzero, assuming the launch had a horizontal component).
+At a projectile's peak height, remember one fact instantly: vertical velocity equals zero (though horizontal velocity is unchanged and nonzero, assuming the launch had a horizontal component).
 
 For circular motion, remember the phrase "constant speed, changing direction, means accelerating." This single idea resolves most conceptual circular motion questions without needing any calculation.
 
@@ -114,24 +114,24 @@ For circular motion, remember the phrase "constant speed, changing direction, me
 
 ### #1: Applying Gravity to Horizontal Motion
 
-> Gravity affects ONLY the VERTICAL component of a projectile's motion — horizontal velocity stays constant throughout the flight (ignoring air resistance).
+> Gravity affects only the vertical component of a projectile's motion — horizontal velocity stays constant throughout the flight (ignoring air resistance).
 
-A common mistake tries to apply the free-fall acceleration formula to the HORIZONTAL distance calculation. Horizontal motion has NO acceleration in ideal projectile motion; only $x = v_x t$ applies there, never a $\dfrac{1}{2}at^2$ term.
+A common mistake tries to apply the free-fall acceleration formula to the horizontal distance calculation. Horizontal motion has no acceleration in ideal projectile motion; only $x = v_x t$ applies there, never a $\dfrac{1}{2}at^2$ term.
 
 ### #2: Believing Circular Motion at Constant Speed Means No Acceleration
 
-> CONSTANT SPEED does not mean CONSTANT VELOCITY, and only constant VELOCITY (unchanging in both magnitude and direction) would mean zero acceleration.
+> Constant speed does not mean constant velocity, and only constant velocity (unchanging in both magnitude and direction) would mean zero acceleration.
 
-Students sometimes think "constant speed" automatically implies "no acceleration," forgetting that acceleration depends on velocity (a vector), and DIRECTION is constantly changing in circular motion, producing a real, nonzero (centripetal) acceleration.
+Students sometimes think "constant speed" automatically implies "no acceleration," forgetting that acceleration depends on velocity (a vector), and direction is constantly changing in circular motion, producing a real, nonzero (centripetal) acceleration.
 
 ### #3: Forgetting to Resolve the Launch Angle Before Using Kinematic Equations
 
-> Before applying ANY projectile equation, first split the initial velocity into its horizontal and vertical COMPONENTS using $\cos\theta$ and $\sin\theta$.
+> Before applying any projectile equation, first split the initial velocity into its horizontal and vertical components using $\cos\theta$ and $\sin\theta$.
 
-Plugging the full launch speed $v_0$ directly into the horizontal or vertical equations (without first finding $v_{x0}$ and $v_{y0}$ separately) produces an incorrect answer, since only the CORRECT component belongs in each direction's equation.
+Plugging the full launch speed $v_0$ directly into the horizontal or vertical equations (without first finding $v_{x0}$ and $v_{y0}$ separately) produces an incorrect answer, since only the correct component belongs in each direction's equation.
 
 ### #4: Mixing Up Which Trig Function Gives Which Component
 
-> When the launch angle is measured from the HORIZONTAL, COSINE gives the horizontal component and SINE gives the vertical component.
+> When the launch angle is measured from the horizontal, cosine gives the horizontal component and sine gives the vertical component.
 
 Reversing these (using sine for horizontal and cosine for vertical) swaps the two components, producing a projectile that behaves as though it were launched at a very different angle than intended. Always double-check which side of the angle each trig function corresponds to.

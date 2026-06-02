@@ -1,7 +1,7 @@
 ---
 _id: "lesson-trigonometry-solving-right-triangles"
 title: "Solving Right Triangles (Angles of Elevation and Depression)"
-summary: "This lesson teaches you how to use trigonometric ratios to find heights and distances in real-world elevation and depression problems."
+summary: "How to use trigonometric ratios to find heights and distances in real-world elevation and depression problems."
 subject: "subject-mathematics"
 topic: "topic-trigonometry"
 estimatedMinutes: 12
@@ -11,20 +11,20 @@ isActive: true
 
 To **solve a right triangle** means to find all its missing sides and angles. You need only two tools: the trigonometric ratios (SOH-CAH-TOA) for sides, and the fact that the two acute angles add up to $90^\circ$.
 
-The classic word problems use two special angles, both measured from the HORIZONTAL:
+The classic word problems use two special angles, both measured from the horizontal:
 
-**Angle of elevation**: you look UP at something. The angle opens upward from your horizontal line of sight to the object (a kite, a building top, an airplane).
+**Angle of elevation**: you look up at something. The angle opens upward from your horizontal line of sight to the object (a kite, a building top, an airplane).
 
-**Angle of depression**: you look DOWN from a high place. The angle opens downward from your horizontal line of sight to the object (a boat seen from a cliff).
+**Angle of depression**: you look down from a high place. The angle opens downward from your horizontal line of sight to the object (a boat seen from a cliff).
 
 <!-- ILLUSTRATION: observer on the ground looking up at a bird with the elevation angle marked from the horizontal, and an observer on a cliff looking down at a boat with the depression angle marked from the horizontal -->
 
-Here is the key connection: the angle of depression from the top EQUALS the angle of elevation from the bottom. They are alternate interior angles between two horizontal (parallel) lines. So you can always move the angle down into the triangle at the ground.
+Here is the key connection: the angle of depression from the top equals the angle of elevation from the bottom. They are alternate interior angles between two horizontal (parallel) lines. So you can always move the angle down into the triangle at the ground.
 
 Picking the ratio is mechanical:
 
-- Height and horizontal distance involved? Use TANGENT (opposite and adjacent).
-- The slanted line of sight (or a ladder, a string, a ramp) involved? Use SINE or COSINE.
+- Height and horizontal distance involved? Use tangent (opposite and adjacent).
+- The slanted line of sight (or a ladder, a string, a ramp) involved? Use sine or cosine.
 
 ## Examples
 
@@ -108,7 +108,7 @@ $$a = 40 \sin 35^\circ$$
 
 $$b = 40 \cos 35^\circ$$
 
-4. On the CET, non-special angles like $35^\circ$ stay as expressions or come with given decimal values. The setup earns the point: know WHICH ratio, and the arithmetic follows.
+4. On the CET, non-special angles like $35^\circ$ stay as expressions or come with given decimal values. The setup earns the point: know which ratio, and the arithmetic follows.
 
 ### #5: Two Observation Points (Exam Level)
 
@@ -145,9 +145,9 @@ $$h = 50\sqrt{3} \approx 86.6 \text{ meters}$$
 
 ## Speed Tricks & Shortcuts
 
-Draw the triangle EVERY time, even a five-second sketch. Label the horizontal, the vertical, and the line of sight. Most wrong answers come from solving a triangle different from the one described.
+Draw the triangle every time, even a five-second sketch. Label the horizontal, the vertical, and the line of sight. Most wrong answers come from solving a triangle different from the one described.
 
-When the angle of elevation is $45^\circ$, the height EQUALS the horizontal distance (because $\tan 45^\circ = 1$). Test-makers love this freebie: a $45^\circ$ shadow problem needs no computation at all.
+When the angle of elevation is $45^\circ$, the height equals the horizontal distance (because $\tan 45^\circ = 1$). Test-makers love this freebie: a $45^\circ$ shadow problem needs no computation at all.
 
 In two-point problems with $30^\circ$ and $60^\circ$ (like Example $5$), the answer height is always the distance between the two points times $\dfrac{\sqrt{3}}{2}$. Check: $100 \times \dfrac{\sqrt{3}}{2} = 50\sqrt{3}$. If you can recall this pattern, you save two minutes.
 
@@ -155,24 +155,24 @@ In two-point problems with $30^\circ$ and $60^\circ$ (like Example $5$), the ans
 
 ### #1: Measuring Depression from the Wall
 
-> The angle of depression is measured from the HORIZONTAL, not from the vertical.
+> The angle of depression is measured from the horizontal, not from the vertical.
 
 Students draw the depression angle between the cliff face and the line of sight, which builds the complementary triangle: their answer is right for the wrong angle. Always start the depression angle from a horizontal line at the eye level of the high observer.
 
 ### #2: The Angle Sits at the Observer
 
-> The elevation angle is at the EYE of the person looking, never at the object.
+> The elevation angle is at the eye of the person looking, never at the object.
 
 Putting the $60^\circ$ at the top of the tree instead of at the observer swaps opposite and adjacent, turning $30\sqrt{3}$ into $\dfrac{30}{\sqrt{3}}$. Both versions appear in the choices, so anchor the angle where the looking happens.
 
 ### #3: Forgetting the Observer's Height
 
-> If eye level is given, ADD it at the end.
+> If eye level is given, add it at the end.
 
-When a problem says the observer's eyes are $1.5$ meters above the ground, the tangent computation gives the height ABOVE THE EYES. The true height of the flagpole is that result plus $1.5$. The choice missing the add-on is always there, looking innocent.
+When a problem says the observer's eyes are $1.5$ meters above the ground, the tangent computation gives the height above the eyes. The true height of the flagpole is that result plus $1.5$. The choice missing the add-on is always there, looking innocent.
 
 ### #4: Sine with a Horizontal Distance
 
-> Distance along the GROUND pairs with tangent, not sine.
+> Distance along the ground pairs with tangent, not sine.
 
-Sine needs the hypotenuse (the slanted line of sight). If the problem gives the horizontal distance to the base, the slant is not involved: use tangent. Reach for sine or cosine only when a ladder, string, ramp, or line-of-sight LENGTH is given.
+Sine needs the hypotenuse (the slanted line of sight). If the problem gives the horizontal distance to the base, the slant is not involved: use tangent. Reach for sine or cosine only when a ladder, string, ramp, or line-of-sight length is given.

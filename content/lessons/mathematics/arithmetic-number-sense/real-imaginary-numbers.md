@@ -1,7 +1,7 @@
 ---
 _id: "lesson-arithmetic-number-sense-real-imaginary-numbers"
 title: "Real and Imaginary Number Systems"
-summary: "This lesson teaches you how to sort numbers into their correct families and how to solve problems with imaginary numbers."
+summary: "How to sort numbers into their correct families and how to solve problems with imaginary numbers."
 subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 estimatedMinutes: 8
@@ -56,7 +56,7 @@ The cycle is $i$, $1$, $i$, $1$. Make the middle two negative. The final cycle i
 
 ### #1: Classifying Number Sets
 
-Which of the following statements regarding number systems is FALSE?
+Which of the following statements regarding number systems is false?
 A) Every integer is a rational number.
 B) The number zero is considered a natural number.
 C) All irrational numbers are real numbers.

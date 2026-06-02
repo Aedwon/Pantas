@@ -1,7 +1,7 @@
 ---
 _id: "lesson-statistics-and-probability-measures-of-variability"
 title: "Measures of Variability (Range, Variance, Standard Deviation)"
-summary: "This lesson teaches you how to measure how spread out a data set is using range, variance, and standard deviation."
+summary: "How to measure how spread out a data set is using range, variance, and standard deviation."
 subject: "subject-mathematics"
 topic: "topic-statistics-and-probability"
 estimatedMinutes: 11
@@ -9,24 +9,24 @@ isActive: true
 ---
 ## Core Concept
 
-Two classes can have the same AVERAGE score but feel completely different: one where everyone scored near $80$, and one with scores all over the place. **Measures of variability** capture that spread.
+Two classes can have the same average score but feel completely different: one where everyone scored near $80$, and one with scores all over the place. **Measures of variability** capture that spread.
 
 The **range** is the quickest: biggest value minus smallest value.
 
 $$\text{range} = \text{maximum} - \text{minimum}$$
 
-The **variance** measures spread using EVERY value. The recipe:
+The **variance** measures spread using every value. The recipe:
 
 1. Find the mean.
 2. Subtract the mean from each value (these are the **deviations**).
 3. Square each deviation.
 4. Average the squared deviations. That average is the variance.
 
-The **standard deviation** (SD) is the square root of the variance. It undoes the squaring, so it speaks in the SAME units as the data. A small SD means the values huddle near the mean; a large SD means they scatter far.
+The **standard deviation** (SD) is the square root of the variance. It undoes the squaring, so it speaks in the same units as the data. A small SD means the values huddle near the mean; a large SD means they scatter far.
 
 Why square the deviations at all? Because raw deviations always cancel out: the negatives and positives sum to exactly $0$. Squaring makes everything positive so the spread can pile up.
 
-CETs mostly ask three things: compute a range, compute a small variance or SD by hand, and COMPARE two data sets ("who is more consistent?"). Consistent means small standard deviation.
+CETs mostly ask three things: compute a range, compute a small variance or SD by hand, and compare two data sets ("who is more consistent?"). Consistent means small standard deviation.
 
 ## Examples
 
@@ -76,7 +76,7 @@ Think before computing.
 
 $$SD = 0$$
 
-3. A standard deviation of $0$ means NO spread at all: all values identical. This is the only way SD can be zero.
+3. A standard deviation of $0$ means no spread at all: all values identical. This is the only way SD can be zero.
 
 ### #4: Who Is More Consistent?
 
@@ -85,13 +85,13 @@ Two archers each average $8$ points per shot. Ana's scores have a standard devia
 **Solution:**
 Same mean, different spread.
 
-1. Consistency means small spread. Ana's SD ($0.5$) is smaller, so ANA is more consistent.
-2. Scoring a $10$ means landing far above the mean of $8$. That needs a WIDE spread, so Bella, with the bigger SD, hits $10$ (and also $5$!) more often.
+1. Consistency means small spread. Ana's SD ($0.5$) is smaller, so ana is more consistent.
+2. Scoring a $10$ means landing far above the mean of $8$. That needs a wide spread, so Bella, with the bigger SD, hits $10$ (and also $5$!) more often.
 3. This is the classic CET question: low SD is steady, high SD is boom-or-bust.
 
 ### #5: Shifting and Scaling the Data
 
-A data set has mean $70$ and standard deviation $6$. Every score is increased by $5$ points. What are the new mean and new standard deviation? What if instead every score were DOUBLED?
+A data set has mean $70$ and standard deviation $6$. Every score is increased by $5$ points. What are the new mean and new standard deviation? What if instead every score were doubled?
 
 **Solution:**
 Shifts slide the data; scaling stretches it.
@@ -100,12 +100,12 @@ Shifts slide the data; scaling stretches it.
 
 $$70 + 5 = 75$$
 
-2. But the DISTANCES between values do not change, so the standard deviation stays $6$.
+2. But the distances between values do not change, so the standard deviation stays $6$.
 3. Doubling every value stretches all distances by $2$. Both move:
 
 $$\text{mean} = 140 \qquad SD = 12$$
 
-4. Rule: adding a constant changes only the mean; multiplying by a constant multiplies BOTH the mean and the SD.
+4. Rule: adding a constant changes only the mean; multiplying by a constant multiplies both the mean and the SD.
 
 ## Speed Tricks & Shortcuts
 
@@ -119,13 +119,13 @@ Variance and SD convert instantly: SD is the square root of variance, variance i
 
 ### #1: Averaging Raw Deviations
 
-> Deviations from the mean ALWAYS sum to zero. Square them first.
+> Deviations from the mean always sum to zero. Square them first.
 
 Students skip the squaring, average the deviations, get $0$, and think the spread is zero. The cancellation is guaranteed by how the mean works — it proves nothing about spread. The squaring step is the whole point of variance.
 
 ### #2: Reporting Variance as SD
 
-> Variance is in SQUARED units; take the root for standard deviation.
+> Variance is in squared units; take the root for standard deviation.
 
 In Example $2$ the variance is $4$ and the SD is $2$; both numbers sit in the choices. Read the question's last word carefully. If the data are in centimeters, variance is in square centimeters — a hint that it is not yet the SD.
 
@@ -133,7 +133,7 @@ In Example $2$ the variance is $4$ and the SD is $2$; both numbers sit in the ch
 
 > The range only sees the two endpoints, never the crowd between them.
 
-The sets $1, 50, 50, 50, 99$ and $1, 2, 3, 98, 99$ have the SAME range ($98$) but wildly different spreads. If a question asks which measure uses ALL the data, the answer is variance or standard deviation, never range.
+The sets $1, 50, 50, 50, 99$ and $1, 2, 3, 98, 99$ have the same range ($98$) but wildly different spreads. If a question asks which measure uses all the data, the answer is variance or standard deviation, never range.
 
 ### #4: A Negative Standard Deviation
 

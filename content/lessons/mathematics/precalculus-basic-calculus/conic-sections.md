@@ -1,7 +1,7 @@
 ---
 _id: "lesson-precalculus-basic-calculus-conic-sections"
 title: "Conic Sections (Circle, Parabola, Ellipse, Hyperbola)"
-summary: "This lesson teaches you how to recognize the four conic sections from their equations and find their key features."
+summary: "How to recognize the four conic sections from their equations and find their key features."
 subject: "subject-mathematics"
 topic: "topic-precalculus-basic-calculus"
 estimatedMinutes: 14
@@ -25,15 +25,15 @@ $$(x - h)^2 + (y - k)^2 = r^2$$
 
 $$\dfrac{(x - h)^2}{a^2} + \dfrac{(y - k)^2}{b^2} = 1$$
 
-The LARGER denominator marks the **major axis** direction. Its half-length is $a$; the smaller half-length is $b$.
+The larger denominator marks the **major axis** direction. Its half-length is $a$; the smaller half-length is $b$.
 
-**Hyperbola** — like an ellipse but with a MINUS sign, giving two separate branches:
+**Hyperbola** — like an ellipse but with a minus sign, giving two separate branches:
 
 $$\dfrac{(x - h)^2}{a^2} - \dfrac{(y - k)^2}{b^2} = 1$$
 
 The positive term tells which way it opens (this one opens left and right). Its branches hug two crossing **asymptote** lines.
 
-Fast identification from a general equation $Ax^2 + By^2 + \ldots = C$: only ONE squared variable means parabola. Both squared with the SAME coefficient: circle. Same sign but different coefficients: ellipse. Opposite signs: hyperbola.
+Fast identification from a general equation $Ax^2 + By^2 + \ldots = C$: only one squared variable means parabola. Both squared with the same coefficient: circle. Same sign but different coefficients: ellipse. Opposite signs: hyperbola.
 
 ## Examples
 
@@ -44,10 +44,10 @@ Identify each conic: (a) $3x^2 + 3y^2 = 27$, (b) $y = 2x^2 - 8x + 1$, (c) $4x^2 
 **Solution:**
 Apply the coefficient test.
 
-1. (a) Both squared, equal coefficients ($3$ and $3$): a CIRCLE. Dividing by $3$ gives $x^2 + y^2 = 9$, radius $3$.
-2. (b) Only $x$ is squared: a PARABOLA, opening upward since $2$ is positive.
-3. (c) Both squared, same sign, different coefficients ($4$ and $9$): an ELLIPSE.
-4. (d) Squared terms with OPPOSITE signs: a HYPERBOLA.
+1. (a) Both squared, equal coefficients ($3$ and $3$): a circle. Dividing by $3$ gives $x^2 + y^2 = 9$, radius $3$.
+2. (b) Only $x$ is squared: a parabola, opening upward since $2$ is positive.
+3. (c) Both squared, same sign, different coefficients ($4$ and $9$): an ellipse.
+4. (d) Squared terms with opposite signs: a hyperbola.
 
 ### #2: Circle by Completing the Square
 
@@ -60,7 +60,7 @@ Group $x$ terms and $y$ terms, then complete each square.
 
 $$(x^2 - 6x) + (y^2 + 4y) = 12$$
 
-2. Complete each square: half of $-6$ is $-3$, squared is $9$; half of $4$ is $2$, squared is $4$. Add both to BOTH sides.
+2. Complete each square: half of $-6$ is $-3$, squared is $9$; half of $4$ is $2$, squared is $4$. Add both to both sides.
 
 $$(x^2 - 6x + 9) + (y^2 + 4y + 4) = 12 + 9 + 4$$
 
@@ -85,7 +85,7 @@ $$x = \dfrac{-(-6)}{2(1)} = 3$$
 
 $$y = 3^2 - 6(3) + 5 = 9 - 18 + 5 = -4$$
 
-3. The vertex is $(3, -4)$, and since the $x^2$ coefficient is positive, the parabola opens UPWARD.
+3. The vertex is $(3, -4)$, and since the $x^2$ coefficient is positive, the parabola opens upward.
 
 ### #4: Features of an Ellipse
 
@@ -122,11 +122,11 @@ $$y = \dfrac{3}{4}x \qquad y = -\dfrac{3}{4}x$$
 
 ## Speed Tricks & Shortcuts
 
-For identification questions, you never need to complete any squares. Look ONLY at the two squared terms: one squared is a parabola, equal coefficients a circle, same sign an ellipse, opposite signs a hyperbola. Five seconds per question.
+For identification questions, you never need to complete any squares. Look only at the two squared terms: one squared is a parabola, equal coefficients a circle, same sign an ellipse, opposite signs a hyperbola. Five seconds per question.
 
 Completing the square is always "half the middle coefficient, then square it" — and whatever you add inside, add to the other side too. Doing this smoothly is the whole skill for circle questions.
 
-Remember which subtraction goes where: ellipse foci use $c^2 = a^2 - b^2$ (foci INSIDE, so $c < a$), hyperbola foci use $c^2 = a^2 + b^2$ (foci beyond the vertices, so $c > a$). Inside is minus, outside is plus.
+Remember which subtraction goes where: ellipse foci use $c^2 = a^2 - b^2$ (foci inside, so $c < a$), hyperbola foci use $c^2 = a^2 + b^2$ (foci beyond the vertices, so $c > a$). Inside is minus, outside is plus.
 
 ## Traps to Watch For
 
@@ -140,16 +140,16 @@ From $(x - 3)^2 + (y + 2)^2 = 25$, the radius is $5$. Answering $25$ is the clas
 
 > $(x - 3)^2$ means $h = 3$; $(x + 3)^2$ means $h = -3$.
 
-The standard form subtracts the center, so the sign you SEE is the opposite of the coordinate. A center of $(3, -2)$ comes from $(x - 3)^2$ and $(y + 2)^2$. Every choice list includes the sign-flipped center $( -3, 2)$.
+The standard form subtracts the center, so the sign you see is the opposite of the coordinate. A center of $(3, -2)$ comes from $(x - 3)^2$ and $(y + 2)^2$. Every choice list includes the sign-flipped center $( -3, 2)$.
 
 ### #3: Calling an Ellipse a Circle
 
-> A circle needs EQUAL coefficients on $x^2$ and $y^2$.
+> A circle needs equal coefficients on $x^2$ and $y^2$.
 
 The equation $4x^2 + 9y^2 = 36$ is an ellipse, not a circle, because $4 \neq 9$. Divide through by $36$ and the different denominators ($9$ and $4$) confirm it. Only when the squared terms match exactly do you have a circle.
 
 ### #4: Major Axis in the Wrong Direction
 
-> The LARGER denominator owns the major axis, wherever it sits.
+> The larger denominator owns the major axis, wherever it sits.
 
-In $\dfrac{x^2}{9} + \dfrac{y^2}{25} = 1$, the bigger number $25$ is under $y^2$, so the ellipse is TALL, with vertices at $(0, \pm 5)$. Assuming the major axis is always horizontal flips the vertices and foci onto the wrong axis.
+In $\dfrac{x^2}{9} + \dfrac{y^2}{25} = 1$, the bigger number $25$ is under $y^2$, so the ellipse is tall, with vertices at $(0, \pm 5)$. Assuming the major axis is always horizontal flips the vertices and foci onto the wrong axis.

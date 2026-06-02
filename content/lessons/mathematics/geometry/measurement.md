@@ -1,7 +1,7 @@
 ---
 _id: "lesson-geometry-measurement"
 title: "Measurement"
-summary: "This lesson teaches you the perimeter, area, surface area, and volume formulas for the figures that appear on every exam."
+summary: "The perimeter, area, surface area, and volume formulas for the figures that appear on every exam."
 subject: "subject-mathematics"
 topic: "topic-geometry"
 estimatedMinutes: 15
@@ -11,13 +11,13 @@ isActive: true
 
 Measurement questions are formula questions. Know the formula, plug in carefully, and watch the units.
 
-**Perimeter** is the distance AROUND a flat figure, in plain units like cm. **Area** is the space INSIDE, in square units like $\text{cm}^2$. **Volume** is the space a solid fills, in cubic units like $\text{cm}^3$. **Surface area** is the total area of all the outside faces of a solid.
+**Perimeter** is the distance around a flat figure, in plain units like cm. **Area** is the space inside, in square units like $\text{cm}^2$. **Volume** is the space a solid fills, in cubic units like $\text{cm}^3$. **Surface area** is the total area of all the outside faces of a solid.
 
 ### Perimeter and Area of 2D Figures
 
 - **Square** with side $s$: perimeter $4s$, area $s^2$.
 - **Rectangle** with length $l$ and width $w$: perimeter $2(l + w)$, area $lw$.
-- **Triangle** with base $b$ and height $h$: area $\dfrac{1}{2}bh$. The height must be PERPENDICULAR to the base.
+- **Triangle** with base $b$ and height $h$: area $\dfrac{1}{2}bh$. The height must be perpendicular to the base.
 - **Parallelogram**: area $bh$. Again, $h$ is the straight-down height, not the slanted side.
 - **Trapezoid** with parallel bases $b_1$ and $b_2$: area $\dfrac{1}{2}(b_1 + b_2)h$. Average the bases, times the height.
 - **Circle** with radius $r$: circumference $2\pi r$, area $\pi r^2$.
@@ -96,7 +96,7 @@ Shaded-region problems are subtraction problems: big area minus small area.
 
 $$10^2 = 100$$
 
-2. The circle touches all four sides, so its DIAMETER equals the side: $d = 10$, which means $r = 5$.
+2. The circle touches all four sides, so its diameter equals the side: $d = 10$, which means $r = 5$.
 3. The circle's area.
 
 $$\pi (5)^2 = 25\pi$$
@@ -181,7 +181,7 @@ $$\ell = 10$$
 
 If every side of a figure is scaled by $k$, the perimeter scales by $k$, the area scales by $k^2$, and the volume scales by $k^3$. Double a cube's edge and its volume becomes $8$ times bigger, not $2$ times. This single fact answers a whole family of CET questions instantly.
 
-For shaded regions, do not hunt for a special formula. It is ALWAYS whole minus hole: outer area minus inner area.
+For shaded regions, do not hunt for a special formula. It is always whole minus hole: outer area minus inner area.
 
 Estimate with $\pi \approx 3$ to eliminate answer choices fast. A circle of radius $5$ has area near $75$; any choice near $30$ or $300$ dies immediately.
 
@@ -189,7 +189,7 @@ Estimate with $\pi \approx 3$ to eliminate answer choices fast. A circle of radi
 
 ### #1: Slant Side as Height
 
-> Area formulas need the PERPENDICULAR height, never the slanted side.
+> Area formulas need the perpendicular height, never the slanted side.
 
 In parallelograms, triangles, and trapezoids, test-makers label both the slant side and the true height. Using the slant gives a bigger, wrong area. The height is the one drawn with a right-angle mark, standing straight on the base.
 
@@ -197,7 +197,7 @@ In parallelograms, triangles, and trapezoids, test-makers label both the slant s
 
 > Perimeter is in cm, area in $\text{cm}^2$, volume in $\text{cm}^3$.
 
-If a problem gives mixed units, like a length in meters and a width in centimeters, convert FIRST, then multiply. And when choices differ only in units, the exponent on the unit tells you which formula they expect.
+If a problem gives mixed units, like a length in meters and a width in centimeters, convert first, then multiply. And when choices differ only in units, the exponent on the unit tells you which formula they expect.
 
 ### #3: Diameter Given, Radius Needed
 

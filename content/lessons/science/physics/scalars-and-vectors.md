@@ -1,7 +1,7 @@
 ---
 _id: "lesson-physics-scalars-and-vectors"
 title: "Scalars and Vectors (Vector Addition and Resolution)"
-summary: "This lesson teaches you the difference between scalar and vector quantities and how to add and break apart vectors."
+summary: "The difference between scalar and vector quantities and how to add and break apart vectors."
 subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 11
@@ -11,27 +11,27 @@ isActive: true
 
 Physics quantities come in two types.
 
-A **scalar** has only MAGNITUDE (size), no direction: mass, temperature, time, speed, distance. Saying "the car traveled $50 \text{ km}$" is a scalar statement.
+A **scalar** has only magnitude (size), no direction: mass, temperature, time, speed, distance. Saying "the car traveled $50 \text{ km}$" is a scalar statement.
 
-A **vector** has BOTH magnitude AND direction: displacement, velocity, acceleration, force. Saying "the car traveled $50 \text{ km}$ NORTH" is a vector statement — the direction matters.
+A **vector** has both magnitude and direction: displacement, velocity, acceleration, force. Saying "the car traveled $50 \text{ km}$ north" is a vector statement — the direction matters.
 
-Vectors are drawn as arrows: the ARROW LENGTH represents magnitude, and the ARROW DIRECTION represents the direction of the quantity.
+Vectors are drawn as arrows: the arrow length represents magnitude, and the arrow direction represents the direction of the quantity.
 
 <!-- ILLUSTRATION: two arrows of different lengths pointing in different directions, one labeled 5 N east and a longer one labeled 8 N northeast, showing how arrow length represents magnitude and arrow direction represents direction -->
 
 ### Adding Vectors
 
-When vectors point in the SAME direction, simply ADD their magnitudes. When vectors point in OPPOSITE directions, SUBTRACT the smaller from the larger (the result points in the direction of the larger vector).
+When vectors point in the same direction, simply add their magnitudes. When vectors point in opposite directions, subtract the smaller from the larger (the result points in the direction of the larger vector).
 
-When vectors point in DIFFERENT (non-opposite) directions, use the **tip-to-tail method**: draw the first vector, then start the second vector's tail at the first vector's tip. The **resultant** (the sum) is the single arrow drawn from the very first tail to the very last tip. For vectors at RIGHT ANGLES to each other, the resultant's magnitude can be found using the Pythagorean theorem, since the two vectors and the resultant form a right triangle.
+When vectors point in different (non-opposite) directions, use the **tip-to-tail method**: draw the first vector, then start the second vector's tail at the first vector's tip. The **resultant** (the sum) is the single arrow drawn from the very first tail to the very last tip. For vectors at right angles to each other, the resultant's magnitude can be found using the Pythagorean theorem, since the two vectors and the resultant form a right triangle.
 
 ### Resolving Vectors into Components
 
-Just as two vectors can be COMBINED into one resultant, a single vector can be BROKEN APART into two perpendicular pieces, called **components**: usually a horizontal ($x$) component and a vertical ($y$) component. For a vector with magnitude $V$ at angle $\theta$ from the horizontal:
+Just as two vectors can be combined into one resultant, a single vector can be broken apart into two perpendicular pieces, called **components**: usually a horizontal ($x$) component and a vertical ($y$) component. For a vector with magnitude $V$ at angle $\theta$ from the horizontal:
 
 $$V_x = V\cos\theta \qquad V_y = V\sin\theta$$
 
-This is useful because horizontal and vertical motions can then be analyzed SEPARATELY and independently.
+This is useful because horizontal and vertical motions can then be analyzed separately and independently.
 
 ## Examples
 
@@ -42,9 +42,9 @@ Classify each quantity as a scalar or a vector: (a) "the runner covered $10 \tex
 **Solution:**
 Check whether a direction is specified.
 
-1. (a) "$10 \text{ km}$" with no direction given: SCALAR (this is distance).
-2. (b) "$6 \text{ km}$ east" includes a specific direction: VECTOR (this is displacement).
-3. (c) Temperature has magnitude only, no direction: SCALAR.
+1. (a) "$10 \text{ km}$" with no direction given: Scalar (this is distance).
+2. (b) "$6 \text{ km}$ east" includes a specific direction: Vector (this is displacement).
+3. (c) Temperature has magnitude only, no direction: Scalar.
 
 ### #2: Adding Perpendicular Vectors
 
@@ -89,39 +89,39 @@ $$V_y = 10 \sin 30° = 10 \times \dfrac{1}{2} = 5 \text{ N}$$
 Two tug-of-war teams pull on a rope. Team A pulls with $600 \text{ N}$ to the left; Team B pulls with $450 \text{ N}$ to the right. Find the net force and its direction.
 
 **Solution:**
-Since the forces are in OPPOSITE directions, subtract the smaller from the larger.
+Since the forces are in opposite directions, subtract the smaller from the larger.
 
 1. Subtract the magnitudes.
 
 $$600 - 450 = 150 \text{ N}$$
 
-2. The net force takes the direction of the LARGER force, which is Team A's direction (left).
+2. The net force takes the direction of the larger force, which is Team A's direction (left).
 3. The net force is $150 \text{ N}$ to the left.
 
 ## Speed Tricks & Shortcuts
 
-To tell scalar from vector fast, listen for a DIRECTION word (north, up, left, at an angle) — its presence means vector; its absence means scalar.
+To tell scalar from vector fast, listen for a direction word (north, up, left, at an angle) — its presence means vector; its absence means scalar.
 
 For perpendicular vector addition, check first whether the numbers form a known Pythagorean triple ($3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$) to skip the squaring and rooting.
 
-Remember which trig function goes with which component: COSINE goes with the ADJACENT side (usually the horizontal component when the angle is measured from the horizontal), and SINE goes with the OPPOSITE side (usually the vertical component).
+Remember which trig function goes with which component: Cosine goes with the adjacent side (usually the horizontal component when the angle is measured from the horizontal), and sine goes with the opposite side (usually the vertical component).
 
 ## Traps to Watch For
 
 ### #1: Confusing Distance (Scalar) with Displacement (Vector)
 
-> Distance is the TOTAL path length traveled (scalar). Displacement is the STRAIGHT-LINE change in position, WITH direction (vector).
+> Distance is the total path length traveled (scalar). Displacement is the straight-line change in position, with direction (vector).
 
-If a runner jogs around a circular track and ends up back at the starting point, the DISTANCE traveled is the full circumference (a large positive number), but the DISPLACEMENT is ZERO, since the runner ended up exactly where they started. Confusing these two produces very different, often contradictory answers.
+If a runner jogs around a circular track and ends up back at the starting point, the distance traveled is the full circumference (a large positive number), but the displacement is zero, since the runner ended up exactly where they started. Confusing these two produces very different, often contradictory answers.
 
 ### #2: Simply Adding Magnitudes When Vectors Are Not in the Same Direction
 
-> Vector magnitudes can only be added directly when the vectors point in the EXACT SAME direction.
+> Vector magnitudes can only be added directly when the vectors point in the exact same direction.
 
-Adding $3 \text{ km}$ and $4 \text{ km}$ directly (getting $7 \text{ km}$) when the two displacements are actually PERPENDICULAR gives the wrong total; the correct combined magnitude (using the Pythagorean theorem) is $5 \text{ km}$, not $7 \text{ km}$.
+Adding $3 \text{ km}$ and $4 \text{ km}$ directly (getting $7 \text{ km}$) when the two displacements are actually perpendicular gives the wrong total; the correct combined magnitude (using the Pythagorean theorem) is $5 \text{ km}$, not $7 \text{ km}$.
 
 ### #3: Swapping Sine and Cosine When Finding Components
 
-> Whether you use SINE or COSINE for a component depends on which side of the angle the component represents — always double-check against the actual triangle, don't just guess.
+> Whether you use sine or cosine for a component depends on which side of the angle the component represents — always double-check against the actual triangle, don't just guess.
 
-If the angle is measured from the VERTICAL instead of the horizontal (a less common but valid setup), the sine and cosine roles for the $x$ and $y$ components SWAP compared to the usual convention. Always sketch the triangle and identify the adjacent and opposite sides relative to the given angle before applying a formula.
+If the angle is measured from the vertical instead of the horizontal (a less common but valid setup), the sine and cosine roles for the $x$ and $y$ components swap compared to the usual convention. Always sketch the triangle and identify the adjacent and opposite sides relative to the given angle before applying a formula.

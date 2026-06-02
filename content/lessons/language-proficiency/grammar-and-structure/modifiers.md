@@ -9,15 +9,15 @@ isActive: true
 ---
 ## Core Concept
 
-A **modifier** is a word, phrase, or clause that DESCRIBES another word in the sentence. For a sentence to be clear, a modifier must sit CLOSE to the word it describes.
+A **modifier** is a word, phrase, or clause that describes another word in the sentence. For a sentence to be clear, a modifier must sit close to the word it describes.
 
-A **misplaced modifier** is a modifier placed too FAR from the word it is meant to describe, which accidentally makes it seem to describe a DIFFERENT word instead, often creating a confusing or silly meaning.
+A **misplaced modifier** is a modifier placed too far from the word it is meant to describe, which accidentally makes it seem to describe a different word instead, often creating a confusing or silly meaning.
 
-"She almost drove her kids to school every day" (meaning: she almost NEVER drove them) versus "She drove her kids to school almost every day" (meaning: she drove them MOST days). Moving "almost" changes the entire meaning, because it now modifies a different word.
+"She almost drove her kids to school every day" (meaning: she almost never drove them) versus "She drove her kids to school almost every day" (meaning: she drove them most days). Moving "almost" changes the entire meaning, because it now modifies a different word.
 
-A **dangling modifier** is a modifier that has NOTHING logical to describe at all, usually because the sentence never actually states who or what is performing the action described by the modifier.
+A **dangling modifier** is a modifier that has nothing logical to describe at all, usually because the sentence never actually states who or what is performing the action described by the modifier.
 
-"*Walking down the street*, the trees looked beautiful." — this sentence says the TREES were walking down the street, since "walking down the street" has nothing else to logically attach to. The sentence never states WHO was walking.
+"*Walking down the street*, the trees looked beautiful." — this sentence says the trees were walking down the street, since "walking down the street" has nothing else to logically attach to. The sentence never states who was walking.
 
 <!-- ILLUSTRATION: two side-by-side sentence diagrams, one showing a modifier phrase with an arrow pointing to the wrong word far away (misplaced), and one showing a modifier phrase with an arrow pointing to nothing, a large question mark where the intended subject should be (dangling) -->
 
@@ -29,7 +29,7 @@ Identify and fix the error: "The waiter served the pasta to the customer covered
 
 **Solution:**
 
-1. As written, "covered in cheese" sits right after "customer," making it sound like the CUSTOMER is covered in cheese, not the pasta.
+1. As written, "covered in cheese" sits right after "customer," making it sound like the customer is covered in cheese, not the pasta.
 2. Move the modifier closer to the word it should describe, "pasta."
 3. Corrected sentence: "The waiter served the customer the pasta *covered in cheese*."
 
@@ -38,17 +38,17 @@ Identify and fix the error: "The waiter served the pasta to the customer covered
 Identify and fix the error: "After finishing the marathon, a warm bath felt amazing."
 
 **Solution:**
-1. "After finishing the marathon" needs a person who FINISHED the marathon, but the sentence's actual subject is "a warm bath" — baths cannot run marathons.
+1. "After finishing the marathon" needs a person who finished the marathon, but the sentence's actual subject is "a warm bath" — baths cannot run marathons.
 2. Add the correct subject right after the modifier so it has something logical to describe.
 3. Corrected sentence: "After finishing the marathon, *she* felt that a warm bath was amazing." (Or: "After *she* finished the marathon, a warm bath felt amazing.")
 
 ### #3: Choosing the Correctly Modified Sentence
 
-Choose the sentence with NO misplaced or dangling modifier: (A) "Driving through the mountains, the scenery amazed the tourists." (B) "Driving through the mountains, the tourists were amazed by the scenery."
+Choose the sentence with no misplaced or dangling modifier: (A) "Driving through the mountains, the scenery amazed the tourists." (B) "Driving through the mountains, the tourists were amazed by the scenery."
 
 **Solution:**
-1. In (A), "driving through the mountains" has nothing logical to attach to — the SCENERY cannot drive.
-2. In (B), "driving through the mountains" correctly attaches to "the tourists," who ARE capable of driving.
+1. In (A), "driving through the mountains" has nothing logical to attach to — the scenery cannot drive.
+2. In (B), "driving through the mountains" correctly attaches to "the tourists," who are capable of driving.
 3. The correct sentence is (B).
 
 ### #4: Spotting a Meaning Change from Modifier Placement
@@ -56,31 +56,31 @@ Choose the sentence with NO misplaced or dangling modifier: (A) "Driving through
 Explain the difference in meaning between: (A) "Only she gave him the answer." (B) "She gave only him the answer."
 
 **Solution:**
-1. In (A), "only" modifies "she," implying that SHE (and no one else) gave him the answer.
-2. In (B), "only" modifies "him," implying that HE (and no one else) received the answer from her.
+1. In (A), "only" modifies "she," implying that she (and no one else) gave him the answer.
+2. In (B), "only" modifies "him," implying that he (and no one else) received the answer from her.
 3. Moving the single word "only" changes exactly who the sentence is emphasizing, showing how sensitive meaning is to a modifier's placement.
 
 ## Speed Tricks & Shortcuts
 
-**The "who or what" test for dangling modifiers.** After reading an introductory modifier phrase, ask "who or what is doing this action?" Then check if that exact person or thing appears IMMEDIATELY after the comma. If not, the modifier is dangling.
+**The "who or what" test for dangling modifiers.** After reading an introductory modifier phrase, ask "who or what is doing this action?" Then check if that exact person or thing appears immediately after the comma. If not, the modifier is dangling.
 
-**Read the modifier next to its nearest noun.** For misplaced modifiers, check what noun sits CLOSEST to the modifier phrase; if that noun does not logically match the intended meaning, the modifier needs to move.
+**Read the modifier next to its nearest noun.** For misplaced modifiers, check what noun sits closest to the modifier phrase; if that noun does not logically match the intended meaning, the modifier needs to move.
 
-**Words like "only," "just," "almost," and "even" are easy to misplace.** These small modifiers can attach to almost any word nearby, so always double-check they sit directly before the SPECIFIC word they are meant to limit or emphasize.
+**Words like "only," "just," "almost," and "even" are easy to misplace.** These small modifiers can attach to almost any word nearby, so always double-check they sit directly before the specific word they are meant to limit or emphasize.
 
 ## Traps to Watch For
 
 ### #1: Assuming the Modifier Describes the Nearest Noun by Default
 
-> Check what the modifier LOGICALLY should describe, not just whichever noun happens to sit closest.
+> Check what the modifier logically should describe, not just whichever noun happens to sit closest.
 
 Test-makers deliberately place an unrelated noun right next to a modifier phrase to create a silly or confusing misplaced-modifier sentence, hoping you won't notice the mismatch.
 
 ### #2: Missing a Dangling Modifier That "Sounds Fine" at First Read
 
-> Slow down and ask specifically WHO or WHAT is performing the introductory action — if the sentence's actual subject cannot logically do that action, it is dangling.
+> Slow down and ask specifically who or what is performing the introductory action — if the sentence's actual subject cannot logically do that action, it is dangling.
 
-Sentences like "After finishing the marathon, a warm bath felt amazing" can sound smooth on a quick read, but a bath cannot finish a marathon. Always check the LITERAL logic, not just the sentence's overall flow.
+Sentences like "After finishing the marathon, a warm bath felt amazing" can sound smooth on a quick read, but a bath cannot finish a marathon. Always check the literal logic, not just the sentence's overall flow.
 
 ### #3: Forgetting That Small Words Like "Only" Can Be Misplaced Too
 

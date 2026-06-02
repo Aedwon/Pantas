@@ -1,7 +1,7 @@
 ---
 _id: "lesson-algebra-polynomials"
 title: "Polynomials"
-summary: "This lesson teaches you how to add, multiply, divide, and factor polynomials to quickly solve algebra questions on college entrance exams."
+summary: "How to add, multiply, divide, and factor polynomials to quickly solve algebra questions on college entrance exams."
 subject: "subject-mathematics"
 topic: "topic-algebra"
 estimatedMinutes: 12
@@ -37,7 +37,7 @@ These are magic tricks for time-pressured exams. The Remainder Theorem lets you 
 
 Use this to multiply two groups of two terms. It reminds you exactly which pieces to multiply together so you do not miss any parts.
 
-> SOAP: Same, Opposite, Always Positive.
+> Soap: Same, Opposite, Always Positive.
 
 Use this when factoring the sum or difference of two cubes. It tells you exactly what math signs to put in your final answer.
 

@@ -17,7 +17,7 @@ Your goal is to become a detective. You must look for signal words that point to
 
 ## Mnemonics & Memory Aids
 
-> Remember the word **IDEAS** to find the right clue.
+> Remember the word **ideas** to find the right clue.
 
 * **I for Inference:** You must guess the meaning based on the story happening in the whole sentence.
 * **D for Definition:** The sentence tells you the exact meaning of the word. Look for commas or the word *is*.

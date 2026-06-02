@@ -1,7 +1,7 @@
 ---
 _id: "lesson-algebra-sets-and-set-notation"
 title: "Sets and Set Notation (Unions, Intersections, Subsets, Venn Diagrams)"
-summary: "This lesson teaches you how to group items into sets, read set symbols, and solve overlap puzzles using Venn diagrams."
+summary: "How to group items into sets, read set symbols, and solve overlap puzzles using Venn diagrams."
 subject: "subject-mathematics"
 topic: "topic-algebra"
 estimatedMinutes: 10
@@ -31,7 +31,7 @@ Here are simple ways to remember the symbols on exam day.
 
 > For Subset ($\subset$), think of a big mouth eating the smaller set. It looks like a "C" for "Contained in."
 
-> For Complement ($A'$), think of the little mark as a stop sign. It means "Everything EXCEPT A."
+> For Complement ($A'$), think of the little mark as a stop sign. It means "Everything except A."
 
 ## Examples
 
@@ -56,7 +56,7 @@ Let the universal set $U = \{ 1, 2, 3, 4, 5, 6 \}$. If $A = \{ 1, 2, 3 \}$ and $
 1. First, solve what is inside the parentheses. Find $A \cup B$.
 2. The symbol $\cup$ means union. Put everything from $A$ and $B$ together in one list.
 3. We get $\{ 1, 2, 3, 4, 5 \}$. Do not write the number $3$ twice.
-4. The little mark $'$ means complement. This means we want everything in $U$ that is NOT in our new list.
+4. The little mark $'$ means complement. This means we want everything in $U$ that is not in our new list.
 5. The only number in $U$ left over is $6$.
 6. The answer is $\{ 6 \}$.
 
@@ -68,12 +68,12 @@ In a class of $40$ students, $25$ students are enrolled in Chemistry, $18$ are e
 
 1. Draw two overlapping circles. One for Chemistry and one for Physics.
 2. Always start in the exact middle. Put $8$ in the overlap part.
-3. Now, find Chemistry ONLY. The whole Chemistry circle is $25$. Subtract the $8$ we already placed.
+3. Now, find Chemistry only. The whole Chemistry circle is $25$. Subtract the $8$ we already placed.
 
 $$25 - 8 = 17$$
 
 
-4. Next, find Physics ONLY. The whole Physics circle is $18$. Subtract the $8$ in the overlap.
+4. Next, find Physics only. The whole Physics circle is $18$. Subtract the $8$ in the overlap.
 
 $$18 - 8 = 10$$
 
@@ -101,7 +101,7 @@ A survey of $100$ college applicants revealed the following preferences for thei
 3. Both Engineering and Business is $15$. Subtract the $5$ in the center. That leaves $10$.
 4. Both Business and Computer Science is $10$. Subtract $5$. That leaves $5$.
 5. Both Engineering and Computer Science is $12$. Subtract $5$. That leaves $7$.
-6. Next, find the people who want ONLY one subject.
+6. Next, find the people who want only one subject.
 7. Engineering total is $45$. Subtract the three pieces already sitting inside its circle.
 
 $$45 - 10 - 5 - 7 = 23$$
@@ -153,6 +153,6 @@ Sometimes, not everything belongs inside a circle. There might be items outside 
 
 ### #3: Double Counting the Overlap
 
-If a problem says "$20$ students take Math", this includes the students taking Math AND Science. It does not mean "$20$ students take ONLY Math."
+If a problem says "$20$ students take Math", this includes the students taking Math and Science. It does not mean "$20$ students take only Math."
 
 > Unless the test specifically uses the word "only," you must subtract the overlap from the total group size.

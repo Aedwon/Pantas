@@ -1,7 +1,7 @@
 ---
 _id: "lesson-geometry-triangles"
 title: "Triangles"
-summary: "This lesson teaches you triangle rules: angle sums, side limits, congruence, similarity, and the Pythagorean theorem."
+summary: "Triangle rules: angle sums, side limits, congruence, similarity, and the Pythagorean theorem."
 subject: "subject-mathematics"
 topic: "topic-geometry"
 estimatedMinutes: 15
@@ -9,15 +9,15 @@ isActive: true
 ---
 ## Core Concept
 
-A triangle has $3$ sides and $3$ angles, and one golden rule: the three interior angles ALWAYS add up to $180^\circ$.
+A triangle has $3$ sides and $3$ angles, and one golden rule: the three interior angles always add up to $180^\circ$.
 
 Triangles are named by sides (equilateral: all equal; isosceles: two equal; scalene: none equal) and by angles (acute, right, obtuse).
 
 ### Properties and Theorems (Triangle Inequality, Exterior Angle)
 
-The **Triangle Inequality Theorem**: the sum of ANY two sides must be GREATER than the third side. Sides $2$, $3$, and $7$ cannot make a triangle, because $2 + 3 = 5$ is not greater than $7$. The two short sticks cannot reach each other.
+The **Triangle Inequality Theorem**: the sum of any two sides must be greater than the third side. Sides $2$, $3$, and $7$ cannot make a triangle, because $2 + 3 = 5$ is not greater than $7$. The two short sticks cannot reach each other.
 
-The **Exterior Angle Theorem**: extend one side of a triangle and you create an exterior angle. That exterior angle equals the SUM of the two REMOTE interior angles (the two angles far from it).
+The **Exterior Angle Theorem**: extend one side of a triangle and you create an exterior angle. That exterior angle equals the sum of the two remote interior angles (the two angles far from it).
 
 <!-- ILLUSTRATION: triangle with one side extended, exterior angle marked, and the two remote interior angles shaded to show they add up to it -->
 
@@ -25,15 +25,15 @@ Also useful: the longest side is always across from the biggest angle, and the s
 
 ### Congruence Postulates (SSS, SAS, ASA, AAS, HL)
 
-Two triangles are **congruent** when they are exact copies: same shape AND same size. You can prove it with these shortcuts:
+Two triangles are **congruent** when they are exact copies: same shape and same size. You can prove it with these shortcuts:
 
 - **SSS**: all three sides match.
-- **SAS**: two sides and the angle BETWEEN them match.
+- **SAS**: two sides and the angle between them match.
 - **ASA**: two angles and the side between them match.
 - **AAS**: two angles and a non-included side match.
-- **HL**: for RIGHT triangles only, the hypotenuse and one leg match.
+- **HL**: for right triangles only, the hypotenuse and one leg match.
 
-Warning: SSA and AAA are NOT congruence proofs. AAA gives the same shape but maybe a different size.
+Warning: SSA and AAA are not congruence proofs. AAA gives the same shape but maybe a different size.
 
 ### Similarity and Proportionality
 
@@ -74,11 +74,11 @@ $$6x = 180$$
 $$x = 30$$
 
 3. The angles are $30^\circ$, $60^\circ$, and $90^\circ$.
-4. One angle is exactly $90^\circ$, so this is a RIGHT triangle. (It is our special $30$-$60$-$90$ triangle!)
+4. One angle is exactly $90^\circ$, so this is a right triangle. (It is our special $30$-$60$-$90$ triangle!)
 
 ### #2: Range of the Third Side
 
-Two sides of a triangle measure $5$ and $9$. How many INTEGER lengths are possible for the third side?
+Two sides of a triangle measure $5$ and $9$. How many integer lengths are possible for the third side?
 
 **Solution:**
 The third side $s$ must satisfy the triangle inequality in both directions.
@@ -92,7 +92,7 @@ $$s < 5 + 9 = 14$$
 $$s > 9 - 5 = 4$$
 
 3. So $4 < s < 14$. The integers are $5, 6, 7, 8, 9, 10, 11, 12, 13$.
-4. Count them: $9$ possible integer lengths. Note that $4$ and $14$ themselves are NOT allowed.
+4. Count them: $9$ possible integer lengths. Note that $4$ and $14$ themselves are not allowed.
 
 ### #3: Exterior Angle Theorem
 
@@ -171,7 +171,7 @@ Use the fixed side patterns. No Pythagorean grind needed.
 
 $$c = 5\sqrt{2}$$
 
-3. For (b), the short leg (across the $30^\circ$ angle) is HALF the hypotenuse.
+3. For (b), the short leg (across the $30^\circ$ angle) is half the hypotenuse.
 
 $$\text{short leg} = \dfrac{12}{2} = 6$$
 
@@ -183,11 +183,11 @@ $$\text{long leg} = 6\sqrt{3}$$
 
 ## Speed Tricks & Shortcuts
 
-Third-side range in one line: the third side is always between the DIFFERENCE and the SUM of the other two sides.
+Third-side range in one line: the third side is always between the difference and the sum of the other two sides.
 
 Before squaring anything, scan for Pythagorean triples. Seeing $5$ and $13$? The missing leg is $12$. Seeing $8$ and $17$? It is $15$. Multiples count too: $10$-$24$-$26$ is $5$-$12$-$13$ doubled.
 
-In a $30$-$60$-$90$ triangle, always find the SHORT leg first (half the hypotenuse). Everything else grows from it. Working from the long leg first causes messy $\sqrt{3}$ fractions.
+In a $30$-$60$-$90$ triangle, always find the short leg first (half the hypotenuse). Everything else grows from it. Working from the long leg first causes messy $\sqrt{3}$ fractions.
 
 If a triangle's angles are in a ratio, divide $180$ by the ratio total. In Example $1$: $180 \div 6 = 30$, then multiply back.
 
@@ -195,24 +195,24 @@ If a triangle's angles are in a ratio, divide $180$ by the ratio total. In Examp
 
 ### #1: The Fake Postulates
 
-> SSA and AAA do NOT prove congruence.
+> SSA and AAA do not prove congruence.
 
-Test-makers list SSA (sometimes written backwards) among the choices for congruence postulates. Two sides and a non-included angle can build two DIFFERENT triangles, so SSA fails. And AAA only proves similarity, never congruence, because size can differ.
+Test-makers list SSA (sometimes written backwards) among the choices for congruence postulates. Two sides and a non-included angle can build two different triangles, so SSA fails. And AAA only proves similarity, never congruence, because size can differ.
 
 ### #2: Putting the Hypotenuse in the Wrong Spot
 
-> The hypotenuse $c$ is ALWAYS the longest side, across the right angle.
+> The hypotenuse $c$ is always the longest side, across the right angle.
 
 Given sides $9$ and $15$, students compute $9^2 + 15^2$ automatically. But if $15$ is the hypotenuse, the equation is $9^2 + b^2 = 15^2$. Read the problem to see which side sits across the right angle before you square.
 
 ### #3: Allowing the Boundary Values
 
-> The triangle inequality is STRICT: the sum must be greater, not equal.
+> The triangle inequality is strict: the sum must be greater, not equal.
 
 If two sides are $5$ and $9$, a third side of exactly $4$ or exactly $14$ makes the triangle collapse into a flat line. In counting problems like Example $2$, including the endpoints gives $11$ instead of $9$, and $11$ is waiting in the choices.
 
 ### #4: The Wrong Interior Angles
 
-> The exterior angle equals the sum of the two REMOTE angles, not its neighbor.
+> The exterior angle equals the sum of the two remote angles, not its neighbor.
 
-The interior angle right next to the exterior angle is its linear pair, adding to $180^\circ$. The theorem uses the two angles AWAY from it. Mixing these up gives $180 - 110 = 70$ in Example $3$ instead of the correct $65$.
+The interior angle right next to the exterior angle is its linear pair, adding to $180^\circ$. The theorem uses the two angles away from it. Mixing these up gives $180 - 110 = 70$ in Example $3$ instead of the correct $65$.

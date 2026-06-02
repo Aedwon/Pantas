@@ -1,7 +1,7 @@
 ---
 _id: "lesson-biology-cell-biology"
 title: "Cell Biology"
-summary: "This lesson teaches you the main organelles inside a cell, how plant and animal cells differ, and how materials move across the cell membrane."
+summary: "The main organelles inside a cell, how plant and animal cells differ, and how materials move across the cell membrane."
 subject: "subject-science"
 topic: "topic-biology"
 estimatedMinutes: 14
@@ -17,9 +17,9 @@ The **nucleus** is the cell's control center. It holds the cell's DNA and direct
 
 The **mitochondria** (singular: mitochondrion) are the cell's "powerhouses." They break down glucose and produce **ATP**, the energy currency cells use to do work.
 
-**Ribosomes** are tiny structures that build PROTEINS, following instructions copied from the DNA.
+**Ribosomes** are tiny structures that build proteins, following instructions copied from the DNA.
 
-The **endoplasmic reticulum (ER)** is a network of passages inside the cell. The ROUGH ER (covered in ribosomes) helps build and process proteins; the SMOOTH ER (no ribosomes) helps build lipids (fats).
+The **endoplasmic reticulum (ER)** is a network of passages inside the cell. The rough ER (covered in ribosomes) helps build and process proteins; the smooth ER (no ribosomes) helps build lipids (fats).
 
 The **Golgi apparatus** acts like a packaging and shipping center: it modifies, sorts, and packages proteins and other materials, then sends them where they need to go, inside or outside the cell.
 
@@ -27,7 +27,7 @@ The **Golgi apparatus** acts like a packaging and shipping center: it modifies, 
 
 ### Plant vs. Animal Cells
 
-Plant cells have three structures that ANIMAL cells lack:
+Plant cells have three structures that animal cells lack:
 
 - A rigid **cell wall** (made of cellulose) outside the cell membrane, giving the cell a fixed shape and support.
 - **Chloroplasts**, which contain the green pigment chlorophyll and carry out photosynthesis.
@@ -39,17 +39,17 @@ Animal cells, in turn, typically have a **centrosome** (which helps organize cel
 
 The **cell membrane** is a thin, flexible barrier controlling what enters and leaves the cell. Materials can cross it in a few main ways.
 
-**Diffusion** is the movement of particles (like gases or dissolved substances) from an area of HIGH concentration to an area of LOW concentration, requiring no energy.
+**Diffusion** is the movement of particles (like gases or dissolved substances) from an area of high concentration to an area of low concentration, requiring no energy.
 
-**Osmosis** is a special case of diffusion: specifically the movement of WATER across a membrane, from an area of high water concentration to low water concentration.
+**Osmosis** is a special case of diffusion: specifically the movement of water across a membrane, from an area of high water concentration to low water concentration.
 
-**Active transport** moves substances AGAINST their concentration gradient (from low to high concentration), which requires the cell to spend ENERGY (ATP), often using special carrier proteins.
+**Active transport** moves substances against their concentration gradient (from low to high concentration), which requires the cell to spend energy (ATP), often using special carrier proteins.
 
-Osmosis behavior depends on the SURROUNDING solution:
+Osmosis behavior depends on the surrounding solution:
 
-- **Hypotonic** solution: lower solute concentration outside than inside the cell. Water moves INTO the cell, which can swell and even burst.
-- **Hypertonic** solution: higher solute concentration outside than inside the cell. Water moves OUT of the cell, which can shrink and shrivel.
-- **Isotonic** solution: equal solute concentration inside and outside. Water moves in and out at the SAME rate, so the cell stays the same size.
+- **Hypotonic** solution: lower solute concentration outside than inside the cell. Water moves into the cell, which can swell and even burst.
+- **Hypertonic** solution: higher solute concentration outside than inside the cell. Water moves out of the cell, which can shrink and shrivel.
+- **Isotonic** solution: equal solute concentration inside and outside. Water moves in and out at the same rate, so the cell stays the same size.
 
 ## Examples
 
@@ -72,21 +72,21 @@ A cell observed under a microscope has a rigid outer wall, a large central water
 **Solution:**
 Look for the three plant-only structures.
 
-1. A rigid outer wall matches the CELL WALL, found only in plant cells.
-2. A large water-filled sac matches the CENTRAL VACUOLE, typically large and prominent in plant cells.
-3. Small green structures match CHLOROPLASTS, which carry out photosynthesis and are found only in plant cells.
-4. All three clues point to a PLANT cell.
+1. A rigid outer wall matches the cell wall, found only in plant cells.
+2. A large water-filled sac matches the central vacuole, typically large and prominent in plant cells.
+3. Small green structures match chloroplasts, which carry out photosynthesis and are found only in plant cells.
+4. All three clues point to a plant cell.
 
 ### #3: Diffusion or Active Transport?
 
-A cell needs to bring in a nutrient that is already MORE concentrated inside the cell than outside. The cell uses energy and carrier proteins to pull the nutrient in anyway. Is this diffusion or active transport?
+A cell needs to bring in a nutrient that is already more concentrated inside the cell than outside. The cell uses energy and carrier proteins to pull the nutrient in anyway. Is this diffusion or active transport?
 
 **Solution:**
 Check the direction of movement relative to concentration.
 
-1. Diffusion moves substances from HIGH to LOW concentration and needs NO energy.
-2. Here, the nutrient moves from LOW concentration (outside) to HIGH concentration (inside) — against the gradient — and energy is used.
-3. Moving against the gradient using energy is the definition of ACTIVE TRANSPORT.
+1. Diffusion moves substances from high to low concentration and needs no energy.
+2. Here, the nutrient moves from low concentration (outside) to high concentration (inside) — against the gradient — and energy is used.
+3. Moving against the gradient using energy is the definition of active transport.
 
 ### #4: Hypertonic, Hypotonic, or Isotonic?
 
@@ -95,41 +95,41 @@ A red blood cell is placed in a salt solution, and the cell shrinks and shrivels
 **Solution:**
 Connect the cell's water loss to the surrounding solute concentration.
 
-1. The cell SHRANK, meaning water moved OUT of the cell.
-2. Water moves out of a cell when the surrounding solution has a HIGHER solute concentration than inside the cell.
-3. A solution with higher solute concentration than the cell is called HYPERTONIC.
+1. The cell shrank, meaning water moved out of the cell.
+2. Water moves out of a cell when the surrounding solution has a higher solute concentration than inside the cell.
+3. A solution with higher solute concentration than the cell is called hypertonic.
 4. The answer: the solution was hypertonic, so water left the cell through osmosis, causing it to shrink.
 
 ## Speed Tricks & Shortcuts
 
-Memorize the three plant-only structures as a trio: cell wall, chloroplast, central vacuole. If a description mentions ANY of these three, the cell is a plant cell.
+Memorize the three plant-only structures as a trio: cell wall, chloroplast, central vacuole. If a description mentions any of these three, the cell is a plant cell.
 
-For osmosis direction questions, remember: water always follows the SOLUTE. Water moves toward wherever the solute concentration is HIGHER (since that side has proportionally LESS water). A cell in a hypertonic (high-solute) environment loses water; a cell in a hypotonic (low-solute) environment gains water.
+For osmosis direction questions, remember: water always follows the solute. Water moves toward wherever the solute concentration is higher (since that side has proportionally less water). A cell in a hypertonic (high-solute) environment loses water; a cell in a hypotonic (low-solute) environment gains water.
 
-For transport-type questions, ask one question: is the substance moving WITH or AGAINST its concentration gradient? With the gradient (high to low) and no energy needed: diffusion or osmosis. Against the gradient (low to high) and energy needed: active transport.
+For transport-type questions, ask one question: is the substance moving with or against its concentration gradient? With the gradient (high to low) and no energy needed: diffusion or osmosis. Against the gradient (low to high) and energy needed: active transport.
 
 ## Traps to Watch For
 
 ### #1: Confusing Diffusion and Osmosis
 
-> Osmosis is specifically about WATER. Diffusion can be about any particle, including water.
+> Osmosis is specifically about water. Diffusion can be about any particle, including water.
 
-Osmosis is technically a special case of diffusion, but exam questions often want you to specify "osmosis" whenever the substance crossing the membrane is WATER, and "diffusion" for other substances like gases or dissolved solutes.
+Osmosis is technically a special case of diffusion, but exam questions often want you to specify "osmosis" whenever the substance crossing the membrane is water, and "diffusion" for other substances like gases or dissolved solutes.
 
 ### #2: Mixing Up Hypertonic and Hypotonic
 
-> Hypertonic solutions cause cells to SHRINK (water leaves). Hypotonic solutions cause cells to SWELL (water enters).
+> Hypertonic solutions cause cells to shrink (water leaves). Hypotonic solutions cause cells to swell (water enters).
 
 These terms are commonly swapped under time pressure. Anchor them with the effect: hyper (as in "hyper-shrink," even though that is not the real word) still helps some students remember shrinking, but the safest method is to always trace water movement toward the higher solute concentration.
 
 ### #3: Forgetting That Active Transport Needs Energy
 
-> Active transport REQUIRES the cell to spend ATP energy; diffusion and osmosis do not.
+> Active transport requires the cell to spend ATP energy; diffusion and osmosis do not.
 
 A question describing movement against a concentration gradient but claiming "no energy is needed" describes an impossible situation. Moving against a gradient always needs an energy input, which is the defining feature of active transport.
 
 ### #4: Assuming All Cells Have Chloroplasts
 
-> Only PLANT cells (and some other photosynthetic organisms) have chloroplasts. Animal cells never do.
+> Only plant cells (and some other photosynthetic organisms) have chloroplasts. Animal cells never do.
 
 A question describing an animal cell that "produces its own food using chloroplasts" describes an impossible scenario. Chloroplasts are exclusive to plant cells and certain other photosynthetic organisms, never animal cells.

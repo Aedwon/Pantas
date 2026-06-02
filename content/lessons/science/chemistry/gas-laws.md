@@ -1,7 +1,7 @@
 ---
 _id: "lesson-chemistry-gas-laws"
 title: "Gas Laws (Boyle's, Charles's, Gay-Lussac's, Combined, Avogadro's, Ideal Gas Law)"
-summary: "This lesson teaches you the relationships between pressure, volume, temperature, and amount of gas, and how to use each gas law formula."
+summary: "The relationships between pressure, volume, temperature, and amount of gas, and how to use each gas law formula."
 subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 13
@@ -9,31 +9,31 @@ isActive: true
 ---
 ## Core Concept
 
-Gas behavior depends on four connected quantities: **pressure** ($P$), **volume** ($V$), **temperature** ($T$, always in KELVIN for gas law calculations), and the **number of moles** ($n$). Each gas law fixes two of these quantities constant and studies how the other two relate.
+Gas behavior depends on four connected quantities: **pressure** ($P$), **volume** ($V$), **temperature** ($T$, always in kelvin for gas law calculations), and the **number of moles** ($n$). Each gas law fixes two of these quantities constant and studies how the other two relate.
 
-**Boyle's Law**: at CONSTANT temperature and amount, pressure and volume are INVERSELY related — squeeze a gas into a smaller volume, and its pressure goes UP.
+**Boyle's Law**: at constant temperature and amount, pressure and volume are inversely related — squeeze a gas into a smaller volume, and its pressure goes up.
 
 $$P_1 V_1 = P_2 V_2$$
 
-**Charles's Law**: at CONSTANT pressure and amount, volume and temperature are DIRECTLY related — heat a gas up, and it expands.
+**Charles's Law**: at constant pressure and amount, volume and temperature are directly related — heat a gas up, and it expands.
 
 $$\dfrac{V_1}{T_1} = \dfrac{V_2}{T_2}$$
 
-**Gay-Lussac's Law**: at CONSTANT volume and amount, pressure and temperature are DIRECTLY related — heat a sealed, rigid container of gas, and its pressure rises.
+**Gay-Lussac's Law**: at constant volume and amount, pressure and temperature are directly related — heat a sealed, rigid container of gas, and its pressure rises.
 
 $$\dfrac{P_1}{T_1} = \dfrac{P_2}{T_2}$$
 
-**Avogadro's Law**: at CONSTANT pressure and temperature, volume and the number of MOLES are DIRECTLY related — more gas particles need more space.
+**Avogadro's Law**: at constant pressure and temperature, volume and the number of moles are directly related — more gas particles need more space.
 
 $$\dfrac{V_1}{n_1} = \dfrac{V_2}{n_2}$$
 
 <!-- ILLUSTRATION: four small pistons or containers side by side, each showing one gas law in action: a piston being compressed (Boyle's), a balloon expanding when heated (Charles's), a sealed rigid can with rising pressure gauge when heated (Gay-Lussac's), and a container growing larger as more gas particles are added (Avogadro's) -->
 
-**Combined Gas Law**: merges Boyle's, Charles's, and Gay-Lussac's laws into one formula, useful when pressure, volume, AND temperature all change at once (with the amount of gas staying fixed):
+**Combined Gas Law**: merges Boyle's, Charles's, and Gay-Lussac's laws into one formula, useful when pressure, volume, and temperature all change at once (with the amount of gas staying fixed):
 
 $$\dfrac{P_1 V_1}{T_1} = \dfrac{P_2 V_2}{T_2}$$
 
-**Ideal Gas Law**: adds in the amount of gas (moles) to relate ALL FOUR quantities at once, without needing a "before and after" comparison:
+**Ideal Gas Law**: adds in the amount of gas (moles) to relate all four quantities at once, without needing a "before and after" comparison:
 
 $$PV = nRT$$
 
@@ -62,7 +62,7 @@ $$8 = 8V_2$$
 
 $$V_2 = 1 \text{ liter}$$
 
-4. As expected, increasing the pressure (by $4$ times) shrank the volume (to $\dfrac{1}{4}$ its original size) — pressure and volume move in OPPOSITE directions.
+4. As expected, increasing the pressure (by $4$ times) shrank the volume (to $\dfrac{1}{4}$ its original size) — pressure and volume move in opposite directions.
 
 ### #2: Applying Charles's Law
 
@@ -87,7 +87,7 @@ $$1200 = 300 V_2$$
 
 $$V_2 = 4 \text{ liters}$$
 
-4. Doubling the temperature (from $300$ K to $600$ K) doubled the volume — temperature and volume move in the SAME direction.
+4. Doubling the temperature (from $300$ K to $600$ K) doubled the volume — temperature and volume move in the same direction.
 
 ### #3: Applying the Combined Gas Law
 
@@ -114,7 +114,7 @@ $$1500 = 500 V_2$$
 
 $$V_2 = 3 \text{ liters}$$
 
-5. Interesting result: the volume stayed the SAME, because pressure doubled (which alone would HALVE the volume) while temperature also doubled (which alone would DOUBLE the volume) — these two effects canceled out exactly.
+5. Interesting result: the volume stayed the same, because pressure doubled (which alone would halve the volume) while temperature also doubled (which alone would double the volume) — these two effects canceled out exactly.
 
 ### #4: Applying the Ideal Gas Law
 
@@ -141,34 +141,34 @@ $$n = \dfrac{20}{24.63} \approx 0.81 \text{ moles}$$
 
 ## Speed Tricks & Shortcuts
 
-To pick the right gas law fast, identify which quantity is being held CONSTANT: temperature and amount fixed → Boyle's; pressure and amount fixed → Charles's; volume and amount fixed → Gay-Lussac's; pressure and temperature fixed → Avogadro's. If THREE quantities change and amount stays fixed, use the combined gas law. If moles are given or asked for, use the ideal gas law.
+To pick the right gas law fast, identify which quantity is being held constant: temperature and amount fixed → Boyle's; pressure and amount fixed → Charles's; volume and amount fixed → Gay-Lussac's; pressure and temperature fixed → Avogadro's. If three quantities change and amount stays fixed, use the combined gas law. If moles are given or asked for, use the ideal gas law.
 
-Before calculating, predict the DIRECTION of the answer using the relationship type: pressure and volume are INVERSE (one up, other down); volume-temperature and pressure-temperature are DIRECT (both up or both down together). This catches many arithmetic errors before you even finish computing.
+Before calculating, predict the direction of the answer using the relationship type: pressure and volume are inverse (one up, other down); volume-temperature and pressure-temperature are direct (both up or both down together). This catches many arithmetic errors before you even finish computing.
 
-Always convert temperature to KELVIN before using any gas law formula. To convert, add $273$ to the Celsius temperature.
+Always convert temperature to kelvin before using any gas law formula. To convert, add $273$ to the Celsius temperature.
 
 ## Traps to Watch For
 
 ### #1: Forgetting to Convert Temperature to Kelvin
 
-> ALL gas law formulas require temperature in KELVIN, never Celsius or Fahrenheit.
+> All gas law formulas require temperature in kelvin, never Celsius or Fahrenheit.
 
-Plugging in a Celsius temperature directly (especially a NEGATIVE Celsius value) breaks the proportional relationships these laws depend on, since Kelvin is the only scale where zero truly means "no thermal energy." Always add $273$ to Celsius first.
+Plugging in a Celsius temperature directly (especially a negative Celsius value) breaks the proportional relationships these laws depend on, since Kelvin is the only scale where zero truly means "no thermal energy." Always add $273$ to Celsius first.
 
 ### #2: Mixing Up Direct and Inverse Relationships
 
-> Boyle's Law (pressure-volume) is INVERSE. Charles's Law and Gay-Lussac's Law are DIRECT.
+> Boyle's Law (pressure-volume) is inverse. Charles's Law and Gay-Lussac's Law are direct.
 
 Applying a direct-relationship setup to Boyle's Law (or vice versa) flips the entire answer. Before computing, briefly reason through the physical intuition: squeezing a gas into less space raises its pressure (inverse); heating a gas makes it expand (direct).
 
 ### #3: Using the Wrong Gas Law When Multiple Quantities Change
 
-> If pressure, volume, AND temperature ALL change together (with a fixed amount of gas), use the COMBINED gas law, not one of the three individual laws.
+> If pressure, volume, and temperature all change together (with a fixed amount of gas), use the combined gas law, not one of the three individual laws.
 
 Trying to apply just Boyle's Law when temperature is also changing ignores an entire variable and produces an incorrect result. Check how many quantities are actually changing before selecting a formula.
 
 ### #4: Confusing the Ideal Gas Law's Constant with Combined Gas Law Problems
 
-> The Ideal Gas Law ($PV = nRT$) is for a SINGLE snapshot in time (no "before and after"). The Combined Gas Law compares TWO different states of the SAME fixed amount of gas.
+> The Ideal Gas Law ($PV = nRT$) is for a single snapshot in time (no "before and after"). The Combined Gas Law compares two different states of the same fixed amount of gas.
 
-If a problem gives specific values of $P$, $V$, $n$, and $T$ all at ONE moment (not describing a change), use $PV = nRT$ directly. If a problem describes a gas changing from one condition to another (with moles staying fixed), use the combined gas law instead.
+If a problem gives specific values of $P$, $V$, $n$, and $T$ all at one moment (not describing a change), use $PV = nRT$ directly. If a problem describes a gas changing from one condition to another (with moles staying fixed), use the combined gas law instead.

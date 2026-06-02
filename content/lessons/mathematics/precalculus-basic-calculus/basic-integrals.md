@@ -1,7 +1,7 @@
 ---
 _id: "lesson-precalculus-basic-calculus-basic-integrals"
 title: "Basic Integrals"
-summary: "This lesson teaches you how to find antiderivatives with the power rule and how to evaluate definite integrals."
+summary: "How to find antiderivatives with the power rule and how to evaluate definite integrals."
 subject: "subject-mathematics"
 topic: "topic-precalculus-basic-calculus"
 estimatedMinutes: 12
@@ -9,11 +9,11 @@ isActive: true
 ---
 ## Core Concept
 
-Integration is differentiation in REVERSE. The derivative of $x^2$ is $2x$; so an **antiderivative** of $2x$ is $x^2$. We write:
+Integration is differentiation in reverse. The derivative of $x^2$ is $2x$; so an **antiderivative** of $2x$ is $x^2$. We write:
 
 $$\int 2x \, dx = x^2 + C$$
 
-Why the $+ C$? Because $x^2 + 7$ and $x^2 - 100$ ALSO have derivative $2x$. Constants vanish when differentiating, so when we reverse, we must admit "plus some constant". Every indefinite integral ends with $+ C$.
+Why the $+ C$? Because $x^2 + 7$ and $x^2 - 100$ also have derivative $2x$. Constants vanish when differentiating, so when we reverse, we must admit "plus some constant". Every indefinite integral ends with $+ C$.
 
 **Power rule for integrals** — the power rule backwards: raise the exponent by one, then divide by the new exponent.
 
@@ -23,7 +23,7 @@ The one exception is $n = -1$: you cannot divide by zero, and $\displaystyle\int
 
 Sums integrate term by term, and constant multipliers tag along, just like with derivatives.
 
-A **definite integral** has endpoints and produces a NUMBER, the signed area under the curve between $x = a$ and $x = b$:
+A **definite integral** has endpoints and produces a number, the signed area under the curve between $x = a$ and $x = b$:
 
 $$\int_a^b f(x) \, dx = F(b) - F(a)$$
 
@@ -117,23 +117,23 @@ $$12 - 2 = 10$$
 
 ## Speed Tricks & Shortcuts
 
-Always CHECK an integral by differentiating your answer. It takes five seconds and catches every coefficient slip. If the derivative of your answer is not the original integrand, fix it before shading.
+Always check an integral by differentiating your answer. It takes five seconds and catches every coefficient slip. If the derivative of your answer is not the original integrand, fix it before shading.
 
 Rewrite before integrating, exactly like with derivatives: roots become fraction powers, $\dfrac{1}{x^n}$ becomes $x^{-n}$ (for $n \neq 1$). Then one power rule finishes the job.
 
-For definite integrals of LINEAR functions, you can skip calculus entirely: the region is a trapezoid or triangle, so use the geometry formula, like the check in Example $5$. On multiple choice, geometry is often faster than antidifferentiating.
+For definite integrals of linear functions, you can skip calculus entirely: the region is a trapezoid or triangle, so use the geometry formula, like the check in Example $5$. On multiple choice, geometry is often faster than antidifferentiating.
 
 ## Traps to Watch For
 
 ### #1: The Missing $+ C$
 
-> Every INDEFINITE integral needs $+ C$; definite integrals do not.
+> Every indefinite integral needs $+ C$; definite integrals do not.
 
 Choices for indefinite integrals include the same expression with and without $+ C$, and the bare one is wrong. But do not bolt a $C$ onto a definite integral: those answers are pure numbers. Match the answer type to the integral type.
 
 ### #2: Dividing by the Old Exponent
 
-> Divide by the NEW exponent, the one after adding $1$.
+> Divide by the new exponent, the one after adding $1$.
 
 For $\int x^3 \, dx$, dividing by $3$ gives $\dfrac{x^4}{3}$, wrong. The correct divisor is $4$. The differentiate-to-check habit exposes this instantly: $\dfrac{d}{dx} \dfrac{x^4}{3} = \dfrac{4x^3}{3} \neq x^3$.
 
@@ -145,6 +145,6 @@ Raising $-1$ by one gives exponent $0$ and a division by zero. The answer is $\l
 
 ### #4: Sloppy Lower-Limit Subtraction
 
-> $F(b) - F(a)$: compute BOTH, subtract in the right order.
+> $F(b) - F(a)$: compute both, subtract in the right order.
 
 Students plug in the top limit and forget the bottom (fine only when $F(0) = 0$), or subtract in reverse and flip the sign. In Example $5$, forgetting the lower limit gives $12$ instead of $10$ — and $12$ is in the choices, smiling.

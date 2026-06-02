@@ -172,9 +172,9 @@ $(1 + 2) + 3 = 1 + (2 + 3)$ is associative because the grouping moved.
 
 > Always check if the numbers walked to a new spot (commutative) or just formed a new friend group (associative).
 
-### #2: Subtraction and Division have NO Properties
+### #2: Subtraction and Division have no Properties
 
-Commutative and associative properties ONLY work for addition and multiplication.
+Commutative and associative properties only work for addition and multiplication.
 $5 - 3$ is not the same as $3 - 5$.
 $10 \div 2$ is not the same as $2 \div 10$.
 
@@ -182,6 +182,6 @@ $10 \div 2$ is not the same as $2 \div 10$.
 
 ### #3: Dropping the Negative Sign
 
-When you distribute a negative number, you must multiply the negative sign to EVERY term inside the parenthesis. Students often forget to flip the sign on the second term.
+When you distribute a negative number, you must multiply the negative sign to every term inside the parenthesis. Students often forget to flip the sign on the second term.
 
 > Distributing $-2$ into $(x - 5)$ gives $-2x + 10$, not $-2x - 10$.

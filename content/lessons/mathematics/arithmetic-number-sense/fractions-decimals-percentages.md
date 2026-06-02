@@ -21,9 +21,9 @@ To turn a percentage into a decimal, just move the dot. To turn a fraction into 
 
 Use the Alphabet Rule to remember which way to move the decimal point. The letter **D** (Decimal) comes before the letter **P** (Percent) in the alphabet.
 
-> Think: **D** to **P** means moving RIGHT in the alphabet. So, to change a Decimal to a Percent, move the dot 2 steps RIGHT.
+> Think: **D** to **P** means moving right in the alphabet. So, to change a Decimal to a Percent, move the dot 2 steps right.
 
-> Think: **P** to **D** means moving LEFT in the alphabet. So, to change a Percent to a Decimal, move the dot 2 steps LEFT.
+> Think: **P** to **D** means moving left in the alphabet. So, to change a Percent to a Decimal, move the dot 2 steps left.
 
 When working with fractions, remember what the percent sign looks like.
 
@@ -181,7 +181,7 @@ If you need to find $15\%$ of a number, do not multiply by $0.15$. Find $10\%$ f
 
 ### #1: Adding Discounts Together
 
-> Never just add successive discounts. A $20\%$ drop followed by a $30\%$ drop is NOT a $50\%$ drop.
+> Never just add successive discounts. A $20\%$ drop followed by a $30\%$ drop is not a $50\%$ drop.
 
 Test-makers always put the added number in the choices as a trap. You must apply the first percent, get the new total, and then apply the second percent to that *new* total.
 
@@ -195,4 +195,4 @@ Students rush and write $5\%$ as $0.5$. But $0.5$ is actually $50\%$. If there a
 
 > "$120\%$ of a number" is not the same as "$120\%$ more than a number." Read carefully!
 
-If your salary is $120\%$ of last year's salary, you multiply by $1.20$. If your salary is $120\%$ MORE than last year's salary, you add it to the original $100\%$. You would multiply by $2.20$. Always circle the words "of" or "more than" in the exam booklet.
+If your salary is $120\%$ of last year's salary, you multiply by $1.20$. If your salary is $120\%$ more than last year's salary, you add it to the original $100\%$. You would multiply by $2.20$. Always circle the words "of" or "more than" in the exam booklet.

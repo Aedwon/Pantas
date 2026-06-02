@@ -1,7 +1,7 @@
 ---
 _id: "lesson-arithmetic-number-sense-sequences-and-series"
 title: "Sequences and Series (Arithmetic, Geometric, Fibonacci, Harmonic)"
-summary: "This lesson teaches you how to find patterns, missing terms, and sums in different number lists."
+summary: "How to find patterns, missing terms, and sums in different number lists."
 subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 estimatedMinutes: 12

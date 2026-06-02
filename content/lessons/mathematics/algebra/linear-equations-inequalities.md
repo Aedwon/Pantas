@@ -92,7 +92,7 @@ $$-2x - 3x > 13 - 8$$
 $$-5x > 5$$
 
 
-4. Divide by $-5$. Because you divide by a negative, you MUST flip the sign!
+4. Divide by $-5$. Because you divide by a negative, you must flip the sign!
 
 $$x < -1$$
 
@@ -230,7 +230,7 @@ Students often divide $-2x > 10$ by $-2$ and write $x > -5$. This is wrong. The 
 
 ### #2: Parallel vs. Perpendicular Trap
 
-> Parallel means exact same slope. Perpendicular means flip the fraction AND change the sign.
+> Parallel means exact same slope. Perpendicular means flip the fraction and change the sign.
 
 If a line has a slope of $3$, a parallel line also has a slope of $3$. A perpendicular line has a slope of $\dfrac{-1}{3}$. Do not forget to change the plus or minus sign!
 

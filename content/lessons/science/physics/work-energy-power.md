@@ -1,7 +1,7 @@
 ---
 _id: "lesson-physics-work-energy-power"
 title: "Work, Energy, and Power (Kinetic and Potential Energy, Conservation of Energy)"
-summary: "This lesson teaches you how to calculate work, kinetic and potential energy, power, and how energy conservation connects them."
+summary: "How to calculate work, kinetic and potential energy, power, and how energy conservation connects them."
 subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 13
@@ -9,31 +9,31 @@ isActive: true
 ---
 ## Core Concept
 
-**Work** ($W$) is done when a force moves an object a certain DISTANCE in the direction of the force:
+**Work** ($W$) is done when a force moves an object a certain distance in the direction of the force:
 
 $$W = Fd$$
 
-Work is measured in **joules** ($J$). If the force and the direction of motion are not perfectly aligned, only the component of force ALONG the motion counts — pushing straight down on a cart moving horizontally does zero work on its horizontal motion.
+Work is measured in **joules** ($J$). If the force and the direction of motion are not perfectly aligned, only the component of force along the motion counts — pushing straight down on a cart moving horizontally does zero work on its horizontal motion.
 
 ### Kinetic and Potential Energy
 
-**Kinetic energy** ($KE$) is the energy of MOTION:
+**Kinetic energy** ($KE$) is the energy of motion:
 
 $$KE = \dfrac{1}{2}mv^2$$
 
-**Potential energy** ($PE$), specifically GRAVITATIONAL potential energy, is stored energy due to an object's HEIGHT:
+**Potential energy** ($PE$), specifically gravitational potential energy, is stored energy due to an object's height:
 
 $$PE = mgh$$
 
 ### The Work-Energy Theorem
 
-The **work-energy theorem** connects work directly to a CHANGE in kinetic energy: the net work done on an object equals its change in kinetic energy.
+The **work-energy theorem** connects work directly to a change in kinetic energy: the net work done on an object equals its change in kinetic energy.
 
 $$W_{net} = \Delta KE = KE_f - KE_i$$
 
 ### Conservation of Energy
 
-The **law of conservation of energy** states that energy cannot be created or destroyed, only converted from one form to another. In a system with no friction or air resistance (only "conservative" forces like gravity), the TOTAL mechanical energy (kinetic plus potential) stays CONSTANT:
+The **law of conservation of energy** states that energy cannot be created or destroyed, only converted from one form to another. In a system with no friction or air resistance (only "conservative" forces like gravity), the total mechanical energy (kinetic plus potential) stays constant:
 
 $$KE_i + PE_i = KE_f + PE_f$$
 
@@ -41,7 +41,7 @@ $$KE_i + PE_i = KE_f + PE_f$$
 
 ### Power
 
-**Power** ($P$) is the RATE at which work is done (how quickly energy is transferred), measured in **watts** ($W$, where $1 \text{ watt} = 1 \text{ joule/second}$):
+**Power** ($P$) is the rate at which work is done (how quickly energy is transferred), measured in **watts** ($W$, where $1 \text{ watt} = 1 \text{ joule/second}$):
 
 $$P = \dfrac{W}{t}$$
 
@@ -129,34 +129,34 @@ $$P = 150 \text{ W}$$
 
 ## Speed Tricks & Shortcuts
 
-Remember the "energy see-saw" for conservation problems: whatever potential energy is LOST must exactly equal the kinetic energy GAINED (in a frictionless system), and vice versa. This lets you skip directly to the useful equation without needing every intermediate step.
+Remember the "energy see-saw" for conservation problems: whatever potential energy is lost must exactly equal the kinetic energy gained (in a frictionless system), and vice versa. This lets you skip directly to the useful equation without needing every intermediate step.
 
-For kinetic energy problems, always square the velocity FIRST before multiplying by the other numbers — this is the step most often rushed and miscalculated.
+For kinetic energy problems, always square the velocity first before multiplying by the other numbers — this is the step most often rushed and miscalculated.
 
-Remember power's role as "how fast" energy work happens: the SAME amount of work done in LESS time means MORE power, and the same work done over MORE time means LESS power.
+Remember power's role as "how fast" energy work happens: the same amount of work done in less time means more power, and the same work done over more time means less power.
 
 ## Traps to Watch For
 
 ### #1: Forgetting to Square the Velocity in Kinetic Energy
 
-> $KE = \dfrac{1}{2}mv^2$ — the velocity term is SQUARED, not just multiplied once.
+> $KE = \dfrac{1}{2}mv^2$ — the velocity term is squared, not just multiplied once.
 
-Forgetting the exponent turns a moving object's kinetic energy calculation into a much smaller (and wrong) number. Since velocity is squared, DOUBLING an object's speed actually QUADRUPLES its kinetic energy, not just doubles it.
+Forgetting the exponent turns a moving object's kinetic energy calculation into a much smaller (and wrong) number. Since velocity is squared, doubling an object's speed actually quadruples its kinetic energy, not just doubles it.
 
 ### #2: Confusing Work with Force
 
-> Work requires BOTH a force AND a distance moved in the direction of that force — a force with NO motion does ZERO work.
+> Work requires both a force and a distance moved in the direction of that force — a force with no motion does zero work.
 
-Holding a heavy box perfectly still (applying a large upward force to support it, but with no vertical displacement) does ZERO work on the box, even though real physical effort is being exerted. Work is specifically about force causing DISPLACEMENT.
+Holding a heavy box perfectly still (applying a large upward force to support it, but with no vertical displacement) does zero work on the box, even though real physical effort is being exerted. Work is specifically about force causing displacement.
 
 ### #3: Ignoring That Conservation of Energy Assumes No Friction
 
-> Energy conservation as $KE_i + PE_i = KE_f + PE_f$ assumes NO energy is lost to friction, air resistance, or heat.
+> Energy conservation as $KE_i + PE_i = KE_f + PE_f$ assumes no energy is lost to friction, air resistance, or heat.
 
-In real-world scenarios with friction, SOME mechanical energy converts into heat and is "lost" from the kinetic-plus-potential total (though it is never truly destroyed — it just changes form). Problems that explicitly mention a frictionless surface or ignore air resistance are signaling that the simple conservation equation applies directly.
+In real-world scenarios with friction, some mechanical energy converts into heat and is "lost" from the kinetic-plus-potential total (though it is never truly destroyed — it just changes form). Problems that explicitly mention a frictionless surface or ignore air resistance are signaling that the simple conservation equation applies directly.
 
 ### #4: Mixing Up Power and Energy
 
-> ENERGY (or work) measures a total AMOUNT (in joules). POWER measures a RATE (in watts, joules per second).
+> Energy (or work) measures a total amount (in joules). Power measures a rate (in watts, joules per second).
 
-A machine that does a LOT of work SLOWLY can have LOW power, while a machine that does LESS work very QUICKLY can have HIGH power. Confusing "how much" energy (joules) with "how fast" it is delivered (watts) leads to picking the wrong formula or misreading a question's units.
+A machine that does a lot of work slowly can have low power, while a machine that does less work very quickly can have high power. Confusing "how much" energy (joules) with "how fast" it is delivered (watts) leads to picking the wrong formula or misreading a question's units.

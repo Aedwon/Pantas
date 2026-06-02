@@ -1,7 +1,7 @@
 ---
 _id: "lesson-chemistry-quantum-numbers-electron-configuration"
 title: "Quantum Numbers and Electron Configuration"
-summary: "This lesson teaches you the rules for arranging electrons into orbitals and how to write an atom's electron configuration."
+summary: "The rules for arranging electrons into orbitals and how to write an atom's electron configuration."
 subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 12
@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-Electrons do not just float randomly around the nucleus. They fill specific regions of space called **orbitals**, grouped into energy levels, following a strict set of rules. The full description of WHERE an electron sits is its **electron configuration**.
+Electrons do not just float randomly around the nucleus. They fill specific regions of space called **orbitals**, grouped into energy levels, following a strict set of rules. The full description of where an electron sits is its **electron configuration**.
 
 ### Orbital Types
 
@@ -19,11 +19,11 @@ Orbitals come in shapes labeled $s$, $p$, $d$, and $f$, each holding a maximum n
 
 ### Three Rules for Filling Orbitals
 
-**Aufbau Principle**: electrons fill the LOWEST-energy orbitals FIRST, before moving to higher-energy ones. The general filling order is: $1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p, \ldots$ (notice that $4s$ fills BEFORE $3d$, even though the number $3$ is smaller — this is a common surprise).
+**Aufbau Principle**: electrons fill the lowest-energy orbitals first, before moving to higher-energy ones. The general filling order is: $1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p, \ldots$ (notice that $4s$ fills before $3d$, even though the number $3$ is smaller — this is a common surprise).
 
-**Pauli Exclusion Principle**: each orbital can hold AT MOST $2$ electrons, and those two electrons must have OPPOSITE spins.
+**Pauli Exclusion Principle**: each orbital can hold at most $2$ electrons, and those two electrons must have opposite spins.
 
-**Hund's Rule**: when filling a set of same-energy orbitals (like the three $p$ orbitals), electrons fill each one SINGLY first, before any orbital gets a SECOND electron. This is like people boarding a bus and each taking their own row before anyone doubles up.
+**Hund's Rule**: when filling a set of same-energy orbitals (like the three $p$ orbitals), electrons fill each one singly first, before any orbital gets a second electron. This is like people boarding a bus and each taking their own row before anyone doubles up.
 
 ### Writing Electron Configurations
 
@@ -50,18 +50,18 @@ Fill orbitals in order (Aufbau), respecting each orbital's maximum capacity.
 
 ### #2: Applying Hund's Rule
 
-Three electrons must be placed into a set of three $p$ orbitals (each orbital shown as a box). Using Hund's Rule, show how these three electrons are arranged, and explain why they are NOT all placed into the same single orbital.
+Three electrons must be placed into a set of three $p$ orbitals (each orbital shown as a box). Using Hund's Rule, show how these three electrons are arranged, and explain why they are not all placed into the same single orbital.
 
 **Solution:**
 Recall that Hund's Rule requires single occupation first.
 
-1. Hund's Rule says electrons fill EACH available orbital in the set SINGLY before any orbital receives a second electron.
-2. With three electrons and three separate $p$ orbitals available, each of the three orbitals gets exactly ONE electron, with all three electrons having the same (parallel) spin direction.
+1. Hund's Rule says electrons fill each available orbital in the set singly before any orbital receives a second electron.
+2. With three electrons and three separate $p$ orbitals available, each of the three orbitals gets exactly one electron, with all three electrons having the same (parallel) spin direction.
 3. Placing all three electrons crammed into a single orbital would violate Hund's Rule (and would actually be a higher-energy, less stable arrangement) — electrons prefer to spread out across empty orbitals of the same energy first.
 
 ### #3: Finding an Element from Its Configuration
 
-An atom has the electron configuration $1s^2 \, 2s^2 \, 2p^6 \, 3s^2 \, 3p^5$. Determine its atomic number and identify how many electrons are in its OUTERMOST energy level.
+An atom has the electron configuration $1s^2 \, 2s^2 \, 2p^6 \, 3s^2 \, 3p^5$. Determine its atomic number and identify how many electrons are in its outermost energy level.
 
 **Solution:**
 Add up all the superscripts to find the total electron count, then check the highest energy level number.
@@ -72,28 +72,28 @@ Add up all the superscripts to find the total electron count, then check the hig
 
 ### #4: The 4s-Before-3d Surprise
 
-Explain why the electron configuration for potassium (atomic number $19$) fills the $4s$ orbital BEFORE the $3d$ orbital, even though the number $3$ is smaller than $4$.
+Explain why the electron configuration for potassium (atomic number $19$) fills the $4s$ orbital before the $3d$ orbital, even though the number $3$ is smaller than $4$.
 
 **Solution:**
-Recall that orbital filling order follows ENERGY, not simply the number in front of the letter.
+Recall that orbital filling order follows energy, not simply the number in front of the letter.
 
-1. The Aufbau principle fills orbitals in order of INCREASING ENERGY, not strictly by increasing principal quantum number.
-2. Even though $3d$ has a smaller leading number than $4s$, the $4s$ orbital actually has SLIGHTLY LOWER energy than $3d$ in most atoms at this point in the periodic table.
+1. The Aufbau principle fills orbitals in order of increasing energy, not strictly by increasing principal quantum number.
+2. Even though $3d$ has a smaller leading number than $4s$, the $4s$ orbital actually has slightly lower energy than $3d$ in most atoms at this point in the periodic table.
 3. So potassium's configuration is $1s^2 \, 2s^2 \, 2p^6 \, 3s^2 \, 3p^6 \, 4s^1$, filling $4s$ before any electrons go into $3d$, matching the established filling order: $\ldots 3p, 4s, 3d, 4p \ldots$
 
 ## Speed Tricks & Shortcuts
 
 Memorize the filling order as one continuous sequence: $1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p, 5s, 4d, 5p, 6s, 4f, 5d, 6p, 7s, 5f, 6d$. Writing this order out once on scratch paper before starting a configuration problem prevents order mistakes.
 
-To quickly check a finished configuration, add up ALL the superscripts — the total must exactly equal the atom's number of electrons (its atomic number, if neutral).
+To quickly check a finished configuration, add up all the superscripts — the total must exactly equal the atom's number of electrons (its atomic number, if neutral).
 
-For "how many electrons in the outermost level" questions, look only at the terms with the HIGHEST leading number (like the $3s$ and $3p$ terms when the configuration ends there) and add their superscripts together.
+For "how many electrons in the outermost level" questions, look only at the terms with the highest leading number (like the $3s$ and $3p$ terms when the configuration ends there) and add their superscripts together.
 
 ## Traps to Watch For
 
 ### #1: Filling Orbitals Out of Energy Order
 
-> Follow the ESTABLISHED filling order ($4s$ before $3d$, for example), not simply increasing principal quantum numbers in strict numerical sequence.
+> Follow the established filling order ($4s$ before $3d$, for example), not simply increasing principal quantum numbers in strict numerical sequence.
 
 A common mistake writes $3d$ before $4s$ because "$3$ comes before $4$." The actual energy-based filling order places $4s$ before $3d$, as shown by real, tested electron configurations for elements like potassium and calcium.
 
@@ -105,12 +105,12 @@ Writing something like $2p^8$ is impossible, since a $p$ subshell can never hold
 
 ### #3: Violating Hund's Rule by Pairing Too Early
 
-> Electrons fill EACH orbital in a same-energy set SINGLY before any orbital gets a second (paired) electron.
+> Electrons fill each orbital in a same-energy set singly before any orbital gets a second (paired) electron.
 
 For three electrons entering three separate $p$ orbitals, placing two electrons in one orbital and leaving another orbital completely empty violates Hund's Rule. The lowest-energy, correct arrangement spreads single electrons across all available orbitals of that set first.
 
 ### #4: Forgetting That Ions Change the Electron Count Before Configuring
 
-> For an ION, add or remove electrons from the NEUTRAL atom's count BEFORE writing the configuration — do not just use the atomic number directly.
+> For an ion, add or remove electrons from the neutral atom's count before writing the configuration — do not just use the atomic number directly.
 
-A question asking for the electron configuration of $Na^+$ (a sodium ion, not neutral sodium) requires REMOVING one electron from neutral sodium's $11$ electrons, giving only $10$ electrons to place, not the full $11$ used for the neutral atom.
+A question asking for the electron configuration of $Na^+$ (a sodium ion, not neutral sodium) requires removing one electron from neutral sodium's $11$ electrons, giving only $10$ electrons to place, not the full $11$ used for the neutral atom.

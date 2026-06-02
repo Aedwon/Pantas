@@ -1,7 +1,7 @@
 ---
 _id: "lesson-trigonometry-inverse-trigonometric-functions"
 title: "Inverse Trigonometric Functions"
-summary: "This lesson teaches you how inverse trigonometric functions turn ratios back into angles and which principal values they must return."
+summary: "How inverse trigonometric functions turn ratios back into angles and which principal values they must return."
 subject: "subject-mathematics"
 topic: "topic-trigonometry"
 estimatedMinutes: 11
@@ -9,17 +9,17 @@ isActive: true
 ---
 ## Core Concept
 
-Ordinary trigonometric functions take an ANGLE and give a RATIO: $\sin 30^\circ = \dfrac{1}{2}$.
+Ordinary trigonometric functions take an angle and give a ratio: $\sin 30^\circ = \dfrac{1}{2}$.
 
-Inverse trigonometric functions run backwards. They take a RATIO and give back the ANGLE: $\arcsin\left(\dfrac{1}{2}\right) = 30^\circ$. You will see two notations that mean the same thing: $\arcsin x$ and $\sin^{-1} x$.
+Inverse trigonometric functions run backwards. They take a ratio and give back the angle: $\arcsin\left(\dfrac{1}{2}\right) = 30^\circ$. You will see two notations that mean the same thing: $\arcsin x$ and $\sin^{-1} x$.
 
-But there is a catch. Infinitely many angles have a sine of $\dfrac{1}{2}$ ($30^\circ$, $150^\circ$, $390^\circ$, ...). A function may return only ONE answer. So each inverse function is assigned a fixed window of allowed outputs, called the **principal values**:
+But there is a catch. Infinitely many angles have a sine of $\dfrac{1}{2}$ ($30^\circ$, $150^\circ$, $390^\circ$, ...). A function may return only one answer. So each inverse function is assigned a fixed window of allowed outputs, called the **principal values**:
 
 - $\arcsin x$ returns angles from $-90^\circ$ to $90^\circ$ (Quadrants IV and I).
 - $\arccos x$ returns angles from $0^\circ$ to $180^\circ$ (Quadrants I and II).
 - $\arctan x$ returns angles strictly between $-90^\circ$ and $90^\circ$.
 
-The sign of the input tells you which half of the window to use. Positive input: everyone answers in Quadrant I. Negative input: $\arcsin$ and $\arctan$ answer with a NEGATIVE angle, while $\arccos$ answers in Quadrant II.
+The sign of the input tells you which half of the window to use. Positive input: everyone answers in Quadrant I. Negative input: $\arcsin$ and $\arctan$ answer with a negative angle, while $\arccos$ answers in Quadrant II.
 
 Inputs are limited too: $\arcsin x$ and $\arccos x$ only accept $x$ from $-1$ to $1$, because sines and cosines never leave that range. $\arctan x$ accepts every real number.
 
@@ -60,7 +60,7 @@ $$180 - 60 = 120$$
 
 $$\arccos\left(-\dfrac{1}{2}\right) = 120^\circ$$
 
-4. Note: NOT $-60^\circ$. Arccosine never returns negative angles.
+4. Note: Not $-60^\circ$. Arccosine never returns negative angles.
 
 ### #3: Negative Input to Arctangent
 
@@ -74,7 +74,7 @@ Arctangent answers between $-90^\circ$ and $90^\circ$. A negative tangent forces
 
 $$\arctan(-\sqrt{3}) = -60^\circ$$
 
-3. Note: NOT $120^\circ$, even though $\tan 120^\circ$ is also $-\sqrt{3}$. That angle lies outside arctangent's window.
+3. Note: Not $120^\circ$, even though $\tan 120^\circ$ is also $-\sqrt{3}$. That angle lies outside arctangent's window.
 
 ### #4: Composition with a Triangle
 
@@ -120,24 +120,24 @@ For any composition like $\sin(\arccos x)$ or $\tan(\arcsin x)$, skip the angle 
 
 Same-function compositions cancel: $\sin(\arcsin x) = x$ for any allowed $x$. But be careful with the reversed order: $\arcsin(\sin \theta)$ equals $\theta$ only when $\theta$ is already inside the principal window.
 
-Remember the negative-input routing table in three words: arcsin negative, arctan negative, arccos OBTUSE. That single line answers every sign question in this topic.
+Remember the negative-input routing table in three words: arcsin negative, arctan negative, arccos obtuse. That single line answers every sign question in this topic.
 
 ## Traps to Watch For
 
 ### #1: Answering Outside the Window
 
-> Each inverse function has ONE allowed output range. Respect it.
+> Each inverse function has one allowed output range. Respect it.
 
 For $\arcsin\left(-\dfrac{1}{2}\right)$, the angles $210^\circ$ and $330^\circ$ also have sine $-\dfrac{1}{2}$, and both appear in the choices. The only legal answer is $-30^\circ$, because arcsine lives in $[-90^\circ, 90^\circ]$.
 
 ### #2: Confusing $\sin^{-1} x$ with $\dfrac{1}{\sin x}$
 
-> $\sin^{-1} x$ is the INVERSE FUNCTION, not the reciprocal.
+> $\sin^{-1} x$ is the inverse function, not the reciprocal.
 
 The reciprocal of sine already has its own name: cosecant. The raised $-1$ on the function symbol means "undo", exactly like $f^{-1}$. Reading it as an exponent turns every problem in this lesson into nonsense.
 
 ### #3: Impossible Inputs
 
-> $\arcsin(2)$ and $\arccos(-1.5)$ are UNDEFINED.
+> $\arcsin(2)$ and $\arccos(-1.5)$ are undefined.
 
 No angle has a sine of $2$: sines and cosines are trapped between $-1$ and $1$. If an expression feeds an inverse sine or cosine anything outside that range, the correct choice is "undefined", not some computed angle. Arctangent, though, happily accepts any number.

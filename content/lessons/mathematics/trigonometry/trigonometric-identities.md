@@ -1,7 +1,7 @@
 ---
 _id: "lesson-trigonometry-trigonometric-identities"
 title: "Trigonometric Identities (Reciprocal, Quotient, Pythagorean)"
-summary: "This lesson teaches you the basic trigonometric identities and how to use them to simplify expressions and find missing values."
+summary: "The basic trigonometric identities and how to use them to simplify expressions and find missing values."
 subject: "subject-mathematics"
 topic: "topic-trigonometry"
 estimatedMinutes: 12
@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-An **identity** is an equation that is true for EVERY allowed angle. Identities let you rewrite ugly trigonometric expressions into simple ones, often a single function or just the number $1$.
+An **identity** is an equation that is true for every allowed angle. Identities let you rewrite ugly trigonometric expressions into simple ones, often a single function or just the number $1$.
 
 There are three families to master.
 
@@ -31,7 +31,7 @@ $$1 + \tan^2 \theta = \sec^2 \theta \qquad 1 + \cot^2 \theta = \csc^2 \theta$$
 
 Why does $\sin^2 \theta + \cos^2 \theta = 1$? On the unit circle, the point is $(\cos \theta, \sin \theta)$ and its distance from the center is $1$. The identity is just the Pythagorean theorem wearing a trigonometry costume.
 
-The main strategy for simplifying: convert EVERYTHING to sines and cosines, then cancel. When you see $1 - \sin^2 \theta$, replace it with $\cos^2 \theta$ instantly (and $1 - \cos^2 \theta$ with $\sin^2 \theta$).
+The main strategy for simplifying: convert everything to sines and cosines, then cancel. When you see $1 - \sin^2 \theta$, replace it with $\cos^2 \theta$ instantly (and $1 - \cos^2 \theta$ with $\sin^2 \theta$).
 
 ## Examples
 
@@ -142,24 +142,24 @@ When an expression looks scary, run this two-step machine: convert every functio
 
 Memorize the disguises of the main identity. Seeing any of these, substitute without thinking: $1 - \sin^2 \theta = \cos^2 \theta$, $\quad 1 - \cos^2 \theta = \sin^2 \theta$, $\quad \sec^2 \theta - 1 = \tan^2 \theta$, $\quad \csc^2 \theta - 1 = \cot^2 \theta$.
 
-On multiple-choice identity questions, you can also CHEAT HONESTLY: plug a test angle like $30^\circ$ into the original expression and into each choice. Only the true identity matches for your test angle. This is slower but bulletproof when you blank out.
+On multiple-choice identity questions, you can also cheat honestly: plug a test angle like $30^\circ$ into the original expression and into each choice. Only the true identity matches for your test angle. This is slower but bulletproof when you blank out.
 
 ## Traps to Watch For
 
 ### #1: Different Angles, No Identity
 
-> $\sin^2 A + \cos^2 B = 1$ is FALSE when $A$ and $B$ are different angles.
+> $\sin^2 A + \cos^2 B = 1$ is false when $A$ and $B$ are different angles.
 
-The Pythagorean identity needs the SAME angle in both places. Test-makers write mixed-angle versions hoping you pattern-match too fast. Check the angle letters before you substitute.
+The Pythagorean identity needs the same angle in both places. Test-makers write mixed-angle versions hoping you pattern-match too fast. Check the angle letters before you substitute.
 
 ### #2: Dropping the Sign at the Square Root
 
-> Taking a square root gives $\pm$; the QUADRANT picks the sign.
+> Taking a square root gives $\pm$; the quadrant picks the sign.
 
 From $\cos^2 \theta = \dfrac{16}{25}$, cosine is $+\dfrac{4}{5}$ or $-\dfrac{4}{5}$. If the problem says $\theta$ is in Quadrant II, cosine must be negative. Problems that name a quadrant are testing exactly this choice.
 
 ### #3: Misreading $\sin^2 \theta$
 
-> $\sin^2 \theta$ means $(\sin \theta)^2$: compute the sine FIRST, then square.
+> $\sin^2 \theta$ means $(\sin \theta)^2$: compute the sine first, then square.
 
 It does not mean $\sin(\theta^2)$, and it is not the same as $\sin(2\theta)$ either. If $\sin \theta = \dfrac{3}{5}$, then $\sin^2 \theta = \dfrac{9}{25}$. Confusing these notations breaks every identity computation downstream.
