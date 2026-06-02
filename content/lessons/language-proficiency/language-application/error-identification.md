@@ -37,7 +37,7 @@ Find the error: "Each of the students have submitted their assignment on time."
 
 ### #2: Multiple-Choice Sentence Correction
 
-Choose the best correction for the underlined portion: "The committee members, *along with their supervisor*, was pleased with the results." (A) No change. (B) "were pleased" (C) "is pleased" (D) "has been pleased"
+Choose the best correction for the portion in bold: "The committee members, along with their supervisor, **was pleased** with the results." (A) No change. (B) "were pleased" (C) "is pleased" (D) "has been pleased"
 
 **Solution:**
 1. The TRUE subject is "committee members" (plural), and "along with their supervisor" is just an interrupting phrase, not part of the subject.

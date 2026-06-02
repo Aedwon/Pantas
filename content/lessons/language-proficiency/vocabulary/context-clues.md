@@ -29,7 +29,7 @@ Your goal is to become a detective. You must look for signal words that point to
 
 ### #1: Synonym Clue
 
-Which of the following is the closest meaning of the underlined word?
+Which of the following is the closest meaning of the word in bold?
 The king's **edict**, or official command, forced all citizens to pay higher taxes to the crown.
 A) request
 B) suggestion
@@ -78,7 +78,7 @@ D) angry
 
 ### #4: Inference Clue
 
-Select the word that best captures the meaning of the underlined term.
+Select the word that best captures the meaning of the term in bold.
 The politician’s speech was full of **platitudes**; the audience yawned at the repetitive and meaningless phrases they had heard a thousand times before.
 A) original ideas
 B) angry insults

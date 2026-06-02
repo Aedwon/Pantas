@@ -21,7 +21,29 @@ College entrance exams will test you on $4$ main types of sequences.
 
 4. **Harmonic** sequence. If you take an arithmetic sequence and flip all the numbers upside down into fractions, it becomes harmonic.
 
+### The Formulas You Need
 
+To find a far term without listing every step, use the term formulas. To add up a sequence, use the sum formulas. Here $a_1$ is the first term, $n$ is how many terms, $d$ is the common difference, and $r$ is the common ratio.
+
+Arithmetic term (the $n$-th number):
+
+$$a_n = a_1 + (n - 1)d$$
+
+Arithmetic series (adding the first $n$ terms):
+
+$$S_n = \dfrac{n}{2}(a_1 + a_n)$$
+
+Geometric term (the $n$-th number):
+
+$$a_n = a_1 r^{n - 1}$$
+
+Geometric series (adding the first $n$ terms):
+
+$$S_n = \dfrac{a_1(1 - r^n)}{1 - r}$$
+
+Infinite geometric series, which only has a sum when $r$ is between $-1$ and $1$:
+
+$$S_\infty = \dfrac{a_1}{1 - r}$$
 
 ## Examples
 

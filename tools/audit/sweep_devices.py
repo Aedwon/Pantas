@@ -15,17 +15,16 @@ ITALIC = re.compile(r"(?<!\*)\*[^*\s][^*]*\*(?!\*)")
 
 def run(root=None):
     for les in lib.iter_lessons(root):
-        body = "\n".join(t for _, t in les.lines if "ILLUSTRATION:" not in t)
-        if re.search(r"underlin", body, re.I) and "<u>" not in body:
-            for ln, t in les.lines:
-                if re.search(r"underlin", t, re.I) and "ILLUSTRATION:" not in t:
-                    lib.finding("DEVICE", "blocker", les, ln,
-                                "mentions underlining but file has no <u> markup "
-                                "(markdown cannot underline)")
         for ln, title, blk in lib.examples(les):
             joined = "\n".join(t for _, t in blk)
             has_choices = (any(CHOICE.match(t.strip()) for _, t in blk)
                            or re.search(r"\(A\).+\(B\)", joined, re.S))
+            if re.search(r"underlin", joined, re.I) and "<u>" not in joined:
+                for l, t in blk:
+                    if re.search(r"underlin", t, re.I):
+                        lib.finding("DEVICE", "blocker", les, l,
+                                    f"example {title!r} references an underlined word but has "
+                                    "no <u> markup (markdown cannot underline)")
             for l, t in blk:
                 if QUESTION_CUES.search(t) and not has_choices:
                     lib.finding("DEVICE", "blocker", les, l,

@@ -2,14 +2,6 @@ STRUCT	polish	language-proficiency/vocabulary/idioms-and-figures-of-speech.md:1	
 STRUCT	polish	language-proficiency/vocabulary/root-words-prefixes-suffixes.md:1	extra section 'Must-Know Word Parts' (allowed sparingly - review in judgment pass)
 STRUCT	polish	language-proficiency/vocabulary/synonyms-and-antonyms.md:1	extra section 'Using Context Clues' (allowed sparingly - review in judgment pass)
 STRUCT	polish	mathematics/arithmetic-number-sense/prime-factorization-gcf-lcm.md:1	extra section 'When to List Multiples' (allowed sparingly - review in judgment pass)
-DEVICE	blocker	language-proficiency/language-application/error-identification.md:40	mentions underlining but file has no <u> markup (markdown cannot underline)
-DEVICE	blocker	language-proficiency/vocabulary/context-clues.md:32	mentions underlining but file has no <u> markup (markdown cannot underline)
-DEVICE	blocker	language-proficiency/vocabulary/context-clues.md:81	mentions underlining but file has no <u> markup (markdown cannot underline)
-DEVICE	blocker	language-proficiency/vocabulary/spelling-rules.md:24	mentions underlining but file has no <u> markup (markdown cannot underline)
-DEVICE	blocker	mathematics/arithmetic-number-sense/prime-factorization-gcf-lcm.md:38	example '#1: Basic Prime Factorization' says choose-from-options but lists no A)-D) choices
-DEVICE	blocker	mathematics/geometry/logic-and-reasoning.md:84	example '#4: Picking the Equivalent Statement' says choose-from-options but lists no A)-D) choices
-DEVICE	blocker	reading-comprehension/comprehension-skills/sequencing-of-events.md:64	mentions underlining but file has no <u> markup (markdown cannot underline)
-DEVICE	blocker	science/biology/taxonomy-and-classification.md:35	mentions underlining but file has no <u> markup (markdown cannot underline)
 ILLUS	important	language-proficiency/vocabulary/idioms-and-figures-of-speech.md:62	example '#2: Identifying English Figures of Speech' is figure-dependent but has no placeholder in its block
 ILLUS	important	language-proficiency/vocabulary/idioms-and-figures-of-speech.md:119	example '#5: Subtle Metaphors in English Literature' is figure-dependent but has no placeholder in its block
 ILLUS	important	language-proficiency/vocabulary/root-words-prefixes-suffixes.md:104	example '#4: Guessing from the Root' is figure-dependent but has no placeholder in its block
@@ -34,7 +26,7 @@ ILLUS	important	mathematics/geometry/logic-and-reasoning.md:40	example '#1: Nami
 ILLUS	important	mathematics/geometry/logic-and-reasoning.md:51	example '#2: Writing All Three Forms' is figure-dependent but has no placeholder in its block
 ILLUS	important	mathematics/geometry/logic-and-reasoning.md:63	example '#3: Finding a Counterexample' is figure-dependent but has no placeholder in its block
 ILLUS	important	mathematics/geometry/logic-and-reasoning.md:75	example '#4: Picking the Equivalent Statement' is figure-dependent but has no placeholder in its block
-ILLUS	important	mathematics/geometry/logic-and-reasoning.md:86	example '#5: Chaining Statements (Deductive Reasoning)' is figure-dependent but has no placeholder in its block
+ILLUS	important	mathematics/geometry/logic-and-reasoning.md:91	example '#5: Chaining Statements (Deductive Reasoning)' is figure-dependent but has no placeholder in its block
 ILLUS	important	mathematics/geometry/measurement.md:40	example '#1: Rectangle from Its Perimeter' is figure-dependent but has no placeholder in its block
 ILLUS	important	mathematics/geometry/measurement.md:65	example '#2: Area of a Trapezoid' is figure-dependent but has no placeholder in its block
 ILLUS	important	mathematics/geometry/measurement.md:110	example '#4: Box Volume and Surface Area' is figure-dependent but has no placeholder in its block
@@ -163,14 +155,9 @@ FORMULA	important	mathematics/algebra/polynomials.md:186	example '#6: Finding Co
 FORMULA	important	mathematics/algebra/systems-of-equations.md:131	example '#4: A System Hiding in a Word Problem' uses formula vars ['a', 'c'] not taught before Examples
 FORMULA	important	mathematics/algebra/word-problems.md:126	example '#5: Coin Problem' uses formula vars ['x', 'y'] not taught before Examples
 FORMULA	important	mathematics/algebra/word-problems.md:151	example '#6: Digit Problem' uses formula vars ['u'] not taught before Examples
-FORMULA	important	mathematics/arithmetic-number-sense/business-math.md:138	example '#5: Compound Interest' uses formula vars ['A', 'P', 'r', 't'] not taught before Examples
-FORMULA	important	mathematics/arithmetic-number-sense/prime-factorization-gcf-lcm.md:56	example '#2: GCF and LCM with Variables' uses formula vars ['x', 'y'] not taught before Examples
+FORMULA	important	mathematics/arithmetic-number-sense/prime-factorization-gcf-lcm.md:61	example '#2: GCF and LCM with Variables' uses formula vars ['x', 'y'] not taught before Examples
 FORMULA	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.md:93	example '#3: Simplifying with the Distributive Property' uses formula vars ['x', 'y'] not taught before Examples
-FORMULA	important	mathematics/arithmetic-number-sense/sequences-and-series.md:28	example '#1: Finding a Far Term in an Arithmetic Sequence' uses formula vars ['a', 'd'] not taught before Examples
-FORMULA	important	mathematics/arithmetic-number-sense/sequences-and-series.md:53	example '#2: Arithmetic Series in a Word Problem' uses formula vars ['S', 'a', 'd'] not taught before Examples
-FORMULA	important	mathematics/arithmetic-number-sense/sequences-and-series.md:86	example '#3: Geometric Sequence with Alternating Signs' uses formula vars ['a', 'r'] not taught before Examples
-FORMULA	important	mathematics/arithmetic-number-sense/sequences-and-series.md:114	example '#4: Evaluating an Infinite Geometric Series' uses formula vars ['S', 'a', 'r'] not taught before Examples
-FORMULA	important	mathematics/arithmetic-number-sense/sequences-and-series.md:166	example '#6: Fibonacci Sequence with Variables' uses formula vars ['a', 'z'] not taught before Examples
+FORMULA	important	mathematics/arithmetic-number-sense/sequences-and-series.md:188	example '#6: Fibonacci Sequence with Variables' uses formula vars ['z'] not taught before Examples
 FORMULA	important	mathematics/precalculus-basic-calculus/basic-derivatives.md:40	example '#1: Power Rule on a Polynomial' uses formula vars ['f'] not taught before Examples
 FORMULA	important	mathematics/precalculus-basic-calculus/basic-derivatives.md:54	example '#2: Power Rule with Roots and Fractions' uses formula vars ['f'] not taught before Examples
 FORMULA	important	mathematics/precalculus-basic-calculus/basic-derivatives.md:71	example '#3: Product Rule' uses formula vars ['f'] not taught before Examples

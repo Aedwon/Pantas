@@ -34,8 +34,10 @@ check("fixture: untaught formula flagged", "not taught" in output(sweep_formulas
 check("fixture: missing Solution label flagged", "no **Solution:**" in output(sweep_structure, FIXTURES))
 check("fixture: figure-dependent example flagged", "broken.md" in output(sweep_illustrations, FIXTURES))
 
-live_dev = output(sweep_devices, None)
-check("live seed: context-clues underline defect", "vocabulary/context-clues.md" in live_dev)
+# Live device seeds (underlined-word defects) were fixed in Phase 1, so the
+# corpus should now be clean of them; the fixture above still guards the logic.
+check("live: no underlined-word device blockers remain",
+      "underlined word" not in output(sweep_devices, None))
 live_ill = output(sweep_illustrations, None)
 check("live seed: figure-series prose-only examples", "figure-series.md" in live_ill)
 

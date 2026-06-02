@@ -27,7 +27,11 @@ The **Principal** is the starting money. The **Rate** is the percentage of inter
 
 **Simple Interest** means the interest stays exactly the same every year. It is based only on your starting money.
 
-**Compound Interest** means your money grows faster. You earn interest on your starting money, and you also earn interest on the interest you already got.
+**Compound Interest** means your money grows faster. You earn interest on your starting money, and you also earn interest on the interest you already got. To find the total amount $A$ after all the interest is added, use:
+
+$$A = P(1 + r)^t$$
+
+Here $P$ is the starting money (principal), $r$ is the interest rate for each period, and $t$ is the number of periods. When a problem says the interest is compounded more than once a year (like semi-annually), split the yearly rate across the periods and count each period in $t$.
 
 ## Mnemonics & Memory Aids
 

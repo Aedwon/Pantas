@@ -76,12 +76,17 @@ Look for one case with a wet ground but no rain.
 
 Which statement is logically equivalent to: "If a figure is a square, then it has four sides"?
 
+A) If a figure has four sides, then it is a square.
+B) If a figure is not a square, then it does not have four sides.
+C) If a figure does not have four sides, then it is not a square.
+D) A figure has four sides only if it is a square.
+
 **Solution:**
 "Logically equivalent" means it is true and false in exactly the same situations. Only the contrapositive qualifies.
 
 1. Flip and negate the original.
 2. Contrapositive: "If a figure does not have four sides, then it is not a square."
-3. That is the answer. The converse ("If a figure has four sides, then it is a square") is among the choices, and it is false: a rectangle has four sides but is not necessarily a square.
+3. That matches choice C. The converse in choice A ("If a figure has four sides, then it is a square") is false: a rectangle has four sides but is not necessarily a square.
 
 ### #5: Chaining Statements (Deductive Reasoning)
 

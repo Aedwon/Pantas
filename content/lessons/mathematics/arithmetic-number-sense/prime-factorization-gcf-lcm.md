@@ -37,6 +37,11 @@ When you use prime factorization to find GCF and LCM, remember **P.I.G.** and **
 
 Which of the following represents the prime factorization of $360$?
 
+A) $2^2 \times 3^2 \times 5$
+B) $2^3 \times 3^2 \times 5$
+C) $2^3 \times 3^3 \times 5$
+D) $2^2 \times 3^3 \times 5$
+
 **Solution:**
 
 1. We start dividing $360$ by the smallest prime number, which is $2$.
@@ -47,7 +52,7 @@ Which of the following represents the prime factorization of $360$?
 6. $45$ divided by $3$ is $15$.
 7. $15$ divided by $3$ is $5$. Since $5$ is a prime number, we stop.
 8. Count the prime numbers we used. We have three 2s, two 3s, and one 5.
-9. Write them with exponents.
+9. Write them with exponents. The correct answer is B.
 
 $$2^3 \times 3^2 \times 5$$
 

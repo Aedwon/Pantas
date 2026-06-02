@@ -21,7 +21,7 @@ This old poem helps you remember the order of the letters "i" and "e". If a word
 
 ### #1: I Before E Rule
 
-Identify the word that is spelled incorrectly among the $4$ underlined words in this sentence: "The chief of police could not concieve why the strange neighbor would seize the stolen goods."
+Identify the word that is spelled incorrectly among the $4$ words in bold in this sentence: "The **chief** of police could not **concieve** why the strange **neighbor** would **seize** the stolen goods."
 
 A. chief
 B. concieve
