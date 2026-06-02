@@ -23,6 +23,9 @@ This creates a simple alternating pattern down a chain of meshing gears: gear 1 
 
 Three gears are connected in a row, each meshing with its neighbor. The first gear turns clockwise. What direction does the third gear turn?
 
+<!-- ILLUSTRATION: three meshing gears in a row; gear 1 marked turning clockwise, gear 2 counter-clockwise, gear 3 clockwise (the answer), with a direction arrow on each -->
+
+
 **Solution:**
 1. Meshing gears alternate direction: gear 1 clockwise, gear 2 counter-clockwise, gear 3 clockwise.
 2. Since gear 1 and gear 3 are both in odd positions, they turn in the same direction.
@@ -31,6 +34,9 @@ Three gears are connected in a row, each meshing with its neighbor. The first ge
 ### #2: A Longer Chain of Gears
 
 Five gears are connected in a row, each meshing with its neighbor. The first gear turns counter-clockwise. What direction does the fifth gear turn?
+
+<!-- ILLUSTRATION: five meshing gears in a row with alternating direction arrows; gear 1 counter-clockwise, alternating to gear 5 counter-clockwise (the answer, since odd-numbered gears match gear 1) -->
+
 
 **Solution:**
 1. Gears 1, 3, and 5 are all in odd positions, so they share the same rotation direction as gear 1.
@@ -41,6 +47,9 @@ Five gears are connected in a row, each meshing with its neighbor. The first gea
 
 A small gear with $10$ teeth meshes with a large gear with $30$ teeth. If the small gear completes $6$ full rotations, how many full rotations does the large gear complete?
 
+<!-- ILLUSTRATION: a small 10-tooth gear meshing with a large 30-tooth gear, labeled with their teeth counts; the small gear turns 6 times while the large gear turns 2 times (the answer) -->
+
+
 **Solution:**
 1. The number of teeth passing the meshing point must be equal for both gears over the same time period (since their teeth interlock one-to-one as they turn).
 2. The small gear ($10$ teeth) completing $6$ rotations means $10 \times 6 = 60$ teeth have passed the contact point.
@@ -50,6 +59,9 @@ A small gear with $10$ teeth meshes with a large gear with $30$ teeth. If the sm
 ### #4: A Gear System with a Branch
 
 A central gear meshes with three other gears arranged around it (like spokes), each of those three also meshing only with the central gear (not with each other). If the central gear turns clockwise, what direction do all three outer gears turn?
+
+<!-- ILLUSTRATION: a central gear meshing separately with three outer gears arranged like spokes; the central gear turns clockwise and all three outer gears turn counter-clockwise (the answer) -->
+
 
 **Solution:**
 1. Each outer gear meshes directly with the central gear (but not with each other), so each one individually follows the "opposite direction from its direct neighbor" rule relative to the central gear.

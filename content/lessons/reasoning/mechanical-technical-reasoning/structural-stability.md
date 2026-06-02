@@ -28,6 +28,9 @@ This leads to two general principles for improving stability:
 
 A short, wide pyramid and a tall, narrow pyramid have the same weight and are made of the same uniform material. Which one is more stable, and why?
 
+<!-- ILLUSTRATION: a short wide pyramid beside a tall narrow pyramid, each with its center of gravity marked; the short wide one is more stable (low center of gravity, wide base) -->
+
+
 **Solution:**
 1. The short, wide pyramid has a lower center of gravity (since it is shorter) and a wider base of support (since it is wider).
 2. Both factors — lower center of gravity and wider base — independently improve stability.
@@ -36,6 +39,9 @@ A short, wide pyramid and a tall, narrow pyramid have the same weight and are ma
 ### #2: Predicting When an Object Tips Over
 
 A rectangular box is slowly tilted to one side. At what point does the box tip over, rather than settling back down?
+
+<!-- ILLUSTRATION: a rectangular box tilted on one edge, a vertical line dropping from its center of gravity; the box tips once that line falls outside the base edge it is pivoting on -->
+
 
 **Solution:**
 1. The box remains stable as long as the vertical line dropped from its center of gravity stays within its base of support (the bottom edge still touching the ground).
@@ -46,6 +52,9 @@ A rectangular box is slowly tilted to one side. At what point does the box tip o
 
 A moving truck carries cargo either stacked very high or spread out lower (same total weight either way). Which loading method makes the truck more stable while turning corners?
 
+<!-- ILLUSTRATION: two trucks, one with cargo stacked tall (high center of gravity) and one with cargo spread low (low center of gravity); the low-loaded truck is more stable around corners -->
+
+
 **Solution:**
 1. Stacking cargo high raises the truck's overall center of gravity; spreading cargo lower keeps the center of gravity closer to the ground.
 2. A lower center of gravity requires a larger tilt (like from a sharp turn) before the vertical line from the center of gravity could be pushed outside the truck's base of support (the width between its wheels).
@@ -54,6 +63,9 @@ A moving truck carries cargo either stacked very high or spread out lower (same 
 ### #4: Widening the Base of Support
 
 A person standing normally with feet close together is compared to the same person standing with feet spread wider apart. Which stance is more stable against being pushed sideways?
+
+<!-- ILLUSTRATION: a person with feet close together beside the same person with feet spread wide, each showing the base of support width; the wide stance is more stable against a sideways push -->
+
 
 **Solution:**
 1. Spreading the feet wider apart increases the person's base of support (the ground area between the feet).

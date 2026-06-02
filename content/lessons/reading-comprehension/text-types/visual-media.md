@@ -28,6 +28,9 @@ Not every reading comprehension passage is plain text. **Visual media** question
 
 A three-panel comic strip shows a man carefully building an elaborate sandcastle, then in the final panel, a wave washes it away as he looks on with a resigned expression. What is the likely point of this comic strip?
 
+<!-- ILLUSTRATION: a three-panel comic strip — panel 1 a man carefully building an elaborate sandcastle, panel 2 the finished sandcastle, panel 3 a wave washing it away while the man watches with a resigned expression -->
+
+
 **Solution:**
 1. The buildup (careful, elaborate construction) contrasts sharply with the sudden, effortless destruction by the wave in the final panel.
 2. This contrast, combined with the man's resigned (rather than shocked) expression, suggests a point about the fleeting or temporary nature of effort against larger, uncontrollable forces (like nature, or the passage of time).
@@ -36,6 +39,9 @@ A three-panel comic strip shows a man carefully building an elaborate sandcastle
 ### #2: Interpreting Symbolism in an Editorial Cartoon
 
 An editorial cartoon shows a large boulder labeled "taxes" rolling toward a small figure labeled "citizens," who looks worried. What is the cartoonist's likely stance on this tax issue?
+
+<!-- ILLUSTRATION: an editorial cartoon with a large boulder labeled "taxes" rolling downhill toward a small worried figure labeled "citizens" -->
+
 
 **Solution:**
 1. The boulder (a large, crushing object) is labeled "taxes," and it is shown threatening a much smaller figure labeled "citizens."
@@ -46,6 +52,9 @@ An editorial cartoon shows a large boulder labeled "taxes" rolling toward a smal
 
 A bar graph shows monthly sales for a store: January at $50$, February at $70$, March at $60$, and April at $90$ (in thousands of pesos). Which month had the second-highest sales?
 
+<!-- ILLUSTRATION: a bar graph of monthly sales (thousands of pesos) with bars January 50, February 70, March 60, April 90; the y-axis starts at 0; February is the second-highest -->
+
+
 **Solution:**
 1. List the values: January $50$, February $70$, March $60$, April $90$.
 2. The highest value is April ($90$).
@@ -55,6 +64,9 @@ A bar graph shows monthly sales for a store: January at $50$, February at $70$, 
 ### #4: Spotting a Misleading Graph Scale
 
 A bar graph's vertical axis starts at $80$ instead of $0$, making a bar for $85$ appear almost five times taller than a bar for $81$. Explain why this visual impression is misleading.
+
+<!-- ILLUSTRATION: a bar graph whose y-axis starts at 80 (not 0); a bar at 85 towers over a bar at 81, exaggerating a tiny real difference; a small inset shows the same bars on a 0-based axis looking nearly equal -->
+
 
 **Solution:**
 1. The actual difference between $85$ and $81$ is only $4$ units, a small and modest difference.

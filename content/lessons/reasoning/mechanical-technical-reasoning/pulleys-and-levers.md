@@ -33,6 +33,9 @@ This means moving the fulcrum closer to the load (making the load's distance sho
 
 A fixed pulley is used to lift a $50 \text{ kg}$ load. How much pulling force is required, and does the direction of pulling matter?
 
+<!-- ILLUSTRATION: a fixed pulley attached to an overhead beam, a 50 kg load on one side of the rope and a downward pull on the other; the pull force equals the full 50 kg, only the direction changes -->
+
+
 **Solution:**
 1. A fixed pulley only changes the direction of the force; it does not reduce the amount of force needed.
 2. The pulling force required still equals the load's weight: $50 \text{ kg}$ worth of force (or its equivalent in newtons).
@@ -42,6 +45,9 @@ A fixed pulley is used to lift a $50 \text{ kg}$ load. How much pulling force is
 
 A movable pulley is used to lift a $60 \text{ kg}$ load. How much pulling force is required, and how far must the rope be pulled to lift the load by $2$ meters?
 
+<!-- ILLUSTRATION: a movable pulley attached to a 60 kg load with the rope supported by two strands; the pull force is halved to 30 kg and the rope must be pulled 4 meters to raise the load 2 meters -->
+
+
 **Solution:**
 1. A single movable pulley halves the force needed compared to the load's weight.
 2. Required force: $60 \div 2 = 30 \text{ kg}$ worth of force.
@@ -50,6 +56,9 @@ A movable pulley is used to lift a $60 \text{ kg}$ load. How much pulling force 
 ### #3: Lever Balance Problem
 
 A lever has a load of $100 \text{ kg}$ placed $2$ meters from the fulcrum. How much effort force is needed if applied $5$ meters from the fulcrum on the other side?
+
+<!-- ILLUSTRATION: a lever on a triangular fulcrum, a 100 kg load 2 m from the fulcrum on the left and the effort applied 5 m from the fulcrum on the right; balance gives an effort of 40 kg -->
+
 
 **Solution:**
 1. Apply the lever balance formula: effort $\times$ effort distance = load $\times$ load distance.
@@ -69,6 +78,9 @@ $$\text{effort} = 40 \text{ kg}$$
 ### #4: Moving the Fulcrum to Reduce Effort
 
 Using the same $100 \text{ kg}$ load, if the fulcrum is moved so the load is now only $1$ meter from the fulcrum (while the effort distance stays at $5$ meters), how does the required effort change compared to Example 3?
+
+<!-- ILLUSTRATION: the same lever with the fulcrum moved so the 100 kg load is 1 m away and the effort stays 5 m away; the required effort drops to 20 kg (half of Example 3) -->
+
 
 **Solution:**
 1. Reapply the balance formula with the new load distance.

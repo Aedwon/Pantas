@@ -38,7 +38,9 @@ check("fixture: figure-dependent example flagged", "broken.md" in output(sweep_i
 # corpus should now be clean of them; the fixture above still guards the logic.
 check("live: no underlined-word device blockers remain",
       "underlined word" not in output(sweep_devices, None))
-live_ill = output(sweep_illustrations, None)
-check("live seed: figure-series prose-only examples", "figure-series.md" in live_ill)
+# figure-series placeholders were added in Phase 5, so its examples should now
+# be clean; the fixture (broken.md) still guards the illustration logic.
+check("live: figure-series examples now have placeholders",
+      "figure-series.md" not in output(sweep_illustrations, None))
 
 raise SystemExit(1 if fails else 0)

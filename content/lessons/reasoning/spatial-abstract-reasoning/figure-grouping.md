@@ -29,6 +29,9 @@ The correct approach is to find the rule that makes four (or however many) figur
 
 Four figures are shown: a square, a rectangle, a rhombus, and a triangle. Which one does not belong, and why?
 
+<!-- ILLUSTRATION: four labeled figures side by side — a square, a rectangle, a rhombus (all four-sided), and a triangle (three-sided); the triangle is the odd one out -->
+
+
 **Solution:**
 1. Check the number of sides: the square, rectangle, and rhombus all have $4$ sides (they are all quadrilaterals).
 2. The triangle has only $3$ sides.
@@ -37,6 +40,9 @@ Four figures are shown: a square, a rectangle, a rhombus, and a triangle. Which 
 ### #2: Grouping by Symmetry
 
 Four figures are shown: a perfect circle, a square, an equilateral triangle, and an irregular, lopsided blob shape with no matching sides. Which one does not belong?
+
+<!-- ILLUSTRATION: four figures — a circle, a square, an equilateral triangle (all symmetric), and an irregular lopsided blob (no symmetry); the blob is the odd one out -->
+
 
 **Solution:**
 1. Check symmetry: the circle, square, and equilateral triangle can all be folded along at least one line so both halves match exactly (they are all symmetric).
@@ -47,6 +53,9 @@ Four figures are shown: a perfect circle, a square, an equilateral triangle, and
 
 Four figures are shown, each a circle with straight lines drawn through it: one circle with $1$ line through the center (creating $2$ regions), one with $2$ lines through the center (creating $4$ regions), one with $3$ lines through the center (creating $6$ regions), and one with $2$ lines not through the center, creating $3$ uneven regions. Which one does not belong?
 
+<!-- ILLUSTRATION: four circles cut by straight lines — one with 1 line through the center (2 regions), one with 2 lines through the center (4 regions), one with 3 lines through the center (6 regions), and one with 2 off-center lines (3 uneven regions); the last is the odd one out (odd region count / lines not through the center) -->
+
+
 **Solution:**
 1. Check the pattern: the first three figures follow a consistent rule — lines drawn through the center split a circle into an even number of regions ($2$, $4$, $6$).
 2. The fourth figure's lines do not pass through the center, creating an uneven split (an odd number of regions, $3$), breaking the "lines through center create even regions" pattern.
@@ -55,6 +64,9 @@ Four figures are shown, each a circle with straight lines drawn through it: one 
 ### #4: A Subtler Grouping Rule
 
 Four figures are shown, each a different shape, but each one contains exactly one small shaded (black) dot somewhere inside it. A fifth figure contains two small shaded dots inside it. Which one does not belong?
+
+<!-- ILLUSTRATION: five different outer shapes, four containing exactly one small black dot inside and one containing two black dots; the figure with two dots is the odd one out -->
+
 
 **Solution:**
 1. Check the shading pattern: four figures share the specific feature of containing exactly one shaded dot, regardless of their outer shape.

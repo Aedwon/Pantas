@@ -25,6 +25,9 @@ The core rule: each fold creates a mirror line (a line of symmetry). When you cu
 
 A square paper is folded exactly in half (vertically, left side onto right side). A small triangular notch is cut out of the folded edge, at the midpoint of the folded (right) edge. When unfolded, how many notches appear, and where?
 
+<!-- ILLUSTRATION: a square folded left-onto-right, a triangular notch cut at the midpoint of the folded edge, then the unfolded square showing a single diamond-shaped hole centered on the fold line -->
+
+
 **Solution:**
 1. One fold means the cut passes through $2$ layers, so unfolding reveals $2^1 = 2$ notches.
 2. The notch was cut at the fold's edge (the vertical center line of the original square), at the vertical midpoint.
@@ -33,6 +36,9 @@ A square paper is folded exactly in half (vertically, left side onto right side)
 ### #2: Two Folds, One Cut
 
 A square paper is folded in half vertically, then folded in half again horizontally (so it is now folded into a smaller quarter-square). A small circular hole is cut near the corner where all the folded edges meet (the very center of the original square, once unfolded). How many holes appear when fully unfolded, and where?
+
+<!-- ILLUSTRATION: a square folded in half twice into a quarter-square, a circular hole cut at the all-folds corner, then the unfolded square showing a single hole at the exact center -->
+
 
 **Solution:**
 1. Two folds mean the cut passes through $2^2 = 4$ layers, so unfolding reveals $4$ holes.
@@ -43,6 +49,9 @@ A square paper is folded in half vertically, then folded in half again horizonta
 
 Using the same two-fold setup as Example 2 (folded into a quarter-square), a notch is cut this time along the outer edge of the folded paper (far from the center), rather than near the center corner. Where will the resulting holes appear when unfolded?
 
+<!-- ILLUSTRATION: a square folded into a quarter-square with a notch cut on the outer edge (away from the center), then the unfolded square showing four notches, one along each outer edge/corner region, symmetric about both fold lines -->
+
+
 **Solution:**
 1. Since the cut is on the outer edge (far from the fold-meeting corner), reflecting it across both fold lines places the four resulting holes near the four outer edges of the original square, not near the center.
 2. Specifically, each hole appears mirrored into its own quadrant, positioned along the edge that was farthest from the folds in that quadrant (matching the original outer-edge position of the cut).
@@ -51,6 +60,9 @@ Using the same two-fold setup as Example 2 (folded into a quarter-square), a not
 ### #4: Counting Layers with Three Folds
 
 A rectangular paper is folded in half three separate times (each fold halving it again). A cut is made through all the layers at once. How many holes appear when fully unfolded?
+
+<!-- ILLUSTRATION: a rectangle folded in half three times (8 layers) with one cut through all layers, then the unfolded rectangle showing 8 evenly spaced holes -->
+
 
 **Solution:**
 1. Three folds mean $2^3 = 8$ layers are cut through simultaneously.

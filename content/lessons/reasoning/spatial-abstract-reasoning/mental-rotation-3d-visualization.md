@@ -29,6 +29,9 @@ A **shadow** is the 2D silhouette (outline) a 3D object casts when light shines 
 
 A cross-shaped (plus-sign) net has one central square, with four squares attached to its four sides (up, down, left, right), and one more square attached to the far end of the "up" arm (making a vertical line of $3$ squares: the top square, then the center square, then the bottom square, with two more squares attached to the center square's left and right sides). If the center square becomes the bottom of the cube once folded, which square becomes the top?
 
+<!-- ILLUSTRATION: a cross-shaped (plus-sign) cube net of 6 squares, with the center square labeled "bottom"; the answer marks the square at the far end of the vertical arm (opposite the center) as the top -->
+
+
 **Solution:**
 1. When folding a cross-shaped net, the center square becomes one face (given as the bottom), and the four squares directly attached to it fold up to become the four side faces.
 2. The square attached to the far end of one arm (extending an extra square beyond the four immediate neighbors) folds all the way over to become the opposite face from the center.
@@ -37,6 +40,9 @@ A cross-shaped (plus-sign) net has one central square, with four squares attache
 ### #2: Checking Whether a Net Correctly Folds Into a Cube
 
 A flat pattern has $6$ squares arranged with $4$ in a straight horizontal row, and $2$ more squares both attached to the top of the same square (the second square in the row), stacked directly on top of each other. Does this net fold into a valid cube?
+
+<!-- ILLUSTRATION: a flat pattern of 6 squares — 4 in a horizontal row, plus 2 squares stacked directly above the same square in the row; two faces overlap when folded, so it is NOT a valid cube net -->
+
 
 **Solution:**
 1. A valid cube net needs each of its $6$ squares to fold into a different face, with no overlaps.
@@ -47,6 +53,9 @@ A flat pattern has $6$ squares arranged with $4$ in a straight horizontal row, a
 
 A solid cylinder (like a can) stands upright, with light shining straight down from directly above it. What shape is the shadow cast on the ground?
 
+<!-- ILLUSTRATION: an upright cylinder with light rays coming straight down from above, casting a circular shadow on the ground -->
+
+
 **Solution:**
 1. Since the light comes from directly above, the shadow shows the cylinder's outline as seen from directly above (a "bird's eye view").
 2. Looking straight down at a cylinder, you see only its circular top face outline, since the sides are hidden directly beneath that circular cross-section.
@@ -55,6 +64,9 @@ A solid cylinder (like a can) stands upright, with light shining straight down f
 ### #4: Predicting a Shadow from a Different Angle
 
 The same cylinder now has light shining from directly the side (horizontally), rather than from above. What shape is the shadow cast on a wall behind it?
+
+<!-- ILLUSTRATION: an upright cylinder with light rays coming horizontally from the side, casting a rectangular shadow on the wall behind it -->
+
 
 **Solution:**
 1. Light from the side reveals the cylinder's outline as seen from that side, rather than from above.

@@ -27,6 +27,9 @@ isActive: true
 
 A container is filled with water. Point A is near the surface, and Point B is near the bottom. Which point experiences greater pressure?
 
+<!-- ILLUSTRATION: a water-filled container with Point A marked near the surface and Point B near the bottom; deeper Point B experiences greater pressure (shown with a larger pressure arrow) -->
+
+
 **Solution:**
 1. Pressure increases with depth, since more fluid is stacked above deeper points.
 2. Point B (near the bottom) has more fluid above it than Point A (near the surface).
@@ -35,6 +38,9 @@ A container is filled with water. Point A is near the surface, and Point B is ne
 ### #2: Connected Containers of Different Widths
 
 A wide container and a narrow container are connected at the bottom by a tube, forming a U-shape, both open to the air at the top. Water is poured in until it settles. Which container has the higher water level?
+
+<!-- ILLUSTRATION: a U-shaped tube with a wide arm and a narrow arm, both open at the top, water settling at exactly the same level in both arms (a dashed line connecting the two equal surfaces) -->
+
 
 **Solution:**
 1. Connected open containers always settle to the same fluid level, regardless of their width.
@@ -45,6 +51,9 @@ A wide container and a narrow container are connected at the bottom by a tube, f
 
 Water flows steadily through a pipe that narrows from a wide section to a narrow section. Compared to the wide section, how does the water's speed change in the narrow section?
 
+<!-- ILLUSTRATION: a pipe narrowing from a wide section to a narrow section with flow arrows; short arrows (slow) in the wide part and long arrows (fast) in the narrow part, showing the water speeds up -->
+
+
 **Solution:**
 1. The same volume of water must pass through both sections per second (water is not created or destroyed along the pipe).
 2. Since the narrow section has less cross-sectional area, the water must move faster through it to maintain the same volume flow rate.
@@ -53,6 +62,9 @@ Water flows steadily through a pipe that narrows from a wide section to a narrow
 ### #4: Connecting Flow Speed to Pressure
 
 Using the same narrowing pipe from Example 3, how does the pressure in the narrow section compare to the pressure in the wide section?
+
+<!-- ILLUSTRATION: the same narrowing pipe with pressure gauges; a higher reading in the wide (slow) section and a lower reading in the narrow (fast) section, illustrating Bernoulli's principle -->
+
 
 **Solution:**
 1. The water moves faster in the narrow section (as established in Example 3).

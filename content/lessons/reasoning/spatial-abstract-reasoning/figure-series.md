@@ -29,6 +29,8 @@ The strongest strategy is to check each feature separately against every figure 
 
 A series shows a square with a single line inside it, pointing in different directions: first pointing straight up, then pointing to the upper-right (a $45°$ turn clockwise), then pointing directly right (another $45°$ turn clockwise). What direction should the line point in the fourth figure?
 
+<!-- ILLUSTRATION: a row of four squares; square 1 has a line pointing straight up, square 2 a line pointing upper-right, square 3 a line pointing right, square 4 a question mark; the answer (shown separately) is a line pointing lower-right -->
+
 **Solution:**
 1. Track the rotation feature: the line turns $45°$ clockwise at each step (up → upper-right → right).
 2. Continuing this same $45°$ clockwise rotation from "right," the next position would be "lower-right."
@@ -37,6 +39,8 @@ A series shows a square with a single line inside it, pointing in different dire
 ### #2: A Growing Number of Sides
 
 A series shows a triangle (3 sides), then a square (4 sides), then a pentagon (5 sides). How many sides should the fourth figure have?
+
+<!-- ILLUSTRATION: a row of four figures; a triangle, a square, a pentagon, then a question mark; the answer is a hexagon (6 sides) -->
 
 **Solution:**
 1. Track the number of sides feature: $3, 4, 5, \ldots$, increasing by $1$ each step.
@@ -47,6 +51,8 @@ A series shows a triangle (3 sides), then a square (4 sides), then a pentagon (5
 
 A series shows a fully black circle, then a fully white (empty) circle, then a fully black circle again. What should the fourth figure look like?
 
+<!-- ILLUSTRATION: a row of four circles; solid black, white/empty, solid black, then a question mark; the answer is a white/empty circle -->
+
 **Solution:**
 1. Track the shading feature: black, white, black, following an alternating (every-other) pattern.
 2. Since the pattern alternates strictly, the figure after "black" should return to "white."
@@ -55,6 +61,8 @@ A series shows a fully black circle, then a fully white (empty) circle, then a f
 ### #4: Combining Two Changing Features
 
 A series shows: a small black triangle, then a medium white triangle, then a large black triangle. Predict the fourth figure, tracking both the size and shading features separately.
+
+<!-- ILLUSTRATION: a row of four triangles growing in size; small black, medium white, large black, then a question mark; the answer is an extra-large white triangle -->
 
 **Solution:**
 1. Track size separately: small, medium, large, increasing by one step size each time. The next size should be extra large.

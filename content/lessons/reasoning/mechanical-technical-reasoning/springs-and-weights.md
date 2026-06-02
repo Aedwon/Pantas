@@ -27,6 +27,9 @@ When comparing two different springs holding the same weight, the spring that st
 
 A spring stretches $4 \text{ cm}$ when a $2 \text{ kg}$ weight is attached. How far will it stretch with a $6 \text{ kg}$ weight?
 
+<!-- ILLUSTRATION: two hanging springs; the first stretched 4 cm by a 2 kg weight, the second stretched 12 cm by a 6 kg weight (the answer), showing the proportional relationship -->
+
+
 **Solution:**
 1. The weight increased by a factor of $6 \div 2 = 3$.
 2. Since stretch is proportional to weight, the stretch also increases by the same factor of $3$.
@@ -35,6 +38,9 @@ A spring stretches $4 \text{ cm}$ when a $2 \text{ kg}$ weight is attached. How 
 ### #2: Finding the Weight from a Known Stretch
 
 A spring stretches $3 \text{ cm}$ for every $1 \text{ kg}$ attached. How much weight is attached if the spring has stretched $15 \text{ cm}$?
+
+<!-- ILLUSTRATION: a hanging spring stretched 15 cm with a ruler marking the length, an unknown weight labeled "?" attached; the answer is 5 kg -->
+
 
 **Solution:**
 1. Set up the proportional relationship: $3 \text{ cm}$ per $1 \text{ kg}$.
@@ -48,6 +54,9 @@ $$15 \div 3 = 5$$
 
 Spring A stretches $2 \text{ cm}$ under a $4 \text{ kg}$ weight. Spring B stretches $5 \text{ cm}$ under the same $4 \text{ kg}$ weight. Which spring is stiffer?
 
+<!-- ILLUSTRATION: two hanging springs under identical 4 kg weights side by side; Spring A stretched only 2 cm, Spring B stretched 5 cm; Spring A is stiffer (stretches less) -->
+
+
 **Solution:**
 1. Under the identical weight, Spring A stretched less ($2$ cm) than Spring B ($5$ cm).
 2. A spring that stretches less under the same weight is stiffer (harder to stretch).
@@ -56,6 +65,9 @@ Spring A stretches $2 \text{ cm}$ under a $4 \text{ kg}$ weight. Spring B stretc
 ### #4: Predicting Stretch for a Stiffer Spring at a Different Weight
 
 Using Spring A from Example 3 (stretches $2 \text{ cm}$ under $4 \text{ kg}$), predict its stretch under a $10 \text{ kg}$ weight.
+
+<!-- ILLUSTRATION: Spring A shown twice; stretched 2 cm under 4 kg, then stretched 5 cm under 10 kg (the answer), keeping the same stretch-per-kg ratio -->
+
 
 **Solution:**
 1. Find the scaling factor between the weights: $10 \div 4 = 2.5$.
