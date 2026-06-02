@@ -41,6 +41,9 @@ The pattern to remember: pointy solids (cone, pyramid) take $\dfrac{1}{3}$ of th
 
 A rectangle has a perimeter of $26$ cm and a length of $8$ cm. Find its area.
 
+<!-- ILLUSTRATION: a rectangle with length labeled 8 cm and width labeled "?", note perimeter = 26 cm -->
+
+
 **Solution:**
 Use the perimeter to find the missing width first.
 
@@ -66,6 +69,9 @@ $$A = 8 \times 5 = 40 \text{ cm}^2$$
 
 A trapezoid has parallel bases of $8$ cm and $12$ cm and a height of $5$ cm. Find its area.
 
+<!-- ILLUSTRATION: a trapezoid with parallel bases labeled 8 cm (top) and 12 cm (bottom) and a vertical height of 5 cm drawn with a right-angle mark -->
+
+
 **Solution:**
 Average the two bases, then multiply by the height.
 
@@ -86,6 +92,9 @@ $$A = 10 \times 5 = 50 \text{ cm}^2$$
 ### #3: Shaded Region
 
 A circle is inscribed in a square with side $10$, touching all four sides. Find the area of the region inside the square but outside the circle. Give the answer in terms of $\pi$.
+
+<!-- ILLUSTRATION: a square of side 10 with an inscribed circle touching all four sides; the four corner regions between the circle and square are shaded as the target area -->
+
 
 **Solution:**
 Shaded-region problems are subtraction problems: big area minus small area.
@@ -111,6 +120,9 @@ $$A = 100 - 25\pi$$
 
 A closed rectangular box measures $5$ cm by $4$ cm by $3$ cm. Find its volume and its total surface area.
 
+<!-- ILLUSTRATION: a 3D rectangular box with edges labeled length 5 cm, width 4 cm, height 3 cm -->
+
+
 **Solution:**
 Volume multiplies all three dimensions. Surface area adds the three different face areas, doubled.
 
@@ -132,6 +144,9 @@ $$SA = 2(47) = 94 \text{ cm}^2$$
 ### #5: Cylinder
 
 A cylinder has a radius of $3$ cm and a height of $10$ cm. Find its volume and surface area in terms of $\pi$.
+
+<!-- ILLUSTRATION: a 3D cylinder with radius 3 cm marked on the top circle and height 10 cm marked on the side -->
+
 
 **Solution:**
 Volume is the circular base times the height. Surface area is two lids plus the label.
@@ -155,6 +170,9 @@ $$SA = 18\pi + 60\pi = 78\pi \text{ cm}^2$$
 ### #6: Cone at Exam Level
 
 A cone has a radius of $6$ cm and a height of $8$ cm. Find its volume in terms of $\pi$, and find its slant height.
+
+<!-- ILLUSTRATION: a 3D cone with base radius 6 cm, vertical height 8 cm (right-angle mark at the center), and the slant height drawn along the side as the hypotenuse -->
+
 
 **Solution:**
 A cone is one third of a cylinder, and its slant height comes from the Pythagorean theorem.

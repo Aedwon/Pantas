@@ -60,6 +60,9 @@ Two **special right triangles** appear on every CET:
 
 The angles of a triangle are in the ratio $1 : 2 : 3$. Find the angles and classify the triangle.
 
+<!-- ILLUSTRATION: a triangle with its three interior angles labeled x, 2x, 3x; the 3x angle is a right angle (small square), making it a right triangle -->
+
+
 **Solution:**
 Ratio $1 : 2 : 3$ means the angles are $x$, $2x$, and $3x$.
 
@@ -80,6 +83,9 @@ $$x = 30$$
 
 Two sides of a triangle measure $5$ and $9$. How many integer lengths are possible for the third side?
 
+<!-- ILLUSTRATION: a triangle with two sides labeled 5 and 9 and the third side labeled "?", with a number line showing the valid range 4 < third side < 14 -->
+
+
 **Solution:**
 The third side $s$ must satisfy the triangle inequality in both directions.
 
@@ -98,6 +104,9 @@ $$s > 9 - 5 = 4$$
 
 An exterior angle of a triangle measures $110^\circ$. One of the remote interior angles is $45^\circ$. Find the other remote interior angle.
 
+<!-- ILLUSTRATION: a triangle with one side extended to form an exterior angle marked 110°, one remote interior angle marked 45°, and the other remote interior angle marked "?" -->
+
+
 **Solution:**
 The exterior angle equals the sum of the two remote interior angles.
 
@@ -114,6 +123,9 @@ $$x = 65$$
 ### #4: The Shadow Problem (Similarity)
 
 A $1.5$-meter tall student casts a $2$-meter shadow. At the same time, a tree casts a $12$-meter shadow. How tall is the tree?
+
+<!-- ILLUSTRATION: two similar right triangles side by side — a 1.5 m student with a 2 m shadow, and a taller tree of height "?" with a 12 m shadow, sun rays at the same angle -->
+
 
 **Solution:**
 The sun's rays make similar triangles, so heights and shadows are proportional.
@@ -137,6 +149,9 @@ $$h = 9$$
 ### #5: Pythagorean Theorem
 
 A ladder $15$ feet long leans against a wall. Its foot is $9$ feet from the base of the wall. How high up the wall does the ladder reach?
+
+<!-- ILLUSTRATION: a right triangle formed by a wall and ground; the ladder (hypotenuse) is 15 ft, the base is 9 ft, the height up the wall is "?", with a right-angle mark at the wall-ground corner -->
+
 
 **Solution:**
 The wall, ground, and ladder form a right triangle. The ladder is the hypotenuse.
@@ -162,6 +177,9 @@ $$h = 12$$
 ### #6: Special Right Triangles
 
 Find the missing sides: (a) a $45^\circ$-$45^\circ$-$90^\circ$ triangle with a leg of $5$; (b) a $30^\circ$-$60^\circ$-$90^\circ$ triangle with a hypotenuse of $12$.
+
+<!-- ILLUSTRATION: two special right triangles — (a) a 45-45-90 triangle with legs 5 and hypotenuse 5√2; (b) a 30-60-90 triangle with hypotenuse 12, showing the short leg 6 and long leg 6√3 -->
+
 
 **Solution:**
 Use the fixed side patterns. No Pythagorean grind needed.

@@ -63,6 +63,9 @@ Or remember the shapes:
 
 An angle measures $24^\circ$ more than its complement. Find the angle.
 
+<!-- ILLUSTRATION: a right angle split by one ray into two parts, one marked x and the other its complement, with a note that the two differ by 24° -->
+
+
 **Solution:**
 The "complement" of an angle is what you add to it to reach $90^\circ$.
 
@@ -87,6 +90,9 @@ $$x = 33$$
 
 Two supplementary angles are in the ratio $2 : 3$. Find the two angles.
 
+<!-- ILLUSTRATION: a straight line split by one ray into two angles marked 2x and 3x, summing to 180° -->
+
+
 **Solution:**
 A ratio of $2 : 3$ means the angles are $2x$ and $3x$ for some number $x$.
 
@@ -107,6 +113,9 @@ $$x = 36$$
 ### #3: Vertical Angles
 
 Two lines intersect. One pair of vertical angles measures $(3x + 10)^\circ$ and $(5x - 20)^\circ$. Find the measure of these angles.
+
+<!-- ILLUSTRATION: two lines crossing to form an X, with the opposite (vertical) angle pair marked (3x+10)° and (5x-20)° -->
+
 
 **Solution:**
 Vertical angles are equal, so set the expressions equal.
@@ -129,6 +138,9 @@ $$x = 15$$
 ### #4: Midpoint of a Segment
 
 Point $M$ is the midpoint of $\overline{AB}$. If $AM = 2x + 3$ and $MB = 3x - 7$, find the length of $\overline{AB}$.
+
+<!-- ILLUSTRATION: a segment AB with midpoint M, left part AM labeled (2x+3) and right part MB labeled (3x-7) -->
+
 
 **Solution:**
 A midpoint makes the two halves equal.
@@ -153,6 +165,9 @@ $$AB = 23 + 23 = 46$$
 ### #5: Three Angles on a Straight Line
 
 Three angles sit side by side on a straight line. They measure $(2x)^\circ$, $(3x + 10)^\circ$, and $(x + 20)^\circ$. Find the measure of the largest angle.
+
+<!-- ILLUSTRATION: a straight line with two rays from a point splitting the 180° into three adjacent angles marked (2x)°, (3x+10)°, (x+20)° -->
+
 
 **Solution:**
 Angles along a straight line add up to $180^\circ$.

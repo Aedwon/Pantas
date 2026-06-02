@@ -52,6 +52,9 @@ To graph or compare lines fast, get them into $y = mx + b$ and read off $m$ and 
 
 Find the distance between $(-3, 4)$ and $(5, -2)$.
 
+<!-- ILLUSTRATION: a coordinate plane plotting (-3, 4) and (5, -2), the segment between them as the hypotenuse of a right triangle with horizontal leg 8 and vertical leg 6 -->
+
+
 **Solution:**
 Plug into the distance formula. Watch the signs.
 
@@ -77,6 +80,9 @@ $$d = \sqrt{100} = 10$$
 
 Find the midpoint of the segment joining $(2, -3)$ and $(-4, 7)$.
 
+<!-- ILLUSTRATION: a coordinate plane with points (2, -3) and (-4, 7) joined by a segment, its midpoint (-1, 2) marked in the middle -->
+
+
 **Solution:**
 Average the $x$ values, then average the $y$ values.
 
@@ -93,6 +99,9 @@ $$\dfrac{-3 + 7}{2} = \dfrac{4}{2} = 2$$
 ### #3: Slope, Then the Equation
 
 Find the equation of the line through $(1, 2)$ and $(4, 11)$ in slope-intercept form.
+
+<!-- ILLUSTRATION: a coordinate plane with points (1, 2) and (4, 11) and the line through them drawn, showing the rise and run between the points -->
+
 
 **Solution:**
 Slope first, then use one point to find $b$.
@@ -115,6 +124,9 @@ $$b = -1$$
 ### #4: A Perpendicular Line
 
 Find the equation of the line perpendicular to $y = 2x + 3$ that passes through $(4, 1)$.
+
+<!-- ILLUSTRATION: a coordinate plane with the line y = 2x + 3 and a second line through (4, 1) crossing it at a right angle, showing the negative-reciprocal slope -->
+
 
 **Solution:**
 Perpendicular means negative reciprocal slope.
@@ -140,6 +152,9 @@ $$y = -\dfrac{1}{2}x + 3$$
 ### #5: Finding a Missing Endpoint
 
 $M(3, -1)$ is the midpoint of segment $AB$. If $A$ is $(7, 4)$, find the coordinates of $B$.
+
+<!-- ILLUSTRATION: a coordinate plane with A(7, 4) and midpoint M(3, -1) marked, and B at (-1, -6) as the reflection of A across M -->
+
 
 **Solution:**
 This reverses the midpoint formula. The midpoint is the average, so work backwards.

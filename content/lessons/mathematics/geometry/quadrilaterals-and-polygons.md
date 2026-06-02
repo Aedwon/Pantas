@@ -47,6 +47,9 @@ CETs love two question types here: plug into the angle formulas (forward or back
 
 Find the sum of the interior angles of a hexagon.
 
+<!-- ILLUSTRATION: a regular hexagon with its six interior angles marked, and a dashed triangulation from one vertex splitting it into 4 triangles -->
+
+
 **Solution:**
 A hexagon has $n = 6$ sides.
 
@@ -64,6 +67,9 @@ $$S = 4 \times 180 = 720$$
 
 Find the measure of each interior angle of a regular octagon.
 
+<!-- ILLUSTRATION: a regular octagon with one interior angle highlighted and labeled with a question mark -->
+
+
 **Solution:**
 Find the total first, then share it equally among the $8$ corners.
 
@@ -80,6 +86,9 @@ $$\dfrac{1080}{8} = 135$$
 ### #3: Working Backwards to Find $n$
 
 The interior angles of a polygon add up to $1440^\circ$. How many sides does it have?
+
+<!-- ILLUSTRATION: an unknown regular polygon labeled "interior angles sum = 1440°, sides = ?" -->
+
 
 **Solution:**
 Use the formula in reverse.
@@ -102,6 +111,9 @@ $$n = 10$$
 
 Each exterior angle of a regular polygon measures $24^\circ$. How many sides does the polygon have?
 
+<!-- ILLUSTRATION: a regular polygon with one side extended to show an exterior angle marked 24°, and a small note that all exterior angles sum to 360° -->
+
+
 **Solution:**
 All the exterior angles add to $360^\circ$, and in a regular polygon they are all equal.
 
@@ -115,6 +127,9 @@ $$n = \dfrac{360}{24} = 15$$
 ### #5: Parallelogram Angles with Algebra
 
 In parallelogram $ABCD$, opposite angles $A$ and $C$ measure $(3x + 10)^\circ$ and $(5x - 30)^\circ$. Find the measure of angle $B$.
+
+<!-- ILLUSTRATION: a parallelogram ABCD with vertices labeled, angle A marked (3x+10)° and opposite angle C marked (5x-30)°, angle B marked with a question mark -->
+
 
 **Solution:**
 Opposite angles of a parallelogram are equal. Consecutive angles are supplementary.
@@ -139,6 +154,9 @@ $$180 - 70 = 110$$
 ### #6: Quadrilateral Angles in a Ratio
 
 The four angles of a quadrilateral are in the ratio $1 : 2 : 3 : 4$. Find the largest angle.
+
+<!-- ILLUSTRATION: a general quadrilateral with its four interior angles labeled x, 2x, 3x, 4x -->
+
 
 **Solution:**
 Call the angles $x$, $2x$, $3x$, $4x$. A quadrilateral's angles add to $360^\circ$.

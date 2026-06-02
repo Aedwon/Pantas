@@ -64,6 +64,9 @@ $$A = \pi (7)^2 = 49\pi \text{ cm}^2$$
 
 A circle has radius $6$. A central angle measures $60^\circ$. Find the arc length and the area of the sector.
 
+<!-- ILLUSTRATION: a circle of radius 6 with a 60° central angle drawn from the center, the intercepted arc and the pie-slice sector shaded -->
+
+
 **Solution:**
 A $60^\circ$ slice is $\dfrac{60}{360} = \dfrac{1}{6}$ of the circle.
 
@@ -103,6 +106,9 @@ $$\dfrac{100}{2} = 50$$
 
 Triangle $ABC$ is inscribed in a circle, and side $AB$ is a diameter of length $10$. If $AC = 6$, find $BC$.
 
+<!-- ILLUSTRATION: a circle with triangle ABC inscribed, side AB as a diameter (length 10) through the center, the angle at C marked as a right angle (Thales' theorem), AC labeled 6 and BC labeled "?" -->
+
+
 **Solution:**
 An angle inscribed in a semicircle is $90^\circ$, so angle $C$ is a right angle and $AB$ is the hypotenuse.
 
@@ -129,6 +135,9 @@ $$BC = 8$$
 ### #5: Tangent Length
 
 From a point $P$ outside a circle, the distance to the center is $13$ and the radius is $5$. How long is the tangent segment from $P$ to the circle?
+
+<!-- ILLUSTRATION: a circle with center O and radius 5 to the tangent point T, external point P with PO = 13, and the tangent PT meeting the radius at T with a right angle; PT labeled "?" -->
+
 
 **Solution:**
 The radius to the tangent point is perpendicular to the tangent. That builds a right triangle: radius $5$, tangent $t$, and hypotenuse $13$ (center to $P$).
