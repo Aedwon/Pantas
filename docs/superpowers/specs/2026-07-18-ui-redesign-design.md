@@ -105,6 +105,28 @@ On every screen, hunt and replace: pastel blocks, pill buttons, icon-in-tinted-c
 - Final: full-app walkthrough on the emulator; entire test suite passes.
 - Widget tests asserting old colors/styles are updated within each feature's sweep, not batched.
 
+## Amendments (2026-07-18, validated via visual companion after initial approval)
+
+### Navigation structure
+
+The bottom nav becomes **Home | Study | Quiz | Progress**. Settings loses its tab and moves behind a gear icon on the Home header (routes to the existing settings pages). Progress becomes a real tab implementing Spec 11 as amended (`2026-06-10-spec-11-progress-amendment-design.md`) — it consumes `lib/features/metrics/` providers; no parallel aggregation.
+
+### Home header and stats band (approved composition)
+
+- Left block: kicker ("Magandang gabi,") over serif name. Right: outlined gear glyph in `inkMuted`, vertically centered against the *whole* kicker+name block — the only right-side element.
+- No streak dateline. The current streak surfaces through the rotating "Lately" atom line and notifications, not permanent header space.
+- Stats band: three figures — **42 / days to exam**, **78% / accuracy**, **41/96 / lessons**. The exam countdown is a first-class figure.
+- Stat labels are **lowercase** throughout the app. The quiz-average figure is named **"accuracy"** (not "average score", not "rating" — ambiguous; "readiness" is reserved until a real projection model backs it).
+- Below the band: the "Lately —" metric atom line (one per day, rotation per the metrics spec), e.g. "Lately — sharpest at 9 pm."
+
+### Progress tab Free/Pro treatment
+
+Per Spec 11 Amendment D, Free users see every panel. Pro-gated analytical panels render as **"unprinted" teasers**: the panel keeps its serif header, content renders as faint paper-toned bars (redacted-print metaphor, `#E9E3D7`-class tone from `ruleFaint` family), and the header's trailing slot reads "Unlock with Pro" in board green. No lock icons, no blur, no banners. Identity content (archetype block, achievement figures, milestones) renders identically for Free and Pro; Pro adds the archetype evidence line and full analytical panels (trend chart with hairline gridlines and single board line, weakness narrative, score impact in serif numerals, per-mock comparison with deltas).
+
+### Quiz answer device
+
+Answer choices are hairline-separated rows with serif choice letters. The selected choice is the single place the board tint+border fills: 1px board border, `boardTint` background, radius 5. No other selection chrome.
+
 ## Out of scope
 
 - New features or content changes — every screen keeps its existing information and behavior.
