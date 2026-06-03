@@ -9,6 +9,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:sqlcipher_flutter_libs/sqlcipher_flutter_libs.dart';
+import 'package:sqlite3/open.dart';
 
 const _dbFileName = 'cse_cet_reviewer.db';
 const _keyStorageKey = 'cse_cet_db_key';
@@ -25,6 +26,11 @@ Future<AppDatabase> openEncryptedDatabase({
   return AppDatabase(
     NativeDatabase.createInBackground(
       file,
+      // The database opens in a background isolate; the SQLCipher loader
+      // override is per-isolate, so it must be applied there.
+      isolateSetup: () {
+        open.overrideFor(OperatingSystem.android, openCipherOnAndroid);
+      },
       setup: (db) {
         db.execute("PRAGMA key = \"x'${_toHex(key)}'\";");
         final cipherVersion = db.select('PRAGMA cipher_version;');
