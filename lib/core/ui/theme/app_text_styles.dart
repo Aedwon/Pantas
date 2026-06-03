@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 @immutable
 class AppTextStyles extends ThemeExtension<AppTextStyles> {
@@ -16,54 +15,65 @@ class AppTextStyles extends ThemeExtension<AppTextStyles> {
     required this.mathBody,
   });
 
-  factory AppTextStyles.create() => AppTextStyles(
-        displayLarge: GoogleFonts.poppins(
+  factory AppTextStyles.create() => const AppTextStyles(
+        displayLarge: TextStyle(
+          fontFamily: 'SourceSerif4',
           fontSize: 28,
           fontWeight: FontWeight.w700,
           height: 1.2,
+          letterSpacing: -0.3,
         ),
-        displaySmall: GoogleFonts.poppins(
+        displaySmall: TextStyle(
+          fontFamily: 'SourceSerif4',
           fontSize: 22,
           fontWeight: FontWeight.w700,
           height: 1.2,
+          letterSpacing: -0.2,
         ),
-        headlineMedium: GoogleFonts.poppins(
+        headlineMedium: TextStyle(
+          fontFamily: 'SourceSerif4',
           fontSize: 18,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
           height: 1.3,
         ),
-        headlineSmall: GoogleFonts.poppins(
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
+        headlineSmall: TextStyle(
+          fontFamily: 'SourceSerif4',
+          fontSize: 15,
+          fontWeight: FontWeight.w700,
           height: 1.3,
         ),
-        bodyLarge: GoogleFonts.poppins(
+        bodyLarge: TextStyle(
+          fontFamily: 'SourceSans3',
           fontSize: 16,
-          fontWeight: FontWeight.w500,
-          height: 1.6,
+          fontWeight: FontWeight.w400,
+          height: 1.55,
         ),
-        bodyMedium: GoogleFonts.poppins(
+        bodyMedium: TextStyle(
+          fontFamily: 'SourceSans3',
           fontSize: 14,
           fontWeight: FontWeight.w400,
           height: 1.5,
         ),
-        bodySmall: GoogleFonts.poppins(
+        bodySmall: TextStyle(
+          fontFamily: 'SourceSans3',
           fontSize: 12,
           fontWeight: FontWeight.w400,
           height: 1.4,
         ),
-        labelLarge: GoogleFonts.poppins(
-          fontSize: 12,
+        labelLarge: TextStyle(
+          fontFamily: 'SourceSans3',
+          fontSize: 13,
           fontWeight: FontWeight.w600,
           height: 1.2,
         ),
-        labelSmall: GoogleFonts.poppins(
-          fontSize: 10,
+        labelSmall: TextStyle(
+          fontFamily: 'SourceSans3',
+          fontSize: 11,
           fontWeight: FontWeight.w600,
           height: 1.2,
-          letterSpacing: 0.5,
         ),
-        mathBody: GoogleFonts.notoSerif(
+        mathBody: TextStyle(
+          fontFamily: 'SourceSerif4',
           fontSize: 14,
           fontWeight: FontWeight.w400,
           height: 1.5,

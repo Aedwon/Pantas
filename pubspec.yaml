@@ -65,7 +65,6 @@ dependencies:
 
   # UI / fonts
   qr_flutter: ^4.1.0
-  google_fonts: ^6.2.1
   flutter_math_fork: ^0.7.2
   flutter_local_notifications: ^17.2.4
   app_settings: ^5.1.1

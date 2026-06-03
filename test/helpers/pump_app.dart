@@ -4,11 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 extension PumpApp on WidgetTester {
   Future<void> pumpApp(Widget widget) async {
-    GoogleFonts.config.allowRuntimeFetching = false;
     await pumpWidget(
       MaterialApp(
         theme: ThemeData(
@@ -27,7 +25,6 @@ extension PumpAppRiverpod on WidgetTester {
     Widget child, {
     List<Override> overrides = const [],
   }) async {
-    GoogleFonts.config.allowRuntimeFetching = false;
     await pumpWidget(
       ProviderScope(
         overrides: overrides,
@@ -47,7 +44,6 @@ extension PumpAppRiverpod on WidgetTester {
     GoRouter router, {
     List<Override> overrides = const [],
   }) async {
-    GoogleFonts.config.allowRuntimeFetching = false;
     await pumpWidget(
       ProviderScope(
         overrides: overrides,
