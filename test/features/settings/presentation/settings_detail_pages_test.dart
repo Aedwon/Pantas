@@ -112,6 +112,10 @@ void main() {
     expect(find.text('Terms of Service'), findsOneWidget);
     expect(find.text('Contact our DPO'), findsOneWidget);
     expect(find.textContaining('data export, correction'), findsOneWidget);
+    expect(
+      find.textContaining('Pantas. All rights reserved.'),
+      findsOneWidget,
+    );
   });
 
   testWidgets('about page shows configured DPO email and physical address',

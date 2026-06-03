@@ -50,6 +50,16 @@ class AboutPage extends StatelessWidget {
             'our Data Protection Officer at $dpoEmail. '
             'Controller address: $physicalAddress.',
           ),
+          const SizedBox(height: 24),
+          Center(
+            child: Text(
+              '© ${DateTime.now().year} Pantas. All rights reserved.\n'
+              'All lessons, illustrations, and questions in this app are '
+              'proprietary content and may not be reproduced or '
+              'redistributed without permission.',
+              textAlign: TextAlign.center,
+            ),
+          ),
         ],
       ),
     );
