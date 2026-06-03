@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Regenerate docs/content/illustrations/worklist.tsv from ILLUSTRATION markers.
 
-Preserves the status column of an existing worklist (matched by
-subject/topic/lesson/seq) so re-running after lesson edits does not lose
-tracking progress. Run from anywhere: python3 tools/audit/list_illustrations.py
+Status is derived from the filesystem: a row is "done" when an image file
+matching its NN- prefix exists at the target folder, "todo" otherwise.
+Run from anywhere: python3 tools/audit/list_illustrations.py
 """
-import csv
+import glob
 import os
 import re
 
@@ -27,18 +27,7 @@ def short_slug(desc: str, maxwords: int = 4) -> str:
     return "-".join(picked)
 
 
-def load_existing_status():
-    status = {}
-    if os.path.exists(OUT):
-        with open(OUT, encoding="utf-8", newline="") as f:
-            for row in csv.DictReader(f, delimiter="\t"):
-                key = (row["subject"], row["topic"], row["lesson"], row["seq"])
-                status[key] = row.get("status", "todo")
-    return status
-
-
 def main():
-    existing = load_existing_status()
     rows = []
     for dirpath, _, filenames in os.walk(LESSONS):
         for fn in sorted(filenames):
@@ -61,7 +50,11 @@ def main():
                     fname = f"{seq:02d}-{short_slug(desc)}.png"
                     subdir = f"{subject}/{topic}/{lesson}" if topic else f"{subject}/{lesson}"
                     target = f"content/illustrations/{subdir}/{fname}"
-                    status = existing.get((subject, topic, lesson, str(seq)), "todo")
+                    # Done if any image claims this slot (slug may differ if
+                    # the description was edited after the file was connected).
+                    slot = glob.glob(os.path.join(ROOT, "content", "illustrations",
+                                                  subdir, f"{seq:02d}-*.png"))
+                    status = "done" if slot else "todo"
                     rows.append((subject, topic, lesson, str(seq), str(lineno),
                                  target, status, desc))
 

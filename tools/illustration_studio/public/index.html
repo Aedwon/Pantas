@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pantas Illustration Studio</title>
+<style>
+  :root {
+    --paper: #FBF9F4;
+    --panel: #FFFFFF;
+    --ink: #26221B;
+    --ink-soft: #6E675C;
+    --line: #E5DFD3;
+    --board: #1D5C50;
+    --board-soft: #E3EFEA;
+    --amber: #9A6B15;
+    --amber-soft: #FBF3DF;
+    --danger: #A33B2E;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    font: 15px/1.5 -apple-system, system-ui, "Segoe UI", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    background: var(--board);
+    color: #F4F1E8;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  header h1 { font-size: 15px; font-weight: 700; letter-spacing: 0.04em; margin: 0; white-space: nowrap; }
+  header h1 span { opacity: 0.55; font-weight: 400; }
+  .progress { display: flex; align-items: center; gap: 10px; min-width: 190px; flex: 1; justify-content: flex-end; }
+  .progress .count { font-size: 13px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .meter { height: 8px; width: 180px; background: rgba(255,255,255,0.18); border-radius: 99px; overflow: hidden; }
+  .meter > div { height: 100%; background: #F4F1E8; border-radius: 99px; width: 0%; transition: width 0.4s ease; }
+
+  .app { flex: 1; display: flex; min-height: 0; }
+  nav {
+    width: 300px; flex-shrink: 0;
+    border-right: 1px solid var(--line);
+    overflow-y: auto;
+    background: var(--panel);
+    padding: 10px 0 30px;
+  }
+  nav .topic-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--ink-soft);
+    padding: 12px 16px 4px;
+  }
+  nav button.item {
+    display: flex; align-items: baseline; gap: 8px;
+    width: 100%; text-align: left;
+    font: inherit; font-size: 13px;
+    padding: 6px 16px;
+    border: 0; background: none; color: var(--ink);
+    cursor: pointer;
+  }
+  nav button.item:hover { background: var(--paper); }
+  nav button.item.current { background: var(--board-soft); font-weight: 600; }
+  nav button.item .label {
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  nav .dot {
+    flex-shrink: 0; width: 14px; height: 14px; border-radius: 50%;
+    border: 1.5px solid var(--line);
+    position: relative; top: 2px;
+    background: var(--panel);
+  }
+  nav .done .dot { background: var(--board); border-color: var(--board); }
+  nav .done .dot::after {
+    content: ""; position: absolute; left: 4px; top: 1.5px;
+    width: 3px; height: 7px;
+    border: solid #fff; border-width: 0 1.5px 1.5px 0;
+    transform: rotate(45deg);
+  }
+
+  main { flex: 1; overflow-y: auto; min-width: 0; padding: 18px 24px 60px; }
+  .crumbs { font-size: 12px; color: var(--ink-soft); margin-bottom: 4px; }
+  .crumbs b { color: var(--ink); }
+  h2 { font-size: 17px; margin: 0 0 12px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .pill {
+    font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 99px;
+    background: var(--amber-soft); color: var(--amber);
+  }
+  .pill.done { background: var(--board-soft); color: var(--board); }
+
+  .card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 16px; margin-bottom: 14px;
+  }
+  .card h3 {
+    margin: 0 0 8px; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft);
+  }
+  .desc { font-size: 15px; }
+  .context {
+    font: 12px/1.6 ui-monospace, "SF Mono", Menlo, monospace;
+    white-space: pre-wrap; word-break: break-word;
+    background: var(--paper); border-radius: 8px; padding: 10px 12px;
+    max-height: 220px; overflow-y: auto;
+  }
+  .context .marker { background: var(--amber-soft); color: var(--amber); font-weight: 700; }
+  .target-path { font: 12px ui-monospace, "SF Mono", Menlo, monospace; color: var(--ink-soft); word-break: break-all; }
+
+  button.primary, button.ghost {
+    font: inherit; font-size: 13px; font-weight: 600;
+    padding: 8px 16px; border-radius: 8px; cursor: pointer;
+  }
+  button.primary { background: var(--board); color: #F4F1E8; border: 1px solid var(--board); }
+  button.primary:hover { filter: brightness(1.1); }
+  button.primary:disabled { opacity: 0.45; cursor: default; filter: none; }
+  button.ghost { background: var(--panel); color: var(--ink); border: 1px solid var(--line); }
+  button.ghost:hover { background: var(--paper); }
+
+  .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 980px) { .grid2 { grid-template-columns: 1fr; } }
+
+  .preview-box {
+    border: 1px dashed var(--line); border-radius: 8px;
+    background: var(--paper);
+    display: flex; align-items: center; justify-content: center;
+    min-height: 170px; overflow: hidden; margin-bottom: 10px;
+  }
+  .preview-box img { max-width: 100%; max-height: 300px; display: block; }
+  .preview-box .empty { color: var(--ink-soft); font-size: 13px; padding: 20px; text-align: center; }
+  .file-meta { font-size: 12px; color: var(--ink-soft); word-break: break-all; margin-bottom: 10px; }
+  input.path {
+    font: 12px ui-monospace, "SF Mono", Menlo, monospace;
+    width: 100%; padding: 7px 10px; border: 1px solid var(--line); border-radius: 8px;
+    background: var(--panel); color: var(--ink);
+  }
+  .flash {
+    position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%);
+    background: var(--board); color: #F4F1E8;
+    padding: 10px 22px; border-radius: 99px; font-size: 13px; font-weight: 600;
+    opacity: 0; pointer-events: none; transition: opacity 0.25s;
+    max-width: 80vw; text-align: center;
+  }
+  .flash.error { background: var(--danger); }
+  .flash.show { opacity: 1; }
+  .nav-buttons { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+  kbd {
+    font: 11px ui-monospace, Menlo, monospace; background: var(--paper);
+    border: 1px solid var(--line); border-bottom-width: 2px;
+    border-radius: 4px; padding: 0 5px;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Pantas <span>Illustration Studio</span></h1>
+  <div class="progress">
+    <div class="meter"><div id="meterFill"></div></div>
+    <div class="count" id="progressCount">–</div>
+  </div>
+</header>
+
+<div class="app">
+  <nav id="sidebar"></nav>
+  <main id="main"></main>
+</div>
+
+<div class="flash" id="flash"></div>
+
+<script>
+let items = [];
+let downloadsDir = '';
+let current = 0;
+let promptTemplate = '';
+let latestFiles = [];
+let selectedSource = null;   // path chosen for connect (auto or manual)
+let pollTimer = null;
+
+const $ = (id) => document.getElementById(id);
+
+function flash(message, isError = false) {
+  const el = $('flash');
+  el.textContent = message;
+  el.className = 'flash show' + (isError ? ' error' : '');
+  clearTimeout(el._t);
+  el._t = setTimeout(() => (el.className = 'flash' + (isError ? ' error' : '')), 2600);
+}
+
+function esc(s) {
+  return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+}
+
+function titleCase(slug) {
+  return slug.split('-').map((w) => w[0] ? w[0].toUpperCase() + w.slice(1) : w).join(' ');
+}
+
+// ---------- Data ----------
+
+async function loadItems() {
+  const data = await (await fetch('/api/items')).json();
+  items = data.items;
+  downloadsDir = data.downloadsDir;
+}
+
+async function loadTemplate() {
+  promptTemplate = await (await fetch('/prompt_template.md')).text();
+}
+
+// ---------- Sidebar & progress ----------
+
+function renderProgress() {
+  const done = items.filter((i) => i.done).length;
+  $('progressCount').textContent = `${done} / ${items.length}`;
+  $('meterFill').style.width = items.length ? `${(done / items.length) * 100}%` : '0%';
+}
+
+function renderSidebar() {
+  const nav = $('sidebar');
+  let html = '';
+  let lastGroup = '';
+  items.forEach((it, i) => {
+    const group = `${titleCase(it.subject)} · ${titleCase(it.topic || it.subject)}`;
+    if (group !== lastGroup) {
+      html += `<div class="topic-label">${esc(group)}</div>`;
+      lastGroup = group;
+    }
+    html += `<button class="item ${it.done ? 'done' : ''} ${i === current ? 'current' : ''}" data-i="${i}">
+      <span class="dot"></span>
+      <span class="label">${esc(titleCase(it.lesson))} · #${it.seq}</span>
+    </button>`;
+  });
+  nav.innerHTML = html;
+  nav.querySelectorAll('button.item').forEach((b) =>
+    b.addEventListener('click', () => show(Number(b.dataset.i))),
+  );
+  const cur = nav.querySelector('.current');
+  if (cur) cur.scrollIntoView({ block: 'nearest' });
+}
+
+// ---------- Main panel ----------
+
+function buildPrompt(item) {
+  return promptTemplate.replaceAll('{{description}}', item.description);
+}
+
+async function show(index) {
+  current = Math.max(0, Math.min(items.length - 1, index));
+  selectedSource = null;
+  const it = items[current];
+
+  const connectedPreview = it.done
+    ? `<img src="/api/preview/connected?index=${current}&t=${Date.now()}" alt="connected illustration">`
+    : `<div class="empty">Nothing connected yet</div>`;
+
+  $('main').innerHTML = `
+    <div class="crumbs">${esc(titleCase(it.subject))} → ${esc(titleCase(it.topic || ''))} → <b>${esc(titleCase(it.lesson))}</b></div>
+    <h2>Illustration #${it.seq} of ${items.filter((x) => x.lesson === it.lesson && x.subject === it.subject && x.topic === it.topic).length}
+      <span class="pill ${it.done ? 'done' : ''}">${it.done ? 'CONNECTED' : 'NEEDED'}</span>
+    </h2>
+
+    <div class="nav-buttons">
+      <button class="ghost" id="btnPrev">← Prev</button>
+      <button class="ghost" id="btnNext">Next →</button>
+      <button class="ghost" id="btnNextTodo">Skip to next needed ↷</button>
+    </div>
+
+    <div class="card">
+      <h3>What to draw</h3>
+      <div class="desc">${esc(it.description)}</div>
+      <div style="margin-top:10px" class="row">
+        <button class="primary" id="btnCopy">Copy generation prompt</button>
+        <span style="font-size:12px;color:var(--ink-soft)">paste into your AI tool, or use as your Canva/Illustrator brief</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Where it sits in the lesson</h3>
+      <div class="context" id="context">Loading…</div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h3>Latest in Downloads</h3>
+        <div class="preview-box" id="dlPreview"><div class="empty">Watching ${esc(downloadsDir)}…<br>Export or download an image and it appears here.</div></div>
+        <div class="file-meta" id="dlMeta"></div>
+        <div class="row" style="margin-bottom:10px">
+          <button class="primary" id="btnConnect" disabled>Connect ⇒ ${esc(it.target.split('/').pop())}</button>
+        </div>
+        <input class="path" id="manualPath" placeholder="…or paste a full file path here">
+      </div>
+
+      <div class="card">
+        <h3>Connected file</h3>
+        <div class="preview-box" id="connectedPreview">${connectedPreview}</div>
+        <div class="target-path">${esc(it.target)}</div>
+      </div>
+    </div>
+  `;
+
+  $('btnPrev').onclick = () => show(current - 1);
+  $('btnNext').onclick = () => show(current + 1);
+  $('btnNextTodo').onclick = () => {
+    const next = items.findIndex((x, i) => i > current && !x.done);
+    const wrap = next === -1 ? items.findIndex((x) => !x.done) : next;
+    if (wrap === -1) flash('All illustrations are connected! 🎉');
+    else show(wrap);
+  };
+  $('btnCopy').onclick = async () => {
+    await navigator.clipboard.writeText(buildPrompt(it));
+    flash('Prompt copied — paste it into your generator');
+  };
+  $('btnConnect').onclick = doConnect;
+  $('manualPath').addEventListener('input', (e) => {
+    const v = e.target.value.trim();
+    if (v) {
+      selectedSource = v;
+      $('btnConnect').disabled = false;
+      $('dlMeta').textContent = `Manual: ${v}`;
+    }
+  });
+
+  renderSidebar();
+  renderProgress();
+  loadContext();
+  pollDownloads(true);
+}
+
+async function loadContext() {
+  const data = await (await fetch(`/api/context?index=${current}`)).json();
+  const el = $('context');
+  if (!el) return;
+  el.innerHTML = data.lines
+    .map((line, i) => {
+      const n = data.from + i;
+      const text = esc(line) || ' ';
+      return n === data.markerLine ? `<span class="marker">${text}</span>` : text;
+    })
+    .join('\n');
+}
+
+// ---------- Downloads polling ----------
+
+async function pollDownloads(force = false) {
+  try {
+    const data = await (await fetch('/api/downloads')).json();
+    const changed = JSON.stringify(data.files) !== JSON.stringify(latestFiles);
+    latestFiles = data.files;
+    if ((changed || force) && !($('manualPath')?.value.trim())) {
+      const box = $('dlPreview');
+      const meta = $('dlMeta');
+      if (!box) return;
+      if (!latestFiles.length) {
+        box.innerHTML = `<div class="empty">Watching ${esc(downloadsDir)}…<br>Export or download an image and it appears here.</div>`;
+        meta.textContent = '';
+        selectedSource = null;
+        const btn = $('btnConnect');
+        if (btn) btn.disabled = true;
+      } else {
+        const f = latestFiles[0];
+        selectedSource = f.path;
+        box.innerHTML = `<img src="/api/preview/download?path=${encodeURIComponent(f.path)}&t=${f.mtime}" alt="latest download">`;
+        meta.textContent = `${f.name} · ${(f.size / 1024).toFixed(0)} KB · ${new Date(f.mtime).toLocaleTimeString()}`;
+        const btn = $('btnConnect');
+        if (btn) btn.disabled = false;
+      }
+    }
+  } catch { /* server briefly busy; next poll retries */ }
+}
+
+// ---------- Connect ----------
+
+async function doConnect() {
+  if (!selectedSource) return;
+  const it = items[current];
+  if (it.done && !confirm(`This will REPLACE the existing ${it.target.split('/').pop()}. Continue?`)) return;
+  const btn = $('btnConnect');
+  btn.disabled = true;
+  btn.textContent = 'Connecting…';
+  try {
+    const res = await fetch('/api/connect', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ index: current, source: selectedSource }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Connect failed');
+    items[current].done = true;
+    flash(`Connected ✓ ${data.target.split('/').pop()} (${(data.bytes / 1024).toFixed(0)} KB) — original removed from Downloads`);
+    const next = items.findIndex((x, i) => i > current && !x.done);
+    setTimeout(() => show(next === -1 ? current : next), 900);
+  } catch (error) {
+    flash(error.message, true);
+    btn.disabled = false;
+    btn.textContent = `Connect ⇒ ${it.target.split('/').pop()}`;
+  }
+}
+
+// ---------- Keyboard ----------
+
+document.addEventListener('keydown', (e) => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  if (e.key === 'ArrowLeft') show(current - 1);
+  if (e.key === 'ArrowRight') show(current + 1);
+});
+
+// ---------- Boot ----------
+
+(async () => {
+  await Promise.all([loadItems(), loadTemplate()]);
+  const firstTodo = items.findIndex((x) => !x.done);
+  show(firstTodo === -1 ? 0 : firstTodo);
+  pollTimer = setInterval(pollDownloads, 2000);
+})();
+</script>
+</body>
+</html>

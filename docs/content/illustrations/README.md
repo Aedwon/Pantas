@@ -8,8 +8,20 @@ image. The full inventory lives in `worklist.tsv` (278 illustrations across
 python3 tools/audit/list_illustrations.py
 ```
 
-Re-running preserves the `status` column, so edit `status` freely
-(`todo` → `done`, or `skip` with a reason in mind) to track progress.
+The `status` column is derived from the filesystem: a row is `done` when its
+image file exists at the target path, `todo` otherwise. No manual editing.
+
+## The easy way: Illustration Studio
+
+Double-click `tools/illustration_studio/Start Illustration Studio.command`.
+It cycles through every needed illustration, shows the lesson context around
+the marker, and gives you a one-click generation prompt (style boilerplate
+lives in `tools/illustration_studio/prompt_template.md` — edit it to tune
+your house style). It watches `~/Downloads`: when your exported image lands
+there, it previews it, and **Connect** converts it to PNG, shrinks it to
+1600 px if larger, renames it to the target filename, moves it into
+`content/illustrations/`, and deletes the original from Downloads. The specs
+and file placement below happen automatically when you use the studio.
 
 ## Where files go
 
