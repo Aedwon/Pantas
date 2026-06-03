@@ -60,6 +60,9 @@ $$b = 20 \times \dfrac{\sqrt{2}}{2} = 10\sqrt{2}$$
 
 In the same triangle (angles $30^\circ$ and $45^\circ$), find angle $C$ and state which side is longest.
 
+<!-- ILLUSTRATION: triangle ABC with angles A = 30°, B = 45°, and C = 105° marked; side c (opposite the largest angle C) highlighted as the longest -->
+
+
 **Solution:**
 Angles of any triangle add to $180^\circ$.
 

@@ -31,6 +31,9 @@ CETs test three skills: evaluating simple inverses, respecting the principal ran
 
 Evaluate $\arcsin\left(\dfrac{1}{2}\right)$ and $\arctan(1)$.
 
+<!-- ILLUSTRATION: a unit circle marking the angle 30° (where sine = 1/2) and 45° (where tangent = 1), both within the principal ranges of arcsin and arctan -->
+
+
 **Solution:**
 Ask the reverse question for each.
 
@@ -47,6 +50,9 @@ $$\arctan(1) = 45^\circ$$
 ### #2: Negative Input to Arccosine
 
 Evaluate $\arccos\left(-\dfrac{1}{2}\right)$.
+
+<!-- ILLUSTRATION: a unit circle marking 120° in Quadrant II (where cosine = -1/2), within arccosine's principal range [0°, 180°] -->
+
 
 **Solution:**
 Arccosine answers only between $0^\circ$ and $180^\circ$. A negative cosine forces Quadrant II.
@@ -65,6 +71,9 @@ $$\arccos\left(-\dfrac{1}{2}\right) = 120^\circ$$
 ### #3: Negative Input to Arctangent
 
 Evaluate $\arctan(-\sqrt{3})$.
+
+<!-- ILLUSTRATION: a unit circle marking -60° in Quadrant IV (where tangent = -√3), within arctangent's principal range (-90°, 90°) -->
+
 
 **Solution:**
 Arctangent answers between $-90^\circ$ and $90^\circ$. A negative tangent forces a negative angle.

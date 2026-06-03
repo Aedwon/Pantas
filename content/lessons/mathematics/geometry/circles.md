@@ -47,6 +47,9 @@ Arcs and sectors are just fractions of the circle. An arc of $60^\circ$ is $\dfr
 
 A circle has a radius of $7$ cm. Find its circumference and area in terms of $\pi$.
 
+<!-- ILLUSTRATION: a circle with a radius of 7 cm drawn from the center to the edge and labeled -->
+
+
 **Solution:**
 Plug $r = 7$ into both formulas.
 
@@ -91,6 +94,9 @@ $$\dfrac{36\pi}{6} = 6\pi$$
 ### #3: Inscribed Angle
 
 An inscribed angle intercepts an arc of $100^\circ$. Find the inscribed angle. Then: a central angle intercepting the same arc would measure how much?
+
+<!-- ILLUSTRATION: a circle with an inscribed angle (vertex on the circle) and a central angle (vertex at the center) both intercepting the same 100° arc; the inscribed angle is 50°, the central angle is 100° -->
+
 
 **Solution:**
 Inscribed means half; central means equal.

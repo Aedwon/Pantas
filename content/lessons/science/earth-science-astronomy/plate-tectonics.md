@@ -68,6 +68,9 @@ Connect the fossil pattern to Wegener's original claim.
 
 A seismograph station records the P wave from an earthquake arriving several seconds before the S wave. Explain why this time gap tells scientists how far away the earthquake occurred, and why a larger gap means a greater distance.
 
+<!-- ILLUSTRATION: a seismograph trace showing the faster P wave arriving first and the slower S wave arriving later, with the time gap between them labeled as proportional to distance -->
+
+
 **Solution:**
 Recall the relative speeds of the two wave types.
 

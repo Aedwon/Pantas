@@ -57,6 +57,9 @@ Consider the other factor besides temperature that affects whether something is 
 
 Scientists cannot travel to the center of the Earth. Explain how earthquake waves reveal that the outer core is liquid.
 
+<!-- ILLUSTRATION: a cross-section of Earth with seismic waves radiating from an earthquake; S waves stopping at the liquid outer core (creating an S-wave shadow zone) while P waves bend through it -->
+
+
 **Solution:**
 Recall how different waves respond to solid versus liquid material.
 

@@ -61,6 +61,9 @@ $$v = 10 \text{ m/s}$$
 
 A sound wave travels at $340 \text{ m/s}$ with a frequency of $170 \text{ Hz}$. Find its wavelength.
 
+<!-- ILLUSTRATION: a wave with its wavelength (one full cycle) marked "?", labeled with speed 340 m/s and frequency 170 Hz -->
+
+
 **Solution:**
 Rearrange the wave speed formula to solve for wavelength.
 

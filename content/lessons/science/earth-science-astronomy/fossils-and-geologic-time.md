@@ -66,6 +66,9 @@ Connect the rock layer's age to the fossil trapped inside it.
 
 A radioactive element has a half-life of $1$ billion years. A rock sample originally contained a certain amount of this element, and now only one-quarter of that original amount remains (the rest has decayed into a stable element). How old is the rock?
 
+<!-- ILLUSTRATION: a decay curve (or bar steps) showing the parent element halving each billion years — 100% → 50% (1 half-life) → 25% (2 half-lives) → so one-quarter remaining means 2 billion years -->
+
+
 **Solution:**
 Figure out how many half-lives have passed.
 

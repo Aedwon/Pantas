@@ -102,6 +102,9 @@ $$d = 50\sqrt{3}$$
 
 In right triangle $ABC$, the right angle is at $C$, angle $A = 35^\circ$, and the hypotenuse is $40$. Find angle $B$ (exactly) and describe how to get sides $a$ and $b$.
 
+<!-- ILLUSTRATION: right triangle ABC with the right angle at C, angle A = 35°, hypotenuse AB = 40, and sides a (opposite A) and b (opposite B) marked -->
+
+
 **Solution:**
 Angles first, then sides.
 

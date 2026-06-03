@@ -130,6 +130,9 @@ $$\sin 90^\circ = 1$$
 
 Evaluate $\sin 150^\circ + \cos 300^\circ$.
 
+<!-- ILLUSTRATION: a unit circle marking 150° in Quadrant II (sin = 1/2) and 300° in Quadrant IV (cos = 1/2), so the sum is 1 -->
+
+
 **Solution:**
 Handle each term with the reference-angle routine, then add.
 

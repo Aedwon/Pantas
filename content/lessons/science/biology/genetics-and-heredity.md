@@ -82,6 +82,9 @@ Check whether the traits blend together or appear separately, side by side.
 
 Explain, in order, the two main steps that convert the genetic instructions stored in DNA into an actual protein.
 
+<!-- ILLUSTRATION: a flow diagram DNA → (transcription) → mRNA → (translation) → protein, with the two steps labeled -->
+
+
 **Solution:**
 Follow the central dogma in order.
 

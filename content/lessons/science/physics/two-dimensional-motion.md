@@ -100,6 +100,9 @@ $$t = \dfrac{10}{9.8} \approx 1.02 \text{ s}$$
 
 A satellite moves at a constant speed in a perfectly circular orbit around Earth. Explain why the satellite is still considered to be accelerating, even though its speed never changes.
 
+<!-- ILLUSTRATION: a satellite in a circular orbit around Earth with its velocity arrow tangent to the circle and a centripetal acceleration arrow pointing inward toward Earth, showing the direction keeps changing -->
+
+
 **Solution:**
 Recall the vector definition of velocity and acceleration.
 

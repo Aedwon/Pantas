@@ -57,6 +57,9 @@ Check the misconception against how seasons actually work.
 
 Explain why a sidereal day (measured against the distant stars) is a few minutes shorter than the familiar $24$-hour day.
 
+<!-- ILLUSTRATION: Earth at two positions along its orbit showing that, after one full spin relative to the stars, Earth must rotate a few extra degrees to face the Sun again, making the solar day slightly longer -->
+
+
 **Solution:**
 Consider what Earth is doing at the same time it rotates.
 

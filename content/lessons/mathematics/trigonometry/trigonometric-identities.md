@@ -120,6 +120,9 @@ $$\cos \theta$$
 
 If $\tan \theta = 2$ and $\theta$ is acute, find $\sec \theta$ and $\cos \theta$.
 
+<!-- ILLUSTRATION: a right triangle with opposite side 2 and adjacent side 1 (so tan θ = 2), the hypotenuse computed as √5, giving sec θ = √5 and cos θ = 1/√5 -->
+
+
 **Solution:**
 The identity $1 + \tan^2 \theta = \sec^2 \theta$ connects them directly.
 

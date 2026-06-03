@@ -119,6 +119,9 @@ $$x = 10$$
 
 Using the triangle from Example $1$ (opposite $3$, adjacent $4$, hypotenuse $5$), find $\csc \theta$, $\sec \theta$, and $\cot \theta$.
 
+<!-- ILLUSTRATION: the same 3-4-5 right triangle from Example 1, with θ opposite the side of length 3, used to read the reciprocal ratios -->
+
+
 **Solution:**
 Flip each main ratio upside down.
 
