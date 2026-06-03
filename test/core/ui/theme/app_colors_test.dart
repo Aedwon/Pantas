@@ -3,66 +3,43 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  group('AppColors.light', () {
-    test('has correct primary color', () {
-      expect(AppColors.light.primary, const Color(0xFF1F6BFF));
-    });
-
-    test('has correct surface color', () {
-      expect(AppColors.light.surface, const Color(0xFFFFFFFF));
-    });
-
-    test('has correct background color', () {
-      expect(AppColors.light.background, const Color(0xFFF8FAFC));
-    });
-
-    test('has correct success color', () {
-      expect(AppColors.light.success, const Color(0xFF22C55E));
-    });
-
-    test('has correct warning color', () {
-      expect(AppColors.light.warning, const Color(0xFFF59E0B));
-    });
-
-    test('has correct error color', () {
-      expect(AppColors.light.error, const Color(0xFFEF4444));
-    });
+  test('light palette matches the Paper spec', () {
+    const c = AppColors.light;
+    expect(c.background, const Color(0xFFFBF9F4));
+    expect(c.surface, const Color(0xFFFFFFFF));
+    expect(c.ink, const Color(0xFF26221B));
+    expect(c.inkMuted, const Color(0xFF6E675C));
+    expect(c.rule, const Color(0xFFE5DFD3));
+    expect(c.ruleFaint, const Color(0xFFF1EDE4));
+    expect(c.board, const Color(0xFF1D5C50));
+    expect(c.boardTint, const Color(0xFFE3EFEA));
+    expect(c.onBoard, const Color(0xFFFFFFFF));
+    expect(c.rust, const Color(0xFFA33B2E));
+    expect(c.amber, const Color(0xFF9A6B15));
   });
 
-  group('AppColors.dark', () {
-    test('has adjusted primary color for dark mode', () {
-      expect(AppColors.dark.primary, const Color(0xFF4D8FFF));
-    });
-
-    test('has correct dark surface color', () {
-      expect(AppColors.dark.surface, const Color(0xFF1E293B));
-    });
-
-    test('has correct dark background color', () {
-      expect(AppColors.dark.background, const Color(0xFF0F172A));
-    });
+  test('dark palette matches the Night spec', () {
+    const c = AppColors.dark;
+    expect(c.background, const Color(0xFF191613));
+    expect(c.surface, const Color(0xFF211D18));
+    expect(c.ink, const Color(0xFFEFEAE0));
+    expect(c.inkMuted, const Color(0xFFA69C8C));
+    expect(c.rule, const Color(0xFF38332B));
+    expect(c.ruleFaint, const Color(0xFF2A2620));
+    expect(c.board, const Color(0xFF4FA08D));
+    expect(c.boardTint, const Color(0xFF22352F));
+    expect(c.onBoard, const Color(0xFF14110D));
+    expect(c.rust, const Color(0xFFD4705F));
+    expect(c.amber, const Color(0xFFC99A45));
   });
 
-  group('AppColors.copyWith', () {
-    test('copies with overridden primary', () {
-      final copy = AppColors.light.copyWith(primary: const Color(0xFFFF0000));
-      expect(copy.primary, const Color(0xFFFF0000));
-      expect(copy.surface, AppColors.light.surface);
-    });
-  });
-
-  group('AppColors.lerp', () {
-    test('lerps between light and dark primary at t=0.5', () {
-      final lerped = AppColors.light.lerp(AppColors.dark, 0.5);
-      expect(
-        lerped.primary,
-        Color.lerp(AppColors.light.primary, AppColors.dark.primary, 0.5),
-      );
-    });
-
-    test('returns self when other is null', () {
-      final lerped = AppColors.light.lerp(null, 0.5);
-      expect(lerped.primary, AppColors.light.primary);
-    });
+  test('deprecated aliases map onto new tokens', () {
+    const c = AppColors.light;
+    // ignore: deprecated_member_use_from_same_package
+    expect(c.primary, c.board);
+    // ignore: deprecated_member_use_from_same_package
+    expect(c.onSurface, c.ink);
+    // ignore: deprecated_member_use_from_same_package
+    expect(c.errorContainer, c.ruleFaint);
   });
 }
