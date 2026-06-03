@@ -5,11 +5,11 @@
 // original. No dependencies.
 import { createServer } from 'node:http';
 import {
-  readFile, readdir, stat, mkdir, rename, unlink, copyFile,
+  readFile, readdir, stat, mkdir, rename, unlink, copyFile, realpath,
 } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { spawn } from 'node:child_process';
-import { dirname, join, resolve, extname, basename } from 'node:path';
+import { dirname, join, resolve, extname, basename, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { homedir, tmpdir } from 'node:os';
 
@@ -22,6 +22,23 @@ const downloadsDir = process.env.ILLUS_DOWNLOADS_DIR ?? join(homedir(), 'Downloa
 
 const IMAGE_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.heic', '.tiff', '.bmp']);
 const MAX_WIDTH = 1600;
+
+// Symlink-proof containment check: true when `path` is `root` or inside it.
+async function isWithin(path, root) {
+  let real;
+  try {
+    real = await realpath(path);
+  } catch {
+    return false;
+  }
+  let realRoot;
+  try {
+    realRoot = await realpath(root);
+  } catch {
+    return false;
+  }
+  return real === realRoot || real.startsWith(realRoot + sep);
+}
 
 // --- Worklist ---
 // The Python extractor (tools/audit/list_illustrations.py) is the single
@@ -133,14 +150,22 @@ async function pixelWidth(file) {
 }
 
 async function connect(item, sourcePath) {
-  const source = resolve(sourcePath);
-  if (!existsSync(source)) return { status: 400, error: `File not found: ${source}` };
+  let source;
+  try {
+    source = await realpath(resolve(sourcePath));
+  } catch {
+    return { status: 400, error: `File not found: ${sourcePath}` };
+  }
   if (!IMAGE_EXTS.has(extname(source).toLowerCase())) {
     return { status: 400, error: `Not an image file: ${basename(source)}` };
   }
+  // Sources must come from Downloads or the user's home tree — never system paths.
+  if (!(await isWithin(source, downloadsDir)) && !(await isWithin(source, homedir()))) {
+    return { status: 400, error: 'Source must be in your Downloads or home folder.' };
+  }
 
   const targetAbs = join(repoRoot, item.target);
-  if (!targetAbs.startsWith(illusRoot)) return { status: 400, error: 'Invalid target path.' };
+  if (!targetAbs.startsWith(illusRoot + sep)) return { status: 400, error: 'Invalid target path.' };
   await mkdir(dirname(targetAbs), { recursive: true });
 
   const tmp = join(tmpdir(), `illus-${Date.now()}.png`);
@@ -161,11 +186,15 @@ async function connect(item, sourcePath) {
   }
 
   // Move semantics: the original leaves Downloads once safely in the repo.
-  // Never delete a source that already lives inside the repo.
-  if (!source.startsWith(repoRoot)) await unlink(source).catch(() => {});
+  // Only files inside Downloads are ever deleted; manual paths elsewhere
+  // (Desktop, project folders) are left alone.
+  let removedOriginal = false;
+  if (await isWithin(source, downloadsDir)) {
+    removedOriginal = await unlink(source).then(() => true).catch(() => false);
+  }
 
   const s = await stat(targetAbs);
-  return { status: 200, connected: true, target: item.target, bytes: s.size };
+  return { status: 200, connected: true, target: item.target, bytes: s.size, removedOriginal };
 }
 
 // --- Static files & helpers ---
@@ -197,7 +226,7 @@ const imageTypes = {
 
 async function serveImage(res, absPath, allowedRoot) {
   const p = resolve(absPath);
-  if (!p.startsWith(allowedRoot) || !IMAGE_EXTS.has(extname(p).toLowerCase())) {
+  if (!(await isWithin(p, allowedRoot)) || !IMAGE_EXTS.has(extname(p).toLowerCase())) {
     res.writeHead(403);
     return res.end('Forbidden');
   }
@@ -233,7 +262,15 @@ function readBody(req) {
 
 // --- Server ---
 
+// Loopback binding plus a Host check (blocks DNS-rebinding, where a hostile
+// site resolves its own domain to 127.0.0.1 to reach this server).
+const ALLOWED_HOSTS = new Set([`localhost:${PORT}`, `127.0.0.1:${PORT}`, `[::1]:${PORT}`]);
+
 const server = createServer(async (req, res) => {
+  if (!ALLOWED_HOSTS.has(req.headers.host ?? '')) {
+    res.writeHead(403);
+    return res.end('Forbidden');
+  }
   const url = new URL(req.url, `http://localhost:${PORT}`);
   try {
     if (req.method === 'GET' && staticRoutes[url.pathname]) {
@@ -297,7 +334,7 @@ console.log('Scanning lessons for ILLUSTRATION markers...');
 await runPython();
 await loadWorklist();
 
-server.listen(PORT, () => {
+server.listen(PORT, '127.0.0.1', () => {
   const url = `http://localhost:${PORT}`;
   const done = items.filter(itemDone).length;
   console.log(`Illustration Studio running at ${url}`);

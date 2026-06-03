@@ -391,7 +391,8 @@ async function doConnect() {
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'Connect failed');
     items[current].done = true;
-    flash(`Connected ✓ ${data.target.split('/').pop()} (${(data.bytes / 1024).toFixed(0)} KB) — original removed from Downloads`);
+    flash(`Connected ✓ ${data.target.split('/').pop()} (${(data.bytes / 1024).toFixed(0)} KB)`
+      + (data.removedOriginal ? ' — original removed from Downloads' : ' — original left in place'));
     const next = items.findIndex((x, i) => i > current && !x.done);
     setTimeout(() => show(next === -1 ? current : next), 900);
   } catch (error) {
