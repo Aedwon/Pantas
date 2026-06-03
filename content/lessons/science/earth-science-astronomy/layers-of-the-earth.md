@@ -29,6 +29,9 @@ Scientists cannot dig down and see these layers directly. Instead, they study ho
 
 List Earth's four main layers in order, starting from the outermost layer and ending at the very center.
 
+<!-- ILLUSTRATION: a cutaway cross-section of Earth showing its four concentric layers labeled from outside in: crust, mantle, outer core, inner core -->
+
+
 **Solution:**
 Work from the surface inward.
 

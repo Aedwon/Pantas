@@ -41,6 +41,9 @@ The largest chunk of Earth's history, called the **Precambrian**, covers roughly
 
 A rock cliff shows four visible layers, labeled W, X, Y, and Z from bottom to top, with no signs of disturbance. Which layer is the oldest, and which is the youngest?
 
+<!-- ILLUSTRATION: a rock cliff cross-section with four horizontal layers stacked and labeled bottom to top W, X, Y, Z; W (bottom) marked oldest and Z (top) marked youngest -->
+
+
 **Solution:**
 Apply the Law of Superposition directly.
 

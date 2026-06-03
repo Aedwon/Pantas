@@ -27,6 +27,9 @@ The three motions, side by side: rotation gives us day and night in about $24$ h
 
 Match each motion of Earth to the phenomenon it directly causes: (a) rotation, (b) revolution with axial tilt, (c) precession.
 
+<!-- ILLUSTRATION: three small diagrams — Earth spinning on its axis (rotation → day/night), Earth orbiting the Sun with a tilted axis (revolution → seasons), and a slow wobble of the axis (precession) -->
+
+
 **Solution:**
 Pair each motion with its timescale and its result.
 
@@ -38,6 +41,9 @@ Pair each motion with its timescale and its result.
 ### #2: Why Do We Have Seasons?
 
 A common misconception is that summer happens because Earth is closer to the Sun at that time of year. Explain why this is not the real reason for the seasons.
+
+<!-- ILLUSTRATION: Earth at two points in its orbit around the Sun, its axis tilted 23.5°; on one side the Northern Hemisphere tilts toward the Sun (summer), on the other it tilts away (winter), with sunlight hitting at different angles -->
+
 
 **Solution:**
 Check the misconception against how seasons actually work.

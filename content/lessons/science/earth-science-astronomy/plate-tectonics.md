@@ -41,6 +41,9 @@ A **fault** is a crack in Earth's crust where rock on either side has moved. Whe
 
 Two plates are sliding sideways past each other, causing frequent strong earthquakes but no new mountains or volcanoes. What type of plate boundary is this?
 
+<!-- ILLUSTRATION: two tectonic plates sliding horizontally past each other in opposite directions (a transform boundary), with a fault line and earthquake symbols between them -->
+
+
 **Solution:**
 Match the described motion to the boundary type.
 

@@ -52,6 +52,9 @@ $$3(2) + 1 = 7$$
 
 Evaluate $\lim_{x \to 3} \dfrac{x^2 - 9}{x - 3}$.
 
+<!-- ILLUSTRATION: the graph of the line y = x + 3 with an open circle (hole) at the point (3, 6), showing the limit approaches 6 even though the function is undefined at x = 3 -->
+
+
 **Solution:**
 Substitution gives $\dfrac{9 - 9}{3 - 3} = \dfrac{0}{0}$: indeterminate. Factor and cancel.
 
@@ -104,6 +107,9 @@ $$\dfrac{3}{1} = 3$$
 ### #5: Making a Piecewise Function Continuous
 
 A function is defined as $f(x) = x^2 + 1$ for $x < 1$, and $f(x) = x + k$ for $x \geq 1$. Find the value of $k$ that makes $f$ continuous at $x = 1$.
+
+<!-- ILLUSTRATION: a piecewise graph with the parabola piece x²+1 for x < 1 and the line piece x+k for x ≥ 1 meeting exactly at x = 1 (no gap) when k = 1 -->
+
 
 **Solution:**
 Continuity at the seam means the two pieces must meet there.

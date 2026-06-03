@@ -41,6 +41,9 @@ The **electromagnetic spectrum** organizes all types of electromagnetic waves by
 
 A light ray hits a flat mirror at an angle of incidence of $40°$ (measured from the normal). Find the angle of reflection.
 
+<!-- ILLUSTRATION: a flat mirror with a dashed normal line perpendicular to it; an incoming ray at 40° from the normal and the reflected ray at 40° on the other side of the normal -->
+
+
 **Solution:**
 Apply the law of reflection directly.
 

@@ -143,6 +143,9 @@ $$5x - 2y = 17$$
 
 The shaded region of a linear inequality includes the point $(0, 0)$. Its boundary is a dashed line passing through $(0, 3)$ and $(3, 0)$. Which inequality defines this region?
 
+<!-- ILLUSTRATION: a coordinate plane with a dashed line through (0, 3) and (3, 0), the region below/left (containing the origin) shaded -->
+
+
 **Solution:**
 
 1. Find the slope of the boundary line using the two points.

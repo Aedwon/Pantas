@@ -50,6 +50,9 @@ Recall the full photosynthesis equation and check what is balanced.
 
 A student examines two different organelles under a microscope: one green and disc-shaped, the other bean-shaped with folded inner membranes. Identify which organelle performs photosynthesis and which performs cellular respiration.
 
+<!-- ILLUSTRATION: two organelles side by side — a green disc-shaped chloroplast (photosynthesis) and a bean-shaped mitochondrion with folded inner membranes/cristae (cellular respiration) -->
+
+
 **Solution:**
 Match the described organelle shape and color to its known structure.
 

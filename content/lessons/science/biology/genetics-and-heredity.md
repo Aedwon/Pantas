@@ -57,6 +57,9 @@ A **pedigree** is a chart showing how a trait has passed through a family across
 
 A pea plant heterozygous for height ($Tt$, where $T$ = tall is dominant and $t$ = short is recessive) is crossed with another heterozygous plant ($Tt$). What fraction of the offspring are expected to be tall?
 
+<!-- ILLUSTRATION: a 2x2 Punnett square with T and t along the top and side, the four cells filled TT, Tt, Tt, tt; three tall (has a T) to one short -->
+
+
 **Solution:**
 Set up the $2 \times 2$ Punnett square with alleles $T$ and $t$ from each parent.
 

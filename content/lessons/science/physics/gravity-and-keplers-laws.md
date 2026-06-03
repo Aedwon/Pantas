@@ -52,6 +52,9 @@ $$3^2 = 9$$
 
 A planet's orbit is elliptical. At one point in its orbit (**perihelion**) it is very close to the Sun; at another point (**aphelion**) it is very far from the Sun. At which point does the planet move faster?
 
+<!-- ILLUSTRATION: an elliptical orbit with the Sun at one focus; perihelion marked close to the Sun with a long velocity arrow (fast) and aphelion marked far from the Sun with a short velocity arrow (slow) -->
+
+
 **Solution:**
 Apply Kepler's second law (equal areas in equal times).
 
