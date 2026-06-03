@@ -80,11 +80,17 @@ time-signal words as you read" — a study instruction).
   teaches you" summaries 90 → 0. Em-dashes (399) and "test-makers" (29)
   left as-is: on inspection they are varied, mid-sentence, and
   domain-appropriate, not a uniform template.
-- **Phase 4 — Filipino: PARTIAL.** Added a correct *paksa ng talata*
-  Filipino passage to `main-idea.md`. Grammar-side Filipino expansion
-  (7 lessons) is deferred for Filipino-language review — auto-generating
-  parallel grammar rules risks inaccuracy, since Filipino grammar is not a
-  1:1 map of English.
+- **Phase 4 — Filipino: DONE.** Added a *paksa ng talata* passage to
+  `main-idea.md`, and web-grounded Filipino grammar sections to the three
+  highest-value lessons: **aspekto ng pandiwa** (verb aspect vs. English
+  tense) in `tenses-and-voice.md`, **uri ng pangungusap ayon sa kayarian**
+  (payak/tambalan/hugnayan/langkapan) in `sentence-structure.md`, and
+  **panghalip panao** (ang/ng/sa sets, gender-neutral *siya*) in
+  `pronoun-antecedent-agreement.md`. Facts verified against Filipino
+  grammar references; still worth a native-speaker proofread before deploy.
+  Lower-priority grammar lessons (modifiers, parallelism, punctuation)
+  were left English-only, since their Filipino analogues are thinner on
+  the CETs.
 - **Phase 5 — illustrations: DONE.** Added ~130 per-example placeholders
   across reasoning, visual-media, geometry, trigonometry, statistics,
   physics, earth science, biology, algebra, and precalculus. Corpus ILLUS
