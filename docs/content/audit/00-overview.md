@@ -85,11 +85,25 @@ time-signal words as you read" — a study instruction).
   (7 lessons) is deferred for Filipino-language review — auto-generating
   parallel grammar rules risks inaccuracy, since Filipino grammar is not a
   1:1 map of English.
-- **Phase 5 — illustrations: PARTIAL (load-bearing done).** Added 44
-  per-example placeholders to all 10 reasoning lessons and visual-media —
-  the sets where the figure *is* the question. Corpus ILLUS 143 → 99. The
-  remaining ~99 are "upgrade" placeholders (geometry, trig, physics, etc.)
-  where the prose already teaches; a clearly-scoped continuation.
+- **Phase 5 — illustrations: DONE.** Added ~130 per-example placeholders
+  across reasoning, visual-media, geometry, trigonometry, statistics,
+  physics, earth science, biology, algebra, and precalculus. Corpus ILLUS
+  143 → 14, and all 14 remaining are false positives (see below) where no
+  figure applies.
+
+### Illustration false positives (dismissed, no figure needed)
+The sweep's keyword heuristic over-reports on non-visual examples. These 14
+were verified and dismissed:
+- `geometry/logic-and-reasoning.md` (6) — a propositional-logic lesson that
+  lives under the geometry folder; "figure"/"square" are logical subjects,
+  not shapes to draw.
+- `vocabulary/idioms-and-figures-of-speech.md` (2), `root-words-…` (1) —
+  "figure of speech" / "root" are words, not diagrams.
+- `algebra/exponents-and-logarithms.md` (1) — a pure logarithm evaluation.
+- `physics/scalars-and-vectors.md` #1, `physics/waves-and-sound.md` #3 —
+  classify-the-item examples with nothing to draw.
+- `reading-comprehension/fact-vs-opinion.md` #3,
+  `text-types/essays-editorials-articles.md` #4 — text-only passages.
 
 The list below is kept as the record of what was fixed.
 
