@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 ThemeData buildLightTheme() {
   return ThemeData(
     useMaterial3: true,
-    colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF1F6BFF)),
+    colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF1D5C50)),
+    scaffoldBackgroundColor: AppColors.light.background,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     extensions: [AppColors.light, AppTextStyles.create()],
   );
@@ -15,9 +16,10 @@ ThemeData buildDarkTheme() {
   return ThemeData(
     useMaterial3: true,
     colorScheme: ColorScheme.fromSeed(
-      seedColor: const Color(0xFF1F6BFF),
+      seedColor: const Color(0xFF1D5C50),
       brightness: Brightness.dark,
     ),
+    scaffoldBackgroundColor: AppColors.dark.background,
     extensions: [AppColors.dark, AppTextStyles.create()],
   );
 }
