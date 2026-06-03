@@ -21,6 +21,15 @@ A **compound-complex sentence** combines both structures: it has two or more ind
 
 <!-- ILLUSTRATION: four labeled sentence diagrams, a single box for simple, two connected boxes for compound, one small box attached to one large box for complex, and one small box attached to two connected large boxes for compound-complex -->
 
+### Sa Filipino: Uri ng Pangungusap Ayon sa Kayarian
+
+Filipino uses the same four structures, with these names:
+
+- **Payak** (simple): one complete thought. "Umuwi ang bata."
+- **Tambalan** (compound): two independent thoughts joined by a coordinating conjunction like *at*, *ngunit*, *o*, *saka*. "Umuwi ang bata ngunit naiwan ang bag niya."
+- **Hugnayan** (complex): one independent clause plus a dependent one, joined by a subordinating conjunction like *kung*, *dahil*, *kapag*, *upang*, *sapagkat*. "Umuwi ang bata dahil umuulan na."
+- **Langkapan** (compound-complex): two or more independent clauses plus at least one dependent clause. "Umuwi ang bata at natulog agad dahil pagod na siya."
+
 ## Examples
 
 ### #1: Identifying a Simple Sentence

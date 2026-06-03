@@ -30,6 +30,16 @@ Passive voice is formed with a form of "to be" plus the past participle of the m
 
 Active voice is usually preferred in clear, direct writing, because it is shorter and identifies who did the action. Passive voice is useful when the doer is unknown, unimportant, or intentionally left out ("The window *was broken*" — we may not know who broke it).
 
+### Sa Filipino: Aspekto ng Pandiwa
+
+Filipino verbs do not use tense (past, present, future). They use **aspekto** (aspect), which marks whether the action is finished, ongoing, or not yet started. This trips up students who translate English tense directly. There are three main aspects:
+
+- **Perpektibo** (naganap na): the action is finished. Example: *kumain* (ate), *naglaba* (washed).
+- **Imperpektibo** (nagaganap): the action is ongoing. Example: *kumakain* (is eating), *naglalaba* (is washing).
+- **Kontemplatibo** (magaganap pa): the action has not started yet. Example: *kakain* (will eat), *maglalaba* (will wash).
+
+Notice the pattern with the root *kain*: the imperfective and contemplative repeat the first syllable (*ka*). Filipino also marks **pokus** (focus) — whether the verb highlights the doer (*Kumain ang bata*) or the object (*Kinain ng bata ang mangga*) — which is closer to the active/passive idea in English.
+
 ## Examples
 
 ### #1: Identifying Tense Inconsistency

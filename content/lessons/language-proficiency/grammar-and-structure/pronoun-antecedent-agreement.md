@@ -23,6 +23,16 @@ The same tricky situations from subject-verb agreement apply here too, since pro
 
 **Compound antecedents** joined by *and* are plural: "Ana and Ben brought *their* own snacks." Compound antecedents joined by *or* or *nor* match the closer antecedent: "Neither the coach nor the players brought *their* equipment."
 
+### Sa Filipino: Panghalip Panao
+
+Filipino personal pronouns (**panghalip panao**) come in three sets depending on their role in the sentence:
+
+- **Ang** set (the doer or topic): *ako*, *ikaw/ka*, *siya*, *kami*, *tayo*, *kayo*, *sila*.
+- **Ng** set (possessor or object): *ko*, *mo*, *niya*, *namin*, *natin*, *ninyo*, *nila*.
+- **Sa** set (direction or ownership): *akin*, *iyo*, *kaniya*, *amin*, *atin*, *inyo*, *kanila*.
+
+A key difference from English: **siya** is gender-neutral. It means "he" or "she" with no separate word for each, so a Filipino sentence never has to choose "his or her." The pronoun must still agree in number: *siya/niya* for one person, *sila/nila* for many. Match the number carefully, since exams often swap *niya* (one) and *nila* (many).
+
 ## Examples
 
 ### #1: Singular Indefinite Pronoun Antecedent
