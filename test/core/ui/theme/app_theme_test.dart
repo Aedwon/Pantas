@@ -12,7 +12,10 @@ void main() {
   });
 
   test('themes use paper/ink scaffold backgrounds', () {
-    expect(buildLightTheme().scaffoldBackgroundColor, AppColors.light.background);
+    expect(
+      buildLightTheme().scaffoldBackgroundColor,
+      AppColors.light.background,
+    );
     expect(buildDarkTheme().scaffoldBackgroundColor, AppColors.dark.background);
   });
 }

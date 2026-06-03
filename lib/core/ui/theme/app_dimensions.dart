@@ -37,8 +37,8 @@ abstract final class AppDimensions {
   // Ink & Rule tokens
   static const double radiusButton = 5;
   static const double radiusSurface = 8;
-  static const double hairline = 1.0;
-  static const double progressHeight = 3.0;
+  static const double hairline = 1;
+  static const double progressHeight = 3;
 
   @Deprecated('Use radiusButton or radiusSurface') // pill radii retired
   static const double radiusPill = radiusFull;
