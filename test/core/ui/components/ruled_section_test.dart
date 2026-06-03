@@ -23,9 +23,8 @@ void main() {
           )
           .first,
     );
-    final border =
-        // ignore: cast_nullable_to_non_nullable
-        (container.decoration as BoxDecoration).border as Border;
+    final decoration = container.decoration! as BoxDecoration;
+    final border = decoration.border! as Border;
     expect(border.top.color, AppColors.light.rule);
     expect(border.top.width, 1.0);
   });
