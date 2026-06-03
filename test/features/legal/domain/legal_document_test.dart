@@ -24,7 +24,20 @@ void main() {
 
     expect(document, isNotNull);
     expect(document!.title, 'Terms of Service');
-    expect(document.updatedAt, DateTime.utc(2026, 5, 23));
+    expect(document.updatedAt, DateTime.utc(2026, 7, 18));
+  });
+
+  test('terms fallback includes intellectual property clause', () {
+    final document = legalDocumentFallbacks['terms'];
+
+    expect(
+      document!.sections.map((section) => section.body).join('\n'),
+      allOf([
+        contains('protected by copyright'),
+        contains('machine-learning'),
+        contains('written permission'),
+      ]),
+    );
   });
 
   test('legal contact uses non-example DPO email and physical address', () {

@@ -64,6 +64,7 @@ void main() {
     expect(find.text('Terms of Service'), findsWidgets);
     expect(find.text('Use of the app'), findsOneWidget);
     expect(find.text('Subscriptions'), findsOneWidget);
+    expect(find.text('Intellectual property'), findsOneWidget);
   });
 
   testWidgets('unknown legal doc renders not found state', (tester) async {

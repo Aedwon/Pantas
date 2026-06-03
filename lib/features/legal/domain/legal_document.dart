@@ -52,7 +52,7 @@ final legalDocumentFallbacks = <String, LegalDocument>{
   'terms': LegalDocument(
     id: 'terms',
     title: 'Terms of Service',
-    updatedAt: DateTime.utc(2026, 5, 23),
+    updatedAt: DateTime.utc(2026, 7, 18),
     sections: const [
       LegalSection(
         heading: 'Use of the app',
@@ -64,6 +64,15 @@ final legalDocumentFallbacks = <String, LegalDocument>{
         body: 'Paid features depend on your active store subscription or '
             'lifetime purchase. Manage billing through the store account '
             'used for purchase.',
+      ),
+      LegalSection(
+        heading: 'Intellectual property',
+        body: 'All content in the app, including lessons, illustrations, '
+            'questions, and mock exams, belongs to Pantas and is protected '
+            'by copyright. You may use it only for your own study inside '
+            'the app. You may not copy, redistribute, sell, scrape, or use '
+            'it to train machine-learning systems without our written '
+            'permission.',
       ),
     ],
   ),
