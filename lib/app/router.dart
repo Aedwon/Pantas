@@ -334,6 +334,7 @@ bool _isProRoute(String matchedLocation) {
 String _subscriptionSubtitle(Entitlement entitlement) {
   return switch (entitlement.plan) {
     EntitlementPlan.free => 'Free · Try Pro',
+    EntitlementPlan.weekly => 'Pro · Weekly',
     EntitlementPlan.monthly => 'Pro · Monthly',
     EntitlementPlan.yearly => 'Pro · Yearly',
     EntitlementPlan.lifetime => 'Pro · Lifetime',
@@ -344,6 +345,7 @@ SettingsEntitlementSnapshot _settingsEntitlement(Entitlement entitlement) {
   return SettingsEntitlementSnapshot(
     plan: switch (entitlement.plan) {
       EntitlementPlan.free => SettingsEntitlementPlan.free,
+      EntitlementPlan.weekly => SettingsEntitlementPlan.weekly,
       EntitlementPlan.monthly => SettingsEntitlementPlan.monthly,
       EntitlementPlan.yearly => SettingsEntitlementPlan.yearly,
       EntitlementPlan.lifetime => SettingsEntitlementPlan.lifetime,

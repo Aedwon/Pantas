@@ -1,4 +1,4 @@
-enum PaywallSku { monthly, yearly, lifetime }
+enum PaywallSku { weekly, monthly, yearly, lifetime }
 
 class PaywallPackage {
   const PaywallPackage({

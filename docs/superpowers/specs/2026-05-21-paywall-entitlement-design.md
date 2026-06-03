@@ -7,14 +7,14 @@
 
 ## 1. Overview
 
-Spec 7 adds the paywall, the RevenueCat purchase pipeline, and the entitlement gate that controls Pro-tier access across the app. Three SKUs (Monthly ₱99 / Yearly ₱499 with a 7-day free trial / Lifetime ₱1,499) are sold through Google Play with RevenueCat as the entitlement infrastructure. A Cloud Function webhook receives RevenueCat events and writes a Firebase custom claim (`pro=true`). A Riverpod `entitlementProvider` reads RevenueCat's locally-cached `CustomerInfo` (optimistic, network-tolerant) and exposes `proIsActive` to the rest of the app. Pro-gated content paths in Sanity are fetched through a Cloud Function proxy that verifies the custom claim server-side. Anonymous purchases are allowed; sign-in nudges live on study-progress milestones, not on the purchase moment. The paywall recommends a SKU contextually based on the user's exam date, not a flat "Yearly is best" pitch — Monthly is recommended for exam <5 months out, Yearly for 5–24 months or no date set, Lifetime is never auto-recommended.
+Spec 7 adds the paywall, the RevenueCat purchase pipeline, and the entitlement gate that controls Pro-tier access across the app. Four SKUs (Weekly ₱29 / Monthly ₱99 / Yearly ₱499 with a 7-day free trial / Lifetime ₱1,499) are sold through Google Play with RevenueCat as the entitlement infrastructure. A Cloud Function webhook receives RevenueCat events and writes a Firebase custom claim (`pro=true`). A Riverpod `entitlementProvider` reads RevenueCat's locally-cached `CustomerInfo` (optimistic, network-tolerant) and exposes `proIsActive` to the rest of the app. Pro-gated content paths in Sanity are fetched through a Cloud Function proxy that verifies the custom claim server-side. Anonymous purchases are allowed; sign-in nudges live on study-progress milestones, not on the purchase moment. The paywall recommends a SKU contextually based on the user's exam date, not a flat "Yearly is best" pitch — Weekly is recommended for exam ≤21 days out, Monthly up to 5 months, Yearly for 5–24 months or no date set, Lifetime is never auto-recommended.
 
 ## 2. In scope / non-goals
 
 **In scope:**
 
 - RevenueCat SDK integration (Android API key via `--dart-define`).
-- Three SKUs configured in Google Play: Monthly, Yearly (with 7-day free trial), Lifetime.
+- Four SKUs configured in Google Play: Weekly, Monthly, Yearly (with 7-day free trial), Lifetime.
 - Cloud Function webhook (`asia-southeast1`) with RevenueCat shared-secret signature verification.
 - Firebase custom claim management: `pro=true` set/cleared on RevenueCat events.
 - `entitlementProvider` (Riverpod) reading RevenueCat `CustomerInfo` cache.
@@ -22,7 +22,7 @@ Spec 7 adds the paywall, the RevenueCat purchase pipeline, and the entitlement g
 - Pro-only Sanity content fetched via Cloud Function proxy (server-gated GROQ).
 - Firestore security rules enforcing `request.auth.token.pro == true` on Pro-gated paths. Rule tests in CI.
 - Pro-route redirect in `router.dart` (Pro-only route hit by Free user → paywall, not 404).
-- Single-screen paywall: 3 SKU cards vertical stack, stable order Monthly → Yearly → Lifetime, dynamic emphasis on recommended card based on exam date.
+- Single-screen paywall: 4 SKU cards vertical stack, stable order Weekly → Monthly → Yearly → Lifetime, dynamic emphasis on recommended card based on exam date.
 - "See all of Pro" expand affordance for full feature list.
 - Restore Purchases button on paywall + in Settings.
 - Anonymous purchase flow (no sign-in interruption).
@@ -58,7 +58,7 @@ Spec 7 adds the paywall, the RevenueCat purchase pipeline, and the entitlement g
 | D3 | Anonymous purchase | Allowed. No sign-in interruption. Post-purchase = warm welcome only. Sign-in nudges live on study-progress milestones, not the purchase moment. |
 | D4 | Entitlement-check-fails UX | Optimistic. Trust RevenueCat cache. Background refresh corrects on next successful network. |
 | D5 | Pro sharing abuse | Surface-transfer notification + telemetry. No friction defenses in v1. |
-| D6 | Paywall screen UI | Single-screen modal. Vertical stack, stable order Monthly → Yearly → Lifetime. Dynamic emphasis on recommended card (badge + accent border + default selection). "7 days free" pill always lives on Yearly. CTA copy reflects selected card. |
+| D6 | Paywall screen UI | Single-screen modal. Vertical stack, stable order Weekly → Monthly → Yearly → Lifetime. Dynamic emphasis on recommended card (badge + accent border + default selection). "7 days free" pill always lives on Yearly. CTA copy reflects selected card. |
 | D7 | Promo offers | None in v1. Defer to v1.1 pending data. |
 | D8 | Pro entitlement scope | Single Pro = all tracks unlocked. One custom claim, track-agnostic. |
 | D9 | Settings → Subscription surface | In-app status panel + Play deep-link for management. Restore Purchases visible. |
@@ -85,15 +85,16 @@ Spec 7 adds the paywall, the RevenueCat purchase pipeline, and the entitlement g
 
 ## 4. SKU configuration
 
-Three Google Play Billing SKUs, configured in the Play Console:
+Four Google Play Billing SKUs, configured in the Play Console (Weekly added by the 2026-07-18 amendment, `2026-07-18-weekly-sku-pricing-amendment-design.md`):
 
 | SKU ID | Type | Price (PHP) | Trial | Notes |
 |---|---|---|---|---|
+| `pro_weekly` | Subscription (P1W) | ₱29 / week | None | Auto-renewing; enable Play grace period |
 | `pro_monthly` | Subscription | ₱99 / month | None | Auto-renewing |
 | `pro_yearly` | Subscription | ₱499 / year | 7 days free | Auto-renewing post-trial |
 | `pro_lifetime` | One-time | ₱1,499 | None | Non-consumable |
 
-RevenueCat product mapping: all three map to a single entitlement, `pro`. Locale-aware prices read via `priceString` from RevenueCat `Offerings.current.availablePackages`.
+RevenueCat product mapping: all four map to a single entitlement, `pro`. Locale-aware prices read via `priceString` from RevenueCat `Offerings.current.availablePackages`.
 
 The 7-day trial is configured as a Google Play introductory price on `pro_yearly`. Eligibility is per-Play-account (Google enforces single-trial-per-account).
 
@@ -108,7 +109,7 @@ The 7-day trial is configured as a Google Play introductory price on `pro_yearly
 3. Pitch line (one sentence, contextual — see §6).
 4. Three-bullet feature teaser (plain language, see copy register §10).
 5. "See all of Pro →" expand link.
-6. Three SKU cards, stable order Monthly → Yearly → Lifetime.
+6. Four SKU cards, stable order Weekly → Monthly → Yearly → Lifetime.
 7. Primary CTA (full-width, reflects selected card).
 8. Fine print (one line).
 
@@ -116,6 +117,7 @@ The 7-day trial is configured as a Google Play introductory price on `pro_yearly
 
 | Card | Always shows | When recommended |
 |---|---|---|
+| Weekly | "Weekly — ₱29/wk · ≈₱126/mo · Renews every week · Cancel anytime" | "Best for your exam date" badge + accent border + default selection |
 | Monthly | "Monthly — ₱99/mo · Cancel anytime" | "Best for your exam date" badge + accent border + default selection |
 | Yearly | "Yearly · 7 DAYS FREE pill · ₱499/yr · ₱42/mo · *contextual sub*" | Same badge treatment |
 | Lifetime | "Lifetime — ₱1,499 · Pay once · yours forever" | Never auto-recommended |
@@ -123,6 +125,7 @@ The 7-day trial is configured as a Google Play introductory price on `pro_yearly
 **Recommended card visual treatment:** accent green border (2px), `#f0fdf4` background tint, "Best for your exam date" badge top-left positioned over the border, default-selected state.
 
 **CTA copy by selected card:**
+- Weekly selected → "Get Pro — ₱29/week"
 - Monthly selected → "Get Pro — ₱99/month"
 - Yearly selected → "Start 7-day free trial"
 - Lifetime selected → "Get Pro — ₱1,499 one-time"
@@ -133,11 +136,12 @@ Reference mockup: `.superpowers/brainstorm/58970-1779115547/content/paywall-mock
 
 ## 6. Contextual SKU recommendation
 
-The paywall reads `monthsUntilExam` from the user's onboarding-provided exam date (Spec 5) and applies emphasis to the matching SKU card:
+The paywall reads the time until the user's onboarding-provided exam date (Spec 5) — days for the Weekly bucket, whole months beyond that — and applies emphasis to the matching SKU card:
 
-| Months until exam | Recommended | Badge copy |
+| Time until exam | Recommended | Badge copy |
 |---|---|---|
-| < 5 | Monthly | "Best for your exam date" |
+| ≤ 21 days | Weekly | "Best for your exam date" |
+| 22 days – 5 months | Monthly | "Best for your exam date" |
 | 5 – 24 | Yearly | "Best for your exam date" |
 | > 24 | Yearly | "Best for your exam date" |
 | No date set | Yearly | "Best value for most" |
@@ -148,6 +152,8 @@ The paywall reads `monthsUntilExam` from the user's onboarding-provided exam dat
 - No date set: "Add your exam date in Settings for a plan tuned to your timeline."
 
 **Default selection** always matches the recommended card. User can tap any card to switch — CTA copy updates accordingly.
+
+**Why the Weekly window ends at 21 days:** three weekly renewals cost ₱87; four cost ₱116. Past three weeks, Monthly is the cheaper honest pick.
 
 **Why never auto-recommend Lifetime:** lifetime is rarely the cheapest-by-math option (only justifies itself for multi-year, multi-exam users). Auto-recommending it would prioritize revenue-per-purchase over coach honesty.
 
@@ -347,6 +353,7 @@ In-app status panel. Operations deep-link to Google Play.
 | State | Panel content | Actions visible |
 |---|---|---|
 | Free | "You're on Free." | Try Pro · Restore Purchases |
+| Pro Weekly | "Pro · Weekly · renews [date] · ₱29" | Manage in Google Play · Restore Purchases |
 | Pro Monthly | "Pro · Monthly · renews [date] · ₱99" | Manage in Google Play · Restore Purchases |
 | Pro in 7-day trial | "Pro trial · [N] days left · then ₱499/year on [date]" | Manage in Google Play · Restore Purchases |
 | Pro Yearly (post-trial) | "Pro · Yearly · renews [date] · ₱499" | Manage in Google Play · Restore Purchases |
@@ -400,7 +407,7 @@ Defense in depth: a CI build-time check that ensures `FAKE_PRO` cannot exist in 
 
 ### 14.3 Pre-release QA scenarios (must pass)
 
-1. Monthly purchase end-to-end → custom claim set within 10s → Pro UI unlocks.
+1. Monthly purchase end-to-end → custom claim set within 10s → Pro UI unlocks. Repeat for Weekly (rapid renewal cycle: weekly = 5 min); verify grace period on a failed weekly renewal.
 2. Yearly purchase with trial → no charge → custom claim set → trial countdown banner appears day 5.
 3. Trial converts (rapid cycle) → ₱499 charged → custom claim persists.
 4. Trial cancelled mid-trial → access remains until trial ends → claim clears at expiration.

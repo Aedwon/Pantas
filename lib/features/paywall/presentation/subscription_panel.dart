@@ -70,6 +70,7 @@ class SubscriptionPanel extends StatelessWidget {
     }
 
     final label = switch (entitlement.plan) {
+      EntitlementPlan.weekly => 'Weekly',
       EntitlementPlan.monthly => 'Monthly',
       EntitlementPlan.yearly => 'Yearly',
       EntitlementPlan.lifetime => 'Lifetime',

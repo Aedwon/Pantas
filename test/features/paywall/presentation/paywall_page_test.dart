@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  const weekly = PaywallPackage(
+    sku: PaywallSku.weekly,
+    productId: 'pro_weekly',
+    priceString: '₱29',
+  );
   const monthly = PaywallPackage(
     sku: PaywallSku.monthly,
     productId: 'pro_monthly',
@@ -20,16 +25,20 @@ void main() {
   );
 
   testWidgets(
-    'paywall renders Monthly Yearly Lifetime in stable order',
+    'paywall renders Weekly Monthly Yearly Lifetime in stable order',
     (tester) async {
       await tester.pumpWidget(
         const _Host(
           PaywallPage(
-            packages: [lifetime, yearly, monthly],
+            packages: [lifetime, yearly, monthly, weekly],
           ),
         ),
       );
 
+      expect(
+        _textTop(tester, 'Weekly'),
+        lessThan(_textTop(tester, 'Monthly')),
+      );
       expect(
         _textTop(tester, 'Monthly'),
         lessThan(_textTop(tester, 'Yearly')),
@@ -38,6 +47,41 @@ void main() {
         _textTop(tester, 'Yearly'),
         lessThan(_textTop(tester, 'Lifetime')),
       );
+    },
+  );
+
+  testWidgets(
+    'weekly card states weekly renewal and monthly equivalent',
+    (tester) async {
+      await tester.pumpWidget(
+        const _Host(
+          PaywallPage(
+            packages: [weekly, monthly, yearly, lifetime],
+          ),
+        ),
+      );
+
+      expect(
+        find.text('₱29/week · ≈₱126/month · Renews every week · Cancel anytime'),
+        findsOneWidget,
+      );
+    },
+  );
+
+  testWidgets(
+    'weekly recommendation selects weekly by default',
+    (tester) async {
+      await tester.pumpWidget(
+        const _Host(
+          PaywallPage(
+            packages: [weekly, monthly, yearly, lifetime],
+            recommendedSku: PaywallSku.weekly,
+          ),
+        ),
+      );
+
+      expect(find.text('Best for your exam date'), findsOneWidget);
+      expect(find.text('Get Pro - ₱29/week'), findsOneWidget);
     },
   );
 

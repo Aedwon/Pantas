@@ -1,6 +1,6 @@
 import 'package:meta/meta.dart';
 
-enum EntitlementPlan { free, monthly, yearly, lifetime }
+enum EntitlementPlan { free, weekly, monthly, yearly, lifetime }
 
 @immutable
 class Entitlement {

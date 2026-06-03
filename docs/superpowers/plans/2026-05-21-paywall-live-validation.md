@@ -3,8 +3,8 @@
 This document tracks Spec 7 work that cannot be honestly completed without external dashboard, store, deployment, or device access.
 
 - **RevenueCat dashboard project:** create the Android project for this app.
-- **Google Play IAP products:** create `pro_monthly`, `pro_yearly`, and `pro_lifetime`; configure the yearly 7-day trial.
-- **RevenueCat product mappings:** map all three products to entitlement `pro` and expose the current offering.
+- **Google Play IAP products:** create `pro_weekly`, `pro_monthly`, `pro_yearly`, and `pro_lifetime`; configure the yearly 7-day trial; enable the grace period on `pro_weekly`.
+- **RevenueCat product mappings:** map all four products to entitlement `pro` and expose the current offering.
 - **Android RevenueCat API key:** provide it at build/run time with `--dart-define=REVENUECAT_ANDROID_API_KEY=...`.
 - **Firebase Functions deployment credentials:** deploy `revenuecatWebhook` and `getProContent` to `asia-southeast1`.
 - **RevenueCat webhook shared secret:** set the same secret in RevenueCat and the Firebase Function environment.

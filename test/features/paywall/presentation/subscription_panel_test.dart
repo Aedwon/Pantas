@@ -16,6 +16,29 @@ void main() {
   });
 
   testWidgets(
+    'weekly panel shows renews date and manage action',
+    (tester) async {
+      await tester.pumpWidget(
+        _Host(
+          SubscriptionPanel(
+            entitlement: Entitlement(
+              plan: EntitlementPlan.weekly,
+              productId: 'pro_weekly',
+              expiresAt: DateTime.utc(2026, 6, 21),
+            ),
+          ),
+        ),
+      );
+
+      expect(
+        find.textContaining('Pro · Weekly · renews Jun 21'),
+        findsOneWidget,
+      );
+      expect(find.text('Manage in Google Play'), findsOneWidget);
+    },
+  );
+
+  testWidgets(
     'monthly panel shows renews date and manage action',
     (tester) async {
       await tester.pumpWidget(

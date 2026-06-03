@@ -1,7 +1,7 @@
 import 'package:intl/intl.dart';
 import 'package:meta/meta.dart';
 
-enum SettingsEntitlementPlan { free, monthly, yearly, lifetime }
+enum SettingsEntitlementPlan { free, weekly, monthly, yearly, lifetime }
 
 @immutable
 class SettingsEntitlementSnapshot {

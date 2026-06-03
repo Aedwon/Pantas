@@ -2,6 +2,11 @@ import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  const weekly = PaywallPackage(
+    sku: PaywallSku.weekly,
+    productId: 'pro_weekly',
+    priceString: '₱29',
+  );
   const monthly = PaywallPackage(
     sku: PaywallSku.monthly,
     productId: 'pro_monthly',
@@ -17,6 +22,24 @@ void main() {
     productId: 'pro_lifetime',
     priceString: '₱1,499',
   );
+
+  test('weekly is recommended when exam is three weeks away or sooner', () {
+    final sku = recommendedSkuForExamDate(
+      today: DateTime.utc(2026, 5, 21),
+      examDate: DateTime.utc(2026, 6, 11),
+    );
+
+    expect(sku, PaywallSku.weekly);
+  });
+
+  test('monthly is recommended just past the three-week boundary', () {
+    final sku = recommendedSkuForExamDate(
+      today: DateTime.utc(2026, 5, 21),
+      examDate: DateTime.utc(2026, 6, 12),
+    );
+
+    expect(sku, PaywallSku.monthly);
+  });
 
   test('monthly is recommended when exam is less than five months away', () {
     final sku = recommendedSkuForExamDate(
@@ -81,7 +104,8 @@ void main() {
     }
   });
 
-  test('CTA copy matches monthly yearly and lifetime selections', () {
+  test('CTA copy matches weekly monthly yearly and lifetime selections', () {
+    expect(ctaCopyFor(weekly), 'Get Pro - ₱29/week');
     expect(ctaCopyFor(monthly), 'Get Pro - ₱99/month');
     expect(ctaCopyFor(yearly), 'Start 7-day free trial');
     expect(ctaCopyFor(lifetime), 'Get Pro - ₱1,499 one-time');
@@ -104,12 +128,12 @@ void main() {
     );
   });
 
-  test('packages are sorted monthly yearly lifetime', () {
-    final sorted = paywallDisplayOrder([lifetime, monthly, yearly]);
+  test('packages are sorted weekly monthly yearly lifetime', () {
+    final sorted = paywallDisplayOrder([lifetime, monthly, weekly, yearly]);
 
     expect(
       sorted.map((package) => package.productId),
-      ['pro_monthly', 'pro_yearly', 'pro_lifetime'],
+      ['pro_weekly', 'pro_monthly', 'pro_yearly', 'pro_lifetime'],
     );
   });
 }

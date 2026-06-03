@@ -7,6 +7,9 @@ PaywallSku recommendedSkuForExamDate({
   if (examDate == null || !examDate.isAfter(today)) {
     return PaywallSku.yearly;
   }
+  // Past 3 weekly renewals (₱87) the next one exceeds Monthly's ₱99,
+  // so recommending Weekly beyond 21 days would break coach honesty.
+  if (examDate.difference(today).inDays <= 21) return PaywallSku.weekly;
   final months = _wholeMonthsBetween(today, examDate);
   if (months < 5) return PaywallSku.monthly;
   return PaywallSku.yearly;
@@ -22,6 +25,7 @@ String recommendationBadgeCopy({
 
 String ctaCopyFor(PaywallPackage package) {
   return switch (package.sku) {
+    PaywallSku.weekly => 'Get Pro - ${package.priceString}/week',
     PaywallSku.monthly => 'Get Pro - ${package.priceString}/month',
     PaywallSku.yearly => 'Start 7-day free trial',
     PaywallSku.lifetime => 'Get Pro - ${package.priceString} one-time',
@@ -42,8 +46,9 @@ int _wholeMonthsBetween(DateTime start, DateTime end) {
 
 int _skuRank(PaywallSku sku) {
   return switch (sku) {
-    PaywallSku.monthly => 0,
-    PaywallSku.yearly => 1,
-    PaywallSku.lifetime => 2,
+    PaywallSku.weekly => 0,
+    PaywallSku.monthly => 1,
+    PaywallSku.yearly => 2,
+    PaywallSku.lifetime => 3,
   };
 }

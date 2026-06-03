@@ -21,11 +21,16 @@ class PaywallPackageCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final title = switch (package.sku) {
+      PaywallSku.weekly => 'Weekly',
       PaywallSku.monthly => 'Monthly',
       PaywallSku.yearly => 'Yearly',
       PaywallSku.lifetime => 'Lifetime',
     };
     final subtitle = switch (package.sku) {
+      // The ≈monthly equivalent keeps Weekly honest: nobody should read it
+      // as the cheap long-term option.
+      PaywallSku.weekly => '${package.priceString}/week · ≈₱126/month · '
+          'Renews every week · Cancel anytime',
       PaywallSku.monthly => '${package.priceString}/month · Cancel anytime',
       PaywallSku.yearly => '${package.priceString}/year · ₱42/month',
       PaywallSku.lifetime => '${package.priceString} · Pay once',
