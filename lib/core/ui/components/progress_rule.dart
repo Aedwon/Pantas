@@ -11,6 +11,7 @@ class ProgressRule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
+    // clamp on a double receiver returns double; no toDouble() needed.
     final factor = value.isNaN ? 0.0 : value.clamp(0.0, 1.0);
     return ClipRRect(
       borderRadius: BorderRadius.circular(AppDimensions.progressHeight / 2),

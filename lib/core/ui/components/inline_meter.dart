@@ -18,6 +18,7 @@ class InlineMeter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // clamp on a double receiver returns double; no toDouble() needed.
     final factor = value.isNaN ? 0.0 : value.clamp(0.0, 1.0);
     return SizedBox(
       width: width,

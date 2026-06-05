@@ -13,13 +13,13 @@ class StatFigure {
 /// "Figures first" stats: large serif numerals, sans labels beneath,
 /// vertical hairlines between figures, ruled top and bottom.
 class StatsBand extends StatelessWidget {
-  const StatsBand({required this.figures, super.key})
-      : assert(figures.length > 0, 'StatsBand needs at least one figure');
+  const StatsBand({required this.figures, super.key});
 
   final List<StatFigure> figures;
 
   @override
   Widget build(BuildContext context) {
+    assert(figures.isNotEmpty, 'StatsBand needs at least one figure');
     final colors = context.colors;
     final styles = context.textStyles;
 

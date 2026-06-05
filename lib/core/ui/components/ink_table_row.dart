@@ -84,6 +84,8 @@ class InkTableRow extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
+        constraints: const BoxConstraints(minHeight: 44),
+        alignment: Alignment.centerLeft,
         padding: const EdgeInsets.symmetric(vertical: 8),
         decoration: BoxDecoration(
           border: bottomRule
@@ -96,10 +98,7 @@ class InkTableRow extends StatelessWidget {
                 )
               : null,
         ),
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(minHeight: 44),
-          child: Align(alignment: Alignment.centerLeft, child: row),
-        ),
+        child: row,
       ),
     );
   }

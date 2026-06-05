@@ -61,7 +61,23 @@ void main() {
   });
 
   testWidgets('row meets minimum height', (tester) async {
-    await tester.pumpWidget(harness(const InkTableRow(title: 'Row')));
+    // UnconstrainedBox with constrainedAxis: Axis.horizontal keeps the
+    // available width (so the Row/Expanded chain can still flex) but leaves
+    // height unbounded, which is what actually makes the inner Column
+    // (mainAxisSize.max by default) shrink-wrap to its content instead of
+    // filling whatever bounded height it's handed. A plain Align still
+    // hands the subtree a bounded height (e.g. the Scaffold's), so the row
+    // fills that regardless of the ConstrainedBox fix and the assertion
+    // below can never fail.
+    await tester.pumpWidget(
+      harness(
+        const UnconstrainedBox(
+          constrainedAxis: Axis.horizontal,
+          alignment: Alignment.topLeft,
+          child: InkTableRow(title: 'Row'),
+        ),
+      ),
+    );
     final size = tester.getSize(find.byType(InkTableRow));
     expect(size.height, greaterThanOrEqualTo(44));
   });

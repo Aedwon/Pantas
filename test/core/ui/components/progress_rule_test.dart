@@ -51,4 +51,19 @@ void main() {
     );
     expect(fill.widthFactor, 0.0);
   });
+
+  testWidgets('InlineMeter treats NaN as zero', (tester) async {
+    await tester.pumpWidget(
+      harness(
+        InlineMeter(value: double.nan, color: AppColors.light.rust),
+      ),
+    );
+    final fill = tester.widget<FractionallySizedBox>(
+      find.descendant(
+        of: find.byType(InlineMeter),
+        matching: find.byType(FractionallySizedBox),
+      ),
+    );
+    expect(fill.widthFactor, 0.0);
+  });
 }
