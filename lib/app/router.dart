@@ -126,14 +126,12 @@ final routerProvider = Provider<GoRouter>((ref) {
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: '/more',
+                path: '/progress',
                 builder: (_, __) {
                   final entitlement =
                       ref.watch(entitlementProvider).valueOrNull ??
                           const Entitlement.free();
-                  return SettingsHomePage(
-                    subscriptionSubtitle: _subscriptionSubtitle(entitlement),
-                  );
+                  return ProgressPage(proIsActive: entitlement.proIsActive);
                 },
               ),
             ],
@@ -240,14 +238,6 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (_, __) => const _Stub('Mock Exam'),
       ),
       GoRoute(
-        path: '/progress',
-        builder: (_, __) {
-          final entitlement = ref.watch(entitlementProvider).valueOrNull ??
-              const Entitlement.free();
-          return ProgressPage(proIsActive: entitlement.proIsActive);
-        },
-      ),
-      GoRoute(
         path: '/wrapped/:artifactId',
         builder: (_, state) => WrappedRevealPage(
           artifactId: state.pathParameters['artifactId']!,
@@ -261,7 +251,17 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: '/settings',
-        redirect: (_, __) => '/more',
+        builder: (_, __) {
+          final entitlement = ref.watch(entitlementProvider).valueOrNull ??
+              const Entitlement.free();
+          return SettingsHomePage(
+            subscriptionSubtitle: _subscriptionSubtitle(entitlement),
+          );
+        },
+      ),
+      GoRoute(
+        path: '/more',
+        redirect: (_, __) => '/settings',
       ),
       GoRoute(
         path: '/settings/account',

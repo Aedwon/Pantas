@@ -130,7 +130,8 @@ void main() {
     expect(find.textContaining('Pro plans are unavailable'), findsOneWidget);
   });
 
-  testWidgets('/more renders Settings home', (tester) async {
+  testWidgets('/settings renders Settings home; /more redirects there',
+      (tester) async {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await AppPreferencesRepository(db).setSelectedExamId('cse');
     await pumpApp(tester);
@@ -139,10 +140,19 @@ void main() {
       tester.element(find.text('Home').first),
     );
     final router = container.read(routerProvider);
-    router.go('/more');
+    router.go('/settings');
     await tester.pumpAndSettle();
 
     expect(find.text('Settings'), findsWidgets);
+    expect(find.text('PREFERENCES'), findsOneWidget);
+
+    router.go('/more');
+    await tester.pumpAndSettle();
+
+    expect(
+      router.routerDelegate.currentConfiguration.uri.toString(),
+      '/settings',
+    );
     expect(find.text('PREFERENCES'), findsOneWidget);
   });
 

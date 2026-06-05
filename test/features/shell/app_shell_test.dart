@@ -39,14 +39,15 @@ void main() {
       await tester.pumpAndSettle();
     }
 
-    testWidgets('renders four tabs: Home, Study, Quiz, Settings',
+    testWidgets('renders four tabs: Home, Study, Quiz, Progress',
         (tester) async {
       await pumpApp(tester);
 
       expect(find.text('Home'), findsWidgets);
       expect(find.text('Study'), findsWidgets);
       expect(find.text('Quiz'), findsWidgets);
-      expect(find.text('Settings'), findsWidgets);
+      expect(find.text('Progress'), findsWidgets);
+      expect(find.text('Settings'), findsNothing);
       expect(find.text('Learn'), findsNothing);
     });
 
@@ -68,15 +69,14 @@ void main() {
       expect(find.textContaining('Quiz'), findsWidgets);
     });
 
-    testWidgets('tapping Settings tab navigates to Settings screen',
+    testWidgets('tapping Progress tab navigates to Progress screen',
         (tester) async {
       await pumpApp(tester);
 
-      await tester.tap(find.text('Settings').last);
+      await tester.tap(find.text('Progress').last);
       await tester.pumpAndSettle();
 
-      expect(find.text('Settings'), findsWidgets);
-      expect(find.text('PREFERENCES'), findsOneWidget);
+      expect(find.text('Progress'), findsWidgets);
     });
   });
 }

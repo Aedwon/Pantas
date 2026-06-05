@@ -29,53 +29,34 @@ class _AppNavBar extends StatelessWidget {
   final int currentIndex;
   final ValueChanged<int> onTap;
 
+  static const _labels = ['Home', 'Study', 'Quiz', 'Progress'];
+
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final bottomPadding = MediaQuery.of(context).padding.bottom;
-
-    return SafeArea(
-      top: false,
-      child: Padding(
-        padding: EdgeInsets.fromLTRB(16, 0, 16, bottomPadding + 12),
-        child: Container(
-          height: 66,
-          decoration: BoxDecoration(
-            color: colors.surface,
-            border: Border.all(color: colors.border),
-            borderRadius: BorderRadius.circular(AppDimensions.radiusXL),
-            boxShadow: const [AppDimensions.shadowMD],
+    return Container(
+      decoration: BoxDecoration(
+        color: colors.background,
+        border: Border(
+          top: BorderSide(
+            color: colors.rule,
+            // ignore: avoid_redundant_argument_values
+            width: AppDimensions.hairline,
           ),
+        ),
+      ),
+      child: SafeArea(
+        top: false,
+        child: SizedBox(
+          height: 52,
           child: Row(
             children: [
-              _NavItem(
-                icon: Icons.home_outlined,
-                activeIcon: Icons.home,
-                label: 'Home',
-                isActive: currentIndex == 0,
-                onTap: () => onTap(0),
-              ),
-              _NavItem(
-                icon: Icons.school_outlined,
-                activeIcon: Icons.school,
-                label: 'Study',
-                isActive: currentIndex == 1,
-                onTap: () => onTap(1),
-              ),
-              _NavItem(
-                icon: Icons.quiz_outlined,
-                activeIcon: Icons.quiz,
-                label: 'Quiz',
-                isActive: currentIndex == 2,
-                onTap: () => onTap(2),
-              ),
-              _NavItem(
-                icon: Icons.settings_outlined,
-                activeIcon: Icons.settings,
-                label: 'Settings',
-                isActive: currentIndex == 3,
-                onTap: () => onTap(3),
-              ),
+              for (var i = 0; i < _labels.length; i++)
+                _NavItem(
+                  label: _labels[i],
+                  isActive: currentIndex == i,
+                  onTap: () => onTap(i),
+                ),
             ],
           ),
         ),
@@ -86,15 +67,11 @@ class _AppNavBar extends StatelessWidget {
 
 class _NavItem extends StatelessWidget {
   const _NavItem({
-    required this.icon,
-    required this.activeIcon,
     required this.label,
     required this.isActive,
     required this.onTap,
   });
 
-  final IconData icon;
-  final IconData activeIcon;
   final String label;
   final bool isActive;
   final VoidCallback onTap;
@@ -102,23 +79,18 @@ class _NavItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final textStyles = context.textStyles;
-    final color = isActive ? colors.primary : colors.onSurfaceMuted;
-
+    final styles = context.textStyles;
     return Expanded(
-      child: GestureDetector(
-        behavior: HitTestBehavior.opaque,
+      child: InkWell(
         onTap: onTap,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(isActive ? activeIcon : icon, color: color, size: 22),
-            const SizedBox(height: 2),
-            Text(
-              label,
-              style: textStyles.labelSmall.copyWith(color: color),
+        child: Center(
+          child: Text(
+            label,
+            style: styles.labelLarge.copyWith(
+              color: isActive ? colors.ink : colors.inkMuted,
+              fontWeight: isActive ? FontWeight.w700 : FontWeight.w600,
             ),
-          ],
+          ),
         ),
       ),
     );
