@@ -20,27 +20,37 @@ class BoardButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.colors;
     final style = context.textStyles.labelLarge;
+    final enabled = onPressed != null;
     if (secondary) {
       return InkWell(
         onTap: onPressed,
         borderRadius: BorderRadius.circular(AppDimensions.radiusButton),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
-          child: Text(
-            label,
-            textAlign: TextAlign.center,
-            style: style.copyWith(color: colors.board),
+        child: ConstrainedBox(
+          constraints:
+              const BoxConstraints(minHeight: AppDimensions.minTapTarget),
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+              child: Text(
+                label,
+                textAlign: TextAlign.center,
+                style: style.copyWith(
+                  color: enabled ? colors.board : colors.inkMuted,
+                ),
+              ),
+            ),
           ),
         ),
       );
     }
-    final enabled = onPressed != null;
     return Material(
       color: Colors.transparent,
       child: InkWell(
         onTap: onPressed,
         borderRadius: BorderRadius.circular(AppDimensions.radiusButton),
-        child: DecoratedBox(
+        // Ink (not DecoratedBox) so the fill is an ink decoration: splashes
+        // paint above it instead of being hidden beneath an opaque box.
+        child: Ink(
           decoration: BoxDecoration(
             color: enabled ? colors.board : colors.ruleFaint,
             borderRadius: BorderRadius.circular(AppDimensions.radiusButton),

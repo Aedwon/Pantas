@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -25,12 +26,21 @@ class SectionHeader extends StatelessWidget {
       children: [
         Expanded(child: Text(title, style: styles.headlineSmall)),
         if (action != null)
-          GestureDetector(
+          // Padding (not Center) keeps the action text on the title's
+          // baseline while still reaching the 48dp minimum tap target.
+          InkWell(
             onTap: onAction,
-            child: Text(
-              action!,
-              style: styles.labelSmall.copyWith(
-                color: onAction != null ? colors.board : colors.inkMuted,
+            borderRadius: BorderRadius.circular(AppDimensions.radiusButton),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: 17.5,
+                horizontal: 8,
+              ),
+              child: Text(
+                action!,
+                style: styles.labelSmall.copyWith(
+                  color: onAction != null ? colors.board : colors.inkMuted,
+                ),
               ),
             ),
           ),

@@ -1,5 +1,6 @@
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_colors.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -15,15 +16,15 @@ void main() {
         BoardButton(label: 'Continue lesson', onPressed: () => tapped = true),
       ),
     );
-    final box = tester.widget<DecoratedBox>(
+    final ink = tester.widget<Ink>(
       find
           .descendant(
             of: find.byType(BoardButton),
-            matching: find.byType(DecoratedBox),
+            matching: find.byType(Ink),
           )
           .first,
     );
-    expect((box.decoration as BoxDecoration).color, AppColors.light.board);
+    expect((ink.decoration! as BoxDecoration).color, AppColors.light.board);
     await tester.tap(find.text('Continue lesson'));
     expect(tapped, isTrue);
   });
@@ -42,5 +43,30 @@ void main() {
       findsNothing,
     );
     expect(find.text('Skip'), findsOneWidget);
+  });
+
+  testWidgets('secondary meets the minimum tap target', (tester) async {
+    await tester.pumpWidget(
+      harness(
+        BoardButton(label: 'Skip', onPressed: () {}, secondary: true),
+      ),
+    );
+    final size = tester.getSize(
+      find.descendant(
+        of: find.byType(BoardButton),
+        matching: find.byType(InkWell),
+      ),
+    );
+    expect(size.height, greaterThanOrEqualTo(AppDimensions.minTapTarget));
+  });
+
+  testWidgets('secondary disabled label uses muted ink', (tester) async {
+    await tester.pumpWidget(
+      harness(
+        const BoardButton(label: 'Skip', onPressed: null, secondary: true),
+      ),
+    );
+    final text = tester.widget<Text>(find.text('Skip'));
+    expect(text.style?.color, AppColors.light.inkMuted);
   });
 }
