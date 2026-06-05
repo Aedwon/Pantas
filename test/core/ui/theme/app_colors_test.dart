@@ -42,4 +42,19 @@ void main() {
     // ignore: deprecated_member_use_from_same_package
     expect(c.errorContainer, c.ruleFaint);
   });
+
+  test('lerp at t=1 lands exactly on the other palette', () {
+    final lerped = AppColors.light.lerp(AppColors.dark, 1);
+    expect(lerped.background, AppColors.dark.background);
+    expect(lerped.surface, AppColors.dark.surface);
+    expect(lerped.ink, AppColors.dark.ink);
+    expect(lerped.inkMuted, AppColors.dark.inkMuted);
+    expect(lerped.rule, AppColors.dark.rule);
+    expect(lerped.ruleFaint, AppColors.dark.ruleFaint);
+    expect(lerped.board, AppColors.dark.board);
+    expect(lerped.boardTint, AppColors.dark.boardTint);
+    expect(lerped.onBoard, AppColors.dark.onBoard);
+    expect(lerped.rust, AppColors.dark.rust);
+    expect(lerped.amber, AppColors.dark.amber);
+  });
 }

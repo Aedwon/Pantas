@@ -43,4 +43,12 @@ void main() {
         .toList();
     expect(colored, contains(AppColors.light.rust));
   });
+
+  testWidgets('ProgressRule treats NaN as zero', (tester) async {
+    await tester.pumpWidget(harness(const ProgressRule(value: double.nan)));
+    final fill = tester.widget<FractionallySizedBox>(
+      find.byType(FractionallySizedBox),
+    );
+    expect(fill.widthFactor, 0.0);
+  });
 }

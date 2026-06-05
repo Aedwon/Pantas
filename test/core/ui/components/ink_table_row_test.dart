@@ -59,4 +59,10 @@ void main() {
     expect(find.text('✓'), findsNothing);
     expect(find.text('○'), findsNothing);
   });
+
+  testWidgets('row meets minimum height', (tester) async {
+    await tester.pumpWidget(harness(const InkTableRow(title: 'Row')));
+    final size = tester.getSize(find.byType(InkTableRow));
+    expect(size.height, greaterThanOrEqualTo(44));
+  });
 }

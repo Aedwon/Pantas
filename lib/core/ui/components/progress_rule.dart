@@ -11,6 +11,7 @@ class ProgressRule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
+    final factor = value.isNaN ? 0.0 : value.clamp(0.0, 1.0);
     return ClipRRect(
       borderRadius: BorderRadius.circular(AppDimensions.progressHeight / 2),
       child: Container(
@@ -19,7 +20,7 @@ class ProgressRule extends StatelessWidget {
         color: colors.ruleFaint,
         alignment: Alignment.centerLeft,
         child: FractionallySizedBox(
-          widthFactor: value.clamp(0.0, 1.0),
+          widthFactor: factor,
           child: Container(
             decoration: BoxDecoration(color: colors.board),
           ),

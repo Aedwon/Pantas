@@ -69,4 +69,23 @@ void main() {
     final text = tester.widget<Text>(find.text('Skip'));
     expect(text.style?.color, AppColors.light.inkMuted);
   });
+
+  testWidgets('primary renders night board color under dark theme',
+      (tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildDarkTheme(),
+        home: Scaffold(
+          body: BoardButton(label: 'Continue', onPressed: () {}),
+        ),
+      ),
+    );
+    final ink = tester.widget<Ink>(
+      find.descendant(
+        of: find.byType(BoardButton),
+        matching: find.byType(Ink),
+      ),
+    );
+    expect((ink.decoration as BoxDecoration?)?.color, AppColors.dark.board);
+  });
 }

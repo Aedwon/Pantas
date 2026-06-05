@@ -13,7 +13,8 @@ class StatFigure {
 /// "Figures first" stats: large serif numerals, sans labels beneath,
 /// vertical hairlines between figures, ruled top and bottom.
 class StatsBand extends StatelessWidget {
-  const StatsBand({required this.figures, super.key});
+  const StatsBand({required this.figures, super.key})
+      : assert(figures.length > 0, 'StatsBand needs at least one figure');
 
   final List<StatFigure> figures;
 
@@ -22,8 +23,7 @@ class StatsBand extends StatelessWidget {
     final colors = context.colors;
     final styles = context.textStyles;
 
-    final numeralStyle =
-        styles.displayLarge.copyWith(fontSize: 30, height: 1);
+    final numeralStyle = styles.displayLarge.copyWith(fontSize: 30, height: 1);
     final suffixStyle = numeralStyle.copyWith(
       fontSize: 16,
       fontWeight: FontWeight.w400,

@@ -18,6 +18,7 @@ class InlineMeter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final factor = value.isNaN ? 0.0 : value.clamp(0.0, 1.0);
     return SizedBox(
       width: width,
       height: AppDimensions.progressHeight,
@@ -25,7 +26,7 @@ class InlineMeter extends StatelessWidget {
         color: context.colors.ruleFaint,
         alignment: Alignment.centerLeft,
         child: FractionallySizedBox(
-          widthFactor: value.clamp(0.0, 1.0),
+          widthFactor: factor,
           child: Container(decoration: BoxDecoration(color: color)),
         ),
       ),

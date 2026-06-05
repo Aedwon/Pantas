@@ -96,7 +96,10 @@ class InkTableRow extends StatelessWidget {
                 )
               : null,
         ),
-        child: row,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minHeight: 44),
+          child: Align(alignment: Alignment.centerLeft, child: row),
+        ),
       ),
     );
   }

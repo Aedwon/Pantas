@@ -9,9 +9,9 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(
         theme: buildLightTheme(),
-        home: const Scaffold(
+        home: Scaffold(
           body: StatsBand(
-            figures: [
+            figures: const [
               StatFigure(value: '78%', label: 'Average score'),
               StatFigure(value: '41', suffix: '/96', label: 'Lessons done'),
             ],
@@ -27,5 +27,12 @@ void main() {
     expect(find.text('Lessons done'), findsOneWidget);
     // one vertical divider between two figures
     expect(find.byKey(const ValueKey('stats-divider-0')), findsOneWidget);
+  });
+
+  test('StatsBand asserts on empty figures', () {
+    expect(
+      () => StatsBand(figures: const []),
+      throwsAssertionError,
+    );
   });
 }
