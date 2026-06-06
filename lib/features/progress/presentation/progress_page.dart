@@ -29,22 +29,24 @@ class ProgressPage extends ConsumerWidget {
     final examId = focus?.exam?.id;
     final panels = progressPanelsForEntitlement(proIsActive: proIsActive);
 
-    return ListView(
-      padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
-      children: [
-        Text('Progress', style: styles.displaySmall),
-        if (examId == null)
-          Padding(
-            padding: const EdgeInsets.only(top: 12),
-            child: Text(
-              'Pick your exam to start tracking progress.',
-              style: styles.bodyMedium.copyWith(color: colors.inkMuted),
-            ),
-          )
-        else
-          for (final panel in panels)
-            _ProgressPanelSection(panel: panel, examId: examId),
-      ],
+    return SafeArea(
+      child: ListView(
+        padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+        children: [
+          Text('Progress', style: styles.displaySmall),
+          if (examId == null)
+            Padding(
+              padding: const EdgeInsets.only(top: 12),
+              child: Text(
+                'Pick your exam to start tracking progress.',
+                style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+              ),
+            )
+          else
+            for (final panel in panels)
+              _ProgressPanelSection(panel: panel, examId: examId),
+        ],
+      ),
     );
   }
 }
