@@ -2,12 +2,10 @@ import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/assessment_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/core/ui/components/stats_band.dart';
 import 'package:cse_cet_reviewer/features/assessment/presentation/assessment_home_tab.dart';
-import 'package:cse_cet_reviewer/features/metrics/atoms/home_atom_chip.dart';
-import 'package:cse_cet_reviewer/features/metrics/providers/home_atom_provider.dart';
 import 'package:drift/drift.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 
@@ -19,34 +17,15 @@ GoRouter _buildRouter() => GoRouter(
       routes: [
         GoRoute(
           path: '/home',
-          builder: (_, __) => AssessmentHomeTab(
-            afterHeaderBuilder: (_, ref, examId) {
-              final now = DateTime.now();
-              final localDate = DateTime(now.year, now.month, now.day);
-              final atom = ref.watch(
-                homeAtomProvider(
-                  HomeAtomRequest(
-                    examId: examId,
-                    userId: 'local',
-                    localDate: localDate,
-                    now: localDate.add(
-                      const Duration(hours: 23, minutes: 59),
-                    ),
-                  ),
-                ),
-              );
-              return atom.maybeWhen(
-                data: (chip) => chip == null
-                    ? const SizedBox.shrink()
-                    : HomeAtomChip(chip: chip),
-                orElse: () => const SizedBox.shrink(),
-              );
-            },
-          ),
+          builder: (_, __) => const AssessmentHomeTab(),
         ),
         GoRoute(
           path: '/onboarding',
           builder: (_, __) => const Scaffold(body: Text('Onboarding')),
+        ),
+        GoRoute(
+          path: '/settings',
+          builder: (_, __) => const Scaffold(body: Text('Settings page')),
         ),
         GoRoute(
           path: '/assessment/:examId',
@@ -146,18 +125,17 @@ void main() {
 
     await pumpHome(tester);
 
-    expect(find.text('Home'), findsOneWidget);
-    expect(find.text('Choose exam'), findsWidgets);
     expect(find.text('Choose your exam'), findsOneWidget);
     expect(find.text('Pick the exam you are reviewing for.'), findsOneWidget);
 
-    await tester.tap(find.text('Choose exam').last);
+    await tester.tap(find.text('Get started'));
     await tester.pumpAndSettle();
 
     expect(find.text('Onboarding'), findsOneWidget);
   });
 
-  testWidgets('no assessment shows focused hero and CTAs', (tester) async {
+  testWidgets('no assessment shows greeting header, Lately line, and CTAs',
+      (tester) async {
     await insertExam(id: 'cse', name: 'Civil Service Exam');
     await AppPreferencesRepository(db).setSelectedExamId('cse');
     final base = DateTime.now().subtract(const Duration(days: 1));
@@ -180,36 +158,48 @@ void main() {
 
     await pumpHome(tester);
 
-    expect(find.text('Home'), findsOneWidget);
-    expect(find.text('Civil Service Exam'), findsOneWidget);
-    expect(find.byType(HomeAtomChip), findsOneWidget);
+    expect(find.textContaining('Magandang'), findsOneWidget);
+    expect(find.text('CSE'), findsOneWidget);
+    expect(find.textContaining('Lately — '), findsOneWidget);
     expect(find.text('Build your study plan'), findsOneWidget);
     expect(
       find.text('Take the assessment to find what to study first.'),
       findsOneWidget,
     );
-    expect(find.text('Start assessment'), findsOneWidget);
-    expect(find.text('Quiz for now'), findsOneWidget);
+    expect(find.byType(StatsBand), findsNothing);
 
-    await tester.tap(find.text('Start assessment'));
+    await tester.tap(find.text('Start the assessment'));
     await tester.pumpAndSettle();
     expect(find.text('Assessment cse'), findsOneWidget);
   });
 
-  testWidgets('quiz for now opens quick quiz for selected exam',
+  testWidgets('quick quiz CTA opens quick quiz for selected exam',
       (tester) async {
     await insertExam(id: 'cse', name: 'Civil Service Exam');
     await AppPreferencesRepository(db).setSelectedExamId('cse');
 
     await pumpHome(tester);
 
-    await tester.tap(find.text('Quiz for now'));
+    await tester.tap(find.text('Try a quick quiz'));
     await tester.pumpAndSettle();
 
     expect(find.text('Quiz cse '), findsOneWidget);
   });
 
-  testWidgets('completed weak results show study plan rows', (tester) async {
+  testWidgets('gear pushes settings route', (tester) async {
+    await insertExam(id: 'cse', name: 'Civil Service Exam');
+    await AppPreferencesRepository(db).setSelectedExamId('cse');
+
+    await pumpHome(tester);
+
+    await tester.tap(find.byTooltip('Settings'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Settings page'), findsOneWidget);
+  });
+
+  testWidgets('completed results show stats band and focus topic rows',
+      (tester) async {
     await insertExam(id: 'cse', name: 'Civil Service Exam');
     await insertTopic(
       id: 'vocab',
@@ -249,8 +239,12 @@ void main() {
 
     await pumpHome(tester);
 
-    expect(find.text('Assessment last taken on May 12, 2026'), findsOneWidget);
-    expect(find.text('Your study plan'), findsOneWidget);
+    expect(find.byType(StatsBand), findsOneWidget);
+    // 7 correct of 16 questions → 44%; only logic (80%) is strong.
+    expect(find.text('44%'), findsOneWidget);
+    expect(find.text('1'), findsOneWidget);
+    expect(find.text('/4'), findsOneWidget);
+    expect(find.text('Focus topics'), findsOneWidget);
     expect(find.text('Vocabulary'), findsOneWidget);
     expect(find.text('Grammar'), findsOneWidget);
     expect(find.text('Reading'), findsOneWidget);
@@ -258,11 +252,34 @@ void main() {
     expect(find.text('0%'), findsOneWidget);
     expect(find.text('33%'), findsOneWidget);
     expect(find.text('40%'), findsOneWidget);
-    expect(find.text('Study'), findsNWidgets(3));
-    expect(find.text('View full results'), findsOneWidget);
+    expect(find.text('Continue studying'), findsOneWidget);
+    expect(find.text('View results'), findsOneWidget);
   });
 
-  testWidgets('all strong results show keep sharp and quiz actions',
+  testWidgets('focus topic row navigates to expected study route',
+      (tester) async {
+    await insertExam(id: 'cse', name: 'Civil Service Exam');
+    await insertTopic(
+      id: 'vocab',
+      subjectId: 's1',
+      name: 'Vocabulary',
+      ordering: 1,
+    );
+    await AppPreferencesRepository(db).setSelectedExamId('cse');
+    await AssessmentRepository(db).saveResult(
+      'cse',
+      DateTime(2026, 5, 12),
+      const [TopicScore(topicId: 'vocab', correct: 0, total: 3)],
+    );
+
+    await pumpHome(tester);
+
+    await tester.tap(find.text('Vocabulary'));
+    await tester.pumpAndSettle();
+    expect(find.text('Study vocab cse'), findsOneWidget);
+  });
+
+  testWidgets('strong topic row navigates to quick quiz route',
       (tester) async {
     await insertExam(id: 'upcat', name: 'UPCAT');
     await insertTopic(
@@ -271,65 +288,21 @@ void main() {
       name: 'Algebra',
       ordering: 1,
     );
-    await insertTopic(
-      id: 'geometry',
-      subjectId: 's1',
-      name: 'Geometry',
-      ordering: 2,
-    );
-    await insertTopic(
-      id: 'biology',
-      subjectId: 's1',
-      name: 'Biology',
-      ordering: 3,
-    );
     await AppPreferencesRepository(db).setSelectedExamId('upcat');
     await AssessmentRepository(db).saveResult(
       'upcat',
       DateTime(2026, 5, 12),
-      const [
-        TopicScore(topicId: 'algebra', correct: 78, total: 100),
-        TopicScore(topicId: 'geometry', correct: 82, total: 100),
-        TopicScore(topicId: 'biology', correct: 85, total: 100),
-      ],
+      const [TopicScore(topicId: 'algebra', correct: 78, total: 100)],
     );
 
     await pumpHome(tester);
 
-    expect(find.text('Keep sharp'), findsOneWidget);
-    expect(find.text('Algebra'), findsOneWidget);
-    expect(find.text('Geometry'), findsOneWidget);
-    expect(find.text('Biology'), findsOneWidget);
-    expect(find.text('78%'), findsOneWidget);
-    expect(find.text('82%'), findsOneWidget);
-    expect(find.text('85%'), findsOneWidget);
-    expect(find.text('Quiz'), findsNWidgets(3));
-  });
-
-  testWidgets('study plan row navigates to expected study route',
-      (tester) async {
-    await insertExam(id: 'cse', name: 'Civil Service Exam');
-    await insertTopic(
-      id: 'vocab',
-      subjectId: 's1',
-      name: 'Vocabulary',
-      ordering: 1,
-    );
-    await AppPreferencesRepository(db).setSelectedExamId('cse');
-    await AssessmentRepository(db).saveResult(
-      'cse',
-      DateTime(2026, 5, 12),
-      const [TopicScore(topicId: 'vocab', correct: 0, total: 3)],
-    );
-
-    await pumpHome(tester);
-
-    await tester.tap(find.text('Study'));
+    await tester.tap(find.text('Algebra'));
     await tester.pumpAndSettle();
-    expect(find.text('Study vocab cse'), findsOneWidget);
+    expect(find.text('Quiz upcat algebra'), findsOneWidget);
   });
 
-  testWidgets('view full results navigates to assessment results route',
+  testWidgets('view results navigates to assessment results route',
       (tester) async {
     await insertExam(id: 'cse', name: 'Civil Service Exam');
     await insertTopic(
@@ -347,7 +320,7 @@ void main() {
 
     await pumpHome(tester);
 
-    await tester.tap(find.text('View full results'));
+    await tester.tap(find.text('View results'));
     await tester.pumpAndSettle();
     expect(find.text('Results cse'), findsOneWidget);
   });
