@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/onboarding/presentation/onboarding_welcome_step.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -7,6 +8,7 @@ void main() {
       (tester) async {
     await tester.pumpWidget(
       MaterialApp(
+          theme: buildLightTheme(),
         home: Scaffold(
           body: OnboardingWelcomeStep(onAdvance: () {}),
         ),
@@ -25,6 +27,7 @@ void main() {
     var advanced = 0;
     await tester.pumpWidget(
       MaterialApp(
+          theme: buildLightTheme(),
         home: Scaffold(
           body: OnboardingWelcomeStep(onAdvance: () => advanced++),
         ),

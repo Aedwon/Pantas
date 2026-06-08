@@ -1,6 +1,7 @@
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class OnboardingAgeGateStep extends ConsumerStatefulWidget {
@@ -52,7 +53,8 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
   }
 
   Widget _buildInput(BuildContext context) {
-    final theme = Theme.of(context);
+    final styles = context.textStyles;
+    final colors = context.colors;
     final years = List<int>.generate(
       _maxYear - _minYear + 1,
       (i) => _minYear + i,
@@ -60,21 +62,16 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
     final initialIndex = years.indexOf(_defaultYear);
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+        padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const SizedBox(height: 24),
-            Text(
-              'Quick check',
-              style: theme.textTheme.headlineMedium
-                  ?.copyWith(fontWeight: FontWeight.w700),
-            ),
+            Text('Quick check', style: styles.displaySmall),
             const SizedBox(height: 10),
             Text(
               'When were you born?',
-              style: theme.textTheme.bodyLarge
-                  ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+              style: styles.bodyLarge.copyWith(color: colors.inkMuted),
             ),
             const SizedBox(height: 24),
             Expanded(
@@ -89,15 +86,9 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
                 children: [for (final y in years) Center(child: Text('$y'))],
               ),
             ),
-            FilledButton(
+            BoardButton(
+              label: 'Continue',
               onPressed: (_saving || !_yearSelected) ? null : _onContinue,
-              style: FilledButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(14),
-                ),
-              ),
-              child: const Text('Continue'),
             ),
           ],
         ),
@@ -106,23 +97,23 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
   }
 
   Widget _buildBlocked(BuildContext context) {
-    final theme = Theme.of(context);
+    final styles = context.textStyles;
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+        padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               "Sorry, this app isn't available for users under 13.",
-              textAlign: TextAlign.center,
-              style: theme.textTheme.headlineSmall
-                  ?.copyWith(fontWeight: FontWeight.w700),
+              style: styles.headlineMedium,
             ),
             const SizedBox(height: 24),
-            TextButton(
+            BoardButton(
+              label: 'Try a different year',
+              secondary: true,
               onPressed: () => setState(() => _blocked = false),
-              child: const Text('Try a different year'),
             ),
           ],
         ),

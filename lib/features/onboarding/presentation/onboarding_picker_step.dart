@@ -1,5 +1,9 @@
 import 'package:cse_cet_reviewer/core/storage/domain/exam.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
+import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -46,46 +50,49 @@ class _OnboardingPickerStepState extends ConsumerState<OnboardingPickerStep> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final styles = context.textStyles;
+    final colors = context.colors;
     final examsAsync = ref.watch(examListProvider);
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+        padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const SizedBox(height: 24),
-            Text(
-              'Choose your exam',
-              style: theme.textTheme.headlineMedium
-                  ?.copyWith(fontWeight: FontWeight.w700),
-            ),
+            Text('Choose your exam', style: styles.displaySmall),
             const SizedBox(height: 6),
             Text(
-              'You can switch later in More.',
-              style: theme.textTheme.bodyMedium
-                  ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+              'You can switch later in Settings.',
+              style: styles.bodyMedium.copyWith(color: colors.inkMuted),
             ),
             const SizedBox(height: 24),
             Expanded(
               child: examsAsync.when(
-                loading: () => const Center(child: CircularProgressIndicator()),
-                error: (_, __) =>
-                    const Center(child: Text('Could not load exams.')),
+                loading: () => const FaintBars(),
+                error: (_, __) => Center(
+                  child: Text(
+                    'Could not load exams.',
+                    style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+                  ),
+                ),
                 data: (exams) {
                   final active = [...exams.where((e) => e.isActive)]
                     ..sort((a, b) => a.name.compareTo(b.name));
                   if (active.isEmpty) {
-                    return const Center(
-                      child: Text('No exams available right now.'),
+                    return Center(
+                      child: Text(
+                        'No exams available right now.',
+                        style: styles.bodyMedium
+                            .copyWith(color: colors.inkMuted),
+                      ),
                     );
                   }
-                  return ListView.separated(
+                  return ListView.builder(
                     itemCount: active.length,
-                    separatorBuilder: (_, __) => const SizedBox(height: 10),
                     itemBuilder: (_, i) {
                       final exam = active[i];
-                      return _ExamCard(
+                      return _ExamRow(
                         exam: exam,
                         selected: _selectedId == exam.id,
                         onTap: () => setState(() => _selectedId = exam.id),
@@ -96,15 +103,9 @@ class _OnboardingPickerStepState extends ConsumerState<OnboardingPickerStep> {
               ),
             ),
             const SizedBox(height: 16),
-            FilledButton(
+            BoardButton(
+              label: 'Continue',
               onPressed: (_selectedId == null || _saving) ? null : _onContinue,
-              style: FilledButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(14),
-                ),
-              ),
-              child: const Text('Continue'),
             ),
           ],
         ),
@@ -113,8 +114,8 @@ class _OnboardingPickerStepState extends ConsumerState<OnboardingPickerStep> {
   }
 }
 
-class _ExamCard extends StatelessWidget {
-  const _ExamCard({
+class _ExamRow extends StatelessWidget {
+  const _ExamRow({
     required this.exam,
     required this.selected,
     required this.onTap,
@@ -126,47 +127,47 @@ class _ExamCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final colors = context.colors;
+    final styles = context.textStyles;
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(18),
       child: Container(
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: selected
-              ? theme.colorScheme.primaryContainer
-              : theme.colorScheme.surface,
-          border: Border.all(
-            color: selected
-                ? theme.colorScheme.primary
-                : theme.colorScheme.outlineVariant,
-          ),
-          borderRadius: BorderRadius.circular(18),
-        ),
+        constraints: const BoxConstraints(minHeight: 44),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+        decoration: selected
+            ? BoxDecoration(
+                color: colors.boardTint,
+                border: Border.all(color: colors.board),
+                borderRadius:
+                    BorderRadius.circular(AppDimensions.radiusButton),
+              )
+            : BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    color: colors.ruleFaint,
+                    // ignore: avoid_redundant_argument_values
+                    width: AppDimensions.hairline,
+                  ),
+                ),
+              ),
         child: Row(
           children: [
-            Container(
-              width: 48,
-              height: 48,
-              decoration: BoxDecoration(
-                color: theme.colorScheme.primaryContainer,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              alignment: Alignment.center,
+            SizedBox(
+              width: 56,
               child: Text(
                 exam.code,
-                style: theme.textTheme.labelLarge?.copyWith(
-                  color: theme.colorScheme.primary,
-                  fontWeight: FontWeight.w700,
+                style: styles.headlineSmall.copyWith(
+                  color: selected ? colors.board : colors.inkMuted,
                 ),
               ),
             ),
-            const SizedBox(width: 14),
+            const SizedBox(width: 10),
             Expanded(
               child: Text(
                 exam.name,
-                style: theme.textTheme.titleMedium
-                    ?.copyWith(fontWeight: FontWeight.w600),
+                style: styles.bodyMedium.copyWith(
+                  fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
+                ),
               ),
             ),
           ],

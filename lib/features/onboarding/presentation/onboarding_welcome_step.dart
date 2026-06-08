@@ -1,3 +1,5 @@
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingWelcomeStep extends StatelessWidget {
@@ -7,50 +9,23 @@ class OnboardingWelcomeStep extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final styles = context.textStyles;
+    final colors = context.colors;
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+        padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const SizedBox(height: 24),
-            Container(
-              height: 180,
-              decoration: BoxDecoration(
-                color: theme.colorScheme.primaryContainer,
-                borderRadius: BorderRadius.circular(24),
-              ),
-              alignment: Alignment.center,
-              child: Icon(
-                Icons.menu_book_rounded,
-                size: 64,
-                color: theme.colorScheme.primary,
-              ),
-            ),
-            const SizedBox(height: 32),
-            Text(
-              'Build your study plan',
-              style: theme.textTheme.headlineMedium
-                  ?.copyWith(fontWeight: FontWeight.w700),
-            ),
+            const Spacer(),
+            Text('Build your study plan', style: styles.displaySmall),
             const SizedBox(height: 10),
             Text(
               "Pick your exam — we'll guide what to study first.",
-              style: theme.textTheme.bodyLarge
-                  ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+              style: styles.bodyLarge.copyWith(color: colors.inkMuted),
             ),
             const Spacer(),
-            FilledButton(
-              onPressed: onAdvance,
-              style: FilledButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(14),
-                ),
-              ),
-              child: const Text('Get started'),
-            ),
+            BoardButton(label: 'Get started', onPressed: onAdvance),
           ],
         ),
       ),

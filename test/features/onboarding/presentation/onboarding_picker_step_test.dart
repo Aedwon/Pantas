@@ -1,6 +1,8 @@
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/onboarding/presentation/onboarding_picker_step.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -52,6 +54,7 @@ void main() {
       ProviderScope(
         overrides: [appDatabaseProvider.overrideWithValue(db)],
         child: MaterialApp(
+          theme: buildLightTheme(),
           home: Scaffold(
             body: OnboardingPickerStep(
               onCompleted: onCompleted ?? () {},
@@ -68,7 +71,7 @@ void main() {
     await pumpStep(tester);
 
     expect(find.text('Choose your exam'), findsOneWidget);
-    expect(find.text('You can switch later in More.'), findsOneWidget);
+    expect(find.text('You can switch later in Settings.'), findsOneWidget);
     expect(find.text('CSE'), findsOneWidget); // emblem
     expect(find.text('UPCAT'), findsWidgets); // emblem + name
     expect(find.text('Civil Service Exam'), findsOneWidget);
@@ -78,14 +81,14 @@ void main() {
     await pumpStep(tester);
 
     final cont = tester
-        .widget<FilledButton>(find.widgetWithText(FilledButton, 'Continue'));
+        .widget<BoardButton>(find.widgetWithText(BoardButton, 'Continue'));
     expect(cont.onPressed, isNull);
 
     await tester.tap(find.text('Civil Service Exam'));
     await tester.pump();
 
     final cont2 = tester
-        .widget<FilledButton>(find.widgetWithText(FilledButton, 'Continue'));
+        .widget<BoardButton>(find.widgetWithText(BoardButton, 'Continue'));
     expect(cont2.onPressed, isNotNull);
   });
 
@@ -96,7 +99,7 @@ void main() {
 
     await tester.tap(find.text('Civil Service Exam'));
     await tester.pump();
-    await tester.tap(find.widgetWithText(FilledButton, 'Continue'));
+    await tester.tap(find.widgetWithText(BoardButton, 'Continue'));
     await tester.pumpAndSettle();
 
     expect(completed, equals(1));
@@ -115,6 +118,7 @@ void main() {
           ),
         ],
         child: MaterialApp(
+          theme: buildLightTheme(),
           home: Scaffold(
             body: OnboardingPickerStep(
               onCompleted: () => completed++,
@@ -127,13 +131,13 @@ void main() {
 
     await tester.tap(find.text('Civil Service Exam'));
     await tester.pump();
-    await tester.tap(find.widgetWithText(FilledButton, 'Continue'));
+    await tester.tap(find.widgetWithText(BoardButton, 'Continue'));
     await tester.pumpAndSettle();
 
     expect(find.text("Couldn't save selection. Try again."), findsOneWidget);
     expect(completed, equals(0));
-    final cont = tester.widget<FilledButton>(
-      find.widgetWithText(FilledButton, 'Continue'),
+    final cont = tester.widget<BoardButton>(
+      find.widgetWithText(BoardButton, 'Continue'),
     );
     expect(cont.onPressed, isNotNull);
   });

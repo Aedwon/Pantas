@@ -1,4 +1,6 @@
 import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/notifications/application/notifications_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -29,43 +31,40 @@ class _PermissionRationalePageState
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final styles = context.textStyles;
+    final colors = context.colors;
     return Scaffold(
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 420),
             child: Padding(
-              padding: const EdgeInsets.all(24),
+              padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(
-                    "I'll be your coach.",
-                    style: theme.textTheme.headlineMedium,
-                    textAlign: TextAlign.center,
-                  ),
+                  Text("I'll be your coach.", style: styles.displaySmall),
                   const SizedBox(height: 16),
                   Text(
                     'Get one daily study reminder and a streak-save warning '
                     'when you still have work left today.',
-                    style: theme.textTheme.bodyLarge,
-                    textAlign: TextAlign.center,
+                    style: styles.bodyLarge.copyWith(color: colors.inkMuted),
                   ),
                   const SizedBox(height: 32),
-                  FilledButton(
+                  BoardButton(
+                    label: 'Sounds good',
                     onPressed: _isSaving
                         ? null
                         : () => _continue(requestPermission: true),
-                    child: const Text('Sounds good'),
                   ),
                   const SizedBox(height: 8),
-                  TextButton(
+                  BoardButton(
+                    label: 'Not right now',
+                    secondary: true,
                     onPressed: _isSaving
                         ? null
                         : () => _continue(requestPermission: false),
-                    child: const Text('Not right now'),
                   ),
                 ],
               ),

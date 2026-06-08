@@ -1,6 +1,8 @@
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/onboarding/presentation/onboarding_age_gate_step.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +25,7 @@ void main() {
       ProviderScope(
         overrides: [appDatabaseProvider.overrideWithValue(db)],
         child: MaterialApp(
+          theme: buildLightTheme(),
           home: Scaffold(
             body: OnboardingAgeGateStep(
               onAgeGatePassed: onPassed ?? () {},
@@ -42,7 +45,7 @@ void main() {
     expect(find.text('Quick check'), findsOneWidget);
     expect(find.text('When were you born?'), findsOneWidget);
     final cont = tester
-        .widget<FilledButton>(find.widgetWithText(FilledButton, 'Continue'));
+        .widget<BoardButton>(find.widgetWithText(BoardButton, 'Continue'));
     expect(cont.onPressed, isNull);
   });
 
@@ -58,7 +61,7 @@ void main() {
     await tester.drag(picker, const Offset(0, -32));
     await tester.pumpAndSettle();
 
-    await tester.tap(find.widgetWithText(FilledButton, 'Continue'));
+    await tester.tap(find.widgetWithText(BoardButton, 'Continue'));
     await tester.pumpAndSettle();
 
     expect(passed, equals(1));
@@ -77,7 +80,7 @@ void main() {
     await tester.drag(picker, const Offset(0, -32.0 * 6));
     await tester.pumpAndSettle();
 
-    await tester.tap(find.widgetWithText(FilledButton, 'Continue'));
+    await tester.tap(find.widgetWithText(BoardButton, 'Continue'));
     await tester.pumpAndSettle();
 
     expect(
@@ -95,7 +98,7 @@ void main() {
     final picker = find.byType(CupertinoPicker);
     await tester.drag(picker, const Offset(0, -32.0 * 6));
     await tester.pumpAndSettle();
-    await tester.tap(find.widgetWithText(FilledButton, 'Continue'));
+    await tester.tap(find.widgetWithText(BoardButton, 'Continue'));
     await tester.pumpAndSettle();
 
     await tester.tap(find.text('Try a different year'));
