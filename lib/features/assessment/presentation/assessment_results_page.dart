@@ -1,8 +1,12 @@
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/core/ui/components/app_button.dart';
-import 'package:cse_cet_reviewer/core/ui/components/app_card.dart';
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
+import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
+import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
+import 'package:cse_cet_reviewer/core/ui/components/inline_meter.dart';
+import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/assessment/domain/models/assessment_result.dart';
 import 'package:cse_cet_reviewer/features/assessment/domain/models/topic_mastery.dart';
@@ -29,11 +33,14 @@ class AssessmentResultsPage extends ConsumerWidget {
         ref.watch(_assessmentExamNameProvider(examId)).valueOrNull ?? examId;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Your Profile')),
+      appBar: AppBar(title: const Text('Your results')),
       body: asyncResult.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
+        loading: () => ListView(
+          padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+          children: const [FaintBars()],
+        ),
         error: (e, _) => Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
           child: ErrorBanner(
             variant: ErrorBannerVariant.error,
             message: e.toString(),
@@ -43,7 +50,13 @@ class AssessmentResultsPage extends ConsumerWidget {
         ),
         data: (result) {
           if (result == null) {
-            return const Center(child: Text('No assessment found.'));
+            return Center(
+              child: Text(
+                'No assessment found.',
+                style: context.textStyles.bodyMedium
+                    .copyWith(color: context.colors.inkMuted),
+              ),
+            );
           }
           return _ResultsBody(
             result: result,
@@ -82,78 +95,31 @@ class _ResultsBody extends StatelessWidget {
     final weak = _weakTopics;
 
     return ListView(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
       children: [
-        Text('Your $examName Profile', style: textStyles.headlineSmall),
+        Text('Your $examName profile', style: textStyles.displaySmall),
         const SizedBox(height: 16),
-        Text('Topic Breakdown', style: textStyles.headlineSmall),
-        const SizedBox(height: 12),
-        for (final mastery in result.topicMasteries) ...[
-          _TopicBar(mastery: mastery),
-          const SizedBox(height: 8),
-        ],
-        const SizedBox(height: 24),
-        Text('Focus Areas', style: textStyles.headlineSmall),
-        const SizedBox(height: 4),
+        const SectionHeader(title: 'Topic breakdown'),
+        for (final mastery in result.topicMasteries)
+          _TopicRow(mastery: mastery),
+        const SizedBox(height: 20),
+        const SectionHeader(title: 'Focus areas'),
         Text(
           'Your recommendations update as you study',
-          style: textStyles.bodySmall.copyWith(color: colors.onSurfaceMuted),
-        ),
-        const SizedBox(height: 12),
-        for (var i = 0; i < weak.length; i++) ...[
-          _TopicCta(mastery: weak[i], examId: examId, isFirst: i == 0),
-          const SizedBox(height: 12),
-        ],
-      ],
-    );
-  }
-}
-
-class _TopicBar extends StatelessWidget {
-  const _TopicBar({required this.mastery});
-
-  final TopicMastery mastery;
-
-  @override
-  Widget build(BuildContext context) {
-    final textStyles = context.textStyles;
-    final colors = context.colors;
-
-    final barColor = switch (mastery.level) {
-      MasteryLevel.weak => colors.error,
-      MasteryLevel.moderate => colors.warning,
-      MasteryLevel.strong => colors.success,
-    };
-    final pct = (mastery.accuracy * 100).round();
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
-              child: Text(
-                mastery.topic.name,
-                style: textStyles.bodyMedium,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-            Text(
-              '$pct%',
-              style:
-                  textStyles.bodySmall.copyWith(color: colors.onSurfaceMuted),
-            ),
-          ],
+          style: textStyles.bodySmall.copyWith(color: colors.inkMuted),
         ),
         const SizedBox(height: 4),
-        ClipRRect(
-          borderRadius: BorderRadius.circular(4),
-          child: LinearProgressIndicator(
-            value: mastery.accuracy,
-            backgroundColor: colors.border,
-            valueColor: AlwaysStoppedAnimation<Color>(barColor),
-            minHeight: 12,
+        for (var i = 0; i < weak.length; i++)
+          _FocusAreaRow(
+            mastery: weak[i],
+            examId: examId,
+            isFirst: i == 0,
+          ),
+        const SizedBox(height: 16),
+        BoardButton(
+          label: 'Start studying',
+          onPressed: () => context.push(
+            '/study/topic/${weak.first.topic.id}?examId=$examId',
           ),
         ),
       ],
@@ -161,8 +127,62 @@ class _TopicBar extends StatelessWidget {
   }
 }
 
-class _TopicCta extends StatelessWidget {
-  const _TopicCta({
+class _TopicRow extends StatelessWidget {
+  const _TopicRow({required this.mastery});
+
+  final TopicMastery mastery;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.colors;
+    final styles = context.textStyles;
+    final pct = (mastery.accuracy * 100).round();
+    final meterColor = switch (mastery.level) {
+      MasteryLevel.weak => colors.rust,
+      MasteryLevel.moderate => colors.amber,
+      MasteryLevel.strong => colors.board,
+    };
+
+    return Container(
+      constraints: const BoxConstraints(minHeight: 44),
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(
+            color: colors.ruleFaint,
+            // ignore: avoid_redundant_argument_values
+            width: AppDimensions.hairline,
+          ),
+        ),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: Text(
+              mastery.topic.name,
+              style: styles.bodyMedium,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+          const SizedBox(width: 12),
+          InlineMeter(value: mastery.accuracy, color: meterColor),
+          const SizedBox(width: 8),
+          SizedBox(
+            width: 38,
+            child: Text(
+              '$pct%',
+              textAlign: TextAlign.right,
+              style: styles.bodySmall.copyWith(color: meterColor),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _FocusAreaRow extends StatelessWidget {
+  const _FocusAreaRow({
     required this.mastery,
     required this.examId,
     required this.isFirst,
@@ -174,66 +194,13 @@ class _TopicCta extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textStyles = context.textStyles;
-    final colors = context.colors;
-
-    return AppCard(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  mastery.topic.name,
-                  style: textStyles.headlineSmall,
-                ),
-              ),
-              if (isFirst)
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    color: colors.primaryContainer,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Text(
-                    'Start here',
-                    style:
-                        textStyles.labelSmall.copyWith(color: colors.primary),
-                  ),
-                ),
-            ],
-          ),
-          const SizedBox(height: 12),
-          Row(
-            children: [
-              Expanded(
-                child: AppButton(
-                  label: 'Study →',
-                  onPressed: () => context.push(
-                    '/study/topic/${mastery.topic.id}?examId=$examId',
-                  ),
-                ),
-              ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: AppButton(
-                  label: 'Quiz →',
-                  variant: AppButtonVariant.secondary,
-                  onPressed: () => context.go(
-                    Uri(
-                      path: '/quiz/quick/$examId',
-                      queryParameters: {'topicId': mastery.topic.id},
-                    ).toString(),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
+    return InkTableRow(
+      title: mastery.topic.name,
+      subtitle: isFirst ? 'Start here' : null,
+      state: isFirst ? InkRowState.active : InkRowState.plain,
+      meta: '${(mastery.accuracy * 100).round()}%',
+      onTap: () => context.push(
+        '/study/topic/${mastery.topic.id}?examId=$examId',
       ),
     );
   }

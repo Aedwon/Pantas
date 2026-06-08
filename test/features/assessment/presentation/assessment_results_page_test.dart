@@ -102,7 +102,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Your Civil Service Exam Profile'), findsOneWidget);
+    expect(find.text('Your Civil Service Exam profile'), findsOneWidget);
   });
 
   testWidgets('weak topic shows Start here badge', (tester) async {
@@ -115,40 +115,31 @@ void main() {
     expect(find.text('Start here'), findsOneWidget);
   });
 
-  testWidgets('Study and Quiz buttons present for weak topic', (tester) async {
+  testWidgets('focus row opens lessons using study route', (tester) async {
     await tester.pumpAppWithRouter(
       _buildRouter('e1'),
       overrides: [appDatabaseProvider.overrideWithValue(db)],
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Study →'), findsWidgets);
-    expect(find.text('Quiz →'), findsWidgets);
-  });
-
-  testWidgets('Study button opens lessons using study route', (tester) async {
-    await tester.pumpAppWithRouter(
-      _buildRouter('e1'),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
-    );
-    await tester.pumpAndSettle();
-
-    await tester.tap(find.text('Study →').first);
+    await tester.tap(find.text('Start here'));
     await tester.pumpAndSettle();
 
     expect(find.text('Lessons'), findsOneWidget);
   });
 
-  testWidgets('Quiz button starts quiz scoped to weak topic', (tester) async {
+  testWidgets('Start studying opens the weakest topic lessons',
+      (tester) async {
     await tester.pumpAppWithRouter(
       _buildRouter('e1'),
       overrides: [appDatabaseProvider.overrideWithValue(db)],
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Quiz →').first);
+    await tester.ensureVisible(find.text('Start studying'));
+    await tester.tap(find.text('Start studying'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Quiz t1'), findsOneWidget);
+    expect(find.text('Lessons'), findsOneWidget);
   });
 }
