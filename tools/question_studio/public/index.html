@@ -1,0 +1,116 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>Question Studio</title>
+<style>
+  body { font: 15px/1.5 system-ui, sans-serif; margin: 0; display: flex; height: 100vh; }
+  #tree { width: 320px; overflow: auto; border-right: 1px solid #ddd; padding: 12px; }
+  #main { flex: 1; overflow: auto; padding: 20px 28px; }
+  .st { cursor: pointer; padding: 2px 0; }
+  .st.badge::after { content: attr(data-badge); color: #888; font-size: 12px; margin-left: 6px; }
+  .q { border: 1px solid #e2e2e2; border-radius: 8px; padding: 14px; margin-bottom: 16px; }
+  .q .stem { width: 100%; font-weight: 600; border: 0; resize: vertical; font: inherit; }
+  .choice { display: flex; gap: 8px; align-items: center; margin: 3px 0; }
+  .choice.correct { background: #e7f6ec; border-radius: 6px; padding: 2px 6px; }
+  .choice input[type=text] { flex: 1; border: 1px solid #ddd; border-radius: 4px; padding: 3px 6px; }
+  .expl { width: 100%; border: 1px solid #eee; border-radius: 6px; margin-top: 6px; font: inherit; }
+  .badges span { font-size: 12px; background: #f0f0f0; border-radius: 4px; padding: 1px 6px; margin-right: 4px; }
+  .errors { color: #b00020; font-size: 13px; }
+  .figure { color: #a15c00; }
+  button { font: inherit; }
+</style>
+<div id="tree">Loading…</div>
+<div id="main"><p>Select a subtopic.</p></div>
+<script type="module">
+  import { validateQuestion, findDuplicateStems } from '/validators.mjs';
+  let current = null; // { id, doc }
+
+  async function loadTree() {
+    const tree = await (await fetch('/api/tree')).json();
+    const el = document.getElementById('tree');
+    el.innerHTML = '';
+    for (const s of tree) {
+      const h = document.createElement('div'); h.innerHTML = `<b>${s.name}</b>`; el.appendChild(h);
+      for (const t of s.topics) {
+        const th = document.createElement('div'); th.style.marginLeft = '10px'; th.textContent = t.name; el.appendChild(th);
+        for (const st of t.subtopics) {
+          const d = document.createElement('div');
+          d.className = 'st badge'; d.style.marginLeft = '22px'; d.textContent = st.id.split('/').pop();
+          d.dataset.badge = `${st.approved}/${st.count}${st.figurePending ? ` ✎${st.figurePending}` : ''}`;
+          d.onclick = () => openSubtopic(st.id);
+          el.appendChild(d);
+        }
+      }
+    }
+  }
+
+  async function openSubtopic(id) {
+    const doc = await (await fetch('/api/subtopic?id=' + encodeURIComponent(id))).json();
+    current = { id, doc };
+    render();
+  }
+
+  function render() {
+    const main = document.getElementById('main');
+    main.innerHTML = '';
+    const dups = findDuplicateStems(current.doc.questions);
+    const save = document.createElement('button');
+    save.textContent = 'Save'; save.onclick = persist;
+    main.appendChild(save);
+    if (dups.length) {
+      const w = document.createElement('div'); w.className = 'errors';
+      w.textContent = 'Duplicate stems: ' + dups.map((p) => p.join(' / ')).join(', ');
+      main.appendChild(w);
+    }
+    current.doc.questions.forEach((q, i) => main.appendChild(questionCard(q, i)));
+  }
+
+  function questionCard(q, i) {
+    const card = document.createElement('div'); card.className = 'q';
+    const badges = document.createElement('div'); badges.className = 'badges';
+    badges.innerHTML = `<span>${q.type ?? '?'}</span><span>${q.difficulty ?? '?'}</span>` +
+      (current.doc.meta?.exams ?? []).map((e) => `<span>${e}</span>`).join('') +
+      (q.figure ? `<span class="figure">figure: ${q.figure}</span>` : '');
+    card.appendChild(badges);
+
+    const stem = document.createElement('textarea'); stem.className = 'stem'; stem.rows = 2; stem.value = q.stem ?? '';
+    stem.oninput = () => { q.stem = stem.value; revalidate(card, q); };
+    card.appendChild(stem);
+
+    (q.choices ?? []).forEach((c) => {
+      const row = document.createElement('div'); row.className = 'choice' + (c.correct ? ' correct' : '');
+      const radio = document.createElement('input'); radio.type = 'radio'; radio.name = `correct-${i}`; radio.checked = !!c.correct;
+      radio.onchange = () => { q.choices.forEach((x) => (x.correct = false)); c.correct = true; render(); };
+      const text = document.createElement('input'); text.type = 'text'; text.value = c.text ?? '';
+      text.oninput = () => { c.text = text.value; };
+      row.append(radio, text); card.appendChild(row);
+    });
+
+    const expl = document.createElement('textarea'); expl.className = 'expl'; expl.rows = 2; expl.value = q.explanation ?? '';
+    expl.oninput = () => { q.explanation = expl.value; revalidate(card, q); };
+    card.appendChild(expl);
+
+    const foot = document.createElement('label');
+    const ok = document.createElement('input'); ok.type = 'checkbox'; ok.checked = q.approved === true;
+    ok.onchange = () => { q.approved = ok.checked; };
+    foot.append(ok, document.createTextNode(' approved'));
+    card.appendChild(foot);
+
+    const errs = document.createElement('div'); errs.className = 'errors'; card.appendChild(errs);
+    revalidate(card, q);
+    return card;
+  }
+
+  function revalidate(card, q) {
+    card.querySelector('.errors').textContent = validateQuestion(q).join(' · ');
+  }
+
+  async function persist() {
+    await fetch('/api/subtopic', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: current.id, doc: current.doc }),
+    });
+    await loadTree();
+  }
+
+  loadTree();
+</script>

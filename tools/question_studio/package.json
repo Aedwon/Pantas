@@ -1,0 +1,8 @@
+{
+  "name": "question-studio",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "yaml": "^2.4.5"
+  }
+}
