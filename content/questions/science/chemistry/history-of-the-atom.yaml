@@ -1,0 +1,211 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: history-of-the-atom
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-chemistry-history-of-the-atom-0001
+    type: identify
+    difficulty: easy
+    stem: |
+      Which scientist proposed that atoms are simple, indivisible solid spheres, with no internal parts?
+    choices:
+      - text: John Dalton
+        correct: true
+      - text: J.J. Thomson
+      - text: Ernest Rutherford
+      - text: Niels Bohr
+    explanation: |
+      Dalton's early model pictured atoms as tiny solid balls, like billiard balls, with nothing inside them.
+    approved: true
+  - id: q-chemistry-history-of-the-atom-0002
+    type: identify
+    difficulty: easy
+    stem: |
+      Which scientist proposed the "plum pudding model," with negative electrons scattered throughout a positively charged material?
+    choices:
+      - text: J.J. Thomson
+        correct: true
+      - text: John Dalton
+      - text: Ernest Rutherford
+      - text: Erwin Schrödinger
+    explanation: |
+      After discovering the electron, Thomson pictured it embedded in a positive "pudding," like plums scattered through pudding.
+    approved: true
+  - id: q-chemistry-history-of-the-atom-0003
+    type: identify
+    difficulty: easy
+    stem: |
+      Which scientist proposed that an atom has a tiny, dense, positively charged nucleus at its center, with electrons orbiting around it?
+    choices:
+      - text: Ernest Rutherford
+        correct: true
+      - text: J.J. Thomson
+      - text: Niels Bohr
+      - text: John Dalton
+    explanation: |
+      Rutherford's gold foil experiment revealed a small, dense, positive nucleus, replacing Thomson's model with electrons orbiting this central nucleus.
+    approved: true
+  - id: q-chemistry-history-of-the-atom-0004
+    type: identify
+    difficulty: medium
+    stem: |
+      Which scientist proposed that electrons can only occupy certain fixed, specific energy levels around the nucleus, like rungs on a ladder?
+    choices:
+      - text: Niels Bohr
+        correct: true
+      - text: Ernest Rutherford
+      - text: Erwin Schrödinger
+      - text: J.J. Thomson
+    explanation: |
+      Bohr refined Rutherford's model by proposing fixed energy levels, which explained why atoms absorb and release light only at specific wavelengths.
+    approved: true
+  - id: q-chemistry-history-of-the-atom-0005
+    type: identify
+    difficulty: medium
+    stem: |
+      Which scientist developed the modern model describing electrons as existing in "clouds" of probability rather than on fixed orbital paths?
+    choices:
+      - text: Erwin Schrödinger
+        correct: true
+      - text: Niels Bohr
+      - text: Ernest Rutherford
+      - text: John Dalton
+    explanation: |
+      Schrödinger's quantum mechanical model describes regions where an electron is more or less likely to be found, rather than a fixed path. This is the model chemists still use today.
+    approved: true
+  - id: q-chemistry-history-of-the-atom-0006
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      In Rutherford's gold foil experiment, most of the fired particles passed straight through the thin gold foil without deflecting. What did this result reveal about the atom?
+    choices:
+      - text: An atom is mostly empty space.
+        correct: true
+      - text: An atom has no charge at all.
+      - text: An atom is a solid, indivisible sphere.
+      - text: Electrons are scattered evenly throughout the atom.
+    explanation: |
+      Since most particles encountered nothing solid in their path, this showed that atoms are mostly empty space, not solid all the way through.
+    approved: true
+  - id: q-chemistry-history-of-the-atom-0007
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      In Rutherford's gold foil experiment, a small number of fired particles bounced back sharply instead of passing through. What did this result reveal about the atom?
+    choices:
+      - text: The atom has a tiny, dense, positively charged nucleus at its center.
+        correct: true
+      - text: The atom has no nucleus at all.
+      - text: Electrons are positively charged.
+      - text: The atom is completely empty, with nothing inside it.
+    explanation: |
+      A sharp bounce could only happen if the fired particles collided with something extremely small, dense, and positively charged — this revealed the existence of a concentrated nucleus.
+    approved: true
+  - id: q-chemistry-history-of-the-atom-0008
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      Which statement correctly tells apart Thomson's model and Rutherford's model?
+    choices:
+      - text: Thomson's electrons are scattered throughout a positive material; Rutherford's electrons orbit a separate, concentrated nucleus.
+        correct: true
+      - text: Thomson's model has a nucleus; Rutherford's model has no nucleus.
+      - text: Both models describe electrons orbiting a central nucleus in the exact same way.
+      - text: Thomson's model came after Rutherford's and replaced it.
+    explanation: |
+      Thomson pictured electrons embedded throughout the positive "pudding," with no separate nucleus. Rutherford's gold foil experiment revealed a separate, concentrated nucleus that electrons orbit around, which is the key difference exams test.
+    approved: true
+  - id: q-chemistry-history-of-the-atom-0009
+    type: classify
+    difficulty: hard
+    stem: |
+      Which scientist is credited with discovering the electron itself?
+    choices:
+      - text: J.J. Thomson
+        correct: true
+      - text: Ernest Rutherford
+      - text: Niels Bohr
+      - text: John Dalton
+    explanation: |
+      Thomson discovered the electron years before Rutherford's gold foil experiment. Rutherford's experiment revealed the nucleus, not the electron, which Thomson had already found.
+    approved: true
+  - id: q-chemistry-history-of-the-atom-0010
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      A student says Bohr's fixed-orbit model is the current, scientifically accepted model of the atom. Is this correct?
+    choices:
+      - text: No — Schrödinger's electron cloud (quantum mechanical) model is the current accepted model.
+        correct: true
+      - text: Yes — Bohr's model is still the current accepted model.
+      - text: No — Rutherford's nuclear model is the current accepted model.
+      - text: No — Dalton's solid sphere model is the current accepted model.
+    explanation: |
+      Bohr's neat, fixed-orbit picture is a useful simplification, but it was later replaced by Schrödinger's electron cloud model, which better matches experimental evidence and is still used today.
+    approved: true
+  - id: q-chemistry-history-of-the-atom-0011
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      If Thomson's plum pudding model had been correct, what result would you expect from firing particles at a thin gold foil?
+    choices:
+      - text: All particles would pass through with only slight, even deflection, since there is no concentrated dense region to bounce off of.
+        correct: true
+      - text: Most particles would bounce straight back, since the positive "pudding" fills the entire atom.
+      - text: All particles would be absorbed and stop completely inside the foil.
+      - text: The particles would pass through only if they were negatively charged.
+    explanation: |
+      Since Thomson's model spreads the positive charge evenly through the whole atom, there is no small, dense region to cause a sharp bounce — only mild, even deflection would be expected. The actual sharp bounces observed proved this model wrong.
+    approved: true
+  - id: q-chemistry-history-of-the-atom-0012
+    type: cause-effect
+    difficulty: hard
+    stem: |
+      What problem did Bohr's model solve that Rutherford's original nuclear model could not explain?
+    choices:
+      - text: Why atoms absorb and release light only at specific, predictable wavelengths, not a continuous range.
+        correct: true
+      - text: Why atoms are mostly empty space.
+      - text: Why the nucleus is positively charged.
+      - text: Why electrons have a negative charge.
+    explanation: |
+      Rutherford's model let electrons orbit at any distance, which could not explain why atoms only give off light at very specific amounts of energy. Bohr's fixed energy levels explained this, since jumping between levels releases only specific, predictable amounts of light energy.
+    approved: true
+  - id: q-chemistry-history-of-the-atom-0013
+    type: process-ordering
+    difficulty: exam
+    stem: |
+      Put these atomic models in the correct historical order, from earliest to most recent.
+      1. Rutherford's nuclear model
+      2. Dalton's solid sphere model
+      3. Schrödinger's electron cloud model
+      4. Thomson's plum pudding model
+      5. Bohr's fixed energy level model
+    choices:
+      - text: 2, 4, 1, 5, 3
+        correct: true
+      - text: 2, 1, 4, 5, 3
+      - text: 4, 2, 1, 3, 5
+      - text: 2, 4, 5, 1, 3
+    explanation: |
+      The order is Dalton (solid sphere) → Thomson (plum pudding) → Rutherford (nuclear) → Bohr (fixed energy levels) → Schrödinger (electron cloud). Each model was built from testing and improving on the one before it.
+    approved: true
+  - id: q-chemistry-history-of-the-atom-0014
+    type: cause-effect
+    difficulty: exam
+    stem: |
+      Which piece of evidence directly overturned Thomson's plum pudding model and led to Rutherford's nuclear model instead?
+    choices:
+      - text: The gold foil experiment's sharp-angle bounces, which Thomson's evenly spread-out positive charge could not explain.
+        correct: true
+      - text: The discovery of the electron itself, which Thomson had not yet known about.
+      - text: The observation that atoms absorb light only at specific wavelengths.
+      - text: The realization that atoms are made of more than one element.
+    explanation: |
+      Thomson's model spreads positive charge evenly through the atom, so it predicted only mild, even deflection — never a sharp bounce. The gold foil experiment's sharp bounces could only happen if the positive charge were concentrated in one small, dense spot, which is exactly what overturned Thomson's model.
+    approved: true
