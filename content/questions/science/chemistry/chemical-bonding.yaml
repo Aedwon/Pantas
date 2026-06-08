@@ -1,0 +1,220 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: chemical-bonding
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-chemistry-chemical-bonding-0001
+    type: classify
+    difficulty: easy
+    stem: |
+      Sodium (a metal) bonds with chlorine (a nonmetal) to form $NaCl$. What type of bond is this?
+    choices:
+      - text: Ionic
+        correct: true
+      - text: Covalent
+      - text: Metallic
+      - text: No bond forms
+    explanation: |
+      A metal bonding with a nonmetal forms an ionic bond: the metal loses electrons and the nonmetal gains them, and the resulting charges attract.
+    approved: true
+  - id: q-chemistry-chemical-bonding-0002
+    type: classify
+    difficulty: easy
+    stem: |
+      Carbon and oxygen, both nonmetals, bond together to form $CO_2$. What type of bond is this?
+    choices:
+      - text: Covalent
+        correct: true
+      - text: Ionic
+      - text: Metallic
+      - text: No bond forms
+    explanation: |
+      Two nonmetals bonding together form a covalent bond: instead of transferring electrons, they share them.
+    approved: true
+  - id: q-chemistry-chemical-bonding-0003
+    type: classify
+    difficulty: easy
+    stem: |
+      A bar of pure copper is made entirely of copper atoms bonded to each other. What type of bond holds it together?
+    choices:
+      - text: Metallic
+        correct: true
+      - text: Ionic
+      - text: Covalent
+      - text: No bond forms
+    explanation: |
+      Metal atoms bonded to other metal atoms form metallic bonds, where outer electrons flow freely in a shared "sea of electrons."
+    approved: true
+  - id: q-chemistry-chemical-bonding-0004
+    type: classify
+    difficulty: medium
+    stem: |
+      Two atoms have an electronegativity difference of 0.4. What type of bond is most likely to form between them?
+    choices:
+      - text: Nonpolar covalent, since the difference is small (below about 0.5) and electrons are shared nearly equally.
+        correct: true
+      - text: Ionic, since any difference in electronegativity means electrons transfer completely.
+      - text: Polar covalent, since the difference is exactly at the ionic threshold.
+      - text: Metallic, since a small electronegativity difference always indicates metallic bonding.
+    explanation: |
+      A small electronegativity difference (below about 0.5) means the electrons are shared nearly equally between the two atoms — a nonpolar covalent bond.
+    approved: true
+  - id: q-chemistry-chemical-bonding-0005
+    type: classify
+    difficulty: medium
+    stem: |
+      Two atoms have an electronegativity difference of 2.5. What type of bond is most likely to form between them?
+    choices:
+      - text: Ionic, since the large difference (about 2.0 or more) means electrons transfer completely.
+        correct: true
+      - text: Nonpolar covalent, since electrons are always shared between two different atoms.
+      - text: Metallic, since a large electronegativity difference always indicates metallic bonding.
+      - text: No bond can form when the difference is this large.
+    explanation: |
+      A large electronegativity difference (about 2.0 or more) means one atom pulls the electrons away completely rather than sharing them — an ionic bond.
+    approved: true
+  - id: q-chemistry-chemical-bonding-0006
+    type: classify
+    difficulty: medium
+    stem: |
+      Two atoms have an electronegativity difference of 1.2. What type of bond is most likely to form between them?
+    choices:
+      - text: Polar covalent, since electrons are shared, but unequally, at this in-between difference.
+        correct: true
+      - text: Ionic, since any difference above 1.0 always means a complete electron transfer.
+      - text: Nonpolar covalent, since the electrons are still shared rather than transferred.
+      - text: Metallic, since 1.2 falls exactly at the metallic threshold.
+    explanation: |
+      An in-between electronegativity difference means the electrons are shared, but unevenly — a polar covalent bond, distinct from both the small-difference (nonpolar) and large-difference (ionic) cases.
+    approved: true
+  - id: q-chemistry-chemical-bonding-0007
+    type: classify
+    difficulty: medium
+    stem: |
+      A central atom has 2 electron groups around it, with no lone pairs. What molecular shape does VSEPR theory predict?
+    choices:
+      - text: Linear
+        correct: true
+      - text: Trigonal planar
+      - text: Tetrahedral
+      - text: Bent
+    explanation: |
+      With only 2 electron groups and no lone pairs to distort the arrangement, the groups spread as far apart as possible: 180° apart, a linear shape.
+    approved: true
+  - id: q-chemistry-chemical-bonding-0008
+    type: classify
+    difficulty: medium
+    stem: |
+      A central atom has 3 electron groups around it, with no lone pairs. What molecular shape does VSEPR theory predict?
+    choices:
+      - text: Trigonal planar
+        correct: true
+      - text: Linear
+      - text: Tetrahedral
+      - text: Bent
+    explanation: |
+      With 3 electron groups and no lone pairs, the groups spread out 120° apart in a flat, triangular arrangement: trigonal planar.
+    approved: true
+  - id: q-chemistry-chemical-bonding-0009
+    type: classify
+    difficulty: medium
+    stem: |
+      A central atom has 4 electron groups around it, with no lone pairs. What molecular shape does VSEPR theory predict?
+    choices:
+      - text: Tetrahedral
+        correct: true
+      - text: Trigonal planar
+      - text: Linear
+      - text: Bent
+    explanation: |
+      With 4 electron groups and no lone pairs, the groups spread out as far apart as possible in three dimensions, about 109.5° apart: tetrahedral.
+    approved: true
+  - id: q-chemistry-chemical-bonding-0010
+    type: classify
+    difficulty: hard
+    stem: |
+      Water ($H_2O$) has 4 total electron groups around its central oxygen atom: 2 bonding pairs (to the hydrogens) and 2 lone pairs. A student predicts water's molecular shape is tetrahedral, since it has 4 electron groups. Is this prediction correct?
+    choices:
+      - text: No — the 2 lone pairs still count for electron geometry, but since they are not connected to another atom, the actual molecular shape is bent, not tetrahedral.
+        correct: true
+      - text: Yes — 4 electron groups always means a tetrahedral molecular shape.
+      - text: No — because water actually only has 2 total electron groups.
+      - text: Yes — lone pairs are ignored completely in VSEPR theory.
+    explanation: |
+      Lone pairs count as electron groups and affect the shape, but they are not drawn as "corners" of the final molecular shape, since they are not connected to another atom. With only 2 of water's 4 positions occupied by actual atoms, the resulting shape is bent.
+    approved: true
+  - id: q-chemistry-chemical-bonding-0011
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      A student claims that covalent bonds always share electrons equally between the two atoms. Is this claim correct?
+    choices:
+      - text: No — covalent bonds can be polar (unequal sharing) or nonpolar (equal sharing), depending on the electronegativity difference.
+        correct: true
+      - text: Yes — covalent bonds, by definition, always share electrons equally.
+      - text: No — covalent bonds never share electrons at all; only ionic bonds do.
+      - text: Yes — only ionic bonds can ever be unequal.
+    explanation: |
+      Covalent bonds can be polar, like the oxygen-hydrogen bonds in water, where oxygen pulls the shared electrons closer to itself than hydrogen does. Equal sharing (nonpolar covalent) is only one case, not a universal rule.
+    approved: true
+  - id: q-chemistry-chemical-bonding-0012
+    type: classify
+    difficulty: medium
+    stem: |
+      Potassium (a metal) bonds with bromine (a nonmetal). What type of bond forms?
+    choices:
+      - text: Ionic
+        correct: true
+      - text: Covalent
+      - text: Metallic
+      - text: No bond forms
+    explanation: |
+      A metal bonding with a nonmetal always forms an ionic bond: the metal gives up electrons, and the nonmetal takes them.
+    approved: true
+  - id: q-chemistry-chemical-bonding-0013
+    type: classify
+    difficulty: medium
+    stem: |
+      Two oxygen atoms (both nonmetals) bond together to form $O_2$. What type of bond is this?
+    choices:
+      - text: Covalent
+        correct: true
+      - text: Ionic
+      - text: Metallic
+      - text: No bond forms
+    explanation: |
+      Two nonmetal atoms bonding together share electrons rather than transferring them, forming a covalent bond.
+    approved: true
+  - id: q-chemistry-chemical-bonding-0014
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      Why do atoms bond together with other atoms in the first place?
+    choices:
+      - text: To become more stable, usually by achieving a full outer shell of valence electrons.
+        correct: true
+      - text: To increase their total number of protons.
+      - text: To become radioactive.
+      - text: Bonding happens randomly, with no underlying reason.
+    explanation: |
+      Atoms bond to become more stable, most often by reaching a full outer shell of 8 valence electrons (the octet rule), whether by transferring or sharing electrons.
+    approved: true
+  - id: q-chemistry-chemical-bonding-0015
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      A central atom has 3 bonding electron groups and 1 lone pair (4 total electron groups). Using the same reasoning that makes water's shape bent instead of tetrahedral, what can you predict about this molecule's shape?
+    choices:
+      - text: It will not be a perfect tetrahedral shape — the lone pair still counts as an electron group and pushes the 3 bonding groups into a different arrangement than if all 4 groups were bonding.
+        correct: true
+      - text: It will be a perfect tetrahedral shape, since lone pairs never affect the final molecular shape.
+      - text: It will be linear, since only the bonding groups matter for molecular shape.
+      - text: It will be trigonal planar, since lone pairs are always ignored when counting electron groups.
+    explanation: |
+      Just like water's 2 lone pairs push its 2 bonding pairs into a bent shape rather than tetrahedral, this molecule's 1 lone pair pushes its 3 bonding groups out of a perfect tetrahedral arrangement — the same principle applies whenever any of the 4 electron groups is a lone pair rather than a bond.
+    approved: true
