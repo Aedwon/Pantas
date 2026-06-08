@@ -1,0 +1,33 @@
+meta:
+  subject: science
+  topic: biology
+  subtopic: cell-structure
+  exams: [upcat, dost-sei]
+questions:
+  - id: q-biology-cell-structure-0001
+    type: identify-organelle
+    difficulty: easy
+    stem: |
+      Which organelle is the site of photosynthesis?
+    choices:
+      - text: Chloroplast
+        correct: true
+      - text: Mitochondrion
+      - text: Ribosome
+      - text: Golgi apparatus
+    explanation: |
+      Chloroplasts hold chlorophyll, which captures light to make food.
+  - id: q-biology-cell-structure-0002
+    type: structure-function
+    difficulty: medium
+    figure: cell-diagram-01
+    stem: |
+      The organelle marked X controls what enters and leaves the cell. Name it.
+    choices:
+      - text: Cell membrane
+        correct: true
+      - text: Cell wall
+      - text: Cytoplasm
+      - text: Nucleolus
+    explanation: |
+      The cell membrane is the gatekeeper that lets some things in and keeps others out.
