@@ -47,7 +47,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.textContaining('1 / 2'), findsOneWidget);
+    expect(find.text('/2'), findsOneWidget);
     expect(find.textContaining('50%'), findsOneWidget);
   });
 }

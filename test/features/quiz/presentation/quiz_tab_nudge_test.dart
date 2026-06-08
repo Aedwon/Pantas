@@ -99,7 +99,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text("Start Today's Session"));
+    await tester.tap(find.text("Start today's session"));
     await tester.pumpAndSettle();
 
     expect(find.text('Study first for better results'), findsOneWidget);
@@ -130,7 +130,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text("Start Today's Session"));
+    await tester.tap(find.text("Start today's session"));
     await tester.pumpAndSettle();
 
     expect(find.text('Today e1'), findsOneWidget);
@@ -143,7 +143,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Retake Mistakes'), findsOneWidget);
+    expect(find.text('Retake mistakes'), findsOneWidget);
     expect(find.text('Drill a topic'), findsOneWidget);
   });
 
@@ -162,7 +162,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text("Start Today's Session"));
+    await tester.tap(find.text("Start today's session"));
     await tester.pumpAndSettle();
 
     expect(find.text('Study first for better results'), findsNothing);
@@ -183,7 +183,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text("Start Today's Session"));
+    await tester.tap(find.text("Start today's session"));
     await tester.pumpAndSettle();
 
     expect(find.text('Study first for better results'), findsNothing);

@@ -1,8 +1,10 @@
 import 'package:cse_cet_reviewer/core/storage/domain/exam.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/core/ui/components/app_button.dart';
-import 'package:cse_cet_reviewer/core/ui/components/app_card.dart';
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
+import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
+import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
+import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -18,18 +20,50 @@ class QuizTabHome extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Quiz')),
       body: asyncFocus.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, _) => Center(child: Text('Error: $e')),
+        loading: () => ListView(
+          padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+          children: const [FaintBars()],
+        ),
+        error: (e, _) => _QuizError(
+          message: e.toString(),
+          onRetry: () => ref.invalidate(activeExamFocusProvider),
+        ),
         data: (focus) {
           if (focus.needsSelection || focus.exam == null) {
             return const _ChooseExamFallback();
           }
           return ListView(
-            padding: const EdgeInsets.all(16),
-            children: [_ExamCard(exam: focus.exam!)],
+            padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+            children: [_ExamActions(exam: focus.exam!)],
           );
         },
       ),
+    );
+  }
+}
+
+class _QuizError extends StatelessWidget {
+  const _QuizError({required this.message, required this.onRetry});
+
+  final String message;
+  final VoidCallback onRetry;
+
+  @override
+  Widget build(BuildContext context) {
+    final styles = context.textStyles;
+    final colors = context.colors;
+    return ListView(
+      padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+      children: [
+        Text('Something went wrong', style: styles.headlineMedium),
+        const SizedBox(height: 6),
+        Text(
+          message,
+          style: styles.bodySmall.copyWith(color: colors.inkMuted),
+        ),
+        const SizedBox(height: 20),
+        BoardButton(label: 'Try again', secondary: true, onPressed: onRetry),
+      ],
     );
   }
 }
@@ -39,36 +73,30 @@ class _ChooseExamFallback extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textStyles = context.textStyles;
+    final styles = context.textStyles;
+    final colors = context.colors;
 
     return ListView(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
       children: [
-        AppCard(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('Choose your exam', style: textStyles.headlineSmall),
-              const SizedBox(height: 6),
-              Text(
-                'Pick the exam you are reviewing for.',
-                style: textStyles.bodyMedium,
-              ),
-              const SizedBox(height: 16),
-              AppButton(
-                label: 'Choose exam',
-                onPressed: () => context.go('/onboarding'),
-              ),
-            ],
-          ),
+        Text('Choose your exam', style: styles.headlineMedium),
+        const SizedBox(height: 6),
+        Text(
+          'Pick the exam you are reviewing for.',
+          style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+        ),
+        const SizedBox(height: 20),
+        BoardButton(
+          label: 'Choose exam',
+          onPressed: () => context.go('/onboarding'),
         ),
       ],
     );
   }
 }
 
-class _ExamCard extends ConsumerWidget {
-  const _ExamCard({required this.exam});
+class _ExamActions extends ConsumerWidget {
+  const _ExamActions({required this.exam});
 
   final Exam exam;
 
@@ -107,51 +135,40 @@ class _ExamCard extends ConsumerWidget {
     final textStyles = context.textStyles;
     final colors = context.colors;
 
-    return AppCard(
-      variant: AppCardVariant.accent,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            exam.name,
-            style: textStyles.headlineSmall.copyWith(color: colors.onSurface),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            exam.shortName,
-            style: textStyles.bodySmall.copyWith(color: colors.onSurfaceMuted),
-          ),
-          const SizedBox(height: 12),
-          AppButton(
-            label: "Start Today's Session",
-            onPressed: () => _onStartQuiz(context, ref),
-          ),
-          const SizedBox(height: 8),
-          AppButton(
-            label: 'Study Plan',
-            variant: AppButtonVariant.secondary,
-            onPressed: () => context.go('/plan'),
-          ),
-          const SizedBox(height: 8),
-          AppButton(
-            label: 'Retake Mistakes',
-            variant: AppButtonVariant.secondary,
-            onPressed: () => context.go('/quiz/retake/${exam.id}'),
-          ),
-          const SizedBox(height: 8),
-          AppButton(
-            label: 'Drill a topic',
-            variant: AppButtonVariant.secondary,
-            onPressed: () => context.go('/quiz/drill/${exam.id}'),
-          ),
-          const SizedBox(height: 8),
-          AppButton(
-            label: 'Study',
-            variant: AppButtonVariant.secondary,
-            onPressed: () => context.go('/study'),
-          ),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(exam.name, style: textStyles.headlineMedium),
+        const SizedBox(height: 2),
+        Text(
+          exam.shortName,
+          style: textStyles.bodySmall.copyWith(color: colors.inkMuted),
+        ),
+        const SizedBox(height: 20),
+        BoardButton(
+          label: "Start today's session",
+          onPressed: () => _onStartQuiz(context, ref),
+        ),
+        const SizedBox(height: 16),
+        const SectionHeader(title: 'More practice'),
+        InkTableRow(
+          title: 'Retake mistakes',
+          onTap: () => context.go('/quiz/retake/${exam.id}'),
+        ),
+        InkTableRow(
+          title: 'Drill a topic',
+          onTap: () => context.go('/quiz/drill/${exam.id}'),
+        ),
+        InkTableRow(
+          title: 'Study plan',
+          onTap: () => context.go('/plan'),
+        ),
+        InkTableRow(
+          title: 'Study',
+          bottomRule: false,
+          onTap: () => context.go('/study'),
+        ),
+      ],
     );
   }
 }
@@ -179,25 +196,24 @@ class _QuizNudgeSheet extends StatelessWidget {
           children: [
             Text(
               'Study first for better results',
-              style: textStyles.headlineSmall,
+              style: textStyles.headlineMedium,
             ),
             const SizedBox(height: 12),
             Text(
               "You haven't read any lessons for this exam yet. "
               'Reading the material before quizzing helps you retain it '
               'longer.',
-              style:
-                  textStyles.bodyMedium.copyWith(color: colors.onSurfaceMuted),
+              style: textStyles.bodyMedium.copyWith(color: colors.inkMuted),
             ),
             const SizedBox(height: 24),
-            AppButton(
+            BoardButton(
               label: 'Study',
               onPressed: onReadLessons,
             ),
             const SizedBox(height: 8),
-            AppButton(
+            BoardButton(
               label: 'Start quiz anyway',
-              variant: AppButtonVariant.secondary,
+              secondary: true,
               onPressed: onStartAnyway,
             ),
           ],

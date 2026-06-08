@@ -311,7 +311,8 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Done for today'), findsOneWidget);
-    expect(find.text('1/1 correct'), findsOneWidget);
+    expect(find.text('/1'), findsOneWidget);
+    expect(find.text('correct'), findsOneWidget);
     expect(find.text('Review results'), findsOneWidget);
   });
 }

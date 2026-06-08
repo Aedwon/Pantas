@@ -1,8 +1,12 @@
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/core/ui/components/app_button.dart';
-import 'package:cse_cet_reviewer/core/ui/components/app_card.dart';
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/empty_state.dart';
+import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
+import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
+import 'package:cse_cet_reviewer/core/ui/components/ruled_section.dart';
+import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
+import 'package:cse_cet_reviewer/core/ui/components/stats_band.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -31,17 +35,38 @@ class QuizResultsPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Results')),
       body: asyncAttempt.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, _) => Center(child: Text('Error: $e')),
+        loading: () => ListView(
+          padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+          children: const [FaintBars()],
+        ),
+        error: (e, _) => ListView(
+          padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+          children: [
+            Text(
+              'Something went wrong',
+              style: context.textStyles.headlineMedium,
+            ),
+            const SizedBox(height: 6),
+            Text(
+              e.toString(),
+              style: context.textStyles.bodySmall
+                  .copyWith(color: context.colors.inkMuted),
+            ),
+            const SizedBox(height: 20),
+            BoardButton(
+              label: 'Try again',
+              secondary: true,
+              onPressed: () => ref.invalidate(attemptByIdProvider(attemptId)),
+            ),
+          ],
+        ),
         data: (attempt) {
           if (attempt == null) {
-            return Center(
-              child: EmptyState(
-                headline: 'Attempt not found',
-                body: 'We could not locate the quiz attempt.',
-                ctaLabel: 'Go back',
-                onCta: () => Navigator.of(context).maybePop(),
-              ),
+            return EmptyState(
+              headline: 'Attempt not found',
+              body: 'We could not locate the quiz attempt.',
+              ctaLabel: 'Go back',
+              onCta: () => Navigator.of(context).maybePop(),
             );
           }
           return _ResultsBody(attempt: attempt);
@@ -105,7 +130,7 @@ class _ResultsBodyState extends ConsumerState<_ResultsBody> {
             children: [
               Text(message, style: context.textStyles.bodyMedium),
               const SizedBox(height: 24),
-              AppButton(
+              BoardButton(
                 label: 'Start assessment',
                 onPressed: () {
                   Navigator.of(sheetContext).pop();
@@ -113,9 +138,9 @@ class _ResultsBodyState extends ConsumerState<_ResultsBody> {
                 },
               ),
               const SizedBox(height: 8),
-              AppButton(
+              BoardButton(
                 label: 'Maybe later',
-                variant: AppButtonVariant.secondary,
+                secondary: true,
                 onPressed: () => Navigator.of(sheetContext).pop(),
               ),
             ],
@@ -127,8 +152,6 @@ class _ResultsBodyState extends ConsumerState<_ResultsBody> {
 
   @override
   Widget build(BuildContext context) {
-    final textStyles = context.textStyles;
-    final colors = context.colors;
     final attempt = widget.attempt;
     final examId = attempt.examId;
     final (correct, total) = attempt.score;
@@ -140,87 +163,35 @@ class _ResultsBodyState extends ConsumerState<_ResultsBody> {
     final showBanner = !isDone && count >= 5;
 
     return ListView(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
       children: [
-        if (showBanner) ...[
-          GestureDetector(
-            onTap: () => context.go('/assessment/$examId'),
-            child: Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: colors.primaryContainer,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Text(
-                'Your study plan is waiting. Take the assessment →',
-                style: textStyles.bodyMedium.copyWith(color: colors.primary),
-              ),
+        if (showBanner)
+          RuledSection(
+            child: SectionHeader(
+              title: 'Your study plan is waiting',
+              action: 'Take the assessment',
+              onAction: () => context.go('/assessment/$examId'),
             ),
           ),
-          const SizedBox(height: 16),
-        ],
-        AppCard(
-          variant: AppCardVariant.accent,
-          child: Column(
-            children: [
-              Text(
-                '$correct / $total ($percent%)',
-                style:
-                    textStyles.displaySmall.copyWith(color: colors.onSurface),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                'Score',
-                style: textStyles.bodyMedium
-                    .copyWith(color: colors.onSurfaceMuted),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 16),
-        ...attempt.items.map((item) => _ItemRow(item: item)),
-      ],
-    );
-  }
-}
-
-class _ItemRow extends StatelessWidget {
-  const _ItemRow({required this.item});
-
-  final AttemptItem item;
-
-  @override
-  Widget build(BuildContext context) {
-    final textStyles = context.textStyles;
-    final colors = context.colors;
-    final isCorrect = item.isCorrect;
-    final seconds = (item.responseMs / 1000).toStringAsFixed(1);
-
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
-      child: AppCard(
-        child: Row(
-          children: [
-            Icon(
-              isCorrect ? Icons.check_circle : Icons.cancel,
-              color: isCorrect ? Colors.green : Colors.red,
+        StatsBand(
+          figures: [
+            StatFigure(
+              value: '$correct',
+              suffix: '/$total',
+              label: 'correct',
             ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Text(
-                item.questionId,
-                style: textStyles.bodyMedium.copyWith(color: colors.onSurface),
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-            Text(
-              '${seconds}s',
-              style:
-                  textStyles.bodySmall.copyWith(color: colors.onSurfaceMuted),
-            ),
+            StatFigure(value: '$percent%', label: 'score'),
           ],
         ),
-      ),
+        const SizedBox(height: 12),
+        const SectionHeader(title: 'Questions'),
+        for (final item in attempt.items)
+          InkTableRow(
+            title: item.questionId,
+            state: item.isCorrect ? InkRowState.done : InkRowState.plain,
+            meta: '${(item.responseMs / 1000).toStringAsFixed(1)}s',
+          ),
+      ],
     );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:cse_cet_reviewer/core/ui/components/confirmation_dialog.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
+import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/components/question_card.dart';
 import 'package:cse_cet_reviewer/core/ui/components/quiz_progress_bar.dart';
-import 'package:cse_cet_reviewer/core/ui/components/skeleton_loader.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/done_for_today_celebration.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/post_answer_toast.dart';
@@ -87,7 +87,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: switch (state) {
-          QuizIdle() || QuizLoading() => const SkeletonCard(),
+          QuizIdle() || QuizLoading() => const FaintBars(),
           QuizRunning(:final session) => Column(
               children: [
                 QuizProgressBar(
@@ -126,10 +126,10 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   }
 
   String _titleFor(QuizPageMode mode) => switch (mode) {
-        QuizPageMode.quick => 'Quick Quiz',
-        QuizPageMode.today => "Today's Session",
+        QuizPageMode.quick => 'Quick quiz',
+        QuizPageMode.today => "Today's session",
         QuizPageMode.drill => 'Drill',
-        QuizPageMode.retake => 'Retake Mistakes',
+        QuizPageMode.retake => 'Retake mistakes',
         QuizPageMode.inline => 'Quiz yourself',
       };
 

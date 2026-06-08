@@ -134,7 +134,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(
-      find.text('Your study plan is waiting. Take the assessment →'),
+      find.text('Your study plan is waiting'),
       findsOneWidget,
     );
   });
