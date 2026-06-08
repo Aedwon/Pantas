@@ -1,0 +1,220 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: periodic-table
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-chemistry-periodic-table-0001
+    type: classify
+    difficulty: easy
+    stem: |
+      An element is shiny, conducts electricity well, and tends to lose electrons in reactions. It is found on the left and center of the periodic table. How should it be classified?
+    choices:
+      - text: Metal
+        correct: true
+      - text: Nonmetal
+      - text: Metalloid
+      - text: Noble gas only
+    explanation: |
+      Metals are shiny, good conductors, and tend to lose electrons. Their position on the left and center of the table confirms this classification.
+    approved: true
+  - id: q-chemistry-periodic-table-0002
+    type: classify
+    difficulty: easy
+    stem: |
+      An element is a poor conductor of electricity and tends to gain electrons in reactions. It is found on the right side of the periodic table. How should it be classified?
+    choices:
+      - text: Nonmetal
+        correct: true
+      - text: Metal
+      - text: Metalloid
+      - text: Transition element only
+    explanation: |
+      Nonmetals are poor conductors and tend to gain electrons. Their position on the right side of the table confirms this classification.
+    approved: true
+  - id: q-chemistry-periodic-table-0003
+    type: classify
+    difficulty: easy
+    stem: |
+      An element has properties between a metal and a nonmetal and is useful as a semiconductor in electronics. It is found along the staircase boundary of the periodic table. How should it be classified?
+    choices:
+      - text: Metalloid
+        correct: true
+      - text: Metal
+      - text: Nonmetal
+      - text: Noble gas
+    explanation: |
+      Metalloids sit along the staircase boundary between metals and nonmetals, with in-between properties that make them useful as semiconductors.
+    approved: true
+  - id: q-chemistry-periodic-table-0004
+    type: classify
+    difficulty: medium
+    stem: |
+      Two elements are found in the same vertical column of the periodic table but in different rows. What can you predict about their chemical behavior?
+    choices:
+      - text: They likely behave similarly, since elements in the same group share the same number of valence electrons.
+        correct: true
+      - text: They likely behave very differently, since being in different rows means they have nothing in common.
+      - text: They must be the exact same element.
+      - text: Nothing can be predicted from column position alone.
+    explanation: |
+      Elements in the same group (column) share the same number of valence electrons, which largely determines chemical behavior. This is exactly why the table is organized by columns.
+    approved: true
+  - id: q-chemistry-periodic-table-0005
+    type: compare-contrast
+    difficulty: medium
+    stem: |
+      Sodium and chlorine are both in period 3, with sodium in group 1 and chlorine in group 17. Which atom has the larger atomic radius?
+    choices:
+      - text: Sodium, because atomic radius decreases moving left to right across a period.
+        correct: true
+      - text: Chlorine, because atomic radius increases moving left to right across a period.
+      - text: Both are exactly the same size, since they are in the same period.
+      - text: Sodium, because it has more electron energy levels.
+    explanation: |
+      Across a period, atomic radius shrinks from left to right as more protons pull the electrons in closer. Sodium sits farther left than chlorine, so it is the larger atom.
+    approved: true
+  - id: q-chemistry-periodic-table-0006
+    type: compare-contrast
+    difficulty: medium
+    stem: |
+      Lithium (period 2) and potassium (period 4) are both in group 1. Which one requires more energy to remove an electron?
+    choices:
+      - text: Lithium, because ionization energy decreases going down a group.
+        correct: true
+      - text: Potassium, because ionization energy increases going down a group.
+      - text: Both require exactly the same amount of energy.
+      - text: Potassium, because it has a larger atomic radius.
+    explanation: |
+      Ionization energy decreases going down a group, since outer electrons sit farther from the nucleus and are held less tightly. Lithium, higher up in the group, has the greater ionization energy.
+    approved: true
+  - id: q-chemistry-periodic-table-0007
+    type: compare-contrast
+    difficulty: medium
+    stem: |
+      Fluorine (period 2) and iodine (period 5) are both in group 17. Which atom has the larger atomic radius?
+    choices:
+      - text: Iodine, because atomic radius increases going down a group.
+        correct: true
+      - text: Fluorine, because atomic radius increases going down a group.
+      - text: Both are exactly the same size, since they are in the same group.
+      - text: Iodine, because it has a higher electronegativity.
+    explanation: |
+      Atomic radius increases going down a group, since each row adds a new electron energy level. Iodine, lower in the group, is the larger atom.
+    approved: true
+  - id: q-chemistry-periodic-table-0008
+    type: compare-contrast
+    difficulty: medium
+    stem: |
+      Oxygen (period 2) and sulfur (period 3) are both in group 16. Which atom has the higher electronegativity?
+    choices:
+      - text: Oxygen, because electronegativity decreases going down a group.
+        correct: true
+      - text: Sulfur, because electronegativity increases going down a group.
+      - text: Both have exactly the same electronegativity.
+      - text: Sulfur, because it has a smaller atomic radius.
+    explanation: |
+      Electronegativity follows the same pattern as ionization energy: it decreases going down a group. Oxygen, higher in the group, has the higher electronegativity.
+    approved: true
+  - id: q-chemistry-periodic-table-0009
+    type: compare-contrast
+    difficulty: medium
+    stem: |
+      Carbon and nitrogen are both in period 2, with carbon in group 14 and nitrogen in group 15. Which atom has the higher ionization energy?
+    choices:
+      - text: Nitrogen, because ionization energy increases moving left to right across a period.
+        correct: true
+      - text: Carbon, because ionization energy decreases moving left to right across a period.
+      - text: Both have exactly the same ionization energy.
+      - text: Carbon, because it has a larger atomic radius.
+    explanation: |
+      Ionization energy increases moving left to right across a period, as electrons are held more tightly. Nitrogen, farther right than carbon, has the higher ionization energy.
+    approved: true
+  - id: q-chemistry-periodic-table-0010
+    type: classify
+    difficulty: hard
+    stem: |
+      Ionization energy, electronegativity, and electron affinity all generally increase toward the upper-right corner of the periodic table. Where is atomic radius the largest?
+    choices:
+      - text: Toward the lower-left corner of the table — the opposite direction from the other three trends.
+        correct: true
+      - text: Toward the upper-right corner, the same direction as the other three trends.
+      - text: Exactly in the center of the table.
+      - text: Atomic radius does not follow any position-based trend.
+    explanation: |
+      Atomic radius is the one major trend that runs in reverse: it grows largest toward the lower-left of the table, while the other three trends grow largest toward the upper-right.
+    approved: true
+  - id: q-chemistry-periodic-table-0011
+    type: classify
+    difficulty: hard
+    stem: |
+      Which set of properties all increase together toward the upper-right corner of the periodic table?
+    choices:
+      - text: Ionization energy, electronegativity, and electron affinity
+        correct: true
+      - text: Ionization energy, electronegativity, and atomic radius
+      - text: Atomic radius, electron affinity, and electronegativity
+      - text: Only atomic radius
+    explanation: |
+      Ionization energy, electronegativity, and electron affinity all increase toward the upper right. Atomic radius is the exception, increasing toward the lower left instead.
+    approved: true
+  - id: q-chemistry-periodic-table-0012
+    type: classify
+    difficulty: hard
+    stem: |
+      Two elements share neither the same period nor the same group — for example, one sits diagonally from the other. Can a single straightforward trend rule (like "left to right" or "top to bottom") be applied directly to compare them?
+    choices:
+      - text: No — comparing elements that share neither a period nor a group requires combining both trends carefully, and the result is not always obvious.
+        correct: true
+      - text: Yes — the "left to right" rule always applies regardless of row.
+      - text: Yes — the "top to bottom" rule always applies regardless of column.
+      - text: No comparison is ever possible unless the elements share a period or group.
+    explanation: |
+      The simple period and group trend rules only apply directly when two elements share a period or a group. Diagonal neighbors require reasoning about both trends together, since neither rule applies on its own.
+    approved: true
+  - id: q-chemistry-periodic-table-0013
+    type: classify
+    difficulty: medium
+    stem: |
+      A student assumes that all metalloids behave in exactly the same way, since they all sit along the same staircase boundary. Is this assumption correct?
+    choices:
+      - text: No — metalloids fall along a spectrum of properties between metals and nonmetals, not one identical behavior.
+        correct: true
+      - text: Yes — all metalloids have identical chemical and physical properties.
+      - text: No — because metalloids are not actually related to each other at all.
+      - text: Yes — as long as they are in the same period.
+    explanation: |
+      Metalloids share the general trait of being useful as semiconductors, but their properties still vary along the staircase — they are not all identical to each other.
+    approved: true
+  - id: q-chemistry-periodic-table-0014
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      Between a metal on the left side of a period and a nonmetal on the right side of the same period, which is more likely to have the higher electron affinity?
+    choices:
+      - text: The nonmetal, since nonmetals tend to gain electrons more readily and electron affinity generally increases left to right.
+        correct: true
+      - text: The metal, since metals generally have higher electron affinity.
+      - text: Both have exactly the same electron affinity, regardless of period position.
+      - text: Neither — electron affinity does not relate to metal or nonmetal character.
+    explanation: |
+      Electron affinity generally increases left to right across a period, and nonmetals (right side) tend to gain electrons more readily than metals (left side), matching this trend.
+    approved: true
+  - id: q-chemistry-periodic-table-0015
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      Magnesium is in period 3, group 2. Calcium is in period 4, group 2. Chlorine is in period 3, group 17. Which of these three atoms has the smallest atomic radius?
+    choices:
+      - text: Chlorine
+        correct: true
+      - text: Magnesium
+      - text: Calcium
+      - text: All three are the same size.
+    explanation: |
+      Magnesium and chlorine share period 3, and radius shrinks left to right, so chlorine (far right) is smaller than magnesium. Magnesium and calcium share group 2, and radius grows going down, so magnesium (higher up) is smaller than calcium. Since chlorine is smaller than magnesium, and magnesium is smaller than calcium, chlorine is the smallest of the three.
+    approved: true
