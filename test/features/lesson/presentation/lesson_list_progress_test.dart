@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_list_page.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/in_memory_database.dart';
@@ -70,7 +69,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.byIcon(Icons.check_circle), findsNothing);
+    expect(find.text('✓'), findsNothing);
   });
 
   testWidgets('shows checkmark only on read lesson card', (tester) async {
@@ -87,6 +86,6 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.byIcon(Icons.check_circle), findsOneWidget);
+    expect(find.text('✓'), findsOneWidget);
   });
 }

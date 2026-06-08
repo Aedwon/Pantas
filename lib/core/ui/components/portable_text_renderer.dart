@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cse_cet_reviewer/core/ui/components/skeleton_loader.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
@@ -164,11 +163,14 @@ class _ImageBlockRenderer extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(AppDimensions.radiusMD),
+        borderRadius: BorderRadius.circular(AppDimensions.radiusSurface),
         child: CachedNetworkImage(
           imageUrl: url,
           fit: BoxFit.cover,
-          placeholder: (_, __) => const SkeletonBox(height: 200),
+          placeholder: (context, _) => Container(
+            height: 200,
+            color: context.colors.ruleFaint,
+          ),
           errorWidget: (_, __, ___) =>
               const _UnknownBlockPlaceholder(blockType: 'image'),
         ),
@@ -187,13 +189,12 @@ class _UnknownBlockPlaceholder extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: colors.border,
-        borderRadius: BorderRadius.circular(AppDimensions.radiusSM),
+        color: colors.ruleFaint,
+        borderRadius: BorderRadius.circular(AppDimensions.radiusSurface),
       ),
       child: Text(
         'Content unavailable — update the app',
-        style:
-            context.textStyles.bodySmall.copyWith(color: colors.onSurfaceMuted),
+        style: context.textStyles.bodySmall.copyWith(color: colors.inkMuted),
       ),
     );
   }

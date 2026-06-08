@@ -73,7 +73,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Mark as read'), findsOneWidget);
-    expect(find.text('Lesson complete ✓'), findsNothing);
+    expect(find.text('✓ Lesson complete'), findsNothing);
   });
 
   testWidgets('tapping Mark as read shows Lesson complete', (tester) async {
@@ -86,7 +86,7 @@ void main() {
     await tester.tap(find.text('Mark as read'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Lesson complete ✓'), findsOneWidget);
+    expect(find.text('✓ Lesson complete'), findsOneWidget);
     expect(find.text('Mark as read'), findsNothing);
   });
 
@@ -105,7 +105,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Lesson complete ✓'), findsOneWidget);
+    expect(find.text('✓ Lesson complete'), findsOneWidget);
     expect(find.text('Mark as read'), findsNothing);
   });
 }

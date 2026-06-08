@@ -1,11 +1,10 @@
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/lesson.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/core/ui/components/app_button.dart';
-import 'package:cse_cet_reviewer/core/ui/components/app_card.dart';
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
-import 'package:cse_cet_reviewer/core/ui/components/skeleton_loader.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
+import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
+import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -30,9 +29,12 @@ class LessonListPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: Text(title)),
       body: asyncLessons.when(
-        loading: () => const _LoadingSkeleton(),
+        loading: () => ListView(
+          padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+          children: const [FaintBars()],
+        ),
         error: (e, _) => Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
           child: ErrorBanner(
             variant: ErrorBannerVariant.error,
             message: e.toString(),
@@ -40,14 +42,14 @@ class LessonListPage extends ConsumerWidget {
         ),
         data: (lessons) {
           if (lessons.isEmpty) {
-            return _EmptyState(examId: examId);
+            return _EmptyLessons(examId: examId);
           }
-          return ListView.separated(
-            padding: const EdgeInsets.all(16),
-            itemCount: lessons.length,
-            separatorBuilder: (_, __) => const SizedBox(height: 12),
-            itemBuilder: (_, i) =>
-                _LessonCard(lesson: lessons[i], examId: examId),
+          return ListView(
+            padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+            children: [
+              for (final lesson in lessons)
+                _LessonRow(lesson: lesson, examId: examId),
+            ],
           );
         },
       ),
@@ -55,107 +57,55 @@ class LessonListPage extends ConsumerWidget {
   }
 }
 
-class _LessonCard extends ConsumerWidget {
-  const _LessonCard({required this.lesson, this.examId});
+class _LessonRow extends ConsumerWidget {
+  const _LessonRow({required this.lesson, this.examId});
 
   final Lesson lesson;
   final String? examId;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final textStyles = context.textStyles;
-    final colors = context.colors;
     final examParam = examId != null ? '?examId=$examId' : '';
     final isRead =
         ref.watch(isLessonReadProvider(lesson.id)).valueOrNull ?? false;
-
-    return InkWell(
+    return InkTableRow(
+      title: lesson.title,
+      subtitle: lesson.summary,
+      state: isRead ? InkRowState.done : InkRowState.plain,
+      meta: '${lesson.estimatedMinutes} min',
       onTap: () => context.push('/lesson/${lesson.id}$examParam'),
-      borderRadius: BorderRadius.circular(AppDimensions.radiusLG),
-      child: AppCard(
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(lesson.title, style: textStyles.headlineSmall),
-                  const SizedBox(height: 4),
-                  Text(
-                    lesson.summary,
-                    style: textStyles.bodySmall
-                        .copyWith(color: colors.onSurfaceMuted),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    '${lesson.estimatedMinutes} min read',
-                    style: textStyles.labelSmall
-                        .copyWith(color: colors.onSurfaceMuted),
-                  ),
-                ],
-              ),
-            ),
-            if (isRead) ...[
-              const SizedBox(width: 12),
-              Icon(Icons.check_circle, color: colors.success),
-            ],
-          ],
-        ),
-      ),
     );
   }
 }
 
-class _EmptyState extends StatelessWidget {
-  const _EmptyState({this.examId});
+class _EmptyLessons extends StatelessWidget {
+  const _EmptyLessons({this.examId});
+
   final String? examId;
 
   @override
   Widget build(BuildContext context) {
-    final textStyles = context.textStyles;
+    final styles = context.textStyles;
     final colors = context.colors;
 
-    return Padding(
-      padding: const EdgeInsets.all(24),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'No lessons yet for this topic',
-            style: textStyles.bodyLarge.copyWith(color: colors.onSurfaceMuted),
-            textAlign: TextAlign.center,
+    return ListView(
+      padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+      children: [
+        Text('No lessons yet', style: styles.headlineMedium),
+        const SizedBox(height: 6),
+        Text(
+          'This topic has no lessons yet.',
+          style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+        ),
+        if (examId != null) ...[
+          const SizedBox(height: 20),
+          BoardButton(
+            label: 'Try a quick quiz instead',
+            secondary: true,
+            onPressed: () => context.push('/quiz/quick/$examId'),
           ),
-          if (examId != null) ...[
-            const SizedBox(height: 16),
-            AppButton(
-              label: 'Try a quick quiz instead',
-              variant: AppButtonVariant.secondary,
-              onPressed: () => context.push('/quiz/quick/$examId'),
-            ),
-          ],
         ],
-      ),
-    );
-  }
-}
-
-class _LoadingSkeleton extends StatelessWidget {
-  const _LoadingSkeleton();
-
-  @override
-  Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(16),
-      child: Column(
-        children: [
-          SkeletonCard(),
-          SizedBox(height: 12),
-          SkeletonCard(),
-        ],
-      ),
+      ],
     );
   }
 }

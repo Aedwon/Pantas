@@ -1,13 +1,12 @@
-import 'package:cse_cet_reviewer/core/storage/domain/exam.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/subject.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/core/ui/components/app_button.dart';
-import 'package:cse_cet_reviewer/core/ui/components/app_card.dart';
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
-import 'package:cse_cet_reviewer/core/ui/components/skeleton_loader.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
+import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
+import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
+import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -32,9 +31,12 @@ class StudyTabHome extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Study')),
       body: asyncFocus.when(
-        loading: () => const _LoadingSkeleton(),
+        loading: () => ListView(
+          padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+          children: const [FaintBars()],
+        ),
         error: (e, _) => Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
           child: ErrorBanner(
             variant: ErrorBannerVariant.error,
             message: e.toString(),
@@ -44,9 +46,15 @@ class StudyTabHome extends ConsumerWidget {
           if (focus.needsSelection || focus.exam == null) {
             return const _ChooseExamFallback();
           }
+          final exam = focus.exam!;
           return ListView(
-            padding: const EdgeInsets.all(16),
-            children: [_ExamAccordion(exam: focus.exam!)],
+            padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+            children: [
+              Text(exam.name, style: context.textStyles.headlineMedium),
+              const SizedBox(height: 12),
+              for (final subject in exam.subjects)
+                _SubjectSection(subject: subject, examId: exam.id),
+            ],
           );
         },
       ),
@@ -59,87 +67,45 @@ class _ChooseExamFallback extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textStyles = context.textStyles;
+    final styles = context.textStyles;
+    final colors = context.colors;
 
     return ListView(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
       children: [
-        AppCard(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('Choose your exam', style: textStyles.headlineSmall),
-              const SizedBox(height: 6),
-              Text(
-                'Pick the exam you are reviewing for.',
-                style: textStyles.bodyMedium,
-              ),
-              const SizedBox(height: 16),
-              AppButton(
-                label: 'Choose exam',
-                onPressed: () => context.go('/onboarding'),
-              ),
-            ],
-          ),
+        Text('Choose your exam', style: styles.headlineMedium),
+        const SizedBox(height: 6),
+        Text(
+          'Pick the exam you are reviewing for.',
+          style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+        ),
+        const SizedBox(height: 20),
+        BoardButton(
+          label: 'Choose exam',
+          onPressed: () => context.go('/onboarding'),
         ),
       ],
     );
   }
 }
 
-class _ExamAccordion extends ConsumerWidget {
-  const _ExamAccordion({required this.exam});
-  final Exam exam;
+class _SubjectSection extends ConsumerWidget {
+  const _SubjectSection({required this.subject, required this.examId});
 
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final textStyles = context.textStyles;
-    final colors = context.colors;
-
-    return AppCard(
-      padding: EdgeInsets.zero,
-      child: ExpansionTile(
-        initiallyExpanded: true,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppDimensions.radiusLG),
-        ),
-        collapsedShape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppDimensions.radiusLG),
-        ),
-        title: Text(exam.name, style: textStyles.headlineSmall),
-        subtitle: exam.shortName != exam.name
-            ? Text(
-                exam.shortName,
-                style:
-                    textStyles.bodySmall.copyWith(color: colors.onSurfaceMuted),
-              )
-            : null,
-        children: [
-          for (final subject in exam.subjects)
-            _SubjectExpansion(subject: subject, examId: exam.id),
-        ],
-      ),
-    );
-  }
-}
-
-class _SubjectExpansion extends ConsumerWidget {
-  const _SubjectExpansion({required this.subject, required this.examId});
   final Subject subject;
   final ExamId examId;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final asyncTopics = ref.watch(topicsBySubjectProvider(subject.id));
-    final textStyles = context.textStyles;
-
-    return ExpansionTile(
-      title: Text(subject.name, style: textStyles.bodyLarge),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        SectionHeader(title: subject.name),
         asyncTopics.when(
           loading: () => const Padding(
             padding: EdgeInsets.symmetric(vertical: 8),
-            child: CircularProgressIndicator(),
+            child: FaintBars(widthFactors: [0.8, 0.6]),
           ),
           error: (e, _) => ErrorBanner(
             variant: ErrorBannerVariant.error,
@@ -148,9 +114,8 @@ class _SubjectExpansion extends ConsumerWidget {
           data: (topics) => Column(
             children: [
               for (final topic in topics)
-                ListTile(
-                  title: Text(topic.name, style: textStyles.bodyMedium),
-                  trailing: const Icon(Icons.chevron_right),
+                InkTableRow(
+                  title: topic.name,
                   onTap: () => context.push(
                     '/study/topic/${topic.id}?examId=$examId',
                   ),
@@ -158,22 +123,7 @@ class _SubjectExpansion extends ConsumerWidget {
             ],
           ),
         ),
-      ],
-    );
-  }
-}
-
-class _LoadingSkeleton extends StatelessWidget {
-  const _LoadingSkeleton();
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      padding: const EdgeInsets.all(16),
-      children: const [
-        SkeletonCard(),
-        SizedBox(height: 8),
-        SkeletonCard(),
+        const SizedBox(height: 8),
       ],
     );
   }

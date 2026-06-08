@@ -1,10 +1,10 @@
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/lesson.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/core/ui/components/app_button.dart';
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
+import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/components/portable_text_renderer.dart';
-import 'package:cse_cet_reviewer/core/ui/components/skeleton_loader.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -23,9 +23,12 @@ class LessonPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(),
       body: asyncLesson.when(
-        loading: () => const _LoadingSkeleton(),
+        loading: () => ListView(
+          padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+          children: const [FaintBars()],
+        ),
         error: (e, _) => Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
           child: ErrorBanner(
             variant: ErrorBannerVariant.error,
             message: e.toString(),
@@ -35,7 +38,13 @@ class LessonPage extends ConsumerWidget {
         ),
         data: (lesson) {
           if (lesson == null) {
-            return const Center(child: Text('Lesson not found.'));
+            return Center(
+              child: Text(
+                'Lesson not found.',
+                style: context.textStyles.bodyMedium
+                    .copyWith(color: context.colors.inkMuted),
+              ),
+            );
           }
           return _LessonBody(lesson: lesson, examId: examId);
         },
@@ -58,7 +67,7 @@ class _LessonBody extends ConsumerWidget {
     final isRead = asyncIsRead.valueOrNull ?? false;
 
     return SingleChildScrollView(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -66,26 +75,18 @@ class _LessonBody extends ConsumerWidget {
           const SizedBox(height: 8),
           PortableTextRenderer(blocks: lesson.bodyJson),
           const SizedBox(height: 24),
-          Row(
-            children: [
-              Icon(Icons.schedule, size: 16, color: colors.onSurfaceMuted),
-              const SizedBox(width: 4),
-              Text(
-                '${lesson.estimatedMinutes} min read',
-                style:
-                    textStyles.bodySmall.copyWith(color: colors.onSurfaceMuted),
-              ),
-            ],
+          Text(
+            '${lesson.estimatedMinutes} min read',
+            style: textStyles.bodySmall.copyWith(color: colors.inkMuted),
           ),
           const SizedBox(height: 16),
           if (isRead)
-            const AppButton(
-              label: 'Lesson complete ✓',
-              variant: AppButtonVariant.disabled,
-              onPressed: null,
+            Text(
+              '✓ Lesson complete',
+              style: textStyles.bodyMedium.copyWith(color: colors.board),
             )
           else
-            AppButton(
+            BoardButton(
               label: 'Mark as read',
               onPressed: () async {
                 await ref
@@ -98,36 +99,13 @@ class _LessonBody extends ConsumerWidget {
             ),
           if (examId != null) ...[
             const SizedBox(height: 16),
-            AppButton(
+            BoardButton(
               label: 'Quiz yourself',
-              variant: AppButtonVariant.secondary,
+              secondary: true,
               onPressed: () =>
                   context.push('/quiz/inline/$examId/${lesson.id}'),
             ),
           ],
-        ],
-      ),
-    );
-  }
-}
-
-class _LoadingSkeleton extends StatelessWidget {
-  const _LoadingSkeleton();
-
-  @override
-  Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SkeletonBox(height: 28, width: 240),
-          SizedBox(height: 16),
-          SkeletonBox(height: 14, width: double.infinity),
-          SizedBox(height: 8),
-          SkeletonBox(height: 14, width: double.infinity),
-          SizedBox(height: 8),
-          SkeletonBox(height: 14, width: 180),
         ],
       ),
     );

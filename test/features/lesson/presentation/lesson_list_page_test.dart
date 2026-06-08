@@ -76,6 +76,6 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('No lessons yet for this topic'), findsOneWidget);
+    expect(find.text('No lessons yet'), findsOneWidget);
   });
 }
