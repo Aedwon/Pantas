@@ -1,3 +1,5 @@
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/paywall/application/paywall_controller.dart';
 import 'package:cse_cet_reviewer/features/paywall/domain/paywall_package.dart';
 import 'package:cse_cet_reviewer/features/paywall/domain/paywall_recommendation.dart';
@@ -31,12 +33,17 @@ class _PaywallPageState extends State<PaywallPage> {
 
   @override
   Widget build(BuildContext context) {
+    final styles = context.textStyles;
+    final colors = context.colors;
     final packages = paywallDisplayOrder(widget.packages);
     if (packages.isEmpty) {
       return Scaffold(
         appBar: AppBar(title: const Text('Try Pro')),
-        body: const Center(
-          child: Text('Pro plans are unavailable. Check your connection.'),
+        body: Center(
+          child: Text(
+            'Pro plans are unavailable. Check your connection.',
+            style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+          ),
         ),
       );
     }
@@ -60,14 +67,14 @@ class _PaywallPageState extends State<PaywallPage> {
         ],
       ),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
         children: [
           Text(
             'Practice with sharper coaching and deeper mock review.',
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: styles.bodyMedium.copyWith(color: colors.inkMuted),
           ),
           const SizedBox(height: 12),
-          for (final package in packages) ...[
+          for (final package in packages)
             PaywallPackageCard(
               package: package,
               isSelected: package.sku == _selectedSku,
@@ -78,16 +85,16 @@ class _PaywallPageState extends State<PaywallPage> {
               ),
               onTap: () => setState(() => _selectedSku = package.sku),
             ),
-            const SizedBox(height: 10),
-          ],
+          const SizedBox(height: 16),
           if (_errorMessage != null) ...[
             Text(
               _errorMessage!,
-              style: const TextStyle(color: Colors.red),
+              style: styles.bodySmall.copyWith(color: colors.rust),
             ),
             const SizedBox(height: 10),
           ],
-          FilledButton(
+          BoardButton(
+            label: ctaCopyFor(selected),
             onPressed: () async {
               final purchase = widget.onPurchase;
               if (purchase == null) return;
@@ -95,10 +102,12 @@ class _PaywallPageState extends State<PaywallPage> {
               if (!mounted) return;
               setState(() => _errorMessage = result.errorMessage);
             },
-            child: Text(ctaCopyFor(selected)),
           ),
           const SizedBox(height: 8),
-          const Text('Paid through Google Play.'),
+          Text(
+            'Paid through Google Play.',
+            style: styles.bodySmall.copyWith(color: colors.inkMuted),
+          ),
         ],
       ),
     );

@@ -1,3 +1,5 @@
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/legal/legal.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -14,50 +16,52 @@ class LegalDocumentPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final styles = context.textStyles;
+    final colors = context.colors;
     final document = legalDocumentFallbacks[documentId];
     if (document == null) {
       return Scaffold(
         appBar: AppBar(title: const Text('Legal')),
-        body: const Center(child: Text('Legal page not found')),
+        body: Center(
+          child: Text(
+            'Legal page not found',
+            style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+          ),
+        ),
       );
     }
 
     return Scaffold(
       appBar: AppBar(title: Text(document.title)),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
         children: [
-          Text(
-            document.title,
-            style: Theme.of(context).textTheme.headlineSmall,
-          ),
+          Text(document.title, style: styles.displaySmall),
           const SizedBox(height: 4),
-          Text(_updatedLabel(document.updatedAt)),
+          Text(
+            _updatedLabel(document.updatedAt),
+            style: styles.bodySmall.copyWith(color: colors.inkMuted),
+          ),
           const SizedBox(height: 24),
           for (final section in document.sections) ...[
-            Text(
-              section.heading,
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
+            Text(section.heading, style: styles.headlineSmall),
             const SizedBox(height: 8),
-            Text(section.body),
+            Text(section.body, style: styles.bodyMedium),
             const SizedBox(height: 20),
           ],
           const Divider(),
           const SizedBox(height: 12),
-          Text(
-            'Data Protection Officer',
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
+          Text('Data Protection Officer', style: styles.headlineSmall),
           const SizedBox(height: 8),
-          Text(contact.dpoEmail),
+          Text(contact.dpoEmail, style: styles.bodyMedium),
           const SizedBox(height: 4),
-          Text(contact.physicalAddress),
+          Text(contact.physicalAddress, style: styles.bodyMedium),
           if (document.id == 'privacy') ...[
             const SizedBox(height: 16),
-            FilledButton(
+            BoardButton(
+              label: 'Manage account data',
+              secondary: true,
               onPressed: () => _go(context, '/settings/account'),
-              child: const Text('Manage account data'),
             ),
           ],
         ],

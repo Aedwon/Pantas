@@ -11,7 +11,6 @@ export 'domain/pro_welcome.dart';
 export 'domain/trial_notice.dart';
 export 'presentation/paywall_package_card.dart';
 export 'presentation/paywall_page.dart';
-export 'presentation/pro_upgrade_chip.dart';
 export 'presentation/pro_welcome_banner.dart';
 export 'presentation/subscription_panel.dart';
 export 'presentation/trial_notice_banner.dart';

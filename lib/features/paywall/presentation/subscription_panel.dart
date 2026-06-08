@@ -1,3 +1,6 @@
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
+import 'package:cse_cet_reviewer/core/ui/components/ruled_section.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/paywall/domain/entitlement.dart';
 import 'package:cse_cet_reviewer/features/paywall/domain/trial_notice.dart';
 import 'package:flutter/material.dart';
@@ -21,34 +24,38 @@ class SubscriptionPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final styles = context.textStyles;
+    final colors = context.colors;
     final canManage = entitlement.proIsActive && !entitlement.isLifetime;
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(_statusText()),
+
+    Widget quietAction(String label, VoidCallback? onTap) => GestureDetector(
+          onTap: onTap,
+          child: Text(
+            label,
+            style: styles.labelLarge.copyWith(color: colors.board),
+          ),
+        );
+
+    return RuledSection(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(_statusText(), style: styles.bodyMedium),
+          const SizedBox(height: 12),
+          if (!entitlement.proIsActive) ...[
+            BoardButton(label: 'Try Pro', onPressed: onTryPro),
             const SizedBox(height: 12),
-            Wrap(
-              spacing: 8,
-              children: [
-                if (!entitlement.proIsActive)
-                  TextButton(onPressed: onTryPro, child: const Text('Try Pro')),
-                if (canManage)
-                  TextButton(
-                    onPressed: onManage,
-                    child: const Text('Manage in Google Play'),
-                  ),
-                TextButton(
-                  onPressed: onRestore,
-                  child: const Text('Restore Purchases'),
-                ),
-              ],
-            ),
           ],
-        ),
+          Wrap(
+            spacing: 20,
+            runSpacing: 8,
+            children: [
+              if (canManage) quietAction('Manage in Google Play', onManage),
+              quietAction('Restore purchases', onRestore),
+            ],
+          ),
+        ],
       ),
     );
   }

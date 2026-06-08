@@ -1,3 +1,5 @@
+import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/paywall/domain/paywall_package.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +21,8 @@ class PaywallPackageCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final colors = context.colors;
+    final styles = context.textStyles;
     final title = switch (package.sku) {
       PaywallSku.weekly => 'Weekly',
       PaywallSku.monthly => 'Monthly',
@@ -38,66 +41,50 @@ class PaywallPackageCard extends StatelessWidget {
 
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(8),
       child: Container(
         width: double.infinity,
-        padding: const EdgeInsets.all(14),
-        decoration: BoxDecoration(
-          color: isSelected ? const Color(0xFFF0FDF4) : Colors.white,
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(
-            color: isSelected ? const Color(0xFF16A34A) : Colors.black12,
-            width: isSelected ? 2 : 1,
-          ),
-        ),
+        padding: const EdgeInsets.all(12),
+        decoration: isSelected
+            ? BoxDecoration(
+                color: colors.boardTint,
+                border: Border.all(color: colors.board),
+                borderRadius:
+                    BorderRadius.circular(AppDimensions.radiusButton),
+              )
+            : BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    color: colors.ruleFaint,
+                    // ignore: avoid_redundant_argument_values
+                    width: AppDimensions.hairline,
+                  ),
+                ),
+              ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             if (isRecommended)
               Text(
                 badgeCopy,
-                style: theme.textTheme.labelSmall?.copyWith(
-                  color: const Color(0xFF15803D),
-                  fontWeight: FontWeight.w700,
-                ),
+                style: styles.labelSmall.copyWith(color: colors.board),
               ),
             Row(
               children: [
-                Expanded(
-                  child: Text(
-                    title,
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ),
+                Expanded(child: Text(title, style: styles.headlineSmall)),
                 if (package.sku == PaywallSku.yearly)
-                  const _Pill(label: '7 days free'),
+                  Text(
+                    '7 days free',
+                    style: styles.labelSmall.copyWith(color: colors.board),
+                  ),
               ],
             ),
-            const SizedBox(height: 4),
-            Text(subtitle, style: theme.textTheme.bodySmall),
+            const SizedBox(height: 2),
+            Text(
+              subtitle,
+              style: styles.bodySmall.copyWith(color: colors.inkMuted),
+            ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class _Pill extends StatelessWidget {
-  const _Pill({required this.label});
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: const Color(0xFFDCFCE7),
-        borderRadius: BorderRadius.circular(999),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-        child: Text(label, style: Theme.of(context).textTheme.labelSmall),
       ),
     );
   }

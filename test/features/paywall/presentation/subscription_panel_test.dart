@@ -1,9 +1,10 @@
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('free panel shows Try Pro and Restore Purchases', (tester) async {
+  testWidgets('free panel shows Try Pro and Restore purchases', (tester) async {
     await tester.pumpWidget(
       const _Host(
         SubscriptionPanel(entitlement: Entitlement.free()),
@@ -12,7 +13,7 @@ void main() {
 
     expect(find.text("You're on Free."), findsOneWidget);
     expect(find.text('Try Pro'), findsOneWidget);
-    expect(find.text('Restore Purchases'), findsOneWidget);
+    expect(find.text('Restore purchases'), findsOneWidget);
   });
 
   testWidgets(
@@ -126,6 +127,6 @@ class _Host extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Scaffold(body: child));
+    return MaterialApp(theme: buildLightTheme(), home: Scaffold(body: child));
   }
 }

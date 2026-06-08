@@ -1,5 +1,6 @@
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/wrapped/application/wrapped_providers.dart';
 import 'package:cse_cet_reviewer/features/wrapped/data/user_metrics_artifact_repository.dart';
 import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_payload.dart';
@@ -23,8 +24,7 @@ Future<void> _pumpNoSplash(
     ProviderScope(
       overrides: overrides,
       child: MaterialApp(
-        theme: ThemeData(
-          useMaterial3: true,
+        theme: buildLightTheme().copyWith(
           splashFactory: NoSplash.splashFactory,
         ),
         home: child,
@@ -100,6 +100,6 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.textContaining('no shared cards'), findsOneWidget);
+    expect(find.text('No shared cards yet'), findsOneWidget);
   });
 }

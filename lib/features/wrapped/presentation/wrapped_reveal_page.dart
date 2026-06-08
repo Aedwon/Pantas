@@ -1,3 +1,7 @@
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
+import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
+import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/wrapped/application/wrapped_providers.dart';
 import 'package:cse_cet_reviewer/features/wrapped/application/wrapped_share_flow.dart';
 import 'package:cse_cet_reviewer/features/wrapped/data/user_metrics_artifact_repository.dart';
@@ -24,6 +28,8 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
 
   @override
   Widget build(BuildContext context) {
+    final styles = context.textStyles;
+    final colors = context.colors;
     final asyncEntry = ref.watch(wrappedArtifactProvider(widget.artifactId));
     return Scaffold(
       appBar: AppBar(
@@ -41,27 +47,32 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
         ],
       ),
       body: asyncEntry.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (_, __) => const Center(child: Text('Wrapped is unavailable.')),
+        loading: () => ListView(
+          padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+          children: const [FaintBars()],
+        ),
+        error: (_, __) => Center(
+          child: Text(
+            'Wrapped is unavailable.',
+            style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+          ),
+        ),
         data: (entry) {
           if (entry == null) {
-            return const Center(child: Text('Wrapped is unavailable.'));
+            return Center(
+              child: Text(
+                'Wrapped is unavailable.',
+                style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+              ),
+            );
           }
           return ListView(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
             children: [
-              Text(
-                entry.payload.title,
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-              const SizedBox(height: 18),
+              Text(entry.payload.title, style: styles.headlineMedium),
+              const SizedBox(height: 12),
               for (final slide in entry.payload.slides)
-                Card(
-                  child: ListTile(
-                    title: Text(slide.title),
-                    subtitle: Text(slide.body),
-                  ),
-                ),
+                InkTableRow(title: slide.title, subtitle: slide.body),
               const SizedBox(height: 18),
               SharePrivacySheet(
                 selection: _selection,
@@ -69,12 +80,15 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
                     setState(() => _selection = selection),
               ),
               const SizedBox(height: 12),
-              FilledButton(
+              BoardButton(
+                label: _sharing ? 'Rendering...' : 'Share PNG',
                 onPressed: _sharing ? null : () => _share(entry),
-                child: Text(_sharing ? 'Rendering...' : 'Share PNG'),
               ),
               const SizedBox(height: 8),
-              const Text('pantas.app/wrapped'),
+              Text(
+                'pantas.app/wrapped',
+                style: styles.labelSmall.copyWith(color: colors.inkMuted),
+              ),
             ],
           );
         },

@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class SharePrivacySelection {
@@ -37,7 +38,8 @@ class SharePrivacySheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final styles = context.textStyles;
+    final colors = context.colors;
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,12 +62,12 @@ class SharePrivacySheet extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Icon(Icons.public, size: 18),
+              Icon(Icons.public, size: 16, color: colors.inkMuted),
               const SizedBox(width: 8),
               Expanded(
                 child: Text(
                   hostingDisclosure,
-                  style: theme.textTheme.bodySmall,
+                  style: styles.bodySmall.copyWith(color: colors.inkMuted),
                 ),
               ),
             ],
