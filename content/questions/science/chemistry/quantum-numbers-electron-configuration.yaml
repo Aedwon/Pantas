@@ -1,0 +1,206 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: quantum-numbers-electron-configuration
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-chemistry-quantum-numbers-electron-configuration-0001
+    type: identify
+    difficulty: easy
+    stem: |
+      What is the maximum number of electrons an $s$ orbital can hold?
+    choices:
+      - text: "2"
+        correct: true
+      - text: "6"
+      - text: "10"
+      - text: "14"
+    explanation: |
+      An $s$ orbital holds up to 2 electrons — the smallest capacity of the four orbital types.
+    approved: true
+  - id: q-chemistry-quantum-numbers-electron-configuration-0002
+    type: identify
+    difficulty: easy
+    stem: |
+      What is the maximum number of electrons a $p$ orbital can hold?
+    choices:
+      - text: "6"
+        correct: true
+      - text: "2"
+      - text: "10"
+      - text: "14"
+    explanation: |
+      A $p$ orbital (a set of three sub-orbitals) holds up to 6 electrons in total.
+    approved: true
+  - id: q-chemistry-quantum-numbers-electron-configuration-0003
+    type: identify
+    difficulty: easy
+    stem: |
+      What is the maximum number of electrons a $d$ orbital can hold?
+    choices:
+      - text: "10"
+        correct: true
+      - text: "2"
+      - text: "6"
+      - text: "14"
+    explanation: |
+      A $d$ orbital (a set of five sub-orbitals) holds up to 10 electrons in total.
+    approved: true
+  - id: q-chemistry-quantum-numbers-electron-configuration-0004
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      Nitrogen has an atomic number of 7. Write its electron configuration.
+    choices:
+      - text: 1s^2 2s^2 2p^3
+        correct: true
+      - text: 1s^2 2s^2 2p^5
+      - text: 1s^2 2s^3 2p^2
+      - text: 1s^2 2s^2 2p^4
+    explanation: |
+      Fill the lowest-energy orbitals first: 1s holds 2, 2s holds 2, leaving $7 - 2 - 2 = 3$ for 2p. Adding the superscripts confirms the total: $2 + 2 + 3 = 7$.
+    approved: true
+  - id: q-chemistry-quantum-numbers-electron-configuration-0005
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      Oxygen has an atomic number of 8. Write its electron configuration.
+    choices:
+      - text: 1s^2 2s^2 2p^4
+        correct: true
+      - text: 1s^2 2s^2 2p^6
+      - text: 1s^2 2s^4 2p^2
+      - text: 1s^2 2s^2 2p^3
+    explanation: |
+      Fill 1s with 2 and 2s with 2, leaving $8 - 2 - 2 = 4$ for 2p. Adding the superscripts confirms the total: $2 + 2 + 4 = 8$.
+    approved: true
+  - id: q-chemistry-quantum-numbers-electron-configuration-0006
+    type: cause-effect
+    difficulty: hard
+    stem: |
+      Which orbital fills first: the 4s orbital or the 3d orbital?
+    choices:
+      - text: The 4s orbital, because it has slightly lower energy than 3d at this point, even though its leading number is larger.
+        correct: true
+      - text: The 3d orbital, because 3 is a smaller number than 4.
+      - text: Both fill at exactly the same time.
+      - text: Neither fills before the other; 3d is skipped entirely.
+    explanation: |
+      The Aufbau principle fills orbitals by increasing energy, not simply by increasing leading number. The 4s orbital has slightly lower energy than 3d at this point in the periodic table, so it fills first — this is why potassium's configuration ends in $4s^1$, not $3d^1$.
+    approved: true
+  - id: q-chemistry-quantum-numbers-electron-configuration-0007
+    type: classify
+    difficulty: hard
+    stem: |
+      A student writes the configuration $1s^2\ 2s^2\ 2p^8$ for an atom. Is this a valid electron configuration?
+    choices:
+      - text: No — a $p$ orbital can never hold more than 6 electrons.
+        correct: true
+      - text: Yes — as long as the total adds up correctly.
+      - text: No — because the $2s$ orbital should come after $2p$.
+      - text: Yes — $p$ orbitals can hold up to 8 electrons.
+    explanation: |
+      Each orbital type has a fixed maximum capacity, and $p$ can never exceed 6 electrons. A superscript of 8 on a $p$ orbital is impossible, no matter what the total electron count is.
+    approved: true
+  - id: q-chemistry-quantum-numbers-electron-configuration-0008
+    type: classify
+    difficulty: hard
+    stem: |
+      Three electrons must be placed into a set of three separate $p$ orbitals of the same energy. Which arrangement correctly follows Hund's Rule?
+    choices:
+      - text: Each of the three orbitals gets exactly one electron.
+        correct: true
+      - text: Two electrons pair up in one orbital, leaving one orbital completely empty.
+      - text: All three electrons pair up in a single orbital.
+      - text: Any arrangement is equally correct, since the total electron count is the same either way.
+    explanation: |
+      Hund's Rule says electrons fill each available same-energy orbital singly before any orbital receives a second electron. With three electrons and three empty orbitals available, each orbital should get exactly one electron.
+    approved: true
+  - id: q-chemistry-quantum-numbers-electron-configuration-0009
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      Can two electrons occupying the same orbital have the same spin?
+    choices:
+      - text: No — the Pauli Exclusion Principle requires the two electrons in one orbital to have opposite spins.
+        correct: true
+      - text: Yes — spin direction does not matter within a single orbital.
+      - text: No — an orbital can never hold two electrons at all.
+      - text: Yes — as long as the orbital is an $s$ orbital.
+    explanation: |
+      The Pauli Exclusion Principle allows at most 2 electrons per orbital, and requires those two to have opposite spins. Two electrons with the same spin cannot share the same orbital.
+    approved: true
+  - id: q-chemistry-quantum-numbers-electron-configuration-0010
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      An atom has the electron configuration $1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^3$. What is its atomic number?
+    choices:
+      - text: "15"
+        correct: true
+      - text: "13"
+      - text: "17"
+      - text: "5"
+    explanation: |
+      Add up all the superscripts: $2 + 2 + 6 + 2 + 3 = 15$. Since this is a neutral atom, its atomic number equals its total electron count, 15 (phosphorus).
+    approved: true
+  - id: q-chemistry-quantum-numbers-electron-configuration-0011
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      An atom has the electron configuration $1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^3$. How many electrons are in its outermost energy level?
+    choices:
+      - text: "5"
+        correct: true
+      - text: "3"
+      - text: "15"
+      - text: "8"
+    explanation: |
+      The outermost energy level is level 3 (from the $3s$ and $3p$ terms). Adding their superscripts: $2 + 3 = 5$.
+    approved: true
+  - id: q-chemistry-quantum-numbers-electron-configuration-0012
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      Neutral sodium (atomic number 11) has the configuration $1s^2\ 2s^2\ 2p^6\ 3s^1$. What is the correct electron configuration for the sodium ion $Na^+$?
+    choices:
+      - text: 1s^2 2s^2 2p^6
+        correct: true
+      - text: 1s^2 2s^2 2p^6 3s^1
+      - text: 1s^2 2s^2 2p^6 3s^2
+      - text: 1s^2 2s^2 2p^5
+    explanation: |
+      $Na^+$ has lost one electron compared to neutral sodium, leaving $11 - 1 = 10$ electrons. Removing the single $3s$ electron from neutral sodium's configuration leaves $1s^2\ 2s^2\ 2p^6$ — do not just copy the neutral atom's configuration without adjusting for the charge.
+    approved: true
+  - id: q-chemistry-quantum-numbers-electron-configuration-0013
+    type: simple-quantitative
+    difficulty: exam
+    stem: |
+      An atom has the electron configuration $1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^6\ 4s^2\ 3d^5$. What is its atomic number?
+    choices:
+      - text: "25"
+        correct: true
+      - text: "23"
+      - text: "20"
+      - text: "35"
+    explanation: |
+      Add up every superscript: $2 + 2 + 6 + 2 + 6 + 2 + 5 = 25$. This is manganese, whose configuration fills $4s$ before $3d$, following the established energy order.
+    approved: true
+  - id: q-chemistry-quantum-numbers-electron-configuration-0014
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      An ion has the electron configuration $1s^2\ 2s^2\ 2p^6$ and a charge of 1+. What is the atomic number of its neutral parent atom?
+    choices:
+      - text: "11"
+        correct: true
+      - text: "10"
+      - text: "9"
+      - text: "12"
+    explanation: |
+      The ion has $2 + 2 + 6 = 10$ electrons. Since it lost one electron to reach a 1+ charge, the neutral atom must have had $10 + 1 = 11$ electrons, giving an atomic number of 11 (sodium).
+    approved: true
