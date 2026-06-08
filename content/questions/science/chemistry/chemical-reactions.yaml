@@ -1,0 +1,220 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: chemical-reactions
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-chemistry-chemical-reactions-0001
+    type: identify
+    difficulty: easy
+    stem: |
+      Classify this reaction: $2H_2 + O_2 \rightarrow 2H_2O$
+    choices:
+      - text: Synthesis
+        correct: true
+      - text: Decomposition
+      - text: Single replacement
+      - text: Double replacement
+    explanation: |
+      Two simple substances ($H_2$ and $O_2$) combine into one product ($H_2O$). Multiple substances merging into one is synthesis.
+    approved: true
+  - id: q-chemistry-chemical-reactions-0002
+    type: identify
+    difficulty: easy
+    stem: |
+      Classify this reaction: $2H_2O_2 \rightarrow 2H_2O + O_2$
+    choices:
+      - text: Decomposition
+        correct: true
+      - text: Synthesis
+      - text: Single replacement
+      - text: Combustion
+    explanation: |
+      One compound ($H_2O_2$) breaks down into two simpler substances ($H_2O$ and $O_2$). One substance splitting into many is decomposition.
+    approved: true
+  - id: q-chemistry-chemical-reactions-0003
+    type: identify
+    difficulty: easy
+    stem: |
+      Classify this reaction: $Zn + 2HCl \rightarrow ZnCl_2 + H_2$
+    choices:
+      - text: Single replacement
+        correct: true
+      - text: Double replacement
+      - text: Synthesis
+      - text: Decomposition
+    explanation: |
+      Zinc, a single free element, swaps places with hydrogen inside the compound $HCl$. One free element replacing another element in a compound is single replacement.
+    approved: true
+  - id: q-chemistry-chemical-reactions-0004
+    type: identify
+    difficulty: medium
+    stem: |
+      Classify this reaction: $AgNO_3 + NaCl \rightarrow AgCl + NaNO_3$
+    choices:
+      - text: Double replacement
+        correct: true
+      - text: Single replacement
+      - text: Synthesis
+      - text: Decomposition
+    explanation: |
+      Both reactants are already compounds (no lone free element), and they simply trade partners: silver pairs with chloride, and sodium pairs with nitrate. Two compounds trading parts is double replacement.
+    approved: true
+  - id: q-chemistry-chemical-reactions-0005
+    type: identify
+    difficulty: medium
+    stem: |
+      Classify this reaction: $CH_4 + 2O_2 \rightarrow CO_2 + 2H_2O$
+    choices:
+      - text: Combustion
+        correct: true
+      - text: Synthesis
+      - text: Single replacement
+      - text: Decomposition
+    explanation: |
+      A carbon-hydrogen compound reacts with oxygen, releasing energy and producing carbon dioxide and water — the signature pattern of combustion.
+    approved: true
+  - id: q-chemistry-chemical-reactions-0006
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      Balance this equation by finding the correct coefficient for $H_2$: $N_2 + \_\_H_2 \rightarrow 2NH_3$
+    choices:
+      - text: "3"
+        correct: true
+      - text: "2"
+      - text: "6"
+      - text: "1"
+    explanation: |
+      With a coefficient of 2 on $NH_3$, the right side has 6 hydrogen atoms ($2 \times 3$). To match 6 hydrogen atoms on the left, $H_2$ needs a coefficient of 3, since $3 \times 2 = 6$.
+    approved: true
+  - id: q-chemistry-chemical-reactions-0007
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      Balance this equation by finding the correct coefficient for $O_2$: $CH_4 + \_\_O_2 \rightarrow CO_2 + 2H_2O$
+    choices:
+      - text: "2"
+        correct: true
+      - text: "1"
+      - text: "3"
+      - text: "4"
+    explanation: |
+      On the right, $CO_2$ contributes 2 oxygen atoms and $2H_2O$ contributes 2 more, totaling 4. Since each $O_2$ molecule supplies 2 oxygen atoms, a coefficient of 2 gives $2 \times 2 = 4$ oxygen atoms on the left, matching the right side.
+    approved: true
+  - id: q-chemistry-chemical-reactions-0008
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      Balance this equation by finding the correct coefficient for $Fe$: $\_\_Fe + 3O_2 \rightarrow 2Fe_2O_3$
+    choices:
+      - text: "4"
+        correct: true
+      - text: "2"
+      - text: "3"
+      - text: "6"
+    explanation: |
+      The right side has $2 \times 2 = 4$ iron atoms (from $2Fe_2O_3$). To match, $Fe$ needs a coefficient of 4 on the left. (Checking oxygen: $3 \times 2 = 6$ on the left, and $2 \times 3 = 6$ on the right — also balanced.)
+    approved: true
+  - id: q-chemistry-chemical-reactions-0009
+    type: classify
+    difficulty: hard
+    stem: |
+      A student tries to balance an equation containing $H_2O$ by changing it to $H_2O_2$ instead of adding a coefficient in front of it. Is this a valid way to balance the equation?
+    choices:
+      - text: No — changing a subscript creates an entirely different substance (hydrogen peroxide), not a balanced version of water.
+        correct: true
+      - text: Yes — subscripts and coefficients can be adjusted interchangeably to balance an equation.
+      - text: Yes — as long as the total atom count comes out even on both sides.
+      - text: No — but only because $H_2O_2$ does not really exist.
+    explanation: |
+      Only coefficients (numbers in front of a formula) may be changed to balance an equation. Changing the subscript inside a formula changes the substance's identity entirely — $H_2O_2$ is hydrogen peroxide, a completely different compound from water.
+    approved: true
+  - id: q-chemistry-chemical-reactions-0010
+    type: classify
+    difficulty: hard
+    stem: |
+      A student adjusts an equation's coefficients until nitrogen atoms match on both sides, then declares the equation balanced without checking hydrogen. Is this equation confirmed to be balanced?
+    choices:
+      - text: No — every element's atom count must match on both sides, not just nitrogen; hydrogen still needs to be checked.
+        correct: true
+      - text: Yes — matching just one element is enough to confirm the whole equation is balanced.
+      - text: Yes — hydrogen automatically balances whenever nitrogen does.
+      - text: No — but only because nitrogen itself was checked incorrectly.
+    explanation: |
+      An equation is balanced only when every single element matches on both sides. Stopping after checking just one element (like nitrogen) can miss an imbalance in another element (like hydrogen).
+    approved: true
+  - id: q-chemistry-chemical-reactions-0011
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      Which statement correctly tells apart synthesis and decomposition reactions?
+    choices:
+      - text: Synthesis combines multiple substances into one product; decomposition breaks one substance into multiple products.
+        correct: true
+      - text: Synthesis breaks one substance into multiple products; decomposition combines multiple substances into one.
+      - text: Both reaction types always involve exactly the same number of reactants and products.
+      - text: Synthesis only happens with elements; decomposition only happens with compounds.
+    explanation: |
+      These are mirror-image reactions: synthesis is many merging into one, and decomposition is one splitting into many. Checking which side of the arrow has more separate substances tells them apart.
+    approved: true
+  - id: q-chemistry-chemical-reactions-0012
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      Which statement correctly tells apart single replacement and double replacement reactions?
+    choices:
+      - text: Single replacement has one free element swapping into a compound; double replacement has two compounds trading their parts with each other.
+        correct: true
+      - text: Single replacement always involves two compounds; double replacement always involves one free element.
+      - text: Both reaction types are identical, just with different names.
+      - text: Single replacement only happens with metals; double replacement only happens with nonmetals.
+    explanation: |
+      If only one reactant is a lone element and the other is a compound, it is single replacement. If both reactants are already compounds and simply trade partners, it is double replacement.
+    approved: true
+  - id: q-chemistry-chemical-reactions-0013
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      Why must a chemical equation be balanced, with the same number of atoms of each element on both sides?
+    choices:
+      - text: Because matter cannot be created or destroyed in a chemical reaction (the Law of Conservation of Mass).
+        correct: true
+      - text: Because chemical equations are only a stylistic convention with no physical meaning.
+      - text: Because unbalanced equations are illegal to write on an exam.
+      - text: Because only reactions with equal numbers of reactants and products actually occur.
+    explanation: |
+      The Law of Conservation of Mass says atoms are neither created nor destroyed in a reaction — every atom present in the reactants must still be accounted for in the products, which is exactly what a balanced equation shows.
+    approved: true
+  - id: q-chemistry-chemical-reactions-0014
+    type: simple-quantitative
+    difficulty: exam
+    stem: |
+      Balance this equation by finding the correct coefficient for $Al$: $\_\_Al + 3O_2 \rightarrow 2Al_2O_3$
+    choices:
+      - text: "4"
+        correct: true
+      - text: "2"
+      - text: "3"
+      - text: "6"
+    explanation: |
+      The right side has $2 \times 2 = 4$ aluminum atoms (from $2Al_2O_3$). To match, $Al$ needs a coefficient of 4. (Checking oxygen: $3 \times 2 = 6$ on the left, and $2 \times 3 = 6$ on the right — also balanced.)
+    approved: true
+  - id: q-chemistry-chemical-reactions-0015
+    type: identify
+    difficulty: exam
+    stem: |
+      Classify this reaction: $2KClO_3 \rightarrow 2KCl + 3O_2$
+    choices:
+      - text: Decomposition
+        correct: true
+      - text: Synthesis
+      - text: Single replacement
+      - text: Double replacement
+    explanation: |
+      One compound ($KClO_3$) breaks apart into two different simpler substances ($KCl$ and $O_2$). Even though it produces two separate products instead of just one, this is still a single substance splitting apart — decomposition.
+    approved: true
