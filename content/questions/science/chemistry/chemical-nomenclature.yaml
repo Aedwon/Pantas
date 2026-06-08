@@ -1,0 +1,220 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: chemical-nomenclature
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-chemistry-chemical-nomenclature-0001
+    type: identify
+    difficulty: easy
+    stem: |
+      Potassium ($K$) and bromine ($Br$) combine to form an ionic compound. What is its name?
+    choices:
+      - text: Potassium bromide
+        correct: true
+      - text: Potassium bromine
+      - text: Bromide potassium
+      - text: Potassium (I) bromide
+    explanation: |
+      An ionic compound's name is the metal's name unchanged, plus the nonmetal's name with its ending changed to "-ide." Potassium stays potassium; bromine becomes bromide.
+    approved: true
+  - id: q-chemistry-chemical-nomenclature-0002
+    type: identify
+    difficulty: easy
+    stem: |
+      What is the correct name for $CO$ (one carbon atom, one oxygen atom)?
+    choices:
+      - text: Carbon monoxide
+        correct: true
+      - text: Carbon oxide
+      - text: Monocarbon oxide
+      - text: Carbon dioxide
+    explanation: |
+      In covalent naming, the second element always gets a prefix, even for one atom. "Mono-" on oxide specifically distinguishes $CO$ from $CO_2$ (carbon dioxide).
+    approved: true
+  - id: q-chemistry-chemical-nomenclature-0003
+    type: identify
+    difficulty: easy
+    stem: |
+      What is the correct name for $CO_2$ (one carbon atom, two oxygen atoms)?
+    choices:
+      - text: Carbon dioxide
+        correct: true
+      - text: Carbon monoxide
+      - text: Dicarbon oxide
+      - text: Carbon oxide
+    explanation: |
+      The first element (carbon, one atom) skips its prefix; the second element (two oxygen atoms) gets "di-": carbon dioxide.
+    approved: true
+  - id: q-chemistry-chemical-nomenclature-0004
+    type: classify
+    difficulty: medium
+    stem: |
+      Copper can form either $Cu^+$ or $Cu^{2+}$. In the compound $CuO$ (with oxide, $O^{2-}$), what is copper's charge here, and what is the compound's name?
+    choices:
+      - text: Copper is 2+ here, so the compound is copper (II) oxide.
+        correct: true
+      - text: Copper is 1+ here, so the compound is copper (I) oxide.
+      - text: Copper's charge cannot be determined from this compound.
+      - text: Copper is 2+ here, so the compound is copper (I) oxide.
+    explanation: |
+      Oxide has a charge of 2-. For the compound to be neutral, copper's charge here must be 2+. Since copper can form more than one charge, the Roman numeral (II) is required: copper (II) oxide.
+    approved: true
+  - id: q-chemistry-chemical-nomenclature-0005
+    type: classify
+    difficulty: medium
+    stem: |
+      Iron can form either $Fe^{2+}$ or $Fe^{3+}$. What is the correct name for $FeCl_3$?
+    choices:
+      - text: Iron (III) chloride
+        correct: true
+      - text: Iron (II) chloride
+      - text: Iron chloride
+      - text: Triiron chloride
+    explanation: |
+      Each chloride ion has a charge of 1-, and there are 3 of them, so the total negative charge is 3-. Iron's charge here must be 3+, so the Roman numeral (III) is required: iron (III) chloride.
+    approved: true
+  - id: q-chemistry-chemical-nomenclature-0006
+    type: classify
+    difficulty: medium
+    stem: |
+      What is the correct name for $N_2O_5$ (two nitrogen atoms, five oxygen atoms)?
+    choices:
+      - text: Dinitrogen pentoxide
+        correct: true
+      - text: Nitrogen pentoxide
+      - text: Dinitrogen pentaoxide
+      - text: Nitrogen (V) oxide
+    explanation: |
+      Two nitrogen atoms get the prefix "di-"; five oxygen atoms get "penta-," but the "a" is dropped before the vowel in "oxide," giving "pentoxide." Full name: dinitrogen pentoxide.
+    approved: true
+  - id: q-chemistry-chemical-nomenclature-0007
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      Write the chemical formula for calcium nitrate, given that calcium forms $Ca^{2+}$ and the nitrate ion is $NO_3^-$.
+    choices:
+      - text: Ca(NO3)2
+        correct: true
+      - text: Ca2NO3
+      - text: CaNO3
+      - text: Ca2(NO3)2
+    explanation: |
+      Using the criss-cross method, calcium's charge (2) becomes nitrate's subscript, and nitrate's charge (1) becomes calcium's subscript (omitted since it's 1). Since nitrate is polyatomic, its formula needs parentheses when a subscript is added: $Ca(NO_3)_2$.
+    approved: true
+  - id: q-chemistry-chemical-nomenclature-0008
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      Write the chemical formula for aluminum sulfate, given that aluminum forms $Al^{3+}$ and the sulfate ion is $SO_4^{2-}$.
+    choices:
+      - text: Al2(SO4)3
+        correct: true
+      - text: Al3(SO4)2
+      - text: AlSO4
+      - text: Al2SO4
+    explanation: |
+      Using the criss-cross method, aluminum's charge (3) becomes sulfate's subscript, and sulfate's charge (2) becomes aluminum's subscript: $Al_2(SO_4)_3$. The parentheses are needed since more than one sulfate ion is present.
+    approved: true
+  - id: q-chemistry-chemical-nomenclature-0009
+    type: classify
+    difficulty: hard
+    stem: |
+      A student names $FeCl_3$ simply as "iron chloride," with no Roman numeral. Is this name complete and unambiguous?
+    choices:
+      - text: No — without the Roman numeral, "iron chloride" could also mean $FeCl_2$, since iron can form more than one charge.
+        correct: true
+      - text: Yes — Roman numerals are optional decoration, not required information.
+      - text: Yes — "iron chloride" always refers only to $FeCl_3$.
+      - text: No — but only because iron is not actually a metal.
+    explanation: |
+      Since iron can form both $Fe^{2+}$ and $Fe^{3+}$, "iron chloride" alone does not say which compound is meant. The Roman numeral (III) is required to specify $FeCl_3$ rather than $FeCl_2$ (iron (II) chloride).
+    approved: true
+  - id: q-chemistry-chemical-nomenclature-0010
+    type: classify
+    difficulty: hard
+    stem: |
+      A student names $CO$ as "carbon oxide," dropping the "mono-" prefix since there is only one oxygen atom. Is this name correct?
+    choices:
+      - text: No — the second element in covalent naming always gets a prefix, even for one atom, so it must be "carbon monoxide."
+        correct: true
+      - text: Yes — "mono-" is always dropped for a single atom, on both elements.
+      - text: No — but only because the first element needs the prefix instead.
+      - text: Yes — "carbon oxide" and "carbon monoxide" refer to different compounds.
+    explanation: |
+      Only the *first* element skips "mono-" for a single atom. The second element always keeps its prefix, precisely so that "carbon monoxide" ($CO$) is never confused with "carbon dioxide" ($CO_2$).
+    approved: true
+  - id: q-chemistry-chemical-nomenclature-0011
+    type: classify
+    difficulty: hard
+    stem: |
+      A student names $NaOH$ as "sodium hydroxide-ide," trying to apply the usual "-ide" ending rule. Is this correct?
+    choices:
+      - text: No — polyatomic ions like hydroxide keep their own special name; the compound is simply "sodium hydroxide."
+        correct: true
+      - text: Yes — every anion's name must end in "-ide," including polyatomic ions.
+      - text: No — but only because sodium is not really a metal.
+      - text: Yes — "sodium hydroxide-ide" is the fully correct chemical name.
+    explanation: |
+      The "-ide" ending rule applies only to simple, single-element anions (like chloride or oxide). Polyatomic ions such as hydroxide keep their own name as-is — the compound is named sodium hydroxide.
+    approved: true
+  - id: q-chemistry-chemical-nomenclature-0012
+    type: classify
+    difficulty: medium
+    stem: |
+      Sulfate is $SO_4^{2-}$. Based on the "-ate has more oxygen than -ite" pattern, what is the formula for sulfite?
+    choices:
+      - text: SO3^2-
+        correct: true
+      - text: SO5^2-
+      - text: SO4^2-
+      - text: SO4^-
+    explanation: |
+      The "-ite" ending has one fewer oxygen atom than the matching "-ate" ending, with the same charge. Since sulfate is $SO_4^{2-}$, sulfite is $SO_3^{2-}$.
+    approved: true
+  - id: q-chemistry-chemical-nomenclature-0013
+    type: classify
+    difficulty: medium
+    stem: |
+      Two nonmetals combine to form a compound. Which naming system applies: ionic naming or covalent naming?
+    choices:
+      - text: Covalent naming, using Greek prefixes on both elements.
+        correct: true
+      - text: Ionic naming, using a cation name plus an "-ide" ending.
+      - text: Neither system applies to compounds made of two nonmetals.
+      - text: Both systems apply equally and give the same name.
+    explanation: |
+      Ionic naming applies to metal-nonmetal compounds. Two nonmetals combining always use covalent naming, with Greek prefixes showing exactly how many atoms of each element are present.
+    approved: true
+  - id: q-chemistry-chemical-nomenclature-0014
+    type: simple-quantitative
+    difficulty: exam
+    stem: |
+      Write the chemical formula for magnesium phosphate, given that magnesium forms $Mg^{2+}$ and the phosphate ion is $PO_4^{3-}$.
+    choices:
+      - text: Mg3(PO4)2
+        correct: true
+      - text: Mg2(PO4)3
+      - text: MgPO4
+      - text: Mg3PO4
+    explanation: |
+      Using the criss-cross method, magnesium's charge (2) becomes phosphate's subscript, and phosphate's charge (3) becomes magnesium's subscript: $Mg_3(PO_4)_2$.
+    approved: true
+  - id: q-chemistry-chemical-nomenclature-0015
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      Iron can form either $Fe^{2+}$ or $Fe^{3+}$. The compound $Fe_2O_3$ contains 2 iron atoms and 3 oxide ions ($O^{2-}$). What is iron's charge in this compound, and what is the compound's correct name?
+    choices:
+      - text: Iron is 3+ here, so the compound is iron (III) oxide.
+        correct: true
+      - text: Iron is 2+ here, so the compound is iron (II) oxide.
+      - text: Iron is 6+ here, so the compound is iron (VI) oxide.
+      - text: Iron's charge cannot be determined without more information.
+    explanation: |
+      Three oxide ions contribute a total charge of $3 \times 2- = 6-$. To balance this, the 2 iron atoms together must contribute $6+$, so each individual iron atom is $3+$. The compound is iron (III) oxide.
+    approved: true
