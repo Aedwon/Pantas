@@ -43,7 +43,7 @@ class SettingsHomePage extends ConsumerWidget {
             children: [
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
                 child: Row(
                   children: [
                     const Expanded(child: Text('Theme')),

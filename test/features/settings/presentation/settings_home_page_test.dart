@@ -24,11 +24,11 @@ void main() {
       overrides: _overrides(db, anonymous: true),
     );
 
-    expect(find.text('PREFERENCES'), findsOneWidget);
-    expect(find.text('ACCOUNT'), findsOneWidget);
+    expect(find.text('Preferences'), findsOneWidget);
+    expect(find.text('Account'), findsWidgets);
     await tester.drag(find.byType(SettingsHomePage), const Offset(0, -500));
     await tester.pumpAndSettle();
-    expect(find.text('ABOUT'), findsOneWidget);
+    expect(find.text('About'), findsOneWidget);
   });
 
   testWidgets('anonymous user shows signed in anonymously account subtitle',

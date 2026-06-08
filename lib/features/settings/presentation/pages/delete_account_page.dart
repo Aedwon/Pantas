@@ -1,3 +1,6 @@
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/settings/settings.dart';
 import 'package:flutter/material.dart';
 
@@ -28,6 +31,8 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
 
   @override
   Widget build(BuildContext context) {
+    final styles = context.textStyles;
+    final colors = context.colors;
     final billingLine = widget.isAnonymous
         ? anonymousDeleteWarning(widget.entitlement)
         : deleteAccountBillingLine(widget.entitlement);
@@ -36,11 +41,11 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
         title: Text(widget.isAnonymous ? 'Delete data' : 'Delete account'),
       ),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
         children: [
           Text(
             widget.isAnonymous ? 'Delete your data?' : 'Delete your account?',
-            style: Theme.of(context).textTheme.headlineSmall,
+            style: styles.headlineMedium,
           ),
           const SizedBox(height: 16),
           Text(
@@ -49,46 +54,56 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
                     'Sign in first if you want to keep it.'
                 : "You'll lose everything you've done in the app - your study "
                     'plan, quiz history, mock exam results, and progress.',
+            style: styles.bodyMedium.copyWith(color: colors.inkMuted),
           ),
           if (billingLine != null) ...[
             const SizedBox(height: 16),
-            Text(billingLine),
+            Text(
+              billingLine,
+              style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+            ),
           ],
           const SizedBox(height: 16),
-          const Text("You can't undo this."),
+          Text("You can't undo this.", style: styles.bodyMedium),
           const SizedBox(height: 24),
           if (_isDeleted) ...[
-            const Text('Deletion request completed.'),
+            Text('Deletion request completed.', style: styles.bodyMedium),
             const SizedBox(height: 16),
           ],
           if (_error != null) ...[
             Text(
               'We could not complete deletion. Try again or contact our DPO '
               'at ${widget.dpoEmail}.',
+              style: styles.bodySmall.copyWith(color: colors.rust),
             ),
             const SizedBox(height: 16),
           ],
-          OutlinedButton(
+          BoardButton(
+            label: 'Cancel',
+            secondary: true,
             onPressed:
                 _isDeleting ? null : () => Navigator.of(context).maybePop(),
-            child: const Text('Cancel'),
           ),
           const SizedBox(height: 8),
-          FilledButton(
-            style: FilledButton.styleFrom(
-              backgroundColor: Theme.of(context).colorScheme.error,
-            ),
+          _RustButton(
             onPressed: _isDeleting ? null : _delete,
             child: _isDeleting
-                ? const Row(
+                ? Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       SizedBox.square(
                         dimension: 18,
-                        child: CircularProgressIndicator(strokeWidth: 2),
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          color: colors.onBoard,
+                        ),
                       ),
-                      SizedBox(width: 8),
-                      Text('Deleting...'),
+                      const SizedBox(width: 8),
+                      Text(
+                        'Deleting...',
+                        style: styles.labelLarge
+                            .copyWith(color: colors.onBoard),
+                      ),
                     ],
                   )
                 : Text(
@@ -97,6 +112,7 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
                         : widget.isAnonymous
                             ? 'Yes, delete my data'
                             : 'Yes, delete my account',
+                    style: styles.labelLarge.copyWith(color: colors.onBoard),
                   ),
           ),
         ],
@@ -124,5 +140,35 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
         });
       }
     }
+  }
+}
+
+class _RustButton extends StatelessWidget {
+  const _RustButton({required this.onPressed, required this.child});
+
+  final VoidCallback? onPressed;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.colors;
+    final enabled = onPressed != null;
+    return InkWell(
+      onTap: onPressed,
+      borderRadius: BorderRadius.circular(AppDimensions.radiusButton),
+      child: Container(
+        constraints:
+            const BoxConstraints(minHeight: AppDimensions.minTapTarget),
+        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+        decoration: BoxDecoration(
+          color: enabled
+              ? colors.rust
+              : colors.rust.withValues(alpha: 0.5),
+          borderRadius: BorderRadius.circular(AppDimensions.radiusButton),
+        ),
+        alignment: Alignment.center,
+        child: child,
+      ),
+    );
   }
 }

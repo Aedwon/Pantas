@@ -63,7 +63,8 @@ void main() {
     expect(selected, ThemePreference.dark);
   });
 
-  testWidgets('section renders uppercase header and children', (tester) async {
+  testWidgets('section renders sentence-case header and children',
+      (tester) async {
     await tester.pumpApp(
       const SettingsSection(
         title: 'Preferences',
@@ -71,7 +72,7 @@ void main() {
       ),
     );
 
-    expect(find.text('PREFERENCES'), findsOneWidget);
+    expect(find.text('Preferences'), findsOneWidget);
     expect(find.text('Theme'), findsOneWidget);
   });
 }

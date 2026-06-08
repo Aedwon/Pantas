@@ -1,6 +1,8 @@
 import 'package:cse_cet_reviewer/core/auth/providers.dart';
 import 'package:cse_cet_reviewer/core/sync/providers.dart';
 import 'package:cse_cet_reviewer/core/sync/sync_status.dart';
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/widgets/settings_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -18,18 +20,20 @@ class AccountPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Account')),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
         children: [
           if (user == null && isAnonymous) ...[
-            const Text(
+            Text(
               'Your progress is saved on this device. Sign in to back it up '
               'and use it on other devices.',
+              style: context.textStyles.bodyMedium
+                  .copyWith(color: context.colors.inkMuted),
             ),
             const SizedBox(height: 16),
-            FilledButton(
+            BoardButton(
+              label: 'Sign in with Google',
               onPressed: () =>
                   ref.read(authRepositoryProvider).signInWithGoogle(),
-              child: const Text('Sign in with Google'),
             ),
             const SizedBox(height: 24),
             SettingsRow(
@@ -41,9 +45,14 @@ class AccountPage extends ConsumerWidget {
               user?.displayName.isNotEmpty ?? false
                   ? user!.displayName
                   : 'Account',
+              style: context.textStyles.headlineMedium,
             ),
             const SizedBox(height: 4),
-            Text(user?.email ?? ''),
+            Text(
+              user?.email ?? '',
+              style: context.textStyles.bodySmall
+                  .copyWith(color: context.colors.inkMuted),
+            ),
             const SizedBox(height: 24),
             SettingsRow(
               title: 'Sign out',

@@ -144,7 +144,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Settings'), findsWidgets);
-    expect(find.text('PREFERENCES'), findsOneWidget);
+    expect(find.text('Preferences'), findsOneWidget);
 
     router.go('/more');
     await tester.pumpAndSettle();
@@ -153,7 +153,7 @@ void main() {
       router.routerDelegate.currentConfiguration.uri.toString(),
       '/settings',
     );
-    expect(find.text('PREFERENCES'), findsOneWidget);
+    expect(find.text('Preferences'), findsOneWidget);
   });
 
   testWidgets('settings detail routes build', (tester) async {

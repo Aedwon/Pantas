@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class IosSettingsSwitch extends StatelessWidget {
@@ -12,7 +13,8 @@ class IosSettingsSwitch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = value ? const Color(0xFF34C759) : const Color(0xFFB8BEC6);
+    final colors = context.colors;
+    final color = value ? colors.board : colors.rule;
     return Semantics(
       toggled: value,
       button: true,
@@ -25,14 +27,14 @@ class IosSettingsSwitch extends StatelessWidget {
           padding: const EdgeInsets.all(3),
           decoration: BoxDecoration(
             color: color,
-            borderRadius: BorderRadius.circular(999),
+            borderRadius: BorderRadius.circular(14),
           ),
           alignment: value ? Alignment.centerRight : Alignment.centerLeft,
           child: Container(
             width: 22,
             height: 22,
-            decoration: const BoxDecoration(
-              color: Colors.white,
+            decoration: BoxDecoration(
+              color: colors.surface,
               shape: BoxShape.circle,
             ),
           ),
