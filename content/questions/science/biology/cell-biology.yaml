@@ -1,0 +1,288 @@
+meta:
+  subject: science
+  topic: biology
+  subtopic: cell-biology
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-biology-cell-biology-0001
+    type: identify-organelle
+    difficulty: easy
+    stem: |
+      Which part of the cell is called its "control center" because it holds
+      the cell's DNA and directs its activities?
+    choices:
+      - text: Nucleus
+        correct: true
+      - text: Mitochondrion
+      - text: Ribosome
+      - text: Golgi apparatus
+    explanation: |
+      The nucleus stores the DNA and controls what the cell does. The other
+      organelles listed do not hold the cell's DNA.
+    approved: true
+  - id: q-biology-cell-biology-0002
+    type: identify-organelle
+    difficulty: easy
+    stem: |
+      Which organelle is known as the "powerhouse of the cell" because it
+      breaks down glucose to produce ATP?
+    choices:
+      - text: Mitochondrion
+        correct: true
+      - text: Ribosome
+      - text: Nucleus
+      - text: Vacuole
+    explanation: |
+      Mitochondria break down glucose and release energy as ATP, the fuel
+      the cell uses to do work. Ribosomes build proteins, not energy.
+    approved: true
+  - id: q-biology-cell-biology-0003
+    type: identify-organelle
+    difficulty: easy
+    stem: |
+      Which structure builds proteins by following instructions copied from
+      the cell's DNA?
+    choices:
+      - text: Ribosome
+        correct: true
+      - text: Golgi apparatus
+      - text: Mitochondrion
+      - text: Cell membrane
+    explanation: |
+      Ribosomes read copied DNA instructions and link amino acids together
+      to build proteins. The Golgi apparatus packages proteins afterward —
+      it does not build them.
+    approved: true
+  - id: q-biology-cell-biology-0004
+    type: structure-function
+    difficulty: easy
+    stem: |
+      A cell organelle modifies, sorts, and packages proteins, then ships
+      them to where they are needed inside or outside the cell. Which
+      organelle is this?
+    choices:
+      - text: Golgi apparatus
+        correct: true
+      - text: Rough endoplasmic reticulum
+      - text: Nucleus
+      - text: Mitochondrion
+    explanation: |
+      The Golgi apparatus works like a packaging and shipping center for the
+      cell. The rough ER helps build proteins earlier in the process, but it
+      does not package and ship them.
+    approved: true
+  - id: q-biology-cell-biology-0005
+    type: structure-function
+    difficulty: medium
+    stem: |
+      Which structure is covered in ribosomes and helps build and process
+      proteins?
+    choices:
+      - text: Rough endoplasmic reticulum
+        correct: true
+      - text: Smooth endoplasmic reticulum
+      - text: Golgi apparatus
+      - text: Lysosome
+    explanation: |
+      The rough ER is named for the ribosomes dotting its surface, and those
+      ribosomes build proteins. The smooth ER has no ribosomes and builds
+      lipids instead.
+    approved: true
+  - id: q-biology-cell-biology-0006
+    type: structure-function
+    difficulty: medium
+    stem: |
+      Which structure acts as a thin, flexible barrier that controls which
+      substances enter and leave the cell?
+    choices:
+      - text: Cell membrane
+        correct: true
+      - text: Cell wall
+      - text: Cytoplasm
+      - text: Nucleolus
+    explanation: |
+      The cell membrane is the gatekeeper — it lets some substances in and
+      keeps others out. The cell wall only gives the cell shape and support;
+      it does not select what passes through.
+    approved: true
+  - id: q-biology-cell-biology-0007
+    type: classify
+    difficulty: medium
+    stem: |
+      Which of the following is found in animal cells but NOT in plant
+      cells?
+    choices:
+      - text: Centrosome
+        correct: true
+      - text: Cell wall
+      - text: Chloroplast
+      - text: Central vacuole
+    explanation: |
+      Animal cells typically have a centrosome, which helps organize cell
+      division. Cell wall, chloroplast, and central vacuole are the three
+      structures found in plant cells but not animal cells.
+    approved: true
+  - id: q-biology-cell-biology-0008
+    type: classify
+    difficulty: medium
+    stem: |
+      Which of the following is NOT one of the three structures unique to
+      plant cells?
+    choices:
+      - text: Lysosome
+        correct: true
+      - text: Cell wall
+      - text: Chloroplast
+      - text: Central vacuole
+    explanation: |
+      Lysosomes are typically found in animal cells, where they break down
+      waste. Cell wall, chloroplast, and central vacuole are the three
+      plant-only structures.
+    approved: true
+  - id: q-biology-cell-biology-0009
+    type: classify
+    difficulty: medium
+    stem: |
+      A cell observed under a microscope has a rigid outer wall, a large
+      water-filled sac, and small green structures inside. Is this most
+      likely a plant cell or an animal cell?
+    choices:
+      - text: Plant cell
+        correct: true
+      - text: Animal cell
+      - text: It cannot be either type of cell
+      - text: Both are equally likely
+    explanation: |
+      A rigid wall matches the cell wall, the water-filled sac matches the
+      central vacuole, and the green structures match chloroplasts. All
+      three clues are plant-only structures, so this is a plant cell.
+    approved: true
+  - id: q-biology-cell-biology-0010
+    type: compare-contrast
+    difficulty: medium
+    stem: |
+      Which statement correctly tells apart diffusion and osmosis?
+    choices:
+      - text: Osmosis is specifically the movement of water; diffusion can involve any particle, including water.
+        correct: true
+      - text: Diffusion is specifically the movement of water; osmosis can involve any particle.
+      - text: Osmosis requires energy; diffusion does not.
+      - text: Diffusion only happens in animal cells; osmosis only happens in plant cells.
+    explanation: |
+      Osmosis is a special case of diffusion that applies only to water.
+      Diffusion is the broader term and can describe any particle moving
+      from high to low concentration. Neither process needs energy.
+    approved: true
+  - id: q-biology-cell-biology-0011
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      Which statement correctly tells apart diffusion and active transport?
+    choices:
+      - text: Diffusion moves particles from high to low concentration and needs no energy; active transport moves particles from low to high concentration and needs energy.
+        correct: true
+      - text: Diffusion needs energy and moves particles from low to high concentration; active transport needs no energy.
+      - text: Both processes always move particles from low to high concentration.
+      - text: Active transport only happens in plant cells.
+    explanation: |
+      Diffusion follows the concentration gradient (high to low) on its own.
+      Active transport pushes particles against the gradient (low to high),
+      which always requires the cell to spend energy.
+    approved: true
+  - id: q-biology-cell-biology-0012
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      A red blood cell is placed in a solution with a lower solute
+      concentration than the inside of the cell. What is the most likely
+      result?
+    choices:
+      - text: Water moves into the cell, and it may swell or burst.
+        correct: true
+      - text: Water moves out of the cell, and it shrinks.
+      - text: No water moves, and the cell stays the same size.
+      - text: The cell wall prevents any change.
+    explanation: |
+      A solution with lower solute concentration than the cell is
+      hypotonic. Water moves toward the higher solute concentration, which
+      here is inside the cell, so the cell swells and may even burst.
+    approved: true
+  - id: q-biology-cell-biology-0013
+    type: cause-effect
+    difficulty: hard
+    stem: |
+      A red blood cell is placed in a salt solution, and the cell shrinks
+      and shrivels. What type of solution was it most likely placed in?
+    choices:
+      - text: Hypertonic solution
+        correct: true
+      - text: Hypotonic solution
+      - text: Isotonic solution
+      - text: Neutral solution
+    explanation: |
+      The cell shrank, so water moved out of it. Water leaves a cell when
+      the surrounding solution has a higher solute concentration than the
+      cell — that solution is called hypertonic.
+    approved: true
+  - id: q-biology-cell-biology-0014
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      A red blood cell is placed in a solution with the same solute
+      concentration as the inside of the cell. What happens to the cell's
+      size?
+    choices:
+      - text: It stays the same size.
+        correct: true
+      - text: It swells and may burst.
+      - text: It shrinks and shrivels.
+      - text: It splits into two smaller cells.
+    explanation: |
+      Equal solute concentration inside and outside is called isotonic.
+      Water still moves in and out, but at the same rate in both
+      directions, so the cell's size does not change.
+    approved: true
+  - id: q-biology-cell-biology-0015
+    type: process-ordering
+    difficulty: hard
+    stem: |
+      Put the following steps of protein production and shipping in the
+      correct order.
+      1. Golgi apparatus packages the protein for shipping
+      2. Ribosome builds the protein
+      3. Rough endoplasmic reticulum processes the protein
+    choices:
+      - text: 2, 3, 1
+        correct: true
+      - text: 1, 2, 3
+      - text: 3, 2, 1
+      - text: 2, 1, 3
+    explanation: |
+      A ribosome builds the protein first. The rough ER, covered in
+      ribosomes, then helps process it. Last, the Golgi apparatus packages
+      and ships the finished protein.
+    approved: true
+  - id: q-biology-cell-biology-0016
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      A cell normally uses active transport to keep pumping a nutrient into
+      itself, even though the nutrient is already more concentrated inside
+      than outside. If the cell suddenly runs out of ATP, what will most
+      likely happen to the movement of that nutrient?
+    choices:
+      - text: The nutrient will stop being pumped in and may start leaking back out along its concentration gradient.
+        correct: true
+      - text: The nutrient will keep moving into the cell at the same rate.
+      - text: The nutrient will be pumped in even faster.
+      - text: The nutrient will convert into a different substance.
+    explanation: |
+      Active transport needs ATP to move a substance against its
+      concentration gradient. Without ATP, the cell cannot keep pumping the
+      nutrient in, and it may drift back out toward the lower
+      concentration, following ordinary diffusion instead.
+    approved: true
