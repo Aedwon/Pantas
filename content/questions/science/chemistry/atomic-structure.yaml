@@ -1,0 +1,220 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: atomic-structure
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-chemistry-atomic-structure-0001
+    type: simple-quantitative
+    difficulty: easy
+    stem: |
+      A neutral atom has an atomic number of 17 and a mass number of 35. How many neutrons does it have?
+    choices:
+      - text: "18"
+        correct: true
+      - text: "17"
+      - text: "35"
+      - text: "52"
+    explanation: |
+      Neutrons equal the mass number minus the atomic number: $35 - 17 = 18$.
+    approved: true
+  - id: q-chemistry-atomic-structure-0002
+    type: simple-quantitative
+    difficulty: easy
+    stem: |
+      A neutral sodium atom has an atomic number of 11 and a mass number of 23. How many neutrons does it have?
+    choices:
+      - text: "12"
+        correct: true
+      - text: "11"
+      - text: "23"
+      - text: "34"
+    explanation: |
+      Neutrons equal the mass number minus the atomic number: $23 - 11 = 12$.
+    approved: true
+  - id: q-chemistry-atomic-structure-0003
+    type: classify
+    difficulty: medium
+    stem: |
+      One chlorine atom has 17 protons and 18 neutrons. Another chlorine atom has 17 protons and 20 neutrons. Are these two atoms isotopes of each other?
+    choices:
+      - text: Yes — they have the same atomic number but different neutron counts, so they are isotopes.
+        correct: true
+      - text: No — they are different elements, since they have different neutron counts.
+      - text: No — isotopes must have different atomic numbers.
+      - text: Yes — but only because they have the same mass number.
+    explanation: |
+      Both atoms have 17 protons, so both are chlorine. Since they differ in neutron count (18 versus 20), they are isotopes of each other — chlorine-35 and chlorine-37.
+    approved: true
+  - id: q-chemistry-atomic-structure-0004
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A nitrogen atom has 7 protons. It gains 3 electrons to become an ion. What is the resulting charge?
+    choices:
+      - text: 3-
+        correct: true
+      - text: 3+
+      - text: 4-
+      - text: 10-
+    explanation: |
+      Charge equals protons minus electrons. After gaining 3 electrons, the atom has $7 + 3 = 10$ electrons, so its charge is $7 - 10 = -3$.
+    approved: true
+  - id: q-chemistry-atomic-structure-0005
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A magnesium ion has 12 protons and a charge of 2+. How many electrons does it have?
+    choices:
+      - text: "10"
+        correct: true
+      - text: "12"
+      - text: "14"
+      - text: "2"
+    explanation: |
+      Electrons equal protons minus charge: $12 - 2 = 10$.
+    approved: true
+  - id: q-chemistry-atomic-structure-0006
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A fluorine ion has 9 protons and a charge of 1-. How many electrons does it have?
+    choices:
+      - text: "10"
+        correct: true
+      - text: "8"
+      - text: "9"
+      - text: "1"
+    explanation: |
+      Electrons equal protons minus charge: $9 - (-1) = 10$. Gaining one electron gives the atom one more electron than protons, matching the 1- charge.
+    approved: true
+  - id: q-chemistry-atomic-structure-0007
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      An atom loses two electrons. What kind of ion does it become?
+    choices:
+      - text: A cation (positively charged), because it now has more protons than electrons.
+        correct: true
+      - text: An anion (negatively charged), because losing something should decrease the charge.
+      - text: A neutral atom, since losing electrons does not affect charge.
+      - text: An isotope, since the neutron count changes.
+    explanation: |
+      Losing electrons leaves more protons than electrons, making the atom positively charged — a cation. Only the electron count changed, not the neutron count, so it is not an isotope.
+    approved: true
+  - id: q-chemistry-atomic-structure-0008
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      An atom gains two electrons. What kind of ion does it become?
+    choices:
+      - text: An anion (negatively charged), because it now has more electrons than protons.
+        correct: true
+      - text: A cation (positively charged), because gaining something should increase the charge.
+      - text: A neutral atom, since electrons do not affect charge.
+      - text: An isotope, since the proton count changes.
+    explanation: |
+      Gaining electrons leaves more electrons than protons, making the atom negatively charged — an anion. Electrons are negative, so having extra of them makes the overall charge more negative, not more positive.
+    approved: true
+  - id: q-chemistry-atomic-structure-0009
+    type: classify
+    difficulty: hard
+    stem: |
+      A word problem asks for the number of neutrons in a specific carbon-14 atom. Which number from the periodic table should NOT be used directly for this calculation?
+    choices:
+      - text: Carbon's listed atomic mass of about 12.01, since that is an average across all natural isotopes, not carbon-14's actual mass number.
+        correct: true
+      - text: Carbon's atomic number of 6, since that is still needed to find the proton count.
+      - text: The number 14 itself, since that is the isotope's actual mass number.
+      - text: None of these — the periodic table's atomic mass is always safe to use for any isotope calculation.
+    explanation: |
+      The periodic table's atomic mass (about 12.01 for carbon) is a decimal average across all of carbon's natural isotopes. A specific isotope like carbon-14 has its own whole-number mass number (14), which is what should be used, not the table's average.
+    approved: true
+  - id: q-chemistry-atomic-structure-0010
+    type: classify
+    difficulty: hard
+    stem: |
+      A classmate says an atom "became an isotope" after losing one proton. Is this description correct?
+    choices:
+      - text: No — losing a proton changes the atomic number, which makes it a different element entirely, not an isotope.
+        correct: true
+      - text: Yes — isotopes are created whenever any subatomic particle count changes.
+      - text: Yes — as long as the mass number stays the same.
+      - text: No — but only because isotopes require losing a neutron instead.
+    explanation: |
+      Isotopes only ever differ in neutron count — protons always stay the same for a given element. Changing the proton count changes the atomic number, which means the atom becomes a completely different element, not an isotope of the original.
+    approved: true
+  - id: q-chemistry-atomic-structure-0011
+    type: classify
+    difficulty: hard
+    stem: |
+      A problem states "an ion has 15 protons" and then asks you to assume it has 15 electrons too. Is this assumption safe?
+    choices:
+      - text: No — an ion by definition has an unequal number of protons and electrons; only a neutral atom has them equal.
+        correct: true
+      - text: Yes — all atoms and ions always have equal protons and electrons.
+      - text: Yes — as long as the atomic number is odd.
+      - text: No — but only because 15 protons is too many for any real ion.
+    explanation: |
+      The word "ion" already tells you the particle is charged, meaning protons and electrons are NOT equal. Assuming they match without being told a specific charge would be a mistake — always check for a stated charge before assuming equal electrons and protons.
+    approved: true
+  - id: q-chemistry-atomic-structure-0012
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      An atom has an atomic number of 8 and a mass number of 18. The more common form of this element has a mass number of 16. How many neutrons does this atom have, and is it an isotope of the more common form?
+    choices:
+      - text: 10 neutrons; yes, it is an isotope (oxygen-18), since it has the same atomic number but a different neutron count.
+        correct: true
+      - text: 18 neutrons; no, it is not an isotope.
+      - text: 8 neutrons; yes, it is an isotope.
+      - text: 10 neutrons; no, since the mass numbers are different, they must be different elements.
+    explanation: |
+      Neutrons equal mass number minus atomic number: $18 - 8 = 10$. Since both atoms share the same atomic number (8, oxygen), but differ in neutron count and mass number, this is oxygen-18, an isotope of the more common oxygen-16.
+    approved: true
+  - id: q-chemistry-atomic-structure-0013
+    type: simple-quantitative
+    difficulty: exam
+    stem: |
+      An iron atom has an atomic number of 26. One of its isotopes has 30 neutrons. This isotope then forms an ion with a charge of 3+. How many electrons does this ion have?
+    choices:
+      - text: "23"
+        correct: true
+      - text: "29"
+      - text: "26"
+      - text: "33"
+    explanation: |
+      The neutron count and mass number do not affect the electron calculation here. Electrons equal protons minus charge: $26 - 3 = 23$. The isotope information (30 neutrons) only affects the mass number, not the electron count.
+    approved: true
+  - id: q-chemistry-atomic-structure-0014
+    type: classify
+    difficulty: medium
+    stem: |
+      Hydrogen-1 (no neutrons), hydrogen-2 (one neutron, also called deuterium), and hydrogen-3 (two neutrons, also called tritium) all have exactly one proton. How should these three atoms be classified relative to each other?
+    choices:
+      - text: They are all isotopes of hydrogen, since they share the same atomic number but differ in neutron count.
+        correct: true
+      - text: They are three different elements, since they have different mass numbers.
+      - text: They are ions of each other, since they differ in particle count.
+      - text: They cannot be related, since hydrogen only has one natural form.
+    explanation: |
+      All three have the same atomic number (1 proton), which makes them all hydrogen. Since they differ only in neutron count, they are isotopes of each other — not different elements, and not ions (their electron counts are not involved here).
+    approved: true
+  - id: q-chemistry-atomic-structure-0015
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      A neutral phosphorus atom has 15 protons and 16 neutrons. It then loses one electron. What is its new charge, and how many electrons does it now have?
+    choices:
+      - text: Charge of 1+; 14 electrons.
+        correct: true
+      - text: Charge of 1-; 16 electrons.
+      - text: Charge of 1+; 16 electrons.
+      - text: Charge of 1-; 14 electrons.
+    explanation: |
+      As a neutral atom, it started with 15 electrons (equal to its 15 protons). Losing one electron leaves $15 - 1 = 14$ electrons. Charge equals protons minus electrons: $15 - 14 = +1$.
+    approved: true
