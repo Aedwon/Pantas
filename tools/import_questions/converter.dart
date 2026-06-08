@@ -81,7 +81,7 @@ Map<String, Object?> questionToDoc(
       throw FormatException('$id: choice ${i + 1} has empty text');
     }
     choices.add({
-      '_key': 'choice-${labels[i].toLowerCase()}',
+      '_key': '$id-choice-${labels[i].toLowerCase()}',
       'label': labels[i],
       'text': text.trim(),
       'isCorrect': c['correct'] == true,
