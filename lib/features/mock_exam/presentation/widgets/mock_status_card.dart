@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/ui/components/app_button.dart';
-import 'package:cse_cet_reviewer/core/ui/components/app_card.dart';
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
+import 'package:cse_cet_reviewer/core/ui/components/ruled_section.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_availability.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +19,7 @@ class MockStatusCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textStyles = context.textStyles;
+    final colors = context.colors;
     final (title, action, callback) = switch (availability.state) {
       MockAvailabilityState.available => ('Mock ready', 'Start mock', onStart),
       MockAvailabilityState.cooldown => (
@@ -29,15 +30,18 @@ class MockStatusCard extends StatelessWidget {
       MockAvailabilityState.inProgress => ('Resume mock', 'Resume', onResume),
     };
 
-    return AppCard(
+    return RuledSection(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(title, style: textStyles.headlineSmall),
-          const SizedBox(height: 8),
-          const Text('A timed exam-style practice run.'),
+          const SizedBox(height: 4),
+          Text(
+            'A timed exam-style practice run.',
+            style: textStyles.bodySmall.copyWith(color: colors.inkMuted),
+          ),
           const SizedBox(height: 12),
-          AppButton(label: action, onPressed: callback),
+          BoardButton(label: action, onPressed: callback),
         ],
       ),
     );

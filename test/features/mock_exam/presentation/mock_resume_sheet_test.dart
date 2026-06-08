@@ -15,8 +15,7 @@ void main() {
     );
 
     expect(find.text('CSE Practice'), findsOneWidget);
-    expect(find.text('Elapsed 01:00'), findsOneWidget);
-    expect(find.text('Remaining 89:00'), findsOneWidget);
+    expect(find.text('Elapsed 01:00 · Remaining 89:00'), findsOneWidget);
   });
 
   testWidgets('resume and discard actions call handlers', (tester) async {

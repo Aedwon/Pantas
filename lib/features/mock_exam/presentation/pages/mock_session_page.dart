@@ -1,4 +1,6 @@
-import 'package:cse_cet_reviewer/core/ui/components/app_button.dart';
+import 'package:cse_cet_reviewer/core/ui/components/answer_row.dart';
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_session_state.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +22,8 @@ class MockSessionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textStyles = context.textStyles;
+    final colors = context.colors;
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (_, __) => _confirmLeave(context),
@@ -28,7 +32,18 @@ class MockSessionPage extends StatelessWidget {
           title:
               Text('${state.currentIndex + 1} of ${state.questionIds.length}'),
           actions: [
-            Text(_formatRemaining(state.remainingSeconds)),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4),
+                child: Text(
+                  _formatRemaining(state.remainingSeconds),
+                  style: textStyles.bodyMedium.copyWith(
+                    color: colors.inkMuted,
+                    fontFeatures: [const FontFeature.tabularFigures()],
+                  ),
+                ),
+              ),
+            ),
             IconButton(
               tooltip: 'Flag',
               icon: const Icon(Icons.flag_outlined),
@@ -43,17 +58,16 @@ class MockSessionPage extends StatelessWidget {
           ],
         ),
         body: ListView(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
           children: [
-            Text(state.currentQuestionId),
-            const SizedBox(height: 24),
-            AppButton(label: 'A', onPressed: () => onAnswer(0)),
-            const SizedBox(height: 8),
-            AppButton(label: 'B', onPressed: () => onAnswer(1)),
+            Text(state.currentQuestionId, style: textStyles.headlineMedium),
+            const SizedBox(height: 20),
+            AnswerRow(letter: 'A', text: 'Choice A', onTap: () => onAnswer(0)),
+            AnswerRow(letter: 'B', text: 'Choice B', onTap: () => onAnswer(1)),
             const SizedBox(height: 16),
-            AppButton(
+            BoardButton(
               label: 'Questions',
-              variant: AppButtonVariant.secondary,
+              secondary: true,
               onPressed: onShowNavigator,
             ),
           ],

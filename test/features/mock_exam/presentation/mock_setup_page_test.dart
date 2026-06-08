@@ -35,8 +35,7 @@ void main() {
 
     expect(find.text('Ready to practice?'), findsOneWidget);
     expect(find.text('CSE Practice'), findsOneWidget);
-    expect(find.text('90 min'), findsOneWidget);
-    expect(find.text('10 questions'), findsOneWidget);
+    expect(find.text('90 min · 10 questions'), findsOneWidget);
     expect(find.text('General Information'), findsOneWidget);
     expect(find.text('Start mock'), findsOneWidget);
   });

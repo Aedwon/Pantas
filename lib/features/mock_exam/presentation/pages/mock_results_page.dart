@@ -1,4 +1,8 @@
-import 'package:cse_cet_reviewer/core/ui/components/app_card.dart';
+import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
+import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
+import 'package:cse_cet_reviewer/core/ui/components/ruled_section.dart';
+import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
+import 'package:cse_cet_reviewer/core/ui/components/stats_band.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_results.dart';
 import 'package:flutter/material.dart';
@@ -21,69 +25,55 @@ class MockResultsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Mock results')),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
         children: [
           if (forfeited) ...[
             Text(
               'Forfeited during strict mode',
-              style: textStyles.headlineSmall,
+              style: textStyles.headlineMedium,
             ),
             const SizedBox(height: 12),
           ],
-          AppCard(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  '${results.scoreRaw} / ${results.scoreTotal}',
-                  style: textStyles.headlineMedium,
-                ),
-                Text('${results.percent.toStringAsFixed(0)}%'),
-              ],
-            ),
+          StatsBand(
+            figures: [
+              StatFigure(
+                value: '${results.scoreRaw}',
+                suffix: '/${results.scoreTotal}',
+                label: 'score',
+              ),
+              StatFigure(
+                value: '${results.percent.toStringAsFixed(0)}%',
+                label: 'accuracy',
+              ),
+            ],
           ),
           const SizedBox(height: 12),
-          AppCard(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text('How you did per part'),
-                const SizedBox(height: 8),
-                for (final section in results.sections)
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(section.name),
-                      Text('${section.correct}/${section.total}'),
-                    ],
-                  ),
-              ],
+          const SectionHeader(title: 'How you did per part'),
+          for (final section in results.sections)
+            InkTableRow(
+              title: section.name,
+              meta: '${section.correct}/${section.total}',
             ),
-          ),
           const SizedBox(height: 12),
-          AppCard(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text('Practice these next'),
-                const SizedBox(height: 8),
-                for (final topic in results.topWeak) Text(topic.drillRoute),
-              ],
-            ),
-          ),
+          const SectionHeader(title: 'Practice these next'),
+          for (final topic in results.topWeak)
+            InkTableRow(title: topic.drillRoute),
           const SizedBox(height: 12),
           if (proIsActive)
-            const AppCard(child: Text('Answer review'))
+            const RuledSection(
+              child: SectionHeader(title: 'Answer review'),
+            )
           else
-            const AppCard(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('This is what Pro shows after every mock.'),
-                  SizedBox(height: 8),
-                  Text('Try Pro free'),
-                ],
-              ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SectionHeader(
+                  title: 'Answer review',
+                  action: 'Unlock with Pro',
+                  onAction: () {},
+                ),
+                const FaintBars(),
+              ],
             ),
         ],
       ),

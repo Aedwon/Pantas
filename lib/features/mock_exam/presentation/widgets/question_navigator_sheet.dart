@@ -1,3 +1,5 @@
+import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_results.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_sample.dart';
 import 'package:flutter/material.dart';
@@ -20,26 +22,28 @@ class QuestionNavigatorSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final styles = context.textStyles;
+    final colors = context.colors;
     final questionIds = [
       for (final section in sections) ...section.questionIds,
     ];
 
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(20),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             for (final section in sections) ...[
-              Text(section.name),
+              SectionHeader(title: section.name),
               const SizedBox(height: 8),
               Wrap(
                 spacing: 8,
                 runSpacing: 8,
                 children: [
                   for (final questionId in section.questionIds)
-                    _QuestionChip(
+                    _QuestionCell(
                       label: '${questionIds.indexOf(questionId) + 1}',
                       answered: answers.containsKey(questionId),
                       flagged: flags.contains(questionId),
@@ -52,21 +56,28 @@ class QuestionNavigatorSheet extends StatelessWidget {
             ],
             Row(
               children: [
-                TextButton(
-                  onPressed: () {
+                GestureDetector(
+                  onTap: () {
                     final index = questionIds.indexWhere(
                       (id) => !answers.containsKey(id),
                     );
                     if (index != -1) onJumpTo(index);
                   },
-                  child: const Text('Next blank'),
+                  child: Text(
+                    'Next blank',
+                    style: styles.labelLarge.copyWith(color: colors.board),
+                  ),
                 ),
-                TextButton(
-                  onPressed: () {
+                const SizedBox(width: 20),
+                GestureDetector(
+                  onTap: () {
                     final index = questionIds.indexWhere(flags.contains);
                     if (index != -1) onJumpTo(index);
                   },
-                  child: const Text('Next flagged'),
+                  child: Text(
+                    'Next flagged',
+                    style: styles.labelLarge.copyWith(color: colors.board),
+                  ),
                 ),
               ],
             ),
@@ -77,8 +88,8 @@ class QuestionNavigatorSheet extends StatelessWidget {
   }
 }
 
-class _QuestionChip extends StatelessWidget {
-  const _QuestionChip({
+class _QuestionCell extends StatelessWidget {
+  const _QuestionCell({
     required this.label,
     required this.answered,
     required this.flagged,
@@ -94,12 +105,29 @@ class _QuestionChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ActionChip(
-      label: Text(flagged ? '$label*' : label),
-      avatar: current ? const Icon(Icons.radio_button_checked, size: 16) : null,
-      backgroundColor:
-          answered ? Theme.of(context).colorScheme.primaryContainer : null,
-      onPressed: onTap,
+    final colors = context.colors;
+    final styles = context.textStyles;
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        width: 40,
+        height: 40,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: answered ? colors.boardTint : null,
+          border: Border.all(
+            color: current ? colors.board : colors.rule,
+          ),
+          borderRadius: BorderRadius.circular(5),
+        ),
+        child: Text(
+          flagged ? '$label*' : label,
+          style: styles.bodySmall.copyWith(
+            color: answered ? colors.board : colors.ink,
+            fontWeight: current ? FontWeight.w700 : FontWeight.w400,
+          ),
+        ),
+      ),
     );
   }
 }

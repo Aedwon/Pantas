@@ -1,4 +1,5 @@
-import 'package:cse_cet_reviewer/core/ui/components/app_button.dart';
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
+import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_attempt.dart';
 import 'package:flutter/material.dart';
 
@@ -29,24 +30,23 @@ class _MockHistoryPageState extends State<MockHistoryPage> {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Past mocks')),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            for (final attempt in visible)
-              ListTile(
-                title: Text(attempt.id),
-                subtitle: Text(
-                  '${attempt.scoreRaw ?? 0}/${attempt.scoreTotal ?? 0}',
-                ),
-              ),
-            if (!_showAll && attempts.length > 10)
-              AppButton(
-                label: 'See all',
-                onPressed: () => setState(() => _showAll = true),
-              ),
+      body: ListView(
+        padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+        children: [
+          for (final attempt in visible)
+            InkTableRow(
+              title: attempt.id,
+              meta: '${attempt.scoreRaw ?? 0}/${attempt.scoreTotal ?? 0}',
+            ),
+          if (!_showAll && attempts.length > 10) ...[
+            const SizedBox(height: 16),
+            BoardButton(
+              label: 'See all',
+              secondary: true,
+              onPressed: () => setState(() => _showAll = true),
+            ),
           ],
-        ),
+        ],
       ),
     );
   }

@@ -11,14 +11,10 @@ void main() {
         MockResultsPage(results: _results(), proIsActive: false),
       );
 
-      expect(find.text('1 / 2'), findsOneWidget);
+      expect(find.text('/2'), findsOneWidget);
       expect(find.text('Part 1'), findsOneWidget);
       expect(find.text('Practice these next'), findsOneWidget);
-      expect(
-        find.text('This is what Pro shows after every mock.'),
-        findsOneWidget,
-      );
-      expect(find.text('Try Pro free'), findsOneWidget);
+      expect(find.text('Unlock with Pro'), findsOneWidget);
     },
   );
 

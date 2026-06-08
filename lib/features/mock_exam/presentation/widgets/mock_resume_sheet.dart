@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/ui/components/app_button.dart';
-import 'package:cse_cet_reviewer/core/ui/components/app_card.dart';
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_attempt.dart';
 import 'package:flutter/material.dart';
 
@@ -17,30 +17,33 @@ class MockResumeSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textStyles = context.textStyles;
+    final colors = context.colors;
     final remainingSeconds =
         (attempt.durationMinutes * 60) - attempt.elapsedSeconds;
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: AppCard(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(attempt.blueprintName),
-              const SizedBox(height: 8),
-              Text('Elapsed ${_format(attempt.elapsedSeconds)}'),
-              Text('Remaining ${_format(remainingSeconds)}'),
-              const SizedBox(height: 16),
-              AppButton(label: 'Resume', onPressed: onResume),
-              const SizedBox(height: 8),
-              AppButton(
-                label: 'Discard',
-                variant: AppButtonVariant.secondary,
-                onPressed: onDiscard,
-              ),
-            ],
-          ),
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(attempt.blueprintName, style: textStyles.headlineMedium),
+            const SizedBox(height: 8),
+            Text(
+              'Elapsed ${_format(attempt.elapsedSeconds)} · '
+              'Remaining ${_format(remainingSeconds)}',
+              style: textStyles.bodySmall.copyWith(color: colors.inkMuted),
+            ),
+            const SizedBox(height: 16),
+            BoardButton(label: 'Resume', onPressed: onResume),
+            const SizedBox(height: 8),
+            BoardButton(
+              label: 'Discard',
+              secondary: true,
+              onPressed: onDiscard,
+            ),
+          ],
         ),
       ),
     );
