@@ -72,11 +72,11 @@ Find the next term or the missing term in a sequence.
 stem: |
   What comes next? 2, 6, 18, 54, ___
 choices:
-  - text: 162
+  - text: "162"
     correct: true
-  - text: 108
-  - text: 216
-  - text: 72
+  - text: "108"
+  - text: "216"
+  - text: "72"
 explanation: |
   Each number is multiplied by 3 to get the next one. $54 \times 3 = 162$.
 ```

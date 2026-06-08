@@ -67,7 +67,14 @@ questions:
   one** choice has `correct: true` — the importer rejects zero or multiple.
   Choice order in the YAML is the display order; the importer assigns labels
   A, B, C, D… and `ordering` from that order, so put the choices in the order
-  you want them shown.
+  you want them shown. **Always quote a choice's `text` if it is (or starts
+  with) a bare number** — e.g. `text: "18"`, not `text: 18`. Unquoted, YAML
+  parses it as an integer, not a string, and the importer rejects the whole
+  question with "choice N has empty text" (found the hard way authoring
+  Atomic Structure's numeric-answer questions). Values like `3-`, `3+`,
+  `2, 3, 1`, or `18 neutrons` are already safe because they contain a
+  non-digit character that forces YAML to treat them as a string — only a
+  choice that is *purely* digits needs the explicit quotes.
 - **`figure`** — omit entirely for figure-free questions (the default for
   most Science, Language, and logical-verbal Reasoning items). Set to a short
   kebab-case slug (e.g. `cell-diagram-01`) when the question needs an image

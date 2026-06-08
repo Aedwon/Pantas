@@ -14,6 +14,7 @@
 - Do not modify `tools/import_questions/` or `tools/question_studio/` code. If you find a genuine bug in them, stop, write a regression test reproducing it (mirror the pattern in `test/tool/import_questions/cli_test.dart`), fix it minimally, and only then continue content work.
 - One YAML file per subtopic at `content/questions/science/<topic>/<subtopic>.yaml`. Never combine two subtopics in one file, never split one subtopic across two files.
 - Exactly one choice per question has `correct: true`. 4 choices by default (fewer only if the question genuinely has fewer valid options — rare in Science).
+- **Quote any choice `text` that is purely digits** — e.g. `text: "18"`, not `text: 18`. Unquoted, YAML parses it as an integer and the importer rejects the question with "choice N has empty text." This bites constantly in `simple-quantitative` questions (Physics, and Chemistry's mole-concept/stoichiometry/gas-laws/solutions). Values with any non-digit character (`3-`, `2, 3, 1`, `18 neutrons`) are already safe.
 - `stem` and `explanation` are YAML block scalars (`|`), preserving LaTeX (`\dfrac{1}{2}`, `$F=ma$`, etc.) verbatim.
 - **Two-level voice:** `stem` stays at authentic UPCAT/DOST-SEI exam difficulty and wording. `explanation` drops to simple Grade 4–6 English — state why the correct answer is right and briefly why the main distractor is wrong.
 - **`difficulty` is authoring-only** (`easy | medium | hard | exam`). It orders the question's numeric id suffix; it is never written to the Sanity doc, and no schema field for it should ever be added.
@@ -128,9 +129,9 @@ Exams for all rows: `[upcat, dlsucet, ustet, dost-sei]`. Figure guidance: the co
 
 | Done | Subtopic slug | Title | File path |
 |---|---|---|---|
-| [ ] | `matter` | Matter (Classification, States, Properties, Phase Changes) | `content/questions/science/chemistry/matter.yaml` |
-| [ ] | `mixtures-and-separation` | Mixtures and Separation Techniques (Filtration, Distillation, Chromatography) | `content/questions/science/chemistry/mixtures-and-separation.yaml` |
-| [ ] | `history-of-the-atom` | History of the Atom and Atomic Models | `content/questions/science/chemistry/history-of-the-atom.yaml` |
+| [x] | `matter` | Matter (Classification, States, Properties, Phase Changes) | `content/questions/science/chemistry/matter.yaml` |
+| [x] | `mixtures-and-separation` | Mixtures and Separation Techniques (Filtration, Distillation, Chromatography) | `content/questions/science/chemistry/mixtures-and-separation.yaml` |
+| [x] | `history-of-the-atom` | History of the Atom and Atomic Models | `content/questions/science/chemistry/history-of-the-atom.yaml` |
 | [ ] | `atomic-structure` | Atomic Structure and Subatomic Particles (Protons, Neutrons, Electrons, Isotopes, Ions) | `content/questions/science/chemistry/atomic-structure.yaml` |
 | [ ] | `quantum-numbers-electron-configuration` | Quantum Numbers and Electron Configuration | `content/questions/science/chemistry/quantum-numbers-electron-configuration.yaml` |
 | [ ] | `periodic-table` | The Periodic Table | `content/questions/science/chemistry/periodic-table.yaml` |

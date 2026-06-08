@@ -14,6 +14,7 @@
 - Do not modify `tools/import_questions/` or `tools/question_studio/` code. If you find a genuine bug, stop, write a regression test reproducing it (mirror `test/tool/import_questions/cli_test.dart`), fix it minimally, then continue.
 - One YAML file per subtopic at `content/questions/reasoning/<topic>/<subtopic>.yaml`. Never combine or split subtopics across files.
 - Exactly one choice per question has `correct: true`. 4 choices by default.
+- **Quote any choice `text` that is purely digits** — e.g. `text: "162"`, not `text: 162`. Unquoted, YAML parses it as an integer and the importer rejects the question with "choice N has empty text." This bites constantly in `number-letter-series` questions. Values with any non-digit character (`2, 3, 1`) are already safe.
 - `stem` and `explanation` are YAML block scalars (`|`).
 - **Two-level voice:** `stem` at authentic exam difficulty; `explanation` in simple Grade 4–6 English, stating why the answer is right and briefly why the main distractor is wrong.
 - **`difficulty` is authoring-only** (`easy | medium | hard | exam`) — never written to the Sanity doc, no schema field for it.
