@@ -37,7 +37,6 @@ class QuizResultsPage extends ConsumerWidget {
           if (attempt == null) {
             return Center(
               child: EmptyState(
-                illustration: '📭',
                 headline: 'Attempt not found',
                 body: 'We could not locate the quiz attempt.',
                 ctaLabel: 'Go back',

@@ -1,10 +1,10 @@
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 Future<void> showAppConfirmationDialog({
   required BuildContext context,
-  required String icon,
   required String title,
   required String body,
   required String cancelLabel,
@@ -16,7 +16,6 @@ Future<void> showAppConfirmationDialog({
   return showDialog<void>(
     context: context,
     builder: (_) => _ConfirmationDialog(
-      icon: icon,
       title: title,
       body: body,
       cancelLabel: cancelLabel,
@@ -30,7 +29,6 @@ Future<void> showAppConfirmationDialog({
 
 class _ConfirmationDialog extends StatelessWidget {
   const _ConfirmationDialog({
-    required this.icon,
     required this.title,
     required this.body,
     required this.cancelLabel,
@@ -40,7 +38,6 @@ class _ConfirmationDialog extends StatelessWidget {
     required this.isDestructive,
   });
 
-  final String icon;
   final String title;
   final String body;
   final String cancelLabel;
@@ -52,93 +49,86 @@ class _ConfirmationDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final textStyles = context.textStyles;
+    final styles = context.textStyles;
 
     return Dialog(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(AppDimensions.radiusLG),
-      ),
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              icon,
-              style: const TextStyle(fontSize: 24),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 8),
-            Text(
-              title,
-              style: textStyles.headlineSmall.copyWith(color: colors.onSurface),
-              textAlign: TextAlign.center,
-            ),
+            Text(title, style: styles.headlineMedium),
             const SizedBox(height: 6),
             Text(
               body,
-              style:
-                  textStyles.bodyMedium.copyWith(color: colors.onSurfaceMuted),
-              textAlign: TextAlign.center,
-              maxLines: 3,
-              overflow: TextOverflow.ellipsis,
+              style: styles.bodyMedium.copyWith(color: colors.inkMuted),
             ),
             const SizedBox(height: 20),
             Row(
               children: [
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: BoardButton(
+                    label: cancelLabel,
+                    secondary: true,
+                    onPressed: () {
                       Navigator.of(context).pop();
                       onCancel();
                     },
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 12),
-                      decoration: BoxDecoration(
-                        color: colors.background,
-                        borderRadius:
-                            BorderRadius.circular(AppDimensions.radiusMD),
-                        border: Border.all(color: colors.border, width: 1.5),
-                      ),
-                      child: Text(
-                        cancelLabel,
-                        style: textStyles.bodyMedium.copyWith(
-                          fontWeight: FontWeight.w600,
-                          color: colors.onSurfaceMuted,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
                   ),
                 ),
                 const SizedBox(width: 10),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pop();
-                      onConfirm();
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 12),
-                      decoration: BoxDecoration(
-                        color: isDestructive ? colors.error : colors.primary,
-                        borderRadius:
-                            BorderRadius.circular(AppDimensions.radiusMD),
-                      ),
-                      child: Text(
-                        confirmLabel,
-                        style: textStyles.bodyMedium.copyWith(
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
+                  child: isDestructive
+                      ? _RustButton(
+                          label: confirmLabel,
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                            onConfirm();
+                          },
+                        )
+                      : BoardButton(
+                          label: confirmLabel,
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                            onConfirm();
+                          },
                         ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
                 ),
               ],
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _RustButton extends StatelessWidget {
+  const _RustButton({required this.label, required this.onPressed});
+
+  final String label;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.colors;
+    final styles = context.textStyles;
+    return InkWell(
+      onTap: onPressed,
+      borderRadius: BorderRadius.circular(AppDimensions.radiusButton),
+      child: Container(
+        constraints:
+            const BoxConstraints(minHeight: AppDimensions.minTapTarget),
+        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+        decoration: BoxDecoration(
+          color: colors.rust,
+          borderRadius: BorderRadius.circular(AppDimensions.radiusButton),
+        ),
+        alignment: Alignment.center,
+        child: Text(
+          label,
+          style: styles.labelLarge.copyWith(color: colors.onBoard),
         ),
       ),
     );

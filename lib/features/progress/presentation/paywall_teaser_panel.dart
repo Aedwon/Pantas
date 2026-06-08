@@ -1,5 +1,5 @@
+import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 /// "Unprinted" teaser for Pro-gated analytical panels: the heading prints,
@@ -17,19 +17,6 @@ class PaywallTeaserPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
-    Widget bar(double widthFactor) => FractionallySizedBox(
-          alignment: Alignment.centerLeft,
-          widthFactor: widthFactor,
-          child: Container(
-            height: 7,
-            margin: const EdgeInsets.symmetric(vertical: 5),
-            decoration: BoxDecoration(
-              color: colors.ruleFaint,
-              borderRadius: BorderRadius.circular(2),
-            ),
-          ),
-        );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -39,9 +26,7 @@ class PaywallTeaserPanel extends StatelessWidget {
           onAction: onUnlock,
         ),
         const SizedBox(height: 4),
-        bar(0.92),
-        bar(0.7),
-        bar(0.83),
+        const FaintBars(widthFactors: [0.92, 0.7, 0.83]),
       ],
     );
   }

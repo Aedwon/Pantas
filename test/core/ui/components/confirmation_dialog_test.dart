@@ -16,7 +16,6 @@ void main() {
           builder: (context) => ElevatedButton(
             onPressed: () => showAppConfirmationDialog(
               context: context,
-              icon: '⚠️',
               title: 'Leave quiz?',
               body: 'Your progress will be lost.',
               cancelLabel: 'Keep going',
@@ -32,10 +31,9 @@ void main() {
       await tester.pumpAndSettle();
     }
 
-    testWidgets('shows icon, title, body, cancel and confirm labels',
+    testWidgets('shows title, body, cancel and confirm labels',
         (tester) async {
       await pumpDialog(tester);
-      expect(find.text('⚠️'), findsOneWidget);
       expect(find.text('Leave quiz?'), findsOneWidget);
       expect(find.text('Your progress will be lost.'), findsOneWidget);
       expect(find.text('Keep going'), findsOneWidget);

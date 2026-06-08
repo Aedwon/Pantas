@@ -23,69 +23,54 @@ class ErrorBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final textStyles = context.textStyles;
+    final styles = context.textStyles;
 
-    final Color bgColor;
-    final Color borderColor;
-    final Color textColor;
-    final String icon;
+    final accent = switch (variant) {
+      ErrorBannerVariant.error => colors.rust,
+      ErrorBannerVariant.offline => colors.amber,
+      ErrorBannerVariant.success => colors.board,
+    };
 
-    switch (variant) {
-      case ErrorBannerVariant.error:
-        bgColor = colors.errorContainer;
-        borderColor = colors.error;
-        textColor = colors.error;
-        icon = '⚠️';
-      case ErrorBannerVariant.offline:
-        bgColor = colors.warningContainer;
-        borderColor = colors.warning;
-        textColor = colors.warning;
-        icon = '📶';
-      case ErrorBannerVariant.success:
-        bgColor = colors.successContainer;
-        borderColor = colors.success;
-        textColor = colors.success;
-        icon = '✅';
-    }
+    final side = BorderSide(
+      color: colors.rule,
+      // ignore: avoid_redundant_argument_values
+      width: AppDimensions.hairline,
+    );
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-      decoration: BoxDecoration(
-        color: bgColor,
-        borderRadius: BorderRadius.circular(AppDimensions.radiusMD),
-        border: Border(left: BorderSide(color: borderColor, width: 4)),
-      ),
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      decoration: BoxDecoration(border: Border(top: side, bottom: side)),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(icon, style: const TextStyle(fontSize: 16)),
-          const SizedBox(width: 8),
+          Container(
+            key: const Key('error-banner-accent'),
+            width: 3,
+            height: 30,
+            color: accent,
+          ),
+          const SizedBox(width: 10),
           Expanded(
             child: Text(
               message,
-              style: textStyles.bodySmall.copyWith(
-                fontWeight: FontWeight.w500,
-                color: textColor,
-              ),
+              style: styles.bodySmall.copyWith(color: colors.ink),
             ),
           ),
           if (actionLabel != null && onAction != null) ...[
-            const SizedBox(width: 8),
+            const SizedBox(width: 10),
             GestureDetector(
               onTap: onAction,
               child: Text(
                 actionLabel!,
-                style: textStyles.bodySmall.copyWith(
-                  fontWeight: FontWeight.w600,
-                  color: colors.primary,
-                ),
+                style: styles.labelLarge.copyWith(color: colors.board),
               ),
             ),
           ],
           if (onDismiss != null) ...[
-            const SizedBox(width: 8),
+            const SizedBox(width: 10),
             GestureDetector(
               onTap: onDismiss,
-              child: Icon(Icons.close, size: 16, color: colors.onSurfaceMuted),
+              child: Icon(Icons.close, size: 16, color: colors.inkMuted),
             ),
           ],
         ],

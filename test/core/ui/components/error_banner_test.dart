@@ -1,4 +1,5 @@
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -6,6 +7,21 @@ import '../../../helpers/pump_app.dart';
 
 void main() {
   group('ErrorBanner', () {
+    testWidgets('error variant carries no emoji and a rust accent',
+        (tester) async {
+      await tester.pumpApp(
+        const ErrorBanner(
+          variant: ErrorBannerVariant.error,
+          message: 'Something broke',
+        ),
+      );
+      expect(find.textContaining('⚠'), findsNothing);
+      final accent = tester.widget<Container>(
+        find.byKey(const Key('error-banner-accent')),
+      );
+      expect(accent.color, AppColors.light.rust);
+    });
+
     testWidgets('error variant shows message and retry label', (tester) async {
       await tester.pumpApp(
         ErrorBanner(

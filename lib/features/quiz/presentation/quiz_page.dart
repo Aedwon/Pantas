@@ -136,7 +136,6 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   Future<void> _confirmQuit(BuildContext context, WidgetRef ref) {
     return showAppConfirmationDialog(
       context: context,
-      icon: '!',
       title: 'Quit session?',
       body: 'Your progress is saved.',
       cancelLabel: 'Keep going',

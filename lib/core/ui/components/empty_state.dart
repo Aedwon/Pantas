@@ -1,10 +1,9 @@
-import 'package:cse_cet_reviewer/core/ui/components/app_button.dart';
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class EmptyState extends StatelessWidget {
   const EmptyState({
-    required this.illustration,
     required this.headline,
     required this.body,
     required this.ctaLabel,
@@ -12,7 +11,6 @@ class EmptyState extends StatelessWidget {
     super.key,
   });
 
-  final String illustration;
   final String headline;
   final String body;
   final String ctaLabel;
@@ -21,30 +19,22 @@ class EmptyState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final textStyles = context.textStyles;
+    final styles = context.textStyles;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
       child: Column(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(illustration, style: const TextStyle(fontSize: 48)),
-          const SizedBox(height: 16),
-          Text(
-            headline,
-            style: textStyles.headlineSmall.copyWith(color: colors.onSurface),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 8),
+          Text(headline, style: styles.headlineMedium),
+          const SizedBox(height: 6),
           Text(
             body,
-            style: textStyles.bodyMedium.copyWith(color: colors.onSurfaceMuted),
-            textAlign: TextAlign.center,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
+            style: styles.bodyMedium.copyWith(color: colors.inkMuted),
           ),
-          const SizedBox(height: 24),
-          AppButton(label: ctaLabel, onPressed: onCta),
+          const SizedBox(height: 20),
+          BoardButton(label: ctaLabel, onPressed: onCta, secondary: true),
         ],
       ),
     );

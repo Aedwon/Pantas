@@ -1,6 +1,7 @@
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
+import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
 import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
 import 'package:cse_cet_reviewer/core/ui/components/stats_band.dart';
@@ -312,22 +313,9 @@ class _HomeLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
-    Widget bar(double widthFactor) => FractionallySizedBox(
-          alignment: Alignment.centerLeft,
-          widthFactor: widthFactor,
-          child: Container(
-            height: 7,
-            margin: const EdgeInsets.symmetric(vertical: 5),
-            decoration: BoxDecoration(
-              color: colors.ruleFaint,
-              borderRadius: BorderRadius.circular(2),
-            ),
-          ),
-        );
     return ListView(
       padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
-      children: [bar(0.9), bar(0.65), bar(0.8)],
+      children: const [FaintBars()],
     );
   }
 }
