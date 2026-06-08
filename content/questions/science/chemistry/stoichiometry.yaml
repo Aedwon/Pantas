@@ -1,0 +1,206 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: stoichiometry
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-chemistry-stoichiometry-0001
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      For the reaction $N_2 + 3H_2 \rightarrow 2NH_3$, a chemist starts with 5 moles of $N_2$ and 12 moles of $H_2$. Which reactant is limiting?
+    choices:
+      - text: H2, since 5 moles of N2 need 15 moles of H2, but only 12 are available
+        correct: true
+      - text: N2, since it has fewer starting moles than H2
+      - text: Neither — both reactants are used up at exactly the same time
+      - text: NH3, since it is the product, not a reactant
+    explanation: |
+      The equation needs 3 moles of $H_2$ for every mole of $N_2$. For 5 moles of $N_2$, $5 \times 3 = 15$ moles of $H_2$ are needed, but only 12 are available. $H_2$ runs out first, making it the limiting reactant.
+    approved: true
+  - id: q-chemistry-stoichiometry-0002
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A reaction's theoretical yield is 80 grams. In the actual experiment, 68 grams were collected. Find the percent yield.
+    choices:
+      - text: 85%
+        correct: true
+      - text: 68%
+      - text: 80%
+      - text: 118%
+    explanation: |
+      Percent yield equals actual yield divided by theoretical yield, times 100%: $\dfrac{68}{80} \times 100\% = 85\%$.
+    approved: true
+  - id: q-chemistry-stoichiometry-0003
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A compound contains 3 moles of carbon, 6 moles of hydrogen, and 3 moles of oxygen. Find its empirical formula.
+    choices:
+      - text: CH2O
+        correct: true
+      - text: C3H6O3
+      - text: CH3O
+      - text: C2H4O2
+    explanation: |
+      Divide every mole amount by the smallest value (3): $\dfrac{3}{3} = 1$, $\dfrac{6}{3} = 2$, $\dfrac{3}{3} = 1$. The simplest ratio is carbon 1, hydrogen 2, oxygen 1: $CH_2O$.
+    approved: true
+  - id: q-chemistry-stoichiometry-0004
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      A compound has the empirical formula $CH_2O$ (empirical formula mass = 30 g/mol) and an actual molar mass of 180 g/mol. Find its molecular formula.
+    choices:
+      - text: C6H12O6
+        correct: true
+      - text: C3H6O3
+      - text: C2H4O2
+      - text: C4H8O4
+    explanation: |
+      Divide the actual molar mass by the empirical formula mass: $\dfrac{180}{30} = 6$. Multiply every subscript in $CH_2O$ by 6: $C_6H_{12}O_6$.
+    approved: true
+  - id: q-chemistry-stoichiometry-0005
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes the reactant with the smaller number of starting moles is always the limiting reactant, without checking the balanced equation's ratio. Is this a safe assumption?
+    choices:
+      - text: No — the limiting reactant depends on the equation's mole ratio, not just on which reactant has fewer raw moles.
+        correct: true
+      - text: Yes — the reactant with fewer moles is always limiting, regardless of the equation.
+      - text: Yes — but only for reactions involving gases.
+      - text: No — the reactant with more moles is always limiting instead.
+    explanation: |
+      A reactant with a "bigger number" of moles can still run out first if the equation requires even more of it. The mole ratio from the balanced equation must always be checked, not just the raw starting amounts.
+    approved: true
+  - id: q-chemistry-stoichiometry-0006
+    type: classify
+    difficulty: hard
+    stem: |
+      A student calculates percent yield by dividing theoretical yield by actual yield, instead of actual by theoretical. Is this the correct formula?
+    choices:
+      - text: No — percent yield divides actual yield by theoretical yield, not the reverse.
+        correct: true
+      - text: Yes — either order gives the same meaningful result.
+      - text: No — percent yield should divide theoretical yield by itself.
+      - text: Yes — dividing theoretical by actual is the standard formula.
+    explanation: |
+      Percent yield is actual yield divided by theoretical yield, times 100%. Reversing the formula would often produce a result over 100%, which does not match how percent yield is meant to work, since real yields rarely exceed the theoretical maximum.
+    approved: true
+  - id: q-chemistry-stoichiometry-0007
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      A compound's empirical formula is $CH_2O$ and its molecular formula is $C_6H_{12}O_6$ (glucose). A student says these two formulas describe two different substances. Is this correct?
+    choices:
+      - text: No — they describe the same substance; the molecular formula is simply a whole-number multiple of the empirical ratio.
+        correct: true
+      - text: Yes — different formulas always mean different substances.
+      - text: No — but only because glucose has no true molecular formula.
+      - text: Yes — the empirical formula is an older, outdated compound.
+    explanation: |
+      The empirical formula shows the simplest ratio of atoms; the molecular formula shows the true total count in one molecule. Both describe glucose — the molecular formula is just the empirical ratio multiplied by a whole number (6, in this case).
+    approved: true
+  - id: q-chemistry-stoichiometry-0008
+    type: classify
+    difficulty: hard
+    stem: |
+      A compound has 4 moles of carbon, 8 moles of hydrogen, and 2 moles of oxygen. A student divides carbon and hydrogen by 4, but oxygen by 2, getting a ratio of 1, 2, 1. Is this a correct way to find the empirical formula?
+    choices:
+      - text: No — every element must be divided by the same smallest value; here that value is 2, giving a ratio of 2, 4, 1 instead.
+        correct: true
+      - text: Yes — each element can be divided by whatever number makes it a whole number.
+      - text: No — the values should not be divided at all.
+      - text: Yes — the resulting ratio 1, 2, 1 is correct.
+    explanation: |
+      All elements must be divided by the same smallest mole value to preserve the true ratio between them. Here the smallest value is 2, so the correct division gives $\dfrac{4}{2}=2$, $\dfrac{8}{2}=4$, $\dfrac{2}{2}=1$ — an empirical formula of $C_2H_4O$, not the student's mismatched result.
+    approved: true
+  - id: q-chemistry-stoichiometry-0009
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      For the reaction $2Al + 3Cl_2 \rightarrow 2AlCl_3$, a chemist starts with 6 moles of $Al$ and 8 moles of $Cl_2$. Which reactant is limiting?
+    choices:
+      - text: Cl2, since 6 moles of Al need 9 moles of Cl2, but only 8 are available
+        correct: true
+      - text: Al, since it has fewer starting moles than Cl2
+      - text: Neither — both reactants are used up at exactly the same time
+      - text: AlCl3, since it is the product, not a reactant
+    explanation: |
+      The equation needs 3 moles of $Cl_2$ for every 2 moles of $Al$. For 6 moles of $Al$, $6 \times \dfrac{3}{2} = 9$ moles of $Cl_2$ are needed, but only 8 are available. $Cl_2$ runs out first.
+    approved: true
+  - id: q-chemistry-stoichiometry-0010
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A reaction's theoretical yield is 25 grams. In the actual experiment, 20 grams were collected. Find the percent yield.
+    choices:
+      - text: 80%
+        correct: true
+      - text: 20%
+      - text: 25%
+      - text: 125%
+    explanation: |
+      Percent yield equals actual yield divided by theoretical yield, times 100%: $\dfrac{20}{25} \times 100\% = 80\%$.
+    approved: true
+  - id: q-chemistry-stoichiometry-0011
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A compound contains 1 mole of carbon and 4 moles of hydrogen. Find its empirical formula.
+    choices:
+      - text: CH4
+        correct: true
+      - text: C4H
+      - text: C2H8
+      - text: CH2
+    explanation: |
+      Divide every mole amount by the smallest value (1): carbon stays 1, hydrogen stays 4. Since these are already the simplest whole-number ratio, the empirical formula is $CH_4$.
+    approved: true
+  - id: q-chemistry-stoichiometry-0012
+    type: simple-quantitative
+    difficulty: exam
+    stem: |
+      A compound has the empirical formula $NO_2$ (empirical formula mass = 46 g/mol) and an actual molar mass of 92 g/mol. Find its molecular formula.
+    choices:
+      - text: N2O4
+        correct: true
+      - text: NO2
+      - text: N4O8
+      - text: N2O2
+    explanation: |
+      Divide the actual molar mass by the empirical formula mass: $\dfrac{92}{46} = 2$. Multiply every subscript in $NO_2$ by 2: $N_2O_4$.
+    approved: true
+  - id: q-chemistry-stoichiometry-0013
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      For the reaction $N_2 + 3H_2 \rightarrow 2NH_3$, a chemist starts with 4 moles of $N_2$ and 9 moles of $H_2$ (so $H_2$ is the limiting reactant). How many moles of $NH_3$ can be produced?
+    choices:
+      - text: 6 mol
+        correct: true
+      - text: 9 mol
+      - text: 4 mol
+      - text: 3 mol
+    explanation: |
+      The equation's ratio is 3 moles of $H_2$ to 2 moles of $NH_3$. Using the limiting reactant's 9 moles: $9 \times \dfrac{2}{3} = 6$ moles of $NH_3$.
+    approved: true
+  - id: q-chemistry-stoichiometry-0014
+    type: classify
+    difficulty: medium
+    stem: |
+      A balanced equation predicts a maximum possible product amount before any experiment is run. What is this predicted amount called?
+    choices:
+      - text: Theoretical yield
+        correct: true
+      - text: Actual yield
+      - text: Percent yield
+      - text: Empirical yield
+    explanation: |
+      The theoretical yield is the maximum amount the balanced equation predicts, calculated from the limiting reactant, before any real-world losses are considered.
+    approved: true
