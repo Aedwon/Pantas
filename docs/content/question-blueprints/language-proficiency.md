@@ -118,6 +118,120 @@ explanation: |
   Naming "Ana" directly removes the confusion.
 ```
 
+### `parts-of-speech-identification`
+Identify the part of speech of a specific (usually underlined/bolded) word
+as it functions in the sentence.
+
+```yaml
+stem: |
+  In the sentence "The runner sprinted quickly toward the finish line,"
+  what part of speech is the word QUICKLY?
+choices:
+  - text: Adverb
+    correct: true
+  - text: Adjective
+  - text: Preposition
+  - text: Noun
+explanation: |
+  Quickly describes how the runner sprinted — it modifies a verb (sprinted).
+  A word that modifies a verb is an adverb.
+```
+
+### `phrase-clause-identification`
+Classify an underlined group of words as a phrase, an independent clause, or
+a dependent clause.
+
+```yaml
+stem: |
+  In the sentence "Because it was raining, we stayed inside," what kind of
+  group of words is "Because it was raining"?
+choices:
+  - text: Dependent clause
+    correct: true
+  - text: Independent clause
+  - text: Prepositional phrase
+  - text: Noun phrase
+explanation: |
+  "Because it was raining" has a subject (it) and a verb (was raining), but
+  it cannot stand alone as a complete sentence — that makes it a dependent
+  clause.
+```
+
+### `sentence-structure-classification`
+Classify a sentence as simple, compound, complex, or compound-complex.
+
+```yaml
+stem: |
+  What type of sentence is "Marco studied all night, and he still felt
+  nervous because the exam covered so much material"?
+choices:
+  - text: Compound-complex
+    correct: true
+  - text: Simple
+  - text: Compound
+  - text: Complex
+explanation: |
+  The sentence joins two independent clauses ("Marco studied all night" and
+  "he still felt nervous") with "and," plus a dependent clause ("because the
+  exam covered so much material"). Two independent clauses plus a dependent
+  clause make it compound-complex.
+```
+
+### `modifier-placement`
+Pick the sentence that correctly places a modifier (fixes a misplaced or
+dangling modifier).
+
+```yaml
+stem: |
+  Choose the sentence with no misplaced or dangling modifier.
+choices:
+  - text: "Walking to school, the rain soaked Jenna's shoes."
+  - text: "Walking to school, Jenna got her shoes soaked by the rain."
+    correct: true
+  - text: "Jenna's shoes, walking to school, got soaked by the rain."
+  - text: "The rain, walking to school, soaked Jenna's shoes."
+explanation: |
+  "Walking to school" describes a person, so it must sit next to the person
+  doing the walking. Only the second choice puts "Jenna" right after that
+  phrase.
+```
+
+### `parallelism-correction`
+Pick the sentence with correct parallel structure.
+
+```yaml
+stem: |
+  Choose the sentence with correct parallel structure.
+choices:
+  - text: "The coach told the team to run faster, to pass accurately, and to defend well."
+    correct: true
+  - text: "The coach told the team to run faster, passing accurately, and to defend well."
+  - text: "The coach told the team running faster, to pass accurately, and defending well."
+  - text: "The coach told the team to run faster, accurate passing, and defend well."
+explanation: |
+  A list joined by "and" should use the same grammatical form throughout.
+  Only the first choice uses "to run," "to pass," and "to defend" — all
+  matching infinitives.
+```
+
+### `redundancy-identification`
+Pick the sentence free of redundancy or a double negative.
+
+```yaml
+stem: |
+  Choose the sentence with no redundancy or double negative.
+choices:
+  - text: "She doesn't have any money left."
+    correct: true
+  - text: "She doesn't have no money left."
+  - text: "She returned back home again."
+  - text: "The reason why is because she was tired."
+explanation: |
+  "Doesn't have any" is a single, clear negative. "Doesn't have no" is a
+  double negative; "returned back... again" repeats the same idea twice;
+  "the reason why is because" says "reason" three different ways.
+```
+
 ## Vocabulary archetypes
 
 ### `synonym`
@@ -209,11 +323,123 @@ explanation: |
   (confident, daring) are opposites in the same way.
 ```
 
+### `idiom-meaning`
+Pick the correct meaning of an idiom or figure of speech (English or its
+named Filipino counterpart, e.g. sawikain) as used in a sentence.
+
+```yaml
+stem: |
+  "After losing the championship game, the team decided to bite the bullet
+  and start training twice as hard." What does BITE THE BULLET mean here?
+choices:
+  - text: To accept something difficult and get on with it
+    correct: true
+  - text: To complain loudly about a problem
+  - text: To give up entirely
+  - text: To celebrate a small victory
+explanation: |
+  "Bite the bullet" means to face something hard without complaining. The
+  team accepted the loss and pushed forward with harder training.
+```
+
+### `root-word-affix-analysis`
+Use knowledge of a root word, prefix, or suffix to determine an unfamiliar
+word's meaning.
+
+```yaml
+stem: |
+  The word "BENEVOLENT" contains the root "bene," which means "good" or
+  "well." Based on this, BENEVOLENT most likely means
+choices:
+  - text: kind and generous
+    correct: true
+  - text: angry and harsh
+  - text: confused and lost
+  - text: quiet and shy
+explanation: |
+  "Bene-" means "good," and "-volent" relates to wishing or willing.
+  Together they describe someone who wishes others well — kind and
+  generous.
+```
+
+### `spelling-correction`
+Pick the correctly spelled word, or the sentence with no spelling errors.
+
+```yaml
+stem: |
+  Choose the correctly spelled word.
+choices:
+  - text: Definitely
+    correct: true
+  - text: Definately
+  - text: Definitly
+  - text: Deffinitely
+explanation: |
+  The correct spelling is "definitely" — it comes from "definite" plus
+  "-ly," with no extra letters swapped in.
+```
+
 ## Language Application archetypes (standalone only)
+
+Each Language Application lesson corresponds closely to one archetype below;
+vary the content domain and difficulty across a lesson's questions rather
+than mixing archetypes within it.
+
+### `error-identification` (Application level)
+Same shape as Grammar's `error-identification` archetype (see above), but
+draws on any grammar rule rather than one specific lesson — used for the
+**Error Identification / Sentence Correction** lesson. See that archetype's
+example above; vary which rule is broken (agreement, tense, punctuation,
+modifiers, parallelism, etc.) across questions.
+
+### `fill-in-the-blank`
+Pick the word or phrase that correctly completes a single free-standing
+sentence — used for the **Sentence Completion** lesson.
+
+```yaml
+stem: |
+  Despite the heavy rain, the volunteers ___ committed to finishing the
+  cleanup drive.
+choices:
+  - text: remained
+    correct: true
+  - text: remains
+  - text: remaining
+  - text: to remain
+explanation: |
+  The sentence needs a main verb that agrees with the plural subject "the
+  volunteers" and fits the past context set up by "despite the heavy rain."
+  "Remained" is the correct past-tense verb form.
+```
+
+### `sentence-ordering`
+Given 4–5 sentences, pick the option that puts them in the most logical
+order — used for the **Paragraph Organization** lesson. Keep each item
+self-contained (no shared passage across questions).
+
+```yaml
+stem: |
+  Choose the most logical order for these sentences.
+  1. Finally, let it cool for ten minutes before serving.
+  2. First, preheat the oven to 180°C.
+  3. Then, mix the batter and pour it into the pan.
+  4. Bake the pan for thirty minutes.
+choices:
+  - text: 2, 3, 4, 1
+    correct: true
+  - text: 1, 2, 3, 4
+  - text: 3, 2, 4, 1
+  - text: 2, 4, 3, 1
+explanation: |
+  A recipe goes: heat the oven, prepare the batter, bake it, then let it
+  cool. "First," "Then," "Finally" are the clue words that reveal this
+  order.
+```
 
 ### `sentence-construction`
 Pick the sentence that is grammatically correct and clearly constructed
-(no cloze passage — a single free-standing sentence).
+(no cloze passage — a single free-standing sentence). A general-purpose
+archetype usable as extra variety within any Language Application lesson.
 
 ```yaml
 stem: |

@@ -117,6 +117,25 @@ explanation: |
   passed too.
 ```
 
+### `truth-table-evaluation`
+Given a compound statement (AND/OR/NOT/IF-THEN) and truth values for its
+parts, evaluate whether the statement is true or false, or pick the row of a
+truth table that matches a given condition.
+
+```yaml
+stem: |
+  P is true. Q is false. What is the truth value of "P AND Q"?
+choices:
+  - text: False
+    correct: true
+  - text: True
+  - text: Cannot be determined
+  - text: Both true and false
+explanation: |
+  "AND" is only true when both parts are true. Since Q is false, "P AND Q"
+  is false, no matter what P is.
+```
+
 ## Spatial-Abstract Reasoning archetypes (figure-pending — see note below)
 
 - `figure-series` — what comes next in a sequence of figures.
