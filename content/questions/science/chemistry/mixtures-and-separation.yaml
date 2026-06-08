@@ -1,0 +1,220 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: mixtures-and-separation
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-chemistry-mixtures-and-separation-0001
+    type: classify
+    difficulty: easy
+    stem: |
+      A cup of black coffee has no visible grounds or separate parts floating in it. Is this mixture homogeneous or heterogeneous?
+    choices:
+      - text: Homogeneous
+        correct: true
+      - text: Heterogeneous
+      - text: A compound
+      - text: An element
+    explanation: |
+      A homogeneous mixture looks completely uniform, with no visible separate parts. Since the coffee shows no separate parts, it is homogeneous.
+    approved: true
+  - id: q-chemistry-mixtures-and-separation-0002
+    type: classify
+    difficulty: easy
+    stem: |
+      A bowl of vegetable soup clearly shows separate chunks of carrots, potatoes, and celery. Is this mixture homogeneous or heterogeneous?
+    choices:
+      - text: Heterogeneous
+        correct: true
+      - text: Homogeneous
+      - text: A compound
+      - text: An element
+    explanation: |
+      A heterogeneous mixture has visible separate parts. Since the vegetable chunks can clearly be seen, the soup is heterogeneous.
+    approved: true
+  - id: q-chemistry-mixtures-and-separation-0003
+    type: classify
+    difficulty: easy
+    stem: |
+      Clean air is a uniform blend of gases with no visible separate parts. Is this mixture homogeneous or heterogeneous?
+    choices:
+      - text: Homogeneous
+        correct: true
+      - text: Heterogeneous
+      - text: A compound
+      - text: An element
+    explanation: |
+      Since the gases in clean air blend together with no visible separate parts, it is a homogeneous mixture.
+    approved: true
+  - id: q-chemistry-mixtures-and-separation-0004
+    type: classify
+    difficulty: medium
+    stem: |
+      A bucket of dry sand mixed with small gravel stones shows clearly distinct particles of different sizes. Is this mixture homogeneous or heterogeneous?
+    choices:
+      - text: Heterogeneous
+        correct: true
+      - text: Homogeneous
+      - text: A pure substance
+      - text: A compound
+    explanation: |
+      Since the sand and gravel particles remain visibly distinct and unevenly distributed, this is a heterogeneous mixture.
+    approved: true
+  - id: q-chemistry-mixtures-and-separation-0005
+    type: predict-outcome
+    difficulty: easy
+    stem: |
+      A student needs to separate sand from a sand-and-water mixture. Which technique is most appropriate?
+    choices:
+      - text: Filtration
+        correct: true
+      - text: Distillation
+      - text: Chromatography
+      - text: Evaporation
+    explanation: |
+      Filtration uses a material with tiny holes that let the liquid pass through while trapping solid particles. Since sand does not dissolve in water, filtration easily traps it.
+    approved: true
+  - id: q-chemistry-mixtures-and-separation-0006
+    type: predict-outcome
+    difficulty: medium
+    stem: |
+      A student wants to recover the salt from saltwater and does not need to keep the water afterward. Which technique is most appropriate?
+    choices:
+      - text: Evaporation
+        correct: true
+      - text: Filtration
+      - text: Chromatography
+      - text: Distillation
+    explanation: |
+      Evaporation heats the mixture until the liquid turns to vapor and escapes, leaving the dissolved solid behind. Since the water does not need to be collected, simply letting it evaporate away is enough.
+    approved: true
+  - id: q-chemistry-mixtures-and-separation-0007
+    type: predict-outcome
+    difficulty: medium
+    stem: |
+      A student wants to separate alcohol from an alcohol-water mixture and needs to keep both liquids afterward. Which technique is most appropriate?
+    choices:
+      - text: Distillation
+        correct: true
+      - text: Evaporation
+      - text: Filtration
+      - text: Chromatography
+    explanation: |
+      Distillation heats the mixture so the substance with the lower boiling point evaporates first, then cools that vapor back into a liquid and collects it separately. This is the only technique here that captures both liquids instead of letting one escape.
+    approved: true
+  - id: q-chemistry-mixtures-and-separation-0008
+    type: predict-outcome
+    difficulty: medium
+    stem: |
+      A student wants to find out whether a sample of black ink is really a single pure dye or a blend of several different colored dyes. Which technique is most appropriate?
+    choices:
+      - text: Chromatography
+        correct: true
+      - text: Filtration
+      - text: Evaporation
+      - text: Distillation
+    explanation: |
+      Chromatography separates the different components of a mixture based on how strongly each one is attracted to a moving liquid versus a fixed material. If the ink is really several dyes, they will separate into visible bands of different colors.
+    approved: true
+  - id: q-chemistry-mixtures-and-separation-0009
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      A student uses evaporation to try to separate an alcohol-water mixture, planning to keep both liquids. Why does this approach fail?
+    choices:
+      - text: Evaporation lets the vapor escape into the air instead of collecting it, so the more volatile liquid is lost rather than recovered.
+        correct: true
+      - text: Evaporation only works on solids, never on liquid mixtures.
+      - text: Evaporation destroys the chemical identity of both liquids.
+      - text: Evaporation requires a stationary phase that alcohol-water mixtures do not have.
+    explanation: |
+      Evaporation simply lets the vapor escape into the air — it never captures it. To keep both liquids, the vapor must be cooled and collected, which is exactly what distillation does that evaporation does not.
+    approved: true
+  - id: q-chemistry-mixtures-and-separation-0010
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      A student tries to use filtration to separate salt that is fully dissolved in water. Why does this approach fail?
+    choices:
+      - text: Filtration only traps undissolved solid particles; a fully dissolved solid has broken into particles too small for the filter to catch.
+        correct: true
+      - text: Filtration only works on gases, never on liquids.
+      - text: Salt is a compound, so it cannot be separated by any physical method.
+      - text: Filtration only works if the mixture is heterogeneous, and dissolved salt makes the water homogeneous, so filtration is unrelated to that idea.
+    explanation: |
+      Filtration relies on solid particles being too large to pass through the filter's tiny holes. Once salt fully dissolves, its particles become far too small to trap, so evaporation or distillation is needed instead.
+    approved: true
+  - id: q-chemistry-mixtures-and-separation-0011
+    type: compare-contrast
+    difficulty: medium
+    stem: |
+      A student assumes that because saltwater looks completely uniform (homogeneous), it must be impossible to separate back into salt and water. Is this assumption correct?
+    choices:
+      - text: No — homogeneous mixtures can still be separated, for example with evaporation or distillation.
+        correct: true
+      - text: Yes — homogeneous mixtures can never be physically separated.
+      - text: No — but only because saltwater is actually a compound, not a mixture.
+      - text: Yes — only heterogeneous mixtures can be separated using physical methods.
+    explanation: |
+      Looking uniform (homogeneous) only describes appearance — it says nothing about whether a mixture can be separated. Saltwater can still be separated by evaporation or distillation, even though it looks completely smooth.
+    approved: true
+  - id: q-chemistry-mixtures-and-separation-0012
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      A mixture of two liquids is heated during distillation. Liquid A has a lower boiling point than Liquid B. Which liquid evaporates and gets collected first?
+    choices:
+      - text: Liquid A, because substances with lower boiling points evaporate at lower temperatures.
+        correct: true
+      - text: Liquid B, because higher boiling points evaporate first.
+      - text: Both evaporate at exactly the same time.
+      - text: Neither evaporates until the mixture reaches its freezing point.
+    explanation: |
+      During distillation, the substance with the lower boiling point turns to vapor first as the mixture is heated, so it is the first one collected after cooling.
+    approved: true
+  - id: q-chemistry-mixtures-and-separation-0013
+    type: predict-outcome
+    difficulty: hard
+    stem: |
+      During paper chromatography, one dye in a black ink sample travels much farther up the paper than another dye. What does this tell us about the faster-traveling dye?
+    choices:
+      - text: It is less strongly attracted to the paper (stationary phase) and more easily carried by the moving liquid (mobile phase).
+        correct: true
+      - text: It is heavier than the slower dye.
+      - text: It has a higher boiling point than the slower dye.
+      - text: It is not actually part of the original ink mixture.
+    explanation: |
+      In chromatography, components that are less strongly attracted to the stationary phase (the paper) get carried farther by the mobile phase (the moving liquid). Traveling farther means weaker attraction to the paper.
+    approved: true
+  - id: q-chemistry-mixtures-and-separation-0014
+    type: classify
+    difficulty: medium
+    stem: |
+      A fruit salad contains clearly visible pieces of mango, banana, and apple. Is this mixture homogeneous or heterogeneous?
+    choices:
+      - text: Heterogeneous
+        correct: true
+      - text: Homogeneous
+      - text: A compound
+      - text: An element
+    explanation: |
+      Since the different fruit pieces remain visibly separate and unevenly distributed, the fruit salad is a heterogeneous mixture.
+    approved: true
+  - id: q-chemistry-mixtures-and-separation-0015
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      A community wants to turn muddy river water (water with visible dirt and other dissolved impurities) into safe drinking water. Which two techniques, used in order, would best accomplish this?
+    choices:
+      - text: Filtration first to remove the visible dirt, then distillation to purify the water further by removing dissolved impurities.
+        correct: true
+      - text: Chromatography first, then evaporation.
+      - text: Distillation first, then filtration.
+      - text: Filtration alone is enough; no second step is needed.
+    explanation: |
+      Filtration removes the undissolved solid dirt, since it is too large to pass through the filter. But dissolved impurities remain in the water even after filtering, so distillation is still needed afterward to collect only the purified water vapor.
+    approved: true
