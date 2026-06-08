@@ -71,7 +71,7 @@ The type scale drops all-caps letterspaced styles; hierarchy comes from size, we
 
 ## Section 2 — Component kit
 
-New widgets in `lib/core/ui/widgets/`. Screens compose these; they do not hand-style.
+New widgets in `lib/core/ui/components/`. Screens compose these; they do not hand-style. *[Implementation note, 2026-07-19: kit lives in `components/`; `InlineMeter` shipped bar-only — the colored percentage renders beside it at call sites, not inside the widget.]*
 
 | Widget | Purpose |
 |---|---|
@@ -81,7 +81,7 @@ New widgets in `lib/core/ui/widgets/`. Screens compose these; they do not hand-s
 | `InkTableRow` | List row: glyph slot, title/subtitle, right-aligned meta columns, faint bottom rule. States: done (muted, ✓), active (semibold, ○), plain |
 | `StatsBand` | Figures-first stats: serif numerals with muted suffixes, sans labels beneath, vertical hairline dividers, ruled top/bottom |
 | `ProgressRule` | 3px board-green progress line on a faint track |
-| `InlineMeter` | Compact bar + colored percentage for weak areas |
+| `InlineMeter` | Compact bar + colored percentage for weak areas (bar only; caller renders the percentage) |
 | `BoardButton` | Flat board-green primary, 5px radius; text-only secondary variant |
 
 Quiz/exam-specific pieces (answer rows, timers) are styled variants of these primitives, built during the sweep.
