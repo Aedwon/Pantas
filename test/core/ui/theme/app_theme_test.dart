@@ -52,4 +52,36 @@ void main() {
       VisualDensity.adaptivePlatformDensity,
     );
   });
+
+  test('app bar is flat paper with ink title', () {
+    final theme = buildLightTheme();
+    const c = AppColors.light;
+    final appBar = theme.appBarTheme;
+    expect(appBar.backgroundColor, c.background);
+    expect(appBar.surfaceTintColor, Colors.transparent);
+    expect(appBar.elevation, 0);
+    expect(appBar.scrolledUnderElevation, 0);
+    expect(appBar.centerTitle, false);
+    expect(appBar.titleTextStyle?.color, c.ink);
+  });
+
+  test('dividers are 1px rule hairlines', () {
+    final divider = buildLightTheme().dividerTheme;
+    expect(divider.color, AppColors.light.rule);
+    expect(divider.thickness, 1);
+  });
+
+  test('dialogs and sheets are flat identity surfaces', () {
+    final theme = buildDarkTheme();
+    const c = AppColors.dark;
+    expect(theme.dialogTheme.backgroundColor, c.surface);
+    expect(
+      theme.dialogTheme.shape,
+      const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(8)),
+      ),
+    );
+    expect(theme.bottomSheetTheme.backgroundColor, c.background);
+    expect(theme.bottomSheetTheme.surfaceTintColor, Colors.transparent);
+  });
 }

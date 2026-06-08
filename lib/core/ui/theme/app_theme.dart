@@ -23,12 +23,42 @@ ThemeData _buildTheme(AppColors colors, Brightness brightness) {
     outlineVariant: colors.ruleFaint,
     surfaceTint: Colors.transparent,
   );
+  final textStyles = AppTextStyles.create();
   return ThemeData(
     useMaterial3: true,
     colorScheme: scheme,
     scaffoldBackgroundColor: colors.background,
     visualDensity: VisualDensity.adaptivePlatformDensity,
-    extensions: [colors, AppTextStyles.create()],
+    appBarTheme: AppBarTheme(
+      backgroundColor: colors.background,
+      foregroundColor: colors.ink,
+      surfaceTintColor: Colors.transparent,
+      elevation: 0,
+      scrolledUnderElevation: 0,
+      centerTitle: false,
+      titleTextStyle: textStyles.headlineMedium.copyWith(color: colors.ink),
+      iconTheme: IconThemeData(color: colors.inkMuted, size: 20),
+    ),
+    dividerTheme: DividerThemeData(
+      color: colors.rule,
+      thickness: 1,
+      space: 1,
+    ),
+    dialogTheme: DialogThemeData(
+      backgroundColor: colors.surface,
+      surfaceTintColor: Colors.transparent,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(8)),
+      ),
+    ),
+    bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor: colors.background,
+      surfaceTintColor: Colors.transparent,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
+      ),
+    ),
+    extensions: [colors, textStyles],
   );
 }
 
