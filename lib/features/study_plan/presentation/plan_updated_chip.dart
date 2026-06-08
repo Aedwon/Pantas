@@ -15,17 +15,11 @@ class PlanUpdatedChip extends StatelessWidget {
     final textStyles = context.textStyles;
     return GestureDetector(
       onTap: onDismissed,
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: colors.success.withValues(alpha: 0.12),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-          child: Text(
-            'Plan updated for the week',
-            style: textStyles.bodySmall.copyWith(color: colors.success),
-          ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 6),
+        child: Text(
+          'Plan updated for the week',
+          style: textStyles.bodySmall.copyWith(color: colors.inkMuted),
         ),
       ),
     );

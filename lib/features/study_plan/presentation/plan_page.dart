@@ -1,3 +1,5 @@
+import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
+import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/study_plan/application/study_plan_providers.dart';
 import 'package:cse_cet_reviewer/features/study_plan/presentation/collapsed_plan_section.dart';
@@ -17,38 +19,45 @@ class PlanPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Your study plan')),
       body: asyncState.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, _) => Center(child: Text('Plan unavailable: $error')),
+        loading: () => ListView(
+          padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+          children: const [FaintBars()],
+        ),
+        error: (error, _) => Center(
+          child: Text(
+            'Plan unavailable: $error',
+            style: context.textStyles.bodyMedium
+                .copyWith(color: context.colors.inkMuted),
+          ),
+        ),
         data: (state) {
           return switch (state) {
-            StudyPlanNeedsExamSelection() => const Center(
-                child: Text('Choose an exam to build your plan.'),
+            StudyPlanNeedsExamSelection() => Center(
+                child: Text(
+                  'Choose an exam to build your plan.',
+                  style: context.textStyles.bodyMedium
+                      .copyWith(color: context.colors.inkMuted),
+                ),
               ),
             StudyPlanReady(:final view) => ListView(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
                 children: [
                   Text(
                     'Week ${view.weeksToExam} to exam · '
                     '${_paceLabel(view.paceStatus.name)}',
                     style: context.textStyles.bodySmall
-                        .copyWith(color: context.colors.onSurfaceMuted),
+                        .copyWith(color: context.colors.inkMuted),
                   ),
                   const SizedBox(height: 12),
                   TodayInset(
                     plan: view.today,
                     onStart: () => context.go(view.today.ctaPath),
                   ),
-                  const SizedBox(height: 16),
-                  Text('This week', style: context.textStyles.headlineSmall),
-                  const SizedBox(height: 8),
-                  for (final day in view.upcoming) ...[
-                    UpcomingDayChip(day: day),
-                    const SizedBox(height: 8),
-                  ],
-                  if (view.nearestMock != null) ...[
-                    const SizedBox(height: 8),
+                  const SizedBox(height: 20),
+                  const SectionHeader(title: 'This week'),
+                  for (final day in view.upcoming) UpcomingDayChip(day: day),
+                  if (view.nearestMock != null)
                     MockWeekCard(preview: view.nearestMock!),
-                  ],
                   const SizedBox(height: 8),
                   const CollapsedPlanSection(label: 'Past 2 weeks'),
                   const CollapsedPlanSection(label: 'Show full plan'),

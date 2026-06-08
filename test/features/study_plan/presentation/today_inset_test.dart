@@ -29,8 +29,9 @@ void main() {
       (tester) async {
     await tester.pumpApp(TodayInset(plan: plan, onStart: () {}));
 
-    expect(find.text('14 reviews'), findsOneWidget);
-    expect(find.text('1 lesson'), findsOneWidget);
-    expect(find.text('Probability drill'), findsOneWidget);
+    expect(
+      find.text('14 reviews · 1 lesson · Probability drill'),
+      findsOneWidget,
+    );
   });
 }

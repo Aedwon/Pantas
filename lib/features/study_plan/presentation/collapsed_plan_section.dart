@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
 import 'package:flutter/material.dart';
 
 class CollapsedPlanSection extends StatelessWidget {
@@ -10,10 +11,6 @@ class CollapsedPlanSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      contentPadding: EdgeInsets.zero,
-      title: Text(label),
-      trailing: const Icon(Icons.chevron_right),
-    );
+    return InkTableRow(title: label);
   }
 }

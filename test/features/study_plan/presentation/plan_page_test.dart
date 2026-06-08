@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/features/study_plan/application/study_plan_providers.dart';
 import 'package:cse_cet_reviewer/features/study_plan/domain/compute_plan_view.dart';
 import 'package:cse_cet_reviewer/features/study_plan/domain/pace_curve.dart';
@@ -50,7 +51,7 @@ void main() {
     usedFallbackMastery: false,
   );
 
-  testWidgets('loading state renders progress indicator', (tester) async {
+  testWidgets('loading state renders faint bars', (tester) async {
     final completer = Completer<StudyPlanState>();
     await tester.pumpAppWithProviders(
       const PlanPage(),
@@ -59,7 +60,7 @@ void main() {
       ],
     );
 
-    expect(find.byType(CircularProgressIndicator), findsOneWidget);
+    expect(find.byType(FaintBars), findsOneWidget);
     completer.complete(StudyPlanReady(view));
   });
 
