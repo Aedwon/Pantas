@@ -90,6 +90,9 @@ dev_dependencies:
   # Testing
   mocktail: ^1.0.4
 
+  # Content tooling
+  yaml: ^3.1.2
+
 flutter:
   uses-material-design: true
   generate: true   # enables ARB-driven l10n in Plan 2+
