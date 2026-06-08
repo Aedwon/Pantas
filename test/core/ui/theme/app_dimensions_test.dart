@@ -3,9 +3,16 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('AppDimensions radii', () {
-    test('radiusMD is 10', () => expect(AppDimensions.radiusMD, 10.0));
-    test('radiusLG is 14', () => expect(AppDimensions.radiusLG, 14.0));
-    test('radiusFull is 999', () => expect(AppDimensions.radiusFull, 999.0));
+    test('radiusButton is 5', () => expect(AppDimensions.radiusButton, 5.0));
+    test('radiusSurface is 8', () => expect(AppDimensions.radiusSurface, 8.0));
+  });
+
+  group('AppDimensions rules', () {
+    test('hairline is 1', () => expect(AppDimensions.hairline, 1.0));
+    test(
+      'progressHeight is 3',
+      () => expect(AppDimensions.progressHeight, 3.0),
+    );
   });
 
   group('AppDimensions tap targets', () {

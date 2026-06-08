@@ -56,22 +56,6 @@ class AppColors extends ThemeExtension<AppColors> {
     amber: Color(0xFFC99A45),
   );
 
-  // Transitional aliases so pre-redesign screens compile until the Plan 2
-  // sweep replaces them. Every alias intentionally lands on a new token —
-  // pastel containers collapse to neutral ruleFaint by design.
-  @Deprecated('Use ink') Color get onSurface => ink;
-  @Deprecated('Use inkMuted') Color get onSurfaceMuted => inkMuted;
-  @Deprecated('Use rule') Color get border => rule;
-  @Deprecated('Use board') Color get borderSelected => board;
-  @Deprecated('Use board') Color get primary => board;
-  @Deprecated('Use boardTint') Color get primaryContainer => boardTint;
-  @Deprecated('Use board') Color get success => board;
-  @Deprecated('Use boardTint') Color get successContainer => boardTint;
-  @Deprecated('Use amber') Color get warning => amber;
-  @Deprecated('Use ruleFaint') Color get warningContainer => ruleFaint;
-  @Deprecated('Use rust') Color get error => rust;
-  @Deprecated('Use ruleFaint') Color get errorContainer => ruleFaint;
-
   @override
   AppColors copyWith({
     Color? background,

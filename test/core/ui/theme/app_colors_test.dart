@@ -33,16 +33,6 @@ void main() {
     expect(c.amber, const Color(0xFFC99A45));
   });
 
-  test('deprecated aliases map onto new tokens', () {
-    const c = AppColors.light;
-    // ignore: deprecated_member_use_from_same_package
-    expect(c.primary, c.board);
-    // ignore: deprecated_member_use_from_same_package
-    expect(c.onSurface, c.ink);
-    // ignore: deprecated_member_use_from_same_package
-    expect(c.errorContainer, c.ruleFaint);
-  });
-
   test('lerp at t=1 lands exactly on the other palette', () {
     final lerped = AppColors.light.lerp(AppColors.dark, 1);
     expect(lerped.background, AppColors.dark.background);
