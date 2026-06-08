@@ -1,0 +1,234 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: matter
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-chemistry-matter-0001
+    type: classify
+    difficulty: easy
+    stem: |
+      Pure oxygen gas ($O_2$) is made of only one type of atom. How should it be classified?
+    choices:
+      - text: Element
+        correct: true
+      - text: Compound
+      - text: Mixture
+      - text: Solution
+    explanation: |
+      An element is made of only one kind of atom and cannot be broken down into simpler substances. Oxygen gas fits this exactly.
+    approved: true
+  - id: q-chemistry-matter-0002
+    type: classify
+    difficulty: easy
+    stem: |
+      Table salt ($NaCl$) is made of sodium and chlorine chemically bonded together in a fixed ratio. How should it be classified?
+    choices:
+      - text: Compound
+        correct: true
+      - text: Element
+      - text: Mixture
+      - text: Alloy
+    explanation: |
+      A compound is two or more elements chemically bonded in a fixed ratio. Table salt is always one sodium atom for every one chlorine atom, so it is a compound.
+    approved: true
+  - id: q-chemistry-matter-0003
+    type: classify
+    difficulty: easy
+    stem: |
+      A glass of lemonade contains water, sugar, and lemon juice combined in amounts that can be adjusted to taste. How should it be classified?
+    choices:
+      - text: Mixture
+        correct: true
+      - text: Compound
+      - text: Element
+      - text: Pure substance
+    explanation: |
+      A mixture is two or more substances physically combined in amounts that can vary. Since the sugar and lemon juice can be added in different amounts, lemonade is a mixture.
+    approved: true
+  - id: q-chemistry-matter-0004
+    type: classify
+    difficulty: medium
+    stem: |
+      Saltwater looks completely uniform, with no visible particles of salt floating in it. A student concludes it must be a compound. Is the student correct?
+    choices:
+      - text: No, because the ratio of salt to water can vary, which makes it a mixture.
+        correct: true
+      - text: Yes, because it looks completely uniform.
+      - text: No, because saltwater has no fixed composition, so it cannot be classified at all.
+      - text: Yes, because salt and water cannot be separated once combined.
+    explanation: |
+      Looking uniform does not make something a compound. A compound must have a fixed ratio of elements. Since you can dissolve more or less salt in the same water, saltwater is a mixture, even though it looks smooth and even.
+    approved: true
+  - id: q-chemistry-matter-0005
+    type: cause-effect
+    difficulty: easy
+    stem: |
+      An ice cube is left on a table and turns into a puddle of water. Name this phase change.
+    choices:
+      - text: Melting
+        correct: true
+      - text: Freezing
+      - text: Evaporation
+      - text: Sublimation
+    explanation: |
+      Melting is the change from solid to liquid. Ice (solid) turning into water (liquid) is melting.
+    approved: true
+  - id: q-chemistry-matter-0006
+    type: cause-effect
+    difficulty: easy
+    stem: |
+      Water vapor touches a cold glass window and turns into liquid droplets on the surface. Name this phase change.
+    choices:
+      - text: Condensation
+        correct: true
+      - text: Evaporation
+      - text: Freezing
+      - text: Deposition
+    explanation: |
+      Condensation is the change from gas to liquid. Water vapor (gas) turning into droplets (liquid) is condensation.
+    approved: true
+  - id: q-chemistry-matter-0007
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      A block of dry ice (solid carbon dioxide) placed in a room slowly disappears into a misty gas, without ever forming a puddle of liquid. Name this phase change.
+    choices:
+      - text: Sublimation
+        correct: true
+      - text: Evaporation
+      - text: Melting
+      - text: Condensation
+    explanation: |
+      Sublimation is the change from solid directly to gas, skipping the liquid phase entirely. Since the dry ice never becomes liquid, this is sublimation, not evaporation.
+    approved: true
+  - id: q-chemistry-matter-0008
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      On a very cold morning, water vapor in the air turns directly into ice crystals (frost) on a car window, without first forming liquid water. Name this phase change.
+    choices:
+      - text: Deposition
+        correct: true
+      - text: Freezing
+      - text: Sublimation
+      - text: Condensation
+    explanation: |
+      Deposition is the change from gas directly to solid, skipping the liquid phase. Frost forming straight from water vapor is deposition.
+    approved: true
+  - id: q-chemistry-matter-0009
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      Is melting an endothermic or an exothermic phase change?
+    choices:
+      - text: Endothermic, because the substance absorbs energy to break apart its ordered solid structure.
+        correct: true
+      - text: Exothermic, because the substance releases energy as it becomes a liquid.
+      - text: Endothermic, because the substance releases energy as it becomes more ordered.
+      - text: Exothermic, because no energy is involved in melting.
+    explanation: |
+      Melting moves a substance from a more ordered state (solid) to a less ordered one (liquid). Becoming less ordered always requires absorbing energy, which makes melting endothermic.
+    approved: true
+  - id: q-chemistry-matter-0010
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      Is freezing an endothermic or an exothermic phase change?
+    choices:
+      - text: Exothermic, because the substance releases energy as it becomes a more ordered solid.
+        correct: true
+      - text: Endothermic, because the substance absorbs energy as it becomes a solid.
+      - text: Exothermic, because the substance absorbs energy to form a solid.
+      - text: Endothermic, because freezing always requires added heat.
+    explanation: |
+      Freezing moves a substance from a less ordered state (liquid) to a more ordered one (solid). Becoming more ordered always releases energy, which makes freezing exothermic.
+    approved: true
+  - id: q-chemistry-matter-0011
+    type: classify
+    difficulty: medium
+    stem: |
+      "Iron is attracted to a magnet." Is this a physical property or a chemical property?
+    choices:
+      - text: Physical property
+        correct: true
+      - text: Chemical property
+      - text: Physical change
+      - text: Chemical change
+    explanation: |
+      A physical property can be observed without changing what the substance is made of. Being attracted to a magnet does not turn iron into a different substance, so it is a physical property.
+    approved: true
+  - id: q-chemistry-matter-0012
+    type: classify
+    difficulty: hard
+    stem: |
+      "Iron can react with oxygen and moisture to form rust." Is this describing a chemical property or a chemical change?
+    choices:
+      - text: Chemical property, because it describes something the iron could do, not something that has already happened.
+        correct: true
+      - text: Chemical change, because rust has already formed.
+      - text: Physical property, because rusting only affects the iron's surface.
+      - text: Physical change, because no new substance is involved.
+    explanation: |
+      This sentence describes a potential reaction — what iron *could* do — not an event that already occurred. A description of what a substance is capable of doing is a chemical property. If the sentence said "this nail has rusted," that would describe an actual event, a chemical change.
+    approved: true
+  - id: q-chemistry-matter-0013
+    type: classify
+    difficulty: hard
+    stem: |
+      A nail that was left outside for a month is now covered in a reddish-brown coating and has become brittle. Is this a chemical property or a chemical change?
+    choices:
+      - text: Chemical change, because a new substance (rust) has actually formed.
+        correct: true
+      - text: Chemical property, because it describes how iron generally behaves.
+      - text: Physical change, because the nail's shape is different.
+      - text: Physical property, because the coating can be seen.
+    explanation: |
+      This sentence describes something that has already happened: the iron reacted with oxygen and moisture to form rust, a new substance with different properties. An event that has already occurred, producing a new substance, is a chemical change.
+    approved: true
+  - id: q-chemistry-matter-0014
+    type: classify
+    difficulty: medium
+    stem: |
+      A sheet of paper is torn into several pieces. Is this a physical change or a chemical change?
+    choices:
+      - text: Physical change
+        correct: true
+      - text: Chemical change
+      - text: Physical property
+      - text: Chemical property
+    explanation: |
+      Tearing paper changes its shape and size, but it is still made of the same paper — no new substance is formed. That makes it a physical change.
+    approved: true
+  - id: q-chemistry-matter-0015
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      A student claims that boiling water into steam creates a new substance, since steam looks and behaves so differently from liquid water. Which statement correctly evaluates this claim?
+    choices:
+      - text: The student is wrong — boiling is a phase change, and phase changes never create a new substance, only a new physical state.
+        correct: true
+      - text: The student is correct — steam is chemically different from liquid water.
+      - text: The student is wrong — but only because steam is actually a mixture, not a pure substance.
+      - text: The student is correct, since boiling requires heat, and any change that requires heat is a chemical change.
+    explanation: |
+      Phase changes only change how tightly packed and ordered the particles are — they never change what the substance actually is. Both liquid water and water vapor (steam) are still $H_2O$. Needing heat does not by itself make a change chemical; several phase changes need heat and are still physical changes.
+    approved: true
+  - id: q-chemistry-matter-0016
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      A student burns a small piece of paper. It turns into ash and smoke while releasing noticeable heat. Which pair correctly describes this event?
+    choices:
+      - text: Chemical change; exothermic
+        correct: true
+      - text: Physical change; exothermic
+      - text: Chemical change; endothermic
+      - text: Physical change; endothermic
+    explanation: |
+      Burning paper produces new substances (ash, smoke, gases) that are different from paper, so it is a chemical change. Since the reaction releases heat instead of absorbing it, it is also exothermic.
+    approved: true
