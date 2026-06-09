@@ -1,0 +1,220 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: gas-laws
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-chemistry-gas-laws-0001
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A gas occupies 5 liters at a pressure of 3 atm. If the pressure is increased to 15 atm at the same temperature, what is the new volume? (Boyle's Law: $P_1V_1 = P_2V_2$)
+    choices:
+      - text: 1 liter
+        correct: true
+      - text: 5 liters
+      - text: 3 liters
+      - text: 25 liters
+    explanation: |
+      $P_1V_1 = P_2V_2$: $(3)(5) = (15)(V_2)$, so $15 = 15V_2$, giving $V_2 = 1$ liter. Pressure went up 5 times, so volume shrank to one-fifth.
+    approved: true
+  - id: q-chemistry-gas-laws-0002
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A gas occupies 4 liters at 200 K. If it is heated to 400 K at constant pressure, what is the new volume? (Charles's Law: $\dfrac{V_1}{T_1} = \dfrac{V_2}{T_2}$)
+    choices:
+      - text: 8 liters
+        correct: true
+      - text: 2 liters
+      - text: 4 liters
+      - text: 16 liters
+    explanation: |
+      $\dfrac{4}{200} = \dfrac{V_2}{400}$. Cross multiplying: $4 \times 400 = 200 \times V_2$, so $V_2 = 8$ liters. Doubling the temperature doubled the volume.
+    approved: true
+  - id: q-chemistry-gas-laws-0003
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A sealed, rigid container holds gas at 2 atm and 250 K. If it is heated to 500 K, what is the new pressure? (Gay-Lussac's Law: $\dfrac{P_1}{T_1} = \dfrac{P_2}{T_2}$)
+    choices:
+      - text: 4 atm
+        correct: true
+      - text: 2 atm
+      - text: 1 atm
+      - text: 8 atm
+    explanation: |
+      $\dfrac{2}{250} = \dfrac{P_2}{500}$. Cross multiplying: $2 \times 500 = 250 \times P_2$, so $P_2 = 4$ atm. Doubling the temperature doubled the pressure.
+    approved: true
+  - id: q-chemistry-gas-laws-0004
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A container holds 3 liters of gas with 2 moles present. If 6 moles are present instead, at the same pressure and temperature, what is the new volume? (Avogadro's Law: $\dfrac{V_1}{n_1} = \dfrac{V_2}{n_2}$)
+    choices:
+      - text: 9 liters
+        correct: true
+      - text: 3 liters
+      - text: 6 liters
+      - text: 1 liter
+    explanation: |
+      $\dfrac{3}{2} = \dfrac{V_2}{6}$. Cross multiplying: $3 \times 6 = 2 \times V_2$, so $V_2 = 9$ liters. Tripling the moles tripled the volume.
+    approved: true
+  - id: q-chemistry-gas-laws-0005
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      A gas has a pressure of 2 atm, a volume of 4 liters, and a temperature of 200 K. If the pressure changes to 4 atm and the temperature changes to 400 K, find the new volume using the combined gas law: $\dfrac{P_1V_1}{T_1} = \dfrac{P_2V_2}{T_2}$
+    choices:
+      - text: 4 liters
+        correct: true
+      - text: 8 liters
+      - text: 2 liters
+      - text: 16 liters
+    explanation: |
+      $\dfrac{(2)(4)}{200} = \dfrac{(4)(V_2)}{400}$. Cross multiplying: $8 \times 400 = 200 \times 4 \times V_2$, so $3200 = 800V_2$, giving $V_2 = 4$ liters. Pressure doubling (which alone would halve volume) and temperature doubling (which alone would double volume) cancel out.
+    approved: true
+  - id: q-chemistry-gas-laws-0006
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      How many moles of gas are in a 10-liter container at a pressure of 3 atm and a temperature of 300 K? (Use $R = 0.0821 \, \text{L·atm/(mol·K)}$.)
+    choices:
+      - text: About 1.22 moles
+        correct: true
+      - text: About 0.81 moles
+      - text: About 3.00 moles
+      - text: About 24.63 moles
+    explanation: |
+      $n = \dfrac{PV}{RT} = \dfrac{(3)(10)}{(0.0821)(300)} = \dfrac{30}{24.63} \approx 1.22$ moles.
+    approved: true
+  - id: q-chemistry-gas-laws-0007
+    type: classify
+    difficulty: hard
+    stem: |
+      A student plugs a temperature of 25°C directly into a gas law formula without converting it. Is this safe?
+    choices:
+      - text: No — all gas law formulas require temperature in kelvin; the student must add 273 to convert first.
+        correct: true
+      - text: Yes — Celsius and kelvin can be used interchangeably in gas law formulas.
+      - text: No — but only because 25°C is too low a temperature for gas laws to apply.
+      - text: Yes — only pressure and volume need consistent units, not temperature.
+    explanation: |
+      Gas law formulas depend on kelvin specifically, since zero kelvin truly means no thermal energy. Using Celsius directly (especially without converting) breaks the proportional relationships these laws rely on.
+    approved: true
+  - id: q-chemistry-gas-laws-0008
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes that squeezing a gas into a smaller volume will decrease its pressure, treating pressure and volume as directly related. Is this correct?
+    choices:
+      - text: No — pressure and volume are inversely related (Boyle's Law); squeezing a gas into less space increases its pressure.
+        correct: true
+      - text: Yes — pressure and volume always increase or decrease together.
+      - text: No — but only because temperature is not held constant.
+      - text: Yes — this is exactly what Boyle's Law states.
+    explanation: |
+      Boyle's Law describes an inverse relationship: at constant temperature, decreasing volume increases pressure, not the other way the student assumed.
+    approved: true
+  - id: q-chemistry-gas-laws-0009
+    type: classify
+    difficulty: hard
+    stem: |
+      A problem describes a gas whose pressure, volume, and temperature all change together, with the amount of gas staying fixed. A student tries to solve it using only Boyle's Law. Is this the right approach?
+    choices:
+      - text: No — since temperature is also changing, the combined gas law is needed, not Boyle's Law alone.
+        correct: true
+      - text: Yes — Boyle's Law can always be used regardless of how many quantities change.
+      - text: No — the ideal gas law should be used instead, since three quantities are changing.
+      - text: Yes — as long as pressure and volume are correctly identified.
+    explanation: |
+      Boyle's Law only accounts for pressure and volume, assuming temperature stays fixed. Since temperature is also changing here, the combined gas law (which merges all three relationships) is required.
+    approved: true
+  - id: q-chemistry-gas-laws-0010
+    type: classify
+    difficulty: hard
+    stem: |
+      A problem gives a single set of values for pressure, volume, moles, and temperature, all at one moment, with no "before and after" comparison. Which law should be used?
+    choices:
+      - text: The Ideal Gas Law ($PV = nRT$), since it handles a single snapshot in time.
+        correct: true
+      - text: The Combined Gas Law, since it always applies whenever all quantities are given.
+      - text: Boyle's Law, since pressure and volume are both given.
+      - text: Avogadro's Law, since moles are given.
+    explanation: |
+      The Combined Gas Law compares two different states (before and after a change) for a fixed amount of gas. Since this problem describes only one single moment (with moles included), the Ideal Gas Law is the correct choice.
+    approved: true
+  - id: q-chemistry-gas-laws-0011
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      A gas is compressed into a smaller volume at constant temperature. What happens to its pressure?
+    choices:
+      - text: It increases, since pressure and volume are inversely related at constant temperature.
+        correct: true
+      - text: It decreases, since pressure and volume move in the same direction.
+      - text: It stays exactly the same.
+      - text: It cannot be determined without knowing the exact volume.
+    explanation: |
+      Boyle's Law describes an inverse relationship between pressure and volume at constant temperature: shrinking the volume raises the pressure.
+    approved: true
+  - id: q-chemistry-gas-laws-0012
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      A gas is heated at constant pressure. What happens to its volume?
+    choices:
+      - text: It increases, since volume and temperature are directly related at constant pressure.
+        correct: true
+      - text: It decreases, since heating always shrinks a gas.
+      - text: It stays exactly the same.
+      - text: It cannot be determined without knowing the exact temperature.
+    explanation: |
+      Charles's Law describes a direct relationship between volume and temperature at constant pressure: heating the gas makes it expand.
+    approved: true
+  - id: q-chemistry-gas-laws-0013
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      A sealed, rigid container of gas is heated. What happens to its pressure?
+    choices:
+      - text: It increases, since pressure and temperature are directly related at constant volume.
+        correct: true
+      - text: It decreases, since heating always lowers pressure in a sealed container.
+      - text: It stays exactly the same, since the container is rigid.
+      - text: It cannot be determined without knowing the exact temperature.
+    explanation: |
+      Gay-Lussac's Law describes a direct relationship between pressure and temperature at constant volume: heating a sealed, rigid container raises its internal pressure.
+    approved: true
+  - id: q-chemistry-gas-laws-0014
+    type: simple-quantitative
+    difficulty: exam
+    stem: |
+      A sealed, rigid container holds gas at 2 atm and 27°C. If it is heated to 327°C, what is the new pressure? (Remember to convert to kelvin first.)
+    choices:
+      - text: 4 atm
+        correct: true
+      - text: 24 atm
+      - text: 2 atm
+      - text: 8 atm
+    explanation: |
+      Convert to kelvin: $27°C + 273 = 300$ K, and $327°C + 273 = 600$ K. Using Gay-Lussac's Law: $\dfrac{2}{300} = \dfrac{P_2}{600}$, giving $P_2 = 4$ atm.
+    approved: true
+  - id: q-chemistry-gas-laws-0015
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      A problem gives a gas's pressure, volume, temperature, and number of moles, all measured at one specific moment, with no described change from one condition to another. Which gas law directly relates all four quantities at once?
+    choices:
+      - text: The Ideal Gas Law
+        correct: true
+      - text: The Combined Gas Law
+      - text: Boyle's Law
+      - text: Charles's Law
+    explanation: |
+      The Ideal Gas Law ($PV = nRT$) relates pressure, volume, moles, and temperature all at once, without needing a "before and after" comparison — exactly the situation described here.
+    approved: true
