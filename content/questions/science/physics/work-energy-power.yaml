@@ -1,0 +1,220 @@
+meta:
+  subject: science
+  topic: physics
+  subtopic: work-energy-power
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-physics-work-energy-power-0001
+    type: simple-quantitative
+    difficulty: easy
+    stem: |
+      A force of 20 N moves an object 5 m in the direction of the force. Find the work done. (Use $W = Fd$.)
+    choices:
+      - text: 100 J
+        correct: true
+      - text: 25 J
+      - text: 4 J
+      - text: 15 J
+    explanation: |
+      $W = Fd = (20)(5) = 100$ J.
+    approved: true
+  - id: q-physics-work-energy-power-0002
+    type: simple-quantitative
+    difficulty: easy
+    stem: |
+      Find the kinetic energy of a 4 kg object moving at 5 m/s. (Use $KE = \dfrac{1}{2}mv^2$.)
+    choices:
+      - text: 50 J
+        correct: true
+      - text: 10 J
+      - text: 100 J
+      - text: 20 J
+    explanation: |
+      $KE = \dfrac{1}{2}(4)(5)^2 = \dfrac{1}{2}(4)(25) = 50$ J.
+    approved: true
+  - id: q-physics-work-energy-power-0003
+    type: simple-quantitative
+    difficulty: easy
+    stem: |
+      Find the gravitational potential energy of a 3 kg book held 4 m above the ground. (Use $g = 9.8 \text{ m/s}^2$ and $PE = mgh$.)
+    choices:
+      - text: 117.6 J
+        correct: true
+      - text: 12 J
+      - text: 29.4 J
+      - text: 39.2 J
+    explanation: |
+      $PE = mgh = (3)(9.8)(4) = 117.6$ J.
+    approved: true
+  - id: q-physics-work-energy-power-0004
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A 5 kg object starts from rest at the top of a frictionless slide, 2 m high. Find its speed at the bottom. (Use $g = 9.8 \text{ m/s}^2$.)
+    choices:
+      - text: About 6.26 m/s
+        correct: true
+      - text: 19.6 m/s
+      - text: 98 m/s
+      - text: About 3.13 m/s
+    explanation: |
+      $PE_i = mgh = (5)(9.8)(2) = 98$ J, which all converts to kinetic energy: $98 = \dfrac{1}{2}(5)v^2 = 2.5v^2$, so $v^2 = 39.2$ and $v \approx 6.26$ m/s.
+    approved: true
+  - id: q-physics-work-energy-power-0005
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A motor does 300 J of work in 5 seconds. Find its power output. (Use $P = \dfrac{W}{t}$.)
+    choices:
+      - text: 60 W
+        correct: true
+      - text: 1500 W
+      - text: 5 W
+      - text: 295 W
+    explanation: |
+      $P = \dfrac{W}{t} = \dfrac{300}{5} = 60$ W.
+    approved: true
+  - id: q-physics-work-energy-power-0006
+    type: classify
+    difficulty: hard
+    stem: |
+      An object's speed is doubled, while its mass stays the same. A student assumes its kinetic energy also just doubles. Is this correct?
+    choices:
+      - text: No — since velocity is squared in the kinetic energy formula, doubling speed actually quadruples the kinetic energy.
+        correct: true
+      - text: Yes — doubling speed always exactly doubles kinetic energy.
+      - text: No — doubling speed actually halves the kinetic energy.
+      - text: Yes — mass and velocity affect kinetic energy in the same simple way.
+    explanation: |
+      $KE = \dfrac{1}{2}mv^2$ squares the velocity term. Doubling $v$ means $v^2$ becomes 4 times larger, so kinetic energy quadruples, not just doubles.
+    approved: true
+  - id: q-physics-work-energy-power-0007
+    type: classify
+    difficulty: hard
+    stem: |
+      A person holds a heavy box perfectly still above the ground, exerting a large upward force for several minutes. How much work is done on the box?
+    choices:
+      - text: Zero work, since the box does not move (no displacement in the direction of the force).
+        correct: true
+      - text: A large amount of work, proportional to how long the box is held.
+      - text: Work equal to the box's weight alone, regardless of time.
+      - text: Negative work, since the person is resisting gravity.
+    explanation: |
+      Work requires displacement in the direction of the force. Since the box is not moving at all, no work is done on it, even though real physical effort is being exerted to hold it still.
+    approved: true
+  - id: q-physics-work-energy-power-0008
+    type: classify
+    difficulty: hard
+    stem: |
+      A problem describes a block sliding down a ramp with noticeable friction, but a student applies $KE_i + PE_i = KE_f + PE_f$ directly, assuming no energy is lost. Is this valid?
+    choices:
+      - text: No — this simple conservation equation assumes no friction; with friction present, some mechanical energy converts to heat and is not accounted for in this equation.
+        correct: true
+      - text: Yes — the equation applies regardless of whether friction is present.
+      - text: No — but only because gravity does not act during sliding motion.
+      - text: Yes — friction has no effect on mechanical energy at all.
+    explanation: |
+      The equation $KE_i + PE_i = KE_f + PE_f$ only holds when no energy is lost to friction or air resistance. With friction present, some energy converts to heat, so the simple form does not directly apply.
+    approved: true
+  - id: q-physics-work-energy-power-0009
+    type: classify
+    difficulty: hard
+    stem: |
+      Two machines each do 1000 J of work. Machine A finishes in 2 seconds; Machine B finishes in 10 seconds. A student says both machines have the same power, since they did the same amount of work. Is this correct?
+    choices:
+      - text: No — power depends on the rate work is done; Machine A (faster) has higher power than Machine B, even though both did the same total work.
+        correct: true
+      - text: Yes — power and work always match whenever the total work is equal.
+      - text: No — but only because Machine B actually did more total work.
+      - text: Yes — time does not affect power in any situation.
+    explanation: |
+      Power measures how quickly work is done ($P = W/t$), not just the total amount. Machine A does the same work in less time, giving it a higher power output than Machine B.
+    approved: true
+  - id: q-physics-work-energy-power-0010
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      An object's kinetic energy starts at 50 J. A net force does 200 J of work on it. Find the object's final kinetic energy. (Use the work-energy theorem: $W_{net} = KE_f - KE_i$.)
+    choices:
+      - text: 250 J
+        correct: true
+      - text: 150 J
+      - text: 200 J
+      - text: 100 J
+    explanation: |
+      $W_{net} = KE_f - KE_i$, so $200 = KE_f - 50$, giving $KE_f = 250$ J.
+    approved: true
+  - id: q-physics-work-energy-power-0011
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      A 4 kg object has 72 J of kinetic energy. Find its velocity.
+    choices:
+      - text: 6 m/s
+        correct: true
+      - text: 18 m/s
+      - text: 36 m/s
+      - text: 9 m/s
+    explanation: |
+      $72 = \dfrac{1}{2}(4)v^2 = 2v^2$, so $v^2 = 36$, giving $v = 6$ m/s.
+    approved: true
+  - id: q-physics-work-energy-power-0012
+    type: compare-contrast
+    difficulty: medium
+    stem: |
+      Object A and Object B have the same mass. Object A moves at twice the speed of Object B. Compare their kinetic energies.
+    choices:
+      - text: Object A has 4 times the kinetic energy of Object B.
+        correct: true
+      - text: Object A has 2 times the kinetic energy of Object B.
+      - text: Object A has the same kinetic energy as Object B.
+      - text: Object A has half the kinetic energy of Object B.
+    explanation: |
+      Since kinetic energy depends on velocity squared, doubling the speed (with the same mass) quadruples the kinetic energy: $(2v)^2 = 4v^2$.
+    approved: true
+  - id: q-physics-work-energy-power-0013
+    type: simple-quantitative
+    difficulty: exam
+    stem: |
+      A motor has a power output of 200 W and runs for 10 seconds. Find the total work done.
+    choices:
+      - text: 2000 J
+        correct: true
+      - text: 20 J
+      - text: 210 J
+      - text: 190 J
+    explanation: |
+      Rearranging $P = \dfrac{W}{t}$ gives $W = Pt = (200)(10) = 2000$ J.
+    approved: true
+  - id: q-physics-work-energy-power-0014
+    type: predict-outcome
+    difficulty: medium
+    stem: |
+      A pendulum swings back and forth. At its lowest point, it moves at maximum speed; at its highest points on each side, it is momentarily still. Describe its energy at a point partway between the lowest and highest points (ignoring friction and air resistance).
+    choices:
+      - text: A mix of both kinetic and potential energy, with the total mechanical energy staying the same throughout the swing.
+        correct: true
+      - text: All kinetic energy, with zero potential energy.
+      - text: All potential energy, with zero kinetic energy.
+      - text: Zero total energy at every point of the swing.
+    explanation: |
+      At the lowest point, all energy is kinetic; at the highest points, all energy is potential. At any point in between, the energy is a mix of both, but the total (kinetic plus potential) stays constant throughout, by conservation of energy.
+    approved: true
+  - id: q-physics-work-energy-power-0015
+    type: simple-quantitative
+    difficulty: exam
+    stem: |
+      An object is dropped from rest and falls a height $h$ on a frictionless path, reaching a speed of 14 m/s at the bottom. Find $h$. (Use $g = 9.8 \text{ m/s}^2$ and energy conservation.)
+    choices:
+      - text: 10 m
+        correct: true
+      - text: 14 m
+      - text: 19.6 m
+      - text: 137.2 m
+    explanation: |
+      By conservation of energy, $mgh = \dfrac{1}{2}mv^2$, so $h = \dfrac{v^2}{2g} = \dfrac{14^2}{2(9.8)} = \dfrac{196}{19.6} = 10$ m.
+    approved: true
