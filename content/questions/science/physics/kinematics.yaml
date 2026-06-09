@@ -1,0 +1,206 @@
+meta:
+  subject: science
+  topic: physics
+  subtopic: kinematics
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-physics-kinematics-0001
+    type: identify
+    difficulty: easy
+    stem: |
+      What quantity describes the rate of change of velocity?
+    choices:
+      - text: Acceleration
+        correct: true
+      - text: Displacement
+      - text: Distance
+      - text: Time
+    explanation: |
+      Acceleration is defined as the rate at which velocity itself changes over time.
+    approved: true
+  - id: q-physics-kinematics-0002
+    type: identify
+    difficulty: easy
+    stem: |
+      What quantity describes the rate of change of displacement?
+    choices:
+      - text: Velocity
+        correct: true
+      - text: Acceleration
+      - text: Mass
+      - text: Time
+    explanation: |
+      Velocity is defined as the rate at which displacement (position) changes over time.
+    approved: true
+  - id: q-physics-kinematics-0003
+    type: simple-quantitative
+    difficulty: easy
+    stem: |
+      A car starts from rest and accelerates at 5 m/s² for 4 seconds. Find its final velocity. (Use $v = v_0 + at$.)
+    choices:
+      - text: 20 m/s
+        correct: true
+      - text: 9 m/s
+      - text: 1.25 m/s
+      - text: 5 m/s
+    explanation: |
+      $v = v_0 + at = 0 + (5)(4) = 20$ m/s.
+    approved: true
+  - id: q-physics-kinematics-0004
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A ball rolls with an initial velocity of 3 m/s and accelerates at 2 m/s² for 5 seconds. Find how far it travels. (Use $d = v_0t + \dfrac{1}{2}at^2$.)
+    choices:
+      - text: 40 m
+        correct: true
+      - text: 15 m
+      - text: 25 m
+      - text: 65 m
+    explanation: |
+      $d = v_0t + \dfrac{1}{2}at^2 = (3)(5) + \dfrac{1}{2}(2)(5)^2 = 15 + 25 = 40$ m.
+    approved: true
+  - id: q-physics-kinematics-0005
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      A rock is dropped from a cliff (initial velocity = 0) and falls for 4 seconds before hitting the ground. Find how far it fell. (Use $g = 9.8 \text{ m/s}^2$ and $d = v_0t + \dfrac{1}{2}at^2$.)
+    choices:
+      - text: 78.4 m
+        correct: true
+      - text: 39.2 m
+      - text: 19.6 m
+      - text: 156.8 m
+    explanation: |
+      $d = 0 + \dfrac{1}{2}(9.8)(4)^2 = \dfrac{1}{2}(9.8)(16) = 78.4$ m.
+    approved: true
+  - id: q-physics-kinematics-0006
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      A rock is dropped from a cliff (initial velocity = 0) and falls for 4 seconds. Find its velocity just before impact. (Use $g = 9.8 \text{ m/s}^2$ and $v = v_0 + at$.)
+    choices:
+      - text: 39.2 m/s
+        correct: true
+      - text: 78.4 m/s
+      - text: 9.8 m/s
+      - text: 4.9 m/s
+    explanation: |
+      $v = v_0 + at = 0 + (9.8)(4) = 39.2$ m/s.
+    approved: true
+  - id: q-physics-kinematics-0007
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      A car traveling at 5 m/s accelerates at 3 m/s² over a distance of 40 m. Find its final velocity, without using time. (Use $v^2 = v_0^2 + 2ad$.)
+    choices:
+      - text: About 16.3 m/s
+        correct: true
+      - text: 125 m/s
+      - text: About 11.2 m/s
+      - text: 245 m/s
+    explanation: |
+      $v^2 = v_0^2 + 2ad = 5^2 + 2(3)(40) = 25 + 240 = 265$, so $v = \sqrt{265} \approx 16.3$ m/s.
+    approved: true
+  - id: q-physics-kinematics-0008
+    type: classify
+    difficulty: hard
+    stem: |
+      A problem gives initial velocity, acceleration, and distance, but does not mention time at all, and does not ask for it. A student tries to use $v = v_0 + at$ anyway. Is this the right equation to use?
+    choices:
+      - text: No — since time is neither given nor needed, $v^2 = v_0^2 + 2ad$ should be used instead, since it excludes time entirely.
+        correct: true
+      - text: Yes — $v = v_0 + at$ can always be used regardless of which variables are given.
+      - text: No — $d = v_0t + \dfrac{1}{2}at^2$ should be used instead.
+      - text: Yes — time can simply be assumed to equal 1 second in this case.
+    explanation: |
+      Each kinematic equation excludes exactly one of the five variables. Since time is absent here, the equation that excludes time ($v^2 = v_0^2 + 2ad$) is the correct choice, avoiding the need to solve for an unknown that isn't needed.
+    approved: true
+  - id: q-physics-kinematics-0009
+    type: classify
+    difficulty: medium
+    stem: |
+      A problem says a ball is "dropped" from a height. A student leaves the ball's initial velocity as an unknown variable to solve for. Is this correct?
+    choices:
+      - text: No — "dropped" means the initial velocity is already known to be 0, not an unknown to solve for.
+        correct: true
+      - text: Yes — "dropped" gives no information about initial velocity.
+      - text: No — "dropped" means the final velocity is 0, not the initial velocity.
+      - text: Yes — initial velocity must always be solved for separately.
+    explanation: |
+      Descriptive phrases like "dropped," "starts from rest," or "initially at rest" all directly tell you that $v_0 = 0$ — this is given information, not an unknown.
+    approved: true
+  - id: q-physics-kinematics-0010
+    type: classify
+    difficulty: hard
+    stem: |
+      A ball is thrown straight upward, with "up" chosen as the positive direction. A student uses a positive value for gravity's acceleration in the equations, since it is being treated as a general given value. Is this correct?
+    choices:
+      - text: No — if up is positive, gravity (which always pulls down) must be entered as a negative acceleration to keep the signs consistent.
+        correct: true
+      - text: Yes — gravity should always be entered as a positive number, regardless of the chosen direction.
+      - text: No — but only because the ball was thrown, not dropped.
+      - text: Yes — sign conventions do not matter as long as the magnitude is correct.
+    explanation: |
+      Once "up" is chosen as positive, every quantity must follow that convention consistently. Since gravity always pulls downward, it must be negative in this setup — mixing a positive initial velocity with a positive gravity would create contradictory signs.
+    approved: true
+  - id: q-physics-kinematics-0011
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes a bowling ball will hit the ground before a tennis ball if both are dropped together from the same height, since the bowling ball is heavier. Is this correct (ignoring air resistance)?
+    choices:
+      - text: No — in free fall, all objects accelerate at the same rate g, regardless of mass, so both would hit the ground at the same time.
+        correct: true
+      - text: Yes — heavier objects always fall faster in free fall.
+      - text: No — the tennis ball would actually hit the ground first instead.
+      - text: Yes — but only if the objects are dropped from very high altitudes.
+    explanation: |
+      Mass does not appear anywhere in the free fall kinematic equations. Ignoring air resistance, a heavy bowling ball and a light tennis ball dropped together from the same height hit the ground at exactly the same time.
+    approved: true
+  - id: q-physics-kinematics-0012
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A car traveling at 30 m/s decelerates at 5 m/s² for 4 seconds. Find its velocity after those 4 seconds. (Use $v = v_0 + at$, with deceleration as a negative acceleration.)
+    choices:
+      - text: 10 m/s
+        correct: true
+      - text: 50 m/s
+      - text: 20 m/s
+      - text: 5 m/s
+    explanation: |
+      $v = v_0 + at = 30 + (-5)(4) = 30 - 20 = 10$ m/s.
+    approved: true
+  - id: q-physics-kinematics-0013
+    type: simple-quantitative
+    difficulty: exam
+    stem: |
+      A ball is thrown straight upward with an initial velocity of 15 m/s. Taking "up" as positive (so gravity is $-9.8 \text{ m/s}^2$), find its velocity after 1 second.
+    choices:
+      - text: 5.2 m/s
+        correct: true
+      - text: 24.8 m/s
+      - text: 15 m/s
+      - text: -5.2 m/s
+    explanation: |
+      $v = v_0 + at = 15 + (-9.8)(1) = 15 - 9.8 = 5.2$ m/s. The ball is still moving upward, but has slowed down due to gravity.
+    approved: true
+  - id: q-physics-kinematics-0014
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      A bowling ball and a tennis ball are dropped together, at the same instant, from the same height, with air resistance considered negligible. Which one reaches the ground first?
+    choices:
+      - text: Neither — both reach the ground at exactly the same time.
+        correct: true
+      - text: The bowling ball, since it is heavier.
+      - text: The tennis ball, since it is lighter.
+      - text: It depends on the exact height of the drop.
+    explanation: |
+      In free fall, mass does not affect acceleration — every object accelerates downward at the same rate $g$, so both balls hit the ground simultaneously when dropped together from the same height.
+    approved: true
