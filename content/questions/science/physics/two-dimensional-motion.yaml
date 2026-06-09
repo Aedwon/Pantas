@@ -1,0 +1,206 @@
+meta:
+  subject: science
+  topic: physics
+  subtopic: two-dimensional-motion
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-physics-two-dimensional-motion-0001
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A ball rolls off a table with a horizontal velocity of 4 m/s and takes 0.6 seconds to hit the floor. Find the horizontal distance it travels.
+    choices:
+      - text: 2.4 m
+        correct: true
+      - text: 4.6 m
+      - text: 0.24 m
+      - text: 6.67 m
+    explanation: |
+      Horizontal motion has constant velocity (no horizontal acceleration): $x = v_xt = (4)(0.6) = 2.4$ m.
+    approved: true
+  - id: q-physics-two-dimensional-motion-0002
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      A ball rolls off a table with a horizontal velocity of 4 m/s and takes 0.6 seconds to hit the floor. Find the height of the table. (Use $g = 9.8 \text{ m/s}^2$.)
+    choices:
+      - text: 1.764 m
+        correct: true
+      - text: 2.4 m
+      - text: 5.88 m
+      - text: 0.882 m
+    explanation: |
+      Vertically, the ball starts with $v_{y0}=0$: $y = \dfrac{1}{2}gt^2 = \dfrac{1}{2}(9.8)(0.6)^2 = \dfrac{1}{2}(9.8)(0.36) = 1.764$ m.
+    approved: true
+  - id: q-physics-two-dimensional-motion-0003
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A projectile is launched at 40 m/s at an angle of 30° above the horizontal. Find its initial horizontal and vertical velocity components. ($\cos 30° = \dfrac{\sqrt{3}}{2}$, $\sin 30° = \dfrac{1}{2}$)
+    choices:
+      - text: Horizontal ≈ 34.6 m/s, Vertical = 20 m/s
+        correct: true
+      - text: Horizontal = 20 m/s, Vertical ≈ 34.6 m/s
+      - text: Horizontal = 40 m/s, Vertical = 0 m/s
+      - text: Horizontal = 0 m/s, Vertical = 40 m/s
+    explanation: |
+      $v_{x0} = 40\cos30° = 40 \times \dfrac{\sqrt{3}}{2} = 20\sqrt{3} \approx 34.6$ m/s. $v_{y0} = 40\sin30° = 40 \times \dfrac{1}{2} = 20$ m/s.
+    approved: true
+  - id: q-physics-two-dimensional-motion-0004
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      A projectile has an initial vertical velocity component of 20 m/s. Find how long it takes to reach its highest point. (Use $g = 9.8 \text{ m/s}^2$ and $v_y = v_{y0} - gt$.)
+    choices:
+      - text: About 2.04 s
+        correct: true
+      - text: About 0.49 s
+      - text: 20 s
+      - text: About 4.08 s
+    explanation: |
+      At maximum height, $v_y = 0$: $0 = 20 - 9.8t$, so $t = \dfrac{20}{9.8} \approx 2.04$ s.
+    approved: true
+  - id: q-physics-two-dimensional-motion-0005
+    type: classify
+    difficulty: easy
+    stem: |
+      A satellite moves at a constant speed in a perfectly circular orbit around Earth. Is the satellite accelerating?
+    choices:
+      - text: Yes — its direction is constantly changing, even though its speed stays the same.
+        correct: true
+      - text: No — since its speed never changes, it cannot be accelerating.
+      - text: No — acceleration only applies to objects speeding up or slowing down in a straight line.
+      - text: Yes — but only because satellites always eventually change speed.
+    explanation: |
+      Velocity is a vector with both speed and direction. Even at constant speed, the satellite's direction keeps changing as it curves around the orbit, which means its velocity — and therefore its acceleration — is nonzero.
+    approved: true
+  - id: q-physics-two-dimensional-motion-0006
+    type: identify
+    difficulty: medium
+    stem: |
+      In uniform circular motion, which direction does the centripetal acceleration point?
+    choices:
+      - text: Toward the center of the circle
+        correct: true
+      - text: Away from the center of the circle
+      - text: Tangent to the circle, in the direction of motion
+      - text: Directly opposite the direction of motion
+    explanation: |
+      Centripetal acceleration always points toward the center of the circular path, which is what keeps the object curving instead of flying off in a straight line.
+    approved: true
+  - id: q-physics-two-dimensional-motion-0007
+    type: classify
+    difficulty: hard
+    stem: |
+      A student calculates a projectile's horizontal distance using $x = v_xt + \dfrac{1}{2}gt^2$, applying gravity to the horizontal motion. Is this correct?
+    choices:
+      - text: No — gravity affects only the vertical component; horizontal velocity stays constant, so $x = v_xt$ is the correct formula.
+        correct: true
+      - text: Yes — gravity affects horizontal and vertical motion equally.
+      - text: No — horizontal motion should use $x = \dfrac{1}{2}gt^2$ alone instead.
+      - text: Yes — but only for projectiles launched at exactly 45°.
+    explanation: |
+      In ideal projectile motion (ignoring air resistance), horizontal velocity never changes, since no horizontal acceleration acts. Only the vertical motion includes a $\dfrac{1}{2}gt^2$ term.
+    approved: true
+  - id: q-physics-two-dimensional-motion-0008
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes an object moving at constant speed around a circle has zero acceleration, since "constant speed" sounds like "no change." Is this correct?
+    choices:
+      - text: No — constant speed is not the same as constant velocity; the changing direction alone produces a real, nonzero centripetal acceleration.
+        correct: true
+      - text: Yes — constant speed always means zero acceleration.
+      - text: No — but only because the object is also changing speed in this scenario.
+      - text: Yes — acceleration only depends on speed, never on direction.
+    explanation: |
+      Acceleration depends on velocity, a vector that includes direction. Even without any speed change, a continuously changing direction (as in circular motion) still produces acceleration.
+    approved: true
+  - id: q-physics-two-dimensional-motion-0009
+    type: classify
+    difficulty: hard
+    stem: |
+      A projectile is launched at 25 m/s at 40° above the horizontal. A student plugs the full 25 m/s directly into both the horizontal equation $x = vt$ and the vertical free-fall equations, without splitting it into components first. Is this correct?
+    choices:
+      - text: No — the launch velocity must first be split into horizontal ($v_0\cos\theta$) and vertical ($v_0\sin\theta$) components before applying either equation.
+        correct: true
+      - text: Yes — the full launch speed can be used directly in both directions.
+      - text: No — only the vertical equation needs the launch speed split into components.
+      - text: Yes — splitting into components is only needed when the angle is greater than 45°.
+    explanation: |
+      Only the correct component belongs in each direction's equation: the horizontal component in the horizontal equation, and the vertical component in the vertical equations. Using the full launch speed in both directions produces an incorrect result.
+    approved: true
+  - id: q-physics-two-dimensional-motion-0010
+    type: classify
+    difficulty: hard
+    stem: |
+      A projectile's launch angle is measured from the horizontal. A student uses sine to find the horizontal component and cosine to find the vertical component. Is this correct?
+    choices:
+      - text: No — when the angle is measured from the horizontal, cosine gives the horizontal component and sine gives the vertical component, the reverse of what the student used.
+        correct: true
+      - text: Yes — sine always gives the horizontal component regardless of how the angle is measured.
+      - text: No — both components should use the same trig function.
+      - text: Yes — cosine and sine can be swapped freely without changing the result.
+    explanation: |
+      When the angle is measured from the horizontal, cosine corresponds to the horizontal (adjacent) component and sine corresponds to the vertical (opposite) component. Swapping them produces a projectile that behaves as if launched at a very different angle.
+    approved: true
+  - id: q-physics-two-dimensional-motion-0011
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A ball rolls off a cliff with a horizontal velocity of 5 m/s and falls for 2 seconds before landing. Find the horizontal distance traveled.
+    choices:
+      - text: 10 m
+        correct: true
+      - text: 5 m
+      - text: 2 m
+      - text: 19.6 m
+    explanation: |
+      Horizontal motion has constant velocity: $x = v_xt = (5)(2) = 10$ m.
+    approved: true
+  - id: q-physics-two-dimensional-motion-0012
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      A ball rolls off a cliff with a horizontal velocity of 5 m/s and falls for 2 seconds before landing. Find the height of the cliff. (Use $g = 9.8 \text{ m/s}^2$.)
+    choices:
+      - text: 19.6 m
+        correct: true
+      - text: 9.8 m
+      - text: 39.2 m
+      - text: 10 m
+    explanation: |
+      Vertically, the ball starts with $v_{y0}=0$: $y = \dfrac{1}{2}gt^2 = \dfrac{1}{2}(9.8)(2)^2 = \dfrac{1}{2}(9.8)(4) = 19.6$ m.
+    approved: true
+  - id: q-physics-two-dimensional-motion-0013
+    type: predict-outcome
+    difficulty: medium
+    stem: |
+      A projectile launched at an angle reaches the very top of its path. What is its vertical velocity at that exact moment, and is its horizontal velocity also zero?
+    choices:
+      - text: Vertical velocity is momentarily zero; horizontal velocity is unchanged and still nonzero.
+        correct: true
+      - text: Both vertical and horizontal velocity are zero at the peak.
+      - text: Vertical velocity is at its maximum at the peak; horizontal velocity is zero.
+      - text: Neither vertical nor horizontal velocity changes at any point during flight.
+    explanation: |
+      At the peak, the projectile momentarily stops moving up or down (vertical velocity = 0), but since gravity never acts horizontally, the horizontal velocity stays exactly the same as it was at launch.
+    approved: true
+  - id: q-physics-two-dimensional-motion-0014
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      A projectile is launched with an initial vertical velocity component of 14.7 m/s, and lands at the same height it was launched from. Using $g = 9.8 \text{ m/s}^2$ and the fact that the time to fall back down equals the time to rise, find the projectile's total time in the air.
+    choices:
+      - text: 3 s
+        correct: true
+      - text: 1.5 s
+      - text: 4.5 s
+      - text: 0.67 s
+    explanation: |
+      Time to reach the peak: $t_{up} = \dfrac{14.7}{9.8} = 1.5$ s. Since the time falling back down equals the time rising (same launch and landing height), total flight time is $1.5 \times 2 = 3$ s.
+    approved: true
