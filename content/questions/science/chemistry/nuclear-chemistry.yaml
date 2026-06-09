@@ -1,0 +1,206 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: nuclear-chemistry
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-chemistry-nuclear-chemistry-0001
+    type: identify
+    difficulty: easy
+    stem: |
+      A nucleus ejects a particle identical to a helium nucleus (2 protons and 2 neutrons). What type of decay is this?
+    choices:
+      - text: Alpha decay
+        correct: true
+      - text: Beta decay
+      - text: Gamma decay
+      - text: Fission
+    explanation: |
+      A particle identical to a helium nucleus is, by definition, an alpha particle. Emitting it is alpha decay.
+    approved: true
+  - id: q-chemistry-nuclear-chemistry-0002
+    type: identify
+    difficulty: easy
+    stem: |
+      A neutron inside a nucleus transforms into a proton, ejecting an electron in the process. What type of decay is this?
+    choices:
+      - text: Beta decay
+        correct: true
+      - text: Alpha decay
+      - text: Gamma decay
+      - text: Fusion
+    explanation: |
+      Beta decay happens when a neutron transforms into a proton, ejecting an electron (the beta particle) in the process.
+    approved: true
+  - id: q-chemistry-nuclear-chemistry-0003
+    type: identify
+    difficulty: easy
+    stem: |
+      A nucleus releases pure energy as a high-energy ray, with no change to its atomic number or mass number. What type of decay is this?
+    choices:
+      - text: Gamma decay
+        correct: true
+      - text: Alpha decay
+      - text: Beta decay
+      - text: Fission
+    explanation: |
+      Gamma decay releases pure energy (a gamma ray) with no change to the atomic number or mass number, usually alongside alpha or beta decay.
+    approved: true
+  - id: q-chemistry-nuclear-chemistry-0004
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      An atom with atomic number 88 and mass number 226 undergoes alpha decay. Find the resulting atomic number and mass number.
+    choices:
+      - text: Atomic number 86, mass number 222
+        correct: true
+      - text: Atomic number 89, mass number 222
+      - text: Atomic number 86, mass number 226
+      - text: Atomic number 90, mass number 230
+    explanation: |
+      Alpha decay decreases mass number by 4 and atomic number by 2: mass $226 - 4 = 222$; atomic number $88 - 2 = 86$. (This describes radium-226 decaying into radon-222.)
+    approved: true
+  - id: q-chemistry-nuclear-chemistry-0005
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      An atom with atomic number 15 and mass number 32 undergoes beta decay. Find the resulting atomic number and mass number.
+    choices:
+      - text: Atomic number 16, mass number 32
+        correct: true
+      - text: Atomic number 14, mass number 32
+      - text: Atomic number 16, mass number 28
+      - text: Atomic number 15, mass number 33
+    explanation: |
+      Beta decay increases atomic number by 1, while mass number stays essentially the same: atomic number $15 + 1 = 16$; mass number stays 32. (This describes phosphorus-32 decaying into sulfur-32.)
+    approved: true
+  - id: q-chemistry-nuclear-chemistry-0006
+    type: classify
+    difficulty: medium
+    stem: |
+      Inside a nuclear power plant reactor, a large uranium nucleus splits apart into two smaller nuclei. What nuclear process is this?
+    choices:
+      - text: Fission
+        correct: true
+      - text: Fusion
+      - text: Alpha decay
+      - text: Beta decay
+    explanation: |
+      Fission is a large, heavy nucleus splitting apart into two or more smaller nuclei, releasing a large amount of energy — the process used in nuclear power plants.
+    approved: true
+  - id: q-chemistry-nuclear-chemistry-0007
+    type: classify
+    difficulty: medium
+    stem: |
+      Inside the Sun, two small hydrogen nuclei combine to form one larger helium nucleus. What nuclear process is this?
+    choices:
+      - text: Fusion
+        correct: true
+      - text: Fission
+      - text: Alpha decay
+      - text: Beta decay
+    explanation: |
+      Fusion is two small, light nuclei combining to form one larger nucleus, releasing an even greater amount of energy than fission — the process that powers the Sun.
+    approved: true
+  - id: q-chemistry-nuclear-chemistry-0008
+    type: classify
+    difficulty: hard
+    stem: |
+      A student calculates the result of alpha decay by decreasing only the atomic number by 2, leaving the mass number unchanged. Is this correct?
+    choices:
+      - text: No — alpha decay decreases both the mass number (by 4) and the atomic number (by 2).
+        correct: true
+      - text: Yes — alpha decay only ever changes atomic number.
+      - text: No — alpha decay only changes mass number, not atomic number.
+      - text: Yes — no numbers change during alpha decay.
+    explanation: |
+      Alpha decay ejects a particle with 2 protons and 2 neutrons, so it reduces mass number by 4 and atomic number by 2 — the student's calculation missed the mass number change entirely.
+    approved: true
+  - id: q-chemistry-nuclear-chemistry-0009
+    type: classify
+    difficulty: hard
+    stem: |
+      A student describes the Sun's hydrogen-to-helium process as "fission," reasoning that fission and fusion are interchangeable terms. Is this correct?
+    choices:
+      - text: No — the Sun's process, joining small nuclei together, is fusion; fission is a large nucleus splitting apart.
+        correct: true
+      - text: Yes — fission and fusion always describe the exact same process.
+      - text: No — the Sun's process is actually gamma decay.
+      - text: Yes — the Sun performs fission, not fusion.
+    explanation: |
+      Fission splits a large nucleus apart; fusion joins small nuclei together. The Sun combines hydrogen nuclei into helium, which is fusion, not fission.
+    approved: true
+  - id: q-chemistry-nuclear-chemistry-0010
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes that since gamma decay causes no change to atomic number or mass number, the resulting nucleus must have transformed into a different element. Is this correct?
+    choices:
+      - text: No — gamma decay releases only energy; the element stays exactly the same before and after.
+        correct: true
+      - text: Yes — gamma decay always transforms the nucleus into a new element.
+      - text: No — but only because gamma decay does not actually involve the nucleus at all.
+      - text: Yes — any radioactive decay always changes the element.
+    explanation: |
+      Unlike alpha and beta decay, gamma decay does not change the atomic number or mass number — it simply releases excess energy as the nucleus settles into a more stable state, with the element staying the same.
+    approved: true
+  - id: q-chemistry-nuclear-chemistry-0011
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes gamma rays must be the "weakest" and easiest to block, since gamma decay causes no elemental change. Is this correct?
+    choices:
+      - text: No — gamma rays are actually the most penetrating type of radiation discussed here, requiring thick lead or concrete to block.
+        correct: true
+      - text: Yes — gamma rays are the weakest and easiest to block, stopped by ordinary paper.
+      - text: No — beta particles are actually the most penetrating.
+      - text: Yes — "no elemental change" always means "less penetrating radiation."
+    explanation: |
+      "No elemental change" is unrelated to penetrating power. Gamma rays are in fact the hardest of the three to shield against, needing thick lead or concrete, unlike alpha (stopped by paper) or beta (stopped by foil).
+    approved: true
+  - id: q-chemistry-nuclear-chemistry-0012
+    type: compare-contrast
+    difficulty: medium
+    stem: |
+      Rank alpha particles, beta particles, and gamma rays from weakest to strongest penetrating power.
+    choices:
+      - text: Alpha (weakest) < beta < gamma (strongest)
+        correct: true
+      - text: Gamma (weakest) < beta < alpha (strongest)
+      - text: Beta (weakest) < alpha < gamma (strongest)
+      - text: All three have exactly the same penetrating power.
+    explanation: |
+      Alpha particles are stopped by paper (weakest), beta particles need aluminum foil, and gamma rays need thick lead or concrete (strongest) — an increasing order of penetrating power.
+    approved: true
+  - id: q-chemistry-nuclear-chemistry-0013
+    type: simple-quantitative
+    difficulty: exam
+    stem: |
+      An atom with atomic number 90 and mass number 230 undergoes alpha decay twice in a row. Find the final atomic number and mass number.
+    choices:
+      - text: Atomic number 86, mass number 222
+        correct: true
+      - text: Atomic number 88, mass number 226
+      - text: Atomic number 82, mass number 214
+      - text: Atomic number 86, mass number 230
+    explanation: |
+      Each alpha decay decreases atomic number by 2 and mass number by 4. After the first: atomic number $90-2=88$, mass number $230-4=226$. After the second: atomic number $88-2=86$, mass number $226-4=222$.
+    approved: true
+  - id: q-chemistry-nuclear-chemistry-0014
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      Comparing a fission reaction (a large uranium nucleus splitting apart) and a fusion reaction (small hydrogen nuclei combining), which process generally releases a greater amount of energy?
+    choices:
+      - text: Fusion generally releases even more energy than fission.
+        correct: true
+      - text: Fission generally releases even more energy than fusion.
+      - text: Both processes always release exactly the same amount of energy.
+      - text: Neither fission nor fusion releases any usable energy.
+    explanation: |
+      Nuclear fusion, joining small nuclei together, releases an even greater amount of energy than fission — this is why the Sun (powered by fusion) generates such enormous energy output.
+    approved: true
