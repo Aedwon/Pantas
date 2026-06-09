@@ -1,0 +1,206 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: basic-organic-chemistry
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-chemistry-basic-organic-chemistry-0001
+    type: classify
+    difficulty: easy
+    stem: |
+      A hydrocarbon has only single bonds between all of its carbon atoms. Which family does it belong to?
+    choices:
+      - text: Alkane
+        correct: true
+      - text: Alkene
+      - text: Alkyne
+      - text: Carboxylic acid
+    explanation: |
+      Alkanes contain only single carbon-carbon bonds and are named with the ending "-ane."
+    approved: true
+  - id: q-chemistry-basic-organic-chemistry-0002
+    type: classify
+    difficulty: easy
+    stem: |
+      A hydrocarbon contains one carbon-carbon double bond. Which family does it belong to?
+    choices:
+      - text: Alkene
+        correct: true
+      - text: Alkane
+      - text: Alkyne
+      - text: Alcohol
+    explanation: |
+      Alkenes contain at least one carbon-carbon double bond and are named with the ending "-ene."
+    approved: true
+  - id: q-chemistry-basic-organic-chemistry-0003
+    type: classify
+    difficulty: easy
+    stem: |
+      A hydrocarbon contains one carbon-carbon triple bond. Which family does it belong to?
+    choices:
+      - text: Alkyne
+        correct: true
+      - text: Alkane
+      - text: Alkene
+      - text: Amine
+    explanation: |
+      Alkynes contain at least one carbon-carbon triple bond and are named with the ending "-yne."
+    approved: true
+  - id: q-chemistry-basic-organic-chemistry-0004
+    type: identify
+    difficulty: medium
+    stem: |
+      Name a straight-chain alkane with 4 carbon atoms, all connected by single bonds.
+    choices:
+      - text: Butane
+        correct: true
+      - text: Butene
+      - text: Butyne
+      - text: Propane
+    explanation: |
+      A chain of 4 carbons uses the base "but-." Since all bonds are single (alkane), the ending is "-ane": butane.
+    approved: true
+  - id: q-chemistry-basic-organic-chemistry-0005
+    type: identify
+    difficulty: medium
+    stem: |
+      Name a 3-carbon chain containing one carbon-carbon double bond.
+    choices:
+      - text: Propene
+        correct: true
+      - text: Propane
+      - text: Propyne
+      - text: Butene
+    explanation: |
+      A chain of 3 carbons uses the base "prop-." Since it contains a double bond (alkene), the ending is "-ene": propene.
+    approved: true
+  - id: q-chemistry-basic-organic-chemistry-0006
+    type: identify
+    difficulty: medium
+    stem: |
+      Name a 2-carbon chain containing one carbon-carbon triple bond.
+    choices:
+      - text: Ethyne
+        correct: true
+      - text: Ethane
+      - text: Ethene
+      - text: Propyne
+    explanation: |
+      A chain of 2 carbons uses the base "eth-." Since it contains a triple bond (alkyne), the ending is "-yne": ethyne.
+    approved: true
+  - id: q-chemistry-basic-organic-chemistry-0007
+    type: classify
+    difficulty: medium
+    stem: |
+      A hydrocarbon has every possible bonding position filled with hydrogen atoms, with no double or triple bonds anywhere in its carbon chain. Is it saturated or unsaturated, and which family does it belong to?
+    choices:
+      - text: Saturated; it belongs to the alkane family.
+        correct: true
+      - text: Unsaturated; it belongs to the alkane family.
+      - text: Saturated; it belongs to the alkene family.
+      - text: Unsaturated; it belongs to the alkyne family.
+    explanation: |
+      Having every position filled with hydrogen (no double or triple bonds using up bonding spots) describes a saturated hydrocarbon, which means only single carbon-carbon bonds — the alkane family.
+    approved: true
+  - id: q-chemistry-basic-organic-chemistry-0008
+    type: identify
+    difficulty: medium
+    stem: |
+      A carbon chain has a $-OH$ group attached to it. What class of organic compound is this?
+    choices:
+      - text: Alcohol
+        correct: true
+      - text: Carboxylic acid
+      - text: Amine
+      - text: Alkyne
+    explanation: |
+      A carbon chain with an $-OH$ group attached is classified as an alcohol.
+    approved: true
+  - id: q-chemistry-basic-organic-chemistry-0009
+    type: identify
+    difficulty: medium
+    stem: |
+      A carbon chain has a $-COOH$ group attached to it. What class of organic compound is this?
+    choices:
+      - text: Carboxylic acid
+        correct: true
+      - text: Alcohol
+      - text: Amine
+      - text: Alkene
+    explanation: |
+      A carbon chain with a $-COOH$ group attached is classified as a carboxylic acid.
+    approved: true
+  - id: q-chemistry-basic-organic-chemistry-0010
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      Two molecules have the exact same length of carbon chain, but one has an $-OH$ group attached (an alcohol) and the other has a $-COOH$ group attached (a carboxylic acid). Why do these two molecules behave very differently chemically, despite having similar chain lengths?
+    choices:
+      - text: The functional group, not the chain length, is what determines a molecule's characteristic chemical behavior.
+        correct: true
+      - text: They actually behave identically, since their chain lengths match.
+      - text: Only the number of carbon atoms determines chemical behavior, never the attached group.
+      - text: Carboxylic acids and alcohols are actually the same functional group with different names.
+    explanation: |
+      Even with an identical carbon chain length, the specific functional group attached determines most of the molecule's chemical behavior — carboxylic acids are acidic and can donate a proton, while simple alcohols are not acidic in the same way.
+    approved: true
+  - id: q-chemistry-basic-organic-chemistry-0011
+    type: classify
+    difficulty: hard
+    stem: |
+      A student thinks "saturated" means a hydrocarbon is "full of" double bonds. Is this correct?
+    choices:
+      - text: No — "saturated" means every bonding position is already filled with hydrogen, leaving no room for any double or triple bonds.
+        correct: true
+      - text: Yes — "saturated" specifically describes having many double bonds.
+      - text: No — "saturated" describes having many triple bonds instead.
+      - text: Yes — the more double and triple bonds present, the more "saturated" a molecule is.
+    explanation: |
+      "Saturated" means the opposite of what the student assumed: every possible bonding spot already holds a hydrogen atom, so there is no room left for a double or triple bond.
+    approved: true
+  - id: q-chemistry-basic-organic-chemistry-0012
+    type: classify
+    difficulty: hard
+    stem: |
+      A student mixes up the endings "-ene" and "-yne," using "-yne" for a molecule with a double bond. Is this correct?
+    choices:
+      - text: No — "-ene" means a double bond (alkene); "-yne" means a triple bond (alkyne).
+        correct: true
+      - text: Yes — "-ene" and "-yne" both refer to double bonds interchangeably.
+      - text: No — "-ene" means a triple bond, and "-yne" means a double bond.
+      - text: Yes — the endings only depend on chain length, not bond type.
+    explanation: |
+      "-ene" specifically indicates a double bond (alkene), and "-yne" specifically indicates a triple bond (alkyne) — reversing them names the wrong compound entirely.
+    approved: true
+  - id: q-chemistry-basic-organic-chemistry-0013
+    type: classify
+    difficulty: hard
+    stem: |
+      A branched molecule has several possible carbon chains a student could choose as the "parent chain" when naming it. The student picks a shorter chain because it was drawn first, instead of checking for a longer one. Is this correct?
+    choices:
+      - text: No — IUPAC naming always requires finding the longest continuous carbon chain as the parent chain, regardless of how it was drawn.
+        correct: true
+      - text: Yes — any chain can be chosen as the parent chain, as long as it is named consistently.
+      - text: No — the parent chain must always be exactly 4 carbons long.
+      - text: Yes — the first chain drawn is always the correct parent chain.
+    explanation: |
+      IUPAC naming rules require identifying the longest continuous carbon chain as the parent chain; shorter branches are instead named as attached side groups. Picking a shorter chain leads to an incorrect name.
+    approved: true
+  - id: q-chemistry-basic-organic-chemistry-0014
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      A molecule has a 5-carbon main chain with a 2-carbon branch attached, but a student initially considers only a 4-carbon path through the molecule while ignoring the full 5-carbon chain. What is the correct first step to properly name this molecule?
+    choices:
+      - text: Identify the full 5-carbon chain as the parent chain, since it is the longest continuous chain, and name the 2-carbon piece as an attached branch.
+        correct: true
+      - text: Use the 4-carbon path as the parent chain, since it was considered first.
+      - text: Name the molecule using only the 2-carbon branch as the parent chain.
+      - text: Average the chain lengths to decide on a single combined parent chain.
+    explanation: |
+      IUPAC naming always starts by finding the longest continuous carbon chain. Here, that is the 5-carbon chain, not the shorter 4-carbon path — the 2-carbon piece becomes a named side branch instead.
+    approved: true
