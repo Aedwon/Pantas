@@ -1,0 +1,206 @@
+meta:
+  subject: science
+  topic: physics
+  subtopic: scalars-and-vectors
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-physics-scalars-and-vectors-0001
+    type: classify
+    difficulty: easy
+    stem: |
+      "The car traveled 50 km." Is this a scalar or a vector statement?
+    choices:
+      - text: Scalar, since no direction is given.
+        correct: true
+      - text: Vector, since a distance is mentioned.
+      - text: Neither — this statement has no magnitude either.
+      - text: Both, since it describes motion.
+    explanation: |
+      A scalar has only magnitude, no direction. Since no direction is mentioned, "50 km" alone is a scalar (distance).
+    approved: true
+  - id: q-physics-scalars-and-vectors-0002
+    type: classify
+    difficulty: easy
+    stem: |
+      "The car traveled 50 km north." Is this a scalar or a vector statement?
+    choices:
+      - text: Vector, since a direction (north) is specified.
+        correct: true
+      - text: Scalar, since a distance is mentioned.
+      - text: Neither — this statement has no magnitude.
+      - text: Both, since it also could be considered speed.
+    explanation: |
+      A vector has both magnitude and direction. Since "north" specifies a direction, this is a vector statement (displacement).
+    approved: true
+  - id: q-physics-scalars-and-vectors-0003
+    type: classify
+    difficulty: easy
+    stem: |
+      "The temperature is 30°C." Is this a scalar or a vector quantity?
+    choices:
+      - text: Scalar, since temperature has magnitude only, no direction.
+        correct: true
+      - text: Vector, since temperature can rise or fall.
+      - text: Neither — temperature is not a physics quantity.
+      - text: Both, depending on the season.
+    explanation: |
+      Temperature has only a magnitude (how hot or cold) with no associated direction, making it a scalar.
+    approved: true
+  - id: q-physics-scalars-and-vectors-0004
+    type: classify
+    difficulty: medium
+    stem: |
+      A runner jogs completely around a circular track and ends up exactly back at the starting point. Compare the runner's total distance traveled to their total displacement.
+    choices:
+      - text: The distance is a large positive number (the full circumference), while the displacement is zero, since the runner ended up exactly where they started.
+        correct: true
+      - text: Both the distance and the displacement are zero.
+      - text: Both the distance and the displacement equal the full circumference.
+      - text: The displacement is larger than the distance in this situation.
+    explanation: |
+      Distance is the total path length traveled (a scalar), which is large here. Displacement is the straight-line change in position (a vector), which is zero since the start and end points are the same.
+    approved: true
+  - id: q-physics-scalars-and-vectors-0005
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A hiker walks 6 km east, then 8 km north. Find the magnitude of the hiker's total displacement.
+    choices:
+      - text: 10 km
+        correct: true
+      - text: 14 km
+      - text: 2 km
+      - text: 48 km
+    explanation: |
+      The two vectors are perpendicular, so use the Pythagorean theorem: $R^2 = 6^2 + 8^2 = 36 + 64 = 100$, so $R = 10$ km.
+    approved: true
+  - id: q-physics-scalars-and-vectors-0006
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A hiker walks 5 km east, then 12 km north. Find the magnitude of the hiker's total displacement.
+    choices:
+      - text: 13 km
+        correct: true
+      - text: 17 km
+      - text: 7 km
+      - text: 60 km
+    explanation: |
+      The two vectors are perpendicular, so use the Pythagorean theorem: $R^2 = 5^2 + 12^2 = 25 + 144 = 169$, so $R = 13$ km.
+    approved: true
+  - id: q-physics-scalars-and-vectors-0007
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      Two tug-of-war teams pull on a rope. Team A pulls with 500 N to the left; Team B pulls with 350 N to the right. Find the net force and its direction.
+    choices:
+      - text: 150 N to the left
+        correct: true
+      - text: 850 N to the left
+      - text: 150 N to the right
+      - text: 850 N to the right
+    explanation: |
+      Since the forces are opposite, subtract the smaller from the larger: $500 - 350 = 150$ N. The net force takes the direction of the larger force, Team A's direction (left).
+    approved: true
+  - id: q-physics-scalars-and-vectors-0008
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      A force of 20 N is applied at an angle of 30° above the horizontal. Find its horizontal and vertical components. ($\cos 30° = \dfrac{\sqrt{3}}{2}$, $\sin 30° = \dfrac{1}{2}$)
+    choices:
+      - text: Horizontal ≈ 17.3 N, Vertical = 10 N
+        correct: true
+      - text: Horizontal = 10 N, Vertical ≈ 17.3 N
+      - text: Horizontal = 20 N, Vertical = 0 N
+      - text: Horizontal = 0 N, Vertical = 20 N
+    explanation: |
+      $V_x = 20\cos30° = 20 \times \dfrac{\sqrt{3}}{2} = 10\sqrt{3} \approx 17.3$ N. $V_y = 20\sin30° = 20 \times \dfrac{1}{2} = 10$ N.
+    approved: true
+  - id: q-physics-scalars-and-vectors-0009
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      A force of 8 N is applied at an angle of 60° above the horizontal. Find its horizontal and vertical components. ($\cos 60° = \dfrac{1}{2}$, $\sin 60° = \dfrac{\sqrt{3}}{2}$)
+    choices:
+      - text: Horizontal = 4 N, Vertical ≈ 6.9 N
+        correct: true
+      - text: Horizontal ≈ 6.9 N, Vertical = 4 N
+      - text: Horizontal = 8 N, Vertical = 0 N
+      - text: Horizontal = 0 N, Vertical = 8 N
+    explanation: |
+      $V_x = 8\cos60° = 8 \times \dfrac{1}{2} = 4$ N. $V_y = 8\sin60° = 8 \times \dfrac{\sqrt{3}}{2} = 4\sqrt{3} \approx 6.9$ N.
+    approved: true
+  - id: q-physics-scalars-and-vectors-0010
+    type: classify
+    difficulty: hard
+    stem: |
+      A student adds a 3 km eastward displacement and a 4 km northward displacement directly, getting a total of 7 km. Is this correct?
+    choices:
+      - text: No — since the vectors are perpendicular, not in the same direction, the Pythagorean theorem must be used instead, giving 5 km.
+        correct: true
+      - text: Yes — 7 km is the correct combined displacement.
+      - text: No — the correct answer is 1 km, found by subtracting instead.
+      - text: Yes — vector magnitudes can always be added directly, regardless of direction.
+    explanation: |
+      Vector magnitudes can only be added directly when the vectors point in the exact same direction. Since 3 km and 4 km here are perpendicular, the Pythagorean theorem gives the correct combined magnitude: $\sqrt{3^2+4^2} = 5$ km, not 7 km.
+    approved: true
+  - id: q-physics-scalars-and-vectors-0011
+    type: classify
+    difficulty: hard
+    stem: |
+      A problem measures a vector's angle from the vertical axis instead of the usual horizontal axis. A student still assumes cosine always gives the horizontal component and sine always gives the vertical component. Is this assumption safe?
+    choices:
+      - text: No — when the angle is measured from the vertical instead, the sine and cosine roles for the components swap compared to the usual convention.
+        correct: true
+      - text: Yes — cosine always gives the horizontal component no matter how the angle is measured.
+      - text: No — sine and cosine are never used when the angle is measured from the vertical.
+      - text: Yes — the components do not depend on which axis the angle is measured from.
+    explanation: |
+      Which trig function applies to which component depends on which side of the triangle the angle is measured from. Sketching the actual triangle and identifying the adjacent and opposite sides relative to the given angle is necessary before applying sine or cosine.
+    approved: true
+  - id: q-physics-scalars-and-vectors-0012
+    type: compare-contrast
+    difficulty: medium
+    stem: |
+      Which statement correctly tells apart a scalar and a vector quantity?
+    choices:
+      - text: A scalar has magnitude only; a vector has both magnitude and direction.
+        correct: true
+      - text: A scalar has both magnitude and direction; a vector has magnitude only.
+      - text: Both scalars and vectors always require a direction to be specified.
+      - text: Scalars and vectors are just two different names for the same kind of quantity.
+    explanation: |
+      Scalars (like mass, time, distance) carry only size. Vectors (like displacement, velocity, force) carry both size and a specific direction.
+    approved: true
+  - id: q-physics-scalars-and-vectors-0013
+    type: simple-quantitative
+    difficulty: exam
+    stem: |
+      Two forces act on an object: 800 N pushing right, and 800 N pushing left. Find the net force.
+    choices:
+      - text: 0 N
+        correct: true
+      - text: 1600 N to the right
+      - text: 1600 N to the left
+      - text: 800 N in an undetermined direction
+    explanation: |
+      Since the forces are equal in magnitude but opposite in direction, subtracting gives $800 - 800 = 0$ N — the forces completely cancel out.
+    approved: true
+  - id: q-physics-scalars-and-vectors-0014
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      A vector has a horizontal component of 6 units and a vertical component of 8 units. Find the magnitude of the original vector.
+    choices:
+      - text: 10 units
+        correct: true
+      - text: 14 units
+      - text: 48 units
+      - text: 2 units
+    explanation: |
+      The horizontal and vertical components form a right triangle with the original vector as the hypotenuse: $\sqrt{6^2 + 8^2} = \sqrt{36+64} = \sqrt{100} = 10$ units.
+    approved: true
