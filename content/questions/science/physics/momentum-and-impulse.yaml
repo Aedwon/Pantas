@@ -1,0 +1,206 @@
+meta:
+  subject: science
+  topic: physics
+  subtopic: momentum-and-impulse
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-physics-momentum-and-impulse-0001
+    type: simple-quantitative
+    difficulty: easy
+    stem: |
+      Find the momentum of a 1000 kg car moving at 20 m/s. (Use $p = mv$.)
+    choices:
+      - text: 20,000 kg m/s
+        correct: true
+      - text: 1,020 kg m/s
+      - text: 50 kg m/s
+      - text: 980 kg m/s
+    explanation: |
+      $p = mv = (1000)(20) = 20{,}000$ kg·m/s.
+    approved: true
+  - id: q-physics-momentum-and-impulse-0002
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A 0.5 kg ball traveling at 10 m/s is caught and brought to a complete stop in 0.2 seconds. Find the magnitude of the average force exerted to stop it.
+    choices:
+      - text: 25 N
+        correct: true
+      - text: 5 N
+      - text: 2 N
+      - text: 50 N
+    explanation: |
+      Change in momentum: $\Delta p = 0 - (0.5)(10) = -5$ kg·m/s. Force: $F = \dfrac{\Delta p}{t} = \dfrac{-5}{0.2} = -25$ N, so the magnitude is 25 N.
+    approved: true
+  - id: q-physics-momentum-and-impulse-0003
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A 3 kg cart moving at 4 m/s collides with a stationary 1 kg cart, and the two carts stick together after the collision. Find their combined velocity afterward.
+    choices:
+      - text: 3 m/s
+        correct: true
+      - text: 4 m/s
+      - text: 12 m/s
+      - text: 1 m/s
+    explanation: |
+      Total momentum before: $(3)(4) + (1)(0) = 12$ kg·m/s. Combined mass after: $3+1=4$ kg. So $12 = 4v$, giving $v = 3$ m/s.
+    approved: true
+  - id: q-physics-momentum-and-impulse-0004
+    type: classify
+    difficulty: medium
+    stem: |
+      Two identical billiard balls collide and bounce apart. Measurements show both the total momentum and the total kinetic energy are the same before and after the collision. Classify this collision.
+    choices:
+      - text: Elastic
+        correct: true
+      - text: Inelastic
+      - text: Perfectly inelastic
+      - text: Not a valid collision
+    explanation: |
+      An elastic collision conserves both momentum and kinetic energy. Since both were measured to be conserved here, this is an elastic collision.
+    approved: true
+  - id: q-physics-momentum-and-impulse-0005
+    type: classify
+    difficulty: medium
+    stem: |
+      Two carts collide and momentum is conserved, but the total kinetic energy after the collision is less than before (some energy converted to heat and sound). Classify this collision.
+    choices:
+      - text: Inelastic
+        correct: true
+      - text: Elastic
+      - text: Not a valid collision
+      - text: A collision where momentum was not conserved
+    explanation: |
+      An inelastic collision conserves momentum but not kinetic energy — some kinetic energy converts into other forms like heat or sound.
+    approved: true
+  - id: q-physics-momentum-and-impulse-0006
+    type: classify
+    difficulty: hard
+    stem: |
+      A student applies a kinetic energy conservation equation to a real-world car crash where the cars crumple and stick together. Is this appropriate?
+    choices:
+      - text: No — only elastic collisions conserve kinetic energy; a crash where cars crumple and stick together is a perfectly inelastic collision, which does not conserve kinetic energy.
+        correct: true
+      - text: Yes — kinetic energy is always conserved in every type of collision.
+      - text: No — but only because momentum is also not conserved in this crash.
+      - text: Yes — as long as momentum is also conserved.
+    explanation: |
+      Momentum is conserved in all closed-system collisions, but kinetic energy is only conserved in elastic collisions. A real-world crash where objects crumple and stick together is inelastic, so kinetic energy is not conserved.
+    approved: true
+  - id: q-physics-momentum-and-impulse-0007
+    type: classify
+    difficulty: hard
+    stem: |
+      A moving cart collides with a stationary cart, and they stick together. A student calculates the combined mass afterward using only the moving cart's mass, leaving out the stationary cart's mass. Is this correct?
+    choices:
+      - text: No — the combined mass after sticking together must include both objects' masses, even the one that started at rest.
+        correct: true
+      - text: Yes — a stationary object's mass does not need to be included after a collision.
+      - text: No — only the stationary cart's mass should be used instead.
+      - text: Yes — mass only matters for the object that was originally moving.
+    explanation: |
+      Even though the stationary cart contributed zero momentum before the collision, its mass still becomes part of the combined moving mass afterward. Leaving it out of the "after" total is a common and costly error.
+    approved: true
+  - id: q-physics-momentum-and-impulse-0008
+    type: classify
+    difficulty: hard
+    stem: |
+      A question asks for the impulse delivered during a collision, and a student reports only the peak force value, without considering the time of contact. Is this a complete answer?
+    choices:
+      - text: No — impulse equals force multiplied by time (or the total change in momentum), not the force value alone.
+        correct: true
+      - text: Yes — impulse and force are the exact same quantity.
+      - text: No — impulse only depends on time, never on force.
+      - text: Yes — as long as the force value given is the average force.
+    explanation: |
+      Impulse ($J = Ft$) requires both the force and the time over which it acts. Reporting force alone omits the time component and does not answer what was actually asked.
+    approved: true
+  - id: q-physics-momentum-and-impulse-0009
+    type: classify
+    difficulty: hard
+    stem: |
+      Two carts move directly toward each other before colliding. A student adds their momenta as two positive numbers, ignoring that they move in opposite directions. Is this correct?
+    choices:
+      - text: No — since momentum is a vector, one cart's momentum must be treated as negative (opposite direction) in the total.
+        correct: true
+      - text: Yes — momentum is always added as positive values, regardless of direction.
+      - text: No — but only because one of the carts must actually be stationary.
+      - text: Yes — direction only matters for velocity, not momentum.
+    explanation: |
+      Momentum is a vector quantity. When two objects move toward each other, their momenta point in opposite directions, so one must be assigned a negative sign relative to the other before adding them.
+    approved: true
+  - id: q-physics-momentum-and-impulse-0010
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A 2000 kg truck moves at 3 m/s. A 500 kg car moves at 12 m/s. Compare their momenta.
+    choices:
+      - text: They have exactly the same momentum, 6000 kg·m/s each.
+        correct: true
+      - text: The truck has more momentum, since it has more mass.
+      - text: The car has more momentum, since it moves faster.
+      - text: Their momenta cannot be compared without knowing their directions.
+    explanation: |
+      Truck: $p = (2000)(3) = 6000$ kg·m/s. Car: $p = (500)(12) = 6000$ kg·m/s. A heavy object moving slowly can have the same momentum as a light object moving fast.
+    approved: true
+  - id: q-physics-momentum-and-impulse-0011
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      A 2 kg cart moving at 6 m/s collides with a stationary 4 kg cart, and they stick together. Find their combined velocity afterward.
+    choices:
+      - text: 2 m/s
+        correct: true
+      - text: 3 m/s
+      - text: 6 m/s
+      - text: 1.5 m/s
+    explanation: |
+      Total momentum before: $(2)(6) + (4)(0) = 12$ kg·m/s. Combined mass: $2+4=6$ kg. So $12 = 6v$, giving $v = 2$ m/s.
+    approved: true
+  - id: q-physics-momentum-and-impulse-0012
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A force of 15 N acts on an object for 3 seconds. Find the impulse delivered. (Use $J = Ft$.)
+    choices:
+      - text: 45 kg m/s
+        correct: true
+      - text: 18 kg m/s
+      - text: 5 kg m/s
+      - text: 12 kg m/s
+    explanation: |
+      $J = Ft = (15)(3) = 45$ kg·m/s (equivalently, N·s).
+    approved: true
+  - id: q-physics-momentum-and-impulse-0013
+    type: simple-quantitative
+    difficulty: exam
+    stem: |
+      A 2 kg cart moves at +5 m/s. A 3 kg cart moves at -4 m/s (toward the first cart, in the opposite direction). They collide and stick together. Find their combined velocity afterward.
+    choices:
+      - text: -0.4 m/s
+        correct: true
+      - text: 0.4 m/s
+      - text: -2 m/s
+      - text: 2.2 m/s
+    explanation: |
+      Total momentum before: $(2)(5) + (3)(-4) = 10 - 12 = -2$ kg·m/s. Combined mass: $2+3=5$ kg. So $-2 = 5v$, giving $v = -0.4$ m/s (moving in the second cart's original direction).
+    approved: true
+  - id: q-physics-momentum-and-impulse-0014
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      A car's airbag deploys during a collision, extending the time over which the passenger's momentum changes to zero, compared to hitting a hard dashboard directly. Why does this reduce injury?
+    choices:
+      - text: For the same total change in momentum, a longer time reduces the average force needed, lowering the impact on the passenger's body.
+        correct: true
+      - text: The airbag reduces the total change in momentum the passenger experiences.
+      - text: The airbag has no effect on force, only on the passenger's final velocity.
+      - text: The airbag works by making the passenger's mass smaller during the collision.
+    explanation: |
+      Impulse ($J=Ft$) for a given momentum change is fixed; stretching out the time $t$ over which it happens reduces the force $F$ needed to produce that same change, which is exactly why airbags and padded surfaces reduce injury.
+    approved: true
