@@ -1,0 +1,206 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: solutions
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-chemistry-solutions-0001
+    type: simple-quantitative
+    difficulty: easy
+    stem: |
+      A solution contains 3 moles of $NaCl$ dissolved in enough water to make 6 liters of solution. Find the molarity.
+    choices:
+      - text: 0.5 M
+        correct: true
+      - text: 2 M
+      - text: 3 M
+      - text: 18 M
+    explanation: |
+      Molarity equals moles of solute divided by liters of solution: $\dfrac{3 \text{ mol}}{6 \text{ L}} = 0.5$ M.
+    approved: true
+  - id: q-chemistry-solutions-0002
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A solution is made by dissolving 2 moles of sugar into 4 kilograms of water. Find the molality.
+    choices:
+      - text: 0.5 m
+        correct: true
+      - text: 2 m
+      - text: 4 m
+      - text: 8 m
+    explanation: |
+      Molality equals moles of solute divided by kilograms of solvent: $\dfrac{2 \text{ mol}}{4 \text{ kg}} = 0.5$ m.
+    approved: true
+  - id: q-chemistry-solutions-0003
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A solution is made by dissolving 15 grams of salt into 135 grams of water. Find the percent by mass of the salt.
+    choices:
+      - text: 10%
+        correct: true
+      - text: 15%
+      - text: 11.1%
+      - text: 90%
+    explanation: |
+      Total solution mass is $15 + 135 = 150$ g. Percent by mass: $\dfrac{15}{150} \times 100\% = 10\%$.
+    approved: true
+  - id: q-chemistry-solutions-0004
+    type: classify
+    difficulty: medium
+    stem: |
+      A solution has dissolved the maximum amount of solute possible at its current temperature — adding any more solute would just leave it undissolved at the bottom. How should this solution be classified?
+    choices:
+      - text: Saturated
+        correct: true
+      - text: Unsaturated
+      - text: Molal
+      - text: Diluted
+    explanation: |
+      A saturated solution holds as much dissolved solute as it possibly can at that temperature. Any additional solute added would simply not dissolve.
+    approved: true
+  - id: q-chemistry-solutions-0005
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      More sugar dissolves completely in a cup of hot tea than in the same size cup of cold tea. What does this demonstrate about solubility?
+    choices:
+      - text: For most solid solutes, solubility increases as the solvent's temperature increases.
+        correct: true
+      - text: Solubility is always the same at every temperature.
+      - text: Sugar becomes a different substance when dissolved in hot water.
+      - text: Cold water dissolves solids better than hot water.
+    explanation: |
+      Solubility describes the maximum amount of solute that can dissolve at a given temperature, and for most solids, that maximum increases as temperature rises — exactly why hot tea dissolves more sugar than cold tea.
+    approved: true
+  - id: q-chemistry-solutions-0006
+    type: classify
+    difficulty: hard
+    stem: |
+      A student divides moles of solute by liters of solvent (instead of liters of solution) to calculate molarity. Is this correct?
+    choices:
+      - text: No — molarity divides by liters of the total solution, not just the solvent.
+        correct: true
+      - text: Yes — molarity and molality use the exact same denominator.
+      - text: No — molarity should divide by kilograms of solvent instead.
+      - text: Yes — solvent volume and solution volume are always identical.
+    explanation: |
+      Molarity is moles of solute per liter of solution (the whole mixture). Confusing this with molality's denominator (kilograms of solvent alone) is one of the most commonly swapped concentration mistakes.
+    approved: true
+  - id: q-chemistry-solutions-0007
+    type: classify
+    difficulty: hard
+    stem: |
+      To find percent by mass, a student divides the solute's mass by the solvent's mass alone, instead of the total solution's mass. Is this correct?
+    choices:
+      - text: No — percent by mass divides by the total solution mass (solute plus solvent), not the solvent alone.
+        correct: true
+      - text: Yes — dividing by solvent mass alone gives the same result.
+      - text: No — percent by mass should divide by moles, not mass.
+      - text: Yes — percent by mass problems never include the solute's own mass in the total.
+    explanation: |
+      Dividing by the solvent's mass alone gives an inflated, incorrect percentage. The correct denominator is always the total solution mass: solute mass plus solvent mass added together.
+    approved: true
+  - id: q-chemistry-solutions-0008
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes a substance's solubility is the same fixed number no matter the temperature. Is this assumption correct?
+    choices:
+      - text: No — solubility generally changes with temperature, usually increasing for solids as the solvent gets hotter.
+        correct: true
+      - text: Yes — solubility never depends on temperature.
+      - text: No — solubility only depends on the solute's color.
+      - text: Yes — but only for solutions made with water.
+    explanation: |
+      Solubility is defined at a specific temperature and generally changes as temperature changes — for most solids, more can dissolve at higher temperatures.
+    approved: true
+  - id: q-chemistry-solutions-0009
+    type: classify
+    difficulty: hard
+    stem: |
+      A student says a solution with a small amount of dissolved solute can never be called "saturated," since saturated should mean "a lot" of solute. Is this correct?
+    choices:
+      - text: No — a solution is saturated once it holds the maximum solute possible for that specific solute at that temperature, even if that maximum amount is small.
+        correct: true
+      - text: Yes — "saturated" always requires a large, fixed amount of solute.
+      - text: No — "saturated" only applies to gases, never to solids dissolved in liquids.
+      - text: Yes — a small amount of dissolved solute is always called "unsaturated," regardless of the solute.
+    explanation: |
+      Saturation is relative to the specific solute's own maximum solubility, not an absolute amount. A solute with very low solubility can saturate a solution with only a small amount dissolved.
+    approved: true
+  - id: q-chemistry-solutions-0010
+    type: cause-effect
+    difficulty: hard
+    stem: |
+      Why does molality stay constant when a solution's temperature changes, while molarity can shift slightly?
+    choices:
+      - text: Molality depends on the solvent's mass, which does not change with temperature; molarity depends on the solution's volume, which can expand or contract with heat.
+        correct: true
+      - text: Molality depends on volume, and volume never changes; molarity depends on mass, which shrinks when heated.
+      - text: Both molality and molarity depend on volume, so both should change equally with temperature.
+      - text: Molarity is always more accurate than molality at any temperature.
+    explanation: |
+      Molarity's denominator (solution volume) shifts due to normal thermal expansion or contraction. Molality's denominator (solvent mass) does not change with temperature, since heating or cooling does not add or remove matter.
+    approved: true
+  - id: q-chemistry-solutions-0011
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A solution is made with 25 mL of alcohol mixed into enough water to make 100 mL of solution. Find the percent by volume of the alcohol.
+    choices:
+      - text: 25%
+        correct: true
+      - text: 75%
+      - text: 4%
+      - text: 100%
+    explanation: |
+      Percent by volume equals the solute's volume divided by the total solution's volume, times 100%: $\dfrac{25}{100} \times 100\% = 25\%$.
+    approved: true
+  - id: q-chemistry-solutions-0012
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      58.5 grams of $NaCl$ (molar mass 58.5 g/mol) are dissolved in enough water to make 2 liters of solution. Find the molarity.
+    choices:
+      - text: 0.5 M
+        correct: true
+      - text: 1 M
+      - text: 29.25 M
+      - text: 2 M
+    explanation: |
+      First convert grams to moles: $\dfrac{58.5 \text{ g}}{58.5 \text{ g/mol}} = 1$ mol. Then apply molarity: $\dfrac{1 \text{ mol}}{2 \text{ L}} = 0.5$ M.
+    approved: true
+  - id: q-chemistry-solutions-0013
+    type: simple-quantitative
+    difficulty: exam
+    stem: |
+      A solution is made by dissolving 3 moles of solute into 1.5 kilograms of solvent. Find the molality.
+    choices:
+      - text: 2 m
+        correct: true
+      - text: 0.5 m
+      - text: 4.5 m
+      - text: 1.5 m
+    explanation: |
+      Molality equals moles of solute divided by kilograms of solvent: $\dfrac{3 \text{ mol}}{1.5 \text{ kg}} = 2$ m.
+    approved: true
+  - id: q-chemistry-solutions-0014
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      A chemist prepares a solution and then heats it, causing the solution's total volume to expand slightly, while the mass of the water (solvent) stays exactly the same. Which concentration measurement will shift due to this heating, and which will stay constant?
+    choices:
+      - text: Molarity will shift slightly (since it depends on volume); molality will stay constant (since it depends on solvent mass).
+        correct: true
+      - text: Molality will shift slightly; molarity will stay constant.
+      - text: Both molarity and molality will shift by the same amount.
+      - text: Neither molarity nor molality is ever affected by temperature.
+    explanation: |
+      Molarity's denominator is solution volume, which expands with heat, so molarity shifts slightly. Molality's denominator is solvent mass, which does not change with temperature, so molality stays constant — this is exactly why molality is preferred for temperature-sensitive experiments.
+    approved: true
