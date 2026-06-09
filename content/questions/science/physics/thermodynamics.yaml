@@ -1,0 +1,220 @@
+meta:
+  subject: science
+  topic: physics
+  subtopic: thermodynamics
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-physics-thermodynamics-0001
+    type: identify
+    difficulty: easy
+    stem: |
+      A metal pan handle becomes hot through direct contact with the heated pan. What heat transfer mechanism is this?
+    choices:
+      - text: Conduction
+        correct: true
+      - text: Convection
+      - text: Radiation
+      - text: Entropy
+    explanation: |
+      Conduction is heat transfer through direct contact between particles, typically through a solid, like a metal handle.
+    approved: true
+  - id: q-physics-thermodynamics-0002
+    type: identify
+    difficulty: easy
+    stem: |
+      The Sun's heat reaches Earth across the vacuum of space, with no physical medium in between. What heat transfer mechanism is this?
+    choices:
+      - text: Radiation
+        correct: true
+      - text: Conduction
+      - text: Convection
+      - text: Entropy
+    explanation: |
+      Radiation transfers heat through electromagnetic waves and requires no physical medium at all — exactly how sunlight warms Earth through empty space.
+    approved: true
+  - id: q-physics-thermodynamics-0003
+    type: identify
+    difficulty: easy
+    stem: |
+      Warm air near a heater rises and circulates around a room, carrying heat with it. What heat transfer mechanism is this?
+    choices:
+      - text: Convection
+        correct: true
+      - text: Conduction
+      - text: Radiation
+      - text: Entropy
+    explanation: |
+      Convection transfers heat through the movement of a fluid itself, as warmer, less dense fluid rises and cooler, denser fluid sinks.
+    approved: true
+  - id: q-physics-thermodynamics-0004
+    type: identify
+    difficulty: medium
+    stem: |
+      Which law of thermodynamics states that if two systems are each in thermal equilibrium with a third system, they are also in thermal equilibrium with each other?
+    choices:
+      - text: The Zeroth Law
+        correct: true
+      - text: The First Law
+      - text: The Second Law
+      - text: The Third Law
+    explanation: |
+      The Zeroth Law establishes this transitive property of thermal equilibrium, which is what makes thermometers work.
+    approved: true
+  - id: q-physics-thermodynamics-0005
+    type: identify
+    difficulty: medium
+    stem: |
+      Which law of thermodynamics states that energy cannot be created or destroyed, only converted between forms or transferred?
+    choices:
+      - text: The First Law
+        correct: true
+      - text: The Zeroth Law
+      - text: The Second Law
+      - text: The Third Law
+    explanation: |
+      The First Law is the law of conservation of energy applied specifically to heat and work.
+    approved: true
+  - id: q-physics-thermodynamics-0006
+    type: identify
+    difficulty: medium
+    stem: |
+      Which law of thermodynamics states that heat flows spontaneously from hot to cold, never the reverse without external work?
+    choices:
+      - text: The Second Law
+        correct: true
+      - text: The First Law
+      - text: The Zeroth Law
+      - text: The Third Law
+    explanation: |
+      The Second Law describes the natural direction of spontaneous heat flow: always hot to cold, unless external work forces it the other way.
+    approved: true
+  - id: q-physics-thermodynamics-0007
+    type: identify
+    difficulty: medium
+    stem: |
+      Which law of thermodynamics states that as temperature approaches absolute zero, a system's entropy (disorder) approaches a minimum value?
+    choices:
+      - text: The Third Law
+        correct: true
+      - text: The First Law
+      - text: The Second Law
+      - text: The Zeroth Law
+    explanation: |
+      The Third Law describes the behavior of entropy as temperature approaches absolute zero (0 Kelvin).
+    approved: true
+  - id: q-physics-thermodynamics-0008
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      Find the heat energy needed to raise the temperature of 3 kg of water by 5°C, given water's specific heat capacity is 4186 J/(kg·°C). (Use $Q = mc\Delta T$.)
+    choices:
+      - text: 62,790 J
+        correct: true
+      - text: 20,930 J
+      - text: 12,558 J
+      - text: 4,186 J
+    explanation: |
+      $Q = mc\Delta T = (3)(4186)(5) = 62{,}790$ J.
+    approved: true
+  - id: q-physics-thermodynamics-0009
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      41,860 J of heat energy raises the temperature of 2 kg of water by an unknown amount. Given water's specific heat capacity is 4186 J/(kg·°C), find the temperature change.
+    choices:
+      - text: 5°C
+        correct: true
+      - text: 10°C
+      - text: 20,930°C
+      - text: 2.5°C
+    explanation: |
+      Rearranging $Q = mc\Delta T$: $\Delta T = \dfrac{Q}{mc} = \dfrac{41860}{(2)(4186)} = \dfrac{41860}{8372} = 5°C$.
+    approved: true
+  - id: q-physics-thermodynamics-0010
+    type: classify
+    difficulty: hard
+    stem: |
+      A student describes warm air circulating around a heated room as "conduction," since heat is moving from one place to another. Is this correct?
+    choices:
+      - text: No — the actual bulk movement of the air itself makes this convection, not conduction.
+        correct: true
+      - text: Yes — any heat transfer through air is always conduction.
+      - text: No — this is actually radiation, since air is a gas.
+      - text: Yes — conduction and convection are interchangeable terms.
+    explanation: |
+      Conduction is direct particle-to-particle contact, typically through solids, with no bulk fluid movement. Since the air itself is physically moving and circulating, this is convection.
+    approved: true
+  - id: q-physics-thermodynamics-0011
+    type: classify
+    difficulty: hard
+    stem: |
+      A refrigerator moves heat from its cold interior to the warmer room outside. A student says this violates the second law of thermodynamics. Is this correct?
+    choices:
+      - text: No — the refrigerator uses electrical work (via its compressor) to force this backward flow; the second law only forbids this happening spontaneously, without work.
+        correct: true
+      - text: Yes — moving heat from cold to hot always violates the second law, with no exceptions.
+      - text: No — but only because refrigerators do not actually move heat at all.
+      - text: Yes — refrigerators are a well-known exception that breaks the laws of physics.
+    explanation: |
+      The second law forbids heat flowing spontaneously from cold to hot, but a refrigerator forces this flow using external work from its compressor — this does not violate the law, since the flow is not spontaneous.
+    approved: true
+  - id: q-physics-thermodynamics-0012
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes a substance with a higher specific heat capacity changes temperature more easily (faster) than one with a lower specific heat capacity. Is this correct?
+    choices:
+      - text: No — a higher specific heat capacity means the substance resists temperature change, requiring more energy for the same temperature increase; a lower specific heat means faster temperature change.
+        correct: true
+      - text: Yes — higher specific heat capacity always means faster temperature change.
+      - text: No — specific heat capacity has no relationship to how quickly temperature changes.
+      - text: Yes — but only for substances heated by radiation.
+    explanation: |
+      Specific heat capacity measures resistance to temperature change. A high specific heat capacity (like water's) means a substance needs more energy to change temperature by a given amount, so it heats up and cools down more slowly, not faster.
+    approved: true
+  - id: q-physics-thermodynamics-0013
+    type: classify
+    difficulty: hard
+    stem: |
+      A student uses a specific heat capacity given in J/(g·°C) directly with a mass value given in kilograms, without converting either one. Is this safe?
+    choices:
+      - text: No — mixing grams-based specific heat with a kilogram mass (without converting) throws off the final answer by a factor of 1000.
+        correct: true
+      - text: Yes — specific heat capacity units automatically adjust for any mass unit used.
+      - text: No — but only because specific heat capacity cannot be measured in J/(g·°C).
+      - text: Yes — grams and kilograms can always be used interchangeably in any formula.
+    explanation: |
+      The mass units used in $Q=mc\Delta T$ must match the mass units in the specific heat capacity's own units. Mixing grams-based specific heat with a kilogram mass without converting introduces a factor-of-1000 error.
+    approved: true
+  - id: q-physics-thermodynamics-0014
+    type: compare-contrast
+    difficulty: medium
+    stem: |
+      A hot cup of coffee is left on a table in a cooler room. Using the second law of thermodynamics, explain what happens to the coffee's temperature over time.
+    choices:
+      - text: The coffee gradually cools down, since heat flows spontaneously from the hotter coffee to the cooler room, never the reverse without added work.
+        correct: true
+      - text: The coffee gradually gets hotter, drawing heat spontaneously from the cooler room air.
+      - text: The coffee's temperature stays exactly the same indefinitely.
+      - text: The coffee's temperature change cannot be predicted by the second law.
+    explanation: |
+      Since the coffee is hotter than the surrounding air, heat flows spontaneously from the coffee to the room, cooling the coffee down. The reverse (coffee spontaneously heating up) would require heat flowing from cold to hot, which the second law forbids without external work.
+    approved: true
+  - id: q-physics-thermodynamics-0015
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      Two identical pans, one filled with water and one filled with cooking oil (which has a lower specific heat capacity than water), are heated with the same amount of energy for the same amount of time. Which one reaches a higher temperature?
+    choices:
+      - text: The oil, since its lower specific heat capacity means the same energy input causes a larger temperature increase.
+        correct: true
+      - text: The water, since its higher specific heat capacity means it heats up faster.
+      - text: Both reach exactly the same temperature, since the energy input and time are equal.
+      - text: Neither changes temperature, since both are liquids.
+    explanation: |
+      A lower specific heat capacity means less energy is needed to raise a substance's temperature by a given amount. Since oil has a lower specific heat capacity than water, the same energy input causes a greater temperature rise in the oil.
+    approved: true
