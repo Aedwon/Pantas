@@ -1,0 +1,206 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: thermodynamics-and-kinetics
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-chemistry-thermodynamics-and-kinetics-0001
+    type: classify
+    difficulty: easy
+    stem: |
+      A chemical hand warmer packet becomes noticeably hot after being activated, releasing heat to its surroundings. Is this reaction endothermic or exothermic?
+    choices:
+      - text: Exothermic
+        correct: true
+      - text: Endothermic
+      - text: Neither — heat is unrelated to reaction type
+      - text: Both at the same time
+    explanation: |
+      An exothermic reaction releases energy to its surroundings, making them feel warmer — exactly what happens in the hand warmer.
+    approved: true
+  - id: q-chemistry-thermodynamics-and-kinetics-0002
+    type: classify
+    difficulty: easy
+    stem: |
+      A reaction mixed in a beaker causes the beaker itself to feel noticeably cold to the touch, absorbing heat from its surroundings. Is this reaction endothermic or exothermic?
+    choices:
+      - text: Endothermic
+        correct: true
+      - text: Exothermic
+      - text: Neither — cold is unrelated to reaction type
+      - text: Both at the same time
+    explanation: |
+      An endothermic reaction absorbs energy from its surroundings, making them feel cooler — exactly what happens in this beaker.
+    approved: true
+  - id: q-chemistry-thermodynamics-and-kinetics-0003
+    type: identify
+    difficulty: medium
+    stem: |
+      A substance speeds up a reaction by lowering its activation energy, without being permanently used up or changed itself. What is this substance called?
+    choices:
+      - text: A catalyst
+        correct: true
+      - text: A reactant
+      - text: A product
+      - text: A solvent
+    explanation: |
+      A catalyst speeds up a reaction by lowering activation energy, and unlike a reactant, it is not consumed in the process.
+    approved: true
+  - id: q-chemistry-thermodynamics-and-kinetics-0004
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      What effect does increasing the temperature of a reaction generally have on its rate?
+    choices:
+      - text: It increases the rate, since particles move faster and collide more often with more energy.
+        correct: true
+      - text: It decreases the rate, since heat makes particles move more slowly.
+      - text: It has no effect on reaction rate.
+      - text: It only affects endothermic reactions, never exothermic ones.
+    explanation: |
+      Higher temperature makes particles move faster, causing more frequent and more energetic collisions, which speeds up the reaction rate.
+    approved: true
+  - id: q-chemistry-thermodynamics-and-kinetics-0005
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      What effect does increasing the concentration of reactants generally have on reaction rate?
+    choices:
+      - text: It increases the rate, since more particles are available to collide with each other.
+        correct: true
+      - text: It decreases the rate, since more particles get in each other's way.
+      - text: It has no effect on reaction rate.
+      - text: It only affects reactions with a catalyst present.
+    explanation: |
+      A higher concentration means more reactant particles are packed into the same space, increasing how often they collide and react.
+    approved: true
+  - id: q-chemistry-thermodynamics-and-kinetics-0006
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      A chunk of solid reacts slowly with an acid. The same solid is instead crushed into a fine powder before adding the acid. What happens to the reaction rate, and why?
+    choices:
+      - text: The rate increases, since crushing the solid greatly increases its exposed surface area, allowing more collisions with the acid.
+        correct: true
+      - text: The rate decreases, since crushing the solid reduces its total mass.
+      - text: The rate stays exactly the same, since the total amount of solid is unchanged.
+      - text: The reaction stops entirely once the solid is crushed.
+    explanation: |
+      Crushing a solid into powder increases its total exposed surface area, even though its mass stays the same. More exposed surface means more particles available to collide with acid particles, speeding up the reaction.
+    approved: true
+  - id: q-chemistry-thermodynamics-and-kinetics-0007
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      A catalyst is added to a reaction. What effect does this generally have on the reaction rate?
+    choices:
+      - text: It increases the rate, since the catalyst lowers the activation energy needed to get started.
+        correct: true
+      - text: It decreases the rate, since catalysts absorb energy from the reaction.
+      - text: It has no effect on rate, only on the final product amount.
+      - text: It stops the reaction from happening at all.
+    explanation: |
+      A catalyst speeds up a reaction by lowering its activation energy, making it easier for reactant particles to successfully collide and transform into products.
+    approved: true
+  - id: q-chemistry-thermodynamics-and-kinetics-0008
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes that since a reaction is exothermic (releases energy), it must also happen very quickly. Is this assumption correct?
+    choices:
+      - text: No — whether a reaction is exothermic is independent of how fast it happens; some exothermic reactions, like iron rusting, happen very slowly.
+        correct: true
+      - text: Yes — all exothermic reactions happen instantly.
+      - text: No — exothermic reactions are always the slowest type of reaction.
+      - text: Yes — energy release and reaction speed always match perfectly.
+    explanation: |
+      Thermodynamics (how much energy is released or absorbed) and kinetics (how fast a reaction happens) are independent properties. Rusting iron is exothermic but proceeds very slowly.
+    approved: true
+  - id: q-chemistry-thermodynamics-and-kinetics-0009
+    type: classify
+    difficulty: hard
+    stem: |
+      A student claims that a catalyst becomes part of the final product, since it participates in the reaction. Is this correct?
+    choices:
+      - text: No — a catalyst is not consumed or permanently changed by the reaction; it is regenerated and can be reused.
+        correct: true
+      - text: Yes — catalysts are always fully converted into product.
+      - text: No — catalysts never interact with the reactants at all.
+      - text: Yes — a catalyst becomes part of the product only in exothermic reactions.
+    explanation: |
+      A catalyst may temporarily interact with reactants, but unlike a true reactant, it is not permanently used up — it is regenerated by the end of the reaction.
+    approved: true
+  - id: q-chemistry-thermodynamics-and-kinetics-0010
+    type: classify
+    difficulty: hard
+    stem: |
+      A reaction produces the same total amount of product whether or not a catalyst is used, but finishes much faster with the catalyst. A student concludes the catalyst must have changed how much energy the reaction released overall. Is this correct?
+    choices:
+      - text: No — a catalyst only changes the reaction's speed; it does not change the total energy released or absorbed, or the final amount of product.
+        correct: true
+      - text: Yes — catalysts always increase the total energy released.
+      - text: No — but only because this particular reaction is endothermic.
+      - text: Yes — faster reactions always release more total energy.
+    explanation: |
+      A catalyst changes only how fast a reaction reaches its result, by lowering activation energy. The overall energy change and final product amount stay exactly the same with or without it.
+    approved: true
+  - id: q-chemistry-thermodynamics-and-kinetics-0011
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes a high activation energy means a reaction releases a large amount of overall energy. Is this correct?
+    choices:
+      - text: No — activation energy describes the initial energy barrier to start the reaction, which is separate from how much overall energy the reaction releases or absorbs.
+        correct: true
+      - text: Yes — activation energy and overall energy release are always the same value.
+      - text: No — high activation energy actually means the reaction releases no energy at all.
+      - text: Yes — reactions with high activation energy always release the most energy.
+    explanation: |
+      Activation energy is the initial "push" needed to start a reaction — a completely separate value from the reaction's overall energy change. A reaction can have a small overall energy release but still need a high activation energy to begin.
+    approved: true
+  - id: q-chemistry-thermodynamics-and-kinetics-0012
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      Which statement correctly tells apart thermodynamics and kinetics as they apply to a chemical reaction?
+    choices:
+      - text: Thermodynamics describes how much energy is exchanged; kinetics describes how fast the reaction happens — these are independent questions.
+        correct: true
+      - text: Thermodynamics and kinetics both describe exactly the same property of a reaction.
+      - text: Thermodynamics describes reaction speed; kinetics describes energy exchanged.
+      - text: Kinetics only applies to endothermic reactions, and thermodynamics only applies to exothermic ones.
+    explanation: |
+      Thermodynamics concerns the energy difference between reactants and products (exothermic or endothermic). Kinetics concerns the reaction's speed, governed by activation energy, temperature, concentration, surface area, and catalysts — the two are independent of each other.
+    approved: true
+  - id: q-chemistry-thermodynamics-and-kinetics-0013
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      Burning paper releases a large amount of energy overall, yet a stack of paper does not spontaneously catch fire at room temperature without an ignition source. What does this show about the relationship between overall energy release and reaction speed?
+    choices:
+      - text: A reaction can release a large amount of energy overall while still having a high activation energy, making it slow to start without an initial push.
+        correct: true
+      - text: Paper's burning reaction must not actually be exothermic.
+      - text: Paper never releases energy unless it is already on fire.
+      - text: Activation energy and overall energy release must always be equal.
+    explanation: |
+      Paper burning is strongly exothermic, but it also has a high activation energy — the ignition source (like a match) provides the initial energy push needed to overcome that barrier and start the reaction.
+    approved: true
+  - id: q-chemistry-thermodynamics-and-kinetics-0014
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      A reaction normally takes several hours to complete at room temperature. When a specific catalyst is added, the same reaction finishes in just a few minutes, forming the same final amount of product either way. What did the catalyst change, and what did it leave unchanged?
+    choices:
+      - text: It changed the reaction rate (by lowering activation energy) but left the overall energy change and final product amount unchanged.
+        correct: true
+      - text: It changed the overall energy released but left the reaction rate unchanged.
+      - text: It changed the final product amount but left the reaction rate unchanged.
+      - text: It changed nothing; the faster completion was a coincidence.
+    explanation: |
+      The catalyst lowered the activation energy, making the reaction proceed much faster. Since the same final amount of product formed either way, the overall energy change and product amount were not affected — only the speed of getting there changed.
+    approved: true
