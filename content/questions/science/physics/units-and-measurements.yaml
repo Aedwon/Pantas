@@ -1,0 +1,206 @@
+meta:
+  subject: science
+  topic: physics
+  subtopic: units-and-measurements
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-physics-units-and-measurements-0001
+    type: identify
+    difficulty: easy
+    stem: |
+      What is the SI base unit for length?
+    choices:
+      - text: Meter
+        correct: true
+      - text: Kilogram
+      - text: Second
+      - text: Kelvin
+    explanation: |
+      The meter (m) is the SI base unit for length.
+    approved: true
+  - id: q-physics-units-and-measurements-0002
+    type: identify
+    difficulty: easy
+    stem: |
+      What is the SI base unit for mass?
+    choices:
+      - text: Kilogram
+        correct: true
+      - text: Meter
+      - text: Second
+      - text: Ampere
+    explanation: |
+      The kilogram (kg) is the SI base unit for mass.
+    approved: true
+  - id: q-physics-units-and-measurements-0003
+    type: identify
+    difficulty: easy
+    stem: |
+      What is the SI base unit for time?
+    choices:
+      - text: Second
+        correct: true
+      - text: Meter
+      - text: Kilogram
+      - text: Candela
+    explanation: |
+      The second (s) is the SI base unit for time.
+    approved: true
+  - id: q-physics-units-and-measurements-0004
+    type: identify
+    difficulty: medium
+    stem: |
+      What is the SI base unit for amount of substance?
+    choices:
+      - text: Mole
+        correct: true
+      - text: Kilogram
+      - text: Ampere
+      - text: Candela
+    explanation: |
+      The mole (mol) is the SI base unit for amount of substance.
+    approved: true
+  - id: q-physics-units-and-measurements-0005
+    type: simple-quantitative
+    difficulty: easy
+    stem: |
+      Convert 350 centimeters to meters.
+    choices:
+      - text: 3.5 m
+        correct: true
+      - text: 35 m
+      - text: 0.35 m
+      - text: 350 m
+    explanation: |
+      $350 \text{ cm} \times \dfrac{1 \text{ m}}{100 \text{ cm}} = 3.5$ m.
+    approved: true
+  - id: q-physics-units-and-measurements-0006
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      Convert 5000 meters to kilometers.
+    choices:
+      - text: 5 km
+        correct: true
+      - text: 50 km
+      - text: 0.5 km
+      - text: 500 km
+    explanation: |
+      $5000 \text{ m} \times \dfrac{1 \text{ km}}{1000 \text{ m}} = 5$ km.
+    approved: true
+  - id: q-physics-units-and-measurements-0007
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      Convert a speed of 90 kilometers per hour into meters per second.
+    choices:
+      - text: 25 m/s
+        correct: true
+      - text: 90 m/s
+      - text: 32.4 m/s
+      - text: 15 m/s
+    explanation: |
+      $90 \dfrac{\text{km}}{\text{h}} \times \dfrac{1000 \text{ m}}{1 \text{ km}} \times \dfrac{1 \text{ h}}{3600 \text{ s}} = \dfrac{90000}{3600} = 25$ m/s.
+    approved: true
+  - id: q-physics-units-and-measurements-0008
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      Convert a speed of 54 kilometers per hour into meters per second.
+    choices:
+      - text: 15 m/s
+        correct: true
+      - text: 54 m/s
+      - text: 194.4 m/s
+      - text: 9 m/s
+    explanation: |
+      $54 \dfrac{\text{km}}{\text{h}} \times \dfrac{1000 \text{ m}}{1 \text{ km}} \times \dfrac{1 \text{ h}}{3600 \text{ s}} = \dfrac{54000}{3600} = 15$ m/s.
+    approved: true
+  - id: q-physics-units-and-measurements-0009
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      The formula for force is $F = ma$. Mass has units of kg; acceleration has units of $m/s^2$. What are the resulting units of force?
+    choices:
+      - text: kg m/s^2 (newton)
+        correct: true
+      - text: kg/s^2
+      - text: m/s^2
+      - text: kg m/s
+    explanation: |
+      Multiplying the units directly: $kg \times \dfrac{m}{s^2} = kg \cdot m/s^2$, a combination given its own name, the newton.
+    approved: true
+  - id: q-physics-units-and-measurements-0010
+    type: classify
+    difficulty: hard
+    stem: |
+      A student converts 250 cm to meters by multiplying $250 \text{ cm} \times \dfrac{100 \text{ cm}}{1 \text{ m}}$. Is this conversion factor arranged correctly?
+    choices:
+      - text: No — this leaves units of cm²/m, a nonsense result, since the unwanted "cm" does not cancel.
+        correct: true
+      - text: Yes — this arrangement correctly cancels the centimeters.
+      - text: No — but only because 250 cm cannot be converted to meters at all.
+      - text: Yes — any arrangement of the conversion factor gives the same correct answer.
+    explanation: |
+      The conversion factor must place the unwanted unit (cm) so it cancels — on the bottom, matching the "cm" on top of the starting value. Placing "cm" on top instead leaves a leftover, nonsense unit and a wildly incorrect number.
+    approved: true
+  - id: q-physics-units-and-measurements-0011
+    type: classify
+    difficulty: hard
+    stem: |
+      A student plugs a distance in kilometers directly into a formula alongside a time measured in seconds, without converting either value first. Is this a valid approach?
+    choices:
+      - text: No — every value going into a formula must share compatible units; the distance or time must be converted first.
+        correct: true
+      - text: Yes — formulas automatically adjust for mismatched units.
+      - text: No — but only because kilometers cannot be used in any formula.
+      - text: Yes — as long as the final answer is rounded correctly.
+    explanation: |
+      Mixing incompatible units within the same calculation (like kilometers with seconds, without converting) produces a meaningless result. All values must be converted to a consistent unit system first.
+    approved: true
+  - id: q-physics-units-and-measurements-0012
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      Convert 2 square meters ($m^2$) to square centimeters ($cm^2$).
+    choices:
+      - text: 20,000 cm^2
+        correct: true
+      - text: 200 cm^2
+      - text: 2,000 cm^2
+      - text: 20 cm^2
+    explanation: |
+      Since area is length times length, the conversion factor must also be squared: $1 \text{ m}^2 = (100 \text{ cm})^2 = 10{,}000 \text{ cm}^2$. So $2 \text{ m}^2 = 2 \times 10{,}000 = 20{,}000 \text{ cm}^2$.
+    approved: true
+  - id: q-physics-units-and-measurements-0013
+    type: simple-quantitative
+    difficulty: exam
+    stem: |
+      Convert 3 cubic meters ($m^3$) to cubic centimeters ($cm^3$).
+    choices:
+      - text: 3,000,000 cm^3
+        correct: true
+      - text: 300 cm^3
+      - text: 30,000 cm^3
+      - text: 300,000 cm^3
+    explanation: |
+      Since volume is length cubed, the conversion factor must also be cubed: $1 \text{ m}^3 = (100 \text{ cm})^3 = 1{,}000{,}000 \text{ cm}^3$. So $3 \text{ m}^3 = 3 \times 1{,}000{,}000 = 3{,}000{,}000 \text{ cm}^3$.
+    approved: true
+  - id: q-physics-units-and-measurements-0014
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      While solving a problem for speed, a student's final answer comes out with units of seconds per meter (s/m) instead of the expected meters per second (m/s). What does this most likely indicate?
+    choices:
+      - text: A conversion factor was likely set up backwards (upside down) somewhere in the calculation.
+        correct: true
+      - text: The student's numeric answer is definitely still correct, since units do not affect correctness.
+      - text: Speed can be correctly expressed in either m/s or s/m interchangeably.
+      - text: The formula for speed does not actually involve units at all.
+    explanation: |
+      Tracking units throughout a calculation is a built-in error check. Ending up with the inverted unit (s/m instead of m/s) is a strong signal that a conversion factor was flipped upside down somewhere along the way.
+    approved: true
