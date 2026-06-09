@@ -75,6 +75,13 @@ questions:
   `2, 3, 1`, or `18 neutrons` are already safe because they contain a
   non-digit character that forces YAML to treat them as a string — only a
   choice that is *purely* digits needs the explicit quotes.
+  **Also quote a choice's `text` if it contains a colon followed by a space**
+  (`: `) anywhere in the sentence — e.g. a choice explaining "X states the
+  opposite: Y" — since unquoted YAML reads `key: value` as a nested mapping
+  and the importer fails with "Nested mappings are not allowed" (found
+  authoring Fluid Mechanics). Wrap the whole value in double quotes
+  (escaping any internal `"` as `\"`) whenever a choice reads naturally as
+  "clause: clause" — it's easiest to just quote it rather than rephrase.
 - **`figure`** — omit entirely for figure-free questions (the default for
   most Science, Language, and logical-verbal Reasoning items). Set to a short
   kebab-case slug (e.g. `cell-diagram-01`) when the question needs an image
