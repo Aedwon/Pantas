@@ -1,0 +1,220 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: acids-bases-ph
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-chemistry-acids-bases-ph-0001
+    type: classify
+    difficulty: easy
+    stem: |
+      A solution has a pH of 2. Is this solution acidic, neutral, or basic?
+    choices:
+      - text: Acidic
+        correct: true
+      - text: Neutral
+      - text: Basic
+      - text: Cannot be determined from pH alone
+    explanation: |
+      A pH below 7 is acidic. Since 2 is well below 7, this solution is acidic.
+    approved: true
+  - id: q-chemistry-acids-bases-ph-0002
+    type: classify
+    difficulty: easy
+    stem: |
+      A solution has a pH of exactly 7. Is this solution acidic, neutral, or basic?
+    choices:
+      - text: Neutral
+        correct: true
+      - text: Acidic
+      - text: Basic
+      - text: Cannot be determined from pH alone
+    explanation: |
+      A pH of exactly 7 is neutral, like pure water.
+    approved: true
+  - id: q-chemistry-acids-bases-ph-0003
+    type: classify
+    difficulty: easy
+    stem: |
+      A solution has a pH of 11. Is this solution acidic, neutral, or basic?
+    choices:
+      - text: Basic
+        correct: true
+      - text: Acidic
+      - text: Neutral
+      - text: Cannot be determined from pH alone
+    explanation: |
+      A pH above 7 is basic (alkaline). Since 11 is well above 7, this solution is basic.
+    approved: true
+  - id: q-chemistry-acids-bases-ph-0004
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      Solution A has pH 3. Solution B has pH 5. Which is more acidic, and by what factor?
+    choices:
+      - text: Solution A is 100 times more acidic than Solution B.
+        correct: true
+      - text: Solution B is 100 times more acidic than Solution A.
+      - text: Solution A is 2 times more acidic than Solution B.
+      - text: Both solutions are equally acidic.
+    explanation: |
+      Lower pH means more acidic, so Solution A (pH 3) is more acidic. The difference is 2 whole steps, and each step is a factor of 10, so $10 \times 10 = 100$ times more acidic.
+    approved: true
+  - id: q-chemistry-acids-bases-ph-0005
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      Solution C has pH 6. Solution D has pH 9. Which is more acidic, and by what factor?
+    choices:
+      - text: Solution C is 1,000 times more acidic than Solution D.
+        correct: true
+      - text: Solution D is 1,000 times more acidic than Solution C.
+      - text: Solution C is 3 times more acidic than Solution D.
+      - text: Both solutions are equally acidic.
+    explanation: |
+      Lower pH means more acidic, so Solution C (pH 6) is more acidic. The difference is 3 whole steps, so $10 \times 10 \times 10 = 1{,}000$ times more acidic.
+    approved: true
+  - id: q-chemistry-acids-bases-ph-0006
+    type: classify
+    difficulty: medium
+    stem: |
+      Acid X completely breaks apart into ions when dissolved in water, with essentially none of the original molecule remaining. Acid Y only partially breaks apart, with most of it remaining as the original molecule. Classify each.
+    choices:
+      - text: Acid X is strong; Acid Y is weak.
+        correct: true
+      - text: Acid X is weak; Acid Y is strong.
+      - text: Both acids are strong.
+      - text: Both acids are weak.
+    explanation: |
+      A strong acid completely dissociates into ions, matching Acid X. A weak acid only partially dissociates, matching Acid Y.
+    approved: true
+  - id: q-chemistry-acids-bases-ph-0007
+    type: identify
+    difficulty: easy
+    stem: |
+      Under the Arrhenius definition, what does an acid produce when dissolved in water?
+    choices:
+      - text: Hydrogen ions (H+)
+        correct: true
+      - text: Hydroxide ions (OH-)
+      - text: Salt directly
+      - text: Pure water only
+    explanation: |
+      The Arrhenius definition says an acid produces hydrogen ions ($H^+$) when dissolved in water.
+    approved: true
+  - id: q-chemistry-acids-bases-ph-0008
+    type: identify
+    difficulty: easy
+    stem: |
+      Under the Arrhenius definition, what does a base produce when dissolved in water?
+    choices:
+      - text: Hydroxide ions (OH-)
+        correct: true
+      - text: Hydrogen ions (H+)
+      - text: Salt directly
+      - text: Carbon dioxide
+    explanation: |
+      The Arrhenius definition says a base produces hydroxide ions ($OH^-$) when dissolved in water.
+    approved: true
+  - id: q-chemistry-acids-bases-ph-0009
+    type: identify
+    difficulty: medium
+    stem: |
+      Under the Brønsted-Lowry definition, which is broader than the Arrhenius definition, what is an acid?
+    choices:
+      - text: A proton (H+) donor
+        correct: true
+      - text: A proton (H+) acceptor
+      - text: A substance that only exists in water
+      - text: A substance with pH exactly 7
+    explanation: |
+      The Brønsted-Lowry definition describes an acid as a proton donor and a base as a proton acceptor — broader than the Arrhenius definition since it applies beyond just water.
+    approved: true
+  - id: q-chemistry-acids-bases-ph-0010
+    type: classify
+    difficulty: hard
+    stem: |
+      A student says a solution with pH 2 is "less acidic" than a solution with pH 5, reasoning that 2 is a smaller number. Is this correct?
+    choices:
+      - text: No — lower pH numbers mean more acidic, so pH 2 is actually far more acidic than pH 5.
+        correct: true
+      - text: Yes — smaller pH numbers always mean less acidic.
+      - text: No — but only because pH 2 and pH 5 are actually the same acidity.
+      - text: Yes — pH works the same as ordinary counting, where smaller means less.
+    explanation: |
+      The pH scale runs in the opposite direction from everyday intuition: lower numbers mean more acidic (more $H^+$ ions), not less.
+    approved: true
+  - id: q-chemistry-acids-bases-ph-0011
+    type: classify
+    difficulty: hard
+    stem: |
+      A student calculates the difference between pH 4 and pH 6 as "twice as acidic," treating the two-unit gap as a simple doubling. Is this correct?
+    choices:
+      - text: No — the pH scale is logarithmic, so a 2-unit difference means 100 times more acidic, not twice.
+        correct: true
+      - text: Yes — a 2-unit pH difference always means exactly twice as acidic.
+      - text: No — a 2-unit pH difference actually means half as acidic.
+      - text: Yes — pH differences are always simple linear differences.
+    explanation: |
+      Each whole pH step represents a ten-times change in acidity. A 2-step difference means $10 \times 10 = 100$ times more acidic, not a simple doubling.
+    approved: true
+  - id: q-chemistry-acids-bases-ph-0012
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes that a "strong" acid must also be a "concentrated" (large amount of) acid. Is this assumption correct?
+    choices:
+      - text: No — "strong" describes how completely an acid dissociates into ions, while "concentrated" describes how much is dissolved; these are different properties.
+        correct: true
+      - text: Yes — "strong" and "concentrated" always mean exactly the same thing.
+      - text: No — "strong" only applies to bases, never to acids.
+      - text: Yes — a strong acid must always be present in a large amount.
+    explanation: |
+      A dilute solution of a strong acid (small amount, but fully dissociating) is a different situation from a concentrated solution of a weak acid (large amount, but only partially dissociating). "Strong" and "concentrated" measure different things.
+    approved: true
+  - id: q-chemistry-acids-bases-ph-0013
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes that every reaction between an acid and a base must produce a final solution with exactly pH 7. Is this assumption correct?
+    choices:
+      - text: No — neutralization always produces salt and water, but the resulting salt solution is not guaranteed to have exactly pH 7.
+        correct: true
+      - text: Yes — every acid-base reaction always results in exactly pH 7.
+      - text: No — acid-base reactions never produce water.
+      - text: Yes — "neutralization" specifically guarantees a final pH of 7 in every case.
+    explanation: |
+      "Neutralization" refers to the $H^+$ and $OH^-$ combining to form water, not a guarantee that the final mixed solution's pH lands exactly at 7 — some resulting salts can make the solution slightly acidic or slightly basic.
+    approved: true
+  - id: q-chemistry-acids-bases-ph-0014
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      Hydrochloric acid ($HCl$) reacts with sodium hydroxide ($NaOH$), producing sodium chloride ($NaCl$) and water. Why is this classified as a neutralization reaction?
+    choices:
+      - text: The acid's H+ combines with the base's OH- to form water, while the remaining ions form a salt, matching the pattern acid + base -> salt + water.
+        correct: true
+      - text: Because both HCl and NaOH have exactly pH 7 before reacting.
+      - text: Because sodium chloride is always a neutral, harmless substance.
+      - text: Because no ions are involved in this reaction at all.
+    explanation: |
+      $HCl$ is an acid, producing $H^+$; $NaOH$ is a base, producing $OH^-$. Their $H^+$ and $OH^-$ combine to form water, while the leftover $Na^+$ and $Cl^-$ form the salt sodium chloride — exactly the acid + base → salt + water pattern.
+    approved: true
+  - id: q-chemistry-acids-bases-ph-0015
+    type: simple-quantitative
+    difficulty: exam
+    stem: |
+      Solution E has pH 2. Solution F has pH 8. Which is more acidic, and by what factor?
+    choices:
+      - text: Solution E is 1,000,000 times more acidic than Solution F.
+        correct: true
+      - text: Solution F is 1,000,000 times more acidic than Solution E.
+      - text: Solution E is 6 times more acidic than Solution F.
+      - text: Both solutions are equally acidic.
+    explanation: |
+      Lower pH means more acidic, so Solution E (pH 2) is more acidic. The difference is 6 whole steps, so $10^6 = 1{,}000{,}000$ times more acidic.
+    approved: true
