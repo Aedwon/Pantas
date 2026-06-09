@@ -1,0 +1,206 @@
+meta:
+  subject: science
+  topic: physics
+  subtopic: gravity-and-keplers-laws
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-physics-gravity-and-keplers-laws-0001
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      Two objects are moved to three times their original distance apart. By what factor does the gravitational force between them change?
+    choices:
+      - text: It becomes 1/9 of the original force.
+        correct: true
+      - text: It becomes 1/3 of the original force.
+      - text: It becomes 3 times the original force.
+      - text: It stays exactly the same.
+    explanation: |
+      Gravity follows an inverse-square law: tripling the distance divides the force by $3^2 = 9$.
+    approved: true
+  - id: q-physics-gravity-and-keplers-laws-0002
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      Two objects are moved to twice their original distance apart. By what factor does the gravitational force between them change?
+    choices:
+      - text: It becomes 1/4 of the original force.
+        correct: true
+      - text: It becomes 1/2 of the original force.
+      - text: It becomes 2 times the original force.
+      - text: It stays exactly the same.
+    explanation: |
+      Gravity follows an inverse-square law: doubling the distance divides the force by $2^2 = 4$.
+    approved: true
+  - id: q-physics-gravity-and-keplers-laws-0003
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      Two objects are moved to four times their original distance apart. By what factor does the gravitational force between them change?
+    choices:
+      - text: It becomes 1/16 of the original force.
+        correct: true
+      - text: It becomes 1/4 of the original force.
+      - text: It becomes 1/8 of the original force.
+      - text: It becomes 4 times the original force.
+    explanation: |
+      Gravity follows an inverse-square law: increasing the distance 4 times divides the force by $4^2 = 16$.
+    approved: true
+  - id: q-physics-gravity-and-keplers-laws-0004
+    type: identify
+    difficulty: easy
+    stem: |
+      Which of Kepler's laws states that planets orbit the Sun in elliptical paths, with the Sun at one focus?
+    choices:
+      - text: Kepler's First Law (Law of Ellipses)
+        correct: true
+      - text: Kepler's Second Law (Law of Equal Areas)
+      - text: Kepler's Third Law (Law of Harmonies)
+      - text: Newton's Law of Universal Gravitation
+    explanation: |
+      Kepler's First Law states that orbits are ellipses, not perfect circles, with the Sun at one focus rather than the center.
+    approved: true
+  - id: q-physics-gravity-and-keplers-laws-0005
+    type: identify
+    difficulty: easy
+    stem: |
+      Which of Kepler's laws states that a line connecting a planet to the Sun sweeps out equal areas in equal time intervals?
+    choices:
+      - text: Kepler's Second Law (Law of Equal Areas)
+        correct: true
+      - text: Kepler's First Law (Law of Ellipses)
+      - text: Kepler's Third Law (Law of Harmonies)
+      - text: Newton's Law of Universal Gravitation
+    explanation: |
+      Kepler's Second Law describes equal areas swept in equal times, which is why planets move faster near the Sun and slower far from it.
+    approved: true
+  - id: q-physics-gravity-and-keplers-laws-0006
+    type: identify
+    difficulty: easy
+    stem: |
+      Which of Kepler's laws relates the square of a planet's orbital period to the cube of its average distance from the Sun?
+    choices:
+      - text: Kepler's Third Law (Law of Harmonies)
+        correct: true
+      - text: Kepler's First Law (Law of Ellipses)
+      - text: Kepler's Second Law (Law of Equal Areas)
+      - text: Newton's Law of Universal Gravitation
+    explanation: |
+      Kepler's Third Law states $T^2 \propto r^3$: period squared is proportional to distance cubed.
+    approved: true
+  - id: q-physics-gravity-and-keplers-laws-0007
+    type: classify
+    difficulty: medium
+    stem: |
+      A planet is at perihelion (closest to the Sun) at one point in its orbit, and at aphelion (farthest from the Sun) at another. At which point does the planet move faster?
+    choices:
+      - text: Perihelion, since a planet moves faster when closer to the Sun.
+        correct: true
+      - text: Aphelion, since a planet moves faster when farther from the Sun.
+      - text: The planet moves at the same speed at both points.
+      - text: Speed cannot be compared between these two points.
+    explanation: |
+      By Kepler's Second Law, to sweep equal areas in equal times, a planet must travel faster when close to the Sun (perihelion) and slower when far away (aphelion).
+    approved: true
+  - id: q-physics-gravity-and-keplers-laws-0008
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      Planet A's orbital period is 3 times longer than Planet B's period. Using Kepler's Third Law, by what factor is Planet A's distance cubed greater than Planet B's distance cubed?
+    choices:
+      - text: 9 times greater
+        correct: true
+      - text: 3 times greater
+      - text: 27 times greater
+      - text: The same, since distance is unrelated to period.
+    explanation: |
+      Since $T^2 \propto r^3$, if Planet A's period is 3 times Planet B's, then period squared is $3^2=9$ times greater, meaning distance cubed must also be 9 times greater.
+    approved: true
+  - id: q-physics-gravity-and-keplers-laws-0009
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes tripling the distance between two masses divides the gravitational force between them by 3. Is this correct?
+    choices:
+      - text: No — gravity is an inverse-square law, so tripling the distance divides the force by $3^2=9$, not 3.
+        correct: true
+      - text: Yes — force is inversely proportional to distance directly, not distance squared.
+      - text: No — tripling the distance actually multiplies the force by 3.
+      - text: Yes — but only for very large masses.
+    explanation: |
+      Newton's law of gravitation has distance squared in the denominator. Skipping the squaring step and dividing by the plain distance factor (3 instead of 9) is the most common error with this law.
+    approved: true
+  - id: q-physics-gravity-and-keplers-laws-0010
+    type: classify
+    difficulty: hard
+    stem: |
+      A student believes planetary orbits are perfect circles with the Sun at the exact center. Is this correct?
+    choices:
+      - text: No — Kepler's First Law states orbits are ellipses, with the Sun at one focus, not the exact center of a circle.
+        correct: true
+      - text: Yes — all planetary orbits are perfect circles.
+      - text: No — but only because the Sun is not actually involved in planetary orbits.
+      - text: Yes — Kepler's First Law confirms circular orbits.
+    explanation: |
+      While some orbits are nearly circular, the technically correct shape described by Kepler's First Law is an ellipse, with the Sun positioned at one focus rather than the exact center.
+    approved: true
+  - id: q-physics-gravity-and-keplers-laws-0011
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes a planet moves at the same constant speed throughout its entire elliptical orbit. Is this correct?
+    choices:
+      - text: No — Kepler's Second Law shows orbital speed changes throughout an elliptical orbit, faster near the Sun and slower far away.
+        correct: true
+      - text: Yes — all planets move at one constant speed throughout their orbit.
+      - text: No — but only for orbits that are perfect circles.
+      - text: Yes — Kepler's laws do not address orbital speed at all.
+    explanation: |
+      Only a perfectly circular orbit would have constant speed. Real elliptical orbits have varying speed, as described by Kepler's Second Law.
+    approved: true
+  - id: q-physics-gravity-and-keplers-laws-0012
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes Kepler's Third Law means a planet's period is directly proportional to its distance (not involving any exponents). Is this correct?
+    choices:
+      - text: No — Kepler's Third Law relates period squared to distance cubed ($T^2 \propto r^3$), not a simple direct proportion.
+        correct: true
+      - text: Yes — period and distance are directly, simply proportional.
+      - text: No — Kepler's Third Law actually relates period cubed to distance squared.
+      - text: Yes — Kepler's Third Law has no exponents involved.
+    explanation: |
+      Ignoring the actual exponents (period squared, distance cubed) and treating the relationship as a simple direct proportion leads to significantly wrong comparisons, especially for orbits with very different periods.
+    approved: true
+  - id: q-physics-gravity-and-keplers-laws-0013
+    type: compare-contrast
+    difficulty: medium
+    stem: |
+      How do Kepler's contribution and Newton's contribution to understanding planetary motion relate to each other?
+    choices:
+      - text: Kepler discovered the observed pattern of how planets move; Newton later explained the underlying physical cause (gravitation) behind that pattern.
+        correct: true
+      - text: Newton discovered the pattern first, and Kepler later explained the physical cause behind it.
+      - text: Kepler and Newton discovered completely unrelated, separate laws about planetary motion.
+      - text: Newton's laws replaced and disproved Kepler's laws entirely.
+    explanation: |
+      Kepler's three laws were based on careful observation, describing how planets move. Newton later showed that all three laws follow naturally from his law of universal gravitation combined with the laws of motion.
+    approved: true
+  - id: q-physics-gravity-and-keplers-laws-0014
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      The distance between two masses is halved. By what factor does the gravitational force between them change?
+    choices:
+      - text: It becomes 4 times the original force.
+        correct: true
+      - text: It becomes 2 times the original force.
+      - text: It becomes 1/2 of the original force.
+      - text: It becomes 1/4 of the original force.
+    explanation: |
+      Halving the distance means the denominator $r^2$ becomes $(1/2)^2 = 1/4$ of its original value, so the force becomes $4$ times larger (dividing by a smaller number gives a bigger result).
+    approved: true
