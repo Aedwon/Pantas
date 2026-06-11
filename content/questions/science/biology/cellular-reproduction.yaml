@@ -1,0 +1,224 @@
+meta:
+  subject: science
+  topic: biology
+  subtopic: cellular-reproduction
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-biology-cellular-reproduction-0001
+    type: classify
+    difficulty: medium
+    stem: |
+      A skin cell divides to repair a small cut, producing two new skin cells that are genetically identical to the original. Is this mitosis or meiosis?
+    choices:
+      - text: Mitosis
+        correct: true
+      - text: Meiosis
+      - text: Both processes equally
+      - text: Neither — this is not a form of cell division
+    explanation: |
+      Producing two genetically identical daughter cells for growth or repair is exactly what mitosis does.
+    approved: true
+  - id: q-biology-cellular-reproduction-0002
+    type: classify
+    difficulty: medium
+    stem: |
+      A reproductive organ produces sperm cells for sexual reproduction. Is this process mitosis or meiosis?
+    choices:
+      - text: Meiosis
+        correct: true
+      - text: Mitosis
+      - text: Both processes equally
+      - text: Neither — sperm cells are not produced through cell division
+    explanation: |
+      Meiosis is used specifically to make sex cells (sperm and egg cells) for sexual reproduction.
+    approved: true
+  - id: q-biology-cellular-reproduction-0003
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A human cell with 46 chromosomes undergoes meiosis. How many daughter cells result, and how many chromosomes does each have?
+    choices:
+      - text: 4 daughter cells, each with 23 chromosomes
+        correct: true
+      - text: 2 daughter cells, each with 46 chromosomes
+      - text: 4 daughter cells, each with 46 chromosomes
+      - text: 2 daughter cells, each with 23 chromosomes
+    explanation: |
+      Meiosis always produces 4 daughter cells, each with half the original chromosome number: $\dfrac{46}{2} = 23$.
+    approved: true
+  - id: q-biology-cellular-reproduction-0004
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A cell with 20 chromosomes undergoes mitosis. How many daughter cells result, and how many chromosomes does each have?
+    choices:
+      - text: 2 daughter cells, each with 20 chromosomes
+        correct: true
+      - text: 4 daughter cells, each with 10 chromosomes
+      - text: 2 daughter cells, each with 10 chromosomes
+      - text: 4 daughter cells, each with 20 chromosomes
+    explanation: |
+      Mitosis always produces 2 daughter cells, each with the same chromosome number as the original cell — no halving occurs.
+    approved: true
+  - id: q-biology-cellular-reproduction-0005
+    type: identify
+    difficulty: easy
+    stem: |
+      During which phase of mitosis do chromosomes line up along the middle of the cell?
+    choices:
+      - text: Metaphase
+        correct: true
+      - text: Prophase
+      - text: Anaphase
+      - text: Telophase
+    explanation: |
+      Metaphase is defined by chromosomes lining up along the cell's center, attached to spindle fibers from opposite sides.
+    approved: true
+  - id: q-biology-cellular-reproduction-0006
+    type: identify
+    difficulty: easy
+    stem: |
+      During which phase of mitosis does the copied DNA condense into visible chromosomes, and the nuclear membrane breaks down?
+    choices:
+      - text: Prophase
+        correct: true
+      - text: Metaphase
+      - text: Anaphase
+      - text: Telophase
+    explanation: |
+      Prophase is defined by DNA condensing into visible chromosomes and the breakdown of the nuclear membrane.
+    approved: true
+  - id: q-biology-cellular-reproduction-0007
+    type: identify
+    difficulty: easy
+    stem: |
+      During which phase of mitosis do the sister chromatids separate and get pulled to opposite ends of the cell?
+    choices:
+      - text: Anaphase
+        correct: true
+      - text: Prophase
+      - text: Metaphase
+      - text: Telophase
+    explanation: |
+      Anaphase is defined by the separation of sister chromatids, pulled toward opposite ends of the cell.
+    approved: true
+  - id: q-biology-cellular-reproduction-0008
+    type: identify
+    difficulty: easy
+    stem: |
+      During which phase of mitosis do two new nuclei form, one at each end of the cell, before the cell splits in two?
+    choices:
+      - text: Telophase
+        correct: true
+      - text: Prophase
+      - text: Metaphase
+      - text: Anaphase
+    explanation: |
+      Telophase is defined by the formation of two new nuclei, followed by the cell splitting into two separate cells.
+    approved: true
+  - id: q-biology-cellular-reproduction-0009
+    type: classify
+    difficulty: hard
+    stem: |
+      A student says mitosis produces four daughter cells, since it is a form of cell division like meiosis. Is this correct?
+    choices:
+      - text: No — mitosis produces two daughter cells; meiosis is the process that produces four.
+        correct: true
+      - text: Yes — both mitosis and meiosis produce four daughter cells.
+      - text: No — mitosis actually produces one daughter cell.
+      - text: Yes — mitosis always produces more daughter cells than meiosis.
+    explanation: |
+      Mitosis produces two identical daughter cells. Meiosis, used to make sex cells, produces four. This is one of the most commonly swapped facts between the two processes.
+    approved: true
+  - id: q-biology-cellular-reproduction-0010
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes meiosis, like mitosis, produces daughter cells that are genetically identical to each other. Is this correct?
+    choices:
+      - text: No — meiosis shuffles genetic material between chromosome pairs, so its four daughter cells are genetically different from each other and from the parent cell.
+        correct: true
+      - text: Yes — meiosis always produces identical daughter cells, just like mitosis.
+      - text: No — but only because meiosis produces no daughter cells at all.
+      - text: Yes — genetic differences only appear after fertilization, never during meiosis itself.
+    explanation: |
+      Unlike mitosis, meiosis includes genetic shuffling between chromosome pairs, which is a major source of variation — the four resulting cells are not identical to each other or to the parent.
+    approved: true
+  - id: q-biology-cellular-reproduction-0011
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes that when a sperm cell and egg cell combine during fertilization, the offspring ends up with double the normal chromosome number. Is this correct?
+    choices:
+      - text: No — each sex cell already carries half the normal chromosome number, so combining two returns the total to the normal full number, not double.
+        correct: true
+      - text: Yes — fertilization always doubles the chromosome number beyond the normal count.
+      - text: No — fertilization actually results in zero chromosomes.
+      - text: Yes — this is why each new generation has more chromosomes than the last.
+    explanation: |
+      Meiosis halves the chromosome number in each sex cell specifically so that combining a sperm and egg cell restores the normal full chromosome count, not doubles it.
+    approved: true
+  - id: q-biology-cellular-reproduction-0012
+    type: classify
+    difficulty: hard
+    stem: |
+      A description of a dividing cell jumps directly from chromosomes condensing (prophase) to two new nuclei forming (telophase), with no mention of the chromosomes lining up or separating. Does this correctly describe mitosis?
+    choices:
+      - text: "No — a valid description of mitosis must include all four phases, in order: prophase, metaphase, anaphase, and telophase."
+        correct: true
+      - text: Yes — mitosis can skip phases as long as the cell still divides in the end.
+      - text: No — but only because telophase must come before prophase.
+      - text: Yes — metaphase and anaphase are optional steps in mitosis.
+    explanation: |
+      All four phases of mitosis must occur in order. A description that skips metaphase and anaphase is missing required steps and does not correctly describe the full process.
+    approved: true
+  - id: q-biology-cellular-reproduction-0013
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      Why must sex cells (sperm and egg) have half the normal chromosome number, rather than the full number like other body cells?
+    choices:
+      - text: So that when a sperm cell and egg cell combine during fertilization, their chromosome counts add back up to the normal full number.
+        correct: true
+      - text: So that the resulting offspring will have fewer chromosomes than either parent.
+      - text: So that sex cells can divide faster than regular body cells.
+      - text: There is no specific reason; it is simply a coincidence of biology.
+    explanation: |
+      If sex cells carried the full chromosome number, offspring would end up with double the normal amount after fertilization. Halving the number in each sex cell keeps the combined total correct.
+    approved: true
+  - id: q-biology-cellular-reproduction-0014
+    type: process-ordering
+    difficulty: medium
+    stem: |
+      Put the four phases of mitosis in the correct order.
+      1. Anaphase
+      2. Telophase
+      3. Prophase
+      4. Metaphase
+    choices:
+      - text: 3, 4, 1, 2
+        correct: true
+      - text: 3, 1, 4, 2
+      - text: 4, 3, 1, 2
+      - text: 3, 4, 2, 1
+    explanation: |
+      The correct order is Prophase, Metaphase, Anaphase, Telophase (remembered as "PMAT: Prepare, Middle, Apart, Two").
+    approved: true
+  - id: q-biology-cellular-reproduction-0015
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      A sperm cell with 23 chromosomes fertilizes an egg cell with 23 chromosomes. How many chromosomes does the resulting offspring have?
+    choices:
+      - text: "46"
+        correct: true
+      - text: "23"
+      - text: "92"
+      - text: "11.5"
+    explanation: |
+      Fertilization combines the chromosomes from both sex cells: $23 + 23 = 46$, restoring the normal full chromosome number.
+    approved: true
