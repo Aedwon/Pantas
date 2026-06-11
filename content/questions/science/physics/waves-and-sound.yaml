@@ -1,0 +1,220 @@
+meta:
+  subject: science
+  topic: physics
+  subtopic: waves-and-sound
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-physics-waves-and-sound-0001
+    type: simple-quantitative
+    difficulty: easy
+    stem: |
+      A wave has a frequency of 5 Hz and a wavelength of 2 m. Find its speed. (Use $v = f\lambda$.)
+    choices:
+      - text: 10 m/s
+        correct: true
+      - text: 7 m/s
+      - text: 2.5 m/s
+      - text: 0.4 m/s
+    explanation: |
+      $v = f\lambda = (5)(2) = 10$ m/s.
+    approved: true
+  - id: q-physics-waves-and-sound-0002
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A sound wave travels at 340 m/s with a frequency of 170 Hz. Find its wavelength.
+    choices:
+      - text: 2 m
+        correct: true
+      - text: 0.5 m
+      - text: 510 m
+      - text: 170 m
+    explanation: |
+      $\lambda = \dfrac{v}{f} = \dfrac{340}{170} = 2$ m.
+    approved: true
+  - id: q-physics-waves-and-sound-0003
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A wave travels at 300 m/s with a wavelength of 5 m. Find its frequency.
+    choices:
+      - text: 60 Hz
+        correct: true
+      - text: 1500 Hz
+      - text: 295 Hz
+      - text: 6 Hz
+    explanation: |
+      $f = \dfrac{v}{\lambda} = \dfrac{300}{5} = 60$ Hz.
+    approved: true
+  - id: q-physics-waves-and-sound-0004
+    type: classify
+    difficulty: easy
+    stem: |
+      Sound travels through air to reach your ears. Is sound a mechanical wave or an electromagnetic wave?
+    choices:
+      - text: Mechanical, since it requires a medium (like air) to travel through.
+        correct: true
+      - text: Electromagnetic, since it can travel through a vacuum.
+      - text: Neither — sound is not a wave at all.
+      - text: Both, depending on the loudness.
+    explanation: |
+      Sound requires a physical medium like air to travel — it cannot travel through a vacuum, making it a mechanical wave.
+    approved: true
+  - id: q-physics-waves-and-sound-0005
+    type: classify
+    difficulty: easy
+    stem: |
+      Light travels from the Sun through the vacuum of space to reach Earth. Is light a mechanical wave or an electromagnetic wave?
+    choices:
+      - text: Electromagnetic, since it requires no medium and can travel through a vacuum.
+        correct: true
+      - text: Mechanical, since it requires a medium like air.
+      - text: Neither — light is not a wave at all.
+      - text: Both, depending on the distance traveled.
+    explanation: |
+      Light travels through empty space with no medium needed, making it an electromagnetic wave.
+    approved: true
+  - id: q-physics-waves-and-sound-0006
+    type: identify
+    difficulty: medium
+    stem: |
+      What is the term for the distance between two consecutive identical points on a wave, such as crest to crest?
+    choices:
+      - text: Wavelength
+        correct: true
+      - text: Frequency
+      - text: Amplitude
+      - text: Wave speed
+    explanation: |
+      Wavelength is the distance between two consecutive identical points on a wave, like from one crest to the next.
+    approved: true
+  - id: q-physics-waves-and-sound-0007
+    type: identify
+    difficulty: medium
+    stem: |
+      In a wave where particles move perpendicular to the wave's direction of travel, what type of wave is this?
+    choices:
+      - text: Transverse wave
+        correct: true
+      - text: Longitudinal wave
+      - text: Mechanical wave
+      - text: Electromagnetic wave
+    explanation: |
+      A transverse wave has particles moving perpendicular to the direction the wave travels, like light or a shaken rope.
+    approved: true
+  - id: q-physics-waves-and-sound-0008
+    type: identify
+    difficulty: medium
+    stem: |
+      In a wave where particles move back and forth parallel to the wave's direction of travel, creating compressions and stretches, what type of wave is this?
+    choices:
+      - text: Longitudinal wave
+        correct: true
+      - text: Transverse wave
+      - text: Electromagnetic wave
+      - text: Standing wave
+    explanation: |
+      A longitudinal wave has particles moving parallel to the wave's direction, creating compressions and stretches — this is how sound travels.
+    approved: true
+  - id: q-physics-waves-and-sound-0009
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      A sound source moves toward a stationary observer. What happens to the observed frequency (pitch)?
+    choices:
+      - text: It increases (higher pitch), since the source moving toward the observer compresses the wave crests closer together.
+        correct: true
+      - text: It decreases (lower pitch), since the source is getting closer.
+      - text: It stays exactly the same, since the source's actual frequency has not changed.
+      - text: It becomes impossible to hear.
+    explanation: |
+      This is the Doppler effect: a source moving toward an observer compresses the wave crests reaching them, increasing the observed frequency and pitch.
+    approved: true
+  - id: q-physics-waves-and-sound-0010
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      A sound source moves away from a stationary observer. What happens to the observed frequency (pitch)?
+    choices:
+      - text: It decreases (lower pitch), since the source moving away stretches out the wave crests reaching the observer.
+        correct: true
+      - text: It increases (higher pitch), since the source is getting farther.
+      - text: It stays exactly the same, since the source's actual frequency has not changed.
+      - text: It becomes impossible to hear.
+    explanation: |
+      This is the Doppler effect: a source moving away from an observer stretches out the wave crests reaching them, decreasing the observed frequency and pitch.
+    approved: true
+  - id: q-physics-waves-and-sound-0011
+    type: classify
+    difficulty: hard
+    stem: |
+      A movie shows an explosion producing a loud sound in the vacuum of outer space. Is this physically realistic?
+    choices:
+      - text: No — sound is a mechanical wave and requires a medium like air; with no matter to vibrate in a vacuum, there would be no sound at all.
+        correct: true
+      - text: Yes — sound can travel through a vacuum just like light.
+      - text: No — but only because explosions cannot happen in space at all.
+      - text: Yes — loud sounds are always audible regardless of the medium.
+    explanation: |
+      Sound requires a physical medium to travel through, unlike electromagnetic waves such as light. With no air (or any matter) in a vacuum, there is nothing to vibrate, so no sound could actually be heard.
+    approved: true
+  - id: q-physics-waves-and-sound-0012
+    type: classify
+    difficulty: hard
+    stem: |
+      A student describes sound waves as transverse waves, since sound is a familiar kind of wave. Is this correct?
+    choices:
+      - text: No — sound waves are longitudinal, with air particles compressing and stretching along the same direction the sound travels, not moving side to side.
+        correct: true
+      - text: Yes — sound waves are transverse, like light waves.
+      - text: No — sound waves are electromagnetic, not transverse or longitudinal.
+      - text: Yes — all mechanical waves are transverse.
+    explanation: |
+      Sound is a longitudinal wave: air particles move back and forth parallel to the direction of travel, creating compressions and stretches, unlike a transverse wave's side-to-side particle motion.
+    approved: true
+  - id: q-physics-waves-and-sound-0013
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes an approaching sound source makes the sound waves travel faster through the air, causing the higher pitch heard. Is this correct?
+    choices:
+      - text: No — the wave's actual speed through the medium stays constant; only the observed frequency changes, due to the wave crests bunching together.
+        correct: true
+      - text: Yes — the Doppler effect works by physically speeding up the sound waves.
+      - text: No — the wave's speed actually decreases as the source approaches.
+      - text: Yes — pitch and wave speed are always the same thing.
+    explanation: |
+      The Doppler effect changes the observed frequency and pitch, not the actual wave speed through the medium. The wave crests simply bunch together (from the source's motion), which is perceived as a higher frequency.
+    approved: true
+  - id: q-physics-waves-and-sound-0014
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes a sound source moving toward an observer results in a lower pitch, reasoning that "closer sounds are usually softer and lower." Is this correct?
+    choices:
+      - text: No — a source moving toward an observer results in a higher observed pitch, not lower, which is why an approaching ambulance siren sounds higher, not lower.
+        correct: true
+      - text: Yes — approaching sources always sound lower in pitch.
+      - text: No — pitch does not change based on relative motion at all.
+      - text: Yes — but only for very quiet sounds.
+    explanation: |
+      Reversing the Doppler direction (assuming approaching means lower pitch) contradicts everyday experience: an ambulance siren clearly rises in pitch as it approaches, not falls.
+    approved: true
+  - id: q-physics-waves-and-sound-0015
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      An ambulance drives past a stationary listener, siren blaring the whole time. Describe the sequence of pitch changes the listener hears, from before the ambulance arrives to after it passes.
+    choices:
+      - text: The pitch sounds higher than the siren's true pitch while approaching, then drops to lower than the true pitch once it has passed and is moving away.
+        correct: true
+      - text: The pitch sounds lower while approaching, then rises higher once it has passed.
+      - text: The pitch stays exactly the same throughout, since the siren's true frequency never changes.
+      - text: The pitch becomes silent right as the ambulance passes, then returns to normal.
+    explanation: |
+      While approaching, the source's motion compresses the sound waves, raising the observed pitch above the siren's true pitch. Once it passes and moves away, the waves stretch out, lowering the observed pitch below the true pitch — the classic Doppler shift pattern.
+    approved: true
