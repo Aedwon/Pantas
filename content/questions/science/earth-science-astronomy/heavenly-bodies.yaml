@@ -1,0 +1,245 @@
+meta:
+  subject: science
+  topic: earth-science-astronomy
+  subtopic: heavenly-bodies
+  exams: [ upcat, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-earth-science-astronomy-heavenly-bodies-0001
+    type: identify
+    difficulty: easy
+    stem: |
+      What is a giant, glowing ball of hot gas that makes its own light and heat through nuclear reactions in its core, such as the Sun?
+    choices:
+      - text: A star
+        correct: true
+      - text: A galaxy
+      - text: An asteroid
+      - text: A comet
+    explanation: |
+      A star is a giant, glowing ball of hot gas that makes its own light and heat through nuclear reactions in its core. The Sun is a star.
+    approved: true
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0002
+    type: identify
+    difficulty: easy
+    stem: |
+      What is the name for a huge collection of billions of stars, gas, dust, and dark matter, all held together by gravity, such as our own Milky Way?
+    choices:
+      - text: A galaxy
+        correct: true
+      - text: A star
+      - text: An asteroid belt
+      - text: A meteoroid
+    explanation: |
+      A galaxy is a huge collection of billions of stars, held together by gravity, along with gas, dust, and dark matter. Our own galaxy is the Milky Way.
+    approved: true
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0003
+    type: identify
+    difficulty: medium
+    stem: |
+      What is a rocky, metallic chunk of rock, smaller than a planet, that orbits the Sun?
+    choices:
+      - text: An asteroid
+        correct: true
+      - text: A comet
+      - text: A meteor
+      - text: A galaxy
+    explanation: |
+      An asteroid is a rocky, metallic chunk of rock, smaller than a planet, that orbits the Sun.
+    approved: true
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0004
+    type: identify
+    difficulty: medium
+    stem: |
+      Most of the asteroids in our solar system are found in the asteroid belt. Where is this belt located?
+    choices:
+      - text: Between the orbits of Mars and Jupiter
+        correct: true
+      - text: Between the orbits of Earth and Mars
+      - text: Beyond the orbit of Neptune
+      - text: Between the Sun and Mercury
+    explanation: |
+      The asteroid belt lies between the orbits of Mars and Jupiter, not between Earth and Mars, and not beyond Neptune.
+    approved: true
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0005
+    type: classify
+    difficulty: hard
+    stem: |
+      A choice places the asteroid belt between the orbits of Earth and Mars. Is this the correct location?
+    choices:
+      - text: No — the asteroid belt is located between the orbits of Mars and Jupiter, not between Earth and Mars.
+        correct: true
+      - text: Yes — the asteroid belt is exactly where Earth and Mars orbit.
+      - text: No — but only because there is no such thing as an asteroid belt.
+      - text: Yes — the asteroid belt and the region beyond Neptune (the Kuiper Belt) are the same location.
+    explanation: |
+      The asteroid belt is anchored firmly between Mars and Jupiter. Some choices incorrectly place it between Earth and Mars, or beyond Neptune — the region beyond Neptune is actually a different region called the Kuiper Belt, home to many comets.
+    approved: true
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0006
+    type: identify
+    difficulty: medium
+    stem: |
+      Which object, sometimes nicknamed a "dirty snowball," is made mostly of ice, frozen gases, and dust, and develops a glowing tail when it nears the Sun?
+    choices:
+      - text: A comet
+        correct: true
+      - text: An asteroid
+      - text: A meteor
+      - text: A star
+    explanation: |
+      A comet is made mostly of ice, frozen gases, and dust, nicknamed a "dirty snowball." Its ice vaporizes near the Sun, forming a glowing tail.
+    approved: true
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0007
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      Why does a comet's tail always point away from the Sun, no matter which direction the comet itself is traveling?
+    choices:
+      - text: Heat and pressure from the Sun turn some of the comet's ice into gas and blow this gas and dust away from the Sun, so the tail's direction depends on the Sun's position, not the comet's motion.
+        correct: true
+      - text: The tail is simply the trail of dust left behind the comet's path, like exhaust from a moving vehicle.
+      - text: Gravity from the Sun pulls the tail directly toward the Sun at all times.
+      - text: The tail forms randomly and has no consistent relationship to the Sun's position.
+    explanation: |
+      The tail forms because heat and pressure from the Sun push gas and dust off the comet, away from the Sun. This means the tail's direction depends on the Sun's position, never on the direction the comet is traveling.
+    approved: true
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0008
+    type: classify
+    difficulty: hard
+    stem: |
+      A comet is moving away from the Sun, back out toward deep space. In which direction does its tail point?
+    choices:
+      - text: Away from the Sun — meaning, in this case, the tail actually points ahead of the comet, leading the way outward, since the tail's direction depends only on the Sun's position.
+        correct: true
+      - text: Toward the Sun, since the tail always trails behind wherever the comet came from.
+      - text: In the same direction the comet is traveling, trailing directly behind it.
+      - text: The comet has no tail at all once it starts moving away from the Sun.
+    explanation: |
+      The tail's direction depends on the Sun's position, never on the comet's direction of travel. Since the comet is moving away from the Sun, its tail (still pointing away from the Sun) ends up leading in front of the comet as it travels outward.
+    approved: true
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0009
+    type: classify
+    difficulty: hard
+    stem: |
+      A description mentions an object with a visible glowing tail as it passes near the Sun. A student classifies this object as an asteroid. Is this correct?
+    choices:
+      - text: No — asteroids are rocky and do not develop tails, since they lack the ice that vaporizes near the Sun; an object with a visible tail is a comet.
+        correct: true
+      - text: Yes — all objects orbiting the Sun develop tails when they pass close by.
+      - text: No — but only because asteroids never pass close to the Sun.
+      - text: Yes — asteroids and comets are simply two different names for the same object.
+    explanation: |
+      A description mentioning a "dirty snowball" or a visible tail describes a comet, not an asteroid. Asteroids are rocky and metallic, and do not develop tails, since they lack the ice that vaporizes near the Sun.
+    approved: true
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0010
+    type: identify
+    difficulty: medium
+    stem: |
+      What is the name for a small chunk of rock or metal traveling through space, too small to be called an asteroid, before it enters Earth's atmosphere?
+    choices:
+      - text: A meteoroid
+        correct: true
+      - text: A meteor
+      - text: A meteorite
+      - text: A comet
+    explanation: |
+      A meteoroid is a small chunk of rock or metal traveling through space, too small to be called an asteroid.
+    approved: true
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0011
+    type: identify
+    difficulty: medium
+    stem: |
+      What do we call a small space rock once it enters Earth's atmosphere and burns up, creating a streak of light known as a "shooting star"?
+    choices:
+      - text: A meteor
+        correct: true
+      - text: A meteoroid
+      - text: A meteorite
+      - text: An asteroid
+    explanation: |
+      A meteor is the name given to the same chunk of rock once it enters Earth's atmosphere and burns up, creating the streak of light known as a "shooting star."
+    approved: true
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0012
+    type: identify
+    difficulty: medium
+    stem: |
+      What do we call a piece of space rock if it survives its trip through Earth's atmosphere and lands on the ground?
+    choices:
+      - text: A meteorite
+        correct: true
+      - text: A meteor
+      - text: A meteoroid
+      - text: An asteroid
+    explanation: |
+      A meteorite is what we call a piece of space rock that survives the trip through the atmosphere and lands on the ground.
+    approved: true
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0013
+    type: process-ordering
+    difficulty: medium
+    stem: |
+      A small rock breaks off from an asteroid and drifts through space, then enters Earth's atmosphere and burns brightly, and finally a fragment lands in a field. Name what this object is called at each of the three stages, in order.
+    choices:
+      - text: Meteoroid, then meteor, then meteorite
+        correct: true
+      - text: Meteor, then meteoroid, then meteorite
+      - text: Meteorite, then meteor, then meteoroid
+      - text: Meteor, then meteorite, then meteoroid
+    explanation: |
+      While drifting through space, it is a meteoroid. While burning and streaking light across the sky, it is a meteor. Once the surviving fragment lands on the ground, it is a meteorite — three names for one object, based on where it is at the time.
+    approved: true
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0014
+    type: classify
+    difficulty: hard
+    stem: |
+      A question describes a rock fragment found sitting inside a museum display case, having landed in a crater years earlier. A student calls this object a "meteor." Is this the correct term?
+    choices:
+      - text: No — an object found lying on the ground or in a museum, after landing, is a meteorite; "meteor" refers only to the bright streak of light seen while it is still burning in the sky.
+        correct: true
+      - text: Yes — "meteor" and "meteorite" both describe the same landed object.
+      - text: No — but only because objects that land on Earth are called asteroids instead.
+      - text: Yes — any space rock is called a meteor regardless of its location.
+    explanation: |
+      These two words differ by only two letters, and test-makers exploit that. If the question describes something found lying in a crater or a museum, it is a meteorite; if it describes a bright streak seen at night, it is a meteor.
+    approved: true
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0015
+    type: identify
+    difficulty: medium
+    stem: |
+      Roughly how often does the most famous comet, Halley's Comet, swing by Earth?
+    choices:
+      - text: Roughly every 76 years
+        correct: true
+      - text: Roughly every 10 years
+      - text: Roughly every 200 years
+      - text: Roughly every 1,000 years
+    explanation: |
+      Halley's Comet, the most famous comet, swings by Earth roughly every 76 years.
+    approved: true
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0016
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      A small rocky fragment breaks off from an object in the asteroid belt and eventually collides with Earth's atmosphere, burning up as a bright streak in the night sky. A large surviving piece is later discovered in the desert. At the exact moment it was burning up and visible in the sky, what was this object correctly called, and what would it be called if a stargazer saw it moments before it entered the atmosphere?
+    choices:
+      - text: While burning and visible in the sky, it was a meteor; moments before entering the atmosphere, while still traveling through space, it would have been called a meteoroid.
+        correct: true
+      - text: While burning and visible in the sky, it was a meteorite; moments before entering the atmosphere, it would have been called a meteor.
+      - text: It was called a meteorite at every stage, from space to sky to ground.
+      - text: While burning and visible in the sky, it was a meteoroid; moments before entering the atmosphere, it would have been called a meteorite.
+    explanation: |
+      The naming follows location: floating in space, it is a meteoroid; burning and streaking light in Earth's sky, it is a meteor; once the surviving fragment lands on the ground, it becomes a meteorite. The same object earns each name only once it reaches that stage.
+    approved: true
