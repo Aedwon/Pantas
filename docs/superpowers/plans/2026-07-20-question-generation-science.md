@@ -120,7 +120,7 @@ Exams for all rows: `[upcat, dlsucet, ustet, dost-sei]`. Figure guidance: mostly
 | [x] | `human-anatomy-physiology` | Human Anatomy and Physiology | `content/questions/science/biology/human-anatomy-physiology.yaml` |
 | [x] | `taxonomy-and-classification` | Taxonomy and Classification (Domains, Kingdoms, Binomial Nomenclature) | `content/questions/science/biology/taxonomy-and-classification.yaml` |
 | [x] | `evolution` | Evolution (Theories of Evolution, Natural Selection, Speciation) | `content/questions/science/biology/evolution.yaml` |
-| [ ] | `ecology` | Ecology | `content/questions/science/biology/ecology.yaml` |
+| [x] | `ecology` | Ecology | `content/questions/science/biology/ecology.yaml` |
 | [ ] | `botany` | Botany (Plant Tissue, Tropisms, Plant Reproduction) | `content/questions/science/biology/botany.yaml` |
 
 ## Manifest — Chemistry (topic slug: `chemistry`)
