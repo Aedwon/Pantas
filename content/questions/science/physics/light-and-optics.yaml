@@ -1,0 +1,220 @@
+meta:
+  subject: science
+  topic: physics
+  subtopic: light-and-optics
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-physics-light-and-optics-0001
+    type: simple-quantitative
+    difficulty: easy
+    stem: |
+      A light ray hits a flat mirror at an angle of incidence of 40° (measured from the normal). Find the angle of reflection.
+    choices:
+      - text: 40°
+        correct: true
+      - text: 50°
+      - text: 80°
+      - text: 20°
+    explanation: |
+      The law of reflection states the angle of reflection equals the angle of incidence, so it is also 40°.
+    approved: true
+  - id: q-physics-light-and-optics-0002
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A light ray hits a flat mirror at an angle of incidence of 55° (measured from the normal). Find the angle of reflection.
+    choices:
+      - text: 55°
+        correct: true
+      - text: 35°
+      - text: 110°
+      - text: 90°
+    explanation: |
+      The law of reflection states the angle of reflection equals the angle of incidence, so it is also 55°.
+    approved: true
+  - id: q-physics-light-and-optics-0003
+    type: classify
+    difficulty: easy
+    stem: |
+      A concave mirror (curving inward, like the inside of a spoon) brings parallel light rays together. Is it converging or diverging?
+    choices:
+      - text: Converging
+        correct: true
+      - text: Diverging
+      - text: Neither — mirrors do not affect light direction.
+      - text: It depends on the color of light.
+    explanation: |
+      Concave mirrors bring parallel light rays together toward a focus point, making them converging mirrors.
+    approved: true
+  - id: q-physics-light-and-optics-0004
+    type: classify
+    difficulty: easy
+    stem: |
+      A convex lens (thicker in the middle) bends light rays together toward a focus point. Is it converging or diverging?
+    choices:
+      - text: Converging
+        correct: true
+      - text: Diverging
+      - text: Neither — lenses do not affect light direction.
+      - text: It depends on the color of light.
+    explanation: |
+      Convex lenses (thicker in the middle) bring light rays together toward a focus point, making them converging lenses.
+    approved: true
+  - id: q-physics-light-and-optics-0005
+    type: classify
+    difficulty: medium
+    stem: |
+      A convex mirror (curving outward, like the back of a spoon) spreads parallel light rays apart. Is it converging or diverging?
+    choices:
+      - text: Diverging
+        correct: true
+      - text: Converging
+      - text: Neither — mirrors do not affect light direction.
+      - text: It depends on the color of light.
+    explanation: |
+      Convex mirrors spread parallel light rays apart, making them diverging mirrors.
+    approved: true
+  - id: q-physics-light-and-optics-0006
+    type: classify
+    difficulty: medium
+    stem: |
+      A concave lens (thinner in the middle) spreads light rays apart, and is used to correct nearsightedness. Is it converging or diverging?
+    choices:
+      - text: Diverging
+        correct: true
+      - text: Converging
+      - text: Neither — lenses do not affect light direction.
+      - text: It depends on the color of light.
+    explanation: |
+      Concave lenses (thinner in the middle) spread light rays apart, making them diverging lenses.
+    approved: true
+  - id: q-physics-light-and-optics-0007
+    type: identify
+    difficulty: medium
+    stem: |
+      What does the law of reflection state?
+    choices:
+      - text: The angle of incidence equals the angle of reflection.
+        correct: true
+      - text: The angle of incidence is always greater than the angle of reflection.
+      - text: Light always bends when it reflects off a surface.
+      - text: Light travels at the same speed in every medium.
+    explanation: |
+      The law of reflection states that the angle at which light hits a surface (angle of incidence) equals the angle at which it bounces off (angle of reflection).
+    approved: true
+  - id: q-physics-light-and-optics-0008
+    type: identify
+    difficulty: medium
+    stem: |
+      What term describes light bending as it passes from one medium into another, like from air into water?
+    choices:
+      - text: Refraction
+        correct: true
+      - text: Reflection
+      - text: Diffraction
+      - text: Convergence
+    explanation: |
+      Refraction is the bending of light as it crosses into a different medium, caused by a change in speed at the boundary.
+    approved: true
+  - id: q-physics-light-and-optics-0009
+    type: process-ordering
+    difficulty: medium
+    stem: |
+      Arrange the following from longest to shortest wavelength: X-rays, radio waves, visible light, gamma rays.
+    choices:
+      - text: Radio waves, visible light, X-rays, gamma rays
+        correct: true
+      - text: Gamma rays, X-rays, visible light, radio waves
+      - text: Visible light, radio waves, gamma rays, X-rays
+      - text: Radio waves, gamma rays, X-rays, visible light
+    explanation: |
+      The full electromagnetic spectrum runs (longest to shortest): radio, microwave, infrared, visible, ultraviolet, X-ray, gamma ray. From this list: radio waves, then visible light, then X-rays, then gamma rays.
+    approved: true
+  - id: q-physics-light-and-optics-0010
+    type: identify
+    difficulty: medium
+    stem: |
+      Within the visible light spectrum, which color has the longest wavelength?
+    choices:
+      - text: Red
+        correct: true
+      - text: Violet
+      - text: Blue
+      - text: Green
+    explanation: |
+      Red has the longest wavelength in the visible spectrum, matching the "r" at the start of the roygbiv mnemonic (ordered longest to shortest).
+    approved: true
+  - id: q-physics-light-and-optics-0011
+    type: identify
+    difficulty: medium
+    stem: |
+      Within the visible light spectrum, which color has the shortest wavelength?
+    choices:
+      - text: Violet
+        correct: true
+      - text: Red
+      - text: Orange
+      - text: Yellow
+    explanation: |
+      Violet has the shortest wavelength in the visible spectrum, matching the "v" at the end of the roygbiv mnemonic (ordered longest to shortest).
+    approved: true
+  - id: q-physics-light-and-optics-0012
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes that since concave mirrors converge light, concave lenses must also converge light. Is this correct?
+    choices:
+      - text: No — the concave/convex rule flips for lenses; concave lenses actually diverge light, while convex lenses converge it.
+        correct: true
+      - text: Yes — concave always means converging, for both mirrors and lenses.
+      - text: No — concave lenses do not affect light at all.
+      - text: Yes — mirrors and lenses always behave identically for the same shape.
+    explanation: |
+      For mirrors, concave converges and convex diverges. For lenses, this pattern reverses: convex lenses converge, and concave lenses diverge. Always check whether the device is a mirror or a lens before applying the rule.
+    approved: true
+  - id: q-physics-light-and-optics-0013
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      Which statement correctly tells apart reflection and refraction?
+    choices:
+      - text: Reflection is light bouncing off a surface, staying in the same medium; refraction is light bending as it passes into a different medium.
+        correct: true
+      - text: Reflection is light bending into a new medium; refraction is light bouncing off a surface.
+      - text: Reflection and refraction are just two different names for the exact same phenomenon.
+      - text: Refraction only happens with mirrors; reflection only happens with lenses.
+    explanation: |
+      Reflection keeps light in the same medium, simply bouncing off a surface. Refraction involves light actually crossing into a different medium and bending due to the change in speed.
+    approved: true
+  - id: q-physics-light-and-optics-0014
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes visible light makes up most of the electromagnetic spectrum, since it is the only part we can see and think about regularly. Is this correct?
+    choices:
+      - text: No — visible light is only a tiny slice of the full electromagnetic spectrum, bordered by infrared and ultraviolet.
+        correct: true
+      - text: Yes — visible light makes up the majority of the electromagnetic spectrum.
+      - text: No — the electromagnetic spectrum consists only of visible light and nothing else.
+      - text: Yes — radio waves and X-rays are actually part of visible light.
+    explanation: |
+      Visible light occupies only a narrow band of the full electromagnetic spectrum. Most electromagnetic radiation — radio waves, microwaves, infrared, ultraviolet, X-rays, and gamma rays — is invisible to human eyes.
+    approved: true
+  - id: q-physics-light-and-optics-0015
+    type: classify
+    difficulty: hard
+    stem: |
+      A student says violet light has a longer wavelength than red light, since violet appears at the "high energy" end people associate with bigger numbers. Is this correct?
+    choices:
+      - text: No — red has the longest wavelength in the visible spectrum, and violet has the shortest.
+        correct: true
+      - text: Yes — violet always has a longer wavelength than red.
+      - text: No — red and violet actually have the exact same wavelength.
+      - text: Yes — wavelength and energy always increase together in the same direction as this student assumes for violet.
+    explanation: |
+      Red has the longest wavelength in visible light, and violet has the shortest — the opposite of what the student assumed. The roygbiv mnemonic lists colors from longest to shortest wavelength.
+    approved: true
