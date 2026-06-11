@@ -1,0 +1,220 @@
+meta:
+  subject: science
+  topic: physics
+  subtopic: electricity-and-magnetism
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-physics-electricity-and-magnetism-0001
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      Two electric charges are moved to twice their original distance apart. By what factor does the force between them change? (Use Coulomb's Law, $F = k\dfrac{q_1q_2}{r^2}$.)
+    choices:
+      - text: It becomes 1/4 of the original force.
+        correct: true
+      - text: It becomes 1/2 of the original force.
+      - text: It becomes 2 times the original force.
+      - text: It stays exactly the same.
+    explanation: |
+      Coulomb's Law is an inverse-square law: doubling the distance divides the force by $2^2 = 4$.
+    approved: true
+  - id: q-physics-electricity-and-magnetism-0002
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      Two electric charges are moved to three times their original distance apart. By what factor does the force between them change?
+    choices:
+      - text: It becomes 1/9 of the original force.
+        correct: true
+      - text: It becomes 1/3 of the original force.
+      - text: It becomes 3 times the original force.
+      - text: It stays exactly the same.
+    explanation: |
+      Coulomb's Law is an inverse-square law: tripling the distance divides the force by $3^2 = 9$.
+    approved: true
+  - id: q-physics-electricity-and-magnetism-0003
+    type: simple-quantitative
+    difficulty: easy
+    stem: |
+      A circuit has a resistance of 10 ohms and a current of 2 amperes flowing through it. Find the voltage. (Use $V = IR$.)
+    choices:
+      - text: 20 volts
+        correct: true
+      - text: 5 volts
+      - text: 12 volts
+      - text: 8 volts
+    explanation: |
+      $V = IR = (2)(10) = 20$ volts.
+    approved: true
+  - id: q-physics-electricity-and-magnetism-0004
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A circuit has a voltage of 24 volts and a current of 3 amperes. Find the resistance.
+    choices:
+      - text: 8 ohms
+        correct: true
+      - text: 72 ohms
+      - text: 21 ohms
+      - text: 27 ohms
+    explanation: |
+      Rearranging $V = IR$: $R = \dfrac{V}{I} = \dfrac{24}{3} = 8$ ohms.
+    approved: true
+  - id: q-physics-electricity-and-magnetism-0005
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A circuit has a voltage of 15 volts and a resistance of 5 ohms. Find the current.
+    choices:
+      - text: 3 amperes
+        correct: true
+      - text: 75 amperes
+      - text: 10 amperes
+      - text: 20 amperes
+    explanation: |
+      Rearranging $V = IR$: $I = \dfrac{V}{R} = \dfrac{15}{5} = 3$ amperes.
+    approved: true
+  - id: q-physics-electricity-and-magnetism-0006
+    type: classify
+    difficulty: medium
+    stem: |
+      In a series circuit with two light bulbs, one bulb suddenly burns out. What happens to the other bulb?
+    choices:
+      - text: It also goes dark, since the burned-out bulb breaks the single shared path.
+        correct: true
+      - text: It stays lit, unaffected by the other bulb.
+      - text: It becomes brighter.
+      - text: It cannot be determined without knowing the resistances.
+    explanation: |
+      In a series circuit, all components share one single path. Breaking that path (by one bulb burning out) stops current from flowing anywhere in the circuit.
+    approved: true
+  - id: q-physics-electricity-and-magnetism-0007
+    type: classify
+    difficulty: medium
+    stem: |
+      In a parallel circuit with two light bulbs, one bulb suddenly burns out. What happens to the other bulb?
+    choices:
+      - text: It stays lit, since each bulb has its own separate branch.
+        correct: true
+      - text: It also goes dark, since both bulbs share a single path.
+      - text: It becomes dimmer but stays lit.
+      - text: It cannot be determined without knowing the resistances.
+    explanation: |
+      In a parallel circuit, each bulb has its own independent branch. If one branch breaks, the other remains a complete, separate path, so its bulb stays lit.
+    approved: true
+  - id: q-physics-electricity-and-magnetism-0008
+    type: identify
+    difficulty: medium
+    stem: |
+      Two like electric charges (both positive, or both negative) are brought near each other. Do they attract or repel?
+    choices:
+      - text: Repel
+        correct: true
+      - text: Attract
+      - text: Neither — like charges have no effect on each other.
+      - text: It depends on their distance apart.
+    explanation: |
+      Like charges repel (push apart), following the same pattern as magnetic poles.
+    approved: true
+  - id: q-physics-electricity-and-magnetism-0009
+    type: identify
+    difficulty: medium
+    stem: |
+      A positive charge and a negative charge are brought near each other. Do they attract or repel?
+    choices:
+      - text: Attract
+        correct: true
+      - text: Repel
+      - text: Neither — opposite charges have no effect on each other.
+      - text: It depends on their distance apart.
+    explanation: |
+      Opposite charges attract (pull together).
+    approved: true
+  - id: q-physics-electricity-and-magnetism-0010
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes doubling the distance between two charges simply halves the electric force between them. Is this correct?
+    choices:
+      - text: No — Coulomb's Law is an inverse-square law, so doubling the distance divides the force by $2^2=4$, not by 2.
+        correct: true
+      - text: Yes — force is inversely proportional to distance directly, not distance squared.
+      - text: No — doubling the distance actually doubles the force.
+      - text: Yes — but only for charges of the same sign.
+    explanation: |
+      Coulomb's Law has distance squared in the denominator, exactly like Newton's law of gravitation. Skipping the squaring step (dividing by 2 instead of 4) is a common error.
+    approved: true
+  - id: q-physics-electricity-and-magnetism-0011
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes current is the same across every branch in a parallel circuit, since current stays the same in a series circuit. Is this correct?
+    choices:
+      - text: No — in a parallel circuit, voltage is the same across each branch, but current splits between branches; only in series circuits is current the shared quantity.
+        correct: true
+      - text: Yes — current is always the same everywhere, in both series and parallel circuits.
+      - text: No — in a parallel circuit, neither current nor voltage is shared.
+      - text: Yes — but only when all branches have equal resistance.
+    explanation: |
+      Series and parallel circuits share different quantities: series circuits share the same current (with voltage splitting), while parallel circuits share the same voltage (with current splitting). Mixing these up is one of the most common circuit errors.
+    approved: true
+  - id: q-physics-electricity-and-magnetism-0012
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes that one burned-out bulb always causes an entire circuit to stop working, regardless of circuit type. Is this correct?
+    choices:
+      - text: No — this is only true for series circuits; in parallel circuits, other branches keep working independently even if one bulb burns out.
+        correct: true
+      - text: Yes — any broken component always stops the entire circuit, regardless of type.
+      - text: No — broken components never affect any part of a circuit.
+      - text: Yes — but only in circuits with more than two bulbs.
+    explanation: |
+      Only series circuits fail entirely when one component breaks, since they share a single path. Parallel circuits (like household wiring) keep other branches working independently.
+    approved: true
+  - id: q-physics-electricity-and-magnetism-0013
+    type: classify
+    difficulty: hard
+    stem: |
+      A student uses their left hand instead of their right hand to apply the right-hand rule for a current-carrying wire. Will this give the correct magnetic field direction?
+    choices:
+      - text: No — using the left hand reverses the result, giving the opposite (incorrect) magnetic field direction.
+        correct: true
+      - text: Yes — either hand gives the same correct result.
+      - text: No — but only because the wire must be curved for the rule to apply.
+      - text: Yes — the right-hand rule works regardless of which hand is used.
+    explanation: |
+      The right-hand rule specifically requires the right hand: thumb pointing in the current's direction, with curled fingers showing the magnetic field's direction. Using the left hand gives the mirror-image (incorrect) direction.
+    approved: true
+  - id: q-physics-electricity-and-magnetism-0014
+    type: predict-outcome
+    difficulty: medium
+    stem: |
+      A straight wire carries current flowing directly upward. Using the right-hand rule, in which direction does the magnetic field circle around the wire, viewed from above (looking down along the direction of current flow)?
+    choices:
+      - text: Counterclockwise
+        correct: true
+      - text: Clockwise
+      - text: Directly outward from the wire, not circling at all
+      - text: Directly along the wire, parallel to the current
+    explanation: |
+      Pointing the right thumb upward (the current's direction), the curled fingers circle counterclockwise around the wire when viewed from above.
+    approved: true
+  - id: q-physics-electricity-and-magnetism-0015
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      In a house, if one lamp burns out, the other outlets and lights in the house keep working normally. What does this tell you about how household wiring is typically arranged?
+    choices:
+      - text: Household wiring is typically parallel, since each outlet or light has its own independent branch.
+        correct: true
+      - text: Household wiring is typically series, since all components share one single path.
+      - text: Household wiring alternates between series and parallel randomly.
+      - text: This behavior does not depend on how the wiring is arranged.
+    explanation: |
+      Since other lights and outlets keep working when one bulb burns out, this shows each component has its own independent branch — the defining behavior of a parallel circuit, which is why household wiring is typically parallel.
+    approved: true
