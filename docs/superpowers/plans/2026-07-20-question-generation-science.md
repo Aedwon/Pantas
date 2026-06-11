@@ -177,7 +177,7 @@ Exams for all rows: `[upcat, dlsucet, ustet, dost-sei]`. Figure guidance: the au
 
 | Done | Subtopic slug | Title | File path |
 |---|---|---|---|
-| [ ] | `origin-of-the-universe` | Origin of the Universe and Solar System (Big Bang Theory, Nebular Hypothesis) | `content/questions/science/earth-science-astronomy/origin-of-the-universe.yaml` |
+| [x] | `origin-of-the-universe` | Origin of the Universe and Solar System (Big Bang Theory, Nebular Hypothesis) | `content/questions/science/earth-science-astronomy/origin-of-the-universe.yaml` |
 | [ ] | `heavenly-bodies` | Heavenly Bodies (Stars, Galaxies, Comets, Asteroids, Meteors) | `content/questions/science/earth-science-astronomy/heavenly-bodies.yaml` |
 | [ ] | `earths-motions` | Earth's Motions (Rotation, Revolution, Precession) | `content/questions/science/earth-science-astronomy/earths-motions.yaml` |
 | [ ] | `eclipses-and-moon-phases` | Lunar and Solar Eclipses, Phases of the Moon | `content/questions/science/earth-science-astronomy/eclipses-and-moon-phases.yaml` |
