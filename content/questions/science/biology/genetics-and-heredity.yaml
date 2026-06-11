@@ -1,0 +1,224 @@
+meta:
+  subject: science
+  topic: biology
+  subtopic: genetics-and-heredity
+  exams:
+    - upcat
+    - dlsucet
+    - ustet
+    - dost-sei
+questions:
+  - id: q-biology-genetics-and-heredity-0001
+    type: identify
+    difficulty: easy
+    stem: |
+      An organism's actual genetic makeup, such as $Tt$, is called its what?
+    choices:
+      - text: Genotype
+        correct: true
+      - text: Phenotype
+      - text: Allele
+      - text: Pedigree
+    explanation: |
+      Genotype refers to the actual genetic makeup of an organism, such as the letters $Tt$.
+    approved: true
+  - id: q-biology-genetics-and-heredity-0002
+    type: identify
+    difficulty: easy
+    stem: |
+      How a genotype is physically expressed, such as "tall," is called its what?
+    choices:
+      - text: Phenotype
+        correct: true
+      - text: Genotype
+      - text: Allele
+      - text: Pedigree
+    explanation: |
+      Phenotype refers to the physical expression of a genotype, such as the trait "tall."
+    approved: true
+  - id: q-biology-genetics-and-heredity-0003
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A pea plant heterozygous for height ($Tt$, tall dominant) is crossed with another heterozygous plant ($Tt$). What fraction of the offspring are expected to be tall?
+    choices:
+      - text: 3/4
+        correct: true
+      - text: 1/4
+      - text: 1/2
+      - text: 4/4
+    explanation: |
+      The four possible offspring are $TT$, $Tt$, $Tt$, $tt$. Any genotype with at least one $T$ shows tall — that's 3 out of 4 boxes: $\dfrac{3}{4}$.
+    approved: true
+  - id: q-biology-genetics-and-heredity-0004
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A pea plant heterozygous for height ($Tt$, tall dominant) is crossed with another heterozygous plant ($Tt$). What fraction of the offspring are expected to be short?
+    choices:
+      - text: 1/4
+        correct: true
+      - text: 3/4
+      - text: 1/2
+      - text: 0/4
+    explanation: |
+      Only the $tt$ genotype (no dominant allele) shows the recessive short phenotype — 1 out of 4 boxes: $\dfrac{1}{4}$.
+    approved: true
+  - id: q-biology-genetics-and-heredity-0005
+    type: classify
+    difficulty: medium
+    stem: |
+      A red snapdragon flower is crossed with a white snapdragon flower, and all offspring have pink flowers, a blend of the two parent colors. What pattern of inheritance is this?
+    choices:
+      - text: Incomplete dominance
+        correct: true
+      - text: Codominance
+      - text: Multiple alleles
+      - text: Sex-linked inheritance
+    explanation: |
+      Pink is a genuinely new, blended color between red and white, with neither allele fully dominant — this is incomplete dominance.
+    approved: true
+  - id: q-biology-genetics-and-heredity-0006
+    type: classify
+    difficulty: medium
+    stem: |
+      A person with blood type A and a person with blood type B have a child with blood type AB, showing both the A and B traits fully, without blending. What pattern of inheritance is this?
+    choices:
+      - text: Codominance
+        correct: true
+      - text: Incomplete dominance
+      - text: Simple dominant-recessive inheritance
+      - text: Sex-linked inheritance
+    explanation: |
+      Both the A and B traits are fully expressed side by side, without blending into a new "in-between" type — this is codominance.
+    approved: true
+  - id: q-biology-genetics-and-heredity-0007
+    type: identify
+    difficulty: medium
+    stem: |
+      In DNA, adenine (A) always pairs with which base?
+    choices:
+      - text: Thymine
+        correct: true
+      - text: Cytosine
+      - text: Guanine
+      - text: Uracil
+    explanation: |
+      In DNA, adenine (A) pairs specifically with thymine (T), while cytosine (C) pairs with guanine (G).
+    approved: true
+  - id: q-biology-genetics-and-heredity-0008
+    type: identify
+    difficulty: medium
+    stem: |
+      When DNA is transcribed into mRNA, which base takes the place of thymine?
+    choices:
+      - text: Uracil
+        correct: true
+      - text: Guanine
+      - text: Cytosine
+      - text: Adenine
+    explanation: |
+      RNA uses uracil (U) in place of thymine (T); adenine in the DNA template pairs with uracil in the mRNA copy.
+    approved: true
+  - id: q-biology-genetics-and-heredity-0009
+    type: process-ordering
+    difficulty: medium
+    stem: |
+      Put the two main steps of protein synthesis, and their result, in the correct order.
+      1. Translation
+      2. DNA
+      3. Transcription
+      4. Protein
+    choices:
+      - text: 2, 3, 1, 4
+        correct: true
+      - text: 2, 1, 3, 4
+      - text: 4, 3, 1, 2
+      - text: 2, 3, 4, 1
+    explanation: |
+      The central dogma flows: DNA → (transcription) → mRNA → (translation) → protein.
+    approved: true
+  - id: q-biology-genetics-and-heredity-0010
+    type: classify
+    difficulty: hard
+    stem: |
+      In a family pedigree, two unaffected parents have a child who shows a rare trait. Based on this pattern alone, is the trait more likely dominant or recessive?
+    choices:
+      - text: Recessive — both unaffected parents must be silent carriers, since a dominant trait would require at least one parent to show it themselves.
+        correct: true
+      - text: Dominant — the child inheriting the trait means at least one parent must be a hidden dominant carrier.
+      - text: It could be equally either, with no way to distinguish from this pattern.
+      - text: Sex-linked, regardless of whether it is dominant or recessive.
+    explanation: |
+      If the trait were dominant, it would show in at least one parent, since a dominant allele always shows its effect with just one copy. Since neither parent shows it, both must silently carry one recessive allele, and the child inherited both.
+    approved: true
+  - id: q-biology-genetics-and-heredity-0011
+    type: classify
+    difficulty: hard
+    stem: |
+      A question asks for the phenotype of a $Tt$ individual (where $T$, tall, is dominant), and a student answers "$Tt$." Is this the correct answer?
+    choices:
+      - text: No — "$Tt$" is the genotype; the phenotype is the physical trait, "tall."
+        correct: true
+      - text: Yes — genotype and phenotype are the same thing.
+      - text: No — the phenotype should be "$TT$" instead.
+      - text: Yes — phenotype always refers to the letter combination.
+    explanation: |
+      Genotype is the genetic makeup (the letters, $Tt$). Phenotype is the physical expression (the word "tall"). The question asked for phenotype, so the answer should be "tall," not "$Tt$."
+    approved: true
+  - id: q-biology-genetics-and-heredity-0012
+    type: classify
+    difficulty: hard
+    stem: |
+      A student treats incomplete dominance and codominance as the exact same concept, since both involve heterozygotes showing something other than one single dominant trait. Is this correct?
+    choices:
+      - text: No — incomplete dominance blends the two traits into something new; codominance shows both traits fully, side by side, without blending.
+        correct: true
+      - text: Yes — incomplete dominance and codominance always describe the same outcome.
+      - text: No — incomplete dominance only applies to blood type, and codominance only applies to flowers.
+      - text: Yes — both terms mean one allele is completely masked by the other.
+    explanation: |
+      Pink flowers (a genuinely blended new color) show incomplete dominance. Blood type AB (both A and B markers fully present, unblended) shows codominance — a real distinction between blending and full side-by-side expression.
+    approved: true
+  - id: q-biology-genetics-and-heredity-0013
+    type: classify
+    difficulty: hard
+    stem: |
+      A student writes an mRNA sequence that includes thymine (T) instead of uracil (U). Is this correct?
+    choices:
+      - text: No — mRNA uses uracil in place of thymine; a correct mRNA sequence should never include thymine.
+        correct: true
+      - text: Yes — mRNA and DNA both use thymine identically.
+      - text: No — but only because mRNA never contains adenine either.
+      - text: Yes — uracil and thymine are interchangeable in every context.
+    explanation: |
+      RNA substitutes uracil (U) wherever DNA would use thymine (T). An mRNA sequence containing thymine is incorrect.
+    approved: true
+  - id: q-biology-genetics-and-heredity-0014
+    type: classify
+    difficulty: hard
+    stem: |
+      A pedigree shows two unaffected parents producing an affected child, but a proposed answer choice claims the trait shown is dominant. Is this answer choice consistent with the pedigree?
+    choices:
+      - text: No — this pattern (unaffected parents, affected child) is only possible for a recessive trait, ruling out a dominant explanation.
+        correct: true
+      - text: Yes — dominant traits can appear in a child even if neither parent shows them.
+      - text: No — but only because pedigrees cannot show recessive traits at all.
+      - text: Yes — this pattern is equally consistent with either dominant or recessive traits.
+    explanation: |
+      A dominant trait always shows in at least one parent carrying it, since one copy is enough to display it. Two unaffected parents producing an affected child is only possible if the trait is recessive.
+    approved: true
+  - id: q-biology-genetics-and-heredity-0015
+    type: simple-quantitative
+    difficulty: exam
+    stem: |
+      A plant with genotype $Aa$ (heterozygous, $A$ dominant) is crossed with a plant with genotype $aa$ (homozygous recessive). What fraction of the offspring are expected to show the dominant phenotype?
+    choices:
+      - text: 1/2
+        correct: true
+      - text: 3/4
+      - text: 1/4
+      - text: "1"
+    explanation: |
+      The offspring genotypes are $Aa$, $Aa$, $aa$, $aa$ — 2 out of 4 show the dominant phenotype (having at least one $A$): $\dfrac{2}{4} = \dfrac{1}{2}$.
+    approved: true
