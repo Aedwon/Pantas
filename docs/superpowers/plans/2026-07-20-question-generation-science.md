@@ -113,12 +113,12 @@ Exams for all rows: `[upcat, dlsucet, ustet, dost-sei]`. Figure guidance: mostly
 | Done | Subtopic slug | Title | File path |
 |---|---|---|---|
 | [x] | `cell-biology` | Cell Biology | `content/questions/science/biology/cell-biology.yaml` (pilot, already committed) |
-| [ ] | `characteristics-of-life` | Characteristics of Life | `content/questions/science/biology/characteristics-of-life.yaml` |
-| [ ] | `cellular-reproduction` | Cellular Reproduction (Cell Cycle, Mitosis, Meiosis) | `content/questions/science/biology/cellular-reproduction.yaml` |
-| [ ] | `cellular-metabolism` | Cellular Metabolism (Photosynthesis, Cellular Respiration) | `content/questions/science/biology/cellular-metabolism.yaml` |
-| [ ] | `genetics-and-heredity` | Genetics and Heredity | `content/questions/science/biology/genetics-and-heredity.yaml` |
-| [ ] | `human-anatomy-physiology` | Human Anatomy and Physiology | `content/questions/science/biology/human-anatomy-physiology.yaml` |
-| [ ] | `taxonomy-and-classification` | Taxonomy and Classification (Domains, Kingdoms, Binomial Nomenclature) | `content/questions/science/biology/taxonomy-and-classification.yaml` |
+| [x] | `characteristics-of-life` | Characteristics of Life | `content/questions/science/biology/characteristics-of-life.yaml` |
+| [x] | `cellular-reproduction` | Cellular Reproduction (Cell Cycle, Mitosis, Meiosis) | `content/questions/science/biology/cellular-reproduction.yaml` |
+| [x] | `cellular-metabolism` | Cellular Metabolism (Photosynthesis, Cellular Respiration) | `content/questions/science/biology/cellular-metabolism.yaml` |
+| [x] | `genetics-and-heredity` | Genetics and Heredity | `content/questions/science/biology/genetics-and-heredity.yaml` |
+| [x] | `human-anatomy-physiology` | Human Anatomy and Physiology | `content/questions/science/biology/human-anatomy-physiology.yaml` |
+| [x] | `taxonomy-and-classification` | Taxonomy and Classification (Domains, Kingdoms, Binomial Nomenclature) | `content/questions/science/biology/taxonomy-and-classification.yaml` |
 | [ ] | `evolution` | Evolution (Theories of Evolution, Natural Selection, Speciation) | `content/questions/science/biology/evolution.yaml` |
 | [ ] | `ecology` | Ecology | `content/questions/science/biology/ecology.yaml` |
 | [ ] | `botany` | Botany (Plant Tissue, Tropisms, Plant Reproduction) | `content/questions/science/biology/botany.yaml` |
@@ -132,20 +132,20 @@ Exams for all rows: `[upcat, dlsucet, ustet, dost-sei]`. Figure guidance: the co
 | [x] | `matter` | Matter (Classification, States, Properties, Phase Changes) | `content/questions/science/chemistry/matter.yaml` |
 | [x] | `mixtures-and-separation` | Mixtures and Separation Techniques (Filtration, Distillation, Chromatography) | `content/questions/science/chemistry/mixtures-and-separation.yaml` |
 | [x] | `history-of-the-atom` | History of the Atom and Atomic Models | `content/questions/science/chemistry/history-of-the-atom.yaml` |
-| [ ] | `atomic-structure` | Atomic Structure and Subatomic Particles (Protons, Neutrons, Electrons, Isotopes, Ions) | `content/questions/science/chemistry/atomic-structure.yaml` |
-| [ ] | `quantum-numbers-electron-configuration` | Quantum Numbers and Electron Configuration | `content/questions/science/chemistry/quantum-numbers-electron-configuration.yaml` |
-| [ ] | `periodic-table` | The Periodic Table | `content/questions/science/chemistry/periodic-table.yaml` |
-| [ ] | `chemical-bonding` | Chemical Bonding (Ionic, Covalent, Metallic, Lewis Structures, VSEPR Theory) | `content/questions/science/chemistry/chemical-bonding.yaml` |
-| [ ] | `chemical-nomenclature` | Chemical Nomenclature (Naming Compounds and Writing Formulas) | `content/questions/science/chemistry/chemical-nomenclature.yaml` |
-| [ ] | `mole-concept` | The Mole Concept, Molar Mass, and Avogadro's Number | `content/questions/science/chemistry/mole-concept.yaml` |
-| [ ] | `chemical-reactions` | Chemical Reactions (Types of Reactions, Balancing Equations) | `content/questions/science/chemistry/chemical-reactions.yaml` |
-| [ ] | `stoichiometry` | Stoichiometry (Limiting/Excess Reactants, Percent Yield, Empirical/Molecular Formulas) | `content/questions/science/chemistry/stoichiometry.yaml` |
-| [ ] | `gas-laws` | Gas Laws (Boyle's, Charles's, Gay-Lussac's, Combined, Avogadro's, Ideal Gas Law) | `content/questions/science/chemistry/gas-laws.yaml` |
-| [ ] | `solutions` | Solutions (Solubility, Molarity, Molality, Percent by Mass/Volume) | `content/questions/science/chemistry/solutions.yaml` |
-| [ ] | `acids-bases-ph` | Acids, Bases, and pH Scale | `content/questions/science/chemistry/acids-bases-ph.yaml` |
-| [ ] | `thermodynamics-and-kinetics` | Thermodynamics and Kinetics (Endothermic vs. Exothermic Reactions, Catalysts) | `content/questions/science/chemistry/thermodynamics-and-kinetics.yaml` |
-| [ ] | `basic-organic-chemistry` | Basic Organic Chemistry (Hydrocarbons, Functional Groups, Naming Conventions) | `content/questions/science/chemistry/basic-organic-chemistry.yaml` |
-| [ ] | `nuclear-chemistry` | Nuclear Chemistry (Alpha, Beta, Gamma Decay, Fission vs. Fusion) | `content/questions/science/chemistry/nuclear-chemistry.yaml` |
+| [x] | `atomic-structure` | Atomic Structure and Subatomic Particles (Protons, Neutrons, Electrons, Isotopes, Ions) | `content/questions/science/chemistry/atomic-structure.yaml` |
+| [x] | `quantum-numbers-electron-configuration` | Quantum Numbers and Electron Configuration | `content/questions/science/chemistry/quantum-numbers-electron-configuration.yaml` |
+| [x] | `periodic-table` | The Periodic Table | `content/questions/science/chemistry/periodic-table.yaml` |
+| [x] | `chemical-bonding` | Chemical Bonding (Ionic, Covalent, Metallic, Lewis Structures, VSEPR Theory) | `content/questions/science/chemistry/chemical-bonding.yaml` |
+| [x] | `chemical-nomenclature` | Chemical Nomenclature (Naming Compounds and Writing Formulas) | `content/questions/science/chemistry/chemical-nomenclature.yaml` |
+| [x] | `mole-concept` | The Mole Concept, Molar Mass, and Avogadro's Number | `content/questions/science/chemistry/mole-concept.yaml` |
+| [x] | `chemical-reactions` | Chemical Reactions (Types of Reactions, Balancing Equations) | `content/questions/science/chemistry/chemical-reactions.yaml` |
+| [x] | `stoichiometry` | Stoichiometry (Limiting/Excess Reactants, Percent Yield, Empirical/Molecular Formulas) | `content/questions/science/chemistry/stoichiometry.yaml` |
+| [x] | `gas-laws` | Gas Laws (Boyle's, Charles's, Gay-Lussac's, Combined, Avogadro's, Ideal Gas Law) | `content/questions/science/chemistry/gas-laws.yaml` |
+| [x] | `solutions` | Solutions (Solubility, Molarity, Molality, Percent by Mass/Volume) | `content/questions/science/chemistry/solutions.yaml` |
+| [x] | `acids-bases-ph` | Acids, Bases, and pH Scale | `content/questions/science/chemistry/acids-bases-ph.yaml` |
+| [x] | `thermodynamics-and-kinetics` | Thermodynamics and Kinetics (Endothermic vs. Exothermic Reactions, Catalysts) | `content/questions/science/chemistry/thermodynamics-and-kinetics.yaml` |
+| [x] | `basic-organic-chemistry` | Basic Organic Chemistry (Hydrocarbons, Functional Groups, Naming Conventions) | `content/questions/science/chemistry/basic-organic-chemistry.yaml` |
+| [x] | `nuclear-chemistry` | Nuclear Chemistry (Alpha, Beta, Gamma Decay, Fission vs. Fusion) | `content/questions/science/chemistry/nuclear-chemistry.yaml` |
 
 Note: `mole-concept`, `stoichiometry`, `gas-laws`, and `solutions` lean heavily on the `simple-quantitative` archetype (real calculations) — verify every numeric answer by actually doing the arithmetic before finalizing; a wrong "correct" choice in a quantitative question is a severe quality defect.
 
@@ -155,19 +155,19 @@ Exams for all rows: `[upcat, dlsucet, ustet, dost-sei]`. Figure guidance: the au
 
 | Done | Subtopic slug | Title | File path |
 |---|---|---|---|
-| [ ] | `units-and-measurements` | Units, Measurements, and Conversions (Dimensional Analysis) | `content/questions/science/physics/units-and-measurements.yaml` |
-| [ ] | `scalars-and-vectors` | Scalars and Vectors (Vector Addition and Resolution) | `content/questions/science/physics/scalars-and-vectors.yaml` |
-| [ ] | `kinematics` | Kinematics | `content/questions/science/physics/kinematics.yaml` |
-| [ ] | `two-dimensional-motion` | Two-Dimensional Motion (Projectile Motion, Uniform Circular Motion) | `content/questions/science/physics/two-dimensional-motion.yaml` |
-| [ ] | `dynamics` | Dynamics | `content/questions/science/physics/dynamics.yaml` |
-| [ ] | `work-energy-power` | Work, Energy, and Power (Kinetic and Potential Energy, Conservation of Energy) | `content/questions/science/physics/work-energy-power.yaml` |
-| [ ] | `momentum-and-impulse` | Momentum and Impulse (Conservation of Momentum, Elastic vs. Inelastic Collisions) | `content/questions/science/physics/momentum-and-impulse.yaml` |
-| [ ] | `gravity-and-keplers-laws` | Gravity and Kepler's Laws of Planetary Motion | `content/questions/science/physics/gravity-and-keplers-laws.yaml` |
-| [ ] | `fluid-mechanics` | Fluid Mechanics (Density, Pressure, Buoyancy, Archimedes' Principle, Bernoulli's Principle) | `content/questions/science/physics/fluid-mechanics.yaml` |
-| [ ] | `thermodynamics` | Thermodynamics (Heat Transfer Mechanisms, Laws of Thermodynamics, Specific Heat Capacity) | `content/questions/science/physics/thermodynamics.yaml` |
-| [ ] | `waves-and-sound` | Waves and Sound (Wave Properties, Mechanical vs. Electromagnetic Waves, Doppler Effect) | `content/questions/science/physics/waves-and-sound.yaml` |
-| [ ] | `light-and-optics` | Light and Optics (Reflection, Refraction, Mirrors, Lenses, Electromagnetic Spectrum) | `content/questions/science/physics/light-and-optics.yaml` |
-| [ ] | `electricity-and-magnetism` | Electricity and Magnetism | `content/questions/science/physics/electricity-and-magnetism.yaml` |
+| [x] | `units-and-measurements` | Units, Measurements, and Conversions (Dimensional Analysis) | `content/questions/science/physics/units-and-measurements.yaml` |
+| [x] | `scalars-and-vectors` | Scalars and Vectors (Vector Addition and Resolution) | `content/questions/science/physics/scalars-and-vectors.yaml` |
+| [x] | `kinematics` | Kinematics | `content/questions/science/physics/kinematics.yaml` |
+| [x] | `two-dimensional-motion` | Two-Dimensional Motion (Projectile Motion, Uniform Circular Motion) | `content/questions/science/physics/two-dimensional-motion.yaml` |
+| [x] | `dynamics` | Dynamics | `content/questions/science/physics/dynamics.yaml` |
+| [x] | `work-energy-power` | Work, Energy, and Power (Kinetic and Potential Energy, Conservation of Energy) | `content/questions/science/physics/work-energy-power.yaml` |
+| [x] | `momentum-and-impulse` | Momentum and Impulse (Conservation of Momentum, Elastic vs. Inelastic Collisions) | `content/questions/science/physics/momentum-and-impulse.yaml` |
+| [x] | `gravity-and-keplers-laws` | Gravity and Kepler's Laws of Planetary Motion | `content/questions/science/physics/gravity-and-keplers-laws.yaml` |
+| [x] | `fluid-mechanics` | Fluid Mechanics (Density, Pressure, Buoyancy, Archimedes' Principle, Bernoulli's Principle) | `content/questions/science/physics/fluid-mechanics.yaml` |
+| [x] | `thermodynamics` | Thermodynamics (Heat Transfer Mechanisms, Laws of Thermodynamics, Specific Heat Capacity) | `content/questions/science/physics/thermodynamics.yaml` |
+| [x] | `waves-and-sound` | Waves and Sound (Wave Properties, Mechanical vs. Electromagnetic Waves, Doppler Effect) | `content/questions/science/physics/waves-and-sound.yaml` |
+| [x] | `light-and-optics` | Light and Optics (Reflection, Refraction, Mirrors, Lenses, Electromagnetic Spectrum) | `content/questions/science/physics/light-and-optics.yaml` |
+| [x] | `electricity-and-magnetism` | Electricity and Magnetism | `content/questions/science/physics/electricity-and-magnetism.yaml` |
 
 Note: nearly every Physics subtopic uses `simple-quantitative` heavily (F=ma, kinematics equations, Ohm's law, etc.) — always verify the arithmetic by hand before finalizing a "correct" choice.
 
