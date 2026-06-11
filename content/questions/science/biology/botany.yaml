@@ -1,0 +1,245 @@
+meta:
+  subject: science
+  topic: biology
+  subtopic: botany
+  exams: [ upcat, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-biology-botany-0001
+    type: identify
+    difficulty: easy
+    stem: |
+      Which plant tissue forms the outer covering, protecting the plant and controlling gas exchange and water loss?
+    choices:
+      - text: Dermal tissue
+        correct: true
+      - text: Vascular tissue
+      - text: Ground tissue
+      - text: Xylem
+    explanation: |
+      Dermal tissue forms the plant's outer covering, like skin, protecting it and controlling gas exchange and water loss.
+    approved: true
+
+  - id: q-biology-botany-0002
+    type: identify
+    difficulty: easy
+    stem: |
+      Which vascular tissue carries water and minerals upward from the roots to the rest of the plant?
+    choices:
+      - text: Xylem
+        correct: true
+      - text: Phloem
+      - text: Dermal tissue
+      - text: Ground tissue
+    explanation: |
+      Xylem carries water and minerals upward from the roots, made of dead cells that act like hollow pipes.
+    approved: true
+
+  - id: q-biology-botany-0003
+    type: identify
+    difficulty: medium
+    stem: |
+      Which vascular tissue carries sugars made through photosynthesis to wherever the plant needs energy or storage?
+    choices:
+      - text: Phloem
+        correct: true
+      - text: Xylem
+      - text: Dermal tissue
+      - text: Ground tissue
+    explanation: |
+      Phloem carries sugars (food made through photosynthesis) throughout the plant, made of living cells, unlike the dead cells of xylem.
+    approved: true
+
+  - id: q-biology-botany-0004
+    type: classify
+    difficulty: medium
+    stem: |
+      Which plant tissue makes up most of a plant's body, filling the space between dermal and vascular tissue, and handles photosynthesis, storage, and support?
+    choices:
+      - text: Ground tissue
+        correct: true
+      - text: Dermal tissue
+      - text: Xylem
+      - text: Phloem
+    explanation: |
+      Ground tissue makes up most of a plant's body, filling the space between dermal and vascular tissue, handling photosynthesis, storage, and support.
+    approved: true
+
+  - id: q-biology-botany-0005
+    type: classify
+    difficulty: medium
+    stem: |
+      A gardener notices a plant's stem transporting water from its roots to its topmost leaves, while a separate set of cells in the same stem transports sugar made in the leaves down toward the roots. Which tissue transports the water, and which transports the sugar?
+    choices:
+      - text: Xylem transports the water upward; phloem transports the sugar.
+        correct: true
+      - text: Phloem transports the water upward; xylem transports the sugar.
+      - text: Xylem transports both the water and the sugar.
+      - text: Ground tissue transports both the water and the sugar.
+    explanation: |
+      Water traveling upward from roots to leaves is the job of xylem. Sugar traveling from the leaves (where it is made) to the roots is the job of phloem.
+    approved: true
+
+  - id: q-biology-botany-0006
+    type: classify
+    difficulty: hard
+    stem: |
+      A student claims phloem carries water upward from the roots, and xylem carries sugar throughout the plant. Is this correct?
+    choices:
+      - text: No — this swaps their jobs; xylem carries water upward from the roots, while phloem carries sugar throughout the plant.
+        correct: true
+      - text: Yes — phloem always carries water, and xylem always carries sugar.
+      - text: No — but only because neither tissue transports any substance.
+      - text: Yes — xylem and phloem are simply two different names for the same tissue.
+    explanation: |
+      These two terms are frequently swapped. Anchor them with their cell type: xylem is made of dead, hollow cells for water transport, while phloem is made of living cells actively distributing sugar (food).
+    approved: true
+
+  - id: q-biology-botany-0007
+    type: identify
+    difficulty: medium
+    stem: |
+      What term describes a plant's directional growth response to light?
+    choices:
+      - text: Phototropism
+        correct: true
+      - text: Gravitropism
+      - text: Thigmotropism
+      - text: Pollination
+    explanation: |
+      Phototropism is a plant's directional growth response to light.
+    approved: true
+
+  - id: q-biology-botany-0008
+    type: identify
+    difficulty: medium
+    stem: |
+      What term describes a plant's directional growth response to gravity?
+    choices:
+      - text: Gravitropism
+        correct: true
+      - text: Phototropism
+      - text: Thigmotropism
+      - text: Fertilization
+    explanation: |
+      Gravitropism is a plant's directional growth response to gravity.
+    approved: true
+
+  - id: q-biology-botany-0009
+    type: classify
+    difficulty: medium
+    stem: |
+      A climbing vine's tendrils are observed curling tightly around a fence post after making physical contact with it. What tropism does this demonstrate?
+    choices:
+      - text: Positive thigmotropism, a growth response to touch
+        correct: true
+      - text: Positive phototropism, a growth response to light
+      - text: Negative gravitropism, a growth response to gravity
+      - text: Negative thigmotropism, a growth response to touch
+    explanation: |
+      Thigmotropism is a plant's growth response to touch or physical contact. The tendril curling toward and around the fence post (the stimulus) is positive thigmotropism.
+    approved: true
+
+  - id: q-biology-botany-0010
+    type: classify
+    difficulty: medium
+    stem: |
+      A plant's stem is observed bending and growing toward a nearby window, in the direction of the incoming light. What is this tropic response called?
+    choices:
+      - text: Positive phototropism
+        correct: true
+      - text: Negative phototropism
+      - text: Positive gravitropism
+      - text: Negative gravitropism
+    explanation: |
+      Stems typically show positive phototropism, growing toward the light stimulus.
+    approved: true
+
+  - id: q-biology-botany-0011
+    type: classify
+    difficulty: medium
+    stem: |
+      A plant's roots are observed growing downward and away from a light source shining from one side of the pot. What is this tropic response called?
+    choices:
+      - text: Negative phototropism
+        correct: true
+      - text: Positive phototropism
+      - text: Positive gravitropism
+      - text: Negative gravitropism
+    explanation: |
+      Roots typically show negative phototropism, growing away from light, while also independently showing positive gravitropism by growing downward with gravity.
+    approved: true
+
+  - id: q-biology-botany-0012
+    type: classify
+    difficulty: hard
+    stem: |
+      A student observes a stem growing toward a light source and concludes that the plant's roots must also grow toward the light, since it is "the same plant responding to the same stimulus." Is this reasoning correct?
+    choices:
+      - text: No — roots and stems typically show opposite tropic responses to the same stimulus; while stems show positive phototropism (toward light), roots typically show negative phototropism (away from light).
+        correct: true
+      - text: Yes — every part of a plant always responds identically to the same stimulus.
+      - text: No — but only because roots cannot respond to light at all.
+      - text: Yes — since stems and roots are directly connected, they must grow in the same direction.
+    explanation: |
+      A common error is assuming the whole plant responds the same way to a stimulus. In reality, roots and stems often show opposite tropic responses — stems grow toward light (positive phototropism) while roots grow away from it (negative phototropism).
+    approved: true
+
+  - id: q-biology-botany-0013
+    type: identify
+    difficulty: medium
+    stem: |
+      What is the term for pollen (containing the plant's male sex cells) being transferred from the male part of a flower to the female part of a flower?
+    choices:
+      - text: Pollination
+        correct: true
+      - text: Fertilization
+      - text: Gravitropism
+      - text: Germination
+    explanation: |
+      Pollination is the transfer of pollen from the male part of a flower to the female part, often carried by wind, insects, or other animals.
+    approved: true
+
+  - id: q-biology-botany-0014
+    type: identify
+    difficulty: medium
+    stem: |
+      What is the term for a male sex cell from pollen joining with a female egg cell inside a flower's ovule, forming a zygote?
+    choices:
+      - text: Fertilization
+        correct: true
+      - text: Pollination
+      - text: Thigmotropism
+      - text: Dispersal
+    explanation: |
+      Fertilization is the joining of a male sex cell from pollen with a female egg cell, forming a zygote that develops into a plant embryo.
+    approved: true
+
+  - id: q-biology-botany-0015
+    type: classify
+    difficulty: hard
+    stem: |
+      A description states only that a bee deposited pollen onto the female part of a flower, with no mention of any sex cells joining together afterward. Is this description best classified as pollination, fertilization, or both?
+    choices:
+      - text: Pollination only — pollination is just the transfer of pollen; fertilization requires the additional step of a sperm cell actually fusing with an egg cell, which is not mentioned here.
+        correct: true
+      - text: Fertilization only, since any contact between pollen and a flower counts as fertilization.
+      - text: Both pollination and fertilization, since one step always implies the other has already happened.
+      - text: Neither, since depositing pollen does not relate to plant reproduction.
+    explanation: |
+      A description of only pollen landing on a flower's female part (without mentioning any joining of sex cells) is describing pollination alone. Fertilization requires the additional step of a sperm cell fusing with an egg cell, which happens afterward.
+    approved: true
+
+  - id: q-biology-botany-0016
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      A seedling is planted sideways in a pot. After several days, regardless of its sideways starting position, what is the most likely outcome for its root and stem, and which tropism explains it?
+    choices:
+      - text: The root will curve to grow downward (positive gravitropism), and the stem will curve to grow upward (negative gravitropism), since gravity is the stimulus and roots and stems typically respond oppositely to it.
+        correct: true
+      - text: Both the root and the stem will curve to grow downward, since both parts respond identically to gravity.
+      - text: Neither the root nor the stem will change direction, since gravity does not affect plant growth.
+      - text: The root will curve upward, and the stem will curve downward, reversing the typical gravitropic response.
+    explanation: |
+      This is gravitropism: the root grows downward, in the same direction as gravity (positive gravitropism), while the stem grows upward, against gravity (negative gravitropism) — the typical gravitropic pattern regardless of the seedling's starting orientation.
+    approved: true
