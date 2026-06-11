@@ -1,0 +1,218 @@
+meta:
+  subject: science
+  topic: biology
+  subtopic: taxonomy-and-classification
+  exams: [ upcat, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-biology-taxonomy-and-classification-0001
+    type: process-ordering
+    difficulty: medium
+    stem: |
+      Arrange these classification ranks in order from broadest to most specific: Family, Kingdom, Species, Phylum, Domain, Genus, Class, Order.
+    choices:
+      - text: Domain, Kingdom, Phylum, Class, Order, Family, Genus, Species
+        correct: true
+      - text: Kingdom, Domain, Phylum, Class, Order, Family, Genus, Species
+      - text: Domain, Kingdom, Class, Phylum, Order, Family, Genus, Species
+      - text: Species, Genus, Family, Order, Class, Phylum, Kingdom, Domain
+    explanation: |
+      The fixed hierarchy, broadest to most specific, is: Domain, Kingdom, Phylum, Class, Order, Family, Genus, Species (remembered as "Dear King Philip Came Over For Good Soup").
+    approved: true
+
+  - id: q-biology-taxonomy-and-classification-0002
+    type: identify
+    difficulty: easy
+    stem: |
+      What are the three domains, the broadest groupings in modern taxonomy?
+    choices:
+      - text: Bacteria, Archaea, and Eukarya
+        correct: true
+      - text: Animalia, Plantae, and Fungi
+      - text: Bacteria, Protista, and Animalia
+      - text: Eukarya, Kingdom, and Phylum
+    explanation: |
+      The three domains are Bacteria, Archaea (both simple cells without a nucleus), and Eukarya (cells with a nucleus, including plants, animals, fungi, and protists).
+    approved: true
+
+  - id: q-biology-taxonomy-and-classification-0003
+    type: identify
+    difficulty: medium
+    stem: |
+      Within the domain Eukarya, life is commonly organized into which four kingdoms?
+    choices:
+      - text: Animalia, Plantae, Fungi, and Protista
+        correct: true
+      - text: Bacteria, Archaea, Animalia, and Plantae
+      - text: Domain, Phylum, Class, and Order
+      - text: Genus, Species, Family, and Order
+    explanation: |
+      Within Eukarya, life is commonly organized into Animalia (animals), Plantae (plants), Fungi (fungi), and Protista (mostly single-celled organisms).
+    approved: true
+
+  - id: q-biology-taxonomy-and-classification-0004
+    type: classify
+    difficulty: medium
+    stem: |
+      In the scientific name *Panthera leo* (the lion), which word is the genus, and which is the species name?
+    choices:
+      - text: "\"Panthera\" is the genus; \"leo\" is the species name."
+        correct: true
+      - text: "\"leo\" is the genus; \"Panthera\" is the species name."
+      - text: Both words together form the genus name only.
+      - text: Both words together form the species name only.
+    explanation: |
+      The first word, capitalized, is the genus (*Panthera*, shared with other big cats). The second word, lowercase, is the specific species name (*leo*).
+    approved: true
+
+  - id: q-biology-taxonomy-and-classification-0005
+    type: identify
+    difficulty: medium
+    stem: |
+      Which scientist created the system of binomial nomenclature in the 1700s?
+    choices:
+      - text: Carl Linnaeus
+        correct: true
+      - text: Charles Darwin
+        correct: false
+      - text: Gregor Mendel
+        correct: false
+      - text: Louis Pasteur
+        correct: false
+    explanation: |
+      Carl Linnaeus created binomial nomenclature, the two-part naming system still used for species today.
+    approved: true
+
+  - id: q-biology-taxonomy-and-classification-0006
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      A biologist finds that villagers in different regions call the same plant by three completely different common names. Why does the biologist prefer to use the plant's scientific (binomial) name in a research paper?
+    choices:
+      - text: A scientific name is standardized worldwide, so it always refers to the exact same species, avoiding the confusion that varying common names create.
+        correct: true
+      - text: Scientific names are always shorter and easier to pronounce than common names.
+      - text: Common names are not allowed to be used in any scientific writing.
+      - text: Scientific names change depending on the region, just like common names.
+    explanation: |
+      Common names vary by region and language, causing confusion. A standardized scientific name, following binomial nomenclature, ensures scientists everywhere know exactly which organism is being discussed.
+    approved: true
+
+  - id: q-biology-taxonomy-and-classification-0007
+    type: classify
+    difficulty: hard
+    stem: |
+      A student lists the classification order as Kingdom, then Domain, then Phylum, placing Kingdom before Domain. Is this correct?
+    choices:
+      - text: No — Domain is the broadest rank and always comes first; Kingdom comes after Domain.
+        correct: true
+      - text: Yes — Kingdom is broader than Domain.
+      - text: No — Phylum should actually come before both Kingdom and Domain.
+      - text: Yes — the order of Domain and Kingdom does not matter.
+    explanation: |
+      Domain is the broadest classification rank, always placed first, with Kingdom nested inside it — reversing this order is a common mistake.
+    approved: true
+
+  - id: q-biology-taxonomy-and-classification-0008
+    type: classify
+    difficulty: hard
+    stem: |
+      A student writes the scientific name of humans as "*Homo Sapiens*," capitalizing both words. Is this correct formatting?
+    choices:
+      - text: No — only the genus name is capitalized; the species name is always lowercase, so it should be "*Homo sapiens*."
+        correct: true
+      - text: Yes — both the genus and species names should always be capitalized.
+      - text: No — neither word should ever be capitalized.
+      - text: Yes — capitalization rules do not apply to scientific names.
+    explanation: |
+      Binomial nomenclature capitalizes only the genus name; the species name is always lowercase. "*Homo Sapiens*" incorrectly capitalizes both words.
+    approved: true
+
+  - id: q-biology-taxonomy-and-classification-0009
+    type: classify
+    difficulty: hard
+    stem: |
+      A student learned the "five kingdoms" system and assumes Kingdom is still the broadest classification rank today. Is this correct in the modern three-domain system?
+    choices:
+      - text: No — Domain is broader than Kingdom; each domain (like Eukarya) contains multiple kingdoms within it.
+        correct: true
+      - text: Yes — Kingdom remains the broadest rank in every classification system.
+      - text: No — but only because kingdoms no longer exist in modern taxonomy.
+      - text: Yes — Domain and Kingdom refer to the exact same level of classification.
+    explanation: |
+      In the modern three-domain system, each domain contains multiple kingdoms (Eukarya contains Animalia, Plantae, Fungi, and Protista), making Domain the broader rank.
+    approved: true
+
+  - id: q-biology-taxonomy-and-classification-0010
+    type: identify
+    difficulty: medium
+    stem: |
+      In binomial nomenclature, how should the genus name be written?
+    choices:
+      - text: Capitalized and italicized
+        correct: true
+      - text: Lowercase and italicized
+      - text: Capitalized, not italicized
+      - text: All uppercase letters
+    explanation: |
+      The genus name is capitalized and, along with the species name, written in italics (or underlined by hand).
+    approved: true
+
+  - id: q-biology-taxonomy-and-classification-0011
+    type: identify
+    difficulty: medium
+    stem: |
+      In binomial nomenclature, how should the species name be written?
+    choices:
+      - text: Lowercase and italicized
+        correct: true
+      - text: Capitalized and italicized
+      - text: Lowercase, not italicized
+      - text: All uppercase letters
+    explanation: |
+      The species name is always lowercase, written in italics alongside the capitalized genus name.
+    approved: true
+
+  - id: q-biology-taxonomy-and-classification-0012
+    type: classify
+    difficulty: medium
+    stem: |
+      An organism is found to have cells containing a nucleus. Which domain does it belong to?
+    choices:
+      - text: Eukarya
+        correct: true
+      - text: Bacteria
+      - text: Archaea
+      - text: Protista
+    explanation: |
+      Eukarya includes all organisms whose cells have a nucleus, including plants, animals, fungi, and protists. Bacteria and Archaea are both made of simple cells without a nucleus.
+    approved: true
+
+  - id: q-biology-taxonomy-and-classification-0013
+    type: compare-contrast
+    difficulty: medium
+    stem: |
+      Species A and Species B share the same genus. Species C only shares the same kingdom with Species A. Which pair is more closely related: A and B, or A and C?
+    choices:
+      - text: A and B are more closely related, since sharing more specific ranks (like genus) indicates a closer relationship than only sharing a broad rank (like kingdom).
+        correct: true
+      - text: A and C are more closely related, since kingdom is a more important rank than genus.
+      - text: Both pairs are equally related, since rank sharing does not indicate relatedness.
+      - text: Relatedness cannot be determined from shared classification ranks.
+    explanation: |
+      The more classification ranks two organisms share, the more closely related they are. Sharing the same genus (a much more specific rank) indicates closer relatedness than only sharing the same kingdom (a much broader rank).
+    approved: true
+
+  - id: q-biology-taxonomy-and-classification-0014
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      Tigers are named *Panthera tigris*, and lions are named *Panthera leo*. Based on their scientific names alone, what can you conclude about their relationship?
+    choices:
+      - text: They share the same genus (Panthera), meaning they are closely related, more so than species that only share a broader rank like kingdom or phylum.
+        correct: true
+      - text: They must be the exact same species, since they share a name.
+      - text: They are unrelated, since their species names ("tigris" and "leo") are different.
+      - text: Nothing can be concluded from their scientific names.
+    explanation: |
+      Since both species share the genus *Panthera*, they are closely related big cats — sharing a genus indicates a much closer relationship than organisms that only share a broader rank.
+    approved: true
