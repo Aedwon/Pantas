@@ -1,0 +1,245 @@
+meta:
+  subject: reasoning
+  topic: logical-verbal-reasoning
+  subtopic: word-analogies
+  exams: [ acet, ustet, dost-sei ]
+questions:
+  - id: q-logical-verbal-reasoning-word-analogies-0001
+    type: analogy
+    difficulty: easy
+    stem: |
+      Pen is to write as scissors is to ______.
+    choices:
+      - text: Cut
+        correct: true
+      - text: Sharp
+      - text: Paper
+      - text: Blade
+    explanation: |
+      A pen is used to write. Applying the same "used to" pattern: scissors are used to cut.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-word-analogies-0002
+    type: analogy
+    difficulty: easy
+    stem: |
+      Author is to book as director is to ______.
+    choices:
+      - text: Movie
+        correct: true
+      - text: Actor
+      - text: Theater
+      - text: Camera
+    explanation: |
+      An author creates a book. Applying the same "creates" pattern: a director creates a movie.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-word-analogies-0003
+    type: analogy
+    difficulty: medium
+    stem: |
+      Hammer is to tool as oak is to ______.
+    choices:
+      - text: Tree
+        correct: true
+      - text: Wood
+      - text: Leaf
+      - text: Forest
+    explanation: |
+      A hammer is a type of tool — this is a category relationship. Applying the same pattern: an oak is a type of tree. "Wood" describes the material, not the category, so it does not match.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-word-analogies-0004
+    type: analogy
+    difficulty: medium
+    stem: |
+      Petal is to flower as branch is to ______.
+    choices:
+      - text: Tree
+        correct: true
+      - text: Leaf
+      - text: Root
+      - text: Forest
+    explanation: |
+      A petal is part of a flower — this is a part-to-whole relationship. Applying the same pattern: a branch is part of a tree.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-word-analogies-0005
+    type: analogy
+    difficulty: medium
+    stem: |
+      Fire is to ash as lightning is to ______.
+    choices:
+      - text: Thunder
+        correct: true
+      - text: Rain
+      - text: Cloud
+      - text: Wind
+    explanation: |
+      Fire produces ash — a cause-and-effect relationship. Applying the same pattern: lightning produces (causes) thunder.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-word-analogies-0006
+    type: analogy
+    difficulty: medium
+    stem: |
+      Happy is to joyful as angry is to ______.
+    choices:
+      - text: Furious
+        correct: true
+      - text: Calm
+      - text: Sad
+      - text: Nervous
+    explanation: |
+      Happy and joyful are synonyms (similar meaning). Applying the same pattern: angry and furious are synonyms.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-word-analogies-0007
+    type: analogy
+    difficulty: medium
+    stem: |
+      Hot is to cold as fast is to ______.
+    choices:
+      - text: Slow
+        correct: true
+      - text: Quick
+      - text: Speedy
+      - text: Rapid
+    explanation: |
+      Hot and cold are antonyms (opposite meaning). Applying the same pattern: fast and slow are antonyms.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-word-analogies-0008
+    type: analogy
+    difficulty: medium
+    stem: |
+      Warm is to hot as cool is to ______.
+    choices:
+      - text: Cold
+        correct: true
+      - text: Warm
+      - text: Mild
+      - text: Humid
+    explanation: |
+      Warm and hot describe a difference in degree (intensity) of the same quality. Applying the same pattern: cool and cold are a matching pair, cold being the more intense version of cool.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-word-analogies-0009
+    type: analogy
+    difficulty: medium
+    stem: |
+      Carpenter is to hammer as painter is to ______.
+    choices:
+      - text: Brush
+        correct: true
+      - text: Canvas
+      - text: Wall
+      - text: Color
+    explanation: |
+      A carpenter is a worker who uses a hammer as their tool. Applying the same pattern: a painter is a worker who uses a brush as their tool.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-word-analogies-0010
+    type: analogy
+    difficulty: hard
+    stem: |
+      Farmer is to tractor as chef is to ______.
+    choices:
+      - text: Knife
+        correct: true
+      - text: Kitchen
+      - text: Restaurant
+      - text: Food
+    explanation: |
+      A farmer is a worker who uses a tractor as their tool. Applying the same worker-to-tool pattern: a chef is a worker who uses a knife as their tool. "Kitchen," "restaurant," and "food" are merely related to a chef, but none of them is the chef's tool.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-word-analogies-0011
+    type: analogy
+    difficulty: hard
+    stem: |
+      Pen is to write as ______ is to measure. Which word correctly completes this analogy, and why is "paper" not a correct choice?
+    choices:
+      - text: Ruler is correct, since a ruler is used to measure, matching the same function relationship as pen is to write; paper is merely something used alongside a pen, not a matching function word.
+        correct: true
+      - text: Paper is correct, since paper is closely associated with both writing and measuring.
+      - text: Ruler is correct, but so is paper, since both are equally valid answers.
+      - text: Neither ruler nor paper completes this analogy correctly.
+    explanation: |
+      A vague relationship sentence like "these are related" lets multiple choices seem to fit. The precise sentence "a pen is used to write" requires the second pair to follow "used to measure" — matching "ruler," not "paper," which is merely associated with writing, not the function itself.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-word-analogies-0012
+    type: analogy
+    difficulty: hard
+    stem: |
+      Author is to book as book is to ______. Is "author" the correct answer to complete this second analogy?
+    choices:
+      - text: No — "author is to book" means "author creates book," but "book is to author" reverses the direction, meaning "book was created by author"; the correct completion should reflect this reversed direction, not repeat "author" as if the relationship were symmetric.
+        correct: true
+      - text: Yes — "author" correctly completes the analogy, since the relationship is the same in both directions.
+      - text: Yes — "book is to author" and "author is to book" always mean the exact same thing.
+      - text: No — but only because books cannot have authors.
+    explanation: |
+      "Author is to book" (author creates book) is different from "book is to author" (book was created by author). Checking whether the relationship goes from first word to second word, or the reverse, and applying that same direction consistently is essential for a correct match.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-word-analogies-0013
+    type: analogy
+    difficulty: medium
+    stem: |
+      Sonnet is to poem as waltz is to ______.
+    choices:
+      - text: Dance
+        correct: true
+      - text: Music
+      - text: Ballroom
+      - text: Composer
+    explanation: |
+      A sonnet is a type of poem — a category relationship. Applying the same pattern: a waltz is a type of dance.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-word-analogies-0014
+    type: analogy
+    difficulty: medium
+    stem: |
+      Wheel is to car as wing is to ______.
+    choices:
+      - text: Airplane
+        correct: true
+      - text: Feather
+      - text: Sky
+      - text: Flight
+    explanation: |
+      A wheel is part of a car — a part-to-whole relationship. Applying the same pattern: a wing is part of an airplane.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-word-analogies-0015
+    type: analogy
+    difficulty: hard
+    stem: |
+      Puppy is to dog as calf is to ______, in the same way that petal is to flower as ______ is to tree. Choose the missing pair, in order.
+    choices:
+      - text: Cow, leaf
+        correct: true
+      - text: Cow, branch
+      - text: Cat, leaf
+      - text: Horse, root
+    explanation: |
+      First pair: a puppy is a baby dog, so a calf is a baby cow. Second pair: a petal is a part of a flower, so a leaf is a part of a tree. Checking both relationships together, "cow, leaf" satisfies both correctly.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-word-analogies-0016
+    type: analogy
+    difficulty: exam
+    stem: |
+      Kitten is to cat as chick is to ______, in the same way that key is to lock as ______ is to engine. Choose the missing pair, in order.
+    choices:
+      - text: Chicken, ignition
+        correct: true
+      - text: Chicken, wheel
+      - text: Rooster, ignition
+      - text: Duck, battery
+    explanation: |
+      First pair: a kitten is a baby cat, so a chick is a baby chicken. Second pair: a key is used to start (unlock/activate) a lock, so an ignition is used to start an engine. Checking both relationships together, "chicken, ignition" satisfies both correctly.
+    approved: true
