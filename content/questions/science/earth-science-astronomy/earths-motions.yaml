@@ -1,0 +1,215 @@
+meta:
+  subject: science
+  topic: earth-science-astronomy
+  subtopic: earths-motions
+  exams: [ upcat, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-earth-science-astronomy-earths-motions-0001
+    type: identify
+    difficulty: easy
+    stem: |
+      Earth spinning on its own axis, taking about 24 hours to complete, is called what motion?
+    choices:
+      - text: Rotation
+        correct: true
+      - text: Revolution
+      - text: Precession
+      - text: Orbit
+    explanation: |
+      Rotation is Earth spinning on its own axis, taking about 24 hours, and it is what causes day and night.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-motions-0002
+    type: identify
+    difficulty: easy
+    stem: |
+      Earth traveling all the way around the Sun, taking about 365.25 days, is called what motion?
+    choices:
+      - text: Revolution
+        correct: true
+      - text: Rotation
+      - text: Precession
+      - text: Tilt
+    explanation: |
+      Revolution is Earth traveling all the way around the Sun, taking about 365.25 days, and combined with axial tilt, it causes the seasons.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-motions-0003
+    type: identify
+    difficulty: medium
+    stem: |
+      The slow, circular wobble of Earth's tilted axis itself, taking about 26,000 years to complete one full cycle, is called what motion?
+    choices:
+      - text: Precession
+        correct: true
+      - text: Rotation
+      - text: Revolution
+      - text: Axial tilt
+    explanation: |
+      Precession is the slow, circular wobble of Earth's tilted axis, taking about 26,000 years for one full wobble.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-motions-0004
+    type: identify
+    difficulty: medium
+    stem: |
+      About how many degrees is Earth's axis tilted, a key factor (combined with revolution) in causing the seasons?
+    choices:
+      - text: About 23.5 degrees
+        correct: true
+      - text: About 90 degrees
+      - text: About 45 degrees
+      - text: About 0 degrees
+    explanation: |
+      Earth's axis is tilted about 23.5 degrees, and this tilt, combined with revolution around the Sun, causes the seasons.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-motions-0005
+    type: classify
+    difficulty: medium
+    stem: |
+      Which of Earth's three motions directly causes day and night?
+    choices:
+      - text: Rotation
+        correct: true
+      - text: Revolution
+      - text: Precession
+      - text: None of Earth's motions cause day and night.
+    explanation: |
+      Rotation, Earth spinning on its axis roughly every 24 hours, causes day and night: the side facing the Sun has daytime, while the side facing away has nighttime.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-motions-0006
+    type: classify
+    difficulty: medium
+    stem: |
+      Which of Earth's three motions, combined with axial tilt, directly causes the seasons?
+    choices:
+      - text: Revolution
+        correct: true
+      - text: Rotation
+      - text: Precession
+      - text: None of Earth's motions cause the seasons.
+    explanation: |
+      Revolution, combined with the tilt of Earth's axis, causes the seasons, as different parts of Earth lean toward or away from the Sun at different points in the yearly orbit.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-motions-0007
+    type: classify
+    difficulty: medium
+    stem: |
+      Which of Earth's three motions is responsible for slowly shifting which star the axis points toward, over thousands of years?
+    choices:
+      - text: Precession
+        correct: true
+      - text: Rotation
+      - text: Revolution
+      - text: None of Earth's motions cause this shift.
+    explanation: |
+      Precession, the slow 26,000-year wobble of Earth's tilted axis, slowly shifts which star the axis points toward — currently Polaris, the North Star.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-motions-0008
+    type: classify
+    difficulty: hard
+    stem: |
+      A student says "rotation causes the seasons, and revolution causes day and night," mixing up the two terms. Is this correct?
+    choices:
+      - text: No — this reverses the two motions; rotation (about a day) causes day and night, while revolution (about a year) combined with axial tilt causes the seasons.
+        correct: true
+      - text: Yes — rotation and revolution can be used interchangeably for either effect.
+      - text: No — but only because neither rotation nor revolution actually exists.
+      - text: Yes — both terms describe the exact same motion.
+    explanation: |
+      The two words sound similar and get swapped in rushed reading. A quick check: rotation's timescale is about a day (day and night); revolution's timescale is about a year (the seasons).
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-motions-0009
+    type: cause-effect
+    difficulty: hard
+    stem: |
+      A student claims summer happens because Earth is closer to the Sun at that time of year. Using the fact that the Philippines (Northern Hemisphere) experiences summer while Australia (Southern Hemisphere) experiences winter at the same time, explain why this claim is incorrect.
+    choices:
+      - text: If distance from the Sun caused the seasons, both hemispheres would experience the same season at the same time; since they experience opposite seasons, the real cause must be axial tilt, which makes each hemisphere lean toward or away from the Sun at different points in the orbit.
+        correct: true
+      - text: The claim is correct, since Earth's distance from the Sun does change between the Philippines' summer and Australia's summer.
+      - text: The opposite seasons occur because the Philippines and Australia orbit the Sun at different speeds.
+      - text: The opposite seasons have no relationship to Earth's tilt, distance, or orbit at all.
+    explanation: |
+      If distance from the Sun were the cause, both hemispheres would share the same season simultaneously. Since the Northern and Southern Hemispheres actually experience opposite seasons at the same time, axial tilt combined with revolution is the real explanation.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-motions-0010
+    type: classify
+    difficulty: hard
+    stem: |
+      A choice claims that precession is responsible for the changing seasons throughout the year. Is this correct?
+    choices:
+      - text: No — precession is a 26,000-year wobble, far too slow to explain any yearly pattern like the seasons; revolution combined with axial tilt causes the seasons instead.
+        correct: true
+      - text: Yes — precession causes the seasons to change every year.
+      - text: No — but only because precession does not actually occur.
+      - text: Yes — precession and revolution describe the exact same yearly cycle.
+    explanation: |
+      Precession only becomes noticeable over many thousands of years. If a choice claims precession causes day and night, or summer and winter, it has confused the timescales — those are caused by rotation and revolution, respectively.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-motions-0011
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      A sidereal day, measured against the distant stars, is about 23 hours and 56 minutes — a few minutes shorter than the familiar 24-hour solar day. Why is the solar day slightly longer?
+    choices:
+      - text: While Earth spins once on its axis, it also moves forward along its orbit around the Sun, so it must rotate a little bit extra before the Sun appears in the same spot in the sky again.
+        correct: true
+      - text: The distant stars move slightly closer to Earth every day, shortening the sidereal day.
+      - text: Earth's rotation speed randomly changes by a few minutes every day.
+      - text: The solar day and sidereal day are actually always exactly the same length.
+    explanation: |
+      Because Earth has shifted position along its orbit while rotating, it must rotate a little extra to face the Sun in the same spot again — this extra bit makes the Sun-based (solar) day exactly 24 hours, while the sidereal day, measured against the essentially fixed distant stars, only takes about 23 hours and 56 minutes.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-motions-0012
+    type: identify
+    difficulty: medium
+    stem: |
+      Which star does Earth's axis currently point toward, useful for navigation in the Northern Hemisphere?
+    choices:
+      - text: Polaris, the North Star
+        correct: true
+      - text: The Sun
+      - text: Sirius
+      - text: Proxima Centauri
+    explanation: |
+      Earth's axis currently points toward Polaris, the North Star, though precession will slowly shift this over thousands of years.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-motions-0013
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      Why is a leap day added to the calendar every four years?
+    choices:
+      - text: One full revolution around the Sun actually takes about 365.25 days, not exactly 365, so the extra quarter-day accumulates into one additional day roughly every four years to keep the calendar in sync.
+        correct: true
+      - text: Earth's rotation slows down by exactly one day every four years.
+      - text: Leap days are added arbitrarily and have no connection to Earth's motions.
+      - text: Precession requires an extra day to be added every four years.
+    explanation: |
+      Earth's revolution takes about 365.25 days, not an even 365. The extra quarter-day per year accumulates into one full extra day approximately every four years, added as a leap day to keep the calendar aligned with Earth's actual orbit.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-motions-0014
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      In late December, the Philippines (Northern Hemisphere) experiences cooler weather while Australia (Southern Hemisphere) experiences its hottest season. A classmate insists this must mean Earth is farther from the Sun in December. Using what you know about Earth's motions, what is the most accurate explanation for this pattern?
+    choices:
+      - text: The pattern is explained by axial tilt combined with revolution — in December, the Southern Hemisphere leans toward the Sun (receiving more direct sunlight, causing summer) while the Northern Hemisphere leans away (causing cooler weather), regardless of Earth's overall distance from the Sun.
+        correct: true
+      - text: The classmate is correct — Earth's changing distance from the Sun throughout the year is what causes this opposite-hemisphere pattern.
+      - text: This pattern is caused by precession, since it involves a change in seasonal timing.
+      - text: This pattern is caused by rotation, since day and night lengths differ between hemispheres.
+    explanation: |
+      The opposite-hemisphere pattern can only be explained by axial tilt combined with revolution: each hemisphere leans toward or away from the Sun at different points in the orbit, changing how directly sunlight hits it — not by any change in Earth's overall distance from the Sun.
+    approved: true
