@@ -1,0 +1,335 @@
+meta:
+  subject: science
+  topic: earth-science-astronomy
+  subtopic: weather-and-climate
+  exams: [ upcat, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-earth-science-astronomy-weather-and-climate-0001
+    type: identify
+    difficulty: easy
+    stem: |
+      What is the short-term condition of the air at a specific place and time, such as today's temperature, rain, or wind, called?
+    choices:
+      - text: Weather
+        correct: true
+      - text: Climate
+      - text: Global warming
+      - text: A monsoon
+    explanation: |
+      Weather is the short-term condition of the air at a specific place and time, like today's temperature, rain, or wind.
+    approved: true
+
+  - id: q-earth-science-astronomy-weather-and-climate-0002
+    type: identify
+    difficulty: easy
+    stem: |
+      What is the long-term average pattern of weather in a region over many years called?
+    choices:
+      - text: Climate
+        correct: true
+      - text: Weather
+      - text: A typhoon
+      - text: A monsoon
+    explanation: |
+      Climate is the long-term average pattern of weather in a region over many years — like a personality, compared to weather's daily "mood."
+    approved: true
+
+  - id: q-earth-science-astronomy-weather-and-climate-0003
+    type: classify
+    difficulty: medium
+    stem: |
+      "It is raining heavily in Manila right now." Is this statement describing weather or climate?
+    choices:
+      - text: Weather, since it describes conditions right now, at one specific time
+        correct: true
+      - text: Climate, since it describes a general, long-term pattern
+      - text: Both weather and climate equally
+      - text: Neither weather nor climate
+    explanation: |
+      This statement describes conditions right now, at one specific time and place — this is weather, not climate.
+    approved: true
+
+  - id: q-earth-science-astronomy-weather-and-climate-0004
+    type: classify
+    difficulty: medium
+    stem: |
+      "The Philippines generally has a hot and humid climate with two main seasons." Is this statement describing weather or climate?
+    choices:
+      - text: Climate, since it describes a general, long-term pattern over many years
+        correct: true
+      - text: Weather, since it describes conditions right now
+      - text: Both weather and climate equally
+      - text: Neither weather nor climate
+    explanation: |
+      This statement describes a general, long-term pattern over many years — this is climate, not weather.
+    approved: true
+
+  - id: q-earth-science-astronomy-weather-and-climate-0005
+    type: classify
+    difficulty: hard
+    stem: |
+      A person argues, "It was unusually cold this week, so global warming must not be real." Is this a valid argument?
+    choices:
+      - text: No — a single short-term weather event does not disprove a long-term climate trend measured over decades; weather and climate operate on very different timescales.
+        correct: true
+      - text: Yes — any single cold week is enough to disprove long-term climate trends.
+      - text: No — but only because cold weather never actually occurs.
+      - text: Yes — weather and climate always match each other exactly, day to day.
+    explanation: |
+      A choice might describe "unusually cold weather this week" as proof that "the climate is not warming." But a single weather event, hot or cold, does not disprove a long-term climate trend measured over decades — weather is short-term and local, while climate is a long-term average.
+    approved: true
+
+  - id: q-earth-science-astronomy-weather-and-climate-0006
+    type: identify
+    difficulty: medium
+    stem: |
+      Which atmospheric layer, up to about 10 km high, is the lowest layer, where almost all weather (clouds, rain, storms) happens?
+    choices:
+      - text: The troposphere
+        correct: true
+      - text: The stratosphere
+      - text: The mesosphere
+      - text: The thermosphere
+    explanation: |
+      The troposphere is the lowest atmospheric layer, up to about 10 km high, where almost all weather happens and where we live and breathe.
+    approved: true
+
+  - id: q-earth-science-astronomy-weather-and-climate-0007
+    type: identify
+    difficulty: medium
+    stem: |
+      Which atmospheric layer, from about 10 km to 50 km high, contains the ozone layer that absorbs most of the Sun's harmful ultraviolet radiation?
+    choices:
+      - text: The stratosphere
+        correct: true
+      - text: The troposphere
+      - text: The mesosphere
+      - text: The exosphere
+    explanation: |
+      The stratosphere, from about 10 km to 50 km high, contains the ozone layer, which absorbs most of the Sun's harmful ultraviolet radiation.
+    approved: true
+
+  - id: q-earth-science-astronomy-weather-and-climate-0008
+    type: identify
+    difficulty: medium
+    stem: |
+      Which atmospheric layer, from about 50 km to 85 km high, is the coldest layer, and is where most meteors burn up?
+    choices:
+      - text: The mesosphere
+        correct: true
+      - text: The stratosphere
+      - text: The thermosphere
+      - text: The exosphere
+    explanation: |
+      The mesosphere, from about 50 km to 85 km high, is the coldest atmospheric layer, and it is where most meteors burn up.
+    approved: true
+
+  - id: q-earth-science-astronomy-weather-and-climate-0009
+    type: identify
+    difficulty: medium
+    stem: |
+      Which atmospheric layer, from about 85 km to 600 km high, has very high measured temperatures despite its extremely thin air?
+    choices:
+      - text: The thermosphere
+        correct: true
+      - text: The troposphere
+      - text: The mesosphere
+      - text: The exosphere
+    explanation: |
+      The thermosphere, from about 85 km to 600 km high, has very high measured temperatures, though its air is too thin to feel warm to a person.
+    approved: true
+
+  - id: q-earth-science-astronomy-weather-and-climate-0010
+    type: identify
+    difficulty: medium
+    stem: |
+      Which atmospheric layer is the outermost layer, fading gradually into outer space, and where satellites orbit?
+    choices:
+      - text: The exosphere
+        correct: true
+      - text: The thermosphere
+      - text: The mesosphere
+      - text: The stratosphere
+    explanation: |
+      The exosphere is the outermost atmospheric layer, fading gradually into outer space, where satellites orbit.
+    approved: true
+
+  - id: q-earth-science-astronomy-weather-and-climate-0011
+    type: process-ordering
+    difficulty: medium
+    stem: |
+      Arrange Earth's five atmospheric layers in order from the ground up: exosphere, mesosphere, stratosphere, thermosphere, troposphere.
+    choices:
+      - text: Troposphere, stratosphere, mesosphere, thermosphere, exosphere
+        correct: true
+      - text: Troposphere, mesosphere, stratosphere, thermosphere, exosphere
+      - text: Exosphere, thermosphere, mesosphere, stratosphere, troposphere
+      - text: Stratosphere, troposphere, mesosphere, exosphere, thermosphere
+    explanation: |
+      From the ground up: troposphere, stratosphere, mesosphere, thermosphere, exosphere — remembered with "Tall Storms Make Thin Exits."
+    approved: true
+
+  - id: q-earth-science-astronomy-weather-and-climate-0012
+    type: classify
+    difficulty: medium
+    stem: |
+      A commercial airplane cruises at an altitude where nearly all storm clouds are already below it, and this layer also contains the ozone layer that blocks harmful ultraviolet rays. Which atmospheric layer is this closest to?
+    choices:
+      - text: The stratosphere
+        correct: true
+      - text: The troposphere
+      - text: The mesosphere
+      - text: The thermosphere
+    explanation: |
+      "Nearly all storm clouds below it" suggests this layer is above the troposphere (where weather happens), and "contains the ozone layer" is a direct match to the stratosphere.
+    approved: true
+
+  - id: q-earth-science-astronomy-weather-and-climate-0013
+    type: classify
+    difficulty: hard
+    stem: |
+      A choice describes the thermosphere as "literally warm to the touch for an astronaut," citing its very high measured temperature. Is this description accurate?
+    choices:
+      - text: No — although the thermosphere has high measured temperatures, its air is so thin that there is not enough matter to transfer that heat to a person or object, so it would not feel warm.
+        correct: true
+      - text: Yes — anyone in the thermosphere would feel intensely warm due to its high temperature.
+      - text: No — but only because the thermosphere actually has a very low temperature.
+      - text: Yes — temperature always directly determines how warm something feels, regardless of air density.
+    explanation: |
+      Temperature measures how fast particles move, but with so few particles in the thin thermosphere, there is not enough matter to transfer that heat to a person or object — a choice describing the thermosphere as literally "warm to the touch" misunderstands this thin-air effect.
+    approved: true
+
+  - id: q-earth-science-astronomy-weather-and-climate-0014
+    type: classify
+    difficulty: hard
+    stem: |
+      A choice describes the ozone layer's job as "producing the oxygen that living things breathe." Is this an accurate description of the ozone layer's role?
+    choices:
+      - text: No — the ozone layer's specific, testable job is absorbing most of the Sun's harmful ultraviolet radiation, not producing breathable oxygen.
+        correct: true
+      - text: Yes — the ozone layer's main job is producing oxygen for living things to breathe.
+      - text: No — but only because the ozone layer does not exist within the stratosphere.
+      - text: Yes — the ozone layer and oxygen production are the exact same process.
+    explanation: |
+      Some choices confuse the ozone layer's protective role with unrelated atmospheric functions. Its specific, testable job is shielding Earth's surface from the Sun's most harmful UV rays, not producing oxygen.
+    approved: true
+
+  - id: q-earth-science-astronomy-weather-and-climate-0015
+    type: identify
+    difficulty: medium
+    stem: |
+      What is the name for the southwest monsoon in the Philippines, roughly from June to October, bringing hot, humid weather and frequent typhoons?
+    choices:
+      - text: Habagat
+        correct: true
+      - text: Amihan
+      - text: El Niño
+      - text: La Niña
+    explanation: |
+      Habagat is the southwest monsoon, roughly from June to October, bringing hot, humid weather, frequent heavy rainfall, and the most frequent destructive typhoons.
+    approved: true
+
+  - id: q-earth-science-astronomy-weather-and-climate-0016
+    type: identify
+    difficulty: medium
+    stem: |
+      What is the name for the northeast monsoon in the Philippines, roughly from November to April, bringing cooler, drier weather?
+    choices:
+      - text: Amihan
+        correct: true
+      - text: Habagat
+      - text: El Niño
+      - text: La Niña
+    explanation: |
+      Amihan is the northeast monsoon, roughly from November to April, bringing cooler, drier weather with generally little rainfall in much of the country.
+    approved: true
+
+  - id: q-earth-science-astronomy-weather-and-climate-0017
+    type: classify
+    difficulty: medium
+    stem: |
+      During a certain month, the Philippines experiences a prevailing wind from the southwest, hot and humid weather, and an active typhoon warning. Which monsoon season is this?
+    choices:
+      - text: Habagat (southwest monsoon), roughly June through October
+        correct: true
+      - text: Amihan (northeast monsoon), roughly November through April
+      - text: Both Habagat and Amihan occur simultaneously
+      - text: Neither monsoon; this describes an unrelated weather pattern
+    explanation: |
+      A southwest wind with hot, humid conditions and frequent typhoons describes habagat, the southwest monsoon, running roughly from June to October.
+    approved: true
+
+  - id: q-earth-science-astronomy-weather-and-climate-0018
+    type: classify
+    difficulty: hard
+    stem: |
+      A student describes a month with cooler, drier weather and a prevailing northeast wind, but labels this season "Habagat." Is this labeling correct?
+    choices:
+      - text: No — cooler, drier weather with a northeast wind describes Amihan, not Habagat; Habagat is the hot, rainy, typhoon-prone southwest monsoon.
+        correct: true
+      - text: Yes — Habagat always describes cooler, drier, northeast-wind conditions.
+      - text: No — but only because neither Habagat nor Amihan involves wind direction.
+      - text: Yes — Habagat and Amihan are simply two different names for the same season.
+    explanation: |
+      These two Filipino terms are easy to confuse under time pressure. Anchor them by season type: if the description mentions frequent typhoons and humidity from the southwest, it must be Habagat; cooler, drier weather from the northeast is Amihan.
+    approved: true
+
+  - id: q-earth-science-astronomy-weather-and-climate-0019
+    type: identify
+    difficulty: medium
+    stem: |
+      What is a powerful, rotating tropical storm system with very strong winds and heavy rain, most common during the Habagat season, called?
+    choices:
+      - text: A typhoon
+        correct: true
+      - text: A monsoon
+      - text: A hotspot
+      - text: An eclipse
+    explanation: |
+      A typhoon is a powerful, rotating tropical storm system with very strong winds and heavy rain, most common during the Habagat season.
+    approved: true
+
+  - id: q-earth-science-astronomy-weather-and-climate-0020
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      Why does the buildup of greenhouse gases, like carbon dioxide, in the atmosphere cause global warming?
+    choices:
+      - text: Greenhouse gases trap heat from the Sun in the atmosphere, similar to how a greenhouse traps warmth, causing a long-term rise in Earth's average temperature.
+        correct: true
+      - text: Greenhouse gases block sunlight from reaching Earth's surface entirely, cooling the planet.
+      - text: Greenhouse gases have no relationship to Earth's average temperature.
+      - text: Greenhouse gases only affect temperature in the stratosphere, not at Earth's surface.
+    explanation: |
+      Greenhouse gases like carbon dioxide trap heat from the Sun in the atmosphere, similar to how a greenhouse traps warmth — this buildup is a major cause of global warming, the long-term rise in Earth's average temperature.
+    approved: true
+
+  - id: q-earth-science-astronomy-weather-and-climate-0021
+    type: classify
+    difficulty: medium
+    stem: |
+      A news report says, "This year's typhoon was unusually strong." A separate scientific report says, "Average global temperatures have risen over the past century, and sea levels are slowly rising as a result." Which report describes a weather event, and which describes climate change?
+    choices:
+      - text: "\"This year's typhoon was unusually strong\" describes a weather event; \"average global temperatures have risen over the past century\" describes climate change."
+        correct: true
+      - text: "Both reports describe the same kind of event: a weather event."
+      - text: "Both reports describe the same kind of event: climate change."
+      - text: "\"This year's typhoon\" describes climate change, while the temperature report describes a weather event."
+    explanation: |
+      "This year's typhoon" describes a single storm at a specific time — a weather event. "Average global temperatures have risen over the past century" describes a long-term shift measured over many decades — climate change.
+    approved: true
+
+  - id: q-earth-science-astronomy-weather-and-climate-0022
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      In September, the Philippines experiences a strong typhoon with a prevailing southwest wind, hot and humid conditions, and heavy rainfall. Meteorologists also note that global average temperatures this decade are measurably higher than the previous decade's average. Using what you know about weather, climate, and monsoons, identify: (a) which monsoon season this typhoon belongs to, and (b) whether the September typhoon alone proves long-term climate change is happening.
+    choices:
+      - text: (a) Habagat, the southwest monsoon (roughly June–October); (b) no, a single typhoon is a short-term weather event, and the actual evidence for long-term climate change comes from the measured rise in average temperatures across decades, not any single storm.
+        correct: true
+      - text: (a) Amihan, the northeast monsoon; (b) yes, one strong typhoon is sufficient proof of long-term climate change on its own.
+      - text: (a) Habagat, the southwest monsoon; (b) yes, any single weather event, no matter how ordinary, directly proves long-term climate trends.
+      - text: (a) Amihan, the northeast monsoon; (b) no, weather events and climate change are entirely unrelated concepts.
+    explanation: |
+      A southwest wind with hot, humid, typhoon conditions in September identifies Habagat. The typhoon itself is a short-term weather event and does not alone prove climate change; the decade-over-decade temperature rise is the actual long-term climate evidence.
+    approved: true
