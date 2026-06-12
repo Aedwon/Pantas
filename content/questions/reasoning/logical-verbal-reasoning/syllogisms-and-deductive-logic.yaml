@@ -1,0 +1,257 @@
+meta:
+  subject: reasoning
+  topic: logical-verbal-reasoning
+  subtopic: syllogisms-and-deductive-logic
+  exams: [ acet, ustet, dost-sei ]
+questions:
+  - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0001
+    type: syllogism
+    difficulty: easy
+    stem: |
+      All mammals are warm-blooded. A whale is a mammal.
+      What must be true?
+    choices:
+      - text: A whale is warm-blooded.
+        correct: true
+      - text: All warm-blooded animals are mammals.
+      - text: A whale is not a mammal.
+      - text: Some mammals are not warm-blooded.
+    explanation: |
+      Since all mammals are warm-blooded, and a whale is a mammal, the whale must also be warm-blooded.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0002
+    type: syllogism
+    difficulty: easy
+    stem: |
+      All squares are rectangles. All rectangles have four sides.
+      What must be true?
+    choices:
+      - text: All squares have four sides.
+        correct: true
+      - text: All rectangles are squares.
+      - text: Some four-sided shapes are not rectangles.
+      - text: No squares have four sides.
+    explanation: |
+      If every square is a rectangle, and every rectangle has four sides, then every square must also have four sides.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0003
+    type: syllogism
+    difficulty: medium
+    stem: |
+      If a student studies hard, they will pass the exam. Maria passed the exam. Therefore, Maria studied hard.
+      Is this conclusion valid?
+    choices:
+      - text: No — the premise only guarantees studying leads to passing; Maria could have passed for another reason, such as an easy exam or prior knowledge.
+        correct: true
+      - text: Yes — passing the exam guarantees that a student studied hard.
+      - text: Yes — this follows the modus ponens pattern correctly.
+      - text: No — but only because Maria did not actually pass the exam.
+    explanation: |
+      This is the "affirming the consequent" fallacy. The premise only says studying leads to passing, not that passing can only happen by studying. Maria could have passed for other reasons.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0004
+    type: syllogism
+    difficulty: medium
+    stem: |
+      If it rains, the ground gets wet. It did not rain. Therefore, the ground is not wet.
+      Is this conclusion valid?
+    choices:
+      - text: No — the ground could still be wet from another cause, like a sprinkler or a spilled drink.
+        correct: true
+      - text: Yes — if it did not rain, the ground must be dry.
+      - text: Yes — this follows the modus tollens pattern correctly.
+      - text: No — but only because it actually did rain.
+    explanation: |
+      This is the "denying the antecedent" fallacy. The premise only guarantees rain causes wetness; it does not rule out other causes of wetness when it does not rain.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0005
+    type: syllogism
+    difficulty: medium
+    stem: |
+      If the alarm is working, it will ring during a fire. The alarm did not ring during the fire. Therefore, the alarm was not working.
+      Is this conclusion valid?
+    choices:
+      - text: Yes — this is modus tollens; since a working alarm guarantees ringing, and it did not ring, the alarm must not have been working.
+        correct: true
+      - text: No — the alarm could have been working even though it did not ring.
+      - text: Yes — but only because the fire never actually happened.
+      - text: No — this is the affirming the consequent fallacy.
+    explanation: |
+      This matches modus tollens: "If A, then B. B is false. Therefore, A is false." A working alarm guarantees ringing during a fire, so if it did not ring, it was not working.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0006
+    type: syllogism
+    difficulty: medium
+    stem: |
+      If a metal is heated, it expands. This metal bar was heated.
+      What must be true?
+    choices:
+      - text: This metal bar expanded.
+        correct: true
+      - text: This metal bar did not expand.
+      - text: This metal bar was not heated.
+      - text: All metals expand, whether heated or not.
+    explanation: |
+      This follows modus ponens: "If A, then B. A is true. Therefore, B is true." Since heating causes expansion, and this bar was heated, it must have expanded.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0007
+    type: syllogism
+    difficulty: hard
+    stem: |
+      All birds can fly. A penguin is a bird. Therefore, a penguin can fly.
+      Is this syllogism valid? Is it sound?
+    choices:
+      - text: It is valid (the logical structure is correct), but not sound, since the major premise ("all birds can fly") is actually false — penguins cannot fly.
+        correct: true
+      - text: It is both valid and sound, since the structure and conclusion both hold.
+      - text: It is neither valid nor sound, since the structure itself is broken.
+      - text: It is sound but not valid, since the premise is false but the conclusion happens to be true.
+    explanation: |
+      Structurally, this follows a valid pattern (all X have trait Y, Z is an X, therefore Z has trait Y). But the major premise is factually false, so the syllogism is valid but not sound.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0008
+    type: syllogism
+    difficulty: hard
+    stem: |
+      A student argues: "Maria passed the exam, so the argument 'if she studies hard, she'll pass, and she passed, so she studied hard' must have been a valid argument, since the conclusion turned out to be true." Is this reasoning about validity correct?
+    choices:
+      - text: No — an argument's validity depends on its logical structure, not on whether the conclusion happens to be true; this argument's structure (affirming the consequent) is flawed regardless of whether Maria actually studied.
+        correct: true
+      - text: Yes — a true conclusion always proves the argument that produced it was valid.
+      - text: No — but only because Maria did not actually pass the exam.
+      - text: Yes — validity is defined entirely by whether the conclusion matches reality.
+    explanation: |
+      "Maria passed the exam" being true does not automatically make "therefore she studied hard" a valid deduction. The argument's structure itself (affirming the consequent) is flawed, regardless of whether Maria actually did study.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0009
+    type: syllogism
+    difficulty: hard
+    stem: |
+      A student assumes "if it rains, the ground gets wet" also means "if the ground is wet, it rained," treating the two statements as interchangeable. Is this assumption correct?
+    choices:
+      - text: No — only the original direction of the conditional (rain leads to wetness) is guaranteed; its reverse is not automatically true unless separately established.
+        correct: true
+      - text: Yes — a conditional statement and its reverse always mean the same thing.
+      - text: No — but only because rain never actually causes the ground to get wet.
+      - text: Yes — "if A, then B" and "if B, then A" are logically identical statements.
+    explanation: |
+      Assuming "if A, then B" is interchangeable with "if B, then A" causes the affirming-the-consequent error. Only the original direction of the conditional is guaranteed by the premise.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0010
+    type: syllogism
+    difficulty: hard
+    stem: |
+      A question asks specifically whether an argument is "sound," but a student answers only by checking whether its logical structure is correct, without checking whether its premises are actually true. Did the student answer the right question?
+    choices:
+      - text: No — a valid argument only has correct logical structure; a sound argument must be both valid and have premises that are actually true. Checking structure alone only answers the validity question, not the soundness question.
+        correct: true
+      - text: Yes — validity and soundness mean exactly the same thing, so checking structure alone is sufficient.
+      - text: No — but only because logical structure has no bearing on either validity or soundness.
+      - text: Yes — soundness only depends on logical structure, never on whether premises are true.
+    explanation: |
+      A valid argument has correct logical structure. A sound argument is valid and has premises that are actually true. Exam questions may ask specifically about one or the other — checking structure alone answers validity, not soundness.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0011
+    type: syllogism
+    difficulty: medium
+    stem: |
+      All insects have six legs. A spider has eight legs.
+      What must be true?
+    choices:
+      - text: A spider is not an insect.
+        correct: true
+      - text: A spider is an insect.
+      - text: All six-legged animals are spiders.
+      - text: Spiders have six legs.
+    explanation: |
+      Since all insects have six legs, and a spider has eight legs, the spider cannot be an insect — if it were, it would need to have exactly six legs.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0012
+    type: syllogism
+    difficulty: medium
+    stem: |
+      If a battery is dead, the flashlight will not turn on. The flashlight did not turn on.
+      Can we conclude the battery is dead?
+    choices:
+      - text: No — the flashlight could fail to turn on for another reason, such as a broken bulb or a loose connection, not just a dead battery.
+        correct: true
+      - text: Yes — a flashlight failing to turn on always means the battery is dead.
+      - text: Yes — this is a valid modus tollens argument.
+      - text: No — but only because the flashlight actually did turn on.
+    explanation: |
+      This is "affirming the consequent" in reverse form — the premise only guarantees a dead battery prevents the flashlight from turning on, not that this is the only possible cause of failure.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0013
+    type: syllogism
+    difficulty: medium
+    stem: |
+      If a shape is a triangle, it has three sides. This shape does not have three sides.
+      What must be true?
+    choices:
+      - text: This shape is not a triangle.
+        correct: true
+      - text: This shape is a triangle.
+      - text: This shape has exactly three sides.
+      - text: Nothing can be concluded about this shape.
+    explanation: |
+      This is modus tollens: since having three sides is guaranteed for triangles, and this shape lacks three sides, it cannot be a triangle.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0014
+    type: syllogism
+    difficulty: hard
+    stem: |
+      All licensed drivers have passed a driving test. Juan passed a driving test. Therefore, Juan is a licensed driver.
+      Is this conclusion valid?
+    choices:
+      - text: No — passing a driving test does not guarantee being licensed; Juan could have passed the test without completing other licensing requirements, such as registration or fees.
+        correct: true
+      - text: Yes — passing a driving test always means someone is a licensed driver.
+      - text: Yes — this follows modus ponens correctly.
+      - text: No — but only because Juan never actually took a driving test.
+    explanation: |
+      This is "affirming the consequent." The premise only says licensed drivers have passed a test, not that everyone who passes a test automatically becomes licensed — other requirements might still apply.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0015
+    type: syllogism
+    difficulty: hard
+    stem: |
+      All fish live in water. A dolphin lives in water.
+      Can we conclude that a dolphin is a fish?
+    choices:
+      - text: No — the premise only guarantees fish live in water; it does not say everything living in water is a fish, so this conclusion does not follow.
+        correct: true
+      - text: Yes — since a dolphin lives in water, and all fish live in water, a dolphin must be a fish.
+      - text: Yes — this is a valid deductive conclusion using modus ponens.
+      - text: No — but only because dolphins do not actually live in water.
+    explanation: |
+      This is a category version of "affirming the consequent." "All fish live in water" does not mean "everything that lives in water is a fish" — a dolphin is actually a mammal, not a fish, despite living in water.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0016
+    type: syllogism
+    difficulty: exam
+    stem: |
+      Consider this argument: "All reptiles are cold-blooded. A snake is cold-blooded. Therefore, a snake is a reptile." Separately, consider: "All reptiles are cold-blooded. A snake is a reptile. Therefore, a snake is cold-blooded." Evaluate the validity of each argument.
+    choices:
+      - text: The first argument is invalid (it affirms the consequent, since "cold-blooded" does not guarantee "reptile" — some fish and amphibians are also cold-blooded); the second argument is valid, since it correctly applies the trait from the category to a confirmed member of it.
+        correct: true
+      - text: Both arguments are valid, since they use the same two facts about reptiles.
+      - text: Both arguments are invalid, since neither can be evaluated without knowing if snakes are truly reptiles.
+      - text: The first argument is valid, and the second is invalid, reversing the correct evaluation.
+    explanation: |
+      The first argument reasons backward from a shared trait to category membership, which is invalid since other animals (like some fish and amphibians) are also cold-blooded. The second argument correctly reasons forward from confirmed category membership to a guaranteed trait, making it valid.
+    approved: true
