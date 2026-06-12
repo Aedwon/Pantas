@@ -1,0 +1,230 @@
+meta:
+  subject: science
+  topic: earth-science-astronomy
+  subtopic: earths-subsystems
+  exams: [ upcat, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-earth-science-astronomy-earths-subsystems-0001
+    type: identify
+    difficulty: easy
+    stem: |
+      Which Earth subsystem is the solid, rocky part of Earth, including the crust and the uppermost rigid part of the mantle?
+    choices:
+      - text: The lithosphere
+        correct: true
+      - text: The hydrosphere
+      - text: The atmosphere
+      - text: The biosphere
+    explanation: |
+      The lithosphere is the solid, rocky part of Earth: the crust and the uppermost, rigid part of the mantle, including mountains, the ocean floor, and rocks and soil.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-subsystems-0002
+    type: identify
+    difficulty: easy
+    stem: |
+      Which Earth subsystem includes all the water on Earth: oceans, rivers, lakes, groundwater, ice caps, and water vapor?
+    choices:
+      - text: The hydrosphere
+        correct: true
+      - text: The lithosphere
+      - text: The atmosphere
+      - text: The biosphere
+    explanation: |
+      The hydrosphere is all the water on Earth, including oceans, rivers, lakes, groundwater, ice caps, and water vapor in clouds.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-subsystems-0003
+    type: identify
+    difficulty: medium
+    stem: |
+      Which Earth subsystem is the layer of gases surrounding Earth, mostly nitrogen and oxygen, held in place by gravity?
+    choices:
+      - text: The atmosphere
+        correct: true
+      - text: The hydrosphere
+      - text: The lithosphere
+      - text: The biosphere
+    explanation: |
+      The atmosphere is the layer of gases surrounding Earth, mostly nitrogen and oxygen, held in place by gravity, protecting life from harmful radiation and holding in heat.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-subsystems-0004
+    type: identify
+    difficulty: medium
+    stem: |
+      Which Earth subsystem includes every living thing on Earth and the places where they live?
+    choices:
+      - text: The biosphere
+        correct: true
+      - text: The atmosphere
+      - text: The hydrosphere
+      - text: The lithosphere
+    explanation: |
+      The biosphere is every living thing on Earth, and the places where they live, from the deepest ocean trench to the highest mountain.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-subsystems-0005
+    type: classify
+    difficulty: medium
+    stem: |
+      A coral reef is made of living coral animals. Which subsystem does it belong to?
+    choices:
+      - text: Biosphere
+        correct: true
+      - text: Hydrosphere
+      - text: Lithosphere
+      - text: Atmosphere
+    explanation: |
+      A coral reef is made of living organisms, so it belongs to the biosphere, even though it lives in ocean water.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-subsystems-0006
+    type: classify
+    difficulty: medium
+    stem: |
+      A glacier is a large, slow-moving body of frozen water. Which subsystem does it belong to?
+    choices:
+      - text: Hydrosphere
+        correct: true
+      - text: Lithosphere
+      - text: Atmosphere
+      - text: Biosphere
+    explanation: |
+      A glacier is frozen water, so it belongs to the hydrosphere, since the hydrosphere includes water in any form — liquid, solid ice, or vapor.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-subsystems-0007
+    type: classify
+    difficulty: hard
+    stem: |
+      A student argues that polar ice caps deserve their own separate category, since ice is solid like rock, not liquid like ocean water. Is this correct?
+    choices:
+      - text: No — the hydrosphere is defined by being water in any of its forms (liquid, solid ice, or vapor), so glaciers and polar ice caps still belong to the hydrosphere, not a separate category.
+        correct: true
+      - text: Yes — solid ice belongs to the lithosphere, since it is a solid.
+      - text: Yes — ice is neither hydrosphere nor lithosphere, but its own separate subsystem.
+      - text: No — but only because ice does not actually exist on Earth.
+    explanation: |
+      Students sometimes think ice deserves its own category since it is solid. But the hydrosphere is defined by being water in any of its forms — liquid, solid ice, or water vapor — so glaciers and polar ice caps all belong to the hydrosphere.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-subsystems-0008
+    type: classify
+    difficulty: medium
+    stem: |
+      A layer of nitrogen gas surrounds Earth. Which subsystem does it belong to?
+    choices:
+      - text: Atmosphere
+        correct: true
+      - text: Hydrosphere
+      - text: Lithosphere
+      - text: Biosphere
+    explanation: |
+      A layer of nitrogen gas is part of the air surrounding Earth, so it belongs to the atmosphere.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-subsystems-0009
+    type: classify
+    difficulty: medium
+    stem: |
+      A mountain range is made of solid rock. Which subsystem does it belong to?
+    choices:
+      - text: Lithosphere
+        correct: true
+      - text: Hydrosphere
+      - text: Atmosphere
+      - text: Biosphere
+    explanation: |
+      A mountain range is solid rock, so it belongs to the lithosphere, the solid, rocky part of Earth.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-subsystems-0010
+    type: classify
+    difficulty: hard
+    stem: |
+      A colony of bacteria lives deep underground, within cracks in solid rock. A student classifies these bacteria as part of the lithosphere, since that is where they are found. Is this correct?
+    choices:
+      - text: No — classification depends on whether the thing is alive, not on where it is found; since bacteria are living organisms, they belong to the biosphere, even while living underground.
+        correct: true
+      - text: Yes — any organism found within rock automatically becomes part of the lithosphere.
+      - text: Yes — bacteria are not considered living things, so they belong to the lithosphere by default.
+      - text: No — but only because bacteria cannot survive underground at all.
+    explanation: |
+      A choice describing bacteria living deep underground may be mistakenly classified as part of the lithosphere just because of its location. But classification depends on whether the thing is alive, not on where it happens to be found — living bacteria belong to the biosphere.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-subsystems-0011
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      A volcanic eruption releases ash and gas into the sky, which blocks sunlight and cools the surrounding region for weeks. Which two subsystems are directly interacting in this event?
+    choices:
+      - text: The lithosphere (source of the eruption) and the atmosphere (where the ash and gas travel and affect sunlight and temperature)
+        correct: true
+      - text: The hydrosphere and the biosphere only
+      - text: Only the lithosphere; no other subsystem is involved
+      - text: Only the atmosphere; the eruption itself does not involve any subsystem
+    explanation: |
+      The eruption comes from inside the solid Earth (lithosphere), while the ash and gas travel into the sky and affect sunlight and temperature there (atmosphere) — these two subsystems are directly interacting.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-subsystems-0012
+    type: classify
+    difficulty: hard
+    stem: |
+      A question describes rainfall seeping into cracked rock, freezing, and breaking the rock apart, after which plant roots grow into the broken rock and turn it into soil. A student answers that this scenario only involves the lithosphere, since it ends with rock turning into soil. Is this answer complete?
+    choices:
+      - text: "No — this scenario involves all four subsystems: the lithosphere (the rock), the hydrosphere (the rainfall), the atmosphere (temperature and freezing conditions), and the biosphere (the plant roots); picking only one subsystem is incomplete."
+        correct: true
+      - text: Yes — since the final result is soil, only the lithosphere is relevant to this scenario.
+      - text: Yes — subsystems act in isolation, so only the subsystem mentioned last in the scenario counts.
+      - text: No — but only because plant roots are not considered part of any subsystem.
+    explanation: |
+      A question describing a real event (like this weathering process) almost always involves more than one subsystem working together. The four subsystems constantly interact; an answer that picks only one subsystem for a multi-step scenario is usually incomplete.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-subsystems-0013
+    type: identify
+    difficulty: medium
+    stem: |
+      The Greek root "hydro" means water, helping you remember which subsystem name it belongs to. Which subsystem is this?
+    choices:
+      - text: The hydrosphere
+        correct: true
+      - text: The lithosphere
+      - text: The atmosphere
+      - text: The biosphere
+    explanation: |
+      "Hydro" means water, so the hydrosphere is the water layer — matching each subsystem's root meaning helps classify unfamiliar examples quickly.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-subsystems-0014
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      Plants take in carbon dioxide from the air and draw up water through their roots from the ground. Which two subsystems are directly interacting with the biosphere in this description?
+    choices:
+      - text: The atmosphere (the air providing carbon dioxide) and the hydrosphere (the water drawn from the ground)
+        correct: true
+      - text: The lithosphere and the atmosphere only, since plants grow in soil
+      - text: Only the atmosphere; water absorption does not involve any subsystem
+      - text: Only the hydrosphere; carbon dioxide absorption does not involve any subsystem
+    explanation: |
+      Plants (biosphere) interact with the atmosphere by taking in gases from the air, and with the hydrosphere by drawing water from the ground — two separate subsystem interactions happening at once.
+    approved: true
+
+  - id: q-earth-science-astronomy-earths-subsystems-0015
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      A heavy rainstorm causes a landslide that exposes fresh rock on a hillside. Over the following months, mosses and small plants begin growing on the exposed rock, while the surrounding air humidity noticeably increases due to evaporation from the wet soil. Identify all four Earth subsystems involved in this chain of events, and each one's role.
+    choices:
+      - text: Lithosphere (the rock exposed by the landslide), hydrosphere (the rainfall and evaporating moisture), atmosphere (the humidity increase in the surrounding air), and biosphere (the mosses and plants that begin growing)
+        correct: true
+      - text: Only the lithosphere and hydrosphere are involved, since the event starts with rain and rock.
+      - text: Only the biosphere is involved, since the final outcome is plant growth.
+      - text: This scenario cannot be classified into any of the four subsystems.
+    explanation: |
+      This multi-step scenario touches all four subsystems: the lithosphere (exposed rock from the landslide), the hydrosphere (rainfall and evaporating moisture), the atmosphere (rising humidity), and the biosphere (mosses and plants colonizing the rock) — a good example of the subsystems constantly rippling into each other.
+    approved: true
