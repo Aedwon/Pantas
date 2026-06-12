@@ -1,0 +1,320 @@
+meta:
+  subject: science
+  topic: earth-science-astronomy
+  subtopic: fossils-and-geologic-time
+  exams: [ upcat, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0001
+    type: identify
+    difficulty: easy
+    stem: |
+      What is any preserved trace of an ancient living thing, such as bones, shells, footprints, or imprints left in rock, called?
+    choices:
+      - text: A fossil
+        correct: true
+      - text: A stratum
+      - text: A half-life
+      - text: An epoch
+    explanation: |
+      A fossil is any preserved trace of an ancient living thing: bones, shells, footprints, or imprints left in rock.
+    approved: true
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0002
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      Why are fossils usually found inside sedimentary rock rather than igneous or metamorphic rock?
+    choices:
+      - text: Sedimentary rock forms in layers over time, which can trap and preserve remains before they decay, unlike igneous rock (formed from melting) or metamorphic rock (formed under intense heat and pressure that would destroy remains).
+        correct: true
+      - text: Sedimentary rock is the only rock type that contains any minerals at all.
+      - text: Igneous and metamorphic rocks form more quickly than sedimentary rock, giving fossils less time to decay.
+      - text: Fossils are equally common in all three rock types, with no meaningful difference.
+    explanation: |
+      Sedimentary rock forms in layers, which can trap and preserve remains before they decay. Igneous rock forms from cooling melted rock, and metamorphic rock forms under intense heat and pressure — both processes that would destroy any organic remains.
+    approved: true
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0003
+    type: identify
+    difficulty: medium
+    stem: |
+      What is the study of rock layers (called strata) known as?
+    choices:
+      - text: Stratigraphy
+        correct: true
+      - text: Radiometric dating
+      - text: Paleontology dating
+      - text: Superposition theory
+    explanation: |
+      Stratigraphy is the study of rock layers, called strata.
+    approved: true
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0004
+    type: identify
+    difficulty: medium
+    stem: |
+      Which principle states that, in an undisturbed sequence of sedimentary rock layers, each layer is younger than the layer below it and older than the layer above it?
+    choices:
+      - text: The Law of Superposition
+        correct: true
+      - text: Radiometric dating
+      - text: The half-life principle
+      - text: The geologic time scale
+    explanation: |
+      The Law of Superposition states that, in an undisturbed sequence of sedimentary rock layers, each layer is younger than the layer below it and older than the layer above it.
+    approved: true
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0005
+    type: classify
+    difficulty: medium
+    stem: |
+      A rock cliff shows four visible layers, labeled W, X, Y, and Z from bottom to top, with no signs of disturbance. Which layer is the oldest, and which is the youngest?
+    choices:
+      - text: Layer W (bottom) is the oldest; Layer Z (top) is the youngest.
+        correct: true
+      - text: Layer Z (top) is the oldest; Layer W (bottom) is the youngest.
+      - text: All four layers are the same age.
+      - text: Layer X is the oldest, and Layer Y is the youngest.
+    explanation: |
+      In an undisturbed sequence, the bottom layer is the oldest, since it was deposited first, and the top layer is the youngest, since it was deposited most recently.
+    approved: true
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0006
+    type: classify
+    difficulty: medium
+    stem: |
+      A trilobite fossil is found in Layer W (the bottom layer), and a mammal fossil is found in Layer Z (the top layer) of the same undisturbed rock cliff. What can you conclude about which organism lived first?
+    choices:
+      - text: The trilobite (in the older, bottom Layer W) lived before the mammal (in the younger, top Layer Z).
+        correct: true
+      - text: The mammal lived before the trilobite, since Layer Z is closer to the surface.
+      - text: Both organisms must have lived at exactly the same time.
+      - text: No conclusion can be drawn about which organism lived first.
+    explanation: |
+      A fossil's age matches the age of the rock layer it is found in. Since Layer W is older than Layer Z, the trilobite must have lived before the mammal — matching what we know from the geologic time scale, since trilobites are common Paleozoic fossils, while most mammals appeared much later, in the Cenozoic.
+    approved: true
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0007
+    type: classify
+    difficulty: hard
+    stem: |
+      A question asks, "How many years old is this rock layer?" A student tries to answer using only the Law of Superposition. Can superposition alone answer this question?
+    choices:
+      - text: No — the Law of Superposition only tells you the relative order of layers (which is older or younger); only radiometric (absolute) dating provides a specific number of years.
+        correct: true
+      - text: Yes — the Law of Superposition always provides an exact number of years for any rock layer.
+      - text: No — but only because the Law of Superposition cannot determine the order of layers either.
+      - text: Yes — radiometric dating and the Law of Superposition are the exact same method.
+    explanation: |
+      A question asking "how many years old" cannot be answered using superposition alone — that method only orders layers relative to each other. Only radiometric (absolute) dating provides a specific number of years.
+    approved: true
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0008
+    type: classify
+    difficulty: hard
+    stem: |
+      A rock formation has been folded and faulted by geological forces over time. A student applies "bottom is oldest" to this formation without any further evidence. Is this a safe assumption?
+    choices:
+      - text: No — the Law of Superposition only applies reliably to undisturbed layers; if layers have been folded, flipped, or faulted, the simple "bottom is oldest" rule can no longer be trusted without further evidence.
+        correct: true
+      - text: Yes — the Law of Superposition always applies, regardless of folding or faulting.
+      - text: No — but only because folded rock layers do not contain any fossils.
+      - text: Yes — folding and faulting have no effect on the order of rock layers.
+    explanation: |
+      If rock layers have been folded, flipped, or faulted by geological forces, the simple "bottom is oldest" rule can no longer be trusted without further evidence. Exam questions usually specify "undisturbed" for a reason.
+    approved: true
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0009
+    type: identify
+    difficulty: medium
+    stem: |
+      What type of dating do scientists use to find a rock's actual age in years, by measuring how much of a radioactive element remains compared to its stable decayed form?
+    choices:
+      - text: Radiometric dating
+        correct: true
+      - text: Relative dating
+      - text: Stratigraphy
+      - text: The Law of Superposition
+    explanation: |
+      Radiometric dating measures how much of the original radioactive element remains in a rock, compared to how much stable decayed element has built up, to calculate the rock's actual age in years.
+    approved: true
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0010
+    type: identify
+    difficulty: medium
+    stem: |
+      What is the term for the time it takes for half of a radioactive element to decay into its stable form?
+    choices:
+      - text: Half-life
+        correct: true
+      - text: Stratum
+      - text: Epoch
+      - text: Superposition period
+    explanation: |
+      The half-life of a radioactive element is the time it takes for half of it to decay into a stable form.
+    approved: true
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0011
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A radioactive element has a half-life of 1 billion years. A rock sample now contains only one-quarter of its original amount of this element. How old is the rock?
+    choices:
+      - text: 2 billion years
+        correct: true
+      - text: 1 billion years
+      - text: 4 billion years
+      - text: 0.25 billion years
+    explanation: |
+      One-quarter remaining means two half-lives have passed ($\dfrac{1}{2} \times \dfrac{1}{2} = \dfrac{1}{4}$). At 1 billion years per half-life, the rock is $2 \times 1 = 2$ billion years old.
+    approved: true
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0012
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      A radioactive element has a half-life of 5,000 years. A fossil sample now contains only one-eighth of its original amount of this element. How old is the fossil?
+    choices:
+      - text: 15,000 years
+        correct: true
+      - text: 5,000 years
+      - text: 10,000 years
+      - text: 40,000 years
+    explanation: |
+      One-eighth remaining means three half-lives have passed ($\dfrac{1}{2} \times \dfrac{1}{2} \times \dfrac{1}{2} = \dfrac{1}{8}$). At 5,000 years per half-life, the fossil is $3 \times 5{,}000 = 15{,}000$ years old.
+    approved: true
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0013
+    type: classify
+    difficulty: hard
+    stem: |
+      A student reasons, "Since one-quarter of the sample remains after 2 half-lives, one-eighth should remain after just 1 more half-life period entirely finishing the decay to zero." What is wrong with this reasoning?
+    choices:
+      - text: Each half-life only cuts the current remaining amount in half again, not by a fixed equal amount each time; decay never reaches exactly zero, and one-eighth remaining after a third half-life is still a nonzero amount, not "finished."
+        correct: true
+      - text: Nothing is wrong — after exactly 3 half-lives, the sample always reaches exactly zero.
+      - text: The reasoning is correct, since each half-life removes the same fixed amount of material.
+      - text: Half-lives only apply to the first halving, not to any later ones.
+    explanation: |
+      A common mistake is assuming decay eventually reaches exactly zero after a fixed number of half-lives. In fact, every half-life only cuts the current remaining amount in half, forever approaching (but never fully hitting) zero — one-eighth remaining after 3 half-lives is correct, but it is not "finished decaying."
+    approved: true
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0014
+    type: process-ordering
+    difficulty: medium
+    stem: |
+      Arrange these units of the geologic time scale from largest to smallest: periods, eons, epochs, eras.
+    choices:
+      - text: Eons, eras, periods, epochs
+        correct: true
+      - text: Eras, eons, periods, epochs
+      - text: Epochs, periods, eras, eons
+      - text: Eons, periods, eras, epochs
+    explanation: |
+      The geologic time scale is divided into units from largest to smallest: eons, eras, periods, and epochs.
+    approved: true
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0015
+    type: identify
+    difficulty: medium
+    stem: |
+      Which span of Earth's history, covering roughly the first 4 billion years, comes before complex life became common?
+    choices:
+      - text: The Precambrian
+        correct: true
+      - text: The Paleozoic
+      - text: The Mesozoic
+      - text: The Cenozoic
+    explanation: |
+      The Precambrian is the largest chunk of Earth's history, covering roughly the first 4 billion years, before complex life became common.
+    approved: true
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0016
+    type: identify
+    difficulty: medium
+    stem: |
+      Which era, whose name means "old life," includes the first fish, land plants, and early reptiles?
+    choices:
+      - text: The Paleozoic era
+        correct: true
+      - text: The Mesozoic era
+      - text: The Cenozoic era
+      - text: The Precambrian
+    explanation: |
+      The Paleozoic ("old life") era includes the first fish, land plants, and early reptiles.
+    approved: true
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0017
+    type: identify
+    difficulty: medium
+    stem: |
+      Which era, whose name means "middle life," is known as the age of the dinosaurs, and also saw the first mammals and flowering plants appear?
+    choices:
+      - text: The Mesozoic era
+        correct: true
+      - text: The Paleozoic era
+      - text: The Cenozoic era
+      - text: The Precambrian
+    explanation: |
+      The Mesozoic ("middle life") era is the age of the dinosaurs, and is also when the first mammals and flowering plants appeared.
+    approved: true
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0018
+    type: identify
+    difficulty: medium
+    stem: |
+      Which era, whose name means "new life," is the current era, often called the age of mammals, and is when humans evolved?
+    choices:
+      - text: The Cenozoic era
+        correct: true
+      - text: The Mesozoic era
+      - text: The Paleozoic era
+      - text: The Precambrian
+    explanation: |
+      The Cenozoic ("new life") era is the current era, often called the age of mammals, and is when humans evolved.
+    approved: true
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0019
+    type: classify
+    difficulty: hard
+    stem: |
+      Since the Cenozoic is called the "age of mammals," a student assumes dinosaurs must belong to the Cenozoic era as well. Is this correct?
+    choices:
+      - text: No — dinosaurs belong to the Mesozoic era; they went extinct at the end of the Mesozoic, and it was only afterward, in the Cenozoic, that mammals became the dominant large land animals.
+        correct: true
+      - text: Yes — dinosaurs and mammals both belong to the Cenozoic era together.
+      - text: No — but only because dinosaurs never actually existed.
+      - text: Yes — the Mesozoic and Cenozoic eras describe the exact same time period.
+    explanation: |
+      Since the Cenozoic is called the "age of mammals," some students mistakenly place dinosaurs there too. Dinosaurs went extinct at the end of the Mesozoic era, and only afterward, in the Cenozoic, did mammals become the dominant large land animals.
+    approved: true
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0020
+    type: classify
+    difficulty: medium
+    stem: |
+      A rock layer contains fossils of dinosaurs and early flowering plants, but no fossils of any mammals larger than small, shrew-like creatures. Which era does this layer most likely belong to?
+    choices:
+      - text: The Mesozoic era
+        correct: true
+      - text: The Cenozoic era
+      - text: The Paleozoic era
+      - text: The Precambrian
+    explanation: |
+      Dinosaurs and the first flowering plants are hallmark fossils of the Mesozoic era; only small, shrew-like mammals existed then, since large mammals became dominant only later, in the Cenozoic, after the dinosaurs went extinct.
+    approved: true
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0021
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      A geologist studies an undisturbed rock cliff with three layers, bottom to top: Layer 1, Layer 2, and Layer 3. Layer 1 contains a fossil of an early fish, Layer 2 contains a fossil of an early dinosaur, and Layer 3 contains a radioactive element with a half-life of 2 million years, of which only one-quarter of the original amount remains. Determine: (a) the relative order in which the three layers formed, (b) which era Layer 1's fossil most likely belongs to, and (c) the actual age of Layer 3.
+    choices:
+      - text: (a) Layer 1 formed first (oldest), then Layer 2, then Layer 3 (youngest); (b) Layer 1's early fish fossil belongs to the Paleozoic era; (c) Layer 3 is 4 million years old, since one-quarter remaining means two half-lives have passed (2 × 2 million years).
+        correct: true
+      - text: (a) Layer 3 formed first, then Layer 2, then Layer 1; (b) Layer 1's fossil belongs to the Cenozoic era; (c) Layer 3 is 2 million years old.
+      - text: (a) The layers cannot be ordered without radiometric dating on all three; (b) Layer 1's fossil belongs to the Mesozoic era; (c) Layer 3 is 8 million years old.
+      - text: (a) Layer 1 formed first, then Layer 2, then Layer 3; (b) Layer 1's fossil belongs to the Mesozoic era; (c) Layer 3 is 1 million years old.
+    explanation: |
+      By the Law of Superposition, Layer 1 (bottom) is oldest and Layer 3 (top) is youngest. Early fish fossils are hallmarks of the Paleozoic era. For Layer 3, one-quarter remaining means two half-lives have passed, so at 2 million years per half-life, the layer is $2 \times 2 = 4$ million years old.
+    approved: true
