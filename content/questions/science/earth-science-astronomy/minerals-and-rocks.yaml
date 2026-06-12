@@ -1,0 +1,275 @@
+meta:
+  subject: science
+  topic: earth-science-astronomy
+  subtopic: minerals-and-rocks
+  exams: [ upcat, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-earth-science-astronomy-minerals-and-rocks-0001
+    type: identify
+    difficulty: easy
+    stem: |
+      What is a naturally occurring, solid substance with a specific chemical makeup and an orderly crystal structure called?
+    choices:
+      - text: A mineral
+        correct: true
+      - text: A rock
+      - text: Sediment
+      - text: Magma
+    explanation: |
+      A mineral is a naturally occurring, solid substance with a specific chemical makeup and an orderly crystal structure.
+    approved: true
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-0002
+    type: identify
+    difficulty: easy
+    stem: |
+      What is a mix of one or more minerals stuck together called?
+    choices:
+      - text: A rock
+        correct: true
+      - text: A mineral
+      - text: Magma
+      - text: A crystal
+    explanation: |
+      A rock is simply a mix of one or more minerals stuck together.
+    approved: true
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-0003
+    type: identify
+    difficulty: medium
+    stem: |
+      The Mohs hardness scale, used to measure mineral hardness, ranges from which two numbers?
+    choices:
+      - text: 1 (very soft) to 10 (very hard)
+        correct: true
+      - text: 1 (very hard) to 10 (very soft)
+      - text: 0 (very soft) to 100 (very hard)
+      - text: 1 to 5 only
+    explanation: |
+      The Mohs hardness scale ranges from 1 (very soft, like talc) to 10 (very hard, like diamond).
+    approved: true
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-0004
+    type: classify
+    difficulty: medium
+    stem: |
+      Mineral A can scratch Mineral B, but Mineral B cannot scratch Mineral A. Mineral C can scratch both A and B. Rank the three minerals from softest to hardest.
+    choices:
+      - text: B, A, C
+        correct: true
+      - text: A, B, C
+      - text: C, A, B
+      - text: B, C, A
+    explanation: |
+      Since A can scratch B, A is harder than B. Since C can scratch both A and B, C is the hardest of the three. Order from softest to hardest: B, A, C.
+    approved: true
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-0005
+    type: identify
+    difficulty: medium
+    stem: |
+      What is the term for the color of a mineral's powder, made by rubbing it on an unglazed tile?
+    choices:
+      - text: Streak
+        correct: true
+      - text: Luster
+      - text: Cleavage
+      - text: Fracture
+    explanation: |
+      Streak is the color of a mineral's powder, made by rubbing it on an unglazed tile, and is more reliable than the mineral's outer color.
+    approved: true
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-0006
+    type: classify
+    difficulty: hard
+    stem: |
+      The mineral pyrite looks golden on the outside but leaves a dark greenish-black powder when scratched on an unglazed tile. A student identifies pyrite as "golden-colored" based on this streak test. Is this correct?
+    choices:
+      - text: No — the dark greenish-black powder is pyrite's streak, which can be very different from its golden outer color; streak, not outer color, is what the scratch test reveals.
+        correct: true
+      - text: Yes — the streak test always reveals the mineral's outer color.
+      - text: No — but only because pyrite does not actually have a streak.
+      - text: Yes — pyrite's streak and outer color are always identical.
+    explanation: |
+      A question describing "the color left behind when scratched on a tile" is asking about streak, not the visible outer color of the whole mineral sample. Pyrite looks golden outside but leaves a dark greenish-black streak.
+    approved: true
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-0007
+    type: identify
+    difficulty: medium
+    stem: |
+      What term describes how a mineral's surface reflects light, grouped mainly as metallic (shiny, like metal) or non-metallic (dull, glassy, pearly)?
+    choices:
+      - text: Luster
+        correct: true
+      - text: Streak
+      - text: Cleavage
+      - text: Hardness
+    explanation: |
+      Luster describes how a mineral's surface reflects light, grouped mainly as metallic or non-metallic.
+    approved: true
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-0008
+    type: classify
+    difficulty: medium
+    stem: |
+      A mineral breaks along smooth, flat planes because of weaker bonds in that direction. What is this property called, as opposed to breaking in a rough, irregular way?
+    choices:
+      - text: Cleavage
+        correct: true
+      - text: Fracture
+      - text: Streak
+      - text: Luster
+    explanation: |
+      Cleavage is breaking along smooth, flat planes due to weaker bonds in that direction; fracture is breaking in a rough, irregular way with no flat planes.
+    approved: true
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-0009
+    type: identify
+    difficulty: medium
+    stem: |
+      Which rock type forms when melted rock (magma or lava) cools and hardens?
+    choices:
+      - text: Igneous rock
+        correct: true
+      - text: Sedimentary rock
+      - text: Metamorphic rock
+      - text: Mineral rock
+    explanation: |
+      Igneous rock forms when melted rock (magma or lava) cools and hardens.
+    approved: true
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-0010
+    type: classify
+    difficulty: medium
+    stem: |
+      Lava cools very quickly on a volcano's surface, forming a rock with small or no visible crystals, such as basalt or obsidian. If the same magma had instead cooled slowly underground, what would the resulting igneous rock most likely look like?
+    choices:
+      - text: It would have large, visible crystals, since slow cooling underground gives crystals more time to grow, forming a rock like granite.
+        correct: true
+      - text: It would look identical, since cooling speed has no effect on crystal size.
+      - text: It would have no crystals at all, since underground cooling always prevents crystal formation.
+      - text: It would turn into a sedimentary rock instead of an igneous rock.
+    explanation: |
+      Cooling speed determines crystal size: cooling slowly underground gives crystals more time to grow large (like granite), while cooling quickly at the surface produces small or no crystals (like basalt or obsidian).
+    approved: true
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-0011
+    type: identify
+    difficulty: medium
+    stem: |
+      Which rock type forms when small pieces of rock, sand, shells, or other debris pile up in layers and get pressed and cemented together over time?
+    choices:
+      - text: Sedimentary rock
+        correct: true
+      - text: Igneous rock
+      - text: Metamorphic rock
+      - text: Mineral rock
+    explanation: |
+      Sedimentary rock forms when sediment (small pieces of rock, sand, shells, or other debris) piles up in layers and gets pressed and cemented together over a long time.
+    approved: true
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-0012
+    type: identify
+    difficulty: medium
+    stem: |
+      Which rock type forms when an existing rock is changed by intense heat and pressure underground, without fully melting?
+    choices:
+      - text: Metamorphic rock
+        correct: true
+      - text: Igneous rock
+      - text: Sedimentary rock
+      - text: Mineral rock
+    explanation: |
+      Metamorphic rock forms when an existing rock is changed by intense heat and pressure underground, without fully melting, rearranging its minerals into a new texture.
+    approved: true
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-0013
+    type: classify
+    difficulty: hard
+    stem: |
+      A student claims that metamorphic rock forms when an existing rock completely melts and then re-hardens. Is this correct?
+    choices:
+      - text: No — metamorphic rock forms without fully melting; heat and pressure change the rock's minerals and texture while it stays essentially solid. A rock that fully melts and re-forms describes the igneous process instead.
+        correct: true
+      - text: Yes — metamorphic rock always forms by completely melting and re-hardening.
+      - text: No — but only because metamorphic rock never involves heat or pressure at all.
+      - text: Yes — igneous and metamorphic rock form through the exact same melting process.
+    explanation: |
+      Heat and pressure change a rock's minerals and texture while it stays essentially solid — this is the metamorphic process. A choice describing "rock that melts and re-forms" describes the igneous process (via magma), not metamorphism.
+    approved: true
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-0014
+    type: classify
+    difficulty: medium
+    stem: |
+      Classify this rock-forming process: layers of sand and shell fragments are compressed and cemented together over thousands of years.
+    choices:
+      - text: Sedimentary
+        correct: true
+      - text: Igneous
+      - text: Metamorphic
+      - text: None of the three rock types
+    explanation: |
+      Sand and shell fragments compressing into layers over time is the defining process of sedimentary rock formation.
+    approved: true
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-0015
+    type: classify
+    difficulty: medium
+    stem: |
+      Classify this rock-forming process: limestone is squeezed by intense heat and pressure deep underground and turns into marble, without melting.
+    choices:
+      - text: Metamorphic
+        correct: true
+      - text: Igneous
+      - text: Sedimentary
+      - text: None of the three rock types
+    explanation: |
+      Limestone transforming into marble under heat and pressure, without melting, is the defining process of metamorphic rock formation.
+    approved: true
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-0016
+    type: classify
+    difficulty: hard
+    stem: |
+      A student memorized only one path through the rock cycle (igneous → sedimentary → metamorphic) and assumes every rock must always follow this exact order. Is this assumption correct?
+    choices:
+      - text: No — any rock type can become any other rock type given the right process; a metamorphic rock can weather directly into sediment, or an igneous rock can be metamorphosed directly without ever becoming sedimentary first.
+        correct: true
+      - text: Yes — every rock must pass through igneous, then sedimentary, then metamorphic, in that exact order.
+      - text: No — but only because sedimentary rock can never become metamorphic rock.
+      - text: Yes — the rock cycle has a single fixed starting point and ending point.
+    explanation: |
+      Students sometimes memorize only one path and assume it always goes in that order. In reality, the rock cycle has no fixed sequence: any rock type can become any other rock type, and there is no required starting or ending point.
+    approved: true
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-0017
+    type: process-ordering
+    difficulty: medium
+    stem: |
+      Describe the correct order of a path through the rock cycle that turns granite (an igneous rock) into marble (a metamorphic rock), passing through a sedimentary stage in between: weathering into sediment, granite exposed at the surface, heat and pressure transformation, compressing into sedimentary rock.
+    choices:
+      - text: Granite exposed at the surface, weathering into sediment, compressing into sedimentary rock, heat and pressure transformation into marble
+        correct: true
+      - text: Heat and pressure transformation into marble, granite exposed at the surface, weathering into sediment, compressing into sedimentary rock
+      - text: Granite exposed at the surface, compressing into sedimentary rock, weathering into sediment, heat and pressure transformation into marble
+      - text: Weathering into sediment, granite exposed at the surface, heat and pressure transformation, compressing into sedimentary rock
+    explanation: |
+      Granite, exposed at the surface, weathers into sediment particles; these particles compress and cement into a sedimentary rock like limestone; buried underground, heat and pressure then transform it, without melting, into marble.
+    approved: true
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-0018
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      A geologist finds an unknown mineral sample. It can be scratched by a steel knife (hardness about 5.5) but can itself scratch glass (hardness about 5.5 as well, roughly tied). Its outer color is silvery, but rubbing it on an unglazed tile produces a black powder. Which two properties did the geologist use to gather the most reliable identifying clues, and why?
+    choices:
+      - text: Hardness (compared against known reference materials like a steel knife and glass) and streak (the black powder), since streak is more reliable than outer color, which can vary due to surface impurities.
+        correct: true
+      - text: Only the mineral's outer silvery color, since color alone is always sufficient for identification.
+      - text: Only luster, since hardness and streak provide no useful identifying information.
+      - text: Cleavage and fracture, since the scenario describes breaking patterns rather than hardness or color.
+    explanation: |
+      Hardness is tested by comparing scratch resistance against reference materials, and streak (the tile-powder color) is more reliable than a mineral's outer color, which can be affected by surface impurities — these are the two properties the geologist actually used here.
+    approved: true
