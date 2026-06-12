@@ -82,6 +82,13 @@ questions:
   authoring Fluid Mechanics). Wrap the whole value in double quotes
   (escaping any internal `"` as `\"`) whenever a choice reads naturally as
   "clause: clause" — it's easiest to just quote it rather than rephrase.
+  **Also quote a choice's `text` if it is bare `True`, `False`, `Yes`, `No`,
+  `On`, or `Off` (in any casing)** — e.g. `text: "True"`, not `text: True`.
+  Unquoted, YAML parses these as booleans, not strings, and the importer
+  rejects the question with "choice N has empty text" (found authoring Truth
+  Tables and Propositional Logic, where several choices are literally the
+  word "True" or "False"). This bites any topic with yes/no or true/false
+  answer choices, not just Reasoning.
 - **`figure`** — omit entirely for figure-free questions (the default for
   most Science, Language, and logical-verbal Reasoning items). Set to a short
   kebab-case slug (e.g. `cell-diagram-01`) when the question needs an image

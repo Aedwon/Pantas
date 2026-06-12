@@ -15,6 +15,7 @@
 - One YAML file per subtopic at `content/questions/reasoning/<topic>/<subtopic>.yaml`. Never combine or split subtopics across files.
 - Exactly one choice per question has `correct: true`. 4 choices by default.
 - **Quote any choice `text` that is purely digits** — e.g. `text: "162"`, not `text: 162`. Unquoted, YAML parses it as an integer and the importer rejects the question with "choice N has empty text." This bites constantly in `number-letter-series` questions. Values with any non-digit character (`2, 3, 1`) are already safe.
+- **Quote any choice `text` that is bare `True`, `False`, `Yes`, `No`, `On`, or `Off`** (any casing) — e.g. `text: "True"`, not `text: True`. Unquoted, YAML parses these as booleans, not strings, and the importer rejects the question the same way. This bites `truth-table-evaluation` questions constantly, since many correct/distractor choices are literally the word "True" or "False."
 - `stem` and `explanation` are YAML block scalars (`|`).
 - **Two-level voice:** `stem` at authentic exam difficulty; `explanation` in simple Grade 4–6 English, stating why the answer is right and briefly why the main distractor is wrong.
 - **`difficulty` is authoring-only** (`easy | medium | hard | exam`) — never written to the Sanity doc, no schema field for it.

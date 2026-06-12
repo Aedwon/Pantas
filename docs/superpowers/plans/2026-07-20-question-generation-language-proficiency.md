@@ -22,6 +22,7 @@
 - **Figures:** this subject is entirely figure-free per the content audit — never add a `figure:` field here.
 - **Ground every question in the existing lesson content** at `content/lessons/language-proficiency/<topic>/<subtopic>.md` — reuse its terminology, its worked examples, and its "Traps to Watch For" section as distractor material. Do not invent grammar/vocabulary rules not supportable by the lesson or standard English/Filipino usage.
 - Coverage per subtopic: every archetype that fits × 2–3 variants, ramped single-rule → competing-rules → idiomatic/exception, landing around **12–20 questions**. No near-duplicates (don't just swap one noun for another in an otherwise identical sentence).
+- **Quote any choice `text` that is bare `True`, `False`, `Yes`, `No`, `On`, or `Off`** (any casing) — e.g. `text: "True"`, not `text: True`. Unquoted, YAML parses these as booleans, not strings, and the importer rejects the question with "choice N has empty text" (found authoring Reasoning's Truth Tables subtopic). Also quote any choice `text` that is purely digits (e.g. `text: "18"`) for the same reason (integer, not string).
 - No AI/Claude attribution in any commit message.
 
 ## Required reading (read once, before starting row 1)
