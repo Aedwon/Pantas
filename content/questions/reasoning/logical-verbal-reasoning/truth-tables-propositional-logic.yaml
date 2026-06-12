@@ -1,0 +1,245 @@
+meta:
+  subject: reasoning
+  topic: logical-verbal-reasoning
+  subtopic: truth-tables-propositional-logic
+  exams: [ acet, ustet, dost-sei ]
+questions:
+  - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0001
+    type: truth-table-evaluation
+    difficulty: easy
+    stem: |
+      If $P$ is true and $Q$ is true, what is the truth value of "$P \land Q$" (P and Q)?
+    choices:
+      - text: "True"
+        correct: true
+      - text: "False"
+      - text: Cannot be determined
+      - text: Both true and false
+    explanation: |
+      "And" is true only when both statements are true. Since $P$ is true and $Q$ is true, "$P \land Q$" is true.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0002
+    type: truth-table-evaluation
+    difficulty: easy
+    stem: |
+      If $P$ is true and $Q$ is false, what is the truth value of "$P \land Q$" (P and Q)?
+    choices:
+      - text: "False"
+        correct: true
+      - text: "True"
+      - text: Cannot be determined
+      - text: Both true and false
+    explanation: |
+      "And" requires both statements to be true. Since $Q$ is false, "$P \land Q$" is false, even though $P$ is true.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0003
+    type: truth-table-evaluation
+    difficulty: easy
+    stem: |
+      If $P$ is false, what is the truth value of "$\neg P$" (not P)?
+    choices:
+      - text: "True"
+        correct: true
+      - text: "False"
+      - text: Cannot be determined
+      - text: Both true and false
+    explanation: |
+      "Not" flips a statement's truth value. Since $P$ is false, "$\neg P$" is true.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0004
+    type: truth-table-evaluation
+    difficulty: medium
+    stem: |
+      If $P$ is false and $Q$ is true, what is the truth value of "$P \lor Q$" (P or Q)?
+    choices:
+      - text: "True"
+        correct: true
+      - text: "False"
+      - text: Cannot be determined
+      - text: Both true and false
+    explanation: |
+      "Or" is true when at least one of the two statements is true. Here, $Q$ is true (even though $P$ is false), so "$P \lor Q$" is true.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0005
+    type: truth-table-evaluation
+    difficulty: medium
+    stem: |
+      If $P$ is false and $Q$ is false, what is the truth value of "$P \lor Q$" (P or Q)?
+    choices:
+      - text: "False"
+        correct: true
+      - text: "True"
+      - text: Cannot be determined
+      - text: Both true and false
+    explanation: |
+      "Or" is false only when both statements are false. Since both $P$ and $Q$ are false, "$P \lor Q$" is false.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0006
+    type: truth-table-evaluation
+    difficulty: medium
+    stem: |
+      If $P$ is false and $Q$ is false, what is the truth value of "$P \rightarrow Q$" (if P then Q)?
+    choices:
+      - text: "True"
+        correct: true
+      - text: "False"
+      - text: Cannot be determined
+      - text: Both true and false
+    explanation: |
+      The conditional "$P \rightarrow Q$" is false only when $P$ is true and $Q$ is false. Since $P$ is false here, this "broken promise" case does not apply, so "$P \rightarrow Q$" is true.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0007
+    type: truth-table-evaluation
+    difficulty: medium
+    stem: |
+      If $P$ is true and $Q$ is false, what is the truth value of "$P \rightarrow Q$" (if P then Q)?
+    choices:
+      - text: "False"
+        correct: true
+      - text: "True"
+      - text: Cannot be determined
+      - text: Both true and false
+    explanation: |
+      The conditional "$P \rightarrow Q$" is false only in this one case: $P$ true, $Q$ false. This is exactly that case, so "$P \rightarrow Q$" is false.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0008
+    type: truth-table-evaluation
+    difficulty: hard
+    stem: |
+      A student reasons, "Since $P$ is false, we can't say anything about whether '$P \rightarrow Q$' is true or false." Is this reasoning correct?
+    choices:
+      - text: No — formal propositional logic always assigns a definite truth value to a conditional whose "if" part is false; "$P \rightarrow Q$" is true whenever $P$ is false, no matter what $Q$ is.
+        correct: true
+      - text: Yes — the truth value of a conditional cannot be determined when its "if" part is false.
+      - text: No — but only because conditionals are never actually true or false.
+      - text: Yes — everyday intuition about conditionals always matches formal propositional logic exactly.
+    explanation: |
+      Everyday intuition might suggest that "if $P$ is false, we can't say anything about the conditional," but formal propositional logic always assigns a definite truth value (true, in this case) to a conditional whose "if" part is false.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0009
+    type: truth-table-evaluation
+    difficulty: hard
+    stem: |
+      A student claims "$P \lor Q$" requires both $P$ and $Q$ to be true, the same requirement as "$P \land Q$." Is this correct?
+    choices:
+      - text: No — "and" requires both statements to be true, but "or" requires only at least one to be true; "or" is the more lenient connective, "and" is the stricter one.
+        correct: true
+      - text: Yes — "and" and "or" always require the exact same condition to be true.
+      - text: No — but only because "or" can never be true under any circumstance.
+      - text: Yes — both connectives are false whenever either statement is false.
+    explanation: |
+      Mixing up and and or is one of the most common truth-table errors. And is the stricter connective (requires both true), while or is more lenient (requires only at least one true).
+    approved: true
+
+  - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0010
+    type: truth-table-evaluation
+    difficulty: medium
+    stem: |
+      If $P$ is true, $Q$ is false, and $R$ is true, evaluate "$(P \land Q) \lor R$."
+    choices:
+      - text: "True"
+        correct: true
+      - text: "False"
+      - text: Cannot be determined
+      - text: Both true and false
+    explanation: |
+      First evaluate "$P \land Q$": $P$ is true, $Q$ is false, so this is false (and requires both true). Then evaluate "false $\lor$ R": since $R$ is true, and or is true when at least one side is true, the full expression is true.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0011
+    type: truth-table-evaluation
+    difficulty: medium
+    stem: |
+      If $P$ is false, $Q$ is true, and $R$ is false, evaluate "$(P \lor Q) \land R$."
+    choices:
+      - text: "False"
+        correct: true
+      - text: "True"
+      - text: Cannot be determined
+      - text: Both true and false
+    explanation: |
+      First evaluate "$P \lor Q$": $P$ is false, $Q$ is true, so this is true (or requires at least one true). Then evaluate "true $\land$ R": since $R$ is false, and requires both sides true, so the full expression is false.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0012
+    type: truth-table-evaluation
+    difficulty: hard
+    stem: |
+      A student evaluates "$(P \land Q) \lor R$" (with $P$ true, $Q$ false, $R$ true) by first combining $Q$ and $R$ instead of $P$ and $Q$, ignoring the parentheses grouping. What is wrong with this approach, and what is the correct final truth value?
+    choices:
+      - text: The student ignored the parentheses grouping $P$ and $Q$ together; just like order of operations in math, the innermost parentheses must be evaluated first. Evaluating correctly, "$P \land Q$" is false, and "false $\lor R$" (with $R$ true) gives the correct answer of true.
+        correct: true
+      - text: The approach is correct — parentheses grouping does not affect the order of evaluation in propositional logic.
+      - text: The student's approach is correct, and the final answer is false.
+      - text: Neither the student's approach nor the correct approach can determine a final truth value.
+    explanation: |
+      Evaluating combined expressions in the wrong order (ignoring parentheses grouping) produces an incorrect final truth value. Just like arithmetic order of operations, evaluate the innermost parentheses first — "$P \land Q$" first, giving false, then "false $\lor R$," giving true.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0013
+    type: truth-table-evaluation
+    difficulty: medium
+    stem: |
+      If $P$ is false and $Q$ is true, what is the truth value of "$\neg P \land Q$" (not P, and Q)?
+    choices:
+      - text: "True"
+        correct: true
+      - text: "False"
+      - text: Cannot be determined
+      - text: Both true and false
+    explanation: |
+      First, "$\neg P$": since $P$ is false, "$\neg P$" is true. Then, "$\neg P \land Q$" becomes "true $\land$ true," and since both sides are true, the result is true.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0014
+    type: truth-table-evaluation
+    difficulty: medium
+    stem: |
+      Which logical connective is true only when both of its statements are true, and false in every other combination?
+    choices:
+      - text: And ($\land$)
+        correct: true
+      - text: Or ($\lor$)
+      - text: Not ($\neg$)
+      - text: If...then ($\rightarrow$)
+    explanation: |
+      "And" ($\land$) is true only when both statements are true, and false in every other case.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0015
+    type: truth-table-evaluation
+    difficulty: hard
+    stem: |
+      Complete the truth table for "$P \rightarrow Q$" across all four combinations of $P$ and $Q$: (T,T), (T,F), (F,T), (F,F).
+    choices:
+      - text: (T,T) → true, (T,F) → false, (F,T) → true, (F,F) → true
+        correct: true
+      - text: (T,T) → true, (T,F) → true, (F,T) → false, (F,F) → false
+      - text: (T,T) → false, (T,F) → false, (F,T) → true, (F,F) → true
+      - text: (T,T) → true, (T,F) → false, (F,T) → false, (F,F) → false
+    explanation: |
+      "$P \rightarrow Q$" is false only in the one case where $P$ is true and $Q$ is false: (T,F) → false. Every other combination — (T,T), (F,T), (F,F) — is true.
+    approved: true
+
+  - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0016
+    type: truth-table-evaluation
+    difficulty: exam
+    stem: |
+      If $P$ is true, $Q$ is false, and $R$ is false, evaluate "$(P \rightarrow Q) \lor (\neg Q \land R)$."
+    choices:
+      - text: "False"
+        correct: true
+      - text: "True"
+      - text: Cannot be determined
+      - text: Both true and false
+    explanation: |
+      First, "$P \rightarrow Q$": $P$ true, $Q$ false is exactly the one false case for a conditional, so this is false. Next, "$\neg Q$": since $Q$ is false, "$\neg Q$" is true; then "$\neg Q \land R$" becomes "true $\land$ false" (since $R$ is false), which is false (and requires both true). Finally, "false $\lor$ false" is false.
+    approved: true
