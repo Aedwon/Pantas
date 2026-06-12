@@ -182,7 +182,7 @@ Exams for all rows: `[upcat, dlsucet, ustet, dost-sei]`. Figure guidance: the au
 | [x] | `earths-motions` | Earth's Motions (Rotation, Revolution, Precession) | `content/questions/science/earth-science-astronomy/earths-motions.yaml` |
 | [x] | `eclipses-and-moon-phases` | Lunar and Solar Eclipses, Phases of the Moon | `content/questions/science/earth-science-astronomy/eclipses-and-moon-phases.yaml` |
 | [x] | `earths-subsystems` | The Earth's Subsystems (Lithosphere, Hydrosphere, Atmosphere, Biosphere) | `content/questions/science/earth-science-astronomy/earths-subsystems.yaml` |
-| [ ] | `layers-of-the-earth` | Layers of the Earth and Composition | `content/questions/science/earth-science-astronomy/layers-of-the-earth.yaml` |
+| [x] | `layers-of-the-earth` | Layers of the Earth and Composition | `content/questions/science/earth-science-astronomy/layers-of-the-earth.yaml` |
 | [ ] | `minerals-and-rocks` | Minerals and Rocks (Igneous, Sedimentary, Metamorphic, Rock Cycle) | `content/questions/science/earth-science-astronomy/minerals-and-rocks.yaml` |
 | [ ] | `plate-tectonics` | Plate Tectonics | `content/questions/science/earth-science-astronomy/plate-tectonics.yaml` |
 | [ ] | `weather-and-climate` | Weather and Climate | `content/questions/science/earth-science-astronomy/weather-and-climate.yaml` |
