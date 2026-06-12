@@ -186,7 +186,7 @@ Exams for all rows: `[upcat, dlsucet, ustet, dost-sei]`. Figure guidance: the au
 | [x] | `minerals-and-rocks` | Minerals and Rocks (Igneous, Sedimentary, Metamorphic, Rock Cycle) | `content/questions/science/earth-science-astronomy/minerals-and-rocks.yaml` |
 | [x] | `plate-tectonics` | Plate Tectonics | `content/questions/science/earth-science-astronomy/plate-tectonics.yaml` |
 | [x] | `weather-and-climate` | Weather and Climate | `content/questions/science/earth-science-astronomy/weather-and-climate.yaml` |
-| [ ] | `water-cycle-oceanography` | The Water Cycle and Basic Oceanography | `content/questions/science/earth-science-astronomy/water-cycle-oceanography.yaml` |
+| [x] | `water-cycle-oceanography` | The Water Cycle and Basic Oceanography | `content/questions/science/earth-science-astronomy/water-cycle-oceanography.yaml` |
 | [ ] | `fossils-and-geologic-time` | Fossils, Stratigraphy, and Geologic Time Scale | `content/questions/science/earth-science-astronomy/fossils-and-geologic-time.yaml` |
 
 ## Suggested order
