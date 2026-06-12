@@ -187,7 +187,7 @@ Exams for all rows: `[upcat, dlsucet, ustet, dost-sei]`. Figure guidance: the au
 | [x] | `plate-tectonics` | Plate Tectonics | `content/questions/science/earth-science-astronomy/plate-tectonics.yaml` |
 | [x] | `weather-and-climate` | Weather and Climate | `content/questions/science/earth-science-astronomy/weather-and-climate.yaml` |
 | [x] | `water-cycle-oceanography` | The Water Cycle and Basic Oceanography | `content/questions/science/earth-science-astronomy/water-cycle-oceanography.yaml` |
-| [ ] | `fossils-and-geologic-time` | Fossils, Stratigraphy, and Geologic Time Scale | `content/questions/science/earth-science-astronomy/fossils-and-geologic-time.yaml` |
+| [x] | `fossils-and-geologic-time` | Fossils, Stratigraphy, and Geologic Time Scale | `content/questions/science/earth-science-astronomy/fossils-and-geologic-time.yaml` |
 
 ## Suggested order
 
