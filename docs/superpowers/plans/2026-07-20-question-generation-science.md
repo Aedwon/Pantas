@@ -179,7 +179,7 @@ Exams for all rows: `[upcat, dlsucet, ustet, dost-sei]`. Figure guidance: the au
 |---|---|---|---|
 | [x] | `origin-of-the-universe` | Origin of the Universe and Solar System (Big Bang Theory, Nebular Hypothesis) | `content/questions/science/earth-science-astronomy/origin-of-the-universe.yaml` |
 | [x] | `heavenly-bodies` | Heavenly Bodies (Stars, Galaxies, Comets, Asteroids, Meteors) | `content/questions/science/earth-science-astronomy/heavenly-bodies.yaml` |
-| [ ] | `earths-motions` | Earth's Motions (Rotation, Revolution, Precession) | `content/questions/science/earth-science-astronomy/earths-motions.yaml` |
+| [x] | `earths-motions` | Earth's Motions (Rotation, Revolution, Precession) | `content/questions/science/earth-science-astronomy/earths-motions.yaml` |
 | [ ] | `eclipses-and-moon-phases` | Lunar and Solar Eclipses, Phases of the Moon | `content/questions/science/earth-science-astronomy/eclipses-and-moon-phases.yaml` |
 | [ ] | `earths-subsystems` | The Earth's Subsystems (Lithosphere, Hydrosphere, Atmosphere, Biosphere) | `content/questions/science/earth-science-astronomy/earths-subsystems.yaml` |
 | [ ] | `layers-of-the-earth` | Layers of the Earth and Composition | `content/questions/science/earth-science-astronomy/layers-of-the-earth.yaml` |
