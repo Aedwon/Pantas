@@ -1,0 +1,305 @@
+meta:
+  subject: science
+  topic: earth-science-astronomy
+  subtopic: plate-tectonics
+  exams: [ upcat, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-earth-science-astronomy-plate-tectonics-0001
+    type: identify
+    difficulty: easy
+    stem: |
+      What are the large pieces of Earth's rigid outer shell, which slowly move over the softer mantle beneath, called?
+    choices:
+      - text: Tectonic plates
+        correct: true
+      - text: Mid-ocean ridges
+      - text: Seismic waves
+      - text: Hotspots
+    explanation: |
+      Tectonic plates are the large pieces of Earth's rigid outer shell (crust and the rigid top of the mantle) that slowly move over the softer, slowly-flowing mantle beneath them.
+    approved: true
+
+  - id: q-earth-science-astronomy-plate-tectonics-0002
+    type: identify
+    difficulty: medium
+    stem: |
+      In 1915, which scientist proposed continental drift, the idea that all continents were once joined together as one giant landmass called Pangaea?
+    choices:
+      - text: Alfred Wegener
+        correct: true
+      - text: Harry Hess
+      - text: Charles Darwin
+      - text: Edwin Hubble
+    explanation: |
+      Alfred Wegener proposed continental drift in 1915, using evidence like matching coastlines, rock layers, and fossils across now-separated continents.
+    approved: true
+
+  - id: q-earth-science-astronomy-plate-tectonics-0003
+    type: identify
+    difficulty: medium
+    stem: |
+      In 1959, which scientist proposed seafloor spreading, explaining that new ocean floor forms at mid-ocean ridges and pushes older seafloor away?
+    choices:
+      - text: Harry Hess
+        correct: true
+      - text: Alfred Wegener
+      - text: Georges Lemaître
+      - text: Edwin Hubble
+    explanation: |
+      Harry Hess proposed seafloor spreading in 1959, providing the moving force that Wegener's continental drift theory was missing.
+    approved: true
+
+  - id: q-earth-science-astronomy-plate-tectonics-0004
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      Identical fossils of an ancient reptile are found both on the eastern coast of South America and the western coast of Africa, two continents now separated by a wide ocean. How does this support Wegener's continental drift theory?
+    choices:
+      - text: If South America and Africa were once joined as a single landmass (Pangaea), the reptile could have lived and spread across it; after the continents drifted apart, the same fossil species would end up found on both, now-separated continents.
+        correct: true
+      - text: The reptile must have swum across the ocean separately to reach both continents.
+      - text: This fossil pattern actually contradicts continental drift, since the continents are now far apart.
+      - text: Fossils provide no evidence about how continents were arranged in the past.
+    explanation: |
+      Wegener proposed that all continents were once joined as Pangaea. If South America and Africa were once connected, a land-dwelling reptile could have lived and spread across the single joined landmass, explaining why the same fossil species is found on both continents after they drifted apart.
+    approved: true
+
+  - id: q-earth-science-astronomy-plate-tectonics-0005
+    type: classify
+    difficulty: hard
+    stem: |
+      A choice claims Wegener's continental drift theory was immediately and widely accepted by scientists in 1915. Is this accurate?
+    choices:
+      - text: No — Wegener's theory was doubted for decades because he could not explain what force moved the continents; only after seafloor spreading was discovered in 1959 did the full theory of plate tectonics become widely accepted.
+        correct: true
+      - text: Yes — scientists universally accepted continental drift as soon as Wegener proposed it.
+      - text: No — but only because Wegener's evidence, like matching fossils and coastlines, was completely wrong.
+      - text: Yes — Wegener had already discovered seafloor spreading himself in 1915.
+    explanation: |
+      Wegener's theory was doubted for decades because he could not explain the moving force behind continental drift. Only after Harry Hess's seafloor spreading supplied that missing piece did the full theory of plate tectonics become widely accepted.
+    approved: true
+
+  - id: q-earth-science-astronomy-plate-tectonics-0006
+    type: identify
+    difficulty: medium
+    stem: |
+      At which type of plate boundary do two plates move apart from each other, with magma rising to fill the gap and create new crust?
+    choices:
+      - text: A divergent boundary
+        correct: true
+      - text: A convergent boundary
+      - text: A transform boundary
+      - text: A hotspot
+    explanation: |
+      A divergent boundary is where two plates move apart, with magma rising to fill the gap and create new crust — exactly what happens at mid-ocean ridges.
+    approved: true
+
+  - id: q-earth-science-astronomy-plate-tectonics-0007
+    type: identify
+    difficulty: medium
+    stem: |
+      At which type of plate boundary do two plates move toward each other and collide, sometimes causing one plate to be pushed underneath the other?
+    choices:
+      - text: A convergent boundary
+        correct: true
+      - text: A divergent boundary
+      - text: A transform boundary
+      - text: A hotspot
+    explanation: |
+      A convergent boundary is where two plates move toward each other and collide; if one plate is denser, it gets pushed underneath the other in a process called subduction.
+    approved: true
+
+  - id: q-earth-science-astronomy-plate-tectonics-0008
+    type: identify
+    difficulty: medium
+    stem: |
+      At which type of plate boundary do two plates slide past each other sideways, without creating or destroying crust?
+    choices:
+      - text: A transform boundary
+        correct: true
+      - text: A divergent boundary
+      - text: A convergent boundary
+      - text: A hotspot
+    explanation: |
+      A transform boundary is where two plates slide past each other sideways, without creating or destroying crust; friction here builds up stress that releases suddenly as earthquakes.
+    approved: true
+
+  - id: q-earth-science-astronomy-plate-tectonics-0009
+    type: classify
+    difficulty: medium
+    stem: |
+      Two plates are sliding sideways past each other, causing frequent strong earthquakes but no new mountains or volcanoes. What type of plate boundary is this?
+    choices:
+      - text: Transform boundary
+        correct: true
+      - text: Divergent boundary
+      - text: Convergent boundary
+      - text: Hotspot
+    explanation: |
+      Sideways sliding motion, without creating or destroying crust, describes a transform boundary. Since crust is neither created nor destroyed here, no new volcanoes or mountain ranges typically form; the frequent earthquakes come from built-up friction releasing suddenly.
+    approved: true
+
+  - id: q-earth-science-astronomy-plate-tectonics-0010
+    type: classify
+    difficulty: hard
+    stem: |
+      A student assumes every convergent boundary produces the exact same outcome, regardless of which plates are involved. Is this correct?
+    choices:
+      - text: No — the outcome depends on plate density; if one plate is much denser (typically oceanic crust), it sinks beneath the other in subduction, but if both plates are similar in density (often two continental plates), they crumple upward into a mountain range instead.
+        correct: true
+      - text: Yes — every convergent boundary always produces subduction, regardless of plate density.
+      - text: Yes — every convergent boundary always produces a mountain range, regardless of plate density.
+      - text: No — but only because convergent boundaries never involve two colliding plates.
+    explanation: |
+      Not every convergent boundary looks the same. If one plate is much denser, it sinks beneath the other (subduction), often creating volcanoes above it. If both plates are similar in density, neither sinks, and they crumple upward into a mountain range instead.
+    approved: true
+
+  - id: q-earth-science-astronomy-plate-tectonics-0011
+    type: identify
+    difficulty: medium
+    stem: |
+      What is a crack in Earth's crust where rock on either side has moved, and which produces an earthquake when built-up stress along it suddenly releases?
+    choices:
+      - text: A fault
+        correct: true
+      - text: A hotspot
+      - text: A mid-ocean ridge
+      - text: A seismic wave
+    explanation: |
+      A fault is a crack in Earth's crust where rock on either side has moved. When built-up stress along a fault suddenly releases, the ground shakes as an earthquake.
+    approved: true
+
+  - id: q-earth-science-astronomy-plate-tectonics-0012
+    type: identify
+    difficulty: medium
+    stem: |
+      Which type of seismic wave is the fastest, arriving first at a seismograph station, and can travel through both solids and liquids?
+    choices:
+      - text: P waves (primary waves)
+        correct: true
+      - text: S waves (secondary waves)
+      - text: Both P and S waves equally
+      - text: Neither type of wave can travel through liquid
+    explanation: |
+      P waves (primary waves) are the fastest seismic waves, always arriving first, and can travel through both solids and liquids.
+    approved: true
+
+  - id: q-earth-science-astronomy-plate-tectonics-0013
+    type: identify
+    difficulty: medium
+    stem: |
+      Which type of seismic wave is slower than P waves and can only travel through solids, not liquids?
+    choices:
+      - text: S waves (secondary waves)
+        correct: true
+      - text: P waves (primary waves)
+      - text: Both P and S waves equally
+      - text: Neither type of wave can travel through solids
+    explanation: |
+      S waves (secondary waves) are slower than P waves and can only travel through solids, not liquids.
+    approved: true
+
+  - id: q-earth-science-astronomy-plate-tectonics-0014
+    type: classify
+    difficulty: hard
+    stem: |
+      A choice claims "S waves are faster than P waves and can travel through both solids and liquids," swapping the two wave types' properties. Is this correct?
+    choices:
+      - text: No — this reverses the properties; P waves are actually faster and travel through both solids and liquids, while S waves are slower and travel through solids only.
+        correct: true
+      - text: Yes — S waves are indeed faster and can travel through both solids and liquids.
+      - text: No — but only because neither P waves nor S waves can travel through solids.
+      - text: Yes — P waves and S waves have identical speed and travel through identical materials.
+    explanation: |
+      A common wrong answer swaps these properties. Anchor the memory device: P comes first (faster) and passes through everything (solids and liquids); S comes second (slower) and cannot travel through liquid at all.
+    approved: true
+
+  - id: q-earth-science-astronomy-plate-tectonics-0015
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      A seismograph station records the P wave from an earthquake arriving several seconds before the S wave. Why does a larger time gap between the two waves indicate a greater distance to the earthquake's origin?
+    choices:
+      - text: Since P waves travel faster than S waves, the farther the earthquake's origin is from the station, the more time the faster P wave gains over the slower S wave during the journey, producing a longer arrival gap.
+        correct: true
+      - text: The time gap actually has no relationship to the earthquake's distance from the station.
+      - text: A larger time gap means the earthquake's origin is closer to the station, not farther away.
+      - text: S waves always arrive before P waves, and a larger gap means the earthquake was weaker.
+    explanation: |
+      P waves travel faster than S waves and always arrive first. The farther the earthquake's origin, the more time the faster P wave gains over the slower S wave, so a longer arrival gap indicates a greater distance — this is how scientists pinpoint an earthquake's location.
+    approved: true
+
+  - id: q-earth-science-astronomy-plate-tectonics-0016
+    type: classify
+    difficulty: medium
+    stem: |
+      At which two types of plate boundaries do most volcanoes form?
+    choices:
+      - text: Convergent boundaries and divergent boundaries
+        correct: true
+      - text: Transform boundaries and divergent boundaries
+      - text: Transform boundaries and convergent boundaries
+      - text: Only at transform boundaries
+    explanation: |
+      Volcanoes most often form at convergent boundaries (where subducting plates melt and produce rising magma) and at divergent boundaries (where magma rises to fill the gap between separating plates).
+    approved: true
+
+  - id: q-earth-science-astronomy-plate-tectonics-0017
+    type: classify
+    difficulty: hard
+    stem: |
+      The Hawaiian Islands are a volcanic island chain located in the middle of a tectonic plate, far from any plate boundary. A student claims this is impossible, since "all volcanoes form at plate boundaries." Is this claim correct?
+    choices:
+      - text: No — a hotspot is a place where magma rises from deep within the mantle, independent of any plate boundary, and can create volcanic islands like the Hawaiian Islands even in the middle of a plate.
+        correct: true
+      - text: Yes — the Hawaiian Islands must actually sit exactly on a plate boundary.
+      - text: Yes — all volcanoes, without exception, form only at plate boundaries.
+      - text: No — but only because the Hawaiian Islands are not actually volcanic in origin.
+    explanation: |
+      Most volcanoes do form at convergent or divergent boundaries, but a hotspot's magma source comes from deep within the mantle and is not tied to any plate boundary — this is exactly how the Hawaiian Islands formed in the middle of a plate.
+    approved: true
+
+  - id: q-earth-science-astronomy-plate-tectonics-0018
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      At a convergent boundary between an oceanic plate and a continental plate, the oceanic plate sinks beneath the continental plate. Why does the oceanic plate sink rather than the continental plate?
+    choices:
+      - text: The oceanic plate is denser than the continental plate, so in subduction, the denser plate is pushed underneath the less dense one.
+        correct: true
+      - text: The continental plate is always denser, so it should sink instead, but friction prevents this.
+      - text: Plate density has no role in determining which plate sinks during subduction.
+      - text: Both plates always sink equally at every convergent boundary.
+    explanation: |
+      In subduction, the denser plate — typically oceanic crust — is pushed underneath the less dense plate. This is why oceanic plates commonly sink beneath continental plates at convergent boundaries.
+    approved: true
+
+  - id: q-earth-science-astronomy-plate-tectonics-0019
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      Scientists first discovered that Earth's outer core is liquid partly by observing that S waves from earthquakes disappear on the far side of the planet, forming a "shadow zone." Why does this observation reveal the outer core's liquid state?
+    choices:
+      - text: Since S waves can only travel through solids and not liquids, their disappearance in a shadow zone on the far side of Earth indicates a liquid layer (the outer core) blocking them from passing through.
+        correct: true
+      - text: S waves travel through both solids and liquids equally, so their disappearance must be caused by something other than the outer core.
+      - text: P waves, not S waves, are the type of wave that reveals information about the outer core.
+      - text: The shadow zone shows that the outer core is solid, not liquid.
+    explanation: |
+      S waves cannot travel through liquid. Their disappearance in a shadow zone on the far side of the planet, relative to an earthquake, is explained by a liquid layer (the outer core) blocking them — connecting the P/S wave rule directly to the evidence for Earth's liquid outer core.
+    approved: true
+
+  - id: q-earth-science-astronomy-plate-tectonics-0020
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      A region sits where two continental plates are slowly colliding, with neither plate sinking beneath the other. Nearby, seismographs also detect a location where P waves consistently arrive shortly before S waves, and a separate volcanic island chain sits far from any mapped plate boundary. Identify: (a) the landform most likely produced by the colliding continental plates, (b) what the P-S wave gap tells scientists, and (c) what most likely explains the isolated volcanic island chain.
+    choices:
+      - text: (a) A mountain range, since neither continental plate is dense enough to subduct; (b) the size of the gap indicates the earthquake's distance from the station; (c) a hotspot, since the island chain is unrelated to any plate boundary.
+        correct: true
+      - text: (a) A deep ocean trench from subduction; (b) the gap indicates the earthquake's magnitude; (c) the island chain must actually sit on an undiscovered plate boundary.
+      - text: (a) A mountain range; (b) the gap has no scientific use; (c) volcanic islands can only form at convergent boundaries.
+      - text: (a) A new ocean forming between the plates; (b) the gap indicates wind speed at the surface; (c) the island chain formed from a meteor impact.
+    explanation: |
+      Two colliding continental plates of similar density crumple upward into a mountain range rather than subducting. The P-S wave arrival gap indicates distance to the earthquake's origin, since P waves gain more lead time over longer distances. An isolated volcanic island chain far from any boundary is best explained by a hotspot, where magma rises from deep within the mantle independent of plate edges.
+    approved: true
