@@ -184,7 +184,7 @@ Exams for all rows: `[upcat, dlsucet, ustet, dost-sei]`. Figure guidance: the au
 | [x] | `earths-subsystems` | The Earth's Subsystems (Lithosphere, Hydrosphere, Atmosphere, Biosphere) | `content/questions/science/earth-science-astronomy/earths-subsystems.yaml` |
 | [x] | `layers-of-the-earth` | Layers of the Earth and Composition | `content/questions/science/earth-science-astronomy/layers-of-the-earth.yaml` |
 | [x] | `minerals-and-rocks` | Minerals and Rocks (Igneous, Sedimentary, Metamorphic, Rock Cycle) | `content/questions/science/earth-science-astronomy/minerals-and-rocks.yaml` |
-| [ ] | `plate-tectonics` | Plate Tectonics | `content/questions/science/earth-science-astronomy/plate-tectonics.yaml` |
+| [x] | `plate-tectonics` | Plate Tectonics | `content/questions/science/earth-science-astronomy/plate-tectonics.yaml` |
 | [ ] | `weather-and-climate` | Weather and Climate | `content/questions/science/earth-science-astronomy/weather-and-climate.yaml` |
 | [ ] | `water-cycle-oceanography` | The Water Cycle and Basic Oceanography | `content/questions/science/earth-science-astronomy/water-cycle-oceanography.yaml` |
 | [ ] | `fossils-and-geologic-time` | Fossils, Stratigraphy, and Geologic Time Scale | `content/questions/science/earth-science-astronomy/fossils-and-geologic-time.yaml` |
