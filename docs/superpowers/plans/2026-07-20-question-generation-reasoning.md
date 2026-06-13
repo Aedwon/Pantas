@@ -125,7 +125,7 @@ Exams for all rows: `[acet, ustet, dost-sei]`. Figure-free — never add `figure
 | [x] | `syllogisms-and-deductive-logic` | Syllogisms and Deductive Logic | `content/questions/reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.yaml` |
 | [x] | `word-analogies` | Word Analogies (Single and Double Analogies) | `content/questions/reasoning/logical-verbal-reasoning/word-analogies.yaml` |
 | [x] | `number-and-letter-sequences` | Number and Letter Sequences | `content/questions/reasoning/logical-verbal-reasoning/number-and-letter-sequences.yaml` |
-| [ ] | `truth-tables-propositional-logic` | Truth Tables and Propositional Logic | `content/questions/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.yaml` |
+| [x] | `truth-tables-propositional-logic` | Truth Tables and Propositional Logic | `content/questions/reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.yaml` |
 
 ## Manifest — Spatial & Abstract (Non-Verbal) Reasoning (topic slug: `spatial-abstract-reasoning`)
 
