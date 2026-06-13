@@ -1,0 +1,229 @@
+meta:
+  subject: reasoning
+  topic: spatial-abstract-reasoning
+  subtopic: figure-series
+  exams: [ acet, ustet, dost-sei ]
+questions:
+  - id: q-spatial-abstract-reasoning-figure-series-0001
+    type: figure-series
+    difficulty: easy
+    figure: figure-series-01
+    stem: |
+      Figure shows a row of three squares, each containing a single line. Square 1's line points straight up. Square 2's line points to the upper-right (a 45° clockwise turn from square 1). Square 3's line points directly right (another 45° clockwise turn from square 2). What direction should the line point in the fourth square?
+    choices:
+      - text: Lower-right (a further 45° clockwise turn from "right")
+        correct: true
+      - text: Straight down (a 90° clockwise turn from "right")
+      - text: Straight up, repeating square 1
+      - text: Upper-left (a 45° counterclockwise turn from "right")
+    explanation: |
+      The line turns 45° clockwise at each step (up → upper-right → right). Continuing the same rotation from "right," the next position is lower-right.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-series-0002
+    type: figure-series
+    difficulty: easy
+    figure: figure-series-02
+    stem: |
+      Figure shows a row of three shapes: a triangle (3 sides), a square (4 sides), and a pentagon (5 sides). How many sides should the fourth figure have, and what shape is it?
+    choices:
+      - text: 6 sides, a hexagon
+        correct: true
+      - text: 5 sides, another pentagon
+      - text: 7 sides, a heptagon
+      - text: 8 sides, an octagon
+    explanation: |
+      The number of sides increases by 1 each step ($3, 4, 5, \ldots$). The fourth figure should have $6$ sides — a hexagon.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-series-0003
+    type: figure-series
+    difficulty: medium
+    figure: figure-series-03
+    stem: |
+      Figure shows a row of three circles: a fully black circle, then a fully white (empty) circle, then a fully black circle again. What should the fourth circle look like?
+    choices:
+      - text: Fully white (empty)
+        correct: true
+      - text: Fully black
+      - text: Half black, half white
+      - text: Gray (a blend of black and white)
+    explanation: |
+      The shading alternates strictly: black, white, black. Since the pattern alternates every step, the figure after "black" should return to "white."
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-series-0004
+    type: figure-series
+    difficulty: medium
+    figure: figure-series-04
+    stem: |
+      Figure shows a row of three triangles: a small black triangle, a medium white triangle, and a large black triangle. Predict the size and shading of the fourth triangle.
+    choices:
+      - text: Extra-large, white
+        correct: true
+      - text: Extra-large, black
+      - text: Large, white
+      - text: Small, white
+    explanation: |
+      Tracking size separately (small, medium, large, increasing one step each time) gives extra-large next. Tracking shading separately (black, white, black, alternating) gives white next. Combined: extra-large, white.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-series-0005
+    type: figure-series
+    difficulty: medium
+    figure: figure-series-05
+    stem: |
+      Figure shows a row of three squares, each with a black dot in one corner. Square 1's dot is in the top-left corner. Square 2's dot is in the top-right corner (moved clockwise one corner). Square 3's dot is in the bottom-right corner (moved clockwise one more corner). Where should the dot be in the fourth square?
+    choices:
+      - text: Bottom-left corner
+        correct: true
+      - text: Top-left corner, repeating square 1
+      - text: Top-right corner
+      - text: Center of the square
+    explanation: |
+      The dot moves one corner clockwise at each step (top-left → top-right → bottom-right). Continuing clockwise from bottom-right, the next corner is bottom-left.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-series-0006
+    type: figure-series
+    difficulty: medium
+    figure: figure-series-06
+    stem: |
+      Figure shows a row of three circles, each with an arrow inside. Circle 1's arrow points up. Circle 2's arrow points right (a 90° clockwise turn). Circle 3's arrow points down (another 90° clockwise turn). What direction should the arrow point in the fourth circle?
+    choices:
+      - text: Left (a further 90° clockwise turn from "down")
+        correct: true
+      - text: Up, repeating circle 1
+      - text: Right, repeating circle 2
+      - text: Down, repeating circle 3
+    explanation: |
+      The arrow turns 90° clockwise at each step (up → right → down). Continuing clockwise from "down," the next direction is left.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-series-0007
+    type: figure-series
+    difficulty: medium
+    figure: figure-series-07
+    stem: |
+      Figure shows a row of three circles, each containing small dots. Circle 1 has 1 dot. Circle 2 has 2 dots. Circle 3 has 3 dots. How many dots should the fourth circle have?
+    choices:
+      - text: "4 dots"
+        correct: true
+      - text: "5 dots"
+      - text: "3 dots, the same as circle 3"
+      - text: "6 dots"
+    explanation: |
+      The number of dots increases by 1 each step ($1, 2, 3, \ldots$). The fourth circle should have $4$ dots.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-series-0008
+    type: figure-series
+    difficulty: medium
+    figure: figure-series-08
+    stem: |
+      Figure shows a row of three squares, decreasing in size: a large square, a medium square, and a small square. What size should the fourth square be?
+    choices:
+      - text: Extra small (smaller than the small square)
+        correct: true
+      - text: Extra large (larger than the large square)
+      - text: Medium, repeating square 2
+      - text: The same size as the small square
+    explanation: |
+      The size decreases by one step each time (large, medium, small). Continuing this shrinking pattern, the fourth square should be extra small.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-series-0009
+    type: figure-series
+    difficulty: hard
+    figure: figure-series-09
+    stem: |
+      Figure shows a row of three stars: a small black star, a medium white star, and a large black star. A student predicts the fourth figure should be "extra-large, black," tracking only the size feature and assuming shading stays the same as figure 3. What is wrong with this prediction, and what should the fourth figure actually be?
+    choices:
+      - text: The student ignored the shading feature, which alternates (black, white, black); tracking both features separately, the fourth figure should be extra-large and white, not extra-large and black.
+        correct: true
+      - text: The student's prediction is correct, since shading always matches the previous figure once size changes.
+      - text: The student's prediction is correct, but only because shading is irrelevant in this series.
+      - text: Neither size nor shading can be predicted from this series.
+    explanation: |
+      A figure series can change several features at once — missing that both size and shading are changing leads to only half-correct predictions. Size continues growing (extra-large), and shading continues alternating (white after black).
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-series-0010
+    type: figure-series
+    difficulty: hard
+    figure: figure-series-10
+    stem: |
+      Figure shows a row of three squares, each with a dot in one corner. Square 1's dot is top-left. Square 2's dot is bottom-left (moved counterclockwise one corner). Square 3's dot is bottom-right (moved counterclockwise one more corner). A student assumes the dot must now move clockwise for the fourth square, predicting bottom-left again. Is this assumption correct?
+    choices:
+      - text: No — the established direction is counterclockwise (top-left → bottom-left → bottom-right), so the fourth square's dot should continue counterclockwise to top-right, not switch direction.
+        correct: true
+      - text: Yes — the dot should always reverse direction after two steps.
+      - text: Yes — the dot should return to bottom-left, since patterns commonly repeat every two steps.
+      - text: No — but only because the dot cannot move to any corner other than top-left.
+    explanation: |
+      Carefully confirm the established rotation direction by comparing at least two consecutive steps rather than assuming a direction switch. Here, the dot consistently moves counterclockwise, so it should continue to top-right next.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-series-0011
+    type: figure-series
+    difficulty: hard
+    figure: figure-series-11
+    stem: |
+      Figure shows a row of three circles with shading: 25% filled, 50% filled, 75% filled. A student assumes this is a cumulative pattern and predicts the fourth circle should be 100% filled. Given that the actual series repeats as 25%, 50%, 75%, 25%, 50%, 75%, ..., is the student's prediction correct?
+    choices:
+      - text: No — this is a repeating cycle, not a steadily cumulative pattern; after 75%, the cycle restarts at 25%, not continuing to 100%.
+        correct: true
+      - text: Yes — the shading always increases steadily without ever restarting.
+      - text: Yes — 100% filled is the correct next step in this specific series.
+      - text: No — but only because circles cannot be partially shaded.
+    explanation: |
+      Not every changing feature increases steadily forever — some patterns cycle back to an earlier state after reaching a certain point. Here, the series explicitly cycles (25%, 50%, 75%, 25%, ...), so the fourth figure returns to 25%, not 100%.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-series-0012
+    type: figure-series
+    difficulty: medium
+    figure: figure-series-12
+    stem: |
+      Figure shows a row of three triangles, each with a dot near one corner. Triangle 1's dot is near the top corner. Triangle 2's dot is near the bottom-left corner (moved clockwise). Triangle 3's dot is near the bottom-right corner (moved clockwise again). Where should the dot be in the fourth triangle?
+    choices:
+      - text: Near the top corner, completing one full clockwise cycle around the triangle
+        correct: true
+      - text: Near the bottom-left corner, repeating triangle 2
+      - text: Near the bottom-right corner, repeating triangle 3
+      - text: In the center of the triangle
+    explanation: |
+      A triangle has three corners. The dot moves clockwise, one corner per step (top → bottom-left → bottom-right). After all three corners, the fourth figure completes the cycle back at the top corner.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-series-0013
+    type: figure-series
+    difficulty: hard
+    figure: figure-series-13
+    stem: |
+      Figure shows a row of three figures, each changing in three ways at once: figure 1 is a small black triangle rotated with its point up; figure 2 is a medium white square rotated with its point (top corner) to the right (a 90° clockwise turn from the triangle's orientation, and the shape gained one side); figure 3 is a large black pentagon rotated with its point pointing down (another 90° clockwise turn, and the shape gained one more side). Predict the size, shading, side count, and rotation of the fourth figure.
+    choices:
+      - text: Extra-large, white, 6 sides (hexagon), point rotated to the left (a further 90° clockwise turn)
+        correct: true
+      - text: Extra-large, black, 6 sides (hexagon), point rotated to the left
+      - text: Large, white, 5 sides (pentagon), point pointing down
+      - text: Extra-large, white, 5 sides (pentagon), point rotated up
+    explanation: |
+      Tracking each feature separately: size grows one step (extra-large); shading alternates (black, white, black, so white next); sides increase by 1 each step (3, 4, 5, so 6 next); rotation turns 90° clockwise each step (up, right, down, so left next).
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-series-0014
+    type: figure-series
+    difficulty: exam
+    figure: figure-series-14
+    stem: |
+      Figure shows a row of four squares, each with a dot in a corner and a number of small lines along one edge: square 1 has a dot in the top-left corner and 1 line; square 2 has a dot in the top-right corner (moved clockwise) and 2 lines; square 3 has a dot in the bottom-right corner (moved clockwise again) and 3 lines; square 4 has a dot in the bottom-left corner (moved clockwise again) and 4 lines. If the series continues for one more figure (figure 5), where should the dot be, and how many lines should there be?
+    choices:
+      - text: Top-left corner (completing one full clockwise cycle), with 5 lines
+        correct: true
+      - text: Bottom-left corner, repeating figure 4, with 5 lines
+      - text: Top-left corner, with 4 lines, repeating the line count
+      - text: Top-right corner, with 5 lines
+    explanation: |
+      The dot completes one clockwise corner move per figure; after 4 figures (one full cycle of 4 corners), it returns to the top-left corner for figure 5. Separately, the line count increases by 1 each figure ($1, 2, 3, 4, \ldots$), so figure 5 should have 5 lines.
+    approved: true
