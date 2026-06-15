@@ -1,0 +1,275 @@
+meta:
+  subject: language-proficiency
+  topic: vocabulary
+  subtopic: spelling-rules
+  exams: [ upcat, acet, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-vocabulary-spelling-rules-0001
+    type: spelling-correction
+    difficulty: easy
+    stem: |
+      Identify the word that is spelled incorrectly: "The **thief** stole the **beleif** that everyone held dear, causing **grief** throughout the **field**."
+    choices:
+      - text: Beleif
+        correct: true
+      - text: Thief
+      - text: Grief
+      - text: Field
+    explanation: |
+      "Beleif" breaks the "i before e" rule with no "c" before it and no "a" sound; the correct spelling is "belief." "Thief," "grief," and "field" all correctly follow the rule.
+    approved: true
+
+  - id: q-vocabulary-spelling-rules-0002
+    type: spelling-correction
+    difficulty: easy
+    stem: |
+      Which of the following four words is misspelled?
+    choices:
+      - text: Hopeing
+        correct: true
+      - text: Argument
+      - text: Believable
+      - text: Truly
+    explanation: |
+      "Hopeing" should drop the silent "e" before the vowel suffix "-ing," giving "hoping." "Argument," "believable," and "truly" are all correctly spelled.
+    approved: true
+
+  - id: q-vocabulary-spelling-rules-0003
+    type: spelling-correction
+    difficulty: medium
+    stem: |
+      Which of the following is the correctly spelled word?
+    choices:
+      - text: Beginning
+        correct: true
+      - text: Begining
+      - text: Beggining
+      - text: Beginnning
+    explanation: |
+      The root "begin" ends in a consonant-vowel-consonant pattern, and the spoken stress falls on the last syllable (be-GIN), so the final consonant "n" is doubled before adding "-ing": "beginning."
+    approved: true
+
+  - id: q-vocabulary-spelling-rules-0004
+    type: spelling-correction
+    difficulty: medium
+    stem: |
+      Alin sa mga sumusunod ang may wastong baybay?
+    choices:
+      - text: Silya
+        correct: true
+      - text: Kwarto
+      - text: Byahe
+      - text: Gwardiya
+    explanation: |
+      Ang "silya" (mula sa Espanyol na "silla") ay tama. Ang "kwarto" ay dapat "kuwarto," ang "byahe" ay dapat "biyahe," at ang "gwardiya" ay dapat "guwardiya" — kailangan ang "u" o "i" bago ang "w" o "y" sa mga hiram na salita.
+    approved: true
+
+  - id: q-vocabulary-spelling-rules-0005
+    type: spelling-correction
+    difficulty: medium
+    stem: |
+      Which of the following is the correctly spelled word?
+    choices:
+      - text: Accommodate
+        correct: true
+      - text: Acommodate
+      - text: Accomodate
+      - text: Acomodate
+    explanation: |
+      "Accommodate" is a "double-double" word, requiring both a double "c" and a double "m" — a frequently tested spelling.
+    approved: true
+
+  - id: q-vocabulary-spelling-rules-0006
+    type: spelling-correction
+    difficulty: medium
+    stem: |
+      Which of the following is the correctly spelled word?
+    choices:
+      - text: Embarrass
+        correct: true
+      - text: Embarass
+      - text: Embarras
+      - text: Emabarrass
+    explanation: |
+      "Embarrass" is a "double-double" word, requiring both a double "r" and a double "s" — a frequently tested spelling.
+    approved: true
+
+  - id: q-vocabulary-spelling-rules-0007
+    type: spelling-correction
+    difficulty: medium
+    stem: |
+      Which of the following is the correctly spelled word?
+    choices:
+      - text: Committee
+        correct: true
+      - text: Comittee
+      - text: Committe
+      - text: Comitee
+    explanation: |
+      "Committee" is a "double-double" word, requiring a double "m," a double "t," and a double "e" — a frequently tested spelling.
+    approved: true
+
+  - id: q-vocabulary-spelling-rules-0008
+    type: spelling-correction
+    difficulty: hard
+    stem: |
+      A student hears the lazy "uh" sound in the middle of a word and spells it "seperate." Is this the correct spelling?
+    choices:
+      - text: No — the correct spelling is "separate," from the root "par" (as in "part"), not the lazy schwa sound heard when spoken.
+        correct: true
+      - text: Yes — "seperate" is an acceptable alternate spelling.
+      - text: Yes — schwa sounds should always be spelled with an "e."
+      - text: No — the correct spelling is "separrate," with a double "r."
+    explanation: |
+      The lazy "uh" sound (schwa) tricks people into spelling "separate" as "seperate." Do not trust your ears — find the root word. "Separate" comes from "par" (as in "part"), so it needs an "a."
+    approved: true
+
+  - id: q-vocabulary-spelling-rules-0009
+    type: spelling-correction
+    difficulty: hard
+    stem: |
+      A student hears the lazy "uh" sound in the middle of a word and spells it "definate." Is this the correct spelling?
+    choices:
+      - text: No — the correct spelling is "definite," from the root related to "finite" (finish), not the lazy schwa sound heard when spoken.
+        correct: true
+      - text: Yes — "definate" is an acceptable alternate spelling.
+      - text: Yes — schwa sounds should always be spelled with an "a."
+      - text: No — the correct spelling is "definnate," with a double "n."
+    explanation: |
+      The lazy "uh" sound (schwa) tricks people into spelling "definite" as "definate." Do not trust your ears — find the root word. "Definite" comes from "finite" (finish), so it needs an "i."
+    approved: true
+
+  - id: q-vocabulary-spelling-rules-0010
+    type: spelling-correction
+    difficulty: hard
+    stem: |
+      A student drops a letter and writes "mispell," reasoning that it only sounds like one "s." Is this the correct spelling?
+    choices:
+      - text: No — "misspell" keeps both "s" letters, since one "s" belongs to the prefix "mis-" and the other belongs to the root "spell"; sharing a border letter does not mean you drop one.
+        correct: true
+      - text: Yes — "mispell" is an acceptable simplified spelling.
+      - text: Yes — prefixes always drop a shared border letter with the root word.
+      - text: No — the correct spelling is "misspel," with only one final "l."
+    explanation: |
+      Students often spell "misspell" as "mispell." This is a trap — you just add the pieces together. If the prefix and root share a border letter, you keep both: one "s" belongs to "mis-," and the other belongs to "spell."
+    approved: true
+
+  - id: q-vocabulary-spelling-rules-0011
+    type: spelling-correction
+    difficulty: hard
+    stem: |
+      A student drops a letter and writes "unecessary," reasoning that it only sounds like one "n." Is this the correct spelling?
+    choices:
+      - text: No — "unnecessary" keeps both "n" letters, since one "n" belongs to the prefix "un-" and the other belongs to the root "necessary"; sharing a border letter does not mean you drop one.
+        correct: true
+      - text: Yes — "unecessary" is an acceptable simplified spelling.
+      - text: Yes — prefixes always drop a shared border letter with the root word.
+      - text: No — the correct spelling is "unnecesary," with only one "s."
+    explanation: |
+      Students often spell "unnecessary" as "unecessary." This is a trap — if the prefix and root share a border letter, you keep both: one "n" belongs to "un-," and the other belongs to "necessary."
+    approved: true
+
+  - id: q-vocabulary-spelling-rules-0012
+    type: spelling-correction
+    difficulty: hard
+    stem: |
+      A student texts casually using "sya" and "kwarto," and assumes these are also correct for a formal spelling exam. Is this correct?
+    choices:
+      - text: No — the exam does not test text language; the standard spelling for exams requires the "i" or "u" before the "y" or "w," giving "siya" and "kuwarto."
+        correct: true
+      - text: Yes — text-message spelling is always accepted on formal exams.
+      - text: Yes — but only because "sya" and "kwarto" are actually the official spellings.
+      - text: No — but only because "siya" and "kuwarto" are informal slang instead.
+    explanation: |
+      Many students text their friends using short spellings like "sya" or "kwarto." But the exam does not test text language — you must write the "i" or "u" before the "y" or "w": "siya" and "kuwarto."
+    approved: true
+
+  - id: q-vocabulary-spelling-rules-0013
+    type: spelling-correction
+    difficulty: medium
+    stem: |
+      Which of the following four words is misspelled?
+    choices:
+      - text: Recieve
+        correct: true
+      - text: Yield
+      - text: Ceiling
+      - text: Perceive
+    explanation: |
+      "Recieve" comes right after a "c," so the rule ("except after C") means the "e" must come before the "i" — the correct spelling is "receive." "Yield," "ceiling," and "perceive" are all correctly spelled.
+    approved: true
+
+  - id: q-vocabulary-spelling-rules-0014
+    type: spelling-correction
+    difficulty: medium
+    stem: |
+      Which of the following four words is misspelled?
+    choices:
+      - text: Writeing
+        correct: true
+      - text: Changeable
+      - text: Loving
+      - text: Argument
+    explanation: |
+      "Writeing" should drop the silent "e" before the vowel suffix "-ing," giving "writing." "Changeable" correctly keeps the "e" (to preserve the soft "g" sound), and "loving" and "argument" are correctly spelled.
+    approved: true
+
+  - id: q-vocabulary-spelling-rules-0015
+    type: spelling-correction
+    difficulty: medium
+    stem: |
+      Which of the following is the correctly spelled word?
+    choices:
+      - text: Referred
+        correct: true
+      - text: Refered
+      - text: Reffered
+      - text: Referrred
+    explanation: |
+      The root "refer" ends in a consonant-vowel-consonant pattern, and the spoken stress falls on the last syllable (re-FER), so the final consonant "r" is doubled before adding "-ed": "referred."
+    approved: true
+
+  - id: q-vocabulary-spelling-rules-0016
+    type: spelling-correction
+    difficulty: medium
+    stem: |
+      Alin sa mga sumusunod ang may wastong baybay?
+    choices:
+      - text: Suwerte
+        correct: true
+      - text: Swerte
+      - text: Suerte
+      - text: Siwerte
+    explanation: |
+      Ang "suwerte" (mula sa Espanyol na "suerte") ay nangangailangan ng "u" bago ang "w," kaya ito ang wastong baybay, hindi ang "swerte" o "suerte."
+    approved: true
+
+  - id: q-vocabulary-spelling-rules-0017
+    type: spelling-correction
+    difficulty: hard
+    stem: |
+      Which of these words is a well-known exception to the "i before e" rule that must simply be memorized, rather than derived from the rule's usual patterns (no "c" before it, and not sounding like "a")?
+    choices:
+      - text: Seize
+        correct: true
+      - text: Chief
+      - text: Believe
+      - text: Niece
+    explanation: |
+      "Seize" is a famous exception — it breaks all the usual patterns (no preceding "c," no "a" sound) but is still spelled correctly. "Chief," "believe," and "niece" all correctly follow the standard rule.
+    approved: true
+
+  - id: q-vocabulary-spelling-rules-0018
+    type: spelling-correction
+    difficulty: exam
+    stem: |
+      Identify the ONE correctly spelled word among these four choices, each testing a different spelling rule: (A) acommodate, (B) mispell, (C) truly, (D) sieze.
+    choices:
+      - text: Truly (C)
+        correct: true
+      - text: Acommodate (A)
+      - text: Mispell (B)
+      - text: Sieze (D)
+    explanation: |
+      "Acommodate" is missing a double letter (should be "accommodate"), "mispell" drops a shared border letter (should be "misspell"), and "sieze" reverses the letters (should be "seize"). "Truly" is the one correctly spelled word — a strict exception that drops the silent "e" from "true."
+    approved: true
