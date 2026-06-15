@@ -1,0 +1,229 @@
+meta:
+  subject: reasoning
+  topic: spatial-abstract-reasoning
+  subtopic: figure-grouping
+  exams: [ acet, ustet, dost-sei ]
+questions:
+  - id: q-spatial-abstract-reasoning-figure-grouping-0001
+    type: odd-figure
+    difficulty: easy
+    figure: figure-grouping-01
+    stem: |
+      Figure shows four shapes: a square, a rectangle, a rhombus, and a triangle. Which one does not belong, and why?
+    choices:
+      - text: The triangle, since it has only 3 sides while the other three shapes all have 4 sides
+        correct: true
+      - text: The square, since it is the only shape with equal sides
+      - text: The rectangle, since it is the only shape that is not a rhombus
+      - text: The rhombus, since it is the only shape with slanted sides
+    explanation: |
+      The square, rectangle, and rhombus all have 4 sides (they are all quadrilaterals). The triangle has only 3 sides, so it is the odd-one-out.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-grouping-0002
+    type: odd-figure
+    difficulty: easy
+    figure: figure-grouping-02
+    stem: |
+      Figure shows four shapes: a perfect circle, a square, an equilateral triangle, and an irregular, lopsided blob shape with no matching sides. Which one does not belong?
+    choices:
+      - text: The irregular blob, since it has no line of symmetry, while the other three shapes can all be folded so both halves match
+        correct: true
+      - text: The circle, since it is the only shape without straight sides
+      - text: The square, since it is the only shape with four equal sides
+      - text: The equilateral triangle, since it is the only shape with three sides
+    explanation: |
+      The circle, square, and equilateral triangle can all be folded along at least one line so both halves match exactly (they are all symmetric). The irregular blob has no such line, so it is the odd-one-out.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-grouping-0003
+    type: odd-figure
+    difficulty: medium
+    figure: figure-grouping-03
+    stem: |
+      Figure shows four circles, each cut by straight lines: one circle has 1 line through the center (creating 2 regions), one has 2 lines through the center (creating 4 regions), one has 3 lines through the center (creating 6 regions), and one has 2 lines that do not pass through the center, creating 3 uneven regions. Which one does not belong?
+    choices:
+      - text: The circle with 2 off-center lines (3 uneven regions), since the other three all have lines through the center creating an even number of regions
+        correct: true
+      - text: The circle with 1 line through the center, since it has the fewest regions
+      - text: The circle with 3 lines through the center, since it has the most regions
+      - text: The circle with 2 lines through the center, since it has an even number of lines
+    explanation: |
+      The first three figures follow a consistent rule: lines through the center split a circle into an even number of regions (2, 4, 6). The fourth figure's off-center lines create an uneven split (3 regions), breaking that pattern.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-grouping-0004
+    type: odd-figure
+    difficulty: medium
+    figure: figure-grouping-04
+    stem: |
+      Figure shows five different shapes. Four of them each contain exactly one small shaded (black) dot somewhere inside. The fifth shape contains two small shaded dots inside. Which one does not belong?
+    choices:
+      - text: The shape with two shaded dots, since the other four all contain exactly one shaded dot, regardless of their outer shape
+        correct: true
+      - text: Whichever shape has the largest outer outline
+      - text: Whichever shape has the most sides
+      - text: Whichever shape is positioned in the middle of the row
+    explanation: |
+      Four figures share the specific feature of containing exactly one shaded dot, regardless of their outer shape. The fifth figure contains two shaded dots, breaking that count — the shared rule here is about the dot count, not the outer shape.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-grouping-0005
+    type: odd-figure
+    difficulty: medium
+    figure: figure-grouping-05
+    stem: |
+      Figure shows four shapes: a square, a triangle, a rectangle, and a circle. Which one does not belong?
+    choices:
+      - text: The circle, since it is made entirely of a curved line, while the other three are made entirely of straight lines
+        correct: true
+      - text: The square, since it is the only shape with four equal sides
+      - text: The triangle, since it is the only shape with three sides
+      - text: The rectangle, since it is the only shape with two pairs of equal sides
+    explanation: |
+      The square, triangle, and rectangle are all made entirely of straight lines. The circle is made entirely of a curved line, breaking the "straight lines only" pattern shared by the other three.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-grouping-0006
+    type: odd-figure
+    difficulty: medium
+    figure: figure-grouping-06
+    stem: |
+      Figure shows four shapes: a pentagon (5 sides), another pentagon (5 sides), a hexagon (6 sides), and a third pentagon (5 sides). Which one does not belong?
+    choices:
+      - text: The hexagon, since it has 6 sides while the other three shapes all have 5 sides
+        correct: true
+      - text: The first pentagon, since it appears first in the row
+      - text: The second pentagon, since it is positioned in the middle
+      - text: The third pentagon, since it appears last in the row
+    explanation: |
+      Three of the shapes are pentagons, sharing a 5-side count. The hexagon has 6 sides, breaking that shared feature.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-grouping-0007
+    type: odd-figure
+    difficulty: medium
+    figure: figure-grouping-07
+    stem: |
+      Figure shows four shapes: a five-pointed star, a square, a circle, and an isosceles triangle, plus a fifth shape that is a scalene triangle (a triangle with all three sides and angles different, no matching sides at all). Which one does not belong?
+    choices:
+      - text: The scalene triangle, since it has no line of symmetry, while the star, square, circle, and isosceles triangle can all be folded so both halves match
+        correct: true
+      - text: The star, since it has the most points
+      - text: The square, since it is the only quadrilateral
+      - text: The circle, since it has no straight sides
+    explanation: |
+      The star, square, circle, and isosceles triangle can all be folded along at least one line so both halves match exactly. The scalene triangle has no matching sides and no line of symmetry, so it is the odd-one-out.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-grouping-0008
+    type: odd-figure
+    difficulty: hard
+    figure: figure-grouping-08
+    stem: |
+      Figure shows four quadrilaterals: a large square rotated 45° so it looks like a diamond, a small square, a rectangle, and a triangle drawn the same size as the others. A student picks the rotated diamond-looking square as the odd-one-out, since it "looks the most different" at a glance. Is this the correct answer?
+    choices:
+      - text: No — the rotated square still has 4 sides, matching the small square and rectangle; the triangle, with only 3 sides, is the actual odd-one-out, even though it is not the most visually unusual-looking figure.
+        correct: true
+      - text: Yes — the most visually different-looking figure is always the correct odd-one-out.
+      - text: Yes — but only because rotated shapes never count as quadrilaterals.
+      - text: No — but only because the triangle and the rotated square are actually the same shape.
+    explanation: |
+      The most visually striking figure is not always the correct odd-one-out. The rotated square still shares the true underlying rule (4 sides) with the small square and rectangle, while the "normal-looking" triangle actually breaks the rule with only 3 sides.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-grouping-0009
+    type: odd-figure
+    difficulty: hard
+    figure: figure-grouping-09
+    stem: |
+      Figure shows four different outer shapes (a circle, a square, a triangle, and a star), and a student notices they have completely different outlines, concluding there is no shared rule. Looking more closely, three of the shapes each contain exactly 2 internal lines crossing inside them, while one shape contains only 1 internal line. Which shape does not belong, and what did the student initially miss?
+    choices:
+      - text: The shape with only 1 internal line does not belong; the student initially missed that the shared rule was an internal detail (the number of crossing lines inside each shape), not the outer shape at all.
+        correct: true
+      - text: None of the shapes belong together, since their outer shapes are all different.
+      - text: The circle does not belong, simply because it is the only shape without straight sides.
+      - text: All four shapes belong together equally, since outer shape is the only feature that matters.
+    explanation: |
+      Some grouping rules are about details inside the figures (like internal line counts), not the outer shape at all. Missing this internal-detail rule by only comparing outer shapes leads to incorrectly assuming there is no pattern.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-grouping-0010
+    type: odd-figure
+    difficulty: hard
+    figure: figure-grouping-10
+    stem: |
+      Figure shows four shapes: a triangle, another triangle, a third triangle, and a four-sided kite shape. A student proposes the rule "all shapes have straight sides," noting this fits three of the triangles and technically fits the kite too, so they conclude there is no odd-one-out. Is this the correct conclusion, given that the three triangles are meant to share a more specific true rule?
+    choices:
+      - text: No — "all shapes have straight sides" fits all four shapes and is too broad to distinguish them; the more specific true rule is "3 sides," which the three triangles share but the four-sided kite breaks, making the kite the actual odd-one-out.
+        correct: true
+      - text: Yes — since all four shapes have straight sides, there is genuinely no odd-one-out in this group.
+      - text: No — but only because triangles never have straight sides.
+      - text: Yes — the broadest rule that fits all figures is always the correct one to use.
+    explanation: |
+      A valid shared rule must be specific enough to distinguish the true odd-one-out, not just broadly true of every figure. Settling for an overly broad rule that fits everyone (including the kite) misses the more specific rule (3 sides) that only the three triangles actually share.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-grouping-0011
+    type: odd-figure
+    difficulty: medium
+    figure: figure-grouping-11
+    stem: |
+      Figure shows four shapes, each with exactly one shaded (black) region inside, and a fifth shape with no shaded region at all (completely white/empty). Which one does not belong?
+    choices:
+      - text: The completely unshaded shape, since the other four each contain exactly one shaded region
+        correct: true
+      - text: Whichever shape has the most sides
+      - text: Whichever shape is largest in the group
+      - text: Whichever shape is positioned first in the row
+    explanation: |
+      Four figures share the specific feature of containing exactly one shaded region. The fifth figure has zero shaded regions, breaking that shared shading rule.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-grouping-0012
+    type: odd-figure
+    difficulty: medium
+    figure: figure-grouping-12
+    stem: |
+      Figure shows four shapes, each divided into exactly 3 regions by internal lines, and a fifth shape divided into 4 regions. Which one does not belong?
+    choices:
+      - text: The shape divided into 4 regions, since the other four are all divided into exactly 3 regions
+        correct: true
+      - text: Whichever shape has the most internal lines drawn
+      - text: Whichever shape has curved internal lines
+      - text: Whichever shape is shaded differently from the rest
+    explanation: |
+      Four figures share the feature of being divided into exactly 3 regions by their internal lines. The fifth figure is divided into 4 regions, breaking that shared region count.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-grouping-0013
+    type: odd-figure
+    difficulty: hard
+    figure: figure-grouping-13
+    stem: |
+      Figure shows four shapes that are each both symmetric (foldable into matching halves) and have exactly 4 sides: a square, a rectangle, a rhombus, and a kite. A fifth shape is a symmetric pentagon (foldable into matching halves, but with 5 sides). Which one does not belong, and which specific shared rule does it break?
+    choices:
+      - text: The symmetric pentagon does not belong; although it shares the symmetry feature with the other four, it breaks the "exactly 4 sides" feature, since it has 5 sides.
+        correct: true
+      - text: The symmetric pentagon does not belong, since it is the only shape that is symmetric.
+      - text: The kite does not belong, since it is the only shape that is not a common household object.
+      - text: None of the shapes belong together, since a pentagon can never be symmetric.
+    explanation: |
+      This group is defined by two combined features: symmetry AND exactly 4 sides. The pentagon shares the symmetry feature but breaks the 4-sides feature, making it the odd-one-out on that specific dimension, even though it isn't wrong on every dimension.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-grouping-0014
+    type: odd-figure
+    difficulty: exam
+    figure: figure-grouping-14
+    stem: |
+      Figure shows five shapes with completely different outer outlines (a circle, a square, a star, a triangle, and a hexagon). At first glance, no shared rule seems to connect them. Looking closer: the circle, square, star, and hexagon are each rotated so that a small marked dot on their edge points toward the top of the figure. The triangle's marked dot points toward the bottom instead. Which shape does not belong, and what type of rule was easy to miss here?
+    choices:
+      - text: The triangle does not belong; the shared rule was an internal/marking detail (the direction the marked dot points), not the outer shape, side count, or symmetry — a subtler category easy to miss without checking markings specifically.
+        correct: true
+      - text: The hexagon does not belong, since it has the most sides among the five shapes.
+      - text: The star does not belong, since it is the only shape with points instead of flat sides.
+      - text: No shape is the odd-one-out, since all five outer outlines are completely different.
+    explanation: |
+      When outer shape, side count, and symmetry checks all fail to reveal a pattern, check smaller markings or internal details, like the direction of a marked dot. Here, four shapes share a dot pointing toward the top, while the triangle's dot points toward the bottom, making it the true odd-one-out.
+    approved: true
