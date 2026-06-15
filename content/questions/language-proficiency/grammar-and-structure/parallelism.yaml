@@ -1,0 +1,230 @@
+meta:
+  subject: language-proficiency
+  topic: grammar-and-structure
+  subtopic: parallelism
+  exams: [ upcat, acet, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-grammar-and-structure-parallelism-0001
+    type: parallelism-correction
+    difficulty: easy
+    stem: |
+      Identify and fix the parallelism error: "The coach told the team to run faster, jumping higher, and to try harder."
+    choices:
+      - text: Jumping breaks the "to + verb" pattern; corrected, it should read "to run faster, to jump higher, and to try harder."
+        correct: true
+      - text: There is no error in this sentence.
+      - text: Faster should be changed to "fastest."
+      - text: The sentence needs a comma after "team."
+    explanation: |
+      The list mixes forms: "to run" (to + verb), "jumping" (-ing), and "to try" (to + verb). Changing "jumping" to "to jump" matches the pattern used by the other two items.
+    approved: true
+
+  - id: q-grammar-and-structure-parallelism-0002
+    type: parallelism-correction
+    difficulty: medium
+    stem: |
+      Identify and fix the parallelism error: "The festival was not only fun but also it was educational."
+    choices:
+      - text: It was educational should match the plain adjective form after "not only"; corrected, it should read "not only fun but also educational."
+        correct: true
+      - text: There is no error in this sentence.
+      - text: Fun should be changed to "funny."
+      - text: The sentence needs a semicolon instead of the second "but."
+    explanation: |
+      After "not only," the sentence uses the adjective "fun." After "but also," it should match with just the adjective "educational," not a full clause.
+    approved: true
+
+  - id: q-grammar-and-structure-parallelism-0003
+    type: parallelism-correction
+    difficulty: medium
+    stem: |
+      Choose the sentence with correct parallel structure.
+    choices:
+      - text: The manual explains how to install the software, update it, and troubleshoot common errors.
+        correct: true
+      - text: The manual explains how to install the software, updating it, and troubleshoot common errors.
+      - text: Both sentences use correct parallel structure.
+      - text: Neither sentence uses correct parallel structure.
+    explanation: |
+      In the correct choice, all three items — "install," "update," and "troubleshoot" — use the same base verb form. The other version mixes "updating" (-ing) with two base verbs.
+    approved: true
+
+  - id: q-grammar-and-structure-parallelism-0004
+    type: parallelism-correction
+    difficulty: medium
+    stem: |
+      Identify and fix the parallelism error: "Reading a book is more relaxing than to watch television."
+    choices:
+      - text: To watch should match "reading"; corrected, it should read "more relaxing than watching television."
+        correct: true
+      - text: There is no error in this sentence.
+      - text: Relaxing should be changed to "relaxed."
+      - text: The comparison needs "than to" instead of "than."
+    explanation: |
+      The comparison mismatches "reading" (-ing form) with "to watch" (to + verb form). Matching the second half's form to the first half's form fixes the error.
+    approved: true
+
+  - id: q-grammar-and-structure-parallelism-0005
+    type: parallelism-correction
+    difficulty: medium
+    stem: |
+      Identify and fix the parallelism error: "Her hobbies include painting, to dance, and singing."
+    choices:
+      - text: To dance breaks the "-ing" pattern; corrected, it should read "painting, dancing, and singing."
+        correct: true
+      - text: There is no error in this sentence.
+      - text: Include should be changed to "includes."
+      - text: The sentence needs a semicolon.
+    explanation: |
+      The list mixes "painting" and "singing" (both -ing forms) with "to dance" (to + verb form). Changing "to dance" to "dancing" fixes the mismatch.
+    approved: true
+
+  - id: q-grammar-and-structure-parallelism-0006
+    type: parallelism-correction
+    difficulty: medium
+    stem: |
+      Identify and fix the parallelism error: "He is both intelligent and he works hard."
+    choices:
+      - text: He works hard should match the plain adjective form after "both"; corrected, it should read "both intelligent and hardworking."
+        correct: true
+      - text: There is no error in this sentence.
+      - text: Intelligent should be changed to "intelligently."
+      - text: The sentence needs a comma after "intelligent."
+    explanation: |
+      After "both," the sentence uses the adjective "intelligent." After "and," it should match with a plain adjective like "hardworking," not a full clause.
+    approved: true
+
+  - id: q-grammar-and-structure-parallelism-0007
+    type: parallelism-correction
+    difficulty: medium
+    stem: |
+      Choose the sentence with correct parallel structure.
+    choices:
+      - text: The recipe requires chopping the onions, mincing the garlic, and boiling the water.
+        correct: true
+      - text: The recipe requires chopping the onions, mincing the garlic, and to boil the water.
+      - text: Both sentences use correct parallel structure.
+      - text: Neither sentence uses correct parallel structure.
+    explanation: |
+      In the correct choice, all three items — "chopping," "mincing," and "boiling" — use the same "-ing" form. The other version breaks this with "to boil."
+    approved: true
+
+  - id: q-grammar-and-structure-parallelism-0008
+    type: parallelism-correction
+    difficulty: medium
+    stem: |
+      Identify and fix the parallelism error: "Swimming in the ocean is more exciting than to swim in a pool."
+    choices:
+      - text: To swim should match "swimming"; corrected, it should read "more exciting than swimming in a pool."
+        correct: true
+      - text: There is no error in this sentence.
+      - text: Exciting should be changed to "excited."
+      - text: The comparison needs "than to" instead of "than."
+    explanation: |
+      The comparison mismatches "swimming" (-ing form) with "to swim" (to + verb form). Matching both sides fixes the error.
+    approved: true
+
+  - id: q-grammar-and-structure-parallelism-0009
+    type: parallelism-correction
+    difficulty: hard
+    stem: |
+      Identify the hidden parallelism error in this longer sentence: "The report covers the company's history, analyzing its financial growth, and its plans for the future."
+    choices:
+      - text: Analyzing its financial growth breaks the noun-phrase pattern used by "history" and "plans for the future"; corrected, it should read "the company's history, its financial growth, and its plans for the future."
+        correct: true
+      - text: There is no error; the sentence is fine as written.
+      - text: Its plans for the future is the mismatched item, not "analyzing."
+      - text: History is the mismatched item, not "analyzing."
+    explanation: |
+      Long, complex sentences can hide a parallelism error in the middle, not just at the first or last item. Here, "analyzing its financial growth" (a verb phrase) breaks the noun-phrase pattern of the other two list items.
+    approved: true
+
+  - id: q-grammar-and-structure-parallelism-0010
+    type: parallelism-correction
+    difficulty: hard
+    stem: |
+      A student writes "She enjoys hiking and to swim," reasoning that both "hiking" and "to swim" are grammatically correct phrases individually, so the sentence must be fine. Is this reasoning correct?
+    choices:
+      - text: No — parallel structure requires matching form across all items in a list, even if each individual item would be grammatically fine as a standalone phrase; "hiking" and "to swim" mismatch "-ing" with "to + verb."
+        correct: true
+      - text: Yes — if each item is individually correct, the whole list is automatically parallel.
+      - text: Yes — but only because "hiking" and "swim" are both about physical activity.
+      - text: No — but only because "enjoys" is the wrong verb form.
+    explanation: |
+      "She enjoys hiking and to swim" — both "hiking" and "to swim" are perfectly correct phrases individually, but placed together in a list, their mismatched forms break parallelism.
+    approved: true
+
+  - id: q-grammar-and-structure-parallelism-0011
+    type: parallelism-correction
+    difficulty: hard
+    stem: |
+      A student writes "He wanted either to win or winning," assuming any form is acceptable after "either/or" as long as each half makes sense alone. Is this correct?
+    choices:
+      - text: No — whatever form follows the first half of a correlative pair ("either") must be echoed by the same form after the second half ("or"); this should read "either to win or to lose," or "either winning or losing."
+        correct: true
+      - text: Yes — correlative conjunctions never require matching forms on both sides.
+      - text: Yes — but only because "win" and "winning" are close enough in meaning.
+      - text: No — but only because "either...or" cannot be used with verbs at all.
+    explanation: |
+      Whatever word or phrase form immediately follows the first half of a correlative pair must be echoed by the same form after the second half — mismatching "to win" with "winning" breaks this rule.
+    approved: true
+
+  - id: q-grammar-and-structure-parallelism-0012
+    type: parallelism-correction
+    difficulty: medium
+    stem: |
+      Choose the sentence with correct parallel structure.
+    choices:
+      - text: The workshop covers budgeting, marketing, and sales strategy.
+        correct: true
+      - text: The workshop covers budgeting, marketing, and how to strategize sales.
+      - text: Both sentences use correct parallel structure.
+      - text: Neither sentence uses correct parallel structure.
+    explanation: |
+      In the correct choice, all three items — "budgeting," "marketing," and "sales strategy" — are noun phrases. The other version breaks this pattern with "how to strategize sales."
+    approved: true
+
+  - id: q-grammar-and-structure-parallelism-0013
+    type: parallelism-correction
+    difficulty: medium
+    stem: |
+      Identify the parallelism error: "The app helps users track expenses, setting budgets, and saving money."
+    choices:
+      - text: Track breaks the "-ing" pattern used by "setting" and "saving"; corrected, it should read "tracking expenses, setting budgets, and saving money."
+        correct: true
+      - text: There is no error in this sentence.
+      - text: Setting is the mismatched item, not "track."
+      - text: Saving is the mismatched item, not "track."
+    explanation: |
+      Two of the three items ("setting," "saving") use the "-ing" form, but "track" uses the base verb form instead — "track" is the item that needs to change.
+    approved: true
+
+  - id: q-grammar-and-structure-parallelism-0014
+    type: parallelism-correction
+    difficulty: hard
+    stem: |
+      Identify and fix the parallelism error: "The company will neither raise prices nor will it cut jobs."
+    choices:
+      - text: Will it cut jobs should match the plain verb-phrase form after "neither"; corrected, it should read "neither raise prices nor cut jobs."
+        correct: true
+      - text: There is no error in this sentence.
+      - text: Raise should be changed to "raising."
+      - text: The sentence needs a comma before "nor."
+    explanation: |
+      After "neither," the sentence uses the plain verb phrase "raise prices." After "nor," it should match with just "cut jobs," not a full repeated clause with "will it."
+    approved: true
+
+  - id: q-grammar-and-structure-parallelism-0015
+    type: parallelism-correction
+    difficulty: exam
+    stem: |
+      Identify and fix all parallelism errors: "The seminar will teach participants not only how to negotiate effectively but also improving their communication skills, while covering topics like budgeting, marketing, and how to manage a team."
+    choices:
+      - text: Corrected, it should read "...not only how to negotiate effectively but also how to improve their communication skills, while covering topics like budgeting, marketing, and team management."
+        correct: true
+      - text: There are no parallelism errors in this sentence.
+      - text: Only the correlative conjunction ("not only...but also") has an error; the list is fine as written.
+      - text: Only the list ("budgeting, marketing, and how to manage a team") has an error; the correlative conjunction is fine as written.
+    explanation: |
+      Two errors are hidden here: the correlative pair mismatches "how to negotiate" with "improving" (should both be "how to..."), and the list mismatches "budgeting" and "marketing" (noun phrases) with "how to manage a team" (should be "team management").
+    approved: true
