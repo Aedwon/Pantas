@@ -82,6 +82,13 @@ questions:
   authoring Fluid Mechanics). Wrap the whole value in double quotes
   (escaping any internal `"` as `\"`) whenever a choice reads naturally as
   "clause: clause" — it's easiest to just quote it rather than rephrase.
+  **If the same choice also contains a LaTeX backslash** (`\times`, `\div`,
+  etc.), a double-quoted YAML scalar treats `\d`, `\t`, and similar as escape
+  sequences, not literal backslash-letter pairs, and the importer fails with
+  "Unknown escape character" (found authoring Pulleys and Levers). Either
+  double every backslash (`\\times`) inside the quoted string, or — simpler —
+  rephrase the sentence to remove the colon-space so quoting isn't needed at
+  all (e.g. "Setup A: $100 \div 4$" → "Setup A gives $100 \div 4$").
   **Also quote a choice's `text` if it is bare `True`, `False`, `Yes`, `No`,
   `On`, or `Off` (in any casing)** — e.g. `text: "True"`, not `text: True`.
   Unquoted, YAML parses these as booleans, not strings, and the importer
