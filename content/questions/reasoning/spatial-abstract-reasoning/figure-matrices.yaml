@@ -1,0 +1,229 @@
+meta:
+  subject: reasoning
+  topic: spatial-abstract-reasoning
+  subtopic: figure-matrices
+  exams: [ acet, ustet, dost-sei ]
+questions:
+  - id: q-spatial-abstract-reasoning-figure-matrices-0001
+    type: figure-matrix
+    difficulty: easy
+    figure: figure-matrices-01
+    stem: |
+      A 2x2 matrix's top row shows a triangle, then the same triangle rotated 90°. The bottom row shows a square, then a blank cell. What should the blank cell show?
+    choices:
+      - text: A square rotated 90° from the first bottom-row square
+        correct: true
+      - text: A square rotated 180° from the first bottom-row square
+      - text: A triangle rotated 90°, matching the top row exactly
+      - text: The same square, unrotated
+    explanation: |
+      The row pattern is a 90° rotation moving left to right. Applying the same pattern to the bottom row, the blank cell should show the square rotated 90° from the first bottom-row square.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-matrices-0002
+    type: figure-matrix
+    difficulty: easy
+    figure: figure-matrices-02
+    stem: |
+      A 3x3 matrix's rows show circles with an increasing number of dots: row 1 has circles with 1, 2, 3 dots; row 2 has circles with 2, 3, 4 dots; row 3 has circles with 3, 4, and a blank cell. How many dots should the blank cell have?
+    choices:
+      - text: "5 dots"
+        correct: true
+      - text: "4 dots"
+      - text: "6 dots"
+      - text: "3 dots"
+    explanation: |
+      Within each row, the dot count increases by 1 moving left to right. Row 3 continues $3 \to 4 \to \, ?$, so the blank cell should have $5$ dots.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-matrices-0003
+    type: figure-matrix
+    difficulty: medium
+    figure: figure-matrices-03
+    stem: |
+      A 3x3 matrix's columns show a shape growing in size moving top to bottom: column 1 has small, medium, large squares. The blank cell is at the bottom of column 2, which has small and medium squares above it. What size should the blank cell's square be?
+    choices:
+      - text: Large
+        correct: true
+      - text: Medium, repeating the cell above it
+      - text: Small, repeating the top of the column
+      - text: Extra-large, skipping ahead one step
+    explanation: |
+      The column pattern shows size growing (small, medium, large) moving down. Column 2 follows the same rule, so its blank bottom cell should be large.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-matrices-0004
+    type: figure-matrix
+    difficulty: medium
+    figure: figure-matrices-04
+    stem: |
+      A 3x3 matrix's columns show a shape's size growing (small, medium, large) moving top to bottom, while its rows show the shape's shading alternating (black, white, black) moving left to right. The blank is in the bottom-right cell. What size and shading should it have?
+    choices:
+      - text: Large, black
+        correct: true
+      - text: Large, white
+      - text: Medium, black
+      - text: Small, black
+    explanation: |
+      Since the blank is in the bottom row, the column pattern (small → medium → large) makes its size large. Since the blank is in the right-most position of its row, the row pattern (black → white → black) makes its shading black.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-matrices-0005
+    type: figure-matrix
+    difficulty: medium
+    figure: figure-matrices-05
+    stem: |
+      A 3x3 matrix's first row shows: a circle with a horizontal line, a circle with a vertical line, and a circle with both lines (a plus-sign pattern) in the third cell. The same combination rule applies to another row: a square with a diagonal line (top-left to bottom-right), a square with the other diagonal line (top-right to bottom-left), and a blank third cell. What should the third cell show?
+    choices:
+      - text: A square with both diagonal lines drawn (forming an X pattern)
+        correct: true
+      - text: A square with only the first diagonal line, repeated
+      - text: A blank square with no lines at all
+      - text: A square with a horizontal and vertical line, like the circle row
+    explanation: |
+      The combination rule from the completed first row shows the third cell combines both features from the first two cells. Applying the same logic, the third cell should show a square with both diagonal lines, forming an X.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-matrices-0006
+    type: figure-matrix
+    difficulty: medium
+    figure: figure-matrices-06
+    stem: |
+      A 3x3 matrix's row shows: a triangle shaded on its left half, a triangle shaded on its right half, and a blank third cell, following the same "combination" rule established in a previous, already-completed row. What should the third cell show?
+    choices:
+      - text: A triangle shaded on both halves (fully shaded)
+        correct: true
+      - text: A triangle shaded on neither half (fully unshaded)
+      - text: A triangle shaded only on its left half, repeated
+      - text: A triangle shaded only on its right half, repeated
+    explanation: |
+      Following the combination rule, the third cell should combine both features from the first two cells — a triangle shaded on its left half plus one shaded on its right half combine into a fully shaded triangle.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-matrices-0007
+    type: figure-matrix
+    difficulty: medium
+    figure: figure-matrices-07
+    stem: |
+      A 2x2 matrix's top row shows a circle with a dot in the top position, then the same circle rotated 90° clockwise (dot now in the right position). The bottom row shows a square with a dot in the top position, then a blank cell. Where should the dot be in the blank cell?
+    choices:
+      - text: The right position, matching the same 90° clockwise rotation rule
+        correct: true
+      - text: The top position, unchanged from the first bottom-row cell
+      - text: The bottom position, a 180° rotation instead of 90°
+      - text: The left position, a counterclockwise rotation instead
+    explanation: |
+      The row pattern is a 90° clockwise rotation of the dot's position, moving left to right. Applying the same rule to the bottom row, the dot should move from the top position to the right position.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-matrices-0008
+    type: figure-matrix
+    difficulty: hard
+    figure: figure-matrices-08
+    stem: |
+      A 3x3 matrix's columns show a shape's size growing (small, medium, large) moving top to bottom, while its rows show the shape's shading alternating (black, white, black) moving left to right. The blank is in the bottom-right cell. A student checks only the column pattern and answers "large" without specifying shading, assuming the row direction does not matter here. What is wrong with this approach?
+    choices:
+      - text: The student checked only one direction; this matrix requires checking both the column pattern (for size) and the row pattern (for shading) together — the complete answer should be "large, black," not size alone.
+        correct: true
+      - text: Nothing is wrong — size alone is always a complete answer for any figure matrix.
+      - text: The student's approach is correct, since shading never applies to matrix questions.
+      - text: The student should have checked only the row pattern and ignored the column pattern entirely.
+    explanation: |
+      Many matrices require checking both the row pattern and the column pattern together — solving only one direction gives an incomplete answer. Here, size follows the column direction while shading follows the row direction, so both must be checked.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-matrices-0009
+    type: figure-matrix
+    difficulty: hard
+    figure: figure-matrices-09
+    stem: |
+      A 3x3 matrix's row shows a circle with a horizontal line, then a circle with a vertical line, then a blank third cell. A student assumes the third cell should follow a simple step-by-step progression (like rotating the line further), predicting a circle with a diagonal line. Given that this matrix actually uses a combination rule, is the student's prediction correct?
+    choices:
+      - text: No — this row uses a combination rule, where the third cell combines both features from the first two cells; the correct answer is a circle with both a horizontal and vertical line (a plus-sign pattern), not a diagonal line.
+        correct: true
+      - text: Yes — a diagonal line is always the correct continuation of a two-line pattern.
+      - text: Yes — combination rules never apply to circles, only to squares.
+      - text: No — but only because circles cannot have any lines at all.
+    explanation: |
+      Assuming the third cell should follow a simple incrementing pattern (like a figure series) when it is actually meant to combine features from the first two cells leads to a plausible but incorrect prediction. The correct answer combines both lines into a plus-sign pattern.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-matrices-0010
+    type: figure-matrix
+    difficulty: hard
+    figure: figure-matrices-10
+    stem: |
+      A 2x2 matrix's top row shows a triangle, then a triangle rotated 90°. Its bottom row shows a completely different shape, a pentagon, then a blank cell. A student assumes the bottom row must also use triangles, since "all rows in a matrix should use the same shapes." Is this assumption correct?
+    choices:
+      - text: No — different rows can apply the same transformation rule (like a 90° rotation) to different starting shapes; the bottom row correctly uses pentagons, and the blank cell should show a pentagon rotated 90°, not a triangle.
+        correct: true
+      - text: Yes — every row in a figure matrix must use the exact same shapes as every other row.
+      - text: Yes — but only because pentagons and triangles are actually the same shape.
+      - text: No — but only because the top row's shapes are also invalid.
+    explanation: |
+      Different rows or columns can apply the same transformation rule to different starting shapes — do not expect literally identical figures across rows, only a consistent pattern of change. Recognizing the rule (90° rotation), not memorizing specific shapes, is the key skill.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-matrices-0011
+    type: figure-matrix
+    difficulty: medium
+    figure: figure-matrices-11
+    stem: |
+      A 3x3 matrix's row shows a star shaded black, then a star shaded white, then a blank third cell, with shading alternating left to right. What shading should the blank third cell have?
+    choices:
+      - text: Black
+        correct: true
+      - text: White
+      - text: Half black, half white
+      - text: Gray
+    explanation: |
+      The row pattern shows shading alternating (black, white) moving left to right. Continuing the alternation, the third cell should return to black.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-matrices-0012
+    type: figure-matrix
+    difficulty: medium
+    figure: figure-matrices-12
+    stem: |
+      A 3x3 matrix's column shows an arrow pointing up, then the same arrow rotated 90° clockwise (pointing right), then a blank third cell, moving top to bottom. What direction should the arrow point in the blank third cell?
+    choices:
+      - text: Down (a further 90° clockwise turn from "right")
+        correct: true
+      - text: Up, repeating the first cell
+      - text: Left (a 90° counterclockwise turn instead)
+      - text: Right, repeating the second cell
+    explanation: |
+      The column pattern shows a 90° clockwise rotation moving top to bottom (up → right). Continuing the same rotation, the third cell's arrow should point down.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-matrices-0013
+    type: figure-matrix
+    difficulty: hard
+    figure: figure-matrices-13
+    stem: |
+      A 3x3 matrix's columns show a shape's number of sides increasing (triangle, square, pentagon) moving top to bottom, while its rows show the shape rotated further (0°, 45°, 90°) moving left to right. The blank is in the bottom-right cell. What shape and rotation should it show?
+    choices:
+      - text: A pentagon rotated 90°
+        correct: true
+      - text: A square rotated 90°
+      - text: A pentagon rotated 45°
+      - text: A hexagon rotated 90°
+    explanation: |
+      Since the blank is in the bottom row, the column pattern (triangle → square → pentagon) makes its shape a pentagon. Since the blank is in the right-most column, the row pattern (0° → 45° → 90°) makes its rotation 90°.
+    approved: true
+
+  - id: q-spatial-abstract-reasoning-figure-matrices-0014
+    type: figure-matrix
+    difficulty: exam
+    figure: figure-matrices-14
+    stem: |
+      A 3x3 matrix has two rules running at once. Row rule: the third cell in each row combines the line features of the first two cells (e.g., a horizontal line plus a vertical line becomes both lines together). Column rule: every shape in column 1 is shaded black, every shape in column 2 is shaded white, and every shape in column 3 is shaded black, regardless of row. Row 2 shows: a black circle with a horizontal line (column 1), a white circle with a vertical line (column 2), and a blank third cell (column 3). What should the blank third cell show?
+    choices:
+      - text: A black circle with both a horizontal and vertical line
+        correct: true
+      - text: A white circle with both lines, ignoring the column shading rule
+      - text: A black circle with only a horizontal line, ignoring the row combination rule
+      - text: A white circle with neither line, ignoring both rules
+    explanation: |
+      Two rules apply at once: the row rule combines both lines from the first two cells (horizontal + vertical = both), and the column rule fixes column 3's shading as black. Combining both gives a black circle with both a horizontal and vertical line.
+    approved: true
