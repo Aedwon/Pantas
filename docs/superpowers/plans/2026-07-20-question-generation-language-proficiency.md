@@ -114,7 +114,7 @@ Exams for all rows: `[upcat, acet, dlsucet, ustet, dost-sei]`.
 | [x] | `context-clues` | Word Meanings through Context Clues | `word-in-context` | `content/questions/language-proficiency/vocabulary/context-clues.yaml` |
 | [x] | `synonyms-and-antonyms` | Synonyms and Antonyms | `synonym` + `antonym` (mix both, roughly half each) | `content/questions/language-proficiency/vocabulary/synonyms-and-antonyms.yaml` |
 | [x] | `idioms-and-figures-of-speech` | Idioms and Figures of Speech / Sawikain at Tayutay | `idiom-meaning` | `content/questions/language-proficiency/vocabulary/idioms-and-figures-of-speech.yaml` |
-| [ ] | `root-words-prefixes-suffixes` | Root Words, Prefixes, and Suffixes | `root-word-affix-analysis` | `content/questions/language-proficiency/vocabulary/root-words-prefixes-suffixes.yaml` |
+| [x] | `root-words-prefixes-suffixes` | Root Words, Prefixes, and Suffixes | `root-word-affix-analysis` | `content/questions/language-proficiency/vocabulary/root-words-prefixes-suffixes.yaml` |
 | [ ] | `confusing-words` | Confusing Words (Affect vs. Effect, Its vs. It's, Nang vs. Ng, Sila vs. Sina) | `confusing-words` | `content/questions/language-proficiency/vocabulary/confusing-words.yaml` |
 | [ ] | `spelling-rules` | Spelling Rules | `spelling-correction` | `content/questions/language-proficiency/vocabulary/spelling-rules.yaml` |
 
