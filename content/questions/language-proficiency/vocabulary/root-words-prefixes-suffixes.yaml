@@ -1,0 +1,291 @@
+meta:
+  subject: language-proficiency
+  topic: vocabulary
+  subtopic: root-words-prefixes-suffixes
+  exams: [ upcat, acet, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-vocabulary-root-words-prefixes-suffixes-0001
+    type: root-word-affix-analysis
+    difficulty: easy
+    stem: |
+      The doctor described the tumor as *benign*, easing the family's worries. Based on the prefix, what does *benign* most likely mean?
+    choices:
+      - text: Harmless and good
+        correct: true
+      - text: Growing quickly
+      - text: Painful
+      - text: Unpredictable
+    explanation: |
+      The word starts with "ben-," a short form of the prefix "bene-," which means good. The only positive choice, "harmless and good," matches this.
+    approved: true
+
+  - id: q-vocabulary-root-words-prefixes-suffixes-0002
+    type: root-word-affix-analysis
+    difficulty: easy
+    stem: |
+      The villain's *malicious* smile revealed his plan to harm everyone in the room. Based on the prefix, what does *malicious* most likely mean?
+    choices:
+      - text: Harmful and cruel
+        correct: true
+      - text: Kind and helpful
+      - text: Confused
+      - text: Tired
+    explanation: |
+      The word starts with "mal-," a prefix that means bad. The only negative, harm-related choice, "harmful and cruel," matches this.
+    approved: true
+
+  - id: q-vocabulary-root-words-prefixes-suffixes-0003
+    type: root-word-affix-analysis
+    difficulty: medium
+    stem: |
+      Tukuyin ang salitang-ugat ng salitang *pinaghirapan*.
+    choices:
+      - text: Hirap
+        correct: true
+      - text: Pinag
+      - text: Naghirap
+      - text: Hirapan
+    explanation: |
+      Alisin ang unlapi na "pinag-" at ang hulapi na "-an" mula sa salita, at ang matitira ay ang salitang-ugat na "hirap."
+    approved: true
+
+  - id: q-vocabulary-root-words-prefixes-suffixes-0004
+    type: root-word-affix-analysis
+    difficulty: medium
+    stem: |
+      Alin sa mga sumusunod ang gumagamit ng panlaping laguhan (unlapi + gitlapi + hulapi)?
+      A. kasaganaan
+      B. pag-ibig
+      C. ginawa
+      D. pinagsumikapan
+    choices:
+      - text: Pinagsumikapan
+        correct: true
+      - text: Kasaganaan
+      - text: Pag-ibig
+      - text: Ginawa
+    explanation: |
+      Ang "pinagsumikapan" ay may salitang-ugat na "sikap," na may unlapi ("pinag-"), gitlapi ("-um-"), at hulapi ("-an") — lahat ng 3 bahagi. Ang "kasaganaan" ay kabilaan lamang (ka- ... -an); ang "pag-ibig" ay unlapi lamang; ang "ginawa" ay gitlapi lamang.
+    approved: true
+
+  - id: q-vocabulary-root-words-prefixes-suffixes-0005
+    type: root-word-affix-analysis
+    difficulty: medium
+    stem: |
+      The professor is a *polyglot* who can converse fluently in over ten different languages. Breaking down the word ("poly-" meaning many, "-glot" relating to tongue or language), what does *polyglot* most likely mean?
+    choices:
+      - text: Someone who speaks many languages
+        correct: true
+      - text: Someone who is silent
+      - text: A type of parrot
+      - text: A rare disease
+    explanation: |
+      "Poly-" means many, and "-glot" relates to tongue or language. Together, they describe someone who speaks many languages.
+    approved: true
+
+  - id: q-vocabulary-root-words-prefixes-suffixes-0006
+    type: root-word-affix-analysis
+    difficulty: medium
+    stem: |
+      Which of the following words is the antonym of *malevolent*?
+    choices:
+      - text: Benevolent
+        correct: true
+      - text: Malicious
+      - text: Violent
+      - text: Gloomy
+    explanation: |
+      "Malevolent" breaks down into "mal-" (bad) and "vol" (wish) — wishing bad things on others. The opposite prefix, "bene-" (good), gives "benevolent," the exact opposite word.
+    approved: true
+
+  - id: q-vocabulary-root-words-prefixes-suffixes-0007
+    type: root-word-affix-analysis
+    difficulty: medium
+    stem: |
+      The novel's narrator is *omniscient*, seeing and knowing everything that happens to every character. Based on the prefix "omni-" (meaning all), what does *omniscient* most likely mean?
+    choices:
+      - text: All-knowing
+        correct: true
+      - text: All-powerful
+      - text: Blind
+      - text: Forgetful
+    explanation: |
+      "Omni-" means all, and the root relates to knowing (as in "science"). Together, "omniscient" means all-knowing.
+    approved: true
+
+  - id: q-vocabulary-root-words-prefixes-suffixes-0008
+    type: root-word-affix-analysis
+    difficulty: medium
+    stem: |
+      The historian arranged the events in *chronological* order, from earliest to latest. Based on the root "chron-" (meaning time), what does *chronological* most likely mean?
+    choices:
+      - text: Ordered by time
+        correct: true
+      - text: Ordered by importance
+      - text: Ordered alphabetically
+      - text: Ordered randomly
+    explanation: |
+      "Chron-" means time. "Chronological" describes an order arranged according to time, from earliest to latest.
+    approved: true
+
+  - id: q-vocabulary-root-words-prefixes-suffixes-0009
+    type: root-word-affix-analysis
+    difficulty: medium
+    stem: |
+      The author used a *pseudonym* instead of her real name to protect her privacy. Based on the prefix "pseudo-" (meaning fake), what does *pseudonym* most likely mean?
+    choices:
+      - text: A fake name
+        correct: true
+      - text: A nickname given by friends
+      - text: A legal name
+      - text: A title of respect
+    explanation: |
+      "Pseudo-" means fake, and "-nym" relates to name (as in "synonym"). Together, "pseudonym" means a fake name.
+    approved: true
+
+  - id: q-vocabulary-root-words-prefixes-suffixes-0010
+    type: root-word-affix-analysis
+    difficulty: medium
+    stem: |
+      Tukuyin ang salitang-ugat ng salitang *ginawa*.
+    choices:
+      - text: Gawa
+        correct: true
+      - text: Gin
+      - text: Ginawa
+      - text: Gawain
+    explanation: |
+      Ang "ginawa" ay may gitlapi na "-in-" na isiningit sa salitang-ugat na "gawa," kaya ang salitang-ugat ay "gawa."
+    approved: true
+
+  - id: q-vocabulary-root-words-prefixes-suffixes-0011
+    type: root-word-affix-analysis
+    difficulty: medium
+    stem: |
+      Alin sa mga sumusunod ang gumagamit ng panlaping kabilaan (unlapi + hulapi)?
+      A. kabataan
+      B. tumakbo
+      C. sinulat
+      D. maganda
+    choices:
+      - text: Kabataan
+        correct: true
+      - text: Tumakbo
+      - text: Sinulat
+      - text: Maganda
+    explanation: |
+      Ang "kabataan" ay may salitang-ugat na "bata," na may unlapi ("ka-") at hulapi ("-an") na parehong ginamit — ito ay kabilaan.
+    approved: true
+
+  - id: q-vocabulary-root-words-prefixes-suffixes-0012
+    type: root-word-affix-analysis
+    difficulty: medium
+    stem: |
+      Alin sa mga sumusunod ang gumagamit lamang ng unlapi (prefix)?
+      A. pag-ibig
+      B. kasaganaan
+      C. ginawa
+      D. pinagsumikapan
+    choices:
+      - text: Pag-ibig
+        correct: true
+      - text: Kasaganaan
+      - text: Ginawa
+      - text: Pinagsumikapan
+    explanation: |
+      Ang "pag-ibig" ay may salitang-ugat na "ibig," na may unlapi lamang ("pag-"). Ang "kasaganaan" ay kabilaan, ang "ginawa" ay gitlapi, at ang "pinagsumikapan" ay laguhan.
+    approved: true
+
+  - id: q-vocabulary-root-words-prefixes-suffixes-0013
+    type: root-word-affix-analysis
+    difficulty: medium
+    stem: |
+      Alin sa mga sumusunod ang gumagamit lamang ng gitlapi (infix)?
+      A. kasaganaan
+      B. pag-ibig
+      C. ginawa
+      D. pinagsumikapan
+    choices:
+      - text: Ginawa
+        correct: true
+      - text: Kasaganaan
+      - text: Pag-ibig
+      - text: Pinagsumikapan
+    explanation: |
+      Ang "ginawa" ay may salitang-ugat na "gawa," na may gitlapi lamang ("-in-") na isiningit sa loob nito. Ang iba ay gumagamit ng ibang kombinasyon ng panlapi.
+    approved: true
+
+  - id: q-vocabulary-root-words-prefixes-suffixes-0014
+    type: root-word-affix-analysis
+    difficulty: hard
+    stem: |
+      A warning label reads "INFLAMMABLE MATERIAL." A student assumes this means the material cannot catch fire, since "in-" usually means "not." Is this correct?
+    choices:
+      - text: No — "inflammable" actually means the same as "flammable"; it CAN catch fire. Here, "in-" does not mean "not," making this a common exam trap.
+        correct: true
+      - text: Yes — "inflammable" always means safe from fire.
+      - text: Yes — but only because this specific material happens to be fireproof.
+      - text: No — "inflammable" means "extremely fireproof," the strongest possible protection.
+    explanation: |
+      Usually, "in-" means "not" (like "invisible" means not visible). But sometimes "in-" means "inside" or "into." "Inflammable" is the biggest trap: it means the exact same thing as "flammable" — it can burst into flames.
+    approved: true
+
+  - id: q-vocabulary-root-words-prefixes-suffixes-0015
+    type: root-word-affix-analysis
+    difficulty: hard
+    stem: |
+      After hours of waiting, the *restive* crowd began to grow impatient and unruly. A student assumes "restive" means "relaxed," since it looks like it contains the word "rest." Is this correct?
+    choices:
+      - text: No — "restive" actually means restless, nervous, or stubborn; despite looking like it contains "rest," its true meaning is closer to the opposite of relaxed.
+        correct: true
+      - text: Yes — "restive" always means calm and relaxed, matching the word "rest" inside it.
+      - text: Yes — but only because the crowd was simply tired from waiting.
+      - text: No — but only because "restive" has no relationship to any real word at all.
+    explanation: |
+      Test-makers will put choices that match a fake root. "Restive" looks like it has the root "rest," so it seems like it should mean "relaxed" — but it actually means restless, nervous, or stubborn. Always read the whole sentence for clues rather than blindly trusting the letters.
+    approved: true
+
+  - id: q-vocabulary-root-words-prefixes-suffixes-0016
+    type: root-word-affix-analysis
+    difficulty: hard
+    stem: |
+      Sa salitang "sumayaw," ang "um-" ay itinuturing na gitlapi (infix). Sa salitang "umalis," ang "um-" ay itinuturing na unlapi (prefix) sa halip. Bakit magkaiba ang klasipikasyon, gayong pareho ang ginamit na "um-"?
+    choices:
+      - text: Dahil ang "sayaw" ay nagsisimula sa katinig (consonant), kaya ang "um-" ay isinisingit sa loob (gitlapi); ang "alis" ay nagsisimula sa patinig (vowel), kaya ang "um-" ay idinaragdag sa harap (unlapi).
+        correct: true
+      - text: Dahil magkaibang salita ang "sumayaw" at "umalis," kaya kailanman ay hindi pareho ang klasipikasyon ng kanilang panlapi.
+      - text: Dahil ang "um-" ay palaging unlapi sa lahat ng pagkakataon, walang pagbubukod.
+      - text: Dahil ang "um-" ay palaging gitlapi sa lahat ng pagkakataon, walang pagbubukod.
+    explanation: |
+      Ang gitlapi ay maaaring magmukhang unlapi kung hindi maingat ang pagsusuri. Kung ang salitang-ugat ay nagsisimula sa katinig (tulad ng "sayaw"), ang "um-" ay isiningit sa loob bilang gitlapi. Kung nagsisimula ito sa patinig (tulad ng "alis"), ang "um-" ay nasa harap bilang unlapi.
+    approved: true
+
+  - id: q-vocabulary-root-words-prefixes-suffixes-0017
+    type: root-word-affix-analysis
+    difficulty: medium
+    stem: |
+      The two scientists decided to *collaborate* on the new research project instead of working separately. Breaking the word down ("co-" meaning together, "labor" meaning work), what does *collaborate* most likely mean?
+    choices:
+      - text: To work together
+        correct: true
+      - text: To argue constantly
+      - text: To work alone
+      - text: To celebrate a victory
+    explanation: |
+      If you are stuck on an English word, look for a smaller, easier word hidden inside it. "Collaborate" has "labor" (work) inside it, with the prefix "co-" (together), giving the meaning "to work together."
+    approved: true
+
+  - id: q-vocabulary-root-words-prefixes-suffixes-0018
+    type: root-word-affix-analysis
+    difficulty: exam
+    stem: |
+      The ship's captain planned to *circumnavigate* the entire continent before returning home. Breaking the word into its parts ("circum-" meaning around, "navig-" relating to ships or sailing, from the Latin "navis"), what does *circumnavigate* most likely mean?
+    choices:
+      - text: To sail completely around something
+        correct: true
+      - text: To sink a ship deliberately
+      - text: To travel underground
+      - text: To navigate using only the stars
+    explanation: |
+      "Circum-" means around, and "navig-" relates to sailing (from the Latin "navis," meaning ship). Together, "circumnavigate" means to sail completely around something.
+    approved: true
