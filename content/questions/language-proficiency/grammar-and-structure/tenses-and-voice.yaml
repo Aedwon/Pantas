@@ -1,0 +1,275 @@
+meta:
+  subject: language-proficiency
+  topic: grammar-and-structure
+  subtopic: tenses-and-voice
+  exams: [ upcat, acet, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-grammar-and-structure-tenses-and-voice-0001
+    type: tense
+    difficulty: easy
+    stem: |
+      Identify the error in this sentence: "Yesterday, she walks to the store and bought some bread."
+    choices:
+      - text: Walks should be walked to match the past tense of bought
+        correct: true
+      - text: Bought should be buys to match walks
+      - text: There is no error; the sentence is correct
+      - text: Both verbs should be in future tense
+    explanation: |
+      The sentence describes actions that happened yesterday, so both verbs should be in the past tense. "Bought" is correct, but "walks" should be "walked."
+    approved: true
+
+  - id: q-grammar-and-structure-tenses-and-voice-0002
+    type: tense
+    difficulty: easy
+    stem: |
+      Is this sentence active or passive voice? "The dog chased the ball."
+    choices:
+      - text: Active — the subject "dog" performs the action
+        correct: true
+      - text: Passive — the subject receives the action
+      - text: Neither; this sentence has no voice
+      - text: Both active and passive simultaneously
+    explanation: |
+      The subject "dog" performs the action of chasing, making this active voice.
+    approved: true
+
+  - id: q-grammar-and-structure-tenses-and-voice-0003
+    type: tense
+    difficulty: easy
+    stem: |
+      Is this sentence active or passive voice? "The ball was chased by the dog."
+    choices:
+      - text: Passive — the subject "ball" receives the action
+        correct: true
+      - text: Active — the subject performs the action
+      - text: Neither; this sentence has no voice
+      - text: Both active and passive simultaneously
+    explanation: |
+      The subject "ball" receives the action, and "was chased" uses a form of "to be" plus the past participle — this is passive voice.
+    approved: true
+
+  - id: q-grammar-and-structure-tenses-and-voice-0004
+    type: tense
+    difficulty: medium
+    stem: |
+      Rewrite this passive sentence in active voice: "The novel was written by a famous author."
+    choices:
+      - text: A famous author wrote the novel.
+        correct: true
+      - text: The novel wrote a famous author.
+      - text: A famous author was writing the novel.
+      - text: The novel is written by a famous author.
+    explanation: |
+      To convert to active voice, make the doer ("a famous author") the subject, and have it directly perform the verb: "A famous author wrote the novel."
+    approved: true
+
+  - id: q-grammar-and-structure-tenses-and-voice-0005
+    type: tense
+    difficulty: medium
+    stem: |
+      Choose the correct verb form: By the time the guests arrived, she ______ the entire meal.
+    choices:
+      - text: Had cooked
+        correct: true
+      - text: Cooked
+      - text: Cooks
+      - text: Will cook
+    explanation: |
+      The cooking was completed before the guests arrived — an earlier past action relative to another past action. This calls for the past perfect tense: "had cooked."
+    approved: true
+
+  - id: q-grammar-and-structure-tenses-and-voice-0006
+    type: tense
+    difficulty: medium
+    stem: |
+      Identify the error in this sentence: "Last week, the team practiced hard and wins the championship game."
+    choices:
+      - text: Wins should be won to match the past tense of practiced
+        correct: true
+      - text: Practiced should be practices to match wins
+      - text: There is no error; the sentence is correct
+      - text: Both verbs should be in present tense
+    explanation: |
+      The sentence describes actions that happened last week, so both verbs should be in the past tense. "Practiced" is correct, but "wins" should be "won."
+    approved: true
+
+  - id: q-grammar-and-structure-tenses-and-voice-0007
+    type: tense
+    difficulty: medium
+    stem: |
+      Rewrite this active sentence in passive voice: "The committee approved the new budget."
+    choices:
+      - text: The new budget was approved by the committee.
+        correct: true
+      - text: The committee was approved by the new budget.
+      - text: The new budget approves the committee.
+      - text: The committee approves the new budget was.
+    explanation: |
+      To convert to passive voice, make the receiver ("the new budget") the subject, and use "was" plus the past participle "approved," with the doer introduced by "by."
+    approved: true
+
+  - id: q-grammar-and-structure-tenses-and-voice-0008
+    type: tense
+    difficulty: medium
+    stem: |
+      Alin sa mga sumusunod ang perpektibo (tapos na) na aspekto ng pandiwang ugat na "kain"?
+    choices:
+      - text: Kumain
+        correct: true
+      - text: Kumakain
+      - text: Kakain
+      - text: Kainin
+    explanation: |
+      Ang "kumain" ay perpektibo, dahil tapos na ang kilos ng pagkain.
+    approved: true
+
+  - id: q-grammar-and-structure-tenses-and-voice-0009
+    type: tense
+    difficulty: medium
+    stem: |
+      Alin sa mga sumusunod ang imperpektibo (nagaganap) na aspekto ng pandiwang ugat na "kain"?
+    choices:
+      - text: Kumakain
+        correct: true
+      - text: Kumain
+      - text: Kakain
+      - text: Kainin
+    explanation: |
+      Ang "kumakain" ay imperpektibo, dahil nagaganap pa (ongoing) ang kilos ng pagkain.
+    approved: true
+
+  - id: q-grammar-and-structure-tenses-and-voice-0010
+    type: tense
+    difficulty: medium
+    stem: |
+      Alin sa mga sumusunod ang kontemplatibo (magaganap pa) na aspekto ng pandiwang ugat na "kain"?
+    choices:
+      - text: Kakain
+        correct: true
+      - text: Kumain
+      - text: Kumakain
+      - text: Kainin
+    explanation: |
+      Ang "kakain" ay kontemplatibo, dahil hindi pa nagsisimula ang kilos ng pagkain.
+    approved: true
+
+  - id: q-grammar-and-structure-tenses-and-voice-0011
+    type: tense
+    difficulty: medium
+    stem: |
+      Sa pangungusap na "Kinain ng bata ang mangga," ano ang pokus (focus) ng pandiwa?
+    choices:
+      - text: Pokus sa bagay (ang mangga)
+        correct: true
+      - text: Pokus sa tagaganap (ang bata)
+      - text: Walang pokus
+      - text: Pokus sa oras
+    explanation: |
+      Sa pangungusap na ito, "ang mangga" (ang bagay na kinain) ang minarkahan ng "ang," kaya ang pandiwa ay naka-pokus sa bagay, hindi sa tagaganap.
+    approved: true
+
+  - id: q-grammar-and-structure-tenses-and-voice-0012
+    type: tense
+    difficulty: hard
+    stem: |
+      A student writes "She walked to the store and buys bread," switching from past to present tense mid-sentence. Is this correct?
+    choices:
+      - text: No — verbs describing actions in the same timeline should stay in the same tense; this should read "walked... and bought."
+        correct: true
+      - text: Yes — switching tense mid-sentence is always acceptable for variety.
+      - text: Yes — but only because "store" and "bread" are different nouns.
+      - text: No — but only because "walked" should actually be changed to present tense instead.
+    explanation: |
+      A sentence describing a single past story that suddenly switches to present tense is a common sentence-correction error. Only shift tense when the timeline itself genuinely changes.
+    approved: true
+
+  - id: q-grammar-and-structure-tenses-and-voice-0013
+    type: tense
+    difficulty: hard
+    stem: |
+      A student sees "She is happy" and assumes it must be passive voice, since it uses the word "is." Is this correct?
+    choices:
+      - text: No — "happy" is an adjective, not a past participle describing an action done to the subject; passive voice specifically needs "to be" plus a past participle.
+        correct: true
+      - text: Yes — any sentence with "is," "was," or "were" is automatically passive voice.
+      - text: Yes — but only because "happy" sounds like a participle.
+      - text: No — but only because "she" cannot be a subject in passive voice.
+    explanation: |
+      Not every sentence with "is," "was," or "were" is automatically passive — check for the past participle too. "She is happy" is not passive, since "happy" is an adjective, not a past participle showing an action received.
+    approved: true
+
+  - id: q-grammar-and-structure-tenses-and-voice-0014
+    type: tense
+    difficulty: hard
+    stem: |
+      A student writes "She finished the report before her boss asked for it," without using past perfect for the earlier action. Is this the exam-preferred version?
+    choices:
+      - text: No — since "finished" happened before "asked" (both past events), the earlier action needs past perfect, giving "She had finished the report before her boss asked for it."
+        correct: true
+      - text: Yes — past perfect is never necessary when both actions are already in the past tense.
+      - text: Yes — but only because "report" is a singular noun.
+      - text: No — but only because "asked" should be changed to past perfect instead.
+    explanation: |
+      When one past action happened before another past action, the earlier action needs the past perfect ("had" + past participle). "She had finished the report before her boss asked for it" is the exam-preferred, more precise version.
+    approved: true
+
+  - id: q-grammar-and-structure-tenses-and-voice-0015
+    type: tense
+    difficulty: medium
+    stem: |
+      Identify the tense: "She will write a letter tomorrow."
+    choices:
+      - text: Simple future
+        correct: true
+      - text: Simple past
+      - text: Present perfect
+      - text: Past perfect
+    explanation: |
+      "Will write" describes an action that has not happened yet — this is simple future tense.
+    approved: true
+
+  - id: q-grammar-and-structure-tenses-and-voice-0016
+    type: tense
+    difficulty: medium
+    stem: |
+      Identify the tense: "She has written three letters this week."
+    choices:
+      - text: Present perfect
+        correct: true
+      - text: Simple past
+      - text: Simple future
+      - text: Past perfect
+    explanation: |
+      "Has written" describes an action completed at an unspecified time, still relevant to the present ("this week") — this is present perfect tense.
+    approved: true
+
+  - id: q-grammar-and-structure-tenses-and-voice-0017
+    type: tense
+    difficulty: medium
+    stem: |
+      Identify the tense: "She is writing a letter right now."
+    choices:
+      - text: Present progressive
+        correct: true
+      - text: Simple present
+      - text: Simple future
+      - text: Present perfect
+    explanation: |
+      "Is writing" describes an action happening right now — this is present progressive tense.
+    approved: true
+
+  - id: q-grammar-and-structure-tenses-and-voice-0018
+    type: tense
+    difficulty: exam
+    stem: |
+      In the sentence "By the time the manager reviewed it, the report had already been submitted by the intern," identify (1) the tense of "had already been submitted" and (2) whether this sentence is active or passive voice.
+    choices:
+      - text: (1) Past perfect, (2) Passive voice — since "report" receives the action and "been submitted" is a past participle after a form of "to be"
+        correct: true
+      - text: (1) Simple past, (2) Active voice
+      - text: (1) Past perfect, (2) Active voice
+      - text: (1) Present perfect, (2) Passive voice
+    explanation: |
+      "Had already been submitted" shows an earlier past action (past perfect) relative to "reviewed." The subject "report" receives the action, with "been submitted" (a form of "to be" plus a past participle) — this is passive voice.
+    approved: true
