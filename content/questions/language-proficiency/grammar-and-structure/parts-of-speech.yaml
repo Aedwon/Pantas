@@ -1,0 +1,305 @@
+meta:
+  subject: language-proficiency
+  topic: grammar-and-structure
+  subtopic: parts-of-speech
+  exams: [ upcat, acet, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-grammar-and-structure-parts-of-speech-0001
+    type: parts-of-speech-identification
+    difficulty: easy
+    stem: |
+      Maria bought a new book from the store yesterday. What part of speech is the word "book" in this sentence?
+    choices:
+      - text: Noun
+        correct: true
+      - text: Verb
+      - text: Adjective
+      - text: Adverb
+    explanation: |
+      "Book" names a thing, making it a noun.
+    approved: true
+
+  - id: q-grammar-and-structure-parts-of-speech-0002
+    type: parts-of-speech-identification
+    difficulty: easy
+    stem: |
+      Although Carlos was late, he still finished his part; she thanked him afterward. What part of speech is the word "he" in this sentence?
+    choices:
+      - text: Pronoun
+        correct: true
+      - text: Noun
+      - text: Adjective
+      - text: Conjunction
+    explanation: |
+      "He" replaces the noun "Carlos" so it does not need to be repeated, making it a pronoun.
+    approved: true
+
+  - id: q-grammar-and-structure-parts-of-speech-0003
+    type: parts-of-speech-identification
+    difficulty: medium
+    stem: |
+      The children laughed loudly at the clown's silly jokes. What part of speech is the word "laughed" in this sentence?
+    choices:
+      - text: Verb
+        correct: true
+      - text: Noun
+      - text: Adjective
+      - text: Adverb
+    explanation: |
+      "Laughed" shows an action the children performed, making it a verb.
+    approved: true
+
+  - id: q-grammar-and-structure-parts-of-speech-0004
+    type: parts-of-speech-identification
+    difficulty: medium
+    stem: |
+      The diligent student finished her project quickly. What part of speech is the italicized word "diligent"?
+    choices:
+      - text: Adjective
+        correct: true
+      - text: Adverb
+      - text: Noun
+      - text: Verb
+    explanation: |
+      "Diligent" describes the noun "student," telling us what kind of student she is — this is an adjective.
+    approved: true
+
+  - id: q-grammar-and-structure-parts-of-speech-0005
+    type: parts-of-speech-identification
+    difficulty: medium
+    stem: |
+      The diligent student finished her project quickly. What part of speech is the italicized word "quickly"?
+    choices:
+      - text: Adverb
+        correct: true
+      - text: Adjective
+      - text: Verb
+      - text: Noun
+    explanation: |
+      "Quickly" describes the verb "finished," telling us how she finished — this is an adverb.
+    approved: true
+
+  - id: q-grammar-and-structure-parts-of-speech-0006
+    type: parts-of-speech-identification
+    difficulty: medium
+    stem: |
+      The cat hid under the table during the thunderstorm. What part of speech is the word "under" in this sentence?
+    choices:
+      - text: Preposition
+        correct: true
+      - text: Adverb
+      - text: Conjunction
+      - text: Adjective
+    explanation: |
+      "Under" shows the relationship (location) between the cat and the table, making it a preposition.
+    approved: true
+
+  - id: q-grammar-and-structure-parts-of-speech-0007
+    type: parts-of-speech-identification
+    difficulty: medium
+    stem: |
+      She wanted to attend the party, but she had too much homework. What part of speech is the word "but" in this sentence?
+    choices:
+      - text: Conjunction
+        correct: true
+      - text: Preposition
+      - text: Adverb
+      - text: Interjection
+    explanation: |
+      "But" connects two clauses (wanting to attend, and having homework), making it a conjunction.
+    approved: true
+
+  - id: q-grammar-and-structure-parts-of-speech-0008
+    type: parts-of-speech-identification
+    difficulty: medium
+    stem: |
+      "Ouch! That really hurt when I stubbed my toe." What part of speech is the word "Ouch"?
+    choices:
+      - text: Interjection
+        correct: true
+      - text: Noun
+      - text: Adverb
+      - text: Verb
+    explanation: |
+      "Ouch" expresses a sudden feeling (pain), making it an interjection.
+    approved: true
+
+  - id: q-grammar-and-structure-parts-of-speech-0009
+    type: parts-of-speech-identification
+    difficulty: medium
+    stem: |
+      "Turn on the light so we can see the room better." What part of speech is the word "light" in this sentence?
+    choices:
+      - text: Noun
+        correct: true
+      - text: Verb
+      - text: Adjective
+      - text: Adverb
+    explanation: |
+      Here, "light" names a thing (a lamp or its glow), making it a noun.
+    approved: true
+
+  - id: q-grammar-and-structure-parts-of-speech-0010
+    type: parts-of-speech-identification
+    difficulty: medium
+    stem: |
+      "Please light the candle before the guests arrive." What part of speech is the word "light" in this sentence?
+    choices:
+      - text: Verb
+        correct: true
+      - text: Noun
+      - text: Adjective
+      - text: Preposition
+    explanation: |
+      Here, "light" shows an action (to ignite the candle), making it a verb.
+    approved: true
+
+  - id: q-grammar-and-structure-parts-of-speech-0011
+    type: parts-of-speech-identification
+    difficulty: medium
+    stem: |
+      "The bag felt surprisingly light after we removed the books." What part of speech is the word "light" in this sentence?
+    choices:
+      - text: Adjective
+        correct: true
+      - text: Noun
+      - text: Verb
+      - text: Adverb
+    explanation: |
+      Here, "light" describes the bag, telling us its weight, making it an adjective.
+    approved: true
+
+  - id: q-grammar-and-structure-parts-of-speech-0012
+    type: parts-of-speech-identification
+    difficulty: medium
+    stem: |
+      Tukuyin ang bahagi ng pananalita ng salitang may salungguhit: Ang *matapang* na sundalo ay nagtanggol sa kanyang bayan.
+    choices:
+      - text: Pang-uri
+        correct: true
+      - text: Pangngalan
+      - text: Pandiwa
+      - text: Pang-abay
+    explanation: |
+      Ang "matapang" ay naglalarawan sa pangngalang "sundalo," kaya ito ay pang-uri (adjective).
+    approved: true
+
+  - id: q-grammar-and-structure-parts-of-speech-0013
+    type: parts-of-speech-identification
+    difficulty: medium
+    stem: |
+      Tukuyin ang bahagi ng pananalita ng salitang may salungguhit: Ang *bata* ay naglaro sa parke kahapon.
+    choices:
+      - text: Pangngalan
+        correct: true
+      - text: Panghalip
+      - text: Pandiwa
+      - text: Pang-uri
+    explanation: |
+      Ang "bata" ay pangalan ng isang tao (bagay), kaya ito ay pangngalan (noun).
+    approved: true
+
+  - id: q-grammar-and-structure-parts-of-speech-0014
+    type: parts-of-speech-identification
+    difficulty: medium
+    stem: |
+      Tukuyin ang bahagi ng pananalita ng salitang may salungguhit: *Siya* ay pumunta sa palengke upang bumili ng gulay.
+    choices:
+      - text: Panghalip
+        correct: true
+      - text: Pangngalan
+      - text: Pang-uri
+      - text: Pandiwa
+    explanation: |
+      Ang "Siya" ay humahalili sa isang pangngalan (pangalan ng tao) upang hindi ito ulit-ulitin, kaya ito ay panghalip (pronoun).
+    approved: true
+
+  - id: q-grammar-and-structure-parts-of-speech-0015
+    type: parts-of-speech-identification
+    difficulty: medium
+    stem: |
+      Tukuyin ang bahagi ng pananalita ng salitang may salungguhit: *Kumain* ang mga bata ng masarap na hapunan.
+    choices:
+      - text: Pandiwa
+        correct: true
+      - text: Pangngalan
+      - text: Pang-uri
+      - text: Pang-abay
+    explanation: |
+      Ang "Kumain" ay nagpapahiwatig ng kilos na ginawa ng mga bata, kaya ito ay pandiwa (verb).
+    approved: true
+
+  - id: q-grammar-and-structure-parts-of-speech-0016
+    type: parts-of-speech-identification
+    difficulty: medium
+    stem: |
+      Tukuyin ang bahagi ng pananalita ng salitang may salungguhit: *Mabilis* na tumakbo ang atleta patungo sa linya ng tapusan.
+    choices:
+      - text: Pang-abay
+        correct: true
+      - text: Pang-uri
+      - text: Pandiwa
+      - text: Pangngalan
+    explanation: |
+      Ang "Mabilis" dito ay naglalarawan kung paano tumakbo ang atleta (isang pandiwa), kaya ito ay pang-abay (adverb), hindi pang-uri.
+    approved: true
+
+  - id: q-grammar-and-structure-parts-of-speech-0017
+    type: parts-of-speech-identification
+    difficulty: hard
+    stem: |
+      A student assumes the word "run" is always a verb, since that is its most common job. In the sentence "She went for a run every morning," is "run" functioning as a verb here?
+    choices:
+      - text: No — here "run" is a noun (referring to the activity or exercise session), not a verb; the same word can have different jobs in different sentences.
+        correct: true
+      - text: Yes — "run" is always a verb regardless of context.
+      - text: Yes — but only because "morning" is also functioning as a verb here.
+      - text: No — "run" can never function as a verb in any sentence.
+    explanation: |
+      Words like "run" can be nouns or verbs depending on how they are used. Here, "a run" names an activity (a noun), not an action being performed directly.
+    approved: true
+
+  - id: q-grammar-and-structure-parts-of-speech-0018
+    type: parts-of-speech-identification
+    difficulty: hard
+    stem: |
+      A student assumes "friendly" must be an adverb since it ends in "-ly." In the sentence "The friendly neighbor waved at us," is this assumption correct?
+    choices:
+      - text: No — "friendly" is actually an adjective here, describing the noun "neighbor"; not every word ending in "-ly" is an adverb.
+        correct: true
+      - text: Yes — any word ending in "-ly" is always an adverb.
+      - text: Yes — but only because "neighbor" is also functioning as an adverb here.
+      - text: No — "friendly" is a noun, not an adverb or adjective.
+    explanation: |
+      "Friendly," "lovely," and "lonely" all end in "-ly" but are adjectives, since they describe nouns. Always check the word's job in the sentence, not just its ending.
+    approved: true
+
+  - id: q-grammar-and-structure-parts-of-speech-0019
+    type: parts-of-speech-identification
+    difficulty: hard
+    stem: |
+      In "We left before dinner," the word "before" functions as a preposition. In "We left before we finished dinner," does "before" still function the same way?
+    choices:
+      - text: No — in the second sentence, "before" is followed by a full clause with its own subject and verb ("we finished dinner"), making it a conjunction instead of a preposition.
+        correct: true
+      - text: Yes — "before" is always a preposition regardless of what follows it.
+      - text: Yes — but only because "dinner" changes its part of speech instead.
+      - text: No — "before" functions as an adverb in both sentences.
+    explanation: |
+      Words like "before," "after," and "since" can function as either a preposition (followed by just a noun phrase) or a conjunction (followed by a full clause with its own subject and verb).
+    approved: true
+
+  - id: q-grammar-and-structure-parts-of-speech-0020
+    type: parts-of-speech-identification
+    difficulty: exam
+    stem: |
+      In the sentence "The extremely diligent students quietly finished their difficult exam before the bell rang," identify the part of speech of: (1) "extremely," (2) "diligent," (3) "quietly," (4) "before" (as used here).
+    choices:
+      - text: (1) Adverb, (2) Adjective, (3) Adverb, (4) Conjunction
+        correct: true
+      - text: (1) Adjective, (2) Adverb, (3) Adjective, (4) Preposition
+      - text: (1) Adverb, (2) Adjective, (3) Adverb, (4) Preposition
+      - text: (1) Adjective, (2) Noun, (3) Verb, (4) Conjunction
+    explanation: |
+      "Extremely" describes the adjective "diligent" (adverb). "Diligent" describes the noun "students" (adjective). "Quietly" describes the verb "finished" (adverb). "Before" is followed by a full clause ("the bell rang"), making it a conjunction, not a preposition.
+    approved: true
