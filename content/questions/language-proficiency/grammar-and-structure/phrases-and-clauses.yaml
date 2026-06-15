@@ -1,0 +1,230 @@
+meta:
+  subject: language-proficiency
+  topic: grammar-and-structure
+  subtopic: phrases-and-clauses
+  exams: [ upcat, acet, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-grammar-and-structure-phrases-and-clauses-0001
+    type: phrase-clause-identification
+    difficulty: easy
+    stem: |
+      Is "under the old bridge" a phrase or a clause?
+    choices:
+      - text: Phrase
+        correct: true
+      - text: Independent clause
+      - text: Dependent clause
+      - text: Complete sentence
+    explanation: |
+      "Under the old bridge" has no subject or verb of its own, so it is a phrase, not a clause.
+    approved: true
+
+  - id: q-grammar-and-structure-phrases-and-clauses-0002
+    type: phrase-clause-identification
+    difficulty: easy
+    stem: |
+      Is "the cat slept" a phrase or a clause?
+    choices:
+      - text: Clause
+        correct: true
+      - text: Phrase
+      - text: Sentence fragment only
+      - text: Interjection
+    explanation: |
+      "The cat slept" has a subject ("cat") and a verb ("slept"), making it a clause.
+    approved: true
+
+  - id: q-grammar-and-structure-phrases-and-clauses-0003
+    type: phrase-clause-identification
+    difficulty: medium
+    stem: |
+      Is "She finished her homework" an independent or a dependent clause?
+    choices:
+      - text: Independent
+        correct: true
+      - text: Dependent
+      - text: Phrase
+      - text: Fragment
+    explanation: |
+      "She finished her homework" has a subject, a verb, and expresses a complete thought on its own, making it an independent clause.
+    approved: true
+
+  - id: q-grammar-and-structure-phrases-and-clauses-0004
+    type: phrase-clause-identification
+    difficulty: medium
+    stem: |
+      Is "Although she was tired" an independent or a dependent clause?
+    choices:
+      - text: Dependent
+        correct: true
+      - text: Independent
+      - text: Phrase
+      - text: Complete sentence
+    explanation: |
+      "Although she was tired" has a subject ("she") and a verb ("was"), but the word "although" makes it an incomplete thought that needs more information — a dependent clause.
+    approved: true
+
+  - id: q-grammar-and-structure-phrases-and-clauses-0005
+    type: phrase-clause-identification
+    difficulty: medium
+    stem: |
+      Combine the dependent clause "Because the store was closed" with an appropriate independent clause to form a complete sentence.
+    choices:
+      - text: Because the store was closed, we went home instead.
+        correct: true
+      - text: Because the store was closed we went.
+      - text: The store was closed because.
+      - text: Because the store, we went home.
+    explanation: |
+      The dependent clause "Because the store was closed" needs a complete thought to attach to. "Because the store was closed, we went home instead" correctly answers "...so what happened?"
+    approved: true
+
+  - id: q-grammar-and-structure-phrases-and-clauses-0006
+    type: phrase-clause-identification
+    difficulty: medium
+    stem: |
+      Identify the error in this sentence: "Although the teacher explained the lesson twice."
+    choices:
+      - text: This is a sentence fragment — a dependent clause with no independent clause attached
+        correct: true
+      - text: There is no error; the sentence is complete
+      - text: This is a run-on sentence with too many clauses
+      - text: This sentence is missing a subject
+    explanation: |
+      This is a dependent clause standing alone. It has a subject and verb, but "although" leaves the thought incomplete — a sentence fragment.
+    approved: true
+
+  - id: q-grammar-and-structure-phrases-and-clauses-0007
+    type: phrase-clause-identification
+    difficulty: medium
+    stem: |
+      Is "running quickly through the park" a phrase or a clause?
+    choices:
+      - text: Phrase
+        correct: true
+      - text: Independent clause
+      - text: Dependent clause
+      - text: Complete sentence
+    explanation: |
+      "Running quickly through the park" has no subject-verb pair of its own (no stated subject performing the running as a main verb), so it is a phrase.
+    approved: true
+
+  - id: q-grammar-and-structure-phrases-and-clauses-0008
+    type: phrase-clause-identification
+    difficulty: medium
+    stem: |
+      Is "When the bell rang" an independent or a dependent clause?
+    choices:
+      - text: Dependent
+        correct: true
+      - text: Independent
+      - text: Phrase
+      - text: Complete sentence
+    explanation: |
+      "When the bell rang" has a subject ("bell") and a verb ("rang"), but "when" leaves the thought incomplete, needing more information — a dependent clause.
+    approved: true
+
+  - id: q-grammar-and-structure-phrases-and-clauses-0009
+    type: phrase-clause-identification
+    difficulty: medium
+    stem: |
+      Is the comma placement correct in this sentence? "Because it was raining, we stayed inside."
+    choices:
+      - text: Yes — when a dependent clause starts the sentence, it is followed by a comma before the independent clause begins.
+        correct: true
+      - text: No — commas are never used with dependent clauses.
+      - text: No — the comma should be removed entirely.
+      - text: Yes — but only because "raining" is a gerund.
+    explanation: |
+      When a dependent clause starts the sentence, it is usually followed by a comma before the independent clause begins — this sentence is correctly punctuated.
+    approved: true
+
+  - id: q-grammar-and-structure-phrases-and-clauses-0010
+    type: phrase-clause-identification
+    difficulty: medium
+    stem: |
+      Does this sentence need a comma before "because"? "We stayed inside because it was raining."
+    choices:
+      - text: No — when the independent clause comes first, no comma is typically needed before the dependent clause.
+        correct: true
+      - text: Yes — a comma is always required regardless of clause order.
+      - text: Yes — but only before "was," not before "because."
+      - text: No — but only because "raining" ends the sentence.
+    explanation: |
+      If the independent clause comes first ("We stayed inside because it was raining"), no comma is typically needed before the dependent clause.
+    approved: true
+
+  - id: q-grammar-and-structure-phrases-and-clauses-0011
+    type: phrase-clause-identification
+    difficulty: hard
+    stem: |
+      A student sees the long phrase "Walking slowly along the crowded street toward the old market" and assumes it must be a clause since it is so long. Is this correct?
+    choices:
+      - text: No — length does not make something a clause; this phrase still lacks a subject performing a clearly stated main verb in a complete sentence.
+        correct: true
+      - text: Yes — any group of words longer than five words is automatically a clause.
+      - text: Yes — but only because "market" could function as a subject.
+      - text: No — but only because phrases can never contain the word "toward."
+    explanation: |
+      A phrase can be long and still lack a subject-verb pair — length does not make something a clause. This phrase needs an independent clause to complete the thought.
+    approved: true
+
+  - id: q-grammar-and-structure-phrases-and-clauses-0012
+    type: phrase-clause-identification
+    difficulty: hard
+    stem: |
+      A student writes "Because she was late." as a standalone sentence. Is this a complete sentence?
+    choices:
+      - text: No — this is a dependent clause treated as a complete sentence, a common sentence fragment error; it needs to be attached to an independent clause to be complete.
+        correct: true
+      - text: Yes — since it has a subject and a verb, it is automatically complete.
+      - text: Yes — but only because "late" is functioning as an adjective here.
+      - text: No — but only because "she" is not a valid subject.
+    explanation: |
+      Writing "Because she was late." as a standalone sentence is a common sentence fragment error, even though it technically contains a subject and verb. It needs to be attached to an independent clause.
+    approved: true
+
+  - id: q-grammar-and-structure-phrases-and-clauses-0013
+    type: phrase-clause-identification
+    difficulty: hard
+    stem: |
+      A student writes "Because it was raining we stayed inside" without a comma. Is this correctly punctuated?
+    choices:
+      - text: No — when a dependent clause starts the sentence, it should be followed by a comma before the independent clause begins, giving "Because it was raining, we stayed inside."
+        correct: true
+      - text: Yes — commas are never needed between clauses regardless of their order.
+      - text: Yes — but only because "raining" and "inside" share a similar sound.
+      - text: No — but only because the sentence should have no dependent clause at all.
+    explanation: |
+      When a dependent clause starts the sentence, it is usually followed by a comma before the independent clause begins. Forgetting this comma is a common punctuation error.
+    approved: true
+
+  - id: q-grammar-and-structure-phrases-and-clauses-0014
+    type: phrase-clause-identification
+    difficulty: medium
+    stem: |
+      Which word in "Since the concert ended late, everyone was tired" signals that the first clause is dependent?
+    choices:
+      - text: Since
+        correct: true
+      - text: Concert
+      - text: Ended
+      - text: Everyone
+    explanation: |
+      "Since" is a subordinating word at the start of the clause, signaling that "since the concert ended late" is a dependent clause that needs the rest of the sentence to be complete.
+    approved: true
+
+  - id: q-grammar-and-structure-phrases-and-clauses-0015
+    type: phrase-clause-identification
+    difficulty: exam
+    stem: |
+      Identify the issue with this pair of sentences and select the corrected version: "Although the manager reviewed the proposal carefully. She still had questions."
+    choices:
+      - text: The first part is a sentence fragment (a dependent clause standing alone); corrected, it should read "Although the manager reviewed the proposal carefully, she still had questions."
+        correct: true
+      - text: There is no error; both sentences are already complete and correctly punctuated.
+      - text: The second sentence, "She still had questions," is the fragment, not the first.
+      - text: The correction should remove the comma and keep them as two separate sentences.
+    explanation: |
+      "Although the manager reviewed the proposal carefully" is a dependent clause left standing alone as its own sentence — a fragment. The fix joins it to the independent clause that follows, with a comma: "Although the manager reviewed the proposal carefully, she still had questions."
+    approved: true
