@@ -1,0 +1,275 @@
+meta:
+  subject: language-proficiency
+  topic: vocabulary
+  subtopic: synonyms-and-antonyms
+  exams: [ upcat, acet, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-vocabulary-synonyms-and-antonyms-0001
+    type: synonym
+    difficulty: easy
+    stem: |
+      Choose the word that is most similar in meaning to the word "ephemeral."
+    choices:
+      - text: Fleeting
+        correct: true
+      - text: Eternal
+      - text: Glowing
+      - text: Rigid
+    explanation: |
+      "Ephemeral" means lasting for a very short time. "Fleeting" means passing quickly, matching this meaning. "Eternal" means the opposite (lasting forever), "glowing" means shining brightly, and "rigid" means stiff or hard.
+    approved: true
+
+  - id: q-vocabulary-synonyms-and-antonyms-0002
+    type: antonym
+    difficulty: easy
+    stem: |
+      Select the word that is most nearly opposite in meaning to the word "mitigate."
+    choices:
+      - text: Aggravate
+        correct: true
+      - text: Alleviate
+      - text: Placate
+      - text: Isolate
+    explanation: |
+      "Mitigate" means to make a problem less painful or severe. "Aggravate" means to make a problem much worse — the opposite. "Alleviate" and "placate" are synonyms of "mitigate," not opposites, and "isolate" means to separate someone.
+    approved: true
+
+  - id: q-vocabulary-synonyms-and-antonyms-0003
+    type: synonym
+    difficulty: medium
+    stem: |
+      Piliin ang pinakawastong kasingkahulugan ng salitang may salungguhit: Ang kanyang mga pangarap ay *gumuho* dahil sa sakuna.
+    choices:
+      - text: Nasira
+        correct: true
+      - text: Natupad
+      - text: Naglaho
+      - text: Lumaki
+    explanation: |
+      Ang "gumuho" ay nangangahulugang bumagsak o gumuho, katulad ng "nasira." Ang "natupad" ay nangangahulugang natapos nang maayos, ang "naglaho" ay nawala, at ang "lumaki" ay tumaas ang laki — hindi ito angkop sa pangungusap.
+    approved: true
+
+  - id: q-vocabulary-synonyms-and-antonyms-0004
+    type: antonym
+    difficulty: medium
+    stem: |
+      Alin sa mga sumusunod ang kasalungat ng salitang "maralita"?
+    choices:
+      - text: Mayaman
+        correct: true
+      - text: Mahirap
+      - text: Masipag
+      - text: Tamad
+    explanation: |
+      Ang "maralita" ay nangangahulugang mahirap. Ang kasalungat ng mahirap ay mayaman. Ang "mahirap" ay kasingkahulugan (hindi kasalungat), samantalang ang "masipag" at "tamad" ay walang kaugnayan sa kayamanan.
+    approved: true
+
+  - id: q-vocabulary-synonyms-and-antonyms-0005
+    type: synonym
+    difficulty: medium
+    stem: |
+      The manager's *sycophantic* assistant agreed with every terrible idea, hoping to get a quick promotion. What is the meaning of the italicized word?
+    choices:
+      - text: Flattering
+        correct: true
+      - text: Rebellious
+      - text: Intelligent
+      - text: Lazy
+    explanation: |
+      The assistant "agreed with every terrible idea" just to "get a quick promotion" — giving fake praise to get a reward. "Flattering" means giving too much praise, matching this behavior perfectly.
+    approved: true
+
+  - id: q-vocabulary-synonyms-and-antonyms-0006
+    type: synonym
+    difficulty: medium
+    stem: |
+      Choose the word that is most similar in meaning to the word "meticulous."
+    choices:
+      - text: Precise
+        correct: true
+      - text: Careless
+      - text: Fast
+      - text: Loud
+    explanation: |
+      "Meticulous" means showing great attention to detail and being very careful. "Precise" is the closest match; "careless" is nearly opposite, and "fast" and "loud" are unrelated.
+    approved: true
+
+  - id: q-vocabulary-synonyms-and-antonyms-0007
+    type: antonym
+    difficulty: medium
+    stem: |
+      Select the word that is most nearly opposite in meaning to the word "benevolent."
+    choices:
+      - text: Malevolent
+        correct: true
+      - text: Kind
+      - text: Wealthy
+      - text: Shy
+    explanation: |
+      "Benevolent" means kind and generous. "Malevolent" means having ill will or wanting to harm others — the direct opposite. "Kind" is actually a synonym, not an antonym.
+    approved: true
+
+  - id: q-vocabulary-synonyms-and-antonyms-0008
+    type: synonym
+    difficulty: medium
+    stem: |
+      Alin sa mga sumusunod ang kasingkahulugan ng salitang "magiliw"?
+    choices:
+      - text: Mabait
+        correct: true
+      - text: Galit
+      - text: Tamad
+      - text: Mayabang
+    explanation: |
+      Ang "magiliw" ay nangangahulugang mapagmahal o palakaibigan. Ang "mabait" ang pinakamalapit na kasingkahulugan; ang "galit," "tamad," at "mayabang" ay hindi angkop.
+    approved: true
+
+  - id: q-vocabulary-synonyms-and-antonyms-0009
+    type: antonym
+    difficulty: medium
+    stem: |
+      Alin sa mga sumusunod ang kasalungat ng salitang "matapang"?
+    choices:
+      - text: Duwag
+        correct: true
+      - text: Malakas
+      - text: Matalino
+      - text: Mabait
+    explanation: |
+      Ang "matapang" ay nangangahulugang may lakas ng loob. Ang tuwirang kasalungat nito ay "duwag" (walang lakas ng loob). Ang "malakas," "matalino," at "mabait" ay hindi tuwirang kasalungat.
+    approved: true
+
+  - id: q-vocabulary-synonyms-and-antonyms-0010
+    type: antonym
+    difficulty: hard
+    stem: |
+      Select the word that is most nearly opposite in meaning to the word "candid." Choice A is a common trap on antonym questions — identify it before selecting your final answer.
+    choices:
+      - text: Deceptive
+        correct: true
+      - text: Honest
+      - text: Quiet
+      - text: Angry
+    explanation: |
+      "Candid" means honest and straightforward. Test makers often place a synonym like "honest" (choice A here) as a trap on antonym questions, hoping you'll recognize the meaning of "candid" and quickly pick it without checking that the question asks for the opposite. The true antonym is "deceptive."
+    approved: true
+
+  - id: q-vocabulary-synonyms-and-antonyms-0011
+    type: antonym
+    difficulty: hard
+    stem: |
+      Alin sa mga sumusunod ang kasalungat ng salitang "masaya"? Ang unang pagpipilian ay isang karaniwang bitag (trap) sa mga tanong tungkol sa kasalungat — tukuyin ito bago pumili ng iyong sagot.
+    choices:
+      - text: Malungkot
+        correct: true
+      - text: Natutuwa
+      - text: Mabait
+      - text: Matalino
+    explanation: |
+      Madalas naglalagay ang mga gumagawa ng pagsusulit ng kasingkahulugan (tulad ng "natutuwa" dito) bilang bitag sa mga tanong tungkol sa kasalungat, umaasang mapipili mo agad ito dahil kahawig ito ng "masaya." Ang tunay na kasalungat ay "malungkot."
+    approved: true
+
+  - id: q-vocabulary-synonyms-and-antonyms-0012
+    type: synonym
+    difficulty: hard
+    stem: |
+      After the religious ceremony, the monks decided to *fast* for three days, eating nothing until sundown. What is the meaning of the italicized word in this sentence?
+    choices:
+      - text: To stop eating
+        correct: true
+      - text: Quick
+      - text: To run
+      - text: To sleep
+    explanation: |
+      "Fast" usually means quick, but here the sentence describes monks "eating nothing until sundown" — a hidden second meaning of "fast," which is to stop eating (as in a religious fast). Always read the whole sentence to see how the word is actually acting.
+    approved: true
+
+  - id: q-vocabulary-synonyms-and-antonyms-0013
+    type: synonym
+    difficulty: medium
+    stem: |
+      Choose the word that is most similar in meaning to the word "audacious."
+    choices:
+      - text: Daring
+        correct: true
+      - text: Fearful
+      - text: Quiet
+      - text: Generous
+    explanation: |
+      "Audacious" means bold and willing to take risks. "Daring" is the closest match; "fearful" is nearly opposite, and "quiet" and "generous" are unrelated.
+    approved: true
+
+  - id: q-vocabulary-synonyms-and-antonyms-0014
+    type: antonym
+    difficulty: medium
+    stem: |
+      Select the word that is most nearly opposite in meaning to the word "abundant."
+    choices:
+      - text: Scarce
+        correct: true
+      - text: Plentiful
+      - text: Heavy
+      - text: Fast
+    explanation: |
+      "Abundant" means existing in large quantities. "Scarce" means existing in very small quantities — the direct opposite. "Plentiful" is actually a synonym, not an antonym.
+    approved: true
+
+  - id: q-vocabulary-synonyms-and-antonyms-0015
+    type: synonym
+    difficulty: medium
+    stem: |
+      Alin sa mga sumusunod ang kasingkahulugan ng salitang "matiyaga"?
+    choices:
+      - text: Matatag
+        correct: true
+      - text: Tamad
+      - text: Mayabang
+      - text: Galit
+    explanation: |
+      Ang "matiyaga" ay nangangahulugang nagtitiyaga o hindi sumusuko. Ang "matatag" (steadfast) ang pinakamalapit na kasingkahulugan; ang iba ay hindi angkop.
+    approved: true
+
+  - id: q-vocabulary-synonyms-and-antonyms-0016
+    type: antonym
+    difficulty: medium
+    stem: |
+      Alin sa mga sumusunod ang kasalungat ng salitang "matapat"?
+    choices:
+      - text: Sinungaling
+        correct: true
+      - text: Tapat
+      - text: Masipag
+      - text: Matalino
+    explanation: |
+      Ang "matapat" ay nangangahulugang tapat o may katapatan. Ang tuwirang kasalungat nito ay "sinungaling" (madalas magsinungaling). Ang "tapat" ay kasingkahulugan lamang, hindi kasalungat.
+    approved: true
+
+  - id: q-vocabulary-synonyms-and-antonyms-0017
+    type: antonym
+    difficulty: hard
+    stem: |
+      Select the word that is most nearly opposite in meaning to the word "humble": (A) modest, (B) unassuming, (C) meek, (D) arrogant. Three of the four choices mean nearly the same thing. Use this pattern to find the true antonym.
+    choices:
+      - text: Arrogant (D) — the other three (modest, unassuming, meek) are all synonyms of "humble," leaving arrogant as the true antonym
+        correct: true
+      - text: Modest (A), since it appears first in the list
+      - text: Unassuming (B), since it is the longest word
+      - text: Meek (C), since it sounds the most different
+    explanation: |
+      If you must guess an antonym, look at all 4 choices together. Here, "modest," "unassuming," and "meek" all mean nearly the same thing as "humble" itself, so the one odd choice left behind, "arrogant," must be the true antonym.
+    approved: true
+
+  - id: q-vocabulary-synonyms-and-antonyms-0018
+    type: synonym
+    difficulty: exam
+    stem: |
+      First, find the antonym of "diligent." Then, find the word most similar in meaning to that antonym. Select the word that correctly completes this two-step chain.
+    choices:
+      - text: Indolent
+        correct: true
+      - text: Hardworking
+      - text: Careful
+      - text: Happy
+    explanation: |
+      The antonym of "diligent" (hardworking) is "lazy." The word most similar in meaning to "lazy" among the choices is "indolent," which also means lazy or avoiding work.
+    approved: true
