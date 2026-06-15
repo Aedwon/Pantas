@@ -132,7 +132,7 @@ Exams for all rows: `[upcat, acet, dlsucet, ustet, dost-sei]`.
 | [x] | `tenses-and-voice` | Tenses and Voice of Verbs (Active vs. Passive) | `tense` (add a few items on active/passive voice specifically, same archetype style) | `content/questions/language-proficiency/grammar-and-structure/tenses-and-voice.yaml` |
 | [x] | `phrases-and-clauses` | Phrases and Clauses (Independent vs. Dependent) | `phrase-clause-identification` | `content/questions/language-proficiency/grammar-and-structure/phrases-and-clauses.yaml` |
 | [x] | `sentence-structure` | Sentence Structure (Simple, Compound, Complex, Compound-Complex) | `sentence-structure-classification` | `content/questions/language-proficiency/grammar-and-structure/sentence-structure.yaml` |
-| [ ] | `modifiers` | Modifiers (Identifying Misplaced and Dangling Modifiers) | `modifier-placement` | `content/questions/language-proficiency/grammar-and-structure/modifiers.yaml` |
+| [x] | `modifiers` | Modifiers (Identifying Misplaced and Dangling Modifiers) | `modifier-placement` | `content/questions/language-proficiency/grammar-and-structure/modifiers.yaml` |
 | [ ] | `parallelism` | Parallelism / Parallel Structure | `parallelism-correction` | `content/questions/language-proficiency/grammar-and-structure/parallelism.yaml` |
 | [ ] | `punctuation-and-capitalization` | Punctuation and Capitalization Rules | `punctuation` (add a few items specifically on capitalization rules, same archetype style) | `content/questions/language-proficiency/grammar-and-structure/punctuation-and-capitalization.yaml` |
 | [ ] | `redundancy-and-double-negatives` | Redundancy and Double Negatives | `redundancy-identification` | `content/questions/language-proficiency/grammar-and-structure/redundancy-and-double-negatives.yaml` |
