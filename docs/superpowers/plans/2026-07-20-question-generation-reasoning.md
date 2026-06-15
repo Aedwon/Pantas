@@ -136,7 +136,7 @@ Exams for all rows: `[acet, ustet, dost-sei]`. **Every question in every file be
 | [x] | `figure-series` | Figure Series (Predicting the Next Shape in a Pattern) | `figure-series` | `content/questions/reasoning/spatial-abstract-reasoning/figure-series.yaml` |
 | [x] | `figure-grouping` | Figure Grouping (Identifying the Odd-One-Out) | `odd-figure` | `content/questions/reasoning/spatial-abstract-reasoning/figure-grouping.yaml` |
 | [x] | `figure-matrices` | Figure Matrices (Completing a 2x2 or 3x3 Grid of Shapes) | `figure-matrix` | `content/questions/reasoning/spatial-abstract-reasoning/figure-matrices.yaml` |
-| [ ] | `paper-folding-and-cutting` | Paper Folding and Cutting Rules | `paper-folding` | `content/questions/reasoning/spatial-abstract-reasoning/paper-folding-and-cutting.yaml` |
+| [x] | `paper-folding-and-cutting` | Paper Folding and Cutting Rules | `paper-folding` | `content/questions/reasoning/spatial-abstract-reasoning/paper-folding-and-cutting.yaml` |
 | [ ] | `mental-rotation-3d-visualization` | Mental Rotation and 3D Visualization (Unfolding Cubes, Shadow Casting) | `mental-rotation` | `content/questions/reasoning/spatial-abstract-reasoning/mental-rotation-3d-visualization.yaml` |
 
 ## Manifest — Mechanical & Technical Reasoning (topic slug: `mechanical-technical-reasoning`)
