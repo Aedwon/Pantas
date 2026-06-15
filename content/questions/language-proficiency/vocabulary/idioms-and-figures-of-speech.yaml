@@ -1,0 +1,275 @@
+meta:
+  subject: language-proficiency
+  topic: vocabulary
+  subtopic: idioms-and-figures-of-speech
+  exams: [ upcat, acet, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-vocabulary-idioms-and-figures-of-speech-0001
+    type: idiom-meaning
+    difficulty: easy
+    stem: |
+      After failing the exam three times, Maria decided to go back to square one and restart her review from the very first chapter. What does the idiom "back to square one" mean?
+    choices:
+      - text: To return to the beginning
+        correct: true
+      - text: To play a board game
+      - text: To get angry at a mistake
+      - text: To give up completely
+    explanation: |
+      If you lose all your progress, you must start over from the very beginning. "Back to square one" means to return to the beginning.
+    approved: true
+
+  - id: q-vocabulary-idioms-and-figures-of-speech-0002
+    type: idiom-meaning
+    difficulty: easy
+    stem: |
+      The reporter promised not to spill the beans about the celebrity's secret wedding until the official announcement. What does the idiom "spill the beans" mean?
+    choices:
+      - text: To reveal a secret
+        correct: true
+      - text: To cook food
+      - text: To clean the floor
+      - text: To argue loudly
+    explanation: |
+      "Spill the beans" is an idiom that means to reveal a secret — it has nothing to do with actual beans or cooking.
+    approved: true
+
+  - id: q-vocabulary-idioms-and-figures-of-speech-0003
+    type: idiom-meaning
+    difficulty: medium
+    stem: |
+      "The old floorboards groaned under every footstep, as if complaining about the weight." Which figure of speech is used in this sentence?
+    choices:
+      - text: Personification
+        correct: true
+      - text: Simile
+      - text: Metaphor
+      - text: Hyperbole
+    explanation: |
+      Groaning and complaining are human actions. Giving these human traits to non-human floorboards is personification.
+    approved: true
+
+  - id: q-vocabulary-idioms-and-figures-of-speech-0004
+    type: idiom-meaning
+    difficulty: medium
+    stem: |
+      "Her smile was as bright as the morning sun." Which figure of speech is used in this sentence?
+    choices:
+      - text: Simile
+        correct: true
+      - text: Metaphor
+      - text: Personification
+      - text: Oxymoron
+    explanation: |
+      The phrase "as bright as" uses the trigger word "as" to compare two things — this is a simile.
+    approved: true
+
+  - id: q-vocabulary-idioms-and-figures-of-speech-0005
+    type: idiom-meaning
+    difficulty: medium
+    stem: |
+      "The classroom was a zoo during the fire drill." Which figure of speech is used in this sentence?
+    choices:
+      - text: Metaphor
+        correct: true
+      - text: Simile
+      - text: Personification
+      - text: Hyperbole
+    explanation: |
+      The sentence directly compares the classroom to a zoo without using "like" or "as" — this is a metaphor.
+    approved: true
+
+  - id: q-vocabulary-idioms-and-figures-of-speech-0006
+    type: idiom-meaning
+    difficulty: medium
+    stem: |
+      "I've told you a million times to clean your room!" Which figure of speech is used in this sentence?
+    choices:
+      - text: Hyperbole
+        correct: true
+      - text: Simile
+      - text: Alliteration
+      - text: Onomatopoeia
+    explanation: |
+      No one has literally said something a million times — this is an extreme exaggeration, which is hyperbole.
+    approved: true
+
+  - id: q-vocabulary-idioms-and-figures-of-speech-0007
+    type: idiom-meaning
+    difficulty: medium
+    stem: |
+      "Peter Piper picked a peck of pickled peppers." Which figure of speech is used in this sentence?
+    choices:
+      - text: Alliteration
+        correct: true
+      - text: Onomatopoeia
+      - text: Metaphor
+      - text: Oxymoron
+    explanation: |
+      The repeated "p" sound at the beginning of nearby words (Peter, Piper, picked, peck, pickled, peppers) is alliteration.
+    approved: true
+
+  - id: q-vocabulary-idioms-and-figures-of-speech-0008
+    type: idiom-meaning
+    difficulty: medium
+    stem: |
+      "The bacon sizzled loudly in the pan." Which figure of speech is used in this sentence?
+    choices:
+      - text: Onomatopoeia
+        correct: true
+      - text: Alliteration
+      - text: Simile
+      - text: Hyperbole
+    explanation: |
+      "Sizzled" is a word that sounds like the noise it describes — this is onomatopoeia.
+    approved: true
+
+  - id: q-vocabulary-idioms-and-figures-of-speech-0009
+    type: idiom-meaning
+    difficulty: medium
+    stem: |
+      During the exam, a deafening silence filled the room as every student focused intently. Which figure of speech is used in the phrase "deafening silence"?
+    choices:
+      - text: Oxymoron
+        correct: true
+      - text: Hyperbole
+      - text: Simile
+      - text: Metaphor
+    explanation: |
+      "Deafening" and "silence" are two opposite ideas put together — this combination of contradictory words is an oxymoron.
+    approved: true
+
+  - id: q-vocabulary-idioms-and-figures-of-speech-0010
+    type: idiom-meaning
+    difficulty: medium
+    stem: |
+      Piliin ang kahulugan ng sawikain na may salungguhit: Sumuko na siya at itinapon na ang tuwalya matapos ang tatlong beses na pagsubok na hindi rin nagtagumpay.
+    choices:
+      - text: Sumuko
+        correct: true
+      - text: Nagwakas ang laban
+      - text: Nanalo
+      - text: Nagsimula ulit
+    explanation: |
+      Ang "itinapon ang tuwalya" ay sawikain na nangangahulugang sumuko, katulad ng ginagawa ng isang boksingero kapag hindi na kaya ang laban.
+    approved: true
+
+  - id: q-vocabulary-idioms-and-figures-of-speech-0011
+    type: idiom-meaning
+    difficulty: medium
+    stem: |
+      Anong uri ng tayutay ang ginamit sa pangungusap? "Libu-libong beses ko nang sinabi sa iyo na linisin ang iyong silid, pero hindi mo pa rin ginagawa."
+    choices:
+      - text: Pagmamalabis
+        correct: true
+      - text: Pagtutulad
+      - text: Pagwawangis
+      - text: Pagbibigay-katauhan
+    explanation: |
+      Walang tao na literal na nagsabi ng isang bagay ng "libu-libong beses" — ito ay matinding pagmamalabis (hyperbole).
+    approved: true
+
+  - id: q-vocabulary-idioms-and-figures-of-speech-0012
+    type: idiom-meaning
+    difficulty: medium
+    stem: |
+      Anong uri ng tayutay ang ginamit sa pangungusap? "Ang kanyang mga mata ay kasing-ganda ng mga bituin sa gabi."
+    choices:
+      - text: Pagtutulad
+        correct: true
+      - text: Pagwawangis
+      - text: Pagmamalabis
+      - text: Pagbibigay-katauhan
+    explanation: |
+      Ang panandang salitang "kasing-" (katulad ng) ay tanda ng pagtutulad (simile), dahil ginagamit nito ang salitang pang-ugnay sa paghahambing.
+    approved: true
+
+  - id: q-vocabulary-idioms-and-figures-of-speech-0013
+    type: idiom-meaning
+    difficulty: medium
+    stem: |
+      Anong uri ng tayutay ang ginamit sa pangungusap? "Ang guro ay ilaw ng silid-aralan."
+    choices:
+      - text: Pagwawangis
+        correct: true
+      - text: Pagtutulad
+      - text: Pagmamalabis
+      - text: Pagbibigay-katauhan
+    explanation: |
+      Walang panandang salita tulad ng "parang" o "tulad ng" na ginamit — direktang paghahambing ito ng guro sa ilaw, kaya ito ay pagwawangis (metaphor).
+    approved: true
+
+  - id: q-vocabulary-idioms-and-figures-of-speech-0014
+    type: idiom-meaning
+    difficulty: medium
+    stem: |
+      Anong uri ng tayutay ang ginamit sa pangungusap? "Kumakanta ang mga ibon at sumasayaw ang mga dahon sa hangin."
+    choices:
+      - text: Pagbibigay-katauhan
+        correct: true
+      - text: Pagtutulad
+      - text: Pagwawangis
+      - text: Pagmamalabis
+    explanation: |
+      Ang pagkanta at pagsayaw ay mga kilos ng tao. Ang pagbibigay ng mga katangiang pantao sa mga dahon at ibon ay pagbibigay-katauhan (personification).
+    approved: true
+
+  - id: q-vocabulary-idioms-and-figures-of-speech-0015
+    type: idiom-meaning
+    difficulty: hard
+    stem: |
+      The old family dog finally kicked the bucket after fifteen happy years. A choice option describes this literally as "the dog physically kicked a bucket with its foot." Is this the correct meaning?
+    choices:
+      - text: No — "kicked the bucket" is an idiom meaning to pass away (die); the literal description of physically kicking a bucket is a trap, since idioms are never meant literally.
+        correct: true
+      - text: Yes — the dog must have literally kicked an actual bucket.
+      - text: Yes — but only because dogs commonly interact with buckets.
+      - text: No — but only because the dog never actually existed in this sentence.
+    explanation: |
+      Test-makers know you might translate an idiom word by word. If an exam choice gives the exact dictionary meaning of the idiom's words, cross it out — idioms are never literal. "Kicked the bucket" actually means to pass away.
+    approved: true
+
+  - id: q-vocabulary-idioms-and-figures-of-speech-0016
+    type: idiom-meaning
+    difficulty: hard
+    stem: |
+      "The engine roared to life as the race began." A student assumes this is personification, reasoning that "the engine performed an action, so it must be personification." Is this correct?
+    choices:
+      - text: No — roaring is an animal trait, not a human trait, so the engine is being compared to an animal (like a lion), not given human traits; this makes it a metaphor, not personification.
+        correct: true
+      - text: Yes — any non-human thing performing an action is automatically personification.
+      - text: Yes — but only because engines cannot actually make any sound.
+      - text: No — but only because engines are not capable of movement.
+    explanation: |
+      Just because a thing moves or acts does not mean it is human. Personification requires a human trait specifically. "Roared" is an animal trait, so this compares the engine to a lion — that comparison, without "like" or "as," is a metaphor, not personification.
+    approved: true
+
+  - id: q-vocabulary-idioms-and-figures-of-speech-0017
+    type: idiom-meaning
+    difficulty: hard
+    stem: |
+      Ang pangungusap na "Ang ina ay ilaw ng tahanan" ay walang panandang salita tulad ng "parang" o "tulad ng." Isang mag-aaral ang nagpalagay na ito ay pagtutulad (simile), dahil ito ay paghahambing ng dalawang bagay. Tama ba ang palagay na ito?
+    choices:
+      - text: Mali — pagwawangis (metaphor) ito, dahil direktang paghahambing ito ng ina sa ilaw nang walang ginamit na panandang salita; ang pagtutulad ay nangangailangan ng panandang salita tulad ng "parang" o "tulad ng."
+        correct: true
+      - text: Tama — bawat paghahambing ng dalawang bagay ay palaging pagtutulad, may panandang salita man o wala.
+      - text: Tama — dahil ang ina ay literal na tumutulong bilang ilaw ng bahay.
+      - text: Mali — pagmamalabis ito, hindi pagtutulad o pagwawangis.
+    explanation: |
+      Madalas pinaghahalo ng mga mag-aaral ang pagtutulad (simile) at pagwawangis (metaphor). Ang pagtutulad ay may panandang salita tulad ng "gaya ng," "animo'y," o "kawangis." Dahil walang panandang salita dito, ito ay direktang paghahambing — pagwawangis.
+    approved: true
+
+  - id: q-vocabulary-idioms-and-figures-of-speech-0018
+    type: idiom-meaning
+    difficulty: exam
+    stem: |
+      Identify the figure of speech used in each of these three sentences, in order: (1) "The stars winked at us from above." (2) "Her voice was music to my ears." (3) "The thunder roared like a lion."
+    choices:
+      - text: (1) Personification, (2) Metaphor, (3) Simile
+        correct: true
+      - text: (1) Simile, (2) Personification, (3) Metaphor
+      - text: (1) Metaphor, (2) Simile, (3) Personification
+      - text: (1) Personification, (2) Simile, (3) Metaphor
+    explanation: |
+      Sentence 1 gives the human action "winked" to stars (personification). Sentence 2 directly compares a voice to music without "like" or "as" (metaphor). Sentence 3 uses the trigger word "like" to compare thunder to a lion (simile).
+    approved: true
