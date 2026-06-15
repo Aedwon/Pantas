@@ -1,0 +1,245 @@
+meta:
+  subject: reasoning
+  topic: mechanical-technical-reasoning
+  subtopic: springs-and-weights
+  exams: [ dost-sei ]
+questions:
+  - id: q-mechanical-technical-reasoning-springs-and-weights-0001
+    type: spring-weight
+    difficulty: easy
+    figure: springs-and-weights-01
+    stem: |
+      Figure shows a spring that stretches 5 cm when a 2 kg weight is attached. How far will it stretch with an 8 kg weight?
+    choices:
+      - text: "20 cm"
+        correct: true
+      - text: "10 cm"
+      - text: "13 cm"
+      - text: "40 cm"
+    explanation: |
+      The weight increased by a factor of $8 \div 2 = 4$. Since stretch is proportional to weight, the stretch also increases by the same factor: $5 \times 4 = 20$ cm.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-springs-and-weights-0002
+    type: spring-weight
+    difficulty: easy
+    figure: springs-and-weights-02
+    stem: |
+      Figure shows a spring that stretches 6 cm when a 3 kg weight is attached. How far will it stretch with a 9 kg weight?
+    choices:
+      - text: "18 cm"
+        correct: true
+      - text: "12 cm"
+      - text: "15 cm"
+      - text: "54 cm"
+    explanation: |
+      The weight increased by a factor of $9 \div 3 = 3$. Since stretch is proportional to weight, the stretch also increases by the same factor: $6 \times 3 = 18$ cm.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-springs-and-weights-0003
+    type: spring-weight
+    difficulty: medium
+    figure: springs-and-weights-03
+    stem: |
+      Figure shows a spring that stretches 4 cm for every 1 kg attached. How much weight is attached if the spring has stretched 20 cm?
+    choices:
+      - text: "5 kg"
+        correct: true
+      - text: "16 kg"
+      - text: "24 kg"
+      - text: "4 kg"
+    explanation: |
+      Each 4 cm unit of stretch corresponds to 1 kg. Dividing the total stretch by that unit: $20 \div 4 = 5$, so 5 kg is attached.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-springs-and-weights-0004
+    type: spring-weight
+    difficulty: medium
+    figure: springs-and-weights-04
+    stem: |
+      Figure shows a spring that stretches 2 cm for every 1 kg attached. How much weight is attached if the spring has stretched 18 cm?
+    choices:
+      - text: "9 kg"
+        correct: true
+      - text: "16 kg"
+      - text: "36 kg"
+      - text: "2 kg"
+    explanation: |
+      Each 2 cm unit of stretch corresponds to 1 kg. Dividing the total stretch by that unit: $18 \div 2 = 9$, so 9 kg is attached.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-springs-and-weights-0005
+    type: spring-weight
+    difficulty: medium
+    figure: springs-and-weights-05
+    stem: |
+      Figure shows Spring A stretching 3 cm under a 6 kg weight, and Spring B stretching 8 cm under the same 6 kg weight. Which spring is stiffer?
+    choices:
+      - text: Spring A, since it stretched less under the identical weight
+        correct: true
+      - text: Spring B, since it stretched more under the identical weight
+      - text: Both springs are equally stiff, since they hold the same weight
+      - text: Neither spring can be compared without knowing their exact spring constants
+    explanation: |
+      Under the identical weight, Spring A stretched less (3 cm) than Spring B (8 cm). A spring that stretches less under the same weight is stiffer.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-springs-and-weights-0006
+    type: spring-weight
+    difficulty: medium
+    figure: springs-and-weights-06
+    stem: |
+      Using Spring A from before (stretches 3 cm under a 6 kg weight), predict its stretch under a 12 kg weight.
+    choices:
+      - text: "6 cm"
+        correct: true
+      - text: "9 cm"
+      - text: "3 cm"
+      - text: "36 cm"
+    explanation: |
+      The scaling factor between the weights is $12 \div 6 = 2$. Applying the same factor to the stretch: $3 \times 2 = 6$ cm.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-springs-and-weights-0007
+    type: spring-weight
+    difficulty: medium
+    figure: springs-and-weights-07
+    stem: |
+      Figure shows Spring C stretching 4 cm under an 8 kg weight, and Spring D stretching 10 cm under the same 8 kg weight. Which spring is stiffer?
+    choices:
+      - text: Spring C, since it stretched less under the identical weight
+        correct: true
+      - text: Spring D, since it stretched more under the identical weight
+      - text: Both springs are equally stiff
+      - text: Neither spring can be compared without more information
+    explanation: |
+      Under the identical 8 kg weight, Spring C stretched less (4 cm) than Spring D (10 cm), making Spring C the stiffer spring.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-springs-and-weights-0008
+    type: spring-weight
+    difficulty: hard
+    figure: springs-and-weights-08
+    stem: |
+      A spring stretches 4 cm under a 2 kg weight. A student assumes "every additional 2 kg simply adds another 4 cm," and uses this to predict the stretch under a 3 kg weight by rounding up to "2 lots of 2 kg," predicting $4+4=8$ cm. What is the actual stretch at 3 kg, using the correct proportional (ratio) method, and what did the student get wrong?
+    choices:
+      - text: The actual stretch is 6 cm ($3 \div 2 = 1.5$ scaling factor, so $4 \times 1.5 = 6$ cm); the student's error was adding a fixed amount per fixed weight increment instead of scaling by the true ratio, which only coincidentally matches for whole-number multiples of the original weight.
+        correct: true
+      - text: The actual stretch is 8 cm, matching the student's fixed-amount reasoning exactly.
+      - text: The actual stretch is 4 cm, since only the original weight and stretch matter.
+      - text: The actual stretch cannot be determined without knowing the spring's exact material.
+    explanation: |
+      Stretch is proportional to weight (a constant ratio), not simply increased by a fixed amount each time weight increases by some fixed increment. The correct approach scales by the true ratio ($3 \div 2 = 1.5$), giving $4 \times 1.5 = 6$ cm — the student's fixed-amount reasoning only happens to work for whole-number weight multiples, not fractional ones like this.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-springs-and-weights-0009
+    type: spring-weight
+    difficulty: hard
+    figure: springs-and-weights-09
+    stem: |
+      Spring E stretches 9 cm under a 3 kg weight. Spring F stretches 3 cm under the same 3 kg weight. A student claims Spring E is the "stiffer" spring, reasoning that it moved (stretched) more. Is this correct?
+    choices:
+      - text: No — a stiffer spring stretches less under the same weight, not more; Spring F, which stretched less, is actually the stiffer spring.
+        correct: true
+      - text: Yes — "stiffer" means the spring that stretches the most under a given weight.
+      - text: Yes — but only because Spring E is physically larger than Spring F.
+      - text: No — but only because Spring E and Spring F are actually the same spring.
+    explanation: |
+      It is easy to intuitively assume "stiffer" means "moves more" or "stretches more." In fact, stiffness describes resistance to stretching, so a stiffer spring is precisely the one that stretches the least for a given weight — here, Spring F, not Spring E.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-springs-and-weights-0010
+    type: spring-weight
+    difficulty: hard
+    figure: springs-and-weights-10
+    stem: |
+      Spring G stretches 4 cm under an 8 kg weight. Spring H stretches 4 cm under a 16 kg weight. A student claims both springs are equally stiff, since they stretched the same amount. Is this a valid comparison?
+    choices:
+      - text: No — the two springs were tested under different weights, so this comparison is not valid; Spring H is actually stiffer, since it resisted stretching just as much despite carrying double the weight of Spring G.
+        correct: true
+      - text: Yes — since both springs stretched exactly 4 cm, they must be equally stiff regardless of the weights used.
+      - text: Yes — but only because both springs are made of the same material.
+      - text: No — but only because Spring G and Spring H cannot both stretch exactly 4 cm.
+    explanation: |
+      To fairly compare which spring is stiffer, the weight applied to each spring must be the same — comparing stretches under different weights does not directly reveal which spring is inherently stiffer. Spring H is actually stiffer, since it resisted stretching just as much despite a heavier weight.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-springs-and-weights-0011
+    type: spring-weight
+    difficulty: medium
+    figure: springs-and-weights-11
+    stem: |
+      A spring stretches 2 cm for every 1 kg attached. What is its stretch under a 7 kg weight, and what weight would cause a 21 cm stretch?
+    choices:
+      - text: "14 cm under 7 kg; 10.5 kg would cause a 21 cm stretch"
+        correct: true
+      - text: "9 cm under 7 kg; 19 kg would cause a 21 cm stretch"
+      - text: "14 cm under 7 kg; 42 kg would cause a 21 cm stretch"
+      - text: "7 cm under 7 kg; 10.5 kg would cause a 21 cm stretch"
+    explanation: |
+      Using the ratio of 2 cm per kg: at 7 kg, stretch $= 2 \times 7 = 14$ cm. For a 21 cm stretch, weight $= 21 \div 2 = 10.5$ kg.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-springs-and-weights-0012
+    type: spring-weight
+    difficulty: medium
+    figure: springs-and-weights-12
+    stem: |
+      Figure shows Spring I stretching 7 cm under a 5 kg weight, and Spring J stretching 3 cm under the same 5 kg weight. Which spring is looser (less stiff)?
+    choices:
+      - text: Spring I, since it stretched more under the identical weight
+        correct: true
+      - text: Spring J, since it stretched less under the identical weight
+      - text: Both springs are equally loose
+      - text: Neither spring can be classified as looser without more data
+    explanation: |
+      A spring that stretches more under the same weight is the looser (less stiff) one. Spring I stretched more (7 cm vs. 3 cm), so it is the looser spring.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-springs-and-weights-0013
+    type: spring-weight
+    difficulty: hard
+    figure: springs-and-weights-13
+    stem: |
+      Spring L stretches 4 cm under a 2 kg weight, and 10 cm under a 4 kg weight. A student claims this data is consistent with a simple proportional (Hooke's law) relationship. Check the ratios: is this claim correct?
+    choices:
+      - text: No — the first ratio is $4 \div 2 = 2$ cm per kg, but the second ratio is $10 \div 4 = 2.5$ cm per kg; since these ratios are not equal, this spring's behavior is not simply proportional.
+        correct: true
+      - text: Yes — both stretches came from the same spring, so they must automatically be proportional.
+      - text: Yes — the ratios $4 \div 2$ and $10 \div 4$ are actually equal.
+      - text: No — but only because a spring can never stretch different amounts under different weights.
+    explanation: |
+      To check proportionality, compute stretch-per-weight for each data point: $4 \div 2 = 2$ cm/kg and $10 \div 4 = 2.5$ cm/kg. Since these two ratios differ, the data is not consistent with a simple proportional relationship.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-springs-and-weights-0014
+    type: spring-weight
+    difficulty: hard
+    figure: springs-and-weights-14
+    stem: |
+      A spring stretches 5 cm under a 2 kg weight. What total weight would cause a 20 cm stretch, and how much additional weight beyond that would be needed to reach a 30 cm stretch?
+    choices:
+      - text: "8 kg causes a 20 cm stretch; 4 kg more (12 kg total) is needed to reach 30 cm"
+        correct: true
+      - text: "8 kg causes a 20 cm stretch; 10 kg more is needed to reach 30 cm"
+      - text: "4 kg causes a 20 cm stretch; 2 kg more is needed to reach 30 cm"
+      - text: "8 kg causes a 20 cm stretch; 8 kg more is needed to reach 30 cm"
+    explanation: |
+      The ratio is $5 \div 2 = 2.5$ cm per kg. For 20 cm: $20 \div 2.5 = 8$ kg. For 30 cm: $30 \div 2.5 = 12$ kg. The additional weight needed beyond 8 kg is $12 - 8 = 4$ kg.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-springs-and-weights-0015
+    type: spring-weight
+    difficulty: exam
+    figure: springs-and-weights-15
+    stem: |
+      Spring P stretches 6 cm under a 3 kg weight. Spring Q stretches 8 cm under a 4 kg weight. Spring R stretches 5 cm under a 5 kg weight. Since these three springs were tested under three different weights, rank them from stiffest to loosest using their stretch-per-kilogram ratio.
+    choices:
+      - text: Spring R is stiffest (1 cm/kg); Springs P and Q are tied for second, equally less stiff than R (each 2 cm/kg)
+        correct: true
+      - text: Spring P is stiffest, then Spring Q, then Spring R, based on their raw stretch amounts (6 cm, 8 cm, 5 cm)
+      - text: Spring R is loosest, since it has the smallest raw stretch number
+      - text: All three springs are equally stiff, since they were tested under different weights and cannot be compared
+    explanation: |
+      Since the weights differ, compare stretch-per-kilogram instead of raw stretch: Spring P is $6 \div 3 = 2$ cm/kg, Spring Q is $8 \div 4 = 2$ cm/kg, and Spring R is $5 \div 5 = 1$ cm/kg. A smaller ratio means a stiffer spring, so Spring R is stiffest, with P and Q tied for second.
+    approved: true
