@@ -127,7 +127,7 @@ Exams for all rows: `[upcat, acet, dlsucet, ustet, dost-sei]`.
 | Done | Subtopic slug | Title | Primary archetype | File path |
 |---|---|---|---|---|
 | [x] | `parts-of-speech` | Parts of Speech / Bahagi ng Pananalita | `parts-of-speech-identification` | `content/questions/language-proficiency/grammar-and-structure/parts-of-speech.yaml` |
-| [ ] | `subject-verb-agreement` | Subject-Verb Agreement / Wastong Gamit ng Salita | `subject-verb-agreement` | `content/questions/language-proficiency/grammar-and-structure/subject-verb-agreement.yaml` |
+| [x] | `subject-verb-agreement` | Subject-Verb Agreement / Wastong Gamit ng Salita | `subject-verb-agreement` | `content/questions/language-proficiency/grammar-and-structure/subject-verb-agreement.yaml` |
 | [ ] | `pronoun-antecedent-agreement` | Pronoun-Antecedent Agreement | `pronoun-reference` | `content/questions/language-proficiency/grammar-and-structure/pronoun-antecedent-agreement.yaml` |
 | [ ] | `tenses-and-voice` | Tenses and Voice of Verbs (Active vs. Passive) | `tense` (add a few items on active/passive voice specifically, same archetype style) | `content/questions/language-proficiency/grammar-and-structure/tenses-and-voice.yaml` |
 | [ ] | `phrases-and-clauses` | Phrases and Clauses (Independent vs. Dependent) | `phrase-clause-identification` | `content/questions/language-proficiency/grammar-and-structure/phrases-and-clauses.yaml` |
