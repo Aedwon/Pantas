@@ -1,0 +1,244 @@
+meta:
+  subject: language-proficiency
+  topic: vocabulary
+  subtopic: context-clues
+  exams: [ upcat, acet, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-vocabulary-context-clues-0001
+    type: word-in-context
+    difficulty: easy
+    stem: |
+      Which of the following is the closest meaning of the word in bold?
+      The professor's lecture was quite **arduous**, or difficult, forcing students to focus intensely for hours.
+    choices:
+      - text: Difficult
+        correct: true
+      - text: Easy
+      - text: Short
+      - text: Boring
+    explanation: |
+      The word "or" signals a synonym clue: "or difficult" directly restates the meaning of "arduous." The correct answer is difficult.
+    approved: true
+
+  - id: q-vocabulary-context-clues-0002
+    type: word-in-context
+    difficulty: easy
+    stem: |
+      Which of the following is the closest meaning of the word in bold?
+      A **paradox** is a statement that seems to contradict itself, yet may still be true.
+    choices:
+      - text: A statement that seems to contradict itself, yet may still be true
+        correct: true
+      - text: A false statement with no possible truth
+      - text: A proven scientific fact
+      - text: A question with no possible answer
+    explanation: |
+      The sentence uses "is" to give a direct definition clue, stating exactly what a paradox means.
+    approved: true
+
+  - id: q-vocabulary-context-clues-0003
+    type: word-in-context
+    difficulty: medium
+    stem: |
+      Choose the best meaning for the word in bold.
+      The chef used various **utensils**, such as spatulas, tongs, and whisks, to prepare the elaborate dish.
+    choices:
+      - text: Cooking tools
+        correct: true
+      - text: Ingredients
+      - text: Recipes
+      - text: Spices
+    explanation: |
+      The signal words "such as" introduce examples: spatulas, tongs, and whisks are all cooking tools, revealing the meaning of "utensils."
+    approved: true
+
+  - id: q-vocabulary-context-clues-0004
+    type: word-in-context
+    difficulty: medium
+    stem: |
+      Identify the meaning of the word in bold.
+      Unlike her **taciturn** brother who rarely spoke a word, Elena chatted endlessly with every stranger she met.
+    choices:
+      - text: Reserved and quiet
+        correct: true
+      - text: Talkative
+      - text: Friendly
+      - text: Rude
+    explanation: |
+      The word "Unlike" signals an antonym clue: Elena (who chats endlessly) is the opposite of her taciturn brother, so "taciturn" means reserved and quiet.
+    approved: true
+
+  - id: q-vocabulary-context-clues-0005
+    type: word-in-context
+    difficulty: medium
+    stem: |
+      Select the word that best captures the meaning of the term in bold.
+      The old house was completely **dilapidated**; the roof had caved in, the windows were shattered, and vines crept through the crumbling walls.
+    choices:
+      - text: Run-down and decaying
+        correct: true
+      - text: Beautifully restored
+      - text: Newly built
+      - text: Haunted
+    explanation: |
+      There are no easy signal words here, so you must infer from the whole story: a caved-in roof, shattered windows, and crumbling walls all describe a run-down, decaying building.
+    approved: true
+
+  - id: q-vocabulary-context-clues-0006
+    type: word-in-context
+    difficulty: medium
+    stem: |
+      Alin sa mga sumusunod ang kasingkahulugan ng salitang may salungguhit?
+      Ang **pagtitiis** niya, o pagpapasensya, ay nagpapakita ng kanyang lakas ng loob sa harap ng mga pagsubok.
+    choices:
+      - text: Pagpapasensya
+        correct: true
+      - text: Pagtakas
+      - text: Pagyayabang
+      - text: Pagtulong
+    explanation: |
+      Ang salitang "o" ay senyales ng kasingkahulugan (synonym clue): direktang sinasabi ng pangungusap na ang "pagtitiis" ay "pagpapasensya."
+    approved: true
+
+  - id: q-vocabulary-context-clues-0007
+    type: word-in-context
+    difficulty: medium
+    stem: |
+      Alin sa mga sumusunod ang kasingkahulugan ng salitang may salungguhit?
+      Taliwas sa **maramot** niyang kapatid na ayaw magbahagi ng anuman, si Rosa ay bukas-palad at laging tumutulong sa mga nangangailangan.
+    choices:
+      - text: Madamot
+        correct: true
+      - text: Mapagbigay
+      - text: Mayaman
+      - text: Mabait
+    explanation: |
+      Ang salitang "Taliwas sa" ay senyales ng kasalungat (antonym clue): si Rosa (bukas-palad) ay taliwas sa kanyang kapatid, kaya ang "maramot" ay nangangahulugang "madamot," hindi mapagbigay.
+    approved: true
+
+  - id: q-vocabulary-context-clues-0008
+    type: word-in-context
+    difficulty: hard
+    stem: |
+      The word "sanction" is commonly known to mean a penalty or punishment. In this sentence, does it carry that common meaning?
+      The committee's **sanction** allowed the new policy to proceed immediately, since it had received full official approval.
+    choices:
+      - text: No — here "sanction" means official approval, a secondary meaning; picking "punishment" just because it is the most common meaning would not make sense in this sentence, since the policy is proceeding, not being stopped.
+        correct: true
+      - text: Yes — "sanction" always means a penalty or punishment, regardless of context.
+      - text: Yes — the sentence describes the policy being punished by the committee.
+      - text: No — but only because "sanction" has no relationship to approval or punishment at all.
+    explanation: |
+      Test makers love to use words with a common meaning in a different, secondary way. Here, the sentence describes the policy proceeding due to "full official approval," so "sanction" means approval, not its more common meaning of punishment. Always plug the choice back into the sentence to see if it makes sense.
+    approved: true
+
+  - id: q-vocabulary-context-clues-0009
+    type: word-in-context
+    difficulty: hard
+    stem: |
+      The **belligerent** customer screamed at the staff and threatened to fight anyone who disagreed with him. A choice option is "relating to the belly," since the word looks similar to "belly." Is this the correct meaning?
+    choices:
+      - text: No — "relating to the belly" is a look-alike trap based on how the word appears, not its actual meaning; the context (screaming, threatening to fight) shows "belligerent" means hostile and aggressive.
+        correct: true
+      - text: Yes — "belligerent" and "belly" share the same root, so they mean the same thing.
+      - text: Yes — the customer's behavior described relates to stomach pain.
+      - text: No — but only because the customer was not actually angry.
+    explanation: |
+      If a choice looks or sounds exactly like the hard word, it is usually a trap. The test maker hopes you will panic and pick a word that looks familiar. Ignore how the word looks — focus only on the clues in the sentence, which describe screaming and threatening to fight, meaning "hostile and aggressive."
+    approved: true
+
+  - id: q-vocabulary-context-clues-0010
+    type: word-in-context
+    difficulty: hard
+    stem: |
+      A student ignores the word "however" in this sentence and assumes "duplicitous" is a synonym for "genuine." What is the correct meaning, and why did missing "however" cause the error?
+      The politician's promises seemed genuine at first; however, his subsequent actions revealed him to be utterly **duplicitous**.
+    choices:
+      - text: Duplicitous means deceptive and two-faced; missing the contrast signal "however" makes it seem like the sentence continues describing the politician as genuine, when it actually reverses direction to reveal the opposite.
+        correct: true
+      - text: Duplicitous means genuine and honest, matching the sentence's first half exactly.
+      - text: Duplicitous cannot be determined from this sentence at all, with or without "however."
+      - text: Duplicitous means generous, since the sentence describes a politician making promises.
+    explanation: |
+      Missing the word "however" will make you pick the exact wrong answer — if you miss an antonym signal, you pick a synonym instead. Here, "however" reverses the direction from "seemed genuine" to reveal the politician is actually "duplicitous," meaning deceptive and two-faced.
+    approved: true
+
+  - id: q-vocabulary-context-clues-0011
+    type: word-in-context
+    difficulty: medium
+    stem: |
+      Choose the best meaning for the word in bold.
+      Her **candid** remarks, or honest opinions, sometimes offended people who preferred polite lies.
+    choices:
+      - text: Honest
+        correct: true
+      - text: Rude
+      - text: Quiet
+      - text: Confusing
+    explanation: |
+      The word "or" signals a synonym clue: "or honest opinions" directly restates the meaning of "candid."
+    approved: true
+
+  - id: q-vocabulary-context-clues-0012
+    type: word-in-context
+    difficulty: medium
+    stem: |
+      Which of the following is the closest meaning of the word in bold?
+      **Ambiguity** is the quality of having more than one possible meaning, often causing confusion.
+    choices:
+      - text: Having more than one possible meaning
+        correct: true
+      - text: Being completely clear
+      - text: Being very loud
+      - text: Lacking any meaning
+    explanation: |
+      The sentence uses "is" to give a direct definition clue, stating exactly what ambiguity means.
+    approved: true
+
+  - id: q-vocabulary-context-clues-0013
+    type: word-in-context
+    difficulty: medium
+    stem: |
+      Choose the best meaning for the word in bold.
+      The museum displayed several **artifacts**, including ancient pottery, stone tools, and bronze coins.
+    choices:
+      - text: Historical objects
+        correct: true
+      - text: Modern inventions
+      - text: Paintings only
+      - text: Living animals
+    explanation: |
+      The signal word "including" introduces examples: ancient pottery, stone tools, and bronze coins are all historical objects, revealing the meaning of "artifacts."
+    approved: true
+
+  - id: q-vocabulary-context-clues-0014
+    type: word-in-context
+    difficulty: medium
+    stem: |
+      Identify the meaning of the word in bold.
+      In contrast to the **frugal** shopkeeper who saved every peso, his son spent money recklessly on luxury items.
+    choices:
+      - text: Thrifty
+        correct: true
+      - text: Wasteful
+      - text: Generous
+      - text: Poor
+    explanation: |
+      The phrase "In contrast to" signals an antonym clue: the reckless-spending son is the opposite of the frugal shopkeeper, so "frugal" means thrifty (careful with money).
+    approved: true
+
+  - id: q-vocabulary-context-clues-0015
+    type: word-in-context
+    difficulty: exam
+    stem: |
+      Select the word that best captures the meaning of the term in bold.
+      Although the coach's methods seemed **unorthodox** to outside observers, such as running practice at midnight or requiring silent meditation before games, the athletes credited these unusual methods, rather than any conventional standard technique, for their unexpected championship win.
+    choices:
+      - text: Unconventional and unusual
+        correct: true
+      - text: Standard and conventional
+      - text: Illegal
+      - text: Exhausting
+    explanation: |
+      Two clues confirm the same meaning here: the example clue ("such as running practice at midnight...") lists unusual practices, and the contrast clue ("rather than any conventional standard technique") confirms "unorthodox" means unconventional and unusual, not standard.
+    approved: true
