@@ -1,0 +1,230 @@
+meta:
+  subject: language-proficiency
+  topic: vocabulary
+  subtopic: confusing-words
+  exams: [ upcat, acet, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-vocabulary-confusing-words-0001
+    type: confusing-words
+    difficulty: easy
+    stem: |
+      The prolonged drought will severely ______ the crop yield for this quarter.
+    choices:
+      - text: Affect
+        correct: true
+      - text: Effect
+      - text: Affects
+      - text: Effects
+    explanation: |
+      "Affect" is the verb (action word); "effect" is the noun (result). Since the blank follows "will" and needs a base-form verb, "affect" is correct.
+    approved: true
+
+  - id: q-vocabulary-confusing-words-0002
+    type: confusing-words
+    difficulty: easy
+    stem: |
+      The company revised ______ policy after receiving several complaints.
+    choices:
+      - text: Its
+        correct: true
+      - text: It's
+      - text: Its'
+      - text: Their
+    explanation: |
+      Testing "it is policy" sounds wrong, so the possessive word "its" (no apostrophe) is needed, since the company owns the policy.
+    approved: true
+
+  - id: q-vocabulary-confusing-words-0003
+    type: confusing-words
+    difficulty: medium
+    stem: |
+      Kumanta ______ maganda ang mag-ina sa entablado.
+    choices:
+      - text: Nang
+        correct: true
+      - text: Ng
+      - text: Na
+      - text: May
+    explanation: |
+      Ang salitang "maganda" pagkatapos ng patlang ay sumasagot sa tanong na "paano" (how) sila kumanta — isang pang-abay (adverb). Gamitin ang "nang" para sa mga pang-abay.
+    approved: true
+
+  - id: q-vocabulary-confusing-words-0004
+    type: confusing-words
+    difficulty: medium
+    stem: |
+      ______ Pedro, Ana, at Miguel ang mga kasapi ng grupong ito.
+    choices:
+      - text: Sina
+        correct: true
+      - text: Sila
+      - text: Kina
+      - text: Ang
+    explanation: |
+      Dahil sinusundan ng patlang ang aktwal na mga pangalan (Pedro, Ana, Miguel), kailangan ang panandang "Sina" para sa maramihang pangalan, hindi ang panghalip na "Sila."
+    approved: true
+
+  - id: q-vocabulary-confusing-words-0005
+    type: confusing-words
+    difficulty: medium
+    stem: |
+      The typhoon had a devastating ______ on the coastal town; ______ obvious that recovery will take years.
+    choices:
+      - text: Effect, it's
+        correct: true
+      - text: Affect, its
+      - text: Effect, its
+      - text: Affect, it's
+    explanation: |
+      The first blank follows "a devastating," a descriptive phrase pointing to a noun — "effect." The second blank, tested with "it is obvious," sounds correct, so "it's" is needed.
+    approved: true
+
+  - id: q-vocabulary-confusing-words-0006
+    type: confusing-words
+    difficulty: medium
+    stem: |
+      Loud noises can negatively ______ a person's concentration.
+    choices:
+      - text: Affect
+        correct: true
+      - text: Effect
+      - text: Affecting
+      - text: Effected
+    explanation: |
+      The blank needs an action word (verb) describing what loud noises do to concentration — "affect."
+    approved: true
+
+  - id: q-vocabulary-confusing-words-0007
+    type: confusing-words
+    difficulty: medium
+    stem: |
+      The cat cleaned ______ paws after playing outside.
+    choices:
+      - text: Its
+        correct: true
+      - text: It's
+      - text: Its'
+      - text: Their
+    explanation: |
+      Testing "it is paws" sounds wrong, so the possessive word "its" (no apostrophe) is needed, since the paws belong to the cat.
+    approved: true
+
+  - id: q-vocabulary-confusing-words-0008
+    type: confusing-words
+    difficulty: medium
+    stem: |
+      Umiyak ______ umiyak ang sanggol hanggang sa makatulog.
+    choices:
+      - text: Nang
+        correct: true
+      - text: Ng
+      - text: Na
+      - text: May
+    explanation: |
+      Ginagamit ang "nang" upang ikonekta ang paulit-ulit na pandiwa (umiyak nang umiyak), kagaya ng "takbo nang takbo."
+    approved: true
+
+  - id: q-vocabulary-confusing-words-0009
+    type: confusing-words
+    difficulty: medium
+    stem: |
+      ______ Elena at Ricardo ay nagtungo sa palengke upang bumili ng gulay.
+    choices:
+      - text: Sina
+        correct: true
+      - text: Sila
+      - text: Kina
+      - text: Ang
+    explanation: |
+      Dahil sinusundan ng patlang ang aktwal na mga pangalan (Elena at Ricardo), kailangan ang panandang "Sina," hindi ang panghalip na "Sila."
+    approved: true
+
+  - id: q-vocabulary-confusing-words-0010
+    type: confusing-words
+    difficulty: hard
+    stem: |
+      A student sees "its'" as one of the answer choices for a possessive word. Is "its'" a real word in English?
+    choices:
+      - text: No — "its'" is a fake word that does not exist in the English language; exam makers include it as a common trap.
+        correct: true
+      - text: Yes — "its'" is the correct plural possessive form.
+      - text: Yes — but only used in very formal academic writing.
+      - text: No — but only because possessive words can never end in an apostrophe.
+    explanation: |
+      Exam makers love to put "its'" in the choices, hoping you think it is a plural ownership word. This word does not exist in the English language — cross it out immediately.
+    approved: true
+
+  - id: q-vocabulary-confusing-words-0011
+    type: confusing-words
+    difficulty: hard
+    stem: |
+      Sa pang-araw-araw na usapan, madalas sinasabi ng ilang Pilipino ang "Sila Maria ay pumunta sa palengke." Tama ba ito sa pormal na gramatikang Filipino na sinusubok sa pagsusulit?
+    choices:
+      - text: Mali — dapat "Sina Maria" ang gamitin kapag sinusundan ito ng aktwal na pangalan; ang "Sila" ay ginagamit lamang kung wala nang nakasulat na pangalan, tulad ng "Umalis sila."
+        correct: true
+      - text: Tama — palaging tama ang "Sila" bago ang isang pangalan.
+      - text: Mali — dapat "Kina Maria" ang laging gamitin sa lahat ng pagkakataon.
+      - text: Tama — ang "Sila" at "Sina" ay palaging maaaring gamitin nang magkapalit.
+    explanation: |
+      Karaniwang sinasabi ng mga Pilipino ang "Sila Maria" sa pang-araw-araw na usapan, ngunit mali ito sa pormal na Filipino. Sinusubok ng pagsusulit ang pormal na tuntunin: gamitin ang "Sina" kapag sinusundan ng mga pangalan; gamitin ang "Sila" lamang kung wala nang nakasulat na pangalan.
+    approved: true
+
+  - id: q-vocabulary-confusing-words-0012
+    type: confusing-words
+    difficulty: hard
+    stem: |
+      Umalis siya ______ alas-singko ng hapon. A student assumes "nang" is correct here since the sentence involves time. Is this correct?
+    choices:
+      - text: No — "ng" is correct here, since the sentence gives an exact clock time (alas-singko), not a "how" or repeating action; "nang" is reserved for adverbs and repeating actions, not specific times.
+        correct: true
+      - text: Yes — "nang" should always be used whenever a sentence mentions time.
+      - text: Yes — but only because "alas-singko" is not considered an exact time.
+      - text: No — but only because "ng" can never appear before a time expression.
+    explanation: |
+      Use "nang" to mean "when" for an event, but if the sentence gives an exact clock time or specific day, use "ng" instead. Test makers try to confuse you here since both deal with time, but exact clock times take "ng."
+    approved: true
+
+  - id: q-vocabulary-confusing-words-0013
+    type: confusing-words
+    difficulty: medium
+    stem: |
+      The therapy had a lasting ______ on her overall well-being.
+    choices:
+      - text: Effect
+        correct: true
+      - text: Affect
+      - text: Effects
+      - text: Affecting
+    explanation: |
+      The word "a" right before the blank signals that a noun is needed — "effect," the result of the therapy.
+    approved: true
+
+  - id: q-vocabulary-confusing-words-0014
+    type: confusing-words
+    difficulty: medium
+    stem: |
+      Ang bahay ______ aking lola ay malapit sa simbahan.
+    choices:
+      - text: Ng
+        correct: true
+      - text: Nang
+      - text: Na
+      - text: May
+    explanation: |
+      Ang patlang ay tumuturo sa pagmamay-ari (ang bahay ng lola) at hindi sumasagot sa tanong na "paano," kaya ang "ng" ang tamang gamitin, hindi ang "nang."
+    approved: true
+
+  - id: q-vocabulary-confusing-words-0015
+    type: confusing-words
+    difficulty: exam
+    stem: |
+      The scandal's ______ on the company's reputation was severe; management admitted ______ handling of the crisis had been poor from the start.
+    choices:
+      - text: Effect, its
+        correct: true
+      - text: Affect, it's
+      - text: Effect, it's
+      - text: Affect, its
+    explanation: |
+      The first blank follows "the scandal's," a possessive phrase pointing to a noun — "effect" (the result). The second blank describes ownership of the "handling," and testing "it is handling" sounds wrong, so the possessive "its" is needed.
+    approved: true
