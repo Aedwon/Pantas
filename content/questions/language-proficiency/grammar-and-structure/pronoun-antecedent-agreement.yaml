@@ -1,0 +1,275 @@
+meta:
+  subject: language-proficiency
+  topic: grammar-and-structure
+  subtopic: pronoun-antecedent-agreement
+  exams: [ upcat, acet, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0001
+    type: pronoun-reference
+    difficulty: easy
+    stem: |
+      Choose the correct pronoun: The girl lost ______ book on the way home.
+    choices:
+      - text: Her
+        correct: true
+      - text: Their
+      - text: His
+      - text: Its
+    explanation: |
+      "Girl" is a singular antecedent, so it needs the singular pronoun "her."
+    approved: true
+
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0002
+    type: pronoun-reference
+    difficulty: easy
+    stem: |
+      Choose the correct pronoun: The girls lost ______ books on the way home.
+    choices:
+      - text: Their
+        correct: true
+      - text: Her
+      - text: His
+      - text: Its
+    explanation: |
+      "Girls" is a plural antecedent, so it needs the plural pronoun "their."
+    approved: true
+
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0003
+    type: pronoun-reference
+    difficulty: medium
+    stem: |
+      Choose the correct pronoun (according to strict formal grammar rules): Each of the students must submit ______ essay by Friday.
+    choices:
+      - text: His or her
+        correct: true
+      - text: Their
+      - text: Our
+      - text: Its
+    explanation: |
+      "Each" is a singular indefinite pronoun, even though it refers to a group of students. Under strict, traditional grammar rules, a singular antecedent needs a singular pronoun: "his or her."
+    approved: true
+
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0004
+    type: pronoun-reference
+    difficulty: medium
+    stem: |
+      Choose the correct pronoun (according to strict formal grammar rules): Somebody left ______ umbrella in the classroom.
+    choices:
+      - text: His or her
+        correct: true
+      - text: Their
+      - text: Our
+      - text: Its
+    explanation: |
+      "Somebody" is an indefinite pronoun ending in "-body," always singular, so the traditionally expected pronoun is "his or her."
+    approved: true
+
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0005
+    type: pronoun-reference
+    difficulty: medium
+    stem: |
+      Choose the correct pronoun: The company announced ______ new policy yesterday.
+    choices:
+      - text: Its
+        correct: true
+      - text: Their
+      - text: His
+      - text: Her
+    explanation: |
+      "Company" is a collective noun, referring to one organization acting as a single unit, so it takes the singular pronoun "its."
+    approved: true
+
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0006
+    type: pronoun-reference
+    difficulty: medium
+    stem: |
+      Choose the correct pronoun: The class finished ______ project ahead of schedule.
+    choices:
+      - text: Its
+        correct: true
+      - text: Their
+      - text: His
+      - text: Her
+    explanation: |
+      "Class" is a collective noun, acting as one unit when finishing the project together, so it takes the singular pronoun "its."
+    approved: true
+
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0007
+    type: pronoun-reference
+    difficulty: medium
+    stem: |
+      Choose the correct pronoun: Liza and Carlo finished ______ project early.
+    choices:
+      - text: Their
+        correct: true
+      - text: Her
+      - text: His
+      - text: Its
+    explanation: |
+      "Liza and Carlo" is a compound antecedent joined by "and," making it plural, so it takes the pronoun "their."
+    approved: true
+
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0008
+    type: pronoun-reference
+    difficulty: medium
+    stem: |
+      Choose the correct pronoun: Neither the coach nor the players brought ______ equipment.
+    choices:
+      - text: Their
+        correct: true
+      - text: His
+      - text: Its
+      - text: Her
+    explanation: |
+      With "neither...nor," the pronoun matches the closer antecedent. The closer antecedent, "players," is plural, so the pronoun is "their."
+    approved: true
+
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0009
+    type: pronoun-reference
+    difficulty: medium
+    stem: |
+      Identify the problem with this sentence: "When Mrs. Santos spoke to Anna, she seemed upset."
+    choices:
+      - text: The pronoun "she" is ambiguous — it could refer to either Mrs. Santos or Anna.
+        correct: true
+      - text: The sentence has a subject-verb agreement error.
+      - text: The sentence incorrectly uses "she" since both people are named individuals.
+      - text: There is no problem; the sentence is fully correct and clear.
+    explanation: |
+      The pronoun "she" could refer to either Mrs. Santos or Anna — it is unclear which one seemed upset. This is an ambiguous (unclear) antecedent, a common sentence-correction error.
+    approved: true
+
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0010
+    type: pronoun-reference
+    difficulty: medium
+    stem: |
+      Identify the problem with this sentence: "After Mark greeted John, he smiled warmly."
+    choices:
+      - text: The pronoun "he" is ambiguous — it could refer to either Mark or John.
+        correct: true
+      - text: The sentence has a subject-verb agreement error.
+      - text: The sentence incorrectly uses "he" since both people are named individuals.
+      - text: There is no problem; the sentence is fully correct and clear.
+    explanation: |
+      The pronoun "he" could refer to either Mark or John — it is unclear who smiled. This is an ambiguous antecedent error, fixable by naming the person directly.
+    approved: true
+
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0011
+    type: pronoun-reference
+    difficulty: medium
+    stem: |
+      Ang salitang "siya" sa Filipino ay ______.
+    choices:
+      - text: Walang tinutukoy na kasarian, maaaring lalaki o babae
+        correct: true
+      - text: Tumutukoy lamang sa babae
+      - text: Tumutukoy lamang sa lalaki
+      - text: Ginagamit lamang para sa mga bagay
+    explanation: |
+      Ang "siya" ay gender-neutral sa Filipino — nangangahulugan itong "he" o "she" nang walang hiwalay na salita para sa bawat isa.
+    approved: true
+
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0012
+    type: pronoun-reference
+    difficulty: medium
+    stem: |
+      Piliin ang tamang panghalip: Isang estudyante lamang ang nagdala ng proyekto; ipinakita ______ ito sa buong klase.
+    choices:
+      - text: Niya
+        correct: true
+      - text: Nila
+      - text: Namin
+      - text: Ninyo
+    explanation: |
+      Dahil "isang estudyante lamang" (isang tao lamang) ang tinutukoy, ang tamang panghalip ay "niya" (isahan), hindi "nila" (maramihan).
+    approved: true
+
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0013
+    type: pronoun-reference
+    difficulty: medium
+    stem: |
+      Alin sa mga sumusunod na panghalip ang kabilang sa "ang" set (bilang tagaganap o paksa)?
+    choices:
+      - text: Siya
+        correct: true
+      - text: Niya
+      - text: Kaniya
+      - text: Nila
+    explanation: |
+      Ang "siya" ay kabilang sa "ang" set, na ginagamit para sa tagaganap o paksa ng pangungusap. Ang "niya" ay "ng" set, at ang "kaniya" ay "sa" set.
+    approved: true
+
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0014
+    type: pronoun-reference
+    difficulty: hard
+    stem: |
+      A student writes "Everybody should bring their own lunch," following everyday speech patterns. Under strict formal grammar rules tested on this exam, is "their" the expected answer?
+    choices:
+      - text: No — under strict formal grammar rules, "everybody" is a singular indefinite antecedent, so the traditionally expected answer is "his or her," even though "their" is common in everyday speech.
+        correct: true
+      - text: Yes — "their" is always correct in every context, formal or informal.
+      - text: Yes — but only because "everybody" is actually a plural antecedent.
+      - text: No — but only because "lunch" is the real antecedent, not "everybody."
+    explanation: |
+      Everyday speech often uses "they/their" for indefinite pronouns like "everybody," but grammar-focused exam questions typically expect the traditionally "correct" singular form ("his or her") when testing this specific rule.
+    approved: true
+
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0015
+    type: pronoun-reference
+    difficulty: hard
+    stem: |
+      A student writes "The team celebrated their victory," assuming that since a team is made up of multiple people, a plural pronoun is needed. Is this correct under strict agreement rules?
+    choices:
+      - text: No — collective nouns like "team" usually take a singular pronoun ("its"), since they act as one unit; "The team celebrated its victory" is the grammatically consistent choice.
+        correct: true
+      - text: Yes — collective nouns always take plural pronouns, since they refer to multiple people.
+      - text: Yes — but only because "victory" is itself a plural noun.
+      - text: No — but only because teams cannot celebrate anything.
+    explanation: |
+      Writing "The team celebrated their victory" breaks strict agreement rules; the grammatically consistent choice is "its victory," since collective nouns act as one unit.
+    approved: true
+
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0016
+    type: pronoun-reference
+    difficulty: hard
+    stem: |
+      Identify the ambiguous antecedent problem: "Sarah told Michelle that her painting won first place." Whose painting won?
+    choices:
+      - text: It is unclear — "her" could refer to either Sarah or Michelle, since both are female nouns mentioned earlier in the sentence.
+        correct: true
+      - text: It clearly refers to Sarah, since she is mentioned first in the sentence.
+      - text: It clearly refers to Michelle, since she is mentioned second in the sentence.
+      - text: There is no ambiguity, since only one person's painting can win.
+    explanation: |
+      If a pronoun could refer to more than one noun in the sentence, the antecedent is unclear. Here, "her" could logically point to either Sarah or Michelle — a common ambiguous-antecedent error that exams test.
+    approved: true
+
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0017
+    type: pronoun-reference
+    difficulty: medium
+    stem: |
+      Choose the correct pronoun (according to strict formal grammar rules): Neither the players nor the coach brought ______ own equipment.
+    choices:
+      - text: His or her
+        correct: true
+      - text: Their
+      - text: Its
+      - text: Our
+    explanation: |
+      With "neither...nor," the pronoun matches the closer antecedent. The closer antecedent, "coach," is singular, so under strict rules the pronoun is "his or her."
+    approved: true
+
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0018
+    type: pronoun-reference
+    difficulty: exam
+    stem: |
+      Choose the correct pronouns (according to strict formal grammar rules): Each of the volunteers brought ______ own supplies; afterward, the coordinator said the team was proud of ______ accomplishment.
+    choices:
+      - text: His or her, its
+        correct: true
+      - text: Their, their
+      - text: His or her, their
+      - text: Their, its
+    explanation: |
+      "Each" is a singular indefinite antecedent, so the first blank needs "his or her" under strict rules. "Team" is a collective noun acting as one unit, so the second blank needs "its."
+    approved: true
