@@ -1,0 +1,245 @@
+meta:
+  subject: language-proficiency
+  topic: grammar-and-structure
+  subtopic: sentence-structure
+  exams: [ upcat, acet, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-grammar-and-structure-sentence-structure-0001
+    type: sentence-structure-classification
+    difficulty: easy
+    stem: |
+      Classify this sentence: "The teacher and her students prepared and rehearsed the play."
+    choices:
+      - text: Simple
+        correct: true
+      - text: Compound
+      - text: Complex
+      - text: Compound-complex
+    explanation: |
+      Despite having a compound subject ("teacher and students") and a compound verb ("prepared and rehearsed"), there is only one clause overall — this is a simple sentence.
+    approved: true
+
+  - id: q-grammar-and-structure-sentence-structure-0002
+    type: sentence-structure-classification
+    difficulty: medium
+    stem: |
+      Classify this sentence: "She wanted to travel abroad, but she could not afford the airfare."
+    choices:
+      - text: Compound
+        correct: true
+      - text: Simple
+      - text: Complex
+      - text: Compound-complex
+    explanation: |
+      Both "she wanted to travel abroad" and "she could not afford the airfare" are independent clauses, joined by the coordinating conjunction "but" — this is a compound sentence.
+    approved: true
+
+  - id: q-grammar-and-structure-sentence-structure-0003
+    type: sentence-structure-classification
+    difficulty: medium
+    stem: |
+      Classify this sentence: "Although the storm was severe, the town suffered minimal damage."
+    choices:
+      - text: Complex
+        correct: true
+      - text: Simple
+      - text: Compound
+      - text: Compound-complex
+    explanation: |
+      "Although the storm was severe" is a dependent clause, and "the town suffered minimal damage" is an independent clause — one of each makes this a complex sentence.
+    approved: true
+
+  - id: q-grammar-and-structure-sentence-structure-0004
+    type: sentence-structure-classification
+    difficulty: medium
+    stem: |
+      Classify this sentence: "When the bell rang, the students grabbed their bags, and they rushed out the door."
+    choices:
+      - text: Compound-complex
+        correct: true
+      - text: Simple
+      - text: Compound
+      - text: Complex
+    explanation: |
+      "When the bell rang" is dependent, while "the students grabbed their bags" and "they rushed out the door" are two independent clauses joined by "and" — one dependent plus two independent clauses makes this compound-complex.
+    approved: true
+
+  - id: q-grammar-and-structure-sentence-structure-0005
+    type: sentence-structure-classification
+    difficulty: medium
+    stem: |
+      Classify this sentence: "The children laughed and played in the yard."
+    choices:
+      - text: Simple
+        correct: true
+      - text: Compound
+      - text: Complex
+      - text: Compound-complex
+    explanation: |
+      Despite having a compound verb ("laughed and played"), there is only one clause overall — this is a simple sentence.
+    approved: true
+
+  - id: q-grammar-and-structure-sentence-structure-0006
+    type: sentence-structure-classification
+    difficulty: medium
+    stem: |
+      Classify this sentence: "The rain stopped, so we went outside to play."
+    choices:
+      - text: Compound
+        correct: true
+      - text: Simple
+      - text: Complex
+      - text: Compound-complex
+    explanation: |
+      Both "the rain stopped" and "we went outside to play" are independent clauses, joined by the coordinating conjunction "so" — this is a compound sentence.
+    approved: true
+
+  - id: q-grammar-and-structure-sentence-structure-0007
+    type: sentence-structure-classification
+    difficulty: medium
+    stem: |
+      Classify this sentence: "Since the exam was postponed, the students relaxed for the weekend."
+    choices:
+      - text: Complex
+        correct: true
+      - text: Simple
+      - text: Compound
+      - text: Compound-complex
+    explanation: |
+      "Since the exam was postponed" is a dependent clause, and "the students relaxed for the weekend" is an independent clause — one of each makes this a complex sentence.
+    approved: true
+
+  - id: q-grammar-and-structure-sentence-structure-0008
+    type: sentence-structure-classification
+    difficulty: medium
+    stem: |
+      Classify this sentence: "Because the power went out, the students lit candles, and they continued studying by candlelight."
+    choices:
+      - text: Compound-complex
+        correct: true
+      - text: Simple
+      - text: Compound
+      - text: Complex
+    explanation: |
+      "Because the power went out" is dependent, while "the students lit candles" and "they continued studying by candlelight" are two independent clauses joined by "and" — this is compound-complex.
+    approved: true
+
+  - id: q-grammar-and-structure-sentence-structure-0009
+    type: sentence-structure-classification
+    difficulty: medium
+    stem: |
+      Tukuyin ang uri ng pangungusap: "Umuwi ang bata."
+    choices:
+      - text: Payak
+        correct: true
+      - text: Tambalan
+      - text: Hugnayan
+      - text: Langkapan
+    explanation: |
+      Ang pangungusap ay may iisang malayang kaisipan lamang, kaya ito ay payak (simple).
+    approved: true
+
+  - id: q-grammar-and-structure-sentence-structure-0010
+    type: sentence-structure-classification
+    difficulty: medium
+    stem: |
+      Tukuyin ang uri ng pangungusap: "Umuwi ang bata ngunit naiwan ang bag niya."
+    choices:
+      - text: Tambalan
+        correct: true
+      - text: Payak
+      - text: Hugnayan
+      - text: Langkapan
+    explanation: |
+      May dalawang malayang sugnay ("umuwi ang bata" at "naiwan ang bag niya") na pinag-ugnay ng "ngunit," kaya ito ay tambalan (compound).
+    approved: true
+
+  - id: q-grammar-and-structure-sentence-structure-0011
+    type: sentence-structure-classification
+    difficulty: medium
+    stem: |
+      Tukuyin ang uri ng pangungusap: "Umuwi ang bata dahil umuulan na."
+    choices:
+      - text: Hugnayan
+        correct: true
+      - text: Payak
+      - text: Tambalan
+      - text: Langkapan
+    explanation: |
+      May isang malayang sugnay ("umuwi ang bata") at isang di-malayang sugnay ("dahil umuulan na"), kaya ito ay hugnayan (complex).
+    approved: true
+
+  - id: q-grammar-and-structure-sentence-structure-0012
+    type: sentence-structure-classification
+    difficulty: medium
+    stem: |
+      Tukuyin ang uri ng pangungusap: "Umuwi ang bata at natulog agad dahil pagod na siya."
+    choices:
+      - text: Langkapan
+        correct: true
+      - text: Payak
+      - text: Tambalan
+      - text: Hugnayan
+    explanation: |
+      May dalawang malayang sugnay ("umuwi ang bata" at "natulog agad") pinag-ugnay ng "at," at isang di-malayang sugnay ("dahil pagod na siya") — ito ay langkapan (compound-complex).
+    approved: true
+
+  - id: q-grammar-and-structure-sentence-structure-0013
+    type: sentence-structure-classification
+    difficulty: hard
+    stem: |
+      A student sees "The dog and cat played" and classifies it as compound, reasoning that it has two nouns joined by "and." Is this correct?
+    choices:
+      - text: No — "dog and cat" is a compound subject within a single clause, not two independent clauses; the sentence remains simple.
+        correct: true
+      - text: Yes — any sentence with two nouns joined by "and" is automatically compound.
+      - text: Yes — but only because "dog" and "cat" are different kinds of animals.
+      - text: No — but only because "played" is in the wrong verb tense.
+    explanation: |
+      A compound subject or compound verb within one clause does not make a sentence compound — a compound sentence needs two or more full independent clauses. This sentence has only one clause overall.
+    approved: true
+
+  - id: q-grammar-and-structure-sentence-structure-0014
+    type: sentence-structure-classification
+    difficulty: hard
+    stem: |
+      A student classifies "Because the meeting ran late, the team missed lunch" as compound, reasoning that it has two clauses joined together. Is this correct?
+    choices:
+      - text: No — "Because the meeting ran late" is a dependent clause (cannot stand alone), not an independent one; this makes the sentence complex, not compound.
+        correct: true
+      - text: Yes — any sentence with two clauses is automatically compound.
+      - text: Yes — but only because "lunch" and "late" have a similar sound.
+      - text: No — but only because this sentence actually has only one clause total.
+    explanation: |
+      Compound sentences join two independent clauses (both can stand alone). Since "Because the meeting ran late" cannot stand alone, this sentence is complex, not compound.
+    approved: true
+
+  - id: q-grammar-and-structure-sentence-structure-0015
+    type: sentence-structure-classification
+    difficulty: hard
+    stem: |
+      A student classifies "Although she was nervous, she gave an excellent speech" as compound-complex, reasoning that it has a dependent clause and seems long enough. Is this correct?
+    choices:
+      - text: No — this sentence has only one independent clause ("she gave an excellent speech") plus one dependent clause; a compound-complex sentence needs at least two independent clauses. This sentence is complex, not compound-complex.
+        correct: true
+      - text: Yes — sentence length alone determines whether it is compound-complex.
+      - text: Yes — but only because "nervous" and "excellent" are both adjectives.
+      - text: No — but only because this sentence has no dependent clause at all.
+    explanation: |
+      A compound-complex sentence needs all three ingredients: at least one dependent clause, and at least two independent clauses. Missing the second independent clause makes this sentence complex instead.
+    approved: true
+
+  - id: q-grammar-and-structure-sentence-structure-0016
+    type: sentence-structure-classification
+    difficulty: exam
+    stem: |
+      Classify this sentence: "Since the flight was delayed, the passengers waited in the lounge, and some of them ordered food, but others simply read books."
+    choices:
+      - text: Compound-complex — one dependent clause ("Since the flight was delayed") plus three independent clauses joined together
+        correct: true
+      - text: Complex — one dependent clause plus one independent clause
+      - text: Compound — three independent clauses with no dependent clause
+      - text: Simple — one clause overall
+    explanation: |
+      "Since the flight was delayed" is dependent. "The passengers waited in the lounge," "some of them ordered food," and "others simply read books" are three independent clauses joined by "and" and "but" — one dependent plus multiple independent clauses makes this compound-complex.
+    approved: true
