@@ -145,7 +145,7 @@ Exams for all rows: `[dost-sei]` (unconfirmed by any university-CET benchmark te
 
 | Done | Subtopic slug | Title | Primary archetype | File path |
 |---|---|---|---|---|
-| [ ] | `gear-rotations` | Gear Rotations (Predicting Clockwise vs. Counter-Clockwise Movement) | `gear-direction` | `content/questions/reasoning/mechanical-technical-reasoning/gear-rotations.yaml` |
+| [x] | `gear-rotations` | Gear Rotations (Predicting Clockwise vs. Counter-Clockwise Movement) | `gear-direction` | `content/questions/reasoning/mechanical-technical-reasoning/gear-rotations.yaml` |
 | [ ] | `pulleys-and-levers` | Pulleys and Levers (Mechanical Advantage, Balance, Fulcrums) | `pulley-lever` | `content/questions/reasoning/mechanical-technical-reasoning/pulleys-and-levers.yaml` |
 | [ ] | `springs-and-weights` | Springs and Weights | `spring-weight` | `content/questions/reasoning/mechanical-technical-reasoning/springs-and-weights.yaml` |
 | [ ] | `fluid-pressure` | Fluid Pressure in Pipes and Containers | `fluid-pressure` | `content/questions/reasoning/mechanical-technical-reasoning/fluid-pressure.yaml` |
