@@ -115,7 +115,7 @@ Exams for all rows: `[upcat, acet, dlsucet, ustet, dost-sei]`.
 | [x] | `synonyms-and-antonyms` | Synonyms and Antonyms | `synonym` + `antonym` (mix both, roughly half each) | `content/questions/language-proficiency/vocabulary/synonyms-and-antonyms.yaml` |
 | [x] | `idioms-and-figures-of-speech` | Idioms and Figures of Speech / Sawikain at Tayutay | `idiom-meaning` | `content/questions/language-proficiency/vocabulary/idioms-and-figures-of-speech.yaml` |
 | [x] | `root-words-prefixes-suffixes` | Root Words, Prefixes, and Suffixes | `root-word-affix-analysis` | `content/questions/language-proficiency/vocabulary/root-words-prefixes-suffixes.yaml` |
-| [ ] | `confusing-words` | Confusing Words (Affect vs. Effect, Its vs. It's, Nang vs. Ng, Sila vs. Sina) | `confusing-words` | `content/questions/language-proficiency/vocabulary/confusing-words.yaml` |
+| [x] | `confusing-words` | Confusing Words (Affect vs. Effect, Its vs. It's, Nang vs. Ng, Sila vs. Sina) | `confusing-words` | `content/questions/language-proficiency/vocabulary/confusing-words.yaml` |
 | [ ] | `spelling-rules` | Spelling Rules | `spelling-correction` | `content/questions/language-proficiency/vocabulary/spelling-rules.yaml` |
 
 Note on `confusing-words`: this lesson explicitly names two Filipino pairs (Nang vs. Ng, Sila vs. Sina) alongside two English pairs (Affect vs. Effect, Its vs. It's) — cover all four pairs, not just the English ones.
