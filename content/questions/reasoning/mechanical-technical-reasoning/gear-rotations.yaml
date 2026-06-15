@@ -1,0 +1,245 @@
+meta:
+  subject: reasoning
+  topic: mechanical-technical-reasoning
+  subtopic: gear-rotations
+  exams: [ dost-sei ]
+questions:
+  - id: q-mechanical-technical-reasoning-gear-rotations-0001
+    type: gear-direction
+    difficulty: easy
+    figure: gear-rotations-01
+    stem: |
+      Figure shows three gears connected in a row, each meshing directly with its neighbor. The first gear turns clockwise. What direction does the third gear turn?
+    choices:
+      - text: Clockwise
+        correct: true
+      - text: Counter-clockwise
+      - text: It does not turn at all
+      - text: It turns in both directions at once
+    explanation: |
+      Meshing gears alternate direction: gear 1 clockwise, gear 2 counter-clockwise, gear 3 clockwise. Since gears 1 and 3 are both in odd positions, they turn in the same direction.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-gear-rotations-0002
+    type: gear-direction
+    difficulty: easy
+    figure: gear-rotations-02
+    stem: |
+      Figure shows five gears connected in a row, each meshing directly with its neighbor. The first gear turns counter-clockwise. What direction does the fifth gear turn?
+    choices:
+      - text: Counter-clockwise
+        correct: true
+      - text: Clockwise
+      - text: It does not turn at all
+      - text: It turns in both directions at once
+    explanation: |
+      Gears 1, 3, and 5 are all in odd positions, so they share the same rotation direction as gear 1. Since gear 1 turns counter-clockwise, gear 5 also turns counter-clockwise.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-gear-rotations-0003
+    type: gear-direction
+    difficulty: medium
+    figure: gear-rotations-03
+    stem: |
+      Figure shows four gears connected in a row, each meshing directly with its neighbor. The first gear turns clockwise. What direction does the fourth gear turn?
+    choices:
+      - text: Counter-clockwise
+        correct: true
+      - text: Clockwise
+      - text: It does not turn at all
+      - text: It turns in both directions at once
+    explanation: |
+      Gear 4 is in an even position, so it turns opposite to gear 1. Since gear 1 turns clockwise, gear 4 turns counter-clockwise.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-gear-rotations-0004
+    type: gear-direction
+    difficulty: medium
+    figure: gear-rotations-04
+    stem: |
+      Figure shows six gears connected in a row, each meshing directly with its neighbor. The first gear turns counter-clockwise. What direction does the sixth gear turn?
+    choices:
+      - text: Clockwise
+        correct: true
+      - text: Counter-clockwise
+      - text: It does not turn at all
+      - text: It turns in both directions at once
+    explanation: |
+      Gear 6 is in an even position, so it turns opposite to gear 1. Since gear 1 turns counter-clockwise, gear 6 turns clockwise.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-gear-rotations-0005
+    type: gear-direction
+    difficulty: medium
+    figure: gear-rotations-05
+    stem: |
+      Figure shows a small gear with 10 teeth meshing with a large gear with 30 teeth. If the small gear completes 6 full rotations, how many full rotations does the large gear complete?
+    choices:
+      - text: "2 rotations"
+        correct: true
+      - text: "6 rotations"
+      - text: "18 rotations"
+      - text: "3 rotations"
+    explanation: |
+      The number of teeth passing the meshing point must be equal for both gears: the small gear completes $10 \times 6 = 60$ teeth passing. The large gear (30 teeth) must also have 60 teeth pass, so it completes $60 \div 30 = 2$ rotations.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-gear-rotations-0006
+    type: gear-direction
+    difficulty: medium
+    figure: gear-rotations-06
+    stem: |
+      Figure shows a small gear with 8 teeth meshing with a large gear with 24 teeth. If the small gear completes 9 full rotations, how many full rotations does the large gear complete?
+    choices:
+      - text: "3 rotations"
+        correct: true
+      - text: "9 rotations"
+      - text: "27 rotations"
+      - text: "6 rotations"
+    explanation: |
+      The small gear completes $8 \times 9 = 72$ teeth passing the contact point. The large gear (24 teeth) must also have 72 teeth pass, so it completes $72 \div 24 = 3$ rotations.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-gear-rotations-0007
+    type: gear-direction
+    difficulty: medium
+    figure: gear-rotations-07
+    stem: |
+      Figure shows a central gear meshing with three other gears arranged around it (like spokes), each of those three also meshing only with the central gear (not with each other). If the central gear turns clockwise, what direction do all three outer gears turn?
+    choices:
+      - text: All three outer gears turn counter-clockwise
+        correct: true
+      - text: "The outer gears alternate: one clockwise, one counter-clockwise, one clockwise"
+      - text: All three outer gears turn clockwise, matching the central gear
+      - text: The outer gears do not turn at all, since they only mesh with the central gear
+    explanation: |
+      Each outer gear meshes directly with the central gear (but not with each other), so each individually takes the opposite direction from the central gear. Since the central gear turns clockwise, all three outer gears turn counter-clockwise, independent of each other.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-gear-rotations-0008
+    type: gear-direction
+    difficulty: hard
+    figure: gear-rotations-08
+    stem: |
+      Figure shows three gears connected in a row. Gear 1 turns clockwise, and gear 2 (meshing directly with gear 1) turns counter-clockwise. A student assumes gear 3 (meshing directly with gear 2) must also turn counter-clockwise, "matching gear 2." Is this assumption correct?
+    choices:
+      - text: No — gear 3 meshes directly with gear 2, so it must turn opposite to gear 2 (clockwise), alternating back to match gear 1's direction, not continuing gear 2's direction.
+        correct: true
+      - text: Yes — once a gear in the chain turns counter-clockwise, every gear after it also turns counter-clockwise.
+      - text: Yes — but only because gear 3 does not actually mesh with gear 2.
+      - text: No — but only because gear 1 and gear 2 actually turn in the same direction.
+    explanation: |
+      Assuming the third gear spins the same direction as the second (rather than correctly alternating back to match the first) is one of the most common gear-direction errors. Directly meshing gears always spin in opposite directions, so gear 3 must be opposite gear 2 — which means it matches gear 1.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-gear-rotations-0009
+    type: gear-direction
+    difficulty: hard
+    figure: gear-rotations-09
+    stem: |
+      A very large gear meshes directly with a very small gear. A student assumes the large gear, because of its size, must always turn in the same direction as other large gears elsewhere in a machine, regardless of the meshing pattern. Is this reasoning correct?
+    choices:
+      - text: No — gear size (number of teeth) affects rotation speed, not direction; direction depends only on whether gears mesh directly (always opposite) or how many gears separate them in a chain, independent of size.
+        correct: true
+      - text: Yes — larger gears always share the same rotation direction as each other, regardless of meshing.
+      - text: Yes — smaller gears always share the same rotation direction as each other, regardless of meshing.
+      - text: No — but only because gear size has no effect on anything mechanical.
+    explanation: |
+      A larger gear does not automatically spin the "same direction" or "opposite direction" based on its size alone. Direction is governed purely by the meshing/alternating rule; gear size only affects rotation speed.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-gear-rotations-0010
+    type: gear-direction
+    difficulty: hard
+    figure: gear-rotations-10
+    stem: |
+      A small gear with 12 teeth meshes with a large gear with 36 teeth. A student says, "the large gear obviously spins slower, so let's just guess it completes half as many rotations as the small gear," without calculating the exact teeth ratio. If the small gear completes 9 rotations, is "half as many" (4.5 rotations) the correct answer for the large gear?
+    choices:
+      - text: No — the exact ratio must be calculated from the actual teeth counts (36 ÷ 12 = 3, so the large gear turns 3 times slower); the small gear's $9$ rotations mean $12 \times 9 = 108$ teeth pass, so the large gear completes $108 \div 36 = 3$ rotations, not 4.5.
+        correct: true
+      - text: Yes — "half as many rotations" is always a safe guess for any two meshing gears, regardless of their teeth counts.
+      - text: Yes — since the large gear is 3 times bigger, guessing half its rotations is close enough for these questions.
+      - text: No — but only because gears with different teeth counts can never mesh together.
+    explanation: |
+      Assuming two gears "just spin at different speeds" without calculating the precise inverse ratio from their actual teeth counts leads to an incorrect answer. The correct ratio here is 3:1 (36 ÷ 12 = 3), giving 3 rotations for the large gear, not a guessed 4.5.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-gear-rotations-0011
+    type: gear-direction
+    difficulty: hard
+    figure: gear-rotations-11
+    stem: |
+      Figure shows a central gear meshing with four outer gears arranged around it like spokes (each outer gear meshes only with the central gear, not with each other). A student assumes the four outer gears must alternate direction with each other, the same way gears in a straight chain do, predicting outer gear 1 clockwise, outer gear 2 counter-clockwise, outer gear 3 clockwise, outer gear 4 counter-clockwise. Is this prediction correct?
+    choices:
+      - text: No — since the outer gears mesh only with the shared central gear and not with each other, they do not alternate with each other; each one independently takes the opposite direction from the central gear, so if the central gear turns clockwise, all four outer gears turn counter-clockwise.
+        correct: true
+      - text: Yes — outer gears in a spoke pattern always alternate with each other, just like a straight chain.
+      - text: Yes — but only because the central gear does not actually turn.
+      - text: No — but only because outer gears in a spoke pattern never turn at all.
+    explanation: |
+      When multiple gears each mesh separately with one shared central gear (rather than meshing with each other in sequence), each outer gear's direction depends only on its relationship to the central gear, not on alternating with its neighboring outer gears. Misapplying the straight-chain alternating rule here gives an incorrect prediction.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-gear-rotations-0012
+    type: gear-direction
+    difficulty: medium
+    figure: gear-rotations-12
+    stem: |
+      A small gear with 15 teeth meshes with a large gear with 45 teeth. If the large gear completes 4 full rotations, how many full rotations does the small gear complete?
+    choices:
+      - text: "12 rotations"
+        correct: true
+      - text: "4 rotations"
+      - text: "36 rotations"
+      - text: "8 rotations"
+    explanation: |
+      The large gear completes $45 \times 4 = 180$ teeth passing the contact point. The small gear (15 teeth) must also have 180 teeth pass, so it completes $180 \div 15 = 12$ rotations.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-gear-rotations-0013
+    type: gear-direction
+    difficulty: medium
+    figure: gear-rotations-13
+    stem: |
+      Figure shows seven gears connected in a row, each meshing directly with its neighbor. The first gear turns clockwise. What direction does the seventh gear turn?
+    choices:
+      - text: Clockwise
+        correct: true
+      - text: Counter-clockwise
+      - text: It does not turn at all
+      - text: It turns in both directions at once
+    explanation: |
+      Gear 7 is in an odd position, so it shares the same direction as gear 1. Since gear 1 turns clockwise, gear 7 also turns clockwise.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-gear-rotations-0014
+    type: gear-direction
+    difficulty: hard
+    figure: gear-rotations-14
+    stem: |
+      Figure shows four gears connected in a row. Gear 1 has 20 teeth and turns clockwise at 10 rotations per minute. Gear 2 has 10 teeth. What direction does gear 2 turn, and how many rotations per minute does it complete?
+    choices:
+      - text: Counter-clockwise, at 20 rotations per minute
+        correct: true
+      - text: Clockwise, at 20 rotations per minute
+      - text: Counter-clockwise, at 5 rotations per minute
+      - text: Clockwise, at 10 rotations per minute
+    explanation: |
+      Gear 2 meshes directly with gear 1, so it turns opposite (counter-clockwise). Since gear 1 (20 teeth) turns 10 times per minute, $20 \times 10 = 200$ teeth pass per minute; gear 2 (10 teeth) must also have 200 teeth pass per minute, so it completes $200 \div 10 = 20$ rotations per minute.
+    approved: true
+
+  - id: q-mechanical-technical-reasoning-gear-rotations-0015
+    type: gear-direction
+    difficulty: exam
+    figure: gear-rotations-15
+    stem: |
+      Figure shows a central gear with 40 teeth, turning clockwise at 3 rotations per minute, meshing with three separate outer gears arranged like spokes (not meshing with each other). One outer gear has 20 teeth, another has 10 teeth, and the third has 40 teeth. Determine the direction and rotation speed (in rotations per minute) of each of the three outer gears.
+    choices:
+      - text: All three outer gears turn counter-clockwise; the 20-tooth gear completes 6 rotations per minute, the 10-tooth gear completes 12 rotations per minute, and the 40-tooth gear completes 3 rotations per minute (matching the central gear's speed).
+        correct: true
+      - text: The outer gears alternate direction (clockwise, counter-clockwise, clockwise); all three complete 3 rotations per minute, matching the central gear.
+      - text: All three outer gears turn clockwise, matching the central gear; their speeds are 6, 12, and 3 rotations per minute respectively.
+      - text: All three outer gears turn counter-clockwise; all three complete exactly 3 rotations per minute, regardless of their teeth counts.
+    explanation: |
+      Since each outer gear meshes only with the central gear (not each other), all three independently turn counter-clockwise (opposite the clockwise central gear). The central gear (40 teeth, 3 rpm) passes $40 \times 3 = 120$ teeth per minute at each contact point: the 20-tooth gear completes $120 \div 20 = 6$ rpm, the 10-tooth gear completes $120 \div 10 = 12$ rpm, and the 40-tooth gear (same teeth count) completes $120 \div 40 = 3$ rpm, matching the central gear's speed.
+    approved: true
