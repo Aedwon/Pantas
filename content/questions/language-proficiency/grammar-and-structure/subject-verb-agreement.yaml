@@ -1,0 +1,305 @@
+meta:
+  subject: language-proficiency
+  topic: grammar-and-structure
+  subtopic: subject-verb-agreement
+  exams: [ upcat, acet, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-grammar-and-structure-subject-verb-agreement-0001
+    type: subject-verb-agreement
+    difficulty: easy
+    stem: |
+      Choose the correct verb: The dog ______ every morning at the mail carrier.
+    choices:
+      - text: Barks
+        correct: true
+      - text: Bark
+      - text: Barking
+      - text: Barked (referring to an ongoing habit)
+    explanation: |
+      "Dog" is a singular subject, so it needs the singular verb form "barks."
+    approved: true
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0002
+    type: subject-verb-agreement
+    difficulty: easy
+    stem: |
+      Choose the correct verb: The dogs ______ every morning at the mail carrier.
+    choices:
+      - text: Bark
+        correct: true
+      - text: Barks
+      - text: Is barking
+      - text: Has barked
+    explanation: |
+      "Dogs" is a plural subject, so it needs the plural verb form "bark."
+    approved: true
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0003
+    type: subject-verb-agreement
+    difficulty: medium
+    stem: |
+      Choose the correct verb: The list of items on the shelf ______ long.
+    choices:
+      - text: Is
+        correct: true
+      - text: Are
+      - text: Were
+      - text: Have been
+    explanation: |
+      The true subject is "list" (singular), not "items." Ignoring the describing phrase "of items on the shelf," the verb must match "list": "is."
+    approved: true
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0004
+    type: subject-verb-agreement
+    difficulty: medium
+    stem: |
+      Choose the correct verb: The box of chocolates ______ still sitting on the table.
+    choices:
+      - text: Is
+        correct: true
+      - text: Are
+      - text: Were
+      - text: Have been
+    explanation: |
+      The true subject is "box" (singular), not "chocolates." Ignoring the describing phrase "of chocolates," the verb must match "box": "is."
+    approved: true
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0005
+    type: subject-verb-agreement
+    difficulty: medium
+    stem: |
+      Choose the correct verb: The committee ______ reached a decision.
+    choices:
+      - text: Has
+        correct: true
+      - text: Have
+      - text: Were
+      - text: Are
+    explanation: |
+      "Committee" is a collective noun, treated as one singular unit when acting together as a group, so it takes the singular verb "has."
+    approved: true
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0006
+    type: subject-verb-agreement
+    difficulty: medium
+    stem: |
+      Choose the correct verb: The family ______ planning a trip to the province this summer.
+    choices:
+      - text: Is
+        correct: true
+      - text: Are
+      - text: Were
+      - text: Have
+    explanation: |
+      "Family" is a collective noun, treated as one singular unit when planning together, so it takes the singular verb "is."
+    approved: true
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0007
+    type: subject-verb-agreement
+    difficulty: medium
+    stem: |
+      Choose the correct verb: Everybody in the auditorium ______ welcome to ask questions afterward.
+    choices:
+      - text: Is
+        correct: true
+      - text: Are
+      - text: Were
+      - text: Have been
+    explanation: |
+      Indefinite pronouns ending in "-body" (like "everybody") are always singular, regardless of how many people they refer to, so the verb must be "is."
+    approved: true
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0008
+    type: subject-verb-agreement
+    difficulty: medium
+    stem: |
+      Choose the correct verb: Nothing about the missing files ______ to make sense.
+    choices:
+      - text: Seems
+        correct: true
+      - text: Seem
+      - text: Were seeming
+      - text: Have seemed
+    explanation: |
+      Indefinite pronouns ending in "-thing" (like "nothing") are always singular, so the verb must be "seems."
+    approved: true
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0009
+    type: subject-verb-agreement
+    difficulty: medium
+    stem: |
+      Choose the correct verb: Most of the water in the tank ______ evaporated.
+    choices:
+      - text: Has
+        correct: true
+      - text: Have
+      - text: Were
+      - text: Are
+    explanation: |
+      "Most" can be singular or plural, depending on the noun following "of." Here, "water" is uncountable and singular, so the verb must be "has."
+    approved: true
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0010
+    type: subject-verb-agreement
+    difficulty: medium
+    stem: |
+      Choose the correct verb: Some of the cookies on the tray ______ already gone.
+    choices:
+      - text: Are
+        correct: true
+      - text: Is
+      - text: Was
+      - text: Has been
+    explanation: |
+      "Some" can be singular or plural, depending on the noun following "of." Here, "cookies" is plural, so the verb must be "are."
+    approved: true
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0011
+    type: subject-verb-agreement
+    difficulty: medium
+    stem: |
+      Choose the correct verb: Ana and Ben ______ already here, waiting by the entrance.
+    choices:
+      - text: Are
+        correct: true
+      - text: Is
+      - text: Was
+      - text: Has been
+    explanation: |
+      Compound subjects joined by "and" are usually plural, so "Ana and Ben" takes the plural verb "are."
+    approved: true
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0012
+    type: subject-verb-agreement
+    difficulty: medium
+    stem: |
+      Choose the correct verb: Neither the manager nor the employees ______ aware of the change.
+    choices:
+      - text: Were
+        correct: true
+      - text: Was
+      - text: Is
+      - text: Has been
+    explanation: |
+      With "neither...nor," the verb must agree with the subject closest to it. The closer subject, "employees," is plural, so the verb must be "were."
+    approved: true
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0013
+    type: subject-verb-agreement
+    difficulty: medium
+    stem: |
+      Choose the correct verb: Neither the students nor the teacher ______ late for the assembly.
+    choices:
+      - text: Was
+        correct: true
+      - text: Were
+      - text: Are
+      - text: Have been
+    explanation: |
+      With "neither...nor," the verb must agree with the subject closest to it. The closer subject, "teacher," is singular, so the verb must be "was," even though "students" (plural) appears first.
+    approved: true
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0014
+    type: subject-verb-agreement
+    difficulty: hard
+    stem: |
+      A student sees "The box of chocolates ___ on the table" and picks "are," reasoning that "chocolates" (the word right before the blank) is plural. Is this reasoning correct?
+    choices:
+      - text: No — the true subject is "box" (singular), not "chocolates"; test-makers place a plural noun right before the verb specifically to tempt you into matching the wrong, nearer word instead of the true subject.
+        correct: true
+      - text: Yes — the noun closest to the verb always determines agreement, regardless of the true subject.
+      - text: Yes — but only because "chocolates" is actually the true subject in this sentence.
+      - text: No — but only because "box" and "chocolates" are both plural.
+    explanation: |
+      The true subject decides the verb, even if other nouns sit closer to the verb in the sentence. "The box of chocolates is (not are) on the table" is correct, since "box" is the true, singular subject.
+    approved: true
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0015
+    type: subject-verb-agreement
+    difficulty: hard
+    stem: |
+      A student assumes "The team ___ celebrating" needs "are," reasoning that a team is made up of multiple people. Is this reasoning correct?
+    choices:
+      - text: No — collective nouns like "team" are usually treated as singular, since they name one group acting as a unit; unless the sentence clearly emphasizes individual members acting separately, use the singular verb "is."
+        correct: true
+      - text: Yes — any noun referring to multiple people always takes a plural verb.
+      - text: Yes — but only because "team" contains the letter combination that signals plurality.
+      - text: No — but only because "team" is not actually a collective noun.
+    explanation: |
+      Many students assume a "team" or "family" (multiple people) needs a plural verb. Unless the sentence clearly emphasizes the individual members acting separately, collective nouns are treated as singular.
+    approved: true
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0016
+    type: subject-verb-agreement
+    difficulty: hard
+    stem: |
+      A student writes "Everybody have their own opinion," reasoning that "everybody" refers to many people and should take a plural verb. Is this reasoning correct?
+    choices:
+      - text: No — "everybody" is an indefinite pronoun ending in "-body," which is always singular, no matter how many people it refers to; the correct verb is "has," not "have."
+        correct: true
+      - text: Yes — "everybody" always takes a plural verb, since it refers to a group of people.
+      - text: Yes — but only when the sentence is about opinions specifically.
+      - text: No — but only because "everybody" is not actually a pronoun.
+    explanation: |
+      Even though "everybody" refers to many people, it grammatically behaves as one singular unit. "Everybody has (not have) their own opinion" is correct.
+    approved: true
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0017
+    type: subject-verb-agreement
+    difficulty: hard
+    stem: |
+      A student writes "Neither the students nor the teacher were late," matching the verb to "students" since it appears first in the sentence. Is this correct?
+    choices:
+      - text: No — with "or" or "nor," match the verb to the subject closest to it, not the first one mentioned; the closer subject here is "teacher" (singular), so the correct verb is "was," not "were."
+        correct: true
+      - text: Yes — the first subject mentioned always determines the verb in an "or/nor" sentence.
+      - text: Yes — but only because "students" and "teacher" are both considered plural together.
+      - text: No — but only because "neither...nor" sentences never require verb agreement at all.
+    explanation: |
+      With "or" or "nor," match the verb to the subject closest to it, not the first one mentioned. "Neither the students nor the teacher was late" is correct, matching "teacher," the closer subject.
+    approved: true
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0018
+    type: subject-verb-agreement
+    difficulty: medium
+    stem: |
+      Piliin ang tamang pananda: Kumain ______ bata ng tinapay.
+    choices:
+      - text: Ang
+        correct: true
+      - text: Ng
+      - text: Sa
+      - text: Na
+    explanation: |
+      Ang "kumain" ay pandiwang naka-focus sa gumagawa (actor focus), kaya ang gumagawa ng kilos ("bata") ay dapat markahan ng pananda na "ang."
+    approved: true
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0019
+    type: subject-verb-agreement
+    difficulty: medium
+    stem: |
+      Piliin ang tamang pananda: Kinain ______ bata ang tinapay.
+    choices:
+      - text: Ng
+        correct: true
+      - text: Ang
+      - text: Sa
+      - text: Na
+    explanation: |
+      Ang "kinain" ay pandiwang naka-focus sa bagay ("ang tinapay"), kaya ang gumagawa ng kilos ("bata") ay markahan ng pananda na "ng," hindi "ang."
+    approved: true
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0020
+    type: subject-verb-agreement
+    difficulty: exam
+    stem: |
+      Choose the correct verb: Neither the coach nor the players on the visiting team ______ satisfied with the referee's decision, even though most of the crowd ______ supportive of it.
+    choices:
+      - text: Were, was
+        correct: true
+      - text: Was, were
+      - text: Were, were
+      - text: Was, was
+    explanation: |
+      In the first clause, "neither...nor" matches the closer subject, "players" (plural), giving "were." In the second clause, "most" takes its number from "crowd" (singular, a collective noun), giving "was."
+    approved: true
