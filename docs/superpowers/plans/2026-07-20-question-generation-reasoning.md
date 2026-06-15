@@ -147,7 +147,7 @@ Exams for all rows: `[dost-sei]` (unconfirmed by any university-CET benchmark te
 |---|---|---|---|---|
 | [x] | `gear-rotations` | Gear Rotations (Predicting Clockwise vs. Counter-Clockwise Movement) | `gear-direction` | `content/questions/reasoning/mechanical-technical-reasoning/gear-rotations.yaml` |
 | [x] | `pulleys-and-levers` | Pulleys and Levers (Mechanical Advantage, Balance, Fulcrums) | `pulley-lever` | `content/questions/reasoning/mechanical-technical-reasoning/pulleys-and-levers.yaml` |
-| [ ] | `springs-and-weights` | Springs and Weights | `spring-weight` | `content/questions/reasoning/mechanical-technical-reasoning/springs-and-weights.yaml` |
+| [x] | `springs-and-weights` | Springs and Weights | `spring-weight` | `content/questions/reasoning/mechanical-technical-reasoning/springs-and-weights.yaml` |
 | [ ] | `fluid-pressure` | Fluid Pressure in Pipes and Containers | `fluid-pressure` | `content/questions/reasoning/mechanical-technical-reasoning/fluid-pressure.yaml` |
 | [ ] | `structural-stability` | Structural Stability and Center of Gravity | `structural-stability` | `content/questions/reasoning/mechanical-technical-reasoning/structural-stability.yaml` |
 
