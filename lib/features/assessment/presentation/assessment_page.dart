@@ -10,6 +10,7 @@ import 'package:cse_cet_reviewer/features/assessment/domain/models/assessment_se
 import 'package:cse_cet_reviewer/features/assessment/domain/services/assessment_question_selector.dart';
 import 'package:cse_cet_reviewer/features/assessment/domain/use_cases/complete_assessment.dart';
 import 'package:cse_cet_reviewer/features/assessment/domain/use_cases/start_assessment.dart';
+import 'package:cse_cet_reviewer/features/assessment/presentation/assessment_result_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -91,6 +92,15 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
             now: DateTime.now(),
           );
       if (!mounted) return;
+      // The Home tab reads both of these from inside the bottom-nav shell, so
+      // they were already cached as "no assessment" before this run started.
+      // Neither is autoDispose and the shell never unmounts, so without an
+      // explicit invalidation the results page renders the stale null as
+      // "No assessment found." and Home keeps offering to start the
+      // assessment the user just finished.
+      ref
+        ..invalidate(assessmentResultProvider(widget.examId))
+        ..invalidate(assessmentCompletedProvider(widget.examId));
       context.pushReplacement('/assessment/${widget.examId}/results');
     } catch (e) {
       if (!mounted) return;

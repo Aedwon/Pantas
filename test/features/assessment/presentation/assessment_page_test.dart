@@ -4,7 +4,9 @@ import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/assessment_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/assessment/presentation/assessment_page.dart';
+import 'package:cse_cet_reviewer/features/assessment/presentation/assessment_result_providers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 
@@ -103,6 +105,34 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Results'), findsOneWidget);
+  });
+
+  testWidgets('completing refreshes a result already cached as absent',
+      (tester) async {
+    await tester.pumpAppWithRouter(
+      _buildRouter('e1'),
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    await tester.pumpAndSettle();
+
+    final container = ProviderScope.containerOf(
+      tester.element(find.byType(MaterialApp)),
+    );
+
+    // The Home tab watches this provider from inside the bottom-nav shell, so
+    // by the time the user starts an assessment it is already cached as null.
+    // It is not autoDispose and the shell never unmounts, so nothing evicts it.
+    expect(await container.read(assessmentResultProvider('e1').future), isNull);
+
+    await tester.tap(find.text('Option A'));
+    await tester.pumpAndSettle();
+
+    expect(
+      await container.read(assessmentResultProvider('e1').future),
+      isNotNull,
+      reason: 'the results page reads this provider — a stale null renders '
+          '"No assessment found." after a completed run',
+    );
   });
 
   testWidgets('redirects to results when assessment is already completed',
