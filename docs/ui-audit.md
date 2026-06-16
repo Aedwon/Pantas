@@ -120,6 +120,204 @@ Note the sequencing constraint: this sits between `assessment_page` and
 so back does not re-enter a completed run). Any interstitial has to preserve
 that, or back-from-results starts landing on the loading screen.
 
+### UI-009 [polish] Bottom navigation is text-only — DECISION NEEDED
+
+Reported 2026-07-25: "there should be icons in the bottom navigation. they
+look so bland currently."
+
+**Working as specified — but the specification is the thing being questioned.**
+`app_shell.dart` draws four `Text` labels on a hairline-topped bar with no
+icons. That is deliberate:
+`docs/superpowers/plans/2026-07-19-ink-and-rule-reference-sweep.md:266` and
+`:389` both say "text-only labels per the approved mock", and every home mock
+in `.superpowers/brainstorm/73545-1784382720/content/` (`direction.html`,
+`direction-v2.html`, `direction-v3.html`) draws the bar the same way. So this
+was seen and approved, not overlooked.
+
+The identity does not ban icons outright — the header gear, `InkTableRow`
+glyphs and the done ✓ all survive. What the spec bans is "icon-in-tinted-circle
+headers" and "emoji-as-icon". A hairline outline glyph is not obviously outside
+that. The real cost is that Material's stock icon set is exactly the geometric
+vocabulary the redesign set out to escape, so `Icons.home_outlined` and friends
+would pull the bar back toward the look being replaced.
+
+| Option | Behaviour | Trade-off |
+|---|---|---|
+| **A. Keep text-only** | Unchanged | Free; matches the approved mock; the bar stays quiet and editorial. Aedwon's objection stands unanswered |
+| **B. Add restrained outline icons** | 20px `Icons.*_outlined` above each label, `inkMuted`/`ink` | Conventional and scannable; risks reading as stock Material, the exact failure mode the redesign names |
+| **C. Serif rule marks instead of icons** | A short board-green rule under the active label, or a serif glyph per tab | Keeps the identity, adds the visual anchor the bar lacks; bespoke, and needs its own mock round |
+
+Recommend **C** as the smallest change that answers the complaint without
+reopening the identity. Whatever wins, it amends the approved mock — record the
+decision in the redesign spec's Amendments section, not only here.
+
+**Decision (2026-07-25, Aedwon): icons, resolved against live mockups.** The
+complaint was recognition speed, not decoration, which ruled out the rule-mark
+option: a decorative marker does nothing for how fast a thumb finds the right
+tab. Settled spec — 23px glyphs at **1.50** stroke; active state is the **filled
+glyph** (no rule break, no board green, so the colour budget is untouched);
+transition is an **ink rise** over **400ms** on the incoming tab only, disabled
+under reduce-motion. Glyphs: house, open book, single shaded answer bubble,
+folded sheet with a rising line. Full rationale in
+`docs/superpowers/specs/2026-07-26-home-and-navigation-design.md`.
+
+### UI-010 [important] Home greeting names the exam, not the user — OPEN
+
+Reported 2026-07-25: "in the topmost part it says Magandang gabi, UPCAT which
+is wrong. aren't we supposed to get an input for the user's name/nickname for
+this?"
+
+**Confirmed, and it is a known deviation rather than a bug introduced by
+accident.** `assessment_home_tab.dart:105` renders `examShortName` in the serif
+masthead slot. The approved mock (`header-final-v2.html`) reads
+"Magandang gabi," over **"Aedwon"** — a personal name. The redesign spec says
+the same: "Left block: kicker ("Magandang gabi,") over serif **name**."
+
+The reference-sweep plan recorded the substitution deliberately at
+`2026-07-19-ink-and-rule-reference-sweep.md:614`: "the masthead is the exam
+name for now — personal-name greeting waits for the auth surface, noted
+deviation from the mock."
+
+The blocker is real but narrower than "wait for auth". Nothing in the app
+captures a name a user typed. The only name that exists anywhere is
+`AuthUser.displayName`, which comes from Google sign-in and is read in one
+place, `account_page.dart:47`. Signed-out users have no name at all, so an
+auth-only greeting leaves the masthead empty for everyone who has not signed
+in — which is the entire onboarding path.
+
+So this needs a decision on *where the name comes from* before it can be
+fixed:
+
+| Option | Source | Trade-off |
+|---|---|---|
+| **A. Ask during onboarding** (recommended) | A nickname step writing to `UserSettings` | Works signed-out; one more onboarding step to justify; needs a Settings row to change it later |
+| **B. Settings only, no onboarding step** | A "Your name" row in `settings_home_page` | Zero onboarding friction; almost nobody sets it, so the masthead stays the exam name in practice |
+| **C. Use `AuthUser.displayName` when present** | Google account | No new input at all; blank for signed-out users, and the name is whatever Google holds, often a full legal name |
+
+A and C compose — ask in onboarding, prefill from the Google account when
+already signed in. Note the storage question either way: `UserSettings` has no
+name field today (`lib/features/settings/domain/user_settings.dart`), so this
+adds a settings key, not just a widget.
+
+Related: the onboarding polish plan
+(`docs/superpowers/plans/2026-07-25-onboarding-polish.md`) has 13 tasks and
+none of them capture a name. If option A wins, that plan gains a task.
+
+**Decision (2026-07-25, Aedwon): option A, no Google prefill.** A name step is
+added to onboarding **after the exam picker**, so the ask lands once the user
+has already invested. No prefill from `AuthUser.displayName` — the name is
+chosen, not assumed. Users with no name stored (every existing install, plus
+anyone who skips) see an **"Add your name" invitation** in the masthead slot
+that taps through to set it, which is self-healing and needs no migration
+prompt.
+
+**Follow-on discovered while designing the masthead: the exam date is never
+captured either.** Onboarding is `welcome → ageGate → picker` and never touches
+`examDate`; the Settings row that would set it is unwired (onboarding-polish
+Task 6, unexecuted). So `examDate` is null for every user today, and the
+approved masthead line "UPCAT · 42 days to go" cannot render for anyone. An
+exam-date step belongs beside the name step. This also blocks the days-to-exam
+figure in UI-011.
+
+### UI-011 [important] Home shows one section — three of the mock's four blocks are unbuilt — OPEN
+
+Reported 2026-07-25: "is the focus topic the only thing shown in the home? it
+feels so empty... i assume it's because we now have a dedicated progress tab
+which moved the supposed content to that side."
+
+**The emptiness is real. The explanation is not.** The Progress tab took
+nothing from Home — it replaced the old *Settings* tab as branch 4
+(`2026-07-19-ink-and-rule-reference-sweep.md:257`, "Progress in, Settings
+out"), and its panels are Spec 11 material (archetype, streak, coverage,
+analytics) that Home never carried. Nothing moved; the missing blocks were
+never built.
+
+The approved mock (`direction-v3.html`) composes Home from four blocks:
+
+1. Header + stats band — **three** figures: 42 days to exam, 78% accuracy,
+   41/96 lessons
+2. **Today's plan** — "2 of 3 done", three lesson rows, "Continue lesson"
+3. **Up next** — two queued lesson rows
+4. **Weakest areas** — "Practice these" + accuracy rows
+
+Shipped Home has block 1 with **two** of its three figures, and block 4 under
+the name "Focus topics". Blocks 2 and 3 are absent. Every gap traces to an
+unwired data chain, each already recorded:
+
+- *Days to exam* — `UserSettings.examDate` exists and
+  `DriftSettingsRepository.updateExamDate` validates it, but **no UI writes
+  it** (onboarding-polish Task 6 is unexecuted) and Home never reads it.
+- *Lessons done* — no lesson-count provider exists anywhere in `lib/`.
+- *Today's plan / Up next* — study-plan providers are throwing stubs. This is
+  UI-003, the same root cause that got the `/plan` row hidden.
+
+Both stats gaps were declared, not forgotten:
+`2026-07-19-ink-and-rule-reference-sweep.md:600` — ""Days to exam" and "lessons
+done" figures are DEFERRED to the data plan... **do not fake them**."
+
+**The gap worth flagging: "the data plan" does not exist.** Three plan
+documents defer work to it — days-to-exam, lessons count, per-subject accuracy,
+the Progress tab's real analytics — and no such plan has been written. Home
+stays a third of its mock until it is. That plan, not a Home patch, is the fix
+for this finding; patching Home alone would mean faking figures the sweep
+explicitly forbade.
+
+Sequencing note: onboarding-polish Task 6 is a prerequisite for the
+days-to-exam figure and is already written and unexecuted, so it is the
+cheapest first move.
+
+**Decision (2026-07-25, Aedwon): build the cheap tier now, defer "Today's
+plan".** Home gets the full three-figure stats band (days to exam, accuracy,
+lessons), the "Lately" line, an "Up next" block, and the weakest-areas rows.
+Every one of those reads tables the app already writes:
+
+- *Days to exam* — `UserSettings.examDate` minus today, once onboarding-polish
+  Task 6 ships the picker that writes it.
+- *Lessons done* — `lesson_progress_local` (one row per lesson, with `readAt`)
+  counted against `lessons` for the active exam.
+- *Up next* — unread lessons in the weakest topics: the same two tables asked a
+  different question.
+
+**"Today's plan" is explicitly out of scope** and does not render at all until
+the study-plan feature is real. It is the one block that cannot be derived from
+stored data — a daily plan has to decide how much a user should do today and
+track completion, which is mastery scoring, review scheduling and daily
+targets. That remains its own project, tracked as UI-003.
+
+Home composition beyond this block list was still being explored when this
+decision was recorded; see the design spec for the settled layout.
+
+### UI-012 [blocker] Focus-topic taps still strand the user — UI-001 missed two call sites — OPEN
+
+Found 2026-07-26 while mapping where each Home block navigates to, for the Home
+redesign.
+
+`assessment_home_tab.dart` navigates with `context.go` in two places:
+
+- line 242 — `_FocusTopicRow.onTap`
+- line 209 — the "Continue studying" button
+
+Both send the user to `_studyPath(mastery)`, which returns
+`/study/topic/:topicId` when the topic is weak but **`/quiz/quick/:examId` when
+the topic is `strong`**. `/study/topic/:topicId` is nested inside the Study
+`StatefulShellBranch` (`router.dart:99-110`), so `go` is correct there — it is a
+tab destination and keeps the tab bar. `/quiz/quick/:examId` is a **top-level
+route outside the shell** (`router.dart:163`), so `go` empties the stack: no
+back arrow, no tab bar, and Android back quits the app.
+
+This is UI-001 exactly, in a file the UI-001 sweep touched. It survived because
+the path is *computed* by `_studyPath` rather than written inline, so the
+`context.go('/quiz` search that found the other call sites missed these two. The
+same file gets it right at line 302 with `context.push('/quiz/quick/$examId')`.
+
+Only reproducible once a topic reaches `MasteryLevel.strong`, which is why
+manual passes have not hit it.
+
+**Fix:** `push` for the quiz branch of `_studyPath`, `go` for the study branch —
+the destination decides, not the call site. Worth extracting the choice into a
+helper so the rule cannot drift again, and worth a regression test that asserts
+a strong-mastery row pushes rather than replaces.
+
 ---
 
 ## Findings surfaced while fixing the above
@@ -178,3 +376,10 @@ question as much as a rendering one.
    after the content pipeline settles?
 2. **UI-007** — does the question schema gain a rich-text stem, or do authors
    avoid markup in stems?
+3. **UI-009** — do the bottom tabs stay text-only, take outline icons, or get a
+   bespoke rule/glyph mark? Amends the approved mock either way.
+4. **UI-010** — where does the greeting name come from: an onboarding nickname
+   step, a Settings row, the Google account, or a combination?
+5. **UI-011** — write the missing "data plan" (days-to-exam, lessons count,
+   per-subject accuracy, study-plan providers) that four deferred items across
+   three plan documents all point at.
