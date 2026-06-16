@@ -174,15 +174,18 @@ void main() {
   };
 
   File('assets/seed/v1.json').writeAsStringSync(
-      '${const JsonEncoder.withIndent('  ').convert(seed)}\n');
+    '${const JsonEncoder.withIndent('  ').convert(seed)}\n',
+  );
 
   stdout.writeln('Wrote assets/seed/v1.json');
   stdout.writeln('  subjects:  ${subjects.length}');
   stdout.writeln('  topics:    ${topics.length}');
   stdout.writeln(
-      '  questions: ${questions.length} (+${keptQuestions.length} kept)');
-  stdout
-      .writeln('  lessons:   ${lessons.length} (+${keptLessons.length} kept)');
+    '  questions: ${questions.length} (+${keptQuestions.length} kept)',
+  );
+  stdout.writeln(
+    '  lessons:   ${lessons.length} (+${keptLessons.length} kept)',
+  );
 }
 
 String _underscore(String slug) => slug.replaceAll('-', '_');
