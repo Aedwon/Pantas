@@ -318,6 +318,37 @@ the destination decides, not the call site. Worth extracting the choice into a
 helper so the rule cannot drift again, and worth a regression test that asserts
 a strong-mastery row pushes rather than replaces.
 
+### UI-013 [important] The share card was missed by the Ink & Rule sweep — OPEN
+
+Found 2026-07-26 while discussing Pro card variants.
+
+`wrapped_share_card.dart:27` renders the shareable 9:16 card as a **purple and
+navy gradient** (`0xFF16213E`, `0xFF533483`, `0xFF0F3460`) with white text. That
+is pre-redesign styling, and specifically a gradient, which
+`2026-07-18-ui-redesign-design.md` lists among the telltale patterns the
+identity exists to eliminate ("gradient/glow decoration").
+
+The Ink & Rule feature sweep covered `wrapped_reveal_page.dart`,
+`my_shared_cards_page.dart` and `share_privacy_sheet.dart`, but neither
+`wrapped_share_card.dart` nor `wrapped_png_renderer.dart` appears anywhere in
+`2026-07-19-ink-and-rule-feature-sweep.md`. The chrome around the card was
+restyled; the card itself was not.
+
+**Why this ranks above a normal polish item:** the share card is the only asset
+seen by people who do not have the app. `2026-06-10-user-facing-metrics-design.md`
+calls it "the app's marketing engine", and the landing-page spec builds a whole
+conversion funnel on the shared PNG. Every screen behind the paywall now carries
+the identity while the billboard does not.
+
+Not currently visible to users, because the Wrapped surface is unreachable
+(UI-004). It becomes visible the day artifacts are wired up, which is also the
+day it is hardest to change quietly.
+
+**Fix:** sweep both files onto the Paper/Ink palette and the serif figure
+treatment before Wrapped ships. Worth doing as its own pass, since the card is
+a fixed-size rendering target rather than a responsive screen and needs
+checking as an exported PNG rather than on the emulator.
+
 ---
 
 ## Findings surfaced while fixing the above
