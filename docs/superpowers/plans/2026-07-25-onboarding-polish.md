@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Fix the two live defects in the age-gate step, make good on the exam-switching promise the picker prints on screen, wire the two dead Settings rows the onboarding flow depends on, and reconcile the nine documents that currently disagree about what onboarding is.
+**Goal:** Fix the two live defects in the age-gate step, make good on the exam-switching promise the picker prints on screen, wire the two dead Settings rows the onboarding flow depends on, bring the flow's presentation in line with the Ink & Rule identity, and reconcile the nine documents that currently disagree about what onboarding is.
 
-**Architecture:** No new subsystems. Two widget-local fixes in `onboarding_age_gate_step.dart`; one row widget lifted from `onboarding_picker_step.dart` into `core/ui/components/` so Settings can reuse it without violating the R2 layering rule; three `SettingsRow` `onTap` handlers wired to application actions that already exist and are already tested; a documentation pass.
+**Architecture:** No new subsystems. Widget-local fixes in `onboarding_age_gate_step.dart`; one row widget lifted from `onboarding_picker_step.dart` into `core/ui/components/` so Settings can reuse it without violating the R2 layering rule; three `SettingsRow` `onTap` handlers wired to application actions that already exist and are already tested; layout and copy passes over the four onboarding screens; a documentation pass.
 
 **Tech Stack:** Flutter, Riverpod, Drift, go_router, flutter_test. `CupertinoPicker` (already present), Material `showTimePicker` / `showDatePicker`. No new packages.
 
@@ -40,7 +40,13 @@
 **Delete:**
 - `lib/features/auth_flow/{data,domain,presentation}/.gitkeep` (Task 8)
 
-**Scope note:** this plan covers what a code read found. It is written before the emulator pass; findings from driving the flow on `pantas_pixel` will be appended as further tasks rather than folded into these.
+**Also modify (from the emulator pass, Tasks 9–12):**
+- `lib/features/notifications/presentation/permission_rationale_page.dart` — vertical rhythm (Task 11)
+- `android/app/build.gradle.kts` — app display name (Task 10)
+- `lib/features/onboarding/presentation/onboarding_welcome_step.dart` — rhythm and headline (Tasks 11–12)
+- `test/app/router_redirect_test.dart` — welcome headline assertion (Task 12)
+
+**Scope note:** Tasks 1–8 come from a code read; Tasks 9–12 come from driving the flow on `pantas_pixel` on 2026-07-25. Two emulator findings were folded into existing tasks rather than given their own: the emblem column breaking (Task 3) and the dead Settings rows rendering chevrons (Tasks 5–6). Two more were resolved outside this plan — the contentless roster exams now ship `isActive: false`, which also settles the complaint that alphabetical sorting buried CSE Pro and UPCAT among them.
 
 ---
 
@@ -306,7 +312,9 @@ git commit -m "fix(onboarding): keep the age-gate wheel and its accepted year in
 - Create: `lib/core/ui/components/exam_selection_row.dart`
 - Modify: `lib/features/onboarding/presentation/onboarding_picker_step.dart`
 
-Pure refactor, no behaviour change: Task 4 needs this row inside `features/settings/`, and R2 forbids importing it from `features/onboarding/`. `core/ui/` is the only legal shared home, and the row imports nothing but `core/storage/domain/exam.dart` and theme tokens, so R1 and R3 are satisfied.
+Task 4 needs this row inside `features/settings/`, and R2 forbids importing it from `features/onboarding/`. `core/ui/` is the only legal shared home, and the row imports nothing but `core/storage/domain/exam.dart` and theme tokens, so R1 and R3 are satisfied.
+
+Not a pure lift: the emulator pass showed the emblem column breaking. At `width: 56` every code over about five characters wrapped mid-word — `CSE_PRO` rendered as "CSE_P / RO", `DLSUCET` as "DLSUC / ET", `PUPCET` as "PUPCE / T". Only ACET, UPCAT and USTET fitted. The component below therefore widens the column and switches from `exam.code` to `exam.shortName`, which is already in the schema and holds the human form ("CSE Pro" rather than "CSE_PRO"). The 96px width is a starting point — check it on device against the longest shortName before calling the task done.
 
 **Interfaces:**
 - Produces: `ExamSelectionRow({required Exam exam, required bool selected, required VoidCallback onTap, Key? key})`. Task 4 consumes exactly this.
@@ -363,9 +371,15 @@ class ExamSelectionRow extends StatelessWidget {
         child: Row(
           children: [
             SizedBox(
-              width: 56,
+              width: 96,
               child: Text(
-                exam.code,
+                // shortName, not code: `code` is a raw identifier that renders
+                // as CSE_PRO / CSE_SUB, and at 56px anything over ~5 characters
+                // wrapped mid-word — DLSUCET became "DLSUC / ET". Ellipsis
+                // rather than wrap so a long name degrades on one line.
+                exam.shortName,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 style: styles.headlineSmall.copyWith(
                   color: selected ? colors.board : colors.inkMuted,
                 ),
@@ -419,10 +433,30 @@ And change the `itemBuilder` body from `_ExamRow(` to `ExamSelectionRow(`:
                     },
 ```
 
-- [ ] **Step 3: Run the picker tests — they must pass unchanged**
+- [ ] **Step 3: Run the picker tests**
 
 Run: `flutter test test/features/onboarding/presentation/onboarding_picker_step_test.dart`
-Expected: all tests pass with no edits. That is the point of a pure refactor — the existing suite is the regression check.
+Expected: all tests pass with no edits. The fixtures seed `shortName` equal to `code` (`shortName: 'CSE'`, `shortName: 'UPCAT'`), so the emblem assertions hold through the `code` → `shortName` switch.
+
+That equality is also why the existing suite never caught the wrapping. Add a case that separates the two, so a regression to `exam.code` fails:
+
+```dart
+  testWidgets('emblem shows the human short name, not the raw code',
+      (tester) async {
+    await db.into(db.exams).insert(ExamsCompanion.insert(
+          id: 'cse_pro',
+          code: 'CSE_PRO',
+          name: 'Civil Service Examination — Professional',
+          shortName: 'CSE Pro',
+          language: 'en',
+        ));
+
+    await pumpStep(tester);
+
+    expect(find.text('CSE Pro'), findsOneWidget);
+    expect(find.text('CSE_PRO'), findsNothing);
+  });
+```
 
 - [ ] **Step 4: Check layering and analyze**
 
@@ -732,7 +766,7 @@ git commit -m "feat(settings): let users switch exams after onboarding"
 - Modify: `lib/features/settings/presentation/settings_home_page.dart:61-71`
 - Test: `test/features/settings/presentation/settings_pickers_test.dart`
 
-The row renders `'Not set'` and its `onTap` is `() {}` when notifications are permitted. Everything behind it already exists and is already tested: `SettingsActions.saveReminderTime(SettingsTime)` writes the preference *and* schedules the notification through `notificationServiceProvider` (`settings_providers.dart`), covered by `test/features/settings/application/settings_actions_test.dart`. Only the picker is missing.
+The row renders `'Not set'` and its `onTap` is `() {}` when notifications are permitted. Note what the emulator pass showed: because `() {}` is non-null, `SettingsRow` renders its `chevron_right`, so the row actively advertises navigation and then does nothing. Same for `Exam date` (Task 6) and `Send feedback`, which has no owner in this plan — either wire it or drop its `onTap` so the chevron disappears. Everything behind it already exists and is already tested: `SettingsActions.saveReminderTime(SettingsTime)` writes the preference *and* schedules the notification through `notificationServiceProvider` (`settings_providers.dart`), covered by `test/features/settings/application/settings_actions_test.dart`. Only the picker is missing.
 
 This is also where the reminder time belongs. The paywall spec proposed collecting it as an onboarding step; the notifications spec instead specified the single rationale page that actually shipped. Settings wins because asking a user to choose a study time before they have ever studied is asking for a decision made with no information, at the moment abandonment is most expensive. Task 7 records that resolution in the specs.
 
@@ -1017,7 +1051,261 @@ git commit -m "chore: drop empty auth_flow scaffolding"
 
 ---
 
-## Task 9: Verification
+## Task 9: Age-gate wheel presentation
+
+**Files:**
+- Modify: `lib/features/onboarding/presentation/onboarding_age_gate_step.dart`
+
+Three presentation findings from the emulator pass, all in one screen, so they land together.
+
+**a. The selection band is a grey pill.** `CupertinoPicker` draws `CupertinoPickerDefaultSelectionOverlay` by default — a light-grey rounded rectangle. That is precisely the pill shape the Ink & Rule sweep hunted and replaced everywhere else, and it is the only one left in the flow.
+
+**b. The wheel is stranded.** `Expanded` hands it the entire middle of the screen, leaving roughly 350 device pixels of blank space between "When were you born?" and the first year.
+
+**c. The block state mixes alignment.** Its headline is left-aligned while "Try a different year" centres itself, because `BoardButton(secondary: true)` centres its label. Reads accidental rather than composed.
+
+- [ ] **Step 1: Replace the overlay and cap the wheel height**
+
+In `_buildInput`, replace the `Expanded`-wrapped picker with a fixed-height box and hairline rules:
+
+```dart
+            SizedBox(
+              height: 224,
+              child: CupertinoPicker(
+                itemExtent: 32,
+                scrollController: _wheel,
+                selectionOverlay: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(height: AppDimensions.hairline, color: colors.rule),
+                    Container(height: AppDimensions.hairline, color: colors.rule),
+                  ],
+                ),
+                onSelectedItemChanged: (i) =>
+                    setState(() => _selectedYear = _years[i]),
+                children: [
+                  for (final y in _years) Center(child: Text('$y')),
+                ],
+              ),
+            ),
+            const Spacer(),
+```
+
+Add the import if absent:
+
+```dart
+import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
+```
+
+224 is seven rows at the 32px item extent — enough context above and below the selection without the wheel floating in the middle of the page. The trailing `Spacer` keeps `Continue` pinned to the bottom now that the picker no longer expands.
+
+- [ ] **Step 2: Left-align the block state's action**
+
+In `_buildBlocked`, wrap the button so it sits under the headline's left edge rather than centring:
+
+```dart
+            Align(
+              alignment: Alignment.centerLeft,
+              child: BoardButton(
+                label: 'Try a different year',
+                secondary: true,
+                onPressed: _resumeInput,
+              ),
+            ),
+```
+
+- [ ] **Step 3: Verify the existing age-gate tests still pass**
+
+Run: `flutter test test/features/onboarding/presentation/onboarding_age_gate_step_test.dart`
+Expected: 6 tests pass. The drag offsets in those tests are computed from `itemExtent`, which is unchanged, so a fixed height does not affect them.
+
+- [ ] **Step 4: Commit**
+
+```bash
+git add lib/features/onboarding/presentation/onboarding_age_gate_step.dart
+git commit -m "onboarding: give the age-gate wheel an Ink & Rule selection band"
+```
+
+---
+
+## Task 10: Rename the app to Pantas
+
+**Files:**
+- Modify: `android/app/build.gradle.kts:38,44,49`
+
+The app still calls itself "CSE/CET Reviewer". It surfaces inside onboarding at the worst possible moment: the OS notification permission dialog, the one screen in the flow where the system speaks on the app's behalf, reads "Allow **CSE/CET Reviewer Dev** to send you notifications?" The same string is the launcher label.
+
+- [ ] **Step 1: Set the display name per flavor**
+
+In `android/app/build.gradle.kts`, replace the three `resValue` lines:
+
+```kotlin
+            resValue("string", "app_name", "Pantas Dev")
+            resValue("string", "app_name", "Pantas Staging")
+            resValue("string", "app_name", "Pantas")
+```
+
+They sit in the `dev`, `staging`, and `prod` blocks respectively — keep each in its own block.
+
+- [ ] **Step 2: Check for other spellings of the old name**
+
+Run: `grep -rn "CSE/CET Reviewer" android ios lib --include=* 2>/dev/null`
+Expected: no hits outside generated build output. If iOS carries a `CFBundleDisplayName`, set it to `Pantas` too.
+
+Note: the Dart package is still `cse_cet_reviewer`, and every import in the codebase depends on that name. Renaming the package is a separate, far larger change — out of scope here. This task changes only what users see.
+
+- [ ] **Step 3: Verify on device**
+
+Rebuild and confirm the launcher label and the notification permission dialog both read "Pantas Dev". This one needs eyes on the screen — hand it over rather than asserting it.
+
+- [ ] **Step 4: Commit**
+
+```bash
+git add android/app/build.gradle.kts
+git commit -m "chore(android): show the app as Pantas, not CSE/CET Reviewer"
+```
+
+---
+
+## Task 11: One vertical rhythm across the onboarding steps
+
+**Files:**
+- Modify: `lib/features/onboarding/presentation/onboarding_welcome_step.dart`
+- Modify: `lib/features/notifications/presentation/permission_rationale_page.dart`
+
+The flow now has four screens and three different vertical rhythms:
+
+- Welcome floats its text near the middle, between two `Spacer`s.
+- Age gate and picker are top-aligned, headline at a consistent height.
+- The rationale page centres everything inside a 420px `ConstrainedBox`.
+
+The design spec asks for "the same top padding and header style so transitions feel like steps inside one flow, not three different screens" — screens 1 and 4 both break it. Align both to the age-gate/picker rhythm, which is the majority and the one the spec describes.
+
+- [ ] **Step 1: Top-align the welcome step**
+
+In `onboarding_welcome_step.dart`, replace the leading `const Spacer()` with the same fixed lead-in the other steps use, keeping the trailing `Spacer` so the CTA stays pinned:
+
+```dart
+          children: [
+            const SizedBox(height: 24),
+            Text('Build your study plan', style: styles.displaySmall),
+            const SizedBox(height: 10),
+            Text(
+              "Pick your exam — we'll guide what to study first.",
+              style: styles.bodyLarge.copyWith(color: colors.inkMuted),
+            ),
+            const Spacer(),
+            BoardButton(label: 'Get started', onPressed: onAdvance),
+          ],
+```
+
+- [ ] **Step 2: Top-align the rationale page**
+
+In `permission_rationale_page.dart`, drop the `Center` + `ConstrainedBox(maxWidth: 420)` wrapper and use the step layout:
+
+```dart
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const SizedBox(height: 24),
+              Text("I'll be your coach.", style: styles.displaySmall),
+              const SizedBox(height: 16),
+              Text(
+                'Get one daily study reminder and a streak-save warning '
+                'when you still have work left today.',
+                style: styles.bodyLarge.copyWith(color: colors.inkMuted),
+              ),
+              const Spacer(),
+              BoardButton(
+                label: 'Sounds good',
+                onPressed:
+                    _isSaving ? null : () => _continue(requestPermission: true),
+              ),
+              const SizedBox(height: 8),
+              BoardButton(
+                label: 'Not right now',
+                secondary: true,
+                onPressed:
+                    _isSaving ? null : () => _continue(requestPermission: false),
+              ),
+            ],
+          ),
+        ),
+      ),
+```
+
+- [ ] **Step 3: Run the affected tests**
+
+Run: `flutter test test/features/onboarding test/features/notifications`
+Expected: all pass. Both edits are layout-only; the copy and callbacks are unchanged, so text-finder assertions still hold.
+
+- [ ] **Step 4: Commit**
+
+```bash
+git add lib/features/onboarding/presentation/onboarding_welcome_step.dart lib/features/notifications/presentation/permission_rationale_page.dart
+git commit -m "onboarding: give every step the same vertical rhythm"
+```
+
+---
+
+## Task 12: Stop Welcome and Home sharing a headline
+
+**Files:**
+- Modify: `lib/features/onboarding/presentation/onboarding_welcome_step.dart`
+- Modify: `test/features/onboarding/presentation/onboarding_welcome_step_test.dart`
+
+Welcome reads "Build your study plan"; Home, reached moments later, reads "Build your study plan". The design spec asked for that echo deliberately, so users "feel one continuous narrative" — but in sequence it reads as though the flow never advanced. Onboarding is also the only place a wordmark could plausibly live, and the app currently never says "Pantas" anywhere in the flow.
+
+**This one is a copy decision, so treat the strings below as a proposal rather than a settled requirement.** The structure is what matters; swap the words freely.
+
+- [ ] **Step 1: Update the copy and add the wordmark**
+
+```dart
+          children: [
+            const SizedBox(height: 24),
+            Text('Pantas', style: styles.displaySmall),
+            const SizedBox(height: 10),
+            Text(
+              'Pass your exam with a plan, not a pile of practice tests.',
+              style: styles.bodyLarge.copyWith(color: colors.inkMuted),
+            ),
+            const Spacer(),
+            BoardButton(label: 'Get started', onPressed: onAdvance),
+          ],
+```
+
+- [ ] **Step 2: Update the widget test**
+
+In `onboarding_welcome_step_test.dart`, replace the two headline/subtitle expectations:
+
+```dart
+    expect(find.text('Pantas'), findsOneWidget);
+    expect(
+      find.text('Pass your exam with a plan, not a pile of practice tests.'),
+      findsOneWidget,
+    );
+```
+
+- [ ] **Step 3: Update the redirect test that asserts the welcome headline**
+
+`test/app/router_redirect_test.dart` asserts `find.text('Build your study plan')` to prove the app booted into onboarding. That string now belongs to Home only, so the assertion would pass for the wrong reason. Change it to `find.text('Pantas')`.
+
+Run: `flutter test test/app/router_redirect_test.dart test/features/onboarding`
+Expected: all pass.
+
+- [ ] **Step 4: Commit**
+
+```bash
+git add lib/features/onboarding/presentation/onboarding_welcome_step.dart test/features/onboarding/presentation/onboarding_welcome_step_test.dart test/app/router_redirect_test.dart
+git commit -m "onboarding: give the welcome step its own headline"
+```
+
+---
+
+## Task 13: Verification
 
 **Files:** none — verification only.
 
@@ -1045,10 +1333,14 @@ Note: `test/core/storage/data/seeder_test.dart` fails against the throwaway dev 
 
 - [ ] **Step 5: Manual smoke on the emulator**
 
+Double-click `tools/onboarding-rebuild.command`, or:
+
 ```bash
-adb shell pm clear com.pantas.app.dev
+adb shell pm clear com.aerol.csecet.dev
 flutter run --flavor dev -t lib/main_dev.dart
 ```
+
+For repeat passes without a rebuild, use `tools/onboarding-restart.command`.
 
 Verify, on `pantas_pixel`:
 - Welcome → Get started → Quick check.
@@ -1077,6 +1369,18 @@ Verify, on `pantas_pixel`:
 - Exam-date onboarding step — deliberately not built; the provisional-then-confirm design the study plan spec already anticipates is served by Task 6.
 - Plan-set celebration + soft trial mention — deliberately not built; blocked on UI-003, recorded in Task 7 Step 4.
 - Empty `auth_flow/` — Task 8.
+
+**Coverage of the emulator pass (2026-07-25):**
+
+- Emblem codes wrapping mid-word; `code` shown instead of `shortName` — Task 3.
+- Dead Settings rows rendering chevrons, including `Send feedback` — Tasks 5–6.
+- `CupertinoPicker`'s grey pill selection band — Task 9a.
+- Wheel stranded in the middle of the screen — Task 9b.
+- Block-state alignment mismatch — Task 9c.
+- App still named "CSE/CET Reviewer" in the OS permission dialog and launcher — Task 10.
+- Four screens, three vertical rhythms — Task 11.
+- Welcome and Home sharing a headline; no wordmark anywhere — Task 12.
+- Contentless roster exams, and alphabetical sort burying the real ones — resolved outside this plan (`isActive: false`, commit `434c230`).
 
 **Placeholder scan:** none. Every code step carries complete, runnable code; every command has an expected result.
 
