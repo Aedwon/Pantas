@@ -15,6 +15,60 @@ import 'package:yaml/yaml.dart';
 const _examId = 'exam_upcat';
 const _keepExamId = 'exam_cse_pro';
 
+// The post-launch expansion roster from the foundation spec §1.2, carried in
+// the dev seed so exam-list surfaces have realistic data to hold. They ship
+// `isActive: false` because nothing is authored behind them — selecting one
+// would land on an app with no subjects, topics, questions, or lessons. This
+// mirrors production, where an exam goes active only when its content pack
+// does. Flip an entry to `true` to see it in the onboarding picker.
+const _rosterExams = <Map<String, Object?>>[
+  {
+    'id': 'exam_acet',
+    'code': 'ACET',
+    'name': 'Ateneo College Entrance Test',
+    'shortName': 'ACET',
+    'language': 'en',
+    'isActive': false,
+    'subjects': <Map<String, Object?>>[],
+  },
+  {
+    'id': 'exam_dlsucet',
+    'code': 'DLSUCET',
+    'name': 'De La Salle University College Admission Test',
+    'shortName': 'DLSUCET',
+    'language': 'en',
+    'isActive': false,
+    'subjects': <Map<String, Object?>>[],
+  },
+  {
+    'id': 'exam_ustet',
+    'code': 'USTET',
+    'name': 'UST Entrance Test',
+    'shortName': 'USTET',
+    'language': 'en',
+    'isActive': false,
+    'subjects': <Map<String, Object?>>[],
+  },
+  {
+    'id': 'exam_pupcet',
+    'code': 'PUPCET',
+    'name': 'PUP College Entrance Test',
+    'shortName': 'PUPCET',
+    'language': 'en',
+    'isActive': false,
+    'subjects': <Map<String, Object?>>[],
+  },
+  {
+    'id': 'exam_cse_sub',
+    'code': 'CSE_SUB',
+    'name': 'Civil Service Examination — Subprofessional',
+    'shortName': 'CSE Sub',
+    'language': 'en',
+    'isActive': false,
+    'subjects': <Map<String, Object?>>[],
+  },
+];
+
 void main() {
   final outline = jsonDecode(
     File('tools/lesson_author/outline.json').readAsStringSync(),
@@ -104,6 +158,7 @@ void main() {
         'isActive': true,
         'subjects': subjects,
       },
+      ..._rosterExams,
     ],
     'topics': [...keptTopics, ...topics],
     'questions': [...keptQuestions, ...questions],
