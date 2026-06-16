@@ -19,16 +19,27 @@ class AssessmentQuestionSelector {
     final topics = await _content.topicsByExam(examId);
     if (topics.isEmpty) return [];
 
-    final questionsPerTopic =
-        math.max(1, math.min(3, _maxQuestions ~/ topics.length));
-    final buckets = <List<AssessmentQuestion>>[];
-
+    // Gather before budgeting: a topic with no authored questions cannot
+    // contribute, so counting it would shrink every other topic's share. An
+    // exam with 18 topics but questions in only 7 used to yield a 7-question
+    // assessment — one per contributing topic — which is too coarse to grade
+    // mastery from.
+    final contributing = <({TopicId topicId, List<Question> questions})>[];
     for (final topic in topics) {
       final questions = await _content.questionsByTopic(topic.id);
-      if (questions.isEmpty) continue;
+      if (questions.isNotEmpty) {
+        contributing.add((topicId: topic.id, questions: questions));
+      }
+    }
+    if (contributing.isEmpty) return [];
 
+    final questionsPerTopic =
+        math.max(1, math.min(3, _maxQuestions ~/ contributing.length));
+    final buckets = <List<AssessmentQuestion>>[];
+
+    for (final topic in contributing) {
       final scored = <(double, Question)>[];
-      for (final q in questions) {
+      for (final q in topic.questions) {
         final rs = await _reviewRepo.byQuestionId(q.id);
         final score = (rs == null || rs.stage == ReviewStage.newCard)
             ? 0.0
@@ -39,7 +50,9 @@ class AssessmentQuestionSelector {
 
       final picked = scored
           .take(questionsPerTopic)
-          .map((s) => AssessmentQuestion(question: s.$2, topicId: topic.id))
+          .map(
+            (s) => AssessmentQuestion(question: s.$2, topicId: topic.topicId),
+          )
           .toList();
       if (picked.isNotEmpty) buckets.add(picked);
     }

@@ -150,6 +150,40 @@ void main() {
     expect(questions, isEmpty);
   });
 
+  test('topics with no questions do not shrink the per-topic budget', () async {
+    // Mirrors the dev seed: an exam with many topics where only a few have
+    // authored questions. Budgeting off the full topic count collapsed the
+    // assessment to one question per contributing topic.
+    await db.into(db.subjects).insert(
+          SubjectsCompanion.insert(
+            id: 's_empty',
+            examId: 'e1',
+            name: 'Unauthored',
+            ordering: 3,
+          ),
+        );
+    for (var i = 1; i <= 16; i++) {
+      await db.into(db.topics).insert(
+            TopicsCompanion.insert(
+              id: 't_empty_$i',
+              subjectId: 's_empty',
+              name: 'Empty $i',
+              ordering: i,
+            ),
+          );
+    }
+    for (var i = 1; i <= 5; i++) {
+      await seedQuestion('q_t1_$i', 't1');
+      await seedQuestion('q_t2_$i', 't2');
+    }
+
+    final questions = await selector.select('e1');
+
+    expect(questions, hasLength(6));
+    expect(questions.where((q) => q.topicId == 't1'), hasLength(3));
+    expect(questions.where((q) => q.topicId == 't2'), hasLength(3));
+  });
+
   test('respects the 35-question cap when topic count exceeds 35', () async {
     await db.into(db.subjects).insert(
           SubjectsCompanion.insert(
