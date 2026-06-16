@@ -6,6 +6,14 @@
 // AppDatabase actually loads, for UI/UX work against real content.
 //
 // Usage: dart run tools/build_dev_seed/build_dev_seed.dart
+//
+// DO NOT COMMIT the assets/seed/v1.json this writes. That file is a shipping
+// asset — the app bundles it and seeds from it — and the committed version is
+// deliberately the small 2-subject demo seed. Two expectations in
+// test/core/storage/data/seeder_test.dart assert that shape, so committing the
+// generated seed turns the suite red and puts scaffolding content into the
+// build. Regenerate locally whenever you need it; discard with
+// `git checkout -- assets/seed/v1.json`.
 
 import 'dart:convert';
 import 'dart:io';
@@ -165,14 +173,16 @@ void main() {
     'lessons': [...keptLessons, ...lessons],
   };
 
-  File('assets/seed/v1.json')
-      .writeAsStringSync('${const JsonEncoder.withIndent('  ').convert(seed)}\n');
+  File('assets/seed/v1.json').writeAsStringSync(
+      '${const JsonEncoder.withIndent('  ').convert(seed)}\n');
 
   stdout.writeln('Wrote assets/seed/v1.json');
   stdout.writeln('  subjects:  ${subjects.length}');
   stdout.writeln('  topics:    ${topics.length}');
-  stdout.writeln('  questions: ${questions.length} (+${keptQuestions.length} kept)');
-  stdout.writeln('  lessons:   ${lessons.length} (+${keptLessons.length} kept)');
+  stdout.writeln(
+      '  questions: ${questions.length} (+${keptQuestions.length} kept)');
+  stdout
+      .writeln('  lessons:   ${lessons.length} (+${keptLessons.length} kept)');
 }
 
 String _underscore(String slug) => slug.replaceAll('-', '_');
@@ -195,7 +205,8 @@ List<Map<String, Object?>> _buildQuestions(Map<String, String> topicIdBySlug) {
       continue;
     }
     final examIds = [
-      for (final code in meta['exams'] as YamlList) 'exam_${_underscore('$code')}',
+      for (final code in meta['exams'] as YamlList)
+        'exam_${_underscore('$code')}',
     ];
 
     for (final raw in doc['questions'] as YamlList) {
@@ -241,7 +252,8 @@ List<Map<String, Object?>> _buildLessons(Map<String, String> topicIdBySlug) {
 
   for (final file in _filesUnder('content/lessons', '.md')) {
     final source = file.readAsStringSync();
-    final match = RegExp(r'^---\n(.*?)\n---\n', dotAll: true).firstMatch(source);
+    final match =
+        RegExp(r'^---\n(.*?)\n---\n', dotAll: true).firstMatch(source);
     if (match == null) {
       stderr.writeln('${file.path}: missing frontmatter');
       exitCode = 65;
