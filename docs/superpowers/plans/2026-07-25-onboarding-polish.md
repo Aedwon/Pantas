@@ -903,7 +903,7 @@ Onboarding is governed by nine documents and amended from inside two unrelated s
 Append to `docs/ui-audit.md`, in the `Findings surfaced while fixing the above` section:
 
 ```markdown
-### UI-008 [important] Age-gate retry showed a year it would not accept
+### UI-009 [important] Age-gate retry showed a year it would not accept
 
 `onboarding_age_gate_step.dart` anchored the year wheel to `currentYear - 18`
 on every fresh build. The under-13 block destroys the picker element, so
@@ -913,7 +913,7 @@ design spec (line 149) required the wheel to return showing the previously
 selected year. Fixed by anchoring on `_selectedYear` and giving the
 controller a real lifecycle instead of reallocating it on every scroll tick.
 
-### UI-009 [polish] Age-gate Continue was inert beside a valid year
+### UI-010 [polish] Age-gate Continue was inert beside a valid year
 
 `_yearSelected` started `false`, so the button did nothing until the wheel
 was scrolled — with a perfectly valid default year on screen and no hint
@@ -1066,8 +1066,8 @@ Verify, on `pantas_pixel`:
 
 **Coverage of the findings this plan came from:**
 
-- Age-gate retry desync (UI-008) — Task 1.
-- Age-gate dead Continue (UI-009) — Task 2.
+- Age-gate retry desync (UI-009) — Task 1.
+- Age-gate dead Continue (UI-010) — Task 2.
 - "Switch later in Settings" with no such surface — Tasks 3 + 4.
 - Dead `Daily reminder` row — Task 5.
 - Dead `Exam date` row — Task 6.

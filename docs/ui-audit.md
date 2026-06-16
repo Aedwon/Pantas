@@ -98,6 +98,24 @@ change. Pantas follows platform overscroll convention: stretch on Android,
 bounce on iOS. Do not add a `ScrollBehavior` or `ScrollPhysics` override to
 "fix" this; if it comes up again, it is working as intended.
 
+### UI-008 [polish] Assessment results appear with no sense of processing — OPEN
+
+Reported 2026-07-25, while answering the assessment on the emulator: the
+results screen arrives the instant the last question is answered. Nothing
+signals that the app weighed the answers, so the grading reads as
+instantaneous — and therefore as if nothing was computed.
+
+Wanted: a brief loading screen or animation between the final answer and the
+results, framing the moment as "we are working out where you stand." The
+computation itself is local and effectively instant, so this is deliberate
+pacing rather than a progress report — it should be honest about that (a short
+beat, not a fake multi-second progress bar).
+
+Note the sequencing constraint: this sits between `assessment_page` and
+`assessment_results_page`, which are joined by `pushReplacement` (see UI-001,
+so back does not re-enter a completed run). Any interstitial has to preserve
+that, or back-from-results starts landing on the loading screen.
+
 ---
 
 ## Findings surfaced while fixing the above
