@@ -134,7 +134,7 @@ Exams for all rows: `[upcat, acet, dlsucet, ustet, dost-sei]`.
 | [x] | `sentence-structure` | Sentence Structure (Simple, Compound, Complex, Compound-Complex) | `sentence-structure-classification` | `content/questions/language-proficiency/grammar-and-structure/sentence-structure.yaml` |
 | [x] | `modifiers` | Modifiers (Identifying Misplaced and Dangling Modifiers) | `modifier-placement` | `content/questions/language-proficiency/grammar-and-structure/modifiers.yaml` |
 | [x] | `parallelism` | Parallelism / Parallel Structure | `parallelism-correction` | `content/questions/language-proficiency/grammar-and-structure/parallelism.yaml` |
-| [ ] | `punctuation-and-capitalization` | Punctuation and Capitalization Rules | `punctuation` (add a few items specifically on capitalization rules, same archetype style) | `content/questions/language-proficiency/grammar-and-structure/punctuation-and-capitalization.yaml` |
+| [x] | `punctuation-and-capitalization` | Punctuation and Capitalization Rules | `punctuation` (add a few items specifically on capitalization rules, same archetype style) | `content/questions/language-proficiency/grammar-and-structure/punctuation-and-capitalization.yaml` |
 | [ ] | `redundancy-and-double-negatives` | Redundancy and Double Negatives | `redundancy-identification` | `content/questions/language-proficiency/grammar-and-structure/redundancy-and-double-negatives.yaml` |
 
 Note on `parts-of-speech` and `subject-verb-agreement`: both name a Filipino counterpart in their title ("Bahagi ng Pananalita," "Wastong Gamit ng Salita") — include some Filipino-language items, mirroring how the lesson itself teaches both languages.
