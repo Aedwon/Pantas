@@ -18,7 +18,17 @@ const toolDir = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(toolDir, '..', '..');
 const illusRoot = join(repoRoot, 'content', 'illustrations');
 const worklistPath = join(repoRoot, 'docs', 'content', 'illustrations', 'worklist.tsv');
+const questionFiguresWorklistPath = join(repoRoot, 'docs', 'content', 'question-figures', 'worklist.tsv');
 const downloadsDir = process.env.ILLUS_DOWNLOADS_DIR ?? join(homedir(), 'Downloads');
+
+if (!existsSync(join(toolDir, 'node_modules'))) {
+  console.log('First run: installing dependencies (yaml)...');
+  await new Promise((resolvePromise, reject) => {
+    const npm = spawn('npm', ['install', '--no-audit', '--no-fund'], { cwd: toolDir, stdio: 'inherit' });
+    npm.on('close', (code) => (code === 0 ? resolvePromise() : reject(new Error(`npm install failed (${code})`))));
+  });
+}
+const { scanQuestionFigures, worklistTsv } = await import('./question_figures.mjs');
 
 const IMAGE_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.heic', '.tiff', '.bmp']);
 const MAX_WIDTH = 1600;
@@ -59,15 +69,15 @@ function runPython() {
 }
 
 let items = [];
-async function loadWorklist() {
-  const raw = await readFile(worklistPath, 'utf8');
+
+function parseLessonWorklist(raw) {
   const lines = raw.trim().split('\n');
   const header = lines.shift().split('\t');
   const col = Object.fromEntries(header.map((h, i) => [h, i]));
-  items = lines.map((line, index) => {
+  return lines.map((line) => {
     const f = line.split('\t');
     return {
-      index,
+      kind: 'lesson',
       subject: f[col.subject],
       topic: f[col.topic],
       lesson: f[col.lesson],
@@ -77,6 +87,24 @@ async function loadWorklist() {
       description: f[col.description],
     };
   });
+}
+
+async function loadQuestionItems() {
+  const questionItems = await scanQuestionFigures(repoRoot);
+  const withStatus = questionItems.map((it) => ({
+    ...it,
+    status: existsSync(join(repoRoot, it.target)) ? 'done' : 'todo',
+  }));
+  await mkdir(dirname(questionFiguresWorklistPath), { recursive: true });
+  await writeFile(questionFiguresWorklistPath, worklistTsv(withStatus));
+  return questionItems;
+}
+
+async function loadWorklist() {
+  const raw = await readFile(worklistPath, 'utf8');
+  const lessonItems = parseLessonWorklist(raw);
+  const questionItems = await loadQuestionItems();
+  items = [...lessonItems, ...questionItems].map((it, index) => ({ ...it, index }));
 }
 
 function itemDone(item) {
@@ -310,6 +338,11 @@ const server = createServer(async (req, res) => {
     if (req.method === 'GET' && url.pathname === '/api/context') {
       const item = items[Number(url.searchParams.get('index'))];
       if (!item) return sendJson(res, 404, { error: 'Unknown item.' });
+      if (item.kind === 'question') {
+        return sendJson(res, 200, {
+          kind: 'question', stem: item.stem, choices: item.choices, explanation: item.explanation,
+        });
+      }
       return sendJson(res, 200, await markerContext(item));
     }
     if (req.method === 'GET' && url.pathname === '/api/downloads') {
@@ -358,7 +391,7 @@ server.on('error', (error) => {
   throw error;
 });
 
-console.log('Scanning lessons for ILLUSTRATION markers...');
+console.log('Scanning lessons and question figures...');
 await runPython();
 await loadWorklist();
 
