@@ -1,0 +1,230 @@
+meta:
+  subject: language-proficiency
+  topic: grammar-and-structure
+  subtopic: redundancy-and-double-negatives
+  exams: [ upcat, acet, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-grammar-and-structure-redundancy-and-double-negatives-0001
+    type: redundancy-identification
+    difficulty: easy
+    stem: |
+      Identify and fix the redundancy: "Please give us your honest and truthful opinion."
+    choices:
+      - text: Honest and truthful mean essentially the same thing, so using both is redundant; corrected, it should read "Please give us your honest opinion."
+        correct: true
+      - text: There is no error in this sentence.
+      - text: Give should be changed to "gives."
+      - text: The sentence needs a comma after "honest."
+    explanation: |
+      "Honest" and "truthful" mean essentially the same thing, so using both is redundant. Keeping only one of the two words fixes the error.
+    approved: true
+
+  - id: q-grammar-and-structure-redundancy-and-double-negatives-0002
+    type: redundancy-identification
+    difficulty: easy
+    stem: |
+      Identify and fix the error: "She doesn't want no help with the project."
+    choices:
+      - text: This is a double negative ("doesn't" and "no"); corrected, it should read "She doesn't want any help with the project."
+        correct: true
+      - text: There is no error in this sentence.
+      - text: Want should be changed to "wants."
+      - text: The sentence needs a comma after "help."
+    explanation: |
+      "Doesn't" and "no" are both negative words in the same clause, creating a double negative. Changing "no" to "any" fixes the error.
+    approved: true
+
+  - id: q-grammar-and-structure-redundancy-and-double-negatives-0003
+    type: redundancy-identification
+    difficulty: medium
+    stem: |
+      Choose the sentence without redundancy.
+    choices:
+      - text: The two of them collaborated on the mural.
+        correct: true
+      - text: The two of them collaborated together on the mural.
+      - text: Both sentences avoid redundancy.
+      - text: Neither sentence avoids redundancy.
+    explanation: |
+      "Collaborated" already means "worked together," so adding "together" repeats the same idea. The correct choice says the same thing without the unnecessary repetition.
+    approved: true
+
+  - id: q-grammar-and-structure-redundancy-and-double-negatives-0004
+    type: redundancy-identification
+    difficulty: medium
+    stem: |
+      Identify the error: "I can't hardly hear you from over here."
+    choices:
+      - text: This is a double negative ("can't" and "hardly," which means "almost not"); corrected, it should read "I can hardly hear you from over here."
+        correct: true
+      - text: There is no error in this sentence.
+      - text: Hear should be changed to "heard."
+      - text: The sentence needs a comma after "hardly."
+    explanation: |
+      "Can't" and "hardly" are both negative words, even though "hardly" does not look like an obvious negative at first glance. Using both together creates an unintended double negative.
+    approved: true
+
+  - id: q-grammar-and-structure-redundancy-and-double-negatives-0005
+    type: redundancy-identification
+    difficulty: medium
+    stem: |
+      Identify and fix the redundancy: "The committee finalized their advance planning for the event."
+    choices:
+      - text: Advance planning is redundant, since planning is inherently done ahead of time; corrected, it should read "The committee finalized their planning for the event."
+        correct: true
+      - text: There is no error in this sentence.
+      - text: Finalized should be changed to "finalizes."
+      - text: The sentence needs a comma after "planning."
+    explanation: |
+      "Planning" already implies preparing in advance, so "advance planning" repeats the same idea unnecessarily.
+    approved: true
+
+  - id: q-grammar-and-structure-redundancy-and-double-negatives-0006
+    type: redundancy-identification
+    difficulty: medium
+    stem: |
+      Identify and fix the error: "They didn't see nothing unusual that night."
+    choices:
+      - text: This is a double negative ("didn't" and "nothing"); corrected, it should read "They didn't see anything unusual that night."
+        correct: true
+      - text: There is no error in this sentence.
+      - text: See should be changed to "saw."
+      - text: The sentence needs a comma after "nothing."
+    explanation: |
+      "Didn't" and "nothing" are both negative words in the same clause, creating a double negative. Changing "nothing" to "anything" fixes the error.
+    approved: true
+
+  - id: q-grammar-and-structure-redundancy-and-double-negatives-0007
+    type: redundancy-identification
+    difficulty: medium
+    stem: |
+      Choose the sentence without redundancy.
+    choices:
+      - text: The outcome of the election surprised everyone.
+        correct: true
+      - text: The final outcome of the election surprised everyone.
+      - text: Both sentences avoid redundancy.
+      - text: Neither sentence avoids redundancy.
+    explanation: |
+      "Outcome" already means the final result, so adding "final" repeats the same idea. The correct choice avoids this unnecessary repetition.
+    approved: true
+
+  - id: q-grammar-and-structure-redundancy-and-double-negatives-0008
+    type: redundancy-identification
+    difficulty: medium
+    stem: |
+      Identify the error: "She hasn't barely started her homework yet."
+    choices:
+      - text: This is a double negative ("hasn't" and "barely"); corrected, it should read "She has barely started her homework yet."
+        correct: true
+      - text: There is no error in this sentence.
+      - text: Started should be changed to "starting."
+      - text: The sentence needs a comma after "barely."
+    explanation: |
+      "Hasn't" and "barely" are both negative words, since "barely" functions as a negative even though it does not contain "not" or "no."
+    approved: true
+
+  - id: q-grammar-and-structure-redundancy-and-double-negatives-0009
+    type: redundancy-identification
+    difficulty: hard
+    stem: |
+      A student sees "unexpected surprise" and assumes it is fine since both words individually make sense. Is "unexpected surprise" actually redundant?
+    choices:
+      - text: Yes — a surprise is by definition unexpected, so pairing the two words repeats the same idea, even though each word is perfectly normal on its own.
+        correct: true
+      - text: No — "unexpected" and "surprise" mean completely different things.
+      - text: No — redundancy only applies to verbs, not adjective-noun pairs.
+      - text: Yes — but only because "surprise" is used incorrectly here.
+    explanation: |
+      Check whether two words or phrases in the same sentence repeat the same idea, even if each one is a perfectly normal word by itself. "Unexpected surprise" pairs a word with another word that already implies its meaning.
+    approved: true
+
+  - id: q-grammar-and-structure-redundancy-and-double-negatives-0010
+    type: redundancy-identification
+    difficulty: hard
+    stem: |
+      A student does not recognize "scarcely" as a negative word, since it does not contain "not" or "no." In "He couldn't scarcely finish the race," is this a double negative?
+    choices:
+      - text: Yes — "scarcely" functions as a negative in standard grammar, even though it does not look like a typical negative word; combined with "couldn't," this creates a double negative.
+        correct: true
+      - text: No — "scarcely" is not a negative word at all.
+      - text: No — double negatives can only form using "not" and "no" specifically.
+      - text: Yes — but only because "race" implies a competitive context.
+    explanation: |
+      "Hardly," "barely," and "scarcely" function as negatives in standard grammar, even though they do not contain "not" or "no" directly. Pairing any of these with another negative word creates a double negative.
+    approved: true
+
+  - id: q-grammar-and-structure-redundancy-and-double-negatives-0011
+    type: redundancy-identification
+    difficulty: hard
+    stem: |
+      A student says "I don't have no time" sounds natural in casual conversation, so it must be grammatically correct on a formal exam. Is this reasoning correct?
+    choices:
+      - text: No — some double negatives sound natural in casual speech but are still grammatically flagged as errors on formal exams; the corrected form is "I don't have any time."
+        correct: true
+      - text: Yes — if a phrase sounds natural in speech, it is always grammatically correct.
+      - text: Yes — but only because "time" is an uncountable noun.
+      - text: No — but only because "don't" should be replaced with "doesn't."
+    explanation: |
+      Phrases like "I don't have no time" are common in relaxed conversation, but formal grammar exams expect the corrected, single-negative form.
+    approved: true
+
+  - id: q-grammar-and-structure-redundancy-and-double-negatives-0012
+    type: redundancy-identification
+    difficulty: medium
+    stem: |
+      Identify and fix the redundancy: "Please return back the library books by Friday."
+    choices:
+      - text: Return back is redundant, since returning already implies going back; corrected, it should read "Please return the library books by Friday."
+        correct: true
+      - text: There is no error in this sentence.
+      - text: Return should be changed to "returns."
+      - text: The sentence needs a comma after "back."
+    explanation: |
+      "Return" already implies going back, so "return back" repeats the same idea unnecessarily.
+    approved: true
+
+  - id: q-grammar-and-structure-redundancy-and-double-negatives-0013
+    type: redundancy-identification
+    difficulty: medium
+    stem: |
+      Identify and fix the redundancy: "Could you please repeat again what you just said?"
+    choices:
+      - text: Repeat again is redundant, since repeating already implies doing something again; corrected, it should read "Could you please repeat what you just said?"
+        correct: true
+      - text: There is no error in this sentence.
+      - text: Said should be changed to "say."
+      - text: The sentence needs a comma after "repeat."
+    explanation: |
+      "Repeat" already implies doing something again, so "repeat again" repeats the same idea unnecessarily.
+    approved: true
+
+  - id: q-grammar-and-structure-redundancy-and-double-negatives-0014
+    type: redundancy-identification
+    difficulty: medium
+    stem: |
+      Identify and fix the error: "There isn't nobody at the office right now."
+    choices:
+      - text: This is a double negative ("isn't" and "nobody"); corrected, it should read "There isn't anybody at the office right now."
+        correct: true
+      - text: There is no error in this sentence.
+      - text: Office should be changed to "offices."
+      - text: The sentence needs a comma after "nobody."
+    explanation: |
+      "Isn't" and "nobody" are both negative words in the same clause, creating a double negative. Changing "nobody" to "anybody" fixes the error.
+    approved: true
+
+  - id: q-grammar-and-structure-redundancy-and-double-negatives-0015
+    type: redundancy-identification
+    difficulty: exam
+    stem: |
+      Identify and fix all redundancy and double negative errors: "The final outcome wasn't hardly surprising, since the advance planning for the event had already predicted the same exact result."
+    choices:
+      - text: Corrected, it should read "The outcome wasn't surprising, since the planning for the event had already predicted the same result."
+        correct: true
+      - text: There are no errors in this sentence.
+      - text: Only the double negative ("wasn't hardly") needs fixing; the redundancies are fine as written.
+      - text: Only the redundancies need fixing; the double negative is fine as written.
+    explanation: |
+      Multiple errors are hidden here: "final outcome" is redundant (outcome already means final result), "wasn't hardly" is a double negative, "advance planning" is redundant (planning is inherently done ahead of time), and "same exact" is redundant (same already means exact).
+    approved: true
