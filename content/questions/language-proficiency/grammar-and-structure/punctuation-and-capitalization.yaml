@@ -1,0 +1,305 @@
+meta:
+  subject: language-proficiency
+  topic: grammar-and-structure
+  subtopic: punctuation-and-capitalization
+  exams: [ upcat, acet, dlsucet, ustet, dost-sei ]
+questions:
+  - id: q-grammar-and-structure-punctuation-and-capitalization-0001
+    type: punctuation
+    difficulty: easy
+    stem: |
+      Identify and fix the error: "The concert was amazing, everyone stayed until the end."
+    choices:
+      - text: This is a comma splice — two independent clauses joined by only a comma; corrected, it should read "The concert was amazing, so everyone stayed until the end."
+        correct: true
+      - text: There is no error in this sentence.
+      - text: The sentence needs quotation marks around "amazing."
+      - text: Amazing should be changed to "amazed."
+    explanation: |
+      Two independent clauses ("The concert was amazing" and "everyone stayed until the end") are joined by only a comma — this is a comma splice, fixable with a coordinating conjunction, a semicolon, or a period.
+    approved: true
+
+  - id: q-grammar-and-structure-punctuation-and-capitalization-0002
+    type: punctuation
+    difficulty: easy
+    stem: |
+      Choose the correct word: The company announced ______ new product line yesterday.
+    choices:
+      - text: Its
+        correct: true
+      - text: It's
+      - text: Its'
+      - text: Their
+    explanation: |
+      The sentence needs a word showing possession (the product line belonging to the company), not a contraction — "its" (no apostrophe) is correct.
+    approved: true
+
+  - id: q-grammar-and-structure-punctuation-and-capitalization-0003
+    type: punctuation
+    difficulty: medium
+    stem: |
+      Choose the correctly punctuated sentence.
+    choices:
+      - text: She loves reading; she visits the library every weekend.
+        correct: true
+      - text: She wanted to travel; because she loved adventure.
+      - text: Both sentences are correctly punctuated.
+      - text: Neither sentence is correctly punctuated.
+    explanation: |
+      Both "she loves reading" and "she visits the library every weekend" are independent clauses, correctly joined by a semicolon. In the other sentence, "because she loved adventure" is a dependent clause, which a semicolon should not join.
+    approved: true
+
+  - id: q-grammar-and-structure-punctuation-and-capitalization-0004
+    type: punctuation
+    difficulty: medium
+    stem: |
+      Choose the correctly capitalized sentence.
+    choices:
+      - text: We met President Reyes of the company yesterday.
+        correct: true
+      - text: We met the President of the company yesterday.
+      - text: Both sentences are correctly capitalized.
+      - text: Neither sentence is correctly capitalized.
+    explanation: |
+      "President" is capitalized correctly here because it comes directly before the specific name "Reyes." In the other sentence, "president" is used generally, so it should be lowercase.
+    approved: true
+
+  - id: q-grammar-and-structure-punctuation-and-capitalization-0005
+    type: punctuation
+    difficulty: medium
+    stem: |
+      Choose the correctly punctuated sentence.
+    choices:
+      - text: I bought apples, bananas, and oranges.
+        correct: true
+      - text: I bought apples bananas and oranges.
+      - text: I bought, apples, bananas, and oranges.
+      - text: I bought apples, bananas and, oranges.
+    explanation: |
+      Commas separate each item in a list of three or more, placed correctly between "apples," "bananas," and "oranges."
+    approved: true
+
+  - id: q-grammar-and-structure-punctuation-and-capitalization-0006
+    type: punctuation
+    difficulty: medium
+    stem: |
+      Choose the correctly punctuated sentence.
+    choices:
+      - text: She studied hard, and she passed the exam.
+        correct: true
+      - text: She studied hard and, she passed the exam.
+      - text: She studied hard and she, passed the exam.
+      - text: She studied, hard and she passed the exam.
+    explanation: |
+      A comma correctly comes before the coordinating conjunction "and" when it joins two independent clauses.
+    approved: true
+
+  - id: q-grammar-and-structure-punctuation-and-capitalization-0007
+    type: punctuation
+    difficulty: medium
+    stem: |
+      Choose the correctly punctuated sentence.
+    choices:
+      - text: After the meeting, we went home.
+        correct: true
+      - text: After the meeting we, went home.
+      - text: After, the meeting we went home.
+      - text: After the meeting we went, home.
+    explanation: |
+      A comma correctly follows the introductory phrase "After the meeting" before the independent clause begins.
+    approved: true
+
+  - id: q-grammar-and-structure-punctuation-and-capitalization-0008
+    type: punctuation
+    difficulty: medium
+    stem: |
+      Choose the correctly punctuated sentence.
+    choices:
+      - text: My brother, who lives in Cebu, is visiting this week.
+        correct: true
+      - text: My brother who lives in Cebu is visiting this week.
+      - text: My brother, who lives in Cebu is, visiting this week.
+      - text: My brother who, lives in Cebu, is visiting this week.
+    explanation: |
+      Commas correctly set off the non-essential information "who lives in Cebu," which could be removed without changing the sentence's core meaning.
+    approved: true
+
+  - id: q-grammar-and-structure-punctuation-and-capitalization-0009
+    type: punctuation
+    difficulty: medium
+    stem: |
+      Choose the correctly punctuated sentence.
+    choices:
+      - text: We visited Manila, Philippines; Tokyo, Japan; and Seoul, Korea.
+        correct: true
+      - text: We visited Manila, Philippines, Tokyo, Japan, and Seoul, Korea.
+      - text: We visited Manila; Philippines, Tokyo; Japan, and Seoul; Korea.
+      - text: We visited Manila Philippines; Tokyo Japan; and Seoul Korea.
+    explanation: |
+      Semicolons correctly separate the list items here, since each item ("Manila, Philippines," "Tokyo, Japan," "Seoul, Korea") already contains a comma.
+    approved: true
+
+  - id: q-grammar-and-structure-punctuation-and-capitalization-0010
+    type: punctuation
+    difficulty: medium
+    stem: |
+      Choose the sentence that correctly shows possession.
+    choices:
+      - text: Maria's book was left on the table.
+        correct: true
+      - text: Marias book was left on the table.
+      - text: Marias' book was left on the table.
+      - text: Maria's' book was left on the table.
+    explanation: |
+      An apostrophe followed by "s" ("Maria's") correctly shows that the book belongs to Maria.
+    approved: true
+
+  - id: q-grammar-and-structure-punctuation-and-capitalization-0011
+    type: punctuation
+    difficulty: medium
+    stem: |
+      Choose the sentence with the correctly punctuated contraction.
+    choices:
+      - text: I don't want to go outside today.
+        correct: true
+      - text: I dont want to go outside today.
+      - text: I do'nt want to go outside today.
+      - text: I don't' want to go outside today.
+    explanation: |
+      The apostrophe in "don't" correctly marks the omitted letter from "do not."
+    approved: true
+
+  - id: q-grammar-and-structure-punctuation-and-capitalization-0012
+    type: punctuation
+    difficulty: medium
+    stem: |
+      Choose the correctly capitalized sentence.
+    choices:
+      - text: We visited Manila last summer.
+        correct: true
+      - text: We visited manila last summer.
+      - text: we visited Manila last summer.
+      - text: We Visited manila last summer.
+    explanation: |
+      "Manila" is a proper noun (a specific place name) and must be capitalized; the sentence's first word must also be capitalized.
+    approved: true
+
+  - id: q-grammar-and-structure-punctuation-and-capitalization-0013
+    type: punctuation
+    difficulty: medium
+    stem: |
+      Choose the correctly capitalized sentence.
+    choices:
+      - text: She said, "Please close the door."
+        correct: true
+      - text: She said, "please close the door."
+      - text: she said, "Please close the door."
+      - text: She said, "Please Close The Door."
+    explanation: |
+      The first word of a direct quotation ("Please") must be capitalized, along with the first word of the sentence itself ("She"); the remaining words in the quotation stay lowercase unless they are proper nouns.
+    approved: true
+
+  - id: q-grammar-and-structure-punctuation-and-capitalization-0014
+    type: punctuation
+    difficulty: hard
+    stem: |
+      A student reads "She finished her homework, she went to bed" and does not notice any error. Is this correctly punctuated?
+    choices:
+      - text: No — this is a comma splice; two independent clauses joined by only a comma need a conjunction, semicolon, or period instead.
+        correct: true
+      - text: Yes — a comma alone is always sufficient to join two independent clauses.
+      - text: Yes — but only because "homework" and "bed" are both nouns.
+      - text: No — but only because "finished" is the wrong verb tense.
+    explanation: |
+      Two independent clauses joined by only a comma, with no conjunction, is a comma splice error — one of the most common punctuation mistakes tested on exams.
+    approved: true
+
+  - id: q-grammar-and-structure-punctuation-and-capitalization-0015
+    type: punctuation
+    difficulty: hard
+    stem: |
+      A student writes "The dog wagged it's tail happily," assuming "it's" shows possession here. Is this correct?
+    choices:
+      - text: No — "its" (no apostrophe) is the possessive form needed here; "it's" is a contraction for "it is" or "it has," which does not make sense in this sentence.
+        correct: true
+      - text: Yes — "it's" always shows possession.
+      - text: Yes — but only because "tail" is a body part.
+      - text: No — but only because dogs cannot possess anything grammatically.
+    explanation: |
+      "Its" (no apostrophe) shows possession. "It's" (with apostrophe) is a contraction for "it is" or "it has" — one of the most frequently tested punctuation confusions.
+    approved: true
+
+  - id: q-grammar-and-structure-punctuation-and-capitalization-0016
+    type: punctuation
+    difficulty: hard
+    stem: |
+      A student writes "She wanted to travel; because she loved adventure," using a semicolon before "because." Is this correct?
+    choices:
+      - text: No — a semicolon should only connect two independent clauses; "because she loved adventure" is a dependent clause and cannot stand alone, so a comma should be used instead.
+        correct: true
+      - text: Yes — semicolons can connect any two clauses, independent or dependent.
+      - text: Yes — but only because "adventure" is a sufficiently strong word to justify a semicolon.
+      - text: No — but only because the sentence should have no punctuation at all before "because."
+    explanation: |
+      A semicolon should only connect two independent clauses, each capable of standing alone as its own sentence. "Because she loved adventure" cannot stand alone.
+    approved: true
+
+  - id: q-grammar-and-structure-punctuation-and-capitalization-0017
+    type: punctuation
+    difficulty: hard
+    stem: |
+      A student capitalizes "We met the President yesterday," using "President" generally without a specific name attached. Is this correct?
+    choices:
+      - text: No — capitalize a title only when it comes directly before a specific person's name; used generally without a name, it should be lowercase, "We met the president yesterday."
+        correct: true
+      - text: Yes — "President" should always be capitalized regardless of context.
+      - text: Yes — but only because the meeting described was a formal occasion.
+      - text: No — but only because "President" is not actually considered a title.
+    explanation: |
+      Capitalize a title only when it comes directly before a specific person's name. Used generally, without a name attached, it should stay lowercase.
+    approved: true
+
+  - id: q-grammar-and-structure-punctuation-and-capitalization-0018
+    type: punctuation
+    difficulty: medium
+    stem: |
+      Identify and fix the error: "The bakery sells fresh bread, the pastries are also delicious."
+    choices:
+      - text: This is a comma splice; corrected, it should read "The bakery sells fresh bread, and the pastries are also delicious."
+        correct: true
+      - text: There is no error in this sentence.
+      - text: The sentence needs quotation marks around "fresh bread."
+      - text: Sells should be changed to "sell."
+    explanation: |
+      Two independent clauses ("The bakery sells fresh bread" and "the pastries are also delicious") are joined by only a comma — a comma splice, fixable by adding "and."
+    approved: true
+
+  - id: q-grammar-and-structure-punctuation-and-capitalization-0019
+    type: punctuation
+    difficulty: medium
+    stem: |
+      Which of these two sentences correctly uses a semicolon instead of a comma splice? (A) "The train arrived late, the passengers were frustrated." (B) "The train arrived late; the passengers were frustrated."
+    choices:
+      - text: Sentence B is correct — the semicolon properly joins two independent clauses without a conjunction; sentence A is a comma splice.
+        correct: true
+      - text: Sentence A is correct; sentence B uses punctuation incorrectly.
+      - text: Both sentences are correctly punctuated.
+      - text: Neither sentence is correctly punctuated.
+    explanation: |
+      Sentence A joins two independent clauses with only a comma (a comma splice). Sentence B correctly uses a semicolon to join the same two independent clauses without a conjunction.
+    approved: true
+
+  - id: q-grammar-and-structure-punctuation-and-capitalization-0020
+    type: punctuation
+    difficulty: exam
+    stem: |
+      Identify and fix all punctuation and capitalization errors: "the manager said the report was ready, however she still needed to review it's final section before president Cruz could approve it."
+    choices:
+      - text: Corrected, it should read "The manager said the report was ready; however, she still needed to review its final section before President Cruz could approve it."
+        correct: true
+      - text: There are no errors in this sentence.
+      - text: Only the capitalization errors need fixing; the punctuation is already correct.
+      - text: Only the punctuation errors need fixing; the capitalization is already correct.
+    explanation: |
+      Several errors are present: the sentence must start with a capital letter ("The"), the comma splice before "however" needs a semicolon, "it's" should be the possessive "its," and "president" should be capitalized as "President" directly before the name "Cruz."
+    approved: true
