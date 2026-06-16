@@ -220,19 +220,30 @@ function renderProgress() {
   $('meterFill').style.width = items.length ? `${(done / items.length) * 100}%` : '0%';
 }
 
+function itemLabel(it) {
+  return it.kind === 'lesson'
+    ? `${titleCase(it.lesson)} · #${it.seq}`
+    : `${titleCase(it.subtopic)} · ${it.slug}`;
+}
+
+function itemGroup(it) {
+  const kindLabel = it.kind === 'lesson' ? 'Lessons' : 'Questions';
+  return `${kindLabel} — ${titleCase(it.subject)} · ${titleCase(it.topic || it.subject)}`;
+}
+
 function renderSidebar() {
   const nav = $('sidebar');
   let html = '';
   let lastGroup = '';
   items.forEach((it, i) => {
-    const group = `${titleCase(it.subject)} · ${titleCase(it.topic || it.subject)}`;
+    const group = itemGroup(it);
     if (group !== lastGroup) {
       html += `<div class="topic-label">${esc(group)}</div>`;
       lastGroup = group;
     }
     html += `<button class="item ${it.done ? 'done' : ''} ${i === current ? 'current' : ''}" data-i="${i}">
       <span class="dot"></span>
-      <span class="label">${esc(titleCase(it.lesson))} · #${it.seq}</span>
+      <span class="label">${esc(itemLabel(it))}</span>
     </button>`;
   });
   nav.innerHTML = html;
@@ -249,18 +260,51 @@ function buildPrompt(item) {
   return promptTemplate.replaceAll('{{description}}', item.description);
 }
 
+function crumbsFor(it) {
+  const last = it.kind === 'lesson' ? it.lesson : it.subtopic;
+  return `${esc(titleCase(it.subject))} → ${esc(titleCase(it.topic || ''))} → <b>${esc(titleCase(last))}</b>`;
+}
+
+function siblingStats(it) {
+  if (it.kind === 'lesson') {
+    const siblings = items.filter((x) => x.kind === 'lesson' && x.lesson === it.lesson && x.subject === it.subject && x.topic === it.topic);
+    return { n: it.seq, total: siblings.length };
+  }
+  const siblings = items.filter((x) => x.kind === 'question' && x.subtopic === it.subtopic && x.subject === it.subject && x.topic === it.topic);
+  return { n: siblings.findIndex((x) => x.slug === it.slug) + 1, total: siblings.length };
+}
+
+function questionContextHtml(it) {
+  const choicesHtml = it.choices.map((c) => (
+    c.correct
+      ? `<li style="font-weight:700;color:var(--board)">${esc(c.text)} ✓</li>`
+      : `<li>${esc(c.text)}</li>`
+  )).join('');
+  return `
+    <div class="desc" style="margin-bottom:10px">${esc(it.stem)}</div>
+    <ul style="margin:0 0 10px 20px;padding:0">${choicesHtml}</ul>
+    <div style="font-size:13px;color:var(--ink-soft)">${esc(it.explanation)}</div>
+  `;
+}
+
 async function show(index) {
   current = Math.max(0, Math.min(items.length - 1, index));
   selectedSource = null;
   const it = items[current];
+  const stats = siblingStats(it);
 
   const connectedPreview = it.done
     ? `<img src="/api/preview/connected?index=${current}&t=${Date.now()}" alt="connected illustration">`
     : `<div class="empty">Nothing connected yet</div>`;
 
+  const contextCardTitle = it.kind === 'lesson' ? 'Where it sits in the lesson' : 'The question this illustrates';
+  const contextCardBody = it.kind === 'lesson'
+    ? '<div class="context" id="context">Loading…</div>'
+    : `<div id="context">${questionContextHtml(it)}</div>`;
+
   $('main').innerHTML = `
-    <div class="crumbs">${esc(titleCase(it.subject))} → ${esc(titleCase(it.topic || ''))} → <b>${esc(titleCase(it.lesson))}</b></div>
-    <h2>Illustration #${it.seq} of ${items.filter((x) => x.lesson === it.lesson && x.subject === it.subject && x.topic === it.topic).length}
+    <div class="crumbs">${crumbsFor(it)}</div>
+    <h2>Illustration #${stats.n} of ${stats.total}
       <span class="pill ${it.done ? 'done' : ''}">${it.done ? 'CONNECTED' : 'NEEDED'}</span>
     </h2>
 
@@ -280,8 +324,8 @@ async function show(index) {
     </div>
 
     <div class="card">
-      <h3>Where it sits in the lesson</h3>
-      <div class="context" id="context">Loading…</div>
+      <h3>${esc(contextCardTitle)}</h3>
+      ${contextCardBody}
     </div>
 
     <div class="grid2">
@@ -327,7 +371,7 @@ async function show(index) {
 
   renderSidebar();
   renderProgress();
-  loadContext();
+  if (it.kind === 'lesson') loadContext();
   pollDownloads(true);
 }
 
