@@ -26,11 +26,16 @@ lists live in `question-blueprints/<subject>.md`.
    ```
    Fix flagged issues (validators, duplicate stems) in the tool, save, and
    re-run step 5 until clean. Mark every question `approved: true`.
-7. **Figure-pending questions**: for every question with a `figure:` slug,
-   append a row to `docs/content/question-figures/worklist.tsv` (slug,
-   subject, topic, subtopic, question id, status `pending`). These import as
-   `isActive: false` until an illustration exists and the renderer that
-   displays it ships (tracked separately).
+7. **Figure-pending questions**: add a `figure: <slug>` to any question that
+   needs one, then run Illustration Studio:
+   ```bash
+   node "tools/illustration_studio/Start Illustration Studio.command"
+   ```
+   It scans every `figure:` slug automatically and regenerates
+   `docs/content/question-figures/worklist.tsv` — no manual worklist editing.
+   Use the "Questions" group in the sidebar to connect an image to each slug.
+   Figure-pending questions import as `isActive: false` until an illustration
+   exists and the renderer that displays it ships (tracked separately).
 
 ## Why difficulty is authoring-only
 
