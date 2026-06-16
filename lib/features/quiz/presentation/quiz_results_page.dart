@@ -134,7 +134,7 @@ class _ResultsBodyState extends ConsumerState<_ResultsBody> {
                 label: 'Start assessment',
                 onPressed: () {
                   Navigator.of(sheetContext).pop();
-                  if (context.mounted) context.go('/assessment/$examId');
+                  if (context.mounted) context.push('/assessment/$examId');
                 },
               ),
               const SizedBox(height: 8),
@@ -170,7 +170,7 @@ class _ResultsBodyState extends ConsumerState<_ResultsBody> {
             child: SectionHeader(
               title: 'Your study plan is waiting',
               action: 'Take the assessment',
-              onAction: () => context.go('/assessment/$examId'),
+              onAction: () => context.push('/assessment/$examId'),
             ),
           ),
         StatsBand(

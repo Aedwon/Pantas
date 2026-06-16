@@ -201,7 +201,7 @@ class _FocusTopics extends StatelessWidget {
         SectionHeader(
           title: 'Focus topics',
           action: 'View results',
-          onAction: () => context.go('/assessment/$examId/results'),
+          onAction: () => context.push('/assessment/$examId/results'),
         ),
         for (final mastery in topics)
           _FocusTopicRow(mastery: mastery, examId: examId),
@@ -295,13 +295,13 @@ class _NoAssessmentHome extends StatelessWidget {
         const SizedBox(height: 20),
         BoardButton(
           label: 'Start the assessment',
-          onPressed: () => context.go('/assessment/$examId'),
+          onPressed: () => context.push('/assessment/$examId'),
         ),
         const SizedBox(height: 10),
         BoardButton(
           label: 'Try a quick quiz',
           secondary: true,
-          onPressed: () => context.go('/quiz/quick/$examId'),
+          onPressed: () => context.push('/quiz/quick/$examId'),
         ),
       ],
     );

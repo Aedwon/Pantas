@@ -57,7 +57,7 @@ class DoneForTodayCelebration extends StatelessWidget {
             const SizedBox(height: 20),
             BoardButton(
               label: 'Review results',
-              onPressed: () => context.go('/quiz/results/${attempt.id}'),
+              onPressed: () => context.push('/quiz/results/${attempt.id}'),
             ),
           ],
         ),

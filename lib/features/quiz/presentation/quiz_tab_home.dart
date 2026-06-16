@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cse_cet_reviewer/core/storage/domain/exam.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
@@ -119,7 +121,7 @@ class _ExamActions extends ConsumerWidget {
             if (!sheetContext.mounted) return;
             Navigator.of(sheetContext).pop();
             if (!context.mounted) return;
-            context.go('/quiz/today/${exam.id}');
+            unawaited(context.push('/quiz/today/${exam.id}'));
           },
         ),
       );
@@ -127,7 +129,7 @@ class _ExamActions extends ConsumerWidget {
     }
 
     if (!context.mounted) return;
-    context.go('/quiz/today/${exam.id}');
+    unawaited(context.push('/quiz/today/${exam.id}'));
   }
 
   @override
@@ -153,16 +155,16 @@ class _ExamActions extends ConsumerWidget {
         const SectionHeader(title: 'More practice'),
         InkTableRow(
           title: 'Retake mistakes',
-          onTap: () => context.go('/quiz/retake/${exam.id}'),
+          onTap: () => context.push('/quiz/retake/${exam.id}'),
         ),
         InkTableRow(
           title: 'Drill a topic',
-          onTap: () => context.go('/quiz/drill/${exam.id}'),
+          onTap: () => context.push('/quiz/drill/${exam.id}'),
         ),
-        InkTableRow(
-          title: 'Study plan',
-          onTap: () => context.go('/plan'),
-        ),
+        // "Study plan" is hidden until the plan feature is finished:
+        // studyPlanExamProvider and studyPlanSignalsProvider are still
+        // throwing stubs overridden only in tests, so /plan renders
+        // "Plan unavailable". Restore this row once they read real data.
         InkTableRow(
           title: 'Study',
           bottomRule: false,

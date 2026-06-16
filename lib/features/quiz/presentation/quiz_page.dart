@@ -76,13 +76,21 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(_titleFor(widget.mode)),
+        // A running session asks before discarding; every other state has
+        // nothing to lose, so it gets a plain back arrow. Neither may be
+        // omitted — this route is pushed full-screen with no tab bar to
+        // fall back on.
         leading: state is QuizRunning
             ? IconButton(
                 tooltip: 'Quit session',
                 icon: const Icon(Icons.close),
                 onPressed: () => _confirmQuit(context, ref),
               )
-            : null,
+            : IconButton(
+                tooltip: 'Back',
+                icon: const Icon(Icons.arrow_back),
+                onPressed: () => _leave(context),
+              ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -143,9 +151,19 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       onCancel: () {},
       onConfirm: () {
         ref.read(quizControllerProvider.notifier).reset();
-        context.go('/quiz');
+        _leave(context);
       },
     );
+  }
+
+  /// Returns to whatever pushed this session, falling back to the Quiz tab
+  /// when there is no stack to pop — a notification tap opens the route cold.
+  void _leave(BuildContext context) {
+    if (context.canPop()) {
+      context.pop();
+    } else {
+      context.go('/quiz');
+    }
   }
 
   AnswerOutcome? _latestNewOutcome(

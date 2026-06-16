@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cse_cet_reviewer/core/auth/providers.dart';
 import 'package:cse_cet_reviewer/core/sync/providers.dart';
 import 'package:cse_cet_reviewer/core/sync/sync_status.dart';
@@ -111,6 +113,9 @@ class AccountPage extends ConsumerWidget {
 
   static void _go(BuildContext context, String location) {
     final router = GoRouter.maybeOf(context);
-    if (router != null) router.go(location);
+    // Push, never go: these destinations sit outside the tab shell and rely
+    // on the AppBar's implicit back arrow, which only appears when the
+    // stack can pop.
+    if (router != null) unawaited(router.push<void>(location));
   }
 }

@@ -69,7 +69,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
           await ref.read(assessmentCompletedProvider(widget.examId).future);
       if (!mounted) return;
       if (alreadyCompleted) {
-        context.go('/assessment/${widget.examId}/results');
+        context.pushReplacement('/assessment/${widget.examId}/results');
         return;
       }
 
@@ -91,7 +91,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
             now: DateTime.now(),
           );
       if (!mounted) return;
-      context.go('/assessment/${widget.examId}/results');
+      context.pushReplacement('/assessment/${widget.examId}/results');
     } catch (e) {
       if (!mounted) return;
       // Keep session alive so user can retry without re-answering

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/widgets/settings_row.dart';
@@ -71,6 +73,9 @@ class AboutPage extends StatelessWidget {
 
   static void _go(BuildContext context, String location) {
     final router = GoRouter.maybeOf(context);
-    if (router != null) router.go(location);
+    // Push, never go: these destinations sit outside the tab shell and rely
+    // on the AppBar's implicit back arrow, which only appears when the
+    // stack can pop.
+    if (router != null) unawaited(router.push<void>(location));
   }
 }

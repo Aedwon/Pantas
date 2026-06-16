@@ -51,7 +51,7 @@ class DrillSubtopicBrowser extends ConsumerWidget {
               InkTableRow(
                 title: topic.name,
                 subtitle: 'General bucket',
-                onTap: () => context.go(
+                onTap: () => context.push(
                   '/quiz/drill/$examId?topicId=${topic.id}',
                 ),
               ),
