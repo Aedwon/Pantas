@@ -279,8 +279,7 @@ void main() {
     expect(find.text('Study vocab cse'), findsOneWidget);
   });
 
-  testWidgets('strong topic row navigates to quick quiz route',
-      (tester) async {
+  testWidgets('strong topic row navigates to quick quiz route', (tester) async {
     await insertExam(id: 'upcat', name: 'UPCAT');
     await insertTopic(
       id: 'algebra',

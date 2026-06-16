@@ -128,8 +128,7 @@ void main() {
     expect(find.text('Lessons'), findsOneWidget);
   });
 
-  testWidgets('Start studying opens the weakest topic lessons',
-      (tester) async {
+  testWidgets('Start studying opens the weakest topic lessons', (tester) async {
     await tester.pumpAppWithRouter(
       _buildRouter('e1'),
       overrides: [appDatabaseProvider.overrideWithValue(db)],

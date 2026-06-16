@@ -99,8 +99,7 @@ class _SelectedExamHome extends ConsumerWidget {
                   children: [
                     Text(
                       _greeting(DateTime.now()),
-                      style:
-                          styles.bodySmall.copyWith(color: colors.inkMuted),
+                      style: styles.bodySmall.copyWith(color: colors.inkMuted),
                     ),
                     const SizedBox(height: 1),
                     Text(examShortName, style: styles.displaySmall),
@@ -164,8 +163,7 @@ class _HomeStatsBand extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final masteries = result.topicMasteries;
-    final totalCorrect =
-        masteries.fold<int>(0, (sum, m) => sum + m.correct);
+    final totalCorrect = masteries.fold<int>(0, (sum, m) => sum + m.correct);
     final totalQuestions = masteries.fold<int>(0, (sum, m) => sum + m.total);
     final accuracyPct =
         totalQuestions == 0 ? 0 : (totalCorrect / totalQuestions * 100).round();
