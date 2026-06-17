@@ -1,0 +1,820 @@
+# Quiz tab, answer reveal, session debrief and the practice picker
+
+**Date:** 2026-07-28
+**Status:** Approved by Aedwon, validated interactively against live mockups in
+`.superpowers/brainstorm/80560-1785139437/content/`
+**Amends:** `2026-05-17-quiz-engine-and-modes-design.md` (Spec 4),
+`2026-05-17-mock-exam-design.md` (Spec 5), `2026-07-27-study-tab-and-reader-design.md`,
+`2026-07-26-home-and-navigation-design.md`, `2026-07-18-ui-redesign-design.md`
+**Closes:** the "quiz entrance in Study" deferred item of 2026-07-27
+
+## Problem
+
+The Quiz tab is four rows and a button. `quiz_tab_home.dart` renders the exam name,
+one filled "Start today's session", then `Retake mistakes`, `Drill a topic`, and a
+`Study` row that duplicates the tab bar two pixels beneath it. Its error state prints
+`e.toString()` to students.
+
+Underneath it sits an engine built for something else. `BuildTodayQueue` sorts topics
+by backlog, marks the largest `isRecommended`, and zeroes the new-card count when the
+daily cap is hit. It is pure, it has four passing unit tests, and **outside those tests
+nothing in `lib/` references it**. There is no `todayTopicQueueProvider`.
+
+Three more pieces are built and unreachable:
+
+- `ResumeSession` and `RestartSession` have providers (`quiz_controller.dart:101`,
+  `:112`) and no widget reads either, so a session abandoned at question 6 is gone.
+- `MockQuizTabTile` is written and unit tested and rendered by no screen.
+  `/mock-exam` and `/review` are literal `_Stub` routes.
+- `QuizPreferencesRepository` holds `quiz_session_length`,
+  `quiz_today_interleaved` and `quiz_new_card_cap`. `startToday` reads them. Nothing
+  in `lib/features/settings` writes them, so all three are permanently at defaults.
+
+And the screen the tab exists to open does nothing when a student commits. Tapping a
+choice submits and advances: no mark, no correct answer, no explanation.
+
+## Scope
+
+`/quiz`, the practice picker it opens, the answer reveal, and the end-of-session
+debrief. Session composition and ordering. Question flags. The Free and Pro line
+across all of the above.
+
+**Out of scope, and deliberately so:**
+
+- **The quiz viewer.** The in-session chrome beyond the reveal: the header and
+  counter, the progress rail, quitting mid-session, moving between questions, and
+  where a question is flagged while answering. Not designed. It is the next session.
+- **The mock viewer.** Its own design job, and it inherits nothing from here. See
+  "The mock viewer, carried forward" at the end.
+- Home, Study, Progress, Settings. The ordering control lands in Settings and is
+  specified here only as a requirement on that work.
+
+---
+
+## Section 0: Corrections to the record
+
+Everything below was verified against the code or the seed rather than recalled.
+Six prior statements, several of them mine during this design, are wrong.
+
+1. **The assessment is not a fixed 10 questions.**
+   `AssessmentQuestionSelector._maxQuestions` is **35**, and it takes up to 3 per
+   *contributing* topic, `max(1, min(3, 35 ~/ contributing))`. With 7 of UPCAT's 18
+   topics carrying questions today that yields **21**. Once all 18 are authored the
+   formula gives 1 each, so **18**. Any surface stating the length must compute it.
+2. **The app calls it "the assessment".** Three shipped strings: "Take the assessment
+   to find what to study first.", "Start the assessment", "Take the assessment". Spec
+   5's copy rules additionally ban the word "diagnostic" by name. "Placer" and
+   "diagnostic" are both out.
+3. **The mock is not locked for new users.** Spec 5's availability table reads "Free
+   no-prior → available". A brand new free account may sit one on day one.
+4. **Drill returns identical questions forever.** `StartDrill` loads
+   `questionsByTopic`, tags every candidate `subtopicId: null`
+   (`start_drill.dart:59`), and `DrillPicker` calls `SubtopicFilter.general`, which
+   returns every question whose subtopic is null, in database order, then takes the
+   first N. No shuffle, no dedupe. Spec 4 §4.3 specified "random within sub-topic,
+   deduped against the last 7 days" and none of it was built.
+5. **The lesson-scoped quiz is topic-scoped.** `start_inline_lesson_quiz.dart:55`
+   fetches `questionsByTopic(lesson.topicId)` and takes the first five, so **all 17
+   Chemistry lessons hand out the same five questions**. The reader coda approved on
+   2026-07-27 is therefore live and wrong today.
+6. **The spelling is American.** The repository contains zero instances of "practise"
+   and seventeen of "practice".
+
+Two constraints that follow:
+
+- **"Flag" is the Quiz word and "Bookmark" is the Study word.** The 2026-07-27 spec
+  avoided "flag" for lessons because `MockSessionState.flags` had taken it. That was
+  the right call for lessons and the wrong inference for questions: mock flags are
+  question flags, so they merge into this feature rather than colliding with it.
+- **Exam size is not a design constraint**, per the Study spec. Eleven UPCAT topics
+  have no authored questions. That is unfinished content. It gets an honest state, not
+  a shape.
+
+---
+
+## Section 1: The Quiz tab, `/quiz`
+
+The tab is the **assessment hub**, which is Spec 5's own term for it: "All mock
+screens live under the Quiz route prefix to reinforce Spec 4's IA (Quiz tab =
+assessment hub)". It is not a topic queue. Composition, top to bottom: app bar, exam
+short name, the session panel, the mock panel, the practice rows, the flagged section.
+
+### App bar
+
+Height 56, `background`, no elevation, no scroll shadow. Title "Quiz" in
+`headlineMedium` (Source Serif 4, 18/700). **No trailing element.**
+
+### Exam name
+
+The exam short name in `displaySmall` (serif 22/700, tracking -0.2), 6px below the
+bar, at the 20px page gutter. Matches the Study map exactly.
+
+### Ruled panels
+
+The two stateful objects are drawn as **ruled panels**: a 1px `rule` border, square
+corners, on the same paper as the page, padding 14 by 15 with 16 below, per the Home
+spec's device. Each opens with a **plated heading**: serif 15/700 underscored by a
+1.6px `ink` rule.
+
+The panel header carries at most one trailing element, and it is **a count in 12px
+`inkMuted`, tabular figures**, never a status word. Status words ("ready", "not yet")
+were tried and cut: in this identity the top right of a section is either an action in
+board at 12/600 or a count, and a word is neither, which is why it read as forced.
+
+### The session panel
+
+Four states, one per condition of the day.
+
+| State | Heading | Trailing count | Body |
+|---|---|---|---|
+| No assessment taken | "Start with the assessment" | computed length, e.g. "21 questions" | "A few questions from every subject, to find out where you stand. Everything Pantas gives you afterwards is built on it." Board button "Take the assessment" |
+| Session available | "Today's session" | none | Two centred figures, the composition line, the settings link, board button "Start" |
+| Caught up | "Today's session" | none | Two centred figures, no button at all |
+| Session in progress | "Still going" | "6 of 10" | "You stopped partway through **Chemistry**. Every answer was saved." Board button "Resume", then Discard |
+
+**Figures are centred**, amending nothing: the Home spec already centres its stats
+band, and the tab was the surface out of step. Value in serif 21/700 with tabular
+figures, a 12px sans suffix in `inkMuted` where one is needed, label beneath in 11.5
+`inkMuted`.
+
+- Available: **questions** and **duration**. Not "about". Not the streak, which lives
+  on Home and in Progress and does not need a third home.
+- Caught up: **answered today** and **got right**.
+
+**The composition line** is one tabular line in 12.5 `inkMuted`: `6 due · 3 weak spots
+· 1 new`. Beneath it, a board 12/600 text action: **"Change how sessions are built"**,
+routing to the ordering setting in Section 5. The tail is not explained in prose here;
+the setting explains itself.
+
+**Resume and Discard.** "Resume" only, never "Pick up where you left off". Beneath it,
+centred at 12.5, **"Discard this session"** in **board green**, matching every other
+text action in the app.
+
+**"Start over" is deleted.** `RestartSession` quits the active row and creates a new
+one **with the same question ids**, while the answers already submitted remain written
+to `quiz_attempts` and the FSRS state. Restarting therefore re-asks the same six
+questions and feeds the scheduler twice. Discard is the honest control: it marks the
+session quit and loses nothing, because everything answered is already recorded.
+
+### The mock panel
+
+Heading "Mock exam". The trailing count is the **cooldown, precise to the hour**:
+`9d 14h`. Absent when no cooldown applies.
+
+| State | Body |
+|---|---|
+| Never taken | "The whole thing under exam timing. 3 hours 30, and no answers until the end." Then the tier rule. Secondary button "Take the exam" |
+| Free, in cooldown | Three centred figures, then the tier rule with the reopen date, then "View your full results from last time" |
+| Available with history | Three centred figures, the tier rule, the results link, secondary button "Take another" |
+| Session in progress | "Finish your session first. It runs 3 hours 30 and can't be paused." Then the tier rule. No button |
+
+Figures: **last score** as a percentage, **parts passed** as "3 of 5", **taken** as a
+date.
+
+**The tier rule always states itself**, on its own line opened by a 1px `ruleFaint`,
+in 12 `inkMuted`:
+
+- Free: "**Free users** get one every two weeks. Your next one opens on **5 August**."
+- Pro: "**Pro users** can take as many as they want."
+
+It is stated in every state including before the first attempt, so the cadence is
+learned as a rule of the app rather than discovered as a wall.
+
+**Vocabulary:** it is an **exam**, and you **take** it. Never "paper", never "sit".
+The panel heading already carries the words "Mock exam", so no button repeats them.
+
+### Practice rows
+
+A `SectionHeader` "More ways to practice", a 1px `rule`, then rows. Row title in serif
+15/700, subtitle in 12 `inkMuted`, trailing chevron, minimum height 44, 11px vertical
+padding, closed by `ruleFaint`.
+
+| Row | Subtitle | Empty state |
+|---|---|---|
+| Your mistakes | "28 you've got wrong in the last month" | "Nothing to fix yet", dimmed to 50%, no chevron |
+| Choose what to practice | "One topic or one lesson, your choice of length" | never empty |
+
+Two rows, not four. "Specific topic" and "Several topics" collapse into one, because
+the picker in Section 2 takes one selection or many with the same gesture, so two
+doors into it is one too many. "A lesson you've read" is not a row either: it lives
+inside the picker.
+
+**"Where you stand" is deleted.** The assessment is what the session panel says on
+first open and never a standing row. A door that becomes permanently irrelevant the
+moment it is used should not be permanent.
+
+**The "Study" row is deleted too.** It navigates to a tab whose icon sits two pixels
+below it, and `context.go('/study')` from here is the tab-switch case where `go` is
+correct, so nothing is being fixed by keeping it. UI-003 is untouched by this spec:
+the study-plan feature remains unfinished and `/plan` stays unlinked.
+
+**MECE by intent, which is the only axis on which these can be exclusive.** *Decide
+for me* is the session panel. *Test me like the real thing* is the mock. *The ones I
+keep missing* is Your mistakes. *I choose* is the picker. Their underlying axes differ
+(a selection rule, a set of conditions, a pool, a scope), which is exactly why sorting
+them by axis fails and sorting them by intent works.
+
+### The flagged section
+
+A `SectionHeader` "Flagged" with the count in `bodySmall` `inkMuted`, a 1px `rule`,
+then one row: **"Questions you flagged"**, subtitle "12 kept, across 4 topics. 7 of
+them from your last exam". Dimmed with "Flag anything you want to come back to" and no
+chevron when empty.
+
+### Other states
+
+| State | Treatment |
+|---|---|
+| Loading | `FaintBars` |
+| Error | `ErrorBanner` in its `error` variant, message "Could not load your practice. Pull down to try again." **Never the exception string** |
+| No exam chosen | The existing fallback, "Choose your exam" over "Pick the exam you are reviewing for." and a board "Choose exam" |
+
+`PageScaffold` and `EmptyState` exist and are used only by `quiz_results_page.dart`.
+Adopt them here, as the Study spec also requires.
+
+---
+
+## Section 2: The practice picker
+
+Opened by "Choose what to practice". A pushed route, not a sheet: it has a footer that
+must stay put and a list that may run to 18 topics.
+
+### Composition
+
+App bar with a back chevron and the word "Quiz", plus **"Clear"** in board 12/600 as a
+trailing action shown only when something is selected. Title "Choose what to practice"
+in `displaySmall`. Then the legend, then the index, then a fixed footer.
+
+### The index
+
+Subject headings in serif 15/700 closed by a 1px `rule`, then topic rows in the
+subject's `ordering`.
+
+**Topic row**, minimum height 46:
+
+- A **15px checkbox** in the gutter, radius 3, 1.4px `inkMuted` border, filling
+  `board` with a white check when selected and showing a **board dash** when partly
+  selected.
+- The topic name.
+- **No question count.** A count of 248 is inventory, not a decision: nobody chooses
+  Chemistry because of how many questions it holds, and the footer states the truth
+  once a selection exists. The slot stays empty.
+- A trailing **caret** with its own 44px target.
+
+**The row splits its taps.** Tapping the row selects the whole topic. Tapping the
+caret unfolds its lessons. This is the pattern the Study spec already committed to for
+the pinned topic bar: "Tapping the row scrolls back to the topic. Tapping the caret
+collapses it. The caret needs its own 48dp target carved out of the row."
+
+**Lesson rows** are indented 22px, carry their own 14px checkbox, the title, and
+nothing else unless unread.
+
+### Selection is hierarchical
+
+- Selecting a topic selects **every lesson beneath it**.
+- Deselecting one lesson drops the topic checkbox to the **dash**.
+- **Counting never double-adds.** A fully selected topic is **one unit** drawing on
+  the topic's whole pool. A partly selected topic contributes **one unit per kept
+  lesson**, and the topic itself contributes nothing.
+
+### Read state marks the exception
+
+**Only unread lessons are marked**, with "not read yet" in `bodySmall` `rust` in the
+meta column. Lessons you have read carry nothing at all.
+
+Three reasons this beats the alternatives, all of which were drawn and rejected:
+
+1. **The gutter belongs to selection.** A check cannot mean "read" on a screen where a
+   check also means "picked". This is why the Study map's ✓ does not carry over:
+   nothing on the Study map is selectable, so the two tabs never contradict each other
+   on the same screen.
+2. **It annotates the exception.** Most lessons end up read, so marking those marks
+   almost everything, and the marks would grow rather than shrink.
+3. **It is the warning that matters.** You are about to be quizzed. "You have not read
+   this" is news. "You have read this" is not.
+
+Legend, once, beneath the title, in 11.5 `inkMuted`: **"Lessons you haven't read yet
+are marked."**
+
+Rejected: grouping lessons under "Read" and "Not read yet" kickers, because it
+reorders them, and the authored lesson sequence is the only guidance the Study spec
+gives about what to read first. Rejected: the date read, as six dates in a column that
+change no decision.
+
+### Topics with no questions
+
+Dimmed to `inkMuted`, checkbox at 35% opacity, not selectable, with **"no questions
+yet"** in the meta slot. Not hidden: their lessons exist, and a student who has read
+them will come looking.
+
+### The footer
+
+Fixed above the safe area, opened by a 1px `rule`, 13px padding.
+
+**The summary**, updating live:
+
+```
+45   questions · about 40 min
+     15 from each of 3 selections
+```
+
+Value in serif 21/700 tabular. Detail in 12 `inkMuted`, with the duration in `ink`
+w600. When a pool holds fewer than asked, the line appends ", 1 had fewer". With
+nothing selected: an em rule and "Pick a topic or a lesson above".
+
+**The unit control**, centred, 12px: `questions · minutes`, separated by a 1px by 11px
+`rule` tick with 9px margins, the active one in `ink` w700. No pills.
+
+**The wheel.** A horizontal scroll-snapped strip, 58px tall, items in fixed **52px**
+columns so every value lands on one optical centre whatever its size.
+
+- The selected value in serif 21/700 `ink`. Its neighbours in sans 14.5 `inkMuted`.
+- **A `boardTint` band, 52 by 38, behind the selected column.** No rails, no border.
+  The list above the footer is nothing but hairlines, and a tint marks the choice
+  without adding a fourth kind of rule to the screen.
+- **Both edges fade** with a mask from transparent to opaque between 0 and 22%, and
+  back between 78% and 100%, so the range dissolves instead of being cut.
+- **The value commits on scroll**, not only on tap. Whatever sits inside the band is
+  the value.
+- Steps: **questions 3 to 50 by one. Minutes 2 to 30 by one, then 35 to 60 by five.**
+- Switching units snaps to the nearest available value, so switching back and forth
+  does not drift.
+- Haptic feedback on each step. Disabled under reduce-motion for the scroll animation
+  only; the control still functions.
+
+**The number is per selection, never a total.** A total cannot be split at all when
+five is asked across six topics, and when it can be split, something has to decide the
+shares, which is a rule nobody should have to reason about. Per selection is
+deterministic and the footer does the arithmetic.
+
+**"Start"**, a full-width board button, disabled while nothing is selected.
+
+---
+
+## Section 3: The answer reveal
+
+**This section covers the moment after a student commits, not the session chrome
+around it.** The quiz viewer is out of scope.
+
+### The commit
+
+Tapping a choice submits it, as today. **There is no confidence step.** It was drawn
+and rejected: the hypercorrection literature makes a good case for it, and the tap is
+still a tap in a rhythm Spec 4 D4 deliberately protected. What it would have bought is
+recovered less intrusively by the debrief in Section 4.
+
+### The mark
+
+`AnswerRow` already implements `selected`, `correct`, `incorrect` and `correctMissed`
+with board ✓ and rust ✕, under a docstring calling it the spec's answer device.
+`QuestionCard` passes `plain` every time. **Use the states that exist.**
+
+- The chosen row, when right: board ✓ in the letter column, text w600.
+- The chosen row, when wrong: rust ✕, text in `rust`.
+- The correct row, when missed: board ✓, text w600.
+- Every other row drops to 50% opacity.
+
+### The verdict line
+
+Opened by a 1px `rule`, 14px above. **"Correct"** or **"Not this one"** in serif
+17/700, board or rust. Right-aligned on the same baseline, the next interval in 11.5
+`inkMuted`: "back in 9 days", "back tomorrow".
+
+### The notes
+
+The explanation is set as **marginal notes**, lettered in the same 22px gutter the
+answer rows use, so the note for B lines up under B.
+
+```
+A   the answer
+    Only coefficients, the numbers in front of a formula, may be changed…
+
+B   what you picked
+    A coefficient counts how many molecules you have. A subscript is part of
+    the molecule's identity. Changing one is arithmetic. Changing the other
+    is chemistry.
+```
+
+- Each note opens with a 1px `ruleFaint` and 12px padding.
+- The letter in serif 15/700 `inkMuted`.
+- The kicker in 11.5 `inkMuted`, lowercase: "the answer", "what you picked".
+- The body in `bodySmall` at 13.5, line height 1.6.
+- Note **A** always renders. Note **B** renders only on a miss, and only for Pro.
+
+**This treatment is deliberate and replaces a rejected one.** The first draft drew the
+Pro block as a tinted panel with a coloured left border and a coloured label, which is
+the visual signature of generated output and was rejected on sight. Marginal notes are
+a print device, they reuse a grid already on the screen, and they need no new colour.
+
+### What Free sees, and what it does not say
+
+Free renders the mark, the verdict and note A. **It says nothing about Pro.** No
+locked block, no upgrade line, no shadow of the missing note. A student has just been
+wrong, and an offer at that moment reads as the app charging for the thing that would
+have helped.
+
+### The content this depends on
+
+Note B requires a **rationale per choice**, which does not exist. See Section 9.
+
+---
+
+## Section 4: The debrief
+
+The screen after the last question, replacing `DoneForTodayCelebration`.
+
+### Composition
+
+App bar with a close ✕ only. Then:
+
+```
+Ten answered.
+
+   7 / 10        9 min        7 days
+   correct       taken        running
+
+Today's session. Chemistry, Physics and Biology.
+
+To come back to                                     3
+─────────────────────────────────────────────────────
+✕  Balancing an equation by changing H₂O to H₂O₂
+   Chemistry · you picked B, answer was A
+   You answered in 4 seconds. You usually take 21 on Chemistry.
+…
+You'll see all three again tomorrow.
+```
+
+- **"Ten answered."** in serif 22/700, computed from the session length. Not "Session
+  complete", which is software talking about itself.
+- Three centred figures: **correct**, **taken**, **running**. Not "spent", which
+  frames the time as lost.
+- **"To come back to"** as the section heading, with the count. Not "What you missed":
+  these are not losses, they are scheduled returns, which is literally what the
+  scheduler just did.
+- Each miss: a rust ✕ in the 22px gutter, the question, then "topic · you picked B,
+  answer was A" in 12 `inkMuted`.
+- **The rows are a record, not navigation.** No chevrons, and nothing happens on tap.
+  A "Review the misses" button was drawn and deleted: the student saw every one of them
+  seconds ago, a wrong answer already derives `Rating.again` and returns tomorrow, and
+  "Your mistakes" on the tab is the deliberate path when they want it.
+- **"You'll see all three again tomorrow."** in 12 `inkMuted`, beneath the list, for
+  both tiers. It is the most reassuring true sentence available on this screen and it
+  gives the Free version a proper ending rather than stopping dead.
+- Footer: a single board **"Done"**.
+
+### The inferred cause
+
+**Pro only.** Under each miss, one italic line in 12 `inkMuted`, derived from data
+already stored:
+
+| Cause | Line | Derived from |
+|---|---|---|
+| Rushed | "You answered in 4 seconds. You usually take 21 on Chemistry." | `AttemptItem.responseMs` against the distribution `per_question_speed_signal.dart` already builds |
+| Slipped | "You had this right on 14 July. Today you multiplied where you needed to divide." | a prior correct attempt on the same question |
+| New | "It's the first time you've seen this one." | no prior attempt and no FSRS state |
+
+**Four of the five causes need no question at all.** The fifth, misreading, is
+invisible to every signal the app has, and it is the only thing the taps buy.
+
+### The invitation
+
+**Pro only, optional, and offered once for the whole screen rather than per row.**
+Opened by a 1px `rule`:
+
+> These are the notes Pantas could write on its own. **You're the only one who knows
+> the rest.**
+>
+> [ Finish the notes ]
+
+A secondary bordered button. Tapping it arms three choices under every miss:
+**"I misread it"**, **"I knew this, I just slipped"**, **"I didn't know it"**, each a
+14px checkbox row. Any may be left blank, and the screen says so: "2 of 3 noted. Leave
+any of them blank, it costs nothing." When all three are noted: "All three noted.
+Progress can use them now."
+
+**Why it is a debrief and not a form.** The app goes first with three facts it already
+knew, so the student is correcting a draft rather than filling in blanks. And it is
+after the session, not inside it, because the error-log method it borrows from is a
+review pass rather than a prompt between questions. Asking mid-session imports the
+paperwork and loses the reflection.
+
+**This commits Progress to consuming the tags.** Three taps that surface nowhere would
+be worse than never asking.
+
+### Voice
+
+Contractions throughout: "you've", "it's", "you'll". The plainest correct word over
+the formal one: "seen", not "encountered" or "met". **No system vocabulary**: nothing
+is "booked" or "scheduled", it is "you'll see all three again tomorrow". And nothing
+praises the student, which keeps this consistent with the Study spec's endings, where
+warmth comes from what the app promises to do next.
+
+---
+
+## Section 5: Session composition and ordering
+
+### The interleaved tail
+
+Today's session ends with **three questions drawn from other topics' due cards**, with
+seven from the named topic in a ten-question session. Proportional at other lengths.
+
+The evidence is the strongest we found: Rohrer's classroom randomised trial scored
+interleaved mathematics practice at **72% against 38%** for blocked on an unannounced
+test two weeks later, d = 1.05, with the advantage growing rather than fading over the
+delay. Spec 4 D1 chose blocked as the default on felt-productivity grounds, which is a
+real argument that this does not overturn: the session is still named after one topic
+and still feels like that topic. The tail adds the discrimination practice that
+blocking cannot train.
+
+`FsrsDueSelector` already queries across topics, so this is an ordering change rather
+than new machinery.
+
+### It is a setting, not a rule
+
+Three orderings are exposed in Settings, the default carrying a **recommended** marker
+and each carrying a one-line plain explanation:
+
+| Setting | Behaviour |
+|---|---|
+| Blocked | Every question from the chosen topic |
+| **Interleaved tail** (default, recommended) | Seven from the topic, three from elsewhere |
+| Fully mixed | No two consecutive questions from the same topic |
+
+The storage exists: `quiz_today_interleaved` is a boolean with no UI that writes it,
+so it widens to a three-way value. The Quiz tab's only reference to any of this is the
+"Change how sessions are built" link in Section 1.
+
+### Drill becomes honest
+
+The picker's sessions must **shuffle within the pool** and **exclude anything answered
+in the last 7 days**, which is what Spec 4 §4.3 specified and what was never built.
+Without it the subtitle "questions you haven't seen this week" is a lie and the row
+returns the same ten in the same order forever.
+
+### Deferred, and recorded here so it is not lost
+
+**Weighting the picker toward recently-read topics.** Today's session chooses the
+largest backlog, so finishing Chemistry does not mean today's session tests Chemistry.
+If just-read material should come round sooner, the fix belongs in the picker and not
+in a new button. `read_then_quiz_signal.dart` already measures the behaviour.
+
+---
+
+## Section 6: Flags
+
+**Flag** is the Quiz tab's word for a question kept for later. **Bookmark** stays the
+Study tab's word for a lesson. They are different objects and the two tabs never use
+each other's word.
+
+- Flags are **question level**, set from the reveal and from inside a mock.
+- `MockSessionState.flags` is a `Set<String>` of question ids and
+  `mock_attempt.flagsJson` persists it. **Those existing flags merge into this feature
+  rather than remaining separate**, which is why the flagged row can say "7 of them
+  from your last exam".
+- Storage mirrors the Study spec's bookmark table: `question_flags_local` with
+  `questionId` text PK referencing questions, `flaggedAt` datetime, `sortIndex`
+  integer nullable, `syncState` text defaulting to `pending`, plus a sync mapper on
+  the existing pattern.
+
+### No cap on Free
+
+Flags are **unlimited on both tiers**, and so are Study's bookmarks. Four reasons:
+
+1. Spec 4 §11 commits to "no caps on free Quiz tab features", with the rationale that
+   gating the daily habit loop hurts conversion more than it helps. Flagging is inside
+   that loop.
+2. A storage cap punishes the most engaged free users, who are the closest to paying,
+   at a moment of enthusiasm.
+3. The failure mode is ugly: at the cap you either block them or evict their oldest
+   flags, and both read as petty.
+4. It contradicts the rule this app's paywall actually follows. See Section 7.
+
+What Pro buys instead is what the flags **mean**: patterns across them, custom
+ordering, and notes.
+
+---
+
+## Section 7: The tier line
+
+**Free records. Pro interprets.** This is the single rule, and it is consistent across
+every surface in this spec.
+
+| Surface | Free | Pro |
+|---|---|---|
+| The reveal | The mark, the verdict, note A, the interval | Plus note B, addressed to the choice you made |
+| The debrief | The score, the figures, every miss, the return promise | Plus the inferred cause per miss, and the tagging |
+| Flags | Unlimited, and practice sessions from them | Plus patterns, ordering and notes |
+| The picker, the session, Your mistakes | Unlimited, uncapped | Same |
+| Mock exam | One every 14 days per track | Unlimited |
+
+This is Spec 4 §11 rendered rather than revised: that table already puts "Full worked
+solutions and why the others are wrong" in the Pro column and "no caps on free Quiz
+tab features" in the direction notes.
+
+**It also survives the device argument.** Because note B is precomputed and shipped as
+authored content rather than generated on the phone, a Pro user on a Galaxy A15 gets
+exactly what a Pro user on a flagship gets.
+
+### The only visible paywall in the tab
+
+The mock cooldown. It states the tier rule in every state, so the cadence is a rule of
+the app rather than a wall discovered on the ninth day.
+
+---
+
+## Section 8: Motion and feedback
+
+The settled constant across the app is **400ms on `cubic-bezier(.22, 1, .36, 1)`**,
+inherited from the navigation bar's ink rise and reused by the Study spec. Almost
+nothing in this spec should use it, and the exceptions are listed here.
+
+### The reveal does not animate its verdict
+
+**The graded marks apply instantly.** No transition on correctness, no delay before
+the ✕ appears. A pause reads as the app deciding, and it is not deciding: the answer
+was known before the tap.
+
+**The verdict line and the notes fade in over 140ms linear, with no movement.** They
+are appearing beneath content the student is still reading, and anything that
+translates would shift the choices under their eye at the exact moment they are
+looking for the one they picked. Opacity only.
+
+### The picker
+
+| Element | Motion |
+|---|---|
+| Checkbox fill | 120ms linear, matching the reader's armed pull handle |
+| Topic unfold and fold | 220ms on the standard curve, height and opacity together |
+| The wheel | Native scroll physics with snap. No custom easing, no synthetic momentum |
+| The footer summary | Text swaps with no transition, because it must keep up with a scrolling wheel |
+
+**The unfold duration is shared.** The Study map expands topics in place with the same
+gesture, so both lists must use 220ms and the same curve. If one is tuned, the other
+moves with it.
+
+### The debrief
+
+The figures and the miss list arrive with the page. **The invitation fades in 160ms
+after entry, over 300ms**, so the record is read before the ask appears. This borrows
+the delay pattern the Study spec uses for the bookplate, for the same reason: the page
+should state its facts before it asks anything.
+
+### Haptics
+
+A light selection tick on each wheel step and on each checkbox toggle. Nothing else in
+this spec vibrates. **There is no haptic infrastructure in `lib/` today**, so this is a
+small addition rather than a call into something existing, and it should be a single
+helper rather than scattered `HapticFeedback` calls.
+
+### Reduce-motion
+
+Every fade becomes an instant swap. The unfold becomes an instant height change. The
+wheel is untouched, because its motion is the user's own finger and removing it would
+break the control rather than calm it.
+
+---
+
+## Section 9: Data and content work
+
+### New storage
+
+| Need | Shape | Notes |
+|---|---|---|
+| Question flags | `question_flags_local`, mirroring `lesson_bookmarks_local` | Plus a sync mapper. Merges the existing mock `flagsJson` |
+| Mistake tags | one nullable enum column on the attempt item: misread, slipped, unknown | Written only from the debrief, only on Pro |
+| Ordering preference | widen `quiz_today_interleaved` from boolean to three-way | Key already exists and is already read |
+
+### New content fields
+
+Both are generated **once, offline, over the whole bank**, reviewed by Aedwon, and
+shipped through the existing Sanity pipeline. Approximately **one dollar** for all
+1,117 questions at current Flash-Lite rates.
+
+| Field | Buys | Notes |
+|---|---|---|
+| A rationale per choice | Note B on the reveal, which is the whole Pro proposition on that screen | The distractors are already authored as named misconceptions, so this is writing down reasoning the author already had |
+| A short label per question | The debrief's miss rows, and it fixes a shipping defect: `quiz_results_page.dart:190` lists every question by its **raw `questionId`** | Nullable. Renderers fall back to the stem clamped to two lines |
+
+**Both must render through the shared question renderer, not a plain `Text`.** Stems
+carry LaTeX and markdown that render literally today (UI-005, UI-006, UI-007), so a
+clamped stem in the debrief would show a raw `$F_{net} = ma$`.
+
+### Lesson tagging, decided and scheduled first
+
+**Every question gains a `lessonId`**, authored across all 1,117 before this tab
+ships. It is the largest single piece of work in this spec and it was chosen
+deliberately over deferring, because it is not a future feature but a live defect:
+the reader coda approved on 2026-07-27 hands all 17 Chemistry lessons the same five
+questions today.
+
+It unblocks, in order of value: the reader coda becoming real, lesson selection in the
+picker, and pretesting before a lesson, which improves learning **even when the
+pretest answers are wrong**.
+
+### Cooldown time, and clock tampering
+
+The mock cooldown is computed from the most recent terminal `submittedAt`, per Spec 5,
+which is unaffected. What changes is where "now" and `submittedAt` come from, because
+a device clock moved forward two weeks currently buys a free mock exam.
+
+1. Store `submittedAt` as **UTC epoch milliseconds**, always.
+2. When online, stamp it with **server time** and prefer that value. Spec 3 already
+   syncs attempts, so the channel exists.
+3. Keep a **monotonic guard**: persist the highest timestamp ever observed and never
+   compute a cooldown against a "now" earlier than it. This defeats rollback outright.
+4. Compare wall-clock deltas against `elapsedRealtime`, which is boot-relative and
+   cannot be set. If wall time advanced far more than elapsed time with no reboot, wait
+   for a server time before granting the next exam.
+
+A determined user who stays offline can still gain one exam. That is an acceptable
+loss and nothing heavier should be built for it.
+
+### Unused today, to be consumed
+
+- `BuildTodayQueue` and `TopicQueueRow`: pure, tested, referenced nowhere.
+- `ResumeSession`, `RestartSession`: providers exist, no widget reads them.
+- `AttemptItem.chosenChoiceId`: stored and synced, consumed by nothing, and it is the
+  record of which misconception each student holds.
+- `MockQuizTabTile`: written, tested, rendered nowhere.
+
+---
+
+## Section 10: Amendments to other specs
+
+1. **Spec 4, `2026-05-17-quiz-engine-and-modes-design.md`.** D1 gains the interleaved
+   tail as the default with the ordering exposed as a three-way setting. D9's "minimal
+   celebration" is superseded by the debrief in Section 4. §7.1's topic-queue Quiz tab
+   is superseded by Section 1. §7.2's Drill browser is superseded by the picker. §7.5's
+   session screen is untouched here and remains open, since the quiz viewer is out of
+   scope.
+2. **Spec 5, `2026-05-17-mock-exam-design.md`.** `MockQuizTabTile` is superseded by the
+   mock panel in Section 1. The cooldown gains a precise `9d 14h` figure and the tier
+   rule as a permanent line. Everything else stands.
+3. **`2026-07-27-study-tab-and-reader-design.md`.** Its deferred item "a quiz entrance
+   in Study" is **closed as no**: the reader's coda at the end of every lesson already
+   is that entrance, at the only moment it is earned, and the map deliberately holds
+   nothing inside an open topic. Its reader coda is unchanged but becomes correct only
+   once lesson tagging lands.
+4. **`2026-07-18-ui-redesign-design.md`** gains: the panel header's trailing slot is a
+   count or an action, never a status word; and the marginal-note device of Section 3
+   as the way an explanation attaches to a lettered option.
+5. **Route table:** `/quiz/drill/:examId` and `DrillSubtopicBrowser` are deleted and
+   replaced by the picker. `/review` and `/mock-exam` remain stubs and are the mock
+   viewer's problem.
+
+## The mock viewer, carried forward
+
+Its UI is a separate design job and **inherits nothing from this spec**. No answer
+reveal, no marginal notes, no per-question explanation, no debrief. It is time limited
+and runs under exam conditions from the first item to the last, because its job is to
+simulate the exam and to produce the practice-versus-pressure comparison
+`test_mode_delta_signal.dart` already measures. Revealing answers mid-paper destroys
+both. `2026-05-17-mock-exam-design.md` is its starting point.
+
+## Deferred, with reasons
+
+- **The quiz viewer**, as above. The header, the counter, the rail, quitting, moving
+  between questions, and where a flag is set while answering.
+- **Confidence at the point of answering.** Rejected for the tap, not for the idea.
+  The debrief recovers most of the signal, and `responseMs` gives a free rough proxy.
+  Calibration as a Progress figure remains attractive and unbuilt.
+- **Pretesting before a lesson.** Two questions before reading, which the meta-analytic
+  evidence supports even when the answers are wrong. Blocked on lesson tagging, and it
+  belongs to the reader rather than to this tab.
+- **Knowledge and aptitude as a content attribute.** Every exam Pantas targets mixes
+  knowledge sections with aptitude sections, and FSRS scheduling is weak on the latter,
+  where the item never recurs and the skill is pattern recognition. The clean shape is
+  two content fields, a `kind` on each subject and a per-exam flag for whether wrong
+  answers are penalised, rather than any per-exam branching in code. Needed before
+  PSHS-NCE or NMAT, not before UPCAT.
+- **On-device explanation generation.** Precomputed content covers the need at a
+  fraction of the complexity and works on every device. Revisit only if an
+  offline-first case appears.
+
+## Open
+
+1. **The mistake-tag vocabulary.** "I misread it", "I knew this, I just slipped", "I
+   didn't know it" are settled for practice. Timed surfaces will want a fourth, "I ran
+   out of time", which matters on NMAT and CSE and barely registers on untimed
+   practice. Decide when the mock viewer is designed.
+2. **Whether the flagged row splits.** It currently merges practice flags and mock
+   flags into one list. If mock flags turn out to want their own review flow, this
+   becomes two rows.
+
+## A note on plan size
+
+Too large for one implementation plan. The natural seams, in dependency order:
+
+1. **Content and storage.** Lesson tagging across 1,117 questions, the per-choice
+   rationale and short-label generation pass, the flags table and its sync mapper, the
+   mistake-tag column, and the ordering preference widening. Everything else depends on
+   some part of this and none of it is visible.
+2. **The tab.** Panels, rows, all four day states, the mock panel and its cooldown, and
+   the deletion of `DrillSubtopicBrowser`.
+3. **The picker.** The index, hierarchical selection, the wheel, the live footer, and
+   the drill fix that makes its promise true.
+4. **The reveal.** Graded answer states, the verdict, the marginal notes, and the tier
+   split.
+5. **The debrief.** Figures, the miss list, the inference, and the optional tagging.
+
+The content work in 1 runs alongside everything and must land before 3 and 4.
