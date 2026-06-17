@@ -263,3 +263,119 @@ when only a month is known, and a new `settings.exam_date_precision` holds `day`
    alongside the no-date state it already has.
 2. The Settings exam date row, wired by Task 6 of `2026-07-25-onboarding-polish.md`, must
    offer the same three answers or the two surfaces will disagree.
+
+---
+
+## 8. Students whose exam is not on the list
+
+**He raised it, unprompted, after the spec was written:** *"i forgot to mention, what if
+they're not studying for a particular exam within our list (like say CETs of other
+colleges). what's your take on this? mine personally we let them select the subtopics to
+be included from the whole corpus of the app. they can also name this themselves."*
+
+**I argued against subtopic selection and lost part of it, correctly.** My three
+objections: the student does not know which subtopics their CET covers, and asking them
+is asking them to write the syllabus; a custom track has no blueprint so it can have no
+mock; and "choose exactly what you study" is attractive enough that UPCAT students would
+pick it and land in a worse product. I also noted the Quiz tab picker already is this
+control, and its own spec cut a second entrance to it.
+
+**He wanted it designed now rather than deferred**, for a reason I had not weighed:
+*"the market for CETs is very ripe and huge. I'm seeing FB groups with over 500k members
+and I'm salivating thinking of penetrating that market"*.
+
+**What that changed on my side.** The market argument actually points away from a generic
+bucket and toward authoring those CETs properly, because "Pantas has PUP CET" is a post
+in that group and "assemble your own reviewer" is not. Which makes the **naming field the
+demand queue**: four thousand students typing "PUP CET" is a ranked build order measured
+from real users. The custom track is the funnel, not the destination.
+
+**Granularity, put to him.** A: whole corpus, no choice. B: subjects, four or five
+checkboxes. C: topics or subtopics, his original. **Costs:** A wastes a student's time on
+a subject their exam does not cover; B is slightly wrong at the edges since two CETs may
+not mean the same thing by "Science"; C asks the student to write the syllabus and
+duplicates the Quiz picker.
+
+**He chose B with an escape hatch**, and stated the principle behind it: *"okay B but can
+we also just give them the option to select subtopics and lessons if they really want to?
+i think i'm applying a principle here that a user will dig into the app settings if they
+want to"*. Correct, and it resolves the objection rather than dodging it: onboarding asks
+what they can answer, Settings holds what they might grow into.
+
+**One rule I set and he did not have to be talked into:** narrowing filters, it never
+purges. If unticking a subject destroyed progress the setting is a trap and nobody touches
+it twice.
+
+**Free and uncapped**, his call, one word: *"free, uncapped"*.
+
+---
+
+## 9. The mock, where I was too restrictive
+
+**I said a custom track can never have a mock.** He pushed: *"as for the mock exams,
+aren't the content derived from the selected subjects/topics?"*
+
+**He was half right and it changed my answer.** The questions are sampled from the
+subjects and that works today. The structure is what is missing: items and minutes per
+section, sectional timing, penalties. That is the blueprint and it is published content.
+
+**But the student may supply the structure themselves.** The evidentiary rule bans figures
+*Pantas* inferred, not facts the student gave us. The exam date is their assertion, the
+track name is their assertion, and numbers off their school's handout are the same kind of
+thing. So the panel says "set one up" rather than "not available", and the mock carries no
+readiness verdict.
+
+**A hole found only by drawing it.** Screen 4 of `custom-mock-flow.html` was the first
+place the cooldown was rendered for a custom track, and its absence was obvious on sight:
+without it, a Free user ticks every subject, names the track anything, and farms unlimited
+mocks. The 14-day rule therefore applies unchanged. Invisible in prose, obvious in a
+drawing, which is the argument for drawing panels rather than describing them.
+
+**Over-limit numbers:** cap silently, refuse at setup, or run short and confess on the
+results screen. **He took the recommendation, refuse at setup**, because the number is
+wrong the moment it is typed.
+
+---
+
+## 10. The copy was bad, and the fault was systemic
+
+**He rejected two lines hard:** *"remove the uninspiring copy. i hate the \"Tell us\" but
+where and how exactly? \"We can't look them up for you\" wow this is garbage and demeaning
+and condescending. I expect better copy than that. BE INSPIRING!"*
+
+**He was right, and it was not two lines.** Nearly every string I had written led with
+what Pantas could not do. His own Quiz spec says warmth comes from what the app promises
+to do next, and I had written the inverse of that rule throughout.
+
+**"Tell us your exam and we'll look at adding it" was cut outright**, and nothing replaced
+it. His question killed it: there is no where and no how, and there does not need to be,
+because the name they typed is already the signal. Asking for something already taken is
+worse than not asking.
+
+**He then rewrote two lines himself and named them as the register he wants:**
+
+> "Two numbers off your school's handout, and we'll build the paper around them." ->
+> "We'll build the mock exam based on the information you provide."
+>
+> "You'll sit the whole thing against the clock, the way you will on the day." ->
+> "You'll be timed here, and you'll eventually get used to it especially on exam day."
+>
+> "these are my preferences for the tone and structure"
+
+**The register, as I read it:** plain declarative sentences, "We'll" and "You'll", say
+what happens and what the student gets, no metaphor and no compression. My instinct had
+been toward evocative and clipped; his is toward plain and reassuring.
+
+**Two corrections he accepted:** "based on the information you provide" fights his own
+Grade-5 rule, so it became "based on what you tell us"; and the timing line put the
+getting-used-to *on* exam day rather than before it, inverting the benefit, so it became
+"you'll get used to it before exam day".
+
+**One correction he made to mine:** *"on your home screen" -> "across the app"*, applied
+to the name step, where it is true, since the name is read by Home's masthead and the
+Progress tab's "Your profile" heading. The countdown keeps "on your home screen" because
+it is specified for Home alone. Flagged to him rather than assumed.
+
+**The age gate line stays flat on purpose**, and this is recorded so a later reader does
+not "fix" it: it is a legal notice addressed to a child, and inspiring copy there would be
+manipulative.

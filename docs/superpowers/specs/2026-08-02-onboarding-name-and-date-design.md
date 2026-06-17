@@ -58,7 +58,7 @@ to study first", which promises the picker outright. It also carries an em dash,
 character banned by name in `AGENTS.md`.
 
 > **Welcome to Pantas**
-> Your reviewer for Philippine exams. Four quick questions first.
+> Your reviewer for Philippine exams. We'll ask a few quick questions to set you up.
 >
 > [ Get started ]
 
@@ -66,9 +66,10 @@ character banned by name in `AGENTS.md`.
 eligibility exam, and the roadmap holds NMAT, licensure exams and the LTO written exam.
 The phrase never needs rewriting as that list grows, which is the property being bought.
 
-**"Four quick questions" is a count of the flow**, not an estimate: age, exam, date, name.
-It stops a first-time opener expecting the picker next. No duration is stated, because a
-duration would be a figure the app invented.
+**"A few", not a count.** An earlier draft read "Four quick questions", which was true of
+the main path and false on the custom track branch, where it is six.
+`2026-08-02-custom-exam-track-design.md` adds that branch. No duration is stated either,
+because a duration would be a figure the app invented.
 
 Layout is unchanged: `displaySmall` headline, `bodyLarge` `inkMuted` subline, one primary
 `BoardButton`, the existing `Spacer` above and below.
@@ -81,7 +82,8 @@ Copy gains one line under the existing question. Headline and question are uncha
 
 > **Quick check**
 > When were you born?
-> Apps like this have age rules. We only keep the year, not your full birthday.
+> We need your age to follow the rules for apps like this. We'll only keep the year, not
+> your full birthday.
 >
 > [ wheel ]
 > [ Continue ]
@@ -89,6 +91,10 @@ Copy gains one line under the existing question. Headline and question are uncha
 The second sentence answers the question a child actually has, which is what the app is
 doing with the answer. A version leading with keeping Pantas "safe for your age" was
 drawn and cut: it sounds protective while saying nothing, and the real reason is rules.
+
+**This line stays flat on purpose.** It is a legal notice addressed to a child. Every
+other string in the app leads with what Pantas will do next; making this one inspiring
+would be manipulative.
 
 ### The blocked state becomes a fork, not a wall
 
@@ -180,12 +186,17 @@ not a degraded countdown. It is the true statement available.
 The fifth and last step. Skippable.
 
 > **What should we call you?**
-> This is just for your home screen. A nickname is fine.
+> We'll use this to greet you across the app. A nickname is fine.
 >
 > [ ruled text field ]
 >
 > [ Done ]
 > Skip
+
+**"Across the app", not "on your home screen".** The name is read in two places: Home's
+masthead and the "Your profile" heading of `2026-07-30-progress-tab-design.md`. The
+countdown line in Section 4 keeps "on your home screen" because it is specified for Home
+alone.
 
 **A hairline-ruled field**, not a filled Material box: a 1px `rule` beneath the text, page
 gutter to page gutter.
