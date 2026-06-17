@@ -236,7 +236,7 @@ Section 3, then the flag control.
 
 ### The flag here
 
-**The pennant means "practise this", and only that.** It is the same durable flag the
+**The pennant means "practice this", and only that.** It is the same durable flag the
 Quiz tab's Flagged section reads.
 
 ### What becomes of the marks made during the paper
@@ -246,7 +246,7 @@ submission.
 
 They are spent once, as **a one-time offer at the top of the review**:
 
-> You marked **12** to come back to while the clock was running. Keep them to practise?
+> You marked **12** to come back to while the clock was running. Keep them to practice?
 > [ Flag all 12 ]  [ No thanks ]
 
 Taken or refused, the offer is gone and nothing about the exam marks remains on screen.

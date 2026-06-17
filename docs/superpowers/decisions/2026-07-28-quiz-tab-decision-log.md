@@ -644,7 +644,7 @@ was accepted:**
   so the item is not blank, then mark it to revisit if time allows. That is exactly what
   flag-for-review exists to serve.
 - The re-flag on the results page is a different job. Afterwards you flag what you want
-  to **practise**. During the paper you flag what you want to **check before
+  to **practice**. During the paper you flag what you want to **check before
   submitting**, and only the second has a deadline.
 - Answered and marked-for-review are separate states in every computer-based test.
 
@@ -806,7 +806,7 @@ header and again in every expanded question), and the flag column doing **one jo
 
 | Option | Outcome |
 |---|---|
-| **A one-time offer at the top** | **Chosen.** "You marked 12 to come back to while the clock was running. Keep them to practise?" |
+| **A one-time offer at the top** | **Chosen.** "You marked 12 to come back to while the clock was running. Keep them to practice?" |
 | A permanent filter | Aedwon's first proposal. A fourth filter for a fact that stops mattering after one visit |
 | Let them end with the paper | Throws away twelve deliberate decisions without offering them back |
 
