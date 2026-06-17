@@ -969,6 +969,37 @@ loss and nothing heavier should be built for it.
    replaced by the picker. `/review` and `/mock-exam` remain stubs and are the mock
    viewer's problem.
 
+## Sectional papers, established 28 July
+
+Research prompted by Aedwon's UPCAT experience, recorded here because it constrains the
+mock viewer before that spec is written.
+
+| Exam | Sections separately timed? |
+|---|---|
+| UPCAT | **Yes.** "You cannot return to a subtest once time is called" |
+| USTET | **Yes.** Each section separately timed. Mental Ability is 80 items in 30 minutes |
+| NMAT | **Yes.** Its bulletin says the timer restarts for every section |
+| CSE | **No.** 170 items in one booklet over 3 hours 10 |
+| ACET, DCAT, MSU-SASE | **Not published.** Aedwon is establishing these |
+
+**`sectionalTiming` is a blueprint field**, with a per-section limit, and it is the third
+content attribute of its kind after subject `kind` and the wrong-answer penalty. The
+rule they share: **the exam's rules are content, not code.**
+
+**Nothing may be defaulted for the three unknowns.** The setup screen states the rule in
+plain words before the paper starts, and pacing guidance comes from the blueprint rather
+than from any app-wide assumption, since USTET's 22 seconds an item against CSE's 67
+would otherwise be wrong by a factor of three.
+
+**ACET and DCAT include an essay, and DCAT a personality test.** The app has no concept
+of either, so their blueprints cover the multiple-choice parts and the setup screen must
+say what is not included.
+
+**This narrows Section 7.5.** The caret's travel across a part boundary happens only in
+the results review, or during a roamable paper. In a sectional paper a boundary can
+never be crossed while answering, and later parts render dimmed and untappable with a
+line saying when they open.
+
 ## The mock viewer, carried forward
 
 Its UI is a separate design job and **inherits nothing from this spec**. No answer

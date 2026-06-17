@@ -764,6 +764,63 @@ way. The closing page has one action on purpose.
 
 ---
 
+## Exam administration research, 28 July
+
+Prompted by Aedwon's own UPCAT experience: "in UPCAT, an examinee cannot just simply
+skip to the next subject and back. the examinees all answer one subject per given
+period, they are simultaneously passed."
+
+**Confirmed, and the seven exams do not agree with each other.**
+
+| Exam | Sections separately timed? | Evidence |
+|---|---|---|
+| **UPCAT** | **Yes** | "The examiner will tell you when to start and stop work on each separately timed section"; "you cannot return to a subtest once time is called". UP does not publish the per-subtest limits |
+| **USTET** | **Yes** | "Each section is separately timed; the full test runs about four hours including breaks." Mental Ability is **80 questions in 30 minutes**, about 22 seconds an item |
+| **NMAT** | **Yes** | Its own bulletin: the timer restarts for every section. 240 items across five sections |
+| **CSE** | **No** | 170 items for Professional in one booklet over 3 hours 10, one answer sheet, so the whole paper is roamable |
+| **ACET** | **Not published** | Four subtests plus an essay, 2.5 to 3 hours total. Widely described as severely time-pressured |
+| **DCAT** | **Not published** | Aptitude, Mathematics, Science, English and Reading, plus an essay **and a personality test** |
+| **MSU-SASE** | **Not published** | About 150 items across four subtests |
+
+### What follows from it
+
+1. **`sectionalTiming` becomes a blueprint field**, with a per-section limit. This is the
+   **third** content attribute of its kind, after subject `kind` (knowledge or aptitude)
+   and the per-exam wrong-answer penalty. The principle they share: **the exam's rules
+   are content, not code.** No per-exam branching anywhere in `lib/`.
+2. **The app must not guess the three unknowns.** Whichever way a default fell, it would
+   assert a rule about a real exam that cannot be verified. Instead the **setup screen
+   states the rule in plain words before the paper starts**, either "this paper runs part
+   by part, and once a part ends you cannot go back" or "you can move around the whole
+   paper". That is honest, and it is also what a student most wants to know before
+   committing three hours.
+3. **Pacing guidance must come from the blueprint.** USTET's 22 seconds an item against
+   CSE's roughly 67 would make any app-wide pacing assumption wrong by a factor of three.
+4. **ACET and DCAT cannot be simulated whole.** Both include an essay and DCAT adds a
+   personality test, and the app has no concept of either. Their blueprints cover the
+   multiple-choice parts, and the setup screen must say what is **not** included rather
+   than presenting a partial paper as the whole thing.
+5. **It narrows the caret motion already specified.** Crossing a part boundary can only
+   happen in the results review, or during a roamable paper like CSE. In a sectional
+   paper you can never cross one while answering.
+
+### Owed, and who owes it
+
+**Aedwon is asking around** to establish how **ACET**, **DCAT** and **MSU-SASE** are
+actually administered, since none of the three publishes its timing. Until that lands,
+those three blueprints have no `sectionalTiming` value and the mock spec cannot be
+finished for them. UPCAT, USTET, NMAT and CSE are settled by the evidence above.
+
+**Sources:** [UPCAT test day](https://www.upcatreview.com/day-of-the-upcat/),
+[USTET exam guide](https://edgeprep.ph/ustet-exam-guide),
+[NMAT bulletin of information](https://www.cem-inc.org.ph/nmat/files/downloads/NMAT_BOI_OCBT_0725-R.pdf),
+[CSE-PPT details](https://boardexams.ph/full-details-march-2026-career-service-exam-pen-and-paper-test-cse-ppt/),
+[ACET prep guide](https://examspinas.com/acet-2027-prep-guide-ateneo-college-entrance-test/),
+[DCAT guide](https://open-exam-prep.com/blog/dlsu-dcat-application-eligibility-test-workflow-2026),
+[MSU-SASE overview](https://supertutor.ph/resources/blog/entrance-exams/msusase-overview/)
+
+---
+
 ## Research that shaped decisions
 
 Cited here so the spec's claims can be traced.
