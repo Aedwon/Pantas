@@ -5,6 +5,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'attempt.freezed.dart';
 part 'attempt.g.dart';
 
+/// What the student said went wrong, noted from the debrief. Null means they
+/// were not asked or chose not to say, which is the common case: the debrief
+/// states outright that leaving one blank costs nothing.
+enum MistakeTag { misread, slipped, unknown }
+
 @freezed
 class AttemptItem with _$AttemptItem {
   const AttemptItem._();
@@ -15,6 +20,7 @@ class AttemptItem with _$AttemptItem {
     required ChoiceId chosenChoiceId,
     required ChoiceId correctChoiceId,
     required int responseMs,
+    MistakeTag? mistakeTag,
   }) = _AttemptItem;
 
   factory AttemptItem.fromJson(Map<String, dynamic> json) =>

@@ -5,11 +5,11 @@ import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test('app database creates mock_attempts at schema version 11', () async {
+  test('app database creates mock_attempts at schema version 12', () async {
     final db = AppDatabase(NativeDatabase.memory());
     addTearDown(db.close);
 
-    expect(db.schemaVersion, equals(11));
+    expect(db.schemaVersion, equals(12));
     expect(await _tableNames(db), contains('mock_attempts'));
   });
 
