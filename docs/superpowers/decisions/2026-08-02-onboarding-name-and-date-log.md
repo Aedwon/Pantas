@@ -458,3 +458,82 @@ designed, not a special case. The spec's Open section is now empty.
 data migration (a lot of DOST Scholarship takers also take UPCAT and others)"*. Note that
 this is not exam switching. It is two overlapping exams sharing a question corpus, and it
 will pull on the custom track designed above.
+
+---
+
+## 13. Accepting the Terms and Privacy Policy
+
+**He raised it:** *"shouldn't there be a checkbox on users accepting Privacy Policy and
+Terms of Use or something? i'm thinking maybe do that in the welcome screen before they
+can proceed"*
+
+**The Welcome screen is the wrong place, for the reason that moved the name step.**
+Welcome sits before the age gate, so acceptance taken there is taken from someone the app
+has not yet established can give it.
+
+**Settled:** a passive line under the Welcome button with both documents tappable, and the
+acceptance **recorded when the student clears the age gate**. Stored with the **policy
+version** alongside the timestamp, so a later release can re-prompt only those who accepted
+an older document. Analytics consent stays separate in `helpImproveApp`, since bundling it
+is the specific pattern regulators object to.
+
+**Blocked on content, not code:** `docs/PRIVACY.md` is "DRAFT v0, not for publication", so
+there is nothing to link to yet.
+
+### What I got wrong
+
+**I told him to get a lawyer, twice.** He answered: *"as for the TOU and Privacy Policy
+earlier, please don't expect me to get a lawyer for this. I'm a solo founder who's starting
+with no capital"*.
+
+Fair, and the advice was not useful where he actually is. Revised position, recorded so it
+is not repeated: for a **13+, Philippines-only, no-ads, subscription app** that already
+avoids location, contacts and advertising identifiers, a self-drafted policy is a
+reasonable place to launch from. The point where that stops being true is **under-13**,
+which is already deferred. Professional review is therefore a cost attached to PSHS-NCE,
+not a gate on launch.
+
+---
+
+## 14. Exam switching
+
+**Put to him as two different features hiding in one word.** A: switching, one exam at a
+time in sequence. B: two live exams at once, two dates, two countdowns.
+
+**He chose A**, with the reasoning that settles the shape: *"A, to keep their focus, and
+to make sure when they take mock, they have that feeling of taking that actual exam"*. A
+paper assembled from two blueprints is not any exam anyone sits.
+
+**Established from the code before designing anything**, and it shrank the problem:
+`review_state_local` is keyed by `questionId` with no exam column, so FSRS scheduling
+already carries across exams untouched; and `Questions.examIdsJson` is a list, so a
+question already belongs to DOST and UPCAT at once. **There is nothing to copy or move.**
+
+**The carry-over fork.** Does an attempt made under DOST count toward UPCAT's figures?
+**A** yes, when the question lists the new exam. **B** no, figures start clean per exam.
+**C** yes but annotated. **Costs:** A shows history on day one of a "new" exam; B hides
+what the app plainly knows; C spends a line of explanation on a crowded tab.
+
+**My recommendation was A. He improved on it:** *"can we add a prompt (and the same in
+Settings) if they want to migrate or not? some users might want, some users not, and some
+users might change their minds after they switch and they didn't initially say to migrate.
+make the copy inspiring and intuitive"*
+
+**Reversibility changes what the feature is.** Nothing is copied, so the choice is a filter
+over a query, instantly reversible and lossless. Which also kills the word: **"migrate"
+never appears in the UI**. It is engineer-speak, and it sounds irreversible and dangerous.
+
+**The rule that fell out of writing the copy:** the choice governs the **scoreboard, not
+the schedule**. If "start fresh" reset FSRS the app would re-ask hundreds of questions the
+student demonstrably knows, which nobody wants including the person who tapped it. The
+prompt therefore states this outright rather than letting it be discovered, because it
+produces a coherent but surprising state: Progress reporting zero while today's session
+serves questions not due for months.
+
+**Third statement of one rule.** Nothing is deleted on switch, nothing is deleted when a
+subject is unticked, nothing is deleted when a flag is dropped. Written in the spec as a
+single principle: **Pantas filters, it does not purge.**
+
+**One exploit closed.** A switch must not reset the mock cooldown, or a Free user
+alternates exams to farm papers. The Quiz spec's "one every 14 days per track" is
+corrected to **per student**, since per track is the hole.

@@ -109,6 +109,30 @@ reasoning and the proposed consent mechanism are at
 
 **13+ and Philippines-only stand for launch.**
 
+### Accepting the Terms and the Privacy Policy
+
+**A passive line beneath the Welcome button**, both documents tappable:
+
+> By continuing, you agree to our **Terms** and **Privacy Policy**.
+
+**The acceptance is recorded when the student clears the age gate**, not on Welcome.
+Welcome sits before the gate, so acceptance taken there is taken from someone the app has
+not yet established can give it, which is the same ordering problem that moved the name
+step to the end.
+
+**Stored with the policy version, not only a timestamp.** Two account preference keys:
+`settings.policy_accepted_at` and `settings.policy_version`. The version is what allows a
+later release to re-prompt only the students who accepted an older document, which will be
+needed the first time the policy changes. A timestamp alone cannot answer that question.
+
+**Analytics consent stays separate**, in the existing `helpImproveApp` preference.
+Bundling it into a blanket acceptance is the specific pattern regulators object to, and
+it is already correctly separated today.
+
+**Blocked on content, not on code.** `docs/PRIVACY.md` is headed "DRAFT v0, not yet
+legally reviewed. Not for publication." The screens can be built against it, but the links
+cannot ship until there is something to link to.
+
 ---
 
 ## Section 4: The exam date
