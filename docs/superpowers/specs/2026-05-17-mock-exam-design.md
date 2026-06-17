@@ -20,7 +20,7 @@ Spec 5 adds a blueprint-driven, timed mock-exam flow to the CSE/CET Reviewer App
 - Crash-safe attempt state (per-change flush + 30 s heartbeat).
 - Resume sheet on launch when an in-progress attempt exists; Discard refunds the slot.
 - Free tier: 1 active mock per 14 days per `examId`; Pro: unlimited. Cooldown begins on submit/auto-submit/strict-forfeit.
-- Post-mock results: score band, per-section accuracy + time, top-3 weak topics with deep-link into Drill; Pro unlock for full per-question review.
+- Post-mock results: score band, per-section accuracy + time, top-3 weak topics with deep-link into Drill; ~~Pro unlock for full per-question review~~ (amended 2026-07-28: the review is on both tiers, Pro adds the per-choice note. See D11).
 - History list paginated (last 10 + "See all"); attempts persist forever locally + via Spec 3 sync (terminal state only).
 - Delight micro-interactions consistent with the shared design-system primitives (see §8).
 
@@ -50,7 +50,7 @@ These were resolved during brainstorm; rationale in §3.x.
 | D8 | Section navigation | Full free nav + flag-for-review + bottom-sheet navigator with jump shortcuts. |
 | D9 | Resume prompt | Always offer a resume sheet with elapsed + remaining. Discard refunds slot. Stale rows (remaining ≤ 0) auto-finalize as timeUp. |
 | D10 | Cooldown semantics | Cooldown begins on submit / auto-submit / strict-forfeit. In-progress holds the slot. Discard refunds. |
-| D11 | Results screen depth | Free: score + section + top-3 weak topics + Drill CTA. Pro: full per-question review with explanations. |
+| D11 | Results screen depth | **Amended 2026-07-28, see `2026-07-28-mock-exam-ui-design.md` §5.** Free now gets the full per-question review, the correct answer and the authored explanation; Pro adds the note on the choice made. ~~Free: score + section + top-3 weak topics + Drill CTA. Pro: full per-question review with explanations.~~ |
 | D12 | History lifecycle | Keep forever locally + Firestore. UI paginates: last 10 + "See all". |
 
 ### 3.x Notes on rationale

@@ -20,8 +20,9 @@ What it does share is stated in Section 1.
 ## What is settled, and what is not
 
 **Settled here:** sectional timing and what it does to navigation, the question grid's
-mock variant, the floating bar, the results screen, the review screen, and what becomes
-of the marks made during the paper.
+mock variant, the floating bar, the results screen, the review screen and what each tier
+sees in it, what becomes of the marks made during the paper, and the practice session's
+use of the same review component.
 
 **Not designed:** the setup screen beyond the one requirement in Section 2, the pause
 and strict-forfeit flows, the section-transition moment, the warning overlays, and mock
@@ -142,7 +143,7 @@ Centred, and **the figure alone**:
 
 ```
               68%
-          Not far off
+        Close to passing
            82 of 120
 ```
 
@@ -159,7 +160,14 @@ had just missed it.
 with a fallback of 75 and 60. Nothing is hardcoded.
 
 **"Borderline" is banned**, by Spec 5's own copy register along with "remediation" and
-"diagnostic". The middle band currently reads **"Not far off"**, which is provisional.
+"diagnostic". The middle band is **"Close to passing"**, settled 28 July.
+
+It beat "Not far off" and "Just below" on **reading level**, which is the rule that
+decides copy in this app: "not far off" is idiom, and idiom is the first thing to fail a
+reader working in their second language. "Close to passing" costs one thing and the cost
+is real, which is that it says "passing" to someone who has just not passed. That is
+accepted, because it is the reading a student would arrive at anyway and stating it
+plainly is kinder than making them infer it.
 
 ### The header
 
@@ -234,6 +242,34 @@ losing position. Expanded: the four choices with the correct one marked board âœ
 chosen one rust âœ•, the others at 50%, then the marginal notes from the quiz spec's
 Section 3, then the flag control.
 
+### What Free sees, settled 28 July
+
+**Free gets every question, the correct answer and the authored explanation**, which is
+note A from the quiz spec's Section 3. **Pro adds note B**, the note addressed to the
+choice that student actually made. The review is otherwise identical on both tiers.
+
+This is **Free records, Pro interprets** applied without an exception, and it **formally
+amends Spec 5 D11**, which reads "Free: score + section + top-3 weak topics + Drill CTA.
+Pro: full per-question review with explanations." D11 predates the rule and is reversed
+rather than quietly ignored.
+
+**Three arguments decided it**, and the third is the one that could not be answered.
+
+1. **Gating the mock alone is not a line, it is a delay.** The mock draws from the same
+   bank as practice, where Free already sees note A. A Free user blocked on question 41
+   in the review meets that same question in practice and reads the same explanation. The
+   gate withholds nothing; it adds steps.
+2. **The mock already carries the tab's only visible paywall**, one per 14 days. Gating
+   its review charges twice on one surface.
+3. **A gated review is a dead end, and this was checked rather than assumed.**
+   `AttemptsRepository.recentIncorrects` queries `attemptsLocal` only. Mock attempts live
+   in `mock_attempts_table`, and D4 keeps mocks out of FSRS on purpose. So mock misses
+   **never** reach "Your mistakes" and **never** come back through the scheduler. Gate
+   the review and a Free user's 38 wrong answers have nowhere left to go at all.
+
+**What the gate would have bought is available above it.** Note B is the per-choice
+rationale, it cannot be got from a reviewer book, and it is already Pro-only.
+
 ### The flag here
 
 **The pennant means "practice this", and only that.** It is the same durable flag the
@@ -271,23 +307,44 @@ remove.
 
 ---
 
+## Section 6: The same screen after a practice session
+
+Settled 28 July, and it is the reason the review list is a component rather than a page.
+
+`quiz_results_page.dart` **survives, rebuilt as the practice review.** Its only entry was
+the "Review results" button on the session ending, which the debrief deleted, so it is
+unreachable code today. Rather than delete it, the debrief gains **one ruled row**,
+"Go through all 10", opening this review screen scoped to the session just finished.
+
+**It is the same component, with three differences the data forces:**
+
+| | Mock review | Practice review |
+|---|---|---|
+| Grouping | By subject, with a count | Flat. A ten-question session rarely spans enough subjects to earn headings |
+| Filters | All, Wrong, Flagged | The same row, with the same **Wrong** default |
+| The one-time offer | Present, for the marks made under the clock | **Absent.** Practice flags are durable from the moment they are set |
+
+**This reverses a decision made on 27 July and the reversal is deliberate.** A "Review
+the misses" button was drawn on the debrief and deleted, on the grounds that the student
+had seen every miss seconds earlier. That argument holds for the **misses** and does not
+hold for the **explanations**: at answer time the note is read once, under the momentum
+of a session, and there was no way to return to it afterwards short of meeting the
+question again by chance. One row restores that, and it makes both endings in the app
+work the same way.
+
+**What does not change:** the miss rows on the debrief itself stay a record with no
+chevrons and nothing happens on tap. The row is the only way through, and it sits below
+the return promise, above the footer.
+
+---
+
 ## Open
 
-1. **What Free sees in the review.** Spec 5 D11 gates the whole per-question review
-   behind Pro. That predates the **Free records, Pro interprets** rule settled for the
-   practice reveal, where Free already gets the mark, the answer and the authored
-   explanation. Applying it consistently would give Free every question, the correct
-   answer and the explanation, with Pro adding the note on the choice made. The
-   counter-argument is that 120 explanations is a lot to hand over and D11 is a clean
-   line. **Undecided.** Whichever wins, D11 is formally amended rather than quietly
-   ignored.
-2. **`sectionalTiming` for ACET, DCAT and MSU-SASE.** Aedwon is establishing these.
+1. **`sectionalTiming` for ACET, DCAT and MSU-SASE.** Aedwon is establishing these.
    Those three blueprints cannot be completed until he reports back.
-3. **The middle band's name.** "Not far off" is provisional.
-4. **Whether `quiz_results_page.dart` survives.** The debrief replaced its only entry
-   point, since "Review results" was deleted from the session ending. It is now
-   unreachable. It either goes, or it becomes the practice equivalent of this review
-   screen, reusing the same component for a ten-question session.
+
+**Closed 28 July:** what Free sees in the review, Section 5. The middle band's name,
+Section 4. Whether `quiz_results_page.dart` survives, Section 6.
 
 ## A note on plan size
 
@@ -295,6 +352,9 @@ This spec is smaller than the Quiz tab's and still splits in two:
 
 1. **The paper.** Sectional timing end to end, the blueprint field, the grid's mock
    variant, the floating bar, and the setup screen's statement of the rule.
-2. **The endings.** The results screen, the review screen, and the one-time offer.
+2. **The endings.** The results screen, the review screen, the one-time offer, and the
+   practice variant that replaces `quiz_results_page.dart`.
 
-Both depend on the Quiz tab spec's grid and flag components landing first.
+Both depend on the Quiz tab spec's grid and flag components landing first. The review
+component in 2 additionally depends on the per-choice rationale content pass, since note
+B is what the tier split turns on.

@@ -838,6 +838,109 @@ empty and tappable everywhere, so nothing arrives pre-set and nothing has to be 
 - Whether `quiz_results_page.dart` survives now that the debrief removed its only entry
   point.
 
+**All three closed on plate 25.**
+
+---
+
+## Plate 25: The four that were left
+
+**File:** `open-decisions.html` · 28 July
+
+**Published rather than served.** Aedwon asked for this one as an Artifact so he could
+answer it away from the companion, which meant the six `/files/*.ttf` faces had to be
+subset and inlined as data URIs and the `window.brainstorm.choice` recorder had to go.
+Selections were copied to the clipboard and pasted into the terminal instead. He returned
+to the companion for anything after this, so the change is not a new practice.
+
+**Two defects fixed on the way out**, both mine: the Flagged option said "then practise
+what remains", which is the **third** time that spelling has got past me, and the
+plate's own copy button had to replace a recorder that would have silently done nothing.
+
+| Decision | Chosen | Rejected, with its stated cost |
+|---|---|---|
+| Free in the mock review | **Free sees the answer and the explanation** | Gated, as Spec 5 D11 wrote it: keeps 120 explanations behind the paywall, contradicts the practice reveal |
+| The middle band | **"Close to passing"** | "Not far off", the suggested option: warm but idiom. "Just below": factual, reads as a verdict. No word at all: a first-timer cannot read 68 |
+| `quiz_results_page.dart` | **Reuse it as the practice review** | Delete it: less code, but no way to re-read an explanation after a session |
+| The Flagged row | **A list, with a practice action at the bottom** | Straight into a session: no screen at all, but you can never see or prune what you flagged |
+
+**The band moved off the suggested option after the plate was drawn.** I had marked "Not
+far off" as suggested and then argued against my own marker in the terminal, on the
+reading-level rule: "not far off" is idiom, and idiom fails a reader working in their
+second language first. Aedwon took the argument. The cost is stated in the spec rather
+than hidden: "Close to passing" says "passing" to someone who has just not passed.
+
+### The Free-tier question, and the research that settled it
+
+Aedwon put the opposite case rather than accepting the recommendation:
+
+> "what would you advise that if I wanted the mock test of Free to not have
+> explanations, so should the quizzes? with me or against me, please explain your
+> reasoning"
+
+**Agreed on the logic, opposed on the destination.** He was right that gating one surface
+forces gating both: the mock draws from the same bank as practice, so a gate on the mock
+review alone is not a paywall but a delay, since the same explanation is free two taps
+away in practice. That left exactly two coherent positions, both free or both paid.
+
+**The argument that could not be answered was found in the code rather than made.**
+`AttemptsRepository.recentIncorrects` queries `attemptsLocal` only, mock attempts are
+written to `mock_attempts_table`, and Spec 5 D4 keeps mocks out of FSRS deliberately. So
+mock misses never reach "Your mistakes" and never come back through the scheduler. A
+gated review makes a Free user's 38 wrong answers a dead end with no second path.
+
+He then asked for evidence, since Pantas is unreleased and he has no data of his own.
+
+| Finding | Bearing on the decision |
+|---|---|
+| **Photomath** gives step-by-step solutions free and sells animated walkthroughs and textbook-matched solutions at $9.99 a month | The same split as note A free, note B paid, arrived at independently |
+| **Duolingo** never gates a lesson; Super gates ads, hearts, offline, and deeper explanations of your mistakes. About 8% of actives convert | Curriculum free, personalized mistake explanation paid. Again the same line |
+| **Quizlet** moved Learn mode behind $2.99 and its reviews are now dominated by "unusable without a subscription" | The failure mode of gating the feature that makes the app work |
+| **UWorld** sells explanations as the product at $400 and up | The strongest case for gating, and it does not transfer: no free tier at all, a hard paywall, and a captive market of adult medical students |
+| EdTech freemium converts at roughly **2.6%**, the weakest vertical measured, and **23%** of freemium conversions happen more than six weeks after install | The free tier has to survive six weeks of daily use for a conversion to exist at all |
+| Local floor: AHEAD's UPCAT app has a free tier, "UPCAT Reviewer 2027" advertises no paywalls, FilipiKnow gives away full reviewers, and paid local products are commonly one-time unlocks near ₱500 through payment centers | Questions plus answers plus a basic explanation is already at price zero for this exact student |
+
+**Recorded against my own case, because it is real:** the homework-help category proves
+at scale that people pay for explanation. The instinct was not wrong about willingness to
+pay, only about which layer to charge for.
+
+**Raised by me and closed the same day.** I asked whether Pro's packaging should follow
+the local pattern of one-time unlocks bought through payment centres, since a parent
+paying once for a review cycle is a different buyer from a monthly subscriber.
+
+> "no i don't like the one-time paid reviewer scheme. i'll stick to the subscriptions for
+> those who want depth. the app is basically a knowledge repository for the general
+> public."
+
+**That sentence is the positioning, and it settles the tier line rather than merely
+answering the pricing question.** A repository for the general public cannot gate the
+thing that makes it a repository, which is why Free keeps the questions, the answers and
+the explanations everywhere, and why Pro sells depth on top. Recorded to memory, and it
+should be quoted at any future proposal to gate a base fact.
+
+**Sources:** [Photomath pricing](https://www.myengineeringbuddy.com/blog/photomath-reviews-alternatives-pricing-offerings/),
+[Duolingo monetization](https://www.revenuecat.com/blog/growth/cem-kansu-duolingo-sub-club-podcast-2026/),
+[Duolingo free tier limits](https://approast.app/duolingo),
+[Quizlet paywall backlash](https://www.mintdeck.app/blog/quizlet-paywall-free-alternative),
+[UWorld](https://www.quantaprep.com/blog/is-uworld-worth-it-2026),
+[hard paywall against freemium](https://www.airbridge.io/en/blog/hard-paywall-vs-freemium-2026),
+[EdTech conversion benchmarks](https://firstpagesage.com/seo-blog/saas-freemium-conversion-rates/),
+[conversion timing](https://www.airbridge.io/en/blog/why-subscription-app-get-installs-no-paid-subscribers),
+[AHEAD UPCAT](https://technology.inquirer.net/36987/ahead-and-megamobile-launch-upcat-review-mobile-app),
+[FilipiKnow reviewer](https://filipiknow.net/upcat-reviewer/)
+
+### What the four changed in the specs
+
+| Document | Change |
+|---|---|
+| `2026-07-28-mock-exam-ui-design.md` | Section 4 takes "Close to passing". Section 5 gains "What Free sees" and reverses D11 in as many words. New Section 6 for the practice review. Open drops from four items to one |
+| `2026-05-17-mock-exam-design.md` | D11 and the matching in-scope line are struck through in place, with a pointer, so neither reads as current |
+| `2026-07-28-quiz-tab-design.md` | Section 1 states what the Flagged row opens. Section 4 gains the "Go through all 10" row. Section 7's tier table gains a review row. Section 10 records the D11 reversal and gives `/review` a destination. Open item 3 closed. The plan grows a sixth seam for the shared review component |
+
+**One reversal is recorded as a reversal.** The debrief's "Review the misses" button was
+drawn and deleted on 27 July because the student had just seen every miss. The new row is
+not that button: it reaches the **explanations**, which were read once during the session
+and were unreachable afterwards. The miss rows above it stay inert.
+
 ---
 
 ## Exam administration research, 28 July

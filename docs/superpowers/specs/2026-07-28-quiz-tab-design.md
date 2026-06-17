@@ -222,6 +222,20 @@ then one row: **"Questions you flagged"**, subtitle "12 kept, across 4 topics. 7
 them from your last exam". Dimmed with "Flag anything you want to come back to" and no
 chevron when empty.
 
+**The row opens a list, not a session.** Settled 28 July. It is the mock spec's review
+component in its practice form: the flagged questions, grouped by subject, each expanding
+in place to its choices and its notes, every pennant tappable so unflagging is one tap.
+A board **"Practice these 12"** sits at the bottom and starts the session.
+
+**Straight into a session was rejected**, though it is the cheaper build. A flag is a
+judgment made weeks earlier, in a different mood, about a question the student may since
+have learned. Without a list there is no way to see what accumulated and no way to prune
+it, so the only exit from a flag is answering it again inside a session, which is a one
+way door. The count on the row would also grow forever with nothing to spend it on.
+
+**The practice action is at the bottom rather than the top**, because the list is the
+thing being read and the session is what you do after deciding the list is right.
+
 ### Other states
 
 | State | Treatment |
@@ -464,6 +478,15 @@ You'll see all three again tomorrow.
 - **"You'll see all three again tomorrow."** in 12 `inkMuted`, beneath the list, for
   both tiers. It is the most reassuring true sentence available on this screen and it
   gives the Free version a proper ending rather than stopping dead.
+- **One ruled row, "Go through all 10"**, in serif 15/700 with a chevron, opened by a 1px
+  `rule` beneath the return promise. Added 28 July. It opens the practice form of the
+  mock's review screen, specified in `2026-07-28-mock-exam-ui-design.md` Section 6, and
+  it is what keeps `quiz_results_page.dart` alive instead of deleting it.
+
+  **This does not reopen the deleted button.** That one re-listed the misses, which the
+  student had just read. This one reaches the **explanations**, which were read once
+  under the momentum of a session and were otherwise unreachable afterwards. The rows
+  above it stay inert; the row is the single way through.
 - Footer: a single board **"Done"**.
 
 ### The inferred cause
@@ -664,6 +687,7 @@ every surface in this spec.
 |---|---|---|
 | The reveal | The mark, the verdict, note A, the interval | Plus note B, addressed to the choice you made |
 | The debrief | The score, the figures, every miss, the return promise | Plus the inferred cause per miss, and the tagging |
+| Either review screen | Every question, the answer, note A | Plus note B |
 | Flags | Unlimited, and practice sessions from them | Plus patterns, ordering and notes |
 | The picker, the session, Your mistakes | Unlimited, uncapped | Same |
 | Mock exam | One every 14 days per track | Unlimited |
@@ -963,7 +987,10 @@ loss and nothing heavier should be built for it.
    scope.
 2. **Spec 5, `2026-05-17-mock-exam-design.md`.** `MockQuizTabTile` is superseded by the
    mock panel in Section 1. The cooldown gains a precise `9d 14h` figure and the tier
-   rule as a permanent line. Everything else stands.
+   rule as a permanent line. **D11 is reversed**, 28 July: the per-question review is on
+   both tiers and Pro adds note B. The reasoning is in
+   `2026-07-28-mock-exam-ui-design.md` Section 5, and D11 is struck through in Spec 5
+   itself rather than left to read as current. Everything else stands.
 3. **`2026-07-27-study-tab-and-reader-design.md`.** Its deferred item "a quiz entrance
    in Study" is **closed as no**: the reader's coda at the end of every lesson already
    is that entrance, at the only moment it is earned, and the map deliberately holds
@@ -973,8 +1000,10 @@ loss and nothing heavier should be built for it.
    count or an action, never a status word; and the marginal-note device of Section 3
    as the way an explanation attaches to a lettered option.
 5. **Route table:** `/quiz/drill/:examId` and `DrillSubtopicBrowser` are deleted and
-   replaced by the picker. `/review` and `/mock-exam` remain stubs and are the mock
-   viewer's problem.
+   replaced by the picker. `/mock-exam` remains a stub and is the mock viewer's problem.
+   `/review` becomes the review screen, taking a session or an attempt and rendering the
+   practice or mock form of the same component. `quiz_results_page.dart` is rebuilt
+   behind it rather than deleted.
 
 ## Sectional papers, established 28 July
 
@@ -1047,11 +1076,10 @@ both. `2026-05-17-mock-exam-design.md` is its starting point.
    offered once in the mock's review; anything kept becomes an ordinary practice flag
    with no record of where it came from.
 
-3. **Two screens are named but never drawn.** The tab's "Your mistakes" row starts a
-   retake session, so it needs no screen of its own. But **the Flagged row's
-   destination is unspecified**: it either opens a list of flagged questions, which
-   should reuse the mock review screen's list component, or starts a session from them
-   directly. Decide before the tab is built.
+3. ~~Two screens are named but never drawn.~~ **Closed 28 July.** "Your mistakes" starts
+   a retake session and needs no screen. The **Flagged row opens a list**, the mock
+   review component in its practice form, with "Practice these 12" at the bottom. See
+   Section 1.
 
 ## A note on plan size
 
@@ -1067,6 +1095,11 @@ Too large for one implementation plan. The natural seams, in dependency order:
    the drill fix that makes its promise true.
 4. **The reveal.** Graded answer states, the verdict, the marginal notes, and the tier
    split.
-5. **The debrief.** Figures, the miss list, the inference, and the optional tagging.
+5. **The debrief.** Figures, the miss list, the inference, the optional tagging, and the
+   row into the review.
+6. **The review component**, shared with the mock and reached from the debrief, the
+   Flagged row and a finished mock. It is listed last because every one of its three
+   entrances is built above it, and it is the piece that makes `quiz_results_page.dart`
+   worth keeping.
 
 The content work in 1 runs alongside everything and must land before 3 and 4.
