@@ -2,6 +2,7 @@ import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart
 import 'package:cse_cet_reviewer/core/storage/data/seeder.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_ordering.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_preferences.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/picker/pick_context.dart';
@@ -49,7 +50,11 @@ void main() {
       userId: 'user',
       examId: 'exam_cse_pro',
       topicId: topic.id,
-      preferences: QuizPreferences.defaults,
+      preferences: QuizPreferences(
+        sessionLength: 10,
+        ordering: QuizOrdering.blocked,
+        newCardCap: 10,
+      ),
       now: DateTime.utc(2026, 5, 18),
     );
 
@@ -84,7 +89,7 @@ void main() {
       examId: 'exam_cse_pro',
       preferences: QuizPreferences(
         sessionLength: 5,
-        interleavedToday: true,
+        ordering: QuizOrdering.interleavedTail,
         newCardCap: 10,
       ),
       now: DateTime.utc(2026, 5, 18),

@@ -1,7 +1,9 @@
+import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_ordering.dart';
+
 class QuizPreferences {
   QuizPreferences({
     required this.sessionLength,
-    required this.interleavedToday,
+    required this.ordering,
     required this.newCardCap,
   }) {
     if (!_allowedSessionLengths.contains(sessionLength)) {
@@ -25,11 +27,11 @@ class QuizPreferences {
 
   static final defaults = QuizPreferences(
     sessionLength: 10,
-    interleavedToday: false,
+    ordering: QuizOrdering.defaultOrdering,
     newCardCap: 10,
   );
 
   final int sessionLength;
-  final bool interleavedToday;
+  final QuizOrdering ordering;
   final int newCardCap;
 }

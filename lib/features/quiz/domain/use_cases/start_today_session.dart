@@ -2,6 +2,7 @@ import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_ordering.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_preferences.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/picker/pick_context.dart';
@@ -66,10 +67,10 @@ class StartTodaySession {
       requestedLength: requestedLength,
       topicId: topicId,
     );
-    final origin = preferences.interleavedToday
+    final origin = preferences.ordering != QuizOrdering.blocked
         ? SessionOrigin.todayInterleaved
         : SessionOrigin.todayTopic;
-    final picked = preferences.interleavedToday
+    final picked = preferences.ordering != QuizOrdering.blocked
         ? _interleavedPicker.pick(context)
         : _topicPicker.pick(context);
 
@@ -85,7 +86,7 @@ class StartTodaySession {
       questions: picked,
       startedAt: now,
       origin: origin,
-      topicId: preferences.interleavedToday ? null : topicId,
+      topicId: preferences.ordering == QuizOrdering.blocked ? topicId : null,
     );
     await _sessions.create(
       sessionId: session.sessionId,
