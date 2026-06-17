@@ -469,6 +469,35 @@ a list that nothing could add to.
 
 ---
 
+## Plate 14: The spec review
+
+**File:** `quiz-spec-review.html` · 28 July
+
+Nine decisions from the spec, each drawn beside its statement, with a confirm or flag
+control per item. **All nine confirmed, none flagged.** Two notes followed.
+
+> "the Today's session and mock panel should be enclosed like how Home tab is"
+
+**No change needed.** The spec already specifies both as ruled panels, a 1px `rule`
+border with square corners, explicitly per the Home spec's device. What lost the
+enclosure was the review page itself, which drew the panel contents and the rows inside
+one shared box as a rendering shortcut.
+
+**Clarified on the same point:** only the two panels are ruled. **"More ways to
+practice" and "Flagged" stay plain ruled lists**, not boxes. This is a deliberate
+departure from Home, which encloses all four of its blocks, and it keeps the tab's
+hierarchy legible: two objects with state get edges, two lists do not.
+
+> "remove the streak figure"
+
+**Applied.** The debrief drops from three figures to **two, correct and taken**. Same
+reason the streak was cut from the session panel on plate 7: it is on Home and in
+Progress and does not need a third home. There is a second reason particular to this
+screen, recorded in the spec: a streak is a fact about the month, and the debrief is
+about the ten questions just answered.
+
+---
+
 ## Decisions taken in conversation rather than on a plate
 
 Recorded here because they are absent from every mockup.

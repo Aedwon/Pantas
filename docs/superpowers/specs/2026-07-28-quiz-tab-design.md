@@ -432,8 +432,8 @@ App bar with a close ✕ only. Then:
 ```
 Ten answered.
 
-   7 / 10        9 min        7 days
-   correct       taken        running
+        7 / 10              9 min
+        correct             taken
 
 Today's session. Chemistry, Physics and Biology.
 
@@ -448,8 +448,11 @@ You'll see all three again tomorrow.
 
 - **"Ten answered."** in serif 22/700, computed from the session length. Not "Session
   complete", which is software talking about itself.
-- Three centred figures: **correct**, **taken**, **running**. Not "spent", which
-  frames the time as lost.
+- **Two** centred figures: **correct** and **taken**. Not "spent", which frames the
+  time as lost. **No streak figure**, for the same reason it was cut from the session
+  panel: it is on Home and in Progress and does not need a third home. It is also the
+  wrong screen for it, since a streak is a fact about the month and this page is about
+  the ten questions just answered.
 - **"To come back to"** as the section heading, with the count. Not "What you missed":
   these are not losses, they are scheduled returns, which is literally what the
   scheduler just did.
