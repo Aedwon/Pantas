@@ -78,6 +78,7 @@ class Seeder {
                 stem: q['stem'] as String,
                 choicesJson: jsonEncode(q['choices']),
                 explanation: q['explanation'] as String,
+                shortLabel: Value(q['shortLabel'] as String?),
               ),
             );
       }

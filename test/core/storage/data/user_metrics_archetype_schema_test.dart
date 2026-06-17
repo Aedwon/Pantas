@@ -6,12 +6,12 @@ import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test('app database creates local archetype cache table at schema version 13',
+  test('app database creates local archetype cache table at schema version 14',
       () async {
     final db = AppDatabase(NativeDatabase.memory());
     addTearDown(db.close);
 
-    expect(db.schemaVersion, equals(13));
+    expect(db.schemaVersion, equals(14));
     expect(await _tableNames(db), contains('user_metrics_archetypes_local'));
   });
 

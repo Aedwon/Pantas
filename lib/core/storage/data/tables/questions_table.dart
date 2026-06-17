@@ -17,6 +17,7 @@ class Questions extends Table {
   TextColumn get stem => text()();
   TextColumn get choicesJson => text()();
   TextColumn get explanation => text()();
+  TextColumn get shortLabel => text().nullable()();
 
   @override
   Set<Column<Object>> get primaryKey => {id};
