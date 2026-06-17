@@ -41,9 +41,11 @@ across all of the above.
 
 **Out of scope, and deliberately so:**
 
-- **The quiz viewer.** The in-session chrome beyond the reveal: the header and
-  counter, the progress rail, quitting mid-session, moving between questions, and
-  where a question is flagged while answering. Not designed. It is the next session.
+- **The quiz viewer.** The in-session chrome beyond the reveal: the header, the
+  counter, the progress rail, quitting mid-session, and moving between questions. Not
+  designed. It is the next session. **One exception:** the flag control's placement and
+  glyph are settled here, in Section 6, because the Flagged section on the tab would
+  otherwise specify a list nothing can add to.
 - **The mock viewer.** Its own design job, and it inherits nothing from here. See
   "The mock viewer, carried forward" at the end.
 - Home, Study, Progress, Settings. The ordering control lands in Settings and is
@@ -571,6 +573,57 @@ each other's word.
   `mock_attempt.flagsJson` persists it. **Those existing flags merge into this feature
   rather than remaining separate**, which is why the flagged row can say "7 of them
   from your last exam".
+### The mark
+
+A **pennant**, a triangular flag notched at the fly, on a staff. Drawn in a 24 viewBox
+and rendered at 21px, stroke 1.5, round caps and joins.
+
+- Staff, always stroked: `M6 3.2v17.6`
+- Pennant: `M6 4.4h12.2L14 9l4.2 4.6H6`
+- **Unset:** both stroked in `inkMuted`.
+- **Set:** the staff stays stroked, the pennant fills solid in `ink`.
+
+**It is not a ribbon and it is not board green.** The ribbon belongs to Study's lesson
+bookmarks and its paths are fixed by the 2026-07-27 spec. Structurally the two are
+unmistakable side by side: a staff with a shape hanging off one edge against a
+rectangle with a notch cut from its bottom. Board is spent on the primary action,
+progress and done checks, which is the same budget argument that kept the ribbon off
+it.
+
+**Rejected:** a plain banner, because filled it is a rectangle beside a staff and that
+is close enough to the ribbon to cause a moment of doubt. A dog-ear, which is the
+better paper metaphor and is already the Progress tab's folded sheet. A star, which
+means favourite, and a question is flagged because it beat you.
+
+### The control
+
+**In the app bar of the quiz viewer, in the trailing slot, outermost.** The bar reads
+**[counter] [flag]**, which is the reader's `[context] [mark]` rule with the counter
+playing the part the reader's "2 of 3" plays. The flag never moves.
+
+- **Available before and after answering**, and identically inside a mock, where
+  flag-for-review already exists in Spec 5. A control that lives only on the reveal
+  cannot serve a mock and cannot flag a question you have not answered yet, which is
+  the case a student most wants during a timed run.
+- **Flagging never submits and never advances.** This is why the control is not on the
+  choices themselves.
+- On first use, a toast names what happened: "Flagged. Find it in the Quiz tab.", with
+  an Undo. Removing a flag toasts "Flag removed".
+
+### Motion
+
+**The fill sweeps from the staff outward, left to right**, over **400ms** on
+`cubic-bezier(.22, 1, .36, 1)`, the settled constant. **Unsetting drains instantly**,
+matching the rule that an outgoing mark does not animate. Disabled under reduce-motion,
+falling back to a plain swap.
+
+Each mark in the app now fills from the edge it belongs to, and the direction is the
+reason rather than decoration: the navigation tab rises from the bottom because it sits
+there, the bookmark ribbon falls from the top because it hangs there, and the pennant
+unfurls from its staff.
+
+### Storage
+
 - Storage mirrors the Study spec's bookmark table: `question_flags_local` with
   `questionId` text PK referencing questions, `flaggedAt` datetime, `sortIndex`
   integer nullable, `syncState` text defaulting to `pending`, plus a sync mapper on
@@ -659,10 +712,15 @@ after entry, over 300ms**, so the record is read before the ask appears. This bo
 the delay pattern the Study spec uses for the bookplate, for the same reason: the page
 should state its facts before it asks anything.
 
+### The flag
+
+The only element in this spec that uses the 400ms constant. It sweeps from the staff
+outward and drains instantly, per Section 6.
+
 ### Haptics
 
-A light selection tick on each wheel step and on each checkbox toggle. Nothing else in
-this spec vibrates. **There is no haptic infrastructure in `lib/` today**, so this is a
+A light selection tick on each wheel step, on each checkbox toggle, and on setting a
+flag. Nothing else in this spec vibrates. **There is no haptic infrastructure in `lib/` today**, so this is a
 small addition rather than a call into something existing, and it should be a single
 helper rather than scattered `HapticFeedback` calls.
 

@@ -421,6 +421,54 @@ adding a fourth kind of rule.
 
 ---
 
+## Plate 13: The flag, its home and its glyph
+
+**File:** `quiz-flag.html` · 31 events · 28 July
+
+Scoped by instruction to two questions only: where the flag lives, and what it looks
+like. The rest of the quiz viewer stays for its own session.
+
+**Constraints stated before drawing**, all of them inherited rather than invented:
+
+- It must work **before an answer and after one**, because flag-for-review in a mock is
+  pre-answer by definition and practice flagging is mostly post-answer. One word, one
+  behaviour.
+- **It cannot be a ribbon.** Study owns that shape for lesson bookmarks.
+- **It cannot be board green**, on the same budget argument the Study spec used to keep
+  the ribbon off it.
+- **It must never submit or advance**, which ruled out putting it on the choices before
+  anything was drawn.
+
+| Placement | Events | Outcome |
+|---|---|---|
+| **The app bar, outermost** | 25 | **Chosen.** The only placement that works before answering, after answering and inside a mock. Inherits the reader's `[context] [mark]` rule, with the counter in the context slot |
+| In the bar and named on the reveal | 4 | Two controls for one state |
+| On the reveal only | 1 | Cannot serve a mock, cannot flag an unanswered question |
+| Press and hold | 1 | Needs a hint line, which is the chrome it was avoiding |
+
+| Glyph | Events | Outcome |
+|---|---|---|
+| **Pennant** | 18 | **Chosen.** Literally the word, structurally unlike the ribbon, and the staff fixes its left edge so it does not appear to shift between states |
+| Banner | 11 | Given a serious look. Filled, it is a rectangle beside a staff, which is close enough to the ribbon to cause a moment of doubt |
+| Dog-ear | 1 | The better paper metaphor, and already the Progress tab's folded sheet |
+| Star | 1 | Means favourite. A question is flagged because it beat you |
+
+> "maybe like the bookmark, the fill up should come from left to right at the same
+> velocity/duration"
+
+**Adopted, and it completes a pattern.** Every mark in the app now fills from the edge
+it belongs to, at 400ms on the settled curve, draining instantly when unset. The
+navigation tab rises from the bottom because it sits there. The bookmark ribbon falls
+from the top because it hangs there. The pennant unfurls from its staff. The direction
+is the reason rather than decoration.
+
+**Spec updated the same day:** Section 6 gains the mark's paths, the control's
+placement and the motion, and the Scope section's quiz-viewer carve-out gains an
+explicit exception for it, since the Flagged section on the tab would otherwise specify
+a list that nothing could add to.
+
+---
+
 ## Decisions taken in conversation rather than on a plate
 
 Recorded here because they are absent from every mockup.
