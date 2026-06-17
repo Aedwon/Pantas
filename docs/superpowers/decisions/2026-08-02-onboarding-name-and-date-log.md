@@ -379,3 +379,82 @@ it is specified for Home alone. Flagged to him rather than assumed.
 **The age gate line stays flat on purpose**, and this is recorded so a later reader does
 not "fix" it: it is a legal notice addressed to a child, and inspiring copy there would be
 manipulative.
+
+---
+
+## 11. The setup pickers, and a claim of mine that was wrong
+
+**He caught an omission:** *"you didn't show me what the pickers would look like for the
+questions, time, and section breakdowns."* Correct. The spec said "two ruled rows, each
+opening a wheel" and never drew what they opened.
+
+**Settled from `mock-setup-pickers.html`:** bottom sheets with a 1px rule along the top,
+square corners, no shadow. Questions is one column, 10 upward in fives, because no
+published paper is 117 items long. Time is **one** column of durations rather than hours
+beside minutes, since two columns for a single quantity means two gestures to say "two
+hours". A section is **two** labelled columns, because there the two numbers are genuinely
+two quantities.
+
+**Found only by drawing it:** once sections exist there are two sources of truth. A
+student sets 120 at the top, enters sections adding to 100, and nothing can say which is
+the paper. **The sections win and the top rows become their sum**, uneditable. Not
+previously specified.
+
+### The claim I got wrong
+
+**I told him the mock viewer "has never been designed".** He pushed back: *"can't you just
+reuse the same UI for every mock exam regardless of the exam selected? isn't that what
+should be ideal for this case? i don't understand the issue here since (1) they've selected
+the subjects and (2) from there the mock can just pull questions. the quiz also works the
+same way regardless of the exam selected?"*
+
+**He is right on both counts.** `MockSampler.sample` takes `sections` and `poolsByTopic`
+and does not care where the sections came from, so a student-authored blueprint feeds the
+same sampler, session page and results screen. There is no custom-specific viewer work at
+all. And `mock_session_page.dart` **exists and is built**; what is true is narrower, that
+`/mock-exam` is a `_Stub` at `router.dart:233`, `MockSetupPage` has no callers and
+`content_mock_blueprints` has zero rows. Wiring and content, not a missing screen. I
+checked the code only after he objected, which is the wrong order.
+
+**A consequence that follows, and is now in the spec.** A custom blueprint is stored
+locally and never touches `assets/seed/content.db`, the piece that is broken. **The custom
+mock may be the first mock in Pantas that can actually run**, which makes it a way to
+exercise the whole mock path before content delivery is fixed.
+
+**Two UI notes from him, both adopted:** the over-limit message links to Settings rather
+than only stating the fault, and the setup screen needs its app bar and back chevron,
+which I had never drawn.
+
+---
+
+## 12. The questions ceiling
+
+**He asked to see it:** *"i don't understand the ceiling, show me through the visual
+companion"*. Plate: `questions-ceiling-options.html`. One situation drawn three ways, a
+student whose exam is really 150 items having ticked only Science, which holds 60.
+
+- **A. Cap the wheel at 60.** **Cost:** it is the only option that throws the student's
+  true answer away. They know their exam is 150 items, the app has nowhere to put that,
+  and Pantas never learns it either.
+- **B. Accept 150, run 60, confess on the results screen.** **Cost:** a mock sells
+  fidelity, and this sells it, delivers a shorter paper, and says so only after they have
+  sat the whole thing.
+- **C. Keep 150 on screen in rust, kill Save, link to Settings.** **Cost:** they cannot
+  start any mock until they widen, not even a short one.
+
+**I had recommended A in the terminal and reversed it while drawing.** A discards exactly
+the demand signal that makes the naming field valuable, which was invisible to me until
+the three sat side by side. **Revised recommendation: C.** Its cost was serious before the
+Settings link existed; with one tap to the fix it is small.
+
+**He chose C.** Verbatim: *"okay go with C"*.
+
+**Also closed here:** *"custom should of course take the assessment"*.
+`AssessmentQuestionSelector` budgets across contributing topics, so a narrowed corpus
+yields fewer contributing topics and a shorter assessment. The formula working as
+designed, not a special case. The spec's Open section is now empty.
+
+**Named as the next topic, not yet designed:** *"actually after this i want to tackle exam
+data migration (a lot of DOST Scholarship takers also take UPCAT and others)"*. Note that
+this is not exam switching. It is two overlapping exams sharing a question corpus, and it
+will pull on the custom track designed above.

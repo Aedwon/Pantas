@@ -180,6 +180,29 @@ kind of thing.
 So the custom mock is honest, and it carries no readiness verdict and no comparison
 against a real paper's difficulty mix, because those still need something published.
 
+### It reuses the mock UI entirely, and the code already works that way
+
+**There is no custom-specific viewer, sampler or results screen.**
+`MockSampler.sample` takes `sections` and `poolsByTopic` and has no idea where the
+sections came from. A student-authored blueprint feeds the same sampler, the same
+`mock_session_page.dart` and the same `mock_results_page.dart` as a published one. The
+only difference between a custom mock and a listed one is **where the blueprint was
+authored**.
+
+**A correction to an earlier claim in this session.** The mock viewer was described as
+undesigned. It is not: `lib/features/mock_exam/presentation/pages/mock_session_page.dart`
+exists and is built. What is true is narrower. `/mock-exam` is a `_Stub` route at
+`router.dart:233`, `MockSetupPage` has no callers, and `content_mock_blueprints` holds
+zero rows, so no mock can run today. That is wiring and missing content, not a missing
+screen.
+
+**Which produces a consequence worth planning around.** A custom track's blueprint is
+authored by the student and stored locally. It never touches `assets/seed/content.db`,
+which is the broken piece: undeclared in `pubspec.yaml`, with `SeedInstaller` having no
+callers. **The custom mock may therefore be the first mock in Pantas that can actually
+run**, because it is the only one whose blueprint does not come through that pipeline.
+It is a way to exercise the whole mock path before the content delivery is fixed.
+
 ### The panel, nothing set up
 
 > **Mock exam**
@@ -192,6 +215,12 @@ A secondary button. No cooldown count, because nothing has been taken.
 
 ### The setup screen
 
+A **pushed route** reached from the mock panel, so it carries an app bar with a back
+chevron and the word "Quiz", the same treatment the practice picker gets in
+`2026-07-28-quiz-tab-design.md` Section 2.
+
+> ‹ Quiz
+>
 > **Set up your mock**
 > We'll build the mock exam based on what you tell us.
 >
@@ -208,6 +237,31 @@ A secondary button. No cooldown count, because nothing has been taken.
 one screen, and not typed fields, which invite nonsense and raise a keyboard over
 everything. The rows match the Settings idiom already in the app.
 
+### The three pickers
+
+**Bottom sheets with a 1px `rule` along the top edge**, square corners, no shadow. The
+same shape the Quiz tab's question grid uses. Each carries a serif 14/700 title and a
+board 12.5/600 "Done".
+
+| Sheet | Columns | Range and step | Notes |
+|---|---|---|---|
+| Questions | one | 10 to the corpus ceiling, in fives | No published paper is 117 items long, so fives. The ceiling is Section "The ceiling" below |
+| Time | one | 15 minutes to 6 hours, in fives, rendered `2h 00m` | **One column, not hours beside minutes.** Two columns for a single duration means two gestures to say "two hours" |
+| One section | two, labelled Questions and Minutes | as above, per section | **Two columns earn their place here** because these are two different quantities rather than one |
+
+The selected value is serif 21/700 in `ink`, its neighbours sans 19 in `inkMuted`, over a
+`boardTint` band, matching the practice picker's wheel in the Quiz spec.
+
+### The breakdown overrides the totals
+
+**Once sections exist, the two top rows stop being editable and become their sum**, drawn
+in `ink` with no chevron.
+
+Otherwise there are two sources of truth: a student sets 120 at the top, enters sections
+adding to 100, and nothing can say which one is the paper. **The sections win because
+they are the more specific claim.** Collapsing the breakdown restores the top rows to
+editable and keeps the last summed value.
+
 **Without a breakdown it is one continuous paper**, sampled evenly across the ticked
 subjects. `BlueprintSection._readWeights` already distributes evenly when weights are
 absent, so this is the existing sampler doing what it already does.
@@ -217,17 +271,38 @@ taking items and minutes, plus a single toggle for whether sections are timed se
 Most students never open it. The ones who can fill it in have the handout in front of
 them.
 
-### When the numbers exceed the corpus
+### The ceiling: when the honest number exceeds the corpus
 
-**Refuse at setup, and say why.** If the ticked subjects hold 60 questions and the
-student asks for 200:
+A student whose exam really is 150 questions may have ticked only Science, which holds
+60. **Their true answer does not fit.** The wheel therefore runs to 240 rather than
+stopping at the corpus, and the refusal happens at Save.
 
-> You've picked subjects with 60 questions. Try 60 or fewer.
+> Questions                          **150**  ›
+>
+> ─────────────────────────────────────────────
+> You've ticked subjects with 60 questions. A 150 question paper needs more.
+> **Tick more subjects ›**
+>
+> [ Save ]  (dead)
 
-Capping silently was rejected: the student asked for 200 and would get 60 with no
-explanation. Running short and confessing on the results screen was rejected too: they
-find out after spending the time. The number is wrong the moment it is typed, and that is
-the cheapest moment to say so. It also points at the fix, which is widening the subjects.
+The number stays on screen in `rust`. "Tick more subjects" is a board text action
+straight to Settings, "What's included". Save is disabled until the corpus can carry the
+paper.
+
+**Two alternatives were drawn and rejected.**
+
+- **Capping the wheel at the corpus** was the original recommendation and was reversed on
+  sight. It is the only option that **throws the student's true answer away**: they know
+  their exam is 150 items, the app has nowhere to put that, and so Pantas never learns it
+  either. That is the same demand-signal argument that makes the naming field valuable,
+  and capping quietly discards it.
+- **Accepting 150 and running 60**, confessing on the results screen, was ruled out
+  outright. A mock sells fidelity. This sells it, delivers a shorter paper, and tells the
+  student only after they have sat the whole thing.
+
+**The remaining cost is real and accepted:** a student cannot start any mock, not even a
+short one, until they widen. That objection was serious before the Settings link existed.
+With it, widening is a single tap and is almost always what they wanted anyway.
 
 ### The panel, once set up
 
@@ -284,8 +359,10 @@ standing as any other date they entered. Precision follows
 
 ## Deferred, with reasons
 
-- **The mock viewer for a custom paper.** The setup screen is specified here; the paper
-  it produces is the mock viewer's job and that spec is unwritten.
+- **The mock viewer's redesign.** `2026-07-28-mock-exam-ui-design.md` is Partial and the
+  paper's own UI is still being designed. Nothing in that work is custom-specific: a
+  custom track uses whatever the viewer becomes, because it supplies a blueprint and
+  nothing more.
 - **The wrong-answer penalty.** A content attribute in the Quiz spec's deferred list.
   Most CETs do not penalise, and asking a student about it at setup buys little.
 - **Promoting a custom track to a real exam.** When Pantas authors PUP CET properly,
@@ -295,15 +372,19 @@ standing as any other date they entered. Precision follows
 
 ## Open
 
-1. **Whether a custom track may take the assessment.** The assessment budgets questions
-   across contributing topics and produces the starting point everything else is built
-   on. It should work unchanged on a narrowed corpus, but it has not been checked against
-   one.
+Nothing. The assessment question was closed by Aedwon on 2 August: a custom track takes
+it like any other. `AssessmentQuestionSelector` budgets across *contributing* topics, so a
+narrowed corpus simply means fewer contributing topics and a shorter assessment, which is
+the formula working as designed rather than a special case.
 
 ## Verification
 
 - The picker's branch row never enables the picker's Continue button.
 - Unticking a subject hides its content and deletes nothing, verified by re-ticking.
-- A custom mock is refused at setup when the requested count exceeds the corpus.
+- A custom track takes the assessment, and its length is the formula's output over the
+  ticked subjects rather than a fixed number.
+- The questions wheel reaches 240 regardless of corpus size, and Save is refused with the
+  Settings link when the requested count exceeds what the ticked subjects hold.
+- Opening the section breakdown makes the two total rows uneditable and equal to the sum.
 - A Free user on a custom track cannot take two mocks inside 14 days.
 - No string in this spec leads with what Pantas cannot do.
