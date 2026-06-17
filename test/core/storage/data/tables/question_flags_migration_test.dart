@@ -15,8 +15,10 @@ void main() {
         )
         .get();
 
-    expect(tables.map((row) => row.read<String>('name')).toList(),
-        equals(['question_flags_local']));
+    expect(
+      tables.map((row) => row.read<String>('name')).toList(),
+      equals(['question_flags_local']),
+    );
   });
 
   test('a flag row round-trips with a null sort index', () async {

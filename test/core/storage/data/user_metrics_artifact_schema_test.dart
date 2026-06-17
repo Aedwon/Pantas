@@ -6,12 +6,12 @@ import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test('app database creates local artifact cache table at schema version 12',
+  test('app database creates local artifact cache table at schema version 13',
       () async {
     final db = AppDatabase(NativeDatabase.memory());
     addTearDown(db.close);
 
-    expect(db.schemaVersion, equals(12));
+    expect(db.schemaVersion, equals(13));
     expect(await _tableNames(db), contains('user_metrics_artifacts_local'));
   });
 

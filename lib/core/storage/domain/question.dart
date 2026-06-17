@@ -15,6 +15,7 @@ class Question with _$Question {
     required int version,
     required List<ExamId> examIds,
     required TopicId topicId,
+    LessonId? lessonId,
     required String language,
     required String stem,
     required List<Choice> choices,
