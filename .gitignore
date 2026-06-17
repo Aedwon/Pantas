@@ -62,6 +62,10 @@ coverage/
 # Generated content seed
 assets/seed/content.db
 
+# Crash reports and stray logs
+flutter_*.log
+*.log
+
 # OS junk
 Thumbs.db
 ehthumbs.db
