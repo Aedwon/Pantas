@@ -239,3 +239,178 @@ hairline gridlines. "Your mocks". Milestones deliberately absent.
 - Never set `data-theme` on `documentElement` in a plate while also using
   `[data-theme]` as a click target. Every element is a descendant of `<html>`, so
   the handler swallows every click on the page. This cost a whole round.
+
+---
+
+# Continued, 30 July 2026
+
+**Spec produced:** `docs/superpowers/specs/2026-07-30-progress-tab-design.md`.
+**Companion session:** `.superpowers/brainstorm/29096-1785400681/`, plates
+`progress-options.html`, `progress-v6` through `v8`. Earlier plates v3 to v5 in
+`.superpowers/brainstorm/17596-1785325144/`.
+
+## 9. The points figure was withdrawn
+
+The largest reversal in this design, and it came from outside. Aedwon showed the
+screens to a friend, a software engineer, who asked whether the calculation was
+"reliable and a proven practice, or is this just optimistic?" and added:
+
+> "I'd rather not put something for the sake of"
+
+It does not hold up. Nothing equates this app's questions to real exam items; it
+assumes study takes an error rate to zero; eight practice questions give a figure
+that swings between sessions; and several of the seven exams do not report raw
+scores. Decisively, it is a score projection, which the project banned when it
+reserved "readiness". **Decision 3 above is reversed:** not "a delta, never a
+total" but no projected figure at any scale.
+
+Aedwon's own constraint, stated the same day, is the general form of it:
+
+> "i don't want data that has arbitrary inference that you decided. we should
+> present the user with data with some interpretation, but making up
+> interpretations for the sake of isn't a good practice"
+
+That produced the **four evidentiary tiers** which are now Section 1 of the spec:
+measured, published, method output, our own inference. The fourth may not be
+printed as a figure. Every candidate section in `progress-options.html` was
+labelled with its tier, and that is what the choices were made against.
+
+## 10. The blueprint splits, and only half of it was ever invention
+
+On 29 July the blueprint was described as needing an editorial estimate of how many
+items each topic gets. That was wrong and it nearly cost the feature.
+`BlueprintSection._readWeights` treats `topicWeights` as optional and defaults every
+topic in a section to equal weight. So sections, item counts and minutes, all
+published by the testing bodies, are authorable alone with no schema change.
+
+**Chosen: published facts only.** What is given up is the topic-level item count,
+which is exactly the number already cut in item 9.
+
+A **provenance field** was added because Aedwon is collecting UPCAT section counts
+and timings from a student group. Item counts and timing are announced in the room,
+so a student reporting them reports a published fact rather than a guess, but the
+source must be recorded as what it is.
+
+Web search on the three unresearched exams returned totals and duration only: DCAT
+280 items in 4h30m, ACET four subtests plus an essay in about 3.5 hours, MSU-SASE
+about 150 items. No per-section splits anywhere, and the official pages for Ateneo
+and MSU-IIT block automated fetches.
+
+## 11. Time triage was my error and his correction
+
+I argued that a time insight needed to know how the paper was weighted. Aedwon:
+
+> "as a human test taker myself, it would be great to know where I take time at so
+> that I can use the tactic of answering other questions easier for me. this would
+> net me more points than if I didn't know that"
+
+He is right. Where every item is worth the same, trading a question you will not
+solve for one you will is a gain that needs no weighting. **The objection survives
+only across sections**, because sectional timing means minutes cannot move between
+them, so the reading is valid inside one section. `SubjectAffinitySignal` already
+returns accuracy and average milliseconds per subject and was surfaced nowhere.
+
+**Timing source: mock attempts only**, chosen over practice and over both. The cost
+Aedwon accepted is that the Time column is absent until the first mock is sat.
+
+## 12. Two sections became one table
+
+His note on v6:
+
+> "'Where the paper is heaviest' and 'Where your time goes' both display the figures
+> clunkily and redundantly... also in terms of copy quality [they] aren't intuitive
+> and concise"
+
+The redundancy was structural: both were subject-level tables, so the same four
+subjects appeared twice with different figures attached. Merged into one table.
+Named **"Performance"**, shortened from "Performance breakdown" on 30 July because
+the longer title crowded the level control.
+
+**"Most mistakes" was rejected as a name** although he proposed it: section size
+times miss rate is a count of mistakes on the real paper, which is the projection
+just removed.
+
+He then reimagined the section himself:
+
+> "can you make it so that the user can filter and sort these by time, by score?...
+> (1) if the users sort weakest to best, they have an actionable list of where to
+> hammer in through Study and Quizzes and then (2) if they sort best to weakest they
+> can screenshot the interface and brag about... also allow the users to view as
+> subjects only, or subtopics, and onward until lesson-level"
+
+Both directions are now first-class. Sorting Score descending is the screenshot
+case, which may make the earlier "best subjects to Wrapped" idea redundant.
+
+**Added unprompted and approved:** the sorted metric becomes the printed figure.
+"your addition makes sense and is a nice touch."
+
+## 13. The controls: a table head, not a toolbar
+
+v7 used two stacked label rows, the Study spec's order control twice.
+
+> "the two rows for sorting when in Pro is a bit awkward... how the sorting
+> selections are presented are awkward and amateurish"
+
+Three treatments were drawn. **Chosen: the ruled table head whose column names
+sort.** "Score" and "Time" name their columns, tapping sorts, tapping again
+reverses, a caret shows direction. The control disappears because the labels that
+sort are the labels that name the data. The level control moved into the section
+header's right slot, where changing what the rows are belongs.
+
+**Rejected:** one figure column with a metric toggle in the head (still reads as a
+toggle, and a head above a column that changes meaning is less honest); and keeping
+the two label rows.
+
+**Cost accepted:** two figure columns instead of one, tight at 390 wide.
+
+## 14. The remaining calls, 30 July
+
+| | Question | Decision |
+|---|---|---|
+| 1 | Day-one empty state | No zeros. An invitation routing to `/assessment/:examId`, mock as secondary. "it should be obvious that there can't be any 'progress' for someone who hasn't started anything at all" |
+| 2 | "Why you miss questions" on Free | **Wholly Pro, redacted.** Reversed my proposal that Free see the derived causes |
+| 3 | Retained sort and level | Yes, silently, plus a Settings row to turn it off |
+| 4 | Loading, error, empty | Existing kit: `FaintBars`, `ErrorBanner`, `EmptyState` |
+| 5 | Pro teasers | Keep them, "but do be careful not to make these obnoxious". Hard cap of **one per screen**, after the free content |
+
+Two copy corrections in the same round: the two notes under the subject table were
+cut as unnecessary, and **"How long it stays"** became **"How long you remember"**
+because "it" had no referent.
+
+**A factual correction he prompted.** He asked whether the app has progress bars at
+all. It does: `ProgressRule` is a 3px board line, `InlineMeter` draws Home's
+weakest-areas meters, and there is a quiz progress bar. His conclusion still stands,
+since the never-start-at-zero principle governs those bars and not the fabrication of
+a tab out of nothing. Worth recording that the assessment is **not** part of
+onboarding, so a new user really can reach Progress with no data.
+
+## 15. What's fading was cut
+
+Its message was that sixty one questions are fading and are already handled, so the
+screen asked nothing of the student. The idea that replaced it came from a second
+model brought in for a fresh round, buried at the end of its answer: make decay a
+behavioural tendency rather than a screen. `RetentionCurve` returns one average
+stability and a lapse rate, which is honest at exactly that granularity.
+
+**Four destinations became three.** The spaced repetition explainer moved to How you
+work with the figure.
+
+That second model also argued for flattening all of Progress into one scrolling page.
+Rejected: the three screens run eight to twelve phone screens, and the Study spec
+already bounded its index for exactly that reason. Its supporting argument, that a
+printed broadsheet has no sub-screens, is wrong: "continued on page seven" is one of
+print's oldest devices.
+
+## Working notes, second set
+
+- **The evidentiary tier is the first question to ask of any new figure on this tab.**
+  Not "is it interesting" but "which of the four tiers is it".
+- The brief handed to outside models is
+  `docs/superpowers/2026-07-30-progress-tab-brainstorm-brief.md`. Keep it current if
+  another round happens: it is what stops a fresh model re-proposing the nine ideas
+  already rejected.
+- The companion server dies when its owning session is cleared, and restarting it
+  needs `--foreground` with the Bash tool backgrounding it, or it exits with the
+  tool call. Same `--project-dir` reuses the port so the open tab reconnects.
+- With `--foreground`, the server's event stream goes to the background task's output
+  file rather than `state/server.log`. That is where the user's clicks are.
