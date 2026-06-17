@@ -10,6 +10,7 @@ void main() {
         'assessments',
         'fsrs_cards',
         'lesson_progress',
+        'question_flags',
         'preferences',
         'mock_exam_attempts',
       ]),

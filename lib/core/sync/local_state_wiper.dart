@@ -31,6 +31,7 @@ class SyncLocalStateWiper implements LocalStateWiper {
       await _db.delete(_db.assessmentResultsLocal).go();
       await _db.delete(_db.reviewStateLocal).go();
       await _db.delete(_db.lessonProgressLocal).go();
+      await _db.delete(_db.questionFlagsLocal).go();
       await _db.delete(_db.accountPrefs).go();
       await _db.delete(_db.pendingSync).go();
 
