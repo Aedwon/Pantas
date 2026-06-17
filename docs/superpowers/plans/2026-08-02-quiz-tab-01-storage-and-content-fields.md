@@ -20,12 +20,28 @@ packages.
 **Source spec:** `docs/superpowers/specs/2026-07-28-quiz-tab-design.md`, Section 6
 (Flags, storage), Section 9 (Data and content work), and Section 5 (ordering).
 
+**Status: executed and merged 2 August 2026**, commit `a91fbdb`. Two errors in this plan
+were found during execution and are corrected in place above, so that the remaining five
+plans do not inherit them:
+
+1. It told the implementor to `git add` `.g.dart` and `.freezed.dart` files. This repo
+   gitignores both. Those lines are removed.
+2. Task 6 said to append `lessonId` to the `Question` factory; appending was correct, but
+   the instruction was easy to read as "anywhere", and it landed between two required
+   parameters, breaking `always_put_required_named_parameters_first`. Fixed in
+   `1c7c6de`.
+
 ## Global Constraints
 
 - **No new dependencies.** Everything needed is already in `pubspec.yaml`.
-- **Generated files are never edited by hand.** After any change to a `@freezed` class,
-  a Drift table, or `app_database.dart`, run
-  `dart run build_runner build --delete-conflicting-outputs`.
+- **Generated files are never edited by hand, and never committed.** `.gitignore` excludes
+  `**/*.g.dart` and `**/*.freezed.dart`. After any change to a `@freezed` class, a Drift
+  table, or `app_database.dart`, run
+  `dart run build_runner build --delete-conflicting-outputs`, and do not `git add` its
+  output.
+- **Work only inside your worktree.** Never write to the main checkout. A previous run
+  left a half-applied `app_database.dart` in the main tree, with `schemaVersion` bumped
+  and no matching migrations, which is a broken state that compiles.
 - **Layering (`tool/check_layering.dart`).** R1: `lib/core/**` must not import
   `lib/features/**`. R2: one feature must not import another. R3: `domain/` must not
   import Flutter or platform packages.
@@ -220,7 +236,6 @@ dart format lib test
 flutter analyze
 git add lib/core/storage/data/tables/question_flags_local_table.dart \
         lib/core/storage/data/app_database.dart \
-        lib/core/storage/data/app_database.g.dart \
         test/core/storage/data/tables/question_flags_migration_test.dart
 git commit -m "feat(storage): durable question flags need a home of their own
 
@@ -823,8 +838,6 @@ appears only once something sets it and old rows are unaffected.
 dart format lib test
 flutter analyze
 git add lib/core/storage/domain/attempt.dart \
-        lib/core/storage/domain/attempt.freezed.dart \
-        lib/core/storage/domain/attempt.g.dart \
         test/core/storage/domain/attempt_test.dart
 git commit -m "feat(storage): record what the student says went wrong
 

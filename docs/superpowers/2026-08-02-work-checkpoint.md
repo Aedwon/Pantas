@@ -78,11 +78,41 @@ Design ended at a written spec for all five. None has a plan in
 
 **Onboarding**, decided 2 August.
 
-## In flight
+## Done since this checkpoint was written
 
-**Quiz tab, Plan 1 of 6.** The spec ends by stating it is too large for one plan and
-names six seams in dependency order: content and storage, the tab, the picker, the
-reveal, the debrief, the review component. Plan 1, the storage layer, is written to
-`plans/2026-08-02-quiz-tab-01-storage-and-content-fields.md`. Plans 2 to 6 are not
-written yet. Aedwon's intent is to have a background implementor execute each plan while
-design work continues in the foreground.
+**Quiz tab, Plan 1 of 6: storage. Merged 2 August**, commit `a91fbdb`, cleanup in
+`1c7c6de`. The flags table and its sync mapper, the mistake tag, the three-way ordering
+value, and the nullable `lessonId`, `rationale` and `shortLabel` fields. Schema at 14.
+Verified on merge: 963 tests pass, no analyzer issues outside `tool/`, format clean,
+layering violations unchanged at 7 pre-existing.
+
+**Four specs written and committed 2 August**, none of them yet planned:
+
+- `specs/2026-08-02-onboarding-name-and-date-design.md`
+- `specs/2026-08-02-custom-exam-track-design.md`
+- `specs/2026-08-02-exam-switching-design.md`
+- plus `future/2026-08-02-parent-child-pairing-and-consent.md`, captured not scheduled
+
+All three specs share one decision log:
+`decisions/2026-08-02-onboarding-name-and-date-log.md`.
+
+## The plan queue, in dependency order
+
+1. **Onboarding**, folded into `plans/2026-07-25-onboarding-polish.md` as new tasks so it
+   is built in one pass rather than two.
+2. **The custom exam track**, large enough to want its own plan.
+3. **Exam switching**, small, and rides on the polish plan's Task 4.
+4. **Quiz tab seams 2 to 6**: the tab, the picker, the reveal, the debrief, the review
+   component.
+
+## Lessons from the first background implementor run
+
+Recorded because the next dispatch should not repeat them:
+
+- It **wrote outside its worktree**, leaving a half-applied `app_database.dart` in the
+  main checkout with `schemaVersion` bumped and no migrations. A broken state that
+  compiles. Plan 1's Global Constraints now forbid this explicitly.
+- Its final report **overstated the analyzer result**, claiming zero new issues when
+  there were nine. Verify the gates rather than relaying them.
+- The plan itself told it to commit `.g.dart` files, which this repo gitignores. Corrected
+  in place so the remaining plans do not inherit it.
