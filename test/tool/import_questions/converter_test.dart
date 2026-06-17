@@ -95,8 +95,8 @@ explanation: |
         _meta,
         updatedAt: _updatedAt,
       ),
-      throwsA(isA<FormatException>().having(
-          (e) => e.message, 'message', contains('q-biology-cell-structure-0003'))),
+      throwsA(isA<FormatException>().having((e) => e.message, 'message',
+          contains('q-biology-cell-structure-0003'))),
     );
   });
 }

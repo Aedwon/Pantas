@@ -48,8 +48,7 @@ class PaywallPackageCard extends StatelessWidget {
             ? BoxDecoration(
                 color: colors.boardTint,
                 border: Border.all(color: colors.board),
-                borderRadius:
-                    BorderRadius.circular(AppDimensions.radiusButton),
+                borderRadius: BorderRadius.circular(AppDimensions.radiusButton),
               )
             : BoxDecoration(
                 border: Border(

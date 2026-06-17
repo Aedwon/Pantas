@@ -63,7 +63,9 @@ void main() {
       );
 
       expect(
-        find.text('₱29/week · ≈₱126/month · Renews every week · Cancel anytime'),
+        find.text(
+          '₱29/week · ≈₱126/month · Renews every week · Cancel anytime',
+        ),
         findsOneWidget,
       );
     },

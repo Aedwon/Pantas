@@ -33,8 +33,7 @@ void main() {
     expect(scheme.surfaceTint, Colors.transparent);
   });
 
-  test('dark scheme overrides Material-seeded colors with identity tokens',
-      () {
+  test('dark scheme overrides Material-seeded colors with identity tokens', () {
     final scheme = buildDarkTheme().colorScheme;
     const c = AppColors.dark;
     expect(scheme.primary, c.board);

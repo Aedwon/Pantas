@@ -101,8 +101,8 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
                       const SizedBox(width: 8),
                       Text(
                         'Deleting...',
-                        style: styles.labelLarge
-                            .copyWith(color: colors.onBoard),
+                        style:
+                            styles.labelLarge.copyWith(color: colors.onBoard),
                       ),
                     ],
                   )
@@ -161,9 +161,7 @@ class _RustButton extends StatelessWidget {
             const BoxConstraints(minHeight: AppDimensions.minTapTarget),
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
         decoration: BoxDecoration(
-          color: enabled
-              ? colors.rust
-              : colors.rust.withValues(alpha: 0.5),
+          color: enabled ? colors.rust : colors.rust.withValues(alpha: 0.5),
           borderRadius: BorderRadius.circular(AppDimensions.radiusButton),
         ),
         alignment: Alignment.center,

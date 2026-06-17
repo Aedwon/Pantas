@@ -8,8 +8,7 @@ Widget harness(Widget child) =>
     MaterialApp(theme: buildLightTheme(), home: Scaffold(body: child));
 
 void main() {
-  testWidgets('selected row fills with board tint and border',
-      (tester) async {
+  testWidgets('selected row fills with board tint and border', (tester) async {
     await tester.pumpWidget(
       harness(
         AnswerRow(
@@ -34,8 +33,7 @@ void main() {
     expect(decoration.borderRadius, BorderRadius.circular(5));
   });
 
-  testWidgets('plain row has no fill and a faint bottom rule',
-      (tester) async {
+  testWidgets('plain row has no fill and a faint bottom rule', (tester) async {
     await tester.pumpWidget(
       harness(AnswerRow(letter: 'A', text: 'Cebu', onTap: () {})),
     );

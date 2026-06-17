@@ -100,8 +100,7 @@ void main() {
     // figure-pending (isActive: false), so only the first is active here.
     final activeQuestions = await repo.byTopic('topic-biology');
     expect(activeQuestions, hasLength(1));
-    final figurePending =
-        await repo.findById('q-biology-cell-structure-0002');
+    final figurePending = await repo.findById('q-biology-cell-structure-0002');
     final allQuestions = [...activeQuestions, figurePending!];
     for (final q in allQuestions) {
       expect(q.choices, isNotEmpty, reason: '${q.id} lost its choices');

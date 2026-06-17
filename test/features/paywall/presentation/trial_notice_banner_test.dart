@@ -13,7 +13,7 @@ void main() {
 
     await tester.pumpWidget(
       MaterialApp(
-          theme: buildLightTheme(),
+        theme: buildLightTheme(),
         home: Scaffold(body: TrialNoticeBanner(notice: notice)),
       ),
     );

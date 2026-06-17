@@ -83,8 +83,8 @@ class _OnboardingPickerStepState extends ConsumerState<OnboardingPickerStep> {
                     return Center(
                       child: Text(
                         'No exams available right now.',
-                        style: styles.bodyMedium
-                            .copyWith(color: colors.inkMuted),
+                        style:
+                            styles.bodyMedium.copyWith(color: colors.inkMuted),
                       ),
                     );
                   }
@@ -138,8 +138,7 @@ class _ExamRow extends StatelessWidget {
             ? BoxDecoration(
                 color: colors.boardTint,
                 border: Border.all(color: colors.board),
-                borderRadius:
-                    BorderRadius.circular(AppDimensions.radiusButton),
+                borderRadius: BorderRadius.circular(AppDimensions.radiusButton),
               )
             : BoxDecoration(
                 border: Border(

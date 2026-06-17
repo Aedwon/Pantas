@@ -79,8 +79,7 @@ class _BlockRenderer extends StatelessWidget {
       _ => textStyles.bodyMedium,
     };
 
-    final indent =
-        marker == null ? 0.0 : 12.0 + 16.0 * (level - 1).clamp(0, 4);
+    final indent = marker == null ? 0.0 : 12.0 + 16.0 * (level - 1).clamp(0, 4);
 
     return Padding(
       padding: EdgeInsets.only(top: 4, bottom: 4, left: indent),

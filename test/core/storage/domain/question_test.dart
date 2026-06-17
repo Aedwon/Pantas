@@ -9,7 +9,7 @@ void main() {
       label: 'B',
       text: 'Change the subscript',
       isCorrect: false,
-      rationale: 'A subscript is part of the molecule\'s identity.',
+      rationale: "A subscript is part of the molecule's identity.",
     );
 
     final parsed = Choice.fromJson(choice.toJson());
@@ -28,19 +28,21 @@ void main() {
   });
 
   test('a question carries an optional short label through json', () {
-    final question = Question(
+    const question = Question(
       id: 'q1',
       version: 1,
-      examIds: const ['e1'],
+      examIds: ['e1'],
       topicId: 't1',
       language: 'en',
       stem: r'Balance $H_2O$ by changing which part?',
-      choices: const [Choice(id: 'c1', label: 'A', text: 'A', isCorrect: true)],
+      choices: [Choice(id: 'c1', label: 'A', text: 'A', isCorrect: true)],
       explanation: 'Because.',
       shortLabel: 'Balancing an equation',
     );
 
-    expect(Question.fromJson(question.toJson()).shortLabel,
-        'Balancing an equation');
+    expect(
+      Question.fromJson(question.toJson()).shortLabel,
+      'Balancing an equation',
+    );
   });
 }

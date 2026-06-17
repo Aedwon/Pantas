@@ -8,7 +8,7 @@ void main() {
       (tester) async {
     await tester.pumpWidget(
       MaterialApp(
-          theme: buildLightTheme(),
+        theme: buildLightTheme(),
         home: Scaffold(
           body: OnboardingWelcomeStep(onAdvance: () {}),
         ),
@@ -27,7 +27,7 @@ void main() {
     var advanced = 0;
     await tester.pumpWidget(
       MaterialApp(
-          theme: buildLightTheme(),
+        theme: buildLightTheme(),
         home: Scaffold(
           body: OnboardingWelcomeStep(onAdvance: () => advanced++),
         ),

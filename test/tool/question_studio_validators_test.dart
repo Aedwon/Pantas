@@ -7,7 +7,6 @@ void main() {
       'node',
       ['--test', 'tools/question_studio/validators.test.mjs'],
     );
-    expect(result.exitCode, 0,
-        reason: '${result.stdout}\n${result.stderr}');
+    expect(result.exitCode, 0, reason: '${result.stdout}\n${result.stderr}');
   });
 }

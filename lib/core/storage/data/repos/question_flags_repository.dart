@@ -49,7 +49,6 @@ class QuestionFlagsRepository {
           ..orderBy([
             (row) => OrderingTerm(
                   expression: row.sortIndex,
-                  mode: OrderingMode.asc,
                   nulls: NullsOrder.last,
                 ),
             (row) => OrderingTerm.desc(row.flaggedAt),

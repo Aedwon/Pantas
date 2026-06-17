@@ -31,8 +31,7 @@ void main() {
       await tester.pumpAndSettle();
     }
 
-    testWidgets('shows title, body, cancel and confirm labels',
-        (tester) async {
+    testWidgets('shows title, body, cancel and confirm labels', (tester) async {
       await pumpDialog(tester);
       expect(find.text('Leave quiz?'), findsOneWidget);
       expect(find.text('Your progress will be lost.'), findsOneWidget);
