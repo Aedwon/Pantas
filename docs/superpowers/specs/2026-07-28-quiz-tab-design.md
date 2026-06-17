@@ -85,7 +85,8 @@ Two constraints that follow:
 - **"Flag" is the Quiz word and "Bookmark" is the Study word.** The 2026-07-27 spec
   avoided "flag" for lessons because `MockSessionState.flags` had taken it. That was
   the right call for lessons and the wrong inference for questions: mock flags are
-  question flags, so they merge into this feature rather than colliding with it.
+  question flags, so they belong to this feature rather than colliding with it. They do
+  **not** merge automatically: see Section 6.
 - **Exam size is not a design constraint**, per the Study spec. Eleven UPCAT topics
   have no authored questions. That is unfinished content. It gets an honest state, not
   a shape.
@@ -571,9 +572,15 @@ each other's word.
 
 - Flags are **question level**, set from the reveal and from inside a mock.
 - `MockSessionState.flags` is a `Set<String>` of question ids and
-  `mock_attempt.flagsJson` persists it. **Those existing flags merge into this feature
-  rather than remaining separate**, which is why the flagged row can say "7 of them
-  from your last exam".
+  `mock_attempt.flagsJson` persists it. **Those are the same concept on a different
+  lifetime.** A flag set during a paper means "check before I submit", which cannot
+  outlive the submission, so it stays on the attempt and **never writes to
+  `question_flags_local` by itself**. The mock's review screen offers to convert them
+  once, in one action, and they are gone either way. See
+  `2026-07-28-mock-exam-ui-design.md` Section 5.
+- So the tab's **Flagged section holds durable practice flags only**, whatever their
+  origin, and it never needs to distinguish where one came from.
+
 ### The mark
 
 A **pennant**, a triangular flag notched at the fly, on a staff. Drawn in a 24 viewBox
@@ -887,7 +894,7 @@ break the control rather than calm it.
 
 | Need | Shape | Notes |
 |---|---|---|
-| Question flags | `question_flags_local`, mirroring `lesson_bookmarks_local` | Plus a sync mapper. Merges the existing mock `flagsJson` |
+| Question flags | `question_flags_local`, mirroring `lesson_bookmarks_local` | Plus a sync mapper. **Independent of** `mock_attempt.flagsJson`, which is a per-attempt working mark that never writes here on its own |
 | Mistake tags | one nullable enum column on the attempt item: misread, slipped, unknown | Written only from the debrief, only on Pro |
 | Ordering preference | widen `quiz_today_interleaved` from boolean to three-way | Key already exists and is already read |
 
@@ -1035,9 +1042,16 @@ both. `2026-05-17-mock-exam-design.md` is its starting point.
    didn't know it" are settled for practice. Timed surfaces will want a fourth, "I ran
    out of time", which matters on NMAT and CSE and barely registers on untimed
    practice. Decide when the mock viewer is designed.
-2. **Whether the flagged row splits.** It currently merges practice flags and mock
-   flags into one list. If mock flags turn out to want their own review flow, this
-   becomes two rows.
+2. ~~Whether the flagged row splits.~~ **Closed 28 July.** It does not, because there
+   is only one durable flag. A mark made during a paper expires with the paper and is
+   offered once in the mock's review; anything kept becomes an ordinary practice flag
+   with no record of where it came from.
+
+3. **Two screens are named but never drawn.** The tab's "Your mistakes" row starts a
+   retake session, so it needs no screen of its own. But **the Flagged row's
+   destination is unspecified**: it either opens a list of flagged questions, which
+   should reuse the mock review screen's list component, or starts a session from them
+   directly. Decide before the tab is built.
 
 ## A note on plan size
 
