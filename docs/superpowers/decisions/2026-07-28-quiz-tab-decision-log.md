@@ -498,6 +498,250 @@ about the ten questions just answered.
 
 ---
 
+## Plate 15: The quiz viewer
+
+**File:** `quiz-viewer.html` · 38 events · 28 July
+
+Scoped by instruction: three of the four open questions were answered in conversation
+and only two were drawn.
+
+**Answered without a plate, and applied directly:**
+
+- **You can go back.** `QuizSession` already holds `questions`, `currentIndex` and a
+  growing `outcomes` list in answer order, so a past question renders from
+  `outcomes[i]` with no new storage and no resubmission. This forces one rule:
+  **an answered question is read-only.** The attempt row and the scheduler update were
+  written the instant it was tapped, so it can be looked at and never changed.
+- **The counter opens a sheet**, parallel to the reader, whose spec reads "the counter
+  is tappable and opens the day as a sheet, with the finished lessons ticked and the
+  current one marked 'reading'".
+- **The flag is rightmost**, per plate 13.
+
+| Decision | Options | Chosen | Events |
+|---|---|---|---|
+| The rail | continuous fill / one segment per question / segments coloured by outcome / none | **Continuous fill** | 30 of 38 |
+| Tapping the ✕ | dialog as today / reworded dialog / no dialog | **Reworded dialog** | 38 of 38 |
+
+**My segmented suggestion was overruled**, and the pairing that resulted is better than
+what I proposed: the rail stays deliberately ambient and says only "how far", and the
+grid carries the per-question detail, so neither has to do the other's job.
+
+**Segments coloured by outcome were rejected on argument**: a running score you cannot
+look away from means three rust segments at question four is a reason to quit, and the
+debrief exists precisely so judgment arrives after the work rather than during it. It
+would also contradict the mock, where results are hidden until the end on purpose.
+
+**The dialog guards nothing**, which is the fact its copy now carries. Every answer is
+committed on submit and the tab offers Resume, so "Quit session?" overstated it. It
+became "Leave this session?" over "Every answer you've given is already saved. You can
+pick this up from the Quiz tab whenever you like." Leave, not Quit, because the session
+does not end, it waits.
+
+> "use the same interface-focus trick used in other parts of the app (i think it was ink
+> wash? not sure, maybe it was a blur) to separate the 'Leaving' prompt from the quiz
+> interface background."
+
+**Already specified, so it was applied rather than invented.** The Study spec: `ink` at
+34%, the page behind settles 10px down and loses a hair of scale on the same curve, and
+**blur is explicitly rejected** as "a glass metaphor in a paper identity and a
+per-frame GPU pass on budget Androids".
+
+---
+
+## Plate 16: The question grid
+
+**File:** `question-grid.html` · 76 events · 28 July
+
+> "the navigation for the quizzes seems too wordy for me. i imagined something like a
+> calendar view but instead of dates they are just rectangles with just the question
+> number with a check or x underneath that number."
+
+**Aedwon's idea, and it replaced mine outright.** The reasoning that made it obviously
+right once stated: a sentence tells you what a question was *about*, which is not what
+anyone scanning a navigator wants. They want which ones went badly and how many are
+left, and a grid answers both at a glance where a list answers neither without reading.
+
+It is also the only shape that survives a mock. A CSE Professional paper is 170 items:
+as sentences that is a hundred-line scroll, as a grid at six columns it is 29 rows.
+
+| Treatment | Events | Outcome |
+|---|---|---|
+| **Ruled rows**, horizontal hairlines only | 59 | **Chosen.** Sets like a printed results table and halves the rule count of the bordered version |
+| No borders at all | 11 | Nothing tells a thumb where one target ends and the next begins |
+| Bordered cells, like a calendar | 6 | Closest to the original description, but 170 hairline boxes reads as graph paper |
+
+**Two variants of the same component**, decided at the same time:
+
+- **Quiz:** a tick or a cross under the number, because in practice the answer is
+  already revealed and hiding it here would be a second rule.
+- **Mock:** no outcome anywhere, per Spec 5. Answered and flagged only, so a student
+  scanning sees what is unfinished rather than how they are doing.
+
+**The mock's floating bar** was also Aedwon's, described before it was drawn: paging
+controls, the flag, and the grid, at the bottom. Why the mock gets one and the quiz does
+not: in practice you move forward and the reveal is the event, while in a mock you move
+in both directions constantly, skipping and returning, and the answer is never revealed.
+Paging controls that would be clutter in practice are the primary interaction there. It
+also frees the app bar for the clock, which must never be hunted for.
+
+> "< leftmost, > rightmost, this is so back and next controls are intuitive. the rest is
+> sandwiched in between them"
+
+---
+
+## Plate 17: Grid indicators
+
+**File:** `grid-indicators.html` · 41 events · 28 July
+
+| Decision | Chosen | Events |
+|---|---|---|
+| The glyph opening the grid | **3x3 filled**, Aedwon's own | 40 of 41 |
+| Answered, in a mock | **A small amber dot** | 32 of 41 |
+
+**Amber was confirmed to exist before it was proposed**, at `0xFF9A6B15` light and
+`0xFFC99A45` dark, already used by Home's severity meter.
+
+> "green should not be the color indicating answered. since it's used for check or
+> actions, it would be confusing."
+
+**Upheld, and taken further in the argument.** A tick in the quiz grid means you were
+right, which is a judgment and earns board. "Answered" in a mock is not a judgment at
+all, so it should not wear a judgment colour. I argued for **no colour at all**, the
+number going from faint to inked, on the grounds that it is what filling in a paper
+looks like and it scales to 170 cells without the grid becoming a colour field. Aedwon
+preferred the dot, 32 events to 8.
+
+**All three current-cell treatments drawn here were rejected**, in comments rather than
+in the log: reversed cell, hairline box, printer's brackets.
+
+> "the boxes or anything relating to the border doesn't work as well because the number
+> is slightly offset to the top to accommodate the indicator below. i like that and don't
+> change it, but the borders to emphasize it don't match it."
+
+**Correct, and the cause is worth recording.** The number and its mark are one stacked
+unit, optically centred as a pair, which puts the number above the cell's middle. A box
+centres on the *cell*. Two different centres about four pixels apart, measuring
+different things, which no nudging reconciles.
+
+---
+
+## Plate 18: The current cell, and flagged meeting answered
+
+**File:** `grid-current.html` · 41 events · 28 July
+
+| Decision | Chosen | Notes |
+|---|---|---|
+| Current cell | **A caret above the number** | Tied 20 to 20 with bigger-and-bolder in the event log; settled by comment |
+| Flagged **and** answered | **Both marks shown** | 38 of 41 |
+
+**Aedwon proposed the flag giving way once answered**, on the grounds that it is cleaner
+and that flags can be re-set on the results page. **I advised otherwise and the argument
+was accepted:**
+
+- Answered is progress, flagged is doubt. Hiding one behind the other means the grid can
+  answer "what is left" or "what am I unsure about", never both.
+- "Answered but unsure" is the most common state in a real exam: you put something down
+  so the item is not blank, then mark it to revisit if time allows. That is exactly what
+  flag-for-review exists to serve.
+- The re-flag on the results page is a different job. Afterwards you flag what you want
+  to **practise**. During the paper you flag what you want to **check before
+  submitting**, and only the second has a deadline.
+- Answered and marked-for-review are separate states in every computer-based test.
+
+**Also rejected here:** the margin bar, a 2.5px rule down the left of the cell, which
+sits on the grid line between columns and can read as belonging to the cell on its left.
+
+---
+
+## Plate 19: The travelling caret, and the bar spacing
+
+**File:** `grid-caret.html` · 48 events · 28 July
+
+> "i noticed when selecting that the upper portion on that level of the question moved
+> down. make it smaller or whatever solution you have to make sure that it doesn't
+> happen. also, i had this idea that tapping another question animates the caret's
+> movement elegantly to that number."
+
+**The cause was layout, not size.** The caret was added to a cell with no room for it,
+so the cell grew, and because grid rows size to their tallest cell the whole row grew
+with it. **Making it smaller would only have made the shift smaller**, which is worse: a
+jump you notice but cannot name.
+
+**The fix is to reserve a 7px slot in every cell**, whether or not the caret is in it,
+so all 170 cells have identical geometry. This is the same rule the Study spec applies
+to `InkTableRow`: "the glyph column is always reserved when any row in a list can carry
+one". And the reservation is what makes the animation possible at all: with every cell
+the same height, the caret stops belonging to a cell and becomes a single element
+floating over the grid.
+
+**Values set by slider, and these are the spec values:**
+
+| Setting | Value | Range explored |
+|---|---|---|
+| Caret travel, within a part | **400ms** | 160, 240, 400 |
+| Bar gap, base | **16px** | 0 to 26 |
+| Extra on the grid side | **+5px** | 4 to 7 |
+
+> "maybe add a bit more spacing for the grid glyph because it's bigger than the flag icon
+> and, although in code have the same spacing, it visually looks closer because of the
+> icon itself."
+
+**An optical correction, and it is recorded as one.** The grid glyph is a solid 3x3
+block, dense to its edges. The pennant is open on its lower right, so it carries its own
+whitespace. Equal metric gaps read unequal, so the bar uses **asymmetric margins** and
+the grid side carries the correction.
+
+**Two bugs found and fixed on this plate:**
+
+1. **The caret rendered at the bottom of the sheet.** It had `position: absolute` with
+   no `top` or `left`, so it fell back to its static position, which is after the grid,
+   and the transform then measured from there. Pinned to `top: 0; left: 0`.
+2. **The flag in a grid cell was too bright.** Now `inkMuted`. The rule: in the app bar
+   the pennant is a **control** and earns full ink when set; in a grid cell it is a
+   **record** of something already done and must never compete with the numbers being
+   scanned. Same glyph, two weights, decided by whether you can press it.
+
+---
+
+## Plate 20: Crossing a part boundary
+
+**File:** `caret-jump.html` · 28 July
+
+> "if it's jumping through a different question section, can you animate it more
+> elegantly? right now it's just appear-disappear which is kind of amateur. i'm imagining
+> something like it's travelling through a portal"
+
+**The instinct was right and it has a name:** the mark leaves the plane rather than
+crossing content it has no business crossing. A fade gives the eye two states with no
+relationship between them; a straight flight from question 15 to 41 drags the caret over
+two headings and reads as a glitch.
+
+| Option | Outcome |
+|---|---|
+| **Out through the margin** | **Chosen.** Sideways out past one edge, back in at the opposite one |
+| Dive and surface | Aedwon's own suggestion, and he passed over it. It would have been the most animated moment in the app, and half a turn at 8px risks reading as a wobble |
+| Pen lifted | The quietest, and too close to the fade already rejected |
+
+> "we have to be wary of where it moves. example, it's logical that if the question it
+> jumps to is further, then the movement should be to the right, and the other section is
+> from the left."
+
+**Screen direction, and it is the film-editing rule.** An object that leaves screen right
+must enter the next shot from screen left or the eye reads it as having turned around.
+So: **forward exits right and enters left; backward exits left and enters right.**
+
+> "the force scrolling is a bit awkward, no need for it and also it's clunky because it
+> snaps what the user viewed and they will become confused. they can't tap to what they
+> can't see anyway"
+
+**Withdrawn entirely, and the reasoning settles it rather than trading opinions.** The
+destination was tapped, so it is on screen by definition. There was never a case where
+scrolling was needed, which means the only thing it could ever do is move the page under
+someone who had just aimed at something. My auto-scroll was solving a situation the app
+cannot produce.
+
+---
+
 ## Decisions taken in conversation rather than on a plate
 
 Recorded here because they are absent from every mockup.

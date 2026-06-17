@@ -41,11 +41,9 @@ across all of the above.
 
 **Out of scope, and deliberately so:**
 
-- **The quiz viewer.** The in-session chrome beyond the reveal: the header, the
-  counter, the progress rail, quitting mid-session, and moving between questions. Not
-  designed. It is the next session. **One exception:** the flag control's placement and
-  glyph are settled here, in Section 6, because the Flagged section on the tab would
-  otherwise specify a list nothing can add to.
+- **The quiz viewer** was out of scope when this spec was written and was designed on
+  28 July. It is now **Section 7.5**: the bar, the rail, going back, the question grid,
+  the travelling caret and leaving. The flag control is in Section 6.
 - **The mock viewer.** Its own design job, and it inherits nothing from here. See
   "The mock viewer, carried forward" at the end.
 - Home, Study, Progress, Settings. The ordering control lands in Settings and is
@@ -675,6 +673,154 @@ exactly what a Pro user on a flagship gets.
 
 The mock cooldown. It states the tier rule in every state, so the cadence is a rule of
 the app rather than a wall discovered on the ninth day.
+
+---
+
+## Section 7.5: The quiz viewer
+
+Added 28 July, after the sections above were approved. The screen the tab opens, around
+the reveal in Section 3. **Its chrome is settled here; nothing else about the mock is.**
+
+### The bar
+
+Height 56, `background`. **Leading:** a ✕ at 17px, stroke 1.6, `inkMuted`.
+**Trailing, in this order:** the counter, then the flag, flag outermost. This is the
+reader's `[context] [mark]` rule with the counter in the context slot, so the flag never
+moves.
+
+The counter reads "4 of 10" in 12.5 `inkMuted`, tabular, with a 11px caret beside it,
+and it is **tappable**.
+
+### The rail
+
+3px, `ruleFaint` track, `board` fill, **one continuous fill** measuring position in the
+session. Deliberately ambient: it says how far and nothing else, because the grid
+carries the detail and neither should do the other's job.
+
+**Rejected:** segments coloured by outcome. A running score you cannot look away from
+means three rust segments at question four is a reason to quit, and the debrief exists
+so that judgment arrives after the work. It would also contradict the mock, where
+outcomes are hidden until the end on purpose.
+
+### Going back
+
+**Permitted, and read-only.** `QuizSession` already holds `questions`, `currentIndex`
+and a growing `outcomes` list in answer order, so a past question renders from
+`outcomes[i]` with no new storage and no resubmission.
+
+**An answered question cannot be re-answered.** The attempt row and the FSRS update were
+written the instant it was tapped. Revisiting redraws the reveal, the choices are inert,
+and the footer offers a way forward rather than a way to edit.
+
+### The question grid
+
+The counter opens **a grid, not a list**, as a bottom sheet.
+
+- A **list answers the wrong question.** A sentence says what a question was about. A
+  navigator is scanned for what went badly and how much is left, which a grid answers at
+  a glance and a list answers only by reading.
+- It is also the only shape that survives a mock: 170 items is a hundred-line scroll as
+  sentences and 29 rows as a grid.
+
+**Treatment: ruled rows.** Horizontal 1px `ruleFaint` under each row, **nothing
+vertical**. It sets like a printed results table and halves the rule count of a bordered
+grid. Six columns in a mock, five in a quiz, cells at least 46px.
+
+**The cell** is a stack, centred as a pair, which puts the number above the cell's
+optical middle:
+
+| Part | Spec |
+|---|---|
+| Caret slot | **7px, reserved in every cell**, occupied only by the current one |
+| Number | Serif 15/600 in `ink`, tabular. `inkMuted` at 400 when unanswered |
+| Mark slot | 11px, 4px above |
+
+**The reserved slot is not optional.** Adding the caret to a cell that has no room for
+it grows the cell, and because grid rows size to their tallest cell the whole row grows
+and everything below shifts. Reserving it in all cells makes the geometry identical
+everywhere, and it is what allows the caret to be a single element floating over the
+grid rather than a thing belonging to a cell.
+
+**Marks, by surface:**
+
+| Surface | Answered | Wrong | Flagged |
+|---|---|---|---|
+| Quiz | board ✓ | rust ✕ | not shown |
+| Mock | a 5px `amber` dot | never shown | the pennant at 12px |
+
+**Amber, not board, for answered.** A tick in the quiz grid means you were right, which
+is a judgment and earns board. Answered in a mock is not a judgment, so it must not wear
+a judgment colour.
+
+**The pennant in a cell is `inkMuted`, not `ink`.** In the bar it is a control and earns
+full ink when set. In a cell it is a record of something already done and must not
+compete with the numbers being scanned. Same glyph, two weights, decided by whether it
+can be pressed.
+
+**Flagged and answered show both marks.** They are different axes: answered is progress,
+flagged is doubt. "Answered but unsure" is the most common state in a real exam, and it
+is exactly what flag-for-review exists to serve.
+
+### The current cell
+
+**A caret above the number**: a solid `ink` triangle, 8 by 5, in the reserved slot.
+
+**No border, box or underline.** An underline is a horizontal rule sitting a few pixels
+above another horizontal rule with a different meaning and width, which cannot be
+resolved by nudging. A box centres on the cell while the number is centred as part of a
+stack, so the two centres never agree.
+
+### The caret travels
+
+**One caret per grid, moved by transform.** Nothing is created or destroyed.
+
+- **Within a part:** it slides to the new cell over **400ms** on
+  `cubic-bezier(.22, 1, .36, 1)`.
+- **Across a part boundary:** it **leaves the plane through the margin**. Out past one
+  edge over 200ms on `cubic-bezier(.4, 0, 1, 1)`, then in from the opposite edge over
+  300ms on the standard curve.
+- **Direction follows travel.** Forward exits **right** and enters from the **left**.
+  Backward reverses it. Exiting and entering on the same side reads as turning around
+  and coming back.
+- **Nothing scrolls.** The destination was tapped, so it is on screen by definition.
+  Moving the page under someone who has just aimed at something loses them, and there is
+  no case in which it is needed.
+- Under reduce-motion the caret simply appears.
+
+### Leaving
+
+The ✕ opens a dialog over an `ink` wash at 34%, with the page settling 10px and losing a
+hair of scale on the standard curve. **No blur**, per the Study spec.
+
+> **Leave this session?**
+> Every answer you've given is already saved. You can pick this up from the Quiz tab
+> whenever you like.
+> [ Keep going ] [ Leave ]
+
+**"Leave", not "Quit".** The session does not end, it waits on the tab. The dialog guards
+no consequence, since every answer is committed on submit, so its job is orientation
+rather than confirmation.
+
+### What the mock inherits, and what it does not
+
+The **grid component and the flag** are shared. The mock's variant shows answered and
+flagged and never an outcome, and it groups by part with a count per part.
+
+The mock adds a **floating bar** at the bottom, which the quiz does not have: previous
+leftmost, next rightmost, and between them the grid glyph, the counter and the flag.
+Base gap **16px**, with **+5px on the grid side** as an optical correction, because the
+grid glyph is a solid block while the pennant is open on its lower right, so equal
+metric gaps read unequal.
+
+**Why only the mock gets it:** in practice you move forward and the reveal is the event.
+In a mock you move in both directions constantly and no answer is ever revealed, so
+paging is the primary interaction rather than clutter. It also frees the app bar for the
+clock, which must never be hunted for.
+
+**The grid glyph** is a 3x3 of nine filled squares, 5.4px each with 1.6px gaps in a 24
+viewBox, rendered at 19 to 20px.
+
+Everything else about the mock, including its results screen, remains its own spec.
 
 ---
 
