@@ -764,6 +764,82 @@ way. The closing page has one action on purpose.
 
 ---
 
+## Plates 21 to 24: The endings
+
+**Files:** `results-screens.html`, `mock-results-v2.html`, `mock-review-v3.html`,
+`exam-marks.html` · 28 July
+
+Spec produced: `../specs/2026-07-28-mock-exam-ui-design.md`
+
+### The score hero
+
+| Option | Events | Outcome |
+|---|---|---|
+| **The figure and the word alone** | 65 of 71 | **Chosen** |
+| A ruled gauge with the thresholds marked | 3 | My suggestion. It answered "did I pass and by how much" at a glance, and put the pass line in front of someone who had just missed it |
+| The inline meter Home already uses | 3 | No thresholds, so it says "this much" and never "enough" |
+
+### Copy, all by instruction
+
+| Was | Now | Reason given |
+|---|---|---|
+| 28 July, 2 hours 51 of 3 hours 30 | **28 July** | The duration was doing nothing; whether the full time was used is in the Performance table where it is actionable |
+| How you did per part | **Performance** | Aedwon's, and shorter. The rows say "per part" by being one per part |
+| Practise | **Practice** | **Twice wrong after being told once** |
+| "Practice ›" on every row | a chevron | The heading already says what the rows do |
+| Every question, inline | **One ruled row into a review screen** | 120 rows cannot live at the bottom of a results page |
+
+### The way into the review
+
+**One ruled row**, 25 of 31, overruling my suggestion of a secondary button with a
+reason above it. The problem Aedwon spotted was that a heading called Review over a
+single row called View all questions says the same thing twice at the same weight, and
+the fix he took was to delete the heading rather than to add weight.
+
+### The review list
+
+Three fixes, all his: **subject headers** so a paper can be scanned by subject rather
+than by topic or lesson, the **duplicate Pro line removed** (it appeared in the list
+header and again in every expanded question), and the flag column doing **one job**.
+
+### What becomes of the marks made during the paper
+
+| Option | Outcome |
+|---|---|
+| **A one-time offer at the top** | **Chosen.** "You marked 12 to come back to while the clock was running. Keep them to practise?" |
+| A permanent filter | Aedwon's first proposal. A fourth filter for a fact that stops mattering after one visit |
+| Let them end with the paper | Throws away twelve deliberate decisions without offering them back |
+
+**Aedwon's argument is better than mine and is the one recorded in the spec.** I
+justified the offer on tidiness. He justified it on signal quality:
+
+> "if they were done answering a flagged question they don't want to return to, they'll
+> unflag during the mock anyway"
+
+So whatever survives to submission has already been filtered by the person who made it.
+Those twelve are not leftovers, they are deliberate decisions that survived scrutiny
+under a clock, which is exactly why they deserve an offer rather than deletion.
+
+**All or nothing, settled on the same reasoning:** if the twelve are genuinely wanted,
+picking through them one at a time is invented work, and per-question adjustment already
+exists afterwards because taking the offer fills the Flagged filter with exactly those
+twelve and every pennant is tappable.
+
+**Also his, and applied:** the per-row "marked during the exam" label is gone, because
+saying it on a row inside a filter of the same name is saying it twice. Pennants start
+empty and tappable everywhere, so nothing arrives pre-set and nothing has to be undone.
+
+### Still open after these plates
+
+- **What Free sees in the review.** Asked three times, unanswered. The log's final state
+  says Free sees answers and explanations; the click counts favour the gated version, 73
+  to 22.
+- The middle band's name. "Not far off" is provisional.
+- Whether `quiz_results_page.dart` survives now that the debrief removed its only entry
+  point.
+
+---
+
 ## Exam administration research, 28 July
 
 Prompted by Aedwon's own UPCAT experience: "in UPCAT, an examinee cannot just simply
