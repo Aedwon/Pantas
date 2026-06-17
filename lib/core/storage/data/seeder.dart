@@ -50,21 +50,9 @@ class Seeder {
               ),
             );
       }
-      for (final q
-          in (json['questions'] as List).cast<Map<String, dynamic>>()) {
-        await _db.into(_db.questions).insert(
-              QuestionsCompanion.insert(
-                id: q['id'] as String,
-                version: q['version'] as int,
-                examIdsJson: jsonEncode(q['examIds']),
-                topicId: q['topicId'] as String,
-                language: q['language'] as String,
-                stem: q['stem'] as String,
-                choicesJson: jsonEncode(q['choices']),
-                explanation: q['explanation'] as String,
-              ),
-            );
-      }
+      // Lessons come before questions: a question may name the lesson it was
+      // authored for, and foreign keys are only unenforced until someone turns
+      // the pragma on.
       for (final l in (json['lessons'] as List).cast<Map<String, dynamic>>()) {
         await _db.into(_db.lessons).insert(
               LessonsCompanion.insert(
@@ -74,6 +62,23 @@ class Seeder {
                 summary: l['summary'] as String,
                 bodyJson: jsonEncode(l['bodyJson']),
                 estimatedMinutes: l['estimatedMinutes'] as int,
+              ),
+            );
+      }
+      for (final q
+          in (json['questions'] as List).cast<Map<String, dynamic>>()) {
+        await _db.into(_db.questions).insert(
+              QuestionsCompanion.insert(
+                id: q['id'] as String,
+                version: q['version'] as int,
+                examIdsJson: jsonEncode(q['examIds']),
+                topicId: q['topicId'] as String,
+                lessonId: Value(q['lessonId'] as String?),
+                language: q['language'] as String,
+                stem: q['stem'] as String,
+                choicesJson: jsonEncode(q['choices']),
+                explanation: q['explanation'] as String,
+                shortLabel: Value(q['shortLabel'] as String?),
               ),
             );
       }

@@ -9,6 +9,7 @@ import 'package:cse_cet_reviewer/core/storage/data/tables/lesson_progress_local_
 import 'package:cse_cet_reviewer/core/storage/data/tables/lessons_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/mock_attempts_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/pending_sync_table.dart';
+import 'package:cse_cet_reviewer/core/storage/data/tables/question_flags_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/questions_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/quiz_nudge_dismissed_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/quiz_sessions_table.dart';
@@ -29,6 +30,7 @@ part 'app_database.g.dart';
     Subjects,
     Topics,
     Questions,
+    QuestionFlagsLocal,
     Lessons,
     AttemptsLocal,
     ReviewStateLocal,
@@ -52,7 +54,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 11;
+  int get schemaVersion => 14;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -95,6 +97,15 @@ class AppDatabase extends _$AppDatabase {
           }
           if (from < 11) {
             await m.createTable(userMetricsArtifactsLocal);
+          }
+          if (from < 12) {
+            await m.createTable(questionFlagsLocal);
+          }
+          if (from < 13) {
+            await m.addColumn(questions, questions.lessonId);
+          }
+          if (from < 14) {
+            await m.addColumn(questions, questions.shortLabel);
           }
         },
       );

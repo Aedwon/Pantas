@@ -1,10 +1,14 @@
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_ordering.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_preferences.dart';
 
 class QuizPreferencesRepository {
   QuizPreferencesRepository(this._db);
 
   static const sessionLengthKey = 'quiz_session_length';
+
+  /// Named for the boolean it used to be. The key is synced and already on
+  /// devices, so it widened in place rather than being replaced.
   static const interleavedTodayKey = 'quiz_today_interleaved';
   static const newCardCapKey = 'quiz_new_card_cap';
 
@@ -16,7 +20,7 @@ class QuizPreferencesRepository {
 
     return QuizPreferences(
       sessionLength: _readSessionLength(values[sessionLengthKey]),
-      interleavedToday: values[interleavedTodayKey] == 'true',
+      ordering: QuizOrdering.fromStorage(values[interleavedTodayKey]),
       newCardCap: _readNonNegativeInt(
         values[newCardCapKey],
         fallback: QuizPreferences.defaults.newCardCap,
@@ -33,7 +37,7 @@ class QuizPreferencesRepository {
         ),
         AccountPrefsCompanion.insert(
           key: interleavedTodayKey,
-          value: preferences.interleavedToday ? 'true' : 'false',
+          value: preferences.ordering.storageValue,
         ),
         AccountPrefsCompanion.insert(
           key: newCardCapKey,

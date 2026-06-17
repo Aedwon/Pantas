@@ -1,4 +1,5 @@
 // coverage:ignore-file
+import 'package:cse_cet_reviewer/core/storage/data/tables/lessons_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/topics_table.dart';
 import 'package:drift/drift.dart';
 
@@ -8,10 +9,15 @@ class Questions extends Table {
   IntColumn get version => integer()();
   TextColumn get examIdsJson => text()();
   TextColumn get topicId => text().references(Topics, #id)();
+
+  /// Null until the tagging pass lands. Questions carry `topicId` only today,
+  /// which is why every lesson in a topic currently hands out the same five.
+  TextColumn get lessonId => text().nullable().references(Lessons, #id)();
   TextColumn get language => text()();
   TextColumn get stem => text()();
   TextColumn get choicesJson => text()();
   TextColumn get explanation => text()();
+  TextColumn get shortLabel => text().nullable()();
 
   @override
   Set<Column<Object>> get primaryKey => {id};

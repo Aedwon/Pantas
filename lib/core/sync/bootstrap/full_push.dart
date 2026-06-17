@@ -6,6 +6,7 @@ import 'package:cse_cet_reviewer/core/sync/mapping/attempt_mapper.dart';
 import 'package:cse_cet_reviewer/core/sync/mapping/fsrs_card_mapper.dart';
 import 'package:cse_cet_reviewer/core/sync/mapping/lesson_progress_mapper.dart';
 import 'package:cse_cet_reviewer/core/sync/mapping/preferences_mapper.dart';
+import 'package:cse_cet_reviewer/core/sync/mapping/question_flag_mapper.dart';
 
 class FullPushBootstrap {
   FullPushBootstrap({
@@ -53,6 +54,7 @@ class FullPushBootstrap {
     const assessments = AssessmentMapper();
     const fsrs = FsrsCardMapper();
     const lessons = LessonProgressMapper();
+    const questionFlags = QuestionFlagMapper();
     const preferences = PreferencesMapper();
 
     return [
@@ -87,6 +89,15 @@ class FullPushBootstrap {
         FirestoreWrite.set(
           path: 'users/$_uid/lesson_progress/${lessons.documentId(row)}',
           data: lessons.toFirestore(
+            row,
+            updatedAt: updatedAt,
+            originDeviceId: _deviceId,
+          ),
+        ),
+      for (final row in await _db.select(_db.questionFlagsLocal).get())
+        FirestoreWrite.set(
+          path: 'users/$_uid/question_flags/${questionFlags.documentId(row)}',
+          data: questionFlags.toFirestore(
             row,
             updatedAt: updatedAt,
             originDeviceId: _deviceId,

@@ -15,10 +15,15 @@ class Question with _$Question {
     required int version,
     required List<ExamId> examIds,
     required TopicId topicId,
+    LessonId? lessonId,
     required String language,
     required String stem,
     required List<Choice> choices,
     required String explanation,
+
+    /// A few words naming what the question is about, for the debrief's miss
+    /// rows. Null falls back to the stem clamped to two lines.
+    String? shortLabel,
   }) = _Question;
 
   factory Question.fromJson(Map<String, dynamic> json) =>

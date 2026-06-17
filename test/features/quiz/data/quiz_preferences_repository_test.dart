@@ -1,12 +1,13 @@
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_preferences_repository.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_ordering.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_preferences.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
 void main() {
-  test('default quiz preferences are length 10 interleaved false newCardCap 10',
+  test('default quiz preferences are length 10 interleaved tail newCardCap 10',
       () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
@@ -14,7 +15,7 @@ void main() {
     final prefs = await QuizPreferencesRepository(db).read();
 
     expect(prefs.sessionLength, 10);
-    expect(prefs.interleavedToday, isFalse);
+    expect(prefs.ordering, QuizOrdering.interleavedTail);
     expect(prefs.newCardCap, 10);
   });
 
@@ -22,7 +23,7 @@ void main() {
     expect(
       () => QuizPreferences(
         sessionLength: 5,
-        interleavedToday: false,
+        ordering: QuizOrdering.blocked,
         newCardCap: 10,
       ),
       returnsNormally,
@@ -30,7 +31,7 @@ void main() {
     expect(
       () => QuizPreferences(
         sessionLength: 10,
-        interleavedToday: false,
+        ordering: QuizOrdering.blocked,
         newCardCap: 10,
       ),
       returnsNormally,
@@ -38,7 +39,7 @@ void main() {
     expect(
       () => QuizPreferences(
         sessionLength: 20,
-        interleavedToday: false,
+        ordering: QuizOrdering.blocked,
         newCardCap: 10,
       ),
       returnsNormally,
@@ -46,7 +47,7 @@ void main() {
     expect(
       () => QuizPreferences(
         sessionLength: QuizPreferences.allDueSessionLength,
-        interleavedToday: false,
+        ordering: QuizOrdering.blocked,
         newCardCap: 10,
       ),
       returnsNormally,
@@ -54,7 +55,7 @@ void main() {
     expect(
       () => QuizPreferences(
         sessionLength: 7,
-        interleavedToday: false,
+        ordering: QuizOrdering.blocked,
         newCardCap: 10,
       ),
       throwsArgumentError,
@@ -68,7 +69,7 @@ void main() {
     await QuizPreferencesRepository(db).save(
       QuizPreferences(
         sessionLength: 20,
-        interleavedToday: true,
+        ordering: QuizOrdering.interleavedTail,
         newCardCap: 5,
       ),
     );
@@ -80,7 +81,7 @@ void main() {
       {for (final row in accountRows) row.key: row.value},
       {
         QuizPreferencesRepository.sessionLengthKey: '20',
-        QuizPreferencesRepository.interleavedTodayKey: 'true',
+        QuizPreferencesRepository.interleavedTodayKey: 'interleaved_tail',
         QuizPreferencesRepository.newCardCapKey: '5',
       },
     );
@@ -113,7 +114,7 @@ void main() {
     final prefs = await QuizPreferencesRepository(db).read();
 
     expect(prefs.sessionLength, 10);
-    expect(prefs.interleavedToday, isTrue);
+    expect(prefs.ordering, QuizOrdering.interleavedTail);
     expect(prefs.newCardCap, 10);
   });
 }

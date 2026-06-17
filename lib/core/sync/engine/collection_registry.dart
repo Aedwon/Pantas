@@ -4,6 +4,7 @@ import 'package:cse_cet_reviewer/core/sync/mapping/fsrs_card_mapper.dart';
 import 'package:cse_cet_reviewer/core/sync/mapping/lesson_progress_mapper.dart';
 import 'package:cse_cet_reviewer/core/sync/mapping/mock_attempt_mapper.dart';
 import 'package:cse_cet_reviewer/core/sync/mapping/preferences_mapper.dart';
+import 'package:cse_cet_reviewer/core/sync/mapping/question_flag_mapper.dart';
 import 'package:cse_cet_reviewer/core/sync/mapping/sync_mapper.dart';
 
 class SyncCollectionEntry {
@@ -51,6 +52,11 @@ const syncCollections = <SyncCollectionEntry>[
     tableType: 'lesson_progress',
     firestorePath: 'lesson_progress',
     mapper: LessonProgressMapper(),
+  ),
+  SyncCollectionEntry(
+    tableType: 'question_flags',
+    firestorePath: 'question_flags',
+    mapper: QuestionFlagMapper(),
   ),
   SyncCollectionEntry(
     tableType: 'preferences',

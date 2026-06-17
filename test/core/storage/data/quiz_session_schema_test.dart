@@ -10,7 +10,7 @@ void main() {
     final db = AppDatabase(NativeDatabase.memory());
     addTearDown(db.close);
 
-    expect(db.schemaVersion, equals(11));
+    expect(db.schemaVersion, equals(14));
     expect(await _tableNames(db), contains('quiz_sessions'));
     expect(await _tableNames(db), contains('daily_new_card_intro'));
   });

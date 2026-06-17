@@ -5,6 +5,7 @@ import 'package:cse_cet_reviewer/core/sync/mapping/attempt_mapper.dart';
 import 'package:cse_cet_reviewer/core/sync/mapping/fsrs_card_mapper.dart';
 import 'package:cse_cet_reviewer/core/sync/mapping/lesson_progress_mapper.dart';
 import 'package:cse_cet_reviewer/core/sync/mapping/preferences_mapper.dart';
+import 'package:cse_cet_reviewer/core/sync/mapping/question_flag_mapper.dart';
 
 class FullPullBootstrap {
   FullPullBootstrap({
@@ -32,6 +33,7 @@ class FullPullBootstrap {
       await _db.delete(_db.assessmentResultsLocal).go();
       await _db.delete(_db.reviewStateLocal).go();
       await _db.delete(_db.lessonProgressLocal).go();
+      await _db.delete(_db.questionFlagsLocal).go();
       await _db.delete(_db.accountPrefs).go();
       await _db.delete(_db.pendingSync).go();
       final deviceId = await (_db.select(_db.syncMeta)
@@ -73,6 +75,14 @@ class FullPullBootstrap {
         in await _gateway.readCollection('users/$_uid/lesson_progress')) {
       await _db.into(_db.lessonProgressLocal).insertOnConflictUpdate(
             lessons.toCompanion(lessons.fromFirestore(doc)),
+          );
+    }
+
+    const questionFlags = QuestionFlagMapper();
+    for (final doc
+        in await _gateway.readCollection('users/$_uid/question_flags')) {
+      await _db.into(_db.questionFlagsLocal).insertOnConflictUpdate(
+            questionFlags.toCompanion(questionFlags.fromFirestore(doc)),
           );
     }
 
