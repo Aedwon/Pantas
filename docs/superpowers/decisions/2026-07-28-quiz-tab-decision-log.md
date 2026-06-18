@@ -1025,3 +1025,106 @@ Home work is ever reopened.
 `reader-header`, `reader-header-v2`, `reader-header-v3`, `reader-motion-v3`,
 `topic-sheet`, `plan-lifecycle`, `home-full`, `home-fixes`, `home-panel-load`,
 `weakest-alt`, `quiz-anchor`, `quiz-anchor-v2`, `c-details`, `row-affordance`.
+
+---
+
+## 2 August 2026: three findings from reading the code before planning seam 2b
+
+Terminal round, no plate. Raised before writing the 2b plan because each one changes
+what the plan builds.
+
+### 1. The duration figure in the session panel
+
+| Option | Cost |
+|---|---|
+| One figure, questions only | The band drops to a single number where the spec drew two |
+| Two figures, the second measured backwards: "9 min", labelled as the last session | Honest, fills the band, answers a slightly different question than the student asked |
+| Keep the projection | Breaks the figure rule: a measurement times an assumption |
+
+I recommended the second. He rejected the framing:
+
+> "1. there are estimated minutes in each lesson right? use that. isn't that the
+> original plan? treat this as an exception to the rule"
+
+**He is granting an exception, but to a number that does not exist for questions.**
+`estimatedMinutes` is a column on `lessons` only. `questions` has no minute field in the
+seed, in `Questions`, or in `content_questions`. A quiz session is ten questions, not
+lessons, so lesson minutes cannot produce its duration without inventing a mapping.
+The Study spec's own finding 5 also states `estimatedMinutes` is content length and "no
+surface may present an estimate as a personal figure". Put back to him; unresolved at
+the time of writing.
+
+### 2. I was wrong about subtopics, and he was wrong about the level count
+
+I said subtopics do not exist and the `subtopicId` field on `WeaknessCandidate` should
+be deleted. He corrected me:
+
+> "2. subtopics exist as the next level after the subjects. after subtopics are
+> lessons. there are 3 levels to that in the Learn tab and in the authored lessons.
+> check that and adjust this. in fact, check other relevant parts of the app that might
+> not be using this and flag them for revision as needed"
+
+**Checked. The three levels are real and he is right that there are three, but the
+middle one is called `topic` in the code, not `subtopic`.** `content/lessons/` is
+`subject/topic/lesson.md`, and every authored front matter carries `subject:` and
+`topic:` and no subtopic key. So the level he means is `topicId`, and there is no fourth
+level anywhere: no subtopics table, no names, nothing assigns one. The Study spec
+recorded the same in its finding 4 on 27 July.
+
+The correction to my proposal is therefore a rename, not a deletion: `subtopicId`
+becomes `topicId`, which is the level he described.
+
+**Dead subtopic surface found while checking, flagged at his request:**
+
+- `SubtopicFilter` and `SubtopicQuestion` are fed all-null subtopic ids by both callers,
+  `start_drill.dart:61` and `start_inline_lesson_quiz.dart:61`. `SubtopicFilter.select`
+  can therefore never match and `general()` always returns everything. The filter is
+  machinery that cannot fire.
+- `subtopicId` columns on `content_lessons`, `content_questions` and `quiz_sessions`,
+  plus `Lesson.subtopicId`, are declared and never assigned.
+- The Sanity parsers read `optionalRefField(doc, 'subtopic')`, so the field would light
+  up if the studio ever grew the doctype. Nothing in the repo says it will.
+- `drill_subtopic_browser.dart` lists topics with every subtitle hardcoded to "General
+  bucket". Plan 2a deletes it, which closes that one.
+
+### 3. Weak spots would always print 0
+
+`WeaknessSelector.minAttempts = 5` against a per-question `attemptCount` means a
+question qualifies only after being answered five times, which almost never happens, so
+the composition line would read "0 weak spots" forever. Proposed reading it at the
+group level instead: a **topic** is weak when it has five or more recent attempts and
+40% or more wrong, and its questions are the candidates.
+
+> "3. yes ok"
+
+**Chosen.** This is also what the candidate's group id was for.
+
+**Resolution of item 1, same day.** Put back to him that lesson minutes cannot produce a
+quiz session's duration, since `estimatedMinutes` is a column on `lessons` only and
+questions carry no minute field at any level of the stack. Two options offered:
+
+| Option | Cost |
+|---|---|
+| One figure, questions only | The band is a single number, permanently |
+| Questions only until seven completed sessions exist, then a second figure carrying the measured average from `SessionShapeSignal` | The panel changes shape once, early in a student's life. Every digit is measured |
+
+> "just questions until there are 7 sessions, then show the average"
+
+**Chosen: the second.** No exception to the figure rule is needed after all. Seven is
+`SessionShapeSignal.minDataPoints`, which already exists and already computes the
+average from completed sessions and mocks.
+
+### Written the same day: `plans/2026-08-02-quiz-tab-02b-session-panel.md`
+
+Nine tasks. Two things found while writing it that were not in any spec:
+
+- **`ResumeSession` has a provider and no caller.** `QuizPage` in `today` mode always calls
+  `startToday`, which mints a second session row and leaves the abandoned one open. A
+  Resume button wired to the existing route would have discarded the student's progress
+  while the panel said "Every answer was saved". Task 6 wires it.
+- **`TodayInterleavedPicker` does not implement Section 5's proportion.** It composes with
+  `TodayTopicPicker` and then applies `RecencyFilter.noConsecutiveSameTopic`, which is not
+  "seven from the topic, three from elsewhere". The same section's "exclude anything
+  answered in the last 7 days" is also unbuilt. **Both flagged in the plan and left
+  unfixed**, because correcting session composition is a change that deserves its own gate.
+  To be raised before seam 3.

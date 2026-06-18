@@ -103,7 +103,21 @@ All three specs share one decision log:
 2. **The custom exam track**, large enough to want its own plan.
 3. **Exam switching**, small, and rides on the polish plan's Task 4.
 4. **Quiz tab seams 2 to 6**: the tab, the picker, the reveal, the debrief, the review
-   component.
+   component. Seam 2 splits three ways: `plans/2026-08-02-quiz-tab-02a-frame-and-panel.md`
+   (written), `plans/2026-08-02-quiz-tab-02b-session-panel.md` (written 2 August, nine
+   tasks, depends on 2a being merged), and 2c, the mock panel and the flagged section,
+   still unplanned.
+
+## Raised by 2b and awaiting Aedwon
+
+- **`TodayInterleavedPicker` does not build the interleaved tail the spec describes.** It
+  applies `RecencyFilter.noConsecutiveSameTopic` rather than "seven from the topic, three
+  from elsewhere", and Section 5's "exclude anything answered in the last 7 days" is
+  unbuilt too. Both flagged in plan 2b and deliberately not fixed there. Decide before
+  seam 3.
+- **Dead subtopic surface.** `SubtopicFilter` is fed all-null ids by both callers and can
+  never match; `subtopicId` columns on `content_lessons`, `content_questions` and
+  `quiz_sessions` are never assigned. Listed in the quiz decision log, 2 August.
 
 ## Lessons from the first background implementor run
 
