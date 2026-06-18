@@ -1178,3 +1178,43 @@ holds durable practice flags only, whatever their origin, and it never needs to
 distinguish where one came from", and `question_flags_local` has no origin column. The
 third sentence contradicts the section that resolved it and cannot be computed. Dropped,
 not asked about, because the spec answers itself.
+
+---
+
+## 2 August 2026: seam 3, the practice picker
+
+Written as `plans/2026-08-02-quiz-tab-03-practice-picker.md`, eight tasks.
+
+### The minutes unit, decided by applying his own ruling rather than asking again
+
+The footer's unit control offers `questions · minutes`, and choosing minutes means
+converting minutes into a question count through the student's pace. That is a measurement
+multiplied by an assumption, the exact combination the figure rule bans.
+
+**I did not put this to him a fourth time.** He had already settled the identical collision
+twice on the same day: the session panel shows questions alone until seven finished sessions
+make an average worth printing, and the mock panel dropped a figure outright rather than
+invent a threshold. So the plan applies that ruling: the minutes unit is **absent until seven
+completed attempts exist**, and appears once the pace can be measured from his own record.
+
+**Flagged for reversal in one line** if he disagrees, in the plan's opening section and in
+`practicePaceProvider`. Recording the reasoning here because deciding rather than asking is
+itself a judgment he may want to overturn.
+
+Worth noting the spec's own copy here reads "45 questions · **about** 40 min", where the
+session panel's "about" was explicitly rejected on 27 July. Consistent rather than
+contradictory: the panel described one specific session, this describes a pool being
+composed.
+
+### Two things found in the code
+
+- **`DrillPicker` returns the same questions in the same order forever.** It filters through
+  `SubtopicFilter.general`, both callers feed every candidate `subtopicId: null`, so it
+  hands back the whole pool in table order and takes the head. Section 5 asked for a shuffle
+  and a seven-day exclusion, calling it "what Spec 4 §4.3 specified and what was never
+  built". Task 7 builds it.
+- **No question carries a `lessonId`**, so lesson selection would start an empty session.
+  Rather than blocking the seam on the content tagging pass, lesson rows appear only where a
+  topic actually has tagged questions, and the caret is absent otherwise. The screen
+  completes itself as the tagging lands, with nothing to revisit. This extends the spec's
+  own treatment of empty topics one level down.

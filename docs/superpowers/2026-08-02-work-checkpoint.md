@@ -106,7 +106,9 @@ All three specs share one decision log:
    component. Seam 2 splits three ways: `plans/2026-08-02-quiz-tab-02a-frame-and-panel.md`
    (written), `plans/2026-08-02-quiz-tab-02b-session-panel.md` (nine tasks, depends on 2a),
    and `plans/2026-08-02-quiz-tab-02c-mock-panel-and-rows.md` (seven tasks, depends on 2a
-   and 2b). All three written 2 August, none executed. Seams 3 to 6 are still unplanned.
+   and 2b). Seam 3 is `plans/2026-08-02-quiz-tab-03-practice-picker.md` (eight tasks). All
+   four written 2 August, none executed. Seams 4 to 6, the reveal, the debrief and the
+   review component, are still unplanned.
 
 ## Raised by 2b and awaiting Aedwon
 
@@ -132,6 +134,15 @@ All three specs share one decision log:
   seed order. Plan 2b Tasks 4 and 5.
 - **Reopening a half-finished session starts a second one** and strands the answers already
   given, because nothing calls `ResumeSession`. Plan 2b Task 6.
+- **Drills return the same questions in the same order forever.** `DrillPicker` filters
+  through `SubtopicFilter`, which both callers feed all-null ids, so it takes the head of
+  the pool in table order. Plan 3 Task 7.
+
+## Decided without asking, reversible in one line
+
+- **The picker's minutes unit is withheld until seven completed attempts exist**, applying
+  the ruling Aedwon made twice on 2 August rather than reopening it. Plan 3, and
+  `practicePaceProvider`. If he wants it always visible, say so.
 
 ## Lessons from the first background implementor run
 
