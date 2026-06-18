@@ -9,18 +9,21 @@ earlier note. When an item is finished, strike it here and say what closed it.
 
 ---
 
-## 1. Specs approved, no implementation plan written
+## 1. The five design specs, and where each one stands
 
-Design ended at a written spec for all five. None has a plan in
-`docs/superpowers/plans/`, where the newest file is dated 25 July.
+**Updated 2 August, evening.** The Quiz tab is now planned end to end. The other four are
+not, and they are not all blocked by the same thing.
 
-| Spec | Date | Status | Note |
+| Spec | Date | Design status | Plan status |
 | --- | --- | --- | --- |
-| Home and navigation | 07-26 | Approved | Its Section 2, onboarding captures name and exam date, is a stated prerequisite for the Progress tab |
-| Study tab and reader | 07-27 | Approved | |
-| Quiz tab | 07-28 | Approved, design closed | Splits into the viewer, grid and flag, then the debrief |
-| Mock exam UI | 07-28 | **Partial** | Splits into the paper and the endings; both wait on the Quiz grid and flag |
-| Progress tab | 07-30 | Approved | The most blocked of the five, see sections 3 and 4 |
+| Home and navigation | 07-26 | Approved, but its **Weakest areas section is superseded** | None. Reopen that section before planning |
+| Study tab and reader | 07-27 | Approved, closed | None. **Ready to plan as written** |
+| Quiz tab | 07-28 | Approved, closed | **7 plans, 44 tasks.** See the queue below |
+| Mock exam UI | 07-28 | **Partial.** The paper and the endings are still open design | None, and a plan is premature: it needs a design round, not a planning round |
+| Progress tab | 07-30 | Approved | None. Plan it **last**, see the dependency map |
+
+**Only Study can be planned straight away.** Home needs one section reopened, the mock UI
+needs design finished, and Progress consumes decisions from both.
 
 ## 2. Plans written, never executed
 
@@ -76,7 +79,8 @@ Design ended at a written spec for all five. None has a plan in
 
 ## Chosen next
 
-**Onboarding**, decided 2 August.
+**Onboarding**, decided 2 August. Design then moved through the Quiz tab instead, and by the
+evening of 2 August every plan in the queue below was written. Nothing has been executed.
 
 ## Done since this checkpoint was written
 
@@ -96,33 +100,106 @@ layering violations unchanged at 7 pre-existing.
 All three specs share one decision log:
 `decisions/2026-08-02-onboarding-name-and-date-log.md`.
 
-## The plan queue, in dependency order
+## The plan queue
 
-1. **Onboarding**, folded into `plans/2026-07-25-onboarding-polish.md` as new tasks so it
-   is built in one pass rather than two.
-2. **The custom exam track**, split in two:
-   `plans/2026-08-02-custom-track-a-branch-and-scope.md` (6 tasks) and
-   `plans/2026-08-02-custom-track-b-student-built-mock.md` (5 tasks). A depends on the
-   onboarding plan; B depends on A and on Quiz plan 2c.
-3. **Exam switching**, `plans/2026-08-02-exam-switching.md` (4 tasks), depends on the polish
-   plan's Task 4.
-4. **Quiz tab seams 2 to 6**: the tab, the picker, the reveal, the debrief, the review
-   component. Seam 2 splits three ways: `plans/2026-08-02-quiz-tab-02a-frame-and-panel.md`
-   (written), `plans/2026-08-02-quiz-tab-02b-session-panel.md` (nine tasks, depends on 2a),
-   and `plans/2026-08-02-quiz-tab-02c-mock-panel-and-rows.md` (seven tasks, depends on 2a
-   and 2b). **The whole tab is now planned**, all on 2 August and none executed:
+**Superseded 2 August, evening.** The order below replaces the earlier one, which said
+onboarding, then custom track, then exam switching, then the Quiz seams.
 
-   | Plan | Tasks |
-   | --- | --- |
-   | `2026-08-02-quiz-tab-02a-frame-and-panel.md` | 3 |
-   | `2026-08-02-quiz-tab-02b-session-panel.md` | 9 |
-   | `2026-08-02-quiz-tab-02c-mock-panel-and-rows.md` | 7 |
-   | `2026-08-02-quiz-tab-03-practice-picker.md` | 8 |
-   | `2026-08-02-quiz-tab-04-viewer-and-reveal.md` | 8 |
-   | `2026-08-02-quiz-tab-05-debrief.md` | 4 |
-   | `2026-08-02-quiz-tab-06-review-component.md` | 5 |
+**That order was wrong and it is worth saying why**, because it was written before the plans
+existed and the plans revealed the dependency. **Custom track Plan A depends on Quiz plans 2b
+and 3**: its Task 5 lifts the topic index out of `practice_picker_page.dart`, which Quiz 3
+creates, and its Task 6 rewrites `today_providers.dart` and `practice_picker_providers.dart`,
+which Quiz 2b and Quiz 3 create. Executed in the old order, three of its six tasks have
+nothing to modify.
 
-   Execute in that order. Each depends on the ones above it.
+### Execution order
+
+| # | Plan | Tasks | Waits on |
+| --- | --- | --- | --- |
+| 1 | `2026-08-02-content-seed-delivery.md` | see file | nothing. Unblocks mocks and half of Progress |
+| 2 | `2026-07-25-onboarding-polish.md` | 13 | nothing |
+| 3 | `2026-08-02-onboarding-flow-and-new-steps.md` | 10 | 2, interleaved. Read its "How this plan interleaves" section |
+| 4 | `2026-08-02-exam-switching.md` | 4 | 2, for the Settings → Exam page its Task 4 builds |
+| 5 | `2026-08-02-quiz-tab-02a-frame-and-panel.md` | 3 | quiz-tab-01, merged |
+| 6 | `2026-08-02-quiz-tab-02b-session-panel.md` | 9 | 5 |
+| 7 | `2026-08-02-quiz-tab-02c-mock-panel-and-rows.md` | 7 | 5, 6 |
+| 8 | `2026-08-02-quiz-tab-03-practice-picker.md` | 8 | 5 |
+| 9 | `2026-08-02-quiz-tab-04-viewer-and-reveal.md` | 8 | 8 |
+| 10 | `2026-08-02-quiz-tab-05-debrief.md` | 4 | 9 |
+| 11 | `2026-08-02-quiz-tab-06-review-component.md` | 5 | 7, 9, 10 |
+| 12 | `2026-08-02-custom-track-a-branch-and-scope.md` | 6 | 3, 6, 8 |
+| 13 | `2026-08-02-custom-track-b-student-built-mock.md` | 5 | 7, 12 |
+
+**Steps 1 to 4 and 5 to 11 are independent of each other** and could run in parallel by two
+people. 12 and 13 need both threads finished.
+
+## The dependency map
+
+Three kinds of dependency run through this work and they behave differently. Content
+dependencies degrade; code dependencies break.
+
+### Content, which the plans already degrade around
+
+| Content pass | Gates | What happens without it |
+| --- | --- | --- |
+| `lessonId` on all 1,117 questions | the reader coda, lesson selection in the picker, the Lesson level of Progress | The picker shows no carets, the coda hands every lesson in a topic the same five questions |
+| A rationale per choice | note B on the reveal and in the review, the debrief's "slipped" second sentence | The note is simply absent, which is the drawn appearance for Free anyway |
+| A short label per question | the debrief's miss rows, the review's rows | They fall back to the stem clamped to two lines, through the renderer |
+| Seed delivery, `content.db` | every blueprint and every mock paper | No mock can run at all, except a custom track's, whose blueprint is local |
+| Mathematics questions, via the template engine | complete mock papers | `MockSampler` cannot fill a paper, so Progress's pace column stays empty |
+
+**None of these block writing a plan and none block executing one.** Every plan that touches
+them says what it renders in their absence.
+
+### Shared components, which one plan builds and several read
+
+| Component | Built by | Read by |
+| --- | --- | --- |
+| `RuledPanel` | Quiz 2a | Quiz 2b, 2c, and the Home spec's panel device |
+| `StatsBand` gaining `centred` and `compact` | Quiz 2b | Quiz 2c, and Home's stats band |
+| `InkCheckbox`, promoted out of the picker | **Quiz 3 or Quiz 5 or custom track A**, whichever runs first | all three |
+| `TopicScopeIndex`, lifted out of the picker | custom track A | the picker itself, and Settings |
+| `PennantMark` | Quiz 4 | Quiz 6, the mock's grid and its review |
+| `QuestionGridSheet` | Quiz 4 | the mock paper, at six columns |
+| `AnswerReveal` | Quiz 4, in `core/ui` | Quiz 6, and the mock review through it |
+
+**`InkCheckbox` is named in three plans and built by none of them specifically.** Whichever
+runs first promotes it; the other two say to check first. Watch for two of them being written
+in parallel.
+
+### Tabs
+
+- **Home** needs nothing from the others to be planned, **except that its Weakest areas
+  section is superseded** and must be reopened as design first.
+- **Study** needs nothing. Its dependencies are the two content passes above, and both
+  degrade.
+- **Progress** is downstream of almost everything: the onboarding name and date (Home spec
+  Section 2), the mistake tags Quiz 5 commits to producing, the carry-over filter from exam
+  switching, and mocks working for its pace column.
+- **The mock UI** waits on the Quiz grid and flag, which Quiz 4 now specifies, and on the
+  score-band question below.
+
+## Path for the remaining plans, recommended
+
+Writing plans, not executing them.
+
+1. **Study tab and reader.** Its spec is closed, nothing needs reopening, and it is the only
+   one of the four that can be planned as written. Likely two plans: the map, then the
+   reader and its coda.
+2. **Home's Weakest areas, as design.** A brainstorm and a spec amendment, not a plan. Until
+   it is settled, planning Home means planning around a hole, and Progress inherits the same
+   hole.
+3. **Home and navigation.** Once 2 lands. It reads `RuledPanel` and the centred `StatsBand`
+   from the Quiz plans, so its plan should be written after those exist, which they now do.
+4. **The mock exam UI, as design first.** The paper and the endings are still open. Settle
+   the score bands question below in the same pass, since a results screen cannot print a
+   band it has no threshold for.
+5. **Progress tab.** Last, deliberately. It consumes the Weakest areas decision from 2, the
+   mistake tags from Quiz 5, the carry-over filter from exam switching, and the mock pace
+   column from 4 plus the content engine.
+
+**The honest summary: only one of the four can be planned today.** Two need a design round
+first and one should wait for the others' decisions.
 
 ## Raised by 2b and awaiting Aedwon
 
