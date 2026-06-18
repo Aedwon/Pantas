@@ -1218,3 +1218,64 @@ composed.
   topic actually has tagged questions, and the caret is absent otherwise. The screen
   completes itself as the tagging lands, with nothing to revisit. This extends the spec's
   own treatment of empty topics one level down.
+
+---
+
+## 2 August 2026: seams 4, 5 and 6
+
+Three plans written in one pass, on his instruction "proceed until 6".
+
+- `plans/2026-08-02-quiz-tab-04-viewer-and-reveal.md`, eight tasks
+- `plans/2026-08-02-quiz-tab-05-debrief.md`, four tasks
+- `plans/2026-08-02-quiz-tab-06-review-component.md`, five tasks
+
+### Live defects found in the viewer
+
+- **`QuestionCard` renders the stem with a plain `Text`.** Stems carry LaTeX and markdown, so
+  `$F_{net} = ma$` prints as itself. This is UI-005 through UI-007 and
+  `PortableTextRenderer` has existed the whole time.
+- **`QuestionCard` passes `AnswerRowState.plain` on every row, every time.** `AnswerRow`
+  implements `selected`, `correct`, `incorrect` and `correctMissed` under a docstring calling
+  itself the spec's answer device, and not one of them has ever been used.
+- **`AttemptItem.chosenChoiceId` is stored, synced and read by nothing.** The reveal is its
+  first consumer, which the spec's Section 9 also predicted.
+
+### Three places the plans degrade around missing content, rather than inventing it
+
+1. **Note B needs a rationale per choice and no choice has one.** It renders where the field
+   is populated and is absent where it is not, on both tiers. Not a compromise: Section 3
+   already specifies that Free sees "no locked block, no upgrade line, no shadow of the
+   missing note", so absence is the drawn appearance and Pro simply gains the note as content
+   lands.
+2. **No question has a `shortLabel`**, so the debrief's miss rows and the review's rows fall
+   back to the stem clamped to two lines, through the renderer. Section 9 specifies exactly
+   this fallback.
+3. **The "slipped" cause has a second sentence the app cannot write.** The spec's example is
+   "You had this right on 14 July. **Today you multiplied where you needed to divide.**" The
+   first is a stored fact; the second is a claim about this particular mistake, which is the
+   per-choice rationale and does not exist. **The plan renders the first sentence alone.**
+   Writing the second would be printing a sentence this project inferred, and the figure rule
+   applies to prose as well as to numbers.
+
+### Two things computed rather than quoted
+
+- **"You'll see all three again tomorrow"** is built from the misses' own
+  `nextReviewIntervalDays` rather than asserted. A miss derives `Rating.again` and returns
+  tomorrow today, but the sentence must follow the scheduler rather than argue with it.
+- **"All two"** is not English. The plan's own test copy said it and the plan says to fix it
+  to "both" before implementing. Recorded because it is the kind of thing that ships.
+
+### A correction to plan 4, made while writing plan 6
+
+`AnswerReveal` was placed in `features/quiz/presentation/widgets/`. Plan 6's review component
+draws the same marginal notes, and the mock reaches that component, so a widget under
+`features/quiz` would have been an eighth R2 violation. **Moved to
+`lib/core/ui/components/`, taking primitives rather than an `AnswerOutcome`**, since
+`AnswerOutcome` lives in `features/quiz/domain` and `core/**` may not import `features/**`.
+Plan 4 was edited rather than left contradicting plan 6.
+
+### A commitment the debrief creates
+
+The invitation writes `AttemptItem.mistakeTag`, and the spec is explicit that "three taps that
+surface nowhere would be worse than never asking". **Progress must consume the tags.** Added
+to the work checkpoint as owed.

@@ -106,9 +106,19 @@ All three specs share one decision log:
    component. Seam 2 splits three ways: `plans/2026-08-02-quiz-tab-02a-frame-and-panel.md`
    (written), `plans/2026-08-02-quiz-tab-02b-session-panel.md` (nine tasks, depends on 2a),
    and `plans/2026-08-02-quiz-tab-02c-mock-panel-and-rows.md` (seven tasks, depends on 2a
-   and 2b). Seam 3 is `plans/2026-08-02-quiz-tab-03-practice-picker.md` (eight tasks). All
-   four written 2 August, none executed. Seams 4 to 6, the reveal, the debrief and the
-   review component, are still unplanned.
+   and 2b). **The whole tab is now planned**, all on 2 August and none executed:
+
+   | Plan | Tasks |
+   | --- | --- |
+   | `2026-08-02-quiz-tab-02a-frame-and-panel.md` | 3 |
+   | `2026-08-02-quiz-tab-02b-session-panel.md` | 9 |
+   | `2026-08-02-quiz-tab-02c-mock-panel-and-rows.md` | 7 |
+   | `2026-08-02-quiz-tab-03-practice-picker.md` | 8 |
+   | `2026-08-02-quiz-tab-04-viewer-and-reveal.md` | 8 |
+   | `2026-08-02-quiz-tab-05-debrief.md` | 4 |
+   | `2026-08-02-quiz-tab-06-review-component.md` | 5 |
+
+   Execute in that order. Each depends on the ones above it.
 
 ## Raised by 2b and awaiting Aedwon
 
@@ -137,6 +147,21 @@ All three specs share one decision log:
 - **Drills return the same questions in the same order forever.** `DrillPicker` filters
   through `SubtopicFilter`, which both callers feed all-null ids, so it takes the head of
   the pool in table order. Plan 3 Task 7.
+- **`QuestionCard` prints LaTeX literally and never grades.** It renders the stem through a
+  plain `Text` (UI-005 to UI-007) and passes `AnswerRowState.plain` to every row, though
+  `AnswerRow` has implemented all four graded states since the redesign. Plan 4 Task 2.
+- **`quiz_results_page.dart` lists questions by raw `questionId`** and has had no entrance
+  since the debrief replaced the session ending. Plan 6 Task 3.
+
+## Owed by the plans, not yet built
+
+- **Progress must consume the mistake tags.** Plan 5's debrief asks for them and writes
+  `AttemptItem.mistakeTag`. The spec is explicit that three taps surfacing nowhere would be
+  worse than never asking, so the Progress side is a commitment, not an option.
+- **The content passes gate three surfaces.** Note B needs a rationale per choice; the
+  debrief's miss rows and the review's rows want a short label per question; lesson selection
+  in the picker wants the `lessonId` tagging. All three degrade honestly in the plans and all
+  three close on content rather than on code.
 
 ## Decided without asking, reversible in one line
 
