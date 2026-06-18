@@ -1128,3 +1128,53 @@ Nine tasks. Two things found while writing it that were not in any spec:
   answered in the last 7 days" is also unbuilt. **Both flagged in the plan and left
   unfixed**, because correcting session composition is a change that deserves its own gate.
   To be raised before seam 3.
+
+---
+
+## 2 August 2026: the mock panel's middle figure
+
+Raised before writing plan 2c. The spec's mock panel shows three figures: **last score**
+as a percentage, **parts passed** as "3 of 5", and **taken** as a date.
+
+**"Parts passed" has no source.** `SectionResult` carries `correct`, `total`,
+`retiredCount` and `timeSeconds` and no pass mark. The only threshold in the app is
+`ComputeResults.bandFor`, 75% applied to the whole paper, and the 17 May mock spec calls
+that 75 a **fallback** until per-exam `scoreBands` are loaded from Sanity. There is no
+per-section threshold anywhere in the spec, the schema or the code.
+
+| Option | Cost |
+|---|---|
+| **a. Two figures, last score and taken** | Loses the middle figure. Nothing invented |
+| b. "5 parts", how many the paper had | Real, but says nothing about how the student did |
+| c. The weakest part's name instead | Real and useful, but a word in a band of figures |
+| d. Apply the 75% line per section | Invents a section pass mark, on top of a threshold that is itself a placeholder |
+
+I recommended **a**.
+
+> "go a"
+
+**Chosen: two figures.** Same shape as the session panel's available state, which also
+dropped to what could be measured rather than printing a number the app made up.
+
+### Three things found in the code at the same time
+
+- **`MockQuizTabTile` already exists and is used nowhere in `lib/`.** It is a
+  `RuledSection` reading "Mock ready" or "Next mock in 3 days", with none of the spec's
+  four states, no tier line and no figures. Superseded, so plan 2c deletes it, on the same
+  reasoning that retired `DrillSubtopicBrowser` in 2a: an unreachable screen invites
+  something new to be built against it.
+- **`mockEntitlementProvider` is hardcoded to `proIsActive: false`.** Every Pro user is
+  currently put in the 14-day cooldown. Plan 2c overrides it in `bootstrap.dart`, which
+  already imports the paywall and already overrides providers this way.
+- **The Quiz tab cannot import the mock feature** without adding an eighth R2 violation.
+  The router builds the panel and passes it in, the way it already passes `proIsActive`
+  into `ProgressPage`.
+
+### The flagged row's third sentence is dropped
+
+Section 1 writes the subtitle as "12 kept, across 4 topics. **7 of them from your last
+exam**". Section 6, written later the same day, settles that "the tab's Flagged section
+holds durable practice flags only, whatever their origin, and it never needs to
+distinguish where one came from", and `question_flags_local` has no origin column. The
+third sentence contradicts the section that resolved it and cannot be computed. Dropped,
+not asked about, because the spec answers itself.

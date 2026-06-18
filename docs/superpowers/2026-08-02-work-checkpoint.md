@@ -104,9 +104,9 @@ All three specs share one decision log:
 3. **Exam switching**, small, and rides on the polish plan's Task 4.
 4. **Quiz tab seams 2 to 6**: the tab, the picker, the reveal, the debrief, the review
    component. Seam 2 splits three ways: `plans/2026-08-02-quiz-tab-02a-frame-and-panel.md`
-   (written), `plans/2026-08-02-quiz-tab-02b-session-panel.md` (written 2 August, nine
-   tasks, depends on 2a being merged), and 2c, the mock panel and the flagged section,
-   still unplanned.
+   (written), `plans/2026-08-02-quiz-tab-02b-session-panel.md` (nine tasks, depends on 2a),
+   and `plans/2026-08-02-quiz-tab-02c-mock-panel-and-rows.md` (seven tasks, depends on 2a
+   and 2b). All three written 2 August, none executed. Seams 3 to 6 are still unplanned.
 
 ## Raised by 2b and awaiting Aedwon
 
@@ -118,6 +118,20 @@ All three specs share one decision log:
 - **Dead subtopic surface.** `SubtopicFilter` is fed all-null ids by both callers and can
   never match; `subtopicId` columns on `content_lessons`, `content_questions` and
   `quiz_sessions` are never assigned. Listed in the quiz decision log, 2 August.
+- **Score bands are still a placeholder.** `ComputeResults.bandFor` falls back to 75% pass
+  and 60% borderline, which the 17 May mock spec calls a stand-in until per-exam
+  `scoreBands` load from Sanity, and the `exams` table has no column for them. Plan 2c
+  prints no band so it does not depend on this, but the mock results screen already shows
+  one. Settle before the mock UI plans.
+
+## Live defects found while planning, fixed inside the plans
+
+- **Pro subscribers serve the free mock cooldown.** `mockEntitlementProvider` is hardcoded
+  to `proIsActive: false`. Plan 2c Task 4.
+- **Today's session ignores every selector** and is the first N questions of the exam in
+  seed order. Plan 2b Tasks 4 and 5.
+- **Reopening a half-finished session starts a second one** and strands the answers already
+  given, because nothing calls `ResumeSession`. Plan 2b Task 6.
 
 ## Lessons from the first background implementor run
 
