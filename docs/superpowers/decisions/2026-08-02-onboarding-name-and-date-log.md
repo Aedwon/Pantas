@@ -537,3 +537,61 @@ single principle: **Pantas filters, it does not purge.**
 **One exploit closed.** A switch must not reset the mock cooldown, or a Free user
 alternates exams to farm papers. The Quiz spec's "one every 14 days per track" is
 corrected to **per student**, since per track is the hole.
+
+---
+
+## 2 August 2026: three plans written for the custom track and exam switching
+
+- `plans/2026-08-02-custom-track-a-branch-and-scope.md`, six tasks
+- `plans/2026-08-02-custom-track-b-student-built-mock.md`, five tasks
+- `plans/2026-08-02-exam-switching.md`, four tasks
+
+**The custom track spec was split in two**, on the same reasoning that split Quiz seam 2.
+Plan A ships alone and is the whole feature for a student who only wants to study: name the
+track, tick the subjects, and every surface works. Plan B is the mock, which needs a setup
+screen, three wheels, a corpus ceiling and a locally authored blueprint, and which is useless
+before A exists.
+
+### Three decisions the spec left open and the plans make
+
+The spec settles the experience and says nothing about storage. These follow from the code
+rather than from taste, and each is recorded with its alternative.
+
+1. **A custom track is a row in `exams`, flagged `isCustom`.** `selected_exam_id`,
+   `attempts_local.examId`, `assessment_results_local.examId`, `quiz_sessions.examId` and
+   `mock_attempts.examId` all key on an exam id, so a parallel "track" concept would have to
+   be threaded through every one of them and a flagged exam row through none. The picker
+   lists `!isCustom`. `Seeder.maybeSeed` bails when any exam row exists and never deletes, so
+   a custom row is safe from reseeding.
+2. **Scope is an exclusion list, not an inclusion list.** A row means hidden, no rows means
+   everything, which makes "narrowing filters, it never purges" literal. An inclusion list
+   would have to be written in full for every listed exam at install and would silently empty
+   a track when a content update added a topic nobody had ticked.
+3. **A custom track's subjects are the corpus's**, because `Subjects.examId` references an
+   exam and a custom row owns none. So `scopedTopicsProvider` answers "what is in my exam"
+   for both kinds of track, and every feature-side call to `topicsByExam` moves to it. That
+   also delivers Section 5's requirement that narrowing is available to a listed exam too.
+
+**One cost accepted inside decision 3, and flagged rather than hidden:** shared subjects
+appear under several exams with different topic ids, so a custom track collapses them by name
+and takes the id holding the most questions. Two exams' "Algebra" may differ, and the proper
+fix is a corpus-level topic identity, which is a content change rather than a code one.
+
+### The exploit the switching plan closes
+
+`mockAvailabilityProvider` calls `lastCooldownAttempt(userId, examId)`, so **the cooldown is
+per exam today**. A Free user moves DOST to UPCAT and back for a fresh paper whenever they
+want one. The Quiz spec's tier table says "one every 14 days per track" and the switching spec
+corrects it to per student; the plan makes the change.
+
+**Custom track Plan B names the same hole and deliberately does not fix it**, so it is fixed
+once, in the plan that owns it.
+
+### A correction carried into the plans
+
+The custom track spec itself corrects an earlier claim from this session, that the mock viewer
+was undesigned. It is built. What is true is narrower: `/mock-exam` is a `_Stub` route,
+`MockSetupPage` has no callers, and `content_mock_blueprints` holds zero rows. Plan B follows
+that through to a consequence worth having: **a custom track's blueprint never passes through
+`assets/seed/content.db`, which is the broken piece, so the custom mock may be the first mock
+in Pantas that can actually run.**

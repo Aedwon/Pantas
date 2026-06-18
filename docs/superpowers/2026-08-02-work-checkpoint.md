@@ -100,8 +100,12 @@ All three specs share one decision log:
 
 1. **Onboarding**, folded into `plans/2026-07-25-onboarding-polish.md` as new tasks so it
    is built in one pass rather than two.
-2. **The custom exam track**, large enough to want its own plan.
-3. **Exam switching**, small, and rides on the polish plan's Task 4.
+2. **The custom exam track**, split in two:
+   `plans/2026-08-02-custom-track-a-branch-and-scope.md` (6 tasks) and
+   `plans/2026-08-02-custom-track-b-student-built-mock.md` (5 tasks). A depends on the
+   onboarding plan; B depends on A and on Quiz plan 2c.
+3. **Exam switching**, `plans/2026-08-02-exam-switching.md` (4 tasks), depends on the polish
+   plan's Task 4.
 4. **Quiz tab seams 2 to 6**: the tab, the picker, the reveal, the debrief, the review
    component. Seam 2 splits three ways: `plans/2026-08-02-quiz-tab-02a-frame-and-panel.md`
    (written), `plans/2026-08-02-quiz-tab-02b-session-panel.md` (nine tasks, depends on 2a),
@@ -152,6 +156,9 @@ All three specs share one decision log:
   `AnswerRow` has implemented all four graded states since the redesign. Plan 4 Task 2.
 - **`quiz_results_page.dart` lists questions by raw `questionId`** and has had no entrance
   since the debrief replaced the session ending. Plan 6 Task 3.
+- **The mock cooldown is per exam, which is an exploit.** A Free user switches exams, or
+  makes a second custom track, and gets a fresh paper. `exam-switching` Task 2 makes it per
+  student; custom track Plan B names it and leaves it there so it is fixed once.
 
 ## Owed by the plans, not yet built
 
