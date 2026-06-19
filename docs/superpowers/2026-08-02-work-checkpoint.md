@@ -144,6 +144,37 @@ nothing to modify.
 **Steps 1 to 4 and 5 to 11 are independent of each other** and could run in parallel by two
 people. 12 and 13 need both threads finished.
 
+### The Home thread, added 2 August, late
+
+A **fourth** independent thread, six plans. H1 and H2 depend on nothing at all. H2 is a
+live defect as much as a prerequisite and unblocks Progress as well as Home.
+
+| # | Plan | Tasks | Waits on |
+| --- | --- | --- | --- |
+| H1 | `2026-08-02-home-01-bottom-navigation.md` | 2 | nothing |
+| H2 | `2026-08-02-home-02-assessment-attempt-row.md` | 3 | nothing. Unblocks H5 and Progress |
+| H3 | `2026-08-02-home-03-masthead-and-band.md` | 4 | Quiz 2a for `RuledPanel`, onboarding 1 and 2 for `ExamDate` and the name |
+| H4 | `2026-08-02-home-04-up-next.md` | 2 | H3 |
+| H5 | `2026-08-02-home-05-practice-panel.md` | 2 | H2, H3 |
+| H6 | `2026-08-02-home-06-tendencies.md` | 3 | H3 |
+
+**H4 and H5 both rank topics by accuracy.** Whichever runs second must delete the other's
+ranking and watch `topicAccuracyProvider`. Two rankings of the same data is how Home calls
+a topic weak in one panel and strong in the one beneath it.
+
+### The mock thread, added 2 August, late
+
+Two plans, exactly as the mock spec's own closing note splits them.
+
+| # | Plan | Tasks | Waits on |
+| --- | --- | --- | --- |
+| M1 | `2026-08-02-mock-01-the-paper.md` | 5 | seed delivery to run, Quiz 4 for the grid and the pennant |
+| M2 | `2026-08-02-mock-02-the-endings.md` | 4 | M1, Quiz 4, Quiz 5, and check Quiz 6 first |
+
+**M1 Task 1 also closes the score-bands item**, which was never a design question: it adds
+the column, the parser and the argument, and `ScoreBand.borderline` becomes
+`ScoreBand.close` so the code and the settled copy agree.
+
 ### The Study thread, added 2 August, late
 
 A **third** independent thread. It touches `lib/features/lesson/`, `core/storage`'s lesson
@@ -231,16 +262,37 @@ Writing plans, not executing them.
    table's teaser. Spec Section 3 rewritten plus a new Section 8; Progress Section 7 gains
    the reciprocal exception. Decisions in `decisions/2026-08-02-home-weakest-areas-log.md`.
    **It exposed two prerequisites**, both listed in Section 3 below.
-3. **Home and navigation.** Now unblocked. It reads `RuledPanel` and the centred `StatsBand`
-   from the Quiz plans, so its plan should be written after those exist, which they now do.
-4. **The mock exam UI, as two plans.** ~~As design first.~~ **Corrected 2 August**, see
-   "The mock UI was not as open as this file said" below. The paper, then the endings.
+3. ~~**Home and navigation.**~~ **Done 2 August**, as six plans: the navigation, the
+   assessment attempt row, the masthead and band, Up next, the Practice panel and the
+   tendency deck. The split follows the spec's own block order, and the two plans that
+   depend on nothing were put first deliberately so the thread can start before onboarding
+   or Quiz 2a land.
+4. ~~**The mock exam UI, as design first.**~~ **Done 2 August**, as the two plans the spec
+   itself names: the paper, then the endings. No design round was needed, see below.
 5. **Progress tab.** Last, deliberately. It consumes the Weakest areas decision from 2, the
    mistake tags from Quiz 5, the carry-over filter from exam switching, and the mock pace
    column from 4 plus the content engine.
 
-**Revised again 2 August, late.** Study is done, Home is unblocked, and the mock UI turned
-out to be plannable all along. Only Progress should still wait, for the others' decisions.
+**Revised a third time 2 August, late.** Study, Home and the mock are all now planned:
+**twenty-one plans across four independent threads, none executed.** Only Progress is left,
+and it is the one that should genuinely wait.
+
+### Two rulings the new plans are waiting on
+
+Both were found while planning, both are Aedwon's, and neither blocks writing the Progress
+plan.
+
+1. **"What works for you" promises a payoff its signal cannot measure.** `WorkflowRatio`
+   holds `readThenQuizCount` and `quizFirstCount` and no accuracy at all, so the card
+   cannot say which order works better. Home plan 6 builds the honest version, which states
+   the habit and claims nothing, and lists three options at its head. **Progress's Section 4
+   has the identical gap**, listing the same signal under the same heading with a
+   gap-first treatment and a sentence "naming what it costs". Whatever is decided must be
+   applied to both in one pass.
+2. **Home's Up next cannot build its three-lesson chain.** The reader has nowhere to show a
+   position until the study-plan feature is real, and Study plan 4 deliberately reserved
+   that shape. Home plan 4 ships rows that open their own lesson. Nothing is lost when the
+   chain arrives: the panel gains a start index and its composition does not change.
 
 ### The mock UI was not as open as this file said
 
