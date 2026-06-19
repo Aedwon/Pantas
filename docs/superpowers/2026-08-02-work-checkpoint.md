@@ -70,9 +70,26 @@ finished, and Progress consumes decisions from both.
   by renaming the second gate **the instrument**: Free gets the answer, Pro gets the
   surface for asking its own questions. Decisions in
   `decisions/2026-08-02-paywall-consolidation-log.md`.
-- **The paywall's trial-disclosure step is designed but not planned.** One screen shown
-  only when Yearly is selected, since the trial is Yearly only. Section 4 of the
-  consolidation spec. It needs a plan, and Spec 7 has never been planned either.
+- **The paywall is designed end to end and none of it is planned.** Corrected 3 August:
+  **Spec 7 has a plan and is largely built.** `purchases_flutter` is in `pubspec.yaml` and
+  `lib/features/paywall/` holds seventeen files. What is outstanding there is external, not
+  code: `plans/2026-05-21-paywall-live-validation.md` lists twelve items needing a
+  dashboard, a store, a deployment or a device, and they are Aedwon's, not a model's.
+
+  **What does need a plan** is `specs/2026-08-03-paywall-pricing-and-flow-design.md`: the
+  three-screen flow, the pricing change, and the nine faults its Section 9 records in the
+  built screen. Two of those nine are live bugs rather than styling: the recommendation
+  badge logic is inverted at `paywall_page.dart:84`, and ₱126 and ₱42 are hardcoded in
+  `paywall_package_card.dart` beside a price that comes from the store, so **₱42 is already
+  wrong** now Yearly is ₱999.
+
+- **Pricing changed 3 August.** Lifetime removed, Yearly ₱499 → **₱999**. The crossover
+  moves from 5 months to 10.1, so the recommendation buckets moved with it and the no-date
+  default became Monthly. Anything quoting ₱499, ₱42 or a lifetime SKU is stale.
+
+- **One open question on the paywall, and it blocks screen 1 shipping:** a student with no
+  mock and few attempts cannot fill the Pro specimen convincingly. That fallback is not
+  designed.
 
 ## 5. Open questions, put to Aedwon and not yet answered
 

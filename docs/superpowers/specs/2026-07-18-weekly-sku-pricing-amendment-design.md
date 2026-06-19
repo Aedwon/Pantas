@@ -1,6 +1,18 @@
 # Spec 7 amendment — Weekly SKU + pricing rationale (design)
 
-**Status:** Brainstormed (2026-07-18). Amends Spec 7 (`2026-05-21-paywall-entitlement-design.md`).
+**Status:** **Superseded on pricing and recommendation, 3 August 2026**, by
+`2026-08-03-paywall-pricing-and-flow-design.md`. Read that first.
+
+What changed: **`pro_lifetime` is removed** entirely, **Yearly rises to ₱999**, the
+Monthly-to-Yearly crossover moves from 5 months to **10.1 months**, and the no-date
+default moves from Yearly to **Monthly**. The buckets in Section 4 below are therefore
+wrong as written and are kept only as the record of what they were.
+
+What still stands: the rationale for Weekly's existence, the effective-monthly line as an
+honesty guardrail, the grace-period mitigation, and the deferred "you'd save with Monthly"
+nudge.
+
+Original status: Brainstormed (2026-07-18). Amends Spec 7 (`2026-05-21-paywall-entitlement-design.md`).
 **Context:** Pre-launch. No SKUs exist yet in Play Console or RevenueCat (see `2026-05-21-paywall-live-validation.md`), so this change costs config and UI work only — nothing ships twice.
 
 ## 1. Decision summary

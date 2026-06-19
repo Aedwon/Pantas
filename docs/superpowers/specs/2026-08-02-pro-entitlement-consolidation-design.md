@@ -127,62 +127,14 @@ Spec 7.
 
 ## Section 4: The trial disclosure step
 
-**The trial is Yearly only**, at 7 days, per the 18 July amendment. Weekly at ₱29 is its
-own low-risk trial; Monthly and Lifetime have none. **Nothing here changes that.**
+**Moved 3 August to `2026-08-03-paywall-pricing-and-flow-design.md` Section 6**, which
+owns the whole three-screen flow. The rule it establishes stays here because it is a
+tier rule rather than a layout one:
 
-### A second step, shown only when Yearly is selected
-
-Selecting Yearly and tapping the CTA opens **one screen** before the Play purchase sheet:
-
-```
-How your free trial works
-
-Full access to everything in Pantas.
-The first 7 days are free, then ₱499 a year.
-
-  Today    Everything unlocks. Every explanation, every level of
-           your progress, and mock exams with no waiting.
-
-  Day 5    We remind you here in the app that the trial is ending.
-
-  Day 7    Your first charge of ₱499 begins on 9 August 2026.
-           Cancel any time before then and you pay nothing.
-
-           [ Start my free trial ]
-
-           No commitment. Cancel any time.
-```
-
-**The other three SKUs go straight to Play**, because they charge immediately and have
-nothing to disclose. This is why the timeline is a step rather than a panel: two of the
-four states it would need do not exist.
-
-### Why this earns its extra tap
-
-Spec 7's **D10** already commits to three channels so the trial-end charge is never a
-surprise: an in-app banner from day 5, a local push 24h before the charge, and Play's
-automatic email. **All three fire after the commitment.** This is the fourth channel and
-the only one that fires before it, which is the moment the honesty is worth the most.
-
-### Drawing rules
-
-- **A vertical rule with three marks**, not a card stack and not a stepper. Marks are
-  hairline circles on the rule, `inkMuted`, unfilled.
-- **Day labels in serif 14/700**, bodies in sans 13 `inkMuted`.
-- **The date is computed and printed, never "in 7 days".** A named date is what makes the
-  disclosure checkable.
-- **The price appears twice**, in the lede and on Day 7, deliberately.
-- **One board button.** "Start my free trial", without "now": the app does not pad its
-  verbs.
-- **No em dashes, no emoji, no icons in the marks.**
-
-### What was rejected
-
-- **Inline on the paywall screen**, appearing under the Yearly card. The screen already
-  carries eight things and it would jump on selection.
-- **A timeline on every SKU**, with non-trial ones reading "Today: charged ₱29. Renews
-  every week." Honest and even, and it turns a three-line card into a screen for SKUs that
-  need no explaining.
+> **The trial is Yearly only, at 7 days.** Weekly at ₱29 is its own low-risk trial;
+> Monthly has none. The disclosure screen is therefore a step shown only when Yearly is
+> chosen, never a panel on the plans screen, because two of the four states it would
+> need do not exist.
 
 ---
 

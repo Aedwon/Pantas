@@ -117,3 +117,162 @@ the body, so it can only redact a whole panel. The new design does that in exact
 place, "Why you miss questions". Everywhere else the redaction is per-figure inside live
 content with real headings and real labels around it, which a component that owns the
 heading cannot express.
+
+## 3 August 2026: the pricing changed mid-design, and it broke the recommendation
+
+Raised by Aedwon unprompted while reviewing the paywall drawings. Verbatim:
+
+> i want to remove the lifetime purchase, for reasons that the app has a very long roadmap
+> and that they will be paying less than what they're getting in the long term. bad for
+> business. also I want to raise the yearly to 999.
+
+**Both taken.** Lifetime costs nothing to remove because no SKUs exist in Play Console or
+RevenueCat yet, so there is nobody to migrate.
+
+**What I told him before drawing anything, because it could not wait.** At ₱499 against
+₱99 a month, Yearly won after five months, which is why the 18 July buckets read "22 days
+to 5 months → Monthly, 5 months and up → Yearly". **At ₱999 the crossover is ₱999 ÷ ₱99 =
+10.1 months.** So a student with an exam six months out would have been recommended Yearly
+at ₱999 when Monthly costs them ₱594: a ₱405 overcharge recommended by a surface this
+project calls a coach. The same spec already refuses to recommend Weekly past three weeks
+on exactly that ground, so the buckets had to move with the price.
+
+**Also stated because it is not obvious:** the ladder still descends, ₱126 → ₱99 → ₱83, but
+the Yearly saving falls from 58% to 16%. Yearly is now a convenience option rather than a
+bargain and no copy may imply otherwise.
+
+**Chosen:** buckets move to a 10-month crossover, and **the no-date default moves from
+Yearly to Monthly**, because most students prep three to six months and Yearly is no longer
+the honest guess for an unknown. Verbatim:
+
+> yes to monthly default
+
+## 3 August 2026: his paywall notes, and the three that could not be applied
+
+He pasted notes from UX channels covering multi-page flows, timing, strategic friction,
+social proof, price anchoring and testing, with:
+
+> i'm not necessarily saying for you to apply them all, just take what you can and apply
+> them and show me the options.
+
+**Applied:** the multi-page flow, which he had already asked for; contextual timing, which
+D2 already commits to; and the offer timeline, already decided on 2 August.
+
+**Refused, with reasons, rather than quietly skipped:**
+
+- **Social proof.** Pre-launch. No reviews, no ratings, no user count. Printing any is a
+  fabricated figure. A "later, when true", not a no.
+- **Selling the outcome.** The reference example sells years of life saved. Pantas's
+  equivalent is a score or a pass, and this project banned score projection when it
+  reserved "readiness". **The outcome we can sell is understanding, not results**, and that
+  constrains every headline on the benefits page.
+- **Strategic friction**, demanding card details upfront to filter out non-serious users.
+  It filters out exactly the students the ₱29 weekly SKU exists to reach, who budget on
+  prepaid load and GCash.
+
+**Price anchoring was put to him as genuinely open**, and he asked what it was:
+
+> idk about the anchor what is it
+
+I explained it and **recommended against it**, on tone: "about one milk tea a month" lands
+as a rebuke on a student who cannot spare it, and that is the same reader Weekly exists
+for. **The review-center anchor stays open** and would be the strongest line on the page,
+but it needs a real published figure for what a UPCAT or CSE course costs. Without one it
+is invented and cannot ship. He took the recommendation.
+
+## 3 August 2026: five rounds on screen 1, and what he rejected each time
+
+Worth keeping in full, because four of the five rejections were mine to have avoided.
+
+**Round 1, the feature table.** I drew a "what you get" list as data rows with grey
+right-hand scope labels, over four plan rows with radio marks. Verbatim:
+
+> isn't there a more elegant way to show the right-hand part. looks very ugly and
+> unconvincing
+
+He was right. It was a feature table with radio buttons, which is a form, not an argument,
+and it was monotone: everything at the same weight, so nothing led.
+
+**Round 2, three directions.** The specimen, the rate card, and one claim with one sample.
+He picked the redaction-filled specimen and rewrote the headline himself:
+
+> go with B. also change the copy "You have been seeing the labels. Pro fills them in." ->
+> You'll understand yourself better with Pro.
+>
+> then please don't add the "what you see now" what pro sees bullshit. just say Free and
+> Pro. and also no need for the "and in four more places like really? just list them down.
+> be simple and direct, yet inspiring about it
+
+**Round 3, his list copy**, which is now the shipped wording. He also caught that the list
+had no indent and no hierarchy.
+
+**Round 4, the plus.** His idea, and it is better than either of mine:
+
+> "Pro also adds" means you can use + for each item on the list
+>
+> you can also do the emphasis on the first word thingy on option 3
+
+The plate says "adds", so the marker restates the verb instead of decorating the line.
+Two devices doing two jobs: the plus gives the indent, the bold noun gives the scan.
+
+**Round 5, the type scale, and this one was a rule I had already been given.** Verbatim:
+
+> okay but the font style and size don't match because the section header is smaller than
+> the list items. please view this entire screen as a whole and establish visual hierarchy
+> as necessary
+
+**The Progress spec states it outright** in Section 8: "Section headers: serif 16/700, one
+step above navigational rows so a header always outranks its own rows." I had the plate at
+13 over items at 15.5. Rebuilding the screen on one scale also found that **"Under
+pressure" was being printed twice**, once inside each tier block, which nobody had noticed
+through four rounds of drawing it.
+
+**The figure size was put to him as a judgement call** and he settled it:
+
+> the figure being the biggest means it catches users attention first so it's a good thing
+> for me
+
+## 3 August 2026: screen 2 became arithmetic instead of a price list
+
+> i still want to see the price listings page because last time you rendered it it was so
+> ugly and not befitting of an app of this quality
+
+**The idea that fixed it: a student is not choosing a price, they are choosing a term.**
+The app knows their exam date, so it prints what each plan costs them until that date
+rather than making them work it out. ₱319, ₱297, ₱999.
+
+**Checked against Section 1 of the Progress spec before drawing it.** It multiplies a
+published price by a date the student asserted. Both terms are facts, so it is not a
+measurement combined with an assumption, and it is the same class of statement as Your
+pace's "at three lessons a week you finish nine days after the exam". The recommendation
+logic already performs this arithmetic internally to choose a bucket.
+
+**The Yearly row says it runs 294 days past their exam.** That looks like it damages the
+most expensive SKU and it is exactly what makes the other two figures believable.
+
+**Approved, and then he found the hole:**
+
+> also consider that some users will have month-year as inputs only so
+
+Correct, and it breaks the headline outright: at month precision `ExamDate.day` is null by
+design, so "Your exam is in 71 days" and "Until 12 October" are both unprintable.
+
+| Option for month precision | Cost |
+|---|---|
+| **The last day of the month** | Up to 30 days of extra horizon, which can tip a student at 9.2 months from Monthly into Yearly |
+| The first day | Cheaper, and it can leave a student uncovered if the exam is on the 28th |
+| A range, "₱198 to ₱297" | The most honest and the least Grade-5 |
+
+**Chosen: the last day**, one date for both the printed figures and the recommendation
+bucket, with the column head disclosing it as "Through October". A student needs cover
+*through* their exam and the day is unknown, so the month is the only choice that
+guarantees it. It errs toward cover rather than toward a cheaper recommendation, which is
+the safer direction to be wrong in.
+
+## 3 August 2026: one thing raised once and kept
+
+**"Your mastery down to the lesson"** is his wording on screen 1's list. I flagged that the
+Progress tab prints **Score** and accuracy and never says mastery, because mastery is a
+construct laid over a measurement, and that the paywall would promise a word the
+destination does not use. He did not change it. **Kept as his product language**, recorded
+here so nobody reopens it later without knowing it was raised.
