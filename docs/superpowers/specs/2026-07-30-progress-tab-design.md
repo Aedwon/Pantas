@@ -295,6 +295,62 @@ Milestones are deliberately absent.
 
 ## Section 6: The controls
 
+### The subject filter, added 2 August
+
+**The left head cell becomes the scope control.** It is the one thing in that row that
+names data and governs nothing, so making it the filter adds a capability at **zero added
+height**. It is the same move this section already makes with the sort heads: the labels
+that name the data are the labels that control it.
+
+| Level | The left head cell |
+|---|---|
+| Subject | **Inert.** A plain label reading `SUBJECT`, no underline, no tap. Filtering four rows to one is not a thing anyone wants |
+| Topic | `All topics`, live |
+| Lesson | `All lessons`, live |
+
+Filtered, it states the filter: **`Science topics`**. Because the head says it, **no
+separate "filtered by" line exists anywhere on the screen**.
+
+**The affordance is a 1px dotted underline** in `inkMuted`, going solid while open. It was
+chosen because it cannot be confused with the sort caret two cells to its right.
+
+**The list opens as a sheet over the wash**, reusing the mock's question-grid device
+exactly: `ink` at 34%, the page settling 10px and losing a hair of scale, no blur. Heading
+"Show which topics" in serif. Rows are `All topics` then each subject, each with its
+**topic count** on the right so the choice is informed before it is made. The table
+underneath never moves and the scroll position survives.
+
+**Inline expansion was rejected**: it jumps the table about 130px on open and moves the
+rows being read.
+
+**While filtered, the subtext column drops.** Every row under `Science topics` says
+Science, so repeating it is noise. The table gets quieter as it narrows.
+
+**The filter survives a level change and clears at Subject level.** Science at Topic stays
+Science at Lesson; returning to Subject clears it, because filtering to one subject there
+would show one row.
+
+**This does not reintroduce a picker in the sense Section 6 banned one.** The level
+control was denied a picker because it has three values that fit inline and hiding three
+labels behind a tap buys nothing. Subjects are five and grow with the exam.
+
+### Controls appear only when they can do something
+
+**No toggle, and no Settings row governs visibility.** This spec already followed this
+rule twice and it is now general:
+
+| Control | Appears when |
+|---|---|
+| Score head | Always |
+| Time head | After the first full-length mock |
+| Level control | Always. **Lesson** absent until questions carry a `lessonId` |
+| Subject filter | At Topic or Lesson level, and only when more than one subject has data |
+
+**A "show advanced controls" setting was rejected.** This section's elegance requirement
+was met by removing a widget, so adding a disclosure widget undoes it, and two mechanisms
+governing visibility means a control can be hidden for two unrelated reasons that nobody
+can predict between. **Settings governs persistence and defaults, never visibility.**
+
 ### The level control
 
 Three labels in the section header's right slot: **Subject · Topic · Lesson**. 12px,
@@ -323,38 +379,49 @@ sits outside the tab shell.
 
 ### Retained order
 
-The chosen sort, direction and level **survive leaving and returning to the tab**,
-stored silently. No dialogue on change, following the Study spec's rule that a prompt
-on every sort change punishes exploring.
+The chosen sort, direction, level **and subject filter** survive leaving and returning to
+the tab, stored silently. **Four preference keys**, amended 2 August from three. No
+dialogue on change, following the Study spec's rule that a prompt on every sort change
+punishes exploring.
 
 **A Settings row governs it**, so a student who wants the table to open the same way
 every time can say so. This follows the precedent that quiz ordering is a setting
-rather than a rule.
+rather than a rule. **It is the only Settings row this tab has, and it governs
+persistence, never visibility.**
 
 ---
 
 ## Section 7: Free and Pro
 
-**The gate is granularity, not redaction, except where a feature is wholly Pro.**
+**Superseded 2 August by `2026-08-02-pro-entitlement-consolidation-design.md`**, which is
+now the single source of truth for what Pro is across the whole app. This section cites it
+and no longer restates it.
 
-| Surface | Free | Pro adds |
-|---|---|---|
-| Your pace | Everything | Nothing |
-| Performance | Subject rows, both figure columns | Topic and lesson levels |
-| Why you miss questions | **Redacted** | The whole section, plus per-topic causes and self-noted misreads |
-| How you work | Five headings and both comparison labels, figures redacted | The figures, and "When you work" |
-| Your record | Everything | Nothing |
+**This tab's rows in that table:**
 
-**Nothing the student produced themselves is paywalled.** Their record and their
-totals are theirs.
+| Surface | Free | Pro adds | Gate |
+|---|---|---|---|
+| Your pace | Everything | Nothing | none |
+| Performance | Subject rows, both figure columns | Topic and Lesson levels, and the subject filter that comes with them | 2 |
+| Why you miss questions | **Redacted whole** | The three counts, the per-topic concentration, the misreads you noted yourself | 1 |
+| How you work | Five headings, ten comparison labels, figures redacted | The figures, and "When you work" | 1 |
+| Your record | Everything | Nothing | none |
 
-**One stated exception, added 2 August.** Home's Practice panel shows **three**
-topic-level accuracies to Free users, as the teaser for this table. The gate here is
-unchanged: Free still sees Subject rows only, with Topic and Lesson dimmed. Knowing
-your three worst topics is the diagnosis, and the table is what you buy. Recorded so
-it reads as a decision rather than a leak. See
-`2026-07-26-home-and-navigation-design.md` Section 3 and
-`decisions/2026-08-02-home-weakest-areas-log.md`.
+**The framing changed and the rows did not.** This section previously called its gate
+**granularity**, which collided with the Quiz spec's "Free records, Pro interprets":
+a topic's accuracy *is* a record. That collision is why Home's three free topic rows had
+to be written here on 2 August as a stated exception.
+
+**Gate 2 is now "Pro gets the instrument".** Home's three worst topics are the answer;
+this table is the tool for asking your own questions of it. Under that framing there is no
+collision, and **the exception is deleted rather than kept**, because none is needed.
+
+**Nothing the student produced themselves is paywalled.** Their record and their totals
+are theirs. That constraint sits above all three gates.
+
+**One teaser on this screen, maximum**, after the free content. The treatment is
+`FaintBars`, one line of prose and "Unlock with Pro" in board. `PaywallTeaserPanel` is
+retired; see the consolidation spec's Section 3.
 
 **One teaser per screen, maximum.** Placed after the free content, never before it,
 never twice on one screen. `PaywallTeaserPanel` is retired from Progress; the
@@ -507,4 +574,9 @@ the Settings flag governing whether they are retained.
 - Every section header outranks its own rows, and no header draws a rule directly
   above a table head.
 - Re-sorting the table never changes any row's colour.
-- Sort, direction and level survive a tab switch, and the Settings row turns that off.
+- Sort, direction, level and the subject filter survive a tab switch, and the Settings row
+  turns that off.
+- At Subject level the left head cell has no underline and does not respond to a tap.
+- The subject sheet never appears when only one subject has data.
+- While filtered, no row repeats the filtered subject in its subtext.
+- No Settings row anywhere governs whether a control on this tab is visible.

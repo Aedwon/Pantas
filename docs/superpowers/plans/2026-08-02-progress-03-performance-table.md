@@ -62,12 +62,25 @@ dart format --output=none --set-exit-if-changed lib test
 
 | File | Responsibility |
 |---|---|
-| `lib/features/progress/application/performance_provider.dart` (create) | Rows at any of the three levels, and whether time is measurable |
+| `lib/features/progress/application/performance_provider.dart` (create) | Rows at any of the three levels, filtered or not, and whether time is measurable |
 | `lib/core/ui/severity.dart` (create or move) | `severityFor(double accuracy, AppColors)`, shared with Home |
-| `lib/features/progress/presentation/widgets/table_head.dart` (create) | The three head cells, and the caret |
+| `lib/features/progress/presentation/widgets/table_head.dart` (create) | The three head cells, the caret, and the scope control |
+| `lib/features/progress/presentation/widgets/subject_scope_sheet.dart` (create) | The subject list, over the wash |
 | `lib/features/progress/presentation/widgets/level_control.dart` (create) | Subject · Topic · Lesson |
 | `lib/features/progress/presentation/widgets/performance_section.dart` (create) | Header, head, rows, the empty and partial states |
 | `lib/features/progress/presentation/progress_page.dart` (modify) | `_performanceSection` returns the real widget |
+
+## Added 2 August: the subject filter
+
+The spec gained a subject filter after this plan was written. It is **Task 2a**, inserted
+between the head and the level control, and it changes Task 1's provider signature and
+Task 2's `TableHead`. Read the spec's "The subject filter" and "Controls appear only when
+they can do something" before starting, and
+`decisions/2026-07-29-progress-tab-decision-log.md`, 2 August, for what was rejected.
+
+**The one-line summary:** the left head cell is the control. It is inert at Subject level,
+reads `All topics` at Topic level, `Science topics` when filtered, and opens a sheet over
+the wash. Zero added height, no new row, no Settings row.
 
 ---
 
@@ -131,9 +144,23 @@ class PerformanceTable {
   final bool lessonLevelAvailable;
 }
 
+/// The level, plus the subject the table is scoped to. Null subject means
+/// all subjects.
+@immutable
+class PerformanceQuery {
+  const PerformanceQuery({required this.level, this.subjectId});
+  final TableLevel level;
+  final String? subjectId;
+}
+
 final performanceProvider =
-    FutureProvider.family<PerformanceTable, TableLevel>(...);
+    FutureProvider.family<PerformanceTable, PerformanceQuery>(...);
 ```
+
+`PerformanceTable` also carries **`List<({String id, String name, int rowCount})>
+subjects`**, so the sheet in Task 2a can print a count beside each subject without a
+second query. It is empty when fewer than two subjects have data, which is exactly the
+condition under which the control does not render.
 
 **Where the numbers come from.** `SubjectAffinitySignal` already returns `correct`, `total`
 and `averageMs` keyed by subject, which is the subject level exactly. **Topic and lesson
@@ -380,6 +407,187 @@ git commit -m "feat(progress): make the table head the sort control
 The labels that sort are the labels that name the data, so no separate
 control exists. That is the elegance requirement met by removing the
 widget rather than restyling it."
+```
+
+---
+
+### Task 2a: The scope control and its sheet
+
+**Files:**
+- Modify: `lib/features/progress/presentation/widgets/table_head.dart` from Task 2
+- Create: `lib/features/progress/presentation/widgets/subject_scope_sheet.dart`
+- Test: `test/features/progress/presentation/widgets/subject_scope_test.dart`
+
+**Interfaces:**
+- Consumes: `PerformanceTable.subjects` from Task 1; `TableLevel`.
+- Produces: `TableHead` gains
+  `({required String? scopeLabel, required VoidCallback? onScope})`, and
+  `Future<String?> showSubjectScopeSheet(BuildContext, {required List<({String id, String name, int rowCount})> subjects, required String? selectedId})`
+  returning the chosen subject id, `null` for all subjects, and **nothing at all** if
+  dismissed. Distinguish "chose All" from "dismissed": the first clears the filter, the
+  second leaves it alone.
+
+**The head cell's three states, and there is no fourth:**
+
+| Level | `scopeLabel` | `onScope` |
+|---|---|---|
+| Subject | `null`. The cell renders `SUBJECT` as a plain label | `null` |
+| Topic, unfiltered | `All topics` | live |
+| Topic, filtered | `Science topics` | live |
+
+Lesson level mirrors Topic with `All lessons`.
+
+**The affordance is a 1px dotted underline in `inkMuted`, going solid while the sheet is
+open.** Chosen because it cannot be confused with the sort caret two cells to its right.
+Do not add a chevron, a triangle or an icon.
+
+**The control does not render at all when fewer than two subjects have data**, which falls
+out of `subjects.length < 2`. This is the same rule that hides the Time head before a mock
+and the Lesson label before tagging.
+
+**The sheet reuses the mock's wash exactly**: `ink` at 34%, the page settling 10px and
+losing a hair of scale, **no blur**. Heading "Show which topics" in serif. Rows are
+`All topics` first, then each subject, each with its row count right-aligned in tabular
+figures. The table underneath never moves.
+
+**Inline expansion was rejected** because it jumps the table about 130px on open and moves
+the rows being read. Do not implement it as a fallback.
+
+- [ ] **Step 1: Write the failing test**
+
+```dart
+  testWidgets('at Subject level the cell is a plain label with no tap',
+      (tester) async {
+    await tester.pumpWidget(harness(level: TableLevel.subject));
+
+    expect(find.text('SUBJECT'), findsOneWidget);
+    expect(find.byKey(const ValueKey('scope-underline')), findsNothing);
+    await tester.tap(find.text('SUBJECT'), warnIfMissed: false);
+    await tester.pumpAndSettle();
+    expect(find.byType(SubjectScopeSheet), findsNothing);
+  });
+
+  testWidgets('at Topic level it reads All topics and is underlined',
+      (tester) async {
+    await tester.pumpWidget(harness(level: TableLevel.topic, subjectId: null));
+
+    expect(find.text('All topics'), findsOneWidget);
+    expect(find.byKey(const ValueKey('scope-underline')), findsOneWidget);
+  });
+
+  testWidgets('filtered, it states the filter', (tester) async {
+    await tester.pumpWidget(
+      harness(level: TableLevel.topic, subjectId: 'science'),
+    );
+    expect(find.text('Science topics'), findsOneWidget);
+    expect(find.textContaining('Filtered by'), findsNothing);
+  });
+
+  testWidgets('with one subject the control does not render', (tester) async {
+    await tester.pumpWidget(
+      harness(level: TableLevel.topic, subjects: [oneSubject]),
+    );
+    expect(find.text('All topics'), findsNothing);
+    expect(find.text('TOPIC'), findsOneWidget);
+  });
+
+  testWidgets('the sheet lists All first, then subjects with counts',
+      (tester) async {
+    await tester.pumpWidget(harness(level: TableLevel.topic));
+    await tester.tap(find.text('All topics'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Show which topics'), findsOneWidget);
+    expect(find.text('18'), findsOneWidget);
+    expect(find.text('Science'), findsOneWidget);
+    expect(find.text('5'), findsOneWidget);
+    expect(find.byType(BackdropFilter), findsNothing);
+  });
+
+  testWidgets('dismissing leaves the filter alone, choosing All clears it',
+      (tester) async {
+    await tester.pumpWidget(
+      harness(level: TableLevel.topic, subjectId: 'science'),
+    );
+
+    await tester.tap(find.text('Science topics'));
+    await tester.pumpAndSettle();
+    await tester.tapAt(const Offset(10, 10)); // the wash
+    await tester.pumpAndSettle();
+    expect(find.text('Science topics'), findsOneWidget);
+
+    await tester.tap(find.text('Science topics'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('All topics').last);
+    await tester.pumpAndSettle();
+    expect(find.text('All topics'), findsOneWidget);
+  });
+
+  testWidgets('while filtered no row repeats the subject in its subtext',
+      (tester) async {
+    await tester.pumpWidget(
+      sectionHarness(level: TableLevel.topic, subjectId: 'science'),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Chemistry'), findsOneWidget);
+    expect(find.text('Science'), findsNothing);
+  });
+
+  testWidgets('the filter survives a level change and clears at Subject',
+      (tester) async {
+    await tester.pumpWidget(
+      sectionHarness(level: TableLevel.topic, subjectId: 'science'),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Lesson'));
+    await tester.pumpAndSettle();
+    expect(find.text('Science lessons'), findsOneWidget);
+
+    await tester.tap(find.text('Subject'));
+    await tester.pumpAndSettle();
+    expect(find.text('SUBJECT'), findsOneWidget);
+    expect(find.textContaining('Science '), findsNothing);
+  });
+```
+
+- [ ] **Step 2: Run it to make sure it fails**
+
+Run: `flutter test test/features/progress/presentation/widgets/subject_scope_test.dart`
+Expected: FAIL, `No named parameter with the name 'scopeLabel'`.
+
+- [ ] **Step 3: Extend `TableHead` and write the sheet**
+
+- [ ] **Step 4: Run the tests and make sure they pass**
+
+- [ ] **Step 5: Add the fourth preference key**
+
+Plan 1 stored three: sort, direction, level. Add **`progress_table_subject`**, a nullable
+subject id, governed by the same retain flag. Update `TableOrder` to carry it and extend
+Plan 1's round-trip tests.
+
+Run: `flutter test test/features/progress/`
+Expected: PASS.
+
+- [ ] **Step 6: Commit**
+
+```bash
+git add -A
+git commit -m "feat(progress): make the left head cell the subject filter
+
+It was the one thing in that row that named data and governed nothing, so
+it becomes the scope at zero added height. Inert at Subject level, because
+filtering four rows to one is not a thing anyone wants.
+
+The list opens as a sheet over the mock's existing wash rather than
+inline, which would jump the table 130px and move the rows being read.
+While filtered the subtext column drops, since every row repeats the
+filter otherwise.
+
+No Settings row governs any of this. Controls appear when they can do
+something, which is the rule the Time head and the Lesson label already
+followed."
 ```
 
 ---

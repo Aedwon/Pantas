@@ -8,7 +8,7 @@ sort, direction and level with a Settings row governing whether they are kept.
 
 **Architecture:** The `ProgressPanel` catalog, its four enums and `PaywallTeaserPanel` are
 deleted. `progress_page.dart` becomes a page with named sections and four states, and two
-row components land in `lib/core/ui/components/`. Three preference keys, one Settings row.
+row components land in `lib/core/ui/components/`. Four preference keys, one Settings row.
 
 **Tech Stack:** Flutter, Riverpod, Drift, go_router, flutter_test. No new packages.
 
@@ -51,7 +51,9 @@ The split follows the spec's own three destinations plus the four sections of th
   with intents and windows. Keeping the catalog would mean every later plan registering
   itself in a registry that models nothing the spec describes.
 - **`progress_panelsForEntitlement`** in `progress_providers.dart`. The Free and Pro rule
-  is now per section, in Section 7, and three of the five sections are wholly Free.
+  is now per section and lives in one place app-wide,
+  `specs/2026-08-02-pro-entitlement-consolidation-design.md`. Four of this tab's five
+  sections are wholly Free or wholly Pro, so a per-panel access flag models nothing.
 - **`lib/features/progress/presentation/paywall_teaser_panel.dart`.** Spec Section 11.2
   retires it from Progress by name. The treatment is `FaintBars` where figures would sit,
   plus one line of prose and "Unlock with Pro" in board green.
@@ -62,10 +64,15 @@ The split follows the spec's own three destinations plus the four sections of th
 Its provenance is real (four Wrapped artifacts, `user_metrics_artifacts_local`, the
 shipped stub) but its form was never designed, and it gets its own pass.
 
-**`PaywallTeaserPanel` may have callers outside Progress.** Run
-`grep -rn "PaywallTeaserPanel" lib test` before deleting the file. If Wrapped or another
-surface uses it, leave the file and only stop Progress importing it, and say so in the
-commit body.
+**`PaywallTeaserPanel` is Progress-only, verified 2 August.** Its single caller is
+`progress_page.dart:82`, so deleting the file is safe with no app-wide question. Delete
+`test/features/progress/presentation/paywall_teaser_panel_test.dart` with it.
+
+**Its treatment is right and its shape is wrong**, which is why it goes rather than being
+restyled. It owns both the heading and the body, so it can only redact a **whole panel**,
+and the new design does that in exactly one place, "Why you miss questions". Everywhere
+else the redaction is per-figure inside live content with real headings and labels around
+it. Keep the treatment, drop the component.
 
 ## Global Constraints
 
@@ -102,7 +109,7 @@ dart format --output=none --set-exit-if-changed lib test
 |---|---|
 | `lib/core/ui/components/data_row_tile.dart` (create) | Title, subtext, two right-aligned figure columns |
 | `lib/core/ui/components/navigational_row.dart` (create) | Serif title, subtitle, chevron |
-| `lib/features/progress/application/table_order_prefs.dart` (create) | The three keys, their repository, and the retain flag |
+| `lib/features/progress/application/table_order_prefs.dart` (create) | The four keys, their repository, and the retain flag |
 | `lib/features/progress/presentation/progress_page.dart` (rewrite) | App bar, exam name, four states, the section slots |
 | `lib/features/settings/presentation/pages/settings_page.dart` (modify) | One row, "Remember how the table is sorted" |
 | `lib/features/progress/domain/progress_panel.dart` (delete) | |
@@ -323,8 +330,16 @@ final tableOrderProvider =
 final retainTableOrderProvider = FutureProvider<bool>(...);
 ```
 
-**Three preference keys**, per Section 10: the sort key, the direction, and the level.
-**Plus the Settings flag** governing whether they are retained.
+**Four preference keys**, amended 2 August: the sort key, the direction, the level, and
+the subject filter. **Plus the Settings flag** governing whether they are retained.
+
+**Plan 3 Task 2a adds the fourth key.** If Plan 3 has not run, write the three and leave
+`TableOrder` easy to extend; if it has, write all four here. Either way the flag governs
+all of them together.
+
+**This Settings row governs persistence, never visibility.** No setting anywhere decides
+whether a control on this tab is shown. Controls appear when they can do something, which
+is the spec's own rule for the Time head and the Lesson label, now general.
 
 **Retention is on by default.** Section 6: the chosen sort, direction and level survive
 leaving and returning to the tab, stored silently, with no dialogue on change. The Study

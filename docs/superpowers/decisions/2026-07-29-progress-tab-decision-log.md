@@ -472,3 +472,105 @@ Applied in one pass to `specs/2026-07-26-home-and-navigation-design.md` Section 
   tool call. Same `--project-dir` reuses the port so the open tab reconnects.
 - With `--foreground`, the server's event stream goes to the background task's output
   file rather than `state/server.log`. That is where the user's clicks are.
+
+---
+
+## 2 August 2026: a subject filter on the Performance table
+
+Raised by Aedwon during the paywall round, unprompted and not in any spec. Verbatim:
+
+> for the progress: perforamnce, i want to add something that wasn't specified before.
+> this is regarding the sorting. can you make it so that they can filter through the list
+> for specified subjects? that is, if they sort through other means, there's another layer
+> of sorting through subjects. then also, maybe make it simple at the start (i'm talking
+> about all of the sorting capabilities here), then the user can opt to enable more
+> specific sorting.
+
+**The need is real.** Topic level is 18 rows and Lesson level is 141. A subject filter is
+the difference between a table and a list you scroll past.
+
+### What I got wrong, and he caught it
+
+I built the first companion plate showing three filter options, and two of them put a
+chevron back on subject rows and made them tappable. He stopped me:
+
+> wait, this is the updated sorting UI for the performance part of Progress? haven't we
+> settled on how it should look like?
+
+He was right. **Section 6 says "a row's chevron is replaced by the level control: the
+table is a reading surface, not a launcher", and it amends decision 7 to say so.** Two of
+my three options reversed that, and I noted the cost in the terminal rather than on the
+plate, so the drawing read as if the reversal were already agreed. The plate should have
+carried the baseline first and labelled every departure from it. He then asked for exactly
+that, and the second plate opened with the settled design marked "not in question".
+
+### The options, on the second plate
+
+| Option | Cost |
+|---|---|
+| A. A filter row of its own above the table head, the device the mock review uses | A fourth control and about 26px of permanent height. Five subjects wrap to two lines on a narrow phone, and it sits there on day one with nothing to narrow |
+| **B. The left head cell becomes the scope control**, `All topics` → `Science topics` | The subject list has to open somewhere, and that is a picker, which Section 6 rejected for the level control |
+| C. Drill down from the subject row, no control at all | Reverses Section 6. And once inside Science there is no way to reach Maths without going up and back down, so it may still need A or B beside it |
+| Rejected without drawing: group topics under collapsible subject headings | Grouping and sorting fight. With 18 topics locked in 4 groups, Score can only sort within a group and "weakest first across the whole exam" stops existing, which is the table's reason to exist |
+
+**Chosen: B.** It is the same move the design already celebrates. The left head cell is
+the one thing in that row that names data and governs nothing, so making it the scope
+control adds a capability at zero height.
+
+**The picker objection I raised against B was dropped, and the reasoning is recorded so it
+does not read as convenient.** Section 6 banned a picker for the **level** control because
+it has three values that fit inline and hiding three labels behind a tap buys nothing.
+Subjects are five and grow with the exam. Different problem, different answer.
+
+### The open state
+
+Two ways drawn: inline pushing the table down, or a sheet over the wash.
+
+| Option | Cost |
+|---|---|
+| Inline | The table jumps about 130px on open and the rows being read move. On a short screen the list is most of what you see |
+| **A sheet over the wash** | A full-screen gesture for a five-item choice, and one more thing to dismiss |
+
+**Chosen: the sheet.** The app already owns the device: the mock's question grid uses the
+same wash, `ink` at 34% with the page settling 10px. Nothing on the table moves and the
+scroll position survives.
+
+### Progressive disclosure, where I pushed back and he took it
+
+His ask was "simple at the start, then the user can opt to enable more specific sorting".
+I argued against a toggle: this section's elegance requirement was met by **removing** a
+widget, so adding a "show more controls" widget undoes it. And the rule he wanted already
+exists here twice, because **the Time head waits for a mock and Lesson level waits for
+tagging**. Extending that same rule to every control gives progressive disclosure with no
+new widget and no new setting.
+
+**Chosen: appears-when-useful**, verbatim:
+
+> as for the other question, show it only when it can do something
+
+He then offered a second mechanism:
+
+> also, you can decide which of these should be hidden away in the settings to later be
+> enabled. a user will dig through if they want to dig through
+
+**I declined it and said why.** Two disclosure mechanisms governing visibility means a
+control can be hidden for two unrelated reasons and nobody can predict which. With
+appears-when-useful, nothing here needs hiding. **Settings governs persistence and
+defaults, not visibility**, and keeps the one row it already has, "Remember how the table
+is sorted", which is the real power-user affordance and worth digging for.
+
+**Accepted**, verbatim:
+
+> go with the sheet, and yes settings stays out of visibility
+
+### Two things that fell out of the drawing
+
+- **At Subject level the head cell is inert**, a plain label with no underline and no tap.
+  Filtering four rows down to one is not a thing anyone wants, and this is
+  appears-when-useful applied to the control's own states rather than only to its
+  presence.
+- **While filtered, the subtext column can drop.** Every row under "Science topics" says
+  Science, so repeating it in the subtext is noise. The table gets quieter as it narrows.
+- **The dotted underline is the only affordance**, chosen because it cannot be confused
+  with the sort caret two cells to its right.
+

@@ -61,9 +61,18 @@ finished, and Progress consumes decisions from both.
   cannot assemble a complete mock paper, and the Progress tab's pace-per-question
   column is mock-only, so it stays empty until mocks work.
   Chain: engine, then math questions, then complete mocks, then Progress shows pace.
-- **Paywall consolidation.** The Free and Pro rule is currently decided in four
-  places, Home, Quiz, Progress and the coming explanations, and they already
-  disagree.
+- ~~**Paywall consolidation.**~~ **Closed 2 August**, and it was worse than this line
+  said: **five** places, not four, plus a sixth exception added the same day. Now one
+  table in `specs/2026-08-02-pro-entitlement-consolidation-design.md`, which every other
+  spec cites. Drawing it found that the app had **three** gate mechanisms and that two
+  contradicted each other: the Quiz rule "Free records, Pro interprets" against Progress
+  selling topic-level accuracy as depth, when a topic's accuracy *is* a record. Resolved
+  by renaming the second gate **the instrument**: Free gets the answer, Pro gets the
+  surface for asking its own questions. Decisions in
+  `decisions/2026-08-02-paywall-consolidation-log.md`.
+- **The paywall's trial-disclosure step is designed but not planned.** One screen shown
+  only when Yearly is selected, since the trial is Yearly only. Section 4 of the
+  consolidation spec. It needs a plan, and Spec 7 has never been planned either.
 
 ## 5. Open questions, put to Aedwon and not yet answered
 

@@ -13,7 +13,9 @@ sees the redaction treatment and the tab's one teaser.
 **Tech Stack:** Flutter, Riverpod, Drift, flutter_test. No new packages.
 
 **Source spec:** `docs/superpowers/specs/2026-07-30-progress-tab-design.md` Section 3,
-"Why you miss questions", and Section 7.
+"Why you miss questions".
+**The tier rule** is `docs/superpowers/specs/2026-08-02-pro-entitlement-consolidation-design.md`,
+which is now the single source of truth. Progress's Section 7 cites it.
 
 ---
 
