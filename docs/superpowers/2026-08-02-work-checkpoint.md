@@ -77,11 +77,24 @@ finished, and Progress consumes decisions from both.
   dashboard, a store, a deployment or a device, and they are Aedwon's, not a model's.
 
   **What does need a plan** is `specs/2026-08-03-paywall-pricing-and-flow-design.md`: the
-  three-screen flow, the pricing change, and the nine faults its Section 9 records in the
-  built screen. Two of those nine are live bugs rather than styling: the recommendation
-  badge logic is inverted at `paywall_page.dart:84`, and ₱126 and ₱42 are hardcoded in
-  `paywall_package_card.dart` beside a price that comes from the store, so **₱42 is already
-  wrong** now Yearly is ₱999.
+  three-screen flow and the pricing change. **Plan it as a rebuild, not as a repair.** The
+  spec was written assuming nothing in `lib/features/paywall/` survives, on Aedwon's
+  instruction of 3 August, and the presentation layer there predates both the identity and
+  the entitlement table.
+
+  **Observations for whoever plans it**, recorded here rather than in the spec because they
+  are facts about the tree and not about the design:
+  - `paywall_page.dart` and `paywall_package_card.dart` are the presentation layer and are
+    replaced wholesale.
+  - `PaywallSku.lifetime`, `EntitlementPlan.lifetime` and `isLifetime` disappear with the
+    SKU. `paywallDisplayOrder` and `_skuRank` shrink to three.
+  - `recommendationBadgeCopy` and `ctaCopyFor` are rewritten against the new buckets, and
+    the badge's `hasExamDate` argument was being derived from the recommended SKU, which
+    cannot work.
+  - Effective-monthly figures were literals rather than computed. They must be computed, or
+    the next price change makes the screen lie.
+  - The gateway, the controller, the RevenueCat bootstrap and `Entitlement` are the parts
+    most likely to survive, since they model the store rather than the screen.
 
 - **Pricing changed 3 August.** Lifetime removed, Yearly ₱499 → **₱999**. The crossover
   moves from 5 months to 10.1, so the recommendation buckets moved with it and the no-date

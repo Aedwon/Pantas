@@ -297,34 +297,21 @@ Recorded so a later reader does not think they were overlooked.
 
 ---
 
-## Section 9: Faults in the built paywall, found 2 August
+## Section 9: This design assumes nothing survives
 
-`lib/features/paywall/` is largely built against Spec 7. These are wrong against this spec
-and must be fixed by whoever plans it.
+**The paywall is designed here as if it were being built for the first time.** Nothing in
+`lib/features/paywall/` constrains it, and no part of this spec is shaped by what happens
+to exist. Whoever plans it should read this spec, then read the code only to find out
+where files go.
 
-1. **"Try Pro" is the app bar title.** It promises a trial to everyone when only Yearly
-   has one.
-2. **There is no "what you get" content at all**, only one muted line. Spec 7's "See all
-   of Pro" affordance was never built.
-3. **The selected card is a tinted, rounded, bordered box**: `boardTint` fill, `board`
-   border, `radiusButton`. Tinted callouts and large radii are banned by name.
-4. **Board green appears four times** on one screen: the badge, the "7 days free" tag, the
-   selected card and the button.
-5. **₱126 and ₱42 are hardcoded** in `paywall_package_card.dart` while the price beside
-   them comes from `package.priceString`. A price change in Play makes the line lie.
-   **₱42 is now wrong regardless**, since Yearly is ₱999.
-6. **The badge logic is inverted.** `hasExamDate: recommendedSku != PaywallSku.yearly` in
-   `paywall_page.dart:84`. A student with a date whose bucket is Yearly reads "Best value
-   for most" instead of "Best for your exam date".
-7. **`ctaCopyFor` uses a hyphen as a dash**, "Get Pro - ₱29/week". Neither a hyphen nor an
-   em dash belongs. Use a full stop.
-8. **Chrome is Material**: `Icons.close`, a plain `AppBar` title, a `TextButton` for
-   Restore.
-9. **`PaywallSku.lifetime`, `EntitlementPlan.lifetime` and `isLifetime` must be removed**,
-   along with the subscription panel's lifetime state and the "never auto-recommended"
-   clause.
+That is deliberate, and it is the standing rule for this project's specs: **a spec
+describes the destination, a plan describes the route from wherever the tree happens to
+be.** Code observations belong in plans.
 
----
+**The one thing a spec may take from the code is evidence about what data exists**, because
+the evidentiary rule cannot be applied without it. This spec uses exactly one such fact:
+the app stores an exam date with a precision, so screen 2 can do arithmetic at day
+precision and cannot at month precision.
 
 ## Section 10: Amendments to other specs
 

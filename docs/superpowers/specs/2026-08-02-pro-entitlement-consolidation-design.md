@@ -4,8 +4,12 @@
 **Status:** Approved by Aedwon
 **Decision log:** `docs/superpowers/decisions/2026-08-02-paywall-consolidation-log.md`
 **Supersedes:** every per-surface Free and Pro table in the specs listed in Section 6.
-**Does not change:** Spec 7's SKUs, prices, RevenueCat pipeline, entitlement architecture,
-webhook or security model. This spec says what Pro *is*, not how it is sold or verified.
+**Does not change:** the RevenueCat pipeline, entitlement architecture, webhook or
+security model. This spec says what Pro *is*. `2026-08-03-paywall-pricing-and-flow-design.md`
+says how it is priced and sold.
+
+**Assumes nothing in the tree survives.** Like every spec in this project it describes the
+destination, not a diff against what exists. Code observations belong in plans.
 
 ---
 
@@ -115,10 +119,11 @@ buys on flags is what they **mean**, which is gate 1.
 **One teaser per screen, maximum.** Placed **after** the free content, never before it,
 never twice on one screen.
 
-**`PaywallTeaserPanel` is retired.** It owns both the heading and the body, so it can only
-redact a whole panel, and the design does that in exactly one place. Everywhere else the
-redaction is per-figure inside live content. Its only caller is `progress_page.dart:82`,
-so Progress plan 1 deletes it and nothing else is affected.
+**A gate is never drawn as a whole redacted panel**, except "Why you miss questions",
+which is the only section gated whole. Everywhere else the redaction is per-figure inside
+live content, with real headings and real labels around it. **A component that owns both
+the heading and the body cannot express that**, which is why the treatment is a rule here
+rather than a widget.
 
 **A Pro-only route hit by a Free user goes to the paywall, not to a 404.** Unchanged from
 Spec 7.
