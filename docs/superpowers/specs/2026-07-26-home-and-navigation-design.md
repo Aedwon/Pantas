@@ -100,12 +100,28 @@ Kicker over serif name over a muted meta line:
 ```
 Magandang gabi,
 Aedwon
-UPCAT · 42 days to go
+42 days to UPCAT
 ```
 
 The gear stays as the only right-side element. The meta line carries both the
 active exam and the countdown, which frees a stats band slot and keeps the
 countdown visible without a permanent streak dateline.
+
+**Amended 2 August.** This sample read `UPCAT · 42 days to go`. The
+2 August onboarding spec's Section 4 governs the countdown copy, because it is
+where exam-date precision was designed, and it prints three lines rather than
+one. Its table is the current statement:
+
+| Precision | The meta line |
+|---|---|
+| `day` | `42 days to UPCAT` |
+| `month` | `Your exam is in October 2026` |
+| none | the exam short name alone |
+
+The month state is **not a degraded countdown**. It is the true statement
+available, and a day count derived from a month would be a figure made of a
+measurement and an assumption, which the Progress spec's Section 1 bans
+outright.
 
 The kicker is time-based, as `_greeting()` already implements
 (umaga / hapon / gabi).

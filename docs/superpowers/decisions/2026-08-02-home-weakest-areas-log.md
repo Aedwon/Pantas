@@ -160,6 +160,22 @@ a list to work on and a bad reason to print "0%" in rust.
 Aedwon was not asked about either version. The first was decided without asking, and so is
 the correction.
 
+## 2 August 2026: a masthead conflict, found while planning
+
+Not part of the Weakest areas round, but found in the same file while writing the Home
+plans, and fixed rather than handed to an implementor. `AGENTS.md` tells implementors to
+stop and ask when two documents disagree, so leaving it would have cost a round.
+
+The Home spec's masthead sample printed `UPCAT · 42 days to go`. The 2 August onboarding
+spec's Section 4 prints `42 days to UPCAT`, and adds two states the older sample has no
+form for: `Your exam is in October 2026` at month precision, and the exam short name alone
+with no date.
+
+**The onboarding spec wins**, because it is where exam-date precision was actually
+designed and the older line predates the existence of a precision at all. Home's Section 3
+now carries the three-state table. Nothing was reversed: the older line was never wrong,
+only written before month precision existed.
+
 ## 2 August 2026: what stays from 26 July
 
 Not everything in the anchor decision broke, and the parts that held were kept rather than
