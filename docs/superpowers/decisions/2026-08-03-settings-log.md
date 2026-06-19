@@ -359,3 +359,30 @@ Drawing Theme as a control split it from the sheet decision of round 4. The rule
 **a control edits a value in place, so it sits in the row; a choice with reasons opens a
 sheet with room for the reasons.** Theme is a control and lives in its row. Session
 ordering is a choice and keeps its sheet. He did not object to the split.
+
+---
+
+## Closed, 3 August: spec and plans written
+
+Spec at `specs/2026-08-03-settings-design.md`, approved without changes. Six plans at
+`plans/2026-08-03-settings-01` through `-06`, none executed.
+
+**Two rules from this round outlive the screen** and are written into the spec's Section 1
+rather than left in this log: a control edits a value in place while a choice with reasons
+is reading, and icons are permitted only where the control's subject is the appearance
+itself.
+
+**Three decisions I made on his behalf**, all declared on the plates and none objected to,
+recorded here as tacit rather than chosen: About absorbed analytics consent and Send
+feedback, "Remember how the table is sorted" shortened to "Remember table order" because
+the longer phrasing does not fit the value column, and the off switch outline dropped to
+hairline weight.
+
+**Two of my own rules the spec was breaking on its first pass**, found in self-review and
+fixed: an em dash inside the ordering sheet's UI copy, which is exactly where one gets
+typed by reflex, and "centre".
+
+**Two gaps the plan self-review caught.** The four amendments Section 10 promised to other
+specs were not landing in any task, and `settings.session_ordering` had a writer and no
+reader, which would have shipped a student three choices that changed nothing. Both are now
+tasks in Plan 06.

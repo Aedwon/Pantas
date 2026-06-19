@@ -127,17 +127,60 @@ finished, and Progress consumes decisions from both.
 
 ---
 
-## Chosen next, 3 August: Settings
+## Settings: designed and planned, 3 August. Nothing executed.
 
-**Brief:** `docs/superpowers/2026-08-03-settings-brainstorm-brief.md`. Read it first; it
-carries the inbound rows and the constraints.
+**Closed the same day it was chosen.** Spec:
+`specs/2026-08-03-settings-design.md`. Decision log:
+`decisions/2026-08-03-settings-log.md`, which keeps the wrong turns including two rounds
+lost to my misreading which switch he had picked.
+
+**Six plans, none executed.** 01 and 02 are independent of each other and of everything
+else, so they can run in parallel. Everything after depends on 03.
+
+| Plan | Builds |
+|---|---|
+| `plans/2026-08-03-settings-01-the-kit.md` | The switch, the theme control, the value row, the group, the sheet |
+| `plans/2026-08-03-settings-02-storage.md` | `ExamDate` with precision, `SessionOrdering`, five preference keys |
+| `plans/2026-08-03-settings-03-the-top-level.md` | Twelve rows in five groups, the routes, deleting the four Spec 8 widgets |
+| `plans/2026-08-03-settings-04-the-sheets.md` | `InkWheel`, then the date, reminder, name and ordering sheets |
+| `plans/2026-08-03-settings-05-the-exam-page.md` | Three rows, the lifted `ExamSelectionRow`, the carry-over prompt |
+| `plans/2026-08-03-settings-06-about-and-the-pushed-pages.md` | About, Pro, Account, Backup, and four spec amendments |
+
+**Two things these plans build for other people**, in `lib/core/ui/`, because Settings
+reached them first and other surfaces are specified to share them: `InkWheel` and
+`showExamDateSheet`, which onboarding's date step consumes instead of building its own, and
+`ExamSelectionRow`, which the onboarding picker switches to. That last one also lands the
+25 July emulator finding: the emblem column has to be 96 wide or `DLSUCET` wraps mid-word.
+
+### Four open flags carried out of this round
+
+1. **Settings has no entrance until Home's masthead lands.** The gear is built by
+   `plans/2026-08-02-home-03-masthead-and-band.md`, unexecuted. Until then `/settings` is
+   reachable only by route. Settings needs no further work when it lands.
+2. **"What's included" has no page.** It is the Quiz picker's subject and topic index,
+   which must be built by `plans/2026-08-02-quiz-tab-03-practice-picker.md` and then lifted
+   into `lib/core/ui/`, because `features/settings/` cannot import `features/quiz/`. The
+   row ships pointing at an honest stub.
+3. **`settings.session_ordering` has a writer and no reader.** Settings writes the three
+   orderings; the session builder must read them, which is
+   `plans/2026-08-02-quiz-tab-01-storage-and-content-fields.md`. **Until it does, Settings
+   shows a student three choices that change nothing.** This is the first Quiz task to
+   schedule after Settings ships.
+4. **American spelling became a project rule** on 3 August and is now in `AGENTS.md`. Every
+   spec written before that date needs a sweep, which is Plan 06 Task 4. The decision logs
+   are exempt: they quote what was on screen at the time.
+
+**The study plan is still the largest outstanding design job** and is unchanged by this.
+
+### The original brief, kept
+
+**Brief:** `docs/superpowers/2026-08-03-settings-brainstorm-brief.md`. It carries the
+inbound rows and the constraints.
 
 **Why it jumped the queue ahead of the study plan.** Six specs written in the last two
 weeks each hand Settings a row and none of their authors saw the screen, which is the exact
 shape the paywall consolidation had. Its own design, Spec 8, predates the identity by two
 months and still specifies a Material large app bar, theme chips and iOS switches.
-
-**The study plan is still the largest outstanding design job** and is unchanged by this.
 
 ## Chosen next, earlier
 
