@@ -19,7 +19,7 @@ not, and they are not all blocked by the same thing.
 | Home and navigation | 07-26 | ~~Weakest areas superseded~~ **Closed 2 August.** Reopened, redesigned as "Practice", spec amended | None yet. Now plannable |
 | Study tab and reader | 07-27 | Approved, closed | **6 plans, 37 tasks.** Written 2 August, none executed |
 | Quiz tab | 07-28 | Approved, closed | **7 plans, 44 tasks.** See the queue below |
-| Mock exam UI | 07-28 | **Partial.** The paper and the endings are still open design | None, and a plan is premature: it needs a design round, not a planning round |
+| Mock exam UI | 07-28 | **Partial**, but far less so than this table claimed. Corrected 2 August, see below | **Plannable now**, as the two plans the spec itself names |
 | Progress tab | 07-30 | Approved | None. Plan it **last**, see the dependency map |
 
 **Updated 2 August, late.** Study is now planned end to end, so **no spec is left that can be
@@ -233,15 +233,33 @@ Writing plans, not executing them.
    **It exposed two prerequisites**, both listed in Section 3 below.
 3. **Home and navigation.** Now unblocked. It reads `RuledPanel` and the centred `StatsBand`
    from the Quiz plans, so its plan should be written after those exist, which they now do.
-4. **The mock exam UI, as design first.** The paper and the endings are still open. Settle
-   the score bands question below in the same pass, since a results screen cannot print a
-   band it has no threshold for.
+4. **The mock exam UI, as two plans.** ~~As design first.~~ **Corrected 2 August**, see
+   "The mock UI was not as open as this file said" below. The paper, then the endings.
 5. **Progress tab.** Last, deliberately. It consumes the Weakest areas decision from 2, the
    mistake tags from Quiz 5, the carry-over filter from exam switching, and the mock pace
    column from 4 plus the content engine.
 
-**Revised again 2 August, late.** Study is done and Home is now unblocked. **The mock UI
-still needs a design round** and Progress should still wait for the others' decisions.
+**Revised again 2 August, late.** Study is done, Home is unblocked, and the mock UI turned
+out to be plannable all along. Only Progress should still wait, for the others' decisions.
+
+### The mock UI was not as open as this file said
+
+Aedwon asked why it needed a design round, having already been through one. He was right
+and this file was wrong. **"The paper" and "the endings" are the two plans the spec names
+in its own closing section, and they were read here as open design questions.**
+
+The 07-28 spec's "What is settled" list reads: sectional timing end to end, the question
+grid's mock variant, the floating bar, the results screen, the review screen and what each
+tier sees in it, what becomes of the marks made during the paper, and the practice
+session's use of the same review component. That is the whole surface.
+
+**Genuinely not designed**, and the spec says Spec 5 sketches all five and they stand until
+redrawn: the setup screen beyond its one stated requirement, the pause and strict-forfeit
+flows, the section-transition moment, the warning overlays, and mock history. Covered by an
+older spec, not empty.
+
+**The one real blocker is content and it is on Aedwon:** `sectionalTiming` for ACET, DCAT
+and MSU-SASE.
 
 ## Found while planning Study, and owed elsewhere
 
@@ -276,11 +294,13 @@ still needs a design round** and Progress should still wait for the others' deci
 - **Dead subtopic surface.** `SubtopicFilter` is fed all-null ids by both callers and can
   never match; `subtopicId` columns on `content_lessons`, `content_questions` and
   `quiz_sessions` are never assigned. Listed in the quiz decision log, 2 August.
-- **Score bands are still a placeholder.** `ComputeResults.bandFor` falls back to 75% pass
-  and 60% borderline, which the 17 May mock spec calls a stand-in until per-exam
-  `scoreBands` load from Sanity, and the `exams` table has no column for them. Plan 2c
-  prints no band so it does not depend on this, but the mock results screen already shows
-  one. Settle before the mock UI plans.
+- ~~**Score bands are still a placeholder.**~~ **Struck 2 August: this was never a
+  question for Aedwon.** The 07-28 mock spec's Section 4 settles the design twice over.
+  The middle band is "Close to passing", settled 28 July against "Not far off" and "Just
+  below", and "Band thresholds are content. Nothing is hardcoded." What remains is code:
+  `Exams` carries `id, code, name, shortName, language, isActive` and no `scoreBands`, and
+  `compute_results.dart:82` hardcodes 75 and 60 with no way to override. A column, a
+  parser line and a constructor argument, and it belongs in the paper plan.
 
 ## Live defects found while planning, fixed inside the plans
 
