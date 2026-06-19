@@ -1256,11 +1256,19 @@ it on reinstall would be worse than never offering the mark."
 **Interfaces:**
 - Consumes: nothing.
 - Produces: on `AppPreferencesRepository`,
-  `Future<String?> lastOpenedLessonId(String examId)`,
-  `Future<void> setLastOpenedLessonId({required String examId, required String lessonId})`,
+  `Future<List<String>> recentlyOpenedLessonIds(String examId)` (newest first, at most
+  three), `Future<String?> lastOpenedLessonId(String examId)` (the head of that list, or
+  null), `Future<void> pushOpenedLesson({required String examId, required String lessonId})`,
   `Future<String?> openTopicId(String examId)`, and
   `Future<void> setOpenTopicId({required String examId, required String? topicId})`, where
-  a null `topicId` clears the row. Plan 2 reads both; Plan 4 writes the lesson one.
+  a null `topicId` clears the row. Plan 2 reads the head; Plan 3b's empty search state reads
+  all three; Plan 4 writes them.
+
+**Why a list of three and not one id.** Plan 2's "Last opened" row needs the head, and this
+looked like a single value. **Plan 3b's search needs the last three**: the spec's empty
+search state is a "Recently opened" kicker over the last three lessons opened. Storing one
+id would have made that unbuildable without a second migration. Three is the cap because
+three is all any surface draws.
 
 **Device preferences, not account preferences, and that is a choice with a cost.**
 `PreferencesMapper` syncs `account_prefs` only, so these two do not follow a student to a
@@ -1270,7 +1278,9 @@ a device, and syncing it would mean a tablet silently scrolling because a phone 
 Moving them later is two lines and a mapper entry if Aedwon disagrees.
 
 **Keyed per exam.** A student switching exams must not resume the other exam's lesson. The
-keys are `last_opened_lesson_<examId>` and `open_topic_<examId>`.
+keys are `recent_lessons_<examId>` and `open_topic_<examId>`. The recent list is stored as
+ids joined by commas: lesson ids are slugs and contain no comma, and a JSON array in a
+preferences table that holds strings buys nothing here.
 
 **No legacy fallback.** Unlike `selectedExamId`, these keys never existed in
 `app_preferences_local`, so reading it would be dead code.
@@ -1283,18 +1293,40 @@ Add to `test/core/storage/data/repos/app_preferences_repository_test.dart`:
   test('the last opened lesson round-trips per exam', () async {
     expect(await repo.lastOpenedLessonId('e1'), isNull);
 
-    await repo.setLastOpenedLessonId(examId: 'e1', lessonId: 'l1');
-    await repo.setLastOpenedLessonId(examId: 'e2', lessonId: 'l9');
+    await repo.pushOpenedLesson(examId: 'e1', lessonId: 'l1');
+    await repo.pushOpenedLesson(examId: 'e2', lessonId: 'l9');
 
     expect(await repo.lastOpenedLessonId('e1'), 'l1');
     expect(await repo.lastOpenedLessonId('e2'), 'l9');
   });
 
-  test('opening a second lesson replaces the first', () async {
-    await repo.setLastOpenedLessonId(examId: 'e1', lessonId: 'l1');
-    await repo.setLastOpenedLessonId(examId: 'e1', lessonId: 'l2');
+  test('opening a second lesson puts it at the head', () async {
+    await repo.pushOpenedLesson(examId: 'e1', lessonId: 'l1');
+    await repo.pushOpenedLesson(examId: 'e1', lessonId: 'l2');
 
     expect(await repo.lastOpenedLessonId('e1'), 'l2');
+    expect(await repo.recentlyOpenedLessonIds('e1'), ['l2', 'l1']);
+  });
+
+  test('the recent list keeps three and drops the oldest', () async {
+    for (final id in ['l1', 'l2', 'l3', 'l4']) {
+      await repo.pushOpenedLesson(examId: 'e1', lessonId: id);
+    }
+
+    expect(await repo.recentlyOpenedLessonIds('e1'), ['l4', 'l3', 'l2']);
+  });
+
+  test('reopening a lesson moves it to the head without duplicating it',
+      () async {
+    await repo.pushOpenedLesson(examId: 'e1', lessonId: 'l1');
+    await repo.pushOpenedLesson(examId: 'e1', lessonId: 'l2');
+    await repo.pushOpenedLesson(examId: 'e1', lessonId: 'l1');
+
+    expect(await repo.recentlyOpenedLessonIds('e1'), ['l1', 'l2']);
+  });
+
+  test('an exam nobody has opened has no recent lessons', () async {
+    expect(await repo.recentlyOpenedLessonIds('e1'), isEmpty);
   });
 
   test('the open topic round-trips per exam', () async {
@@ -1329,23 +1361,45 @@ In `lib/core/storage/data/repos/app_preferences_repository.dart`, add the two ke
 beside the existing constants:
 
 ```dart
-  static const _lastOpenedLessonPrefix = 'last_opened_lesson_';
+  static const _recentLessonsPrefix = 'recent_lessons_';
   static const _openTopicPrefix = 'open_topic_';
+  static const _recentLessonsKept = 3;
 ```
 
-and these four methods at the end of the class:
+and these methods at the end of the class:
 
 ```dart
-  /// Device-local on purpose: only `account_prefs` sync, and where a topic is
-  /// expanded is a property of one screen on one device.
-  Future<String?> lastOpenedLessonId(String examId) =>
-      _deviceValue('$_lastOpenedLessonPrefix$examId');
+  /// The lessons most recently opened for this exam, newest first, at most
+  /// three. Device-local on purpose: only `account_prefs` sync, and where
+  /// someone was reading is a property of one screen on one device.
+  Future<List<String>> recentlyOpenedLessonIds(String examId) async {
+    final raw = await _deviceValue('$_recentLessonsPrefix$examId');
+    if (raw == null || raw.isEmpty) return const [];
+    return raw.split(',');
+  }
 
-  Future<void> setLastOpenedLessonId({
+  Future<String?> lastOpenedLessonId(String examId) async {
+    final recent = await recentlyOpenedLessonIds(examId);
+    return recent.isEmpty ? null : recent.first;
+  }
+
+  /// Moves [lessonId] to the head. Reopening something already in the list
+  /// moves it rather than duplicating it, so three entries always name three
+  /// lessons.
+  Future<void> pushOpenedLesson({
     required String examId,
     required String lessonId,
-  }) =>
-      _setDeviceValue('$_lastOpenedLessonPrefix$examId', lessonId);
+  }) async {
+    // A copy: the getter returns a const list when nothing is stored, and
+    // removing from that throws.
+    final recent = [...await recentlyOpenedLessonIds(examId)]
+      ..remove(lessonId);
+    final next = [lessonId, ...recent].take(_recentLessonsKept);
+    await _setDeviceValue(
+      '$_recentLessonsPrefix$examId',
+      next.join(','),
+    );
+  }
 
   Future<String?> openTopicId(String examId) =>
       _deviceValue('$_openTopicPrefix$examId');
@@ -1396,10 +1450,10 @@ dart format lib test
 flutter analyze
 git add lib/core/storage/data/repos/app_preferences_repository.dart \
         test/core/storage/data/repos/app_preferences_repository_test.dart
-git commit -m "feat(storage): remember the lesson and the open topic per exam
+git commit -m "feat(storage): remember the recent lessons and the open topic per exam
 
-Keyed by exam so switching exams never offers to resume the other one.
-Device-local, because which topic is expanded belongs to a screen."
+Three rather than one, because search's empty state offers the last
+three opened. Keyed by exam so switching never resumes the other one."
 ```
 
 ---

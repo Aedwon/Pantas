@@ -117,10 +117,59 @@ page leaves the student inside the Study tab with the results page underneath it
 5. **`?examId=` is dropped from every repointed call site.** The map reads the selected exam
    itself, so the parameter was never doing anything.
 
-### One copy problem the plan refuses to bury
+### One copy problem the plan refuses to bury (plan 2)
 
 The spec's error message is "Could not load your topics. **Pull down to try again.**" There
 is no pull-to-refresh on this screen and the plan does not build one. Plan 2 says outright:
 either wire a `RefreshIndicator` in Task 7 or change the copy to "Try again". **Shipping the
 sentence without the gesture is a lie printed to a student**, which is the same class of
 problem as an invented figure.
+
+## 2 August 2026: seam 3 became two plans, and plan 1 was amended in place
+
+**Split.** The spec's third seam is "bookmarks and search". Written as one plan it came to
+twelve tasks and two unrelated review surfaces, so it is now `study-03a-bookmarks.md` and
+`study-03b-search.md`. They share nothing but the app bar they sit in.
+
+**Plan 1 was amended, not superseded.** Writing 3b showed that the search field's empty state
+is a "Recently opened" kicker over the **last three** lessons opened, and plan 1 Task 6 stored
+a single lesson id. Storing one would have made the state unbuildable without a second
+migration. Task 6 now stores a comma-joined list capped at three, under the key
+`recent_lessons_<examId>`, with `lastOpenedLessonId` reading its head so plan 2 is unchanged.
+Plan 1 is written but unexecuted, so correcting it in place is cheaper than a follow-up plan;
+this is the same treatment `quiz-tab-01` got when its own errors were found during execution.
+
+### Calls made inside 3a and 3b, with costs
+
+1. **The chosen bookmark order lives in `account_prefs`, so it syncs.** Cost: a fourth synced
+   preference key. The alternative, device-local, would deliver a hand-arranged order to a
+   second device with no setting to display it in.
+2. **A bookmark whose lesson has left the corpus is dropped, and the count follows the
+   visible rows.** Cost: a bookmark can disappear silently after a content update. The
+   alternative is a row that cannot be opened.
+3. **`InkTableRow` gains a `leadingMeta` widget slot** so the ribbon has somewhere to sit on
+   a topic row. Cost: a shared component grows a slot for one screen. The alternative was a
+   `Stack`, where the glyph does not participate in layout and collides with the fraction on
+   long topic names.
+4. **Undo restores the removed bookmarks but not their hand positions.** `mark()` writes a
+   fresh timestamp and a top-of-list `sortIndex`, so an undone bulk removal returns at the
+   top. Snapshotting every row's `sortIndex` before the delete is the fix if Aedwon wants it.
+5. **The search placeholder counts the active exam.** It reads "Search 16 lessons" on CSE
+   Professional rather than the spec's 141, which is UPCAT's number.
+6. **A summary match is rendered as a body match.** The spec only distinguishes "in the
+   title" from "not in the title".
+
+### The thing 3b is really built around
+
+The `LIKE` runs over `bodyJson`, which is serialised Portable Text, so searching for "block"
+would match the `_type` of every block in all 141 lessons and "strong" would match every
+bolded word. **The SQL scan can only narrow.** Every hit is confirmed against the flattened
+plain text before it becomes a row, and there is a test that searching for "block" returns
+nothing. Without that step the feature looks like it works and returns the whole corpus for
+a dozen common words.
+
+### Still owed by 3a
+
+`InkCheckbox` is now named by **four** plans and built by none of them specifically: Quiz 3,
+Quiz 5, custom track A, and Study 3a. Each says to check first. Two of them running in
+parallel is where this collides.
