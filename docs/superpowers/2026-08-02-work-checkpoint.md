@@ -127,7 +127,19 @@ finished, and Progress consumes decisions from both.
 
 ---
 
-## Chosen next
+## Chosen next, 3 August: Settings
+
+**Brief:** `docs/superpowers/2026-08-03-settings-brainstorm-brief.md`. Read it first; it
+carries the inbound rows and the constraints.
+
+**Why it jumped the queue ahead of the study plan.** Six specs written in the last two
+weeks each hand Settings a row and none of their authors saw the screen, which is the exact
+shape the paywall consolidation had. Its own design, Spec 8, predates the identity by two
+months and still specifies a Material large app bar, theme chips and iOS switches.
+
+**The study plan is still the largest outstanding design job** and is unchanged by this.
+
+## Chosen next, earlier
 
 **Onboarding**, decided 2 August. Design then moved through the Quiz tab instead, and by the
 evening of 2 August every plan in the queue below was written. Nothing has been executed.
