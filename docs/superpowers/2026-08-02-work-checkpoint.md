@@ -17,13 +17,14 @@ not, and they are not all blocked by the same thing.
 | Spec | Date | Design status | Plan status |
 | --- | --- | --- | --- |
 | Home and navigation | 07-26 | Approved, but its **Weakest areas section is superseded** | None. Reopen that section before planning |
-| Study tab and reader | 07-27 | Approved, closed | None. **Ready to plan as written** |
+| Study tab and reader | 07-27 | Approved, closed | **6 plans, 37 tasks.** Written 2 August, none executed |
 | Quiz tab | 07-28 | Approved, closed | **7 plans, 44 tasks.** See the queue below |
 | Mock exam UI | 07-28 | **Partial.** The paper and the endings are still open design | None, and a plan is premature: it needs a design round, not a planning round |
 | Progress tab | 07-30 | Approved | None. Plan it **last**, see the dependency map |
 
-**Only Study can be planned straight away.** Home needs one section reopened, the mock UI
-needs design finished, and Progress consumes decisions from both.
+**Updated 2 August, late.** Study is now planned end to end, so **no spec is left that can be
+planned as written**. Home needs one section reopened as design, the mock UI needs its design
+finished, and Progress consumes decisions from both.
 
 ## 2. Plans written, never executed
 
@@ -133,6 +134,31 @@ nothing to modify.
 **Steps 1 to 4 and 5 to 11 are independent of each other** and could run in parallel by two
 people. 12 and 13 need both threads finished.
 
+### The Study thread, added 2 August, late
+
+A **third** independent thread. It touches `lib/features/lesson/`, `core/storage`'s lesson
+tables and three kit components, and shares nothing with the queue above except
+`InkTableRow` and `InkCheckbox`.
+
+| # | Plan | Tasks | Waits on |
+| --- | --- | --- | --- |
+| S1 | `2026-08-02-study-01-foundations.md` | 7 | nothing |
+| S2 | `2026-08-02-study-02-map.md` | 8 | S1 |
+| S3a | `2026-08-02-study-03a-bookmarks.md` | 7 | S1, S2 |
+| S3b | `2026-08-02-study-03b-search.md` | 5 | S1, S2 |
+| S4 | `2026-08-02-study-04-reader.md` | 6 | S1, S2, S3a |
+| S5 | `2026-08-02-study-05-endings.md` | 4 | S4 |
+
+S3a and S3b are independent of each other; everything else is a chain.
+
+**Two collisions to watch if the threads run in parallel:**
+
+- **`InkTableRow`** is changed by S1 Task 7 (reserved gutter, chevron slot, `active` stops
+  drawing `○`) and again by S3a Task 3 (a `leadingMeta` slot). Quiz 2c and the Home spec read
+  the same component.
+- **`InkCheckbox`** is now named by **four** plans and built by none specifically: Quiz 3,
+  Quiz 5, custom track A and Study 3a. Whichever runs first promotes it.
+
 ## The dependency map
 
 Three kinds of dependency run through this work and they behave differently. Content
@@ -183,9 +209,12 @@ in parallel.
 
 Writing plans, not executing them.
 
-1. **Study tab and reader.** Its spec is closed, nothing needs reopening, and it is the only
-   one of the four that can be planned as written. Likely two plans: the map, then the
-   reader and its coda.
+1. ~~**Study tab and reader.**~~ **Done 2 August**, as six plans rather than the two guessed
+   here: foundations, the map, bookmarks, search, the reader, the endings. The guess was
+   wrong because it was made before the spec's own "note on plan size" was re-read, and that
+   note names five seams. Bookmarks and search then split, because together they were twelve
+   tasks across two unrelated review surfaces. Decisions in
+   `decisions/2026-08-02-study-tab-planning-log.md`.
 2. **Home's Weakest areas, as design.** A brainstorm and a spec amendment, not a plan. Until
    it is settled, planning Home means planning around a hole, and Progress inherits the same
    hole.
@@ -198,8 +227,26 @@ Writing plans, not executing them.
    mistake tags from Quiz 5, the carry-over filter from exam switching, and the mock pace
    column from 4 plus the content engine.
 
-**The honest summary: only one of the four can be planned today.** Two need a design round
-first and one should wait for the others' decisions.
+**The honest summary, revised 2 August, late: none of the remaining three can be planned
+today.** Study is done. Two need a design round first and one should wait for the others'
+decisions.
+
+## Found while planning Study, and owed elsewhere
+
+- **`content-seed-delivery` Task 1 asserts the wrong SQLite header.** It expects
+  `'SQLite format 3 '` with a trailing space; the real 16-byte magic ends in a NUL. Verified
+  with `xxd` against `assets/seed/content.db`. The test as written fails at offset 15. Fix it
+  before executing that plan.
+- **Four live call sites reach `/study/topic/:topicId`.** The Study spec says they are gone
+  with the Home redesign, which is unimplemented. `assessment_home_tab.dart:209` and `:238`,
+  `assessment_results_page.dart:122` and `:203`. Study Plan 2 Task 8 repoints all four; until
+  it runs, that route must not be deleted.
+- **Home's "Keep going" affordance is now load-bearing.** Study Plan 5's day line, "That's
+  enough for today.", depends on Home still making a real offer, or the app is sending
+  someone to bed. A note for whoever plans Home.
+- **The reader cannot draw its plan counter.** The study plan's providers throw, so Study
+  Plan 4 builds the Study composition only and reserves the second value. When plans become
+  real, the counter and the ticked rail drop into the shapes left for them.
 
 ## Raised by 2b and awaiting Aedwon
 
