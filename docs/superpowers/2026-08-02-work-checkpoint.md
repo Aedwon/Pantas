@@ -20,7 +20,7 @@ not, and they are not all blocked by the same thing.
 | Study tab and reader | 07-27 | Approved, closed | **6 plans, 37 tasks.** Written 2 August, none executed |
 | Quiz tab | 07-28 | Approved, closed | **7 plans, 44 tasks.** See the queue below |
 | Mock exam UI | 07-28 | **Partial**, but far less so than this table claimed. Corrected 2 August, see below | **Plannable now**, as the two plans the spec itself names |
-| Progress tab | 07-30 | Approved | None. Plan it **last**, see the dependency map |
+| Progress tab | 07-30 | Approved, closed | **6 plans, 17 tasks.** Written 2 August, none executed |
 
 **Updated 2 August, late.** Study is now planned end to end, so **no spec is left that can be
 planned as written**. Home needs one section reopened as design, the mock UI needs its design
@@ -175,6 +175,37 @@ Two plans, exactly as the mock spec's own closing note splits them.
 the column, the parser and the argument, and `ScoreBand.borderline` becomes
 `ScoreBand.close` so the code and the settled copy agree.
 
+### The Progress thread, added 2 August, late
+
+A **fifth** thread, six plans, and the last spec to be planned. It was held to the end
+deliberately and the wait paid: it consumes Home's Practice decision, Quiz 5's mistake
+tags, the onboarding date and name, and the mock's pace column, and every one of those is
+now decided.
+
+| # | Plan | Tasks | Waits on |
+| --- | --- | --- | --- |
+| G1 | `2026-08-02-progress-01-frame-and-grammar.md` | 3 | Quiz 2a for `RuledPanel` |
+| G2 | `2026-08-02-progress-02-your-pace.md` | 2 | G1, onboarding 1 for `ExamDate` |
+| G3 | `2026-08-02-progress-03-performance-table.md` | 4 | G1, **H2 in substance** |
+| G4 | `2026-08-02-progress-04-why-you-miss.md` | 2 | G1, **H2 in substance** |
+| G5 | `2026-08-02-progress-05-how-you-work.md` | 3 | G1 |
+| G6 | `2026-08-02-progress-06-your-record.md` | 3 | G1 |
+
+**G1 deletes machinery, so run it first.** The `ProgressPanel` catalog, its four enums and
+`PaywallTeaserPanel` all go: the new tab has named sections in a fixed order, not a
+catalog with intents, windows and a per-panel access flag.
+
+**Two collisions with the Home thread:**
+
+- **`topicAccuracyProvider`** (Home 5) is `performanceProvider(TableLevel.topic)` (G3).
+  Whichever runs second collapses the two, or the app tells a student a topic is weak on
+  Home and strong on Progress.
+- **`severityFor`** is defined by Home 5 and moved to `lib/core/ui/severity.dart` by G3.
+  One definition, because both surfaces colour the same figure.
+
+**G5 inherits Home 6's open ruling** on "What works for you", and whatever is decided has
+to land on both in one pass.
+
 ### The Study thread, added 2 August, late
 
 A **third** independent thread. It touches `lib/features/lesson/`, `core/storage`'s lesson
@@ -269,13 +300,16 @@ Writing plans, not executing them.
    or Quiz 2a land.
 4. ~~**The mock exam UI, as design first.**~~ **Done 2 August**, as the two plans the spec
    itself names: the paper, then the endings. No design round was needed, see below.
-5. **Progress tab.** Last, deliberately. It consumes the Weakest areas decision from 2, the
-   mistake tags from Quiz 5, the carry-over filter from exam switching, and the mock pace
-   column from 4 plus the content engine.
+5. ~~**Progress tab.** Last, deliberately.~~ **Done 2 August**, as six plans. Holding it to
+   the end was right: it consumes the Practice decision from 2, the mistake tags from Quiz
+   5, the onboarding name and date, and the mock pace column, and all of them were settled
+   before it was written.
 
-**Revised a third time 2 August, late.** Study, Home and the mock are all now planned:
-**twenty-one plans across four independent threads, none executed.** Only Progress is left,
-and it is the one that should genuinely wait.
+**Nothing is left on this list.** The design work is finished across all five tabs.
+
+**Revised a fourth time 2 August, late. Every spec is now planned.** Twenty-seven plans
+across five threads, none executed. There is no design work outstanding on any of the five
+tabs.
 
 ### Two rulings the new plans are waiting on
 
