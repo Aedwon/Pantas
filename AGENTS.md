@@ -73,6 +73,9 @@ colour as decoration.
 
 - Grade-5-simple English. Short sentences.
 - **No em dashes.** Use a comma or a colon.
+- **American spelling.** practice, color, behavior, analyze, gray, center, organize.
+  Never practise, colour, behaviour, analyse, grey, centre, organise. This holds in
+  specs and prose as well as UI strings.
 - Scores are **"points"**, never "marks". `mark` already means the answer dot, the
   flag pennant and the outcome mark on a reviewed question.
 - **"Questions"**, never "cards".
