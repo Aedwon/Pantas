@@ -1,0 +1,324 @@
+# Launch checklist
+
+**Created 3 August 2026.** Everything standing between the tree as it is today and a build a
+student can pay for on Google Play. Compiled from the specs, the plans, `docs/OPERATIONS.md`,
+the two live-validation plans, and the tree itself.
+
+**How to use it.** Every line is either **[M]** for a model to build or **[A]** for Aedwon,
+because it needs a dashboard, a store account, a device, a lawyer or a decision. Tick in
+place. When something closes, say what closed it.
+
+**Do not tick a line on the strength of a unit test alone.** That rule is inherited from
+`plans/2026-05-21-paywall-live-validation.md` and it applies to this whole file.
+
+Companion documents: `2026-08-03-plan-audit.md` for the conflicts and the gaps,
+`2026-08-02-work-checkpoint.md` for the running backlog.
+
+---
+
+## Gate 0: Before any implementor is dispatched
+
+- [x] **[A]** ~~Rule on the six plan conflicts.~~ **Done 3 August.** All six ruled, all
+      amendments landed in the plans. Log:
+      `decisions/2026-08-03-plan-audit-log.md`.
+- [x] **[M]** ~~Land the five readiness fixes.~~ **Done 3 August.** 47 of 47 plans now carry
+      a model-agnostic preamble, cite `AGENTS.md`, name their source spec and state the
+      analyzer baseline.
+- [x] **[M]** ~~Renumber the schema migrations.~~ **Done.** Study 01 takes 15, custom-track-a
+      16, custom-track-b 17, and each confirms the current value before bumping.
+- [ ] **[A]** Decide Mathematics: write a static content plan, or launch without the subject.
+      See the audit's Section 2.2 for what each costs. **The only Gate 0 item still open.**
+
+---
+
+## Gate 1: Content
+
+**Aedwon owns this gate.** Stated 3 August: "i will work on generating the remaining
+questions so don't worry about it." The lines stay listed because they gate code elsewhere,
+but no model should schedule work against them.
+
+The app ships `assets/seed/v1.json`, generated 25 July. Figures below are measured from it
+on 3 August.
+
+- [ ] **[M]** **Rebuild the seed.** Ten authored subtopic files for Spatial & Abstract and
+      Mechanical & Technical Reasoning exist in `content/questions/reasoning/` and are not in
+      the seed. `tools/build_dev_seed`.
+- [ ] **[M]** **Language Application**, three subtopics, manifest rows still unticked in
+      `plans/2026-07-20-question-generation-language-proficiency.md`.
+- [ ] **[M/A]** **Mathematics**, six topics, zero questions, no plan. Blocked on the Gate 0
+      decision.
+- [ ] **[A]** **Text Types and Comprehension Skills.** Passage-based, deferred out of the
+      language plan to a future plan that does not exist yet. Decide whether v1 ships without
+      reading comprehension.
+- [ ] **[M]** **Tag all 1,117 questions with a `lessonId`.** Zero carry one today. Gates the
+      reader coda, lesson selection in the picker, and the Lesson level of the Progress table.
+- [ ] **[M]** **A rationale per choice.** Zero questions carry one today. Gates note B on the
+      reveal and the debrief's second sentence, both of which Pro sells.
+- [ ] **[M]** **A short label per question.** Gates the debrief's miss rows and the review's
+      rows. They fall back to a clamped stem without it.
+- [ ] **[A]** **`sectionalTiming` for ACET, DCAT and MSU-SASE.** Three blueprints cannot be
+      completed until this is reported. UPCAT, USTET, NMAT and CSE are researched.
+- [ ] **[M]** **Mock blueprints.** `content_mock_blueprints` has zero rows, so no mock exam
+      can run at all. Waits on the seed delivery plan and on the timings above.
+- [ ] **[A]** **Illustrations.** `content/illustrations/` is empty. The figure-fail topics in
+      Spatial and Mechanical Reasoning are the ones that need them.
+
+---
+
+## Gate 2: Code, the 39 unexecuted plans
+
+Threads and their order are in `2026-08-02-work-checkpoint.md`. This is the roll-up.
+
+- [ ] **[M]** **Seed delivery**, 1 plan. `content.db` is not declared in `pubspec.yaml` and
+      `SeedInstaller` has no callers, so nothing installs the bundled database. Step 1 of
+      everything.
+- [ ] **[M]** **Onboarding**, 2 plans, 23 tasks. Reduced by the C4 ruling.
+- [ ] **[M]** **Settings**, 6 plans, 28 tasks.
+- [ ] **[M]** **Quiz tab**, 6 plans remaining, 41 tasks. Plan 01 merged 2 August.
+- [ ] **[M]** **Study tab and reader**, 6 plans, 37 tasks.
+- [ ] **[M]** **Home and navigation**, 6 plans, 16 tasks.
+- [ ] **[M]** **Progress tab**, 6 plans, 18 tasks.
+- [ ] **[M]** **Mock exam UI**, 2 plans, 9 tasks.
+- [ ] **[M]** **Custom exam track**, 2 plans, 11 tasks.
+- [ ] **[M]** **Exam switching**, 1 plan, 4 tasks. Reduced by the C4 ruling.
+- [ ] **[M]** **Rename the app to Pantas.** `onboarding-polish` Task 10. `pubspec.yaml` still
+      says `name: cse_cet_reviewer`.
+
+### Live defects the plans fix, listed so none is lost
+
+- [ ] Pro subscribers serve the free mock cooldown. `mockEntitlementProvider` is hardcoded to
+      `proIsActive: false`. Quiz 2c Task 4.
+- [ ] Today's session ignores every selector and is the first N questions in seed order.
+      Quiz 2b Tasks 4 and 5.
+- [ ] Reopening a half-finished session starts a second one and strands the answers.
+      Nothing calls `ResumeSession`. Quiz 2b Task 6.
+- [ ] Drills return the same questions in the same order forever. Quiz 3 Task 7.
+- [ ] `QuestionCard` prints LaTeX literally and never grades. Quiz 4 Task 2.
+- [ ] The assessment writes no attempt row, so every metric and the whole Progress table is
+      blind to its 21 questions. Home 2.
+- [ ] The mock cooldown is per exam, which a student can reset by switching exams.
+      Exam switching Task 2.
+- [ ] A topic-scoped session loses its topic under the default ordering.
+      `start_today_session.dart:89`.
+
+---
+
+## Gate 3: Design still owed
+
+- [ ] **[A/M]** **The Pro specimen fallback.** A student with no mock and few attempts cannot
+      fill paywall screen 1. Not designed, and it blocks the paywall plan.
+- [ ] **[M]** **The paywall plan itself**, from
+      `specs/2026-08-03-paywall-pricing-and-flow-design.md`. Approved spec, no plan, and it is
+      the purchase screen. **Plan it as a rebuild, not a repair.**
+- [ ] **[A/M]** **The study plan feature.** Spec and plan both predate the identity by two
+      months, providers throw, the entry row is hidden. The largest outstanding design job.
+      Decide whether v1 ships with it or without the row.
+- [ ] **[A/M]** **Mock exam: setup, pause, strict forfeit, section transitions, warning
+      overlays, mock history.** Sketched by Spec 5 in May and never redrawn. Confirm the
+      sketches or redraw them.
+- [ ] **[M]** **American spelling sweep** across every spec written before 3 August. Settings
+      Plan 06 Task 4. Decision logs are exempt: they quote what was on screen.
+
+---
+
+## Gate 3b: The platform gaps, added 3 August
+
+Found on Aedwon's instruction to take a wider view. **Every one of them is now specced and
+planned**, on his instruction of the same day to go ahead. Specs:
+`specs/2026-08-03-platform-foundations-design.md`,
+`specs/2026-08-03-offline-and-network-posture-design.md`,
+`specs/2026-08-03-content-delivery-and-seed-upgrade-design.md`,
+`specs/2026-08-03-notification-engagement-amendment-design.md`. Seven plans carry them.
+**Execution order: `2026-08-03-execution-pipeline.md`.**
+
+**One gap found while writing them, and it is the largest on this page:**
+
+- [ ] **[M]** **The app cannot take money.** `purchases_flutter` is in `pubspec.yaml` and
+      imported by **zero** files in `lib/`. The only implementation of `RevenueCatGateway` is
+      `DisabledRevenueCatGateway`, whose `purchase()` and `restorePurchases()` both return
+      `Entitlement.free()`. The work checkpoint calls the paywall "largely built" on the
+      strength of seventeen files; the presentation and domain layers exist and the gateway
+      is a stub. Belongs in the paywall rebuild.
+
+Every claim below was verified against the tree on this date.
+
+### Declared and never wired
+
+Four Firebase packages are in `pubspec.yaml` and **imported by zero files in `lib/`**.
+
+- [ ] **[M]** **Crashlytics.** Nothing reports a crash. `settings-06` builds a switch whose
+      lede is about crash reports, and it would toggle nothing.
+- [ ] **[M]** **Analytics.** "Help improve the app" toggles nothing. More seriously, you
+      launch blind: no funnel, no retention, no way to know whether anyone reaches the
+      paywall.
+- [ ] **[M]** **App Check.** `OPERATIONS.md` has a checkbox for enforcing it. It is not
+      initialized, so Firestore and Functions accept any client holding the config.
+- [ ] **[A/M]** **Remote Config.** Unused. It is the normal home for a kill switch and a
+      minimum-version gate.
+
+### Missing outright
+
+- [ ] **[M]** **No error boundary.** No `FlutterError.onError`, no
+      `PlatformDispatcher.instance.onError`, no `runZonedGuarded` anywhere in `lib/`. An
+      uncaught exception shows a student the framework error screen and you never hear about
+      it. This is the single cheapest fix on this page and it pairs with Crashlytics.
+- [ ] **[A/M]** **No force-update path.** Nothing reads a minimum version. Once a broken build
+      is installed it stays installed, which matters more than usual for an app whose
+      entitlement arrives by webhook.
+- [ ] **[A]** **Localization is declared and unused.** `flutter_localizations` is a
+      dependency and `generate: true` is set, with no `l10n.yaml`, no `lib/l10n/` and no
+      `.arb` file. Meanwhile the content is deliberately bilingual: the language plan mandates
+      Filipino items. **Decide whether the UI is English-only for v1.** If it is, strike the
+      scaffolding so it stops reading as half-built.
+- [ ] **[A/M]** **Offline behavior is unspecified.** Zero references to connectivity in
+      `lib/`. The app is local-first, which is the right shape, but nothing says what a
+      student sees when sync, RevenueCat or the Wrapped page needs a network that is not
+      there. Students on mobile data are the audience.
+- [ ] **[A/M]** **No accessibility pass.** Two files in `lib/` touch `Semantics` or text
+      scaling. Ink and Rule is typography-heavy with hairline rules, which is precisely where
+      large text scaling and contrast break. Play's pre-launch report will flag it.
+- [ ] **[A]** **No post-launch content path.** The seed is bundled in the build.
+      `SeedInstaller` has logic to replace a stale copy, which implies delivery over the air,
+      and nothing fetches. Decide: is new content an app update, or a download?
+- [ ] **[A]** **Create the community group and supply its URL.** Decided 3 August: the
+      feedback row opens a **Facebook group**, with Discord as the alternative under
+      consideration, because Facebook is ubiquitous in the Philippines and a group
+      consolidates feedback and discussion in one place. Record the URL in
+      `docs/OPERATIONS.md`. **Separately, Play still requires a developer contact email on the
+      listing**, which a group does not satisfy.
+- [ ] **[A]** **Approve `url_launcher`.** Two tasks are blocked on it and both stop and ask:
+      the feedback row's external link, and the force-update button that opens the store
+      listing. One decision covers both.
+- [ ] **[A/M]** **No app review prompt.** Not in any spec. Cheap, and it is the main lever on
+      store ranking.
+- [ ] **[M]** **First-run cost is unmeasured.** `v1.json` is 6.3MB carrying 1,117 questions
+      and grows with every subject Aedwon generates. Nobody has timed the first-launch seed.
+
+### Verified as fine, recorded so they are not re-raised
+
+- **Notifications are one of the more finished parts.** Two channels exist and work:
+  `daily_reminder` and `streak_save`, with a permission rationale route, a lifecycle
+  observer, a body composer, a reminder schedule and a streak-save policy. What is parked and
+  deliberately so: FCM token registration, server-driven re-engagement, iOS APNs, telemetry,
+  mock-week reminders, quiet hours. **One gap worth a decision:** nothing reminds a student
+  about the exam date they entered during onboarding, which is the most obvious notification
+  this app could send.
+- **RA10173 account deletion and data export exist** as `functions/src/deleteAccount.ts` and
+  `exportData.ts`, with a `delete_account_page.dart` in Settings. Verify they stay reachable
+  after the Settings rebuild.
+- **`EmptyState` and `ErrorBanner` exist in the kit** and are used in 9 files. The new tab
+  specs largely assume data exists, so a sweep is worth it, but the components are there.
+
+---
+
+## Gate 4: Store, legal and compliance
+
+Carried from `docs/OPERATIONS.md`, which is stale and must be corrected first.
+
+- [ ] **[A]** **Correct `OPERATIONS.md`.** It calls the app "CSE/CET Reviewer", lists
+      RevenueCat products as `cse_cet_pro_monthly` / `_yearly` / `_lifetime` when the settled
+      SKUs are `pro_weekly` / `pro_monthly` / `pro_yearly` with lifetime removed, and gives
+      bundle IDs that do not match `android/app/build.gradle.kts` (`com.aerol.csecet`).
+- [ ] **[A]** NPC registration filed and the confirmation recorded.
+- [ ] **[A]** Google Play Console account active.
+- [ ] **[A]** Privacy Policy reviewed by a PH data privacy lawyer. `PRIVACY.md` exists,
+      unreviewed.
+- [ ] **[A]** Terms of Service reviewed by a PH lawyer. `TERMS.md` exists, unreviewed.
+- [ ] **[A]** Google Play data safety form filled.
+- [ ] **[A]** DTI business name registration, if operating under a business name.
+- [ ] **[A]** Store listing: title, short and full description, feature graphic, screenshots,
+      content rating questionnaire.
+- [ ] **[A]** App icon and splash for the Pantas identity.
+- [ ] **[A]** Pentest: engagement signed, NDA, scope, findings, critical and high
+      remediations. Every line unticked since May.
+- [ ] **[A]** App Store items are **iOS, and iOS is parked.** `codemagic.yaml` carries an
+      `ios-release` workflow. Confirm v1 is Android only so these lines can be struck.
+
+---
+
+## Gate 5: Purchases, live
+
+Every line from `plans/2026-05-21-paywall-live-validation.md`, unchanged except the SKU
+correction of 3 August. None can be closed by a unit test.
+
+- [ ] **[A]** RevenueCat project created for Android.
+- [ ] **[A]** Play IAP products created: `pro_weekly` ₱29, `pro_monthly` ₱99,
+      `pro_yearly` ₱999. Yearly gets the 7-day trial. Weekly gets the grace period.
+      **`pro_lifetime` is not created.**
+- [ ] **[A]** RevenueCat product mappings to entitlement `pro`, current offering exposed.
+- [ ] **[A]** Android RevenueCat API key supplied at build time via
+      `--dart-define=REVENUECAT_ANDROID_API_KEY=...`.
+- [ ] **[A]** Firebase Functions deployed to `asia-southeast1`: `revenuecatWebhook`,
+      `getProContent`.
+- [ ] **[A]** RevenueCat webhook shared secret set on both sides.
+- [ ] **[A]** Play Internal Testing build uploaded, license testers added.
+- [ ] **[A]** Live custom-claim validation: purchase and renewal set `pro=true`,
+      cancellation and expiry clear it.
+- [ ] **[A]** Sanity Pro-content live validation: `getProContent` succeeds only for Pro.
+- [ ] **[A]** Android manual QA: purchase, restore, route gate, trial notice, subscription
+      panel.
+
+---
+
+## Gate 6: Backend, sync and security
+
+- [ ] **[A]** Firestore owner rules deployed, deployed ruleset matches `firestore.rules`.
+- [ ] **[A]** `resetCloudUserData` callable deployed.
+- [ ] **[A]** App Check enforced for Firestore and Functions in dev and prod, with debug
+      tokens and Play Integrity registered.
+- [ ] **[A]** One real-device sync verification end to end: build local progress, sign in,
+      choose "keep this device", reinstall, sign in, choose "keep my account", confirm the
+      progress restores.
+- [ ] **[A]** Confirm `content.db` stays out of user-data sync scope. Only `app.db` rows sync.
+
+---
+
+## Gate 7: Notifications, live
+
+From `plans/2026-05-22-notifications-live-validation.md`. All device work.
+
+- [ ] **[A]** Android 13+ permission prompt appears once from `/notifications/rationale`.
+- [ ] **[A]** Daily reminder fires on the `daily_reminder` channel at the saved time.
+- [ ] **[A]** Streak-save fires on the `streak_save` channel.
+- [ ] **[A]** Permission recovery opens the OS app notification settings.
+- [ ] **[A]** Tapping a fresh notification opens Today's Session; a payload older than four
+      hours opens Home.
+
+---
+
+## Gate 8: Release engineering
+
+- [ ] **[A]** Android upload keystore generated and uploaded to Codemagic.
+- [ ] **[A]** Google Play service account credentials uploaded to Codemagic.
+- [ ] **[A]** GitHub branch protection on `main`.
+- [ ] **[M]** Version bump from `0.1.0+1` and a release note.
+- [ ] **[M]** `flutter analyze` clean. Baseline today is 27 issues, every one in `tools/` or
+      `test/tool/`. `lib/` is clean and must stay that way.
+- [ ] **[M]** `flutter test` green across the suite.
+- [ ] **[M]** `dart format --output=none --set-exit-if-changed lib test` passes.
+- [ ] **[M]** `tool/check_layering.dart` at or below its 7 known pre-existing violations.
+- [ ] **[M]** `tool/check_no_ai_attribution.dart` clean.
+- [ ] **[A]** Release build installed and exercised on hardware.
+- [ ] **[A]** Visual verification pass, findings filed in `docs/ui-audit.md`. Not a model's
+      job: no implementor screenshots the emulator.
+
+---
+
+## Deliberately not in v1
+
+Recorded so nobody reopens them by accident.
+
+- **The question template engine** for Mathematics and Science, with its step-by-step
+  explanations. Deferred 3 August by Aedwon. Note that this pulls Mathematics content out
+  with it, which is Gate 0.
+- **Question identity under FSRS for generated instances.** Moot while the engine is
+  deferred. Park it, do not carry it as an open blocker.
+- **Community skins**, `specs/2026-07-31-community-skins-design.md`. Post-launch.
+- **The modern dark theme concept**, `specs/2026-08-01-modern-dark-theme-concept-design.md`.
+  A candidate skin for a later release, not a replacement for Ink and Rule.
+- **iOS.** Parked until funded. Confirm and strike the Apple lines in Gate 4.
+- **FCM token registration and server-driven pushes.** Parked for v1.1.
+- **Parent and child pairing**, `future/2026-08-02-parent-child-pairing-and-consent.md`.
+  Captured, not scheduled.
+- **Milestones, the best-subjects share card, per-topic decay, difficulty calibration.**
+  Deferred with reasons in the Progress spec.

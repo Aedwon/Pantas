@@ -9,6 +9,47 @@ earlier note. When an item is finished, strike it here and say what closed it.
 
 ---
 
+## Audited 3 August. This file's execution order is superseded.
+
+**Read `2026-08-03-execution-pipeline.md` first.** It is the live order. The tables further
+down this file were written before the Settings thread existed and before the six conflicts
+were ruled on, and three of them are now wrong.
+
+A full pass over every spec and plan on 3 August produced three documents that supersede parts
+of this file:
+
+- **`2026-08-03-execution-pipeline.md`** is the live execution order and the dispatch guide.
+
+- **`2026-08-03-plan-audit.md`** holds six conflicts between plans that need a ruling before
+  anything is dispatched, what is still unspecced or unplanned, and five readiness fixes the
+  plans need before a Gemini implementor sees them. **Nothing should be dispatched until C4,
+  the Settings collision, is ruled on.**
+- **`2026-08-03-launch-checklist.md`** is the roll-up of everything between the tree and a
+  paid install, split by who owns each line.
+
+**Four findings contradict this file** and the newer documents are the correct ones:
+
+1. **Mathematics is not the only content hole.** Nine of nineteen topics have zero questions,
+   and ten authored reasoning files are sitting in `content/` outside the seed.
+2. **The Settings thread was never added to the execution order below**, and it duplicated
+   six tasks across onboarding polish, exam switching and quiz 2b. Ruled on and struck.
+3. **`topicAccuracyProvider` collides across three plans, not two.**
+4. **"Spec 7 is largely built" in Section 4 below is wrong, and it is mine.** Corrected
+   3 August: `purchases_flutter` is imported by **zero** files in `lib/`, and the only
+   implementation of `RevenueCatGateway` is `DisabledRevenueCatGateway`, whose `purchase()`
+   and `restorePurchases()` both return `Entitlement.free()`. **The app cannot take money.**
+   The presentation and domain layers are real; the gateway is a stub. I counted seventeen
+   files and did not read them. The live gateway belongs in the paywall rebuild, and the
+   entitlement rule it must obey is in
+   `specs/2026-08-03-offline-and-network-posture-design.md` Section 3.
+
+**One more correction, on the SQLite header.** This file says `content-seed-delivery` Task 1
+asserts `'SQLite format 3 '` with a trailing space. It did not: it carried a **literal NUL
+byte**, which is the correct value. The assertion was right and the encoding was wrong, which
+is why that file registered as binary and broke every grep across it. Now written as `\x00`.
+
+---
+
 ## 1. The five design specs, and where each one stands
 
 **Updated 2 August, evening.** The Quiz tab is now planned end to end. The other four are
