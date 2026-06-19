@@ -77,3 +77,50 @@ geometry but no duration for its rotation. Plan 1 specifies 200ms on `Curves.eas
 and says so in a "Decided without asking" section. The identity's settled constant, 400ms on
 `cubic-bezier(.22, 1, .36, 1)`, is right for an ink rise across a whole glyph and slow for a
 12px caret.
+
+## 2 August 2026: plan 2 found a hole in the spec that would have shipped a crash
+
+**Spec Section 8.4 says `_studyPath` is deleted** because "with Home no longer routing to
+topics, both callers go". That is true of the **redesigned** Home, which is unimplemented and
+unplanned. On the tree as it stands there are **four live call sites** into
+`/study/topic/:topicId`:
+
+- `assessment_home_tab.dart:209`, the "Continue studying" button
+- `assessment_home_tab.dart:238`, every focus topic row
+- `assessment_results_page.dart:122`, the weak-topic action
+- `assessment_results_page.dart:203`, every mastery row
+
+Deleting the route as written would have left four buttons on shipped screens throwing
+go_router's unknown-location error. **Plan 2 Task 8 repoints all four** at
+`/study?topicId=<id>`, which opens the topic on the map. Recorded because it is the second
+time a Study spec statement assumed the Home redesign had landed.
+
+**A second thing found while planning:** `assessment_results_page.dart:122` uses
+`context.push` for what is now a tab route. Pushing a shell branch over a full-screen results
+page leaves the student inside the Study tab with the results page underneath it. Changed to
+`context.go` in the same task.
+
+### Calls made inside plan 2, each with its cost
+
+1. **`?topicId=` on `/study` rather than a route.** Opening a topic is a state on one page,
+   already stored per exam, and there is no topic screen left to push. Cost: a query
+   parameter is applied once on arrival and then ignored, which is a rule someone has to
+   remember. The plan states it in the code comment.
+2. **Under an hour, "left to read" prints minutes.** The spec says whole hours, which prints
+   "0h" for anyone with 45 minutes left. Cost: two units on one figure.
+3. **Lesson rows keep `InkTableRow`'s `bodyMedium`** instead of the spec's 13.5px. Cost: the
+   indented rows are half a point larger than drawn. Adding a font size override to a shared
+   row for one screen is how a component starts carrying a screen's preferences.
+4. **The Bookmarks section moves to plan 3.** The spec draws it on the map, but nothing can
+   create a bookmark until the reader has the ribbon in plan 4, and its "See all" opens the
+   sheet, which is plan 3. Built in plan 2 it would be a block that can never appear.
+5. **`?examId=` is dropped from every repointed call site.** The map reads the selected exam
+   itself, so the parameter was never doing anything.
+
+### One copy problem the plan refuses to bury
+
+The spec's error message is "Could not load your topics. **Pull down to try again.**" There
+is no pull-to-refresh on this screen and the plan does not build one. Plan 2 says outright:
+either wire a `RefreshIndicator` in Task 7 or change the copy to "Try again". **Shipping the
+sentence without the gesture is a lie printed to a student**, which is the same class of
+problem as an invented figure.
