@@ -173,3 +173,66 @@ a dozen common words.
 `InkCheckbox` is now named by **four** plans and built by none of them specifically: Quiz 3,
 Quiz 5, custom track A, and Study 3a. Each says to check first. Two of them running in
 parallel is where this collides.
+
+## 2 August 2026: plans 4 and 5, and what the study plan stub costs them
+
+**The reader's bar has two compositions in the spec** and only one can be built. From Home in
+a plan it shows a tappable "2 of 3" counter that opens the day as a sheet; from Study with no
+plan it shows the contents glyph. **The study plan feature is stubbed**: its providers throw
+and its entry row was hidden on 25 July, so there is no plan to be 2 of 3 of. Plan 4 builds
+the Study composition, reserves the second value on the bar's enum, and says so rather than
+shipping it quietly. Same for the rail: the single-lesson variant is built and the ticked
+"in a plan" variant is left open.
+
+**Plan 5 builds `DayFinished` anyway.** It cannot fire for the same reason, but its copy is
+settled, it is one centred line, and the alternative is rewriting the closing page when plans
+become real. There is a test asserting the contraction in "That's enough for today." survives,
+because that is exactly the thing a later tidy-up corrects into something that no longer
+sounds like a person.
+
+### Calls made inside plan 4, with costs
+
+1. **The dwell floor is 15 seconds.** The spec says "conservative rather than strict" and
+   gives no number. Cost: a number the spec did not authorise, which is why it is a named
+   constant, `readDwellFloor`, and why it is here. Long enough that a flick from top to bottom
+   of a ten minute lesson does not count; short enough that rereading something known is
+   never denied the mark.
+2. **"At the end" is within 24px of `maxScrollExtent`.** Without the slack, a rubber-band
+   overscroll or a rounding difference denies the mark on a lesson someone did finish.
+3. **A lesson shorter than the viewport is at its end at offset zero.** `maxScrollExtent` is
+   0 there, so the naive check makes short lessons permanently unreadable. There is a test.
+4. **The exam id comes from the selected exam, not the route.** Plan 2 stopped passing
+   `?examId=`, and the coda needs one. A reader that cannot resolve an exam draws **no coda**
+   rather than routing to a broken path.
+5. **`?from=` carries the origin word, defaulting to Study.** The map is the sole entrance to
+   all 141 lessons now, so a wrong origin word is a smaller failure than a null.
+6. **The reader's bar is 56, not 52.** Listed as open in the spec. `AppBarTheme` is themed
+   once and the map is 56.
+
+### What plan 5 refuses to put on the plate
+
+**No figure at all except the footing sentence.** Recorded because it will be tempting later:
+"11 lessons" restates what the reader just did and what the map already shows, and a large
+numeral is what made an earlier draft read as a stats card. Any time figure would be
+`estimatedMinutes`, which describes the material, and **printing an estimate under someone's
+name on a page meant to feel earned is the worst thing in the app to be approximate about**.
+The next-topic line says "of material", never "of your time", for the same reason.
+
+**The headline stays deleted.** "The end of Algebra" was removed rather than rewritten,
+because the plate states the fact and a headline has no job. Plan 5 has a test asserting no
+headline comes back.
+
+## 2 August 2026: the Study set as it now stands
+
+Five plans, all written, none executed:
+
+| Plan | Tasks | Waits on |
+|---|---|---|
+| `study-01-foundations` | 7 | nothing |
+| `study-02-map` | 8 | 01 |
+| `study-03a-bookmarks` | 7 | 01, 02 |
+| `study-03b-search` | 5 | 01, 02 |
+| `study-04-reader` | 6 | 01, 02, 03a |
+| `study-05-endings` | 4 | 04 |
+
+03a and 03b are independent of each other. Everything else is a chain.
