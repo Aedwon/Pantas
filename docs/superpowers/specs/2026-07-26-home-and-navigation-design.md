@@ -1,6 +1,9 @@
 # Home and Navigation Redesign
 
 **Date:** 2026-07-26
+**Amended:** 2 August 2026, Section 3's "Weakest areas" reopened as design and
+replaced by "Practice". See Section 8 and
+`decisions/2026-08-02-home-weakest-areas-log.md`.
 **Status:** Approved by Aedwon, validated interactively against live mockups in
 `.superpowers/brainstorm/72587-1784988095/content/`
 **Closes:** UI-009, UI-010, UI-011 (partially), and the masthead half of UI-012's context
@@ -125,7 +128,7 @@ Block order:
 
 1. **Stats band** plus the "Lately" line
 2. **Up next**
-3. **Weakest areas**
+3. **Practice**, formerly "Weakest areas"
 4. **Your tendencies** (Section 4)
 
 ### Stats band
@@ -148,11 +151,91 @@ title and estimated minutes, with "Continue lesson" as the block's action.
 This is the **single primary action on Home**. Board green appears nowhere else
 except section-header actions, which the reference sweep already sanctions.
 
-### Weakest areas
+### Practice
 
-Topic rows with an inline meter and a percentage, coloured by severity (rust
-below 50, amber below 70, ink above). "Practice these" as the header action.
-Semantic colour on semantic values, within budget.
+**Amended 2 August 2026.** This section was "Weakest areas" with "Practice these"
+pointing into Study. It was superseded twice over and reopened as design; the
+decisions are in `decisions/2026-08-02-home-weakest-areas-log.md` and the causes
+are in Section 8 below.
+
+Three topic rows, weakest first, each carrying an `InlineMeter` and a percentage
+coloured by severity (rust below 50, amber below 70, ink above). Semantic colour
+on semantic values, within budget. A chevron per row, under the Study spec's rule
+that a chevron marks a row that is its own destination.
+
+The plate reads **Practice**. The 26 July rename holds because its reasoning
+holds: the two panels stop being duplicates the moment they stop sharing a
+destination, and Up next opens the reader while these rows start a session.
+
+**A row starts a topic-scoped session.** `StartTodaySession` already takes an
+optional `topicId`, so the row fires it directly rather than routing through the
+practice picker. One tap from Home to answering.
+
+**The lead line may not state a length.** The 26 July line "Ten questions on
+whichever you tap." is cut: session length is the student's own setting,
+`quiz_session_length`, exposed on the Quiz tab under "Change how sessions are
+built". Home does not promise a number it does not control.
+
+**The action is "See all", pointing at Progress → Performance**, which is the
+same ranking as a full sortable table at three levels. This matches "See full
+details" for the tendency deck: Home surfaces the top of a thing and Progress
+owns the whole of it. "Practice these" is retired, because once the rows carry
+the verb the link only repeated it.
+
+#### The figures are live, not the assessment's
+
+`AssessmentResult.topicMasteries` is written once by `CompleteAssessment` and
+never recomputed, so it freezes on assessment day and each percentage rests on at
+most three questions. **This panel reads attempts instead**, using the same
+topic-level query Progress's Performance table needs, so the two surfaces can
+never disagree and the panel moves as the student works.
+
+**The floor governs the figure, not the ranking.** A topic with fewer than
+**three** answered questions is still ranked and still tappable, but its row
+prints **no percentage and no meter**: the meta slot is empty and the figure
+appears the moment the third question is answered.
+
+This is the only rule that survives both ends of the assessment. Once all 18
+topics carry questions, `AssessmentQuestionSelector` gives each contributing topic
+`max(1, min(3, 35 ~/ 18))`, which is **one question**. A floor that excluded
+topics from the ranking would therefore empty this panel completely on the day the
+question bank is finished, which is the opposite of the intended behaviour. A
+one-question sample is a fine reason to put Chemistry at the top of a list to work
+on. It is not a reason to print "0%" in rust.
+
+**The floor is one constant**; say so if you want it moved.
+
+#### Two prerequisites this creates
+
+1. **The assessment must write an `attempts_local` row**, under a new
+   `SessionOrigin.assessment`. It currently writes only `assessment_results_local`
+   and FSRS state, so every signal and the whole of Progress's Performance table
+   are blind to its twenty-one questions. Without this the panel is empty
+   immediately after the assessment, which is the moment it is most needed.
+2. **The speed-based signals must exclude that origin.**
+   `MetricAttemptItem.responseMs` is required and the assessment captures no
+   per-question timing, so zeros would tell `PerQuestionSpeedSignal` that
+   twenty-one questions were answered instantly, and Progress's "answered too
+   fast" count reads that distribution. Lift the exclusion when the assessment
+   captures timing. This panel needs correctness only and is unaffected either
+   way.
+
+#### Free and Pro
+
+**These three rows are free**, and they are the teaser for Progress's table.
+Progress Section 7 fixes Free at Subject level and sells Topic and Lesson; this is
+a deliberate, stated opening in that gate, on the same principle as the tendency
+deck. Knowing your three worst topics is the diagnosis; sorting, filtering and
+reading the whole table at three levels is what Pro buys. See Section 8,
+amendment 5.
+
+#### Carried forward, not fixed here
+
+Under the default interleaved ordering `start_today_session.dart:89` writes the
+session's `topicId` as null, and a passed `topicId` narrows the pool to one topic
+so the interleaved picker interleaves it with itself. A row from this panel
+therefore starts a session that is topic-scoped in fact and unlabelled in storage.
+It belongs to the Quiz thread, beside the interleaved-tail item plan 2b raised.
 
 ## Section 4: "Your tendencies"
 
@@ -228,14 +311,20 @@ Ships on data the app already stores:
   active exam.
 - **Up next** is unread lessons in the weakest topics, the same two tables asked
   a different question.
-- **Accuracy** and **weakest areas** come from `AssessmentResult.topicMasteries`,
-  already wired.
+- **Accuracy** comes from `AssessmentResult.topicMasteries`, already wired.
 - **All four tendencies** come from signals already written in
   `lib/features/metrics/signals/`.
 
 Blocked until Section 2 ships:
 
 - **Days to exam**, which needs `examDate` to be written by something.
+
+Amended 2 August, and no longer shipping on stored data alone:
+
+- **The Practice panel** was listed here as reading `topicMasteries`. It now reads
+  attempts at topic level, which needs the two prerequisites in Section 3: the
+  assessment writing an `attempts_local` row, and the speed signals excluding that
+  origin.
 
 **Deferred, not designed here:**
 
@@ -274,6 +363,40 @@ deliberate rather than drift.
 - Sentence case throughout. Stat labels lowercase. No emoji, no all-caps.
 - Never promise what the data cannot support. "Readiness" stays reserved.
 
+## Section 8: The Practice amendment, 2 August 2026
+
+### What superseded "Weakest areas"
+
+Three things, two documented and one found in the code during this round.
+
+1. **The Quiz anchor lost its anchor.** On 26 July, in
+   `2026-07-26-study-tab-brainstorm-state.md`, this panel became "Practice" with
+   rows firing the same call the Quiz tab's own topic rows make, and "See all"
+   pointing at that per-topic queue. Two days later the Quiz tab spec deleted the
+   queue: its Section 1 opens "It is not a topic queue" and Section 10.1
+   supersedes Spec 4 §7.1 by name. The action pointed at nothing from 28 July on.
+2. **Progress built the same ranking and gated it.** The 30 July Performance
+   table is topics ranked by accuracy, default sort Score ascending, severity
+   coloured. Its Section 7 fixes Free at Subject level.
+3. **The figures were frozen and tiny.** `topicMasteries` is written once by
+   `CompleteAssessment` and never recomputed, and
+   `AssessmentQuestionSelector` gives each contributing topic at most three
+   questions. This is also why Up next and this panel named the same three topics
+   every day: one frozen list, read twice.
+
+### Amendments this makes to other specs
+
+5. **`2026-07-30-progress-tab-design.md` Section 7** gains a stated exception:
+   Home's three Practice rows show topic-level accuracy to Free users, as the
+   teaser for the Performance table. The gate on that table is unchanged.
+6. **The 26 July Quiz anchor decision** is superseded in two of its parts, the
+   "See all" destination and the `mode: perTopic` call's justification, and
+   upheld in three: the Practice name, the chevron rule, and Home never routing
+   to a topic page.
+7. **`2026-07-27-study-tab-and-reader-design.md` Section 8.1** recorded the 26
+   July half of this correctly and predates the 28 July half. It is not wrong,
+   only incomplete; this section is the current statement.
+
 ## Verification
 
 Per the redesign spec's standing rule: run on the `pantas_pixel` emulator,
@@ -285,6 +408,15 @@ screenshot light and night, check against the colour budget. Specifically:
   the Free teaser, confirming the panel never changes height.
 - The masthead with a name, without a name, with an exam date, and without one.
 - Home with no assessment result at all, which must not render an empty shell.
+- **The Practice panel immediately after the assessment**, which must render
+  three rows. An empty panel here means the assessment is still writing no
+  attempt row.
+- **The Practice panel after practising**, which must have moved. A panel still
+  naming the assessment's three topics means it is reading `topicMasteries`.
+- A topic with one or two answered questions, which must still be **ranked and
+  tappable** with an **empty meta slot**, never 0% or 100% behind a meter.
+- A Practice row starting a session on its own topic in one tap, and the panel's
+  "See all" landing on Progress with no dead end for a Free user.
 
 ## Related
 

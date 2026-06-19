@@ -16,7 +16,7 @@ not, and they are not all blocked by the same thing.
 
 | Spec | Date | Design status | Plan status |
 | --- | --- | --- | --- |
-| Home and navigation | 07-26 | Approved, but its **Weakest areas section is superseded** | None. Reopen that section before planning |
+| Home and navigation | 07-26 | ~~Weakest areas superseded~~ **Closed 2 August.** Reopened, redesigned as "Practice", spec amended | None yet. Now plannable |
 | Study tab and reader | 07-27 | Approved, closed | **6 plans, 37 tasks.** Written 2 August, none executed |
 | Quiz tab | 07-28 | Approved, closed | **7 plans, 44 tasks.** See the queue below |
 | Mock exam UI | 07-28 | **Partial.** The paper and the endings are still open design | None, and a plan is premature: it needs a design round, not a planning round |
@@ -43,6 +43,16 @@ finished, and Progress consumes decisions from both.
   mock specs and half the Progress tab.
 - **Tag all 1,117 questions with a `lessonId`.** Gates the reader coda, lesson
   selection in the practice picker, and the Lesson level of the Progress table.
+- **The assessment writes no attempt row.** Added 2 August, found while redesigning
+  Home's Practice panel. `CompleteAssessment` writes `assessment_results_local` and
+  seeds FSRS, and never inserts into `attempts_local`. So every metrics signal and
+  the whole Progress Performance table are blind to the assessment's 21 questions,
+  and Home's new live panel would be empty the moment after the assessment. Fix is a
+  new `SessionOrigin.assessment` plus the row. **Its hazard is part of the fix:**
+  `MetricAttemptItem.responseMs` is required and the assessment captures no timing,
+  so the speed signals must exclude that origin until it does, or
+  `PerQuestionSpeedSignal` reads 21 answers at zero milliseconds and Progress's
+  "answered too fast" count inherits it.
 
 ## 4. Content and engine
 
@@ -195,8 +205,8 @@ in parallel.
 
 ### Tabs
 
-- **Home** needs nothing from the others to be planned, **except that its Weakest areas
-  section is superseded** and must be reopened as design first.
+- **Home** needs nothing from the others to be planned. Its Weakest areas hole was
+  closed on 2 August; the panel is now "Practice" and the spec is amended.
 - **Study** needs nothing. Its dependencies are the two content passes above, and both
   degrade.
 - **Progress** is downstream of almost everything: the onboarding name and date (Home spec
@@ -215,10 +225,13 @@ Writing plans, not executing them.
    note names five seams. Bookmarks and search then split, because together they were twelve
    tasks across two unrelated review surfaces. Decisions in
    `decisions/2026-08-02-study-tab-planning-log.md`.
-2. **Home's Weakest areas, as design.** A brainstorm and a spec amendment, not a plan. Until
-   it is settled, planning Home means planning around a hole, and Progress inherits the same
-   hole.
-3. **Home and navigation.** Once 2 lands. It reads `RuledPanel` and the centred `StatsBand`
+2. ~~**Home's Weakest areas, as design.**~~ **Done 2 August.** The section is now
+   "Practice": live topic accuracy from attempts rather than the frozen assessment result,
+   rows starting a topic session in one tap, "See all" to Progress, figures free as the
+   table's teaser. Spec Section 3 rewritten plus a new Section 8; Progress Section 7 gains
+   the reciprocal exception. Decisions in `decisions/2026-08-02-home-weakest-areas-log.md`.
+   **It exposed two prerequisites**, both listed in Section 3 below.
+3. **Home and navigation.** Now unblocked. It reads `RuledPanel` and the centred `StatsBand`
    from the Quiz plans, so its plan should be written after those exist, which they now do.
 4. **The mock exam UI, as design first.** The paper and the endings are still open. Settle
    the score bands question below in the same pass, since a results screen cannot print a
@@ -227,9 +240,8 @@ Writing plans, not executing them.
    mistake tags from Quiz 5, the carry-over filter from exam switching, and the mock pace
    column from 4 plus the content engine.
 
-**The honest summary, revised 2 August, late: none of the remaining three can be planned
-today.** Study is done. Two need a design round first and one should wait for the others'
-decisions.
+**Revised again 2 August, late.** Study is done and Home is now unblocked. **The mock UI
+still needs a design round** and Progress should still wait for the others' decisions.
 
 ## Found while planning Study, and owed elsewhere
 
@@ -255,6 +267,12 @@ decisions.
   from elsewhere", and Section 5's "exclude anything answered in the last 7 days" is
   unbuilt too. Both flagged in plan 2b and deliberately not fixed there. Decide before
   seam 3.
+- **A topic-scoped session loses its topic under the default ordering.** Added 2 August
+  from the Home round, which now depends on this call.
+  `start_today_session.dart:89` writes the session's `topicId` only when ordering is
+  `blocked`, and null otherwise. Passing a `topicId` also narrows the pool to that one
+  topic, so `TodayInterleavedPicker` interleaves it with itself. Home's Practice rows and
+  the picker both hit this. Belongs to the Quiz thread, beside the tail item above.
 - **Dead subtopic surface.** `SubtopicFilter` is fed all-null ids by both callers and can
   never match; `subtopicId` columns on `content_lessons`, `content_questions` and
   `quiz_sessions` are never assigned. Listed in the quiz decision log, 2 August.

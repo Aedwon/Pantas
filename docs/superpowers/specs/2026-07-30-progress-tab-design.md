@@ -328,6 +328,14 @@ rather than a rule.
 **Nothing the student produced themselves is paywalled.** Their record and their
 totals are theirs.
 
+**One stated exception, added 2 August.** Home's Practice panel shows **three**
+topic-level accuracies to Free users, as the teaser for this table. The gate here is
+unchanged: Free still sees Subject rows only, with Topic and Lesson dimmed. Knowing
+your three worst topics is the diagnosis, and the table is what you buy. Recorded so
+it reads as a decision rather than a leak. See
+`2026-07-26-home-and-navigation-design.md` Section 3 and
+`decisions/2026-08-02-home-weakest-areas-log.md`.
+
 **One teaser per screen, maximum.** Placed after the free content, never before it,
 never twice on one screen. `PaywallTeaserPanel` is retired from Progress; the
 treatment is `FaintBars` where figures would sit, plus one line of prose and "Unlock
