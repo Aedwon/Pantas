@@ -267,13 +267,37 @@ these are patterns that repeat, not scores.
 |---|---|---|---|
 | Under pressure | X1 | `test_mode_delta_signal.dart` → `PressureDelta` | One full mock plus practice on matching topics |
 | Stamina | P4 | `mock_stamina_signal.dart` → `StaminaDelta` | One completed full-length mock |
-| What works for you | D1 | `read_then_quiz_signal.dart` → `WorkflowRatio` | One lesson read, then a quiz on that topic |
+| How you study | D1 | `read_then_quiz_signal.dart` → `WorkflowRatio` | One lesson read, then a quiz on that topic |
 | How you answer | P1 | `per_question_speed_signal.dart` → `LatencyDistribution` | Any quiz with response timing |
 
 All four signals are already written. None of them duplicates anything else on
 Home, which was the deciding criterion: a paywall over information already on
 screen converts nobody. Variants that restated the band or the weakest-areas
 rows were discarded for exactly this reason.
+
+**"How you study" was renamed on 2 August**, from "What works for you", and the
+rename is an evidentiary correction rather than a copy preference.
+`WorkflowRatio` holds `readThenQuizCount` and `quizFirstCount` and **no accuracy
+at all**: the signal counts lessons by whether they were read before or after
+the first attempt on that topic. So the app knows which order the student does
+more often and nothing about which order works.
+
+**Extending the signal to carry accuracy per branch was rejected**, and not only
+on cost. The student chooses which lessons to read first, and they read them on
+topics they already find hard, so any accuracy gap between the branches is
+selection rather than effect. Printing "reading first works better for you"
+would be a measurement combined with an assumption, which the Progress spec's
+Section 1 bans outright. It is the same fault that withdrew points recoverable
+and the same circularity that keeps `DifficultyCalibrationSignal` unused.
+
+**The card states the pattern and claims nothing about its payoff.** Its
+sentence has three states, chosen by the ratio:
+
+- `You usually read the lesson first.`
+- `You usually go straight to the questions.`
+- `You split about evenly between the two.`
+
+The figures are the two counts, labelled `read first` and `answered first`.
 
 ### Presentation
 

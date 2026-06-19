@@ -17,32 +17,30 @@ Section 4 in full.
 
 ---
 
-## Read this before Task 1: one card cannot be built as specced
+## Read this before Task 1: one card is named for what it cannot measure
 
-**"What works for you" reads `ReadThenQuizSignal` → `WorkflowRatio`, and `WorkflowRatio`
-contains no accuracy.** Its two fields are `readThenQuizCount` and `quizFirstCount`, and
-the signal computes them by comparing each lesson's `readAt` against the first attempt on
-that lesson's topic (`read_then_quiz_signal.dart:47-60`). They are counts of a habit, not
-a measure of its payoff.
+**Settled 2 August, and the ruling is in the plan.** This section previously listed three
+open options. Aedwon chose A.
 
-So the card cannot say which order works better, and the spec's shape for a card is "a
-label, two compared figures, one sentence" naming what the gap costs. A count difference
-has no cost. **Progress's Section 4 inherits the same gap**, since it lists the same
-signal under the same heading with a gap-first treatment.
+**`ReadThenQuizSignal` → `WorkflowRatio` contains no accuracy.** Its two fields are
+`readThenQuizCount` and `quizFirstCount`, computed by comparing each lesson's `readAt`
+against the first attempt on that lesson's topic (`read_then_quiz_signal.dart:47-60`).
+They are counts of a habit, not a measure of its payoff. So the card cannot say which
+order works better.
 
-**This plan builds the honest version and does not invent the missing figure:** the card
-states the habit and names nothing about its payoff. Its copy is in Task 2. That is a
-placeholder for a ruling, and the ruling is Aedwon's:
+**The card is renamed "How you study"** and states the pattern, claiming nothing about its
+payoff. Both specs carry the rename.
 
-| Option | Cost |
-|---|---|
-| **A. State the habit**, which is what this plan builds | The heading "What works for you" over-promises. Consider renaming it "How you study" in the same pass |
-| B. Extend `ReadThenQuizSignal` to carry accuracy per branch | A real signal change with its own tests, and the comparison is confounded: lessons get read on topics the student already finds hard |
-| C. Drop the card to four minus one | The deck loses its only non-mock, non-speed insight, and a new user then sees one live card instead of two |
+**Extending the signal to carry accuracy per branch was rejected, and not only on cost.**
+The student chooses which lessons to read first, and reads them on topics they already
+find hard, so any accuracy gap between the branches is selection rather than effect.
+Printing "reading first works better for you" would be a measurement combined with an
+assumption, which the Progress spec's Section 1 bans outright. Same fault that withdrew
+points recoverable, same circularity that keeps `DifficultyCalibrationSignal` unused.
 
-**Do not choose between these while implementing.** Build A, flag it in the handoff, and
-`AGENTS.md`'s rule applies: if it looks wrong, stop and say so rather than inventing a
-solution.
+**Do not reintroduce a payoff claim.** If a later reader finds this card inert, that is
+the accepted cost of not inventing a figure, and the fix is a better signal rather than
+better wording.
 
 ## What this plan waits on
 
@@ -114,7 +112,7 @@ dart format --output=none --set-exit-if-changed lib test
 - Produces:
 
 ```dart
-enum TendencyKind { underPressure, stamina, whatWorks, howYouAnswer }
+enum TendencyKind { underPressure, stamina, howYouStudy, howYouAnswer }
 
 @immutable
 class TendencyCard {
@@ -160,13 +158,15 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>(...);
 |---|---|---|---|
 | `underPressure` | Under pressure | One full mock plus practice on matching topics | Finish one full length mock |
 | `stamina` | Stamina | One completed full length mock | Finish one full length mock |
-| `whatWorks` | What works for you | One lesson read, then a quiz on that topic | Read a lesson, then answer questions on it |
+| `howYouStudy` | How you study | One lesson read, then a quiz on that topic | Read a lesson, then answer questions on it |
 | `howYouAnswer` | How you answer | Any quiz with response timing | Answer a few questions |
 
 **"Worst first, descending. Cards blocked by a missing prerequisite sort last."** For the
-three delta-shaped cards, `pointsAtStake` is the absolute delta. For `whatWorks` it is 0
-until the ruling above resolves, which puts it after the measurable cards and before the
-blocked ones. Say that in a comment so it does not read as an oversight.
+three delta-shaped cards, `pointsAtStake` is the absolute delta. **`howYouStudy` is always
+0**, because neither direction is a loss and there is nothing at stake to rank it by. That
+puts it after the measurable cards and before the blocked ones, which is right: it is the
+one card that describes rather than diagnoses. Say so in a comment, so it does not read as
+an oversight.
 
 **Cards with a null signal are not dropped.** They render the prerequisite state, which is
 the point: it turns the two mock-dependent insights into a nudge toward sitting a mock,
@@ -299,18 +299,24 @@ want, and four moments of curiosity beat one blank panel. Free is **not** shown 
 prerequisite state as a separate case: with no figures either way, the redaction is the
 same box, and adding a fourth rendering would be complexity nobody sees.
 
-**The copy for `whatWorks`, pending the ruling in this plan's opening section:**
+**The copy for `howYouStudy`, settled 2 August:**
 
+- `heading`: `How you study`
 - `leftLabel`: `read first`
 - `rightLabel`: `answered first`
 - `figures`: the two counts, for example `12` and `4`
-- `sentence`: `You read the lesson first on 12 topics and went straight to
-  questions on 4.`
+- `sentence`: one of **exactly three**, chosen by the ratio:
 
-**The sentence states the habit and claims nothing about its payoff**, because
-`WorkflowRatio` holds no accuracy. Do not write "reading first works better for you". That
-would be a figure this project inferred, printed as a fact, which is exactly what
-`AGENTS.md` bans.
+| Condition | Sentence |
+|---|---|
+| `readThenQuizCount > quizFirstCount` | `You usually read the lesson first.` |
+| `quizFirstCount > readThenQuizCount` | `You usually go straight to the questions.` |
+| Equal | `You split about evenly between the two.` |
+
+**The sentence names the pattern and claims nothing about its payoff**, because
+`WorkflowRatio` holds no accuracy. **Do not write "reading first works better for you"**,
+or any variant. That would be a figure this project inferred, printed as a fact, which is
+what `AGENTS.md` bans. The three sentences above are the whole vocabulary of this card.
 
 - [ ] **Step 1: Write the failing test**
 
@@ -373,19 +379,31 @@ would be a figure this project inferred, printed as a fact, which is exactly wha
     expect(find.byType(BackdropFilter), findsNothing);
   });
 
-  testWidgets('what works states the habit and not its payoff',
+  testWidgets('how you study names the pattern and not its payoff',
       (tester) async {
     await tester.pumpWidget(
-      harness(TendencyCardView(card: whatWorks, isPro: true)),
+      harness(TendencyCardView(card: readsFirst, isPro: true)),
     );
-    expect(
-      find.text(
-        'You read the lesson first on 12 topics and went straight to '
-        'questions on 4.',
-      ),
-      findsOneWidget,
-    );
-    expect(find.textContaining('works better'), findsNothing);
+
+    expect(find.text('How you study'), findsOneWidget);
+    expect(find.text('You usually read the lesson first.'), findsOneWidget);
+    expect(find.text('12'), findsOneWidget);
+    expect(find.text('4'), findsOneWidget);
+
+    for (final claim in ['works better', 'better for you', 'What works']) {
+      expect(find.textContaining(claim), findsNothing);
+    }
+  });
+
+  testWidgets('the three sentences are the whole vocabulary', (tester) async {
+    for (final (card, sentence) in [
+      (readsFirst, 'You usually read the lesson first.'),
+      (answersFirst, 'You usually go straight to the questions.'),
+      (evenSplit, 'You split about evenly between the two.'),
+    ]) {
+      await tester.pumpWidget(harness(TendencyCardView(card: card, isPro: true)));
+      expect(find.text(sentence), findsOneWidget);
+    }
   });
 ```
 
@@ -416,8 +434,10 @@ with bars where the figures go. Free is not given a separate
 prerequisite rendering, because with no figures either way it is the
 same box.
 
-What works for you states the habit and claims nothing about its payoff,
-because WorkflowRatio holds counts and no accuracy at all."
+How you study names the pattern and claims nothing about its payoff,
+because WorkflowRatio holds counts and no accuracy at all. Extending the
+signal was rejected: the student chooses which lessons to read first, so
+any accuracy gap would be selection rather than effect."
 ```
 
 ---
@@ -579,16 +599,13 @@ dots never become a second paywall marker."
 
 ---
 
-## The ruling this plan is waiting on
+## The ruling, closed
 
-**"What works for you" states a habit and its heading promises a payoff.** The signal
-holds no accuracy, so the payoff cannot be stated without inventing it. Options A, B and C
-are at the top of this plan. Aedwon decides; the implementor builds A and says so.
+**Settled 2 August: "How you study", stating the pattern and claiming no payoff.** Both
+specs and Progress plan 5 carry it, word for word. Nothing on this card is outstanding.
 
-**Progress's Section 4 has the same gap**, listing the same signal under the same heading
-with a gap-first treatment and a sentence "naming what it costs". Whatever is decided here
-must be applied there in the same pass, or the two surfaces will describe the same signal
-differently.
+Reasoning is in `decisions/2026-07-29-progress-tab-decision-log.md`, 2 August, including
+why extending the signal was rejected on evidence rather than on cost.
 
 ## Verification, for the reviewer
 

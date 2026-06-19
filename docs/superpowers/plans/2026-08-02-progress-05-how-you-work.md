@@ -17,22 +17,30 @@ Section 7's Free and Pro row for this screen.
 
 ---
 
-## Read this before Task 1: one heading over-promises
+## Read this before Task 1: one tendency describes rather than diagnoses
 
-**"What works for you" reads `ReadThenQuizSignal` → `WorkflowRatio`, and `WorkflowRatio`
-holds no accuracy.** Its two fields are `readThenQuizCount` and `quizFirstCount`, computed
-by comparing each lesson's `readAt` against the first attempt on that lesson's topic
-(`read_then_quiz_signal.dart:47-60`). They are counts of a habit, not a measure of its
-payoff.
+**Settled 2 August.** This section previously listed three open options.
 
-The spec's gap-first treatment calls for "the sentence naming what it costs". **A count
-difference has no cost.** Home plan 6 hit the identical gap and built the honest version:
-the card states the habit and claims nothing about its payoff. Three options are listed at
-the head of that plan and the ruling is Aedwon's.
+**`ReadThenQuizSignal` → `WorkflowRatio` holds no accuracy.** Its two fields are
+`readThenQuizCount` and `quizFirstCount`, computed by comparing each lesson's `readAt`
+against the first attempt on that lesson's topic (`read_then_quiz_signal.dart:47-60`).
+They are counts of a habit, not a measure of its payoff, so the tendency cannot say which
+order works better.
 
-**Build the same honest version here**, so the two surfaces describe the same signal the
-same way, and flag it in the handoff. Do not choose between the options while
-implementing.
+**It is renamed "How you study"** and states the pattern. Extending the signal to carry
+accuracy per branch was rejected, and not only on cost: the student chooses which lessons
+to read first and reads them on topics they already find hard, so any gap would be
+selection rather than effect. That is Section 1's ban, and the same circularity that keeps
+`DifficultyCalibrationSignal` unused.
+
+**It keeps the gap-first treatment**, and it is the one tendency of the five where
+**neither direction is a loss**, so `isLoss` is always false and it never carries rust. One
+card looking different on a screen of five reads as a mistake, and the gap figure being
+less pointed here than on its four neighbours is the accepted cost.
+
+**Do not reintroduce a payoff claim.** If a later reader finds this tendency inert, that is
+the cost of not inventing a figure, and the fix is a better signal rather than better
+wording.
 
 ## What this plan waits on
 
@@ -100,7 +108,13 @@ dart format --output=none --set-exit-if-changed lib test
 - Produces:
 
 ```dart
-enum TendencyId { underPressure, stamina, whatWorks, howYouAnswer, howLongYouRemember }
+enum TendencyId {
+  underPressure,
+  stamina,
+  howYouStudy,
+  howYouAnswer,
+  howLongYouRemember,
+}
 
 @immutable
 class Tendency {
@@ -164,7 +178,7 @@ final howYouWorkProvider = FutureProvider<HowYouWork>(...);
 |---|---|---|
 | Under pressure | `TestModeDeltaSignal` | T1 |
 | Stamina | `MockStaminaSignal` | T1 |
-| What works for you | `ReadThenQuizSignal` | T1 |
+| How you study | `ReadThenQuizSignal` | T1 |
 | How you answer | `PerQuestionSpeedSignal` | T1 |
 | **How long you remember** | `RetentionShapeSignal` | **T3** |
 
@@ -192,7 +206,7 @@ subtext says what it is measured against**, from `TimeOfDaySignal` and
       [
         TendencyId.underPressure,
         TendencyId.stamina,
-        TendencyId.whatWorks,
+        TendencyId.howYouStudy,
         TendencyId.howYouAnswer,
         TendencyId.howLongYouRemember,
       ],
@@ -240,13 +254,38 @@ subtext says what it is measured against**, from `TimeOfDaySignal` and
     }
   });
 
-  test('what works states the habit and claims no payoff', () async {
+  test('how you study names the pattern and claims no payoff', () async {
     final work = await container.read(howYouWorkProvider.future);
-    final works =
-        work.tendencies.firstWhere((t) => t.id == TendencyId.whatWorks);
+    final study =
+        work.tendencies.firstWhere((t) => t.id == TendencyId.howYouStudy);
 
-    expect(works.sentence, isNot(contains('better')));
-    expect(works.sentence, isNot(contains('works')));
+    expect(study.heading, 'How you study');
+    expect(study.sentence, 'You usually read the lesson first.');
+    expect(study.leftFigure, '12');
+    expect(study.rightFigure, '4');
+    expect(study.gap, '8');
+    expect(
+      study.isLoss,
+      isFalse,
+      reason: 'neither direction is a loss, so this one never carries rust',
+    );
+
+    for (final claim in ['better', 'works for you', 'What works']) {
+      expect(study.sentence!, isNot(contains(claim)));
+    }
+  });
+
+  test('the three sentences are the whole vocabulary', () async {
+    for (final (fixture, sentence) in [
+      (readsFirst, 'You usually read the lesson first.'),
+      (answersFirst, 'You usually go straight to the questions.'),
+      (evenSplit, 'You split about evenly between the two.'),
+    ]) {
+      final work = await readWith(fixture);
+      final study =
+          work.tendencies.firstWhere((t) => t.id == TendencyId.howYouStudy);
+      expect(study.sentence, sentence);
+    }
   });
 
   test('no banned word appears in any assembled string', () async {
@@ -287,8 +326,8 @@ the scheduler's own and is never compared to the exam date: the method
 states how long a memory lasts and says nothing about what anyone will
 score.
 
-What works for you states the habit and claims no payoff, matching Home
-plan 6, because the signal holds counts and no accuracy."
+How you study names the pattern and claims no payoff, matching Home plan
+6, because the signal holds counts and no accuracy."
 ```
 
 ---
@@ -527,11 +566,10 @@ the scheduler."
 
 ---
 
-## The ruling this plan is waiting on
+## The ruling, closed
 
-**"What works for you" promises a payoff its signal cannot measure**, exactly as Home plan
-6 records. Three options are listed there. **Whatever is decided must land on both
-surfaces in one pass**, or Home and Progress will describe the same signal differently.
+**Settled 2 August: "How you study", gap-first kept, stating the pattern and claiming no
+payoff.** Both specs and Home plan 6 carry it. Nothing on this tendency is outstanding.
 
 ## Verification, for the reviewer
 

@@ -224,9 +224,29 @@ left, the sentence naming what it costs, and the two source figures demoted to a
 |---|---|---|
 | Under pressure | `TestModeDeltaSignal` → `PressureDelta` | T1 |
 | Stamina | `MockStaminaSignal` → `StaminaDelta` | T1 |
-| What works for you | `ReadThenQuizSignal` → `WorkflowRatio` | T1 |
+| How you study | `ReadThenQuizSignal` → `WorkflowRatio` | T1 |
 | How you answer | `PerQuestionSpeedSignal` → `LatencyDistribution` | T1 |
 | **How long you remember** | `RetentionShapeSignal` → `RetentionCurve` | T3 |
+
+**"How you study" was renamed on 2 August**, from "What works for you". The rename is
+an evidentiary correction: `WorkflowRatio` holds two counts and **no accuracy**, so the
+app knows which order the student works in and nothing about which order works. Adding
+accuracy per branch was rejected, because the student chooses which lessons to read
+first and reads them on topics they already find hard, so any gap is selection rather
+than effect. That is Section 1's ban, and the same circularity that keeps
+`DifficultyCalibrationSignal` unused.
+
+**It keeps the gap-first treatment**, as the only one of the five where **neither
+direction is a loss**, so it never carries rust. One card looking different on a screen
+of five reads as a mistake, and the gap figure being less pointed here than on its four
+neighbours is the accepted cost. It renders:
+
+> **8**, and the line reads: You usually read the lesson first.
+> read first 12 vs. answered first 4
+
+The sentence has three states, chosen by the ratio, and they are the same three Home
+prints: usually reads first, usually goes straight to the questions, or splits about
+evenly.
 
 The fifth is new and replaces the deleted "What's fading" screen.
 `RetentionCurve` returns `averageStability` and `lapseRate`, which is **one average,

@@ -401,6 +401,64 @@ already bounded its index for exactly that reason. Its supporting argument, that
 printed broadsheet has no sub-screens, is wrong: "continued on page seven" is one of
 print's oldest devices.
 
+## 2 August 2026: "What works for you" becomes "How you study"
+
+Found while writing Home plan 6, which builds the same signal on the Home tendency deck,
+and put to Aedwon as a ruling because it spans two surfaces.
+
+**The problem.** `ReadThenQuizSignal` returns `WorkflowRatio`, which holds
+`readThenQuizCount` and `quizFirstCount` and **no accuracy at all**. The signal counts
+lessons by whether they were read before or after the first attempt on that lesson's
+topic (`read_then_quiz_signal.dart:47-60`). So the app knows which order the student works
+in more often, and nothing about which order works. Section 4's gap-first treatment asks
+for "the sentence naming what it costs", and a difference between two counts has no cost.
+
+**The options, with costs.**
+
+| Option | Cost |
+|---|---|
+| **A. State the pattern, rename the heading** | The tendency becomes descriptive. It says what the student does, not what to change |
+| B. Extend the signal to carry accuracy per branch | Real signal work, and see below |
+| C. Drop it | Home's deck goes to three and this screen to four. It is the only insight needing neither a mock nor timing, so a new user loses one of only two live cards |
+
+**Chosen: A**, with the heading **"How you study"** and the gap-first treatment kept.
+
+### What I got wrong, and what changed my mind mid-answer
+
+I drafted this round expecting to recommend **B**, on the grounds that the fix for a signal
+that cannot support its heading is a better signal. That was wrong and checking it changed
+the recommendation.
+
+**The student chooses which lessons to read first, and they read them on topics they
+already find hard.** Any accuracy gap between the two branches is therefore selection, not
+effect. Printing "reading first works better for you" would be a measurement combined with
+an assumption, which Section 1 of this spec bans outright. **B is not merely expensive, it
+is barred by our own rule.** It is the same fault that withdrew points recoverable and the
+same circularity that keeps `DifficultyCalibrationSignal` unused, and I nearly recommended
+walking into it.
+
+### The copy, and one sub-decision
+
+Three sentences, chosen by the ratio, identical on Home and here:
+
+- `You usually read the lesson first.`
+- `You usually go straight to the questions.`
+- `You split about evenly between the two.`
+
+**Gap-first was kept rather than broken for this one card.** It was offered as a sub-choice
+because this is the only one of the five where **neither direction is a loss**, so it never
+carries rust and its 34pt gap figure is less pointed than its four neighbours'. Aedwon kept
+it: one card looking different on a screen of five reads as a mistake, and the inertness is
+the accepted cost of option A.
+
+**Aedwon's comment, verbatim:**
+
+> go with A, how you study, keep gap-first
+
+Applied in one pass to `specs/2026-07-26-home-and-navigation-design.md` Section 4,
+`specs/2026-07-30-progress-tab-design.md` Section 4,
+`plans/2026-08-02-home-06-tendencies.md` and `plans/2026-08-02-progress-05-how-you-work.md`.
+
 ## Working notes, second set
 
 - **The evidentiary tier is the first question to ask of any new figure on this tab.**

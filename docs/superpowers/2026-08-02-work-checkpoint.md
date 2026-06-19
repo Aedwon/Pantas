@@ -203,8 +203,8 @@ catalog with intents, windows and a per-panel access flag.
 - **`severityFor`** is defined by Home 5 and moved to `lib/core/ui/severity.dart` by G3.
   One definition, because both surfaces colour the same figure.
 
-**G5 inherits Home 6's open ruling** on "What works for you", and whatever is decided has
-to land on both in one pass.
+**G5 shares one tendency with Home 6**, and its copy is settled: "How you study", gap-first
+kept. Read Home 6 before writing strings, so the two surfaces match word for word.
 
 ### The Study thread, added 2 August, late
 
@@ -311,18 +311,20 @@ Writing plans, not executing them.
 across five threads, none executed. There is no design work outstanding on any of the five
 tabs.
 
-### Two rulings the new plans are waiting on
+### One ruling made, one constraint standing
 
-Both were found while planning, both are Aedwon's, and neither blocks writing the Progress
-plan.
+1. ~~**"What works for you" promises a payoff its signal cannot measure.**~~ **Settled
+   2 August.** `WorkflowRatio` holds `readThenQuizCount` and `quizFirstCount` and no
+   accuracy at all, so the card could not say which order works better, and Progress's
+   Section 4 carried the identical gap. Aedwon chose to **rename it "How you study"**, keep
+   the gap-first treatment, and state the pattern rather than claim a payoff.
 
-1. **"What works for you" promises a payoff its signal cannot measure.** `WorkflowRatio`
-   holds `readThenQuizCount` and `quizFirstCount` and no accuracy at all, so the card
-   cannot say which order works better. Home plan 6 builds the honest version, which states
-   the habit and claims nothing, and lists three options at its head. **Progress's Section 4
-   has the identical gap**, listing the same signal under the same heading with a
-   gap-first treatment and a sentence "naming what it costs". Whatever is decided must be
-   applied to both in one pass.
+   **Extending the signal was rejected on evidence, not on cost.** The student chooses
+   which lessons to read first and reads them on topics they already find hard, so any
+   accuracy gap between the branches would be selection rather than effect: a measurement
+   combined with an assumption, which Section 1 bans. Same fault that withdrew points
+   recoverable, same circularity that keeps `DifficultyCalibrationSignal` unused. Both
+   specs, Home plan 6 and Progress plan 5 all carry the rename.
 2. **Home's Up next cannot build its three-lesson chain.** The reader has nowhere to show a
    position until the study-plan feature is real, and Study plan 4 deliberately reserved
    that shape. Home plan 4 ships rows that open their own lesson. Nothing is lost when the
