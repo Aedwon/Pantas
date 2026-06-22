@@ -34,7 +34,12 @@ List<Map<String, Object?>> textToPortableText(String text) {
         'style': 'normal',
         'markDefs': const <Object?>[],
         'children': [
-          {'_type': 'span', '_key': _key('s'), 'text': p, 'marks': const <Object?>[]},
+          {
+            '_type': 'span',
+            '_key': _key('s'),
+            'text': p,
+            'marks': const <Object?>[]
+          },
         ],
       },
   ];
@@ -99,7 +104,9 @@ Map<String, Object?> questionToDoc(
     'isActive': !isFigurePending,
     'topic': {'_ref': topicId(meta.topicSlug)},
     'subtopic': {'_ref': lessonId(meta.topicSlug, meta.subtopicSlug)},
-    'examIds': [for (final code in meta.examCodes) {'_ref': examId(code)}],
+    'examIds': [
+      for (final code in meta.examCodes) {'_ref': examId(code)}
+    ],
     'language': 'en',
     'stem': textToPortableText(stem),
     'explanation': textToPortableText(explanation),

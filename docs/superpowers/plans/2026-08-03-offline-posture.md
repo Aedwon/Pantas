@@ -11,8 +11,9 @@
 > wrong, **stop and say so** rather than inventing a solution. A plausible invention is more
 > expensive than a question, because it looks finished.
 >
-> **Analyzer baseline:** `flutter analyze` reports **27 issues** on a clean tree, every one of
-> them under `tools/` or `test/tool/`. `lib/` is clean. Any issue under `lib/` or `test/` is
+> **Analyzer baseline:** `flutter analyze` reports **25 issues** on a clean tree, every one of
+> them under `tools/` or `test/tool/`. **The number drifts as those tools change; the
+> invariant is that `lib/` and `test/` outside `test/tool/` are clean.** Any issue there is
 > one you introduced.
 
 
@@ -48,7 +49,7 @@ intentions.
 - **Voice:** grade-5-simple, no em dashes, American spelling. The words network, offline,
   sync, connectivity, server and retry never appear in a student-facing string. "Connection"
   is allowed and is the only one.
-- **Analyzer baseline is 27 issues, all under `tools/` or `test/tool/`. `lib/` is clean.**
+- **Analyzer baseline is ~25 issues, all under `tools/` or `test/tool/`. `lib/` is clean and that is the invariant, not the count.**
 - **No AI attribution in commits.**
 
 ## Dependencies

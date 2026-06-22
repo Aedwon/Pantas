@@ -11,8 +11,9 @@
 > wrong, **stop and say so** rather than inventing a solution. A plausible invention is more
 > expensive than a question, because it looks finished.
 >
-> **Analyzer baseline:** `flutter analyze` reports **27 issues** on a clean tree, every one of
-> them under `tools/` or `test/tool/`. `lib/` is clean. Any issue under `lib/` or `test/` is
+> **Analyzer baseline:** `flutter analyze` reports **25 issues** on a clean tree, every one of
+> them under `tools/` or `test/tool/`. **The number drifts as those tools change; the
+> invariant is that `lib/` and `test/` outside `test/tool/` are clean.** Any issue there is
 > one you introduced.
 
 

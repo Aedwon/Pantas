@@ -95,7 +95,7 @@ final report also claimed zero new analyzer issues when there were nine.
 
 ```bash
 flutter test
-flutter analyze                              # expect 27, all under tools/ or test/tool/
+flutter analyze                              # expect ~25; the invariant is zero under lib/
 dart format --output=none --set-exit-if-changed lib test
 dart run tool/check_layering.dart            # expect 7
 dart run tool/check_no_ai_attribution.dart   # expect 0, and it reads commit messages

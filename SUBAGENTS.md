@@ -205,7 +205,7 @@ dart run tool/check_no_ai_attribution.dart
 
 | Command | Expected | What a different number means |
 |---|---|---|
-| `flutter analyze` | **27 issues, every one under `tools/` or `test/tool/`** | Any issue under `lib/` or `test/` is yours. `lib/` is clean and must stay clean. |
+| `flutter analyze` | **~25 issues, every one under `tools/` or `test/tool/`** | The count drifts with those tools; the invariant is that `lib/` and `test/` outside `test/tool/` are clean. Any issue there is yours. |
 | `dart run tool/check_layering.dart` | **7 violations**, all pre-existing | 8 means you added one. Fix it; do not raise the baseline. |
 | `flutter test` | Green across the suite | A pre-existing failure is a finding to report, not a reason to continue. |
 | `dart format` | Exit 0 | Run `dart format lib test` and commit the result. |

@@ -11,8 +11,9 @@
 > wrong, **stop and say so** rather than inventing a solution. A plausible invention is more
 > expensive than a question, because it looks finished.
 >
-> **Analyzer baseline:** `flutter analyze` reports **27 issues** on a clean tree, every one of
-> them under `tools/` or `test/tool/`. `lib/` is clean. Any issue under `lib/` or `test/` is
+> **Analyzer baseline:** `flutter analyze` reports **25 issues** on a clean tree, every one of
+> them under `tools/` or `test/tool/`. **The number drifts as those tools change; the
+> invariant is that `lib/` and `test/` outside `test/tool/` are clean.** Any issue there is
 > one you introduced.
 
 
@@ -46,7 +47,7 @@ Aedwon ruled English UI for v1 with Filipino in later versions.
 - **Voice:** grade-5-simple, no em dashes, American spelling.
 - **Never ask for a review at a moment of friction.** Section 8. A ranking bought that way is
   a worse deal than it looks.
-- **Analyzer baseline is 27 issues, all under `tools/` or `test/tool/`. `lib/` is clean.**
+- **Analyzer baseline is ~25 issues, all under `tools/` or `test/tool/`. `lib/` is clean and that is the invariant, not the count.**
 - **No AI attribution in commits.**
 
 ## Dependencies

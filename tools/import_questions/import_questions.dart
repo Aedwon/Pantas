@@ -123,7 +123,8 @@ Future<void> main(List<String> args) async {
       ],
       'question': questionDocs,
     };
-    File(seedJson).writeAsStringSync(const JsonEncoder.withIndent('  ').convert(payload));
+    File(seedJson)
+        .writeAsStringSync(const JsonEncoder.withIndent('  ').convert(payload));
     return;
   }
 
