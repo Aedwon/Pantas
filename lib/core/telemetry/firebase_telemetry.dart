@@ -15,6 +15,14 @@ class FirebaseTelemetry implements Telemetry {
   })  : _analytics = analytics,
         _crashlytics = crashlytics;
 
+  /// Builds from the SDK singletons.
+  ///
+  /// Exists so `bootstrap` does not have to import either package, which is
+  /// what keeps this file the only importer of both.
+  FirebaseTelemetry.instances()
+      : _analytics = FirebaseAnalytics.instance,
+        _crashlytics = FirebaseCrashlytics.instance;
+
   final FirebaseAnalytics _analytics;
   final FirebaseCrashlytics _crashlytics;
 
