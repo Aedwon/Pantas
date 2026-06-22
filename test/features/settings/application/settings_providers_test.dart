@@ -16,7 +16,7 @@ void main() {
 
     final settings = await container.read(userSettingsProvider.future);
 
-    expect(settings.helpImproveApp, isTrue);
+    expect(settings.helpImproveApp, isFalse);
     expect(settings.strictMockMode, isFalse);
   });
 

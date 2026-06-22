@@ -16,7 +16,24 @@ void main() {
     expect(settings.dailyReminderTime, isNull);
     expect(settings.examDate, isNull);
     expect(settings.strictMockMode, isFalse);
-    expect(settings.helpImproveApp, isTrue);
+
+    // Off until the student has answered. Consent that defaults to yes is not
+    // consent, and nothing may be collected before they have been asked.
+    // Section 2 of the platform foundations spec, on RA10173 grounds.
+    expect(settings.helpImproveApp, isFalse);
+  });
+
+  test('help-improve is on only when the student explicitly said yes',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = DriftSettingsRepository(db);
+
+    await repo.updateHelpImproveApp(enabled: true);
+    expect((await repo.readUserSettings()).helpImproveApp, isTrue);
+
+    await repo.updateHelpImproveApp(enabled: false);
+    expect((await repo.readUserSettings()).helpImproveApp, isFalse);
   });
 
   test('updates reminder time and bumps updatedAt', () async {

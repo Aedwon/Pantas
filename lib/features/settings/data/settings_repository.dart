@@ -46,7 +46,11 @@ class DriftSettingsRepository {
           SettingsTime.fromStorage(values[SettingsPrefKeys.dailyReminderTime]),
       examDate: _parseDate(values[SettingsPrefKeys.examDate]),
       strictMockMode: values[SettingsPrefKeys.strictMockMode] == 'true',
-      helpImproveApp: values[SettingsPrefKeys.helpImproveApp] != 'false',
+      // Absent means unanswered, and unanswered means off. Consent that
+      // defaults to yes is not consent, and this switch governs crash reports
+      // and analytics from 3 August. It used to read `!= 'false'`, so an
+      // unanswered student was opted in.
+      helpImproveApp: values[SettingsPrefKeys.helpImproveApp] == 'true',
       updatedAt: DateTime.tryParse(values[SettingsPrefKeys.updatedAt] ?? ''),
     );
   }

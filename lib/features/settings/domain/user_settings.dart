@@ -52,7 +52,7 @@ class UserSettings {
       dailyReminderTime: null,
       examDate: null,
       strictMockMode: false,
-      helpImproveApp: true,
+      helpImproveApp: false,
       updatedAt: null,
     );
   }
