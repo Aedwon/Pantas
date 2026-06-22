@@ -1,5 +1,8 @@
 # Launch checklist
 
+> **Order and parallelism live in `2026-08-03-execution-pipeline.md`.** This file is the
+> inventory of what must be true before launch, split by who owns each line.
+
 **Created 3 August 2026.** Everything standing between the tree as it is today and a build a
 student can pay for on Google Play. Compiled from the specs, the plans, `docs/OPERATIONS.md`,
 the two live-validation plans, and the tree itself.

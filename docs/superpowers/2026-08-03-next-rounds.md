@@ -4,7 +4,7 @@
 prompt you can paste cold. Each one names the files to read first, because a fresh session
 knows nothing.
 
-**Companion documents.** `2026-08-03-execution-pipeline.md` is the dispatch order.
+**`2026-08-03-execution-pipeline.md` is the live map**: what to do first, what runs in parallel, and the tier each item belongs to. This file carries only the rounds that are not plans yet.
 `2026-08-03-launch-checklist.md` is everything between here and a paid install.
 `2026-08-03-plan-audit.md` is what the 3 August audit found.
 
