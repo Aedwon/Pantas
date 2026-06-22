@@ -349,3 +349,23 @@ which is the right rule for most subjects and **over-broad for language proficie
 the sentence complexity is the thing being tested. Flagged for his Question Studio pass rather
 than rewritten, because rewriting 45 items to satisfy a rule I mis-stated would make them
 worse.
+
+---
+
+## Round 6, 3 August: the content has no path to a shipping build
+
+Found while recommending what to implement next. **1,918 questions are authored in
+`content/questions/` and the committed seed carries 1,117**, generated 25 July. Everything
+added since, including all of Mathematics, is invisible to a release build.
+
+**My launch checklist line was wrong and I corrected it.** It said to rebuild the seed with
+`tools/build_dev_seed`, which treats a dev tool as a shipping step. That tool's own header
+says not to commit what it writes, and two expectations in `seeder_test.dart` assert the
+committed demo shape, so following my instruction would have turned the suite red.
+
+The production path is `content.db` through Sanity, which `AGENTS.md` has listed as a landmine
+since July: undeclared asset, no `SeedInstaller` callers, throwing provider.
+
+**Deferred.** His words: `that's okay. we can do that connecting later`. Recorded rather than
+argued, but noting plainly that no authored content reaches a student until it lands, so it
+sits ahead of every remaining code plan on the critical path to a beta.
