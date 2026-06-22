@@ -5,7 +5,10 @@ import '../../tool/check_no_ai_attribution.dart';
 void main() {
   group('attribution markers are banned everywhere', () {
     test('a co-authored trailer naming a vendor is a hit', () {
-      expect(scanText('README.md', 'Co-Authored-By: Claude <x@y.z>'), isNotEmpty);
+      expect(
+        scanText('README.md', 'Co-Authored-By: Claude <x@y.z>'),
+        isNotEmpty,
+      );
       expect(scanText('README.md', 'co-authored-by: ai'), isNotEmpty);
     });
 
@@ -15,18 +18,25 @@ void main() {
     });
 
     test('the robot marker is a hit', () {
-      expect(scanText('README.md', 'Robot: \u{1F916} Generated with'), isNotEmpty);
+      expect(
+        scanText('README.md', 'Robot: \u{1F916} Generated with'),
+        isNotEmpty,
+      );
     });
 
     test('an authored-by attribution is a hit', () {
       expect(scanText('docs/x.md', 'Written by Claude.'), isNotEmpty);
-      expect(scanText('docs/x.md', 'Assisted by Anthropic tooling'), isNotEmpty);
+      const assisted = 'Assisted by Anthropic tooling';
+      expect(scanText('docs/x.md', assisted), isNotEmpty);
     });
   });
 
   group('bare vendor names are banned in code and content', () {
     test('a vendor name in lib/ is a hit', () {
-      expect(scanText('lib/app/app.dart', '// ask claude about this'), isNotEmpty);
+      expect(
+        scanText('lib/app/app.dart', '// ask claude about this'),
+        isNotEmpty,
+      );
     });
 
     test('a vendor name in content/ is a hit', () {
@@ -48,11 +58,8 @@ void main() {
     });
 
     test('stating the prohibition is never a hit', () {
-      expect(
-        scanText('docs/superpowers/plans/p.md',
-            '- No AI/Claude attribution in any commit message.'),
-        isEmpty,
-      );
+      const ruleLine = '- No AI/Claude attribution in any commit message.';
+      expect(scanText('docs/superpowers/plans/p.md', ruleLine), isEmpty);
       expect(
         scanText('docs/x.md', 'Do not add a Co-Authored-By: Claude trailer.'),
         isEmpty,
@@ -76,10 +83,8 @@ void main() {
     });
 
     test('stating the rule in a commit message is not a hit', () {
-      expect(
-        scanCommitMessage('abc1234', 'chore: ban Co-Authored-By: Claude trailers'),
-        isEmpty,
-      );
+      const subject = 'chore: ban Co-Authored-By: Claude trailers';
+      expect(scanCommitMessage('abc1234', subject), isEmpty);
     });
   });
 
@@ -97,10 +102,9 @@ void main() {
       // Plan 01 quotes this checker's source in a fenced block. Every other
       // plan is scanned, which the old blanket exclusion of the whole plans
       // directory did not do.
-      expect(
-        isExempt('docs/superpowers/plans/2026-05-07-plan-01-foundation-and-ops.md'),
-        isTrue,
-      );
+      const plan01 =
+          'docs/superpowers/plans/2026-05-07-plan-01-foundation-and-ops.md';
+      expect(isExempt(plan01), isTrue);
       expect(
         isExempt('docs/superpowers/plans/2026-08-03-offline-posture.md'),
         isFalse,
