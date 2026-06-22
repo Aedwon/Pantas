@@ -81,6 +81,7 @@ of them change how every later plan is verified.
 | 4 | `2026-08-02-quiz-tab-02a-frame-and-panel.md` | 3 | quiz-tab-01, merged. Builds `RuledPanel`, which Home and Progress both read. |
 | 5 | `2026-08-02-study-01-foundations.md` | 7 | nothing. **Takes schema 15.** Confirm the current value is 14 first. |
 | 6 | `2026-08-02-home-02-assessment-attempt-row.md` | 3 | nothing. A live defect as much as a prerequisite: the assessment writes no attempt row, so Progress is blind to its 21 questions. |
+| 7 | `2026-08-03-passage-pipeline.md` | 6 | nothing for Tasks 1 to 4. **Task 5 needs Quiz 4.** Gates all of reading comprehension, which v1 ships with. Takes the next schema version; confirm the current one first. |
 
 ### Phase 2: The five threads
 
