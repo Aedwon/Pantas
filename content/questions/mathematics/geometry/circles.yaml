@@ -1,0 +1,293 @@
+meta:
+  subject: mathematics
+  topic: geometry
+  subtopic: circles
+  exams:
+    - upcat
+    - acet
+    - dlsucet
+    - ustet
+    - pupcet
+
+questions:
+  - id: q-geometry-circles-0001
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      A central angle in a circle intercepts an arc measuring $84^\circ$. What is the measure of an inscribed angle that intercepts the exact same arc?
+    choices:
+      - text: "$42^\circ$"
+        correct: true
+      - text: "$84^\circ$"
+      - text: "$168^\circ$"
+      - text: "$96^\circ$"
+    explanation: |
+      An inscribed angle is equal to half the measure of its intercepted arc.
+
+      1. Intercepted arc measure $= 84^\circ$.
+      2. Inscribed angle $= \frac{84^\circ}{2} = 42^\circ$.
+
+      Common Trap: Confusing inscribed angles with central angles (which equal the arc measure, $84^\circ$).
+
+  - id: q-geometry-circles-0002
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      The diameter of a circle is $14\text{ cm}$. What is the area of the circle?
+    choices:
+      - text: "$49\pi\text{ cm}^2$"
+        correct: true
+      - text: "$196\pi\text{ cm}^2$"
+      - text: "$14\pi\text{ cm}^2$"
+      - text: "$28\pi\text{ cm}^2$"
+    explanation: |
+      1. Calculate the radius $r$ from diameter $d$: $r = \frac{d}{2} = \frac{14}{2} = 7\text{ cm}$.
+      2. Apply area formula $A = \pi r^2$:
+         $$A = \pi (7^2) = 49\pi\text{ cm}^2$$
+
+      Common Trap: Plugging the diameter directly into the area formula ($\pi \times 14^2 = 196\pi$).
+
+  - id: q-geometry-circles-0003
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      $\triangle ABC$ is inscribed in a circle such that side $AB$ is the diameter of the circle. If $\angle BAC = 35^\circ$, what is the measure of $\angle ABC$?
+    choices:
+      - text: "$55^\circ$"
+        correct: true
+      - text: "$35^\circ$"
+      - text: "$90^\circ$"
+      - text: "$145^\circ$"
+    explanation: |
+      By Thales's Theorem, an angle inscribed in a semicircle is always a right angle ($90^\circ$).
+
+      1. Since $AB$ is the diameter, $\angle ACB = 90^\circ$.
+      2. Sum of angles in $\triangle ABC$: $\angle BAC + \angle ACB + \angle ABC = 180^\circ$.
+      3. $35^\circ + 90^\circ + \angle ABC = 180^\circ \implies \angle ABC = 180^\circ - 125^\circ = 55^\circ$.
+
+  - id: q-geometry-circles-0004
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      A circle has an area of $36\pi\text{ cm}^2$. What is its circumference?
+    choices:
+      - text: "$12\pi\text{ cm}$"
+        correct: true
+      - text: "$36\pi\text{ cm}$"
+      - text: "$6\pi\text{ cm}$"
+      - text: "$24\pi\text{ cm}$"
+    explanation: |
+      1. Find radius $r$ from area $A = \pi r^2$:
+         $$\pi r^2 = 36\pi \implies r^2 = 36 \implies r = 6\text{ cm}$$
+      2. Calculate circumference $C = 2\pi r$:
+         $$C = 2\pi (6) = 12\pi\text{ cm}$$
+
+  - id: q-geometry-circles-0005
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      A tangent line segment $PT$ touches a circle at point $T$. The circle has radius $OP = 5\text{ cm}$ (center $O$), and segment $OT = 13\text{ cm}$ connects center $O$ to external point $T$. What is the length of tangent segment $PT$?
+    choices:
+      - text: "$12\text{ cm}$"
+        correct: true
+      - text: "$18\text{ cm}$"
+      - text: "$8\text{ cm}$"
+      - text: "$\sqrt{194}\text{ cm}$"
+    explanation: |
+      A tangent line is perpendicular to the radius at the point of tangency, forming right $\triangle OPT$.
+
+      1. Apply Pythagorean theorem: $OP^2 + PT^2 = OT^2 \implies 5^2 + PT^2 = 13^2$.
+      2. $25 + PT^2 = 169 \implies PT^2 = 144$.
+      3. Take square root: $PT = \sqrt{144} = 12\text{ cm}$.
+
+  - id: q-geometry-circles-0006
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      A circle has a radius of $12\text{ cm}$. What is the length of an arc intercepted by a central angle of $60^\circ$?
+    choices:
+      - text: "$4\pi\text{ cm}$"
+        correct: true
+      - text: "$24\pi\text{ cm}$"
+      - text: "$8\pi\text{ cm}$"
+      - text: "$2\pi\text{ cm}$"
+    explanation: |
+      1. Arc length formula: $L = \frac{\theta}{360^\circ} \times 2\pi r$.
+      2. Substitute values: $L = \frac{60^\circ}{360^\circ} \times 2\pi (12) = \frac{1}{6} \times 24\pi = 4\pi\text{ cm}$.
+
+      Common Trap: Confusing arc length with sector area ($\frac{1}{6} \times \pi \times 12^2 = 24\pi\text{ cm}^2$).
+
+  - id: q-geometry-circles-0007
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      A central angle of $90^\circ$ bounds a sector in a circle of radius $8\text{ cm}$. What is the area of the sector?
+    choices:
+      - text: "$16\pi\text{ cm}^2$"
+        correct: true
+      - text: "$4\pi\text{ cm}^2$"
+      - text: "$64\pi\text{ cm}^2$"
+      - text: "$32\pi\text{ cm}^2$"
+    explanation: |
+      1. Sector area formula: $A = \frac{\theta}{360^\circ} \times \pi r^2$.
+      2. Substitute values: $A = \frac{90^\circ}{360^\circ} \times \pi (8^2) = \frac{1}{4} \times 64\pi = 16\pi\text{ cm}^2$.
+
+      Common Trap: Calculating arc length ($\frac{1}{4} \times 16\pi = 4\pi$) instead of sector area.
+
+  - id: q-geometry-circles-0008
+    type: direct-computation
+    difficulty: medium
+    figure: geometry-circles-08
+    stem: |
+      Quadrilateral $ABCD$ is inscribed in a circle. Angle $\angle A = (4x + 20)^\circ$ and opposite angle $\angle C = (2x + 40)^\circ$. What is the measure of $\angle C$?
+    choices:
+      - text: "$80^\circ$"
+        correct: true
+      - text: "$100^\circ$"
+      - text: "$20^\circ$"
+      - text: "$10^\circ$"
+    explanation: |
+      Opposite angles in an inscribed quadrilateral are supplementary ($180^\circ$).
+
+      1. Set up equation: $(4x + 20) + (2x + 40) = 180$.
+      2. Combine like terms: $6x + 60 = 180 \implies 6x = 120 \implies x = 20$.
+      3. Calculate $\angle C$:
+         $$\angle C = 2(20) + 40 = 40 + 40 = 80^\circ$$
+
+      Common Trap: Reporting opposite angle $\angle A = 100^\circ$ or setting them equal ($4x+20 = 2x+40 \implies x=10$).
+
+  - id: q-geometry-circles-0009
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Chords $AB$ and $CD$ intersect inside a circle at point $E$. Intercepted arc $AC = 70^\circ$ and intercepted arc $BD = 50^\circ$. What is the measure of angle $\angle AEC$?
+    choices:
+      - text: "$60^\circ$"
+        correct: true
+      - text: "$10^\circ$"
+      - text: "$120^\circ$"
+      - text: "$35^\circ$"
+    explanation: |
+      The measure of an angle formed by two chords intersecting inside a circle is half the sum of the intercepted arcs.
+
+      1. Formula: $\angle AEC = \frac{\text{Arc}_{AC} + \text{Arc}_{BD}}{2}$.
+      2. Substitute: $\angle AEC = \frac{70^\circ + 50^\circ}{2} = \frac{120^\circ}{2} = 60^\circ$.
+
+      Common Trap: Subtracting arcs ($\frac{70 - 50}{2} = 10^\circ$), which applies to angles outside the circle.
+
+  - id: q-geometry-circles-0010
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Two secant lines intersect outside a circle at point $P$. The intercepted arcs between the secants are $110^\circ$ and $40^\circ$. What is the measure of angle $\angle P$?
+    choices:
+      - text: "$35^\circ$"
+        correct: true
+      - text: "$75^\circ$"
+      - text: "$70^\circ$"
+      - text: "$150^\circ$"
+    explanation: |
+      The measure of an angle formed by two secants intersecting outside a circle is half the difference of the intercepted arcs.
+
+      1. Formula: $\angle P = \frac{\text{Far Arc} - \text{Near Arc}}{2}$.
+      2. Substitute: $\angle P = \frac{110^\circ - 40^\circ}{2} = \frac{70^\circ}{2} = 35^\circ$.
+
+      Common Trap: Adding arcs ($\frac{110 + 40}{2} = 75^\circ$) by using the interior intersection formula.
+
+  - id: q-geometry-circles-0011
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Two concentric circles have radii of $5\text{ cm}$ and $13\text{ cm}$. A chord of the larger circle is tangent to the smaller circle. What is the total length of this chord?
+    choices:
+      - text: "$24\text{ cm}$"
+        correct: true
+      - text: "$12\text{ cm}$"
+      - text: "$18\text{ cm}$"
+      - text: "$8\text{ cm}$"
+    explanation: |
+      1. The radius of the smaller circle ($5\text{ cm}$) is perpendicular to the tangent chord of the larger circle, bisecting the chord.
+      2. A right triangle is formed by the radius of the smaller circle ($5$), half the chord ($x$), and the radius of the larger circle ($13$).
+      3. Use Pythagorean theorem: $5^2 + x^2 = 13^2 \implies 25 + x^2 = 169 \implies x = 12\text{ cm}$.
+      4. Total chord length $= 2x = 2 \times 12 = 24\text{ cm}$.
+
+      Common Trap: Reporting half the chord length ($12\text{ cm}$) instead of the full chord length.
+
+  - id: q-geometry-circles-0012
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      From an external point $P$, a tangent segment $PT$ touches a circle at $T$, and a secant line intersects the circle at points $A$ and $B$ (with $A$ between $P$ and $B$). If $PA = 4\text{ cm}$ and $AB = 5\text{ cm}$, what is the length of tangent segment $PT$?
+    choices:
+      - text: "$6\text{ cm}$"
+        correct: true
+      - text: "$2\sqrt{5}\text{ cm}$"
+      - text: "$4.5\text{ cm}$"
+      - text: "$9\text{ cm}$"
+    explanation: |
+      By the Tangent-Secant Power Theorem:
+      $$PT^2 = PA \times PB$$
+
+      1. Calculate total secant segment length $PB = PA + AB = 4 + 5 = 9\text{ cm}$.
+      2. Apply formula: $PT^2 = 4 \times 9 = 36$.
+      3. Take square root: $PT = \sqrt{36} = 6\text{ cm}$.
+
+      Common Trap: Multiplying $PA \times AB$ ($4 \times 5 = 20 \implies PT = \sqrt{20} = 2\sqrt{5}\text{ cm}$) instead of using the entire secant length $PB$.
+
+  - id: q-geometry-circles-0013
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      A circle has a radius of $6\text{ cm}$. A square is inscribed inside the circle. What is the area of the region inside the circle but outside the square (shaded area)?
+    choices:
+      - text: "$36\pi - 72\text{ cm}^2$"
+        correct: true
+      - text: "$36\pi - 36\text{ cm}^2$"
+      - text: "$36\pi - 144\text{ cm}^2$"
+      - text: "$72 - 36\pi\text{ cm}^2$"
+    explanation: |
+      1. Circle Area $= \pi r^2 = \pi (6^2) = 36\pi\text{ cm}^2$.
+      2. The diagonal $d$ of the inscribed square equals the diameter of the circle: $d = 2r = 12\text{ cm}$.
+      3. Square Area $= \frac{d^2}{2} = \frac{12^2}{2} = \frac{144}{2} = 72\text{ cm}^2$.
+      4. Shaded Area $= \text{Circle Area} - \text{Square Area} = 36\pi - 72\text{ cm}^2$.
+
+  - id: q-geometry-circles-0014
+    type: direct-computation
+    difficulty: hard
+    figure: geometry-circles-14
+    stem: |
+      In a circle with center $O$, chord $AB$ subtends central angle $\angle AOB = (5x - 10)^\circ$ and inscribed angle $\angle ACB = (2x + 10)^\circ$ standing on the same arc $AB$. What is the measure of central angle $\angle AOB$?
+    choices:
+      - text: "$140^\circ$"
+        correct: true
+      - text: "$70^\circ$"
+      - text: "$30^\circ$"
+      - text: "$110^\circ$"
+    explanation: |
+      A central angle is twice the measure of an inscribed angle standing on the same arc.
+
+      1. Set up equation: $\angle AOB = 2 \times \angle ACB \implies 5x - 10 = 2(2x + 10)$.
+      2. Expand: $5x - 10 = 4x + 20 \implies x = 30$.
+      3. Calculate central angle $\angle AOB$:
+         $$\angle AOB = 5(30) - 10 = 150 - 10 = 140^\circ$$
+
+      Common Trap: Reporting the inscribed angle measure ($70^\circ$) instead of the central angle measure ($140^\circ$).
+
+  - id: q-geometry-circles-0015
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Two tangent segments $PA$ and $PB$ are drawn from external point $P$ to a circle with center $O$ and radius $r = 9\text{ cm}$. If $\angle APB = 60^\circ$, what is the distance from point $P$ to center $O$ ($OP$)?
+    choices:
+      - text: "$18\text{ cm}$"
+        correct: true
+      - text: "$9\sqrt{3}\text{ cm}$"
+      - text: "$9\text{ cm}$"
+      - text: "$36\text{ cm}$"
+    explanation: |
+      1. Segment $OP$ bisects angle $\angle APB$, so $\angle APO = \frac{60^\circ}{2} = 30^\circ$.
+      2. Radius $OA$ is perpendicular to tangent $PA$, forming right $\triangle OAP$ with right angle at $A$.
+      3. In right $\triangle OAP$: $\sin(30^\circ) = \frac{OA}{OP} \implies \frac{1}{2} = \frac{9}{OP}$.
+      4. Solve for $OP$: $OP = 9 \times 2 = 18\text{ cm}$.
+
+      Common Trap: Calculating tangent length $PA = 9\sqrt{3}\text{ cm}$ instead of segment $OP$.

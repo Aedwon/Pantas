@@ -1,0 +1,308 @@
+meta:
+  subject: mathematics
+  topic: geometry
+  subtopic: coordinate-geometry
+  exams:
+    - upcat
+    - acet
+    - dlsucet
+    - ustet
+    - pupcet
+
+questions:
+  - id: q-geometry-coordinate-geometry-0001
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      What is the distance between point $A(-2, 3)$ and point $B(4, 11)$ in the Cartesian coordinate plane?
+    choices:
+      - text: "$10$"
+        correct: true
+      - text: "$14$"
+      - text: "$\sqrt{28}$"
+      - text: "$100$"
+    explanation: |
+      Apply the distance formula $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$:
+
+      1. $x_2 - x_1 = 4 - (-2) = 6$.
+      2. $y_2 - y_1 = 11 - 3 = 8$.
+      3. $d = \sqrt{6^2 + 8^2} = \sqrt{36 + 64} = \sqrt{100} = 10$.
+
+      Common Trap: Adding the differences directly ($6 + 8 = 14$) or forgetting to take the square root ($100$).
+
+  - id: q-geometry-coordinate-geometry-0002
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      What are the coordinates of the midpoint of the segment connecting point $P(-6, 8)$ and point $Q(2, -4)$?
+    choices:
+      - text: "$(-2, 2)$"
+        correct: true
+      - text: "$(-4, 4)$"
+      - text: "$(4, -6)$"
+      - text: "$(2, -2)$"
+    explanation: |
+      Apply midpoint formula $M = \left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right)$:
+
+      1. $x_M = \frac{-6 + 2}{2} = \frac{-4}{2} = -2$.
+      2. $y_M = \frac{8 + (-4)}{2} = \frac{4}{2} = 2$.
+      3. Midpoint coordinates are $(-2, 2)$.
+
+      Common Trap: Forgetting to divide by $2$ gives $(-4, 4)$, or subtracting coordinates instead of adding them.
+
+  - id: q-geometry-coordinate-geometry-0003
+    type: direct-computation
+    difficulty: easy
+    figure: geometry-coordinate-geometry-03
+    stem: |
+      In the coordinate graph, line $L$ passes through point $A(1, 3)$ and point $B(5, 11)$. What is the slope of line $L$?
+    choices:
+      - text: "$2$"
+        correct: true
+      - text: "$\frac{1}{2}$"
+      - text: "$-2$"
+      - text: "$\frac{4}{8}$"
+    explanation: |
+      Apply slope formula $m = \frac{y_2 - y_1}{x_2 - x_1}$:
+
+      1. $y_2 - y_1 = 11 - 3 = 8$.
+      2. $x_2 - x_1 = 5 - 1 = 4$.
+      3. $m = \frac{8}{4} = 2$.
+
+      Common Trap: Inverting the formula to calculate $\frac{\Delta x}{\Delta y} = \frac{4}{8} = \frac{1}{2}$.
+
+  - id: q-geometry-coordinate-geometry-0004
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Line $L_1$ has equation $y = 3x - 7$. Line $L_2$ is parallel to line $L_1$ and passes through the point $(2, 5)$. What is the slope of line $L_2$?
+    choices:
+      - text: "$3$"
+        correct: true
+      - text: "$-\frac{1}{3}$"
+      - text: "$-3$"
+      - text: "$5$"
+    explanation: |
+      Parallel lines always have equal slopes.
+
+      1. The slope of $L_1$ from $y = 3x - 7$ is $m_1 = 3$.
+      2. Since $L_2 \parallel L_1$, $m_2 = m_1 = 3$.
+
+      Common Trap: Reporting the perpendicular slope ($-\frac{1}{3}$) instead of the parallel slope.
+
+  - id: q-geometry-coordinate-geometry-0005
+    type: direct-computation
+    difficulty: easy
+    figure: geometry-coordinate-geometry-05
+    stem: |
+      Line $m$ graphed on the Cartesian plane has a slope of $-\frac{4}{5}$. What is the slope of any line perpendicular to line $m$?
+    choices:
+      - text: "$\frac{5}{4}$"
+        correct: true
+      - text: "$-\frac{5}{4}$"
+      - text: "$\frac{4}{5}$"
+      - text: "$-\frac{4}{5}$"
+    explanation: |
+      Perpendicular lines have slopes that are negative reciprocals of each other ($m_1 \cdot m_2 = -1$).
+
+      1. Take reciprocal of $-\frac{4}{5} \implies -\frac{5}{4}$.
+      2. Change sign: $-\left(-\frac{5}{4}\right) = \frac{5}{4}$.
+
+      Common Trap: Taking the reciprocal without changing the sign ($-\frac{5}{4}$) or changing the sign without taking the reciprocal ($\frac{4}{5}$).
+
+  - id: q-geometry-coordinate-geometry-0006
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      What is the equation in slope-intercept form ($y = mx + b$) of the line passing through point $(3, -2)$ with a slope of $-4$?
+    choices:
+      - text: "$y = -4x + 10$"
+        correct: true
+      - text: "$y = -4x - 14$"
+      - text: "$y = -4x + 14$"
+      - text: "$y = 4x - 10$"
+    explanation: |
+      1. Use point-slope form $y - y_1 = m(x - x_1)$:
+         $$y - (-2) = -4(x - 3)$$
+      2. Simplify: $y + 2 = -4x + 12$.
+      3. Subtract $2$ from both sides: $y = -4x + 10$.
+
+      Common Trap: Sign error when moving $+2$ across the equals sign, resulting in $12 + 2 = 14$ or $-12 - 2 = -14$.
+
+  - id: q-geometry-coordinate-geometry-0007
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      What is the slope of the perpendicular bisector of the line segment joining point $A(-3, 1)$ and point $B(5, 7)$?
+    choices:
+      - text: "$-\frac{4}{3}$"
+        correct: true
+      - text: "$\frac{3}{4}$"
+      - text: "$-\frac{3}{4}$"
+      - text: "$\frac{4}{3}$"
+    explanation: |
+      1. Find slope of segment $AB$: $m_{AB} = \frac{7 - 1}{5 - (-3)} = \frac{6}{8} = \frac{3}{4}$.
+      2. The perpendicular bisector is perpendicular to $AB$, so its slope is the negative reciprocal of $m_{AB}$:
+         $$m_{\perp} = -\frac{1}{3/4} = -\frac{4}{3}$$
+
+      Common Trap: Reporting slope of $AB$ ($\frac{3}{4}$) or neglecting the negative sign ($-\frac{3}{4}$).
+
+  - id: q-geometry-coordinate-geometry-0008
+    type: direct-computation
+    difficulty: medium
+    figure: geometry-coordinate-geometry-08
+    stem: |
+      Vertices $A(2, 7)$, $B(8, 7)$, and $C(5, 3)$ form $\triangle ABC$ in the coordinate plane. What is the area of $\triangle ABC$?
+    choices:
+      - text: "$12$"
+        correct: true
+      - text: "$24$"
+      - text: "$10$"
+      - text: "$14$"
+    explanation: |
+      1. Base $AB$ is horizontal along $y = 7$: $\text{base} = |8 - 2| = 6$.
+      2. Perpendicular height $h$ is vertical distance from $C(5, 3)$ to $y = 7$: $h = |7 - 3| = 4$.
+      3. Triangle area $= \frac{1}{2} \times \text{base} \times h = \frac{1}{2} \times 6 \times 4 = 12$.
+
+      Common Trap: Forgetting to divide by $2$ gives $6 \times 4 = 24$.
+
+  - id: q-geometry-coordinate-geometry-0009
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Convert point-slope equation $y - 4 = -\frac{2}{3}(x + 6)$ into standard form $Ax + By = C$, where $A, B, C$ are integers and $A > 0$.
+    choices:
+      - text: "$2x + 3y = 0$"
+        correct: true
+      - text: "$2x + 3y = 24$"
+      - text: "$2x - 3y = 0$"
+      - text: "$3x + 2y = 0$"
+    explanation: |
+      1. Multiply entire equation by $3$ to clear fraction:
+         $$3(y - 4) = -2(x + 6) \implies 3y - 12 = -2x - 12$$
+      2. Move $x$-term to left side and constant to right side:
+         $$2x + 3y = -12 + 12 \implies 2x + 3y = 0$$
+
+      Common Trap: Moving $-12$ with sign error leads to $2x + 3y = 24$.
+
+  - id: q-geometry-coordinate-geometry-0010
+    type: direct-computation
+    difficulty: medium
+    figure: geometry-coordinate-geometry-10
+    stem: |
+      Three points $A(-1, k)$, $B(2, 5)$, and $C(5, 11)$ lie on the same straight line in the Cartesian plane. What is the value of $k$?
+    choices:
+      - text: "$-1$"
+        correct: true
+      - text: "$1$"
+      - text: "$-2$"
+      - text: "$2$"
+    explanation: |
+      Collinear points have equal slopes between any pair of points.
+
+      1. Calculate slope of line using points $B$ and $C$:
+         $$m = \frac{11 - 5}{5 - 2} = \frac{6}{3} = 2$$
+      2. Set slope between $A$ and $B$ equal to $2$:
+         $$\frac{5 - k}{2 - (-1)} = 2 \implies \frac{5 - k}{3} = 2 \implies 5 - k = 6$$
+      3. Solve for $k$: $k = 5 - 6 = -1$.
+
+      Common Trap: Sign error solving $5 - k = 6 \implies k = 1$.
+
+  - id: q-geometry-coordinate-geometry-0011
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      What is the standard form equation $Ax + By = C$ of the line perpendicular to $3x - 4y = 12$ that passes through point $(6, -1)$?
+    choices:
+      - text: "$4x + 3y = 21$"
+        correct: true
+      - text: "$3x - 4y = 22$"
+      - text: "$4x - 3y = 27$"
+      - text: "$4x + 3y = 27$"
+    explanation: |
+      1. Slope of $3x - 4y = 12$ is $m_1 = \frac{3}{4}$.
+      2. Perpendicular slope $m_{\perp} = -\frac{4}{3}$.
+      3. Use point-slope form with $(6, -1)$:
+         $$y - (-1) = -\frac{4}{3}(x - 6) \implies y + 1 = -\frac{4}{3}x + 8$$
+      4. Multiply by $3$: $3y + 3 = -4x + 24 \implies 4x + 3y = 21$.
+
+  - id: q-geometry-coordinate-geometry-0012
+    type: direct-computation
+    difficulty: hard
+    figure: geometry-coordinate-geometry-12
+    stem: |
+      Quadrilateral $OABC$ has vertices at $O(0, 0)$, $A(6, 0)$, $B(8, 5)$, and $C(2, 5)$ in the Cartesian plane. What is the area of parallelogram $OABC$?
+    choices:
+      - text: "$30$"
+        correct: true
+      - text: "$15$"
+      - text: "$40$"
+      - text: "$20$"
+    explanation: |
+      1. Base $OA$ lies along the x-axis: $\text{base} = |6 - 0| = 6$.
+      2. Perpendicular height $h$ is the vertical y-distance: $h = 5 - 0 = 5$.
+      3. Parallelogram area $= \text{base} \times h = 6 \times 5 = 30$.
+
+      Common Trap: Dividing by $2$ ($15$) as if calculating triangle area.
+
+  - id: q-geometry-coordinate-geometry-0013
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      The equation of a circle is $x^2 + y^2 - 6x + 8y - 11 = 0$. What are the center coordinates $(h, k)$ and the radius $r$ of the circle?
+    choices:
+      - text: "Center $(3, -4)$, Radius $6$"
+        correct: true
+      - text: "Center $(-3, 4)$, Radius $6$"
+      - text: "Center $(3, -4)$, Radius $36$"
+      - text: "Center $(-6, 8)$, Radius $11$"
+    explanation: |
+      Complete the square for $x$ and $y$:
+
+      1. Group terms: $(x^2 - 6x) + (y^2 + 8y) = 11$.
+      2. Add $(6/2)^2 = 9$ and $(8/2)^2 = 16$ to both sides:
+         $$(x^2 - 6x + 9) + (y^2 + 8y + 16) = 11 + 9 + 16 \implies (x - 3)^2 + (y + 4)^2 = 36$$
+      3. Center $(h, k) = (3, -4)$ and radius $r = \sqrt{36} = 6$.
+
+      Common Trap: Sign errors for center coordinates $(-3, 4)$ or forgetting square root of radius ($36$).
+
+  - id: q-geometry-coordinate-geometry-0014
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      At what point $(x, y)$ do lines $2x + 3y = 13$ and $5x - 2y = 4$ intersect?
+    choices:
+      - text: "$(2, 3)$"
+        correct: true
+      - text: "$(3, 2)$"
+      - text: "$(1, 4)$"
+      - text: "$(-2, 5)$"
+    explanation: |
+      Solve the system of equations by elimination:
+
+      1. Multiply first equation by $2$: $4x + 6y = 26$.
+      2. Multiply second equation by $3$: $15x - 6y = 12$.
+      3. Add equations: $19x = 38 \implies x = 2$.
+      4. Substitute $x = 2$ into $2(2) + 3y = 13 \implies 4 + 3y = 13 \implies 3y = 9 \implies y = 3$.
+      5. Point of intersection is $(2, 3)$.
+
+  - id: q-geometry-coordinate-geometry-0015
+    type: direct-computation
+    difficulty: hard
+    figure: geometry-coordinate-geometry-15
+    stem: |
+      Line $L$ given by equation $3x + 4y = 20$ intersects the axes to form a right triangle with the origin. What is the shortest perpendicular distance from origin $(0, 0)$ to line $L$?
+    choices:
+      - text: "$4$"
+        correct: true
+      - text: "$5$"
+      - text: "$\frac{20}{3}$"
+      - text: "$20$"
+    explanation: |
+      Distance $d$ from point $(x_0, y_0)$ to line $Ax + By + C = 0$:
+      $$d = \frac{|A x_0 + B y_0 + C|}{\sqrt{A^2 + B^2}}$$
+
+      1. For line $3x + 4y - 20 = 0$ and point $(0,0)$:
+         $$d = \frac{|3(0) + 4(0) - 20|}{\sqrt{3^2 + 4^2}} = \frac{|-20|}{\sqrt{9 + 16}} = \frac{20}{\sqrt{25}} = \frac{20}{5} = 4$$
+
+      Common Trap: Reporting the y-intercept ($5$) or x-intercept ($\frac{20}{3}$) instead of perpendicular distance.

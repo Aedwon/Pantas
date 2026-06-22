@@ -1,0 +1,316 @@
+meta:
+  subject: mathematics
+  topic: geometry
+  subtopic: basic-geometric-concepts
+  exams:
+    - upcat
+    - acet
+    - dlsucet
+    - ustet
+    - pupcet
+
+questions:
+  - id: q-geometry-basic-geometric-concepts-0001
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      If Angle $A$ and Angle $B$ are complementary angles and the measure of Angle $A$ is $35^\circ$, what is the measure of Angle $B$?
+    choices:
+      - text: "$55^\circ$"
+        correct: true
+      - text: "$145^\circ$"
+      - text: "$35^\circ$"
+      - text: "$325^\circ$"
+    explanation: |
+      Complementary angles are two angles whose sum is equal to $90^\circ$.
+
+      1. Set up the equation: $\angle A + \angle B = 90^\circ$.
+      2. Substitute the given value: $35^\circ + \angle B = 90^\circ$.
+      3. Solve for $\angle B$: $\angle B = 90^\circ - 35^\circ = 55^\circ$.
+
+      Common Trap: Confusing complementary angles ($90^\circ$) with supplementary angles ($180^\circ$), which leads to $180^\circ - 35^\circ = 145^\circ$.
+
+  - id: q-geometry-basic-geometric-concepts-0002
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      Angle $X$ and Angle $Y$ form a linear pair on a straight line. If the measure of Angle $X$ is $112^\circ$, what is the measure of Angle $Y$?
+    choices:
+      - text: "$68^\circ$"
+        correct: true
+      - text: "$22^\circ$"
+      - text: "$112^\circ$"
+      - text: "$78^\circ$"
+    explanation: |
+      Angles that form a linear pair are supplementary, meaning their sum is $180^\circ$.
+
+      1. Set up the linear pair equation: $\angle X + \angle Y = 180^\circ$.
+      2. Substitute $112^\circ$: $112^\circ + \angle Y = 180^\circ$.
+      3. Subtract $112^\circ$ from $180^\circ$: $\angle Y = 180^\circ - 112^\circ = 68^\circ$.
+
+      Common Trap: Confusing linear pairs with complementary angles gives $90^\circ - 112^\circ = -22^\circ$ or $22^\circ$.
+
+  - id: q-geometry-basic-geometric-concepts-0003
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      Line $AB$ and Line $CD$ intersect at point $P$, forming vertical angles $\angle APC$ and $\angle BPD$. If $\angle APC = 48^\circ$, which statement must be true regarding $\angle BPD$?
+    choices:
+      - text: "$\angle BPD = 48^\circ$ because vertical angles are equal."
+        correct: true
+      - text: "$\angle BPD = 132^\circ$ because vertical angles are supplementary."
+      - text: "$\angle BPD = 42^\circ$ because vertical angles are complementary."
+      - text: "$\angle BPD = 180^\circ$ because vertical angles form a straight line."
+    explanation: |
+      Vertical angles are opposite angles formed by two intersecting lines.
+
+      1. Vertical angles are always equal in measure.
+      2. Since $\angle APC$ and $\angle BPD$ are vertical angles, $\angle BPD = \angle APC = 48^\circ$.
+
+      Common Trap: Mistakenly assuming vertical angles are supplementary ($180^\circ - 48^\circ = 132^\circ$) instead of equal.
+
+  - id: q-geometry-basic-geometric-concepts-0004
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      Which of the following statements correctly distinguishes a ray from a line segment?
+    choices:
+      - text: "A ray has one endpoint and extends infinitely in one direction, whereas a line segment has two fixed endpoints."
+        correct: true
+      - text: "A ray extends infinitely in both directions, whereas a line segment has one endpoint."
+      - text: "A line segment has fixed length, whereas a ray has no endpoints."
+      - text: "A ray can be measured in length, whereas a line segment cannot."
+    explanation: |
+      By standard geometric definitions:
+      - A line segment is bounded by two distinct endpoints and has a measurable length.
+      - A ray starts at one initial endpoint and extends infinitely in one direction (it cannot be measured in full).
+      - A line extends infinitely in both directions with no endpoints.
+
+  - id: q-geometry-basic-geometric-concepts-0005
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      Ray $BD$ is the angle bisector of $\angle ABC$. If $\angle ABD = 28^\circ$, what is the measure of the entire angle $\angle ABC$?
+    choices:
+      - text: "$56^\circ$"
+        correct: true
+      - text: "$14^\circ$"
+      - text: "$28^\circ$"
+      - text: "$62^\circ$"
+    explanation: |
+      An angle bisector divides an angle into two congruent (equal) halves.
+
+      1. Since Ray $BD$ bisects $\angle ABC$, $\angle ABD = \angle DBC = 28^\circ$.
+      2. The full angle $\angle ABC = \angle ABD + \angle DBC = 28^\circ + 28^\circ = 56^\circ$.
+
+      Common Trap: Giving half the angle ($14^\circ$) when asked for the whole angle, or confusing the half with the whole.
+
+  - id: q-geometry-basic-geometric-concepts-0006
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      Point $M$ is the midpoint of line segment $AB$. If $AM = 3x + 4$ and $MB = 5x - 8$, which statement is true regarding the total length of segment $AB$?
+    choices:
+      - text: "The length of $AB$ is $44$."
+        correct: true
+      - text: "The length of $AB$ is $22$."
+      - text: "The length of $AB$ is $6$."
+      - text: "The length of $AB$ is $12$."
+    explanation: |
+      Because $M$ is the midpoint of $AB$, the two sub-segments $AM$ and $MB$ are equal in length.
+
+      1. Set up the equation: $AM = MB \implies 3x + 4 = 5x - 8$.
+      2. Solve for $x$: $2x = 12 \implies x = 6$.
+      3. Calculate segment $AM$: $AM = 3(6) + 4 = 22$.
+      4. Calculate total length $AB$: $AB = AM + MB = 22 + 22 = 44$.
+
+      Common Trap: Stopping after finding half the length ($22$) or after solving for $x$ ($6$) instead of multiplying half by $2$ to find the total segment length.
+
+  - id: q-geometry-basic-geometric-concepts-0007
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      Two angles are complementary. The measure of the larger angle is $15^\circ$ less than twice the measure of the smaller angle. Which statement is true regarding the larger angle?
+    choices:
+      - text: "The larger angle measures $55^\circ$."
+        correct: true
+      - text: "The larger angle measures $35^\circ$."
+      - text: "The larger angle measures $115^\circ$."
+      - text: "The larger angle measures $75^\circ$."
+    explanation: |
+      Let $x$ be the measure of the smaller angle. The larger angle is $2x - 15$.
+
+      1. Since the angles are complementary, their sum is $90^\circ$:
+         $$x + (2x - 15) = 90$$
+      2. Simplify: $3x - 15 = 90 \implies 3x = 105 \implies x = 35^\circ$.
+      3. Calculate the larger angle: $2(35^\circ) - 15^\circ = 70^\circ - 15^\circ = 55^\circ$.
+
+      Common Trap: Reporting the smaller angle ($35^\circ$) instead of the larger angle, or using $180^\circ$ for supplementary angles to get $115^\circ$.
+
+  - id: q-geometry-basic-geometric-concepts-0008
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      An angle measure is given by the algebraic expression $(3x - 10)^\circ$. If $x$ satisfies $30 < x < 60$, which statement best describes the classification of the angle for all possible values of $x$?
+    choices:
+      - text: "The angle can be acute, right, or obtuse, but it is never a reflex angle."
+        correct: true
+      - text: "The angle is strictly acute for all allowed values of $x$."
+      - text: "The angle is strictly obtuse for all allowed values of $x$."
+      - text: "The angle becomes a reflex angle when $x > 50$."
+    explanation: |
+      Evaluate the range of angle values as $x$ increases from $30$ to $60$:
+
+      1. Lower bound ($x \to 30$): $3(30) - 10 = 80^\circ$ (acute).
+      2. Upper bound ($x \to 60$): $3(60) - 10 = 170^\circ$ (obtuse).
+      3. At $x = 33.33$, $3(33.33) - 10 = 90^\circ$ (right angle).
+      4. A reflex angle requires a measure greater than $180^\circ$. Since $80^\circ < \text{angle} < 170^\circ$, it is never reflex.
+
+  - id: q-geometry-basic-geometric-concepts-0009
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      Two intersecting lines form vertical angles with measures $(4x + 18)^\circ$ and $(6x - 14)^\circ$. Which statement is true regarding the measure of an angle adjacent to these vertical angles?
+    choices:
+      - text: "An adjacent angle measures $98^\circ$."
+        correct: true
+      - text: "An adjacent angle measures $82^\circ$."
+      - text: "An adjacent angle measures $8^\circ$."
+      - text: "An adjacent angle measures $16^\circ$."
+    explanation: |
+      1. Vertical angles are equal: $4x + 18 = 6x - 14 \implies 2x = 32 \implies x = 16$.
+      2. Find the vertical angle measure: $4(16) + 18 = 64 + 18 = 82^\circ$.
+      3. An adjacent angle on intersecting lines forms a linear pair with the vertical angle, so they are supplementary ($180^\circ$):
+         $$\text{Adjacent Angle} = 180^\circ - 82^\circ = 98^\circ$$
+
+      Common Trap: Confusing vertical angles with adjacent angles leads to giving $82^\circ$ (equal) or $90^\circ - 82^\circ = 8^\circ$ (complementary).
+
+  - id: q-geometry-basic-geometric-concepts-0010
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      Three adjacent angles $\angle AOB = (2x)^\circ$, $\angle BOC = (3x + 10)^\circ$, and $\angle COD = (x + 20)^\circ$ lie along a straight line $AD$. What is the measure of $\angle BOC$?
+    choices:
+      - text: "$\angle BOC = 85^\circ$"
+        correct: true
+      - text: "$\angle BOC = 25^\circ$"
+      - text: "$\angle BOC = 50^\circ$"
+      - text: "$\angle BOC = 45^\circ$"
+    explanation: |
+      Angles lying on a straight line sum to $180^\circ$.
+
+      1. Set up the equation: $(2x) + (3x + 10) + (x + 20) = 180$.
+      2. Combine like terms: $6x + 30 = 180 \implies 6x = 150 \implies x = 25$.
+      3. Substitute $x = 25$ into $\angle BOC$:
+         $$\angle BOC = 3(25) + 10 = 75 + 10 = 85^\circ$$
+
+      Common Trap: Reporting $x = 25^\circ$ directly or calculating $\angle AOB = 50^\circ$ instead of $\angle BOC$.
+
+  - id: q-geometry-basic-geometric-concepts-0011
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      Angles $\angle AOC$ and $\angle BOC$ form a linear pair. Ray $OX$ bisects $\angle AOC$ and Ray $OY$ bisects $\angle BOC$. Which statement accurately describes the geometric relationship between Ray $OX$ and Ray $OY$?
+    choices:
+      - text: "Ray $OX$ and Ray $OY$ are perpendicular to each other."
+        correct: true
+      - text: "Ray $OX$ and Ray $OY$ are parallel to each other."
+      - text: "Ray $OX$ and Ray $OY$ form a straight angle of $180^\circ$."
+      - text: "Ray $OX$ and Ray $OY$ form an angle of $45^\circ$."
+    explanation: |
+      Let $\angle AOC = 2a$ and $\angle BOC = 2b$.
+
+      1. Since $\angle AOC$ and $\angle BOC$ form a linear pair, $2a + 2b = 180^\circ$.
+      2. Divide by $2$: $a + b = 90^\circ$.
+      3. Ray $OX$ bisects $\angle AOC$, so $\angle XOC = a$.
+      4. Ray $OY$ bisects $\angle BOC$, so $\angle COY = b$.
+      5. The angle between the two bisectors is $\angle XOY = \angle XOC + \angle COY = a + b = 90^\circ$.
+      6. An angle of $90^\circ$ means Ray $OX$ and Ray $OY$ are perpendicular.
+
+  - id: q-geometry-basic-geometric-concepts-0012
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      The measure of the supplement of an angle is equal to four times the measure of its complement. Which statement is true regarding this angle?
+    choices:
+      - text: "The angle measures $60^\circ$, which is an acute angle."
+        correct: true
+      - text: "The angle measures $30^\circ$, which is an acute angle."
+      - text: "The angle measures $45^\circ$, which is an acute angle."
+      - text: "The angle measures $120^\circ$, which is an obtuse angle."
+    explanation: |
+      Let $x$ be the measure of the angle.
+      - Complement $= 90 - x$
+      - Supplement $= 180 - x$
+
+      1. Set up the equation: $180 - x = 4(90 - x)$.
+      2. Expand: $180 - x = 360 - 4x$.
+      3. Solve for $x$: $3x = 180 \implies x = 60^\circ$.
+      4. Since $60^\circ < 90^\circ$, it is an acute angle.
+
+      Common Trap: Setting $180 - x = 3(90 - x)$ leads to $x = 30^\circ$.
+
+  - id: q-geometry-basic-geometric-concepts-0013
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      Points $A, B, C,$ and $D$ lie in order along line segment $AD$. Point $B$ is the midpoint of segment $AC$, and point $C$ is the midpoint of segment $BD$. If the total length $AD = 36\text{ cm}$, what is the length of segment $BC$?
+    choices:
+      - text: "The length of $BC$ is $12\text{ cm}$."
+        correct: true
+      - text: "The length of $BC$ is $18\text{ cm}$."
+      - text: "The length of $BC$ is $9\text{ cm}$."
+      - text: "The length of $BC$ is $24\text{ cm}$."
+    explanation: |
+      Let the length of segment $AB$ be $x$.
+
+      1. Since $B$ is the midpoint of $AC$, $BC = AB = x$, so $AC = 2x$.
+      2. Since $C$ is the midpoint of $BD$, $CD = BC = x$.
+      3. The total segment $AD = AB + BC + CD = x + x + x = 3x$.
+      4. Given $AD = 36\text{ cm}$: $3x = 36 \implies x = 12\text{ cm}$.
+      5. Thus, $BC = x = 12\text{ cm}$.
+
+      Common Trap: Assuming $B$ is the midpoint of the entire segment $AD$, which incorrectly yields $BC = 36 / 2 = 18\text{ cm}$.
+
+  - id: q-geometry-basic-geometric-concepts-0014
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      Three rays meeting at point $O$ form angles $\angle AOB = (4x - 5)^\circ$, $\angle BOC = (2x + 15)^\circ$, and reflex angle $\angle COA = (10x - 10)^\circ$. Which statement is true regarding the measure of $\angle AOB$?
+    choices:
+      - text: "The measure of $\angle AOB$ is $85^\circ$."
+        correct: true
+      - text: "The measure of $\angle AOB$ is $60^\circ$."
+      - text: "The measure of $\angle AOB$ is $215^\circ$."
+      - text: "The measure of $\angle AOB$ is $22.5^\circ$."
+    explanation: |
+      The sum of angles around a single point is $360^\circ$.
+
+      1. Set up equation: $(4x - 5) + (2x + 15) + (10x - 10) = 360$.
+      2. Combine like terms: $16x = 360 \implies x = 22.5$.
+      3. Calculate $\angle AOB$:
+         $$\angle AOB = 4(22.5) - 5 = 90 - 5 = 85^\circ$$
+
+      Common Trap: Confusing $\angle AOB$ with $\angle BOC = 2(22.5) + 15 = 60^\circ$ or reporting $x = 22.5^\circ$.
+
+  - id: q-geometry-basic-geometric-concepts-0015
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      Angle $P$ and Angle $Q$ are supplementary angles. The measure of Angle $P$ is $20^\circ$ less than three times the measure of Angle $Q$. If Angle $R$ is complementary to Angle $Q$, what is the measure of Angle $R$?
+    choices:
+      - text: "The measure of Angle $R$ is $40^\circ$."
+        correct: true
+      - text: "The measure of Angle $R$ is $50^\circ$."
+      - text: "The measure of Angle $R$ is $130^\circ$."
+      - text: "The measure of Angle $R$ is $140^\circ$."
+    explanation: |
+      1. Since $P$ and $Q$ are supplementary: $P + Q = 180$.
+      2. Express $P$ in terms of $Q$: $P = 3Q - 20$.
+      3. Substitute into the supplementary equation:
+         $$(3Q - 20) + Q = 180 \implies 4Q - 20 = 180 \implies 4Q = 200 \implies Q = 50^\circ$$
+      4. Find $P$: $P = 180 - 50 = 130^\circ$.
+      5. Angle $R$ is complementary to Angle $Q$:
+         $$R = 90^\circ - Q = 90^\circ - 50^\circ = 40^\circ$$
+
+      Common Trap: Stopping at Angle $Q = 50^\circ$, or finding the supplement of $Q$ ($140^\circ$) instead of the complement ($40^\circ$).

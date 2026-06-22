@@ -1,0 +1,291 @@
+meta:
+  subject: mathematics
+  topic: algebra
+  subtopic: word-problems
+  exams: [upcat, acet, dlsucet, ustet, pupcet]
+questions:
+  - id: q-algebra-word-problems-0001
+    type: word-problem
+    difficulty: easy
+    stem: |
+      Kuya Ben is 4 years older than his sister Maya. If the sum of their ages is 24, how old is Maya?
+    choices:
+      - text: $10\text{ years old}$
+        correct: true
+      - text: $14\text{ years old}$
+      - text: $12\text{ years old}$
+      - text: $8\text{ years old}$
+    explanation: |
+      Let Maya's age be $m$. Then Ben's age is $m + 4$.
+      The sum of their ages is $m + (m + 4) = 24 \implies 2m + 4 = 24 \implies 2m = 20 \implies m = 10$.
+      Maya is 10 years old. Ben is 14 years old.
+
+  - id: q-algebra-word-problems-0002
+    type: word-problem
+    difficulty: easy
+    stem: |
+      A tricycle travels from the public market to Barangay San Jose at a constant speed of $30\text{ km/h}$. How many hours will it take to cover a distance of $45\text{ km}$?
+    choices:
+      - text: $1.5\text{ hours}$
+        correct: true
+      - text: $1.33\text{ hours}$
+      - text: $2\text{ hours}$
+      - text: $0.67\text{ hours}$
+    explanation: |
+      Using the distance formula $d = rt$, we solve for time $t = \frac{d}{r} = \frac{45\text{ km}}{30\text{ km/h}} = 1.5\text{ hours}$.
+
+  - id: q-algebra-word-problems-0003
+    type: word-problem
+    difficulty: easy
+    stem: |
+      Mang Juan can paint a barangay wall in 6 hours, while Mang Pedro can paint the same wall in 3 hours. How many hours will it take them to paint the wall if they work together?
+    choices:
+      - text: $2\text{ hours}$
+        correct: true
+      - text: $4.5\text{ hours}$
+      - text: $9\text{ hours}$
+      - text: $3\text{ hours}$
+    explanation: |
+      Mang Juan's rate is $\frac{1}{6}$ wall per hour and Mang Pedro's rate is $\frac{1}{3}$ wall per hour.
+      Combined rate $= \frac{1}{6} + \frac{1}{3} = \frac{1}{6} + \frac{2}{6} = \frac{3}{6} = \frac{1}{2}$ wall per hour.
+      Time to complete together $= \frac{1}{1/2} = 2\text{ hours}$.
+
+  - id: q-algebra-word-problems-0004
+    type: word-problem
+    difficulty: easy
+    stem: |
+      A sari-sari store owner has 10 liters of a $10\%$ sugar syrup solution. How many liters of pure sugar are in this solution?
+    choices:
+      - text: $1\text{ liter}$
+        correct: true
+      - text: $0.1\text{ liters}$
+      - text: $9\text{ liters}$
+      - text: $2\text{ liters}$
+    explanation: |
+      Amount of pure sugar $= 10\text{ liters} \times 0.10 = 1\text{ liter}$. The remaining 9 liters is water.
+
+  - id: q-algebra-word-problems-0005
+    type: word-problem
+    difficulty: easy
+    stem: |
+      Aling Nena has a coin pouch containing only 1-peso coins and 5-peso coins. She has a total of 15 coins worth P47. How many 5-peso coins does she have?
+    choices:
+      - text: $8$
+        correct: true
+      - text: $7$
+      - text: $9$
+      - text: $10$
+    explanation: |
+      Let $y$ be the number of 5-peso coins. Then the number of 1-peso coins is $15 - y$.
+      Total value: $1(15 - y) + 5y = 47 \implies 15 + 4y = 47 \implies 4y = 32 \implies y = 8$.
+      She has 8 5-peso coins (P40) and 7 1-peso coins (P7).
+
+  - id: q-algebra-word-problems-0006
+    type: word-problem
+    difficulty: easy
+    stem: |
+      Lito has 20 coins consisting of 5-peso coins and 10-peso coins. The total value of the coins is P160. How many 10-peso coins does Lito have?
+    choices:
+      - text: $12$
+        correct: true
+      - text: $8$
+      - text: $10$
+      - text: $14$
+    explanation: |
+      Let $t$ be the number of 10-peso coins. The number of 5-peso coins is $20 - t$.
+      Total value: $5(20 - t) + 10t = 160 \implies 100 + 5t = 160 \implies 5t = 60 \implies t = 12$.
+      Lito has 12 10-peso coins (P120) and 8 5-peso coins (P40).
+
+  - id: q-algebra-word-problems-0007
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A mother is currently 4 times as old as her daughter Ana. In 6 years, the mother will be 3 times as old as Ana. How old is Ana now?
+    choices:
+      - text: $12\text{ years old}$
+        correct: true
+      - text: $48\text{ years old}$
+      - text: $10\text{ years old}$
+      - text: $16\text{ years old}$
+    explanation: |
+      Let Ana's current age be $a$. Her mother's current age is $4a$.
+      In 6 years, Ana will be $a + 6$ and mother will be $4a + 6$.
+      Set up equation: $4a + 6 = 3(a + 6) \implies 4a + 6 = 3a + 18 \implies a = 12$.
+      Ana is 12 years old now (and her mother is 48).
+
+  - id: q-algebra-word-problems-0008
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A jeepney leaves Terminal A traveling at $40\text{ km/h}$. One hour later, an express van leaves Terminal A along the exact same route traveling at $60\text{ km/h}$. How many hours after the van starts will it catch up to the jeepney?
+    choices:
+      - text: $2\text{ hours}$
+        correct: true
+      - text: $3\text{ hours}$
+      - text: $1\text{ hour}$
+      - text: $4\text{ hours}$
+    explanation: |
+      In the 1-hour head start, the jeepney covers $40\text{ km}$.
+      The relative closing speed of the van is $60\text{ km/h} - 40\text{ km/h} = 20\text{ km/h}$.
+      Time for van to catch up $= \frac{40\text{ km}}{20\text{ km/h}} = 2\text{ hours}$.
+
+  - id: q-algebra-word-problems-0009
+    type: word-problem
+    difficulty: medium
+    stem: |
+      Ana can complete a research report in 8 hours. When Ana and Bea work together, they can complete the report in 3 hours. How many hours would it take Bea to complete the report alone?
+    choices:
+      - text: $4.8\text{ hours}$
+        correct: true
+      - text: $5\text{ hours}$
+      - text: $5.5\text{ hours}$
+      - text: $2.4\text{ hours}$
+    explanation: |
+      Ana's work rate is $\frac{1}{8}$ report per hour. Let Bea's rate be $\frac{1}{B}$.
+      Combined rate: $\frac{1}{8} + \frac{1}{B} = \frac{1}{3} \implies \frac{1}{B} = \frac{1}{3} - \frac{1}{8} = \frac{8 - 3}{24} = \frac{5}{24}$.
+      Time for Bea alone $= \frac{24}{5} = 4.8\text{ hours}$.
+
+  - id: q-algebra-word-problems-0010
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A chemistry teacher in Cebu needs 20 liters of a $20\%$ salt solution. She has a $10\%$ salt solution and a $30\%$ salt solution available. How many liters of the $30\%$ salt solution should she mix with the $10\%$ solution to obtain the desired mixture?
+    choices:
+      - text: $10\text{ liters}$
+        correct: true
+      - text: $5\text{ liters}$
+      - text: $15\text{ liters}$
+      - text: $8\text{ liters}$
+    explanation: |
+      Let $x$ be the liters of $30\%$ solution. Then $20 - x$ is the volume of $10\%$ solution.
+      Equation for salt mass: $0.30x + 0.10(20 - x) = 0.20(20)$
+      $0.30x + 2 - 0.10x = 4 \implies 0.20x = 2 \implies x = 10\text{ liters}$.
+
+  - id: q-algebra-word-problems-0011
+    type: word-problem
+    difficulty: medium
+    stem: |
+      The sum of the ages of Carlo and his father is 56. Four years ago, the father was 3 times as old as Carlo was then. How old is Carlo now?
+    choices:
+      - text: $16\text{ years old}$
+        correct: true
+      - text: $40\text{ years old}$
+      - text: $14\text{ years old}$
+      - text: $18\text{ years old}$
+    explanation: |
+      Let Carlo's current age be $c$. His father's current age is $56 - c$.
+      Four years ago: Carlo was $c - 4$, father was $(56 - c) - 4 = 52 - c$.
+      Equation: $52 - c = 3(c - 4) \implies 52 - c = 3c - 12 \implies 4c = 64 \implies c = 16$.
+      Carlo is 16 years old now (father is 40).
+
+  - id: q-algebra-word-problems-0012
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A jeepney driver has P280 in 5-peso coins and 10-peso coins. If the number of 5-peso coins is 8 more than twice the number of 10-peso coins, how many 10-peso coins does he have?
+    choices:
+      - text: $12$
+        correct: true
+      - text: $32$
+      - text: $10$
+      - text: $16$
+    explanation: |
+      Let $t$ be the number of 10-peso coins. The number of 5-peso coins is $2t + 8$.
+      Total value: $10t + 5(2t + 8) = 280 \implies 10t + 10t + 40 = 280 \implies 20t = 240 \implies t = 12$.
+      He has 12 10-peso coins (and $2(12)+8 = 32$ 5-peso coins).
+
+  - id: q-algebra-word-problems-0013
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Five years ago, Mr. Santos was 5 times as old as his son Mark. In 10 years, Mr. Santos will be twice as old as Mark. How old is Mark today?
+    choices:
+      - text: $10\text{ years old}$
+        correct: true
+      - text: $30\text{ years old}$
+      - text: $15\text{ years old}$
+      - text: $8\text{ years old}$
+    explanation: |
+      Let Mark's current age be $m$ and Mr. Santos' current age be $s$.
+      5 years ago: $s - 5 = 5(m - 5) \implies s = 5m - 20$.
+      In 10 years: $s + 10 = 2(m + 10) \implies s = 2m + 10$.
+      Equating $s$: $5m - 20 = 2m + 10 \implies 3m = 30 \implies m = 10$. Mark is 10 years old (Mr. Santos is 30).
+
+  - id: q-algebra-word-problems-0014
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Two motorized outrigger boats (bangkas) start from the same port in Batangas at the same time, traveling in opposite directions. One boat travels at an average speed of $25\text{ km/h}$ and the other at $35\text{ km/h}$. After how many hours will they be $180\text{ km}$ apart?
+    choices:
+      - text: $3\text{ hours}$
+        correct: true
+      - text: $18\text{ hours}$
+      - text: $4.5\text{ hours}$
+      - text: $2\text{ hours}$
+    explanation: |
+      Since they move in opposite directions, their speeds add up: combined speed $= 25\text{ km/h} + 35\text{ km/h} = 60\text{ km/h}$.
+      Time $= \frac{\text{Distance}}{\text{Combined Speed}} = \frac{180\text{ km}}{60\text{ km/h}} = 3\text{ hours}$.
+
+  - id: q-algebra-word-problems-0015
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Pipe A can fill a water tank in Davao in 4 hours, while Pipe B can fill the same tank in 6 hours. Drain Pipe C can empty the full tank in 12 hours. If all three pipes are opened at the same time when the tank is empty, how many hours will it take to fill the tank?
+    choices:
+      - text: $3\text{ hours}$
+        correct: true
+      - text: $2.4\text{ hours}$
+      - text: $4\text{ hours}$
+      - text: $6\text{ hours}$
+    explanation: |
+      Net rate $= \frac{1}{4} + \frac{1}{6} - \frac{1}{12} = \frac{3}{12} + \frac{2}{12} - \frac{1}{12} = \frac{4}{12} = \frac{1}{3}$ tank per hour.
+      Time required $= \frac{1}{1/3} = 3\text{ hours}$.
+
+  - id: q-algebra-word-problems-0016
+    type: word-problem
+    difficulty: hard
+    stem: |
+      How many liters of pure water must be added to 12 liters of a $25\%$ sugar solution to dilute it into a $10\%$ sugar solution?
+    choices:
+      - text: $18\text{ liters}$
+        correct: true
+      - text: $30\text{ liters}$
+      - text: $15\text{ liters}$
+      - text: $6\text{ liters}$
+    explanation: |
+      Amount of pure sugar in original solution $= 12 \times 0.25 = 3\text{ liters}$.
+      Let $w$ be the liters of pure water added. Total solution volume $= 12 + w$.
+      Set concentration to $10\%$: $\frac{3}{12 + w} = 0.10 \implies 3 = 0.10(12 + w) \implies 30 = 12 + w \implies w = 18\text{ liters}$.
+
+  - id: q-algebra-word-problems-0017
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A tricycle driver travels $12\text{ km}$ uphill from the town center to a mountain village at a speed of $15\text{ km/h}$. On the return trip downhill along the exact same route, his speed increases to $30\text{ km/h}$. What is the average speed of the tricycle for the entire round trip?
+    choices:
+      - text: $20\text{ km/h}$
+        correct: true
+      - text: $22.5\text{ km/h}$
+      - text: $25\text{ km/h}$
+      - text: $18\text{ km/h}$
+    explanation: |
+      Time uphill $= \frac{12}{15} = 0.8\text{ hours}$. Time downhill $= \frac{12}{30} = 0.4\text{ hours}$.
+      Total distance $= 12 + 12 = 24\text{ km}$. Total time $= 0.8 + 0.4 = 1.2\text{ hours}$.
+      Average speed $= \frac{\text{Total Distance}}{\text{Total Time}} = \frac{24}{1.2} = 20\text{ km/h}$. (Note: taking the arithmetic mean $\frac{15+30}{2} = 22.5$ is a common distractor error).
+
+  - id: q-algebra-word-problems-0018
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A vendor in Divisoria has P430 in a pouch containing 5-peso coins, 10-peso coins, and 20-peso coins. There are equal numbers of 5-peso and 10-peso coins, and the number of 20-peso coins is 3 less than the number of 5-peso coins. How many total coins are in the pouch?
+    choices:
+      - text: $39\text{ coins}$
+        correct: true
+      - text: $14\text{ coins}$
+      - text: $42\text{ coins}$
+      - text: $36\text{ coins}$
+    explanation: |
+      Let $x$ be the number of 5-peso coins and 10-peso coins. The number of 20-peso coins is $x - 3$.
+      Total value: $5x + 10x + 20(x - 3) = 430 \implies 35x - 60 = 430 \implies 35x = 490 \implies x = 14$.
+      5-peso coins $= 14$, 10-peso coins $= 14$, 20-peso coins $= 14 - 3 = 11$.
+      Total coins $= 14 + 14 + 11 = 39\text{ coins}$.

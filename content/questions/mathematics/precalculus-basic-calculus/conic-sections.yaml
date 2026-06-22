@@ -1,0 +1,215 @@
+meta:
+  subject: mathematics
+  topic: precalculus-basic-calculus
+  subtopic: conic-sections
+  exams: [upcat, acet, dlsucet, ustet, pupcet]
+questions:
+  - id: q-precalculus-basic-calculus-conic-sections-0001
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Find the center and radius of the circle given by the equation $(x - 3)^2 + (y + 4)^2 = 25$.
+    choices:
+      - text: Center $(3, -4)$, radius $r = 5$
+        correct: true
+      - text: Center $(-3, 4)$, radius $r = 25$
+      - text: Center $(3, -4)$, radius $r = 25$
+      - text: Center $(-3, 4)$, radius $r = 5$
+    explanation: |
+      In standard form $(x - h)^2 + (y - k)^2 = r^2$, the center is $(h, k)$ and the radius is $r$.
+      Here $h = 3$, $k = -4$, and $r = \sqrt{25} = 5$, giving center $(3, -4)$ and radius $r = 5$.
+
+  - id: q-precalculus-basic-calculus-conic-sections-0002
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      Which conic section is represented by the general equation $4x^2 + 4y^2 - 8x + 16y - 5 = 0$?
+    choices:
+      - text: Circle
+        correct: true
+      - text: Parabola
+      - text: Ellipse
+      - text: Hyperbola
+    explanation: |
+      In the general form $Ax^2 + Cy^2 + Dx + Ey + F = 0$, both squared terms are present and have equal coefficients ($A = C = 4$), which identifies the conic section as a circle.
+
+  - id: q-precalculus-basic-calculus-conic-sections-0003
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Find the vertex of the parabola $y = 2(x - 1)^2 + 3$.
+    choices:
+      - text: $(1, 3)$
+        correct: true
+      - text: $(-1, 3)$
+      - text: $(1, -3)$
+      - text: $(2, 3)$
+    explanation: |
+      In vertex form $y = a(x - h)^2 + k$, the vertex is $(h, k)$. For $y = 2(x - 1)^2 + 3$, the vertex is $(1, 3)$.
+
+  - id: q-precalculus-basic-calculus-conic-sections-0004
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      Which conic section is defined as the locus of all points in a plane such that the difference of their distances from two fixed points (foci) is constant?
+    choices:
+      - text: Hyperbola
+        correct: true
+      - text: Ellipse
+      - text: Parabola
+      - text: Circle
+    explanation: |
+      A hyperbola is defined by a constant distance difference $|d_1 - d_2| = 2a$. For an ellipse, the sum of distances is constant, while for a parabola, the distance to a focus equals the distance to a directrix.
+
+  - id: q-precalculus-basic-calculus-conic-sections-0005
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Determine the direction in which the parabola $x = -3(y + 2)^2 + 5$ opens.
+    choices:
+      - text: Left
+        correct: true
+      - text: Right
+      - text: Down
+      - text: Up
+    explanation: |
+      Since $x$ is expressed as a quadratic in $y$ ($x = a(y - k)^2 + h$), the parabola opens horizontally. Because $a = -3 < 0$, it opens to the left.
+
+  - id: q-precalculus-basic-calculus-conic-sections-0006
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Find the lengths of the major axis and minor axis for the ellipse $\frac{x^2}{16} + \frac{y^2}{9} = 1$.
+    choices:
+      - text: Major axis $= 8$, Minor axis $= 6$
+        correct: true
+      - text: Major axis $= 16$, Minor axis $= 9$
+      - text: Major axis $= 4$, Minor axis $= 3$
+      - text: Major axis $= 32$, Minor axis $= 18$
+    explanation: |
+      Here $a^2 = 16 \implies a = 4$ and $b^2 = 9 \implies b = 3$.
+      Length of major axis $= 2a = 2(4) = 8$. Length of minor axis $= 2b = 2(3) = 6$.
+
+  - id: q-precalculus-basic-calculus-conic-sections-0007
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Find the focal distance $c$ (distance from center to either focus) for the ellipse $\frac{x^2}{25} + \frac{y^2}{9} = 1$.
+    choices:
+      - text: $c = 4$
+        correct: true
+      - text: $c = \sqrt{34}$
+      - text: $c = 16$
+      - text: $c = 2$
+    explanation: |
+      For an ellipse, $a^2 = 25$ and $b^2 = 9$. The focal distance relation is $c^2 = a^2 - b^2$:
+      $c^2 = 25 - 9 = 16 \implies c = \sqrt{16} = 4$.
+
+  - id: q-precalculus-basic-calculus-conic-sections-0008
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Find the focal distance $c$ (distance from center to either focus) for the hyperbola $\frac{x^2}{16} - \frac{y^2}{9} = 1$.
+    choices:
+      - text: $c = 5$
+        correct: true
+      - text: $c = \sqrt{7}$
+      - text: $c = 25$
+      - text: $c = 7$
+    explanation: |
+      For a hyperbola, $a^2 = 16$ and $b^2 = 9$. The focal distance relation is $c^2 = a^2 + b^2$:
+      $c^2 = 16 + 9 = 25 \implies c = \sqrt{25} = 5$.
+
+  - id: q-precalculus-basic-calculus-conic-sections-0009
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Find the equations of the asymptotes for the hyperbola $\frac{x^2}{9} - \frac{y^2}{16} = 1$.
+    choices:
+      - text: $y = \pm \frac{4}{3}x$
+        correct: true
+      - text: $y = \pm \frac{3}{4}x$
+      - text: $y = \pm \frac{16}{9}x$
+      - text: $y = \pm \frac{9}{16}x$
+    explanation: |
+      For a horizontal hyperbola centered at $(0,0)$, $a^2 = 9 \implies a = 3$ and $b^2 = 16 \implies b = 4$.
+      The asymptote equations are $y = \pm \frac{b}{a}x = \pm \frac{4}{3}x$.
+
+  - id: q-precalculus-basic-calculus-conic-sections-0010
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      Given the general second-degree equation $Ax^2 + Cy^2 + Dx + Ey + F = 0$ (with no $xy$ term), which condition guarantees that the graph is a hyperbola?
+    choices:
+      - text: $A$ and $C$ have opposite signs ($AC < 0$).
+        correct: true
+      - text: $A = C$ and both are non-zero.
+      - text: $A \neq C$ and both have the same sign ($AC > 0$).
+      - text: Either $A = 0$ or $C = 0$, but not both.
+    explanation: |
+      When $A$ and $C$ have opposite signs, their product $AC < 0$, which defines a hyperbola. If $A = C$, it is a circle. If $A \neq C$ with $AC > 0$, it is an ellipse. If one coefficient is zero, it is a parabola.
+
+  - id: q-precalculus-basic-calculus-conic-sections-0011
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Convert the circle equation $x^2 + y^2 - 6x + 4y - 12 = 0$ into standard form by completing the square, and find its radius.
+    choices:
+      - text: $(x - 3)^2 + (y + 2)^2 = 25$ with radius $r = 5$
+        correct: true
+      - text: $(x - 3)^2 + (y + 2)^2 = 12$ with radius $r = \sqrt{12}$
+      - text: $(x + 3)^2 + (y - 2)^2 = 25$ with radius $r = 5$
+      - text: $(x - 6)^2 + (y + 4)^2 = 25$ with radius $r = 5$
+    explanation: |
+      Group terms and complete the squares:
+      $(x^2 - 6x + 9) + (y^2 + 4y + 4) = 12 + 9 + 4$
+      $(x - 3)^2 + (y + 2)^2 = 25$.
+      Radius $r = \sqrt{25} = 5$.
+
+  - id: q-precalculus-basic-calculus-conic-sections-0012
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Find the vertex of the parabola $y = x^2 - 8x + 19$ by completing the square.
+    choices:
+      - text: $(4, 3)$
+        correct: true
+      - text: $(-4, 3)$
+      - text: $(4, -3)$
+      - text: $(8, 19)$
+    explanation: |
+      Complete the square on $x$:
+      $y = (x^2 - 8x + 16) - 16 + 19 = (x - 4)^2 + 3$.
+      The vertex is $(h, k) = (4, 3)$.
+
+  - id: q-precalculus-basic-calculus-conic-sections-0013
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Find the coordinates of the foci of the ellipse $\frac{(x - 2)^2}{25} + \frac{(y + 1)^2}{16} = 1$.
+    choices:
+      - text: $(5, -1)$ and $(-1, -1)$
+        correct: true
+      - text: $(2, 2)$ and $(2, -4)$
+      - text: $(7, -1)$ and $(-3, -1)$
+      - text: $(2, 4)$ and $(2, -6)$
+    explanation: |
+      Center is $(h, k) = (2, -1)$. Since $a^2 = 25 > b^2 = 16$, the major axis is horizontal.
+      $c^2 = a^2 - b^2 = 25 - 16 = 9 \implies c = 3$.
+      Foci are located at $(h \pm c, k) = (2 \pm 3, -1)$, which gives $(5, -1)$ and $(-1, -1)$.
+
+  - id: q-precalculus-basic-calculus-conic-sections-0014
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Find the focus of the parabola $y^2 = 12x$.
+    choices:
+      - text: $(3, 0)$
+        correct: true
+      - text: $(0, 3)$
+      - text: $(12, 0)$
+      - text: $(-3, 0)$
+    explanation: |
+      The standard equation for a horizontal parabola centered at the origin is $y^2 = 4px$.
+      Here $4p = 12 \implies p = 3$.
+      Since $p > 0$ and the parabola opens to the right, the focus is at $(p, 0) = (3, 0)$.

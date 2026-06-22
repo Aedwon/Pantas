@@ -1,0 +1,219 @@
+meta:
+  subject: mathematics
+  topic: precalculus-basic-calculus
+  subtopic: basic-integrals
+  exams: [upcat, acet, dlsucet, ustet, pupcet]
+questions:
+  - id: q-precalculus-basic-calculus-basic-integrals-0001
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Find the indefinite integral $\int x^3 \, dx$.
+    choices:
+      - text: $\frac{x^4}{4} + C$
+        correct: true
+      - text: $3x^2 + C$
+      - text: $\frac{x^3}{3} + C$
+      - text: $4x^4 + C$
+    explanation: |
+      Using the power rule for integration $\int x^n \, dx = \frac{x^{n+1}}{n+1} + C$ with $n = 3$:
+      $\int x^3 \, dx = \frac{x^{3+1}}{3+1} + C = \frac{x^4}{4} + C$.
+
+  - id: q-precalculus-basic-calculus-basic-integrals-0002
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Find the indefinite integral $\int 6x^2 \, dx$.
+    choices:
+      - text: $2x^3 + C$
+        correct: true
+      - text: $12x + C$
+      - text: $6x^3 + C$
+      - text: $3x^3 + C$
+    explanation: |
+      Apply power rule: $6 \cdot \frac{x^3}{3} + C = 2x^3 + C$. (Note: $12x + C$ is the derivative, not the integral).
+
+  - id: q-precalculus-basic-calculus-basic-integrals-0003
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Find the indefinite integral $\int 5 \, dx$.
+    choices:
+      - text: $5x + C$
+        correct: true
+      - text: $0$
+      - text: $5 + C$
+      - text: $\frac{5x^2}{2} + C$
+    explanation: |
+      The integral of a constant $k$ with respect to $x$ is $kx + C$, so $\int 5 \, dx = 5x + C$.
+
+  - id: q-precalculus-basic-calculus-basic-integrals-0004
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Evaluate the definite integral $\int_0^3 2x \, dx$.
+    choices:
+      - text: $9$
+        correct: true
+      - text: $6$
+      - text: $18$
+      - text: $3$
+    explanation: |
+      The antiderivative of $2x$ is $x^2$.
+      Evaluate from $0$ to $3$: $[x^2]_0^3 = 3^2 - 0^2 = 9 - 0 = 9$.
+
+  - id: q-precalculus-basic-calculus-basic-integrals-0005
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      What is the result for the indefinite integral $\int \frac{1}{x} \, dx$ (where $x \neq 0$)?
+    choices:
+      - text: $\ln|x| + C$
+        correct: true
+      - text: $\frac{x^0}{0} + C$
+      - text: $-\frac{1}{x^2} + C$
+      - text: $1 + C$
+    explanation: |
+      The power rule cannot be used when $n = -1$ because it leads to division by zero. By definition, $\int \frac{1}{x} \, dx = \ln|x| + C$.
+
+  - id: q-precalculus-basic-calculus-basic-integrals-0006
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Find the indefinite integral $\int (3x^2 - 4x + 5) \, dx$.
+    choices:
+      - text: $x^3 - 2x^2 + 5x + C$
+        correct: true
+      - text: $6x - 4 + C$
+      - text: $x^3 - 4x^2 + 5x + C$
+      - text: $x^3 - 2x^2 + 5 + C$
+    explanation: |
+      Integrate term by term:
+      $\int 3x^2 \, dx = x^3$, $\int -4x \, dx = -2x^2$, and $\int 5 \, dx = 5x$.
+      Combining gives $x^3 - 2x^2 + 5x + C$.
+
+  - id: q-precalculus-basic-calculus-basic-integrals-0007
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Rewrite $\sqrt{x}$ as $x^{1/2}$ and find the indefinite integral $\int \sqrt{x} \, dx$.
+    choices:
+      - text: $\frac{2}{3}x^{3/2} + C$
+        correct: true
+      - text: $\frac{1}{2\sqrt{x}} + C$
+      - text: $\frac{3}{2}x^{3/2} + C$
+      - text: $\frac{2}{3}x^{1/2} + C$
+    explanation: |
+      Rewrite $\sqrt{x}$ as $x^{1/2}$. Apply power rule:
+      $\int x^{1/2} \, dx = \frac{x^{(1/2)+1}}{(1/2)+1} + C = \frac{x^{3/2}}{3/2} + C = \frac{2}{3}x^{3/2} + C$.
+
+  - id: q-precalculus-basic-calculus-basic-integrals-0008
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Rewrite $\frac{1}{x^3}$ as $x^{-3}$ and find the indefinite integral $\int \frac{1}{x^3} \, dx$.
+    choices:
+      - text: $-\frac{1}{2x^2} + C$
+        correct: true
+      - text: $-\frac{3}{x^4} + C$
+      - text: $\frac{1}{2x^2} + C$
+      - text: $-\frac{1}{4x^4} + C$
+    explanation: |
+      Rewrite $\frac{1}{x^3}$ as $x^{-3}$. Apply power rule with $n = -3$:
+      $\int x^{-3} \, dx = \frac{x^{-3+1}}{-3+1} + C = \frac{x^{-2}}{-2} + C = -\frac{1}{2x^2} + C$.
+
+  - id: q-precalculus-basic-calculus-basic-integrals-0009
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Evaluate the definite integral $\int_1^2 (3x^2 + 1) \, dx$.
+    choices:
+      - text: $8$
+        correct: true
+      - text: $10$
+      - text: $12$
+      - text: $7$
+    explanation: |
+      Antiderivative $F(x) = x^3 + x$.
+      Evaluate at upper limit $x = 2$: $F(2) = 2^3 + 2 = 10$.
+      Evaluate at lower limit $x = 1$: $F(1) = 1^3 + 1 = 2$.
+      Subtract: $F(2) - F(1) = 10 - 2 = 8$.
+
+  - id: q-precalculus-basic-calculus-basic-integrals-0010
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Evaluate the definite integral $\int_0^4 \sqrt{x} \, dx$.
+    choices:
+      - text: $\frac{16}{3}$
+        correct: true
+      - text: $8$
+      - text: $\frac{8}{3}$
+      - text: $4$
+    explanation: |
+      Antiderivative is $F(x) = \frac{2}{3}x^{3/2}$.
+      Evaluate at $x = 4$: $F(4) = \frac{2}{3}(4^{3/2}) = \frac{2}{3}(8) = \frac{16}{3}$.
+      At $x = 0$: $F(0) = 0$. Difference is $\frac{16}{3}$.
+
+  - id: q-precalculus-basic-calculus-basic-integrals-0011
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Find the indefinite integral $\int (x + 2)^2 \, dx$ by first expanding the square.
+    choices:
+      - text: $\frac{x^3}{3} + 2x^2 + 4x + C$
+        correct: true
+      - text: $\frac{(x+2)^3}{3} + C$
+      - text: $\frac{x^3}{3} + 4x^2 + 4x + C$
+      - text: $2x + 4 + C$
+    explanation: |
+      Expand $(x + 2)^2 = x^2 + 4x + 4$.
+      Integrate term by term: $\int (x^2 + 4x + 4) \, dx = \frac{x^3}{3} + 2x^2 + 4x + C$.
+
+  - id: q-precalculus-basic-calculus-basic-integrals-0012
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Evaluate the definite integral $\int_1^3 (x^2 - 2x) \, dx$.
+    choices:
+      - text: $\frac{2}{3}$
+        correct: true
+      - text: $-\frac{2}{3}$
+      - text: $0$
+      - text: $2$
+    explanation: |
+      Antiderivative $F(x) = \frac{x^3}{3} - x^2$.
+      At $x = 3$: $F(3) = \frac{27}{3} - 3^2 = 9 - 9 = 0$.
+      At $x = 1$: $F(1) = \frac{1}{3} - 1^2 = -\frac{2}{3}$.
+      Difference: $F(3) - F(1) = 0 - \left(-\frac{2}{3}\right) = \frac{2}{3}$.
+
+  - id: q-precalculus-basic-calculus-basic-integrals-0013
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Find the indefinite integral $\int \frac{x^2 + 3}{x^2} \, dx$ by splitting the fraction into two separate terms.
+    choices:
+      - text: $x - \frac{3}{x} + C$
+        correct: true
+      - text: $x + \frac{3}{x} + C$
+      - text: $\frac{x^3/3 + 3x}{x^3/3} + C$
+      - text: $x - 3x^2 + C$
+    explanation: |
+      Split the fraction: $\frac{x^2 + 3}{x^2} = \frac{x^2}{x^2} + \frac{3}{x^2} = 1 + 3x^{-2}$.
+      Integrate term by term: $\int (1 + 3x^{-2}) \, dx = x + 3\left(\frac{x^{-1}}{-1}\right) + C = x - \frac{3}{x} + C$.
+
+  - id: q-precalculus-basic-calculus-basic-integrals-0014
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Evaluate the definite integral $\int_0^2 (4x^3 - 6x) \, dx$.
+    choices:
+      - text: $4$
+        correct: true
+      - text: $16$
+      - text: $28$
+      - text: $-4$
+    explanation: |
+      Antiderivative $F(x) = x^4 - 3x^2$.
+      At $x = 2$: $F(2) = 2^4 - 3(2^2) = 16 - 3(4) = 16 - 12 = 4$.
+      At $x = 0$: $F(0) = 0$. Difference is $4 - 0 = 4$.

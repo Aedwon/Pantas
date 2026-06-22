@@ -1,0 +1,236 @@
+meta:
+  subject: mathematics
+  topic: trigonometry
+  subtopic: angles-and-radian-measure
+  exams: [upcat, acet, dlsucet, ustet, pupcet]
+questions:
+  - id: q-trigonometry-angles-and-radian-measure-0001
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Convert $90$ degrees to radians.
+    choices:
+      - text: $\dfrac{\pi}{2}$
+        correct: true
+      - text: $\dfrac{\pi}{3}$
+      - text: $\dfrac{\pi}{4}$
+      - text: $\dfrac{2\pi}{3}$
+    explanation: |
+      To convert degrees to radians, multiply by $\dfrac{\pi}{180}$.
+      $$90 \times \dfrac{\pi}{180} = \dfrac{90\pi}{180} = \dfrac{\pi}{2}$$
+  - id: q-trigonometry-angles-and-radian-measure-0002
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Convert $\dfrac{\pi}{3}$ radians to degrees.
+    choices:
+      - text: $60$ degrees
+        correct: true
+      - text: $30$ degrees
+      - text: $45$ degrees
+      - text: $120$ degrees
+    explanation: |
+      To convert radians to degrees, multiply by $\dfrac{180}{\pi}$. The $\pi$ cancels.
+      $$\dfrac{\pi}{3} \times \dfrac{180}{\pi} = \dfrac{180}{3} = 60 \text{ degrees}$$
+  - id: q-trigonometry-angles-and-radian-measure-0003
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Convert $45$ degrees to radians.
+    choices:
+      - text: $\dfrac{\pi}{4}$
+        correct: true
+      - text: $\dfrac{\pi}{6}$
+      - text: $\dfrac{\pi}{3}$
+      - text: $\dfrac{\pi}{2}$
+    explanation: |
+      Multiply degrees by $\dfrac{\pi}{180}$.
+      $$45 \times \dfrac{\pi}{180} = \dfrac{45\pi}{180} = \dfrac{\pi}{4}$$
+  - id: q-trigonometry-angles-and-radian-measure-0004
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Convert $\dfrac{\pi}{6}$ radians to degrees.
+    choices:
+      - text: $30$ degrees
+        correct: true
+      - text: $60$ degrees
+      - text: $45$ degrees
+      - text: $15$ degrees
+    explanation: |
+      Multiply radians by $\dfrac{180}{\pi}$.
+      $$\dfrac{\pi}{6} \times \dfrac{180}{\pi} = \dfrac{180}{6} = 30 \text{ degrees}$$
+  - id: q-trigonometry-angles-and-radian-measure-0005
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Convert $150$ degrees to radians.
+    choices:
+      - text: $\dfrac{5\pi}{6}$
+        correct: true
+      - text: $\dfrac{5\pi}{12}$
+      - text: $\dfrac{7\pi}{12}$
+      - text: $\dfrac{2\pi}{3}$
+    explanation: |
+      $$150 \times \dfrac{\pi}{180} = \dfrac{150\pi}{180}$$
+      Simplify by dividing both by 30: $\dfrac{150}{180} = \dfrac{5}{6}$.
+      $$150 \text{ degrees} = \dfrac{5\pi}{6}$$
+  - id: q-trigonometry-angles-and-radian-measure-0006
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Convert $\dfrac{3\pi}{4}$ radians to degrees.
+    choices:
+      - text: $135$ degrees
+        correct: true
+      - text: $120$ degrees
+      - text: $225$ degrees
+      - text: $67.5$ degrees
+    explanation: |
+      $$\dfrac{3\pi}{4} \times \dfrac{180}{\pi} = 3 \times 45 = 135 \text{ degrees}$$
+  - id: q-trigonometry-angles-and-radian-measure-0007
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Find the angle between $0$ degrees and $360$ degrees that is coterminal with $370$ degrees.
+    choices:
+      - text: $10$ degrees
+        correct: true
+      - text: $20$ degrees
+      - text: $100$ degrees
+      - text: $370$ degrees
+    explanation: |
+      Coterminal angles differ by full rotations of $360$ degrees. Subtract one turn.
+      $$370 - 360 = 10 \text{ degrees}$$
+      So $370$ degrees and $10$ degrees are coterminal.
+  - id: q-trigonometry-angles-and-radian-measure-0008
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      Which statement about radian measure is true?
+    choices:
+      - text: One radian is approximately $57.3$ degrees.
+        correct: true
+      - text: Two radians equals $2$ degrees.
+      - text: $\dfrac{\pi}{2}$ radians equals $180$ degrees.
+      - text: One radian is much smaller than one degree.
+    explanation: |
+      The bridge between radians and degrees is $180$ degrees $= \pi$ radians. Dividing both sides by $\pi$:
+      $$1 \text{ radian} = \dfrac{180}{\pi} \approx 57.3 \text{ degrees}$$
+      This is much larger than one degree. A student who forgets the scale and thinks $2$ radians $\approx 2$ degrees is off by a factor of about $57$, as the trap warns. And $\dfrac{\pi}{2}$ radians $= 90$ degrees, not $180$.
+  - id: q-trigonometry-angles-and-radian-measure-0009
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      A circle has radius $5$ centimeters. Find the arc length cut off by a central angle of $\dfrac{\pi}{3}$ radians.
+    choices:
+      - text: $\dfrac{5\pi}{3}$ cm
+        correct: true
+      - text: $\dfrac{\pi}{3}$ cm
+      - text: $\dfrac{10\pi}{3}$ cm
+      - text: $5\pi$ cm
+    explanation: |
+      The arc length formula is $s = r\theta$, where $\theta$ must be in radians.
+      $$s = 5 \times \dfrac{\pi}{3} = \dfrac{5\pi}{3} \text{ cm}$$
+      A common trap: forgetting to multiply by the radius gives $\dfrac{\pi}{3}$, which is wrong.
+  - id: q-trigonometry-angles-and-radian-measure-0010
+    type: direct-computation
+    difficulty: medium-hard
+    stem: |
+      Convert $-30$ degrees to radians.
+    choices:
+      - text: $-\dfrac{\pi}{6}$
+        correct: true
+      - text: $-\dfrac{\pi}{3}$
+      - text: $\dfrac{\pi}{6}$
+      - text: $\dfrac{\pi}{3}$
+    explanation: |
+      The conversion rule works with negative angles; the sign just rides along.
+      $$-30 \times \dfrac{\pi}{180} = -\dfrac{30\pi}{180} = -\dfrac{\pi}{6}$$
+  - id: q-trigonometry-angles-and-radian-measure-0011
+    type: direct-computation
+    difficulty: medium-hard
+    stem: |
+      Find the angle between $0$ degrees and $360$ degrees that is coterminal with $-150$ degrees.
+    choices:
+      - text: $210$ degrees
+        correct: true
+      - text: $150$ degrees
+      - text: $270$ degrees
+      - text: $-150$ degrees
+    explanation: |
+      For a negative angle, add $360$ degrees until you land in the range $0$ to $360$.
+      $$-150 + 360 = 210 \text{ degrees}$$
+      So $-150$ degrees and $210$ degrees are coterminal, and $210$ degrees lies in Quadrant III.
+  - id: q-trigonometry-angles-and-radian-measure-0012
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      Which statement is true?
+    choices:
+      - text: $430$ degrees is coterminal with $70$ degrees.
+        correct: true
+      - text: Any angle is coterminal with itself plus $180$ degrees.
+      - text: $-290$ degrees is in Quadrant II.
+      - text: A radian and a degree are equal in size.
+    explanation: |
+      Coterminal angles differ by multiples of $360$ degrees. Check: $430 - 360 = 70$, so they are coterminal. Angles are coterminal if they differ by $360$ degrees (or $2\pi$ radians), not $180$ degrees. For $-290$ degrees: this is a $290$ degree clockwise rotation, which is the same as a $70$ degree counterclockwise rotation (since $360 - 290 = 70$), placing it in Quadrant I, not II. A radian is much larger: $1$ radian $\approx 57.3$ degrees.
+  - id: q-trigonometry-angles-and-radian-measure-0013
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      A circle has radius $8$ meters. A central angle measures $60$ degrees. Convert the angle to radians and find the arc length.
+    choices:
+      - text: $\dfrac{8\pi}{3}$ m
+        correct: true
+      - text: $\dfrac{8\pi}{60}$ m
+      - text: $\dfrac{4\pi}{3}$ m
+      - text: $480$ m
+    explanation: |
+      First, convert $60$ degrees to radians.
+      $$60 \times \dfrac{\pi}{180} = \dfrac{\pi}{3} \text{ radians}$$
+      Then use the arc length formula $s = r\theta$.
+      $$s = 8 \times \dfrac{\pi}{3} = \dfrac{8\pi}{3} \text{ m}$$
+      A trap: plugging degrees directly into $s = r\theta$ gives $s = 8 \times 60 = 480$, which makes no sense for a circle of radius $8$ m.
+  - id: q-trigonometry-angles-and-radian-measure-0014
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Convert $315$ degrees to radians.
+    choices:
+      - text: $\dfrac{7\pi}{4}$
+        correct: true
+      - text: $\dfrac{7\pi}{8}$
+      - text: $\dfrac{5\pi}{4}$
+      - text: $\dfrac{9\pi}{4}$
+    explanation: |
+      $$315 \times \dfrac{\pi}{180} = \dfrac{315\pi}{180}$$
+      Divide both numerator and denominator by their GCD, which is $45$.
+      $$\dfrac{315}{180} = \dfrac{7}{4}$$
+      So $315$ degrees $= \dfrac{7\pi}{4}$ radians.
+  - id: q-trigonometry-angles-and-radian-measure-0015
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      Which statement is true?
+    choices:
+      - text: A radian is smaller than a degree.
+      - text: Two radians is approximately $114.6$ degrees.
+        correct: true
+      - text: $\pi$ radians is less than $180$ degrees.
+      - text: An angle measured in radians is always a smaller number than the same angle measured in degrees.
+    explanation: |
+      A radian is much larger than a degree: $1$ radian $\approx 57.3$ degrees. Check the second statement: $2 \times \dfrac{180}{\pi} \approx 2 \times 57.3 = 114.6$ degrees. This is true. For the third: $\pi$ radians $= 180$ degrees exactly, not less. For the fourth: this is backwards. A $360$ degree angle is $2\pi \approx 6.28$ radians, a smaller number, but most angles measured in radians give smaller numbers only because a radian itself is so large.
+  - id: q-trigonometry-angles-and-radian-measure-0016
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      Which statement is true?
+    choices:
+      - text: Angles in radians are always smaller numbers than angles in degrees.
+      - text: $1$ radian equals $1$ degree.
+      - text: An angle of $2\pi$ radians is greater than $350$ degrees.
+        correct: true
+      - text: The arc length formula $s = r\theta$ uses $\theta$ measured in degrees.
+    explanation: |
+      For the first: this is sometimes true but not always, and the statement is imprecise. For the second: $1$ radian $\approx 57.3$ degrees, not $1$ degree. For the third: $2\pi \approx 6.28$ radians, and $2\pi \times \dfrac{180}{\pi} = 360$ degrees, which is greater than $350$ degrees. This is true. For the fourth: the formula requires $\theta$ in radians, not degrees.

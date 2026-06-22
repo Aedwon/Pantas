@@ -1,0 +1,287 @@
+meta:
+  subject: mathematics
+  topic: geometry
+  subtopic: measurement
+  exams:
+    - upcat
+    - acet
+    - dlsucet
+    - ustet
+    - pupcet
+
+questions:
+  - id: q-geometry-measurement-0001
+    type: word-problem
+    difficulty: easy
+    stem: |
+      A rectangular vegetable garden has a length of $15\text{ m}$ and a width of $8\text{ m}$. What length of fencing material is required to completely enclose the perimeter of the garden?
+    choices:
+      - text: "$46\text{ m}$"
+        correct: true
+      - text: "$120\text{ m}$"
+      - text: "$23\text{ m}$"
+      - text: "$60\text{ m}$"
+    explanation: |
+      The perimeter of a rectangle is given by $P = 2(l + w)$.
+
+      1. Substitute given values: $P = 2(15 + 8) = 2(23) = 46\text{ m}$.
+
+      Common Trap: Calculating area ($15 \times 8 = 120\text{ m}^2$) instead of perimeter.
+
+  - id: q-geometry-measurement-0002
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      A solid cube has an edge length of $5\text{ cm}$. What is its total surface area?
+    choices:
+      - text: "$150\text{ cm}^2$"
+        correct: true
+      - text: "$125\text{ cm}^3$"
+      - text: "$100\text{ cm}^2$"
+      - text: "$30\text{ cm}^2$"
+    explanation: |
+      A cube has $6$ identical square faces.
+
+      1. Area of one face $= e^2 = 5^2 = 25\text{ cm}^2$.
+      2. Total surface area $= 6e^2 = 6 \times 25 = 150\text{ cm}^2$.
+
+      Common Trap: Calculating volume ($e^3 = 5^3 = 125\text{ cm}^3$) instead of surface area.
+
+  - id: q-geometry-measurement-0003
+    type: word-problem
+    difficulty: easy
+    stem: |
+      A cylindrical water tank has a base radius of $3\text{ m}$ and a height of $10\text{ m}$. What is the total volume of water the tank can hold?
+    choices:
+      - text: "$90\pi\text{ m}^3$"
+        correct: true
+      - text: "$30\pi\text{ m}^3$"
+      - text: "$60\pi\text{ m}^3$"
+      - text: "$300\pi\text{ m}^3$"
+    explanation: |
+      Volume of a cylinder is $V = \pi r^2 h$.
+
+      1. Substitute values: $V = \pi (3^2)(10) = \pi (9)(10) = 90\pi\text{ m}^3$.
+
+      Common Trap: Applying the cone volume formula ($\frac{1}{3}\pi r^2 h = 30\pi$) to a cylinder.
+
+  - id: q-geometry-measurement-0004
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      A cone has a circular base radius of $6\text{ cm}$ and a height of $7\text{ cm}$. What is its volume?
+    choices:
+      - text: "$84\pi\text{ cm}^3$"
+        correct: true
+      - text: "$252\pi\text{ cm}^3$"
+      - text: "$42\pi\text{ cm}^3$"
+      - text: "$126\pi\text{ cm}^3$"
+    explanation: |
+      Volume of a cone is $V = \frac{1}{3}\pi r^2 h$.
+
+      1. Substitute values: $V = \frac{1}{3} \times \pi \times (6^2) \times 7 = \frac{1}{3} \times 36 \times 7 \times \pi = 12 \times 7 \times \pi = 84\pi\text{ cm}^3$.
+
+      Common Trap: Forgetting the $\frac{1}{3}$ factor leads to $252\pi\text{ cm}^3$.
+
+  - id: q-geometry-measurement-0005
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      A spherical globe has a radius of $6\text{ cm}$. What is its total surface area?
+    choices:
+      - text: "$144\pi\text{ cm}^2$"
+        correct: true
+      - text: "$288\pi\text{ cm}^2$"
+      - text: "$36\pi\text{ cm}^2$"
+      - text: "$72\pi\text{ cm}^2$"
+    explanation: |
+      Surface area of a sphere is $SA = 4\pi r^2$.
+
+      1. Substitute $r = 6$: $SA = 4\pi (6^2) = 4\pi (36) = 144\pi\text{ cm}^2$.
+
+      Common Trap: Using the volume formula $V = \frac{4}{3}\pi r^3 = \frac{4}{3}\pi (216) = 288\pi\text{ cm}^3$.
+
+  - id: q-geometry-measurement-0006
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      A trapezoid has parallel bases of $10\text{ cm}$ and $18\text{ cm}$. Its non-parallel slant legs measure $5\text{ cm}$, and its vertical perpendicular height is $4\text{ cm}$. What is the area of the trapezoid?
+    choices:
+      - text: "$56\text{ cm}^2$"
+        correct: true
+      - text: "$70\text{ cm}^2$"
+      - text: "$112\text{ cm}^2$"
+      - text: "$28\text{ cm}^2$"
+    explanation: |
+      Area of a trapezoid is $A = \frac{b_1 + b_2}{2} \times h$.
+
+      1. Substitute values: $A = \frac{10 + 18}{2} \times 4 = 14 \times 4 = 56\text{ cm}^2$.
+
+      Common Trap: Using the slant side length ($5\text{ cm}$) instead of perpendicular height ($4\text{ cm}$) gives $\frac{10+18}{2} \times 5 = 70\text{ cm}^2$.
+
+  - id: q-geometry-measurement-0007
+    type: direct-computation
+    difficulty: medium
+    figure: geometry-measurement-07
+    stem: |
+      A flat metal template is composed of a rectangle of length $12\text{ cm}$ and width $8\text{ cm}$, with a semicircle attached along one of its $8\text{ cm}$ sides. What is the total area of the compound shape?
+    choices:
+      - text: "$96 + 8\pi\text{ cm}^2$"
+        correct: true
+      - text: "$96 + 16\pi\text{ cm}^2$"
+      - text: "$96 + 32\pi\text{ cm}^2$"
+      - text: "$104\pi\text{ cm}^2$"
+    explanation: |
+      1. Rectangle area $= l \times w = 12 \times 8 = 96\text{ cm}^2$.
+      2. Semicircle diameter $= 8\text{ cm} \implies \text{radius } r = 4\text{ cm}$.
+      3. Semicircle area $= \frac{\pi r^2}{2} = \frac{\pi (4^2)}{2} = \frac{16\pi}{2} = 8\pi\text{ cm}^2$.
+      4. Total area $= 96 + 8\pi\text{ cm}^2$.
+
+      Common Trap: Calculating a full circle area ($16\pi$) or using diameter as radius ($32\pi$).
+
+  - id: q-geometry-measurement-0008
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A square metal plate has side length $10\text{ cm}$. A circular hole of maximum possible diameter is punched out from its center. What is the area of the remaining metal plate?
+    choices:
+      - text: "$100 - 25\pi\text{ cm}^2$"
+        correct: true
+      - text: "$100 - 100\pi\text{ cm}^2$"
+      - text: "$25\pi - 100\text{ cm}^2$"
+      - text: "$100 - 10\pi\text{ cm}^2$"
+    explanation: |
+      1. Square area $= s^2 = 10^2 = 100\text{ cm}^2$.
+      2. The maximum circle diameter equals the square side length ($10\text{ cm}$), so radius $r = 5\text{ cm}$.
+      3. Circle area $= \pi r^2 = \pi (5^2) = 25\pi\text{ cm}^2$.
+      4. Remaining area $= \text{Square Area} - \text{Circle Area} = 100 - 25\pi\text{ cm}^2$.
+
+  - id: q-geometry-measurement-0009
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      A rectangular wooden block has length $8\text{ cm}$, width $5\text{ cm}$, and height $3\text{ cm}$. What is its total surface area?
+    choices:
+      - text: "$158\text{ cm}^2$"
+        correct: true
+      - text: "$120\text{ cm}^3$"
+      - text: "$79\text{ cm}^2$"
+      - text: "$160\text{ cm}^2$"
+    explanation: |
+      Surface area of a rectangular prism is $SA = 2(lw + lh + wh)$.
+
+      1. Calculate pair areas: $lw = 40$, $lh = 24$, $wh = 15$.
+      2. Sum of pairs $= 40 + 24 + 15 = 79\text{ cm}^2$.
+      3. Total SA $= 2 \times 79 = 158\text{ cm}^2$.
+
+      Common Trap: Calculating volume ($8 \times 5 \times 3 = 120$) or forgetting to multiply by $2$.
+
+  - id: q-geometry-measurement-0010
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A monument in the shape of a pyramid has a square base with side length $6\text{ m}$ and a perpendicular height of $9\text{ m}$. What is the volume of the pyramid?
+    choices:
+      - text: "$108\text{ m}^3$"
+        correct: true
+      - text: "$324\text{ m}^3$"
+      - text: "$54\text{ m}^3$"
+      - text: "$162\text{ m}^3$"
+    explanation: |
+      Volume of a pyramid is $V = \frac{1}{3} \times \text{Base Area} \times h$.
+
+      1. Base area $= s^2 = 6^2 = 36\text{ m}^2$.
+      2. Volume $= \frac{1}{3} \times 36 \times 9 = 12 \times 9 = 108\text{ m}^3$.
+
+      Common Trap: Forgetting the $\frac{1}{3}$ factor gives $324\text{ m}^3$.
+
+  - id: q-geometry-measurement-0011
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      A right circular cone has a base radius of $5\text{ cm}$ and a height of $12\text{ cm}$. What is its total surface area (including the base)?
+    choices:
+      - text: "$90\pi\text{ cm}^2$"
+        correct: true
+      - text: "$65\pi\text{ cm}^2$"
+      - text: "$85\pi\text{ cm}^2$"
+      - text: "$100\pi\text{ cm}^2$"
+    explanation: |
+      1. Calculate slant height $l = \sqrt{r^2 + h^2} = \sqrt{5^2 + 12^2} = \sqrt{25 + 144} = 13\text{ cm}$.
+      2. Base area $= \pi r^2 = \pi (5^2) = 25\pi\text{ cm}^2$.
+      3. Lateral area $= \pi r l = \pi (5)(13) = 65\pi\text{ cm}^2$.
+      4. Total surface area $= 25\pi + 65\pi = 90\pi\text{ cm}^2$.
+
+      Common Trap: Reporting only lateral surface area ($65\pi$) or using perpendicular height instead of slant height ($5 \times 12\pi = 60\pi + 25\pi = 85\pi$).
+
+  - id: q-geometry-measurement-0012
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A solid metallic sphere of radius $3\text{ cm}$ is melted down and completely recast into a solid cylinder of radius $3\text{ cm}$. What is the height of the cylinder?
+    choices:
+      - text: "$4\text{ cm}$"
+        correct: true
+      - text: "$3\text{ cm}$"
+      - text: "$12\text{ cm}$"
+      - text: "$6\text{ cm}$"
+    explanation: |
+      By conservation of volume: $\text{Sphere Volume} = \text{Cylinder Volume}$.
+
+      1. Sphere Volume $= \frac{4}{3}\pi r^3 = \frac{4}{3}\pi (3^3) = \frac{4}{3}\pi (27) = 36\pi\text{ cm}^3$.
+      2. Cylinder Volume $= \pi r^2 h = \pi (3^2) h = 9\pi h$.
+      3. Set volumes equal: $9\pi h = 36\pi \implies h = \frac{36}{9} = 4\text{ cm}$.
+
+  - id: q-geometry-measurement-0013
+    type: direct-computation
+    difficulty: hard
+    figure: geometry-measurement-13
+    stem: |
+      A storage silo is composed of a cylinder of radius $3\text{ m}$ and height $8\text{ m}$, topped by a hemisphere of radius $3\text{ m}$. What is the total volume of the storage silo?
+    choices:
+      - text: "$90\pi\text{ m}^3$"
+        correct: true
+      - text: "$108\pi\text{ m}^3$"
+      - text: "$72\pi\text{ m}^3$"
+      - text: "$126\pi\text{ m}^3$"
+    explanation: |
+      1. Cylinder Volume $= \pi r^2 h = \pi (3^2)(8) = 72\pi\text{ m}^3$.
+      2. Hemisphere Volume $= \frac{1}{2} \times \left(\frac{4}{3}\pi r^3\right) = \frac{2}{3}\pi (3^3) = \frac{2}{3}\pi (27) = 18\pi\text{ m}^3$.
+      3. Total Volume $= 72\pi + 18\pi = 90\pi\text{ m}^3$.
+
+      Common Trap: Adding a full sphere volume ($36\pi$) instead of a hemisphere ($18\pi$) gives $108\pi\text{ m}^3$.
+
+  - id: q-geometry-measurement-0014
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      A large square has side length $12\text{ cm}$. Inside it, a smaller square is formed by connecting the midpoints of the adjacent sides of the large square. What is the area of the region inside the large square but outside the smaller square?
+    choices:
+      - text: "$72\text{ cm}^2$"
+        correct: true
+      - text: "$36\text{ cm}^2$"
+      - text: "$108\text{ cm}^2$"
+      - text: "$96\text{ cm}^2$"
+    explanation: |
+      1. Large Square Area $= 12^2 = 144\text{ cm}^2$.
+      2. Midpoint leg lengths $= 6\text{ cm}$. Side of small square $= \sqrt{6^2 + 6^2} = \sqrt{72}\text{ cm}$.
+      3. Small Square Area $= (\sqrt{72})^2 = 72\text{ cm}^2$.
+      4. Area of region outside small square $= 144 - 72 = 72\text{ cm}^2$.
+
+  - id: q-geometry-measurement-0015
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      All edge lengths of a rectangular prism are scaled up by a factor of $3$. Which statement correctly describes the factor by which its total surface area and volume increase?
+    choices:
+      - text: "The surface area increases by a factor of $9$, and the volume increases by a factor of $27$."
+        correct: true
+      - text: "The surface area increases by a factor of $3$, and the volume increases by a factor of $9$."
+      - text: "The surface area increases by a factor of $6$, and the volume increases by a factor of $9$."
+      - text: "The surface area increases by a factor of $27$, and the volume increases by a factor of $9$."
+    explanation: |
+      When linear dimensions are scaled by factor $k$:
+      - Area scales by $k^2 = 3^2 = 9$.
+      - Volume scales by $k^3 = 3^3 = 27$.
+
+      Common Trap: Assuming surface area scales linearly by factor $3$ or volume scales by $3 \times 3 = 9$.

@@ -1,0 +1,262 @@
+meta:
+  subject: mathematics
+  topic: trigonometry
+  subtopic: basic-trigonometric-ratios
+  exams: [upcat, acet, dlsucet, ustet, pupcet]
+questions:
+  - id: q-trigonometry-basic-trigonometric-ratios-0001
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      A right triangle has legs $3$ and $4$ and hypotenuse $5$. If $\theta$ is the acute angle opposite the side of length $3$, what is $\sin \theta$?
+    choices:
+      - text: $\dfrac{3}{5}$
+        correct: true
+      - text: $\dfrac{4}{5}$
+      - text: $\dfrac{3}{4}$
+      - text: $\dfrac{5}{3}$
+    explanation: |
+      Sine is opposite over hypotenuse (SOH). The side opposite $\theta$ has length $3$, and the hypotenuse has length $5$.
+      $$\sin \theta = \dfrac{3}{5}$$
+      The choice $\dfrac{4}{5}$ is cosine (the adjacent side over hypotenuse). The choice $\dfrac{3}{4}$ is tangent.
+  - id: q-trigonometry-basic-trigonometric-ratios-0002
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      A right triangle has hypotenuse $10$ and one acute angle measures $30$ degrees. Find the length of the side opposite the $30$ degree angle.
+    choices:
+      - text: $5$
+        correct: true
+      - text: $5\sqrt{3}$
+      - text: $10$
+      - text: $\dfrac{5}{2}$
+    explanation: |
+      Use sine, since you know the hypotenuse and want the opposite side.
+      $$\sin 30^\circ = \dfrac{x}{10}$$
+      The special value $\sin 30^\circ = \dfrac{1}{2}$, so:
+      $$\dfrac{1}{2} = \dfrac{x}{10} \implies x = 5$$
+      The choice $5\sqrt{3}$ is the side opposite the $60$ degree angle in the same triangle.
+  - id: q-trigonometry-basic-trigonometric-ratios-0003
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      In a right triangle, $\sin \theta = \dfrac{3}{5}$. What is $\csc \theta$?
+    choices:
+      - text: $\dfrac{5}{3}$
+        correct: true
+      - text: $\dfrac{3}{5}$
+      - text: $\dfrac{5}{4}$
+      - text: $\dfrac{4}{3}$
+    explanation: |
+      Cosecant is the reciprocal of sine. Flip the fraction.
+      $$\csc \theta = \dfrac{1}{\sin \theta} = \dfrac{1}{\frac{3}{5}} = \dfrac{5}{3}$$
+      A common trap: flipping to the wrong reciprocal gives $\dfrac{5}{4}$ (which would be secant if cosine were $\dfrac{4}{5}$).
+  - id: q-trigonometry-basic-trigonometric-ratios-0004
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      A right triangle has one leg of length $5$ and hypotenuse $13$. Find the other leg.
+    choices:
+      - text: $12$
+        correct: true
+      - text: $8$
+      - text: $18$
+      - text: $\sqrt{194}$
+    explanation: |
+      Use the Pythagorean theorem: $a^2 + b^2 = c^2$.
+      $$5^2 + b^2 = 13^2$$
+      $$25 + b^2 = 169$$
+      $$b^2 = 144$$
+      $$b = 12$$
+      This is the $5$-$12$-$13$ Pythagorean triple, one of the three most common ones on exams.
+  - id: q-trigonometry-basic-trigonometric-ratios-0005
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      In a right triangle, $\tan \theta = \dfrac{3}{4}$ and the hypotenuse is $20$. What is $\sin \theta$?
+    choices:
+      - text: $\dfrac{3}{5}$
+        correct: true
+      - text: $\dfrac{4}{5}$
+      - text: $\dfrac{3}{4}$
+      - text: $\dfrac{12}{20}$
+    explanation: |
+      Tangent $\dfrac{3}{4}$ means opposite and adjacent are in the ratio $3:4$. This is the $3$-$4$-$5$ family. Since the hypotenuse is $20$:
+      $$\text{Scale factor} = \dfrac{20}{5} = 4$$
+      $$\text{opposite} = 3 \times 4 = 12, \quad \text{adjacent} = 4 \times 4 = 16$$
+      Check: $12^2 + 16^2 = 144 + 256 = 400 = 20^2$. Now read sine:
+      $$\sin \theta = \dfrac{12}{20} = \dfrac{3}{5}$$
+  - id: q-trigonometry-basic-trigonometric-ratios-0006
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      If $\cos \theta = \dfrac{5}{13}$, what is $\sec \theta$?
+    choices:
+      - text: $\dfrac{13}{5}$
+        correct: true
+      - text: $\dfrac{5}{13}$
+      - text: $\dfrac{12}{13}$
+      - text: $\dfrac{5}{12}$
+    explanation: |
+      Secant is the reciprocal of cosine. Flip the fraction.
+      $$\sec \theta = \dfrac{1}{\cos \theta} = \dfrac{1}{\frac{5}{13}} = \dfrac{13}{5}$$
+      A common trap: the names "secant" and "cosecant" feel backwards (sec starts with $s$ but goes with cos, and csc starts with $c$ but goes with sin). This confusion plants both $\dfrac{13}{5}$ and $\dfrac{5}{12}$ in the choices.
+  - id: q-trigonometry-basic-trigonometric-ratios-0007
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      Which statement is true about complementary angles?
+    choices:
+      - text: $\sin 30^\circ = \cos 60^\circ$
+        correct: true
+      - text: $\sin 30^\circ = \cos 30^\circ$
+      - text: $\sin 45^\circ = \cos 60^\circ$
+      - text: The sine of an angle always equals the cosine of the same angle.
+    explanation: |
+      Complementary angles (angles that sum to $90$ degrees) satisfy $\sin \theta = \cos(90^\circ - \theta)$. Check the first: $30^\circ + 60^\circ = 90^\circ$, so $\sin 30^\circ = \cos 60^\circ$. Both equal $\dfrac{1}{2}$. The second is false ($\sin 30^\circ = \dfrac{1}{2}$ but $\cos 30^\circ = \dfrac{\sqrt{3}}{2}$). The third is false ($\sin 45^\circ = \dfrac{\sqrt{2}}{2}$ but $\cos 60^\circ = \dfrac{1}{2}$). The fourth is false in general.
+  - id: q-trigonometry-basic-trigonometric-ratios-0008
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      A $30$-$60$-$90$ triangle has hypotenuse $10$. What is the length of the side opposite the $60$ degree angle?
+    choices:
+      - text: $5\sqrt{3}$
+        correct: true
+      - text: $5$
+      - text: $10$
+      - text: $\dfrac{10}{\sqrt{3}}$
+    explanation: |
+      In a $30$-$60$-$90$ triangle, the sides are in the ratio $1 : \sqrt{3} : 2$. The side opposite the $60$ degree angle is $\sqrt{3}$ times the side opposite $30$ degrees.
+      If the hypotenuse is $10$, then:
+      $$\text{opposite } 30^\circ = 5, \quad \text{opposite } 60^\circ = 5\sqrt{3}$$
+      Alternatively, $\sin 60^\circ = \dfrac{\sqrt{3}}{2}$, so the opposite side is $10 \times \dfrac{\sqrt{3}}{2} = 5\sqrt{3}$.
+  - id: q-trigonometry-basic-trigonometric-ratios-0009
+    type: direct-computation
+    difficulty: medium-hard
+    stem: |
+      In a right triangle, $\sin \theta = \dfrac{5}{13}$ and $\theta$ is acute. What is $\cos \theta$?
+    choices:
+      - text: $\dfrac{12}{13}$
+        correct: true
+      - text: $\dfrac{5}{13}$
+      - text: $\dfrac{13}{5}$
+      - text: $\dfrac{5}{12}$
+    explanation: |
+      This is the $5$-$12$-$13$ Pythagorean triple. Build the triangle: if $\sin \theta = \dfrac{5}{13}$, then opposite $= 5$ and hypotenuse $= 13$. Use the Pythagorean theorem to find adjacent.
+      $$5^2 + \text{adj}^2 = 13^2$$
+      $$25 + \text{adj}^2 = 169$$
+      $$\text{adj}^2 = 144 \implies \text{adj} = 12$$
+      Now read cosine (adjacent over hypotenuse):
+      $$\cos \theta = \dfrac{12}{13}$$
+  - id: q-trigonometry-basic-trigonometric-ratios-0010
+    type: direct-computation
+    difficulty: medium-hard
+    stem: |
+      What is $\cos 60^\circ$?
+    choices:
+      - text: $\dfrac{1}{2}$
+        correct: true
+      - text: $\dfrac{\sqrt{3}}{2}$
+      - text: $\sqrt{3}$
+      - text: $\dfrac{1}{\sqrt{3}}$
+    explanation: |
+      In a $30$-$60$-$90$ triangle with hypotenuse $2$, the sides are $1$, $\sqrt{3}$, and $2$. For the $60$ degree angle, the adjacent side is $1$.
+      $$\cos 60^\circ = \dfrac{\text{adjacent}}{\text{hypotenuse}} = \dfrac{1}{2}$$
+      The choice $\dfrac{\sqrt{3}}{2}$ is $\sin 60^\circ$.
+  - id: q-trigonometry-basic-trigonometric-ratios-0011
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      A right triangle has an acute angle of $45$ degrees and the side opposite the $45$ degree angle is $7$ units. What is the hypotenuse?
+    choices:
+      - text: $7\sqrt{2}$
+        correct: true
+      - text: $7$
+      - text: $\dfrac{7}{\sqrt{2}}$
+      - text: $14$
+    explanation: |
+      In a $45$-$45$-$90$ isoceles right triangle, $\sin 45^\circ = \dfrac{\sqrt{2}}{2}$. Use sine:
+      $$\sin 45^\circ = \dfrac{7}{\text{hyp}}$$
+      $$\dfrac{\sqrt{2}}{2} = \dfrac{7}{\text{hyp}}$$
+      $$\text{hyp} = \dfrac{7 \times 2}{\sqrt{2}} = \dfrac{14}{\sqrt{2}} = \dfrac{14\sqrt{2}}{2} = 7\sqrt{2}$$
+  - id: q-trigonometry-basic-trigonometric-ratios-0012
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      In a right triangle, $\cot \theta = \dfrac{4}{3}$. What is $\tan \theta$?
+    choices:
+      - text: $\dfrac{3}{4}$
+        correct: true
+      - text: $\dfrac{4}{3}$
+      - text: $\dfrac{3}{7}$
+      - text: $\dfrac{4}{5}$
+    explanation: |
+      Cotangent is the reciprocal of tangent.
+      $$\cot \theta = \dfrac{1}{\tan \theta}$$
+      $$\dfrac{4}{3} = \dfrac{1}{\tan \theta}$$
+      $$\tan \theta = \dfrac{3}{4}$$
+  - id: q-trigonometry-basic-trigonometric-ratios-0013
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      A right triangle has hypotenuse $26$ and one leg of length $10$. Find the other leg, then find the sine of the angle opposite the leg of length $10$ in degrees.
+    choices:
+      - text: The other leg is $24$ and $\sin \theta = \dfrac{5}{13}$
+        correct: true
+      - text: The other leg is $24$ and $\sin \theta = \dfrac{12}{13}$
+      - text: The other leg is $16$ and $\sin \theta = \dfrac{10}{26}$
+      - text: The other leg is $24$ and $\sin \theta = \dfrac{10}{24}$
+    explanation: |
+      Find the other leg using the Pythagorean theorem:
+      $$10^2 + \text{leg}^2 = 26^2$$
+      $$100 + \text{leg}^2 = 676$$
+      $$\text{leg}^2 = 576$$
+      $$\text{leg} = 24$$
+      This is the $5$-$12$-$13$ triple doubled ($10$-$24$-$26$). Now find sine of the angle opposite the leg of length $10$:
+      $$\sin \theta = \dfrac{10}{26} = \dfrac{5}{13}$$
+      The choice $\dfrac{12}{13}$ is sine of the angle opposite the leg of length $24$.
+  - id: q-trigonometry-basic-trigonometric-ratios-0014
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      Which statement is true about a $3$-$4$-$5$ right triangle?
+    choices:
+      - text: $\sin \theta = \dfrac{3}{5}$ and $\cos \theta = \dfrac{4}{5}$ regardless of which acute angle $\theta$ is.
+      - text: $\sin \theta = \dfrac{3}{5}$ only when $\theta$ is the angle opposite the side of length $3$.
+        correct: true
+      - text: In any right triangle, sine is always $\dfrac{3}{5}$.
+      - text: The ratios depend on the size of the triangle, not the angles.
+    explanation: |
+      Opposite and adjacent depend on which angle you are labeling. In a $3$-$4$-$5$ triangle, if $\theta$ is opposite the side of length $3$, then $\sin \theta = \dfrac{3}{5}$ and $\cos \theta = \dfrac{4}{5}$. But if $\theta$ is opposite the side of length $4$, then $\sin \theta = \dfrac{4}{5}$ and $\cos \theta = \dfrac{3}{5}$. So the first statement is false. The third is false (sine varies by angle). The fourth is false (ratios depend only on the angle shape). The second captures the correct trap: relabeling the angle switches opposite and adjacent.
+  - id: q-trigonometry-basic-trigonometric-ratios-0015
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      If $\sec \theta = \dfrac{5}{3}$, what is $\cos \theta$?
+    choices:
+      - text: $\dfrac{3}{5}$
+        correct: true
+      - text: $\dfrac{5}{3}$
+      - text: $\dfrac{4}{5}$
+      - text: $\dfrac{3}{4}$
+    explanation: |
+      Secant is the reciprocal of cosine.
+      $$\sec \theta = \dfrac{1}{\cos \theta}$$
+      $$\dfrac{5}{3} = \dfrac{1}{\cos \theta}$$
+      $$\cos \theta = \dfrac{3}{5}$$
+      This is part of the $3$-$4$-$5$ triangle where the adjacent side is $3$ and the hypotenuse is $5$.
+  - id: q-trigonometry-basic-trigonometric-ratios-0016
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      In a $5$-$12$-$13$ right triangle, $\theta$ is the acute angle opposite the side of length $5$. What is $\tan \theta$ in degrees?
+    choices:
+      - text: $\dfrac{5}{12}$
+        correct: true
+      - text: $\dfrac{12}{5}$
+      - text: $\dfrac{5}{13}$
+      - text: $\dfrac{12}{13}$
+    explanation: |
+      Tangent is opposite over adjacent (TOA). The side opposite $\theta$ is $5$, and the side adjacent to $\theta$ is $12$.
+      $$\tan \theta = \dfrac{5}{12}$$
+      The choice $\dfrac{12}{5}$ is tangent of the angle opposite the side of length $12$ (the other acute angle). The choice $\dfrac{5}{13}$ is sine, and $\dfrac{12}{13}$ is cosine.

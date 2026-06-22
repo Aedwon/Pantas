@@ -1,0 +1,378 @@
+meta:
+  subject: mathematics
+  topic: statistics-and-probability
+  subtopic: basic-probability
+  exams: [upcat, acet, dlsucet, ustet, pupcet]
+questions:
+  - id: q-statistics-and-probability-basic-probability-0001
+    type: word-problem
+    difficulty: easy
+    stem: |
+      A jar at a sari-sari store contains $5$ red marbles, $7$ blue marbles, and $8$ yellow marbles. If one marble is drawn at random, what is the probability that it is blue?
+    choices:
+      - text: "$\\frac{7}{20}$"
+        correct: true
+      - text: "$\\frac{7}{13}$"
+      - text: "$\\frac{1}{4}$"
+      - text: "$\\frac{5}{20}$"
+    explanation: |
+      First, find the total number of marbles in the jar:
+      
+      $$\text{Total} = 5 + 7 + 8 = 20$$
+      
+      The number of blue marbles (favorable outcomes) is $7$. The probability $P(\text{Blue})$ is:
+      
+      $$P(\text{Blue}) = \frac{7}{20}$$
+      
+      The probability of drawing a blue marble is $\frac{7}{20}$.
+  - id: q-statistics-and-probability-basic-probability-0002
+    type: word-problem
+    difficulty: easy
+    stem: |
+      A fair six-sided die is rolled once. What is the probability of rolling a prime number?
+    choices:
+      - text: "$\\frac{1}{2}$"
+        correct: true
+      - text: "$\\frac{2}{3}$"
+      - text: "$\\frac{1}{3}$"
+      - text: "$\\frac{5}{6}$"
+    explanation: |
+      The possible outcomes when rolling a six-sided die are $\{1, 2, 3, 4, 5, 6\}$, giving $6$ total outcomes.
+      
+      The prime numbers in this set are $2$, $3$, and $5$ (note that $1$ is not a prime number), giving $3$ favorable outcomes:
+      
+      $$P(\text{Prime}) = \frac{3}{6} = \frac{1}{2}$$
+      
+      The probability of rolling a prime number is $\frac{1}{2}$.
+  - id: q-statistics-and-probability-basic-probability-0003
+    type: word-problem
+    difficulty: easy
+    stem: |
+      A single card is drawn at random from a standard deck of $52$ playing cards. What is the probability of drawing a face card (Jack, Queen, or King)?
+    choices:
+      - text: "$\\frac{3}{13}$"
+        correct: true
+      - text: "$\\frac{1}{13}$"
+      - text: "$\\frac{4}{13}$"
+      - text: "$\\frac{3}{52}$"
+    explanation: |
+      A standard deck contains $4$ suits, with each suit having $3$ face cards (Jack, Queen, King). Therefore, the total number of face cards is:
+      
+      $$\text{Face Cards} = 4 \times 3 = 12$$
+      
+      The probability $P(\text{Face Card})$ is:
+      
+      $$P(\text{Face Card}) = \frac{12}{52} = \frac{3}{13}$$
+      
+      The probability of drawing a face card is $\frac{3}{13}$.
+  - id: q-statistics-and-probability-basic-probability-0004
+    type: word-problem
+    difficulty: easy
+    stem: |
+      A barangay fiesta raffle sold $500$ total tickets. If Juan bought $25$ tickets and exactly $1$ winning ticket is drawn at random, what is the probability that Juan does NOT win?
+    choices:
+      - text: "$\\frac{19}{20}$"
+        correct: true
+      - text: "$\\frac{1}{20}$"
+      - text: "$\\frac{475}{499}$"
+      - text: "$\\frac{1}{500}$"
+    explanation: |
+      The number of tickets that do not belong to Juan is $500 - 25 = 475$.
+      
+      The probability that Juan does not win is:
+      
+      $$P(\text{Not Win}) = \frac{475}{500} = \frac{19}{20}$$
+      
+      Alternatively, using complementary probability:
+      
+      $$P(\text{Win}) = \frac{25}{500} = \frac{1}{20}$$
+      $$P(\text{Not Win}) = 1 - \frac{1}{20} = \frac{19}{20}$$
+      
+      The probability that Juan does not win is $\frac{19}{20}$.
+  - id: q-statistics-and-probability-basic-probability-0005
+    type: word-problem
+    difficulty: easy
+    stem: |
+      A game spinner is divided into $8$ equal numbered sectors ($1$ through $8$). What is the probability of spinning a number that is greater than $5$ or even?
+    choices:
+      - text: "$\\frac{5}{8}$"
+        correct: true
+      - text: "$\\frac{7}{8}$"
+      - text: "$\\frac{1}{2}$"
+      - text: "$\\frac{3}{4}$"
+    explanation: |
+      List the outcomes for each event:
+      
+      - Numbers greater than $5$: $A = \{6, 7, 8\}$ ($3$ outcomes)
+      - Even numbers: $B = \{2, 4, 6, 8\}$ ($4$ outcomes)
+      
+      Combine the sets ($A \cup B$) to avoid double-counting overlapping elements $\{6, 8\}$:
+      
+      $$A \cup B = \{2, 4, 6, 7, 8\}$$
+      
+      There are $5$ favorable outcomes out of $8$ total sectors:
+      
+      $$P(A \cup B) = \frac{5}{8}$$
+      
+      The probability is $\frac{5}{8}$.
+  - id: q-statistics-and-probability-basic-probability-0006
+    type: word-problem
+    difficulty: medium
+    stem: |
+      Two fair six-sided dice are rolled simultaneously. What is the probability that the sum of the numbers showing on the top faces is equal to $8$?
+    choices:
+      - text: "$\\frac{5}{36}$"
+        correct: true
+      - text: "$\\frac{4}{36}$"
+      - text: "$\\frac{1}{6}$"
+      - text: "$\\frac{7}{36}$"
+    explanation: |
+      Rolling two fair six-sided dice produces $6 \times 6 = 36$ equally likely outcomes.
+      
+      List all ordered pairs $(d_1, d_2)$ that sum to $8$:
+      
+      $$\{(2,6), (3,5), (4,4), (5,3), (6,2)\}$$
+      
+      There are $5$ favorable outcomes. The probability is:
+      
+      $$P(\text{Sum} = 8) = \frac{5}{36}$$
+      
+      The probability that the sum is $8$ is $\frac{5}{36}$.
+  - id: q-statistics-and-probability-basic-probability-0007
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A jar contains $6$ sampaloc candies and $4$ yema candies. Maria draws one candy at random, records its flavor, and replaces it into the jar. She then draws a second candy. What is the probability that both candies drawn are sampaloc?
+    choices:
+      - text: "$\\frac{9}{25}$"
+        correct: true
+      - text: "$\\frac{1}{3}$"
+      - text: "$\\frac{3}{5}$"
+      - text: "$\\frac{12}{25}$"
+    explanation: |
+      Because Maria replaces the first candy, the two draws are independent events.
+      
+      For each draw, the total number of candies is $6 + 4 = 10$, and the probability of drawing a sampaloc candy is:
+      
+      $$P(\text{Sampaloc}) = \frac{6}{10} = \frac{3}{5}$$
+      
+      Using the multiplication rule for independent events:
+      
+      $$P(\text{Both Sampaloc}) = \frac{3}{5} \times \frac{3}{5} = \frac{9}{25}$$
+      
+      The probability that both candies drawn are sampaloc is $\frac{9}{25}$.
+  - id: q-statistics-and-probability-basic-probability-0008
+    type: word-problem
+    difficulty: medium
+    stem: |
+      According to weather records in Baguio, the probability of afternoon rain on any July day is $0.60$. Assuming weather conditions on consecutive days are independent, what is the probability that it rains on Friday afternoon but does NOT rain on Saturday afternoon?
+    choices:
+      - text: "$0.24$"
+        correct: true
+      - text: "$0.36$"
+      - text: "$0.16$"
+      - text: "$1.00$"
+    explanation: |
+      Given $P(\text{Rain}) = 0.60$, the complementary probability of no rain is:
+      
+      $$P(\text{No Rain}) = 1 - 0.60 = 0.40$$
+      
+      Since weather conditions on consecutive days are assumed to be independent, multiply their individual probabilities:
+      
+      $$P(\text{Rain on Fri and No Rain on Sat}) = 0.60 \times 0.40 = 0.24$$
+      
+      The probability is $0.24$.
+  - id: q-statistics-and-probability-basic-probability-0009
+    type: word-problem
+    difficulty: medium
+    stem: |
+      Two cards are drawn sequentially without replacement from a standard $52$-card deck. What is the probability that both cards drawn are Kings?
+    choices:
+      - text: "$\\frac{1}{221}$"
+        correct: true
+      - text: "$\\frac{1}{169}$"
+      - text: "$\\frac{2}{52}$"
+      - text: "$\\frac{1}{26}$"
+    explanation: |
+      For the first draw, there are $4$ Kings out of $52$ cards:
+      
+      $$P(\text{1st King}) = \frac{4}{52} = \frac{1}{13}$$
+      
+      Since drawing is without replacement, $51$ cards remain, of which $3$ are Kings:
+      
+      $$P(\text{2nd King} \mid \text{1st King}) = \frac{3}{51} = \frac{1}{17}$$
+      
+      Multiply the conditional probabilities:
+      
+      $$P(\text{Both Kings}) = \frac{1}{13} \times \frac{1}{17} = \frac{1}{221}$$
+      
+      The probability of drawing two Kings without replacement is $\frac{1}{221}$.
+  - id: q-statistics-and-probability-basic-probability-0010
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A single card is drawn at random from a standard $52$-card deck. What is the probability of drawing either an Ace or a Heart?
+    choices:
+      - text: "$\\frac{4}{13}$"
+        correct: true
+      - text: "$\\frac{17}{52}$"
+      - text: "$\\frac{1}{13}$"
+      - text: "$\\frac{9}{26}$"
+    explanation: |
+      Use the addition rule for non-mutually exclusive events:
+      
+      $$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
+      
+      Where:
+      - $P(\text{Ace}) = \frac{4}{52}$
+      - $P(\text{Heart}) = \frac{13}{52}$
+      - $P(\text{Ace of Hearts}) = \frac{1}{52}$
+      
+      Substitute the values:
+      
+      $$P(\text{Ace or Heart}) = \frac{4}{52} + \frac{13}{52} - \frac{1}{52} = \frac{16}{52} = \frac{4}{13}$$
+      
+      The probability is $\frac{4}{13}$.
+  - id: q-statistics-and-probability-basic-probability-0011
+    type: word-problem
+    difficulty: medium
+    stem: |
+      Three fair coins are tossed simultaneously. What is the probability of obtaining at least one Head?
+    choices:
+      - text: "$\\frac{7}{8}$"
+        correct: true
+      - text: "$\\frac{1}{8}$"
+      - text: "$\\frac{3}{8}$"
+      - text: "$\\frac{1}{2}$"
+    explanation: |
+      Tossing three fair coins yields $2^3 = 8$ total outcomes.
+      
+      The event 'at least one Head' is the complement of obtaining 'no Heads' (all Tails):
+      
+      $$P(\text{All Tails}) = \left(\frac{1}{2}\right)^3 = \frac{1}{8}$$
+      
+      Use complementary probability:
+      
+      $$P(\text{At least 1 Head}) = 1 - P(\text{All Tails}) = 1 - \frac{1}{8} = \frac{7}{8}$$
+      
+      The probability of getting at least one Head is $\frac{7}{8}$.
+  - id: q-statistics-and-probability-basic-probability-0012
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A survey of $100$ high school seniors categorized student CET review status and track preference:
+      
+      | Review Status | STEM Track | Non-STEM Track | Total |
+      | :--- | :--- | :--- | :--- |
+      | Took Review Course | 35 | 15 | 50 |
+      | Did Not Take Review Course | 25 | 25 | 50 |
+      | Total | 60 | 40 | 100 |
+      
+      Given that a randomly selected student took a review course, what is the conditional probability that the student is in the STEM track?
+    choices:
+      - text: "$\\frac{7}{10}$"
+        correct: true
+      - text: "$\\frac{7}{12}$"
+      - text: "$\\frac{7}{20}$"
+      - text: "$\\frac{3}{5}$"
+    explanation: |
+      The condition restricts the sample space to students who took the review course ($N = 50$).
+      
+      Among these $50$ students, $35$ belong to the STEM track. Compute conditional probability $P(\text{STEM} \mid \text{Took Review})$:
+      
+      $$P(\text{STEM} \mid \text{Took Review}) = \frac{35}{50} = \frac{7}{10}$$
+      
+      The conditional probability is $\frac{7}{10}$.
+  - id: q-statistics-and-probability-basic-probability-0013
+    type: word-problem
+    difficulty: hard
+    stem: |
+      At an electronics plant in Laguna, Machine A manufactures $60\%$ of light bulbs and Machine B manufactures $40\%$. Defect rates are $5\%$ for Machine A and $2\%$ for Machine B. If a bulb is selected at random from total output, what is the probability that it is defective?
+    choices:
+      - text: "$3.8\\%$"
+        correct: true
+      - text: "$3.5\\%$"
+      - text: "$7.0\\%$"
+      - text: "$2.0\\%$"
+    explanation: |
+      Use the Law of Total Probability to sum defective probabilities across both machines:
+      
+      $$P(D) = P(D \mid A) \cdot P(A) + P(D \mid B) \cdot P(B)$$
+      
+      Substitute given values:
+      
+      $$P(D) = (0.05 \times 0.60) + (0.02 \times 0.40)$$
+      $$P(D) = 0.030 + 0.008 = 0.038 = 3.8\%$$
+      
+      The overall probability that a randomly chosen bulb is defective is $3.8\%$.
+  - id: q-statistics-and-probability-basic-probability-0014
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Referring to the Laguna plant in Question 13: Machine A produces $60\%$ of light bulbs ($5\%$ defective) and Machine B produces $40\%$ ($2\%$ defective). If a randomly inspected bulb is found to be defective, what is the probability that it was produced by Machine A?
+    choices:
+      - text: "$\\frac{15}{19}$"
+        correct: true
+      - text: "$\\frac{3}{5}$"
+      - text: "$\\frac{4}{19}$"
+      - text: "$\\frac{5}{100}$"
+    explanation: |
+      Apply Bayes' Theorem to find the posterior probability $P(A \mid D)$:
+      
+      $$P(A \mid D) = \frac{P(D \mid A) \cdot P(A)}{P(D)}$$
+      
+      From Question 13, $P(D) = 0.038$ and $P(D \mid A) \cdot P(A) = 0.05 \times 0.60 = 0.030$:
+      
+      $$P(A \mid D) = \frac{0.030}{0.038} = \frac{30}{38} = \frac{15}{19}$$
+      
+      The probability that a defective bulb came from Machine A is $\frac{15}{19}$ (approximately $78.95\%$).
+  - id: q-statistics-and-probability-basic-probability-0015
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A box in a classroom contains $5$ green clips, $4$ red clips, and $3$ blue clips. Three clips are drawn sequentially without replacement. What is the probability of drawing in order: first green, second red, and third blue?
+    choices:
+      - text: "$\\frac{1}{22}$"
+        correct: true
+      - text: "$\\frac{5}{144}$"
+      - text: "$\\frac{1}{12}$"
+      - text: "$\\frac{3}{22}$"
+    explanation: |
+      Calculate conditional probabilities for each sequential draw without replacement:
+      
+      - Total initial clips $= 5 + 4 + 3 = 12$
+      - $P(\text{1st Green}) = \frac{5}{12}$
+      - $P(\text{2nd Red} \mid \text{1st Green}) = \frac{4}{11}$
+      - $P(\text{3rd Blue} \mid \text{1st Green, 2nd Red}) = \frac{3}{10}$
+      
+      Multiply the sequential probabilities:
+      
+      $$P = \frac{5}{12} \times \frac{4}{11} \times \frac{3}{10} = \frac{60}{1,320} = \frac{1}{22}$$
+      
+      The probability of drawing green, red, then blue in sequence is $\frac{1}{22}$.
+  - id: q-statistics-and-probability-basic-probability-0016
+    type: word-problem
+    difficulty: hard
+    stem: |
+      In a barangay basketball tournament, Team A and Team B play a best-of-three series (the first team to win two games wins the series). The probability that Team A wins any individual game is $0.60$, independent of other games. What is the probability that Team A wins the series?
+    choices:
+      - text: "$0.648$"
+        correct: true
+      - text: "$0.600$"
+      - text: "$0.360$"
+      - text: "$0.500$"
+    explanation: |
+      Identify all mutually exclusive ways Team A can win the best-of-three series:
+      
+      1. Sweep in $2$ games (AA):
+         $$P(\text{AA}) = 0.60 \times 0.60 = 0.360$$
+      
+      2. Win in $3$ games (ABA or BAA):
+         $$P(\text{ABA}) = 0.60 \times (1 - 0.60) \times 0.60 = 0.60 \times 0.40 \times 0.60 = 0.144$$
+         $$P(\text{BAA}) = (1 - 0.60) \times 0.60 \times 0.60 = 0.40 \times 0.60 \times 0.60 = 0.144$$
+      
+      Sum the probabilities of these disjoint events:
+      
+      $$P(\text{Team A Wins}) = 0.360 + 0.144 + 0.144 = 0.648$$
+      
+      The overall probability that Team A wins the series is $0.648$.
