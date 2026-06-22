@@ -170,9 +170,14 @@ Topic slug `geometry`. **Describe the figure in words wherever the item survives
 | [ ] | `coordinate-geometry` | `direct-computation` | **often** |
 | [ ] | `logic-and-reasoning` | `which-is-true` | none |
 
-**Reserve `figure:` for coordinate geometry and for anything with more than one intersecting
-line.** Angle chasing, the triangle inequality, and the area of a compound shape all work as
-prose, and prose ships today while a figure waits on hand illustration.
+**Amended 3 August, on Aedwon's ruling.** Where an item genuinely needs a diagram, **describe
+it accurately in the stem and reserve the illustration too.** Both. The description carries
+exact measurements and the item is answerable without the image, so the question ships now and
+gains a picture later. Log every slug in `docs/content/question-figures/worklist.tsv`.
+
+Angle chasing, the triangle inequality and the area of a compound shape all work as pure
+prose and need no slug at all. Reserve `figure:` for coordinate geometry and for anything with
+more than one intersecting line.
 
 ## Manifest, Trigonometry
 
@@ -222,6 +227,9 @@ Topic slug `precalculus-basic-calculus`. **The lightest topic, and deliberately 
 **Do not exceed the lesson.** Derivatives and integrals stay at the power rule and nothing
 beyond it. This topic appears on UPCAT and not on the others, and inventing depth it does not
 test wastes the student's time.
+
+**Conic sections is the one row here that may want a figure.** Same rule as Geometry: describe
+it in the stem with exact values, reserve the slug, log the worklist row.
 
 ---
 

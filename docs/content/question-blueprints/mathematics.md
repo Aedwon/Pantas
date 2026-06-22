@@ -37,10 +37,30 @@ Write `$\frac{3}{4}$`, never `3/4`. Write `$x^2$`, never `x^2`.
 
 ## Figures
 
-Add `figure: <slug>` only where the item is genuinely unanswerable without one,
-and log the slug in the worklist. **Geometry is the topic that needs them and
-most of it still does not**: a triangle described in words is answerable, and
-should be described in words. **Never generate an image.** Figures are hand-made.
+**Prefer prose. A triangle described in words is answerable and should be
+described in words.**
+
+**Where the item genuinely needs a diagram, describe it accurately in the stem
+AND reserve the illustration.** Both, not either. Aedwon's ruling, 3 August, and
+it matches what the reasoning questions already do:
+
+```yaml
+    figure: geometry-triangles-04
+    stem: |
+      Figure shows triangle ABC with a right angle at B. Side AB is 6 cm and
+      side BC is 8 cm. What is the length of side AC?
+```
+
+**The description carries exact measurements and the item is answerable without
+the image.** That is the whole point of the convention: the question ships
+today and gains a picture later, rather than waiting in a queue.
+
+**Log every slug** in `docs/content/question-figures/worklist.tsv`, one row per
+figure, columns `subject, topic, subtopic, slug, question_id, target_file,
+status`, with `status` as `todo`.
+
+**Never generate an image.** Figures are hand-made, and the described stem is
+what makes that queue non-blocking.
 
 ---
 
