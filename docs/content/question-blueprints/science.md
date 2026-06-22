@@ -166,3 +166,18 @@ vector-resolution, circuit setups) and Earth Science topics (eclipse
 geometry, moon phases, rock cycle, Earth layers) genuinely need a drawn
 figure. Author these now with a `figure:` slug (see the style guide) rather
 than skipping them — the wording exists; the image and display come later.
+
+## Notation and YAML
+
+**Never put LaTeX inside double-quoted YAML.** A backslash is an escape character there, so
+`"$\frac{5}{3}$"` fails the parse with "Unknown escape character" and names no line. Use
+single quotes, or a block scalar:
+
+```yaml
+      - text: '$\frac{5}{3}$'
+      - text: |
+          $\dots$
+```
+
+This broke a file on 3 August and it will break more, because every file in this subject
+carries LaTeX.

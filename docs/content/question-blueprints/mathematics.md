@@ -35,6 +35,19 @@ radicals, and every equation.
 
 Write `$\frac{3}{4}$`, never `3/4`. Write `$x^2$`, never `x^2`.
 
+**Never put LaTeX inside double-quoted YAML.** A backslash is an escape character there, so
+`"$\frac{5}{3}$"` fails the parse with "Unknown escape character" and names no line. Use
+single quotes, or a block scalar:
+
+```yaml
+      - text: '$\frac{5}{3}$'
+      - text: |
+          $\dots$
+```
+
+This broke a file on 3 August and it will break more, because every file in this subject
+carries LaTeX.
+
 ## Figures
 
 **Prefer prose. A triangle described in words is answerable and should be

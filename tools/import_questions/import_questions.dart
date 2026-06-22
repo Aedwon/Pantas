@@ -33,7 +33,21 @@ Future<void> main(List<String> args) async {
   for (final file in files) {
     try {
       final doc = loadYaml(file.readAsStringSync());
+      if (doc is! Map || doc['meta'] is! Map) {
+        throw const FormatException('missing a top-level `meta:` block');
+      }
       final meta = Map<Object?, Object?>.from(doc['meta'] as Map);
+      // Named explicitly, because a missing key used to escape the catch below
+      // as an unhandled null cast: exit 255, a raw stack trace, and no file
+      // name to act on.
+      for (final key in ['subject', 'topic', 'subtopic', 'exams']) {
+        if (meta[key] == null) {
+          throw FormatException('meta is missing `$key:`');
+        }
+      }
+      if (doc['questions'] is! List) {
+        throw const FormatException('missing a top-level `questions:` list');
+      }
       final qm = QuestionMeta(
         subjectSlug: meta['subject'] as String,
         topicSlug: meta['topic'] as String,
@@ -53,6 +67,12 @@ Future<void> main(List<String> args) async {
       }
     } on FormatException catch (e) {
       stderr.writeln('${file.path}: ${e.message}');
+      exitCode = 65;
+      return;
+    } catch (e) {
+      // Anything else still names its file. An agent that cannot see which
+      // file broke cannot fix it, and asks a human instead.
+      stderr.writeln('${file.path}: $e');
       exitCode = 65;
       return;
     }

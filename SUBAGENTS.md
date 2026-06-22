@@ -124,6 +124,24 @@ dart run tools/import_questions/import_questions.dart \
 error message is visible.
 
 
+### The four ways a content run broke on 3 August
+
+Every one of these shipped from a real agent that reported success. **Check each before you
+report.**
+
+1. **LaTeX inside double-quoted YAML.** A backslash is an escape character in double quotes,
+   so `"$\frac{5}{3}$"` and `"$\dots$"` fail the parse. **Use single quotes or a block
+   scalar for anything containing a backslash.** Every Mathematics and Science file carries
+   LaTeX, so this is the most likely failure you will hit.
+2. **A `meta:` block missing `exams:`.** The validator dies with an unhandled null cast and a
+   raw stack trace naming no file. **All four keys, every file:** `subject`, `topic`,
+   `subtopic`, `exams`.
+3. **Writing outside the repository.** One run authored into `/tmp` and its work would never
+   have arrived. **Write to the path the plan names, under the project root, and nowhere
+   else.**
+4. **Reporting an exit code you did not read.** Three separate runs reported exit 0 against a
+   validator that was exiting 65 or 255.
+
 ### Content rules that no validator enforces
 
 These are the ones a fast model breaks, and none of them fails a build.
@@ -145,12 +163,23 @@ These are the ones a fast model breaks, and none of them fails a build.
 - **Figures are hand-made and never AI-generated.** If a question is unanswerable without a
   diagram, add `figure: <slug>` and add the row to the worklist. **Do not generate an image.**
 
-### The content gates
+### The content gates, as one command
+
+Run this from the project root, substituting your own directory. It is the whole check:
 
 ```bash
-dart run tools/import_questions/import_questions.dart --root content/questions   # exit 0
-python3 tools/audit/run_all.py        # lessons only; zero new blockers
+P=content/questions/<your subject dir>
+dart run tools/import_questions/import_questions.dart --root $P >/dev/null 2>&1
+echo "validator: $?  files: $(ls $P/*.yaml | wc -l)  questions: $(grep -hc '^  - id:' $P/*.yaml | awk '{s+=$1}END{print s}')  emdash: $(grep -rl '—' $P | wc -l)  approved: $(grep -rl 'approved:' $P | wc -l)  noexams: $(grep -L '  exams:' $P/*.yaml | wc -l)"
 ```
+
+**Expected: validator 0, emdash 0, approved 0, noexams 0.** Anything else is yours to fix
+before you report. **Paste that line's actual output into your report.**
+
+If the validator is non-zero, rerun without `>/dev/null` to see which file and id it names.
+
+`python3 tools/audit/run_all.py` sweeps **lessons, not questions**. Run it only if you touched
+a lesson.
 
 `tools/audit/run_all.py` sweeps **lessons, not questions**: structure, devices,
 illustrations, formulas and AI tells. Run it if you touched a lesson. Its AI-tell sweep counts

@@ -146,7 +146,32 @@ and never let an agent resolve a router conflict on its own.
 `assets/seed/`; code writes `lib/` and `test/`. Aedwon's question generation can run alongside
 any of this.
 
-## Section 7: What this document does not decide
+## Section 6b: Dispatch efficiency, learned the expensive way on 3 August
+
+Six agents ran on 3 August. What they cost, and what to do differently.
+
+**The single largest waste was the validator.** `import_questions.dart` prints the full
+converted JSON of every question under `--root`, **2.8 MB across the corpus**, and
+`SUBAGENTS.md` plus all five content plans told every agent to run it after every subtopic.
+An eight-subtopic run ingested that dump eight times to learn one exit code. Fixed: redirect
+to `/dev/null`, read the exit code, scope `--root` to the directory being written.
+
+**Four rules that follow:**
+
+1. **Dispatch prompts are three lines, not three pages.** The plans and `SUBAGENTS.md` already
+   carry every rule. Restating them inline pays for the same words twice.
+   *"Execute `plans/X.md`, rows N to M. Follow `SUBAGENTS.md` Part 4."* is the whole prompt.
+2. **Fewer, larger agents.** Every agent cold-reads roughly 900 lines of required documents
+   before writing anything. Splitting Mathematics five ways paid that five times; two agents
+   would have done the same work for less.
+3. **Resume, never re-dispatch.** When a run stops part-way, send it a message rather than
+   spawning a replacement. A new agent re-reads everything from cold.
+4. **Never ask an agent for a wide diagnostic.** Give it the one command in `SUBAGENTS.md`
+   Part 4 and have it paste the output.
+
+**And one rule for whoever is verifying:** use the single content-gate command rather than six
+separate shell calls. The verifier's own token cost is small per plan, and it is what makes
+the whole split work, so keep it small.
 
 - **Mathematics.** Still the only open item in Gate 0 of the launch checklist.
 - **`url_launcher` and `in_app_review`.** Two tasks stop and ask on the first.
