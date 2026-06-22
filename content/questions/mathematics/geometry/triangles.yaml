@@ -16,11 +16,11 @@ questions:
     stem: |
       In $\triangle ABC$, the measure of $\angle A = 55^\circ$ and $\angle B = 65^\circ$. What is the measure of $\angle C$?
     choices:
-      - text: "$60^\circ$"
+      - text: '$60^\circ$'
         correct: true
-      - text: "$120^\circ$"
-      - text: "$30^\circ$"
-      - text: "$70^\circ$"
+      - text: '$120^\circ$'
+      - text: '$30^\circ$'
+      - text: '$70^\circ$'
     explanation: |
       The sum of interior angles in any triangle is $180^\circ$.
 
@@ -57,11 +57,11 @@ questions:
     stem: |
       An exterior angle of a triangle measures $125^\circ$. One of its remote interior angles measures $55^\circ$. What is the measure of the other remote interior angle?
     choices:
-      - text: "$70^\circ$"
+      - text: '$70^\circ$'
         correct: true
-      - text: "$55^\circ$"
-      - text: "$180^\circ$"
-      - text: "$125^\circ$"
+      - text: '$55^\circ$'
+      - text: '$180^\circ$'
+      - text: '$125^\circ$'
     explanation: |
       By the Exterior Angle Theorem, an exterior angle of a triangle is equal to the sum of its two remote interior angles.
 
@@ -173,11 +173,11 @@ questions:
     stem: |
       The interior angles of a triangle are in the ratio $2 : 3 : 7$. What is the measure of the largest angle?
     choices:
-      - text: "$105^\circ$"
+      - text: '$105^\circ$'
         correct: true
-      - text: "$45^\circ$"
-      - text: "$30^\circ$"
-      - text: "$70^\circ$"
+      - text: '$45^\circ$'
+      - text: '$30^\circ$'
+      - text: '$70^\circ$'
     explanation: |
       1. Let the three angles be $2x$, $3x$, and $7x$.
       2. Sum of angles in a triangle: $2x + 3x + 7x = 180^\circ \implies 12x = 180^\circ \implies x = 15^\circ$.
@@ -216,11 +216,11 @@ questions:
     stem: |
       In $\triangle ABC$, side $BC$ is extended to point $D$ to form exterior angle $\angle ACD = (7x - 5)^\circ$. The remote interior angles are $\angle A = (3x + 10)^\circ$ and $\angle B = (2x + 15)^\circ$. What is the measure of interior angle $\angle ACB$?
     choices:
-      - text: "$80^\circ$"
+      - text: '$80^\circ$'
         correct: true
-      - text: "$100^\circ$"
-      - text: "$55^\circ$"
-      - text: "$45^\circ$"
+      - text: '$100^\circ$'
+      - text: '$55^\circ$'
+      - text: '$45^\circ$'
     explanation: |
       1. By Exterior Angle Theorem: $\angle ACD = \angle A + \angle B$.
       2. Set up equation: $7x - 5 = (3x + 10) + (2x + 15)$.

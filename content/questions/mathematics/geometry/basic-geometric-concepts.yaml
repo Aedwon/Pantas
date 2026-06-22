@@ -16,11 +16,11 @@ questions:
     stem: |
       If Angle $A$ and Angle $B$ are complementary angles and the measure of Angle $A$ is $35^\circ$, what is the measure of Angle $B$?
     choices:
-      - text: "$55^\circ$"
+      - text: '$55^\circ$'
         correct: true
-      - text: "$145^\circ$"
-      - text: "$35^\circ$"
-      - text: "$325^\circ$"
+      - text: '$145^\circ$'
+      - text: '$35^\circ$'
+      - text: '$325^\circ$'
     explanation: |
       Complementary angles are two angles whose sum is equal to $90^\circ$.
 
@@ -36,11 +36,11 @@ questions:
     stem: |
       Angle $X$ and Angle $Y$ form a linear pair on a straight line. If the measure of Angle $X$ is $112^\circ$, what is the measure of Angle $Y$?
     choices:
-      - text: "$68^\circ$"
+      - text: '$68^\circ$'
         correct: true
-      - text: "$22^\circ$"
-      - text: "$112^\circ$"
-      - text: "$78^\circ$"
+      - text: '$22^\circ$'
+      - text: '$112^\circ$'
+      - text: '$78^\circ$'
     explanation: |
       Angles that form a linear pair are supplementary, meaning their sum is $180^\circ$.
 
@@ -56,11 +56,11 @@ questions:
     stem: |
       Line $AB$ and Line $CD$ intersect at point $P$, forming vertical angles $\angle APC$ and $\angle BPD$. If $\angle APC = 48^\circ$, which statement must be true regarding $\angle BPD$?
     choices:
-      - text: "$\angle BPD = 48^\circ$ because vertical angles are equal."
+      - text: '$\angle BPD = 48^\circ$ because vertical angles are equal.'
         correct: true
-      - text: "$\angle BPD = 132^\circ$ because vertical angles are supplementary."
-      - text: "$\angle BPD = 42^\circ$ because vertical angles are complementary."
-      - text: "$\angle BPD = 180^\circ$ because vertical angles form a straight line."
+      - text: '$\angle BPD = 132^\circ$ because vertical angles are supplementary.'
+      - text: '$\angle BPD = 42^\circ$ because vertical angles are complementary.'
+      - text: '$\angle BPD = 180^\circ$ because vertical angles form a straight line.'
     explanation: |
       Vertical angles are opposite angles formed by two intersecting lines.
 
@@ -92,11 +92,11 @@ questions:
     stem: |
       Ray $BD$ is the angle bisector of $\angle ABC$. If $\angle ABD = 28^\circ$, what is the measure of the entire angle $\angle ABC$?
     choices:
-      - text: "$56^\circ$"
+      - text: '$56^\circ$'
         correct: true
-      - text: "$14^\circ$"
-      - text: "$28^\circ$"
-      - text: "$62^\circ$"
+      - text: '$14^\circ$'
+      - text: '$28^\circ$'
+      - text: '$62^\circ$'
     explanation: |
       An angle bisector divides an angle into two congruent (equal) halves.
 
@@ -132,11 +132,11 @@ questions:
     stem: |
       Two angles are complementary. The measure of the larger angle is $15^\circ$ less than twice the measure of the smaller angle. Which statement is true regarding the larger angle?
     choices:
-      - text: "The larger angle measures $55^\circ$."
+      - text: 'The larger angle measures $55^\circ$.'
         correct: true
-      - text: "The larger angle measures $35^\circ$."
-      - text: "The larger angle measures $115^\circ$."
-      - text: "The larger angle measures $75^\circ$."
+      - text: 'The larger angle measures $35^\circ$.'
+      - text: 'The larger angle measures $115^\circ$.'
+      - text: 'The larger angle measures $75^\circ$.'
     explanation: |
       Let $x$ be the measure of the smaller angle. The larger angle is $2x - 15$.
 
@@ -172,11 +172,11 @@ questions:
     stem: |
       Two intersecting lines form vertical angles with measures $(4x + 18)^\circ$ and $(6x - 14)^\circ$. Which statement is true regarding the measure of an angle adjacent to these vertical angles?
     choices:
-      - text: "An adjacent angle measures $98^\circ$."
+      - text: 'An adjacent angle measures $98^\circ$.'
         correct: true
-      - text: "An adjacent angle measures $82^\circ$."
-      - text: "An adjacent angle measures $8^\circ$."
-      - text: "An adjacent angle measures $16^\circ$."
+      - text: 'An adjacent angle measures $82^\circ$.'
+      - text: 'An adjacent angle measures $8^\circ$.'
+      - text: 'An adjacent angle measures $16^\circ$.'
     explanation: |
       1. Vertical angles are equal: $4x + 18 = 6x - 14 \implies 2x = 32 \implies x = 16$.
       2. Find the vertical angle measure: $4(16) + 18 = 64 + 18 = 82^\circ$.
@@ -191,11 +191,11 @@ questions:
     stem: |
       Three adjacent angles $\angle AOB = (2x)^\circ$, $\angle BOC = (3x + 10)^\circ$, and $\angle COD = (x + 20)^\circ$ lie along a straight line $AD$. What is the measure of $\angle BOC$?
     choices:
-      - text: "$\angle BOC = 85^\circ$"
+      - text: '$\angle BOC = 85^\circ$'
         correct: true
-      - text: "$\angle BOC = 25^\circ$"
-      - text: "$\angle BOC = 50^\circ$"
-      - text: "$\angle BOC = 45^\circ$"
+      - text: '$\angle BOC = 25^\circ$'
+      - text: '$\angle BOC = 50^\circ$'
+      - text: '$\angle BOC = 45^\circ$'
     explanation: |
       Angles lying on a straight line sum to $180^\circ$.
 
@@ -215,8 +215,8 @@ questions:
       - text: "Ray $OX$ and Ray $OY$ are perpendicular to each other."
         correct: true
       - text: "Ray $OX$ and Ray $OY$ are parallel to each other."
-      - text: "Ray $OX$ and Ray $OY$ form a straight angle of $180^\circ$."
-      - text: "Ray $OX$ and Ray $OY$ form an angle of $45^\circ$."
+      - text: 'Ray $OX$ and Ray $OY$ form a straight angle of $180^\circ$.'
+      - text: 'Ray $OX$ and Ray $OY$ form an angle of $45^\circ$.'
     explanation: |
       Let $\angle AOC = 2a$ and $\angle BOC = 2b$.
 
@@ -233,11 +233,11 @@ questions:
     stem: |
       The measure of the supplement of an angle is equal to four times the measure of its complement. Which statement is true regarding this angle?
     choices:
-      - text: "The angle measures $60^\circ$, which is an acute angle."
+      - text: 'The angle measures $60^\circ$, which is an acute angle.'
         correct: true
-      - text: "The angle measures $30^\circ$, which is an acute angle."
-      - text: "The angle measures $45^\circ$, which is an acute angle."
-      - text: "The angle measures $120^\circ$, which is an obtuse angle."
+      - text: 'The angle measures $30^\circ$, which is an acute angle.'
+      - text: 'The angle measures $45^\circ$, which is an acute angle.'
+      - text: 'The angle measures $120^\circ$, which is an obtuse angle.'
     explanation: |
       Let $x$ be the measure of the angle.
       - Complement $= 90 - x$
@@ -278,11 +278,11 @@ questions:
     stem: |
       Three rays meeting at point $O$ form angles $\angle AOB = (4x - 5)^\circ$, $\angle BOC = (2x + 15)^\circ$, and reflex angle $\angle COA = (10x - 10)^\circ$. Which statement is true regarding the measure of $\angle AOB$?
     choices:
-      - text: "The measure of $\angle AOB$ is $85^\circ$."
+      - text: 'The measure of $\angle AOB$ is $85^\circ$.'
         correct: true
-      - text: "The measure of $\angle AOB$ is $60^\circ$."
-      - text: "The measure of $\angle AOB$ is $215^\circ$."
-      - text: "The measure of $\angle AOB$ is $22.5^\circ$."
+      - text: 'The measure of $\angle AOB$ is $60^\circ$.'
+      - text: 'The measure of $\angle AOB$ is $215^\circ$.'
+      - text: 'The measure of $\angle AOB$ is $22.5^\circ$.'
     explanation: |
       The sum of angles around a single point is $360^\circ$.
 
@@ -299,11 +299,11 @@ questions:
     stem: |
       Angle $P$ and Angle $Q$ are supplementary angles. The measure of Angle $P$ is $20^\circ$ less than three times the measure of Angle $Q$. If Angle $R$ is complementary to Angle $Q$, what is the measure of Angle $R$?
     choices:
-      - text: "The measure of Angle $R$ is $40^\circ$."
+      - text: 'The measure of Angle $R$ is $40^\circ$.'
         correct: true
-      - text: "The measure of Angle $R$ is $50^\circ$."
-      - text: "The measure of Angle $R$ is $130^\circ$."
-      - text: "The measure of Angle $R$ is $140^\circ$."
+      - text: 'The measure of Angle $R$ is $50^\circ$.'
+      - text: 'The measure of Angle $R$ is $130^\circ$.'
+      - text: 'The measure of Angle $R$ is $140^\circ$.'
     explanation: |
       1. Since $P$ and $Q$ are supplementary: $P + Q = 180$.
       2. Express $P$ in terms of $Q$: $P = 3Q - 20$.

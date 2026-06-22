@@ -85,10 +85,10 @@ questions:
       2. "If an angle is a right angle, then its adjacent supplementary angle also measures $90^\circ$."
       What conclusion logically follows by the Law of Syllogism?
     choices:
-      - text: "If an angle measures $90^\circ$, then its adjacent supplementary angle also measures $90^\circ$."
+      - text: 'If an angle measures $90^\circ$, then its adjacent supplementary angle also measures $90^\circ$.'
         correct: true
-      - text: "If an angle is a right angle, then it measures $90^\circ$."
-      - text: "If an angle does not measure $90^\circ$, then it is not a right angle."
+      - text: 'If an angle is a right angle, then it measures $90^\circ$.'
+      - text: 'If an angle does not measure $90^\circ$, then it is not a right angle.'
       - text: "No conclusion can be drawn."
     explanation: |
       The Law of Syllogism states that if "If P, then Q" and "If Q, then R" are both true statements, then "If P, then R" is also a true statement.
@@ -155,11 +155,11 @@ questions:
     stem: |
       Given the true conditional statement: "If two lines are perpendicular, then they intersect at a $90^\circ$ angle." Which option correctly states its inverse and evaluates its truth value in plane geometry?
     choices:
-      - text: "Inverse: 'If two lines are not perpendicular, then they do not intersect at a $90^\circ$ angle.' (True)"
+      - text: 'Inverse: 'If two lines are not perpendicular, then they do not intersect at a $90^\circ$ angle.' (True)'
         correct: true
-      - text: "Inverse: 'If two lines do not intersect at a $90^\circ$ angle, then they are not perpendicular.' (True)"
-      - text: "Inverse: 'If two lines intersect at a $90^\circ$ angle, then they are perpendicular.' (False)"
-      - text: "Inverse: 'If two lines are not perpendicular, then they do not intersect at a $90^\circ$ angle.' (False)"
+      - text: 'Inverse: 'If two lines do not intersect at a $90^\circ$ angle, then they are not perpendicular.' (True)'
+      - text: 'Inverse: 'If two lines intersect at a $90^\circ$ angle, then they are perpendicular.' (False)'
+      - text: 'Inverse: 'If two lines are not perpendicular, then they do not intersect at a $90^\circ$ angle.' (False)'
     explanation: |
       1. To form the inverse of "If P, then Q", negate both parts without swapping: "If not P, then not Q".
       2. Inverse: "If two lines are not perpendicular, then they do not intersect at a $90^\circ$ angle."
@@ -190,11 +190,11 @@ questions:
     stem: |
       What is the contrapositive of the geometric statement: "If two same-side interior angles sum to $180^\circ$, then the two intersected lines are parallel"?
     choices:
-      - text: "If two intersected lines are not parallel, then the two same-side interior angles do not sum to $180^\circ$."
+      - text: 'If two intersected lines are not parallel, then the two same-side interior angles do not sum to $180^\circ$.'
         correct: true
-      - text: "If two intersected lines are parallel, then the two same-side interior angles sum to $180^\circ$."
-      - text: "If two same-side interior angles do not sum to $180^\circ$, then the two intersected lines are not parallel."
-      - text: "If two same-side interior angles sum to $180^\circ$, then the two intersected lines are not parallel."
+      - text: 'If two intersected lines are parallel, then the two same-side interior angles sum to $180^\circ$.'
+      - text: 'If two same-side interior angles do not sum to $180^\circ$, then the two intersected lines are not parallel.'
+      - text: 'If two same-side interior angles sum to $180^\circ$, then the two intersected lines are not parallel.'
     explanation: |
       The contrapositive negates AND swaps hypothesis P and conclusion Q.
 

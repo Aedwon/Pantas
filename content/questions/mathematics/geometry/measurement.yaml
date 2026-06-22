@@ -34,11 +34,11 @@ questions:
     stem: |
       A solid cube has an edge length of $5\text{ cm}$. What is its total surface area?
     choices:
-      - text: "$150\text{ cm}^2$"
+      - text: '$150\text{ cm}^2$'
         correct: true
-      - text: "$125\text{ cm}^3$"
-      - text: "$100\text{ cm}^2$"
-      - text: "$30\text{ cm}^2$"
+      - text: '$125\text{ cm}^3$'
+      - text: '$100\text{ cm}^2$'
+      - text: '$30\text{ cm}^2$'
     explanation: |
       A cube has $6$ identical square faces.
 
@@ -53,11 +53,11 @@ questions:
     stem: |
       A cylindrical water tank has a base radius of $3\text{ m}$ and a height of $10\text{ m}$. What is the total volume of water the tank can hold?
     choices:
-      - text: "$90\pi\text{ m}^3$"
+      - text: '$90\pi\text{ m}^3$'
         correct: true
-      - text: "$30\pi\text{ m}^3$"
-      - text: "$60\pi\text{ m}^3$"
-      - text: "$300\pi\text{ m}^3$"
+      - text: '$30\pi\text{ m}^3$'
+      - text: '$60\pi\text{ m}^3$'
+      - text: '$300\pi\text{ m}^3$'
     explanation: |
       Volume of a cylinder is $V = \pi r^2 h$.
 
@@ -71,11 +71,11 @@ questions:
     stem: |
       A cone has a circular base radius of $6\text{ cm}$ and a height of $7\text{ cm}$. What is its volume?
     choices:
-      - text: "$84\pi\text{ cm}^3$"
+      - text: '$84\pi\text{ cm}^3$'
         correct: true
-      - text: "$252\pi\text{ cm}^3$"
-      - text: "$42\pi\text{ cm}^3$"
-      - text: "$126\pi\text{ cm}^3$"
+      - text: '$252\pi\text{ cm}^3$'
+      - text: '$42\pi\text{ cm}^3$'
+      - text: '$126\pi\text{ cm}^3$'
     explanation: |
       Volume of a cone is $V = \frac{1}{3}\pi r^2 h$.
 
@@ -89,11 +89,11 @@ questions:
     stem: |
       A spherical globe has a radius of $6\text{ cm}$. What is its total surface area?
     choices:
-      - text: "$144\pi\text{ cm}^2$"
+      - text: '$144\pi\text{ cm}^2$'
         correct: true
-      - text: "$288\pi\text{ cm}^2$"
-      - text: "$36\pi\text{ cm}^2$"
-      - text: "$72\pi\text{ cm}^2$"
+      - text: '$288\pi\text{ cm}^2$'
+      - text: '$36\pi\text{ cm}^2$'
+      - text: '$72\pi\text{ cm}^2$'
     explanation: |
       Surface area of a sphere is $SA = 4\pi r^2$.
 
@@ -107,11 +107,11 @@ questions:
     stem: |
       A trapezoid has parallel bases of $10\text{ cm}$ and $18\text{ cm}$. Its non-parallel slant legs measure $5\text{ cm}$, and its vertical perpendicular height is $4\text{ cm}$. What is the area of the trapezoid?
     choices:
-      - text: "$56\text{ cm}^2$"
+      - text: '$56\text{ cm}^2$'
         correct: true
-      - text: "$70\text{ cm}^2$"
-      - text: "$112\text{ cm}^2$"
-      - text: "$28\text{ cm}^2$"
+      - text: '$70\text{ cm}^2$'
+      - text: '$112\text{ cm}^2$'
+      - text: '$28\text{ cm}^2$'
     explanation: |
       Area of a trapezoid is $A = \frac{b_1 + b_2}{2} \times h$.
 
@@ -126,11 +126,11 @@ questions:
     stem: |
       A flat metal template is composed of a rectangle of length $12\text{ cm}$ and width $8\text{ cm}$, with a semicircle attached along one of its $8\text{ cm}$ sides. What is the total area of the compound shape?
     choices:
-      - text: "$96 + 8\pi\text{ cm}^2$"
+      - text: '$96 + 8\pi\text{ cm}^2$'
         correct: true
-      - text: "$96 + 16\pi\text{ cm}^2$"
-      - text: "$96 + 32\pi\text{ cm}^2$"
-      - text: "$104\pi\text{ cm}^2$"
+      - text: '$96 + 16\pi\text{ cm}^2$'
+      - text: '$96 + 32\pi\text{ cm}^2$'
+      - text: '$104\pi\text{ cm}^2$'
     explanation: |
       1. Rectangle area $= l \times w = 12 \times 8 = 96\text{ cm}^2$.
       2. Semicircle diameter $= 8\text{ cm} \implies \text{radius } r = 4\text{ cm}$.
@@ -145,11 +145,11 @@ questions:
     stem: |
       A square metal plate has side length $10\text{ cm}$. A circular hole of maximum possible diameter is punched out from its center. What is the area of the remaining metal plate?
     choices:
-      - text: "$100 - 25\pi\text{ cm}^2$"
+      - text: '$100 - 25\pi\text{ cm}^2$'
         correct: true
-      - text: "$100 - 100\pi\text{ cm}^2$"
-      - text: "$25\pi - 100\text{ cm}^2$"
-      - text: "$100 - 10\pi\text{ cm}^2$"
+      - text: '$100 - 100\pi\text{ cm}^2$'
+      - text: '$25\pi - 100\text{ cm}^2$'
+      - text: '$100 - 10\pi\text{ cm}^2$'
     explanation: |
       1. Square area $= s^2 = 10^2 = 100\text{ cm}^2$.
       2. The maximum circle diameter equals the square side length ($10\text{ cm}$), so radius $r = 5\text{ cm}$.
@@ -162,11 +162,11 @@ questions:
     stem: |
       A rectangular wooden block has length $8\text{ cm}$, width $5\text{ cm}$, and height $3\text{ cm}$. What is its total surface area?
     choices:
-      - text: "$158\text{ cm}^2$"
+      - text: '$158\text{ cm}^2$'
         correct: true
-      - text: "$120\text{ cm}^3$"
-      - text: "$79\text{ cm}^2$"
-      - text: "$160\text{ cm}^2$"
+      - text: '$120\text{ cm}^3$'
+      - text: '$79\text{ cm}^2$'
+      - text: '$160\text{ cm}^2$'
     explanation: |
       Surface area of a rectangular prism is $SA = 2(lw + lh + wh)$.
 
@@ -182,11 +182,11 @@ questions:
     stem: |
       A monument in the shape of a pyramid has a square base with side length $6\text{ m}$ and a perpendicular height of $9\text{ m}$. What is the volume of the pyramid?
     choices:
-      - text: "$108\text{ m}^3$"
+      - text: '$108\text{ m}^3$'
         correct: true
-      - text: "$324\text{ m}^3$"
-      - text: "$54\text{ m}^3$"
-      - text: "$162\text{ m}^3$"
+      - text: '$324\text{ m}^3$'
+      - text: '$54\text{ m}^3$'
+      - text: '$162\text{ m}^3$'
     explanation: |
       Volume of a pyramid is $V = \frac{1}{3} \times \text{Base Area} \times h$.
 
@@ -201,11 +201,11 @@ questions:
     stem: |
       A right circular cone has a base radius of $5\text{ cm}$ and a height of $12\text{ cm}$. What is its total surface area (including the base)?
     choices:
-      - text: "$90\pi\text{ cm}^2$"
+      - text: '$90\pi\text{ cm}^2$'
         correct: true
-      - text: "$65\pi\text{ cm}^2$"
-      - text: "$85\pi\text{ cm}^2$"
-      - text: "$100\pi\text{ cm}^2$"
+      - text: '$65\pi\text{ cm}^2$'
+      - text: '$85\pi\text{ cm}^2$'
+      - text: '$100\pi\text{ cm}^2$'
     explanation: |
       1. Calculate slant height $l = \sqrt{r^2 + h^2} = \sqrt{5^2 + 12^2} = \sqrt{25 + 144} = 13\text{ cm}$.
       2. Base area $= \pi r^2 = \pi (5^2) = 25\pi\text{ cm}^2$.
@@ -239,11 +239,11 @@ questions:
     stem: |
       A storage silo is composed of a cylinder of radius $3\text{ m}$ and height $8\text{ m}$, topped by a hemisphere of radius $3\text{ m}$. What is the total volume of the storage silo?
     choices:
-      - text: "$90\pi\text{ m}^3$"
+      - text: '$90\pi\text{ m}^3$'
         correct: true
-      - text: "$108\pi\text{ m}^3$"
-      - text: "$72\pi\text{ m}^3$"
-      - text: "$126\pi\text{ m}^3$"
+      - text: '$108\pi\text{ m}^3$'
+      - text: '$72\pi\text{ m}^3$'
+      - text: '$126\pi\text{ m}^3$'
     explanation: |
       1. Cylinder Volume $= \pi r^2 h = \pi (3^2)(8) = 72\pi\text{ m}^3$.
       2. Hemisphere Volume $= \frac{1}{2} \times \left(\frac{4}{3}\pi r^3\right) = \frac{2}{3}\pi (3^3) = \frac{2}{3}\pi (27) = 18\pi\text{ m}^3$.
@@ -257,11 +257,11 @@ questions:
     stem: |
       A large square has side length $12\text{ cm}$. Inside it, a smaller square is formed by connecting the midpoints of the adjacent sides of the large square. What is the area of the region inside the large square but outside the smaller square?
     choices:
-      - text: "$72\text{ cm}^2$"
+      - text: '$72\text{ cm}^2$'
         correct: true
-      - text: "$36\text{ cm}^2$"
-      - text: "$108\text{ cm}^2$"
-      - text: "$96\text{ cm}^2$"
+      - text: '$36\text{ cm}^2$'
+      - text: '$108\text{ cm}^2$'
+      - text: '$96\text{ cm}^2$'
     explanation: |
       1. Large Square Area $= 12^2 = 144\text{ cm}^2$.
       2. Midpoint leg lengths $= 6\text{ cm}$. Side of small square $= \sqrt{6^2 + 6^2} = \sqrt{72}\text{ cm}$.

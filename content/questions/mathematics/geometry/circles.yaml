@@ -16,11 +16,11 @@ questions:
     stem: |
       A central angle in a circle intercepts an arc measuring $84^\circ$. What is the measure of an inscribed angle that intercepts the exact same arc?
     choices:
-      - text: "$42^\circ$"
+      - text: '$42^\circ$'
         correct: true
-      - text: "$84^\circ$"
-      - text: "$168^\circ$"
-      - text: "$96^\circ$"
+      - text: '$84^\circ$'
+      - text: '$168^\circ$'
+      - text: '$96^\circ$'
     explanation: |
       An inscribed angle is equal to half the measure of its intercepted arc.
 
@@ -35,11 +35,11 @@ questions:
     stem: |
       The diameter of a circle is $14\text{ cm}$. What is the area of the circle?
     choices:
-      - text: "$49\pi\text{ cm}^2$"
+      - text: '$49\pi\text{ cm}^2$'
         correct: true
-      - text: "$196\pi\text{ cm}^2$"
-      - text: "$14\pi\text{ cm}^2$"
-      - text: "$28\pi\text{ cm}^2$"
+      - text: '$196\pi\text{ cm}^2$'
+      - text: '$14\pi\text{ cm}^2$'
+      - text: '$28\pi\text{ cm}^2$'
     explanation: |
       1. Calculate the radius $r$ from diameter $d$: $r = \frac{d}{2} = \frac{14}{2} = 7\text{ cm}$.
       2. Apply area formula $A = \pi r^2$:
@@ -53,11 +53,11 @@ questions:
     stem: |
       $\triangle ABC$ is inscribed in a circle such that side $AB$ is the diameter of the circle. If $\angle BAC = 35^\circ$, what is the measure of $\angle ABC$?
     choices:
-      - text: "$55^\circ$"
+      - text: '$55^\circ$'
         correct: true
-      - text: "$35^\circ$"
-      - text: "$90^\circ$"
-      - text: "$145^\circ$"
+      - text: '$35^\circ$'
+      - text: '$90^\circ$'
+      - text: '$145^\circ$'
     explanation: |
       By Thales's Theorem, an angle inscribed in a semicircle is always a right angle ($90^\circ$).
 
@@ -123,11 +123,11 @@ questions:
     stem: |
       A central angle of $90^\circ$ bounds a sector in a circle of radius $8\text{ cm}$. What is the area of the sector?
     choices:
-      - text: "$16\pi\text{ cm}^2$"
+      - text: '$16\pi\text{ cm}^2$'
         correct: true
-      - text: "$4\pi\text{ cm}^2$"
-      - text: "$64\pi\text{ cm}^2$"
-      - text: "$32\pi\text{ cm}^2$"
+      - text: '$4\pi\text{ cm}^2$'
+      - text: '$64\pi\text{ cm}^2$'
+      - text: '$32\pi\text{ cm}^2$'
     explanation: |
       1. Sector area formula: $A = \frac{\theta}{360^\circ} \times \pi r^2$.
       2. Substitute values: $A = \frac{90^\circ}{360^\circ} \times \pi (8^2) = \frac{1}{4} \times 64\pi = 16\pi\text{ cm}^2$.
@@ -141,11 +141,11 @@ questions:
     stem: |
       Quadrilateral $ABCD$ is inscribed in a circle. Angle $\angle A = (4x + 20)^\circ$ and opposite angle $\angle C = (2x + 40)^\circ$. What is the measure of $\angle C$?
     choices:
-      - text: "$80^\circ$"
+      - text: '$80^\circ$'
         correct: true
-      - text: "$100^\circ$"
-      - text: "$20^\circ$"
-      - text: "$10^\circ$"
+      - text: '$100^\circ$'
+      - text: '$20^\circ$'
+      - text: '$10^\circ$'
     explanation: |
       Opposite angles in an inscribed quadrilateral are supplementary ($180^\circ$).
 
@@ -162,11 +162,11 @@ questions:
     stem: |
       Chords $AB$ and $CD$ intersect inside a circle at point $E$. Intercepted arc $AC = 70^\circ$ and intercepted arc $BD = 50^\circ$. What is the measure of angle $\angle AEC$?
     choices:
-      - text: "$60^\circ$"
+      - text: '$60^\circ$'
         correct: true
-      - text: "$10^\circ$"
-      - text: "$120^\circ$"
-      - text: "$35^\circ$"
+      - text: '$10^\circ$'
+      - text: '$120^\circ$'
+      - text: '$35^\circ$'
     explanation: |
       The measure of an angle formed by two chords intersecting inside a circle is half the sum of the intercepted arcs.
 
@@ -181,11 +181,11 @@ questions:
     stem: |
       Two secant lines intersect outside a circle at point $P$. The intercepted arcs between the secants are $110^\circ$ and $40^\circ$. What is the measure of angle $\angle P$?
     choices:
-      - text: "$35^\circ$"
+      - text: '$35^\circ$'
         correct: true
-      - text: "$75^\circ$"
-      - text: "$70^\circ$"
-      - text: "$150^\circ$"
+      - text: '$75^\circ$'
+      - text: '$70^\circ$'
+      - text: '$150^\circ$'
     explanation: |
       The measure of an angle formed by two secants intersecting outside a circle is half the difference of the intercepted arcs.
 
@@ -240,11 +240,11 @@ questions:
     stem: |
       A circle has a radius of $6\text{ cm}$. A square is inscribed inside the circle. What is the area of the region inside the circle but outside the square (shaded area)?
     choices:
-      - text: "$36\pi - 72\text{ cm}^2$"
+      - text: '$36\pi - 72\text{ cm}^2$'
         correct: true
-      - text: "$36\pi - 36\text{ cm}^2$"
-      - text: "$36\pi - 144\text{ cm}^2$"
-      - text: "$72 - 36\pi\text{ cm}^2$"
+      - text: '$36\pi - 36\text{ cm}^2$'
+      - text: '$36\pi - 144\text{ cm}^2$'
+      - text: '$72 - 36\pi\text{ cm}^2$'
     explanation: |
       1. Circle Area $= \pi r^2 = \pi (6^2) = 36\pi\text{ cm}^2$.
       2. The diagonal $d$ of the inscribed square equals the diameter of the circle: $d = 2r = 12\text{ cm}$.
@@ -258,11 +258,11 @@ questions:
     stem: |
       In a circle with center $O$, chord $AB$ subtends central angle $\angle AOB = (5x - 10)^\circ$ and inscribed angle $\angle ACB = (2x + 10)^\circ$ standing on the same arc $AB$. What is the measure of central angle $\angle AOB$?
     choices:
-      - text: "$140^\circ$"
+      - text: '$140^\circ$'
         correct: true
-      - text: "$70^\circ$"
-      - text: "$30^\circ$"
-      - text: "$110^\circ$"
+      - text: '$70^\circ$'
+      - text: '$30^\circ$'
+      - text: '$110^\circ$'
     explanation: |
       A central angle is twice the measure of an inscribed angle standing on the same arc.
 

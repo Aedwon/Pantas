@@ -16,11 +16,11 @@ questions:
     stem: |
       Two parallel lines $L_1$ and $L_2$ are intersected by a transversal $T$. If one of the alternate interior angles measures $68^\circ$, what is the measure of the other alternate interior angle?
     choices:
-      - text: "$68^\circ$"
+      - text: '$68^\circ$'
         correct: true
-      - text: "$112^\circ$"
-      - text: "$22^\circ$"
-      - text: "$136^\circ$"
+      - text: '$112^\circ$'
+      - text: '$22^\circ$'
+      - text: '$136^\circ$'
     explanation: |
       When two parallel lines are cut by a transversal, alternate interior angles are equal in measure.
 
@@ -35,11 +35,11 @@ questions:
     stem: |
       Parallel lines $L_1$ and $L_2$ are cut by transversal $T$. If one same-side interior angle measures $115^\circ$, what is the measure of the other same-side interior angle?
     choices:
-      - text: "$65^\circ$"
+      - text: '$65^\circ$'
         correct: true
-      - text: "$115^\circ$"
-      - text: "$25^\circ$"
-      - text: "$75^\circ$"
+      - text: '$115^\circ$'
+      - text: '$25^\circ$'
+      - text: '$75^\circ$'
     explanation: |
       Same-side interior angles formed by parallel lines cut by a transversal are supplementary (their sum is $180^\circ$).
 
@@ -75,11 +75,11 @@ questions:
     stem: |
       Line $L_1$ is parallel to line $L_2$. Transversal $T_1$ is perpendicular to line $L_1$. What is the measure of the angle formed at the intersection of transversal $T_1$ and line $L_2$?
     choices:
-      - text: "$90^\circ$"
+      - text: '$90^\circ$'
         correct: true
-      - text: "$45^\circ$"
-      - text: "$180^\circ$"
-      - text: "$0^\circ$"
+      - text: '$45^\circ$'
+      - text: '$180^\circ$'
+      - text: '$0^\circ$'
     explanation: |
       Perpendicularity propagates across parallel lines.
 
@@ -114,11 +114,11 @@ questions:
     stem: |
       Parallel lines $L_1$ and $L_2$ are cut by transversal $T$. The measures of two same-side interior angles are $(7x - 15)^\circ$ and $(4x + 8)^\circ$. What is the measure of the larger angle?
     choices:
-      - text: "$104^\circ$"
+      - text: '$104^\circ$'
         correct: true
-      - text: "$76^\circ$"
-      - text: "$17^\circ$"
-      - text: "$98^\circ$"
+      - text: '$76^\circ$'
+      - text: '$17^\circ$'
+      - text: '$98^\circ$'
     explanation: |
       Same-side interior angles are supplementary ($180^\circ$).
 
@@ -136,11 +136,11 @@ questions:
     stem: |
       Two horizontal parallel lines $L_1$ and $L_2$ are joined by a bent line path forming an interior point $P$ between them. The ray from $L_1$ to $P$ makes an angle of $35^\circ$ with $L_1$, and the ray from $L_2$ to $P$ makes an angle of $45^\circ$ with $L_2$. What is the measure of the interior angle at point $P$ opening toward the left?
     choices:
-      - text: "$80^\circ$"
+      - text: '$80^\circ$'
         correct: true
-      - text: "$10^\circ$"
-      - text: "$100^\circ$"
-      - text: "$160^\circ$"
+      - text: '$10^\circ$'
+      - text: '$100^\circ$'
+      - text: '$160^\circ$'
     explanation: |
       1. Draw an auxiliary line through point $P$ that is parallel to both $L_1$ and $L_2$.
       2. This auxiliary line divides the angle at $P$ into two smaller angles.
@@ -177,11 +177,11 @@ questions:
     stem: |
       Parallel lines $AB$ and $CD$ are cut by transversal $EF$, intersecting $AB$ at $E$ and $CD$ at $F$. Ray $EG$ bisects $\angle BEF$. If $\angle CFE = 110^\circ$, what is the measure of $\angle GEF$?
     choices:
-      - text: "$55^\circ$"
+      - text: '$55^\circ$'
         correct: true
-      - text: "$110^\circ$"
-      - text: "$35^\circ$"
-      - text: "$70^\circ$"
+      - text: '$110^\circ$'
+      - text: '$35^\circ$'
+      - text: '$70^\circ$'
     explanation: |
       1. $\angle CFE$ and $\angle BEF$ are alternate interior angles along parallel lines $AB \parallel CD$, so $\angle BEF = \angle CFE = 110^\circ$.
       2. Ray $EG$ bisects $\angle BEF$, dividing it into two equal angles.
@@ -195,11 +195,11 @@ questions:
     stem: |
       Parallel lines $m$ and $n$ are cut by a transversal. Two same-side exterior angles measure $(9x - 14)^\circ$ and $(3x + 2)^\circ$. What is the measure of the smaller angle?
     choices:
-      - text: "$50^\circ$"
+      - text: '$50^\circ$'
         correct: true
-      - text: "$130^\circ$"
-      - text: "$16^\circ$"
-      - text: "$40^\circ$"
+      - text: '$130^\circ$'
+      - text: '$16^\circ$'
+      - text: '$40^\circ$'
     explanation: |
       Same-side exterior angles formed by parallel lines are supplementary.
 
@@ -217,11 +217,11 @@ questions:
     stem: |
       Two parallel lines $L_1 \parallel L_2$ are intersected by another set of parallel lines $M_1 \parallel M_2$, forming a parallelogram grid. One interior angle of the parallelogram is $(5x + 10)^\circ$ and its consecutive interior angle is $(3x + 10)^\circ$. What is the measure of the acute interior angle of the parallelogram?
     choices:
-      - text: "$70^\circ$"
+      - text: '$70^\circ$'
         correct: true
-      - text: "$110^\circ$"
-      - text: "$20^\circ$"
-      - text: "$80^\circ$"
+      - text: '$110^\circ$'
+      - text: '$20^\circ$'
+      - text: '$80^\circ$'
     explanation: |
       Consecutive interior angles along parallel lines are same-side interior angles, so they are supplementary ($180^\circ$).
 
@@ -239,11 +239,11 @@ questions:
     stem: |
       Three parallel lines $L_1 \parallel L_2 \parallel L_3$ are crossed by two transversals $T_1$ and $T_2$. Transversal $T_1$ makes an angle of $40^\circ$ with line $L_1$. Transversal $T_2$ intersects $T_1$ at a point between $L_1$ and $L_2$, making an angle of $75^\circ$ with $L_1$ on the same side. What is the measure of the obtuse angle formed at the intersection of $T_1$ and $T_2$?
     choices:
-      - text: "$145^\circ$"
+      - text: '$145^\circ$'
         correct: true
-      - text: "$35^\circ$"
-      - text: "$115^\circ$"
-      - text: "$65^\circ$"
+      - text: '$35^\circ$'
+      - text: '$115^\circ$'
+      - text: '$65^\circ$'
     explanation: |
       1. Calculate the acute angle formed between $T_1$ and $T_2$ at their intersection:
          $$\text{Acute Angle} = 75^\circ - 40^\circ = 35^\circ$$
@@ -258,11 +258,11 @@ questions:
     stem: |
       Line $L_1$ is parallel to line $L_2$. Line segment $AB$ is perpendicular to $L_1$ at point $A$ and intersects $L_2$ at point $B$. Ray $AC$ is drawn between $L_1$ and $L_2$ such that $\angle BAC = 32^\circ$. What is the measure of the acute angle that ray $AC$ makes with line $L_2$?
     choices:
-      - text: "$58^\circ$"
+      - text: '$58^\circ$'
         correct: true
-      - text: "$32^\circ$"
-      - text: "$122^\circ$"
-      - text: "$148^\circ$"
+      - text: '$32^\circ$'
+      - text: '$122^\circ$'
+      - text: '$148^\circ$'
     explanation: |
       1. Since $AB \perp L_1$ and $L_1 \parallel L_2$, $AB$ is also perpendicular to $L_2$ ($\angle ABO = 90^\circ$).
       2. The angle ray $AC$ makes with line $L_1$ at point $A$ is $90^\circ - \angle BAC = 90^\circ - 32^\circ = 58^\circ$.
@@ -276,11 +276,11 @@ questions:
     stem: |
       Parallel lines $L_1 \parallel L_2 \parallel L_3$ are crossed by transversal $T$, intersecting $L_1, L_2, L_3$ at points $A, B, C$ respectively. An interior angle at $A$ is $(3x + 15)^\circ$, and an alternate interior angle at $C$ is $(5x - 25)^\circ$. Ray $BD$ from line $L_2$ bisects the adjacent supplementary angle to $\angle ABC$. What is the measure of the angle formed by ray $BD$ with line $L_2$?
     choices:
-      - text: "$52.5^\circ$"
+      - text: '$52.5^\circ$'
         correct: true
-      - text: "$37.5^\circ$"
-      - text: "$105^\circ$"
-      - text: "$75^\circ$"
+      - text: '$37.5^\circ$'
+      - text: '$105^\circ$'
+      - text: '$75^\circ$'
     explanation: |
       1. Alternate interior angles are equal: $3x + 15 = 5x - 25 \implies 2x = 40 \implies x = 20$.
       2. Calculate angle measure: $3(20) + 15 = 75^\circ$.
@@ -296,11 +296,11 @@ questions:
     stem: |
       In the diagram, two parallel lines $L_1$ and $L_2$ are intersected by two transversals $T_1$ and $T_2$ that meet at point $P$ between the parallel lines. Transversal $T_1$ makes an interior angle of $50^\circ$ with $L_1$, and transversal $T_2$ makes an interior angle of $65^\circ$ with $L_2$. What is the measure of the interior angle $\angle T_1 P T_2$ facing the left side?
     choices:
-      - text: "$115^\circ$"
+      - text: '$115^\circ$'
         correct: true
-      - text: "$65^\circ$"
-      - text: "$15^\circ$"
-      - text: "$130^\circ$"
+      - text: '$65^\circ$'
+      - text: '$15^\circ$'
+      - text: '$130^\circ$'
     explanation: |
       1. Draw an auxiliary line through point $P$ parallel to both $L_1$ and $L_2$.
       2. By alternate interior angles, the upper part of $\angle T_1 P T_2$ equals $50^\circ$.

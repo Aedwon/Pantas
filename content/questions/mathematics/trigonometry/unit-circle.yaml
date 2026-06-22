@@ -177,7 +177,7 @@ questions:
       - text: The point $(\sin 45^\circ, \cos 45^\circ)$ is $\left(\dfrac{\sqrt{2}}{2}, \dfrac{\sqrt{2}}{2}\right)$.
       - text: For a $120$ degree angle, the point is $\left(\dfrac{\sqrt{3}}{2}, \dfrac{1}{2}\right)$.
     explanation: |
-      The point on the unit circle for angle $\theta$ is $(\cos \theta, \sin \theta)$: cosine is the $x$-coordinate (first), and sine is the $y$-coordinate (second). Swapping them is a silent error that changes every answer. For the third statement: $\sin 45^\circ = \cos 45^\circ = \dfrac{\sqrt{2}}{2}$, so the point would be correct, but the notation $(\sin 45^\circ, \cos 45^\circ)$ reverses the order—it should be $(\cos 45^\circ, \sin 45^\circ)$. For the fourth: $\cos 120^\circ = -\dfrac{1}{2}$ and $\sin 120^\circ = \dfrac{\sqrt{3}}{2}$, so the point is $\left(-\dfrac{1}{2}, \dfrac{\sqrt{3}}{2}\right)$, not the stated point.
+      The point on the unit circle for angle $\theta$ is $(\cos \theta, \sin \theta)$: cosine is the $x$-coordinate (first), and sine is the $y$-coordinate (second). Swapping them is a silent error that changes every answer. For the third statement: $\sin 45^\circ = \cos 45^\circ = \dfrac{\sqrt{2}}{2}$, so the point would be correct, but the notation $(\sin 45^\circ, \cos 45^\circ)$ reverses the order: it should be $(\cos 45^\circ, \sin 45^\circ)$. For the fourth: $\cos 120^\circ = -\dfrac{1}{2}$ and $\sin 120^\circ = \dfrac{\sqrt{3}}{2}$, so the point is $\left(-\dfrac{1}{2}, \dfrac{\sqrt{3}}{2}\right)$, not the stated point.
   - id: q-trigonometry-unit-circle-0012
     type: direct-computation
     difficulty: hard
@@ -220,7 +220,7 @@ questions:
       - text: All reference angles are found using $180 - \theta$.
       - text: Reference angles are always positive and always less than $45$ degrees.
     explanation: |
-      The reference angle depends on the quadrant. For Quadrant IV ($270 < \theta < 360$), it is $360 - \theta$, so $300$ degrees gives $60$ degrees. For Quadrant III ($180 < \theta < 270$), it is $\theta - 180$, so $200$ degrees gives $200 - 180 = 20$ degrees, which is correct. However, the second statement says it is $20$ degrees—that happens to be right—but the formula shown ($200 - 180$) is for Quadrant III, not just any angle. The third statement is false: Quadrant II uses $180 - \theta$, not all angles. The fourth is false: reference angles can exceed $45$ degrees (for example, the reference angle for $120$ degrees is $60$ degrees). The first statement correctly identifies both the angle and the formula for Quadrant IV.
+      The reference angle depends on the quadrant. For Quadrant IV ($270 < \theta < 360$), it is $360 - \theta$, so $300$ degrees gives $60$ degrees. For Quadrant III ($180 < \theta < 270$), it is $\theta - 180$, so $200$ degrees gives $200 - 180 = 20$ degrees, which is correct. However, the second statement says it is $20$ degrees, which happens to be right, but the formula shown ($200 - 180$) is for Quadrant III, not just any angle. The third statement is false: Quadrant II uses $180 - \theta$, not all angles. The fourth is false: reference angles can exceed $45$ degrees (for example, the reference angle for $120$ degrees is $60$ degrees). The first statement correctly identifies both the angle and the formula for Quadrant IV.
   - id: q-trigonometry-unit-circle-0015
     type: direct-computation
     difficulty: hard

@@ -16,11 +16,11 @@ questions:
     stem: |
       What is the sum of the interior angles of a convex octagon ($n = 8$ sides)?
     choices:
-      - text: "$1080^\circ$"
+      - text: '$1080^\circ$'
         correct: true
-      - text: "$1440^\circ$"
-      - text: "$900^\circ$"
-      - text: "$135^\circ$"
+      - text: '$1440^\circ$'
+      - text: '$900^\circ$'
+      - text: '$135^\circ$'
     explanation: |
       The sum of interior angles $S$ of an $n$-sided convex polygon is given by:
       $$S = (n - 2) \times 180^\circ$$
@@ -35,11 +35,11 @@ questions:
     stem: |
       What is the sum of the exterior angles of a regular 15-gon (one at each vertex)?
     choices:
-      - text: "$360^\circ$"
+      - text: '$360^\circ$'
         correct: true
-      - text: "$2340^\circ$"
-      - text: "$24^\circ$"
-      - text: "$5400^\circ$"
+      - text: '$2340^\circ$'
+      - text: '$24^\circ$'
+      - text: '$5400^\circ$'
     explanation: |
       The sum of the exterior angles of ANY convex polygon (one per vertex) is ALWAYS $360^\circ$, regardless of the number of sides.
 
@@ -51,11 +51,11 @@ questions:
     stem: |
       In parallelogram $ABCD$, the measure of $\angle A = 72^\circ$. What is the measure of consecutive angle $\angle B$?
     choices:
-      - text: "$108^\circ$"
+      - text: '$108^\circ$'
         correct: true
-      - text: "$72^\circ$"
-      - text: "$18^\circ$"
-      - text: "$288^\circ$"
+      - text: '$72^\circ$'
+      - text: '$18^\circ$'
+      - text: '$288^\circ$'
     explanation: |
       In a parallelogram, consecutive angles are supplementary (their sum is $180^\circ$).
 
@@ -163,11 +163,11 @@ questions:
     stem: |
       In parallelogram $DEFG$, opposite angles are $\angle D = (5x + 12)^\circ$ and $\angle F = (3x + 48)^\circ$. What is the measure of consecutive angle $\angle E$?
     choices:
-      - text: "$78^\circ$"
+      - text: '$78^\circ$'
         correct: true
-      - text: "$102^\circ$"
-      - text: "$18^\circ$"
-      - text: "$12^\circ$"
+      - text: '$102^\circ$'
+      - text: '$18^\circ$'
+      - text: '$12^\circ$'
     explanation: |
       1. Opposite angles in a parallelogram are equal:
          $$5x + 12 = 3x + 48 \implies 2x = 36 \implies x = 18$$
@@ -183,11 +183,11 @@ questions:
     stem: |
       The four interior angles of a quadrilateral are $(2x)^\circ$, $(3x + 10)^\circ$, $(4x - 15)^\circ$, and $(x + 25)^\circ$. What is the measure of the largest interior angle?
     choices:
-      - text: "$121^\circ$"
+      - text: '$121^\circ$'
         correct: true
-      - text: "$112^\circ$"
-      - text: "$34^\circ$"
-      - text: "$136^\circ$"
+      - text: '$112^\circ$'
+      - text: '$34^\circ$'
+      - text: '$136^\circ$'
     explanation: |
       The interior angles of any quadrilateral sum to $360^\circ$.
 
@@ -225,11 +225,11 @@ questions:
     stem: |
       In isosceles trapezoid $ABCD$ with $AB \parallel CD$ and $AD = BC$, base angle $\angle ADC = 65^\circ$. If diagonal $AC$ bisects angle $\angle BAD$, what is the measure of $\angle ACD$?
     choices:
-      - text: "$57.5^\circ$"
+      - text: '$57.5^\circ$'
         correct: true
-      - text: "$65^\circ$"
-      - text: "$32.5^\circ$"
-      - text: "$115^\circ$"
+      - text: '$65^\circ$'
+      - text: '$32.5^\circ$'
+      - text: '$115^\circ$'
     explanation: |
       1. Base angles of an isosceles trapezoid are equal: $\angle BCD = \angle ADC = 65^\circ$.
       2. Consecutive angle $\angle BAD = 180^\circ - 65^\circ = 115^\circ$.
@@ -243,11 +243,11 @@ questions:
     stem: |
       The diagonal of a square measures $12\text{ cm}$. What is the area of the square?
     choices:
-      - text: "$72\text{ cm}^2$"
+      - text: '$72\text{ cm}^2$'
         correct: true
-      - text: "$144\text{ cm}^2$"
-      - text: "$36\text{ cm}^2$"
-      - text: "$288\text{ cm}^2$"
+      - text: '$144\text{ cm}^2$'
+      - text: '$36\text{ cm}^2$'
+      - text: '$288\text{ cm}^2$'
     explanation: |
       For a square with side $s$ and diagonal $d$, $d = s\sqrt{2} \implies s = \frac{d}{\sqrt{2}}$.
 
@@ -282,11 +282,11 @@ questions:
     stem: |
       In rhombus $ABCD$, diagonal $AC$ is drawn. If $\angle B = 110^\circ$, what is the measure of $\angle ACD$?
     choices:
-      - text: "$35^\circ$"
+      - text: '$35^\circ$'
         correct: true
-      - text: "$55^\circ$"
-      - text: "$70^\circ$"
-      - text: "$110^\circ$"
+      - text: '$55^\circ$'
+      - text: '$70^\circ$'
+      - text: '$110^\circ$'
     explanation: |
       1. Consecutive angles in a rhombus are supplementary:
          $$\angle C = 180^\circ - \angle B = 180^\circ - 110^\circ = 70^\circ$$
