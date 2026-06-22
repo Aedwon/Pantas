@@ -126,5 +126,8 @@ Things that are not obvious from the code and have cost time:
 
 - Explain **why**, not just what. The diff already says what.
 - **No AI attribution.** Do not add `Co-Authored-By` trailers, "Generated with"
-  lines, or any similar marker.
+  lines, or any similar marker. **Enforced by
+  `dart run tool/check_no_ai_attribution.dart`, which scans commit messages as
+  well as files**, so a bad message fails the gate for everyone until history is
+  rewritten. Amend before you report.
 - Do not commit or push unless asked.

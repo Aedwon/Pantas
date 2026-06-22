@@ -39,7 +39,7 @@ flutter test
 flutter analyze                      # expect 27, all under tools/ or test/tool/
 dart format --output=none --set-exit-if-changed lib test
 dart run tool/check_layering.dart    # expect 7, unchanged
-dart run tool/check_no_ai_attribution.dart
+dart run tool/check_no_ai_attribution.dart   # expect 0, and it reads commit messages
 ```
 
 **A plan that says "stop and say so" means it.** Six plans contain a step that is deliberately
@@ -223,8 +223,9 @@ Things that break when two plans touch them. **Read the row before dispatching e
 | Plans with test-first steps | 47 of 47 |
 | Known conflicts between plans | **0 unresolved**, was 6 |
 | `flutter analyze` | 27 issues, all under `tools/` or `test/tool/`. `lib/` clean. |
-| `flutter test` | 273 test files |
+| `flutter test` | 978 tests, green |
 | Layering violations | 7, the accepted baseline |
+| `check_no_ai_attribution` | **Exit 0.** Rewritten 3 August; it had never passed before. |
 
 ---
 
