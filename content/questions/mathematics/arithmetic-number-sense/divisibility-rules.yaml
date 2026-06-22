@@ -1,0 +1,292 @@
+meta:
+  subject: mathematics
+  topic: arithmetic-number-sense
+  subtopic: divisibility-rules
+  exams: [upcat, acet, dlsucet, ustet, pupcet]
+questions:
+  - id: q-arithmetic-number-sense-divisibility-rules-0001
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      Which of the following statements regarding the number $0$ is true?
+    choices:
+      - text: "$0$ is not divisible by any non-zero integer."
+      - text: "$0$ is divisible by every non-zero integer."
+        correct: true
+      - text: "$0$ is divisible only by $10$."
+      - text: "$0$ is divisible by $0$."
+    explanation: |
+      A number $a$ is divisible by a non-zero integer $b$ if there exists an integer $k$ such that $a = b \times k$. For $a = 0$, $0 = b \times 0$ holds for any $b \neq 0$. Therefore, $0$ is divisible by every non-zero integer. Note that division by zero is undefined.
+
+  - id: q-arithmetic-number-sense-divisibility-rules-0002
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      To test if $4,516$ is divisible by $4$, a student erroneously adds all the digits ($4 + 5 + 1 + 6 = 16$). What is the correct rule to check divisibility by $4$, and is $4,516$ divisible by $4$?
+    choices:
+      - text: "Check if the sum of all digits is divisible by $4$; yes, $4,516$ is divisible by $4$."
+      - text: "Check if the last two digits form a number divisible by $4$; yes, $4,516$ is divisible by $4$ because $16$ is divisible by $4$."
+        correct: true
+      - text: "Check if the last digit is divisible by $4$; no, $4,516$ is not divisible by $4$ because $6$ is not divisible by $4$."
+      - text: "Check if the number is odd; no, $4,516$ is not divisible by $4$."
+    explanation: |
+      A common mistake is adding digits to test for divisibility by $4$. The correct rule states that a number is divisible by $4$ if and only if the number formed by its last two digits is divisible by $4$. For $4,516$, the last two digits form $16$. Since $16 \div 4 = 4$, the number $4,516$ is divisible by $4$.
+
+  - id: q-arithmetic-number-sense-divisibility-rules-0003
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      The five-digit number $57x81$ is divisible by $9$. What is the value of the digit $x$?
+    choices:
+      - text: "$3$"
+      - text: "$6$"
+        correct: true
+      - text: "$7$"
+      - text: "$9$"
+    explanation: |
+      A number is divisible by $9$ if the sum of its digits is a multiple of $9$. Calculate the sum of the digits of $57x81$:
+      $$5 + 7 + x + 8 + 1 = 21 + x$$
+
+      For $21 + x$ to be divisible by $9$, the smallest non-negative single digit $x$ is $6$, because $21 + 6 = 27$, and $27$ is a multiple of $9$ ($9 \times 3 = 27$).
+
+  - id: q-arithmetic-number-sense-divisibility-rules-0004
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      Which of the following numbers is divisible by $6$?
+    choices:
+      - text: "$24,534$"
+        correct: true
+      - text: "$24,536$"
+      - text: "$24,538$"
+      - text: "$24,539$"
+    explanation: |
+      A number is divisible by $6$ if it is divisible by both $2$ and $3$.
+
+      1. Test for $2$: The last digit must be even. $24,534$, $24,536$, and $24,538$ are even, while $24,539$ is odd.
+      2. Test for $3$: The sum of the digits must be divisible by $3$.
+         - For $24,534$: $2 + 4 + 5 + 3 + 4 = 18$, which is divisible by $3$. Thus, $24,534$ is divisible by $6$.
+         - For $24,536$: $2 + 4 + 5 + 3 + 6 = 20$ (not divisible by $3$).
+         - For $24,538$: $2 + 4 + 5 + 3 + 8 = 22$ (not divisible by $3$).
+
+  - id: q-arithmetic-number-sense-divisibility-rules-0005
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      To test if a large number is divisible by $24$, a student checks if the number is divisible by both $4$ and $6$. Why is this test logically flawed, and what is the correct pair of factors to use?
+    choices:
+      - text: "The test is flawed because $4$ and $6$ are not coprime. The correct coprime factors are $3$ and $8$."
+        correct: true
+      - text: "The test is flawed because $24$ is odd. The correct factors are $2$ and $12$."
+      - text: "The test is valid; any number divisible by $4$ and $6$ is always divisible by $24$."
+      - text: "The test is flawed because $4 + 6 \neq 24$. The correct factors are $4$ and $20$."
+    explanation: |
+      To determine divisibility by a composite number $N = a \times b$, the factors $a$ and $b$ must be coprime, meaning their greatest common divisor is 1. Since $\gcd(4, 6) = 2 \neq 1$, a number can be divisible by both $4$ and $6$ without being divisible by $24$. For example, $12$ is divisible by $4$ and $6$, but not by $24$. The correct coprime factors whose product is $24$ are $3$ and $8$ because $\gcd(3, 8) = 1$.
+
+  - id: q-arithmetic-number-sense-divisibility-rules-0006
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Find the missing digit $d$ such that the six-digit number $73d,514$ is divisible by $11$.
+    choices:
+      - text: "$d = 2$"
+      - text: "$d = 4$"
+        correct: true
+      - text: "$d = 6$"
+      - text: "$d = 9$"
+    explanation: |
+      A number is divisible by $11$ if the difference between the sum of digits in odd positions and even positions is $0$ or a multiple of $11$.
+
+      For $73d,514$:
+      - Odd-position digits (1st, 3rd, 5th): $7 + d + 1 = 8 + d$
+      - Even-position digits (2nd, 4th, 6th): $3 + 5 + 4 = 12$
+
+      Difference: $(8 + d) - 12 = d - 4$.
+
+      For $d - 4 = 0$, we get $d = 4$. Checking $734,514 \div 11 = 66,774$, which confirms $d = 4$.
+
+  - id: q-arithmetic-number-sense-divisibility-rules-0007
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      A store owner counts total earnings of $\text{₱}48,k72$, where $k$ is a missing digit. If the total amount in pesos is divisible by $8$, which of the following could be the value of $k$?
+    choices:
+      - text: "$k = 1$"
+      - text: "$k = 3$"
+      - text: "$k = 5$"
+      - text: "$k = 6$"
+        correct: true
+    explanation: |
+      A number is divisible by $8$ if the number formed by its last three digits is divisible by $8$. The last three digits of $\text{₱}48,k72$ form $k72$, which equals $100k + 72$.
+
+      Test each option:
+      - $k = 1 \implies 172 \div 8 = 21.5$ (not divisible)
+      - $k = 3 \implies 372 \div 8 = 46.5$ (not divisible)
+      - $k = 5 \implies 572 \div 8 = 71.5$ (not divisible)
+      - $k = 6 \implies 672 \div 8 = 84$ (divisible)
+
+      Thus, $k = 6$ is the correct choice.
+
+  - id: q-arithmetic-number-sense-divisibility-rules-0008
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      What is the primary purpose of the "casting out nines" technique, and what remainder is obtained when $84,931$ is divided by $9$?
+    choices:
+      - text: "It finds the remainder when a number is divided by $9$ by taking the repeated sum of its digits; the remainder for $84,931$ is $7$."
+        correct: true
+      - text: "It finds the remainder when a number is divided by $9$ by dropping all even digits; the remainder for $84,931$ is $4$."
+      - text: "It tests divisibility by $11$ by subtracting $9$ from each digit; the remainder for $84,931$ is $2$."
+      - text: "It finds the remainder when a number is divided by $8$; the remainder for $84,931$ is $1$."
+    explanation: |
+      Casting out nines relies on the property that an integer is congruent to the sum of its digits modulo $9$.
+
+      For $84,931$:
+      - Sum of digits: $8 + 4 + 9 + 3 + 1 = 25$
+      - Sum of digits of $25$: $2 + 5 = 7$
+
+      Thus, $84,931 \equiv 7 \pmod{9}$, which means the remainder when $84,931$ is divided by $9$ is $7$.
+
+  - id: q-arithmetic-number-sense-divisibility-rules-0009
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      Which of the following numbers is NOT a divisor of $3,960$?
+    choices:
+      - text: "$11$"
+      - text: "$9$"
+      - text: "$8$"
+      - text: "$7$"
+        correct: true
+    explanation: |
+      Test divisibility of $3,960$ using standard rules:
+      - Divisibility by $11$: Alternating sum $(3 + 6) - (9 + 0) = 0$, so $3,960$ is divisible by $11$.
+      - Divisibility by $9$: Digit sum $3 + 9 + 6 + 0 = 18$ (divisible by $9$).
+      - Divisibility by $8$: Last three digits $960 \div 8 = 120$ (divisible by $8$).
+      - Divisibility by $7$: $3,960 \div 7 = 565.714...$ (remainder $5$). Thus, $7$ is NOT a divisor of $3,960$.
+
+  - id: q-arithmetic-number-sense-divisibility-rules-0010
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      A financial record shows a total amount of $\text{₱}3a4,5b2$. If this six-digit number is divisible by $99$, what are the values of the digits $a$ and $b$?
+    choices:
+      - text: "$a = 2, b = 2$"
+        correct: true
+      - text: "$a = 4, b = 9$"
+      - text: "$a = 7, b = 6$"
+      - text: "$a = 5, b = 8$"
+    explanation: |
+      Divisibility by $99$ requires divisibility by both $9$ and $11$ because their greatest common divisor is 1.
+
+      1. Rule of $9$: Sum of digits $3 + a + 4 + 5 + b + 2 = 14 + a + b$ must be a multiple of $9$. Hence $a + b = 4$ or $a + b = 13$.
+      2. Rule of $11$: Odd positions sum to $3 + 4 + b = 7 + b$. Even positions sum to $a + 5 + 2 = a + 7$. The difference $(7 + b) - (a + 7) = b - a$ must be $0$, so $a = b$.
+      3. Solving together: If $a = b$ and $a + b = 4$, then $2a = 4 \implies a = 2, b = 2$. Thus, $a = 2, b = 2$.
+
+  - id: q-arithmetic-number-sense-divisibility-rules-0011
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      Which of the following statements regarding composite divisibility rules is false?
+    choices:
+      - text: "A number is divisible by $45$ if and only if it is divisible by both $5$ and $9$."
+      - text: "A number is divisible by $18$ if and only if it is even and its digit sum is divisible by $9$."
+      - text: "A number is divisible by $12$ if and only if it is divisible by both $2$ and $6$."
+        correct: true
+      - text: "A number is divisible by $72$ if and only if it is divisible by both $8$ and $9$."
+    explanation: |
+      To form a valid composite divisibility rule by splitting $N$ into $a \times b$, $a$ and $b$ must be coprime.
+
+      - For $12$: $\gcd(2, 6) = 2 \neq 1$, so checking $2$ and $6$ is invalid. For example, $18$ is divisible by $2$ and $6$, but $18$ is NOT divisible by $12$. The correct coprime pair for $12$ is $3$ and $4$.
+      - The other options all use coprime pairs, so those statements are true.
+
+  - id: q-arithmetic-number-sense-divisibility-rules-0012
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      The five-digit number $72x4y$ is divisible by $45$. What is the maximum possible value of the product $x \times y$?
+    choices:
+      - text: "$0$"
+      - text: "$20$"
+      - text: "$36$"
+      - text: "$45$"
+        correct: true
+    explanation: |
+      Divisibility by $45$ requires divisibility by both $5$ and $9$.
+
+      1. Rule of $5$: $y$ must be $0$ or $5$.
+         - Case 1: If $y = 0$, $7 + 2 + x + 4 + 0 = 13 + x$. For $13 + x$ to be a multiple of $9$, $x = 5$. Product $x \times y = 5 \times 0 = 0$.
+         - Case 2: If $y = 5$, $7 + 2 + x + 4 + 5 = 18 + x$. For $18 + x$ to be a multiple of $9$, $x$ can be $0$ or $9$.
+           - If $x = 0$, product $0 \times 5 = 0$.
+           - If $x = 9$, product $9 \times 5 = 45$.
+
+      The maximum possible product is $45$.
+
+  - id: q-arithmetic-number-sense-divisibility-rules-0013
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      A jackpot prize of $\text{₱}5x3,4y6$ is evenly distributed among $88$ winners without any leftover pesos. Find the value of $x + y$.
+    choices:
+      - text: "$5$"
+      - text: "$8$"
+        correct: true
+      - text: "$11$"
+      - text: "$14$"
+    explanation: |
+      Divisibility by $88$ requires divisibility by both $8$ and $11$.
+
+      1. Rule of $8$: Last three digits $4y6$ must be divisible by $8$. Testing single digits gives valid values $y = 1, 5, 9$.
+      2. Rule of $11$: Odd positions sum to $5 + 3 + y = 8 + y$. Even positions sum to $x + 4 + 6 = x + 10$. Difference $(x + 10) - (8 + y) = x - y + 2$.
+         For divisibility by $11$, $x - y + 2 = 0 \implies x = y - 2$.
+         - Testing $y = 5 \implies x = 3$. Then $x + y = 3 + 5 = 8$.
+
+      Verification: $533,456 \div 88 = 6,062$. Thus, $x + y = 8$.
+
+  - id: q-arithmetic-number-sense-divisibility-rules-0014
+    type: direct-computation
+    difficulty: exam-level
+    stem: |
+      A bank security code consists of the eight-digit number $20x5432y$. If the code is known to be divisible by $72$, find the value of $x + y$.
+    choices:
+      - text: "$5$"
+      - text: "$8$"
+      - text: "$11$"
+        correct: true
+      - text: "$14$"
+    explanation: |
+      Divisibility by $72$ requires divisibility by both $8$ and $9$.
+
+      1. Rule of $8$: The last three digits $32y$ must be divisible by $8$. Since $320 = 8 \times 40$, $y$ can be $0$ or $8$.
+      2. Rule of $9$: Sum of digits $2 + 0 + x + 5 + 4 + 3 + 2 + y = 16 + x + y$ must be a multiple of $9$.
+         - Case 1: If $y = 0$, $16 + x = 18 \implies x = 2$. Then $x + y = 2$.
+         - Case 2: If $y = 8$, $16 + x + 8 = 24 + x = 27 \implies x = 3$. Then $x + y = 3 + 8 = 11$.
+
+      Verification: $20,354,328 \div 72 = 282,699$. Thus, $x + y = 11$.
+
+  - id: q-arithmetic-number-sense-divisibility-rules-0015
+    type: which-is-true
+    difficulty: exam-level
+    stem: |
+      Consider the following four mathematical statements regarding divisibility rules:
+
+      I. The number $0$ is divisible by all non-zero integers.
+      II. A number is divisible by $4$ if the sum of its digits is divisible by $4$.
+      III. A number is divisible by $18$ if and only if it is divisible by both $3$ and $6$.
+      IV. A number is divisible by $11$ if the difference between the sum of digits in odd positions and even positions is $0$ or a multiple of $11$.
+
+      Which of the statements above are true?
+    choices:
+      - text: "I and IV only"
+        correct: true
+      - text: "I, II, and IV only"
+      - text: "I, III, and IV only"
+      - text: "II and III only"
+    explanation: |
+      Analyzing each statement:
+      - Statement I is true: $0$ is divisible by any non-zero integer $b$ because $0 = b \times 0$.
+      - Statement II is false: Divisibility by $4$ requires the number formed by the last two digits to be divisible by $4$, not the sum of digits.
+      - Statement III is false: $3$ and $6$ are not coprime ($\gcd(3, 6) = 3$). For instance, $12$ is divisible by $3$ and $6$, but not by $18$. The correct coprime pair for $18$ is $2$ and $9$.
+      - Statement IV is true: This is the standard rule of $11$.
+
+      Therefore, only statements I and IV are true.
