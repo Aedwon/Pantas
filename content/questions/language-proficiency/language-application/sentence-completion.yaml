@@ -1,0 +1,215 @@
+meta:
+  subject: language-proficiency
+  topic: language-application
+  subtopic: sentence-completion
+  exams: [upcat, acet, dlsucet, ustet, dost-sei]
+questions:
+  - id: q-language-application-sentence-completion-0001
+    type: fill-in-the-blank
+    difficulty: easy
+    stem: |
+      Despite facing numerous unexpected obstacles during testing, the software team remained ________ and successfully delivered the patch on schedule.
+    choices:
+      - text: resilient
+        correct: true
+      - text: hesitant
+      - text: indifferent
+      - text: indolent
+    explanation: |
+      "Resilient" means able to withstand or recover quickly from difficult conditions. The contrast between obstacles and on-time delivery calls for this word.
+
+  - id: q-language-application-sentence-completion-0002
+    type: fill-in-the-blank
+    difficulty: easy
+    stem: |
+      Although the initial evidence was ________, the lead investigator refused to draw firm conclusions until the laboratory results arrived.
+    choices:
+      - text: compelling
+      - text: equivocal
+        correct: true
+      - text: irrefutable
+      - text: exhaustive
+    explanation: |
+      "Equivocal" means ambiguous or open to multiple interpretations. The word "Although" signals a contrast with refusing to conclude, explaining why conclusions could not be drawn.
+
+  - id: q-language-application-sentence-completion-0003
+    type: fill-in-the-blank
+    difficulty: medium
+    stem: |
+      The CEO's ________ proposal to restructure the sales department was met with widespread ________ from senior managers who favored traditional methods.
+    choices:
+      - text: "radical ... resistance"
+        correct: true
+      - text: "modest ... enthusiasm"
+      - text: "orthodox ... hostility"
+      - text: "innovative ... acquiescence"
+    explanation: |
+      A "radical" (extreme/unconventional) proposal would spark "resistance" from managers who favor traditional methods. This pair creates the logical cause-effect relationship.
+
+  - id: q-language-application-sentence-completion-0004
+    type: fill-in-the-blank
+    difficulty: medium
+    stem: |
+      Because the committee members held such ________ viewpoints on urban development, reaching a consensus required weeks of intense negotiation.
+    choices:
+      - text: disparate
+        correct: true
+      - text: harmonious
+      - text: congruent
+      - text: superficial
+    explanation: |
+      "Disparate" means essentially different or distinct. The cause-effect signal "Because" connects differing viewpoints to the need for intense negotiation.
+
+  - id: q-language-application-sentence-completion-0005
+    type: fill-in-the-blank
+    difficulty: easy
+    stem: |
+      The manager offered a ________ explanation of the new safety guidelines, ensuring that even novice employees understood their responsibilities.
+    choices:
+      - text: lucid
+        correct: true
+      - text: ambiguous
+      - text: convoluted
+      - text: obscure
+    explanation: |
+      "Lucid" means clear and easy to understand. The sentence describes an explanation that ensured understanding, which "lucid" perfectly captures.
+
+  - id: q-language-application-sentence-completion-0006
+    type: fill-in-the-blank
+    difficulty: medium
+    stem: |
+      The environmental report was far from ________; in fact, it contained several ________ statements that confused the public.
+    choices:
+      - text: "coherent ... contradictory"
+        correct: true
+      - text: "vague ... explicit"
+      - text: "detailed ... comprehensive"
+      - text: "accurate ... verifiable"
+    explanation: |
+      "Far from coherent" (clear and logical) is clarified by "in fact" which intensifies the idea. Contradictory statements explain why the public was confused.
+
+  - id: q-language-application-sentence-completion-0007
+    type: fill-in-the-blank
+    difficulty: hard
+    stem: |
+      Because prolonged drought conditions had severely ________ the agricultural reservoir, local authorities were forced to institute mandatory water rationing.
+    choices:
+      - text: depleted
+        correct: true
+      - text: augmented
+      - text: replenished
+      - text: stabilized
+    explanation: |
+      "Depleted" means exhausted or diminished. The cause-effect relationship shows that depleted reservoirs caused mandatory rationing.
+
+  - id: q-language-application-sentence-completion-0008
+    type: fill-in-the-blank
+    difficulty: hard
+    stem: |
+      While the keynote speaker praised the overall expansion plan, she nevertheless cautioned that rapid growth without adequate funding would prove ________ to long-term stability.
+    choices:
+      - text: detrimental
+        correct: true
+      - text: beneficial
+      - text: conducive
+      - text: paramount
+    explanation: |
+      "Detrimental" means tending to cause harm. The contrast words "While... nevertheless cautioned" show a shift from praise to warning about a harmful outcome.
+
+  - id: q-language-application-sentence-completion-0009
+    type: fill-in-the-blank
+    difficulty: medium
+    stem: |
+      The new policy was designed to ________ workplace productivity while simultaneously ________ administrative costs.
+    choices:
+      - text: "boost ... reducing"
+        correct: true
+      - text: "curtail ... inflating"
+      - text: "hinder ... maintaining"
+      - text: "minimize ... expanding"
+    explanation: |
+      Organizational policies typically aim to increase productivity and decrease costs. "Boost" and "reducing" form the logical complementary pair.
+
+  - id: q-language-application-sentence-completion-0010
+    type: fill-in-the-blank
+    difficulty: medium
+    stem: |
+      The lead engineer spoke ________ during the press briefing, detailing the technical failure with impressive clarity and precision.
+    choices:
+      - text: eloquently
+        correct: true
+      - text: eloquence
+      - text: eloquent
+      - text: eloquenced
+    explanation: |
+      The blank requires an adverb to modify the verb "spoke." "Eloquently" is the only adverb form; the others are a noun and adjective.
+
+  - id: q-language-application-sentence-completion-0011
+    type: fill-in-the-blank
+    difficulty: hard
+    stem: |
+      When faced with a sudden drop in market demand, the board decided to ________ strict measures to prevent further financial losses.
+    choices:
+      - text: implement
+        correct: true
+      - text: inflict
+      - text: implicate
+      - text: impair
+    explanation: |
+      "Implement" is the idiomatically correct verb meaning to put measures or policies into action. The other words do not fit this meaning or syntax.
+
+  - id: q-language-application-sentence-completion-0012
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      The new regulations were not only ________ in their scope, but ________ in their enforcement across all regional branches.
+    choices:
+      - text: "comprehensive ... rigorous"
+        correct: true
+      - text: "lenient ... strict"
+      - text: "superficial ... thorough"
+      - text: "restricted ... stringent"
+    explanation: |
+      The correlative conjunction "not only... but" requires parallelism and cumulative emphasis. "Comprehensive" and "rigorous" reinforce each other positively.
+
+  - id: q-language-application-sentence-completion-0013
+    type: fill-in-the-blank
+    difficulty: easy
+    stem: |
+      Heavy snowfall during the peak morning rush hour caused traffic on the main highway to crawl at a ________ pace.
+    choices:
+      - text: sluggish
+        correct: true
+      - text: rapid
+      - text: brisk
+      - text: hasty
+    explanation: |
+      "Sluggish" means slow-moving or inactive. The verb "crawl" implies extremely slow movement, and "sluggish" best describes this pace.
+
+  - id: q-language-application-sentence-completion-0014
+    type: fill-in-the-blank
+    difficulty: medium
+    stem: |
+      Far from being ________, the young associate was remarkably composed and articulate during her first presentation to the board of directors.
+    choices:
+      - text: flustered
+        correct: true
+      - text: serene
+      - text: confident
+      - text: poised
+    explanation: |
+      "Flustered" (agitated or confused) is the opposite of "composed and articulate." The phrase "Far from being" establishes a direct contrast.
+
+  - id: q-language-application-sentence-completion-0015
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Although the initial trial produced ________ results, subsequent studies under controlled conditions yielded data that was remarkably ________.
+    choices:
+      - text: "inconclusive ... definitive"
+        correct: true
+      - text: "promising ... ambiguous"
+      - text: "decisive ... doubtful"
+      - text: "consistent ... erratic"
+    explanation: |
+      "Although" signals a contrast. "Inconclusive" (unclear) for the initial trial contrasts with "definitive" (conclusive) for subsequent studies.

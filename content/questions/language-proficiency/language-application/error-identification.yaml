@@ -1,0 +1,260 @@
+meta:
+  subject: language-proficiency
+  topic: language-application
+  subtopic: error-identification
+  exams: [upcat, acet, dlsucet, ustet, dost-sei]
+questions:
+  - id: q-language-application-error-identification-0001
+    type: error-identification
+    difficulty: easy
+    stem: |
+      Identify the part of the sentence that contains an error.
+
+      "Every one of the new laptops (A) imported for the engineering team (B) have arrived (C) with pre-installed diagnostic software. (D) No error (E)"
+    choices:
+      - text: A
+      - text: B
+      - text: C
+        correct: true
+      - text: D
+      - text: E
+    explanation: |
+      "Every one" is a singular subject, so it requires the singular verb "has arrived" instead of the plural "have arrived."
+
+  - id: q-language-application-error-identification-0002
+    type: error-identification
+    difficulty: easy
+    stem: |
+      Identify the part of the sentence that contains an error.
+
+      "The executive committee (A) requested that all department heads (B) submit their quarterly budget reports, (C) update their inventory logs, and to review their staffing needs. (D) No error (E)"
+    choices:
+      - text: A
+      - text: B
+      - text: C
+      - text: D
+        correct: true
+      - text: E
+    explanation: |
+      Items in a series must follow parallel structure. The phrase should be "and review" (not "and to review") to match "submit" and "update."
+
+  - id: q-language-application-error-identification-0003
+    type: error-identification
+    difficulty: medium
+    stem: |
+      Identify the part of the sentence that contains an error.
+
+      "Walking through the newly renovated research facilities, (A) several state-of-the-art spectrometers (B) were noticed by (C) the visiting delegates. (D) No error (E)"
+    choices:
+      - text: A
+        correct: true
+      - text: B
+      - text: C
+      - text: D
+      - text: E
+    explanation: |
+      The introductory phrase "Walking through the newly renovated research facilities" is a dangling modifier. Spectrometers cannot walk, so the main clause should have a person as the subject.
+
+  - id: q-language-application-error-identification-0004
+    type: error-identification
+    difficulty: medium
+    stem: |
+      Identify the part of the sentence that contains an error.
+
+      "The efficiency rating of the upgraded solar panel (A) is significantly higher than (B) the older models (C) installed last winter. (D) No error (E)"
+    choices:
+      - text: A
+      - text: B
+      - text: C
+        correct: true
+      - text: D
+      - text: E
+    explanation: |
+      This is a faulty comparison. It compares "efficiency rating" to "models" instead of comparing "efficiency rating" to "efficiency rating of the older models."
+
+  - id: q-language-application-error-identification-0005
+    type: error-identification
+    difficulty: easy
+    stem: |
+      Identify the part of the sentence that contains an error.
+
+      "The sudden drop in atmospheric pressure (A) will adversely (B) effect (C) the performance of the high-altitude sensors. (D) No error (E)"
+    choices:
+      - text: A
+      - text: B
+      - text: C
+        correct: true
+      - text: D
+      - text: E
+    explanation: |
+      "Effect" is used as a noun here, but the sentence needs the verb "affect" (to influence). The correct usage is "will adversely affect."
+
+  - id: q-language-application-error-identification-0006
+    type: error-identification
+    difficulty: medium
+    stem: |
+      Identify the part of the sentence that contains an error.
+
+      "The lead scientist, (A) whom (B) had conducted extensive fieldwork (C) in South America, presented her findings at the international symposium. (D) No error (E)"
+    choices:
+      - text: A
+      - text: B
+        correct: true
+      - text: C
+      - text: D
+      - text: E
+    explanation: |
+      "Whom" is an objective pronoun, but this clause needs the nominative "who" because it is the subject of the clause "who had conducted."
+
+  - id: q-language-application-error-identification-0007
+    type: error-identification
+    difficulty: hard
+    stem: |
+      Identify the part of the sentence that contains an error.
+
+      "When the supervisor spoke to the project manager (A) after the presentation, (B) he expressed (C) dissatisfaction with the proposed timeline. (D) No error (E)"
+    choices:
+      - text: A
+      - text: B
+      - text: C
+        correct: true
+      - text: D
+      - text: E
+    explanation: |
+      The pronoun "he" is ambiguous: it could refer to either the supervisor or the project manager. The sentence should explicitly name which person expressed dissatisfaction.
+
+  - id: q-language-application-error-identification-0008
+    type: error-identification
+    difficulty: hard
+    stem: |
+      Identify the part of the sentence that contains an error.
+
+      "By the time the audit committee (A) finished inspecting the fiscal records, (B) the accounting department (C) already resolved (D) all major discrepancies. (E) No error"
+    choices:
+      - text: A
+      - text: B
+      - text: C
+      - text: D
+        correct: true
+      - text: E
+    explanation: |
+      When two past actions are described with one happening before the other, the earlier one needs past perfect tense. It should be "had already resolved" not "already resolved."
+
+  - id: q-language-application-error-identification-0009
+    type: error-identification
+    difficulty: easy
+    stem: |
+      Identify the part of the sentence that contains an error.
+
+      "The company expanded its operations (A) into three new regions, (B) however, (C) initial profits remained (D) below projected expectations. (E) No error"
+    choices:
+      - text: A
+      - text: B
+        correct: true
+      - text: C
+      - text: D
+      - text: E
+    explanation: |
+      This sentence has a comma splice. "However" is a conjunctive adverb, not a coordinating conjunction. A semicolon should precede "however" to join these two independent clauses.
+
+  - id: q-language-application-error-identification-0010
+    type: error-identification
+    difficulty: medium
+    stem: |
+      Identify the part of the sentence that contains an error.
+
+      "The research panel (A) are presenting (B) their individual evaluations (C) at the conference today. (D) No error (E)"
+    choices:
+      - text: A
+      - text: B
+      - text: C
+      - text: D
+      - text: E
+        correct: true
+    explanation: |
+      There is no error. When a collective noun like "panel" refers to individual actions within the group, it takes a plural verb and pronoun ("are presenting their"), which is correct here.
+
+  - id: q-language-application-error-identification-0011
+    type: error-identification
+    difficulty: hard
+    stem: |
+      Identify the part of the sentence that contains an error.
+
+      "The technician repaired (A) the electrical generator (B) using a heavy-duty wrench (C) that had stopped working during the storm. (D) No error (E)"
+    choices:
+      - text: A
+      - text: B
+      - text: C
+        correct: true
+      - text: D
+      - text: E
+    explanation: |
+      The relative clause "that had stopped working" is misplaced. It appears to modify "wrench" but logically refers to "generator." The clause should come immediately after "generator."
+
+  - id: q-language-application-error-identification-0012
+    type: error-identification
+    difficulty: exam
+    stem: |
+      Identify the part of the sentence that contains an error.
+
+      "The chief executive officer emphasized (A) that the two merging firms (B) must revert (C) back to their core operational principles. (D) No error (E)"
+    choices:
+      - text: A
+      - text: B
+      - text: C
+        correct: true
+      - text: D
+      - text: E
+    explanation: |
+      "Revert back" is redundant. The verb "revert" already means to return, so "back" is unnecessary. The sentence should say "must revert to."
+
+  - id: q-language-application-error-identification-0013
+    type: error-identification
+    difficulty: easy
+    stem: |
+      Identify the part of the sentence that contains an error.
+
+      "Between you and (A) I, (B) the proposed structural reforms (C) will require approval (D) from the regional board. (E) No error"
+    choices:
+      - text: A
+        correct: true
+      - text: B
+      - text: C
+      - text: D
+      - text: E
+    explanation: |
+      The preposition "Between" requires an objective pronoun. It should be "Between you and me" (not "I").
+
+  - id: q-language-application-error-identification-0014
+    type: error-identification
+    difficulty: medium
+    stem: |
+      Identify the part of the sentence that contains an error.
+
+      "If the analysts (A) would have reviewed (B) the statistical data earlier, (C) they would have caught (D) the error before publication. (E) No error"
+    choices:
+      - text: A
+      - text: B
+        correct: true
+      - text: C
+      - text: D
+      - text: E
+    explanation: |
+      In third conditional sentences, the if-clause requires past perfect ("had reviewed"), not "would have reviewed." The correct form is "If the analysts had reviewed..."
+
+  - id: q-language-application-error-identification-0015
+    type: error-identification
+    difficulty: exam
+    stem: |
+      Identify the part of the sentence that contains an error.
+
+      "The architectural firm designed (A) a sustainable office building, (B) consequently, (C) it won (D) several regional design accolades. (E) No error"
+    choices:
+      - text: A
+      - text: B
+        correct: true
+      - text: C
+      - text: D
+      - text: E
+    explanation: |
+      This sentence has a comma splice. "Consequently" is a conjunctive adverb, not a coordinating conjunction. A semicolon should replace the comma before "consequently."
