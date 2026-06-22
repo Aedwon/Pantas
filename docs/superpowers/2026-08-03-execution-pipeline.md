@@ -7,6 +7,10 @@ implementor.
 It supersedes the execution order in `2026-08-02-work-checkpoint.md`, which was written before
 the Settings thread existed and before the six conflicts were ruled on.
 
+**For the rounds that are not plans yet**, the design work still owed and the content plans
+that do not exist, see `2026-08-03-next-rounds.md`. It carries a ready-to-paste prompt for
+each one and a list of the decisions a model is waiting on.
+
 **46 plans, roughly 210 tasks, none executed.** One plan in the directory,
 `quiz-tab-01-storage-and-content-fields`, is already merged and is listed only where other
 plans depend on it.

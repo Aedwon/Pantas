@@ -12,7 +12,9 @@ place. When something closes, say what closed it.
 `plans/2026-05-21-paywall-live-validation.md` and it applies to this whole file.
 
 Companion documents: `2026-08-03-plan-audit.md` for the conflicts and the gaps,
-`2026-08-02-work-checkpoint.md` for the running backlog.
+`2026-08-03-execution-pipeline.md` for the dispatch order, `2026-08-03-next-rounds.md` for a
+ready-to-paste prompt per remaining round, and `2026-08-02-work-checkpoint.md` for the older
+running backlog.
 
 ---
 
