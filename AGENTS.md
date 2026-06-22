@@ -1,8 +1,13 @@
 # AGENTS.md
 
-For any model implementing work in this repository. If you are Claude Code acting
-as the design partner, read `CLAUDE.md` as well: it governs how design decisions
-get made, and this file governs how they get built.
+For any model implementing work in this repository. If you are acting as the design
+partner, read `CLAUDE.md` as well: it governs how design decisions get made, and
+this file governs how they get built.
+
+**If you were dispatched as a subagent, read `SUBAGENTS.md` first.** It is the
+contract for a dispatched run: isolation, the task loop, the verification protocol
+with its expected values, when to stop, and what to report. It covers content
+authoring as well as code. This file is the standards it enforces.
 
 ---
 

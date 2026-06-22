@@ -8,6 +8,12 @@ knows nothing.
 `2026-08-03-launch-checklist.md` is everything between here and a paid install.
 `2026-08-03-plan-audit.md` is what the 3 August audit found.
 
+**Every subagent works under `SUBAGENTS.md`**, at the repository root. It is the contract for
+a dispatched run: what to read first, worktree isolation, the task loop for code and the task
+loop for content, the verification protocol with its expected values, when to stop rather than
+invent, what to report, and the rules for running several agents at once. **The prompts below
+assume it and do not repeat it.** `AGENTS.md` remains the standards it enforces.
+
 **How to use this.** Take one prompt, clear, paste. Do not run two design rounds in one
 session: the decision log gets tangled and the second round inherits the first one's
 assumptions. Execution prompts in Part 3 can run in parallel with each other as long as each
@@ -273,6 +279,39 @@ yet.
 
 Report how many plans you touched.
 ```
+
+### 3.4 Content generation, in parallel
+
+**This is the mode for the remaining questions.** Content agents write `content/` and
+`assets/seed/`; code agents write `lib/` and `test/`. They never conflict, so these can run
+alongside any code thread.
+
+```
+Pantas. Dispatch content generation for <SUBJECT>.
+
+Plan: `docs/superpowers/plans/2026-07-20-question-generation-<SUBJECT>.md`.
+Every agent reads `SUBAGENTS.md` Part 4 before starting, then `AGENTS.md` in full,
+then the plan end to end including its manifest and its definition of done.
+
+One subtopic per agent, one worktree each. Take only rows whose Done column is
+unticked. Validate after every single file with
+`dart run tools/import_questions/import_questions.dart --root content/questions`
+and never batch several subtopics before validating.
+
+The rules no validator enforces are in `SUBAGENTS.md` Part 4 and they are the ones
+that matter: exam level rather than textbook level, grade-5-simple English in the
+stem, coverage exhaustive within the subtopic, every distractor a real mistake, no
+invented figures, no em dashes, American spelling, Filipino items where the manifest
+says so, `approved:` left unset, and no AI-generated images ever.
+
+Report per agent: which subtopic, how many questions, the validator's actual exit
+code pasted, and any manifest row you could not complete and why. I approve in
+Question Studio myself; do not tick a row you have not validated.
+```
+
+**Before dispatching, check the manifest.** Unticked rows as of 3 August: three in Language
+Application. Spatial and Mechanical Reasoning are authored but **not in the seed**, so run
+the rebuild in Part 2.4 rather than regenerating them.
 
 ---
 
