@@ -130,7 +130,10 @@ void main() {
 
     final settings = await DriftSettingsRepository(db).readUserSettings();
     expect(settings.strictMockMode, isTrue);
-    expect(settings.helpImproveApp, isFalse);
+
+    // Both switches start off, so one tap turns each on. Help-improve used to
+    // start on, and this assertion read isFalse for that reason.
+    expect(settings.helpImproveApp, isTrue);
   });
 
   testWidgets('daily reminder row shows permission recovery when denied',

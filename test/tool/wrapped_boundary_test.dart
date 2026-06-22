@@ -23,7 +23,21 @@ void main() {
 
     final eventNames = RegExp('wrapped_(shared|revealed)').allMatches(sources);
     expect(eventNames.length, lessThanOrEqualTo(2));
-    expect(sources, isNot(contains('logEvent(')));
+  });
+
+  test('only the telemetry seam may call the analytics SDK', () {
+    // Amended 3 August 2026. This assertion used to be `isNot(contains(
+    // 'logEvent('))` over all of lib/, written when the app had no analytics
+    // at all. Analytics now exists, so a blanket ban would have had to be
+    // deleted the day it shipped. Confining the call to one file is the
+    // stronger form of the same rule: events are a closed enum in
+    // core/telemetry/telemetry.dart and every property is whitelisted there.
+    final callers = _dartFiles('lib')
+        .where((file) => file.readAsStringSync().contains('logEvent('))
+        .map((file) => file.path)
+        .toList();
+
+    expect(callers, ['lib/core/telemetry/firebase_telemetry.dart']);
   });
 }
 

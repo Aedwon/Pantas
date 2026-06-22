@@ -14,13 +14,17 @@ void main() {
     expect(ThemePreferenceX.fromStorage('sepia'), ThemePreference.system);
   });
 
-  test('default user settings opt into analytics and strict mode off', () {
+  test('default user settings collect nothing until the student says yes', () {
     final settings = UserSettings.defaults();
 
     expect(settings.dailyReminderTime, isNull);
     expect(settings.examDate, isNull);
     expect(settings.strictMockMode, isFalse);
-    expect(settings.helpImproveApp, isTrue);
+
+    // Changed 3 August 2026, when this switch started governing crash reports
+    // and analytics. It used to default to true, which opted an unanswered
+    // student in. Consent that defaults to yes is not consent.
+    expect(settings.helpImproveApp, isFalse);
     expect(settings.updatedAt, isNull);
   });
 }
