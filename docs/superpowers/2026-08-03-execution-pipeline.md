@@ -7,6 +7,9 @@ implementor.
 It supersedes the execution order in `2026-08-02-work-checkpoint.md`, which was written before
 the Settings thread existed and before the six conflicts were ruled on.
 
+**For who runs each plan**, and the beta cut, see `2026-08-03-execution-resourcing.md`.
+Gemini executes the bulk; Claude designs, rules and verifies.
+
 **For the rounds that are not plans yet**, the design work still owed and the content plans
 that do not exist, see `2026-08-03-next-rounds.md`. It carries a ready-to-paste prompt for
 each one and a list of the decisions a model is waiting on.
