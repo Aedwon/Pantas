@@ -1,0 +1,287 @@
+meta:
+  subject: mathematics
+  topic: arithmetic-number-sense
+  subtopic: business-math
+  exams: [upcat, acet, dlsucet, ustet, pupcet]
+questions:
+  - id: q-arithmetic-number-sense-business-math-0001
+    type: word-problem
+    difficulty: easy
+    stem: |
+      Aling Nena bought a wholesale box of canned goods for $\text{₱}800.00$ to sell in her sari-sari store. If she applies a 25% markup based on cost, what is the selling price?
+    choices:
+      - text: "$\text{₱}1,000.00$"
+        correct: true
+      - text: "$\text{₱}1,066.67$"
+      - text: "$\text{₱}200.00$"
+      - text: "$\text{₱}600.00$"
+    explanation: |
+      Markup: $\text{₱}800 \times 0.25 = \text{₱}200$
+
+      Selling price: $\text{₱}800 + \text{₱}200 = \text{₱}1,000$
+
+      Trap: Confusing markup on cost with margin on selling price.
+
+  - id: q-arithmetic-number-sense-business-math-0002
+    type: word-problem
+    difficulty: easy
+    stem: |
+      A jeepney charges $\text{₱}13.00$ for first 4 km and $\text{₱}1.80$ per km thereafter. Mang Juan travels 11.5 km. How much is his fare?
+    choices:
+      - text: "$\text{₱}26.50$"
+      - text: "$\text{₱}27.40$"
+        correct: true
+      - text: "$\text{₱}33.70$"
+      - text: "$\text{₱}20.70$"
+    explanation: |
+      Excess distance: $11.5 - 4 = 7.5$ km
+
+      Round up: $\lceil 7.5 \rceil = 8$ km
+
+      Additional: $8 \times \text{₱}1.80 = \text{₱}14.40$
+
+      Total: $\text{₱}13 + \text{₱}14.40 = \text{₱}27.40$
+
+  - id: q-arithmetic-number-sense-business-math-0003
+    type: word-problem
+    difficulty: easy
+    stem: |
+      Mang Pedro borrowed $\text{₱}15,000$ at 8% simple annual interest. He repaid after 9 months. How much interest?
+    choices:
+      - text: "$\text{₱}900.00$"
+        correct: true
+      - text: "$\text{₱}1,200.00$"
+      - text: "$\text{₱}10,800.00$"
+      - text: "$\text{₱}15,900.00$"
+    explanation: |
+      Time: $\frac{9}{12} = 0.75$ years
+
+      Interest: $I = P \times r \times t = \text{₱}15,000 \times 0.08 \times 0.75 = \text{₱}900$
+
+      Trap: Using full year instead of 9 months.
+
+  - id: q-arithmetic-number-sense-business-math-0004
+    type: word-problem
+    difficulty: easy
+    stem: |
+      Wholesale offers 5% discount on purchases over $\text{₱}1,000$. Aling Rose buys stock tagged at $\text{₱}2,400$. How much after discount?
+    choices:
+      - text: "$\text{₱}2,330.00$"
+      - text: "$\text{₱}2,280.00$"
+        correct: true
+      - text: "$\text{₱}120.00$"
+      - text: "$\text{₱}2,520.00$"
+    explanation: |
+      Discount: $\text{₱}2,400 \times 0.05 = \text{₱}120$
+
+      Net price: $\text{₱}2,400 - \text{₱}120 = \text{₱}2,280$
+
+  - id: q-arithmetic-number-sense-business-math-0005
+    type: word-problem
+    difficulty: medium
+    stem: |
+      Store assistant earns $\text{₱}400$/day basic + 4% commission on weekly net profit. In 6-day week with $\text{₱}35,000$ revenue and $\text{₱}25,000$ cost, what are total earnings?
+    choices:
+      - text: "$\text{₱}3,800.00$"
+      - text: "$\text{₱}2,800.00$"
+        correct: true
+      - text: "$\text{₱}800.00$"
+      - text: "$\text{₱}2,400.00$"
+    explanation: |
+      Base wage: $6 \times \text{₱}400 = \text{₱}2,400$
+
+      Net profit: $\text{₱}35,000 - \text{₱}25,000 = \text{₱}10,000$
+
+      Commission: $\text{₱}10,000 \times 0.04 = \text{₱}400$
+
+      Total: $\text{₱}2,400 + \text{₱}400 = \text{₱}2,800$
+
+  - id: q-arithmetic-number-sense-business-math-0006
+    type: word-problem
+    difficulty: medium
+    stem: |
+      Aling Toyang sells instant noodles for $\text{₱}25/pack$, cost $\text{₱}20/pack$. What is profit margin % on selling price?
+    choices:
+      - text: "$25\\%$"
+      - text: "$20\\%$"
+        correct: true
+      - text: "$80\\%$"
+      - text: "$5\\%$"
+    explanation: |
+      Profit: $\text{₱}25 - \text{₱}20 = \text{₱}5$
+
+      Profit margin: $\frac{\text{₱}5}{\text{₱}25} \times 100\% = 20\%$
+
+      Trap: Confusing with markup ($\frac{\text{₱}5}{\text{₱}20} = 25\%$).
+
+  - id: q-arithmetic-number-sense-business-math-0007
+    type: word-problem
+    difficulty: medium
+    stem: |
+      Students get 20% jeepney discount. Route base fare $\text{₱}13$ (first 4 km), then $\text{₱}1.75$/km. Student travels 9 km, how much?
+    choices:
+      - text: "$\text{₱}21.75$"
+      - text: "$\text{₱}19.15$"
+      - text: "$\text{₱}17.40$"
+        correct: true
+      - text: "$\text{₱}20.00$"
+    explanation: |
+      Regular fare: $\text{₱}13 + (9-4) \times \text{₱}1.75 = \text{₱}13 + \text{₱}8.75 = \text{₱}21.75$
+
+      Discount: $\text{₱}21.75 \times 0.20 = \text{₱}4.35$
+
+      Student fare: $\text{₱}21.75 - \text{₱}4.35 = \text{₱}17.40$
+
+  - id: q-arithmetic-number-sense-business-math-0008
+    type: word-problem
+    difficulty: medium
+    stem: |
+      Mang Ben borrowed $\text{₱}50,000$ at 6% simple annual interest for 15 months. Total repayment?
+    choices:
+      - text: "$\text{₱}53,750.00$"
+        correct: true
+      - text: "$\text{₱}54,500.00$"
+      - text: "$\text{₱}3,750.00$"
+      - text: "$\text{₱}95,000.00$"
+    explanation: |
+      Time: $\frac{15}{12} = 1.25$ years
+
+      Interest: $\text{₱}50,000 \times 0.06 \times 1.25 = \text{₱}3,750$
+
+      Repayment: $\text{₱}50,000 + \text{₱}3,750 = \text{₱}53,750$
+
+  - id: q-arithmetic-number-sense-business-math-0009
+    type: word-problem
+    difficulty: medium
+    stem: |
+      Sari-sari owner orders inventory ($\text{₱}5,000$ list price). Supplier offers successive 10% then 5% discounts. Net price?
+    choices:
+      - text: "$\text{₱}4,250.00$"
+      - text: "$\text{₱}4,275.00$"
+        correct: true
+      - text: "$\text{₱}4,500.00$"
+      - text: "$\text{₱}725.00$"
+    explanation: |
+      After 10%: $\text{₱}5,000 \times 0.90 = \text{₱}4,500$
+
+      After 5%: $\text{₱}4,500 \times 0.95 = \text{₱}4,275$
+
+      Trap: Adding discounts ($10\% + 5\% = 15\%$) instead of multiplying sequentially.
+
+  - id: q-arithmetic-number-sense-business-math-0010
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Mang Juan bought 30 dozen eggs at $\text{₱}90/dozen$. During transport, 3 dozen broke. He wants 20% net profit on total investment. Selling price per dozen?
+    choices:
+      - text: "$\text{₱}108.00$"
+      - text: "$\text{₱}100.00$"
+      - text: "$\text{₱}120.00$"
+        correct: true
+      - text: "$\text{₱}114.00$"
+    explanation: |
+      Total cost: $30 \times \text{₱}90 = \text{₱}2,700$
+
+      Target revenue (20% profit): $\text{₱}2,700 \times 1.20 = \text{₱}3,240$
+
+      Sellable: $30 - 3 = 27$ dozen
+
+      Selling price: $\frac{\text{₱}3,240}{27} = \text{₱}120/dozen$
+
+  - id: q-arithmetic-number-sense-business-math-0011
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Aling Marites invested $\text{₱}20,000$ in a micro-finance fund. After 18 months, value is $\text{₱}23,600$. What annual simple interest rate?
+    choices:
+      - text: "$12\\%$"
+        correct: true
+      - text: "$18\\%$"
+      - text: "$10\\%$"
+      - text: "$1\\%$"
+    explanation: |
+      Interest: $\text{₱}23,600 - \text{₱}20,000 = \text{₱}3,600$
+
+      Time: $\frac{18}{12} = 1.5$ years
+
+      Rate: $r = \frac{I}{P \times t} = \frac{\text{₱}3,600}{\text{₱}20,000 \times 1.5} = 0.12 = 12\%$
+
+  - id: q-arithmetic-number-sense-business-math-0012
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Soft drink agent earns: 3% on first $\text{₱}50,000$, 5% on next $\text{₱}50,000$, 8% on sales above $\text{₱}100,000$. Total sales $\text{₱}140,000$. Commission?
+    choices:
+      - text: "$\text{₱}11,200.00$"
+      - text: "$\text{₱}7,000.00$"
+      - text: "$\text{₱}7,200.00$"
+        correct: true
+      - text: "$\text{₱}8,700.00$"
+    explanation: |
+      Tier 1: $\text{₱}50,000 \times 0.03 = \text{₱}1,500$
+
+      Tier 2: $\text{₱}50,000 \times 0.05 = \text{₱}2,500$
+
+      Tier 3: $(\text{₱}140,000 - \text{₱}100,000) \times 0.08 = \text{₱}40,000 \times 0.08 = \text{₱}3,200$
+
+      Total: $\text{₱}1,500 + \text{₱}2,500 + \text{₱}3,200 = \text{₱}7,200$
+
+  - id: q-arithmetic-number-sense-business-math-0013
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Aling Loring wants 20% net profit margin on selling price for canned goods costing $\text{₱}480$. What markup % on cost?
+    choices:
+      - text: "$20\\%$"
+      - text: "$25\\%$"
+        correct: true
+      - text: "$16.67\\%$"
+      - text: "$24\\%$"
+    explanation: |
+      If margin = 20% of price: Cost = 0.80 × Price
+
+      $\text{₱}480 = 0.80 \times Price \implies Price = \text{₱}600$
+
+      Profit: $\text{₱}600 - \text{₱}480 = \text{₱}120$
+
+      Markup: $\frac{\text{₱}120}{\text{₱}480} \times 100\% = 25\%$
+
+  - id: q-arithmetic-number-sense-business-math-0014
+    type: word-problem
+    difficulty: exam-level
+    stem: |
+      Mang Cardo's jeepney: 8 round trips daily, 15 passengers per trip, $\text{₱}13/fare. Expenses: $\text{₱}800$ boundary + $\text{₱}950$ fuel. Net daily income?
+    choices:
+      - text: "$\text{₱}1,370.00$"
+        correct: true
+      - text: "$-\text{₱}190.00$"
+      - text: "$\text{₱}2,320.00$"
+      - text: "$\text{₱}3,120.00$"
+    explanation: |
+      One-way trips: $8 \times 2 = 16$
+
+      Passengers: $16 \times 15 = 240$
+
+      Revenue: $240 \times \text{₱}13 = \text{₱}3,120$
+
+      Expenses: $\text{₱}800 + \text{₱}950 = \text{₱}1,750$
+
+      Net: $\text{₱}3,120 - \text{₱}1,750 = \text{₱}1,370$
+
+  - id: q-arithmetic-number-sense-business-math-0015
+    type: word-problem
+    difficulty: exam-level
+    stem: |
+      Tatay Mario borrowed $\text{₱}40,000$ at 9% simple annual interest. After 8 months, he paid $\text{₱}15,000$ (interest paid first, remainder to principal). Remaining principal?
+    choices:
+      - text: "$\text{₱}25,000.00$"
+      - text: "$\text{₱}27,400.00$"
+        correct: true
+      - text: "$\text{₱}28,600.00$"
+      - text: "$\text{₱}22,600.00$"
+    explanation: |
+      Accrued interest: $\text{₱}40,000 \times 0.09 \times \frac{8}{12} = \text{₱}2,400$
+
+      Principal reduction: $\text{₱}15,000 - \text{₱}2,400 = \text{₱}12,600$
+
+      Remaining: $\text{₱}40,000 - \text{₱}12,600 = \text{₱}27,400$

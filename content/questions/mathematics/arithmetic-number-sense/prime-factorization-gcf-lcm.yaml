@@ -1,0 +1,362 @@
+meta:
+  subject: mathematics
+  topic: arithmetic-number-sense
+  subtopic: prime-factorization-gcf-lcm
+  exams: [upcat, acet, dlsucet, ustet, pupcet]
+questions:
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0001
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      What is the prime factorization of $180$?
+    choices:
+      - text: "$1 \times 2^2 \times 3^2 \times 5$"
+      - text: "$2^2 \times 9 \times 5$"
+      - text: "$2^2 \times 3^2 \times 5$"
+        correct: true
+      - text: "$2^3 \times 3 \times 5$"
+    explanation: |
+      Divide $180$ by prime factors in sequence:
+      - $180 \div 2 = 90$
+      - $90 \div 2 = 45$
+      - $45 \div 3 = 15$
+      - $15 \div 3 = 5$
+      - $5$ is prime
+
+      Therefore: $180 = 2^2 \times 3^2 \times 5$
+
+      Distractors: Including 1 (not prime), using incomplete factorization (9 instead of $3^2$), or overcounting factors.
+
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0002
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      What is the Greatest Common Factor (GCF) of $72$ and $108$?
+    choices:
+      - text: "$12$"
+      - text: "$36$"
+        correct: true
+      - text: "$72$"
+      - text: "$216$"
+    explanation: |
+      Find prime factorizations:
+      - $72 = 2^3 \times 3^2$
+      - $108 = 2^2 \times 3^3$
+
+      For GCF, take the lowest power of each common prime:
+      - Factor 2: $\min(3, 2) = 2 \implies 2^2$
+      - Factor 3: $\min(2, 3) = 2 \implies 3^2$
+
+      GCF $= 2^2 \times 3^2 = 4 \times 9 = 36$
+
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0003
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      What is the Least Common Multiple (LCM) of $24$ and $36$?
+    choices:
+      - text: "$12$"
+      - text: "$36$"
+      - text: "$72$"
+        correct: true
+      - text: "$864$"
+    explanation: |
+      Find prime factorizations:
+      - $24 = 2^3 \times 3^1$
+      - $36 = 2^2 \times 3^2$
+
+      For LCM, take the highest power of each prime:
+      - Factor 2: $\max(3, 2) = 3 \implies 2^3$
+      - Factor 3: $\max(1, 2) = 2 \implies 3^2$
+
+      LCM $= 2^3 \times 3^2 = 8 \times 9 = 72$
+
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0004
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      Which of the following represents the prime factorization of $210$?
+    choices:
+      - text: "$2 \times 3 \times 5 \times 7$"
+        correct: true
+      - text: "$1 \times 2 \times 3 \times 5 \times 7$"
+      - text: "$2 \times 15 \times 7$"
+      - text: "$2^2 \times 3 \times 5 \times 7$"
+    explanation: |
+      Divide $210$ by successive primes:
+      - $210 \div 2 = 105$
+      - $105 \div 3 = 35$
+      - $35 \div 5 = 7$
+      - $7$ is prime
+
+      So $210 = 2 \times 3 \times 5 \times 7$
+
+      Common trap: Including 1 as a prime factor.
+
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0005
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A volunteer relief team in Manila has 120 canned goods, 180 packs of instant noodles, and 240 bottles of water. They want to pack these items into identical relief packs with the exact same quantities in each pack and no leftover items. What is the maximum number of relief packs they can create?
+    choices:
+      - text: "$30$"
+      - text: "$60$"
+        correct: true
+      - text: "$180$"
+      - text: "$720$"
+    explanation: |
+      This is a grouping problem, so find GCF(120, 180, 240).
+
+      Prime factorizations:
+      - $120 = 2^3 \times 3 \times 5$
+      - $180 = 2^2 \times 3^2 \times 5$
+      - $240 = 2^4 \times 3 \times 5$
+
+      GCF uses lowest powers: $2^2 \times 3 \times 5 = 4 \times 3 \times 5 = 60$
+
+      The maximum number of relief packs is 60.
+
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0006
+    type: word-problem
+    difficulty: medium
+    stem: |
+      Two jeepneys leave a terminal at 6:00 AM. Jeepney A completes its round-trip every 15 minutes, and Jeepney B every 20 minutes. At what time will both jeepneys next arrive at the terminal simultaneously?
+    choices:
+      - text: "$6:05\\text{ AM}$"
+      - text: "$6:35\\text{ AM}$"
+      - text: "$7:00\\text{ AM}$"
+        correct: true
+      - text: "$11:00\\text{ AM}$"
+    explanation: |
+      This is a scheduling problem, so find LCM(15, 20).
+
+      Prime factorizations:
+      - $15 = 3 \times 5$
+      - $20 = 2^2 \times 5$
+
+      LCM uses highest powers: $2^2 \times 3 \times 5 = 4 \times 3 \times 5 = 60$ minutes
+
+      $6:00\\text{ AM} + 60\\text{ minutes} = 7:00\\text{ AM}$
+
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0007
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Two numbers are given in prime factored form: $A = 2^3 \times 3^4 \times 5^2$ and $B = 2^5 \times 3^2 \times 7^1$. What is the GCF of $A$ and $B$?
+    choices:
+      - text: "$72$"
+        correct: true
+      - text: "$648$"
+      - text: "$2,520$"
+      - text: "$453,600$"
+    explanation: |
+      Common prime factors are 2 and 3. (5 and 7 are not in both.)
+
+      For GCF, take lowest exponents:
+      - Factor 2: $\min(3, 5) = 3 \implies 2^3$
+      - Factor 3: $\min(4, 2) = 2 \implies 3^2$
+
+      GCF $= 2^3 \times 3^2 = 8 \times 9 = 72$
+
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0008
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A volunteer group has 144 rice pouches and 96 hygiene kits. They pack these into identical boxes with equal distribution and no leftovers. If they create the maximum possible number of boxes, how many total items are in each box?
+    choices:
+      - text: "$5$"
+        correct: true
+      - text: "$6$"
+      - text: "$48$"
+      - text: "$120$"
+    explanation: |
+      Find maximum number of boxes: GCF(144, 96).
+
+      $144 = 2^4 \times 3^2$
+      $96 = 2^5 \times 3$
+
+      GCF $= 2^4 \times 3 = 16 \times 3 = 48$ boxes
+
+      Items per box:
+      - Rice pouches per box: $144 \div 48 = 3$
+      - Kits per box: $96 \div 48 = 2$
+      - Total per box: $3 + 2 = 5$
+
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0009
+    type: word-problem
+    difficulty: medium
+    stem: |
+      Jeepneys on three routes depart from a terminal every 12, 18, and 30 minutes respectively. If all three depart together at 8:00 AM, how many times will all three depart together between 8:01 AM and 5:00 PM (inclusive)?
+    choices:
+      - text: "$3$"
+        correct: true
+      - text: "$4$"
+      - text: "$6$"
+      - text: "$90$"
+    explanation: |
+      Find LCM(12, 18, 30).
+
+      $12 = 2^2 \times 3$
+      $18 = 2 \times 3^2$
+      $30 = 2 \times 3 \times 5$
+
+      LCM $= 2^2 \times 3^2 \times 5 = 4 \times 9 \times 5 = 180$ minutes $= 3$ hours
+
+      Departures after 8:00 AM within the window:
+      - 11:00 AM (8:00 + 3 hrs)
+      - 2:00 PM (11:00 + 3 hrs)
+      - 5:00 PM (2:00 + 3 hrs)
+
+      Total: 3 simultaneous departures
+
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0010
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      The GCF of two positive integers is 14, and their LCM is 420. If one integer is 70, what is the other?
+    choices:
+      - text: "$30$"
+      - text: "$84$"
+        correct: true
+      - text: "$210$"
+      - text: "$406$"
+    explanation: |
+      Use the relationship: GCF$(a, b) \times$ LCM$(a, b) = a \times b$
+
+      $14 \times 420 = 70 \times b$
+
+      $b = \frac{14 \times 420}{70} = \frac{5,880}{70} = 84$
+
+      Verify: GCF(70, 84) = 14 and LCM(70, 84) = 420 ✓
+
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0011
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A charity foundation creates relief packages from 315 blankets (costing $\text{₱}150$ each) and 420 lanterns (costing $\text{₱}250$ each). They create the maximum number of identical packages. What is the total cost of one relief package?
+    choices:
+      - text: "$\text{₱}400$"
+      - text: "$\text{₱}1,350$"
+      - text: "$\text{₱}1,450$"
+        correct: true
+      - text: "$\text{₱}10,150$"
+    explanation: |
+      Find maximum packages: GCF(315, 420).
+
+      $315 = 3^2 \times 5 \times 7$
+      $420 = 2^2 \times 3 \times 5 \times 7$
+
+      GCF $= 3 \times 5 \times 7 = 105$ packages
+
+      Items per package:
+      - Blankets: $315 \div 105 = 3$
+      - Lanterns: $420 \div 105 = 4$
+
+      Cost per package: $(3 \times \text{₱}150) + (4 \times \text{₱}250) = \text{₱}450 + \text{₱}1,000 = \text{₱}1,450$
+
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0012
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Jeepneys pass an intersection at intervals of 16, 24, and 40 minutes. If they pass together at 9:00 AM, at what time will they next pass together after 12:00 PM on the same day?
+    choices:
+      - text: "$9:08\\text{ AM}$"
+      - text: "$11:00\\text{ AM}$"
+      - text: "$1:00\\text{ PM}$"
+        correct: true
+      - text: "$5:00\\text{ PM}$"
+    explanation: |
+      Find LCM(16, 24, 40).
+
+      $16 = 2^4$
+      $24 = 2^3 \times 3$
+      $40 = 2^3 \times 5$
+
+      LCM $= 2^4 \times 3 \times 5 = 16 \times 3 \times 5 = 240$ minutes $= 4$ hours
+
+      Next simultaneous passage: $9:00\\text{ AM} + 4\\text{ hours} = 1:00\\text{ PM}$
+
+      Since $1:00\\text{ PM}$ is after noon, this is the answer.
+
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0013
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      What is the smallest positive integer with exactly 12 positive factors, using only prime factors 2 and 3?
+    choices:
+      - text: "$60$"
+      - text: "$72$"
+        correct: true
+      - text: "$96$"
+      - text: "$108$"
+    explanation: |
+      For $N = 2^a \times 3^b$, number of factors $= (a+1)(b+1) = 12$
+
+      Factor pairs of 12 with $a, b \geq 1$:
+      - $(a+1, b+1) = (6, 2)$: $N = 2^5 \times 3 = 96$
+      - $(a+1, b+1) = (2, 6)$: $N = 2 \times 3^5 = 486$
+      - $(a+1, b+1) = (4, 3)$: $N = 2^3 \times 3^2 = 72$
+      - $(a+1, b+1) = (3, 4)$: $N = 2^2 \times 3^3 = 108$
+
+      The smallest is 72.
+
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0014
+    type: word-problem
+    difficulty: exam-level
+    stem: |
+      A non-profit receives $\text{₱}36,000$ worth of rice ($\text{₱}200$ per bag) and $\text{₱}45,000$ worth of canned goods ($\text{₱}150$ per pack). They pack all into identical relief packages with no leftovers. Jeepney A carries 25 packages per trip; Jeepney B carries 35 per trip. What is the minimum number of trips needed using only one jeepney type?
+    choices:
+      - text: "$2$"
+        correct: true
+      - text: "$3$"
+      - text: "$5$"
+      - text: "$60$"
+    explanation: |
+      Calculate quantities:
+      - Rice bags: $36,000 \div 200 = 180$
+      - Canned packs: $45,000 \div 150 = 300$
+
+      Find maximum packages: GCF(180, 300).
+
+      $180 = 2^2 \times 3^2 \times 5$
+      $300 = 2^2 \times 3 \times 5^2$
+
+      GCF $= 2^2 \times 3 \times 5 = 60$ packages
+
+      Trips needed:
+      - Jeepney A: $\lceil 60 \div 25 \rceil = 3$ trips
+      - Jeepney B: $\lceil 60 \div 35 \rceil = 2$ trips
+
+      Minimum: 2 trips (using Jeepney B)
+
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0015
+    type: word-problem
+    difficulty: exam-level
+    stem: |
+      Jeepney X and Y depart at 5:00 AM. Jeepney X has a 45-minute round trip ($\text{₱}15$ fare, 20 passengers), while Jeepney Y has a 75-minute round trip ($\text{₱}25$ fare, 16 passengers). What is the combined fare collected by both jeepneys from 5:00 AM through their first simultaneous return to the terminal?
+    choices:
+      - text: "$\text{₱}2,100$"
+      - text: "$\text{₱}2,400$"
+      - text: "$\text{₱}2,700$"
+        correct: true
+      - text: "$\text{₱}3,100$"
+    explanation: |
+      Find when both return together: LCM(45, 75).
+
+      $45 = 3^2 \times 5$
+      $75 = 3 \times 5^2$
+
+      LCM $= 3^2 \times 5^2 = 9 \times 25 = 225$ minutes
+
+      Trips by 225 minutes:
+      - Jeepney X: $225 \div 45 = 5$ trips
+      - Jeepney Y: $225 \div 75 = 3$ trips
+
+      Fares per trip:
+      - X: $20 \times \text{₱}15 = \text{₱}300$
+      - Y: $16 \times \text{₱}25 = \text{₱}400$
+
+      Total fares:
+      - X: $5 \times \text{₱}300 = \text{₱}1,500$
+      - Y: $3 \times \text{₱}400 = \text{₱}1,200$
+      - Combined: $\text{₱}2,700$

@@ -1,0 +1,281 @@
+meta:
+  subject: mathematics
+  topic: arithmetic-number-sense
+  subtopic: ratio-and-proportion
+  exams: [upcat, acet, dlsucet, ustet, pupcet]
+questions:
+  - id: q-arithmetic-number-sense-ratio-and-proportion-0001
+    type: word-problem
+    difficulty: easy
+    stem: |
+      A recipe for 12 pancakes requires 3 cups of flour. How many cups of flour are needed to make 20 pancakes?
+    choices:
+      - text: "$1.8$ cups"
+      - text: "$5$ cups"
+        correct: true
+      - text: "$8$ cups"
+      - text: "$11$ cups"
+    explanation: |
+      Set up proportion: $\frac{3\text{ cups}}{12\text{ pancakes}} = \frac{x\text{ cups}}{20\text{ pancakes}}$
+
+      Cross-multiply: $12x = 60 \implies x = 5$ cups
+
+      Trap: Setting up proportion backwards.
+
+  - id: q-arithmetic-number-sense-ratio-and-proportion-0002
+    type: word-problem
+    difficulty: easy
+    stem: |
+      Blue and yellow paint mix in ratio $3 : 2$. If using 12 liters of blue paint, how many liters of yellow paint?
+    choices:
+      - text: "$4.8$ liters"
+      - text: "$8$ liters"
+        correct: true
+      - text: "$10$ liters"
+      - text: "$18$ liters"
+    explanation: |
+      Ratio: $\frac{3}{2} = \frac{12}{y}$
+
+      Cross-multiply: $3y = 24 \implies y = 8$ liters
+
+      Trap: Reversing ratio terms gives 18 liters.
+
+  - id: q-arithmetic-number-sense-ratio-and-proportion-0003
+    type: word-problem
+    difficulty: easy
+    stem: |
+      On a map with scale $1\text{ cm} : 15\text{ km}$, two towns are $4.5\text{ cm}$ apart. What is the actual distance?
+    choices:
+      - text: "$0.3$ km"
+      - text: "$19.5$ km"
+      - text: "$67.5$ km"
+        correct: true
+      - text: "$675$ km"
+    explanation: |
+      Each cm represents 15 km.
+
+      Actual distance: $4.5 \times 15 = 67.5$ km
+
+      Trap: Dividing by 15 instead of multiplying.
+
+  - id: q-arithmetic-number-sense-ratio-and-proportion-0004
+    type: word-problem
+    difficulty: easy
+    stem: |
+      A jeepney has male to female passengers in ratio $4 : 5$. If 15 female passengers, what is total?
+    choices:
+      - text: "$12$ passengers"
+      - text: "$19$ passengers"
+      - text: "$27$ passengers"
+        correct: true
+      - text: "$35$ passengers"
+    explanation: |
+      Ratio: $\frac{4}{5} = \frac{M}{15} \implies M = 12$
+
+      Total: $12 + 15 = 27$ passengers
+
+      Trap: Reporting only male count (12) instead of total.
+
+  - id: q-arithmetic-number-sense-ratio-and-proportion-0005
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A recipe uses flour, sugar, butter in ratio $5 : 3 : 2$. With 450 g sugar, what is total mass?
+    choices:
+      - text: "$750$ grams"
+      - text: "$1,050$ grams"
+      - text: "$1,500$ grams"
+        correct: true
+      - text: "$2,250$ grams"
+    explanation: |
+      Sugar = 3 parts, so 1 part = $450 \div 3 = 150$ g
+
+      Total parts = $5 + 3 + 2 = 10$
+
+      Total mass = $10 \times 150 = 1,500$ g
+
+  - id: q-arithmetic-number-sense-ratio-and-proportion-0006
+    type: word-problem
+    difficulty: medium
+    stem: |
+      Fuel cost shared among 16 commuters by distance traveled. 10 travel 12 km each; 6 travel 20 km each. What fraction of cost for the 6 travelers?
+    choices:
+      - text: "$\frac{3}{8}$"
+      - text: "$\frac{1}{2}$"
+        correct: true
+      - text: "$\frac{5}{8}$"
+      - text: "$\frac{3}{5}$"
+    explanation: |
+      Group 1: $10 \times 12 = 120$ person-km
+
+      Group 2: $6 \times 20 = 120$ person-km
+
+      Fraction for Group 2: $\frac{120}{240} = \frac{1}{2}$
+
+  - id: q-arithmetic-number-sense-ratio-and-proportion-0007
+    type: word-problem
+    difficulty: medium
+    stem: |
+      On a map with scale $1\text{ cm} : 2\text{ km}$, a park measures $3\text{ cm} \times 4\text{ cm}$. What is actual area?
+    choices:
+      - text: "$12$ sq km"
+      - text: "$24$ sq km"
+      - text: "$48$ sq km"
+        correct: true
+      - text: "$96$ sq km"
+    explanation: |
+      Actual dimensions: $3 \times 2 = 6$ km and $4 \times 2 = 8$ km
+
+      Actual area: $6 \times 8 = 48$ sq km
+
+      Trap: Multiplying map area (12) by linear scale (2) instead of area scale (4).
+
+  - id: q-arithmetic-number-sense-ratio-and-proportion-0008
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A 30-liter mixture of red and white paint is in ratio $4 : 1$. How much white paint to add for ratio $2 : 1$?
+    choices:
+      - text: "$3$ liters"
+      - text: "$6$ liters"
+        correct: true
+      - text: "$12$ liters"
+      - text: "$18$ liters"
+    explanation: |
+      Initial: red = 24 L, white = 6 L
+
+      Let $x$ = added white. New ratio: $\frac{24}{6 + x} = \frac{2}{1}$
+
+      Solve: $24 = 2(6 + x) \implies x = 6$ liters
+
+  - id: q-arithmetic-number-sense-ratio-and-proportion-0009
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A recipe for 8 servings needs 600 g flour and 250 mL milk. Scaling for 36 servings, how much flour?
+    choices:
+      - text: "$1.125$ kg"
+      - text: "$2.4$ kg"
+      - text: "$2.7$ kg"
+        correct: true
+      - text: "$27$ kg"
+    explanation: |
+      Scale factor: $\frac{36}{8} = 4.5$
+
+      Flour: $600 \times 4.5 = 2,700$ g $= 2.7$ kg
+
+      Trap: Forgetting unit conversion or scaling wrong ingredient.
+
+  - id: q-arithmetic-number-sense-ratio-and-proportion-0010
+    type: word-problem
+    difficulty: hard
+    stem: |
+      At 40 km/h, a jeepney trip takes 45 minutes. If speed reduces by 25%, how long?
+    choices:
+      - text: "$33.75$ minutes"
+      - text: "$56.25$ minutes"
+      - text: "$60$ minutes"
+        correct: true
+      - text: "$75$ minutes"
+    explanation: |
+      Speed and time are inverse: $S_1 T_1 = S_2 T_2$
+
+      $S_2 = 40 \times 0.75 = 30$ km/h
+
+      $T_2 = \frac{40 \times 45}{30} = 60$ minutes
+
+  - id: q-arithmetic-number-sense-ratio-and-proportion-0011
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Container A: 12 L with blue:yellow = $1:3$. Container B: 8 L with blue:yellow = $3:1$. After mixing, what ratio?
+    choices:
+      - text: "$1 : 1$"
+      - text: "$9 : 11$"
+        correct: true
+      - text: "$11 : 9$"
+      - text: "$3 : 1$"
+    explanation: |
+      Container A: blue = 3 L, yellow = 9 L
+
+      Container B: blue = 6 L, yellow = 2 L
+
+      Mixed: blue = 9 L, yellow = 11 L. Ratio = $9:11$
+
+  - id: q-arithmetic-number-sense-ratio-and-proportion-0012
+    type: word-problem
+    difficulty: hard
+    stem: |
+      On a map with scale $1 : 250,000$, distance between terminals is $14.4\text{ cm}$. Jeepney travels at 45 km/h. How many minutes?
+    choices:
+      - text: "$32$ minutes"
+      - text: "$48$ minutes"
+        correct: true
+      - text: "$75$ minutes"
+      - text: "$80$ minutes"
+    explanation: |
+      Actual distance: $14.4 \times 250,000 = 3,600,000$ cm = 36 km
+
+      Time: $\frac{36}{45} = 0.8$ hours = 48 minutes
+
+      Trap: Interpreting 0.8 hours as 80 minutes.
+
+  - id: q-arithmetic-number-sense-ratio-and-proportion-0013
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Recipe for 15 servings needs 2.25 kg rice. Caterer prepares for 40 guests with 20% larger portions. How much rice?
+    choices:
+      - text: "$4.8$ kg"
+      - text: "$6.0$ kg"
+      - text: "$7.2$ kg"
+        correct: true
+      - text: "$9.0$ kg"
+    explanation: |
+      Standard per serving: $\frac{2.25}{15} = 0.15$ kg
+
+      With 20% increase: $0.15 \times 1.20 = 0.18$ kg per guest
+
+      Total: $40 \times 0.18 = 7.2$ kg
+
+  - id: q-arithmetic-number-sense-ratio-and-proportion-0014
+    type: word-problem
+    difficulty: exam-level
+    stem: |
+      Three drivers share earnings in ratio where $a:b = 3:4$ and $b:c = 5:6$. Carl gets $\text{₱}720$ more than Alex. Total shared?
+    choices:
+      - text: "$\text{₱}1,920$"
+      - text: "$\text{₱}3,120$"
+      - text: "$\text{₱}4,720$"
+        correct: true
+      - text: "$\text{₱}5,640$"
+    explanation: |
+      Combine: $a:b:c = 15:20:24$
+
+      Difference (Carl - Alex): $24 - 15 = 9$ parts = $\text{₱}720$
+
+      1 part = $\text{₱}80$
+
+      Total = $(15 + 20 + 24) \times 80 = 59 \times 80 = \text{₱}4,720$
+
+  - id: q-arithmetic-number-sense-ratio-and-proportion-0015
+    type: word-problem
+    difficulty: exam-level
+    stem: |
+      A 40-liter bucket has 70% yellow, 30% red paint. Remove 10 L mixture, replace with 10 L pure red. What is ratio yellow:red?
+    choices:
+      - text: "$\frac{19}{21}$"
+      - text: "$\frac{21}{22}$"
+      - text: "$\frac{21}{19}$"
+        correct: true
+      - text: "$\frac{7}{3}$"
+    explanation: |
+      Initial: yellow = 28 L, red = 12 L
+
+      Remove $\frac{1}{4}$ mixture: remove 7 L yellow, 3 L red
+
+      Remaining: yellow = 21 L, red = 9 L
+
+      Add 10 L red: yellow = 21 L, red = 19 L
+
+      Ratio = $\frac{21}{19}$

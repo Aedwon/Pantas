@@ -1,0 +1,221 @@
+meta:
+  subject: mathematics
+  topic: arithmetic-number-sense
+  subtopic: sequences-and-series
+  exams: [upcat, acet, dlsucet, ustet, pupcet]
+questions:
+  - id: q-arithmetic-number-sense-sequences-and-series-0001
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Find the 15th term of $5, 9, 13, 17, \dots$
+    choices:
+      - text: "$61$"
+        correct: true
+      - text: "$65$"
+      - text: "$57$"
+      - text: "$75$"
+    explanation: |
+      $a_n = a_1 + (n-1)d = 5 + 14(4) = 61$
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0002
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      Which describes $3, 6, 12, 24, 48, \dots$?
+    choices:
+      - text: "Geometric, ratio 2"
+        correct: true
+      - text: "Arithmetic, difference 3"
+      - text: "Geometric, ratio 3"
+      - text: "Harmonic, ratio 2"
+    explanation: |
+      $\frac{6}{3} = 2$, $\frac{12}{6} = 2$ consistently.
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0003
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Sum of first 10 terms of $4, 7, 10, 13, \dots$
+    choices:
+      - text: "$175$"
+        correct: true
+      - text: "$190$"
+      - text: "$350$"
+      - text: "$135$"
+    explanation: |
+      $S_n = \frac{n}{2}[2a_1 + (n-1)d] = 5[8 + 27] = 175$
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0004
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      6th term of geometric sequence: $a_1 = 3$, $r = 2$
+    choices:
+      - text: "$96$"
+        correct: true
+      - text: "$192$"
+      - text: "$13$"
+      - text: "$48$"
+    explanation: |
+      $a_n = a_1 r^{n-1} = 3(2^5) = 3(32) = 96$
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0005
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Sum of $12 + 4 + \frac{4}{3} + \frac{4}{9} + \dots$
+    choices:
+      - text: "$18$"
+        correct: true
+      - text: "$9$"
+      - text: "$36$"
+      - text: "$8$"
+    explanation: |
+      $r = \frac{1}{3}$. $S_\infty = \frac{12}{1-\frac{1}{3}} = 18$
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0006
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      $a_3 = 11$, $a_8 = 31$. Find $a_1$.
+    choices:
+      - text: "$3$"
+        correct: true
+      - text: "$4$"
+      - text: "$7$"
+      - text: "$-1$"
+    explanation: |
+      $(a_1 + 7d) - (a_1 + 2d) = 20 \implies d = 4$
+      Then $a_1 = 11 - 8 = 3$
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0007
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      Which series converges?
+    choices:
+      - text: '$16 - 8 + 4 - 2 + \dots$'
+        correct: true
+      - text: '$2 + 6 + 18 + 54 + \dots$'
+      - text: '$5 - 5 + 5 - 5 + \dots$'
+      - text: '$1 + 1.1 + 1.21 + \dots$'
+    explanation: |
+      First has $|r| = 0.5 < 1$. Others have $|r| \geq 1$.
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0008
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Sum of first 5 terms: $a_1 = 5$, $r = 3$
+    choices:
+      - text: "$605$"
+        correct: true
+      - text: "$200$"
+      - text: "$1210$"
+      - text: "$1025$"
+    explanation: |
+      $S_5 = \frac{5(3^5 - 1)}{2} = \frac{5(242)}{2} = 605$
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0009
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Three means between 4 and 28. Second mean?
+    choices:
+      - text: "$16$"
+        correct: true
+      - text: "$10$"
+      - text: "$20$"
+      - text: "$22$"
+    explanation: |
+      Sequence: 4, 10, 16, 22, 28. Common diff = 6.
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0010
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Theater: row 1 has 15 seats, row 2 has 18, etc. (20 rows). Total?
+    choices:
+      - text: "$870$"
+        correct: true
+      - text: "$900$"
+      - text: "$72$"
+      - text: "$1,740$"
+    explanation: |
+      $a_{20} = 15 + 19(3) = 72$
+      $S = 10(15 + 72) = 870$
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0011
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      $x-1$, $x+5$, $7x-1$ form geometric. Find $x > 0$.
+    choices:
+      - text: "$4$"
+        correct: true
+      - text: "$2$"
+      - text: "$-1$"
+      - text: "$3$"
+    explanation: |
+      $(x+5)^2 = (x-1)(7x-1)$
+      $x^2 - 3x - 4 = 0 \implies x = 4$
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0012
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Sum of 3-digit multiples of 7?
+    choices:
+      - text: "$70,336$"
+        correct: true
+      - text: "$70,434$"
+      - text: "$69,786$"
+      - text: "$140,672$"
+    explanation: |
+      First: 105, Last: 994, n = 128
+      $S = 64(1099) = 70,336$
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0013
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Ball dropped 16 m, rebounds to 3/4 height each time. Total distance?
+    choices:
+      - text: "$112$ m"
+        correct: true
+      - text: "$64$ m"
+      - text: "$48$ m"
+      - text: "$128$ m"
+    explanation: |
+      Initial: 16. Rebounds sum: $\frac{12}{1-3/4} = 48$
+      Total: $16 + 2(48) = 112$
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0014
+    type: direct-computation
+    difficulty: exam-level
+    stem: |
+      Terms 1, 3, 9 form geometric. $a_1 = 5$. Find $d$.
+    choices:
+      - text: "$5$"
+        correct: true
+      - text: '$\frac{5}{3}$'
+      - text: "$10$"
+      - text: "$0$"
+    explanation: |
+      $(5+2d)^2 = 5(5+8d)$
+      $4d^2 - 20d = 0 \implies d = 5$
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0015
+    type: direct-computation
+    difficulty: exam-level
+    stem: |
+      $S_n = 2n^2 + 3n$. Find $a_8$.
+    choices:
+      - text: "$33$"
+        correct: true
+      - text: "$152$"
+      - text: "$37$"
+      - text: "$131$"
+    explanation: |
+      $a_8 = S_8 - S_7 = 152 - 119 = 33$
