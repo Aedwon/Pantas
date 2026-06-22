@@ -1,0 +1,215 @@
+meta:
+  subject: mathematics
+  topic: algebra
+  subtopic: functions-and-relations
+  exams: [upcat, acet, dlsucet, ustet, pupcet]
+questions:
+  - id: q-algebra-functions-and-relations-0001
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      Which relation is a function?
+    choices:
+      - text: $\{(1, 4), (2, 5), (3, 4)\}$
+        correct: true
+      - text: $\{(1, 4), (1, 5), (2, 6)\}$
+      - text: $\{(2, 3), (2, 4), (3, 5)\}$
+      - text: $\{(1, 2), (2, 3), (1, 4)\}$
+    explanation: |
+      A function has one input → one output. Check inputs: in the first, inputs are 1, 2, 3 (no repeats). Others have repeated inputs with different outputs, so they are not functions.
+
+  - id: q-algebra-functions-and-relations-0002
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      If $f(x) = 3x + 2$, find $f(4)$.
+    choices:
+      - text: $14$
+        correct: true
+      - text: $9$
+      - text: $12$
+      - text: $5$
+    explanation: |
+      Substitute $x = 4$: $f(4) = 3(4) + 2 = 12 + 2 = 14$.
+
+  - id: q-algebra-functions-and-relations-0003
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      If $f(x) = 2x^2 - 3x + 1$, find $f(-2)$.
+    choices:
+      - text: $15$
+        correct: true
+      - text: $3$
+      - text: $-1$
+      - text: $11$
+    explanation: |
+      Substitute $x = -2$ carefully: $f(-2) = 2(-2)^2 - 3(-2) + 1 = 2(4) + 6 + 1 = 8 + 6 + 1 = 15$.
+
+  - id: q-algebra-functions-and-relations-0004
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Find the domain of $f(x) = \dfrac{5}{x - 3}$.
+    choices:
+      - text: All real numbers except $x = 3$
+        correct: true
+      - text: All real numbers
+      - text: $x \geq 3$
+      - text: $x > 3$
+    explanation: |
+      The denominator cannot be zero. Setting $x - 3 = 0$ gives $x = 3$, which is forbidden. Domain is all reals except 3.
+
+  - id: q-algebra-functions-and-relations-0005
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Find the domain of $g(x) = \sqrt{x - 2}$.
+    choices:
+      - text: $x \geq 2$
+        correct: true
+      - text: $x > 2$
+      - text: All real numbers
+      - text: $x \le 2$
+    explanation: |
+      The inside of a square root must be non-negative: $x - 2 \geq 0$, so $x \geq 2$.
+
+  - id: q-algebra-functions-and-relations-0006
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      What does $f^{-1}(x)$ mean?
+    choices:
+      - text: The inverse function that undoes $f$.
+        correct: true
+      - text: The reciprocal $\dfrac{1}{f(x)}$.
+      - text: The negative of $f(x)$.
+      - text: It cannot be determined.
+    explanation: |
+      $f^{-1}(x)$ is the inverse function. If $f(2) = 7$, then $f^{-1}(7) = 2$. It is not $\dfrac{1}{f(x)}$.
+
+  - id: q-algebra-functions-and-relations-0007
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      If $f(x) = 2x + 1$ and $g(x) = x^2 - 3$, find $(f \circ g)(2)$.
+    choices:
+      - text: $3$
+        correct: true
+      - text: $1$
+      - text: $5$
+      - text: $9$
+    explanation: |
+      Work inside out. First $g(2) = 2^2 - 3 = 1$. Then $f(1) = 2(1) + 1 = 3$.
+
+  - id: q-algebra-functions-and-relations-0008
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      If $f(x) = 2x + 1$ and $g(x) = x^2 - 3$, find $(g \circ f)(2)$.
+    choices:
+      - text: $22$
+        correct: true
+      - text: $3$
+      - text: $9$
+      - text: $1$
+    explanation: |
+      Work inside out. First $f(2) = 2(2) + 1 = 5$. Then $g(5) = 5^2 - 3 = 25 - 3 = 22$.
+
+  - id: q-algebra-functions-and-relations-0009
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Find the inverse of $f(x) = \dfrac{2x - 3}{5}$.
+    choices:
+      - text: $f^{-1}(x) = \dfrac{5x + 3}{2}$
+        correct: true
+      - text: $f^{-1}(x) = \dfrac{5}{2x - 3}$
+      - text: $f^{-1}(x) = \dfrac{2x + 3}{5}$
+      - text: $f^{-1}(x) = \dfrac{3 - 2x}{5}$
+    explanation: |
+      Write $y = \dfrac{2x - 3}{5}$. Swap $x$ and $y$: $x = \dfrac{2y - 3}{5}$. Solve: $5x = 2y - 3$, so $2y = 5x + 3$ and $y = \dfrac{5x + 3}{2}$.
+
+  - id: q-algebra-functions-and-relations-0010
+    type: error-spotting
+    difficulty: medium
+    stem: |
+      A student claims the range of $f(x) = x^2$ is all real numbers. What is the error?
+    choices:
+      - text: Since $x^2 \geq 0$, the range is $y \geq 0$, not all real numbers.
+        correct: true
+      - text: There is no error.
+      - text: The range is negative numbers only.
+      - text: The function has no range.
+    explanation: |
+      Squaring always gives non-negative values. The range excludes negative numbers.
+
+  - id: q-algebra-functions-and-relations-0011
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      Can a function have two different $y$ values for the same $x$ value?
+    choices:
+      - text: No, by definition a function has one input → one output.
+        correct: true
+      - text: Yes, always.
+      - text: Only for some functions.
+      - text: It depends on the domain.
+    explanation: |
+      The definition of a function requires exactly one output for each input. If an input has two outputs, it is not a function.
+
+  - id: q-algebra-functions-and-relations-0012
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      If $f(x) = 3x - 2$, find $f^{-1}(7)$.
+    choices:
+      - text: $3$
+        correct: true
+      - text: $19$
+      - text: $1$
+      - text: $5$
+    explanation: |
+      Ask: "What input to $f$ gives output 7?" Solve $3x - 2 = 7$: $3x = 9$, so $x = 3$.
+
+  - id: q-algebra-functions-and-relations-0013
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Find the domain of $h(x) = \dfrac{\sqrt{x+1}}{x-2}$.
+    choices:
+      - text: $x \geq -1$ except $x = 2$
+        correct: true
+      - text: $x \geq -1$
+      - text: $x > 2$
+      - text: All real numbers
+    explanation: |
+      Two conditions: square root needs $x + 1 \geq 0$ (so $x \geq -1$) and denominator needs $x - 2 \ne 0$ (so $x \ne 2$). Both must hold.
+
+  - id: q-algebra-functions-and-relations-0014
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      Is the set $\{(2, 1), (3, 1), (4, 1)\}$ a function?
+    choices:
+      - text: Yes, multiple inputs can share the same output.
+        correct: true
+      - text: No, the output repeats.
+      - text: No, inputs must be consecutive.
+      - text: Cannot be determined.
+    explanation: |
+      A function can repeat outputs. Each input (2, 3, 4) has exactly one output (1). This is allowed.
+
+  - id: q-algebra-functions-and-relations-0015
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      If $f(x) = x^2 + 2x$, find $f(-3)$.
+    choices:
+      - text: $3$
+        correct: true
+      - text: $15$
+      - text: $-3$
+      - text: $9$
+    explanation: |
+      $f(-3) = (-3)^2 + 2(-3) = 9 - 6 = 3$.

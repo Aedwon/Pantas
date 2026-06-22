@@ -1,0 +1,257 @@
+meta:
+  subject: mathematics
+  topic: algebra
+  subtopic: radicals-and-rationalization
+  exams: [upcat, acet, dlsucet, ustet, pupcet]
+questions:
+  - id: q-algebra-radicals-and-rationalization-0001
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Simplify $\sqrt{72}$.
+    choices:
+      - text: $6\sqrt{2}$
+        correct: true
+      - text: $8\sqrt{9}$
+      - text: $2\sqrt{36}$
+      - text: $72$
+    explanation: |
+      Factor $72 = 36 \times 2$. Take out the perfect square: $\sqrt{36 \times 2} = \sqrt{36} \times \sqrt{2} = 6\sqrt{2}$.
+
+  - id: q-algebra-radicals-and-rationalization-0002
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Simplify $\sqrt{50}$.
+    choices:
+      - text: $5\sqrt{2}$
+        correct: true
+      - text: $2\sqrt{25}$
+      - text: $\sqrt{49}$
+      - text: $7\sqrt{2}$
+    explanation: |
+      Factor $50 = 25 \times 2$. So $\sqrt{50} = \sqrt{25} \times \sqrt{2} = 5\sqrt{2}$.
+
+  - id: q-algebra-radicals-and-rationalization-0003
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Simplify $3\sqrt{20} - \sqrt{45}$.
+    choices:
+      - text: $3\sqrt{5}$
+        correct: true
+      - text: $2\sqrt{5}$
+      - text: $-2\sqrt{5}$
+      - text: $\sqrt{25}$
+    explanation: |
+      Simplify each radical. $3\sqrt{20} = 3 \times 2\sqrt{5} = 6\sqrt{5}$ and $\sqrt{45} = 3\sqrt{5}$. Then $6\sqrt{5} - 3\sqrt{5} = 3\sqrt{5}$.
+
+  - id: q-algebra-radicals-and-rationalization-0004
+    type: error-spotting
+    difficulty: easy
+    stem: |
+      A student writes $\sqrt{9} + \sqrt{16} = \sqrt{25}$. What is the error?
+    choices:
+      - text: You cannot add the insides of roots. The correct answer is $3 + 4 = 7$.
+        correct: true
+      - text: There is no error.
+      - text: The answer should be $\sqrt{144}$.
+      - text: Only one radical should be simplified.
+    explanation: |
+      Each radical must be simplified separately. $\sqrt{9} = 3$ and $\sqrt{16} = 4$, so the sum is $7$. Never add the radicands.
+
+  - id: q-algebra-radicals-and-rationalization-0005
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Rationalize the denominator: $\dfrac{5}{\sqrt{5}}$.
+    choices:
+      - text: $\sqrt{5}$
+        correct: true
+      - text: $\dfrac{5\sqrt{5}}{5}$
+      - text: $\dfrac{\sqrt{5}}{5}$
+      - text: $5$
+    explanation: |
+      Multiply top and bottom by $\sqrt{5}$: $\dfrac{5}{\sqrt{5}} \times \dfrac{\sqrt{5}}{\sqrt{5}} = \dfrac{5\sqrt{5}}{5} = \sqrt{5}$.
+
+  - id: q-algebra-radicals-and-rationalization-0006
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Rationalize the denominator: $\dfrac{10}{\sqrt{5}}$.
+    choices:
+      - text: $2\sqrt{5}$
+        correct: true
+      - text: $\dfrac{10\sqrt{5}}{5}$
+      - text: $\dfrac{\sqrt{50}}{5}$
+      - text: $10\sqrt{5}$
+    explanation: |
+      Multiply top and bottom by $\sqrt{5}$: $\dfrac{10}{\sqrt{5}} \times \dfrac{\sqrt{5}}{\sqrt{5}} = \dfrac{10\sqrt{5}}{5} = 2\sqrt{5}$.
+
+  - id: q-algebra-radicals-and-rationalization-0007
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Rationalize the denominator: $\dfrac{4}{3 - \sqrt{5}}$.
+    choices:
+      - text: $3 + \sqrt{5}$
+        correct: true
+      - text: $\dfrac{4}{3} - \sqrt{5}$
+      - text: $\dfrac{12 + 4\sqrt{5}}{4}$
+      - text: $-1 + \sqrt{5}$
+    explanation: |
+      Multiply by conjugate: $\dfrac{4}{3 - \sqrt{5}} \times \dfrac{3 + \sqrt{5}}{3 + \sqrt{5}} = \dfrac{4(3 + \sqrt{5})}{9 - 5} = \dfrac{12 + 4\sqrt{5}}{4} = 3 + \sqrt{5}$.
+
+  - id: q-algebra-radicals-and-rationalization-0008
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Simplify $\sqrt{72x^3y^4}$.
+    choices:
+      - text: $6xy^2\sqrt{2x}$
+        correct: true
+      - text: $6x^2y^2\sqrt{2}$
+      - text: $36xy^2\sqrt{x}$
+      - text: $12xy^2\sqrt{6}$
+    explanation: |
+      Factor: $72 = 36 \times 2$, $x^3 = x^2 \times x$, $y^4 = y^4$. Take out pairs: $\sqrt{36 \times 2 \times x^2 \times x \times y^4} = 6 \times x \times y^2 \times \sqrt{2x} = 6xy^2\sqrt{2x}$.
+
+  - id: q-algebra-radicals-and-rationalization-0009
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      What is the value of $\sqrt{25}$?
+    choices:
+      - text: $5$
+        correct: true
+      - text: $\pm 5$
+      - text: $-5$
+      - text: Cannot be determined.
+    explanation: |
+      The square root symbol $\sqrt{\ }$ always gives the non-negative answer. So $\sqrt{25} = 5$ only.
+
+  - id: q-algebra-radicals-and-rationalization-0010
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Simplify $\sqrt{18} + \sqrt{8}$.
+    choices:
+      - text: $5\sqrt{2}$
+        correct: true
+      - text: $\sqrt{26}$
+      - text: $3\sqrt{2}$
+      - text: $6\sqrt{2}$
+    explanation: |
+      $\sqrt{18} = 3\sqrt{2}$ and $\sqrt{8} = 2\sqrt{2}$. Adding: $3\sqrt{2} + 2\sqrt{2} = 5\sqrt{2}$.
+
+  - id: q-algebra-radicals-and-rationalization-0011
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Multiply $(\sqrt{3} + 2)(\sqrt{3} - 2)$.
+    choices:
+      - text: $-1$
+        correct: true
+      - text: $3 - 4$
+      - text: $\sqrt{3} - 4$
+      - text: $1$
+    explanation: |
+      This is conjugate multiplication. Use difference of squares: $(\sqrt{3})^2 - 2^2 = 3 - 4 = -1$.
+
+  - id: q-algebra-radicals-and-rationalization-0012
+    type: error-spotting
+    difficulty: hard
+    stem: |
+      A student rationalized $\dfrac{1}{\sqrt[3]{x}}$ by multiplying by $\dfrac{\sqrt[3]{x}}{\sqrt[3]{x}}$ and got $\dfrac{\sqrt[3]{x}}{x}$. What is the issue?
+    choices:
+      - text: For cube roots, you need groups of three, not two. Multiply by $\dfrac{\sqrt[3]{x^2}}{\sqrt[3]{x^2}}$ instead.
+        correct: true
+      - text: The answer is correct.
+      - text: Cube roots cannot be rationalized.
+      - text: The denominator should be $x^2$.
+    explanation: |
+      Cube root needs three identical factors to simplify. Multiplying by just $\sqrt[3]{x}$ gives two. You need $\sqrt[3]{x^2}$ to get three $x$s total inside.
+
+  - id: q-algebra-radicals-and-rationalization-0013
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Simplify $2\sqrt{12} - \sqrt{27} + \sqrt{3}$.
+    choices:
+      - text: $2\sqrt{3}$
+        correct: true
+      - text: $\sqrt{3}$
+      - text: $3\sqrt{3}$
+      - text: $0$
+    explanation: |
+      $2\sqrt{12} = 2 \times 2\sqrt{3} = 4\sqrt{3}$, $\sqrt{27} = 3\sqrt{3}$, so $4\sqrt{3} - 3\sqrt{3} + \sqrt{3} = 2\sqrt{3}$.
+
+  - id: q-algebra-radicals-and-rationalization-0014
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Simplify $\sqrt{100}$.
+    choices:
+      - text: $10$
+        correct: true
+      - text: $50$
+      - text: $\sqrt{10}$
+      - text: $100$
+    explanation: |
+      $\sqrt{100} = 10$ because $10 \times 10 = 100$.
+
+  - id: q-algebra-radicals-and-rationalization-0015
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Rationalize: $\dfrac{3}{\sqrt{3}}$.
+    choices:
+      - text: $\sqrt{3}$
+        correct: true
+      - text: $\dfrac{3\sqrt{3}}{3}$
+      - text: $3\sqrt{3}$
+      - text: $\dfrac{\sqrt{3}}{3}$
+    explanation: |
+      $\dfrac{3}{\sqrt{3}} \times \dfrac{\sqrt{3}}{\sqrt{3}} = \dfrac{3\sqrt{3}}{3} = \sqrt{3}$.
+
+  - id: q-algebra-radicals-and-rationalization-0016
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Simplify $\sqrt{200x^2y}$.
+    choices:
+      - text: $10x\sqrt{2y}$
+        correct: true
+      - text: $10\sqrt{2xy}$
+      - text: $20\sqrt{5y}$
+      - text: $100x\sqrt{y}$
+    explanation: |
+      $200 = 100 \times 2$ and $x^2$ is a perfect square. So $\sqrt{200x^2y} = 10x\sqrt{2y}$.
+
+  - id: q-algebra-radicals-and-rationalization-0017
+    type: error-spotting
+    difficulty: medium
+    stem: |
+      A student claims $(x + \sqrt{y})(x - \sqrt{y}) = x^2 + y$. What is the error?
+    choices:
+      - text: The result should be $x^2 - y$, not $x^2 + y$.
+        correct: true
+      - text: There is no error.
+      - text: It should equal $(x + \sqrt{y})^2$.
+      - text: Conjugates cannot be multiplied this way.
+    explanation: |
+      This is conjugate multiplication: $(x + \sqrt{y})(x - \sqrt{y}) = x^2 - (\sqrt{y})^2 = x^2 - y$.
+
+  - id: q-algebra-radicals-and-rationalization-0018
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Rationalize: $\dfrac{2}{2 + \sqrt{2}}$.
+    choices:
+      - text: $2 - \sqrt{2}$
+        correct: true
+      - text: $\dfrac{2(2 + \sqrt{2})}{2}$
+      - text: $\dfrac{2}{2}$
+      - text: $1 + \sqrt{2}$
+    explanation: |
+      Multiply by conjugate: $\dfrac{2}{2 + \sqrt{2}} \times \dfrac{2 - \sqrt{2}}{2 - \sqrt{2}} = \dfrac{2(2 - \sqrt{2})}{4 - 2} = \dfrac{4 - 2\sqrt{2}}{2} = 2 - \sqrt{2}$.

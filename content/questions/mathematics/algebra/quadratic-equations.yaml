@@ -1,0 +1,257 @@
+meta:
+  subject: mathematics
+  topic: algebra
+  subtopic: quadratic-equations
+  exams: [upcat, acet, dlsucet, ustet, pupcet]
+questions:
+  - id: q-algebra-quadratic-equations-0001
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Find the roots of $x^2 - 8x + 15 = 0$.
+    choices:
+      - text: $x = 3$ or $x = 5$
+        correct: true
+      - text: $x = 3$ or $x = 6$
+      - text: $x = 1$ or $x = 15$
+      - text: $x = 5$ or $x = 8$
+    explanation: |
+      Find two numbers that multiply to 15 and add to -8. These are -3 and -5. So $(x-3)(x-5) = 0$, giving $x = 3$ or $x = 5$.
+
+  - id: q-algebra-quadratic-equations-0002
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Solve $x^2 + 5x + 6 = 0$.
+    choices:
+      - text: $x = -2$ or $x = -3$
+        correct: true
+      - text: $x = 2$ or $x = 3$
+      - text: $x = -1$ or $x = -6$
+      - text: $x = 1$ or $x = 6$
+    explanation: |
+      Find two numbers that multiply to 6 and add to 5. These are 2 and 3. So $(x+2)(x+3) = 0$, giving $x = -2$ or $x = -3$.
+
+  - id: q-algebra-quadratic-equations-0003
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Solve $2x^2 + 7x + 3 = 0$.
+    choices:
+      - text: $x = -\dfrac{1}{2}$ or $x = -3$
+        correct: true
+      - text: $x = \dfrac{1}{2}$ or $x = 3$
+      - text: $x = -2$ or $x = -3$
+      - text: $x = 1$ or $x = 3$
+    explanation: |
+      Multiply $a$ and $c$: $2 \times 3 = 6$. Find two numbers that multiply to 6 and add to 7: 6 and 1. Split: $2x^2 + 6x + x + 3 = 0$, then factor: $(2x+1)(x+3) = 0$. Roots are $x = -\dfrac{1}{2}$ and $x = -3$.
+
+  - id: q-algebra-quadratic-equations-0004
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Solve $x^2 - 10x + 25 = 0$.
+    choices:
+      - text: $x = 5$
+        correct: true
+      - text: $x = -5$
+      - text: $x = 0$ or $x = 10$
+      - text: $x = 2$ or $x = 5$
+    explanation: |
+      This is a perfect square: $(x-5)^2 = 0$, so $x = 5$ is the only solution.
+
+  - id: q-algebra-quadratic-equations-0005
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Solve $x^2 = 4x$.
+    choices:
+      - text: $x = 0$ or $x = 4$
+        correct: true
+      - text: $x = 4$
+      - text: $x = 0$ or $x = -4$
+      - text: $x = 2$
+    explanation: |
+      Move everything to one side: $x^2 - 4x = 0$. Factor: $x(x-4) = 0$. So $x = 0$ or $x = 4$.
+
+  - id: q-algebra-quadratic-equations-0006
+    type: error-spotting
+    difficulty: medium
+    stem: |
+      A student solves $x^2 = 4x$ by dividing both sides by $x$, getting $x = 4$. What is the error?
+    choices:
+      - text: Dividing by $x$ loses the solution $x = 0$.
+        correct: true
+      - text: There is no error.
+      - text: The student should have gotten $x = 2$.
+      - text: The correct answer is only $x = 4$.
+    explanation: |
+      Never divide by $x$ because you lose the solution $x = 0$. The correct method is to write $x^2 - 4x = 0$, then factor as $x(x-4) = 0$, giving $x = 0$ or $x = 4$.
+
+  - id: q-algebra-quadratic-equations-0007
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      What is the discriminant of the equation $x^2 + 3x + 1 = 0$?
+    choices:
+      - text: $5$
+        correct: true
+      - text: $1$
+      - text: $3$
+      - text: $13$
+    explanation: |
+      Using $b^2 - 4ac$ with $a = 1$, $b = 3$, $c = 1$: discriminant $= 3^2 - 4(1)(1) = 9 - 4 = 5$.
+
+  - id: q-algebra-quadratic-equations-0008
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      The equation $x^2 + 6x + 9 = 0$ has which type of roots?
+    choices:
+      - text: One repeated real root
+        correct: true
+      - text: Two distinct real roots
+      - text: Two complex roots
+      - text: No real roots
+    explanation: |
+      Discriminant $= 6^2 - 4(1)(9) = 36 - 36 = 0$. When the discriminant is 0, there is exactly one repeated real root.
+
+  - id: q-algebra-quadratic-equations-0009
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      For the equation $3x^2 - 12x + 7 = 0$, what is the sum of the roots?
+    choices:
+      - text: $4$
+        correct: true
+      - text: $-4$
+      - text: $12$
+      - text: $\dfrac{7}{3}$
+    explanation: |
+      Using Vieta's formula, sum of roots $= -\dfrac{b}{a} = -\dfrac{-12}{3} = 4$.
+
+  - id: q-algebra-quadratic-equations-0010
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      For the equation $3x^2 - 12x + 7 = 0$, what is the product of the roots?
+    choices:
+      - text: $\dfrac{7}{3}$
+        correct: true
+      - text: $3$
+      - text: $7$
+      - text: $-\dfrac{7}{3}$
+    explanation: |
+      Using Vieta's formula, product of roots $= \dfrac{c}{a} = \dfrac{7}{3}$.
+
+  - id: q-algebra-quadratic-equations-0011
+    type: error-spotting
+    difficulty: medium
+    stem: |
+      A student tries to solve $x^2 - 5x = 6$ by immediately factoring the left side. What is the first mistake?
+    choices:
+      - text: The equation must be set to zero first, moving 6 to get $x^2 - 5x - 6 = 0$.
+        correct: true
+      - text: There is no error.
+      - text: The left side cannot be factored.
+      - text: Both sides are already equal.
+    explanation: |
+      Before factoring, the equation must equal 0. Move the 6 to the left: $x^2 - 5x - 6 = 0$, then factor.
+
+  - id: q-algebra-quadratic-equations-0012
+    type: error-spotting
+    difficulty: easy
+    stem: |
+      A student solves $x^2 = 25$ and gets $x = 5$. What is missing?
+    choices:
+      - text: The negative solution $x = -5$.
+        correct: true
+      - text: Nothing, the answer is correct.
+      - text: The answer should be $x = 0$.
+      - text: The answer should be $x = 25$.
+    explanation: |
+      Every positive number has two square roots: $x = 5$ and $x = -5$. Both are solutions to $x^2 = 25$.
+
+  - id: q-algebra-quadratic-equations-0013
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Solve $x^2 - 16 = 0$.
+    choices:
+      - text: $x = 4$ or $x = -4$
+        correct: true
+      - text: $x = 4$
+      - text: $x = 16$
+      - text: $x = 0$ or $x = 4$
+    explanation: |
+      Factor as difference of squares: $(x-4)(x+4) = 0$. Roots are $x = 4$ and $x = -4$.
+
+  - id: q-algebra-quadratic-equations-0014
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Use the quadratic formula to solve $x^2 + 2x - 8 = 0$.
+    choices:
+      - text: $x = 2$ or $x = -4$
+        correct: true
+      - text: $x = 2$ or $x = 4$
+      - text: $x = -1$ or $x = 8$
+      - text: $x = 1$ or $x = -8$
+    explanation: |
+      Using $x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}$: $x = \dfrac{-2 \pm \sqrt{4 + 32}}{2} = \dfrac{-2 \pm 6}{2}$. So $x = 2$ or $x = -4$.
+
+  - id: q-algebra-quadratic-equations-0015
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      Which equation has no real roots?
+    choices:
+      - text: $x^2 + x + 1 = 0$
+        correct: true
+      - text: $x^2 - 4 = 0$
+      - text: $x^2 - 5x + 6 = 0$
+      - text: $x^2 + 3x = 0$
+    explanation: |
+      For $x^2 + x + 1 = 0$, discriminant $= 1 - 4 = -3 < 0$, so no real roots. The others all have positive discriminants.
+
+  - id: q-algebra-quadratic-equations-0016
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      In the equation $x^2 + 5x + 6 = 0$, what can we say about the signs of the roots?
+    choices:
+      - text: Both roots have the same sign.
+        correct: true
+      - text: One root is positive and one is negative.
+      - text: Both roots are positive.
+      - text: We cannot determine the signs.
+    explanation: |
+      When $c$ is positive, both roots have the same sign. Since the product is positive, the roots must both be negative or both be positive. Here, since their sum ($-5$) is negative, both must be negative.
+
+  - id: q-algebra-quadratic-equations-0017
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A rectangle's length is 3 cm more than its width. The area is 10 square cm. What is the width?
+    choices:
+      - text: $2$ cm
+        correct: true
+      - text: $3$ cm
+      - text: $5$ cm
+      - text: $10$ cm
+    explanation: |
+      Let $w$ be width. Then $w(w+3) = 10$, giving $w^2 + 3w - 10 = 0$. Factoring: $(w+5)(w-2) = 0$. Since width must be positive, $w = 2$ cm.
+
+  - id: q-algebra-quadratic-equations-0018
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      For the equation $x^2 + kx + 9 = 0$ to have exactly one real root, what must be the value of $k$?
+    choices:
+      - text: $k = 6$ or $k = -6$
+        correct: true
+      - text: $k = 9$
+      - text: $k = 3$
+      - text: $k = 18$
+    explanation: |
+      For exactly one real root, the discriminant must be 0: $k^2 - 4(1)(9) = 0$. This gives $k^2 = 36$, so $k = 6$ or $k = -6$.

@@ -1,0 +1,272 @@
+meta:
+  subject: mathematics
+  topic: algebra
+  subtopic: algebraic-expressions
+  exams: [upcat, acet, dlsucet, ustet, pupcet]
+questions:
+  - id: q-algebra-algebraic-expressions-0001
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Translate "Three times a number $x$" into an algebraic expression.
+    choices:
+      - text: $3x$
+        correct: true
+      - text: $x + 3$
+      - text: $\frac{x}{3}$
+      - text: $x - 3$
+    explanation: |
+      "Three times" means multiply by 3, so the expression is $3x$.
+
+  - id: q-algebra-algebraic-expressions-0002
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Translate "Seven less than a number $y$" into an algebraic expression.
+    choices:
+      - text: $y - 7$
+        correct: true
+      - text: $7 - y$
+      - text: $y + 7$
+      - text: $7y$
+    explanation: |
+      The word "than" means we swap the order. Seven less than $y$ means start with $y$ and subtract 7, giving $y - 7$.
+
+  - id: q-algebra-algebraic-expressions-0003
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Evaluate $2x + 3$ when $x = 4$.
+    choices:
+      - text: $11$
+        correct: true
+      - text: $15$
+      - text: $8$
+      - text: $13$
+    explanation: |
+      Replace $x$ with 4: $2(4) + 3 = 8 + 3 = 11$.
+
+  - id: q-algebra-algebraic-expressions-0004
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Translate "A distance $d$ divided by 4" into an algebraic expression.
+    choices:
+      - text: $\frac{d}{4}$
+        correct: true
+      - text: $\frac{4}{d}$
+      - text: $d - 4$
+      - text: $4d$
+    explanation: |
+      "Divided by" means we use the division symbol. The distance $d$ goes on top, 4 goes on bottom: $\frac{d}{4}$.
+
+  - id: q-algebra-algebraic-expressions-0005
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Simplify the expression $3a + 2a$.
+    choices:
+      - text: $5a$
+        correct: true
+      - text: $5a^2$
+      - text: $6a$
+      - text: $a$
+    explanation: |
+      Combine like terms. Both terms have $a$, so add the coefficients: $3 + 2 = 5$, giving $5a$.
+
+  - id: q-algebra-algebraic-expressions-0006
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Simplify the expression $2(x + 3)$.
+    choices:
+      - text: $2x + 6$
+        correct: true
+      - text: $2x + 3$
+      - text: $x + 6$
+      - text: $2x + 2$
+    explanation: |
+      Distribute the 2 to both terms inside the parentheses. $2 \times x = 2x$ and $2 \times 3 = 6$, giving $2x + 6$.
+
+  - id: q-algebra-algebraic-expressions-0007
+    type: error-spotting
+    difficulty: medium
+    stem: |
+      A student simplifies $3(a + 2)$ like this.
+
+      Step 1: $3a + 2$
+      Step 2: The simplified answer is $3a + 2$.
+
+      Which step is wrong?
+    choices:
+      - text: Step 1
+        correct: true
+      - text: Step 2
+      - text: Both steps
+      - text: No step is wrong.
+    explanation: |
+      Step 1 is wrong. The 3 must multiply both the $a$ and the 2. It should be $3a + 6$, not $3a + 2$. The distributive property applies to every term in the parentheses.
+
+  - id: q-algebra-algebraic-expressions-0008
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Evaluate $x^2$ when $x = 3$.
+    choices:
+      - text: $9$
+        correct: true
+      - text: $6$
+      - text: $3$
+      - text: $1$
+    explanation: |
+      Replace $x$ with 3 and square it: $3^2 = 3 \times 3 = 9$.
+
+  - id: q-algebra-algebraic-expressions-0009
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Evaluate $-x^2$ when $x = 2$.
+    choices:
+      - text: $-4$
+        correct: true
+      - text: $4$
+      - text: $-2$
+      - text: $2$
+    explanation: |
+      The negative sign is outside the exponent. First square the 2 to get 4, then apply the negative: $-(2^2) = -(4) = -4$.
+
+  - id: q-algebra-algebraic-expressions-0010
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Evaluate $(-x)^2$ when $x = 2$.
+    choices:
+      - text: $4$
+        correct: true
+      - text: $-4$
+      - text: $2$
+      - text: $-2$
+    explanation: |
+      The negative is inside the parentheses, so it gets squared too. $(-2)^2 = (-2) \times (-2) = 4$.
+
+  - id: q-algebra-algebraic-expressions-0011
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Simplify the expression $5x - (2x - 3)$.
+    choices:
+      - text: $3x + 3$
+        correct: true
+      - text: $3x - 3$
+      - text: $7x - 3$
+      - text: $3x$
+    explanation: |
+      When you subtract a group, flip all the signs inside. The $2x$ becomes $-2x$ and the $-3$ becomes $+3$. So $5x - 2x + 3 = 3x + 3$.
+
+  - id: q-algebra-algebraic-expressions-0012
+    type: error-spotting
+    difficulty: hard
+    stem: |
+      A student simplifies $8 - (3 - x)$ like this.
+
+      Step 1: $8 - 3 - x$
+      Step 2: The answer is $5 - x$.
+
+      Which step is wrong?
+    choices:
+      - text: Step 1
+        correct: true
+      - text: Step 2
+      - text: Both steps
+      - text: No step is wrong.
+    explanation: |
+      Step 1 is wrong. When subtracting a group, both signs must flip. It should be $8 - 3 + x$, not $8 - 3 - x$. So the correct answer is $5 + x$.
+
+  - id: q-algebra-algebraic-expressions-0013
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Translate "50% of a number $n$" into an algebraic expression.
+    choices:
+      - text: $0.5n$
+        correct: true
+      - text: $n + 0.5$
+      - text: $n - 0.5$
+      - text: $\frac{n}{0.5}$
+    explanation: |
+      "Of" means multiply. 50% is 0.5, so the expression is $0.5n$.
+
+  - id: q-algebra-algebraic-expressions-0014
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Simplify the expression $2(3x - 1) + 4x$.
+    choices:
+      - text: $10x - 2$
+        correct: true
+      - text: $10x + 4$
+      - text: $6x - 2$
+      - text: $5x - 1$
+    explanation: |
+      First distribute: $2(3x) = 6x$ and $2(-1) = -2$, giving $6x - 2 + 4x$. Combine like terms: $6x + 4x = 10x$. The answer is $10x - 2$.
+
+  - id: q-algebra-algebraic-expressions-0015
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Evaluate $2a + b^2$ when $a = 3$ and $b = -2$.
+    choices:
+      - text: $10$
+        correct: true
+      - text: $-2$
+      - text: $2$
+      - text: $6$
+    explanation: |
+      Replace $a$ with 3 and $b$ with $-2$. Calculate $2(3) = 6$. Calculate $(-2)^2 = 4$. Then $6 + 4 = 10$.
+
+  - id: q-algebra-algebraic-expressions-0016
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Translate "The product of 4 and a number $x$, plus 5" into an algebraic expression.
+    choices:
+      - text: $4x + 5$
+        correct: true
+      - text: $4(x + 5)$
+      - text: $4x - 5$
+      - text: $4 + x + 5$
+    explanation: |
+      "Product of 4 and $x$" means $4x$. "Plus 5" means we add 5. The expression is $4x + 5$.
+
+  - id: q-algebra-algebraic-expressions-0017
+    type: error-spotting
+    difficulty: medium
+    stem: |
+      A student tries to translate "6 less than twice a number $y$" and writes:
+
+      Step 1: Twice a number $y$ is $2y$.
+      Step 2: 6 less than $2y$ is $6 - 2y$.
+
+      Which step is wrong?
+    choices:
+      - text: Step 1
+      - text: Step 2
+        correct: true
+      - text: Both steps
+      - text: No step is wrong.
+    explanation: |
+      Step 2 is wrong. The word "than" means we swap the order. It should be $2y - 6$, not $6 - 2y$.
+
+  - id: q-algebra-algebraic-expressions-0018
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Simplify the expression $3x + 2y - x + 4y$.
+    choices:
+      - text: $2x + 6y$
+        correct: true
+      - text: $2x + 2y$
+      - text: $4x + 6y$
+      - text: $3x + 6y$
+    explanation: |
+      Combine the $x$ terms: $3x - x = 2x$. Combine the $y$ terms: $2y + 4y = 6y$. The answer is $2x + 6y$.
