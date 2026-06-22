@@ -16,11 +16,14 @@ questions:
     stem: |
       A rectangular vegetable garden has a length of $15\text{ m}$ and a width of $8\text{ m}$. What length of fencing material is required to completely enclose the perimeter of the garden?
     choices:
-      - text: "$46\text{ m}$"
+      - text: '$46\text{ m}$'
         correct: true
-      - text: "$120\text{ m}$"
-      - text: "$23\text{ m}$"
-      - text: "$60\text{ m}$"
+      - text: '$120\text{ m}$'
+        correct: false
+      - text: '$23\text{ m}$'
+        correct: false
+      - text: '$60\text{ m}$'
+        correct: false
     explanation: |
       The perimeter of a rectangle is given by $P = 2(l + w)$.
 
@@ -37,8 +40,11 @@ questions:
       - text: '$150\text{ cm}^2$'
         correct: true
       - text: '$125\text{ cm}^3$'
+        correct: false
       - text: '$100\text{ cm}^2$'
+        correct: false
       - text: '$30\text{ cm}^2$'
+        correct: false
     explanation: |
       A cube has $6$ identical square faces.
 
@@ -56,8 +62,11 @@ questions:
       - text: '$90\pi\text{ m}^3$'
         correct: true
       - text: '$30\pi\text{ m}^3$'
+        correct: false
       - text: '$60\pi\text{ m}^3$'
+        correct: false
       - text: '$300\pi\text{ m}^3$'
+        correct: false
     explanation: |
       Volume of a cylinder is $V = \pi r^2 h$.
 
@@ -74,8 +83,11 @@ questions:
       - text: '$84\pi\text{ cm}^3$'
         correct: true
       - text: '$252\pi\text{ cm}^3$'
+        correct: false
       - text: '$42\pi\text{ cm}^3$'
+        correct: false
       - text: '$126\pi\text{ cm}^3$'
+        correct: false
     explanation: |
       Volume of a cone is $V = \frac{1}{3}\pi r^2 h$.
 
@@ -92,8 +104,11 @@ questions:
       - text: '$144\pi\text{ cm}^2$'
         correct: true
       - text: '$288\pi\text{ cm}^2$'
+        correct: false
       - text: '$36\pi\text{ cm}^2$'
+        correct: false
       - text: '$72\pi\text{ cm}^2$'
+        correct: false
     explanation: |
       Surface area of a sphere is $SA = 4\pi r^2$.
 
@@ -110,8 +125,11 @@ questions:
       - text: '$56\text{ cm}^2$'
         correct: true
       - text: '$70\text{ cm}^2$'
+        correct: false
       - text: '$112\text{ cm}^2$'
+        correct: false
       - text: '$28\text{ cm}^2$'
+        correct: false
     explanation: |
       Area of a trapezoid is $A = \frac{b_1 + b_2}{2} \times h$.
 
@@ -129,8 +147,11 @@ questions:
       - text: '$96 + 8\pi\text{ cm}^2$'
         correct: true
       - text: '$96 + 16\pi\text{ cm}^2$'
+        correct: false
       - text: '$96 + 32\pi\text{ cm}^2$'
+        correct: false
       - text: '$104\pi\text{ cm}^2$'
+        correct: false
     explanation: |
       1. Rectangle area $= l \times w = 12 \times 8 = 96\text{ cm}^2$.
       2. Semicircle diameter $= 8\text{ cm} \implies \text{radius } r = 4\text{ cm}$.
@@ -148,8 +169,11 @@ questions:
       - text: '$100 - 25\pi\text{ cm}^2$'
         correct: true
       - text: '$100 - 100\pi\text{ cm}^2$'
+        correct: false
       - text: '$25\pi - 100\text{ cm}^2$'
+        correct: false
       - text: '$100 - 10\pi\text{ cm}^2$'
+        correct: false
     explanation: |
       1. Square area $= s^2 = 10^2 = 100\text{ cm}^2$.
       2. The maximum circle diameter equals the square side length ($10\text{ cm}$), so radius $r = 5\text{ cm}$.
@@ -165,8 +189,11 @@ questions:
       - text: '$158\text{ cm}^2$'
         correct: true
       - text: '$120\text{ cm}^3$'
+        correct: false
       - text: '$79\text{ cm}^2$'
+        correct: false
       - text: '$160\text{ cm}^2$'
+        correct: false
     explanation: |
       Surface area of a rectangular prism is $SA = 2(lw + lh + wh)$.
 
@@ -185,8 +212,11 @@ questions:
       - text: '$108\text{ m}^3$'
         correct: true
       - text: '$324\text{ m}^3$'
+        correct: false
       - text: '$54\text{ m}^3$'
+        correct: false
       - text: '$162\text{ m}^3$'
+        correct: false
     explanation: |
       Volume of a pyramid is $V = \frac{1}{3} \times \text{Base Area} \times h$.
 
@@ -204,8 +234,11 @@ questions:
       - text: '$90\pi\text{ cm}^2$'
         correct: true
       - text: '$65\pi\text{ cm}^2$'
+        correct: false
       - text: '$85\pi\text{ cm}^2$'
+        correct: false
       - text: '$100\pi\text{ cm}^2$'
+        correct: false
     explanation: |
       1. Calculate slant height $l = \sqrt{r^2 + h^2} = \sqrt{5^2 + 12^2} = \sqrt{25 + 144} = 13\text{ cm}$.
       2. Base area $= \pi r^2 = \pi (5^2) = 25\pi\text{ cm}^2$.
@@ -220,11 +253,14 @@ questions:
     stem: |
       A solid metallic sphere of radius $3\text{ cm}$ is melted down and completely recast into a solid cylinder of radius $3\text{ cm}$. What is the height of the cylinder?
     choices:
-      - text: "$4\text{ cm}$"
+      - text: '$4\text{ cm}$'
         correct: true
-      - text: "$3\text{ cm}$"
-      - text: "$12\text{ cm}$"
-      - text: "$6\text{ cm}$"
+      - text: '$3\text{ cm}$'
+        correct: false
+      - text: '$12\text{ cm}$'
+        correct: false
+      - text: '$6\text{ cm}$'
+        correct: false
     explanation: |
       By conservation of volume: $\text{Sphere Volume} = \text{Cylinder Volume}$.
 
@@ -242,8 +278,11 @@ questions:
       - text: '$90\pi\text{ m}^3$'
         correct: true
       - text: '$108\pi\text{ m}^3$'
+        correct: false
       - text: '$72\pi\text{ m}^3$'
+        correct: false
       - text: '$126\pi\text{ m}^3$'
+        correct: false
     explanation: |
       1. Cylinder Volume $= \pi r^2 h = \pi (3^2)(8) = 72\pi\text{ m}^3$.
       2. Hemisphere Volume $= \frac{1}{2} \times \left(\frac{4}{3}\pi r^3\right) = \frac{2}{3}\pi (3^3) = \frac{2}{3}\pi (27) = 18\pi\text{ m}^3$.
@@ -260,8 +299,11 @@ questions:
       - text: '$72\text{ cm}^2$'
         correct: true
       - text: '$36\text{ cm}^2$'
+        correct: false
       - text: '$108\text{ cm}^2$'
+        correct: false
       - text: '$96\text{ cm}^2$'
+        correct: false
     explanation: |
       1. Large Square Area $= 12^2 = 144\text{ cm}^2$.
       2. Midpoint leg lengths $= 6\text{ cm}$. Side of small square $= \sqrt{6^2 + 6^2} = \sqrt{72}\text{ cm}$.
@@ -277,8 +319,11 @@ questions:
       - text: "The surface area increases by a factor of $9$, and the volume increases by a factor of $27$."
         correct: true
       - text: "The surface area increases by a factor of $3$, and the volume increases by a factor of $9$."
+        correct: false
       - text: "The surface area increases by a factor of $6$, and the volume increases by a factor of $9$."
+        correct: false
       - text: "The surface area increases by a factor of $27$, and the volume increases by a factor of $9$."
+        correct: false
     explanation: |
       When linear dimensions are scaled by factor $k$:
       - Area scales by $k^2 = 3^2 = 9$.

@@ -1,280 +1,322 @@
 meta:
-  subject: mathematics
-  topic: geometry
-  subtopic: logic-and-reasoning
-  exams:
-    - upcat
-    - acet
-    - dlsucet
-    - ustet
-    - pupcet
+  subject: 'mathematics'
+  topic: 'geometry'
+  subtopic: 'logic-and-reasoning'
+  exams: [upcat, acet, dlsucet, ustet, pupcet]
 
 questions:
-  - id: q-geometry-logic-and-reasoning-0001
-    type: which-is-true
-    difficulty: easy
+  - id: 'q-geometry-logic-and-reasoning-0001'
+    type: 'which-is-true'
+    difficulty: 'easy'
     stem: |
-      Given the conditional statement: "If a shape is a square, then it has four equal sides." Which statement represents its converse?
+      Given the conditional statement: "If two lines are perpendicular, then they intersect to form right angles." Which part is the hypothesis?
     choices:
-      - text: "If a shape has four equal sides, then it is a square."
+      - text: 'Two lines are perpendicular.'
         correct: true
-      - text: "If a shape is not a square, then it does not have four equal sides."
-      - text: "If a shape does not have four equal sides, then it is not a square."
-      - text: "A shape is a square if and only if it has four equal sides."
+      - text: 'They intersect to form right angles.'
+        correct: false
+      - text: 'Two lines are parallel.'
+        correct: false
+      - text: 'They do not intersect.'
+        correct: false
     explanation: |
-      The converse of a conditional statement "If P, then Q" swaps the hypothesis P and conclusion Q to form "If Q, then P".
+      In a conditional statement of the form "If P, then Q", the clause P following "If" is the hypothesis, and the clause Q following "then" is the conclusion.
 
-      - Original: P = "a shape is a square", Q = "it has four equal sides".
-      - Converse: "If a shape has four equal sides, then it is a square."
+      - Hypothesis (P): "Two lines are perpendicular."
+      - Conclusion (Q): "They intersect to form right angles."
 
-      Common Trap: Confusing the converse with the inverse ("If not P, then not Q") or contrapositive ("If not Q, then not P").
-
-  - id: q-geometry-logic-and-reasoning-0002
-    type: which-is-true
-    difficulty: easy
+  - id: 'q-geometry-logic-and-reasoning-0002'
+    type: 'which-is-true'
+    difficulty: 'easy'
     stem: |
-      Given the conditional statement: "If two angles are vertical angles, then they are equal in measure." Which statement represents its contrapositive?
+      Given the conditional statement: "If a triangle is equilateral, then all of its interior angles measure 60°." Which statement represents its converse?
     choices:
-      - text: "If two angles are not equal in measure, then they are not vertical angles."
+      - text: 'If all interior angles of a triangle measure 60°, then the triangle is equilateral.'
         correct: true
-      - text: "If two angles are equal in measure, then they are vertical angles."
-      - text: "If two angles are not vertical angles, then they are not equal in measure."
-      - text: "Two angles are vertical angles if and only if they are equal in measure."
+      - text: 'If a triangle is not equilateral, then all of its interior angles do not measure 60°.'
+        correct: false
+      - text: 'If all interior angles of a triangle do not measure 60°, then the triangle is not equilateral.'
+        correct: false
+      - text: 'A triangle is equilateral if and only if all of its interior angles measure 60°.'
+        correct: false
     explanation: |
-      The contrapositive of a conditional statement "If P, then Q" swaps AND negates both parts to form "If not Q, then not P".
+      The converse of a conditional statement "If P, then Q" is formed by swapping the hypothesis P and conclusion Q to yield "If Q, then P".
 
-      - Original: P = "two angles are vertical angles", Q = "they are equal in measure".
-      - Contrapositive: "If two angles are not equal in measure, then they are not vertical angles."
+      - Original: P = "a triangle is equilateral", Q = "all of its interior angles measure 60°".
+      - Converse: "If all interior angles of a triangle measure 60°, then the triangle is equilateral."
 
-  - id: q-geometry-logic-and-reasoning-0003
-    type: which-is-true
-    difficulty: easy
+  - id: 'q-geometry-logic-and-reasoning-0003'
+    type: 'which-is-true'
+    difficulty: 'easy'
     stem: |
-      Which statement is ALWAYS logically equivalent (possesses the exact same truth value under all conditions) to the conditional statement "If $P$, then $Q$"?
+      Which statement regarding a conditional statement "If P, then Q" and its contrapositive "If not Q, then not P" is true?
     choices:
-      - text: "Its contrapositive ('If not $Q$, then not $P$')"
+      - text: 'A conditional statement and its contrapositive always have the exact same truth value.'
         correct: true
-      - text: "Its converse ('If $Q$, then $P$')"
-      - text: "Its inverse ('If not $P$, then not $Q$')"
-      - text: "Its negation ('$P$ and not $Q$')"
+      - text: 'A conditional statement is true only when its converse is also true.'
+        correct: false
+      - text: 'The contrapositive is formed by negating both parts without swapping them.'
+        correct: false
+      - text: 'If a conditional statement is true, its inverse must also be true.'
+        correct: false
     explanation: |
-      A conditional statement and its contrapositive are logically equivalent. If a conditional statement is true, its contrapositive is guaranteed to be true. Conversely and inversely, the converse and inverse do NOT necessarily share the same truth value as the original statement.
+      A conditional statement and its contrapositive are logically equivalent. If a conditional statement is true, its contrapositive is guaranteed to be true in every case, and vice versa.
 
-  - id: q-geometry-logic-and-reasoning-0004
-    type: which-is-true
-    difficulty: easy
+  - id: 'q-geometry-logic-and-reasoning-0004'
+    type: 'which-is-true'
+    difficulty: 'easy'
     stem: |
-      What constitutes a valid counterexample to a conditional statement "If $P$, then $Q$"?
+      What is required to prove that the conditional statement "If a quadrilateral has four equal sides, then it is a square" is false?
     choices:
-      - text: "A specific case where hypothesis $P$ is true, but conclusion $Q$ is false."
+      - text: 'A single example of a quadrilateral with four equal sides that is not a square.'
         correct: true
-      - text: "A specific case where hypothesis $P$ is false, and conclusion $Q$ is false."
-      - text: "A specific case where hypothesis $P$ is true, and conclusion $Q$ is true."
-      - text: "A specific case where hypothesis $P$ is false, but conclusion $Q$ is true."
+      - text: 'A single example of a square that does not have four equal sides.'
+        correct: false
+      - text: 'Multiple examples showing quadrilaterals with unequal side lengths.'
+        correct: false
+      - text: 'Proof that all quadrilaterals with four equal sides are rectangles.'
+        correct: false
     explanation: |
-      To disprove a conditional statement "If P, then Q" with a counterexample, you must provide an instance where the hypothesis P is satisfied (true), but the conclusion Q fails (false).
+      To disprove a conditional statement "If P, then Q" with a counterexample, you must provide a case where hypothesis P is true, but conclusion Q is false.
 
-      Common Trap: Trying to use a case where hypothesis P is false, which cannot serve as a counterexample because the statement is vacuously true when P is false.
+      For example, a rhombus has four equal sides (P is true), but its interior angles might not be 90° (Q is false). This single counterexample proves the statement false.
 
-  - id: q-geometry-logic-and-reasoning-0005
-    type: which-is-true
-    difficulty: easy
+  - id: 'q-geometry-logic-and-reasoning-0005'
+    type: 'which-is-true'
+    difficulty: 'easy'
     stem: |
-      Given the true premises:
-      1. "If an angle measures $90^\circ$, then it is a right angle."
-      2. "If an angle is a right angle, then its adjacent supplementary angle also measures $90^\circ$."
-      What conclusion logically follows by the Law of Syllogism?
+      Consider the following true statements:
+      1. If a polygon is a regular hexagon, then the sum of its interior angles is 720°.
+      2. If the sum of the interior angles of a polygon is 720°, then it has 6 sides.
+      Which conclusion logically follows by the Law of Syllogism?
     choices:
-      - text: 'If an angle measures $90^\circ$, then its adjacent supplementary angle also measures $90^\circ$.'
+      - text: 'If a polygon is a regular hexagon, then it has 6 sides.'
         correct: true
-      - text: 'If an angle is a right angle, then it measures $90^\circ$.'
-      - text: 'If an angle does not measure $90^\circ$, then it is not a right angle.'
-      - text: "No conclusion can be drawn."
+      - text: 'If a polygon has 6 sides, then it is a regular hexagon.'
+        correct: false
+      - text: 'If the sum of interior angles is not 720°, then it is not a regular hexagon.'
+        correct: false
+      - text: 'If a polygon is not a regular hexagon, then it does not have 6 sides.'
+        correct: false
     explanation: |
-      The Law of Syllogism states that if "If P, then Q" and "If Q, then R" are both true statements, then "If P, then R" is also a true statement.
+      The Law of Syllogism states that if "If P, then Q" and "If Q, then R" are both true statements, then "If P, then R" is also a logically valid true statement.
 
-      - P = "an angle measures $90^\circ$"
-      - Q = "it is a right angle"
-      - R = "its adjacent supplementary angle measures $90^\circ$"
-      - Conclusion (If P, then R): "If an angle measures $90^\circ$, then its adjacent supplementary angle also measures $90^\circ$."
+      - P = "a polygon is a regular hexagon"
+      - Q = "the sum of its interior angles is 720°"
+      - R = "it has 6 sides"
+      - Conclusion: "If a polygon is a regular hexagon, then it has 6 sides."
 
-  - id: q-geometry-logic-and-reasoning-0006
-    type: which-is-true
-    difficulty: medium
+  - id: 'q-geometry-logic-and-reasoning-0006'
+    type: 'which-is-true'
+    difficulty: 'medium'
     stem: |
-      Consider the statement: "If a polygon is a regular hexagon, then the sum of its exterior angles is $360^\circ$." Which evaluation of this statement and its converse is correct?
+      Given the conditional statement: "If two angles form a linear pair, then they are supplementary." Which statement represents its inverse?
     choices:
-      - text: "The original statement is true, but its converse is false."
+      - text: 'If two angles do not form a linear pair, then they are not supplementary.'
         correct: true
-      - text: "The original statement and its converse are both true."
-      - text: "The original statement is false, but its converse is true."
-      - text: "The original statement and its converse are both false."
+      - text: 'If two angles are not supplementary, then they do not form a linear pair.'
+        correct: false
+      - text: 'If two angles are supplementary, then they form a linear pair.'
+        correct: false
+      - text: 'Two angles form a linear pair if and only if they are supplementary.'
+        correct: false
     explanation: |
-      1. Original statement: TRUE. All convex polygons (including regular hexagons) have exterior angle sum equal to $360^\circ$.
-      2. Converse: "If the sum of the exterior angles of a polygon is $360^\circ$, then it is a regular hexagon."
-      3. Evaluating converse: FALSE. EVERY convex polygon (e.g. triangles, rectangles, pentagons) has exterior angle sum $360^\circ$, so it does not have to be a regular hexagon.
+      The inverse of a conditional statement "If P, then Q" negates both the hypothesis and the conclusion without changing their order to form "If not P, then not Q".
 
-      Common Trap: Assuming the converse of a true statement is automatically true.
+      - Original: P = "two angles form a linear pair", Q = "they are supplementary".
+      - Inverse: "If two angles do not form a linear pair, then they are not supplementary."
 
-  - id: q-geometry-logic-and-reasoning-0007
-    type: which-is-true
-    difficulty: medium
+  - id: 'q-geometry-logic-and-reasoning-0007'
+    type: 'which-is-true'
+    difficulty: 'medium'
     stem: |
-      Consider the conditional: "If a triangle is equilateral, then it is isosceles." A student claims that the inverse statement "If a triangle is not equilateral, then it is not isosceles" is true. Which triangle serves as a counterexample to the student's claim?
+      Which statement regarding biconditional statements ("P if and only if Q") is true?
     choices:
-      - text: "An isosceles triangle with side lengths $5\text{ cm}, 5\text{ cm}, 8\text{ cm}$."
+      - text: 'A biconditional statement is true only when both the original conditional statement and its converse are true.'
         correct: true
-      - text: "An equilateral triangle with side lengths $6\text{ cm}, 6\text{ cm}, 6\text{ cm}$."
-      - text: "A scalene triangle with side lengths $3\text{ cm}, 4\text{ cm}, 5\text{ cm}$."
-      - text: "A right triangle with legs $3\text{ cm}$ and $4\text{ cm}$."
+      - text: 'A biconditional statement is true if the conditional statement is true, regardless of the converse.'
+        correct: false
+      - text: 'A biconditional statement is logically equivalent to the inverse statement alone.'
+        correct: false
+      - text: 'A biconditional statement is false whenever P and Q are both false.'
+        correct: false
     explanation: |
-      The student's inverse claim is: "If a triangle is not equilateral (P is true), then it is not isosceles (Q is false)."
+      A biconditional statement "P if and only if Q" (written P ↔ Q) combines a conditional statement (P → Q) and its converse (Q → P). It is true if and only if both P → Q and Q → P are true (meaning P and Q have identical truth values).
 
-      A counterexample requires a triangle that IS NOT equilateral, but IS isosceles.
-      - A triangle with sides $5, 5, 8$ has two equal sides, so it IS isosceles.
-      - It does not have three equal sides, so it IS NOT equilateral.
-      - Therefore, it satisfies the hypothesis (not equilateral) while disproving the conclusion (it is isosceles), serving as a valid counterexample.
-
-  - id: q-geometry-logic-and-reasoning-0008
-    type: which-is-true
-    difficulty: medium
+  - id: 'q-geometry-logic-and-reasoning-0008'
+    type: 'which-is-true'
+    difficulty: 'medium'
     stem: |
-      Under what logical condition is a biconditional statement ("$P$ if and only if $Q$") considered true?
+      Consider the statement: "If two angles are supplementary, then one of them must be an obtuse angle." Which pair of angle measures serves as a valid counterexample?
     choices:
-      - text: "When both the conditional statement ($P \implies Q$) and its converse ($Q \implies P$) are true."
+      - text: 'Two right angles measuring 90° and 90°.'
         correct: true
-      - text: "Whenever the conditional statement ($P \implies Q$) is true, regardless of the converse."
-      - text: "When the conditional statement is true and the inverse statement is false."
-      - text: "Only when both $P$ and $Q$ are false."
+      - text: 'Two angles measuring 45° and 135°.'
+        correct: false
+      - text: 'Two angles measuring 30° and 60°.'
+        correct: false
+      - text: 'Two angles measuring 100° and 80°.'
+        correct: false
     explanation: |
-      A biconditional statement "$P \iff Q$" ("P if and only if Q") is defined as the conjunction of two conditionals: $(P \implies Q) \land (Q \implies P)$. Thus, it is true if and only if both the conditional and its converse are true (meaning $P$ and $Q$ have identical truth values).
+      A counterexample to a conditional statement "If P, then Q" must satisfy the hypothesis P (the two angles are supplementary, so their sum is 180°) while failing the conclusion Q (neither angle is obtuse).
 
-  - id: q-geometry-logic-and-reasoning-0009
-    type: which-is-true
-    difficulty: medium
+      - Two 90° angles sum to 180° (hypothesis P is true).
+      - Neither angle is greater than 90° (conclusion Q is false).
+      Therefore, two 90° angles form a valid counterexample.
+
+  - id: 'q-geometry-logic-and-reasoning-0009'
+    type: 'which-is-true'
+    difficulty: 'medium'
     stem: |
-      Given the true conditional statement: "If two lines are perpendicular, then they intersect at a $90^\circ$ angle." Which option correctly states its inverse and evaluates its truth value in plane geometry?
+      Which of the following statements is logically equivalent to the inverse statement "If not P, then not Q"?
     choices:
-      - text: 'Inverse: 'If two lines are not perpendicular, then they do not intersect at a $90^\circ$ angle.' (True)'
+      - text: 'The converse statement, "If Q, then P".'
         correct: true
-      - text: 'Inverse: 'If two lines do not intersect at a $90^\circ$ angle, then they are not perpendicular.' (True)'
-      - text: 'Inverse: 'If two lines intersect at a $90^\circ$ angle, then they are perpendicular.' (False)'
-      - text: 'Inverse: 'If two lines are not perpendicular, then they do not intersect at a $90^\circ$ angle.' (False)'
+      - text: 'The original conditional statement, "If P, then Q".'
+        correct: false
+      - text: 'The contrapositive statement, "If not Q, then not P".'
+        correct: false
+      - text: 'The biconditional statement, "P if and only if Q".'
+        correct: false
     explanation: |
-      1. To form the inverse of "If P, then Q", negate both parts without swapping: "If not P, then not Q".
-      2. Inverse: "If two lines are not perpendicular, then they do not intersect at a $90^\circ$ angle."
-      3. Truth value: In Euclidean plane geometry, non-perpendicular lines by definition do not intersect at $90^\circ$, so the inverse statement is TRUE.
+      The contrapositive of any statement "If A, then B" is "If not B, then not A", and every statement is logically equivalent to its contrapositive.
 
-  - id: q-geometry-logic-and-reasoning-0010
-    type: which-is-true
-    difficulty: medium
+      For the inverse statement "If not P, then not Q":
+      - Hypothesis A = "not P", Conclusion B = "not Q".
+      - Negating and swapping yields: "If not (not Q), then not (not P)", which simplifies to "If Q, then P".
+      - "If Q, then P" is the converse of the original statement.
+
+  - id: 'q-geometry-logic-and-reasoning-0010'
+    type: 'which-is-true'
+    difficulty: 'medium'
     stem: |
-      Given premise: "If a quadrilateral is a rhombus, then its diagonals are perpendicular."
-      Fact: Quadrilateral $ABCD$ has perpendicular diagonals.
-      What valid conclusion, if any, can be drawn regarding quadrilateral $ABCD$?
+      Given the three true premises:
+      1. If line m is parallel to line n, then alternate interior angles are equal.
+      2. If alternate interior angles are equal, then triangle ABC is isosceles.
+      3. If triangle ABC is isosceles, then angle A is congruent to angle B.
+      Which conclusion is logically valid?
     choices:
-      - text: "No valid conclusion can be drawn that $ABCD$ is a rhombus."
+      - text: 'If line m is parallel to line n, then angle A is congruent to angle B.'
         correct: true
-      - text: "Quadrilateral $ABCD$ must be a rhombus."
-      - text: "Quadrilateral $ABCD$ must be a square."
-      - text: "Quadrilateral $ABCD$ cannot be a rhombus."
+      - text: 'If angle A is congruent to angle B, then line m is parallel to line n.'
+        correct: false
+      - text: 'If line m is not parallel to line n, then angle A is not congruent to angle B.'
+        correct: false
+      - text: 'If triangle ABC is isosceles, then line m is parallel to line n.'
+        correct: false
     explanation: |
-      The premise is "If P (rhombus), then Q (perpendicular diagonals)".
-      Given Q is true (perpendicular diagonals), concluding P (must be rhombus) is the logical fallacy of Affirming the Consequent (or Converse Error).
+      By extending the Law of Syllogism across multiple conditional premises (P → Q, Q → R, R → S), we can directly link the initial hypothesis P to the final conclusion S (P → S).
 
-      Kites and non-equilateral quadrilaterals can also have perpendicular diagonals without being rhombuses. Therefore, no valid conclusion can be drawn.
+      - P = "line m is parallel to line n"
+      - S = "angle A is congruent to angle B"
+      - Valid conclusion: "If line m is parallel to line n, then angle A is congruent to angle B."
 
-  - id: q-geometry-logic-and-reasoning-0011
-    type: which-is-true
-    difficulty: hard
+  - id: 'q-geometry-logic-and-reasoning-0011'
+    type: 'which-is-true'
+    difficulty: 'hard'
     stem: |
-      What is the contrapositive of the geometric statement: "If two same-side interior angles sum to $180^\circ$, then the two intersected lines are parallel"?
+      Under which combination of truth values for hypothesis P and conclusion Q is the conditional statement "If P, then Q" considered FALSE?
     choices:
-      - text: 'If two intersected lines are not parallel, then the two same-side interior angles do not sum to $180^\circ$.'
+      - text: 'When P is true and Q is false.'
         correct: true
-      - text: 'If two intersected lines are parallel, then the two same-side interior angles sum to $180^\circ$.'
-      - text: 'If two same-side interior angles do not sum to $180^\circ$, then the two intersected lines are not parallel.'
-      - text: 'If two same-side interior angles sum to $180^\circ$, then the two intersected lines are not parallel.'
+      - text: 'When P is false and Q is true.'
+        correct: false
+      - text: 'When P is false and Q is false.'
+        correct: false
+      - text: 'When P is true and Q is true.'
+        correct: false
     explanation: |
-      The contrapositive negates AND swaps hypothesis P and conclusion Q.
+      In formal logic, a conditional statement "If P, then Q" (P → Q) promises that whenever P occurs, Q will follow.
 
-      - P = "two same-side interior angles sum to $180^\circ$"
-      - Q = "the two intersected lines are parallel"
-      - Not Q = "the two intersected lines are not parallel"
-      - Not P = "the two same-side interior angles do not sum to $180^\circ$"
-      - Contrapositive: "If two intersected lines are not parallel, then the two same-side interior angles do not sum to $180^\circ$."
+      - P = True, Q = False: The promise is broken, so P → Q is FALSE.
+      - P = False, Q = True or False: The hypothesis was not met, so the conditional statement is vacuously TRUE.
+      - P = True, Q = True: P → Q is TRUE.
 
-  - id: q-geometry-logic-and-reasoning-0012
-    type: which-is-true
-    difficulty: hard
+  - id: 'q-geometry-logic-and-reasoning-0012'
+    type: 'which-is-true'
+    difficulty: 'hard'
     stem: |
-      Consider the statement: "If a quadrilateral has diagonals of equal length, then it is a rectangle." Which of the following quadrilaterals serves as a counterexample proving this statement FALSE?
+      Consider the statement: "A parallelogram is a rectangle if and only if its diagonals are perpendicular." Which option correctly evaluates this statement?
     choices:
-      - text: "An isosceles trapezoid"
+      - text: 'It is false; a rhombus has perpendicular diagonals but is not necessarily a rectangle.'
         correct: true
-      - text: "A square"
-      - text: "A non-rectangular rhombus"
-      - text: "A general parallelogram"
+      - text: 'It is true; all parallelograms with perpendicular diagonals are rectangles.'
+        correct: false
+      - text: 'It is false; diagonals of a rectangle are never equal in length.'
+        correct: false
+      - text: 'It is true; the statement is the standard geometric definition of a rectangle.'
+        correct: false
     explanation: |
-      A valid counterexample must have equal diagonals (P is true) but NOT be a rectangle (Q is false).
+      A biconditional statement "P if and only if Q" requires both directions to be true:
+      1. "If a parallelogram is a rectangle, then its diagonals are perpendicular" (False, rectangle diagonals are equal, not necessarily perpendicular).
+      2. "If a parallelogram has perpendicular diagonals, then it is a rectangle" (False, perpendicular diagonals define a rhombus).
 
-      - An isosceles trapezoid has diagonals of equal length ($AC = BD$), satisfying the hypothesis.
-      - However, an isosceles trapezoid has only one pair of parallel sides, so it is NOT a rectangle.
-      - Thus, an isosceles trapezoid disproves the statement.
+      Because a non-square rhombus has perpendicular diagonals but is not a rectangle, the statement is false.
 
-  - id: q-geometry-logic-and-reasoning-0013
-    type: which-is-true
-    difficulty: hard
+  - id: 'q-geometry-logic-and-reasoning-0013'
+    type: 'which-is-true'
+    difficulty: 'hard'
     stem: |
-      What is the logical negation of the universal statement: "All triangles have at least one acute angle"?
+      What is the logical negation of the conditional statement "If triangle T is right-angled, then it has two acute angles"?
     choices:
-      - text: "There exists at least one triangle that has no acute angles."
+      - text: 'Triangle T is right-angled AND it does not have two acute angles.'
         correct: true
-      - text: "No triangles have acute angles."
-      - text: "All triangles have no acute angles."
-      - text: "Some triangles have acute angles."
+      - text: 'If triangle T is not right-angled, then it does not have two acute angles.'
+        correct: false
+      - text: 'Triangle T is not right-angled AND it has two acute angles.'
+        correct: false
+      - text: 'If triangle T does not have two acute angles, then it is not right-angled.'
+        correct: false
     explanation: |
-      The negation of a universal statement "All X have property P" is an existential statement "There exists at least one X that does NOT have property P".
+      The logical negation of a conditional statement "If P, then Q" (P → Q) is "P AND not Q" (P ∧ ¬Q).
 
-      - Universal statement: "All triangles have at least one acute angle."
-      - Logical negation: "There exists at least one triangle that has no acute angles."
+      - P = "Triangle T is right-angled"
+      - Q = "it has two acute angles"
+      - Negation (P AND not Q): "Triangle T is right-angled AND it does not have two acute angles."
 
-      Common Trap: Confusing negation with opposite universal ("No triangles have acute angles").
-
-  - id: q-geometry-logic-and-reasoning-0014
-    type: which-is-true
-    difficulty: hard
+  - id: 'q-geometry-logic-and-reasoning-0014'
+    type: 'which-is-true'
+    difficulty: 'hard'
     stem: |
-      Given the true premises:
-      1. "If line $L_1 \perp L_2$, then $\angle 1 = 90^\circ$."
-      2. "If line $L_2$ is not parallel to line $L_3$, then $\angle 1 \ne 90^\circ$."
-      What valid conclusion logically follows if line $L_1 \perp L_2$?
+      Analyze the logical validity of the following argument:
+      Premise 1: If quadrilateral ABCD is a square, then its diagonals are congruent.
+      Premise 2: Quadrilateral ABCD has congruent diagonals.
+      Conclusion: Quadrilateral ABCD is a square.
+      Which of the following best describes this argument?
     choices:
-      - text: "Line $L_2$ is parallel to line $L_3$."
+      - text: 'It is invalid due to the fallacy of affirming the consequent.'
         correct: true
-      - text: "Line $L_2$ is not parallel to line $L_3$."
-      - text: "Line $L_1$ is parallel to line $L_3$."
-      - text: "No conclusion can be drawn."
+      - text: 'It is a valid application of the Law of Detachment.'
+        correct: false
+      - text: 'It is a valid application of the Law of Syllogism.'
+        correct: false
+      - text: 'It is invalid because squares do not have congruent diagonals.'
+        correct: false
     explanation: |
-      1. Premise 2 contrapositive: "If $\angle 1 = 90^\circ$, then line $L_2$ IS parallel to line $L_3$."
-      2. Chain premises together:
-         $$L_1 \perp L_2 \implies \angle 1 = 90^\circ \implies L_2 \parallel L_3$$
-      3. Since $L_1 \perp L_2$ is given, by Law of Detachment, line $L_2$ is parallel to line $L_3$.
+      The argument has the logical form:
+      - P → Q
+      - Q
+      - Therefore, P
 
-  - id: q-geometry-logic-and-reasoning-0015
-    type: which-is-true
-    difficulty: hard
+      This is an invalid logical form known as the fallacy of affirming the consequent. Knowing that the conclusion Q is true does not guarantee that the hypothesis P was the cause. For example, a rectangle (non-square) has congruent diagonals (Q is true), but is not a square (P is false).
+
+  - id: 'q-geometry-logic-and-reasoning-0015'
+    type: 'which-is-true'
+    difficulty: 'hard'
     stem: |
-      Which pair of logical statements ALWAYS share the exact same truth value as each other for any conditional statement?
+      What is the relationship between the converse of a conditional statement and the inverse of the same conditional statement?
     choices:
-      - text: "The converse of the conditional statement and the inverse of the conditional statement."
+      - text: 'They are contrapositives of each other, making them logically equivalent to each other.'
         correct: true
-      - text: "The original conditional statement and its converse."
-      - text: "The original conditional statement and its inverse."
-      - text: "The converse of the conditional statement and the contrapositive of the conditional statement."
+      - text: 'They are identical statements expressing the exact same syntactic form.'
+        correct: false
+      - text: 'They are logical negations of each other, having opposite truth values in all cases.'
+        correct: false
+      - text: 'They have no logical connection and have completely independent truth values.'
+        correct: false
     explanation: |
-      - Original conditional: $P \implies Q$
-      - Converse: $Q \implies P$
-      - Inverse: $\neg P \implies \neg Q$
-      - The inverse ($\neg P \implies \neg Q$) is the contrapositive of the converse ($Q \implies P$).
-      - Since any statement and its contrapositive are logically equivalent, the converse and the inverse ALWAYS share the exact same truth value.
+      Let the original statement be "If P, then Q" (P → Q).
+      - Converse: "If Q, then P" (Q → P).
+      - Inverse: "If not P, then not Q" (¬P → ¬Q).
+
+      Notice that taking the contrapositive of the Converse (swapping and negating Q → P) gives ¬P → ¬Q, which is precisely the Inverse. Since any statement is logically equivalent to its contrapositive, the Converse and the Inverse are logically equivalent to each other.

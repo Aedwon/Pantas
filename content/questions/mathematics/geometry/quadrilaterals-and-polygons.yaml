@@ -19,8 +19,11 @@ questions:
       - text: '$1080^\circ$'
         correct: true
       - text: '$1440^\circ$'
+        correct: false
       - text: '$900^\circ$'
+        correct: false
       - text: '$135^\circ$'
+        correct: false
     explanation: |
       The sum of interior angles $S$ of an $n$-sided convex polygon is given by:
       $$S = (n - 2) \times 180^\circ$$
@@ -38,8 +41,11 @@ questions:
       - text: '$360^\circ$'
         correct: true
       - text: '$2340^\circ$'
+        correct: false
       - text: '$24^\circ$'
+        correct: false
       - text: '$5400^\circ$'
+        correct: false
     explanation: |
       The sum of the exterior angles of ANY convex polygon (one per vertex) is ALWAYS $360^\circ$, regardless of the number of sides.
 
@@ -54,8 +60,11 @@ questions:
       - text: '$108^\circ$'
         correct: true
       - text: '$72^\circ$'
+        correct: false
       - text: '$18^\circ$'
+        correct: false
       - text: '$288^\circ$'
+        correct: false
     explanation: |
       In a parallelogram, consecutive angles are supplementary (their sum is $180^\circ$).
 
@@ -71,11 +80,14 @@ questions:
     stem: |
       A rhombus has a perimeter of $52\text{ cm}$. What is the length of each of its sides?
     choices:
-      - text: "$13\text{ cm}$"
+      - text: '$13\text{ cm}$'
         correct: true
-      - text: "$26\text{ cm}$"
-      - text: "$169\text{ cm}$"
-      - text: "$52\text{ cm}$"
+      - text: '$26\text{ cm}$'
+        correct: false
+      - text: '$169\text{ cm}$'
+        correct: false
+      - text: '$52\text{ cm}$'
+        correct: false
     explanation: |
       A rhombus is a parallelogram with four equal (congruent) sides.
 
@@ -91,8 +103,11 @@ questions:
       - text: "$8$"
         correct: true
       - text: "$16$"
+        correct: false
       - text: "$4$"
+        correct: false
       - text: "$38$"
+        correct: false
     explanation: |
       In any rectangle, the diagonals are equal in length.
 
@@ -109,8 +124,11 @@ questions:
       - text: "$10$"
         correct: true
       - text: "$8$"
+        correct: false
       - text: "$12$"
+        correct: false
       - text: "$5$"
+        correct: false
     explanation: |
       1. Calculate the measure of each exterior angle:
          $$\text{Exterior Angle} = 180^\circ - 144^\circ = 36^\circ$$
@@ -123,11 +141,14 @@ questions:
     stem: |
       Trapezoid $ABCD$ has parallel bases of lengths $AB = 14\text{ cm}$ and $CD = 26\text{ cm}$. What is the length of its median (midsegment)?
     choices:
-      - text: "$20\text{ cm}$"
+      - text: '$20\text{ cm}$'
         correct: true
-      - text: "$40\text{ cm}$"
-      - text: "$12\text{ cm}$"
-      - text: "$10\text{ cm}$"
+      - text: '$40\text{ cm}$'
+        correct: false
+      - text: '$12\text{ cm}$'
+        correct: false
+      - text: '$10\text{ cm}$'
+        correct: false
     explanation: |
       The median (midsegment) of a trapezoid is parallel to the bases and its length is the average of the two bases.
 
@@ -142,11 +163,14 @@ questions:
     stem: |
       A rhombus has diagonals of lengths $12\text{ cm}$ and $16\text{ cm}$. What is the perimeter of the rhombus?
     choices:
-      - text: "$40\text{ cm}$"
+      - text: '$40\text{ cm}$'
         correct: true
-      - text: "$20\text{ cm}$"
-      - text: "$28\text{ cm}$"
-      - text: "$10\text{ cm}$"
+      - text: '$20\text{ cm}$'
+        correct: false
+      - text: '$28\text{ cm}$'
+        correct: false
+      - text: '$10\text{ cm}$'
+        correct: false
     explanation: |
       1. The diagonals of a rhombus are perpendicular bisectors of each other.
       2. They split the rhombus into four congruent right triangles with legs equal to half the diagonals:
@@ -166,8 +190,11 @@ questions:
       - text: '$78^\circ$'
         correct: true
       - text: '$102^\circ$'
+        correct: false
       - text: '$18^\circ$'
+        correct: false
       - text: '$12^\circ$'
+        correct: false
     explanation: |
       1. Opposite angles in a parallelogram are equal:
          $$5x + 12 = 3x + 48 \implies 2x = 36 \implies x = 18$$
@@ -186,8 +213,11 @@ questions:
       - text: '$121^\circ$'
         correct: true
       - text: '$112^\circ$'
+        correct: false
       - text: '$34^\circ$'
+        correct: false
       - text: '$136^\circ$'
+        correct: false
     explanation: |
       The interior angles of any quadrilateral sum to $360^\circ$.
 
@@ -209,8 +239,11 @@ questions:
       - text: "$54$"
         correct: true
       - text: "$108$"
+        correct: false
       - text: "$12$"
+        correct: false
       - text: "$66$"
+        correct: false
     explanation: |
       1. Find the number of sides $n$ using interior angle sum formula:
          $$(n - 2) \times 180^\circ = 1800^\circ \implies n - 2 = 10 \implies n = 12 \text{ sides}$$
@@ -228,8 +261,11 @@ questions:
       - text: '$57.5^\circ$'
         correct: true
       - text: '$65^\circ$'
+        correct: false
       - text: '$32.5^\circ$'
+        correct: false
       - text: '$115^\circ$'
+        correct: false
     explanation: |
       1. Base angles of an isosceles trapezoid are equal: $\angle BCD = \angle ADC = 65^\circ$.
       2. Consecutive angle $\angle BAD = 180^\circ - 65^\circ = 115^\circ$.
@@ -246,8 +282,11 @@ questions:
       - text: '$72\text{ cm}^2$'
         correct: true
       - text: '$144\text{ cm}^2$'
+        correct: false
       - text: '$36\text{ cm}^2$'
+        correct: false
       - text: '$288\text{ cm}^2$'
+        correct: false
     explanation: |
       For a square with side $s$ and diagonal $d$, $d = s\sqrt{2} \implies s = \frac{d}{\sqrt{2}}$.
 
@@ -267,8 +306,11 @@ questions:
       - text: "$9$"
         correct: true
       - text: "$7$"
+        correct: false
       - text: "$14$"
+        correct: false
       - text: "$18$"
+        correct: false
     explanation: |
       An interior angle and an exterior angle at the same vertex form a linear pair ($180^\circ$).
 
@@ -285,8 +327,11 @@ questions:
       - text: '$35^\circ$'
         correct: true
       - text: '$55^\circ$'
+        correct: false
       - text: '$70^\circ$'
+        correct: false
       - text: '$110^\circ$'
+        correct: false
     explanation: |
       1. Consecutive angles in a rhombus are supplementary:
          $$\angle C = 180^\circ - \angle B = 180^\circ - 110^\circ = 70^\circ$$

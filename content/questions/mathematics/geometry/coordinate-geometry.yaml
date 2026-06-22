@@ -19,8 +19,11 @@ questions:
       - text: "$10$"
         correct: true
       - text: "$14$"
-      - text: "$\sqrt{28}$"
+        correct: false
+      - text: '$\sqrt{28}$'
+        correct: false
       - text: "$100$"
+        correct: false
     explanation: |
       Apply the distance formula $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$:
 
@@ -39,8 +42,11 @@ questions:
       - text: "$(-2, 2)$"
         correct: true
       - text: "$(-4, 4)$"
+        correct: false
       - text: "$(4, -6)$"
+        correct: false
       - text: "$(2, -2)$"
+        correct: false
     explanation: |
       Apply midpoint formula $M = \left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right)$:
 
@@ -59,9 +65,12 @@ questions:
     choices:
       - text: "$2$"
         correct: true
-      - text: "$\frac{1}{2}$"
+      - text: '$\frac{1}{2}$'
+        correct: false
       - text: "$-2$"
-      - text: "$\frac{4}{8}$"
+        correct: false
+      - text: '$\frac{4}{8}$'
+        correct: false
     explanation: |
       Apply slope formula $m = \frac{y_2 - y_1}{x_2 - x_1}$:
 
@@ -79,9 +88,12 @@ questions:
     choices:
       - text: "$3$"
         correct: true
-      - text: "$-\frac{1}{3}$"
+      - text: '$-\frac{1}{3}$'
+        correct: false
       - text: "$-3$"
+        correct: false
       - text: "$5$"
+        correct: false
     explanation: |
       Parallel lines always have equal slopes.
 
@@ -97,11 +109,14 @@ questions:
     stem: |
       Line $m$ graphed on the Cartesian plane has a slope of $-\frac{4}{5}$. What is the slope of any line perpendicular to line $m$?
     choices:
-      - text: "$\frac{5}{4}$"
+      - text: '$\frac{5}{4}$'
         correct: true
-      - text: "$-\frac{5}{4}$"
-      - text: "$\frac{4}{5}$"
-      - text: "$-\frac{4}{5}$"
+      - text: '$-\frac{5}{4}$'
+        correct: false
+      - text: '$\frac{4}{5}$'
+        correct: false
+      - text: '$-\frac{4}{5}$'
+        correct: false
     explanation: |
       Perpendicular lines have slopes that are negative reciprocals of each other ($m_1 \cdot m_2 = -1$).
 
@@ -119,8 +134,11 @@ questions:
       - text: "$y = -4x + 10$"
         correct: true
       - text: "$y = -4x - 14$"
+        correct: false
       - text: "$y = -4x + 14$"
+        correct: false
       - text: "$y = 4x - 10$"
+        correct: false
     explanation: |
       1. Use point-slope form $y - y_1 = m(x - x_1)$:
          $$y - (-2) = -4(x - 3)$$
@@ -135,11 +153,14 @@ questions:
     stem: |
       What is the slope of the perpendicular bisector of the line segment joining point $A(-3, 1)$ and point $B(5, 7)$?
     choices:
-      - text: "$-\frac{4}{3}$"
+      - text: '$-\frac{4}{3}$'
         correct: true
-      - text: "$\frac{3}{4}$"
-      - text: "$-\frac{3}{4}$"
-      - text: "$\frac{4}{3}$"
+      - text: '$\frac{3}{4}$'
+        correct: false
+      - text: '$-\frac{3}{4}$'
+        correct: false
+      - text: '$\frac{4}{3}$'
+        correct: false
     explanation: |
       1. Find slope of segment $AB$: $m_{AB} = \frac{7 - 1}{5 - (-3)} = \frac{6}{8} = \frac{3}{4}$.
       2. The perpendicular bisector is perpendicular to $AB$, so its slope is the negative reciprocal of $m_{AB}$:
@@ -157,8 +178,11 @@ questions:
       - text: "$12$"
         correct: true
       - text: "$24$"
+        correct: false
       - text: "$10$"
+        correct: false
       - text: "$14$"
+        correct: false
     explanation: |
       1. Base $AB$ is horizontal along $y = 7$: $\text{base} = |8 - 2| = 6$.
       2. Perpendicular height $h$ is vertical distance from $C(5, 3)$ to $y = 7$: $h = |7 - 3| = 4$.
@@ -175,8 +199,11 @@ questions:
       - text: "$2x + 3y = 0$"
         correct: true
       - text: "$2x + 3y = 24$"
+        correct: false
       - text: "$2x - 3y = 0$"
+        correct: false
       - text: "$3x + 2y = 0$"
+        correct: false
     explanation: |
       1. Multiply entire equation by $3$ to clear fraction:
          $$3(y - 4) = -2(x + 6) \implies 3y - 12 = -2x - 12$$
@@ -195,8 +222,11 @@ questions:
       - text: "$-1$"
         correct: true
       - text: "$1$"
+        correct: false
       - text: "$-2$"
+        correct: false
       - text: "$2$"
+        correct: false
     explanation: |
       Collinear points have equal slopes between any pair of points.
 
@@ -217,8 +247,11 @@ questions:
       - text: "$4x + 3y = 21$"
         correct: true
       - text: "$3x - 4y = 22$"
+        correct: false
       - text: "$4x - 3y = 27$"
+        correct: false
       - text: "$4x + 3y = 27$"
+        correct: false
     explanation: |
       1. Slope of $3x - 4y = 12$ is $m_1 = \frac{3}{4}$.
       2. Perpendicular slope $m_{\perp} = -\frac{4}{3}$.
@@ -236,8 +269,11 @@ questions:
       - text: "$30$"
         correct: true
       - text: "$15$"
+        correct: false
       - text: "$40$"
+        correct: false
       - text: "$20$"
+        correct: false
     explanation: |
       1. Base $OA$ lies along the x-axis: $\text{base} = |6 - 0| = 6$.
       2. Perpendicular height $h$ is the vertical y-distance: $h = 5 - 0 = 5$.
@@ -254,8 +290,11 @@ questions:
       - text: "Center $(3, -4)$, Radius $6$"
         correct: true
       - text: "Center $(-3, 4)$, Radius $6$"
+        correct: false
       - text: "Center $(3, -4)$, Radius $36$"
+        correct: false
       - text: "Center $(-6, 8)$, Radius $11$"
+        correct: false
     explanation: |
       Complete the square for $x$ and $y$:
 
@@ -275,8 +314,11 @@ questions:
       - text: "$(2, 3)$"
         correct: true
       - text: "$(3, 2)$"
+        correct: false
       - text: "$(1, 4)$"
+        correct: false
       - text: "$(-2, 5)$"
+        correct: false
     explanation: |
       Solve the system of equations by elimination:
 
@@ -296,8 +338,11 @@ questions:
       - text: "$4$"
         correct: true
       - text: "$5$"
-      - text: "$\frac{20}{3}$"
+        correct: false
+      - text: '$\frac{20}{3}$'
+        correct: false
       - text: "$20$"
+        correct: false
     explanation: |
       Distance $d$ from point $(x_0, y_0)$ to line $Ax + By + C = 0$:
       $$d = \frac{|A x_0 + B y_0 + C|}{\sqrt{A^2 + B^2}}$$

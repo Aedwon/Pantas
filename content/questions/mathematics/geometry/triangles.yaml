@@ -19,8 +19,11 @@ questions:
       - text: '$60^\circ$'
         correct: true
       - text: '$120^\circ$'
+        correct: false
       - text: '$30^\circ$'
+        correct: false
       - text: '$70^\circ$'
+        correct: false
     explanation: |
       The sum of interior angles in any triangle is $180^\circ$.
 
@@ -36,11 +39,14 @@ questions:
     stem: |
       According to the Triangle Inequality Theorem, which set of three side lengths CANNOT form a valid triangle?
     choices:
-      - text: "$6\text{ cm}, 8\text{ cm}, 14\text{ cm}$"
+      - text: '$6\text{ cm}, 8\text{ cm}, 14\text{ cm}$'
         correct: true
-      - text: "$5\text{ cm}, 7\text{ cm}, 10\text{ cm}$"
-      - text: "$4\text{ cm}, 9\text{ cm}, 11\text{ cm}$"
-      - text: "$7\text{ cm}, 24\text{ cm}, 25\text{ cm}$"
+      - text: '$5\text{ cm}, 7\text{ cm}, 10\text{ cm}$'
+        correct: false
+      - text: '$4\text{ cm}, 9\text{ cm}, 11\text{ cm}$'
+        correct: false
+      - text: '$7\text{ cm}, 24\text{ cm}, 25\text{ cm}$'
+        correct: false
     explanation: |
       The Triangle Inequality Theorem states that the sum of the lengths of any two sides of a triangle must be strictly greater than the length of the third side.
 
@@ -60,8 +66,11 @@ questions:
       - text: '$70^\circ$'
         correct: true
       - text: '$55^\circ$'
+        correct: false
       - text: '$180^\circ$'
+        correct: false
       - text: '$125^\circ$'
+        correct: false
     explanation: |
       By the Exterior Angle Theorem, an exterior angle of a triangle is equal to the sum of its two remote interior angles.
 
@@ -80,8 +89,11 @@ questions:
       - text: "SSA (Side-Side-Angle)"
         correct: true
       - text: "SSS (Side-Side-Side)"
+        correct: false
       - text: "SAS (Side-Angle-Side)"
+        correct: false
       - text: "AAS (Angle-Angle-Side)"
+        correct: false
     explanation: |
       - SSS, SAS, ASA, AAS, and HL (Hypotenuse-Leg) are valid triangle congruence criteria.
       - SSA (Side-Side-Angle) and AAA (Angle-Angle-Angle) are NOT valid congruence criteria. SSA is ambiguous and can form two different triangles, while AAA only proves similarity, not congruence.
@@ -92,11 +104,14 @@ questions:
     stem: |
       A right triangle has legs of length $9\text{ cm}$ and $12\text{ cm}$. What is the length of its hypotenuse?
     choices:
-      - text: "$15\text{ cm}$"
+      - text: '$15\text{ cm}$'
         correct: true
-      - text: "$21\text{ cm}$"
-      - text: "$10.5\text{ cm}$"
-      - text: "$\sqrt{63}\text{ cm}$"
+      - text: '$21\text{ cm}$'
+        correct: false
+      - text: '$10.5\text{ cm}$'
+        correct: false
+      - text: '$\sqrt{63}\text{ cm}$'
+        correct: false
     explanation: |
       Apply the Pythagorean theorem $a^2 + b^2 = c^2$:
 
@@ -112,11 +127,14 @@ questions:
     stem: |
       An isosceles right triangle ($45^\circ-45^\circ-90^\circ$) has a hypotenuse of length $10\sqrt{2}\text{ cm}$. What is the perimeter of the triangle?
     choices:
-      - text: "$20 + 10\sqrt{2}\text{ cm}$"
+      - text: '$20 + 10\sqrt{2}\text{ cm}$'
         correct: true
-      - text: "$30\sqrt{2}\text{ cm}$"
-      - text: "$30\text{ cm}$"
-      - text: "$10 + 10\sqrt{2}\text{ cm}$"
+      - text: '$30\sqrt{2}\text{ cm}$'
+        correct: false
+      - text: '$30\text{ cm}$'
+        correct: false
+      - text: '$10 + 10\sqrt{2}\text{ cm}$'
+        correct: false
     explanation: |
       In a $45^\circ-45^\circ-90^\circ$ triangle, $\text{hypotenuse} = \text{leg} \times \sqrt{2}$.
 
@@ -132,11 +150,14 @@ questions:
     stem: |
       In $\triangle PQR$, $\angle P = 90^\circ$, $\angle Q = 60^\circ$, and $\angle R = 30^\circ$. If hypotenuse $QR = 16\text{ cm}$, what is the length of side $PR$ opposite the $60^\circ$ angle?
     choices:
-      - text: "$8\sqrt{3}\text{ cm}$"
+      - text: '$8\sqrt{3}\text{ cm}$'
         correct: true
-      - text: "$8\text{ cm}$"
-      - text: "$16\sqrt{3}\text{ cm}$"
-      - text: "$\frac{16}{\sqrt{3}}\text{ cm}$"
+      - text: '$8\text{ cm}$'
+        correct: false
+      - text: '$16\sqrt{3}\text{ cm}$'
+        correct: false
+      - text: '$\frac{16}{\sqrt{3}}\text{ cm}$'
+        correct: false
     explanation: |
       In a $30^\circ-60^\circ-90^\circ$ triangle:
       - $\text{Short leg (opposite } 30^\circ) = \frac{\text{hypotenuse}}{2} = \frac{16}{2} = 8\text{ cm}$.
@@ -153,11 +174,14 @@ questions:
     stem: |
       Given that $\triangle ABC \sim \triangle DEF$ with $AB = 6\text{ cm}$, $BC = 8\text{ cm}$, $AC = 10\text{ cm}$, and $DE = 9\text{ cm}$, which statement is true regarding the perimeter of $\triangle DEF$?
     choices:
-      - text: "The perimeter of $\triangle DEF$ is $36\text{ cm}$."
+      - text: 'The perimeter of $\triangle DEF$ is $36\text{ cm}$.'
         correct: true
-      - text: "The perimeter of $\triangle DEF$ is $27\text{ cm}$."
-      - text: "The perimeter of $\triangle DEF$ is $54\text{ cm}$."
-      - text: "The perimeter of $\triangle DEF$ is $24\text{ cm}$."
+      - text: 'The perimeter of $\triangle DEF$ is $27\text{ cm}$.'
+        correct: false
+      - text: 'The perimeter of $\triangle DEF$ is $54\text{ cm}$.'
+        correct: false
+      - text: 'The perimeter of $\triangle DEF$ is $24\text{ cm}$.'
+        correct: false
     explanation: |
       1. Calculate perimeter of $\triangle ABC$: $P_{ABC} = 6 + 8 + 10 = 24\text{ cm}$.
       2. Find scale factor between corresponding sides $DE$ and $AB$:
@@ -176,8 +200,11 @@ questions:
       - text: '$105^\circ$'
         correct: true
       - text: '$45^\circ$'
+        correct: false
       - text: '$30^\circ$'
+        correct: false
       - text: '$70^\circ$'
+        correct: false
     explanation: |
       1. Let the three angles be $2x$, $3x$, and $7x$.
       2. Sum of angles in a triangle: $2x + 3x + 7x = 180^\circ \implies 12x = 180^\circ \implies x = 15^\circ$.
@@ -197,8 +224,11 @@ questions:
       - text: "$10$"
         correct: true
       - text: "$8$"
+        correct: false
       - text: "$6$"
+        correct: false
       - text: "$14$"
+        correct: false
     explanation: |
       Apply Pythagorean theorem $(a^2 + b^2 = c^2)$:
 
@@ -219,8 +249,11 @@ questions:
       - text: '$80^\circ$'
         correct: true
       - text: '$100^\circ$'
+        correct: false
       - text: '$55^\circ$'
+        correct: false
       - text: '$45^\circ$'
+        correct: false
     explanation: |
       1. By Exterior Angle Theorem: $\angle ACD = \angle A + \angle B$.
       2. Set up equation: $7x - 5 = (3x + 10) + (2x + 15)$.
@@ -239,9 +272,12 @@ questions:
     choices:
       - text: "$4 < s < 18$"
         correct: true
-      - text: "$4 \le s \le 18$"
+      - text: '$4 \le s \le 18$'
+        correct: false
       - text: "$7 < s < 11$"
+        correct: false
       - text: "$0 < s < 18$"
+        correct: false
     explanation: |
       By the Triangle Inequality Theorem:
       - Lower bound: $|11 - 7| = 4$
@@ -256,11 +292,14 @@ questions:
     stem: |
       In right $\triangle ABC$ with right angle at $C$, altitude $CD$ is drawn perpendicular to hypotenuse $AB$. If segment $AD = 4\text{ cm}$ and segment $DB = 9\text{ cm}$, what is the length of altitude $CD$?
     choices:
-      - text: "$6\text{ cm}$"
+      - text: '$6\text{ cm}$'
         correct: true
-      - text: "$6.5\text{ cm}$"
-      - text: "$13\text{ cm}$"
-      - text: "$36\text{ cm}$"
+      - text: '$6.5\text{ cm}$'
+        correct: false
+      - text: '$13\text{ cm}$'
+        correct: false
+      - text: '$36\text{ cm}$'
+        correct: false
     explanation: |
       By the Geometric Mean Theorem (Altitude Rule) in right triangles:
       $$CD = \sqrt{AD \times DB}$$
@@ -276,11 +315,14 @@ questions:
     stem: |
       Triangle 1 is a $30^\circ-60^\circ-90^\circ$ triangle where $6\text{ cm}$ is the shorter leg. Triangle 2 is a $45^\circ-45^\circ-90^\circ$ triangle where $6\text{ cm}$ is one of its legs. What is the ratio of the length of the hypotenuse of Triangle 1 to the hypotenuse of Triangle 2?
     choices:
-      - text: "$\sqrt{2}$"
+      - text: '$\sqrt{2}$'
         correct: true
-      - text: "$\frac{\sqrt{3}}{\sqrt{2}}$"
+      - text: '$\frac{\sqrt{3}}{\sqrt{2}}$'
+        correct: false
       - text: "$2$"
-      - text: "$\frac{2}{\sqrt{3}}$"
+        correct: false
+      - text: '$\frac{2}{\sqrt{3}}$'
+        correct: false
     explanation: |
       1. Triangle 1 ($30^\circ-60^\circ-90^\circ$): Short leg $= 6\text{ cm}$.
          $$\text{Hypotenuse}_1 = 2 \times 6 = 12\text{ cm}$$
@@ -295,11 +337,14 @@ questions:
     stem: |
       $\triangle ABC \sim \triangle PQR$. The area of $\triangle ABC$ is $32\text{ cm}^2$ and the area of $\triangle PQR$ is $72\text{ cm}^2$. If side $AB = 8\text{ cm}$, what is the length of corresponding side $PQ$?
     choices:
-      - text: "$12\text{ cm}$"
+      - text: '$12\text{ cm}$'
         correct: true
-      - text: "$18\text{ cm}$"
-      - text: "$16\text{ cm}$"
-      - text: "$9.6\text{ cm}$"
+      - text: '$18\text{ cm}$'
+        correct: false
+      - text: '$16\text{ cm}$'
+        correct: false
+      - text: '$9.6\text{ cm}$'
+        correct: false
     explanation: |
       1. The ratio of areas of similar triangles is equal to the square of the ratio of corresponding side lengths:
          $$\frac{\text{Area}_{PQR}}{\text{Area}_{ABC}} = \left(\frac{PQ}{AB}\right)^2 \implies \frac{72}{32} = \left(\frac{PQ}{8}\right)^2$$

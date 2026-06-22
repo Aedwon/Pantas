@@ -19,8 +19,11 @@ questions:
       - text: '$55^\circ$'
         correct: true
       - text: '$145^\circ$'
+        correct: false
       - text: '$35^\circ$'
+        correct: false
       - text: '$325^\circ$'
+        correct: false
     explanation: |
       Complementary angles are two angles whose sum is equal to $90^\circ$.
 
@@ -39,8 +42,11 @@ questions:
       - text: '$68^\circ$'
         correct: true
       - text: '$22^\circ$'
+        correct: false
       - text: '$112^\circ$'
+        correct: false
       - text: '$78^\circ$'
+        correct: false
     explanation: |
       Angles that form a linear pair are supplementary, meaning their sum is $180^\circ$.
 
@@ -59,8 +65,11 @@ questions:
       - text: '$\angle BPD = 48^\circ$ because vertical angles are equal.'
         correct: true
       - text: '$\angle BPD = 132^\circ$ because vertical angles are supplementary.'
+        correct: false
       - text: '$\angle BPD = 42^\circ$ because vertical angles are complementary.'
+        correct: false
       - text: '$\angle BPD = 180^\circ$ because vertical angles form a straight line.'
+        correct: false
     explanation: |
       Vertical angles are opposite angles formed by two intersecting lines.
 
@@ -78,8 +87,11 @@ questions:
       - text: "A ray has one endpoint and extends infinitely in one direction, whereas a line segment has two fixed endpoints."
         correct: true
       - text: "A ray extends infinitely in both directions, whereas a line segment has one endpoint."
+        correct: false
       - text: "A line segment has fixed length, whereas a ray has no endpoints."
+        correct: false
       - text: "A ray can be measured in length, whereas a line segment cannot."
+        correct: false
     explanation: |
       By standard geometric definitions:
       - A line segment is bounded by two distinct endpoints and has a measurable length.
@@ -95,8 +107,11 @@ questions:
       - text: '$56^\circ$'
         correct: true
       - text: '$14^\circ$'
+        correct: false
       - text: '$28^\circ$'
+        correct: false
       - text: '$62^\circ$'
+        correct: false
     explanation: |
       An angle bisector divides an angle into two congruent (equal) halves.
 
@@ -114,8 +129,11 @@ questions:
       - text: "The length of $AB$ is $44$."
         correct: true
       - text: "The length of $AB$ is $22$."
+        correct: false
       - text: "The length of $AB$ is $6$."
+        correct: false
       - text: "The length of $AB$ is $12$."
+        correct: false
     explanation: |
       Because $M$ is the midpoint of $AB$, the two sub-segments $AM$ and $MB$ are equal in length.
 
@@ -135,8 +153,11 @@ questions:
       - text: 'The larger angle measures $55^\circ$.'
         correct: true
       - text: 'The larger angle measures $35^\circ$.'
+        correct: false
       - text: 'The larger angle measures $115^\circ$.'
+        correct: false
       - text: 'The larger angle measures $75^\circ$.'
+        correct: false
     explanation: |
       Let $x$ be the measure of the smaller angle. The larger angle is $2x - 15$.
 
@@ -156,8 +177,11 @@ questions:
       - text: "The angle can be acute, right, or obtuse, but it is never a reflex angle."
         correct: true
       - text: "The angle is strictly acute for all allowed values of $x$."
+        correct: false
       - text: "The angle is strictly obtuse for all allowed values of $x$."
+        correct: false
       - text: "The angle becomes a reflex angle when $x > 50$."
+        correct: false
     explanation: |
       Evaluate the range of angle values as $x$ increases from $30$ to $60$:
 
@@ -175,8 +199,11 @@ questions:
       - text: 'An adjacent angle measures $98^\circ$.'
         correct: true
       - text: 'An adjacent angle measures $82^\circ$.'
+        correct: false
       - text: 'An adjacent angle measures $8^\circ$.'
+        correct: false
       - text: 'An adjacent angle measures $16^\circ$.'
+        correct: false
     explanation: |
       1. Vertical angles are equal: $4x + 18 = 6x - 14 \implies 2x = 32 \implies x = 16$.
       2. Find the vertical angle measure: $4(16) + 18 = 64 + 18 = 82^\circ$.
@@ -194,8 +221,11 @@ questions:
       - text: '$\angle BOC = 85^\circ$'
         correct: true
       - text: '$\angle BOC = 25^\circ$'
+        correct: false
       - text: '$\angle BOC = 50^\circ$'
+        correct: false
       - text: '$\angle BOC = 45^\circ$'
+        correct: false
     explanation: |
       Angles lying on a straight line sum to $180^\circ$.
 
@@ -215,8 +245,11 @@ questions:
       - text: "Ray $OX$ and Ray $OY$ are perpendicular to each other."
         correct: true
       - text: "Ray $OX$ and Ray $OY$ are parallel to each other."
+        correct: false
       - text: 'Ray $OX$ and Ray $OY$ form a straight angle of $180^\circ$.'
+        correct: false
       - text: 'Ray $OX$ and Ray $OY$ form an angle of $45^\circ$.'
+        correct: false
     explanation: |
       Let $\angle AOC = 2a$ and $\angle BOC = 2b$.
 
@@ -236,8 +269,11 @@ questions:
       - text: 'The angle measures $60^\circ$, which is an acute angle.'
         correct: true
       - text: 'The angle measures $30^\circ$, which is an acute angle.'
+        correct: false
       - text: 'The angle measures $45^\circ$, which is an acute angle.'
+        correct: false
       - text: 'The angle measures $120^\circ$, which is an obtuse angle.'
+        correct: false
     explanation: |
       Let $x$ be the measure of the angle.
       - Complement $= 90 - x$
@@ -256,11 +292,14 @@ questions:
     stem: |
       Points $A, B, C,$ and $D$ lie in order along line segment $AD$. Point $B$ is the midpoint of segment $AC$, and point $C$ is the midpoint of segment $BD$. If the total length $AD = 36\text{ cm}$, what is the length of segment $BC$?
     choices:
-      - text: "The length of $BC$ is $12\text{ cm}$."
+      - text: 'The length of $BC$ is $12\text{ cm}$.'
         correct: true
-      - text: "The length of $BC$ is $18\text{ cm}$."
-      - text: "The length of $BC$ is $9\text{ cm}$."
-      - text: "The length of $BC$ is $24\text{ cm}$."
+      - text: 'The length of $BC$ is $18\text{ cm}$.'
+        correct: false
+      - text: 'The length of $BC$ is $9\text{ cm}$.'
+        correct: false
+      - text: 'The length of $BC$ is $24\text{ cm}$.'
+        correct: false
     explanation: |
       Let the length of segment $AB$ be $x$.
 
@@ -281,8 +320,11 @@ questions:
       - text: 'The measure of $\angle AOB$ is $85^\circ$.'
         correct: true
       - text: 'The measure of $\angle AOB$ is $60^\circ$.'
+        correct: false
       - text: 'The measure of $\angle AOB$ is $215^\circ$.'
+        correct: false
       - text: 'The measure of $\angle AOB$ is $22.5^\circ$.'
+        correct: false
     explanation: |
       The sum of angles around a single point is $360^\circ$.
 
@@ -302,8 +344,11 @@ questions:
       - text: 'The measure of Angle $R$ is $40^\circ$.'
         correct: true
       - text: 'The measure of Angle $R$ is $50^\circ$.'
+        correct: false
       - text: 'The measure of Angle $R$ is $130^\circ$.'
+        correct: false
       - text: 'The measure of Angle $R$ is $140^\circ$.'
+        correct: false
     explanation: |
       1. Since $P$ and $Q$ are supplementary: $P + Q = 180$.
       2. Express $P$ in terms of $Q$: $P = 3Q - 20$.

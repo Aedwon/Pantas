@@ -19,8 +19,11 @@ questions:
       - text: '$68^\circ$'
         correct: true
       - text: '$112^\circ$'
+        correct: false
       - text: '$22^\circ$'
+        correct: false
       - text: '$136^\circ$'
+        correct: false
     explanation: |
       When two parallel lines are cut by a transversal, alternate interior angles are equal in measure.
 
@@ -38,8 +41,11 @@ questions:
       - text: '$65^\circ$'
         correct: true
       - text: '$115^\circ$'
+        correct: false
       - text: '$25^\circ$'
+        correct: false
       - text: '$75^\circ$'
+        correct: false
     explanation: |
       Same-side interior angles formed by parallel lines cut by a transversal are supplementary (their sum is $180^\circ$).
 
@@ -58,8 +64,11 @@ questions:
       - text: "$15$"
         correct: true
       - text: "$25$"
+        correct: false
       - text: "$20$"
+        correct: false
       - text: "$10$"
+        correct: false
     explanation: |
       Corresponding angles formed by parallel lines are equal.
 
@@ -78,8 +87,11 @@ questions:
       - text: '$90^\circ$'
         correct: true
       - text: '$45^\circ$'
+        correct: false
       - text: '$180^\circ$'
+        correct: false
       - text: '$0^\circ$'
+        correct: false
     explanation: |
       Perpendicularity propagates across parallel lines.
 
@@ -96,8 +108,11 @@ questions:
       - text: "$18$"
         correct: true
       - text: "$23$"
+        correct: false
       - text: "$9$"
+        correct: false
       - text: "$36$"
+        correct: false
     explanation: |
       Alternate exterior angles formed by parallel lines are equal.
 
@@ -117,8 +132,11 @@ questions:
       - text: '$104^\circ$'
         correct: true
       - text: '$76^\circ$'
+        correct: false
       - text: '$17^\circ$'
+        correct: false
       - text: '$98^\circ$'
+        correct: false
     explanation: |
       Same-side interior angles are supplementary ($180^\circ$).
 
@@ -139,8 +157,11 @@ questions:
       - text: '$80^\circ$'
         correct: true
       - text: '$10^\circ$'
+        correct: false
       - text: '$100^\circ$'
+        correct: false
       - text: '$160^\circ$'
+        correct: false
     explanation: |
       1. Draw an auxiliary line through point $P$ that is parallel to both $L_1$ and $L_2$.
       2. This auxiliary line divides the angle at $P$ into two smaller angles.
@@ -159,8 +180,11 @@ questions:
       - text: "$20$"
         correct: true
       - text: "$21.25$"
+        correct: false
       - text: "$10$"
+        correct: false
       - text: "$40$"
+        correct: false
     explanation: |
       By the Corresponding Angles Postulate Converse, lines are parallel if and only if corresponding angles are equal.
 
@@ -180,8 +204,11 @@ questions:
       - text: '$55^\circ$'
         correct: true
       - text: '$110^\circ$'
+        correct: false
       - text: '$35^\circ$'
+        correct: false
       - text: '$70^\circ$'
+        correct: false
     explanation: |
       1. $\angle CFE$ and $\angle BEF$ are alternate interior angles along parallel lines $AB \parallel CD$, so $\angle BEF = \angle CFE = 110^\circ$.
       2. Ray $EG$ bisects $\angle BEF$, dividing it into two equal angles.
@@ -198,8 +225,11 @@ questions:
       - text: '$50^\circ$'
         correct: true
       - text: '$130^\circ$'
+        correct: false
       - text: '$16^\circ$'
+        correct: false
       - text: '$40^\circ$'
+        correct: false
     explanation: |
       Same-side exterior angles formed by parallel lines are supplementary.
 
@@ -220,8 +250,11 @@ questions:
       - text: '$70^\circ$'
         correct: true
       - text: '$110^\circ$'
+        correct: false
       - text: '$20^\circ$'
+        correct: false
       - text: '$80^\circ$'
+        correct: false
     explanation: |
       Consecutive interior angles along parallel lines are same-side interior angles, so they are supplementary ($180^\circ$).
 
@@ -242,8 +275,11 @@ questions:
       - text: '$145^\circ$'
         correct: true
       - text: '$35^\circ$'
+        correct: false
       - text: '$115^\circ$'
+        correct: false
       - text: '$65^\circ$'
+        correct: false
     explanation: |
       1. Calculate the acute angle formed between $T_1$ and $T_2$ at their intersection:
          $$\text{Acute Angle} = 75^\circ - 40^\circ = 35^\circ$$
@@ -261,8 +297,11 @@ questions:
       - text: '$58^\circ$'
         correct: true
       - text: '$32^\circ$'
+        correct: false
       - text: '$122^\circ$'
+        correct: false
       - text: '$148^\circ$'
+        correct: false
     explanation: |
       1. Since $AB \perp L_1$ and $L_1 \parallel L_2$, $AB$ is also perpendicular to $L_2$ ($\angle ABO = 90^\circ$).
       2. The angle ray $AC$ makes with line $L_1$ at point $A$ is $90^\circ - \angle BAC = 90^\circ - 32^\circ = 58^\circ$.
@@ -279,8 +318,11 @@ questions:
       - text: '$52.5^\circ$'
         correct: true
       - text: '$37.5^\circ$'
+        correct: false
       - text: '$105^\circ$'
+        correct: false
       - text: '$75^\circ$'
+        correct: false
     explanation: |
       1. Alternate interior angles are equal: $3x + 15 = 5x - 25 \implies 2x = 40 \implies x = 20$.
       2. Calculate angle measure: $3(20) + 15 = 75^\circ$.
@@ -299,8 +341,11 @@ questions:
       - text: '$115^\circ$'
         correct: true
       - text: '$65^\circ$'
+        correct: false
       - text: '$15^\circ$'
+        correct: false
       - text: '$130^\circ$'
+        correct: false
     explanation: |
       1. Draw an auxiliary line through point $P$ parallel to both $L_1$ and $L_2$.
       2. By alternate interior angles, the upper part of $\angle T_1 P T_2$ equals $50^\circ$.

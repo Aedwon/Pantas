@@ -19,8 +19,11 @@ questions:
       - text: '$42^\circ$'
         correct: true
       - text: '$84^\circ$'
+        correct: false
       - text: '$168^\circ$'
+        correct: false
       - text: '$96^\circ$'
+        correct: false
     explanation: |
       An inscribed angle is equal to half the measure of its intercepted arc.
 
@@ -38,8 +41,11 @@ questions:
       - text: '$49\pi\text{ cm}^2$'
         correct: true
       - text: '$196\pi\text{ cm}^2$'
+        correct: false
       - text: '$14\pi\text{ cm}^2$'
+        correct: false
       - text: '$28\pi\text{ cm}^2$'
+        correct: false
     explanation: |
       1. Calculate the radius $r$ from diameter $d$: $r = \frac{d}{2} = \frac{14}{2} = 7\text{ cm}$.
       2. Apply area formula $A = \pi r^2$:
@@ -56,8 +62,11 @@ questions:
       - text: '$55^\circ$'
         correct: true
       - text: '$35^\circ$'
+        correct: false
       - text: '$90^\circ$'
+        correct: false
       - text: '$145^\circ$'
+        correct: false
     explanation: |
       By Thales's Theorem, an angle inscribed in a semicircle is always a right angle ($90^\circ$).
 
@@ -71,11 +80,14 @@ questions:
     stem: |
       A circle has an area of $36\pi\text{ cm}^2$. What is its circumference?
     choices:
-      - text: "$12\pi\text{ cm}$"
+      - text: '$12\pi\text{ cm}$'
         correct: true
-      - text: "$36\pi\text{ cm}$"
-      - text: "$6\pi\text{ cm}$"
-      - text: "$24\pi\text{ cm}$"
+      - text: '$36\pi\text{ cm}$'
+        correct: false
+      - text: '$6\pi\text{ cm}$'
+        correct: false
+      - text: '$24\pi\text{ cm}$'
+        correct: false
     explanation: |
       1. Find radius $r$ from area $A = \pi r^2$:
          $$\pi r^2 = 36\pi \implies r^2 = 36 \implies r = 6\text{ cm}$$
@@ -88,11 +100,14 @@ questions:
     stem: |
       A tangent line segment $PT$ touches a circle at point $T$. The circle has radius $OP = 5\text{ cm}$ (center $O$), and segment $OT = 13\text{ cm}$ connects center $O$ to external point $T$. What is the length of tangent segment $PT$?
     choices:
-      - text: "$12\text{ cm}$"
+      - text: '$12\text{ cm}$'
         correct: true
-      - text: "$18\text{ cm}$"
-      - text: "$8\text{ cm}$"
-      - text: "$\sqrt{194}\text{ cm}$"
+      - text: '$18\text{ cm}$'
+        correct: false
+      - text: '$8\text{ cm}$'
+        correct: false
+      - text: '$\sqrt{194}\text{ cm}$'
+        correct: false
     explanation: |
       A tangent line is perpendicular to the radius at the point of tangency, forming right $\triangle OPT$.
 
@@ -106,11 +121,14 @@ questions:
     stem: |
       A circle has a radius of $12\text{ cm}$. What is the length of an arc intercepted by a central angle of $60^\circ$?
     choices:
-      - text: "$4\pi\text{ cm}$"
+      - text: '$4\pi\text{ cm}$'
         correct: true
-      - text: "$24\pi\text{ cm}$"
-      - text: "$8\pi\text{ cm}$"
-      - text: "$2\pi\text{ cm}$"
+      - text: '$24\pi\text{ cm}$'
+        correct: false
+      - text: '$8\pi\text{ cm}$'
+        correct: false
+      - text: '$2\pi\text{ cm}$'
+        correct: false
     explanation: |
       1. Arc length formula: $L = \frac{\theta}{360^\circ} \times 2\pi r$.
       2. Substitute values: $L = \frac{60^\circ}{360^\circ} \times 2\pi (12) = \frac{1}{6} \times 24\pi = 4\pi\text{ cm}$.
@@ -126,8 +144,11 @@ questions:
       - text: '$16\pi\text{ cm}^2$'
         correct: true
       - text: '$4\pi\text{ cm}^2$'
+        correct: false
       - text: '$64\pi\text{ cm}^2$'
+        correct: false
       - text: '$32\pi\text{ cm}^2$'
+        correct: false
     explanation: |
       1. Sector area formula: $A = \frac{\theta}{360^\circ} \times \pi r^2$.
       2. Substitute values: $A = \frac{90^\circ}{360^\circ} \times \pi (8^2) = \frac{1}{4} \times 64\pi = 16\pi\text{ cm}^2$.
@@ -144,8 +165,11 @@ questions:
       - text: '$80^\circ$'
         correct: true
       - text: '$100^\circ$'
+        correct: false
       - text: '$20^\circ$'
+        correct: false
       - text: '$10^\circ$'
+        correct: false
     explanation: |
       Opposite angles in an inscribed quadrilateral are supplementary ($180^\circ$).
 
@@ -165,8 +189,11 @@ questions:
       - text: '$60^\circ$'
         correct: true
       - text: '$10^\circ$'
+        correct: false
       - text: '$120^\circ$'
+        correct: false
       - text: '$35^\circ$'
+        correct: false
     explanation: |
       The measure of an angle formed by two chords intersecting inside a circle is half the sum of the intercepted arcs.
 
@@ -184,8 +211,11 @@ questions:
       - text: '$35^\circ$'
         correct: true
       - text: '$75^\circ$'
+        correct: false
       - text: '$70^\circ$'
+        correct: false
       - text: '$150^\circ$'
+        correct: false
     explanation: |
       The measure of an angle formed by two secants intersecting outside a circle is half the difference of the intercepted arcs.
 
@@ -200,11 +230,14 @@ questions:
     stem: |
       Two concentric circles have radii of $5\text{ cm}$ and $13\text{ cm}$. A chord of the larger circle is tangent to the smaller circle. What is the total length of this chord?
     choices:
-      - text: "$24\text{ cm}$"
+      - text: '$24\text{ cm}$'
         correct: true
-      - text: "$12\text{ cm}$"
-      - text: "$18\text{ cm}$"
-      - text: "$8\text{ cm}$"
+      - text: '$12\text{ cm}$'
+        correct: false
+      - text: '$18\text{ cm}$'
+        correct: false
+      - text: '$8\text{ cm}$'
+        correct: false
     explanation: |
       1. The radius of the smaller circle ($5\text{ cm}$) is perpendicular to the tangent chord of the larger circle, bisecting the chord.
       2. A right triangle is formed by the radius of the smaller circle ($5$), half the chord ($x$), and the radius of the larger circle ($13$).
@@ -219,11 +252,14 @@ questions:
     stem: |
       From an external point $P$, a tangent segment $PT$ touches a circle at $T$, and a secant line intersects the circle at points $A$ and $B$ (with $A$ between $P$ and $B$). If $PA = 4\text{ cm}$ and $AB = 5\text{ cm}$, what is the length of tangent segment $PT$?
     choices:
-      - text: "$6\text{ cm}$"
+      - text: '$6\text{ cm}$'
         correct: true
-      - text: "$2\sqrt{5}\text{ cm}$"
-      - text: "$4.5\text{ cm}$"
-      - text: "$9\text{ cm}$"
+      - text: '$2\sqrt{5}\text{ cm}$'
+        correct: false
+      - text: '$4.5\text{ cm}$'
+        correct: false
+      - text: '$9\text{ cm}$'
+        correct: false
     explanation: |
       By the Tangent-Secant Power Theorem:
       $$PT^2 = PA \times PB$$
@@ -243,8 +279,11 @@ questions:
       - text: '$36\pi - 72\text{ cm}^2$'
         correct: true
       - text: '$36\pi - 36\text{ cm}^2$'
+        correct: false
       - text: '$36\pi - 144\text{ cm}^2$'
+        correct: false
       - text: '$72 - 36\pi\text{ cm}^2$'
+        correct: false
     explanation: |
       1. Circle Area $= \pi r^2 = \pi (6^2) = 36\pi\text{ cm}^2$.
       2. The diagonal $d$ of the inscribed square equals the diameter of the circle: $d = 2r = 12\text{ cm}$.
@@ -261,8 +300,11 @@ questions:
       - text: '$140^\circ$'
         correct: true
       - text: '$70^\circ$'
+        correct: false
       - text: '$30^\circ$'
+        correct: false
       - text: '$110^\circ$'
+        correct: false
     explanation: |
       A central angle is twice the measure of an inscribed angle standing on the same arc.
 
@@ -279,11 +321,14 @@ questions:
     stem: |
       Two tangent segments $PA$ and $PB$ are drawn from external point $P$ to a circle with center $O$ and radius $r = 9\text{ cm}$. If $\angle APB = 60^\circ$, what is the distance from point $P$ to center $O$ ($OP$)?
     choices:
-      - text: "$18\text{ cm}$"
+      - text: '$18\text{ cm}$'
         correct: true
-      - text: "$9\sqrt{3}\text{ cm}$"
-      - text: "$9\text{ cm}$"
-      - text: "$36\text{ cm}$"
+      - text: '$9\sqrt{3}\text{ cm}$'
+        correct: false
+      - text: '$9\text{ cm}$'
+        correct: false
+      - text: '$36\text{ cm}$'
+        correct: false
     explanation: |
       1. Segment $OP$ bisects angle $\angle APB$, so $\angle APO = \frac{60^\circ}{2} = 30^\circ$.
       2. Radius $OA$ is perpendicular to tangent $PA$, forming right $\triangle OAP$ with right angle at $A$.
