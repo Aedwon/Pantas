@@ -293,6 +293,75 @@ text-only signals and say that Aedwon should look. His findings go in `docs/ui-a
 
 ---
 
+## Part 7b: The verifier tier
+
+**Three tiers, and each one only spot-checks the tier below it.** Adopted 3 August, after six
+Flash runs produced good work and six self-reports that were each wrong about something.
+
+| Tier | Model | Does |
+|---|---|---|
+| 1 | Claude | Design, spec authorship, conflict rulings, merge decisions, anything where being wrong is expensive and hard to detect. |
+| 2 | Gemini 3.1 Pro | **Verifies tier 3.** Also implements the high-blast-radius plans: schema migrations, sync, entitlement. |
+| 3 | Gemini 3.6 Flash | Bulk generation. Content authoring, widget assembly, tests against a settled spec. |
+
+### Why an agent can verify another agent
+
+**Because most of verification is deterministic and none of it is authorship.** The gates
+return exit codes. Counts are counts. An em dash is present or it is not. A verifier does not
+need judgment to run a command and paste what came back, and that is the bulk of the job.
+
+**The rule that makes it safe: a verifier reports evidence, never assertions.**
+
+A verifier that writes "all gates pass" has added nothing, because that is exactly what the
+six wrong reports said. A verifier that pastes the command and its output has added the thing
+the tier above it needs and can no longer be wrong about.
+
+### What a tier-2 verifier does
+
+**1. Run the gates and paste them.** Never summarize. The one content-gate command in Part 4,
+or for code the five in Part 5, with their raw output.
+
+**2. Re-derive, do not re-read.** This is the part a gate cannot do and it is why the tier
+exists.
+
+- **For a Mathematics or Science file: re-solve five items from scratch without reading the
+  explanation.** Reading the explanation and agreeing with it proves nothing, because the
+  explanation was written by the thing being checked. A wrong key survives every gate in this
+  repository and only an independent solve catches it.
+- **For a content file: pick three distractors and say what mistake each one represents.** If
+  you cannot name the mistake, the distractor is filler and the item is weak.
+- **For code: read the diff against the plan's file table.** Anything touched that the table
+  does not name is a finding.
+
+**3. Report exceptions, not a narrative.** A list of findings with file and line, or the
+sentence "no findings" followed by the pasted evidence. **Do not restate what the plan asked
+for.** The tier above it has read the plan.
+
+**4. Never fix what you find.** A verifier that edits becomes an author and there is then
+nobody checking it. Report and stop.
+
+### What still comes to tier 1
+
+- Any finding the verifier reports.
+- Any "stop and say so" the implementor hit.
+- The merge decision itself.
+- Anything touching money, entitlement, migrations, or a student's own data.
+
+**Everything else should reach Claude as one page: pasted gates, and either findings or
+"none".**
+
+### One combination worth using for answer keys
+
+**Two Flash agents author the same Mathematics subtopic independently, and a Pro verifier
+diffs the two answer keys.** Where they disagree, at least one is wrong and the item gets
+human eyes. Where they agree, confidence is much higher than either agent's self-review.
+
+**Use it only where a wrong answer is expensive and invisible**, which in this project means
+Mathematics and the quantitative parts of Science. It doubles the authoring cost, so it is not
+the default.
+
+---
+
 ## Part 8: Running several agents at once
 
 This is the intended mode: implementation plans in parallel while the specs continue.
