@@ -182,7 +182,8 @@ tier rule rather than a layout one:
   is a citation.
 - No screen in the app shows two teasers.
 - No surface uses a lock icon, a blur, a banner or an interstitial to mark a gate.
-- Selecting Weekly, Monthly or Lifetime never shows a trial timeline.
+- Selecting Weekly or Monthly never shows a trial timeline. **Corrected 4 August 2026**: this
+  line still named Lifetime, which was removed from the ladder on 3 August.
 - Selecting Yearly always shows it, and the date printed on Day 7 matches the charge date
   Play will use.
 - A Free user's mock review shows every question and the correct answer.

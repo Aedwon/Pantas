@@ -1,8 +1,14 @@
 # The paywall: pricing, and the flow that sells it
 
-**Date:** 3 August 2026
+**Date:** 3 August 2026, **amended 4 August 2026**
 **Status:** Approved by Aedwon, validated against live mockups in
-`.superpowers/brainstorm/33932-1785675929/content/`
+`.superpowers/brainstorm/33932-1785675929/content/`, and the 4 August amendment against
+`.superpowers/brainstorm/87888-1785783189/content/paywall-screen1-sample.html`
+
+**The 4 August amendment**, in one line: **the screen 1 specimen is an authored sample for
+every student**, so the paywall stops giving away a real Pro insight, and the open fallback
+state in Section 4 is dissolved rather than designed. Section 7's type scale claim is also
+withdrawn as false.
 **Decision log:** `docs/superpowers/decisions/2026-08-02-paywall-consolidation-log.md`
 **Companion spec:** `2026-08-02-pro-entitlement-consolidation-design.md` says **what Pro
 is**. This spec says **how it is priced and sold**. Neither restates the other.
@@ -79,18 +85,55 @@ gated surface, never pushed unsolicited.
 **Headline, verbatim:**
 
 > **You'll understand yourself better with Pro.**
-> Every figure below is measured from your own answers.
+> This is an example. Pro measures every figure from your own answers.
 
-The second line is the differentiator a reviewer book can never claim, and it grounds the
-headline in method rather than in adjectives.
+**The headline is unchanged and claims nothing about measurement**, which is why the sample
+does not touch it. The second line carries the differentiator a reviewer book can never claim,
+and it now carries the disclosure as well, so a reader meets the disclosure **before any figure
+on the screen**.
 
-### The specimen
+**Amended 4 August 2026.** The second line read "Every figure below is measured from your own
+answers." It was changed when the specimen became a sample. See the specimen section below.
 
-**One plated section, the name of a real gated panel**, then the same panel twice: as the
-student sees it now, and as Pro sees it.
+### The specimen is an authored sample, always
+
+**Decided 4 August 2026 by Aedwon, and it reverses the assumption this section was written
+under.** The specimen shows **authored sample figures for every student**, never the student's
+own, at every level of data.
+
+**The reasoning is not the fallback.** Screen 1 as originally specced fills a real blank with
+the student's real numbers, which means **the paywall gives away one genuine Pro insight in
+order to sell Pro**. That is the product, handed over at the moment of asking for money. A
+sample does not leak it.
+
+**Three consequences, all of them simplifications:**
+
+1. **There is no fallback state.** No ladder, no data thresholds, no reduced screen, no
+   true-zero case. The open question this section used to carry is dissolved rather than
+   answered.
+2. **One shape, every student.** Screen 1 always makes the full argument.
+3. **The sample's numbers are authored and may never read as measured.** They are not a
+   figure this project inferred and printed as fact; they are an illustration, and the
+   marking rules below are what keep that true.
+
+**One plated section, the name of a real gated panel**, then the same panel twice: as a Free
+user sees it, and as Pro sees it. **Both halves are the sample.** The Free half is not the
+reader's own redacted panel; it is the sample's redacted panel, which is what makes the pair
+legible as one illustration rather than as their data next to someone else's.
+
+**The Pro sentence stays in the second person**, "You score 14 lower under time than
+practising." It demonstrates the sentence Pro will write **to them**, which is the thing being
+sold, and a third-person rewrite would sell a report about a stranger. **This is the one place
+the sample leans hardest on the marking**, and it is why the marking is structural and sits
+above the figures rather than under them. Raised deliberately, not overlooked.
+
+**`practising` is British and the project rule is American spelling.** It is quoted here
+because it is the comparison label the tendency deck currently ships, not authored for this
+screen. **The label is wrong wherever it lives and fixing it is not this spec's job**; the
+sample must match whatever the deck ships on the day, so the two surfaces cannot disagree.
 
 ```
-Under pressure                    (plate, serif 16/700, 1.6px ink rule)
+Under pressure           Sample    (plate + trailing slot, inkMuted)
 
 FREE                              (10/700 caps, inkMuted)
 practising  vs.  under time
@@ -103,9 +146,29 @@ practising 68%  vs.  under time 54%
      That is the biggest gap in your work.
 ```
 
+### How the sample is marked
+
+**The marking is structural, not a caption.** The reason is specific to this app: **every other
+figure a student ever sees in Pantas is their own**, so the default reading of a familiar panel
+is "this is me". A label placed under the numbers arrives after they have already been read.
+
+1. **The second headline line**, above everything.
+2. **`Sample` in the plate's trailing slot**, where a real gated section puts "Unlock with Pro".
+
+**`Sample` is `inkMuted`, never board green.** Section 7 budgets one board green element per
+screen and the button has it. `SectionHeader` already renders its trailing slot in `inkMuted`
+when it is not tappable, so this is the existing treatment and not a new device.
+
+**No third marking.** Two placements, both ahead of the figures, are enough. A caption under
+the figure was drawn and rejected as both late and redundant.
+
 **This is the argument, and it is made in the app's own vocabulary.** Every gated surface
-already shows a labelled blank; this screen fills one in. No new persuasion device is
+already shows a labelled blank; this screen shows one filled in. No new persuasion device is
 invented, and the payoff is a curiosity the app has been building for weeks.
+
+**The panel named must be a real gated panel and its labels must be the real ones.** Only the
+figures are authored. "Under pressure" and its two comparison labels are what the tendency deck
+ships, so the sample demonstrates a surface that exists rather than inventing one.
 
 **`FREE` and `PRO` are the only tier words on the screen.** Not "what you see now" and
 "what Pro sees". Free is `inkMuted`, Pro is `ink`, which is exactly how the level control
@@ -141,11 +204,18 @@ knowing it was raised.
 
 **Footer:** board `See plans`, then `From ₱29 a week. Cancel any time.`
 
-### The fallback, still open
+### The fallback, closed
 
-A student with no mock and few attempts cannot fill the Pro block convincingly. **This
-state is not designed.** It needs either a weaker specimen chosen from whatever data does
-exist, or an authored sample. Do not ship screen 1 without answering it.
+**Settled 4 August 2026. There is no fallback state, because there is no state in which the
+specimen depends on the student's data.**
+
+This section previously read: *"A student with no mock and few attempts cannot fill the Pro
+block convincingly. This state is not designed. It needs either a weaker specimen chosen from
+whatever data does exist, or an authored sample. Do not ship screen 1 without answering it."*
+
+**It was answered by removing the dependency rather than by designing around it.** Kept here
+because a later reader should be able to see that the round was convened to solve a fallback
+and ended by deleting the thing that needed one.
 
 ---
 
@@ -259,17 +329,35 @@ board button. No em dashes, no emoji, no icons in the marks.
 
 ## Section 7: The type scale, for all three screens
 
-Every size is one this app already sets. Nothing here is new.
+**Corrected 4 August 2026.** This section used to say "Every size is one this app already sets.
+Nothing here is new." **That was checkable and five of the seven rows did not hold.** The claim
+is withdrawn and replaced with the table below, which states for each rank whether the token
+exists today and what has to happen.
 
-| Rank | Size | Where it already lives |
+**The resolution: add the missing sizes to `AppTextStyles`.** They were chosen against live
+mockups and the type scale is the identity, so the spec is not moved onto whatever sizes
+happen to exist. **This is wider than the paywall and touches every screen**, so it belongs in
+the kit rather than in the paywall plan: `settings-01-the-kit` owns `AppTextStyles`.
+
+| Rank | Size | State today |
 |---|---|---|
-| Headline | serif **24/700** | Progress's "Your profile" name |
-| Figure | serif **30/700** | `StatsBand` numerals. Rust for a loss |
-| Section header | serif **16/700**, plated with a 1.6px `ink` rule | Progress Section 8, "a header always outranks its own rows" |
-| Tier tag / column head | **10/700** uppercase | The Performance table head |
-| Rows and list items | serif **14/700** | Progress's navigational rows |
-| Body | sans **13/400** | |
-| Caption and fine print | sans **11.5/400** `inkMuted` | |
+| Headline | serif **24/700** | **Missing.** `displayLarge` is 28, `displaySmall` is 22 |
+| Figure | serif **30/700** | **Exists.** `StatsBand` sets exactly 30 on `displayLarge`, height 1. Rust for a loss |
+| Section header | serif **16/700** | **Missing.** `headlineSmall` is 15 |
+| Plate rule | **1.6px** `ink` | **Missing.** `1.6` appears nowhere in `lib/core/ui/`; `RuledSection` draws a 1px rule in `rule`, not `ink` |
+| Tier tag / column head | **10/700** uppercase | **Missing.** `labelSmall` is 11/600 |
+| Rows and list items | serif **14/700** | **Missing.** `mathBody` is serif 14/**400** |
+| Body | sans **13/400** | **Missing.** `bodySmall` is 12, `bodyMedium` is 14 |
+| Caption and fine print | sans **11.5/400** `inkMuted` | **Missing.** `labelSmall` is 11/600 |
+
+**The plate is `SectionHeader` plus a rule, not a new component.** `SectionHeader` draws the
+title and the trailing slot and no rule at all, so whatever draws the 1.6px `ink` rule is the
+thing to be added. It is not `RuledSection`, whose rule is a different weight and a different
+color and sits on top rather than under a heading.
+
+**A previous version of this section cited "Progress Section 8" as the home of the 1.6px rule.
+That citation is wrong**: the Progress spec does not contain it. Recorded so nobody goes
+looking for it again.
 
 **One board green per screen**, the button. The recommendation badge is the only other
 permitted use and it earns it by being a recommendation.
@@ -330,6 +418,15 @@ precision and cannot at month precision.
 
 ## Verification
 
+- **Screen 1 shows the same specimen figures to every student**, regardless of how much data
+  they have. No query behind the specimen reads a student's attempts, sessions or mocks.
+- **The specimen is marked in two places, both above the figures**: the second headline line,
+  and `Sample` in the plate's trailing slot. There is no third marking and none below the
+  figure.
+- **`Sample` renders in `inkMuted`.** `grep` the paywall for a board-green trailing slot and
+  find nothing; screen 1 has exactly one board green element and it is the button.
+- The panel named in the specimen is a real gated panel and both comparison labels are the
+  ones the tendency deck ships. Only the figures are authored.
 - No screen offers, mentions or implies a lifetime purchase.
 - A student with an exam six months out is recommended **Monthly**, not Yearly.
 - A student with no exam date is recommended **Monthly**, badged "Best for most".

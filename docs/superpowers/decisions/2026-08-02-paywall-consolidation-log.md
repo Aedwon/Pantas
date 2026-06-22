@@ -276,3 +276,109 @@ Progress tab prints **Score** and accuracy and never says mastery, because maste
 construct laid over a measurement, and that the paywall would promise a word the
 destination does not use. He did not change it. **Kept as his product language**, recorded
 here so nobody reopens it later without knowing it was raised.
+
+---
+
+## 4 August 2026: the specimen fallback, and Aedwon closing it by changing the question
+
+The round was called to design one open state: `2026-08-03-paywall-pricing-and-flow-design.md`
+Section 4 says a student with no mock and few attempts cannot fill screen 1's Pro block, and
+that the state is not designed.
+
+### What was put to him, on the visual companion
+
+Four options, each drawn as a phone at the real type scale and real tokens, against a
+reference phone showing screen 1 as specced.
+
+| | Option | Cost |
+|---|---|---|
+| A + C | Ladder to the strongest specimen their data can fill; at true zero, no specimen | Honest in every state. Three or four specimen shapes to build plus a reduced screen. |
+| **B** | One authored sample whenever data is thin, plated as a sample | Cheapest, one shape, always makes the full argument. A stranger's numbers, and the second headline line has to change. |
+| A + B | Ladder, then a sample only at true zero | Always argues fully, but builds both mechanisms and still needs the headline exception. |
+| C | No ladder; drop the specimen whenever it cannot be filled | Simplest and always honest. Most early students would never see the argument at all. |
+
+**I recommended A + C**, on the grounds that the sub-headline "Every figure below is measured
+from your own answers" is the differentiator and a sample contradicts it.
+
+### What he chose, and the argument I had missed
+
+**B**, extended past what was asked. Verbatim:
+
+> "B but say it's just a sample. actually do that to all screens so that we're not giving away
+> Pro features for free"
+
+**The reasoning is his and it is better than mine.** Screen 1 as specced fills a real blank with
+the student's real numbers, which means **the paywall gives away one genuine Pro insight in
+order to sell Pro.** I had weighed the sample only against honesty and never against leakage. A
+sample does not leak the product.
+
+**It also dissolves the problem the round was convened for.** No ladder, no data thresholds, no
+reduced screen, no true-zero case: one shape for every student, always the full argument. The
+open state in Section 4 stops existing rather than getting an answer.
+
+### What I got wrong in the drawing, corrected in the same round
+
+1. **I said the headline had to change. It does not.** "You'll understand yourself better with
+   Pro." makes no claim about measurement. Only the second line does. Proposed replacement:
+   *"This is an example. Pro measures every figure from your own answers."* which keeps the
+   differentiator as a promise about the product rather than a claim about the numbers shown.
+2. **I marked the sample too weakly.** I drew a small `SAMPLE` tag plus a caption under the
+   figure. That is too late to be read: every other figure in Pantas is the student's own, so
+   the default reading of a familiar panel is "this is me", and a label below the numbers
+   arrives after they have been read. The marking belongs in the plate's trailing slot, where
+   real gated sections put "Unlock with Pro".
+
+### Scope, as read back to him and open to correction
+
+"All screens" bites only on screen 1. Screen 2 prints a published price times a date the
+student asserted, and screen 3 is the trial timeline. Neither carries a measured figure.
+
+### Still open after this round
+
+- The sample's own numbers have to be authored and they must never read as measured. Marking
+  is settled above; the values are not chosen yet.
+- Section 4's "fallback, still open" paragraph is now superseded and the spec needs the edit.
+
+### 4 August, continued: the plate he asked to see in detail, and what it turned up
+
+He asked for the revised screen drawn "to the detail" so he could check it. Every value was
+traced to a real component before drawing, per the standing rule that both rejected plates in
+the Progress work were rejected for inventing something already decided.
+
+**Approved with "lgtm proceed".** Spec amended immediately after.
+
+**Two things the tracing turned up, neither of them the thing the round was about.**
+
+1. **Section 7 claimed a type scale the app does not have.** It read "Every size is one this
+   app already sets. Nothing here is new." **Five of seven rows did not hold** against
+   `AppTextStyles`: there is no serif 24, no serif 16 section header (it is 15), no serif
+   14/700, no sans 13/400 and no 11.5 caption. Only the 30 figure matched. The claim is
+   withdrawn in the amendment and replaced with a table stating what exists.
+2. **The 1.6px ink plate rule does not exist and its citation was wrong.** `1.6` appears
+   nowhere in `lib/core/ui/`, `RuledSection` draws a 1px rule in `rule` rather than `ink`, and
+   the "Progress Section 8" the spec cited as its home does not contain it either.
+
+**Resolution taken, and it was my recommendation rather than his instruction.** Add the missing
+sizes to `AppTextStyles` rather than move the spec onto whatever sizes happen to exist, on the
+grounds that the sizes were chosen against live mockups and the type scale is the identity. He
+was shown the choice and said proceed. **It is wider than the paywall and belongs to
+`settings-01-the-kit`, which owns `AppTextStyles`.** Cheap to reverse if he wants the other
+direction.
+
+**Two details decided in the writing, both flagged rather than buried:**
+
+- **`Sample` is `inkMuted`, not board green.** Board green is budgeted to one element per
+  screen and the button has it. `SectionHeader` already renders a non-tappable trailing slot in
+  `inkMuted`, so this is the existing treatment, not a new device.
+- **The Pro sentence stays in the second person.** "You score 14 lower under time than
+  practising" demonstrates the sentence Pro writes *to them*, and a third-person rewrite would
+  sell a report about a stranger. It is also the place the sample leans hardest on its marking,
+  which is why the marking is structural and sits above the figures.
+
+**Also corrected while in the file:** `2026-08-02-pro-entitlement-consolidation-design.md` still
+verified that "Weekly, Monthly or Lifetime" never shows a trial timeline. Lifetime was removed
+on 3 August.
+
+**Noted, not fixed:** `practising` is British and the project rule is American spelling. It is
+the label the tendency deck ships, so the paywall quotes it rather than diverging from the
+surface it illustrates. The label is wrong wherever it lives and that is a separate job.
