@@ -313,7 +313,7 @@ conflicts between plans rather than holes inside them.
    banned visual devices by name, the landmines, the "never invent a figure" rule in full, or
    the no-AI-attribution rule. **Add one required-reading line to every plan.**
 
-2. **The banner names a Claude Code skill.** Thirty-nine plans open with "REQUIRED SUB-SKILL:
+2. **The banner names a harness-specific skill.** Thirty-nine plans open with "REQUIRED SUB-SKILL:
    Use superpowers:subagent-driven-development". A Gemini subagent has no such skill and will
    either ignore it or hallucinate around it. **Reword it to the plain instruction:** work one
    task at a time, write the failing test first, run the gates after each task, and stop and

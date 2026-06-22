@@ -1,6 +1,57 @@
 # Onboarding Polish Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **How to work this plan.** Implement it task by task, in order. For each task: write the
+> failing test first, run it and confirm it fails, then write the code that makes it pass. Do
+> not skip a step and do not batch tasks. Steps use checkbox (`- [ ]`) syntax so progress can
+> be tracked.
+>
+> **Required reading before Task 1:** `AGENTS.md` at the repository root, in full. It carries
+> the build commands, the visual identity bans, the voice rules, the never-invent-a-figure
+> rule and the landmines, and every one of them applies to this plan whether or not the
+> Global Constraints below happen to repeat it.
+>
+> **Follow the plan. Do not redesign.** If a step is ambiguous, contradicts the spec, or looks
+> wrong, **stop and say so** rather than inventing a solution. A plausible invention is more
+> expensive than a question, because it looks finished.
+>
+> **Analyzer baseline:** `flutter analyze` reports **27 issues** on a clean tree, every one of
+> them under `tools/` or `test/tool/`. `lib/` is clean. Any issue under `lib/` or `test/` is
+> one you introduced.
+>
+> **Work only inside your worktree.** Never write to the main checkout. A previous run left a
+> half-applied `app_database.dart` in the main tree with `schemaVersion` bumped and no
+> migration: a broken state that compiles.
+>
+> **Generated files (`*.g.dart`, `*.freezed.dart`) are never edited by hand and never
+> committed.** This repo gitignores them.
+>
+> **No AI attribution in commit messages.** No `Co-Authored-By` trailers, no "Generated with"
+> lines, no similar marker.
+
+## AMENDED 3 August 2026: four tasks are struck. Settings builds them.
+
+**Conflict C4, ruled by Aedwon.** The Settings thread, written 3 August, builds four things
+this plan also builds. Rather than sequencing around the duplication, the duplicated tasks are
+struck here and folded into Settings.
+
+| Task here | Struck in favor of |
+|---|---|
+| **Task 3**, lift the exam row | `2026-08-03-settings-05-the-exam-page.md` Task 1, which lifts the same file and widens the emblem column to 96 so `DLSUCET` stops wrapping |
+| **Task 4**, Settings → Exam | `2026-08-03-settings-05-the-exam-page.md` Task 3, which builds it as three rows rather than a roster |
+| **Task 5**, wire the Daily reminder row | `2026-08-03-settings-04-the-sheets.md`, the reminder sheet |
+| **Task 6**, wire the Exam date row | `2026-08-03-settings-04-the-sheets.md`, the date sheet, on the shared `showExamDateSheet` |
+
+**Do not execute Tasks 3, 4, 5 or 6.** They will collide: `settings-03` Task 4 **deletes**
+`settings_row.dart`, `settings_section.dart`, `ios_switch.dart` and
+`theme_segmented_control.dart`, which those four tasks build against.
+
+**This plan is now nine tasks and they are all about onboarding:** 1, 2, 7, 8, 9, 10, 11, 12
+and 13. That is what the title always said it was.
+
+**Task 13, Verification, still runs**, and its checks against Tasks 3 to 6 are satisfied by
+the Settings plans rather than by this one.
+
+---
 
 **Goal:** Fix the two live defects in the age-gate step, make good on the exam-switching promise the picker prints on screen, wire the two dead Settings rows the onboarding flow depends on, bring the flow's presentation in line with the Ink & Rule identity, and reconcile the nine documents that currently disagree about what onboarding is.
 

@@ -1,6 +1,61 @@
 # Switching Exams, and Whether Earlier Work Counts
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **How to work this plan.** Implement it task by task, in order. For each task: write the
+> failing test first, run it and confirm it fails, then write the code that makes it pass. Do
+> not skip a step and do not batch tasks. Steps use checkbox (`- [ ]`) syntax so progress can
+> be tracked.
+>
+> **Required reading before Task 1:** `AGENTS.md` at the repository root, in full. It carries
+> the build commands, the visual identity bans, the voice rules, the never-invent-a-figure
+> rule and the landmines, and every one of them applies to this plan whether or not the
+> Global Constraints below happen to repeat it.
+>
+> **Follow the plan. Do not redesign.** If a step is ambiguous, contradicts the spec, or looks
+> wrong, **stop and say so** rather than inventing a solution. A plausible invention is more
+> expensive than a question, because it looks finished.
+>
+> **Analyzer baseline:** `flutter analyze` reports **27 issues** on a clean tree, every one of
+> them under `tools/` or `test/tool/`. `lib/` is clean. Any issue under `lib/` or `test/` is
+> one you introduced.
+>
+> **Work only inside your worktree.** Never write to the main checkout. A previous run left a
+> half-applied `app_database.dart` in the main tree with `schemaVersion` bumped and no
+> migration: a broken state that compiles.
+>
+> **Generated files (`*.g.dart`, `*.freezed.dart`) are never edited by hand and never
+> committed.** This repo gitignores them.
+>
+> **No AI attribution in commit messages.** No `Co-Authored-By` trailers, no "Generated with"
+> lines, no similar marker.
+
+## AMENDED 3 August 2026: two tasks are struck. Settings builds them.
+
+**Conflict C4, ruled by Aedwon.** This plan and the Settings thread both built the carry-over
+feature, and they disagreed about where the preference lives, which is exactly the fault the
+paywall consolidation round existed to fix.
+
+| Task here | Struck in favor of |
+|---|---|
+| **Task 1**, the carry-over preference and the count | `2026-08-03-settings-02-storage.md`, which puts `carryOverProgress` on `UserSettings` under `settings.carry_over_progress`, and `2026-08-03-settings-05-the-exam-page.md` Task 2, which measures the carryable count as `carryableCountProvider` |
+| **Task 3**, the prompt | `2026-08-03-settings-05-the-exam-page.md` Task 3, which builds the same prompt with the same copy |
+
+**The preference lives on `UserSettings`, not on `AppPreferencesRepository`.** It is a
+preference about the student and it syncs. Task 1's `AppPreferencesRepository.carriesOverProgress`
+is not built.
+
+**This plan is now two tasks, and both are genuinely its own:**
+
+- **Task 2**, the mock cooldown becomes per student rather than per exam. This closes a real
+  exploit: a Free student switches exams, or makes a second custom track, and gets a fresh
+  paper.
+- **Task 4**, the carry-over filter applied to the Progress and Home figure providers.
+  **Task 4 now consumes `userSettingsProvider.carryOverProgress`**, not Task 1's method, and
+  its "Settings row" step is struck because Settings builds the row.
+
+**Consider folding what remains into `settings-05` entirely.** Two tasks is a thin plan and
+Task 4 reads a Settings value. Raised, not decided.
+
+---
 
 **Goal:** Let a student change which exam they are studying for, tell them truthfully what
 carries over, and close the hole where switching buys a free mock.

@@ -1,12 +1,53 @@
 # Settings 03: the top level
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **How to work this plan.** Implement it task by task, in order. For each task: write the
+> failing test first, run it and confirm it fails, then write the code that makes it pass. Do
+> not skip a step and do not batch tasks. Steps use checkbox (`- [ ]`) syntax so progress can
+> be tracked.
+>
+> **Required reading before Task 1:** `AGENTS.md` at the repository root, in full. It carries
+> the build commands, the visual identity bans, the voice rules, the never-invent-a-figure
+> rule and the landmines, and every one of them applies to this plan whether or not the
+> Global Constraints below happen to repeat it.
+>
+> **Follow the plan. Do not redesign.** If a step is ambiguous, contradicts the spec, or looks
+> wrong, **stop and say so** rather than inventing a solution. A plausible invention is more
+> expensive than a question, because it looks finished.
+>
+> **Analyzer baseline:** `flutter analyze` reports **27 issues** on a clean tree, every one of
+> them under `tools/` or `test/tool/`. `lib/` is clean. Any issue under `lib/` or `test/` is
+> one you introduced.
+>
+> **Work only inside your worktree.** Never write to the main checkout. A previous run left a
+> half-applied `app_database.dart` in the main tree with `schemaVersion` bumped and no
+> migration: a broken state that compiles.
+>
+> **Generated files (`*.g.dart`, `*.freezed.dart`) are never edited by hand and never
+> committed.** This repo gitignores them.
+>
+> **No AI attribution in commit messages.** No `Co-Authored-By` trailers, no "Generated with"
+> lines, no similar marker.
+
+## AMENDED 3 August 2026: `ExamDate` call sites change
+
+**Conflict C1, ruled by Aedwon.** One `ExamDate`, defined by
+`2026-08-02-onboarding-flow-and-new-steps.md` Task 1.
+
+**In this plan:** `ExamDate.day(x)` becomes `ExamDate.onDay(x)`, `ExamDate.month(y, m)`
+becomes `ExamDate.inMonth(year: y, month: m)`, and the nullable getter `.exactDay` becomes
+`.day`. `monthStart` is unchanged and still available. Nothing else in this plan moves.
+
+---
 
 **Goal:** Replace `settings_home_page.dart` with the twelve-row, five-group ledger, and delete the four Spec 8 widgets it leaves behind.
 
 **Architecture:** One `ConsumerWidget` assembling `SettingsGroup` and `SettingsValueRow` from Plan 01 over the providers widened in Plan 02. Rows whose destination is built in a later plan get a `TODO`-free stub route that pushes an honest "not built yet" page, so nothing in this plan pretends to be finished.
 
 **Tech Stack:** Flutter, Riverpod, go_router, `flutter_test`.
+
+**Source spec:** `docs/superpowers/specs/2026-08-03-settings-design.md`, Sections 2 and 3.
+
+**Decision log:** `docs/superpowers/decisions/2026-08-03-settings-log.md`.
 
 ## Global Constraints
 

@@ -1,6 +1,61 @@
 # Mock Exam, Plan 2 of 2: The Endings
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **How to work this plan.** Implement it task by task, in order. For each task: write the
+> failing test first, run it and confirm it fails, then write the code that makes it pass. Do
+> not skip a step and do not batch tasks. Steps use checkbox (`- [ ]`) syntax so progress can
+> be tracked.
+>
+> **Required reading before Task 1:** `AGENTS.md` at the repository root, in full. It carries
+> the build commands, the visual identity bans, the voice rules, the never-invent-a-figure
+> rule and the landmines, and every one of them applies to this plan whether or not the
+> Global Constraints below happen to repeat it.
+>
+> **Follow the plan. Do not redesign.** If a step is ambiguous, contradicts the spec, or looks
+> wrong, **stop and say so** rather than inventing a solution. A plausible invention is more
+> expensive than a question, because it looks finished.
+>
+> **Analyzer baseline:** `flutter analyze` reports **27 issues** on a clean tree, every one of
+> them under `tools/` or `test/tool/`. `lib/` is clean. Any issue under `lib/` or `test/` is
+> one you introduced.
+>
+> **Work only inside your worktree.** Never write to the main checkout. A previous run left a
+> half-applied `app_database.dart` in the main tree with `schemaVersion` bumped and no
+> migration: a broken state that compiles.
+>
+> **Generated files (`*.g.dart`, `*.freezed.dart`) are never edited by hand and never
+> committed.** This repo gitignores them.
+>
+> **No AI attribution in commit messages.** No `Co-Authored-By` trailers, no "Generated with"
+> lines, no similar marker.
+
+## AMENDED 3 August 2026: Task 2 is struck. Quiz Plan 6 owns the review component.
+
+**Conflict C3, ruled by Aedwon.** Task 2 of this plan created
+`lib/core/ui/components/question_review_list.dart`, and
+`2026-08-02-quiz-tab-06-review-component.md` Task 1 creates
+`lib/core/ui/components/review_list.dart`. Two components in the same directory, for the same
+purpose, each defining a model called `ReviewEntry`, and each giving the same reason for the
+location.
+
+**Quiz 6 already builds the mock's configuration.** It cites this spec's Sections 5 and 6 as
+its source, carries a table of all three configurations including the mock's, makes
+`chosenChoiceId` nullable specifically because a mock question can be left blank, and creates
+`mock_review_page.dart` itself. **Task 2 here was written as though Quiz 6 did not exist.**
+
+**So Task 2 is struck, not merged.** Do not create `question_review_list.dart`.
+
+**What this plan still owns**, and it is genuinely its own:
+
+- `lib/features/mock_exam/presentation/widgets/score_headline.dart`
+- `lib/features/mock_exam/presentation/widgets/exam_marks_offer.dart`, the one-time offer
+- The results screen in Task 1
+- Task 3 and Task 4 as written
+
+**The offer is passed into Quiz 6's component through its header slot.** If Quiz 6 has not
+landed when you reach this plan, **stop and say so.** Do not build a second list to unblock
+yourself.
+
+---
 
 **Goal:** Build the results screen a student lands on when the clock stops, the review
 screen behind it, the one-time offer that spends the marks made under the clock, and the

@@ -1,6 +1,57 @@
 # Quiz Tab, Plan 6 of 6: The Review Component
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **How to work this plan.** Implement it task by task, in order. For each task: write the
+> failing test first, run it and confirm it fails, then write the code that makes it pass. Do
+> not skip a step and do not batch tasks. Steps use checkbox (`- [ ]`) syntax so progress can
+> be tracked.
+>
+> **Required reading before Task 1:** `AGENTS.md` at the repository root, in full. It carries
+> the build commands, the visual identity bans, the voice rules, the never-invent-a-figure
+> rule and the landmines, and every one of them applies to this plan whether or not the
+> Global Constraints below happen to repeat it.
+>
+> **Follow the plan. Do not redesign.** If a step is ambiguous, contradicts the spec, or looks
+> wrong, **stop and say so** rather than inventing a solution. A plausible invention is more
+> expensive than a question, because it looks finished.
+>
+> **Analyzer baseline:** `flutter analyze` reports **27 issues** on a clean tree, every one of
+> them under `tools/` or `test/tool/`. `lib/` is clean. Any issue under `lib/` or `test/` is
+> one you introduced.
+>
+> **Work only inside your worktree.** Never write to the main checkout. A previous run left a
+> half-applied `app_database.dart` in the main tree with `schemaVersion` bumped and no
+> migration: a broken state that compiles.
+>
+> **Generated files (`*.g.dart`, `*.freezed.dart`) are never edited by hand and never
+> committed.** This repo gitignores them.
+>
+> **No AI attribution in commit messages.** No `Co-Authored-By` trailers, no "Generated with"
+> lines, no similar marker.
+
+## AMENDED 3 August 2026: this plan owns the review component outright
+
+**Conflict C3, ruled by Aedwon.** `2026-08-02-mock-02-the-endings.md` Task 2 also created a
+review component in `lib/core/ui/components/`, under a different filename and with a
+conflicting `ReviewEntry`. **That task is struck. This plan is the single owner.**
+
+**Two additions, carried over from what mock-02 was going to build:**
+
+1. **A `header` slot.** The mock passes its one-time offer, `ExamMarksOffer`, built by
+   mock-02. Practice and the flagged list pass null. The slot renders above the filter row.
+2. **Grouping is explicit**, not inferred from the entrance:
+
+```dart
+enum ReviewGrouping { bySubject, flat }
+```
+
+Mock review and the flagged list use `bySubject`. Practice review uses `flat`. This matches
+the table already in this plan's "Three differences the data forces" section; the amendment
+makes it an argument rather than a branch inside the widget.
+
+**Nothing else changes.** `ReviewFilter`, `ReviewEntry`, `FilterReviewEntries` and the three
+feature-side providers are all still yours, and `mock_review_page.dart` is still created here.
+
+---
 
 **Goal:** Build the list of questions with their answers and their notes, and put it behind
 its three entrances: the debrief's row, the Quiz tab's Flagged row, and a finished mock.

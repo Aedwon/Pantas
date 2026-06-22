@@ -1,6 +1,55 @@
 # Onboarding: the New Order, the Two New Steps and the Fields Behind Them
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **How to work this plan.** Implement it task by task, in order. For each task: write the
+> failing test first, run it and confirm it fails, then write the code that makes it pass. Do
+> not skip a step and do not batch tasks. Steps use checkbox (`- [ ]`) syntax so progress can
+> be tracked.
+>
+> **Required reading before Task 1:** `AGENTS.md` at the repository root, in full. It carries
+> the build commands, the visual identity bans, the voice rules, the never-invent-a-figure
+> rule and the landmines, and every one of them applies to this plan whether or not the
+> Global Constraints below happen to repeat it.
+>
+> **Follow the plan. Do not redesign.** If a step is ambiguous, contradicts the spec, or looks
+> wrong, **stop and say so** rather than inventing a solution. A plausible invention is more
+> expensive than a question, because it looks finished.
+>
+> **Analyzer baseline:** `flutter analyze` reports **27 issues** on a clean tree, every one of
+> them under `tools/` or `test/tool/`. `lib/` is clean. Any issue under `lib/` or `test/` is
+> one you introduced.
+>
+> **Work only inside your worktree.** Never write to the main checkout. A previous run left a
+> half-applied `app_database.dart` in the main tree with `schemaVersion` bumped and no
+> migration: a broken state that compiles.
+>
+> **Generated files (`*.g.dart`, `*.freezed.dart`) are never edited by hand and never
+> committed.** This repo gitignores them.
+>
+> **No AI attribution in commit messages.** No `Co-Authored-By` trailers, no "Generated with"
+> lines, no similar marker.
+
+## AMENDED 3 August 2026: Task 1 is now the canonical `ExamDate`, and gains one getter
+
+**Conflict C1, ruled by Aedwon.** `2026-08-03-settings-02-storage.md` Task 1 also created
+`lib/features/settings/domain/exam_date.dart`, with different constructors and a different
+nullable getter. **Task 1 below wins and is the single definition.** Settings 02's Task 1 is
+struck; Settings 03 and 04 rename their call sites onto these names.
+
+**Add one getter that Settings needs and this task did not have:**
+
+```dart
+/// Always available. The first of the month at month precision, and the
+/// first of the containing month at day precision.
+DateTime get monthStart;
+```
+
+Add a test for it at both precisions.
+
+**Everything else in Task 1 stands**, including `onDay`, `inMonth`, `day`, `year`, `month`,
+`daysUntil`, `storageValue` and `fromStorage`. Home 03 and Progress 02 read `daysUntil` and
+`inMonth`; Settings 02, 03 and 04 read `day`, `monthStart` and the constructors.
+
+---
 
 **Goal:** Reorder onboarding to welcome, age gate, exam picker, exam date, name; add the
 two new steps and the fields they write; and give onboarding a real notion of being

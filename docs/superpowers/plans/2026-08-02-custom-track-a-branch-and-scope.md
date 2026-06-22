@@ -1,6 +1,56 @@
 # The Custom Exam Track, Plan A of 2: The Branch, the Track and What It Scopes
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **How to work this plan.** Implement it task by task, in order. For each task: write the
+> failing test first, run it and confirm it fails, then write the code that makes it pass. Do
+> not skip a step and do not batch tasks. Steps use checkbox (`- [ ]`) syntax so progress can
+> be tracked.
+>
+> **Required reading before Task 1:** `AGENTS.md` at the repository root, in full. It carries
+> the build commands, the visual identity bans, the voice rules, the never-invent-a-figure
+> rule and the landmines, and every one of them applies to this plan whether or not the
+> Global Constraints below happen to repeat it.
+>
+> **Follow the plan. Do not redesign.** If a step is ambiguous, contradicts the spec, or looks
+> wrong, **stop and say so** rather than inventing a solution. A plausible invention is more
+> expensive than a question, because it looks finished.
+>
+> **Analyzer baseline:** `flutter analyze` reports **27 issues** on a clean tree, every one of
+> them under `tools/` or `test/tool/`. `lib/` is clean. Any issue under `lib/` or `test/` is
+> one you introduced.
+>
+> **Work only inside your worktree.** Never write to the main checkout. A previous run left a
+> half-applied `app_database.dart` in the main tree with `schemaVersion` bumped and no
+> migration: a broken state that compiles.
+>
+> **Generated files (`*.g.dart`, `*.freezed.dart`) are never edited by hand and never
+> committed.** This repo gitignores them.
+>
+> **No AI attribution in commit messages.** No `Co-Authored-By` trailers, no "Generated with"
+> lines, no similar marker.
+
+## AMENDED 3 August 2026: this plan takes schema version 16, not 15
+
+**Conflict C2, ruled by Aedwon.** This plan and `2026-08-02-study-01-foundations.md` both
+claimed **15**. Study 01 keeps 15. **This plan takes 16.**
+
+**In Task 3 Step 3**, read `from 14 to 15` as **`from 15 to 16`**, and the migration guard
+`if (from < 15)` as **`if (from < 16)`**.
+
+**Add this step before the bump:**
+
+- [ ] **Step 0: Confirm the current version**
+
+```bash
+grep -n "schemaVersion" lib/core/storage/data/app_database.dart
+```
+
+Expected: `int get schemaVersion => 15;`, meaning Study 01 has landed. **If it is 14, Study 01
+has not run and this plan's dependency is unmet: stop and say so** rather than taking 15
+yourself. If it is anything else, stop and say so.
+
+**The bump and its migration land in the same commit**, which this plan already says.
+
+---
 
 **Goal:** Let a student whose exam Pantas has never heard of name it, say what it covers,
 and study. Then let any student narrow what their track includes, from Settings, without

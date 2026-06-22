@@ -1,12 +1,66 @@
 # Settings 05: the Exam page
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **How to work this plan.** Implement it task by task, in order. For each task: write the
+> failing test first, run it and confirm it fails, then write the code that makes it pass. Do
+> not skip a step and do not batch tasks. Steps use checkbox (`- [ ]`) syntax so progress can
+> be tracked.
+>
+> **Required reading before Task 1:** `AGENTS.md` at the repository root, in full. It carries
+> the build commands, the visual identity bans, the voice rules, the never-invent-a-figure
+> rule and the landmines, and every one of them applies to this plan whether or not the
+> Global Constraints below happen to repeat it.
+>
+> **Follow the plan. Do not redesign.** If a step is ambiguous, contradicts the spec, or looks
+> wrong, **stop and say so** rather than inventing a solution. A plausible invention is more
+> expensive than a question, because it looks finished.
+>
+> **Analyzer baseline:** `flutter analyze` reports **27 issues** on a clean tree, every one of
+> them under `tools/` or `test/tool/`. `lib/` is clean. Any issue under `lib/` or `test/` is
+> one you introduced.
+>
+> **Work only inside your worktree.** Never write to the main checkout. A previous run left a
+> half-applied `app_database.dart` in the main tree with `schemaVersion` bumped and no
+> migration: a broken state that compiles.
+>
+> **Generated files (`*.g.dart`, `*.freezed.dart`) are never edited by hand and never
+> committed.** This repo gitignores them.
+>
+> **No AI attribution in commit messages.** No `Co-Authored-By` trailers, no "Generated with"
+> lines, no similar marker.
+
+## AMENDED 3 August 2026: this plan absorbs work from two others
+
+**Conflict C4, ruled by Aedwon.** Four tasks in `2026-07-25-onboarding-polish.md` and two in
+`2026-08-02-exam-switching.md` are struck in favor of the Settings thread. This plan is the
+beneficiary and nothing in it changes, but **three things are now true that were not when it
+was written:**
+
+1. **Task 1 is the only lift of `ExamSelectionRow`.** Onboarding polish Task 3 is struck, so
+   this is not a "check whether it exists first" situation: **it does not exist and you create
+   it.**
+2. **Task 3 is the only build of `exam_page.dart`.** Onboarding polish Task 4 is struck.
+3. **Task 2's `carryableCountProvider` is the only carryable count**, and
+   `exam-switching` Task 1 is struck. The preference it reads is
+   `userSettingsProvider.carryOverProgress` from `2026-08-03-settings-02-storage.md`, not
+   `AppPreferencesRepository`.
+
+**`exam-switching` still owns two things** and this plan must not build them: the per-student
+mock cooldown, and the carry-over filter on the Progress and Home figure providers.
+
+**`ExamDate` call sites:** `ExamDate.day(x)` becomes `ExamDate.onDay(x)` and `.exactDay`
+becomes `.day`, per conflict C1.
+
+---
 
 **Goal:** Build `/settings/exam`, the three-row page under the exam's own name, and make "Change exam" reach the screen a student already met during onboarding.
 
 **Architecture:** `ExamPage` holds three rows and nothing else. The roster is not rebuilt here: `ExamSelectionRow` is lifted out of the onboarding picker into `lib/core/ui/` and a new `ChangeExamPage` renders the same list, so onboarding and Settings share one row and one selection call. The carry-over prompt fires on the way back from a real change, not on arrival.
 
 **Tech Stack:** Flutter, Riverpod, go_router, Drift, `flutter_test`.
+
+**Source spec:** `docs/superpowers/specs/2026-08-03-settings-design.md` Section 7, and `docs/superpowers/specs/2026-08-02-exam-switching-design.md` Section 4.
+
+**Decision log:** `docs/superpowers/decisions/2026-08-03-settings-log.md`.
 
 ## Global Constraints
 

@@ -212,7 +212,7 @@ onboarding-polish and two from exam-switching. C5 struck quiz-2b's settings page
 
 ### The readiness sweep
 
-All **47** plans now open with a model-agnostic preamble that names no Claude-specific skill,
+All **47** plans now open with a model-agnostic preamble that names no harness-specific skill,
 requires `AGENTS.md` in full before Task 1, repeats the do-not-redesign rule, states the
 27-issue analyzer baseline, and forbids writing outside the worktree and committing generated
 files. All 47 cite their source spec by path, up from 42.
