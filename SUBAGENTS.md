@@ -110,6 +110,20 @@ later. Each carries a manifest table with a Done column and a per-row generation
 5. **Re-validate**, because the studio writes back to the YAML.
 6. **Tick the manifest row** in the plan and commit both.
 
+**Always redirect the validator's output.** It prints the full converted JSON of every
+question under `--root`, which is **2.8 MB** across the whole corpus. Ingesting that on every
+run is the single largest avoidable cost in a content dispatch. Check the exit code, not the
+dump, and scope `--root` to your own subject directory:
+
+```bash
+dart run tools/import_questions/import_questions.dart \
+  --root content/questions/<your subject dir> >/dev/null 2>&1; echo "exit: $?"
+```
+
+**Read the output only when the exit code is non-zero**, and then drop the redirect so the
+error message is visible.
+
+
 ### Content rules that no validator enforces
 
 These are the ones a fast model breaks, and none of them fails a build.

@@ -72,9 +72,23 @@ Add `figure: <slug>` to any question that is genuinely unanswerable without a di
 
 - [ ] **Step 4: Validate**
 
-Run: `dart run tools/import_questions/import_questions.dart --root content/questions`
+Run: `dart run tools/import_questions/import_questions.dart --root content/questions >/dev/null 2>&1`
 
 Expected: exit code 0. If it fails, it names the exact file and question id — fix and rerun before moving on. (Do not batch multiple subtopics before validating; validate after every file so mistakes are caught immediately.)
+
+**Always redirect the validator's output.** It prints the full converted JSON of every
+question under `--root`, which is **2.8 MB** across the whole corpus. Ingesting that on every
+run is the single largest avoidable cost in a content dispatch. Check the exit code, not the
+dump, and scope `--root` to your own subject directory:
+
+```bash
+dart run tools/import_questions/import_questions.dart \
+  --root content/questions/<your subject dir> >/dev/null 2>&1; echo "exit: $?"
+```
+
+**Read the output only when the exit code is non-zero**, and then drop the redirect so the
+error message is visible.
+
 
 - [ ] **Step 5: Review and approve in Question Studio**
 
@@ -101,7 +115,7 @@ Mark the manifest row below `- [x]` and move to the next row.
 
 - [ ] File exists at the exact manifest path.
 - [ ] 12–20 questions, covering every archetype that fits (per Step 2's plan).
-- [ ] `dart run tools/import_questions/import_questions.dart --root content/questions` exits 0.
+- [ ] `dart run tools/import_questions/import_questions.dart --root content/questions >/dev/null 2>&1` exits 0.
 - [ ] Question Studio shows zero validator errors and zero duplicate-stem flags for this subtopic.
 - [ ] Every question's `approved: true`.
 - [ ] Committed with a descriptive message; working tree clean except the next subtopic in progress.

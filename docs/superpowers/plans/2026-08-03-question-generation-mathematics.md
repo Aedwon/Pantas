@@ -89,10 +89,24 @@ sari-sari store, a tricycle queue. Not baseball statistics and not dollars.
 - [ ] **Step 4: Validate, before writing another file**
 
 ```bash
-dart run tools/import_questions/import_questions.dart --root content/questions
+dart run tools/import_questions/import_questions.dart --root content/questions >/dev/null 2>&1; echo "exit: $?"
 ```
 
 Exit code 0. If it fails it names the exact file and question id. Fix and rerun.
+
+**Always redirect the validator's output.** It prints the full converted JSON of every
+question under `--root`, which is **2.8 MB** across the whole corpus. Ingesting that on every
+run is the single largest avoidable cost in a content dispatch. Check the exit code, not the
+dump, and scope `--root` to your own subject directory:
+
+```bash
+dart run tools/import_questions/import_questions.dart \
+  --root content/questions/<your subject dir> >/dev/null 2>&1; echo "exit: $?"
+```
+
+**Read the output only when the exit code is non-zero**, and then drop the redirect so the
+error message is visible.
+
 
 - [ ] **Step 5: Check your own arithmetic**
 

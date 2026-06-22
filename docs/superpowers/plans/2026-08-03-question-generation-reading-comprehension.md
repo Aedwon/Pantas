@@ -92,11 +92,25 @@ then an inference.
 - [ ] **Step 4: Validate, before writing another file**
 
 ```bash
-dart run tools/import_questions/import_questions.dart --root content/questions
+dart run tools/import_questions/import_questions.dart --root content/questions >/dev/null 2>&1; echo "exit: $?"
 ```
 
 Exit code 0. The validator rejects an orphaned question, a set below 4 or above 8, a body
 outside the word range, and a passage with no questions.
+
+**Always redirect the validator's output.** It prints the full converted JSON of every
+question under `--root`, which is **2.8 MB** across the whole corpus. Ingesting that on every
+run is the single largest avoidable cost in a content dispatch. Check the exit code, not the
+dump, and scope `--root` to your own subject directory:
+
+```bash
+dart run tools/import_questions/import_questions.dart \
+  --root content/questions/<your subject dir> >/dev/null 2>&1; echo "exit: $?"
+```
+
+**Read the output only when the exit code is non-zero**, and then drop the redirect so the
+error message is visible.
+
 
 - [ ] **Step 5: Re-read the passage cold**
 
