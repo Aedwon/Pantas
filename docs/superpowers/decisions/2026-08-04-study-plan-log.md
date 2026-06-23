@@ -66,3 +66,49 @@ So the feature has a **measured half** that is nearly free, and one **unfounded 
 **My first framing overpriced the work by treating a May spec's vocabulary as the current
 state of the tree.** The check that fixed it was three greps. Run them before reporting a
 blocker, not after being challenged on one.
+
+---
+
+## 4 August 2026, later: the surface shrinks to the one job nothing else does
+
+**Found while preparing to draw**, after he asked for the screen drawn against the current
+identity. Checking the neighbouring specs first, per the rule that both rejected plates in the
+Progress work were rejected for inventing something already decided:
+
+- **"Start today's session" is already fully designed on the Quiz tab**, with its two figures,
+  its composition line and a caught-up state.
+- **The pacing sentence is already designed in Progress, under "Your pace"**, already wholly
+  Free, and already carrying the hard rule *"this stays arithmetic. It may never become a score
+  projection."* That is the same conditional-arithmetic shape I had just recommended inventing
+  for the study plan, and it existed already.
+- **What to work on next is Home's Practice panel.** The nearest mock is the Quiz tab's.
+
+**So cutting the curve left a screen that was mostly a second copy of three screens already
+designed.** This was not visible when the scope decision was taken earlier the same day, and it
+reopened it.
+
+### The options put to him
+
+| Option | Cost |
+|---|---|
+| **Forward calendar only** | Keeps the one job nothing else does: what the next days and weeks hold and where the mock sits. Deletes everything that competes with a better version of itself. Much smaller than what was agreed an hour earlier. |
+| Drop the screen entirely | Everything valuable is already reachable. The coach pillar keeps no surface of its own. |
+| Build it all as decided | Accepts the duplication across three tabs. |
+
+### What he chose
+
+**Option 1, the forward calendar.**
+
+> "for the options you gave, let's go with 1 - build as a forward calendar"
+
+**This reverses the earlier decision on the same day, and the earlier one stays above.** It went
+from "ship the measured half" to "ship only the part that looks forward", because the measured
+half turned out to be mostly already shipped elsewhere.
+
+### What I got wrong
+
+**I recommended re-founding the plan on a pacing sentence that Progress had already specced,
+word for word in spirit, months earlier.** I checked the study plan's own dependencies
+carefully and did not check whether its job had already been done by a neighbour. That is the
+second time in one round the same mistake shape appeared: reasoning from one document instead
+of from the current state of the whole design.
