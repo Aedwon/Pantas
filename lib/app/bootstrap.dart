@@ -6,6 +6,7 @@ import 'package:cse_cet_reviewer/app/flavor.dart';
 import 'package:cse_cet_reviewer/app/telemetry_providers.dart';
 import 'package:cse_cet_reviewer/core/content/bundle/seed_installer.dart';
 import 'package:cse_cet_reviewer/core/content/content.dart';
+import 'package:cse_cet_reviewer/core/content/content_database_opener.dart';
 import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/telemetry/error_boundary.dart';
@@ -44,10 +45,6 @@ Future<void> _bootstrap(
   await bootstrapFirebase(flavor);
 
   final overrides = await bootstrapStorageOverrides();
-
-  // The content database must be on disk before it can be opened, so the
-  // install runs before the overrides that open it.
-  await SeedInstaller().install();
   final contentOverrides = await bootstrapContentOverrides();
 
   final container = ProviderContainer(
@@ -67,6 +64,7 @@ Future<void> _bootstrap(
   );
   onContainerReady(container);
 
+  await _installContentSeed(container);
   await bootstrapRevenueCat(container);
   await container.read(seederProvider).maybeSeed();
 
@@ -81,4 +79,15 @@ Future<void> _bootstrap(
       child: App(flavor: flavor),
     ),
   );
+}
+
+Future<void> _installContentSeed(ProviderContainer container) async {
+  final prefs = container.read(appPreferencesRepositoryProvider);
+  final wrote = await SeedInstaller().install(
+    installedVersion: await prefs.installedContentSeedVersion(),
+    bundledVersion: contentSeedVersion,
+  );
+  if (wrote) {
+    await prefs.setInstalledContentSeedVersion(contentSeedVersion);
+  }
 }
