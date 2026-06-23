@@ -205,3 +205,32 @@ opposite directions, and each rounds toward the thing its own student cannot aff
 **Worth noting how it surfaced.** He was not raising a problem, he was checking he had followed
 the design. The gap turned up because he restated it in his own words, which the spec's own
 wording had let me skip past.
+
+---
+
+## 4 August 2026: the mock markers had no foundation, and I put them there
+
+**Found while preparing the implementation plan.** The approved spec said amber marks "each
+mock". **Nothing in the app schedules a mock.** The only rule that exists is a restriction: a
+Free student may take one every 14 days. I had drawn mock dates on the plate as though they
+were planned, and they were invented.
+
+### The options put to him
+
+| Option | Cost |
+|---|---|
+| 1. Drop the mock markers | Honest. The calendar keeps the review-only marker and the exam, and loses something useful. |
+| **2. Mark when the next mock unlocks**, 14 days after the last | Real for Free students. **Meaningless for Pro, who have no cap**, so their calendar carries fewer marks. |
+| 3. The plan schedules mocks, one every four weeks plus one near the end | Genuinely useful advice, and it makes this surface recommend rather than report. |
+
+**I recommended 3.** He chose **2**, having been told the Pro objection before choosing.
+
+**So the marker names a restriction, not a plan.** A Pro student sees no mock marker at all and
+their "Coming up" carries only the review-only marker and the exam. Thinner for the people who
+paid, and still the truthful drawing: the marker exists to name a limit and they do not have
+one.
+
+**What I got wrong:** I drew scheduled mocks into a mockup, wrote them into a spec, and got the
+spec approved, before checking that anything in the app produced such a date. The check took one
+grep. This is the third time in this feature that reasoning from a document instead of from the
+tree produced something that had to be pulled back.

@@ -210,12 +210,30 @@ identical and nothing stood out. Today now carries the only large figure on the 
 
 ### Color, and there is very little
 
-- **Amber marks the fixed points only**: each mock, the day new material stops, and the exam.
-  Four marks on a full screen, so the eye finds them at once.
+- **Amber marks the fixed points only**: the day new material stops, the exam, and the day the
+  next mock unlocks. A handful of marks on a full screen, so the eye finds them at once.
 - **No board green anywhere. No button.** Starting a session belongs to the Quiz tab, and a
   button here would only be a second door to it. **This is a screen to read, not to press**,
   and that is a deliberate departure from every other full-screen page in the app.
 - **Rules, never cards.** One hairline under each row, one heavy rule under each heading.
+
+### The mock marker, and what it actually means
+
+**Corrected 4 August 2026. An earlier draw marked mock exams as though the plan scheduled them.
+It does not, and nothing in the app does.** The only rule that exists is a restriction: a Free
+student may take one mock every 14 days.
+
+**So the marker names the day the next mock unlocks**, 14 days after their last one, and it says
+so in those words. It is a fact about a restriction they are under, not a recommendation and
+not a schedule.
+
+**A Pro student therefore sees no mock marker at all**, because nothing is locked for them.
+Their "Coming up" carries only the review-only marker and the exam. **This is thinner for the
+people who paid, and it is still the truthful drawing:** the marker exists to name a limit, and
+they do not have one.
+
+**The alternative of having the plan schedule mocks was offered and rejected.** It would have
+been the app recommending a cadence rather than reporting a fact, and this surface reports.
 
 ### What is not interactive
 
@@ -296,7 +314,11 @@ what to study is Home's job and this screen does not do it.
 - The student's intensity setting can raise the daily new count and can never lower it below
   the computed minimum.
 - **Exactly zero board green elements and zero buttons on the page.**
-- Amber appears only on mock dates, the review-only marker, and the exam date.
+- Amber appears only on the review-only marker, the exam date, and the next-mock-unlock date.
+- **A Pro student sees no mock marker**, because they have no cap. A Free student sees exactly
+  one, dated 14 days after their last mock.
+- No date on the screen is described as a scheduled or recommended mock. The plan schedules
+  nothing.
 - At month precision the header prints no day count, **and the pacing arithmetic runs against
   the first day of that month.** A student who names October is paced to finish by the start of
   October, never by the end of it.
