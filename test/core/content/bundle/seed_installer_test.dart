@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:cse_cet_reviewer/core/content/bundle/seed_installer.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:path/path.dart' as p;
 
 void main() {
   late Directory tempDir;
@@ -17,39 +18,70 @@ void main() {
     }
   });
 
-  test('install copies bundled content db when destination is missing',
+  test('a first install writes the file', () async {
+    final destination = File(p.join(tempDir.path, 'content.db'));
+    final installer = SeedInstaller(
+      loadAssetBytes: (_) async => Uint8List.fromList([1, 2, 3]),
+      destinationFile: () async => destination,
+    );
+
+    final wrote = await installer.install(
+      installedVersion: null,
+      bundledVersion: '2026-07-20',
+    );
+
+    expect(wrote, isTrue);
+    expect(destination.readAsBytesSync(), [1, 2, 3]);
+  });
+
+  test('the same version is not rewritten', () async {
+    final destination = File(p.join(tempDir.path, 'content.db'))
+      ..writeAsBytesSync([9, 9, 9]);
+    final installer = SeedInstaller(
+      loadAssetBytes: (_) async => Uint8List.fromList([1, 2, 3]),
+      destinationFile: () async => destination,
+    );
+
+    final wrote = await installer.install(
+      installedVersion: '2026-07-20',
+      bundledVersion: '2026-07-20',
+    );
+
+    expect(wrote, isFalse);
+    expect(destination.readAsBytesSync(), [9, 9, 9]);
+  });
+
+  test('a newer bundled version replaces the installed file', () async {
+    final destination = File(p.join(tempDir.path, 'content.db'))
+      ..writeAsBytesSync([9, 9, 9]);
+    final installer = SeedInstaller(
+      loadAssetBytes: (_) async => Uint8List.fromList([1, 2, 3]),
+      destinationFile: () async => destination,
+    );
+
+    final wrote = await installer.install(
+      installedVersion: '2026-07-20',
+      bundledVersion: '2026-08-02',
+    );
+
+    expect(wrote, isTrue);
+    expect(destination.readAsBytesSync(), [1, 2, 3]);
+  });
+
+  test('a file that vanished is reinstalled even at the same version',
       () async {
-    final destination = File('${tempDir.path}/content.db');
+    final destination = File(p.join(tempDir.path, 'content.db'));
     final installer = SeedInstaller(
-      destinationFile: () async => destination,
       loadAssetBytes: (_) async => Uint8List.fromList([1, 2, 3]),
-    );
-
-    await installer.install();
-
-    expect(destination.readAsBytesSync(), equals([1, 2, 3]));
-  });
-
-  test('install does not overwrite an existing destination', () async {
-    final destination = File('${tempDir.path}/content.db');
-    await destination.writeAsBytes([9, 9]);
-    final installer = SeedInstaller(
       destinationFile: () async => destination,
-      loadAssetBytes: (_) async => Uint8List.fromList([1, 2, 3]),
     );
 
-    await installer.install();
-
-    expect(destination.readAsBytesSync(), equals([9, 9]));
-  });
-
-  test('install throws when asset copy fails', () async {
-    final destination = File('${tempDir.path}/content.db');
-    final installer = SeedInstaller(
-      destinationFile: () async => destination,
-      loadAssetBytes: (_) => throw StateError('missing asset'),
+    final wrote = await installer.install(
+      installedVersion: '2026-08-02',
+      bundledVersion: '2026-08-02',
     );
 
-    expect(installer.install, throwsStateError);
+    expect(wrote, isTrue);
+    expect(destination.existsSync(), isTrue);
   });
 }

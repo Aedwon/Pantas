@@ -98,4 +98,16 @@ void main() {
       equals('upcat'),
     );
   });
+
+  test('the installed content seed version round-trips', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = AppPreferencesRepository(db);
+
+    expect(await repo.installedContentSeedVersion(), isNull);
+
+    await repo.setInstalledContentSeedVersion('2026-08-02');
+
+    expect(await repo.installedContentSeedVersion(), '2026-08-02');
+  });
 }

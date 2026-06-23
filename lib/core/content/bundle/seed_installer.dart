@@ -20,12 +20,26 @@ class SeedInstaller {
   final DestinationFileResolver _destinationFile;
   final String assetPath;
 
-  Future<void> install() async {
+  /// Writes the bundled database to disk when the installed copy is missing or
+  /// older than the bundled one. Returns true when it wrote.
+  ///
+  /// The file's existence is checked as well as the version, because the two
+  /// can disagree: the OS may clear application support without the recorded
+  /// version changing, and trusting the version alone would leave the app with
+  /// no database at all.
+  Future<bool> install({
+    required String? installedVersion,
+    required String bundledVersion,
+  }) async {
     final destination = await _destinationFile();
-    if (destination.existsSync()) return;
+    final upToDate =
+        installedVersion == bundledVersion && destination.existsSync();
+    if (upToDate) return false;
+
     await destination.parent.create(recursive: true);
     final bytes = await _loadAssetBytes(assetPath);
     await destination.writeAsBytes(bytes, flush: true);
+    return true;
   }
 
   static Future<Uint8List> _loadFromRootBundle(String assetPath) async {

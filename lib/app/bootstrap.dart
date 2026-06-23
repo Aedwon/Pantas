@@ -4,6 +4,9 @@ import 'package:cse_cet_reviewer/app/app.dart';
 import 'package:cse_cet_reviewer/app/firebase_bootstrap.dart';
 import 'package:cse_cet_reviewer/app/flavor.dart';
 import 'package:cse_cet_reviewer/app/telemetry_providers.dart';
+import 'package:cse_cet_reviewer/core/content/bundle/seed_installer.dart';
+import 'package:cse_cet_reviewer/core/content/content.dart';
+import 'package:cse_cet_reviewer/core/content/content_database_opener.dart';
 import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/telemetry/error_boundary.dart';
@@ -42,9 +45,12 @@ Future<void> _bootstrap(
   await bootstrapFirebase(flavor);
 
   final overrides = await bootstrapStorageOverrides();
+  final contentOverrides = await bootstrapContentOverrides();
+
   final container = ProviderContainer(
     overrides: [
       ...overrides,
+      ...contentOverrides,
       // Firebase is initialized by now, so the SDK-backed sink is safe to
       // build. The gate above it still decides whether anything reaches it.
       telemetrySinkProvider.overrideWithValue(FirebaseTelemetry.instances()),
@@ -58,6 +64,7 @@ Future<void> _bootstrap(
   );
   onContainerReady(container);
 
+  await _installContentSeed(container);
   await bootstrapRevenueCat(container);
   await container.read(seederProvider).maybeSeed();
 
@@ -72,4 +79,15 @@ Future<void> _bootstrap(
       child: App(flavor: flavor),
     ),
   );
+}
+
+Future<void> _installContentSeed(ProviderContainer container) async {
+  final prefs = container.read(appPreferencesRepositoryProvider);
+  final wrote = await SeedInstaller().install(
+    installedVersion: await prefs.installedContentSeedVersion(),
+    bundledVersion: contentSeedVersion,
+  );
+  if (wrote) {
+    await prefs.setInstalledContentSeedVersion(contentSeedVersion);
+  }
 }

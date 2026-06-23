@@ -5,6 +5,7 @@ class AppPreferencesRepository {
 
   static const _selectedExamIdKey = 'selected_exam_id';
   static const _passedAgeGateKey = 'passed_age_gate';
+  static const _contentSeedVersionKey = 'content_seed_version';
 
   final AppDatabase _db;
 
@@ -46,6 +47,22 @@ class AppPreferencesRepository {
           DevicePrefsCompanion.insert(
             key: _passedAgeGateKey,
             value: value ? 'true' : 'false',
+          ),
+        );
+  }
+
+  Future<String?> installedContentSeedVersion() async {
+    final row = await (_db.select(_db.devicePrefs)
+          ..where((p) => p.key.equals(_contentSeedVersionKey)))
+        .getSingleOrNull();
+    return row?.value;
+  }
+
+  Future<void> setInstalledContentSeedVersion(String version) async {
+    await _db.into(_db.devicePrefs).insertOnConflictUpdate(
+          DevicePrefsCompanion.insert(
+            key: _contentSeedVersionKey,
+            value: version,
           ),
         );
   }
