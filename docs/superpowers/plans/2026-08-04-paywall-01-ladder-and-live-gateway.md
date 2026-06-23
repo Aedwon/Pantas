@@ -179,7 +179,7 @@ enum PaywallSku { weekly, monthly, yearly }
 
 - [ ] **Step 4: Fix every exhaustive switch and every reference**
 
-`lib/features/paywall/domain/paywall_recommendation.dart` — delete the `lifetime` arm from
+In `lib/features/paywall/domain/paywall_recommendation.dart`, delete the `lifetime` arm from
 both switches, leaving:
 
 ```dart
@@ -212,7 +212,7 @@ would put two unrelated reasons in one commit.
 Delete the line `if (entitlement.isLifetime) return 'Pro · Lifetime · yours forever.';` and
 delete the `EntitlementPlan.lifetime => 'Lifetime',` switch arm.
 
-`lib/features/paywall/presentation/paywall_package_card.dart` — delete the
+In `lib/features/paywall/presentation/paywall_package_card.dart`, delete the
 `PaywallSku.lifetime => 'Lifetime',` arm and the
 `PaywallSku.lifetime => '${package.priceString} · Pay once',` arm.
 
@@ -229,11 +229,11 @@ guards. **If deleting the guard at line 51 leaves its enclosing function with no
 return, make that function return `null` unconditionally and say so in your report:** that is
 a behavior change this plan did not anticipate and it should be checked rather than absorbed.
 
-`lib/features/legal/domain/legal_document.dart:65` — the sentence mentions a "lifetime
+In `lib/features/legal/domain/legal_document.dart:65` the sentence mentions a "lifetime
 purchase". Replace that clause so the sentence reads about subscriptions only, keeping the rest
 of the paragraph as it stands.
 
-`lib/app/router.dart` — delete these two arms:
+In `lib/app/router.dart`, delete these two arms:
 
 ```dart
     EntitlementPlan.lifetime => 'Pro · Lifetime',
