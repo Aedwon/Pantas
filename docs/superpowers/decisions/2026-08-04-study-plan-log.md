@@ -175,3 +175,33 @@ a week of reviewing almost nothing. **The tail is therefore the last 7 days, or 
 of the window, whichever is shorter.** Ten weeks gives a full week, ten days gives about two,
 four days gives one. Recorded as my call rather than his, because it is mechanical rather than a
 question of values, and it should be easy to reverse if he disagrees.
+
+---
+
+## 4 August 2026: his confirming question found a hole in the spec
+
+He read the spec back to check his understanding:
+
+> "this corrects the earlier decision right? so the app will set out what it's supposed to do
+> which is to create a plan for the user based on the estimated time from today til their
+> specific exam (whether day-specified or not)"
+
+**Both halves were right.** It does correct the morning's decision, which had cut pacing
+entirely, and the app does now build the plan from the time until the exam.
+
+**The parenthesis found something the spec did not answer.** It said what not to print at month
+precision and never said what the arithmetic should use.
+
+**Fixed: a month with no day is planned against the first of that month.**
+
+**This is deliberately the opposite of the paywall's rule**, which prices to the last day of a
+stated month so a student is never left without cover. Here that direction is dangerous: a
+student sitting on 2 October, planned against 31 October, would be paced to meet new material
+for three weeks after their exam.
+
+**Finishing early costs review days. Finishing late costs the exam.** The two surfaces round in
+opposite directions, and each rounds toward the thing its own student cannot afford to lose.
+
+**Worth noting how it surfaced.** He was not raising a problem, he was checking he had followed
+the design. The gap turned up because he restated it in his own words, which the spec's own
+wording had let me skip past.

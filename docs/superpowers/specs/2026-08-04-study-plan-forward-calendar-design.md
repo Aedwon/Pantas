@@ -97,6 +97,31 @@ days breaks at short windows: a student with eight days would get one day of new
 a week of reviewing almost nothing. Ten weeks gives a full week of review, ten days gives about
 two, four days gives one.
 
+### When only the month is known, plan to the first of that month
+
+**Added 4 August 2026 after Aedwon asked what happens to a student who gave a month rather than
+a day.** The spec said what not to print and never said what the arithmetic uses.
+
+**A month with no day is treated as the first of that month.**
+
+**This is the opposite of the rule the paywall uses, and the difference is deliberate.** The
+plans screen prices to the *last* day of a stated month so a student is never left without
+cover. **Here that direction would be dangerous.** A student sitting on 2 October, planned
+against 31 October, would be paced to meet new material for three weeks after their exam.
+
+| Direction | What it costs |
+|---|---|
+| **First of the month** | Some extra review days if the exam is late in the month |
+| Last of the month | Material they have never seen on the day they sit the paper |
+
+**Finishing early costs review time. Finishing late costs the exam.** The two surfaces
+therefore round in opposite directions, and each rounds toward the thing its own student cannot
+afford to lose.
+
+**The header still prints no day count at month precision.** Planning against a date and
+printing that date are different acts: the first is arithmetic the student never sees, the
+second would be telling them we know something we do not.
+
 *This proportional rule is the only part of Section 3 that is not Aedwon's own instruction. It
 is mechanical rather than a question of values, and it is written down so it is easy to
 reverse.*
@@ -272,5 +297,7 @@ what to study is Home's job and this screen does not do it.
   the computed minimum.
 - **Exactly zero board green elements and zero buttons on the page.**
 - Amber appears only on mock dates, the review-only marker, and the exam date.
-- At month precision the header prints no day count.
+- At month precision the header prints no day count, **and the pacing arithmetic runs against
+  the first day of that month.** A student who names October is paced to finish by the start of
+  October, never by the end of it.
 - Nothing on the page is tappable except the back arrow.
