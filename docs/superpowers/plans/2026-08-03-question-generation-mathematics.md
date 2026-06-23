@@ -141,7 +141,7 @@ Topic slug `arithmetic-number-sense`. Exams for all rows:
 | [ ] | `ratio-and-proportion` | `word-problem` |
 | [ ] | `business-math` | `word-problem` |
 | [ ] | `sequences-and-series` | `which-is-true`, `direct-computation` |
-| [ ] | `real-imaginary-numbers` | `which-is-true` |
+| [x] | `real-imaginary-numbers` | `which-is-true` |
 
 **`business-math` is where Filipino context matters most:** discounts, commission, simple
 interest, markup, and a sari-sari store's margins.
