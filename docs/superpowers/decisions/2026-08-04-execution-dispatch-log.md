@@ -153,3 +153,29 @@ ticking rows I did not verify would make it wrong in a more confident way.
 `study01` and `offline`, two at a time per the standing constraint, each with its prior commits
 listed so it does not start over, and each led with the fix for what actually stalled them:
 **run every command in the foreground and wait for it.** `obs04` waits its turn.
+
+### The resume failed, and it was not the prompts and not the quota
+
+Both resumed runs exited within seconds with *"There was a network issue connecting to the
+server, please try again."* Neither made a commit. Diagnosed rather than retried:
+
+```
+Error: Eligibility check failed: failed to get load code assist response:
+Post "https://daily-cloudcode-pa.googleapis.com/v1internal:loadCodeAssist":
+read tcp ...->172.217.114.4:443: read: operation timed out
+```
+
+Then, to separate a local network fault from a service fault:
+
+```
+google.com:          200 in 0.79s
+codeassist endpoint: 000 in 931s, unreachable
+```
+
+**So the connection is healthy and Google's Code Assist backend is down.** Nothing to do with
+the foreground fix, the resume prompts, or the quota window that had just reset.
+
+**Stopped rather than retried.** Nothing further dispatched. All three worktrees keep their
+commits and their uncommitted work, and `main` is clean at the two merges. The foreground fix
+is still untested against a live service: it addresses the stall that was diagnosed, but it has
+not yet been proven, and this log should not read later as though it had.
