@@ -97,6 +97,7 @@ flutter:
   uses-material-design: true
   generate: true   # enables ARB-driven l10n in Plan 2+
   assets:
+    - assets/seed/content.db
     - assets/seed/v1.json
   fonts:
     - family: SourceSerif4

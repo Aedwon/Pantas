@@ -4,6 +4,8 @@ import 'package:cse_cet_reviewer/app/app.dart';
 import 'package:cse_cet_reviewer/app/firebase_bootstrap.dart';
 import 'package:cse_cet_reviewer/app/flavor.dart';
 import 'package:cse_cet_reviewer/app/telemetry_providers.dart';
+import 'package:cse_cet_reviewer/core/content/bundle/seed_installer.dart';
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/telemetry/error_boundary.dart';
@@ -42,9 +44,16 @@ Future<void> _bootstrap(
   await bootstrapFirebase(flavor);
 
   final overrides = await bootstrapStorageOverrides();
+
+  // The content database must be on disk before it can be opened, so the
+  // install runs before the overrides that open it.
+  await SeedInstaller().install();
+  final contentOverrides = await bootstrapContentOverrides();
+
   final container = ProviderContainer(
     overrides: [
       ...overrides,
+      ...contentOverrides,
       // Firebase is initialized by now, so the SDK-backed sink is safe to
       // build. The gate above it still decides whether anything reaches it.
       telemetrySinkProvider.overrideWithValue(FirebaseTelemetry.instances()),
