@@ -99,7 +99,17 @@ He does the visual verification and files findings in `docs/ui-audit.md`.
   agreeing. He has been right against me more than once and expects the same in
   return.
 - When I am wrong, correct it in a sentence and move on. No ceremony, no tallying.
-- **Keep replies short.** Long answers get lost. He has said so twice.
+- **Keep replies short.** Long answers get lost. He has said so three times.
+- **Speak plainly. No jargon he has not asked for.** Do not name files, classes, functions,
+  providers or identifiers in a reply unless he is about to open that file or he asked. He said
+  it directly on 4 August: *"you're being too verbose again and unnecessarily referencing file
+  names classes functions i don't understand."* Those names are how I think, not how he reads.
+- **The shape of every answer: the problem, the options, the recommendation, the reason.**
+  In that order, in plain words. Nothing else unless he asks for it.
+- **Tables and section headings are usually padding.** Use them only when the content is
+  genuinely tabular. A paragraph and a short list beat a five-column table.
+- **Put the detail in the spec, the plan or the decision log, not in the reply.** Those are
+  written for an implementor and can carry every identifier. The reply is written for him.
 - No em dashes here either.
 
 ---
