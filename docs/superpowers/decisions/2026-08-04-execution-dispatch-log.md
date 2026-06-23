@@ -111,3 +111,45 @@ two complete worktrees, then resume the three stalled ones rather than re-dispat
 `mathriq` wrote **15** questions and also edited the Done column of its own plan. The manifest's
 target for that row was not confirmed against the delivered count. 15 may be short, and a plan
 marking itself done is exactly the kind of claim that needs checking rather than relaying.
+
+---
+
+## 4 August 2026, 06:56: the scheduled resume, two merges and two findings
+
+The one-shot job fired as scheduled. Nothing was re-dispatched cold.
+
+### Merged, after running the gates myself rather than reading a report
+
+**`content-seed-delivery`.** The diff against its true base is eight files and nothing outside
+the plan's remit. Gates, pasted rather than relayed: **1013 tests pass**; **zero analyzer
+issues under `lib/` and `test/` outside `test/tool/`**, the invariant, with the 25 remaining
+all in `tools/`; formatter reports 694 files and 0 changed; layering **7**, the accepted
+baseline; attribution **OK**. Merged.
+
+**This is the one that mattered.** Until it landed, everything authored since 25 July reached
+nobody in a release build.
+
+**Mathematics `real-imaginary-numbers`.** 15 questions. Validator exit **0**, both scoped to the
+one directory and across the whole corpus. Merged.
+
+### Two findings, one of which was mine
+
+1. **The 15-question count was fine and the note's worry was unfounded.** The plan's Definition
+   of Done says **12 to 20 questions per subtopic**, so 15 is inside the band, not short. Worth
+   recording because the handoff note flagged it as a likely problem and it was not one.
+2. **I reported the validator as failing at 255 when the failure was my own typo.** I ran it
+   from `tool/` when the tool lives in `tools/`. Caught within a minute by reading the error
+   instead of the exit code, but it is exactly the kind of thing that gets written into a log as
+   an agent's fault when it is the verifier's.
+
+**One piece of staleness found in passing, not fixed.** The Mathematics manifest still shows the
+other eight `arithmetic-number-sense` rows unticked, while all nine YAML files exist on disk and
+the pipeline reports 43 of 44 subtopics done. **The manifest is behind the corpus**, so it
+cannot be trusted as the record of what is written. Left alone rather than bulk-ticked, because
+ticking rows I did not verify would make it wrong in a more confident way.
+
+### Resumed, not re-dispatched
+
+`study01` and `offline`, two at a time per the standing constraint, each with its prior commits
+listed so it does not start over, and each led with the fix for what actually stalled them:
+**run every command in the foreground and wait for it.** `obs04` waits its turn.
