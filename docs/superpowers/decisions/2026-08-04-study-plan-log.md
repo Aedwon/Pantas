@@ -112,3 +112,66 @@ word for word in spirit, months earlier.** I checked the study plan's own depend
 carefully and did not check whether its job had already been done by a neighbour. That is the
 second time in one round the same mistake shape appeared: reasoning from one document instead
 of from the current state of the whole design.
+
+---
+
+## 4 August 2026, the pacing rules, and cramming left alone
+
+### The counting horizon
+
+Options put to him on the plate, after the whole screen was drawn:
+
+| Option | Cost |
+|---|---|
+| **A. Stop counting after this week** | Honest. The far view still earns its place by showing where the mock falls. Loses the sense of a full workload ahead. |
+| B. Estimate every week | Fuller, and it makes the plan feel like a plan. Those figures would be this project's own guess about a schedule that has not happened yet. |
+
+**He chose A.** Same reasoning that cut the pace curve: this week's counts are real because the
+review schedule already knows those dates, and anything past that is a guess wearing the
+clothes of a fact.
+
+### He put pacing back, on a footing that is allowed
+
+> "am I right to assume the app algorithmically adjusts the plan based on the length of today
+> until the exam date right? then can you make sure for whether they have a long time or a
+> short time, you should consider that all new topics should be consumed so that the last few
+> days are just pure review and nothing new?"
+
+**He was half right and the correction matters.** The app does not adjust to the exam date
+today: the old design did, but by projecting readiness, which was cut this morning. His proposal
+puts pacing back **built on counting rather than guessing**: material remaining divided by days
+available. That is arithmetic over known quantities, the same class as Progress's "at three
+lessons a week you finish nine days after the exam", so it is permitted where the curve was not.
+
+**It collides with the decision taken earlier the same day**, that the daily new-material amount
+comes from the Light / Standard / Intense preset. If the student sets the pace, nothing
+guarantees the material finishes before the exam.
+
+| Option for the preset | Cost |
+|---|---|
+| 1. App sets pace, preset only moves the length of the quiet tail | Tidy, but removes a control students expect |
+| **2. App sets a minimum pace, preset can only push faster** | Guarantees finishing in time, and someone with months to spare can still choose to go hard |
+| 3. Drop the preset, the date decides everything | Simplest, no sense of choice at all |
+
+**He chose 2.** And **7 days** for the review-only tail.
+
+### Where he overruled me, and he was right
+
+I proposed that when there is not enough time, the app should say so and prioritise the topics
+worth the most marks.
+
+> "how do you decide which one's worth the most marks? doesn't make sense. let them cram. if
+> they started studying with 10 days left they definitely decided before to cram"
+
+**Two things wrong with my proposal.** The app has no defensible basis for ranking what is worth
+most *to this student*, and more importantly a student who starts ten days out has already made
+their decision. Triage would be the app second-guessing a choice already made. **No triage. If
+the time is short, divide it all in and let them cram.**
+
+### One mechanical hole, closed without asking
+
+A fixed 7 day tail breaks at short windows: 8 days total would leave one day of new material and
+a week of reviewing almost nothing. **The tail is therefore the last 7 days, or the last quarter
+of the window, whichever is shorter.** Ten weeks gives a full week, ten days gives about two,
+four days gives one. Recorded as my call rather than his, because it is mechanical rather than a
+question of values, and it should be easy to reverse if he disagrees.
