@@ -25,6 +25,7 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
     includeScore: false,
   );
   bool _sharing = false;
+  String? _errorMessage;
 
   @override
   Widget build(BuildContext context) {
@@ -52,17 +53,27 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
           children: const [FaintBars()],
         ),
         error: (_, __) => Center(
-          child: Text(
-            'Wrapped is unavailable.',
-            style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Text(
+              "Your Wrapped needs a connection. It'll be here when you're "
+              'back.',
+              style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+              textAlign: TextAlign.center,
+            ),
           ),
         ),
         data: (entry) {
           if (entry == null) {
             return Center(
-              child: Text(
-                'Wrapped is unavailable.',
-                style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+              child: Padding(
+                padding: const EdgeInsets.all(24),
+                child: Text(
+                  "Your Wrapped needs a connection. It'll be here when you're "
+                  'back.',
+                  style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+                  textAlign: TextAlign.center,
+                ),
               ),
             );
           }
@@ -80,6 +91,13 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
                     setState(() => _selection = selection),
               ),
               const SizedBox(height: 12),
+              if (_errorMessage != null) ...[
+                Text(
+                  _errorMessage!,
+                  style: styles.bodySmall.copyWith(color: colors.rust),
+                ),
+                const SizedBox(height: 8),
+              ],
               BoardButton(
                 label: _sharing ? 'Rendering...' : 'Share PNG',
                 onPressed: _sharing ? null : () => _share(entry),
@@ -97,7 +115,10 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
   }
 
   Future<void> _share(UserMetricsArtifactEntry entry) async {
-    setState(() => _sharing = true);
+    setState(() {
+      _sharing = true;
+      _errorMessage = null;
+    });
     try {
       final flow = WrappedShareFlow(
         repository: ref.read(userMetricsArtifactRepositoryProvider),
@@ -111,6 +132,14 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('PNG rendered for sharing.')),
+        );
+      }
+    } catch (_) {
+      if (mounted) {
+        setState(
+          () => _errorMessage =
+              "Your Wrapped needs a connection. It'll be here when you're "
+                  'back.',
         );
       }
     } finally {

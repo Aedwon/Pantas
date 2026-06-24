@@ -170,14 +170,7 @@ class SettingsHomePage extends ConsumerWidget {
     required SyncStatus? status,
   }) {
     if (isAnonymous) return 'Sign in to back up your progress';
-    return switch (status) {
-      Syncing(:final pendingCount) => 'Backing up... $pendingCount items',
-      SyncPartialFailure() || SyncFailedSince() => "Couldn't back up",
-      SyncOk(:final pendingCount) when pendingCount > 0 =>
-        'Your progress is saved - $pendingCount pending',
-      SyncOk() || SyncIdle() => 'Your progress is saved',
-      null => 'Backup status unavailable',
-    };
+    return 'Back up progress';
   }
 
   static String? _formatDate(DateTime? date) {

@@ -127,7 +127,10 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Try Pro'), findsOneWidget);
-    expect(find.textContaining('Pro plans are unavailable'), findsOneWidget);
+    expect(
+      find.textContaining('You need a connection to subscribe'),
+      findsOneWidget,
+    );
   });
 
   testWidgets('/settings renders Settings home; /more redirects there',

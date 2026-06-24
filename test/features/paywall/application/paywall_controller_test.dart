@@ -43,7 +43,8 @@ void main() {
     expect(result.entitlement, const Entitlement.free());
     expect(
       result.errorMessage,
-      "Couldn't reach Google Play. Check your connection and try again.",
+      "You need a connection to subscribe. Try again when you're back "
+      'online.',
     );
   });
 }

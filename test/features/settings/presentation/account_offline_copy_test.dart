@@ -1,0 +1,52 @@
+import 'package:cse_cet_reviewer/core/auth/auth_repository.dart';
+import 'package:cse_cet_reviewer/core/auth/providers.dart';
+import 'package:cse_cet_reviewer/core/auth/sign_in_result.dart';
+import 'package:cse_cet_reviewer/core/sync/providers.dart';
+import 'package:cse_cet_reviewer/core/sync/sync_status.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
+import 'package:cse_cet_reviewer/features/settings/presentation/pages/account_page.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+class FailingAuthRepository implements AuthRepository {
+  @override
+  Future<SignInResult> signInWithGoogle() async {
+    return const SignInResult.failed(reason: 'network_error');
+  }
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
+}
+
+void main() {
+  group('AccountPage offline copy', () {
+    testWidgets('shows failure line when sign in fails', (tester) async {
+      final repo = FailingAuthRepository();
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            currentUserProvider.overrideWith((ref) => null),
+            isAnonymousProvider.overrideWith((ref) => true),
+            syncStatusProvider.overrideWith(
+              (ref) => Stream.value(const SyncIdle()),
+            ),
+            authRepositoryProvider.overrideWithValue(repo),
+          ],
+          child: MaterialApp(
+            theme: buildLightTheme(),
+            home: const AccountPage(),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      final button = find.text('Sign in with Google');
+      expect(button, findsOneWidget);
+      await tester.tap(button);
+      await tester.pumpAndSettle();
+
+      expect(find.text('You need a connection to sign in.'), findsOneWidget);
+    });
+  });
+}

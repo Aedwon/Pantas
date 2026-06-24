@@ -41,7 +41,8 @@ class _PaywallPageState extends State<PaywallPage> {
         appBar: AppBar(title: const Text('Try Pro')),
         body: Center(
           child: Text(
-            'Pro plans are unavailable. Check your connection.',
+            "You need a connection to subscribe. Try again when you're back "
+            'online.',
             style: styles.bodyMedium.copyWith(color: colors.inkMuted),
           ),
         ),
@@ -61,7 +62,20 @@ class _PaywallPageState extends State<PaywallPage> {
         title: const Text('Try Pro'),
         actions: [
           TextButton(
-            onPressed: widget.onRestore,
+            onPressed: () async {
+              final restore = widget.onRestore;
+              if (restore == null) return;
+              try {
+                await restore();
+              } catch (_) {
+                if (!mounted) return;
+                setState(
+                  () => _errorMessage =
+                      'You need a connection to subscribe. Try again when '
+                          "you're back online.",
+                );
+              }
+            },
             child: const Text('Restore'),
           ),
         ],
@@ -86,23 +100,22 @@ class _PaywallPageState extends State<PaywallPage> {
               onTap: () => setState(() => _selectedSku = package.sku),
             ),
           const SizedBox(height: 16),
-          if (_errorMessage != null) ...[
+          if (_errorMessage != null)
             Text(
               _errorMessage!,
-              style: styles.bodySmall.copyWith(color: colors.rust),
+              style: styles.bodyMedium.copyWith(color: colors.rust),
+            )
+          else
+            BoardButton(
+              label: ctaCopyFor(selected),
+              onPressed: () async {
+                final purchase = widget.onPurchase;
+                if (purchase == null) return;
+                final result = await purchase(selected);
+                if (!mounted) return;
+                setState(() => _errorMessage = result.errorMessage);
+              },
             ),
-            const SizedBox(height: 10),
-          ],
-          BoardButton(
-            label: ctaCopyFor(selected),
-            onPressed: () async {
-              final purchase = widget.onPurchase;
-              if (purchase == null) return;
-              final result = await purchase(selected);
-              if (!mounted) return;
-              setState(() => _errorMessage = result.errorMessage);
-            },
-          ),
           const SizedBox(height: 8),
           Text(
             'Paid through Google Play.',

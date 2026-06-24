@@ -1,8 +1,7 @@
 import 'dart:async';
 
 import 'package:cse_cet_reviewer/core/auth/providers.dart';
-import 'package:cse_cet_reviewer/core/sync/providers.dart';
-import 'package:cse_cet_reviewer/core/sync/sync_status.dart';
+import 'package:cse_cet_reviewer/core/auth/sign_in_result.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/widgets/settings_row.dart';
@@ -10,14 +9,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class AccountPage extends ConsumerWidget {
+class AccountPage extends ConsumerStatefulWidget {
   const AccountPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<AccountPage> createState() => _AccountPageState();
+}
+
+class _AccountPageState extends ConsumerState<AccountPage> {
+  String? _errorMessage;
+
+  @override
+  Widget build(BuildContext context) {
     final user = ref.watch(currentUserProvider).valueOrNull;
     final isAnonymous = ref.watch(isAnonymousProvider).valueOrNull ?? false;
-    final syncStatus = ref.watch(syncStatusProvider).valueOrNull;
 
     return Scaffold(
       appBar: AppBar(title: const Text('Account')),
@@ -32,10 +37,33 @@ class AccountPage extends ConsumerWidget {
                   .copyWith(color: context.colors.inkMuted),
             ),
             const SizedBox(height: 16),
+            if (_errorMessage != null) ...[
+              Text(
+                _errorMessage!,
+                style: context.textStyles.bodySmall
+                    .copyWith(color: context.colors.rust),
+              ),
+              const SizedBox(height: 12),
+            ],
             BoardButton(
               label: 'Sign in with Google',
-              onPressed: () =>
-                  ref.read(authRepositoryProvider).signInWithGoogle(),
+              onPressed: () async {
+                try {
+                  final result =
+                      await ref.read(authRepositoryProvider).signInWithGoogle();
+                  if (result is FailedSignInResult && mounted) {
+                    setState(
+                      () => _errorMessage = 'You need a connection to sign in.',
+                    );
+                  }
+                } catch (_) {
+                  if (mounted) {
+                    setState(
+                      () => _errorMessage = 'You need a connection to sign in.',
+                    );
+                  }
+                }
+              },
             ),
             const SizedBox(height: 24),
             SettingsRow(
@@ -58,7 +86,6 @@ class AccountPage extends ConsumerWidget {
             const SizedBox(height: 24),
             SettingsRow(
               title: 'Sign out',
-              subtitle: _pendingSyncCopy(syncStatus),
               onTap: () => _confirmSignOut(context, ref),
             ),
             SettingsRow(
@@ -70,16 +97,6 @@ class AccountPage extends ConsumerWidget {
         ],
       ),
     );
-  }
-
-  static String? _pendingSyncCopy(SyncStatus? status) {
-    final pending = switch (status) {
-      Syncing(:final pendingCount) => pendingCount,
-      SyncOk(:final pendingCount) => pendingCount,
-      _ => 0,
-    };
-    if (pending <= 0) return null;
-    return 'You have $pending items not yet backed up.';
   }
 
   static Future<void> _confirmSignOut(
@@ -113,9 +130,6 @@ class AccountPage extends ConsumerWidget {
 
   static void _go(BuildContext context, String location) {
     final router = GoRouter.maybeOf(context);
-    // Push, never go: these destinations sit outside the tab shell and rely
-    // on the AppBar's implicit back arrow, which only appears when the
-    // stack can pop.
     if (router != null) unawaited(router.push<void>(location));
   }
 }
