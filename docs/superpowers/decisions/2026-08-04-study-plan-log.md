@@ -234,3 +234,31 @@ one.
 spec approved, before checking that anything in the app produced such a date. The check took one
 grep. This is the third time in this feature that reasoning from a document instead of from the
 tree produced something that had to be pulled back.
+
+---
+
+## 4 August 2026: the worked example in the approved spec was wrong three ways
+
+**Found while writing the implementation plan**, by computing the arithmetic instead of copying
+the numbers I had already drawn.
+
+| Claimed | Actually |
+|---|---|
+| 4 August 2026 is a Monday | **Tuesday** |
+| 12 October 2026 is a Sunday | **Monday** |
+| 6 new questions a day | **7.** 69 days, minus a 7 day quiet stretch, is 62 working days. 414 unseen questions over 62 days is 6.68, which rounds up to 7 |
+
+The day list was wrong as a consequence: it ran Tue 5 to Sun 10, six days, when the rest of the
+week after a Tuesday is Wed 5 to Sun 9, five days.
+
+**All three went through a mockup he looked at, and through a spec he approved.** The weekdays
+were invented rather than computed, and the daily figure contradicted the spec's own rule two
+sections above it.
+
+**Fixed in the spec, and the corrected block now states its own inputs** so the arithmetic can
+be checked at a glance. A note tells any implementer to check the block rather than copy it.
+
+**The pattern, now three for three in this feature.** Reasoning from what I had already written
+instead of from the thing itself: first treating a May spec's vocabulary as the state of the
+tree, then drawing scheduled mocks nothing schedules, now inventing weekdays. **The check that
+caught each one took seconds.** Worth recording plainly rather than filed as a typo.

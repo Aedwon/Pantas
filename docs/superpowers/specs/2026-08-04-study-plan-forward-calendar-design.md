@@ -158,38 +158,48 @@ with a back arrow. Title: `Your plan`.
 
 ### Composition, in order
 
+**The worked example below is arithmetic, not decoration.** Today is Tuesday 4 August 2026, the
+exam is Monday 12 October 2026, 69 days away. The quiet stretch is 7 days, leaving 62 working
+days. With 414 questions never seen, that is 7 new a day.
+
 ```
 Your plan                                  (app bar, back arrow)
 
 UPCAT                                      (rank 2)
-Ten weeks to go. Sunday 12 October.        (rank 5)
+Ten weeks to go. Monday 12 October.        (rank 5)
 
-Today                    Monday 4 August   (plate + trailing date)
-24    questions today.                     (rank 1, then rank 5)
-      18 to review, 6 new.
+Today                   Tuesday 4 August   (plate + trailing date)
+25    questions today.                     (rank 1, then rank 5)
+      18 to review, 7 new.
 
-The rest of this week      5 to 10 August  (plate + trailing range)
-Tue 5                     14 review, 6 new
-Wed 6                     11 review, 6 new
-Thu 7                      9 review, 6 new
-Fri 8                     13 review, 6 new
-Sat 9                      7 review, 6 new
-Sun 10                     5 review, 6 new
+The rest of this week       5 to 9 August  (plate + trailing range)
+Wed 5                     14 review, 7 new
+Thu 6                     11 review, 7 new
+Fri 7                      9 review, 7 new
+Sat 8                     13 review, 7 new
+Sun 9                      7 review, 7 new
 
 Coming up                                  (plate)
-11 Aug
-18 Aug                           Mock exam
-25 Aug
- 1 Sep
-15 Sep                           Mock exam
-29 Sep
+10 Aug
+17 Aug                   Next mock unlocks
+24 Aug
+31 Aug
+ 7 Sep
+14 Sep
+21 Sep
+28 Sep
  5 Oct              Review only from here
 12 Oct                              UPCAT
 
-Six new questions a day finishes the material by 5 October, a week
+Seven new questions a day finishes the material by 5 October, a week
 before your exam. Daily review counts come from your own schedule.
 You can go faster in Settings, not slower.
 ```
+
+**Corrected 4 August 2026.** An earlier version of this block dated 4 August as a Monday, 12
+October as a Sunday, and printed 6 new a day. All three were wrong: the weekdays were invented
+and the daily figure did not match the spec's own rule. **Any implementer should check the
+arithmetic in this block rather than copying it**, which is how these were caught.
 
 ### The hierarchy, six ranks
 
