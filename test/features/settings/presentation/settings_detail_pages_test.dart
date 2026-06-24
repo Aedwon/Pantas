@@ -73,8 +73,7 @@ void main() {
     expect(find.text('Yes, delete my account'), findsOneWidget);
   });
 
-  testWidgets('backup page shows diagnostics after expanding details',
-      (tester) async {
+  testWidgets('backup page displays last backed up date', (tester) async {
     await tester.pumpAppWithProviders(
       const BackupPage(),
       overrides: [
@@ -90,10 +89,11 @@ void main() {
       ],
     );
 
-    expect(find.text('Your progress is saved'), findsOneWidget);
-    await tester.tap(find.text('Show details'));
-    await tester.pumpAndSettle();
-    expect(find.textContaining('2026-05-22T12:00:00.000Z'), findsOneWidget);
+    expect(find.textContaining('Last backed up 2026-05-22'), findsOneWidget);
+    expect(
+      find.text('Your progress is automatically saved when connected.'),
+      findsOneWidget,
+    );
   });
 
   testWidgets('about page renders legal and DPO seams', (tester) async {

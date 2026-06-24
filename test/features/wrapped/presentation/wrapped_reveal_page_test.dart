@@ -52,6 +52,11 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Wrapped is unavailable.'), findsOneWidget);
+    expect(
+      find.text(
+        "Your Wrapped needs a connection. It'll be here when you're back.",
+      ),
+      findsOneWidget,
+    );
   });
 }

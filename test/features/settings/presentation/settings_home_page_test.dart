@@ -93,7 +93,7 @@ void main() {
         syncStatus: const Syncing(pendingCount: 3),
       ),
     );
-    expect(find.text('Backing up... 3 items'), findsOneWidget);
+    expect(find.text('Back up progress'), findsOneWidget);
   });
 
   testWidgets('theme chips update theme provider', (tester) async {

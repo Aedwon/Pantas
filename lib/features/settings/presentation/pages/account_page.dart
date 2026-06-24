@@ -2,8 +2,6 @@ import 'dart:async';
 
 import 'package:cse_cet_reviewer/core/auth/providers.dart';
 import 'package:cse_cet_reviewer/core/auth/sign_in_result.dart';
-import 'package:cse_cet_reviewer/core/sync/providers.dart';
-import 'package:cse_cet_reviewer/core/sync/sync_status.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/widgets/settings_row.dart';
@@ -25,7 +23,6 @@ class _AccountPageState extends ConsumerState<AccountPage> {
   Widget build(BuildContext context) {
     final user = ref.watch(currentUserProvider).valueOrNull;
     final isAnonymous = ref.watch(isAnonymousProvider).valueOrNull ?? false;
-    final syncStatus = ref.watch(syncStatusProvider).valueOrNull;
 
     return Scaffold(
       appBar: AppBar(title: const Text('Account')),
@@ -89,7 +86,6 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             const SizedBox(height: 24),
             SettingsRow(
               title: 'Sign out',
-              subtitle: _pendingSyncCopy(syncStatus),
               onTap: () => _confirmSignOut(context, ref),
             ),
             SettingsRow(
@@ -101,16 +97,6 @@ class _AccountPageState extends ConsumerState<AccountPage> {
         ],
       ),
     );
-  }
-
-  static String? _pendingSyncCopy(SyncStatus? status) {
-    final pending = switch (status) {
-      Syncing(:final pendingCount) => pendingCount,
-      SyncOk(:final pendingCount) => pendingCount,
-      _ => 0,
-    };
-    if (pending <= 0) return null;
-    return 'You have $pending items not yet backed up.';
   }
 
   static Future<void> _confirmSignOut(
