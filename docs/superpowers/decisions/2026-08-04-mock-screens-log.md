@@ -72,3 +72,42 @@ it is a bug from their side of the screen.
   rule it already states.
 - **The Settings row copy is now wrong by omission** and needs amending wherever that row is
   specified. It is not this spec's file, so it is an amendment rather than an edit here.
+
+---
+
+## 4 August 2026: two drawing faults he caught, in a row
+
+**First.** The paper screen was drawn with three controls in the bottom bar when the spec names
+five. The grid glyph and the flag were missing, and the app bar with its clock was left off the
+screen entirely.
+
+> "on the 3rd screen, i noticed you didn't add the other icons in the bottom navbar, there
+> should be the flagging system and also the question grid. check the specs. is this intentional
+> or did you make a mistake?"
+
+**A mistake, not a choice.** All of it was already written down in Section 3 of the mock UI
+spec, including the glyph's exact geometry, the 46px targets, and the optical correction that
+gives the grid side five extra pixels of gap.
+
+**Second, immediately after.**
+
+> "actually make that all screens, you're just showing me part of the whole"
+
+**Also right.** Every plate in this round had been a cropped fragment sized to its content, so
+he was judging compositions without seeing where anything actually sat on a phone. A bar pinned
+14px from the bottom means nothing when the device stops 40px below the content.
+
+### What changed
+
+All six surfaces are now drawn as complete 360 by 700 devices: Settings, setup, the paper mid
+part, the paper at a part boundary, the early-finish confirmation, and the transition. Nothing
+cropped, nothing omitted.
+
+### The lesson, which is the same one as three times earlier today
+
+**I drew from what I was thinking about rather than from what was written and from what a phone
+actually is.** The bar's five controls were in the spec I had read an hour before. The cure both
+times was to render the whole thing at real size instead of the part I was reasoning about.
+
+**His standing instruction, now recorded so it binds every future plate:** *"render everything
+down to the detail and how it would look as in a whole screen so i can see."*
