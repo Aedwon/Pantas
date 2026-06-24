@@ -24,9 +24,22 @@ mock variant, the floating bar, the results screen, the review screen and what e
 sees in it, what becomes of the marks made during the paper, and the practice session's
 use of the same review component.
 
-**Not designed:** the setup screen beyond the one requirement in Section 2, the pause
-and strict-forfeit flows, the section-transition moment, the warning overlays, and mock
-history. Spec 5 sketches all of these and they stand until redrawn.
+**Amended 4 August 2026.** Four of the five undesigned items are now settled in Sections 7 to
+9 below, and one is struck. The paragraph that stood here read:
+
+> "Not designed: the setup screen beyond the one requirement in Section 2, the pause and
+> strict-forfeit flows, the section-transition moment, the warning overlays, and mock history.
+> Spec 5 sketches all of these and they stand until redrawn."
+
+| Item | Now |
+|---|---|
+| The setup screen | **Settled**, Section 7.1. It was a confirm rather than a redraw: Spec 5's shape was already this app's grammar and needed a copy pass, not a design. |
+| The section transition | **Settled**, Section 7.2. The only properly blank surface of the five. |
+| The strict-forfeit flow | **Settled**, Section 8, which also gives strict mode a second job. |
+| The warning overlays | **Settled**, Section 9, and redrawn rather than confirmed: Spec 5's snackbar and colored banner are not devices this app uses. |
+| **Mock history** | **Struck.** Progress's "Your record" already carries a "Your mocks" panel, and that screen is already wholly Free and already answers "am I moving". A second history page would be a copy of it. Spec 5's §7.2 `MockHistoryPage` row does not survive, and neither does its trend pill, which used an emoji and claimed a direction. |
+
+**Still not designed:** the pause screen itself, Section 8.3.
 
 ---
 
@@ -338,10 +351,215 @@ the return promise, above the footer.
 
 ---
 
+## Section 7: The setup screen and the section transition
+
+**Added 4 August 2026**, validated against
+`.superpowers/brainstorm/92781-1785816810/content/mock-all-screens.html`.
+
+### 7.1 Setup, confirmed rather than redrawn
+
+Spec 5's shape survives: a headline, a short list of facts about the paper, one board button.
+It gains what sectional timing made real and loses what the identity bans.
+
+```
+UPCAT practice paper                       (serif 24/700)
+4 parts. 175 questions. 2 hours 45 minutes.
+
+The parts                                  (plate)
+Reading Comprehension              30 min
+Mathematics                        45 min
+Science                            45 min
+Language Proficiency               45 min
+
+How this paper runs                        (plate)
+This paper runs part by part. Once a part ends you cannot go back.
+[hairline]
+Strict mock mode is on.
+You cannot pause, and you cannot end a part early. Leaving the
+app hands the paper in.
+Change this in Settings.
+
+[ Start the paper ]
+The clock starts when you tap.
+```
+
+**The parts list is not decoration.** Section 2 says the paper's rule must be stated in plain
+words before a student commits, and the per-part timings are the thing they most want to see.
+
+**The strict block appears only when the switch is on**, and says nothing at all when it is off.
+Nobody needs telling what is not happening.
+
+### 7.2 The section transition
+
+**A full screen, not a dialog.** Crossing a part boundary is the only irreversible thing in the
+paper, and a dialog is what you use for something a person can undo.
+
+**No app bar, no clock, no floating bar, no back arrow.** The clock is stopped here, and a
+stopped clock invites the question of whether it is still running.
+
+```
+Time is up for Part 1.                     (serif 24/700)
+Reading Comprehension. 30 minutes.
+
+What you did                               (plate)
+28  of 30 answered                         (30 numeral, then serif 14/400)
+2 left blank · 3 you flagged               (sans 13/400 inkMuted)
+
+Part 1 is closed. You cannot go back to it.   (sans 13, ink, w600)
+
+Next                                       (plate)
+Part 2, Mathematics
+45 questions, 45 minutes.
+
+[ Start Part 2 ]
+The clock for Part 2 starts when you tap.
+```
+
+**It reports what they did, and that is the point of the screen.** A student who has just lost
+access to thirty questions will immediately want to know whether they left any blank. Telling
+them is the difference between a closed door and a closed door they understand.
+
+**Nothing here is a score.** Answered, blank and flagged are counts of the student's own
+actions. No correctness is shown or implied, and none is known to this screen.
+
+**The figure and its label share one baseline**, "28 of 30 answered", rather than stacking. An
+earlier draw put the label under the numeral and left a hole. **The blank and flagged counts are
+one quiet line, not two ruled rows**: they are footnotes to the figure and an earlier draw
+dressed them as headings.
+
+**No rust and no amber.** Nothing on this screen is a loss of marks or a deadline.
+
+---
+
+## Section 8: Strict mock mode, and what it forbids
+
+**Added 4 August 2026.** Strict mock mode already existed as a synced setting whose only job was
+to gate pause. **It now carries the whole promise that the app behaves like the real room.**
+
+### 8.1 What it forbids
+
+| With strict on | With strict off |
+|---|---|
+| No pausing | Pause, with Spec 5's first-time warning |
+| **No ending a part early** | A part can be ended early |
+| Leaving the app hands the paper in | Leaving the app changes nothing |
+
+### 8.2 It must be said in three places
+
+**A restriction a student meets only when they hit it is a bug from their side of the screen.**
+
+1. **In Settings**, as a subtitle under the switch. See
+   `2026-08-03-settings-design.md`, "How you practice".
+2. **On the setup screen**, because a setting changed weeks ago is not a warning. Section 7.1.
+3. **In the paper**, at the moment it stops them.
+
+**In the paper it reads, above the floating bar and only on the last question of a part:**
+
+> Part 1 runs to the end of its time. Strict mock mode is on.
+
+**`next` is dimmed rather than hidden** at that question, so the bar does not change shape
+between questions. The line is the quietest text on the screen: it explains, it does not warn.
+
+### 8.3 Ending a part early, when strict is off
+
+A confirmation, and it is a dialog because this one *is* undoable up to the moment it is
+confirmed.
+
+> **End Part 1 now?**
+> You have **8 minutes left** and **2 questions blank**.
+> **Ending now closes Part 1 for good. The time you have left does not carry over.**
+> [ End Part 1 ]  Keep working
+
+**The unused time is forfeited, never banked.** Carrying it forward would make ending early
+strictly advantageous, which no real paper allows.
+
+**The forfeit ending is unchanged**, and was already designed: Section 4's "Forfeited" results
+treatment stands.
+
+### 8.4 The pause screen is still open
+
+**The one surface of the five that is not designed.** Spec 5 sketches it as elapsed time, a
+large Resume button and a subtle Discard, and that sketch stands until redrawn. It is reachable
+only when strict mode is off.
+
+---
+
+## Section 9: The clock rule and the proctor
+
+**Added 4 August 2026.** Spec 5's warnings were a snackbar at five minutes and a colored banner
+at one. **Both are struck**: neither is a device this app uses, and sectional timing changes the
+meaning anyway, since five minutes left in Mathematics is a different fact from five minutes
+left in the paper.
+
+**Everything in this section counts the current part, never the paper.** The paper's total is
+never shown during a part, because it says nothing a student can act on.
+
+### 9.1 The clock rule, which is ambient
+
+**A rule on the app bar's own bottom edge, retreating from the right as the part's time runs
+out.** It is there from the first second of a part.
+
+| Remaining | The rule | The clock |
+|---|---|---|
+| Most of the part | 1px `ink` at 55% | plain |
+| Under 5 minutes | 1.6px `ink`, full strength | plain |
+| Under 1 minute | 1.6px **amber** | **amber** |
+
+**There is no warning event.** The information was always on screen and simply becomes harder to
+ignore. A student told only at five minutes has had no idea for the previous twenty five.
+
+**This is the only amber anywhere in the mock**, which is what makes it work: no other surface
+has ever used that color, so it reads without a word being written.
+
+### 9.2 The proctor
+
+**A real exam room has a clock on the wall and a proctor who calls the time.** They are
+different things and the paper has both. The rule is the clock. This is the proctor.
+
+- **It speaks at 20, 10, 5 and 1 minutes remaining** in the part, skipping any threshold longer
+  than the part itself. A part under 20 minutes is called three times.
+- **2.5 seconds, then it goes on its own.** Not dismissible, no close, no action, no icon.
+- **It sits directly above the floating bar**, 10px clear of it, and is drawn as the bar's
+  sibling: same 1px `rule` border, same radius 8, same soft shadow. **Two objects of one family,
+  which is why it does not read as an intrusion.**
+- **Text is centred, sans 13/600, one line, never wrapping.**
+- **At the 1 minute call the text is amber**, with the rule and clock.
+
+**Copy, verbatim:**
+
+> 20 minutes left in this subject.
+> 10 minutes left in this subject.
+> 5 minutes left in this subject.
+> 1 minute left in this subject.
+
+**"Subject", although every other surface says "part". Decided by Aedwon on 4 August against a
+recommendation to unify them.** The reading that makes it coherent: **"part" is the app's
+structural label and "subject" is the proctor's spoken word.** The line above each question
+names the container; the proctor names what is in it. Recorded because a later reader will
+otherwise take it for an oversight and tidy it.
+
+### 9.3 The haptic
+
+**Three medium taps, 60ms apart**, fired with each call.
+
+- **A rhythm, deliberately not one long buzz.** A rhythm reads as a signal; a buzz reads as a
+  notification.
+- **It respects the phone, not a setting of ours.** With system haptics off it is a silent
+  no-op, so nothing is added to Settings and nothing has to be discovered.
+- **This is the app's first haptic anywhere**, so it sets a precedent to be careful with.
+- **Known limit, stated rather than solved:** a phone on a hard desk buzzes audibly, which in a
+  shared room is the opposite of unintrusive.
+
+**The practice quiz's existing toast is not this component.** That one wears default system
+chrome. This is a mock surface and it belongs to the mock's family.
+
+---
+
 ## Open
 
 1. **`sectionalTiming` for ACET, DCAT and MSU-SASE.** Aedwon is establishing these.
    Those three blueprints cannot be completed until he reports back.
+2. **The pause screen**, Section 8.3. The last of the five still undrawn.
 
 **Closed 28 July:** what Free sees in the review, Section 5. The middle band's name,
 Section 4. Whether `quiz_results_page.dart` survives, Section 6.

@@ -199,3 +199,50 @@ it is the third one.
 
 **"Part" may survive in the blueprint**, which is content rather than copy and which no student
 ever sees. Awaiting his call.
+
+---
+
+## 4 August 2026: "part" stays everywhere except the toast
+
+I recommended unifying the vocabulary onto "subject". **He kept "part" everywhere and gave
+"subject" only to the toast.**
+
+> "keep part everywhere except the toast"
+
+**The reading that makes it coherent, and it is better than a compromise:** "part" is the app's
+**structural label** and "subject" is the **proctor's spoken word**. The line above each question
+names the container; the proctor names what is inside it. Two registers doing two jobs.
+
+**The cost stands and is recorded:** a student does meet two words for one thing. Written into
+the spec so a later reader does not take it for an oversight and tidy it away.
+
+---
+
+## 4 August 2026: there are no radio buttons, and I drew three screens with them
+
+> "also i'm not sure if radio buttons are used in the multiple choice. check this"
+
+**He was right and the component says so plainly.** The answer device is a **serif choice letter
+in a 22px column**, and the chosen row **fills with board tint and takes a board border at
+radius 5**. There is no circle, no dot and no radio anywhere in this app.
+
+**Three separate faults in what I drew:**
+
+1. **Radio buttons that do not exist.** Invented wholesale.
+2. **The letter repeated inside the text**, "A. 10" beside a dot, when the component already owns
+   the letter and the text is just "10".
+3. **I wrote in my own notes that there is no green on the paper.** There is: the chosen answer
+   row is exactly where board green lives during a mock, and it was in the component the whole
+   time.
+
+**Corrected in `mock-answer-rows-corrected.html`.**
+
+### The pattern, now five for five in two features
+
+Every single one of today's drawing faults came from **rendering what I was picturing rather
+than reading what was already written**: an old spec's vocabulary taken for the state of the
+tree, scheduled mocks nothing schedules, invented weekdays, a bar missing two of its five
+controls, and now an answer device that does not exist. **Each check took under a minute.**
+
+**The rule that follows, and it belongs above the drawing rule already recorded: open the
+component before drawing the component.** Not the spec that describes it, the file.
