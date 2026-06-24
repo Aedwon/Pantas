@@ -15,7 +15,12 @@ final entitlementProvider = StreamProvider<Entitlement>((ref) {
   }
   final gateway = ref.watch(revenueCatGatewayProvider);
   final cached = gateway.cachedEntitlement ?? const Entitlement.free();
-  return gateway.customerInfoUpdates.distinct().startWith(cached);
+  return gateway.customerInfoUpdates
+      .handleError((Object error, StackTrace stack) {
+        // Stream errors are treated as no news; entitlement never fails closed.
+      })
+      .distinct()
+      .startWith(cached);
 });
 
 final paywallPackagesProvider = FutureProvider((ref) async {

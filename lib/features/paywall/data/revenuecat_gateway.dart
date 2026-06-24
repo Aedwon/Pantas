@@ -15,10 +15,14 @@ abstract interface class RevenueCatGateway {
 }
 
 class DisabledRevenueCatGateway implements RevenueCatGateway {
-  const DisabledRevenueCatGateway();
+  const DisabledRevenueCatGateway([
+    this._cachedEntitlement = const Entitlement.free(),
+  ]);
+
+  final Entitlement _cachedEntitlement;
 
   @override
-  Entitlement? get cachedEntitlement => const Entitlement.free();
+  Entitlement? get cachedEntitlement => _cachedEntitlement;
 
   @override
   Stream<Entitlement> get customerInfoUpdates =>
