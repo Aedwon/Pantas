@@ -174,3 +174,28 @@ desk buzzes audibly, which in a shared room is the opposite of unintrusive.
    leaving a hole under the numeral, and the blank and flagged counts were dressed as serif
    headings when they are footnotes to the figure. Rebuilt: "28 of 30 answered" on one baseline,
    and the two counts demoted to a single quiet line.
+
+### Settled, same round
+
+> "20 10 5 1, then instead of 'in this part' use 'in this subject'"
+
+**The 30 is dropped**, so every subject is called four times: 20, 10, 5 and 1 minutes. A subject
+shorter than 20 minutes skips the first and is called three times. Four calls across a 45 minute
+subject is ten seconds of screen time in total.
+
+**"Part" becomes "subject" in the toast**, because that is the word a student actually uses for
+Mathematics or Science.
+
+### What the word change exposes, raised rather than quietly absorbed
+
+**The rest of the mock says "part" everywhere.** "Part 1, Reading Comprehension" above every
+question, "This paper runs part by part", "Part 1 is closed", "Start Part 2". With the toast
+saying subject, **a student meets two names for one thing.**
+
+**Recommended: change it everywhere**, so the paper reads "Mathematics, 45 minutes", "this
+paper runs subject by subject", "Mathematics is closed", "Start Science". That also drops the
+numbering, which was never earning its place: a student knows what Science is without being told
+it is the third one.
+
+**"Part" may survive in the blueprint**, which is content rather than copy and which no student
+ever sees. Awaiting his call.
