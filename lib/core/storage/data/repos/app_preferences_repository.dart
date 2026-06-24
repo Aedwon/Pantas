@@ -1,5 +1,4 @@
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:drift/drift.dart';
 
 class AppPreferencesRepository {
   AppPreferencesRepository(this._db);
