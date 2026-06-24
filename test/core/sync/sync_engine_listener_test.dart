@@ -13,6 +13,7 @@ void main() {
       'users/user-1/assessments',
       'users/user-1/fsrs_cards',
       'users/user-1/lesson_progress',
+      'users/user-1/lesson_bookmarks',
       'users/user-1/question_flags',
       'users/user-1/mock_exam_attempts',
     ]);
