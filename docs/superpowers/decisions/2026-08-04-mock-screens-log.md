@@ -246,3 +246,56 @@ controls, and now an answer device that does not exist. **Each check took under 
 
 **The rule that follows, and it belongs above the drawing rule already recorded: open the
 component before drawing the component.** Not the spec that describes it, the file.
+
+---
+
+## 4 August 2026: the pause screen, and where pause lives
+
+### The decision I would not make for him
+
+**Pause had nowhere to live.** The spec put the clock **alone** in the app bar so it could never
+be hunted for, and the floating bar already carries five controls. Three options were drawn:
+
+| Option | Cost |
+|---|---|
+| **A. Trailing edge of the app bar** | Costs a one line amendment to "alone". The clock stays centred and unmissable, which was the actual intent. |
+| B. Inside the question grid | Keeps the app bar literally clock-only, but pause is not navigation and two taps deep punishes whoever needs it most. |
+| C. Tap the clock itself | Nothing new drawn and semantically neat. Undiscoverable, and a mis-tap on the element you stare at constantly is a bad failure. |
+
+**He chose A.**
+
+> "placement makes sense to me. keep it at the top right"
+
+**The amendment is written into Section 3 rather than hidden**, including what "alone" was
+protecting and why a trailing control does not damage it. The pause control is **absent
+entirely in strict mode**, so in that mode the app bar really is clock-only.
+
+### The design decision inside the screen
+
+**Pausing replaces the paper completely**, which is why it is a screen and not an overlay. If
+the question stayed visible behind a stopped clock, **pause would be a way to buy unlimited time
+to read it**, which is precisely what a real exam has no pause in order to prevent.
+
+It shows time left rather than elapsed, plus the answered and flagged counts so pausing doubles
+as a place to see where they stand. No score, no correctness. Resume is the only green thing;
+discard is rust text with no fill.
+
+**The warning fires once per paper.** Every pause after the first goes straight through.
+
+### A third drawing fault, caught by opening the component first
+
+**The dialog component puts both actions side by side**, quiet left and committing right, and
+carries **two confirm styles**: board green for an ordinary commitment, rust for a destructive
+one. I had stacked them on two earlier plates and used green throughout.
+
+**So ending a part early confirms in rust**, not green: it destroys the remaining time and
+closes the part for good. Section 8.3's dialog was corrected.
+
+**This is the first time today that opening the component before drawing caught the fault
+before he did**, which is the rule recorded in the previous entry working as intended.
+
+### The round is closed
+
+All five surfaces the 28 July spec left undesigned are settled or struck. The only thing still
+open in the mock spec is `sectionalTiming` for ACET, DCAT and MSU-SASE, which is Aedwon's to
+establish and blocks three blueprints.

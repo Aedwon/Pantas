@@ -39,7 +39,7 @@ use of the same review component.
 | The warning overlays | **Settled**, Section 9, and redrawn rather than confirmed: Spec 5's snackbar and colored banner are not devices this app uses. |
 | **Mock history** | **Struck.** Progress's "Your record" already carries a "Your mocks" panel, and that screen is already wholly Free and already answers "am I moving". A second history page would be a copy of it. Spec 5's §7.2 `MockHistoryPage` row does not survive, and neither does its trend pill, which used an emoji and claimed a direction. |
 
-**Still not designed:** the pause screen itself, Section 8.3.
+**All five are now settled or struck.** The pause screen, the last of them, is Section 8.4.
 
 ---
 
@@ -144,7 +144,14 @@ Pinned 14px from the bottom and each side, 54px tall, 1px `rule` border, radius 
 reveal is the event. In a mock you move in both directions constantly, skipping and
 returning, and no answer is ever revealed, so paging is the primary interaction rather
 than clutter. It also frees the app bar for the clock, which must never be hunted for:
-the clock sits alone there, centred, serif 16/700, tabular.
+the clock sits **centred** there, serif 16/700, tabular.
+
+**Amended 4 August 2026.** This line read "the clock sits **alone** there". **Pause now sits at
+the trailing edge of the app bar**, which needed somewhere to live and had nowhere: the floating
+bar already carries five controls and burying pause in the question grid punishes whoever needs
+it most. **The intent of "alone" survives**, which was that the clock is centred and unmissable,
+and a trailing control does not move it. **The pause control is absent entirely in strict mock
+mode**, so the bar really is clock-only there. See Section 8.4.
 
 ---
 
@@ -476,11 +483,69 @@ strictly advantageous, which no real paper allows.
 **The forfeit ending is unchanged**, and was already designed: Section 4's "Forfeited" results
 treatment stands.
 
-### 8.4 The pause screen is still open
+### 8.4 The pause screen
 
-**The one surface of the five that is not designed.** Spec 5 sketches it as elapsed time, a
-large Resume button and a subtle Discard, and that sketch stands until redrawn. It is reachable
-only when strict mode is off.
+**Settled 4 August 2026**, validated against
+`.superpowers/brainstorm/92781-1785816810/content/mock-pause-screen.html`. Reachable only when
+strict mock mode is off.
+
+**The control sits at the trailing edge of the app bar**, a 46px target, and is **absent
+entirely in strict mode**. See the amendment in Section 3.
+
+**Pausing replaces the paper completely. This is the reason it is a screen and not an overlay.**
+If the question stayed visible behind a stopped clock, pause would be a way to buy unlimited
+time to read it, which is exactly what a real exam has no pause in order to prevent.
+
+```
+Paused.                                    (serif 24/700)
+Part 2, Mathematics.
+
+Time left                                  (plate)
+21:47  in this part                        (30 tabular, then serif 14/400)
+14 of 45 answered · 2 you flagged          (sans 13/400 inkMuted)
+
+The clock is stopped. It starts again when you resume.
+
+[ Resume ]                                 (board button)
+Discard this paper                         (rust text, no fill)
+```
+
+- **Time left, never time elapsed.** Remaining is what a student can act on, and it is the same
+  figure the clock has shown all along.
+- **The answered and flagged counts** make pausing a moment to see where they stand. Same quiet
+  line the transition uses in Section 7.2.
+- **No score, no correctness, nothing about the questions.**
+- **Resume is the only green thing. Discard is rust text with no fill**, deliberately subtle.
+- **No app bar, no clock, no floating bar.** The clock's figure has moved into the body.
+
+**The warning fires once per paper, on the first pause only.**
+
+> **Real exams do not pause.**
+> Use this only when you have to. The clock stops, but you will not get this in the real room.
+> [ Keep going ]  [ Pause ]
+
+**Every pause after the first goes straight through.** Repeating the lecture would be nagging,
+and they have already heard it.
+
+**Discarding is the only destructive action in the mock**, and it takes a rust confirm:
+
+> **Discard this paper?**
+> Your 14 answers go, and this attempt will not appear in your record. It does not use up a
+> mock.
+> [ Keep it ]  [ Discard ]
+
+### 8.5 Dialogs in the mock follow the component, which has two confirm styles
+
+**Recorded 4 August 2026 after two plates drew them wrong.**
+
+- **Both actions sit side by side in one row**, the quiet one left, the committing one right.
+  Never stacked, and never a filled button above a text link.
+- **The confirm is board green for an ordinary commitment and rust for a destructive one.**
+- Title serif 18/700, body sans 14/400 `inkMuted`, 20px padding.
+
+**So: pausing confirms in green. Discarding confirms in rust. Ending a part early confirms in
+rust**, because it destroys the remaining time and closes the part for good. Section 8.3's
+dialog is rust.
 
 ---
 
@@ -559,7 +624,9 @@ chrome. This is a mock surface and it belongs to the mock's family.
 
 1. **`sectionalTiming` for ACET, DCAT and MSU-SASE.** Aedwon is establishing these.
    Those three blueprints cannot be completed until he reports back.
-2. **The pause screen**, Section 8.3. The last of the five still undrawn.
+
+**Closed 4 August 2026:** all five previously undesigned surfaces. Four are settled in Sections
+7 to 9 and mock history is struck.
 
 **Closed 28 July:** what Free sees in the review, Section 5. The middle band's name,
 Section 4. Whether `quiz_results_page.dart` survives, Section 6.
