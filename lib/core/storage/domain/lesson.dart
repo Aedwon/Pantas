@@ -14,6 +14,7 @@ class Lesson with _$Lesson {
     required List<Map<String, dynamic>> bodyJson,
     required int estimatedMinutes,
     SubtopicId? subtopicId,
+    @Default(0) int ordering,
   }) = _Lesson;
 
   factory Lesson.fromJson(Map<String, dynamic> json) => _$LessonFromJson(json);

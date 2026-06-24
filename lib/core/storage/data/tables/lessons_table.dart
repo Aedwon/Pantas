@@ -11,6 +11,12 @@ class Lessons extends Table {
   TextColumn get bodyJson => text()();
   IntColumn get estimatedMinutes => integer()();
 
+  /// The authored teaching sequence within a topic. Zero means unplaced, which
+  /// every lesson is until the editorial pass over the corpus runs. With the
+  /// reader's pull advancing forward only, this is the sole guidance a student
+  /// gets about where to begin, so it is load-bearing rather than cosmetic.
+  IntColumn get ordering => integer().withDefault(const Constant(0))();
+
   @override
   Set<Column<Object>> get primaryKey => {id};
 }

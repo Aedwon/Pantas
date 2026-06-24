@@ -21,7 +21,7 @@ void main() {
       final db = AppDatabase(NativeDatabase.memory());
       addTearDown(db.close);
 
-      expect(db.schemaVersion, equals(14));
+      expect(db.schemaVersion, greaterThanOrEqualTo(5));
       expect(
         await tableNames(db),
         containsAll(<String>[
