@@ -98,4 +98,88 @@ void main() {
       equals('upcat'),
     );
   });
+
+  test('the last opened lesson round-trips per exam', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = AppPreferencesRepository(db);
+
+    expect(await repo.lastOpenedLessonId('e1'), isNull);
+
+    await repo.pushOpenedLesson(examId: 'e1', lessonId: 'l1');
+    await repo.pushOpenedLesson(examId: 'e2', lessonId: 'l9');
+
+    expect(await repo.lastOpenedLessonId('e1'), 'l1');
+    expect(await repo.lastOpenedLessonId('e2'), 'l9');
+  });
+
+  test('opening a second lesson puts it at the head', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = AppPreferencesRepository(db);
+
+    await repo.pushOpenedLesson(examId: 'e1', lessonId: 'l1');
+    await repo.pushOpenedLesson(examId: 'e1', lessonId: 'l2');
+
+    expect(await repo.lastOpenedLessonId('e1'), 'l2');
+    expect(await repo.recentlyOpenedLessonIds('e1'), ['l2', 'l1']);
+  });
+
+  test('the recent list keeps three and drops the oldest', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = AppPreferencesRepository(db);
+
+    for (final id in ['l1', 'l2', 'l3', 'l4']) {
+      await repo.pushOpenedLesson(examId: 'e1', lessonId: id);
+    }
+
+    expect(await repo.recentlyOpenedLessonIds('e1'), ['l4', 'l3', 'l2']);
+  });
+
+  test('reopening a lesson moves it to the head without duplicating it',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = AppPreferencesRepository(db);
+
+    await repo.pushOpenedLesson(examId: 'e1', lessonId: 'l1');
+    await repo.pushOpenedLesson(examId: 'e1', lessonId: 'l2');
+    await repo.pushOpenedLesson(examId: 'e1', lessonId: 'l1');
+
+    expect(await repo.recentlyOpenedLessonIds('e1'), ['l1', 'l2']);
+  });
+
+  test('an exam nobody has opened has no recent lessons', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = AppPreferencesRepository(db);
+
+    expect(await repo.recentlyOpenedLessonIds('e1'), isEmpty);
+  });
+
+  test('the open topic round-trips per exam', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = AppPreferencesRepository(db);
+
+    expect(await repo.openTopicId('e1'), isNull);
+
+    await repo.setOpenTopicId(examId: 'e1', topicId: 't1');
+
+    expect(await repo.openTopicId('e1'), 't1');
+    expect(await repo.openTopicId('e2'), isNull);
+  });
+
+  test('collapsing the open topic clears it', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = AppPreferencesRepository(db);
+
+    await repo.setOpenTopicId(examId: 'e1', topicId: 't1');
+
+    await repo.setOpenTopicId(examId: 'e1', topicId: null);
+
+    expect(await repo.openTopicId('e1'), isNull);
+  });
 }
