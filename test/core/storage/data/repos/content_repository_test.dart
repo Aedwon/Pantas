@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
+import 'package:drift/drift.dart' hide isNotNull, isNull;
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../helpers/in_memory_database.dart';
@@ -117,5 +118,51 @@ void main() {
 
   test('topicById returns null when not found', () async {
     expect(await repo.topicById('nope'), isNull);
+  });
+
+  Future<void> insertLesson(String id, String title, {int? ordering}) {
+    return db.into(db.lessons).insert(
+          LessonsCompanion.insert(
+            id: id,
+            topicId: 't1',
+            title: title,
+            summary: 'Summary of $title',
+            bodyJson: jsonEncode(<Map<String, Object?>>[]),
+            estimatedMinutes: 5,
+            ordering: ordering == null ? const Value.absent() : Value(ordering),
+          ),
+        );
+  }
+
+  test('lessons come back in their authored order', () async {
+    await insertLesson('l_c', 'Third', ordering: 3);
+    await insertLesson('l_a', 'First', ordering: 1);
+    await insertLesson('l_b', 'Second', ordering: 2);
+
+    final lessons = await repo.lessonsByTopic('t1');
+
+    // l1 from setUp has no ordering, so it defaults to 0 and sorts first.
+    expect(
+      lessons.map((lesson) => lesson.id).toList(),
+      ['l1', 'l_a', 'l_b', 'l_c'],
+    );
+  });
+
+  test('lessons with no authored order fall back to id order', () async {
+    await insertLesson('l_z', 'Zulu');
+    await insertLesson('l_m', 'Mike');
+
+    final lessons = await repo.lessonsByTopic('t1');
+
+    expect(
+      lessons.map((lesson) => lesson.id).toList(),
+      ['l1', 'l_m', 'l_z'],
+    );
+  });
+
+  test('an unplaced lesson reports ordering zero', () async {
+    final lesson = await repo.lessonById('l1');
+
+    expect(lesson!.ordering, 0);
   });
 }

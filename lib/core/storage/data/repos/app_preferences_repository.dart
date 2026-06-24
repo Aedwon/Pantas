@@ -6,6 +6,9 @@ class AppPreferencesRepository {
   static const _selectedExamIdKey = 'selected_exam_id';
   static const _passedAgeGateKey = 'passed_age_gate';
   static const _contentSeedVersionKey = 'content_seed_version';
+  static const _recentLessonsPrefix = 'recent_lessons_';
+  static const _openTopicPrefix = 'open_topic_';
+  static const _recentLessonsKept = 3;
 
   final AppDatabase _db;
 
@@ -51,19 +54,70 @@ class AppPreferencesRepository {
         );
   }
 
-  Future<String?> installedContentSeedVersion() async {
+  Future<String?> installedContentSeedVersion() =>
+      _deviceValue(_contentSeedVersionKey);
+
+  Future<void> setInstalledContentSeedVersion(String version) =>
+      _setDeviceValue(_contentSeedVersionKey, version);
+
+  /// The lessons most recently opened for this exam, newest first, at most
+  /// three. Device-local on purpose: only `account_prefs` sync, and where
+  /// someone was reading is a property of one screen on one device.
+  Future<List<String>> recentlyOpenedLessonIds(String examId) async {
+    final raw = await _deviceValue('$_recentLessonsPrefix$examId');
+    if (raw == null || raw.isEmpty) return const [];
+    return raw.split(',');
+  }
+
+  Future<String?> lastOpenedLessonId(String examId) async {
+    final recent = await recentlyOpenedLessonIds(examId);
+    return recent.isEmpty ? null : recent.first;
+  }
+
+  /// Moves [lessonId] to the head. Reopening something already in the list
+  /// moves it rather than duplicating it, so three entries always name three
+  /// lessons.
+  Future<void> pushOpenedLesson({
+    required String examId,
+    required String lessonId,
+  }) async {
+    // A copy: the getter returns a const list when nothing is stored, and
+    // removing from that throws.
+    final recent = [...await recentlyOpenedLessonIds(examId)]..remove(lessonId);
+    final next = [lessonId, ...recent].take(_recentLessonsKept);
+    await _setDeviceValue(
+      '$_recentLessonsPrefix$examId',
+      next.join(','),
+    );
+  }
+
+  Future<String?> openTopicId(String examId) =>
+      _deviceValue('$_openTopicPrefix$examId');
+
+  /// A null [topicId] means the student collapsed the topic, so the row goes
+  /// rather than storing an empty string that every reader has to special-case.
+  Future<void> setOpenTopicId({
+    required String examId,
+    required String? topicId,
+  }) async {
+    final key = '$_openTopicPrefix$examId';
+    if (topicId == null) {
+      await (_db.delete(_db.devicePrefs)..where((p) => p.key.equals(key))).go();
+      return;
+    }
+    await _setDeviceValue(key, topicId);
+  }
+
+  Future<String?> _deviceValue(String key) async {
     final row = await (_db.select(_db.devicePrefs)
-          ..where((p) => p.key.equals(_contentSeedVersionKey)))
+          ..where((p) => p.key.equals(key)))
         .getSingleOrNull();
     return row?.value;
   }
 
-  Future<void> setInstalledContentSeedVersion(String version) async {
+  Future<void> _setDeviceValue(String key, String value) async {
     await _db.into(_db.devicePrefs).insertOnConflictUpdate(
-          DevicePrefsCompanion.insert(
-            key: _contentSeedVersionKey,
-            value: version,
-          ),
+          DevicePrefsCompanion.insert(key: key, value: value),
         );
   }
 }

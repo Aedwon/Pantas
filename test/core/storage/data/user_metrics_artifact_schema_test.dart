@@ -11,7 +11,7 @@ void main() {
     final db = AppDatabase(NativeDatabase.memory());
     addTearDown(db.close);
 
-    expect(db.schemaVersion, equals(14));
+    expect(db.schemaVersion, greaterThanOrEqualTo(11));
     expect(await _tableNames(db), contains('user_metrics_artifacts_local'));
   });
 

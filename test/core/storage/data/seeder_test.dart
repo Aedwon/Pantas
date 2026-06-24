@@ -130,4 +130,48 @@ void main() {
     // would survive it.
     await db.customStatement('PRAGMA foreign_key_check');
   });
+
+  test('a lesson carries its ordering when the seed provides one', () async {
+    await Seeder(db, bundle: _FixtureBundle(_orderingFixture)).maybeSeed();
+
+    final row = await (db.select(db.lessons)..where((l) => l.id.equals('l1')))
+        .getSingle();
+
+    expect(row.ordering, 2);
+  });
+
+  test('a lesson with no ordering in the seed stores zero', () async {
+    await Seeder(db, bundle: _FixtureBundle(_orderingFixture)).maybeSeed();
+
+    final row = await (db.select(db.lessons)..where((l) => l.id.equals('l2')))
+        .getSingle();
+
+    expect(row.ordering, 0);
+  });
 }
+
+const _orderingFixture = '''
+{
+  "exams": [
+    {
+      "id": "e1", "code": "CSE", "name": "Civil Service Exam",
+      "shortName": "CSE", "language": "en",
+      "subjects": [
+        {"id": "s1", "examId": "e1", "name": "Science", "ordering": 1}
+      ]
+    }
+  ],
+  "topics": [{"id": "t1", "subjectId": "s1", "name": "Chemistry", "ordering": 1}],
+  "lessons": [
+    {
+      "id": "l1", "topicId": "t1", "title": "Placed second",
+      "summary": "S.", "bodyJson": [], "estimatedMinutes": 5, "ordering": 2
+    },
+    {
+      "id": "l2", "topicId": "t1", "title": "Unplaced",
+      "summary": "S.", "bodyJson": [], "estimatedMinutes": 5
+    }
+  ],
+  "questions": []
+}
+''';

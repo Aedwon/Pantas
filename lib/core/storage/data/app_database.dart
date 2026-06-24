@@ -5,6 +5,7 @@ import 'package:cse_cet_reviewer/core/storage/data/tables/attempts_local_table.d
 import 'package:cse_cet_reviewer/core/storage/data/tables/daily_new_card_intro_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/device_prefs_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/exams_table.dart';
+import 'package:cse_cet_reviewer/core/storage/data/tables/lesson_bookmarks_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/lesson_progress_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/lessons_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/mock_attempts_table.dart';
@@ -32,6 +33,7 @@ part 'app_database.g.dart';
     Questions,
     QuestionFlagsLocal,
     Lessons,
+    LessonBookmarksLocal,
     AttemptsLocal,
     ReviewStateLocal,
     StreakLocal,
@@ -54,7 +56,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 14;
+  int get schemaVersion => 16;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -106,6 +108,12 @@ class AppDatabase extends _$AppDatabase {
           }
           if (from < 14) {
             await m.addColumn(questions, questions.shortLabel);
+          }
+          if (from < 15) {
+            await m.addColumn(lessons, lessons.ordering);
+          }
+          if (from < 16) {
+            await m.createTable(lessonBookmarksLocal);
           }
         },
       );

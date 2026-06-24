@@ -3,6 +3,7 @@ import 'package:cse_cet_reviewer/core/sync/firestore/firestore_gateway.dart';
 import 'package:cse_cet_reviewer/core/sync/mapping/assessment_mapper.dart';
 import 'package:cse_cet_reviewer/core/sync/mapping/attempt_mapper.dart';
 import 'package:cse_cet_reviewer/core/sync/mapping/fsrs_card_mapper.dart';
+import 'package:cse_cet_reviewer/core/sync/mapping/lesson_bookmark_mapper.dart';
 import 'package:cse_cet_reviewer/core/sync/mapping/lesson_progress_mapper.dart';
 import 'package:cse_cet_reviewer/core/sync/mapping/preferences_mapper.dart';
 import 'package:cse_cet_reviewer/core/sync/mapping/question_flag_mapper.dart';
@@ -33,6 +34,7 @@ class FullPullBootstrap {
       await _db.delete(_db.assessmentResultsLocal).go();
       await _db.delete(_db.reviewStateLocal).go();
       await _db.delete(_db.lessonProgressLocal).go();
+      await _db.delete(_db.lessonBookmarksLocal).go();
       await _db.delete(_db.questionFlagsLocal).go();
       await _db.delete(_db.accountPrefs).go();
       await _db.delete(_db.pendingSync).go();
@@ -83,6 +85,14 @@ class FullPullBootstrap {
         in await _gateway.readCollection('users/$_uid/question_flags')) {
       await _db.into(_db.questionFlagsLocal).insertOnConflictUpdate(
             questionFlags.toCompanion(questionFlags.fromFirestore(doc)),
+          );
+    }
+
+    const lessonBookmarks = LessonBookmarkMapper();
+    for (final doc
+        in await _gateway.readCollection('users/$_uid/lesson_bookmarks')) {
+      await _db.into(_db.lessonBookmarksLocal).insertOnConflictUpdate(
+            lessonBookmarks.toCompanion(lessonBookmarks.fromFirestore(doc)),
           );
     }
 

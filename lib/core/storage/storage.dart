@@ -4,6 +4,7 @@ import 'package:cse_cet_reviewer/core/storage/data/repos/app_preferences_reposit
 import 'package:cse_cet_reviewer/core/storage/data/repos/assessment_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
+import 'package:cse_cet_reviewer/core/storage/data/repos/lesson_bookmarks_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/lesson_progress_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/quiz_nudge_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/review_state_repository.dart';
@@ -84,6 +85,10 @@ final topicLessonsProvider =
 
 final lessonProgressRepositoryProvider = Provider<LessonProgressRepository>(
   (ref) => LessonProgressRepository(ref.watch(appDatabaseProvider)),
+);
+
+final lessonBookmarksRepositoryProvider = Provider<LessonBookmarksRepository>(
+  (ref) => LessonBookmarksRepository(ref.watch(appDatabaseProvider)),
 );
 
 final quizNudgeRepositoryProvider = Provider<QuizNudgeRepository>(

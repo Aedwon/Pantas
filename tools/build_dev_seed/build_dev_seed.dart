@@ -253,6 +253,11 @@ List<Map<String, Object?>> _buildQuestions(Map<String, String> topicIdBySlug) {
 List<Map<String, Object?>> _buildLessons(Map<String, String> topicIdBySlug) {
   final lessons = <Map<String, Object?>>[];
 
+  // Not one lesson file carries `ordering:` yet. Numbering each topic's files
+  // in glob order preserves exactly what students see today, and a frontmatter
+  // `ordering:` overrides it wherever the editorial pass has run.
+  final nextOrdering = <String, int>{};
+
   for (final file in _filesUnder('content/lessons', '.md')) {
     final source = file.readAsStringSync();
     final match =
@@ -273,12 +278,16 @@ List<Map<String, Object?>> _buildLessons(Map<String, String> topicIdBySlug) {
       continue;
     }
 
+    final fallback = (nextOrdering[topicId] ?? 0) + 1;
+    nextOrdering[topicId] = fallback;
+
     lessons.add({
       'id': front['_id'] as String,
       'topicId': topicId,
       'title': front['title'] as String,
       'summary': front['summary'] as String,
       'estimatedMinutes': front['estimatedMinutes'] as int,
+      'ordering': front['ordering'] as int? ?? fallback,
       'bodyJson': _markdownToPortableText(source.substring(match.end)),
     });
   }

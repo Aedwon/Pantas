@@ -62,6 +62,7 @@ class Seeder {
                 summary: l['summary'] as String,
                 bodyJson: jsonEncode(l['bodyJson']),
                 estimatedMinutes: l['estimatedMinutes'] as int,
+                ordering: Value(l['ordering'] as int? ?? 0),
               ),
             );
       }

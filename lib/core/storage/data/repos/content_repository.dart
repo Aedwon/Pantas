@@ -8,6 +8,7 @@ import 'package:cse_cet_reviewer/core/storage/domain/lesson.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/subject.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
+import 'package:drift/drift.dart';
 
 class ContentRepository {
   ContentRepository(this._db);
@@ -84,7 +85,13 @@ class ContentRepository {
 
   Future<List<Lesson>> lessonsByTopic(TopicId topicId) async {
     final rows = await (_db.select(_db.lessons)
-          ..where((l) => l.topicId.equals(topicId)))
+          ..where((l) => l.topicId.equals(topicId))
+          ..orderBy([
+            (l) => OrderingTerm.asc(l.ordering),
+            // Unplaced lessons all share ordering 0. Their ids embed the
+            // filename slug, so this reproduces the order students see today.
+            (l) => OrderingTerm.asc(l.id),
+          ]))
         .get();
     return rows.map(_hydrateLesson).toList();
   }
@@ -117,6 +124,7 @@ class ContentRepository {
         jsonDecode(r.bodyJson) as List,
       ),
       estimatedMinutes: r.estimatedMinutes,
+      ordering: r.ordering,
     );
   }
 
