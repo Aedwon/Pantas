@@ -111,3 +111,66 @@ times was to render the whole thing at real size instead of the part I was reaso
 
 **His standing instruction, now recorded so it binds every future plate:** *"render everything
 down to the detail and how it would look as in a whole screen so i can see."*
+
+---
+
+## 4 August 2026: the time warnings, and the proctor he added
+
+### The three options put to him
+
+| Option | Cost |
+|---|---|
+| **A. A rule under the clock**, retreating the whole part, sharpening at five minutes and turning amber at one | Ambient, so no warning event ever arrives. Costs one hairline and the mock's only use of amber. |
+| B. The same rule on the floating bar, his first suggestion | Competes with five controls for one glance, and sits furthest from where time is read. |
+| C. Only the clock changes color | Nothing new drawn. Easiest to miss. |
+
+**He chose A**, and then added something better than any of them.
+
+### The proctor
+
+> "but actually what i had in mind was a sort of toast notification (temporary, appears only a
+> few seconds). what happens in real exams is that a proctor usually writes and rewrites how
+> many minutes left there are (usually in multiples of 10 or 5 minutes) so i thought we could
+> emulate something like that through a toast notification and a triple vibration or something
+> (is that possible to spec?)"
+
+**The insight is that a wall clock and a proctor are two different things, and the room has
+both.** My ambient rule is the clock: always there, never speaks. His toast is the proctor:
+silent for minutes, then says one thing. **They are not alternatives and the paper should have
+both**, which is why A survives unchanged underneath it.
+
+### What the check turned up
+
+- **The app already floats a transient message**, in the practice quiz after each answer. So a
+  toast is not a new device here. **But that one wears default system chrome**, a dark rounded
+  slab belonging to no design at all. The proctor is drawn instead as the floating bar's
+  sibling: same border, same radius, same shadow, sitting directly above it.
+- **No haptic exists anywhere in the app yet**, so this sets a precedent.
+
+### Answering his question directly: yes, it can be specced
+
+- Flutter carries haptics in the framework, so **no new dependency**.
+- **Three medium taps 60ms apart**, deliberately not one long buzz: a rhythm reads as a signal,
+  a buzz reads as a notification.
+- **It respects the phone rather than a setting of ours.** With system haptics off it is a
+  silent no-op, so nothing is added to Settings and nothing has to be discovered.
+
+**Two limits stated rather than hidden.** It is the app's first haptic, and a phone on a hard
+desk buzzes audibly, which in a shared room is the opposite of unintrusive.
+
+### Left open at the end of the round
+
+- **The cadence.** 30, 20, 10, 5 and 1 mirrors a proctor and calls a 45 minute part five times.
+  The quiet alternative is 10, 5 and 1.
+- **The wording.** "20 minutes left in this part." names the part because the paper has four.
+  A proctor would say "twenty minutes remaining", which reads better but risks being taken for
+  the whole paper.
+
+### Two corrections he made in the same round
+
+1. **I had put the words "previous" and "next" beside the chevrons.** Nothing specced them. They
+   are now single glyphs in their 46px targets.
+2. **The closing screen's typography was wrong.** The figure and its label sat on separate lines,
+   leaving a hole under the numeral, and the blank and flagged counts were dressed as serif
+   headings when they are footnotes to the figure. Rebuilt: "28 of 30 answered" on one baseline,
+   and the two counts demoted to a single quiet line.
