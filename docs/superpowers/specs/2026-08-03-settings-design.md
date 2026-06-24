@@ -261,8 +261,24 @@ built on an assumption.
 | Row | Value shown | What it does |
 |---|---|---|
 | **How sessions are built** | The chosen ordering's name | Opens the ordering sheet. |
-| **Strict mock mode** | The switch | Toggles in place. Read by the mock exam to gate pause. |
+| **Strict mock mode** | The switch | Toggles in place. **Carries a subtitle, see below.** Read by the mock exam to gate pause and to gate ending a part early. |
 | **Daily reminder** | `7:00 PM`, or `Off` | Opens the reminder sheet of Section 4.5. If the OS permission is denied the value reads `Notifications are off` and the tap routes to OS settings instead of opening the sheet. |
+
+**Strict mock mode carries a subtitle, and it is the only switch on this screen that does.**
+Added 4 August 2026. The row previously showed a name and nothing else, so a student had no way
+to learn what they were turning on except by turning it on. **A restriction a student meets
+only when they hit it is a bug from their side of the screen.**
+
+> **Strict mock mode**
+> Mock exams run like the real room. You cannot pause, and you cannot end a part early.
+> Leaving the app hands the paper in.
+
+**All three consequences are named, in the order they bite.** Pausing is the one a student
+reaches for first, ending a part early is the one this subtitle was written for, and leaving the
+app is the harshest and therefore last. **The word "strict" is never used to explain itself.**
+
+**The setup screen before a paper repeats this** whenever the switch is on, because a setting
+changed weeks ago is not a warning. See `2026-07-28-mock-exam-ui-design.md`.
 
 **The ordering sheet:**
 
