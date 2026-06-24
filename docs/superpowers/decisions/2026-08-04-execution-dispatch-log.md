@@ -179,3 +179,51 @@ the foreground fix, the resume prompts, or the quota window that had just reset.
 commits and their uncommitted work, and `main` is clean at the two merges. The foreground fix
 is still untested against a live service: it addresses the stall that was diagnosed, but it has
 not yet been proven, and this log should not read later as though it had.
+
+---
+
+## 4 August 2026, 13:12: the foreground fix works, and two more merges
+
+The scheduled retry ran. **The service was back**, and the earlier diagnosis was right: it had
+been a Google outage, not the prompts and not the quota. Worth noting the test call took over
+90 seconds to answer, so "hung" and "down" look identical from the outside and the endpoint
+probe is what distinguishes them.
+
+### The foreground fix is now proven, not just plausible
+
+Both resumed runs **finished with nothing uncommitted**, where every previous attempt had
+stalled part-way with work stranded. The single instruction that changed it: *run every command
+in the foreground and wait for it, never in the background*. The earlier log entry recorded
+this fix as unproven; it is proven now.
+
+### `study01`, merged after a conflict I resolved by hand
+
+Seven commits, `schemaVersion` at **16** with `onUpgrade` branches for both 15 and 16 present in
+the same history. Gates in the worktree: **1045 tests pass**, zero analyzer issues under `lib/`
+and `test/` outside `test/tool/`, formatter clean, layering 7, attribution OK.
+
+**It conflicted with the already-merged content work** in the device preferences repository and
+its test. Both sides had added keys and methods to the same file. **Resolved by keeping both and
+routing the content seed version through the generic device value helpers** that arrived with
+the bookmark work, rather than leaving two ways to read one table.
+
+**One thing that cost time and is worth writing down.** After the merge the test would not even
+load, and the analyzer reported nothing. The cause was **stale generated database code in the
+main checkout**: it is gitignored, so a merge that moves the schema from 14 to 16 cannot bring
+it, and it must be regenerated before anything will run. Nothing to do with the merge itself.
+
+### `offline`, merged clean
+
+Three commits. Gates green in the worktree, and the thing this plan was tier P for was checked
+directly rather than taken on trust: **stream errors are swallowed so the last known entitlement
+stands.** A network failure is not treated as a contradiction, so a paying student keeps Pro in
+a dead zone. That is the rule, implemented correctly.
+
+### Main, after both merges
+
+**1063 tests pass. Zero analyzer issues under `lib/` and `test/`. Layering 7. Attribution OK.**
+`schemaVersion` is 16, which unblocks the two plans queued behind it: the content upgrade seeder
+and the passage pipeline now read the live value and take 17 and 18.
+
+**`obs04` still waits**, with 19 uncommitted files and no commits. It needs a resume prompt
+written the same way as the other two.
