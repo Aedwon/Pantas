@@ -160,8 +160,9 @@ void main() {
             packages: const [monthly, yearly, lifetime],
             onPurchase: (_) async => const PaywallCommandResult(
               entitlement: Entitlement.free(),
-              errorMessage: "Couldn't reach Google Play. Check your "
-                  'connection and try again.',
+              errorMessage:
+                  'You need a connection to subscribe. Try again when '
+                  "you're back online.",
             ),
           ),
         ),
@@ -173,7 +174,8 @@ void main() {
       expect(find.text('Try Pro'), findsOneWidget);
       expect(
         find.text(
-          "Couldn't reach Google Play. Check your connection and try again.",
+          "You need a connection to subscribe. Try again when you're back "
+          'online.',
         ),
         findsOneWidget,
       );
