@@ -144,12 +144,12 @@ Pinned 14px from the bottom and each side, 54px tall, 1px `rule` border, radius 
 reveal is the event. In a mock you move in both directions constantly, skipping and
 returning, and no answer is ever revealed, so paging is the primary interaction rather
 than clutter. It also frees the app bar for the clock, which must never be hunted for:
-the clock sits **centred** there, serif 16/700, tabular.
+the clock sits **centered** there, serif 16/700, tabular.
 
 **Amended 4 August 2026.** This line read "the clock sits **alone** there". **Pause now sits at
 the trailing edge of the app bar**, which needed somewhere to live and had nowhere: the floating
 bar already carries five controls and burying pause in the question grid punishes whoever needs
-it most. **The intent of "alone" survives**, which was that the clock is centred and unmissable,
+it most. **The intent of "alone" survives**, which was that the clock is centered and unmissable,
 and a trailing control does not move it. **The pause control is absent entirely in strict mock
 mode**, so the bar really is clock-only there. See Section 8.4.
 
@@ -159,7 +159,7 @@ mode**, so the bar really is clock-only there. See Section 8.4.
 
 ### The score
 
-Centred, and **the figure alone**:
+Centered, and **the figure alone**:
 
 ```
               68%
@@ -199,7 +199,7 @@ where it is actionable.
 
 A `SectionHeader` reading **"Performance"**, then one row per part: the part name, a
 54px inline meter, the accuracy, and time against suggested. Over-time in `rust`. The
-meter colours by severity on Home's rule: `rust` below 50, `amber` below 70, `ink`
+meter colors by severity on Home's rule: `rust` below 50, `amber` below 70, `ink`
 above.
 
 ### Practice these next
@@ -587,7 +587,7 @@ different things and the paper has both. The rule is the clock. This is the proc
 - **It sits directly above the floating bar**, 10px clear of it, and is drawn as the bar's
   sibling: same 1px `rule` border, same radius 8, same soft shadow. **Two objects of one family,
   which is why it does not read as an intrusion.**
-- **Text is centred, sans 13/600, one line, never wrapping.**
+- **Text is centered, sans 13/600, one line, never wrapping.**
 - **At the 1 minute call the text is amber**, with the rule and clock.
 
 **Copy, verbatim:**
