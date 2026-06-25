@@ -299,3 +299,43 @@ before he did**, which is the rule recorded in the previous entry working as int
 All five surfaces the 28 July spec left undesigned are settled or struck. The only thing still
 open in the mock spec is `sectionalTiming` for ACET, DCAT and MSU-SASE, which is Aedwon's to
 establish and blocks three blueprints.
+
+---
+
+## 4 August 2026: the sectional timings, supplied
+
+He closed the last open item in the mock spec.
+
+**ACET, sectional.** Mathematics 60 items in 60 minutes, English Proficiency 75 in 50, Aptitude
+and Abstract Reasoning 135 at roughly one minute per five items.
+
+**DCAT, sectional.** Mental Ability 40 in 40, Reading Comprehension 25 in 30, Writing Skills 40
+in 30, General Mathematics 45 in 50, Statistics and Probability 45 in 50, Science 50 in 30.
+
+**MSU-SASE, not sectional.** 150 items across four subtests in one 3 hour block, so
+`sectionalTiming` is false and the paper is roamable like CSE.
+
+### Two caveats recorded rather than smoothed over
+
+1. **ACET's aptitude time is derived, not given.** He supplied a rate; 135 items at one minute
+   per five is 27 minutes, which implies about 12 seconds an item. **That is arithmetic on his
+   figure, not a published total**, and it is fast even for abstract reasoning.
+2. **MSU-SASE came with "apparently".** The least certain of the three.
+
+**Both matter because the setup screen prints these to a student before they commit hours.** A
+wrong duration is not cosmetic. Both are now the only entries in the spec's Open list, and both
+are blocking for their own blueprint only.
+
+---
+
+## 4 August 2026: the plan
+
+Written as **Mock 03**, a third plan beside the two that already exist. Mock 01 owns the
+blueprint fields, setup screen, grid and floating bar; Mock 02 owns the endings; neither covers
+anything settled in this round, because both predate it.
+
+Six tasks: the part clock as pure arithmetic, the clock rule, the proctor with its haptic, the
+transition screen, the pause screen with strict mode removing it, and ending a part early.
+
+**Three prerequisites are named as stop conditions**, including the type tokens that still do
+not exist in the kit and which now block three separate plans.

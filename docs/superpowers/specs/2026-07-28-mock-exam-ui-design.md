@@ -79,7 +79,48 @@ part is not a property of the app, and the exams disagree.
 | USTET | **Yes** | Each section separately timed. Mental Ability is 80 items in 30 minutes |
 | NMAT | **Yes** | Its bulletin: the timer restarts for every section |
 | CSE | **No** | 170 items, one booklet, one answer sheet, 3 hours 10 |
-| ACET, DCAT, MSU-SASE | **Unknown** | None publishes its timing. Aedwon is establishing these |
+| ACET | **Yes** | Established by Aedwon, 4 August 2026. See below |
+| DCAT | **Yes** | Established by Aedwon, 4 August 2026. See below |
+| MSU-SASE | **No** | Established by Aedwon, 4 August 2026. One 3 hour block, 150 items |
+
+### The three that were unknown, supplied 4 August 2026
+
+**ACET, sectional.** The essay is not simulated, per the note at the end of this section.
+
+| Part | Items | Minutes |
+|---|---|---|
+| Mathematics | 60 | 60 |
+| English Proficiency | 75 | 50 |
+| Aptitude and Abstract Reasoning | 135 | **27, derived** |
+
+**DCAT, sectional.** The personality test is not simulated.
+
+| Part | Items | Minutes |
+|---|---|---|
+| Mental Ability | 40 | 40 |
+| Reading Comprehension | 25 | 30 |
+| Writing Skills | 40 | 30 |
+| General Mathematics | 45 | 50 |
+| Statistics and Probability | 45 | 50 |
+| Science | 50 | 30 |
+
+**MSU-SASE, not sectional.** 150 items across English Proficiency, Mathematics, Science and
+Mental Aptitude, in **one 3 hour block**. `sectionalTiming` is false and the paper is roamable
+end to end, like CSE.
+
+### Two things about these figures a later reader must not lose
+
+1. **ACET's aptitude time is derived, not stated.** Aedwon gave the rate as roughly one minute
+   per five items, and 135 items at that rate is 27 minutes. **That is arithmetic on his figure,
+   not a published total**, and it implies about 12 seconds an item, which is fast even for
+   abstract reasoning. **Confirm it before the ACET blueprint ships.**
+2. **MSU-SASE was given with "apparently".** It is the least certain of the three. It is enough
+   to build the blueprint, and it is not enough to print as a confident fact on a setup screen
+   without a second look.
+
+**The setup screen prints these numbers to a student before they commit hours.** A wrong
+duration is not a cosmetic error, so the two caveats above are blocking for those two
+blueprints and not for the third.
 
 ### It is a blueprint field
 
@@ -622,11 +663,14 @@ chrome. This is a mock surface and it belongs to the mock's family.
 
 ## Open
 
-1. **`sectionalTiming` for ACET, DCAT and MSU-SASE.** Aedwon is establishing these.
-   Those three blueprints cannot be completed until he reports back.
+1. **ACET's aptitude timing is derived from a rate, not published.** Section 2. Confirm before
+   that blueprint ships.
+2. **MSU-SASE's single block was given with "apparently".** Section 2. Enough to build on, not
+   enough to print without a second look.
 
-**Closed 4 August 2026:** all five previously undesigned surfaces. Four are settled in Sections
-7 to 9 and mock history is struck.
+**Closed 4 August 2026:** all five previously undesigned surfaces, and `sectionalTiming` for all
+three remaining exams. Four surfaces are settled in Sections 7 to 9, mock history is struck, and
+the timings are in Section 2.
 
 **Closed 28 July:** what Free sees in the review, Section 5. The middle band's name,
 Section 4. Whether `quiz_results_page.dart` survives, Section 6.
