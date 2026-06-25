@@ -261,8 +261,30 @@ built on an assumption.
 | Row | Value shown | What it does |
 |---|---|---|
 | **How sessions are built** | The chosen ordering's name | Opens the ordering sheet. |
+| **How hard you want to work** | `Light`, `Standard` or `Intense` | Opens a sheet. **Added 4 August 2026, see below.** |
 | **Strict mock mode** | The switch | Toggles in place. **Carries a subtitle, see below.** Read by the mock exam to gate pause and to gate ending a part early. |
 | **Daily reminder** | `7:00 PM`, or `Off` | Opens the reminder sheet of Section 4.5. If the OS permission is denied the value reads `Notifications are off` and the tap routes to OS settings instead of opening the sheet. |
+
+**"How hard you want to work" was added 4 August 2026**, and it fixes a control that was
+stored in the tree and reachable from nothing. It also **replaces** the 5/10/20/30/50 new-card
+selector that `2026-05-17-quiz-engine-and-modes-design.md` D7 asked for. **Two controls for one
+number is how they end up disagreeing.**
+
+> **How hard you want to work**
+> Your plan already sets the pace that finishes your material before your exam. This can only
+> ask for more, never less.
+>
+> ○ **Light**  The pace your plan sets.
+> ● **Standard**  The pace your plan sets.
+> ○ **Intense**  More each day, if you want to get ahead.
+
+**Light and Standard both mean "whatever finishing on time requires", and that is deliberate,
+not an oversight.** The pace is already the minimum that keeps the promise, so there is nothing
+below it to offer. **Only Intense changes anything.** Naming three when one acts would be a
+lie, so the sheet says what each does in plain words rather than implying a spread.
+
+**If that reads as two dead options, the honest alternative is a single switch**, "Work harder
+than you need to". Recorded as the fallback if the three-way sheet tests badly.
 
 **Strict mock mode carries a subtitle, and it is the only switch on this screen that does.**
 Added 4 August 2026. The row previously showed a name and nothing else, so a student had no way

@@ -57,13 +57,22 @@ Every task's requirements implicitly include this section.
 ### The pacing rule, copied from the spec
 
 ```
-quiet stretch = min(7 days, one quarter of the time until the exam)
-working days  = days from today until the quiet stretch begins
-new per day   = ceil(material remaining / working days)
+quiet stretch     = min(7 days, one quarter of the time until the exam)
+working days      = days from today until the quiet stretch begins
+lessons per day   = ceil(lessons remaining / working days)
+questions per day = ceil(questions remaining / working days)
 ```
 
+**Amended 4 August 2026: both counts, not one.** An earlier version of this plan paced
+questions only, which left the daily lesson count computed by nobody and two shipped plans
+waiting on a number that did not exist.
+
 At month precision, plan against the **first** day of that month. The student's intensity
-preference may raise `new per day` and may never lower it.
+preference may raise either count and may never lower it.
+
+**There is no fixed daily number anywhere in this plan.** Not three lessons, not ten questions.
+A student ten days out gets a large number because covering the material in ten days requires
+one, and that is the feature working rather than failing.
 
 ### Gate command
 
@@ -241,8 +250,12 @@ git commit -m "refactor(plan): remove the coaching machinery the plan no longer 
 **Interfaces:**
 - Consumes: the existing `ReviewStateLocal` table, which already has a `due` column.
 - Produces: two methods on `ReviewStateRepository`:
-  `Future<int> dueCountOn(DateTime day)` and `Future<int> unseenQuestionCount(ExamId examId)`.
-  Task 5 calls both.
+  `Future<int> dueCountOn(DateTime day)` and `Future<int> unseenQuestionCount(ExamId examId)`,
+  plus `Future<int> unreadLessonCount(ExamId examId)` on the lesson progress repository.
+  Task 5 calls all three.
+
+**The lesson count was added 4 August 2026** when the pacing was extended to cover lessons.
+Without it nothing computes a daily lesson count, and two shipped plans wait on that number.
 
 - [ ] **Step 1: Write the failing test**
 
@@ -271,6 +284,16 @@ test('unseenQuestionCount counts questions with no review state', () async {
   await repo.upsert(stateFor('q-2'));
 
   expect(await repo.unseenQuestionCount(examId), 8);
+});
+
+test('unreadLessonCount counts lessons with no read progress', () async {
+  final lessons = LessonProgressRepository(db);
+  await seedLessons(db, examId, count: 12);
+  await lessons.markRead('l-1');
+  await lessons.markRead('l-2');
+  await lessons.markRead('l-3');
+
+  expect(await lessons.unreadLessonCount(examId), 9);
 });
 ```
 
@@ -364,8 +387,12 @@ it must be testable without any of them.
 **Interfaces:**
 - Consumes: `ExamDate` from the prerequisite.
 - Produces:
-  `PlanPacing computePacing({required DateTime today, required ExamDate examDate, required int materialRemaining, required int minimumNewPerDay})`
-  returning `PlanPacing(newPerDay, quietStretchStart, examDay, workingDays)`.
+  `PlanPacing computePacing({required DateTime today, required ExamDate examDate, required int lessonsRemaining, required int questionsRemaining, required double intensityMultiplier})`
+  returning `PlanPacing(lessonsPerDay, questionsPerDay, quietStretchStart, examDay, workingDays)`.
+
+**Amended 4 August 2026.** This used to take one `materialRemaining` and return one
+`newPerDay`. **It takes both kinds of material and returns both counts**, because a student has
+lessons to read and questions to answer and the promise covers both.
 
 - [ ] **Step 1: Write the failing test**
 
@@ -381,12 +408,13 @@ void main() {
     final pacing = computePacing(
       today: today,
       examDate: ExamDate.onDay(DateTime(2026, 10, 12)),
-      materialRemaining: 414,
-      minimumNewPerDay: 0,
+      lessonsRemaining: 124,
+      questionsRemaining: 414,
+      intensityMultiplier: 1,
     );
     expect(pacing.quietStretchStart, DateTime(2026, 10, 5));
     expect(pacing.workingDays, 62);
-    expect(pacing.newPerDay, 7);
+    expect(pacing.questionsPerDay, 7);
   });
 
   test('a short window gets a proportional quiet stretch, never seven days', () {
@@ -394,68 +422,102 @@ void main() {
     final pacing = computePacing(
       today: today,
       examDate: ExamDate.onDay(DateTime(2026, 8, 14)),
-      materialRemaining: 80,
-      minimumNewPerDay: 0,
+      lessonsRemaining: 24,
+      questionsRemaining: 80,
+      intensityMultiplier: 1,
     );
     expect(pacing.quietStretchStart, DateTime(2026, 8, 12));
     expect(pacing.workingDays, 8);
-    expect(pacing.newPerDay, 10);
+    expect(pacing.questionsPerDay, 10);
   });
 
   test('a very short window still leaves at least one working day', () {
     final pacing = computePacing(
       today: today,
       examDate: ExamDate.onDay(DateTime(2026, 8, 6)),
-      materialRemaining: 50,
-      minimumNewPerDay: 0,
+      lessonsRemaining: 15,
+      questionsRemaining: 50,
+      intensityMultiplier: 1,
     );
     expect(pacing.workingDays, greaterThanOrEqualTo(1));
-    expect(pacing.newPerDay, greaterThan(0));
+    expect(pacing.questionsPerDay, greaterThan(0));
   });
 
   test('month precision plans against the FIRST of that month', () {
     final pacing = computePacing(
       today: today,
       examDate: ExamDate.inMonth(year: 2026, month: 10),
-      materialRemaining: 414,
-      minimumNewPerDay: 0,
+      lessonsRemaining: 124,
+      questionsRemaining: 414,
+      intensityMultiplier: 1,
     );
     // 1 October, not 31 October. Finishing early costs review days;
     // finishing late costs the exam.
     expect(pacing.examDay, DateTime(2026, 10, 1));
   });
 
+  test('lessons and questions are paced by the same division', () {
+    final pacing = computePacing(
+      today: today,
+      examDate: ExamDate.onDay(DateTime(2026, 10, 12)),
+      lessonsRemaining: 124,
+      questionsRemaining: 414,
+      intensityMultiplier: 1,
+    );
+    // 62 working days. 124 / 62 = 2. 414 / 62 = 6.68, rounded up.
+    expect(pacing.lessonsPerDay, 2);
+    expect(pacing.questionsPerDay, 7);
+  });
+
+  test('ten days out produces a large daily count, and that is correct', () {
+    // Aedwon's test: a fixed three a day could never cover the material.
+    final pacing = computePacing(
+      today: today,
+      examDate: ExamDate.onDay(DateTime(2026, 8, 14)),
+      lessonsRemaining: 124,
+      questionsRemaining: 414,
+      intensityMultiplier: 1,
+    );
+    expect(pacing.workingDays, 8);
+    expect(pacing.lessonsPerDay, 16);
+    expect(pacing.questionsPerDay, 52);
+  });
+
   test('the student preference can raise the pace but never lower it', () {
     final base = computePacing(
       today: today,
       examDate: ExamDate.onDay(DateTime(2026, 10, 12)),
-      materialRemaining: 414,
-      minimumNewPerDay: 0,
+      lessonsRemaining: 124,
+      questionsRemaining: 414,
+      intensityMultiplier: 1,
     );
     final raised = computePacing(
       today: today,
       examDate: ExamDate.onDay(DateTime(2026, 10, 12)),
-      materialRemaining: 414,
-      minimumNewPerDay: 20,
+      lessonsRemaining: 124,
+      questionsRemaining: 414,
+      intensityMultiplier: 1.5,
     );
     final lowered = computePacing(
       today: today,
       examDate: ExamDate.onDay(DateTime(2026, 10, 12)),
-      materialRemaining: 414,
-      minimumNewPerDay: 1,
+      lessonsRemaining: 124,
+      questionsRemaining: 414,
+      intensityMultiplier: 0.5,
     );
-    expect(raised.newPerDay, 20);
-    expect(lowered.newPerDay, base.newPerDay);
+    expect(raised.questionsPerDay, 11); // 7 at 1.5x, rounded up
+    expect(lowered.questionsPerDay, base.questionsPerDay);
   });
 
   test('no material left means no new questions a day', () {
     final pacing = computePacing(
       today: today,
       examDate: ExamDate.onDay(DateTime(2026, 10, 12)),
-      materialRemaining: 0,
-      minimumNewPerDay: 0,
+      lessonsRemaining: 0,
+      questionsRemaining: 0,
+      intensityMultiplier: 1,
     );
-    expect(pacing.newPerDay, 0);
+    expect(pacing.questionsPerDay, 0);
   });
 }
 ```
@@ -477,15 +539,19 @@ import 'package:cse_cet_reviewer/features/settings/domain/exam_date.dart';
 
 class PlanPacing {
   const PlanPacing({
-    required this.newPerDay,
+    required this.lessonsPerDay,
+    required this.questionsPerDay,
     required this.quietStretchStart,
     required this.examDay,
     required this.workingDays,
   });
 
-  /// New questions to introduce each day so the material is finished before
-  /// the quiet stretch begins.
-  final int newPerDay;
+  /// Lessons to read each day so the material is finished before the quiet
+  /// stretch begins. The reader's counter and Home's list both read this.
+  final int lessonsPerDay;
+
+  /// New questions to introduce each day, by the same division.
+  final int questionsPerDay;
 
   /// First day on which nothing new is introduced. Review only from here.
   final DateTime quietStretchStart;
@@ -500,8 +566,9 @@ class PlanPacing {
 PlanPacing computePacing({
   required DateTime today,
   required ExamDate examDate,
-  required int materialRemaining,
-  required int minimumNewPerDay,
+  required int lessonsRemaining,
+  required int questionsRemaining,
+  required double intensityMultiplier,
 }) {
   final from = DateTime(today.year, today.month, today.day);
 
@@ -518,13 +585,18 @@ PlanPacing computePacing({
   final workingDays = math.max(1, totalDays - quietDays);
   final quietStretchStart = from.add(Duration(days: workingDays));
 
-  final computed =
-      materialRemaining <= 0 ? 0 : (materialRemaining / workingDays).ceil();
+  // The preference may raise the pace and may never lower it below what
+  // finishing on time requires, so anything under 1 is ignored.
+  final multiplier = math.max(1.0, intensityMultiplier);
+
+  int perDay(int remaining) {
+    if (remaining <= 0) return 0;
+    return (remaining / workingDays * multiplier).ceil();
+  }
 
   return PlanPacing(
-    // The preference may raise the pace and may never lower it below what
-    // finishing on time requires.
-    newPerDay: math.max(computed, minimumNewPerDay),
+    lessonsPerDay: perDay(lessonsRemaining),
+    questionsPerDay: perDay(questionsRemaining),
     quietStretchStart: quietStretchStart,
     examDay: examDay,
     workingDays: workingDays,
@@ -678,7 +750,8 @@ class PlanCalendar {
     required this.today,
     required this.restOfWeek,
     required this.comingUp,
-    required this.newPerDay,
+    required this.questionsPerDay,
+    required this.lessonsPerDay,
     required this.quietStretchStart,
     required this.examDay,
   });
@@ -687,7 +760,8 @@ class PlanCalendar {
   final PlanDay today;
   final List<PlanDay> restOfWeek;
   final List<PlanWeek> comingUp;
-  final int newPerDay;
+  final int questionsPerDay;
+  final int lessonsPerDay;
   final DateTime quietStretchStart;
   final DateTime examDay;
 }
@@ -704,7 +778,7 @@ PlanCalendar buildCalendar({
 
   // Nothing new is introduced once the quiet stretch has begun.
   int newFor(DateTime day) =>
-      day.isBefore(pacing.quietStretchStart) ? pacing.newPerDay : 0;
+      day.isBefore(pacing.quietStretchStart) ? pacing.questionsPerDay : 0;
 
   final rest = <PlanDay>[];
   for (var i = 0; i < restOfWeekDueCounts.length; i++) {
@@ -770,7 +844,8 @@ PlanCalendar buildCalendar({
     ),
     restOfWeek: rest,
     comingUp: weeks,
-    newPerDay: pacing.newPerDay,
+    questionsPerDay: pacing.questionsPerDay,
+    lessonsPerDay: pacing.lessonsPerDay,
     quietStretchStart: pacing.quietStretchStart,
     examDay: pacing.examDay,
   );
@@ -852,7 +927,8 @@ Expected: FAIL. `planCalendarProvider` does not exist.
 - [ ] **Step 3: Write the provider**
 
 It reads the exam date, returns null if absent, then gathers today's due count, the next six
-days' due counts, the unseen material count, the intensity preference as `minimumNewPerDay`,
+days' due counts, the unread lesson count, the unseen question count, the intensity preference
+as a multiplier,
 and the next mock unlock date, and hands them to `computePacing` and `buildCalendar`.
 
 **The next mock unlock date is 14 days after the student's most recent mock attempt, and it is
@@ -860,9 +936,11 @@ null for a Pro student.** Read entitlement through whatever provider exposes it.
 modify that provider**: it is owned by the offline posture work and its cached-wins rule must
 survive.
 
-**Map the intensity preference to a minimum as follows**, and put this mapping in one place:
-Light 0, Standard 0, Intense 20. **Light and Standard both mean "whatever finishing on time
-requires"**; only Intense raises the floor.
+**Map the intensity preference to a multiplier**, in one place: Light 1.0, Standard 1.0,
+Intense 1.5. **Light and Standard both mean "whatever finishing on time requires"**, because
+that pace is already the minimum that keeps the promise and there is nothing below it to offer.
+**Only Intense changes anything**, and the Settings sheet says so in plain words rather than
+implying a spread.
 
 - [ ] **Step 4: Run the tests**
 

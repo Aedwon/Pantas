@@ -139,6 +139,25 @@ A user has one active exam track at a time (CSE or UPCAT). All four picker surfa
 
 ### D7 — New-card cap: soft default 10/day, configurable, auto-adjusted by Spec 6
 
+> **SUPERSEDED IN PART, 4 August 2026**, by
+> `2026-08-04-study-plan-forward-calendar-design.md` Sections 3 and 8.
+>
+> **The bucket heuristic below is struck.** "10 if more than 60 days out, 20 if 30 to 60, 40 if
+> under 30" was a guess standing in for an arithmetic that now exists: the daily count is
+> material remaining divided by the working days before a review-only stretch.
+>
+> **"The user-set override always wins over the auto-default" is reversed.** The setting can
+> raise the daily count and can never lower it below what finishing the material in time
+> requires. Lowering it breaks that promise silently, and the student would not find out until
+> the exam.
+>
+> **The Settings selector below is also struck**, and replaced by a single Light, Standard or
+> Intense preset. Two controls for one number is how they end up disagreeing.
+>
+> **Everything else in D7 stands**, including the reason for having a cap at all, the
+> across-all-surfaces counting rule, and the fallback: the engine must never hard depend on the
+> study plan.
+
 The picker emits at most N new (first-time-seen) cards per local day across all surfaces combined. Default N = 10. Settings → Study preferences exposes a 5/10/20/30/50 selector with an inline explainer of the FSRS-debt tradeoff. Spec 6 (Study Plan) replaces the static default with an exam-date-aware formula (heuristic example: cap = 10 if >60d to exam, 20 if 30–60d, 40 if <30d); the user-set override always wins over the auto-default.
 
 **Why:** Without a cap, a motivated early-week user can introduce 30–50 new cards in a single session, all of which compound into review load 1–14 days later. This is the single most common burnout pattern in serious SRS apps (Anki, Duolingo both impose caps for exactly this reason). The cap protects sustainable habit; the configurability protects the PH crammer with <4 weeks until exam day. Auto-adjustment via Spec 6 removes decision burden for the default user. Counting "across all surfaces combined" prevents the user from gaming the cap by alternating Today's Session with Drill — a new card is a new card regardless of where it surfaces.

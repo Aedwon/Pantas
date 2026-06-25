@@ -262,3 +262,67 @@ be checked at a glance. A note tells any implementer to check the block rather t
 instead of from the thing itself: first treating a May spec's vocabulary as the state of the
 tree, then drawing scheduled mocks nothing schedules, now inventing weekdays. **The check that
 caught each one took seconds.** Worth recording plainly rather than filed as a typo.
+
+---
+
+## 4 August 2026: the fixed number was the bug, and it exposed three contradictions
+
+### What he said
+
+> "isn't the lesson chain decided by the planning of the app? and what's with the arbitrary 3
+> lesson sequence? why 3 only? if they had to review in 10 days, do you seriously think they'll
+> be able to cover all topics if you present to them 3 a day only in that situation?"
+
+**Right on both counts, and the second one killed my own recommendation.** I had proposed
+closing the two reservations. That was wrong: the count is the plan's job, not a fixed number,
+and there is nothing to close.
+
+**"Three" came from `2026-07-26-home-and-navigation-design.md` and was never derived from
+anything.** I repeated it across two documents without asking where it came from, which is the
+same fault as everything else this session.
+
+**His ten-day test is the proof, and it is now written into the spec:** eight working days at
+three lessons a day is twenty four lessons, nowhere near a corpus. A fixed daily number makes
+the feature's own promise impossible to keep.
+
+### The hole it exposed in my own work
+
+**The study plan I specced that same morning paced questions only.** It divided unseen questions
+by working days and said nothing about lessons, so **nothing computed a daily lesson count
+either.** I had criticised an old document for a fixed number while shipping a spec that
+produced no number at all.
+
+**Fixed: the same division does both.** Lessons remaining over working days, questions remaining
+over working days.
+
+### The framing he gave, now the opening of Section 3
+
+> "this is literally the point of the app. it schedules for them the topics they need to deal
+> with within the timeframe they have based on the inputted expected day/month of their exam.
+> those who start early naturally have more advantage because they have more time and their
+> pacing isn't as intense. crammers chose to cram anyway so it shouldn't matter to them if they
+> have to deal with a lot of lessons every day."
+
+**Every rule in the pacing section now follows from that sentence**, and it is stated as the
+thing other specs are checked against.
+
+### Three contradictions found by checking other specs, as he asked
+
+1. **The quiz engine's D7 named a competing formula.** "Cap 10 if more than 60 days out, 20 if
+   30 to 60, 40 if under 30" is a bucket heuristic standing in for an arithmetic that now
+   exists. **Struck.**
+2. **D7 also said "the user-set override always wins over the auto-default", which is the
+   opposite of this spec.** An override that lowers the pace below what finishing requires
+   breaks the promise silently, and the student finds out at the exam. **Reversed**, and marked
+   as a reversal on both sides.
+3. **The intensity preset is stored in the tree and reachable from nothing.** The current
+   Settings spec has no row for it, and D7's separate 5/10/20/30/50 selector is not in Settings
+   either. **Two controls for one number is how they end up disagreeing.** One row added, the
+   selector struck.
+
+### One awkwardness recorded rather than hidden
+
+**Light and Standard both mean "whatever finishing on time requires", so only Intense does
+anything.** Naming three options when one acts would be a lie, so the Settings sheet says what
+each does in plain words. **The honest fallback, if that reads as two dead options, is a single
+switch: "Work harder than you need to."** Written down rather than discovered later.

@@ -84,13 +84,39 @@ fixed points fall, not by being filled in.
 **The plan paces new material so that it is all introduced before a quiet stretch at the end,
 and those last days are review only.**
 
+### What the app is actually for
+
+**Amended 4 August 2026, and this is the sentence the whole feature exists to keep.**
+
+> **The app schedules the topics a student has to deal with inside the time they actually have.**
+> Someone who starts early is naturally better off: they have more days, so their pacing is
+> gentler. Someone who starts late chose to cram, and it is not the app's job to protect them
+> from that by covering less.
+
+**Every rule below follows from that sentence.** Where another spec disagrees with it, that
+spec is superseded and Section 8 says so.
+
 ### The arithmetic
 
 ```
 quiet stretch = min(7 days, one quarter of the time until the exam)
 working days  = days from today until the quiet stretch begins
-new per day   = material remaining / working days, rounded up
+lessons per day   = lessons remaining   / working days, rounded up
+questions per day = questions remaining / working days, rounded up
 ```
+
+**Both counts, not one.** An earlier version of this spec paced questions only and said nothing
+about lessons, which left the daily lesson count computed by nobody. **The same division does
+both**, because a student has two kinds of material and the promise covers both.
+
+**No count in this app is ever a fixed number.** Not three lessons, not ten new questions.
+Aedwon's test, and it is the one that kills every fixed figure:
+
+> "if they had to review in 10 days, do you seriously think they'll be able to cover all topics
+> if you present to them 3 a day only in that situation?"
+
+Eight working days at three lessons a day is twenty four lessons, which is nowhere near a
+corpus. **A fixed daily number makes the promise above impossible to keep**, so there are none.
 
 **The quiet stretch is the shorter of seven days and a quarter of the window.** A fixed seven
 days breaks at short windows: a student with eight days would get one day of new material and
@@ -135,6 +161,16 @@ This was chosen over two alternatives: letting the setting move only the length 
 stretch, which removes a control students expect; and dropping the setting entirely, which
 leaves no sense of choice. **The chosen rule guarantees the material finishes in time while
 still letting someone with months to spare work harder than they need to.**
+
+**This reverses `2026-05-17-quiz-engine-and-modes-design.md` D7**, which said "the user-set
+override always wins over the auto-default". **It no longer wins downward.** An override that
+lowers the pace below what finishing requires breaks the promise in the sentence at the top of
+this section, silently, and the student would not find out until the exam. See Section 8.
+
+**The preset has one home, and it does not exist yet.** `StudyPlanIntensity` is stored in the
+tree today and is reachable from nothing: the current Settings spec has no row for it, and D7's
+separate 5/10/20/30/50 new-card selector is not in Settings either. **There must be exactly one
+control, not two**, and it is this preset. Section 8 carries the Settings amendment.
 
 ### When there is not enough time
 
@@ -264,22 +300,35 @@ gone.
 
 ---
 
-## Section 6: Two reservations elsewhere that this design does not fill
+## Section 6: The two reservations elsewhere, and what fills them
 
-**Stated plainly because two shipped plans are waiting on something that is now not coming.**
+**Rewritten 4 August 2026. An earlier version of this section said the chain was not coming and
+that these reservations should be closed. That was wrong**, and it was wrong because this spec
+paced only questions at the time.
 
 - `plans/2026-08-02-study-04-reader.md` reserves a slot for a plan counter, a "2 of 3", and a
   ticked rail.
 - `plans/2026-08-02-home-04-up-next.md` ships rows that open their own lesson, and reserves a
   start index for a three-lesson daily chain.
 
-**Both wait on a daily lesson chain. This design does not produce one.** The calendar counts
-questions per day; it does not name three lessons and put them in an order.
+**Both are filled by the daily lesson count in Section 3.** The plan already knows how many
+lessons today needs; nothing separate has to be designed and no chain has to be invented.
 
-**So those reservations should be closed rather than left open.** Home 4's note that "nothing
-is lost when the chain arrives" stays true in the sense that nothing was built wrong, but the
-chain is not arriving from here. **Whether a daily lesson chain is worth designing separately
-is a decision for Aedwon and it is not part of this spec.**
+**"Three" is struck everywhere it appears.** It came from
+`2026-07-26-home-and-navigation-design.md` and was never derived from anything. The reader's
+counter reads **"2 of N"** where N is today's computed count, and Home's panel starts at the
+right index into the same list.
+
+**Consequences for those two plans, and they are amendments rather than rewrites:**
+
+| Plan | What changes |
+|---|---|
+| `home-04-up-next` | Its provider answers "which lessons today", not "which three lessons". The count is a parameter, not a constant, and its lead sentence must survive N of 1 and N of 12. |
+| `study-04-reader` | The counter renders "2 of N". The ticked rail has N marks. |
+
+**A day with a large N is not a bug.** A student with ten days to go gets a lot of lessons a
+day, because that is what covering the material in ten days requires. Section 3's opening
+sentence is the authority.
 
 ---
 
@@ -299,16 +348,40 @@ what to study is Home's job and this screen does not do it.
 
 ## Section 8: Amendments to other specs
 
+**Items 5 to 8 were added 4 August 2026 when the pacing was extended to lessons. They are
+contradictions found by checking, not by assuming.**
+
 1. **`2026-05-18-study-plan-design.md` (Spec 6).** Superseded on scope, surface, pacing and
    tier. D1, D2, D5, D8, D9, D10, D11 and D13 are struck. **D3, D4, D7 and D12 stand**: the
    exam-window framing, exam-date editing, compute-on-read, and Firestore partial-field
    updates. Its `plan_prefs` storage survives unchanged.
 2. **`2026-07-30-progress-tab-design.md`.** Unchanged, but its "Your pace" section and this
    spec's closing sentence must be written from the same arithmetic. **If they ever drift they
-   will contradict each other in front of a student.**
+   will contradict each other in front of a student.** Note the two say different things on
+   purpose: **Progress describes the rate the student is actually going at, and this spec
+   prescribes the rate that finishes in time.** Both are honest and they are not the same
+   number.
 3. **`2026-07-28-quiz-tab-design.md`.** Unchanged. It keeps sole ownership of today's session.
 4. **`2026-08-02-pro-entitlement-consolidation-design.md`.** Add a row: the study plan is wholly
    Free, no gate.
+5. **`2026-05-17-quiz-engine-and-modes-design.md` D7, superseded in two ways.**
+   - **Its formula is replaced.** D7 named a bucket heuristic, "cap 10 if more than 60 days to
+     exam, 20 if 30 to 60, 40 if under 30". **That was a guess standing in for an arithmetic
+     that now exists.** The daily new-question count is Section 3's division, and the buckets
+     are struck.
+   - **"The user-set override always wins" is reversed.** It no longer wins downward. See
+     Section 3.
+   - **D7's own fallback stands and is worth keeping**: if the plan is not available, a static
+     default is sufficient and the engine must never hard depend on this spec.
+6. **`2026-08-03-settings-design.md` needs one row it does not have.** The intensity preset is
+   stored in the tree and reachable from nothing. It belongs under "How you practice", beside
+   "How sessions are built", and **it replaces D7's 5/10/20/30/50 selector rather than joining
+   it.** Two controls for one number is how they end up disagreeing.
+   > **How hard you want to work**
+   > Light, Standard or Intense. Your plan already sets the pace that finishes your material in
+   > time. This can only ask for more, never less.
+7. **`2026-08-02-home-04-up-next.md`** takes a count rather than a constant three. Section 6.
+8. **`2026-08-02-study-04-reader.md`** renders "2 of N". Section 6.
 
 ---
 
