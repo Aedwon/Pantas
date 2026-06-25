@@ -326,3 +326,31 @@ thing other specs are checked against.
 anything.** Naming three options when one acts would be a lie, so the Settings sheet says what
 each does in plain words. **The honest fallback, if that reads as two dead options, is a single
 switch: "Work harder than you need to."** Written down rather than discovered later.
+
+### The three-way preset becomes a single switch
+
+> "use the single switch instead"
+
+**He took the fallback I had recorded rather than the design I had written.** The Light,
+Standard and Intense sheet is struck.
+
+**The reason it was the right call:** two of its three options did nothing. The computed pace is
+already the minimum that finishes the material in time, so there is no slower setting to offer,
+and a control with two real states is a switch.
+
+**Copy, settled:**
+
+> **Do more each day**
+> Your plan already paces you to finish everything before your exam. Turn this on to go faster
+> and leave yourself more time to review.
+
+**Off is the default, and off is not a lesser mode.** It is the pace that keeps the promise.
+
+**Consequences carried through four documents:** the Settings row and its subtitle, this spec's
+pacing section, the quiz engine's superseded D7 note, and the implementation plan, where the
+multiplier becomes off 1.0 and on 1.5. **The stored three-way value collapses to a boolean**,
+migrating the old `intense` to on and everything else to off.
+
+**Worth noting the shape of this exchange.** I wrote the honest weakness of my own design into
+the spec as a fallback rather than leaving it for him to find. He read it and took it. That is
+the fallback note doing its job, and it is cheaper than discovering the dead options in testing.

@@ -151,8 +151,8 @@ A user has one active exam track at a time (CSE or UPCAT). All four picker surfa
 > requires. Lowering it breaks that promise silently, and the student would not find out until
 > the exam.
 >
-> **The Settings selector below is also struck**, and replaced by a single Light, Standard or
-> Intense preset. Two controls for one number is how they end up disagreeing.
+> **The Settings selector below is also struck**, and replaced by a single switch, "Do more
+> each day". Two controls for one number is how they end up disagreeing.
 >
 > **Everything else in D7 stands**, including the reason for having a cap at all, the
 > across-all-surfaces counting rule, and the fallback: the engine must never hard depend on the

@@ -152,25 +152,30 @@ second would be telling them we know something we do not.
 is mechanical rather than a question of values, and it is written down so it is easy to
 reverse.*
 
-### What happens to the intensity preference
+### What happens to the student's own control
 
-**The app sets a minimum pace. The student's Light, Standard or Intense setting can push it
-higher, never lower.**
+**The app sets the pace. One switch, "Do more each day", raises it. Nothing lowers it.**
 
-This was chosen over two alternatives: letting the setting move only the length of the quiet
-stretch, which removes a control students expect; and dropping the setting entirely, which
-leaves no sense of choice. **The chosen rule guarantees the material finishes in time while
-still letting someone with months to spare work harder than they need to.**
+**Amended 4 August 2026 to a switch**, from a Light, Standard and Intense preset. Two of those
+three options did nothing: **the computed pace is already the minimum that finishes the material
+in time, so there is no slower setting to offer.** Naming three when one acts would be a lie,
+and a control with two states is a switch.
+
+This was chosen over two alternatives: letting the control move only the length of the quiet
+stretch, which removes a lever students expect; and dropping it entirely, which leaves no sense
+of choice. **The chosen rule guarantees the material finishes in time while still letting
+someone with months to spare get ahead.**
 
 **This reverses `2026-05-17-quiz-engine-and-modes-design.md` D7**, which said "the user-set
 override always wins over the auto-default". **It no longer wins downward.** An override that
 lowers the pace below what finishing requires breaks the promise in the sentence at the top of
 this section, silently, and the student would not find out until the exam. See Section 8.
 
-**The preset has one home, and it does not exist yet.** `StudyPlanIntensity` is stored in the
-tree today and is reachable from nothing: the current Settings spec has no row for it, and D7's
-separate 5/10/20/30/50 new-card selector is not in Settings either. **There must be exactly one
-control, not two**, and it is this preset. Section 8 carries the Settings amendment.
+**The switch has one home, and it does not exist yet.** A three-way intensity value is stored
+in the tree today and is reachable from nothing: the current Settings spec had no row for it,
+and D7's separate 5/10/20/30/50 new-card selector is not in Settings either. **There must be
+exactly one control, not two**, and it is this switch. Section 8 carries the Settings
+amendment, and the stored three-way value collapses to a boolean.
 
 ### When there is not enough time
 
@@ -373,13 +378,13 @@ contradictions found by checking, not by assuming.**
      Section 3.
    - **D7's own fallback stands and is worth keeping**: if the plan is not available, a static
      default is sufficient and the engine must never hard depend on this spec.
-6. **`2026-08-03-settings-design.md` needs one row it does not have.** The intensity preset is
-   stored in the tree and reachable from nothing. It belongs under "How you practice", beside
-   "How sessions are built", and **it replaces D7's 5/10/20/30/50 selector rather than joining
-   it.** Two controls for one number is how they end up disagreeing.
-   > **How hard you want to work**
-   > Light, Standard or Intense. Your plan already sets the pace that finishes your material in
-   > time. This can only ask for more, never less.
+6. **`2026-08-03-settings-design.md` needs one row it does not have.** The pace control is
+   stored in the tree as a three-way value and reachable from nothing. **It becomes a boolean.** It belongs under "How you practice", beside
+   "How sessions are built", as a **switch**, and **it replaces D7's 5/10/20/30/50 selector
+   rather than joining it.** Two controls for one number is how they end up disagreeing.
+   > **Do more each day**
+   > Your plan already paces you to finish everything before your exam. Turn this on to go
+   > faster and leave yourself more time to review.
 7. **`2026-08-02-home-04-up-next.md`** takes a count rather than a constant three. Section 6.
 8. **`2026-08-02-study-04-reader.md`** renders "2 of N". Section 6.
 

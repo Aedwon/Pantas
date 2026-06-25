@@ -67,8 +67,8 @@ questions per day = ceil(questions remaining / working days)
 questions only, which left the daily lesson count computed by nobody and two shipped plans
 waiting on a number that did not exist.
 
-At month precision, plan against the **first** day of that month. The student's intensity
-preference may raise either count and may never lower it.
+At month precision, plan against the **first** day of that month. The "Do more each day"
+switch may raise either count and may never lower it.
 
 **There is no fixed daily number anywhere in this plan.** Not three lessons, not ten questions.
 A student ten days out gets a large number because covering the material in ten days requires
@@ -927,8 +927,8 @@ Expected: FAIL. `planCalendarProvider` does not exist.
 - [ ] **Step 3: Write the provider**
 
 It reads the exam date, returns null if absent, then gathers today's due count, the next six
-days' due counts, the unread lesson count, the unseen question count, the intensity preference
-as a multiplier,
+days' due counts, the unread lesson count, the unseen question count, the "Do more each day"
+switch as a multiplier,
 and the next mock unlock date, and hands them to `computePacing` and `buildCalendar`.
 
 **The next mock unlock date is 14 days after the student's most recent mock attempt, and it is
@@ -936,11 +936,10 @@ null for a Pro student.** Read entitlement through whatever provider exposes it.
 modify that provider**: it is owned by the offline posture work and its cached-wins rule must
 survive.
 
-**Map the intensity preference to a multiplier**, in one place: Light 1.0, Standard 1.0,
-Intense 1.5. **Light and Standard both mean "whatever finishing on time requires"**, because
-that pace is already the minimum that keeps the promise and there is nothing below it to offer.
-**Only Intense changes anything**, and the Settings sheet says so in plain words rather than
-implying a spread.
+**Map the switch to a multiplier**, in one place: off 1.0, on 1.5. **Off is not a lesser mode**,
+it is the pace that finishes the material in time, and there is nothing below it to offer.
+**The stored three-way intensity value collapses to a boolean**; migrate any existing value by
+treating the old `intense` as on and everything else as off.
 
 - [ ] **Step 4: Run the tests**
 
@@ -1107,7 +1106,7 @@ Expected: **nothing.**
 - The page has zero buttons and zero board green elements.
 - No week after the current one carries a number.
 - A student whose exam is ten days away gets a plan, with no warning and no triage.
-- The intensity preference can raise the daily new count and never lower it.
+- The "Do more each day" switch can raise both daily counts and can never lower either.
 - At month precision the header prints no day count, and the pacing runs against the first of
   that month.
 - A Pro student sees no mock marker. A Free student sees exactly one.
