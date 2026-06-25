@@ -47,6 +47,19 @@ Copied from `docs/superpowers/specs/2026-08-03-settings-design.md`. Every task's
 - Colors come from `context.colors` (`AppColors`). Never hardcode a hex value.
 - `flutter analyze` must be clean and `dart format --output=none --set-exit-if-changed lib test` must pass before any commit.
 
+## Four plans stop dead until this one lands
+
+**Added 4 August 2026 by an audit across all plans.**
+
+`2026-08-04-paywall-01`, `paywall-02`, `study-plan-forward-calendar` and `mock-03` all carry a
+prerequisite check for the type sizes below, and all four are written to **stop and say so**
+rather than hand-roll a size that would later disagree with the kit.
+
+**So this plan gates a whole afternoon of other work**, and the sizes it adds are the reason.
+Run it early.
+
+---
+
 ## AMENDED 4 August 2026: this plan gains the missing type sizes
 
 **Three specs now call for sizes `AppTextStyles` does not set, and all three stop and say so

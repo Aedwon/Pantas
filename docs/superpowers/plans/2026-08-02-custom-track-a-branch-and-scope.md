@@ -45,9 +45,27 @@ claimed **15**. Study 01 keeps 15. **This plan takes 16.**
 grep -n "schemaVersion" lib/core/storage/data/app_database.dart
 ```
 
-Expected: `int get schemaVersion => 15;`, meaning Study 01 has landed. **If it is 14, Study 01
-has not run and this plan's dependency is unmet: stop and say so** rather than taking 15
-yourself. If it is anything else, stop and say so.
+**REVISED 4 August 2026. This step used to expect exactly 15 and stop at anything else, which
+would now stop this plan for the wrong reason: Study 01 landed and took the version to 16.**
+
+**Read whatever is there and take the next number.** Do not expect a particular value and do not
+write one into this plan, because assigned numbers rot: this is the second time these plans have
+disagreed with the tree.
+
+- **The only hard requirement is that Study 01 has landed**, since this plan builds on its
+  tables. Confirm that by its tables existing, not by a version number:
+
+```bash
+grep -n "LessonBookmarks" lib/core/storage/data/app_database.dart
+```
+
+**If that returns nothing, Study 01 has not run and this plan's dependency is unmet: stop and
+say so.**
+
+- **Otherwise take `current + 1`**, and add the matching `onUpgrade` branch for exactly that
+  number.
+- **If another plan is in flight that also bumps the schema, only one of you may proceed.**
+  Check with the dispatcher rather than racing.
 
 **The bump and its migration land in the same commit**, which this plan already says.
 

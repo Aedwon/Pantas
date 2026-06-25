@@ -235,11 +235,26 @@ import 'package:cse_cet_reviewer/core/storage/data/tables/question_flags_local_t
 
 Add `QuestionFlagsLocal,` to the `tables:` list, after `Questions,`.
 
-Change the schema version:
+> **ALREADY LANDED, verified 4 August 2026. Do not do this step.**
+>
+> `QuestionFlagsLocal` is registered in `app_database.dart` and the `from < 12` migration branch
+> exists. **The schema is at 16 and climbing.** Setting it to 12 here would regress it, which
+> compiles and leaves every database newer than the code that opens it.
+>
+> **Confirm before skipping**, and if either is missing, do this step taking `current + 1`
+> rather than 12:
+>
+> ```bash
+> grep -n "QuestionFlagsLocal" lib/core/storage/data/app_database.dart
+> grep -n "from < 12" lib/core/storage/data/app_database.dart
+> ```
+
+Change the schema version, **only if the check above shows it has not landed**, to `current + 1`
+rather than to the number below:
 
 ```dart
   @override
-  int get schemaVersion => 12;
+  int get schemaVersion => 12; // historical: the value when this plan was written
 ```
 
 Add the migration branch at the end of `onUpgrade`, after the `from < 11` branch:

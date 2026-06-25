@@ -119,6 +119,21 @@ in the sealed class and has its own widget, and `decideEnding` never returns it 
 is passed in. **Building it now is deliberate**, because the copy is settled and the
 alternative is rewriting the page when plans land.
 
+> **UPDATED 4 August 2026. The reason above has expired, and the decision it justified was
+> right.**
+>
+> `2026-08-04-study-plan-forward-calendar.md` replaces the throwing providers and computes a
+> **daily lesson count**, so something does now know what a day is. **`DayFinished` becomes
+> reachable as soon as that plan lands**, and this plan needs no change to accept it: the case,
+> the widget and the copy were all built here for exactly this moment.
+>
+> **The wiring is one line at the call site**, passing the day's lesson count into
+> `decideEnding` instead of null. **Whichever of the two plans lands second does it**, and says
+> so in its report.
+>
+> **This paragraph is kept rather than rewritten** because it records why the case was built
+> against a future that had not arrived, and that judgment paid off.
+
 - [ ] **Step 1: Write the failing test**
 
 ```dart

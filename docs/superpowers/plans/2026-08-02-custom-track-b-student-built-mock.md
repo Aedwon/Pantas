@@ -44,8 +44,25 @@ this plan at **17**.
 grep -n "schemaVersion" lib/core/storage/data/app_database.dart
 ```
 
-Expected: `int get schemaVersion => 16;`. **Anything else means a prerequisite has not landed:
-stop and say so.**
+**REVISED 4 August 2026. This step used to expect exactly 16.** Main reached 16 when Study 01
+landed, and at least two plans queued ahead of this one also bump it, so a fixed expectation
+here is a collision waiting to happen.
+
+**Read whatever is there and take the next number.** Do not expect a particular value.
+
+- **The hard requirement is that custom track A has landed**, since this plan extends its
+  tables. Confirm that by its tables existing, not by a version number:
+
+```bash
+grep -n "CustomTrack" lib/core/storage/data/app_database.dart
+```
+
+**If that returns nothing, custom track A has not run: stop and say so.**
+
+- **Otherwise take `current + 1`**, with the matching `onUpgrade` branch for exactly that
+  number.
+- **If another schema plan is in flight, only one of you may proceed.** Check with the
+  dispatcher rather than racing.
 
 ---
 

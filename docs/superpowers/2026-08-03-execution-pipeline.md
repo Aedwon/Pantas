@@ -108,6 +108,20 @@ afterward, checking passage word counts, set sizes, and that no distractor is fi
 
 ---
 
+## Part 3b: The two that unblock everything else
+
+**Added 4 August 2026 by an audit across all 89 plans. Neither was called out anywhere, and
+both gate more work than anything else in the queue.**
+
+| | Plan | Why it comes first |
+|---|---|---|
+| **X1** | `onboarding-flow-and-new-steps.md` **Task 1 only** | Creates `ExamDate` with precision. **Eight plans read it**, and the study plan and paywall 02 stop dead without it. Today the stored date is a bare `DateTime?` with no precision, so anything that prints a countdown is either blocked or inventing one |
+| **X2** | `settings-01-the-kit.md` | Adds five type sizes that **do not exist** in `AppTextStyles`. **Four plans stop and say so** without them: both paywall plans, the study plan and mock 03 |
+
+**Both are small. Both are cheap. Run them before Lane C.**
+
+---
+
 ## Part 4: What runs in parallel
 
 **Four independent lanes once Part 3 is moving.** Nothing in one lane blocks another.
@@ -145,7 +159,10 @@ Each is a chain. **One agent per plan, in order, with a P verifier between links
   04 → 05 → 06 → exam-switching (2 tasks). All **F**.
 - **Quiz:** 02b (**P**, selector wiring) → 02c → 03 → 04 → 05 → 06. Rest **F**.
 - **Study:** 02 → 03a and 03b in parallel → 04 → 05. All **F**.
-- **Home:** 01 → 03 → 04, 05, 06 in parallel. All **F**.
+- **Home:** 01 → 03 → **05** → 04, 06. All **F**. **Corrected 4 August 2026 from "04, 05, 06 in
+  parallel":** Plan 5 owns `topicAccuracyProvider` and Plan 4 reads it. Run in parallel, both
+  find it absent and both write a ranking, which is the collision map's `topicAccuracyProvider`
+  row happening for real.
 - **Progress:** G1 first, it deletes machinery → G2 to G6 in parallel. All **F**.
 
 ### Lane D: Content, always parallel-safe

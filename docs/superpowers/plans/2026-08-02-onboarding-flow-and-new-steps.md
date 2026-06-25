@@ -29,6 +29,30 @@
 > **No AI attribution in commit messages.** No `Co-Authored-By` trailers, no "Generated with"
 > lines, no similar marker.
 
+## Task 1 is the single most blocking piece of work in the queue
+
+**Added 4 August 2026 by an audit across all plans. Nothing here said this, and it changes what
+order the queue should run in.**
+
+**Eight plans read `ExamDate`, and several stop dead without it:**
+
+| Plan | Needs it for |
+|---|---|
+| `2026-08-04-study-plan-forward-calendar` | The entire pacing rule. A month with no day is planned against the **first** of that month, and getting it wrong paces a student to meet new material after their exam |
+| `2026-08-04-paywall-02-the-three-screens` | Screen 2's three states, which are keyed on precision |
+| `2026-08-03-settings-02-storage`, `-03`, `-04` | The exam date row and its sheet |
+| `2026-08-02-home-03-masthead-and-band` | The masthead's countdown |
+| `2026-08-03-notifications-countdown-and-comeback` | The countdown itself |
+
+**Today the stored exam date is a bare `DateTime?` with no precision at all.** Until Task 1
+lands, every one of those either stops or has to invent a precision, and inventing one means
+printing a day count built on an assumption, which Section 1 of the Progress spec forbids.
+
+**Run Task 1 early and on its own.** It is small, and it unblocks more than anything else in the
+queue.
+
+---
+
 ## AMENDED 3 August 2026: Task 1 is now the canonical `ExamDate`, and gains one getter
 
 **Conflict C1, ruled by Aedwon.** `2026-08-03-settings-02-storage.md` Task 1 also created

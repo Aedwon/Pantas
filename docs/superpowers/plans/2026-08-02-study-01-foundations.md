@@ -1,5 +1,18 @@
 # Study Tab, Plan 1 of 5: Foundations Implementation Plan
 
+> **EXECUTED AND MERGED, 4 August 2026. Do not run this plan again.**
+>
+> All seven tasks landed. `schemaVersion` is at **16** with `onUpgrade` branches for 15 and 16,
+> the lesson `ordering` column, the bookmarks table, its sync mapping and `InkTableRow`'s
+> chevron and gutter are all on `main`.
+>
+> Verified before merge rather than taken on report: 1045 tests passing, zero analyzer issues
+> under `lib/` and `test/` outside `test/tool/`, formatter clean, layering 7, attribution clean.
+> One merge conflict in the device preferences repository was resolved by hand.
+>
+> **The hardcoded `schemaVersion` values below are historical.** Every other schema plan now
+> reads the live value and takes the next number, because assigned numbers rot.
+
 > **How to work this plan.** Implement it task by task, in order. For each task: write the
 > failing test first, run it and confirm it fails, then write the code that makes it pass. Do
 > not skip a step and do not batch tasks. Steps use checkbox (`- [ ]`) syntax so progress can
