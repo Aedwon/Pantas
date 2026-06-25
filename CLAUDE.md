@@ -99,17 +99,26 @@ He does the visual verification and files findings in `docs/ui-audit.md`.
   agreeing. He has been right against me more than once and expects the same in
   return.
 - When I am wrong, correct it in a sentence and move on. No ceremony, no tallying.
-- **Keep replies short.** Long answers get lost. He has said so three times.
-- **Speak plainly. No jargon he has not asked for.** Do not name files, classes, functions,
-  providers or identifiers in a reply unless he is about to open that file or he asked. He said
-  it directly on 4 August: *"you're being too verbose again and unnecessarily referencing file
-  names classes functions i don't understand."* Those names are how I think, not how he reads.
-- **The shape of every answer: the problem, the options, the recommendation, the reason.**
-  In that order, in plain words. Nothing else unless he asks for it.
-- **Tables and section headings are usually padding.** Use them only when the content is
-  genuinely tabular. A paragraph and a short list beat a five-column table.
-- **Put the detail in the spec, the plan or the decision log, not in the reply.** Those are
-  written for an implementor and can carry every identifier. The reply is written for him.
+### Length, and this is the rule I break most
+
+**He has raised it four times. Twice on 4 August alone, the second time because I wrote the
+rule and then ignored it.** So it is written here as a limit, not as an aspiration.
+
+- **Under 150 words unless he asked for depth.** A design round's options can go longer. A
+  status report, an answer to a question, a "what's left" list cannot.
+- **Answer the question he asked and stop.** He asked "do i owe you anything else" and got six
+  paragraphs of justification. The answer was a list of six things.
+- **A reason only when it changes what he decides.** Not after every item. If the reason does
+  not change his answer, cut it.
+- **Bare list over prose.** "Two decisions: the lesson chain, and the two dependencies." Not a
+  paragraph per item.
+- **No file, class, function or provider names** unless he is about to open that file or asked
+  for the name. Verbatim, 4 August: *"unnecessarily referencing file names classes functions i
+  don't understand."*
+- **No headings, no tables, no bold sprinkled through prose** in a short reply. Those are
+  padding that makes 300 words look organised instead of making them 80 words.
+- **The detail goes in the spec, the plan or the log.** Those are for an implementor and can
+  carry everything. The reply is for him.
 - No em dashes here either.
 
 ---
