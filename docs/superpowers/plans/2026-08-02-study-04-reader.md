@@ -84,6 +84,32 @@ likely to look at it.
 
 ## What is not built, and why it is not an omission
 
+## AMENDED 4 August 2026: the counter reads "2 of N", and the plan now supplies N
+
+**This plan was written when the study plan's providers threw and its entry row was hidden, so
+it correctly deferred the counter.** Both facts have changed.
+`docs/superpowers/specs/2026-08-04-study-plan-forward-calendar-design.md` computes a daily
+lesson count, so **there is now a plan to be "2 of N" of.**
+
+**"Three" is struck.** The count is different for every student and moves as their exam
+approaches: someone ten days out gets many lessons a day because covering the material in ten
+days requires it.
+
+**What changes in this plan:**
+
+1. **The counter renders "2 of N"**, where N is today's computed lesson count. Never a constant.
+2. **The ticked rail has N marks**, not three.
+3. **Both must render sensibly at N of 1 and at N of 12**, and both ends get a test. A rail of
+   one tick and a rail of twelve are different layout problems.
+4. **When no plan is available the bar keeps its Study composition**, the contents glyph, exactly
+   as this plan already specifies. That path is unchanged and is still the fallback.
+
+**The sections below that defer the counter are superseded on that point only.** Everything else
+in this plan stands, including the day sheet, which this plan already built on the grounds that
+it would cost nothing when the plan became real.
+
+---
+
 **The "2 of 3" counter and the day sheet.** Spec Section 4 gives the bar two compositions:
 from Home in a plan it shows a tappable "2 of 3" counter, and from Study with no plan it
 shows the contents glyph. **The study plan feature is stubbed**: its providers throw, and its
@@ -102,7 +128,7 @@ will show the contents glyph until the study plan is real.
 ## File Structure
 
 **Create:**
-- `lib/features/lesson/application/reader_providers.dart` — the lesson, its neighbours in
+- `lib/features/lesson/application/reader_providers.dart` — the lesson, its neighbors in
   authored order, its bookmark state, and the read-marking controller.
 - `lib/features/lesson/presentation/widgets/reader_bar.dart` — the bar and the collapsing
   title strip.
@@ -121,7 +147,7 @@ will show the contents glyph until the study plan is real.
 **Deliberately not touched:**
 - `PortableTextRenderer`. The body renders exactly as it does today: `h2` at `displaySmall`,
   `h3` at `headlineMedium`, blockquotes at `bodyLarge` italic with a 2px rule left border,
-  normal blocks at `bodyMedium`. Section 4 restates the current behaviour rather than
+  normal blocks at `bodyMedium`. Section 4 restates the current behavior rather than
   changing it.
 - The inline quiz. `/quiz/inline/:examId/:lessonId` is already wired and its terms hold: 5
   questions, lesson-scoped, feeds FSRS, no streak credit.

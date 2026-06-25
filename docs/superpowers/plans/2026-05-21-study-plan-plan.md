@@ -1,5 +1,22 @@
 # Study Plan Implementation Plan
 
+> **SUPERSEDED 4 August 2026. Do not execute this plan.**
+>
+> Replaced by `docs/superpowers/plans/2026-08-04-study-plan-forward-calendar.md`, against
+> `specs/2026-08-04-study-plan-forward-calendar-design.md`.
+>
+> **Why it does not survive.** It builds Spec 6's mastery pace curve, its tolerance band and its
+> on-track verdict. All three were cut on 4 August: a projection from a starting mastery to an
+> authored target is this project's own inference about a future that has not happened, which is
+> the category the evidentiary rule says may never ship. "Mastery" also leaves the app's
+> vocabulary entirely, to agree with the Progress tab, which prints Score and accuracy and never
+> says mastery.
+>
+> **What survives, and is carried into the new plan:** compute-on-read, the plan preferences and
+> their Firestore partial-field updates, and exam-date editing.
+>
+> Kept rather than deleted because the decision logs reference it.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Build Spec 6's compute-on-read Study Plan with persisted plan preferences, pacing/domain logic, a `/plan` surface, and guardrails that preserve the `app.db` user-data and `content.db` content boundary.

@@ -47,6 +47,40 @@ Copied from `docs/superpowers/specs/2026-08-03-settings-design.md`. Every task's
 - Colors come from `context.colors` (`AppColors`). Never hardcode a hex value.
 - `flutter analyze` must be clean and `dart format --output=none --set-exit-if-changed lib test` must pass before any commit.
 
+## AMENDED 4 August 2026: this plan gains the missing type sizes
+
+**Three specs now call for sizes `AppTextStyles` does not set, and all three stop and say so
+when they reach them.** The paywall, the study plan calendar and the mock's new surfaces are all
+blocked on the same gap, and it was found by checking a spec's claim rather than by any of them
+failing.
+
+**`2026-08-03-paywall-pricing-and-flow-design.md` Section 7 used to claim "every size is one
+this app already sets. Nothing here is new." Five of its seven rows did not hold.**
+
+**Add these to `AppTextStyles`.** They were chosen against live mockups and the type scale is the
+identity, so the specs are not moved onto whatever sizes happen to exist:
+
+| Name | Family, size, weight | Used by |
+|---|---|---|
+| `displayMedium` | SourceSerif4 **24** / w700 / h1.2 / ls -0.2 | Paywall screen 1, study plan header, mock transition |
+| `headlineLarge` | SourceSerif4 **16** / w700 / h1.3 | Every plated section header |
+| `titleSmall` | SourceSerif4 **14** / w700 / h1.45 | Row labels and list items |
+| `bodyRegular` | SourceSans3 **13** / w400 / h1.5 | Body copy and counts |
+| `captionSmall` | SourceSans3 **11.5** / w400 / h1.5 | Fine print |
+
+**`headlineSmall` stays at 15 and is not changed.** Existing screens are built on it, and moving
+a size that is already in use to satisfy a new spec is how a type scale becomes two type scales.
+
+**The 1.6px plate rule is not a text style and does not belong here.** It is a one pixel and six
+tenths `ink` rule drawn under a section header. `RuledSection` is not it: that draws 1px in
+`rule`, on top, for a different purpose. **Whatever draws the plate rule is a new component and
+this plan should add it**, since every screen blocked on the sizes needs it too.
+
+**Verification:** `grep -n "fontSize" lib/core/ui/theme/app_text_styles.dart` shows 24, 16, 14,
+13 and 11.5 present, and 15 still present and unchanged.
+
+---
+
 ## Departure from the spec's arithmetic, decided here
 
 The spec says rows are "38 tall" with the tap target "padded past it" to 44. In Flutter a hit region cannot exceed its own box, so this plan renders a **38-tall visual box inside a 44-tall tappable box** (3px of transparent bleed above and below). A group of N rows is therefore 44N tall in layout while every visible rule, title and value sits on the spec's 38 rhythm. Tests assert both numbers so the intent cannot drift.

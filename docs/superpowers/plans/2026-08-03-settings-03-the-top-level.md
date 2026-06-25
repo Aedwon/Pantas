@@ -50,6 +50,35 @@ becomes `ExamDate.inMonth(year: y, month: m)`, and the nullable getter `.exactDa
 
 **Decision log:** `docs/superpowers/decisions/2026-08-03-settings-log.md`.
 
+## AMENDED 4 August 2026: "How you practice" gains a switch
+
+**A control was stored in the tree and reachable from nothing.** The study plan's pace lever
+existed as a saved value with no row anywhere in Settings, so a student could not reach it.
+
+**Add one switch to the "How you practice" group**, between "How sessions are built" and "Strict
+mock mode":
+
+> **Do more each day**
+> Your plan already paces you to finish everything before your exam. Turn this on to go faster
+> and leave yourself more time to review.
+
+- **It is a switch, not a three-way choice.** A Light, Standard and Intense sheet was drafted
+  first and two of its three options did nothing: the plan's pace is already the minimum that
+  finishes the material in time, so there is no slower setting to offer.
+- **Off is the default, and off is not a lesser mode.** It is the pace that keeps the promise.
+- **It carries a subtitle.** With this row there are exactly **two** subtitled switches on this
+  screen, this one and strict mock mode, and they are the only two that change what the app will
+  do rather than how it looks. Any test asserting "only one subtitle" must be updated.
+- **The stored value collapses from a three-way to a boolean.** Migrate the old `intense` to on
+  and everything else to off.
+- **This row replaces the 5/10/20/30/50 new-card selector** that
+  `2026-05-17-quiz-engine-and-modes-design.md` D7 asked for. **Do not build both.** Two controls
+  for one number is how they end up disagreeing, and D7's selector is struck.
+
+**The group now holds four rows**, so the count in "Done when" moves from twelve to thirteen.
+
+---
+
 ## Global Constraints
 
 - **American spelling** in every string, comment and identifier.
