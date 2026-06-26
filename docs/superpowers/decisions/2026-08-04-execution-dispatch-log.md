@@ -264,3 +264,48 @@ clean, layering 7, attribution 0.**
 corpus, so everything authored since then, including all of Mathematics, was still invisible to
 the app **even after the delivery path merged**. 155 figure-pending questions are skipped by the
 builder as designed. This was worth doing precisely because it costs no Gemini quota at all.
+
+---
+
+## 4 August 2026: the two unblockers land
+
+Dispatched together because the audit had just identified them as gating about a third of the
+queue, and neither shares a file with the other.
+
+### `ExamDate`, Task 1 only
+
+**The API matters more than the code here**, because eight plans are written against these exact
+names, and two of them were corrected earlier today to match. Checked directly:
+`ExamDate.onDay(DateTime)`, `ExamDate.inMonth({required int year, required int month})` with
+**named** parameters, `day` returning a **nullable** `DateTime`, plus `year`, `month`,
+`monthStart`, `daysUntil`, `storageValue` and `fromStorage`. **All correct.** Schema untouched
+at 16, as instructed.
+
+Gates in the worktree: 1082 tests, analyzer clean under `lib` and `test`, formatter clean,
+layering 7.
+
+### The kit, including the five type sizes
+
+Ten commits. The sizes are present, **`headlineSmall` is still 15**, which the amendment
+required because existing screens are built on it, and `InkPlateRule` exists at exactly 1.6px.
+
+**Its gates were not clean and its report said they were.** Two analyzer infos under `test/`
+from a deprecated semantics call. That is the whole reason the tier split verifies rather than
+relays.
+
+**Fixing it took three attempts and each one is worth recording**, because it is a good example
+of not guessing at an API:
+
+1. `flagsCollection.isSelected` swapped in for `hasFlag`. **The test then failed:** it returns a
+   `Tristate`, not a `bool`.
+2. Compared against `Tristate` instead. **The file would not load:** `Tristate` is not exported
+   by `package:flutter/semantics.dart`.
+3. Found it in the engine's `dart:ui`. Imported from there, removed the now-unused import, and
+   it passed.
+
+### Main after both merges
+
+**1101 tests passing**, analyzer clean, formatter clean, layering 7, attribution 0, schema 16.
+
+**Nothing broke on contact this time**, which is not luck: the two plans were chosen to run
+together precisely because they share no files.
