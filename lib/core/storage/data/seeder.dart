@@ -112,6 +112,7 @@ class Seeder {
                   choicesJson: jsonEncode(q['choices']),
                   explanation: q['explanation'] as String,
                   shortLabel: Value(q['shortLabel'] as String?),
+                  isWithdrawn: Value(q['isWithdrawn'] as bool? ?? false),
                 ),
               );
         }

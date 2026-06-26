@@ -19,6 +19,10 @@ class Questions extends Table {
   TextColumn get explanation => text()();
   TextColumn get shortLabel => text().nullable()();
 
+  /// A withdrawn question is never served again by sessions/drills/mocks/pickers,
+  /// but remains visible in history.
+  BoolColumn get isWithdrawn => boolean().withDefault(const Constant(false))();
+
   @override
   Set<Column<Object>> get primaryKey => {id};
 }

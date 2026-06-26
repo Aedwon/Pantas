@@ -72,7 +72,9 @@ class ContentRepository {
 
   Future<List<Question>> questionsByTopic(TopicId topicId) async {
     final rows = await (_db.select(_db.questions)
-          ..where((q) => q.topicId.equals(topicId)))
+          ..where(
+            (q) => q.topicId.equals(topicId) & q.isWithdrawn.equals(false),
+          ))
         .get();
     return rows.map(_hydrateQuestion).toList();
   }
