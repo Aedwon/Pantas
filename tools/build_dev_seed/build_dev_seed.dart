@@ -154,6 +154,7 @@ void main() {
 
   final seed = {
     'schemaVersion': 1,
+    'contentVersion': computeContentVersion(),
     'generatedAt': DateTime.now().toUtc().toIso8601String(),
     'exams': [
       ...keptExams,
@@ -189,6 +190,20 @@ void main() {
 }
 
 String _underscore(String slug) => slug.replaceAll('-', '_');
+
+/// Derives a monotonic contentVersion integer from [timestamp] formatted as
+/// `YYYYMMDDHH`.
+///
+/// This scheme ensures that seed builds produce strictly increasing version
+/// numbers without requiring a manually maintained counter.
+int computeContentVersion([DateTime? timestamp]) {
+  final time = timestamp ?? DateTime.now().toUtc();
+  final year = time.year.toString().padLeft(4, '0');
+  final month = time.month.toString().padLeft(2, '0');
+  final day = time.day.toString().padLeft(2, '0');
+  final hour = time.hour.toString().padLeft(2, '0');
+  return int.parse('$year$month$day$hour');
+}
 
 // --- questions ---------------------------------------------------------
 
