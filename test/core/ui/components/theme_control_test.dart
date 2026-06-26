@@ -1,7 +1,8 @@
+import 'dart:ui' show Tristate;
+
 import 'package:cse_cet_reviewer/core/ui/components/theme_control.dart';
 import 'package:cse_cet_reviewer/features/settings/domain/theme_preference.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/semantics.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/pump_app.dart';
@@ -53,7 +54,7 @@ void main() {
     final dark = tester.getSemantics(find.bySemanticsLabel('Dark theme'));
     final light = tester.getSemantics(find.bySemanticsLabel('Light theme'));
 
-    expect(dark.hasFlag(SemanticsFlag.isSelected), isTrue);
-    expect(light.hasFlag(SemanticsFlag.isSelected), isFalse);
+    expect(dark.flagsCollection.isSelected, Tristate.isTrue);
+    expect(light.flagsCollection.isSelected, isNot(Tristate.isTrue));
   });
 }
