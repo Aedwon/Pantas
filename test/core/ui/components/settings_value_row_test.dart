@@ -48,7 +48,10 @@ void main() {
         children: [
           SettingsValueRow(title: 'Strict mock mode', value: 'Off'),
           SettingsValueRow(
-              title: 'Remember table order', value: 'On', valueIsInk: true),
+            title: 'Remember table order',
+            value: 'On',
+            valueIsInk: true,
+          ),
         ],
       ),
     );

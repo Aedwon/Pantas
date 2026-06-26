@@ -42,7 +42,9 @@ void main() {
     final decoration = divider.decoration! as BoxDecoration;
     expect(decoration.color, AppColors.light.ink);
     expect(
-        tester.getSize(find.byKey(const Key('settingsGroupRule'))).height, 1);
+      tester.getSize(find.byKey(const Key('settingsGroupRule'))).height,
+      1,
+    );
   });
 
   testWidgets('a group after the first leads with 24 of space', (tester) async {
