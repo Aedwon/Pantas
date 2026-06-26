@@ -194,4 +194,23 @@ void main() {
 
     expect(await repo.openTopicId('e1'), isNull);
   });
+
+  test('appliedContentVersion round-trips int in devicePrefs', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = AppPreferencesRepository(db);
+
+    expect(await repo.appliedContentVersion(), isNull);
+
+    await repo.setAppliedContentVersion(2026080410);
+
+    expect(await repo.appliedContentVersion(), equals(2026080410));
+
+    final deviceRow = await (db.select(db.devicePrefs)
+          ..where((p) => p.key.equals('applied_content_version')))
+        .getSingle();
+    expect(deviceRow.value, equals('2026080410'));
+
+    expect(await db.select(db.accountPrefs).get(), isEmpty);
+  });
 }

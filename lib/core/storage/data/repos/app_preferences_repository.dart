@@ -6,6 +6,7 @@ class AppPreferencesRepository {
   static const _selectedExamIdKey = 'selected_exam_id';
   static const _passedAgeGateKey = 'passed_age_gate';
   static const _contentSeedVersionKey = 'content_seed_version';
+  static const _appliedContentVersionKey = 'applied_content_version';
   static const _recentLessonsPrefix = 'recent_lessons_';
   static const _openTopicPrefix = 'open_topic_';
   static const _recentLessonsKept = 3;
@@ -59,6 +60,15 @@ class AppPreferencesRepository {
 
   Future<void> setInstalledContentSeedVersion(String version) =>
       _setDeviceValue(_contentSeedVersionKey, version);
+
+  Future<int?> appliedContentVersion() async {
+    final raw = await _deviceValue(_appliedContentVersionKey);
+    if (raw == null) return null;
+    return int.tryParse(raw);
+  }
+
+  Future<void> setAppliedContentVersion(int version) =>
+      _setDeviceValue(_appliedContentVersionKey, version.toString());
 
   /// The lessons most recently opened for this exam, newest first, at most
   /// three. Device-local on purpose: only `account_prefs` sync, and where
