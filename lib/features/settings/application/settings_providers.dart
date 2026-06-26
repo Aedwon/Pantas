@@ -1,6 +1,7 @@
 import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/settings/data/settings_repository.dart';
+import 'package:cse_cet_reviewer/features/settings/domain/exam_date.dart';
 import 'package:cse_cet_reviewer/features/settings/domain/theme_preference.dart';
 import 'package:cse_cet_reviewer/features/settings/domain/user_settings.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -97,21 +98,21 @@ class SettingsActions {
     _ref.invalidate(userSettingsProvider);
   }
 
-  Future<void> setExamDate(DateTime date, {required DateTime today}) async {
+  Future<void> setExamDate(ExamDate date, {required DateTime today}) async {
     await _ref
         .read(settingsRepositoryProvider)
         .updateExamDate(date, today: today);
     _ref.invalidate(userSettingsProvider);
   }
 
-  Future<String> saveExamDate(DateTime date, {required DateTime today}) async {
+  Future<String> saveExamDate(ExamDate date, {required DateTime today}) async {
     await _ref
         .read(settingsRepositoryProvider)
         .updateExamDate(date, today: today);
     await _ref
         .read(studyPlanRebalanceGatewayProvider)
         .onSettingsExamDateChanged(
-          date,
+          date.day ?? date.monthStart,
           today: today,
         );
     _ref.invalidate(userSettingsProvider);

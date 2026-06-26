@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/features/settings/domain/exam_date.dart';
 import 'package:meta/meta.dart';
 
 @immutable
@@ -58,7 +59,7 @@ class UserSettings {
   }
 
   final SettingsTime? dailyReminderTime;
-  final DateTime? examDate;
+  final ExamDate? examDate;
   final bool strictMockMode;
   final bool helpImproveApp;
   final DateTime? updatedAt;
@@ -67,5 +68,5 @@ class UserSettings {
 class InvalidExamDateException implements Exception {
   const InvalidExamDateException(this.date);
 
-  final DateTime date;
+  final ExamDate date;
 }

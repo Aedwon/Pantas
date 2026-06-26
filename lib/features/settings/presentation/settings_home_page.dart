@@ -173,10 +173,27 @@ class SettingsHomePage extends ConsumerWidget {
     return 'Back up progress';
   }
 
-  static String? _formatDate(DateTime? date) {
+  static String? _formatDate(ExamDate? date) {
     if (date == null) return null;
+    if (date.precision == ExamDatePrecision.month) {
+      const monthNames = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+      ];
+      return '${monthNames[date.month - 1]} ${date.year}';
+    }
     return '${date.year.toString().padLeft(4, '0')}-'
         '${date.month.toString().padLeft(2, '0')}-'
-        '${date.day.toString().padLeft(2, '0')}';
+        '${date.day!.day.toString().padLeft(2, '0')}';
   }
 }

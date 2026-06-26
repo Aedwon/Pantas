@@ -61,14 +61,41 @@ void main() {
     );
 
     await repo.updateExamDate(
-      DateTime(2026, 5, 23),
+      ExamDate.onDay(DateTime(2026, 5, 23)),
       today: DateTime(2026, 5, 22),
     );
 
-    expect((await repo.readUserSettings()).examDate, DateTime(2026, 5, 23));
+    expect(
+      (await repo.readUserSettings()).examDate,
+      ExamDate.onDay(DateTime(2026, 5, 23)),
+    );
     await expectLater(
       repo.updateExamDate(
-        DateTime(2026, 5, 22),
+        ExamDate.onDay(DateTime(2026, 5, 22)),
+        today: DateTime(2026, 5, 22),
+      ),
+      throwsA(isA<InvalidExamDateException>()),
+    );
+  });
+
+  test('month-precision date allows current month while days remain', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = DriftSettingsRepository(db);
+
+    await repo.updateExamDate(
+      ExamDate.inMonth(year: 2026, month: 5),
+      today: DateTime(2026, 5, 22),
+    );
+
+    expect(
+      (await repo.readUserSettings()).examDate,
+      ExamDate.inMonth(year: 2026, month: 5),
+    );
+
+    await expectLater(
+      repo.updateExamDate(
+        ExamDate.inMonth(year: 2026, month: 4),
         today: DateTime(2026, 5, 22),
       ),
       throwsA(isA<InvalidExamDateException>()),

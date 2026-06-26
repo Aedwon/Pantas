@@ -1,4 +1,5 @@
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
+import 'package:cse_cet_reviewer/features/settings/domain/exam_date.dart';
 import 'package:cse_cet_reviewer/features/settings/domain/theme_preference.dart';
 import 'package:cse_cet_reviewer/features/settings/domain/user_settings.dart';
 import 'package:drift/drift.dart';
@@ -20,6 +21,7 @@ class NoopAnalyticsConsentGateway implements AnalyticsConsentGateway {
 abstract final class SettingsPrefKeys {
   static const dailyReminderTime = 'settings.daily_reminder_time';
   static const examDate = 'settings.exam_date';
+  static const examDatePrecision = 'settings.exam_date_precision';
   static const strictMockMode = 'strict_mock_mode';
   static const helpImproveApp = 'settings.help_improve_app';
   static const updatedAt = 'settings.updated_at';
@@ -44,7 +46,10 @@ class DriftSettingsRepository {
     return UserSettings(
       dailyReminderTime:
           SettingsTime.fromStorage(values[SettingsPrefKeys.dailyReminderTime]),
-      examDate: _parseDate(values[SettingsPrefKeys.examDate]),
+      examDate: ExamDate.fromStorage(
+        values[SettingsPrefKeys.examDate],
+        values[SettingsPrefKeys.examDatePrecision],
+      ),
       strictMockMode: values[SettingsPrefKeys.strictMockMode] == 'true',
       // Absent means unanswered, and unanswered means off. Consent that
       // defaults to yes is not consent, and this switch governs crash reports
@@ -62,14 +67,18 @@ class DriftSettingsRepository {
     });
   }
 
-  Future<void> updateExamDate(DateTime date, {required DateTime today}) async {
-    final normalizedDate = _dateOnly(date);
-    final earliest = _dateOnly(today).add(const Duration(days: 1));
-    if (normalizedDate.isBefore(earliest)) {
-      throw InvalidExamDateException(normalizedDate);
+  Future<void> updateExamDate(ExamDate date, {required DateTime today}) async {
+    // At month precision the comparison is against the month, not the 1st, so
+    // the current month stays selectable while it still has days left in it.
+    final earliest = DateTime(today.year, today.month, today.day)
+        .add(const Duration(days: 1));
+    final toCompare = date.day ?? DateTime(date.year, date.month + 1, 0);
+    if (toCompare.isBefore(earliest)) {
+      throw InvalidExamDateException(date);
     }
     await _writeAccountPrefs({
-      SettingsPrefKeys.examDate: _formatDate(normalizedDate),
+      SettingsPrefKeys.examDate: date.storageValue,
+      SettingsPrefKeys.examDatePrecision: date.precision.name,
       SettingsPrefKeys.updatedAt: _clock().toUtc().toIso8601String(),
     });
   }
@@ -115,26 +124,5 @@ class DriftSettingsRepository {
         );
       }
     });
-  }
-
-  static DateTime _dateOnly(DateTime date) {
-    return DateTime(date.year, date.month, date.day);
-  }
-
-  static String _formatDate(DateTime date) {
-    return '${date.year.toString().padLeft(4, '0')}-'
-        '${date.month.toString().padLeft(2, '0')}-'
-        '${date.day.toString().padLeft(2, '0')}';
-  }
-
-  static DateTime? _parseDate(String? value) {
-    if (value == null) return null;
-    final parts = value.split('-');
-    if (parts.length != 3) return null;
-    final year = int.tryParse(parts[0]);
-    final month = int.tryParse(parts[1]);
-    final day = int.tryParse(parts[2]);
-    if (year == null || month == null || day == null) return null;
-    return DateTime(year, month, day);
   }
 }

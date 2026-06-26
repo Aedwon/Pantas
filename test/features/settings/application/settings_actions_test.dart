@@ -20,14 +20,14 @@ void main() {
     addTearDown(container.dispose);
 
     final message = await container.read(settingsActionsProvider).saveExamDate(
-          DateTime(2026, 9, 14),
+          ExamDate.onDay(DateTime(2026, 9, 14)),
           today: DateTime(2026, 5, 22),
         );
 
     expect(message, 'Your study plan is being rebalanced.');
     expect(
       (await DriftSettingsRepository(db).readUserSettings()).examDate,
-      DateTime(2026, 9, 14),
+      ExamDate.onDay(DateTime(2026, 9, 14)),
     );
     expect(rebalanceGateway.dates, [DateTime(2026, 9, 14)]);
   });
@@ -42,7 +42,7 @@ void main() {
 
     await expectLater(
       container.read(settingsActionsProvider).saveExamDate(
-            DateTime(2026, 5, 22),
+            ExamDate.onDay(DateTime(2026, 5, 22)),
             today: DateTime(2026, 5, 22),
           ),
       throwsA(isA<InvalidExamDateException>()),
