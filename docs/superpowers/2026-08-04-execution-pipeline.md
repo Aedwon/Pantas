@@ -37,6 +37,19 @@ Report the gate command's pasted output and any findings.
 stalled part way and stranded their work because Gemini launched `flutter test` in the
 background and then idled. Adding the line fixed it: both resumed runs finished clean.
 
+### Quota, which cannot be checked automatically
+
+**`agy` exposes no usage command and nothing on disk records it.** Verified 4 August rather than
+assumed. The only signals are Aedwon's reading of it and an error back from the CLI.
+
+- **Ask him for headroom before each wave.**
+- **Below roughly a quarter left, do not start a plan with unfinished tasks.** A run that dies
+  mid-task strands its work, which is what cost most of 4 August.
+- **When headroom is thin, do the zero-Gemini work instead:** verify and merge finished
+  worktrees, rebuild the seed, or design.
+- **Confirm which way a percentage runs.** "At 20%" meant 20% consumed; "at 81%" meant 81%
+  remaining. Both were misread on 4 August, in opposite directions.
+
 ### Dispatching, mechanically
 
 **Never dispatch through a subagent.** The permission classifier refuses the required flag
