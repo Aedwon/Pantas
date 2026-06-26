@@ -49,4 +49,10 @@ class FirebaseTelemetry implements Telemetry {
     await _analytics.setAnalyticsCollectionEnabled(enabled);
     await _crashlytics.setCrashlyticsCollectionEnabled(enabled);
   }
+
+  @override
+  Future<void> setUserIdentifier(String identifier) async {
+    await _crashlytics.setUserIdentifier(identifier);
+    await _analytics.setUserId(id: identifier.isEmpty ? null : identifier);
+  }
 }

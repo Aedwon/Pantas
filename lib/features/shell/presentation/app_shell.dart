@@ -1,23 +1,34 @@
+import 'package:cse_cet_reviewer/app/telemetry_providers.dart';
+import 'package:cse_cet_reviewer/core/telemetry/telemetry.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class AppShell extends StatelessWidget {
+class AppShell extends ConsumerWidget {
   const AppShell({required this.navigationShell, super.key});
 
   final StatefulNavigationShell navigationShell;
 
+  static const _labels = ['home', 'study', 'quiz', 'progress'];
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       body: navigationShell,
       bottomNavigationBar: _AppNavBar(
         currentIndex: navigationShell.currentIndex,
-        onTap: (i) => navigationShell.goBranch(
-          i,
-          initialLocation: i == navigationShell.currentIndex,
-        ),
+        onTap: (i) {
+          ref.read(telemetryProvider).log(
+            TelemetryEvent.tabOpened,
+            properties: {'tab': _labels[i]},
+          );
+          navigationShell.goBranch(
+            i,
+            initialLocation: i == navigationShell.currentIndex,
+          );
+        },
       ),
     );
   }

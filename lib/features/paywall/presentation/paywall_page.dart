@@ -1,12 +1,14 @@
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/paywall/application/paywall_controller.dart';
+import 'package:cse_cet_reviewer/features/paywall/application/paywall_providers.dart';
 import 'package:cse_cet_reviewer/features/paywall/domain/paywall_package.dart';
 import 'package:cse_cet_reviewer/features/paywall/domain/paywall_recommendation.dart';
 import 'package:cse_cet_reviewer/features/paywall/presentation/paywall_package_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class PaywallPage extends StatefulWidget {
+class PaywallPage extends ConsumerStatefulWidget {
   const PaywallPage({
     this.returnTo,
     this.packages = const [],
@@ -24,12 +26,20 @@ class PaywallPage extends StatefulWidget {
       onPurchase;
 
   @override
-  State<PaywallPage> createState() => _PaywallPageState();
+  ConsumerState<PaywallPage> createState() => _PaywallPageState();
 }
 
-class _PaywallPageState extends State<PaywallPage> {
+class _PaywallPageState extends ConsumerState<PaywallPage> {
   late PaywallSku _selectedSku = widget.recommendedSku;
   String? _errorMessage;
+
+  @override
+  void initState() {
+    super.initState();
+    ref.read(paywallControllerProvider).logPaywallShown(
+          trigger: widget.returnTo ?? 'manual',
+        );
+  }
 
   @override
   Widget build(BuildContext context) {

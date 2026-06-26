@@ -1,3 +1,5 @@
+import 'package:cse_cet_reviewer/core/telemetry/crash_reporting.dart';
+
 /// The six questions this app needs answered at launch, and nothing beyond
 /// them. Section 3 of
 /// `docs/superpowers/specs/2026-08-03-platform-foundations-design.md`.
@@ -80,7 +82,7 @@ void assertPropertiesAllowed(Map<String, Object> properties) {
 /// The seam. No feature imports an analytics or crash package directly, which
 /// is what keeps the layering check passing and makes the consent gate
 /// testable with a fake.
-abstract interface class Telemetry {
+abstract interface class Telemetry implements CrashReportingSink {
   Future<void> log(TelemetryEvent event, {Map<String, Object>? properties});
   Future<void> recordError(Object error, StackTrace stack);
   Future<void> setEnabled({required bool enabled});
@@ -102,4 +104,7 @@ class DisabledTelemetry implements Telemetry {
 
   @override
   Future<void> setEnabled({required bool enabled}) async {}
+
+  @override
+  Future<void> setUserIdentifier(String identifier) async {}
 }

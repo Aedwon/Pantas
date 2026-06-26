@@ -1,3 +1,5 @@
+import 'package:cse_cet_reviewer/core/auth/providers.dart';
+import 'package:cse_cet_reviewer/core/telemetry/crash_reporting.dart';
 import 'package:cse_cet_reviewer/core/telemetry/gated_telemetry.dart';
 import 'package:cse_cet_reviewer/core/telemetry/telemetry.dart';
 import 'package:cse_cet_reviewer/features/settings/application/settings_providers.dart';
@@ -22,3 +24,14 @@ final telemetryProvider = Provider<Telemetry>((ref) {
 final telemetrySinkProvider = Provider<Telemetry>(
   (ref) => const DisabledTelemetry(),
 );
+
+/// Absorbs CrashReporter into telemetry, updating user identifier when auth
+/// changes.
+final crashReporterProvider = Provider<CrashReporter>((ref) {
+  final telemetry = ref.watch(telemetryProvider);
+  final reporter = CrashReporter(telemetry);
+  ref.listen(authStateProvider, (previous, next) {
+    next.whenData(reporter.applyAuthState);
+  });
+  return reporter;
+});

@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/telemetry/telemetry.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_results.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_session_state.dart';
 
@@ -6,9 +7,11 @@ class MockSessionController {
     required MockSessionState state,
     required void Function(MockTimeWarning warning)? onWarning,
     required void Function(MockSubmitReason reason)? onSubmit,
+    Telemetry telemetry = const DisabledTelemetry(),
   })  : _state = state,
         _onWarning = onWarning,
-        _onSubmit = onSubmit;
+        _onSubmit = onSubmit,
+        _telemetry = telemetry;
 
   factory MockSessionController.initial({
     required String attemptId,
@@ -17,7 +20,9 @@ class MockSessionController {
     bool strictMode = false,
     void Function(MockTimeWarning warning)? onWarning,
     void Function(MockSubmitReason reason)? onSubmit,
+    Telemetry telemetry = const DisabledTelemetry(),
   }) {
+    telemetry.log(TelemetryEvent.mockStarted);
     return MockSessionController._(
       state: MockSessionInProgress(
         attemptId: attemptId,
@@ -31,12 +36,14 @@ class MockSessionController {
       ),
       onWarning: onWarning,
       onSubmit: onSubmit,
+      telemetry: telemetry,
     );
   }
 
   MockSessionState _state;
   final void Function(MockTimeWarning warning)? _onWarning;
   final void Function(MockSubmitReason reason)? _onSubmit;
+  final Telemetry _telemetry;
   final _emittedWarnings = <MockTimeWarning>{};
 
   MockSessionState get state => _state;
@@ -98,6 +105,7 @@ class MockSessionController {
     final current = _requireInProgress();
     if (!current.strictMode) return;
     _state = const MockSessionForfeited(MockSubmitReason.strictBackground);
+    _telemetry.log(TelemetryEvent.mockAbandoned);
     _onSubmit?.call(MockSubmitReason.strictBackground);
   }
 
@@ -119,6 +127,7 @@ class MockSessionController {
 
   void _submit(MockSubmitReason reason) {
     _state = MockSessionSubmitted(reason);
+    _telemetry.log(TelemetryEvent.mockCompleted);
     _onSubmit?.call(reason);
   }
 }
