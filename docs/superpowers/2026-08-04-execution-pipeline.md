@@ -185,7 +185,6 @@ mock's five missing screens.
 | Question approval | Every generated file has `approved:` unset by design. Question Studio is yours |
 | Illustrations | 11 Geometry figure slugs are logged with described stems, so nothing is blocked, but the pictures are yours |
 | **ACET's aptitude timing** | Derived from a rate, not published. It implies 12 seconds an item. **Confirm before that blueprint ships** |
-| **MSU-SASE's single block** | Given with "apparently". Enough to build on, not to print |
 
 **Closed 4 August:** `sectionalTiming` for all three exams.
 

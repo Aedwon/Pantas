@@ -114,13 +114,14 @@ end to end, like CSE.
    per five items, and 135 items at that rate is 27 minutes. **That is arithmetic on his figure,
    not a published total**, and it implies about 12 seconds an item, which is fast even for
    abstract reasoning. **Confirm it before the ACET blueprint ships.**
-2. **MSU-SASE was given with "apparently".** It is the least certain of the three. It is enough
-   to build the blueprint, and it is not enough to print as a confident fact on a setup screen
-   without a second look.
+2. **MSU-SASE is confirmed, not hedged.** An earlier version of this section read the word
+   "apparently" in Aedwon's message as uncertainty. It was not: he confirmed on 4 August that it
+   was conversational. **One block, 150 items, 3 hours, no sectional timing.** Treat it as
+   established.
 
 **The setup screen prints these numbers to a student before they commit hours.** A wrong
-duration is not a cosmetic error, so the two caveats above are blocking for those two
-blueprints and not for the third.
+duration is not a cosmetic error, so the ACET caveat is blocking for that blueprint and for no
+other.
 
 ### It is a blueprint field
 
@@ -665,8 +666,7 @@ chrome. This is a mock surface and it belongs to the mock's family.
 
 1. **ACET's aptitude timing is derived from a rate, not published.** Section 2. Confirm before
    that blueprint ships.
-2. **MSU-SASE's single block was given with "apparently".** Section 2. Enough to build on, not
-   enough to print without a second look.
+
 
 **Closed 4 August 2026:** all five previously undesigned surfaces, and `sectionalTiming` for all
 three remaining exams. Four surfaces are settled in Sections 7 to 9, mock history is struck, and
