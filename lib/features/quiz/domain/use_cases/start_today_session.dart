@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
+import 'package:cse_cet_reviewer/core/telemetry/telemetry.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_ordering.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_preferences.dart';
@@ -35,17 +38,20 @@ class StartTodaySession {
     QuestionPicker? topicPicker,
     QuestionPicker? interleavedPicker,
     Uuid? uuid,
+    Telemetry telemetry = const DisabledTelemetry(),
   })  : _content = content,
         _sessions = sessions,
         _topicPicker = topicPicker ?? TodayTopicPicker(),
         _interleavedPicker = interleavedPicker ?? TodayInterleavedPicker(),
-        _uuid = uuid ?? const Uuid();
+        _uuid = uuid ?? const Uuid(),
+        _telemetry = telemetry;
 
   final ContentRepository _content;
   final QuizSessionRepository _sessions;
   final QuestionPicker _topicPicker;
   final QuestionPicker _interleavedPicker;
   final Uuid _uuid;
+  final Telemetry _telemetry;
 
   Future<StartTodaySessionResult> call({
     required String userId,
@@ -96,6 +102,12 @@ class StartTodaySession {
       topicId: session.topicId,
       questionIds: picked.map((question) => question.id).toList(),
       startedAt: now,
+    );
+    unawaited(
+      _telemetry.log(
+        TelemetryEvent.sessionStarted,
+        properties: {'origin': origin.storageValue},
+      ),
     );
     return StartTodaySessionStarted(session);
   }

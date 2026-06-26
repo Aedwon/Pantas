@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/app/telemetry_providers.dart';
 import 'package:cse_cet_reviewer/core/fsrs/fsrs_scheduler.dart';
 import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
@@ -73,6 +74,7 @@ final startTodaySessionProvider = Provider<StartTodaySession>(
   (ref) => StartTodaySession(
     content: ref.watch(contentRepositoryProvider),
     sessions: ref.watch(quizSessionRepositoryProvider),
+    telemetry: ref.watch(telemetryProvider),
   ),
 );
 

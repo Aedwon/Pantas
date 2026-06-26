@@ -1,6 +1,7 @@
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -189,7 +190,9 @@ class _Host extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(theme: buildLightTheme(), home: child);
+    return ProviderScope(
+      child: MaterialApp(theme: buildLightTheme(), home: child),
+    );
   }
 }
 

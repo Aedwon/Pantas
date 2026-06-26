@@ -41,4 +41,10 @@ class GatedTelemetry implements Telemetry {
   @override
   Future<void> setEnabled({required bool enabled}) =>
       _inner.setEnabled(enabled: enabled);
+
+  @override
+  Future<void> setUserIdentifier(String identifier) async {
+    if (!isCollecting) return;
+    await _inner.setUserIdentifier(identifier);
+  }
 }

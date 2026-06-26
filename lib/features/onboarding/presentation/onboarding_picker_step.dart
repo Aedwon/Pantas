@@ -1,5 +1,9 @@
+import 'dart:async';
+
+import 'package:cse_cet_reviewer/app/telemetry_providers.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/exam.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/core/telemetry/telemetry.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
@@ -31,6 +35,9 @@ class _OnboardingPickerStepState extends ConsumerState<OnboardingPickerStep> {
     try {
       await ref.read(appPreferencesRepositoryProvider).setSelectedExamId(id);
       ref.invalidate(appPreferencesRepositoryProvider);
+      unawaited(
+        ref.read(telemetryProvider).log(TelemetryEvent.onboardingCompleted),
+      );
       widget.onCompleted();
     } catch (_) {
       if (!mounted) return;

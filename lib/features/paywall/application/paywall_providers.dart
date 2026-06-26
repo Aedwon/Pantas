@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/app/telemetry_providers.dart';
 import 'package:cse_cet_reviewer/features/paywall/application/paywall_controller.dart';
 import 'package:cse_cet_reviewer/features/paywall/data/revenuecat_gateway.dart';
 import 'package:cse_cet_reviewer/features/paywall/domain/entitlement.dart';
@@ -30,7 +31,10 @@ final paywallPackagesProvider = FutureProvider((ref) async {
 });
 
 final paywallControllerProvider = Provider<PaywallController>((ref) {
-  return PaywallController(ref.watch(revenueCatGatewayProvider));
+  return PaywallController(
+    ref.watch(revenueCatGatewayProvider),
+    telemetry: ref.watch(telemetryProvider),
+  );
 });
 
 extension _StartWith<T> on Stream<T> {

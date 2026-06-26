@@ -1,10 +1,13 @@
+import 'package:cse_cet_reviewer/app/telemetry_providers.dart';
 import 'package:cse_cet_reviewer/core/auth/auth.dart';
 import 'package:cse_cet_reviewer/core/telemetry/crash_reporting.dart';
+import 'package:cse_cet_reviewer/core/telemetry/telemetry.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('CrashReporter clears user id for signedOut', () async {
-    final sink = RecordingCrashReportingSink();
+    final sink = RecordingTelemetrySink();
     final reporter = CrashReporter(sink);
 
     await reporter.applyAuthState(const AuthState.signedOut());
@@ -14,7 +17,7 @@ void main() {
 
   test('CrashReporter sets anonymous uid and named uid without email',
       () async {
-    final sink = RecordingCrashReportingSink();
+    final sink = RecordingTelemetrySink();
     final reporter = CrashReporter(sink);
 
     await reporter.applyAuthState(const AuthState.anonymous(uid: 'anon-1'));
@@ -30,13 +33,47 @@ void main() {
 
     expect(sink.userIds, ['anon-1', 'user-1']);
   });
+
+  test('DisabledTelemetry handles setUserIdentifier without error', () async {
+    const telemetry = DisabledTelemetry();
+    await telemetry.setUserIdentifier('user-1');
+  });
+
+  test('crashReporterProvider is created and listens to telemetry', () {
+    final container = ProviderContainer(
+      overrides: [
+        telemetrySinkProvider.overrideWithValue(RecordingTelemetrySink()),
+      ],
+    );
+    addTearDown(container.dispose);
+
+    final reporter = container.read(crashReporterProvider);
+    expect(reporter, isA<CrashReporter>());
+  });
 }
 
-class RecordingCrashReportingSink implements CrashReportingSink {
+class RecordingTelemetrySink implements Telemetry {
   final userIds = <String>[];
+  final loggedEvents = <TelemetryEvent>[];
+  final loggedProperties = <Map<String, Object>?>[];
 
   @override
   Future<void> setUserIdentifier(String identifier) async {
     userIds.add(identifier);
   }
+
+  @override
+  Future<void> log(
+    TelemetryEvent event, {
+    Map<String, Object>? properties,
+  }) async {
+    loggedEvents.add(event);
+    loggedProperties.add(properties);
+  }
+
+  @override
+  Future<void> recordError(Object error, StackTrace stack) async {}
+
+  @override
+  Future<void> setEnabled({required bool enabled}) async {}
 }

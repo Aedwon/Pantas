@@ -26,6 +26,9 @@ class _RecordingTelemetry implements Telemetry {
   Future<void> setEnabled({required bool enabled}) async {
     enabledCalls.add(enabled);
   }
+
+  @override
+  Future<void> setUserIdentifier(String identifier) async {}
 }
 
 void main() {
