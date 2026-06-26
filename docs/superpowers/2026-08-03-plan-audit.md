@@ -3,7 +3,7 @@
 > **CLOSED 3 August.** All six conflicts were ruled on and every amendment in this document
 > has been landed in the plans themselves. The five readiness fixes are done: 47 of 47 plans
 > now carry a model-agnostic preamble, cite `AGENTS.md`, name their source spec and state the
-> analyzer baseline. **The live execution order is `2026-08-03-execution-pipeline.md`**, not
+> analyzer baseline. **The live execution order is `2026-08-04-execution-pipeline.md`**, not
 > the checkpoint. This file is kept as the record of what was found and why.
 >
 > **One correction to Section 3, item 4.** This document and the work checkpoint both said

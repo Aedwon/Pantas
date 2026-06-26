@@ -25,7 +25,7 @@ Three files govern this project and they do not overlap:
    table and its file table are as binding as its steps.
 3. **The spec your plan cites.** Every plan names one by path. The plan tells you what to
    build; the spec tells you why, and you need the why the moment a step is ambiguous.
-4. **`docs/superpowers/2026-08-03-execution-pipeline.md` Part 4**, the collision map. If any
+4. **`docs/superpowers/2026-08-04-execution-pipeline.md` Part 4**, the collision map. If any
    symbol or file you are about to touch appears there, read that row before writing.
 
 **If any of those four is missing or unreadable, stop and say so.** Do not proceed on three
@@ -368,12 +368,12 @@ This is the intended mode: implementation plans in parallel while the specs cont
 
 - **One worktree each, always.**
 - **Consult the collision map first**,
-  `docs/superpowers/2026-08-03-execution-pipeline.md` Part 4. Two plans that both name
+  `docs/superpowers/2026-08-04-execution-pipeline.md` Part 4. Two plans that both name
   `topicAccuracyProvider`, `InkCheckbox`, `InkTableRow`, `severityFor` or `entitlementProvider`
   must not run at the same time, or one silently reverts the other.
 - **`lib/app/router.dart` is touched by 25 plans.** Those are merge conflicts rather than
   logic errors, but expect them and merge deliberately.
-- **Respect the phases.** `2026-08-03-execution-pipeline.md` Part 2 orders them. Everything
+- **Respect the phases.** `2026-08-04-execution-pipeline.md` Part 2 orders them. Everything
   inside one phase is parallel-safe unless the collision map says otherwise; across phases it
   is not.
 - **Content agents and code agents never conflict.** Content writes `content/` and

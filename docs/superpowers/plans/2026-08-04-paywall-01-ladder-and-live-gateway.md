@@ -27,7 +27,7 @@ config. **Nothing in `presentation/` is redrawn here**; that is Paywall 02.
 
 Every task's requirements implicitly include this section.
 
-- **Do not modify `entitlementProvider`.** `docs/superpowers/2026-08-03-execution-pipeline.md`
+- **Do not modify `entitlementProvider`.** `docs/superpowers/2026-08-04-execution-pipeline.md`
   Part 8 names it as a collision between `offline-posture` Task 1 and the paywall rebuild, and
   the offline plan owns it. **The paywall must not undo the cached-wins rule:** last known
   entitlement stands until positively contradicted, and a network failure is not a

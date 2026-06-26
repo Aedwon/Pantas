@@ -11,14 +11,14 @@ earlier note. When an item is finished, strike it here and say what closed it.
 
 ## Audited 3 August. This file's execution order is superseded.
 
-**Read `2026-08-03-execution-pipeline.md` first.** It is the live order. The tables further
+**Read `2026-08-04-execution-pipeline.md` first.** It is the live order. The tables further
 down this file were written before the Settings thread existed and before the six conflicts
 were ruled on, and three of them are now wrong.
 
 A full pass over every spec and plan on 3 August produced three documents that supersede parts
 of this file:
 
-- **`2026-08-03-execution-pipeline.md`** is the live execution order and the dispatch guide.
+- **`2026-08-04-execution-pipeline.md`** is the live execution order and the dispatch guide.
 
 - **`2026-08-03-plan-audit.md`** holds six conflicts between plans that need a ruling before
   anything is dispatched, what is still unspecced or unplanned, and five readiness fixes the

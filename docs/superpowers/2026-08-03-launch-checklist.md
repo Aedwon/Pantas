@@ -1,6 +1,6 @@
 # Launch checklist
 
-> **Order and parallelism live in `2026-08-03-execution-pipeline.md`.** This file is the
+> **Order and parallelism live in `2026-08-04-execution-pipeline.md`.** This file is the
 > inventory of what must be true before launch, split by who owns each line.
 
 **Created 3 August 2026.** Everything standing between the tree as it is today and a build a
@@ -15,7 +15,7 @@ place. When something closes, say what closed it.
 `plans/2026-05-21-paywall-live-validation.md` and it applies to this whole file.
 
 Companion documents: `2026-08-03-plan-audit.md` for the conflicts and the gaps,
-`2026-08-03-execution-pipeline.md` for the dispatch order, `2026-08-03-next-rounds.md` for a
+`2026-08-04-execution-pipeline.md` for the dispatch order, `2026-08-03-next-rounds.md` for a
 ready-to-paste prompt per remaining round, and `2026-08-02-work-checkpoint.md` for the older
 running backlog.
 
@@ -153,7 +153,7 @@ planned**, on his instruction of the same day to go ahead. Specs:
 `specs/2026-08-03-offline-and-network-posture-design.md`,
 `specs/2026-08-03-content-delivery-and-seed-upgrade-design.md`,
 `specs/2026-08-03-notification-engagement-amendment-design.md`. Seven plans carry them.
-**Execution order: `2026-08-03-execution-pipeline.md`.**
+**Execution order: `2026-08-04-execution-pipeline.md`.**
 
 **One gap found while writing them, and it is the largest on this page:**
 

@@ -242,7 +242,7 @@ a stub. **That correction is mine to own: I read the file count and did not read
 
 ### The pipeline document
 
-`2026-08-03-execution-pipeline.md` replaces the checkpoint's execution order. Five phases,
+`2026-08-04-execution-pipeline.md` replaces the checkpoint's execution order. Five phases,
 46 unexecuted plans, the collision map with the five resolved rows and the eight still live,
 and a health table. Gates verified after the sweep and unchanged: analyzer 27 issues all
 under `tools/`, layering 7, and no new AI-attribution hits.

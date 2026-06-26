@@ -1,6 +1,6 @@
 # Execution dispatch log
 
-Decisions made while dispatching the plans in `2026-08-03-execution-pipeline.md` to
+Decisions made while dispatching the plans in `2026-08-04-execution-pipeline.md` to
 implementors. Chronological. Later entries append; they never edit earlier ones.
 
 ---

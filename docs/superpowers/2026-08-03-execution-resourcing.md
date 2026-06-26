@@ -6,7 +6,7 @@ subscription covering Gemini 3.6 Flash and 3.1 Pro through the Antigravity quota
 should execute the 46 unexecuted plans?
 
 **This document decides that. It does not change any plan.** The execution order stays
-`2026-08-03-execution-pipeline.md`; this says who runs each part of it and what gets cut to
+`2026-08-04-execution-pipeline.md`; this says who runs each part of it and what gets cut to
 reach a beta.
 
 ---
@@ -134,7 +134,7 @@ one where every fix needs a reinstall that destroys their progress.
 
 1. **Phase 0 first**, all four plans, since none depends on anything.
 2. **Then dispatch 3 to 4 Gemini agents in parallel**, one worktree each, checking
-   `2026-08-03-execution-pipeline.md` Part 4 before every pair.
+   `2026-08-04-execution-pipeline.md` Part 4 before every pair.
 3. **Verify and merge each one before dispatching its successor** in the same thread.
 4. **Claude holds quota for the design rounds** and the money path.
 

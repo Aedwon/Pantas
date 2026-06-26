@@ -4,7 +4,7 @@
 prompt you can paste cold. Each one names the files to read first, because a fresh session
 knows nothing.
 
-**`2026-08-03-execution-pipeline.md` is the live map**: what to do first, what runs in parallel, and the tier each item belongs to. This file carries only the rounds that are not plans yet.
+**`2026-08-04-execution-pipeline.md` is the live map**: what to do first, what runs in parallel, and the tier each item belongs to. This file carries only the rounds that are not plans yet.
 `2026-08-03-launch-checklist.md` is everything between here and a paid install.
 `2026-08-03-plan-audit.md` is what the 3 August audit found.
 
@@ -228,7 +228,7 @@ regeneration and the version work is not yours.
 ### 3.1 Phase 0, the four foundation plans
 
 ```
-Pantas. Dispatch Phase 0 from `docs/superpowers/2026-08-03-execution-pipeline.md`.
+Pantas. Dispatch Phase 0 from `docs/superpowers/2026-08-04-execution-pipeline.md`.
 
 Four plans, none depending on any other plan in the repository:
 `plans/2026-08-03-foundations-01-observability.md`
@@ -254,7 +254,7 @@ question; do not let an implementor answer it.
 ```
 Pantas. Execute `plans/<FILENAME>.md`.
 
-Read `docs/superpowers/2026-08-03-execution-pipeline.md` Part 1 for the dispatch rules
+Read `docs/superpowers/2026-08-04-execution-pipeline.md` Part 1 for the dispatch rules
 and Part 4 for the collision map before starting, and check whether anything this plan
 touches is named there.
 
