@@ -57,3 +57,4 @@ void main() {
     expect(light.hasFlag(SemanticsFlag.isSelected), isFalse);
   });
 }
+
