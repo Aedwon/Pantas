@@ -227,3 +227,40 @@ and the passage pipeline now read the live value and take 17 and 18.
 
 **`obs04` still waits**, with 19 uncommitted files and no commits. It needs a resume prompt
 written the same way as the other two.
+
+---
+
+## 4 August 2026, afternoon: observability lands, and a merge that only broke on contact
+
+### `foundations-01` Task 4, merged
+
+Resumed rather than re-dispatched, with the foreground rule that has now fixed this stall three
+times for three. It committed cleanly with nothing left uncommitted.
+
+Verified rather than relayed: 1018 tests in the worktree, zero analyzer issues under `lib/` and
+`test/` outside `test/tool/`, formatter clean, layering 7, attribution OK. **Exactly eleven
+distinct telemetry events**, which is the number the task specifies. And the claim that mattered
+most was checked directly: **`CrashReporter` had no caller on `main` and has one after this**, so
+the orphan is genuinely absorbed rather than merely mentioned.
+
+### The merge broke two tests that passed on both sides
+
+**Neither branch was wrong.** The offline posture work added `paywall_offline_copy_test.dart`,
+which pumps the paywall page inside a bare `MaterialApp`. That was correct at the time: the page
+read no providers. **Task 4 turned that page into a consumer that reads one in `initState`** to
+emit its event. Together, "No ProviderScope found".
+
+**This is the argument for running the gates after the merge and not only before it.** Both
+worktrees were green. The failure existed only in their combination, and a dispatcher who
+trusted two green reports would have pushed a broken `main`.
+
+**Fixed by the dispatcher, not handed back**, since it is merge fallout: the two pumps are
+wrapped in a `ProviderScope` with a comment saying why. **Main: 1072 tests passing, analyzer
+clean, layering 7, attribution 0.**
+
+### Also landed, with no Gemini spent
+
+**The seed was rebuilt: 1,117 questions to 1,840.** It was dated 25 July and 876 behind the
+corpus, so everything authored since then, including all of Mathematics, was still invisible to
+the app **even after the delivery path merged**. 155 figure-pending questions are skipped by the
+builder as designed. This was worth doing precisely because it costs no Gemini quota at all.
