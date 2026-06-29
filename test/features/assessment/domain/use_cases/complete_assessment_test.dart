@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:cse_cet_reviewer/core/fsrs/fsrs_scheduler.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/assessment_repository.dart';
+import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/review_state_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/review_state.dart';
@@ -18,6 +19,7 @@ void main() {
   late AssessmentRepository assessmentRepo;
   late ReviewStateRepository reviewRepo;
   late ContentRepository contentRepo;
+  late AttemptsRepository attemptsRepo;
   late CompleteAssessment useCase;
 
   // Returns (correctChoiceId, wrongChoiceId).
@@ -48,11 +50,13 @@ void main() {
     assessmentRepo = AssessmentRepository(db);
     reviewRepo = ReviewStateRepository(db);
     contentRepo = ContentRepository(db);
+    attemptsRepo = AttemptsRepository(db);
     useCase = CompleteAssessment(
       assessmentRepo: assessmentRepo,
       reviewRepo: reviewRepo,
       scheduler: const FsrsScheduler(),
       contentRepo: contentRepo,
+      attemptsRepo: attemptsRepo,
     );
 
     await db.into(db.exams).insert(
@@ -223,5 +227,76 @@ void main() {
 
     await useCase.call(session: session, now: DateTime(2026));
     expect(await reviewRepo.byQuestionId('q1'), isNull);
+  });
+
+  test('writes one attempt row, with origin assessment and no timing',
+      () async {
+    final (correctId, _) = await seedQuestion('q1', 't1');
+    final q1 = (await contentRepo.questionsByTopic('t1')).first;
+
+    final session = AssessmentSession(
+      examId: 'e1',
+      questions: [AssessmentQuestion(question: q1, topicId: 't1')],
+      answers: {'q1': correctId},
+    );
+    final now = DateTime(2026);
+    await useCase(session: session, now: now);
+
+    final savedRows = await db.select(db.attemptsLocal).get();
+    expect(savedRows, hasLength(1));
+    final attemptRow = savedRows.single;
+    expect(attemptRow.origin, 'assessment');
+    expect(attemptRow.examId, session.examId);
+    expect(attemptRow.completedAt, now);
+
+    final attempt = await attemptsRepo.byId(attemptRow.id);
+    expect(attempt, isNotNull);
+    expect(attempt!.items.every((i) => i.responseMs == 0), isTrue);
+  });
+
+  test('an unanswered question is not written as a wrong answer', () async {
+    final (correctId, _) = await seedQuestion('q1', 't1');
+    await seedQuestion('q2', 't1');
+    final q1 = (await contentRepo.questionsByTopic('t1'))
+        .firstWhere((q) => q.id == 'q1');
+    final q2 = (await contentRepo.questionsByTopic('t1'))
+        .firstWhere((q) => q.id == 'q2');
+
+    final session = AssessmentSession(
+      examId: 'e1',
+      questions: [
+        AssessmentQuestion(question: q1, topicId: 't1'),
+        AssessmentQuestion(question: q2, topicId: 't1'),
+      ],
+      answers: {
+        'q1': correctId,
+        'q2': null, // unanswered
+      },
+    );
+    await useCase(session: session, now: DateTime(2026));
+
+    final savedRows = await db.select(db.attemptsLocal).get();
+    final attempt = await attemptsRepo.byId(savedRows.single.id);
+    expect(attempt!.items, hasLength(1));
+    expect(attempt.items.single.questionId, 'q1');
+  });
+
+  test('the item carries the chosen and the correct choice', () async {
+    final (correctId, wrongId) = await seedQuestion('q1', 't1');
+    final q1 = (await contentRepo.questionsByTopic('t1')).first;
+
+    final session = AssessmentSession(
+      examId: 'e1',
+      questions: [AssessmentQuestion(question: q1, topicId: 't1')],
+      answers: {'q1': wrongId},
+    );
+    await useCase(session: session, now: DateTime(2026));
+
+    final savedRows = await db.select(db.attemptsLocal).get();
+    final attempt = await attemptsRepo.byId(savedRows.single.id);
+    final item = attempt!.items.firstWhere((i) => i.questionId == 'q1');
+    expect(item.isCorrect, isFalse);
+    expect(item.chosenChoiceId, wrongId);
+    expect(item.correctChoiceId, correctId);
   });
 }
