@@ -69,6 +69,27 @@ For each task:
 **Do not skip step 2.** A test written after the code passes on the first run and has never
 demonstrated that it can fail, which means it is not yet a test.
 
+### After merging a schema change, regenerate before you judge anything
+
+**This has cost time twice on 4 August and it looks like a catastrophe both times.**
+
+`*.g.dart` is gitignored, so **a merge that moves `schemaVersion` cannot bring the generated
+code with it.** The tree is then source-at-17 against generated-at-16, and the symptom is not a
+clear error:
+
+- the first time, a single test **would not load at all** and the analyzer reported nothing;
+- the second time, **151 tests failed** and two analyzer issues appeared, on a merge where both
+  branches had been fully green alone.
+
+**So, immediately after any merge that touches the schema, and before running the gates:**
+
+```bash
+dart run build_runner build --delete-conflicting-outputs
+```
+
+**Do not start diagnosing a post-merge failure until you have done this.** Both times the real
+answer was that nothing was wrong with either branch.
+
 ### Schema changes carry one extra rule
 
 **The `schemaVersion` bump and its migration land in the same commit.** Always. A version
