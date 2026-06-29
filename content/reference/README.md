@@ -45,5 +45,5 @@ studying to become one.
 - **Anything that changes.** Who holds an office, a current programme, this year's figure.
 - **Anything the app measures.** That is the student's own data and it is governed by the
   evidentiary rule, not by this directory.
-- **Exam scope taken from a review centre rather than the testing body.** Only the body's own
+- **Exam scope taken from a review center rather than the testing body.** Only the body's own
   published scope counts.
