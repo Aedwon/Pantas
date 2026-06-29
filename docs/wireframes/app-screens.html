@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pantas: every screen, rendered</title>
+<style>
+@font-face{font-family:'PSerif';src:url('../../assets/fonts/SourceSerif4-Regular.ttf');font-weight:400}
+@font-face{font-family:'PSerif';src:url('../../assets/fonts/SourceSerif4-SemiBold.ttf');font-weight:600}
+@font-face{font-family:'PSerif';src:url('../../assets/fonts/SourceSerif4-Bold.ttf');font-weight:700}
+@font-face{font-family:'PSans';src:url('../../assets/fonts/SourceSans3-Regular.ttf');font-weight:400}
+@font-face{font-family:'PSans';src:url('../../assets/fonts/SourceSans3-SemiBold.ttf');font-weight:600}
+@font-face{font-family:'PSans';src:url('../../assets/fonts/SourceSans3-Bold.ttf');font-weight:700}
+
+/* page chrome, always dark */
+*{box-sizing:border-box}
+body{margin:0;background:#151310;color:#EFEAE0;
+  font:400 13px/1.55 ui-sans-serif,-apple-system,system-ui,sans-serif}
+header{position:sticky;top:0;z-index:60;background:rgba(21,19,16,.97);
+  backdrop-filter:blur(10px);border-bottom:1px solid #322d26;padding:14px 22px}
+h1{margin:0 0 3px;font:700 17px/1.2 ui-sans-serif;letter-spacing:-.2px}
+.sub{color:#9a9285;font-size:12px;margin:0;max-width:100ch}
+nav{display:flex;gap:6px;flex-wrap:wrap;margin-top:11px}
+nav a{font:600 11px/1 ui-sans-serif;color:#9a9285;text-decoration:none;
+  padding:6px 10px;border:1px solid #322d26;border-radius:999px;white-space:nowrap}
+nav a:hover{color:#EFEAE0;border-color:#544c42}
+.tools{display:flex;gap:8px;align-items:center;margin-top:11px;font-size:11.5px;color:#9a9285;flex-wrap:wrap}
+.tools button{font:600 11px/1 ui-sans-serif;letter-spacing:.08em;text-transform:uppercase;
+  padding:7px 13px;border-radius:999px;cursor:pointer;background:transparent;color:#bdb6a8;border:1px solid #4a443b}
+.tools button.on{background:#EFEAE0;color:#191613;border-color:#EFEAE0}
+.tools label{display:flex;gap:6px;align-items:center;cursor:pointer;margin-left:6px}
+section{padding:28px 22px 6px;border-top:1px solid #262119}
+h2{margin:0 0 4px;font:700 16px/1.3 ui-sans-serif}
+h2 span{color:#4FA08D;font-size:11px;font-weight:600;margin-left:9px;letter-spacing:.06em;text-transform:uppercase}
+.flownote{margin:0 0 18px;color:#9a9285;font-size:12.5px;max-width:104ch;line-height:1.65}
+.rail{display:flex;overflow-x:auto;padding:4px 0 22px;align-items:flex-start}
+.rail::-webkit-scrollbar{height:10px}
+.rail::-webkit-scrollbar-thumb{background:#3d372f;border-radius:9px}
+.step{display:flex;align-items:flex-start;flex:0 0 auto}
+.arrow{width:30px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;
+  color:#5e574c;font-size:18px;padding-top:330px}
+.card{flex:0 0 auto;width:360px;margin-right:0}
+.cap{font:600 10px/1.4 ui-sans-serif;letter-spacing:.06em;text-transform:uppercase;
+  color:#8c857a;margin-bottom:8px;min-height:28px;position:relative}
+.cap b{color:#EFEAE0}
+.cap .an{color:#4FA08D;margin-left:6px}
+.note{font-size:11px;line-height:1.55;color:#7e7669;margin-top:8px;max-width:360px}
+
+/* the device, real tokens */
+.dev{--bg:#FBF9F4;--ink:#26221B;--inkMuted:#6E675C;--rule:#E5DFD3;--ruleFaint:#F1EDE4;
+  --board:#1D5C50;--boardTint:#E3EFEA;--onBoard:#FFFFFF;--rust:#A33B2E;--amber:#9A6B15;
+  width:360px;height:700px;background:var(--bg);color:var(--ink);
+  border:1px solid var(--rule);border-radius:12px;overflow:hidden;position:relative;
+  display:flex;flex-direction:column;font-family:'PSans',ui-sans-serif,system-ui}
+body.dark .dev{--bg:#191613;--ink:#EFEAE0;--inkMuted:#A69C8C;--rule:#38332B;--ruleFaint:#2A2620;
+  --board:#4FA08D;--boardTint:#22352F;--onBoard:#14110D;--rust:#D4705F;--amber:#C99A45}
+
+/* app bar: clock alone and centered, optional lead and trail */
+.ab{height:52px;flex:0 0 auto;border-bottom:1px solid var(--rule);display:flex;
+  align-items:center;justify-content:center;position:relative}
+.ab .ttl{font-family:'PSerif';font-weight:700;font-size:16px}
+.ab .clk{font-family:'PSerif';font-weight:700;font-size:16px;font-variant-numeric:tabular-nums}
+.ab .lead{position:absolute;left:14px;font-family:'PSerif';font-size:17px}
+.ab .trail{position:absolute;right:12px;width:24px;height:24px;display:flex;align-items:center;justify-content:center}
+.trule{position:absolute;left:0;bottom:-1px;height:1px;background:var(--ink);opacity:.55}
+.trule.warn{height:1.6px;opacity:1}
+.trule.last{height:1.6px;opacity:1;background:var(--amber)}
+
+.body{padding:22px 16px 0;flex:1;overflow:hidden;display:flex;flex-direction:column}
+.foot{padding:0 16px 16px;flex:0 0 auto}
+
+/* the type scale, as the kit now sets it */
+.r24{font-family:'PSerif';font-weight:700;font-size:24px;line-height:1.2;letter-spacing:-.2px}
+.r22{font-family:'PSerif';font-weight:700;font-size:22px;line-height:1.2;letter-spacing:-.2px}
+.r30{font-family:'PSerif';font-weight:700;font-size:30px;line-height:1;letter-spacing:-.3px;font-variant-numeric:tabular-nums}
+.r16{font-family:'PSerif';font-weight:700;font-size:16px;line-height:1.3}
+.r15{font-family:'PSerif';font-weight:700;font-size:15px;line-height:1.3}
+.r14{font-family:'PSerif';font-weight:700;font-size:14px;line-height:1.45}
+.r14n{font-family:'PSerif';font-weight:400;font-size:14px;line-height:1.5}
+.s13{font-size:13px;line-height:1.5;font-weight:400}
+.s12{font-size:12px;line-height:1.45;font-weight:400}
+.s115{font-size:11.5px;line-height:1.5;font-weight:400}
+.lbl{font-size:11px;font-weight:600;line-height:1.2}
+.tag{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;line-height:1.2}
+.mut{color:var(--inkMuted)} .amb{color:var(--amber)} .rst{color:var(--rust)} .brd{color:var(--board)}
+
+/* plate: SectionHeader plus the 1.6px ink rule */
+.plate{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-top:24px}
+.plate:first-child{margin-top:0}
+.prule{height:1.6px;background:var(--ink);margin-top:6px}
+.hair{height:1px;background:var(--rule);margin:14px 0}
+
+/* InkTableRow */
+.tr{display:flex;align-items:baseline;justify-content:space-between;gap:10px;
+  padding:11px 0;border-bottom:1px solid var(--rule);min-height:44px}
+.tr:last-of-type{border-bottom:none}
+.tr .v{font-size:13px;color:var(--inkMuted);white-space:nowrap}
+.tr .chev{color:var(--inkMuted);font-family:'PSerif';font-size:15px}
+
+/* AnswerRow: 22px serif letter, tinted when chosen */
+.ar{display:flex;align-items:flex-start;min-height:44px;padding:12px 10px;
+  border-bottom:1px solid var(--ruleFaint)}
+.ar .ltr{width:22px;flex:0 0 auto;font-family:'PSerif';font-weight:700;font-size:15px;
+  line-height:1.3;color:var(--inkMuted)}
+.ar .txt{margin-left:10px;font-size:14px;line-height:1.5;color:var(--ink)}
+.ar.sel{background:var(--boardTint);border:1px solid var(--board);border-radius:5px}
+.ar.sel .ltr{color:var(--board)} .ar.sel .txt{font-weight:600}
+
+/* BoardButton */
+.bb{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:5px;
+  background:var(--board);color:var(--onBoard);font-size:13px;font-weight:600}
+.bb.sec{background:none;color:var(--board)}
+.bb.rst{background:none;color:var(--rust)}
+.bb.fill-rust{background:var(--rust);color:#fff}
+.fine{font-size:11.5px;line-height:1.5;color:var(--inkMuted);text-align:center;margin-top:9px}
+
+/* FaintBars */
+.fb{height:7px;border-radius:2px;background:var(--ruleFaint);margin:5px 0}
+
+/* floating bar and proctor toast */
+.fw{position:absolute;left:14px;right:14px;bottom:14px}
+.bar{height:54px;border:1px solid var(--rule);border-radius:8px;background:var(--bg);
+  box-shadow:0 2px 10px rgba(38,34,27,.07);display:flex;align-items:center;
+  justify-content:space-between;padding:0 12px}
+body.dark .bar,body.dark .toast{box-shadow:0 2px 10px rgba(0,0,0,.35)}
+.tap{min-width:46px;height:46px;display:flex;align-items:center;justify-content:center}
+.chev{font-family:'PSerif';font-size:20px;font-weight:700}
+.cnt{font-size:13px;font-weight:600;font-variant-numeric:tabular-nums;padding:0 4px}
+.mid{display:flex;align-items:center}
+.g21{width:21px}.g16{width:16px}
+.dim{opacity:.32}
+.toast{border:1px solid var(--rule);border-radius:8px;background:var(--bg);
+  padding:12px 14px;margin-bottom:10px;text-align:center;font-size:13px;font-weight:600;
+  box-shadow:0 2px 10px rgba(38,34,27,.07)}
+.strictline{font-size:11.5px;line-height:1.5;color:var(--inkMuted);text-align:center;margin-bottom:8px}
+
+/* dialogs and sheets */
+.scrim{position:absolute;inset:0;background:rgba(38,34,27,.34);display:flex;
+  align-items:center;justify-content:center;padding:20px}
+body.dark .scrim{background:rgba(0,0,0,.5)}
+.scrim.sheet{align-items:flex-end;padding:0}
+.dlg{width:100%;background:var(--bg);border-radius:8px;padding:20px}
+.sheetb{width:100%;background:var(--bg);border-radius:12px 12px 0 0;padding:20px 16px 24px;
+  border-top:1px solid var(--rule)}
+.dlgrow{display:flex;gap:10px;margin-top:20px}
+.dlgrow>*{flex:1}
+.radio{display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--rule)}
+.radio .ring{width:12px;height:12px;border-radius:50%;border:1.4px solid var(--ink);flex:0 0 auto;margin-top:4px}
+.radio .ring.on{background:var(--ink)}
+
+/* switches */
+.swr{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;
+  padding:13px 0;border-bottom:1px solid var(--rule)}
+.sw{width:42px;height:25px;border-radius:999px;flex:0 0 auto;position:relative;
+  background:var(--ruleFaint);border:1px solid var(--rule);margin-top:2px}
+.sw.on{background:var(--board);border-color:var(--board)}
+.sw:after{content:'';position:absolute;top:3px;left:3px;width:17px;height:17px;border-radius:50%;background:var(--inkMuted)}
+.sw.on:after{left:auto;right:3px;background:var(--bg)}
+
+/* question grid */
+.qg{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:10px 0}
+.qg i{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-style:normal;
+  font-family:'PSerif';font-size:15px;font-weight:400;color:var(--inkMuted);position:relative}
+.qg i.ans{font-weight:600;color:var(--ink)}
+.qg i.ans:after{content:'';position:absolute;bottom:2px;width:5px;height:5px;border-radius:50%;background:var(--amber)}
+.qg i.cur{outline:1.4px solid var(--ink);border-radius:3px}
+.qg i.locked{opacity:.32}
+.gap{flex:1}
+.stats{display:flex;justify-content:space-around;text-align:center;margin:6px 0}
+.stats div .n{font-family:'PSerif';font-weight:700;font-size:22px}
+.center{text-align:center}
+
+
+/* components the specs actually name */
+.panel{border:1px solid var(--rule);padding:14px 15px;margin-bottom:16px}
+.head2{display:flex;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  padding:14px 0 15px;margin:14px 0}
+.head2 div{flex:1;text-align:center}
+.head2 div+div{border-left:1px solid var(--rule)}
+.head2 .n{font-family:'PSerif';font-weight:700;font-size:22px}
+.head2 .n s{text-decoration:none;font-family:'PSans';font-size:12px;font-weight:400;color:var(--inkMuted)}
+.head2 .l{font-size:12px;color:var(--inkMuted);margin-top:3px}
+.kick{font-size:13px;color:var(--inkMuted)}
+.meta{font-size:13px;color:var(--inkMuted);margin-top:2px}
+.thead{display:flex;justify-content:space-between;border-bottom:1px solid var(--rule);
+  padding-bottom:5px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--inkMuted)}
+.thead .c{width:52px;text-align:right}
+.thead .c.act{color:var(--ink);font-weight:700}
+.drow{display:flex;justify-content:space-between;align-items:flex-start;padding:4px 0;min-height:30px}
+.drow .ttl{font-size:14px}
+.drow .sub{font-size:12px;color:var(--inkMuted)}
+.drow .c{width:52px;text-align:right;font-size:13px;font-weight:600;font-variant-numeric:tabular-nums}
+.drow .c.off{color:var(--inkMuted);font-weight:400}
+.meter{height:3px;background:var(--ruleFaint);border-radius:2px;margin-top:5px;position:relative}
+.meter i{position:absolute;left:0;top:0;bottom:0;border-radius:2px}
+.ctr{text-align:center}
+.figc{font-family:'PSerif';font-weight:700;font-size:21px;font-variant-numeric:tabular-nums}
+.figc s{text-decoration:none;font-family:'PSans';font-size:12px;font-weight:400;color:var(--inkMuted);margin-left:3px}
+.figl{font-size:11.5px;color:var(--inkMuted);margin-top:2px}
+.two{display:flex;justify-content:space-around;margin:10px 0}
+.tier{border-top:1px solid var(--ruleFaint);margin-top:10px;padding-top:8px;font-size:12px;color:var(--inkMuted)}
+.act{font-size:12px;font-weight:600;color:var(--board);margin-top:8px}
+
+/* motion, off unless enabled */
+.play .m-toast .toast{animation:tin 3s ease-in-out infinite}
+@keyframes tin{0%,78%{opacity:0;transform:translateY(8px)}7%,68%{opacity:1;transform:none}100%{opacity:0}}
+.play .m-clock .trule{animation:drain 6s linear infinite}
+@keyframes drain{from{width:80%}to{width:2%}}
+.play .m-wash .scrim{animation:wash 2.6s ease-out infinite}
+@keyframes wash{0%{opacity:0}18%,86%{opacity:1}100%{opacity:0}}
+.play .m-wash .sheetb{animation:rise 2.6s ease-out infinite}
+@keyframes rise{0%{transform:translateY(24px)}18%,86%{transform:none}100%{transform:translateY(24px)}}
+.play .m-pull .pullz{animation:pull 3s ease-in-out infinite}
+@keyframes pull{0%,100%{transform:translateY(0);opacity:.6}45%{transform:translateY(-14px);opacity:1}}
+.play .m-reveal .rvl{animation:rv 3.2s ease-in-out infinite}
+@keyframes rv{0%,38%{opacity:0;transform:translateY(4px)}52%,92%{opacity:1;transform:none}100%{opacity:0}}
+.play .m-caret .qg i.cur{animation:cm 3.4s steps(1) infinite}
+@keyframes cm{0%,49%{outline-color:var(--ink)}50%,100%{outline-color:transparent}}
+.legend{padding:24px 22px 60px;color:#7e7669;font-size:12px;line-height:1.8;border-top:1px solid #262119;margin-top:22px}
+.legend b{color:#bdb6a8}
+</style>
+</head>
+<body>
+<header>
+  <h1>Pantas: every screen, rendered</h1>
+  <p class="sub">Every specced surface at 360 by 700, with the real type scale, tokens and components. Read each row left to right. The page stays dark; the toggle governs the phones.</p>
+  <nav id="nav"></nav>
+  <div class="tools">
+    <button id="bLight" class="on">Paper</button>
+    <button id="bDark">Dark</button>
+    <label><input type="checkbox" id="play"> Play motion</label>
+    <label><input type="checkbox" id="notes" checked> Notes</label>
+    <span id="count"></span>
+  </div>
+</header>
+<main id="main"></main>
+<div class="legend">
+  <b>Reading it.</b> Board green appears at most once per screen and marks the single primary action. Where a screen has none, it has no primary action by design: the mock paper, the study plan, the tendency deck.<br>
+  <b>Amber</b> marks a deadline or a fixed point and is used in exactly two places in the mock: the clock under one minute, and the proctor's last call. <b>Rust</b> marks a loss or a destructive action.<br>
+  <b>Motion</b> is marked on the caption. Tick Play motion to run it.<br>
+  <b>Fonts</b> load from <code>assets/fonts/</code> relative to this file, so open it from inside the repository.
+</div>
+<script>
+const S=(c,t)=>`<div class="${c}">${t}</div>`;
+const B={
+ ab:(t,o={})=>`<div class="ab">${o.clock?`<span class="clk">${t}</span>`:`<span class="ttl">${t||''}</span>`}${o.lead?`<span class="lead">${o.lead}</span>`:''}${o.trail?`<span class="trail">${o.trail}</span>`:''}${o.rule!==undefined?`<div class="trule ${o.ruleKind||''}" style="width:${o.rule}%"></div>`:''}</div>`,
+ plate:(t,a)=>`<div class="plate"><span class="r16">${t}</span>${a?`<span class="lbl mut">${a}</span>`:''}</div><div class="prule"></div>`,
+ h24:t=>S('r24',t), h22:t=>S('r22',t), h16:t=>S('r16',t),
+ t13:t=>S('s13 mut',t), t13i:t=>S('s13',t), fine:t=>S('fine',t),
+ fig:(n,l)=>`<div style="display:flex;align-items:baseline;gap:10px;margin-top:14px"><span class="r30">${n}</span>${l?`<span class="r14n mut">${l}</span>`:''}</div>`,
+ rows:a=>a.map(r=>`<div class="tr"><span class="r14">${r[0]}</span><span class="v">${r[1]||''}</span></div>`).join(''),
+ ans:a=>a.map(c=>`<div class="ar ${c[2]?'sel':''}"><span class="ltr">${c[0]}</span><span class="txt">${c[1]}</span></div>`).join(''),
+ bars:n=>Array.from({length:n},(_,i)=>`<div class="fb" style="width:${[90,65,78][i%3]}%"></div>`).join(''),
+ tag:(t,on)=>`<div class="tag ${on?'':'mut'}" style="margin-top:14px">${t}</div>`,
+ btn:t=>S('bb',t), sec:t=>S('bb sec',t), rustb:t=>S('bb rst',t),
+ gap:()=>'<div class="gap"></div>',
+ bar:(l,c,r,dimNext)=>`<div class="bar"><div class="tap"><span class="chev">&#8249;</span></div><div class="mid"><div class="tap"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><rect x="2.3" y="2.3" width="5.4" height="5.4"/><rect x="9.3" y="2.3" width="5.4" height="5.4"/><rect x="16.3" y="2.3" width="5.4" height="5.4"/><rect x="2.3" y="9.3" width="5.4" height="5.4"/><rect x="9.3" y="9.3" width="5.4" height="5.4"/><rect x="16.3" y="9.3" width="5.4" height="5.4"/><rect x="2.3" y="16.3" width="5.4" height="5.4"/><rect x="9.3" y="16.3" width="5.4" height="5.4"/><rect x="16.3" y="16.3" width="5.4" height="5.4"/></svg></div><div class="g21"></div><div class="cnt">${c}</div><div class="g16"></div><div class="tap ${r?'':'mut'}"><svg width="18" height="18" viewBox="0 0 24 24" fill="${r?'currentColor':'none'}" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V4" fill="none"/><path d="M6 4h11l-2.5 4L17 12H6${r?'z':''}"/></svg></div></div><div class="tap ${dimNext?'dim':''}"><span class="chev">&#8250;</span></div></div>`,
+ toast:(t,amb)=>`<div class="toast ${amb?'amb':''}">${t}</div>`,
+ strict:t=>S('strictline',t),
+ dlg:(t,b,l,r,kind)=>`<div class="scrim"><div class="dlg"><div class="r16">${t}</div><div class="prule" style="margin-bottom:12px"></div><div class="s13 mut">${b}</div><div class="dlgrow"><div class="bb sec">${l}</div><div class="bb ${kind==='rust'?'fill-rust':''}">${r}</div></div></div></div>`,
+ sheet:(t,sub,opts)=>`<div class="scrim sheet"><div class="sheetb"><div class="r16">${t}</div><div class="prule"></div>${sub?`<div class="s13 mut" style="margin:8px 0">${sub}</div>`:''}${opts.map((o,i)=>`<div class="radio"><span class="ring ${i===0?'on':''}"></span><span class="s13">${o}</span></div>`).join('')}</div></div>`,
+ sw:a=>a.map(s=>`<div class="swr"><div style="flex:1"><div class="r14">${s[0]}</div>${s[2]?`<div class="s115 mut" style="margin-top:4px">${s[2]}</div>`:''}</div><div class="sw ${s[1]?'on':''}"></div></div>`).join(''),
+ qg:a=>`<div class="qg">${a.map(c=>`<i class="${c.s||''}">${c.n}</i>`).join('')}</div>`,
+ stats:a=>`<div class="stats">${a.map(s=>`<div><div class="n">${s[0]}</div><div class="s115 mut">${s[1]}</div></div>`).join('')}</div>`,
+ rvl:t=>`<div class="s13 mut rvl" style="margin-top:10px">${t}</div>`,
+ pull:t=>`<div class="pullz center s115 mut" style="margin-top:auto;padding-bottom:8px">${t}</div>`,
+ hair:()=>'<div class="hair"></div>'
+};
+
+B.panel=(inner)=>`<div class="panel">${inner}</div>`;
+B.mast=(k,n,m)=>`<div class="kick">${k}</div><div class="r24">${n}</div><div class="meta">${m}</div>`;
+B.head2=(a,b)=>`<div class="head2"><div><div class="n">${a[0]}<s>${a[1]||''}</s></div><div class="l">${a[2]}</div></div><div><div class="n">${b[0]}<s>${b[1]||''}</s></div><div class="l">${b[2]}</div></div></div>`;
+B.two=(a,b)=>`<div class="two"><div class="ctr"><div class="figc">${a[0]}<s>${a[1]||''}</s></div><div class="figl">${a[2]}</div></div><div class="ctr"><div class="figc">${b[0]}<s>${b[1]||''}</s></div><div class="figl">${b[2]}</div></div></div>`;
+B.three=(a,b,c)=>`<div class="two">${[a,b,c].map(x=>`<div class="ctr"><div class="figc">${x[0]}<s>${x[1]||''}</s></div><div class="figl">${x[2]}</div></div>`).join('')}</div>`;
+B.thead=(l,c1,c2)=>`<div class="thead"><span>${l}</span><span class="c act">${c1}</span><span class="c">${c2}</span></div>`;
+B.drows=a=>a.map(r=>`<div class="drow"><div style="flex:1"><div class="ttl">${r[0]}</div>${r[1]?`<div class="sub">${r[1]}</div>`:''}</div><div class="c">${r[2]}</div><div class="c off">${r[3]||''}</div></div>`).join('');
+B.meter=(pct,col)=>`<div class="meter"><i style="width:${pct}%;background:var(--${col})"></i></div>`;
+B.prow=a=>a.map(r=>`<div class="tr" style="align-items:center"><div style="flex:1"><div class="r15">${r[0]}</div>${B.meter(r[1],r[2])}</div><span class="v" style="color:var(--${r[2]})">${r[1]}%</span><span class="chev">&#8250;</span></div>`).join('');
+B.tier=t=>`<div class="tier">${t}</div>`;
+B.act=t=>`<div class="act">${t}</div>`;
+B.comp=t=>`<div class="s12 mut ctr" style="margin-top:8px">${t}</div>`;
+
+const g=(n)=>Array.from({length:n});
+const F=[
+{id:'first',name:'First run',note:'Five steps in a fixed order. The exam date step is the one eight other plans read, and it takes an exact day, a month with no day, or "I don\'t know yet". A month is not a degraded countdown: it is the true statement available, and a day count derived from it would be a measurement plus an assumption.',s:[
+ {n:'Welcome',b:[B.ab(''),`<div class="body">${B.h24("Pantas")}${B.t13("Your review, paced to the day you sit the exam.")}${B.gap()}</div><div class="foot">${B.btn("Get started")}</div>`]},
+ {n:'Age gate',b:[B.ab('',{lead:'&#8592;'}),`<div class="body">${B.h24("How old are you?")}${B.t13("We ask once, and only to keep the app appropriate.")}${B.rows([["16",""],["17","&#9679;"],["18",""],["19",""]])}${B.gap()}</div><div class="foot">${B.btn("Continue")}</div>`]},
+ {n:'Exam picker',b:[B.ab('',{lead:'&#8592;'}),`<div class="body">${B.h24("Which exam?")}${B.t13("You can switch later in Settings.")}${B.rows([["UPCAT","&#8250;"],["ACET","&#8250;"],["DLSU-CET","&#8250;"],["USTET","&#8250;"],["PUPCET","&#8250;"],["CSE Professional","&#8250;"]])}</div>`]},
+ {n:'Exam date',note:'Three answers, the third a board text action. Settings offers the same three, so a student who said "October, no day" can say it again.',b:[B.ab('',{lead:'&#8592;'}),`<div class="body">${B.h24("When is your exam?")}${B.t13("Everything is paced from this.")}${B.rows([["October 2026",""],["12","&#9679;"]])}${B.gap()}</div><div class="foot">${B.btn("Continue")}${B.sec("I don't know yet")}</div>`]},
+ {n:'Your name',b:[B.ab('',{lead:'&#8592;'}),`<div class="body">${B.h24("What should we call you?")}${B.t13("It appears on your progress screen.")}${B.rows([["Aerol",""]])}${B.gap()}</div><div class="foot">${B.btn("Continue")}${B.sec("Skip")}</div>`]}
+]},
+{id:'assess',name:'The assessment',note:'Not a fixed number: the selector caps at 35 and takes up to three per contributing topic, so the length is computed and the panel prints it. It writes an attempt row so Progress can see it, and those attempts stay out of every speed figure because there is no clock.',s:[
+ {n:'Where it lives',note:'It is the session panel\'s first state, never a standing row. A door that becomes permanently irrelevant the moment it is used should not be permanent.',b:[B.ab('Quiz'),`<div class="body">${S('r22','UPCAT')}${B.panel(B.plate("Start with the assessment","21 questions")+B.t13("A few questions from every subject, to find out where you stand. Everything Pantas gives you afterwards is built on it.")+`<div style="margin-top:14px">${B.btn("Take the assessment")}</div>`)}</div>`]},
+ {n:'A question',b:[B.ab('3 of 21',{lead:'&#8592;'}),`<div class="body">${S('s115 mut','Mathematics')}${S('r14','If the ratio of boys to girls in a class is 3 to 5 and there are 32 students, how many are boys?')}${B.hair()}${B.ans([["A","10"],["B","12",1],["C","15"],["D","20"]])}</div>`]},
+ {n:'Results',b:[B.ab('Assessment'),`<div class="body">${B.h24("Where you stand")}${B.plate("What you did")}${B.fig("14","of 21 answered correctly")}${B.plate("Start with these")}${B.prow([["Chemistry",41,"rust"],["Algebra",52,"amber"],["Physics",58,"amber"]])}${B.gap()}</div><div class="foot">${B.btn("See your plan")}</div>`]}
+]},
+{id:'home',name:'Home',note:'Kicker over serif name over a muted meta line, with the gear the only right-side element. Four blocks, each a ruled panel with a plated heading. Exactly one primary action on the whole tab and it belongs to Up next.',s:[
+ {n:'Masthead, day known',note:'The meta line carries the exam and the countdown together, which frees a stats band slot. The kicker is time based: umaga, hapon, gabi.',b:[B.ab('',{trail:'&#9881;'}),`<div class="body">${B.mast("Magandang gabi,","Aedwon","42 days to UPCAT")}${B.panel(B.head2(["68","%","accuracy"],["38","/141","lessons read"])+S('s12 mut ctr','Lately: you answer fastest on Tuesdays.'))}</div>`]},
+ {n:'Masthead, month only',note:'Not a degraded countdown. A day count from a month would be a measurement plus an assumption, which the Progress spec bans outright.',b:[B.ab('',{trail:'&#9881;'}),`<div class="body">${B.mast("Magandang umaga,","Aerol","Your exam is in October 2026")}${B.panel(B.head2(["68","%","accuracy"],["38","/141","lessons read"]))}</div>`]},
+ {n:'Up next',note:'The count comes from the plan and is never a fixed three. Continue lesson is the single primary action on Home.',b:[B.ab('',{trail:'&#9881;'}),`<div class="body">${B.panel(B.plate("Up next")+B.t13("Two lessons from your weakest topics. About 18 minutes.")+B.rows([["Cell Biology","8 min"],["Stoichiometry","10 min"]])+`<div style="margin-top:14px">${B.btn("Continue lesson")}</div>`)}</div>`]},
+ {n:'Practice',note:'A row starts a topic-scoped session directly. Severity colour on the figure: rust below 50, amber below 70, ink above. The lead line may not state a length, because session length is the student\'s own setting.',b:[B.ab('',{trail:'&#9881;'}),`<div class="body">${B.panel(B.plate("Practice","See all")+B.prow([["Chemistry",41,"rust"],["Algebra",52,"amber"],["Physics",58,"amber"]]))}</div>`]},
+ {n:'Tendencies, Free',note:'All four cards and both comparison labels always print. Only the figures are withheld, because a blank panel converts nobody.',b:[B.ab('',{trail:'&#9881;'}),`<div class="body">${B.panel(B.plate("Your tendencies","Unlock with Pro")+S('ctr r15','Under pressure')+S('ctr s12 mut','practising  vs.  under time')+B.bars(2))}</div>`]},
+ {n:'Tendencies, Pro',b:[B.ab('',{trail:'&#9881;'}),`<div class="body">${B.panel(B.plate("Your tendencies","See full details")+S('ctr r15','Under pressure')+S('ctr','<span class="r30">14</span>')+S('ctr s12 mut','practising 68%  ·  under time 54%')+S('ctr s13','You score 14 lower under time than practising.'))}</div>`]}
+]},
+{id:'study',name:'Study',note:'App bar with one trailing element, the search glyph, and never more. Exam name, then a head block of two figures split by a vertical rule, Last opened, Bookmarks capped at three rows, then the index by subject.',s:[
+ {n:'The map',note:'"covered" is Home\'s lessons-read figure with the division carried out, accepted deliberately. "left to read" describes the material, not the student, which is why the label is a property of what remains.',b:[B.ab('Study',{trail:'&#9906;'}),`<div class="body">${S('r22','UPCAT')}${B.head2(["27","%","covered"],["19","h","left to read"])}${B.rows([["<span class='s12 mut'>Last opened</span><br>Quadratic Equations",""]])}</div>`]},
+ {n:'Bookmarks head',note:'Rendered only when at least one exists. No empty state: a block that teaches itself by nagging is worse than one that appears when it has something to say. Exactly three rows, whatever the total.',b:[B.ab('Study',{trail:'&#9906;'}),`<div class="body">${B.plate("Bookmarks","See all")}${B.rows([["Stoichiometry","Chemistry, 13 min &#8250;"],["Cell Biology","Biology, 8 min &#8250;"],["Word problems","Algebra, 11 min &#8250;"]])}</div>`]},
+ {n:'The index',note:'A 12px leading glyph column is always reserved, filled only by a board tick when a topic is fully read. A started topic gets no glyph: the fraction already says it.',b:[B.ab('Study',{trail:'&#9906;'}),`<div class="body">${B.plate("Mathematics","12 of 33")}${B.rows([["&#10003;  Algebra","14 of 14"],["Geometry","3 of 11"],["Trigonometry","0 of 8"]])}${B.plate("Science","11 of 22")}${B.rows([["Biology","9 of 12"],["Chemistry","2 of 10"]])}</div>`]},
+ {n:'Topic open in place',b:[B.ab('Study',{trail:'&#9906;'}),`<div class="body">${B.plate("Algebra","Close")}${B.rows([["Linear equations","Read"],["Quadratic equations","Read"],["Systems of equations",""],["Functions and relations",""],["Word problems",""]])}</div>`]},
+ {n:'Search',b:[B.ab('',{lead:'&#8592;'}),`<div class="body">${B.rows([["stoich",""]])}${S('s12 mut','12 results')}${B.rows([["Stoichiometry","Chemistry"],["The mole concept","Chemistry"],["Balancing equations","Chemistry"]])}</div>`]},
+ {n:'The reader',anim:'pull',note:'Marked read from scroll position and elapsed time, with no button. Every coverage figure in the app now counts lessons whose end was reached rather than button presses.',b:[B.ab('2 of 6',{lead:'&#8592;',trail:'&#9633;'}),`<div class="body">${S('r22','Quadratic Equations')}${S('s13 mut','Algebra  ·  10 min')}${B.hair()}${S('r14n','A quadratic equation has the form ax² + bx + c = 0 where a is not zero. Which method you reach for depends on what the equation gives you.')}${B.pull("Pull to continue")}</div>`]},
+ {n:'The coda',b:[B.ab('2 of 6',{lead:'&#8592;'}),`<div class="body">${S('s13 mut','End of the lesson.')}${B.plate("Quiz yourself")}${B.t13("5 questions on what you just read.")}${B.gap()}</div><div class="foot">${B.btn("Start")}${B.sec("Next lesson")}</div>`]},
+ {n:'Topic finished',b:[B.ab('',{lead:'&#8592;'}),`<div class="body">${B.h24("Algebra finished.")}${B.t13("Fourteen lessons read.")}${B.plate("Next")}${B.rows([["Geometry","11 lessons"]])}${B.gap()}</div><div class="foot">${B.btn("Start Geometry")}</div>`]},
+ {n:'Day finished',note:'Reachable once the plan supplies a daily lesson count. One line, no plate.',b:[B.ab('',{lead:'&#8592;'}),`<div class="body">${B.h24("That's enough for today.")}${B.t13("You read everything your plan asked for.")}</div>`]}
+]},
+{id:'quiz',name:'Quiz',note:'The assessment hub, not a topic queue. App bar with no trailing element, exam name, then the session panel, the mock panel, the practice rows and the flagged section. A panel header carries a count or an action, never a status word.',s:[
+ {n:'Session available',note:'Figures are centred: questions and duration, not the streak, which lives on Home and in Progress and does not need a third home.',b:[B.ab('Quiz'),`<div class="body">${S('r22','UPCAT')}${B.panel(B.plate("Today's session")+B.two(["10","","questions"],["12","min","duration"])+B.comp("6 due  ·  3 weak spots  ·  1 new")+B.act("Change how sessions are built")+`<div style="margin-top:12px">${B.btn("Start")}</div>`)}</div>`]},
+ {n:'Caught up',note:'No button at all. The figures change to answered today and got right.',b:[B.ab('Quiz'),`<div class="body">${S('r22','UPCAT')}${B.panel(B.plate("Today's session")+B.two(["24","","answered today"],["19","","got right"])+B.comp("Nothing is due. Come back tomorrow."))}</div>`]},
+ {n:'Still going',note:'Resume, never "pick up where you left off". Start over is deleted: it re-asks the same questions and feeds the scheduler twice. Discard is the honest control.',b:[B.ab('Quiz'),`<div class="body">${S('r22','UPCAT')}${B.panel(B.plate("Still going","6 of 10")+B.t13("You stopped partway through <b>Chemistry</b>. Every answer was saved.")+`<div style="margin-top:12px">${B.btn("Resume")}</div>`+S('ctr act','Discard this session'))}</div>`]},
+ {n:'Mock panel',note:'The trailing count is the cooldown precise to the hour. The tier rule states itself in every state, including before the first attempt, so the cadence is learned as a rule rather than discovered as a wall.',b:[B.ab('Quiz'),`<div class="body">${B.panel(B.plate("Mock exam","9d 14h")+B.three(["68","%","last score"],["3","of 5","parts passed"],["21 Jul","","taken"])+B.tier("<b>Free users</b> get one every two weeks. Your next one opens on <b>5 August</b>.")+S('act','View your full results from last time'))}</div>`]},
+ {n:'Practice rows',note:'Two rows, not four. "Specific topic" and "several topics" collapse into one, because the picker takes one selection or many with the same gesture.',b:[B.ab('Quiz'),`<div class="body">${B.plate("More ways to practice")}${B.rows([["Your mistakes","&#8250;"],["Choose what to practice","&#8250;"]])}${S('s12 mut','28 you\'ve got wrong in the last month')}${B.plate("Flagged","12")}${B.rows([["Questions you flagged","&#8250;"]])}${S('s12 mut','12 kept, across 4 topics. 7 of them from your last exam.')}</div>`]},
+ {n:'The picker',b:[B.ab('Practice',{lead:'&#8592;'}),`<div class="body">${B.plate("Choose what to practice")}${B.rows([["Algebra","42 due"],["Geometry","11 due"],["Chemistry","8 due"]])}${B.gap()}</div><div class="foot">${B.btn("Start 10 questions")}</div>`]},
+ {n:'The viewer',b:[B.ab('4 of 10',{lead:'&#8592;'}),`<div class="body">${S('s115 mut','Algebra')}${S('r14','Solve for x: 3x - 7 = 2x + 5')}${B.hair()}${B.ans([["A","5"],["B","9"],["C","12",1],["D","17"]])}</div>`]},
+ {n:'Reveal, Free',anim:'reveal',b:[B.ab('4 of 10',{lead:'&#8592;'}),`<div class="body">${S('r14','Solve for x: 3x - 7 = 2x + 5')}${B.hair()}${B.ans([["&#10003;","12",1]])}${B.rvl("Move the x terms to one side and the numbers to the other.")}${B.rvl("<span class='brd'>Unlock with Pro</span> for why the choice you made is wrong.")}</div>`]},
+ {n:'Reveal, Pro',anim:'reveal',b:[B.ab('4 of 10',{lead:'&#8592;'}),`<div class="body">${S('r14','Solve for x: 3x - 7 = 2x + 5')}${B.hair()}${B.ans([["&#10003;","12",1]])}${B.rvl("Move the x terms to one side and the numbers to the other.")}${B.rvl("You picked 5. That is what you get if you add 7 instead of moving it.")}</div>`]},
+ {n:'The debrief',b:[B.ab('Done'),`<div class="body">${B.plate("This session")}${B.two(["8","of 10","got right"],["11","min","took you"])}${B.plate("What you missed")}${B.rows([["Word problems","2 of 3"],["Factoring","0 of 1"]])}${B.gap()}</div><div class="foot">${B.btn("Review these")}</div>`]},
+ {n:'The review',b:[B.ab('Review',{lead:'&#8592;'}),`<div class="body">${B.plate("10 questions","Wrong")}${B.rows([["2  Factor the expression","&#10007;"],["4  Word problem","&#10007;"]])}</div>`]},
+ {n:'Error state',note:'Never the exception string. That is what the tab does today.',b:[B.ab('Quiz'),`<div class="body">${S('s13','Could not load your practice. Pull down to try again.')}</div>`]}
+]},
+{id:'progress',name:'Progress',note:'Opens on the diagnosis, not a menu. App bar, exam name, then Your pace, Performance, Why you miss. Every figure is measured or arithmetic: nothing is a projection and the word mastery appears nowhere.',s:[
+ {n:'Your pace',note:'Stays arithmetic and may never become a score projection. Amber on the overshoot only. Wholly Free.',b:[B.ab('Progress'),`<div class="body">${S('r22','UPCAT')}${B.panel(B.plate("Your pace")+B.two(["27","%","of lessons read"],["69","","days left"])+S('s13',"At three lessons a week you finish <span class='amb'>nine days after</span> the exam. Four a week closes the gap."))}</div>`]},
+ {n:'Performance, Free',note:'The section header draws no rule when a table head follows it. Two rules four pixels apart was the fault caught on the eighth pass.',b:[B.ab('Progress'),`<div class="body">${S('r16','Performance')}${B.thead("Subject","Score","Time")}${B.drows([["Mathematics","45 items","61%","72s"],["Science","45 items","54%","68s"],["Language Proficiency","50 items","70%","44s"],["Reading Comprehension","30 items","58%","96s"]])}${S('s12 mut','Topic and Lesson are the Pro grant: the instrument, not the answer.')}</div>`]},
+ {n:'Performance, Pro',b:[B.ab('Progress'),`<div class="body">${S('r16','Performance')}${B.thead("Topic","Score","Time")}${B.drows([["Algebra","12 items","52%","81s"],["Geometry","9 items","44%","94s"],["Trigonometry","8 items","61%","70s"],["Statistics","7 items","58%","66s"]])}</div>`]},
+ {n:'Why you miss, Free',note:'The only section redacted whole. Free users never produce mistake tags, so nothing of theirs is withheld.',b:[B.ab('Progress'),`<div class="body">${B.plate("Why you miss questions","Unlock with Pro")}${B.bars(3)}</div>`]},
+ {n:'Why you miss, Pro',b:[B.ab('Progress'),`<div class="body">${B.plate("Why you miss questions")}${B.rows([["Misread the question","14"],["Ran out of time","9"],["Did not know it","22"]])}${S('s13 mut','Most of them in Chemistry.')}</div>`]},
+ {n:'How you work',note:'The panel is centred, matching Home. Gap first: the difference as a serif 34 figure, the sentence naming what it costs, the sources demoted to a caption.',b:[B.ab('How you work',{lead:'&#8592;'}),`<div class="body">${B.plate("Your profile")}${S('ctr r24','Aerol')}${S('ctr s13 mut','The steady builder')}${B.plate("Under pressure")}${S('r30','14')}${S('s13','You score 14 lower under time than practising.')}${S('s115 mut','practising 68%  ·  under time 54%')}</div>`]},
+ {n:'Your record',note:'Wholly Free, because it is the student\'s own history. "Time in sessions", never "time studied": reading time is not tracked and the label carries the limit.',b:[B.ab('Your record',{lead:'&#8592;'}),`<div class="body">${B.plate("Since you started")}${B.rows([["Weeks in","9"],["Day streak","12"]])}${B.plate("Your totals")}${B.rows([["Questions answered","1,204"],["Time in sessions","14h"],["Lessons read","38"],["Best mock","68%"]])}${B.plate("Your mocks")}${B.rows([["4 August","68%"],["21 July","57%"]])}</div>`]}
+]},
+{id:'mock',name:'Mock exam',note:'Exam conditions from the first item to the last. No reveal, no debrief. The clock sits alone and centered in the bar so it is never hunted for, with pause at the trailing edge and absent entirely in strict mode.',s:[
+ {n:'Setup',b:[B.ab('Mock exam',{lead:'&#8592;'}),`<div class="body">${B.h24("UPCAT practice paper")}${B.t13("4 parts. 175 questions. 2 hours 45 minutes.")}${B.plate("The parts")}${B.rows([["Reading Comprehension","30 min"],["Mathematics","45 min"],["Science","45 min"],["Language Proficiency","45 min"]])}${B.plate("How this paper runs")}${B.t13("This paper runs part by part. Once a part ends you cannot go back.")}${B.hair()}${S('s13','<b>Strict mock mode is on.</b>')}${B.t13("You cannot pause, and you cannot end a part early. Leaving the app hands the paper in.")}</div><div class="foot">${B.btn("Start the paper")}${B.fine("The clock starts when you tap.")}</div>`]},
+ {n:'The paper',anim:'clock',note:'The rule on the bar\'s bottom edge retreats through the whole part. It sharpens at five minutes and turns amber at one, and that is the only amber in the mock.',b:[B.ab('33:12',{clock:1,rule:74,trail:'&#9208;'}),`<div class="body">${S('s115 mut','Part 2, Mathematics')}${S('r14','14. If the ratio of boys to girls in a class is 3 to 5 and there are 32 students, how many are boys?')}${B.hair()}${B.ans([["A","10"],["B","12",1],["C","15"],["D","20"]])}</div><div class="fw">${B.bar(1,"14 of 45",0,0)}</div>`]},
+ {n:'The proctor',anim:'toast',note:'Speaks at 20, 10, 5 and 1 minutes. Two and a half seconds, with three medium haptic taps 60ms apart.',b:[B.ab('20:00',{clock:1,rule:44,trail:'&#9208;'}),`<div class="body">${S('s115 mut','Part 2, Mathematics')}${S('r14','24. A rectangular garden is 4 metres longer than it is wide. If its area is 96 square metres, what is its width?')}${B.hair()}${B.ans([["A","6 metres"],["B","8 metres",1],["C","10 metres"],["D","12 metres"]])}</div><div class="fw">${B.toast("20 minutes left in this subject.")}${B.bar(1,"24 of 45",0,0)}</div>`]},
+ {n:'Last call',b:[B.ab('01:00',{clock:1,rule:2,ruleKind:'last',trail:'&#9208;'}),`<div class="body">${S('s115 mut','Part 2, Mathematics')}${S('r14','44. What is the value of x if 3x minus 7 equals 2x plus 5?')}${B.hair()}${B.ans([["A","5"],["B","9"],["C","12",1],["D","17"]])}</div><div class="fw">${B.toast("1 minute left in this subject.",1)}${B.bar(1,"44 of 45",0,0)}</div>`]},
+ {n:'The grid',anim:'caret',note:'Six columns grouped by part. Answered carries an amber dot, flagged the pennant, and no outcome is ever shown. Later parts dim to 32% and cannot be tapped.',b:[B.ab('21:47',{clock:1,lead:'&#8592;'}),`<div class="body">${B.plate("Part 2, Mathematics","24 answered")}${B.qg([1,2,3,4,5,6,7,8,9,10,11,12].map((n,i)=>({n,s:i<8?'ans':i===8?'ans cur':''})))}${B.plate("Part 3, Science")}${B.qg([1,2,3,4,5,6].map(n=>({n,s:'locked'})))}${B.t13("Opens when this part starts.")}</div>`]},
+ {n:'Strict boundary',note:'Next is dimmed rather than hidden, so the bar keeps its shape. The line is the quietest text on the screen: it explains rather than warns.',b:[B.ab('08:14',{clock:1,rule:11,ruleKind:'warn',trail:''}),`<div class="body">${S('s115 mut','Part 1, Reading Comprehension')}${S('r14','30. The passage suggests the author\'s view of the reform was primarily one of')}${B.hair()}${B.ans([["A","cautious approval"],["B","open admiration",1],["C","weary resignation"],["D","principled objection"]])}</div><div class="fw">${B.strict("Part 1 runs to the end of its time. Strict mock mode is on.")}${B.bar(1,"30 of 30",1,1)}</div>`]},
+ {n:'End part early',note:'Only when strict is off. A rust confirm, because it destroys the remaining time and closes the part for good.',b:[B.ab('08:14',{clock:1,rule:11,ruleKind:'warn'}),`<div class="body">${S('s115 mut','Part 1, Reading Comprehension')}${S('r14','30. The passage suggests the author\'s view...')}${B.hair()}${B.ans([["A","cautious approval"],["B","open admiration",1]])}</div>${B.dlg("End Part 1 now?","You have 8 minutes left and 2 questions blank. Ending now closes Part 1 for good, and the time you have left does not carry over.","Keep working","End Part 1","rust")}`]},
+ {n:'The transition',note:'A full screen, not a dialog: crossing a part boundary is the only irreversible thing in the paper. No app bar, no clock, no bar, no back arrow.',b:[`<div class="body" style="padding-top:36px">${B.h24("Time is up for Part 1.")}${B.t13("Reading Comprehension. 30 minutes.")}${B.plate("What you did")}${B.fig("28","of 30 answered")}${S('s13 mut','2 left blank  ·  3 you flagged')}${S('s13','<b>Part 1 is closed. You cannot go back to it.</b>')}${B.plate("Next")}${S('r14','Part 2, Mathematics')}${S('s13 mut','45 questions, 45 minutes.')}</div><div class="foot">${B.btn("Start Part 2")}${B.fine("The clock for Part 2 starts when you tap.")}</div>`]},
+ {n:'Pause warning',note:'First pause of the paper only. Every pause after it goes straight through.',b:[B.ab('21:47',{clock:1,rule:48,trail:'&#9208;'}),`<div class="body">${S('s115 mut','Part 2, Mathematics')}${S('r14','14. If the ratio of boys to girls...')}${B.hair()}${B.ans([["A","10"],["B","12",1]])}</div>${B.dlg("Real exams do not pause.","Use this only when you have to. The clock stops, but you will not get this in the real room.","Keep going","Pause")}`]},
+ {n:'Paused',note:'The paper is hidden completely. If the question stayed visible behind a stopped clock, pause would be a way to buy unlimited reading time.',b:[`<div class="body" style="padding-top:36px">${B.h24("Paused.")}${B.t13("Part 2, Mathematics.")}${B.plate("Time left")}${B.fig("21:47","in this part")}${S('s13 mut','14 of 45 answered  ·  2 you flagged')}${S('s13','The clock is stopped. It starts again when you resume.')}</div><div class="foot">${B.btn("Resume")}${B.rustb("Discard this paper")}</div>`]},
+ {n:'Discard',b:[`<div class="body" style="padding-top:36px;opacity:.35">${B.h24("Paused.")}${B.plate("Time left")}${B.fig("21:47","in this part")}</div>${B.dlg("Discard this paper?","Your 14 answers go, and this attempt will not appear in your record. It does not use up a mock.","Keep it","Discard","rust")}`]},
+ {n:'Results',b:[B.ab('Result'),`<div class="body">${B.h24("118 of 170")}${B.t13("Passing is 80. You are above it.")}${B.plate("How you did per part")}${B.rows([["Reading Comprehension","24 of 30"],["Mathematics","31 of 45"],["Science","33 of 45"],["Language Proficiency","30 of 50"]])}${B.plate("Practice these next")}${B.rows([["Stoichiometry","&#8250;"],["Word problems","&#8250;"]])}${B.gap()}</div><div class="foot">${B.btn("See every answer")}${B.fine("Saved. Next mock in 14 days.")}</div>`]},
+ {n:'Mock review',b:[B.ab('Review',{lead:'&#8592;'}),`<div class="body">${B.plate("170 questions","Wrong")}${B.rows([["2  The passage suggests","&#10007;"],["7  Solve for x","&#10007;"],["11  Which is a base","&#10007;"]])}${B.t13("Free sees every question and the correct answer. Note B is the Pro grant.")}</div>`]}
+]},
+{id:'progress',name:'Progress',note:'Opens on the diagnosis, not a menu. Three destinations. Every figure is measured or arithmetic: nothing here is a projection, and the word mastery appears nowhere.',s:[
+ {n:'Your pace',note:'Stays arithmetic. It states a conditional about the current rate and never becomes a score projection.',b:[B.ab('Progress'),`<div class="body">${S('r22','UPCAT')}${B.plate("Your pace")}${B.stats([["27%","lessons read"],["69","days left"]])}${B.t13("At three lessons a week you finish <span class='amb'>nine days after</span> the exam. Four a week closes the gap.")}</div>`]},
+ {n:'Performance, Free',b:[B.ab('Progress'),`<div class="body">${B.plate("Performance","Subject")}${B.rows([["Mathematics","61%   45 items"],["Science","54%   45 items"],["Language Proficiency","70%   50 items"],["Reading Comprehension","58%   30 items"]])}${B.t13("Topic and Lesson are the Pro grant: the instrument, not the answer.")}</div>`]},
+ {n:'Performance, Pro',b:[B.ab('Progress'),`<div class="body">${B.plate("Performance","Topic")}${B.rows([["Algebra","52%   12 items"],["Geometry","44%   9 items"],["Trigonometry","61%   8 items"],["Statistics","58%   7 items"]])}${B.t13("Three grains, sorted and filtered however you ask.")}</div>`]},
+ {n:'Why you miss, Free',note:'The only section redacted whole, and the endowment principle is why that is fair: Free users never produce mistake tags.',b:[B.ab('Progress'),`<div class="body">${B.plate("Why you miss questions","Unlock with Pro")}${B.bars(3)}</div>`]},
+ {n:'Why you miss, Pro',b:[B.ab('Progress'),`<div class="body">${B.plate("Why you miss questions")}${B.rows([["Misread the question","14"],["Ran out of time","9"],["Did not know it","22"]])}${B.t13("Most of them in Chemistry.")}</div>`]},
+ {n:'How you work',b:[B.ab('How you work',{lead:'&#8592;'}),`<div class="body">${B.plate("Your profile")}${S('center r24','Aerol')}${S('center s13 mut','The steady builder')}${B.plate("Under pressure")}${B.fig("14","points lower under time")}${S('s115 mut','practising 68%  ·  under time 54%')}</div>`]},
+ {n:'Your record',b:[B.ab('Your record',{lead:'&#8592;'}),`<div class="body">${B.plate("Since you started")}${B.rows([["Weeks in","9"],["Day streak","12"]])}${B.plate("Your totals")}${B.rows([["Questions answered","1,204"],["Time in sessions","14h"],["Best mock","68%"]])}${B.plate("Your mocks")}${B.rows([["4 August","68%"],["21 July","57%"]])}</div>`]}
+]},
+{id:'plan',name:'Study plan',note:'The only surface that looks forward. It reports and never presses: no button, no board green, and nothing tappable but the back arrow. Counting stops at the end of this week, because anything further is a guess.',s:[
+ {n:'Forward calendar',b:[B.ab('Your plan',{lead:'&#8592;'}),`<div class="body">${S('r24','UPCAT')}${B.t13("Ten weeks to go. Monday 12 October.")}${B.plate("Today","Tuesday 4 August")}${B.fig("25","questions today")}${S('s13 mut','18 to review, 7 new.')}${B.plate("The rest of this week","5 to 9 August")}${B.rows([["Wed 5","14 review, 7 new"],["Thu 6","11 review, 7 new"],["Fri 7","9 review, 7 new"]])}${B.plate("Coming up")}${B.rows([["17 Aug","<span class='amb'>Next mock unlocks</span>"],["5 Oct","<span class='amb'>Review only from here</span>"],["12 Oct","<span class='amb'>UPCAT</span>"]])}</div>`]}
+]},
+{id:'paywall',name:'Paywall',note:'Three screens, then Google Play, and reached only by tapping a gated surface. Screen 1 reads no student data at all: the specimen is an authored sample, marked twice above the figures.',s:[
+ {n:'What Pro adds',b:[B.ab('',{trail:'&#10005;'}),`<div class="body">${B.h24("You'll understand yourself better with Pro.")}${B.t13("This is an example. Pro measures every figure from your own answers.")}${B.plate("Under pressure","Sample")}${B.tag("Free")}${S('r14 mut','practising  vs.  under time')}${B.bars(2)}${B.tag("Pro",1)}${S('r14','practising 68%  vs.  under time 54%')}${B.fig("14","You score 14 lower under time than practising.")}</div><div class="foot">${B.btn("See plans")}${B.fine("From ₱29 a week. Cancel any time.")}</div>`]},
+ {n:'The plans',note:'Stable order, never rearranged by the recommendation. Yearly says it runs past the exam, and that is what makes the other two figures believable.',b:[B.ab('',{lead:'&#8592;'}),`<div class="body">${B.h24("Your exam is in 71 days.")}${B.plate("Plan","Until 12 October")}${B.rows([["Weekly<br><span class='s115 mut'>₱29 a week. Renews every week.</span>","₱319<br>11 renewals"],["Monthly<br><span class='s115 mut'>₱99 a month. <span class='brd'>Cheapest for your date</span></span>","₱297<br>3 months"],["Yearly<br><span class='s115 mut'>₱999 a year. First 7 days free.</span>","₱999<br>294 days past"]])}${B.gap()}</div><div class="foot">${B.btn("Get Pro. ₱99 a month.")}${B.fine("Cancel any time. Paid through Google Play.")}</div>`]},
+ {n:'The trial',note:'Only when Yearly is chosen. The charge date is computed and printed, never "in 7 days", because a named date is what makes the disclosure checkable.',b:[B.ab('',{lead:'&#8592;'}),`<div class="body">${B.h24("How your free trial works")}${B.t13("Full access to everything. The first 7 days are free, then ₱999 a year.")}${B.rows([["Today","Everything unlocks"],["Day 5","We remind you in the app"],["Day 7","₱999 on 11 August 2026"]])}${B.gap()}</div><div class="foot">${B.btn("Start my free trial")}${B.fine("No commitment. Cancel any time.")}</div>`]}
+]},
+{id:'settings',name:'Settings',note:'Five groups. Two switches carry a subtitle and they are the only two, because they are the only two that change what the app will refuse to do.',s:[
+ {n:'Top level',b:[B.ab('Settings'),`<div class="body">${B.plate("You")}${B.rows([["Your name","Aerol"],["Your exam","UPCAT &#8250;"],["Exam date","12 October &#8250;"]])}${B.plate("How you practice")}${B.rows([["How sessions are built","One topic only &#8250;"]])}${B.sw([["Do more each day",0,"Your plan already paces you to finish everything before your exam. Turn this on to go faster and leave yourself more time to review."]])}</div>`]},
+ {n:'Strict mock mode',b:[B.ab('Settings'),`<div class="body">${B.plate("How you practice")}${B.sw([["Strict mock mode",1,"Mock exams run like the real room. You cannot pause, and you cannot end a part early. Leaving the app hands the paper in."]])}${B.rows([["Daily reminder","7:00 PM &#8250;"]])}</div>`]},
+ {n:'Exam date sheet',anim:'wash',note:'The sheet arrives under an ink wash at 34%; the page settles 10px and loses a hair of scale. No blur.',b:[B.ab('Settings'),`<div class="body">${B.plate("You")}${B.rows([["Your name","Aerol"],["Your exam","UPCAT"],["Exam date","12 October"]])}</div>${B.sheet("When is your exam?","The same three answers as onboarding.",["An exact date","A month, with the day on a dash","I don't know yet"])}`]},
+ {n:'Ordering sheet',b:[B.ab('Settings'),`<div class="body">${B.plate("How you practice")}${B.rows([["How sessions are built","One topic only"]])}</div>${B.sheet("How sessions are built","Each session has one main topic. This sets how much comes from other topics.",["One topic only","Mostly one topic","A mix of topics"])}`]},
+ {n:'What you see',b:[B.ab('Settings'),`<div class="body">${B.plate("What you see")}${B.rows([["Theme","Follow system &#8250;"],["Text size","Default &#8250;"]])}${B.t13("The theme control is a switch at three positions, not a list.")}</div>`]},
+ {n:'Your account',b:[B.ab('Settings'),`<div class="body">${B.plate("Your account")}${B.rows([["Signed in","aerol@gmail.com"],["Back up your progress","On"],["Restore purchases","&#8250;"],["Manage subscription","&#8250;"]])}</div>`]},
+ {n:'The exam page',b:[B.ab('Your exam',{lead:'&#8592;'}),`<div class="body">${B.h24("UPCAT")}${B.t13("What this paper covers, and how it is timed.")}${B.plate("The parts")}${B.rows([["Reading Comprehension","30 items, 30 min"],["Mathematics","45 items, 45 min"],["Science","45 items, 45 min"],["Language Proficiency","50 items, 45 min"]])}${B.t13("This paper runs part by part.")}${B.gap()}</div><div class="foot">${B.sec("Switch exam")}</div>`]},
+ {n:'About',b:[B.ab('About',{lead:'&#8592;'}),`<div class="body">${B.plate("About")}${B.rows([["Version","1.0.0 (14)"],["Privacy policy","&#8250;"],["Terms of use","&#8250;"],["Open source licenses","&#8250;"],["Send feedback","&#8250;"]])}</div>`]},
+ {n:'Delete account',b:[B.ab('',{lead:'&#8592;'}),`<div class="body">${B.h24("Delete your account?")}${B.t13("Everything goes: your progress, your bookmarks, your flags and your record. This cannot be undone.")}${B.gap()}</div><div class="foot">${B.rustb("Delete everything")}${B.sec("Keep my account")}</div>`]},
+ {n:'Storage',b:[B.ab('Storage',{lead:'&#8592;'}),`<div class="body">${B.plate("On this device")}${B.rows([["Content","24 MB"],["Your progress","1.2 MB"]])}${B.gap()}</div><div class="foot">${B.sec("Clear downloaded content")}</div>`]}
+]},
+{id:'states',name:'System states',note:'What the app does when something is wrong or missing. Offline never takes Pro from someone who paid: the last known entitlement stands until positively contradicted, and a network failure is not a contradiction.',s:[
+ {n:'Offline, paywall',note:'The copy replaces the button rather than blocking the screen, and it sits at the point of failure rather than in a banner.',b:[B.ab('',{trail:'&#10005;'}),`<div class="body">${B.h24("You'll understand yourself better with Pro.")}${B.plate("Under pressure","Sample")}${S('r14','practising 68%  vs.  under time 54%')}${B.gap()}</div><div class="foot">${S('s13 mut center',"You need a connection to subscribe. Try again when you're back online.")}</div>`]},
+ {n:'Offline, sign in',b:[B.ab('Settings'),`<div class="body">${B.plate("Your account")}${B.rows([["Sign in",""]])}${S('s13 mut',"You need a connection to sign in.")}</div>`]},
+ {n:'Error boundary',note:'Replaces the framework error screen. Reporting only fires if consent was given, and the gate defaults to off.',b:[B.ab(''),`<div class="body">${B.gap()}${S('center r24','Something went wrong.')}${S('center s13 mut','You can try again. Nothing you have done is lost.')}${B.gap()}</div><div class="foot">${B.btn("Try again")}</div>`]},
+ {n:'Force update',b:[B.ab(''),`<div class="body">${B.gap()}${S('center r24','Time to update')}${S('center s13 mut','This version of Pantas can no longer be used.')}${B.gap()}</div><div class="foot">${B.btn("Open Play Store")}</div>`]},
+ {n:'Empty state',b:[B.ab('Study'),`<div class="body">${B.gap()}${S('center r16','Nothing here yet')}${S('center s13 mut','Your bookmarks will appear here once you save a lesson.')}${B.gap()}</div>`]},
+ {n:'Resume a mock',note:'Shown before any other navigation on launch. A stale attempt is auto-finalized and routes to results without rendering this.',b:[B.ab(''),`<div class="body">${B.gap()}${B.h24("You left a paper running")}${B.t13("UPCAT practice paper.")}${B.rows([["Elapsed","41 minutes"],["Remaining","2h 04m"]])}${B.gap()}</div><div class="foot">${B.btn("Resume")}${B.rustb("Discard")}</div>`]}
+]},
+{id:'wrapped',name:'Wrapped',note:'Shareable and ungated, because it is the student\'s own record. An idea exists to reframe these as trophies; not built.',s:[
+ {n:'Reveal',b:[B.ab('',{trail:'&#10005;'}),`<div class="body">${B.gap()}${S('center s115 mut','This year you answered')}${S('center r30','1,204')}${S('center s13 mut','questions')}${B.gap()}</div><div class="foot">${B.btn("Next")}</div>`]},
+ {n:'A card',b:[B.ab('',{trail:'&#10005;'}),`<div class="body">${B.gap()}${S('center r24','You read 38 lessons.')}${S('center s13 mut','Most of them on a Tuesday.')}${B.gap()}</div><div class="foot">${B.btn("Share")}${B.sec("Done")}</div>`]}
+]}
+];
+const main=document.getElementById('main'),nav=document.getElementById('nav');
+let total=0;
+main.innerHTML=F.map(f=>{
+  const cards=f.s.map((s,i)=>{total++;return `<div class="step">${i?'<div class="arrow">&rsaquo;</div>':''}<div class="card">
+    <div class="cap"><b>${i+1}.</b> ${s.n}${s.anim?'<span class="an">MOTION</span>':''}</div>
+    <div class="dev ${s.anim?'m-'+s.anim:''}">${s.b.join('')}</div>
+    ${s.note?`<div class="note">${s.note}</div>`:''}</div></div>`;}).join('');
+  nav.insertAdjacentHTML('beforeend',`<a href="#${f.id}">${f.name}</a>`);
+  return `<section id="${f.id}"><h2>${f.name}<span>${f.s.length} screens</span></h2>
+    <p class="flownote">${f.note}</p><div class="rail">${cards}</div></section>`;
+}).join('');
+document.getElementById('count').textContent=total+' screens';
+const bL=document.getElementById('bLight'),bD=document.getElementById('bDark');
+bL.onclick=()=>{document.body.classList.remove('dark');bL.classList.add('on');bD.classList.remove('on')};
+bD.onclick=()=>{document.body.classList.add('dark');bD.classList.add('on');bL.classList.remove('on')};
+document.getElementById('play').onchange=e=>document.body.classList.toggle('play',e.target.checked);
+document.getElementById('notes').onchange=e=>document.querySelectorAll('.note').forEach(n=>n.style.display=e.target.checked?'':'none');
+</script>
+</body>
+</html>
