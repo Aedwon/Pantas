@@ -1,4 +1,5 @@
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/attempt_origins.dart';
 import 'package:cse_cet_reviewer/features/metrics/domain/metric_signal.dart';
 import 'package:cse_cet_reviewer/features/metrics/domain/metrics_window.dart';
 import 'package:cse_cet_reviewer/features/metrics/domain/signal_outputs.dart';
@@ -32,7 +33,10 @@ class PerQuestionSpeedSignal implements Signal<LatencyDistribution> {
         (row) =>
             row.examId.equals(examId) &
             row.completedAt.isNotNull() &
-            row.startedAt.isSmallerOrEqualValue(window.end),
+            row.startedAt.isSmallerOrEqualValue(window.end) &
+            // Untimed origins carry responseMs: 0 for every item. Averaging
+            // them in would report answers given instantly.
+            row.origin.isNotIn(AttemptOrigins.untimed.toList()),
       );
     if (window.start != null) {
       query = query

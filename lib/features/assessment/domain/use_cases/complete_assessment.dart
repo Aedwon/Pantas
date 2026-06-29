@@ -1,12 +1,15 @@
 import 'package:cse_cet_reviewer/core/fsrs/fsrs_scheduler.dart';
 import 'package:cse_cet_reviewer/core/fsrs/rating.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/assessment_repository.dart';
+import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/review_state_repository.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/review_state.dart';
 import 'package:cse_cet_reviewer/features/assessment/domain/models/assessment_result.dart';
 import 'package:cse_cet_reviewer/features/assessment/domain/models/assessment_session.dart';
 import 'package:cse_cet_reviewer/features/assessment/domain/models/topic_mastery.dart';
+import 'package:uuid/uuid.dart';
 
 class CompleteAssessment {
   CompleteAssessment({
@@ -14,15 +17,21 @@ class CompleteAssessment {
     required ReviewStateRepository reviewRepo,
     required FsrsScheduler scheduler,
     required ContentRepository contentRepo,
+    required AttemptsRepository attemptsRepo,
+    Uuid? uuid,
   })  : _assessmentRepo = assessmentRepo,
         _reviewRepo = reviewRepo,
         _scheduler = scheduler,
-        _contentRepo = contentRepo;
+        _contentRepo = contentRepo,
+        _attemptsRepo = attemptsRepo,
+        _uuid = uuid ?? const Uuid();
 
   final AssessmentRepository _assessmentRepo;
   final ReviewStateRepository _reviewRepo;
   final FsrsScheduler _scheduler;
   final ContentRepository _contentRepo;
+  final AttemptsRepository _attemptsRepo;
+  final Uuid _uuid;
 
   Future<AssessmentResult> call({
     required AssessmentSession session,
@@ -52,6 +61,36 @@ class CompleteAssessment {
         .toList();
 
     await _assessmentRepo.saveResult(session.examId, now, scores);
+
+    // Record the assessment where every other session records itself, so
+    // the metrics layer and the Progress table can see these questions.
+    // responseMs is 0 because the assessment captures no timing;
+    // AttemptOrigins.untimed is what stops that being read as speed.
+    final items = <AttemptItem>[];
+    for (final aq in session.questions) {
+      final chosen = session.answers[aq.question.id];
+      if (chosen == null) continue; // a skip is not a wrong answer
+      final correct = aq.question.choices.firstWhere((c) => c.isCorrect);
+      items.add(
+        AttemptItem(
+          questionId: aq.question.id,
+          questionVersion: aq.question.version,
+          chosenChoiceId: chosen,
+          correctChoiceId: correct.id,
+          responseMs: 0,
+        ),
+      );
+    }
+    await _attemptsRepo.save(
+      Attempt(
+        id: _uuid.v4(),
+        examId: session.examId,
+        startedAt: now,
+        completedAt: now,
+        origin: 'assessment',
+        items: items,
+      ),
+    );
 
     // Seed FSRS for every answered question
     for (final aq in session.questions) {

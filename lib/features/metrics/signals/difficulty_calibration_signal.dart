@@ -1,4 +1,5 @@
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/attempt_origins.dart';
 import 'package:cse_cet_reviewer/features/metrics/domain/metric_signal.dart';
 import 'package:cse_cet_reviewer/features/metrics/domain/metrics_window.dart';
 import 'package:cse_cet_reviewer/features/metrics/domain/signal_outputs.dart';
@@ -26,7 +27,10 @@ class DifficultyCalibrationSignal implements Signal<CalibrationCurve> {
     final stats = <double, _CalibrationStats>{};
     final attempts = await (_db.select(_db.attemptsLocal)
           ..where(
-            (row) => row.examId.equals(examId) & row.completedAt.isNotNull(),
+            (row) =>
+                row.examId.equals(examId) &
+                row.completedAt.isNotNull() &
+                row.origin.isNotIn(AttemptOrigins.untimed.toList()),
           ))
         .get();
     for (final attempt in attempts) {

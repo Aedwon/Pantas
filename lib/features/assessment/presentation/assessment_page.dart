@@ -30,6 +30,7 @@ final _completeAssessmentProvider = Provider<CompleteAssessment>(
     reviewRepo: ref.watch(reviewStateRepositoryProvider),
     scheduler: const FsrsScheduler(),
     contentRepo: ref.watch(contentRepositoryProvider),
+    attemptsRepo: ref.watch(attemptsRepositoryProvider),
   ),
 );
 
