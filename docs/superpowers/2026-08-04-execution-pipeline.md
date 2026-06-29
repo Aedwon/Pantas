@@ -106,6 +106,8 @@ comprehension 0. **Total 1,993.**
 | 2b | `passage-pipeline.md` | **P** | Same. Task 5 needs Quiz 4 and says to stop if absent |
 | 2c | `question-generation-reading-comprehension.md` | **F** | Two agents, different directories. Reading comprehension is at zero and ships in v1 |
 | 2d | `content-three-passes.md` | **F**, Task 1 is **P** | The lesson link is derivable and needs no authoring. The reasons and labels are a generation pass |
+| 2e | `cse-content.md` **Task 1 only** | **F** | A tagging pass with no authoring. **Takes the CSE from 2 questions to most of its verbal, analytical and numerical paper.** Highest value per unit of work left in the queue |
+| 2f | `cse-content.md` Tasks 2 to 5 | **F** | General Information and the small gaps. **Every question is written against a file in `content/reference/`** |
 
 ### 3. The money path, now planned
 
