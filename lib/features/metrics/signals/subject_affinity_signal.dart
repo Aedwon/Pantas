@@ -1,4 +1,5 @@
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/attempt_origins.dart';
 import 'package:cse_cet_reviewer/features/metrics/domain/metric_signal.dart';
 import 'package:cse_cet_reviewer/features/metrics/domain/metrics_window.dart';
 import 'package:cse_cet_reviewer/features/metrics/domain/signal_outputs.dart';
@@ -33,12 +34,14 @@ class SubjectAffinitySignal implements Signal<SubjectAccuracySpeed> {
     final stats = <String, _SubjectStats>{};
     final rows = await _attemptRows(window: window, examId: examId);
     for (final row in rows) {
+      final timed = !AttemptOrigins.untimed.contains(row.origin);
       for (final item in _reader.read(row.itemsJson)) {
         final subject = await _content.subjectNameForQuestion(item.questionId);
         if (subject == null) continue;
         stats.putIfAbsent(subject, _SubjectStats.new).add(
               isCorrect: item.isCorrect,
               responseMs: item.responseMs,
+              timed: timed,
             );
       }
     }
@@ -79,11 +82,21 @@ class _SubjectStats {
   int total = 0;
   int totalMs = 0;
 
-  void add({required bool isCorrect, required int responseMs}) {
+  /// Items from a timed origin. The milliseconds divide by this, never by
+  /// [total], or an assessment's zeros would halve the average.
+  int timedTotal = 0;
+
+  void add({
+    required bool isCorrect,
+    required int responseMs,
+    required bool timed,
+  }) {
     total += 1;
-    totalMs += responseMs;
     if (isCorrect) correct += 1;
+    if (!timed) return;
+    timedTotal += 1;
+    totalMs += responseMs;
   }
 
-  double get averageMs => total == 0 ? 0 : totalMs / total;
+  double get averageMs => timedTotal == 0 ? 0 : totalMs / timedTotal;
 }
