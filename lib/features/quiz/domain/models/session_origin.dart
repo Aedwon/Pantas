@@ -3,7 +3,12 @@ enum SessionOrigin {
   todayInterleaved('today_interleaved'),
   drill('drill'),
   retake('retake'),
-  inline('inline');
+  inline('inline'),
+
+  /// The one-off assessment. Recorded as an attempt so the metrics layer and
+  /// the Progress table can see its questions, and deliberately outside the
+  /// streak: it is taken once and is not a day's work.
+  assessment('assessment');
 
   const SessionOrigin(this.storageValue);
 
