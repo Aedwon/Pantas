@@ -309,3 +309,47 @@ of not guessing at an API:
 
 **Nothing broke on contact this time**, which is not luck: the two plans were chosen to run
 together precisely because they share no files.
+
+---
+
+## 4 August 2026: the seeder and the attempt row, and the stale-codegen trap for the second time
+
+### `content-upgrade-seeder`, merged
+
+**Schema discipline held.** It read the live 16 and took **17**, with the `from < 17` branch in
+the same commit as the bump.
+
+**The property it was tier P for was checked directly rather than trusted:** the migration adds
+a single column to `questions`, and the upgrade pass writes only `exams`, `subjects`, `topics`,
+`lessons` and `questions`. **No progress table is touched and there is no delete anywhere in the
+seeder.** A content update can now reach an installed app without destroying what a student has
+done, which is the difference between a beta you can iterate on and one where every fix needs a
+reinstall.
+
+### `home-02-assessment-attempt-row`, merged
+
+Left `schemaVersion` at 16 exactly as instructed. **It also did something the plan did not ask
+for and was right to:** a third commit keeps untimed attempts out of every speed figure. An
+assessment attempt has no clock, so counting it would have corrupted the per-question speed
+signals the moment this defect was fixed.
+
+### The trap, twice in one day
+
+**After the merge: 151 tests failing and 2 analyzer issues, on two branches that were green
+alone at 1109 and 1114.**
+
+**Nothing was wrong with either.** `*.g.dart` is gitignored, so a merge that moves the schema
+cannot bring the generated code with it, and the tree was source-at-17 against
+generated-at-16. One `build_runner` run and it was **1122 passing, analyzer clean**.
+
+**This is the second time today**, and the symptom was different both times: this morning it was
+a single test that would not load with the analyzer reporting nothing. **Neither looks like what
+it is**, and both invite a long diagnosis of an imaginary merge bug.
+
+**Now written into `SUBAGENTS.md` beside the schema rules:** after any merge that touches the
+schema, regenerate **before** running or interpreting the gates, and do not start diagnosing
+until you have.
+
+### Main
+
+**1122 tests passing**, analyzer clean, formatter clean, layering 7, attribution 0, schema 17.
