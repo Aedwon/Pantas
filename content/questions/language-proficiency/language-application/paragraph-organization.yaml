@@ -2,7 +2,7 @@ meta:
   subject: language-proficiency
   topic: language-application
   subtopic: paragraph-organization
-  exams: [upcat, acet, dlsucet, ustet, dost-sei]
+  exams: [upcat, acet, dlsucet, ustet, dost-sei, cse-pro, cse-sub]
 questions:
   - id: q-language-application-paragraph-organization-0001
     type: sentence-ordering

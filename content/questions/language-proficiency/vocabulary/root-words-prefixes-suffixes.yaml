@@ -2,7 +2,7 @@ meta:
   subject: language-proficiency
   topic: vocabulary
   subtopic: root-words-prefixes-suffixes
-  exams: [ upcat, acet, dlsucet, ustet, dost-sei ]
+  exams: [ upcat, acet, dlsucet, ustet, dost-sei , cse-pro, cse-sub]
 questions:
   - id: q-vocabulary-root-words-prefixes-suffixes-0001
     type: root-word-affix-analysis

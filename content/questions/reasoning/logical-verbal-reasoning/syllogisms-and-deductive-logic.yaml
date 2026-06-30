@@ -2,7 +2,7 @@ meta:
   subject: reasoning
   topic: logical-verbal-reasoning
   subtopic: syllogisms-and-deductive-logic
-  exams: [ acet, ustet, dost-sei ]
+  exams: [ acet, ustet, dost-sei , cse-pro]
 questions:
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0001
     type: syllogism

@@ -2,7 +2,7 @@ meta:
   subject: language-proficiency
   topic: language-application
   subtopic: error-identification
-  exams: [upcat, acet, dlsucet, ustet, dost-sei]
+  exams: [upcat, acet, dlsucet, ustet, dost-sei, cse-pro, cse-sub]
 questions:
   - id: q-language-application-error-identification-0001
     type: error-identification

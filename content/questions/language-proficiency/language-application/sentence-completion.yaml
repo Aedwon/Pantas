@@ -2,7 +2,7 @@ meta:
   subject: language-proficiency
   topic: language-application
   subtopic: sentence-completion
-  exams: [upcat, acet, dlsucet, ustet, dost-sei]
+  exams: [upcat, acet, dlsucet, ustet, dost-sei, cse-pro, cse-sub]
 questions:
   - id: q-language-application-sentence-completion-0001
     type: fill-in-the-blank

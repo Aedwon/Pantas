@@ -2,7 +2,7 @@ meta:
   subject: reasoning
   topic: spatial-abstract-reasoning
   subtopic: figure-grouping
-  exams: [ acet, ustet, dost-sei ]
+  exams: [ acet, ustet, dost-sei , cse-pro]
 questions:
   - id: q-spatial-abstract-reasoning-figure-grouping-0001
     type: odd-figure

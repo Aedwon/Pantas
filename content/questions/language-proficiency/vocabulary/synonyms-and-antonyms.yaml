@@ -2,7 +2,7 @@ meta:
   subject: language-proficiency
   topic: vocabulary
   subtopic: synonyms-and-antonyms
-  exams: [ upcat, acet, dlsucet, ustet, dost-sei ]
+  exams: [ upcat, acet, dlsucet, ustet, dost-sei , cse-pro, cse-sub]
 questions:
   - id: q-vocabulary-synonyms-and-antonyms-0001
     type: synonym

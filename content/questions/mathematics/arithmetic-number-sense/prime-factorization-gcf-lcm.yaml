@@ -2,7 +2,7 @@ meta:
   subject: mathematics
   topic: arithmetic-number-sense
   subtopic: prime-factorization-gcf-lcm
-  exams: [upcat, acet, dlsucet, ustet, pupcet]
+  exams: [upcat, acet, dlsucet, ustet, pupcet, cse-pro, cse-sub]
 questions:
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0001
     type: direct-computation

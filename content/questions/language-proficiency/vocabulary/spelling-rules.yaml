@@ -2,7 +2,7 @@ meta:
   subject: language-proficiency
   topic: vocabulary
   subtopic: spelling-rules
-  exams: [ upcat, acet, dlsucet, ustet, dost-sei ]
+  exams: [ upcat, acet, dlsucet, ustet, dost-sei , cse-pro, cse-sub]
 questions:
   - id: q-vocabulary-spelling-rules-0001
     type: spelling-correction
