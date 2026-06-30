@@ -1,0 +1,263 @@
+meta:
+  subject: reading-comprehension
+  topic: comprehension-skills
+  subtopic: authors-purpose-tone-pov
+  exams:
+    - upcat
+    - acet
+    - dlsucet
+    - ustet
+
+passages:
+  - id: rc-cs-ap-p1
+    title: "Preserving Vigan's Ancestral Architecture"
+    body: |
+      The rapid expansion of commercial franchises along the outer perimeter of Vigan's historic district threatens to erode the unique architectural identity that earned the city UNESCO World Heritage status. Investors eager to build modern multi-story convenience stores and fast-food chains are purchasing two-hundred-year-old ancestral houses, often stripping away hand-carved molave beams and capiz window panes to make way for generic concrete structures.
+
+      Allowing short-term commercial greed to dismantle centuries of tangible history is a cultural tragedy we cannot afford. Once an ancestral home is razed, no amount of modern replica construction can restore the authentic craftsmanship passed down by generations of Ilocano artisans. Municipal leaders must act immediately to strengthen zoning ordinances, mandate structural preservation standards, and offer tax incentives to property owners who maintain historical facades.
+
+      Our heritage is not a obstacle to economic progress; it is the very foundation of Vigan's cultural pride and long-term tourism vitality. If we allow historical landmarks to be replaced by sterile glass storefronts, we surrender our identity for fleeting financial gain.
+
+  - id: rc-cs-ap-p2
+    title: "Returning to Leyte for the Town Fiesta"
+    body: |
+      As the provincial ferry rounded the headland of Ormoc Bay, I stood at the railing watching the familiar outline of Mount Apo emerge through the morning mist. It had been three long years since I left our family home in Leyte to attend university in Manila, three years of noisy traffic, crowded dormitories, and fast-food dinners eaten alone at midnight.
+
+      Stepping onto the pier, the scent of roasting lechon and sweet banana cue immediately swept me back to childhood fiesta mornings. My grandmother waited near the jeepney terminal, her hair noticeably silvered since my last visit, yet her warm embrace felt instantly unchanged. As we walked together down the narrow coastal road, neighbors waved from their verandas, calling out greetings in Waray that made my chest tighten with a mixture of comfort and bittersweet awareness of passing time.
+
+      In Manila, I had learned to move quickly and watch my step. Here, surrounding by the rhythm of my hometown, I finally paused long enough to remember who I was before I left.
+
+  - id: rc-cs-cs-p3
+    title: "Bioluminescence in Sarangani Bay"
+    body: |
+      Bioluminescence, the emission of light by living organisms through biochemical reactions, occurs seasonally along the sheltered coves of Sarangani Bay in southern Mindanao. The phenomenon is primarily driven by dense blooms of Pyrodinium bahamense, a microscopic dinoflagellate that produces blue-green flashes when agitated by mechanical stress, such as breaking waves or passing boat hulls.
+
+      Researchers from the Bureau of Fisheries and Aquatic Resources monitor these plankton concentrations twice monthly using satellite imagery and water sampling. While bioluminescent blooms draw ecotourists to coastal night tours, high cell densities can signal nutrient enrichment caused by agricultural runoff or fishpond effluents. When cell counts exceed five thousand organisms per milliliter, authorities issue temporary shellfish harvesting bans to prevent paralytic shellfish poisoning.
+
+      Regular water testing ensures that ecotourism activities operate safely without exposing coastal communities to health risks. Through continuous environmental monitoring, marine biologists balance natural conservation with public safety.
+
+questions:
+  - id: rc-cs-ap-0001
+    passage: rc-cs-ap-p1
+    type: identify
+    difficulty: easy
+    stem: |
+      What is the author's primary purpose in writing the passage about Vigan's architecture?
+    choices:
+      - text: To persuade municipal leaders and residents to protect historical ancestral houses.
+        correct: true
+      - text: To inform readers about the construction cost of modern fast-food franchises.
+      - text: To entertain readers with humorous stories about Ilocano artisans.
+      - text: To describe the manufacturing process of capiz window panes.
+    explanation: |
+      The passage uses strong persuasive language ("must act immediately", "cultural tragedy we cannot afford") to convince leaders and readers to enforce preservation laws.
+
+  - id: rc-cs-ap-0002
+    passage: rc-cs-ap-p1
+    type: analyze
+    difficulty: medium
+    stem: |
+      Which word best describes the author's tone toward modern commercial developers in Vigan?
+    choices:
+      - text: Critical and urgent
+        correct: true
+      - text: Indifferent and passive
+      - text: Admiring and celebratory
+      - text: Sarcastic and playful
+    explanation: |
+      Phrases like "commercial greed", "cultural tragedy", and "sterile glass storefronts" convey a strongly critical and urgent tone against un-regulated development.
+
+  - id: rc-cs-ap-0003
+    passage: rc-cs-ap-p1
+    type: infer
+    difficulty: medium
+    stem: |
+      Which point of view is used in the Vigan architectural passage?
+    choices:
+      - text: First person plural ("we" and "our"), expressing a shared community perspective.
+        correct: true
+      - text: First person singular ("I"), recounting a private diary entry.
+      - text: Third person limited, focusing exclusively on one property developer's thoughts.
+      - text: Second person ("you"), providing step-by-step instructions.
+    explanation: |
+      The author uses "we cannot afford", "our heritage", and "our identity", which is first person plural used to address and represent the community.
+
+  - id: rc-cs-ap-0004
+    passage: rc-cs-ap-p1
+    type: evaluate
+    difficulty: hard
+    stem: |
+      How does the author characterize the relationship between heritage preservation and economic progress?
+    choices:
+      - text: Preservation forms the essential foundation of long-term economic and tourism vitality.
+        correct: true
+      - text: Preservation permanently destroys all local commercial investment opportunities.
+      - text: Economic progress requires destroying all building built before 1900.
+      - text: Heritage preservation is less important than short-term tax collection.
+    explanation: |
+      The author explicitly states that heritage is not an obstacle to economic progress but the foundation of Vigan's long-term tourism vitality.
+
+  - id: rc-cs-ap-0005
+    passage: rc-cs-ap-p1
+    type: analyze
+    difficulty: hard
+    stem: |
+      Which stylistic device does the author use when contrasting ancestral craftsmanship with modern developments?
+    choices:
+      - text: Value-laden emotional words contrasting authentic heritage with sterile structures.
+        correct: true
+      - text: Statistical data tables comparing annual tax revenue figures.
+      - text: Humorous dialogues between investors and city officials.
+      - text: Rhyming verse stanzas emphasizing architectural history.
+    explanation: |
+      The author uses emotionally charged language ("authentic craftsmanship" vs "sterile glass storefronts") to emphasize the contrast in values.
+
+  - id: rc-cs-ap-0006
+    passage: rc-cs-ap-p2
+    type: identify
+    difficulty: easy
+    stem: |
+      What is the point of view of the narrative about returning to Leyte?
+    choices:
+      - text: First person ("I" and "my")
+        correct: true
+      - text: Second person ("you")
+      - text: Third person limited
+      - text: Third person omniscient
+    explanation: |
+      The passage uses "I stood at the railing", "my family home", "my grandmother", establishing first-person narrative perspective.
+
+  - id: rc-cs-ap-0007
+    passage: rc-cs-ap-p2
+    type: analyze
+    difficulty: medium
+    stem: |
+      Which phrase best describes the dominant tone of the Leyte return passage?
+    choices:
+      - text: Nostalgic and reflective
+        correct: true
+      - text: Bitter and resentful
+      - text: Scientific and objective
+      - text: Fearful and suspicious
+    explanation: |
+      Sensory memories of lechon and greetings, combined with reflecting on passing time and self-identity, create a nostalgic and reflective tone.
+
+  - id: rc-cs-ap-0008
+    passage: rc-cs-ap-p2
+    type: infer
+    difficulty: medium
+    stem: |
+      What is the narrator's primary purpose in sharing this personal return journey?
+    choices:
+      - text: To reflect on how returning home reconnects the narrator with personal roots.
+        correct: true
+      - text: To persuade readers to buy property near Ormoc Bay.
+      - text: To inform tourists about ferry ticket prices between Manila and Leyte.
+      - text: To criticize university education systems in Manila.
+    explanation: |
+      The narrator concludes that being back home allowed them to pause and remember who they were, showing the reflective purpose of the narrative.
+
+  - id: rc-cs-ap-0009
+    passage: rc-cs-ap-p2
+    type: analyze
+    difficulty: hard
+    stem: |
+      What contrast does the narrator draw between life in Manila and life in Leyte?
+    choices:
+      - text: Fast-paced solitary routine in Manila versus warm communal belonging in Leyte.
+        correct: true
+      - text: High agricultural income in Manila versus low university tuition in Leyte.
+      - text: Quiet coastal quietness in Manila versus loud traffic in Leyte.
+      - text: Warm family support in Manila versus cold isolation in Leyte.
+    explanation: |
+      The text contrasts "noisy traffic, crowded dormitories, and fast-food dinners eaten alone" in Manila with warm greetings, family embrace, and communal rhythms in Leyte.
+
+  - id: rc-cs-ap-0010
+    passage: rc-cs-ap-p2
+    type: infer
+    difficulty: hard
+    stem: |
+      What does the observation that the grandmother's hair was "noticeably silvered" convey?
+    choices:
+      - text: A poignant awareness of aging and the passage of time during the narrator's absence.
+        correct: true
+      - text: The grandmother's preference for modern hair treatments in Leyte.
+      - text: Proof that the narrator was away for over twenty years.
+      - text: Evidence that life in Leyte is stressful for elderly relatives.
+    explanation: |
+      Noticing silvered hair highlights the passage of time during three years away at university, adding to the bittersweet reflection.
+
+  - id: rc-cs-ap-0011
+    passage: rc-cs-ap-p3
+    type: identify
+    difficulty: easy
+    stem: |
+      What is the primary purpose of the passage on bioluminescence in Sarangani Bay?
+    choices:
+      - text: To inform readers about the scientific causes and monitoring of bioluminescent plankton.
+        correct: true
+      - text: To persuade tourists to book commercial night dives in Sarangani.
+      - text: To entertain readers with mythical stories of glowing sea sea monsters.
+      - text: To criticize marine biologists for banning shellfish harvesting.
+    explanation: |
+      The text provides factual explanations of dinoflagellates, cell thresholds, and water testing, fulfilling an informative scientific purpose.
+
+  - id: rc-cs-ap-0012
+    passage: rc-cs-ap-p3
+    type: analyze
+    difficulty: easy
+    stem: |
+      What tone does the author maintain throughout the Sarangani Bay passage?
+    choices:
+      - text: Objective and informative
+        correct: true
+      - text: Highly emotional and dramatic
+      - text: Sarcastic and skeptical
+      - text: Romantic and poetic
+    explanation: |
+      The author uses clear scientific terminology ("biochemical reactions", "dinoflagellate", "paralytic shellfish poisoning") without emotional bias, keeping an objective tone.
+
+  - id: rc-cs-ap-0013
+    passage: rc-cs-ap-p3
+    type: infer
+    difficulty: medium
+    stem: |
+      What point of view is utilized in the Sarangani Bay scientific passage?
+    choices:
+      - text: Third person objective
+        correct: true
+      - text: First person singular ("I")
+      - text: Second person ("you")
+      - text: First person plural ("we")
+    explanation: |
+      The narrator remains neutral outside the text, presenting facts about Sarangani Bay without personal pronouns or subjective viewpoints.
+
+  - id: rc-cs-ap-0014
+    passage: rc-cs-ap-p3
+    type: evaluate
+    difficulty: medium
+    stem: |
+      Why does the author mention shellfish harvesting bans alongside ecotourism benefits?
+    choices:
+      - text: To demonstrate how environmental monitoring balances economic benefits with health risks.
+        correct: true
+      - text: To argue that ecotourism should be permanently banned in Sarangani Bay.
+      - text: To prove that bioluminescent plankton cannot survive near fishponds.
+      - text: To show that marine biologists prefer shellfish over ecotourism revenue.
+    explanation: |
+      Mentioning both ecotourism appeal and health bans illustrates the dual role of environmental monitoring in balancing safety with economic activities.
+
+  - id: rc-cs-ap-0015
+    passage: rc-cs-ap-p3
+    type: analyze
+    difficulty: hard
+    stem: |
+      Which word choice from the text demonstrates the objective scientific perspective of the passage?
+    choices:
+      - text: "primarily driven by dense blooms of Pyrodinium bahamense"
+        correct: true
+      - text: "magical glowing waters of enchanted Mindanao"
+      - text: "reckless expansion of dangerous coastal fishponds"
+      - text: "frightening toxicity threatening unaware swimmers"
+    explanation: |
+      The precise botanical name and neutral descriptive language represent the passage's objective scientific perspective.
