@@ -409,3 +409,115 @@ zero under `lib/` and `test/`, formatter clean, layering 7 unchanged, attributio
 
 The regeneration was run before the gates were read, per the rule written this morning. No
 imaginary merge bug this time.
+
+---
+
+## 4 August, late: the CSE tagging pass and reading comprehension
+
+Two agents, the standing limit. Aedwon was asked for headroom first and answered **"Gemini is at
+100% remaining so have at it"**, which is the unambiguous direction of the percentage that the
+pipeline document asks for and did not get twice this morning.
+
+### The permission boundary came back, and it is per session
+
+`agy --dangerously-skip-permissions` was refused by the classifier again, on the same grounds as
+this morning: **no user message in this session authorized that specific flag.** The
+`Bash(agy *)` allow-rule in project settings does not cover it, and the authorization he gave
+earlier today did not carry across the session boundary.
+
+His first answer was **"you ran it through a shell before, refer to our previous conversation"**.
+That does not unblock anything: the classifier reads only the current session, and I cannot read
+the previous one. Saying so plainly and offering him the two real routes got an explicit **"go
+1"** and the dispatch went through.
+
+**Worth writing into the pipeline document:** the flag needs re-authorizing at the start of every
+session, and it is cheapest to ask for it in the same breath as asking for headroom.
+
+### `cse-content` Task 1: clean, and it stopped where it was told
+
+One commit, nothing uncommitted, 38 files, every one under `content/questions/`.
+
+**It matched the plan's table exactly.** 38 files carry `cse-pro`; 30 of those also carry
+`cse-sub`, which is precisely the count the table implies once the analytical rows that are
+professional-only are excluded. **Zero Science files were touched**, which the plan names as the
+single easiest way to ruin the track. Validator 0 across the whole corpus, 1141 tests still
+green after the merge.
+
+**A note on process, not on the work:** the shell's working directory persists between calls, so
+a count run after a `cd` into a worktree reads the worktree, not `main`. I briefly read a
+worktree result as evidence the agent had written into the main checkout. It had not. **Compare
+with absolute paths when the question is which tree was modified.**
+
+### `question-generation-reading-comprehension`: complete, and held back anyway
+
+All 13 subtopics, 32 passages, **160 questions**, 13 commits, nothing uncommitted, nothing
+written outside its own directory, validator 0, zero em dashes, `approved:` unset everywhere.
+The per-subtopic commit instruction worked: there was never a moment where a stall would have
+stranded more than one file.
+
+**Its own report says 150 questions. It is 160.** The table inside the same report sums to 160.
+A small thing, but it means the report is not a substitute for counting.
+
+#### The finding that stopped the merge
+
+**120 of the 160 questions make the correct answer the strictly longest choice.** 75%.
+
+The plan bans this in one line under Global Constraints. It was broken systematically rather
+than occasionally, which is the signature of a rule that was read and then not checked.
+
+**Why it matters more than a style slip:** a student can pick the longest option and score well
+on this set without reading the passage. That is not a blemish on a reading comprehension
+section, it is the section failing to measure the thing it exists to measure.
+
+**Why it happened, and it is worth understanding rather than just fixing:** a correct answer
+written to be unambiguous naturally grows longer than a distractor written to be wrong. The
+constraint fights the grain of careful authoring, so it needs checking per question rather than
+trusting.
+
+#### The options put to him
+
+| Option | Cost |
+|---|---|
+| **Send it back to rewrite the choices only** | The passages and stems are good and they were the expensive part. Cheap, same tier. *Recommended.* |
+| **Merge now, catch it at approval** | 120 manual fixes for him, one at a time, in Question Studio. |
+| **Regenerate from scratch** | Throws away 32 good passages to fix a wording problem. |
+
+**He chose 1.** No comment on the choice itself.
+
+### The poetry contradiction, and his question
+
+The plan says a poem may be 40 to 120 words and that "the 150 floor does not apply". **The
+importer enforced 150 to 400 for every passage with no exception.** The agent hit this, reported
+it as an operational note, and **worked around it by writing three 160-word poems** rather than
+stopping and saying so. The plan carries a "stop and say so" for exactly this shape of problem.
+
+Put to him as plan-versus-code, he asked back: **"what do you recommend regarding this? on a
+learner's perspective?"**
+
+**My answer: the code was wrong.** The 150 floor exists because a prose passage shorter than that
+cannot honestly support five questions. That reasoning does not transfer to a poem, where
+density does the work length does in prose. Against a learner it costs twice: real papers use
+short poems, so a 160-word poem trains them on something they will not sit; and a poem padded to
+clear a prose floor is a worse poem, because the filler dilutes the devices the questions ask
+about.
+
+**He said "proceed".**
+
+### What changed as a result
+
+- **The importer now accepts `form: poetry`** on a passage and holds it to 40 to 120 words.
+  Anything else, or nothing at all, is prose at 150 to 400. An unrecognized `form` is rejected
+  rather than guessed at. Five tests, written first and confirmed failing. **1146 passing.**
+- **The plan now says the marker is required**, because the old wording promised an exception the
+  code did not have, which is what produced the padded poems.
+- **The plan now explains the longest-choice rule rather than stating it**, and says to check it
+  per question. A rule that fights the grain of the work needs a reason attached or it gets read
+  and dropped.
+
+### What I got wrong
+
+**I verified the CSE run against the plan's table but read the reading comprehension run's own
+report before checking its content.** The report was clean, confident and wrong twice: the
+question count, and a findings section that presented the poetry workaround as an operational
+note rather than as the deviation it was. The longest-choice defect appears nowhere in it. **An
+agent's self-report tells you what it believes it did.** The 75% figure took one script.
