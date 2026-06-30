@@ -353,3 +353,59 @@ until you have.
 ### Main
 
 **1122 tests passing**, analyzer clean, formatter clean, layering 7, attribution 0, schema 17.
+
+---
+
+## 4 August, later: the passage pipeline, verified and merged
+
+Picked up from the handoff. The worktree was finished, five commits, nothing uncommitted, and
+verified by nobody. Three things were checked before it was allowed near `main`.
+
+### It stopped where it was told to
+
+Task 5 renders the passage inside the viewer that `2026-08-02-quiz-tab-04-viewer-and-reveal.md`
+builds, and that plan has not landed. The plan said stop after Task 4 and say so, and the diff
+touches nothing under `presentation/`. **It obeyed.**
+
+**One consequence nobody wrote down:** Task 6 is a regression test proving a database with no
+passages behaves exactly as before, and it does **not** depend on Task 5. Stopping after Task 4
+dropped it too. The claim in spec Section 8 is still a sentence rather than a test.
+`test/features/quiz/passage_regression_test.dart` does not exist. Cheap to pick up whenever Quiz
+Plan 4 lands and Task 5 is dispatched.
+
+### It read the live schema instead of trusting the document
+
+Main was at 17. It took **18**, with a `from < 18` branch creating the table and adding the
+column in the same commit. This is the rule that rotted twice and it held this time.
+
+### It did one thing it was not asked to do
+
+`_hydrateQuestion` in the content repository now also populates `lessonId` and `shortLabel`.
+Both columns already existed; the hydration was simply not reading them. **`lessonId` is the
+lesson link**, which is queued as the next wave's item 3 and described in the pipeline document
+as "one line and no authoring". That line is now on `main`.
+
+**Not treated as a defect.** It is correct, it is covered, and the column was already there. But
+`content-three-passes.md` Task 1 must be re-read before dispatch rather than sent blind, because
+part of it is already done.
+
+### One gap worth knowing about
+
+The mock sampler gained an optional `passageSetsByTopic` parameter and the indivisibility branch
+behind it. **No test passes that parameter and no production code calls the sampler at all**, so
+the mock half of Task 4 is unexercised. That matches the rest of the mock feature, which has no
+UI yet, so it is a coverage note rather than a finding.
+
+### The composition order was checked against the spec, not assumed
+
+The picker now takes whole passage sets first and fills the remainder with free-standing
+questions, which reorders a session. Section 4 of the spec says exactly that: fill with a set
+while the remaining room is at least the set's size, **then** fill the rest. It matches.
+
+### Main, after the merge and the mandatory regeneration
+
+**1141 tests passing**, schema **18**, 26 analyzer issues and every one of them under `tools/`,
+zero under `lib/` and `test/`, formatter clean, layering 7 unchanged, attribution 0.
+
+The regeneration was run before the gates were read, per the rule written this morning. No
+imaginary merge bug this time.

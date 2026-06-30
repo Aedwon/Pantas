@@ -63,21 +63,22 @@ directly from the orchestrator**, one git worktree per plan.
 **Written 4 August, late, as a handoff. Nothing is running and nothing is waiting on a
 session.**
 
-### One worktree is finished, verified by nobody, and unmerged
+### The passage pipeline: verified and merged
 
-`.claude/worktrees/passage`, the passage pipeline. **5 commits, nothing uncommitted.** It was
-dispatched and finished while attention was elsewhere.
+**Done 4 August.** It stopped after Task 4 as instructed, because Quiz Plan 4 has not landed and
+Task 5 renders inside that plan's viewer. It read the live schema and took **18** with a
+`from < 18` branch. Gates green on `main` after regeneration.
 
-**Do this first:**
+**Two things a later reader needs:**
 
-1. `cd .claude/worktrees/passage` and run the full gate set.
-2. **Check what it did about Task 5.** It was told Quiz 4 has not run and to stop there and say
-   so. If it built the viewer work anyway, that is a finding.
-3. **Check the schema.** It was told to read the live value and take the next. Main is at **17**,
-   so it should have taken **18** with a `from < 18` branch in the same commit.
-4. Merge, then **run `dart run build_runner build --delete-conflicting-outputs` before judging
-   the gates on main.** A schema merge cannot carry the generated code and it fakes a
-   catastrophe: this cost time twice on 4 August.
+- **Task 6 was dropped with Task 5**, and it did not have to be: it is a regression test proving
+  a passage-free database behaves as before, and it depends on nothing in Task 5. Pick it up
+  when Task 5 is dispatched.
+- **The lesson link is already on `main`.** The passage run's repository hydration also started
+  reading `lessonId` and `shortLabel`. **Re-read `content-three-passes.md` Task 1 before
+  dispatching it**, because part of it is done.
+
+Full record in `decisions/2026-08-04-execution-dispatch-log.md`.
 
 ### Then the next wave
 
@@ -86,8 +87,8 @@ Two at a time. Ask Aedwon for Gemini headroom first; there is no way to read it 
 | Next | Plan | Tier |
 |---|---|---|
 | 1 | `cse-content.md` **Task 1 only**, the tagging pass | **F** |
-| 2 | `question-generation-reading-comprehension.md` | **F**, after the passage pipeline merges |
-| 3 | `content-three-passes.md` Task 1, the lesson link | **P** |
+| 2 | `question-generation-reading-comprehension.md` | **F**. The passage pipeline has merged, so it is unblocked |
+| 3 | `content-three-passes.md` Task 1, the lesson link | **P**. **Re-read it first: the hydration half is already on `main`** |
 | 4 | `paywall-01-ladder-and-live-gateway.md` | **P** |
 
 ---
@@ -111,7 +112,9 @@ Two at a time. Ask Aedwon for Gemini headroom first; there is no way to read it 
 **Corpus today:** Science 777, Mathematics 689, Language 319, Reasoning 208, Reading
 comprehension 0. **Total 1,993.**
 
-**Health on `main`, measured 4 August, late:** **1122 tests pass**, schema **17**, zero analyzer issues under `lib/` and `test/`
+| **The passage pipeline** | **Merged 4 August, Tasks 1 to 4.** Passages table, schema **18**, the YAML and seed carry them, and a passage set is indivisible in both the picker and the mock sampler. **Tasks 5 and 6 remain**, behind Quiz Plan 4 |
+
+**Health on `main`, measured 4 August, after the passage merge:** **1141 tests pass**, schema **18**, zero analyzer issues under `lib/` and `test/`
 outside `test/tool/`, formatter clean, layering 7, attribution 0, content validator 0.
 
 ---
@@ -142,7 +145,7 @@ outside `test/tool/`, formatter clean, layering 7, attribution 0, content valida
 | | Plan | Tier | Notes |
 |---|---|---|---|
 | 2a | `content-upgrade-seeder.md` | **P** | Reads the live schema, takes the next number |
-| 2b | `passage-pipeline.md` | **P** | Same. Task 5 needs Quiz 4 and says to stop if absent |
+| 2b | `passage-pipeline.md` | **P** | **Tasks 1 to 4 merged.** Task 5 needs Quiz 4; Task 6 was dropped alongside it and needs no dependency |
 | 2c | `question-generation-reading-comprehension.md` | **F** | Two agents, different directories. Reading comprehension is at zero and ships in v1 |
 | 2d | `content-three-passes.md` | **F**, Task 1 is **P** | The lesson link is derivable and needs no authoring. The reasons and labels are a generation pass |
 | 2e | `cse-content.md` **Task 1 only** | **F** | A tagging pass with no authoring. **Takes the CSE from 2 questions to most of its verbal, analytical and numerical paper.** Highest value per unit of work left in the queue |
