@@ -1,0 +1,179 @@
+meta:
+  subject: reading-comprehension
+  topic: comprehension-skills
+  subtopic: fact-vs-opinion
+  exams:
+    - upcat
+    - acet
+    - dlsucet
+    - ustet
+
+passages:
+  - id: rc-cs-fo-p1
+    title: "Iloilo City Transport Modernization"
+    body: |
+      In 2022, Iloilo City introduced fifty low-emission minibus units across five primary commuter routes as part of its public transport modernization program. According to city transport board records, the electric minibuses served an average of twenty-two thousand passengers daily during their first full year of operation. Municipal data indicated a twelve percent reduction in fleet carbon emissions along designated transport corridors.
+
+      Proponents of the program claim that the new minibuses provide an overwhelmingly superior commuter experience compared to traditional jeepneys. City officials frequently state that air-conditioned interiors and digital ticketing systems make modern minibuses the absolute best choice for urban transportation. Furthermore, several council members assert that traditional jeepneys are completely obsolete relics that should be removed from all city streets immediately.
+
+      However, traditional jeepney operators point out that modern minibus units require an initial investment of 2.4 million pesos per unit, creating significant debt burdens for small transport cooperatives. While passenger numbers and emission reductions are documented by municipal records, debate continues over whether the financial costs of rapid fleet replacement are truly justified.
+
+  - id: rc-cs-fo-p2
+    title: "Solar Energy Expansion in Tarlac"
+    body: |
+      Constructed across one hundred fifty hectares of former agricultural land, the Tarlac Solar Power Plant operates over two hundred thousand photovoltaic panels. Official grid operator reports show that the facility generates one hundred fifty megawatts of electricity annually, supplying power to roughly ninety thousand households in central Luzon. The project was completed in eighteen months at a total cost of 4.8 billion pesos.
+
+      Environmental advocates argue that the solar farm represents the most magnificent clean energy triumph in the province's history. Local news editorials frequently claim that solar energy is obviously far superior to all other forms of power generation. Conversely, some local farming associations maintain that converting fertile agricultural soil into solar panel arrays was a tragic mistake that needlessly ruined the rural landscape.
+
+      According to department of energy projections, solar power capacity in central Luzon is expected to grow by fifteen percent annually over the next decade based on current facility applications. While energy generation figures and land area sizes are verified by official records, opinions regarding the visual and agricultural impact of large-scale solar farms remain divided.
+
+questions:
+  - id: rc-cs-fo-0001
+    passage: rc-cs-fo-p1
+    type: analyze
+    difficulty: easy
+    stem: |
+      Which statement from the passage expresses a verifiable fact?
+    choices:
+      - text: Municipal data indicated a twelve percent reduction in fleet carbon emissions.
+        correct: true
+      - text: Modern minibuses provide an overwhelmingly superior commuter experience.
+      - text: Modern minibuses are the absolute best choice for urban transportation.
+      - text: Traditional jeepneys are completely obsolete relics.
+    explanation: |
+      The twelve percent reduction in carbon emissions is a measured, verifiable datum from municipal records, whereas the other options express subjective judgments.
+
+  - id: rc-cs-fo-0002
+    passage: rc-cs-fo-p1
+    type: analyze
+    difficulty: easy
+    stem: |
+      Which statement from the passage expresses an opinion?
+    choices:
+      - text: Traditional jeepneys are completely obsolete relics that should be removed immediately.
+        correct: true
+      - text: Iloilo City introduced fifty low-emission minibus units across five primary routes.
+      - text: Minibuses served an average of twenty-two thousand passengers daily.
+      - text: Modern minibus units require an initial investment of 2.4 million pesos per unit.
+    explanation: |
+      Calling jeepneys "obsolete relics that should be removed" is a value judgment, unlike the specific unit counts, passenger averages, and cost figures.
+
+  - id: rc-cs-fo-0003
+    passage: rc-cs-fo-p1
+    type: evaluate
+    difficulty: medium
+    stem: |
+      Why is the claim that minibuses offer "an overwhelmingly superior commuter experience" classified as an opinion?
+    choices:
+      - text: It relies on personal judgment and subjective preferences regarding comfort.
+        correct: true
+      - text: It contains a specific numerical figure that can be verified in a lab.
+      - text: It was written by an official government transport board.
+      - text: It describes events that occurred before 2022.
+    explanation: |
+      What constitutes a "superior experience" depends on personal criteria and individual passenger preferences rather than an objective measurement.
+
+  - id: rc-cs-fo-0004
+    passage: rc-cs-fo-p1
+    type: analyze
+    difficulty: medium
+    stem: |
+      Consider this sentence: "The minibuses, which cost 2.4 million pesos per unit, are an excessive waste of public funds." Which option correctly analyzes this sentence?
+    choices:
+      - text: It combines a verifiable cost fact with a subjective value judgment.
+        correct: true
+      - text: It is entirely factual because the cost figure is included.
+      - text: It is entirely opinion because it mentions public funds.
+      - text: It is an unverified statistical projection about future budgets.
+    explanation: |
+      The cost per unit (2.4 million pesos) is a verifiable fact, while calling it an "excessive waste" is a subjective opinion.
+
+  - id: rc-cs-fo-0005
+    passage: rc-cs-fo-p1
+    type: infer
+    difficulty: hard
+    stem: |
+      Which phrase in the second paragraph serves as a signal word indicating an opinion?
+    choices:
+      - text: "absolute best choice"
+        correct: true
+      - text: "twenty-two thousand passengers"
+      - text: "five primary routes"
+      - text: "twelve percent reduction"
+    explanation: |
+      Superlative phrases like "absolute best choice" express subjective value judgments rather than objective facts.
+
+  - id: rc-cs-fo-0006
+    passage: rc-cs-fo-p2
+    type: analyze
+    difficulty: easy
+    stem: |
+      Which statement from the Tarlac solar passage is a verifiable fact?
+    choices:
+      - text: The facility generates one hundred fifty megawatts of electricity annually.
+        correct: true
+      - text: The solar farm represents the most magnificent clean energy triumph in history.
+      - text: Solar energy is obviously far superior to all other forms of power generation.
+      - text: Converting agricultural land was a tragic mistake that ruined the landscape.
+    explanation: |
+      The annual megawatt generation figure is verified by official grid operator reports, making it a fact.
+
+  - id: rc-cs-fo-0007
+    passage: rc-cs-fo-p2
+    type: analyze
+    difficulty: easy
+    stem: |
+      Which statement from the passage expresses a subjective opinion?
+    choices:
+      - text: Converting agricultural soil into solar panels was a tragic mistake.
+        correct: true
+      - text: The plant operates over two hundred thousand photovoltaic panels.
+      - text: The project was completed in eighteen months.
+      - text: The total cost of construction was 4.8 billion pesos.
+    explanation: |
+      Describing land conversion as a "tragic mistake" expresses an opinion, whereas panel counts, months, and costs are factual measurements.
+
+  - id: rc-cs-fo-0008
+    passage: rc-cs-fo-p2
+    type: evaluate
+    difficulty: medium
+    stem: |
+      How should the statement regarding projected 15% annual solar capacity growth be classified?
+    choices:
+      - text: A data-supported statistical projection based on official applications.
+        correct: true
+      - text: A subjective personal opinion expressing emotional preference.
+      - text: A historical fact about past electricity generation in 2010.
+      - text: A speculative guess unsupported by any energy department records.
+    explanation: |
+      Projections based on stated methodology and official facility applications function as data-supported calculations rather than subjective personal opinions.
+
+  - id: rc-cs-fo-0009
+    passage: rc-cs-fo-p2
+    type: analyze
+    difficulty: medium
+    stem: |
+      Why does calling the solar farm "the most magnificent clean energy triumph" make it an opinion?
+    choices:
+      - text: Words like "magnificent" and "triumph" convey personal aesthetic and emotional praise.
+        correct: true
+      - text: It cites official grid operator megawatt reports.
+      - text: It specifies the exact land size in hectares.
+      - text: It was published in a municipal agricultural report.
+    explanation: |
+      Praise words like "magnificent" and "triumph" express subjective value judgments rather than objective scientific measurements.
+
+  - id: rc-cs-fo-0010
+    passage: rc-cs-fo-p2
+    type: infer
+    difficulty: hard
+    stem: |
+      Which strategy best helps a reader distinguish facts from opinions in environmental reports?
+    choices:
+      - text: Separating measurable data and official records from value-laden judgment words.
+        correct: true
+      - text: Assuming that any sentence containing a number must be entirely an opinion.
+      - text: Believing that editorial claims represent universally accepted facts.
+      - text: Ignoring all government reports and focusing only on emotional quotes.
+    explanation: |
+      Checking whether claims are backed by measurable data and official records versus value-laden judgment words is the core method for distinguishing facts from opinions.
