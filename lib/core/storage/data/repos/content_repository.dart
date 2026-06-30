@@ -5,6 +5,7 @@ import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/exam.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/lesson.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/passage.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/subject.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
@@ -130,6 +131,23 @@ class ContentRepository {
     );
   }
 
+  Future<Passage?> passageById(PassageId id) async {
+    final row = await (_db.select(_db.passages)..where((p) => p.id.equals(id)))
+        .getSingleOrNull();
+    return row == null ? null : _hydratePassage(row);
+  }
+
+  Passage _hydratePassage(PassageRow r) {
+    return Passage(
+      id: r.id,
+      topicId: r.topicId,
+      title: r.title,
+      body: r.body,
+      language: r.language,
+      wordCount: r.wordCount,
+    );
+  }
+
   Question _hydrateQuestion(QuestionRow r) {
     final examIds = (jsonDecode(r.examIdsJson) as List).cast<String>();
     final choices = (jsonDecode(r.choicesJson) as List)
@@ -141,10 +159,13 @@ class ContentRepository {
       version: r.version,
       examIds: examIds,
       topicId: r.topicId,
+      lessonId: r.lessonId,
+      passageId: r.passageId,
       language: r.language,
       stem: r.stem,
       choices: choices,
       explanation: r.explanation,
+      shortLabel: r.shortLabel,
     );
   }
 }

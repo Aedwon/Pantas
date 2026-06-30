@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:cse_cet_reviewer/core/storage/domain/passage_set_filler.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/data/blueprint_section.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_sample.dart';
 
@@ -18,6 +19,7 @@ class MockSampler {
     required Map<String, List<String>> poolsByTopic,
     required Set<String> recentlySampledQuestionIds,
     required int seed,
+    Map<String, Map<String, List<String>>>? passageSetsByTopic,
   }) {
     final random = Random(seed);
     final sampledSections = <SampledMockSection>[];
@@ -39,7 +41,33 @@ class MockSampler {
             ? filtered
             : topicPool.toList(growable: false);
         final shuffled = candidatePool.toList()..shuffle(random);
-        questionIds.addAll(shuffled.take(entry.value));
+
+        final topicPassageSets = passageSetsByTopic?[entry.key];
+        if (topicPassageSets != null && topicPassageSets.isNotEmpty) {
+          final freeStanding = <String>[];
+          final setsByPassageId = <String, List<String>>{};
+          for (final qid in shuffled) {
+            final pid = topicPassageSets.entries
+                .firstWhere(
+                  (e) => e.value.contains(qid),
+                  orElse: () => const MapEntry('', <String>[]),
+                )
+                .key;
+            if (pid.isNotEmpty) {
+              setsByPassageId.putIfAbsent(pid, () => []).add(qid);
+            } else {
+              freeStanding.add(qid);
+            }
+          }
+          final filled = PassageSetFiller.fillGeneric(
+            size: entry.value,
+            freeStanding: freeStanding,
+            setsByPassageId: setsByPassageId,
+          );
+          questionIds.addAll(filled);
+        } else {
+          questionIds.addAll(shuffled.take(entry.value));
+        }
       }
 
       if (questionIds.isEmpty) {

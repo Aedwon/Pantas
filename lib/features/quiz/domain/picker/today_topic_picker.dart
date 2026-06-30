@@ -1,4 +1,5 @@
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/passage_set_filler.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/picker/pick_context.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/picker/question_picker.dart';
 
@@ -36,12 +37,31 @@ List<Question> _compose(PickContext context) {
   final picked = <Question>[];
   final used = <String>{};
   void addFrom(List<Question> source, int target) {
-    var remaining = target;
-    for (final question in source) {
-      if (picked.length >= requested || remaining <= 0) break;
-      if (used.add(question.id)) {
-        picked.add(question);
-        remaining--;
+    if (picked.length >= requested || target <= 0) return;
+    final remainingRoom = requested - picked.length;
+    final maxToTake = remainingRoom < target ? remainingRoom : target;
+
+    final candidates = source.where((q) => !used.contains(q.id)).toList();
+    final setsByPassageId = <String, List<Question>>{};
+    final freeStanding = <Question>[];
+
+    for (final q in candidates) {
+      if (q.passageId != null && q.passageId!.isNotEmpty) {
+        setsByPassageId.putIfAbsent(q.passageId!, () => []).add(q);
+      } else {
+        freeStanding.add(q);
+      }
+    }
+
+    final filled = PassageSetFiller.fill(
+      size: maxToTake,
+      freeStanding: freeStanding,
+      setsByPassageId: setsByPassageId,
+    );
+
+    for (final q in filled) {
+      if (used.add(q.id)) {
+        picked.add(q);
       }
     }
   }
