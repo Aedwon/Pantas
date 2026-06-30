@@ -6,3 +6,4 @@ typedef QuestionId = String;
 typedef ChoiceId = String;
 typedef LessonId = String;
 typedef AttemptId = String;
+typedef PassageId = String;

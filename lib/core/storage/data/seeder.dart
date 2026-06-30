@@ -91,6 +91,26 @@ class Seeder {
               ),
             );
       }
+      // Passages come before questions: a question references a passage, and
+      // foreign keys are unenforced until foreign_keys PRAGMA is enabled.
+      if (json['passages'] is List) {
+        for (final p
+            in (json['passages'] as List).cast<Map<String, dynamic>>()) {
+          final body = (p['body'] as String).trim();
+          final wordCount = p['wordCount'] as int? ??
+              body.split(RegExp(r'\s+')).where((w) => w.isNotEmpty).length;
+          await _db.into(_db.passages).insertOnConflictUpdate(
+                PassagesCompanion.insert(
+                  id: p['id'] as String,
+                  topicId: p['topicId'] as String,
+                  title: (p['title'] as String).trim(),
+                  body: body,
+                  language: p['language'] as String? ?? 'en',
+                  wordCount: wordCount,
+                ),
+              );
+        }
+      }
       for (final q
           in (json['questions'] as List).cast<Map<String, dynamic>>()) {
         final qId = q['id'] as String;
@@ -107,6 +127,7 @@ class Seeder {
                   examIdsJson: jsonEncode(q['examIds']),
                   topicId: q['topicId'] as String,
                   lessonId: Value(q['lessonId'] as String?),
+                  passageId: Value(q['passageId'] as String?),
                   language: q['language'] as String,
                   stem: q['stem'] as String,
                   choicesJson: jsonEncode(q['choices']),

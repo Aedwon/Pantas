@@ -23,6 +23,9 @@ class Question with _$Question {
     /// Null until the tagging pass lands. Questions carry `topicId` only today.
     LessonId? lessonId,
 
+    /// Null for free-standing questions; set for reading comprehension sets.
+    PassageId? passageId,
+
     /// A few words naming what the question is about, for the debrief's miss
     /// rows. Null falls back to the stem clamped to two lines.
     String? shortLabel,
