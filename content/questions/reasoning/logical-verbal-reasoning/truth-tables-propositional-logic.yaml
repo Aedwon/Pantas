@@ -2,7 +2,7 @@ meta:
   subject: reasoning
   topic: logical-verbal-reasoning
   subtopic: truth-tables-propositional-logic
-  exams: [ acet, ustet, dost-sei ]
+  exams: [ acet, ustet, dost-sei , cse-pro]
 questions:
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0001
     type: truth-table-evaluation

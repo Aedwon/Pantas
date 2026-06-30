@@ -2,7 +2,7 @@ meta:
   subject: reasoning
   topic: spatial-abstract-reasoning
   subtopic: paper-folding-and-cutting
-  exams: [ acet, ustet, dost-sei ]
+  exams: [ acet, ustet, dost-sei , cse-pro]
 questions:
   - id: q-spatial-abstract-reasoning-paper-folding-and-cutting-0001
     type: paper-folding

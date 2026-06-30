@@ -2,7 +2,7 @@ meta:
   subject: reasoning
   topic: spatial-abstract-reasoning
   subtopic: mental-rotation-3d-visualization
-  exams: [ acet, ustet, dost-sei ]
+  exams: [ acet, ustet, dost-sei , cse-pro]
 questions:
   - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0001
     type: mental-rotation

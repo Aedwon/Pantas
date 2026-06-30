@@ -139,11 +139,25 @@ Map<String, Object?> passageToDoc(
     throw FormatException('$id: missing or empty "body"');
   }
 
+  // Prose needs length to sustain a set of questions. A poem does not: density
+  // does the work there that word count does in prose, and padding one out to
+  // clear a prose floor dilutes the very devices its questions ask about.
+  final form = p['form'] ?? 'prose';
+  if (form != 'prose' && form != 'poetry') {
+    throw FormatException(
+      '$id: "form" must be prose or poetry (found $form)',
+    );
+  }
+  final isPoetry = form == 'poetry';
+  final minWords = isPoetry ? 40 : 150;
+  final maxWords = isPoetry ? 120 : 400;
+
   final words = body.trim().split(RegExp(r'\s+')).where((w) => w.isNotEmpty);
   final wordCount = words.length;
-  if (wordCount < 150 || wordCount > 400) {
+  if (wordCount < minWords || wordCount > maxWords) {
     throw FormatException(
-      '$id: passage body must be 150 to 400 words (found $wordCount)',
+      '$id: passage body must be $minWords to $maxWords words '
+      '(found $wordCount)',
     );
   }
 

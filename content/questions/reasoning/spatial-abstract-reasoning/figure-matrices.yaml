@@ -2,7 +2,7 @@ meta:
   subject: reasoning
   topic: spatial-abstract-reasoning
   subtopic: figure-matrices
-  exams: [ acet, ustet, dost-sei ]
+  exams: [ acet, ustet, dost-sei , cse-pro]
 questions:
   - id: q-spatial-abstract-reasoning-figure-matrices-0001
     type: figure-matrix

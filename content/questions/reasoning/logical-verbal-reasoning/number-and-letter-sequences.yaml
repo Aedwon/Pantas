@@ -2,7 +2,7 @@ meta:
   subject: reasoning
   topic: logical-verbal-reasoning
   subtopic: number-and-letter-sequences
-  exams: [ acet, ustet, dost-sei ]
+  exams: [ acet, ustet, dost-sei , cse-pro, cse-sub]
 questions:
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0001
     type: number-letter-series

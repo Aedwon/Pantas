@@ -2,7 +2,7 @@ meta:
   subject: mathematics
   topic: arithmetic-number-sense
   subtopic: properties-of-real-numbers
-  exams: [upcat, acet, dlsucet, ustet, pupcet]
+  exams: [upcat, acet, dlsucet, ustet, pupcet, cse-pro, cse-sub]
 questions:
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0001
     type: which-is-true

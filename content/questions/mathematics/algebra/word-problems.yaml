@@ -2,7 +2,7 @@ meta:
   subject: mathematics
   topic: algebra
   subtopic: word-problems
-  exams: [upcat, acet, dlsucet, ustet, pupcet]
+  exams: [upcat, acet, dlsucet, ustet, pupcet, cse-pro, cse-sub]
 questions:
   - id: q-algebra-word-problems-0001
     type: word-problem

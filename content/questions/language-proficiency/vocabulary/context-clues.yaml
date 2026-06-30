@@ -2,7 +2,7 @@ meta:
   subject: language-proficiency
   topic: vocabulary
   subtopic: context-clues
-  exams: [ upcat, acet, dlsucet, ustet, dost-sei ]
+  exams: [ upcat, acet, dlsucet, ustet, dost-sei , cse-pro, cse-sub]
 questions:
   - id: q-vocabulary-context-clues-0001
     type: word-in-context

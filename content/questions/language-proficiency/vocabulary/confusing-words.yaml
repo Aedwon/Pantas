@@ -2,7 +2,7 @@ meta:
   subject: language-proficiency
   topic: vocabulary
   subtopic: confusing-words
-  exams: [ upcat, acet, dlsucet, ustet, dost-sei ]
+  exams: [ upcat, acet, dlsucet, ustet, dost-sei , cse-pro, cse-sub]
 questions:
   - id: q-vocabulary-confusing-words-0001
     type: confusing-words

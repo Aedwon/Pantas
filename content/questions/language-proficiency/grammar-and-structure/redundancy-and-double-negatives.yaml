@@ -2,7 +2,7 @@ meta:
   subject: language-proficiency
   topic: grammar-and-structure
   subtopic: redundancy-and-double-negatives
-  exams: [ upcat, acet, dlsucet, ustet, dost-sei ]
+  exams: [ upcat, acet, dlsucet, ustet, dost-sei , cse-pro, cse-sub]
 questions:
   - id: q-grammar-and-structure-redundancy-and-double-negatives-0001
     type: redundancy-identification

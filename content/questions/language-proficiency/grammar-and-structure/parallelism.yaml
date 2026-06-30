@@ -2,7 +2,7 @@ meta:
   subject: language-proficiency
   topic: grammar-and-structure
   subtopic: parallelism
-  exams: [ upcat, acet, dlsucet, ustet, dost-sei ]
+  exams: [ upcat, acet, dlsucet, ustet, dost-sei , cse-pro, cse-sub]
 questions:
   - id: q-grammar-and-structure-parallelism-0001
     type: parallelism-correction
