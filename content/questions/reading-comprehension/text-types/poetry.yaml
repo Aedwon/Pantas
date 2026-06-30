@@ -10,17 +10,13 @@ meta:
 
 passages:
   - id: rc-tt-po-p1
+    form: poetry
     title: "The Fisherman's Dawn"
     body: |
       The quiet ocean whispers to the shore,
       While fading stars drift softly in the grey.
       The sturdy boat sets out with wooden oar,
       To greet the golden light of breaking day.
-
-      The morning wind is singing through the sail,
-      A gentle breeze that guides the fisherman.
-      His heavy nets are thrown into the gale,
-      To gather riches where the currents ran.
 
       The sea is like a mother fierce and deep,
       Who guards her treasures under rolling waves.
@@ -33,6 +29,7 @@ passages:
       And brings its bountiful reward to land.
 
   - id: rc-tt-po-p2
+    form: poetry
     title: "The Weaver's Loom"
     body: |
       The wooden shuttle dances through the thread,
@@ -41,21 +38,17 @@ passages:
       Beneath the guidance of a patient hand.
 
       The threads are flowing like a mountain stream,
-      Across the frame where silent patterns grow.
+      Beneath the weaver's calm and steady guide.
       Each woven line fulfills a quiet dream,
-      That generations crafted long ago.
+      With generations standing by her side.
 
       The ancient loom is breathing in the room,
       Its rhythmic clicking marks the passing hour.
       From simple cotton springs a floral bloom,
       A sudden tapestry of grace and power.
 
-      When evening falls and shadows stretch away,
-      The finished cloth shines bright with honest pride.
-      The weaver rests until another day,
-      With generations standing by her side.
-
   - id: rc-tt-po-p3
+    form: poetry
     title: "The City Rain"
     body: |
       The heavy clouds press low above the street,
@@ -63,15 +56,10 @@ passages:
       The rushing rain begins its steady beat,
       As cooling waters start to surge and flow.
 
-      The city streets are washed of dust and heat,
-      While silver rivers run along the stone.
-      The weary travelers find a dry retreat,
-      And watch the falling storm from porch alone.
-
       The rain is like a cloak of silver thread,
-      That drapes the noisy town in quiet peace.
+      While silver rivers run along the stone.
       Where frantic thoughts and worries used to tread,
-      The cooling shadows bring a sweet release.
+      The cooling shadows leave the heart alone.
 
       Soon golden sunlight breaks through parting skies,
       And washes clean the avenues of gray.
@@ -124,33 +112,33 @@ questions:
     explanation: |
       Attributing the human action of "whispering" to the "quiet ocean" gives human qualities to something non-human, which is personification.
 
-  - id: rc-cs-po-0004
+  - id: rc-tt-po-0004
     passage: rc-tt-po-p1
     type: infer
     difficulty: medium
     stem: |
       What tone does the poet convey toward the fisherman's daily labor?
     choices:
-      - text: Respectful and appreciative of traditional endurance
+      - text: Appreciative of traditional endurance
         correct: true
-      - text: Critical and disapproving of marine pollution
-      - text: Sarcastic and mocking of poverty
-      - text: Fearful and hopeless regarding sea storms
+      - text: Critical of marine pollution and coastal destruction
+      - text: Dismissive and mocking of rural poverty
+      - text: Fearful and hopeless regarding ocean storms
     explanation: |
       Images of "bountiful reward", "honest pride", and trusting the ancient water convey a respectful and appreciative tone.
 
-  - id: rc-cs-po-0005
+  - id: rc-tt-po-0005
     passage: rc-tt-po-p1
     type: evaluate
     difficulty: hard
     stem: |
       What metaphor is implied in the phrase "transforms the sea to gold"?
     choices:
-      - text: Comparing the bright morning sunlight on water to precious golden metal.
+      - text: Comparing morning sunlight on water to gold.
         correct: true
-      - text: Suggesting the fisherman dropped gold coins into the ocean.
-      - text: Claiming the ocean water chemically converted into solid gold.
-      - text: Describing the yellow color of commercial fishing nets.
+      - text: Suggesting the fisherman dropped shiny gold coins into the sea.
+      - text: Claiming the ocean water chemically turned into solid gold.
+      - text: Describing the yellow color of commercial nylon fishing nets.
     explanation: |
       The phrase metaphorically compares the golden reflection of sunrise on ocean water to precious gold without using "like" or "as".
 
@@ -163,9 +151,9 @@ questions:
     choices:
       - text: "The threads are flowing like a mountain stream"
         correct: true
-      - text: "The wooden shuttle dances through the thread"
-      - text: "Bright crimson colors mingle with the red"
-      - text: "The ancient loom is breathing in the room"
+      - text: "The wooden shuttle dances swiftly through the thread"
+      - text: "Bright crimson colors mingle softly with the red"
+      - text: "The ancient loom is breathing quietly in the room"
     explanation: |
       Comparing the flowing threads to a mountain stream using the word "like" is a simile.
 
@@ -199,33 +187,33 @@ questions:
     explanation: |
       Line 1 (room) rhymes with line 3 (bloom) [A], and line 2 (hour) rhymes with line 4 (power) [B], forming an abab rhyme scheme.
 
-  - id: rc-cs-po-0009
+  - id: rc-tt-po-0009
     passage: rc-tt-po-p2
     type: infer
     difficulty: hard
     stem: |
       What does the phrase "generations standing by her side" symbolize?
     choices:
-      - text: The continuation of ancestral cultural traditions passed down across time.
+      - text: The continuity of ancestral craft traditions.
         correct: true
-      - text: A crowd of angry villagers watching the weaver work.
-      - text: The high monetary cost of buying commercial looms.
-      - text: Physical doctors inspecting the weaver's hands.
+      - text: A crowd of curious villagers watching the weaver work.
+      - text: The high monetary cost of buying modern commercial looms.
+      - text: Physical doctors closely inspecting the weaver's hands.
     explanation: |
       Ancestral generations standing by her side symbolizes the continuity of traditional heritage and skills inherited from past weavers.
 
-  - id: rc-cs-po-0010
+  - id: rc-tt-po-0010
     passage: rc-tt-po-p2
     type: evaluate
     difficulty: hard
     stem: |
       How does the imagery in stanza 3 ("From simple cotton springs a floral bloom") contribute to the poem's theme?
     choices:
-      - text: It contrasts humble raw materials with the artistic beauty created through skilled effort.
+      - text: It contrasts humble raw materials with crafted artistic beauty.
         correct: true
       - text: It explains how real flowers are planted inside weaving workshops.
-      - text: It warns weavers against using cotton in foot looms.
-      - text: It describes garden flowers growing along workshop walls.
+      - text: It warns weavers against using cotton fiber in traditional foot looms.
+      - text: It describes garden flowers growing along outdoor workshop walls.
     explanation: |
       Contrasting simple cotton with a blooming tapestry emphasizes how art transforms raw materials through dedicated skill.
 
@@ -251,11 +239,11 @@ questions:
     stem: |
       Which sensory imagery is primary in the line "The rushing rain begins its steady beat"?
     choices:
-      - text: Auditory imagery (appealing to the sense of hearing)
+      - text: Auditory imagery (appealing to hearing)
         correct: true
       - text: Olfactory imagery (appealing to the sense of smell)
       - text: Gustatory imagery (appealing to the sense of taste)
-      - text: Thermal imagery (appealing to heat temperature)
+      - text: Thermal imagery (appealing to temperature)
     explanation: |
       Describing a "rushing rain" with a "steady beat" appeals to the sense of hearing (auditory imagery).
 
@@ -274,32 +262,32 @@ questions:
     explanation: |
       The poem opens with heavy clouds pressing low and city heat, but ends with parting clouds, golden sunlight, and rising hope.
 
-  - id: rc-cs-po-0014
+  - id: rc-tt-po-0014
     passage: rc-tt-po-p3
     type: analyze
     difficulty: hard
     stem: |
       What is the metaphor expressed in the phrase "silver rivers run along the stone"?
     choices:
-      - text: Comparing rainwater streams on paved streets to flowing silver rivers.
+      - text: Comparing rainwater streams to silver rivers.
         correct: true
-      - text: Describing real silver metal melting in city gutters.
+      - text: Describing real molten silver metal flowing in city gutters.
       - text: Explaining how mountain rivers carry silver ore to cities.
-      - text: Claiming that city roads were paved with metallic silver.
+      - text: Claiming that city roads were paved with pure metallic silver.
     explanation: |
       Comparing rainwater streams on pavement to silver rivers without using "like" or "as" is a metaphor.
 
-  - id: rc-cs-po-0015
+  - id: rc-tt-po-0015
     passage: rc-tt-po-p3
     type: evaluate
     difficulty: hard
     stem: |
       What central theme is explored in "The City Rain"?
     choices:
-      - text: Environmental rain brings cleansing relief and renewed hope to urban weariness.
+      - text: Rain brings cleansing relief and hope to urban weariness.
         correct: true
-      - text: City storms permanently destroy urban transportation systems.
-      - text: Travelers should avoid sitting on outdoor porches during rain.
-      - text: Paved streets are superior to natural riverways.
+      - text: City storms permanently destroy urban public transportation systems.
+      - text: Travelers should avoid sitting on outdoor porches during heavy rain.
+      - text: Paved city streets are superior to natural rural riverways.
     explanation: |
       The poem depicts rain washing away dust, heat, and worry, restoring quiet peace and fresh hope to the city.
