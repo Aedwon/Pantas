@@ -1,0 +1,179 @@
+meta:
+  subject: reading-comprehension
+  topic: text-types
+  subtopic: short-stories-and-novels
+  exams:
+    - upcat
+    - acet
+    - dlsucet
+    - ustet
+
+passages:
+  - id: rc-tt-sn-p1
+    title: "The Marikina Forge"
+    body: |
+      The heat from the anvil rose in shimmering waves against Mateo's face as he hammered the glowing strip of leaf-spring steel. In the small Marikina workshop, Mang Tomas sat quietly on a wooden bench, smoking a clove cigarette and watching his apprentice's rhythm without uttering a single instruction. Mateo raised the heavy mallet for a sixth strike, eager to flatten the blade before the metal cooled from bright cherry red to dull orange.
+
+      His arms burned with fatigue, yet a stubborn pride pushed him to swing faster. He wanted to prove that six months of apprenticeship had earned him the right to forge a complete kitchen knife independently. But as his hammer struck the hot edge, a hairline crack opened near the tang, splintering the glowing metal.
+
+      Mateo froze, expecting a sharp reprimand. Instead, Mang Tomas stood up, extinguished his cigarette in an iron dish, and laid a heavy hand on Mateo's shoulder. "A knife forced by speed is already broken inside," the old smith said softly, retrieving a fresh steel bar from the rack. "Heat it again, and let the fire teach your hammer patience."
+
+  - id: rc-tt-sn-p2
+    title: "Night Watch at the Pier"
+    body: |
+      Heavy rain lashed the corrugated tin roof of Pier 14 as Benjamin shined his flashlight across the rows of stacked shipping containers. At two in the morning, the Manila port yard was a maze of dark shadows and slick asphalt. He was twenty minutes from finishing his eight-hour shift when a metallic banging caught his attention near container cluster B.
+
+      Stepping closer, Benjamin saw that a heavy steel latch on a high-cube container had worked itself loose, swinging rhythmically against the corrugated wall with every gust of wind. Company protocol required night watchmen to secure unlatched doors immediately to prevent cargo theft and rainwater damage. However, reaching the upper latch meant climbing a rain-slicked iron ladder in near-zero visibility.
+
+      His wet gloves slipped on his flashlight as another thunderclap shook the yard. Pausing at the base of the ladder, Benjamin looked back toward the warmth of the guardhouse, then unclipped his safety harness and hooked it to the lower ladder rung.
+
+questions:
+  - id: rc-tt-sn-0001
+    passage: rc-tt-sn-p1
+    type: identify
+    difficulty: easy
+    stem: |
+      What central conflict does Mateo experience in "The Marikina Forge"?
+    choices:
+      - text: Internal conflict between his rushed desire for independence and the patience required for craftsmanship.
+        correct: true
+      - text: External conflict between himself and a hostile rival apprentice in Marikina.
+      - text: Environmental conflict between his workshop and a sudden river flood.
+      - text: Financial conflict over the cost of purchasing imported steel bars.
+    explanation: |
+      Mateo's internal struggle pits his eager pride and desire to prove independence against the patient discipline needed to forge metal properly.
+
+  - id: rc-tt-sn-0002
+    passage: rc-tt-sn-p1
+    type: analyze
+    difficulty: medium
+    stem: |
+      Which scene in the excerpt represents the turning point or climax of the narrative?
+    choices:
+      - text: The moment the hammer strikes and a hairline crack splinters the glowing steel edge.
+        correct: true
+      - text: Mang Tomas sitting quietly on the bench smoking a clove cigarette.
+      - text: Mateo heating the initial leaf-spring steel bar in the forge.
+      - text: Mang Tomas retrieving a fresh steel bar from the workshop rack.
+    explanation: |
+      The cracking of the steel is the moment of highest tension and turning point (climax) where Mateo's rushed hammering fails and forces a resolution.
+
+  - id: rc-tt-sn-0003
+    passage: rc-tt-sn-p1
+    type: infer
+    difficulty: medium
+    stem: |
+      What can be inferred about Mang Tomas's character from his reaction to the broken blade?
+    choices:
+      - text: He is a patient, wise mentor who uses mistakes as quiet teaching opportunities.
+        correct: true
+      - text: He is a harsh disciplinarian who fires apprentices for minor errors.
+      - text: He is indifferent to the quality of the knives produced in his forge.
+      - text: He is eager to finish work early to leave the workshop.
+    explanation: |
+      Rather than reprimanding Mateo, Mang Tomas gently explains the lesson ("let the fire teach your hammer patience") and provides fresh steel, showing patient wisdom.
+
+  - id: rc-tt-sn-0004
+    passage: rc-tt-sn-p1
+    type: infer
+    difficulty: hard
+    stem: |
+      Based on the end of the excerpt, what will Mateo most likely do next?
+    choices:
+      - text: Place the fresh steel bar into the fire and forge it with slower, more deliberate strikes.
+        correct: true
+      - text: Quit his apprenticeship and leave the Marikina workshop immediately.
+      - text: Sell the cracked steel blade to a neighboring market vendor.
+      - text: Argue with Mang Tomas about the temperature of the forge fire.
+    explanation: |
+      Mang Tomas hands him a fresh bar and instructs him to heat it again and practice patience, setting up a slower second forging attempt.
+
+  - id: rc-tt-sn-0005
+    passage: rc-tt-sn-p1
+    type: evaluate
+    difficulty: hard
+    stem: |
+      Which statement best expresses the underlying theme of "The Marikina Forge"?
+    choices:
+      - text: True mastery and craft require discipline and patience over rushed pride.
+        correct: true
+      - text: Apprentice blacksmiths should avoid using heavy mallets.
+      - text: Clove cigarettes are essential for managing workshop fatigue.
+      - text: Kitchen knives forged in Marikina are always prone to cracking.
+    explanation: |
+      The story illustrates how rushing due to pride leads to broken work, while true craftsmanship depends on patient discipline.
+
+  - id: rc-tt-sn-0006
+    passage: rc-tt-sn-p2
+    type: identify
+    difficulty: easy
+    stem: |
+      What type of conflict is introduced in "Night Watch at the Pier"?
+    choices:
+      - text: Conflict between professional duty and personal safety/comfort during hazardous conditions.
+        correct: true
+      - text: Physical combat between Benjamin and cargo thieves inside the container.
+      - text: Legal dispute between Benjamin and the Manila port authority over wages.
+      - text: Personal disagreement between Benjamin and a fellow night watchman.
+    explanation: |
+      Benjamin is torn between the safety protocol requiring him to climb a slippery ladder to secure the latch and the danger/discomfort of rain and fatigue.
+
+  - id: rc-tt-sn-0007
+    passage: rc-tt-sn-p2
+    type: analyze
+    difficulty: medium
+    stem: |
+      How does the setting of Pier 14 contribute to the mood of the passage?
+    choices:
+      - text: Dark shadows, heavy rain, and thunderclaps create a tense and hazardous atmosphere.
+        correct: true
+      - text: Bright sunshine and calm sea breezes create a cheerful and relaxed mood.
+      - text: Busy market crowds and street music create a festive holiday environment.
+      - text: Quiet air-conditioned office rooms create an academic research setting.
+    explanation: |
+      The midnight storm, dark container maze, slick ladder, and thunderclaps build a tense, hazardous mood.
+
+  - id: rc-tt-sn-0008
+    passage: rc-tt-sn-p2
+    type: infer
+    difficulty: medium
+    stem: |
+      What does Benjamin's action of unclipping his safety harness at the base of the ladder indicate?
+    choices:
+      - text: He has decided to fulfill his duty and climb the ladder despite the dangerous storm.
+        correct: true
+      - text: He has decided to abandon his job and run back to the guardhouse.
+      - text: He is handing his equipment to a replacement watchman.
+      - text: He is throwing his flashlight into the sea.
+    explanation: |
+      Hooking his safety harness to the ladder shows he is preparing to climb up and secure the loose container latch.
+
+  - id: rc-tt-sn-0009
+    passage: rc-tt-sn-p2
+    type: infer
+    difficulty: hard
+    stem: |
+      What can a reader reasonably infer about Benjamin's character from this excerpt?
+    choices:
+      - text: He is a conscientious and responsible worker who takes his duty seriously.
+        correct: true
+      - text: He is a careless watchman who frequently sleeps inside the guardhouse.
+      - text: He is an inexperienced worker who does not know port safety protocols.
+      - text: He is a suspicious character planning to steal container cargo.
+    explanation: |
+      Choosing to inspect the banging noise and climb a wet ladder near the end of a long shift demonstrates his conscientiousness and commitment to duty.
+
+  - id: rc-tt-sn-0010
+    passage: rc-tt-sn-p2
+    type: evaluate
+    difficulty: hard
+    stem: |
+      Which characteristic feature of fiction excerpts is demonstrated by the ending of this passage?
+    choices:
+      - text: It ends at a moment of suspense before the action is completed, setting up a resolution.
+        correct: true
+      - text: It presents a complete historical timeline of Manila port construction.
+      - text: It lists verified statistics on container shipping revenue.
+      - text: It provides an authorial footnote explaining port legal codes.
+    explanation: |
+      Fiction excerpts frequently conclude at a pivotal moment of suspense (preparing to climb the ladder), inviting the reader to infer what follows based on character setup.
