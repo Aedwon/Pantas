@@ -113,6 +113,7 @@ void main() {
     }
   }
 
+  final passages = _buildPassages(topicIdBySlug);
   final questions = _buildQuestions(topicIdBySlug);
   final lessons = _buildLessons(topicIdBySlug);
 
@@ -139,6 +140,11 @@ void main() {
   final keptTopicIds = {
     for (final topic in keptTopics) (topic as Map<String, dynamic>)['id'],
   };
+  final keptPassages = [
+    for (final passage in (existing['passages'] as List? ?? const []))
+      if (keptTopicIds.contains((passage as Map<String, dynamic>)['topicId']))
+        passage,
+  ];
   final keptQuestions = [
     for (final question in existing['questions'] as List)
       if (keptTopicIds.contains(
@@ -170,6 +176,7 @@ void main() {
       ..._rosterExams,
     ],
     'topics': [...keptTopics, ...topics],
+    'passages': [...keptPassages, ...passages],
     'questions': [...keptQuestions, ...questions],
     'lessons': [...keptLessons, ...lessons],
   };
@@ -205,6 +212,40 @@ int computeContentVersion([DateTime? timestamp]) {
   return int.parse('$year$month$day$hour');
 }
 
+// --- passages ----------------------------------------------------------
+
+List<Map<String, Object?>> _buildPassages(Map<String, String> topicIdBySlug) {
+  final passages = <Map<String, Object?>>[];
+
+  for (final file in _filesUnder('content/questions', '.yaml')) {
+    final doc = loadYaml(file.readAsStringSync()) as YamlMap;
+    final rawPassages = doc['passages'] as YamlList?;
+    if (rawPassages == null) continue;
+
+    final meta = doc['meta'] as YamlMap;
+    final topicSlug = meta['topic'] as String;
+    final topicId = topicIdBySlug[topicSlug];
+    if (topicId == null) continue;
+
+    for (final raw in rawPassages) {
+      final passage = raw as YamlMap;
+      final body = (passage['body'] as String).trim();
+      final wordCount =
+          body.split(RegExp(r'\s+')).where((w) => w.isNotEmpty).length;
+      passages.add({
+        'id': passage['id'] as String,
+        'topicId': topicId,
+        'title': (passage['title'] as String).trim(),
+        'body': body,
+        'language': 'en',
+        'wordCount': wordCount,
+      });
+    }
+  }
+
+  return passages;
+}
+
 // --- questions ---------------------------------------------------------
 
 List<Map<String, Object?>> _buildQuestions(Map<String, String> topicIdBySlug) {
@@ -238,11 +279,13 @@ List<Map<String, Object?>> _buildQuestions(Map<String, String> topicIdBySlug) {
       final choices = (question['choices'] as YamlList)
           .cast<YamlMap>()
           .toList(growable: false);
+      final passageId = question['passage'] as String?;
       questions.add({
         'id': id,
         'version': 1,
         'examIds': examIds,
         'topicId': topicId,
+        if (passageId != null) 'passageId': passageId,
         'language': 'en',
         'stem': (question['stem'] as String).trim(),
         'choices': [
