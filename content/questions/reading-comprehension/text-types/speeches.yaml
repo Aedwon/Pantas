@@ -1,0 +1,179 @@
+meta:
+  subject: reading-comprehension
+  topic: text-types
+  subtopic: speeches
+  exams:
+    - upcat
+    - acet
+    - dlsucet
+    - ustet
+
+passages:
+  - id: rc-tt-sp-p1
+    title: "Commencement Address in Tacloban"
+    body: |
+      Graduates of Tacloban, look around this hall today and witness what perseverance built from hardship. Ten years ago, super typhoon storms leveled our school buildings and shattered our coastal infrastructure. Yet, as someone who treated injured neighbors in emergency tents during those dark weeks, I can assure you that our spirit was never broken.
+
+      You, the youth of Eastern Visayas, are the living proof of our recovery. You studied under tarpaulin roofs when books were scarce. You shared solar lamps when electricity was restored one neighborhood at a time. We remembered our fallen past. We rebuilt our damaged classrooms. We rose above our deepest grief.
+
+      Do not let anyone tell you that your provincial origins limit your potential. As you step out to become doctors, engineers, and teachers, carry the courage of your hometown with you. Go forward with pride, serve your communities with compassion, and lead our nation toward a resilient future.
+
+  - id: rc-tt-sp-p2
+    title: "Barangay Coastal Resilience Address"
+    body: |
+      My fellow fisherfolk and barangay elders, we stand at a critical crossroads for our coastal waters. Having harvested fish along this bay for thirty-five years, I have watched our fish stocks shrink as plastic waste and mangrove destruction destroyed our natural breeding grounds.
+
+      We cannot afford to wait for outside agencies to fix what we have permitted to decay. You, the leaders of this community, hold the power to restore our marine heritage. Together we plant mangrove saplings along the shoreline. Together we protect nursery zones from illegal trawlers. Together we harvest the sustainable abundance of a healthy sea.
+
+      If we act with unity today, our children will inherit a flourishing bay rather than empty nets. Let us commit to daily enforcement, let us honor our traditional fishing wisdom, and let us safeguard our waters for generations to come.
+
+questions:
+  - id: rc-tt-sp-0001
+    passage: rc-tt-sp-p1
+    type: identify
+    difficulty: easy
+    stem: |
+      Which rhetorical device is used in the repeated sentence structure "We remembered... We rebuilt... We rose..."?
+    choices:
+      - text: Repetition combined with parallel grammatical structure
+        correct: true
+      - text: Scientific jargon and statistical proof
+      - text: Sarcastic understatement and irony
+      - text: Third-person detached observation
+    explanation: |
+      Repeating the opening phrase "We [verb]" across three consecutive sentences is a classic example of repetition and parallelism designed to build momentum.
+
+  - id: rc-tt-sp-0002
+    passage: rc-tt-sp-p1
+    type: analyze
+    difficulty: medium
+    stem: |
+      Why does the speaker use direct address when stating "You, the youth of Eastern Visayas"?
+    choices:
+      - text: To create an immediate personal connection and urge the audience to feel personal responsibility.
+        correct: true
+      - text: To inform news reporters about regional high school enrollment figures.
+      - text: To criticize the graduates for studying under tarpaulin roofs.
+      - text: To conceal the speaker's personal background as a health worker.
+    explanation: |
+      Direct address ("You, the youth...") speaks directly to listeners, fostering engagement and a sense of personal mission.
+
+  - id: rc-tt-sp-0003
+    passage: rc-tt-sp-p1
+    type: infer
+    difficulty: medium
+    stem: |
+      Which rhetorical appeal is established when the speaker mentions treating injured neighbors in emergency tents?
+    choices:
+      - text: Ethos (establishing credibility through personal experience)
+        correct: true
+      - text: Logos (citing official published statistical data)
+      - text: Irony (saying the opposite of what is meant)
+      - text: Hyperbole (exaggerating facts for comic effect)
+    explanation: |
+      Citing firsthand service during the disaster establishes the speaker's personal credibility (ethos) on community resilience.
+
+  - id: rc-tt-sp-0004
+    passage: rc-tt-sp-p1
+    type: evaluate
+    difficulty: hard
+    stem: |
+      What is the primary persuasive purpose of this commencement address?
+    choices:
+      - text: To inspire graduates to use their education to serve and lead resilient communities.
+        correct: true
+      - text: To convince university officials to reduce tuition fees in Tacloban.
+      - text: To instruct engineers on how to build storm-proof solar lamps.
+      - text: To complain about historical storm recovery delays.
+    explanation: |
+      The speaker urges graduates to "carry the courage of your hometown", "serve your communities", and "lead our nation", fulfilling an inspirational purpose.
+
+  - id: rc-tt-sp-0005
+    passage: rc-tt-sp-p1
+    type: analyze
+    difficulty: hard
+    stem: |
+      How does contrasting past hardships (tarpaulin roofs, solar lamps) with future goals (doctors, engineers) serve the speaker's argument?
+    choices:
+      - text: It highlights the graduates' proven strength to show they are capable of achieving ambitious goals.
+        correct: true
+      - text: It proves that provincial students should avoid technical careers.
+      - text: It indicates that Tacloban classrooms lack basic furniture.
+      - text: It argues that solar lamps are superior to electrical power grids.
+    explanation: |
+      Contrasting past obstacles overcome with future aspirations reinforces the theme of proven resilience and potential.
+
+  - id: rc-tt-sp-0006
+    passage: rc-tt-sp-p2
+    type: identify
+    difficulty: easy
+    stem: |
+      Which rhetorical device is featured in the lines "Together we plant... Together we protect... Together we harvest..."?
+    choices:
+      - text: Repetition (anaphora) designed to emphasize collective unity
+        correct: true
+      - text: Scientific classification of marine organisms
+      - text: Passive voice reporting of government actions
+      - text: Historical storytelling in chronological order
+    explanation: |
+      Beginning three consecutive sentences with "Together we [verb]" is anaphora/repetition that strongly emphasizes collective community action.
+
+  - id: rc-tt-sp-0007
+    passage: rc-tt-sp-p2
+    type: analyze
+    difficulty: medium
+    stem: |
+      What effect does the direct address "My fellow fisherfolk and barangay elders" have on the speech?
+    choices:
+      - text: It identifies the specific audience and establishes solidarity between speaker and community.
+        correct: true
+      - text: It distances the speaker from local community members.
+      - text: It requests written questions from foreign marine tourists.
+      - text: It proves that the speaker is a government minister from Manila.
+    explanation: |
+      Addressing the audience by name ("fellow fisherfolk and elders") establishes shared identity and community solidarity.
+
+  - id: rc-tt-sp-0008
+    passage: rc-tt-sp-p2
+    type: infer
+    difficulty: medium
+    stem: |
+      How does the speaker establish ethos in the opening paragraph?
+    choices:
+      - text: By citing thirty-five years of personal experience fishing along the bay.
+        correct: true
+      - text: By presenting a computer simulation of fish migration.
+      - text: By quoting international marine biology textbooks.
+      - text: By explaining the legal penalties for plastic dumping.
+    explanation: |
+      Mentioning 35 years of local fishing experience grounds the speaker's authority and credibility (ethos) in firsthand knowledge.
+
+  - id: rc-tt-sp-0009
+    passage: rc-tt-sp-p2
+    type: evaluate
+    difficulty: hard
+    stem: |
+      Why does the speaker use the urgent choice "If we act with unity today, our children will inherit a flourishing bay"?
+    choices:
+      - text: To appeal to pathos by connecting environmental stewardship to the well-being of future generations.
+        correct: true
+      - text: To explain the financial cost of purchasing new fishing nets.
+      - text: To instruct youth on how to build wooden boats.
+      - text: To criticize neighboring barangays for illegal trawling.
+    explanation: |
+      Appealing to the desire to protect one's children relies on emotional motivation (pathos) to inspire immediate community action.
+
+  - id: rc-tt-sp-0010
+    passage: rc-tt-sp-p2
+    type: analyze
+    difficulty: hard
+    stem: |
+      Which characteristic feature of speech writing distinguishes this text from a news report?
+    choices:
+      - text: Direct spoken address to an audience paired with emotional rhetorical appeals.
+        correct: true
+      - text: Objective third-person reporting with formal datelines and press citations.
+      - text: Step-by-step mathematical calculations of fish catches.
+      - text: Written dialogue between fictional story characters.
+    explanation: |
+      Speeches are written for oral delivery, using direct address ("you", "fellow fisherfolk") and persuasive rhetorical appeals.
