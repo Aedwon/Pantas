@@ -1,5 +1,6 @@
 // coverage:ignore-file
 import 'package:cse_cet_reviewer/core/storage/data/tables/lessons_table.dart';
+import 'package:cse_cet_reviewer/core/storage/data/tables/passages_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/topics_table.dart';
 import 'package:drift/drift.dart';
 
@@ -18,6 +19,7 @@ class Questions extends Table {
   TextColumn get choicesJson => text()();
   TextColumn get explanation => text()();
   TextColumn get shortLabel => text().nullable()();
+  TextColumn get passageId => text().nullable().references(Passages, #id)();
 
   /// A withdrawn question is never served again by sessions/drills/mocks/pickers,
   /// but remains visible in history.

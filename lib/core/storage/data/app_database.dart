@@ -9,6 +9,7 @@ import 'package:cse_cet_reviewer/core/storage/data/tables/lesson_bookmarks_local
 import 'package:cse_cet_reviewer/core/storage/data/tables/lesson_progress_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/lessons_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/mock_attempts_table.dart';
+import 'package:cse_cet_reviewer/core/storage/data/tables/passages_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/pending_sync_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/question_flags_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/questions_table.dart';
@@ -50,13 +51,14 @@ part 'app_database.g.dart';
     MockAttempts,
     UserMetricsArchetypesLocal,
     UserMetricsArtifactsLocal,
+    Passages,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 17;
+  int get schemaVersion => 18;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -117,6 +119,10 @@ class AppDatabase extends _$AppDatabase {
           }
           if (from < 17) {
             await m.addColumn(questions, questions.isWithdrawn);
+          }
+          if (from < 18) {
+            await m.createTable(passages);
+            await m.addColumn(questions, questions.passageId);
           }
         },
       );
