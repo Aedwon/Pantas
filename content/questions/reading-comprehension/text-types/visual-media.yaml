@@ -1,0 +1,179 @@
+meta:
+  subject: reading-comprehension
+  topic: text-types
+  subtopic: visual-media
+  exams:
+    - upcat
+    - acet
+    - dlsucet
+    - ustet
+
+passages:
+  - id: rc-tt-vm-p1
+    title: "Dengue Prevention Infographic Description"
+    body: |
+      A public health infographic poster titled "Stop Dengue at the Source" features a bold red headline above three distinct visual sections against a light blue background. In the central section, a large pie chart illustrates household mosquito breeding sites: fifty percent is labeled "uncovered water drums", thirty percent is labeled "discarded tires and tin cans", fifteen percent is labeled "clogged roof gutters", and five percent is labeled "flower vase water".
+
+      To the left of the pie chart, a magnified vector illustration of an Aedes aegypti mosquito is depicted with black and white striped legs, accompanied by a warning callout box in bright yellow. To the right, four sequential action icons demonstrate preventive measures: covering water containers, clearing roof gutters, recycling discarded tires, and applying insect repellent.
+
+      At the bottom of the poster, a footer banner in dark blue displays the Department of Health hotline number and a prominent slogan reading "A Clean Yard is a Safe Yard".
+
+  - id: rc-tt-vm-p2
+    title: "Fuel Prices Editorial Cartoon Description"
+    body: |
+      An editorial cartoon depicts a sweat-drenched jeepney driver in a tattered shirt attempting to pull a massive wooden cart up a steep, crumbling mountain road. The cart is loaded with a colossal iron boulder labeled "fuel price increases", which towers over the driver. Attached to the driver's waist by a thin, frayed rope is a tiny, empty coin purse labeled "daily jeepney fare income".
+
+      Standing safely at the top of the mountain peak are two neatly dressed figures in business suits labeled "oil importers". They are holding binoculars and calmly observing the driver's struggle while holding a large sign that reads "market forces".
+
+      In the background, dark thunderclouds hover over a small city skyline labeled "commuter public", while a small road sign at the foot of the hill points backward toward a sign reading "economic relief".
+
+questions:
+  - id: rc-tt-vm-0001
+    passage: rc-tt-vm-p1
+    type: identify
+    difficulty: easy
+    stem: |
+      Based on the pie chart described in the infographic, which site represents the largest percentage of household mosquito breeding places?
+    choices:
+      - text: Uncovered water drums (fifty percent)
+        correct: true
+      - text: Discarded tires and tin cans (thirty percent)
+      - text: Clogged roof gutters (fifteen percent)
+      - text: Flower vase water (five percent)
+    explanation: |
+      The passage explicitly states that fifty percent of breeding sites in the pie chart is labeled "uncovered water drums".
+
+  - id: rc-tt-vm-0002
+    passage: rc-tt-vm-p1
+    type: analyze
+    difficulty: medium
+    stem: |
+      What is the primary purpose of placing four sequential action icons to the right of the pie chart?
+    choices:
+      - text: To provide clear, actionable steps viewers can take to eliminate mosquito breeding grounds.
+        correct: true
+      - text: To decorate the poster with artistic color illustrations.
+      - text: To explain the biological life cycle of the Aedes aegypti mosquito.
+      - text: To display the historical budget of the Department of Health.
+    explanation: |
+      The action icons demonstrate preventive measures (covering drums, clearing gutters, recycling tires), providing clear actionable guidance for viewers.
+
+  - id: rc-tt-vm-0003
+    passage: rc-tt-vm-p1
+    type: analyze
+    difficulty: medium
+    stem: |
+      Why does the infographic use a bright yellow warning callout box next to the mosquito illustration?
+    choices:
+      - text: To draw immediate visual attention to critical hazard information and risk awareness.
+        correct: true
+      - text: To hide the mosquito's black and white striped legs.
+      - text: To indicate that mosquitoes only breed in yellow containers.
+      - text: To match the light blue background of the headline.
+    explanation: |
+      Bright callout boxes are a visual design device used to attract immediate attention to high-priority safety warnings.
+
+  - id: rc-tt-vm-0004
+    passage: rc-tt-vm-p1
+    type: infer
+    difficulty: hard
+    stem: |
+      What is the primary overall objective of this public health infographic?
+    choices:
+      - text: To inform and motivate residents to eliminate stagnant water sources around their homes.
+        correct: true
+      - text: To promote commercial sales of synthetic insect repellents.
+      - text: To criticize municipal workers for failing to clean public roads.
+      - text: To collect statistical data from hospital dengue patients.
+    explanation: |
+      Combining breeding site data, mosquito warnings, and practical cleaning steps aims to motivate residents to eliminate stagnant water.
+
+  - id: rc-tt-vm-0005
+    passage: rc-tt-vm-p1
+    type: evaluate
+    difficulty: hard
+    stem: |
+      Which visual element on the poster serves as the official authority marker and contact resource?
+    choices:
+      - text: The dark blue footer banner displaying the Department of Health hotline number.
+        correct: true
+      - text: The magnified vector illustration of the mosquito.
+      - text: The pie chart slice showing five percent flower vase water.
+      - text: The yellow background color behind the action icons.
+    explanation: |
+      The footer banner displaying official agency information and hotline details provides the authority marker and emergency contact resource.
+
+  - id: rc-tt-vm-0006
+    passage: rc-tt-vm-p2
+    type: identify
+    difficulty: easy
+    stem: |
+      In the editorial cartoon description, what does the colossal iron boulder labeled "fuel price increases" symbolize?
+    choices:
+      - text: The overwhelming financial burden placed on transport workers by rising fuel costs.
+        correct: true
+      - text: The physical weight of passenger luggage carried on jeepney roofs.
+      - text: The construction materials used to repair mountain roads.
+      - text: The high quality of imported petroleum products.
+    explanation: |
+      In editorial cartooning, a heavy crushing object labeled with a problem symbolizes an overwhelming burden on affected individuals.
+
+  - id: rc-tt-vm-0007
+    passage: rc-tt-vm-p2
+    type: analyze
+    difficulty: medium
+    stem: |
+      What is the cartoonist's stance regarding the relationship between the jeepney driver and the "oil importers"?
+    choices:
+      - text: Critical of oil importers who remain insulated and detached from the driver's economic struggle.
+        correct: true
+      - text: Supportive of oil importers for providing financial aid to transport workers.
+      - text: Neutral, showing both groups working together to push the cart.
+      - text: Praising jeepney drivers for buying expensive binoculars.
+    explanation: |
+      Depicting figures in suits standing safely at the top holding binoculars and a "market forces" sign conveys a critical stance on their detachment from the driver's struggle.
+
+  - id: rc-tt-vm-0008
+    passage: rc-tt-vm-p2
+    type: infer
+    difficulty: medium
+    stem: |
+      What visual contrast is created between the iron boulder and the "tiny, empty coin purse"?
+    choices:
+      - text: Highlighting the severe imbalance between soaring fuel expenses and inadequate driver earnings.
+        correct: true
+      - text: Showing that coin purses are manufactured from iron metal.
+      - text: Proving that jeepney fares are higher than fuel prices.
+      - text: Demonstrating that watchmen should carry safety harnesses.
+    explanation: |
+      Contrasting a colossal iron boulder with a tiny, empty purse visually emphasizes the disparity between heavy costs and small incomes.
+
+  - id: rc-tt-vm-0009
+    passage: rc-tt-vm-p2
+    type: evaluate
+    difficulty: hard
+    stem: |
+      What is the symbolic function of the dark thunderclouds hovering over the "commuter public" skyline?
+    choices:
+      - text: Representing the impending economic hardship felt by the broader commuting community.
+        correct: true
+      - text: Indicating that a real typhoon storm is currently flooding the city.
+      - text: Showing that electric buses produce heavy air pollution.
+      - text: Decorating the top edge of the drawing with natural scenery.
+    explanation: |
+      Storm clouds in editorial cartoons frequently symbolize looming trouble, hardship, or economic distress affecting a population.
+
+  - id: rc-tt-vm-0010
+    passage: rc-tt-vm-p2
+    type: analyze
+    difficulty: hard
+    stem: |
+      Why does the cartoonist include a road sign pointing backward toward "economic relief"?
+    choices:
+      - text: To suggest that true economic relief is becoming increasingly distant or unachievable under current conditions.
+        correct: true
+      - text: To guide drivers toward the nearest gasoline station.
+      - text: To prove that mountain roads are safer than city streets.
+      - text: To show that the jeepney driver is driving in the wrong direction.
+    explanation: |
+      A sign pointing backward away from the climbing driver symbolizes that relief is moving out of reach as struggles increase.
