@@ -58,11 +58,50 @@ directly from the orchestrator**, one git worktree per plan.
 
 ---
 
+## Part 0: Pick up here
+
+**Written 4 August, late, as a handoff. Nothing is running and nothing is waiting on a
+session.**
+
+### One worktree is finished, verified by nobody, and unmerged
+
+`.claude/worktrees/passage`, the passage pipeline. **5 commits, nothing uncommitted.** It was
+dispatched and finished while attention was elsewhere.
+
+**Do this first:**
+
+1. `cd .claude/worktrees/passage` and run the full gate set.
+2. **Check what it did about Task 5.** It was told Quiz 4 has not run and to stop there and say
+   so. If it built the viewer work anyway, that is a finding.
+3. **Check the schema.** It was told to read the live value and take the next. Main is at **17**,
+   so it should have taken **18** with a `from < 18` branch in the same commit.
+4. Merge, then **run `dart run build_runner build --delete-conflicting-outputs` before judging
+   the gates on main.** A schema merge cannot carry the generated code and it fakes a
+   catastrophe: this cost time twice on 4 August.
+
+### Then the next wave
+
+Two at a time. Ask Aedwon for Gemini headroom first; there is no way to read it programmatically.
+
+| Next | Plan | Tier |
+|---|---|---|
+| 1 | `cse-content.md` **Task 1 only**, the tagging pass | **F** |
+| 2 | `question-generation-reading-comprehension.md` | **F**, after the passage pipeline merges |
+| 3 | `content-three-passes.md` Task 1, the lesson link | **P** |
+| 4 | `paywall-01-ladder-and-live-gateway.md` | **P** |
+
+---
+
 ## Part 2: Done, so it stops being re-planned
 
 | | State |
 |---|---|
-| **Foundations 01**, tasks 1 to 3 | Merged. Error boundary, telemetry seam, consent gate. |
+| **Foundations 01**, all four tasks | **Merged.** Error boundary, telemetry seam, consent gate, and the eleven events with `CrashReporter` absorbed. |
+| **The exam date with its precision** | **Merged.** Onboarding Task 1. This was the single most blocking piece in the queue: eight plans read it. |
+| **The kit, with the five missing type sizes** | **Merged.** `AppTextStyles` gains 24, 16, 14/700, 13/400 and 11.5, `headlineSmall` stays at 15, and `InkPlateRule` exists. Four plans were stopping without these. |
+| **The content upgrade seeder** | **Merged.** Schema **17**. A content fix now reaches an installed app without touching a student's progress. |
+| **The assessment attempt row** | **Merged.** The defect is fixed, and untimed attempts are kept out of every speed figure. |
+| **The seed, rebuilt** | **1,117 questions to 1,840.** It was dated 25 July and 876 behind the corpus. |
 | **Content delivery** | **Merged 4 August.** The corpus now reaches a release build. This was the thing everything else was waiting behind. |
 | **Study 01 foundations** | **Merged 4 August.** `schemaVersion` **16**, bookmarks, lesson ordering, `InkTableRow`'s chevron and gutter. |
 | **Offline posture** | **Merged 4 August.** The cached-wins entitlement rule is live: a paying student keeps Pro in a dead zone. |
@@ -72,8 +111,8 @@ directly from the orchestrator**, one git worktree per plan.
 **Corpus today:** Science 777, Mathematics 689, Language 319, Reasoning 208, Reading
 comprehension 0. **Total 1,993.**
 
-**Health on `main`, measured 4 August:** 1063 tests pass, zero analyzer issues under `lib/` and
-`test/` outside `test/tool/`, formatter clean, layering 7, attribution 0, content validator 0.
+**Health on `main`, measured 4 August, late:** **1122 tests pass**, schema **17**, zero analyzer issues under `lib/` and `test/`
+outside `test/tool/`, formatter clean, layering 7, attribution 0, content validator 0.
 
 ---
 
@@ -96,7 +135,7 @@ comprehension 0. **Total 1,993.**
 
 | | Plan | Tier | State |
 |---|---|---|---|
-| 1a | `foundations-01` **Task 4** | F | **Stalled in a worktree** with 19 uncommitted files and no commits. Resume it, do not re-dispatch cold |
+| 1a | `foundations-01` **Task 4** | F | **Merged.** Nothing is in flight |
 
 ### 2. The rest of the content path
 
