@@ -193,6 +193,143 @@ void main() {
     );
   });
 
+  test('accepts a poem between 40 and 120 words', () {
+    final passage = {
+      'id': 'p1',
+      'title': 'Low Tide',
+      'form': 'poetry',
+      'body': makeBody(60),
+    };
+    final questions = List.generate(
+      4,
+      (i) => makeQuestion('q$i', passageId: 'p1'),
+    );
+
+    final result = parsePassagesAndQuestions(
+      rawPassages: [passage],
+      rawQuestions: questions,
+      meta: meta,
+      updatedAt: DateTime.utc(2026, 8, 4),
+    );
+
+    expect(result.passages.first['wordCount'], equals(60));
+  });
+
+  test('rejects a poem shorter than 40 words', () {
+    final passage = {
+      'id': 'p1',
+      'title': 'Low Tide',
+      'form': 'poetry',
+      'body': makeBody(39),
+    };
+    final questions = List.generate(
+      4,
+      (i) => makeQuestion('q$i', passageId: 'p1'),
+    );
+
+    expect(
+      () => parsePassagesAndQuestions(
+        rawPassages: [passage],
+        rawQuestions: questions,
+        meta: meta,
+        updatedAt: DateTime.utc(2026, 8, 4),
+      ),
+      throwsA(
+        isA<FormatException>().having(
+          (e) => e.message,
+          'message',
+          contains('40 to 120 words'),
+        ),
+      ),
+    );
+  });
+
+  test('rejects a poem longer than 120 words', () {
+    final passage = {
+      'id': 'p1',
+      'title': 'Low Tide',
+      'form': 'poetry',
+      'body': makeBody(121),
+    };
+    final questions = List.generate(
+      4,
+      (i) => makeQuestion('q$i', passageId: 'p1'),
+    );
+
+    expect(
+      () => parsePassagesAndQuestions(
+        rawPassages: [passage],
+        rawQuestions: questions,
+        meta: meta,
+        updatedAt: DateTime.utc(2026, 8, 4),
+      ),
+      throwsA(
+        isA<FormatException>().having(
+          (e) => e.message,
+          'message',
+          contains('40 to 120 words'),
+        ),
+      ),
+    );
+  });
+
+  test('a prose passage of 60 words is still rejected', () {
+    final passage = {
+      'id': 'p1',
+      'title': 'The Harvest',
+      'body': makeBody(60),
+    };
+    final questions = List.generate(
+      4,
+      (i) => makeQuestion('q$i', passageId: 'p1'),
+    );
+
+    expect(
+      () => parsePassagesAndQuestions(
+        rawPassages: [passage],
+        rawQuestions: questions,
+        meta: meta,
+        updatedAt: DateTime.utc(2026, 8, 4),
+      ),
+      throwsA(
+        isA<FormatException>().having(
+          (e) => e.message,
+          'message',
+          contains('150 to 400 words'),
+        ),
+      ),
+    );
+  });
+
+  test('rejects an unknown form rather than guessing a range', () {
+    final passage = {
+      'id': 'p1',
+      'title': 'The Harvest',
+      'form': 'haiku',
+      'body': makeBody(200),
+    };
+    final questions = List.generate(
+      4,
+      (i) => makeQuestion('q$i', passageId: 'p1'),
+    );
+
+    expect(
+      () => parsePassagesAndQuestions(
+        rawPassages: [passage],
+        rawQuestions: questions,
+        meta: meta,
+        updatedAt: DateTime.utc(2026, 8, 4),
+      ),
+      throwsA(
+        isA<FormatException>().having(
+          (e) => e.message,
+          'message',
+          contains('form'),
+        ),
+      ),
+    );
+  });
+
   test('rejects passage with no questions at all', () {
     final passage = {
       'id': 'p1',
