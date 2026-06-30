@@ -95,6 +95,8 @@ Map<String, Object?> questionToDoc(
 
   final figure = q['figure'];
   final isFigurePending = figure is String && figure.trim().isNotEmpty;
+  final passageRef = q['passage'];
+  final passageId = passageRef is String ? passageRef.trim() : null;
 
   return {
     '_id': id,
@@ -102,6 +104,8 @@ Map<String, Object?> questionToDoc(
     '_updatedAt': updatedAt.toUtc().toIso8601String(),
     'schemaVersion': 1,
     'isActive': !isFigurePending,
+    if (passageId != null && passageId.isNotEmpty)
+      'passage': {'_ref': passageId},
     'topic': {'_ref': topicId(meta.topicSlug)},
     'subtopic': {'_ref': lessonId(meta.topicSlug, meta.subtopicSlug)},
     'examIds': [
@@ -113,4 +117,111 @@ Map<String, Object?> questionToDoc(
     'version': 1,
     'choices': choices,
   };
+}
+
+Map<String, Object?> passageToDoc(
+  Map<Object?, Object?> p,
+  QuestionMeta meta, {
+  required DateTime updatedAt,
+}) {
+  final id = (p['id'] as String?)?.trim();
+  if (id == null || id.isEmpty) {
+    throw const FormatException('passage is missing an id');
+  }
+
+  final title = p['title'];
+  if (title is! String || title.trim().isEmpty) {
+    throw FormatException('$id: missing or empty "title"');
+  }
+
+  final body = p['body'];
+  if (body is! String || body.trim().isEmpty) {
+    throw FormatException('$id: missing or empty "body"');
+  }
+
+  final words = body.trim().split(RegExp(r'\s+')).where((w) => w.isNotEmpty);
+  final wordCount = words.length;
+  if (wordCount < 150 || wordCount > 400) {
+    throw FormatException(
+      '$id: passage body must be 150 to 400 words (found $wordCount)',
+    );
+  }
+
+  return {
+    '_id': id,
+    '_type': 'passage',
+    '_updatedAt': updatedAt.toUtc().toIso8601String(),
+    'schemaVersion': 1,
+    'topic': {'_ref': topicId(meta.topicSlug)},
+    'title': title.trim(),
+    'body': body.trim(),
+    'language': 'en',
+    'wordCount': wordCount,
+  };
+}
+
+class ParsedPassageFile {
+  const ParsedPassageFile({
+    required this.passages,
+    required this.questions,
+  });
+  final List<Map<String, Object?>> passages;
+  final List<Map<String, Object?>> questions;
+}
+
+ParsedPassageFile parsePassagesAndQuestions({
+  required List<Object?> rawPassages,
+  required List<Object?> rawQuestions,
+  required QuestionMeta meta,
+  required DateTime updatedAt,
+}) {
+  final passageDocs = <Map<String, Object?>>[];
+  final passageIds = <String>{};
+  final questionCountsByPassage = <String, int>{};
+
+  for (final raw in rawPassages) {
+    if (raw is! Map) continue;
+    final p = Map<Object?, Object?>.from(raw);
+    final built = passageToDoc(p, meta, updatedAt: updatedAt);
+    final id = built['_id'] as String;
+    passageIds.add(id);
+    questionCountsByPassage[id] = 0;
+    passageDocs.add(built);
+  }
+
+  final questionDocs = <Map<String, Object?>>[];
+  for (final raw in rawQuestions) {
+    if (raw is! Map) continue;
+    final q = Map<Object?, Object?>.from(raw);
+    final passageRef = q['passage'];
+    if (passageRef is String && passageRef.trim().isNotEmpty) {
+      final pid = passageRef.trim();
+      final rawId = q['id'];
+      final qid = (rawId is String ? rawId : null)?.trim() ?? 'question';
+      if (!passageIds.contains(pid)) {
+        throw FormatException('$qid: names missing passage "$pid"');
+      }
+      questionCountsByPassage[pid] = (questionCountsByPassage[pid] ?? 0) + 1;
+    }
+    final built = questionToDoc(q, meta, updatedAt: updatedAt);
+    questionDocs.add(built);
+  }
+
+  for (final entry in questionCountsByPassage.entries) {
+    final pid = entry.key;
+    final count = entry.value;
+    if (count == 0) {
+      throw FormatException('$pid: passage has no questions');
+    }
+    if (count < 4 || count > 8) {
+      throw FormatException(
+        '$pid: passage must have 4 to 8 questions (found $count)',
+      );
+    }
+  }
+
+  return ParsedPassageFile(
+    passages: passageDocs,
+    questions: questionDocs,
+  );
 }
