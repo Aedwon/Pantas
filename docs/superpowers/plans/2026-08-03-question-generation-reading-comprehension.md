@@ -53,7 +53,14 @@ reasons.
   textbook paragraph, not a poem. The copyright position on this project does not cover
   borrowed prose.
 - **150 to 400 words per passage, 4 to 8 questions each.** The validator enforces both.
-  Poetry is the one exception, 40 to 120 words, and only where a row says so.
+  Poetry is the one exception, 40 to 120 words, and only where a row says so. **A poem must
+  declare `form: poetry` on the passage to get that range.** A passage with no `form` is prose
+  and is held to the 150 floor.
+- **Never make the correct answer the longest choice.** This is the constraint most easily
+  broken without noticing, because a correct answer written to be unambiguous naturally grows
+  longer than a distractor written to be wrong. **Check it per question, not per file.** A
+  student who can pick the longest option and score has not read the passage, which defeats
+  the entire section.
 - **Write the passage first, then the questions.** The reverse produces a passage bent to fit
   its answers and it reads like one.
 - **American spelling. No em dashes**, in the passage body as much as in a stem.
@@ -162,7 +169,7 @@ and the register must genuinely differ between them.
 |---|---|---|---|---|
 | [ ] | `essays-editorials-articles` | `identify-text-type`, `feature-of-form` | 3 | One of each: a news report, an editorial, a personal essay. They must not read alike. |
 | [ ] | `speeches` | `purpose-of-device`, `feature-of-form` | 2 | Repetition and direct address are the devices worth asking about. |
-| [ ] | `poetry` | `purpose-of-device`, `feature-of-form` | 3 | **40 to 120 words.** The 150 floor does not apply. |
+| [ ] | `poetry` | `purpose-of-device`, `feature-of-form` | 3 | **40 to 120 words**, and the passage must carry `form: poetry`. Without that line the validator holds it to the 150 prose floor. |
 | [ ] | `short-stories-and-novels` | `feature-of-form`, `inferencing-and-conclusions` | 2 | An excerpt-shaped original, not a summary of a story. |
 | [ ] | `visual-media` | `purpose-of-device` | 2 | **Describe the infographic or poster in prose.** Never generate an image. |
 
