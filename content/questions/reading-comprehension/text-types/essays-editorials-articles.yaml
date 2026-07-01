@@ -27,7 +27,7 @@ passages:
 
       Congress must immediately mandate a fifty percent subsidy on organic fertilizers and establish floor prices for palay. Protecting our local rice farmers is not an act of charity; it is an urgent economic imperative that our leaders can no longer afford to ignore.
 
-  - id: rc-cs-eea-p3
+  - id: rc-tt-eea-p3
     title: "Lessons from a Bohol Basket Weaver"
     body: |
       Every Saturday morning during my childhood in Bohol, I sat on the bamboo slats of our outdoor kitchen watching my grandfather split raw rattan stalks into paper-thin strips. With steady hands shaped by decades of labor, he guided my clumsy fingers over and under the warp, teaching me how to weave sturdy harvesting baskets called 'bukag'.
@@ -59,11 +59,11 @@ questions:
     stem: |
       Which structural feature characteristic of a news article is present in paragraph 1?
     choices:
-      - text: A dateline and lead sentence summarizing essential facts and project details.
+      - text: A dateline and lead sentence summarizing essential facts.
         correct: true
-      - text: Emotional appeals urging citizens to protest government spending.
+      - text: Emotional appeals urging citizens to protest government infrastructure spending.
       - text: First-person narrative memories of growing up near Manila Bay.
-      - text: Rhyming poetic couplets describing coastal tides.
+      - text: Rhyming poetic couplets describing seasonal ocean tides.
     explanation: |
       The presence of a dateline ("CAVITE CITY") and an opening lead sentence providing key factual information is a defining feature of news articles.
 
@@ -74,11 +74,11 @@ questions:
     stem: |
       How does the tone of the Cavite seawall passage differ from an editorial?
     choices:
-      - text: It maintains a neutral, objective tone reporting official facts without value judgments.
+      - text: It maintains a neutral, objective reporting tone.
         correct: true
-      - text: It uses angry rhetorical questions to criticize municipal engineers.
-      - text: It expresses deep personal nostalgia for historical seawalls.
-      - text: It uses humorous satire to mock government announcements.
+      - text: It uses angry rhetorical questions to criticize local municipal engineers.
+      - text: It expresses deep personal nostalgia for historical coastal seawalls.
+      - text: It uses humorous satire to mock official government announcements.
     explanation: |
       Unlike an editorial which uses opinionated value judgments, a news article maintains a neutral and objective tone reporting verified facts.
 
@@ -89,11 +89,11 @@ questions:
     stem: |
       What evidence from paragraph 2 demonstrates the objective reporting style of the passage?
     choices:
-      - text: Citing specific dates, names of officials, and official disaster office records.
+      - text: Citing specific dates, names of officials, and disaster records.
         correct: true
-      - text: Calling the seawall the most beautiful architectural marvel in Luzon.
+      - text: Calling the seawall the most beautiful architectural marvel constructed in Luzon.
       - text: Accusing project directors of wasting twenty-four million pesos.
-      - text: Providing personal childhood memories of high tide flooding.
+      - text: Providing personal childhood memories of seasonal high tide flooding.
     explanation: |
       Citing specific verified sources ("Engineer Ramon Cruz", "disaster office records", dates) shows objective news reporting.
 
@@ -104,11 +104,11 @@ questions:
     stem: |
       What is the primary function of paragraph 3 in this news article format?
     choices:
-      - text: To provide forward-looking context regarding phase two of the project.
+      - text: To provide context regarding phase two of the project.
         correct: true
-      - text: To present a moral lesson about environmental protection.
-      - text: To demand that Congress fire the department directors.
-      - text: To describe how mangrove trees are harvested for timber.
+      - text: To present an inspiring moral lesson about local environmental protection.
+      - text: To demand that Congress immediately fire the department directors.
+      - text: To describe how local mangrove trees are harvested for commercial timber.
     explanation: |
       In news articles (inverted pyramid structure), ending paragraphs provide additional context or future developments related to the main story.
 
@@ -134,11 +134,11 @@ questions:
     stem: |
       Which feature of form in paragraph 1 signals that the text is an editorial?
     choices:
-      - text: Use of strongly persuasive, value-laden opinion words like "shortsighted" and "crushing".
+      - text: Use of value-laden opinion words like "shortsighted" and "crushing".
         correct: true
-      - text: Inclusion of a city dateline and press release citations.
-      - text: First-person narrative descriptions of farming memories.
-      - text: Objective statistical charts comparing global fertilizer production.
+      - text: Inclusion of a formal city dateline and official press release citations.
+      - text: First-person narrative descriptions of ancestral rice farming memories.
+      - text: Objective statistical charts comparing global agricultural fertilizer production.
     explanation: |
       Value-laden words expressing clear disapproval ("shortsighted policy", "crushing input costs") are key features of an editorial opinion piece.
 
@@ -149,13 +149,13 @@ questions:
     stem: |
       What is the writer's primary goal in the final paragraph?
     choices:
-      - text: To issue a call to action demanding specific policy changes from Congress.
+      - text: To issue a call to action demanding policy changes from Congress.
         correct: true
-      - text: To report the total tonnage of fertilizer imported in 2023.
-      - text: To reflect nostalgically on ancient rice harvesting traditions.
-      - text: To explain the chemical composition of organic fertilizers.
+      - text: To report the total annual tonnage of imported commercial fertilizer in 2023.
+      - text: To reflect nostalgically on traditional ancient rice harvesting methods.
+      - text: To explain the detailed chemical composition of organic fertilizers.
     explanation: |
-      Editorials conclude with a clear call to action ("Congress must immediately mandate..."), attempting to convince leaders and readers to act.
+      Editorials conclude with a clear call to action ("Congress must immediately mandate..."), attempting to convince readers and leaders to act.
 
   - id: rc-tt-eea-0009
     passage: rc-tt-eea-p2
@@ -164,11 +164,11 @@ questions:
     stem: |
       How does the author's treatment of government policies differ from a news article's treatment?
     choices:
-      - text: The author openly criticizes policies as "band-aid solutions" rather than reporting them neutrally.
+      - text: The author openly criticizes policies as "band-aid solutions".
         correct: true
-      - text: The author presents both sides using official press release quotes.
-      - text: The author avoids discussing agricultural policies altogether.
-      - text: The author uses scientific data tables to calculate soil pH.
+      - text: The author presents both opposing sides using official government press release quotes.
+      - text: The author avoids discussing national agricultural policies altogether.
+      - text: The author uses detailed scientific data tables to calculate soil pH levels.
     explanation: |
       Editorials express clear critical judgment ("band-aid solution", "lecture rural communities") rather than presenting news in a neutral, balanced format.
 
@@ -179,16 +179,16 @@ questions:
     stem: |
       Which choice represents an opinion stated in the editorial rather than a verifiable fact?
     choices:
-      - text: Offering emergency handouts is a band-aid solution that fails to address the crisis.
+      - text: Offering emergency handouts is a band-aid solution.
         correct: true
-      - text: Rice is imported through local Philippine ports.
-      - text: Smallholder farmers grow rice in Nueva Ecija.
-      - text: Organic fertilizers contain nutrients used in agriculture.
+      - text: Rice is imported through major local Philippine maritime ports.
+      - text: Smallholder farmers cultivate rice fields across Nueva Ecija.
+      - text: Organic fertilizers contain essential chemical nutrients used in agriculture.
     explanation: |
       Labeling government emergency handouts as a "band-aid solution" is a value judgment, whereas rice growing and importing are factual realities.
 
-  - id: rc-cs-eea-0011
-    passage: rc-cs-eea-p3
+  - id: rc-tt-eea-0011
+    passage: rc-tt-eea-p3
     type: identify
     difficulty: easy
     stem: |
@@ -202,62 +202,62 @@ questions:
     explanation: |
       The passage is written in the first person ("I", "my grandfather"), recounting a personal memory and reflecting on its life lesson, matching a personal essay.
 
-  - id: rc-cs-eea-0012
-    passage: rc-cs-eea-p3
+  - id: rc-tt-eea-0012
+    passage: rc-tt-eea-p3
     type: analyze
     difficulty: easy
     stem: |
       Which structural element distinguishes this personal essay from a news article?
     choices:
-      - text: First-person narrative perspective combined with personal reflection on a life lesson.
+      - text: First-person narrative perspective paired with personal reflection.
         correct: true
-      - text: A formal news dateline and quotes from city officials.
-      - text: A call to action urging Congress to pass new laws.
-      - text: A list of step-by-step instructions for manufacturing commercial baskets.
+      - text: A formal news dateline and official quotes from government municipal officials.
+      - text: A urgent call to action demanding that Congress pass new national laws.
+      - text: A list of step-by-step technical instructions for manufacturing commercial baskets.
     explanation: |
       First-person narrative perspective ("I", "my grandfather") paired with reflecting on a personal lesson is a defining feature of personal essays.
 
-  - id: rc-cs-eea-0013
-    passage: rc-cs-eea-p3
+  - id: rc-tt-eea-0013
+    passage: rc-tt-eea-p3
     type: infer
     difficulty: medium
     stem: |
       What central insight or theme does the narrator explore in the final paragraph?
     choices:
-      - text: Applying the lesson of patient craftsmanship to adult life and academic challenges.
+      - text: Applying patient craftsmanship to adult life and academic challenges.
         correct: true
-      - text: Demanding that Bohol artisans receive higher government pensions.
-      - text: Proving that bamboo baskets are superior to modern plastic containers.
-      - text: Reporting the market price of hand-woven 'bukag' baskets in Manila.
+      - text: Demanding that Bohol artisans receive higher monthly government pensions.
+      - text: Proving that woven bamboo baskets are far superior to modern plastic containers.
+      - text: Reporting the commercial market price of hand-woven 'bukag' baskets in Manila.
     explanation: |
       The final paragraph reflects on how the lesson learned while weaving baskets ("true progress is built with patient hands") guides the narrator at university.
 
-  - id: rc-cs-eea-0014
-    passage: rc-cs-eea-p3
+  - id: rc-tt-eea-0014
+    passage: rc-tt-eea-p3
     type: evaluate
     difficulty: medium
     stem: |
       How does the grandfather's reaction to the narrator's weaving mistakes contribute to the essay's reflective tone?
     choices:
-      - text: His patient, unlacing without scolding models the core lesson of patience over rushed anger.
+      - text: His silent unlacing models patience over rushed anger.
         correct: true
-      - text: His reaction demonstrates the legal rules governing basket exports in Bohol.
-      - text: His reaction warns readers against studying at Manila universities.
-      - text: His reaction proves that rattan stalks are too weak for weaving.
+      - text: His reaction demonstrates the complex legal regulations governing international basket exports in Bohol.
+      - text: His reaction explicitly warns readers against moving away to study at Manila universities.
+      - text: His reaction proves that raw rattan stalks are far too weak for traditional basket weaving.
     explanation: |
       The grandfather's calm, silent unlacing of flawed work illustrates the values of patience and care, reinforcing the reflective tone of the essay.
 
-  - id: rc-cs-eea-0015
-    passage: rc-cs-eea-p3
+  - id: rc-tt-eea-0015
+    passage: rc-tt-eea-p3
     type: analyze
     difficulty: hard
     stem: |
       What is the main difference between the purpose of this personal essay and the purpose of an editorial?
     choices:
-      - text: The essay shares a personal experience to explore a life lesson, while an editorial seeks to persuade readers on a public issue.
+      - text: The essay explores a personal experience, while an editorial persuades readers on a public issue.
         correct: true
-      - text: The essay reports objective news facts, while an editorial tells fictional short stories.
-      - text: The essay contains step-by-step technical blueprints, while an editorial contains poetry.
-      - text: The essay urges immediate voting, while an editorial reflects on childhood memories.
+      - text: The essay reports objective news facts from official records, while an editorial tells fictional short stories.
+      - text: The essay contains step-by-step technical manufacturing blueprints, while an editorial contains short rhyming poetry.
+      - text: The essay urges readers toward immediate political voting, while an editorial reflects on personal childhood memories.
     explanation: |
       Personal essays explore personal experiences and insights, whereas editorials aim to persuade readers to adopt a specific stance on a public issue.
