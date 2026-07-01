@@ -35,9 +35,9 @@ questions:
     stem: |
       Which title best captures the full scope and main focus of the Ifugao passage?
     choices:
-      - text: "Preserving the Ifugao Rice Terraces: Challenges and Restoration Efforts"
+      - text: "Preserving Ifugao Rice Terraces"
         correct: true
-      - text: Ancient Stone Walls
+      - text: Ancient Mountain Stone Walls
       - text: How Gravity-Fed Water Channels Function in Mountain Rice Fields
       - text: The Complete History of Agriculture in the Cordilleras
     explanation: |
@@ -50,11 +50,11 @@ questions:
     stem: |
       Why is "How Gravity-Fed Water Channels Function" a poor title for the passage?
     choices:
-      - text: It focuses on a single engineering detail while ignoring maintenance challenges and restoration efforts.
+      - text: It focuses on a single engineering detail, ignoring restoration.
         correct: true
-      - text: It is too broad and could apply to any irrigation project worldwide.
-      - text: It contradicts the historical information presented in paragraph 1.
-      - text: It fails to mention that young farmers migrate to urban centers.
+      - text: It is far too broad and could apply to any traditional irrigation project worldwide.
+      - text: It directly contradicts the historical construction information presented in paragraph 1.
+      - text: It fails to mention that young agricultural farmers migrate to urban centers.
     explanation: |
       Gravity-fed channels are mentioned in paragraph 1 as one engineering feature, so using it as the title makes it far too narrow.
 
@@ -65,11 +65,11 @@ questions:
     stem: |
       Why is the single-word title "Terraces" inappropriate for this passage?
     choices:
-      - text: It is overly broad and generic, failing to indicate the specific location, cultural context, or challenges discussed.
+      - text: It is overly broad, failing to specify context or challenges.
         correct: true
-      - text: It is too narrow and mentions only stone walls.
-      - text: It focuses exclusively on urban migration.
-      - text: It misstates the age of the agricultural structures.
+      - text: It is far too narrow and mentions only ancient hand-built stone walls.
+      - text: It focuses exclusively on modern urban youth migration trends.
+      - text: It misstates the exact historical age of the mountain agricultural structures.
     explanation: |
       A single generic word like "Terraces" is far too broad and fails to specify the Ifugao context or the restoration thesis.
 
@@ -80,7 +80,7 @@ questions:
     stem: |
       Which alternative title would also be appropriate for the Ifugao passage?
     choices:
-      - text: "Sustaining Heritage: Protecting Ifugao Terraces Through Youth Engagement"
+      - text: "Sustaining Ifugao Terraces"
         correct: true
       - text: The Rise of Modern Concrete Buildings in Cordillera Mountain Cities
       - text: Commercial Rice Exporting in Northern Luzon
@@ -95,11 +95,11 @@ questions:
     stem: |
       What essential element must a strong title for this passage include?
     choices:
-      - text: Reference to both the value of the terraces and ongoing efforts to overcome threats to them.
+      - text: Reference to terrace values and restoration efforts.
         correct: true
-      - text: Exact mathematical figures regarding stone wall height.
-      - text: A list of all high-paying jobs in urban centers.
-      - text: An exclusive focus on modern soil stabilization tools.
+      - text: Exact mathematical figures regarding stone retaining wall heights.
+      - text: A detailed list of all high-paying jobs available in urban centers.
+      - text: An exclusive focus on modern soil stabilization machinery.
     explanation: |
       A comprehensive title must encompass both the cultural engineering value and the active efforts to resolve maintenance threats.
 
@@ -110,11 +110,11 @@ questions:
     stem: |
       Which title best fits the passage on Metro Manila public parks?
     choices:
-      - text: The Multi-Faceted Benefits of Urban Parks in City Planning
+      - text: Urban Parks in Metro Manila
         correct: true
       - text: Measuring Cortisol Levels
-      - text: Metro Manila Buildings
-      - text: The Complete Architecture of Heat Islands
+      - text: Metro Manila Concrete Buildings
+      - text: The Complete Architecture of Urban Heat Islands
     explanation: |
       The passage outlines how parks cool urban temperatures, improve mental health, and foster social cohesion, making this title accurate and complete.
 
@@ -125,11 +125,11 @@ questions:
     stem: |
       Why would "Measuring Cortisol Levels" be an unsatisfactory title for the park passage?
     choices:
-      - text: It names only one specific physiological detail from the second paragraph.
+      - text: It names only one specific physiological detail from paragraph 2.
         correct: true
-      - text: It is too broad and describes global healthcare policies.
+      - text: It is far too broad and describes global public healthcare policies.
       - text: It contradicts the passage's argument about cooling urban heat islands.
-      - text: It focuses exclusively on commercial real estate investments.
+      - text: It focuses exclusively on private commercial real estate investments.
     explanation: |
       Cortisol measurement is a supporting detail in paragraph 2 used to prove mental health benefits; as a title, it is far too narrow.
 
@@ -140,11 +140,11 @@ questions:
     stem: |
       Why is "Metro Manila Buildings" a poor choice for the title?
     choices:
-      - text: It mentions the cause of the urban heat island effect without reflecting the passage's central argument for parks.
+      - text: It names a cause of heat islands without reflecting park benefits.
         correct: true
-      - text: It is too narrow and mentions only psychological stress.
-      - text: It misidentifies Metro Manila as a rural agricultural region.
-      - text: It focuses on recreational sports rather than architecture.
+      - text: It is far too narrow and mentions only psychological stress reduction.
+      - text: It misidentifies Metro Manila as a rural agricultural farming region.
+      - text: It focuses exclusively on recreational sports rather than architecture.
     explanation: |
       Concrete buildings explain why urban heat islands form, but the passage's thesis advocates for expanding public parks to mitigate these problems.
 
@@ -155,11 +155,11 @@ questions:
     stem: |
       Which title best reflects the argumentative stance taken in the final paragraph?
     choices:
-      - text: Why Urban Parks Are Essential Investments for City Public Health and Climate Cooling
+      - text: "Urban Parks: Essential Public Investments"
         correct: true
       - text: Why Commercial Real Estate Development Should Replace All Public Parks
       - text: The History of Four-Degree Temperature Increases in Rural Areas
-      - text: Decorative Landscaping in Shopping Malls
+      - text: Decorative Landscaping in Metro Manila Shopping Malls
     explanation: |
       The final paragraph argues that parks are not luxuries but vital investments for urban health, cooling, and well-being, which this title captures.
 
@@ -170,10 +170,10 @@ questions:
     stem: |
       Which test confirms that "Urban Green Spaces: Cooling, Health, and Community" is a well-balanced title?
     choices:
-      - text: It covers the environmental, psychological, and social dimensions presented across all paragraphs.
+      - text: It covers environmental, psychological, and social dimensions.
         correct: true
-      - text: It contains only one word and is very easy to memorize.
-      - text: It mentions only the four-degree temperature measurement.
-      - text: It focuses exclusively on financial budget allocations for trees.
+      - text: It contains only one short word and is very easy to memorize.
+      - text: It mentions only the four-degree temperature measurement figure.
+      - text: It focuses exclusively on annual financial budget allocations for trees.
     explanation: |
       A well-balanced title reflects all main dimensions discussed in the text: environmental cooling, health/stress reduction, and community social cohesion.
