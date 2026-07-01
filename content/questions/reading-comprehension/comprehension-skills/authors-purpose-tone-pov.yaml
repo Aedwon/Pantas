@@ -44,11 +44,11 @@ questions:
     stem: |
       What is the author's primary purpose in writing the passage about Vigan's architecture?
     choices:
-      - text: To persuade municipal leaders and residents to protect historical ancestral houses.
+      - text: To persuade leaders and residents to protect historical ancestral houses.
         correct: true
-      - text: To inform readers about the construction cost of modern fast-food franchises.
-      - text: To entertain readers with humorous stories about Ilocano artisans.
-      - text: To describe the manufacturing process of capiz window panes.
+      - text: To inform readers about the high construction cost of modern fast-food franchises.
+      - text: To entertain readers with humorous traditional stories about Ilocano artisans.
+      - text: To describe the detailed manufacturing process of capiz window panes.
     explanation: |
       The passage uses strong persuasive language ("must act immediately", "cultural tragedy we cannot afford") to convince leaders and readers to enforce preservation laws.
 
@@ -89,11 +89,11 @@ questions:
     stem: |
       How does the author characterize the relationship between heritage preservation and economic progress?
     choices:
-      - text: Preservation forms the essential foundation of long-term economic and tourism vitality.
+      - text: Preservation forms the foundation of long-term tourism vitality.
         correct: true
       - text: Preservation permanently destroys all local commercial investment opportunities.
-      - text: Economic progress requires destroying all building built before 1900.
-      - text: Heritage preservation is less important than short-term tax collection.
+      - text: Economic progress requires tearing down all heritage buildings constructed before 1900.
+      - text: Heritage preservation is far less important than short-term tax collection.
     explanation: |
       The author explicitly states that heritage is not an obstacle to economic progress but the foundation of Vigan's long-term tourism vitality.
 
@@ -104,11 +104,11 @@ questions:
     stem: |
       Which stylistic device does the author use when contrasting ancestral craftsmanship with modern developments?
     choices:
-      - text: Value-laden emotional words contrasting authentic heritage with sterile structures.
+      - text: Emotional words contrasting heritage with sterile structures.
         correct: true
-      - text: Statistical data tables comparing annual tax revenue figures.
-      - text: Humorous dialogues between investors and city officials.
-      - text: Rhyming verse stanzas emphasizing architectural history.
+      - text: Statistical data tables comparing annual municipal tax revenue figures.
+      - text: Humorous scripted dialogues between property investors and city officials.
+      - text: Rhyming poetic stanzas emphasizing local architectural history.
     explanation: |
       The author uses emotionally charged language ("authentic craftsmanship" vs "sterile glass storefronts") to emphasize the contrast in values.
 
@@ -122,8 +122,8 @@ questions:
       - text: First person ("I" and "my")
         correct: true
       - text: Second person ("you")
-      - text: Third person limited
-      - text: Third person omniscient
+      - text: Third person limited narrative
+      - text: Third person omniscient perspective
     explanation: |
       The passage uses "I stood at the railing", "my family home", "my grandmother", establishing first-person narrative perspective.
 
@@ -149,11 +149,11 @@ questions:
     stem: |
       What is the narrator's primary purpose in sharing this personal return journey?
     choices:
-      - text: To reflect on how returning home reconnects the narrator with personal roots.
+      - text: To reflect on how returning home reconnects with personal roots.
         correct: true
-      - text: To persuade readers to buy property near Ormoc Bay.
-      - text: To inform tourists about ferry ticket prices between Manila and Leyte.
-      - text: To criticize university education systems in Manila.
+      - text: To persuade tourists and readers to buy residential property near Ormoc Bay.
+      - text: To inform tourists about passenger ferry ticket prices between Manila and Leyte.
+      - text: To criticize university higher education systems across Manila.
     explanation: |
       The narrator concludes that being back home allowed them to pause and remember who they were, showing the reflective purpose of the narrative.
 
@@ -164,11 +164,11 @@ questions:
     stem: |
       What contrast does the narrator draw between life in Manila and life in Leyte?
     choices:
-      - text: Fast-paced solitary routine in Manila versus warm communal belonging in Leyte.
+      - text: Solitary routine in Manila versus warm communal belonging in Leyte.
         correct: true
-      - text: High agricultural income in Manila versus low university tuition in Leyte.
-      - text: Quiet coastal quietness in Manila versus loud traffic in Leyte.
-      - text: Warm family support in Manila versus cold isolation in Leyte.
+      - text: High agricultural income in Manila versus low university tuition fees in Leyte.
+      - text: Quiet coastal atmosphere in Manila versus loud urban traffic in Leyte.
+      - text: Warm family support in Manila versus cold social isolation in Leyte.
     explanation: |
       The text contrasts "noisy traffic, crowded dormitories, and fast-food dinners eaten alone" in Manila with warm greetings, family embrace, and communal rhythms in Leyte.
 
@@ -179,11 +179,11 @@ questions:
     stem: |
       What does the observation that the grandmother's hair was "noticeably silvered" convey?
     choices:
-      - text: A poignant awareness of aging and the passage of time during the narrator's absence.
+      - text: Awareness of aging and the passage of time during absence.
         correct: true
-      - text: The grandmother's preference for modern hair treatments in Leyte.
-      - text: Proof that the narrator was away for over twenty years.
-      - text: Evidence that life in Leyte is stressful for elderly relatives.
+      - text: The grandmother's personal preference for modern hair treatments in Leyte.
+      - text: Conclusive proof that the narrator was living away for over twenty years.
+      - text: Evidence that rural life in Leyte is stressful for elderly relatives.
     explanation: |
       Noticing silvered hair highlights the passage of time during three years away at university, adding to the bittersweet reflection.
 
@@ -194,11 +194,11 @@ questions:
     stem: |
       What is the primary purpose of the passage on bioluminescence in Sarangani Bay?
     choices:
-      - text: To inform readers about the scientific causes and monitoring of bioluminescent plankton.
+      - text: To inform readers about scientific causes of bioluminescent plankton.
         correct: true
-      - text: To persuade tourists to book commercial night dives in Sarangani.
-      - text: To entertain readers with mythical stories of glowing sea sea monsters.
-      - text: To criticize marine biologists for banning shellfish harvesting.
+      - text: To persuade tourists to book commercial guided night dives in Sarangani Bay.
+      - text: To entertain readers with mythical ancient stories of glowing sea monsters.
+      - text: To criticize government marine biologists for banning local shellfish harvesting.
     explanation: |
       The text provides factual explanations of dinoflagellates, cell thresholds, and water testing, fulfilling an informative scientific purpose.
 
@@ -239,11 +239,11 @@ questions:
     stem: |
       Why does the author mention shellfish harvesting bans alongside ecotourism benefits?
     choices:
-      - text: To demonstrate how environmental monitoring balances economic benefits with health risks.
+      - text: To show how environmental monitoring balances benefits with health risks.
         correct: true
-      - text: To argue that ecotourism should be permanently banned in Sarangani Bay.
-      - text: To prove that bioluminescent plankton cannot survive near fishponds.
-      - text: To show that marine biologists prefer shellfish over ecotourism revenue.
+      - text: To argue that ecotourism activities should be permanently banned in Sarangani Bay.
+      - text: To prove that bioluminescent dinoflagellate plankton cannot survive near fishponds.
+      - text: To show that marine biologists prefer local shellfish over ecotourism revenue.
     explanation: |
       Mentioning both ecotourism appeal and health bans illustrates the dual role of environmental monitoring in balancing safety with economic activities.
 
@@ -256,8 +256,8 @@ questions:
     choices:
       - text: "primarily driven by dense blooms of Pyrodinium bahamense"
         correct: true
-      - text: "magical glowing waters of enchanted Mindanao"
-      - text: "reckless expansion of dangerous coastal fishponds"
-      - text: "frightening toxicity threatening unaware swimmers"
+      - text: "magical glowing waters of enchanted southern Mindanao"
+      - text: "reckless industrial expansion of dangerous coastal fishponds"
+      - text: "frightening chemical toxicity threatening unaware local swimmers"
     explanation: |
       The precise botanical name and neutral descriptive language represent the passage's objective scientific perspective.
