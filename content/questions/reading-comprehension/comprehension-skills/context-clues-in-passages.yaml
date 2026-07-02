@@ -65,11 +65,11 @@ questions:
     stem: |
       As used in the second paragraph, what does the word "table" mean?
     choices:
-      - text: To postpone or put aside for future consideration
+      - text: To postpone for future consideration
         correct: true
-      - text: A flat piece of furniture used for dining
-      - text: To present a mathematical spreadsheet of data
-      - text: To build a wooden platform over water
+      - text: A flat piece of wooden furniture used for dining
+      - text: To present a mathematical statistical spreadsheet of data
+      - text: To build a large wooden platform over open water
     explanation: |
       The passage explains that leaders "table plans... postponing all non-essential investments until water quality stabilizes", showing that "table" means to postpone.
 
@@ -80,11 +80,11 @@ questions:
     stem: |
       Why is the word "table" used in contrast to operating aeration pumps?
     choices:
-      - text: It shows that expansion was delayed so resources could be shifted to immediate aeration needs.
+      - text: It shows expansion was delayed so funds could address aeration.
         correct: true
-      - text: It proves that aeration pumps require wooden tables to function.
-      - text: It indicates that fish farmers permanently abandoned buying fingerlings.
-      - text: It demonstrates that green algae blooms increase fish growth rates.
+      - text: It proves that commercial aeration pumps require wooden tables to function properly.
+      - text: It indicates that local fish farmers permanently abandoned buying fingerlings.
+      - text: It demonstrates that seasonal green algae blooms increase fish growth rates.
     explanation: |
       The passage contrasts tabling (postponing) expansion plans with immediately redirecting funds toward running aeration pumps during oxygen drops.
 
@@ -95,11 +95,11 @@ questions:
     stem: |
       Which common trap must a reader avoid when interpreting "table" in this passage?
     choices:
-      - text: Assuming the word refers to physical furniture rather than a procedural delay.
+      - text: Assuming it refers to furniture rather than procedural delay.
         correct: true
-      - text: Assuming the word means to accelerate a business proposal.
-      - text: Confusing juvenile bangus with green algae.
-      - text: Believing that fish pens are located in ocean waters.
+      - text: Assuming the word means to accelerate a new commercial business proposal.
+      - text: Confusing fragile juvenile bangus fish with microscopic green algae.
+      - text: Believing that net-enclosed fish pens are located in ocean waters.
     explanation: |
       The word "table" commonly refers to furniture in everyday speech, but in this operational context it means postponing a decision.
 
@@ -110,11 +110,11 @@ questions:
     stem: |
       As used in the first paragraph, what does the word "render" mean?
     choices:
-      - text: To process or transform a raw material into a refined state
+      - text: To transform raw material into a refined state
         correct: true
-      - text: To translate text from one language into another
-      - text: To melt animal fat for cooking oil
-      - text: To surrender property to legal authorities
+      - text: To translate written text from one language into another
+      - text: To melt down raw animal fat for commercial cooking oil
+      - text: To formally surrender property to legal municipal authorities
     explanation: |
       The passage describes how the weaver must "render raw, unrefined cotton fibers into smooth, continuous threads by manually combing out seeds", meaning to process or transform.
 
@@ -125,7 +125,7 @@ questions:
     stem: |
       Which clue in paragraph 1 clarifies the meaning of "render"?
     choices:
-      - text: "combing out seeds and carding the cotton against wooden frames"
+      - text: "combing out seeds and carding the cotton"
         correct: true
       - text: "preserves the traditional craft of Abel Iloco cloth"
       - text: "dye loses its intensity and produces uneven coloration"
@@ -140,11 +140,11 @@ questions:
     stem: |
       As used in the second paragraph, what is the meaning of the word "culture"?
     choices:
-      - text: A liquid medium containing living microorganisms cultivated for a specific use
+      - text: A medium containing cultivated microorganisms.
         correct: true
-      - text: The artistic customs and traditional beliefs of a nation
-      - text: High social class refinement and academic education
-      - text: A museum exhibition of ancient historical artifacts
+      - text: The artistic customs and traditional heritage beliefs of a nation.
+      - text: High social class refinement and formal academic university education.
+      - text: A museum exhibition of ancient historical artifacts from Vigan.
     explanation: |
       The passage describes the indigo dye as a "living fermentation vat... active microorganisms that extract rich blue pigments", showing that "culture" refers to cultivated microorganisms.
 
@@ -155,11 +155,11 @@ questions:
     stem: |
       How does the second paragraph support the biological definition of "culture"?
     choices:
-      - text: By describing it as a living fermentation vat requiring feeding and active microorganisms.
+      - text: By describing it as a living vat requiring feeding and active microbes.
         correct: true
-      - text: By mentioning that Abel Iloco textiles are celebrated as cultural heritage.
-      - text: By explaining how foot-pedal looms operate in Vigan workshops.
-      - text: By contrasting natural indigo dyes with synthetic commercial paints.
+      - text: By mentioning that Abel Iloco woven textiles are celebrated as cultural heritage.
+      - text: By explaining how traditional foot-pedal looms operate in Vigan workshops.
+      - text: By contrasting natural organic indigo dyes with synthetic commercial paints.
     explanation: |
       The paragraph explicitly mentions a "living fermentation vat, fed with rice wine... active microorganisms", reinforcing the biological meaning of a microorganism culture.
 
@@ -170,10 +170,10 @@ questions:
     stem: |
       If a reader assumed "culture" meant "social traditions", how would that misinterpretation affect their understanding?
     choices:
-      - text: They would fail to understand why the dye vat requires feeding and daily physical care.
+      - text: They would fail to see why the vat requires daily feeding and care.
         correct: true
-      - text: They would assume Aling Teresa stopped weaving traditional patterns.
-      - text: They would think the cotton threads were made from synthetic nylon.
-      - text: They would believe that indigo plants grow only in clay jars.
+      - text: They would assume Aling Teresa stopped weaving traditional regional patterns.
+      - text: They would think the cotton threads were made from synthetic commercial nylon.
+      - text: They would believe that wild indigo plants grow exclusively in clay jars.
     explanation: |
       Misinterpreting "culture" as social tradition obscures the passage's explanation of maintaining a living biological fermentation process requiring daily feeding and care.
