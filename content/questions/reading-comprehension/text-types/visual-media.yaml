@@ -50,7 +50,7 @@ questions:
     stem: |
       What is the primary purpose of placing four sequential action icons to the right of the pie chart?
     choices:
-      - text: To provide clear, actionable steps viewers can take to eliminate mosquito breeding grounds.
+      - text: To provide actionable steps to eliminate mosquito breeding.
         correct: true
       - text: To decorate the poster with artistic color illustrations.
       - text: To explain the biological life cycle of the Aedes aegypti mosquito.
@@ -65,7 +65,7 @@ questions:
     stem: |
       Why does the infographic use a bright yellow warning callout box next to the mosquito illustration?
     choices:
-      - text: To draw immediate visual attention to critical hazard information and risk awareness.
+      - text: To draw visual attention to critical hazard warnings.
         correct: true
       - text: To hide the mosquito's black and white striped legs.
       - text: To indicate that mosquitoes only breed in yellow containers.
@@ -80,7 +80,7 @@ questions:
     stem: |
       What is the primary overall objective of this public health infographic?
     choices:
-      - text: To inform and motivate residents to eliminate stagnant water sources around their homes.
+      - text: To motivate residents to eliminate stagnant water sources.
         correct: true
       - text: To promote commercial sales of synthetic insect repellents.
       - text: To criticize municipal workers for failing to clean public roads.
@@ -95,7 +95,7 @@ questions:
     stem: |
       Which visual element on the poster serves as the official authority marker and contact resource?
     choices:
-      - text: The dark blue footer banner displaying the Department of Health hotline number.
+      - text: The footer banner with the DOH hotline number.
         correct: true
       - text: The magnified vector illustration of the mosquito.
       - text: The pie chart slice showing five percent flower vase water.
@@ -110,7 +110,7 @@ questions:
     stem: |
       In the editorial cartoon description, what does the colossal iron boulder labeled "fuel price increases" symbolize?
     choices:
-      - text: The overwhelming financial burden placed on transport workers by rising fuel costs.
+      - text: The financial burden on drivers from rising fuel costs.
         correct: true
       - text: The physical weight of passenger luggage carried on jeepney roofs.
       - text: The construction materials used to repair mountain roads.
@@ -125,7 +125,7 @@ questions:
     stem: |
       What is the cartoonist's stance regarding the relationship between the jeepney driver and the "oil importers"?
     choices:
-      - text: Critical of oil importers who remain insulated and detached from the driver's economic struggle.
+      - text: Critical of oil importers who remain detached from the struggle.
         correct: true
       - text: Supportive of oil importers for providing financial aid to transport workers.
       - text: Neutral, showing both groups working together to push the cart.
@@ -140,7 +140,7 @@ questions:
     stem: |
       What visual contrast is created between the iron boulder and the "tiny, empty coin purse"?
     choices:
-      - text: Highlighting the severe imbalance between soaring fuel expenses and inadequate driver earnings.
+      - text: Highlighting imbalance between fuel costs and driver earnings.
         correct: true
       - text: Showing that coin purses are manufactured from iron metal.
       - text: Proving that jeepney fares are higher than fuel prices.
@@ -155,7 +155,7 @@ questions:
     stem: |
       What is the symbolic function of the dark thunderclouds hovering over the "commuter public" skyline?
     choices:
-      - text: Representing the impending economic hardship felt by the broader commuting community.
+      - text: Representing economic hardship felt by the commuting community.
         correct: true
       - text: Indicating that a real typhoon storm is currently flooding the city.
       - text: Showing that electric buses produce heavy air pollution.
@@ -170,10 +170,10 @@ questions:
     stem: |
       Why does the cartoonist include a road sign pointing backward toward "economic relief"?
     choices:
-      - text: To suggest that true economic relief is becoming increasingly distant or unachievable under current conditions.
+      - text: To suggest economic relief is becoming distant under current conditions.
         correct: true
-      - text: To guide drivers toward the nearest gasoline station.
-      - text: To prove that mountain roads are safer than city streets.
+      - text: To guide drivers toward the nearest commercial gasoline station.
+      - text: To prove that mountain roads are safer than paved city streets.
       - text: To show that the jeepney driver is driving in the wrong direction.
     explanation: |
       A sign pointing backward away from the climbing driver symbolizes that relief is moving out of reach as struggles increase.
