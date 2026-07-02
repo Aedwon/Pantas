@@ -35,7 +35,7 @@ questions:
     stem: |
       What central conflict does Mateo experience in "The Marikina Forge"?
     choices:
-      - text: Internal conflict between his rushed desire for independence and the patience required for craftsmanship.
+      - text: Internal conflict between rushed desire and patient craftsmanship.
         correct: true
       - text: External conflict between himself and a hostile rival apprentice in Marikina.
       - text: Environmental conflict between his workshop and a sudden river flood.
@@ -50,7 +50,7 @@ questions:
     stem: |
       Which scene in the excerpt represents the turning point or climax of the narrative?
     choices:
-      - text: The moment the hammer strikes and a hairline crack splinters the glowing steel edge.
+      - text: The moment a hairline crack splinters the glowing steel edge.
         correct: true
       - text: Mang Tomas sitting quietly on the bench smoking a clove cigarette.
       - text: Mateo heating the initial leaf-spring steel bar in the forge.
@@ -65,7 +65,7 @@ questions:
     stem: |
       What can be inferred about Mang Tomas's character from his reaction to the broken blade?
     choices:
-      - text: He is a patient, wise mentor who uses mistakes as quiet teaching opportunities.
+      - text: He is a wise mentor who uses mistakes as teaching opportunities.
         correct: true
       - text: He is a harsh disciplinarian who fires apprentices for minor errors.
       - text: He is indifferent to the quality of the knives produced in his forge.
@@ -80,7 +80,7 @@ questions:
     stem: |
       Based on the end of the excerpt, what will Mateo most likely do next?
     choices:
-      - text: Place the fresh steel bar into the fire and forge it with slower, more deliberate strikes.
+      - text: Place the fresh steel into the fire and forge it with patience.
         correct: true
       - text: Quit his apprenticeship and leave the Marikina workshop immediately.
       - text: Sell the cracked steel blade to a neighboring market vendor.
@@ -95,7 +95,7 @@ questions:
     stem: |
       Which statement best expresses the underlying theme of "The Marikina Forge"?
     choices:
-      - text: True mastery and craft require discipline and patience over rushed pride.
+      - text: Craft requires discipline and patience over rushed pride.
         correct: true
       - text: Apprentice blacksmiths should avoid using heavy mallets.
       - text: Clove cigarettes are essential for managing workshop fatigue.
@@ -110,7 +110,7 @@ questions:
     stem: |
       What type of conflict is introduced in "Night Watch at the Pier"?
     choices:
-      - text: Conflict between professional duty and personal safety/comfort during hazardous conditions.
+      - text: Conflict between professional duty and personal safety during a storm.
         correct: true
       - text: Physical combat between Benjamin and cargo thieves inside the container.
       - text: Legal dispute between Benjamin and the Manila port authority over wages.
@@ -125,7 +125,7 @@ questions:
     stem: |
       How does the setting of Pier 14 contribute to the mood of the passage?
     choices:
-      - text: Dark shadows, heavy rain, and thunderclaps create a tense and hazardous atmosphere.
+      - text: Heavy rain and thunderclaps create a tense atmosphere.
         correct: true
       - text: Bright sunshine and calm sea breezes create a cheerful and relaxed mood.
       - text: Busy market crowds and street music create a festive holiday environment.
@@ -140,7 +140,7 @@ questions:
     stem: |
       What does Benjamin's action of unclipping his safety harness at the base of the ladder indicate?
     choices:
-      - text: He has decided to fulfill his duty and climb the ladder despite the dangerous storm.
+      - text: He has decided to climb the ladder despite the storm.
         correct: true
       - text: He has decided to abandon his job and run back to the guardhouse.
       - text: He is handing his equipment to a replacement watchman.
@@ -155,7 +155,7 @@ questions:
     stem: |
       What can a reader reasonably infer about Benjamin's character from this excerpt?
     choices:
-      - text: He is a conscientious and responsible worker who takes his duty seriously.
+      - text: He is a responsible worker who takes his duty seriously.
         correct: true
       - text: He is a careless watchman who frequently sleeps inside the guardhouse.
       - text: He is an inexperienced worker who does not know port safety protocols.
@@ -170,7 +170,7 @@ questions:
     stem: |
       Which characteristic feature of fiction excerpts is demonstrated by the ending of this passage?
     choices:
-      - text: It ends at a moment of suspense before the action is completed, setting up a resolution.
+      - text: It ends at a moment of suspense before action is complete.
         correct: true
       - text: It presents a complete historical timeline of Manila port construction.
       - text: It lists verified statistics on container shipping revenue.
