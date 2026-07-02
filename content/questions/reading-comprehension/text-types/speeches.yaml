@@ -35,7 +35,7 @@ questions:
     stem: |
       Which rhetorical device is used in the repeated sentence structure "We remembered... We rebuilt... We rose..."?
     choices:
-      - text: Repetition combined with parallel grammatical structure
+      - text: Repetition and parallel structure
         correct: true
       - text: Scientific jargon and statistical proof
       - text: Sarcastic understatement and irony
@@ -50,7 +50,7 @@ questions:
     stem: |
       Why does the speaker use direct address when stating "You, the youth of Eastern Visayas"?
     choices:
-      - text: To create an immediate personal connection and urge the audience to feel personal responsibility.
+      - text: To connect directly and foster personal responsibility.
         correct: true
       - text: To inform news reporters about regional high school enrollment figures.
       - text: To criticize the graduates for studying under tarpaulin roofs.
@@ -65,7 +65,7 @@ questions:
     stem: |
       Which rhetorical appeal is established when the speaker mentions treating injured neighbors in emergency tents?
     choices:
-      - text: Ethos (establishing credibility through personal experience)
+      - text: Ethos (credibility through personal experience)
         correct: true
       - text: Logos (citing official published statistical data)
       - text: Irony (saying the opposite of what is meant)
@@ -80,7 +80,7 @@ questions:
     stem: |
       What is the primary persuasive purpose of this commencement address?
     choices:
-      - text: To inspire graduates to use their education to serve and lead resilient communities.
+      - text: To inspire graduates to serve and lead resilient communities.
         correct: true
       - text: To convince university officials to reduce tuition fees in Tacloban.
       - text: To instruct engineers on how to build storm-proof solar lamps.
@@ -95,10 +95,10 @@ questions:
     stem: |
       How does contrasting past hardships (tarpaulin roofs, solar lamps) with future goals (doctors, engineers) serve the speaker's argument?
     choices:
-      - text: It highlights the graduates' proven strength to show they are capable of achieving ambitious goals.
+      - text: It highlights proven strength to show capacity for ambitious goals.
         correct: true
       - text: It proves that provincial students should avoid technical careers.
-      - text: It indicates that Tacloban classrooms lack basic furniture.
+      - text: It indicates that local Tacloban classrooms lack basic furniture.
       - text: It argues that solar lamps are superior to electrical power grids.
     explanation: |
       Contrasting past obstacles overcome with future aspirations reinforces the theme of proven resilience and potential.
@@ -110,7 +110,7 @@ questions:
     stem: |
       Which rhetorical device is featured in the lines "Together we plant... Together we protect... Together we harvest..."?
     choices:
-      - text: Repetition (anaphora) designed to emphasize collective unity
+      - text: Repetition emphasizing collective unity
         correct: true
       - text: Scientific classification of marine organisms
       - text: Passive voice reporting of government actions
@@ -125,7 +125,7 @@ questions:
     stem: |
       What effect does the direct address "My fellow fisherfolk and barangay elders" have on the speech?
     choices:
-      - text: It identifies the specific audience and establishes solidarity between speaker and community.
+      - text: It identifies the audience and establishes solidarity.
         correct: true
       - text: It distances the speaker from local community members.
       - text: It requests written questions from foreign marine tourists.
@@ -140,9 +140,9 @@ questions:
     stem: |
       How does the speaker establish ethos in the opening paragraph?
     choices:
-      - text: By citing thirty-five years of personal experience fishing along the bay.
+      - text: By citing 35 years of experience fishing along the bay.
         correct: true
-      - text: By presenting a computer simulation of fish migration.
+      - text: By presenting a detailed computer simulation of fish migration.
       - text: By quoting international marine biology textbooks.
       - text: By explaining the legal penalties for plastic dumping.
     explanation: |
@@ -155,10 +155,10 @@ questions:
     stem: |
       Why does the speaker use the urgent choice "If we act with unity today, our children will inherit a flourishing bay"?
     choices:
-      - text: To appeal to pathos by connecting environmental stewardship to the well-being of future generations.
+      - text: To appeal to pathos regarding future generations.
         correct: true
       - text: To explain the financial cost of purchasing new fishing nets.
-      - text: To instruct youth on how to build wooden boats.
+      - text: To instruct youth on how to build wooden fishing boats.
       - text: To criticize neighboring barangays for illegal trawling.
     explanation: |
       Appealing to the desire to protect one's children relies on emotional motivation (pathos) to inspire immediate community action.
@@ -170,7 +170,7 @@ questions:
     stem: |
       Which characteristic feature of speech writing distinguishes this text from a news report?
     choices:
-      - text: Direct spoken address to an audience paired with emotional rhetorical appeals.
+      - text: Direct spoken address with emotional rhetorical appeals.
         correct: true
       - text: Objective third-person reporting with formal datelines and press citations.
       - text: Step-by-step mathematical calculations of fish catches.
