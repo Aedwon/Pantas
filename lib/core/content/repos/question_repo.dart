@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:cse_cet_reviewer/core/content/content_database.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/choice_order.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:drift/drift.dart';
@@ -90,7 +91,7 @@ class QuestionRepo {
       topicId: row.topicId,
       language: row.language,
       stem: _plainText(row.stemJson),
-      choices: [
+      choices: orderChoicesFor(row.id, [
         for (final choice in choiceRows)
           Choice(
             id: choice.id,
@@ -98,7 +99,7 @@ class QuestionRepo {
             text: choice.textValue,
             isCorrect: choice.isCorrect,
           ),
-      ],
+      ]),
       explanation: _plainText(row.explanationJson),
     );
   }

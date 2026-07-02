@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/choice_order.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/exam.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/lesson.dart';
@@ -150,10 +151,13 @@ class ContentRepository {
 
   Question _hydrateQuestion(QuestionRow r) {
     final examIds = (jsonDecode(r.examIdsJson) as List).cast<String>();
-    final choices = (jsonDecode(r.choicesJson) as List)
-        .cast<Map<String, dynamic>>()
-        .map(Choice.fromJson)
-        .toList();
+    final choices = orderChoicesFor(
+      r.id,
+      (jsonDecode(r.choicesJson) as List)
+          .cast<Map<String, dynamic>>()
+          .map(Choice.fromJson)
+          .toList(),
+    );
     return Question(
       id: r.id,
       version: r.version,
