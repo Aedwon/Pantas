@@ -44,11 +44,11 @@ questions:
     stem: |
       What can be inferred from the farmers' shift to short-maturing, drought-tolerant rice varieties?
     choices:
-      - text: Farmers adapted their crop selection to withstand longer dry spells during the growing season.
+      - text: Farmers adapted crops to withstand longer dry spells.
         correct: true
-      - text: Traditional wet-season rice varieties became completely extinct in Isabela.
-      - text: Municipal authorities banned the use of monsoonal rainfall for irrigation.
-      - text: Farmers stopped growing rice to focus exclusively on solar power generation.
+      - text: Traditional wet-season rice varieties became completely extinct across Isabela.
+      - text: Municipal authorities banned the use of monsoonal rainfall for crop irrigation.
+      - text: Farmers stopped growing rice to focus exclusively on commercial solar power generation.
     explanation: |
       The passage notes that dry spells during growing months had doubled in duration, so shifting to drought-tolerant, short-maturing rice directly reflects an adaptation to these longer dry periods.
 
@@ -59,10 +59,10 @@ questions:
     stem: |
       What does the purchase of communal crop insurance policies suggest about the farm cooperatives?
     choices:
-      - text: Cooperatives sought financial protection against potential crop losses from unpredictable weather.
+      - text: Cooperatives sought protection against weather crop losses.
         correct: true
       - text: Insurance companies mandated that all Isabela farmers stop using tube wells.
-      - text: The farmers expected their crop yields to double within the next year.
+      - text: The farmers expected their crop yields to double within the next growing year.
       - text: Government regulations required all agricultural extension workers to sell insurance.
     explanation: |
       Purchasing crop insurance for the first time in thirty years alongside purchasing pumps and drought-tolerant seeds indicates that cooperatives sought financial safeguards against crop failure risks.
@@ -74,9 +74,9 @@ questions:
     stem: |
       The passage suggests that total annual precipitation figures alone can be misleading because:
     choices:
-      - text: Rainfall distribution across months can change even if total volume remains constant.
+      - text: Rainfall distribution can shift while volume stays constant.
         correct: true
-      - text: Municipal records always undercount rainfall in rural areas.
+      - text: Municipal records always undercount total annual rainfall in rural areas.
       - text: Solar-powered pumps increase the total amount of rain falling on crops.
       - text: Short-maturing rice requires twice as much annual rainfall as traditional rice.
     explanation: |
@@ -89,7 +89,7 @@ questions:
     stem: |
       Which inference about the farmers' attitude toward technological innovation is best supported by the text?
     choices:
-      - text: They were willing to invest in new tools when environmental conditions threatened their yields.
+      - text: They invested in tools when risks threatened yields.
         correct: true
       - text: They rejected modern technology until forced by municipal legislation.
       - text: They preferred manual water fetching over solar-powered pumps.
@@ -104,9 +104,9 @@ questions:
     stem: |
       What is the primary purpose of comparing field observations from 2021 and 2023?
     choices:
-      - text: To highlight the rapid agricultural adaptations made by farmers over a two-year period.
+      - text: To highlight rapid agricultural adaptations over two years.
         correct: true
-      - text: To prove that Isabela experienced its highest rainfall in 2021.
+      - text: To prove that Isabela experienced its highest annual rainfall in 2021.
       - text: To criticize Ramon Gomez for visiting fields only once every three years.
       - text: To argue that traditional farming methods are superior to modern technology.
     explanation: |
@@ -149,11 +149,11 @@ questions:
     stem: |
       What does the presence of post-hole impressions near orderly earthenware jars imply?
     choices:
-      - text: The site featured permanent or semi-permanent residential or storage structures.
+      - text: The site featured permanent residential or storage structures.
         correct: true
       - text: The jars fell from passing modern river barges.
       - text: The settlement was destroyed by a major earthquake in the twelfth century.
-      - text: Ancient residents lived exclusively in natural caves.
+      - text: Ancient residents lived exclusively in natural limestone caves.
     explanation: |
       Orderly rows of storage jars alongside post-hole impressions imply built wooden or bamboo structures used for living or storage.
 
@@ -164,7 +164,7 @@ questions:
     stem: |
       Why did archaeologists rely on radiometric testing of carbonized rice?
     choices:
-      - text: To establish an absolute chronological timeframe for the settlement layer.
+      - text: To establish an absolute timeframe for the settlement layer.
         correct: true
       - text: To determine whether the rice was imported from external trade partners.
       - text: To clean the basalt adzes discovered in the lower soil layer.
@@ -179,7 +179,7 @@ questions:
     stem: |
       Which conclusion about the ancient Cagayan inhabitants is best supported by the artifact evidence?
     choices:
-      - text: They maintained a settled community integrated into regional riverine trade networks.
+      - text: They maintained a settled community in riverine trade networks.
         correct: true
       - text: They lived as nomadic hunter-gatherers who avoided river systems.
       - text: They possessed advanced written alphabets recorded on clay tablets.
@@ -194,7 +194,7 @@ questions:
     stem: |
       What can be inferred about the primary cause of erratic driving prior to the policy changes?
     choices:
-      - text: Driver fatigue resulting from long hours without breaks to maximize commission earnings.
+      - text: Driver fatigue from long hours without breaks to maximize pay.
         correct: true
       - text: Mechanical failures caused by defective engine manufacturing.
       - text: Lack of passenger interest in provincial bus transportation.
@@ -209,7 +209,7 @@ questions:
     stem: |
       Why did replacing daily commissions with fixed monthly salaries help reduce complaints?
     choices:
-      - text: It removed the financial pressure on drivers to rush trips recklessly for extra pay.
+      - text: It removed financial pressure to rush trips recklessly for pay.
         correct: true
       - text: It forced drivers to buy their own digital logging badges.
       - text: It allowed drivers to set their own speed limits above eighty kilometers per hour.
@@ -224,7 +224,7 @@ questions:
     stem: |
       What does the stabilization of driver turnover rates suggest about the drivers' response to the reforms?
     choices:
-      - text: Drivers appreciated predictable earnings and structured rest periods despite tighter controls.
+      - text: Drivers appreciated predictable earnings and rest periods.
         correct: true
       - text: Drivers preferred working without electronic badges or speed limiters.
       - text: Most drivers resigned to join un-regulated city bus lines.
@@ -239,7 +239,7 @@ questions:
     stem: |
       The digital logging system's automatic ignition lock mechanism was designed primarily to enforce:
     choices:
-      - text: Compliance with mandatory rest periods after four hours of continuous driving.
+      - text: Compliance with rest periods after four hours of driving.
         correct: true
       - text: Complete adherence to the eighty-kilometer-per-hour speed limit.
       - text: Timely collection of cash passenger fares at designated checkpoints.
@@ -254,7 +254,7 @@ questions:
     stem: |
       Which statement summarizes the central lesson of the bus company's management experience?
     choices:
-      - text: Aligning financial incentives with safety enforcement produces better operational outcome.
+      - text: Aligning incentives with safety enforcement improves outcomes.
         correct: true
       - text: Daily trip commissions are essential for maintaining high driver morale.
       - text: Passenger complaints cannot be reduced without increasing ticket prices.
