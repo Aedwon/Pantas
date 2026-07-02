@@ -35,7 +35,7 @@ questions:
     stem: |
       Which statement from the passage expresses a verifiable fact?
     choices:
-      - text: Municipal data indicated a twelve percent reduction in fleet carbon emissions.
+      - text: Fleet carbon emissions dropped by twelve percent.
         correct: true
       - text: Modern minibuses provide an overwhelmingly superior commuter experience.
       - text: Modern minibuses are the absolute best choice for urban transportation.
@@ -50,7 +50,7 @@ questions:
     stem: |
       Which statement from the passage expresses an opinion?
     choices:
-      - text: Traditional jeepneys are completely obsolete relics that should be removed immediately.
+      - text: Traditional jeepneys are completely obsolete relics.
         correct: true
       - text: Iloilo City introduced fifty low-emission minibus units across five primary routes.
       - text: Minibuses served an average of twenty-two thousand passengers daily.
@@ -65,11 +65,11 @@ questions:
     stem: |
       Why is the claim that minibuses offer "an overwhelmingly superior commuter experience" classified as an opinion?
     choices:
-      - text: It relies on personal judgment and subjective preferences regarding comfort.
+      - text: It relies on personal judgment regarding comfort.
         correct: true
       - text: It contains a specific numerical figure that can be verified in a lab.
-      - text: It was written by an official government transport board.
-      - text: It describes events that occurred before 2022.
+      - text: It was written directly by an official government transport board.
+      - text: It describes historical events that occurred before 2022.
     explanation: |
       What constitutes a "superior experience" depends on personal criteria and individual passenger preferences rather than an objective measurement.
 
@@ -80,11 +80,11 @@ questions:
     stem: |
       Consider this sentence: "The minibuses, which cost 2.4 million pesos per unit, are an excessive waste of public funds." Which option correctly analyzes this sentence?
     choices:
-      - text: It combines a verifiable cost fact with a subjective value judgment.
+      - text: It combines a cost fact with a subjective judgment.
         correct: true
-      - text: It is entirely factual because the cost figure is included.
-      - text: It is entirely opinion because it mentions public funds.
-      - text: It is an unverified statistical projection about future budgets.
+      - text: It is entirely factual because the cost figure is explicitly included.
+      - text: It is entirely opinion because it mentions public transportation funds.
+      - text: It is an unverified statistical projection about future municipal budgets.
     explanation: |
       The cost per unit (2.4 million pesos) is a verifiable fact, while calling it an "excessive waste" is a subjective opinion.
 
@@ -125,7 +125,7 @@ questions:
     stem: |
       Which statement from the passage expresses a subjective opinion?
     choices:
-      - text: Converting agricultural soil into solar panels was a tragic mistake.
+      - text: Converting agricultural soil was a tragic mistake.
         correct: true
       - text: The plant operates over two hundred thousand photovoltaic panels.
       - text: The project was completed in eighteen months.
@@ -140,9 +140,9 @@ questions:
     stem: |
       How should the statement regarding projected 15% annual solar capacity growth be classified?
     choices:
-      - text: A data-supported statistical projection based on official applications.
+      - text: A statistical projection based on official applications.
         correct: true
-      - text: A subjective personal opinion expressing emotional preference.
+      - text: A subjective personal opinion expressing strong emotional preference.
       - text: A historical fact about past electricity generation in 2010.
       - text: A speculative guess unsupported by any energy department records.
     explanation: |
@@ -155,11 +155,11 @@ questions:
     stem: |
       Why does calling the solar farm "the most magnificent clean energy triumph" make it an opinion?
     choices:
-      - text: Words like "magnificent" and "triumph" convey personal aesthetic and emotional praise.
+      - text: Words like "magnificent" convey emotional praise.
         correct: true
-      - text: It cites official grid operator megawatt reports.
-      - text: It specifies the exact land size in hectares.
-      - text: It was published in a municipal agricultural report.
+      - text: It cites official grid operator megawatt generation reports.
+      - text: It specifies the exact land size measured in hectares.
+      - text: It was published in an official municipal agricultural report.
     explanation: |
       Praise words like "magnificent" and "triumph" express subjective value judgments rather than objective scientific measurements.
 
@@ -170,7 +170,7 @@ questions:
     stem: |
       Which strategy best helps a reader distinguish facts from opinions in environmental reports?
     choices:
-      - text: Separating measurable data and official records from value-laden judgment words.
+      - text: Separating data and records from judgment words.
         correct: true
       - text: Assuming that any sentence containing a number must be entirely an opinion.
       - text: Believing that editorial claims represent universally accepted facts.
