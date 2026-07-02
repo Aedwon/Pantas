@@ -74,11 +74,11 @@ questions:
     stem: |
       What can be inferred about Barangay Captain Elena Cruz's leadership style?
     choices:
-      - text: She prefers collaborative problem-solving over imposing top-down decisions.
+      - text: She prefers collaborative problem-solving over top-down orders.
         correct: true
-      - text: She avoids making decisions until external architects intervene.
-      - text: She favors youth activities over agricultural projects.
-      - text: She rejected the original proposals because of budget limitations.
+      - text: She avoids making decisions until external municipal architects intervene.
+      - text: She favors youth athletic activities over local agricultural projects.
+      - text: She rejected the original proposals because of severe budget limitations.
     explanation: |
       By organizing public consultations with elders, parents, and youth leaders to find a shared solution, Captain Cruz demonstrated a collaborative leadership style rather than imposing a single choice.
 
@@ -89,7 +89,7 @@ questions:
     stem: |
       Which statement best explains why the youth association originally petitioned the council?
     choices:
-      - text: They believed young residents lacked safe nearby recreational facilities.
+      - text: They believed youth lacked safe nearby sports facilities.
         correct: true
       - text: They wanted to stop low-income families from harvesting vegetables.
       - text: They hoped to install solar lighting across the whole barangay.
@@ -104,10 +104,10 @@ questions:
     stem: |
       How does the final paragraph contribute to the passage as a whole?
     choices:
-      - text: It demonstrates the positive long-term outcomes of the hybrid resolution.
+      - text: It demonstrates positive outcomes of the hybrid resolution.
         correct: true
-      - text: It introduces a new dispute between neighboring barangays.
-      - text: It details the exact financial budget required for solar lighting.
+      - text: It introduces a brand new dispute between neighboring barangays.
+      - text: It details the exact financial budget required for solar lighting installation.
       - text: It argues that vegetable gardens are more valuable than sports courts.
     explanation: |
       The final paragraph describes the harvest and youth activity by August, showing how the hybrid resolution achieved positive results for both sides and created a useful model.
@@ -119,7 +119,7 @@ questions:
     stem: |
       What is the main idea of the passage about Aling Rosa's sari-sari store?
     choices:
-      - text: Small store owners remain viable by balancing community trust with business discipline.
+      - text: Store owners stay viable by balancing trust with discipline.
         correct: true
       - text: Supermarkets will soon replace all neighborhood sari-sari stores.
       - text: Micro-retail businesses should avoid giving credit to neighbors.
@@ -134,11 +134,11 @@ questions:
     stem: |
       What is the primary function of the ledger book called a 'talaan' in the store?
     choices:
-      - text: Recording store credit transactions for regular customers
+      - text: Recording credit transactions for regular customers
         correct: true
       - text: Listing wholesale market prices in nearby cities
-      - text: Tracking mobile phone load expiration dates
-      - text: Calculating monthly tax payments for the barangay
+      - text: Tracking mobile phone load expiration dates across all vendors
+      - text: Calculating monthly tax payments for the municipal barangay
     explanation: |
       The second paragraph states that Aling Rosa records credit transactions in a ledger book called a 'talaan'.
 
@@ -149,7 +149,7 @@ questions:
     stem: |
       Why do neighborhood residents continue buying from Aling Rosa despite higher prices than supermarkets?
     choices:
-      - text: They value physical proximity and flexible credit options in times of need.
+      - text: They value physical proximity and flexible credit terms.
         correct: true
       - text: Supermarkets do not carry daily items like cooking oil or phone load.
       - text: Aling Rosa sells wholesale inventory at half price every weekend.
@@ -164,7 +164,7 @@ questions:
     stem: |
       Which rule helps Aling Rosa mitigate the financial risks of extending credit?
     choices:
-      - text: Customers must settle existing credit balances before adding new charges.
+      - text: Customers must settle credit balances before new charges.
         correct: true
       - text: Customers must pay a monthly interest fee on all grocery debts.
       - text: Credit is granted only to customers who purchase wholesale inventory.
@@ -194,10 +194,10 @@ questions:
     stem: |
       What is the main idea of the mangrove restoration passage?
     choices:
-      - text: Community-led mangrove reforestation strengthened coastal defense and marine life.
+      - text: Mangrove reforestation strengthened coastal defense and marine life.
         correct: true
-      - text: Typhoon storm surges destroyed all fishponds in Quezon province.
-      - text: Planting seedlings in coastal mud requires specialized machinery.
+      - text: Typhoon storm surges destroyed all commercial fishponds in Quezon province.
+      - text: Planting seedlings in coastal mud requires specialized industrial machinery.
       - text: Local youth groups were paid by marine biologists to clean roads.
     explanation: |
       The passage shows how local fisherfolk and scientists successfully restored mangroves, resulting in reduced storm damage and improved fishery yields.
@@ -209,11 +209,11 @@ questions:
     stem: |
       Why were older fishpond dikes breached during the reforestation process?
     choices:
-      - text: To restore natural seawater circulation and allow wild propagules to take root
+      - text: To restore seawater circulation for wild propagules to take root
         correct: true
-      - text: To make space for building new coastal roads and bridges
-      - text: To prevent local fisherfolk from harvesting mud crabs
-      - text: To drain seawater away from the mangrove saplings
+      - text: To make space for building new coastal roads and concrete bridges
+      - text: To prevent local fisherfolk from harvesting mud crabs in the bay
+      - text: To drain seawater away from the fragile mangrove saplings
     explanation: |
       The second paragraph states that dikes were breached to restore natural seawater circulation, which helped wild mangrove propagules take root.
 
@@ -224,10 +224,10 @@ questions:
     stem: |
       What does the selection of specific mangrove species based on salinity suggest about the project?
     choices:
-      - text: The organizers used scientific methods to maximize seedling survival rates.
+      - text: Organizers used scientific methods to maximize seedling survival.
         correct: true
       - text: All mangrove trees grow equally well in any coastal environment.
-      - text: Nursery-grown seedlings were unavailable in Real, Quezon.
+      - text: Nursery-grown seedlings were completely unavailable in Real, Quezon.
       - text: Salinity levels were lowered by dumping fresh water into the sea.
     explanation: |
       Tailoring mangrove species selection to specific tidal elevations and soil salinities demonstrates a scientifically informed approach designed to ensure high survival rates.
@@ -239,7 +239,7 @@ questions:
     stem: |
       According to the text, what double benefit did the restored mangrove belt provide after three years?
     choices:
-      - text: Protection against wave energy and increased marine nursery habitats
+      - text: Reduced wave energy and increased marine habitats
         correct: true
       - text: Higher tourism revenue and lower fishpond construction costs
       - text: Free plastic clearing services and expanded coastal road lanes
@@ -254,10 +254,10 @@ questions:
     stem: |
       Which title best captures the core subject of the mangrove passage?
     choices:
-      - text: Restoring Coastal Protection and Livelihoods Through Mangrove Reforestation
+      - text: Restoring Coastal Protection Through Reforestation
         correct: true
       - text: The Complete History of Fishpond Construction in Quezon
       - text: How Plastic Debris Destructive Waves Harms Local Youth
-      - text: Commercial Fishing Strategies in Typhoons
+      - text: Commercial Fishing Strategies in Extreme Typhoons
     explanation: |
       The title reflects the central theme of environmental restoration bringing both disaster protection and economic benefits to coastal communities.
