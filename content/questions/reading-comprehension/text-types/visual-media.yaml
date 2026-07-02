@@ -140,7 +140,7 @@ questions:
     stem: |
       What visual contrast is created between the iron boulder and the "tiny, empty coin purse"?
     choices:
-      - text: Highlighting disparity between fuel costs and driver earnings.
+      - text: Highlighting the gap between fuel costs and earnings.
         correct: true
       - text: Showing that coin purses are manufactured from iron metal.
       - text: Proving that jeepney fares are higher than fuel prices.
