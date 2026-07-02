@@ -35,10 +35,10 @@ questions:
     stem: |
       Which of the following events happened first in actual chronological time?
     choices:
-      - text: Maintenance engineers submitted an urgent request to replace intake filters.
+      - text: Engineers requested intake filter replacements.
         correct: true
       - text: The municipal filtration facility unexpectedly suspended operations.
-      - text: Procurement committee delayed approval during budget disputes.
+      - text: Procurement committee delayed approval during contested budget disputes.
       - text: Replacement turbine parts arrived from Cebu.
     explanation: |
       Although the passage opens with the June shutdown, engineers had submitted the filter replacement request in January, making it the earliest event in chronological time.
@@ -80,7 +80,7 @@ questions:
     stem: |
       Why does the written order of events in the passage differ from their true chronological order?
     choices:
-      - text: The text opens with the dramatic consequence before reviewing the timeline of causes.
+      - text: The text opens with the outcome before reviewing causes.
         correct: true
       - text: The author confused the month of January with the month of July.
       - text: Replacement parts were manufactured before the facility was constructed.
@@ -155,9 +155,9 @@ questions:
     stem: |
       What happened immediately after the earthen dike was breached late Monday evening?
     choices:
-      - text: Captain Mendoza walked through the village sounding an iron gong at midnight.
+      - text: Captain Mendoza sounded an iron gong at midnight.
         correct: true
-      - text: Disaster officials issued initial warnings on Sunday afternoon.
+      - text: Disaster officials issued initial storm warnings on Sunday afternoon.
       - text: Rescue boats arrived from Manila on Wednesday afternoon.
       - text: Elderly residents began packing their bags on Sunday morning.
     explanation: |
@@ -170,10 +170,10 @@ questions:
     stem: |
       Why is identifying the timeline in this narrative challenging for readers?
     choices:
-      - text: The story begins with the Tuesday rescue before flashing back to Sunday and Monday events.
+      - text: The story begins with Tuesday, flashing back to Sunday.
         correct: true
-      - text: The passage fails to mention any days of the week or time indicators.
-      - text: The rescue boats arrived before the typhoon occurred.
+      - text: The passage fails to mention any specific days of the week or time indicators.
+      - text: The rescue boats arrived before the major typhoon occurred.
       - text: Captain Mendoza instructed residents after the rescue was completed.
     explanation: |
       Opening with the Tuesday rescue and then jumping back to Sunday and Monday requires the reader to resequence the non-chronological narrative.
