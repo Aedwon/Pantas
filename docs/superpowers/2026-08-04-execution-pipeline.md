@@ -108,13 +108,15 @@ Two at a time. Ask Aedwon for Gemini headroom first; there is no way to read it 
 | **Offline posture** | **Merged 4 August.** The cached-wins entitlement rule is live: a paying student keeps Pro in a dead zone. |
 | **Mathematics** | **Complete, 689 questions across all 44 subtopics.** |
 | **Six plan conflicts, the readiness sweep, the attribution gate, the validator** | As before. |
+| **The passage pipeline** | **Merged 4 August, Tasks 1 to 4.** Passages table, schema **18**, the YAML and seed carry them, and a passage set is indivisible in both the picker and the mock sampler. **Tasks 5 and 6 remain**, behind Quiz Plan 4 |
+| **The CSE tagging pass** | **Merged 4 August.** 38 files carry `cse-pro`, 30 of them `cse-sub`, no Science file touched. The CSE goes from 2 questions to most of its verbal, analytical and numerical paper |
+| **Reading comprehension** | **Merged 4 August.** All 13 subtopics, 32 passages, **160 questions**, after a revision pass fixed the correct answer being the longest choice in 120 of them |
+| **The choice-order defect** | **Fixed 4 August.** The correct answer was first in **2,072 of 2,153 questions**, and choices were never shuffled. A question's choices are now ordered from its id when read. **Do not hand-vary answer position in new content** |
 
 **Corpus today:** Science 777, Mathematics 689, Language 319, Reasoning 208, Reading
-comprehension 0. **Total 1,993.**
+comprehension **160**. **Total 2,153.**
 
-| **The passage pipeline** | **Merged 4 August, Tasks 1 to 4.** Passages table, schema **18**, the YAML and seed carry them, and a passage set is indivisible in both the picker and the mock sampler. **Tasks 5 and 6 remain**, behind Quiz Plan 4 |
-
-**Health on `main`, measured 4 August, after the passage merge:** **1141 tests pass**, schema **18**, zero analyzer issues under `lib/` and `test/`
+**Health on `main`, measured 4 August, after the choice-order fix:** **1154 tests pass**, schema **18**, zero analyzer issues under `lib/` and `test/`
 outside `test/tool/`, formatter clean, layering 7, attribution 0, content validator 0.
 
 ---

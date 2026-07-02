@@ -175,6 +175,14 @@ These are the ones a fast model breaks, and none of them fails a build.
   concept you found easiest to write about.
 - **Every distractor is a real mistake**, traceable to something in the lesson or to a known
   trap. A distractor nobody would pick teaches the student to eliminate rather than to know.
+- **Never make the correct answer the longest choice, and check it per question.** An answer
+  written to be unambiguous naturally runs longer than a distractor written to be wrong, so
+  this one breaks silently. On 4 August a run broke it in **120 of 160 questions** while
+  quoting the rule back in its own report. Fix it by tightening the answer, not by padding the
+  distractors: four bloated choices is a new tell, not a fix.
+- **Do not hand-vary which position the answer sits in.** Write it wherever it falls. The app
+  orders a question's choices from its id when it reads them, so authored position no longer
+  reaches a student. Before that landed the answer was first in 96% of the corpus.
 - **Never invent a figure.** If a question needs a number, it comes from the lesson, from the
   testing body, or from arithmetic you show. It is never approximated to make a question work.
 - **No em dashes. American spelling.** Both are checked below.
