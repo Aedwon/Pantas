@@ -140,7 +140,7 @@ questions:
     stem: |
       What visual contrast is created between the iron boulder and the "tiny, empty coin purse"?
     choices:
-      - text: Highlighting imbalance between fuel costs and driver earnings.
+      - text: Highlighting disparity between fuel costs and driver earnings.
         correct: true
       - text: Showing that coin purses are manufactured from iron metal.
       - text: Proving that jeepney fares are higher than fuel prices.
@@ -170,7 +170,7 @@ questions:
     stem: |
       Why does the cartoonist include a road sign pointing backward toward "economic relief"?
     choices:
-      - text: To suggest economic relief is becoming distant under current conditions.
+      - text: To suggest economic relief is becoming increasingly distant.
         correct: true
       - text: To guide drivers toward the nearest commercial gasoline station.
       - text: To prove that mountain roads are safer than paved city streets.
