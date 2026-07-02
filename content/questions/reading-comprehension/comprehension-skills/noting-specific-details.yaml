@@ -1,0 +1,263 @@
+meta:
+  subject: reading-comprehension
+  topic: comprehension-skills
+  subtopic: noting-specific-details
+  exams:
+    - upcat
+    - acet
+    - dlsucet
+    - ustet
+
+passages:
+  - id: rc-cs-nsd-p1
+    title: "The Cebu-Cordova Expressway Infrastructure"
+    body: |
+      The Cebu-Cordova Link Expressway, commonly known as CCLEX, opened for commercial operation in April 2022 after four years of continuous construction. Spanning 8.9 kilometers across the Mactan Channel, it connects Cebu City directly to the municipality of Cordova on Mactan Island. Designed to handle up to fifty thousand vehicles daily, the toll bridge was built to relieve traffic congestion on the older Marcelo Fernan and Mandaue-Mactan bridges.
+
+      Engineer Manuel Santos served as the project's chief structural inspector during the final phase of bridge construction. Under his supervision, workers installed stay cables anchored to two main towers that rise 145 meters above sea level. To increase toll collection efficiency, project operators introduced an all-electronic RFID tag system in July 2022, phasing out cash toll booths completely by December of that same year.
+
+      While initial construction costs were estimated at twenty-six billion pesos, final expenditure reports placed total project investments at thirty-three billion pesos due to material inflation and coastal reinforcement adjustments. Today, CCLEX stands as the longest sea-crossing bridge structure in the Philippines.
+
+  - id: rc-cs-nsd-p2
+    title: "Evolution of the Higantes Festival"
+    body: |
+      The Higantes Festival is an annual cultural celebration held in Angono, Rizal, in honor of Saint Clement, the patron saint of fishermen. Historically, the parade took place exclusively on November 23. However, local tourism officials expanded the event in 2010 into a two-week cultural festival spanning mid-November, culminating in the traditional grand procession on November 23.
+
+      Originally created during the late Spanish colonial period as a subtle form of satire against wealthy landlords, the giant figures were crafted entirely from bamboo frames and paper-mache using recycled newspapers. In 1998, local artisan guilds introduced lightweight aluminum frames and fiberglass resin heads to ensure the figures could withstand heavy rains during coastal processions.
+
+      Each barangay in Angono contributes at least two giant figures to the main parade. In 2023, fifty-six giant figures participated in the grand procession, witnessed by an estimated forty thousand tourists along the three-kilometer parade route.
+
+  - id: rc-cs-nsd-p3
+    title: "Benguet Coffee Farmers Cooperative"
+    body: |
+      Founded in 2014 with just fourteen founding members, the Benguet Arabica Coffee Farmers Cooperative has grown to include over two hundred smallholder farmers across the municipality of Atok. The cooperative specializes in growing high-altitude Arabica coffee beans cultivated at elevations between 1,200 and 1,600 meters above sea level, where cool temperatures allow coffee cherries to mature slowly.
+
+      Harvesting takes place exclusively between November and February, when farm workers hand-pick only fully ripened red cherries. In 2021, the cooperative established a centralized wet-milling facility funded by a three-million-peso agricultural grant. Before this facility was built, individual farmers processed cherries at home using manual hand-cranked pulpers, resulting in inconsistent bean quality.
+
+      The introduction of centralized moisture testing and raised drying beds boosted the cooperative's specialty coffee rating to eighty-six points on the international coffee scale. Consequently, farmgate prices for green coffee beans rose from two hundred pesos per kilogram in 2019 to five hundred fifty pesos per kilogram by 2023.
+
+questions:
+  - id: rc-cs-nsd-0001
+    passage: rc-cs-nsd-p1
+    type: identify
+    difficulty: easy
+    stem: |
+      In what month and year did the CCLEX open for commercial operation?
+    choices:
+      - text: April 2022
+        correct: true
+      - text: July 2022
+      - text: December 2022
+      - text: March 2018
+    explanation: |
+      The first paragraph explicitly states that CCLEX opened for commercial operation in April 2022.
+
+  - id: rc-cs-nsd-0002
+    passage: rc-cs-nsd-p1
+    type: identify
+    difficulty: easy
+    stem: |
+      What were the final total project investments reported for the CCLEX construction?
+    choices:
+      - text: 33 billion pesos
+        correct: true
+      - text: Twenty-six billion pesos
+      - text: Fifty billion pesos
+      - text: Fourteen billion pesos
+    explanation: |
+      The final paragraph states that while initial costs were estimated at twenty-six billion pesos, final reports placed total investments at thirty-three billion pesos.
+
+  - id: rc-cs-nsd-0003
+    passage: rc-cs-nsd-p1
+    type: identify
+    difficulty: medium
+    stem: |
+      When were cash toll booths completely phased out on the expressway?
+    choices:
+      - text: December 2022
+        correct: true
+      - text: July 2022
+      - text: April 2022
+      - text: November 2023
+    explanation: |
+      The second paragraph states that operators introduced RFID in July 2022 and phased out cash toll booths completely by December 2022.
+
+  - id: rc-cs-nsd-0004
+    passage: rc-cs-nsd-p1
+    type: identify
+    difficulty: medium
+    stem: |
+      How high above sea level do the main towers of the bridge rise?
+    choices:
+      - text: 145 meters
+        correct: true
+      - text: 8.9 meters
+      - text: 50 meters
+      - text: 200 meters
+    explanation: |
+      The second paragraph specifies that the stay cables are anchored to two main towers rising 145 meters above sea level.
+
+  - id: rc-cs-nsd-0005
+    passage: rc-cs-nsd-p1
+    type: identify
+    difficulty: hard
+    stem: |
+      Who served as the project's chief structural inspector during the final construction phase?
+    choices:
+      - text: Manuel Santos
+        correct: true
+      - text: Engineer Elena Cruz
+      - text: Engineer Ramon Vega
+      - text: Engineer Rosa Santos
+    explanation: |
+      The second paragraph explicitly identifies Engineer Manuel Santos as the chief structural inspector during the final phase.
+
+  - id: rc-cs-nsd-0006
+    passage: rc-cs-nsd-p2
+    type: identify
+    difficulty: easy
+    stem: |
+      In whose honor is the annual Higantes Festival celebrated in Angono?
+    choices:
+      - text: Saint Clement
+        correct: true
+      - text: Saint Joseph
+      - text: Saint Francis
+      - text: Saint Lorenzo
+    explanation: |
+      The first sentence of the passage states that the festival is held in honor of Saint Clement, patron saint of fishermen.
+
+  - id: rc-cs-nsd-0007
+    passage: rc-cs-nsd-p2
+    type: identify
+    difficulty: easy
+    stem: |
+      What material was introduced by local artisan guilds in 1998 for crafting the heads of the giant figures?
+    choices:
+      - text: Fiberglass resin
+        correct: true
+      - text: Recycled newspapers
+      - text: Carved wood
+      - text: Woven bamboo
+    explanation: |
+      The second paragraph notes that local artisan guilds introduced aluminum frames and fiberglass resin heads in 1998.
+
+  - id: rc-cs-nsd-0008
+    passage: rc-cs-nsd-p2
+    type: identify
+    difficulty: medium
+    stem: |
+      How many giant figures participated in the grand procession in 2023?
+    choices:
+      - text: Fifty-six
+        correct: true
+      - text: Forty
+      - text: Ten
+      - text: Two hundred
+    explanation: |
+      The third paragraph specifies that in 2023, fifty-six giant figures participated in the grand procession.
+
+  - id: rc-cs-nsd-0009
+    passage: rc-cs-nsd-p2
+    type: identify
+    difficulty: medium
+    stem: |
+      What was the original historical date of the parade before tourism officials expanded the event in 2010?
+    choices:
+      - text: November 23
+        correct: true
+      - text: Mid-November
+      - text: October 31
+      - text: December 1
+    explanation: |
+      The first paragraph explains that historically the parade took place exclusively on November 23 before expansion in 2010.
+
+  - id: rc-cs-nsd-0010
+    passage: rc-cs-nsd-p2
+    type: identify
+    difficulty: hard
+    stem: |
+      What was the estimated length of the grand parade route during the festival?
+    choices:
+      - text: 3 kilometers
+        correct: true
+      - text: Five kilometers
+      - text: Ten kilometers
+      - text: Two kilometers
+    explanation: |
+      The final paragraph states that forty thousand tourists witnessed the parade along the three-kilometer parade route.
+
+  - id: rc-cs-nsd-0011
+    passage: rc-cs-nsd-p3
+    type: identify
+    difficulty: easy
+    stem: |
+      In what year was the Benguet Arabica Coffee Farmers Cooperative founded?
+    choices:
+      - text: "2014"
+        correct: true
+      - text: "2019"
+      - text: "2021"
+      - text: "2023"
+    explanation: |
+      The first sentence states that the cooperative was founded in 2014 with fourteen founding members.
+
+  - id: rc-cs-nsd-0012
+    passage: rc-cs-nsd-p3
+    type: identify
+    difficulty: easy
+    stem: |
+      During which months does coffee harvesting take place in Atok?
+    choices:
+      - text: Nov to Feb
+        correct: true
+      - text: March to June
+      - text: July to October
+      - text: January to April
+    explanation: |
+      The second paragraph states that harvesting takes place exclusively between November and February.
+
+  - id: rc-cs-nsd-0013
+    passage: rc-cs-nsd-p3
+    type: identify
+    difficulty: medium
+    stem: |
+      What was the farmgate price per kilogram of green coffee beans in 2023?
+    choices:
+      - text: 550 pesos
+        correct: true
+      - text: Two hundred pesos
+      - text: Three hundred pesos
+      - text: Eight hundred pesos
+    explanation: |
+      The final sentence states that green coffee bean prices rose from two hundred pesos in 2019 to five hundred fifty pesos per kilogram by 2023.
+
+  - id: rc-cs-nsd-0014
+    passage: rc-cs-nsd-p3
+    type: identify
+    difficulty: medium
+    stem: |
+      At what elevation range is the cooperative's Arabica coffee cultivated?
+    choices:
+      - text: 1,200 to 1,600 meters above sea level
+        correct: true
+      - text: Between 500 and 800 meters above sea level
+      - text: Below 1,000 meters above sea level
+      - text: Above 2,500 meters above sea level
+    explanation: |
+      The first paragraph specifies that Arabica coffee is cultivated at elevations between 1,200 and 1,600 meters above sea level.
+
+  - id: rc-cs-nsd-0015
+    passage: rc-cs-nsd-p3
+    type: identify
+    difficulty: hard
+    stem: |
+      What facility was established in 2021 using a three-million-peso agricultural grant?
+    choices:
+      - text: A centralized wet-milling facility
+        correct: true
+      - text: A manual hand-cranked pulper workshop
+      - text: A tourist coffee tasting laboratory
+      - text: A solar-powered bean roasting warehouse
+    explanation: |
+      The second paragraph states that in 2021, the cooperative established a centralized wet-milling facility funded by a three-million-peso agricultural grant.

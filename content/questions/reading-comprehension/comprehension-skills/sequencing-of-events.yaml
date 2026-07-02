@@ -1,0 +1,179 @@
+meta:
+  subject: reading-comprehension
+  topic: comprehension-skills
+  subtopic: sequencing-of-events
+  exams:
+    - upcat
+    - acet
+    - dlsucet
+    - ustet
+
+passages:
+  - id: rc-cs-se-p1
+    title: "Investigation of the Bataan Water Facility Shutdown"
+    body: |
+      On June 15, the Bataan Municipal Water District unexpectedly suspended operations at its central filtration facility, leaving four coastal towns without tap water for three days. A post-incident investigation revealed that the sudden shutdown occurred when main intake turbines seized due to severe sediment buildup.
+
+      Months earlier, in January, maintenance engineers had submitted an urgent request to replace aging intake filters. However, the municipal procurement committee had repeatedly delayed approving the purchase order throughout March because of contested budget allocations. By late April, worn filter meshes began allowing coarse river gravel to enter the turbine chambers.
+
+      Although technicians had attempted emergency flushings in early May, the accumulation continued unchecked until the mechanical failure in June. Full operations were restored only on July 2 after replacement turbine parts, ordered during the June emergency, finally arrived from Cebu.
+
+  - id: rc-cs-se-p2
+    title: "Storm Rescue in Cagayan Valley"
+    body: |
+      At six in the morning on Tuesday, rescue workers aboard motorboats reached the elevated concrete chapel of Barangay San Mateo in Cagayan, successfully evacuating forty stranded villagers. The survivors had gathered inside the chapel during the darkest hours of the storm to seek refuge from rising floodwaters.
+
+      The crisis had begun late Monday evening when Typhoon Egay breached a earthen dike upstream. At midnight, Barangay Captain Carlos Mendoza had walked through the village sounding an iron gong to warn families of the approaching flood. Hours before the dike burst, however, Captain Mendoza had already instructed elderly residents to move to the chapel after receiving early storm warnings from provincial disaster officials on Sunday afternoon.
+
+      By Monday night, floodwaters had completely submerged low-lying houses, but all residents reached safety prior to the Tuesday morning boat rescue.
+
+questions:
+  - id: rc-cs-se-0001
+    passage: rc-cs-se-p1
+    type: analyze
+    difficulty: easy
+    stem: |
+      Which of the following events happened first in actual chronological time?
+    choices:
+      - text: Engineers requested intake filter replacements.
+        correct: true
+      - text: The municipal filtration facility unexpectedly suspended operations.
+      - text: Procurement committee delayed approval during contested budget disputes.
+      - text: Replacement turbine parts arrived from Cebu.
+    explanation: |
+      Although the passage opens with the June shutdown, engineers had submitted the filter replacement request in January, making it the earliest event in chronological time.
+
+  - id: rc-cs-se-0002
+    passage: rc-cs-se-p1
+    type: analyze
+    difficulty: medium
+    stem: |
+      What is the correct chronological sequence of these three events: (1) Technicians attempted emergency flushings, (2) Main intake turbines seized, (3) Procurement committee delayed filter approval?
+    choices:
+      - text: (3) Procurement delayed approval → (1) Emergency flushings attempted → (2) Turbines seized
+        correct: true
+      - text: (2) Turbines seized → (3) Procurement delayed approval → (1) Emergency flushings attempted
+      - text: (1) Emergency flushings attempted → (2) Turbines seized → (3) Procurement delayed approval
+      - text: (3) Procurement delayed approval → (2) Turbines seized → (1) Emergency flushings attempted
+    explanation: |
+      Procurement delayed approval occurred in March, emergency flushings were attempted in early May, and the turbines seized in June.
+
+  - id: rc-cs-se-0003
+    passage: rc-cs-se-p1
+    type: infer
+    difficulty: medium
+    stem: |
+      Which event occurred immediately after the turbines seized on June 15?
+    choices:
+      - text: Replacement turbine parts were ordered from Cebu.
+        correct: true
+      - text: Engineers submitted the initial filter replacement request.
+      - text: Worn filter meshes began allowing coarse river gravel to enter chambers.
+      - text: Maintenance engineers conducted scheduled January inspections.
+    explanation: |
+      The passage notes that replacement turbine parts were ordered during the June emergency that followed the turbine failure.
+
+  - id: rc-cs-se-0004
+    passage: rc-cs-se-p1
+    type: evaluate
+    difficulty: hard
+    stem: |
+      Why does the written order of events in the passage differ from their true chronological order?
+    choices:
+      - text: The text opens with the outcome before reviewing causes.
+        correct: true
+      - text: The author confused the month of January with the month of July.
+      - text: Replacement parts were manufactured before the facility was constructed.
+      - text: Technicians performed maintenance after full operations were completed.
+    explanation: |
+      Explanatory news reports frequently state the dramatic outcome (the June shutdown) first, then detail the preceding sequence of causes (January to May).
+
+  - id: rc-cs-se-0005
+    passage: rc-cs-se-p1
+    type: analyze
+    difficulty: hard
+    stem: |
+      What was the final event described in the facility's timeline?
+    choices:
+      - text: Full filtration operations were restored on July 2.
+        correct: true
+      - text: Main intake turbines seized on June 15.
+      - text: Procurement committee delayed budget approvals in March.
+      - text: Emergency flushings were performed in May.
+    explanation: |
+      Full operations were restored on July 2 after replacement parts arrived, representing the final event in the chronological sequence.
+
+  - id: rc-cs-se-0006
+    passage: rc-cs-se-p2
+    type: analyze
+    difficulty: easy
+    stem: |
+      Which event happened first chronologically in the Cagayan storm passage?
+    choices:
+      - text: Captain Mendoza received early storm warnings on Sunday afternoon.
+        correct: true
+      - text: Typhoon Egay breached an earthen dike upstream on Monday evening.
+      - text: Captain Mendoza walked through the village sounding an iron gong at midnight.
+      - text: Rescue motorboats reached the chapel at six in the morning on Tuesday.
+    explanation: |
+      Although mentioned midway through the text, receiving early storm warnings on Sunday afternoon is the earliest event in time.
+
+  - id: rc-cs-se-0007
+    passage: rc-cs-se-p2
+    type: analyze
+    difficulty: medium
+    stem: |
+      What is the correct order of these events: (1) Elderly residents moved to the chapel, (2) Earthen dike breached upstream, (3) Rescue boats evacuated villagers?
+    choices:
+      - text: (1) Elderly residents moved → (2) Earthen dike breached → (3) Rescue boats evacuated villagers
+        correct: true
+      - text: (3) Rescue boats evacuated villagers → (1) Elderly residents moved → (2) Earthen dike breached
+      - text: (2) Earthen dike breached → (3) Rescue boats evacuated villagers → (1) Elderly residents moved
+      - text: (1) Elderly residents moved → (3) Rescue boats evacuated villagers → (2) Earthen dike breached
+    explanation: |
+      Elderly residents moved hours before the dike burst late Monday, and motorboats evacuated them early Tuesday morning.
+
+  - id: rc-cs-se-0008
+    passage: rc-cs-se-p2
+    type: infer
+    difficulty: medium
+    stem: |
+      Which clue in paragraph 2 signals that elderly residents moved before the dike burst?
+    choices:
+      - text: The phrase "Hours before the dike burst... had already instructed"
+        correct: true
+      - text: The phrase "At six in the morning on Tuesday"
+      - text: The phrase "By Monday night, floodwaters had completely submerged"
+      - text: The phrase "At midnight, Barangay Captain Carlos Mendoza had walked"
+    explanation: |
+      The signal phrase "Hours before the dike burst... had already instructed" uses past perfect grammar to explicitly mark the earlier timing of the instruction.
+
+  - id: rc-cs-se-0009
+    passage: rc-cs-se-p2
+    type: evaluate
+    difficulty: hard
+    stem: |
+      What happened immediately after the earthen dike was breached late Monday evening?
+    choices:
+      - text: Captain Mendoza sounded an iron gong at midnight.
+        correct: true
+      - text: Disaster officials issued initial storm warnings on Sunday afternoon.
+      - text: Rescue boats arrived from Manila on Wednesday afternoon.
+      - text: Elderly residents began packing their bags on Sunday morning.
+    explanation: |
+      The passage states that after Typhoon Egay breached the dike late Monday, Captain Mendoza walked through the village sounding an iron gong at midnight.
+
+  - id: rc-cs-se-0010
+    passage: rc-cs-se-p2
+    type: analyze
+    difficulty: hard
+    stem: |
+      Why is identifying the timeline in this narrative challenging for readers?
+    choices:
+      - text: The story begins with Tuesday, flashing back to Sunday.
+        correct: true
+      - text: The passage fails to mention any specific days of the week or time indicators.
+      - text: The rescue boats arrived before the major typhoon occurred.
+      - text: Captain Mendoza instructed residents after the rescue was completed.
+    explanation: |
+      Opening with the Tuesday rescue and then jumping back to Sunday and Monday requires the reader to resequence the non-chronological narrative.

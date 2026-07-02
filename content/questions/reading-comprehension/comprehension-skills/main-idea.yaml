@@ -1,0 +1,263 @@
+meta:
+  subject: reading-comprehension
+  topic: comprehension-skills
+  subtopic: main-idea
+  exams:
+    - upcat
+    - acet
+    - dlsucet
+    - ustet
+
+passages:
+  - id: rc-cs-mi-p1
+    title: "The Barangay Vacant Lot Dispute"
+    body: |
+      For years, an idle two-hundred-square-meter lot behind the barangay hall of San Jose served as an informal dumping ground for construction debris and broken furniture. In early March, the barangay council proposed converting the space into a community vegetable garden to help low-income families offset rising food prices. However, a local youth association petitioned to build a paved basketball court on the same site, arguing that young residents lacked safe recreational facilities within walking distance.
+
+      To resolve the conflict, Barangay Captain Elena Cruz organized a series of public consultations with elders, parents, and youth leaders. Rather than picking one proposal over the other, the council adopted a hybrid layout designed by a local volunteer architect. Under the approved design, sixty percent of the lot was dedicated to raised garden beds and a composting station, while the remaining portion was developed into a half-court basketball area equipped with solar lighting.
+
+      By August, the garden was producing harvests of eggplant, okra, and tomatoes for thirty neighborhood families, while the half-court hosted nightly youth games. The collaborative resolution not only settled a community dispute but also established a model for shared public space management across neighboring barangays.
+
+  - id: rc-cs-mi-p2
+    title: "Economics of a Sari-Sari Store"
+    body: |
+      Aling Rosa has operated her sari-sari store in Sampaloc for over fifteen years, supplying her neighborhood with daily essentials ranging from cooking oil to mobile phone load. While large supermarkets offer lower prices, small neighborhood stores survive because they provide unmatched physical convenience and flexible credit terms to regular customers. Many residents rely on Aling Rosa's store during emergencies or near the end of the month when cash reserves are low.
+
+      Managing a micro-retail business, however, requires careful inventory control and strict financial discipline. Aling Rosa buys stock in bulk from wholesale markets every Monday morning to secure wholesale discounts. To manage credit risks, she limits store credit to long-term neighbors and records every transaction in a ledger book called a 'talaan'. She also maintains a rule that credit balances must be settled before new purchases can be charged.
+
+      Despite thin profit margins and competition from modern convenience stores, Aling Rosa keeps her store profitable through personal relationships and prudent cash flow management. Her experience demonstrates that small-scale neighborhood commerce endures when owners balance community empathy with sound business habits.
+
+  - id: rc-cs-mi-p3
+    title: "Restoring Mangroves in Coastal Quezon"
+    body: |
+      The coastal municipality of Real in Quezon province was historically vulnerable to destructive typhoon storm surges due to decades of illegal mangrove cutting and land conversion into fishponds. In response to increasing storm frequency, local fisherfolk organizations teamed up with marine biologists to launch a systematic mangrove reforestation project along five kilometers of shoreline.
+
+      Reforestation involved more than simply planting seedlings into coastal mud. Volunteers carefully selected indigenous mangrove species tailored to specific tidal elevations and soil salinities, ensuring high survival rates. Older fishpond dikes were breached to restore natural seawater circulation, allowing wild mangrove propagules to take root alongside nursery-grown seedlings. Local youth groups were trained to monitor tree growth and clear plastic debris twice a month.
+
+      Three years after the initial planting, the restored mangrove belt reduced wave energy during seasonal storms, protecting coastal roads and houses from severe flooding. The dense root systems also served as nurseries for mud crabs and juvenile fish, boosting local fishery yields. The project highlights how community-driven ecosystem restoration can simultaneously improve disaster resilience and coastal livelihoods.
+
+questions:
+  - id: rc-cs-mi-0001
+    passage: rc-cs-mi-p1
+    type: analyze
+    difficulty: easy
+    stem: |
+      What is the main idea of the passage about the barangay vacant lot?
+    choices:
+      - text: A community resolved a land-use conflict by creating a shared hybrid space.
+        correct: true
+      - text: Young residents needed a safe basketball court within walking distance.
+      - text: Rising food prices forced low-income families to start farming.
+      - text: Barangay Captain Elena Cruz approved the construction of a full basketball court.
+    explanation: |
+      The passage focuses on how a dispute over a vacant lot was resolved through community consultation into a successful hybrid space. The other options represent specific arguments or details mentioned in the text.
+
+  - id: rc-cs-mi-0002
+    passage: rc-cs-mi-p1
+    type: identify
+    difficulty: easy
+    stem: |
+      What percentage of the vacant lot was allocated to raised garden beds?
+    choices:
+      - text: Sixty percent
+        correct: true
+      - text: Forty percent
+      - text: Fifty percent
+      - text: Thirty percent
+    explanation: |
+      The second paragraph explicitly states that under the approved design, sixty percent of the lot was dedicated to raised garden beds.
+
+  - id: rc-cs-mi-0003
+    passage: rc-cs-mi-p1
+    type: infer
+    difficulty: medium
+    stem: |
+      What can be inferred about Barangay Captain Elena Cruz's leadership style?
+    choices:
+      - text: She prefers collaborative problem-solving over top-down orders.
+        correct: true
+      - text: She avoids making decisions until external municipal architects intervene.
+      - text: She favors youth athletic activities over local agricultural projects.
+      - text: She rejected the original proposals because of severe budget limitations.
+    explanation: |
+      By organizing public consultations with elders, parents, and youth leaders to find a shared solution, Captain Cruz demonstrated a collaborative leadership style rather than imposing a single choice.
+
+  - id: rc-cs-mi-0004
+    passage: rc-cs-mi-p1
+    type: evaluate
+    difficulty: medium
+    stem: |
+      Which statement best explains why the youth association originally petitioned the council?
+    choices:
+      - text: They believed youth lacked safe nearby sports facilities.
+        correct: true
+      - text: They wanted to stop low-income families from harvesting vegetables.
+      - text: They hoped to install solar lighting across the whole barangay.
+      - text: They owned the construction debris left on the vacant lot.
+    explanation: |
+      The first paragraph notes that the youth association petitioned for a basketball court because young residents lacked safe recreational facilities within walking distance.
+
+  - id: rc-cs-mi-0005
+    passage: rc-cs-mi-p1
+    type: analyze
+    difficulty: hard
+    stem: |
+      How does the final paragraph contribute to the passage as a whole?
+    choices:
+      - text: It demonstrates positive outcomes of the hybrid resolution.
+        correct: true
+      - text: It introduces a brand new dispute between neighboring barangays.
+      - text: It details the exact financial budget required for solar lighting installation.
+      - text: It argues that vegetable gardens are more valuable than sports courts.
+    explanation: |
+      The final paragraph describes the harvest and youth activity by August, showing how the hybrid resolution achieved positive results for both sides and created a useful model.
+
+  - id: rc-cs-mi-0006
+    passage: rc-cs-mi-p2
+    type: analyze
+    difficulty: easy
+    stem: |
+      What is the main idea of the passage about Aling Rosa's sari-sari store?
+    choices:
+      - text: Store owners stay viable by balancing trust with discipline.
+        correct: true
+      - text: Supermarkets will soon replace all neighborhood sari-sari stores.
+      - text: Micro-retail businesses should avoid giving credit to neighbors.
+      - text: Buying inventory on Monday mornings is the only way to earn a profit.
+    explanation: |
+      The main idea is stated in the concluding paragraph: small neighborhood stores endure when owners combine community empathy with prudent management habits.
+
+  - id: rc-cs-mi-0007
+    passage: rc-cs-mi-p2
+    type: identify
+    difficulty: easy
+    stem: |
+      What is the primary function of the ledger book called a 'talaan' in the store?
+    choices:
+      - text: Recording credit transactions for regular customers
+        correct: true
+      - text: Listing wholesale market prices in nearby cities
+      - text: Tracking mobile phone load expiration dates across all vendors
+      - text: Calculating monthly tax payments for the municipal barangay
+    explanation: |
+      The second paragraph states that Aling Rosa records credit transactions in a ledger book called a 'talaan'.
+
+  - id: rc-cs-mi-0008
+    passage: rc-cs-mi-p2
+    type: infer
+    difficulty: medium
+    stem: |
+      Why do neighborhood residents continue buying from Aling Rosa despite higher prices than supermarkets?
+    choices:
+      - text: They value physical proximity and flexible credit terms.
+        correct: true
+      - text: Supermarkets do not carry daily items like cooking oil or phone load.
+      - text: Aling Rosa sells wholesale inventory at half price every weekend.
+      - text: The barangay mandates that residents purchase goods locally.
+    explanation: |
+      The first paragraph explains that small neighborhood stores survive because they provide unmatched physical convenience and flexible credit terms during financial bottlenecks.
+
+  - id: rc-cs-mi-0009
+    passage: rc-cs-mi-p2
+    type: evaluate
+    difficulty: medium
+    stem: |
+      Which rule helps Aling Rosa mitigate the financial risks of extending credit?
+    choices:
+      - text: Customers must settle credit balances before new charges.
+        correct: true
+      - text: Customers must pay a monthly interest fee on all grocery debts.
+      - text: Credit is granted only to customers who purchase wholesale inventory.
+      - text: Credit transactions are limited to mobile phone load purchases.
+    explanation: |
+      The second paragraph explains that Aling Rosa requires credit balances to be settled before new purchases can be charged.
+
+  - id: rc-cs-mi-0010
+    passage: rc-cs-mi-p2
+    type: analyze
+    difficulty: hard
+    stem: |
+      Which choice represents a supporting detail rather than the main idea of the passage?
+    choices:
+      - text: Aling Rosa buys wholesale stock every Monday morning to get discounts.
+        correct: true
+      - text: Personal relationships and financial discipline keep micro-retail stores viable.
+      - text: Sari-sari stores endure by offering convenience and community trust.
+      - text: Prudent cash flow management allows small stores to withstand modern competition.
+    explanation: |
+      Buying wholesale stock on Mondays is a specific operational detail, whereas the other options summarize the broader thesis of the passage.
+
+  - id: rc-cs-mi-0011
+    passage: rc-cs-mi-p3
+    type: analyze
+    difficulty: easy
+    stem: |
+      What is the main idea of the mangrove restoration passage?
+    choices:
+      - text: Mangrove reforestation strengthened coastal defense and marine life.
+        correct: true
+      - text: Typhoon storm surges destroyed all commercial fishponds in Quezon province.
+      - text: Planting seedlings in coastal mud requires specialized industrial machinery.
+      - text: Local youth groups were paid by marine biologists to clean roads.
+    explanation: |
+      The passage shows how local fisherfolk and scientists successfully restored mangroves, resulting in reduced storm damage and improved fishery yields.
+
+  - id: rc-cs-mi-0012
+    passage: rc-cs-mi-p3
+    type: identify
+    difficulty: easy
+    stem: |
+      Why were older fishpond dikes breached during the reforestation process?
+    choices:
+      - text: To restore seawater circulation for wild propagules to take root
+        correct: true
+      - text: To make space for building new coastal roads and concrete bridges
+      - text: To prevent local fisherfolk from harvesting mud crabs in the bay
+      - text: To drain seawater away from the fragile mangrove saplings
+    explanation: |
+      The second paragraph states that dikes were breached to restore natural seawater circulation, which helped wild mangrove propagules take root.
+
+  - id: rc-cs-mi-0013
+    passage: rc-cs-mi-p3
+    type: infer
+    difficulty: medium
+    stem: |
+      What does the selection of specific mangrove species based on salinity suggest about the project?
+    choices:
+      - text: Organizers used scientific methods to maximize seedling survival.
+        correct: true
+      - text: All mangrove trees grow equally well in any coastal environment.
+      - text: Nursery-grown seedlings were completely unavailable in Real, Quezon.
+      - text: Salinity levels were lowered by dumping fresh water into the sea.
+    explanation: |
+      Tailoring mangrove species selection to specific tidal elevations and soil salinities demonstrates a scientifically informed approach designed to ensure high survival rates.
+
+  - id: rc-cs-mi-0014
+    passage: rc-cs-mi-p3
+    type: evaluate
+    difficulty: medium
+    stem: |
+      According to the text, what double benefit did the restored mangrove belt provide after three years?
+    choices:
+      - text: Reduced wave energy and increased marine habitats
+        correct: true
+      - text: Higher tourism revenue and lower fishpond construction costs
+      - text: Free plastic clearing services and expanded coastal road lanes
+      - text: Elimination of all typhoons and expanded freshwater reservoirs
+    explanation: |
+      The final paragraph notes that the mangroves reduced wave energy (disaster resilience) and provided nurseries for fish and mud crabs (livelihood benefit).
+
+  - id: rc-cs-mi-0015
+    passage: rc-cs-mi-p3
+    type: analyze
+    difficulty: hard
+    stem: |
+      Which title best captures the core subject of the mangrove passage?
+    choices:
+      - text: Restoring Coastal Protection Through Reforestation
+        correct: true
+      - text: The Complete History of Fishpond Construction in Quezon
+      - text: How Plastic Debris Destructive Waves Harms Local Youth
+      - text: Commercial Fishing Strategies in Extreme Typhoons
+    explanation: |
+      The title reflects the central theme of environmental restoration bringing both disaster protection and economic benefits to coastal communities.
