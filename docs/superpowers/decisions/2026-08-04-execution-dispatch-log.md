@@ -521,3 +521,80 @@ report before checking its content.** The report was clean, confident and wrong 
 question count, and a findings section that presented the poetry workaround as an operational
 note rather than as the deviation it was. The longest-choice defect appears nowhere in it. **An
 agent's self-report tells you what it believes it did.** The 75% figure took one script.
+
+---
+
+## 4 August, late: the revision pass, and the defect it uncovered underneath
+
+### The revision pass did its three jobs
+
+Verified independently rather than from its report: **longest-correct is 0 of 160**, the three
+poems are 85 to 93 words and carry `form: poetry`, and every text-type id is `rc-tt-`. No stem
+was touched and no prose passage body was touched, which is what "choices only" was supposed to
+mean. Validator 0 across the corpus, 1146 tests green, merged and pushed.
+
+**One thing about the dispatch itself, and I was wrong.** The classifier refused the run twice,
+then failed once with a transient error, and I told Aedwon I would stop rather than keep
+hammering it. His answer was **"what? just run it with shell again"**, and it went through on the
+next attempt. **The refusal was flaky, not a policy.** He was right and I stopped one retry
+early.
+
+### Underneath it: the correct answer is A in 96% of the corpus
+
+Checking whether the rewrite had overcorrected into a new tell turned up something far larger,
+and **nothing to do with either agent that ran today.**
+
+| | Correct answer at position 0 |
+|---|---|
+| Science | **777 of 777** |
+| Reasoning | **208 of 208** |
+| Mathematics | 622 of 689 |
+| Language | 305 of 319 |
+| **Corpus** | **2,072 of 2,153, 96.2%** |
+
+**Choices are not shuffled anywhere.** Question order is shuffled in two places; choice order
+never was. So the student saw them exactly as authored, and **the entire bank was beatable by
+always picking A** without reading the question. For an exam reviewer that is the product failing
+at the only thing it claims to do.
+
+**It is invisible per file.** Any one question with its answer first looks fine. Only the count
+across the corpus shows it, which is why it survived every content run and every review to date.
+
+### The options, and why it was a code fix
+
+| Option | Cost |
+|---|---|
+| **Order the choices when a question is read** | One change, fixes all 2,153 at once and every question written from here. *Recommended and chosen.* |
+| **Rewrite the corpus to vary the position** | Thousands of edits, and the next authoring run reintroduces it, because writing the answer first is the natural way to draft a question. |
+
+Aedwon's instruction was **"just implement it directly"**, so no plan was written for it.
+
+### How it works, and the two things that made it safe
+
+The order comes from a hash of the question id, not from a random seed.
+
+- **Scoring already compared choice ids, never positions.** `chosenChoiceId == correctChoiceId`.
+  So reordering cannot change whether an answer is marked right. This was checked before the
+  change, not after.
+- **Deriving the order from the id makes it stable**, so the quiz, the reveal and the review put
+  the choices in the same places without anything having to carry the order between them. A
+  per-attempt random order would have needed storing.
+- **The A, B, C, D labels are re-lettered after the reorder.** They are assigned by position at
+  import, so without this the student would have seen C, A, D, B and it would have looked broken.
+
+Applied at both places a question is read: the seed path the app uses today, and the content
+database path that has no reader yet. The second was included so the defect cannot return when
+that path gets a UI.
+
+**Eight tests, written first and confirmed failing.** Measured against the real 2,153 corpus ids
+afterwards: **522, 510, 558, 563** across the four positions, from 2,072 / 43 / 32 / 5.
+
+**1154 tests pass**, analyzer unchanged, layering 7, formatter clean.
+
+### What I got wrong
+
+**I audited the reading comprehension run for the rule the plan named and stopped there.** The
+longest-choice rule was written down, so I checked it. Answer position was not written down
+anywhere, so I did not check it until an overcorrection check went looking for a different
+problem entirely. **A constraint absent from the plan is not a constraint the content meets**,
+and the corpus had been carrying this one since the first question was written.
