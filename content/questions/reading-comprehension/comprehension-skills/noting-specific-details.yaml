@@ -59,7 +59,7 @@ questions:
     stem: |
       What were the final total project investments reported for the CCLEX construction?
     choices:
-      - text: Thirty-three billion pesos
+      - text: 33 billion pesos
         correct: true
       - text: Twenty-six billion pesos
       - text: Fifty billion pesos
@@ -104,7 +104,7 @@ questions:
     stem: |
       Who served as the project's chief structural inspector during the final construction phase?
     choices:
-      - text: Engineer Manuel Santos
+      - text: Manuel Santos
         correct: true
       - text: Engineer Elena Cruz
       - text: Engineer Ramon Vega
@@ -179,7 +179,7 @@ questions:
     stem: |
       What was the estimated length of the grand parade route during the festival?
     choices:
-      - text: Three kilometers
+      - text: 3 kilometers
         correct: true
       - text: Five kilometers
       - text: Ten kilometers
@@ -209,7 +209,7 @@ questions:
     stem: |
       During which months does coffee harvesting take place in Atok?
     choices:
-      - text: November to February
+      - text: Nov to Feb
         correct: true
       - text: March to June
       - text: July to October
@@ -224,7 +224,7 @@ questions:
     stem: |
       What was the farmgate price per kilogram of green coffee beans in 2023?
     choices:
-      - text: Five hundred fifty pesos
+      - text: 550 pesos
         correct: true
       - text: Two hundred pesos
       - text: Three hundred pesos
@@ -239,7 +239,7 @@ questions:
     stem: |
       At what elevation range is the cooperative's Arabica coffee cultivated?
     choices:
-      - text: Between 1,200 and 1,600 meters above sea level
+      - text: 1,200 to 1,600 meters above sea level
         correct: true
       - text: Between 500 and 800 meters above sea level
       - text: Below 1,000 meters above sea level
