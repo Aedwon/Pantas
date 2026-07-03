@@ -1,12 +1,20 @@
-import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/paywall/application/paywall_controller.dart';
 import 'package:cse_cet_reviewer/features/paywall/application/paywall_providers.dart';
 import 'package:cse_cet_reviewer/features/paywall/domain/paywall_package.dart';
 import 'package:cse_cet_reviewer/features/paywall/domain/paywall_recommendation.dart';
-import 'package:cse_cet_reviewer/features/paywall/presentation/paywall_package_card.dart';
+import 'package:cse_cet_reviewer/features/paywall/presentation/plans_page.dart';
+import 'package:cse_cet_reviewer/features/paywall/presentation/trial_timeline_page.dart';
+import 'package:cse_cet_reviewer/features/paywall/presentation/what_pro_adds_page.dart';
+import 'package:cse_cet_reviewer/features/settings/application/settings_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+enum _PaywallStep {
+  whatProAdds,
+  plans,
+  trialTimeline,
+}
 
 class PaywallPage extends ConsumerStatefulWidget {
   const PaywallPage({
@@ -30,7 +38,8 @@ class PaywallPage extends ConsumerStatefulWidget {
 }
 
 class _PaywallPageState extends ConsumerState<PaywallPage> {
-  late PaywallSku _selectedSku = widget.recommendedSku;
+  _PaywallStep _step = _PaywallStep.whatProAdds;
+  PaywallPackage? _selectedPackage;
   String? _errorMessage;
 
   @override
@@ -41,12 +50,37 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
         );
   }
 
+  Future<void> _handlePurchase(PaywallPackage package) async {
+    final controller = ref.read(paywallControllerProvider);
+    final purchaseFn = widget.onPurchase ?? controller.purchase;
+    try {
+      final result = await purchaseFn(package);
+      if (!mounted) return;
+      if (result.errorMessage != null) {
+        setState(() => _errorMessage = result.errorMessage);
+      }
+    } catch (_) {
+      if (!mounted) return;
+      setState(
+        () => _errorMessage =
+            'You need a connection to subscribe. Try again when '
+            "you're back online.",
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final styles = context.textStyles;
     final colors = context.colors;
-    final packages = paywallDisplayOrder(widget.packages);
-    if (packages.isEmpty) {
+
+    final availablePackages = widget.packages.isNotEmpty
+        ? widget.packages
+        : (ref.watch(paywallPackagesProvider).valueOrNull ?? const []);
+
+    final orderedPackages = paywallDisplayOrder(availablePackages);
+
+    if (orderedPackages.isEmpty) {
       return Scaffold(
         appBar: AppBar(title: const Text('Try Pro')),
         body: Center(
@@ -58,10 +92,41 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
         ),
       );
     }
-    final selected = packages.firstWhere(
-      (package) => package.sku == _selectedSku,
-      orElse: () => packages.first,
-    );
+
+    final selectedPkg = _selectedPackage ??
+        orderedPackages.firstWhere(
+          (p) => p.sku == widget.recommendedSku,
+          orElse: () => orderedPackages.first,
+        );
+
+    final userSettings = ref.watch(userSettingsProvider).valueOrNull;
+    final examDate = userSettings?.examDate;
+    final today = DateTime.now();
+
+    final Widget pageBody = switch (_step) {
+      _PaywallStep.whatProAdds => WhatProAddsPage(
+          onSeePlans: () => setState(() => _step = _PaywallStep.plans),
+        ),
+      _PaywallStep.plans => PlansPage(
+          packages: orderedPackages,
+          examDate: examDate,
+          today: today,
+          selectedPackage: selectedPkg,
+          onSelect: (pkg) => setState(() => _selectedPackage = pkg),
+          onContinue: () {
+            if (selectedPkg.sku == PaywallSku.yearly) {
+              setState(() => _step = _PaywallStep.trialTimeline);
+            } else {
+              _handlePurchase(selectedPkg);
+            }
+          },
+        ),
+      _PaywallStep.trialTimeline => TrialTimelinePage(
+          today: today,
+          yearlyPrice: selectedPkg.priceString,
+          onStart: () => _handlePurchase(selectedPkg),
+        ),
+    };
 
     return Scaffold(
       appBar: AppBar(
@@ -90,47 +155,19 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
           ),
         ],
       ),
-      body: ListView(
-        padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+      body: Column(
         children: [
-          Text(
-            'Practice with sharper coaching and deeper mock review.',
-            style: styles.bodyMedium.copyWith(color: colors.inkMuted),
-          ),
-          const SizedBox(height: 12),
-          for (final package in packages)
-            PaywallPackageCard(
-              package: package,
-              isSelected: package.sku == _selectedSku,
-              isRecommended: package.sku == widget.recommendedSku,
-              badgeCopy: recommendationBadgeCopy(
-                recommended: widget.recommendedSku,
-                hasExamDate: widget.recommendedSku != PaywallSku.yearly,
-              ),
-              onTap: () => setState(() => _selectedSku = package.sku),
-            ),
-          const SizedBox(height: 16),
           if (_errorMessage != null)
-            Text(
-              _errorMessage!,
-              style: styles.bodyMedium.copyWith(color: colors.rust),
-            )
-          else
-            BoardButton(
-              label: ctaCopyFor(selected),
-              onPressed: () async {
-                final purchase = widget.onPurchase;
-                if (purchase == null) return;
-                final result = await purchase(selected);
-                if (!mounted) return;
-                setState(() => _errorMessage = result.errorMessage);
-              },
+            Container(
+              width: double.infinity,
+              color: colors.rust.withAlpha(25),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+              child: Text(
+                _errorMessage!,
+                style: styles.bodyMedium.copyWith(color: colors.rust),
+              ),
             ),
-          const SizedBox(height: 8),
-          Text(
-            'Paid through Google Play.',
-            style: styles.bodySmall.copyWith(color: colors.inkMuted),
-          ),
+          Expanded(child: pageBody),
         ],
       ),
     );
