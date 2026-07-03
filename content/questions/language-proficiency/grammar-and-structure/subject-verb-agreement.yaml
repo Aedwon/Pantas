@@ -205,11 +205,11 @@ questions:
     stem: |
       A student sees "The box of chocolates ___ on the table" and picks "are," reasoning that "chocolates" (the word right before the blank) is plural. Is this reasoning correct?
     choices:
-      - text: No — the true subject is "box" (singular), not "chocolates"; test-makers place a plural noun right before the verb specifically to tempt you into matching the wrong, nearer word instead of the true subject.
+      - text: 'No: the true subject is "box" (singular), not "chocolates"; test-makers place a plural noun right before the verb specifically to tempt you into matching the wrong, nearer word instead of the true subject.'
         correct: true
-      - text: Yes — the noun closest to the verb always determines agreement, regardless of the true subject.
-      - text: Yes — but only because "chocolates" is actually the true subject in this sentence.
-      - text: No — but only because "box" and "chocolates" are both plural.
+      - text: 'Yes: the noun closest to the verb always determines agreement, regardless of the true subject.'
+      - text: 'Yes: but only because "chocolates" is actually the true subject in this sentence.'
+      - text: 'No: but only because "box" and "chocolates" are both plural.'
     explanation: |
       The true subject decides the verb, even if other nouns sit closer to the verb in the sentence. "The box of chocolates is (not are) on the table" is correct, since "box" is the true, singular subject.
     approved: true
@@ -220,11 +220,11 @@ questions:
     stem: |
       A student assumes "The team ___ celebrating" needs "are," reasoning that a team is made up of multiple people. Is this reasoning correct?
     choices:
-      - text: No — collective nouns like "team" are usually treated as singular, since they name one group acting as a unit; unless the sentence clearly emphasizes individual members acting separately, use the singular verb "is."
+      - text: 'No: collective nouns like "team" are usually treated as singular, since they name one group acting as a unit; unless the sentence clearly emphasizes individual members acting separately, use the singular verb "is."'
         correct: true
-      - text: Yes — any noun referring to multiple people always takes a plural verb.
-      - text: Yes — but only because "team" contains the letter combination that signals plurality.
-      - text: No — but only because "team" is not actually a collective noun.
+      - text: 'Yes: any noun referring to multiple people always takes a plural verb.'
+      - text: 'Yes: but only because "team" contains the letter combination that signals plurality.'
+      - text: 'No: but only because "team" is not actually a collective noun.'
     explanation: |
       Many students assume a "team" or "family" (multiple people) needs a plural verb. Unless the sentence clearly emphasizes the individual members acting separately, collective nouns are treated as singular.
     approved: true
@@ -235,11 +235,11 @@ questions:
     stem: |
       A student writes "Everybody have their own opinion," reasoning that "everybody" refers to many people and should take a plural verb. Is this reasoning correct?
     choices:
-      - text: No — "everybody" is an indefinite pronoun ending in "-body," which is always singular, no matter how many people it refers to; the correct verb is "has," not "have."
+      - text: 'No: "everybody" is an indefinite pronoun ending in "-body," which is always singular, no matter how many people it refers to; the correct verb is "has," not "have."'
         correct: true
-      - text: Yes — "everybody" always takes a plural verb, since it refers to a group of people.
-      - text: Yes — but only when the sentence is about opinions specifically.
-      - text: No — but only because "everybody" is not actually a pronoun.
+      - text: 'Yes: "everybody" always takes a plural verb, since it refers to a group of people.'
+      - text: 'Yes: but only when the sentence is about opinions specifically.'
+      - text: 'No: but only because "everybody" is not actually a pronoun.'
     explanation: |
       Even though "everybody" refers to many people, it grammatically behaves as one singular unit. "Everybody has (not have) their own opinion" is correct.
     approved: true
@@ -250,11 +250,11 @@ questions:
     stem: |
       A student writes "Neither the students nor the teacher were late," matching the verb to "students" since it appears first in the sentence. Is this correct?
     choices:
-      - text: No — with "or" or "nor," match the verb to the subject closest to it, not the first one mentioned; the closer subject here is "teacher" (singular), so the correct verb is "was," not "were."
+      - text: 'No: with "or" or "nor," match the verb to the subject closest to it, not the first one mentioned; the closer subject here is "teacher" (singular), so the correct verb is "was," not "were."'
         correct: true
-      - text: Yes — the first subject mentioned always determines the verb in an "or/nor" sentence.
-      - text: Yes — but only because "students" and "teacher" are both considered plural together.
-      - text: No — but only because "neither...nor" sentences never require verb agreement at all.
+      - text: 'Yes: the first subject mentioned always determines the verb in an "or/nor" sentence.'
+      - text: 'Yes: but only because "students" and "teacher" are both considered plural together.'
+      - text: 'No: but only because "neither...nor" sentences never require verb agreement at all.'
     explanation: |
       With "or" or "nor," match the verb to the subject closest to it, not the first one mentioned. "Neither the students nor the teacher was late" is correct, matching "teacher," the closer subject.
     approved: true

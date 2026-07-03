@@ -61,7 +61,7 @@ questions:
       - text: Noun
       - text: Verb
     explanation: |
-      "Diligent" describes the noun "student," telling us what kind of student she is — this is an adjective.
+      "Diligent" describes the noun "student," telling us what kind of student she is: this is an adjective.
     approved: true
 
   - id: q-grammar-and-structure-parts-of-speech-0005
@@ -76,7 +76,7 @@ questions:
       - text: Verb
       - text: Noun
     explanation: |
-      "Quickly" describes the verb "finished," telling us how she finished — this is an adverb.
+      "Quickly" describes the verb "finished," telling us how she finished: this is an adverb.
     approved: true
 
   - id: q-grammar-and-structure-parts-of-speech-0006
@@ -250,11 +250,11 @@ questions:
     stem: |
       A student assumes the word "run" is always a verb, since that is its most common job. In the sentence "She went for a run every morning," is "run" functioning as a verb here?
     choices:
-      - text: No — here "run" is a noun (referring to the activity or exercise session), not a verb; the same word can have different jobs in different sentences.
+      - text: 'No: here "run" is a noun (referring to the activity or exercise session), not a verb; the same word can have different jobs in different sentences.'
         correct: true
-      - text: Yes — "run" is always a verb regardless of context.
-      - text: Yes — but only because "morning" is also functioning as a verb here.
-      - text: No — "run" can never function as a verb in any sentence.
+      - text: 'Yes: "run" is always a verb regardless of context.'
+      - text: 'Yes: but only because "morning" is also functioning as a verb here.'
+      - text: 'No: "run" can never function as a verb in any sentence.'
     explanation: |
       Words like "run" can be nouns or verbs depending on how they are used. Here, "a run" names an activity (a noun), not an action being performed directly.
     approved: true
@@ -265,11 +265,11 @@ questions:
     stem: |
       A student assumes "friendly" must be an adverb since it ends in "-ly." In the sentence "The friendly neighbor waved at us," is this assumption correct?
     choices:
-      - text: No — "friendly" is actually an adjective here, describing the noun "neighbor"; not every word ending in "-ly" is an adverb.
+      - text: 'No: "friendly" is actually an adjective here, describing the noun "neighbor"; not every word ending in "-ly" is an adverb.'
         correct: true
-      - text: Yes — any word ending in "-ly" is always an adverb.
-      - text: Yes — but only because "neighbor" is also functioning as an adverb here.
-      - text: No — "friendly" is a noun, not an adverb or adjective.
+      - text: 'Yes: any word ending in "-ly" is always an adverb.'
+      - text: 'Yes: but only because "neighbor" is also functioning as an adverb here.'
+      - text: 'No: "friendly" is a noun, not an adverb or adjective.'
     explanation: |
       "Friendly," "lovely," and "lonely" all end in "-ly" but are adjectives, since they describe nouns. Always check the word's job in the sentence, not just its ending.
     approved: true
@@ -280,11 +280,11 @@ questions:
     stem: |
       In "We left before dinner," the word "before" functions as a preposition. In "We left before we finished dinner," does "before" still function the same way?
     choices:
-      - text: No — in the second sentence, "before" is followed by a full clause with its own subject and verb ("we finished dinner"), making it a conjunction instead of a preposition.
+      - text: 'No: in the second sentence, "before" is followed by a full clause with its own subject and verb ("we finished dinner"), making it a conjunction instead of a preposition.'
         correct: true
-      - text: Yes — "before" is always a preposition regardless of what follows it.
-      - text: Yes — but only because "dinner" changes its part of speech instead.
-      - text: No — "before" functions as an adverb in both sentences.
+      - text: 'Yes: "before" is always a preposition regardless of what follows it.'
+      - text: 'Yes: but only because "dinner" changes its part of speech instead.'
+      - text: 'No: "before" functions as an adverb in both sentences.'
     explanation: |
       Words like "before," "after," and "since" can function as either a preposition (followed by just a noun phrase) or a conjunction (followed by a full clause with its own subject and verb).
     approved: true

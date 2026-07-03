@@ -25,9 +25,9 @@ questions:
     stem: |
       Is this sentence active or passive voice? "The dog chased the ball."
     choices:
-      - text: Active — the subject "dog" performs the action
+      - text: 'Active: the subject "dog" performs the action'
         correct: true
-      - text: Passive — the subject receives the action
+      - text: 'Passive: the subject receives the action'
       - text: Neither; this sentence has no voice
       - text: Both active and passive simultaneously
     explanation: |
@@ -40,13 +40,13 @@ questions:
     stem: |
       Is this sentence active or passive voice? "The ball was chased by the dog."
     choices:
-      - text: Passive — the subject "ball" receives the action
+      - text: 'Passive: the subject "ball" receives the action'
         correct: true
-      - text: Active — the subject performs the action
+      - text: 'Active: the subject performs the action'
       - text: Neither; this sentence has no voice
       - text: Both active and passive simultaneously
     explanation: |
-      The subject "ball" receives the action, and "was chased" uses a form of "to be" plus the past participle — this is passive voice.
+      The subject "ball" receives the action, and "was chased" uses a form of "to be" plus the past participle: this is passive voice.
     approved: true
 
   - id: q-grammar-and-structure-tenses-and-voice-0004
@@ -76,7 +76,7 @@ questions:
       - text: Cooks
       - text: Will cook
     explanation: |
-      The cooking was completed before the guests arrived — an earlier past action relative to another past action. This calls for the past perfect tense: "had cooked."
+      The cooking was completed before the guests arrived: an earlier past action relative to another past action. This calls for the past perfect tense: "had cooked."
     approved: true
 
   - id: q-grammar-and-structure-tenses-and-voice-0006
@@ -175,11 +175,11 @@ questions:
     stem: |
       A student writes "She walked to the store and buys bread," switching from past to present tense mid-sentence. Is this correct?
     choices:
-      - text: No — verbs describing actions in the same timeline should stay in the same tense; this should read "walked... and bought."
+      - text: 'No: verbs describing actions in the same timeline should stay in the same tense; this should read "walked... and bought."'
         correct: true
-      - text: Yes — switching tense mid-sentence is always acceptable for variety.
-      - text: Yes — but only because "store" and "bread" are different nouns.
-      - text: No — but only because "walked" should actually be changed to present tense instead.
+      - text: 'Yes: switching tense mid-sentence is always acceptable for variety.'
+      - text: 'Yes: but only because "store" and "bread" are different nouns.'
+      - text: 'No: but only because "walked" should actually be changed to present tense instead.'
     explanation: |
       A sentence describing a single past story that suddenly switches to present tense is a common sentence-correction error. Only shift tense when the timeline itself genuinely changes.
     approved: true
@@ -190,13 +190,13 @@ questions:
     stem: |
       A student sees "She is happy" and assumes it must be passive voice, since it uses the word "is." Is this correct?
     choices:
-      - text: No — "happy" is an adjective, not a past participle describing an action done to the subject; passive voice specifically needs "to be" plus a past participle.
+      - text: 'No: "happy" is an adjective, not a past participle describing an action done to the subject; passive voice specifically needs "to be" plus a past participle.'
         correct: true
-      - text: Yes — any sentence with "is," "was," or "were" is automatically passive voice.
-      - text: Yes — but only because "happy" sounds like a participle.
-      - text: No — but only because "she" cannot be a subject in passive voice.
+      - text: 'Yes: any sentence with "is," "was," or "were" is automatically passive voice.'
+      - text: 'Yes: but only because "happy" sounds like a participle.'
+      - text: 'No: but only because "she" cannot be a subject in passive voice.'
     explanation: |
-      Not every sentence with "is," "was," or "were" is automatically passive — check for the past participle too. "She is happy" is not passive, since "happy" is an adjective, not a past participle showing an action received.
+      Not every sentence with "is," "was," or "were" is automatically passive: check for the past participle too. "She is happy" is not passive, since "happy" is an adjective, not a past participle showing an action received.
     approved: true
 
   - id: q-grammar-and-structure-tenses-and-voice-0014
@@ -205,11 +205,11 @@ questions:
     stem: |
       A student writes "She finished the report before her boss asked for it," without using past perfect for the earlier action. Is this the exam-preferred version?
     choices:
-      - text: No — since "finished" happened before "asked" (both past events), the earlier action needs past perfect, giving "She had finished the report before her boss asked for it."
+      - text: 'No: since "finished" happened before "asked" (both past events), the earlier action needs past perfect, giving "She had finished the report before her boss asked for it."'
         correct: true
-      - text: Yes — past perfect is never necessary when both actions are already in the past tense.
-      - text: Yes — but only because "report" is a singular noun.
-      - text: No — but only because "asked" should be changed to past perfect instead.
+      - text: 'Yes: past perfect is never necessary when both actions are already in the past tense.'
+      - text: 'Yes: but only because "report" is a singular noun.'
+      - text: 'No: but only because "asked" should be changed to past perfect instead.'
     explanation: |
       When one past action happened before another past action, the earlier action needs the past perfect ("had" + past participle). "She had finished the report before her boss asked for it" is the exam-preferred, more precise version.
     approved: true
@@ -226,7 +226,7 @@ questions:
       - text: Present perfect
       - text: Past perfect
     explanation: |
-      "Will write" describes an action that has not happened yet — this is simple future tense.
+      "Will write" describes an action that has not happened yet: this is simple future tense.
     approved: true
 
   - id: q-grammar-and-structure-tenses-and-voice-0016
@@ -241,7 +241,7 @@ questions:
       - text: Simple future
       - text: Past perfect
     explanation: |
-      "Has written" describes an action completed at an unspecified time, still relevant to the present ("this week") — this is present perfect tense.
+      "Has written" describes an action completed at an unspecified time, still relevant to the present ("this week"): this is present perfect tense.
     approved: true
 
   - id: q-grammar-and-structure-tenses-and-voice-0017
@@ -256,7 +256,7 @@ questions:
       - text: Simple future
       - text: Present perfect
     explanation: |
-      "Is writing" describes an action happening right now — this is present progressive tense.
+      "Is writing" describes an action happening right now: this is present progressive tense.
     approved: true
 
   - id: q-grammar-and-structure-tenses-and-voice-0018
@@ -265,11 +265,11 @@ questions:
     stem: |
       In the sentence "By the time the manager reviewed it, the report had already been submitted by the intern," identify (1) the tense of "had already been submitted" and (2) whether this sentence is active or passive voice.
     choices:
-      - text: (1) Past perfect, (2) Passive voice — since "report" receives the action and "been submitted" is a past participle after a form of "to be"
+      - text: '(1) Past perfect, (2) Passive voice: since "report" receives the action and "been submitted" is a past participle after a form of "to be"'
         correct: true
       - text: (1) Simple past, (2) Active voice
       - text: (1) Past perfect, (2) Active voice
       - text: (1) Present perfect, (2) Passive voice
     explanation: |
-      "Had already been submitted" shows an earlier past action (past perfect) relative to "reviewed." The subject "report" receives the action, with "been submitted" (a form of "to be" plus a past participle) — this is passive voice.
+      "Had already been submitted" shows an earlier past action (past perfect) relative to "reviewed." The subject "report" receives the action, with "been submitted" (a form of "to be" plus a past participle): this is passive voice.
     approved: true

@@ -25,13 +25,13 @@ questions:
     stem: |
       Identify and fix the error: "After finishing the marathon, a warm bath felt amazing."
     choices:
-      - text: This is a dangling modifier — "after finishing the marathon" has no logical subject, since a bath cannot finish a marathon; it should read "After finishing the marathon, she felt that a warm bath was amazing."
+      - text: 'This is a dangling modifier: "after finishing the marathon" has no logical subject, since a bath cannot finish a marathon; it should read "After finishing the marathon, she felt that a warm bath was amazing."'
         correct: true
       - text: There is no error in this sentence.
       - text: Amazing should be changed to amazed.
       - text: The sentence needs a semicolon instead of a comma.
     explanation: |
-      "After finishing the marathon" needs a person who finished the marathon, but the sentence's actual subject is "a warm bath" — baths cannot run marathons. Adding the correct subject fixes the dangling modifier.
+      "After finishing the marathon" needs a person who finished the marathon, but the sentence's actual subject is "a warm bath": baths cannot run marathons. Adding the correct subject fixes the dangling modifier.
     approved: true
 
   - id: q-grammar-and-structure-modifiers-0003
@@ -61,7 +61,7 @@ questions:
       - text: The first sentence is grammatically incorrect.
       - text: Only has no effect on meaning in either sentence.
     explanation: |
-      Moving the single word "only" changes exactly who the sentence is emphasizing — a small modifier can be just as sensitive to placement as a long phrase.
+      Moving the single word "only" changes exactly who the sentence is emphasizing: a small modifier can be just as sensitive to placement as a long phrase.
     approved: true
 
   - id: q-grammar-and-structure-modifiers-0005
@@ -85,13 +85,13 @@ questions:
     stem: |
       Identify and fix the error: "Rushing to catch the bus, my coffee spilled everywhere."
     choices:
-      - text: This is a dangling modifier — "rushing to catch the bus" has no logical subject, since coffee cannot rush; it should read "Rushing to catch the bus, I spilled my coffee everywhere."
+      - text: 'This is a dangling modifier: "rushing to catch the bus" has no logical subject, since coffee cannot rush; it should read "Rushing to catch the bus, I spilled my coffee everywhere."'
         correct: true
       - text: There is no error in this sentence.
       - text: Spilled should be changed to spills.
       - text: The sentence needs a semicolon instead of a comma.
     explanation: |
-      "Rushing to catch the bus" needs a person who was rushing, but the sentence's actual subject is "my coffee" — coffee cannot rush anywhere.
+      "Rushing to catch the bus" needs a person who was rushing, but the sentence's actual subject is "my coffee": coffee cannot rush anywhere.
     approved: true
 
   - id: q-grammar-and-structure-modifiers-0007
@@ -130,11 +130,11 @@ questions:
     stem: |
       A student assumes a modifier always describes the noun sitting closest to it, regardless of logic. In "The waiter served the pasta to the customer covered in cheese," does "covered in cheese" actually describe "customer" just because it sits closest?
     choices:
-      - text: No — check what the modifier logically should describe (the pasta), not just whichever noun happens to sit closest; test-makers deliberately place unrelated nouns near modifiers to create confusing sentences.
+      - text: 'No: check what the modifier logically should describe (the pasta), not just whichever noun happens to sit closest; test-makers deliberately place unrelated nouns near modifiers to create confusing sentences.'
         correct: true
-      - text: Yes — a modifier always describes the nearest noun, regardless of logic.
-      - text: Yes — but only because a customer could logically be covered in cheese.
-      - text: No — but only because "covered in cheese" is not actually a modifier.
+      - text: 'Yes: a modifier always describes the nearest noun, regardless of logic.'
+      - text: 'Yes: but only because a customer could logically be covered in cheese.'
+      - text: 'No: but only because "covered in cheese" is not actually a modifier.'
     explanation: |
       Test-makers deliberately place an unrelated noun right next to a modifier phrase to create a silly or confusing misplaced-modifier sentence, hoping you won't notice the mismatch.
     approved: true
@@ -145,11 +145,11 @@ questions:
     stem: |
       A student reads "After finishing the marathon, a warm bath felt amazing" and thinks it sounds fine since it flows smoothly. Is this sentence actually grammatically sound?
     choices:
-      - text: No — despite sounding smooth, a bath cannot finish a marathon; slow down and ask specifically who or what is performing the introductory action to catch this dangling modifier.
+      - text: 'No: despite sounding smooth, a bath cannot finish a marathon; slow down and ask specifically who or what is performing the introductory action to catch this dangling modifier.'
         correct: true
-      - text: Yes — if a sentence sounds smooth when read aloud, it cannot have a dangling modifier.
-      - text: Yes — but only because baths are commonly associated with relaxation after exercise.
-      - text: No — but only because the sentence is missing a comma.
+      - text: 'Yes: if a sentence sounds smooth when read aloud, it cannot have a dangling modifier.'
+      - text: 'Yes: but only because baths are commonly associated with relaxation after exercise.'
+      - text: 'No: but only because the sentence is missing a comma.'
     explanation: |
       Sentences with dangling modifiers can sound smooth on a quick read, but a bath cannot finish a marathon. Always check the literal logic, not just the sentence's overall flow.
     approved: true
@@ -160,13 +160,13 @@ questions:
     stem: |
       A student assumes only long modifier phrases can be misplaced, not single words. Can a small word like "only" also be misplaced, changing meaning subtly?
     choices:
-      - text: Yes — single words like "only," "just," and "almost" can also be misplaced, changing meaning subtly, even though they are not long phrases.
+      - text: 'Yes: single words like "only," "just," and "almost" can also be misplaced, changing meaning subtly, even though they are not long phrases.'
         correct: true
-      - text: No — misplaced modifiers only apply to phrases of at least three words.
-      - text: No — single words never affect a sentence's meaning.
-      - text: Yes — but only when the word is capitalized.
+      - text: 'No: misplaced modifiers only apply to phrases of at least three words.'
+      - text: 'No: single words never affect a sentence''s meaning.'
+      - text: 'Yes: but only when the word is capitalized.'
     explanation: |
-      Modifiers are not just long phrases — single words like "only," "just," and "almost" can also be misplaced, changing meaning subtly depending on exactly which word they sit next to.
+      Modifiers are not just long phrases: single words like "only," "just," and "almost" can also be misplaced, changing meaning subtly depending on exactly which word they sit next to.
     approved: true
 
   - id: q-grammar-and-structure-modifiers-0012
@@ -175,13 +175,13 @@ questions:
     stem: |
       Identify the problem: "Having studied all night, the exam seemed easy."
     choices:
-      - text: Dangling modifier — the exam did not study; it should read "Having studied all night, she found the exam easy."
+      - text: 'Dangling modifier: the exam did not study; it should read "Having studied all night, she found the exam easy."'
         correct: true
       - text: There is no error in this sentence.
       - text: This is a misplaced modifier, not a dangling one.
       - text: This is a subject-verb agreement error.
     explanation: |
-      "Having studied all night" needs a person who studied, but the sentence's actual subject is "the exam" — exams cannot study.
+      "Having studied all night" needs a person who studied, but the sentence's actual subject is "the exam": exams cannot study.
     approved: true
 
   - id: q-grammar-and-structure-modifiers-0013
@@ -190,7 +190,7 @@ questions:
     stem: |
       Identify the problem: "The teacher gave the award to the student wrapped in gold paper."
     choices:
-      - text: Misplaced modifier — "wrapped in gold paper" should describe the award, not the student; it should read "The teacher gave the student the award wrapped in gold paper."
+      - text: 'Misplaced modifier: "wrapped in gold paper" should describe the award, not the student; it should read "The teacher gave the student the award wrapped in gold paper."'
         correct: true
       - text: There is no error in this sentence.
       - text: This is a dangling modifier, not a misplaced one.
