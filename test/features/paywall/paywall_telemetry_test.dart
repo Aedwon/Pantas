@@ -20,6 +20,7 @@ void main() {
       sku: PaywallSku.yearly,
       productId: 'p_yearly',
       priceString: '₱999',
+      priceAmount: 999,
     );
 
     await controller.purchase(package);
@@ -41,6 +42,7 @@ void main() {
       sku: PaywallSku.yearly,
       productId: 'p_yearly',
       priceString: '₱999',
+      priceAmount: 999,
     );
 
     await controller.purchase(package);

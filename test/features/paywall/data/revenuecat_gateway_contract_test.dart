@@ -12,6 +12,7 @@ void main() {
         sku: PaywallSku.monthly,
         productId: 'pro_monthly',
         priceString: '₱99',
+        priceAmount: 99,
       );
 
       await gateway.configure(androidApiKey: 'key');
@@ -69,6 +70,7 @@ class RecordingRevenueCatGateway implements RevenueCatGateway {
         sku: PaywallSku.monthly,
         productId: 'pro_monthly',
         priceString: '₱99',
+        priceAmount: 99,
       ),
     ];
   }

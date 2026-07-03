@@ -1,14 +1,22 @@
 import 'package:cse_cet_reviewer/app/telemetry_providers.dart';
 import 'package:cse_cet_reviewer/features/paywall/application/paywall_controller.dart';
+import 'package:cse_cet_reviewer/features/paywall/data/live_revenuecat_gateway.dart';
+import 'package:cse_cet_reviewer/features/paywall/data/revenuecat_config.dart';
 import 'package:cse_cet_reviewer/features/paywall/data/revenuecat_gateway.dart';
 import 'package:cse_cet_reviewer/features/paywall/domain/entitlement.dart';
 import 'package:cse_cet_reviewer/features/paywall/domain/paywall_recommendation.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final revenueCatGatewayProvider = Provider<RevenueCatGateway>(
-  (ref) => const DisabledRevenueCatGateway(),
+final revenueCatConfigProvider = Provider<RevenueCatConfig>(
+  (ref) => RevenueCatConfig.fromEnvironment(),
 );
+
+final revenueCatGatewayProvider = Provider<RevenueCatGateway>((ref) {
+  final config = ref.watch(revenueCatConfigProvider);
+  if (!config.isEnabled) return const DisabledRevenueCatGateway();
+  return LiveRevenueCatGateway();
+});
 
 final entitlementProvider = StreamProvider<Entitlement>((ref) {
   if (kDebugMode && const bool.fromEnvironment('FAKE_PRO')) {

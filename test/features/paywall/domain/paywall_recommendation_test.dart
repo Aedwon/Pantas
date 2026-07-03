@@ -6,16 +6,19 @@ void main() {
     sku: PaywallSku.weekly,
     productId: 'pro_weekly',
     priceString: '₱29',
+    priceAmount: 29,
   );
   const monthly = PaywallPackage(
     sku: PaywallSku.monthly,
     productId: 'pro_monthly',
     priceString: '₱99',
+    priceAmount: 99,
   );
   const yearly = PaywallPackage(
     sku: PaywallSku.yearly,
     productId: 'pro_yearly',
     priceString: '₱499',
+    priceAmount: 499,
   );
   group('badge and CTA copy, verbatim from the spec', () {
     test('with an exam date the badge names the date', () {
@@ -45,6 +48,7 @@ void main() {
             sku: PaywallSku.monthly,
             productId: 'pro_monthly',
             priceString: '₱99',
+            priceAmount: 99,
           ),
         ),
         'Get Pro. ₱99 a month.',
@@ -55,6 +59,7 @@ void main() {
             sku: PaywallSku.weekly,
             productId: 'pro_weekly',
             priceString: '₱29',
+            priceAmount: 29,
           ),
         ),
         'Get Pro. ₱29 a week.',
@@ -68,6 +73,7 @@ void main() {
             sku: PaywallSku.yearly,
             productId: 'pro_yearly',
             priceString: '₱999',
+            priceAmount: 999,
           ),
         ),
         'Start my free trial',
@@ -89,6 +95,7 @@ void main() {
             sku: PaywallSku.yearly,
             productId: 'pro_yearly',
             priceString: '₱999',
+            priceAmount: 999,
           ),
         ),
       ];

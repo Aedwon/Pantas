@@ -23,6 +23,7 @@ void main() {
                   sku: PaywallSku.monthly,
                   productId: 'pro_monthly',
                   priceString: '₱149',
+                  priceAmount: 149,
                 ),
               ],
               onPurchase: (_) async => const PaywallCommandResult(
