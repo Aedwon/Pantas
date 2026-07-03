@@ -26,4 +26,27 @@ void main() {
     expect(json.containsKey('contentVersion'), isTrue);
     expect(json['contentVersion'], isA<int>());
   });
+
+  test('every question carries the lesson it belongs to', () {
+    final topicIdBySlug = loadTopicIdBySlug();
+    final questions = buildQuestions(topicIdBySlug);
+    expect(questions, isNotEmpty);
+    for (final q in questions) {
+      expect(
+        q.containsKey('lessonId'),
+        isTrue,
+        reason: '${q['id']} missing lessonId',
+      );
+      expect(q['lessonId'], isNotNull, reason: '${q['id']} has null lessonId');
+    }
+  });
+
+  test('the lesson id matches a lesson that actually exists', () {
+    final topicIdBySlug = loadTopicIdBySlug();
+    final questions = buildQuestions(topicIdBySlug);
+    final lessonIds = buildLessons(topicIdBySlug).map((l) => l['id']).toSet();
+    for (final q in questions) {
+      expect(lessonIds, contains(q['lessonId']), reason: '${q['id']}');
+    }
+  });
 }
