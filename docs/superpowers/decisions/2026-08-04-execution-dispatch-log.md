@@ -598,3 +598,67 @@ longest-choice rule was written down, so I checked it. Answer position was not w
 anywhere, so I did not check it until an overcorrection check went looking for a different
 problem entirely. **A constraint absent from the plan is not a constraint the content meets**,
 and the corpus had been carrying this one since the first question was written.
+
+---
+
+## 4 August, night: the seed, the dropped test, and a plan that keeps timing out
+
+Headroom was **60% remaining** at the start of this round, **37%** by the end of it. Aedwon gave
+the direction each time without being asked twice, and both readings were stated as remaining,
+which is the ambiguity the pipeline document exists to prevent.
+
+### The seed, and a stale warning inside the tool
+
+Rebuilt from the corpus: **1,840 questions to 2,000**, now carrying the 32 passages.
+
+**The seed builder's own header says not to commit what it writes.** That is out of date.
+`assets/seed/v1.json` is tracked, the committed copy is the full 7.4 MB build, and the practice
+changed when the seed was last rebuilt. The comment was not updated then. Worth fixing in the
+tool rather than in a dispatcher's memory, because the next agent to read that file will believe
+it.
+
+### Task 6 of the passage pipeline, written rather than left
+
+Flagged this morning as dropped alongside Task 5 despite depending on nothing in it. Written
+now, as zero-Gemini work while two agents ran.
+
+**A regression test written after the fact and passing immediately proves nothing**, so it was
+mutation-checked: forcing the picker to treat every question as a passage set fails three of the
+nine. Only then was it committed.
+
+**Its scope is smaller than the plan's and the file says so.** The plan asks it to cover the
+viewer and the review as well, and neither exists. Those belong with Task 5, behind Quiz Plan 4.
+
+### The paywall plan has now timed out twice, mid-task, uncommitted both times
+
+| Run | Result |
+|---|---|
+| First dispatch | Died at `Error: timeout waiting for response` during baseline checks. **0 commits, 7 files modified.** Task 1 half-applied: the enum had lost `lifetime` while the router still referenced it, so the tree did not compile |
+| First resume | **2 commits**, Tasks 1 and 2 clean. Died again mid-Task 3, **2 files uncommitted** |
+| Second resume | In flight |
+
+**The failure is not the background-command stall from this morning and the fix for that does not
+apply.** These are `agy`'s own timeout, on a plan over a thousand lines with six tasks. The run
+does real work and then loses whatever is uncommitted at the moment it dies.
+
+**What made the resumes cheap was reading the tree before writing the prompt**, every time.
+The second resume was told exactly what was already correct, that Tasks 1 and 2 were committed
+and not to redo them, and precisely which five presentation tests still asserted the old copy.
+A resume prompt that just says "continue" invites the agent to re-derive what is already there.
+
+**Verified rather than trusted:** Task 3's copy was checked character by character against the
+plan's verbatim block before the resume was written, because Paywall 02 asserts the same strings
+and a near-miss there would surface much later.
+
+### The rule that came out of this
+
+**Commit the moment a task's gates pass, before starting the next one.** It was in the prompt
+from the first resume onwards and it is why the second run kept two tasks instead of losing
+everything. **For a long plan this matters more than any other instruction in the dispatch line.**
+
+### Where headroom stopped the queue
+
+At **37% remaining**, with two agents already spending, nothing new was dispatched. The pipeline
+sets the floor at roughly a quarter. **If the paywall needs a third resume it will be put to
+Aedwon rather than started**, because a run that dies below the floor strands its work with no
+budget left to recover it, which is the exact failure that cost most of 4 August.
