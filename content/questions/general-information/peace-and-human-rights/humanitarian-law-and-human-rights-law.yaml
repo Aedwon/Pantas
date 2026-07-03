@@ -1,0 +1,119 @@
+meta:
+  subject: general-information
+  topic: peace-and-human-rights
+  subtopic: humanitarian-law-and-human-rights-law
+  exams:
+    - cse-pro
+    - cse-sub
+questions:
+  - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0001
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Under what specific circumstances does International Humanitarian Law (IHL) apply?
+    choices:
+      - text: During armed conflict
+        correct: true
+      - text: During peace negotiations
+      - text: During economic recessions
+      - text: During election campaigns
+    explanation: |
+      International Humanitarian Law (the law of armed conflict) applies specifically during situations of armed conflict.
+
+  - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0002
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Which entities are bound by International Humanitarian Law during hostilities?
+    choices:
+      - text: All parties to an armed conflict
+        correct: true
+      - text: Sovereign state regular army forces exclusively
+      - text: Civilian medical non-combatant personnel only
+      - text: Neutral accredited diplomatic observers only
+    explanation: |
+      IHL binds all parties to an armed conflict, including both state military forces and non-state armed groups.
+
+  - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0003
+    type: single_choice
+    difficulty: hard
+    stem: |
+      What is the main distinction between Human Rights Law (HRL) and International Humanitarian Law (IHL) regarding when they apply?
+    choices:
+      - text: HRL applies at all times, IHL in armed conflict
+        correct: true
+      - text: HRL applies in armed conflict, IHL during peace time
+      - text: HRL applies to military forces, IHL to civilian bodies
+      - text: HRL applies to foreign visitors, IHL to local citizens
+    explanation: |
+      HRL applies at all times in both peace and conflict, whereas IHL applies specifically during armed conflict.
+
+  - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0004
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Which body of law specifically seeks to limit the methods of warfare and protect non-combatants during hostilities?
+    choices:
+      - text: International Humanitarian Law
+        correct: true
+      - text: Commercial Maritime Trade Regulations Code
+      - text: Administrative Civil Service Conduct Rules
+      - text: Municipal Property Zoning Land Regulations
+    explanation: |
+      International Humanitarian Law regulates the conduct of hostilities and protects persons not taking active part in warfare.
+
+  - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0005
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Unlike Human Rights Law which primarily binds states, International Humanitarian Law binds which of the following?
+    choices:
+      - text: Both state and non-state combatants
+        correct: true
+      - text: Private non-combatant citizens only
+      - text: State diplomatic officers exclusively
+      - text: International human rights auditors
+    explanation: |
+      IHL places legal obligations on all combatant parties involved in an armed conflict, state and non-state alike.
+
+  - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0006
+    type: single_choice
+    difficulty: easy
+    stem: |
+      What is another common name given to International Humanitarian Law?
+    choices:
+      - text: Law of armed conflict
+        correct: true
+      - text: Law of peaceful assembly
+      - text: Law of corporate trade
+      - text: Law of public taxation
+    explanation: |
+      International Humanitarian Law is also known as the law of armed conflict or law of war.
+
+  - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0007
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Does International Humanitarian Law cease to apply when peacetime conditions are restored?
+    choices:
+      - text: Yes, IHL ends with armed conflict
+        correct: true
+      - text: No, IHL governs ordinary peacetime civil courts
+      - text: No, IHL replaces all municipal civil ordinances
+      - text: No, IHL applies only after peace treaties sign
+    explanation: |
+      IHL is specifically triggered by armed conflict and ceases to apply when conflict ends and peace is restored.
+
+  - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0008
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Protecting prisoners of war and wounded combatants falls under the scope of which body of law?
+    choices:
+      - text: International Humanitarian Law
+        correct: true
+      - text: International Corporate Trade Law
+      - text: Domestic Municipal Zoning Code
+      - text: National Revenue Tax Regulations
+    explanation: |
+      Protection of prisoners of war, sick, and wounded combatants is a cornerstone of International Humanitarian Law.

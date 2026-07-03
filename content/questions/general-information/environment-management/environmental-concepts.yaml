@@ -1,0 +1,119 @@
+meta:
+  subject: general-information
+  topic: environment-management
+  subtopic: environmental-concepts
+  exams:
+    - cse-pro
+    - cse-sub
+questions:
+  - id: q-environment-management-environmental-concepts-0001
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Under RA 9003, what does the principle of segregation at source require?
+    choices:
+      - text: Separating waste at the point of origin
+        correct: true
+      - text: Sorting collected waste at a municipal landfill
+      - text: Incinerating all mixed waste at high temperature
+      - text: Transporting all unsorted waste to sea dumping
+    explanation: |
+      Segregation at source requires solid waste to be separated into distinct categories at the point where it is produced.
+
+  - id: q-environment-management-environmental-concepts-0002
+    type: single_choice
+    difficulty: easy
+    stem: |
+      What activity keeps solid waste out of disposal facilities through reduction, reuse, recycling, and composting?
+    choices:
+      - text: Waste diversion
+        correct: true
+      - text: Open waste dumping
+      - text: Municipal incineration
+      - text: Sanitary landfilling
+    explanation: |
+      Waste diversion refers to activities that reduce the volume of waste entering final disposal facilities.
+
+  - id: q-environment-management-environmental-concepts-0003
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Which certificate issued by the DENR confirms that a project complies with the Environmental Impact Statement System?
+    choices:
+      - text: Environmental Compliance Certificate
+        correct: true
+      - text: Certificate of Municipal Non-Taxable Status
+      - text: Business Operating Permit Authorization Clearance
+      - text: Building Structural Safety Inspection Permit
+    explanation: |
+      An Environmental Compliance Certificate (ECC) is issued under PD 1586 certifying environmental compliance.
+
+  - id: q-environment-management-environmental-concepts-0004
+    type: single_choice
+    difficulty: medium
+    stem: |
+      RA 10121 introduced what major paradigm shift in government disaster response?
+    choices:
+      - text: Shift to proactive risk reduction
+        correct: true
+      - text: Shift from local government to total foreign aid dependency
+      - text: Shift from civil emergency protection to military rule control
+      - text: Shift from early prevention to post-disaster structural rebuilding
+    explanation: |
+      RA 10121 shifted the disaster management policy from reactive post-disaster response to proactive disaster risk reduction.
+
+  - id: q-environment-management-environmental-concepts-0005
+    type: single_choice
+    difficulty: hard
+    stem: |
+      What document is required under PD 1586 prior to starting construction on projects that significantly affect the environment?
+    choices:
+      - text: Environmental Compliance Certificate
+        correct: true
+      - text: Certificate of Municipal Tax Exemption Status
+      - text: Local Mayor General Business Operating License
+      - text: Fire Safety Building Clearance Inspection Permit
+    explanation: |
+      Projects falling within the Environmental Impact Statement System must secure an ECC from DENR prior to commencement.
+
+  - id: q-environment-management-environmental-concepts-0006
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Diverting solid waste away from landfills by composting organic material and recycling plastics is known as what?
+    choices:
+      - text: Waste diversion
+        correct: true
+      - text: Open dumping
+      - text: Mass combustion
+      - text: Deep sea disposal
+    explanation: |
+      Composting, recycling, and reduction are methods used to achieve waste diversion.
+
+  - id: q-environment-management-environmental-concepts-0007
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Under RA 10121, what national council serves as the lead coordinating body for disaster risk reduction and management?
+    choices:
+      - text: NDRRMC
+        correct: true
+      - text: DENR
+      - text: NEDA
+      - text: DSWD
+    explanation: |
+      The National Disaster Risk Reduction and Management Council (NDRRMC) leads national disaster risk reduction efforts under RA 10121.
+
+  - id: q-environment-management-environmental-concepts-0008
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Mandating householders and business establishments to separate biodegradable and non-biodegradable waste is an example of what?
+    choices:
+      - text: Segregation at source
+        correct: true
+      - text: Municipal open waste burning
+      - text: Sanitary landfill capping seal
+      - text: Offshore deep sea waste dumping
+    explanation: |
+      Separating waste at household or business premises prior to collection is segregation at source.

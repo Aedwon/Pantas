@@ -1,0 +1,175 @@
+meta:
+  subject: general-information
+  topic: environment-management
+  subtopic: the-environmental-laws
+  exams:
+    - cse-pro
+    - cse-sub
+questions:
+  - id: q-environment-management-the-environmental-laws-0001
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Which Philippine law is known as the Ecological Solid Waste Management Act of 2000?
+    choices:
+      - text: RA 9003
+        correct: true
+      - text: RA 8749
+      - text: RA 9275
+      - text: RA 9729
+    explanation: |
+      RA 9003 is titled the Ecological Solid Waste Management Act of 2000.
+
+  - id: q-environment-management-the-environmental-laws-0002
+    type: single_choice
+    difficulty: easy
+    stem: |
+      RA 8749 is commonly referred to by which short title?
+    choices:
+      - text: Philippine Clean Air Act of 1999
+        correct: true
+      - text: Ecological Solid Waste Management Act
+      - text: Philippine Clean Water Act of 2004
+      - text: Climate Change Act of 2009
+    explanation: |
+      RA 8749 is the Philippine Clean Air Act of 1999.
+
+  - id: q-environment-management-the-environmental-laws-0003
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Which statute governs water quality management and wastewater discharge permits in the Philippines?
+    choices:
+      - text: RA 9275
+        correct: true
+      - text: RA 9003
+      - text: RA 8749
+      - text: RA 10121
+    explanation: |
+      RA 9275 is the Philippine Clean Water Act of 2004.
+
+  - id: q-environment-management-the-environmental-laws-0004
+    type: single_choice
+    difficulty: medium
+    stem: |
+      RA 9729 established the Climate Change Commission under which statutory title?
+    choices:
+      - text: Climate Change Act of 2009
+        correct: true
+      - text: Disaster Risk Reduction Act
+      - text: Clean Air Act of 1999
+      - text: Clean Water Act of 2004
+    explanation: |
+      RA 9729 is the Climate Change Act of 2009.
+
+  - id: q-environment-management-the-environmental-laws-0005
+    type: single_choice
+    difficulty: medium
+    stem: |
+      The Philippine Disaster Risk Reduction and Management Act of 2010 is designated as which Republic Act?
+    choices:
+      - text: RA 10121
+        correct: true
+      - text: RA 9003
+      - text: RA 9729
+      - text: RA 9147
+    explanation: |
+      RA 10121 is the Philippine Disaster Risk Reduction and Management Act of 2010.
+
+  - id: q-environment-management-the-environmental-laws-0006
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Which presidential decree established the Environmental Impact Statement System requiring an Environmental Compliance Certificate?
+    choices:
+      - text: PD 1586
+        correct: true
+      - text: PD 1152
+      - text: PD 705
+      - text: PD 984
+    explanation: |
+      PD 1586 established the Environmental Impact Statement System in the Philippines.
+
+  - id: q-environment-management-the-environmental-laws-0007
+    type: single_choice
+    difficulty: medium
+    stem: |
+      RA 9147 governs the conservation and protection of which natural resources?
+    choices:
+      - text: Wildlife resources and habitats
+        correct: true
+      - text: Solid waste recycling facilities
+      - text: Air quality monitoring stations
+      - text: Industrial wastewater plants
+    explanation: |
+      RA 9147 is the Wildlife Resources Conservation and Protection Act.
+
+  - id: q-environment-management-the-environmental-laws-0008
+    type: single_choice
+    difficulty: hard
+    stem: |
+      What system of protected areas was established under RA 7586?
+    choices:
+      - text: National Integrated Protected Areas System
+        correct: true
+      - text: Ecological Solid Waste Diversion Management System
+      - text: National Climate Change Action Framework System
+      - text: Environmental Compliance Assessment Clearance System
+    explanation: |
+      RA 7586 established the National Integrated Protected Areas System (NIPAS).
+
+  - id: q-environment-management-the-environmental-laws-0009
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Which executive department serves as the lead agency for enforcing most Philippine environmental laws?
+    choices:
+      - text: Department of Environment and Natural Resources
+        correct: true
+      - text: Department of Interior and Local Government Office
+      - text: Department of Public Works and Highways Agency
+      - text: Department of Science and Technology Executive Board
+    explanation: |
+      The Department of Environment and Natural Resources (DENR) is the primary executive department for environmental enforcement.
+
+  - id: q-environment-management-the-environmental-laws-0010
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Under RA 9729, to which office is the Climate Change Commission attached?
+    choices:
+      - text: Office of the President
+        correct: true
+      - text: Department of Environment
+      - text: National Security Council
+      - text: Department of Energy
+    explanation: |
+      The Climate Change Commission created under RA 9729 is attached to the Office of the President.
+
+  - id: q-environment-management-the-environmental-laws-0011
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Which environmental law explicitly bans municipal waste incineration and regulates industrial emissions?
+    choices:
+      - text: RA 8749
+        correct: true
+      - text: RA 9003
+      - text: RA 9275
+      - text: RA 7586
+    explanation: |
+      Section 20 of RA 8749 (Philippine Clean Air Act) explicitly prohibits waste incineration.
+
+  - id: q-environment-management-the-environmental-laws-0012
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Which environmental act prohibits open dumpsites and mandates waste segregation at source?
+    choices:
+      - text: RA 9003
+        correct: true
+      - text: RA 8749
+      - text: RA 9729
+      - text: RA 10121
+    explanation: |
+      RA 9003 mandates waste segregation at source and bans open dumpsites in favor of sanitary landfills.

@@ -1,0 +1,119 @@
+meta:
+  subject: general-information
+  topic: peace-and-human-rights
+  subtopic: human-rights-fundamentals
+  exams:
+    - cse-pro
+    - cse-sub
+questions:
+  - id: q-peace-and-human-rights-human-rights-fundamentals-0001
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Which article of the 1987 Constitution creates the Commission on Human Rights?
+    choices:
+      - text: Article XIII
+        correct: true
+      - text: Article III
+      - text: Article IX
+      - text: Article XI
+    explanation: |
+      Article XIII (Social Justice and Human Rights) mandates the creation of the independent Commission on Human Rights.
+
+  - id: q-peace-and-human-rights-human-rights-fundamentals-0002
+    type: single_choice
+    difficulty: easy
+    stem: |
+      What title is given to Article XIII of the 1987 Constitution?
+    choices:
+      - text: Social Justice and Human Rights
+        correct: true
+      - text: Bill of Rights and Constitutional Freedoms
+      - text: General Provisions and Public Office Rules
+      - text: Declaration of Principles and State Policy
+    explanation: |
+      Article XIII of the 1987 Constitution is titled Social Justice and Human Rights.
+
+  - id: q-peace-and-human-rights-human-rights-fundamentals-0003
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Which constitutional article serves as the primary domestic guarantee of individual human rights in the Philippines?
+    choices:
+      - text: Article III
+        correct: true
+      - text: Article I
+      - text: Article IV
+      - text: Article V
+    explanation: |
+      Article III (Bill of Rights) is the fundamental domestic guarantee of civil and political rights.
+
+  - id: q-peace-and-human-rights-human-rights-fundamentals-0004
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Whom does international human rights law primarily bind in its obligations?
+    choices:
+      - text: State authorities
+        correct: true
+      - text: Private corporate executives
+      - text: International tourist travelers
+      - text: Foreign commercial shipping firms
+    explanation: |
+      Human rights law primarily places legal duties on state authorities to respect and protect individuals within their jurisdiction.
+
+  - id: q-peace-and-human-rights-human-rights-fundamentals-0005
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Human rights are characterized as inherent to all human beings, meaning they exist in what manner?
+    choices:
+      - text: Possessed by virtue of humanity
+        correct: true
+      - text: Granted exclusively by government presidential decree
+      - text: Conditioned upon paying annual state property income taxes
+      - text: Restricted to wealthy landholding property title holders
+    explanation: |
+      Human rights are inherent to every person by virtue of being human, rather than granted by government favor.
+
+  - id: q-peace-and-human-rights-human-rights-fundamentals-0006
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Which body is established by the 1987 Constitution as the independent national office promoting human rights protection?
+    choices:
+      - text: Commission on Human Rights
+        correct: true
+      - text: National Security Council office
+      - text: Department of Justice secretariat
+      - text: Armed Forces Grievance tribunal
+    explanation: |
+      The Commission on Human Rights is created under Section 17 of Article XIII of the Constitution.
+
+  - id: q-peace-and-human-rights-human-rights-fundamentals-0007
+    type: single_choice
+    difficulty: hard
+    stem: |
+      When does international human rights law apply to protect individuals?
+    choices:
+      - text: At all times in peace and conflict
+        correct: true
+      - text: Only during formally declared active international wartime
+      - text: Only during official national presidential election periods
+      - text: Only during municipal emergency disaster curfew hours
+    explanation: |
+      Human rights law applies at all times, during peacetime as well as during armed conflict.
+
+  - id: q-peace-and-human-rights-human-rights-fundamentals-0008
+    type: single_choice
+    difficulty: hard
+    stem: |
+      What fundamental feature distinguishes human rights from statutory privileges granted by state legislation?
+    choices:
+      - text: Inherent to human dignity
+        correct: true
+      - text: Revocable at any local mayor personal discretion
+      - text: Expiring automatically after five calendar years
+      - text: Subject to mandatory monthly state fee payment
+    explanation: |
+      Human rights are inherent to human dignity, unlike statutory privileges which are granted and regulated by legislation.
