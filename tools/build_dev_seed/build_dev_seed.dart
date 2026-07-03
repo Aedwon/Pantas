@@ -78,13 +78,13 @@ const _rosterExams = <Map<String, Object?>>[
 ];
 
 void main() {
+  final topicIdBySlug = loadTopicIdBySlug();
   final outline = jsonDecode(
     File('tools/lesson_author/outline.json').readAsStringSync(),
   ) as Map<String, dynamic>;
 
   final subjects = <Map<String, Object?>>[];
   final topics = <Map<String, Object?>>[];
-  final topicIdBySlug = <String, String>{};
 
   var subjectOrder = 1;
   for (final rawSubject in outline['subjects'] as List) {
@@ -103,7 +103,6 @@ void main() {
       final topic = rawTopic as Map<String, dynamic>;
       final topicSlug = topic['slug'] as String;
       final topicId = 'topic_upcat_${_underscore(topicSlug)}';
-      topicIdBySlug[topicSlug] = topicId;
       topics.add({
         'id': topicId,
         'subjectId': subjectId,
@@ -113,9 +112,9 @@ void main() {
     }
   }
 
-  final passages = _buildPassages(topicIdBySlug);
-  final questions = _buildQuestions(topicIdBySlug);
-  final lessons = _buildLessons(topicIdBySlug);
+  final passages = buildPassages(topicIdBySlug);
+  final questions = buildQuestions(topicIdBySlug);
+  final lessons = buildLessons(topicIdBySlug);
 
   // Keep the CSE demo exam and its rows; replace everything UPCAT.
   final existing = jsonDecode(
@@ -212,9 +211,26 @@ int computeContentVersion([DateTime? timestamp]) {
   return int.parse('$year$month$day$hour');
 }
 
+Map<String, String> loadTopicIdBySlug() {
+  final outline = jsonDecode(
+    File('tools/lesson_author/outline.json').readAsStringSync(),
+  ) as Map<String, dynamic>;
+  final topicIdBySlug = <String, String>{};
+  for (final rawSubject in outline['subjects'] as List) {
+    final subject = rawSubject as Map<String, dynamic>;
+    for (final rawTopic in subject['topics'] as List) {
+      final topic = rawTopic as Map<String, dynamic>;
+      final topicSlug = topic['slug'] as String;
+      final topicId = 'topic_upcat_${_underscore(topicSlug)}';
+      topicIdBySlug[topicSlug] = topicId;
+    }
+  }
+  return topicIdBySlug;
+}
+
 // --- passages ----------------------------------------------------------
 
-List<Map<String, Object?>> _buildPassages(Map<String, String> topicIdBySlug) {
+List<Map<String, Object?>> buildPassages(Map<String, String> topicIdBySlug) {
   final passages = <Map<String, Object?>>[];
 
   for (final file in _filesUnder('content/questions', '.yaml')) {
@@ -248,7 +264,7 @@ List<Map<String, Object?>> _buildPassages(Map<String, String> topicIdBySlug) {
 
 // --- questions ---------------------------------------------------------
 
-List<Map<String, Object?>> _buildQuestions(Map<String, String> topicIdBySlug) {
+List<Map<String, Object?>> buildQuestions(Map<String, String> topicIdBySlug) {
   const labels = ['A', 'B', 'C', 'D', 'E', 'F'];
   final questions = <Map<String, Object?>>[];
   var skippedFigures = 0;
@@ -257,6 +273,7 @@ List<Map<String, Object?>> _buildQuestions(Map<String, String> topicIdBySlug) {
     final doc = loadYaml(file.readAsStringSync()) as YamlMap;
     final meta = doc['meta'] as YamlMap;
     final topicSlug = meta['topic'] as String;
+    final subtopicSlug = meta['subtopic'] as String;
     final topicId = topicIdBySlug[topicSlug];
     if (topicId == null) {
       stderr.writeln('${file.path}: no outline topic for "$topicSlug"');
@@ -285,6 +302,10 @@ List<Map<String, Object?>> _buildQuestions(Map<String, String> topicIdBySlug) {
         'version': 1,
         'examIds': examIds,
         'topicId': topicId,
+        // Derived, never authored. A question at
+        // content/questions/<subject>/<topic>/<subtopic>.yaml belongs to the
+        // lesson at the mirror path, whose _id is lesson-<topic>-<subtopic>.
+        'lessonId': 'lesson-$topicSlug-$subtopicSlug',
         if (passageId != null) 'passageId': passageId,
         'language': 'en',
         'stem': (question['stem'] as String).trim(),
@@ -308,7 +329,7 @@ List<Map<String, Object?>> _buildQuestions(Map<String, String> topicIdBySlug) {
 
 // --- lessons -----------------------------------------------------------
 
-List<Map<String, Object?>> _buildLessons(Map<String, String> topicIdBySlug) {
+List<Map<String, Object?>> buildLessons(Map<String, String> topicIdBySlug) {
   final lessons = <Map<String, Object?>>[];
 
   // Not one lesson file carries `ordering:` yet. Numbering each topic's files
