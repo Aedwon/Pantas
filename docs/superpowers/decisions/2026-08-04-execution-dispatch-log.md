@@ -662,3 +662,68 @@ At **37% remaining**, with two agents already spending, nothing new was dispatch
 sets the floor at roughly a quarter. **If the paywall needs a third resume it will be put to
 Aedwon rather than started**, because a run that dies below the floor strands its work with no
 budget left to recover it, which is the exact failure that cost most of 4 August.
+
+---
+
+## 4 August, night: the paywall stop was real, and a worktree that poisoned itself
+
+### The plan was wrong about the billing API, and the agent was right to stop
+
+The second resume finished Task 3 clean and **halted at Task 4 Step 0 exactly as the plan told
+it to**, without changing `pubspec.yaml` and without substituting a method to make the plan fit.
+That is the "stop and say so" working as designed, and it is the first time today one fired on
+something that mattered.
+
+**Confirmed rather than taken on trust.** Installed is `purchases_flutter` **8.11.0**.
+`Purchases.purchase(PurchaseParams)` returning `PurchaseResult` **does not exist in it**, and
+`PurchaseParams` is not a type in it at all. `purchasePackage` returning `Future<CustomerInfo>`
+does exist and is not deprecated.
+
+### The options, and why the plan gave way rather than the SDK
+
+| Option | Cost |
+|---|---|
+| **Correct the plan to the installed API** | An edit to one call and its stop condition. No dependency change, no native config risk. *Recommended and chosen.* |
+| **Upgrade the SDK to match the plan** | A major bump on the single riskiest dependency in the app, plus whatever native configuration follows, and it buys nothing: both methods make the same purchase. |
+
+Aedwon's instruction was **"do what you recommend"**.
+
+**The fix stayed narrow because the rest was checked rather than assumed.** Every other symbol
+the task uses was verified against 8.11.0 one at a time: `configure`,
+`addCustomerInfoUpdateListener`, `getCustomerInfo`, `logIn` returning `LogInResult`,
+`getOfferings`, `restorePurchases`, and on an entitlement `productIdentifier`, `willRenew`,
+`expirationDate` as a nullable `String`, and `periodType` with `PeriodType.trial`. All correct.
+Only the purchase call was wrong, so only the purchase call changed.
+
+**One line was added that the plan did not have.** `purchasePackage` throws on a user
+cancellation as well as on a real failure. The plan said nothing about it, and the obvious
+wrong move is to catch and return Free, which would tell a student who had just paid that they
+had not. The plan now says so.
+
+### A worktree can poison itself, and a throwaway call finds it in a minute
+
+Tasks 4 to 6 were dispatched into a fresh worktree and **died instantly, twice, with a one-line
+log reading `Error: Agent execution terminated due to error`** and not a single file touched.
+
+The tempting reading was quota, since headroom was at 35% and falling.
+
+**It was not quota.** Three cheap checks settled it:
+
+1. `agy` with a one-word prompt from the repository root: **OK**.
+2. The same one-word prompt from inside that worktree: **the same error**.
+3. The worktree removed, recreated under a different name, same branch point, same prompt: **OK**.
+
+So the failure was bound to that directory, not to the account, the model, the plan or the
+prompt. The work then dispatched normally.
+
+**This is the second time today that the log's own advice paid.** A throwaway call costs one
+request and one minute, and it is the difference between diagnosing the thing that is broken and
+diagnosing the thing you assumed was broken. Both times the assumption would have been wrong.
+
+### Still running
+
+The lesson link has been going 39 minutes with its work correct in the tree and nothing
+committed. **1,998 of 2,000 questions carry a lesson.** The two that do not are demo rows for
+the CSE carried over from the old seed, not authored content, so the plan's "every question or
+stop" is about to fire on something that is not a content gap. **The rule was right to write and
+it is about to be wrong in this instance**, which is worth knowing before its report arrives.
