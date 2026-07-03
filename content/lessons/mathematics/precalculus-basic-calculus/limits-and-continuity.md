@@ -40,7 +40,7 @@ Break any one and you have a discontinuity: a hole, a jump, or a vertical asympt
 Evaluate $\lim_{x \to 2} (3x + 1)$.
 
 **Solution:**
-Try plugging in first — it usually just works.
+Try plugging in first: it usually just works.
 
 1. Substitute $x = 2$.
 
@@ -156,7 +156,7 @@ At a hole, $f(3)$ may not exist while the limit is a clean $6$. If the function 
 
 > If the left and right limits disagree, the limit does not exist.
 
-For a piecewise function with a jump, each side approaches a different height. Test-makers ask for the plain limit and offer both one-sided values as choices. Check both directions before answering — the correct choice may be "does not exist".
+For a piecewise function with a jump, each side approaches a different height. Test-makers ask for the plain limit and offer both one-sided values as choices. Check both directions before answering: the correct choice may be "does not exist".
 
 ### #4: Nonzero over Zero
 

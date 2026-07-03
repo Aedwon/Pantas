@@ -105,7 +105,7 @@ From a standard $52$-card deck, one card is drawn. Find (a) $P(\text{king or que
 **Solution:**
 Part (a) has no overlap; part (b) does.
 
-1. For (a): a card cannot be both a king and a queen — mutually exclusive. Add.
+1. For (a): a card cannot be both a king and a queen: mutually exclusive. Add.
 
 $$\dfrac{4}{52} + \dfrac{4}{52} = \dfrac{8}{52} = \dfrac{2}{13}$$
 
@@ -154,7 +154,7 @@ Writing $\dfrac{5}{8} \times \dfrac{5}{8}$ for two reds treats the draws as inde
 
 > A fair coin has no memory. Past flips never change the next one.
 
-After five heads in a row, the probability of another head is still exactly $\dfrac{1}{2}$. Questions phrase this as "the coin is due for tails" — a false statement. Independent means independent, no matter how streaky the history looks.
+After five heads in a row, the probability of another head is still exactly $\dfrac{1}{2}$. Questions phrase this as "the coin is due for tails": a false statement. Independent means independent, no matter how streaky the history looks.
 
 ### #4: Probabilities Beyond the Limits
 

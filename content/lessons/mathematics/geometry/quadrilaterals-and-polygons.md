@@ -39,7 +39,7 @@ For a regular polygon, divide either sum by $n$ to get each single angle.
 
 <!-- ILLUSTRATION: quadrilateral family tree, parallelogram branching to rectangle and rhombus, both merging into square, with trapezoid on a separate branch -->
 
-CETs love two question types here: plug into the angle formulas (forward or backward), and true-or-false property statements like "the diagonals of a rectangle are perpendicular" (false — that is the rhombus).
+CETs love two question types here: plug into the angle formulas (forward or backward), and true-or-false property statements like "the diagonals of a rectangle are perpendicular" (false: that is the rhombus).
 
 ## Examples
 
@@ -180,7 +180,7 @@ For each interior angle of a regular polygon, it is often faster through the bac
 
 Memorize the small interior sums: quadrilateral $360^\circ$, pentagon $540^\circ$, hexagon $720^\circ$. Each extra side adds exactly $180^\circ$.
 
-For "how many sides" questions with exterior angles, just divide $360$ by the given angle. If the answer is not a whole number, no such regular polygon exists — and that can itself be the answer.
+For "how many sides" questions with exterior angles, just divide $360$ by the given angle. If the answer is not a whole number, no such regular polygon exists, and that can itself be the answer.
 
 ## Traps to Watch For
 

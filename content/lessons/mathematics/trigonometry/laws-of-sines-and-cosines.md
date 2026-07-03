@@ -11,11 +11,11 @@ isActive: true
 
 SOH-CAH-TOA only works on right triangles. For every other (oblique) triangle, you need two bigger laws. Standard labeling: side $a$ is opposite angle $A$, side $b$ opposite angle $B$, side $c$ opposite angle $C$.
 
-**Law of Sines** — every side dances with its opposite angle at the same ratio:
+**Law of Sines**: every side dances with its opposite angle at the same ratio:
 
 $$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C}$$
 
-**Law of Cosines** — the Pythagorean theorem with a correction term:
+**Law of Cosines**: the Pythagorean theorem with a correction term:
 
 $$c^2 = a^2 + b^2 - 2ab\cos C$$
 
@@ -189,7 +189,7 @@ Writing $\dfrac{a}{\sin B}$ scrambles the proportion. Before computing, point at
 
 > Two sides and a non-included angle can build two different triangles.
 
-Given $a$, $b$, and angle $A$, the Law of Sines produces $\sin B$, and there may be two valid angles: $B$ and $180^\circ - B$. If both keep the angle sum under $180^\circ$, both triangles exist. When a question asks "how many triangles are possible", the answer can be $0$, $1$, or $2$ — check before assuming one.
+Given $a$, $b$, and angle $A$, the Law of Sines produces $\sin B$, and there may be two valid angles: $B$ and $180^\circ - B$. If both keep the angle sum under $180^\circ$, both triangles exist. When a question asks "how many triangles are possible", the answer can be $0$, $1$, or $2$: check before assuming one.
 
 ### #4: Answering with $c^2$
 

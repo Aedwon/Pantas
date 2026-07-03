@@ -15,19 +15,19 @@ Slice a cone with a flat blade and the cut edge draws one of four curves: a **ci
 
 Each has a standard equation centered at $(h, k)$:
 
-**Circle** — all points at distance $r$ from the center:
+**Circle**: all points at distance $r$ from the center:
 
 $$(x - h)^2 + (y - k)^2 = r^2$$
 
-**Parabola** — one squared variable only. The vertex form you know from quadratics, $y = a(x - h)^2 + k$, opens up or down; swapping roles, $x = a(y - k)^2 + h$, opens right or left.
+**Parabola**: one squared variable only. The vertex form you know from quadratics, $y = a(x - h)^2 + k$, opens up or down; swapping roles, $x = a(y - k)^2 + h$, opens right or left.
 
-**Ellipse** — a stretched circle, sums of both squared terms equal $1$:
+**Ellipse**: a stretched circle, sums of both squared terms equal $1$:
 
 $$\dfrac{(x - h)^2}{a^2} + \dfrac{(y - k)^2}{b^2} = 1$$
 
 The larger denominator marks the **major axis** direction. Its half-length is $a$; the smaller half-length is $b$.
 
-**Hyperbola** — like an ellipse but with a minus sign, giving two separate branches:
+**Hyperbola**: like an ellipse but with a minus sign, giving two separate branches:
 
 $$\dfrac{(x - h)^2}{a^2} - \dfrac{(y - k)^2}{b^2} = 1$$
 
@@ -41,7 +41,7 @@ Fast identification from a general equation $Ax^2 + By^2 + \ldots = C$: only one
 
 Identify each conic: (a) $3x^2 + 3y^2 = 27$, (b) $y = 2x^2 - 8x + 1$, (c) $4x^2 + 9y^2 = 36$, (d) $x^2 - y^2 = 16$.
 
-<!-- ILLUSTRATION: the four conic shapes labeled — a circle, a parabola, an ellipse, and a hyperbola — for visual reference -->
+<!-- ILLUSTRATION: the four conic shapes labeled, a circle, a parabola, an ellipse, and a hyperbola, for visual reference -->
 
 
 **Solution:**
@@ -130,7 +130,7 @@ $$y = \dfrac{3}{4}x \qquad y = -\dfrac{3}{4}x$$
 
 For identification questions, you never need to complete any squares. Look only at the two squared terms: one squared is a parabola, equal coefficients a circle, same sign an ellipse, opposite signs a hyperbola. Five seconds per question.
 
-Completing the square is always "half the middle coefficient, then square it" — and whatever you add inside, add to the other side too. Doing this smoothly is the whole skill for circle questions.
+Completing the square is always "half the middle coefficient, then square it", and whatever you add inside, add to the other side too. Doing this smoothly is the whole skill for circle questions.
 
 Remember which subtraction goes where: ellipse foci use $c^2 = a^2 - b^2$ (foci inside, so $c < a$), hyperbola foci use $c^2 = a^2 + b^2$ (foci beyond the vertices, so $c > a$). Inside is minus, outside is plus.
 

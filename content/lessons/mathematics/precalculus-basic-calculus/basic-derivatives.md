@@ -13,25 +13,25 @@ The **derivative** of a function measures how fast it changes: the slope of the 
 
 Four rules unlock the exam questions.
 
-**Power Rule** — bring the exponent down, then reduce it by one:
+**Power Rule**: bring the exponent down, then reduce it by one:
 
 $$\dfrac{d}{dx} x^n = nx^{n-1}$$
 
 Companions: the derivative of a constant is $0$ (flat line, no slope), and constants multiplying a function just tag along: the derivative of $5x^3$ is $15x^2$. Sums differentiate term by term.
 
-**Product Rule** — for $u \cdot v$, do not just multiply the derivatives:
+**Product Rule**: for $u \cdot v$, do not just multiply the derivatives:
 
 $$(uv)' = u'v + uv'$$
 
 In words: derivative of the first times the second, plus the first times derivative of the second.
 
-**Quotient Rule** — for $\dfrac{u}{v}$:
+**Quotient Rule**: for $\dfrac{u}{v}$:
 
 $$\left(\dfrac{u}{v}\right)' = \dfrac{u'v - uv'}{v^2}$$
 
 The order in the numerator matters because of the minus sign.
 
-**Chain Rule** — for a function inside another function, like $(3x^2 + 1)^5$: differentiate the outside (treating the inside as a block), then multiply by the derivative of the inside.
+**Chain Rule**: for a function inside another function, such as $(3x^2 + 1)^5$, differentiate the outside (treating the inside as a block), then multiply by the derivative of the inside.
 
 $$\dfrac{d}{dx} \left[ g(x) \right]^n = n \left[ g(x) \right]^{n-1} \cdot g'(x)$$
 
@@ -56,7 +56,7 @@ $$f'(x) = 12x^3 - 4x + 7$$
 Differentiate $f(x) = \sqrt{x}$ and $g(x) = \dfrac{1}{x^2}$.
 
 **Solution:**
-Rewrite as powers first — that is the whole trick.
+Rewrite as powers first: that is the whole trick.
 
 1. $\sqrt{x} = x^{1/2}$. Apply the power rule.
 
@@ -141,15 +141,15 @@ $$f'(3) = 2(3) - 4 = 2$$
 
 $$2x - 4 = 0 \quad \Rightarrow \quad x = 2$$
 
-5. At $x = 2$, $f(2) = 4 - 8 = -4$. The tangent is horizontal at the point $(2, -4)$ — the bottom of the parabola.
+5. At $x = 2$, $f(2) = 4 - 8 = -4$. The tangent is horizontal at the point $(2, -4)$: the bottom of the parabola.
 
 ## Speed Tricks & Shortcuts
 
-Before differentiating, rewrite: roots become fraction powers, and $\dfrac{1}{x^n}$ becomes $x^{-n}$. Thirty seconds of rewriting turns quotient-rule monsters into one-line power rules. Never use the quotient rule on $\dfrac{5}{x^3}$ — write $5x^{-3}$ and finish instantly.
+Before differentiating, rewrite: roots become fraction powers, and $\dfrac{1}{x^n}$ becomes $x^{-n}$. Thirty seconds of rewriting turns quotient-rule monsters into one-line power rules. Never use the quotient rule on $\dfrac{5}{x^3}$: write $5x^{-3}$ and finish instantly.
 
 Memorize the quotient rule with the chant "low d-high minus high d-low, over low-low": bottom times derivative of top, minus top times derivative of bottom, over bottom squared.
 
-For tangent-line problems, two numbers do everything: $f(a)$ gives the point, $f'(a)$ gives the slope. Most questions only want one of them — read which.
+For tangent-line problems, two numbers do everything: $f(a)$ gives the point, $f'(a)$ gives the slope. Most questions only want one of them: read which.
 
 ## Traps to Watch For
 
@@ -175,4 +175,4 @@ Writing the derivative of $(3x^2 + 1)^5$ as just $5(3x^2 + 1)^4$ misses the fact
 
 > The power rule works for $x^n$ with a constant exponent, not for $2^x$.
 
-Applying the power rule to $2^x$ (getting $x \cdot 2^{x-1}$) is wrong: exponential functions have their own rule involving logarithms, which is beyond this lesson. On the CET, know that $x^5$ and $5^x$ are different species — a favorite concept question.
+Applying the power rule to $2^x$ (getting $x \cdot 2^{x-1}$) is wrong: exponential functions have their own rule involving logarithms, which is beyond this lesson. On the CET, know that $x^5$ and $5^x$ are different species: a favorite concept question.
