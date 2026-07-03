@@ -727,3 +727,36 @@ committed. **1,998 of 2,000 questions carry a lesson.** The two that do not are 
 the CSE carried over from the old seed, not authored content, so the plan's "every question or
 stop" is about to fire on something that is not a content gap. **The rule was right to write and
 it is about to be wrong in this instance**, which is worth knowing before its report arrives.
+
+### Correction, an hour later: the worktree was not the cause
+
+**The entry above is wrong and it stays as written.** The conclusion that a worktree had poisoned
+itself was drawn from three checks that happened to line up, and a fourth falsified it.
+
+What actually happens now:
+
+| Where | Prompt | Result |
+|---|---|---|
+| Repository root | one word | **OK** |
+| A brand new worktree, seconds old | one word | **the same error** |
+| The recreated worktree, right after creation | one word | OK |
+| The same worktree, after one long-prompt failure | one word | error |
+
+**A worktree created minutes ago, never dispatched into, fails on a one-word prompt while the
+repository root succeeds on the identical call.** So it is not that directory, not the prompt,
+and not its length: `prompt-rcfix.txt` is nearly twice the size of the one that failed and it
+ran fine earlier tonight.
+
+**What the evidence actually supports** is that new `agy` sessions are being refused while an
+already-established one at the repository root still answers, which is what running out of
+headroom would look like from here. It cannot be confirmed: **`agy` exposes no usage command and
+nothing on disk records it**, which is the constraint Part 1 of the pipeline document already
+names. Aedwon's reading is the only instrument.
+
+**What I got wrong, and it is the same error twice in one file.** I took three consistent
+observations as an explanation and wrote it down as one. The recreated worktree working was the
+weakest link in that chain, and a single further test broke it. **The throwaway-call habit is
+right; stopping at the first result that fits the story is not.**
+
+**Dispatching is halted** rather than retried into a wall. The lesson link has been running 42
+minutes and is unaffected, because its session was established before whatever changed.
