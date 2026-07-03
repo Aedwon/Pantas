@@ -67,7 +67,7 @@ Count repeats.
 1. In the first set, $4$ appears twice, but $7$ appears three times.
 2. The mode of the first set is $7$.
 3. In the second set, every value appears exactly once. No value wins.
-4. The second set has no mode. (Not a mode of $0$ — zero is not even in the set.)
+4. The second set has no mode. (Not a mode of $0$: zero is not even in the set.)
 
 ### #4: Working Backwards from the Mean
 
@@ -115,7 +115,7 @@ $$\dfrac{840}{10} = 84$$
 
 For the mean of numbers that are close together, guess a base and average the leftovers. For $4, 7, 8, 10, 11$: guess $8$, and the differences are $-4, -1, 0, +2, +3$, which add to $0$. The differences sum to zero, so the mean is exactly $8$. Small differences are much faster than big sums.
 
-When one value is added to a set and the mean must stay the same, the new value must equal the old mean. And if a new value raises the mean, the new value is above the old mean — you can often answer "higher or lower" questions with no arithmetic at all.
+When one value is added to a set and the mean must stay the same, the new value must equal the old mean. And if a new value raises the mean, the new value is above the old mean: you can often answer "higher or lower" questions with no arithmetic at all.
 
 Backwards-mean problems are always the same two moves: total equals mean times count, then subtract what you know.
 
@@ -143,4 +143,4 @@ In Example $5$, averaging $90$, $85$, and $80$ gives $85$, and $85$ is sitting r
 
 > A set where nothing repeats has no mode, and a bimodal set has two modes.
 
-Writing the mode of $1, 2, 3, 4$ as $0$ invents a value that is not in the data. And for $3, 3, 8, 8, 10$, the modes are $3$ and $8$ — picking just one is incomplete. Read the choices carefully; "no mode" and "two modes" both appear as options.
+Writing the mode of $1, 2, 3, 4$ as $0$ invents a value that is not in the data. And for $3, 3, 8, 8, 10$, the modes are $3$ and $8$: picking just one is incomplete. Read the choices carefully; "no mode" and "two modes" both appear as options.

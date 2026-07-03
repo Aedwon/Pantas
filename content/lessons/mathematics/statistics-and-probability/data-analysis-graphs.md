@@ -79,7 +79,7 @@ A bar graph shows a store's weekly sales: Monday $40$, Tuesday $55$, Wednesday $
 
 
 **Solution:**
-Two reads and a subtraction — but the average comes first.
+Two reads and a subtraction, but the average comes first.
 
 1. Average of Monday through Thursday.
 
@@ -145,13 +145,13 @@ If food is $25\%$ and rent is $35\%$, rent is not $35\%$ of the leftover, and co
 
 > A bar graph whose scale starts above zero exaggerates differences.
 
-If the axis runs from $80$ to $100$, a bar of $95$ looks twice as tall as a bar of $88$, though the real difference is small. When a question asks whether a graph is misleading, check the axis start first — that is almost always the trick.
+If the axis runs from $80$ to $100$, a bar of $95$ looks twice as tall as a bar of $88$, though the real difference is small. When a question asks whether a graph is misleading, check the axis start first: that is almost always the trick.
 
 ### #3: Correlation Means Causation
 
 > A scatter plot trend never proves that one variable causes the other.
 
-Statements like "the plot proves studying causes higher grades" are wrong choices; the correct phrasing is "shows a positive correlation" or "students who studied more tended to score higher". Watch for the verbs "causes" and "proves" — they mark the bait.
+Statements like "the plot proves studying causes higher grades" are wrong choices; the correct phrasing is "shows a positive correlation" or "students who studied more tended to score higher". Watch for the verbs "causes" and "proves": they mark the bait.
 
 ### #4: Percent Change from the New Value
 

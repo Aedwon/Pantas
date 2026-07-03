@@ -15,7 +15,7 @@ $$\int 2x \, dx = x^2 + C$$
 
 Why the $+ C$? Because $x^2 + 7$ and $x^2 - 100$ also have derivative $2x$. Constants vanish when differentiating, so when we reverse, we must admit "plus some constant". Every indefinite integral ends with $+ C$.
 
-**Power rule for integrals** — the power rule backwards: raise the exponent by one, then divide by the new exponent.
+**Power rule for integrals** (the power rule backwards): raise the exponent by one, then divide by the new exponent.
 
 $$\int x^n \, dx = \dfrac{x^{n+1}}{n + 1} + C \qquad (n \neq -1)$$
 
@@ -27,7 +27,7 @@ A **definite integral** has endpoints and produces a number, the signed area und
 
 $$\int_a^b f(x) \, dx = F(b) - F(a)$$
 
-where $F$ is any antiderivative. This recipe — antidifferentiate, plug in the top limit, subtract the bottom limit — is the **Fundamental Theorem of Calculus**. The $C$ cancels in the subtraction, so definite integrals need no $+ C$.
+where $F$ is any antiderivative. This recipe (antidifferentiate, plug in the top limit, subtract the bottom limit) is the **Fundamental Theorem of Calculus**. The $C$ cancels in the subtraction, so definite integrals need no $+ C$.
 
 <!-- ILLUSTRATION: curve above the x-axis with the region between x = a and x = b shaded, labeled as the definite integral -->
 
@@ -74,7 +74,7 @@ $$\dfrac{x^{3/2}}{\dfrac{3}{2}} = \dfrac{2}{3} x^{3/2}$$
 
 $$\int \sqrt{x} \, dx = \dfrac{2}{3} x^{3/2} + C$$
 
-3. Dividing by a fraction means multiplying by its flip — that is where the $\dfrac{2}{3}$ comes from.
+3. Dividing by a fraction means multiplying by its flip: that is where the $\dfrac{2}{3}$ comes from.
 
 ### #4: A Definite Integral
 
@@ -147,4 +147,4 @@ Raising $-1$ by one gives exponent $0$ and a division by zero. The answer is $\l
 
 > $F(b) - F(a)$: compute both, subtract in the right order.
 
-Students plug in the top limit and forget the bottom (fine only when $F(0) = 0$), or subtract in reverse and flip the sign. In Example $5$, forgetting the lower limit gives $12$ instead of $10$ — and $12$ is in the choices, smiling.
+Students plug in the top limit and forget the bottom (fine only when $F(0) = 0$), or subtract in reverse and flip the sign. In Example $5$, forgetting the lower limit gives $12$ instead of $10$, and $12$ is in the choices, smiling.

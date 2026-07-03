@@ -108,7 +108,7 @@ $$\tan 300^\circ = -\sqrt{3}$$
 
 Find $\sin(-30^\circ)$, $\cos 180^\circ$, and $\sin 90^\circ$.
 
-<!-- ILLUSTRATION: a unit circle marking three positions — -30° (below the positive x-axis), 180° (point (-1, 0)), and 90° (point (0, 1)) -->
+<!-- ILLUSTRATION: a unit circle marking three positions: -30° (below the positive x-axis), 180° (point (-1, 0)), and 90° (point (0, 1)) -->
 
 
 **Solution:**

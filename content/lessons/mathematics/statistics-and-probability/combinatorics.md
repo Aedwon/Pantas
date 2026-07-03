@@ -102,7 +102,7 @@ $$\dfrac{336}{6} = 56$$
 From a club of $10$ members: (a) in how many ways can a president and a vice president be chosen? (b) in how many ways can a $2$-member committee be chosen?
 
 **Solution:**
-Same numbers, different logic — this pairing is the heart of the topic.
+Same numbers, different logic: this pairing is the heart of the topic.
 
 1. For (a), the two positions are different jobs. Ana-president with Ben-vice differs from Ben-president with Ana-vice. Order matters.
 
@@ -140,7 +140,7 @@ Choosing a sandwich and a drink: $4 \times 3$. Choosing a sandwich or a drink (j
 
 > Zero factorial is defined as $1$, not $0$.
 
-The formula $C(n, n)$ needs it: choosing all $8$ from $8$ gives $\dfrac{8!}{8! \, 0!} = 1$ way, which makes sense — take everyone. If $0!$ were $0$, the formula would divide by zero. Questions test this as a quick concept check.
+The formula $C(n, n)$ needs it: choosing all $8$ from $8$ gives $\dfrac{8!}{8! \, 0!} = 1$ way, which makes sense, take everyone. If $0!$ were $0$, the formula would divide by zero. Questions test this as a quick concept check.
 
 ### #4: Repetition Rules Unread
 

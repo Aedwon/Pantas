@@ -124,7 +124,7 @@ $$x = 65$$
 
 A $1.5$-meter tall student casts a $2$-meter shadow. At the same time, a tree casts a $12$-meter shadow. How tall is the tree?
 
-<!-- ILLUSTRATION: two similar right triangles side by side — a 1.5 m student with a 2 m shadow, and a taller tree of height "?" with a 12 m shadow, sun rays at the same angle -->
+<!-- ILLUSTRATION: two similar right triangles side by side: a 1.5 m student with a 2 m shadow, and a taller tree of height "?" with a 12 m shadow, sun rays at the same angle -->
 
 
 **Solution:**
@@ -178,7 +178,7 @@ $$h = 12$$
 
 Find the missing sides: (a) a $45^\circ$-$45^\circ$-$90^\circ$ triangle with a leg of $5$; (b) a $30^\circ$-$60^\circ$-$90^\circ$ triangle with a hypotenuse of $12$.
 
-<!-- ILLUSTRATION: two special right triangles — (a) a 45-45-90 triangle with legs 5 and hypotenuse 5√2; (b) a 30-60-90 triangle with hypotenuse 12, showing the short leg 6 and long leg 6√3 -->
+<!-- ILLUSTRATION: two special right triangles: (a) a 45-45-90 triangle with legs 5 and hypotenuse 5√2; (b) a 30-60-90 triangle with hypotenuse 12, showing the short leg 6 and long leg 6√3 -->
 
 
 **Solution:**

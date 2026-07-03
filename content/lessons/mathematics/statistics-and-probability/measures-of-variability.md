@@ -121,13 +121,13 @@ Variance and SD convert instantly: SD is the square root of variance, variance i
 
 > Deviations from the mean always sum to zero. Square them first.
 
-Students skip the squaring, average the deviations, get $0$, and think the spread is zero. The cancellation is guaranteed by how the mean works — it proves nothing about spread. The squaring step is the whole point of variance.
+Students skip the squaring, average the deviations, get $0$, and think the spread is zero. The cancellation is guaranteed by how the mean works: it proves nothing about spread. The squaring step is the whole point of variance.
 
 ### #2: Reporting Variance as SD
 
 > Variance is in squared units; take the root for standard deviation.
 
-In Example $2$ the variance is $4$ and the SD is $2$; both numbers sit in the choices. Read the question's last word carefully. If the data are in centimeters, variance is in square centimeters — a hint that it is not yet the SD.
+In Example $2$ the variance is $4$ and the SD is $2$; both numbers sit in the choices. Read the question's last word carefully. If the data are in centimeters, variance is in square centimeters, a hint that it is not yet the SD.
 
 ### #3: Range Ignores the Middle
 
@@ -139,4 +139,4 @@ The sets $1, 50, 50, 50, 99$ and $1, 2, 3, 98, 99$ have the same range ($98$) bu
 
 > SD is never negative. The smallest possible value is $0$.
 
-Squares are non-negative, and square roots of non-negatives are non-negative. Any choice offering a negative standard deviation is automatically wrong, no computation needed — a free elimination the test gives you.
+Squares are non-negative, and square roots of non-negatives are non-negative. Any choice offering a negative standard deviation is automatically wrong, no computation needed, a free elimination the test gives you.

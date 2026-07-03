@@ -13,15 +13,15 @@ An **identity** is an equation that is true for every allowed angle. Identities 
 
 There are three families to master.
 
-**Reciprocal identities** — each function has a flip partner:
+**Reciprocal identities**: each function has a flip partner:
 
 $$\csc \theta = \dfrac{1}{\sin \theta} \qquad \sec \theta = \dfrac{1}{\cos \theta} \qquad \cot \theta = \dfrac{1}{\tan \theta}$$
 
-**Quotient identities** — tangent and cotangent are built from sine and cosine:
+**Quotient identities**: tangent and cotangent are built from sine and cosine:
 
 $$\tan \theta = \dfrac{\sin \theta}{\cos \theta} \qquad \cot \theta = \dfrac{\cos \theta}{\sin \theta}$$
 
-**Pythagorean identities** — the star of the show:
+**Pythagorean identities**: the star of the show:
 
 $$\sin^2 \theta + \cos^2 \theta = 1$$
 
