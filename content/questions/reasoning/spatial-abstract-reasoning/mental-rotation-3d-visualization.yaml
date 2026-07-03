@@ -17,7 +17,7 @@ questions:
       - text: The square attached to the "left" side of the center
       - text: The immediate "up" neighbor square itself
     explanation: |
-      The center square becomes the bottom, and its four immediate neighbors fold up to become the four side faces. The square at the far end of the vertical arm folds all the way over to become the face opposite the bottom — the top.
+      The center square becomes the bottom, and its four immediate neighbors fold up to become the four side faces. The square at the far end of the vertical arm folds all the way over to become the face opposite the bottom: the top.
     approved: true
 
   - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0002
@@ -27,11 +27,11 @@ questions:
     stem: |
       A flat pattern has 6 squares arranged with 4 in a straight horizontal row, and 2 more squares both attached to the top of the same square (the second square in the row), stacked directly on top of each other. Does this net fold into a valid cube?
     choices:
-      - text: No — the two squares both attached to the top of the same square would both attempt to occupy the same face position when folded, causing an overlap
+      - text: 'No: the two squares both attached to the top of the same square would both attempt to occupy the same face position when folded, causing an overlap'
         correct: true
-      - text: Yes — any arrangement of exactly 6 connected squares always folds into a valid cube
-      - text: Yes — since there are exactly 6 squares, no overlap is possible
-      - text: No — but only because this arrangement has more than 6 squares
+      - text: 'Yes: any arrangement of exactly 6 connected squares always folds into a valid cube'
+      - text: 'Yes: since there are exactly 6 squares, no overlap is possible'
+      - text: 'No: but only because this arrangement has more than 6 squares'
     explanation: |
       A valid cube net needs each of its 6 squares to fold into a different face, with no overlaps. Here, two separate squares are both attached to the top of the same square in the row, so when folded, both would attempt to occupy the same face position, causing an overlap.
     approved: true
@@ -49,7 +49,7 @@ questions:
       - text: A triangle
       - text: A square
     explanation: |
-      Since the light comes from directly above, the shadow shows the cylinder's outline as seen from directly above — only its circular top face outline, since the sides are hidden directly beneath it. The shadow is a circle.
+      Since the light comes from directly above, the shadow shows the cylinder's outline as seen from directly above: only its circular top face outline, since the sides are hidden directly beneath it. The shadow is a circle.
     approved: true
 
   - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0004
@@ -107,11 +107,11 @@ questions:
     stem: |
       A flat pattern has 6 squares arranged in a single straight horizontal row (a 1-by-6 strip, with each square attached only to its immediate left and right neighbors). Does this net fold into a valid cube?
     choices:
-      - text: No — folding this strip sequentially, the fifth square would land back on the same face position as the first square, causing an overlap
+      - text: 'No: folding this strip sequentially, the fifth square would land back on the same face position as the first square, causing an overlap'
         correct: true
-      - text: Yes — a straight row of 6 squares always folds into a valid cube
-      - text: Yes — since all 6 squares are connected in a single line, no overlap is possible
-      - text: No — but only because a straight row can never contain exactly 6 squares
+      - text: 'Yes: a straight row of 6 squares always folds into a valid cube'
+      - text: 'Yes: since all 6 squares are connected in a single line, no overlap is possible'
+      - text: 'No: but only because a straight row can never contain exactly 6 squares'
     explanation: |
       Folding a straight 1-by-6 strip one square at a time (each fold turning 90°) wraps back around: the fifth square ends up occupying the same face position as the first square, causing an overlap. A straight strip of 6 squares is not a valid cube net.
     approved: true
@@ -123,13 +123,13 @@ questions:
     stem: |
       In a cross-shaped net, the "up" neighbor and the "left" neighbor of the center square do not touch each other in the flat net (each only touches the center directly). A student assumes that since these two squares are not touching in the flat net, they must also not be touching (not adjacent) as faces once the cube is folded. Is this assumption correct?
     choices:
-      - text: No — squares that are not touching in the flat net can still become adjacent (edge-sharing) faces once folded; the "up" and "left" side faces, though not touching in the net, end up sharing an edge on the folded cube.
+      - text: 'No: squares that are not touching in the flat net can still become adjacent (edge-sharing) faces once folded; the "up" and "left" side faces, though not touching in the net, end up sharing an edge on the folded cube.'
         correct: true
-      - text: Yes — two squares that do not touch in the flat net can never become adjacent faces after folding.
-      - text: Yes — but only because side faces are never adjacent to each other on a real cube.
-      - text: No — but only because the "up" and "left" squares are actually the same square.
+      - text: 'Yes: two squares that do not touch in the flat net can never become adjacent faces after folding.'
+      - text: 'Yes: but only because side faces are never adjacent to each other on a real cube.'
+      - text: 'No: but only because the "up" and "left" squares are actually the same square.'
     explanation: |
-      Squares that are not touching in the flat net are not necessarily still separate once folded — carefully trace the actual fold, since "far apart" squares in the net can become adjacent faces on the cube, since every side face of a cube shares an edge with its neighboring side faces.
+      Squares that are not touching in the flat net are not necessarily still separate once folded: carefully trace the actual fold, since "far apart" squares in the net can become adjacent faces on the cube, since every side face of a cube shares an edge with its neighboring side faces.
     approved: true
 
   - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0009
@@ -139,13 +139,13 @@ questions:
     stem: |
       A student sees any arrangement of 6 connected squares and assumes it must automatically fold into a valid cube, since "a cube has 6 faces, and this net has 6 squares." Is this assumption correct?
     choices:
-      - text: No — having exactly 6 squares is necessary but not sufficient for a valid net; the specific arrangement must also avoid any folding conflict, such as two squares competing for the same face position.
+      - text: 'No: having exactly 6 squares is necessary but not sufficient for a valid net; the specific arrangement must also avoid any folding conflict, such as two squares competing for the same face position.'
         correct: true
-      - text: Yes — any 6 connected squares, arranged in any pattern, always fold into a valid cube.
-      - text: Yes — but only if the 6 squares are arranged in a perfect circle.
-      - text: No — but only because a cube actually has more than 6 faces.
+      - text: 'Yes: any 6 connected squares, arranged in any pattern, always fold into a valid cube.'
+      - text: 'Yes: but only if the 6 squares are arranged in a perfect circle.'
+      - text: 'No: but only because a cube actually has more than 6 faces.'
     explanation: |
-      Not every arrangement of 6 connected squares folds into a proper cube — some arrangements (like two squares both branching off the same face) cause faces to overlap instead of covering distinct sides. The square count alone does not guarantee validity.
+      Not every arrangement of 6 connected squares folds into a proper cube: some arrangements (like two squares both branching off the same face) cause faces to overlap instead of covering distinct sides. The square count alone does not guarantee validity.
     approved: true
 
   - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0010
@@ -155,13 +155,13 @@ questions:
     stem: |
       A student assumes a cylinder's shadow, no matter the light's direction, must always match one of the cylinder's actual flat surfaces (its circular top or bottom). Given that a cylinder's side is curved, not flat, is this assumption correct?
     choices:
-      - text: No — a shadow shows the silhouette from the light's specific viewing angle, which may look completely different from any single flat face; a cylinder's side-on shadow is a rectangle, even though the cylinder has no flat rectangular face at all.
+      - text: 'No: a shadow shows the silhouette from the light''s specific viewing angle, which may look completely different from any single flat face; a cylinder''s side-on shadow is a rectangle, even though the cylinder has no flat rectangular face at all.'
         correct: true
-      - text: Yes — a shadow always exactly matches one of the object's existing flat faces.
-      - text: Yes — but only because cylinders do not have curved surfaces.
-      - text: No — but only because cylinders cannot cast shadows at all.
+      - text: 'Yes: a shadow always exactly matches one of the object''s existing flat faces.'
+      - text: 'Yes: but only because cylinders do not have curved surfaces.'
+      - text: 'No: but only because cylinders cannot cast shadows at all.'
     explanation: |
-      A shadow shows the silhouette from the light's specific viewing angle, which may look completely different from any single flat face of the actual 3D object. A cylinder has no flat rectangular side face at all, yet its side-on shadow is a rectangle — always reason from the viewing angle, not from assuming the shadow copies an existing face shape.
+      A shadow shows the silhouette from the light's specific viewing angle, which may look completely different from any single flat face of the actual 3D object. A cylinder has no flat rectangular side face at all, yet its side-on shadow is a rectangle: always reason from the viewing angle, not from assuming the shadow copies an existing face shape.
     approved: true
 
   - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0011
@@ -193,7 +193,7 @@ questions:
       - text: A circle from both directions, since cones always cast circular shadows
       - text: A triangle from both directions, since cones always cast triangular shadows
     explanation: |
-      From directly above, you see the cone's circular base outline, since the pointed top is directly above the center of that circle — a circular shadow. From the side, you see the cone's tapering profile — a triangular shadow.
+      From directly above, you see the cone's circular base outline, since the pointed top is directly above the center of that circle, a circular shadow. From the side, you see the cone's tapering profile, a triangular shadow.
     approved: true
 
   - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0013
@@ -209,7 +209,7 @@ questions:
       - text: All four side faces are opposite each other simultaneously
       - text: None of the four side faces are opposite any other face
     explanation: |
-      Once folded into a cube, opposite faces come from squares with exactly one square directly between them in a straight line within the net. The "up" and "down" neighbors sit in a straight vertical line with the center between them, and the "left" and "right" neighbors sit in a straight horizontal line with the center between them — making each of those pairs opposite faces.
+      Once folded into a cube, opposite faces come from squares with exactly one square directly between them in a straight line within the net. The "up" and "down" neighbors sit in a straight vertical line with the center between them, and the "left" and "right" neighbors sit in a straight horizontal line with the center between them: making each of those pairs opposite faces.
     approved: true
 
   - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0014

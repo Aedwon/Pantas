@@ -97,7 +97,7 @@ questions:
       - text: A triangle shaded only on its left half, repeated
       - text: A triangle shaded only on its right half, repeated
     explanation: |
-      Following the combination rule, the third cell should combine both features from the first two cells — a triangle shaded on its left half plus one shaded on its right half combine into a fully shaded triangle.
+      Following the combination rule, the third cell should combine both features from the first two cells: a triangle shaded on its left half plus one shaded on its right half combine into a fully shaded triangle.
     approved: true
 
   - id: q-spatial-abstract-reasoning-figure-matrices-0007
@@ -123,13 +123,13 @@ questions:
     stem: |
       A 3x3 matrix's columns show a shape's size growing (small, medium, large) moving top to bottom, while its rows show the shape's shading alternating (black, white, black) moving left to right. The blank is in the bottom-right cell. A student checks only the column pattern and answers "large" without specifying shading, assuming the row direction does not matter here. What is wrong with this approach?
     choices:
-      - text: The student checked only one direction; this matrix requires checking both the column pattern (for size) and the row pattern (for shading) together — the complete answer should be "large, black," not size alone.
+      - text: 'The student checked only one direction; this matrix requires checking both the column pattern (for size) and the row pattern (for shading) together: the complete answer should be "large, black," not size alone.'
         correct: true
-      - text: Nothing is wrong — size alone is always a complete answer for any figure matrix.
+      - text: 'Nothing is wrong: size alone is always a complete answer for any figure matrix.'
       - text: The student's approach is correct, since shading never applies to matrix questions.
       - text: The student should have checked only the row pattern and ignored the column pattern entirely.
     explanation: |
-      Many matrices require checking both the row pattern and the column pattern together — solving only one direction gives an incomplete answer. Here, size follows the column direction while shading follows the row direction, so both must be checked.
+      Many matrices require checking both the row pattern and the column pattern together: solving only one direction gives an incomplete answer. Here, size follows the column direction while shading follows the row direction, so both must be checked.
     approved: true
 
   - id: q-spatial-abstract-reasoning-figure-matrices-0009
@@ -139,11 +139,11 @@ questions:
     stem: |
       A 3x3 matrix's row shows a circle with a horizontal line, then a circle with a vertical line, then a blank third cell. A student assumes the third cell should follow a simple step-by-step progression (like rotating the line further), predicting a circle with a diagonal line. Given that this matrix actually uses a combination rule, is the student's prediction correct?
     choices:
-      - text: No — this row uses a combination rule, where the third cell combines both features from the first two cells; the correct answer is a circle with both a horizontal and vertical line (a plus-sign pattern), not a diagonal line.
+      - text: 'No: this row uses a combination rule, where the third cell combines both features from the first two cells; the correct answer is a circle with both a horizontal and vertical line (a plus-sign pattern), not a diagonal line.'
         correct: true
-      - text: Yes — a diagonal line is always the correct continuation of a two-line pattern.
-      - text: Yes — combination rules never apply to circles, only to squares.
-      - text: No — but only because circles cannot have any lines at all.
+      - text: 'Yes: a diagonal line is always the correct continuation of a two-line pattern.'
+      - text: 'Yes: combination rules never apply to circles, only to squares.'
+      - text: 'No: but only because circles cannot have any lines at all.'
     explanation: |
       Assuming the third cell should follow a simple incrementing pattern (like a figure series) when it is actually meant to combine features from the first two cells leads to a plausible but incorrect prediction. The correct answer combines both lines into a plus-sign pattern.
     approved: true
@@ -155,13 +155,13 @@ questions:
     stem: |
       A 2x2 matrix's top row shows a triangle, then a triangle rotated 90°. Its bottom row shows a completely different shape, a pentagon, then a blank cell. A student assumes the bottom row must also use triangles, since "all rows in a matrix should use the same shapes." Is this assumption correct?
     choices:
-      - text: No — different rows can apply the same transformation rule (like a 90° rotation) to different starting shapes; the bottom row correctly uses pentagons, and the blank cell should show a pentagon rotated 90°, not a triangle.
+      - text: 'No: different rows can apply the same transformation rule (like a 90° rotation) to different starting shapes; the bottom row correctly uses pentagons, and the blank cell should show a pentagon rotated 90°, not a triangle.'
         correct: true
-      - text: Yes — every row in a figure matrix must use the exact same shapes as every other row.
-      - text: Yes — but only because pentagons and triangles are actually the same shape.
-      - text: No — but only because the top row's shapes are also invalid.
+      - text: 'Yes: every row in a figure matrix must use the exact same shapes as every other row.'
+      - text: 'Yes: but only because pentagons and triangles are actually the same shape.'
+      - text: 'No: but only because the top row''s shapes are also invalid.'
     explanation: |
-      Different rows or columns can apply the same transformation rule to different starting shapes — do not expect literally identical figures across rows, only a consistent pattern of change. Recognizing the rule (90° rotation), not memorizing specific shapes, is the key skill.
+      Different rows or columns can apply the same transformation rule to different starting shapes: do not expect literally identical figures across rows, only a consistent pattern of change. Recognizing the rule (90° rotation), not memorizing specific shapes, is the key skill.
     approved: true
 
   - id: q-spatial-abstract-reasoning-figure-matrices-0011

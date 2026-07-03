@@ -140,11 +140,11 @@ questions:
     stem: |
       A student says Bohr's fixed-orbit model is the current, scientifically accepted model of the atom. Is this correct?
     choices:
-      - text: No: Schrödinger's electron cloud (quantum mechanical) model is the current accepted model.
+      - text: 'No: Schrödinger''s electron cloud (quantum mechanical) model is the current accepted model.'
         correct: true
-      - text: Yes: Bohr's model is still the current accepted model.
-      - text: No: Rutherford's nuclear model is the current accepted model.
-      - text: No: Dalton's solid sphere model is the current accepted model.
+      - text: 'Yes: Bohr''s model is still the current accepted model.'
+      - text: 'No: Rutherford''s nuclear model is the current accepted model.'
+      - text: 'No: Dalton''s solid sphere model is the current accepted model.'
     explanation: |
       Bohr's neat, fixed-orbit picture is a useful simplification, but it was later replaced by Schrödinger's electron cloud model, which better matches experimental evidence and is still used today.
     approved: true

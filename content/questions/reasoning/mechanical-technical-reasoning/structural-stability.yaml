@@ -97,7 +97,7 @@ questions:
       - text: Both loading methods provide exactly the same stability
       - text: Stacking the cargo high, since a higher center of gravity always improves turning stability
     explanation: |
-      Spreading cargo lower keeps the center of gravity closer to the ground, requiring a larger tilt (like from a sharp turn) before the vertical line from the center of gravity could be pushed outside the truck's base of support — making it more stable while turning.
+      Spreading cargo lower keeps the center of gravity closer to the ground, requiring a larger tilt (like from a sharp turn) before the vertical line from the center of gravity could be pushed outside the truck's base of support: making it more stable while turning.
     approved: true
 
   - id: q-mechanical-technical-reasoning-structural-stability-0007
@@ -113,7 +113,7 @@ questions:
       - text: Both stances are equally stable against sideways pushes
       - text: Feet close together, since a narrower base is always more stable
     explanation: |
-      Spreading the feet wider apart increases the base of support, meaning the vertical line from the center of gravity can shift farther sideways before falling outside that base — making the wider stance more stable against sideways pushes.
+      Spreading the feet wider apart increases the base of support, meaning the vertical line from the center of gravity can shift farther sideways before falling outside that base: making the wider stance more stable against sideways pushes.
     approved: true
 
   - id: q-mechanical-technical-reasoning-structural-stability-0008
@@ -123,11 +123,11 @@ questions:
     stem: |
       An object has a very low center of gravity but an extremely narrow base of support. A student assumes this object must be very stable, "since only the center of gravity's height matters." Is this assumption correct?
     choices:
-      - text: No — stability depends on both the center of gravity's height and the base of support's width; an object with a low center of gravity but an extremely narrow base can still tip over easily.
+      - text: 'No: stability depends on both the center of gravity''s height and the base of support''s width; an object with a low center of gravity but an extremely narrow base can still tip over easily.'
         correct: true
-      - text: Yes — a low center of gravity alone always guarantees maximum stability, regardless of base width.
-      - text: Yes — base of support width has no effect on stability at all.
-      - text: No — but only because this object cannot have a center of gravity at all.
+      - text: 'Yes: a low center of gravity alone always guarantees maximum stability, regardless of base width.'
+      - text: 'Yes: base of support width has no effect on stability at all.'
+      - text: 'No: but only because this object cannot have a center of gravity at all.'
     explanation: |
       An object could have a low center of gravity but still be unstable if its base of support is extremely narrow; both factors must be considered together, not just one in isolation.
     approved: true
@@ -139,11 +139,11 @@ questions:
     stem: |
       A very heavy object has a high center of gravity and a narrow base of support. A student assumes this object must be stable, "since heavier objects are always more stable." Is this assumption correct?
     choices:
-      - text: No — stability depends on the location of the center of gravity relative to the base of support, not simply on how much an object weighs; a heavy object with a high center of gravity and narrow base can still tip over easily.
+      - text: 'No: stability depends on the location of the center of gravity relative to the base of support, not simply on how much an object weighs; a heavy object with a high center of gravity and narrow base can still tip over easily.'
         correct: true
-      - text: Yes — heavier objects are always more stable than lighter ones, regardless of their shape.
-      - text: Yes — but only because this object's weight makes its base of support automatically wider.
-      - text: No — but only because heavy objects cannot have a center of gravity.
+      - text: 'Yes: heavier objects are always more stable than lighter ones, regardless of their shape.'
+      - text: 'Yes: but only because this object''s weight makes its base of support automatically wider.'
+      - text: 'No: but only because heavy objects cannot have a center of gravity.'
     explanation: |
       Stability depends on the location of the center of gravity relative to the base of support, not simply on how much an object weighs overall. A very heavy object with a high center of gravity and a narrow base can still tip over easily, despite its large weight.
     approved: true
@@ -155,11 +155,11 @@ questions:
     stem: |
       A student says, "this box is stable," treating stability as a fixed, permanent property of the box regardless of how it is positioned. Is this the correct way to think about stability?
     choices:
-      - text: No — an object can be perfectly stable while sitting still, but become unstable once tilted enough that its center of gravity's vertical line moves outside the base of support; stability depends on the specific tilt angle, not a fixed, unchanging fact.
+      - text: 'No: an object can be perfectly stable while sitting still, but become unstable once tilted enough that its center of gravity''s vertical line moves outside the base of support; stability depends on the specific tilt angle, not a fixed, unchanging fact.'
         correct: true
-      - text: Yes — once an object is described as "stable," it remains stable at every possible tilt angle.
-      - text: Yes — stability is a permanent property that never changes, regardless of orientation.
-      - text: No — but only because boxes can never be considered stable under any circumstance.
+      - text: 'Yes: once an object is described as "stable," it remains stable at every possible tilt angle.'
+      - text: 'Yes: stability is a permanent property that never changes, regardless of orientation.'
+      - text: 'No: but only because boxes can never be considered stable under any circumstance.'
     explanation: |
       Assuming an object "is stable" as an absolute, unchanging fact (rather than "is stable at this specific tilt angle") misses that further tilting can push any object past its tipping point, given enough tilt.
     approved: true
@@ -219,13 +219,13 @@ questions:
     stem: |
       A box's base of support extends 3 meters from the edge it is currently pivoting on. At a certain tilt angle, the vertical line dropped from its center of gravity falls 2 meters from that same edge, still within the base. Does the box tip over at this specific angle?
     choices:
-      - text: No — since 2 meters is still within the 3-meter base of support, the box remains stable at this tilt angle; it would only tip if the vertical line moved beyond the 3-meter edge
+      - text: 'No: since 2 meters is still within the 3-meter base of support, the box remains stable at this tilt angle; it would only tip if the vertical line moved beyond the 3-meter edge'
         correct: true
-      - text: Yes — any tilt at all causes the box to tip over immediately
-      - text: Yes — since 2 meters is more than half of 3 meters, the box has already tipped
+      - text: 'Yes: any tilt at all causes the box to tip over immediately'
+      - text: 'Yes: since 2 meters is more than half of 3 meters, the box has already tipped'
       - text: It cannot be determined without knowing the box's exact weight
     explanation: |
-      The box remains stable as long as the vertical line from its center of gravity stays within its base of support. Since 2 meters is still within the 3-meter base, the box has not yet tipped — it would only tip once the line moves beyond the 3-meter edge.
+      The box remains stable as long as the vertical line from its center of gravity stays within its base of support. Since 2 meters is still within the 3-meter base, the box has not yet tipped: it would only tip once the line moves beyond the 3-meter edge.
     approved: true
 
   - id: q-mechanical-technical-reasoning-structural-stability-0015

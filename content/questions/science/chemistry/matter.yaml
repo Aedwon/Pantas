@@ -210,9 +210,9 @@ questions:
     stem: |
       A student claims that boiling water into steam creates a new substance, since steam looks and behaves so differently from liquid water. Which statement correctly evaluates this claim?
     choices:
-      - text: The student is wrong: boiling is a phase change, and phase changes never create a new substance, only a new physical state.
+      - text: 'The student is wrong: boiling is a phase change, and phase changes never create a new substance, only a new physical state.'
         correct: true
-      - text: The student is correct: steam is chemically different from liquid water.
+      - text: 'The student is correct: steam is chemically different from liquid water.'
       - text: The student is wrong, but only because steam is actually a mixture, not a pure substance.
       - text: The student is correct, since boiling requires heat, and any change that requires heat is a chemical change.
     explanation: |

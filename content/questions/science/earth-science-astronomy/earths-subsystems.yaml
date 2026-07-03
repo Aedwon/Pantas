@@ -100,11 +100,11 @@ questions:
     stem: |
       A student argues that polar ice caps deserve their own separate category, since ice is solid like rock, not liquid like ocean water. Is this correct?
     choices:
-      - text: No: the hydrosphere is defined by being water in any of its forms (liquid, solid ice, or vapor), so glaciers and polar ice caps still belong to the hydrosphere, not a separate category.
+      - text: 'No: the hydrosphere is defined by being water in any of its forms (liquid, solid ice, or vapor), so glaciers and polar ice caps still belong to the hydrosphere, not a separate category.'
         correct: true
-      - text: Yes: solid ice belongs to the lithosphere, since it is a solid.
-      - text: Yes: ice is neither hydrosphere nor lithosphere, but its own separate subsystem.
-      - text: No: but only because ice does not actually exist on Earth.
+      - text: 'Yes: solid ice belongs to the lithosphere, since it is a solid.'
+      - text: 'Yes: ice is neither hydrosphere nor lithosphere, but its own separate subsystem.'
+      - text: 'No: but only because ice does not actually exist on Earth.'
     explanation: |
       Students sometimes think ice deserves its own category since it is solid. But the hydrosphere is defined by being water in any of its forms, liquid, solid ice, or water vapor, so glaciers and polar ice caps all belong to the hydrosphere.
     approved: true
@@ -145,11 +145,11 @@ questions:
     stem: |
       A colony of bacteria lives deep underground, within cracks in solid rock. A student classifies these bacteria as part of the lithosphere, since that is where they are found. Is this correct?
     choices:
-      - text: No: classification depends on whether the thing is alive, not on where it is found; since bacteria are living organisms, they belong to the biosphere, even while living underground.
+      - text: 'No: classification depends on whether the thing is alive, not on where it is found; since bacteria are living organisms, they belong to the biosphere, even while living underground.'
         correct: true
-      - text: Yes: any organism found within rock automatically becomes part of the lithosphere.
-      - text: Yes: bacteria are not considered living things, so they belong to the lithosphere by default.
-      - text: No: but only because bacteria cannot survive underground at all.
+      - text: 'Yes: any organism found within rock automatically becomes part of the lithosphere.'
+      - text: 'Yes: bacteria are not considered living things, so they belong to the lithosphere by default.'
+      - text: 'No: but only because bacteria cannot survive underground at all.'
     explanation: |
       A choice describing bacteria living deep underground may be mistakenly classified as part of the lithosphere just because of its location. But classification depends on whether the thing is alive, not on where it happens to be found: living bacteria belong to the biosphere.
     approved: true
@@ -177,9 +177,9 @@ questions:
     choices:
       - text: "No: this scenario involves all four subsystems: the lithosphere (the rock), the hydrosphere (the rainfall), the atmosphere (temperature and freezing conditions), and the biosphere (the plant roots); picking only one subsystem is incomplete."
         correct: true
-      - text: Yes: since the final result is soil, only the lithosphere is relevant to this scenario.
-      - text: Yes: subsystems act in isolation, so only the subsystem mentioned last in the scenario counts.
-      - text: No: but only because plant roots are not considered part of any subsystem.
+      - text: 'Yes: since the final result is soil, only the lithosphere is relevant to this scenario.'
+      - text: 'Yes: subsystems act in isolation, so only the subsystem mentioned last in the scenario counts.'
+      - text: 'No: but only because plant roots are not considered part of any subsystem.'
     explanation: |
       A question describing a real event (like this weathering process) almost always involves more than one subsystem working together. The four subsystems constantly interact; an answer that picks only one subsystem for a multi-step scenario is usually incomplete.
     approved: true

@@ -126,11 +126,11 @@ questions:
     stem: |
       A student tries to balance an equation containing $H_2O$ by changing it to $H_2O_2$ instead of adding a coefficient in front of it. Is this a valid way to balance the equation?
     choices:
-      - text: No: changing a subscript creates an entirely different substance (hydrogen peroxide), not a balanced version of water.
+      - text: 'No: changing a subscript creates an entirely different substance (hydrogen peroxide), not a balanced version of water.'
         correct: true
-      - text: Yes: subscripts and coefficients can be adjusted interchangeably to balance an equation.
-      - text: Yes: as long as the total atom count comes out even on both sides.
-      - text: No: but only because $H_2O_2$ does not really exist.
+      - text: 'Yes: subscripts and coefficients can be adjusted interchangeably to balance an equation.'
+      - text: 'Yes: as long as the total atom count comes out even on both sides.'
+      - text: 'No: but only because $H_2O_2$ does not really exist.'
     explanation: |
       Only coefficients (numbers in front of a formula) may be changed to balance an equation. Changing the subscript inside a formula changes the substance's identity entirely: $H_2O_2$ is hydrogen peroxide, a completely different compound from water.
     approved: true
@@ -140,11 +140,11 @@ questions:
     stem: |
       A student adjusts an equation's coefficients until nitrogen atoms match on both sides, then declares the equation balanced without checking hydrogen. Is this equation confirmed to be balanced?
     choices:
-      - text: No: every element's atom count must match on both sides, not just nitrogen; hydrogen still needs to be checked.
+      - text: 'No: every element''s atom count must match on both sides, not just nitrogen; hydrogen still needs to be checked.'
         correct: true
-      - text: Yes: matching just one element is enough to confirm the whole equation is balanced.
-      - text: Yes: hydrogen automatically balances whenever nitrogen does.
-      - text: No: but only because nitrogen itself was checked incorrectly.
+      - text: 'Yes: matching just one element is enough to confirm the whole equation is balanced.'
+      - text: 'Yes: hydrogen automatically balances whenever nitrogen does.'
+      - text: 'No: but only because nitrogen itself was checked incorrectly.'
     explanation: |
       An equation is balanced only when every single element matches on both sides. Stopping after checking just one element (like nitrogen) can miss an imbalance in another element (like hydrogen).
     approved: true

@@ -160,13 +160,13 @@ questions:
     stem: |
       A student sees the sequence 3, 5, 8, 12, 17, ... and guesses the pattern is "add 2 each time," based on the first gap ($5-3=2$). Is this guess correct, and what is the actual next term?
     choices:
-      - text: The guess is incorrect — the differences actually increase by 1 each time ($2, 3, 4, 5$), so the correct next term is $17+6=23$, not $17+2=19$.
+      - text: 'The guess is incorrect: the differences actually increase by 1 each time ($2, 3, 4, 5$), so the correct next term is $17+6=23$, not $17+2=19$.'
         correct: true
-      - text: The guess is correct — the next term is $17+2=19$.
+      - text: 'The guess is correct: the next term is $17+2=19$.'
       - text: The guess is correct, but only because every sequence must add a constant amount.
       - text: Neither guess nor calculation can be verified from the given terms.
     explanation: |
-      Checking all the differences ($2, 3, 4, 5$) reveals they are increasing, not constant — a changing-difference pattern, not simple arithmetic. The correct next difference is $6$, giving $17+6=23$.
+      Checking all the differences ($2, 3, 4, 5$) reveals they are increasing, not constant: a changing-difference pattern, not simple arithmetic. The correct next difference is $6$, giving $17+6=23$.
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0012
@@ -175,9 +175,9 @@ questions:
     stem: |
       A student sees the first two terms of a sequence, 3 and 6, and immediately guesses the pattern is "multiply by 2 each time." The full sequence is actually 3, 6, 9, 12, 15, .... Is the student's guess correct, and what is the actual next term after 15?
     choices:
-      - text: The guess is incorrect — checking all the terms shows the pattern is actually "add 3 each time" (arithmetic), not "multiply by 2"; the correct next term is $15+3=18$.
+      - text: 'The guess is incorrect: checking all the terms shows the pattern is actually "add 3 each time" (arithmetic), not "multiply by 2"; the correct next term is $15+3=18$.'
         correct: true
-      - text: The guess is correct — the next term is $15\times2=30$.
+      - text: 'The guess is correct: the next term is $15\times2=30$.'
       - text: The guess is correct, since the first two terms alone are always enough to confirm any pattern.
       - text: Neither an arithmetic nor a geometric pattern can describe this sequence.
     explanation: |
@@ -196,7 +196,7 @@ questions:
       - text: The student's numeric calculation itself was wrong, regardless of the conversion step.
       - text: Letter sequences should always be answered using alphabet positions, never letters.
     explanation: |
-      After solving a letter sequence using alphabet position numbers, you must always convert your final numeric answer back into its corresponding letter. Solving that the next number is $21$ is not the final answer if the question asks for a letter — the correct answer is $U$ (the 21st letter).
+      After solving a letter sequence using alphabet position numbers, you must always convert your final numeric answer back into its corresponding letter. Solving that the next number is $21$ is not the final answer if the question asks for a letter: the correct answer is $U$ (the 21st letter).
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0014

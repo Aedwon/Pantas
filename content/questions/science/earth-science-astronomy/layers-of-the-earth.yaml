@@ -70,11 +70,11 @@ questions:
     stem: |
       A student claims the mantle cannot possibly flow, since it is described as solid rock, and solid things "cannot move." Is this correct?
     choices:
-      - text: No: the mantle is solid rock, but it is so hot that it can slowly flow over long periods of time, like very thick, slow-moving toffee; being solid and flowing slowly are not contradictions here.
+      - text: 'No: the mantle is solid rock, but it is so hot that it can slowly flow over long periods of time, like very thick, slow-moving toffee; being solid and flowing slowly are not contradictions here.'
         correct: true
-      - text: Yes: solid rock can never flow under any circumstances.
-      - text: No: but only because the mantle is actually liquid, not solid.
-      - text: Yes: the mantle only flows once it becomes a gas.
+      - text: 'Yes: solid rock can never flow under any circumstances.'
+      - text: 'No: but only because the mantle is actually liquid, not solid.'
+      - text: 'Yes: the mantle only flows once it becomes a gas.'
     explanation: |
       Students think "solid" must mean "completely rigid and unmoving." The mantle's slow flow, similar to thick toffee, is exactly what drives the plates on Earth's surface: being solid and flowing slowly are not contradictions.
     approved: true
@@ -130,11 +130,11 @@ questions:
     stem: |
       A choice claims "the inner core must be liquid, since it is the hottest layer inside Earth." Is this reasoning correct?
     choices:
-      - text: No: higher pressure can keep a layer solid even at extreme temperature; the inner core is solid despite being the hottest layer, due to the crushing pressure at Earth's center.
+      - text: 'No: higher pressure can keep a layer solid even at extreme temperature; the inner core is solid despite being the hottest layer, due to the crushing pressure at Earth''s center.'
         correct: true
-      - text: Yes: the hottest layer inside Earth is always liquid.
-      - text: No: but only because the inner core is not actually the hottest layer.
-      - text: Yes: pressure has no effect on whether a layer is solid or liquid.
+      - text: 'Yes: the hottest layer inside Earth is always liquid.'
+      - text: 'No: but only because the inner core is not actually the hottest layer.'
+      - text: 'Yes: pressure has no effect on whether a layer is solid or liquid.'
     explanation: |
       This choice ignores the role of pressure. The inner core is hotter than the outer core, yet stays solid because of the crushing pressure at Earth's center: temperature alone does not determine whether a layer is solid or liquid.
     approved: true
@@ -190,11 +190,11 @@ questions:
     stem: |
       A certain type of earthquake wave can only travel through solid material and cannot pass through liquid. Based on this, would this wave type be able to pass through the outer core?
     choices:
-      - text: No: since the outer core is liquid, this wave type would be blocked and unable to pass through it, creating a shadow region where the wave does not arrive.
+      - text: 'No: since the outer core is liquid, this wave type would be blocked and unable to pass through it, creating a shadow region where the wave does not arrive.'
         correct: true
-      - text: Yes: this wave type can pass through any material, solid or liquid.
-      - text: Yes: since the outer core is actually solid, not liquid.
-      - text: No: but only because the outer core does not actually exist.
+      - text: 'Yes: this wave type can pass through any material, solid or liquid.'
+      - text: 'Yes: since the outer core is actually solid, not liquid.'
+      - text: 'No: but only because the outer core does not actually exist.'
     explanation: |
       Since this wave type cannot travel through liquid, and the outer core is liquid, the wave is blocked there: creating the shadow region that first revealed the outer core's liquid state to scientists.
     approved: true
@@ -220,11 +220,11 @@ questions:
     stem: |
       A question describes a region of land with crust about 70 km thick and labels it "oceanic crust." Is this labeling correct?
     choices:
-      - text: No: crust about 70 km thick describes continental crust (found under land); oceanic crust, found under the oceans, is much thinner, only about 5 km.
+      - text: 'No: crust about 70 km thick describes continental crust (found under land); oceanic crust, found under the oceans, is much thinner, only about 5 km.'
         correct: true
-      - text: Yes: oceanic crust is always about 70 km thick.
-      - text: No: but only because continental crust does not actually exist.
-      - text: Yes: continental and oceanic crust are always the same thickness.
+      - text: 'Yes: oceanic crust is always about 70 km thick.'
+      - text: 'No: but only because continental crust does not actually exist.'
+      - text: 'Yes: continental and oceanic crust are always the same thickness.'
     explanation: |
       A question describing land areas versus ocean floor is testing which crust type is thicker. Continental crust (under continents) is roughly 70 km thick, while oceanic crust (under oceans) is only about 5 km thick.
     approved: true

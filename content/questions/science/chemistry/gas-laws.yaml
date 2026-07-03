@@ -98,11 +98,11 @@ questions:
     stem: |
       A student plugs a temperature of 25°C directly into a gas law formula without converting it. Is this safe?
     choices:
-      - text: No: all gas law formulas require temperature in kelvin; the student must add 273 to convert first.
+      - text: 'No: all gas law formulas require temperature in kelvin; the student must add 273 to convert first.'
         correct: true
-      - text: Yes: Celsius and kelvin can be used interchangeably in gas law formulas.
-      - text: No: but only because 25°C is too low a temperature for gas laws to apply.
-      - text: Yes: only pressure and volume need consistent units, not temperature.
+      - text: 'Yes: Celsius and kelvin can be used interchangeably in gas law formulas.'
+      - text: 'No: but only because 25°C is too low a temperature for gas laws to apply.'
+      - text: 'Yes: only pressure and volume need consistent units, not temperature.'
     explanation: |
       Gas law formulas depend on kelvin specifically, since zero kelvin truly means no thermal energy. Using Celsius directly (especially without converting) breaks the proportional relationships these laws rely on.
     approved: true
@@ -112,11 +112,11 @@ questions:
     stem: |
       A student assumes that squeezing a gas into a smaller volume will decrease its pressure, treating pressure and volume as directly related. Is this correct?
     choices:
-      - text: No: pressure and volume are inversely related (Boyle's Law); squeezing a gas into less space increases its pressure.
+      - text: 'No: pressure and volume are inversely related (Boyle''s Law); squeezing a gas into less space increases its pressure.'
         correct: true
-      - text: Yes: pressure and volume always increase or decrease together.
-      - text: No: but only because temperature is not held constant.
-      - text: Yes: this is exactly what Boyle's Law states.
+      - text: 'Yes: pressure and volume always increase or decrease together.'
+      - text: 'No: but only because temperature is not held constant.'
+      - text: 'Yes: this is exactly what Boyle''s Law states.'
     explanation: |
       Boyle's Law describes an inverse relationship: at constant temperature, decreasing volume increases pressure, not the other way the student assumed.
     approved: true
@@ -126,11 +126,11 @@ questions:
     stem: |
       A problem describes a gas whose pressure, volume, and temperature all change together, with the amount of gas staying fixed. A student tries to solve it using only Boyle's Law. Is this the right approach?
     choices:
-      - text: No: since temperature is also changing, the combined gas law is needed, not Boyle's Law alone.
+      - text: 'No: since temperature is also changing, the combined gas law is needed, not Boyle''s Law alone.'
         correct: true
-      - text: Yes: Boyle's Law can always be used regardless of how many quantities change.
-      - text: No: the ideal gas law should be used instead, since three quantities are changing.
-      - text: Yes: as long as pressure and volume are correctly identified.
+      - text: 'Yes: Boyle''s Law can always be used regardless of how many quantities change.'
+      - text: 'No: the ideal gas law should be used instead, since three quantities are changing.'
+      - text: 'Yes: as long as pressure and volume are correctly identified.'
     explanation: |
       Boyle's Law only accounts for pressure and volume, assuming temperature stays fixed. Since temperature is also changing here, the combined gas law (which merges all three relationships) is required.
     approved: true

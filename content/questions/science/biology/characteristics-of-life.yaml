@@ -98,11 +98,11 @@ questions:
     stem: |
       A virus can reproduce, but only after hijacking a host cell's internal machinery: outside of a host cell, it is completely inactive. Does this fact alone make a virus fully alive?
     choices:
-      - text: No: reproduction is only one characteristic; a virus still lacks cells and independent metabolism, which most biologists require for something to be fully alive.
+      - text: 'No: reproduction is only one characteristic; a virus still lacks cells and independent metabolism, which most biologists require for something to be fully alive.'
         correct: true
-      - text: Yes: the ability to reproduce, on its own, is enough to be classified as fully alive.
-      - text: No: viruses cannot reproduce under any circumstances.
-      - text: Yes: since it can reproduce inside a host, it counts the same as any living cell.
+      - text: 'Yes: the ability to reproduce, on its own, is enough to be classified as fully alive.'
+      - text: 'No: viruses cannot reproduce under any circumstances.'
+      - text: 'Yes: since it can reproduce inside a host, it counts the same as any living cell.'
     explanation: |
       A single characteristic is never enough. Viruses fail the "made of cells" and "independent metabolism" requirements, which is why most biologists classify them as borderline, not fully alive.
     approved: true
@@ -126,11 +126,11 @@ questions:
     stem: |
       A car engine "consumes" gasoline and produces motion, which might resemble metabolism. Is a car engine considered living?
     choices:
-      - text: No: it is not made of cells, cannot reproduce itself, and cannot maintain homeostasis, grow, or adapt.
+      - text: 'No: it is not made of cells, cannot reproduce itself, and cannot maintain homeostasis, grow, or adapt.'
         correct: true
-      - text: Yes: consuming fuel for energy is enough to be classified as living.
-      - text: No: but only because it does not produce any motion.
-      - text: Yes: any machine that uses fuel is considered alive.
+      - text: 'Yes: consuming fuel for energy is enough to be classified as living.'
+      - text: 'No: but only because it does not produce any motion.'
+      - text: 'Yes: any machine that uses fuel is considered alive.'
     explanation: |
       Resembling one characteristic (using energy) is not enough. The engine fails every other requirement, no cells, no reproduction, no homeostasis, no growth, no adaptation, so it is non-living.
     approved: true
@@ -140,11 +140,11 @@ questions:
     stem: |
       A crystal in a mineral solution grows larger over time by adding more material in a repeating pattern. Is the crystal considered living?
     choices:
-      - text: No: this growth is just repeated chemical bonding, not cellular growth, and the crystal cannot reproduce, respond to stimuli, or maintain homeostasis.
+      - text: 'No: this growth is just repeated chemical bonding, not cellular growth, and the crystal cannot reproduce, respond to stimuli, or maintain homeostasis.'
         correct: true
-      - text: Yes: growing larger over time is enough to be classified as living.
-      - text: No: but only because crystals are too small to be alive.
-      - text: Yes: any object that grows is automatically living.
+      - text: 'Yes: growing larger over time is enough to be classified as living.'
+      - text: 'No: but only because crystals are too small to be alive.'
+      - text: 'Yes: any object that grows is automatically living.'
     explanation: |
       Resembling one characteristic (growth) is not enough. The crystal fails every other requirement, so it is non-living, despite appearing to "grow."
     approved: true
@@ -154,11 +154,11 @@ questions:
     stem: |
       A fire spreads across a field, consuming fuel (plant material and oxygen) for energy and growing larger. A student argues the fire must be alive, since it grows and uses energy. Is this correct?
     choices:
-      - text: No: the fire cannot reproduce itself, does not maintain homeostasis, and is not made of cells; resembling growth and energy use alone is not enough.
+      - text: 'No: the fire cannot reproduce itself, does not maintain homeostasis, and is not made of cells; resembling growth and energy use alone is not enough.'
         correct: true
-      - text: Yes: anything that grows and consumes energy is alive.
-      - text: No: but only because fire cannot spread across a field.
-      - text: Yes: fire reproduces by spreading to new fuel sources.
+      - text: 'Yes: anything that grows and consumes energy is alive.'
+      - text: 'No: but only because fire cannot spread across a field.'
+      - text: 'Yes: fire reproduces by spreading to new fuel sources.'
     explanation: |
       Fire mimics "growth" (spreading) and "metabolism" (consuming fuel for energy), but it fails the other characteristics of life: it has no cells, cannot reproduce itself, and cannot maintain homeostasis. It is non-living.
     approved: true
@@ -168,11 +168,11 @@ questions:
     stem: |
       A rock rolls down a hill after being pushed. A student describes this as the rock "responding to a stimulus." Is this a correct use of the term?
     choices:
-      - text: No: response to stimuli means an organism actively reacting in a controlled, biological way, not simply obeying gravity or physical forces.
+      - text: 'No: response to stimuli means an organism actively reacting in a controlled, biological way, not simply obeying gravity or physical forces.'
         correct: true
-      - text: Yes: any movement caused by an outside force counts as response to stimuli.
-      - text: No: but only because rocks are too large to respond to anything.
-      - text: Yes: gravity is itself considered a biological stimulus.
+      - text: 'Yes: any movement caused by an outside force counts as response to stimuli.'
+      - text: 'No: but only because rocks are too large to respond to anything.'
+      - text: 'Yes: gravity is itself considered a biological stimulus.'
     explanation: |
       True response to stimuli involves an organism actively reacting, like a plant growing toward light or an animal fleeing danger, not an object simply obeying gravity or another physical force.
     approved: true
@@ -196,9 +196,9 @@ questions:
     stem: |
       An organism is observed to be made of cells, uses chemical reactions to obtain energy, maintains stable internal conditions, grows over time, produces offspring, reacts to changes in its environment, and shows trait changes across generations. Based on this full description, should it be classified as alive?
     choices:
-      - text: Yes: it demonstrates all seven characteristics of life together, meeting the requirement for being classified as alive.
+      - text: 'Yes: it demonstrates all seven characteristics of life together, meeting the requirement for being classified as alive.'
         correct: true
-      - text: No: demonstrating all seven characteristics together actually disqualifies something from being alive.
+      - text: 'No: demonstrating all seven characteristics together actually disqualifies something from being alive.'
       - text: It cannot be determined without knowing the organism's exact species.
       - text: Only the reproduction and growth characteristics matter; the rest are irrelevant.
     explanation: |

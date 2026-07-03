@@ -140,11 +140,11 @@ questions:
     stem: |
       A student says a solution with pH 2 is "less acidic" than a solution with pH 5, reasoning that 2 is a smaller number. Is this correct?
     choices:
-      - text: No: lower pH numbers mean more acidic, so pH 2 is actually far more acidic than pH 5.
+      - text: 'No: lower pH numbers mean more acidic, so pH 2 is actually far more acidic than pH 5.'
         correct: true
-      - text: Yes: smaller pH numbers always mean less acidic.
-      - text: No: but only because pH 2 and pH 5 are actually the same acidity.
-      - text: Yes: pH works the same as ordinary counting, where smaller means less.
+      - text: 'Yes: smaller pH numbers always mean less acidic.'
+      - text: 'No: but only because pH 2 and pH 5 are actually the same acidity.'
+      - text: 'Yes: pH works the same as ordinary counting, where smaller means less.'
     explanation: |
       The pH scale runs in the opposite direction from everyday intuition: lower numbers mean more acidic (more $H^+$ ions), not less.
     approved: true
@@ -154,11 +154,11 @@ questions:
     stem: |
       A student calculates the difference between pH 4 and pH 6 as "twice as acidic," treating the two-unit gap as a simple doubling. Is this correct?
     choices:
-      - text: No: the pH scale is logarithmic, so a 2-unit difference means 100 times more acidic, not twice.
+      - text: 'No: the pH scale is logarithmic, so a 2-unit difference means 100 times more acidic, not twice.'
         correct: true
-      - text: Yes: a 2-unit pH difference always means exactly twice as acidic.
-      - text: No: a 2-unit pH difference actually means half as acidic.
-      - text: Yes: pH differences are always simple linear differences.
+      - text: 'Yes: a 2-unit pH difference always means exactly twice as acidic.'
+      - text: 'No: a 2-unit pH difference actually means half as acidic.'
+      - text: 'Yes: pH differences are always simple linear differences.'
     explanation: |
       Each whole pH step represents a ten-times change in acidity. A 2-step difference means $10 \times 10 = 100$ times more acidic, not a simple doubling.
     approved: true
@@ -168,11 +168,11 @@ questions:
     stem: |
       A student assumes that a "strong" acid must also be a "concentrated" (large amount of) acid. Is this assumption correct?
     choices:
-      - text: No: "strong" describes how completely an acid dissociates into ions, while "concentrated" describes how much is dissolved; these are different properties.
+      - text: 'No: "strong" describes how completely an acid dissociates into ions, while "concentrated" describes how much is dissolved; these are different properties.'
         correct: true
-      - text: Yes: "strong" and "concentrated" always mean exactly the same thing.
-      - text: No: "strong" only applies to bases, never to acids.
-      - text: Yes: a strong acid must always be present in a large amount.
+      - text: 'Yes: "strong" and "concentrated" always mean exactly the same thing.'
+      - text: 'No: "strong" only applies to bases, never to acids.'
+      - text: 'Yes: a strong acid must always be present in a large amount.'
     explanation: |
       A dilute solution of a strong acid (small amount, but fully dissociating) is a different situation from a concentrated solution of a weak acid (large amount, but only partially dissociating). "Strong" and "concentrated" measure different things.
     approved: true
@@ -182,11 +182,11 @@ questions:
     stem: |
       A student assumes that every reaction between an acid and a base must produce a final solution with exactly pH 7. Is this assumption correct?
     choices:
-      - text: No: neutralization always produces salt and water, but the resulting salt solution is not guaranteed to have exactly pH 7.
+      - text: 'No: neutralization always produces salt and water, but the resulting salt solution is not guaranteed to have exactly pH 7.'
         correct: true
-      - text: Yes: every acid-base reaction always results in exactly pH 7.
-      - text: No: acid-base reactions never produce water.
-      - text: Yes: "neutralization" specifically guarantees a final pH of 7 in every case.
+      - text: 'Yes: every acid-base reaction always results in exactly pH 7.'
+      - text: 'No: acid-base reactions never produce water.'
+      - text: 'Yes: "neutralization" specifically guarantees a final pH of 7 in every case.'
     explanation: |
       "Neutralization" refers to the $H^+$ and $OH^-$ combining to form water, not a guarantee that the final mixed solution's pH lands exactly at 7: some resulting salts can make the solution slightly acidic or slightly basic.
     approved: true

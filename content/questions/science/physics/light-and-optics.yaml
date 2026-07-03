@@ -45,7 +45,7 @@ questions:
       - text: Converging
         correct: true
       - text: Diverging
-      - text: Neither: mirrors do not affect light direction.
+      - text: 'Neither: mirrors do not affect light direction.'
       - text: It depends on the color of light.
     explanation: |
       Concave mirrors bring parallel light rays together toward a focus point, making them converging mirrors.
@@ -59,7 +59,7 @@ questions:
       - text: Converging
         correct: true
       - text: Diverging
-      - text: Neither: lenses do not affect light direction.
+      - text: 'Neither: lenses do not affect light direction.'
       - text: It depends on the color of light.
     explanation: |
       Convex lenses (thicker in the middle) bring light rays together toward a focus point, making them converging lenses.
@@ -73,7 +73,7 @@ questions:
       - text: Diverging
         correct: true
       - text: Converging
-      - text: Neither: mirrors do not affect light direction.
+      - text: 'Neither: mirrors do not affect light direction.'
       - text: It depends on the color of light.
     explanation: |
       Convex mirrors spread parallel light rays apart, making them diverging mirrors.
@@ -87,7 +87,7 @@ questions:
       - text: Diverging
         correct: true
       - text: Converging
-      - text: Neither: lenses do not affect light direction.
+      - text: 'Neither: lenses do not affect light direction.'
       - text: It depends on the color of light.
     explanation: |
       Concave lenses (thinner in the middle) spread light rays apart, making them diverging lenses.
@@ -168,11 +168,11 @@ questions:
     stem: |
       A student assumes that since concave mirrors converge light, concave lenses must also converge light. Is this correct?
     choices:
-      - text: No: the concave/convex rule flips for lenses; concave lenses actually diverge light, while convex lenses converge it.
+      - text: 'No: the concave/convex rule flips for lenses; concave lenses actually diverge light, while convex lenses converge it.'
         correct: true
-      - text: Yes: concave always means converging, for both mirrors and lenses.
-      - text: No: concave lenses do not affect light at all.
-      - text: Yes: mirrors and lenses always behave identically for the same shape.
+      - text: 'Yes: concave always means converging, for both mirrors and lenses.'
+      - text: 'No: concave lenses do not affect light at all.'
+      - text: 'Yes: mirrors and lenses always behave identically for the same shape.'
     explanation: |
       For mirrors, concave converges and convex diverges. For lenses, this pattern reverses: convex lenses converge, and concave lenses diverge. Always check whether the device is a mirror or a lens before applying the rule.
     approved: true
@@ -196,11 +196,11 @@ questions:
     stem: |
       A student assumes visible light makes up most of the electromagnetic spectrum, since it is the only part we can see and think about regularly. Is this correct?
     choices:
-      - text: No: visible light is only a tiny slice of the full electromagnetic spectrum, bordered by infrared and ultraviolet.
+      - text: 'No: visible light is only a tiny slice of the full electromagnetic spectrum, bordered by infrared and ultraviolet.'
         correct: true
-      - text: Yes: visible light makes up the majority of the electromagnetic spectrum.
-      - text: No: the electromagnetic spectrum consists only of visible light and nothing else.
-      - text: Yes: radio waves and X-rays are actually part of visible light.
+      - text: 'Yes: visible light makes up the majority of the electromagnetic spectrum.'
+      - text: 'No: the electromagnetic spectrum consists only of visible light and nothing else.'
+      - text: 'Yes: radio waves and X-rays are actually part of visible light.'
     explanation: |
       Visible light occupies only a narrow band of the full electromagnetic spectrum. Most electromagnetic radiation, radio waves, microwaves, infrared, ultraviolet, X-rays, and gamma rays, is invisible to human eyes.
     approved: true
@@ -210,11 +210,11 @@ questions:
     stem: |
       A student says violet light has a longer wavelength than red light, since violet appears at the "high energy" end people associate with bigger numbers. Is this correct?
     choices:
-      - text: No: red has the longest wavelength in the visible spectrum, and violet has the shortest.
+      - text: 'No: red has the longest wavelength in the visible spectrum, and violet has the shortest.'
         correct: true
-      - text: Yes: violet always has a longer wavelength than red.
-      - text: No: red and violet actually have the exact same wavelength.
-      - text: Yes: wavelength and energy always increase together in the same direction as this student assumes for violet.
+      - text: 'Yes: violet always has a longer wavelength than red.'
+      - text: 'No: red and violet actually have the exact same wavelength.'
+      - text: 'Yes: wavelength and energy always increase together in the same direction as this student assumes for violet.'
     explanation: |
       Red has the longest wavelength in visible light, and violet has the shortest: the opposite of what the student assumed. The roygbiv mnemonic lists colors from longest to shortest wavelength.
     approved: true

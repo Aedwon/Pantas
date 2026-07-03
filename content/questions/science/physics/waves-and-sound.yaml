@@ -59,7 +59,7 @@ questions:
       - text: Mechanical, since it requires a medium (like air) to travel through.
         correct: true
       - text: Electromagnetic, since it can travel through a vacuum.
-      - text: Neither: sound is not a wave at all.
+      - text: 'Neither: sound is not a wave at all.'
       - text: Both, depending on the loudness.
     explanation: |
       Sound requires a physical medium like air to travel: it cannot travel through a vacuum, making it a mechanical wave.
@@ -73,7 +73,7 @@ questions:
       - text: Electromagnetic, since it requires no medium and can travel through a vacuum.
         correct: true
       - text: Mechanical, since it requires a medium like air.
-      - text: Neither: light is not a wave at all.
+      - text: 'Neither: light is not a wave at all.'
       - text: Both, depending on the distance traveled.
     explanation: |
       Light travels through empty space with no medium needed, making it an electromagnetic wave.
@@ -154,11 +154,11 @@ questions:
     stem: |
       A movie shows an explosion producing a loud sound in the vacuum of outer space. Is this physically realistic?
     choices:
-      - text: No: sound is a mechanical wave and requires a medium like air; with no matter to vibrate in a vacuum, there would be no sound at all.
+      - text: 'No: sound is a mechanical wave and requires a medium like air; with no matter to vibrate in a vacuum, there would be no sound at all.'
         correct: true
-      - text: Yes: sound can travel through a vacuum just like light.
-      - text: No: but only because explosions cannot happen in space at all.
-      - text: Yes: loud sounds are always audible regardless of the medium.
+      - text: 'Yes: sound can travel through a vacuum just like light.'
+      - text: 'No: but only because explosions cannot happen in space at all.'
+      - text: 'Yes: loud sounds are always audible regardless of the medium.'
     explanation: |
       Sound requires a physical medium to travel through, unlike electromagnetic waves such as light. With no air (or any matter) in a vacuum, there is nothing to vibrate, so no sound could actually be heard.
     approved: true
@@ -168,11 +168,11 @@ questions:
     stem: |
       A student describes sound waves as transverse waves, since sound is a familiar kind of wave. Is this correct?
     choices:
-      - text: No: sound waves are longitudinal, with air particles compressing and stretching along the same direction the sound travels, not moving side to side.
+      - text: 'No: sound waves are longitudinal, with air particles compressing and stretching along the same direction the sound travels, not moving side to side.'
         correct: true
-      - text: Yes: sound waves are transverse, like light waves.
-      - text: No: sound waves are electromagnetic, not transverse or longitudinal.
-      - text: Yes: all mechanical waves are transverse.
+      - text: 'Yes: sound waves are transverse, like light waves.'
+      - text: 'No: sound waves are electromagnetic, not transverse or longitudinal.'
+      - text: 'Yes: all mechanical waves are transverse.'
     explanation: |
       Sound is a longitudinal wave: air particles move back and forth parallel to the direction of travel, creating compressions and stretches, unlike a transverse wave's side-to-side particle motion.
     approved: true
@@ -182,11 +182,11 @@ questions:
     stem: |
       A student assumes an approaching sound source makes the sound waves travel faster through the air, causing the higher pitch heard. Is this correct?
     choices:
-      - text: No: the wave's actual speed through the medium stays constant; only the observed frequency changes, due to the wave crests bunching together.
+      - text: 'No: the wave''s actual speed through the medium stays constant; only the observed frequency changes, due to the wave crests bunching together.'
         correct: true
-      - text: Yes: the Doppler effect works by physically speeding up the sound waves.
-      - text: No: the wave's speed actually decreases as the source approaches.
-      - text: Yes: pitch and wave speed are always the same thing.
+      - text: 'Yes: the Doppler effect works by physically speeding up the sound waves.'
+      - text: 'No: the wave''s speed actually decreases as the source approaches.'
+      - text: 'Yes: pitch and wave speed are always the same thing.'
     explanation: |
       The Doppler effect changes the observed frequency and pitch, not the actual wave speed through the medium. The wave crests simply bunch together (from the source's motion), which is perceived as a higher frequency.
     approved: true
@@ -196,11 +196,11 @@ questions:
     stem: |
       A student assumes a sound source moving toward an observer results in a lower pitch, reasoning that "closer sounds are usually softer and lower." Is this correct?
     choices:
-      - text: No: a source moving toward an observer results in a higher observed pitch, not lower, which is why an approaching ambulance siren sounds higher, not lower.
+      - text: 'No: a source moving toward an observer results in a higher observed pitch, not lower, which is why an approaching ambulance siren sounds higher, not lower.'
         correct: true
-      - text: Yes: approaching sources always sound lower in pitch.
-      - text: No: pitch does not change based on relative motion at all.
-      - text: Yes: but only for very quiet sounds.
+      - text: 'Yes: approaching sources always sound lower in pitch.'
+      - text: 'No: pitch does not change based on relative motion at all.'
+      - text: 'Yes: but only for very quiet sounds.'
     explanation: |
       Reversing the Doppler direction (assuming approaching means lower pitch) contradicts everyday experience: an ambulance siren clearly rises in pitch as it approaches, not falls.
     approved: true

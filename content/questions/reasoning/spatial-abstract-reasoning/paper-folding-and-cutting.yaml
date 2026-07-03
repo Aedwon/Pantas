@@ -107,11 +107,11 @@ questions:
     stem: |
       A student folds a paper 3 separate times and predicts the cut will produce only 3 holes when unfolded, reasoning "one fold, one hole." Is this reasoning correct?
     choices:
-      - text: No — each additional fold doubles the number of layers a single cut passes through, so 3 folds produce $2^3=8$ holes, not simply 3.
+      - text: 'No: each additional fold doubles the number of layers a single cut passes through, so 3 folds produce $2^3=8$ holes, not simply 3.'
         correct: true
-      - text: Yes — the number of holes always equals the number of folds.
-      - text: Yes — but only because paper cannot be folded more than 3 times.
-      - text: No — but only because 3 folds actually produce fewer holes than 3.
+      - text: 'Yes: the number of holes always equals the number of folds.'
+      - text: 'Yes: but only because paper cannot be folded more than 3 times.'
+      - text: 'No: but only because 3 folds actually produce fewer holes than 3.'
     explanation: |
       Assuming folds produce holes on a simple one-to-one basis is a common miscounting error. The total hole count follows $2^{\text{folds}}$ (doubling with each fold), not a simple "one hole per fold" count.
     approved: true
@@ -123,11 +123,11 @@ questions:
     stem: |
       A paper is folded in half twice (into a quarter-square), giving 4 layers. A cut is made that crosses one of the fold lines directly, rather than sitting entirely within one layer's interior. A student predicts this will still produce exactly 4 fully separate holes when unfolded, using the standard $2^{\text{folds}}$ formula. Is this prediction correct?
     choices:
-      - text: No — a cut that crosses a fold line directly gets reflected across that fold line, merging what would otherwise be separate holes into fewer, larger connected shapes, rather than 4 fully separate holes.
+      - text: 'No: a cut that crosses a fold line directly gets reflected across that fold line, merging what would otherwise be separate holes into fewer, larger connected shapes, rather than 4 fully separate holes.'
         correct: true
-      - text: Yes — the $2^{\text{folds}}$ formula always applies regardless of where the cut is positioned relative to the fold lines.
-      - text: Yes — cuts crossing fold lines always produce more holes than the formula predicts, not fewer.
-      - text: No — but only because cuts can never cross a fold line.
+      - text: 'Yes: the $2^{\text{folds}}$ formula always applies regardless of where the cut is positioned relative to the fold lines.'
+      - text: 'Yes: cuts crossing fold lines always produce more holes than the formula predicts, not fewer.'
+      - text: 'No: but only because cuts can never cross a fold line.'
     explanation: |
       If the cut crosses a fold line directly (rather than sitting entirely within one folded layer's interior), unfolding may connect what would otherwise be separate holes into one continuous connected shape, changing the expected count.
     approved: true
@@ -139,11 +139,11 @@ questions:
     stem: |
       A paper is folded twice: first vertically (fold A), then horizontally (fold B). While working backwards to predict hole positions, a student undoes fold A first, then fold B, reflecting the cut across fold A's line first. Is this the correct order to undo the folds?
     choices:
-      - text: No — folds must be undone in reverse order, meaning the most recently made fold (fold B, made second) should be reflected first, then fold A; undoing them out of order can place the resulting holes in the wrong locations even if the count is correct.
+      - text: 'No: folds must be undone in reverse order, meaning the most recently made fold (fold B, made second) should be reflected first, then fold A; undoing them out of order can place the resulting holes in the wrong locations even if the count is correct.'
         correct: true
-      - text: Yes — folds can be undone in any order, since the final hole positions do not depend on the order of unfolding.
-      - text: Yes — folds should always be undone in the same order they were originally made, not reversed.
-      - text: No — but only because only one fold can ever be undone at a time regardless of order.
+      - text: 'Yes: folds can be undone in any order, since the final hole positions do not depend on the order of unfolding.'
+      - text: 'Yes: folds should always be undone in the same order they were originally made, not reversed.'
+      - text: 'No: but only because only one fold can ever be undone at a time regardless of order.'
     explanation: |
       Each "undo fold" step must reflect the cut's position across the correct fold line for that specific step, working from the last fold made back to the first. Undoing folds out of order can produce holes in the wrong location even if the total count is correct.
     approved: true
@@ -185,7 +185,7 @@ questions:
     difficulty: hard
     figure: paper-folding-and-cutting-12
     stem: |
-      A square paper is folded in half vertically, then folded in half again horizontally (into a quarter-square). A notch is cut near one specific corner of the folded quarter-square — not the corner where both folds meet, and not along an outer edge, but the corner diagonally opposite the all-folds corner. Predict how many notches appear when unfolded, and their general position.
+      A square paper is folded in half vertically, then folded in half again horizontally (into a quarter-square). A notch is cut near one specific corner of the folded quarter-square, not the corner where both folds meet, and not along an outer edge, but the corner diagonally opposite the all-folds corner. Predict how many notches appear when unfolded, and their general position.
     choices:
       - text: "4 notches, one in each quadrant, each mirrored to the position diagonally opposite the center within its own quadrant"
         correct: true
@@ -203,13 +203,13 @@ questions:
     stem: |
       Two square papers are each folded twice into a quarter-square (4 layers). On paper 1, a notch is cut near the all-folds center corner. On paper 2, an identical-sized notch is cut near the outer edge, far from the center. Both papers are then unfolded. Do the two papers end up with the same hole count, the same hole positions, or neither?
     choices:
-      - text: Both papers end up with the same hole count (4 holes each, since both used 2 folds), but different hole positions — paper 1's holes cluster near the center, while paper 2's holes appear near the outer edges.
+      - text: 'Both papers end up with the same hole count (4 holes each, since both used 2 folds), but different hole positions: paper 1''s holes cluster near the center, while paper 2''s holes appear near the outer edges.'
         correct: true
       - text: Both papers end up with the same hole count and the same hole positions, since both used the same number of folds and the same notch size.
       - text: The two papers end up with different hole counts, since cut position affects the total number of holes.
       - text: Neither paper produces any holes, since folding twice cancels out any cut made afterward.
     explanation: |
-      The number of folds determines the hole count ($2^{\text{folds}}$), independent of where exactly the cut is placed (as long as it's away from any fold line). But the specific position of the cut on the folded shape determines where each of those holes ends up once unfolded — so the count matches, but the positions differ.
+      The number of folds determines the hole count ($2^{\text{folds}}$), independent of where exactly the cut is placed (as long as it's away from any fold line). But the specific position of the cut on the folded shape determines where each of those holes ends up once unfolded, so the count matches, but the positions differ.
     approved: true
 
   - id: q-spatial-abstract-reasoning-paper-folding-and-cutting-0014
@@ -225,5 +225,5 @@ questions:
       - text: "(a) 6 notches; (b) the order of undoing folds does not matter for the final positions."
       - text: "(a) 8 notches; (b) undo fold A first, then B, then C, following the original folding order."
     explanation: |
-      Three folds mean $2^3=8$ layers are cut through, producing 8 notches. To correctly trace each notch's position, folds must be undone in reverse order — the most recently made fold (C) first, then B, then A — reflecting the cut's position across the correct fold line at each step.
+      Three folds mean $2^3=8$ layers are cut through, producing 8 notches. To correctly trace each notch's position, folds must be undone in reverse order, the most recently made fold (C) first, then B, then A, reflecting the cut's position across the correct fold line at each step.
     approved: true

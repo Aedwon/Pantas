@@ -154,11 +154,11 @@ questions:
     stem: |
       A student thinks "saturated" means a hydrocarbon is "full of" double bonds. Is this correct?
     choices:
-      - text: No: "saturated" means every bonding position is already filled with hydrogen, leaving no room for any double or triple bonds.
+      - text: 'No: "saturated" means every bonding position is already filled with hydrogen, leaving no room for any double or triple bonds.'
         correct: true
-      - text: Yes: "saturated" specifically describes having many double bonds.
-      - text: No: "saturated" describes having many triple bonds instead.
-      - text: Yes: the more double and triple bonds present, the more "saturated" a molecule is.
+      - text: 'Yes: "saturated" specifically describes having many double bonds.'
+      - text: 'No: "saturated" describes having many triple bonds instead.'
+      - text: 'Yes: the more double and triple bonds present, the more "saturated" a molecule is.'
     explanation: |
       "Saturated" means the opposite of what the student assumed: every possible bonding spot already holds a hydrogen atom, so there is no room left for a double or triple bond.
     approved: true
@@ -168,11 +168,11 @@ questions:
     stem: |
       A student mixes up the endings "-ene" and "-yne," using "-yne" for a molecule with a double bond. Is this correct?
     choices:
-      - text: No: "-ene" means a double bond (alkene); "-yne" means a triple bond (alkyne).
+      - text: 'No: "-ene" means a double bond (alkene); "-yne" means a triple bond (alkyne).'
         correct: true
-      - text: Yes: "-ene" and "-yne" both refer to double bonds interchangeably.
-      - text: No: "-ene" means a triple bond, and "-yne" means a double bond.
-      - text: Yes: the endings only depend on chain length, not bond type.
+      - text: 'Yes: "-ene" and "-yne" both refer to double bonds interchangeably.'
+      - text: 'No: "-ene" means a triple bond, and "-yne" means a double bond.'
+      - text: 'Yes: the endings only depend on chain length, not bond type.'
     explanation: |
       "-ene" specifically indicates a double bond (alkene), and "-yne" specifically indicates a triple bond (alkyne): reversing them names the wrong compound entirely.
     approved: true
@@ -182,11 +182,11 @@ questions:
     stem: |
       A branched molecule has several possible carbon chains a student could choose as the "parent chain" when naming it. The student picks a shorter chain because it was drawn first, instead of checking for a longer one. Is this correct?
     choices:
-      - text: No: IUPAC naming always requires finding the longest continuous carbon chain as the parent chain, regardless of how it was drawn.
+      - text: 'No: IUPAC naming always requires finding the longest continuous carbon chain as the parent chain, regardless of how it was drawn.'
         correct: true
-      - text: Yes: any chain can be chosen as the parent chain, as long as it is named consistently.
-      - text: No: the parent chain must always be exactly 4 carbons long.
-      - text: Yes: the first chain drawn is always the correct parent chain.
+      - text: 'Yes: any chain can be chosen as the parent chain, as long as it is named consistently.'
+      - text: 'No: the parent chain must always be exactly 4 carbons long.'
+      - text: 'Yes: the first chain drawn is always the correct parent chain.'
     explanation: |
       IUPAC naming rules require identifying the longest continuous carbon chain as the parent chain; shorter branches are instead named as attached side groups. Picking a shorter chain leads to an incorrect name.
     approved: true

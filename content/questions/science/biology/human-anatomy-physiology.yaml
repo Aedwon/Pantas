@@ -32,7 +32,7 @@ questions:
         correct: true
       - text: Systemic circulation
       - text: Capillary circulation
-      - text: Neither: blood does not circulate to the lungs.
+      - text: 'Neither: blood does not circulate to the lungs.'
     explanation: |
       Pulmonary circulation moves blood between the heart and the lungs specifically to pick up oxygen.
     approved: true
@@ -129,7 +129,7 @@ questions:
       - text: Innate immunity, since it is a fast, general first line of defense.
         correct: true
       - text: Adaptive immunity, since it targets one specific germ.
-      - text: Neither: cuts do not trigger any immune response.
+      - text: 'Neither: cuts do not trigger any immune response.'
       - text: Both types equally, at the exact same time.
     explanation: |
       Innate immunity is the body's fast, general first line of defense, like the skin barrier and general immune cells: it responds quickly but is not targeted at a specific germ.
@@ -143,7 +143,7 @@ questions:
       - text: Adaptive immunity, since it uses memory from a past specific infection.
         correct: true
       - text: Innate immunity, since it responds immediately.
-      - text: Neither: memory cells are not part of the immune system.
+      - text: 'Neither: memory cells are not part of the immune system.'
       - text: Both types equally, at the exact same time.
     explanation: |
       Adaptive immunity is slower to build the first time, but equips the body with long-term memory, allowing a fast, specific response on repeat exposure to the same pathogen.
@@ -154,11 +154,11 @@ questions:
     stem: |
       A student assumes arteries always carry oxygen-rich blood, since arteries are usually associated with oxygenated blood in diagrams. Is this the correct way to define arteries?
     choices:
-      - text: No: arteries are defined by direction (carrying blood away from the heart), not by oxygen content, which actually varies between pulmonary and systemic circulation.
+      - text: 'No: arteries are defined by direction (carrying blood away from the heart), not by oxygen content, which actually varies between pulmonary and systemic circulation.'
         correct: true
-      - text: Yes: arteries are defined strictly by carrying oxygen-rich blood.
-      - text: No: arteries are defined by carrying oxygen-poor blood instead.
-      - text: Yes: veins and arteries are defined identically.
+      - text: 'Yes: arteries are defined strictly by carrying oxygen-rich blood.'
+      - text: 'No: arteries are defined by carrying oxygen-poor blood instead.'
+      - text: 'Yes: veins and arteries are defined identically.'
     explanation: |
       Arteries carry blood away from the heart, and veins carry blood back: this direction-based definition, not oxygen content, is what distinguishes them (pulmonary arteries, for example, actually carry oxygen-poor blood).
     approved: true
@@ -168,11 +168,11 @@ questions:
     stem: |
       A student assumes cardiac muscle must be voluntary, since it looks striated (striped) like skeletal muscle, which is voluntary. Is this correct?
     choices:
-      - text: No: cardiac muscle is striated but completely involuntary; you cannot consciously stop your heart from beating.
+      - text: 'No: cardiac muscle is striated but completely involuntary; you cannot consciously stop your heart from beating.'
         correct: true
-      - text: Yes: all striated muscle is voluntary.
-      - text: No: cardiac muscle is actually smooth, not striated.
-      - text: Yes: cardiac muscle can be controlled consciously, just like skeletal muscle.
+      - text: 'Yes: all striated muscle is voluntary.'
+      - text: 'No: cardiac muscle is actually smooth, not striated.'
+      - text: 'Yes: cardiac muscle can be controlled consciously, just like skeletal muscle.'
     explanation: |
       Both skeletal and cardiac muscle appear striated, but only skeletal muscle is voluntary. Cardiac muscle remains completely involuntary despite its striated appearance.
     approved: true
@@ -182,11 +182,11 @@ questions:
     stem: |
       A student assumes the pancreas belongs only to the digestive system, since it releases digestive enzymes. Is this correct?
     choices:
-      - text: No: the pancreas also belongs to the endocrine system, releasing insulin and glucagon directly into the bloodstream.
+      - text: 'No: the pancreas also belongs to the endocrine system, releasing insulin and glucagon directly into the bloodstream.'
         correct: true
-      - text: Yes: the pancreas belongs only to the digestive system.
-      - text: No: the pancreas actually belongs only to the endocrine system, not the digestive system.
-      - text: Yes: no organ can belong to more than one body system.
+      - text: 'Yes: the pancreas belongs only to the digestive system.'
+      - text: 'No: the pancreas actually belongs only to the endocrine system, not the digestive system.'
+      - text: 'Yes: no organ can belong to more than one body system.'
     explanation: |
       The pancreas serves two systems: its digestive role releases enzymes into the small intestine, while its endocrine role releases insulin and glucagon directly into the blood.
     approved: true
@@ -196,11 +196,11 @@ questions:
     stem: |
       A student claims innate immunity has long-term memory, just like adaptive immunity. Is this correct?
     choices:
-      - text: No: only adaptive immunity builds memory; innate immunity is always fast but never targets one specific germ and does not remember past infections.
+      - text: 'No: only adaptive immunity builds memory; innate immunity is always fast but never targets one specific germ and does not remember past infections.'
         correct: true
-      - text: Yes: both innate and adaptive immunity build long-term memory equally.
-      - text: No: but only because innate immunity does not respond to infections at all.
-      - text: Yes: innate immunity is actually slower than adaptive immunity, but still remembers.
+      - text: 'Yes: both innate and adaptive immunity build long-term memory equally.'
+      - text: 'No: but only because innate immunity does not respond to infections at all.'
+      - text: 'Yes: innate immunity is actually slower than adaptive immunity, but still remembers.'
     explanation: |
       Innate immunity trades specificity for speed and does not build memory. Adaptive immunity trades initial speed for precision and long-term memory, which is why repeat infections are fought off faster.
     approved: true
@@ -214,7 +214,7 @@ questions:
         correct: true
       - text: The ventricles (lower chambers)
       - text: Both the atria and ventricles equally
-      - text: Neither: blood enters directly into the arteries
+      - text: 'Neither: blood enters directly into the arteries'
     explanation: |
       Blood flows into the heart through the atria (upper chambers) first, then moves into the ventricles (lower chambers), which pump blood back out to the lungs or body.
     approved: true

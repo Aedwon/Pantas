@@ -17,7 +17,7 @@ questions:
       - text: H2, since 5 moles of N2 need 15 moles of H2, but only 12 are available
         correct: true
       - text: N2, since it has fewer starting moles than H2
-      - text: Neither: both reactants are used up at exactly the same time
+      - text: 'Neither: both reactants are used up at exactly the same time'
       - text: NH3, since it is the product, not a reactant
     explanation: |
       The equation needs 3 moles of $H_2$ for every mole of $N_2$. For 5 moles of $N_2$, $5 \times 3 = 15$ moles of $H_2$ are needed, but only 12 are available. $H_2$ runs out first, making it the limiting reactant.
@@ -70,11 +70,11 @@ questions:
     stem: |
       A student assumes the reactant with the smaller number of starting moles is always the limiting reactant, without checking the balanced equation's ratio. Is this a safe assumption?
     choices:
-      - text: No: the limiting reactant depends on the equation's mole ratio, not just on which reactant has fewer raw moles.
+      - text: 'No: the limiting reactant depends on the equation''s mole ratio, not just on which reactant has fewer raw moles.'
         correct: true
-      - text: Yes: the reactant with fewer moles is always limiting, regardless of the equation.
-      - text: Yes: but only for reactions involving gases.
-      - text: No: the reactant with more moles is always limiting instead.
+      - text: 'Yes: the reactant with fewer moles is always limiting, regardless of the equation.'
+      - text: 'Yes: but only for reactions involving gases.'
+      - text: 'No: the reactant with more moles is always limiting instead.'
     explanation: |
       A reactant with a "bigger number" of moles can still run out first if the equation requires even more of it. The mole ratio from the balanced equation must always be checked, not just the raw starting amounts.
     approved: true
@@ -84,11 +84,11 @@ questions:
     stem: |
       A student calculates percent yield by dividing theoretical yield by actual yield, instead of actual by theoretical. Is this the correct formula?
     choices:
-      - text: No: percent yield divides actual yield by theoretical yield, not the reverse.
+      - text: 'No: percent yield divides actual yield by theoretical yield, not the reverse.'
         correct: true
-      - text: Yes: either order gives the same meaningful result.
-      - text: No: percent yield should divide theoretical yield by itself.
-      - text: Yes: dividing theoretical by actual is the standard formula.
+      - text: 'Yes: either order gives the same meaningful result.'
+      - text: 'No: percent yield should divide theoretical yield by itself.'
+      - text: 'Yes: dividing theoretical by actual is the standard formula.'
     explanation: |
       Percent yield is actual yield divided by theoretical yield, times 100%. Reversing the formula would often produce a result over 100%, which does not match how percent yield is meant to work, since real yields rarely exceed the theoretical maximum.
     approved: true
@@ -98,11 +98,11 @@ questions:
     stem: |
       A compound's empirical formula is $CH_2O$ and its molecular formula is $C_6H_{12}O_6$ (glucose). A student says these two formulas describe two different substances. Is this correct?
     choices:
-      - text: No: they describe the same substance; the molecular formula is simply a whole-number multiple of the empirical ratio.
+      - text: 'No: they describe the same substance; the molecular formula is simply a whole-number multiple of the empirical ratio.'
         correct: true
-      - text: Yes: different formulas always mean different substances.
-      - text: No: but only because glucose has no true molecular formula.
-      - text: Yes: the empirical formula is an older, outdated compound.
+      - text: 'Yes: different formulas always mean different substances.'
+      - text: 'No: but only because glucose has no true molecular formula.'
+      - text: 'Yes: the empirical formula is an older, outdated compound.'
     explanation: |
       The empirical formula shows the simplest ratio of atoms; the molecular formula shows the true total count in one molecule. Both describe glucose: the molecular formula is just the empirical ratio multiplied by a whole number (6, in this case).
     approved: true
@@ -112,11 +112,11 @@ questions:
     stem: |
       A compound has 4 moles of carbon, 8 moles of hydrogen, and 2 moles of oxygen. A student divides carbon and hydrogen by 4, but oxygen by 2, getting a ratio of 1, 2, 1. Is this a correct way to find the empirical formula?
     choices:
-      - text: No: every element must be divided by the same smallest value; here that value is 2, giving a ratio of 2, 4, 1 instead.
+      - text: 'No: every element must be divided by the same smallest value; here that value is 2, giving a ratio of 2, 4, 1 instead.'
         correct: true
-      - text: Yes: each element can be divided by whatever number makes it a whole number.
-      - text: No: the values should not be divided at all.
-      - text: Yes: the resulting ratio 1, 2, 1 is correct.
+      - text: 'Yes: each element can be divided by whatever number makes it a whole number.'
+      - text: 'No: the values should not be divided at all.'
+      - text: 'Yes: the resulting ratio 1, 2, 1 is correct.'
     explanation: |
       All elements must be divided by the same smallest mole value to preserve the true ratio between them. Here the smallest value is 2, so the correct division gives $\dfrac{4}{2}=2$, $\dfrac{8}{2}=4$, $\dfrac{2}{2}=1$: an empirical formula of $C_2H_4O$, not the student's mismatched result.
     approved: true
@@ -129,7 +129,7 @@ questions:
       - text: Cl2, since 6 moles of Al need 9 moles of Cl2, but only 8 are available
         correct: true
       - text: Al, since it has fewer starting moles than Cl2
-      - text: Neither: both reactants are used up at exactly the same time
+      - text: 'Neither: both reactants are used up at exactly the same time'
       - text: AlCl3, since it is the product, not a reactant
     explanation: |
       The equation needs 3 moles of $Cl_2$ for every 2 moles of $Al$. For 6 moles of $Al$, $6 \times \dfrac{3}{2} = 9$ moles of $Cl_2$ are needed, but only 8 are available. $Cl_2$ runs out first.

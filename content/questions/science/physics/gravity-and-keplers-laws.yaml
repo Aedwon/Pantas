@@ -126,11 +126,11 @@ questions:
     stem: |
       A student assumes tripling the distance between two masses divides the gravitational force between them by 3. Is this correct?
     choices:
-      - text: No: gravity is an inverse-square law, so tripling the distance divides the force by $3^2=9$, not 3.
+      - text: 'No: gravity is an inverse-square law, so tripling the distance divides the force by $3^2=9$, not 3.'
         correct: true
-      - text: Yes: force is inversely proportional to distance directly, not distance squared.
-      - text: No: tripling the distance actually multiplies the force by 3.
-      - text: Yes: but only for very large masses.
+      - text: 'Yes: force is inversely proportional to distance directly, not distance squared.'
+      - text: 'No: tripling the distance actually multiplies the force by 3.'
+      - text: 'Yes: but only for very large masses.'
     explanation: |
       Newton's law of gravitation has distance squared in the denominator. Skipping the squaring step and dividing by the plain distance factor (3 instead of 9) is the most common error with this law.
     approved: true
@@ -140,11 +140,11 @@ questions:
     stem: |
       A student believes planetary orbits are perfect circles with the Sun at the exact center. Is this correct?
     choices:
-      - text: No: Kepler's First Law states orbits are ellipses, with the Sun at one focus, not the exact center of a circle.
+      - text: 'No: Kepler''s First Law states orbits are ellipses, with the Sun at one focus, not the exact center of a circle.'
         correct: true
-      - text: Yes: all planetary orbits are perfect circles.
-      - text: No: but only because the Sun is not actually involved in planetary orbits.
-      - text: Yes: Kepler's First Law confirms circular orbits.
+      - text: 'Yes: all planetary orbits are perfect circles.'
+      - text: 'No: but only because the Sun is not actually involved in planetary orbits.'
+      - text: 'Yes: Kepler''s First Law confirms circular orbits.'
     explanation: |
       While some orbits are nearly circular, the technically correct shape described by Kepler's First Law is an ellipse, with the Sun positioned at one focus rather than the exact center.
     approved: true
@@ -154,11 +154,11 @@ questions:
     stem: |
       A student assumes a planet moves at the same constant speed throughout its entire elliptical orbit. Is this correct?
     choices:
-      - text: No: Kepler's Second Law shows orbital speed changes throughout an elliptical orbit, faster near the Sun and slower far away.
+      - text: 'No: Kepler''s Second Law shows orbital speed changes throughout an elliptical orbit, faster near the Sun and slower far away.'
         correct: true
-      - text: Yes: all planets move at one constant speed throughout their orbit.
-      - text: No: but only for orbits that are perfect circles.
-      - text: Yes: Kepler's laws do not address orbital speed at all.
+      - text: 'Yes: all planets move at one constant speed throughout their orbit.'
+      - text: 'No: but only for orbits that are perfect circles.'
+      - text: 'Yes: Kepler''s laws do not address orbital speed at all.'
     explanation: |
       Only a perfectly circular orbit would have constant speed. Real elliptical orbits have varying speed, as described by Kepler's Second Law.
     approved: true
@@ -168,11 +168,11 @@ questions:
     stem: |
       A student assumes Kepler's Third Law means a planet's period is directly proportional to its distance (not involving any exponents). Is this correct?
     choices:
-      - text: No: Kepler's Third Law relates period squared to distance cubed ($T^2 \propto r^3$), not a simple direct proportion.
+      - text: 'No: Kepler''s Third Law relates period squared to distance cubed ($T^2 \propto r^3$), not a simple direct proportion.'
         correct: true
-      - text: Yes: period and distance are directly, simply proportional.
-      - text: No: Kepler's Third Law actually relates period cubed to distance squared.
-      - text: Yes: Kepler's Third Law has no exponents involved.
+      - text: 'Yes: period and distance are directly, simply proportional.'
+      - text: 'No: Kepler''s Third Law actually relates period cubed to distance squared.'
+      - text: 'Yes: Kepler''s Third Law has no exponents involved.'
     explanation: |
       Ignoring the actual exponents (period squared, distance cubed) and treating the relationship as a simple direct proportion leads to significantly wrong comparisons, especially for orbits with very different periods.
     approved: true

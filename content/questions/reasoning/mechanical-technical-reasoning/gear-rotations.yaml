@@ -123,13 +123,13 @@ questions:
     stem: |
       Figure shows three gears connected in a row. Gear 1 turns clockwise, and gear 2 (meshing directly with gear 1) turns counter-clockwise. A student assumes gear 3 (meshing directly with gear 2) must also turn counter-clockwise, "matching gear 2." Is this assumption correct?
     choices:
-      - text: No — gear 3 meshes directly with gear 2, so it must turn opposite to gear 2 (clockwise), alternating back to match gear 1's direction, not continuing gear 2's direction.
+      - text: 'No: gear 3 meshes directly with gear 2, so it must turn opposite to gear 2 (clockwise), alternating back to match gear 1''s direction, not continuing gear 2''s direction.'
         correct: true
-      - text: Yes — once a gear in the chain turns counter-clockwise, every gear after it also turns counter-clockwise.
-      - text: Yes — but only because gear 3 does not actually mesh with gear 2.
-      - text: No — but only because gear 1 and gear 2 actually turn in the same direction.
+      - text: 'Yes: once a gear in the chain turns counter-clockwise, every gear after it also turns counter-clockwise.'
+      - text: 'Yes: but only because gear 3 does not actually mesh with gear 2.'
+      - text: 'No: but only because gear 1 and gear 2 actually turn in the same direction.'
     explanation: |
-      Assuming the third gear spins the same direction as the second (rather than correctly alternating back to match the first) is one of the most common gear-direction errors. Directly meshing gears always spin in opposite directions, so gear 3 must be opposite gear 2 — which means it matches gear 1.
+      Assuming the third gear spins the same direction as the second (rather than correctly alternating back to match the first) is one of the most common gear-direction errors. Directly meshing gears always spin in opposite directions, so gear 3 must be opposite gear 2, which means it matches gear 1.
     approved: true
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0009
@@ -139,11 +139,11 @@ questions:
     stem: |
       A very large gear meshes directly with a very small gear. A student assumes the large gear, because of its size, must always turn in the same direction as other large gears elsewhere in a machine, regardless of the meshing pattern. Is this reasoning correct?
     choices:
-      - text: No — gear size (number of teeth) affects rotation speed, not direction; direction depends only on whether gears mesh directly (always opposite) or how many gears separate them in a chain, independent of size.
+      - text: 'No: gear size (number of teeth) affects rotation speed, not direction; direction depends only on whether gears mesh directly (always opposite) or how many gears separate them in a chain, independent of size.'
         correct: true
-      - text: Yes — larger gears always share the same rotation direction as each other, regardless of meshing.
-      - text: Yes — smaller gears always share the same rotation direction as each other, regardless of meshing.
-      - text: No — but only because gear size has no effect on anything mechanical.
+      - text: 'Yes: larger gears always share the same rotation direction as each other, regardless of meshing.'
+      - text: 'Yes: smaller gears always share the same rotation direction as each other, regardless of meshing.'
+      - text: 'No: but only because gear size has no effect on anything mechanical.'
     explanation: |
       A larger gear does not automatically spin the "same direction" or "opposite direction" based on its size alone. Direction is governed purely by the meshing/alternating rule; gear size only affects rotation speed.
     approved: true
@@ -155,11 +155,11 @@ questions:
     stem: |
       A small gear with 12 teeth meshes with a large gear with 36 teeth. A student says, "the large gear obviously spins slower, so let's just guess it completes half as many rotations as the small gear," without calculating the exact teeth ratio. If the small gear completes 9 rotations, is "half as many" (4.5 rotations) the correct answer for the large gear?
     choices:
-      - text: No — the exact ratio must be calculated from the actual teeth counts (36 ÷ 12 = 3, so the large gear turns 3 times slower); the small gear's $9$ rotations mean $12 \times 9 = 108$ teeth pass, so the large gear completes $108 \div 36 = 3$ rotations, not 4.5.
+      - text: 'No: the exact ratio must be calculated from the actual teeth counts (36 ÷ 12 = 3, so the large gear turns 3 times slower); the small gear''s $9$ rotations mean $12 \times 9 = 108$ teeth pass, so the large gear completes $108 \div 36 = 3$ rotations, not 4.5.'
         correct: true
-      - text: Yes — "half as many rotations" is always a safe guess for any two meshing gears, regardless of their teeth counts.
-      - text: Yes — since the large gear is 3 times bigger, guessing half its rotations is close enough for these questions.
-      - text: No — but only because gears with different teeth counts can never mesh together.
+      - text: 'Yes: "half as many rotations" is always a safe guess for any two meshing gears, regardless of their teeth counts.'
+      - text: 'Yes: since the large gear is 3 times bigger, guessing half its rotations is close enough for these questions.'
+      - text: 'No: but only because gears with different teeth counts can never mesh together.'
     explanation: |
       Assuming two gears "just spin at different speeds" without calculating the precise inverse ratio from their actual teeth counts leads to an incorrect answer. The correct ratio here is 3:1 (36 ÷ 12 = 3), giving 3 rotations for the large gear, not a guessed 4.5.
     approved: true
@@ -171,11 +171,11 @@ questions:
     stem: |
       Figure shows a central gear meshing with four outer gears arranged around it like spokes (each outer gear meshes only with the central gear, not with each other). A student assumes the four outer gears must alternate direction with each other, the same way gears in a straight chain do, predicting outer gear 1 clockwise, outer gear 2 counter-clockwise, outer gear 3 clockwise, outer gear 4 counter-clockwise. Is this prediction correct?
     choices:
-      - text: No — since the outer gears mesh only with the shared central gear and not with each other, they do not alternate with each other; each one independently takes the opposite direction from the central gear, so if the central gear turns clockwise, all four outer gears turn counter-clockwise.
+      - text: 'No: since the outer gears mesh only with the shared central gear and not with each other, they do not alternate with each other; each one independently takes the opposite direction from the central gear, so if the central gear turns clockwise, all four outer gears turn counter-clockwise.'
         correct: true
-      - text: Yes — outer gears in a spoke pattern always alternate with each other, just like a straight chain.
-      - text: Yes — but only because the central gear does not actually turn.
-      - text: No — but only because outer gears in a spoke pattern never turn at all.
+      - text: 'Yes: outer gears in a spoke pattern always alternate with each other, just like a straight chain.'
+      - text: 'Yes: but only because the central gear does not actually turn.'
+      - text: 'No: but only because outer gears in a spoke pattern never turn at all.'
     explanation: |
       When multiple gears each mesh separately with one shared central gear (rather than meshing with each other in sequence), each outer gear's direction depends only on its relationship to the central gear, not on alternating with its neighboring outer gears. Misapplying the straight-chain alternating rule here gives an incorrect prediction.
     approved: true

@@ -42,11 +42,11 @@ questions:
     stem: |
       One chlorine atom has 17 protons and 18 neutrons. Another chlorine atom has 17 protons and 20 neutrons. Are these two atoms isotopes of each other?
     choices:
-      - text: Yes: they have the same atomic number but different neutron counts, so they are isotopes.
+      - text: 'Yes: they have the same atomic number but different neutron counts, so they are isotopes.'
         correct: true
-      - text: No: they are different elements, since they have different neutron counts.
-      - text: No: isotopes must have different atomic numbers.
-      - text: Yes: but only because they have the same mass number.
+      - text: 'No: they are different elements, since they have different neutron counts.'
+      - text: 'No: isotopes must have different atomic numbers.'
+      - text: 'Yes: but only because they have the same mass number.'
     explanation: |
       Both atoms have 17 protons, so both are chlorine. Since they differ in neutron count (18 versus 20), they are isotopes of each other: chlorine-35 and chlorine-37.
     approved: true
@@ -130,7 +130,7 @@ questions:
         correct: true
       - text: Carbon's atomic number of 6, since that is still needed to find the proton count.
       - text: The number 14 itself, since that is the isotope's actual mass number.
-      - text: None of these: the periodic table's atomic mass is always safe to use for any isotope calculation.
+      - text: 'None of these: the periodic table''s atomic mass is always safe to use for any isotope calculation.'
     explanation: |
       The periodic table's atomic mass (about 12.01 for carbon) is a decimal average across all of carbon's natural isotopes. A specific isotope like carbon-14 has its own whole-number mass number (14), which is what should be used, not the table's average.
     approved: true
@@ -140,11 +140,11 @@ questions:
     stem: |
       A classmate says an atom "became an isotope" after losing one proton. Is this description correct?
     choices:
-      - text: No: losing a proton changes the atomic number, which makes it a different element entirely, not an isotope.
+      - text: 'No: losing a proton changes the atomic number, which makes it a different element entirely, not an isotope.'
         correct: true
-      - text: Yes: isotopes are created whenever any subatomic particle count changes.
-      - text: Yes: as long as the mass number stays the same.
-      - text: No: but only because isotopes require losing a neutron instead.
+      - text: 'Yes: isotopes are created whenever any subatomic particle count changes.'
+      - text: 'Yes: as long as the mass number stays the same.'
+      - text: 'No: but only because isotopes require losing a neutron instead.'
     explanation: |
       Isotopes only ever differ in neutron count: protons always stay the same for a given element. Changing the proton count changes the atomic number, which means the atom becomes a completely different element, not an isotope of the original.
     approved: true
@@ -154,11 +154,11 @@ questions:
     stem: |
       A problem states "an ion has 15 protons" and then asks you to assume it has 15 electrons too. Is this assumption safe?
     choices:
-      - text: No: an ion by definition has an unequal number of protons and electrons; only a neutral atom has them equal.
+      - text: 'No: an ion by definition has an unequal number of protons and electrons; only a neutral atom has them equal.'
         correct: true
-      - text: Yes: all atoms and ions always have equal protons and electrons.
-      - text: Yes: as long as the atomic number is odd.
-      - text: No: but only because 15 protons is too many for any real ion.
+      - text: 'Yes: all atoms and ions always have equal protons and electrons.'
+      - text: 'Yes: as long as the atomic number is odd.'
+      - text: 'No: but only because 15 protons is too many for any real ion.'
     explanation: |
       The word "ion" already tells you the particle is charged, meaning protons and electrons are NOT equal. Assuming they match without being told a specific charge would be a mistake: always check for a stated charge before assuming equal electrons and protons.
     approved: true

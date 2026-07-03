@@ -117,7 +117,7 @@ questions:
     choices:
       - text: Natural selection does not change an individual's traits during its own lifetime; a stretched neck is not a heritable change and cannot be passed to offspring.
         correct: true
-      - text: Nothing is wrong: traits gained through use during an individual's life are always passed to its offspring.
+      - text: 'Nothing is wrong: traits gained through use during an individual''s life are always passed to its offspring.'
       - text: The reasoning is wrong only because giraffes cannot stretch their necks at all.
       - text: The reasoning is wrong only because giraffes do not have offspring.
     explanation: |
@@ -130,11 +130,11 @@ questions:
     stem: |
       A student assumes "survival of the fittest" means the strongest or biggest individuals always survive. Is this correct?
     choices:
-      - text: No: "fittest" means best suited to the environment, which is not necessarily the strongest or biggest; even a small, camouflaged individual can be more fit if it survives and reproduces better.
+      - text: 'No: "fittest" means best suited to the environment, which is not necessarily the strongest or biggest; even a small, camouflaged individual can be more fit if it survives and reproduces better.'
         correct: true
-      - text: Yes: fitness always refers to raw physical strength or size.
-      - text: No: fitness actually refers only to intelligence, never physical traits.
-      - text: Yes: the largest individual in a population is always the fittest.
+      - text: 'Yes: fitness always refers to raw physical strength or size.'
+      - text: 'No: fitness actually refers only to intelligence, never physical traits.'
+      - text: 'Yes: the largest individual in a population is always the fittest.'
     explanation: |
       "Fittest" means best suited to reproductive success in a specific environment. A tiny, camouflaged insect may be more fit than a larger, more visible one if camouflage helps it survive and reproduce better.
     approved: true
@@ -145,11 +145,11 @@ questions:
     stem: |
       An answer choice describes evolution as organisms "trying to evolve" toward a more advanced or ideal form. Is this an accurate description of natural selection?
     choices:
-      - text: No: evolution has no goal or direction; it simply favors whatever traits happen to suit the current environment, with no foresight involved.
+      - text: 'No: evolution has no goal or direction; it simply favors whatever traits happen to suit the current environment, with no foresight involved.'
         correct: true
-      - text: Yes: evolution always moves species toward a more advanced, ideal form.
-      - text: No: but only because evolution never changes populations at all.
-      - text: Yes: organisms actively choose which traits to evolve toward.
+      - text: 'Yes: evolution always moves species toward a more advanced, ideal form.'
+      - text: 'No: but only because evolution never changes populations at all.'
+      - text: 'Yes: organisms actively choose which traits to evolve toward.'
     explanation: |
       Natural selection has no foresight or goal. It simply reflects which existing traits happened to help individuals survive and reproduce in their specific environment at the time: there is no "better" or "more advanced" direction it aims toward.
     approved: true
@@ -160,11 +160,11 @@ questions:
     stem: |
       A student claims that pesticide exposure caused resistance to first appear in the insect population, as a direct response to the pesticide. Is this consistent with how natural selection works?
     choices:
-      - text: No: the resistant trait already existed as natural variation before the pesticide was used; the pesticide only determined which existing insects survived and reproduced.
+      - text: 'No: the resistant trait already existed as natural variation before the pesticide was used; the pesticide only determined which existing insects survived and reproduced.'
         correct: true
-      - text: Yes: the pesticide directly created the resistant trait in response to the insects' need to survive.
-      - text: No: but only because pesticides cannot affect insect populations at all.
-      - text: Yes: natural selection requires an environmental pressure to first generate new traits.
+      - text: 'Yes: the pesticide directly created the resistant trait in response to the insects'' need to survive.'
+      - text: 'No: but only because pesticides cannot affect insect populations at all.'
+      - text: 'Yes: natural selection requires an environmental pressure to first generate new traits.'
     explanation: |
       Natural selection acts on variation that already exists in a population: it does not generate new traits in direct response to an environmental pressure. The pesticide-resistant trait existed before the pesticide was introduced; the pesticide simply favored the insects that already had it.
     approved: true
@@ -175,7 +175,7 @@ questions:
     stem: |
       How are natural selection and speciation related to each other?
     choices:
-      - text: Natural selection is the process that gradually shifts a population's traits; when it acts differently on two geographically separated groups over many generations, it can eventually produce speciation: the formation of separate species.
+      - text: 'Natural selection is the process that gradually shifts a population''s traits; when it acts differently on two geographically separated groups over many generations, it can eventually produce speciation: the formation of separate species.'
         correct: true
       - text: They are unrelated processes that never occur together.
       - text: Speciation always happens first, causing natural selection to begin afterward.

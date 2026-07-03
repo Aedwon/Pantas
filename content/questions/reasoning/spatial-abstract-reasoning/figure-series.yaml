@@ -33,7 +33,7 @@ questions:
       - text: 7 sides, a heptagon
       - text: 8 sides, an octagon
     explanation: |
-      The number of sides increases by 1 each step ($3, 4, 5, \ldots$). The fourth figure should have $6$ sides — a hexagon.
+      The number of sides increases by 1 each step ($3, 4, 5, \ldots$). The fourth figure should have $6$ sides: a hexagon.
     approved: true
 
   - id: q-spatial-abstract-reasoning-figure-series-0003
@@ -145,7 +145,7 @@ questions:
       - text: The student's prediction is correct, but only because shading is irrelevant in this series.
       - text: Neither size nor shading can be predicted from this series.
     explanation: |
-      A figure series can change several features at once — missing that both size and shading are changing leads to only half-correct predictions. Size continues growing (extra-large), and shading continues alternating (white after black).
+      A figure series can change several features at once: missing that both size and shading are changing leads to only half-correct predictions. Size continues growing (extra-large), and shading continues alternating (white after black).
     approved: true
 
   - id: q-spatial-abstract-reasoning-figure-series-0010
@@ -155,11 +155,11 @@ questions:
     stem: |
       Figure shows a row of three squares, each with a dot in one corner. Square 1's dot is top-left. Square 2's dot is bottom-left (moved counterclockwise one corner). Square 3's dot is bottom-right (moved counterclockwise one more corner). A student assumes the dot must now move clockwise for the fourth square, predicting bottom-left again. Is this assumption correct?
     choices:
-      - text: No — the established direction is counterclockwise (top-left → bottom-left → bottom-right), so the fourth square's dot should continue counterclockwise to top-right, not switch direction.
+      - text: 'No: the established direction is counterclockwise (top-left → bottom-left → bottom-right), so the fourth square''s dot should continue counterclockwise to top-right, not switch direction.'
         correct: true
-      - text: Yes — the dot should always reverse direction after two steps.
-      - text: Yes — the dot should return to bottom-left, since patterns commonly repeat every two steps.
-      - text: No — but only because the dot cannot move to any corner other than top-left.
+      - text: 'Yes: the dot should always reverse direction after two steps.'
+      - text: 'Yes: the dot should return to bottom-left, since patterns commonly repeat every two steps.'
+      - text: 'No: but only because the dot cannot move to any corner other than top-left.'
     explanation: |
       Carefully confirm the established rotation direction by comparing at least two consecutive steps rather than assuming a direction switch. Here, the dot consistently moves counterclockwise, so it should continue to top-right next.
     approved: true
@@ -171,13 +171,13 @@ questions:
     stem: |
       Figure shows a row of three circles with shading: 25% filled, 50% filled, 75% filled. A student assumes this is a cumulative pattern and predicts the fourth circle should be 100% filled. Given that the actual series repeats as 25%, 50%, 75%, 25%, 50%, 75%, ..., is the student's prediction correct?
     choices:
-      - text: No — this is a repeating cycle, not a steadily cumulative pattern; after 75%, the cycle restarts at 25%, not continuing to 100%.
+      - text: 'No: this is a repeating cycle, not a steadily cumulative pattern; after 75%, the cycle restarts at 25%, not continuing to 100%.'
         correct: true
-      - text: Yes — the shading always increases steadily without ever restarting.
-      - text: Yes — 100% filled is the correct next step in this specific series.
-      - text: No — but only because circles cannot be partially shaded.
+      - text: 'Yes: the shading always increases steadily without ever restarting.'
+      - text: 'Yes: 100% filled is the correct next step in this specific series.'
+      - text: 'No: but only because circles cannot be partially shaded.'
     explanation: |
-      Not every changing feature increases steadily forever — some patterns cycle back to an earlier state after reaching a certain point. Here, the series explicitly cycles (25%, 50%, 75%, 25%, ...), so the fourth figure returns to 25%, not 100%.
+      Not every changing feature increases steadily forever: some patterns cycle back to an earlier state after reaching a certain point. Here, the series explicitly cycles (25%, 50%, 75%, 25%, ...), so the fourth figure returns to 25%, not 100%.
     approved: true
 
   - id: q-spatial-abstract-reasoning-figure-series-0012

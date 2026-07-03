@@ -145,11 +145,11 @@ questions:
     stem: |
       A student assumes a lunar eclipse must happen at new moon, since "lunar" refers to the Moon and new moon is when the Moon looks different. Is this correct?
     choices:
-      - text: No: a lunar eclipse happens at full moon, when Earth passes between the Sun and Moon; a solar eclipse happens at new moon, when the Moon passes between the Sun and Earth.
+      - text: 'No: a lunar eclipse happens at full moon, when Earth passes between the Sun and Moon; a solar eclipse happens at new moon, when the Moon passes between the Sun and Earth.'
         correct: true
-      - text: Yes: a lunar eclipse always happens at new moon.
-      - text: No: but only because lunar eclipses never actually occur.
-      - text: Yes: both solar and lunar eclipses happen at the exact same phase.
+      - text: 'Yes: a lunar eclipse always happens at new moon.'
+      - text: 'No: but only because lunar eclipses never actually occur.'
+      - text: 'Yes: both solar and lunar eclipses happen at the exact same phase.'
     explanation: |
       It is easy to swap these. Anchor it by remembering who blocks whom: the Moon blocks the Sun during a solar eclipse (needs new moon); Earth blocks sunlight from reaching the Moon during a lunar eclipse (needs full moon).
     approved: true
@@ -190,9 +190,9 @@ questions:
     stem: |
       A question describes viewers who see the Sun only partly covered during an eclipse. Are these viewers standing in the umbra or the penumbra?
     choices:
-      - text: The penumbra: the lighter, partial shadow, where the Sun appears only partly covered
+      - text: 'The penumbra: the lighter, partial shadow, where the Sun appears only partly covered'
         correct: true
-      - text: The umbra: the dark, complete shadow, where the Sun appears only partly covered
+      - text: 'The umbra: the dark, complete shadow, where the Sun appears only partly covered'
       - text: Both the umbra and penumbra produce identical partial coverage.
       - text: Neither; partial coverage only happens outside both shadow regions.
     explanation: |
@@ -235,7 +235,7 @@ questions:
     stem: |
       During a full moon, Earth passes almost perfectly between the Sun and the Moon, and observers report the whole Moon passing into Earth's darkest shadow. A classmate claims this event must be an annular solar eclipse. Evaluate this claim and identify the actual event.
     choices:
-      - text: The claim is incorrect: since Earth is between the Sun and Moon at full moon, and the whole Moon enters Earth's umbra, this is a total lunar eclipse, not any type of solar eclipse.
+      - text: 'The claim is incorrect: since Earth is between the Sun and Moon at full moon, and the whole Moon enters Earth''s umbra, this is a total lunar eclipse, not any type of solar eclipse.'
         correct: true
       - text: The claim is correct, since any eclipse involving the Moon's shadow region qualifies as an annular solar eclipse.
       - text: The claim is correct, since annular eclipses only happen during a full moon.

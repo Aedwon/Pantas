@@ -46,7 +46,7 @@ questions:
       - text: Leaf
       - text: Forest
     explanation: |
-      A hammer is a type of tool — this is a category relationship. Applying the same pattern: an oak is a type of tree. "Wood" describes the material, not the category, so it does not match.
+      A hammer is a type of tool: this is a category relationship. Applying the same pattern: an oak is a type of tree. "Wood" describes the material, not the category, so it does not match.
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0004
@@ -61,7 +61,7 @@ questions:
       - text: Root
       - text: Forest
     explanation: |
-      A petal is part of a flower — this is a part-to-whole relationship. Applying the same pattern: a branch is part of a tree.
+      A petal is part of a flower: this is a part-to-whole relationship. Applying the same pattern: a branch is part of a tree.
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0005
@@ -76,7 +76,7 @@ questions:
       - text: Cloud
       - text: Wind
     explanation: |
-      Fire produces ash — a cause-and-effect relationship. Applying the same pattern: lightning produces (causes) thunder.
+      Fire produces ash: a cause-and-effect relationship. Applying the same pattern: lightning produces (causes) thunder.
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0006
@@ -166,7 +166,7 @@ questions:
       - text: Ruler is correct, but so is paper, since both are equally valid answers.
       - text: Neither ruler nor paper completes this analogy correctly.
     explanation: |
-      A vague relationship sentence like "these are related" lets multiple choices seem to fit. The precise sentence "a pen is used to write" requires the second pair to follow "used to measure" — matching "ruler," not "paper," which is merely associated with writing, not the function itself.
+      A vague relationship sentence like "these are related" lets multiple choices seem to fit. The precise sentence "a pen is used to write" requires the second pair to follow "used to measure": matching "ruler," not "paper," which is merely associated with writing, not the function itself.
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0012
@@ -175,11 +175,11 @@ questions:
     stem: |
       Author is to book as book is to ______. Is "author" the correct answer to complete this second analogy?
     choices:
-      - text: No — "author is to book" means "author creates book," but "book is to author" reverses the direction, meaning "book was created by author"; the correct completion should reflect this reversed direction, not repeat "author" as if the relationship were symmetric.
+      - text: 'No: "author is to book" means "author creates book," but "book is to author" reverses the direction, meaning "book was created by author"; the correct completion should reflect this reversed direction, not repeat "author" as if the relationship were symmetric.'
         correct: true
-      - text: Yes — "author" correctly completes the analogy, since the relationship is the same in both directions.
-      - text: Yes — "book is to author" and "author is to book" always mean the exact same thing.
-      - text: No — but only because books cannot have authors.
+      - text: 'Yes: "author" correctly completes the analogy, since the relationship is the same in both directions.'
+      - text: 'Yes: "book is to author" and "author is to book" always mean the exact same thing.'
+      - text: 'No: but only because books cannot have authors.'
     explanation: |
       "Author is to book" (author creates book) is different from "book is to author" (book was created by author). Checking whether the relationship goes from first word to second word, or the reverse, and applying that same direction consistently is essential for a correct match.
     approved: true
@@ -196,7 +196,7 @@ questions:
       - text: Ballroom
       - text: Composer
     explanation: |
-      A sonnet is a type of poem — a category relationship. Applying the same pattern: a waltz is a type of dance.
+      A sonnet is a type of poem: a category relationship. Applying the same pattern: a waltz is a type of dance.
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0014
@@ -211,7 +211,7 @@ questions:
       - text: Sky
       - text: Flight
     explanation: |
-      A wheel is part of a car — a part-to-whole relationship. Applying the same pattern: a wing is part of an airplane.
+      A wheel is part of a car: a part-to-whole relationship. Applying the same pattern: a wing is part of an airplane.
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0015

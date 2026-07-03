@@ -84,11 +84,11 @@ questions:
     stem: |
       A student applies a kinetic energy conservation equation to a real-world car crash where the cars crumple and stick together. Is this appropriate?
     choices:
-      - text: No: only elastic collisions conserve kinetic energy; a crash where cars crumple and stick together is a perfectly inelastic collision, which does not conserve kinetic energy.
+      - text: 'No: only elastic collisions conserve kinetic energy; a crash where cars crumple and stick together is a perfectly inelastic collision, which does not conserve kinetic energy.'
         correct: true
-      - text: Yes: kinetic energy is always conserved in every type of collision.
-      - text: No: but only because momentum is also not conserved in this crash.
-      - text: Yes: as long as momentum is also conserved.
+      - text: 'Yes: kinetic energy is always conserved in every type of collision.'
+      - text: 'No: but only because momentum is also not conserved in this crash.'
+      - text: 'Yes: as long as momentum is also conserved.'
     explanation: |
       Momentum is conserved in all closed-system collisions, but kinetic energy is only conserved in elastic collisions. A real-world crash where objects crumple and stick together is inelastic, so kinetic energy is not conserved.
     approved: true
@@ -98,11 +98,11 @@ questions:
     stem: |
       A moving cart collides with a stationary cart, and they stick together. A student calculates the combined mass afterward using only the moving cart's mass, leaving out the stationary cart's mass. Is this correct?
     choices:
-      - text: No: the combined mass after sticking together must include both objects' masses, even the one that started at rest.
+      - text: 'No: the combined mass after sticking together must include both objects'' masses, even the one that started at rest.'
         correct: true
-      - text: Yes: a stationary object's mass does not need to be included after a collision.
-      - text: No: only the stationary cart's mass should be used instead.
-      - text: Yes: mass only matters for the object that was originally moving.
+      - text: 'Yes: a stationary object''s mass does not need to be included after a collision.'
+      - text: 'No: only the stationary cart''s mass should be used instead.'
+      - text: 'Yes: mass only matters for the object that was originally moving.'
     explanation: |
       Even though the stationary cart contributed zero momentum before the collision, its mass still becomes part of the combined moving mass afterward. Leaving it out of the "after" total is a common and costly error.
     approved: true
@@ -112,11 +112,11 @@ questions:
     stem: |
       A question asks for the impulse delivered during a collision, and a student reports only the peak force value, without considering the time of contact. Is this a complete answer?
     choices:
-      - text: No: impulse equals force multiplied by time (or the total change in momentum), not the force value alone.
+      - text: 'No: impulse equals force multiplied by time (or the total change in momentum), not the force value alone.'
         correct: true
-      - text: Yes: impulse and force are the exact same quantity.
-      - text: No: impulse only depends on time, never on force.
-      - text: Yes: as long as the force value given is the average force.
+      - text: 'Yes: impulse and force are the exact same quantity.'
+      - text: 'No: impulse only depends on time, never on force.'
+      - text: 'Yes: as long as the force value given is the average force.'
     explanation: |
       Impulse ($J = Ft$) requires both the force and the time over which it acts. Reporting force alone omits the time component and does not answer what was actually asked.
     approved: true
@@ -126,11 +126,11 @@ questions:
     stem: |
       Two carts move directly toward each other before colliding. A student adds their momenta as two positive numbers, ignoring that they move in opposite directions. Is this correct?
     choices:
-      - text: No: since momentum is a vector, one cart's momentum must be treated as negative (opposite direction) in the total.
+      - text: 'No: since momentum is a vector, one cart''s momentum must be treated as negative (opposite direction) in the total.'
         correct: true
-      - text: Yes: momentum is always added as positive values, regardless of direction.
-      - text: No: but only because one of the carts must actually be stationary.
-      - text: Yes: direction only matters for velocity, not momentum.
+      - text: 'Yes: momentum is always added as positive values, regardless of direction.'
+      - text: 'No: but only because one of the carts must actually be stationary.'
+      - text: 'Yes: direction only matters for velocity, not momentum.'
     explanation: |
       Momentum is a vector quantity. When two objects move toward each other, their momenta point in opposite directions, so one must be assigned a negative sign relative to the other before adding them.
     approved: true

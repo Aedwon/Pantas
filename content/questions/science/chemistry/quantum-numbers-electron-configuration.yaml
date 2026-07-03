@@ -98,11 +98,11 @@ questions:
     stem: |
       A student writes the configuration $1s^2\ 2s^2\ 2p^8$ for an atom. Is this a valid electron configuration?
     choices:
-      - text: No: a $p$ orbital can never hold more than 6 electrons.
+      - text: 'No: a $p$ orbital can never hold more than 6 electrons.'
         correct: true
-      - text: Yes: as long as the total adds up correctly.
-      - text: No: because the $2s$ orbital should come after $2p$.
-      - text: Yes: $p$ orbitals can hold up to 8 electrons.
+      - text: 'Yes: as long as the total adds up correctly.'
+      - text: 'No: because the $2s$ orbital should come after $2p$.'
+      - text: 'Yes: $p$ orbitals can hold up to 8 electrons.'
     explanation: |
       Each orbital type has a fixed maximum capacity, and $p$ can never exceed 6 electrons. A superscript of 8 on a $p$ orbital is impossible, no matter what the total electron count is.
     approved: true
@@ -126,11 +126,11 @@ questions:
     stem: |
       Can two electrons occupying the same orbital have the same spin?
     choices:
-      - text: No: the Pauli Exclusion Principle requires the two electrons in one orbital to have opposite spins.
+      - text: 'No: the Pauli Exclusion Principle requires the two electrons in one orbital to have opposite spins.'
         correct: true
-      - text: Yes: spin direction does not matter within a single orbital.
-      - text: No: an orbital can never hold two electrons at all.
-      - text: Yes: as long as the orbital is an $s$ orbital.
+      - text: 'Yes: spin direction does not matter within a single orbital.'
+      - text: 'No: an orbital can never hold two electrons at all.'
+      - text: 'Yes: as long as the orbital is an $s$ orbital.'
     explanation: |
       The Pauli Exclusion Principle allows at most 2 electrons per orbital, and requires those two to have opposite spins. Two electrons with the same spin cannot share the same orbital.
     approved: true

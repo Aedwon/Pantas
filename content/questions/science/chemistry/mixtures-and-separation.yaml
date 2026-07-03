@@ -154,11 +154,11 @@ questions:
     stem: |
       A student assumes that because saltwater looks completely uniform (homogeneous), it must be impossible to separate back into salt and water. Is this assumption correct?
     choices:
-      - text: No: homogeneous mixtures can still be separated, for example with evaporation or distillation.
+      - text: 'No: homogeneous mixtures can still be separated, for example with evaporation or distillation.'
         correct: true
-      - text: Yes: homogeneous mixtures can never be physically separated.
-      - text: No: but only because saltwater is actually a compound, not a mixture.
-      - text: Yes: only heterogeneous mixtures can be separated using physical methods.
+      - text: 'Yes: homogeneous mixtures can never be physically separated.'
+      - text: 'No: but only because saltwater is actually a compound, not a mixture.'
+      - text: 'Yes: only heterogeneous mixtures can be separated using physical methods.'
     explanation: |
       Looking uniform (homogeneous) only describes appearance: it says nothing about whether a mixture can be separated. Saltwater can still be separated by evaporation or distillation, even though it looks completely smooth.
     approved: true
