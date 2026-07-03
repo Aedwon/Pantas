@@ -28,7 +28,6 @@ String ctaCopyFor(PaywallPackage package) {
     PaywallSku.weekly => 'Get Pro - ${package.priceString}/week',
     PaywallSku.monthly => 'Get Pro - ${package.priceString}/month',
     PaywallSku.yearly => 'Start 7-day free trial',
-    PaywallSku.lifetime => 'Get Pro - ${package.priceString} one-time',
   };
 }
 
@@ -49,6 +48,5 @@ int _skuRank(PaywallSku sku) {
     PaywallSku.weekly => 0,
     PaywallSku.monthly => 1,
     PaywallSku.yearly => 2,
-    PaywallSku.lifetime => 3,
   };
 }

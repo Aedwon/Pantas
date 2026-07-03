@@ -332,7 +332,6 @@ String _subscriptionSubtitle(Entitlement entitlement) {
     EntitlementPlan.weekly => 'Pro · Weekly',
     EntitlementPlan.monthly => 'Pro · Monthly',
     EntitlementPlan.yearly => 'Pro · Yearly',
-    EntitlementPlan.lifetime => 'Pro · Lifetime',
   };
 }
 
@@ -343,7 +342,6 @@ SettingsEntitlementSnapshot _settingsEntitlement(Entitlement entitlement) {
       EntitlementPlan.weekly => SettingsEntitlementPlan.weekly,
       EntitlementPlan.monthly => SettingsEntitlementPlan.monthly,
       EntitlementPlan.yearly => SettingsEntitlementPlan.yearly,
-      EntitlementPlan.lifetime => SettingsEntitlementPlan.lifetime,
     },
     expiresAt: entitlement.expiresAt,
     isTrial: entitlement.isTrial,

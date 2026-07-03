@@ -61,9 +61,8 @@ final legalDocumentFallbacks = <String, LegalDocument>{
       ),
       LegalSection(
         heading: 'Subscriptions',
-        body: 'Paid features depend on your active store subscription or '
-            'lifetime purchase. Manage billing through the store account '
-            'used for purchase.',
+        body: 'Paid features depend on your active store subscription. '
+            'Manage billing through the store account used for purchase.',
       ),
       LegalSection(
         heading: 'Intellectual property',

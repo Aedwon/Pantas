@@ -27,7 +27,6 @@ class PaywallPackageCard extends StatelessWidget {
       PaywallSku.weekly => 'Weekly',
       PaywallSku.monthly => 'Monthly',
       PaywallSku.yearly => 'Yearly',
-      PaywallSku.lifetime => 'Lifetime',
     };
     final subtitle = switch (package.sku) {
       // The ≈monthly equivalent keeps Weekly honest: nobody should read it
@@ -36,7 +35,6 @@ class PaywallPackageCard extends StatelessWidget {
           'Renews every week · Cancel anytime',
       PaywallSku.monthly => '${package.priceString}/month · Cancel anytime',
       PaywallSku.yearly => '${package.priceString}/year · ₱42/month',
-      PaywallSku.lifetime => '${package.priceString} · Pay once',
     };
 
     return InkWell(

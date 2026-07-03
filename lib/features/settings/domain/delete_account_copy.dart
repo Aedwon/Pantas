@@ -1,7 +1,7 @@
 import 'package:intl/intl.dart';
 import 'package:meta/meta.dart';
 
-enum SettingsEntitlementPlan { free, weekly, monthly, yearly, lifetime }
+enum SettingsEntitlementPlan { free, weekly, monthly, yearly }
 
 @immutable
 class SettingsEntitlementSnapshot {
@@ -23,7 +23,6 @@ class SettingsEntitlementSnapshot {
   final bool isTrial;
   final bool willRenew;
 
-  bool get isLifetime => plan == SettingsEntitlementPlan.lifetime;
   bool get isActivePaid => plan != SettingsEntitlementPlan.free;
 }
 
@@ -32,11 +31,6 @@ String? deleteAccountBillingLine(SettingsEntitlementSnapshot entitlement) {
   if (entitlement.isTrial) {
     return 'Your free trial will end if you delete now. If you have already '
         'been charged, cancel in Google Play first to stop future billing.';
-  }
-  if (entitlement.isLifetime) {
-    return 'You bought Pro Lifetime on this account. If you delete, you will '
-        'lose Pro access. You can restore it on a new account with Restore '
-        'Purchases.';
   }
   if (!entitlement.willRenew && entitlement.expiresAt != null) {
     final date = DateFormat.MMMd().format(entitlement.expiresAt!);
@@ -48,7 +42,5 @@ String? deleteAccountBillingLine(SettingsEntitlementSnapshot entitlement) {
 }
 
 String? anonymousDeleteWarning(SettingsEntitlementSnapshot entitlement) {
-  if (!entitlement.isLifetime) return null;
-  return "You haven't signed in. If you delete now, you will lose your "
-      'Lifetime purchase on this device. Sign in first to keep it.';
+  return null;
 }
