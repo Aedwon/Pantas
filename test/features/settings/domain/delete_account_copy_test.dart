@@ -31,15 +31,6 @@ void main() {
     expect(copy, contains('cancel in Google Play'));
   });
 
-  test('lifetime copy warns Pro Lifetime access can be lost', () {
-    final copy = deleteAccountBillingLine(
-      const SettingsEntitlementSnapshot(plan: SettingsEntitlementPlan.lifetime),
-    );
-
-    expect(copy, contains('Pro Lifetime'));
-    expect(copy, contains('lose Pro access'));
-  });
-
   test('cancelled subscription copy uses end date', () {
     final copy = deleteAccountBillingLine(
       SettingsEntitlementSnapshot(
@@ -50,13 +41,5 @@ void main() {
     );
 
     expect(copy, contains('ends on Jun 12'));
-  });
-
-  test('anonymous lifetime copy warns sign in first', () {
-    final copy = anonymousDeleteWarning(
-      const SettingsEntitlementSnapshot(plan: SettingsEntitlementPlan.lifetime),
-    );
-
-    expect(copy, contains("You haven't signed in"));
   });
 }

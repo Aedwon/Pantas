@@ -2,6 +2,19 @@ import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  test('the ladder has exactly three paid plans and no lifetime', () {
+    expect(EntitlementPlan.values, [
+      EntitlementPlan.free,
+      EntitlementPlan.weekly,
+      EntitlementPlan.monthly,
+      EntitlementPlan.yearly,
+    ]);
+    expect(PaywallSku.values, [
+      PaywallSku.weekly,
+      PaywallSku.monthly,
+      PaywallSku.yearly,
+    ]);
+  });
   test('free entitlement reports pro inactive', () {
     const entitlement = Entitlement.free();
 
@@ -19,17 +32,6 @@ void main() {
     expect(entitlement.proIsActive, isTrue);
     expect(entitlement.productId, 'pro_monthly');
     expect(entitlement.expiresAt, DateTime.utc(2026, 6));
-  });
-
-  test('lifetime entitlement has no expiration and is active', () {
-    const entitlement = Entitlement(
-      plan: EntitlementPlan.lifetime,
-      productId: 'pro_lifetime',
-    );
-
-    expect(entitlement.proIsActive, isTrue);
-    expect(entitlement.isLifetime, isTrue);
-    expect(entitlement.expiresAt, isNull);
   });
 
   test('entitlements compare by value', () {

@@ -26,7 +26,7 @@ class SubscriptionPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     final styles = context.textStyles;
     final colors = context.colors;
-    final canManage = entitlement.proIsActive && !entitlement.isLifetime;
+    final canManage = entitlement.proIsActive;
 
     Widget quietAction(String label, VoidCallback? onTap) => GestureDetector(
           onTap: onTap,
@@ -62,7 +62,6 @@ class SubscriptionPanel extends StatelessWidget {
 
   String _statusText() {
     if (!entitlement.proIsActive) return "You're on Free.";
-    if (entitlement.isLifetime) return 'Pro · Lifetime · yours forever.';
 
     final expiration = entitlement.expiresAt;
     final date =
@@ -80,7 +79,6 @@ class SubscriptionPanel extends StatelessWidget {
       EntitlementPlan.weekly => 'Weekly',
       EntitlementPlan.monthly => 'Monthly',
       EntitlementPlan.yearly => 'Yearly',
-      EntitlementPlan.lifetime => 'Lifetime',
       EntitlementPlan.free => 'Free',
     };
 

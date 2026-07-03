@@ -20,19 +20,13 @@ void main() {
     productId: 'pro_yearly',
     priceString: '₱499',
   );
-  const lifetime = PaywallPackage(
-    sku: PaywallSku.lifetime,
-    productId: 'pro_lifetime',
-    priceString: '₱1,499',
-  );
-
   testWidgets(
-    'paywall renders Weekly Monthly Yearly Lifetime in stable order',
+    'paywall renders Weekly Monthly Yearly in stable order',
     (tester) async {
       await tester.pumpWidget(
         const _Host(
           PaywallPage(
-            packages: [lifetime, yearly, monthly, weekly],
+            packages: [yearly, monthly, weekly],
           ),
         ),
       );
@@ -45,10 +39,6 @@ void main() {
         _textTop(tester, 'Monthly'),
         lessThan(_textTop(tester, 'Yearly')),
       );
-      expect(
-        _textTop(tester, 'Yearly'),
-        lessThan(_textTop(tester, 'Lifetime')),
-      );
     },
   );
 
@@ -58,7 +48,7 @@ void main() {
       await tester.pumpWidget(
         const _Host(
           PaywallPage(
-            packages: [weekly, monthly, yearly, lifetime],
+            packages: [weekly, monthly, yearly],
           ),
         ),
       );
@@ -78,14 +68,14 @@ void main() {
       await tester.pumpWidget(
         const _Host(
           PaywallPage(
-            packages: [weekly, monthly, yearly, lifetime],
+            packages: [weekly, monthly, yearly],
             recommendedSku: PaywallSku.weekly,
           ),
         ),
       );
 
       expect(find.text('Best for your exam date'), findsOneWidget);
-      expect(find.text('Get Pro - ₱29/week'), findsOneWidget);
+      expect(find.text('Get Pro. ₱29 a week.'), findsOneWidget);
     },
   );
 
@@ -93,14 +83,14 @@ void main() {
     await tester.pumpWidget(
       const _Host(
         PaywallPage(
-          packages: [monthly, yearly, lifetime],
+          packages: [monthly, yearly],
           recommendedSku: PaywallSku.monthly,
         ),
       ),
     );
 
     expect(find.text('Best for your exam date'), findsOneWidget);
-    expect(find.text('Get Pro - ₱99/month'), findsOneWidget);
+    expect(find.text('Get Pro. ₱99 a month.'), findsOneWidget);
   });
 
   testWidgets(
@@ -109,7 +99,7 @@ void main() {
       await tester.pumpWidget(
         const _Host(
           PaywallPage(
-            packages: [monthly, yearly, lifetime],
+            packages: [monthly, yearly],
             recommendedSku: PaywallSku.monthly,
           ),
         ),
@@ -123,16 +113,16 @@ void main() {
     await tester.pumpWidget(
       const _Host(
         PaywallPage(
-          packages: [monthly, yearly, lifetime],
+          packages: [monthly, yearly],
           recommendedSku: PaywallSku.monthly,
         ),
       ),
     );
 
-    await tester.tap(find.text('Lifetime'));
+    await tester.tap(find.text('Yearly'));
     await tester.pump();
 
-    expect(find.text('Get Pro - ₱1,499 one-time'), findsOneWidget);
+    expect(find.text('Start my free trial'), findsOneWidget);
   });
 
   testWidgets('restore link calls restore command', (tester) async {
@@ -140,7 +130,7 @@ void main() {
     await tester.pumpWidget(
       _Host(
         PaywallPage(
-          packages: const [monthly, yearly, lifetime],
+          packages: const [monthly, yearly],
           onRestore: () async => restored = true,
         ),
       ),
@@ -158,7 +148,7 @@ void main() {
       await tester.pumpWidget(
         _Host(
           PaywallPage(
-            packages: const [monthly, yearly, lifetime],
+            packages: const [monthly, yearly],
             onPurchase: (_) async => const PaywallCommandResult(
               entitlement: Entitlement.free(),
               errorMessage:
@@ -169,7 +159,7 @@ void main() {
         ),
       );
 
-      await tester.tap(find.text('Start 7-day free trial'));
+      await tester.tap(find.text('Start my free trial'));
       await tester.pump();
 
       expect(find.text('Try Pro'), findsOneWidget);

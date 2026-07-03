@@ -1,6 +1,6 @@
 import 'package:meta/meta.dart';
 
-enum EntitlementPlan { free, weekly, monthly, yearly, lifetime }
+enum EntitlementPlan { free, weekly, monthly, yearly }
 
 @immutable
 class Entitlement {
@@ -26,7 +26,6 @@ class Entitlement {
   final bool willRenew;
 
   bool get proIsActive => plan != EntitlementPlan.free;
-  bool get isLifetime => plan == EntitlementPlan.lifetime;
 
   @override
   bool operator ==(Object other) {

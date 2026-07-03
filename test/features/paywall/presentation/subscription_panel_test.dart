@@ -88,22 +88,6 @@ void main() {
     },
   );
 
-  testWidgets(
-    'lifetime panel shows yours forever and no manage action',
-    (tester) async {
-      await tester.pumpWidget(
-        const _Host(
-          SubscriptionPanel(
-            entitlement: Entitlement(plan: EntitlementPlan.lifetime),
-          ),
-        ),
-      );
-
-      expect(find.text('Pro · Lifetime · yours forever.'), findsOneWidget);
-      expect(find.text('Manage in Google Play'), findsNothing);
-    },
-  );
-
   testWidgets('cancelled but active panel says ends date', (tester) async {
     await tester.pumpWidget(
       _Host(

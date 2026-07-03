@@ -35,26 +35,26 @@ void main() {
     expect(entitlement.proIsActive, isTrue);
   });
 
-  test('offeringsProvider sorts packages monthly yearly lifetime', () async {
+  test('offeringsProvider sorts packages weekly monthly yearly', () async {
     final container = ProviderContainer(
       overrides: [
         revenueCatGatewayProvider.overrideWithValue(
           FakeGateway(
             packages: const [
               PaywallPackage(
-                sku: PaywallSku.lifetime,
-                productId: 'pro_lifetime',
-                priceString: '₱1,499',
+                sku: PaywallSku.yearly,
+                productId: 'pro_yearly',
+                priceString: '₱499',
+              ),
+              PaywallPackage(
+                sku: PaywallSku.weekly,
+                productId: 'pro_weekly',
+                priceString: '₱29',
               ),
               PaywallPackage(
                 sku: PaywallSku.monthly,
                 productId: 'pro_monthly',
                 priceString: '₱99',
-              ),
-              PaywallPackage(
-                sku: PaywallSku.yearly,
-                productId: 'pro_yearly',
-                priceString: '₱499',
               ),
             ],
           ),
@@ -67,7 +67,7 @@ void main() {
 
     expect(
       packages.map((package) => package.productId),
-      ['pro_monthly', 'pro_yearly', 'pro_lifetime'],
+      ['pro_weekly', 'pro_monthly', 'pro_yearly'],
     );
   });
 }
