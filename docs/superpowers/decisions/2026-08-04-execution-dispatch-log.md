@@ -760,3 +760,21 @@ right; stopping at the first result that fits the story is not.**
 
 **Dispatching is halted** rather than retried into a wall. The lesson link has been running 42
 minutes and is unaffected, because its session was established before whatever changed.
+
+### Second correction: it was transient, and neither explanation was right
+
+Aedwon reported headroom fine and said to continue. **A fresh worktree with a one-word prompt
+then answered `OK` on the first try**, and the real dispatch went through immediately after.
+
+So the failure was neither the worktree nor the account. It was a window of some minutes in
+which every new `agy` session failed identically, and it passed on its own.
+
+**Both explanations I wrote down were wrong, and the second was written while correcting the
+first.** The pattern worth naming is not either wrong answer, it is that **an error repeating
+identically three times still does not make it permanent.** The `Stage 2 classifier error`
+earlier tonight said "usually transient, retrying often succeeds" in its own text, and Aedwon
+had already had to tell me once to just try again. That was the same lesson and I did not carry
+it across.
+
+**The cheap correct move in both cases was the same and it costs one request: wait, retry once,
+and only then start explaining.**
