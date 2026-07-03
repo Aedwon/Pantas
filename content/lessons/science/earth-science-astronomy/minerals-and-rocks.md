@@ -92,6 +92,6 @@ Heat and pressure change the rock's minerals and texture while it stays essentia
 
 ### #3: Believing the Rock Cycle Has a Fixed Order
 
-> Any rock type can become any other rock type — there is no required sequence.
+> Any rock type can become any other rock type: there is no required sequence.
 
 Students sometimes memorize only one path (igneous → sedimentary → metamorphic) and assume it always goes in that order. In reality, a metamorphic rock can weather directly into sediment, or an igneous rock can be metamorphosed directly without ever becoming sedimentary first.

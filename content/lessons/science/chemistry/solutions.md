@@ -84,7 +84,7 @@ $$\text{percent by mass} = \dfrac{20}{200} \times 100\%$$
 
 $$\dfrac{20}{200} = 0.10 \quad \Rightarrow \quad 10\%$$
 
-### #4: Molarity vs. Molality — Why the Difference Matters
+### #4: Molarity vs. Molality: Why the Difference Matters
 
 Explain why molality, unlike molarity, does not change when a solution's temperature changes.
 
@@ -92,16 +92,16 @@ Explain why molality, unlike molarity, does not change when a solution's tempera
 Compare what each formula's denominator actually measures.
 
 1. Molarity's denominator is the volume of the solution (in liters). Volume can expand when heated or contract when cooled, due to normal thermal expansion of liquids.
-2. Molality's denominator is the mass of the solvent (in kilograms). Mass does not change with temperature — heating or cooling a substance does not add or remove any matter.
+2. Molality's denominator is the mass of the solvent (in kilograms). Mass does not change with temperature: heating or cooling a substance does not add or remove any matter.
 3. Because molarity depends on a value (volume) that shifts with temperature, a solution's molarity can change slightly as its temperature changes, even though the amount of dissolved solute stays the same. Molality stays constant regardless of temperature, which makes it the preferred measurement for experiments involving significant temperature changes.
 
 ## Speed Tricks & Shortcuts
 
 Remember the units to instantly identify which formula a question wants: "moles per liter of solution" is molarity; "moles per kilogram of solvent" is molality; "grams per $100$ grams" or plain percentages of mass are percent by mass; percentages of volume (common for liquid mixtures like alcohol content) are percent by volume.
 
-For percent-by-mass problems, always calculate the total solution mass (solute plus solvent) before dividing — a common shortcut mistake is dividing by the solvent's mass alone.
+For percent-by-mass problems, always calculate the total solution mass (solute plus solvent) before dividing: a common shortcut mistake is dividing by the solvent's mass alone.
 
-If a problem specifically mentions temperature changes or requires precise, temperature-independent measurements, it is testing molality, not molarity — this is molality's signature real-world use case.
+If a problem specifically mentions temperature changes or requires precise, temperature-independent measurements, it is testing molality, not molarity: this is molality's signature real-world use case.
 
 ## Traps to Watch For
 
@@ -119,12 +119,12 @@ In Example 3, dividing $20$ grams of salt by just $180$ grams of water (instead 
 
 ### #3: Assuming Solubility Is the Same at Every Temperature
 
-> Solubility generally changes with temperature — usually increasing for solids as the solvent gets hotter.
+> Solubility generally changes with temperature: usually increasing for solids as the solvent gets hotter.
 
 A question describing more sugar dissolving as tea is heated is demonstrating this exact temperature dependence. Treating solubility as one single fixed number, without considering temperature, misses this important variable.
 
 ### #4: Treating "Saturated" as Meaning "Very Concentrated" Universally
 
-> "Saturated" specifically means the solution holds the maximum solute it can dissolve at that temperature — it is not just a vague description of "a lot" of solute.
+> "Saturated" specifically means the solution holds the maximum solute it can dissolve at that temperature: it is not just a vague description of "a lot" of solute.
 
 A solution can be saturated with only a small amount of solute if that solute has low solubility, or it can require a very large amount of solute to become saturated if that solute has high solubility. Saturation is always relative to the specific solute's maximum solubility at the current temperature, not an absolute amount.

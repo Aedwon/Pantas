@@ -108,7 +108,7 @@ Consider the chemical form nitrogen needs to be in for living things to use it.
 
 For trophic level questions, count the arrows in the food chain: the first organism (no arrow pointing to it) is always the producer, and each subsequent link adds one level (primary, secondary, tertiary consumer).
 
-For 10% rule calculations, just multiply by $0.10$ (or divide by $10$) at each step, one level at a time — never skip straight from the first to the last level with a single big multiplication.
+For 10% rule calculations, just multiply by $0.10$ (or divide by $10$) at each step, one level at a time: never skip straight from the first to the last level with a single big multiplication.
 
 For symbiosis questions, use a simple plus/minus/zero chart: mutualism is (+, +), commensalism is (+, $0$), and parasitism is (+, −). Identify what happens to each organism, then match the pattern.
 
@@ -134,6 +134,6 @@ Students often assume any close relationship where one species "helps" the other
 
 ### #4: Assuming All Cycles Have a Gas Phase
 
-> The carbon, nitrogen, and water cycles all include a gas phase in the atmosphere. The phosphorus cycle does not — phosphorus moves mainly through rock, soil, and water.
+> The carbon, nitrogen, and water cycles all include a gas phase in the atmosphere. The phosphorus cycle does not: phosphorus moves mainly through rock, soil, and water.
 
 A question describing phosphorus "evaporating into the atmosphere" or "existing as a gas" misunderstands this cycle. Unlike carbon dioxide, nitrogen gas, or water vapor, phosphorus stays almost entirely within rocks, soil, and water throughout its cycle.

@@ -13,13 +13,13 @@ isActive: true
 
 $$p = mv$$
 
-A heavy truck moving slowly can have the same momentum as a light car moving fast — momentum depends on both mass and velocity together.
+A heavy truck moving slowly can have the same momentum as a light car moving fast: momentum depends on both mass and velocity together.
 
 **Impulse** ($J$) is the change in momentum, caused by a force acting over a period of time:
 
 $$J = Ft = \Delta p = mv_f - mv_i$$
 
-This means the same impulse (change in momentum) can be delivered by a large force over a short time (like a punch), or a small force over a longer time (like a gentle, sustained push) — this is why airbags and padded surfaces reduce injury: they extend the time of impact, reducing the force needed to produce the same change in momentum.
+This means the same impulse (change in momentum) can be delivered by a large force over a short time (like a punch), or a small force over a longer time (like a gentle, sustained push): this is why airbags and padded surfaces reduce injury: they extend the time of impact, reducing the force needed to produce the same change in momentum.
 
 <!-- ILLUSTRATION: two scenarios showing the same total impulse, one showing a hand hitting a hard surface with a large force over a very short time, the other showing a hand hitting an airbag with a smaller force spread over a longer time -->
 
@@ -33,9 +33,9 @@ This comes directly from Newton's third law: during any collision, the forces th
 
 ### Elastic vs. Inelastic Collisions
 
-An **elastic collision** conserves both momentum and kinetic energy — objects "bounce off" each other with no energy lost to heat or sound (a close real-world approximation: billiard balls colliding).
+An **elastic collision** conserves both momentum and kinetic energy: objects "bounce off" each other with no energy lost to heat or sound (a close real-world approximation: billiard balls colliding).
 
-An **inelastic collision** conserves momentum, but not kinetic energy — some kinetic energy converts into other forms (heat, sound, deformation). A **perfectly inelastic collision** is the extreme case where the two objects stick together after colliding, moving as one combined mass.
+An **inelastic collision** conserves momentum, but not kinetic energy: some kinetic energy converts into other forms (heat, sound, deformation). A **perfectly inelastic collision** is the extreme case where the two objects stick together after colliding, moving as one combined mass.
 
 ## Examples
 
@@ -113,11 +113,11 @@ Check which quantities were conserved.
 
 ## Speed Tricks & Shortcuts
 
-Remember momentum is always conserved in a closed system, for every type of collision (elastic or inelastic) — only kinetic energy conservation depends on the collision type. This makes momentum conservation your reliable "first tool" for any collision problem.
+Remember momentum is always conserved in a closed system, for every type of collision (elastic or inelastic): only kinetic energy conservation depends on the collision type. This makes momentum conservation your reliable "first tool" for any collision problem.
 
-For "stick together" (perfectly inelastic) problems, immediately combine the masses into one final mass moving at one shared final velocity — this simplifies the after-collision side of the equation to a single term.
+For "stick together" (perfectly inelastic) problems, immediately combine the masses into one final mass moving at one shared final velocity: this simplifies the after-collision side of the equation to a single term.
 
-Remember the impulse-force tradeoff in one phrase: "same push, different time, different force" — extending the time over which a momentum change happens always reduces the force needed (and vice versa).
+Remember the impulse-force tradeoff in one phrase: "same push, different time, different force": extending the time over which a momentum change happens always reduces the force needed (and vice versa).
 
 ## Traps to Watch For
 
@@ -131,16 +131,16 @@ A common mistake applies a kinetic energy conservation equation to an inelastic 
 
 > A stationary object contributes momentum $= mv = 0$, but it still needs to be included in the total momentum calculation.
 
-Skipping the stationary cart's momentum term entirely (rather than correctly including it as zero) is usually harmless numerically, but skipping its mass in the "after" total (when objects stick together) is a common and costly error — the combined mass must include both objects' masses, even the one that started at rest.
+Skipping the stationary cart's momentum term entirely (rather than correctly including it as zero) is usually harmless numerically, but skipping its mass in the "after" total (when objects stick together) is a common and costly error: the combined mass must include both objects' masses, even the one that started at rest.
 
 ### #3: Confusing Impulse with Force
 
-> Impulse equals force multiplied by time (or equivalently, the total change in momentum) — it is not simply the force alone.
+> Impulse equals force multiplied by time (or equivalently, the total change in momentum): it is not simply the force alone.
 
 A large force applied for a very short time can produce the same impulse as a small force applied for a much longer time. Reporting a raw force value when a question asks specifically for impulse (or vice versa) misses the time component entirely.
 
 ### #4: Mixing Up the Direction (Sign) of Momentum
 
-> Momentum is a vector — assign a clear positive direction and keep it consistent for every object throughout the whole problem.
+> Momentum is a vector: assign a clear positive direction and keep it consistent for every object throughout the whole problem.
 
 If two objects move toward each other before a collision, one must be treated as negative momentum (opposite direction) in the total momentum calculation. Treating both as positive, regardless of their actual directions, produces an incorrect total.

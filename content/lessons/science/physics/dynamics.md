@@ -68,7 +68,7 @@ Find the two forces that are equal, opposite, and act on different objects.
 
 1. The book pushes down on the table (due to its weight, transmitted through contact).
 2. By Newton's third law, the table pushes up on the book with an equal and opposite force (this upward force is the normal force).
-3. These two forces (book-on-table, and table-on-book) are the action-reaction pair — notice they act on different objects (one on the table, one on the book), which is why the book itself does not simply cancel out and float; the relevant forces for the book's own motion are its weight and the normal force acting on it, which happen to also balance (from the first law), but that balance is a separate fact from the third law pairing.
+3. These two forces (book-on-table, and table-on-book) are the action-reaction pair: notice they act on different objects (one on the table, one on the book), which is why the book itself does not simply cancel out and float; the relevant forces for the book's own motion are its weight and the normal force acting on it, which happen to also balance (from the first law), but that balance is a separate fact from the third law pairing.
 
 ### #3: Static vs. Kinetic Friction
 
@@ -110,11 +110,11 @@ For friction problems, remember: static friction handles the "before it starts m
 
 > Third law pairs act on two different objects. Balanced forces (equilibrium, from the first law) act on the same object.
 
-The normal force and weight acting on the same book are balanced forces (first law), not a third-law action-reaction pair — even though they happen to be equal and opposite in this specific resting scenario. The true third-law partner of "table pushes up on book" is "book pushes down on table" (a different object entirely).
+The normal force and weight acting on the same book are balanced forces (first law), not a third-law action-reaction pair: even though they happen to be equal and opposite in this specific resting scenario. The true third-law partner of "table pushes up on book" is "book pushes down on table" (a different object entirely).
 
 ### #2: Assuming More Mass Always Means More Acceleration
 
-> For the same net force, more mass produces less acceleration, not more — mass and acceleration are inversely related in Newton's second law.
+> For the same net force, more mass produces less acceleration, not more: mass and acceleration are inversely related in Newton's second law.
 
 Confusing the direct relationship between force and acceleration with the inverse relationship between mass and acceleration is a very common Newton's second law error. Double the mass (with the same force) halves the acceleration, it does not double it.
 
@@ -128,4 +128,4 @@ A sliding object with no continued applied force will eventually decelerate to a
 
 > The normal force equals weight only when the surface is horizontal and there are no other vertical forces acting (like an additional push or pull at an angle).
 
-On an inclined surface, or when an additional force pushes down or pulls up on the object, the normal force must be recalculated from the actual vertical force balance in that specific situation — it does not automatically equal $mg$ in every scenario.
+On an inclined surface, or when an additional force pushes down or pulls up on the object, the normal force must be recalculated from the actual vertical force balance in that specific situation: it does not automatically equal $mg$ in every scenario.

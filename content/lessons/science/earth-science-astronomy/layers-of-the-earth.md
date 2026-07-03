@@ -66,7 +66,7 @@ Recall how different waves respond to solid versus liquid material.
 1. Earthquakes send out waves that travel through the whole Earth in different directions.
 2. One kind of wave can only travel through solid material and cannot pass through liquid.
 3. Scientists observed that this wave type disappears (does not arrive) on the opposite side of the planet from certain earthquakes, forming a "shadow" region.
-4. This missing wave pattern is explained if there is a liquid layer inside Earth blocking that type of wave — evidence for the liquid outer core.
+4. This missing wave pattern is explained if there is a liquid layer inside Earth blocking that type of wave: evidence for the liquid outer core.
 
 ## Speed Tricks & Shortcuts
 
@@ -92,4 +92,4 @@ The inner core is hotter than the outer core, yet it is solid because of the cru
 
 > Continental crust is thicker; oceanic crust is thinner.
 
-A question describing land areas versus ocean floor is testing which crust type is thicker. Continental crust (under continents) is roughly $70$ km thick, while oceanic crust (under oceans) is only about $5$ km thick — much easier to drill through, which is why deep scientific drilling projects often target the ocean floor.
+A question describing land areas versus ocean floor is testing which crust type is thicker. Continental crust (under continents) is roughly $70$ km thick, while oceanic crust (under oceans) is only about $5$ km thick: much easier to drill through, which is why deep scientific drilling projects often target the ocean floor.

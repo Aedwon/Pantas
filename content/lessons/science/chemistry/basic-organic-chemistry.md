@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-**Organic chemistry** is the study of carbon-based compounds. Carbon is special because it can form four bonds and link with other carbon atoms to build long chains, rings, and branches, creating an enormous variety of molecules — everything from plastics to the molecules that make up your own body.
+**Organic chemistry** is the study of carbon-based compounds. Carbon is special because it can form four bonds and link with other carbon atoms to build long chains, rings, and branches, creating an enormous variety of molecules: everything from plastics to the molecules that make up your own body.
 
 ### Hydrocarbons
 
@@ -29,7 +29,7 @@ A **functional group** is a specific small group of atoms attached to a carbon c
 
 Organic compounds follow **iupac naming rules** (a standardized international system):
 
-1. Find the longest continuous carbon chain — this becomes the "parent chain," and its length determines the base name (meth- for $1$ carbon, eth- for $2$, prop- for $3$, but- for $4$, and so on).
+1. Find the longest continuous carbon chain: this becomes the "parent chain," and its length determines the base name (meth- for $1$ carbon, eth- for $2$, prop- for $3$, but- for $4$, and so on).
 2. Identify the bond type present (all single, or containing a double/triple bond) to choose the correct ending: -ane, -ene, or -yne.
 3. Number the carbons in the chain to give the lowest possible position numbers to any double/triple bonds or attached groups.
 
@@ -76,7 +76,7 @@ Recall that functional groups, not just chain length, determine chemical behavio
 
 1. The $-OH$ group (alcohol) and the $-COOH$ group (carboxylic acid) are different functional groups, each with its own characteristic chemical reactivity.
 2. Even with an identical carbon chain length, the presence of a specific functional group is what determines how the molecule reacts chemically (for instance, carboxylic acids are acidic and can donate a proton, while simple alcohols are not acidic in the same way).
-3. This is why chemists classify organic compounds primarily by their functional group, since it is the functional group — not the plain carbon chain — that dictates most of the molecule's chemical behavior.
+3. This is why chemists classify organic compounds primarily by their functional group, since it is the functional group, not the plain carbon chain, that dictates most of the molecule's chemical behavior.
 
 ## Speed Tricks & Shortcuts
 
@@ -84,7 +84,7 @@ Remember the three hydrocarbon endings by their vowel, in order of increasing bo
 
 Memorize the first four carbon-count prefixes, since they appear constantly: meth- ($1$), eth- ($2$), prop- ($3$), but- ($4$). Everything after generally follows a similar Greek/Latin numbering pattern (pent- for $5$, hex- for $6$, and so on).
 
-For "why do these molecules behave differently" questions, always check the functional group first — it is almost always the deciding factor in organic chemistry behavior questions, more so than overall chain length.
+For "why do these molecules behave differently" questions, always check the functional group first: it is almost always the deciding factor in organic chemistry behavior questions, more so than overall chain length.
 
 ## Traps to Watch For
 
@@ -104,10 +104,10 @@ Comparing two molecules only by their carbon chain length, while ignoring that o
 
 > -ene means a double bond (alkene). -yne means a triple bond (alkyne).
 
-These two endings differ by only one letter, making them easy to mix up under exam time pressure. Anchor them by counting the letters shared with their bond type's name — or simply memorize the pair together as "ene = 2 (double), yne = 3 (triple)," matching the numbers $2$ and $3$ hidden in the words "dOUBLE" and "trIPLE."
+These two endings differ by only one letter, making them easy to mix up under exam time pressure. Anchor them by counting the letters shared with their bond type's name: or simply memorize the pair together as "ene = 2 (double), yne = 3 (triple)," matching the numbers $2$ and $3$ hidden in the words "dOUBLE" and "trIPLE."
 
 ### #4: Forgetting to Find the longest Chain First
 
-> Iupac naming always starts by finding the longest continuous carbon chain, which becomes the parent chain — not just any chain that happens to be drawn first.
+> Iupac naming always starts by finding the longest continuous carbon chain, which becomes the parent chain, not just any chain that happens to be drawn first.
 
 A branched molecule may have several possible chains to choose from, but only the longest one is used as the parent name; shorter branches are instead named as attached side groups. Picking a shorter chain as the "parent" by mistake leads to an incorrect name.

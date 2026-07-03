@@ -54,7 +54,7 @@ questions:
       - text: Cell membrane
     explanation: |
       Ribosomes read copied DNA instructions and link amino acids together
-      to build proteins. The Golgi apparatus packages proteins afterward : 
+      to build proteins. The Golgi apparatus packages proteins afterward:
       it does not build them.
     approved: true
   - id: q-biology-cell-biology-0004

@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-A **wave** carries energy from one place to another without the medium itself traveling along with it permanently — think of a stadium wave, where people stand and sit but stay in their seats, while the "wave" itself travels around the stadium.
+A **wave** carries energy from one place to another without the medium itself traveling along with it permanently: think of a stadium wave, where people stand and sit but stay in their seats, while the "wave" itself travels around the stadium.
 
 ### Wave Properties
 
@@ -27,9 +27,9 @@ $$v = f\lambda$$
 
 ### Mechanical vs. Electromagnetic Waves
 
-A **mechanical wave** requires a physical medium (like air, water, or a rope) to travel through — no medium, no wave. Sound waves, water waves, and seismic waves are all mechanical.
+A **mechanical wave** requires a physical medium (like air, water, or a rope) to travel through: no medium, no wave. Sound waves, water waves, and seismic waves are all mechanical.
 
-An **electromagnetic wave** requires no medium at all — it can travel through the vacuum of empty space. Light, radio waves, and X-rays are all electromagnetic.
+An **electromagnetic wave** requires no medium at all: it can travel through the vacuum of empty space. Light, radio waves, and X-rays are all electromagnetic.
 
 Waves are also classified by how their particles move relative to the wave's direction of travel: a **transverse wave** has particles moving perpendicular to the wave's direction (like light, or a shaken rope); a **longitudinal wave** has particles moving parallel to (back and forth along) the wave's direction, creating compressions and stretches (like sound).
 
@@ -99,15 +99,15 @@ An ambulance siren sounds higher in pitch as it approaches you, then suddenly so
 **Solution:**
 Connect the direction of relative motion to the change in observed frequency.
 
-1. While the ambulance approaches you, the source is moving toward you, compressing the sound waves reaching your ears closer together, increasing the observed frequency — you hear a higher pitch.
-2. After the ambulance passes and moves away from you, the source is now moving away, stretching out the sound waves reaching your ears, decreasing the observed frequency — you hear a lower pitch.
+1. While the ambulance approaches you, the source is moving toward you, compressing the sound waves reaching your ears closer together, increasing the observed frequency: you hear a higher pitch.
+2. After the ambulance passes and moves away from you, the source is now moving away, stretching out the sound waves reaching your ears, decreasing the observed frequency: you hear a lower pitch.
 3. This shift in perceived pitch, purely due to the relative motion between source and observer, is the Doppler effect.
 
 ## Speed Tricks & Shortcuts
 
 Remember the wave speed formula as one triangle relationship: $v = f\lambda$. Given any two of the three quantities (speed, frequency, wavelength), rearrange to solve for the third.
 
-For mechanical versus electromagnetic, ask one question: "can this wave travel through the vacuum of space?" Yes means electromagnetic (light, radio waves); no means mechanical (sound, water waves) — mechanical waves always need some kind of matter to travel through.
+For mechanical versus electromagnetic, ask one question: "can this wave travel through the vacuum of space?" Yes means electromagnetic (light, radio waves); no means mechanical (sound, water waves): mechanical waves always need some kind of matter to travel through.
 
 For Doppler effect questions, remember: Approaching means higher observed frequency (and higher pitch, for sound); receding (moving away) means lower observed frequency (and lower pitch).
 
@@ -115,9 +115,9 @@ For Doppler effect questions, remember: Approaching means higher observed freque
 
 ### #1: Assuming Sound Can Travel Through a Vacuum
 
-> Sound is a mechanical wave and requires a medium (like air) — it cannot travel through the vacuum of space.
+> Sound is a mechanical wave and requires a medium (like air): it cannot travel through the vacuum of space.
 
-This is why explosions in movies set in space are not physically realistic — with no air (or any matter) to vibrate, there would be no sound at all. Only electromagnetic waves like light can cross a true vacuum.
+This is why explosions in movies set in space are not physically realistic: with no air (or any matter) to vibrate, there would be no sound at all. Only electromagnetic waves like light can cross a true vacuum.
 
 ### #2: Confusing Transverse and Longitudinal Wave Motion
 
@@ -135,4 +135,4 @@ A common misconception assumes an approaching sound source makes the sound waves
 
 > A source (or observer) moving toward the other results in a higher observed frequency; moving away results in a lower observed frequency.
 
-Reversing this relationship (assuming approaching sources sound lower) contradicts the everyday experience of hearing a siren's pitch rise as it approaches and fall as it recedes — a useful real-world check for this rule.
+Reversing this relationship (assuming approaching sources sound lower) contradicts the everyday experience of hearing a siren's pitch rise as it approaches and fall as it recedes: a useful real-world check for this rule.

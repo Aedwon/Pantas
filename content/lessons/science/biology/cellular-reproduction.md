@@ -32,7 +32,7 @@ The result of mitosis: One original cell becomes two identical daughter cells, e
 
 The result of meiosis: One original cell becomes four daughter cells, and each daughter cell has half the number of chromosomes of the original cell. This halving is essential: when a sperm cell and an egg cell combine during fertilization, their chromosome counts add back up to the normal full number.
 
-Additionally, meiosis shuffles genetic material between chromosome pairs, so the four resulting cells are not identical to each other or to the parent cell — this shuffling is a major source of genetic variation between offspring and their parents.
+Additionally, meiosis shuffles genetic material between chromosome pairs, so the four resulting cells are not identical to each other or to the parent cell: this shuffling is a major source of genetic variation between offspring and their parents.
 
 ## Examples
 
@@ -80,9 +80,9 @@ A cell is observed with its chromosomes lined up neatly along the center of the 
 **Solution:**
 Match the description to the defining action of each phase.
 
-1. Chromosomes condensing and the nuclear membrane breaking down would be prophase — not matching here.
+1. Chromosomes condensing and the nuclear membrane breaking down would be prophase, not matching here.
 2. Chromosomes lining up along the middle of the cell is the defining action of metaphase.
-3. Chromosomes being pulled apart to opposite ends would be anaphase — not matching here.
+3. Chromosomes being pulled apart to opposite ends would be anaphase, not matching here.
 4. The answer: metaphase.
 
 ## Speed Tricks & Shortcuts

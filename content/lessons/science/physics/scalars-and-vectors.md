@@ -13,7 +13,7 @@ Physics quantities come in two types.
 
 A **scalar** has only magnitude (size), no direction: mass, temperature, time, speed, distance. Saying "the car traveled $50 \text{ km}$" is a scalar statement.
 
-A **vector** has both magnitude and direction: displacement, velocity, acceleration, force. Saying "the car traveled $50 \text{ km}$ north" is a vector statement — the direction matters.
+A **vector** has both magnitude and direction: displacement, velocity, acceleration, force. Saying "the car traveled $50 \text{ km}$ north" is a vector statement: the direction matters.
 
 Vectors are drawn as arrows: the arrow length represents magnitude, and the arrow direction represents the direction of the quantity.
 
@@ -50,7 +50,7 @@ Check whether a direction is specified.
 
 A hiker walks $3 \text{ km}$ east, then $4 \text{ km}$ north. Find the magnitude of the hiker's total displacement.
 
-<!-- ILLUSTRATION: a right triangle of vectors — 3 km east arrow, then 4 km north arrow, with the resultant displacement drawn from start to end as the 5 km hypotenuse -->
+<!-- ILLUSTRATION: a right triangle of vectors: 3 km east arrow, then 4 km north arrow, with the resultant displacement drawn from start to end as the 5 km hypotenuse -->
 
 
 **Solution:**
@@ -109,7 +109,7 @@ $$600 - 450 = 150 \text{ N}$$
 
 ## Speed Tricks & Shortcuts
 
-To tell scalar from vector fast, listen for a direction word (north, up, left, at an angle) — its presence means vector; its absence means scalar.
+To tell scalar from vector fast, listen for a direction word (north, up, left, at an angle): its presence means vector; its absence means scalar.
 
 For perpendicular vector addition, check first whether the numbers form a known Pythagorean triple ($3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$) to skip the squaring and rooting.
 
@@ -131,6 +131,6 @@ Adding $3 \text{ km}$ and $4 \text{ km}$ directly (getting $7 \text{ km}$) when 
 
 ### #3: Swapping Sine and Cosine When Finding Components
 
-> Whether you use sine or cosine for a component depends on which side of the angle the component represents — always double-check against the actual triangle, don't just guess.
+> Whether you use sine or cosine for a component depends on which side of the angle the component represents: always double-check against the actual triangle, don't just guess.
 
 If the angle is measured from the vertical instead of the horizontal (a less common but valid setup), the sine and cosine roles for the $x$ and $y$ components swap compared to the usual convention. Always sketch the triangle and identify the adjacent and opposite sides relative to the given angle before applying a formula.

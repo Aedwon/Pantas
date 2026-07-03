@@ -28,7 +28,7 @@ Repeated over many generations, this process gradually shifts the population's t
 
 **Speciation** is the formation of a brand-new species. It commonly happens when a single population becomes geographically separated (by an ocean, a mountain range, or another barrier) into two groups that no longer interbreed.
 
-Once separated, each group faces different environmental pressures and accumulates different adaptations over many generations through natural selection. Eventually, the two groups become so genetically different that they can no longer interbreed successfully, even if they were reunited — at that point, they have become two separate species.
+Once separated, each group faces different environmental pressures and accumulates different adaptations over many generations through natural selection. Eventually, the two groups become so genetically different that they can no longer interbreed successfully, even if they were reunited: at that point, they have become two separate species.
 
 A classic real-world example is the finches Darwin studied on the Galápagos Islands: finches that ended up on different islands, facing different available foods, evolved distinctly different beak shapes suited to their local food source (thick, strong beaks for cracking hard seeds; long, thin beaks for reaching nectar; sharp beaks for catching insects), eventually becoming separate species.
 
@@ -45,7 +45,7 @@ Walk through the four-step chain of reasoning.
 2. Limited survival: the pesticide killed most non-resistant insects, leaving fewer of them to reproduce.
 3. Advantage: the resistant insects survived and reproduced far more successfully in this new pesticide-filled environment.
 4. Inheritance: since resistance is a heritable trait, the surviving resistant insects passed it to their offspring, making resistance far more common in later generations.
-5. Over many generations, this shifted the population from mostly non-resistant to mostly resistant — natural selection in action.
+5. Over many generations, this shifted the population from mostly non-resistant to mostly resistant: natural selection in action.
 
 ### #2: Evolution Within a Lifetime? A Common Misconception
 
@@ -57,7 +57,7 @@ Check the claim against how natural selection actually works.
 1. Natural selection does not change an individual's traits during its own lifetime, and traits gained through use (like a stretched neck) are not passed on genetically.
 2. What actually happens: some giraffes were naturally born with slightly longer necks (variation), which happened to be better suited for reaching high leaves (advantage) in a food-scarce environment.
 3. These longer-necked giraffes survived and reproduced more successfully, passing the heritable long-neck trait to their offspring.
-4. Over many generations, the population's average neck length increased — but no single giraffe's neck lengthened due to stretching during its own life.
+4. Over many generations, the population's average neck length increased, but no single giraffe's neck lengthened due to stretching during its own life.
 
 ### #3: Explaining Speciation with the Galápagos Finches
 
@@ -70,7 +70,7 @@ Trace the process from geographic separation to full speciation.
 2. Because the islands are separated by ocean, the finch groups on different islands no longer interbred with each other.
 3. On each island, natural selection favored beak shapes best suited to that island's specific food source, so each population gradually accumulated different adaptations.
 4. Over many generations, the beak shapes and other traits diverged so much between islands that the separate populations could no longer successfully interbreed, even if brought back together.
-5. At that point, what started as one ancestral species had become several distinct species — this is speciation through geographic separation.
+5. At that point, what started as one ancestral species had become several distinct species: this is speciation through geographic separation.
 
 ## Speed Tricks & Shortcuts
 
@@ -98,4 +98,4 @@ A tiny, camouflaged insect may be more "fit" in its environment than a larger, m
 
 > Evolution does not aim toward a "better" or "more advanced" form; it simply favors whatever traits happen to suit the current environment.
 
-A choice suggesting organisms are "trying to evolve" toward some ideal form misunderstands the process. Natural selection has no foresight or goal — it simply reflects which existing traits happened to help individuals survive and reproduce in their specific environment at the time.
+A choice suggesting organisms are "trying to evolve" toward some ideal form misunderstands the process. Natural selection has no foresight or goal: it simply reflects which existing traits happened to help individuals survive and reproduce in their specific environment at the time.

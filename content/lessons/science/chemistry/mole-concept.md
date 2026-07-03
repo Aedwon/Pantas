@@ -17,7 +17,7 @@ One mole of any substance always contains the same number of particles:
 
 $$1 \text{ mole} = 6.022 \times 10^{23} \text{ particles}$$
 
-This number is called **Avogadro's number**. It applies to atoms, molecules, ions, or any other particle you are counting — one mole of water molecules and one mole of table salt formula units both contain exactly $6.022 \times 10^{23}$ particles, even though they weigh completely different amounts.
+This number is called **Avogadro's number**. It applies to atoms, molecules, ions, or any other particle you are counting: one mole of water molecules and one mole of table salt formula units both contain exactly $6.022 \times 10^{23}$ particles, even though they weigh completely different amounts.
 
 <!-- ILLUSTRATION: balance scale showing one mole of carbon (12 grams) balancing against one mole of a different, heavier element, with both sides labeled as containing 6.022 x 10^23 atoms despite the different masses -->
 
@@ -29,7 +29,7 @@ For a single element, molar mass is simply the atomic mass shown on the periodic
 
 ### Converting Between Moles, Mass, and Particles
 
-Molar mass is the bridge between moles and grams; Avogadro's number is the bridge between moles and particles. The full conversion chain runs: **particles ↔ moles ↔ grams**, always passing through moles in the middle — you cannot convert directly from particles to grams without going through moles first.
+Molar mass is the bridge between moles and grams; Avogadro's number is the bridge between moles and particles. The full conversion chain runs: **particles ↔ moles ↔ grams**, always passing through moles in the middle: you cannot convert directly from particles to grams without going through moles first.
 
 $$\text{moles} = \dfrac{\text{given mass (g)}}{\text{molar mass (g/mol)}} \qquad \text{particles} = \text{moles} \times (6.022 \times 10^{23})$$
 
@@ -112,7 +112,7 @@ Sanity-check your mole calculations: if the given mass is smaller than the molar
 
 ### #1: Converting Directly from Grams to Particles
 
-> Grams and particles are never directly convertible — moles must always be the middle step.
+> Grams and particles are never directly convertible: moles must always be the middle step.
 
 Skipping straight from a given mass to a particle count (without finding moles first) produces a badly wrong answer, since it mixes up two completely different conversion factors (molar mass and Avogadro's number) in one incorrect step.
 
@@ -124,12 +124,12 @@ For water ($H_2O$), forgetting to double hydrogen's mass (using just $1$ g/mol i
 
 ### #3: Confusing Atomic Mass Units with Grams per Mole
 
-> An element's atomic mass (in atomic mass units, on the periodic table) has the same number as its molar mass (in grams per mole) — but they are different units for different purposes.
+> An element's atomic mass (in atomic mass units, on the periodic table) has the same number as its molar mass (in grams per mole), but they are different units for different purposes.
 
 A single atom's mass is measured in atomic mass units (amu), a tiny unit for a tiny particle. Molar mass describes a mole of that same substance (an enormous number of particles), measured in grams. The numeric value transfers directly, but understanding why (one mole's worth of atoms happens to weigh that many grams) avoids confusion in more advanced problems.
 
 ### #4: Using the Wrong Number of Significant Figures for Avogadro's Number
 
-> Avogadro's number is approximately $6.022 \times 10^{23}$ — using a rounded or altered version (like $6 \times 10^{23}$) without being told to approximate can throw off multi-step calculations.
+> Avogadro's number is approximately $6.022 \times 10^{23}$: using a rounded or altered version (like $6 \times 10^{23}$) without being told to approximate can throw off multi-step calculations.
 
 For most exam problems, using $6.022 \times 10^{23}$ (or the value given in the problem) keeps your final answer accurate and matching the intended choice. If a problem explicitly says to round, follow its instruction, but do not round on your own unless asked.

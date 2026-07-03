@@ -85,7 +85,7 @@ A cell needs to bring in a nutrient that is already more concentrated inside the
 Check the direction of movement relative to concentration.
 
 1. Diffusion moves substances from high to low concentration and needs no energy.
-2. Here, the nutrient moves from low concentration (outside) to high concentration (inside) — against the gradient — and energy is used.
+2. Here, the nutrient moves from low concentration (outside) to high concentration (inside), against the gradient, and energy is used.
 3. Moving against the gradient using energy is the definition of active transport.
 
 ### #4: Hypertonic, Hypotonic, or Isotonic?

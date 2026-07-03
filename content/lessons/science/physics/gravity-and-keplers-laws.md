@@ -31,7 +31,7 @@ Before Newton explained why, the astronomer Johannes Kepler had already discover
 
 <!-- ILLUSTRATION: elliptical orbit with the Sun at one focus, showing a planet at two positions, near the Sun with a wide swept-area triangle and short arc traveled quickly, and far from the Sun with a similarly-sized swept-area triangle but a longer, slower arc -->
 
-Newton later showed that Kepler's three laws are all a natural consequence of his law of universal gravitation combined with the laws of motion — Kepler discovered the pattern, and Newton later explained the underlying physics causing it.
+Newton later showed that Kepler's three laws are all a natural consequence of his law of universal gravitation combined with the laws of motion: Kepler discovered the pattern, and Newton later explained the underlying physics causing it.
 
 ## Examples
 
@@ -96,7 +96,7 @@ Connect Kepler's laws to their describing word: Law of ellipses (shape), Law of 
 
 ### #1: Forgetting to Square the Distance Change
 
-> Gravitational force follows an inverse-square law — the distance factor must be squared before dividing.
+> Gravitational force follows an inverse-square law: the distance factor must be squared before dividing.
 
 Tripling the distance does not simply divide the force by $3$; it divides the force by $3^2 = 9$. Skipping the squaring step is the most common error when applying Newton's law of gravitation.
 
@@ -108,12 +108,12 @@ While many orbits are nearly circular and this approximation is sometimes used f
 
 ### #3: Assuming Planets Move at Constant Speed
 
-> Kepler's second law shows that a planet's orbital speed changes throughout its orbit — faster near the Sun, slower far from it.
+> Kepler's second law shows that a planet's orbital speed changes throughout its orbit: faster near the Sun, slower far from it.
 
 A common misconception assumes planets move at one constant speed throughout their entire elliptical orbit, similar to a satellite in a perfect circular orbit. In reality, only a perfectly circular orbit would have constant speed; elliptical orbits (which describe real planets) have varying speed.
 
 ### #4: Misapplying Kepler's Third Law's Proportionality
 
-> Kepler's third law relates period squared to distance cubed — not period to distance directly, and not some other combination of powers.
+> Kepler's third law relates period squared to distance cubed, not period to distance directly, and not some other combination of powers.
 
 Assuming the relationship is directly proportional (period simply equal to distance, with no exponents) leads to a significantly wrong comparison between two orbits, especially as the ratio between their periods or distances grows larger.

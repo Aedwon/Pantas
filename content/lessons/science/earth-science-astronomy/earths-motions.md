@@ -27,7 +27,7 @@ The three motions, side by side: rotation gives us day and night in about $24$ h
 
 Match each motion of Earth to the phenomenon it directly causes: (a) rotation, (b) revolution with axial tilt, (c) precession.
 
-<!-- ILLUSTRATION: three small diagrams — Earth spinning on its axis (rotation → day/night), Earth orbiting the Sun with a tilted axis (revolution → seasons), and a slow wobble of the axis (precession) -->
+<!-- ILLUSTRATION: three small diagrams: Earth spinning on its axis (rotation → day/night), Earth orbiting the Sun with a tilted axis (revolution → seasons), and a slow wobble of the axis (precession) -->
 
 
 **Solution:**
@@ -90,6 +90,6 @@ The two words sound similar and get swapped in rushed reading. A quick check: ro
 
 ### #3: Thinking Precession Changes the Seasons Quickly
 
-> Precession is a $26{,}000$-year wobble — far too slow to explain any yearly or daily pattern.
+> Precession is a $26{,}000$-year wobble: far too slow to explain any yearly or daily pattern.
 
 If a choice claims precession causes day and night, or causes summer and winter, it has confused the timescales. Precession only becomes noticeable over many thousands of years, shifting which star sits near the pole.

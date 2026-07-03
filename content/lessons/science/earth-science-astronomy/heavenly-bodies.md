@@ -63,12 +63,12 @@ Recall what actually creates the tail.
 
 1. The tail forms because heat and pressure from the sun push gas and dust off the comet.
 2. This means the tail always points away from the Sun, regardless of which way the comet itself is moving.
-3. So even though the comet in this problem is moving away from the Sun, its tail still points away from the Sun — meaning here, the tail actually points in front of the comet, leading the way outward.
+3. So even though the comet in this problem is moving away from the Sun, its tail still points away from the Sun, meaning here, the tail actually points in front of the comet, leading the way outward.
 4. This is a surprising but well documented fact: the tail's direction depends on the Sun's position, never on the comet's direction of travel.
 
 ## Speed Tricks & Shortcuts
 
-Chain the meteor family in order of location: space, sky, ground — meteoroid, meteor, meteorite. Saying the chain out loud in that order during the exam prevents mixing them up under time pressure.
+Chain the meteor family in order of location: space, sky, ground: meteoroid, meteor, meteorite. Saying the chain out loud in that order during the exam prevents mixing them up under time pressure.
 
 Remember the tail rule with one phrase: "tail always flees the Sun." It never points toward the Sun, and it never simply trails behind the comet's path.
 

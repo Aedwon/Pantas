@@ -11,19 +11,19 @@ isActive: true
 
 Gas behavior depends on four connected quantities: **pressure** ($P$), **volume** ($V$), **temperature** ($T$, always in kelvin for gas law calculations), and the **number of moles** ($n$). Each gas law fixes two of these quantities constant and studies how the other two relate.
 
-**Boyle's Law**: at constant temperature and amount, pressure and volume are inversely related — squeeze a gas into a smaller volume, and its pressure goes up.
+**Boyle's Law**: at constant temperature and amount, pressure and volume are inversely related: squeeze a gas into a smaller volume, and its pressure goes up.
 
 $$P_1 V_1 = P_2 V_2$$
 
-**Charles's Law**: at constant pressure and amount, volume and temperature are directly related — heat a gas up, and it expands.
+**Charles's Law**: at constant pressure and amount, volume and temperature are directly related: heat a gas up, and it expands.
 
 $$\dfrac{V_1}{T_1} = \dfrac{V_2}{T_2}$$
 
-**Gay-Lussac's Law**: at constant volume and amount, pressure and temperature are directly related — heat a sealed, rigid container of gas, and its pressure rises.
+**Gay-Lussac's Law**: at constant volume and amount, pressure and temperature are directly related: heat a sealed, rigid container of gas, and its pressure rises.
 
 $$\dfrac{P_1}{T_1} = \dfrac{P_2}{T_2}$$
 
-**Avogadro's Law**: at constant pressure and temperature, volume and the number of moles are directly related — more gas particles need more space.
+**Avogadro's Law**: at constant pressure and temperature, volume and the number of moles are directly related: more gas particles need more space.
 
 $$\dfrac{V_1}{n_1} = \dfrac{V_2}{n_2}$$
 
@@ -62,7 +62,7 @@ $$8 = 8V_2$$
 
 $$V_2 = 1 \text{ liter}$$
 
-4. As expected, increasing the pressure (by $4$ times) shrank the volume (to $\dfrac{1}{4}$ its original size) — pressure and volume move in opposite directions.
+4. As expected, increasing the pressure (by $4$ times) shrank the volume (to $\dfrac{1}{4}$ its original size): pressure and volume move in opposite directions.
 
 ### #2: Applying Charles's Law
 
@@ -87,7 +87,7 @@ $$1200 = 300 V_2$$
 
 $$V_2 = 4 \text{ liters}$$
 
-4. Doubling the temperature (from $300$ K to $600$ K) doubled the volume — temperature and volume move in the same direction.
+4. Doubling the temperature (from $300$ K to $600$ K) doubled the volume: temperature and volume move in the same direction.
 
 ### #3: Applying the Combined Gas Law
 
@@ -114,7 +114,7 @@ $$1500 = 500 V_2$$
 
 $$V_2 = 3 \text{ liters}$$
 
-5. Interesting result: the volume stayed the same, because pressure doubled (which alone would halve the volume) while temperature also doubled (which alone would double the volume) — these two effects canceled out exactly.
+5. Interesting result: the volume stayed the same, because pressure doubled (which alone would halve the volume) while temperature also doubled (which alone would double the volume): these two effects canceled out exactly.
 
 ### #4: Applying the Ideal Gas Law
 

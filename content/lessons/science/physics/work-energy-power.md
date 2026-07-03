@@ -13,7 +13,7 @@ isActive: true
 
 $$W = Fd$$
 
-Work is measured in **joules** ($J$). If the force and the direction of motion are not perfectly aligned, only the component of force along the motion counts — pushing straight down on a cart moving horizontally does zero work on its horizontal motion.
+Work is measured in **joules** ($J$). If the force and the direction of motion are not perfectly aligned, only the component of force along the motion counts: pushing straight down on a cart moving horizontally does zero work on its horizontal motion.
 
 ### Kinetic and Potential Energy
 
@@ -131,7 +131,7 @@ $$P = 150 \text{ W}$$
 
 Remember the "energy see-saw" for conservation problems: whatever potential energy is lost must exactly equal the kinetic energy gained (in a frictionless system), and vice versa. This lets you skip directly to the useful equation without needing every intermediate step.
 
-For kinetic energy problems, always square the velocity first before multiplying by the other numbers — this is the step most often rushed and miscalculated.
+For kinetic energy problems, always square the velocity first before multiplying by the other numbers: this is the step most often rushed and miscalculated.
 
 Remember power's role as "how fast" energy work happens: the same amount of work done in less time means more power, and the same work done over more time means less power.
 
@@ -139,13 +139,13 @@ Remember power's role as "how fast" energy work happens: the same amount of work
 
 ### #1: Forgetting to Square the Velocity in Kinetic Energy
 
-> $KE = \dfrac{1}{2}mv^2$ — the velocity term is squared, not just multiplied once.
+> $KE = \dfrac{1}{2}mv^2$: the velocity term is squared, not just multiplied once.
 
 Forgetting the exponent turns a moving object's kinetic energy calculation into a much smaller (and wrong) number. Since velocity is squared, doubling an object's speed actually quadruples its kinetic energy, not just doubles it.
 
 ### #2: Confusing Work with Force
 
-> Work requires both a force and a distance moved in the direction of that force — a force with no motion does zero work.
+> Work requires both a force and a distance moved in the direction of that force: a force with no motion does zero work.
 
 Holding a heavy box perfectly still (applying a large upward force to support it, but with no vertical displacement) does zero work on the box, even though real physical effort is being exerted. Work is specifically about force causing displacement.
 
@@ -153,7 +153,7 @@ Holding a heavy box perfectly still (applying a large upward force to support it
 
 > Energy conservation as $KE_i + PE_i = KE_f + PE_f$ assumes no energy is lost to friction, air resistance, or heat.
 
-In real-world scenarios with friction, some mechanical energy converts into heat and is "lost" from the kinetic-plus-potential total (though it is never truly destroyed — it just changes form). Problems that explicitly mention a frictionless surface or ignore air resistance are signaling that the simple conservation equation applies directly.
+In real-world scenarios with friction, some mechanical energy converts into heat and is "lost" from the kinetic-plus-potential total (though it is never truly destroyed: it just changes form). Problems that explicitly mention a frictionless surface or ignore air resistance are signaling that the simple conservation equation applies directly.
 
 ### #4: Mixing Up Power and Energy
 
