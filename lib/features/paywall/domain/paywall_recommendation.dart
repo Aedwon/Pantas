@@ -4,14 +4,17 @@ PaywallSku recommendedSkuForExamDate({
   required DateTime today,
   DateTime? examDate,
 }) {
+  // No date, or a date already gone: most students prep for three to six
+  // months, and at a 10 month crossover Yearly is not the honest guess.
   if (examDate == null || !examDate.isAfter(today)) {
-    return PaywallSku.yearly;
+    return PaywallSku.monthly;
   }
   // Past 3 weekly renewals (₱87) the next one exceeds Monthly's ₱99,
   // so recommending Weekly beyond 21 days would break coach honesty.
   if (examDate.difference(today).inDays <= 21) return PaywallSku.weekly;
+  // ₱999 ÷ ₱99 = 10.09, so Monthly is cheaper than Yearly under ten months.
   final months = _wholeMonthsBetween(today, examDate);
-  if (months < 5) return PaywallSku.monthly;
+  if (months <= 10) return PaywallSku.monthly;
   return PaywallSku.yearly;
 }
 

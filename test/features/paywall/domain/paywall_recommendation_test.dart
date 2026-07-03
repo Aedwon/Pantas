@@ -48,4 +48,76 @@ void main() {
       ['pro_weekly', 'pro_monthly', 'pro_yearly'],
     );
   });
+
+  group('recommendation buckets at the ₱999 crossover', () {
+    final today = DateTime(2026, 8, 4);
+
+    test('no exam date recommends Monthly, not Yearly', () {
+      expect(
+        recommendedSkuForExamDate(today: today),
+        PaywallSku.monthly,
+      );
+    });
+
+    test('a past exam date recommends Monthly', () {
+      expect(
+        recommendedSkuForExamDate(
+          today: today,
+          examDate: DateTime(2026, 7),
+        ),
+        PaywallSku.monthly,
+      );
+    });
+
+    test('21 days out recommends Weekly', () {
+      expect(
+        recommendedSkuForExamDate(
+          today: today,
+          examDate: DateTime(2026, 8, 25),
+        ),
+        PaywallSku.weekly,
+      );
+    });
+
+    test('22 days out recommends Monthly', () {
+      expect(
+        recommendedSkuForExamDate(
+          today: today,
+          examDate: DateTime(2026, 8, 26),
+        ),
+        PaywallSku.monthly,
+      );
+    });
+
+    test('six months out recommends Monthly, which the old buckets got wrong',
+        () {
+      expect(
+        recommendedSkuForExamDate(
+          today: today,
+          examDate: DateTime(2027, 2, 4),
+        ),
+        PaywallSku.monthly,
+      );
+    });
+
+    test('ten months out still recommends Monthly', () {
+      expect(
+        recommendedSkuForExamDate(
+          today: today,
+          examDate: DateTime(2027, 6, 4),
+        ),
+        PaywallSku.monthly,
+      );
+    });
+
+    test('eleven months out recommends Yearly', () {
+      expect(
+        recommendedSkuForExamDate(
+          today: today,
+          examDate: DateTime(2027, 7, 4),
+        ),
+        PaywallSku.yearly,
+      );
+    });
+  });
 }
