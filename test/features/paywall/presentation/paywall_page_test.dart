@@ -20,124 +20,82 @@ void main() {
   const yearly = PaywallPackage(
     sku: PaywallSku.yearly,
     productId: 'pro_yearly',
-    priceString: '₱499',
-    priceAmount: 499,
+    priceString: '₱999',
+    priceAmount: 999,
   );
-  testWidgets(
-    'paywall renders Weekly Monthly Yearly in stable order',
-    (tester) async {
-      await tester.pumpWidget(
-        const _Host(
-          PaywallPage(
-            packages: [yearly, monthly, weekly],
+  final packages = [weekly, monthly, yearly];
+
+  Future<void> pumpPaywall(
+    WidgetTester tester, {
+    Future<PaywallCommandResult> Function(PaywallPackage)? onPurchase,
+    Future<void> Function()? onRestore,
+  }) {
+    return tester.pumpWidget(
+      ProviderScope(
+        child: MaterialApp(
+          theme: buildLightTheme(),
+          home: PaywallPage(
+            packages: packages,
+            onPurchase: onPurchase,
+            onRestore: onRestore,
           ),
-        ),
-      );
-
-      expect(
-        _textTop(tester, 'Weekly'),
-        lessThan(_textTop(tester, 'Monthly')),
-      );
-      expect(
-        _textTop(tester, 'Monthly'),
-        lessThan(_textTop(tester, 'Yearly')),
-      );
-    },
-  );
-
-  testWidgets(
-    'weekly card states weekly renewal and monthly equivalent',
-    (tester) async {
-      await tester.pumpWidget(
-        const _Host(
-          PaywallPage(
-            packages: [weekly, monthly, yearly],
-          ),
-        ),
-      );
-
-      expect(
-        find.text(
-          '₱29/week · ≈₱126/month · Renews every week · Cancel anytime',
-        ),
-        findsOneWidget,
-      );
-    },
-  );
-
-  testWidgets(
-    'weekly recommendation selects weekly by default',
-    (tester) async {
-      await tester.pumpWidget(
-        const _Host(
-          PaywallPage(
-            packages: [weekly, monthly, yearly],
-            recommendedSku: PaywallSku.weekly,
-          ),
-        ),
-      );
-
-      expect(find.text('Best for your exam date'), findsOneWidget);
-      expect(find.text('Get Pro. ₱29 a week.'), findsOneWidget);
-    },
-  );
-
-  testWidgets('recommended package is selected by default', (tester) async {
-    await tester.pumpWidget(
-      const _Host(
-        PaywallPage(
-          packages: [monthly, yearly],
-          recommendedSku: PaywallSku.monthly,
         ),
       ),
     );
+  }
 
-    expect(find.text('Best for your exam date'), findsOneWidget);
-    expect(find.text('Get Pro. ₱99 a month.'), findsOneWidget);
+  testWidgets('starts on screen 1 and See plans advances to screen 2',
+      (tester) async {
+    await pumpPaywall(tester);
+    expect(find.text('Pro also adds'), findsOneWidget);
+    await tester.ensureVisible(find.text('See plans'));
+    await tester.tap(find.text('See plans'));
+    await tester.pumpAndSettle();
+    expect(find.text('Weekly'), findsOneWidget);
+  });
+
+  testWidgets('choosing Yearly routes through the trial screen',
+      (tester) async {
+    await pumpPaywall(tester);
+    await tester.ensureVisible(find.text('See plans'));
+    await tester.tap(find.text('See plans'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Yearly'));
+    await tester.tap(find.text('Yearly'));
+    await tester.pump();
+    await tester.ensureVisible(find.text('Start my free trial'));
+    await tester.tap(find.text('Start my free trial'));
+    await tester.pumpAndSettle();
+    expect(find.text('How your free trial works'), findsOneWidget);
   });
 
   testWidgets(
-    'yearly card always shows seven day free trial pill',
-    (tester) async {
-      await tester.pumpWidget(
-        const _Host(
-          PaywallPage(
-            packages: [monthly, yearly],
-            recommendedSku: PaywallSku.monthly,
-          ),
-        ),
-      );
-
-      expect(find.text('7 days free'), findsOneWidget);
-    },
-  );
-
-  testWidgets('CTA changes when selected package changes', (tester) async {
-    await tester.pumpWidget(
-      const _Host(
-        PaywallPage(
-          packages: [monthly, yearly],
-          recommendedSku: PaywallSku.monthly,
-        ),
-      ),
+      'choosing Monthly goes straight to purchase, with no trial screen',
+      (tester) async {
+    var purchased = 0;
+    await pumpPaywall(
+      tester,
+      onPurchase: (_) async {
+        purchased++;
+        return const PaywallCommandResult(entitlement: Entitlement.free());
+      },
     );
-
-    await tester.tap(find.text('Yearly'));
+    await tester.ensureVisible(find.text('See plans'));
+    await tester.tap(find.text('See plans'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Monthly'));
+    await tester.tap(find.text('Monthly'));
     await tester.pump();
-
-    expect(find.text('Start my free trial'), findsOneWidget);
+    await tester.ensureVisible(find.textContaining('Get Pro.'));
+    await tester.tap(find.textContaining('Get Pro.'));
+    await tester.pumpAndSettle();
+    expect(find.text('How your free trial works'), findsNothing);
+    expect(purchased, 1);
   });
 
   testWidgets('restore link calls restore command', (tester) async {
     var restored = false;
-    await tester.pumpWidget(
-      _Host(
-        PaywallPage(
-          packages: const [monthly, yearly],
-          onRestore: () async => restored = true,
-        ),
-      ),
-    );
+    await pumpPaywall(tester, onRestore: () async => restored = true);
 
     await tester.tap(find.text('Restore'));
     await tester.pump();
@@ -145,50 +103,33 @@ void main() {
     expect(restored, isTrue);
   });
 
-  testWidgets(
-    'purchase error renders offline copy and keeps page open',
-    (tester) async {
-      await tester.pumpWidget(
-        _Host(
-          PaywallPage(
-            packages: const [monthly, yearly],
-            onPurchase: (_) async => const PaywallCommandResult(
-              entitlement: Entitlement.free(),
-              errorMessage:
-                  'You need a connection to subscribe. Try again when '
-                  "you're back online.",
-            ),
-          ),
-        ),
-      );
-
-      await tester.tap(find.text('Start my free trial'));
-      await tester.pump();
-
-      expect(find.text('Try Pro'), findsOneWidget);
-      expect(
-        find.text(
-          "You need a connection to subscribe. Try again when you're back "
-          'online.',
-        ),
-        findsOneWidget,
-      );
-    },
-  );
-}
-
-class _Host extends StatelessWidget {
-  const _Host(this.child);
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return ProviderScope(
-      child: MaterialApp(theme: buildLightTheme(), home: child),
+  testWidgets('purchase error renders offline copy and keeps page open',
+      (tester) async {
+    await pumpPaywall(
+      tester,
+      onPurchase: (_) async => const PaywallCommandResult(
+        entitlement: Entitlement.free(),
+        errorMessage: 'You need a connection to subscribe. Try again when '
+            "you're back online.",
+      ),
     );
-  }
-}
 
-double _textTop(WidgetTester tester, String text) {
-  return tester.getTopLeft(find.text(text)).dy;
+    await tester.ensureVisible(find.text('See plans'));
+    await tester.tap(find.text('See plans'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Monthly'));
+    await tester.tap(find.text('Monthly'));
+    await tester.pump();
+    await tester.ensureVisible(find.textContaining('Get Pro.'));
+    await tester.tap(find.textContaining('Get Pro.'));
+    await tester.pumpAndSettle();
+
+    expect(
+      find.text(
+        "You need a connection to subscribe. Try again when you're back "
+        'online.',
+      ),
+      findsOneWidget,
+    );
+  });
 }

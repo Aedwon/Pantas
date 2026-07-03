@@ -37,6 +37,13 @@ void main() {
         ),
       );
 
+      // The paywall now opens on screen 1, which sells Pro without reading
+      // any student data. The purchase CTA lives on screen 2.
+      await tester.ensureVisible(find.text('See plans'));
+      await tester.tap(find.text('See plans'));
+      await tester.pumpAndSettle();
+
+      await tester.ensureVisible(find.text('Get Pro. ₱149 a month.'));
       await tester.tap(find.text('Get Pro. ₱149 a month.'));
       await tester.pumpAndSettle();
 
@@ -47,7 +54,9 @@ void main() {
         ),
         findsOneWidget,
       );
-      expect(find.text('Get Pro. ₱149 a month.'), findsNothing);
+      // The CTA stays. A failed purchase that removes the only way to try
+      // again strands a student who just lost signal for a moment.
+      expect(find.text('Get Pro. ₱149 a month.'), findsOneWidget);
     });
 
     testWidgets('displays copy when packages list is empty offline',
