@@ -778,3 +778,78 @@ it across.
 
 **The cheap correct move in both cases was the same and it costs one request: wait, retry once,
 and only then start explaining.**
+
+---
+
+## 5 August, early: the em dash, found by accident, and 96% of a rule that was never enforced
+
+### How it surfaced
+
+Rebuilding the seed after the lesson link merged, a stray em dash turned up in an exam name. Two
+in that one file, both fixed. **Then the rebuilt seed was counted: 1,629.**
+
+The corpus itself: **1,402 across 81 question files, and 418 more in the lessons.**
+
+| Subject | Em dashes in questions |
+|---|---|
+| Science | 868 |
+| Language proficiency | 301 |
+| Reasoning | 233 |
+| Mathematics | **0** |
+| Reading comprehension | **0** |
+
+**The two clean subjects are the two written most recently**, both under a prompt that stated the
+rule. Everything older predates it being said out loud.
+
+**One of them sat inside a grammar explanation**, in a lesson teaching students how to punctuate.
+
+### Why it grew this large
+
+**Nothing enforced it.** The only tool that counted em dashes printed them as a warning in a
+sweep and failed no build. A rule that fails nothing is decoration, and this is what decoration
+costs after a few months of generation.
+
+### The options, and the cost of each
+
+| Option | Cost |
+|---|---|
+| **Gate first, then a cleanup pass** | Two passes instead of one, but nothing can regress afterwards. *Recommended and chosen.* |
+| **Scripted replacement now** | Fast, and wrong often. An em dash becomes a colon, a comma, a full stop or the word "to" depending on the sentence, and a script cannot tell which. |
+| **Gate only, leave the 1,820** | Cheapest, and it ships every one of them to a student. |
+
+Aedwon: **"go 1. gemini is also at full usage so go ahead dispatch what's needed"**.
+
+### The gate
+
+The content validator now rejects an em dash in a stem, an explanation, a choice, a passage
+title or a passage body. Four tests, written first and confirmed failing.
+
+**The en dash is deliberately left alone.** It is correct in a numeric range, and banning it
+would trade one wrong rule for another.
+
+**The corpus failed the gate the moment it landed, by design.** That is what made the cleanup
+provable rather than asserted.
+
+### The cleanup, and what checking it caught
+
+The questions came back at **zero, validator passing.** Read rather than counted, because a count
+cannot see a bad replacement:
+
+- **It chose well in context**, using a colon where the second clause explains the first and
+  commas around an aside. It did not substitute one character everywhere, which was the risk.
+- **One replacement was broken:** an em dash at the end of a wrapped line became `afterward : `
+  with a space before the colon and the sentence continuing below. Fixed by hand.
+- **It reaches for a colon by default**, so a sentence that already had one occasionally gained a
+  second. Both mistakes were written into the next prompt by name.
+
+**A count of zero would have reported all three of those as success.**
+
+### Still going
+
+The lessons are half done: science clean, **250 left** across reasoning, language proficiency,
+mathematics and reading comprehension. One resume produced nothing before timing out, so the
+next was **scoped to two directories instead of four**. Long content passes are timing out where
+short ones are not, which matches everything else tonight.
+
+**A comma splice was added to that prompt as a named mistake**, because the largest remaining
+directory is the one that teaches students not to write them.
