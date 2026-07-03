@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/paywall/application/paywall_controller.dart';
 import 'package:cse_cet_reviewer/features/paywall/application/paywall_providers.dart';
@@ -64,7 +65,7 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
       setState(
         () => _errorMessage =
             'You need a connection to subscribe. Try again when '
-            "you're back online.",
+                "you're back online.",
       );
     }
   }
@@ -103,7 +104,7 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
     final examDate = userSettings?.examDate;
     final today = DateTime.now();
 
-    final Widget pageBody = switch (_step) {
+    final pageBody = switch (_step) {
       _PaywallStep.whatProAdds => WhatProAddsPage(
           onSeePlans: () => setState(() => _step = _PaywallStep.plans),
         ),
@@ -157,15 +158,13 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
       ),
       body: Column(
         children: [
+          // The kit already owns this surface, built from hairline rules.
+          // A tinted panel is banned: it reads as generated UI rather than
+          // as print.
           if (_errorMessage != null)
-            Container(
-              width: double.infinity,
-              color: colors.rust.withAlpha(25),
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-              child: Text(
-                _errorMessage!,
-                style: styles.bodyMedium.copyWith(color: colors.rust),
-              ),
+            ErrorBanner(
+              variant: ErrorBannerVariant.offline,
+              message: _errorMessage!,
             ),
           Expanded(child: pageBody),
         ],

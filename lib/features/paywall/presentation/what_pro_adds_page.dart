@@ -42,10 +42,8 @@ class WhatProAddsPage extends StatelessWidget {
                 'own answers.',
                 style: styles.bodySmall.copyWith(color: colors.inkMuted),
               ),
-
               const SizedBox(height: 24),
               const ProSpecimenPanel(),
-
               const SizedBox(height: 26),
               Text('Pro also adds', style: styles.headlineSmall),
               Container(
@@ -62,7 +60,10 @@ class WhatProAddsPage extends StatelessWidget {
                     children: [
                       // A serif plus, not an icon: the plate says "adds",
                       // so the marker restates the verb.
-                      Text('+', style: styles.headlineSmall.copyWith(fontSize: 14)),
+                      Text(
+                        '+',
+                        style: styles.headlineSmall.copyWith(fontSize: 14),
+                      ),
                       const SizedBox(width: 9),
                       Expanded(
                         child: Text.rich(
@@ -70,7 +71,8 @@ class WhatProAddsPage extends StatelessWidget {
                             children: [
                               TextSpan(
                                 text: noun,
-                                style: styles.headlineSmall.copyWith(fontSize: 14),
+                                style:
+                                    styles.headlineSmall.copyWith(fontSize: 14),
                               ),
                               TextSpan(
                                 text: ' $rest',
@@ -87,7 +89,6 @@ class WhatProAddsPage extends StatelessWidget {
                     ],
                   ),
                 ),
-
               const SizedBox(height: 24),
               BoardButton(label: 'See plans', onPressed: onSeePlans),
               const SizedBox(height: 9),

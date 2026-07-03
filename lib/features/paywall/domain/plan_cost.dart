@@ -1,5 +1,5 @@
+import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
 import 'package:cse_cet_reviewer/features/paywall/domain/paywall_package.dart';
-import 'package:cse_cet_reviewer/features/settings/domain/exam_date.dart';
 
 /// What a plan costs a student to cover them through their exam.
 ///

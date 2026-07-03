@@ -55,7 +55,10 @@ class PlanRow extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title, style: styles.headlineSmall.copyWith(fontSize: 14)),
+                  Text(
+                    title,
+                    style: styles.headlineSmall.copyWith(fontSize: 14),
+                  ),
                   const SizedBox(height: 2),
                   Text(
                     termLine,
@@ -74,7 +77,10 @@ class PlanRow extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Text(rightFigure, style: styles.headlineSmall.copyWith(fontSize: 14)),
+                Text(
+                  rightFigure,
+                  style: styles.headlineSmall.copyWith(fontSize: 14),
+                ),
                 if (footnote != null) ...[
                   const SizedBox(height: 2),
                   Text(

@@ -1,7 +1,7 @@
+import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/paywall/domain/paywall_package.dart';
 import 'package:cse_cet_reviewer/features/paywall/presentation/plans_page.dart';
-import 'package:cse_cet_reviewer/features/settings/domain/exam_date.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -50,7 +50,8 @@ void main() {
     );
   }
 
-  testWidgets('at day precision the column head names the date', (tester) async {
+  testWidgets('at day precision the column head names the date',
+      (tester) async {
     await pumpPlans(tester, examDate: ExamDate.onDay(DateTime(2026, 10, 12)));
     expect(find.text('Your exam is in 71 days.'), findsOneWidget);
     expect(find.text('Until 12 October'), findsOneWidget);
@@ -63,7 +64,8 @@ void main() {
     expect(find.textContaining('days.'), findsNothing);
   });
 
-  testWidgets('with no date the head reads Price and the badge reads Best for most',
+  testWidgets(
+      'with no date the head reads Price and the badge reads Best for most',
       (tester) async {
     await pumpPlans(tester, examDate: null);
     expect(find.text('Choose how long you need it.'), findsOneWidget);
@@ -87,6 +89,9 @@ void main() {
 
   testWidgets('the fine print is verbatim', (tester) async {
     await pumpPlans(tester, examDate: null);
-    expect(find.text('Cancel any time. Paid through Google Play.'), findsOneWidget);
+    expect(
+      find.text('Cancel any time. Paid through Google Play.'),
+      findsOneWidget,
+    );
   });
 }

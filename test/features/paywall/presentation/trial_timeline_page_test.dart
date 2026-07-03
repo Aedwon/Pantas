@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('prints the charge date, never a relative phrase', (tester) async {
+  testWidgets('prints the charge date, never a relative phrase',
+      (tester) async {
     await tester.pumpWidget(
       MaterialApp(
         theme: buildLightTheme(),
@@ -19,7 +20,8 @@ void main() {
     expect(find.textContaining('in 7 days'), findsNothing);
   });
 
-  testWidgets('names the price twice, in the lede and on day 7', (tester) async {
+  testWidgets('names the price twice, in the lede and on day 7',
+      (tester) async {
     await tester.pumpWidget(
       MaterialApp(
         theme: buildLightTheme(),

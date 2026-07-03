@@ -2,7 +2,9 @@ import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
-/// Screen 3 of three. The trial timeline page. Shown only when Yearly is chosen.
+/// Screen 3 of three. The trial timeline page.
+///
+/// Shown only when Yearly is chosen.
 class TrialTimelinePage extends StatelessWidget {
   const TrialTimelinePage({
     required this.today,
@@ -28,7 +30,7 @@ class TrialTimelinePage extends StatelessWidget {
       'September',
       'October',
       'November',
-      'December'
+      'December',
     ];
     return '${dt.day} ${months[dt.month - 1]} ${dt.year}';
   }
@@ -75,7 +77,6 @@ class TrialTimelinePage extends StatelessWidget {
                 style: styles.bodySmall.copyWith(color: colors.inkMuted),
               ),
               const SizedBox(height: 28),
-
               for (var i = 0; i < steps.length; i++) ...[
                 IntrinsicHeight(
                   child: Row(
@@ -91,8 +92,10 @@ class TrialTimelinePage extends StatelessWidget {
                               margin: const EdgeInsets.only(top: 3),
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                border: Border.all(color: colors.ink, width: 1.4),
-                                color: Theme.of(context).scaffoldBackgroundColor,
+                                border:
+                                    Border.all(color: colors.ink, width: 1.4),
+                                color:
+                                    Theme.of(context).scaffoldBackgroundColor,
                               ),
                             ),
                             if (i < steps.length - 1)
@@ -112,7 +115,8 @@ class TrialTimelinePage extends StatelessWidget {
                           children: [
                             Text(
                               steps[i].$1,
-                              style: styles.headlineSmall.copyWith(fontSize: 14),
+                              style:
+                                  styles.headlineSmall.copyWith(fontSize: 14),
                             ),
                             const SizedBox(height: 3),
                             Text(
@@ -122,7 +126,8 @@ class TrialTimelinePage extends StatelessWidget {
                                 color: colors.inkMuted,
                               ),
                             ),
-                            if (i < steps.length - 1) const SizedBox(height: 24),
+                            if (i < steps.length - 1)
+                              const SizedBox(height: 24),
                           ],
                         ),
                       ),
@@ -130,7 +135,6 @@ class TrialTimelinePage extends StatelessWidget {
                   ),
                 ),
               ],
-
               const SizedBox(height: 32),
               BoardButton(
                 label: 'Start my free trial',

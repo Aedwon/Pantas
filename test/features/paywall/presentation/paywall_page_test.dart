@@ -73,10 +73,13 @@ void main() {
       'choosing Monthly goes straight to purchase, with no trial screen',
       (tester) async {
     var purchased = 0;
-    await pumpPaywall(tester, onPurchase: (_) async {
-      purchased++;
-      return const PaywallCommandResult(entitlement: Entitlement.free());
-    });
+    await pumpPaywall(
+      tester,
+      onPurchase: (_) async {
+        purchased++;
+        return const PaywallCommandResult(entitlement: Entitlement.free());
+      },
+    );
     await tester.ensureVisible(find.text('See plans'));
     await tester.tap(find.text('See plans'));
     await tester.pumpAndSettle();
@@ -106,8 +109,7 @@ void main() {
       tester,
       onPurchase: (_) async => const PaywallCommandResult(
         entitlement: Entitlement.free(),
-        errorMessage:
-            'You need a connection to subscribe. Try again when '
+        errorMessage: 'You need a connection to subscribe. Try again when '
             "you're back online.",
       ),
     );

@@ -1,10 +1,10 @@
+import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/paywall/domain/paywall_package.dart';
 import 'package:cse_cet_reviewer/features/paywall/domain/paywall_recommendation.dart';
 import 'package:cse_cet_reviewer/features/paywall/domain/plan_cost.dart';
 import 'package:cse_cet_reviewer/features/paywall/presentation/plan_row.dart';
-import 'package:cse_cet_reviewer/features/settings/domain/exam_date.dart';
 import 'package:flutter/material.dart';
 
 /// Screen 2 of three. The plans and their arithmetic.
@@ -63,7 +63,7 @@ class _PlansPageState extends State<PlansPage> {
       'September',
       'October',
       'November',
-      'December'
+      'December',
     ];
     return months[month - 1];
   }
@@ -167,7 +167,7 @@ class _PlansPageState extends State<PlansPage> {
                     rightFigure = pkg.priceString;
                   }
 
-                  final String? footnote = (cost.overshootDays != null)
+                  final footnote = (cost.overshootDays != null)
                       ? '${cost.overshootDays} days past your exam'
                       : null;
 
@@ -199,7 +199,8 @@ class _PlansPageState extends State<PlansPage> {
               if (examDate == null) ...[
                 const SizedBox(height: 16),
                 Text(
-                  'Tell us your exam date and we will show what each plan costs you.',
+                  'Tell us your exam date and we will show what each '
+                  'plan costs you.',
                   style: styles.bodySmall.copyWith(color: colors.inkMuted),
                 ),
               ],
