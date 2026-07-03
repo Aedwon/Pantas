@@ -106,7 +106,7 @@ questions:
       - text: 'Yes: ice is neither hydrosphere nor lithosphere, but its own separate subsystem.'
       - text: 'No: but only because ice does not actually exist on Earth.'
     explanation: |
-      Students sometimes think ice deserves its own category since it is solid. But the hydrosphere is defined by being water in any of its forms, liquid, solid ice, or water vapor, so glaciers and polar ice caps all belong to the hydrosphere.
+      Students sometimes think ice deserves its own category since it is solid. But the hydrosphere is defined by being water in any of its forms (liquid, solid ice, or water vapor), so glaciers and polar ice caps all belong to the hydrosphere.
     approved: true
 
   - id: q-earth-science-astronomy-earths-subsystems-0008

@@ -46,7 +46,7 @@ questions:
       - text: Both sentences use correct parallel structure.
       - text: Neither sentence uses correct parallel structure.
     explanation: |
-      In the correct choice, all three items, "install," "update," and "troubleshoot", use the same base verb form. The other version mixes "updating" (-ing) with two base verbs.
+      In the correct choice, all three items ("install," "update," and "troubleshoot") use the same base verb form. The other version mixes "updating" (-ing) with two base verbs.
     approved: true
 
   - id: q-grammar-and-structure-parallelism-0004
@@ -106,7 +106,7 @@ questions:
       - text: Both sentences use correct parallel structure.
       - text: Neither sentence uses correct parallel structure.
     explanation: |
-      In the correct choice, all three items, "chopping," "mincing," and "boiling", use the same "-ing" form. The other version breaks this with "to boil."
+      In the correct choice, all three items ("chopping," "mincing," and "boiling") use the same "-ing" form. The other version breaks this with "to boil."
     approved: true
 
   - id: q-grammar-and-structure-parallelism-0008
@@ -181,7 +181,7 @@ questions:
       - text: Both sentences use correct parallel structure.
       - text: Neither sentence uses correct parallel structure.
     explanation: |
-      In the correct choice, all three items, "budgeting," "marketing," and "sales strategy", are noun phrases. The other version breaks this pattern with "how to strategize sales."
+      In the correct choice, all three items ("budgeting," "marketing," and "sales strategy") are noun phrases. The other version breaks this pattern with "how to strategize sales."
     approved: true
 
   - id: q-grammar-and-structure-parallelism-0013

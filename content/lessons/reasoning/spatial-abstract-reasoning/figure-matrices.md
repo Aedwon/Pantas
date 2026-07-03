@@ -40,7 +40,7 @@ A $2 \times 2$ matrix's top row shows a triangle, then a triangle rotated $90°$
 
 A $3 \times 3$ matrix's rows show an increasing number of dots inside a circle: row 1 has circles with $1$, $2$, $3$ dots; row 2 has circles with $2$, $3$, $4$ dots; row 3 has circles with $3$, $4$, and (blank). How many dots should the blank cell have?
 
-<!-- ILLUSTRATION: a 3x3 grid of circles containing dots, row 1: 1,2,3 dots; row 2: 2,3,4 dots; row 3: 3,4,?, the blank bottom-right cell marked with a question mark; the answer is 5 dots -->
+<!-- ILLUSTRATION: a 3x3 grid of circles containing dots (row 1: 1,2,3 dots; row 2: 2,3,4 dots; row 3: 3,4,?) with the blank bottom-right cell marked with a question mark; the answer is 5 dots -->
 
 
 **Solution:**

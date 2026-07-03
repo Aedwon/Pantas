@@ -28,7 +28,7 @@ The key skill exams test is tense consistency: verbs in the same sentence (or th
 
 Passive voice is formed with a form of "to be" plus the past participle of the main verb (*was cooked*, *is written*, *will be finished*).
 
-Active voice is usually preferred in clear, direct writing, because it is shorter and identifies who did the action. Passive voice is useful when the doer is unknown, unimportant, or intentionally left out ("The window *was broken*" — we may not know who broke it).
+Active voice is usually preferred in clear, direct writing, because it is shorter and identifies who did the action. Passive voice is useful when the doer is unknown, unimportant, or intentionally left out ("The window *was broken*": we may not know who broke it).
 
 ### Sa Filipino: Aspekto ng Pandiwa
 
@@ -38,7 +38,7 @@ Filipino verbs do not use tense (past, present, future). They use **aspekto** (a
 - **Imperpektibo** (nagaganap): the action is ongoing. Example: *kumakain* (is eating), *naglalaba* (is washing).
 - **Kontemplatibo** (magaganap pa): the action has not started yet. Example: *kakain* (will eat), *maglalaba* (will wash).
 
-Notice the pattern with the root *kain*: the imperfective and contemplative repeat the first syllable (*ka*). Filipino also marks **pokus** (focus) — whether the verb highlights the doer (*Kumain ang bata*) or the object (*Kinain ng bata ang mangga*) — which is closer to the active/passive idea in English.
+Notice the pattern with the root *kain*: the imperfective and contemplative repeat the first syllable (*ka*). Filipino also marks **pokus** (focus), whether the verb highlights the doer (*Kumain ang bata*) or the object (*Kinain ng bata ang mangga*), which is closer to the active/passive idea in English.
 
 ## Examples
 
@@ -78,7 +78,7 @@ Choose the correct verb form: By the time the guests arrived, she *(cooked / had
 **Solution:**
 
 1. Two past events are being compared: the guests arriving, and the cooking being finished.
-2. The cooking was completed before the guests arrived — an earlier past action relative to another past action.
+2. The cooking was completed before the guests arrived, an earlier past action relative to another past action.
 3. This calls for the past perfect tense: "By the time the guests arrived, she *had cooked* the entire meal."
 
 ## Speed Tricks & Shortcuts
@@ -99,7 +99,7 @@ A sentence describing a single past story that suddenly switches to present tens
 
 ### #2: Confusing Passive Voice with Simply Using "To Be"
 
-> Not every sentence with "is," "was," or "were" is automatically passive — check for the past participle too.
+> Not every sentence with "is," "was," or "were" is automatically passive: check for the past participle too.
 
 "She *is* happy" uses "is" but is not passive voice, since "happy" is an adjective, not a past participle describing an action done to the subject. Passive voice specifically needs "to be" plus a past participle showing an action received.
 

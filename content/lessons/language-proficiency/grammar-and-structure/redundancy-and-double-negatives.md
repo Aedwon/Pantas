@@ -13,13 +13,13 @@ isActive: true
 
 **Redundancy** happens when a sentence repeats the same idea using extra, unnecessary words. Good writing says something once, clearly.
 
-"*Advance* warning," "*close* proximity," "*return back*," and "*repeat again*" are all redundant — the italicized word already implies the meaning of the word next to it, making one of the two words unnecessary. "Advance warning" is redundant because a warning is, by definition, something given in advance; simply "a warning" already carries that meaning.
+"*Advance* warning," "*close* proximity," "*return back*," and "*repeat again*" are all redundant: the italicized word already implies the meaning of the word next to it, making one of the two words unnecessary. "Advance warning" is redundant because a warning is, by definition, something given in advance; simply "a warning" already carries that meaning.
 
-Redundancy is not about a sentence being grammatically wrong — it is about a sentence being unnecessarily wordy, saying the same thing twice.
+Redundancy is not about a sentence being grammatically wrong: it is about a sentence being unnecessarily wordy, saying the same thing twice.
 
 ### Double Negatives
 
-A **double negative** uses two negative words in the same clause, which in standard English grammar actually cancels out to form a positive meaning — even though the speaker usually intends a negative meaning.
+A **double negative** uses two negative words in the same clause, which in standard English grammar actually cancels out to form a positive meaning, even though the speaker usually intends a negative meaning.
 
 "I *don't* have *no* money" technically means "I do have money" in strict grammar logic (two negatives canceling out), even though the speaker likely means "I have no money at all." Standard English avoids this by using only one negative word per clause: "I *don't* have *any* money," or "I have *no* money."
 
@@ -69,7 +69,7 @@ Identify the error: "I can't hardly hear you from over here."
 
 **For redundancy, ask "does removing this word change the meaning?"** If a word or phrase can be deleted without losing any actual information, it is likely redundant.
 
-**Watch for hidden negative words.** *Hardly*, *barely*, and *scarcely* function as negatives even though they do not contain "not" or "no" directly — pairing any of these with another negative word creates a double negative.
+**Watch for hidden negative words.** *Hardly*, *barely*, and *scarcely* function as negatives even though they do not contain "not" or "no" directly: pairing any of these with another negative word creates a double negative.
 
 **Read the sentence literally, ignoring intended tone.** To catch a double negative, mentally cancel out the two negative words as if solving a simple sign problem, and check whether the literal resulting meaning matches what the sentence is trying to say.
 
@@ -79,7 +79,7 @@ Identify the error: "I can't hardly hear you from over here."
 
 > Check whether two words or phrases in the same sentence repeat the same idea, even if each one is a perfectly normal word by itself.
 
-"Advance planning," "final outcome," and "unexpected surprise" all pair a word with another word that already implies its meaning. Neither word is wrong on its own — the problem is using them together.
+"Advance planning," "final outcome," and "unexpected surprise" all pair a word with another word that already implies its meaning. Neither word is wrong on its own: the problem is using them together.
 
 ### #2: Not Recognizing "Hardly," "Barely," and "Scarcely" as Negatives
 

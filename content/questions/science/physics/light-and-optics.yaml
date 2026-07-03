@@ -202,7 +202,7 @@ questions:
       - text: 'No: the electromagnetic spectrum consists only of visible light and nothing else.'
       - text: 'Yes: radio waves and X-rays are actually part of visible light.'
     explanation: |
-      Visible light occupies only a narrow band of the full electromagnetic spectrum. Most electromagnetic radiation, radio waves, microwaves, infrared, ultraviolet, X-rays, and gamma rays, is invisible to human eyes.
+      Visible light occupies only a narrow band of the full electromagnetic spectrum. Most electromagnetic radiation (radio waves, microwaves, infrared, ultraviolet, X-rays, and gamma rays) is invisible to human eyes.
     approved: true
   - id: q-physics-light-and-optics-0015
     type: classify

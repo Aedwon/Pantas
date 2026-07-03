@@ -73,7 +73,7 @@ For "which subsystems are involved" questions, scan the scenario for four clues:
 
 > Frozen water (ice, glaciers, snow) is still part of the hydrosphere.
 
-Students sometimes think ice deserves its own category since it is solid. But the hydrosphere is defined by being water, in any of its forms, liquid, solid ice, or water vapor, so glaciers and polar ice caps all belong to the hydrosphere.
+Students sometimes think ice deserves its own category since it is solid. But the hydrosphere is defined by being water in any of its forms (liquid, solid ice, or water vapor), so glaciers and polar ice caps all belong to the hydrosphere.
 
 ### #2: Forgetting That Microbes and Underground Life Count as Biosphere
 

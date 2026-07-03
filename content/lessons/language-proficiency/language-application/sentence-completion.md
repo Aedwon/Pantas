@@ -18,7 +18,7 @@ Two tools solve almost every sentence completion question.
 - Words like *but*, *however*, and *although* signal a contrast (the blank should mean something different from, or opposite to, a nearby idea).
 - Words like *and*, *similarly*, and *moreover* signal agreement or continuation (the blank should mean something similar to a nearby idea).
 
-**Tool 2: grammar fit.** Even if a word's meaning seems right, it must also fit the sentence grammatically — matching the correct part of speech, tense, and number required by the sentence structure.
+**Tool 2: grammar fit.** Even if a word's meaning seems right, it must also fit the sentence grammatically, matching the correct part of speech, tense, and number required by the sentence structure.
 
 For sentences with two blanks, solve the easier blank first (whichever one has clearer context clues), which often narrows down the answer choices enough to make the second blank obvious.
 
@@ -31,16 +31,16 @@ For sentences with two blanks, solve the easier blank first (whichever one has c
 Choose the best word: "*Although* the weather forecast predicted heavy rain, the outdoor event was surprisingly ______." (A) postponed, (B) successful, (C) canceled, (D) rescheduled.
 
 **Solution:**
-1. "Although" signals a contrast — the outcome should be different from what the bad weather forecast would suggest.
+1. "Although" signals a contrast: the outcome should be different from what the bad weather forecast would suggest.
 2. Bad weather would normally suggest the event was postponed, canceled, or rescheduled (choices A, C, D all fit a "bad outcome" reading).
-3. Since the sentence needs a word that contrasts with the negative forecast, "successful" (B) fits best — despite the rain prediction, the event still went well.
+3. Since the sentence needs a word that contrasts with the negative forecast, "successful" (B) fits best: despite the rain prediction, the event still went well.
 
 ### #2: Using a Cause-and-Effect Signal Word
 
 Choose the best word: "*Because* the bridge was severely damaged, engineers deemed it ______ for public use." (A) suitable, (B) essential, (C) unsafe, (D) convenient.
 
 **Solution:**
-1. "Because" signals a cause-and-effect relationship — the blank should logically follow from "severely damaged."
+1. "Because" signals a cause-and-effect relationship: the blank should logically follow from "severely damaged."
 2. A severely damaged bridge would logically be considered unsafe, not suitable, essential, or convenient.
 3. The best answer is (C) "unsafe."
 
@@ -49,8 +49,8 @@ Choose the best word: "*Because* the bridge was severely damaged, engineers deem
 Choose the best pair of words: "Despite her ______ preparation, she felt ______ before the big presentation." (A) careless, confident (B) thorough, nervous (C) thorough, confident (D) minimal, nervous.
 
 **Solution:**
-1. "Despite" signals a contrast between the two blanks — whatever quality her preparation had, her feeling should be the opposite of what that preparation would normally cause.
-2. Test each pair: (B) "thorough" preparation would normally lead to confidence, but she instead felt "nervous" — a genuine contrast, matching "despite."
+1. "Despite" signals a contrast between the two blanks: whatever quality her preparation had, her feeling should be the opposite of what that preparation would normally cause.
+2. Test each pair: (B) "thorough" preparation would normally lead to confidence, but she instead felt "nervous", a genuine contrast, matching "despite."
 3. (C) "thorough" preparation matching "confident" would not be a contrast (thorough preparation naturally causing confidence), so it fails the "despite" signal.
 4. The best answer is (B): "Despite her *thorough* preparation, she felt *nervous* before the big presentation."
 
@@ -61,7 +61,7 @@ Choose the best word: "The committee ______ the proposal after months of careful
 **Solution:**
 1. All four choices are related to the same idea (giving approval), so check grammar fit, not just meaning.
 2. The sentence needs a verb in the past tense to match "after months of careful review" (implying the action is already complete).
-3. "Approve" is present tense, "approving" is a gerund/participle (would need a helping verb), and "approval" is a noun — none fit grammatically as the sentence's main verb.
+3. "Approve" is present tense, "approving" is a gerund/participle (would need a helping verb), and "approval" is a noun: none fit grammatically as the sentence's main verb.
 4. "Approved" (C) is the correct past-tense verb form: "The committee *approved* the proposal after months of careful review."
 
 ## Speed Tricks & Shortcuts
@@ -76,7 +76,7 @@ Choose the best word: "The committee ______ the proposal after months of careful
 
 ### #1: Ignoring the Signal Word
 
-> Words like *although*, *because*, *but*, and *therefore* are the biggest clues in the sentence — always identify them before choosing an answer.
+> Words like *although*, *because*, *but*, and *therefore* are the biggest clues in the sentence: always identify them before choosing an answer.
 
 Picking a word that merely "sounds nice" in isolation, without checking whether it matches the contrast or cause-and-effect relationship the signal word demands, is the most common way to miss these questions.
 
@@ -88,6 +88,6 @@ A tempting word that captures the right idea but is the wrong grammatical form (
 
 ### #3: Solving Two-Blank Questions in the Wrong Order
 
-> Start with whichever blank has the clearer, more obvious context clue — solving the harder blank first often wastes time or leads to a wrong guess.
+> Start with whichever blank has the clearer, more obvious context clue: solving the harder blank first often wastes time or leads to a wrong guess.
 
 If one blank has strong, unambiguous context clues and the other is vague, solve the clear one first; it usually eliminates enough answer choices to make the second blank far easier.

@@ -226,7 +226,7 @@ questions:
       - text: (T,T) → false, (T,F) → false, (F,T) → true, (F,F) → true
       - text: (T,T) → true, (T,F) → false, (F,T) → false, (F,F) → false
     explanation: |
-      "$P \rightarrow Q$" is false only in the one case where $P$ is true and $Q$ is false: (T,F) → false. Every other combination, (T,T), (F,T), (F,F), is true.
+      "$P \rightarrow Q$" is false only in the one case where $P$ is true and $Q$ is false: (T,F) → false. Every other combination (T,T), (F,T) and (F,F) is true.
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0016

@@ -132,7 +132,7 @@ questions:
       - text: 'No: but only because it does not produce any motion.'
       - text: 'Yes: any machine that uses fuel is considered alive.'
     explanation: |
-      Resembling one characteristic (using energy) is not enough. The engine fails every other requirement, no cells, no reproduction, no homeostasis, no growth, no adaptation, so it is non-living.
+      Resembling one characteristic (using energy) is not enough. The engine fails every other requirement: no cells, no reproduction, no homeostasis, no growth, no adaptation, so it is non-living.
     approved: true
   - id: q-biology-characteristics-of-life-0010
     type: classify
@@ -202,5 +202,5 @@ questions:
       - text: It cannot be determined without knowing the organism's exact species.
       - text: Only the reproduction and growth characteristics matter; the rest are irrelevant.
     explanation: |
-      An organism showing all seven characteristics of life together, cellular organization, metabolism, homeostasis, growth, reproduction, response to stimuli, and adaptation, meets the full requirement to be classified as alive.
+      An organism showing all seven characteristics of life together (cellular organization, metabolism, homeostasis, growth, reproduction, response to stimuli, and adaptation) meets the full requirement to be classified as alive.
     approved: true

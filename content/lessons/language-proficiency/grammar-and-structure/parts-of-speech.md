@@ -73,13 +73,13 @@ Choose the correct preposition to complete the sentence: The keys are *______* t
 
 **Adjectives answer "what kind" or "which one."** Adverbs answer "how," "when," "where," or "how much." If you can replace the describing word with "how" and the sentence still makes sense as a question, it is likely an adverb.
 
-**Many (not all) adverbs end in "-ly."** This is a helpful hint, not an absolute rule — words like "friendly" end in "-ly" but are actually adjectives (describing a noun, like a *friendly* dog).
+**Many (not all) adverbs end in "-ly."** This is a helpful hint, not an absolute rule: words like "friendly" end in "-ly" but are actually adjectives (describing a noun, like a *friendly* dog).
 
 ## Traps to Watch For
 
 ### #1: Assuming a Word Always Has One Fixed Job
 
-> Check the word's role in this specific sentence — the same word can be a noun in one sentence and a verb in another.
+> Check the word's role in this specific sentence: the same word can be a noun in one sentence and a verb in another.
 
 Words like "light," "run," and "study" can be nouns or verbs depending on how they are used. Test-makers often build questions around exactly this kind of shifting word.
 

@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-An **antecedent** is the noun a pronoun replaces or refers back to. "Maria forgot *her* umbrella" — "Maria" is the antecedent, and "her" is the pronoun replacing it.
+An **antecedent** is the noun a pronoun replaces or refers back to. "Maria forgot *her* umbrella": "Maria" is the antecedent, and "her" is the pronoun replacing it.
 
 **Pronoun-antecedent agreement** means the pronoun must match its antecedent in number (singular or plural) and gender, when applicable.
 
@@ -69,7 +69,7 @@ Identify the problem with this sentence: "When Mrs. Santos spoke to Anna, she se
 
 **Solution:**
 
-1. The pronoun "she" could refer to either Mrs. Santos or Anna — it is unclear which one seemed upset.
+1. The pronoun "she" could refer to either Mrs. Santos or Anna: it is unclear which one seemed upset.
 2. This is called an ambiguous (unclear) antecedent, a common sentence-correction error on exams.
 3. A clearer version names the person directly: "When Mrs. Santos spoke to Anna, Anna seemed upset."
 
@@ -97,6 +97,6 @@ Writing "The team celebrated *their* victory" breaks strict agreement rules; the
 
 ### #3: Leaving the Antecedent Ambiguous
 
-> If a pronoun could refer to more than one noun in the sentence, the antecedent is unclear — this is a common sentence-correction error.
+> If a pronoun could refer to more than one noun in the sentence, the antecedent is unclear: this is a common sentence-correction error.
 
 Exam questions often ask you to identify or fix a sentence where "she," "he," "it," or "they" could logically point to two different nouns. The fix is usually to replace the confusing pronoun with the specific noun it should refer to.

@@ -13,9 +13,9 @@ A **phrase** is a group of words that works together but does not have both a su
 
 A **clause** does have both a subject and a verb. There are two kinds.
 
-An **independent clause** has a subject and a verb and expresses a complete thought — it can stand alone as its own sentence: "The rain stopped." (subject: rain; verb: stopped; complete thought)
+An **independent clause** has a subject and a verb and expresses a complete thought. It can stand alone as its own sentence: "The rain stopped." (subject: rain; verb: stopped; complete thought)
 
-A **dependent clause** (also called a subordinate clause) also has a subject and a verb, but it does not express a complete thought on its own — it depends on an independent clause to make sense. Dependent clauses usually begin with a word like *because*, *although*, *when*, *if*, *since*, or *while*: "Because the rain stopped" has a subject (rain) and a verb (stopped), but it leaves you asking "...then what?" It cannot stand alone.
+A **dependent clause** (also called a subordinate clause) also has a subject and a verb, but it does not express a complete thought on its own. It depends on an independent clause to make sense. Dependent clauses usually begin with a word like *because*, *although*, *when*, *if*, *since*, or *while*: "Because the rain stopped" has a subject (rain) and a verb (stopped), but it leaves you asking "...then what?" It cannot stand alone.
 
 <!-- ILLUSTRATION: two labeled sentence strips side by side, one showing "The rain stopped." marked as a complete independent clause, and one showing "Because the rain stopped," marked as an incomplete dependent clause with a connecting arrow to a missing second half -->
 
@@ -38,7 +38,7 @@ Identify whether each clause is independent or dependent: (a) "Although she was 
 
 **Solution:**
 
-1. (a) "Although she was tired" has a subject ("she") and a verb ("was"), but the word "although" makes it an incomplete thought — it needs more information: Dependent.
+1. (a) "Although she was tired" has a subject ("she") and a verb ("was"), but the word "although" makes it an incomplete thought; it needs more information: Dependent.
 2. (b) "She finished her homework" has a subject, a verb, and expresses a complete thought on its own: Independent.
 
 ### #3: Combining Clauses Correctly
@@ -58,12 +58,12 @@ Identify the error in this sentence: "Although the teacher explained the lesson 
 **Solution:**
 
 1. This is a dependent clause standing alone, with no independent clause attached.
-2. It has a subject ("teacher") and a verb ("explained"), but the word "although" leaves the thought incomplete — the reader is left wondering what happened as a result.
+2. It has a subject ("teacher") and a verb ("explained"), but the word "although" leaves the thought incomplete: the reader is left wondering what happened as a result.
 3. This is a sentence fragment, a common error. A correction adds an independent clause: "Although the teacher explained the lesson twice, *some students were still confused*."
 
 ## Speed Tricks & Shortcuts
 
-**Check for a subject and a verb first.** If a group of words lacks either one, it is automatically a phrase, not a clause — no further analysis needed.
+**Check for a subject and a verb first.** If a group of words lacks either one, it is automatically a phrase, not a clause: no further analysis needed.
 
 **Look for a subordinating word.** Words like *although*, *because*, *since*, *if*, *when*, and *while* at the start of a clause are strong signals that it is dependent, since these words specifically set up an incomplete thought that needs another clause to finish it.
 
@@ -73,9 +73,9 @@ Identify the error in this sentence: "Although the teacher explained the lesson 
 
 ### #1: Mistaking a Long Phrase for a Clause
 
-> A phrase can be long and still lack a subject-verb pair — length does not make something a clause.
+> A phrase can be long and still lack a subject-verb pair: length does not make something a clause.
 
-"Walking slowly along the crowded street toward the old market" is a long phrase, but it still has no subject performing a clearly stated action as its own main verb in a complete sentence — it needs an independent clause to complete the thought.
+"Walking slowly along the crowded street toward the old market" is a long phrase, but it still has no subject performing a clearly stated action as its own main verb in a complete sentence: it needs an independent clause to complete the thought.
 
 ### #2: Treating a Dependent Clause as a Complete Sentence
 
