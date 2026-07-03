@@ -142,10 +142,10 @@ void main() {
       );
 
       final sampled = sample.sections.single;
-      expect(
-          sampled.questionIds.where((id) => id.startsWith('a')), hasLength(3));
-      expect(
-          sampled.questionIds.where((id) => id.startsWith('b')), hasLength(2));
+      final fromA = sampled.questionIds.where((id) => id.startsWith('a'));
+      final fromB = sampled.questionIds.where((id) => id.startsWith('b'));
+      expect(fromA, hasLength(3));
+      expect(fromB, hasLength(2));
     });
 
     test('an empty passage map behaves like no passage map at all', () {

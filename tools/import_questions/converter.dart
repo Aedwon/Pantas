@@ -16,6 +16,22 @@ class QuestionMeta {
 int _keyCounter = 0;
 String _key(String prefix) => '$prefix${_keyCounter++}';
 
+/// The em dash is banned project-wide: use a colon or a comma.
+///
+/// Nothing enforced it until 4 August 2026, by which point 1,402 had reached
+/// 81 question files and 418 more the lessons, one of them inside a grammar
+/// explanation. The only tool that counted them printed a warning and failed
+/// nothing, which is exactly how a rule becomes decorative.
+///
+/// The en dash is left alone: it is correct in a numeric range.
+void rejectEmDash(String value, String id, String field) {
+  if (value.contains('—')) {
+    throw FormatException(
+      '$id: $field contains an em dash. Use a colon or a comma.',
+    );
+  }
+}
+
 List<Map<String, Object?>> textToPortableText(String text) {
   final paragraphs = text
       .trim()
@@ -60,6 +76,7 @@ Map<String, Object?> questionToDoc(
     if (v is! String || v.trim().isEmpty) {
       throw FormatException('$id: missing or empty "$field"');
     }
+    rejectEmDash(v, id, field);
     return v;
   }
 
@@ -85,6 +102,7 @@ Map<String, Object?> questionToDoc(
     if (text is! String || text.trim().isEmpty) {
       throw FormatException('$id: choice ${i + 1} has empty text');
     }
+    rejectEmDash(text, id, 'choice ${i + 1}');
     choices.add({
       '_key': '$id-choice-${labels[i].toLowerCase()}',
       'label': labels[i],
@@ -134,10 +152,13 @@ Map<String, Object?> passageToDoc(
     throw FormatException('$id: missing or empty "title"');
   }
 
+  rejectEmDash(title, id, 'title');
+
   final body = p['body'];
   if (body is! String || body.trim().isEmpty) {
     throw FormatException('$id: missing or empty "body"');
   }
+  rejectEmDash(body, id, 'body');
 
   // Prose needs length to sustain a set of questions. A poem does not: density
   // does the work there that word count does in prose, and padding one out to

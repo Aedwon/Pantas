@@ -99,4 +99,89 @@ explanation: |
           contains('q-biology-cell-structure-0003'))),
     );
   });
+
+  // The em dash is banned across the project. It reached 1,402 occurrences in
+  // 81 question files before anything checked for it, because the only tool
+  // that counted them reported a warning and failed nothing.
+  test('an em dash in a stem is rejected', () {
+    expect(
+      () => questionToDoc(
+        _yaml('''
+id: q_emdash_stem
+stem: A cell wall is rigid — unlike a membrane.
+explanation: Cellulose gives it structure.
+choices:
+  - text: Rigid
+    correct: true
+  - text: Flexible
+'''),
+        _meta,
+        updatedAt: _updatedAt,
+      ),
+      throwsA(
+        isA<FormatException>().having(
+          (e) => e.message,
+          'message',
+          allOf(contains('q_emdash_stem'), contains('em dash')),
+        ),
+      ),
+    );
+  });
+
+  test('an em dash in an explanation is rejected', () {
+    expect(
+      () => questionToDoc(
+        _yaml('''
+id: q_emdash_expl
+stem: What makes a cell wall rigid?
+explanation: Cellulose — a long chain sugar — gives it structure.
+choices:
+  - text: Cellulose
+    correct: true
+  - text: Water
+'''),
+        _meta,
+        updatedAt: _updatedAt,
+      ),
+      throwsA(isA<FormatException>()),
+    );
+  });
+
+  test('an em dash in a choice is rejected', () {
+    expect(
+      () => questionToDoc(
+        _yaml('''
+id: q_emdash_choice
+stem: What makes a cell wall rigid?
+explanation: Cellulose gives it structure.
+choices:
+  - text: Cellulose — a sugar
+    correct: true
+  - text: Water
+'''),
+        _meta,
+        updatedAt: _updatedAt,
+      ),
+      throwsA(isA<FormatException>()),
+    );
+  });
+
+  test('an en dash and a hyphen are both left alone', () {
+    expect(
+      () => questionToDoc(
+        _yaml('''
+id: q_dashes_ok
+stem: Is a cell wall 10–20 nanometres thick?
+explanation: A well-known range, 10–20 nanometres.
+choices:
+  - text: 10-20 nanometres
+    correct: true
+  - text: 200 nanometres
+'''),
+        _meta,
+        updatedAt: _updatedAt,
+      ),
+      returnsNormally,
+    );
+  });
 }
