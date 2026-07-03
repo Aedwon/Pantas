@@ -9,16 +9,19 @@ void main() {
     sku: PaywallSku.weekly,
     productId: 'pro_weekly',
     priceString: '₱29',
+    priceAmount: 29,
   );
   const monthly = PaywallPackage(
     sku: PaywallSku.monthly,
     productId: 'pro_monthly',
     priceString: '₱99',
+    priceAmount: 99,
   );
   const yearly = PaywallPackage(
     sku: PaywallSku.yearly,
     productId: 'pro_yearly',
     priceString: '₱499',
+    priceAmount: 499,
   );
   testWidgets(
     'paywall renders Weekly Monthly Yearly in stable order',

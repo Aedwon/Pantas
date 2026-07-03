@@ -108,6 +108,7 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
           sku: sku,
           productId: product.identifier,
           priceString: product.priceString,
+          priceAmount: product.price,
         ),
       );
     }

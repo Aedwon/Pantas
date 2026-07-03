@@ -32,4 +32,15 @@ void main() {
       expect(planForSku(PaywallSku.yearly), EntitlementPlan.yearly);
     });
   });
+
+  test('a package carries the numeric price as well as the display string', () {
+    const package = PaywallPackage(
+      sku: PaywallSku.monthly,
+      productId: 'pro_monthly',
+      priceString: '₱99.00',
+      priceAmount: 99,
+    );
+    expect(package.priceAmount, 99);
+    expect(package.priceString, '₱99.00');
+  });
 }

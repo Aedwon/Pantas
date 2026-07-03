@@ -46,16 +46,19 @@ void main() {
                 sku: PaywallSku.yearly,
                 productId: 'pro_yearly',
                 priceString: '₱499',
+                priceAmount: 499,
               ),
               PaywallPackage(
                 sku: PaywallSku.weekly,
                 productId: 'pro_weekly',
                 priceString: '₱29',
+                priceAmount: 29,
               ),
               PaywallPackage(
                 sku: PaywallSku.monthly,
                 productId: 'pro_monthly',
                 priceString: '₱99',
+                priceAmount: 99,
               ),
             ],
           ),
@@ -88,6 +91,7 @@ void main() {
         sku: PaywallSku.monthly,
         productId: 'pro_monthly',
         priceString: '₱99',
+        priceAmount: 99,
       ),
     );
     expect(entitlement.proIsActive, isFalse);
