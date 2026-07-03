@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cse_cet_reviewer/features/paywall/data/live_revenuecat_gateway.dart';
 import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -68,6 +69,42 @@ void main() {
     expect(
       packages.map((package) => package.productId),
       ['pro_weekly', 'pro_monthly', 'pro_yearly'],
+    );
+  });
+
+  test('the gateway is disabled when no API key is configured', () {
+    final container = ProviderContainer();
+    addTearDown(container.dispose);
+    expect(
+      container.read(revenueCatGatewayProvider),
+      isA<DisabledRevenueCatGateway>(),
+    );
+  });
+
+  test('the disabled gateway never reports Pro', () async {
+    const gateway = DisabledRevenueCatGateway();
+    final entitlement = await gateway.purchase(
+      const PaywallPackage(
+        sku: PaywallSku.monthly,
+        productId: 'pro_monthly',
+        priceString: '₱99',
+      ),
+    );
+    expect(entitlement.proIsActive, isFalse);
+  });
+
+  test('gateway selection reads the config rather than being hard coded', () {
+    final container = ProviderContainer(
+      overrides: [
+        revenueCatConfigProvider.overrideWithValue(
+          RevenueCatConfig.fromEnvironment(androidApiKey: 'goog_test_key'),
+        ),
+      ],
+    );
+    addTearDown(container.dispose);
+    expect(
+      container.read(revenueCatGatewayProvider),
+      isA<LiveRevenueCatGateway>(),
     );
   });
 }
