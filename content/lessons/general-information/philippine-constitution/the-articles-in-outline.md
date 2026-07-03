@@ -7,11 +7,11 @@ topic: "topic-philippine-constitution"
 estimatedMinutes: 10
 isActive: true
 ---
-## Core Structure
+## Core Concept
 
 The 1987 Constitution of the Republic of the Philippines consists of a Preamble and 18 distinct Articles.
 
-## Article Outline
+### Article Outline
 
 - **Preamble:** Introduces the aspirations, ideals, and devotion of the sovereign Filipino people.
 - **Article I:** National Territory
@@ -34,3 +34,40 @@ The 1987 Constitution of the Republic of the Philippines consists of a Preamble 
 - **Article XVIII:** Transitory Provisions
 
 Knowing which article corresponds to each major constitutional area is a fundamental requirement of Civil Service examinations.
+
+## Examples
+
+### #1: Identifying the Article for Public Officer Accountability
+
+A citizen wants to read the constitutional rules on impeachable officers and public accountability. Which article of the 1987 Constitution should the citizen review?
+
+**Solution:**
+Match the subject to the article outline.
+
+1. Article III covers the Bill of Rights.
+2. Article IX covers Constitutional Commissions.
+3. Article XI covers Accountability of Public Officers.
+4. Therefore, the citizen should review Article XI.
+
+### #2: Total Number of Articles
+
+A student is asked to count the total number of distinct articles in the 1987 Constitution, excluding the Preamble. What is the total count?
+
+**Solution:**
+Recall the structure of the Constitution.
+
+1. The Constitution begins with a Preamble.
+2. The Preamble is followed by Article I through Article XVIII.
+3. Roman numeral XVIII equals 18.
+4. The Constitution contains 18 distinct articles.
+
+### #3: Locating the Civil Service Commission
+
+Which specific main article and sub-part of the 1987 Constitution establish the Civil Service Commission?
+
+**Solution:**
+Locate the Civil Service Commission within the constitutional structure.
+
+1. Article IX covers the Constitutional Commissions.
+2. Article IX is divided into four sub-parts: A (Common Provisions), B (Civil Service Commission), C (Commission on Elections), and D (Commission on Audit).
+3. The Civil Service Commission is established under Article IX-B.
