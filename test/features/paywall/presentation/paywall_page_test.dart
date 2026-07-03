@@ -75,7 +75,7 @@ void main() {
       );
 
       expect(find.text('Best for your exam date'), findsOneWidget);
-      expect(find.text('Get Pro - ₱29/week'), findsOneWidget);
+      expect(find.text('Get Pro. ₱29 a week.'), findsOneWidget);
     },
   );
 
@@ -90,7 +90,7 @@ void main() {
     );
 
     expect(find.text('Best for your exam date'), findsOneWidget);
-    expect(find.text('Get Pro - ₱99/month'), findsOneWidget);
+    expect(find.text('Get Pro. ₱99 a month.'), findsOneWidget);
   });
 
   testWidgets(
@@ -122,7 +122,7 @@ void main() {
     await tester.tap(find.text('Yearly'));
     await tester.pump();
 
-    expect(find.text('Start 7-day free trial'), findsOneWidget);
+    expect(find.text('Start my free trial'), findsOneWidget);
   });
 
   testWidgets('restore link calls restore command', (tester) async {
@@ -159,7 +159,7 @@ void main() {
         ),
       );
 
-      await tester.tap(find.text('Start 7-day free trial'));
+      await tester.tap(find.text('Start my free trial'));
       await tester.pump();
 
       expect(find.text('Try Pro'), findsOneWidget);

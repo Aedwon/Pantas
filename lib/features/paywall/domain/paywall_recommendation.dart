@@ -22,15 +22,17 @@ String recommendationBadgeCopy({
   required PaywallSku recommended,
   required bool hasExamDate,
 }) {
-  if (!hasExamDate) return 'Best value for most';
+  if (!hasExamDate) return 'Best for most';
   return 'Best for your exam date';
 }
 
 String ctaCopyFor(PaywallPackage package) {
   return switch (package.sku) {
-    PaywallSku.weekly => 'Get Pro - ${package.priceString}/week',
-    PaywallSku.monthly => 'Get Pro - ${package.priceString}/month',
-    PaywallSku.yearly => 'Start 7-day free trial',
+    PaywallSku.weekly => 'Get Pro. ${package.priceString} a week.',
+    PaywallSku.monthly => 'Get Pro. ${package.priceString} a month.',
+    // Yearly is the only SKU with a trial, so its CTA opens screen 3
+    // rather than naming a price the student has not agreed to yet.
+    PaywallSku.yearly => 'Start my free trial',
   };
 }
 

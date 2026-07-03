@@ -36,7 +36,7 @@ void main() {
         ),
       );
 
-      await tester.tap(find.text('Get Pro - ₱149/month'));
+      await tester.tap(find.text('Get Pro. ₱149 a month.'));
       await tester.pumpAndSettle();
 
       expect(
@@ -46,7 +46,7 @@ void main() {
         ),
         findsOneWidget,
       );
-      expect(find.text('Get Pro - ₱149/month'), findsNothing);
+      expect(find.text('Get Pro. ₱149 a month.'), findsNothing);
     });
 
     testWidgets('displays copy when packages list is empty offline',

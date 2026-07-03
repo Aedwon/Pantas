@@ -17,27 +17,85 @@ void main() {
     productId: 'pro_yearly',
     priceString: '₱499',
   );
-  test('CTA copy matches weekly monthly yearly selections', () {
-    expect(ctaCopyFor(weekly), 'Get Pro - ₱29/week');
-    expect(ctaCopyFor(monthly), 'Get Pro - ₱99/month');
-    expect(ctaCopyFor(yearly), 'Start 7-day free trial');
-  });
+  group('badge and CTA copy, verbatim from the spec', () {
+    test('with an exam date the badge names the date', () {
+      expect(
+        recommendationBadgeCopy(
+          recommended: PaywallSku.monthly,
+          hasExamDate: true,
+        ),
+        'Best for your exam date',
+      );
+    });
 
-  test('badge copy distinguishes no-date recommendation', () {
-    expect(
-      recommendationBadgeCopy(
-        recommended: PaywallSku.yearly,
-        hasExamDate: false,
-      ),
-      'Best value for most',
-    );
-    expect(
-      recommendationBadgeCopy(
-        recommended: PaywallSku.monthly,
-        hasExamDate: true,
-      ),
-      'Best for your exam date',
-    );
+    test('with no exam date the badge reads Best for most', () {
+      expect(
+        recommendationBadgeCopy(
+          recommended: PaywallSku.monthly,
+          hasExamDate: false,
+        ),
+        'Best for most',
+      );
+    });
+
+    test('the CTA states the price as a sentence', () {
+      expect(
+        ctaCopyFor(
+          const PaywallPackage(
+            sku: PaywallSku.monthly,
+            productId: 'pro_monthly',
+            priceString: '₱99',
+          ),
+        ),
+        'Get Pro. ₱99 a month.',
+      );
+      expect(
+        ctaCopyFor(
+          const PaywallPackage(
+            sku: PaywallSku.weekly,
+            productId: 'pro_weekly',
+            priceString: '₱29',
+          ),
+        ),
+        'Get Pro. ₱29 a week.',
+      );
+    });
+
+    test('Yearly sends student to trial screen instead of naming a price', () {
+      expect(
+        ctaCopyFor(
+          const PaywallPackage(
+            sku: PaywallSku.yearly,
+            productId: 'pro_yearly',
+            priceString: '₱999',
+          ),
+        ),
+        'Start my free trial',
+      );
+    });
+
+    test('no copy contains an em dash', () {
+      final all = [
+        recommendationBadgeCopy(
+          recommended: PaywallSku.monthly,
+          hasExamDate: true,
+        ),
+        recommendationBadgeCopy(
+          recommended: PaywallSku.monthly,
+          hasExamDate: false,
+        ),
+        ctaCopyFor(
+          const PaywallPackage(
+            sku: PaywallSku.yearly,
+            productId: 'pro_yearly',
+            priceString: '₱999',
+          ),
+        ),
+      ];
+      for (final copy in all) {
+        expect(copy.contains('—'), isFalse, reason: copy);
+      }
+    });
   });
 
   test('packages are sorted weekly monthly yearly', () {
