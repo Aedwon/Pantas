@@ -573,18 +573,26 @@ student can buy anything.
 
 - [ ] **Step 0: Confirm the SDK surface before writing against it**
 
-`purchases_flutter` changed its purchase API between major versions. **Confirm which one is
-installed** rather than trusting this plan:
+**Corrected 4 August, after a run stopped here exactly as instructed.** This plan originally
+expected `Purchases.purchase(PurchaseParams)` returning `PurchaseResult`. **That method does
+not exist in the installed version and `PurchaseParams` is not a type in it.** The whole plan
+below now uses the API that is actually there.
 
 ```bash
 grep -n "purchases_flutter" pubspec.lock
-grep -rn "static Future<PurchaseResult> purchase\|static Future<CustomerInfo> purchasePackage" \
+grep -rn "static Future<CustomerInfo> purchasePackage" \
   ~/.pub-cache/hosted/pub.dev/purchases_flutter-*/lib/purchases_flutter.dart
 ```
 
-Expected on 8.x: `Purchases.purchase(PurchaseParams)` returning `PurchaseResult`. **If the
-installed version instead exposes `purchasePackage` returning `CustomerInfo`, stop and say
-so.** Do not guess and do not change the pubspec constraint to make this plan fit.
+Expected: **8.11.0**, and `purchasePackage` present, returning `Future<CustomerInfo>` and not
+deprecated. **If what you find disagrees with that, stop and say so.** Do not guess and do not
+change the pubspec constraint to make this plan fit: the billing SDK is the riskiest dependency
+in the app and a version bump on it is a decision, not a workaround.
+
+**Every other symbol this task uses was checked against 8.11.0 on 4 August and is correct:**
+`configure`, `addCustomerInfoUpdateListener`, `getCustomerInfo`, `logIn` returning
+`LogInResult`, `getOfferings`, `restorePurchases`, and on an entitlement `productIdentifier`,
+`willRenew`, `expirationDate` as a nullable `String`, and `periodType` with `PeriodType.trial`.
 
 - [ ] **Step 1: Write the failing test**
 
@@ -771,8 +779,9 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
       ),
     );
 
-    final result = await Purchases.purchase(PurchaseParams.package(target));
-    final entitlement = entitlementFromCustomerInfo(result.customerInfo);
+    // 8.11.0 returns CustomerInfo directly rather than a result wrapper.
+    final info = await Purchases.purchasePackage(target);
+    final entitlement = entitlementFromCustomerInfo(info);
     _cached = entitlement;
     return entitlement;
   }
@@ -787,8 +796,9 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
 }
 ```
 
-**If `PurchaseParams.package` does not exist in the installed version**, Step 0 told you to
-stop. Stop here rather than substituting `purchasePackage`.
+**A purchase that throws is not a failed purchase to swallow.** `purchasePackage` throws on a
+user cancellation as well as on a real error, and the caller distinguishes them. Let it throw;
+do not catch and return Free, which would tell a student who just paid that they had not.
 
 - [ ] **Step 4: Run the tests**
 
