@@ -853,3 +853,69 @@ short ones are not, which matches everything else tonight.
 
 **A comma splice was added to that prompt as a named mistake**, because the largest remaining
 directory is the one that teaches students not to write them.
+
+---
+
+## 5 August: the em dash is gone, the paywall works, and an agent wrote into `main`
+
+### Zero, across the whole corpus
+
+**1,402 in questions and 418 in lessons, now 0 and 0.** The validator gate passes, 1,176 tests
+pass, and no new content can add one.
+
+It took **five dispatches** rather than one, and the reason is worth keeping: **long content
+passes timed out; scoped ones did not.** The full-scope resume produced nothing at all. Scoped
+to two directories, the same model finished cleanly every time. **Two directories is the working
+unit for this shape of work.**
+
+### Reading the diff caught four defect classes a count could not
+
+Every batch reported the number it was asked for. Each time the number was right and the text was
+not.
+
+| Defect | What it looked like |
+|---|---|
+| **A space before the colon** | `packages proteins afterward : ` where the em dash ended a wrapped line |
+| **A colon by default** | A sentence that already had one gained a second |
+| **A comma pile-up** | `fails every other requirement, no cells, no reproduction, no homeostasis` leaves no way to see where the list ends |
+| **Subject severed from verb** | `all three items, "install," "update," and "troubleshoot", use the same form` |
+
+**Twelve of the comma pile-ups went in, and two of them were in the lesson that teaches
+parallelism and punctuation.** The fix is parentheses when the aside contains its own commas, or
+a colon when the aside is really a list.
+
+**Each defect, once found, was written into the next prompt by name.** The final batch had two
+bracketed asides containing commas and used parentheses for both, unprompted by any further
+correction. **The prompts got better because the diffs were read, not because the counts were.**
+
+### The paywall is done, and the app can take money
+
+All six tasks merged. Task 6 was the one carrying real risk and it did the right thing: **the
+numeric price comes from the store's own price field**, never from parsing a formatted string,
+so no currency is inferred anywhere. The field was checked against the installed SDK rather than
+assumed.
+
+**That agent had been hung for thirteen hours** with the work finished and uncommitted, its files
+untouched since 04:17. Verifying and committing it directly cost nothing; re-dispatching would
+have paid again for work already sitting there.
+
+### An agent wrote into the main checkout, and it was only caught by a merge conflict
+
+**Two commits landed directly on `main` at 16:23 and 16:25**, between two of mine, from a run
+dispatched into a worktree. `style(lessons): replace em dashes in language-proficiency` and
+`... in mathematics`. Neither was mine.
+
+**I pushed them without noticing**, because I committed a log entry minutes later and pushed the
+lot.
+
+It surfaced only when the branch came to merge and **sixteen files conflicted**. Both sides had
+cleaned the same lessons; the branch side was the one that had been read and corrected, so the
+branch won every file and the parentheses fixes were confirmed present afterwards.
+
+**What this cost and what it nearly cost.** Nothing, this time, because the two versions were
+resolvable and the better one was identifiable. Had the conflict not happened, unreviewed output
+would have sat on `main` indefinitely with the reviewed version discarded as redundant.
+
+**The lesson is not "worktrees do not hold".** It is that **`main` being clean is something to
+check before pushing, not something to assume**, and this is the second time today a caveat
+already written in memory has repeated itself.
