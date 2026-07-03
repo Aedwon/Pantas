@@ -130,13 +130,13 @@ questions:
     stem: |
       Identify the problem with this sentence: "When Mrs. Santos spoke to Anna, she seemed upset."
     choices:
-      - text: The pronoun "she" is ambiguous — it could refer to either Mrs. Santos or Anna.
+      - text: 'The pronoun "she" is ambiguous: it could refer to either Mrs. Santos or Anna.'
         correct: true
       - text: The sentence has a subject-verb agreement error.
       - text: The sentence incorrectly uses "she" since both people are named individuals.
       - text: There is no problem; the sentence is fully correct and clear.
     explanation: |
-      The pronoun "she" could refer to either Mrs. Santos or Anna — it is unclear which one seemed upset. This is an ambiguous (unclear) antecedent, a common sentence-correction error.
+      The pronoun "she" could refer to either Mrs. Santos or Anna: it is unclear which one seemed upset. This is an ambiguous (unclear) antecedent, a common sentence-correction error.
     approved: true
 
   - id: q-grammar-and-structure-pronoun-antecedent-agreement-0010
@@ -145,13 +145,13 @@ questions:
     stem: |
       Identify the problem with this sentence: "After Mark greeted John, he smiled warmly."
     choices:
-      - text: The pronoun "he" is ambiguous — it could refer to either Mark or John.
+      - text: 'The pronoun "he" is ambiguous: it could refer to either Mark or John.'
         correct: true
       - text: The sentence has a subject-verb agreement error.
       - text: The sentence incorrectly uses "he" since both people are named individuals.
       - text: There is no problem; the sentence is fully correct and clear.
     explanation: |
-      The pronoun "he" could refer to either Mark or John — it is unclear who smiled. This is an ambiguous antecedent error, fixable by naming the person directly.
+      The pronoun "he" could refer to either Mark or John: it is unclear who smiled. This is an ambiguous antecedent error, fixable by naming the person directly.
     approved: true
 
   - id: q-grammar-and-structure-pronoun-antecedent-agreement-0011
@@ -166,7 +166,7 @@ questions:
       - text: Tumutukoy lamang sa lalaki
       - text: Ginagamit lamang para sa mga bagay
     explanation: |
-      Ang "siya" ay gender-neutral sa Filipino — nangangahulugan itong "he" o "she" nang walang hiwalay na salita para sa bawat isa.
+      Ang "siya" ay gender-neutral sa Filipino: nangangahulugan itong "he" o "she" nang walang hiwalay na salita para sa bawat isa.
     approved: true
 
   - id: q-grammar-and-structure-pronoun-antecedent-agreement-0012
@@ -205,11 +205,11 @@ questions:
     stem: |
       A student writes "Everybody should bring their own lunch," following everyday speech patterns. Under strict formal grammar rules tested on this exam, is "their" the expected answer?
     choices:
-      - text: No — under strict formal grammar rules, "everybody" is a singular indefinite antecedent, so the traditionally expected answer is "his or her," even though "their" is common in everyday speech.
+      - text: 'No: under strict formal grammar rules, "everybody" is a singular indefinite antecedent, so the traditionally expected answer is "his or her," even though "their" is common in everyday speech.'
         correct: true
-      - text: Yes — "their" is always correct in every context, formal or informal.
-      - text: Yes — but only because "everybody" is actually a plural antecedent.
-      - text: No — but only because "lunch" is the real antecedent, not "everybody."
+      - text: 'Yes: "their" is always correct in every context, formal or informal.'
+      - text: 'Yes: but only because "everybody" is actually a plural antecedent.'
+      - text: 'No: but only because "lunch" is the real antecedent, not "everybody."'
     explanation: |
       Everyday speech often uses "they/their" for indefinite pronouns like "everybody," but grammar-focused exam questions typically expect the traditionally "correct" singular form ("his or her") when testing this specific rule.
     approved: true
@@ -220,11 +220,11 @@ questions:
     stem: |
       A student writes "The team celebrated their victory," assuming that since a team is made up of multiple people, a plural pronoun is needed. Is this correct under strict agreement rules?
     choices:
-      - text: No — collective nouns like "team" usually take a singular pronoun ("its"), since they act as one unit; "The team celebrated its victory" is the grammatically consistent choice.
+      - text: 'No: collective nouns like "team" usually take a singular pronoun ("its"), since they act as one unit; "The team celebrated its victory" is the grammatically consistent choice.'
         correct: true
-      - text: Yes — collective nouns always take plural pronouns, since they refer to multiple people.
-      - text: Yes — but only because "victory" is itself a plural noun.
-      - text: No — but only because teams cannot celebrate anything.
+      - text: 'Yes: collective nouns always take plural pronouns, since they refer to multiple people.'
+      - text: 'Yes: but only because "victory" is itself a plural noun.'
+      - text: 'No: but only because teams cannot celebrate anything.'
     explanation: |
       Writing "The team celebrated their victory" breaks strict agreement rules; the grammatically consistent choice is "its victory," since collective nouns act as one unit.
     approved: true
@@ -235,13 +235,13 @@ questions:
     stem: |
       Identify the ambiguous antecedent problem: "Sarah told Michelle that her painting won first place." Whose painting won?
     choices:
-      - text: It is unclear — "her" could refer to either Sarah or Michelle, since both are female nouns mentioned earlier in the sentence.
+      - text: 'It is unclear: "her" could refer to either Sarah or Michelle, since both are female nouns mentioned earlier in the sentence.'
         correct: true
       - text: It clearly refers to Sarah, since she is mentioned first in the sentence.
       - text: It clearly refers to Michelle, since she is mentioned second in the sentence.
       - text: There is no ambiguity, since only one person's painting can win.
     explanation: |
-      If a pronoun could refer to more than one noun in the sentence, the antecedent is unclear. Here, "her" could logically point to either Sarah or Michelle — a common ambiguous-antecedent error that exams test.
+      If a pronoun could refer to more than one noun in the sentence, the antecedent is unclear. Here, "her" could logically point to either Sarah or Michelle: a common ambiguous-antecedent error that exams test.
     approved: true
 
   - id: q-grammar-and-structure-pronoun-antecedent-agreement-0017

@@ -22,7 +22,7 @@ Commas separate items, ideas, and extra information within a sentence.
 
 A **semicolon** connects two closely related independent clauses without a coordinating conjunction: "The rain stopped; the sun came out." A semicolon can also separate items in a list when those items already contain commas: "We visited Manila, Philippines; Tokyo, Japan; and Seoul, Korea."
 
-A common error is the **comma splice**: joining two independent clauses with only a comma and no conjunction ("The rain stopped, the sun came out."): this needs a semicolon, a coordinating conjunction, or a period instead.
+A common error is the **comma splice**: joining two independent clauses with only a comma and no conjunction ("The rain stopped, the sun came out."). This needs a semicolon, a coordinating conjunction, or a period instead.
 
 ### Apostrophes
 

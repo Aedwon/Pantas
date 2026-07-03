@@ -88,7 +88,7 @@ Match the reactants and products to the neutralization pattern.
 
 ## Speed Tricks & Shortcuts
 
-Remember the pH scale with a simple three-part split: below $7$ is acidic, exactly $7$ is neutral, above $7$ is basic. And remember the direction: Lower numbers are more acidic, higher numbers are more basic — this feels backward to some students at first, since "lower" often means "less" in other contexts.
+Remember the pH scale with a simple three-part split: below $7$ is acidic, exactly $7$ is neutral, above $7$ is basic. And remember the direction: Lower numbers are more acidic, higher numbers are more basic: this feels backward to some students at first, since "lower" often means "less" in other contexts.
 
 For comparing acidity across pH values, count the whole number difference between the two pH values, then raise $10$ to that power to find how many times more (or less) acidic one solution is than the other.
 
@@ -110,12 +110,12 @@ A common mistake treats the difference between $pH = 4$ and $pH = 6$ as "twice a
 
 ### #3: Confusing "Strong" with "Concentrated"
 
-> "Strong" describes how completely an acid or base dissociates into ions. "Concentrated" describes how much of it is dissolved in a given volume — these are different properties.
+> "Strong" describes how completely an acid or base dissociates into ions. "Concentrated" describes how much of it is dissolved in a given volume: these are different properties.
 
 A dilute solution of a strong acid (small amount, but fully dissociating) can behave very differently from a concentrated solution of a weak acid (large amount, but only partially dissociating). Do not assume "strong" automatically means "a lot" is present.
 
 ### #4: Assuming Every Reaction Between an Acid and a Base Produces a Neutral Salt
 
-> Neutralization always produces salt and water, but the resulting salt solution is not always exactly neutral ($pH = 7$) — some salts can make the final solution slightly acidic or slightly basic.
+> Neutralization always produces salt and water, but the resulting salt solution is not always exactly neutral ($pH = 7$): some salts can make the final solution slightly acidic or slightly basic.
 
 While the core reaction (acid + base → salt + water) is called "neutralization," this term refers to the H+ and oh- combining to form water, not necessarily a guarantee that the final mixed solution's pH will land exactly at $7$.

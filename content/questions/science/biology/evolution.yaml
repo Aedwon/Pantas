@@ -61,7 +61,7 @@ questions:
       - text: Non-resistant insects individually developed resistance during their lifetimes after repeated exposure.
       - text: Resistance is not heritable, so its increase across generations is due to random chance alone.
     explanation: |
-      Resistance already existed as natural variation before the pesticide was used. The pesticide killed off non-resistant insects, so resistant ones survived, reproduced, and passed the heritable trait on — making resistance more common each generation.
+      Resistance already existed as natural variation before the pesticide was used. The pesticide killed off non-resistant insects, so resistant ones survived, reproduced, and passed the heritable trait on: making resistance more common each generation.
     approved: true
 
   - id: q-biology-evolution-0005
@@ -91,7 +91,7 @@ questions:
       - text: Separated groups always evolve in exactly the same way, so they never become distinct species.
       - text: Geographic separation prevents natural selection from acting on either group.
     explanation: |
-      Once isolated, each group experiences different environmental pressures, so natural selection favors different traits in each. Given enough generations, the accumulated genetic differences become too great for successful interbreeding — resulting in two separate species.
+      Once isolated, each group experiences different environmental pressures, so natural selection favors different traits in each. Given enough generations, the accumulated genetic differences become too great for successful interbreeding, resulting in two separate species.
     approved: true
 
   - id: q-biology-evolution-0007
@@ -106,7 +106,7 @@ questions:
       - text: Natural selection with no variation involved
       - text: A population with no environmental pressures
     explanation: |
-      The finches became geographically separated across islands, faced different food-source pressures, and evolved different beak shapes until they became distinct species — a textbook case of speciation through geographic separation.
+      The finches became geographically separated across islands, faced different food-source pressures, and evolved different beak shapes until they became distinct species: a textbook case of speciation through geographic separation.
     approved: true
 
   - id: q-biology-evolution-0008
@@ -117,11 +117,11 @@ questions:
     choices:
       - text: Natural selection does not change an individual's traits during its own lifetime; a stretched neck is not a heritable change and cannot be passed to offspring.
         correct: true
-      - text: Nothing is wrong — traits gained through use during an individual's life are always passed to its offspring.
+      - text: 'Nothing is wrong: traits gained through use during an individual''s life are always passed to its offspring.'
       - text: The reasoning is wrong only because giraffes cannot stretch their necks at all.
       - text: The reasoning is wrong only because giraffes do not have offspring.
     explanation: |
-      This is the "use it or lose it" misconception. What actually happens: some giraffes were naturally born with slightly longer necks (variation), which gave them an advantage in a food-scarce environment, and this heritable trait spread through survival and reproduction — not through stretching during an individual's lifetime.
+      This is the "use it or lose it" misconception. What actually happens: some giraffes were naturally born with slightly longer necks (variation), which gave them an advantage in a food-scarce environment, and this heritable trait spread through survival and reproduction, not through stretching during an individual's lifetime.
     approved: true
 
   - id: q-biology-evolution-0009
@@ -130,11 +130,11 @@ questions:
     stem: |
       A student assumes "survival of the fittest" means the strongest or biggest individuals always survive. Is this correct?
     choices:
-      - text: No — "fittest" means best suited to the environment, which is not necessarily the strongest or biggest; even a small, camouflaged individual can be more fit if it survives and reproduces better.
+      - text: 'No: "fittest" means best suited to the environment, which is not necessarily the strongest or biggest; even a small, camouflaged individual can be more fit if it survives and reproduces better.'
         correct: true
-      - text: Yes — fitness always refers to raw physical strength or size.
-      - text: No — fitness actually refers only to intelligence, never physical traits.
-      - text: Yes — the largest individual in a population is always the fittest.
+      - text: 'Yes: fitness always refers to raw physical strength or size.'
+      - text: 'No: fitness actually refers only to intelligence, never physical traits.'
+      - text: 'Yes: the largest individual in a population is always the fittest.'
     explanation: |
       "Fittest" means best suited to reproductive success in a specific environment. A tiny, camouflaged insect may be more fit than a larger, more visible one if camouflage helps it survive and reproduce better.
     approved: true
@@ -145,13 +145,13 @@ questions:
     stem: |
       An answer choice describes evolution as organisms "trying to evolve" toward a more advanced or ideal form. Is this an accurate description of natural selection?
     choices:
-      - text: No — evolution has no goal or direction; it simply favors whatever traits happen to suit the current environment, with no foresight involved.
+      - text: 'No: evolution has no goal or direction; it simply favors whatever traits happen to suit the current environment, with no foresight involved.'
         correct: true
-      - text: Yes — evolution always moves species toward a more advanced, ideal form.
-      - text: No — but only because evolution never changes populations at all.
-      - text: Yes — organisms actively choose which traits to evolve toward.
+      - text: 'Yes: evolution always moves species toward a more advanced, ideal form.'
+      - text: 'No: but only because evolution never changes populations at all.'
+      - text: 'Yes: organisms actively choose which traits to evolve toward.'
     explanation: |
-      Natural selection has no foresight or goal. It simply reflects which existing traits happened to help individuals survive and reproduce in their specific environment at the time — there is no "better" or "more advanced" direction it aims toward.
+      Natural selection has no foresight or goal. It simply reflects which existing traits happened to help individuals survive and reproduce in their specific environment at the time: there is no "better" or "more advanced" direction it aims toward.
     approved: true
 
   - id: q-biology-evolution-0011
@@ -160,13 +160,13 @@ questions:
     stem: |
       A student claims that pesticide exposure caused resistance to first appear in the insect population, as a direct response to the pesticide. Is this consistent with how natural selection works?
     choices:
-      - text: No — the resistant trait already existed as natural variation before the pesticide was used; the pesticide only determined which existing insects survived and reproduced.
+      - text: 'No: the resistant trait already existed as natural variation before the pesticide was used; the pesticide only determined which existing insects survived and reproduced.'
         correct: true
-      - text: Yes — the pesticide directly created the resistant trait in response to the insects' need to survive.
-      - text: No — but only because pesticides cannot affect insect populations at all.
-      - text: Yes — natural selection requires an environmental pressure to first generate new traits.
+      - text: 'Yes: the pesticide directly created the resistant trait in response to the insects'' need to survive.'
+      - text: 'No: but only because pesticides cannot affect insect populations at all.'
+      - text: 'Yes: natural selection requires an environmental pressure to first generate new traits.'
     explanation: |
-      Natural selection acts on variation that already exists in a population — it does not generate new traits in direct response to an environmental pressure. The pesticide-resistant trait existed before the pesticide was introduced; the pesticide simply favored the insects that already had it.
+      Natural selection acts on variation that already exists in a population: it does not generate new traits in direct response to an environmental pressure. The pesticide-resistant trait existed before the pesticide was introduced; the pesticide simply favored the insects that already had it.
     approved: true
 
   - id: q-biology-evolution-0012
@@ -175,13 +175,13 @@ questions:
     stem: |
       How are natural selection and speciation related to each other?
     choices:
-      - text: Natural selection is the process that gradually shifts a population's traits; when it acts differently on two geographically separated groups over many generations, it can eventually produce speciation — the formation of separate species.
+      - text: 'Natural selection is the process that gradually shifts a population''s traits; when it acts differently on two geographically separated groups over many generations, it can eventually produce speciation: the formation of separate species.'
         correct: true
       - text: They are unrelated processes that never occur together.
       - text: Speciation always happens first, causing natural selection to begin afterward.
       - text: Natural selection and speciation are simply two different names for the exact same single-generation process.
     explanation: |
-      Natural selection is the generation-by-generation mechanism that shifts a population's traits. When two separated groups experience different selective pressures long enough, their accumulated differences can result in speciation — the two groups becoming distinct species.
+      Natural selection is the generation-by-generation mechanism that shifts a population's traits. When two separated groups experience different selective pressures long enough, their accumulated differences can result in speciation: the two groups becoming distinct species.
     approved: true
 
   - id: q-biology-evolution-0013
@@ -211,5 +211,5 @@ questions:
       - text: Neither group will experience any further evolution, since the split already occurred.
       - text: The two groups will automatically merge back into one species once the river dries up, regardless of how many generations have passed.
     explanation: |
-      This is speciation through geographic separation: different environmental pressures (rocky vs. sandy terrain) drive different adaptations in each isolated group, and enough accumulated genetic difference over time can make the two groups unable to interbreed — forming separate species.
+      This is speciation through geographic separation: different environmental pressures (rocky vs. sandy terrain) drive different adaptations in each isolated group, and enough accumulated genetic difference over time can make the two groups unable to interbreed: forming separate species.
     approved: true

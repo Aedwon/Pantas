@@ -10,13 +10,13 @@ questions:
     stem: |
       Identify and fix the error: "The concert was amazing, everyone stayed until the end."
     choices:
-      - text: This is a comma splice — two independent clauses joined by only a comma; corrected, it should read "The concert was amazing, so everyone stayed until the end."
+      - text: 'This is a comma splice: two independent clauses joined by only a comma; corrected, it should read "The concert was amazing, so everyone stayed until the end."'
         correct: true
       - text: There is no error in this sentence.
       - text: The sentence needs quotation marks around "amazing."
       - text: Amazing should be changed to "amazed."
     explanation: |
-      Two independent clauses ("The concert was amazing" and "everyone stayed until the end") are joined by only a comma — this is a comma splice, fixable with a coordinating conjunction, a semicolon, or a period.
+      Two independent clauses ("The concert was amazing" and "everyone stayed until the end") are joined by only a comma: this is a comma splice, fixable with a coordinating conjunction, a semicolon, or a period.
     approved: true
 
   - id: q-grammar-and-structure-punctuation-and-capitalization-0002
@@ -31,7 +31,7 @@ questions:
       - text: Its'
       - text: Their
     explanation: |
-      The sentence needs a word showing possession (the product line belonging to the company), not a contraction — "its" (no apostrophe) is correct.
+      The sentence needs a word showing possession (the product line belonging to the company), not a contraction: "its" (no apostrophe) is correct.
     approved: true
 
   - id: q-grammar-and-structure-punctuation-and-capitalization-0003
@@ -205,13 +205,13 @@ questions:
     stem: |
       A student reads "She finished her homework, she went to bed" and does not notice any error. Is this correctly punctuated?
     choices:
-      - text: No — this is a comma splice; two independent clauses joined by only a comma need a conjunction, semicolon, or period instead.
+      - text: 'No: this is a comma splice; two independent clauses joined by only a comma need a conjunction, semicolon, or period instead.'
         correct: true
-      - text: Yes — a comma alone is always sufficient to join two independent clauses.
-      - text: Yes — but only because "homework" and "bed" are both nouns.
-      - text: No — but only because "finished" is the wrong verb tense.
+      - text: 'Yes: a comma alone is always sufficient to join two independent clauses.'
+      - text: 'Yes: but only because "homework" and "bed" are both nouns.'
+      - text: 'No: but only because "finished" is the wrong verb tense.'
     explanation: |
-      Two independent clauses joined by only a comma, with no conjunction, is a comma splice error — one of the most common punctuation mistakes tested on exams.
+      Two independent clauses joined by only a comma, with no conjunction, is a comma splice error: one of the most common punctuation mistakes tested on exams.
     approved: true
 
   - id: q-grammar-and-structure-punctuation-and-capitalization-0015
@@ -220,13 +220,13 @@ questions:
     stem: |
       A student writes "The dog wagged it's tail happily," assuming "it's" shows possession here. Is this correct?
     choices:
-      - text: No — "its" (no apostrophe) is the possessive form needed here; "it's" is a contraction for "it is" or "it has," which does not make sense in this sentence.
+      - text: 'No: "its" (no apostrophe) is the possessive form needed here; "it''s" is a contraction for "it is" or "it has," which does not make sense in this sentence.'
         correct: true
-      - text: Yes — "it's" always shows possession.
-      - text: Yes — but only because "tail" is a body part.
-      - text: No — but only because dogs cannot possess anything grammatically.
+      - text: 'Yes: "it''s" always shows possession.'
+      - text: 'Yes: but only because "tail" is a body part.'
+      - text: 'No: but only because dogs cannot possess anything grammatically.'
     explanation: |
-      "Its" (no apostrophe) shows possession. "It's" (with apostrophe) is a contraction for "it is" or "it has" — one of the most frequently tested punctuation confusions.
+      "Its" (no apostrophe) shows possession. "It's" (with apostrophe) is a contraction for "it is" or "it has": one of the most frequently tested punctuation confusions.
     approved: true
 
   - id: q-grammar-and-structure-punctuation-and-capitalization-0016
@@ -235,11 +235,11 @@ questions:
     stem: |
       A student writes "She wanted to travel; because she loved adventure," using a semicolon before "because." Is this correct?
     choices:
-      - text: No — a semicolon should only connect two independent clauses; "because she loved adventure" is a dependent clause and cannot stand alone, so a comma should be used instead.
+      - text: 'No: a semicolon should only connect two independent clauses; "because she loved adventure" is a dependent clause and cannot stand alone, so a comma should be used instead.'
         correct: true
-      - text: Yes — semicolons can connect any two clauses, independent or dependent.
-      - text: Yes — but only because "adventure" is a sufficiently strong word to justify a semicolon.
-      - text: No — but only because the sentence should have no punctuation at all before "because."
+      - text: 'Yes: semicolons can connect any two clauses, independent or dependent.'
+      - text: 'Yes: but only because "adventure" is a sufficiently strong word to justify a semicolon.'
+      - text: 'No: but only because the sentence should have no punctuation at all before "because."'
     explanation: |
       A semicolon should only connect two independent clauses, each capable of standing alone as its own sentence. "Because she loved adventure" cannot stand alone.
     approved: true
@@ -250,11 +250,11 @@ questions:
     stem: |
       A student capitalizes "We met the President yesterday," using "President" generally without a specific name attached. Is this correct?
     choices:
-      - text: No — capitalize a title only when it comes directly before a specific person's name; used generally without a name, it should be lowercase, "We met the president yesterday."
+      - text: 'No: capitalize a title only when it comes directly before a specific person''s name; used generally without a name, it should be lowercase, "We met the president yesterday."'
         correct: true
-      - text: Yes — "President" should always be capitalized regardless of context.
-      - text: Yes — but only because the meeting described was a formal occasion.
-      - text: No — but only because "President" is not actually considered a title.
+      - text: 'Yes: "President" should always be capitalized regardless of context.'
+      - text: 'Yes: but only because the meeting described was a formal occasion.'
+      - text: 'No: but only because "President" is not actually considered a title.'
     explanation: |
       Capitalize a title only when it comes directly before a specific person's name. Used generally, without a name attached, it should stay lowercase.
     approved: true
@@ -271,7 +271,7 @@ questions:
       - text: The sentence needs quotation marks around "fresh bread."
       - text: Sells should be changed to "sell."
     explanation: |
-      Two independent clauses ("The bakery sells fresh bread" and "the pastries are also delicious") are joined by only a comma — a comma splice, fixable by adding "and."
+      Two independent clauses ("The bakery sells fresh bread" and "the pastries are also delicious") are joined by only a comma: a comma splice, fixable by adding "and."
     approved: true
 
   - id: q-grammar-and-structure-punctuation-and-capitalization-0019
@@ -280,7 +280,7 @@ questions:
     stem: |
       Which of these two sentences correctly uses a semicolon instead of a comma splice? (A) "The train arrived late, the passengers were frustrated." (B) "The train arrived late; the passengers were frustrated."
     choices:
-      - text: Sentence B is correct — the semicolon properly joins two independent clauses without a conjunction; sentence A is a comma splice.
+      - text: 'Sentence B is correct: the semicolon properly joins two independent clauses without a conjunction; sentence A is a comma splice.'
         correct: true
       - text: Sentence A is correct; sentence B uses punctuation incorrectly.
       - text: Both sentences are correctly punctuated.

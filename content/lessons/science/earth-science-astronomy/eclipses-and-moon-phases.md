@@ -87,7 +87,7 @@ It is easy to swap these, especially since "solar" might make students think of 
 
 > Eclipses need the Moon's orbit to also line up with Earth's orbital plane, which does not happen every month.
 
-A choice may state "a lunar eclipse happens at every full moon." This is false — most full moons pass just above or below Earth's shadow because of the Moon's tilted orbit, so only some full moons produce an actual eclipse.
+A choice may state "a lunar eclipse happens at every full moon." This is false: most full moons pass just above or below Earth's shadow because of the Moon's tilted orbit, so only some full moons produce an actual eclipse.
 
 ### #3: Confusing the Umbra and Penumbra
 

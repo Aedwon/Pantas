@@ -33,7 +33,7 @@ Lenses work through refraction rather than reflection. A **convex lens** (thicke
 
 ### The Electromagnetic Spectrum
 
-The **electromagnetic spectrum** organizes all types of electromagnetic waves by wavelength. From longest wavelength to shortest: radio waves, microwaves, infrared, visible light, ultraviolet, X-rays, and gamma rays. Visible light — the only part humans can see — is just a tiny slice of this entire spectrum. Within visible light, red has the longest wavelength and violet has the shortest.
+The **electromagnetic spectrum** organizes all types of electromagnetic waves by wavelength. From longest wavelength to shortest: radio waves, microwaves, infrared, visible light, ultraviolet, X-rays, and gamma rays. Visible light, the only part humans can see, is just a tiny slice of this entire spectrum. Within visible light, red has the longest wavelength and violet has the shortest.
 
 ## Examples
 
@@ -84,11 +84,11 @@ Connect the visual bending to light's changing speed between media.
 
 ## Speed Tricks & Shortcuts
 
-Remember mirror and lens shapes with one phrase: "caves converge" — concave surfaces (whether mirrors or the thick middle of convex lenses, which is the tricky exception) tend to bring light together. Specifically: concave mirrors converge, and convex lenses converge (the naming flips between mirrors and lenses, so always double check which type of device is being described).
+Remember mirror and lens shapes with one phrase: "caves converge": concave surfaces (whether mirrors or the thick middle of convex lenses, which is the tricky exception) tend to bring light together. Specifically: concave mirrors converge, and convex lenses converge (the naming flips between mirrors and lenses, so always double check which type of device is being described).
 
 Memorize the electromagnetic spectrum order with a phrase using the first letter of each: "Radio Motorists Interfere Very Unsafely, X-ing Gates" for Radio, Microwave, Infrared, Visible, Ultraviolet, X-ray, Gamma ray (longest to shortest wavelength).
 
-For visible light specifically, remember red has the longest wavelength and violet has the shortest — this matches the familiar rainbow order (roygbiv), which is also ordered from longest to shortest wavelength.
+For visible light specifically, remember red has the longest wavelength and violet has the shortest: this matches the familiar rainbow order (roygbiv), which is also ordered from longest to shortest wavelength.
 
 ## Traps to Watch For
 
@@ -106,7 +106,7 @@ A question describing light bouncing off a mirror is testing reflection; a quest
 
 ### #3: Assuming Visible Light Is the Largest Part of the Spectrum
 
-> Visible light is only a tiny slice of the full electromagnetic spectrum — most electromagnetic radiation (radio waves, X-rays, and more) is invisible to human eyes.
+> Visible light is only a tiny slice of the full electromagnetic spectrum: most electromagnetic radiation (radio waves, X-rays, and more) is invisible to human eyes.
 
 Students sometimes assume "light" and "the electromagnetic spectrum" are the same size, when in fact visible light occupies a narrow band, bordered by infrared (longer wavelength) on one side and ultraviolet (shorter wavelength) on the other.
 

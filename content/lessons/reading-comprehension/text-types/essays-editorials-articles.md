@@ -71,7 +71,7 @@ Two passages both discuss a new city tax policy. Passage A states: "The new tax 
 
 ### #1: Assuming All Writing About Current Events Is a News Article
 
-> Both editorials and news articles can discuss the same current event — the difference is whether the writing stays neutral (article) or pushes a stance (editorial).
+> Both editorials and news articles can discuss the same current event: the difference is whether the writing stays neutral (article) or pushes a stance (editorial).
 
 A passage discussing a recent policy change is not automatically a news article just because the topic is current; check the tone and purpose, not just the subject matter.
 
@@ -79,10 +79,10 @@ A passage discussing a recent policy change is not automatically a news article 
 
 > An essay explores a personal idea or experience; an editorial argues for a stance on a public issue, aiming to persuade readers to act or think differently.
 
-A personal essay about learning patience is not trying to change public policy or convince readers to support a cause — it shares a personal insight, which is a different purpose than an editorial's persuasive goal.
+A personal essay about learning patience is not trying to change public policy or convince readers to support a cause: it shares a personal insight, which is a different purpose than an editorial's persuasive goal.
 
 ### #3: Missing Subtle Opinion Language in an Editorial
 
-> Not all opinion is as obvious as "I think" — persuasive language can be woven into seemingly factual-sounding sentences.
+> Not all opinion is as obvious as "I think": persuasive language can be woven into seemingly factual-sounding sentences.
 
 Phrases like "clearly the best option" or "there is no doubt that" insert opinion while sounding confident and factual. Always check whether a claim is verifiable (a fact) or a judgment (an opinion), regardless of how confidently it is phrased.

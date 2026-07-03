@@ -132,7 +132,7 @@ questions:
       - text: Evaporation destroys the chemical identity of both liquids.
       - text: Evaporation requires a stationary phase that alcohol-water mixtures do not have.
     explanation: |
-      Evaporation simply lets the vapor escape into the air — it never captures it. To keep both liquids, the vapor must be cooled and collected, which is exactly what distillation does that evaporation does not.
+      Evaporation simply lets the vapor escape into the air: it never captures it. To keep both liquids, the vapor must be cooled and collected, which is exactly what distillation does that evaporation does not.
     approved: true
   - id: q-chemistry-mixtures-and-separation-0010
     type: compare-contrast
@@ -154,13 +154,13 @@ questions:
     stem: |
       A student assumes that because saltwater looks completely uniform (homogeneous), it must be impossible to separate back into salt and water. Is this assumption correct?
     choices:
-      - text: No — homogeneous mixtures can still be separated, for example with evaporation or distillation.
+      - text: 'No: homogeneous mixtures can still be separated, for example with evaporation or distillation.'
         correct: true
-      - text: Yes — homogeneous mixtures can never be physically separated.
-      - text: No — but only because saltwater is actually a compound, not a mixture.
-      - text: Yes — only heterogeneous mixtures can be separated using physical methods.
+      - text: 'Yes: homogeneous mixtures can never be physically separated.'
+      - text: 'No: but only because saltwater is actually a compound, not a mixture.'
+      - text: 'Yes: only heterogeneous mixtures can be separated using physical methods.'
     explanation: |
-      Looking uniform (homogeneous) only describes appearance — it says nothing about whether a mixture can be separated. Saltwater can still be separated by evaporation or distillation, even though it looks completely smooth.
+      Looking uniform (homogeneous) only describes appearance: it says nothing about whether a mixture can be separated. Saltwater can still be separated by evaporation or distillation, even though it looks completely smooth.
     approved: true
   - id: q-chemistry-mixtures-and-separation-0012
     type: cause-effect

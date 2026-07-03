@@ -74,7 +74,7 @@ questions:
         correct: true
       - text: Cellular respiration, since this describes a mitochondrion.
       - text: Both processes equally.
-      - text: Neither — this organelle does not perform any energy process.
+      - text: 'Neither: this organelle does not perform any energy process.'
     explanation: |
       A green, disc-shaped organelle matches the chloroplast, whose green color comes from chlorophyll, and which performs photosynthesis.
     approved: true
@@ -88,7 +88,7 @@ questions:
         correct: true
       - text: Photosynthesis, since this describes a chloroplast.
       - text: Both processes equally.
-      - text: Neither — this organelle does not perform any energy process.
+      - text: 'Neither: this organelle does not perform any energy process.'
     explanation: |
       A bean-shaped organelle with folded inner membranes matches the mitochondrion, which performs cellular respiration.
     approved: true
@@ -112,11 +112,11 @@ questions:
     stem: |
       A student claims, "Plants only perform photosynthesis; only animals perform cellular respiration." Is this correct?
     choices:
-      - text: No — plants perform both photosynthesis (to make food) and cellular respiration (to use that food for energy), just like animal cells.
+      - text: 'No: plants perform both photosynthesis (to make food) and cellular respiration (to use that food for energy), just like animal cells.'
         correct: true
-      - text: Yes — plants never need ATP energy, unlike animals.
-      - text: No — plants only perform cellular respiration, never photosynthesis.
-      - text: Yes — only animal cells contain mitochondria.
+      - text: 'Yes: plants never need ATP energy, unlike animals.'
+      - text: 'No: plants only perform cellular respiration, never photosynthesis.'
+      - text: 'Yes: only animal cells contain mitochondria.'
     explanation: |
       Plant cells need ATP energy just as much as animal cells do. To get it, they also perform cellular respiration, breaking down some of the glucose they produced through photosynthesis.
     approved: true
@@ -126,13 +126,13 @@ questions:
     stem: |
       A student writes an equation with "light energy" as one of the inputs, but labels it cellular respiration. Is this labeling correct?
     choices:
-      - text: No — an equation with light energy as an input describes photosynthesis, not cellular respiration.
+      - text: 'No: an equation with light energy as an input describes photosynthesis, not cellular respiration.'
         correct: true
-      - text: Yes — light energy is always an input for cellular respiration.
-      - text: No — but only because light energy is never used by any biological process.
-      - text: Yes — photosynthesis and cellular respiration use identical inputs.
+      - text: 'Yes: light energy is always an input for cellular respiration.'
+      - text: 'No: but only because light energy is never used by any biological process.'
+      - text: 'Yes: photosynthesis and cellular respiration use identical inputs.'
     explanation: |
-      Light energy is a defining input of photosynthesis. Cellular respiration's defining output is ATP energy, not an input of light — mixing these up reverses the two equations.
+      Light energy is a defining input of photosynthesis. Cellular respiration's defining output is ATP energy, not an input of light: mixing these up reverses the two equations.
     approved: true
   - id: q-biology-cellular-metabolism-0010
     type: classify
@@ -140,13 +140,13 @@ questions:
     stem: |
       A student says the mitochondrion is where photosynthesis happens, since it is also involved in energy production. Is this correct?
     choices:
-      - text: No — the chloroplast performs photosynthesis; the mitochondrion performs cellular respiration.
+      - text: 'No: the chloroplast performs photosynthesis; the mitochondrion performs cellular respiration.'
         correct: true
-      - text: Yes — both processes happen in the mitochondrion.
-      - text: No — but only because neither organelle is involved in energy production.
-      - text: Yes — the mitochondrion is simply another name for the chloroplast.
+      - text: 'Yes: both processes happen in the mitochondrion.'
+      - text: 'No: but only because neither organelle is involved in energy production.'
+      - text: 'Yes: the mitochondrion is simply another name for the chloroplast.'
     explanation: |
-      Chloroplasts (found only in plant-type cells) capture light energy for photosynthesis. Mitochondria (found in nearly all cells) release energy from glucose through cellular respiration — different organelles, different processes.
+      Chloroplasts (found only in plant-type cells) capture light energy for photosynthesis. Mitochondria (found in nearly all cells) release energy from glucose through cellular respiration: different organelles, different processes.
     approved: true
   - id: q-biology-cellular-metabolism-0011
     type: classify
@@ -154,13 +154,13 @@ questions:
     stem: |
       A student lists oxygen as one of the products of cellular respiration. Is this correct?
     choices:
-      - text: No — cellular respiration consumes oxygen as a raw material; it does not produce it. Oxygen is a product of photosynthesis instead.
+      - text: 'No: cellular respiration consumes oxygen as a raw material; it does not produce it. Oxygen is a product of photosynthesis instead.'
         correct: true
-      - text: Yes — cellular respiration always produces oxygen as a byproduct.
-      - text: No — cellular respiration produces glucose instead of oxygen.
-      - text: Yes — both photosynthesis and cellular respiration produce oxygen.
+      - text: 'Yes: cellular respiration always produces oxygen as a byproduct.'
+      - text: 'No: cellular respiration produces glucose instead of oxygen.'
+      - text: 'Yes: both photosynthesis and cellular respiration produce oxygen.'
     explanation: |
-      Cellular respiration uses oxygen as an input to release energy, producing carbon dioxide and water as byproducts. Oxygen is strictly consumed here, not produced — it is photosynthesis that produces oxygen.
+      Cellular respiration uses oxygen as an input to release energy, producing carbon dioxide and water as byproducts. Oxygen is strictly consumed here, not produced: it is photosynthesis that produces oxygen.
     approved: true
   - id: q-biology-cellular-metabolism-0012
     type: compare-contrast
@@ -174,7 +174,7 @@ questions:
       - text: They are completely unrelated processes with no shared substances.
       - text: Cellular respiration is simply an early stage of photosynthesis.
     explanation: |
-      Photosynthesis's products (glucose and oxygen) are exactly what cellular respiration needs as reactants, and respiration's products (carbon dioxide and water) are exactly what photosynthesis needs — making them mirror-image processes.
+      Photosynthesis's products (glucose and oxygen) are exactly what cellular respiration needs as reactants, and respiration's products (carbon dioxide and water) are exactly what photosynthesis needs: making them mirror-image processes.
     approved: true
   - id: q-biology-cellular-metabolism-0013
     type: identify
@@ -196,11 +196,11 @@ questions:
     stem: |
       A plant cell is observed performing photosynthesis during the day while sunlight is available. At the same time, is this plant cell also performing cellular respiration?
     choices:
-      - text: Yes — plant cells perform cellular respiration continuously, alongside photosynthesis, to convert some of their own glucose into usable ATP energy.
+      - text: 'Yes: plant cells perform cellular respiration continuously, alongside photosynthesis, to convert some of their own glucose into usable ATP energy.'
         correct: true
-      - text: No — plant cells only perform cellular respiration at night, never during the day.
-      - text: No — plant cells never perform cellular respiration at all.
-      - text: Yes — but only because the plant has stopped photosynthesizing for the day.
+      - text: 'No: plant cells only perform cellular respiration at night, never during the day.'
+      - text: 'No: plant cells never perform cellular respiration at all.'
+      - text: 'Yes: but only because the plant has stopped photosynthesizing for the day.'
     explanation: |
       Photosynthesis happens mainly during the day, but cellular respiration happens continuously in plant cells, just like in animal cells, since plant cells constantly need ATP energy for their own life processes.
     approved: true

@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-An **antecedent** is the noun a pronoun replaces or refers back to. In "Maria forgot *her* umbrella," "Maria" is the antecedent, and "her" is the pronoun replacing it.
+An **antecedent** is the noun a pronoun replaces or refers back to. "Maria forgot *her* umbrella": "Maria" is the antecedent, and "her" is the pronoun replacing it.
 
 **Pronoun-antecedent agreement** means the pronoun must match its antecedent in number (singular or plural) and gender, when applicable.
 

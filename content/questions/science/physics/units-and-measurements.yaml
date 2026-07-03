@@ -140,13 +140,13 @@ questions:
     stem: |
       A student converts 250 cm to meters by multiplying $250 \text{ cm} \times \dfrac{100 \text{ cm}}{1 \text{ m}}$. Is this conversion factor arranged correctly?
     choices:
-      - text: No — this leaves units of cm²/m, a nonsense result, since the unwanted "cm" does not cancel.
+      - text: 'No: this leaves units of cm²/m, a nonsense result, since the unwanted "cm" does not cancel.'
         correct: true
-      - text: Yes — this arrangement correctly cancels the centimeters.
-      - text: No — but only because 250 cm cannot be converted to meters at all.
-      - text: Yes — any arrangement of the conversion factor gives the same correct answer.
+      - text: 'Yes: this arrangement correctly cancels the centimeters.'
+      - text: 'No: but only because 250 cm cannot be converted to meters at all.'
+      - text: 'Yes: any arrangement of the conversion factor gives the same correct answer.'
     explanation: |
-      The conversion factor must place the unwanted unit (cm) so it cancels — on the bottom, matching the "cm" on top of the starting value. Placing "cm" on top instead leaves a leftover, nonsense unit and a wildly incorrect number.
+      The conversion factor must place the unwanted unit (cm) so it cancels: on the bottom, matching the "cm" on top of the starting value. Placing "cm" on top instead leaves a leftover, nonsense unit and a wildly incorrect number.
     approved: true
   - id: q-physics-units-and-measurements-0011
     type: classify
@@ -154,11 +154,11 @@ questions:
     stem: |
       A student plugs a distance in kilometers directly into a formula alongside a time measured in seconds, without converting either value first. Is this a valid approach?
     choices:
-      - text: No — every value going into a formula must share compatible units; the distance or time must be converted first.
+      - text: 'No: every value going into a formula must share compatible units; the distance or time must be converted first.'
         correct: true
-      - text: Yes — formulas automatically adjust for mismatched units.
-      - text: No — but only because kilometers cannot be used in any formula.
-      - text: Yes — as long as the final answer is rounded correctly.
+      - text: 'Yes: formulas automatically adjust for mismatched units.'
+      - text: 'No: but only because kilometers cannot be used in any formula.'
+      - text: 'Yes: as long as the final answer is rounded correctly.'
     explanation: |
       Mixing incompatible units within the same calculation (like kilometers with seconds, without converting) produces a meaningless result. All values must be converted to a consistent unit system first.
     approved: true

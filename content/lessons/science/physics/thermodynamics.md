@@ -19,7 +19,7 @@ Heat moves from one place to another through three mechanisms.
 
 **Convection**: heat transfers through the movement of a fluid (liquid or gas) itself, as warmer, less dense fluid rises and cooler, denser fluid sinks, creating a circulating current (water heating in a pot, or warm air rising in a room).
 
-**Radiation**: heat transfers through electromagnetic waves, requiring no physical medium at all — this is how the Sun's heat reaches Earth through the vacuum of space.
+**Radiation**: heat transfers through electromagnetic waves, requiring no physical medium at all: this is how the Sun's heat reaches Earth through the vacuum of space.
 
 <!-- ILLUSTRATION: three small diagrams showing conduction (heat moving through a solid metal rod held over a flame), convection (circulating arrows showing warm fluid rising and cool fluid sinking in a pot of heated water), and radiation (wavy arrows traveling from the Sun through empty space to Earth) -->
 
@@ -27,7 +27,7 @@ Heat moves from one place to another through three mechanisms.
 
 **Zeroth Law**: if two systems are each in thermal equilibrium (same temperature) with a third system, they are also in thermal equilibrium with each other. This is what makes thermometers work.
 
-**First Law**: energy cannot be created or destroyed, only converted between forms or transferred — this is the law of conservation of energy applied to heat and work.
+**First Law**: energy cannot be created or destroyed, only converted between forms or transferred: this is the law of conservation of energy applied to heat and work.
 
 **Second Law**: heat flows spontaneously from hot to cold, never the reverse (without external work being done, like a refrigerator uses).
 
@@ -35,7 +35,7 @@ Heat moves from one place to another through three mechanisms.
 
 ### Specific Heat Capacity
 
-**Specific heat capacity** ($c$) is the amount of heat energy needed to raise the temperature of $1$ gram (or kilogram) of a substance by $1$ degree. Different substances need different amounts of heat energy to warm up by the same amount — water, in particular, has an unusually high specific heat capacity, which is why it heats up and cools down more slowly than many other common substances.
+**Specific heat capacity** ($c$) is the amount of heat energy needed to raise the temperature of $1$ gram (or kilogram) of a substance by $1$ degree. Different substances need different amounts of heat energy to warm up by the same amount: water, in particular, has an unusually high specific heat capacity, which is why it heats up and cools down more slowly than many other common substances.
 
 $$Q = mc\Delta T$$
 
@@ -97,7 +97,7 @@ Match each heat transfer type to its one keyword: conduction needs direct contac
 
 Remember the second law with a simple direction check: heat always flows hot → cold on its own, never cold → hot without extra work being put in (like a refrigerator's compressor).
 
-For specific heat problems, plug values into $Q = mc\Delta T$ directly, multiplying all three straight across — no rearranging or extra steps are usually needed unless solving for a different variable (like mass or temperature change) is specifically requested.
+For specific heat problems, plug values into $Q = mc\Delta T$ directly, multiplying all three straight across: no rearranging or extra steps are usually needed unless solving for a different variable (like mass or temperature change) is specifically requested.
 
 ## Traps to Watch For
 
@@ -109,15 +109,15 @@ A common mistake describes air circulating around a room as "conduction," when t
 
 ### #2: Believing Heat Can Flow from Cold to Hot Spontaneously
 
-> The second law of thermodynamics states heat flows spontaneously only from hot to cold — never the reverse, without external work.
+> The second law of thermodynamics states heat flows spontaneously only from hot to cold: never the reverse, without external work.
 
-A refrigerator moving heat from its cold interior to the warmer room outside does not violate this law, because it requires electrical work (from the compressor) to force this "backward" flow — it is not happening spontaneously on its own.
+A refrigerator moving heat from its cold interior to the warmer room outside does not violate this law, because it requires electrical work (from the compressor) to force this "backward" flow: it is not happening spontaneously on its own.
 
 ### #3: Forgetting That a Lower Specific Heat Means Faster Temperature Change
 
 > A lower specific heat capacity means a substance heats up (or cools down) faster for the same amount of energy transferred.
 
-Students sometimes assume "higher specific heat" means the substance changes temperature more easily, which is backward — a high specific heat capacity actually means the substance resists temperature change, requiring more energy for the same temperature increase.
+Students sometimes assume "higher specific heat" means the substance changes temperature more easily, which is backward: a high specific heat capacity actually means the substance resists temperature change, requiring more energy for the same temperature increase.
 
 ### #4: Using the Wrong Units for Specific Heat Capacity
 

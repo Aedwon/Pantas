@@ -115,11 +115,11 @@ questions:
     stem: |
       A student reasons, "Since $P$ is false, we can't say anything about whether '$P \rightarrow Q$' is true or false." Is this reasoning correct?
     choices:
-      - text: No — formal propositional logic always assigns a definite truth value to a conditional whose "if" part is false; "$P \rightarrow Q$" is true whenever $P$ is false, no matter what $Q$ is.
+      - text: 'No: formal propositional logic always assigns a definite truth value to a conditional whose "if" part is false; "$P \rightarrow Q$" is true whenever $P$ is false, no matter what $Q$ is.'
         correct: true
-      - text: Yes — the truth value of a conditional cannot be determined when its "if" part is false.
-      - text: No — but only because conditionals are never actually true or false.
-      - text: Yes — everyday intuition about conditionals always matches formal propositional logic exactly.
+      - text: 'Yes: the truth value of a conditional cannot be determined when its "if" part is false.'
+      - text: 'No: but only because conditionals are never actually true or false.'
+      - text: 'Yes: everyday intuition about conditionals always matches formal propositional logic exactly.'
     explanation: |
       Everyday intuition might suggest that "if $P$ is false, we can't say anything about the conditional," but formal propositional logic always assigns a definite truth value (true, in this case) to a conditional whose "if" part is false.
     approved: true
@@ -130,11 +130,11 @@ questions:
     stem: |
       A student claims "$P \lor Q$" requires both $P$ and $Q$ to be true, the same requirement as "$P \land Q$." Is this correct?
     choices:
-      - text: No — "and" requires both statements to be true, but "or" requires only at least one to be true; "or" is the more lenient connective, "and" is the stricter one.
+      - text: 'No: "and" requires both statements to be true, but "or" requires only at least one to be true; "or" is the more lenient connective, "and" is the stricter one.'
         correct: true
-      - text: Yes — "and" and "or" always require the exact same condition to be true.
-      - text: No — but only because "or" can never be true under any circumstance.
-      - text: Yes — both connectives are false whenever either statement is false.
+      - text: 'Yes: "and" and "or" always require the exact same condition to be true.'
+      - text: 'No: but only because "or" can never be true under any circumstance.'
+      - text: 'Yes: both connectives are false whenever either statement is false.'
     explanation: |
       Mixing up and and or is one of the most common truth-table errors. And is the stricter connective (requires both true), while or is more lenient (requires only at least one true).
     approved: true
@@ -177,11 +177,11 @@ questions:
     choices:
       - text: The student ignored the parentheses grouping $P$ and $Q$ together; just like order of operations in math, the innermost parentheses must be evaluated first. Evaluating correctly, "$P \land Q$" is false, and "false $\lor R$" (with $R$ true) gives the correct answer of true.
         correct: true
-      - text: The approach is correct — parentheses grouping does not affect the order of evaluation in propositional logic.
+      - text: 'The approach is correct: parentheses grouping does not affect the order of evaluation in propositional logic.'
       - text: The student's approach is correct, and the final answer is false.
       - text: Neither the student's approach nor the correct approach can determine a final truth value.
     explanation: |
-      Evaluating combined expressions in the wrong order (ignoring parentheses grouping) produces an incorrect final truth value. Just like arithmetic order of operations, evaluate the innermost parentheses first — "$P \land Q$" first, giving false, then "false $\lor R$," giving true.
+      Evaluating combined expressions in the wrong order (ignoring parentheses grouping) produces an incorrect final truth value. Just like arithmetic order of operations, evaluate the innermost parentheses first: "$P \land Q$" first, giving false, then "false $\lor R$," giving true.
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0013
@@ -226,7 +226,7 @@ questions:
       - text: (T,T) → false, (T,F) → false, (F,T) → true, (F,F) → true
       - text: (T,T) → true, (T,F) → false, (F,T) → false, (F,F) → false
     explanation: |
-      "$P \rightarrow Q$" is false only in the one case where $P$ is true and $Q$ is false: (T,F) → false. Every other combination — (T,T), (F,T), (F,F) — is true.
+      "$P \rightarrow Q$" is false only in the one case where $P$ is true and $Q$ is false: (T,F) → false. Every other combination (T,T), (F,T) and (F,F) is true.
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0016

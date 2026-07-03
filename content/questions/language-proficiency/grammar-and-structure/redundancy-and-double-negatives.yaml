@@ -130,11 +130,11 @@ questions:
     stem: |
       A student sees "unexpected surprise" and assumes it is fine since both words individually make sense. Is "unexpected surprise" actually redundant?
     choices:
-      - text: Yes — a surprise is by definition unexpected, so pairing the two words repeats the same idea, even though each word is perfectly normal on its own.
+      - text: 'Yes: a surprise is by definition unexpected, so pairing the two words repeats the same idea, even though each word is perfectly normal on its own.'
         correct: true
-      - text: No — "unexpected" and "surprise" mean completely different things.
-      - text: No — redundancy only applies to verbs, not adjective-noun pairs.
-      - text: Yes — but only because "surprise" is used incorrectly here.
+      - text: 'No: "unexpected" and "surprise" mean completely different things.'
+      - text: 'No: redundancy only applies to verbs, not adjective-noun pairs.'
+      - text: 'Yes: but only because "surprise" is used incorrectly here.'
     explanation: |
       Check whether two words or phrases in the same sentence repeat the same idea, even if each one is a perfectly normal word by itself. "Unexpected surprise" pairs a word with another word that already implies its meaning.
     approved: true
@@ -145,11 +145,11 @@ questions:
     stem: |
       A student does not recognize "scarcely" as a negative word, since it does not contain "not" or "no." In "He couldn't scarcely finish the race," is this a double negative?
     choices:
-      - text: Yes — "scarcely" functions as a negative in standard grammar, even though it does not look like a typical negative word; combined with "couldn't," this creates a double negative.
+      - text: 'Yes: "scarcely" functions as a negative in standard grammar, even though it does not look like a typical negative word; combined with "couldn''t," this creates a double negative.'
         correct: true
-      - text: No — "scarcely" is not a negative word at all.
-      - text: No — double negatives can only form using "not" and "no" specifically.
-      - text: Yes — but only because "race" implies a competitive context.
+      - text: 'No: "scarcely" is not a negative word at all.'
+      - text: 'No: double negatives can only form using "not" and "no" specifically.'
+      - text: 'Yes: but only because "race" implies a competitive context.'
     explanation: |
       "Hardly," "barely," and "scarcely" function as negatives in standard grammar, even though they do not contain "not" or "no" directly. Pairing any of these with another negative word creates a double negative.
     approved: true
@@ -160,11 +160,11 @@ questions:
     stem: |
       A student says "I don't have no time" sounds natural in casual conversation, so it must be grammatically correct on a formal exam. Is this reasoning correct?
     choices:
-      - text: No — some double negatives sound natural in casual speech but are still grammatically flagged as errors on formal exams; the corrected form is "I don't have any time."
+      - text: 'No: some double negatives sound natural in casual speech but are still grammatically flagged as errors on formal exams; the corrected form is "I don''t have any time."'
         correct: true
-      - text: Yes — if a phrase sounds natural in speech, it is always grammatically correct.
-      - text: Yes — but only because "time" is an uncountable noun.
-      - text: No — but only because "don't" should be replaced with "doesn't."
+      - text: 'Yes: if a phrase sounds natural in speech, it is always grammatically correct.'
+      - text: 'Yes: but only because "time" is an uncountable noun.'
+      - text: 'No: but only because "don''t" should be replaced with "doesn''t."'
     explanation: |
       Phrases like "I don't have no time" are common in relaxed conversation, but formal grammar exams expect the corrected, single-negative form.
     approved: true

@@ -112,13 +112,13 @@ questions:
     stem: |
       A student calculates the buoyant force on a submerged brass block by using the brass's own density, instead of the water's density. Is this correct?
     choices:
-      - text: No — Archimedes' Principle uses the density of the displaced fluid (water), not the density of the submerged object itself.
+      - text: 'No: Archimedes'' Principle uses the density of the displaced fluid (water), not the density of the submerged object itself.'
         correct: true
-      - text: Yes — buoyant force always depends on the submerged object's own density.
-      - text: No — buoyant force does not depend on density at all.
-      - text: Yes — as long as the object is denser than the fluid.
+      - text: 'Yes: buoyant force always depends on the submerged object''s own density.'
+      - text: 'No: buoyant force does not depend on density at all.'
+      - text: 'Yes: as long as the object is denser than the fluid.'
     explanation: |
-      The buoyant force equals the weight of the displaced fluid, calculated using the fluid's own density and the displaced volume — not any property of the submerged object itself.
+      The buoyant force equals the weight of the displaced fluid, calculated using the fluid's own density and the displaced volume, not any property of the submerged object itself.
     approved: true
   - id: q-physics-fluid-mechanics-0009
     type: classify
@@ -126,13 +126,13 @@ questions:
     stem: |
       A student assumes a massive steel ship must sink, since steel is much denser than water, while a small pebble would float since it is "so small." Is this reasoning correct?
     choices:
-      - text: No — floating and sinking depend on overall average density compared to the fluid, not size or mass alone; the ship's hollow shape gives it a low average density, letting it float, while a small solid steel pebble would sink.
+      - text: 'No: floating and sinking depend on overall average density compared to the fluid, not size or mass alone; the ship''s hollow shape gives it a low average density, letting it float, while a small solid steel pebble would sink.'
         correct: true
-      - text: Yes — larger objects always sink regardless of their shape.
-      - text: No — but only because ships are not really made of steel.
-      - text: Yes — smaller objects always float regardless of their material.
+      - text: 'Yes: larger objects always sink regardless of their shape.'
+      - text: 'No: but only because ships are not really made of steel.'
+      - text: 'Yes: smaller objects always float regardless of their material.'
     explanation: |
-      A ship's hollow, air-filled shape gives it a low overall average density, even though its material (steel) is much denser than water. Size and mass alone cannot predict floating or sinking — the object's overall average density relative to the fluid is what matters.
+      A ship's hollow, air-filled shape gives it a low overall average density, even though its material (steel) is much denser than water. Size and mass alone cannot predict floating or sinking: the object's overall average density relative to the fluid is what matters.
     approved: true
   - id: q-physics-fluid-mechanics-0010
     type: classify
@@ -140,11 +140,11 @@ questions:
     stem: |
       A student assumes that faster-moving fluid has higher pressure than slower-moving fluid. Is this correct?
     choices:
-      - text: "No — Bernoulli's Principle states the opposite: faster-moving fluid has lower pressure, not higher."
+      - text: "No: Bernoulli's Principle states the opposite: faster-moving fluid has lower pressure, not higher."
         correct: true
-      - text: Yes — faster-moving fluid always has higher pressure.
-      - text: No — but only for fluids moving through a narrow pipe.
-      - text: Yes — this is exactly what causes airplane lift.
+      - text: 'Yes: faster-moving fluid always has higher pressure.'
+      - text: 'No: but only for fluids moving through a narrow pipe.'
+      - text: 'Yes: this is exactly what causes airplane lift.'
     explanation: |
       Reversing Bernoulli's actual relationship (faster means lower pressure) would incorrectly predict a downward force on an airplane wing instead of the real upward lift force that keeps planes flying.
     approved: true
@@ -154,11 +154,11 @@ questions:
     stem: |
       A student assumes water pressure is the same at every depth in a swimming pool. Is this correct?
     choices:
-      - text: No — pressure increases with depth, since deeper water must support the weight of all the water above it.
+      - text: 'No: pressure increases with depth, since deeper water must support the weight of all the water above it.'
         correct: true
-      - text: Yes — fluid pressure never changes with depth.
-      - text: No — pressure actually decreases with depth.
-      - text: Yes — pressure only depends on the pool's total volume, not depth.
+      - text: 'Yes: fluid pressure never changes with depth.'
+      - text: 'No: pressure actually decreases with depth.'
+      - text: 'Yes: pressure only depends on the pool''s total volume, not depth.'
     explanation: |
       Pressure in a fluid increases with depth, since fluid deeper down supports the weight of the fluid above it. Treating pressure as constant throughout a container ignores this depth dependence.
     approved: true

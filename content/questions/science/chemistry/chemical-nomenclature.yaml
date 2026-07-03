@@ -126,11 +126,11 @@ questions:
     stem: |
       A student names $FeCl_3$ simply as "iron chloride," with no Roman numeral. Is this name complete and unambiguous?
     choices:
-      - text: No — without the Roman numeral, "iron chloride" could also mean $FeCl_2$, since iron can form more than one charge.
+      - text: 'No: without the Roman numeral, "iron chloride" could also mean $FeCl_2$, since iron can form more than one charge.'
         correct: true
-      - text: Yes — Roman numerals are optional decoration, not required information.
-      - text: Yes — "iron chloride" always refers only to $FeCl_3$.
-      - text: No — but only because iron is not actually a metal.
+      - text: 'Yes: Roman numerals are optional decoration, not required information.'
+      - text: 'Yes: "iron chloride" always refers only to $FeCl_3$.'
+      - text: 'No: but only because iron is not actually a metal.'
     explanation: |
       Since iron can form both $Fe^{2+}$ and $Fe^{3+}$, "iron chloride" alone does not say which compound is meant. The Roman numeral (III) is required to specify $FeCl_3$ rather than $FeCl_2$ (iron (II) chloride).
     approved: true
@@ -140,11 +140,11 @@ questions:
     stem: |
       A student names $CO$ as "carbon oxide," dropping the "mono-" prefix since there is only one oxygen atom. Is this name correct?
     choices:
-      - text: No — the second element in covalent naming always gets a prefix, even for one atom, so it must be "carbon monoxide."
+      - text: 'No: the second element in covalent naming always gets a prefix, even for one atom, so it must be "carbon monoxide."'
         correct: true
-      - text: Yes — "mono-" is always dropped for a single atom, on both elements.
-      - text: No — but only because the first element needs the prefix instead.
-      - text: Yes — "carbon oxide" and "carbon monoxide" refer to different compounds.
+      - text: 'Yes: "mono-" is always dropped for a single atom, on both elements.'
+      - text: 'No: but only because the first element needs the prefix instead.'
+      - text: 'Yes: "carbon oxide" and "carbon monoxide" refer to different compounds.'
     explanation: |
       Only the *first* element skips "mono-" for a single atom. The second element always keeps its prefix, precisely so that "carbon monoxide" ($CO$) is never confused with "carbon dioxide" ($CO_2$).
     approved: true
@@ -154,13 +154,13 @@ questions:
     stem: |
       A student names $NaOH$ as "sodium hydroxide-ide," trying to apply the usual "-ide" ending rule. Is this correct?
     choices:
-      - text: No — polyatomic ions like hydroxide keep their own special name; the compound is simply "sodium hydroxide."
+      - text: 'No: polyatomic ions like hydroxide keep their own special name; the compound is simply "sodium hydroxide."'
         correct: true
-      - text: Yes — every anion's name must end in "-ide," including polyatomic ions.
-      - text: No — but only because sodium is not really a metal.
-      - text: Yes — "sodium hydroxide-ide" is the fully correct chemical name.
+      - text: 'Yes: every anion''s name must end in "-ide," including polyatomic ions.'
+      - text: 'No: but only because sodium is not really a metal.'
+      - text: 'Yes: "sodium hydroxide-ide" is the fully correct chemical name.'
     explanation: |
-      The "-ide" ending rule applies only to simple, single-element anions (like chloride or oxide). Polyatomic ions such as hydroxide keep their own name as-is — the compound is named sodium hydroxide.
+      The "-ide" ending rule applies only to simple, single-element anions (like chloride or oxide). Polyatomic ions such as hydroxide keep their own name as-is: the compound is named sodium hydroxide.
     approved: true
   - id: q-chemistry-chemical-nomenclature-0012
     type: classify

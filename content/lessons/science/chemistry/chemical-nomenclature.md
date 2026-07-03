@@ -93,13 +93,13 @@ Naming $FeCl_3$ simply as "iron chloride" is incomplete and ambiguous, since $Fe
 
 ### #2: Dropping the "Mono-" Prefix on the Second Element
 
-> In covalent naming, the second element always gets a prefix, even for just $1$ atom — only the first element skips "mono-".
+> In covalent naming, the second element always gets a prefix, even for just $1$ atom: only the first element skips "mono-".
 
 Carbon monoxide ($CO$) keeps "mono-" on oxygen specifically to distinguish it clearly from carbon dioxide ($CO_2$). Dropping "mono-" from the second element's name removes information that could cause confusion between different compounds.
 
 ### #3: Renaming a Polyatomic Ion with "-ide"
 
-> Polyatomic ions (like sulfate, nitrate, or hydroxide) keep their own special names — do not change them to "-ide," which is reserved for simple, single-atom anions.
+> Polyatomic ions (like sulfate, nitrate, or hydroxide) keep their own special names: do not change them to "-ide," which is reserved for simple, single-atom anions.
 
 A compound like $NaOH$ is named sodium hydroxide (keeping the polyatomic ion's own name), not "sodium hydroxide-ide" or some other altered form. Only simple, single-element anions (like chloride, oxide, or bromide) get the straightforward "-ide" treatment.
 

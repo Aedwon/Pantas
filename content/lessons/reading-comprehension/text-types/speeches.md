@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-A **speech** is a piece of writing meant to be spoken aloud to an audience, usually to persuade, inform, inspire, or commemorate. Because speeches are heard rather than read silently, they rely heavily on **rhetorical strategies** — techniques designed to move an audience emotionally or convince them logically.
+A **speech** is a piece of writing meant to be spoken aloud to an audience, usually to persuade, inform, inspire, or commemorate. Because speeches are heard rather than read silently, they rely heavily on **rhetorical strategies**: techniques designed to move an audience emotionally or convince them logically.
 
 Classical rhetoric identifies three main types of persuasive appeal:
 
@@ -63,7 +63,7 @@ A speaker repeats the phrase "We will rebuild" three times in a row, each time f
 
 **Match each appeal to its core focus:** ethos = the speaker's credibility, pathos = the audience's emotions, logos = the logic and evidence. If a line mentions personal experience or credentials, think ethos; if it paints an emotional scene, think pathos; if it cites numbers or research, think logos.
 
-**Listen for repeated phrases or structures** to catch repetition and parallelism quickly — these devices are usually easy to spot once you notice a pattern repeating across sentences.
+**Listen for repeated phrases or structures** to catch repetition and parallelism quickly: these devices are usually easy to spot once you notice a pattern repeating across sentences.
 
 **Ask "what does the speaker want the audience to do or feel?"** to quickly determine the speech's overall purpose (to persuade toward an action, to comfort, to inspire, to inform).
 

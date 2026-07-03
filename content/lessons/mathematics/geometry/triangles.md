@@ -124,7 +124,7 @@ $$x = 65$$
 
 A $1.5$-meter tall student casts a $2$-meter shadow. At the same time, a tree casts a $12$-meter shadow. How tall is the tree?
 
-<!-- ILLUSTRATION: two similar right triangles side by side, a 1.5 m student with a 2 m shadow, and a taller tree of height "?" with a 12 m shadow, sun rays at the same angle -->
+<!-- ILLUSTRATION: two similar right triangles side by side: a 1.5 m student with a 2 m shadow, and a taller tree of height "?" with a 12 m shadow, sun rays at the same angle -->
 
 
 **Solution:**

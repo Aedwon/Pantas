@@ -61,7 +61,7 @@ questions:
       - text: It shows that the universe has always been the same size, with no expansion at all.
       - text: It proves that space itself is shrinking over time.
     explanation: |
-      If distant galaxies are moving away from us today, and faster the farther they are, then running this motion backward in time implies everything was once squeezed together at a single starting point — direct evidence for an expanding universe.
+      If distant galaxies are moving away from us today, and faster the farther they are, then running this motion backward in time implies everything was once squeezed together at a single starting point: direct evidence for an expanding universe.
     approved: true
 
   - id: q-earth-science-astronomy-origin-of-the-universe-0005
@@ -85,13 +85,13 @@ questions:
     stem: |
       A student claims the cosmic microwave background is "the light from the first stars." Is this correct?
     choices:
-      - text: No — the cosmic microwave background is leftover heat radiation from the hot, early universe itself; stars had not even formed yet when this radiation was released.
+      - text: 'No: the cosmic microwave background is leftover heat radiation from the hot, early universe itself; stars had not even formed yet when this radiation was released.'
         correct: true
-      - text: Yes — the cosmic microwave background is exactly the light given off by the very first stars.
-      - text: No — but only because the cosmic microwave background does not actually exist.
-      - text: Yes — all radiation detected from the sky comes from stars.
+      - text: 'Yes: the cosmic microwave background is exactly the light given off by the very first stars.'
+      - text: 'No: but only because the cosmic microwave background does not actually exist.'
+      - text: 'Yes: all radiation detected from the sky comes from stars.'
     explanation: |
-      The cosmic microwave background comes from a much earlier, hotter stage of the universe, before any stars had formed — it is the cooled-down leftover heat from the Big Bang itself, not starlight.
+      The cosmic microwave background comes from a much earlier, hotter stage of the universe, before any stars had formed: it is the cooled-down leftover heat from the Big Bang itself, not starlight.
     approved: true
 
   - id: q-earth-science-astronomy-origin-of-the-universe-0007
@@ -100,13 +100,13 @@ questions:
     stem: |
       A choice credits Edwin Hubble with "inventing" the Big Bang theory in 1929. Is this accurate?
     choices:
-      - text: No — Georges Lemaître first proposed the Big Bang theory in 1927; Hubble's 1929 observation of galaxies moving apart provided strong supporting evidence for a theory that already existed.
+      - text: 'No: Georges Lemaître first proposed the Big Bang theory in 1927; Hubble''s 1929 observation of galaxies moving apart provided strong supporting evidence for a theory that already existed.'
         correct: true
-      - text: Yes — Hubble was the first person to propose the Big Bang theory.
-      - text: No — but only because no one proposed the Big Bang theory before 1965.
-      - text: Yes — Lemaître and Hubble proposed the theory together in the same year.
+      - text: 'Yes: Hubble was the first person to propose the Big Bang theory.'
+      - text: 'No: but only because no one proposed the Big Bang theory before 1965.'
+      - text: 'Yes: Lemaître and Hubble proposed the theory together in the same year.'
     explanation: |
-      Lemaître proposed the theory in 1927, using Einstein's equations for gravity. Hubble's contribution, two years later, was the observational evidence — not the original proposal of the theory itself.
+      Lemaître proposed the theory in 1927, using Einstein's equations for gravity. Hubble's contribution, two years later, was the observational evidence, not the original proposal of the theory itself.
     approved: true
 
   - id: q-earth-science-astronomy-origin-of-the-universe-0008
@@ -115,13 +115,13 @@ questions:
     stem: |
       A student pictures the Big Bang as an explosion that happened at one specific location in space, with matter flying outward into empty space that already existed around it. Is this an accurate picture of the Big Bang?
     choices:
-      - text: No — the Big Bang was the expansion of space itself, happening everywhere at once; there was no empty space "outside" the expansion for matter to fly into.
+      - text: 'No: the Big Bang was the expansion of space itself, happening everywhere at once; there was no empty space "outside" the expansion for matter to fly into.'
         correct: true
-      - text: Yes — the Big Bang was exactly like a bomb exploding at a single point in pre-existing space.
-      - text: No — but only because the Big Bang never actually happened.
-      - text: Yes — space existed first, and matter later expanded to fill it from one corner.
+      - text: 'Yes: the Big Bang was exactly like a bomb exploding at a single point in pre-existing space.'
+      - text: 'No: but only because the Big Bang never actually happened.'
+      - text: 'Yes: space existed first, and matter later expanded to fill it from one corner.'
     explanation: |
-      Students often imagine the Big Bang like a bomb exploding at one location. In reality, space itself stretched out everywhere at once — there was no pre-existing empty space outside the expansion for matter to fly into.
+      Students often imagine the Big Bang like a bomb exploding at one location. In reality, space itself stretched out everywhere at once: there was no pre-existing empty space outside the expansion for matter to fly into.
     approved: true
 
   - id: q-earth-science-astronomy-origin-of-the-universe-0009
@@ -160,13 +160,13 @@ questions:
     stem: |
       According to the nebular hypothesis, why does the collapsing cloud of gas and dust spin faster and faster as it gets smaller?
     choices:
-      - text: The same principle that makes a spinning ice skater speed up when pulling their arms in applies to the shrinking cloud — as its material moves closer to the center, its spin speeds up.
+      - text: 'The same principle that makes a spinning ice skater speed up when pulling their arms in applies to the shrinking cloud: as its material moves closer to the center, its spin speeds up.'
         correct: true
       - text: An outside force from a nearby star pushes the cloud to spin faster.
       - text: The cloud only spins faster because it is losing mass to outer space.
       - text: The cloud's spin speed has no relationship to its size.
     explanation: |
-      As the cloud collapses under gravity and its material moves closer to the center, it spins faster — the same principle that makes a spinning ice skater speed up when pulling their arms inward.
+      As the cloud collapses under gravity and its material moves closer to the center, it spins faster: the same principle that makes a spinning ice skater speed up when pulling their arms inward.
     approved: true
 
   - id: q-earth-science-astronomy-origin-of-the-universe-0012
@@ -190,11 +190,11 @@ questions:
     stem: |
       An answer choice describes a giant, slowly spinning cloud of gas and dust collapsing to form a star and planets, but labels this process "the Big Bang." Is this labeling correct?
     choices:
-      - text: No — this description matches the nebular hypothesis, which explains the formation of a solar system, not the Big Bang, which explains the origin of the entire universe.
+      - text: 'No: this description matches the nebular hypothesis, which explains the formation of a solar system, not the Big Bang, which explains the origin of the entire universe.'
         correct: true
-      - text: Yes — the Big Bang and the nebular hypothesis describe the exact same process at every scale.
-      - text: No — but only because clouds of gas and dust never collapse to form stars.
-      - text: Yes — any process involving gas, dust, and collapse is automatically the Big Bang.
+      - text: 'Yes: the Big Bang and the nebular hypothesis describe the exact same process at every scale.'
+      - text: 'No: but only because clouds of gas and dust never collapse to form stars.'
+      - text: 'Yes: any process involving gas, dust, and collapse is automatically the Big Bang.'
     explanation: |
       These are two different scales of "beginning." A spinning cloud of gas and dust collapsing into a star and planets describes the nebular hypothesis (solar system formation), not the Big Bang (the origin of the whole universe).
     approved: true
@@ -211,7 +211,7 @@ questions:
       - text: Both theories equally, since they describe identical processes.
       - text: Neither theory, since galaxy motion is unrelated to either theory.
     explanation: |
-      If a question mentions "galaxies" or "the universe," think Big Bang theory. If it mentions "planets" or "the Sun," think nebular hypothesis — the two theories explain different scales of "beginning."
+      If a question mentions "galaxies" or "the universe," think Big Bang theory. If it mentions "planets" or "the Sun," think nebular hypothesis: the two theories explain different scales of "beginning."
     approved: true
 
   - id: q-earth-science-astronomy-origin-of-the-universe-0015

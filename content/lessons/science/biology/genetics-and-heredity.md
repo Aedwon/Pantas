@@ -64,7 +64,7 @@ A pea plant heterozygous for height ($Tt$, where $T$ = tall is dominant and $t$ 
 Set up the $2 \times 2$ Punnett square with alleles $T$ and $t$ from each parent.
 
 1. The four possible offspring combinations are: $TT$, $Tt$, $Tt$, $tt$.
-2. Any genotype with at least one $T$ (dominant) shows the tall phenotype: that is $TT$, $Tt$, and $Tt$ — three out of four boxes.
+2. Any genotype with at least one $T$ (dominant) shows the tall phenotype: that is $TT$, $Tt$, and $Tt$: three out of four boxes.
 3. Only $tt$ (no dominant allele) shows the recessive short phenotype: one out of four boxes.
 4. The fraction expected to be tall is $\dfrac{3}{4}$.
 
@@ -75,7 +75,7 @@ A red snapdragon flower is crossed with a white snapdragon flower, and all offsp
 **Solution:**
 Check whether the traits blend together or appear separately, side by side.
 
-1. Pink is a blend between red and white — neither color fully dominates. This is incomplete dominance.
+1. Pink is a blend between red and white: neither color fully dominates. This is incomplete dominance.
 2. Blood type ab shows both the A trait and the B trait fully and separately, without blending into some "in-between" type. This is codominance.
 
 ### #3: Tracing DNA to Protein
@@ -103,7 +103,7 @@ Think about which type of allele can "hide" in unaffected parents.
 1. If the trait were dominant, at least one parent would need to show it themselves to pass it on, since a dominant allele always shows its effect.
 2. Since neither parent shows the trait, but their child does, both parents must be silently carrying one hidden copy of a recessive allele (making them $Aa$ heterozygous carriers).
 3. The child inherited a recessive allele from each parent, becoming $aa$ and showing the trait.
-4. This pattern — unaffected parents producing an affected child — is a classic sign that the trait is recessive.
+4. This pattern, unaffected parents producing an affected child, is a classic sign that the trait is recessive.
 
 ## Speed Tricks & Shortcuts
 
@@ -111,7 +111,7 @@ For quick Punnett square ratios, memorize the classic monohybrid cross result: $
 
 To tell codominance from incomplete dominance quickly, ask: does the heterozygote show a new blended trait (incomplete dominance, like pink), or does it show both parent traits fully and separately (codominance, like blood type ab)?
 
-For pedigree questions, the fastest clue is "two unaffected parents, one affected child" — this pattern can only happen if the trait is recessive, since a dominant trait would require a visibly affected parent.
+For pedigree questions, the fastest clue is "two unaffected parents, one affected child": this pattern can only happen if the trait is recessive, since a dominant trait would require a visibly affected parent.
 
 ## Traps to Watch For
 

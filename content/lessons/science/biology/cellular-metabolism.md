@@ -50,7 +50,7 @@ Recall the full photosynthesis equation and check what is balanced.
 
 A student examines two different organelles under a microscope: one green and disc-shaped, the other bean-shaped with folded inner membranes. Identify which organelle performs photosynthesis and which performs cellular respiration.
 
-<!-- ILLUSTRATION: two organelles side by side — a green disc-shaped chloroplast (photosynthesis) and a bean-shaped mitochondrion with folded inner membranes/cristae (cellular respiration) -->
+<!-- ILLUSTRATION: two organelles side by side: a green disc-shaped chloroplast (photosynthesis) and a bean-shaped mitochondrion with folded inner membranes/cristae (cellular respiration) -->
 
 
 **Solution:**
@@ -99,7 +99,7 @@ For "which organism does which process" questions, remember: cellular respiratio
 
 > Plants perform both photosynthesis (to make food) and cellular respiration (to use that food for energy), just like animal cells do.
 
-This is one of the most common misconceptions in biology exams. A choice claiming "plants do not need oxygen" or "plants do not perform cellular respiration" is incorrect — plant cells need ATP just as much as animal cells do.
+This is one of the most common misconceptions in biology exams. A choice claiming "plants do not need oxygen" or "plants do not perform cellular respiration" is incorrect: plant cells need ATP just as much as animal cells do.
 
 ### #2: Reversing the Equations
 
@@ -117,4 +117,4 @@ Both organelles are involved in energy processes, which leads to confusion. Chlo
 
 > Cellular respiration consumes oxygen as a raw material; it does not produce it.
 
-A choice may list oxygen as a product of cellular respiration, confusing it with photosynthesis. Respiration consumes oxygen to release energy and produces carbon dioxide and water as byproducts — oxygen is strictly an input here, not an output.
+A choice may list oxygen as a product of cellular respiration, confusing it with photosynthesis. Respiration consumes oxygen to release energy and produces carbon dioxide and water as byproducts: oxygen is strictly an input here, not an output.

@@ -68,13 +68,13 @@ An excerpt ends with a character standing at a door, hand trembling as they reac
 
 **Ask "what changed?" to find the theme.** Compare the character's situation, attitude, or understanding at the start of the passage to the end. The theme is usually connected to whatever changed (or the wisdom gained from what did not change).
 
-**For excerpt-based inference questions, only infer what the text's clues directly support** — avoid inventing new details the passage never hints at.
+**For excerpt-based inference questions, only infer what the text's clues directly support**: avoid inventing new details the passage never hints at.
 
 ## Traps to Watch For
 
 ### #1: Confusing the Climax with Just Any Exciting Moment
 
-> The climax is specifically the story's highest point of tension and the turning point — not simply any interesting or eventful scene.
+> The climax is specifically the story's highest point of tension and the turning point, not simply any interesting or eventful scene.
 
 A thrilling early scene can be exciting without being the climax; check whether the scene is where the central conflict reaches its peak and begins to resolve.
 
@@ -86,6 +86,6 @@ A thrilling early scene can be exciting without being the climax; check whether 
 
 ### #3: Inferring Beyond What the Excerpt Supports
 
-> Inference questions require conclusions the text'S clues actually support — do not invent plot details the passage never suggests.
+> Inference questions require conclusions the text'S clues actually support: do not invent plot details the passage never suggests.
 
 If an excerpt ends before revealing an outcome, resist the temptation to assume a specific happy or sad ending unless the passage gives clear clues pointing that way.

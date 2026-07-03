@@ -21,7 +21,7 @@ Some passages combine purposes, but usually one purpose dominates.
 
 ### Tone
 
-**Tone** is the author's attitude toward the subject, revealed through word choice. Tone can be serious, humorous, sarcastic, nostalgic, critical, hopeful, or many other descriptors. Look at connotation (the emotional shading of words) — an author describing a decision as "reckless" has a very different tone than one describing the same decision as "bold."
+**Tone** is the author's attitude toward the subject, revealed through word choice. Tone can be serious, humorous, sarcastic, nostalgic, critical, hopeful, or many other descriptors. Look at connotation (the emotional shading of words): an author describing a decision as "reckless" has a very different tone than one describing the same decision as "bold."
 
 ### Point of View
 
@@ -80,13 +80,13 @@ Compare: (A) "I couldn't understand why she was upset with me." (B) "He couldn't
 
 ### #1: Confusing "Informative" Tone with "Neutral" or "Positive" Tone
 
-> Tone and purpose are related but not identical — a passage can inform (purpose) while still carrying a subtly critical or approving tone through word choice.
+> Tone and purpose are related but not identical: a passage can inform (purpose) while still carrying a subtly critical or approving tone through word choice.
 
 An informative article on a company's layoffs can still carry a sympathetic or critical tone toward the affected workers, even while its main purpose remains to inform readers of the facts.
 
 ### #2: Assuming First-Person Narration Means the Author's Own Opinion
 
-> In fiction, the first-person narrator is a character, not necessarily the author's own personal viewpoint — do not confuse a fictional narrator's voice with the real author's beliefs.
+> In fiction, the first-person narrator is a character, not necessarily the author's own personal viewpoint: do not confuse a fictional narrator's voice with the real author's beliefs.
 
 A story's "I" narrator can hold opinions or exhibit flaws the actual author does not personally share; the narrator is a created character, not a direct stand-in for the writer in most fiction.
 
@@ -94,4 +94,4 @@ A story's "I" narrator can hold opinions or exhibit flaws the actual author does
 
 > Third person limited reveals only one character's inner thoughts; third person omniscient reveals multiple characters' inner thoughts, sometimes including things no character in the scene actually knows.
 
-If a passage only ever describes what one character is thinking or feeling (while other characters are described only through their visible actions and words), it is limited, not omniscient — even though both use "he/she" pronouns throughout.
+If a passage only ever describes what one character is thinking or feeling (while other characters are described only through their visible actions and words), it is limited, not omniscient, even though both use "he/she" pronouns throughout.

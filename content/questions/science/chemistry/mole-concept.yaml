@@ -84,13 +84,13 @@ questions:
     stem: |
       A student tries to convert a given mass in grams directly into a number of particles, without finding moles first. Is this a valid shortcut?
     choices:
-      - text: No — grams and particles are never directly convertible; moles must always be the middle step.
+      - text: 'No: grams and particles are never directly convertible; moles must always be the middle step.'
         correct: true
-      - text: Yes — grams and particles can always be converted directly using Avogadro's number alone.
-      - text: Yes — as long as the substance is a compound, not an element.
-      - text: No — but only because Avogadro's number only applies to gases.
+      - text: 'Yes: grams and particles can always be converted directly using Avogadro''s number alone.'
+      - text: 'Yes: as long as the substance is a compound, not an element.'
+      - text: 'No: but only because Avogadro''s number only applies to gases.'
     explanation: |
-      Molar mass connects grams to moles, and Avogadro's number connects moles to particles — these are two different conversion factors. Skipping the mole step mixes them up and produces a badly wrong answer.
+      Molar mass connects grams to moles, and Avogadro's number connects moles to particles: these are two different conversion factors. Skipping the mole step mixes them up and produces a badly wrong answer.
     approved: true
   - id: q-chemistry-mole-concept-0007
     type: classify
@@ -98,13 +98,13 @@ questions:
     stem: |
       A student calculates water's molar mass as 17 g/mol, using only 1 g/mol for hydrogen without multiplying by its subscript. What is the correct molar mass, and what mistake was made?
     choices:
-      - text: 18 g/mol — the student forgot to multiply hydrogen's atomic mass by its subscript of 2.
+      - text: '18 g/mol: the student forgot to multiply hydrogen''s atomic mass by its subscript of 2.'
         correct: true
-      - text: 17 g/mol — the student's calculation is already correct.
-      - text: 18 g/mol — the student forgot to multiply oxygen's atomic mass by a subscript.
-      - text: 16 g/mol — oxygen's mass alone is the correct molar mass.
+      - text: '17 g/mol: the student''s calculation is already correct.'
+      - text: '18 g/mol: the student forgot to multiply oxygen''s atomic mass by a subscript.'
+      - text: '16 g/mol: oxygen''s mass alone is the correct molar mass.'
     explanation: |
-      Water has 2 hydrogen atoms, so hydrogen's contribution must be $2 \times 1 = 2$ g/mol, not just 1 g/mol. The correct total is $2 + 16 = 18$ g/mol — always check each element's subscript before adding.
+      Water has 2 hydrogen atoms, so hydrogen's contribution must be $2 \times 1 = 2$ g/mol, not just 1 g/mol. The correct total is $2 + 16 = 18$ g/mol: always check each element's subscript before adding.
     approved: true
   - id: q-chemistry-mole-concept-0008
     type: classify
@@ -112,13 +112,13 @@ questions:
     stem: |
       An element's atomic mass on the periodic table and its molar mass share the same number. Are these two quantities measuring the exact same thing?
     choices:
-      - text: No — atomic mass describes a single atom in atomic mass units, while molar mass describes one mole of atoms in grams.
+      - text: 'No: atomic mass describes a single atom in atomic mass units, while molar mass describes one mole of atoms in grams.'
         correct: true
-      - text: Yes — they are identical in every way, including units.
-      - text: No — atomic mass is always larger than molar mass.
-      - text: Yes — but only for elements, never for compounds.
+      - text: 'Yes: they are identical in every way, including units.'
+      - text: 'No: atomic mass is always larger than molar mass.'
+      - text: 'Yes: but only for elements, never for compounds.'
     explanation: |
-      The numeric value transfers directly, but atomic mass (in amu) describes one tiny atom, while molar mass (in g/mol) describes an entire mole of that same substance — very different scales for different purposes.
+      The numeric value transfers directly, but atomic mass (in amu) describes one tiny atom, while molar mass (in g/mol) describes an entire mole of that same substance: very different scales for different purposes.
     approved: true
   - id: q-chemistry-mole-concept-0009
     type: classify
@@ -126,11 +126,11 @@ questions:
     stem: |
       A student uses 6 x 10^23 instead of the more precise 6.022 x 10^23 for Avogadro's number in a multi-step calculation, without being told to round. Is this a safe practice?
     choices:
-      - text: No — using a rounded version of Avogadro's number without instruction can throw off the final answer, especially in multi-step problems.
+      - text: 'No: using a rounded version of Avogadro''s number without instruction can throw off the final answer, especially in multi-step problems.'
         correct: true
-      - text: Yes — Avogadro's number is always rounded to one significant figure on exams.
-      - text: No — but only because Avogadro's number should actually be 6.022 x 10^24.
-      - text: Yes — rounding never affects the accuracy of mole calculations.
+      - text: 'Yes: Avogadro''s number is always rounded to one significant figure on exams.'
+      - text: 'No: but only because Avogadro''s number should actually be 6.022 x 10^24.'
+      - text: 'Yes: rounding never affects the accuracy of mole calculations.'
     explanation: |
       Unless a problem explicitly says to round, using the full value $6.022 \times 10^{23}$ keeps multi-step calculations accurate and matching the intended answer choice.
     approved: true

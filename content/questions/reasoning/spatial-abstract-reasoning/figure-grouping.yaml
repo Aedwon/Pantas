@@ -65,7 +65,7 @@ questions:
       - text: Whichever shape has the most sides
       - text: Whichever shape is positioned in the middle of the row
     explanation: |
-      Four figures share the specific feature of containing exactly one shaded dot, regardless of their outer shape. The fifth figure contains two shaded dots, breaking that count — the shared rule here is about the dot count, not the outer shape.
+      Four figures share the specific feature of containing exactly one shaded dot, regardless of their outer shape. The fifth figure contains two shaded dots, breaking that count: the shared rule here is about the dot count, not the outer shape.
     approved: true
 
   - id: q-spatial-abstract-reasoning-figure-grouping-0005
@@ -123,11 +123,11 @@ questions:
     stem: |
       Figure shows four quadrilaterals: a large square rotated 45° so it looks like a diamond, a small square, a rectangle, and a triangle drawn the same size as the others. A student picks the rotated diamond-looking square as the odd-one-out, since it "looks the most different" at a glance. Is this the correct answer?
     choices:
-      - text: No — the rotated square still has 4 sides, matching the small square and rectangle; the triangle, with only 3 sides, is the actual odd-one-out, even though it is not the most visually unusual-looking figure.
+      - text: 'No: the rotated square still has 4 sides, matching the small square and rectangle; the triangle, with only 3 sides, is the actual odd-one-out, even though it is not the most visually unusual-looking figure.'
         correct: true
-      - text: Yes — the most visually different-looking figure is always the correct odd-one-out.
-      - text: Yes — but only because rotated shapes never count as quadrilaterals.
-      - text: No — but only because the triangle and the rotated square are actually the same shape.
+      - text: 'Yes: the most visually different-looking figure is always the correct odd-one-out.'
+      - text: 'Yes: but only because rotated shapes never count as quadrilaterals.'
+      - text: 'No: but only because the triangle and the rotated square are actually the same shape.'
     explanation: |
       The most visually striking figure is not always the correct odd-one-out. The rotated square still shares the true underlying rule (4 sides) with the small square and rectangle, while the "normal-looking" triangle actually breaks the rule with only 3 sides.
     approved: true
@@ -155,11 +155,11 @@ questions:
     stem: |
       Figure shows four shapes: a triangle, another triangle, a third triangle, and a four-sided kite shape. A student proposes the rule "all shapes have straight sides," noting this fits three of the triangles and technically fits the kite too, so they conclude there is no odd-one-out. Is this the correct conclusion, given that the three triangles are meant to share a more specific true rule?
     choices:
-      - text: No — "all shapes have straight sides" fits all four shapes and is too broad to distinguish them; the more specific true rule is "3 sides," which the three triangles share but the four-sided kite breaks, making the kite the actual odd-one-out.
+      - text: 'No: "all shapes have straight sides" fits all four shapes and is too broad to distinguish them; the more specific true rule is "3 sides," which the three triangles share but the four-sided kite breaks, making the kite the actual odd-one-out.'
         correct: true
-      - text: Yes — since all four shapes have straight sides, there is genuinely no odd-one-out in this group.
-      - text: No — but only because triangles never have straight sides.
-      - text: Yes — the broadest rule that fits all figures is always the correct one to use.
+      - text: 'Yes: since all four shapes have straight sides, there is genuinely no odd-one-out in this group.'
+      - text: 'No: but only because triangles never have straight sides.'
+      - text: 'Yes: the broadest rule that fits all figures is always the correct one to use.'
     explanation: |
       A valid shared rule must be specific enough to distinguish the true odd-one-out, not just broadly true of every figure. Settling for an overly broad rule that fits everyone (including the kite) misses the more specific rule (3 sides) that only the three triangles actually share.
     approved: true
@@ -219,7 +219,7 @@ questions:
     stem: |
       Figure shows five shapes with completely different outer outlines (a circle, a square, a star, a triangle, and a hexagon). At first glance, no shared rule seems to connect them. Looking closer: the circle, square, star, and hexagon are each rotated so that a small marked dot on their edge points toward the top of the figure. The triangle's marked dot points toward the bottom instead. Which shape does not belong, and what type of rule was easy to miss here?
     choices:
-      - text: The triangle does not belong; the shared rule was an internal/marking detail (the direction the marked dot points), not the outer shape, side count, or symmetry — a subtler category easy to miss without checking markings specifically.
+      - text: 'The triangle does not belong; the shared rule was an internal/marking detail (the direction the marked dot points), not the outer shape, side count, or symmetry: a subtler category easy to miss without checking markings specifically.'
         correct: true
       - text: The hexagon does not belong, since it has the most sides among the five shapes.
       - text: The star does not belong, since it is the only shape with points instead of flat sides.

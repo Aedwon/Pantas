@@ -65,7 +65,7 @@ Check each example against the characteristics, especially ones that might look 
 
 1. (a) A car engine "consumes" fuel and produces motion, which might look like metabolism. But it is not made of cells, cannot reproduce itself, cannot maintain homeostasis, and does not grow or adapt. It is non-living.
 2. (b) A crystal can "grow" larger by adding more material from its solution, which might look like growth. But this growth is just repeated chemical bonding in a fixed pattern, not cellular growth, and the crystal cannot reproduce itself, respond to stimuli, or maintain homeostasis. It is non-living.
-3. Both examples show that one trait resembling life (using energy, or growing) is not enough — true living things need all the characteristics together.
+3. Both examples show that one trait resembling life (using energy, or growing) is not enough: true living things need all the characteristics together.
 
 ## Speed Tricks & Shortcuts
 
@@ -83,7 +83,7 @@ Fire "grows" by spreading and consumes fuel (oxygen and material) for energy, bu
 
 ### #2: Viruses Are a Special Borderline Case
 
-> Viruses reproduce and evolve, but lack cells and cannot carry out metabolism independently — most scientists classify them as not fully alive.
+> Viruses reproduce and evolve, but lack cells and cannot carry out metabolism independently: most scientists classify them as not fully alive.
 
 A question may ask directly "are viruses living things?" The nuanced, correct answer is that they exist at the border: they show a couple of life's characteristics but fail the requirement of being made of cells and having independent metabolism.
 

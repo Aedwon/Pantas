@@ -15,7 +15,7 @@ $$\int 2x \, dx = x^2 + C$$
 
 Why the $+ C$? Because $x^2 + 7$ and $x^2 - 100$ also have derivative $2x$. Constants vanish when differentiating, so when we reverse, we must admit "plus some constant". Every indefinite integral ends with $+ C$.
 
-**Power rule for integrals**: the power rule backwards, raising the exponent by one, then dividing by the new exponent.
+**Power rule for integrals** (the power rule backwards): raise the exponent by one, then divide by the new exponent.
 
 $$\int x^n \, dx = \dfrac{x^{n+1}}{n + 1} + C \qquad (n \neq -1)$$
 
@@ -27,7 +27,7 @@ A **definite integral** has endpoints and produces a number, the signed area und
 
 $$\int_a^b f(x) \, dx = F(b) - F(a)$$
 
-where $F$ is any antiderivative. This recipe, antidifferentiate, plug in the top limit, subtract the bottom limit, is the **Fundamental Theorem of Calculus**. The $C$ cancels in the subtraction, so definite integrals need no $+ C$.
+where $F$ is any antiderivative. This recipe (antidifferentiate, plug in the top limit, subtract the bottom limit) is the **Fundamental Theorem of Calculus**. The $C$ cancels in the subtraction, so definite integrals need no $+ C$.
 
 <!-- ILLUSTRATION: curve above the x-axis with the region between x = a and x = b shaded, labeled as the definite integral -->
 

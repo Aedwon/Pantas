@@ -27,7 +27,7 @@ Four major properties change in predictable patterns (**trends**) as you move ac
 
 **Ionization energy** (the energy needed to remove an electron): Increases going left to right across a period (electrons are held more tightly); decreases going down a group (outer electrons are farther from the nucleus and easier to remove).
 
-**Electronegativity** (how strongly an atom attracts electrons in a bond): follows the same pattern as ionization energy — increases left to right, decreases down a group.
+**Electronegativity** (how strongly an atom attracts electrons in a bond): follows the same pattern as ionization energy: increases left to right, decreases down a group.
 
 **Electron affinity** (how much energy is released when an atom gains an electron): generally increases left to right across a period (nonmetals, on the right, tend to gain electrons more readily than metals).
 
@@ -44,7 +44,7 @@ Connect column position to shared valence electrons.
 
 1. Elements in the same column (group) share the same number of valence (outer) electrons.
 2. Since chemical behavior is largely determined by valence electrons, these two elements are expected to behave similarly in chemical reactions, even though they are in different periods (rows) and have different atomic sizes.
-3. This is exactly why the periodic table is organized by columns — it groups elements with shared chemical personality together.
+3. This is exactly why the periodic table is organized by columns: it groups elements with shared chemical personality together.
 
 ### #2: Comparing Atomic Radius
 
@@ -66,7 +66,7 @@ Both are in the same group, so apply the down-A-group trend.
 
 1. Ionization energy decreases going down a group, since outer electrons sit farther from the nucleus and are held less tightly.
 2. Lithium is higher in the group (period $2$); potassium is lower (period $4$).
-3. Since lithium is higher up, it has the higher (greater) ionization energy — removing an electron from lithium takes more energy than from potassium.
+3. Since lithium is higher up, it has the higher (greater) ionization energy: removing an electron from lithium takes more energy than from potassium.
 
 ### #4: Metal, Nonmetal, or Metalloid?
 
@@ -90,7 +90,7 @@ Remember the metal/nonmetal split with one phrase: "metals lose, nonmetals gain"
 
 ### #1: Mixing Up the Direction of the Atomic Radius Trend
 
-> Atomic radius decreases left to right, but increases going down — the opposite direction from the other three major trends.
+> Atomic radius decreases left to right, but increases going down: the opposite direction from the other three major trends.
 
 Since ionization energy, electronegativity, and electron affinity all increase toward the upper right, students often assume atomic radius does too. It is the one trend that runs in reverse, growing largest toward the lower left of the table.
 

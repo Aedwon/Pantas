@@ -140,7 +140,7 @@ questions:
     stem: |
       Ionization energy, electronegativity, and electron affinity all generally increase toward the upper-right corner of the periodic table. Where is atomic radius the largest?
     choices:
-      - text: Toward the lower-left corner of the table — the opposite direction from the other three trends.
+      - text: 'Toward the lower-left corner of the table: the opposite direction from the other three trends.'
         correct: true
       - text: Toward the upper-right corner, the same direction as the other three trends.
       - text: Exactly in the center of the table.
@@ -166,12 +166,12 @@ questions:
     type: classify
     difficulty: hard
     stem: |
-      Two elements share neither the same period nor the same group — for example, one sits diagonally from the other. Can a single straightforward trend rule (like "left to right" or "top to bottom") be applied directly to compare them?
+      Two elements share neither the same period nor the same group, for example, one sits diagonally from the other. Can a single straightforward trend rule (like "left to right" or "top to bottom") be applied directly to compare them?
     choices:
-      - text: No — comparing elements that share neither a period nor a group requires combining both trends carefully, and the result is not always obvious.
+      - text: 'No: comparing elements that share neither a period nor a group requires combining both trends carefully, and the result is not always obvious.'
         correct: true
-      - text: Yes — the "left to right" rule always applies regardless of row.
-      - text: Yes — the "top to bottom" rule always applies regardless of column.
+      - text: 'Yes: the "left to right" rule always applies regardless of row.'
+      - text: 'Yes: the "top to bottom" rule always applies regardless of column.'
       - text: No comparison is ever possible unless the elements share a period or group.
     explanation: |
       The simple period and group trend rules only apply directly when two elements share a period or a group. Diagonal neighbors require reasoning about both trends together, since neither rule applies on its own.
@@ -182,13 +182,13 @@ questions:
     stem: |
       A student assumes that all metalloids behave in exactly the same way, since they all sit along the same staircase boundary. Is this assumption correct?
     choices:
-      - text: No — metalloids fall along a spectrum of properties between metals and nonmetals, not one identical behavior.
+      - text: 'No: metalloids fall along a spectrum of properties between metals and nonmetals, not one identical behavior.'
         correct: true
-      - text: Yes — all metalloids have identical chemical and physical properties.
-      - text: No — because metalloids are not actually related to each other at all.
-      - text: Yes — as long as they are in the same period.
+      - text: 'Yes: all metalloids have identical chemical and physical properties.'
+      - text: 'No: because metalloids are not actually related to each other at all.'
+      - text: 'Yes: as long as they are in the same period.'
     explanation: |
-      Metalloids share the general trait of being useful as semiconductors, but their properties still vary along the staircase — they are not all identical to each other.
+      Metalloids share the general trait of being useful as semiconductors, but their properties still vary along the staircase: they are not all identical to each other.
     approved: true
   - id: q-chemistry-periodic-table-0014
     type: compare-contrast
@@ -200,7 +200,7 @@ questions:
         correct: true
       - text: The metal, since metals generally have higher electron affinity.
       - text: Both have exactly the same electron affinity, regardless of period position.
-      - text: Neither — electron affinity does not relate to metal or nonmetal character.
+      - text: 'Neither: electron affinity does not relate to metal or nonmetal character.'
     explanation: |
       Electron affinity generally increases left to right across a period, and nonmetals (right side) tend to gain electrons more readily than metals (left side), matching this trend.
     approved: true

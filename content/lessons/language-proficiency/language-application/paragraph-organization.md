@@ -30,7 +30,7 @@ Which sentence should come first in the paragraph? (A) "This eventually led to c
 **Solution:**
 1. (A) uses "this," which needs something already mentioned: it cannot be first.
 2. (B) uses "these limited resources," which also needs an earlier reference: it cannot be first either.
-3. (D) uses "these conflicts," referring back to something already introduced: also not first.
+3. (D) uses "these conflicts," referring back to something already introduced, also not first.
 4. (C) introduces the general topic (ancient civilizations settling near rivers) with no unexplained pronouns: this is the topic sentence, and comes first.
 
 ### #2: Tracking a Pronoun's Antecedent

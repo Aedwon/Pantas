@@ -18,7 +18,7 @@ Two tools solve almost every sentence completion question.
 - Words like *but*, *however*, and *although* signal a contrast (the blank should mean something different from, or opposite to, a nearby idea).
 - Words like *and*, *similarly*, and *moreover* signal agreement or continuation (the blank should mean something similar to a nearby idea).
 
-**Tool 2: grammar fit.** Even if a word's meaning seems right, it must also fit the sentence grammatically: matching the correct part of speech, tense, and number required by the sentence structure.
+**Tool 2: grammar fit.** Even if a word's meaning seems right, it must also fit the sentence grammatically, matching the correct part of speech, tense, and number required by the sentence structure.
 
 For sentences with two blanks, solve the easier blank first (whichever one has clearer context clues), which often narrows down the answer choices enough to make the second blank obvious.
 
@@ -50,7 +50,7 @@ Choose the best pair of words: "Despite her ______ preparation, she felt ______ 
 
 **Solution:**
 1. "Despite" signals a contrast between the two blanks: whatever quality her preparation had, her feeling should be the opposite of what that preparation would normally cause.
-2. Test each pair: (B) "thorough" preparation would normally lead to confidence, but she instead felt "nervous," creating a genuine contrast that matches "despite."
+2. Test each pair: (B) "thorough" preparation would normally lead to confidence, but she instead felt "nervous", a genuine contrast, matching "despite."
 3. (C) "thorough" preparation matching "confident" would not be a contrast (thorough preparation naturally causing confidence), so it fails the "despite" signal.
 4. The best answer is (B): "Despite her *thorough* preparation, she felt *nervous* before the big presentation."
 

@@ -78,7 +78,7 @@ Choose the correct verb form: By the time the guests arrived, she *(cooked / had
 **Solution:**
 
 1. Two past events are being compared: the guests arriving, and the cooking being finished.
-2. The cooking was completed before the guests arrived: an earlier past action relative to another past action.
+2. The cooking was completed before the guests arrived, an earlier past action relative to another past action.
 3. This calls for the past perfect tense: "By the time the guests arrived, she *had cooked* the entire meal."
 
 ## Speed Tricks & Shortcuts

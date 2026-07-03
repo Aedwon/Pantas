@@ -106,7 +106,7 @@ questions:
       - text: Waning crescent
       - text: Waxing crescent
     explanation: |
-      "Waning" means shrinking, and "gibbous" means more than half lit — combining the two names the phase between full moon and last quarter: waning gibbous.
+      "Waning" means shrinking, and "gibbous" means more than half lit: combining the two names the phase between full moon and last quarter: waning gibbous.
     approved: true
 
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0008
@@ -145,11 +145,11 @@ questions:
     stem: |
       A student assumes a lunar eclipse must happen at new moon, since "lunar" refers to the Moon and new moon is when the Moon looks different. Is this correct?
     choices:
-      - text: No — a lunar eclipse happens at full moon, when Earth passes between the Sun and Moon; a solar eclipse happens at new moon, when the Moon passes between the Sun and Earth.
+      - text: 'No: a lunar eclipse happens at full moon, when Earth passes between the Sun and Moon; a solar eclipse happens at new moon, when the Moon passes between the Sun and Earth.'
         correct: true
-      - text: Yes — a lunar eclipse always happens at new moon.
-      - text: No — but only because lunar eclipses never actually occur.
-      - text: Yes — both solar and lunar eclipses happen at the exact same phase.
+      - text: 'Yes: a lunar eclipse always happens at new moon.'
+      - text: 'No: but only because lunar eclipses never actually occur.'
+      - text: 'Yes: both solar and lunar eclipses happen at the exact same phase.'
     explanation: |
       It is easy to swap these. Anchor it by remembering who blocks whom: the Moon blocks the Sun during a solar eclipse (needs new moon); Earth blocks sunlight from reaching the Moon during a lunar eclipse (needs full moon).
     approved: true
@@ -166,7 +166,7 @@ questions:
       - text: An annular solar eclipse, since the Moon is too far to fully cover the Sun
       - text: A lunar eclipse, since the Moon is involved
     explanation: |
-      Viewers standing in the umbra (the Moon's darkest shadow) see the Sun completely covered — a total solar eclipse.
+      Viewers standing in the umbra (the Moon's darkest shadow) see the Sun completely covered: a total solar eclipse.
     approved: true
 
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0012
@@ -181,7 +181,7 @@ questions:
       - text: A "blood moon," a partial lunar eclipse
       - text: A "ring of fire," a total lunar eclipse
     explanation: |
-      When the whole Moon passes into Earth's umbra and turns reddish, it is called a "blood moon" — a total lunar eclipse. ("Ring of fire" describes an annular solar eclipse instead.)
+      When the whole Moon passes into Earth's umbra and turns reddish, it is called a "blood moon": a total lunar eclipse. ("Ring of fire" describes an annular solar eclipse instead.)
     approved: true
 
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0013
@@ -190,13 +190,13 @@ questions:
     stem: |
       A question describes viewers who see the Sun only partly covered during an eclipse. Are these viewers standing in the umbra or the penumbra?
     choices:
-      - text: The penumbra — the lighter, partial shadow, where the Sun appears only partly covered
+      - text: 'The penumbra: the lighter, partial shadow, where the Sun appears only partly covered'
         correct: true
-      - text: The umbra — the dark, complete shadow, where the Sun appears only partly covered
+      - text: 'The umbra: the dark, complete shadow, where the Sun appears only partly covered'
       - text: Both the umbra and penumbra produce identical partial coverage.
       - text: Neither; partial coverage only happens outside both shadow regions.
     explanation: |
-      Viewers in the umbra (the dark, complete shadow) see a total eclipse. Viewers in the penumbra (the lighter, partial shadow) see only a partial eclipse — a description of "the Sun partly covered" points to the penumbra.
+      Viewers in the umbra (the dark, complete shadow) see a total eclipse. Viewers in the penumbra (the lighter, partial shadow) see only a partial eclipse: a description of "the Sun partly covered" points to the penumbra.
     approved: true
 
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0014
@@ -226,7 +226,7 @@ questions:
       - text: First quarter; a solar eclipse
       - text: Full moon; a solar eclipse
     explanation: |
-      The Moon sitting between the Sun and Earth, casting its shadow on Earth, can only happen at new moon — and since the Moon's shadow falls on Earth, this is a solar eclipse.
+      The Moon sitting between the Sun and Earth, casting its shadow on Earth, can only happen at new moon, and since the Moon's shadow falls on Earth, this is a solar eclipse.
     approved: true
 
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0016
@@ -235,11 +235,11 @@ questions:
     stem: |
       During a full moon, Earth passes almost perfectly between the Sun and the Moon, and observers report the whole Moon passing into Earth's darkest shadow. A classmate claims this event must be an annular solar eclipse. Evaluate this claim and identify the actual event.
     choices:
-      - text: The claim is incorrect — since Earth is between the Sun and Moon at full moon, and the whole Moon enters Earth's umbra, this is a total lunar eclipse, not any type of solar eclipse.
+      - text: 'The claim is incorrect: since Earth is between the Sun and Moon at full moon, and the whole Moon enters Earth''s umbra, this is a total lunar eclipse, not any type of solar eclipse.'
         correct: true
       - text: The claim is correct, since any eclipse involving the Moon's shadow region qualifies as an annular solar eclipse.
       - text: The claim is correct, since annular eclipses only happen during a full moon.
       - text: The event cannot be identified without knowing the exact distance between the Moon and Earth.
     explanation: |
-      Solar eclipses require the Moon to sit between the Sun and Earth, which only happens at new moon — not full moon. Since Earth is between the Sun and Moon here, with the whole Moon entering Earth's umbra, this describes a total lunar eclipse.
+      Solar eclipses require the Moon to sit between the Sun and Earth, which only happens at new moon, not full moon. Since Earth is between the Sun and Moon here, with the whole Moon entering Earth's umbra, this describes a total lunar eclipse.
     approved: true

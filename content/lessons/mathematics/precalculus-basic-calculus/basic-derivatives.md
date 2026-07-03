@@ -31,7 +31,7 @@ $$\left(\dfrac{u}{v}\right)' = \dfrac{u'v - uv'}{v^2}$$
 
 The order in the numerator matters because of the minus sign.
 
-**Chain Rule**: for a function inside another function, such as $(3x^2 + 1)^5$, differentiate the outside (treating the inside as a block), then multiply by the derivative of the inside.
+**Chain Rule**: for a function inside another function, like $(3x^2 + 1)^5$, differentiate the outside (treating the inside as a block), then multiply by the derivative of the inside.
 
 $$\dfrac{d}{dx} \left[ g(x) \right]^n = n \left[ g(x) \right]^{n-1} \cdot g'(x)$$
 
@@ -141,7 +141,7 @@ $$f'(3) = 2(3) - 4 = 2$$
 
 $$2x - 4 = 0 \quad \Rightarrow \quad x = 2$$
 
-5. At $x = 2$, $f(2) = 4 - 8 = -4$. The tangent is horizontal at the point $(2, -4)$: the bottom of the parabola.
+5. At $x = 2$, $f(2) = 4 - 8 = -4$. The tangent is horizontal at the point $(2, -4)$, the bottom of the parabola.
 
 ## Speed Tricks & Shortcuts
 
@@ -175,4 +175,4 @@ Writing the derivative of $(3x^2 + 1)^5$ as just $5(3x^2 + 1)^4$ misses the fact
 
 > The power rule works for $x^n$ with a constant exponent, not for $2^x$.
 
-Applying the power rule to $2^x$ (getting $x \cdot 2^{x-1}$) is wrong: exponential functions have their own rule involving logarithms, which is beyond this lesson. On the CET, know that $x^5$ and $5^x$ are different species: a favorite concept question.
+Applying the power rule to $2^x$ (getting $x \cdot 2^{x-1}$) is wrong: exponential functions have their own rule involving logarithms, which is beyond this lesson. On the CET, know that $x^5$ and $5^x$ are different species, a favorite concept question.

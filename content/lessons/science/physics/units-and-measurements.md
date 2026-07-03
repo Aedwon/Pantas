@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-Physics describes the world with numbers attached to units. A measurement without a unit is meaningless — saying a rope is "$5$ long" tells you nothing until you know if that means $5$ meters or $5$ centimeters.
+Physics describes the world with numbers attached to units. A measurement without a unit is meaningless: saying a rope is "$5$ long" tells you nothing until you know if that means $5$ meters or $5$ centimeters.
 
 ### The Seven SI Base Units
 

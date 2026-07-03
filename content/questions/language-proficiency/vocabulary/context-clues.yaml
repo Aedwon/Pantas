@@ -123,11 +123,11 @@ questions:
       The word "sanction" is commonly known to mean a penalty or punishment. In this sentence, does it carry that common meaning?
       The committee's **sanction** allowed the new policy to proceed immediately, since it had received full official approval.
     choices:
-      - text: No — here "sanction" means official approval, a secondary meaning; picking "punishment" just because it is the most common meaning would not make sense in this sentence, since the policy is proceeding, not being stopped.
+      - text: 'No: here "sanction" means official approval, a secondary meaning; picking "punishment" just because it is the most common meaning would not make sense in this sentence, since the policy is proceeding, not being stopped.'
         correct: true
-      - text: Yes — "sanction" always means a penalty or punishment, regardless of context.
-      - text: Yes — the sentence describes the policy being punished by the committee.
-      - text: No — but only because "sanction" has no relationship to approval or punishment at all.
+      - text: 'Yes: "sanction" always means a penalty or punishment, regardless of context.'
+      - text: 'Yes: the sentence describes the policy being punished by the committee.'
+      - text: 'No: but only because "sanction" has no relationship to approval or punishment at all.'
     explanation: |
       Test makers love to use words with a common meaning in a different, secondary way. Here, the sentence describes the policy proceeding due to "full official approval," so "sanction" means approval, not its more common meaning of punishment. Always plug the choice back into the sentence to see if it makes sense.
     approved: true
@@ -138,13 +138,13 @@ questions:
     stem: |
       The **belligerent** customer screamed at the staff and threatened to fight anyone who disagreed with him. A choice option is "relating to the belly," since the word looks similar to "belly." Is this the correct meaning?
     choices:
-      - text: No — "relating to the belly" is a look-alike trap based on how the word appears, not its actual meaning; the context (screaming, threatening to fight) shows "belligerent" means hostile and aggressive.
+      - text: 'No: "relating to the belly" is a look-alike trap based on how the word appears, not its actual meaning; the context (screaming, threatening to fight) shows "belligerent" means hostile and aggressive.'
         correct: true
-      - text: Yes — "belligerent" and "belly" share the same root, so they mean the same thing.
-      - text: Yes — the customer's behavior described relates to stomach pain.
-      - text: No — but only because the customer was not actually angry.
+      - text: 'Yes: "belligerent" and "belly" share the same root, so they mean the same thing.'
+      - text: 'Yes: the customer''s behavior described relates to stomach pain.'
+      - text: 'No: but only because the customer was not actually angry.'
     explanation: |
-      If a choice looks or sounds exactly like the hard word, it is usually a trap. The test maker hopes you will panic and pick a word that looks familiar. Ignore how the word looks — focus only on the clues in the sentence, which describe screaming and threatening to fight, meaning "hostile and aggressive."
+      If a choice looks or sounds exactly like the hard word, it is usually a trap. The test maker hopes you will panic and pick a word that looks familiar. Ignore how the word looks: focus only on the clues in the sentence, which describe screaming and threatening to fight, meaning "hostile and aggressive."
     approved: true
 
   - id: q-vocabulary-context-clues-0010
@@ -160,7 +160,7 @@ questions:
       - text: Duplicitous cannot be determined from this sentence at all, with or without "however."
       - text: Duplicitous means generous, since the sentence describes a politician making promises.
     explanation: |
-      Missing the word "however" will make you pick the exact wrong answer — if you miss an antonym signal, you pick a synonym instead. Here, "however" reverses the direction from "seemed genuine" to reveal the politician is actually "duplicitous," meaning deceptive and two-faced.
+      Missing the word "however" will make you pick the exact wrong answer: if you miss an antonym signal, you pick a synonym instead. Here, "however" reverses the direction from "seemed genuine" to reveal the politician is actually "duplicitous," meaning deceptive and two-faced.
     approved: true
 
   - id: q-vocabulary-context-clues-0011

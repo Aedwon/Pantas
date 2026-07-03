@@ -46,7 +46,7 @@ questions:
       - text: Na
       - text: May
     explanation: |
-      Ang salitang "maganda" pagkatapos ng patlang ay sumasagot sa tanong na "paano" (how) sila kumanta — isang pang-abay (adverb). Gamitin ang "nang" para sa mga pang-abay.
+      Ang salitang "maganda" pagkatapos ng patlang ay sumasagot sa tanong na "paano" (how) sila kumanta: isang pang-abay (adverb). Gamitin ang "nang" para sa mga pang-abay.
     approved: true
 
   - id: q-vocabulary-confusing-words-0004
@@ -76,7 +76,7 @@ questions:
       - text: Effect, its
       - text: Affect, it's
     explanation: |
-      The first blank follows "a devastating," a descriptive phrase pointing to a noun — "effect." The second blank, tested with "it is obvious," sounds correct, so "it's" is needed.
+      The first blank follows "a devastating," a descriptive phrase pointing to a noun: "effect." The second blank, tested with "it is obvious," sounds correct, so "it's" is needed.
     approved: true
 
   - id: q-vocabulary-confusing-words-0006
@@ -91,7 +91,7 @@ questions:
       - text: Affecting
       - text: Effected
     explanation: |
-      The blank needs an action word (verb) describing what loud noises do to concentration — "affect."
+      The blank needs an action word (verb) describing what loud noises do to concentration: "affect."
     approved: true
 
   - id: q-vocabulary-confusing-words-0007
@@ -145,13 +145,13 @@ questions:
     stem: |
       A student sees "its'" as one of the answer choices for a possessive word. Is "its'" a real word in English?
     choices:
-      - text: No — "its'" is a fake word that does not exist in the English language; exam makers include it as a common trap.
+      - text: 'No: "its''" is a fake word that does not exist in the English language; exam makers include it as a common trap.'
         correct: true
-      - text: Yes — "its'" is the correct plural possessive form.
-      - text: Yes — but only used in very formal academic writing.
-      - text: No — but only because possessive words can never end in an apostrophe.
+      - text: 'Yes: "its''" is the correct plural possessive form.'
+      - text: 'Yes: but only used in very formal academic writing.'
+      - text: 'No: but only because possessive words can never end in an apostrophe.'
     explanation: |
-      Exam makers love to put "its'" in the choices, hoping you think it is a plural ownership word. This word does not exist in the English language — cross it out immediately.
+      Exam makers love to put "its'" in the choices, hoping you think it is a plural ownership word. This word does not exist in the English language: cross it out immediately.
     approved: true
 
   - id: q-vocabulary-confusing-words-0011
@@ -160,11 +160,11 @@ questions:
     stem: |
       Sa pang-araw-araw na usapan, madalas sinasabi ng ilang Pilipino ang "Sila Maria ay pumunta sa palengke." Tama ba ito sa pormal na gramatikang Filipino na sinusubok sa pagsusulit?
     choices:
-      - text: Mali — dapat "Sina Maria" ang gamitin kapag sinusundan ito ng aktwal na pangalan; ang "Sila" ay ginagamit lamang kung wala nang nakasulat na pangalan, tulad ng "Umalis sila."
+      - text: 'Mali: dapat "Sina Maria" ang gamitin kapag sinusundan ito ng aktwal na pangalan; ang "Sila" ay ginagamit lamang kung wala nang nakasulat na pangalan, tulad ng "Umalis sila."'
         correct: true
-      - text: Tama — palaging tama ang "Sila" bago ang isang pangalan.
-      - text: Mali — dapat "Kina Maria" ang laging gamitin sa lahat ng pagkakataon.
-      - text: Tama — ang "Sila" at "Sina" ay palaging maaaring gamitin nang magkapalit.
+      - text: 'Tama: palaging tama ang "Sila" bago ang isang pangalan.'
+      - text: 'Mali: dapat "Kina Maria" ang laging gamitin sa lahat ng pagkakataon.'
+      - text: 'Tama: ang "Sila" at "Sina" ay palaging maaaring gamitin nang magkapalit.'
     explanation: |
       Karaniwang sinasabi ng mga Pilipino ang "Sila Maria" sa pang-araw-araw na usapan, ngunit mali ito sa pormal na Filipino. Sinusubok ng pagsusulit ang pormal na tuntunin: gamitin ang "Sina" kapag sinusundan ng mga pangalan; gamitin ang "Sila" lamang kung wala nang nakasulat na pangalan.
     approved: true
@@ -175,11 +175,11 @@ questions:
     stem: |
       Umalis siya ______ alas-singko ng hapon. A student assumes "nang" is correct here since the sentence involves time. Is this correct?
     choices:
-      - text: No — "ng" is correct here, since the sentence gives an exact clock time (alas-singko), not a "how" or repeating action; "nang" is reserved for adverbs and repeating actions, not specific times.
+      - text: 'No: "ng" is correct here, since the sentence gives an exact clock time (alas-singko), not a "how" or repeating action; "nang" is reserved for adverbs and repeating actions, not specific times.'
         correct: true
-      - text: Yes — "nang" should always be used whenever a sentence mentions time.
-      - text: Yes — but only because "alas-singko" is not considered an exact time.
-      - text: No — but only because "ng" can never appear before a time expression.
+      - text: 'Yes: "nang" should always be used whenever a sentence mentions time.'
+      - text: 'Yes: but only because "alas-singko" is not considered an exact time.'
+      - text: 'No: but only because "ng" can never appear before a time expression.'
     explanation: |
       Use "nang" to mean "when" for an event, but if the sentence gives an exact clock time or specific day, use "ng" instead. Test makers try to confuse you here since both deal with time, but exact clock times take "ng."
     approved: true
@@ -196,7 +196,7 @@ questions:
       - text: Effects
       - text: Affecting
     explanation: |
-      The word "a" right before the blank signals that a noun is needed — "effect," the result of the therapy.
+      The word "a" right before the blank signals that a noun is needed: "effect," the result of the therapy.
     approved: true
 
   - id: q-vocabulary-confusing-words-0014
@@ -226,5 +226,5 @@ questions:
       - text: Effect, it's
       - text: Affect, its
     explanation: |
-      The first blank follows "the scandal's," a possessive phrase pointing to a noun — "effect" (the result). The second blank describes ownership of the "handling," and testing "it is handling" sounds wrong, so the possessive "its" is needed.
+      The first blank follows "the scandal's," a possessive phrase pointing to a noun: "effect" (the result). The second blank describes ownership of the "handling," and testing "it is handling" sounds wrong, so the possessive "its" is needed.
     approved: true

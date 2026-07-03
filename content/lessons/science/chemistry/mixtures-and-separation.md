@@ -96,12 +96,12 @@ If a question specifically asks to recover both parts of a liquid mixture (like 
 
 ### #2: Assuming Filtration Works on Any Mixture
 
-> Filtration only separates an undissolved solid from a liquid — it cannot separate two mixed liquids, or a fully dissolved solid.
+> Filtration only separates an undissolved solid from a liquid: it cannot separate two mixed liquids, or a fully dissolved solid.
 
 Filtration relies on solid particles being too large to pass through the filter's tiny holes. A dissolved solid (like salt fully dissolved in water) has broken down into particles too small for filtration to catch; evaporation or distillation is needed instead.
 
 ### #3: Thinking Homogeneous Mixtures Cannot Be Separated
 
-> Homogeneous mixtures (uniform-looking) can still be separated using techniques like distillation or evaporation — "uniform" does not mean "unseparable."
+> Homogeneous mixtures (uniform-looking) can still be separated using techniques like distillation or evaporation: "uniform" does not mean "unseparable."
 
 Saltwater looks completely uniform (homogeneous), yet it can still be separated into salt and water through evaporation or distillation. Being homogeneous only describes appearance, not whether the mixture can be physically separated.

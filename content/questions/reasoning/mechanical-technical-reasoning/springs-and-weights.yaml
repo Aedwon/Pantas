@@ -129,7 +129,7 @@ questions:
       - text: The actual stretch is 4 cm, since only the original weight and stretch matter.
       - text: The actual stretch cannot be determined without knowing the spring's exact material.
     explanation: |
-      Stretch is proportional to weight (a constant ratio), not simply increased by a fixed amount each time weight increases by some fixed increment. The correct approach scales by the true ratio ($3 \div 2 = 1.5$), giving $4 \times 1.5 = 6$ cm — the student's fixed-amount reasoning only happens to work for whole-number weight multiples, not fractional ones like this.
+      Stretch is proportional to weight (a constant ratio), not simply increased by a fixed amount each time weight increases by some fixed increment. The correct approach scales by the true ratio ($3 \div 2 = 1.5$), giving $4 \times 1.5 = 6$ cm: the student's fixed-amount reasoning only happens to work for whole-number weight multiples, not fractional ones like this.
     approved: true
 
   - id: q-mechanical-technical-reasoning-springs-and-weights-0009
@@ -139,13 +139,13 @@ questions:
     stem: |
       Spring E stretches 9 cm under a 3 kg weight. Spring F stretches 3 cm under the same 3 kg weight. A student claims Spring E is the "stiffer" spring, reasoning that it moved (stretched) more. Is this correct?
     choices:
-      - text: No — a stiffer spring stretches less under the same weight, not more; Spring F, which stretched less, is actually the stiffer spring.
+      - text: 'No: a stiffer spring stretches less under the same weight, not more; Spring F, which stretched less, is actually the stiffer spring.'
         correct: true
-      - text: Yes — "stiffer" means the spring that stretches the most under a given weight.
-      - text: Yes — but only because Spring E is physically larger than Spring F.
-      - text: No — but only because Spring E and Spring F are actually the same spring.
+      - text: 'Yes: "stiffer" means the spring that stretches the most under a given weight.'
+      - text: 'Yes: but only because Spring E is physically larger than Spring F.'
+      - text: 'No: but only because Spring E and Spring F are actually the same spring.'
     explanation: |
-      It is easy to intuitively assume "stiffer" means "moves more" or "stretches more." In fact, stiffness describes resistance to stretching, so a stiffer spring is precisely the one that stretches the least for a given weight — here, Spring F, not Spring E.
+      It is easy to intuitively assume "stiffer" means "moves more" or "stretches more." In fact, stiffness describes resistance to stretching, so a stiffer spring is precisely the one that stretches the least for a given weight: here, Spring F, not Spring E.
     approved: true
 
   - id: q-mechanical-technical-reasoning-springs-and-weights-0010
@@ -155,13 +155,13 @@ questions:
     stem: |
       Spring G stretches 4 cm under an 8 kg weight. Spring H stretches 4 cm under a 16 kg weight. A student claims both springs are equally stiff, since they stretched the same amount. Is this a valid comparison?
     choices:
-      - text: No — the two springs were tested under different weights, so this comparison is not valid; Spring H is actually stiffer, since it resisted stretching just as much despite carrying double the weight of Spring G.
+      - text: 'No: the two springs were tested under different weights, so this comparison is not valid; Spring H is actually stiffer, since it resisted stretching just as much despite carrying double the weight of Spring G.'
         correct: true
-      - text: Yes — since both springs stretched exactly 4 cm, they must be equally stiff regardless of the weights used.
-      - text: Yes — but only because both springs are made of the same material.
-      - text: No — but only because Spring G and Spring H cannot both stretch exactly 4 cm.
+      - text: 'Yes: since both springs stretched exactly 4 cm, they must be equally stiff regardless of the weights used.'
+      - text: 'Yes: but only because both springs are made of the same material.'
+      - text: 'No: but only because Spring G and Spring H cannot both stretch exactly 4 cm.'
     explanation: |
-      To fairly compare which spring is stiffer, the weight applied to each spring must be the same — comparing stretches under different weights does not directly reveal which spring is inherently stiffer. Spring H is actually stiffer, since it resisted stretching just as much despite a heavier weight.
+      To fairly compare which spring is stiffer, the weight applied to each spring must be the same: comparing stretches under different weights does not directly reveal which spring is inherently stiffer. Spring H is actually stiffer, since it resisted stretching just as much despite a heavier weight.
     approved: true
 
   - id: q-mechanical-technical-reasoning-springs-and-weights-0011
@@ -203,11 +203,11 @@ questions:
     stem: |
       Spring L stretches 4 cm under a 2 kg weight, and 10 cm under a 4 kg weight. A student claims this data is consistent with a simple proportional (Hooke's law) relationship. Check the ratios: is this claim correct?
     choices:
-      - text: No — the first ratio is $4 \div 2 = 2$ cm per kg, but the second ratio is $10 \div 4 = 2.5$ cm per kg; since these ratios are not equal, this spring's behavior is not simply proportional.
+      - text: 'No: the first ratio is $4 \div 2 = 2$ cm per kg, but the second ratio is $10 \div 4 = 2.5$ cm per kg; since these ratios are not equal, this spring''s behavior is not simply proportional.'
         correct: true
-      - text: Yes — both stretches came from the same spring, so they must automatically be proportional.
-      - text: Yes — the ratios $4 \div 2$ and $10 \div 4$ are actually equal.
-      - text: No — but only because a spring can never stretch different amounts under different weights.
+      - text: 'Yes: both stretches came from the same spring, so they must automatically be proportional.'
+      - text: 'Yes: the ratios $4 \div 2$ and $10 \div 4$ are actually equal.'
+      - text: 'No: but only because a spring can never stretch different amounts under different weights.'
     explanation: |
       To check proportionality, compute stretch-per-weight for each data point: $4 \div 2 = 2$ cm/kg and $10 \div 4 = 2.5$ cm/kg. Since these two ratios differ, the data is not consistent with a simple proportional relationship.
     approved: true

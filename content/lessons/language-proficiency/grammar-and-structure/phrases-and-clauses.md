@@ -13,9 +13,9 @@ A **phrase** is a group of words that works together but does not have both a su
 
 A **clause** does have both a subject and a verb. There are two kinds.
 
-An **independent clause** has a subject and a verb and expresses a complete thought, so it can stand alone as its own sentence: "The rain stopped." (subject: rain; verb: stopped; complete thought)
+An **independent clause** has a subject and a verb and expresses a complete thought. It can stand alone as its own sentence: "The rain stopped." (subject: rain; verb: stopped; complete thought)
 
-A **dependent clause** (also called a subordinate clause) also has a subject and a verb, but it does not express a complete thought on its own: it depends on an independent clause to make sense. Dependent clauses usually begin with a word like *because*, *although*, *when*, *if*, *since*, or *while*: "Because the rain stopped" has a subject (rain) and a verb (stopped), but it leaves you asking "...then what?" It cannot stand alone.
+A **dependent clause** (also called a subordinate clause) also has a subject and a verb, but it does not express a complete thought on its own. It depends on an independent clause to make sense. Dependent clauses usually begin with a word like *because*, *although*, *when*, *if*, *since*, or *while*: "Because the rain stopped" has a subject (rain) and a verb (stopped), but it leaves you asking "...then what?" It cannot stand alone.
 
 <!-- ILLUSTRATION: two labeled sentence strips side by side, one showing "The rain stopped." marked as a complete independent clause, and one showing "Because the rain stopped," marked as an incomplete dependent clause with a connecting arrow to a missing second half -->
 
@@ -38,7 +38,7 @@ Identify whether each clause is independent or dependent: (a) "Although she was 
 
 **Solution:**
 
-1. (a) "Although she was tired" has a subject ("she") and a verb ("was"), but the word "although" makes it an incomplete thought, so it needs more information: Dependent.
+1. (a) "Although she was tired" has a subject ("she") and a verb ("was"), but the word "although" makes it an incomplete thought; it needs more information: Dependent.
 2. (b) "She finished her homework" has a subject, a verb, and expresses a complete thought on its own: Independent.
 
 ### #3: Combining Clauses Correctly

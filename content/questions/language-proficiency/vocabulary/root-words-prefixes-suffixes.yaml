@@ -65,7 +65,7 @@ questions:
       - text: Pag-ibig
       - text: Ginawa
     explanation: |
-      Ang "pinagsumikapan" ay may salitang-ugat na "sikap," na may unlapi ("pinag-"), gitlapi ("-um-"), at hulapi ("-an") — lahat ng 3 bahagi. Ang "kasaganaan" ay kabilaan lamang (ka- ... -an); ang "pag-ibig" ay unlapi lamang; ang "ginawa" ay gitlapi lamang.
+      Ang "pinagsumikapan" ay may salitang-ugat na "sikap," na may unlapi ("pinag-"), gitlapi ("-um-"), at hulapi ("-an"): lahat ng 3 bahagi. Ang "kasaganaan" ay kabilaan lamang (ka- ... -an); ang "pag-ibig" ay unlapi lamang; ang "ginawa" ay gitlapi lamang.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0005
@@ -95,7 +95,7 @@ questions:
       - text: Violent
       - text: Gloomy
     explanation: |
-      "Malevolent" breaks down into "mal-" (bad) and "vol" (wish) — wishing bad things on others. The opposite prefix, "bene-" (good), gives "benevolent," the exact opposite word.
+      "Malevolent" breaks down into "mal-" (bad) and "vol" (wish): wishing bad things on others. The opposite prefix, "bene-" (good), gives "benevolent," the exact opposite word.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0007
@@ -174,7 +174,7 @@ questions:
       - text: Sinulat
       - text: Maganda
     explanation: |
-      Ang "kabataan" ay may salitang-ugat na "bata," na may unlapi ("ka-") at hulapi ("-an") na parehong ginamit — ito ay kabilaan.
+      Ang "kabataan" ay may salitang-ugat na "bata," na may unlapi ("ka-") at hulapi ("-an") na parehong ginamit: ito ay kabilaan.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0012
@@ -221,13 +221,13 @@ questions:
     stem: |
       A warning label reads "INFLAMMABLE MATERIAL." A student assumes this means the material cannot catch fire, since "in-" usually means "not." Is this correct?
     choices:
-      - text: No — "inflammable" actually means the same as "flammable"; it CAN catch fire. Here, "in-" does not mean "not," making this a common exam trap.
+      - text: 'No: "inflammable" actually means the same as "flammable"; it CAN catch fire. Here, "in-" does not mean "not," making this a common exam trap.'
         correct: true
-      - text: Yes — "inflammable" always means safe from fire.
-      - text: Yes — but only because this specific material happens to be fireproof.
-      - text: No — "inflammable" means "extremely fireproof," the strongest possible protection.
+      - text: 'Yes: "inflammable" always means safe from fire.'
+      - text: 'Yes: but only because this specific material happens to be fireproof.'
+      - text: 'No: "inflammable" means "extremely fireproof," the strongest possible protection.'
     explanation: |
-      Usually, "in-" means "not" (like "invisible" means not visible). But sometimes "in-" means "inside" or "into." "Inflammable" is the biggest trap: it means the exact same thing as "flammable" — it can burst into flames.
+      Usually, "in-" means "not" (like "invisible" means not visible). But sometimes "in-" means "inside" or "into." "Inflammable" is the biggest trap: it means the exact same thing as "flammable": it can burst into flames.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0015
@@ -236,13 +236,13 @@ questions:
     stem: |
       After hours of waiting, the *restive* crowd began to grow impatient and unruly. A student assumes "restive" means "relaxed," since it looks like it contains the word "rest." Is this correct?
     choices:
-      - text: No — "restive" actually means restless, nervous, or stubborn; despite looking like it contains "rest," its true meaning is closer to the opposite of relaxed.
+      - text: 'No: "restive" actually means restless, nervous, or stubborn; despite looking like it contains "rest," its true meaning is closer to the opposite of relaxed.'
         correct: true
-      - text: Yes — "restive" always means calm and relaxed, matching the word "rest" inside it.
-      - text: Yes — but only because the crowd was simply tired from waiting.
-      - text: No — but only because "restive" has no relationship to any real word at all.
+      - text: 'Yes: "restive" always means calm and relaxed, matching the word "rest" inside it.'
+      - text: 'Yes: but only because the crowd was simply tired from waiting.'
+      - text: 'No: but only because "restive" has no relationship to any real word at all.'
     explanation: |
-      Test-makers will put choices that match a fake root. "Restive" looks like it has the root "rest," so it seems like it should mean "relaxed" — but it actually means restless, nervous, or stubborn. Always read the whole sentence for clues rather than blindly trusting the letters.
+      Test-makers will put choices that match a fake root. "Restive" looks like it has the root "rest," so it seems like it should mean "relaxed", but it actually means restless, nervous, or stubborn. Always read the whole sentence for clues rather than blindly trusting the letters.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0016

@@ -75,7 +75,7 @@ Separate the transfer step from the joining step.
 
 ## Speed Tricks & Shortcuts
 
-Remember xylem and phloem by their letters: "X" for xylem sounds like it could stand for "up and eXtra," carrying water up from the roots; phloem carries "food" (sugar) — both P-words, an easy pairing to remember together.
+Remember xylem and phloem by their letters: "X" for xylem sounds like it could stand for "up and eXtra," carrying water up from the roots; phloem carries "food" (sugar): both P-words, an easy pairing to remember together.
 
 For tropism direction questions, remember the general rule of thumb: Roots tend to move with gravity and light away (positive gravitropism, negative phototropism), while stems tend to move against gravity and toward light (negative gravitropism, positive phototropism). Roots and stems are opposites of each other for both tropisms.
 
@@ -93,7 +93,7 @@ These two terms are frequently swapped on exams. Anchor them with their cell typ
 
 > Roots and stems often show opposite tropic responses to the same stimulus.
 
-A common error is assuming that because a stem grows toward light, the whole plant (including roots) does too. In reality, roots typically grow away from light (negative phototropism) while stems grow toward it (positive phototropism) — the same stimulus, opposite responses, depending on the plant part.
+A common error is assuming that because a stem grows toward light, the whole plant (including roots) does too. In reality, roots typically grow away from light (negative phototropism) while stems grow toward it (positive phototropism): the same stimulus, opposite responses, depending on the plant part.
 
 ### #3: Treating Pollination and Fertilization as the Same Event
 

@@ -13,7 +13,7 @@ isActive: true
 
 ### Limiting and Excess Reactants
 
-In most real reactions, you do not have the perfect amount of each reactant. The **limiting reactant** is the one that runs out first, stopping the reaction — it determines the maximum amount of product possible. The **excess reactant** is the one with some left over after the reaction stops.
+In most real reactions, you do not have the perfect amount of each reactant. The **limiting reactant** is the one that runs out first, stopping the reaction: it determines the maximum amount of product possible. The **excess reactant** is the one with some left over after the reaction stops.
 
 To find the limiting reactant, calculate how much product each reactant could make on its own (assuming unlimited amounts of the other); whichever reactant produces the smaller amount of product is the limiting one.
 
@@ -101,7 +101,7 @@ $$C_{(1 \times 4)}H_{(2 \times 4)} = C_4H_8$$
 
 ## Speed Tricks & Shortcuts
 
-For limiting reactant problems, do not just compare the raw mole amounts of each reactant — always check them against the balanced equation's ratio first. A reactant with a "bigger number" of moles can still be limiting if the equation requires even more of it.
+For limiting reactant problems, do not just compare the raw mole amounts of each reactant: always check them against the balanced equation's ratio first. A reactant with a "bigger number" of moles can still be limiting if the equation requires even more of it.
 
 For empirical formula problems, always divide by the smallest mole value first. This one step guarantees you land on the simplest possible whole-number ratio in a single move.
 
@@ -125,10 +125,10 @@ Dividing theoretical by actual would give a result greater than $100\%$ in this 
 
 > The empirical formula shows the simplest ratio; the molecular formula shows the true total count of atoms in one molecule.
 
-A compound's empirical formula ($CH_2O$) and its molecular formula ($C_6H_{12}O_6$, for glucose) look different, but they represent the same substance — the molecular formula is just a whole-number multiple of the empirical ratio. Giving the empirical formula when the molecular formula is specifically asked for (or vice versa) misses the question's exact requirement.
+A compound's empirical formula ($CH_2O$) and its molecular formula ($C_6H_{12}O_6$, for glucose) look different, but they represent the same substance: the molecular formula is just a whole-number multiple of the empirical ratio. Giving the empirical formula when the molecular formula is specifically asked for (or vice versa) misses the question's exact requirement.
 
 ### #4: Forgetting to Divide by the Correct Smallest Number
 
-> When simplifying to an empirical formula, divide every element's mole count by the same smallest value — do not divide by different numbers for different elements.
+> When simplifying to an empirical formula, divide every element's mole count by the same smallest value: do not divide by different numbers for different elements.
 
 If the mole amounts are $2$, $6$, and $2$, all three must be divided by the same number ($2$, the smallest), giving $1$, $3$, $1$. Dividing each element by a different number would break the true ratio between them.

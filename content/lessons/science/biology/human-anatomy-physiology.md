@@ -35,7 +35,7 @@ Controls the body using chemical messengers called **hormones**, released into t
 
 ### Skeletal System
 
-Provides support, protection, movement (working with muscles), and mineral storage. The adult human skeleton has $206$ bones, split into the **axial skeleton** (skull, spine, ribcage — the body's central "trunk") and the **appendicular skeleton** (arms, legs, and the bones connecting them to the trunk).
+Provides support, protection, movement (working with muscles), and mineral storage. The adult human skeleton has $206$ bones, split into the **axial skeleton** (skull, spine, ribcage: the body's central "trunk") and the **appendicular skeleton** (arms, legs, and the bones connecting them to the trunk).
 
 ### Muscular System
 
@@ -120,8 +120,8 @@ A person cuts their finger, and skin plus general immune cells respond immediate
 **Solution:**
 Check the speed and specificity of each response.
 
-1. The immediate, general response to the cut (skin barrier, general immune cells) is innate immunity — fast, but not targeted at one specific germ.
-2. The response using memory from a past specific infection is adaptive immunity — slower to build the first time, but highly specific and equipped with long-term memory.
+1. The immediate, general response to the cut (skin barrier, general immune cells) is innate immunity: fast, but not targeted at one specific germ.
+2. The response using memory from a past specific infection is adaptive immunity: slower to build the first time, but highly specific and equipped with long-term memory.
 
 ## Speed Tricks & Shortcuts
 
@@ -129,7 +129,7 @@ For any "which system does this organ belong to" question, match the organ to it
 
 Remember heart chambers with "A is for Above" (atria are the upper chambers) and "V is for below" is not quite right, so instead remember: atria receive blood coming in, ventricles pump blood out. Blood always flows atria → ventricles → out to the body or lungs.
 
-For muscle type questions, ask "can I choose to do this right now?" Yes: skeletal (voluntary). No: smooth or cardiac (involuntary) — and if it is specifically the heart, it is cardiac.
+For muscle type questions, ask "can I choose to do this right now?" Yes: skeletal (voluntary). No: smooth or cardiac (involuntary), and if it is specifically the heart, it is cardiac.
 
 ## Traps to Watch For
 
@@ -143,7 +143,7 @@ This definition is based on direction relative to the heart, not on whether the 
 
 > Cardiac muscle is involuntary, even though it is striated like voluntary skeletal muscle.
 
-Students sometimes assume "striated" (striped-looking) muscle must be voluntary, since skeletal muscle is both striated and voluntary. But cardiac muscle is also striated, while still being completely involuntary — you cannot consciously stop your heart from beating.
+Students sometimes assume "striated" (striped-looking) muscle must be voluntary, since skeletal muscle is both striated and voluntary. But cardiac muscle is also striated, while still being completely involuntary: you cannot consciously stop your heart from beating.
 
 ### #3: Confusing the Pancreas's Two Different Jobs
 

@@ -66,7 +66,7 @@ Connect the rock layer's age to the fossil trapped inside it.
 
 A radioactive element has a half-life of $1$ billion years. A rock sample originally contained a certain amount of this element, and now only one-quarter of that original amount remains (the rest has decayed into a stable element). How old is the rock?
 
-<!-- ILLUSTRATION: a decay curve (or bar steps) showing the parent element halving each billion years — 100% → 50% (1 half-life) → 25% (2 half-lives) → so one-quarter remaining means 2 billion years -->
+<!-- ILLUSTRATION: a decay curve (or bar steps) showing the parent element halving each billion years: 100% → 50% (1 half-life) → 25% (2 half-lives) → so one-quarter remaining means 2 billion years -->
 
 
 **Solution:**
@@ -92,7 +92,7 @@ Match the fossil clues to the correct era's defining life forms.
 
 ## Speed Tricks & Shortcuts
 
-For Law of Superposition questions, just remember: Bottom is oldest, top is youngest, like pancakes stacked one at a time — the first one made sits at the bottom of the plate.
+For Law of Superposition questions, just remember: Bottom is oldest, top is youngest, like pancakes stacked one at a time: the first one made sits at the bottom of the plate.
 
 For half-life problems, track the fraction remaining by repeatedly halving: $1 \to \dfrac{1}{2} \to \dfrac{1}{4} \to \dfrac{1}{8}$, and count how many halving steps you took. That count is the number of half-lives elapsed; multiply by the half-life length to get the age.
 
@@ -104,19 +104,19 @@ Remember the three Phanerozoic eras in order using their meaning: Paleozoic ("ol
 
 > Relative dating (Law of Superposition) tells you which layer is older. Only radiometric dating gives an actual age in years.
 
-A question asking "how many years old is this layer" cannot be answered using superposition alone — that method only orders layers relative to each other. Only radiometric (absolute) dating provides a specific number of years.
+A question asking "how many years old is this layer" cannot be answered using superposition alone: that method only orders layers relative to each other. Only radiometric (absolute) dating provides a specific number of years.
 
 ### #2: Assuming a Disturbed Sequence Still Follows "Bottom is Oldest"
 
 > The Law of Superposition only applies to undisturbed layers.
 
-If rock layers have been folded, flipped, or faulted by geological forces (which does happen), the simple "bottom is oldest" rule can no longer be trusted without further evidence. Exam questions usually specify "undisturbed" for a reason — watch for that word.
+If rock layers have been folded, flipped, or faulted by geological forces (which does happen), the simple "bottom is oldest" rule can no longer be trusted without further evidence. Exam questions usually specify "undisturbed" for a reason: watch for that word.
 
 ### #3: Miscounting Half-Lives
 
 > Each half-life cuts the remaining amount in half again, not by a fixed equal amount each time.
 
-A common mistake is assuming that if $\dfrac{1}{4}$ remains after $2$ half-lives, then $\dfrac{1}{8}$ would need only $1$ more half-life to reach zero. In fact, decay never reaches exactly zero — every half-life only cuts the current remaining amount in half, forever approaching (but never fully hitting) zero.
+A common mistake is assuming that if $\dfrac{1}{4}$ remains after $2$ half-lives, then $\dfrac{1}{8}$ would need only $1$ more half-life to reach zero. In fact, decay never reaches exactly zero: every half-life only cuts the current remaining amount in half, forever approaching (but never fully hitting) zero.
 
 ### #4: Mixing Up the Three Eras
 

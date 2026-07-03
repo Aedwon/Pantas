@@ -18,7 +18,7 @@ questions:
         correct: true
       - text: Meiosis
       - text: Both processes equally
-      - text: Neither — this is not a form of cell division
+      - text: 'Neither: this is not a form of cell division'
     explanation: |
       Producing two genetically identical daughter cells for growth or repair is exactly what mitosis does.
     approved: true
@@ -32,7 +32,7 @@ questions:
         correct: true
       - text: Mitosis
       - text: Both processes equally
-      - text: Neither — sperm cells are not produced through cell division
+      - text: 'Neither: sperm cells are not produced through cell division'
     explanation: |
       Meiosis is used specifically to make sex cells (sperm and egg cells) for sexual reproduction.
     approved: true
@@ -62,7 +62,7 @@ questions:
       - text: 2 daughter cells, each with 10 chromosomes
       - text: 4 daughter cells, each with 20 chromosomes
     explanation: |
-      Mitosis always produces 2 daughter cells, each with the same chromosome number as the original cell — no halving occurs.
+      Mitosis always produces 2 daughter cells, each with the same chromosome number as the original cell: no halving occurs.
     approved: true
   - id: q-biology-cellular-reproduction-0005
     type: identify
@@ -126,11 +126,11 @@ questions:
     stem: |
       A student says mitosis produces four daughter cells, since it is a form of cell division like meiosis. Is this correct?
     choices:
-      - text: No — mitosis produces two daughter cells; meiosis is the process that produces four.
+      - text: 'No: mitosis produces two daughter cells; meiosis is the process that produces four.'
         correct: true
-      - text: Yes — both mitosis and meiosis produce four daughter cells.
-      - text: No — mitosis actually produces one daughter cell.
-      - text: Yes — mitosis always produces more daughter cells than meiosis.
+      - text: 'Yes: both mitosis and meiosis produce four daughter cells.'
+      - text: 'No: mitosis actually produces one daughter cell.'
+      - text: 'Yes: mitosis always produces more daughter cells than meiosis.'
     explanation: |
       Mitosis produces two identical daughter cells. Meiosis, used to make sex cells, produces four. This is one of the most commonly swapped facts between the two processes.
     approved: true
@@ -140,13 +140,13 @@ questions:
     stem: |
       A student assumes meiosis, like mitosis, produces daughter cells that are genetically identical to each other. Is this correct?
     choices:
-      - text: No — meiosis shuffles genetic material between chromosome pairs, so its four daughter cells are genetically different from each other and from the parent cell.
+      - text: 'No: meiosis shuffles genetic material between chromosome pairs, so its four daughter cells are genetically different from each other and from the parent cell.'
         correct: true
-      - text: Yes — meiosis always produces identical daughter cells, just like mitosis.
-      - text: No — but only because meiosis produces no daughter cells at all.
-      - text: Yes — genetic differences only appear after fertilization, never during meiosis itself.
+      - text: 'Yes: meiosis always produces identical daughter cells, just like mitosis.'
+      - text: 'No: but only because meiosis produces no daughter cells at all.'
+      - text: 'Yes: genetic differences only appear after fertilization, never during meiosis itself.'
     explanation: |
-      Unlike mitosis, meiosis includes genetic shuffling between chromosome pairs, which is a major source of variation — the four resulting cells are not identical to each other or to the parent.
+      Unlike mitosis, meiosis includes genetic shuffling between chromosome pairs, which is a major source of variation: the four resulting cells are not identical to each other or to the parent.
     approved: true
   - id: q-biology-cellular-reproduction-0011
     type: classify
@@ -154,11 +154,11 @@ questions:
     stem: |
       A student assumes that when a sperm cell and egg cell combine during fertilization, the offspring ends up with double the normal chromosome number. Is this correct?
     choices:
-      - text: No — each sex cell already carries half the normal chromosome number, so combining two returns the total to the normal full number, not double.
+      - text: 'No: each sex cell already carries half the normal chromosome number, so combining two returns the total to the normal full number, not double.'
         correct: true
-      - text: Yes — fertilization always doubles the chromosome number beyond the normal count.
-      - text: No — fertilization actually results in zero chromosomes.
-      - text: Yes — this is why each new generation has more chromosomes than the last.
+      - text: 'Yes: fertilization always doubles the chromosome number beyond the normal count.'
+      - text: 'No: fertilization actually results in zero chromosomes.'
+      - text: 'Yes: this is why each new generation has more chromosomes than the last.'
     explanation: |
       Meiosis halves the chromosome number in each sex cell specifically so that combining a sperm and egg cell restores the normal full chromosome count, not doubles it.
     approved: true
@@ -168,11 +168,11 @@ questions:
     stem: |
       A description of a dividing cell jumps directly from chromosomes condensing (prophase) to two new nuclei forming (telophase), with no mention of the chromosomes lining up or separating. Does this correctly describe mitosis?
     choices:
-      - text: "No — a valid description of mitosis must include all four phases, in order: prophase, metaphase, anaphase, and telophase."
+      - text: "No: a valid description of mitosis must include all four phases, in order: prophase, metaphase, anaphase, and telophase."
         correct: true
-      - text: Yes — mitosis can skip phases as long as the cell still divides in the end.
-      - text: No — but only because telophase must come before prophase.
-      - text: Yes — metaphase and anaphase are optional steps in mitosis.
+      - text: 'Yes: mitosis can skip phases as long as the cell still divides in the end.'
+      - text: 'No: but only because telophase must come before prophase.'
+      - text: 'Yes: metaphase and anaphase are optional steps in mitosis.'
     explanation: |
       All four phases of mitosis must occur in order. A description that skips metaphase and anaphase is missing required steps and does not correctly describe the full process.
     approved: true

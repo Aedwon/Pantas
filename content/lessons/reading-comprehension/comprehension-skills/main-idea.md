@@ -9,11 +9,11 @@ isActive: true
 ---
 ## Core Concept
 
-The **main idea** is the single most important point a paragraph or passage is making — what the whole paragraph is really about, boiled down to one sentence.
+The **main idea** is the single most important point a paragraph or passage is making: what the whole paragraph is really about, boiled down to one sentence.
 
 Many paragraphs state their main idea directly in a **topic sentence**, usually (but not always) the first sentence of the paragraph. Every other sentence in a well-organized paragraph should support or provide details about that topic sentence.
 
-Sometimes a paragraph does not state its main idea directly — it is left implied, and the reader must figure it out by looking at what all the supporting details have in common.
+Sometimes a paragraph does not state its main idea directly: it is left implied, and the reader must figure it out by looking at what all the supporting details have in common.
 
 In Filipino, this concept is called the **paksa ng talata** (the topic/main idea of the paragraph).
 
@@ -74,13 +74,13 @@ Basahin ang talata. "Maraming benepisyo ang pagtatanim ng gulay sa bakuran. Naka
 
 **Ask "what do all the details have in common?"** For paragraphs without a stated topic sentence, listing out each supporting detail and finding their shared thread reveals the implied main idea.
 
-**Test your answer with the "does every sentence fit?" check.** A correct main idea should be supported by every sentence in the paragraph — if a sentence doesn't connect to your proposed main idea, your answer might be too narrow or slightly off-target.
+**Test your answer with the "does every sentence fit?" check.** A correct main idea should be supported by every sentence in the paragraph: if a sentence doesn't connect to your proposed main idea, your answer might be too narrow or slightly off-target.
 
 ## Traps to Watch For
 
 ### #1: Mistaking a Supporting Detail for the Main Idea
 
-> A supporting detail explains or gives an example of the main idea — it is not the main idea itself, even if it appears early in the paragraph.
+> A supporting detail explains or gives an example of the main idea: it is not the main idea itself, even if it appears early in the paragraph.
 
 Test-makers often list one specific detail as an answer choice, hoping students will grab the first specific-sounding fact rather than identifying the broader point that detail supports.
 
@@ -92,6 +92,6 @@ An answer choice like "Reading is good" or "Sports are important" is usually a t
 
 ### #3: Missing an Implied Main Idea That Requires Inference
 
-> Not every paragraph states its main idea directly — sometimes you must infer it from what the details have in common.
+> Not every paragraph states its main idea directly: sometimes you must infer it from what the details have in common.
 
-If no single sentence seems to summarize the whole paragraph, do not force one of the sentences to be "the answer" — instead, synthesize the shared idea across all the details yourself.
+If no single sentence seems to summarize the whole paragraph, do not force one of the sentences to be "the answer". Instead, synthesize the shared idea across all the details yourself.

@@ -57,7 +57,7 @@ If $P$ is false and $Q$ is false, what is the truth value of "$P \rightarrow Q$"
 If $P$ is true, $Q$ is false, and $R$ is true, evaluate "$(P \land Q) \lor R$."
 
 **Solution:**
-1. First evaluate the inner expression, "$P \land Q$": $P$ is true, $Q$ is false, so and requires both true — this is false.
+1. First evaluate the inner expression, "$P \land Q$": $P$ is true, $Q$ is false, so and requires both true. This is false.
 2. Now evaluate the full expression: "$(P \land Q) \lor R$" becomes "false $\lor$ R," and $R$ is true.
 3. Or is true when at least one side is true, so the full expression is true.
 

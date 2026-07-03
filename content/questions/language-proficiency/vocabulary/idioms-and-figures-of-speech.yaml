@@ -31,7 +31,7 @@ questions:
       - text: To clean the floor
       - text: To argue loudly
     explanation: |
-      "Spill the beans" is an idiom that means to reveal a secret — it has nothing to do with actual beans or cooking.
+      "Spill the beans" is an idiom that means to reveal a secret: it has nothing to do with actual beans or cooking.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0003
@@ -61,7 +61,7 @@ questions:
       - text: Personification
       - text: Oxymoron
     explanation: |
-      The phrase "as bright as" uses the trigger word "as" to compare two things — this is a simile.
+      The phrase "as bright as" uses the trigger word "as" to compare two things: this is a simile.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0005
@@ -76,7 +76,7 @@ questions:
       - text: Personification
       - text: Hyperbole
     explanation: |
-      The sentence directly compares the classroom to a zoo without using "like" or "as" — this is a metaphor.
+      The sentence directly compares the classroom to a zoo without using "like" or "as": this is a metaphor.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0006
@@ -91,7 +91,7 @@ questions:
       - text: Alliteration
       - text: Onomatopoeia
     explanation: |
-      No one has literally said something a million times — this is an extreme exaggeration, which is hyperbole.
+      No one has literally said something a million times: this is an extreme exaggeration, which is hyperbole.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0007
@@ -121,7 +121,7 @@ questions:
       - text: Simile
       - text: Hyperbole
     explanation: |
-      "Sizzled" is a word that sounds like the noise it describes — this is onomatopoeia.
+      "Sizzled" is a word that sounds like the noise it describes: this is onomatopoeia.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0009
@@ -136,7 +136,7 @@ questions:
       - text: Simile
       - text: Metaphor
     explanation: |
-      "Deafening" and "silence" are two opposite ideas put together — this combination of contradictory words is an oxymoron.
+      "Deafening" and "silence" are two opposite ideas put together: this combination of contradictory words is an oxymoron.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0010
@@ -166,7 +166,7 @@ questions:
       - text: Pagwawangis
       - text: Pagbibigay-katauhan
     explanation: |
-      Walang tao na literal na nagsabi ng isang bagay ng "libu-libong beses" — ito ay matinding pagmamalabis (hyperbole).
+      Walang tao na literal na nagsabi ng isang bagay ng "libu-libong beses": ito ay matinding pagmamalabis (hyperbole).
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0012
@@ -196,7 +196,7 @@ questions:
       - text: Pagmamalabis
       - text: Pagbibigay-katauhan
     explanation: |
-      Walang panandang salita tulad ng "parang" o "tulad ng" na ginamit — direktang paghahambing ito ng guro sa ilaw, kaya ito ay pagwawangis (metaphor).
+      Walang panandang salita tulad ng "parang" o "tulad ng" na ginamit: direktang paghahambing ito ng guro sa ilaw, kaya ito ay pagwawangis (metaphor).
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0014
@@ -220,13 +220,13 @@ questions:
     stem: |
       The old family dog finally kicked the bucket after fifteen happy years. A choice option describes this literally as "the dog physically kicked a bucket with its foot." Is this the correct meaning?
     choices:
-      - text: No — "kicked the bucket" is an idiom meaning to pass away (die); the literal description of physically kicking a bucket is a trap, since idioms are never meant literally.
+      - text: 'No: "kicked the bucket" is an idiom meaning to pass away (die); the literal description of physically kicking a bucket is a trap, since idioms are never meant literally.'
         correct: true
-      - text: Yes — the dog must have literally kicked an actual bucket.
-      - text: Yes — but only because dogs commonly interact with buckets.
-      - text: No — but only because the dog never actually existed in this sentence.
+      - text: 'Yes: the dog must have literally kicked an actual bucket.'
+      - text: 'Yes: but only because dogs commonly interact with buckets.'
+      - text: 'No: but only because the dog never actually existed in this sentence.'
     explanation: |
-      Test-makers know you might translate an idiom word by word. If an exam choice gives the exact dictionary meaning of the idiom's words, cross it out — idioms are never literal. "Kicked the bucket" actually means to pass away.
+      Test-makers know you might translate an idiom word by word. If an exam choice gives the exact dictionary meaning of the idiom's words, cross it out: idioms are never literal. "Kicked the bucket" actually means to pass away.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0016
@@ -235,13 +235,13 @@ questions:
     stem: |
       "The engine roared to life as the race began." A student assumes this is personification, reasoning that "the engine performed an action, so it must be personification." Is this correct?
     choices:
-      - text: No — roaring is an animal trait, not a human trait, so the engine is being compared to an animal (like a lion), not given human traits; this makes it a metaphor, not personification.
+      - text: 'No: roaring is an animal trait, not a human trait, so the engine is being compared to an animal (like a lion), not given human traits; this makes it a metaphor, not personification.'
         correct: true
-      - text: Yes — any non-human thing performing an action is automatically personification.
-      - text: Yes — but only because engines cannot actually make any sound.
-      - text: No — but only because engines are not capable of movement.
+      - text: 'Yes: any non-human thing performing an action is automatically personification.'
+      - text: 'Yes: but only because engines cannot actually make any sound.'
+      - text: 'No: but only because engines are not capable of movement.'
     explanation: |
-      Just because a thing moves or acts does not mean it is human. Personification requires a human trait specifically. "Roared" is an animal trait, so this compares the engine to a lion — that comparison, without "like" or "as," is a metaphor, not personification.
+      Just because a thing moves or acts does not mean it is human. Personification requires a human trait specifically. "Roared" is an animal trait, so this compares the engine to a lion: that comparison, without "like" or "as," is a metaphor, not personification.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0017
@@ -250,13 +250,13 @@ questions:
     stem: |
       Ang pangungusap na "Ang ina ay ilaw ng tahanan" ay walang panandang salita tulad ng "parang" o "tulad ng." Isang mag-aaral ang nagpalagay na ito ay pagtutulad (simile), dahil ito ay paghahambing ng dalawang bagay. Tama ba ang palagay na ito?
     choices:
-      - text: Mali — pagwawangis (metaphor) ito, dahil direktang paghahambing ito ng ina sa ilaw nang walang ginamit na panandang salita; ang pagtutulad ay nangangailangan ng panandang salita tulad ng "parang" o "tulad ng."
+      - text: 'Mali: pagwawangis (metaphor) ito, dahil direktang paghahambing ito ng ina sa ilaw nang walang ginamit na panandang salita; ang pagtutulad ay nangangailangan ng panandang salita tulad ng "parang" o "tulad ng."'
         correct: true
-      - text: Tama — bawat paghahambing ng dalawang bagay ay palaging pagtutulad, may panandang salita man o wala.
-      - text: Tama — dahil ang ina ay literal na tumutulong bilang ilaw ng bahay.
-      - text: Mali — pagmamalabis ito, hindi pagtutulad o pagwawangis.
+      - text: 'Tama: bawat paghahambing ng dalawang bagay ay palaging pagtutulad, may panandang salita man o wala.'
+      - text: 'Tama: dahil ang ina ay literal na tumutulong bilang ilaw ng bahay.'
+      - text: 'Mali: pagmamalabis ito, hindi pagtutulad o pagwawangis.'
     explanation: |
-      Madalas pinaghahalo ng mga mag-aaral ang pagtutulad (simile) at pagwawangis (metaphor). Ang pagtutulad ay may panandang salita tulad ng "gaya ng," "animo'y," o "kawangis." Dahil walang panandang salita dito, ito ay direktang paghahambing — pagwawangis.
+      Madalas pinaghahalo ng mga mag-aaral ang pagtutulad (simile) at pagwawangis (metaphor). Ang pagtutulad ay may panandang salita tulad ng "gaya ng," "animo'y," o "kawangis." Dahil walang panandang salita dito, ito ay direktang paghahambing: pagwawangis.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0018

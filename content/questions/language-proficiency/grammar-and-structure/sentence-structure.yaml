@@ -16,7 +16,7 @@ questions:
       - text: Complex
       - text: Compound-complex
     explanation: |
-      Despite having a compound subject ("teacher and students") and a compound verb ("prepared and rehearsed"), there is only one clause overall — this is a simple sentence.
+      Despite having a compound subject ("teacher and students") and a compound verb ("prepared and rehearsed"), there is only one clause overall: this is a simple sentence.
     approved: true
 
   - id: q-grammar-and-structure-sentence-structure-0002
@@ -31,7 +31,7 @@ questions:
       - text: Complex
       - text: Compound-complex
     explanation: |
-      Both "she wanted to travel abroad" and "she could not afford the airfare" are independent clauses, joined by the coordinating conjunction "but" — this is a compound sentence.
+      Both "she wanted to travel abroad" and "she could not afford the airfare" are independent clauses, joined by the coordinating conjunction "but": this is a compound sentence.
     approved: true
 
   - id: q-grammar-and-structure-sentence-structure-0003
@@ -46,7 +46,7 @@ questions:
       - text: Compound
       - text: Compound-complex
     explanation: |
-      "Although the storm was severe" is a dependent clause, and "the town suffered minimal damage" is an independent clause — one of each makes this a complex sentence.
+      "Although the storm was severe" is a dependent clause, and "the town suffered minimal damage" is an independent clause: one of each makes this a complex sentence.
     approved: true
 
   - id: q-grammar-and-structure-sentence-structure-0004
@@ -61,7 +61,7 @@ questions:
       - text: Compound
       - text: Complex
     explanation: |
-      "When the bell rang" is dependent, while "the students grabbed their bags" and "they rushed out the door" are two independent clauses joined by "and" — one dependent plus two independent clauses makes this compound-complex.
+      "When the bell rang" is dependent, while "the students grabbed their bags" and "they rushed out the door" are two independent clauses joined by "and": one dependent plus two independent clauses makes this compound-complex.
     approved: true
 
   - id: q-grammar-and-structure-sentence-structure-0005
@@ -76,7 +76,7 @@ questions:
       - text: Complex
       - text: Compound-complex
     explanation: |
-      Despite having a compound verb ("laughed and played"), there is only one clause overall — this is a simple sentence.
+      Despite having a compound verb ("laughed and played"), there is only one clause overall: this is a simple sentence.
     approved: true
 
   - id: q-grammar-and-structure-sentence-structure-0006
@@ -91,7 +91,7 @@ questions:
       - text: Complex
       - text: Compound-complex
     explanation: |
-      Both "the rain stopped" and "we went outside to play" are independent clauses, joined by the coordinating conjunction "so" — this is a compound sentence.
+      Both "the rain stopped" and "we went outside to play" are independent clauses, joined by the coordinating conjunction "so": this is a compound sentence.
     approved: true
 
   - id: q-grammar-and-structure-sentence-structure-0007
@@ -106,7 +106,7 @@ questions:
       - text: Compound
       - text: Compound-complex
     explanation: |
-      "Since the exam was postponed" is a dependent clause, and "the students relaxed for the weekend" is an independent clause — one of each makes this a complex sentence.
+      "Since the exam was postponed" is a dependent clause, and "the students relaxed for the weekend" is an independent clause: one of each makes this a complex sentence.
     approved: true
 
   - id: q-grammar-and-structure-sentence-structure-0008
@@ -121,7 +121,7 @@ questions:
       - text: Compound
       - text: Complex
     explanation: |
-      "Because the power went out" is dependent, while "the students lit candles" and "they continued studying by candlelight" are two independent clauses joined by "and" — this is compound-complex.
+      "Because the power went out" is dependent, while "the students lit candles" and "they continued studying by candlelight" are two independent clauses joined by "and": this is compound-complex.
     approved: true
 
   - id: q-grammar-and-structure-sentence-structure-0009
@@ -181,7 +181,7 @@ questions:
       - text: Tambalan
       - text: Hugnayan
     explanation: |
-      May dalawang malayang sugnay ("umuwi ang bata" at "natulog agad") pinag-ugnay ng "at," at isang di-malayang sugnay ("dahil pagod na siya") — ito ay langkapan (compound-complex).
+      May dalawang malayang sugnay ("umuwi ang bata" at "natulog agad") pinag-ugnay ng "at," at isang di-malayang sugnay ("dahil pagod na siya"): ito ay langkapan (compound-complex).
     approved: true
 
   - id: q-grammar-and-structure-sentence-structure-0013
@@ -190,13 +190,13 @@ questions:
     stem: |
       A student sees "The dog and cat played" and classifies it as compound, reasoning that it has two nouns joined by "and." Is this correct?
     choices:
-      - text: No — "dog and cat" is a compound subject within a single clause, not two independent clauses; the sentence remains simple.
+      - text: 'No: "dog and cat" is a compound subject within a single clause, not two independent clauses; the sentence remains simple.'
         correct: true
-      - text: Yes — any sentence with two nouns joined by "and" is automatically compound.
-      - text: Yes — but only because "dog" and "cat" are different kinds of animals.
-      - text: No — but only because "played" is in the wrong verb tense.
+      - text: 'Yes: any sentence with two nouns joined by "and" is automatically compound.'
+      - text: 'Yes: but only because "dog" and "cat" are different kinds of animals.'
+      - text: 'No: but only because "played" is in the wrong verb tense.'
     explanation: |
-      A compound subject or compound verb within one clause does not make a sentence compound — a compound sentence needs two or more full independent clauses. This sentence has only one clause overall.
+      A compound subject or compound verb within one clause does not make a sentence compound: a compound sentence needs two or more full independent clauses. This sentence has only one clause overall.
     approved: true
 
   - id: q-grammar-and-structure-sentence-structure-0014
@@ -205,11 +205,11 @@ questions:
     stem: |
       A student classifies "Because the meeting ran late, the team missed lunch" as compound, reasoning that it has two clauses joined together. Is this correct?
     choices:
-      - text: No — "Because the meeting ran late" is a dependent clause (cannot stand alone), not an independent one; this makes the sentence complex, not compound.
+      - text: 'No: "Because the meeting ran late" is a dependent clause (cannot stand alone), not an independent one; this makes the sentence complex, not compound.'
         correct: true
-      - text: Yes — any sentence with two clauses is automatically compound.
-      - text: Yes — but only because "lunch" and "late" have a similar sound.
-      - text: No — but only because this sentence actually has only one clause total.
+      - text: 'Yes: any sentence with two clauses is automatically compound.'
+      - text: 'Yes: but only because "lunch" and "late" have a similar sound.'
+      - text: 'No: but only because this sentence actually has only one clause total.'
     explanation: |
       Compound sentences join two independent clauses (both can stand alone). Since "Because the meeting ran late" cannot stand alone, this sentence is complex, not compound.
     approved: true
@@ -220,11 +220,11 @@ questions:
     stem: |
       A student classifies "Although she was nervous, she gave an excellent speech" as compound-complex, reasoning that it has a dependent clause and seems long enough. Is this correct?
     choices:
-      - text: No — this sentence has only one independent clause ("she gave an excellent speech") plus one dependent clause; a compound-complex sentence needs at least two independent clauses. This sentence is complex, not compound-complex.
+      - text: 'No: this sentence has only one independent clause ("she gave an excellent speech") plus one dependent clause; a compound-complex sentence needs at least two independent clauses. This sentence is complex, not compound-complex.'
         correct: true
-      - text: Yes — sentence length alone determines whether it is compound-complex.
-      - text: Yes — but only because "nervous" and "excellent" are both adjectives.
-      - text: No — but only because this sentence has no dependent clause at all.
+      - text: 'Yes: sentence length alone determines whether it is compound-complex.'
+      - text: 'Yes: but only because "nervous" and "excellent" are both adjectives.'
+      - text: 'No: but only because this sentence has no dependent clause at all.'
     explanation: |
       A compound-complex sentence needs all three ingredients: at least one dependent clause, and at least two independent clauses. Missing the second independent clause makes this sentence complex instead.
     approved: true
@@ -235,11 +235,11 @@ questions:
     stem: |
       Classify this sentence: "Since the flight was delayed, the passengers waited in the lounge, and some of them ordered food, but others simply read books."
     choices:
-      - text: Compound-complex — one dependent clause ("Since the flight was delayed") plus three independent clauses joined together
+      - text: 'Compound-complex: one dependent clause ("Since the flight was delayed") plus three independent clauses joined together'
         correct: true
-      - text: Complex — one dependent clause plus one independent clause
-      - text: Compound — three independent clauses with no dependent clause
-      - text: Simple — one clause overall
+      - text: 'Complex: one dependent clause plus one independent clause'
+      - text: 'Compound: three independent clauses with no dependent clause'
+      - text: 'Simple: one clause overall'
     explanation: |
-      "Since the flight was delayed" is dependent. "The passengers waited in the lounge," "some of them ordered food," and "others simply read books" are three independent clauses joined by "and" and "but" — one dependent plus multiple independent clauses makes this compound-complex.
+      "Since the flight was delayed" is dependent. "The passengers waited in the lounge," "some of them ordered food," and "others simply read books" are three independent clauses joined by "and" and "but": one dependent plus multiple independent clauses makes this compound-complex.
     approved: true

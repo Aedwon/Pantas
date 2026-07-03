@@ -41,7 +41,7 @@ A **complex circuit** combines both series and parallel sections within the same
 
 ### Magnetism and Electromagnetism
 
-A **magnet** has two poles (north and south); like poles repel, opposite poles attract — following the exact same "like repels, opposite attracts" pattern as electric charges.
+A **magnet** has two poles (north and south); like poles repel, opposite poles attract: following the exact same "like repels, opposite attracts" pattern as electric charges.
 
 **Electromagnetism** is the deep connection between electricity and magnetism: a moving electric current creates a magnetic field around it, and conversely, a changing magnetic field can induce an electric current. The **right-hand rule** predicts the direction of the magnetic field around a current-carrying wire: if your thumb points in the direction of conventional current flow, your curled fingers show the direction the magnetic field circles around the wire.
 
@@ -82,7 +82,7 @@ $$V = 20 \text{ volts}$$
 
 In a series circuit with two light bulbs, one bulb suddenly burns out. In a separate parallel circuit with two light bulbs, one bulb burns out. Predict what happens to the other bulb in each case.
 
-<!-- ILLUSTRATION: two circuits side by side — a series circuit with two bulbs on one loop (one burned out, the other goes dark) and a parallel circuit with two bulbs on separate branches (one burned out, the other stays lit) -->
+<!-- ILLUSTRATION: two circuits side by side: a series circuit with two bulbs on one loop (one burned out, the other goes dark) and a parallel circuit with two bulbs on separate branches (one burned out, the other stays lit) -->
 
 
 **Solution:**
@@ -104,7 +104,7 @@ Apply the right-hand rule directly.
 
 ## Speed Tricks & Shortcuts
 
-Notice that Coulomb's law and Newton's law of gravitation share the same inverse-square structure — if you can handle one, you can handle the other, just swapping charges for masses and using a different constant.
+Notice that Coulomb's law and Newton's law of gravitation share the same inverse-square structure: if you can handle one, you can handle the other, just swapping charges for masses and using a different constant.
 
 For Ohm's law, remember the triangle trick: cover the letter you want to find in "$V$ over $IR$" (arranged with $V$ on top, $I$ and $R$ on the bottom), and the remaining letters show you exactly how to compute it.
 
@@ -114,7 +114,7 @@ For series versus parallel circuit questions, remember the one-word test: "does 
 
 ### #1: Forgetting the Inverse-Square Relationship in Coulomb's Law
 
-> Coulomb's law force depends on distance squared in the denominator — doubling the distance quarters the force, it does not simply halve it.
+> Coulomb's law force depends on distance squared in the denominator: doubling the distance quarters the force, it does not simply halve it.
 
 This is the exact same trap as Newton's law of gravitation, since both follow an inverse-square pattern. Always square the distance-change factor before dividing.
 
@@ -132,6 +132,6 @@ A question describing holiday lights that all go out when one bulb fails describ
 
 ### #4: Misapplying the Right-Hand Rule
 
-> Point your thumb in the direction of current flow; your curled fingers show the magnetic field's direction — do not reverse thumb and fingers.
+> Point your thumb in the direction of current flow; your curled fingers show the magnetic field's direction: do not reverse thumb and fingers.
 
 Using the left hand, or swapping which part represents current versus magnetic field direction, gives the opposite (incorrect) field direction. Always use the right hand specifically, with the thumb representing current.

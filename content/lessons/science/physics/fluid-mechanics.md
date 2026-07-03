@@ -97,7 +97,7 @@ Apply the inverse relationship between fluid speed and pressure.
 
 ## Speed Tricks & Shortcuts
 
-For "float or sink" questions, just compare densities directly — no calculation needed. Object density less than fluid density means float; object density more than fluid density means sink; equal densities mean the object stays suspended (neutral buoyancy).
+For "float or sink" questions, just compare densities directly: no calculation needed. Object density less than fluid density means float; object density more than fluid density means sink; equal densities mean the object stays suspended (neutral buoyancy).
 
 For Archimedes' principle problems, remember the buoyant force is found through the displaced fluid's weight, not the object's own weight. Find the volume of fluid displaced, convert to mass using the fluid's density, then to weight.
 
@@ -107,7 +107,7 @@ For Bernoulli's principle, remember the simple inverse relationship: fluid speed
 
 ### #1: Using the Object's Density Instead of the Fluid's Density for Buoyant Force
 
-> Archimedes' principle uses the displaced fluid's density (and volume) to find weight — not the submerged object's own density.
+> Archimedes' principle uses the displaced fluid's density (and volume) to find weight, not the submerged object's own density.
 
 A common mistake calculates the displaced water's mass using the object's density instead of water's density. The buoyant force cares only about how much fluid was pushed out of the way, and that fluid's own properties, not what the submerged object itself is made of.
 

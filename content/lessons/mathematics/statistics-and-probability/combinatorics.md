@@ -140,7 +140,7 @@ Choosing a sandwich and a drink: $4 \times 3$. Choosing a sandwich or a drink (j
 
 > Zero factorial is defined as $1$, not $0$.
 
-The formula $C(n, n)$ needs it: choosing all $8$ from $8$ gives $\dfrac{8!}{8! \, 0!} = 1$ way, which makes sense (take everyone). If $0!$ were $0$, the formula would divide by zero. Questions test this as a quick concept check.
+The formula $C(n, n)$ needs it: choosing all $8$ from $8$ gives $\dfrac{8!}{8! \, 0!} = 1$ way, which makes sense, take everyone. If $0!$ were $0$, the formula would divide by zero. Questions test this as a quick concept check.
 
 ### #4: Repetition Rules Unread
 

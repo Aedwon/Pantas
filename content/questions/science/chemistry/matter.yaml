@@ -174,7 +174,7 @@ questions:
       - text: Physical property, because rusting only affects the iron's surface.
       - text: Physical change, because no new substance is involved.
     explanation: |
-      This sentence describes a potential reaction — what iron *could* do — not an event that already occurred. A description of what a substance is capable of doing is a chemical property. If the sentence said "this nail has rusted," that would describe an actual event, a chemical change.
+      This sentence describes a potential reaction, what iron *could* do, not an event that already occurred. A description of what a substance is capable of doing is a chemical property. If the sentence said "this nail has rusted," that would describe an actual event, a chemical change.
     approved: true
   - id: q-chemistry-matter-0013
     type: classify
@@ -202,7 +202,7 @@ questions:
       - text: Physical property
       - text: Chemical property
     explanation: |
-      Tearing paper changes its shape and size, but it is still made of the same paper — no new substance is formed. That makes it a physical change.
+      Tearing paper changes its shape and size, but it is still made of the same paper: no new substance is formed. That makes it a physical change.
     approved: true
   - id: q-chemistry-matter-0015
     type: compare-contrast
@@ -210,13 +210,13 @@ questions:
     stem: |
       A student claims that boiling water into steam creates a new substance, since steam looks and behaves so differently from liquid water. Which statement correctly evaluates this claim?
     choices:
-      - text: The student is wrong — boiling is a phase change, and phase changes never create a new substance, only a new physical state.
+      - text: 'The student is wrong: boiling is a phase change, and phase changes never create a new substance, only a new physical state.'
         correct: true
-      - text: The student is correct — steam is chemically different from liquid water.
-      - text: The student is wrong — but only because steam is actually a mixture, not a pure substance.
+      - text: 'The student is correct: steam is chemically different from liquid water.'
+      - text: The student is wrong, but only because steam is actually a mixture, not a pure substance.
       - text: The student is correct, since boiling requires heat, and any change that requires heat is a chemical change.
     explanation: |
-      Phase changes only change how tightly packed and ordered the particles are — they never change what the substance actually is. Both liquid water and water vapor (steam) are still $H_2O$. Needing heat does not by itself make a change chemical; several phase changes need heat and are still physical changes.
+      Phase changes only change how tightly packed and ordered the particles are: they never change what the substance actually is. Both liquid water and water vapor (steam) are still $H_2O$. Needing heat does not by itself make a change chemical; several phase changes need heat and are still physical changes.
     approved: true
   - id: q-chemistry-matter-0016
     type: predict-outcome

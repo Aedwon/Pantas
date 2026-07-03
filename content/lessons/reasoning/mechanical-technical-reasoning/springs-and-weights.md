@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-A **spring** stretches (or compresses) by an amount proportional to the force (or weight) applied to it — this relationship is sometimes called Hooke's Law in physics. In simple terms: Double the weight hanging from a spring, and the spring stretches twice as far (as long as the spring is not stretched so far that it becomes permanently deformed or damaged).
+A **spring** stretches (or compresses) by an amount proportional to the force (or weight) applied to it: this relationship is sometimes called Hooke's Law in physics. In simple terms: Double the weight hanging from a spring, and the spring stretches twice as far (as long as the spring is not stretched so far that it becomes permanently deformed or damaged).
 
 $$\text{stretch} = k \times \text{weight}$$
 
@@ -76,7 +76,7 @@ Using Spring A from Example 3 (stretches $2 \text{ cm}$ under $4 \text{ kg}$), p
 
 ## Speed Tricks & Shortcuts
 
-**Set up stretch and weight as a simple ratio, and scale both sides by the same factor.** If the weight is multiplied by some number, the stretch is multiplied by that exact same number — this proportional scaling avoids needing to calculate the spring's exact stiffness constant.
+**Set up stretch and weight as a simple ratio, and scale both sides by the same factor.** If the weight is multiplied by some number, the stretch is multiplied by that exact same number: this proportional scaling avoids needing to calculate the spring's exact stiffness constant.
 
 **For "how much weight" questions, divide the given stretch by the known stretch-per-unit-weight** to directly find the corresponding weight, rather than working through the full proportional formula.
 
@@ -88,16 +88,16 @@ Using Spring A from Example 3 (stretches $2 \text{ cm}$ under $4 \text{ kg}$), p
 
 > Stretch is proportional to weight (a constant ratio), not simply increased by the same fixed amount each time weight is added by some fixed increment.
 
-Assuming that if $2$ kg causes $4$ cm of stretch, then every additional $2$ kg simply adds another $4$ cm regardless of the starting point happens to work out the same in most simple proportional cases, but the underlying reasoning must be based on the ratio (multiply by the weight's scaling factor), not just adding fixed amounts blindly — this distinction matters especially when the weight change is not a simple whole-number multiple of the original.
+Assuming that if $2$ kg causes $4$ cm of stretch, then every additional $2$ kg simply adds another $4$ cm regardless of the starting point happens to work out the same in most simple proportional cases, but the underlying reasoning must be based on the ratio (multiply by the weight's scaling factor), not just adding fixed amounts blindly: this distinction matters especially when the weight change is not a simple whole-number multiple of the original.
 
 ### #2: Confusing "Stiffer" with "Stretches More"
 
 > A stiffer spring stretches less under the same weight; a looser (weaker) spring stretches more under the same weight.
 
-It is easy to intuitively assume "stiffer" means "moves more" or "stretches more" — in fact, stiffness describes resistance to stretching, so a stiffer spring is precisely the one that stretches the least for a given weight.
+It is easy to intuitively assume "stiffer" means "moves more" or "stretches more": in fact, stiffness describes resistance to stretching, so a stiffer spring is precisely the one that stretches the least for a given weight.
 
 ### #3: Comparing Springs Under Different Weights Instead of the Same Weight
 
-> To fairly compare which spring is stiffer, the weight applied to each spring must be the same — comparing stretches under different weights does not directly reveal which spring is inherently stiffer.
+> To fairly compare which spring is stiffer, the weight applied to each spring must be the same: comparing stretches under different weights does not directly reveal which spring is inherently stiffer.
 
-If Spring A stretches $2$ cm under $4$ kg, and Spring B stretches $2$ cm under $8$ kg, they are not equally stiff — Spring B is actually stiffer, since it resisted stretching just as much despite a heavier weight. Always equalize the weight before comparing stretch amounts directly.
+If Spring A stretches $2$ cm under $4$ kg, and Spring B stretches $2$ cm under $8$ kg, they are not equally stiff: Spring B is actually stiffer, since it resisted stretching just as much despite a heavier weight. Always equalize the weight before comparing stretch amounts directly.

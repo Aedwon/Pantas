@@ -75,13 +75,13 @@ A series shows: a small black triangle, then a medium white triangle, then a lar
 
 **For rotation patterns, identify the exact number of degrees turned between each figure** (commonly $45°$, $90°$, or $180°$) by comparing the position of a marked feature (like a dot, line, or arrow) between consecutive figures.
 
-**Check whether a pattern is cumulative (steadily increasing/decreasing, like sides growing by $1$ each time) or alternating (switching back and forth between just two states, like black/white)** — these are the two most common pattern families.
+**Check whether a pattern is cumulative (steadily increasing/decreasing, like sides growing by $1$ each time) or alternating (switching back and forth between just two states, like black/white)**: these are the two most common pattern families.
 
 ## Traps to Watch For
 
 ### #1: Tracking Only One Feature When Multiple Are Changing
 
-> A figure series can change several features at once (shape, shading, size, rotation) — check each feature separately rather than assuming only one thing is changing.
+> A figure series can change several features at once (shape, shading, size, rotation): check each feature separately rather than assuming only one thing is changing.
 
 Missing that both size and shading are changing at once (as in Example 4) leads to only half-correct predictions, even if the other feature was tracked accurately.
 
@@ -93,6 +93,6 @@ Predicting the wrong rotation direction for the next figure produces a plausible
 
 ### #3: Missing an Alternating Pattern by Assuming It's Cumulative
 
-> Not every changing feature increases or decreases steadily — some features (especially shading) commonly alternate between just two states instead.
+> Not every changing feature increases or decreases steadily: some features (especially shading) commonly alternate between just two states instead.
 
 Assuming shading will keep "getting darker" rather than recognizing a simple black-white-black alternating pattern leads to predicting an impossible fourth state instead of correctly returning to the earlier one.

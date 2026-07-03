@@ -77,18 +77,20 @@ Classify this sentence: "When the bell rang, the students grabbed their bags, an
 
 ## Traps to Watch For
 
-### #1: Classifying a Sentence with Compound Elements as Compound
+### #1: Mistaking a Compound Subject or Verb for a Compound Sentence
 
 > A compound subject or compound verb within one clause does not make a sentence compound: a compound sentence needs two or more full independent clauses.
 
-"Maria and Anna cooked dinner and cleaned the kitchen" has a compound subject ("Maria and Anna") and a compound verb ("cooked... and cleaned..."), but it is still just one simple sentence because there is only one clause.
+"The dog and cat played" has a compound subject but is still a simple sentence, since there is only one clause (one subject-verb unit) overall, not two separate complete thoughts joined together.
 
-### #2: Missing a Dependent Clause in a Complex Sentence
+### #2: Confusing Complex with Compound
+
+> Compound sentences join two independent clauses (both can stand alone). Complex sentences join an independent clause with a dependent clause (only one can stand alone).
 
 Look for a subordinating word like "although," "because," or "since": its presence signals a dependent clause, making the sentence complex (or compound-complex), not simply compound.
 
-### #3: Counting a Complex Sentence as Compound-Complex Without Enough Clauses
+### #3: Missing One Clause Type in a Compound-Complex Sentence
 
-> A compound-complex sentence needs all three ingredients: at least one dependent clause, and at least two independent clauses, as missing any one of these makes it a different sentence type instead.
+> A compound-complex sentence needs all three ingredients: at least one dependent clause, and at least two independent clauses. Missing any one of these makes it a different sentence type instead.
 
 A sentence with a dependent clause and only one independent clause is complex, not compound-complex; carefully count both the independent clauses and check for a dependent clause before finalizing your classification.

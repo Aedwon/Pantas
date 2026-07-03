@@ -39,7 +39,7 @@ For a regular polygon, divide either sum by $n$ to get each single angle.
 
 <!-- ILLUSTRATION: quadrilateral family tree, parallelogram branching to rectangle and rhombus, both merging into square, with trapezoid on a separate branch -->
 
-CETs love two question types here: plug into the angle formulas (forward or backward), and true-or-false property statements like "the diagonals of a rectangle are perpendicular" (false: that is the rhombus).
+CETs love two question types here: plug into the angle formulas (forward or backward), and true-or-false property statements like "the diagonals of a rectangle are perpendicular" (false; that is the rhombus).
 
 ## Examples
 

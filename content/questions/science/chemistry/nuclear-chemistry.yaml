@@ -90,7 +90,7 @@ questions:
       - text: Alpha decay
       - text: Beta decay
     explanation: |
-      Fission is a large, heavy nucleus splitting apart into two or more smaller nuclei, releasing a large amount of energy — the process used in nuclear power plants.
+      Fission is a large, heavy nucleus splitting apart into two or more smaller nuclei, releasing a large amount of energy: the process used in nuclear power plants.
     approved: true
   - id: q-chemistry-nuclear-chemistry-0007
     type: classify
@@ -104,7 +104,7 @@ questions:
       - text: Alpha decay
       - text: Beta decay
     explanation: |
-      Fusion is two small, light nuclei combining to form one larger nucleus, releasing an even greater amount of energy than fission — the process that powers the Sun.
+      Fusion is two small, light nuclei combining to form one larger nucleus, releasing an even greater amount of energy than fission: the process that powers the Sun.
     approved: true
   - id: q-chemistry-nuclear-chemistry-0008
     type: classify
@@ -112,13 +112,13 @@ questions:
     stem: |
       A student calculates the result of alpha decay by decreasing only the atomic number by 2, leaving the mass number unchanged. Is this correct?
     choices:
-      - text: No — alpha decay decreases both the mass number (by 4) and the atomic number (by 2).
+      - text: 'No: alpha decay decreases both the mass number (by 4) and the atomic number (by 2).'
         correct: true
-      - text: Yes — alpha decay only ever changes atomic number.
-      - text: No — alpha decay only changes mass number, not atomic number.
-      - text: Yes — no numbers change during alpha decay.
+      - text: 'Yes: alpha decay only ever changes atomic number.'
+      - text: 'No: alpha decay only changes mass number, not atomic number.'
+      - text: 'Yes: no numbers change during alpha decay.'
     explanation: |
-      Alpha decay ejects a particle with 2 protons and 2 neutrons, so it reduces mass number by 4 and atomic number by 2 — the student's calculation missed the mass number change entirely.
+      Alpha decay ejects a particle with 2 protons and 2 neutrons, so it reduces mass number by 4 and atomic number by 2: the student's calculation missed the mass number change entirely.
     approved: true
   - id: q-chemistry-nuclear-chemistry-0009
     type: classify
@@ -126,11 +126,11 @@ questions:
     stem: |
       A student describes the Sun's hydrogen-to-helium process as "fission," reasoning that fission and fusion are interchangeable terms. Is this correct?
     choices:
-      - text: No — the Sun's process, joining small nuclei together, is fusion; fission is a large nucleus splitting apart.
+      - text: 'No: the Sun''s process, joining small nuclei together, is fusion; fission is a large nucleus splitting apart.'
         correct: true
-      - text: Yes — fission and fusion always describe the exact same process.
-      - text: No — the Sun's process is actually gamma decay.
-      - text: Yes — the Sun performs fission, not fusion.
+      - text: 'Yes: fission and fusion always describe the exact same process.'
+      - text: 'No: the Sun''s process is actually gamma decay.'
+      - text: 'Yes: the Sun performs fission, not fusion.'
     explanation: |
       Fission splits a large nucleus apart; fusion joins small nuclei together. The Sun combines hydrogen nuclei into helium, which is fusion, not fission.
     approved: true
@@ -140,13 +140,13 @@ questions:
     stem: |
       A student assumes that since gamma decay causes no change to atomic number or mass number, the resulting nucleus must have transformed into a different element. Is this correct?
     choices:
-      - text: No — gamma decay releases only energy; the element stays exactly the same before and after.
+      - text: 'No: gamma decay releases only energy; the element stays exactly the same before and after.'
         correct: true
-      - text: Yes — gamma decay always transforms the nucleus into a new element.
-      - text: No — but only because gamma decay does not actually involve the nucleus at all.
-      - text: Yes — any radioactive decay always changes the element.
+      - text: 'Yes: gamma decay always transforms the nucleus into a new element.'
+      - text: 'No: but only because gamma decay does not actually involve the nucleus at all.'
+      - text: 'Yes: any radioactive decay always changes the element.'
     explanation: |
-      Unlike alpha and beta decay, gamma decay does not change the atomic number or mass number — it simply releases excess energy as the nucleus settles into a more stable state, with the element staying the same.
+      Unlike alpha and beta decay, gamma decay does not change the atomic number or mass number: it simply releases excess energy as the nucleus settles into a more stable state, with the element staying the same.
     approved: true
   - id: q-chemistry-nuclear-chemistry-0011
     type: classify
@@ -154,11 +154,11 @@ questions:
     stem: |
       A student assumes gamma rays must be the "weakest" and easiest to block, since gamma decay causes no elemental change. Is this correct?
     choices:
-      - text: No — gamma rays are actually the most penetrating type of radiation discussed here, requiring thick lead or concrete to block.
+      - text: 'No: gamma rays are actually the most penetrating type of radiation discussed here, requiring thick lead or concrete to block.'
         correct: true
-      - text: Yes — gamma rays are the weakest and easiest to block, stopped by ordinary paper.
-      - text: No — beta particles are actually the most penetrating.
-      - text: Yes — "no elemental change" always means "less penetrating radiation."
+      - text: 'Yes: gamma rays are the weakest and easiest to block, stopped by ordinary paper.'
+      - text: 'No: beta particles are actually the most penetrating.'
+      - text: 'Yes: "no elemental change" always means "less penetrating radiation."'
     explanation: |
       "No elemental change" is unrelated to penetrating power. Gamma rays are in fact the hardest of the three to shield against, needing thick lead or concrete, unlike alpha (stopped by paper) or beta (stopped by foil).
     approved: true
@@ -174,7 +174,7 @@ questions:
       - text: Beta (weakest) < alpha < gamma (strongest)
       - text: All three have exactly the same penetrating power.
     explanation: |
-      Alpha particles are stopped by paper (weakest), beta particles need aluminum foil, and gamma rays need thick lead or concrete (strongest) — an increasing order of penetrating power.
+      Alpha particles are stopped by paper (weakest), beta particles need aluminum foil, and gamma rays need thick lead or concrete (strongest): an increasing order of penetrating power.
     approved: true
   - id: q-chemistry-nuclear-chemistry-0013
     type: simple-quantitative
@@ -202,5 +202,5 @@ questions:
       - text: Both processes always release exactly the same amount of energy.
       - text: Neither fission nor fusion releases any usable energy.
     explanation: |
-      Nuclear fusion, joining small nuclei together, releases an even greater amount of energy than fission — this is why the Sun (powered by fusion) generates such enormous energy output.
+      Nuclear fusion, joining small nuclei together, releases an even greater amount of energy than fission: this is why the Sun (powered by fusion) generates such enormous energy output.
     approved: true

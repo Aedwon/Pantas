@@ -84,11 +84,11 @@ questions:
     stem: |
       An object's speed is doubled, while its mass stays the same. A student assumes its kinetic energy also just doubles. Is this correct?
     choices:
-      - text: No — since velocity is squared in the kinetic energy formula, doubling speed actually quadruples the kinetic energy.
+      - text: 'No: since velocity is squared in the kinetic energy formula, doubling speed actually quadruples the kinetic energy.'
         correct: true
-      - text: Yes — doubling speed always exactly doubles kinetic energy.
-      - text: No — doubling speed actually halves the kinetic energy.
-      - text: Yes — mass and velocity affect kinetic energy in the same simple way.
+      - text: 'Yes: doubling speed always exactly doubles kinetic energy.'
+      - text: 'No: doubling speed actually halves the kinetic energy.'
+      - text: 'Yes: mass and velocity affect kinetic energy in the same simple way.'
     explanation: |
       $KE = \dfrac{1}{2}mv^2$ squares the velocity term. Doubling $v$ means $v^2$ becomes 4 times larger, so kinetic energy quadruples, not just doubles.
     approved: true
@@ -112,11 +112,11 @@ questions:
     stem: |
       A problem describes a block sliding down a ramp with noticeable friction, but a student applies $KE_i + PE_i = KE_f + PE_f$ directly, assuming no energy is lost. Is this valid?
     choices:
-      - text: No — this simple conservation equation assumes no friction; with friction present, some mechanical energy converts to heat and is not accounted for in this equation.
+      - text: 'No: this simple conservation equation assumes no friction; with friction present, some mechanical energy converts to heat and is not accounted for in this equation.'
         correct: true
-      - text: Yes — the equation applies regardless of whether friction is present.
-      - text: No — but only because gravity does not act during sliding motion.
-      - text: Yes — friction has no effect on mechanical energy at all.
+      - text: 'Yes: the equation applies regardless of whether friction is present.'
+      - text: 'No: but only because gravity does not act during sliding motion.'
+      - text: 'Yes: friction has no effect on mechanical energy at all.'
     explanation: |
       The equation $KE_i + PE_i = KE_f + PE_f$ only holds when no energy is lost to friction or air resistance. With friction present, some energy converts to heat, so the simple form does not directly apply.
     approved: true
@@ -126,11 +126,11 @@ questions:
     stem: |
       Two machines each do 1000 J of work. Machine A finishes in 2 seconds; Machine B finishes in 10 seconds. A student says both machines have the same power, since they did the same amount of work. Is this correct?
     choices:
-      - text: No — power depends on the rate work is done; Machine A (faster) has higher power than Machine B, even though both did the same total work.
+      - text: 'No: power depends on the rate work is done; Machine A (faster) has higher power than Machine B, even though both did the same total work.'
         correct: true
-      - text: Yes — power and work always match whenever the total work is equal.
-      - text: No — but only because Machine B actually did more total work.
-      - text: Yes — time does not affect power in any situation.
+      - text: 'Yes: power and work always match whenever the total work is equal.'
+      - text: 'No: but only because Machine B actually did more total work.'
+      - text: 'Yes: time does not affect power in any situation.'
     explanation: |
       Power measures how quickly work is done ($P = W/t$), not just the total amount. Machine A does the same work in less time, giving it a higher power output than Machine B.
     approved: true

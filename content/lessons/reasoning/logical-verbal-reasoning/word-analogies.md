@@ -11,7 +11,7 @@ isActive: true
 
 A **word analogy** tests whether you can identify the relationship between one pair of words, then find a second pair with the exact same relationship. Analogies are usually written as "A is to B as C is to D," or in shorthand: A : B :: C : D.
 
-The first step is always to describe the relationship between the first pair in a clear sentence. "Puppy is to dog as kitten is to cat" — the relationship is "a ___ is a baby ___." Once you have that sentence, test each answer choice by plugging it into the same sentence pattern.
+The first step is always to describe the relationship between the first pair in a clear sentence. "Puppy is to dog as kitten is to cat": the relationship is "a ___ is a baby ___." Once you have that sentence, test each answer choice by plugging it into the same sentence pattern.
 
 Common analogy relationship types:
 
@@ -62,8 +62,8 @@ Complete the analogy: Hammer is to tool as oak is to ______. (A) wood, (B) tree,
 Complete the analogy: Puppy is to dog as calf is to ______, in the same way that petal is to flower as ______ is to tree. Choose the missing pair. (A) cow, leaf (B) cow, branch (C) cat, leaf (D) horse, root.
 
 **Solution:**
-1. First relationship pair: "puppy is a baby dog," so "calf is a baby ______" — a calf is a baby cow.
-2. Second relationship pair: "a petal is a part of a flower," so "______ is a part of a tree" — a leaf is a part of a tree.
+1. First relationship pair: "puppy is a baby dog," so "calf is a baby ______". A calf is a baby cow.
+2. Second relationship pair: "a petal is a part of a flower," so "______ is a part of a tree". A leaf is a part of a tree.
 3. Checking both relationships together (baby-animal pattern, then part-to-whole pattern) against the choices, (A) "cow, leaf" satisfies both relationships correctly.
 
 ## Speed Tricks & Shortcuts
@@ -90,6 +90,6 @@ In the hammer analogy, "wood" is clearly related to "oak," but it does not match
 
 ### #3: Reversing the Direction of the Relationship
 
-> Check whether the relationship goes from first word to second word, or the reverse — and apply that same direction to the second pair.
+> Check whether the relationship goes from first word to second word, or the reverse, and apply that same direction to the second pair.
 
-"Author is to book" (author creates book) is different from "book is to author" (book was created by author) — while related ideas, keeping the direction consistent between the first and second pairs is essential for a correct match.
+"Author is to book" (author creates book) is different from "book is to author" (book was created by author). While related ideas, keeping the direction consistent between the first and second pairs is essential for a correct match.

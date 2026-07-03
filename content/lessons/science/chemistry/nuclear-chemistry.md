@@ -106,7 +106,7 @@ These two terms sound similar and are commonly swapped. Anchor the memory with r
 
 ### #3: Assuming Gamma Decay Changes the Element
 
-> Gamma decay releases only energy, with no change to atomic number or mass number — the element stays exactly the same.
+> Gamma decay releases only energy, with no change to atomic number or mass number: the element stays exactly the same.
 
 Unlike alpha and beta decay (which transform the atom into a different element), gamma decay simply releases excess energy from an already-changed nucleus settling into a more stable state, without further altering its identity.
 

@@ -97,7 +97,7 @@ A common mistake predicts water's shape as tetrahedral (matching its $4$ total e
 
 > Metal + nonmetal = ionic. Nonmetal + nonmetal = covalent. Metal + metal = metallic.
 
-Reversing these pairings is a common and costly error. Anchor it to electron behavior: metals easily give up electrons, nonmetals eagerly grab them — put a giver next to a grabber and you get a full transfer (ionic); put two grabbers together and they must share (covalent).
+Reversing these pairings is a common and costly error. Anchor it to electron behavior: metals easily give up electrons, nonmetals eagerly grab them: put a giver next to a grabber and you get a full transfer (ionic); put two grabbers together and they must share (covalent).
 
 ### #3: Assuming All Covalent Bonds Share Electrons Equally
 

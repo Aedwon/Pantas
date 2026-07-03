@@ -89,15 +89,15 @@ For property vs. change questions, look for an action verb describing something 
 
 ### #1: Thinking a Mixture Must Look Uneven
 
-> Mixtures can be uniform-looking (homogeneous) or visibly uneven (heterogeneous) — both are still mixtures, not compounds.
+> Mixtures can be uniform-looking (homogeneous) or visibly uneven (heterogeneous): both are still mixtures, not compounds.
 
-Saltwater looks completely uniform, but it is still a mixture (the ratio of salt to water can vary), not a compound. A "looks uniform" test alone cannot distinguish a mixture from a compound — check whether the composition ratio is fixed or variable.
+Saltwater looks completely uniform, but it is still a mixture (the ratio of salt to water can vary), not a compound. A "looks uniform" test alone cannot distinguish a mixture from a compound: check whether the composition ratio is fixed or variable.
 
 ### #2: Confusing Phase Changes with Chemical Changes
 
-> Phase changes (melting, freezing, boiling, condensing) are always physical changes — no new substance forms.
+> Phase changes (melting, freezing, boiling, condensing) are always physical changes: no new substance forms.
 
-Water boiling into steam is still $H_2O$; only its physical state changed. A choice suggesting that boiling water "creates a new substance" is incorrect — the chemical identity never changes during a phase change.
+Water boiling into steam is still $H_2O$; only its physical state changed. A choice suggesting that boiling water "creates a new substance" is incorrect: the chemical identity never changes during a phase change.
 
 ### #3: Mixing Up Sublimation and Evaporation
 

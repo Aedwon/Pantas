@@ -19,7 +19,7 @@ Protons and neutrons have roughly the same mass (about $1$ atomic mass unit each
 
 <!-- ILLUSTRATION: simple atom diagram showing a dense central nucleus made of protons (labeled +) and neutrons (labeled neutral), surrounded by orbiting electrons (labeled -) -->
 
-The **atomic number** equals the number of protons in an atom. This number defines which element the atom is — every atom of a given element has the same atomic number, and no two different elements share the same atomic number.
+The **atomic number** equals the number of protons in an atom. This number defines which element the atom is: every atom of a given element has the same atomic number, and no two different elements share the same atomic number.
 
 The **mass number** equals the number of protons plus neutrons combined.
 
@@ -111,7 +111,7 @@ A question giving a specific isotope's mass number (like carbon-$14$) wants a wh
 
 ### #2: Changing the Number of Protons for an Isotope or Ion
 
-> Isotopes and ions never change the number of protons — only isotopes change neutrons, and only ions change electrons.
+> Isotopes and ions never change the number of protons: only isotopes change neutrons, and only ions change electrons.
 
 If a proposed answer changes the atomic number (proton count) while calling the result an "isotope" or an "ion," it has actually described a different element entirely (since atomic number defines the element). Protons stay fixed in both cases.
 

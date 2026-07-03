@@ -28,7 +28,7 @@ Not every reading comprehension passage is plain text. **Visual media** question
 
 A three-panel comic strip shows a man carefully building an elaborate sandcastle, then in the final panel, a wave washes it away as he looks on with a resigned expression. What is the likely point of this comic strip?
 
-<!-- ILLUSTRATION: a three-panel comic strip — panel 1 a man carefully building an elaborate sandcastle, panel 2 the finished sandcastle, panel 3 a wave washing it away while the man watches with a resigned expression -->
+<!-- ILLUSTRATION: a three-panel comic strip: panel 1 a man carefully building an elaborate sandcastle, panel 2 the finished sandcastle, panel 3 a wave washing it away while the man watches with a resigned expression -->
 
 
 **Solution:**
@@ -75,11 +75,11 @@ A bar graph's vertical axis starts at $80$ instead of $0$, making a bar for $85$
 
 ## Speed Tricks & Shortcuts
 
-**For comic strips, focus on the last panel** — the humor, twist, or main point is almost always concentrated there, building on the setup from earlier panels.
+**For comic strips, focus on the last panel**: the humor, twist, or main point is almost always concentrated there, building on the setup from earlier panels.
 
 **For editorial cartoons, identify what each labeled or symbolic element represents first**, then determine the relationship between them (which one is winning, threatening, helping, or losing) to find the cartoonist's stance.
 
-**For charts and graphs, always check the axis scale first**, before comparing bar heights or line steepness visually — a truncated or unusually scaled axis can distort your first impression.
+**For charts and graphs, always check the axis scale first**, before comparing bar heights or line steepness visually: a truncated or unusually scaled axis can distort your first impression.
 
 ## Traps to Watch For
 
@@ -91,7 +91,7 @@ A comic strip's point can hinge entirely on a character's facial expression in t
 
 ### #2: Missing the Cartoonist's Stance by Reading the Cartoon Too Literally
 
-> Editorial cartoons use symbolism and exaggeration deliberately — look past the literal image to the idea it represents.
+> Editorial cartoons use symbolism and exaggeration deliberately: look past the literal image to the idea it represents.
 
 A boulder is not literally about geology; in an editorial cartoon labeled "taxes," it represents a burden. Reading only the literal picture without connecting it to the labeled concept misses the cartoon's actual argument.
 
@@ -99,4 +99,4 @@ A boulder is not literally about geology; in an editorial cartoon labeled "taxes
 
 > A graph's axis may not start at zero, which can make small differences look much larger than they actually are.
 
-Always read the actual numbers on the axis before concluding "this bar is way bigger" — the visual proportions can be intentionally or accidentally misleading.
+Always read the actual numbers on the axis before concluding "this bar is way bigger": the visual proportions can be intentionally or accidentally misleading.

@@ -115,7 +115,7 @@ questions:
       - text: Repel
         correct: true
       - text: Attract
-      - text: Neither — like charges have no effect on each other.
+      - text: 'Neither: like charges have no effect on each other.'
       - text: It depends on their distance apart.
     explanation: |
       Like charges repel (push apart), following the same pattern as magnetic poles.
@@ -129,7 +129,7 @@ questions:
       - text: Attract
         correct: true
       - text: Repel
-      - text: Neither — opposite charges have no effect on each other.
+      - text: 'Neither: opposite charges have no effect on each other.'
       - text: It depends on their distance apart.
     explanation: |
       Opposite charges attract (pull together).
@@ -140,11 +140,11 @@ questions:
     stem: |
       A student assumes doubling the distance between two charges simply halves the electric force between them. Is this correct?
     choices:
-      - text: No — Coulomb's Law is an inverse-square law, so doubling the distance divides the force by $2^2=4$, not by 2.
+      - text: 'No: Coulomb''s Law is an inverse-square law, so doubling the distance divides the force by $2^2=4$, not by 2.'
         correct: true
-      - text: Yes — force is inversely proportional to distance directly, not distance squared.
-      - text: No — doubling the distance actually doubles the force.
-      - text: Yes — but only for charges of the same sign.
+      - text: 'Yes: force is inversely proportional to distance directly, not distance squared.'
+      - text: 'No: doubling the distance actually doubles the force.'
+      - text: 'Yes: but only for charges of the same sign.'
     explanation: |
       Coulomb's Law has distance squared in the denominator, exactly like Newton's law of gravitation. Skipping the squaring step (dividing by 2 instead of 4) is a common error.
     approved: true
@@ -154,11 +154,11 @@ questions:
     stem: |
       A student assumes current is the same across every branch in a parallel circuit, since current stays the same in a series circuit. Is this correct?
     choices:
-      - text: No — in a parallel circuit, voltage is the same across each branch, but current splits between branches; only in series circuits is current the shared quantity.
+      - text: 'No: in a parallel circuit, voltage is the same across each branch, but current splits between branches; only in series circuits is current the shared quantity.'
         correct: true
-      - text: Yes — current is always the same everywhere, in both series and parallel circuits.
-      - text: No — in a parallel circuit, neither current nor voltage is shared.
-      - text: Yes — but only when all branches have equal resistance.
+      - text: 'Yes: current is always the same everywhere, in both series and parallel circuits.'
+      - text: 'No: in a parallel circuit, neither current nor voltage is shared.'
+      - text: 'Yes: but only when all branches have equal resistance.'
     explanation: |
       Series and parallel circuits share different quantities: series circuits share the same current (with voltage splitting), while parallel circuits share the same voltage (with current splitting). Mixing these up is one of the most common circuit errors.
     approved: true
@@ -168,11 +168,11 @@ questions:
     stem: |
       A student assumes that one burned-out bulb always causes an entire circuit to stop working, regardless of circuit type. Is this correct?
     choices:
-      - text: No — this is only true for series circuits; in parallel circuits, other branches keep working independently even if one bulb burns out.
+      - text: 'No: this is only true for series circuits; in parallel circuits, other branches keep working independently even if one bulb burns out.'
         correct: true
-      - text: Yes — any broken component always stops the entire circuit, regardless of type.
-      - text: No — broken components never affect any part of a circuit.
-      - text: Yes — but only in circuits with more than two bulbs.
+      - text: 'Yes: any broken component always stops the entire circuit, regardless of type.'
+      - text: 'No: broken components never affect any part of a circuit.'
+      - text: 'Yes: but only in circuits with more than two bulbs.'
     explanation: |
       Only series circuits fail entirely when one component breaks, since they share a single path. Parallel circuits (like household wiring) keep other branches working independently.
     approved: true
@@ -182,11 +182,11 @@ questions:
     stem: |
       A student uses their left hand instead of their right hand to apply the right-hand rule for a current-carrying wire. Will this give the correct magnetic field direction?
     choices:
-      - text: No — using the left hand reverses the result, giving the opposite (incorrect) magnetic field direction.
+      - text: 'No: using the left hand reverses the result, giving the opposite (incorrect) magnetic field direction.'
         correct: true
-      - text: Yes — either hand gives the same correct result.
-      - text: No — but only because the wire must be curved for the rule to apply.
-      - text: Yes — the right-hand rule works regardless of which hand is used.
+      - text: 'Yes: either hand gives the same correct result.'
+      - text: 'No: but only because the wire must be curved for the rule to apply.'
+      - text: 'Yes: the right-hand rule works regardless of which hand is used.'
     explanation: |
       The right-hand rule specifically requires the right hand: thumb pointing in the current's direction, with curled fingers showing the magnetic field's direction. Using the left hand gives the mirror-image (incorrect) direction.
     approved: true
@@ -216,5 +216,5 @@ questions:
       - text: Household wiring alternates between series and parallel randomly.
       - text: This behavior does not depend on how the wiring is arranged.
     explanation: |
-      Since other lights and outlets keep working when one bulb burns out, this shows each component has its own independent branch — the defining behavior of a parallel circuit, which is why household wiring is typically parallel.
+      Since other lights and outlets keep working when one bulb burns out, this shows each component has its own independent branch: the defining behavior of a parallel circuit, which is why household wiring is typically parallel.
     approved: true

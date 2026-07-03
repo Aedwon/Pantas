@@ -41,7 +41,7 @@ Fast identification from a general equation $Ax^2 + By^2 + \ldots = C$: only one
 
 Identify each conic: (a) $3x^2 + 3y^2 = 27$, (b) $y = 2x^2 - 8x + 1$, (c) $4x^2 + 9y^2 = 36$, (d) $x^2 - y^2 = 16$.
 
-<!-- ILLUSTRATION: the four conic shapes labeled, a circle, a parabola, an ellipse, and a hyperbola, for visual reference -->
+<!-- ILLUSTRATION: the four conic shapes labeled (a circle, a parabola, an ellipse, and a hyperbola) for visual reference -->
 
 
 **Solution:**

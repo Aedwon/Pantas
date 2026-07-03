@@ -34,7 +34,7 @@ questions:
       - text: Convection
       - text: Entropy
     explanation: |
-      Radiation transfers heat through electromagnetic waves and requires no physical medium at all — exactly how sunlight warms Earth through empty space.
+      Radiation transfers heat through electromagnetic waves and requires no physical medium at all: exactly how sunlight warms Earth through empty space.
     approved: true
   - id: q-physics-thermodynamics-0003
     type: identify
@@ -140,11 +140,11 @@ questions:
     stem: |
       A student describes warm air circulating around a heated room as "conduction," since heat is moving from one place to another. Is this correct?
     choices:
-      - text: No — the actual bulk movement of the air itself makes this convection, not conduction.
+      - text: 'No: the actual bulk movement of the air itself makes this convection, not conduction.'
         correct: true
-      - text: Yes — any heat transfer through air is always conduction.
-      - text: No — this is actually radiation, since air is a gas.
-      - text: Yes — conduction and convection are interchangeable terms.
+      - text: 'Yes: any heat transfer through air is always conduction.'
+      - text: 'No: this is actually radiation, since air is a gas.'
+      - text: 'Yes: conduction and convection are interchangeable terms.'
     explanation: |
       Conduction is direct particle-to-particle contact, typically through solids, with no bulk fluid movement. Since the air itself is physically moving and circulating, this is convection.
     approved: true
@@ -154,13 +154,13 @@ questions:
     stem: |
       A refrigerator moves heat from its cold interior to the warmer room outside. A student says this violates the second law of thermodynamics. Is this correct?
     choices:
-      - text: No — the refrigerator uses electrical work (via its compressor) to force this backward flow; the second law only forbids this happening spontaneously, without work.
+      - text: 'No: the refrigerator uses electrical work (via its compressor) to force this backward flow; the second law only forbids this happening spontaneously, without work.'
         correct: true
-      - text: Yes — moving heat from cold to hot always violates the second law, with no exceptions.
-      - text: No — but only because refrigerators do not actually move heat at all.
-      - text: Yes — refrigerators are a well-known exception that breaks the laws of physics.
+      - text: 'Yes: moving heat from cold to hot always violates the second law, with no exceptions.'
+      - text: 'No: but only because refrigerators do not actually move heat at all.'
+      - text: 'Yes: refrigerators are a well-known exception that breaks the laws of physics.'
     explanation: |
-      The second law forbids heat flowing spontaneously from cold to hot, but a refrigerator forces this flow using external work from its compressor — this does not violate the law, since the flow is not spontaneous.
+      The second law forbids heat flowing spontaneously from cold to hot, but a refrigerator forces this flow using external work from its compressor: this does not violate the law, since the flow is not spontaneous.
     approved: true
   - id: q-physics-thermodynamics-0012
     type: classify
@@ -168,11 +168,11 @@ questions:
     stem: |
       A student assumes a substance with a higher specific heat capacity changes temperature more easily (faster) than one with a lower specific heat capacity. Is this correct?
     choices:
-      - text: No — a higher specific heat capacity means the substance resists temperature change, requiring more energy for the same temperature increase; a lower specific heat means faster temperature change.
+      - text: 'No: a higher specific heat capacity means the substance resists temperature change, requiring more energy for the same temperature increase; a lower specific heat means faster temperature change.'
         correct: true
-      - text: Yes — higher specific heat capacity always means faster temperature change.
-      - text: No — specific heat capacity has no relationship to how quickly temperature changes.
-      - text: Yes — but only for substances heated by radiation.
+      - text: 'Yes: higher specific heat capacity always means faster temperature change.'
+      - text: 'No: specific heat capacity has no relationship to how quickly temperature changes.'
+      - text: 'Yes: but only for substances heated by radiation.'
     explanation: |
       Specific heat capacity measures resistance to temperature change. A high specific heat capacity (like water's) means a substance needs more energy to change temperature by a given amount, so it heats up and cools down more slowly, not faster.
     approved: true
@@ -182,11 +182,11 @@ questions:
     stem: |
       A student uses a specific heat capacity given in J/(g·°C) directly with a mass value given in kilograms, without converting either one. Is this safe?
     choices:
-      - text: No — mixing grams-based specific heat with a kilogram mass (without converting) throws off the final answer by a factor of 1000.
+      - text: 'No: mixing grams-based specific heat with a kilogram mass (without converting) throws off the final answer by a factor of 1000.'
         correct: true
-      - text: Yes — specific heat capacity units automatically adjust for any mass unit used.
-      - text: No — but only because specific heat capacity cannot be measured in J/(g·°C).
-      - text: Yes — grams and kilograms can always be used interchangeably in any formula.
+      - text: 'Yes: specific heat capacity units automatically adjust for any mass unit used.'
+      - text: 'No: but only because specific heat capacity cannot be measured in J/(g·°C).'
+      - text: 'Yes: grams and kilograms can always be used interchangeably in any formula.'
     explanation: |
       The mass units used in $Q=mc\Delta T$ must match the mass units in the specific heat capacity's own units. Mixing grams-based specific heat with a kilogram mass without converting introduces a factor-of-1000 error.
     approved: true

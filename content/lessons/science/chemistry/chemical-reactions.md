@@ -80,7 +80,7 @@ Count atoms of each element on both sides.
 
 Balance elements in this order for the smoothest process: balance any element that appears in only one reactant and one product first, save elements that appear alone (like $O_2$) for last, since their coefficient is easiest to adjust at the very end.
 
-For combustion reactions specifically, always balance in this order: carbon, then hydrogen, then oxygen last — oxygen's coefficient usually needs to accommodate both $CO_2$ and $H_2O$, so it should be handled after everything else is fixed.
+For combustion reactions specifically, always balance in this order: carbon, then hydrogen, then oxygen last: oxygen's coefficient usually needs to accommodate both $CO_2$ and $H_2O$, so it should be handled after everything else is fixed.
 
 To quickly identify a reaction type, count how many separate substances start on the left and end on the right: one reactant → many products (decomposition); many reactants → one product (synthesis); anything involving $O_2$ as a reactant with a carbon-hydrogen compound (combustion).
 

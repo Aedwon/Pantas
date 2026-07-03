@@ -123,7 +123,7 @@ For circular motion, remember the phrase "constant speed, changing direction, me
 
 ### #1: Applying Gravity to Horizontal Motion
 
-> Gravity affects only the vertical component of a projectile's motion — horizontal velocity stays constant throughout the flight (ignoring air resistance).
+> Gravity affects only the vertical component of a projectile's motion: horizontal velocity stays constant throughout the flight (ignoring air resistance).
 
 A common mistake tries to apply the free-fall acceleration formula to the horizontal distance calculation. Horizontal motion has no acceleration in ideal projectile motion; only $x = v_x t$ applies there, never a $\dfrac{1}{2}at^2$ term.
 

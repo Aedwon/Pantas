@@ -13,7 +13,7 @@ isActive: true
 
 ### One-Dimensional Motion (Displacement, Velocity, Acceleration)
 
-**Displacement** ($d$ or $\Delta x$) is the change in position (a vector, with direction). **Velocity** ($v$) is the rate of change of displacement (speed with direction). **Acceleration** ($a$) is the rate of change of velocity — how quickly velocity itself is changing.
+**Displacement** ($d$ or $\Delta x$) is the change in position (a vector, with direction). **Velocity** ($v$) is the rate of change of displacement (speed with direction). **Acceleration** ($a$) is the rate of change of velocity: how quickly velocity itself is changing.
 
 Four key kinematic equations connect these quantities for motion with constant acceleration, using initial velocity $v_0$, final velocity $v$, acceleration $a$, time $t$, and displacement $d$:
 
@@ -111,23 +111,23 @@ $$v = \sqrt{340} \approx 18.4 \text{ m/s}$$
 
 ## Speed Tricks & Shortcuts
 
-Before choosing a kinematic equation, list the four values you know and the one you want to find, from the five possible variables ($v_0, v, a, t, d$). Then pick the equation that is missing exactly the one variable you don't have and don't need — this instantly identifies the correct formula.
+Before choosing a kinematic equation, list the four values you know and the one you want to find, from the five possible variables ($v_0, v, a, t, d$). Then pick the equation that is missing exactly the one variable you don't have and don't need: this instantly identifies the correct formula.
 
 For "starts from rest" problems, immediately set $v_0 = 0$, which simplifies every equation (the $v_0 t$ term vanishes, and $v_0^2$ vanishes).
 
-For free fall problems, remember that mass never appears in the equations — a heavy rock and a light pebble (ignoring air resistance) fall with the exact same acceleration and reach the ground at the same time if dropped from the same height together.
+For free fall problems, remember that mass never appears in the equations: a heavy rock and a light pebble (ignoring air resistance) fall with the exact same acceleration and reach the ground at the same time if dropped from the same height together.
 
 ## Traps to Watch For
 
 ### #1: Picking an Equation That's Missing the Wrong Variable
 
-> Match the equation to what you know and what you want — don't just grab a formula at random.
+> Match the equation to what you know and what you want: don't just grab a formula at random.
 
 Using $v = v_0 + at$ when time is not given (and not being asked for) forces you to solve for an unknown you do not need. Always check which variable each equation excludes before selecting one, especially when time is absent from the problem.
 
 ### #2: Forgetting That "Starting from Rest" Means Initial Velocity Is Zero
 
-> "Dropped," "starts from rest," or "initially at rest" all mean $v_0 = 0$ — do not leave this as an unknown.
+> "Dropped," "starts from rest," or "initially at rest" all mean $v_0 = 0$: do not leave this as an unknown.
 
 Missing this detail forces you to treat $v_0$ as unknown, when the problem has actually told you its value directly through descriptive language rather than a number.
 

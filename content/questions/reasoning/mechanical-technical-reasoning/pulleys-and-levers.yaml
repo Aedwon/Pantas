@@ -123,13 +123,13 @@ questions:
     stem: |
       A student sets up a single fixed pulley to lift a 70 kg load and claims, "using this pulley makes the load easier to lift, since pulleys always reduce the force needed." Is this claim correct?
     choices:
-      - text: No — only movable pulleys (attached to the load) reduce the required force; a fixed pulley only changes the direction of the force, so the full 70 kg worth of force is still needed.
+      - text: 'No: only movable pulleys (attached to the load) reduce the required force; a fixed pulley only changes the direction of the force, so the full 70 kg worth of force is still needed.'
         correct: true
-      - text: Yes — any pulley, fixed or movable, always reduces the required force by half.
-      - text: Yes — but only because this specific load happens to weigh exactly 70 kg.
-      - text: No — but only because fixed pulleys actually require more force than lifting without any pulley.
+      - text: 'Yes: any pulley, fixed or movable, always reduces the required force by half.'
+      - text: 'Yes: but only because this specific load happens to weigh exactly 70 kg.'
+      - text: 'No: but only because fixed pulleys actually require more force than lifting without any pulley.'
     explanation: |
-      Assuming a single fixed pulley "makes lifting easier" in terms of force is incorrect — it only makes lifting more convenient by letting you pull in a different direction, while still requiring the full weight's worth of force.
+      Assuming a single fixed pulley "makes lifting easier" in terms of force is incorrect: it only makes lifting more convenient by letting you pull in a different direction, while still requiring the full weight's worth of force.
     approved: true
 
   - id: q-mechanical-technical-reasoning-pulleys-and-levers-0009
@@ -139,13 +139,13 @@ questions:
     stem: |
       A movable pulley halves the force needed to lift a 50 kg load, requiring only 25 kg of pulling force. A student assumes that since the force is halved, the rope-pulling distance must also be halved compared to how far the load rises. Is this assumption correct?
     choices:
-      - text: No — reducing the required force always comes with a distance trade-off; a movable pulley that halves the force requires pulling the rope twice as far as the load actually rises, not half as far.
+      - text: 'No: reducing the required force always comes with a distance trade-off; a movable pulley that halves the force requires pulling the rope twice as far as the load actually rises, not half as far.'
         correct: true
-      - text: Yes — halving the force always means halving the pulling distance as well.
-      - text: Yes — but only because this specific load weighs 50 kg.
-      - text: No — but only because movable pulleys never affect rope-pulling distance at all.
+      - text: 'Yes: halving the force always means halving the pulling distance as well.'
+      - text: 'Yes: but only because this specific load weighs 50 kg.'
+      - text: 'No: but only because movable pulleys never affect rope-pulling distance at all.'
     explanation: |
-      Simple machines like pulleys reduce the force needed but always require moving a correspondingly greater distance — you cannot reduce force without some distance trade-off. A movable pulley halving the force also doubles the rope distance you must pull, not halves it.
+      Simple machines like pulleys reduce the force needed but always require moving a correspondingly greater distance: you cannot reduce force without some distance trade-off. A movable pulley halving the force also doubles the rope distance you must pull, not halves it.
     approved: true
 
   - id: q-mechanical-technical-reasoning-pulleys-and-levers-0010
@@ -161,7 +161,7 @@ questions:
       - text: The student's equation is correct, but their arithmetic is wrong; the correct effort using their equation is 200 kg.
       - text: The lever balance equation does not apply to this scenario at all.
     explanation: |
-      Keep effort paired with its own distance, and load paired with its own distance — do not cross-pair effort's force with the load's distance (or vice versa). The correct equation, effort × effort distance = load × load distance, gives effort × 5 = 100 × 2 = 200, so effort = 40 kg.
+      Keep effort paired with its own distance, and load paired with its own distance: do not cross-pair effort's force with the load's distance (or vice versa). The correct equation, effort × effort distance = load × load distance, gives effort × 5 = 100 × 2 = 200, so effort = 40 kg.
     approved: true
 
   - id: q-mechanical-technical-reasoning-pulleys-and-levers-0011
@@ -241,5 +241,5 @@ questions:
       - text: Setup B requires less force than Setup A, and Setup A requires a farther travel distance.
       - text: Both setups require exactly the same force and the same travel distance, with no difference at all.
     explanation: |
-      Setup A (lever): $\text{effort} \times 8 = 100 \times 2 = 200$, so effort $= 200 \div 8 = 25$ kg. Setup B (2 movable pulleys): force $= 100 \div 4 = 25$ kg, matching Setup A's force — but Setup B requires pulling the rope $2 \times 4 = 8$ meters to lift the load 2 meters, illustrating that different mechanisms can reach the same force reduction with different distance trade-offs.
+      Setup A (lever): $\text{effort} \times 8 = 100 \times 2 = 200$, so effort $= 200 \div 8 = 25$ kg. Setup B (2 movable pulleys): force $= 100 \div 4 = 25$ kg, matching Setup A's force, but Setup B requires pulling the rope $2 \times 4 = 8$ meters to lift the load 2 meters, illustrating that different mechanisms can reach the same force reduction with different distance trade-offs.
     approved: true

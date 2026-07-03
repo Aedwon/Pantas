@@ -44,7 +44,7 @@ In Rutherford's gold foil experiment, most particles passed straight through the
 Connect each observed result to what it implies about the atom's internal structure.
 
 1. Most particles passing straight through means an atom is mostly empty space, since most of the fired particles encountered nothing solid in their path.
-2. The few particles that bounced back sharply must have collided with something extremely small, dense, and positively charged (since the fired particles were also positively charged, and like charges repel strongly at close range) — this revealed the existence of a concentrated nucleus at the atom's center.
+2. The few particles that bounced back sharply must have collided with something extremely small, dense, and positively charged (since the fired particles were also positively charged, and like charges repel strongly at close range): this revealed the existence of a concentrated nucleus at the atom's center.
 3. Together, these results overturned Thomson's plum pudding model, which had predicted particles should pass through with only slight, even deflection everywhere, not sharp bounces from a concentrated point.
 
 ### #3: Why Bohr's Model Improved on Rutherford's
