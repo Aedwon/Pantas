@@ -112,11 +112,11 @@ questions:
     stem: |
       A problem gives initial velocity, acceleration, and distance, but does not mention time at all, and does not ask for it. A student tries to use $v = v_0 + at$ anyway. Is this the right equation to use?
     choices:
-      - text: No — since time is neither given nor needed, $v^2 = v_0^2 + 2ad$ should be used instead, since it excludes time entirely.
+      - text: No: since time is neither given nor needed, $v^2 = v_0^2 + 2ad$ should be used instead, since it excludes time entirely.
         correct: true
-      - text: Yes — $v = v_0 + at$ can always be used regardless of which variables are given.
-      - text: No — $d = v_0t + \dfrac{1}{2}at^2$ should be used instead.
-      - text: Yes — time can simply be assumed to equal 1 second in this case.
+      - text: Yes: $v = v_0 + at$ can always be used regardless of which variables are given.
+      - text: No: $d = v_0t + \dfrac{1}{2}at^2$ should be used instead.
+      - text: Yes: time can simply be assumed to equal 1 second in this case.
     explanation: |
       Each kinematic equation excludes exactly one of the five variables. Since time is absent here, the equation that excludes time ($v^2 = v_0^2 + 2ad$) is the correct choice, avoiding the need to solve for an unknown that isn't needed.
     approved: true
@@ -126,13 +126,13 @@ questions:
     stem: |
       A problem says a ball is "dropped" from a height. A student leaves the ball's initial velocity as an unknown variable to solve for. Is this correct?
     choices:
-      - text: No — "dropped" means the initial velocity is already known to be 0, not an unknown to solve for.
+      - text: No: "dropped" means the initial velocity is already known to be 0, not an unknown to solve for.
         correct: true
-      - text: Yes — "dropped" gives no information about initial velocity.
-      - text: No — "dropped" means the final velocity is 0, not the initial velocity.
-      - text: Yes — initial velocity must always be solved for separately.
+      - text: Yes: "dropped" gives no information about initial velocity.
+      - text: No: "dropped" means the final velocity is 0, not the initial velocity.
+      - text: Yes: initial velocity must always be solved for separately.
     explanation: |
-      Descriptive phrases like "dropped," "starts from rest," or "initially at rest" all directly tell you that $v_0 = 0$ — this is given information, not an unknown.
+      Descriptive phrases like "dropped," "starts from rest," or "initially at rest" all directly tell you that $v_0 = 0$: this is given information, not an unknown.
     approved: true
   - id: q-physics-kinematics-0010
     type: classify
@@ -140,13 +140,13 @@ questions:
     stem: |
       A ball is thrown straight upward, with "up" chosen as the positive direction. A student uses a positive value for gravity's acceleration in the equations, since it is being treated as a general given value. Is this correct?
     choices:
-      - text: No — if up is positive, gravity (which always pulls down) must be entered as a negative acceleration to keep the signs consistent.
+      - text: No: if up is positive, gravity (which always pulls down) must be entered as a negative acceleration to keep the signs consistent.
         correct: true
-      - text: Yes — gravity should always be entered as a positive number, regardless of the chosen direction.
-      - text: No — but only because the ball was thrown, not dropped.
-      - text: Yes — sign conventions do not matter as long as the magnitude is correct.
+      - text: Yes: gravity should always be entered as a positive number, regardless of the chosen direction.
+      - text: No: but only because the ball was thrown, not dropped.
+      - text: Yes: sign conventions do not matter as long as the magnitude is correct.
     explanation: |
-      Once "up" is chosen as positive, every quantity must follow that convention consistently. Since gravity always pulls downward, it must be negative in this setup — mixing a positive initial velocity with a positive gravity would create contradictory signs.
+      Once "up" is chosen as positive, every quantity must follow that convention consistently. Since gravity always pulls downward, it must be negative in this setup: mixing a positive initial velocity with a positive gravity would create contradictory signs.
     approved: true
   - id: q-physics-kinematics-0011
     type: classify
@@ -154,11 +154,11 @@ questions:
     stem: |
       A student assumes a bowling ball will hit the ground before a tennis ball if both are dropped together from the same height, since the bowling ball is heavier. Is this correct (ignoring air resistance)?
     choices:
-      - text: No — in free fall, all objects accelerate at the same rate g, regardless of mass, so both would hit the ground at the same time.
+      - text: No: in free fall, all objects accelerate at the same rate g, regardless of mass, so both would hit the ground at the same time.
         correct: true
-      - text: Yes — heavier objects always fall faster in free fall.
-      - text: No — the tennis ball would actually hit the ground first instead.
-      - text: Yes — but only if the objects are dropped from very high altitudes.
+      - text: Yes: heavier objects always fall faster in free fall.
+      - text: No: the tennis ball would actually hit the ground first instead.
+      - text: Yes: but only if the objects are dropped from very high altitudes.
     explanation: |
       Mass does not appear anywhere in the free fall kinematic equations. Ignoring air resistance, a heavy bowling ball and a light tennis ball dropped together from the same height hit the ground at exactly the same time.
     approved: true
@@ -196,11 +196,11 @@ questions:
     stem: |
       A bowling ball and a tennis ball are dropped together, at the same instant, from the same height, with air resistance considered negligible. Which one reaches the ground first?
     choices:
-      - text: Neither — both reach the ground at exactly the same time.
+      - text: Neither: both reach the ground at exactly the same time.
         correct: true
       - text: The bowling ball, since it is heavier.
       - text: The tennis ball, since it is lighter.
       - text: It depends on the exact height of the drop.
     explanation: |
-      In free fall, mass does not affect acceleration — every object accelerates downward at the same rate $g$, so both balls hit the ground simultaneously when dropped together from the same height.
+      In free fall, mass does not affect acceleration: every object accelerates downward at the same rate $g$, so both balls hit the ground simultaneously when dropped together from the same height.
     approved: true

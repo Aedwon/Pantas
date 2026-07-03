@@ -54,7 +54,7 @@ questions:
       - text: Cell membrane
     explanation: |
       Ribosomes read copied DNA instructions and link amino acids together
-      to build proteins. The Golgi apparatus packages proteins afterward —
+      to build proteins. The Golgi apparatus packages proteins afterward : 
       it does not build them.
     approved: true
   - id: q-biology-cell-biology-0004
@@ -105,7 +105,7 @@ questions:
       - text: Cytoplasm
       - text: Nucleolus
     explanation: |
-      The cell membrane is the gatekeeper — it lets some substances in and
+      The cell membrane is the gatekeeper: it lets some substances in and
       keeps others out. The cell wall only gives the cell shape and support;
       it does not select what passes through.
     approved: true
@@ -226,7 +226,7 @@ questions:
     explanation: |
       The cell shrank, so water moved out of it. Water leaves a cell when
       the surrounding solution has a higher solute concentration than the
-      cell — that solution is called hypertonic.
+      cell: that solution is called hypertonic.
     approved: true
   - id: q-biology-cell-biology-0014
     type: cause-effect

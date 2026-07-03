@@ -85,11 +85,11 @@ questions:
     stem: |
       A student claims phloem carries water upward from the roots, and xylem carries sugar throughout the plant. Is this correct?
     choices:
-      - text: No — this swaps their jobs; xylem carries water upward from the roots, while phloem carries sugar throughout the plant.
+      - text: No: this swaps their jobs; xylem carries water upward from the roots, while phloem carries sugar throughout the plant.
         correct: true
-      - text: Yes — phloem always carries water, and xylem always carries sugar.
-      - text: No — but only because neither tissue transports any substance.
-      - text: Yes — xylem and phloem are simply two different names for the same tissue.
+      - text: Yes: phloem always carries water, and xylem always carries sugar.
+      - text: No: but only because neither tissue transports any substance.
+      - text: Yes: xylem and phloem are simply two different names for the same tissue.
     explanation: |
       These two terms are frequently swapped. Anchor them with their cell type: xylem is made of dead, hollow cells for water transport, while phloem is made of living cells actively distributing sugar (food).
     approved: true
@@ -175,13 +175,13 @@ questions:
     stem: |
       A student observes a stem growing toward a light source and concludes that the plant's roots must also grow toward the light, since it is "the same plant responding to the same stimulus." Is this reasoning correct?
     choices:
-      - text: No — roots and stems typically show opposite tropic responses to the same stimulus; while stems show positive phototropism (toward light), roots typically show negative phototropism (away from light).
+      - text: No: roots and stems typically show opposite tropic responses to the same stimulus; while stems show positive phototropism (toward light), roots typically show negative phototropism (away from light).
         correct: true
-      - text: Yes — every part of a plant always responds identically to the same stimulus.
-      - text: No — but only because roots cannot respond to light at all.
-      - text: Yes — since stems and roots are directly connected, they must grow in the same direction.
+      - text: Yes: every part of a plant always responds identically to the same stimulus.
+      - text: No: but only because roots cannot respond to light at all.
+      - text: Yes: since stems and roots are directly connected, they must grow in the same direction.
     explanation: |
-      A common error is assuming the whole plant responds the same way to a stimulus. In reality, roots and stems often show opposite tropic responses — stems grow toward light (positive phototropism) while roots grow away from it (negative phototropism).
+      A common error is assuming the whole plant responds the same way to a stimulus. In reality, roots and stems often show opposite tropic responses: stems grow toward light (positive phototropism) while roots grow away from it (negative phototropism).
     approved: true
 
   - id: q-biology-botany-0013
@@ -220,7 +220,7 @@ questions:
     stem: |
       A description states only that a bee deposited pollen onto the female part of a flower, with no mention of any sex cells joining together afterward. Is this description best classified as pollination, fertilization, or both?
     choices:
-      - text: Pollination only — pollination is just the transfer of pollen; fertilization requires the additional step of a sperm cell actually fusing with an egg cell, which is not mentioned here.
+      - text: Pollination only: pollination is just the transfer of pollen; fertilization requires the additional step of a sperm cell actually fusing with an egg cell, which is not mentioned here.
         correct: true
       - text: Fertilization only, since any contact between pollen and a flower counts as fertilization.
       - text: Both pollination and fertilization, since one step always implies the other has already happened.
@@ -241,5 +241,5 @@ questions:
       - text: Neither the root nor the stem will change direction, since gravity does not affect plant growth.
       - text: The root will curve upward, and the stem will curve downward, reversing the typical gravitropic response.
     explanation: |
-      This is gravitropism: the root grows downward, in the same direction as gravity (positive gravitropism), while the stem grows upward, against gravity (negative gravitropism) — the typical gravitropic pattern regardless of the seedling's starting orientation.
+      This is gravitropism: the root grows downward, in the same direction as gravity (positive gravitropism), while the stem grows upward, against gravity (negative gravitropism): the typical gravitropic pattern regardless of the seedling's starting orientation.
     approved: true

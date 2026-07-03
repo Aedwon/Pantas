@@ -85,11 +85,11 @@ questions:
     stem: |
       The mineral pyrite looks golden on the outside but leaves a dark greenish-black powder when scratched on an unglazed tile. A student identifies pyrite as "golden-colored" based on this streak test. Is this correct?
     choices:
-      - text: No — the dark greenish-black powder is pyrite's streak, which can be very different from its golden outer color; streak, not outer color, is what the scratch test reveals.
+      - text: No: the dark greenish-black powder is pyrite's streak, which can be very different from its golden outer color; streak, not outer color, is what the scratch test reveals.
         correct: true
-      - text: Yes — the streak test always reveals the mineral's outer color.
-      - text: No — but only because pyrite does not actually have a streak.
-      - text: Yes — pyrite's streak and outer color are always identical.
+      - text: Yes: the streak test always reveals the mineral's outer color.
+      - text: No: but only because pyrite does not actually have a streak.
+      - text: Yes: pyrite's streak and outer color are always identical.
     explanation: |
       A question describing "the color left behind when scratched on a tile" is asking about streak, not the visible outer color of the whole mineral sample. Pyrite looks golden outside but leaves a dark greenish-black streak.
     approved: true
@@ -190,13 +190,13 @@ questions:
     stem: |
       A student claims that metamorphic rock forms when an existing rock completely melts and then re-hardens. Is this correct?
     choices:
-      - text: No — metamorphic rock forms without fully melting; heat and pressure change the rock's minerals and texture while it stays essentially solid. A rock that fully melts and re-forms describes the igneous process instead.
+      - text: No: metamorphic rock forms without fully melting; heat and pressure change the rock's minerals and texture while it stays essentially solid. A rock that fully melts and re-forms describes the igneous process instead.
         correct: true
-      - text: Yes — metamorphic rock always forms by completely melting and re-hardening.
-      - text: No — but only because metamorphic rock never involves heat or pressure at all.
-      - text: Yes — igneous and metamorphic rock form through the exact same melting process.
+      - text: Yes: metamorphic rock always forms by completely melting and re-hardening.
+      - text: No: but only because metamorphic rock never involves heat or pressure at all.
+      - text: Yes: igneous and metamorphic rock form through the exact same melting process.
     explanation: |
-      Heat and pressure change a rock's minerals and texture while it stays essentially solid — this is the metamorphic process. A choice describing "rock that melts and re-forms" describes the igneous process (via magma), not metamorphism.
+      Heat and pressure change a rock's minerals and texture while it stays essentially solid: this is the metamorphic process. A choice describing "rock that melts and re-forms" describes the igneous process (via magma), not metamorphism.
     approved: true
 
   - id: q-earth-science-astronomy-minerals-and-rocks-0014
@@ -235,11 +235,11 @@ questions:
     stem: |
       A student memorized only one path through the rock cycle (igneous → sedimentary → metamorphic) and assumes every rock must always follow this exact order. Is this assumption correct?
     choices:
-      - text: No — any rock type can become any other rock type given the right process; a metamorphic rock can weather directly into sediment, or an igneous rock can be metamorphosed directly without ever becoming sedimentary first.
+      - text: No: any rock type can become any other rock type given the right process; a metamorphic rock can weather directly into sediment, or an igneous rock can be metamorphosed directly without ever becoming sedimentary first.
         correct: true
-      - text: Yes — every rock must pass through igneous, then sedimentary, then metamorphic, in that exact order.
-      - text: No — but only because sedimentary rock can never become metamorphic rock.
-      - text: Yes — the rock cycle has a single fixed starting point and ending point.
+      - text: Yes: every rock must pass through igneous, then sedimentary, then metamorphic, in that exact order.
+      - text: No: but only because sedimentary rock can never become metamorphic rock.
+      - text: Yes: the rock cycle has a single fixed starting point and ending point.
     explanation: |
       Students sometimes memorize only one path and assume it always goes in that order. In reality, the rock cycle has no fixed sequence: any rock type can become any other rock type, and there is no required starting or ending point.
     approved: true
@@ -271,5 +271,5 @@ questions:
       - text: Only luster, since hardness and streak provide no useful identifying information.
       - text: Cleavage and fracture, since the scenario describes breaking patterns rather than hardness or color.
     explanation: |
-      Hardness is tested by comparing scratch resistance against reference materials, and streak (the tile-powder color) is more reliable than a mineral's outer color, which can be affected by surface impurities — these are the two properties the geologist actually used here.
+      Hardness is tested by comparing scratch resistance against reference materials, and streak (the tile-powder color) is more reliable than a mineral's outer color, which can be affected by surface impurities: these are the two properties the geologist actually used here.
     approved: true

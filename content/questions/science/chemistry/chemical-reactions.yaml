@@ -76,7 +76,7 @@ questions:
       - text: Single replacement
       - text: Decomposition
     explanation: |
-      A carbon-hydrogen compound reacts with oxygen, releasing energy and producing carbon dioxide and water — the signature pattern of combustion.
+      A carbon-hydrogen compound reacts with oxygen, releasing energy and producing carbon dioxide and water: the signature pattern of combustion.
     approved: true
   - id: q-chemistry-chemical-reactions-0006
     type: simple-quantitative
@@ -118,7 +118,7 @@ questions:
       - text: "3"
       - text: "6"
     explanation: |
-      The right side has $2 \times 2 = 4$ iron atoms (from $2Fe_2O_3$). To match, $Fe$ needs a coefficient of 4 on the left. (Checking oxygen: $3 \times 2 = 6$ on the left, and $2 \times 3 = 6$ on the right — also balanced.)
+      The right side has $2 \times 2 = 4$ iron atoms (from $2Fe_2O_3$). To match, $Fe$ needs a coefficient of 4 on the left. (Checking oxygen: $3 \times 2 = 6$ on the left, and $2 \times 3 = 6$ on the right: also balanced.)
     approved: true
   - id: q-chemistry-chemical-reactions-0009
     type: classify
@@ -126,13 +126,13 @@ questions:
     stem: |
       A student tries to balance an equation containing $H_2O$ by changing it to $H_2O_2$ instead of adding a coefficient in front of it. Is this a valid way to balance the equation?
     choices:
-      - text: No — changing a subscript creates an entirely different substance (hydrogen peroxide), not a balanced version of water.
+      - text: No: changing a subscript creates an entirely different substance (hydrogen peroxide), not a balanced version of water.
         correct: true
-      - text: Yes — subscripts and coefficients can be adjusted interchangeably to balance an equation.
-      - text: Yes — as long as the total atom count comes out even on both sides.
-      - text: No — but only because $H_2O_2$ does not really exist.
+      - text: Yes: subscripts and coefficients can be adjusted interchangeably to balance an equation.
+      - text: Yes: as long as the total atom count comes out even on both sides.
+      - text: No: but only because $H_2O_2$ does not really exist.
     explanation: |
-      Only coefficients (numbers in front of a formula) may be changed to balance an equation. Changing the subscript inside a formula changes the substance's identity entirely — $H_2O_2$ is hydrogen peroxide, a completely different compound from water.
+      Only coefficients (numbers in front of a formula) may be changed to balance an equation. Changing the subscript inside a formula changes the substance's identity entirely: $H_2O_2$ is hydrogen peroxide, a completely different compound from water.
     approved: true
   - id: q-chemistry-chemical-reactions-0010
     type: classify
@@ -140,11 +140,11 @@ questions:
     stem: |
       A student adjusts an equation's coefficients until nitrogen atoms match on both sides, then declares the equation balanced without checking hydrogen. Is this equation confirmed to be balanced?
     choices:
-      - text: No — every element's atom count must match on both sides, not just nitrogen; hydrogen still needs to be checked.
+      - text: No: every element's atom count must match on both sides, not just nitrogen; hydrogen still needs to be checked.
         correct: true
-      - text: Yes — matching just one element is enough to confirm the whole equation is balanced.
-      - text: Yes — hydrogen automatically balances whenever nitrogen does.
-      - text: No — but only because nitrogen itself was checked incorrectly.
+      - text: Yes: matching just one element is enough to confirm the whole equation is balanced.
+      - text: Yes: hydrogen automatically balances whenever nitrogen does.
+      - text: No: but only because nitrogen itself was checked incorrectly.
     explanation: |
       An equation is balanced only when every single element matches on both sides. Stopping after checking just one element (like nitrogen) can miss an imbalance in another element (like hydrogen).
     approved: true
@@ -188,7 +188,7 @@ questions:
       - text: Because unbalanced equations are illegal to write on an exam.
       - text: Because only reactions with equal numbers of reactants and products actually occur.
     explanation: |
-      The Law of Conservation of Mass says atoms are neither created nor destroyed in a reaction — every atom present in the reactants must still be accounted for in the products, which is exactly what a balanced equation shows.
+      The Law of Conservation of Mass says atoms are neither created nor destroyed in a reaction: every atom present in the reactants must still be accounted for in the products, which is exactly what a balanced equation shows.
     approved: true
   - id: q-chemistry-chemical-reactions-0014
     type: simple-quantitative
@@ -202,7 +202,7 @@ questions:
       - text: "3"
       - text: "6"
     explanation: |
-      The right side has $2 \times 2 = 4$ aluminum atoms (from $2Al_2O_3$). To match, $Al$ needs a coefficient of 4. (Checking oxygen: $3 \times 2 = 6$ on the left, and $2 \times 3 = 6$ on the right — also balanced.)
+      The right side has $2 \times 2 = 4$ aluminum atoms (from $2Al_2O_3$). To match, $Al$ needs a coefficient of 4. (Checking oxygen: $3 \times 2 = 6$ on the left, and $2 \times 3 = 6$ on the right: also balanced.)
     approved: true
   - id: q-chemistry-chemical-reactions-0015
     type: identify
@@ -216,5 +216,5 @@ questions:
       - text: Single replacement
       - text: Double replacement
     explanation: |
-      One compound ($KClO_3$) breaks apart into two different simpler substances ($KCl$ and $O_2$). Even though it produces two separate products instead of just one, this is still a single substance splitting apart — decomposition.
+      One compound ($KClO_3$) breaks apart into two different simpler substances ($KCl$ and $O_2$). Even though it produces two separate products instead of just one, this is still a single substance splitting apart: decomposition.
     approved: true

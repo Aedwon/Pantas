@@ -31,7 +31,7 @@ questions:
       - text: A typhoon
       - text: A monsoon
     explanation: |
-      Climate is the long-term average pattern of weather in a region over many years — like a personality, compared to weather's daily "mood."
+      Climate is the long-term average pattern of weather in a region over many years, like a personality, compared to weather's daily "mood."
     approved: true
 
   - id: q-earth-science-astronomy-weather-and-climate-0003
@@ -46,7 +46,7 @@ questions:
       - text: Both weather and climate equally
       - text: Neither weather nor climate
     explanation: |
-      This statement describes conditions right now, at one specific time and place — this is weather, not climate.
+      This statement describes conditions right now, at one specific time and place: this is weather, not climate.
     approved: true
 
   - id: q-earth-science-astronomy-weather-and-climate-0004
@@ -61,7 +61,7 @@ questions:
       - text: Both weather and climate equally
       - text: Neither weather nor climate
     explanation: |
-      This statement describes a general, long-term pattern over many years — this is climate, not weather.
+      This statement describes a general, long-term pattern over many years: this is climate, not weather.
     approved: true
 
   - id: q-earth-science-astronomy-weather-and-climate-0005
@@ -70,13 +70,13 @@ questions:
     stem: |
       A person argues, "It was unusually cold this week, so global warming must not be real." Is this a valid argument?
     choices:
-      - text: No — a single short-term weather event does not disprove a long-term climate trend measured over decades; weather and climate operate on very different timescales.
+      - text: No: a single short-term weather event does not disprove a long-term climate trend measured over decades; weather and climate operate on very different timescales.
         correct: true
-      - text: Yes — any single cold week is enough to disprove long-term climate trends.
-      - text: No — but only because cold weather never actually occurs.
-      - text: Yes — weather and climate always match each other exactly, day to day.
+      - text: Yes: any single cold week is enough to disprove long-term climate trends.
+      - text: No: but only because cold weather never actually occurs.
+      - text: Yes: weather and climate always match each other exactly, day to day.
     explanation: |
-      A choice might describe "unusually cold weather this week" as proof that "the climate is not warming." But a single weather event, hot or cold, does not disprove a long-term climate trend measured over decades — weather is short-term and local, while climate is a long-term average.
+      A choice might describe "unusually cold weather this week" as proof that "the climate is not warming." But a single weather event, hot or cold, does not disprove a long-term climate trend measured over decades: weather is short-term and local, while climate is a long-term average.
     approved: true
 
   - id: q-earth-science-astronomy-weather-and-climate-0006
@@ -166,7 +166,7 @@ questions:
       - text: Exosphere, thermosphere, mesosphere, stratosphere, troposphere
       - text: Stratosphere, troposphere, mesosphere, exosphere, thermosphere
     explanation: |
-      From the ground up: troposphere, stratosphere, mesosphere, thermosphere, exosphere — remembered with "Tall Storms Make Thin Exits."
+      From the ground up: troposphere, stratosphere, mesosphere, thermosphere, exosphere: remembered with "Tall Storms Make Thin Exits."
     approved: true
 
   - id: q-earth-science-astronomy-weather-and-climate-0012
@@ -190,13 +190,13 @@ questions:
     stem: |
       A choice describes the thermosphere as "literally warm to the touch for an astronaut," citing its very high measured temperature. Is this description accurate?
     choices:
-      - text: No — although the thermosphere has high measured temperatures, its air is so thin that there is not enough matter to transfer that heat to a person or object, so it would not feel warm.
+      - text: No: although the thermosphere has high measured temperatures, its air is so thin that there is not enough matter to transfer that heat to a person or object, so it would not feel warm.
         correct: true
-      - text: Yes — anyone in the thermosphere would feel intensely warm due to its high temperature.
-      - text: No — but only because the thermosphere actually has a very low temperature.
-      - text: Yes — temperature always directly determines how warm something feels, regardless of air density.
+      - text: Yes: anyone in the thermosphere would feel intensely warm due to its high temperature.
+      - text: No: but only because the thermosphere actually has a very low temperature.
+      - text: Yes: temperature always directly determines how warm something feels, regardless of air density.
     explanation: |
-      Temperature measures how fast particles move, but with so few particles in the thin thermosphere, there is not enough matter to transfer that heat to a person or object — a choice describing the thermosphere as literally "warm to the touch" misunderstands this thin-air effect.
+      Temperature measures how fast particles move, but with so few particles in the thin thermosphere, there is not enough matter to transfer that heat to a person or object: a choice describing the thermosphere as literally "warm to the touch" misunderstands this thin-air effect.
     approved: true
 
   - id: q-earth-science-astronomy-weather-and-climate-0014
@@ -205,11 +205,11 @@ questions:
     stem: |
       A choice describes the ozone layer's job as "producing the oxygen that living things breathe." Is this an accurate description of the ozone layer's role?
     choices:
-      - text: No — the ozone layer's specific, testable job is absorbing most of the Sun's harmful ultraviolet radiation, not producing breathable oxygen.
+      - text: No: the ozone layer's specific, testable job is absorbing most of the Sun's harmful ultraviolet radiation, not producing breathable oxygen.
         correct: true
-      - text: Yes — the ozone layer's main job is producing oxygen for living things to breathe.
-      - text: No — but only because the ozone layer does not exist within the stratosphere.
-      - text: Yes — the ozone layer and oxygen production are the exact same process.
+      - text: Yes: the ozone layer's main job is producing oxygen for living things to breathe.
+      - text: No: but only because the ozone layer does not exist within the stratosphere.
+      - text: Yes: the ozone layer and oxygen production are the exact same process.
     explanation: |
       Some choices confuse the ozone layer's protective role with unrelated atmospheric functions. Its specific, testable job is shielding Earth's surface from the Sun's most harmful UV rays, not producing oxygen.
     approved: true
@@ -265,11 +265,11 @@ questions:
     stem: |
       A student describes a month with cooler, drier weather and a prevailing northeast wind, but labels this season "Habagat." Is this labeling correct?
     choices:
-      - text: No — cooler, drier weather with a northeast wind describes Amihan, not Habagat; Habagat is the hot, rainy, typhoon-prone southwest monsoon.
+      - text: No: cooler, drier weather with a northeast wind describes Amihan, not Habagat; Habagat is the hot, rainy, typhoon-prone southwest monsoon.
         correct: true
-      - text: Yes — Habagat always describes cooler, drier, northeast-wind conditions.
-      - text: No — but only because neither Habagat nor Amihan involves wind direction.
-      - text: Yes — Habagat and Amihan are simply two different names for the same season.
+      - text: Yes: Habagat always describes cooler, drier, northeast-wind conditions.
+      - text: No: but only because neither Habagat nor Amihan involves wind direction.
+      - text: Yes: Habagat and Amihan are simply two different names for the same season.
     explanation: |
       These two Filipino terms are easy to confuse under time pressure. Anchor them by season type: if the description mentions frequent typhoons and humidity from the southwest, it must be Habagat; cooler, drier weather from the northeast is Amihan.
     approved: true
@@ -301,7 +301,7 @@ questions:
       - text: Greenhouse gases have no relationship to Earth's average temperature.
       - text: Greenhouse gases only affect temperature in the stratosphere, not at Earth's surface.
     explanation: |
-      Greenhouse gases like carbon dioxide trap heat from the Sun in the atmosphere, similar to how a greenhouse traps warmth — this buildup is a major cause of global warming, the long-term rise in Earth's average temperature.
+      Greenhouse gases like carbon dioxide trap heat from the Sun in the atmosphere, similar to how a greenhouse traps warmth: this buildup is a major cause of global warming, the long-term rise in Earth's average temperature.
     approved: true
 
   - id: q-earth-science-astronomy-weather-and-climate-0021
@@ -316,7 +316,7 @@ questions:
       - text: "Both reports describe the same kind of event: climate change."
       - text: "\"This year's typhoon\" describes climate change, while the temperature report describes a weather event."
     explanation: |
-      "This year's typhoon" describes a single storm at a specific time — a weather event. "Average global temperatures have risen over the past century" describes a long-term shift measured over many decades — climate change.
+      "This year's typhoon" describes a single storm at a specific time, a weather event. "Average global temperatures have risen over the past century" describes a long-term shift measured over many decades, climate change.
     approved: true
 
   - id: q-earth-science-astronomy-weather-and-climate-0022

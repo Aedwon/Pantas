@@ -128,15 +128,15 @@ questions:
     type: classify
     difficulty: medium
     stem: |
-      A diagram shows a hawk eating both frogs and snakes, snakes eating both frogs and mice, and frogs eating both grasshoppers and crickets — many overlapping, interconnected feeding relationships. Is this best described as a food chain or a food web?
+      A diagram shows a hawk eating both frogs and snakes, snakes eating both frogs and mice, and frogs eating both grasshoppers and crickets: many overlapping, interconnected feeding relationships. Is this best described as a food chain or a food web?
     choices:
       - text: A food web, since it shows many interconnected, overlapping food chains rather than one simple straight-line sequence.
         correct: true
       - text: A food chain, since food chains always include more than four organisms.
-      - text: Neither — this diagram does not describe feeding relationships.
+      - text: Neither: this diagram does not describe feeding relationships.
       - text: A biogeochemical cycle, since energy is moving between organisms.
     explanation: |
-      A food chain is a single, straight-line sequence. Once multiple predators share prey, or one predator eats several prey types, the diagram is showing a food web — the more realistic, interconnected picture.
+      A food chain is a single, straight-line sequence. Once multiple predators share prey, or one predator eats several prey types, the diagram is showing a food web: the more realistic, interconnected picture.
     approved: true
 
   - id: q-biology-ecology-0010
@@ -190,11 +190,11 @@ questions:
     stem: |
       A student describes phosphorus as "evaporating into the atmosphere" as part of its biogeochemical cycle, similar to water. Is this accurate?
     choices:
-      - text: No — unlike carbon, nitrogen, and water, the phosphorus cycle has almost no gas phase; phosphorus moves mainly through rock, soil, and water.
+      - text: No: unlike carbon, nitrogen, and water, the phosphorus cycle has almost no gas phase; phosphorus moves mainly through rock, soil, and water.
         correct: true
-      - text: Yes — phosphorus evaporates into the atmosphere just like water does.
-      - text: No — but only because phosphorus does not exist in rocks or soil at all.
-      - text: Yes — all biogeochemical cycles include an atmospheric gas phase.
+      - text: Yes: phosphorus evaporates into the atmosphere just like water does.
+      - text: No: but only because phosphorus does not exist in rocks or soil at all.
+      - text: Yes: all biogeochemical cycles include an atmospheric gas phase.
     explanation: |
       The phosphorus cycle is the exception among the major biogeochemical cycles: it has almost no gas phase, moving mainly through rock, soil, and water rather than the atmosphere.
     approved: true
@@ -211,7 +211,7 @@ questions:
       - text: Parasitism
       - text: Competition
     explanation: |
-      Mutualism describes a relationship where both species benefit — here, the bee gets nectar and the flower gets pollinated.
+      Mutualism describes a relationship where both species benefit: here, the bee gets nectar and the flower gets pollinated.
     approved: true
 
   - id: q-biology-ecology-0015
@@ -250,11 +250,11 @@ questions:
     stem: |
       A remora (a small fish) attaches to a shark to hitch a ride and pick up leftover food scraps. Careful observation shows the shark is not measurably helped or harmed by the remora's presence. A student labels this relationship "mutualism" since the remora is clearly benefiting from the shark. Is this the correct classification?
     choices:
-      - text: No — since the shark receives no measurable benefit, this is commensalism, not mutualism; mutualism requires both species to benefit.
+      - text: No: since the shark receives no measurable benefit, this is commensalism, not mutualism; mutualism requires both species to benefit.
         correct: true
-      - text: Yes — any relationship where one species benefits from another is automatically mutualism.
-      - text: No — this is actually parasitism, since the remora is taking food scraps from the shark.
-      - text: Yes — since the shark tolerates the remora, both species must be benefiting equally.
+      - text: Yes: any relationship where one species benefits from another is automatically mutualism.
+      - text: No: this is actually parasitism, since the remora is taking food scraps from the shark.
+      - text: Yes: since the shark tolerates the remora, both species must be benefiting equally.
     explanation: |
       Students often assume any close relationship where one species clearly benefits must be mutualism. But since the shark receives no measurable benefit and is simply unaffected, this relationship is commensalism, not mutualism.
     approved: true

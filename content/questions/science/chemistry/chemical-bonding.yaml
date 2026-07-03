@@ -62,7 +62,7 @@ questions:
       - text: Polar covalent, since the difference is exactly at the ionic threshold.
       - text: Metallic, since a small electronegativity difference always indicates metallic bonding.
     explanation: |
-      A small electronegativity difference (below about 0.5) means the electrons are shared nearly equally between the two atoms — a nonpolar covalent bond.
+      A small electronegativity difference (below about 0.5) means the electrons are shared nearly equally between the two atoms: a nonpolar covalent bond.
     approved: true
   - id: q-chemistry-chemical-bonding-0005
     type: classify
@@ -76,7 +76,7 @@ questions:
       - text: Metallic, since a large electronegativity difference always indicates metallic bonding.
       - text: No bond can form when the difference is this large.
     explanation: |
-      A large electronegativity difference (about 2.0 or more) means one atom pulls the electrons away completely rather than sharing them — an ionic bond.
+      A large electronegativity difference (about 2.0 or more) means one atom pulls the electrons away completely rather than sharing them: an ionic bond.
     approved: true
   - id: q-chemistry-chemical-bonding-0006
     type: classify
@@ -90,7 +90,7 @@ questions:
       - text: Nonpolar covalent, since the electrons are still shared rather than transferred.
       - text: Metallic, since 1.2 falls exactly at the metallic threshold.
     explanation: |
-      An in-between electronegativity difference means the electrons are shared, but unevenly — a polar covalent bond, distinct from both the small-difference (nonpolar) and large-difference (ionic) cases.
+      An in-between electronegativity difference means the electrons are shared, but unevenly: a polar covalent bond, distinct from both the small-difference (nonpolar) and large-difference (ionic) cases.
     approved: true
   - id: q-chemistry-chemical-bonding-0007
     type: classify
@@ -140,11 +140,11 @@ questions:
     stem: |
       Water ($H_2O$) has 4 total electron groups around its central oxygen atom: 2 bonding pairs (to the hydrogens) and 2 lone pairs. A student predicts water's molecular shape is tetrahedral, since it has 4 electron groups. Is this prediction correct?
     choices:
-      - text: No — the 2 lone pairs still count for electron geometry, but since they are not connected to another atom, the actual molecular shape is bent, not tetrahedral.
+      - text: No: the 2 lone pairs still count for electron geometry, but since they are not connected to another atom, the actual molecular shape is bent, not tetrahedral.
         correct: true
-      - text: Yes — 4 electron groups always means a tetrahedral molecular shape.
-      - text: No — because water actually only has 2 total electron groups.
-      - text: Yes — lone pairs are ignored completely in VSEPR theory.
+      - text: Yes: 4 electron groups always means a tetrahedral molecular shape.
+      - text: No: because water actually only has 2 total electron groups.
+      - text: Yes: lone pairs are ignored completely in VSEPR theory.
     explanation: |
       Lone pairs count as electron groups and affect the shape, but they are not drawn as "corners" of the final molecular shape, since they are not connected to another atom. With only 2 of water's 4 positions occupied by actual atoms, the resulting shape is bent.
     approved: true
@@ -154,11 +154,11 @@ questions:
     stem: |
       A student claims that covalent bonds always share electrons equally between the two atoms. Is this claim correct?
     choices:
-      - text: No — covalent bonds can be polar (unequal sharing) or nonpolar (equal sharing), depending on the electronegativity difference.
+      - text: No: covalent bonds can be polar (unequal sharing) or nonpolar (equal sharing), depending on the electronegativity difference.
         correct: true
-      - text: Yes — covalent bonds, by definition, always share electrons equally.
-      - text: No — covalent bonds never share electrons at all; only ionic bonds do.
-      - text: Yes — only ionic bonds can ever be unequal.
+      - text: Yes: covalent bonds, by definition, always share electrons equally.
+      - text: No: covalent bonds never share electrons at all; only ionic bonds do.
+      - text: Yes: only ionic bonds can ever be unequal.
     explanation: |
       Covalent bonds can be polar, like the oxygen-hydrogen bonds in water, where oxygen pulls the shared electrons closer to itself than hydrogen does. Equal sharing (nonpolar covalent) is only one case, not a universal rule.
     approved: true
@@ -210,11 +210,11 @@ questions:
     stem: |
       A central atom has 3 bonding electron groups and 1 lone pair (4 total electron groups). Using the same reasoning that makes water's shape bent instead of tetrahedral, what can you predict about this molecule's shape?
     choices:
-      - text: It will not be a perfect tetrahedral shape — the lone pair still counts as an electron group and pushes the 3 bonding groups into a different arrangement than if all 4 groups were bonding.
+      - text: It will not be a perfect tetrahedral shape: the lone pair still counts as an electron group and pushes the 3 bonding groups into a different arrangement than if all 4 groups were bonding.
         correct: true
       - text: It will be a perfect tetrahedral shape, since lone pairs never affect the final molecular shape.
       - text: It will be linear, since only the bonding groups matter for molecular shape.
       - text: It will be trigonal planar, since lone pairs are always ignored when counting electron groups.
     explanation: |
-      Just like water's 2 lone pairs push its 2 bonding pairs into a bent shape rather than tetrahedral, this molecule's 1 lone pair pushes its 3 bonding groups out of a perfect tetrahedral arrangement — the same principle applies whenever any of the 4 electron groups is a lone pair rather than a bond.
+      Just like water's 2 lone pairs push its 2 bonding pairs into a bent shape rather than tetrahedral, this molecule's 1 lone pair pushes its 3 bonding groups out of a perfect tetrahedral arrangement: the same principle applies whenever any of the 4 electron groups is a lone pair rather than a bond.
     approved: true

@@ -54,7 +54,7 @@ questions:
     type: classify
     difficulty: medium
     stem: |
-      A solution has dissolved the maximum amount of solute possible at its current temperature — adding any more solute would just leave it undissolved at the bottom. How should this solution be classified?
+      A solution has dissolved the maximum amount of solute possible at its current temperature: adding any more solute would just leave it undissolved at the bottom. How should this solution be classified?
     choices:
       - text: Saturated
         correct: true
@@ -76,7 +76,7 @@ questions:
       - text: Sugar becomes a different substance when dissolved in hot water.
       - text: Cold water dissolves solids better than hot water.
     explanation: |
-      Solubility describes the maximum amount of solute that can dissolve at a given temperature, and for most solids, that maximum increases as temperature rises — exactly why hot tea dissolves more sugar than cold tea.
+      Solubility describes the maximum amount of solute that can dissolve at a given temperature, and for most solids, that maximum increases as temperature rises: exactly why hot tea dissolves more sugar than cold tea.
     approved: true
   - id: q-chemistry-solutions-0006
     type: classify
@@ -84,11 +84,11 @@ questions:
     stem: |
       A student divides moles of solute by liters of solvent (instead of liters of solution) to calculate molarity. Is this correct?
     choices:
-      - text: No — molarity divides by liters of the total solution, not just the solvent.
+      - text: No: molarity divides by liters of the total solution, not just the solvent.
         correct: true
-      - text: Yes — molarity and molality use the exact same denominator.
-      - text: No — molarity should divide by kilograms of solvent instead.
-      - text: Yes — solvent volume and solution volume are always identical.
+      - text: Yes: molarity and molality use the exact same denominator.
+      - text: No: molarity should divide by kilograms of solvent instead.
+      - text: Yes: solvent volume and solution volume are always identical.
     explanation: |
       Molarity is moles of solute per liter of solution (the whole mixture). Confusing this with molality's denominator (kilograms of solvent alone) is one of the most commonly swapped concentration mistakes.
     approved: true
@@ -98,11 +98,11 @@ questions:
     stem: |
       To find percent by mass, a student divides the solute's mass by the solvent's mass alone, instead of the total solution's mass. Is this correct?
     choices:
-      - text: No — percent by mass divides by the total solution mass (solute plus solvent), not the solvent alone.
+      - text: No: percent by mass divides by the total solution mass (solute plus solvent), not the solvent alone.
         correct: true
-      - text: Yes — dividing by solvent mass alone gives the same result.
-      - text: No — percent by mass should divide by moles, not mass.
-      - text: Yes — percent by mass problems never include the solute's own mass in the total.
+      - text: Yes: dividing by solvent mass alone gives the same result.
+      - text: No: percent by mass should divide by moles, not mass.
+      - text: Yes: percent by mass problems never include the solute's own mass in the total.
     explanation: |
       Dividing by the solvent's mass alone gives an inflated, incorrect percentage. The correct denominator is always the total solution mass: solute mass plus solvent mass added together.
     approved: true
@@ -112,13 +112,13 @@ questions:
     stem: |
       A student assumes a substance's solubility is the same fixed number no matter the temperature. Is this assumption correct?
     choices:
-      - text: No — solubility generally changes with temperature, usually increasing for solids as the solvent gets hotter.
+      - text: No: solubility generally changes with temperature, usually increasing for solids as the solvent gets hotter.
         correct: true
-      - text: Yes — solubility never depends on temperature.
-      - text: No — solubility only depends on the solute's color.
-      - text: Yes — but only for solutions made with water.
+      - text: Yes: solubility never depends on temperature.
+      - text: No: solubility only depends on the solute's color.
+      - text: Yes: but only for solutions made with water.
     explanation: |
-      Solubility is defined at a specific temperature and generally changes as temperature changes — for most solids, more can dissolve at higher temperatures.
+      Solubility is defined at a specific temperature and generally changes as temperature changes: for most solids, more can dissolve at higher temperatures.
     approved: true
   - id: q-chemistry-solutions-0009
     type: classify
@@ -126,11 +126,11 @@ questions:
     stem: |
       A student says a solution with a small amount of dissolved solute can never be called "saturated," since saturated should mean "a lot" of solute. Is this correct?
     choices:
-      - text: No — a solution is saturated once it holds the maximum solute possible for that specific solute at that temperature, even if that maximum amount is small.
+      - text: No: a solution is saturated once it holds the maximum solute possible for that specific solute at that temperature, even if that maximum amount is small.
         correct: true
-      - text: Yes — "saturated" always requires a large, fixed amount of solute.
-      - text: No — "saturated" only applies to gases, never to solids dissolved in liquids.
-      - text: Yes — a small amount of dissolved solute is always called "unsaturated," regardless of the solute.
+      - text: Yes: "saturated" always requires a large, fixed amount of solute.
+      - text: No: "saturated" only applies to gases, never to solids dissolved in liquids.
+      - text: Yes: a small amount of dissolved solute is always called "unsaturated," regardless of the solute.
     explanation: |
       Saturation is relative to the specific solute's own maximum solubility, not an absolute amount. A solute with very low solubility can saturate a solution with only a small amount dissolved.
     approved: true
@@ -202,5 +202,5 @@ questions:
       - text: Both molarity and molality will shift by the same amount.
       - text: Neither molarity nor molality is ever affected by temperature.
     explanation: |
-      Molarity's denominator is solution volume, which expands with heat, so molarity shifts slightly. Molality's denominator is solvent mass, which does not change with temperature, so molality stays constant — this is exactly why molality is preferred for temperature-sensitive experiments.
+      Molarity's denominator is solution volume, which expands with heat, so molarity shifts slightly. Molality's denominator is solvent mass, which does not change with temperature, so molality stays constant: this is exactly why molality is preferred for temperature-sensitive experiments.
     approved: true

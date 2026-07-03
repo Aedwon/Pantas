@@ -31,7 +31,7 @@ questions:
       - text: Precipitation
       - text: Runoff
     explanation: |
-      Condensation is when water vapor rises and cools, turning back into tiny liquid water droplets that form clouds — the opposite process of evaporation.
+      Condensation is when water vapor rises and cools, turning back into tiny liquid water droplets that form clouds: the opposite process of evaporation.
     approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0003
@@ -70,11 +70,11 @@ questions:
     stem: |
       A student believes "transpiration" refers to any water vapor rising from soil or bodies of water, the same as general evaporation. Is this correct?
     choices:
-      - text: No — transpiration specifically refers to water vapor released from plants through their leaves, distinct from evaporation off soil or water bodies; the two are combined into the term "evapotranspiration" precisely because they are different processes.
+      - text: No: transpiration specifically refers to water vapor released from plants through their leaves, distinct from evaporation off soil or water bodies; the two are combined into the term "evapotranspiration" precisely because they are different processes.
         correct: true
-      - text: Yes — transpiration and evaporation are simply two different names for the exact same process.
-      - text: No — but only because plants do not release any water vapor at all.
-      - text: Yes — transpiration only applies to water evaporating from soil, never from plants.
+      - text: Yes: transpiration and evaporation are simply two different names for the exact same process.
+      - text: No: but only because plants do not release any water vapor at all.
+      - text: Yes: transpiration only applies to water evaporating from soil, never from plants.
     explanation: |
       Some students confuse transpiration with general evaporation from soil or water bodies. Transpiration is specifically the plant-based release of water vapor through leaves, which is why it is paired with evaporation as "evapotranspiration" when discussing total water vapor sources.
     approved: true
@@ -130,11 +130,11 @@ questions:
     stem: |
       A choice describes condensation as "liquid water turning into water vapor, rising into the atmosphere," swapping it with evaporation's description. Is this correct?
     choices:
-      - text: No — this describes evaporation, not condensation; condensation is the opposite process, water vapor cooling and turning back into liquid droplets.
+      - text: No: this describes evaporation, not condensation; condensation is the opposite process, water vapor cooling and turning back into liquid droplets.
         correct: true
-      - text: Yes — condensation and evaporation describe the exact same liquid-to-gas process.
-      - text: No — but only because neither evaporation nor condensation actually occurs in the water cycle.
-      - text: Yes — condensation always describes liquid turning into gas.
+      - text: Yes: condensation and evaporation describe the exact same liquid-to-gas process.
+      - text: No: but only because neither evaporation nor condensation actually occurs in the water cycle.
+      - text: Yes: condensation always describes liquid turning into gas.
     explanation: |
       These are opposite processes, and questions often swap their descriptions. If the process is warming water into vapor, it is evaporation; if it is cooling vapor into visible droplets or clouds, it is condensation.
     approved: true
@@ -151,7 +151,7 @@ questions:
       - text: Precipitation
       - text: Infiltration
     explanation: |
-      Water vapor (a gas) turning into liquid droplets, forming clouds, is condensation — the opposite of evaporation.
+      Water vapor (a gas) turning into liquid droplets, forming clouds, is condensation: the opposite of evaporation.
     approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0011
@@ -175,11 +175,11 @@ questions:
     stem: |
       A choice claims that freshwater lakes and rivers hold most of Earth's water, more than the oceans. Is this correct?
     choices:
-      - text: No — the ocean holds about 96% of Earth's water; freshwater lakes and rivers hold only a small fraction in comparison.
+      - text: No: the ocean holds about 96% of Earth's water; freshwater lakes and rivers hold only a small fraction in comparison.
         correct: true
-      - text: Yes — freshwater lakes and rivers hold the vast majority of Earth's water.
-      - text: No — but only because oceans do not actually contain any water.
-      - text: Yes — oceans and freshwater lakes hold exactly equal amounts of water.
+      - text: Yes: freshwater lakes and rivers hold the vast majority of Earth's water.
+      - text: No: but only because oceans do not actually contain any water.
+      - text: Yes: oceans and freshwater lakes hold exactly equal amounts of water.
     explanation: |
       A choice suggesting that lakes or rivers are the largest water reservoir is incorrect. The vast majority of Earth's water, and nearly all of it that is liquid, is contained within the salty oceans.
     approved: true

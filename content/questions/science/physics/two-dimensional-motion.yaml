@@ -70,13 +70,13 @@ questions:
     stem: |
       A satellite moves at a constant speed in a perfectly circular orbit around Earth. Is the satellite accelerating?
     choices:
-      - text: Yes — its direction is constantly changing, even though its speed stays the same.
+      - text: Yes: its direction is constantly changing, even though its speed stays the same.
         correct: true
-      - text: No — since its speed never changes, it cannot be accelerating.
-      - text: No — acceleration only applies to objects speeding up or slowing down in a straight line.
-      - text: Yes — but only because satellites always eventually change speed.
+      - text: No: since its speed never changes, it cannot be accelerating.
+      - text: No: acceleration only applies to objects speeding up or slowing down in a straight line.
+      - text: Yes: but only because satellites always eventually change speed.
     explanation: |
-      Velocity is a vector with both speed and direction. Even at constant speed, the satellite's direction keeps changing as it curves around the orbit, which means its velocity — and therefore its acceleration — is nonzero.
+      Velocity is a vector with both speed and direction. Even at constant speed, the satellite's direction keeps changing as it curves around the orbit, which means its velocity, and therefore its acceleration, is nonzero.
     approved: true
   - id: q-physics-two-dimensional-motion-0006
     type: identify
@@ -98,11 +98,11 @@ questions:
     stem: |
       A student calculates a projectile's horizontal distance using $x = v_xt + \dfrac{1}{2}gt^2$, applying gravity to the horizontal motion. Is this correct?
     choices:
-      - text: No — gravity affects only the vertical component; horizontal velocity stays constant, so $x = v_xt$ is the correct formula.
+      - text: No: gravity affects only the vertical component; horizontal velocity stays constant, so $x = v_xt$ is the correct formula.
         correct: true
-      - text: Yes — gravity affects horizontal and vertical motion equally.
-      - text: No — horizontal motion should use $x = \dfrac{1}{2}gt^2$ alone instead.
-      - text: Yes — but only for projectiles launched at exactly 45°.
+      - text: Yes: gravity affects horizontal and vertical motion equally.
+      - text: No: horizontal motion should use $x = \dfrac{1}{2}gt^2$ alone instead.
+      - text: Yes: but only for projectiles launched at exactly 45°.
     explanation: |
       In ideal projectile motion (ignoring air resistance), horizontal velocity never changes, since no horizontal acceleration acts. Only the vertical motion includes a $\dfrac{1}{2}gt^2$ term.
     approved: true
@@ -112,11 +112,11 @@ questions:
     stem: |
       A student assumes an object moving at constant speed around a circle has zero acceleration, since "constant speed" sounds like "no change." Is this correct?
     choices:
-      - text: No — constant speed is not the same as constant velocity; the changing direction alone produces a real, nonzero centripetal acceleration.
+      - text: No: constant speed is not the same as constant velocity; the changing direction alone produces a real, nonzero centripetal acceleration.
         correct: true
-      - text: Yes — constant speed always means zero acceleration.
-      - text: No — but only because the object is also changing speed in this scenario.
-      - text: Yes — acceleration only depends on speed, never on direction.
+      - text: Yes: constant speed always means zero acceleration.
+      - text: No: but only because the object is also changing speed in this scenario.
+      - text: Yes: acceleration only depends on speed, never on direction.
     explanation: |
       Acceleration depends on velocity, a vector that includes direction. Even without any speed change, a continuously changing direction (as in circular motion) still produces acceleration.
     approved: true
@@ -126,11 +126,11 @@ questions:
     stem: |
       A projectile is launched at 25 m/s at 40° above the horizontal. A student plugs the full 25 m/s directly into both the horizontal equation $x = vt$ and the vertical free-fall equations, without splitting it into components first. Is this correct?
     choices:
-      - text: No — the launch velocity must first be split into horizontal ($v_0\cos\theta$) and vertical ($v_0\sin\theta$) components before applying either equation.
+      - text: No: the launch velocity must first be split into horizontal ($v_0\cos\theta$) and vertical ($v_0\sin\theta$) components before applying either equation.
         correct: true
-      - text: Yes — the full launch speed can be used directly in both directions.
-      - text: No — only the vertical equation needs the launch speed split into components.
-      - text: Yes — splitting into components is only needed when the angle is greater than 45°.
+      - text: Yes: the full launch speed can be used directly in both directions.
+      - text: No: only the vertical equation needs the launch speed split into components.
+      - text: Yes: splitting into components is only needed when the angle is greater than 45°.
     explanation: |
       Only the correct component belongs in each direction's equation: the horizontal component in the horizontal equation, and the vertical component in the vertical equations. Using the full launch speed in both directions produces an incorrect result.
     approved: true
@@ -140,11 +140,11 @@ questions:
     stem: |
       A projectile's launch angle is measured from the horizontal. A student uses sine to find the horizontal component and cosine to find the vertical component. Is this correct?
     choices:
-      - text: No — when the angle is measured from the horizontal, cosine gives the horizontal component and sine gives the vertical component, the reverse of what the student used.
+      - text: No: when the angle is measured from the horizontal, cosine gives the horizontal component and sine gives the vertical component, the reverse of what the student used.
         correct: true
-      - text: Yes — sine always gives the horizontal component regardless of how the angle is measured.
-      - text: No — both components should use the same trig function.
-      - text: Yes — cosine and sine can be swapped freely without changing the result.
+      - text: Yes: sine always gives the horizontal component regardless of how the angle is measured.
+      - text: No: both components should use the same trig function.
+      - text: Yes: cosine and sine can be swapped freely without changing the result.
     explanation: |
       When the angle is measured from the horizontal, cosine corresponds to the horizontal (adjacent) component and sine corresponds to the vertical (opposite) component. Swapping them produces a projectile that behaves as if launched at a very different angle.
     approved: true

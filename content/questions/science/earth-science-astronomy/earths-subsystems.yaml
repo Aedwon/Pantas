@@ -91,7 +91,7 @@ questions:
       - text: Atmosphere
       - text: Biosphere
     explanation: |
-      A glacier is frozen water, so it belongs to the hydrosphere, since the hydrosphere includes water in any form — liquid, solid ice, or vapor.
+      A glacier is frozen water, so it belongs to the hydrosphere, since the hydrosphere includes water in any form: liquid, solid ice, or vapor.
     approved: true
 
   - id: q-earth-science-astronomy-earths-subsystems-0007
@@ -100,13 +100,13 @@ questions:
     stem: |
       A student argues that polar ice caps deserve their own separate category, since ice is solid like rock, not liquid like ocean water. Is this correct?
     choices:
-      - text: No — the hydrosphere is defined by being water in any of its forms (liquid, solid ice, or vapor), so glaciers and polar ice caps still belong to the hydrosphere, not a separate category.
+      - text: No: the hydrosphere is defined by being water in any of its forms (liquid, solid ice, or vapor), so glaciers and polar ice caps still belong to the hydrosphere, not a separate category.
         correct: true
-      - text: Yes — solid ice belongs to the lithosphere, since it is a solid.
-      - text: Yes — ice is neither hydrosphere nor lithosphere, but its own separate subsystem.
-      - text: No — but only because ice does not actually exist on Earth.
+      - text: Yes: solid ice belongs to the lithosphere, since it is a solid.
+      - text: Yes: ice is neither hydrosphere nor lithosphere, but its own separate subsystem.
+      - text: No: but only because ice does not actually exist on Earth.
     explanation: |
-      Students sometimes think ice deserves its own category since it is solid. But the hydrosphere is defined by being water in any of its forms — liquid, solid ice, or water vapor — so glaciers and polar ice caps all belong to the hydrosphere.
+      Students sometimes think ice deserves its own category since it is solid. But the hydrosphere is defined by being water in any of its forms, liquid, solid ice, or water vapor, so glaciers and polar ice caps all belong to the hydrosphere.
     approved: true
 
   - id: q-earth-science-astronomy-earths-subsystems-0008
@@ -145,13 +145,13 @@ questions:
     stem: |
       A colony of bacteria lives deep underground, within cracks in solid rock. A student classifies these bacteria as part of the lithosphere, since that is where they are found. Is this correct?
     choices:
-      - text: No — classification depends on whether the thing is alive, not on where it is found; since bacteria are living organisms, they belong to the biosphere, even while living underground.
+      - text: No: classification depends on whether the thing is alive, not on where it is found; since bacteria are living organisms, they belong to the biosphere, even while living underground.
         correct: true
-      - text: Yes — any organism found within rock automatically becomes part of the lithosphere.
-      - text: Yes — bacteria are not considered living things, so they belong to the lithosphere by default.
-      - text: No — but only because bacteria cannot survive underground at all.
+      - text: Yes: any organism found within rock automatically becomes part of the lithosphere.
+      - text: Yes: bacteria are not considered living things, so they belong to the lithosphere by default.
+      - text: No: but only because bacteria cannot survive underground at all.
     explanation: |
-      A choice describing bacteria living deep underground may be mistakenly classified as part of the lithosphere just because of its location. But classification depends on whether the thing is alive, not on where it happens to be found — living bacteria belong to the biosphere.
+      A choice describing bacteria living deep underground may be mistakenly classified as part of the lithosphere just because of its location. But classification depends on whether the thing is alive, not on where it happens to be found: living bacteria belong to the biosphere.
     approved: true
 
   - id: q-earth-science-astronomy-earths-subsystems-0011
@@ -166,7 +166,7 @@ questions:
       - text: Only the lithosphere; no other subsystem is involved
       - text: Only the atmosphere; the eruption itself does not involve any subsystem
     explanation: |
-      The eruption comes from inside the solid Earth (lithosphere), while the ash and gas travel into the sky and affect sunlight and temperature there (atmosphere) — these two subsystems are directly interacting.
+      The eruption comes from inside the solid Earth (lithosphere), while the ash and gas travel into the sky and affect sunlight and temperature there (atmosphere): these two subsystems are directly interacting.
     approved: true
 
   - id: q-earth-science-astronomy-earths-subsystems-0012
@@ -175,11 +175,11 @@ questions:
     stem: |
       A question describes rainfall seeping into cracked rock, freezing, and breaking the rock apart, after which plant roots grow into the broken rock and turn it into soil. A student answers that this scenario only involves the lithosphere, since it ends with rock turning into soil. Is this answer complete?
     choices:
-      - text: "No — this scenario involves all four subsystems: the lithosphere (the rock), the hydrosphere (the rainfall), the atmosphere (temperature and freezing conditions), and the biosphere (the plant roots); picking only one subsystem is incomplete."
+      - text: "No: this scenario involves all four subsystems: the lithosphere (the rock), the hydrosphere (the rainfall), the atmosphere (temperature and freezing conditions), and the biosphere (the plant roots); picking only one subsystem is incomplete."
         correct: true
-      - text: Yes — since the final result is soil, only the lithosphere is relevant to this scenario.
-      - text: Yes — subsystems act in isolation, so only the subsystem mentioned last in the scenario counts.
-      - text: No — but only because plant roots are not considered part of any subsystem.
+      - text: Yes: since the final result is soil, only the lithosphere is relevant to this scenario.
+      - text: Yes: subsystems act in isolation, so only the subsystem mentioned last in the scenario counts.
+      - text: No: but only because plant roots are not considered part of any subsystem.
     explanation: |
       A question describing a real event (like this weathering process) almost always involves more than one subsystem working together. The four subsystems constantly interact; an answer that picks only one subsystem for a multi-step scenario is usually incomplete.
     approved: true
@@ -196,7 +196,7 @@ questions:
       - text: The atmosphere
       - text: The biosphere
     explanation: |
-      "Hydro" means water, so the hydrosphere is the water layer — matching each subsystem's root meaning helps classify unfamiliar examples quickly.
+      "Hydro" means water, so the hydrosphere is the water layer: matching each subsystem's root meaning helps classify unfamiliar examples quickly.
     approved: true
 
   - id: q-earth-science-astronomy-earths-subsystems-0014
@@ -211,7 +211,7 @@ questions:
       - text: Only the atmosphere; water absorption does not involve any subsystem
       - text: Only the hydrosphere; carbon dioxide absorption does not involve any subsystem
     explanation: |
-      Plants (biosphere) interact with the atmosphere by taking in gases from the air, and with the hydrosphere by drawing water from the ground — two separate subsystem interactions happening at once.
+      Plants (biosphere) interact with the atmosphere by taking in gases from the air, and with the hydrosphere by drawing water from the ground: two separate subsystem interactions happening at once.
     approved: true
 
   - id: q-earth-science-astronomy-earths-subsystems-0015
@@ -226,5 +226,5 @@ questions:
       - text: Only the biosphere is involved, since the final outcome is plant growth.
       - text: This scenario cannot be classified into any of the four subsystems.
     explanation: |
-      This multi-step scenario touches all four subsystems: the lithosphere (exposed rock from the landslide), the hydrosphere (rainfall and evaporating moisture), the atmosphere (rising humidity), and the biosphere (mosses and plants colonizing the rock) — a good example of the subsystems constantly rippling into each other.
+      This multi-step scenario touches all four subsystems: the lithosphere (exposed rock from the landslide), the hydrosphere (rainfall and evaporating moisture), the atmosphere (rising humidity), and the biosphere (mosses and plants colonizing the rock): a good example of the subsystems constantly rippling into each other.
     approved: true

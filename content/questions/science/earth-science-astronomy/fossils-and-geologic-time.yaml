@@ -31,7 +31,7 @@ questions:
       - text: Igneous and metamorphic rocks form more quickly than sedimentary rock, giving fossils less time to decay.
       - text: Fossils are equally common in all three rock types, with no meaningful difference.
     explanation: |
-      Sedimentary rock forms in layers, which can trap and preserve remains before they decay. Igneous rock forms from cooling melted rock, and metamorphic rock forms under intense heat and pressure — both processes that would destroy any organic remains.
+      Sedimentary rock forms in layers, which can trap and preserve remains before they decay. Igneous rock forms from cooling melted rock, and metamorphic rock forms under intense heat and pressure: both processes that would destroy any organic remains.
     approved: true
 
   - id: q-earth-science-astronomy-fossils-and-geologic-time-0003
@@ -91,7 +91,7 @@ questions:
       - text: Both organisms must have lived at exactly the same time.
       - text: No conclusion can be drawn about which organism lived first.
     explanation: |
-      A fossil's age matches the age of the rock layer it is found in. Since Layer W is older than Layer Z, the trilobite must have lived before the mammal — matching what we know from the geologic time scale, since trilobites are common Paleozoic fossils, while most mammals appeared much later, in the Cenozoic.
+      A fossil's age matches the age of the rock layer it is found in. Since Layer W is older than Layer Z, the trilobite must have lived before the mammal: matching what we know from the geologic time scale, since trilobites are common Paleozoic fossils, while most mammals appeared much later, in the Cenozoic.
     approved: true
 
   - id: q-earth-science-astronomy-fossils-and-geologic-time-0007
@@ -100,13 +100,13 @@ questions:
     stem: |
       A question asks, "How many years old is this rock layer?" A student tries to answer using only the Law of Superposition. Can superposition alone answer this question?
     choices:
-      - text: No — the Law of Superposition only tells you the relative order of layers (which is older or younger); only radiometric (absolute) dating provides a specific number of years.
+      - text: No: the Law of Superposition only tells you the relative order of layers (which is older or younger); only radiometric (absolute) dating provides a specific number of years.
         correct: true
-      - text: Yes — the Law of Superposition always provides an exact number of years for any rock layer.
-      - text: No — but only because the Law of Superposition cannot determine the order of layers either.
-      - text: Yes — radiometric dating and the Law of Superposition are the exact same method.
+      - text: Yes: the Law of Superposition always provides an exact number of years for any rock layer.
+      - text: No: but only because the Law of Superposition cannot determine the order of layers either.
+      - text: Yes: radiometric dating and the Law of Superposition are the exact same method.
     explanation: |
-      A question asking "how many years old" cannot be answered using superposition alone — that method only orders layers relative to each other. Only radiometric (absolute) dating provides a specific number of years.
+      A question asking "how many years old" cannot be answered using superposition alone: that method only orders layers relative to each other. Only radiometric (absolute) dating provides a specific number of years.
     approved: true
 
   - id: q-earth-science-astronomy-fossils-and-geologic-time-0008
@@ -115,11 +115,11 @@ questions:
     stem: |
       A rock formation has been folded and faulted by geological forces over time. A student applies "bottom is oldest" to this formation without any further evidence. Is this a safe assumption?
     choices:
-      - text: No — the Law of Superposition only applies reliably to undisturbed layers; if layers have been folded, flipped, or faulted, the simple "bottom is oldest" rule can no longer be trusted without further evidence.
+      - text: No: the Law of Superposition only applies reliably to undisturbed layers; if layers have been folded, flipped, or faulted, the simple "bottom is oldest" rule can no longer be trusted without further evidence.
         correct: true
-      - text: Yes — the Law of Superposition always applies, regardless of folding or faulting.
-      - text: No — but only because folded rock layers do not contain any fossils.
-      - text: Yes — folding and faulting have no effect on the order of rock layers.
+      - text: Yes: the Law of Superposition always applies, regardless of folding or faulting.
+      - text: No: but only because folded rock layers do not contain any fossils.
+      - text: Yes: folding and faulting have no effect on the order of rock layers.
     explanation: |
       If rock layers have been folded, flipped, or faulted by geological forces, the simple "bottom is oldest" rule can no longer be trusted without further evidence. Exam questions usually specify "undisturbed" for a reason.
     approved: true
@@ -192,11 +192,11 @@ questions:
     choices:
       - text: Each half-life only cuts the current remaining amount in half again, not by a fixed equal amount each time; decay never reaches exactly zero, and one-eighth remaining after a third half-life is still a nonzero amount, not "finished."
         correct: true
-      - text: Nothing is wrong — after exactly 3 half-lives, the sample always reaches exactly zero.
+      - text: Nothing is wrong: after exactly 3 half-lives, the sample always reaches exactly zero.
       - text: The reasoning is correct, since each half-life removes the same fixed amount of material.
       - text: Half-lives only apply to the first halving, not to any later ones.
     explanation: |
-      A common mistake is assuming decay eventually reaches exactly zero after a fixed number of half-lives. In fact, every half-life only cuts the current remaining amount in half, forever approaching (but never fully hitting) zero — one-eighth remaining after 3 half-lives is correct, but it is not "finished decaying."
+      A common mistake is assuming decay eventually reaches exactly zero after a fixed number of half-lives. In fact, every half-life only cuts the current remaining amount in half, forever approaching (but never fully hitting) zero: one-eighth remaining after 3 half-lives is correct, but it is not "finished decaying."
     approved: true
 
   - id: q-earth-science-astronomy-fossils-and-geologic-time-0014
@@ -280,11 +280,11 @@ questions:
     stem: |
       Since the Cenozoic is called the "age of mammals," a student assumes dinosaurs must belong to the Cenozoic era as well. Is this correct?
     choices:
-      - text: No — dinosaurs belong to the Mesozoic era; they went extinct at the end of the Mesozoic, and it was only afterward, in the Cenozoic, that mammals became the dominant large land animals.
+      - text: No: dinosaurs belong to the Mesozoic era; they went extinct at the end of the Mesozoic, and it was only afterward, in the Cenozoic, that mammals became the dominant large land animals.
         correct: true
-      - text: Yes — dinosaurs and mammals both belong to the Cenozoic era together.
-      - text: No — but only because dinosaurs never actually existed.
-      - text: Yes — the Mesozoic and Cenozoic eras describe the exact same time period.
+      - text: Yes: dinosaurs and mammals both belong to the Cenozoic era together.
+      - text: No: but only because dinosaurs never actually existed.
+      - text: Yes: the Mesozoic and Cenozoic eras describe the exact same time period.
     explanation: |
       Since the Cenozoic is called the "age of mammals," some students mistakenly place dinosaurs there too. Dinosaurs went extinct at the end of the Mesozoic era, and only afterward, in the Cenozoic, did mammals become the dominant large land animals.
     approved: true

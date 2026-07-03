@@ -103,13 +103,13 @@ questions:
     stem: |
       A student lists the classification order as Kingdom, then Domain, then Phylum, placing Kingdom before Domain. Is this correct?
     choices:
-      - text: No — Domain is the broadest rank and always comes first; Kingdom comes after Domain.
+      - text: No: Domain is the broadest rank and always comes first; Kingdom comes after Domain.
         correct: true
-      - text: Yes — Kingdom is broader than Domain.
-      - text: No — Phylum should actually come before both Kingdom and Domain.
-      - text: Yes — the order of Domain and Kingdom does not matter.
+      - text: Yes: Kingdom is broader than Domain.
+      - text: No: Phylum should actually come before both Kingdom and Domain.
+      - text: Yes: the order of Domain and Kingdom does not matter.
     explanation: |
-      Domain is the broadest classification rank, always placed first, with Kingdom nested inside it — reversing this order is a common mistake.
+      Domain is the broadest classification rank, always placed first, with Kingdom nested inside it: reversing this order is a common mistake.
     approved: true
 
   - id: q-biology-taxonomy-and-classification-0008
@@ -118,11 +118,11 @@ questions:
     stem: |
       A student writes the scientific name of humans as "*Homo Sapiens*," capitalizing both words. Is this correct formatting?
     choices:
-      - text: No — only the genus name is capitalized; the species name is always lowercase, so it should be "*Homo sapiens*."
+      - text: No: only the genus name is capitalized; the species name is always lowercase, so it should be "*Homo sapiens*."
         correct: true
-      - text: Yes — both the genus and species names should always be capitalized.
-      - text: No — neither word should ever be capitalized.
-      - text: Yes — capitalization rules do not apply to scientific names.
+      - text: Yes: both the genus and species names should always be capitalized.
+      - text: No: neither word should ever be capitalized.
+      - text: Yes: capitalization rules do not apply to scientific names.
     explanation: |
       Binomial nomenclature capitalizes only the genus name; the species name is always lowercase. "*Homo Sapiens*" incorrectly capitalizes both words.
     approved: true
@@ -133,11 +133,11 @@ questions:
     stem: |
       A student learned the "five kingdoms" system and assumes Kingdom is still the broadest classification rank today. Is this correct in the modern three-domain system?
     choices:
-      - text: No — Domain is broader than Kingdom; each domain (like Eukarya) contains multiple kingdoms within it.
+      - text: No: Domain is broader than Kingdom; each domain (like Eukarya) contains multiple kingdoms within it.
         correct: true
-      - text: Yes — Kingdom remains the broadest rank in every classification system.
-      - text: No — but only because kingdoms no longer exist in modern taxonomy.
-      - text: Yes — Domain and Kingdom refer to the exact same level of classification.
+      - text: Yes: Kingdom remains the broadest rank in every classification system.
+      - text: No: but only because kingdoms no longer exist in modern taxonomy.
+      - text: Yes: Domain and Kingdom refer to the exact same level of classification.
     explanation: |
       In the modern three-domain system, each domain contains multiple kingdoms (Eukarya contains Animalia, Plantae, Fungi, and Protista), making Domain the broader rank.
     approved: true
@@ -214,5 +214,5 @@ questions:
       - text: They are unrelated, since their species names ("tigris" and "leo") are different.
       - text: Nothing can be concluded from their scientific names.
     explanation: |
-      Since both species share the genus *Panthera*, they are closely related big cats — sharing a genus indicates a much closer relationship than organisms that only share a broader rank.
+      Since both species share the genus *Panthera*, they are closely related big cats: sharing a genus indicates a much closer relationship than organisms that only share a broader rank.
     approved: true

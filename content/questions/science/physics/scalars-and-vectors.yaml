@@ -17,7 +17,7 @@ questions:
       - text: Scalar, since no direction is given.
         correct: true
       - text: Vector, since a distance is mentioned.
-      - text: Neither — this statement has no magnitude either.
+      - text: Neither: this statement has no magnitude either.
       - text: Both, since it describes motion.
     explanation: |
       A scalar has only magnitude, no direction. Since no direction is mentioned, "50 km" alone is a scalar (distance).
@@ -31,7 +31,7 @@ questions:
       - text: Vector, since a direction (north) is specified.
         correct: true
       - text: Scalar, since a distance is mentioned.
-      - text: Neither — this statement has no magnitude.
+      - text: Neither: this statement has no magnitude.
       - text: Both, since it also could be considered speed.
     explanation: |
       A vector has both magnitude and direction. Since "north" specifies a direction, this is a vector statement (displacement).
@@ -45,7 +45,7 @@ questions:
       - text: Scalar, since temperature has magnitude only, no direction.
         correct: true
       - text: Vector, since temperature can rise or fall.
-      - text: Neither — temperature is not a physics quantity.
+      - text: Neither: temperature is not a physics quantity.
       - text: Both, depending on the season.
     explanation: |
       Temperature has only a magnitude (how hot or cold) with no associated direction, making it a scalar.
@@ -140,11 +140,11 @@ questions:
     stem: |
       A student adds a 3 km eastward displacement and a 4 km northward displacement directly, getting a total of 7 km. Is this correct?
     choices:
-      - text: No — since the vectors are perpendicular, not in the same direction, the Pythagorean theorem must be used instead, giving 5 km.
+      - text: No: since the vectors are perpendicular, not in the same direction, the Pythagorean theorem must be used instead, giving 5 km.
         correct: true
-      - text: Yes — 7 km is the correct combined displacement.
-      - text: No — the correct answer is 1 km, found by subtracting instead.
-      - text: Yes — vector magnitudes can always be added directly, regardless of direction.
+      - text: Yes: 7 km is the correct combined displacement.
+      - text: No: the correct answer is 1 km, found by subtracting instead.
+      - text: Yes: vector magnitudes can always be added directly, regardless of direction.
     explanation: |
       Vector magnitudes can only be added directly when the vectors point in the exact same direction. Since 3 km and 4 km here are perpendicular, the Pythagorean theorem gives the correct combined magnitude: $\sqrt{3^2+4^2} = 5$ km, not 7 km.
     approved: true
@@ -154,11 +154,11 @@ questions:
     stem: |
       A problem measures a vector's angle from the vertical axis instead of the usual horizontal axis. A student still assumes cosine always gives the horizontal component and sine always gives the vertical component. Is this assumption safe?
     choices:
-      - text: No — when the angle is measured from the vertical instead, the sine and cosine roles for the components swap compared to the usual convention.
+      - text: No: when the angle is measured from the vertical instead, the sine and cosine roles for the components swap compared to the usual convention.
         correct: true
-      - text: Yes — cosine always gives the horizontal component no matter how the angle is measured.
-      - text: No — sine and cosine are never used when the angle is measured from the vertical.
-      - text: Yes — the components do not depend on which axis the angle is measured from.
+      - text: Yes: cosine always gives the horizontal component no matter how the angle is measured.
+      - text: No: sine and cosine are never used when the angle is measured from the vertical.
+      - text: Yes: the components do not depend on which axis the angle is measured from.
     explanation: |
       Which trig function applies to which component depends on which side of the triangle the angle is measured from. Sketching the actual triangle and identifying the adjacent and opposite sides relative to the given angle is necessary before applying sine or cosine.
     approved: true
@@ -188,7 +188,7 @@ questions:
       - text: 1600 N to the left
       - text: 800 N in an undetermined direction
     explanation: |
-      Since the forces are equal in magnitude but opposite in direction, subtracting gives $800 - 800 = 0$ N — the forces completely cancel out.
+      Since the forces are equal in magnitude but opposite in direction, subtracting gives $800 - 800 = 0$ N: the forces completely cancel out.
     approved: true
   - id: q-physics-scalars-and-vectors-0014
     type: predict-outcome

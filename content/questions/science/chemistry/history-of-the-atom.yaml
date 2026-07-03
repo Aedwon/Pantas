@@ -104,7 +104,7 @@ questions:
       - text: Electrons are positively charged.
       - text: The atom is completely empty, with nothing inside it.
     explanation: |
-      A sharp bounce could only happen if the fired particles collided with something extremely small, dense, and positively charged — this revealed the existence of a concentrated nucleus.
+      A sharp bounce could only happen if the fired particles collided with something extremely small, dense, and positively charged: this revealed the existence of a concentrated nucleus.
     approved: true
   - id: q-chemistry-history-of-the-atom-0008
     type: compare-contrast
@@ -140,11 +140,11 @@ questions:
     stem: |
       A student says Bohr's fixed-orbit model is the current, scientifically accepted model of the atom. Is this correct?
     choices:
-      - text: No — Schrödinger's electron cloud (quantum mechanical) model is the current accepted model.
+      - text: No: Schrödinger's electron cloud (quantum mechanical) model is the current accepted model.
         correct: true
-      - text: Yes — Bohr's model is still the current accepted model.
-      - text: No — Rutherford's nuclear model is the current accepted model.
-      - text: No — Dalton's solid sphere model is the current accepted model.
+      - text: Yes: Bohr's model is still the current accepted model.
+      - text: No: Rutherford's nuclear model is the current accepted model.
+      - text: No: Dalton's solid sphere model is the current accepted model.
     explanation: |
       Bohr's neat, fixed-orbit picture is a useful simplification, but it was later replaced by Schrödinger's electron cloud model, which better matches experimental evidence and is still used today.
     approved: true
@@ -160,7 +160,7 @@ questions:
       - text: All particles would be absorbed and stop completely inside the foil.
       - text: The particles would pass through only if they were negatively charged.
     explanation: |
-      Since Thomson's model spreads the positive charge evenly through the whole atom, there is no small, dense region to cause a sharp bounce — only mild, even deflection would be expected. The actual sharp bounces observed proved this model wrong.
+      Since Thomson's model spreads the positive charge evenly through the whole atom, there is no small, dense region to cause a sharp bounce: only mild, even deflection would be expected. The actual sharp bounces observed proved this model wrong.
     approved: true
   - id: q-chemistry-history-of-the-atom-0012
     type: cause-effect
@@ -207,5 +207,5 @@ questions:
       - text: The observation that atoms absorb light only at specific wavelengths.
       - text: The realization that atoms are made of more than one element.
     explanation: |
-      Thomson's model spreads positive charge evenly through the atom, so it predicted only mild, even deflection — never a sharp bounce. The gold foil experiment's sharp bounces could only happen if the positive charge were concentrated in one small, dense spot, which is exactly what overturned Thomson's model.
+      Thomson's model spreads positive charge evenly through the atom, so it predicted only mild, even deflection: never a sharp bounce. The gold foil experiment's sharp bounces could only happen if the positive charge were concentrated in one small, dense spot, which is exactly what overturned Thomson's model.
     approved: true

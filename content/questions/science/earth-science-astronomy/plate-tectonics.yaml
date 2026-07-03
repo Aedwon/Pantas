@@ -70,11 +70,11 @@ questions:
     stem: |
       A choice claims Wegener's continental drift theory was immediately and widely accepted by scientists in 1915. Is this accurate?
     choices:
-      - text: No — Wegener's theory was doubted for decades because he could not explain what force moved the continents; only after seafloor spreading was discovered in 1959 did the full theory of plate tectonics become widely accepted.
+      - text: No: Wegener's theory was doubted for decades because he could not explain what force moved the continents; only after seafloor spreading was discovered in 1959 did the full theory of plate tectonics become widely accepted.
         correct: true
-      - text: Yes — scientists universally accepted continental drift as soon as Wegener proposed it.
-      - text: No — but only because Wegener's evidence, like matching fossils and coastlines, was completely wrong.
-      - text: Yes — Wegener had already discovered seafloor spreading himself in 1915.
+      - text: Yes: scientists universally accepted continental drift as soon as Wegener proposed it.
+      - text: No: but only because Wegener's evidence, like matching fossils and coastlines, was completely wrong.
+      - text: Yes: Wegener had already discovered seafloor spreading himself in 1915.
     explanation: |
       Wegener's theory was doubted for decades because he could not explain the moving force behind continental drift. Only after Harry Hess's seafloor spreading supplied that missing piece did the full theory of plate tectonics become widely accepted.
     approved: true
@@ -91,7 +91,7 @@ questions:
       - text: A transform boundary
       - text: A hotspot
     explanation: |
-      A divergent boundary is where two plates move apart, with magma rising to fill the gap and create new crust — exactly what happens at mid-ocean ridges.
+      A divergent boundary is where two plates move apart, with magma rising to fill the gap and create new crust: exactly what happens at mid-ocean ridges.
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0007
@@ -145,11 +145,11 @@ questions:
     stem: |
       A student assumes every convergent boundary produces the exact same outcome, regardless of which plates are involved. Is this correct?
     choices:
-      - text: No — the outcome depends on plate density; if one plate is much denser (typically oceanic crust), it sinks beneath the other in subduction, but if both plates are similar in density (often two continental plates), they crumple upward into a mountain range instead.
+      - text: No: the outcome depends on plate density; if one plate is much denser (typically oceanic crust), it sinks beneath the other in subduction, but if both plates are similar in density (often two continental plates), they crumple upward into a mountain range instead.
         correct: true
-      - text: Yes — every convergent boundary always produces subduction, regardless of plate density.
-      - text: Yes — every convergent boundary always produces a mountain range, regardless of plate density.
-      - text: No — but only because convergent boundaries never involve two colliding plates.
+      - text: Yes: every convergent boundary always produces subduction, regardless of plate density.
+      - text: Yes: every convergent boundary always produces a mountain range, regardless of plate density.
+      - text: No: but only because convergent boundaries never involve two colliding plates.
     explanation: |
       Not every convergent boundary looks the same. If one plate is much denser, it sinks beneath the other (subduction), often creating volcanoes above it. If both plates are similar in density, neither sinks, and they crumple upward into a mountain range instead.
     approved: true
@@ -205,11 +205,11 @@ questions:
     stem: |
       A choice claims "S waves are faster than P waves and can travel through both solids and liquids," swapping the two wave types' properties. Is this correct?
     choices:
-      - text: No — this reverses the properties; P waves are actually faster and travel through both solids and liquids, while S waves are slower and travel through solids only.
+      - text: No: this reverses the properties; P waves are actually faster and travel through both solids and liquids, while S waves are slower and travel through solids only.
         correct: true
-      - text: Yes — S waves are indeed faster and can travel through both solids and liquids.
-      - text: No — but only because neither P waves nor S waves can travel through solids.
-      - text: Yes — P waves and S waves have identical speed and travel through identical materials.
+      - text: Yes: S waves are indeed faster and can travel through both solids and liquids.
+      - text: No: but only because neither P waves nor S waves can travel through solids.
+      - text: Yes: P waves and S waves have identical speed and travel through identical materials.
     explanation: |
       A common wrong answer swaps these properties. Anchor the memory device: P comes first (faster) and passes through everything (solids and liquids); S comes second (slower) and cannot travel through liquid at all.
     approved: true
@@ -226,7 +226,7 @@ questions:
       - text: A larger time gap means the earthquake's origin is closer to the station, not farther away.
       - text: S waves always arrive before P waves, and a larger gap means the earthquake was weaker.
     explanation: |
-      P waves travel faster than S waves and always arrive first. The farther the earthquake's origin, the more time the faster P wave gains over the slower S wave, so a longer arrival gap indicates a greater distance — this is how scientists pinpoint an earthquake's location.
+      P waves travel faster than S waves and always arrive first. The farther the earthquake's origin, the more time the faster P wave gains over the slower S wave, so a longer arrival gap indicates a greater distance: this is how scientists pinpoint an earthquake's location.
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0016
@@ -250,13 +250,13 @@ questions:
     stem: |
       The Hawaiian Islands are a volcanic island chain located in the middle of a tectonic plate, far from any plate boundary. A student claims this is impossible, since "all volcanoes form at plate boundaries." Is this claim correct?
     choices:
-      - text: No — a hotspot is a place where magma rises from deep within the mantle, independent of any plate boundary, and can create volcanic islands like the Hawaiian Islands even in the middle of a plate.
+      - text: No: a hotspot is a place where magma rises from deep within the mantle, independent of any plate boundary, and can create volcanic islands like the Hawaiian Islands even in the middle of a plate.
         correct: true
-      - text: Yes — the Hawaiian Islands must actually sit exactly on a plate boundary.
-      - text: Yes — all volcanoes, without exception, form only at plate boundaries.
-      - text: No — but only because the Hawaiian Islands are not actually volcanic in origin.
+      - text: Yes: the Hawaiian Islands must actually sit exactly on a plate boundary.
+      - text: Yes: all volcanoes, without exception, form only at plate boundaries.
+      - text: No: but only because the Hawaiian Islands are not actually volcanic in origin.
     explanation: |
-      Most volcanoes do form at convergent or divergent boundaries, but a hotspot's magma source comes from deep within the mantle and is not tied to any plate boundary — this is exactly how the Hawaiian Islands formed in the middle of a plate.
+      Most volcanoes do form at convergent or divergent boundaries, but a hotspot's magma source comes from deep within the mantle and is not tied to any plate boundary: this is exactly how the Hawaiian Islands formed in the middle of a plate.
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0018
@@ -271,7 +271,7 @@ questions:
       - text: Plate density has no role in determining which plate sinks during subduction.
       - text: Both plates always sink equally at every convergent boundary.
     explanation: |
-      In subduction, the denser plate — typically oceanic crust — is pushed underneath the less dense plate. This is why oceanic plates commonly sink beneath continental plates at convergent boundaries.
+      In subduction, the denser plate, typically oceanic crust, is pushed underneath the less dense plate. This is why oceanic plates commonly sink beneath continental plates at convergent boundaries.
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0019
@@ -286,7 +286,7 @@ questions:
       - text: P waves, not S waves, are the type of wave that reveals information about the outer core.
       - text: The shadow zone shows that the outer core is solid, not liquid.
     explanation: |
-      S waves cannot travel through liquid. Their disappearance in a shadow zone on the far side of the planet, relative to an earthquake, is explained by a liquid layer (the outer core) blocking them — connecting the P/S wave rule directly to the evidence for Earth's liquid outer core.
+      S waves cannot travel through liquid. Their disappearance in a shadow zone on the far side of the planet, relative to an earthquake, is explained by a liquid layer (the outer core) blocking them: connecting the P/S wave rule directly to the evidence for Earth's liquid outer core.
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0020

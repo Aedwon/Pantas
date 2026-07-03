@@ -20,7 +20,7 @@ questions:
       - text: "10"
       - text: "14"
     explanation: |
-      An $s$ orbital holds up to 2 electrons — the smallest capacity of the four orbital types.
+      An $s$ orbital holds up to 2 electrons: the smallest capacity of the four orbital types.
     approved: true
   - id: q-chemistry-quantum-numbers-electron-configuration-0002
     type: identify
@@ -90,7 +90,7 @@ questions:
       - text: Both fill at exactly the same time.
       - text: Neither fills before the other; 3d is skipped entirely.
     explanation: |
-      The Aufbau principle fills orbitals by increasing energy, not simply by increasing leading number. The 4s orbital has slightly lower energy than 3d at this point in the periodic table, so it fills first — this is why potassium's configuration ends in $4s^1$, not $3d^1$.
+      The Aufbau principle fills orbitals by increasing energy, not simply by increasing leading number. The 4s orbital has slightly lower energy than 3d at this point in the periodic table, so it fills first: this is why potassium's configuration ends in $4s^1$, not $3d^1$.
     approved: true
   - id: q-chemistry-quantum-numbers-electron-configuration-0007
     type: classify
@@ -98,11 +98,11 @@ questions:
     stem: |
       A student writes the configuration $1s^2\ 2s^2\ 2p^8$ for an atom. Is this a valid electron configuration?
     choices:
-      - text: No — a $p$ orbital can never hold more than 6 electrons.
+      - text: No: a $p$ orbital can never hold more than 6 electrons.
         correct: true
-      - text: Yes — as long as the total adds up correctly.
-      - text: No — because the $2s$ orbital should come after $2p$.
-      - text: Yes — $p$ orbitals can hold up to 8 electrons.
+      - text: Yes: as long as the total adds up correctly.
+      - text: No: because the $2s$ orbital should come after $2p$.
+      - text: Yes: $p$ orbitals can hold up to 8 electrons.
     explanation: |
       Each orbital type has a fixed maximum capacity, and $p$ can never exceed 6 electrons. A superscript of 8 on a $p$ orbital is impossible, no matter what the total electron count is.
     approved: true
@@ -126,11 +126,11 @@ questions:
     stem: |
       Can two electrons occupying the same orbital have the same spin?
     choices:
-      - text: No — the Pauli Exclusion Principle requires the two electrons in one orbital to have opposite spins.
+      - text: No: the Pauli Exclusion Principle requires the two electrons in one orbital to have opposite spins.
         correct: true
-      - text: Yes — spin direction does not matter within a single orbital.
-      - text: No — an orbital can never hold two electrons at all.
-      - text: Yes — as long as the orbital is an $s$ orbital.
+      - text: Yes: spin direction does not matter within a single orbital.
+      - text: No: an orbital can never hold two electrons at all.
+      - text: Yes: as long as the orbital is an $s$ orbital.
     explanation: |
       The Pauli Exclusion Principle allows at most 2 electrons per orbital, and requires those two to have opposite spins. Two electrons with the same spin cannot share the same orbital.
     approved: true
@@ -174,7 +174,7 @@ questions:
       - text: 1s^2 2s^2 2p^6 3s^2
       - text: 1s^2 2s^2 2p^5
     explanation: |
-      $Na^+$ has lost one electron compared to neutral sodium, leaving $11 - 1 = 10$ electrons. Removing the single $3s$ electron from neutral sodium's configuration leaves $1s^2\ 2s^2\ 2p^6$ — do not just copy the neutral atom's configuration without adjusting for the charge.
+      $Na^+$ has lost one electron compared to neutral sodium, leaving $11 - 1 = 10$ electrons. Removing the single $3s$ electron from neutral sodium's configuration leaves $1s^2\ 2s^2\ 2p^6$: do not just copy the neutral atom's configuration without adjusting for the charge.
     approved: true
   - id: q-chemistry-quantum-numbers-electron-configuration-0013
     type: simple-quantitative

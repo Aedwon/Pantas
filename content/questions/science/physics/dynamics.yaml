@@ -62,7 +62,7 @@ questions:
       - text: The Third Law
       - text: The Law of Universal Gravitation
     explanation: |
-      This is Newton's First Law, also called the Law of Inertia — an object resists changes to its state of motion unless a net force acts on it.
+      This is Newton's First Law, also called the Law of Inertia: an object resists changes to its state of motion unless a net force acts on it.
     approved: true
   - id: q-physics-dynamics-0005
     type: identify
@@ -112,13 +112,13 @@ questions:
     stem: |
       A student says the weight and normal force acting on a resting book form a Newton's Third Law action-reaction pair, since they are equal and opposite. Is this correct?
     choices:
-      - text: No — both forces act on the same object (the book), which makes them a balanced-force pair (First Law), not a Third Law action-reaction pair.
+      - text: No: both forces act on the same object (the book), which makes them a balanced-force pair (First Law), not a Third Law action-reaction pair.
         correct: true
-      - text: Yes — any two equal and opposite forces are automatically a Third Law pair.
-      - text: No — weight and normal force are never equal in any situation.
-      - text: Yes — but only when the book is accelerating.
+      - text: Yes: any two equal and opposite forces are automatically a Third Law pair.
+      - text: No: weight and normal force are never equal in any situation.
+      - text: Yes: but only when the book is accelerating.
     explanation: |
-      Third Law pairs always act on two different objects. Weight and normal force both act on the same book — they happen to balance (a First Law equilibrium), which is a separate fact from Third Law pairing.
+      Third Law pairs always act on two different objects. Weight and normal force both act on the same book: they happen to balance (a First Law equilibrium), which is a separate fact from Third Law pairing.
     approved: true
   - id: q-physics-dynamics-0009
     type: classify
@@ -126,13 +126,13 @@ questions:
     stem: |
       A student assumes that doubling an object's mass, while keeping the net force the same, will double its acceleration. Is this correct?
     choices:
-      - text: No — mass and acceleration are inversely related in Newton's Second Law; doubling the mass halves the acceleration instead.
+      - text: No: mass and acceleration are inversely related in Newton's Second Law; doubling the mass halves the acceleration instead.
         correct: true
-      - text: Yes — doubling the mass always doubles the acceleration for the same force.
-      - text: No — doubling the mass has no effect on acceleration at all.
-      - text: Yes — mass and acceleration are directly related.
+      - text: Yes: doubling the mass always doubles the acceleration for the same force.
+      - text: No: doubling the mass has no effect on acceleration at all.
+      - text: Yes: mass and acceleration are directly related.
     explanation: |
-      $F_{net} = ma$ means $a = \dfrac{F_{net}}{m}$. For a fixed force, increasing mass decreases acceleration — doubling the mass halves the acceleration, it does not double it.
+      $F_{net} = ma$ means $a = \dfrac{F_{net}}{m}$. For a fixed force, increasing mass decreases acceleration: doubling the mass halves the acceleration, it does not double it.
     approved: true
   - id: q-physics-dynamics-0010
     type: classify
@@ -140,11 +140,11 @@ questions:
     stem: |
       A student assumes that once an object is sliding, kinetic friction becomes negligible and can safely be ignored. Is this correct?
     choices:
-      - text: No — kinetic friction is roughly constant once sliding begins and can be strong enough to eventually stop the object if no other force keeps pushing it.
+      - text: No: kinetic friction is roughly constant once sliding begins and can be strong enough to eventually stop the object if no other force keeps pushing it.
         correct: true
-      - text: Yes — kinetic friction always becomes zero once an object starts sliding.
-      - text: No — but only because kinetic friction increases the longer an object slides.
-      - text: Yes — friction only matters before an object starts moving.
+      - text: Yes: kinetic friction always becomes zero once an object starts sliding.
+      - text: No: but only because kinetic friction increases the longer an object slides.
+      - text: Yes: friction only matters before an object starts moving.
     explanation: |
       Kinetic friction continues to act on a sliding object, opposing its motion. Without a continued applied force, a sliding object will eventually decelerate to a stop due to this friction.
     approved: true
@@ -154,11 +154,11 @@ questions:
     stem: |
       A student assumes the normal force on an object always equals its weight ($mg$), in every situation. Is this correct?
     choices:
-      - text: No — the normal force equals weight only on a horizontal surface with no other vertical forces acting; it must be recalculated in other situations, like on an incline.
+      - text: No: the normal force equals weight only on a horizontal surface with no other vertical forces acting; it must be recalculated in other situations, like on an incline.
         correct: true
-      - text: Yes — the normal force always equals $mg$, regardless of the surface or other forces.
-      - text: No — the normal force is always greater than weight in every situation.
-      - text: Yes — but only for objects that are not accelerating.
+      - text: Yes: the normal force always equals $mg$, regardless of the surface or other forces.
+      - text: No: the normal force is always greater than weight in every situation.
+      - text: Yes: but only for objects that are not accelerating.
     explanation: |
       Normal force only equals $mg$ when the surface is horizontal and no other vertical forces are involved. On an incline, or with an additional applied force, the normal force must be found from the actual vertical force balance in that specific situation.
     approved: true
@@ -210,11 +210,11 @@ questions:
     stem: |
       A box rests on a ramp inclined at an angle, rather than on a flat horizontal surface. Does the normal force on the box still equal its full weight, $mg$?
     choices:
-      - text: No — on an incline, the normal force is less than the full weight, since only part of the weight presses directly into the ramp's surface.
+      - text: No: on an incline, the normal force is less than the full weight, since only part of the weight presses directly into the ramp's surface.
         correct: true
-      - text: Yes — the normal force always equals $mg$, regardless of the surface's angle.
-      - text: No — the normal force is always greater than the full weight on an incline.
-      - text: Yes — but only if the box is sliding down the ramp.
+      - text: Yes: the normal force always equals $mg$, regardless of the surface's angle.
+      - text: No: the normal force is always greater than the full weight on an incline.
+      - text: Yes: but only if the box is sliding down the ramp.
     explanation: |
-      On an incline, weight has a component pressing into the surface and a component along the surface. Only the perpendicular component is balanced by the normal force, making it less than the box's full weight — normal force must be recalculated from the actual geometry, not assumed equal to $mg$.
+      On an incline, weight has a component pressing into the surface and a component along the surface. Only the perpendicular component is balanced by the normal force, making it less than the box's full weight: normal force must be recalculated from the actual geometry, not assumed equal to $mg$.
     approved: true
