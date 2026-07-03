@@ -15,7 +15,7 @@ Two reading techniques help you handle these questions efficiently, especially u
 
 **Skimming** means reading quickly through a passage to get a general sense of its content and structure, without reading every word carefully. Skimming is useful before answering questions, to build a rough mental map of where different topics appear in the passage (introduction, examples, conclusion).
 
-**Scanning** means searching quickly through a passage for a specific piece of information — a name, number, date, or keyword — without reading everything around it. Scanning is useful after you know exactly what detail a question is asking for, letting your eyes jump straight to the relevant section.
+**Scanning** means searching quickly through a passage for a specific piece of information (a name, number, date, or keyword) without reading everything around it. Scanning is useful after you know exactly what detail a question is asking for, letting your eyes jump straight to the relevant section.
 
 <!-- ILLUSTRATION: two contrasting reading patterns over the same paragraph, one showing eyes moving in wide zigzags across the whole passage (skimming) and one showing eyes moving in a narrow, direct line straight to one highlighted word (scanning) -->
 
@@ -57,7 +57,7 @@ A passage states: "The festival, historically held in March, was moved to April 
 **Solution:**
 1. The passage mentions both March (the historical month) and April (the month after the 2015 change).
 2. The question asks for the current month, which requires noticing the change described ("moved to April... has remained in April ever since").
-3. The correct answer is April, not March — reading carefully to the end of the sentence, not stopping at the first month mentioned, is essential here.
+3. The correct answer is April, not March: reading carefully to the end of the sentence, not stopping at the first month mentioned, is essential here.
 
 ## Speed Tricks & Shortcuts
 
@@ -65,19 +65,19 @@ A passage states: "The festival, historically held in March, was moved to April 
 
 **Skim first for structure, then scan for details.** A quick skim of paragraph topics (often visible from first sentences) tells you where to scan, saving significant time on longer passages.
 
-**Watch for signal words indicating a change over time**, like "later," "eventually," "used to," or "since," which often mean the passage mentions two different facts (an old one and a current one) — make sure you answer with the one the question actually asks for.
+**Watch for signal words indicating a change over time**, like "later," "eventually," "used to," or "since," which often mean the passage mentions two different facts (an old one and a current one): make sure you answer with the one the question actually asks for.
 
 ## Traps to Watch For
 
 ### #1: Stopping at the First Matching Detail
 
-> A passage may mention several similar details (multiple names, numbers, or dates) — make sure the one you pick actually answers the specific question asked.
+> A passage may mention several similar details (multiple names, numbers, or dates): make sure the one you pick actually answers the specific question asked.
 
 If a passage mentions two scientists, and the question asks about the one who "first" did something, do not simply grab the first name you see while scanning; confirm it matches the exact role the question asks about.
 
 ### #2: Confusing Historical and Current Facts
 
-> When a passage describes a change over time (something that used to be true, then changed), the question may specifically ask for the original fact, the new fact, or the reason for the change — read carefully to identify which one is being asked.
+> When a passage describes a change over time (something that used to be true, then changed), the question may specifically ask for the original fact, the new fact, or the reason for the change: read carefully to identify which one is being asked.
 
 The festival month example shows how easy it is to answer with the old fact (March) when the question asks for the current one (April), simply because the old fact appeared first in the sentence.
 

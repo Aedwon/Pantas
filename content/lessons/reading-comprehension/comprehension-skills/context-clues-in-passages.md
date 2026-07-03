@@ -20,7 +20,7 @@ Four common types of context clues appear across passages:
 
 <!-- ILLUSTRATION: a full passage with several sentences highlighted in different colors, arrows connecting each highlighted clue back to one unfamiliar word in the middle of the passage, showing how clues scattered across a passage combine to reveal meaning -->
 
-The key skill is not stopping at the same sentence as the unfamiliar word — scan both before and after it within the passage for supporting clues.
+The key skill is not stopping at the same sentence as the unfamiliar word: scan both before and after it within the passage for supporting clues.
 
 ## Examples
 
@@ -65,19 +65,19 @@ The key skill is not stopping at the same sentence as the unfamiliar word — sc
 
 **Look for signal words that reveal the clue type:** "such as," "including," or a colon followed by a list often signals an example clue; "however," "unlike," or "but" often signals a contrast clue; "because," "led to," or "resulted in" often signals a cause-and-effect clue.
 
-**Summarize the surrounding sentences in your own simple words first**, then ask what word would logically fit that summary — this often gets you close to the actual meaning even before checking answer choices.
+**Summarize the surrounding sentences in your own simple words first**, then ask what word would logically fit that summary: this often gets you close to the actual meaning even before checking answer choices.
 
 ## Traps to Watch For
 
 ### #1: Only Checking the Same Sentence as the Unfamiliar Word
 
-> Passage-level context clues can appear several sentences before or after the unfamiliar word — limiting your search to just the one sentence containing the word often misses the clue entirely.
+> Passage-level context clues can appear several sentences before or after the unfamiliar word: limiting your search to just the one sentence containing the word often misses the clue entirely.
 
 The "consternation" example only makes sense once you read the following sentences describing shock and distress; the original sentence alone gives no definition.
 
 ### #2: Missing a Contrast Clue Signaled by "However" or "Unlike"
 
-> Contrast clues reveal a word's meaning by showing its opposite nearby — missing the contrast signal word can lead you to assume the wrong (opposite) meaning.
+> Contrast clues reveal a word's meaning by showing its opposite nearby: missing the contrast signal word can lead you to assume the wrong (opposite) meaning.
 
 In the "amicable" example, failing to notice "however" could lead a reader to wrongly guess that "amicable" describes the later hostile mood, rather than the earlier friendly one it actually contrasts with.
 

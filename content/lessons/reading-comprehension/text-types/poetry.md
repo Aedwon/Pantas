@@ -23,7 +23,7 @@ isActive: true
 
 <!-- ILLUSTRATION: a four-line poem stanza with the last word of each line highlighted and labeled A, B, A, B to show a rhyme scheme pattern, alongside small icons representing the five senses connected to an imagery-rich line -->
 
-Poetry rarely states its meaning directly — readers must infer the poem's message from its images, figurative language, and tone, much like inferring a theme in a short story.
+Poetry rarely states its meaning directly: readers must infer the poem's message from its images, figurative language, and tone, much like inferring a theme in a short story.
 
 ## Examples
 
@@ -48,8 +48,8 @@ Identify the type of figurative language: "The old man's hands were as rough as 
 Identify the rhyme scheme of this stanza: "The moon shines bright above the *bay* (line 1) / The stars begin to gently *glow* (line 2) / The waves roll in and drift *away* (line 3) / While quiet winds begin to *blow* (line 4)."
 
 **Solution:**
-1. Line $1$ ends in "bay" and line $3$ ends in "away" — these rhyme with each other.
-2. Line $2$ ends in "glow" and line $4$ ends in "blow" — these rhyme with each other.
+1. Line $1$ ends in "bay" and line $3$ ends in "away": these rhyme with each other.
+2. Line $2$ ends in "glow" and line $4$ ends in "blow": these rhyme with each other.
 3. Label the first rhyme sound as A, and the second rhyme sound as B: line $1$ = A, line $2$ = B, line $3$ = A, line $4$ = B.
 4. The rhyme scheme is abab.
 
@@ -58,7 +58,7 @@ Identify the rhyme scheme of this stanza: "The moon shines bright above the *bay
 A poem describes "gray skies pressing low," "empty streets," and "a single light flickering, unanswered." What is the likely tone of this poem, and what feeling does the imagery suggest?
 
 **Solution:**
-1. The imagery — gray skies, empty streets, a flickering and "unanswered" light — consistently suggests loneliness, absence, or sadness, rather than joy or excitement.
+1. The imagery (gray skies, empty streets, a flickering and "unanswered" light) consistently suggests loneliness, absence, or sadness, rather than joy or excitement.
 2. The tone is likely somber or melancholy.
 3. The specific word "unanswered" reinforces a feeling of isolation or unmet longing, suggesting the poem may be about loneliness, loss, or waiting for something (or someone) that has not come.
 
@@ -80,7 +80,7 @@ A poem describes "gray skies pressing low," "empty streets," and "a single light
 
 ### #2: Mislabeling the Rhyme Scheme by Skipping a Line
 
-> Assign rhyme scheme letters in order, line by line — do not skip ahead or reuse a letter for a sound that has not actually appeared yet.
+> Assign rhyme scheme letters in order, line by line: do not skip ahead or reuse a letter for a sound that has not actually appeared yet.
 
 A common error jumps to label a rhyme "B" before checking whether an earlier line already used a different letter for that exact same sound.
 
@@ -88,4 +88,4 @@ A common error jumps to label a rhyme "B" before checking whether an earlier lin
 
 > Poetic imagery usually represents a broader feeling or idea, not just a literal physical description.
 
-"Gray skies" in a poem about loneliness is not primarily about actual weather — it is a symbolic image reinforcing the poem's emotional tone. Reading imagery only literally, without connecting it to the poem's overall feeling, misses the deeper meaning being tested.
+"Gray skies" in a poem about loneliness is not primarily about actual weather: it is a symbolic image reinforcing the poem's emotional tone. Reading imagery only literally, without connecting it to the poem's overall feeling, misses the deeper meaning being tested.

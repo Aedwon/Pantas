@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-Choosing the best title for a passage is closely related to finding its main idea — a good title captures the passage's central point in just a few words.
+Choosing the best title for a passage is closely related to finding its main idea: a good title captures the passage's central point in just a few words.
 
 A strong title should be:
 
@@ -28,8 +28,8 @@ Think of choosing a title as finding the "just right" fit: not too narrow (missi
 A passage discusses how bees pollinate flowers, how this process helps plants reproduce, and how declining bee populations threaten global food supplies. Which title fits best? (A) "Bees," (B) "The Vital Role of Bees in Pollination and Food Security," (C) "How Flowers Reproduce."
 
 **Solution:**
-1. (A) "Bees" is too broad and vague — it does not capture the specific focus on pollination and food security.
-2. (C) "How Flowers Reproduce" is too narrow — it ignores the passage's discussion of declining bee populations and food supply risks.
+1. (A) "Bees" is too broad and vague: it does not capture the specific focus on pollination and food security.
+2. (C) "How Flowers Reproduce" is too narrow: it ignores the passage's discussion of declining bee populations and food supply risks.
 3. (B) captures both main elements discussed (pollination's importance and the food security risk from declining bee populations): this is the best title.
 
 ### #2: Spotting a Title That's Too Narrow
@@ -46,7 +46,7 @@ A passage discusses three different renewable energy sources: solar, wind, and h
 A passage specifically discusses the causes and effects of a single historical event, the fall of a particular ancient empire. Explain why "Ancient History" would be a poor title.
 
 **Solution:**
-1. "Ancient History" could describe almost any passage about any ancient civilization or period — it does not specify what this particular passage discusses.
+1. "Ancient History" could describe almost any passage about any ancient civilization or period: it does not specify what this particular passage discusses.
 2. This title is too broad/vague, failing to reflect the passage's specific focus (the fall of one particular empire and its causes/effects).
 3. A better, more precise title would name the specific empire and events discussed.
 

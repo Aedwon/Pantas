@@ -9,9 +9,9 @@ isActive: true
 ---
 ## Core Concept
 
-A **fact** is a statement that can be proven true or false through evidence, measurement, or verifiable records. "Water boils at $100°C$ at sea level" is a fact — it can be tested and confirmed.
+A **fact** is a statement that can be proven true or false through evidence, measurement, or verifiable records. "Water boils at $100°C$ at sea level" is a fact: it can be tested and confirmed.
 
-An **opinion** is a statement that expresses a belief, judgment, or preference, which cannot be objectively proven true or false, since it depends on personal perspective. "Summer is the best season" is an opinion — different people can reasonably disagree, and there is no experiment that settles it.
+An **opinion** is a statement that expresses a belief, judgment, or preference, which cannot be objectively proven true or false, since it depends on personal perspective. "Summer is the best season" is an opinion: different people can reasonably disagree, and there is no experiment that settles it.
 
 The tricky part: opinions are often phrased confidently, using language that sounds factual. Watch for judgment words that signal an opinion, even in an otherwise fact-like sentence: *best*, *worst*, *should*, *beautiful*, *terrible*, *most important*, *clearly the right choice*.
 
@@ -68,7 +68,7 @@ Classify this statement: "Based on current data, the population is projected to 
 
 ### #1: Assuming Confident Phrasing Means a Statement Is Factual
 
-> Phrases like "clearly," "obviously," "everyone knows," or "it is a fact that" do not automatically make a statement objectively true — check whether the content itself is verifiable or a judgment.
+> Phrases like "clearly," "obviously," "everyone knows," or "it is a fact that" do not automatically make a statement objectively true: check whether the content itself is verifiable or a judgment.
 
 "It is obvious that X is better than Y" is still an opinion about "better," regardless of how confidently it is introduced.
 
@@ -76,10 +76,10 @@ Classify this statement: "Based on current data, the population is projected to 
 
 > A sentence can be mostly factual but still contain one judgment word or phrase that makes part of it an opinion.
 
-"The bridge, built in five years, is a stunning achievement" contains a verifiable fact (five years) alongside a value judgment ("stunning achievement") — treating the whole sentence as purely factual misses this mixed structure.
+"The bridge, built in five years, is a stunning achievement" contains a verifiable fact (five years) alongside a value judgment ("stunning achievement"): treating the whole sentence as purely factual misses this mixed structure.
 
 ### #3: Treating a Data-Based Prediction as a Pure Opinion
 
-> A prediction or projection based on stated data and methodology functions differently from a pure personal judgment — it can be evaluated and verified against evidence, even though it concerns the future.
+> A prediction or projection based on stated data and methodology functions differently from a pure personal judgment: it can be evaluated and verified against evidence, even though it concerns the future.
 
-"Population is projected to reach $10$ million by 2030, based on current data" is different from "the population will spiral out of control," even though both discuss the future — the first uses a stated, verifiable method; the second is a subjective judgment.
+"Population is projected to reach $10$ million by 2030, based on current data" is different from "the population will spiral out of control," even though both discuss the future: the first uses a stated, verifiable method; the second is a subjective judgment.

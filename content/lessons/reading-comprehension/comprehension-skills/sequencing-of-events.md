@@ -9,13 +9,13 @@ isActive: true
 ---
 ## Core Concept
 
-**Sequencing** questions ask you to identify the correct order in which events happened. This sounds simple, but passages frequently describe events out of chronological order — through flashbacks, foreshadowing, or simply mentioning a later consequence before circling back to explain its cause.
+**Sequencing** questions ask you to identify the correct order in which events happened. This sounds simple, but passages frequently describe events out of chronological order: through flashbacks, foreshadowing, or simply mentioning a later consequence before circling back to explain its cause.
 
 Three tools help determine the true sequence.
 
 **Time-signal words** directly indicate order: *first*, *next*, *then*, *after*, *before*, *later*, *meanwhile*, *finally*, *previously*, *once*, *by the time*. These are the most direct clues, but a passage does not always include them for every event.
 
-**Verb tense** can reveal sequence even without signal words. The past perfect tense ("had walked," "had finished") usually marks an event that happened before another past-tense event mentioned nearby ("She had already left by the time he arrived" — "had already left" happened first, "arrived" happened second).
+**Verb tense** can reveal sequence even without signal words. The past perfect tense ("had walked," "had finished") usually marks an event that happened before another past-tense event mentioned nearby ("She had already left by the time he arrived": "had already left" happened first, "arrived" happened second).
 
 **Logical cause-and-effect** also implies order: a cause must happen before its effect, even if the passage mentions the effect first and explains the cause afterward.
 
@@ -65,7 +65,7 @@ A passage begins: "The bridge collapsed within minutes, sending shockwaves throu
 
 **Watch specifically for past perfect verbs** ("had done," "had finished," "had already"), since these almost always mark an event that happened before another nearby past-tense event.
 
-**When a passage states a result before its cause, mentally flip the order** — the cause always happened first in actual chronological time, even if the passage's writing order presents the effect first for dramatic or explanatory purposes.
+**When a passage states a result before its cause, mentally flip the order**: the cause always happened first in actual chronological time, even if the passage's writing order presents the effect first for dramatic or explanatory purposes.
 
 ## Traps to Watch For
 
@@ -77,7 +77,7 @@ The bridge-collapse example describes the collapse first in the passage, but the
 
 ### #2: Missing the Signal Given by Past Perfect Tense
 
-> "Had done" signals an earlier event relative to a nearby simple past-tense event — overlooking this tense difference can reverse the true order.
+> "Had done" signals an earlier event relative to a nearby simple past-tense event: overlooking this tense difference can reverse the true order.
 
 Treating "had already evacuated" and "arrived" as happening at the same time, or in the order they are written, ignores the past perfect tense's specific signal that evacuation happened first.
 

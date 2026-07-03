@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-An **inference** is a logical conclusion you reach by combining what the passage directly states with your own reasoning — essentially, "reading between the lines." Inference questions never have their answer written word-for-word in the passage; instead, the passage gives clues that point clearly toward one specific, supportable conclusion.
+An **inference** is a logical conclusion you reach by combining what the passage directly states with your own reasoning (essentially, "reading between the lines"). Inference questions never have their answer written word-for-word in the passage; instead, the passage gives clues that point clearly toward one specific, supportable conclusion.
 
 A good inference must be:
 
@@ -37,8 +37,8 @@ Inference questions often use phrasing like "the passage suggests," "it can be i
 "The company's stock price fell $15\%$ after the CEO's resignation was announced, and analysts noted increased trading volume throughout the day." Which is the best-supported inference: (A) the CEO was forced to resign due to a scandal, (B) investors reacted negatively to the news of the resignation, (C) the company will likely go bankrupt within the year?
 
 **Solution:**
-1. (A) assumes a reason for the resignation (a scandal) that the passage never mentions — this goes beyond the given clues.
-2. (C) makes an extreme prediction (bankruptcy) that the stock drop alone does not support — a $15\%$ drop with increased trading is significant, but not evidence of impending bankruptcy.
+1. (A) assumes a reason for the resignation (a scandal) that the passage never mentions: this goes beyond the given clues.
+2. (C) makes an extreme prediction (bankruptcy) that the stock drop alone does not support: a $15\%$ drop with increased trading is significant, but not evidence of impending bankruptcy.
 3. (B) stays closely tied to the actual clues given: falling stock price plus increased trading volume directly following the announcement suggests investors reacted negatively. This is the best-supported inference.
 
 ### #3: Avoiding an Inference That Goes Too Far
@@ -48,7 +48,7 @@ A passage describes a student submitting an assignment two days late, with no ex
 **Solution:**
 1. The passage gives only the fact that the assignment was late, with no information about the reason (illness, family emergency, procrastination, or something else).
 2. Concluding the student was "lazy" and "did not care" assumes a specific, unsupported reason and an unsupported personality judgment.
-3. This is not a valid inference — it goes beyond what the limited text actually supports. A valid, narrower inference would simply note that some circumstance prevented on-time submission, without speculating on the specific cause.
+3. This is not a valid inference: it goes beyond what the limited text actually supports. A valid, narrower inference would simply note that some circumstance prevented on-time submission, without speculating on the specific cause.
 
 ### #4: Drawing a Conclusion from Multiple Clues
 
@@ -71,7 +71,7 @@ A passage describes a student submitting an assignment two days late, with no ex
 
 ### #1: Choosing an Inference That Requires Outside Information
 
-> A valid inference uses only the clues given in the passage, combined with everyday logical reasoning — not specialized outside knowledge or unstated assumptions.
+> A valid inference uses only the clues given in the passage, combined with everyday logical reasoning, not specialized outside knowledge or unstated assumptions.
 
 Assuming a CEO resigned due to "a scandal" when the passage never mentions one goes beyond the text's actual clues, even if scandals are a common real-world reason for resignations.
 
