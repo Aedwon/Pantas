@@ -1,0 +1,174 @@
+meta:
+  subject: reasoning
+  topic: clerical-ability
+  subtopic: numeric-and-chronological-filing
+  exams:
+    - cse-sub
+questions:
+  - id: q-clerical-ability-numeric-and-chronological-filing-0001
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Which set of file numbers is arranged in correct ascending consecutive numerical order?
+    choices:
+      - text: "0102, 0103, 0104, 0105"
+        correct: true
+      - text: "0105, 0104, 0103, 0102"
+      - text: "0102, 0104, 0103, 0105"
+      - text: "0103, 0102, 0105, 0104"
+    explanation: |
+      Consecutive numeric filing arranges numbers in simple counting order from lowest to highest.
+
+  - id: q-clerical-ability-numeric-and-chronological-filing-0002
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Under chronological filing (oldest date first), which document date should be filed FIRST?
+    choices:
+      - text: "2024-01-15"
+        correct: true
+      - text: "2024-03-20"
+      - text: "2025-01-10"
+      - text: "2025-05-04"
+    explanation: |
+      When filing from oldest to newest, January 15, 2024 is the earliest date in the group.
+
+  - id: q-clerical-ability-numeric-and-chronological-filing-0003
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Under chronological filing (oldest date first), which document date should be filed LAST?
+    choices:
+      - text: "2026-11-30"
+        correct: true
+      - text: "2026-02-15"
+      - text: "2025-12-01"
+      - text: "2024-08-20"
+    explanation: |
+      November 30, 2026 is the latest date among the options and will be filed last.
+
+  - id: q-clerical-ability-numeric-and-chronological-filing-0004
+    type: single_choice
+    difficulty: medium
+    stem: |
+      In consecutive numeric filing, where should document number 4589 be placed?
+    choices:
+      - text: Between 4588 and 4590
+        correct: true
+      - text: Before document 4500 numerical filing series
+      - text: After document 4600 numerical archive folder
+      - text: Between 4590 and 4600 secondary numeric folders
+    explanation: |
+      Number 4589 falls directly between 4588 and 4590 in consecutive sequence.
+
+  - id: q-clerical-ability-numeric-and-chronological-filing-0005
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Which file number comes immediately AFTER file number 10-099 in a consecutive numeric system?
+    choices:
+      - text: "10-100"
+        correct: true
+      - text: "10-098"
+      - text: "10-200"
+      - text: "11-000"
+    explanation: |
+      Adding 1 to 099 gives 100, so 10-099 is followed immediately by 10-100.
+
+  - id: q-clerical-ability-numeric-and-chronological-filing-0006
+    type: single_choice
+    difficulty: medium
+    stem: |
+      When filing records chronologically by year, month, and day, which date precedes 2025-06-15?
+    choices:
+      - text: "2025-06-10"
+        correct: true
+      - text: "2025-06-20"
+      - text: "2025-07-01"
+      - text: "2025-12-15"
+    explanation: |
+      June 10, 2025 comes before June 15, 2025.
+
+  - id: q-clerical-ability-numeric-and-chronological-filing-0007
+    type: single_choice
+    difficulty: medium
+    stem: |
+      In decimal numeric filing, which number should be placed FIRST in ascending order?
+    choices:
+      - text: "402.15"
+        correct: true
+      - text: "402.20"
+      - text: "402.80"
+      - text: "403.05"
+    explanation: |
+      402.15 is the smallest value among the decimal numbers listed.
+
+  - id: q-clerical-ability-numeric-and-chronological-filing-0008
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Which file number comes immediately BEFORE file number 5000 in a consecutive numeric filing system?
+    choices:
+      - text: "4999"
+        correct: true
+      - text: "4990"
+      - text: "5001"
+      - text: "5010"
+    explanation: |
+      Subtracting 1 from 5000 yields 4999.
+
+  - id: q-clerical-ability-numeric-and-chronological-filing-0009
+    type: single_choice
+    difficulty: hard
+    stem: |
+      In terminal digit filing, numbers are indexed starting from which part of the document number?
+    choices:
+      - text: Rightmost digits
+        correct: true
+      - text: Leftmost primary digits
+      - text: Middle section digits
+      - text: Random sequence digits
+    explanation: |
+      Terminal digit filing indexes numbers by starting with the last (rightmost) group of digits.
+
+  - id: q-clerical-ability-numeric-and-chronological-filing-0010
+    type: single_choice
+    difficulty: medium
+    stem: |
+      When sorting dates in reverse chronological order, which document is placed at the very top of the folder?
+    choices:
+      - text: Most recent date
+        correct: true
+      - text: Earliest historical date
+      - text: Middle calendar date
+      - text: Randomly picked date
+    explanation: |
+      Reverse chronological filing places the most recent document at the front/top of the file folder.
+
+  - id: q-clerical-ability-numeric-and-chronological-filing-0011
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Which file number precedes code 88-450 in a consecutive numerical filing drawer?
+    choices:
+      - text: "88-449"
+        correct: true
+      - text: "88-451"
+      - text: "88-460"
+      - text: "89-000"
+    explanation: |
+      88-449 immediately precedes 88-450 in consecutive numerical sequence.
+
+  - id: q-clerical-ability-numeric-and-chronological-filing-0012
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Under standard numeric filing, how are hyphenated document numbers such as 101-A and 101-B sequenced?
+    choices:
+      - text: 101-A before 101-B
+        correct: true
+      - text: 101-B before 101-A
+      - text: Sequenced by date only
+      - text: Filed in separate drawers
+    explanation: |
+      Identical numeric prefixes are sub-sorted alphabetically by their letter suffixes, so 101-A comes before 101-B.

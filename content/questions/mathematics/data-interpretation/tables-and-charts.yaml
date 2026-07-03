@@ -1,0 +1,240 @@
+meta:
+  subject: mathematics
+  topic: data-interpretation
+  subtopic: tables-and-charts
+  exams:
+    - cse-pro
+questions:
+  - id: q-data-interpretation-tables-and-charts-0001
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Consider the following table showing monthly office supply expenditures (in PHP):
+
+      | Month | Paper | Ink | Furniture |
+      | :--- | :--- | :--- | :--- |
+      | January | 12000 | 18000 | 5000 |
+      | February | 15000 | 22000 | 8000 |
+      | March | 11000 | 19000 | 4000 |
+
+      What was the total expenditure on Paper across the three months?
+    choices:
+      - text: '$38,000$'
+        correct: true
+      - text: '$40,000$'
+      - text: '$45,000$'
+      - text: '$59,000$'
+    explanation: |
+      Summing Paper expenditures across the three months:
+      $$\text{Total} = 12000 + 15000 + 11000 = 38000\text{ PHP}$$
+
+  - id: q-data-interpretation-tables-and-charts-0002
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Refer to the supply expenditure table above. What was the total expenditure for all three supply categories combined in February?
+    choices:
+      - text: '$45,000$'
+        correct: true
+      - text: '$35,000$'
+      - text: '$50,000$'
+      - text: '$55,000$'
+    explanation: |
+      Summing all categories for February:
+      $$\text{Total} = 15000 + 22000 + 8000 = 45000\text{ PHP}$$
+
+  - id: q-data-interpretation-tables-and-charts-0003
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Consider the following table of regional agricultural crop yields (in metric tons):
+
+      | Region | Rice | Corn | Sugarcane |
+      | :--- | :--- | :--- | :--- |
+      | Region A | 450 | 300 | 600 |
+      | Region B | 520 | 280 | 750 |
+      | Region C | 380 | 410 | 500 |
+
+      Which region produced the highest total metric tons across all three crops?
+    choices:
+      - text: Region B
+        correct: true
+      - text: Region A
+      - text: Region C
+      - text: All equal
+    explanation: |
+      Calculate total yield per region:
+      $$\text{Region A} = 450 + 300 + 600 = 1350$$
+      $$\text{Region B} = 520 + 280 + 750 = 1550$$
+      $$\text{Region C} = 380 + 410 + 500 = 1290$$
+      Region B produced the highest total yield ($1,550$ metric tons).
+
+  - id: q-data-interpretation-tables-and-charts-0004
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Refer to the agricultural crop yield table above. What is the total combined yield of Corn across Regions A, B, and C?
+    choices:
+      - text: '$990\text{ metric tons}$'
+        correct: true
+      - text: '$1,050\text{ metric tons}$'
+      - text: '$1,350\text{ metric tons}$'
+      - text: '$1,850\text{ metric tons}$'
+    explanation: |
+      Summing Corn yields:
+      $$\text{Total Corn} = 300 + 280 + 410 = 990\text{ metric tons}$$
+
+  - id: q-data-interpretation-tables-and-charts-0005
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Consider the following table of quarterly municipal revenue (in million PHP):
+
+      | Quarter | Tax | Licenses | Property |
+      | :--- | :--- | :--- | :--- |
+      | Q1 | 14 | 6 | 10 |
+      | Q2 | 18 | 8 | 12 |
+      | Q3 | 15 | 5 | 11 |
+      | Q4 | 21 | 9 | 15 |
+
+      What was the total municipal revenue collected in Q4?
+    choices:
+      - text: '$45\text{ million PHP}$'
+        correct: true
+      - text: '$38\text{ million PHP}$'
+      - text: '$30\text{ million PHP}$'
+      - text: '$52\text{ million PHP}$'
+    explanation: |
+      Summing revenue streams for Q4:
+      $$\text{Total Q4} = 21 + 9 + 15 = 45\text{ million PHP}$$
+
+  - id: q-data-interpretation-tables-and-charts-0006
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Refer to the quarterly revenue table above. By how much did total Tax revenue in Q4 exceed total Tax revenue in Q1?
+    choices:
+      - text: '$7\text{ million PHP}$'
+        correct: true
+      - text: '$5\text{ million PHP}$'
+      - text: '$8\text{ million PHP}$'
+      - text: '$11\text{ million PHP}$'
+    explanation: |
+      Subtract Q1 Tax revenue from Q4 Tax revenue:
+      $$\text{Difference} = 21 - 14 = 7\text{ million PHP}$$
+
+  - id: q-data-interpretation-tables-and-charts-0007
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Consider the following table of civil service exam applicants per testing center:
+
+      | Testing Center | Male | Female |
+      | :--- | :--- | :--- |
+      | Manila | 1200 | 1500 |
+      | Cebu | 800 | 950 |
+      | Davao | 650 | 750 |
+
+      What was the total number of female applicants across all three testing centers?
+    choices:
+      - text: '$3,200$'
+        correct: true
+      - text: '$2,650$'
+      - text: '$3,500$'
+      - text: '$5,850$'
+    explanation: |
+      Summing female applicants:
+      $$\text{Total Female} = 1500 + 950 + 750 = 3200$$
+
+  - id: q-data-interpretation-tables-and-charts-0008
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Refer to the applicant table above. How many more total applicants attended the Manila testing center than the Davao testing center?
+    choices:
+      - text: '$1,300$'
+        correct: true
+      - text: '$1,100$'
+      - text: '$1,450$'
+      - text: '$1,750$'
+    explanation: |
+      Calculate totals for Manila and Davao:
+      $$\text{Manila} = 1200 + 1500 = 2700$$
+      $$\text{Davao} = 650 + 750 = 1400$$
+      $$\text{Difference} = 2700 - 1400 = 1300$$
+
+  - id: q-data-interpretation-tables-and-charts-0009
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Consider the following table of public library book circulation per category:
+
+      | Month | Fiction | Non-Fiction | Reference |
+      | :--- | :--- | :--- | :--- |
+      | April | 400 | 250 | 150 |
+      | May | 480 | 310 | 190 |
+      | June | 520 | 340 | 200 |
+
+      What was the total circulation of Non-Fiction books over the three months?
+    choices:
+      - text: '$900$'
+        correct: true
+      - text: '$800$'
+      - text: '$980$'
+      - text: '$1,400$'
+    explanation: |
+      Summing Non-Fiction circulation:
+      $$\text{Total} = 250 + 310 + 340 = 900$$
+
+  - id: q-data-interpretation-tables-and-charts-0010
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Refer to the library circulation table above. What was the total book circulation across all three categories in June?
+    choices:
+      - text: '$1,060$'
+        correct: true
+      - text: '$980$'
+      - text: '$1,120$'
+      - text: '$1,250$'
+    explanation: |
+      Summing all categories for June:
+      $$\text{June Total} = 520 + 340 + 200 = 1060$$
+
+  - id: q-data-interpretation-tables-and-charts-0011
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Consider the following table of hospital emergency admissions per department:
+
+      | Shift | Medical | Surgical | Pediatric |
+      | :--- | :--- | :--- | :--- |
+      | Morning | 45 | 30 | 25 |
+      | Afternoon | 60 | 40 | 35 |
+      | Night | 35 | 20 | 15 |
+
+      What was the total number of admissions during the Afternoon shift?
+    choices:
+      - text: '$135$'
+        correct: true
+      - text: '$100$'
+      - text: '$120$'
+      - text: '$150$'
+    explanation: |
+      Summing Afternoon shift admissions:
+      $$\text{Total} = 60 + 40 + 35 = 135$$
+
+  - id: q-data-interpretation-tables-and-charts-0012
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Refer to the emergency admissions table above. What was the total number of Surgical admissions across all three shifts?
+    choices:
+      - text: '$90$'
+        correct: true
+      - text: '$80$'
+      - text: '$95$'
+      - text: '$140$'
+    explanation: |
+      Summing Surgical admissions:
+      $$\text{Total Surgical} = 30 + 40 + 20 = 90$$

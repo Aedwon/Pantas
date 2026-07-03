@@ -1,0 +1,174 @@
+meta:
+  subject: reasoning
+  topic: clerical-ability
+  subtopic: alphabetic-filing-rules
+  exams:
+    - cse-sub
+questions:
+  - id: q-clerical-ability-alphabetic-filing-rules-0001
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Under standard alphabetic filing rules, how is the name "Juan Carlos Dela Cruz" indexed into key units?
+    choices:
+      - text: Delacruz, Juan Carlos
+        correct: true
+      - text: Juan, Carlos Dela Cruz
+      - text: Carlos, Dela Cruz Juan
+      - text: Cruz, Dela Juan Carlos
+    explanation: |
+      Surnames with prefixes are treated as a single unit (Delacruz) as Unit 1, followed by first name (Juan) and middle name (Carlos).
+
+  - id: q-clerical-ability-alphabetic-filing-rules-0002
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Which of the following names should be filed FIRST alphabetically?
+    choices:
+      - text: Adams, Arthur
+        correct: true
+      - text: Adams, Benjamin
+      - text: Adamson, Albert
+      - text: Adan, Anthony
+    explanation: |
+      Comparing unit by unit: Adams comes before Adamson and Adan. Between Adams, Arthur and Adams, Benjamin, Arthur comes first.
+
+  - id: q-clerical-ability-alphabetic-filing-rules-0003
+    type: single_choice
+    difficulty: medium
+    stem: |
+      When indexing business titles, prepositions and conjunctions like "and", "of", and "the" are treated in what manner?
+    choices:
+      - text: Disregarded in indexing
+        correct: true
+      - text: Placed in the first unit
+      - text: Capitalized for sorting
+      - text: Repeated in every unit
+    explanation: |
+      Articles, prepositions, and conjunctions are generally disregarded when alphabetizing business names.
+
+  - id: q-clerical-ability-alphabetic-filing-rules-0004
+    type: single_choice
+    difficulty: medium
+    stem: |
+      How is a surname with a prefix such as "De la Rosa" indexed under standard filing rules?
+    choices:
+      - text: 'As one unit: Delarosa'
+        correct: true
+      - text: Split into three separate independent indexing units
+      - text: Filed under the letter R in all search indexes
+      - text: Ignored during the main alphabetical filing search
+    explanation: |
+      Prefixes such as De, De la, or Van are combined with the surname and indexed as a single unit.
+
+  - id: q-clerical-ability-alphabetic-filing-rules-0005
+    type: single_choice
+    difficulty: hard
+    stem: |
+      If two individual names are identical, how are they differentiated for filing order?
+    choices:
+      - text: By city location
+        correct: true
+      - text: By numerical date of birth registration
+      - text: By total years of public employment service
+      - text: By social security identification card code number
+    explanation: |
+      When complete individual names are identical, filing order is determined alphabetically by geographic location (city or town).
+
+  - id: q-clerical-ability-alphabetic-filing-rules-0006
+    type: single_choice
+    difficulty: easy
+    stem: |
+      In indexing an individual name, which part is designated as Key Unit 1?
+    choices:
+      - text: Last name
+        correct: true
+      - text: First name
+      - text: Middle initial
+      - text: Professional title
+    explanation: |
+      Under standard indexing rules for individuals, the last name (surname) is Unit 1.
+
+  - id: q-clerical-ability-alphabetic-filing-rules-0007
+    type: single_choice
+    difficulty: medium
+    stem: |
+      How is a title of seniority such as "Junior" or "Jr." indexed in an individual's name?
+    choices:
+      - text: Placed as the final unit
+        correct: true
+      - text: Placed as the first unit
+      - text: Omitted entirely from record
+      - text: Combined with first name
+    explanation: |
+      Seniority designations (Jr., Sr., II, III) are placed in the final indexing unit.
+
+  - id: q-clerical-ability-alphabetic-filing-rules-0008
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Which of the following business names is indexed FIRST alphabetically?
+    choices:
+      - text: Apex Book Company
+        correct: true
+      - text: Apex Book Distributors Corporation
+      - text: Apex Book Mart Enterprises Incorporated
+      - text: Apex Book Publishers Agency Limited
+    explanation: |
+      All names start with "Apex Book". Comparing the third unit: Company comes before Distributors, Mart, and Publishers.
+
+  - id: q-clerical-ability-alphabetic-filing-rules-0009
+    type: single_choice
+    difficulty: medium
+    stem: |
+      How is the name "St. Martin" indexed under standard alphabetic filing rules?
+    choices:
+      - text: Indexed as Saint Martin
+        correct: true
+      - text: Indexed under letter S only
+      - text: Abbreviated as Stmartin
+      - text: Omitted from filing index
+    explanation: |
+      Abbreviated words like "St." are spelled out in full as "Saint" when indexing.
+
+  - id: q-clerical-ability-alphabetic-filing-rules-0010
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Which unit receives the middle name or middle initial when indexing an individual name?
+    choices:
+      - text: Unit 3
+        correct: true
+      - text: Unit 1
+      - text: Unit 2
+      - text: Unit 4
+    explanation: |
+      In individual name indexing: Unit 1 is Surname, Unit 2 is First Name, Unit 3 is Middle Name/Initial.
+
+  - id: q-clerical-ability-alphabetic-filing-rules-0011
+    type: single_choice
+    difficulty: hard
+    stem: |
+      When filing government agency names, what is indexed as the first unit?
+    choices:
+      - text: Country or location name
+        correct: true
+      - text: Bureau or division subtopic title
+      - text: Executive director personal full name
+      - text: Department cabinet administrative rank
+    explanation: |
+      Government names are indexed first by the name of the governing country, state, or municipality (e.g., Philippines, Republic of the).
+
+  - id: q-clerical-ability-alphabetic-filing-rules-0012
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Which of these four names comes LAST in alphabetical filing order?
+    choices:
+      - text: Santos, Victor
+        correct: true
+      - text: Santos, Maria Teresa
+      - text: Santos, Juan Carlos
+      - text: Santos, Ana Patricia
+    explanation: |
+      All have the surname Santos. Comparing first names: Ana, Juan, Maria, Victor. Victor comes last alphabetically.

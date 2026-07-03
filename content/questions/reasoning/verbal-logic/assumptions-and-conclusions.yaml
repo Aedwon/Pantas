@@ -1,0 +1,186 @@
+meta:
+  subject: reasoning
+  topic: verbal-logic
+  subtopic: assumptions-and-conclusions
+  exams:
+    - cse-pro
+questions:
+  - id: q-verbal-logic-assumptions-and-conclusions-0001
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Statement: "All employees who complete the training program will receive a performance bonus."
+      Which assumption is necessary for this statement to hold true?
+    choices:
+      - text: Training program completion is achievable
+        correct: true
+      - text: Bonuses will double for senior employees next year
+      - text: Non-participating staff members will face penalty
+      - text: Training programs are conducted outside city limits
+    explanation: |
+      The statement assumes that completing the training program is an achievable goal, enabling employees to earn the bonus.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0002
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Statement: "The city council increased public transit routes to reduce traffic congestion during peak hours."
+      Which assumption underlies the council's decision?
+    choices:
+      - text: Increased transit reduces private car usage
+        correct: true
+      - text: Traffic congestion will vanish completely within two days
+      - text: Public transit fare rates will decrease by fifty percent
+      - text: City residents dislike walking to nearby municipal offices
+    explanation: |
+      The council's decision assumes that expanding transit routes encourages commuters to use public transit instead of private cars, reducing traffic.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0003
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Statement: "Premise 1: Every civil servant must pass an ethics exam. Premise 2: Maria passed the ethics exam."
+      Which conclusion logically follows?
+    choices:
+      - text: Maria satisfied one requirement for civil service
+        correct: true
+      - text: Maria is automatically appointed to a senior executive director role
+      - text: Maria scored highest among all examination test takers nationwide
+      - text: Maria is exempt from all future annual official evaluation tests
+    explanation: |
+      Passing the ethics exam fulfills one mandatory requirement, but does not guarantee an immediate senior appointment or top score.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0004
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Statement: "If it rains heavily, the outdoor community assembly will be moved indoors. The assembly was held indoors."
+      Which conclusion is valid?
+    choices:
+      - text: Rain was a possible reason for moving indoors
+        correct: true
+      - text: It definitely rained heavily during assembly hours
+      - text: The outdoor venue was destroyed by severe winds
+      - text: Community members refused to attend outdoor events
+    explanation: |
+      Holding the assembly indoors could be due to rain, but moving indoors could also happen for other unstated reasons.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0005
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Statement: "Company X replaced all paper invoices with digital billing to cut processing costs."
+      What assumption is made by Company X?
+    choices:
+      - text: Digital billing costs less than paper processing
+        correct: true
+      - text: All customers prefer receiving digital billing receipts monthly
+      - text: Paper invoices will be banned nationwide by government decree
+      - text: Processing digital receipts requires zero electrical energy consumption
+    explanation: |
+      Replacing paper with digital billing to cut costs assumes that processing digital bills incurs lower total expenses than paper invoicing.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0006
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Statement: "No unregistered vehicles are allowed inside the government compound. Vehicle A is parked inside."
+      Which conclusion must be true?
+    choices:
+      - text: Vehicle A is a registered vehicle
+        correct: true
+      - text: Vehicle A belongs to the department head
+      - text: Vehicle A was manufactured recently
+      - text: Vehicle A has electric power features
+    explanation: |
+      Since unregistered vehicles are barred, any vehicle parked inside must be registered.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0007
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Statement: "All department supervisors must hold a master's degree. Elena is not a department supervisor."
+      Which conclusion is valid?
+    choices:
+      - text: Elena may or may not hold a master's degree
+        correct: true
+      - text: Elena definitely does not hold any master's degree credential
+      - text: Elena is disqualified from holding any public office job title
+      - text: Elena will be appointed supervisor next month by executive vote
+    explanation: |
+      Holding a master's degree is a requirement for supervisors, but non-supervisors may still hold master's degrees.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0008
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Statement: "Strict waste segregation reduced landfill volume in Municipality Y by thirty percent."
+      What is assumed by this statement?
+    choices:
+      - text: Waste segregation contributed to volume reduction
+        correct: true
+      - text: All residents produce zero non-recyclable waste products daily
+      - text: Landfills in Municipality Y will close next year permanently
+      - text: Recycling facilities generate huge net financial profits yearly
+    explanation: |
+      Attributing the thirty percent drop to strict waste segregation assumes a causal link between segregation efforts and volume reduction.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0009
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Statement: "All candidates who score above 80% pass the examination. Juan scored 85%."
+      Which conclusion is certain?
+    choices:
+      - text: Juan passed the examination
+        correct: true
+      - text: Juan scored highest in his class
+      - text: Juan is guaranteed a job offer
+      - text: Juan will retake the test soon
+    explanation: |
+      Since 85% exceeds the 80% passing threshold, Juan necessarily passed the examination.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0010
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Statement: "To reduce paper usage, the department instituted electronic recordkeeping."
+      Which assumption underlies this action?
+    choices:
+      - text: Electronic recordkeeping uses less paper
+        correct: true
+      - text: All paper records will be destroyed today permanently
+      - text: Computer hardware systems never experience technical errors
+      - text: Employees prefer reading computer screens over printed sheets
+    explanation: |
+      Adopting electronic recordkeeping to reduce paper usage assumes that digital filing consumes less paper overall.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0011
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Statement: "Only licensed engineers may approve building plans. Mark approved the building plans for Project A."
+      Which conclusion is valid?
+    choices:
+      - text: Mark is a licensed engineer
+        correct: true
+      - text: Mark owns the building project
+      - text: Project A is located downtown
+      - text: Project A cost millions of pesos
+    explanation: |
+      Because only licensed engineers can approve building plans, Mark must be a licensed engineer to have approved them.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0012
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Statement: "Solar panel installation decreased monthly electricity bills for School Z."
+      What is the underlying assumption?
+    choices:
+      - text: Solar energy replaced paid grid electricity
+        correct: true
+      - text: Electricity rates dropped nationwide this month significantly
+      - text: School Z turned off all air conditioning units completely
+      - text: School Z operates only during daytime operating hours
+    explanation: |
+      Attributing lower electric bills to solar panels assumes that generated solar power substituted for utility grid electricity.
