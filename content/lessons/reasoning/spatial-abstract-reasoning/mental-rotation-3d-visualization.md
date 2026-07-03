@@ -41,13 +41,13 @@ A cross-shaped (plus-sign) net has one central square, with four squares attache
 
 A flat pattern has $6$ squares arranged with $4$ in a straight horizontal row, and $2$ more squares both attached to the top of the same square (the second square in the row), stacked directly on top of each other. Does this net fold into a valid cube?
 
-<!-- ILLUSTRATION: a flat pattern of 6 squares — 4 in a horizontal row, plus 2 squares stacked directly above the same square in the row; two faces overlap when folded, so it is NOT a valid cube net -->
+<!-- ILLUSTRATION: a flat pattern of 6 squares: 4 in a horizontal row, plus 2 squares stacked directly above the same square in the row; two faces overlap when folded, so it is NOT a valid cube net -->
 
 
 **Solution:**
 1. A valid cube net needs each of its $6$ squares to fold into a different face, with no overlaps.
 2. Here, two separate squares are both attached to the top of the same single square in the row. When folded, both of these squares would attempt to occupy the same face position (directly above that square), causing an overlap.
-3. This net is not valid — it would not fold into a proper cube, since two faces would collide instead of each covering a distinct side.
+3. This net is not valid: it would not fold into a proper cube, since two faces would collide instead of each covering a distinct side.
 
 ### #3: Predicting a Shadow
 
@@ -77,21 +77,21 @@ The same cylinder now has light shining from directly the side (horizontally), r
 
 **For cube nets, use the "one square between them in a straight line" rule to quickly spot opposite faces**, and always double-check by mentally folding the net one square at a time if you're unsure.
 
-**For net validity, check for any two squares that would compete for the same position when folded** (like two squares both branching off the same face in the same direction) — this is the fastest way to spot an invalid net.
+**For net validity, check for any two squares that would compete for the same position when folded** (like two squares both branching off the same face in the same direction): this is the fastest way to spot an invalid net.
 
-**For shadows, always identify the light's direction first, then imagine "flattening" the object as seen from that exact viewpoint** — the shadow is simply that flattened outline, so matching the correct viewing angle is the key step.
+**For shadows, always identify the light's direction first, then imagine "flattening" the object as seen from that exact viewpoint**: the shadow is simply that flattened outline, so matching the correct viewing angle is the key step.
 
 ## Traps to Watch For
 
 ### #1: Assuming Adjacent Squares in a Net Must Be Adjacent Faces on the Cube
 
-> Squares that are adjacent (touching) in the flat net are not necessarily still touching once folded — carefully trace the actual fold, since "far apart" squares in the net can become adjacent faces, and vice versa.
+> Squares that are adjacent (touching) in the flat net are not necessarily still touching once folded: carefully trace the actual fold, since "far apart" squares in the net can become adjacent faces, and vice versa.
 
 The square at the far end of an arm in a cross-shaped net becomes the top (opposite the bottom), even though in the flat net it might appear to be simply "another square in a line," not obviously "opposite" anything.
 
 ### #2: Assuming Any 6 Connected Squares Automatically Form a Valid Cube Net
 
-> Not every arrangement of $6$ connected squares folds into a proper cube — some arrangements cause faces to overlap instead of covering distinct sides.
+> Not every arrangement of $6$ connected squares folds into a proper cube: some arrangements cause faces to overlap instead of covering distinct sides.
 
 Having exactly $6$ squares is necessary but not sufficient for a valid net; the specific arrangement must also avoid any folding conflict, as shown in Example 2.
 
@@ -99,4 +99,4 @@ Having exactly $6$ squares is necessary but not sufficient for a valid net; the 
 
 > A shadow shows the silhouette from the light's specific viewing angle, which may look completely different from any single flat face of the actual 3D object.
 
-A cylinder has no flat circular side face at all, yet its top-down shadow is a circle; similarly, its side shadow (a rectangle) does not match its curved surface directly — always reason from the viewing angle, not from assuming the shadow copies an existing face shape.
+A cylinder has no flat circular side face at all, yet its top-down shadow is a circle; similarly, its side shadow (a rectangle) does not match its curved surface directly: always reason from the viewing angle, not from assuming the shadow copies an existing face shape.

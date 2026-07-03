@@ -70,9 +70,9 @@ A rectangular paper is folded in half three separate times (each fold halving it
 
 ## Speed Tricks & Shortcuts
 
-**Count the number of folds first, then compute $2^{\text{folds}}$ to predict the total number of holes** — this number check alone can eliminate answer choices with the wrong hole count before you even work out their exact positions.
+**Count the number of folds first, then compute $2^{\text{folds}}$ to predict the total number of holes**: this number check alone can eliminate answer choices with the wrong hole count before you even work out their exact positions.
 
-**Work backwards one fold at a time, reflecting the cut across the most recent fold first**, then the fold before that, and so on — undoing folds in reverse order (last fold undone first) keeps the reflection steps organized and prevents mixing up which mirror line applies at each stage.
+**Work backwards one fold at a time, reflecting the cut across the most recent fold first**, then the fold before that, and so on: undoing folds in reverse order (last fold undone first) keeps the reflection steps organized and prevents mixing up which mirror line applies at each stage.
 
 **Remember that a cut positioned exactly on a fold line typically becomes a single connected shape straddling that line once unfolded** (as in Example 1), while a cut positioned away from all fold lines becomes multiple separate holes, one per layer (as in Examples 2–4).
 
@@ -80,7 +80,7 @@ A rectangular paper is folded in half three separate times (each fold halving it
 
 ### #1: Forgetting That Layer Count Doubles with Each Additional Fold
 
-> Each new fold doubles the number of layers a single cut passes through — the total hole count follows $2^{\text{folds}}$, not simply "one hole per fold."
+> Each new fold doubles the number of layers a single cut passes through: the total hole count follows $2^{\text{folds}}$, not simply "one hole per fold."
 
 Assuming $3$ folds produce only $3$ holes (instead of correctly calculating $2^3 = 8$) is a common miscounting error; always use the doubling relationship, not a simple one-to-one count.
 
@@ -88,10 +88,10 @@ Assuming $3$ folds produce only $3$ holes (instead of correctly calculating $2^3
 
 > If the cut crosses a fold line directly (rather than sitting entirely within one folded layer's interior), unfolding may connect what would otherwise be separate holes into one continuous shape.
 
-A cut placed precisely on a fold line (as in Example 1) does not simply create the "expected" number of fully separate holes — reflection across that specific fold line merges the cut into a single connected shape spanning both sides.
+A cut placed precisely on a fold line (as in Example 1) does not simply create the "expected" number of fully separate holes: reflection across that specific fold line merges the cut into a single connected shape spanning both sides.
 
 ### #3: Reflecting the Cut's Position Incorrectly When Working Backwards
 
-> Each "undo fold" step must reflect the cut's position across the correct fold line for that specific step — using the wrong fold line, or reflecting in the wrong order, produces holes in the wrong location even if the count is correct.
+> Each "undo fold" step must reflect the cut's position across the correct fold line for that specific step: using the wrong fold line, or reflecting in the wrong order, produces holes in the wrong location even if the count is correct.
 
 Getting the hole count right (matching $2^{\text{folds}}$) does not guarantee the positions are correct; always carefully re-trace which specific fold line governs each reflection step, working from the last fold made back to the first.

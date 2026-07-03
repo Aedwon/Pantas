@@ -33,7 +33,7 @@ A short, wide pyramid and a tall, narrow pyramid have the same weight and are ma
 
 **Solution:**
 1. The short, wide pyramid has a lower center of gravity (since it is shorter) and a wider base of support (since it is wider).
-2. Both factors — lower center of gravity and wider base — independently improve stability.
+2. Both factors, lower center of gravity and wider base, independently improve stability.
 3. The short, wide pyramid is more stable.
 
 ### #2: Predicting When an Object Tips Over
@@ -46,7 +46,7 @@ A rectangular box is slowly tilted to one side. At what point does the box tip o
 **Solution:**
 1. The box remains stable as long as the vertical line dropped from its center of gravity stays within its base of support (the bottom edge still touching the ground).
 2. As the box tilts further, this vertical line shifts closer to the edge of the base of support.
-3. The box tips over at the exact moment this vertical line moves beyond the edge of the base of support (falls outside the remaining contact edge with the ground) — beyond that point, gravity pulls the box the rest of the way over instead of back down to its original position.
+3. The box tips over at the exact moment this vertical line moves beyond the edge of the base of support (falls outside the remaining contact edge with the ground): beyond that point, gravity pulls the box the rest of the way over instead of back down to its original position.
 
 ### #3: Why Lowering a Load Increases Stability
 
@@ -76,7 +76,7 @@ A person standing normally with feet close together is compared to the same pers
 
 **Remember the two-factor stability rule together: Lower center of gravity + wider base of support = more stable.** Most stability comparison questions can be answered by checking these two factors against each other.
 
-**Picture the "vertical line" test**: imagine dropping a straight line down from the center of gravity to the ground, and check whether that line stays within the object's base of support at the given tilt angle — this mental model directly predicts tipping.
+**Picture the "vertical line" test**: imagine dropping a straight line down from the center of gravity to the ground, and check whether that line stays within the object's base of support at the given tilt angle: this mental model directly predicts tipping.
 
 **For real-world stability examples (trucks, furniture, people standing), identify what raises or lowers the center of gravity (like stacking cargo high vs. low) and what widens or narrows the base of support (like feet position or table leg spacing).**
 
@@ -84,7 +84,7 @@ A person standing normally with feet close together is compared to the same pers
 
 ### #1: Assuming Only Height (Not Base Width) Matters for Stability
 
-> Stability depends on both the center of gravity's height and the base of support's width — considering only one factor while ignoring the other gives an incomplete comparison.
+> Stability depends on both the center of gravity's height and the base of support's width: considering only one factor while ignoring the other gives an incomplete comparison.
 
 An object could have a low center of gravity but still be unstable if its base of support is extremely narrow; both factors must be considered together, not just one in isolation.
 
@@ -92,10 +92,10 @@ An object could have a low center of gravity but still be unstable if its base o
 
 > Stability depends on the location of the center of gravity relative to the base of support, not simply on how much an object weighs overall.
 
-A very heavy object with a high center of gravity and a narrow base can still tip over easily, despite its large weight — weight alone does not guarantee stability; the geometry (height and base width) is what matters.
+A very heavy object with a high center of gravity and a narrow base can still tip over easily, despite its large weight: weight alone does not guarantee stability; the geometry (height and base width) is what matters.
 
 ### #3: Forgetting That Tipping Depends on the Tilt Angle, Not Just the Static Position
 
-> An object can be perfectly stable while sitting still, but become unstable once tilted enough that the center of gravity's vertical line moves outside the base of support — stability is not a fixed, permanent property regardless of orientation.
+> An object can be perfectly stable while sitting still, but become unstable once tilted enough that the center of gravity's vertical line moves outside the base of support: stability is not a fixed, permanent property regardless of orientation.
 
 Assuming an object "is stable" as an absolute, unchanging fact (rather than "is stable at this specific tilt angle") misses that further tilting can push any object past its tipping point, given enough tilt.

@@ -15,7 +15,7 @@ isActive: true
 
 This creates a simple alternating pattern down a chain of meshing gears: gear 1 clockwise, gear 2 counter-clockwise, gear 3 clockwise, gear 4 counter-clockwise, and so on. A quick shortcut: gears in odd positions (1st, 3rd, 5th...) all spin in the same direction as the first gear; gears in even positions (2nd, 4th, 6th...) all spin in the opposite direction.
 
-**Gear size affects speed, not direction.** A smaller gear meshing with a larger gear spins faster (makes more full rotations in the same time) than the larger gear, because the smaller gear has fewer teeth and must "catch up" to match the same number of teeth passing the contact point per second. Specifically, if gear A has half as many teeth as gear B, gear A rotates twice as fast as gear B (and vice versa) — the two gears' rotation speeds are inversely proportional to the number of teeth they each have.
+**Gear size affects speed, not direction.** A smaller gear meshing with a larger gear spins faster (makes more full rotations in the same time) than the larger gear, because the smaller gear has fewer teeth and must "catch up" to match the same number of teeth passing the contact point per second. Specifically, if gear A has half as many teeth as gear B, gear A rotates twice as fast as gear B (and vice versa): the two gears' rotation speeds are inversely proportional to the number of teeth they each have.
 
 ## Examples
 
@@ -74,13 +74,13 @@ A central gear meshes with three other gears arranged around it (like spokes), e
 
 **For gear speed and size questions, remember: Smaller gear (fewer teeth) = faster rotation; larger gear (more teeth) = slower rotation.** The exact ratio of rotation speeds matches the inverse ratio of their teeth counts.
 
-**For a central "hub" gear with several separate outer gears attached (a star/spoke pattern), each outer gear independently takes the opposite direction from the central gear** — they do not alternate with each other, since they don't mesh directly with one another, only with the shared central gear.
+**For a central "hub" gear with several separate outer gears attached (a star/spoke pattern), each outer gear independently takes the opposite direction from the central gear**: they do not alternate with each other, since they don't mesh directly with one another, only with the shared central gear.
 
 ## Traps to Watch For
 
 ### #1: Assuming All Gears in a Chain Spin the Same Direction
 
-> Directly meshing gears always spin in opposite directions — a chain of connected gears alternates, it does not all spin the same way.
+> Directly meshing gears always spin in opposite directions: a chain of connected gears alternates, it does not all spin the same way.
 
 Assuming the third gear in a row spins the same direction as the second (rather than correctly alternating back to match the first) is one of the most common gear-direction errors.
 
@@ -88,11 +88,11 @@ Assuming the third gear in a row spins the same direction as the second (rather 
 
 > Gear size (number of teeth) affects rotation speed, not direction. Direction depends only on whether gears mesh directly (always opposite) or how many gears separate them in the chain (alternating pattern).
 
-A larger gear does not automatically spin the "same direction" or "opposite direction" based on its size alone — direction is governed purely by the meshing/alternating rule, independent of gear size.
+A larger gear does not automatically spin the "same direction" or "opposite direction" based on its size alone: direction is governed purely by the meshing/alternating rule, independent of gear size.
 
 ### #3: Miscounting Teeth-Speed Ratios
 
-> Rotation speed is inversely proportional to teeth count — the gear with fewer teeth spins proportionally faster, and the exact ratio must be calculated from the actual teeth counts, not guessed.
+> Rotation speed is inversely proportional to teeth count: the gear with fewer teeth spins proportionally faster, and the exact ratio must be calculated from the actual teeth counts, not guessed.
 
 Assuming a small gear and large gear "just spin at different speeds" without calculating the precise inverse ratio (based on their actual teeth counts) can lead to selecting an incorrect specific rotation count in numeric gear problems.
 

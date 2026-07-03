@@ -9,11 +9,11 @@ isActive: true
 ---
 ## Core Concept
 
-**Pulleys** and **levers** are simple machines that provide **mechanical advantage**: they let you apply less force to move or lift a load, usually by trading that reduced force for moving a greater distance (you rarely get something for nothing — you save force but must pull or push farther).
+**Pulleys** and **levers** are simple machines that provide **mechanical advantage**: they let you apply less force to move or lift a load, usually by trading that reduced force for moving a greater distance (you rarely get something for nothing: you save force but must pull or push farther).
 
 ### Pulleys
 
-A single fixed pulley (attached to a stationary point, like a ceiling beam) simply changes the direction of your pulling force (pull down to lift up), without reducing the force needed — you still need to pull with a force equal to the load's weight.
+A single fixed pulley (attached to a stationary point, like a ceiling beam) simply changes the direction of your pulling force (pull down to lift up), without reducing the force needed: you still need to pull with a force equal to the load's weight.
 
 A movable pulley (attached directly to the load itself, moving along with it) does reduce the force needed: with one movable pulley, you only need half the force of the load's weight to lift it, though you must pull the rope twice as far. Adding more movable pulleys further reduces the required force: with $2$ movable pulleys working together, you need only one-quarter the load's weight in pulling force (but must pull four times the distance).
 
@@ -25,7 +25,7 @@ A **lever** is a rigid bar that pivots around a fixed point called the **fulcrum
 
 $$\text{effort} \times \text{effort distance} = \text{load} \times \text{load distance}$$
 
-This means moving the fulcrum closer to the load (making the load's distance shorter, and the effort's distance longer) requires less effort force to lift the same load — this is why longer levers (or fulcrums placed closer to the heavy end) make lifting easier.
+This means moving the fulcrum closer to the load (making the load's distance shorter, and the effort's distance longer) requires less effort force to lift the same load: this is why longer levers (or fulcrums placed closer to the heavy end) make lifting easier.
 
 ## Examples
 
@@ -95,11 +95,11 @@ $$\text{effort} \times 5 = 100$$
 
 $$\text{effort} = 20 \text{ kg}$$
 
-4. Moving the fulcrum closer to the load (reducing its distance from $2$ meters to $1$ meter) reduced the required effort from $40 \text{ kg}$ down to $20 \text{ kg}$ — confirming that a fulcrum positioned closer to the load makes lifting easier.
+4. Moving the fulcrum closer to the load (reducing its distance from $2$ meters to $1$ meter) reduced the required effort from $40 \text{ kg}$ down to $20 \text{ kg}$, confirming that a fulcrum positioned closer to the load makes lifting easier.
 
 ## Speed Tricks & Shortcuts
 
-**For pulleys, count the number of movable pulleys (not fixed ones) to determine the force reduction.** Each movable pulley halves the required force again: $1$ movable pulley needs half the force, $2$ movable pulleys need a quarter, and so on — but the rope-pulling distance increases by that same multiplying factor.
+**For pulleys, count the number of movable pulleys (not fixed ones) to determine the force reduction.** Each movable pulley halves the required force again: $1$ movable pulley needs half the force, $2$ movable pulleys need a quarter, and so on, but the rope-pulling distance increases by that same multiplying factor.
 
 **For levers, remember the balance equation works like a seesaw: bigger distance needs smaller force, and smaller distance needs bigger force**, for the same balancing effect. Cross-multiply the given values directly using the effort-times-distance formula.
 
@@ -111,16 +111,16 @@ $$\text{effort} = 20 \text{ kg}$$
 
 > Only movable pulleys (attached to the load) reduce the required force. Fixed pulleys (attached to a stationary point) only change the direction of the force, not its magnitude.
 
-Assuming a single fixed pulley "makes lifting easier" in terms of force is incorrect — it only makes lifting more convenient by letting you pull in a different direction, while still requiring the full weight's worth of force.
+Assuming a single fixed pulley "makes lifting easier" in terms of force is incorrect: it only makes lifting more convenient by letting you pull in a different direction, while still requiring the full weight's worth of force.
 
 ### #2: Forgetting the Trade-Off Between Force and Distance
 
-> Simple machines like pulleys and levers reduce the force needed but always require moving (or pulling) a correspondingly greater distance — you cannot reduce force without some distance trade-off.
+> Simple machines like pulleys and levers reduce the force needed but always require moving (or pulling) a correspondingly greater distance: you cannot reduce force without some distance trade-off.
 
 A movable pulley halving the required force also doubles the rope distance you must pull; forgetting this trade-off leads to an incomplete understanding of the mechanical advantage being gained.
 
 ### #3: Mixing Up Which Side of the Lever Equation Gets Multiplied
 
-> Keep effort paired with its own distance, and load paired with its own distance — do not cross-pair effort's force with the load's distance (or vice versa) when setting up the balance equation.
+> Keep effort paired with its own distance, and load paired with its own distance: do not cross-pair effort's force with the load's distance (or vice versa) when setting up the balance equation.
 
 Writing "effort $\times$ load distance = load $\times$ effort distance" (reversing the pairings) produces an entirely different, incorrect equation compared to the correct "effort $\times$ effort distance = load $\times$ load distance."

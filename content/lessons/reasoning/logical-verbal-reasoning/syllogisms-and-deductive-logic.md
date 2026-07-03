@@ -23,8 +23,8 @@ A syllogism is **valid** when the conclusion correctly follows from the premises
 
 Two classic invalid patterns to watch for:
 
-- **Affirming the consequent**: "If it rains, the ground gets wet. The ground is wet. Therefore, it rained." This is invalid — the ground could be wet for many other reasons (a sprinkler, a spilled drink), so the conclusion does not necessarily follow.
-- **Denying the antecedent**: "If it rains, the ground gets wet. It did not rain. Therefore, the ground is not wet." Also invalid — the ground could still be wet from another cause.
+- **Affirming the consequent**: "If it rains, the ground gets wet. The ground is wet. Therefore, it rained." This is invalid: the ground could be wet for many other reasons (a sprinkler, a spilled drink), so the conclusion does not necessarily follow.
+- **Denying the antecedent**: "If it rains, the ground gets wet. It did not rain. Therefore, the ground is not wet." Also invalid: the ground could still be wet from another cause.
 
 The only guaranteed-valid direct pattern is: "If A, then B. A is true. Therefore, B is true" (called *modus ponens*), or its logical twin: "If A, then B. B is false. Therefore, A is false" (called *modus tollens*).
 
@@ -46,14 +46,14 @@ Evaluate: "If a student studies hard, they will pass the exam. Maria passed the 
 **Solution:**
 1. The premise only guarantees that studying hard leads to passing; it does not say passing can only happen by studying hard.
 2. Maria could have passed for other reasons (an easy exam, prior knowledge, luck).
-3. This conclusion does not necessarily follow — it is invalid (this is the "affirming the consequent" pattern).
+3. This conclusion does not necessarily follow: it is invalid (this is the "affirming the consequent" pattern).
 
 ### #3: Using Modus Tollens Correctly
 
 Evaluate: "If the alarm is working, it will ring during a fire. The alarm did not ring during the fire. Therefore, the alarm was not working." Is this valid?
 
 **Solution:**
-1. This matches the pattern "If A, then B. B is false. Therefore, A is false" — modus tollens.
+1. This matches the pattern "If A, then B. B is false. Therefore, A is false": modus tollens.
 2. Since a working alarm guarantees ringing during a fire, and it did not ring, the only logical explanation (given the premise) is that the alarm was not working.
 3. This is a valid syllogism.
 
@@ -69,7 +69,7 @@ Evaluate: "All birds can fly. A penguin is a bird. Therefore, a penguin can fly.
 
 ## Speed Tricks & Shortcuts
 
-**Check the structure first, separately from whether you believe the premises are true.** A syllogism can have a perfectly valid logical form even with a false premise (making it valid but not sound) — exam questions often specifically test this distinction.
+**Check the structure first, separately from whether you believe the premises are true.** A syllogism can have a perfectly valid logical form even with a false premise (making it valid but not sound): exam questions often specifically test this distinction.
 
 **Watch for the two classic invalid patterns by name.** "Affirming the consequent" and "denying the antecedent" are the most commonly tested logical fallacies; memorizing their pattern shapes helps you spot them instantly.
 
@@ -81,7 +81,7 @@ Evaluate: "All birds can fly. A penguin is a bird. Therefore, a penguin can fly.
 
 > An argument's validity depends on its logical structure, not on whether the conclusion happens to be true in reality.
 
-"Maria passed the exam" being true does not automatically make "therefore she studied hard" a valid deduction — the argument's structure itself (affirming the consequent) is flawed, regardless of whether Maria actually did study.
+"Maria passed the exam" being true does not automatically make "therefore she studied hard" a valid deduction: the argument's structure itself (affirming the consequent) is flawed, regardless of whether Maria actually did study.
 
 ### #2: Confusing "If A, then B" with "If B, then A"
 
@@ -93,4 +93,4 @@ Only the original direction of the conditional statement (A leads to B) is guara
 
 > A valid argument has correct logical structure. A sound argument is valid and has premises that are actually true.
 
-The "all birds can fly, therefore penguins can fly" example is logically valid in structure, but not sound, since its major premise is factually false. Exam questions may ask specifically about one or the other — read carefully which one is being asked.
+The "all birds can fly, therefore penguins can fly" example is logically valid in structure, but not sound, since its major premise is factually false. Exam questions may ask specifically about one or the other: read carefully which one is being asked.

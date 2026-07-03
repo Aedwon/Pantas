@@ -18,7 +18,7 @@ Two directions to check for a pattern:
 
 <!-- ILLUSTRATION: a 3x3 grid of shapes, where each row shows a shape with an increasing number of dots (1, 2, 3 dots) and each column shows the same shape rotated further (0, 90, 180 degrees), with the bottom-right cell left blank for the answer -->
 
-Some matrices follow a single pattern that applies consistently in one direction (only across rows, or only down columns). Others combine two patterns at once — one rule governing rows, and a different rule governing columns simultaneously, similar to combining features in a figure series.
+Some matrices follow a single pattern that applies consistently in one direction (only across rows, or only down columns). Others combine two patterns at once: one rule governing rows, and a different rule governing columns simultaneously, similar to combining features in a figure series.
 
 A useful additional check for $3 \times 3$ matrices: sometimes the third figure in a row (or column) is some combination of the first two (like the union or overlap of their features), rather than following a simple step-by-step progression.
 
@@ -40,7 +40,7 @@ A $2 \times 2$ matrix's top row shows a triangle, then a triangle rotated $90°$
 
 A $3 \times 3$ matrix's rows show an increasing number of dots inside a circle: row 1 has circles with $1$, $2$, $3$ dots; row 2 has circles with $2$, $3$, $4$ dots; row 3 has circles with $3$, $4$, and (blank). How many dots should the blank cell have?
 
-<!-- ILLUSTRATION: a 3x3 grid of circles containing dots — row 1: 1,2,3 dots; row 2: 2,3,4 dots; row 3: 3,4,? — the blank bottom-right cell marked with a question mark; the answer is 5 dots -->
+<!-- ILLUSTRATION: a 3x3 grid of circles containing dots, row 1: 1,2,3 dots; row 2: 2,3,4 dots; row 3: 3,4,?, the blank bottom-right cell marked with a question mark; the answer is 5 dots -->
 
 
 **Solution:**
@@ -84,9 +84,9 @@ A $3 \times 3$ matrix's first row shows: a circle with a horizontal line, a circ
 
 ### #1: Checking Only Rows or Only Columns, Not Both
 
-> Many matrices require checking both the row pattern and the column pattern together — solving only one direction may give an incomplete or wrong answer, especially when different features follow different directional rules.
+> Many matrices require checking both the row pattern and the column pattern together: solving only one direction may give an incomplete or wrong answer, especially when different features follow different directional rules.
 
-Example 3 shows how size follows the column direction while shading follows the row direction — solving only one direction misses half the required answer.
+Example 3 shows how size follows the column direction while shading follows the row direction: solving only one direction misses half the required answer.
 
 ### #2: Missing a "Combination" Pattern in a 3x3 Matrix
 
@@ -96,6 +96,6 @@ Assuming the third cell should follow a simple incrementing pattern (like a figu
 
 ### #3: Assuming All Rows Share the Exact Same Individual Figures
 
-> Different rows or columns can apply the same transformation rule to different starting shapes — do not expect literally identical figures across rows, only a consistent pattern of change.
+> Different rows or columns can apply the same transformation rule to different starting shapes: do not expect literally identical figures across rows, only a consistent pattern of change.
 
-In Example 1, the top row and bottom row start with completely different shapes (triangle vs. square), but the same rotation rule ($90°$ rotation) applies to both — recognizing the rule, not memorizing specific shapes, is the key skill.
+In Example 1, the top row and bottom row start with completely different shapes (triangle vs. square), but the same rotation rule ($90°$ rotation) applies to both: recognizing the rule, not memorizing specific shapes, is the key skill.

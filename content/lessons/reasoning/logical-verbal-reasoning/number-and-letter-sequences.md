@@ -70,19 +70,19 @@ Find the next letter: $B, D, G, K, \ldots$
 
 **For sequences that seem to jump around unpredictably, check for an alternating pattern** by splitting the sequence into two separate sub-sequences (odd positions and even positions) and analyzing each one separately.
 
-**For letter sequences, immediately convert to numbers** using alphabet positions — this turns an unfamiliar letter puzzle into a familiar number pattern problem.
+**For letter sequences, immediately convert to numbers** using alphabet positions: this turns an unfamiliar letter puzzle into a familiar number pattern problem.
 
 ## Traps to Watch For
 
 ### #1: Assuming Every Sequence Is Simple Arithmetic
 
-> Always check the differences are truly constant before assuming a simple arithmetic pattern — a changing difference pattern can look similar at first glance.
+> Always check the differences are truly constant before assuming a simple arithmetic pattern: a changing difference pattern can look similar at first glance.
 
 $2, 3, 5, 8, 12$ might tempt you to guess "add $3$" after seeing an early gap, but checking all the differences reveals they are actually increasing ($1, 2, 3, 4$), not constant.
 
 ### #2: Stopping After Checking Only Two Terms
 
-> Confirm a suspected pattern against at least three consecutive gaps (or more) before committing to it — two terms alone can match multiple different possible patterns.
+> Confirm a suspected pattern against at least three consecutive gaps (or more) before committing to it: two terms alone can match multiple different possible patterns.
 
 A pattern that seems to "add $2$" between the first two terms might actually be a more complex pattern that only reveals itself by the third or fourth term.
 
@@ -90,4 +90,4 @@ A pattern that seems to "add $2$" between the first two terms might actually be 
 
 > After solving a letter sequence using alphabet position numbers, always convert your final numeric answer back into its corresponding letter before selecting it as your final answer.
 
-Solving that the next number is $16$ is not the final answer if the question asks for a letter — remember to state the final answer as $P$ (the 16th letter), not the number $16$ itself.
+Solving that the next number is $16$ is not the final answer if the question asks for a letter: remember to state the final answer as $P$ (the 16th letter), not the number $16$ itself.
