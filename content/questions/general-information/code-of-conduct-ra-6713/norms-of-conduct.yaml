@@ -1,0 +1,217 @@
+meta:
+  subject: general-information
+  topic: code-of-conduct-ra-6713
+  subtopic: norms-of-conduct
+  exams:
+    - cse-pro
+    - cse-sub
+questions:
+  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0001
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Under Section 4 of RA 6713, how many specific norms of conduct are established for public officials and employees?
+    choices:
+      - text: "8"
+        correct: true
+      - text: "10"
+      - text: "12"
+      - text: "15"
+    explanation: |
+      Section 4 of RA 6713 explicitly sets forth eight statutory norms of conduct for all public officials and employees.
+
+  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0002
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Which norm requires public officials to uphold the public interest over personal interest and avoid wastage of public funds?
+    choices:
+      - text: Commitment to public interest
+        correct: true
+      - text: Nationalism and patriotism
+      - text: Commitment to democracy and rule of law
+      - text: Professionalism and technical competence
+    explanation: |
+      Commitment to public interest requires public officials to prioritize public interest over personal interest and use resources efficiently to prevent waste.
+
+  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0003
+    type: single_choice
+    difficulty: medium
+    stem: |
+      A public official processes requests for all citizens equally, regardless of party affiliation. Which norm is demonstrated?
+    choices:
+      - text: Political neutrality
+        correct: true
+      - text: Simple living and modesty
+      - text: Justness and sincerity in office
+      - text: Commitment to public interest
+    explanation: |
+      Political neutrality mandates providing service to everyone without discrimination, regardless of party affiliation or preference.
+
+  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0004
+    type: single_choice
+    difficulty: medium
+    stem: |
+      What is the first norm of conduct listed in Section 4 of RA 6713?
+    choices:
+      - text: Commitment to public interest
+        correct: true
+      - text: Responsiveness to the public request
+      - text: Commitment to democratic processes
+      - text: Professionalism and public service
+    explanation: |
+      The statutory order in Section 4 starts with Commitment to public interest as the first norm.
+
+  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0005
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Which norm of conduct requires public officials to lead modest lives appropriate to their position and income?
+    choices:
+      - text: Simple living
+        correct: true
+      - text: Political neutrality
+      - text: Justness and sincerity
+      - text: Nationalism and patriotism
+    explanation: |
+      Simple living requires public officials and their families to lead modest lives and avoid ostentatious displays of wealth.
+
+  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0006
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Which norm requires public officials to discharge duties with the highest degree of excellence, intelligence, and skill?
+    choices:
+      - text: Professionalism
+        correct: true
+      - text: Simple living in public service
+      - text: Responsiveness to the public
+      - text: Commitment to democracy
+    explanation: |
+      Professionalism requires performing duties with the highest degree of excellence, professionalism, intelligence, and skill.
+
+  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0007
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Which norm mandates that public officials maintain loyalty to the Republic and to the Filipino people at all times?
+    choices:
+      - text: Nationalism and patriotism
+        correct: true
+      - text: Responsiveness to public demands
+      - text: Justness and sincerity in conduct
+      - text: Professionalism in office
+    explanation: |
+      Nationalism and patriotism require maintaining loyalty to the Republic and to the Filipino people at all times.
+
+  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0008
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Upholding the Constitution and putting loyalty to country above loyalty to persons or party represents which norm?
+    choices:
+      - text: Commitment to democracy
+        correct: true
+      - text: Responsiveness to the public
+      - text: Justness and sincerity in service
+      - text: Professionalism in government
+    explanation: |
+      Commitment to democracy requires upholding the Constitution and putting loyalty to country above loyalty to persons or party.
+
+  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0009
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Extending prompt, courteous, and adequate service to the public reflects which norm of conduct under RA 6713?
+    choices:
+      - text: Responsiveness to the public
+        correct: true
+      - text: Commitment to democracy and law
+      - text: Professionalism in service
+      - text: Nationalism and patriotism
+    explanation: |
+      Responsiveness to the public requires extending prompt, courteous, and adequate service and communicating clearly.
+
+  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0010
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Acting with justness and sincerity without discrimination and respecting the rights of others corresponds to which norm?
+    choices:
+      - text: Justness and sincerity
+        correct: true
+      - text: Political neutrality in service
+      - text: Simple living and modesty
+      - text: Commitment to public interest
+    explanation: |
+      Justness and sincerity requires public officials to remain true to the people, act without discrimination, and respect rights.
+
+  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0011
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Which of the following is NOT one of the eight statutory norms of conduct listed in Section 4 of RA 6713?
+    choices:
+      - text: Maximum profitability
+        correct: true
+      - text: Simple living
+      - text: Political neutrality
+      - text: Commitment to public interest
+    explanation: |
+      Maximum profitability is a private business objective and is not one of the eight statutory norms of conduct under RA 6713.
+
+  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0012
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Under RA 6713, which norm explicitly prohibits an extravagant or ostentatious display of wealth in any form?
+    choices:
+      - text: Simple living
+        correct: true
+      - text: Professionalism
+      - text: Political neutrality
+      - text: Commitment to democracy
+    explanation: |
+      Section 4(h) defines Simple living as leading modest lives and not indulging in extravagant or ostentatious displays of wealth.
+
+  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0013
+    type: single_choice
+    difficulty: hard
+    stem: |
+      What is the eighth and final norm of conduct listed in Section 4 of RA 6713?
+    choices:
+      - text: Simple living
+        correct: true
+      - text: Nationalism and patriotism
+      - text: Commitment to democracy
+      - text: Political neutrality
+    explanation: |
+      The statutory sequence in Section 4 ends with Simple living as the eighth norm.
+
+  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0014
+    type: single_choice
+    difficulty: hard
+    stem: |
+      What is the second norm of conduct listed in Section 4 of RA 6713?
+    choices:
+      - text: Professionalism
+        correct: true
+      - text: Commitment to public interest
+      - text: Justness and sincerity
+      - text: Political neutrality
+    explanation: |
+      The second norm listed in Section 4 of RA 6713 is Professionalism.
+
+  - id: q-code-of-conduct-ra-6713-norms-of-conduct-0015
+    type: single_choice
+    difficulty: hard
+    stem: |
+      A public officer refuses to use official vehicles for personal weekend trips to avoid wasting public resources. Which norm is upheld?
+    choices:
+      - text: Commitment to public interest
+        correct: true
+      - text: Responsiveness to public demands
+      - text: Nationalism and patriotism
+      - text: Political neutrality
+    explanation: |
+      Refusing personal use of official resources directly fulfills Commitment to public interest by preventing wastage of public funds and assets.

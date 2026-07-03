@@ -1,0 +1,217 @@
+meta:
+  subject: general-information
+  topic: code-of-conduct-ra-6713
+  subtopic: duties-and-prohibited-acts
+  exams:
+    - cse-pro
+    - cse-sub
+questions:
+  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0001
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Under Section 5 of RA 6713, public officials must act on letters and requests within how many working days from receipt?
+    choices:
+      - text: 15 working days
+        correct: true
+      - text: 30 working days
+      - text: 45 working days
+      - text: 60 working days
+    explanation: |
+      Section 5(a) of RA 6713 mandates that all public officials and employees act on letters and requests within 15 working days from receipt.
+
+  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0002
+    type: single_choice
+    difficulty: medium
+    stem: |
+      What is the maximum number of initials or signatures allowed on written actions submitted for official approval under RA 6713?
+    choices:
+      - text: At most three signatures
+        correct: true
+      - text: At most five official signatures
+      - text: At most four official signatures
+      - text: At most six official signatures
+    explanation: |
+      Section 5(b) requires that written actions contain no more than three initials or signatures.
+
+  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0003
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Within how many working days from the end of the year must public officers submit an annual performance report to their superiors?
+    choices:
+      - text: 45 working days
+        correct: true
+      - text: 30 working days
+      - text: 60 working days
+      - text: 90 working days
+    explanation: |
+      Section 5(c) states that heads of offices must render an annual performance report within 45 working days from the end of the year.
+
+  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0004
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Under Section 7 of RA 6713, for how long after separation from service is private practice prohibited regarding matters before the former office?
+    choices:
+      - text: 1 year
+        correct: true
+      - text: 2 years
+      - text: 3 years
+      - text: 6 months
+    explanation: |
+      Section 7(b) prohibits former public officials from practicing their profession in connection with any matter before their former office for 1 year after separation.
+
+  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0005
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Which of the following is a recognized statutory exception to the general rule against accepting gifts under RA 6713?
+    choices:
+      - text: Unsolicited gifts of nominal value
+        correct: true
+      - text: Cash gifts given prior to a procurement vote
+      - text: Luxury travel grants paid by private vendors
+      - text: Valuable jewelry offered by an applicant
+    explanation: |
+      Unsolicited gifts of nominal or insignificant value not given in anticipation of a favor are recognized exceptions under the rules of RA 6713.
+
+  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0006
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Under RA 6713, failure to process or act on a written request within 15 working days constitutes which of the following?
+    choices:
+      - text: Administrative action grounds
+        correct: true
+      - text: Automatic forfeiture of civil rights
+      - text: Immediate criminal treason charges
+      - text: Automatic revocation of citizenship
+    explanation: |
+      Failure to act on letters and requests within 15 working days constitutes a ground for administrative disciplinary action under RA 6713.
+
+  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0007
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Which act is explicitly prohibited for public officials under Section 7 of RA 6713?
+    choices:
+      - text: Recommending persons to firms with pending office business
+        correct: true
+      - text: Recommending relatives to state university academic degree programs
+      - text: Accepting authorized teaching duties at local public institutions
+      - text: Writing recommendation letters for government merit scholarship grants
+    explanation: |
+      Section 7(c) explicitly prohibits recommending any person to a position in a private enterprise that has pending or regular transactions with their office.
+
+  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0008
+    type: single_choice
+    difficulty: hard
+    stem: |
+      What determines the impropriety of a gift or favor under Section 7 of RA 6713?
+    choices:
+      - text: Value, kinship, and motivation
+        correct: true
+      - text: Brand reputation and retail venue
+      - text: Physical weight and delivery location
+      - text: Exterior design and gift container
+    explanation: |
+      Under RA 6713 rules, impropriety is evaluated based on the monetary value, the kinship between giver and receiver, and the underlying motivation.
+
+  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0009
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Public documents must be accessible for inspection during office hours except when classified in what manner?
+    choices:
+      - text: Officially confidential
+        correct: true
+      - text: Temporarily unindexed or unfiled
+      - text: Written in technical language
+      - text: Stored in secondary archives
+    explanation: |
+      Section 5(e) requires public documents to be accessible to the public during office hours unless officially classified as confidential.
+
+  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0010
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Under RA 6713, engaging in private practice that conflicts with official functions is classified as what?
+    choices:
+      - text: Prohibited act
+        correct: true
+      - text: Standard procedure
+      - text: Recommended option
+      - text: Voluntary option
+    explanation: |
+      Section 7(b) classifies private practice that conflicts with official functions as a prohibited act and transaction.
+
+  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0011
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Which gift exception allows public officials to accept travel grants from foreign entities under RA 6713?
+    choices:
+      - text: Travel grants outside the Philippines
+        correct: true
+      - text: All domestic resort trips funded by local contractors
+      - text: Personal holiday vacations paid by registered vendors
+      - text: Local weekend leisure trips funded by private applicants
+    explanation: |
+      Travel grants entirely outside the Philippines appropriate to official functions are listed as an exception under RA 6713 rules.
+
+  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0012
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Under Section 5 of RA 6713, within how many working days must a written request be acknowledged?
+    choices:
+      - text: 15 working days
+        correct: true
+      - text: 20 working days
+      - text: 30 working days
+      - text: 45 working days
+    explanation: |
+      Section 5(a) specifies that written requests must be acknowledged within 15 working days from receipt.
+
+  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0013
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Misusing confidential information acquired through official functions for private gain violates which section of RA 6713?
+    choices:
+      - text: Section 7
+        correct: true
+      - text: Section 2
+      - text: Section 12
+      - text: Section 15
+    explanation: |
+      Section 7(d) prohibits disclosing or misusing confidential or classified information for private gain or interest.
+
+  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0014
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Owning or controlling a private enterprise regulated by one's own government office is prohibited unless authorized by what?
+    choices:
+      - text: Law
+        correct: true
+      - text: Personal preference
+      - text: Informal verbal consent
+      - text: Departmental custom
+    explanation: |
+      Section 7(b)(1) states that outside ownership or management of a regulated business is prohibited unless authorized by law.
+
+  - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0015
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Under Section 5 of RA 6713, annual performance reports must be submitted to superiors within how many working days after year end?
+    choices:
+      - text: 45 working days
+        correct: true
+      - text: 15 working days
+      - text: 30 working days
+      - text: 60 working days
+    explanation: |
+      Section 5(c) sets the deadline for submitting annual performance reports to superiors at within 45 working days from year end.

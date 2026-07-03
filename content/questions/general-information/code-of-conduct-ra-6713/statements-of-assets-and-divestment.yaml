@@ -1,0 +1,217 @@
+meta:
+  subject: general-information
+  topic: code-of-conduct-ra-6713
+  subtopic: statements-of-assets-and-divestment
+  exams:
+    - cse-pro
+    - cse-sub
+questions:
+  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0001
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Within how many days from assumption of office must a public official file a sworn SALN?
+    choices:
+      - text: 30 days
+        correct: true
+      - text: 45 days
+      - text: 60 days
+      - text: 90 days
+    explanation: |
+      Section 8(A)(a) requires a public official to file a SALN within 30 days after assumption of office.
+
+  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0002
+    type: single_choice
+    difficulty: easy
+    stem: |
+      What is the annual deadline for filing the Statement of Assets, Liabilities and Net Worth under RA 6713?
+    choices:
+      - text: On or before April 30
+        correct: true
+      - text: On or before December 31
+      - text: On or before September 30
+      - text: On or before November 30
+    explanation: |
+      Section 8(A)(b) mandates annual filing on or before April 30 of every year, reckoned as of the end of the preceding year.
+
+  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0003
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Within how many days from separation from service must a public officer file the final SALN?
+    choices:
+      - text: 30 days
+        correct: true
+      - text: 15 days
+      - text: 60 days
+      - text: 90 days
+    explanation: |
+      Section 8(A)(c) requires filing a SALN within 30 days after separation from service.
+
+  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0004
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Up to what civil degree of consanguinity or affinity must public officials disclose relatives in government service?
+    choices:
+      - text: Fourth civil degree
+        correct: true
+      - text: Second civil degree
+      - text: Third civil degree
+      - text: Fifth civil degree
+    explanation: |
+      Section 8(B) requires disclosure of relatives in government service up to the fourth civil degree of consanguinity or affinity.
+
+  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0005
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Under RA 6713, to resolve a conflict of interest, within how many days from assumption of office must shareholdings be divested?
+    choices:
+      - text: 60 days
+        correct: true
+      - text: 30 days
+      - text: 45 days
+      - text: 90 days
+    explanation: |
+      Section 9 requires divestment of shareholdings or interest in a private business within 60 days from assumption of office or conflict occurrence.
+
+  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0006
+    type: single_choice
+    difficulty: medium
+    stem: |
+      To resolve a conflict of interest, within how many days must a public officer resign from a private position?
+    choices:
+      - text: 30 days
+        correct: true
+      - text: 15 days
+      - text: 60 days
+      - text: 90 days
+    explanation: |
+      Section 9 specifies that resignation from any position in a private business enterprise must occur within 30 days.
+
+  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0007
+    type: single_choice
+    difficulty: medium
+    stem: |
+      SALN records become available for public inspection after how many working days from filing?
+    choices:
+      - text: 10 working days
+        correct: true
+      - text: 5 working days
+      - text: 15 working days
+      - text: 30 working days
+    explanation: |
+      Section 8(C) specifies that SALN statements shall be made available for public inspection after 10 working days from filing.
+
+  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0008
+    type: single_choice
+    difficulty: medium
+    stem: |
+      For how many years must filed SALN documents be preserved before destruction?
+    choices:
+      - text: 10 years
+        correct: true
+      - text: 5 years
+      - text: 15 years
+      - text: 20 years
+    explanation: |
+      Section 8(C) provides that SALN statements remain available for 10 years, after which they may be destroyed unless needed in an investigation.
+
+  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0009
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Where do Cabinet members, undersecretaries, and heads of GOCCs file their SALN under RA 6713?
+    choices:
+      - text: Office of the President
+        correct: true
+      - text: Civil Service Commission headquarters
+      - text: Office of the Ombudsman central unit
+      - text: Supreme Court Clerk of Court office
+    explanation: |
+      Section 8(A) designates the Office of the President as the repository for SALN filings of Cabinet members, undersecretaries, and heads of GOCCs.
+
+  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0010
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Where do Members of Congress file their Statement of Assets, Liabilities and Net Worth under RA 6713?
+    choices:
+      - text: Secretary of Senate or House
+        correct: true
+      - text: Civil Service Commission central unit
+      - text: Supreme Court Clerk of Court office
+      - text: Office of the President director
+    explanation: |
+      Section 8(A) designates the Secretary of the Senate or the Secretary of the House of Representatives as the recipient for congressional SALNs.
+
+  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0011
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Where do non-executive public employees not specifically assigned to constitutional offices file their SALN?
+    choices:
+      - text: Civil Service Commission
+        correct: true
+      - text: Office of the Ombudsman director
+      - text: Office of the President main desk
+      - text: Department of Justice secretariat
+    explanation: |
+      Section 8(A) designates the Civil Service Commission as the filing office for public officers and employees not listed under specific repositories.
+
+  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0012
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Besides the official, whose assets and business interests must be included in the official's SALN filing?
+    choices:
+      - text: Spouse and unmarried children under 18 in household
+        correct: true
+      - text: Spouse, parents, adult children, and business partners
+      - text: Unmarried children under 21 and all immediate siblings
+      - text: Spouse and all financially dependent extended relatives
+    explanation: |
+      Section 8(A) requires inclusion of the assets and liabilities of the official's spouse and unmarried children under 18 years living in their household.
+
+  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0013
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Where do Regional and local officials, as well as state university employees, file their SALN under RA 6713?
+    choices:
+      - text: Deputy Ombudsman of their region
+        correct: true
+      - text: Office of the President legal desk
+      - text: Civil Service Commission main desk
+      - text: Supreme Court Administrator office
+    explanation: |
+      Under RA 6713 rules, regional and local officials as well as state college/university personnel file with the Deputy Ombudsman in their respective region.
+
+  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0014
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Where do Justices of the Supreme Court file their Statement of Assets, Liabilities and Net Worth?
+    choices:
+      - text: Clerk of the Supreme Court
+        correct: true
+      - text: Office of the Ombudsman main desk
+      - text: Civil Service Commission director
+      - text: Secretary of the House of Reps
+    explanation: |
+      Section 8(A) designates the Clerk of the Supreme Court as the repository for SALN filings of Supreme Court Justices.
+
+  - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0015
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Where do Trial Court Judges file their SALN under RA 6713?
+    choices:
+      - text: Court Administrator
+        correct: true
+      - text: Office of the President
+      - text: Secretary of the Senate
+      - text: Ombudsman Central Office
+    explanation: |
+      Section 8(A) specifies that judges file their SALN with the Court Administrator.
