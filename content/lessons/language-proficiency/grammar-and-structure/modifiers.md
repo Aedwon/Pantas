@@ -17,7 +17,7 @@ A **misplaced modifier** is a modifier placed too far from the word it is meant 
 
 A **dangling modifier** is a modifier that has nothing logical to describe at all, usually because the sentence never actually states who or what is performing the action described by the modifier.
 
-"*Walking down the street*, the trees looked beautiful." — this sentence says the trees were walking down the street, since "walking down the street" has nothing else to logically attach to. The sentence never states who was walking.
+"*Walking down the street*, the trees looked beautiful.": this sentence says the trees were walking down the street, since "walking down the street" has nothing else to logically attach to. The sentence never states who was walking.
 
 <!-- ILLUSTRATION: two side-by-side sentence diagrams, one showing a modifier phrase with an arrow pointing to the wrong word far away (misplaced), and one showing a modifier phrase with an arrow pointing to nothing, a large question mark where the intended subject should be (dangling) -->
 
@@ -38,7 +38,7 @@ Identify and fix the error: "The waiter served the pasta to the customer covered
 Identify and fix the error: "After finishing the marathon, a warm bath felt amazing."
 
 **Solution:**
-1. "After finishing the marathon" needs a person who finished the marathon, but the sentence's actual subject is "a warm bath" — baths cannot run marathons.
+1. "After finishing the marathon" needs a person who finished the marathon, but the sentence's actual subject is "a warm bath": baths cannot run marathons.
 2. Add the correct subject right after the modifier so it has something logical to describe.
 3. Corrected sentence: "After finishing the marathon, *she* felt that a warm bath was amazing." (Or: "After *she* finished the marathon, a warm bath felt amazing.")
 
@@ -47,7 +47,7 @@ Identify and fix the error: "After finishing the marathon, a warm bath felt amaz
 Choose the sentence with no misplaced or dangling modifier: (A) "Driving through the mountains, the scenery amazed the tourists." (B) "Driving through the mountains, the tourists were amazed by the scenery."
 
 **Solution:**
-1. In (A), "driving through the mountains" has nothing logical to attach to — the scenery cannot drive.
+1. In (A), "driving through the mountains" has nothing logical to attach to: the scenery cannot drive.
 2. In (B), "driving through the mountains" correctly attaches to "the tourists," who are capable of driving.
 3. The correct sentence is (B).
 
@@ -78,12 +78,12 @@ Test-makers deliberately place an unrelated noun right next to a modifier phrase
 
 ### #2: Missing a Dangling Modifier That "Sounds Fine" at First Read
 
-> Slow down and ask specifically who or what is performing the introductory action — if the sentence's actual subject cannot logically do that action, it is dangling.
+> Slow down and ask specifically who or what is performing the introductory action: if the sentence's actual subject cannot logically do that action, it is dangling.
 
 Sentences like "After finishing the marathon, a warm bath felt amazing" can sound smooth on a quick read, but a bath cannot finish a marathon. Always check the literal logic, not just the sentence's overall flow.
 
 ### #3: Forgetting That Small Words Like "Only" Can Be Misplaced Too
 
-> Modifiers are not just long phrases — single words like *only*, *just*, and *almost* can also be misplaced, changing meaning subtly.
+> Modifiers are not just long phrases: single words like *only*, *just*, and *almost* can also be misplaced, changing meaning subtly.
 
 "She only ate vegetables" (meaning: eating, not any other activity, was all she did) is subtly different from "She ate only vegetables" (meaning: vegetables, and nothing else, was what she ate). Exams sometimes test this small-word placement specifically.

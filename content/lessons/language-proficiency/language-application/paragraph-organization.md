@@ -28,9 +28,9 @@ isActive: true
 Which sentence should come first in the paragraph? (A) "This eventually led to conflicts between different groups." (B) "As cities grew, competition for these limited resources increased." (C) "Ancient civilizations often settled near rivers because of the fertile soil and reliable water source." (D) "Some of these conflicts escalated into full-scale wars."
 
 **Solution:**
-1. (A) uses "this," which needs something already mentioned — it cannot be first.
-2. (B) uses "these limited resources," which also needs an earlier reference — it cannot be first either.
-3. (D) uses "these conflicts," referring back to something already introduced — also not first.
+1. (A) uses "this," which needs something already mentioned: it cannot be first.
+2. (B) uses "these limited resources," which also needs an earlier reference: it cannot be first either.
+3. (D) uses "these conflicts," referring back to something already introduced: also not first.
 4. (C) introduces the general topic (ancient civilizations settling near rivers) with no unexplained pronouns: this is the topic sentence, and comes first.
 
 ### #2: Tracking a Pronoun's Antecedent
@@ -38,16 +38,16 @@ Which sentence should come first in the paragraph? (A) "This eventually led to c
 Which sentence should come immediately after "Ancient civilizations often settled near rivers because of the fertile soil and reliable water source"? (A) "Some of these conflicts escalated into full-scale wars." (B) "As cities grew, competition for these limited resources increased." (C) "This eventually led to conflicts between different groups."
 
 **Solution:**
-1. (A)'s "these conflicts" needs conflicts to already be mentioned — they have not been yet, so (A) cannot come next.
+1. (A)'s "these conflicts" needs conflicts to already be mentioned: they have not been yet, so (A) cannot come next.
 2. (C)'s "this" would need to refer to something specific just discussed, but no single clear event has been introduced yet to link "this" to.
-3. (B)'s "these limited resources" logically connects back to "fertile soil and reliable water source" from the topic sentence — resources were just described. This is the correct next sentence.
+3. (B)'s "these limited resources" logically connects back to "fertile soil and reliable water source" from the topic sentence: resources were just described. This is the correct next sentence.
 
 ### #3: Completing the Chain
 
 Continuing from the previous two sentences, place the remaining two sentences in order: "This eventually led to conflicts between different groups." and "Some of these conflicts escalated into full-scale wars."
 
 **Solution:**
-1. "This eventually led to conflicts" logically follows "competition... increased" — competition (already mentioned) leading to conflict makes a clear cause-and-effect link.
+1. "This eventually led to conflicts" logically follows "competition... increased": competition (already mentioned) leading to conflict makes a clear cause-and-effect link.
 2. "Some of these conflicts escalated into full-scale wars" needs "conflicts" to already be mentioned, which happens in the previous sentence.
 3. Final order: "Ancient civilizations often settled near rivers... " → "As cities grew, competition for these limited resources increased." → "This eventually led to conflicts between different groups." → "Some of these conflicts escalated into full-scale wars."
 
@@ -64,7 +64,7 @@ A paragraph includes the sentence "*However*, not everyone agreed with this new 
 
 **Hunt for the sentence with no pronouns needing an earlier reference and no transition word requiring context.** This is almost always your topic sentence and starting point.
 
-**Build a pronoun map before ordering anything.** Quickly note which sentences contain "it," "this," "these," "he," "they," and which nouns they most likely refer to — this reveals the required order faster than guessing.
+**Build a pronoun map before ordering anything.** Quickly note which sentences contain "it," "this," "these," "he," "they," and which nouns they most likely refer to: this reveals the required order faster than guessing.
 
 **Transition words are your strongest clue for middle and ending sentences.** "Finally" and "in conclusion" almost always mark the last sentence; "first" or "to begin" almost always mark the sentence right after the topic sentence.
 
@@ -72,13 +72,13 @@ A paragraph includes the sentence "*However*, not everyone agreed with this new 
 
 ### #1: Picking a Sentence with a Pronoun as the Topic Sentence
 
-> The topic sentence introduces the main idea without relying on anything mentioned earlier — it should contain no pronouns pointing to an unnamed noun.
+> The topic sentence introduces the main idea without relying on anything mentioned earlier: it should contain no pronouns pointing to an unnamed noun.
 
 A sentence starting with "This..." or "They..." cannot logically be first, since there is nothing yet for "this" or "they" to refer back to.
 
 ### #2: Ignoring Transition Words That Signal Contrast
 
-> Words like *however*, *but*, and *although* mean the sentence's idea contrasts with the sentence before it — misplacing it breaks the paragraph's logic.
+> Words like *however*, *but*, and *although* mean the sentence's idea contrasts with the sentence before it: misplacing it breaks the paragraph's logic.
 
 Placing a "however" sentence right after another sentence that already expresses the same contrasting viewpoint (rather than the original viewpoint it should be contrasting) creates a confusing, illogical paragraph.
 

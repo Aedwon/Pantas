@@ -58,7 +58,7 @@ Find the error, if any: "Neither the manager nor the employees were informed abo
 Find the error: "Rushing to catch the bus, the umbrella was left behind by Maria." (A) "Rushing to catch the bus" (B) "was left" (C) "behind" (D) No error
 
 **Solution:**
-1. "Rushing to catch the bus" needs a person doing the rushing, but the sentence's subject is "the umbrella" — an umbrella cannot rush to catch a bus.
+1. "Rushing to catch the bus" needs a person doing the rushing, but the sentence's subject is "the umbrella": an umbrella cannot rush to catch a bus.
 2. This is a dangling modifier error, found in choice (A).
 3. A corrected version: "Rushing to catch the bus, *Maria left the umbrella behind*."
 
@@ -74,18 +74,18 @@ Find the error: "Rushing to catch the bus, the umbrella was left behind by Maria
 
 ### #1: Fixating on the First Thing That "Sounds Off"
 
-> A sentence can sound slightly awkward without containing an actual grammar error — check against a specific rule, not just a vague feeling.
+> A sentence can sound slightly awkward without containing an actual grammar error: check against a specific rule, not just a vague feeling.
 
 Some correct sentences are simply long or formal-sounding. Confirm an actual rule violation (agreement, tense, modifier placement, parallelism, punctuation) before marking something as wrong.
 
 ### #2: Missing an Error Because the Sentence Is Long
 
-> Longer sentences hide errors more easily — apply the checklist systematically rather than trusting a single quick read-through.
+> Longer sentences hide errors more easily: apply the checklist systematically rather than trusting a single quick read-through.
 
 Break a long sentence into its core subject-verb pair and its separate clauses before judging it, the same way you would analyze a shorter sentence.
 
 ### #3: Assuming Every Sentence Must Contain an Error
 
-> Some exam questions correctly include "no error" as the right answer — do not force a "fix" if the sentence is already correct.
+> Some exam questions correctly include "no error" as the right answer: do not force a "fix" if the sentence is already correct.
 
 Second-guessing a genuinely correct sentence, and "fixing" something that was not actually wrong, is a common way students lose points on this question type.

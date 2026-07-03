@@ -9,7 +9,7 @@ isActive: true
 ---
 ## Core Concept
 
-**Parallelism** (or **parallel structure**) means that similar parts of a sentence — items in a list, choices joined by "or," or ideas linked by "and" — should all use the same grammatical form.
+**Parallelism** (or **parallel structure**) means that similar parts of a sentence, items in a list, choices joined by "or," or ideas linked by "and", should all use the same grammatical form.
 
 "She likes *swimming*, *hiking*, and *reading*." All three items are "-ing" words (gerunds), so the list is parallel and reads smoothly.
 
@@ -47,7 +47,7 @@ Choose the sentence with correct parallel structure: (A) "The manual explains ho
 
 **Solution:**
 1. In (A), the list mixes "install" (base verb), "updating" (-ing), and "troubleshoot" (base verb).
-2. In (B), all three items — "install," "update," and "troubleshoot" — use the same base verb form.
+2. In (B), all three items, "install," "update," and "troubleshoot", use the same base verb form.
 3. The correct sentence is (B).
 
 ### #4: Parallelism in Comparisons
@@ -79,7 +79,7 @@ Long, complex sentences can hide a parallelism error in the middle, especially w
 
 > Parallel structure requires matching form across all items, even if each individual item would be fine as a standalone sentence.
 
-"She enjoys hiking and to swim" — both "hiking" and "to swim" are perfectly correct phrases individually, but placed together in a list, their mismatched forms break parallelism.
+"She enjoys hiking and to swim": both "hiking" and "to swim" are perfectly correct phrases individually, but placed together in a list, their mismatched forms break parallelism.
 
 ### #3: Forgetting That Correlative Conjunctions Need Matching Forms on both Sides
 

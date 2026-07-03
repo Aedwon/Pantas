@@ -22,7 +22,7 @@ Commas separate items, ideas, and extra information within a sentence.
 
 A **semicolon** connects two closely related independent clauses without a coordinating conjunction: "The rain stopped; the sun came out." A semicolon can also separate items in a list when those items already contain commas: "We visited Manila, Philippines; Tokyo, Japan; and Seoul, Korea."
 
-A common error is the **comma splice**: joining two independent clauses with only a comma and no conjunction ("The rain stopped, the sun came out.") — this needs a semicolon, a coordinating conjunction, or a period instead.
+A common error is the **comma splice**: joining two independent clauses with only a comma and no conjunction ("The rain stopped, the sun came out."): this needs a semicolon, a coordinating conjunction, or a period instead.
 
 ### Apostrophes
 
@@ -39,7 +39,7 @@ Capitalize the first word of every sentence, proper nouns (specific names of peo
 Identify and fix the error: "The concert was amazing, everyone stayed until the end."
 
 **Solution:**
-1. Two independent clauses ("The concert was amazing" and "everyone stayed until the end") are joined by only a comma — this is a comma splice.
+1. Two independent clauses ("The concert was amazing" and "everyone stayed until the end") are joined by only a comma: this is a comma splice.
 2. Fix it by adding a coordinating conjunction, using a semicolon, or splitting into two sentences.
 3. Corrected: "The concert was amazing, *so* everyone stayed until the end." (or: "The concert was amazing; everyone stayed until the end.")
 
@@ -57,7 +57,7 @@ Choose the correct word: The company announced *(its / it's)* new product line y
 Choose the correctly punctuated sentence: (A) "She wanted to travel; because she loved adventure." (B) "She loves reading; she visits the library every weekend."
 
 **Solution:**
-1. In (A), "because she loved adventure" is a dependent clause, not an independent one — a semicolon should only join two independent clauses.
+1. In (A), "because she loved adventure" is a dependent clause, not an independent one: a semicolon should only join two independent clauses.
 2. In (B), both "she loves reading" and "she visits the library every weekend" are independent clauses, correctly joined by a semicolon.
 3. The correct sentence is (B).
 
@@ -82,7 +82,7 @@ Choose the correctly capitalized sentence: (A) "We met the President of the comp
 
 ### #1: Missing a Comma Splice
 
-> Two independent clauses joined by only a comma (with no conjunction) is a comma splice error — one of the most common punctuation mistakes tested.
+> Two independent clauses joined by only a comma (with no conjunction) is a comma splice error: one of the most common punctuation mistakes tested.
 
 "She finished her homework, she went to bed" needs a conjunction ("and"), a semicolon, or a period between the two complete thoughts.
 

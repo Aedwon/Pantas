@@ -71,26 +71,24 @@ Classify this sentence: "When the bell rang, the students grabbed their bags, an
 
 **Count the independent clauses first, then check for any dependent clause.** One independent clause with no dependent clause is simple; two or more independent clauses with no dependent clause is compound; add any dependent clause to either of those, and it becomes complex (with one independent clause) or compound-complex (with two or more).
 
-**Watch for subordinating words** (*although*, *because*, *since*, *when*, *if*, *while*) to spot a dependent clause quickly — their presence signals the sentence is at least complex, or compound-complex if multiple independent clauses are also present.
+**Watch for subordinating words** (*although*, *because*, *since*, *when*, *if*, *while*) to spot a dependent clause quickly: their presence signals the sentence is at least complex, or compound-complex if multiple independent clauses are also present.
 
-**Do not be fooled by compound subjects or verbs.** A sentence with "A and B" as the subject, or "did X and Y" as the verb, is still simple as long as there is only one overall clause — compound elements within a single clause do not create a compound sentence.
+**Do not be fooled by compound subjects or verbs.** A sentence with "A and B" as the subject, or "did X and Y" as the verb, is still simple as long as there is only one overall clause: compound elements within a single clause do not create a compound sentence.
 
 ## Traps to Watch For
 
-### #1: Mistaking a Compound Subject or Verb for a Compound Sentence
+### #1: Classifying a Sentence with Compound Elements as Compound
 
-> A compound subject or compound verb within one clause does not make a sentence compound — a compound sentence needs two or more full independent clauses.
+> A compound subject or compound verb within one clause does not make a sentence compound: a compound sentence needs two or more full independent clauses.
 
-"The dog and cat played" has a compound subject but is still a simple sentence, since there is only one clause (one subject-verb unit) overall, not two separate complete thoughts joined together.
+"Maria and Anna cooked dinner and cleaned the kitchen" has a compound subject ("Maria and Anna") and a compound verb ("cooked... and cleaned..."), but it is still just one simple sentence because there is only one clause.
 
-### #2: Confusing Complex with Compound
+### #2: Missing a Dependent Clause in a Complex Sentence
 
-> Compound sentences join two independent clauses (both can stand alone). Complex sentences join an independent clause with a dependent clause (only one can stand alone).
+Look for a subordinating word like "although," "because," or "since": its presence signals a dependent clause, making the sentence complex (or compound-complex), not simply compound.
 
-Look for a subordinating word like "although," "because," or "since" — its presence signals a dependent clause, making the sentence complex (or compound-complex), not simply compound.
+### #3: Counting a Complex Sentence as Compound-Complex Without Enough Clauses
 
-### #3: Missing One Clause Type in a Compound-Complex Sentence
-
-> A compound-complex sentence needs all three ingredients: at least one dependent clause, and at least two independent clauses — missing any one of these makes it a different sentence type instead.
+> A compound-complex sentence needs all three ingredients: at least one dependent clause, and at least two independent clauses, as missing any one of these makes it a different sentence type instead.
 
 A sentence with a dependent clause and only one independent clause is complex, not compound-complex; carefully count both the independent clauses and check for a dependent clause before finalizing your classification.

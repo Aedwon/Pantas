@@ -73,7 +73,7 @@ Choose the correct verb: Neither the manager nor the employees *(was / were)* aw
 
 **"Of" phrases: check the noun that follows.** For pronouns like *some*, *all*, *most*, and *none* followed by "of," the noun right after "of" decides singular or plural, not the pronoun itself.
 
-**"Or/nor": match the closer subject.** When two subjects are joined by "or" or "nor," only the subject nearest the verb matters for agreement — ignore the farther one.
+**"Or/nor": match the closer subject.** When two subjects are joined by "or" or "nor," only the subject nearest the verb matters for agreement: ignore the farther one.
 
 ## Traps to Watch For
 
