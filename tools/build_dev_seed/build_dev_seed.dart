@@ -7,13 +7,16 @@
 //
 // Usage: dart run tools/build_dev_seed/build_dev_seed.dart
 //
-// DO NOT COMMIT the assets/seed/v1.json this writes. That file is a shipping
-// asset — the app bundles it and seeds from it — and the committed version is
-// deliberately the small 2-subject demo seed. Two expectations in
-// test/core/storage/data/seeder_test.dart assert that shape, so committing the
-// generated seed turns the suite red and puts scaffolding content into the
-// build. Regenerate locally whenever you need it; discard with
-// `git checkout -- assets/seed/v1.json`.
+// COMMIT the assets/seed/v1.json this writes. It is a shipping asset: the app
+// bundles it and seeds from it, so the corpus only reaches a build through the
+// committed copy. Rebuild and commit it whenever content lands.
+//
+// This comment used to say the opposite, on the grounds that the committed seed
+// was a small demo file and that seeder_test.dart asserted that shape. Neither
+// is true: those tests build their own fixture JSON inline and never read this
+// asset. The practice changed when the seed was first rebuilt in full and the
+// warning was not updated, which left the file telling every later reader to
+// discard the thing they had just correctly generated.
 
 import 'dart:convert';
 import 'dart:io';
