@@ -1,0 +1,217 @@
+meta:
+  subject: general-information
+  topic: philippine-constitution
+  subtopic: the-articles-in-outline
+  exams:
+    - cse-pro
+    - cse-sub
+questions:
+  - id: q-philippine-constitution-the-articles-in-outline-0001
+    type: single_choice
+    difficulty: easy
+    stem: |
+      How many articles comprise the 1987 Constitution of the Republic of the Philippines?
+    choices:
+      - text: 18 articles
+        correct: true
+      - text: 12 articles
+      - text: 15 articles
+      - text: 20 articles
+    explanation: |
+      The 1987 Constitution consists of a Preamble followed by 18 numbered Articles.
+
+  - id: q-philippine-constitution-the-articles-in-outline-0002
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Which article of the 1987 Constitution contains the Bill of Rights?
+    choices:
+      - text: Article III
+        correct: true
+      - text: Article I
+      - text: Article V
+      - text: Article VII
+    explanation: |
+      Article III of the 1987 Constitution is entitled the Bill of Rights.
+
+  - id: q-philippine-constitution-the-articles-in-outline-0003
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Which article covers Citizenship in the 1987 Constitution?
+    choices:
+      - text: Article IV
+        correct: true
+      - text: Article II
+      - text: Article VI
+      - text: Article VIII
+    explanation: |
+      Article IV of the 1987 Constitution defines Philippine Citizenship.
+
+  - id: q-philippine-constitution-the-articles-in-outline-0004
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Article V of the 1987 Constitution deals with which subject?
+    choices:
+      - text: Suffrage
+        correct: true
+      - text: Citizenship
+      - text: Bill of Rights
+      - text: Local Government
+    explanation: |
+      Article V of the 1987 Constitution governs Suffrage.
+
+  - id: q-philippine-constitution-the-articles-in-outline-0005
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Which article governs the Executive Department under the 1987 Constitution?
+    choices:
+      - text: Article VII
+        correct: true
+      - text: Article VI
+      - text: Article VIII
+      - text: Article IX
+    explanation: |
+      Article VII of the 1987 Constitution details the Executive Department.
+
+  - id: q-philippine-constitution-the-articles-in-outline-0006
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Article IX of the 1987 Constitution is dedicated to which of the following?
+    choices:
+      - text: Constitutional Commissions
+        correct: true
+      - text: Accountability of Public Officers
+      - text: Social Justice and Human Rights
+      - text: National Economy and Patrimony
+    explanation: |
+      Article IX governs the independent Constitutional Commissions (CSC, COMELEC, and COA).
+
+  - id: q-philippine-constitution-the-articles-in-outline-0007
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Which article of the 1987 Constitution covers Local Government?
+    choices:
+      - text: Article X
+        correct: true
+      - text: Article VIII
+      - text: Article XII
+      - text: Article XIV
+    explanation: |
+      Article X of the 1987 Constitution governs Local Government units.
+
+  - id: q-philippine-constitution-the-articles-in-outline-0008
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Article XI of the 1987 Constitution governs which topic?
+    choices:
+      - text: Accountability of Public Officers
+        correct: true
+      - text: Transitory Provisions structure
+      - text: Amendments or Revisions procedure
+      - text: General Provisions outline
+    explanation: |
+      Article XI is titled Accountability of Public Officers.
+
+  - id: q-philippine-constitution-the-articles-in-outline-0009
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Which article covers Education, Science and Technology, Arts, Culture and Sports?
+    choices:
+      - text: Article XIV
+        correct: true
+      - text: Article XII
+      - text: Article XIII
+      - text: Article XV
+    explanation: |
+      Article XIV covers Education, Science and Technology, Arts, Culture and Sports.
+
+  - id: q-philippine-constitution-the-articles-in-outline-0010
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Amendments or Revisions to the 1987 Constitution are governed by which article?
+    choices:
+      - text: Article XVII
+        correct: true
+      - text: Article XV
+      - text: Article XVI
+      - text: Article XVIII
+    explanation: |
+      Article XVII governs Amendments or Revisions to the Constitution.
+
+  - id: q-philippine-constitution-the-articles-in-outline-0011
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Which article covers the Judicial Department in the 1987 Constitution?
+    choices:
+      - text: Article VIII
+        correct: true
+      - text: Article VI
+      - text: Article VII
+      - text: Article IX
+    explanation: |
+      Article VIII defines the Judicial Department and judicial power.
+
+  - id: q-philippine-constitution-the-articles-in-outline-0012
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Article XII of the 1987 Constitution addresses which subject matter?
+    choices:
+      - text: National Economy and Patrimony
+        correct: true
+      - text: Social Justice and Human Rights
+      - text: General Provisions outline
+      - text: Transitory Provisions rules
+    explanation: |
+      Article XII governs National Economy and Patrimony.
+
+  - id: q-philippine-constitution-the-articles-in-outline-0013
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Which article of the 1987 Constitution addresses The Family?
+    choices:
+      - text: Article XV
+        correct: true
+      - text: Article XIII
+      - text: Article XIV
+      - text: Article XVI
+    explanation: |
+      Article XV is titled The Family.
+
+  - id: q-philippine-constitution-the-articles-in-outline-0014
+    type: single_choice
+    difficulty: easy
+    stem: |
+      What is the topic of Article I of the 1987 Constitution?
+    choices:
+      - text: National Territory
+        correct: true
+      - text: Declaration of Principles and State Policies
+      - text: Accountability of Public Officers in office
+      - text: Constitutional Commissions administrative rules
+    explanation: |
+      Article I defines the National Territory of the Philippines.
+
+  - id: q-philippine-constitution-the-articles-in-outline-0015
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Which article of the 1987 Constitution governs the Legislative Department?
+    choices:
+      - text: Article VI
+        correct: true
+      - text: Article V
+      - text: Article VII
+      - text: Article VIII
+    explanation: |
+      Article VI details the Legislative Department (Congress of the Philippines).

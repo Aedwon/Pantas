@@ -1,0 +1,217 @@
+meta:
+  subject: general-information
+  topic: philippine-constitution
+  subtopic: bill-of-rights
+  exams:
+    - cse-pro
+    - cse-sub
+questions:
+  - id: q-philippine-constitution-bill-of-rights-0001
+    type: single_choice
+    difficulty: easy
+    stem: |
+      How many sections comprise Article III (Bill of Rights) of the 1987 Constitution?
+    choices:
+      - text: 22 sections
+        correct: true
+      - text: 15 sections
+      - text: 20 sections
+      - text: 25 sections
+    explanation: |
+      Article III (Bill of Rights) of the 1987 Constitution contains exactly 22 sections.
+
+  - id: q-philippine-constitution-bill-of-rights-0002
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Which constitutional right guarantees that no person shall be deprived of life, liberty, or property without due process of law?
+    choices:
+      - text: Due process of law
+        correct: true
+      - text: Right to equal compensation rates
+      - text: Protection against search warrants
+      - text: Right to free state housing grants
+    explanation: |
+      Section 1 of Article III provides that no person shall be deprived of life, liberty, or property without due process of law.
+
+  - id: q-philippine-constitution-bill-of-rights-0003
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Freedom of speech, of expression, and of the press are protected under which article of the 1987 Constitution?
+    choices:
+      - text: Article III
+        correct: true
+      - text: Article I
+      - text: Article II
+      - text: Article IV
+    explanation: |
+      Section 4 of Article III (Bill of Rights) protects freedom of speech, expression, the press, assembly, and petition.
+
+  - id: q-philippine-constitution-bill-of-rights-0004
+    type: single_choice
+    difficulty: medium
+    stem: |
+      What constitutional protection guarantees that private property shall not be taken for public use without just compensation?
+    choices:
+      - text: Eminent domain limit
+        correct: true
+      - text: Freedom of association
+      - text: Non-impairment clause
+      - text: Right to information
+    explanation: |
+      Section 9 of Article III provides that private property shall not be taken for public use without just compensation.
+
+  - id: q-philippine-constitution-bill-of-rights-0005
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Which clause protects individuals from state laws that alter existing contractual rights and duties?
+    choices:
+      - text: Non-impairment clause
+        correct: true
+      - text: Equal protection clause
+      - text: Due process guarantee
+      - text: Ex post facto clause
+    explanation: |
+      Section 10 of Article III states that no law impairing the obligation of contracts shall be passed.
+
+  - id: q-philippine-constitution-bill-of-rights-0006
+    type: single_choice
+    difficulty: medium
+    stem: |
+      What is the privilege of the writ of habeas corpus designed to protect?
+    choices:
+      - text: Liberty against unlawful detention
+        correct: true
+      - text: Freedom from all state property assessments
+      - text: Property rights in municipal land disputes
+      - text: Equal access to government civil employment
+    explanation: |
+      The writ of habeas corpus is an order commanding the custodian of a detained person to produce the body and justify the detention.
+
+  - id: q-philippine-constitution-bill-of-rights-0007
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Under Article III, which right guarantees that an accused person is considered innocent until proven guilty?
+    choices:
+      - text: Presumption of innocence
+        correct: true
+      - text: Right to immediate executive pardon
+      - text: Privilege against public prosecution
+      - text: Protection from all state questioning
+    explanation: |
+      Section 14(2) of Article III provides that in all criminal prosecutions, the accused shall be presumed innocent until the contrary is proved.
+
+  - id: q-philippine-constitution-bill-of-rights-0008
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Protecting an individual from being prosecuted twice for the same criminal offense is known as what?
+    choices:
+      - text: Protection against double jeopardy
+        correct: true
+      - text: Protection against ex post facto laws
+      - text: Protection against bills of attainder
+      - text: Privilege against self-incrimination
+    explanation: |
+      Section 21 of Article III protects individuals against double jeopardy for the same offense.
+
+  - id: q-philippine-constitution-bill-of-rights-0009
+    type: single_choice
+    difficulty: hard
+    stem: |
+      A law that penalizes an act that was not punishable at the time it was committed is prohibited as what?
+    choices:
+      - text: Ex post facto law
+        correct: true
+      - text: Legislative bill of attainder
+      - text: Judicial writ of prohibition
+      - text: Executive emergency decree
+    explanation: |
+      Section 22 of Article III prohibits ex post facto laws, which retroactively make an act criminal that was legal when committed.
+
+  - id: q-philippine-constitution-bill-of-rights-0010
+    type: single_choice
+    difficulty: hard
+    stem: |
+      A legislative act that inflicts punishment without a judicial trial is prohibited under Article III as what?
+    choices:
+      - text: Bill of attainder
+        correct: true
+      - text: Ex post facto law
+      - text: Double jeopardy rule
+      - text: Search warrant decree
+    explanation: |
+      Section 22 of Article III prohibits bills of attainder, which are legislative acts that declare a person guilty without trial.
+
+  - id: q-philippine-constitution-bill-of-rights-0011
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Under Article III, Section 20, no person shall be imprisoned for what specific cause?
+    choices:
+      - text: Debt or non-payment of a poll tax
+        correct: true
+      - text: Failure to hold valid identity passports
+      - text: Failure to register a private business
+      - text: Violation of local curfew municipal rules
+    explanation: |
+      Section 20 of Article III provides that no person shall be imprisoned for debt or non-payment of a poll tax.
+
+  - id: q-philippine-constitution-bill-of-rights-0012
+    type: single_choice
+    difficulty: easy
+    stem: |
+      What right guarantees that a person in custodial investigation must be informed of the right to remain silent and to counsel?
+    choices:
+      - text: Miranda rights
+        correct: true
+      - text: Habeas corpus
+      - text: Right to bail
+      - text: Double jeopardy
+    explanation: |
+      Section 12 of Article III contains custodial rights, commonly referred to as Miranda rights in constitutional law.
+
+  - id: q-philippine-constitution-bill-of-rights-0013
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Freedom from cruel, degrading, or inhuman punishment is guaranteed under which article of the Constitution?
+    choices:
+      - text: Article III
+        correct: true
+      - text: Article I
+      - text: Article IV
+      - text: Article IX
+    explanation: |
+      Section 19(1) of Article III prohibits cruel, degrading, or inhuman punishment.
+
+  - id: q-philippine-constitution-bill-of-rights-0014
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Under Article III, the right of the people to be secure in their persons, houses, papers, and effects against unreasonable searches is protected by requiring what?
+    choices:
+      - text: Search warrant upon probable cause
+        correct: true
+      - text: Executive mandate upon private suspicion
+      - text: Verbal approval from a local chief officer
+      - text: Administrative order from a city mayor
+    explanation: |
+      Section 2 of Article III provides that search warrants shall issue only upon probable cause determined personally by a judge after examination under oath.
+
+  - id: q-philippine-constitution-bill-of-rights-0015
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Protecting a witness or accused from being compelled to testify against himself or herself is known as what?
+    choices:
+      - text: Right against self-incrimination
+        correct: true
+      - text: Freedom from involuntary servitude
+      - text: Right to speedy disposition of cases
+      - text: Protection against ex post facto laws
+    explanation: |
+      Section 17 of Article III states that no person shall be compelled to be a witness against himself.

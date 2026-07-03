@@ -1,0 +1,217 @@
+meta:
+  subject: general-information
+  topic: philippine-constitution
+  subtopic: the-civil-service-commission
+  exams:
+    - cse-pro
+    - cse-sub
+questions:
+  - id: q-philippine-constitution-the-civil-service-commission-0001
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Under Article IX-B of the 1987 Constitution, how is the Civil Service Commission composed?
+    choices:
+      - text: Chairman and two Commissioners
+        correct: true
+      - text: Chairman and four Commissioners
+      - text: Chairman and six Commissioners
+      - text: Chairman and one Commissioner
+    explanation: |
+      Section 1(1) of Article IX-B specifies that the Civil Service Commission shall be composed of a Chairman and two Commissioners.
+
+  - id: q-philippine-constitution-the-civil-service-commission-0002
+    type: single_choice
+    difficulty: easy
+    stem: |
+      What citizenship qualification is required for members of the Civil Service Commission under Article IX-B?
+    choices:
+      - text: Natural-born citizens
+        correct: true
+      - text: Naturalized citizens of the state
+      - text: Permanent resident aliens
+      - text: Registered voter residents
+    explanation: |
+      Section 1(1) of Article IX-B mandates that the Chairman and Commissioners must be natural-born citizens of the Philippines.
+
+  - id: q-philippine-constitution-the-civil-service-commission-0003
+    type: single_choice
+    difficulty: easy
+    stem: |
+      What is the minimum age requirement for appointment to the Civil Service Commission?
+    choices:
+      - text: 35 years old
+        correct: true
+      - text: 25 years old
+      - text: 30 years old
+      - text: 40 years old
+    explanation: |
+      Section 1(1) of Article IX-B specifies that members must be at least 35 years of age at the time of their appointment.
+
+  - id: q-philippine-constitution-the-civil-service-commission-0004
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Who appoints the Chairman and Commissioners of the Civil Service Commission?
+    choices:
+      - text: President with CA consent
+        correct: true
+      - text: House of Representatives committee
+      - text: Supreme Court en banc council
+      - text: Judicial and Bar Council committee
+    explanation: |
+      Section 1(2) of Article IX-B states that Commissioners are appointed by the President with the consent of the Commission on Appointments.
+
+  - id: q-philippine-constitution-the-civil-service-commission-0005
+    type: single_choice
+    difficulty: medium
+    stem: |
+      What is the term of office for members of the Civil Service Commission under Article IX-B?
+    choices:
+      - text: Seven years without reappointment
+        correct: true
+      - text: Five years with one reappointment
+      - text: Six years with unlimited reappointment
+      - text: Ten years during good behavior
+    explanation: |
+      Section 1(2) of Article IX-B provides that members are appointed for a term of seven years without reappointment.
+
+  - id: q-philippine-constitution-the-civil-service-commission-0006
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Which qualification restriction applies to candidates for appointment to the Civil Service Commission?
+    choices:
+      - text: Not an elective candidate in the preceding election
+        correct: true
+      - text: Must have served as a military officer for twenty active years
+      - text: Must hold a doctorate degree in business administrative science
+      - text: Must have practiced trial litigation law for fifteen full years
+    explanation: |
+      Section 1(1) of Article IX-B requires that appointees must not have been candidates for any elective position in the election immediately preceding their appointment.
+
+  - id: q-philippine-constitution-the-civil-service-commission-0007
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Which article of the 1987 Constitution governs the Civil Service Commission?
+    choices:
+      - text: Article IX-B
+        correct: true
+      - text: Article III section 5
+      - text: Article VI section 2
+      - text: Article XI section 1
+    explanation: |
+      Sub-article B of Article IX is specifically devoted to the Civil Service Commission.
+
+  - id: q-philippine-constitution-the-civil-service-commission-0008
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Is a member of the Civil Service Commission eligible for reappointment after serving a full 7-year term?
+    choices:
+      - text: No, reappointment is prohibited
+        correct: true
+      - text: Yes, for one additional consecutive term
+      - text: Yes, upon unanimous consent of the Senate
+      - text: Yes, if re-nominated by the sitting President
+    explanation: |
+      Section 1(2) of Article IX-B explicitly prohibits reappointment of Commissioners after serving their term.
+
+  - id: q-philippine-constitution-the-civil-service-commission-0009
+    type: single_choice
+    difficulty: hard
+    stem: |
+      What special expertise is constitutionally required of Civil Service Commissioners under Article IX-B?
+    choices:
+      - text: Capacity for public administration
+        correct: true
+      - text: High competence in corporate financial auditing
+      - text: Extensive experience in international diplomacy
+      - text: Former service in judicial appellate trial courts
+    explanation: |
+      Section 1(1) of Article IX-B requires proven capacity for public administration.
+
+  - id: q-philippine-constitution-the-civil-service-commission-0010
+    type: single_choice
+    difficulty: easy
+    stem: |
+      The Civil Service Commission functions as what central body within the Philippine Government?
+    choices:
+      - text: Central personnel agency
+        correct: true
+      - text: Central judicial tribunal
+      - text: Central monetary authority
+      - text: Central legislative council
+    explanation: |
+      Section 3 of Article IX-B establishes the Civil Service Commission as the central personnel agency of the Government.
+
+  - id: q-philippine-constitution-the-civil-service-commission-0011
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Under Article IX-A, members of Constitutional Commissions are appointed for terms structured in what manner?
+    choices:
+      - text: Staggered terms
+        correct: true
+      - text: Synchronized terms
+      - text: Indefinite terms
+      - text: Annual rotation
+    explanation: |
+      Article IX provides for staggered terms of office among the Chairman and Commissioners to ensure institutional continuity.
+
+  - id: q-philippine-constitution-the-civil-service-commission-0012
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Are members of the Civil Service Commission subject to impeachment under Article XI?
+    choices:
+      - text: Yes, as Constitutional Commissioners
+        correct: true
+      - text: No, subject only to private civil arbitration lawsuits
+      - text: No, exempt from all public administrative proceedings
+      - text: No, removable only by a local provincial governor
+    explanation: |
+      Article XI, Section 2 includes Members of the Constitutional Commissions in the closed list of impeachable officers.
+
+  - id: q-philippine-constitution-the-civil-service-commission-0013
+    type: single_choice
+    difficulty: medium
+    stem: |
+      What body must confirm the President's appointment of Civil Service Commissioners?
+    choices:
+      - text: Commission on Appointments
+        correct: true
+      - text: House of Representatives committee
+      - text: Supreme Court en banc council
+      - text: Judicial and Bar Council committee
+    explanation: |
+      Section 1(2) of Article IX-B specifies that appointment requires the consent of the Commission on Appointments.
+
+  - id: q-philippine-constitution-the-civil-service-commission-0014
+    type: single_choice
+    difficulty: medium
+    stem: |
+      At what exact time must a Civil Service Commissioner meet the minimum age requirement of 35 years?
+    choices:
+      - text: At time of appointment
+        correct: true
+      - text: At time of academic university graduation
+      - text: At time of civil service examination registration
+      - text: At completion of first official service year
+    explanation: |
+      Section 1(1) of Article IX-B states that Commissioners must be at least 35 years old at the time of their appointment.
+
+  - id: q-philippine-constitution-the-civil-service-commission-0015
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Which of the following bodies is classified as a Constitutional Commission under Article IX?
+    choices:
+      - text: Civil Service Commission
+        correct: true
+      - text: National Economic Development Authority
+      - text: Securities and Exchange Commission
+      - text: Department of Budget and Management
+    explanation: |
+      Article IX creates three independent Constitutional Commissions: CSC, COMELEC, and COA.
