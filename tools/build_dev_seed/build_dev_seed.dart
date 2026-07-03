@@ -28,7 +28,7 @@ const _keepExamId = 'exam_cse_pro';
 
 // The post-launch expansion roster from the foundation spec §1.2, carried in
 // the dev seed so exam-list surfaces have realistic data to hold. They ship
-// `isActive: false` because nothing is authored behind them — selecting one
+// `isActive: false` because nothing is authored behind them: selecting one
 // would land on an app with no subjects, topics, questions, or lessons. This
 // mirrors production, where an exam goes active only when its content pack
 // does. Flip an entry to `true` to see it in the onboarding picker.
@@ -72,7 +72,7 @@ const _rosterExams = <Map<String, Object?>>[
   {
     'id': 'exam_cse_sub',
     'code': 'CSE_SUB',
-    'name': 'Civil Service Examination — Subprofessional',
+    'name': 'Civil Service Examination: Subprofessional',
     'shortName': 'CSE Sub',
     'language': 'en',
     'isActive': false,

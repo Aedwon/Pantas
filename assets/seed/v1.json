@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "contentVersion": 2026080420,
-  "generatedAt": "2026-08-04T20:33:37.300981Z",
+  "generatedAt": "2026-08-04T20:36:54.008997Z",
   "exams": [
     {
       "id": "exam_cse_pro",
@@ -98,7 +98,7 @@
     {
       "id": "exam_cse_sub",
       "code": "CSE_SUB",
-      "name": "Civil Service Examination — Subprofessional",
+      "name": "Civil Service Examination: Subprofessional",
       "shortName": "CSE Sub",
       "language": "en",
       "isActive": false,
