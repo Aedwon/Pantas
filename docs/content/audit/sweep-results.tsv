@@ -1,61 +1,10 @@
-STRUCT	important	general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md:1	missing core sections; has ['Duties and Response Deadlines', 'Prohibited Acts and Transactions', 'Exceptions to the Gift Rule']
-STRUCT	polish	general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md:1	extra section 'Duties and Response Deadlines' (allowed sparingly - review in judgment pass)
-STRUCT	polish	general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md:1	extra section 'Prohibited Acts and Transactions' (allowed sparingly - review in judgment pass)
-STRUCT	polish	general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md:1	extra section 'Exceptions to the Gift Rule' (allowed sparingly - review in judgment pass)
-STRUCT	important	general-information/code-of-conduct-ra-6713/norms-of-conduct.md:1	missing core sections; has ['Core Concept', 'The Eight Norms of Conduct']
-STRUCT	polish	general-information/code-of-conduct-ra-6713/norms-of-conduct.md:1	extra section 'The Eight Norms of Conduct' (allowed sparingly - review in judgment pass)
-STRUCT	important	general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md:1	missing core sections; has ['Statutory Penalties (Section 11)', 'Enforcement Principles']
-STRUCT	polish	general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md:1	extra section 'Statutory Penalties (Section 11)' (allowed sparingly - review in judgment pass)
-STRUCT	polish	general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md:1	extra section 'Enforcement Principles' (allowed sparingly - review in judgment pass)
-STRUCT	important	general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md:1	missing core sections; has ['SALN Filing Requirements', 'Key Deadlines for SALN Filing', 'Where SALN is Filed', 'Public Access and Divestment']
-STRUCT	polish	general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md:1	extra section 'SALN Filing Requirements' (allowed sparingly - review in judgment pass)
-STRUCT	polish	general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md:1	extra section 'Key Deadlines for SALN Filing' (allowed sparingly - review in judgment pass)
-STRUCT	polish	general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md:1	extra section 'Where SALN is Filed' (allowed sparingly - review in judgment pass)
-STRUCT	polish	general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md:1	extra section 'Public Access and Divestment' (allowed sparingly - review in judgment pass)
-STRUCT	important	general-information/environment-management/environmental-concepts.md:1	missing core sections; has ['Core Principles and Concepts']
-STRUCT	polish	general-information/environment-management/environmental-concepts.md:1	extra section 'Core Principles and Concepts' (allowed sparingly - review in judgment pass)
-STRUCT	important	general-information/environment-management/the-environmental-laws.md:1	missing core sections; has ['Core Environmental Statutes', 'Governing Agencies']
-STRUCT	polish	general-information/environment-management/the-environmental-laws.md:1	extra section 'Core Environmental Statutes' (allowed sparingly - review in judgment pass)
-STRUCT	polish	general-information/environment-management/the-environmental-laws.md:1	extra section 'Governing Agencies' (allowed sparingly - review in judgment pass)
-STRUCT	important	general-information/peace-and-human-rights/human-rights-fundamentals.md:1	missing core sections; has ['Core Concept', 'Domestic Constitutional Framework']
-STRUCT	polish	general-information/peace-and-human-rights/human-rights-fundamentals.md:1	extra section 'Domestic Constitutional Framework' (allowed sparingly - review in judgment pass)
-STRUCT	important	general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md:1	missing core sections; has ['Fundamental Distinction', 'Scope of Application', 'Bound Entities', 'Primary Purpose of IHL']
-STRUCT	polish	general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md:1	extra section 'Fundamental Distinction' (allowed sparingly - review in judgment pass)
-STRUCT	polish	general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md:1	extra section 'Scope of Application' (allowed sparingly - review in judgment pass)
-STRUCT	polish	general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md:1	extra section 'Bound Entities' (allowed sparingly - review in judgment pass)
-STRUCT	polish	general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md:1	extra section 'Primary Purpose of IHL' (allowed sparingly - review in judgment pass)
-STRUCT	important	general-information/philippine-constitution/accountability-and-impeachment.md:1	missing core sections; has ['Public Accountability', 'Closed List of Impeachable Officers', 'Closed List of Grounds for Impeachment']
-STRUCT	polish	general-information/philippine-constitution/accountability-and-impeachment.md:1	extra section 'Public Accountability' (allowed sparingly - review in judgment pass)
-STRUCT	polish	general-information/philippine-constitution/accountability-and-impeachment.md:1	extra section 'Closed List of Impeachable Officers' (allowed sparingly - review in judgment pass)
-STRUCT	polish	general-information/philippine-constitution/accountability-and-impeachment.md:1	extra section 'Closed List of Grounds for Impeachment' (allowed sparingly - review in judgment pass)
-STRUCT	important	general-information/philippine-constitution/bill-of-rights.md:1	missing core sections; has ['Overview', 'Civil and Political Rights (Sections 1 to 11)', 'Rights of the Accused (Sections 12 to 22)']
-STRUCT	polish	general-information/philippine-constitution/bill-of-rights.md:1	extra section 'Overview' (allowed sparingly - review in judgment pass)
-STRUCT	polish	general-information/philippine-constitution/bill-of-rights.md:1	extra section 'Civil and Political Rights (Sections 1 to 11)' (allowed sparingly - review in judgment pass)
-STRUCT	polish	general-information/philippine-constitution/bill-of-rights.md:1	extra section 'Rights of the Accused (Sections 12 to 22)' (allowed sparingly - review in judgment pass)
-STRUCT	important	general-information/philippine-constitution/the-articles-in-outline.md:1	missing core sections; has ['Core Structure', 'Article Outline']
-STRUCT	polish	general-information/philippine-constitution/the-articles-in-outline.md:1	extra section 'Core Structure' (allowed sparingly - review in judgment pass)
-STRUCT	polish	general-information/philippine-constitution/the-articles-in-outline.md:1	extra section 'Article Outline' (allowed sparingly - review in judgment pass)
-STRUCT	important	general-information/philippine-constitution/the-civil-service-commission.md:1	missing core sections; has ['Constitutional Status', 'Composition and Qualifications', 'Appointment and Tenure']
-STRUCT	polish	general-information/philippine-constitution/the-civil-service-commission.md:1	extra section 'Constitutional Status' (allowed sparingly - review in judgment pass)
-STRUCT	polish	general-information/philippine-constitution/the-civil-service-commission.md:1	extra section 'Composition and Qualifications' (allowed sparingly - review in judgment pass)
-STRUCT	polish	general-information/philippine-constitution/the-civil-service-commission.md:1	extra section 'Appointment and Tenure' (allowed sparingly - review in judgment pass)
 STRUCT	polish	language-proficiency/vocabulary/idioms-and-figures-of-speech.md:1	extra section 'Important Filipino Terms' (allowed sparingly - review in judgment pass)
 STRUCT	polish	language-proficiency/vocabulary/root-words-prefixes-suffixes.md:1	extra section 'Must-Know Word Parts' (allowed sparingly - review in judgment pass)
 STRUCT	polish	language-proficiency/vocabulary/synonyms-and-antonyms.md:1	extra section 'Using Context Clues' (allowed sparingly - review in judgment pass)
 STRUCT	polish	mathematics/arithmetic-number-sense/prime-factorization-gcf-lcm.md:1	extra section 'When to List Multiples' (allowed sparingly - review in judgment pass)
-STRUCT	important	mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md:1	missing core sections; has ['Core Concept', 'Key Formulas']
-STRUCT	polish	mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md:1	extra section 'Key Formulas' (allowed sparingly - review in judgment pass)
 STRUCT	polish	mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md:17	\frac used (style guide requires \dfrac)
 STRUCT	polish	mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md:19	\frac used (style guide requires \dfrac)
 STRUCT	polish	mathematics/data-interpretation/rates-ratios-and-percentages-in-context.md:20	\frac used (style guide requires \dfrac)
-STRUCT	important	mathematics/data-interpretation/tables-and-charts.md:1	missing core sections; has ['Core Concept', 'Strategy']
-STRUCT	polish	mathematics/data-interpretation/tables-and-charts.md:1	extra section 'Strategy' (allowed sparingly - review in judgment pass)
-STRUCT	important	reasoning/clerical-ability/alphabetic-filing-rules.md:1	missing core sections; has ['Core Concept', 'Rules of Indexing']
-STRUCT	polish	reasoning/clerical-ability/alphabetic-filing-rules.md:1	extra section 'Rules of Indexing' (allowed sparingly - review in judgment pass)
-STRUCT	important	reasoning/clerical-ability/numeric-and-chronological-filing.md:1	missing core sections; has ['Core Concept', 'Key Filing Systems']
-STRUCT	polish	reasoning/clerical-ability/numeric-and-chronological-filing.md:1	extra section 'Key Filing Systems' (allowed sparingly - review in judgment pass)
-STRUCT	important	reasoning/verbal-logic/assumptions-and-conclusions.md:1	missing core sections; has ['Core Concept', 'Key Rules']
-STRUCT	polish	reasoning/verbal-logic/assumptions-and-conclusions.md:1	extra section 'Key Rules' (allowed sparingly - review in judgment pass)
 ILLUS	important	language-proficiency/vocabulary/idioms-and-figures-of-speech.md:62	example '#2: Identifying English Figures of Speech' is figure-dependent but has no placeholder in its block
 ILLUS	important	language-proficiency/vocabulary/idioms-and-figures-of-speech.md:119	example '#5: Subtle Metaphors in English Literature' is figure-dependent but has no placeholder in its block
 ILLUS	important	language-proficiency/vocabulary/root-words-prefixes-suffixes.md:104	example '#4: Guessing from the Root' is figure-dependent but has no placeholder in its block
@@ -110,17 +59,17 @@ FORMULA	important	science/physics/units-and-measurements.md:53	example '#2: Conv
 FORMULA	important	science/physics/units-and-measurements.md:76	example '#3: Checking Units in a Formula' uses formula vars ['m', 's'] not taught before Examples
 FORMULA	important	science/physics/waves-and-sound.md:42	example '#1: Calculating Wave Speed' uses formula vars ['m', 's'] not taught before Examples
 FORMULA	important	science/physics/work-energy-power.md:84	example '#3: Conservation of Energy on a Slide' uses formula vars ['J'] not taught before Examples
-AI-TELL	polish	general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md:0	caps=2 emdash=0 notjust=0 stock=0 testmakers=0 stock_summary=False caps_words=['RA']
-AI-TELL	polish	general-information/code-of-conduct-ra-6713/norms-of-conduct.md:0	caps=1 emdash=0 notjust=0 stock=0 testmakers=0 stock_summary=False caps_words=['RA']
-AI-TELL	polish	general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md:0	caps=1 emdash=0 notjust=0 stock=0 testmakers=0 stock_summary=False caps_words=['RA']
-AI-TELL	polish	general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md:0	caps=6 emdash=0 notjust=0 stock=0 testmakers=0 stock_summary=False caps_words=['RA', 'SALN']
-AI-TELL	polish	general-information/environment-management/environmental-concepts.md:0	caps=4 emdash=0 notjust=0 stock=0 testmakers=0 stock_summary=False caps_words=['DENR', 'ECC', 'PD', 'RA']
-AI-TELL	polish	general-information/environment-management/the-environmental-laws.md:0	caps=13 emdash=0 notjust=0 stock=0 testmakers=0 stock_summary=False caps_words=['DENR', 'ECC', 'NDRRMC', 'NIPAS', 'PD', 'RA']
-AI-TELL	polish	general-information/peace-and-human-rights/human-rights-fundamentals.md:0	caps=2 emdash=0 notjust=0 stock=0 testmakers=0 stock_summary=False caps_words=['CHR', 'XIII']
-AI-TELL	polish	general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md:0	caps=5 emdash=0 notjust=0 stock=0 testmakers=0 stock_summary=False caps_words=['HRL', 'IHL']
-AI-TELL	polish	general-information/philippine-constitution/accountability-and-impeachment.md:0	caps=6 emdash=0 notjust=0 stock=0 testmakers=0 stock_summary=False caps_words=['COA', 'COMELEC', 'CSC', 'XI']
-AI-TELL	polish	general-information/philippine-constitution/the-articles-in-outline.md:0	caps=12 emdash=0 notjust=0 stock=0 testmakers=0 stock_summary=False caps_words=['IX', 'VI', 'VII', 'VIII', 'XI', 'XII', 'XIII', 'XIV']
-AI-TELL	polish	general-information/philippine-constitution/the-civil-service-commission.md:0	caps=1 emdash=0 notjust=0 stock=0 testmakers=0 stock_summary=False caps_words=['IX']
+AI-TELL	polish	general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.md:0	caps=3 emdash=0 notjust=0 stock=0 testmakers=0 stock_summary=False caps_words=['RA']
+AI-TELL	polish	general-information/code-of-conduct-ra-6713/norms-of-conduct.md:0	caps=3 emdash=0 notjust=0 stock=0 testmakers=0 stock_summary=False caps_words=['RA']
+AI-TELL	polish	general-information/code-of-conduct-ra-6713/penalties-and-enforcement.md:0	caps=5 emdash=0 notjust=0 stock=0 testmakers=0 stock_summary=False caps_words=['RA']
+AI-TELL	polish	general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.md:0	caps=18 emdash=0 notjust=0 stock=0 testmakers=0 stock_summary=False caps_words=['RA', 'SALN']
+AI-TELL	polish	general-information/environment-management/environmental-concepts.md:0	caps=8 emdash=0 notjust=0 stock=0 testmakers=0 stock_summary=False caps_words=['DENR', 'ECC', 'PD', 'RA']
+AI-TELL	polish	general-information/environment-management/the-environmental-laws.md:0	caps=23 emdash=0 notjust=0 stock=0 testmakers=0 stock_summary=False caps_words=['DENR', 'ECC', 'NDRRMC', 'NIPAS', 'PD', 'RA']
+AI-TELL	polish	general-information/peace-and-human-rights/human-rights-fundamentals.md:0	caps=10 emdash=0 notjust=0 stock=0 testmakers=0 stock_summary=False caps_words=['CHR', 'COA', 'COMELEC', 'CSC', 'IX', 'XIII']
+AI-TELL	polish	general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.md:0	caps=11 emdash=0 notjust=0 stock=0 testmakers=0 stock_summary=False caps_words=['HRL', 'IHL']
+AI-TELL	polish	general-information/philippine-constitution/accountability-and-impeachment.md:0	caps=11 emdash=0 notjust=0 stock=0 testmakers=0 stock_summary=False caps_words=['COA', 'COMELEC', 'CSC', 'NOT', 'XI']
+AI-TELL	polish	general-information/philippine-constitution/the-articles-in-outline.md:0	caps=20 emdash=0 notjust=0 stock=0 testmakers=0 stock_summary=False caps_words=['IX', 'VI', 'VII', 'VIII', 'XI', 'XII', 'XIII', 'XIV']
+AI-TELL	polish	general-information/philippine-constitution/the-civil-service-commission.md:0	caps=6 emdash=0 notjust=0 stock=0 testmakers=0 stock_summary=False caps_words=['IX']
 AI-TELL	polish	language-proficiency/grammar-and-structure/modifiers.md:0	caps=0 emdash=0 notjust=0 stock=0 testmakers=1 stock_summary=False caps_words=[]
 AI-TELL	polish	language-proficiency/grammar-and-structure/parallelism.md:0	caps=0 emdash=0 notjust=6 stock=8 testmakers=0 stock_summary=False caps_words=[]
 AI-TELL	polish	language-proficiency/grammar-and-structure/parts-of-speech.md:0	caps=0 emdash=0 notjust=0 stock=0 testmakers=1 stock_summary=False caps_words=[]

@@ -60,7 +60,11 @@ Verify the ground against the closed list of constitutional grounds.
 
 ### #3: Non-Impeachable Officials
 
-Which of the following officials is NOT subject to removal by impeachment under Article XI: the Ombudsman, a Member of the Supreme Court, or a Cabinet Secretary?
+Which official is NOT subject to removal by impeachment under Article XI?
+
+(A) The Ombudsman
+(B) A Member of the Supreme Court
+(C) A Cabinet Secretary
 
 **Solution:**
 Compare each title against the five impeachable offices.

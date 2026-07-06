@@ -23,7 +23,7 @@ Data interpretation often requires computing percentage change, ratios between c
 
 ### #1: Computing Percentage Change
 
-A agency budget increased from $50$ million dollars in 2020 to $65$ million dollars in 2021. Find the percentage increase.
+A agency budget increased from $50$ million pesos in 2020 to $65$ million pesos in 2021. Find the percentage increase.
 
 **Solution:**
 Apply the percentage change formula using the given figures.
