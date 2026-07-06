@@ -1,4 +1,5 @@
 import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
+import 'package:cse_cet_reviewer/features/settings/domain/session_ordering.dart';
 import 'package:meta/meta.dart';
 
 @immutable
@@ -41,27 +42,47 @@ class SettingsTime {
 @immutable
 class UserSettings {
   const UserSettings({
+    required this.name,
     required this.dailyReminderTime,
     required this.examDate,
     required this.strictMockMode,
     required this.helpImproveApp,
+    required this.carryOverProgress,
+    required this.sessionOrdering,
+    required this.retainTableOrder,
     required this.updatedAt,
   });
 
   factory UserSettings.defaults() {
     return const UserSettings(
+      name: null,
       dailyReminderTime: null,
       examDate: null,
       strictMockMode: false,
       helpImproveApp: false,
+      carryOverProgress: true,
+      sessionOrdering: SessionOrdering.interleavedTail,
+      retainTableOrder: true,
       updatedAt: null,
     );
   }
+
+  /// Empty and absent are the same state.
+  final String? name;
 
   final SettingsTime? dailyReminderTime;
   final ExamDate? examDate;
   final bool strictMockMode;
   final bool helpImproveApp;
+
+  /// Governs figures and history. Never governs scheduling.
+  final bool carryOverProgress;
+
+  final SessionOrdering sessionOrdering;
+
+  /// Governs persistence of the Progress table's order. Never visibility.
+  final bool retainTableOrder;
+
   final DateTime? updatedAt;
 }
 

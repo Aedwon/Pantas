@@ -1,5 +1,6 @@
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
+import 'package:cse_cet_reviewer/features/settings/domain/session_ordering.dart';
 import 'package:cse_cet_reviewer/features/settings/domain/theme_preference.dart';
 import 'package:cse_cet_reviewer/features/settings/domain/user_settings.dart';
 import 'package:drift/drift.dart';
@@ -19,11 +20,15 @@ class NoopAnalyticsConsentGateway implements AnalyticsConsentGateway {
 }
 
 abstract final class SettingsPrefKeys {
+  static const name = 'settings.name';
   static const dailyReminderTime = 'settings.daily_reminder_time';
   static const examDate = 'settings.exam_date';
   static const examDatePrecision = 'settings.exam_date_precision';
   static const strictMockMode = 'strict_mock_mode';
   static const helpImproveApp = 'settings.help_improve_app';
+  static const carryOverProgress = 'settings.carry_over_progress';
+  static const sessionOrdering = 'settings.session_ordering';
+  static const retainTableOrder = 'settings.retain_table_order';
   static const updatedAt = 'settings.updated_at';
   static const themeMode = 'theme_mode';
 }
@@ -43,7 +48,10 @@ class DriftSettingsRepository {
   Future<UserSettings> readUserSettings() async {
     final rows = await _db.select(_db.accountPrefs).get();
     final values = {for (final row in rows) row.key: row.value};
+    final name = values[SettingsPrefKeys.name]?.trim();
+
     return UserSettings(
+      name: (name == null || name.isEmpty) ? null : name,
       dailyReminderTime:
           SettingsTime.fromStorage(values[SettingsPrefKeys.dailyReminderTime]),
       examDate: ExamDate.fromStorage(
@@ -56,8 +64,19 @@ class DriftSettingsRepository {
       // and analytics from 3 August. It used to read `!= 'false'`, so an
       // unanswered student was opted in.
       helpImproveApp: values[SettingsPrefKeys.helpImproveApp] == 'true',
+      carryOverProgress: values[SettingsPrefKeys.carryOverProgress] != 'false',
+      sessionOrdering:
+          SessionOrdering.fromStorage(values[SettingsPrefKeys.sessionOrdering]),
+      retainTableOrder: values[SettingsPrefKeys.retainTableOrder] != 'false',
       updatedAt: DateTime.tryParse(values[SettingsPrefKeys.updatedAt] ?? ''),
     );
+  }
+
+  Future<void> updateName(String? name) async {
+    await _writeAccountPrefs({
+      SettingsPrefKeys.name: name?.trim() ?? '',
+      SettingsPrefKeys.updatedAt: _clock().toUtc().toIso8601String(),
+    });
   }
 
   Future<void> updateReminderTime(SettingsTime time) async {
@@ -96,6 +115,27 @@ class DriftSettingsRepository {
       SettingsPrefKeys.updatedAt: _clock().toUtc().toIso8601String(),
     });
     await _analytics.setAnalyticsCollectionEnabled(enabled: enabled);
+  }
+
+  Future<void> updateCarryOverProgress({required bool enabled}) async {
+    await _writeAccountPrefs({
+      SettingsPrefKeys.carryOverProgress: enabled ? 'true' : 'false',
+      SettingsPrefKeys.updatedAt: _clock().toUtc().toIso8601String(),
+    });
+  }
+
+  Future<void> updateSessionOrdering(SessionOrdering ordering) async {
+    await _writeAccountPrefs({
+      SettingsPrefKeys.sessionOrdering: ordering.storageValue,
+      SettingsPrefKeys.updatedAt: _clock().toUtc().toIso8601String(),
+    });
+  }
+
+  Future<void> updateRetainTableOrder({required bool enabled}) async {
+    await _writeAccountPrefs({
+      SettingsPrefKeys.retainTableOrder: enabled ? 'true' : 'false',
+      SettingsPrefKeys.updatedAt: _clock().toUtc().toIso8601String(),
+    });
   }
 
   Future<ThemePreference> readThemePreference() async {

@@ -76,4 +76,18 @@ void main() {
     expect(ExamDate.fromStorage('nonsense', 'day'), isNull);
     expect(ExamDate.fromStorage('2026-10-12', 'sideways'), isNull);
   });
+
+  // Equality matters because the settings layer compares a stored date against
+  // a freshly built one to decide whether anything changed. Two dates that
+  // differ only in precision are not the same date.
+  test('equality covers the value and the precision together', () {
+    expect(
+      ExamDate.onDay(DateTime(2026, 10, 12)),
+      ExamDate.onDay(DateTime(2026, 10, 12)),
+    );
+    expect(
+      ExamDate.inMonth(year: 2026, month: 10),
+      isNot(ExamDate.onDay(DateTime(2026, 10))),
+    );
+  });
 }
