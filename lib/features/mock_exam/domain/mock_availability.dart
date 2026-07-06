@@ -35,6 +35,17 @@ class MockAvailabilityRequest {
 
   final String userId;
   final String examId;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MockAvailabilityRequest &&
+          runtimeType == other.runtimeType &&
+          userId == other.userId &&
+          examId == other.examId;
+
+  @override
+  int get hashCode => Object.hash(userId, examId);
 }
 
 class MockEntitlementSnapshot {

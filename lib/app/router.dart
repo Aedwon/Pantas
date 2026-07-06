@@ -113,7 +113,35 @@ final routerProvider = Provider<GoRouter>((ref) {
             routes: [
               GoRoute(
                 path: '/quiz',
-                builder: (_, __) => const QuizTabHome(),
+                builder: (context, __) {
+                  final entitlement =
+                      ref.watch(entitlementProvider).valueOrNull ??
+                          const Entitlement.free();
+                  final examId =
+                      ref.watch(activeExamFocusProvider).valueOrNull?.exam?.id;
+                  if (examId == null) return const QuizTabHome();
+
+                  final request = MockAvailabilityRequest(
+                    userId: 'local',
+                    examId: examId,
+                  );
+                  final availability =
+                      ref.watch(mockAvailabilityProvider(request)).valueOrNull;
+                  if (availability == null) return const QuizTabHome();
+
+                  return QuizTabHome(
+                    mockPanel: MockPanel(
+                      availability: availability,
+                      lastAttempt: ref
+                          .watch(lastSubmittedMockProvider(request))
+                          .valueOrNull,
+                      proIsActive: entitlement.proIsActive,
+                      onTake: () => context.push('/quiz/mock/setup'),
+                      onResume: () => context.push('/mock-exam'),
+                      onViewResults: () => context.push('/mock-exam'),
+                    ),
+                  );
+                },
               ),
             ],
           ),

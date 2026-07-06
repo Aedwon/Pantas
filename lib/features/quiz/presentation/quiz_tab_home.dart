@@ -16,7 +16,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 class QuizTabHome extends ConsumerWidget {
-  const QuizTabHome({super.key});
+  const QuizTabHome({this.mockPanel, super.key});
+
+  /// Built by the router, which is the only layer allowed to see both this
+  /// feature and `features/mock_exam`. Null in tests and while the exam is
+  /// still loading.
+  final Widget? mockPanel;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -44,7 +49,7 @@ class QuizTabHome extends ConsumerWidget {
           if (focus.needsSelection || focus.exam == null) {
             return const _ChooseExamFallback();
           }
-          return _QuizTabBody(exam: focus.exam!);
+          return _QuizTabBody(exam: focus.exam!, mockPanel: mockPanel);
         },
       ),
     );
@@ -81,9 +86,10 @@ class _ChooseExamFallback extends StatelessWidget {
 }
 
 class _QuizTabBody extends ConsumerWidget {
-  const _QuizTabBody({required this.exam});
+  const _QuizTabBody({required this.exam, this.mockPanel});
 
   final Exam exam;
+  final Widget? mockPanel;
 
   Future<void> _onStartQuiz(BuildContext context, WidgetRef ref) async {
     final isDismissed = await ref.read(quizNudgeDismissedProvider.future);
@@ -125,7 +131,7 @@ class _QuizTabBody extends ConsumerWidget {
         Text(exam.shortName, style: styles.displaySmall),
         const SizedBox(height: 20),
         SessionPanel(exam: exam, onStart: () => _onStartQuiz(context, ref)),
-        // The mock panel lands here in plan 2c.
+        if (mockPanel != null) mockPanel!,
         const SectionHeader(title: 'More ways to practice'),
         InkTableRow(
           title: 'Your mistakes',
