@@ -223,6 +223,30 @@ class QuizController extends StateNotifier<QuizControllerState> {
     }
   }
 
+  /// Picks up the session already open for this exam. Never creates one: if
+  /// there is nothing to resume the panel should not have offered the button.
+  Future<void> resumeToday({required ExamId examId}) async {
+    state = const QuizLoading();
+    try {
+      final now = _ref.read(nowProvider)();
+      final session = await _ref.read(resumeSessionProvider)(
+        userId: _localUserId,
+        examId: examId,
+      );
+      if (session == null) {
+        state = const QuizFailure('There is no session to pick up.');
+        return;
+      }
+      state = QuizRunning(
+        session: session,
+        questionShownAt: now,
+        persisted: true,
+      );
+    } catch (e) {
+      state = QuizFailure(e.toString());
+    }
+  }
+
   Future<void> startDrill({
     required ExamId examId,
     required TopicId topicId,

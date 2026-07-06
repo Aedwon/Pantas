@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-enum QuizPageMode { quick, today, drill, retake, inline }
+enum QuizPageMode { quick, today, drill, retake, inline, resume }
 
 class QuizPage extends ConsumerStatefulWidget {
   const QuizPage({
@@ -41,6 +41,8 @@ class _QuizPageState extends ConsumerState<QuizPage> {
           controller.start(examId: widget.examId, topicId: widget.topicId);
         case QuizPageMode.today:
           controller.startToday(examId: widget.examId, topicId: widget.topicId);
+        case QuizPageMode.resume:
+          controller.resumeToday(examId: widget.examId);
         case QuizPageMode.drill:
           final topicId = widget.topicId;
           if (topicId == null) {
