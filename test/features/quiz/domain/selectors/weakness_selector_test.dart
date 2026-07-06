@@ -8,19 +8,38 @@ void main() {
     final selected = WeaknessSelector.select([
       WeaknessCandidate(
         question: _question('q1'),
-        subtopicId: 'easy',
+        topicId: 'easy',
         rollingAccuracy: 0.8,
         attemptCount: 10,
       ),
       WeaknessCandidate(
         question: _question('q2'),
-        subtopicId: 'weak',
+        topicId: 'weak',
         rollingAccuracy: 0.2,
         attemptCount: 10,
       ),
     ]);
 
     expect(selected.map((question) => question.id), equals(['q2']));
+  });
+
+  test('candidates sharing a weak topic all qualify', () {
+    final selected = WeaknessSelector.select([
+      WeaknessCandidate(
+        question: _question('q_1'),
+        topicId: 'topic_algebra',
+        rollingAccuracy: 0.3,
+        attemptCount: 12,
+      ),
+      WeaknessCandidate(
+        question: _question('q_2'),
+        topicId: 'topic_algebra',
+        rollingAccuracy: 0.3,
+        attemptCount: 12,
+      ),
+    ]);
+
+    expect(selected.map((q) => q.id), equals(['q_1', 'q_2']));
   });
 }
 
