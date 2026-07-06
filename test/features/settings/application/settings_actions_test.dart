@@ -134,7 +134,8 @@ void main() {
     expect(settings.retainTableOrder, isFalse);
   });
 
-  test('saveExamDate at month precision does not call rebalance gateway', () async {
+  test('saveExamDate at month precision does not call rebalance gateway',
+      () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     final rebalanceGateway = RecordingStudyPlanRebalanceGateway();

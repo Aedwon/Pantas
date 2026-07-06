@@ -169,8 +169,7 @@ void main() {
     expect(settings.retainTableOrder, isTrue);
   });
 
-  test('the name round trips, and empty is the same state as absent',
-      () async {
+  test('the name round trips, and empty is the same state as absent', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     final repo = DriftSettingsRepository(db);
@@ -200,7 +199,6 @@ void main() {
     expect(settings.retainTableOrder, isFalse);
   });
 }
-
 
 class RecordingAnalyticsConsentGateway implements AnalyticsConsentGateway {
   final values = <bool>[];

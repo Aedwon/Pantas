@@ -64,8 +64,7 @@ class DriftSettingsRepository {
       // and analytics from 3 August. It used to read `!= 'false'`, so an
       // unanswered student was opted in.
       helpImproveApp: values[SettingsPrefKeys.helpImproveApp] == 'true',
-      carryOverProgress:
-          values[SettingsPrefKeys.carryOverProgress] != 'false',
+      carryOverProgress: values[SettingsPrefKeys.carryOverProgress] != 'false',
       sessionOrdering:
           SessionOrdering.fromStorage(values[SettingsPrefKeys.sessionOrdering]),
       retainTableOrder: values[SettingsPrefKeys.retainTableOrder] != 'false',

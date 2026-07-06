@@ -22,8 +22,7 @@ enum SessionOrdering {
         SessionOrdering.blocked => 'All 10 questions from your topic.',
         SessionOrdering.interleavedTail =>
           '7 from your topic, 3 from others. Harder now, easier on exam day.',
-        SessionOrdering.fullyMixed =>
-          'No two in a row from the same topic.',
+        SessionOrdering.fullyMixed => 'No two in a row from the same topic.',
       };
 
   bool get isRecommended => this == SessionOrdering.interleavedTail;
