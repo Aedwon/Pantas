@@ -1,0 +1,79 @@
+import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
+import 'package:flutter/material.dart';
+
+/// A stateful object drawn as a bordered rectangle on the page's own paper.
+///
+/// Distinct from `RuledSection`, which is a top-rule block. This one is
+/// bounded on all four sides and opens with a heading plate.
+///
+/// The trailing slot takes a count and nothing else. A status word was tried
+/// and cut: in this identity the top right of a section is either an action in
+/// board or a count, and a word is neither.
+class RuledPanel extends StatelessWidget {
+  const RuledPanel({
+    required this.heading,
+    required this.child,
+    this.count,
+    super.key,
+  });
+
+  final String heading;
+  final Widget child;
+
+  /// Tabular figures in 12px `inkMuted`. Never a status word.
+  final String? count;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.colors;
+    final styles = context.textStyles;
+
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.only(bottom: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 15),
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: colors.rule,
+          // ignore: avoid_redundant_argument_values
+          width: AppDimensions.hairline,
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.baseline,
+            textBaseline: TextBaseline.alphabetic,
+            children: [
+              Flexible(
+                child: Container(
+                  padding: const EdgeInsets.only(bottom: 5),
+                  decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(color: colors.ink, width: 1.6),
+                    ),
+                  ),
+                  child: Text(heading, style: styles.headlineSmall),
+                ),
+              ),
+              if (count != null) ...[
+                const SizedBox(width: 12),
+                Text(
+                  count!,
+                  style: styles.bodySmall.copyWith(
+                    color: colors.inkMuted,
+                    fontFeatures: const [FontFeature.tabularFigures()],
+                  ),
+                ),
+              ],
+            ],
+          ),
+          const SizedBox(height: 9),
+          child,
+        ],
+      ),
+    );
+  }
+}
