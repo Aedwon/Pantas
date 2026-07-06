@@ -19,7 +19,6 @@ import 'package:cse_cet_reviewer/features/notifications/presentation/permission_
 import 'package:cse_cet_reviewer/features/onboarding/onboarding.dart';
 import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/progress_page.dart';
-import 'package:cse_cet_reviewer/features/quiz/presentation/drill_subtopic_browser.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_results_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_tab_home.dart';
@@ -165,21 +164,6 @@ final routerProvider = Provider<GoRouter>((ref) {
           examId: state.pathParameters['examId']!,
           topicId: state.uri.queryParameters['topicId'],
         ),
-      ),
-      GoRoute(
-        path: '/quiz/drill/:examId',
-        builder: (_, state) {
-          final examId = state.pathParameters['examId']!;
-          final topicId = state.uri.queryParameters['topicId'];
-          if (topicId != null) {
-            return QuizPage(
-              examId: examId,
-              topicId: topicId,
-              mode: QuizPageMode.drill,
-            );
-          }
-          return DrillSubtopicBrowser(examId: examId);
-        },
       ),
       GoRoute(
         path: '/quiz/retake/:examId',
