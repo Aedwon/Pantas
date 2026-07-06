@@ -3,6 +3,8 @@
 **The single document a dispatcher reads before sending anything to an implementor.**
 **Rewritten 4 August 2026**, after a day in which four worktrees merged, three design rounds
 closed, five plans were written and every plan was audited for contradictions.
+**Parts 0, 1, 2, 4 and 10 rewritten 8 August**, after the paywall, the passage pipeline, reading
+comprehension, General Information, the em dash sweep and the quiz frame all landed.
 
 It supersedes the execution order in `2026-08-02-work-checkpoint.md`.
 
@@ -29,13 +31,28 @@ finds: `SUBAGENTS.md` Part 7b.
 ```
 Execute `docs/superpowers/plans/<PLAN>.md`, <scope>.
 Follow `SUBAGENTS.md`, Part 4 for content or Parts 3 and 5 for code.
-Run every command in the FOREGROUND and wait for it. Never background one.
-Report the gate command's pasted output and any findings.
+
+Never run `flutter test` with no arguments. Never run `flutter analyze`. Never run
+`dart run build_runner`. You may run a single test file, which takes seconds. The full
+gate set is run for you after you finish. Never use `&`, `nohup`, or any background
+task mechanism.
+
+Work only inside this worktree. Run `pwd` before your first write.
+Commit the moment a task's own test passes, before starting the next one.
+Report what you completed and any findings.
 ```
 
-**That third line is not optional and it was learned expensively.** On 4 August three runs
-stalled part way and stranded their work because Gemini launched `flutter test` in the
-background and then idled. Adding the line fixed it: both resumed runs finished clean.
+**Every line there was learned expensively.**
+
+- **The ban on long commands replaced "run them in the foreground", which did not work.** That
+  wording was in every prompt on 4 and 5 August and was ignored repeatedly: runs launched
+  `flutter test`, idled, and timed out with everything uncommitted. **Banning the commands
+  outright fixed it on the first try and has not failed since.**
+- **"Work only inside this worktree" is not decoration.** On 5 August an agent committed twice
+  directly into the main checkout, and it surfaced only when a branch came to merge and sixteen
+  files conflicted.
+- **"Commit per task" is what makes an interrupted run cheap.** The paywall plan timed out three
+  times; the runs that committed per task lost nothing, and the one that did not lost everything.
 
 ### Quota, which cannot be checked automatically
 
@@ -60,36 +77,56 @@ directly from the orchestrator**, one git worktree per plan.
 
 ## Part 0: Pick up here
 
-**Written 4 August, late, as a handoff. Nothing is running and nothing is waiting on a
-session.**
+**Rewritten 8 August.** Everything the old Part 0 queued has landed.
 
-### The passage pipeline: verified and merged
+### The one instruction that changed everything
 
-**Done 4 August.** It stopped after Task 4 as instructed, because Quiz Plan 4 has not landed and
-Task 5 renders inside that plan's viewer. It read the live schema and took **18** with a
-`from < 18` branch. Gates green on `main` after regeneration.
+**Forbid the agent from running long commands.** Not "run them in the foreground": that was
+tried, written into every prompt, and ignored. **Ban them outright.**
 
-**Two things a later reader needs:**
+```
+Never run `flutter test` with no arguments. Never run `flutter analyze`. Never run
+`dart run build_runner`. You may run a single test file, which takes seconds. The full
+gate set is run for you after you finish.
+```
 
-- **Task 6 was dropped with Task 5**, and it did not have to be: it is a regression test proving
-  a passage-free database behaves as before, and it depends on nothing in Task 5. Pick it up
-  when Task 5 is dispatched.
-- **The lesson link is already on `main`.** The passage run's repository hydration also started
-  reading `lessonId` and `shortLabel`. **Re-read `content-three-passes.md` Task 1 before
-  dispatching it**, because part of it is done.
+**Before this, runs died mid-task and stranded their work, repeatedly.** Gemini launches a long
+command, idles waiting for it, and `agy` times out with everything uncommitted. **After it,
+every run committed its work and none stranded anything.**
 
-Full record in `decisions/2026-08-04-execution-dispatch-log.md`.
+**The cost, and it is real:** the agent cannot see the gates, so **six to twenty lint issues
+come back to the dispatcher every time**, plus the occasional failing test. **That is the better
+trade.** Lint is minutes of mechanical work; a stranded half-task is an hour of reading a tree
+to work out what was already done.
+
+### Two habits worth more than any prompt wording
+
+- **Read the diff, never the count.** Every content run reported the number it was asked for,
+  correctly, while the text was wrong. A cleanup that reported zero em dashes had a space before
+  a colon, a comma where a colon belonged, and twelve comma pile-ups, two of them in the lesson
+  that teaches punctuation. **A passing count has never once caught what reading caught.**
+- **Verify before believing a stop.** Runs stop honestly and are usually right, but the reason
+  needs checking. The paywall stopped on a billing API the plan expected and the SDK did not
+  have: correct. A lesson run was about to stop on "every question needs a lesson" over two
+  demo rows that were not authored content: a wrong alarm from a rule that was right to write.
 
 ### Then the next wave
 
-Two at a time. Ask Aedwon for Gemini headroom first; there is no way to read it programmatically.
+Two at a time. **Ask Aedwon for Gemini headroom and for the skip-permissions flag in the same
+breath**: the flag needs re-authorizing every session and there is no way to read the quota
+programmatically.
 
 | Next | Plan | Tier |
 |---|---|---|
-| 1 | `cse-content.md` **Task 1 only**, the tagging pass | **F** |
-| 2 | `question-generation-reading-comprehension.md` | **F**. The passage pipeline has merged, so it is unblocked |
-| 3 | `content-three-passes.md` Task 1, the lesson link | **P**. **Re-read it first: the hydration half is already on `main`** |
-| 4 | `paywall-01-ladder-and-live-gateway.md` | **P** |
+| 1 | `quiz-tab-02c` onward, the chain | **F**, after 02b |
+| 2 | `settings-03` onward, the chain | **F**, after settings-02 |
+| 3 | `foundations-02-app-check-and-force-update.md` | **P**. Waits on nothing |
+| 4 | `study-02` onward, the chain | **F** |
+| 5 | `passage-pipeline.md` **Tasks 5 and 6** | **P**, after quiz-tab-04 lands |
+
+**The 40 `FORMULA` findings in the content audit need triage before dispatch, not an agent.**
+The first one flags "I before E" in a spelling lesson as an untaught formula. Some of that set
+is noise and sending it out whole would produce confident edits to correct lessons.
 
 ---
 
@@ -112,12 +149,24 @@ Two at a time. Ask Aedwon for Gemini headroom first; there is no way to read it 
 | **The CSE tagging pass** | **Merged 4 August.** 38 files carry `cse-pro`, 30 of them `cse-sub`, no Science file touched. The CSE goes from 2 questions to most of its verbal, analytical and numerical paper |
 | **Reading comprehension** | **Merged 4 August.** All 13 subtopics, 32 passages, **160 questions**, after a revision pass fixed the correct answer being the longest choice in 120 of them |
 | **The choice-order defect** | **Fixed 4 August.** The correct answer was first in **2,072 of 2,153 questions**, and choices were never shuffled. A question's choices are now ordered from its id when read. **Do not hand-vary answer position in new content** |
+| **The em dash** | **Gone 5 August.** 1,402 in questions and 418 in lessons, now zero, and **the content validator rejects one** in a stem, explanation, choice, passage title or body. The en dash is untouched: it is correct in a range |
+| **The paywall, all six tasks** | **Merged 5 August.** The app can take money. A real gateway, selected by config, with the numeric price carried from the store's own field rather than parsed from a formatted string |
+| **The paywall's three screens** | **Merged 5 August.** Screen 1 reads no student data at all. A student who gave only a month is never shown a day count |
+| **General Information** | **Merged 8 August.** 216 questions across the Code of Conduct, the Constitution, peace and human rights, and environment, every one written against a file in `content/reference/cse/` |
+| **The lesson link** | **Merged 5 August.** 1,998 of 2,000 seeded questions carry their lesson and none dangles. The two without are CSE demo rows, not authored content |
+| **The quiz frame** | **Merged 8 August.** The tab no longer shows a student a stack trace, and the dead drill route is gone |
 
-**Corpus today:** Science 777, Mathematics 689, Language 319, Reasoning 208, Reading
-comprehension **160**. **Total 2,153.**
+**Corpus today:** Science 777, Mathematics 713, Language 319, Reasoning 244, Reading
+comprehension 160, General Information 156. **Total 2,369.**
 
-**Health on `main`, measured 4 August, after the choice-order fix:** **1154 tests pass**, schema **18**, zero analyzer issues under `lib/` and `test/`
-outside `test/tool/`, formatter clean, layering 7, attribution 0, content validator 0.
+**Health on `main`, measured 8 August:** **1,206 tests pass**, schema **18**, zero analyzer issues under `lib/` and `test/`
+outside `test/tool/`, formatter clean, layering 8, attribution 0, content validator 0, content
+audit **0 blockers**.
+
+**Layering moved from 7 to 8 deliberately.** The paywall reads the settings providers, which is
+the same shape as the seven that were already tolerated. `ExamDate` moved to `core/` at the same
+time, because it is a pure value type with no settings dependency and three features read it:
+that removed two violations rather than tolerating them.
 
 ---
 
@@ -153,15 +202,15 @@ outside `test/tool/`, formatter clean, layering 7, attribution 0, content valida
 | 2e | `cse-content.md` **Task 1 only** | **F** | A tagging pass with no authoring. **Takes the CSE from 2 questions to most of its verbal, analytical and numerical paper.** Highest value per unit of work left in the queue |
 | 2f | `cse-content.md` Tasks 2 to 5 | **F** | General Information and the small gaps. **Every question is written against a file in `content/reference/`** |
 
-### 3. The money path, now planned
+### 3. The money path, done
 
-| | Plan | Tier |
+| | Plan | State |
 |---|---|---|
-| 3a | `paywall-01-ladder-and-live-gateway.md` | **P** |
-| 3b | `paywall-02-the-three-screens.md` | **F**, after X1 and X2 |
+| 3a | `paywall-01-ladder-and-live-gateway.md` | **Merged 5 August**, all six tasks |
+| 3b | `paywall-02-the-three-screens.md` | **Merged 5 August**, all five tasks |
 
-**Until 3a lands the app cannot take money.** `purchases_flutter` is declared and imported by
-zero files, and the only gateway returns Free from `purchase()`.
+**The app can take money.** Both plans are closed. What remains before a student can actually
+pay is not code: the RevenueCat dashboard, the store products, and a signed build.
 
 ---
 
@@ -268,10 +317,15 @@ mock's five missing screens.
 
 ## Part 10: If you only do five things
 
-1. **X1 and X2**, the exam date and the type sizes. Small, and they gate a third of the queue.
-2. **Reading comprehension**, which ships in v1 and sits at zero.
-3. **The paywall**, because the app still cannot take money.
-4. **The lesson link**, which is one line and no authoring, and which fills the deepest level of
-   Progress, the reader's ending and the practice picker's lesson filter.
-5. **Approve the generated questions.** Nothing ships unapproved, and it is the one step no
-   agent can do.
+**Rewritten 8 August. The old five are all done.**
+
+1. **Approve the generated questions.** 2,369 of them, every one with `approved:` unset by
+   design. **Nothing ships unapproved and it is the one step no agent can do.** This is now the
+   single largest thing standing between the corpus and a student.
+2. **Finish the quiz chain**, which is the tab a student spends their time in and the longest
+   unbuilt thread left.
+3. **The store side of the paywall.** The code is done; the dashboard, the products and a signed
+   build are not, and none of them are an agent's job.
+4. **The 11 Geometry figures and the illustration worklist.** Questions are logged with described
+   stems and the pictures are hand-made, so nothing is blocked and nothing is finished.
+5. **Triage the 40 formula findings** before sending them anywhere. Part of that set is noise.
