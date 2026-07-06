@@ -44,7 +44,10 @@ void main() {
   });
 
   ReviewState state(String id) => ReviewState.seed(
-      questionId: id, questionVersion: 1, now: DateTime.utc(2026, 5, 9));
+        questionId: id,
+        questionVersion: 1,
+        now: DateTime.utc(2026, 5, 9),
+      );
 
   test('allStates returns every stored state', () async {
     await repo.upsert(state('q_1'));

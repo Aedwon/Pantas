@@ -88,7 +88,7 @@ void main() {
 
     expect(
       find.text(
-        'Get your personalized study plan — see exactly where to focus for '
+        'Get your personalized study plan: see exactly where to focus for '
         'Civil Service Exam.',
       ),
       findsOneWidget,

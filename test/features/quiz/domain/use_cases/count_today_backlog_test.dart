@@ -76,7 +76,7 @@ void main() {
     final backlog = CountTodayBacklog.forTopic(
       topicId: 'topic_algebra',
       questions: questions,
-      states: [state('q_1', DateTime.utc(2026, 8, 1))],
+      states: [state('q_1', DateTime.utc(2026, 8))],
       questionsById: {for (final q in questions) q.id: q},
       outcomes: const {
         'q_1': QuestionOutcome(attempts: 10, correct: 1),

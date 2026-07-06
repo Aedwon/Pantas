@@ -19,8 +19,11 @@ Question question(String id, {String topicId = 'topic_algebra'}) => Question(
       explanation: 'because',
     );
 
-List<Question> many(String prefix, int count,
-        {String topicId = 'topic_algebra'}) =>
+List<Question> many(
+  String prefix,
+  int count, {
+  String topicId = 'topic_algebra',
+}) =>
     [for (var i = 0; i < count; i++) question('$prefix$i', topicId: topicId)];
 
 void main() {

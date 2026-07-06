@@ -52,7 +52,7 @@ void main() {
     );
     await AssessmentRepository(db).saveResult(
       'exam_cse_pro',
-      DateTime.utc(2026, 8, 1),
+      DateTime.utc(2026, 8),
       const [],
     );
 
@@ -72,7 +72,7 @@ void main() {
     );
     await AssessmentRepository(db).saveResult(
       'exam_cse_pro',
-      DateTime.utc(2026, 8, 1),
+      DateTime.utc(2026, 8),
       const [],
     );
 
@@ -84,7 +84,7 @@ void main() {
   test('an assessed student with nothing left is caught up', () async {
     await AssessmentRepository(db).saveResult(
       'exam_cse_pro',
-      DateTime.utc(2026, 8, 1),
+      DateTime.utc(2026, 8),
       const [],
     );
 

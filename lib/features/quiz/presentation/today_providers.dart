@@ -54,7 +54,6 @@ final todayInputsProvider =
   final outcomes = await ref.watch(attemptsRepositoryProvider).questionOutcomes(
         examId: examId,
         now: now,
-        window: weaknessWindow,
       );
 
   final preferences = await ref.watch(quizPreferencesRepositoryProvider).read();

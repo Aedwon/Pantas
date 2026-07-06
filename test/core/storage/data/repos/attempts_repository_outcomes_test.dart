@@ -40,7 +40,7 @@ void main() {
       );
 
   test('questionOutcomes counts attempts and corrects per question', () async {
-    await save('a_1', DateTime.utc(2026, 8, 1), [
+    await save('a_1', DateTime.utc(2026, 8), [
       item('q_1', correct: true),
       item('q_2', correct: false),
     ]);
@@ -60,12 +60,11 @@ void main() {
   });
 
   test('questionOutcomes ignores attempts older than the window', () async {
-    await save('a_old', DateTime.utc(2026, 6, 1), [item('q_1', correct: true)]);
+    await save('a_old', DateTime.utc(2026, 6), [item('q_1', correct: true)]);
 
     final outcomes = await repo.questionOutcomes(
       examId: 'exam_cse_pro',
       now: DateTime.utc(2026, 8, 3),
-      window: const Duration(days: 30),
     );
 
     expect(outcomes, isEmpty);
@@ -74,7 +73,7 @@ void main() {
   test('questionOutcomes ignores other exams', () async {
     await save(
       'a_1',
-      DateTime.utc(2026, 8, 1),
+      DateTime.utc(2026, 8),
       [item('q_1', correct: true)],
       examId: 'exam_upcat',
     );
