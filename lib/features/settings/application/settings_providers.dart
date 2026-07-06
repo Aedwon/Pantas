@@ -2,6 +2,7 @@ import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/settings/data/settings_repository.dart';
+import 'package:cse_cet_reviewer/features/settings/domain/session_ordering.dart';
 import 'package:cse_cet_reviewer/features/settings/domain/theme_preference.dart';
 import 'package:cse_cet_reviewer/features/settings/domain/user_settings.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -79,6 +80,11 @@ class SettingsActions {
 
   final Ref _ref;
 
+  Future<void> setName(String? name) async {
+    await _ref.read(settingsRepositoryProvider).updateName(name);
+    _ref.invalidate(userSettingsProvider);
+  }
+
   Future<void> setHelpImproveApp({required bool enabled}) async {
     await _ref
         .read(settingsRepositoryProvider)
@@ -109,14 +115,36 @@ class SettingsActions {
     await _ref
         .read(settingsRepositoryProvider)
         .updateExamDate(date, today: today);
-    await _ref
-        .read(studyPlanRebalanceGatewayProvider)
-        .onSettingsExamDateChanged(
-          date.day ?? date.monthStart,
-          today: today,
-        );
+    final day = date.day;
+    if (day != null) {
+      await _ref
+          .read(studyPlanRebalanceGatewayProvider)
+          .onSettingsExamDateChanged(
+            day,
+            today: today,
+          );
+    }
     _ref.invalidate(userSettingsProvider);
     return 'Your study plan is being rebalanced.';
+  }
+
+  Future<void> setCarryOverProgress({required bool enabled}) async {
+    await _ref
+        .read(settingsRepositoryProvider)
+        .updateCarryOverProgress(enabled: enabled);
+    _ref.invalidate(userSettingsProvider);
+  }
+
+  Future<void> setSessionOrdering(SessionOrdering ordering) async {
+    await _ref.read(settingsRepositoryProvider).updateSessionOrdering(ordering);
+    _ref.invalidate(userSettingsProvider);
+  }
+
+  Future<void> setRetainTableOrder({required bool enabled}) async {
+    await _ref
+        .read(settingsRepositoryProvider)
+        .updateRetainTableOrder(enabled: enabled);
+    _ref.invalidate(userSettingsProvider);
   }
 
   Future<ReminderSaveResult> saveReminderTime(SettingsTime time) async {

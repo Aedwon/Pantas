@@ -1,5 +1,6 @@
 import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/features/settings/domain/session_ordering.dart';
 import 'package:cse_cet_reviewer/features/settings/settings.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -80,6 +81,78 @@ void main() {
       notifications.scheduled,
       [const NotificationTime(hour: 19, minute: 0)],
     );
+  });
+
+  test('setting the name writes it and invalidates the settings provider',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final container = ProviderContainer(
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    addTearDown(container.dispose);
+
+    await container.read(settingsActionsProvider).setName('Aedwon');
+
+    final settings = await container.read(userSettingsProvider.future);
+    expect(settings.name, 'Aedwon');
+  });
+
+  test('setting a month-precision exam date keeps its precision', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final container = ProviderContainer(
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    addTearDown(container.dispose);
+
+    await container.read(settingsActionsProvider).setExamDate(
+          ExamDate.inMonth(year: 2026, month: 10),
+          today: DateTime(2026, 8, 3),
+        );
+
+    final settings = await container.read(userSettingsProvider.future);
+    expect(settings.examDate!.day, isNull);
+  });
+
+  test('carry over, ordering and table order all persist', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final container = ProviderContainer(
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    addTearDown(container.dispose);
+
+    final actions = container.read(settingsActionsProvider);
+    await actions.setCarryOverProgress(enabled: false);
+    await actions.setSessionOrdering(SessionOrdering.blocked);
+    await actions.setRetainTableOrder(enabled: false);
+
+    final settings = await container.read(userSettingsProvider.future);
+    expect(settings.carryOverProgress, isFalse);
+    expect(settings.sessionOrdering, SessionOrdering.blocked);
+    expect(settings.retainTableOrder, isFalse);
+  });
+
+  test('saveExamDate at month precision does not call rebalance gateway', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final rebalanceGateway = RecordingStudyPlanRebalanceGateway();
+    final container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        studyPlanRebalanceGatewayProvider.overrideWithValue(rebalanceGateway),
+      ],
+    );
+    addTearDown(container.dispose);
+
+    final message = await container.read(settingsActionsProvider).saveExamDate(
+          ExamDate.inMonth(year: 2026, month: 10),
+          today: DateTime(2026, 8, 3),
+        );
+
+    expect(message, 'Your study plan is being rebalanced.');
+    expect(rebalanceGateway.dates, isEmpty);
   });
 }
 
