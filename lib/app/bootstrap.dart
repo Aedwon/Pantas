@@ -12,11 +12,30 @@ import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/telemetry/error_boundary.dart';
 import 'package:cse_cet_reviewer/core/telemetry/firebase_telemetry.dart';
 import 'package:cse_cet_reviewer/core/ui/components/app_error_view.dart';
+import 'package:cse_cet_reviewer/features/mock_exam/application/mock_availability_provider.dart';
+import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_availability.dart';
 import 'package:cse_cet_reviewer/features/notifications/application/notifications_providers.dart';
 import 'package:cse_cet_reviewer/features/notifications/presentation/notifications_lifecycle_observer.dart';
 import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+/// Feeds the real subscription into the mock cooldown.
+///
+/// `mockEntitlementProvider` ships hardcoded to false because
+/// `features/mock_exam` cannot import `features/paywall` without breaking the
+/// layering rule. `lib/app/` can import both, so the wiring lives here, the
+/// same way the notification providers are wired.
+///
+/// Exposed as a list so tests can apply it without running `bootstrap`.
+final mockEntitlementOverrides = <Override>[
+  mockEntitlementProvider.overrideWith(
+    (ref) => MockEntitlementSnapshot(
+      proIsActive:
+          ref.watch(entitlementProvider).valueOrNull?.proIsActive ?? false,
+    ),
+  ),
+];
 
 Future<void> bootstrap(Flavor flavor) async {
   // Late-bound on purpose. The boundary has to be live before the container
@@ -51,6 +70,7 @@ Future<void> _bootstrap(
     overrides: [
       ...overrides,
       ...contentOverrides,
+      ...mockEntitlementOverrides,
       // Firebase is initialized by now, so the SDK-backed sink is safe to
       // build. The gate above it still decides whether anything reaches it.
       telemetrySinkProvider.overrideWithValue(FirebaseTelemetry.instances()),
