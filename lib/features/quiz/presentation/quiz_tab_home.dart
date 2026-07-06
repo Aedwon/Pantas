@@ -10,6 +10,7 @@ import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
 import 'package:cse_cet_reviewer/core/ui/components/page_scaffold.dart';
 import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
+import 'package:cse_cet_reviewer/features/quiz/presentation/widgets/session_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -123,12 +124,8 @@ class _QuizTabBody extends ConsumerWidget {
       children: [
         Text(exam.shortName, style: styles.displaySmall),
         const SizedBox(height: 20),
-        // The session panel and the mock panel land here in plans 2b and 2c.
-        BoardButton(
-          label: "Start today's session",
-          onPressed: () => _onStartQuiz(context, ref),
-        ),
-        const SizedBox(height: 16),
+        SessionPanel(exam: exam, onStart: () => _onStartQuiz(context, ref)),
+        // The mock panel lands here in plan 2c.
         const SectionHeader(title: 'More ways to practice'),
         InkTableRow(
           title: 'Your mistakes',

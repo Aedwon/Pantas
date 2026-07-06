@@ -1,3 +1,5 @@
+import 'dart:ui' show FontFeature;
+
 import 'package:cse_cet_reviewer/core/ui/components/stats_band.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
@@ -37,5 +39,22 @@ void main() {
       ),
     );
     expect(tester.takeException(), isA<AssertionError>());
+  });
+
+  testWidgets('figures use tabular numerals', (tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(),
+        home: const Scaffold(
+          body: StatsBand(figures: [StatFigure(value: '11', label: 'points')]),
+        ),
+      ),
+    );
+
+    final text = tester.widget<Text>(find.text('11'));
+    expect(
+      text.style!.fontFeatures,
+      contains(const FontFeature.tabularFigures()),
+    );
   });
 }
