@@ -1,4 +1,5 @@
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
+import 'package:cse_cet_reviewer/features/settings/domain/session_ordering.dart';
 import 'package:cse_cet_reviewer/features/settings/settings.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -153,7 +154,53 @@ void main() {
     expect(await db.select(db.accountPrefs).get(), isEmpty);
     expect(await db.select(db.devicePrefs).get(), hasLength(1));
   });
+
+  test('the new preferences have their specified defaults', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = DriftSettingsRepository(db);
+
+    final settings = await repo.readUserSettings();
+
+    expect(settings.name, isNull);
+    expect(settings.examDate, isNull);
+    expect(settings.carryOverProgress, isTrue);
+    expect(settings.sessionOrdering, SessionOrdering.interleavedTail);
+    expect(settings.retainTableOrder, isTrue);
+  });
+
+  test('the name round trips, and empty is the same state as absent',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = DriftSettingsRepository(db);
+
+    await repo.updateName('Aedwon');
+    expect((await repo.readUserSettings()).name, 'Aedwon');
+
+    await repo.updateName(null);
+    expect((await repo.readUserSettings()).name, isNull);
+
+    await repo.updateName('   ');
+    expect((await repo.readUserSettings()).name, isNull);
+  });
+
+  test('carry over, ordering and table order round trip', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = DriftSettingsRepository(db);
+
+    await repo.updateCarryOverProgress(enabled: false);
+    await repo.updateSessionOrdering(SessionOrdering.fullyMixed);
+    await repo.updateRetainTableOrder(enabled: false);
+
+    final settings = await repo.readUserSettings();
+    expect(settings.carryOverProgress, isFalse);
+    expect(settings.sessionOrdering, SessionOrdering.fullyMixed);
+    expect(settings.retainTableOrder, isFalse);
+  });
 }
+
 
 class RecordingAnalyticsConsentGateway implements AnalyticsConsentGateway {
   final values = <bool>[];
