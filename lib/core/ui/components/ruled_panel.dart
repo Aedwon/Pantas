@@ -1,12 +1,10 @@
-import 'dart:ui' show FontFeature;
-
 import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 /// A stateful object drawn as a bordered rectangle on the page's own paper.
 ///
-/// Distinct from [RuledSection], which is a top-rule block. This one is
+/// Distinct from `RuledSection`, which is a top-rule block. This one is
 /// bounded on all four sides and opens with a heading plate.
 ///
 /// The trailing slot takes a count and nothing else. A status word was tried
