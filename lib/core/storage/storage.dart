@@ -17,6 +17,9 @@ import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+export 'package:cse_cet_reviewer/core/storage/domain/assessment_question.dart';
+export 'package:cse_cet_reviewer/core/storage/domain/assessment_question_selector.dart';
+
 final appDatabaseProvider = Provider<AppDatabase>(
   (ref) => throw UnimplementedError(
     'Override appDatabaseProvider in main bootstrap or tests',

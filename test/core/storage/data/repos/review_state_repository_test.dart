@@ -42,4 +42,23 @@ void main() {
     final dirty = await repo.dirtyStates();
     expect(dirty.map((s) => s.questionId).toList(), equals(['q_2']));
   });
+
+  ReviewState state(String id) => ReviewState.seed(
+        questionId: id,
+        questionVersion: 1,
+        now: DateTime.utc(2026, 5, 9),
+      );
+
+  test('allStates returns every stored state', () async {
+    await repo.upsert(state('q_1'));
+    await repo.upsert(state('q_2'));
+
+    final states = await repo.allStates();
+
+    expect(states.map((s) => s.questionId), unorderedEquals(['q_1', 'q_2']));
+  });
+
+  test('allStates is empty on a fresh database', () async {
+    expect(await repo.allStates(), isEmpty);
+  });
 }

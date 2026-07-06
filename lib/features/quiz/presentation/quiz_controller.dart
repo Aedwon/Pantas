@@ -10,6 +10,7 @@ import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_preferences_repos
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/streak/streak_evaluator.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/build_today_plan.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/complete_quiz.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/quit_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/restart_session.dart';
@@ -192,6 +193,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
   Future<void> startToday({
     required ExamId examId,
     TopicId? topicId,
+    TodaySessionPlan? plan,
   }) async {
     state = const QuizLoading();
     try {
@@ -204,6 +206,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
         topicId: topicId,
         preferences: preferences,
         now: now,
+        plan: plan,
       );
       switch (result) {
         case StartTodaySessionStarted(:final session):
@@ -215,6 +218,30 @@ class QuizController extends StateNotifier<QuizControllerState> {
         case StartTodaySessionNoQuestions(:final message):
           state = QuizFailure(message);
       }
+    } catch (e) {
+      state = QuizFailure(e.toString());
+    }
+  }
+
+  /// Picks up the session already open for this exam. Never creates one: if
+  /// there is nothing to resume the panel should not have offered the button.
+  Future<void> resumeToday({required ExamId examId}) async {
+    state = const QuizLoading();
+    try {
+      final now = _ref.read(nowProvider)();
+      final session = await _ref.read(resumeSessionProvider)(
+        userId: _localUserId,
+        examId: examId,
+      );
+      if (session == null) {
+        state = const QuizFailure('There is no session to pick up.');
+        return;
+      }
+      state = QuizRunning(
+        session: session,
+        questionShownAt: now,
+        persisted: true,
+      );
     } catch (e) {
       state = QuizFailure(e.toString());
     }

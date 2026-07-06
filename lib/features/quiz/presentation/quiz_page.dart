@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-enum QuizPageMode { quick, today, drill, retake, inline }
+enum QuizPageMode { quick, today, drill, retake, inline, resume }
 
 class QuizPage extends ConsumerStatefulWidget {
   const QuizPage({
@@ -41,6 +41,8 @@ class _QuizPageState extends ConsumerState<QuizPage> {
           controller.start(examId: widget.examId, topicId: widget.topicId);
         case QuizPageMode.today:
           controller.startToday(examId: widget.examId, topicId: widget.topicId);
+        case QuizPageMode.resume:
+          controller.resumeToday(examId: widget.examId);
         case QuizPageMode.drill:
           final topicId = widget.topicId;
           if (topicId == null) {
@@ -78,7 +80,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
         title: Text(_titleFor(widget.mode)),
         // A running session asks before discarding; every other state has
         // nothing to lose, so it gets a plain back arrow. Neither may be
-        // omitted — this route is pushed full-screen with no tab bar to
+        // omitted: this route is pushed full-screen with no tab bar to
         // fall back on.
         leading: state is QuizRunning
             ? IconButton(
@@ -136,6 +138,9 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   String _titleFor(QuizPageMode mode) => switch (mode) {
         QuizPageMode.quick => 'Quick quiz',
         QuizPageMode.today => "Today's session",
+        // Resuming is the same session picked up where it was left. Naming it
+        // anything else would tell a student they had started something new.
+        QuizPageMode.resume => "Today's session",
         QuizPageMode.drill => 'Drill',
         QuizPageMode.retake => 'Retake mistakes',
         QuizPageMode.inline => 'Quiz yourself',
@@ -157,7 +162,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   }
 
   /// Returns to whatever pushed this session, falling back to the Quiz tab
-  /// when there is no stack to pop — a notification tap opens the route cold.
+  /// when there is no stack to pop: a notification tap opens the route cold.
   void _leave(BuildContext context) {
     if (context.canPop()) {
       context.pop();

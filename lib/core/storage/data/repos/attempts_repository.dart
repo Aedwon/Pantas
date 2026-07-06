@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/question_outcome.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/sync_state.dart';
 import 'package:drift/drift.dart';
 
@@ -94,6 +95,70 @@ class AttemptsRepository {
       }
     }
     return questionIds;
+  }
+
+  /// How each question has gone inside [window]. The weakness reading groups
+  /// these by topic; see `CountTodayBacklog`.
+  Future<Map<QuestionId, QuestionOutcome>> questionOutcomes({
+    required ExamId examId,
+    required DateTime now,
+    Duration window = const Duration(days: 30),
+  }) async {
+    final cutoff = now.subtract(window);
+    final rows = await (_db.select(_db.attemptsLocal)
+          ..where(
+            (t) =>
+                t.examId.equals(examId) &
+                t.startedAt.isBiggerOrEqualValue(cutoff),
+          ))
+        .get();
+
+    final attempts = <QuestionId, int>{};
+    final corrects = <QuestionId, int>{};
+    for (final row in rows) {
+      for (final item in _hydrate(row).items) {
+        attempts[item.questionId] = (attempts[item.questionId] ?? 0) + 1;
+        if (item.isCorrect) {
+          corrects[item.questionId] = (corrects[item.questionId] ?? 0) + 1;
+        }
+      }
+    }
+
+    return {
+      for (final entry in attempts.entries)
+        entry.key: QuestionOutcome(
+          attempts: entry.value,
+          correct: corrects[entry.key] ?? 0,
+        ),
+    };
+  }
+
+  /// Questions answered on one local day, and how many were right. Both are
+  /// counted, never estimated: the session panel prints them as figures.
+  Future<DayTally> tallyForDay({
+    required ExamId examId,
+    required DateTime day,
+  }) async {
+    final start = DateTime(day.year, day.month, day.day);
+    final end = start.add(const Duration(days: 1));
+    final rows = await (_db.select(_db.attemptsLocal)
+          ..where(
+            (t) =>
+                t.examId.equals(examId) &
+                t.startedAt.isBiggerOrEqualValue(start) &
+                t.startedAt.isSmallerThanValue(end),
+          ))
+        .get();
+
+    var answered = 0;
+    var correct = 0;
+    for (final row in rows) {
+      for (final item in _hydrate(row).items) {
+        answered++;
+        if (item.isCorrect) correct++;
+      }
+    }
+    return DayTally(answered: answered, correct: correct);
   }
 
   Future<AttemptLocalRow> rawRowById(AttemptId id) =>

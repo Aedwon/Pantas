@@ -159,6 +159,13 @@ final routerProvider = Provider<GoRouter>((ref) {
         ),
       ),
       GoRoute(
+        path: '/quiz/resume/:examId',
+        builder: (_, state) => QuizPage(
+          examId: state.pathParameters['examId']!,
+          mode: QuizPageMode.resume,
+        ),
+      ),
+      GoRoute(
         path: '/quiz/quick/:examId',
         builder: (_, state) => QuizPage(
           examId: state.pathParameters['examId']!,

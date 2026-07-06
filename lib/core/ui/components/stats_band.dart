@@ -13,9 +13,21 @@ class StatFigure {
 /// "Figures first" stats: large serif numerals, sans labels beneath,
 /// vertical hairlines between figures, ruled top and bottom.
 class StatsBand extends StatelessWidget {
-  const StatsBand({required this.figures, super.key});
+  const StatsBand({
+    required this.figures,
+    this.centred = false,
+    this.compact = false,
+    super.key,
+  });
 
   final List<StatFigure> figures;
+
+  /// Centres each figure in its column. The session panel and the Home spec's
+  /// band are centred; the Progress table and the results pages are not.
+  final bool centred;
+
+  /// The 21px panel size rather than the 30px page size.
+  final bool compact;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +35,13 @@ class StatsBand extends StatelessWidget {
     final colors = context.colors;
     final styles = context.textStyles;
 
-    final numeralStyle = styles.displayLarge.copyWith(fontSize: 30, height: 1);
+    final numeralStyle = styles.displayLarge.copyWith(
+      fontSize: compact ? 21 : 30,
+      height: 1,
+      fontFeatures: const [FontFeature.tabularFigures()],
+    );
     final suffixStyle = numeralStyle.copyWith(
-      fontSize: 16,
+      fontSize: compact ? 12 : 16,
       fontWeight: FontWeight.w400,
       color: colors.inkMuted,
     );
@@ -36,12 +52,16 @@ class StatsBand extends StatelessWidget {
       children.add(
         Expanded(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment:
+                centred ? CrossAxisAlignment.center : CrossAxisAlignment.start,
             children: [
               Row(
                 crossAxisAlignment: CrossAxisAlignment.baseline,
                 textBaseline: TextBaseline.alphabetic,
                 mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: centred
+                    ? MainAxisAlignment.center
+                    : MainAxisAlignment.start,
                 children: [
                   Text(figure.value, style: numeralStyle),
                   if (figure.suffix != null)
@@ -51,7 +71,11 @@ class StatsBand extends StatelessWidget {
               const SizedBox(height: 4),
               Text(
                 figure.label,
-                style: styles.bodySmall.copyWith(color: colors.inkMuted),
+                textAlign: centred ? TextAlign.center : TextAlign.start,
+                style: styles.bodySmall.copyWith(
+                  fontSize: compact ? 11.5 : null,
+                  color: colors.inkMuted,
+                ),
               ),
             ],
           ),

@@ -41,6 +41,13 @@ class ReviewStateRepository {
     return rows.map(_hydrate).toList();
   }
 
+  /// Every stored state. `FsrsDueSelector` takes the whole list and filters it,
+  /// so there is no narrower query worth having here.
+  Future<List<ReviewState>> allStates() async {
+    final rows = await _db.select(_db.reviewStateLocal).get();
+    return rows.map(_hydrate).toList();
+  }
+
   Future<void> markClean(QuestionId id) async {
     await (_db.update(_db.reviewStateLocal)
           ..where((r) => r.questionId.equals(id)))

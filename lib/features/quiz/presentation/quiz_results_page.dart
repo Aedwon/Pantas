@@ -106,12 +106,12 @@ class _ResultsBodyState extends ConsumerState<_ResultsBody> {
 
     if (count == 1) {
       await _showNudgeSheet(
-        'Get your personalized study plan — see exactly where to focus for '
+        'Get your personalized study plan: see exactly where to focus for '
         '$examName.',
       );
     } else if (count == 3) {
       await _showNudgeSheet(
-        "You've done 3 quizzes — find out which topics to prioritize.",
+        "You've done 3 quizzes. Find out which topics to prioritize.",
       );
     }
   }

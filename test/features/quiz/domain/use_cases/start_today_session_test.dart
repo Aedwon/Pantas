@@ -1,5 +1,6 @@
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/seeder.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_ordering.dart';
@@ -7,6 +8,7 @@ import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_preferences.da
 import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/picker/pick_context.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/picker/question_picker.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/build_today_plan.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_today_session.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -135,4 +137,102 @@ void main() {
       isNull,
     );
   });
+
+  test('a supplied plan is the session that gets created', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final content = ContentRepository(db);
+    final sessions = QuizSessionRepository(db);
+
+    final plan = TodaySessionPlan(
+      questions: [_question('q_only')],
+      dueCount: 1,
+      weaknessCount: 0,
+      freshCount: 0,
+      topicId: 'topic_algebra',
+      topicName: 'Algebra',
+    );
+
+    final result = await StartTodaySession(
+      content: content,
+      sessions: sessions,
+    )(
+      userId: 'local',
+      examId: 'exam_cse_pro',
+      preferences: QuizPreferences.defaults,
+      now: DateTime.utc(2026, 8, 2),
+      plan: plan,
+    );
+
+    final session = (result as StartTodaySessionStarted).session;
+    expect(session.questions.map((q) => q.id), equals(['q_only']));
+  });
+
+  test('an empty plan reports no questions', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final content = ContentRepository(db);
+    final sessions = QuizSessionRepository(db);
+
+    final result = await StartTodaySession(
+      content: content,
+      sessions: sessions,
+    )(
+      userId: 'local',
+      examId: 'exam_cse_pro',
+      preferences: QuizPreferences.defaults,
+      now: DateTime.utc(2026, 8, 2),
+      plan: TodaySessionPlan.empty,
+    );
+
+    expect(result, isA<StartTodaySessionNoQuestions>());
+  });
+
+  test('the named topic is recorded under the interleaved tail', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final content = ContentRepository(db);
+    final sessions = QuizSessionRepository(db);
+
+    final plan = TodaySessionPlan(
+      questions: [_question('q_only')],
+      dueCount: 1,
+      weaknessCount: 0,
+      freshCount: 0,
+      topicId: 'topic_algebra',
+      topicName: 'Algebra',
+    );
+
+    final result = await StartTodaySession(
+      content: content,
+      sessions: sessions,
+    )(
+      userId: 'local',
+      examId: 'exam_cse_pro',
+      preferences: QuizPreferences(
+        sessionLength: 10,
+        ordering: QuizOrdering.interleavedTail,
+        newCardCap: 10,
+      ),
+      now: DateTime.utc(2026, 8, 2),
+      plan: plan,
+    );
+
+    final session = (result as StartTodaySessionStarted).session;
+    expect(session.topicId, 'topic_algebra');
+  });
 }
+
+Question _question(String id) => Question(
+      id: id,
+      version: 1,
+      examIds: const ['exam_cse_pro'],
+      topicId: 'topic_algebra',
+      language: 'en',
+      stem: 'stem $id',
+      choices: const [
+        Choice(id: 'c_a', label: 'A', text: 'a', isCorrect: true),
+        Choice(id: 'c_b', label: 'B', text: 'b', isCorrect: false),
+      ],
+      explanation: 'because',
+    );

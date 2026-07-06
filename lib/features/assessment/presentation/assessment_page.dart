@@ -7,7 +7,6 @@ import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/components/question_card.dart';
 import 'package:cse_cet_reviewer/core/ui/components/quiz_progress_bar.dart';
 import 'package:cse_cet_reviewer/features/assessment/domain/models/assessment_session.dart';
-import 'package:cse_cet_reviewer/features/assessment/domain/services/assessment_question_selector.dart';
 import 'package:cse_cet_reviewer/features/assessment/domain/use_cases/complete_assessment.dart';
 import 'package:cse_cet_reviewer/features/assessment/domain/use_cases/start_assessment.dart';
 import 'package:cse_cet_reviewer/features/assessment/presentation/assessment_result_providers.dart';

@@ -82,6 +82,32 @@ void main() {
             estimatedMinutes: 5,
           ),
         );
+    // The session panel offers a session only when there are questions to
+    // build one from. Without these it sits in its assessment state and the
+    // nudge never gets a chance to fire.
+    for (var i = 1; i <= 12; i++) {
+      await db.into(db.questions).insert(
+            QuestionsCompanion.insert(
+              id: 'q$i',
+              version: 1,
+              examIdsJson: '["e1"]',
+              topicId: 't1',
+              language: 'en',
+              stem: 'Question $i',
+              choicesJson: '[]',
+              explanation: 'Because.',
+            ),
+          );
+    }
+    // The panel leads with the assessment until one is completed, so without
+    // this the nudge never gets a chance to fire.
+    await db.into(db.assessmentResultsLocal).insert(
+          AssessmentResultsLocalCompanion.insert(
+            examId: 'e1',
+            completedAt: DateTime.now(),
+            topicScoresJson: '{}',
+          ),
+        );
     await AppPreferencesRepository(db).setSelectedExamId('e1');
   });
 
@@ -95,7 +121,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text("Start today's session"));
+    await tester.tap(find.text('Start'));
     await tester.pumpAndSettle();
 
     expect(find.text('Study first for better results'), findsOneWidget);
@@ -126,7 +152,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text("Start today's session"));
+    await tester.tap(find.text('Start'));
     await tester.pumpAndSettle();
 
     expect(find.text('Today e1'), findsOneWidget);
@@ -158,7 +184,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text("Start today's session"));
+    await tester.tap(find.text('Start'));
     await tester.pumpAndSettle();
 
     expect(find.text('Study first for better results'), findsNothing);
@@ -179,7 +205,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text("Start today's session"));
+    await tester.tap(find.text('Start'));
     await tester.pumpAndSettle();
 
     expect(find.text('Study first for better results'), findsNothing);

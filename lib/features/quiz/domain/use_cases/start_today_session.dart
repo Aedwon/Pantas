@@ -8,11 +8,11 @@ import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repositor
 import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_ordering.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_preferences.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/pick_context.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/picker/question_picker.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/picker/today_interleaved_picker.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/picker/today_topic_picker.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/build_today_plan.dart';
 import 'package:uuid/uuid.dart';
 
 sealed class StartTodaySessionResult {
@@ -59,48 +59,44 @@ class StartTodaySession {
     required QuizPreferences preferences,
     required DateTime now,
     TopicId? topicId,
+    TodaySessionPlan? plan,
   }) async {
-    final allQuestions = topicId == null
-        ? await _questionsByExam(examId)
-        : await _content.questionsByTopic(topicId);
-    final requestedLength =
-        preferences.sessionLength == QuizPreferences.allDueSessionLength
-            ? allQuestions.length
-            : preferences.sessionLength;
-    final context = PickContext(
-      allQuestions: allQuestions,
-      newQuestions: allQuestions,
-      requestedLength: requestedLength,
-      topicId: topicId,
-    );
-    final origin = preferences.ordering != QuizOrdering.blocked
-        ? SessionOrigin.todayInterleaved
-        : SessionOrigin.todayTopic;
-    final picked = preferences.ordering != QuizOrdering.blocked
-        ? _interleavedPicker.pick(context)
-        : _topicPicker.pick(context);
+    final resolved = plan ??
+        await _planFromContent(
+          examId: examId,
+          preferences: preferences,
+          topicId: topicId,
+        );
 
-    if (picked.isEmpty) {
+    if (resolved.isEmpty) {
       return const StartTodaySessionNoQuestions(
         'No questions are available for today.',
       );
     }
 
+    final origin = preferences.ordering != QuizOrdering.blocked
+        ? SessionOrigin.todayInterleaved
+        : SessionOrigin.todayTopic;
+    // The named topic is recorded whatever the ordering. Under the interleaved
+    // tail the session is still named after one topic, and the tab's
+    // "Still going" state has to be able to say which.
+    final namedTopicId = resolved.topicId ?? topicId;
+
     final session = QuizSession.start(
       sessionId: _uuid.v4(),
       examId: examId,
-      questions: picked,
+      questions: resolved.questions,
       startedAt: now,
       origin: origin,
-      topicId: preferences.ordering == QuizOrdering.blocked ? topicId : null,
+      topicId: namedTopicId,
     );
     await _sessions.create(
       sessionId: session.sessionId,
       userId: userId,
       examId: examId,
       origin: origin,
-      topicId: session.topicId,
-      questionIds: picked.map((question) => question.id).toList(),
+      topicId: namedTopicId,
+      questionIds: resolved.questions.map((question) => question.id).toList(),
       startedAt: now,
     );
     unawaited(
@@ -110,6 +106,30 @@ class StartTodaySession {
       ),
     );
     return StartTodaySessionStarted(session);
+  }
+
+  /// The fallback for callers that have not gathered a plan, which is
+  /// `QuizController.startToday`. It picks from content alone, so it has no
+  /// review states to work from and the session is composed of unseen
+  /// questions. The Quiz tab always supplies a plan.
+  Future<TodaySessionPlan> _planFromContent({
+    required ExamId examId,
+    required QuizPreferences preferences,
+    TopicId? topicId,
+  }) async {
+    final allQuestions = topicId == null
+        ? await _questionsByExam(examId)
+        : await _content.questionsByTopic(topicId);
+    return BuildTodayPlan.call(
+      due: const [],
+      weakness: const [],
+      fresh: allQuestions,
+      allQuestions: allQuestions,
+      preferences: preferences,
+      topicId: topicId,
+      topicPicker: _topicPicker,
+      interleavedPicker: _interleavedPicker,
+    );
   }
 
   Future<List<Question>> _questionsByExam(ExamId examId) async {

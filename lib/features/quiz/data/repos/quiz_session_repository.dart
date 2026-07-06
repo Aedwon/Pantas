@@ -98,6 +98,38 @@ class QuizSessionRepository {
     if (active == null) return;
     await quit(sessionId: active.id, quitAt: restartedAt);
   }
+
+  /// The student's own average completed session, in whole minutes, or null
+  /// when there is not enough history to average honestly.
+  ///
+  /// Mocks are deliberately excluded. A mock runs 3 hours 30, so folding one
+  /// in would put an hour on a ten-question panel. `SessionShapeSignal` does
+  /// include them, and is the right figure for its own surface, but reading it
+  /// from here would also cross a feature boundary.
+  ///
+  /// [minimumSessions] matches `SessionShapeSignal.minDataPoints` so the app
+  /// has one answer to "how much history is enough".
+  Future<int?> averageCompletedMinutes({
+    required String userId,
+    required ExamId examId,
+    int minimumSessions = 7,
+  }) async {
+    final rows = await (_db.select(_db.quizSessions)
+          ..where(
+            (row) =>
+                row.userId.equals(userId) &
+                row.examId.equals(examId) &
+                row.completedAt.isNotNull(),
+          ))
+        .get();
+    if (rows.length < minimumSessions) return null;
+
+    var totalSeconds = 0;
+    for (final row in rows) {
+      totalSeconds += row.completedAt!.difference(row.startedAt).inSeconds;
+    }
+    return (totalSeconds / rows.length / 60).round();
+  }
 }
 
 extension QuizSessionLocalRowQuestionIds on QuizSessionLocalRow {
