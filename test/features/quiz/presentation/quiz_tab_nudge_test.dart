@@ -112,7 +112,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Civil Service Exam'), findsOneWidget);
+    expect(find.text('CSE'), findsOneWidget);
     expect(find.text('UPCAT'), findsNothing);
   });
 
@@ -136,15 +136,15 @@ void main() {
     expect(find.text('Today e1'), findsOneWidget);
   });
 
-  testWidgets('renders Retake and Drill practice CTAs', (tester) async {
+  testWidgets('renders practice CTAs', (tester) async {
     await tester.pumpAppWithRouter(
       _buildRouter(),
       overrides: [appDatabaseProvider.overrideWithValue(db)],
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Retake mistakes'), findsOneWidget);
-    expect(find.text('Drill a topic'), findsOneWidget);
+    expect(find.text('Your mistakes'), findsOneWidget);
+    expect(find.text('Choose what to practice'), findsOneWidget);
   });
 
   testWidgets('does not show nudge when nudge already dismissed',
