@@ -91,7 +91,8 @@ Map<String, Object?> questionToDoc(
       rawChoices.where((c) => (c as Map)['correct'] == true).length;
   if (correctCount != 1) {
     throw FormatException(
-        '$id: exactly one choice must be correct (found $correctCount)',);
+      '$id: exactly one choice must be correct (found $correctCount)',
+    );
   }
 
   const labels = ['A', 'B', 'C', 'D', 'E', 'F'];
