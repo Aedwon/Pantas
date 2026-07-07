@@ -1,5 +1,4 @@
 import 'package:cse_cet_reviewer/features/mock_exam/application/mock_availability_provider.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/data/mock_attempt_repo.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_attempt.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_availability.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

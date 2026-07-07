@@ -155,6 +155,46 @@ class _QuizTabBody extends ConsumerWidget {
           // The practice picker is seam 3. Until it exists this row must not
           // be tappable, because a dead chevron is worse than none.
         ),
+        _FlaggedSection(exam: exam),
+      ],
+    );
+  }
+}
+
+class _FlaggedSection extends ConsumerWidget {
+  const _FlaggedSection({required this.exam});
+
+  final Exam exam;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final styles = context.textStyles;
+    final summary = ref.watch(flagSummaryProvider).valueOrNull;
+    if (summary == null) return const SizedBox.shrink();
+
+    // The count sits in the heading's trailing slot rather than in the row,
+    // so the section reads as a tally before the student reads the row at all.
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        SectionHeader(
+          title: 'Flagged',
+          trailing: summary.count == 0
+              ? null
+              : Text('${summary.count}', style: styles.headlineSmall),
+        ),
+        InkTableRow(
+          title: summary.count == 0
+              ? 'Flag anything you want to come back to'
+              : 'Questions you flagged',
+          subtitle: summary.count == 0
+              ? ''
+              : '${summary.count} kept, across ${summary.topicCount} '
+                  '${summary.topicCount == 1 ? 'topic' : 'topics'}',
+          bottomRule: false,
+          // The flagged list is its own screen and has not been built. An
+          // untappable row is honest; a chevron onto nothing is not.
+        ),
       ],
     );
   }

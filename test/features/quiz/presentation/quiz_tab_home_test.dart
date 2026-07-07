@@ -4,10 +4,11 @@ import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
+import 'package:cse_cet_reviewer/features/quiz/presentation/practice_row_providers.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_tab_home.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/today_providers.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/in_memory_database.dart';
@@ -119,5 +120,78 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('More ways to practice'), findsOneWidget);
+  });
+
+  testWidgets('the flagged section counts what is kept', (tester) async {
+    await tester.pumpAppWithProviders(
+      const QuizTabHome(),
+      overrides: [
+        sessionPanelProvider('e1').overrideWith(
+          (ref) => const SessionPanelCaughtUp(
+            answeredToday: 5,
+            correctToday: 4,
+          ),
+        ),
+        flagSummaryProvider.overrideWith(
+          (ref) => const FlagSummary(count: 12, topicCount: 4),
+        ),
+        appDatabaseProvider.overrideWithValue(db),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Flagged'), findsOneWidget);
+    expect(find.text('12'), findsOneWidget);
+    expect(find.text('Questions you flagged'), findsOneWidget);
+    expect(find.text('12 kept, across 4 topics'), findsOneWidget);
+  });
+
+  testWidgets('an empty flagged section invites the first flag',
+      (tester) async {
+    await tester.pumpAppWithProviders(
+      const QuizTabHome(),
+      overrides: [
+        sessionPanelProvider('e1').overrideWith(
+          (ref) => const SessionPanelCaughtUp(
+            answeredToday: 5,
+            correctToday: 4,
+          ),
+        ),
+        flagSummaryProvider.overrideWith(
+          (ref) => FlagSummary.empty,
+        ),
+        appDatabaseProvider.overrideWithValue(db),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    expect(
+      find.text('Flag anything you want to come back to'),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('the flagged row does not open anything yet', (tester) async {
+    await tester.pumpAppWithProviders(
+      const QuizTabHome(),
+      overrides: [
+        sessionPanelProvider('e1').overrideWith(
+          (ref) => const SessionPanelCaughtUp(
+            answeredToday: 5,
+            correctToday: 4,
+          ),
+        ),
+        flagSummaryProvider.overrideWith(
+          (ref) => const FlagSummary(count: 12, topicCount: 4),
+        ),
+        appDatabaseProvider.overrideWithValue(db),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    final row = tester.widget<InkTableRow>(
+      find.widgetWithText(InkTableRow, 'Questions you flagged'),
+    );
+    expect(row.onTap, isNull);
   });
 }

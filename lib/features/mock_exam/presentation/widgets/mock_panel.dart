@@ -1,7 +1,6 @@
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/ruled_panel.dart';
 import 'package:cse_cet_reviewer/core/ui/components/stats_band.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/cooldown_label.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_attempt.dart';
@@ -68,12 +67,12 @@ class MockPanel extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           if (inProgress)
-            _Body(
+            const _Body(
               "Finish your session first. It runs 3 hours 30 and can't be "
               'paused.',
             )
           else if (!hasHistory)
-            _Body(
+            const _Body(
               'The whole thing under exam timing. 3 hours 30, and no answers '
               'until the end.',
             )
@@ -200,7 +199,6 @@ class _TierLine extends StatelessWidget {
         border: Border(
           top: BorderSide(
             color: colors.ruleFaint,
-            width: AppDimensions.hairline,
           ),
         ),
       ),

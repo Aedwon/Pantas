@@ -1,6 +1,5 @@
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/question_flags_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/practice_row_providers.dart';
@@ -70,5 +69,38 @@ void main() {
     await QuestionFlagsRepository(db).flag('q_2');
 
     expect(await container.read(flagCountProvider.future), 2);
+  });
+
+  test('no flags summarise as empty', () async {
+    final summary = await container.read(flagSummaryProvider.future);
+
+    expect(summary.count, 0);
+    expect(summary.topicCount, 0);
+  });
+
+  test('flags are counted and their topics tallied', () async {
+    await seedTopicWithQuestions(
+      db,
+      examId: 'exam_cse_pro',
+      topicId: 'topic_algebra',
+      topicName: 'Algebra',
+      questionIds: ['q_1', 'q_2'],
+    );
+    await seedTopicWithQuestions(
+      db,
+      examId: 'exam_cse_pro',
+      topicId: 'topic_geometry',
+      topicName: 'Geometry',
+      questionIds: ['q_3'],
+    );
+    final flags = QuestionFlagsRepository(db);
+    await flags.flag('q_1');
+    await flags.flag('q_2');
+    await flags.flag('q_3');
+
+    final summary = await container.read(flagSummaryProvider.future);
+
+    expect(summary.count, 3);
+    expect(summary.topicCount, 2);
   });
 }

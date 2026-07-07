@@ -9,12 +9,14 @@ class SectionHeader extends StatelessWidget {
     required this.title,
     this.action,
     this.onAction,
+    this.trailing,
     super.key,
   });
 
   final String title;
   final String? action;
   final VoidCallback? onAction;
+  final Widget? trailing;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +27,7 @@ class SectionHeader extends StatelessWidget {
       textBaseline: TextBaseline.alphabetic,
       children: [
         Expanded(child: Text(title, style: styles.headlineSmall)),
+        if (trailing != null) trailing!,
         if (action != null)
           // Padding (not Center) keeps the action text on the title's
           // baseline while still reaching the 48dp minimum tap target.
