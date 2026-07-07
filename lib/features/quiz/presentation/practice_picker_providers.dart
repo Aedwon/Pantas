@@ -54,3 +54,17 @@ final practiceIndexProvider =
   }
   return PracticeIndex(subjects);
 });
+
+/// The student's own average time on one question, or null until seven
+/// finished attempts make an average worth using.
+///
+/// Null hides the footer's minutes unit outright. Converting a request for
+/// twenty minutes into a number of questions without a measured pace would be
+/// a measurement multiplied by an assumption, which is the one thing no figure
+/// in this app may be.
+final practicePaceProvider =
+    FutureProvider.family<int?, ExamId>((ref, examId) async {
+  return ref
+      .watch(attemptsRepositoryProvider)
+      .averageResponseMs(examId: examId);
+});
