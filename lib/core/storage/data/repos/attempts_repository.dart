@@ -161,6 +161,62 @@ class AttemptsRepository {
     return DayTally(answered: answered, correct: correct);
   }
 
+  /// The student's own average time on one question, in milliseconds, or null
+  /// until there is enough history to average honestly.
+  ///
+  /// The practice picker converts a requested number of minutes into a number
+  /// of questions with this. Below [minimumSessions] it returns null and the
+  /// picker withholds its minutes unit rather than converting through a figure
+  /// the app made up.
+  ///
+  /// `PerQuestionSpeedSignal` computes the same average and gates on the same
+  /// seven, but it lives in `features/metrics` and reading it from the quiz
+  /// feature would cross a layer boundary.
+  Future<int?> averageResponseMs({
+    required ExamId examId,
+    int minimumSessions = 7,
+  }) async {
+    final rows = await (_db.select(_db.attemptsLocal)
+          ..where(
+            (t) => t.examId.equals(examId) & t.completedAt.isNotNull(),
+          ))
+        .get();
+    if (rows.length < minimumSessions) return null;
+
+    var total = 0;
+    var count = 0;
+    for (final row in rows) {
+      for (final item in _hydrate(row).items) {
+        total += item.responseMs;
+        count++;
+      }
+    }
+    if (count == 0) return null;
+    return (total / count).round();
+  }
+
+  /// Every question answered since [since], for any reason.
+  ///
+  /// The picker excludes these so a repeated drill does not return the same
+  /// ten in the same order. Spec 4 section 4.3 asked for this and it was never
+  /// built.
+  Future<Set<QuestionId>> questionIdsAnsweredSince({
+    required ExamId examId,
+    required DateTime since,
+  }) async {
+    final rows = await (_db.select(_db.attemptsLocal)
+          ..where(
+            (t) =>
+                t.examId.equals(examId) &
+                t.startedAt.isBiggerOrEqualValue(since),
+          ))
+        .get();
+    return {
+      for (final row in rows)
+        for (final item in _hydrate(row).items) item.questionId,
+    };
+  }
+
   Future<AttemptLocalRow> rawRowById(AttemptId id) =>
       (_db.select(_db.attemptsLocal)..where((t) => t.id.equals(id)))
           .getSingle();
