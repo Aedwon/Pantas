@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
@@ -12,9 +13,14 @@ import 'package:go_router/go_router.dart';
 /// A subject heading over its topic rows. A topic expands in place rather than
 /// navigating: the topic page is gone.
 class StudySubjectSection extends ConsumerWidget {
-  const StudySubjectSection({required this.subject, super.key});
+  const StudySubjectSection({
+    required this.subject,
+    this.keyForTopic,
+    super.key,
+  });
 
   final StudySubject subject;
+  final GlobalKey Function(TopicId)? keyForTopic;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -54,6 +60,7 @@ class StudySubjectSection extends ConsumerWidget {
         ),
         for (final topic in subject.topics) ...[
           InkTableRow(
+            key: keyForTopic?.call(topic.id),
             title: topic.name,
             state: topic.isComplete ? InkRowState.done : InkRowState.plain,
             reserveGlyph: true,
