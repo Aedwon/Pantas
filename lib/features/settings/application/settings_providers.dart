@@ -1,6 +1,8 @@
 import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
+import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/features/paywall/application/paywall_providers.dart';
 import 'package:cse_cet_reviewer/features/settings/data/settings_repository.dart';
 import 'package:cse_cet_reviewer/features/settings/domain/session_ordering.dart';
 import 'package:cse_cet_reviewer/features/settings/domain/theme_preference.dart';
@@ -156,3 +158,17 @@ class SettingsActions {
     return ReminderSaveResult.scheduled;
   }
 }
+
+/// The active exam's short name, for the Exam row's value column.
+final activeExamShortNameProvider = Provider<String>((ref) {
+  final focus = ref.watch(activeExamFocusProvider).valueOrNull;
+  return focus?.exam?.shortName ?? 'Not set';
+});
+
+/// The Pro row's value. Free students see "Free" and every other row on the
+/// screen is unchanged: no row is hidden, disabled or badged by entitlement.
+final proRowValueProvider = Provider<String>((ref) {
+  final entitlement = ref.watch(entitlementProvider).valueOrNull;
+  return entitlement != null && entitlement.proIsActive ? 'Pro' : 'Free';
+});
+

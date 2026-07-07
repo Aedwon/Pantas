@@ -1,199 +1,174 @@
 import 'dart:async';
 
-import 'package:cse_cet_reviewer/core/auth/auth_user.dart';
 import 'package:cse_cet_reviewer/core/auth/providers.dart';
 import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/core/sync/providers.dart';
-import 'package:cse_cet_reviewer/core/sync/sync_status.dart';
-import 'package:cse_cet_reviewer/features/settings/presentation/widgets/ios_switch.dart';
-import 'package:cse_cet_reviewer/features/settings/presentation/widgets/settings_row.dart';
-import 'package:cse_cet_reviewer/features/settings/presentation/widgets/settings_section.dart';
-import 'package:cse_cet_reviewer/features/settings/presentation/widgets/theme_segmented_control.dart';
+import 'package:cse_cet_reviewer/core/ui/components/page_scaffold.dart';
+import 'package:cse_cet_reviewer/core/ui/components/settings_bar.dart';
+import 'package:cse_cet_reviewer/core/ui/components/settings_group.dart';
+import 'package:cse_cet_reviewer/core/ui/components/settings_switch.dart';
+import 'package:cse_cet_reviewer/core/ui/components/settings_value_row.dart';
+import 'package:cse_cet_reviewer/core/ui/components/theme_control.dart';
+import 'package:cse_cet_reviewer/features/settings/presentation/settings_value_formats.dart';
 import 'package:cse_cet_reviewer/features/settings/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+/// Settings, reached by the gear in Home's masthead. There is no Settings tab.
+///
+/// Twelve rows in five groups, all on one scroll. Sub-pages exist only where a
+/// surface has states or a list too long for a row. The four-door version and
+/// the identity-plate version were both drawn and rejected.
 class SettingsHomePage extends ConsumerWidget {
-  const SettingsHomePage({
-    this.subscriptionSubtitle = 'Free · Try Pro',
-    super.key,
-  });
-
-  final String subscriptionSubtitle;
+  const SettingsHomePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final userSettings =
+    final settings =
         ref.watch(userSettingsProvider).valueOrNull ?? UserSettings.defaults();
-    final theme = ref.watch(themePreferenceProvider).valueOrNull ??
-        ThemePreference.system;
+    final theme =
+        ref.watch(themePreferenceProvider).valueOrNull ?? ThemePreference.system;
     final currentUser = ref.watch(currentUserProvider).valueOrNull;
     final isAnonymous = ref.watch(isAnonymousProvider).valueOrNull ?? false;
     final syncStatus = ref.watch(syncStatusProvider).valueOrNull;
-    final notificationPermission =
-        ref.watch(notificationPermissionStatusProvider).valueOrNull;
     final notificationsDenied =
-        notificationPermission == NotificationPermission.denied;
+        ref.watch(notificationPermissionStatusProvider).valueOrNull ==
+            NotificationPermission.denied;
+    final actions = ref.read(settingsActionsProvider);
 
-    return Scaffold(
-      appBar: AppBar(title: const Text('Settings')),
+    return PageScaffold(
       body: ListView(
+        padding: EdgeInsets.zero,
         children: [
-          SettingsSection(
-            title: 'Preferences',
+          const SettingsBar(title: 'Settings'),
+          SettingsGroup(
+            title: 'You',
+            isFirst: true,
             children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-                child: Row(
-                  children: [
-                    const Expanded(child: Text('Theme')),
-                    ThemeSegmentedControl(
-                      value: theme,
-                      onChanged: (value) => ref
-                          .read(themePreferenceControllerProvider.notifier)
-                          .setThemePreference(value),
-                    ),
-                  ],
-                ),
+              SettingsValueRow(
+                title: 'Name',
+                value: SettingsValueFormats.name(settings.name),
+                onTap: () => _push(context, '/settings/name'),
               ),
-              SettingsRow(
-                title: 'Daily reminder',
-                subtitle: notificationsDenied
-                    ? 'Notifications are off - tap to enable'
-                    : userSettings.dailyReminderTime?.storageValue ?? 'Not set',
-                onTap: notificationsDenied
-                    ? () => ref
-                        .read(notificationServiceProvider)
-                        .openAppNotificationSettings()
-                    : () {},
+              SettingsValueRow(
+                title: 'Exam',
+                value: ref.watch(activeExamShortNameProvider),
+                showChevron: true,
+                onTap: () => _push(context, '/settings/exam'),
               ),
-              SettingsRow(
+              SettingsValueRow(
                 title: 'Exam date',
-                subtitle: _formatDate(userSettings.examDate) ??
-                    'Not set - tap to add',
-                onTap: () {},
-              ),
-              SettingsRow(
-                title: 'Strict mock mode',
-                subtitle: 'Removes pause during mock exams',
-                trailing: IosSettingsSwitch(
-                  value: userSettings.strictMockMode,
-                  onChanged: (value) => ref
-                      .read(settingsActionsProvider)
-                      .setStrictMockMode(enabled: value),
-                ),
-                onTap: () => ref
-                    .read(settingsActionsProvider)
-                    .setStrictMockMode(enabled: !userSettings.strictMockMode),
-              ),
-              SettingsRow(
-                title: 'Help improve the app',
-                subtitle: 'Share anonymous usage data',
-                trailing: IosSettingsSwitch(
-                  value: userSettings.helpImproveApp,
-                  onChanged: (value) => ref
-                      .read(settingsActionsProvider)
-                      .setHelpImproveApp(enabled: value),
-                ),
-                onTap: () => ref
-                    .read(settingsActionsProvider)
-                    .setHelpImproveApp(enabled: !userSettings.helpImproveApp),
+                value: SettingsValueFormats.examDate(settings.examDate),
+                onTap: () => _push(context, '/settings/exam-date'),
               ),
             ],
           ),
-          SettingsSection(
-            title: 'Account',
+          SettingsGroup(
+            title: 'How you practice',
             children: [
-              SettingsRow(
+              SettingsValueRow(
+                title: 'How sessions are built',
+                value: settings.sessionOrdering.label,
+                showChevron: true,
+                onTap: () => _push(context, '/settings/ordering'),
+              ),
+              SettingsValueRow(
+                title: 'Strict mock mode',
+                control: SettingsSwitch(value: settings.strictMockMode),
+                onTap: () => unawaited(
+                  actions.setStrictMockMode(enabled: !settings.strictMockMode),
+                ),
+              ),
+              SettingsValueRow(
+                title: 'Daily reminder',
+                value: notificationsDenied
+                    ? 'Notifications are off'
+                    : settings.dailyReminderTime?.storageValue ?? 'Off',
+                onTap: notificationsDenied
+                    ? () => unawaited(
+                          ref
+                              .read(notificationServiceProvider)
+                              .openAppNotificationSettings(),
+                        )
+                    : () => _push(context, '/settings/reminder'),
+              ),
+            ],
+          ),
+          SettingsGroup(
+            title: 'What you see',
+            children: [
+              SettingsValueRow(
+                title: 'Remember table order',
+                control: SettingsSwitch(value: settings.retainTableOrder),
+                onTap: () => unawaited(
+                  actions.setRetainTableOrder(
+                    enabled: !settings.retainTableOrder,
+                  ),
+                ),
+              ),
+              SettingsValueRow(
+                title: 'Theme',
+                control: ThemeControl(
+                  value: theme,
+                  onChanged: (next) => unawaited(
+                    ref
+                        .read(themePreferenceControllerProvider.notifier)
+                        .setThemePreference(next),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SettingsGroup(
+            title: 'Your account',
+            children: [
+              SettingsValueRow(
+                title: 'Pro',
+                value: ref.watch(proRowValueProvider),
+                showChevron: true,
+                onTap: () => _push(context, '/settings/pro'),
+              ),
+              SettingsValueRow(
                 title: 'Account',
-                subtitle: _accountSubtitle(
+                value: SettingsValueFormats.account(
                   user: currentUser,
                   isAnonymous: isAnonymous,
                 ),
-                onTap: () => _go(context, '/settings/account'),
+                showChevron: true,
+                onTap: () => _push(context, '/settings/account'),
               ),
-              SettingsRow(
-                title: 'Subscription',
-                subtitle: subscriptionSubtitle,
-                onTap: () => _go(context, '/settings/subscription'),
-              ),
-              SettingsRow(
+              SettingsValueRow(
                 title: 'Backup',
-                subtitle: _backupSubtitle(
+                value: SettingsValueFormats.backup(
                   isAnonymous: isAnonymous,
                   status: syncStatus,
                 ),
-                onTap: () => _go(context, '/settings/backup'),
+                showChevron: true,
+                onTap: () => _push(context, '/settings/backup'),
               ),
             ],
           ),
-          SettingsSection(
+          SettingsGroup(
             title: 'About',
             children: [
-              SettingsRow(
-                title: 'App info',
-                subtitle: 'Version 0.1.0 - Legal - Contact DPO',
-                onTap: () => _go(context, '/settings/about'),
-              ),
-              SettingsRow(
-                title: 'Send feedback',
-                onTap: () {},
+              SettingsValueRow(
+                title: 'Version, privacy, feedback',
+                showChevron: true,
+                onTap: () => _push(context, '/settings/about'),
               ),
             ],
           ),
+          const SizedBox(height: 32),
         ],
       ),
     );
   }
 
-  static void _go(BuildContext context, String location) {
+  /// Push, never go. Every destination sits outside the tab shell and relies
+  /// on a back arrow, which only appears when the stack can pop.
+  static void _push(BuildContext context, String location) {
     final router = GoRouter.maybeOf(context);
-    // Push, never go: these destinations sit outside the tab shell and rely
-    // on the AppBar's implicit back arrow, which only appears when the
-    // stack can pop.
     if (router != null) unawaited(router.push<void>(location));
-  }
-
-  static String _accountSubtitle({
-    required AuthUser? user,
-    required bool isAnonymous,
-  }) {
-    if (user != null) return user.email;
-    if (isAnonymous) return 'Signed in anonymously';
-    return 'Not signed in';
-  }
-
-  static String _backupSubtitle({
-    required bool isAnonymous,
-    required SyncStatus? status,
-  }) {
-    if (isAnonymous) return 'Sign in to back up your progress';
-    return 'Back up progress';
-  }
-
-  static String? _formatDate(ExamDate? date) {
-    if (date == null) return null;
-    if (date.precision == ExamDatePrecision.month) {
-      const monthNames = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December',
-      ];
-      return '${monthNames[date.month - 1]} ${date.year}';
-    }
-    return '${date.year.toString().padLeft(4, '0')}-'
-        '${date.month.toString().padLeft(2, '0')}-'
-        '${date.day!.day.toString().padLeft(2, '0')}';
   }
 }
