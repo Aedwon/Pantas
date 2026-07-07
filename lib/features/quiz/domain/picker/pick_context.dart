@@ -11,6 +11,8 @@ class PickContext {
     this.newQuestions = const [],
     this.subtopicCandidates = const [],
     this.retakeQuestionIds = const [],
+    this.excludedQuestionIds = const {},
+    this.shuffleSeed,
     this.topicId,
     this.subtopicId,
   });
@@ -21,6 +23,14 @@ class PickContext {
   final List<Question> newQuestions;
   final List<SubtopicQuestion> subtopicCandidates;
   final List<QuestionId> retakeQuestionIds;
+
+  /// Answered in the last seven days. Skipped where the pool allows, so a
+  /// repeated drill does not return the same ten.
+  final Set<QuestionId> excludedQuestionIds;
+
+  /// Fixed only in tests. Null means a fresh shuffle each time.
+  final int? shuffleSeed;
+
   final int requestedLength;
   final TopicId? topicId;
   final SubtopicId? subtopicId;
