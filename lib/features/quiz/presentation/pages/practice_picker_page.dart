@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
+import 'package:cse_cet_reviewer/core/ui/components/ink_checkbox.dart';
 import 'package:cse_cet_reviewer/core/ui/components/page_scaffold.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
@@ -195,50 +196,6 @@ class _PracticePickerPageState extends ConsumerState<PracticePickerPage> {
   }
 }
 
-class _PickerCheckbox extends StatelessWidget {
-  const _PickerCheckbox({
-    required this.state,
-    required this.size,
-    this.enabled = true,
-  });
-
-  final PracticeCheckState state;
-  final double size;
-  final bool enabled;
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = context.colors;
-    final filled = state != PracticeCheckState.off;
-
-    return Opacity(
-      opacity: enabled ? 1 : 0.35,
-      child: Container(
-        width: size,
-        height: size,
-        decoration: BoxDecoration(
-          color: filled ? colors.board : null,
-          borderRadius: BorderRadius.circular(3),
-          border:
-              filled ? null : Border.all(color: colors.inkMuted, width: 1.4),
-        ),
-        child: switch (state) {
-          PracticeCheckState.on =>
-            Icon(Icons.check, size: size - 4, color: colors.onBoard),
-          PracticeCheckState.partial => Center(
-              child: Container(
-                width: size - 6,
-                height: 1.6,
-                color: colors.onBoard,
-              ),
-            ),
-          PracticeCheckState.off => null,
-        },
-      ),
-    );
-  }
-}
-
 class _TopicRow extends StatelessWidget {
   const _TopicRow({
     required this.topic,
@@ -277,9 +234,8 @@ class _TopicRow extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 11),
                 child: Row(
                   children: [
-                    _PickerCheckbox(
-                      state: state,
-                      size: 15,
+                    InkCheckbox(
+                      state: state.asInkCheckState,
                       enabled: topic.hasQuestions,
                     ),
                     const SizedBox(width: 12),
@@ -355,7 +311,7 @@ class _LessonRow extends StatelessWidget {
           child: Row(
             children: [
               const SizedBox(width: 22),
-              _PickerCheckbox(state: state, size: 14),
+              InkCheckbox(state: state.asInkCheckState, size: 14),
               const SizedBox(width: 12),
               Expanded(child: Text(lesson.title, style: styles.bodyMedium)),
               if (!lesson.isRead)
@@ -505,4 +461,16 @@ class _UnitControl extends StatelessWidget {
       ],
     );
   }
+}
+
+/// The picker's tri-state, drawn with the shared checkbox.
+///
+/// The mapping lives here rather than in `domain/` so the domain never
+/// imports a widget.
+extension _CheckGlyph on PracticeCheckState {
+  InkCheckState get asInkCheckState => switch (this) {
+        PracticeCheckState.off => InkCheckState.off,
+        PracticeCheckState.partial => InkCheckState.partial,
+        PracticeCheckState.on => InkCheckState.on,
+      };
 }
