@@ -92,6 +92,12 @@ final topicLessonsProvider =
   return ref.watch(contentRepositoryProvider).lessonsByTopic(topicId);
 });
 
+final lessonsByTopicsProvider =
+    FutureProvider.family<Map<TopicId, List<Lesson>>, List<TopicId>>(
+        (ref, topicIds) async {
+  return ref.watch(contentRepositoryProvider).lessonsByTopics(topicIds);
+});
+
 final lessonProgressRepositoryProvider = Provider<LessonProgressRepository>(
   (ref) => LessonProgressRepository(ref.watch(appDatabaseProvider)),
 );

@@ -165,4 +165,57 @@ void main() {
 
     expect(lesson!.ordering, 0);
   });
+
+  test('lessonsByTopics groups by topic and keeps authored order', () async {
+    await db.into(db.topics).insert(
+          TopicsCompanion.insert(
+            id: 't2',
+            subjectId: 's1',
+            name: 'Physics',
+            ordering: 2,
+          ),
+        );
+    await insertLesson('l_b', 'Second', ordering: 2);
+    await insertLesson('l_a', 'First', ordering: 1);
+    await db.into(db.lessons).insert(
+          LessonsCompanion.insert(
+            id: 'l_p',
+            topicId: 't2',
+            title: 'Physics one',
+            summary: 'S.',
+            bodyJson: jsonEncode(<Map<String, Object?>>[]),
+            estimatedMinutes: 7,
+            ordering: const Value(1),
+          ),
+        );
+
+    final grouped = await repo.lessonsByTopics(['t1', 't2']);
+
+    expect(grouped.keys.toSet(), {'t1', 't2'});
+    expect(
+      grouped['t1']!.map((lesson) => lesson.id).toList(),
+      ['l1', 'l_a', 'l_b'],
+    );
+    expect(grouped['t2']!.single.id, 'l_p');
+  });
+
+  test('lessonsByTopics returns an empty list for a topic with no lessons',
+      () async {
+    await db.into(db.topics).insert(
+          TopicsCompanion.insert(
+            id: 't3',
+            subjectId: 's1',
+            name: 'Empty',
+            ordering: 3,
+          ),
+        );
+
+    final grouped = await repo.lessonsByTopics(['t3']);
+
+    expect(grouped['t3'], isEmpty);
+  });
+
+  test('lessonsByTopics with no topics does not query', () async {
+    expect(await repo.lessonsByTopics([]), isEmpty);
+  });
 }

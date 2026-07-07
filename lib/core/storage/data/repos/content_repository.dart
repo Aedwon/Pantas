@@ -100,6 +100,29 @@ class ContentRepository {
     return rows.map(_hydrateLesson).toList();
   }
 
+  /// Every topic's lessons in one round trip, each list in authored order.
+  /// A topic with no lessons still gets a key, so a caller never has to tell
+  /// "no lessons" apart from "topic I did not ask about".
+  Future<Map<TopicId, List<Lesson>>> lessonsByTopics(
+    List<TopicId> topicIds,
+  ) async {
+    final grouped = {for (final id in topicIds) id: <Lesson>[]};
+    if (topicIds.isEmpty) return grouped;
+
+    final rows = await (_db.select(_db.lessons)
+          ..where((l) => l.topicId.isIn(topicIds))
+          ..orderBy([
+            (l) => OrderingTerm.asc(l.ordering),
+            (l) => OrderingTerm.asc(l.id),
+          ]))
+        .get();
+
+    for (final row in rows) {
+      grouped[row.topicId]?.add(_hydrateLesson(row));
+    }
+    return grouped;
+  }
+
   Future<Lesson?> lessonById(LessonId id) async {
     final row = await (_db.select(_db.lessons)..where((l) => l.id.equals(id)))
         .getSingleOrNull();
