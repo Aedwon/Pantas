@@ -160,7 +160,7 @@ void main() {
 
     expect(find.textContaining('Magandang'), findsOneWidget);
     expect(find.text('CSE'), findsOneWidget);
-    expect(find.textContaining('Lately — '), findsOneWidget);
+    expect(find.textContaining('Lately: '), findsOneWidget);
     expect(find.text('Build your study plan'), findsOneWidget);
     expect(
       find.text('Take the assessment to find what to study first.'),

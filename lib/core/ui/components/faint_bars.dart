@@ -1,7 +1,7 @@
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
-/// Rows of faint paper-toned bars — the identity's loading skeleton and
+/// Rows of faint paper-toned bars: the identity's loading skeleton and
 /// "unprinted" teaser fill. No gray blocks, no shimmer.
 class FaintBars extends StatelessWidget {
   const FaintBars({this.widthFactors = const [0.9, 0.65, 0.8], super.key});

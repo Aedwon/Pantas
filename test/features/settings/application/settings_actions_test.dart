@@ -1,6 +1,5 @@
 import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/features/settings/domain/session_ordering.dart';
 import 'package:cse_cet_reviewer/features/settings/settings.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';

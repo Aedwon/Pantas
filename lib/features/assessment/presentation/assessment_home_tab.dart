@@ -136,7 +136,7 @@ class _SelectedExamHome extends ConsumerWidget {
               ),
               child: Text.rich(
                 TextSpan(
-                  text: 'Lately — ',
+                  text: 'Lately: ',
                   style: styles.bodySmall.copyWith(color: colors.inkMuted),
                   children: [
                     TextSpan(text: chip.text),

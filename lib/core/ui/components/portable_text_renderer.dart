@@ -192,7 +192,7 @@ class _UnknownBlockPlaceholder extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppDimensions.radiusSurface),
       ),
       child: Text(
-        'Content unavailable — update the app',
+        'Content unavailable. Update the app.',
         style: context.textStyles.bodySmall.copyWith(color: colors.inkMuted),
       ),
     );

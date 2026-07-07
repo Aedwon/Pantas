@@ -9,7 +9,7 @@ class LessonProgressRepository {
   final AppDatabase _db;
 
   Future<void> markRead(LessonId lessonId) async {
-    // readAt updates on every call — records most-recent confirmation,
+    // readAt updates on every call: records most-recent confirmation,
     // not first-read time.
     await _db.into(_db.lessonProgressLocal).insertOnConflictUpdate(
           LessonProgressLocalCompanion(

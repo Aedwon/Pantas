@@ -6,7 +6,7 @@ enum AnswerRowState { plain, selected, correct, incorrect, correctMissed }
 
 /// Quiz answer device (spec amendment): hairline-separated rows with serif
 /// choice letters. The selected row is the single place the board tint+border
-/// fills. Graded states mark with text glyphs — board ✓ for correct, rust ✕
+/// fills. Graded states mark with text glyphs: board ✓ for correct, rust ✕
 /// for a wrong pick, a board ✓ on the missed correct row.
 class AnswerRow extends StatelessWidget {
   const AnswerRow({

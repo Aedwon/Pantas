@@ -147,7 +147,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Settings'), findsWidgets);
-    expect(find.text('Preferences'), findsOneWidget);
+    expect(find.text('How you practice'), findsOneWidget);
 
     router.go('/more');
     await tester.pumpAndSettle();
@@ -156,7 +156,7 @@ void main() {
       router.routerDelegate.currentConfiguration.uri.toString(),
       '/settings',
     );
-    expect(find.text('Preferences'), findsOneWidget);
+    expect(find.text('How you practice'), findsOneWidget);
   });
 
   testWidgets('settings detail routes build', (tester) async {
@@ -181,9 +181,11 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('About'), findsWidgets);
 
+    // The old path is kept as a redirect, so a link from an older build still
+    // lands somewhere real. The page itself is now named Pro.
     router.go('/settings/subscription');
     await tester.pumpAndSettle();
-    expect(find.text('Subscription'), findsWidgets);
+    expect(find.text('Pro'), findsWidgets);
   });
 
   testWidgets('/legal/privacy route builds real legal page', (tester) async {

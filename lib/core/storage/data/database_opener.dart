@@ -36,7 +36,7 @@ Future<AppDatabase> openEncryptedDatabase({
         final cipherVersion = db.select('PRAGMA cipher_version;');
         if (cipherVersion.isEmpty) {
           throw StateError(
-            'SQLCipher not loaded — cipher_version returned no rows.',
+            'SQLCipher not loaded: cipher_version returned no rows.',
           );
         }
       },

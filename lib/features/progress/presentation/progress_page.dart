@@ -111,7 +111,7 @@ class _ProgressPanelSection extends ConsumerWidget {
           const SectionHeader(title: 'Milestones'),
           const SizedBox(height: 4),
           Text(
-            'No milestone cards yet — they appear at streaks and '
+            'No milestone cards yet. They appear at streaks and '
             'mock records.',
             style: styles.bodySmall.copyWith(color: colors.inkMuted),
           ),

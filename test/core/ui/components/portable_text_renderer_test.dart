@@ -58,7 +58,7 @@ void main() {
         ),
       );
 
-      expect(find.text('Content unavailable — update the app'), findsOneWidget);
+      expect(find.text('Content unavailable. Update the app.'), findsOneWidget);
     });
   });
 
@@ -106,7 +106,7 @@ void main() {
         ),
       );
 
-      expect(find.text('Content unavailable — update the app'), findsOneWidget);
+      expect(find.text('Content unavailable. Update the app.'), findsOneWidget);
     });
   });
 
@@ -133,7 +133,7 @@ void main() {
         ),
       );
 
-      expect(find.text('Content unavailable — update the app'), findsOneWidget);
+      expect(find.text('Content unavailable. Update the app.'), findsOneWidget);
     });
   });
 
@@ -224,7 +224,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byType(Math), findsOneWidget);
-      expect(find.text('Content unavailable — update the app'), findsNothing);
+      expect(find.text('Content unavailable. Update the app.'), findsNothing);
     });
 
     testWidgets('em mark renders italic', (tester) async {

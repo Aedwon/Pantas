@@ -21,7 +21,7 @@ class OnboardingWelcomeStep extends StatelessWidget {
             Text('Build your study plan', style: styles.displaySmall),
             const SizedBox(height: 10),
             Text(
-              "Pick your exam — we'll guide what to study first.",
+              "Pick your exam and we'll guide what to study first.",
               style: styles.bodyLarge.copyWith(color: colors.inkMuted),
             ),
             const Spacer(),
