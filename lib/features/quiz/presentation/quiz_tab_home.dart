@@ -10,6 +10,7 @@ import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
 import 'package:cse_cet_reviewer/core/ui/components/page_scaffold.dart';
 import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
+import 'package:cse_cet_reviewer/features/quiz/presentation/practice_row_providers.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/widgets/session_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -124,6 +125,7 @@ class _QuizTabBody extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final styles = context.textStyles;
+    final mistakes = ref.watch(recentMistakeCountProvider(exam.id)).valueOrNull;
 
     return ListView(
       padding: const EdgeInsets.fromLTRB(20, 6, 20, 24),
@@ -135,8 +137,16 @@ class _QuizTabBody extends ConsumerWidget {
         const SectionHeader(title: 'More ways to practice'),
         InkTableRow(
           title: 'Your mistakes',
-          subtitle: "Questions you've got wrong",
-          onTap: () => context.push('/quiz/retake/${exam.id}'),
+          subtitle: mistakes == null
+              ? ''
+              : mistakes == 0
+                  ? 'Nothing to fix yet'
+                  : "$mistakes you've got wrong in the last month",
+          // Dimmed with no chevron when empty: a door with nothing behind it
+          // should not invite a tap.
+          onTap: mistakes == null || mistakes == 0
+              ? null
+              : () => context.push('/quiz/retake/${exam.id}'),
         ),
         const InkTableRow(
           title: 'Choose what to practice',

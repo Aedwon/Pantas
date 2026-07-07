@@ -6,6 +6,7 @@ import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dar
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/lesson_bookmarks_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/lesson_progress_repository.dart';
+import 'package:cse_cet_reviewer/core/storage/data/repos/question_flags_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/quiz_nudge_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/review_state_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/streak_repository.dart';
@@ -17,6 +18,7 @@ import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+export 'package:cse_cet_reviewer/core/storage/data/repos/question_flags_repository.dart';
 export 'package:cse_cet_reviewer/core/storage/domain/assessment_question.dart';
 export 'package:cse_cet_reviewer/core/storage/domain/assessment_question_selector.dart';
 
@@ -32,6 +34,10 @@ final contentRepositoryProvider = Provider<ContentRepository>(
 
 final attemptsRepositoryProvider = Provider<AttemptsRepository>(
   (ref) => AttemptsRepository(ref.watch(appDatabaseProvider)),
+);
+
+final questionFlagsRepositoryProvider = Provider<QuestionFlagsRepository>(
+  (ref) => QuestionFlagsRepository(ref.watch(appDatabaseProvider)),
 );
 
 final reviewStateRepositoryProvider = Provider<ReviewStateRepository>(
