@@ -9,7 +9,6 @@ import 'package:cse_cet_reviewer/core/storage/age_gate.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/features/assessment/assessment.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/learn_tab_home.dart';
-import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_list_page.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_page.dart';
 import 'package:cse_cet_reviewer/features/legal/legal.dart';
 import 'package:cse_cet_reviewer/features/legal/presentation/legal_document_page.dart';
@@ -105,16 +104,9 @@ List<RouteBase> buildAppRoutes(Ref ref) {
           routes: [
             GoRoute(
               path: '/study',
-              builder: (_, __) => const StudyTabHome(),
-              routes: [
-                GoRoute(
-                  path: 'topic/:topicId',
-                  builder: (_, state) => LessonListPage(
-                    topicId: state.pathParameters['topicId']!,
-                    examId: state.uri.queryParameters['examId'],
-                  ),
-                ),
-              ],
+              builder: (_, state) => StudyTabHome(
+                openTopicId: state.uri.queryParameters['topicId'],
+              ),
             ),
           ],
         ),
