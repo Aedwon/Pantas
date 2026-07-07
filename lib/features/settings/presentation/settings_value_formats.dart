@@ -50,7 +50,7 @@ abstract final class SettingsValueFormats {
 
   static String name(String? name) => name ?? 'Add your name';
 
-  static String onOff(bool value) => value ? 'On' : 'Off';
+  static String onOff({required bool value}) => value ? 'On' : 'Off';
 
   static String account({
     required AuthUser? user,
@@ -66,8 +66,12 @@ abstract final class SettingsValueFormats {
   }) {
     if (isAnonymous) return 'Not backed up';
     return switch (status) {
-      Syncing() => 'Backing up',
-      SyncPartialFailure() || SyncFailedSince() => "Couldn't back up",
+      // A failure reads as "Backing up" here and only here. Sync retries by
+      // itself, so a student cannot act on the failure from a settings row,
+      // and the silent-sync invariant forbids alarming them with one. The
+      // backup page below says "Couldn't back up" plainly and offers the
+      // retry, which is where a student can actually do something about it.
+      Syncing() || SyncPartialFailure() || SyncFailedSince() => 'Backing up',
       SyncOk() || SyncIdle() => 'Saved',
       null => 'Not backed up',
     };

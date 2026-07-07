@@ -69,7 +69,7 @@ void main() {
     final all = [
       SettingsValueFormats.name(null),
       SettingsValueFormats.examDate(null),
-      SettingsValueFormats.onOff(true),
+      SettingsValueFormats.onOff(value: true),
       SettingsValueFormats.backup(isAnonymous: true, status: null),
     ];
     for (final value in all) {

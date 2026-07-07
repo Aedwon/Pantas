@@ -281,8 +281,7 @@ List<RouteBase> buildAppRoutes(Ref ref) {
       builder: (_, __) {
         final entitlement = ref.watch(entitlementProvider).valueOrNull ??
             const Entitlement.free();
-        final isAnonymous =
-            ref.watch(isAnonymousProvider).valueOrNull ?? false;
+        final isAnonymous = ref.watch(isAnonymousProvider).valueOrNull ?? false;
         final contact = ref.watch(legalContactProvider);
         return DeleteAccountPage(
           isAnonymous: isAnonymous,

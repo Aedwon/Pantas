@@ -3,11 +3,9 @@ import 'package:cse_cet_reviewer/core/ui/components/settings_group.dart';
 import 'package:cse_cet_reviewer/core/ui/components/settings_switch.dart';
 import 'package:cse_cet_reviewer/core/ui/components/settings_value_row.dart';
 import 'package:cse_cet_reviewer/core/ui/components/theme_control.dart';
-import 'package:cse_cet_reviewer/features/settings/domain/user_settings.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/settings_home_page.dart';
 import 'package:cse_cet_reviewer/features/settings/settings.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/in_memory_database.dart';
@@ -52,7 +50,8 @@ void main() {
 
     final headings = tester
         .widgetList<SettingsGroup>(
-            find.byType(SettingsGroup, skipOffstage: false))
+          find.byType(SettingsGroup, skipOffstage: false),
+        )
         .map((group) => group.title)
         .toList();
 
@@ -70,7 +69,9 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(
-        find.byType(SettingsValueRow, skipOffstage: false), findsNWidgets(12));
+      find.byType(SettingsValueRow, skipOffstage: false),
+      findsNWidgets(12),
+    );
   });
 
   testWidgets('no heading is all-caps', (tester) async {
@@ -78,14 +79,18 @@ void main() {
     await tester.pumpAndSettle();
 
     for (final group in tester.widgetList<SettingsGroup>(
-        find.byType(SettingsGroup, skipOffstage: false))) {
+      find.byType(SettingsGroup, skipOffstage: false),
+    )) {
       expect(group.title, isNot(group.title.toUpperCase()));
     }
   });
 
   testWidgets('a month-precision date prints its month and no day count',
       (tester) async {
-    await _pump(tester, _settings(examDate: ExamDate.inMonth(year: 2026, month: 10)));
+    await _pump(
+      tester,
+      _settings(examDate: ExamDate.inMonth(year: 2026, month: 10)),
+    );
     await tester.pumpAndSettle();
 
     expect(find.text('October 2026'), findsOneWidget);
@@ -126,9 +131,10 @@ void main() {
     expect(find.text('Remember how the table is sorted'), findsNothing);
   });
 
-  testWidgets('tapping a switch row toggles it without needing the switch '
+  testWidgets(
+      'tapping a switch row toggles it without needing the switch '
       'itself', (tester) async {
-    await _pump(tester, _settings(strictMockMode: false));
+    await _pump(tester, _settings());
     await tester.pumpAndSettle();
 
     await tester.tap(find.text('Strict mock mode'));

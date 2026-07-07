@@ -171,4 +171,3 @@ final proRowValueProvider = Provider<String>((ref) {
   final entitlement = ref.watch(entitlementProvider).valueOrNull;
   return entitlement != null && entitlement.proIsActive ? 'Pro' : 'Free';
 });
-

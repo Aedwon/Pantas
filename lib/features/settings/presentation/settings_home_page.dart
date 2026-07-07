@@ -27,8 +27,8 @@ class SettingsHomePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final settings =
         ref.watch(userSettingsProvider).valueOrNull ?? UserSettings.defaults();
-    final theme =
-        ref.watch(themePreferenceProvider).valueOrNull ?? ThemePreference.system;
+    final theme = ref.watch(themePreferenceProvider).valueOrNull ??
+        ThemePreference.system;
     final currentUser = ref.watch(currentUserProvider).valueOrNull;
     final isAnonymous = ref.watch(isAnonymousProvider).valueOrNull ?? false;
     final syncStatus = ref.watch(syncStatusProvider).valueOrNull;
