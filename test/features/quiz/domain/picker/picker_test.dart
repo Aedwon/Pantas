@@ -1,6 +1,5 @@
 import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/drill_picker.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/picker/inline_lesson_picker.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/picker/pick_context.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/picker/retake_picker.dart';
@@ -63,21 +62,10 @@ void main() {
     expect(picked[1].topicId, isNot(equals(picked[0].topicId)));
   });
 
-  test('DrillPicker filters to subtopic', () {
-    final picked = DrillPicker().pick(
-      PickContext(
-        allQuestions: [_q('q1'), _q('q2')],
-        subtopicCandidates: [
-          SubtopicQuestion(question: _q('q1'), subtopicId: 'synonyms'),
-          SubtopicQuestion(question: _q('q2'), subtopicId: 'antonyms'),
-        ],
-        requestedLength: 10,
-        subtopicId: 'synonyms',
-      ),
-    );
-
-    expect(picked.map((question) => question.id), equals(['q1']));
-  });
+  // DrillPicker no longer filters by subtopic. Both callers always passed a
+  // null subtopic id, so the filter returned the pool in table order and the
+  // row served the same ten questions forever. It now shuffles and excludes
+  // what was answered this week: see drill_picker_test.dart.
 
   test('RetakePicker returns recent incorrect question ids in order', () {
     final picked = RetakePicker().pick(

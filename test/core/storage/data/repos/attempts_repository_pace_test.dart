@@ -29,7 +29,7 @@ void main() {
     DateTime? startedAt,
     bool completed = true,
   }) {
-    final began = startedAt ?? DateTime.utc(2026, 8, 1);
+    final began = startedAt ?? DateTime.utc(2026, 8);
     return repo.save(
       Attempt(
         id: id,
@@ -79,7 +79,7 @@ void main() {
     await save(
       'a_recent',
       items: [item('q_1'), item('q_2')],
-      startedAt: DateTime.utc(2026, 8, 1),
+      startedAt: DateTime.utc(2026, 8),
     );
 
     final ids = await repo.questionIdsAnsweredSince(
@@ -94,7 +94,7 @@ void main() {
     await save(
       'a_old',
       items: [item('q_1')],
-      startedAt: DateTime.utc(2026, 7, 1),
+      startedAt: DateTime.utc(2026, 7),
     );
 
     final ids = await repo.questionIdsAnsweredSince(

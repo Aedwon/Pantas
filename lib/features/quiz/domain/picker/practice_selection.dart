@@ -117,8 +117,6 @@ class PracticeSelection {
   }
 
   Map<TopicId, Set<LessonId>> _withoutTopic(TopicId topicId) {
-    final lessons = {..._lessons};
-    lessons.remove(topicId);
-    return lessons;
+    return {..._lessons}..remove(topicId);
   }
 }

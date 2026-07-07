@@ -19,6 +19,7 @@ import 'package:cse_cet_reviewer/features/notifications/presentation/permission_
 import 'package:cse_cet_reviewer/features/onboarding/onboarding.dart';
 import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/progress_page.dart';
+import 'package:cse_cet_reviewer/features/quiz/presentation/pages/practice_picker_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_results_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_tab_home.dart';
@@ -178,6 +179,19 @@ List<RouteBase> buildAppRoutes(Ref ref) {
       builder: (_, state) => QuizPage(
         examId: state.pathParameters['examId']!,
         topicId: state.uri.queryParameters['topicId'],
+      ),
+    ),
+    GoRoute(
+      path: '/quiz/practice/:examId',
+      builder: (_, state) => PracticePickerPage(
+        examId: state.pathParameters['examId']!,
+      ),
+    ),
+    GoRoute(
+      path: '/quiz/practice/:examId/run',
+      builder: (_, state) => QuizPage(
+        examId: state.pathParameters['examId']!,
+        mode: QuizPageMode.practice,
       ),
     ),
     GoRoute(

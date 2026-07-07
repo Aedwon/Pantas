@@ -10,9 +10,11 @@ import 'package:cse_cet_reviewer/features/quiz/domain/picker/practice_index.dart
 import 'package:cse_cet_reviewer/features/quiz/domain/picker/practice_selection.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/picker/practice_summary.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/practice_picker_providers.dart';
+import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_controller.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/widgets/length_wheel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class PracticePickerPage extends ConsumerStatefulWidget {
   const PracticePickerPage({required this.examId, super.key});
@@ -36,9 +38,17 @@ class _PracticePickerPageState extends ConsumerState<PracticePickerPage> {
     });
   }
 
-  void _start() {
-    // Wired in Task 8
-    throw UnimplementedError('Start practice will be wired in Task 8');
+  Future<void> _start(PracticeIndex index) async {
+    // The session is built here, before routing, so the run screen renders a
+    // session that already matches the selection rather than rebuilding one
+    // from arguments and risking a different draw.
+    await ref.read(quizControllerProvider.notifier).startPractice(
+          examId: widget.examId,
+          units: _selection.units(index),
+          perUnit: _wheelValue,
+        );
+    if (!mounted) return;
+    await context.push('/quiz/practice/${widget.examId}/run');
   }
 
   @override
@@ -149,7 +159,6 @@ class _PracticePickerPageState extends ConsumerState<PracticePickerPage> {
                     border: Border(
                       top: BorderSide(
                         color: colors.rule,
-                        width: AppDimensions.hairline,
                       ),
                     ),
                   ),
@@ -172,7 +181,7 @@ class _PracticePickerPageState extends ConsumerState<PracticePickerPage> {
                       const SizedBox(height: 8),
                       BoardButton(
                         label: 'Start',
-                        onPressed: summary.isEmpty ? null : _start,
+                        onPressed: summary.isEmpty ? null : () => _start(index),
                       ),
                     ],
                   ),
@@ -256,7 +265,6 @@ class _TopicRow extends StatelessWidget {
         border: Border(
           bottom: BorderSide(
             color: colors.ruleFaint,
-            width: AppDimensions.hairline,
           ),
         ),
       ),
@@ -337,7 +345,6 @@ class _LessonRow extends StatelessWidget {
         border: Border(
           bottom: BorderSide(
             color: colors.ruleFaint,
-            width: AppDimensions.hairline,
           ),
         ),
       ),
@@ -393,8 +400,6 @@ class _SummaryView extends StatelessWidget {
       );
     }
 
-    final questions =
-        '${summary.totalQuestions} question${summary.totalQuestions == 1 ? '' : 's'}';
     final minutes = summary.estimatedMinutes;
 
     return Column(

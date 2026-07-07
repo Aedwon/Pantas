@@ -49,17 +49,17 @@ Future<void> main(List<String> args) async {
         throw const FormatException('missing a top-level `questions:` list');
       }
       final qm = QuestionMeta(
-        subjectSlug: meta['subject'] as String,
-        topicSlug: meta['topic'] as String,
-        subtopicSlug: meta['subtopic'] as String,
-        examCodes: [for (final e in (meta['exams'] as List)) e as String],
+        subjectSlug: meta['subject']! as String,
+        topicSlug: meta['topic']! as String,
+        subtopicSlug: meta['subtopic']! as String,
+        examCodes: [for (final e in (meta['exams']! as List)) e as String],
       );
       topicSlugs[qm.topicSlug] = qm.subjectSlug;
       examCodes.addAll(qm.examCodes);
       for (final raw in (doc['questions'] as List)) {
         final q = Map<Object?, Object?>.from(raw as Map);
         final built = questionToDoc(q, qm, updatedAt: updatedAt);
-        final id = built['_id'] as String;
+        final id = built['_id']! as String;
         if (!seenIds.add(id)) {
           throw FormatException('$id: duplicate question id');
         }

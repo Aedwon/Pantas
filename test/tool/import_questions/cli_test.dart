@@ -75,11 +75,13 @@ void main() {
     expect(gen.exitCode, 0, reason: gen.stderr as String?);
 
     final json = jsonDecode(File(seed).readAsStringSync()) as Map;
-    expect((json['question'] as List), hasLength(2));
+    expect(json['question'] as List, hasLength(2));
     expect((json['topic'] as List).first['_id'], 'topic-biology');
     expect((json['subject'] as List).first['_id'], 'subject-science');
-    expect((json['exam'] as List).map((e) => e['_id']),
-        containsAll(['exam-upcat', 'exam-dost-sei']));
+    expect(
+      (json['exam'] as List).map((e) => e['_id']),
+      containsAll(['exam-upcat', 'exam-dost-sei']),
+    );
 
     // Build a real database and hydrate through the shipping repo so choice
     // ids that collide across questions (same primary key -> silent
@@ -104,11 +106,17 @@ void main() {
     final allQuestions = [...activeQuestions, figurePending!];
     for (final q in allQuestions) {
       expect(q.choices, isNotEmpty, reason: '${q.id} lost its choices');
-      expect(q.choices.where((c) => c.isCorrect), hasLength(1),
-          reason: '${q.id} correct-choice count');
+      expect(
+        q.choices.where((c) => c.isCorrect),
+        hasLength(1),
+        reason: '${q.id} correct-choice count',
+      );
     }
     final allChoiceIds = allQuestions.expand((q) => q.choices.map((c) => c.id));
-    expect(allChoiceIds.toSet(), hasLength(allChoiceIds.length),
-        reason: 'choice ids must be unique across questions');
+    expect(
+      allChoiceIds.toSet(),
+      hasLength(allChoiceIds.length),
+      reason: 'choice ids must be unique across questions',
+    );
   });
 }

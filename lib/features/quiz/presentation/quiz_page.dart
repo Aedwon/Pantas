@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-enum QuizPageMode { quick, today, drill, retake, inline, resume }
+enum QuizPageMode { quick, today, drill, retake, inline, resume, practice }
 
 class QuizPage extends ConsumerStatefulWidget {
   const QuizPage({
@@ -50,6 +50,11 @@ class _QuizPageState extends ConsumerState<QuizPage> {
           } else {
             controller.startDrill(examId: widget.examId, topicId: topicId);
           }
+        case QuizPageMode.practice:
+          // The picker already started the session before routing here, so
+          // this mode only renders it. Starting again would discard the
+          // student's selection and build a different session.
+          break;
         case QuizPageMode.retake:
           controller.startRetake(examId: widget.examId);
         case QuizPageMode.inline:
@@ -142,6 +147,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
         // anything else would tell a student they had started something new.
         QuizPageMode.resume => "Today's session",
         QuizPageMode.drill => 'Drill',
+        QuizPageMode.practice => 'Practice',
         QuizPageMode.retake => 'Retake mistakes',
         QuizPageMode.inline => 'Quiz yourself',
       };

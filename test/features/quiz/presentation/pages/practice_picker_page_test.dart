@@ -7,7 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../helpers/pump_app.dart';
 
-final _index = PracticeIndex([
+const _index = PracticeIndex([
   PracticeSubjectEntry(
     id: 'subject_maths',
     name: 'Mathematics',
@@ -16,7 +16,7 @@ final _index = PracticeIndex([
         id: 'topic_algebra',
         name: 'Algebra',
         questionCount: 40,
-        lessons: const [
+        lessons: [
           PracticeLessonEntry(
             id: 'l_1',
             title: 'Linear equations',
@@ -31,7 +31,7 @@ final _index = PracticeIndex([
           ),
         ],
       ),
-      const PracticeTopicEntry(
+      PracticeTopicEntry(
         id: 'topic_empty',
         name: 'Trigonometry',
         questionCount: 0,

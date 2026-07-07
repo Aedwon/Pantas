@@ -148,12 +148,11 @@ class _QuizTabBody extends ConsumerWidget {
               ? null
               : () => context.push('/quiz/retake/${exam.id}'),
         ),
-        const InkTableRow(
+        InkTableRow(
           title: 'Choose what to practice',
           subtitle: 'One topic or one lesson, your choice of length',
           bottomRule: false,
-          // The practice picker is seam 3. Until it exists this row must not
-          // be tappable, because a dead chevron is worse than none.
+          onTap: () => context.push('/quiz/practice/${exam.id}'),
         ),
         _FlaggedSection(exam: exam),
       ],

@@ -46,8 +46,10 @@ explanation: |
     expect(parsed.choices, hasLength(4));
     expect(parsed.choices.map((c) => c.label.value), ['A', 'B', 'C', 'D']);
     expect(parsed.choices.where((c) => c.isCorrect.value), hasLength(1));
-    expect(parsed.examLinks.map((e) => e.examId.value),
-        ['exam-upcat', 'exam-dost-sei']);
+    expect(
+      parsed.examLinks.map((e) => e.examId.value),
+      ['exam-upcat', 'exam-dost-sei'],
+    );
     expect(doc['isActive'], true);
     expect(doc['difficulty'], isNull, reason: 'difficulty must not leak');
   });
@@ -95,8 +97,13 @@ explanation: |
         _meta,
         updatedAt: _updatedAt,
       ),
-      throwsA(isA<FormatException>().having((e) => e.message, 'message',
-          contains('q-biology-cell-structure-0003'))),
+      throwsA(
+        isA<FormatException>().having(
+          (e) => e.message,
+          'message',
+          contains('q-biology-cell-structure-0003'),
+        ),
+      ),
     );
   });
 

@@ -54,7 +54,7 @@ List<Map<String, Object?>> textToPortableText(String text) {
             '_type': 'span',
             '_key': _key('s'),
             'text': p,
-            'marks': const <Object?>[]
+            'marks': const <Object?>[],
           },
         ],
       },
@@ -91,7 +91,7 @@ Map<String, Object?> questionToDoc(
       rawChoices.where((c) => (c as Map)['correct'] == true).length;
   if (correctCount != 1) {
     throw FormatException(
-        '$id: exactly one choice must be correct (found $correctCount)');
+        '$id: exactly one choice must be correct (found $correctCount)',);
   }
 
   const labels = ['A', 'B', 'C', 'D', 'E', 'F'];
@@ -127,7 +127,7 @@ Map<String, Object?> questionToDoc(
     'topic': {'_ref': topicId(meta.topicSlug)},
     'subtopic': {'_ref': lessonId(meta.topicSlug, meta.subtopicSlug)},
     'examIds': [
-      for (final code in meta.examCodes) {'_ref': examId(code)}
+      for (final code in meta.examCodes) {'_ref': examId(code)},
     ],
     'language': 'en',
     'stem': textToPortableText(stem),
@@ -218,7 +218,7 @@ ParsedPassageFile parsePassagesAndQuestions({
     if (raw is! Map) continue;
     final p = Map<Object?, Object?>.from(raw);
     final built = passageToDoc(p, meta, updatedAt: updatedAt);
-    final id = built['_id'] as String;
+    final id = built['_id']! as String;
     passageIds.add(id);
     questionCountsByPassage[id] = 0;
     passageDocs.add(built);

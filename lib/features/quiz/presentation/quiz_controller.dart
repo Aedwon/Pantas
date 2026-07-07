@@ -8,6 +8,7 @@ import 'package:cse_cet_reviewer/core/sync/engine/pending_queue.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/new_card_intro_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_preferences_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/picker/practice_selection.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/streak/streak_evaluator.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/build_today_plan.dart';
@@ -17,11 +18,20 @@ import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/restart_session.
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/resume_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_drill.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_inline_lesson_quiz.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_practice.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_quick_quiz.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_retake.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_today_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/submit_answer.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+final startPracticeProvider = Provider<StartPractice>(
+  (ref) => StartPractice(
+    content: ref.watch(contentRepositoryProvider),
+    sessions: ref.watch(quizSessionRepositoryProvider),
+    attempts: ref.watch(attemptsRepositoryProvider),
+  ),
+);
 
 sealed class QuizControllerState {
   const QuizControllerState();
@@ -242,6 +252,38 @@ class QuizController extends StateNotifier<QuizControllerState> {
         questionShownAt: now,
         persisted: true,
       );
+    } catch (e) {
+      state = QuizFailure(e.toString());
+    }
+  }
+
+  /// One session built from many picked units, each drawing [perUnit] from
+  /// its own pool. Distinct from [startDrill], which draws one topic.
+  Future<void> startPractice({
+    required ExamId examId,
+    required List<PracticeUnit> units,
+    required int perUnit,
+  }) async {
+    state = const QuizLoading();
+    try {
+      final now = _ref.read(nowProvider)();
+      final result = await _ref.read(startPracticeProvider)(
+        userId: _localUserId,
+        examId: examId,
+        units: units,
+        perUnit: perUnit,
+        now: now,
+      );
+      switch (result) {
+        case StartPracticeStarted(:final session):
+          state = QuizRunning(
+            session: session,
+            questionShownAt: now,
+            persisted: true,
+          );
+        case StartPracticeNoQuestions(:final message):
+          state = QuizFailure(message);
+      }
     } catch (e) {
       state = QuizFailure(e.toString());
     }
