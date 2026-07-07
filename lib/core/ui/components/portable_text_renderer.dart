@@ -5,17 +5,57 @@ import 'package:flutter/material.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
 
 class PortableTextRenderer extends StatelessWidget {
-  const PortableTextRenderer({required this.blocks, super.key});
+  const PortableTextRenderer({
+    this.blocks,
+    this.text,
+    super.key,
+  }) : assert(blocks != null || text != null,
+            'Either blocks or text must be provided');
 
-  final List<Map<String, dynamic>> blocks;
+  final List<Map<String, dynamic>>? blocks;
+  final String? text;
+
+  static List<Map<String, dynamic>> _parseTextToBlocks(String text) {
+    final children = <Map<String, dynamic>>[];
+    final regex = RegExp(r'\$(.*?)\$');
+    var lastMatchEnd = 0;
+    for (final match in regex.allMatches(text)) {
+      if (match.start > lastMatchEnd) {
+        children.add({
+          'text': text.substring(lastMatchEnd, match.start),
+          'marks': <String>[],
+        });
+      }
+      final latex = match.group(1) ?? '';
+      children.add({
+        'text': latex,
+        'marks': <String>['latex'],
+      });
+      lastMatchEnd = match.end;
+    }
+    if (lastMatchEnd < text.length) {
+      children.add({
+        'text': text.substring(lastMatchEnd),
+        'marks': <String>[],
+      });
+    }
+    return [
+      {
+        '_type': 'block',
+        'style': 'normal',
+        'children': children,
+      }
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
     final children = <Widget>[];
+    final effectiveBlocks = blocks ?? _parseTextToBlocks(text!);
     // Numbered-list counters per indent level. Any non-list block ends the
     // list, so counters reset; a deeper level resets counters below it.
     final numberCounters = <int, int>{};
-    for (final block in blocks) {
+    for (final block in effectiveBlocks) {
       final listItem =
           block['_type'] == 'block' ? block['listItem'] as String? : null;
       if (listItem == null) {
