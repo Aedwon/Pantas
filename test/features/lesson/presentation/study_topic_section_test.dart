@@ -7,28 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/pump_app.dart';
-
-/// The real controller reads the selected exam and the preferences table.
-/// These tests are about what the rows draw, so the open topic is held in
-/// memory instead of seeding a database for every case.
-class _FakeOpenTopic extends OpenTopicController {
-  TopicId? _value;
-
-  @override
-  Future<TopicId?> build() async => _value;
-
-  @override
-  Future<void> toggle(TopicId topicId) async {
-    _value = _value == topicId ? null : topicId;
-    state = AsyncData(_value);
-  }
-
-  @override
-  Future<void> close() async {
-    _value = null;
-    state = const AsyncData(null);
-  }
-}
+import 'fake_open_topic.dart';
 
 StudyLesson lessonRow(String id, {bool isRead = false}) => StudyLesson(
       id: id,
@@ -62,7 +41,7 @@ final subject = StudySubject(
 Future<void> pumpSection(WidgetTester tester) async {
   await tester.pumpAppWithProviders(
     Scaffold(body: StudySubjectSection(subject: subject)),
-    overrides: [openTopicProvider.overrideWith(_FakeOpenTopic.new)],
+    overrides: [openTopicProvider.overrideWith(FakeOpenTopic.new)],
   );
 }
 
