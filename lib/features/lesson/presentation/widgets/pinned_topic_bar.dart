@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:cse_cet_reviewer/core/ui/components/ink_chevron.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';

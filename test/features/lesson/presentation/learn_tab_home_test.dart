@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
@@ -90,6 +92,20 @@ void main() {
             ordering: 1,
           ),
         );
+    // The map is built from lessons. Without one per topic it renders its
+    // empty state and there is no exam content to isolate.
+    for (final (id, topicId) in [('l1', 't1'), ('l2', 't2')]) {
+      await db.into(db.lessons).insert(
+            LessonsCompanion.insert(
+              id: id,
+              topicId: topicId,
+              title: 'Lesson $id',
+              summary: 'Summary',
+              bodyJson: jsonEncode([]),
+              estimatedMinutes: 5,
+            ),
+          );
+    }
   });
 
   tearDown(() => db.close());
@@ -103,7 +119,9 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Civil Service Exam'), findsOneWidget);
+    // The map heads with the short name. Exam isolation is the point of this
+    // test and it still holds: nothing from the unselected exam appears.
+    expect(find.text('CSE'), findsOneWidget);
     expect(find.text('UPCAT'), findsNothing);
     expect(find.text('Verbal'), findsOneWidget);
     expect(find.text('Language Proficiency'), findsNothing);
@@ -120,23 +138,6 @@ void main() {
     );
     await tester.pumpAndSettle();
     expect(find.byType(ErrorBanner), findsOneWidget);
-  });
-
-  testWidgets('tapping topic opens study topic route', (tester) async {
-    await AppPreferencesRepository(db).setSelectedExamId('e1');
-
-    await tester.pumpAppWithRouter(
-      buildRouter(),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
-    );
-    await tester.pumpAndSettle();
-
-    await tester.tap(find.text('Verbal'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Vocabulary'));
-    await tester.pumpAndSettle();
-
-    expect(find.text('Topic t1 e1'), findsOneWidget);
   });
 
   testWidgets('missing selected focus shows choose exam fallback',

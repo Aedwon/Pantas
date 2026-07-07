@@ -218,7 +218,7 @@ class _FocusTopics extends StatelessWidget {
             path: '/quiz/quick/$examId',
             queryParameters: {'topicId': mastery.topic.id},
           ).toString()
-        : '/study/topic/${mastery.topic.id}?examId=$examId';
+        : '/study?topicId=${mastery.topic.id}';
   }
 }
 
@@ -235,7 +235,7 @@ class _FocusTopicRow extends StatelessWidget {
             path: '/quiz/quick/$examId',
             queryParameters: {'topicId': mastery.topic.id},
           ).toString()
-        : '/study/topic/${mastery.topic.id}?examId=$examId';
+        : '/study?topicId=${mastery.topic.id}';
     return InkTableRow(
       title: mastery.topic.name,
       meta: '${(mastery.accuracy * 100).round()}%',

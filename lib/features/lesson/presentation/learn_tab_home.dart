@@ -89,8 +89,8 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
           return PageScaffold(
             body: EmptyState(
               headline: 'Nothing to study yet',
-              body:
-                  'This exam has no lessons on your device yet. Check back after the next content update.',
+              body: 'This exam has no lessons on your device yet. Check back '
+                  'after the next content update.',
               ctaLabel: 'Try a quick quiz',
               onCta: () => context.push('/quiz'),
             ),

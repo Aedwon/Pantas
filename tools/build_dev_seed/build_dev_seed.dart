@@ -21,6 +21,8 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:cse_cet_reviewer/core/ui/components/portable_text_renderer.dart'
+    show PortableTextRenderer;
 import 'package:yaml/yaml.dart';
 
 const _examId = 'exam_upcat';
@@ -129,7 +131,7 @@ void main() {
   ];
   final keptSubjectIds = {
     for (final exam in keptExams)
-      for (final subject in (exam as Map<String, dynamic>)['subjects'] as List)
+      for (final subject in exam['subjects'] as List)
         (subject as Map<String, dynamic>)['id'] as String,
   };
   final keptTopics = [
@@ -140,7 +142,7 @@ void main() {
         topic,
   ];
   final keptTopicIds = {
-    for (final topic in keptTopics) (topic as Map<String, dynamic>)['id'],
+    for (final topic in keptTopics) topic['id'],
   };
   final keptPassages = [
     for (final passage in (existing['passages'] as List? ?? const []))

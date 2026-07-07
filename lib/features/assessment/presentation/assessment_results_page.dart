@@ -118,8 +118,8 @@ class _ResultsBody extends StatelessWidget {
         const SizedBox(height: 16),
         BoardButton(
           label: 'Start studying',
-          onPressed: () => context.push(
-            '/study/topic/${weak.first.topic.id}?examId=$examId',
+          onPressed: () => context.go(
+            '/study?topicId=${weak.first.topic.id}',
           ),
         ),
       ],
@@ -199,8 +199,8 @@ class _FocusAreaRow extends StatelessWidget {
       subtitle: isFirst ? 'Start here' : null,
       state: isFirst ? InkRowState.active : InkRowState.plain,
       meta: '${(mastery.accuracy * 100).round()}%',
-      onTap: () => context.push(
-        '/study/topic/${mastery.topic.id}?examId=$examId',
+      onTap: () => context.go(
+        '/study?topicId=${mastery.topic.id}',
       ),
     );
   }

@@ -8,10 +8,10 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../../helpers/pump_app.dart';
 import 'fake_open_topic.dart';
 
-final topic = StudyTopic(
+const topic = StudyTopic(
   id: 't1',
   name: 'Algebra',
-  lessons: const [],
+  lessons: [],
   readCount: 6,
   hasBookmark: false,
 );

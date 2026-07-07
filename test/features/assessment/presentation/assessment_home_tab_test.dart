@@ -51,11 +51,10 @@ GoRouter _buildRouter() => GoRouter(
           ),
         ),
         GoRoute(
-          path: '/study/topic/:topicId',
+          path: '/study',
           builder: (_, state) => Scaffold(
             body: Text(
-              'Study ${state.pathParameters['topicId']} '
-              '${state.uri.queryParameters['examId'] ?? ''}',
+              'Study ${state.uri.queryParameters['topicId']}',
             ),
           ),
         ),
@@ -276,7 +275,7 @@ void main() {
 
     await tester.tap(find.text('Vocabulary'));
     await tester.pumpAndSettle();
-    expect(find.text('Study vocab cse'), findsOneWidget);
+    expect(find.text('Study vocab'), findsOneWidget);
   });
 
   testWidgets('strong topic row navigates to quick quiz route', (tester) async {

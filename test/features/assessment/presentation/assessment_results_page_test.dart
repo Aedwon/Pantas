@@ -18,7 +18,7 @@ GoRouter _buildRouter(String examId) => GoRouter(
               AssessmentResultsPage(examId: state.pathParameters['examId']!),
         ),
         GoRoute(
-          path: '/study/topic/:topicId',
+          path: '/study',
           builder: (_, __) => const Scaffold(body: Text('Lessons')),
         ),
         GoRoute(

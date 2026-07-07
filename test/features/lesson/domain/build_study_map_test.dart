@@ -42,7 +42,7 @@ void main() {
   };
 
   final lessonsByTopic = {
-    't1': [lesson('l1', minutes: 10), lesson('l2', minutes: 20)],
+    't1': [lesson('l1'), lesson('l2', minutes: 20)],
     't2': [lesson('l3', minutes: 30)],
     't3': [lesson('l4', minutes: 15)],
   };
@@ -92,9 +92,13 @@ void main() {
     final map = build();
 
     expect(
-        map.subjects.map((s) => s.name).toList(), ['Mathematics', 'Science']);
-    expect(map.subjects.first.topics.map((t) => t.name).toList(),
-        ['Algebra', 'Geometry']);
+      map.subjects.map((s) => s.name).toList(),
+      ['Mathematics', 'Science'],
+    );
+    expect(
+      map.subjects.first.topics.map((t) => t.name).toList(),
+      ['Algebra', 'Geometry'],
+    );
   });
 
   test('a topic reports its own read fraction and completion', () {

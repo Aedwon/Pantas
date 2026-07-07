@@ -6,7 +6,6 @@ import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/features/lesson/application/study_map_providers.dart';
 import 'package:cse_cet_reviewer/features/lesson/domain/use_cases/build_study_map.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/learn_tab_home.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/pump_app.dart';
@@ -71,7 +70,7 @@ void main() {
   });
 
   testWidgets('a populated map displays subjects and topics', (tester) async {
-    final map = StudyMap(
+    const map = StudyMap(
       examShortName: 'UPCAT',
       subjects: [
         StudySubject(
@@ -81,7 +80,7 @@ void main() {
             StudyTopic(
               id: 't1',
               name: 'Algebra',
-              lessons: const [
+              lessons: [
                 StudyLesson(
                   id: 'l1',
                   title: 'Basics',

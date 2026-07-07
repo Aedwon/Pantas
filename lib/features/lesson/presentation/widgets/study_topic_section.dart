@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
