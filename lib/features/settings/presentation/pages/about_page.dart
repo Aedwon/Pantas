@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
+import 'package:cse_cet_reviewer/core/ui/components/settings_value_row.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/settings/presentation/widgets/settings_row.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -36,19 +36,19 @@ class AboutPage extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           const SectionHeader(title: 'Legal'),
-          SettingsRow(
+          SettingsValueRow(
             title: 'Privacy Policy',
             onTap: () => _go(context, '/legal/privacy'),
           ),
-          SettingsRow(
+          SettingsValueRow(
             title: 'Terms of Service',
             onTap: () => _go(context, '/legal/terms'),
           ),
           const SizedBox(height: 16),
           const SectionHeader(title: 'Data & privacy'),
-          SettingsRow(
+          SettingsValueRow(
             title: 'Contact our DPO',
-            subtitle: dpoEmail,
+            value: dpoEmail,
             onTap: () {},
           ),
           const SizedBox(height: 8),

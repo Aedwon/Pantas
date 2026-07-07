@@ -4,7 +4,7 @@ import 'package:cse_cet_reviewer/core/auth/providers.dart';
 import 'package:cse_cet_reviewer/core/auth/sign_in_result.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/settings/presentation/widgets/settings_row.dart';
+import 'package:cse_cet_reviewer/core/ui/components/settings_value_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -66,7 +66,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
               },
             ),
             const SizedBox(height: 24),
-            SettingsRow(
+            SettingsValueRow(
               title: 'Delete my data',
               onTap: () => _go(context, '/settings/account/delete'),
             ),
@@ -84,13 +84,12 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                   .copyWith(color: context.colors.inkMuted),
             ),
             const SizedBox(height: 24),
-            SettingsRow(
+            SettingsValueRow(
               title: 'Sign out',
               onTap: () => _confirmSignOut(context, ref),
             ),
-            SettingsRow(
+            SettingsValueRow(
               title: 'Delete account',
-              destructive: true,
               onTap: () => _go(context, '/settings/account/delete'),
             ),
           ],
