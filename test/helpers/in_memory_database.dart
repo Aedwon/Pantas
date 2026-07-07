@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
+import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 
 AppDatabase inMemoryDatabase() => AppDatabase(NativeDatabase.memory());
@@ -11,6 +12,8 @@ Future<void> seedTopicWithQuestions(
   required String topicName,
   required List<String> questionIds,
   String subjectId = 'subj_default',
+  List<String> lessonIds = const [],
+  Map<String, String> questionLessonMap = const {},
 }) async {
   await db.into(db.exams).insertOnConflictUpdate(
         ExamsCompanion.insert(
@@ -37,6 +40,19 @@ Future<void> seedTopicWithQuestions(
           ordering: 0,
         ),
       );
+  for (final lId in lessonIds) {
+    await db.into(db.lessons).insertOnConflictUpdate(
+          LessonsCompanion.insert(
+            id: lId,
+            topicId: topicId,
+            title: 'Lesson $lId',
+            summary: 'summary',
+            bodyJson: jsonEncode([]),
+            estimatedMinutes: 5,
+            ordering: const Value(0),
+          ),
+        );
+  }
   for (final qId in questionIds) {
     await db.into(db.questions).insertOnConflictUpdate(
           QuestionsCompanion.insert(
@@ -44,6 +60,7 @@ Future<void> seedTopicWithQuestions(
             version: 1,
             examIdsJson: jsonEncode([examId]),
             topicId: topicId,
+            lessonId: Value(questionLessonMap[qId]),
             language: 'en',
             stem: 'stem $qId',
             choicesJson: jsonEncode([
