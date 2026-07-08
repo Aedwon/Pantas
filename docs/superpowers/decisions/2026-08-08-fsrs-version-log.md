@@ -121,3 +121,56 @@ of FSRS worth having, and no version bump substitutes for it.
 - `py-fsrs` releases: latest is 6.3.1, implementing FSRS-6
 - `srs-benchmark`: FSRS v7, 35 parameters, dual forgetting curves, benchmark only
 - Expertium, A technical explanation of FSRS: the FSRS-6 formulas
+
+---
+
+## 9 August: decided
+
+**Aedwon, on both questions at once:**
+
+> **"go with 1, and write the review log into the plan. i'm anxious now that we might not have
+> implemented something crucial to this app."**
+
+and, on the optimizer:
+
+> **"spec the optimizer now. FSRS is one of the USPs of this app so there's no room for
+> deferring this"**
+
+**So: FSRS-6, the optimizer runs on the device in Dart, and the review log ships with the
+upgrade rather than after it.** Spec at `specs/2026-08-09-fsrs-optimizer-design.md`, plan at
+`plans/2026-08-09-fsrs-6-and-the-review-log.md`.
+
+### The rating question he asked in the middle, which was the right one
+
+> **"so you're saying we need the rating system for every question for fsrs 6 to be at its
+> best?"**
+
+**No, and the distinction matters.** The rating system exists and works: every review produces
+one of the four ratings and schedules the card with it. **FSRS-6 needs nothing new there.**
+
+**What is missing is that we never keep the rating.** It is computed, used, and discarded. That
+costs nothing today and costs everything to the optimizer, because the heuristic reads the
+interval the card was on at that moment and the review overwrites it. **The input that
+separates Hard from Good is gone within milliseconds of being used.**
+
+### The ceiling, recorded because it is easy to forget later
+
+**Our ratings are inferred, not chosen.** Anki asks the student to press a button; we guess
+from correctness and response speed. **An optimizer will therefore fit to our guesses.** That
+is a deliberate trade against asking a student to grade themselves after every question, and it
+is a larger limit on this feature than the version number ever was.
+
+### The anxiety, and what an audit of it actually found
+
+His words were **"i'm anxious now that we might not have implemented something crucial"**, so
+the honest response was to go looking rather than to reassure.
+
+| Found | State |
+|---|---|
+| **The review log** | **Genuinely missing and tracked nowhere.** The find of the day |
+| **Firebase is never initialized** | The boot adapter's `initialize` is an empty body with a comment. **Auth, sync, crash reporting and App Check are all inert.** Recorded in the launch checklist, **absent from the pipeline document that a dispatcher actually reads** |
+| Three stub routes, the study plan providers | Deliberate placeholders, marked as such |
+
+**So: not a pattern of things quietly missing.** One real gap, one large known one filed where
+nobody looks, and some honest scaffolding. **The Firebase item should be moved into the
+pipeline**, because a thing everyone knows and nobody reads is only half tracked.
