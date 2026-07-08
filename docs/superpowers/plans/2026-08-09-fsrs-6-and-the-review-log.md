@@ -58,7 +58,17 @@ flutter test test/core/fsrs/
 ```
 
 **`w[20]` is the decay.** It replaces the `kFsrsDecay = -0.5` constant, and the factor is
-derived from it rather than fixed at `19/81`.
+derived from it rather than fixed at `19/81`. **Taken from the reference implementation, not
+from prose:**
+
+```
+DECAY  = -w[20]
+FACTOR = 0.9 ^ (1 / DECAY) - 1
+```
+
+**Every parameter has published bounds and the fitted values must stay inside them.** `w[20]`
+is 0.1 to 0.8. Difficulty stays 1 to 10. The first four are initial stabilities, bounded above
+at 100.
 
 - [ ] **Step 1: Write the failing test**
 
@@ -86,12 +96,24 @@ Expected: the scheduler's own tests now fail. **That is correct and Task 2 fixes
 **Four formulas change. The state variables do not:** stability in days and difficulty on 1 to
 10, exactly as now.
 
-| What | Change |
+**These are transcribed from `py-fsrs`, the reference implementation, on 9 August.** `G` is the
+rating as 1 to 4.
+
+| What | Formula |
 |---|---|
-| Initial difficulty | `D₀ = w[4] - e^(w[5] × (G - 1)) + 1`, clamped to 1 to 10 |
-| Difficulty update | Grade-dependent change, then **linear damping as D approaches 10**, then mean reversion toward `D₀(4)`, not `D₀(3)` |
-| Same-day review | **A real formula, using `w[17]`, `w[18]`, `w[19]`.** 4.5 had none |
-| Forgetting curve | `R(t) = (1 + FACTOR × t / S) ^ decay` with **decay from `w[20]`** |
+| Initial stability | `S₀ = w[G - 1]`, so Again reads `w[0]` and Easy reads `w[3]` |
+| Initial difficulty | `D₀ = w[4] - e^(w[5] × (G - 1)) + 1`, clamped 1 to 10 |
+| Difficulty update | `Δ = -(w[6] × (G - 3))`, then **linear damping** by `(10 - D) / 9`, then mean reversion toward `D₀(4)` weighted by `w[7]` |
+| Same-day review | `S × e^(w[17] × (G - 3 + w[18])) × S^(-w[19])` |
+| Stability on recall | `S × (1 + e^(w[8]) × (11 - D) × S^(-w[9]) × (e^((1 - R) × w[10]) - 1) × hard × easy)`, where `hard = w[15]` on Hard and `easy = w[16]` on Easy, both 1 otherwise |
+| Stability on lapse | `w[11] × D^(-w[12]) × ((S + 1)^w[13] - 1) × e^((1 - R) × w[14])`, and **never above the short-term value** `S × e^(w[17] × w[18])` |
+| Next interval | `(S / FACTOR) × (targetRetention^(1 / DECAY) - 1)`, rounded, minimum 1 day |
+
+**A warning worth the space.** Two secondary write-ups of FSRS-6 give these formulas with
+**different parameter indices**, and following one of them produces a scheduler that runs, has
+no errors, and quietly schedules wrongly. **The indices above came from the reference
+implementation's source and nowhere else. If a source you find disagrees, the source is wrong.
+Do not reconcile them yourself: stop and say so.**
 
 - [ ] **Step 1: Update the existing tests to FSRS-6 expectations first**
 
