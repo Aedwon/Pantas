@@ -130,6 +130,13 @@ class SettingsActions {
     return 'Your study plan is being rebalanced.';
   }
 
+  /// "I don't know yet", which is a real answer rather than a refusal, so it
+  /// removes both keys instead of leaving a stale precision behind.
+  Future<void> clearExamDate() async {
+    await _ref.read(settingsRepositoryProvider).clearExamDate();
+    _ref.invalidate(userSettingsProvider);
+  }
+
   Future<void> setCarryOverProgress({required bool enabled}) async {
     await _ref
         .read(settingsRepositoryProvider)

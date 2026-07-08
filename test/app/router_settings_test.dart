@@ -5,11 +5,7 @@ void main() {
   test('every settings row has a route to land on', () {
     const required = [
       '/settings',
-      '/settings/name',
       '/settings/exam',
-      '/settings/exam-date',
-      '/settings/ordering',
-      '/settings/reminder',
       '/settings/pro',
       '/settings/account',
       '/settings/backup',

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cse_cet_reviewer/core/auth/providers.dart';
 import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/core/sync/providers.dart';
+import 'package:cse_cet_reviewer/core/ui/components/exam_date_sheet.dart';
 import 'package:cse_cet_reviewer/core/ui/components/page_scaffold.dart';
 import 'package:cse_cet_reviewer/core/ui/components/settings_bar.dart';
 import 'package:cse_cet_reviewer/core/ui/components/settings_group.dart';
@@ -10,6 +11,9 @@ import 'package:cse_cet_reviewer/core/ui/components/settings_switch.dart';
 import 'package:cse_cet_reviewer/core/ui/components/settings_value_row.dart';
 import 'package:cse_cet_reviewer/core/ui/components/theme_control.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/settings_value_formats.dart';
+import 'package:cse_cet_reviewer/features/settings/presentation/sheets/name_sheet.dart';
+import 'package:cse_cet_reviewer/features/settings/presentation/sheets/ordering_sheet.dart';
+import 'package:cse_cet_reviewer/features/settings/presentation/sheets/reminder_sheet.dart';
 import 'package:cse_cet_reviewer/features/settings/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -20,11 +24,16 @@ import 'package:go_router/go_router.dart';
 /// Twelve rows in five groups, all on one scroll. Sub-pages exist only where a
 /// surface has states or a list too long for a row. The four-door version and
 /// the identity-plate version were both drawn and rejected.
-class SettingsHomePage extends ConsumerWidget {
+class SettingsHomePage extends ConsumerStatefulWidget {
   const SettingsHomePage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<SettingsHomePage> createState() => _SettingsHomePageState();
+}
+
+class _SettingsHomePageState extends ConsumerState<SettingsHomePage> {
+  @override
+  Widget build(BuildContext context) {
     final settings =
         ref.watch(userSettingsProvider).valueOrNull ?? UserSettings.defaults();
     final theme = ref.watch(themePreferenceProvider).valueOrNull ??
@@ -49,7 +58,14 @@ class SettingsHomePage extends ConsumerWidget {
               SettingsValueRow(
                 title: 'Name',
                 value: SettingsValueFormats.name(settings.name),
-                onTap: () => _push(context, '/settings/name'),
+                onTap: () async {
+                  final next = await showNameSheet(
+                    context: context,
+                    current: settings.name,
+                  );
+                  if (!context.mounted) return;
+                  if (next != null) await actions.setName(next);
+                },
               ),
               SettingsValueRow(
                 title: 'Exam',
@@ -60,7 +76,22 @@ class SettingsHomePage extends ConsumerWidget {
               SettingsValueRow(
                 title: 'Exam date',
                 value: SettingsValueFormats.examDate(settings.examDate),
-                onTap: () => _push(context, '/settings/exam-date'),
+                onTap: () async {
+                  final result = await showExamDateSheet(
+                    context: context,
+                    current: settings.examDate,
+                    today: DateTime.now(),
+                  );
+                  if (!context.mounted) return;
+                  switch (result) {
+                    case ExamDateChosen(:final date):
+                      await actions.saveExamDate(date, today: DateTime.now());
+                    case ExamDateCleared():
+                      await actions.clearExamDate();
+                    case null:
+                      break;
+                  }
+                },
               ),
             ],
           ),
@@ -71,7 +102,14 @@ class SettingsHomePage extends ConsumerWidget {
                 title: 'How sessions are built',
                 value: settings.sessionOrdering.label,
                 showChevron: true,
-                onTap: () => _push(context, '/settings/ordering'),
+                onTap: () async {
+                  final next = await showOrderingSheet(
+                    context: context,
+                    current: settings.sessionOrdering,
+                  );
+                  if (!context.mounted) return;
+                  if (next != null) await actions.setSessionOrdering(next);
+                },
               ),
               SettingsValueRow(
                 title: 'Strict mock mode',
@@ -91,7 +129,14 @@ class SettingsHomePage extends ConsumerWidget {
                               .read(notificationServiceProvider)
                               .openAppNotificationSettings(),
                         )
-                    : () => _push(context, '/settings/reminder'),
+                    : () async {
+                        final next = await showReminderSheet(
+                          context: context,
+                          current: settings.dailyReminderTime,
+                        );
+                        if (!context.mounted) return;
+                        if (next != null) await actions.saveReminderTime(next);
+                      },
               ),
             ],
           ),
