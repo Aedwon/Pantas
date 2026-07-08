@@ -13,6 +13,7 @@ class ReaderContext {
     required this.next,
     required this.positionInTopic,
     required this.lessonsInTopic,
+    required this.topicLessons,
     required this.isRead,
     required this.isBookmarked,
     required this.examId,
@@ -23,6 +24,7 @@ class ReaderContext {
   final StudyLesson? next;
   final int positionInTopic;
   final int lessonsInTopic;
+  final List<StudyLesson> topicLessons;
   final bool isRead;
   final bool isBookmarked;
   final ExamId? examId;
@@ -43,6 +45,7 @@ final readerContextProvider =
   StudyLesson? nextLesson;
   int? positionInTopic;
   int? lessonsInTopic;
+  List<StudyLesson> topicLessons = const [];
   bool isRead = false;
   bool isBookmarked = false;
 
@@ -53,6 +56,7 @@ final readerContextProvider =
         topicName = topic.name;
         positionInTopic = index + 1;
         lessonsInTopic = topic.lessons.length;
+        topicLessons = topic.lessons;
         if (index + 1 < topic.lessons.length) {
           nextLesson = topic.lessons[index + 1];
         }
@@ -74,6 +78,7 @@ final readerContextProvider =
     next: nextLesson,
     positionInTopic: positionInTopic,
     lessonsInTopic: lessonsInTopic,
+    topicLessons: topicLessons,
     isRead: isRead,
     isBookmarked: isBookmarked,
     examId: examId,
