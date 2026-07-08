@@ -63,24 +63,28 @@ class FsrsScheduler {
     required DateTime now,
   }) {
     final elapsedDays = now.difference(prev.lastReview).inSeconds / 86400.0;
-    final r = _retrievability(elapsedDays, prev.stability);
+    final double newStability;
+    if (elapsedDays < 1.0) {
+      // Same-day review formula: S * exp(w[17] * (G - 3 + w[18])) * S^(-w[19])
+      newStability = _clampStability(
+        prev.stability *
+            math.exp(weights[17] * (rating.grade - 3 + weights[18])) *
+            math.pow(prev.stability, -weights[19]).toDouble(),
+      );
+    } else {
+      final r = _retrievability(elapsedDays, prev.stability);
+      final hardPenalty = rating == Rating.hard ? weights[15] : 1.0;
+      final easyBonus = rating == Rating.easy ? weights[16] : 1.0;
+      final factor = math.exp(weights[8]) *
+          (11.0 - prev.difficulty) *
+          math.pow(prev.stability, -weights[9]) *
+          (math.exp((1.0 - r) * weights[10]) - 1.0) *
+          hardPenalty *
+          easyBonus;
+      newStability = _clampStability(prev.stability * (1.0 + factor));
+    }
 
-    final hardPenalty = rating == Rating.hard ? weights[15] : 1.0;
-    final easyBonus = rating == Rating.easy ? weights[16] : 1.0;
-
-    final factor = math.exp(weights[8]) *
-        (11 - prev.difficulty) *
-        math.pow(prev.stability, -weights[9]) *
-        (math.exp(weights[10] * (1 - r)) - 1) *
-        hardPenalty *
-        easyBonus;
-
-    final newStability = _clampStability(prev.stability * (1 + factor));
-    final newDifficulty = _clampDifficulty(
-      _meanRevertedDifficulty(
-        prev.difficulty - weights[6] * (rating.grade - 3),
-      ),
-    );
+    final newDifficulty = _nextDifficulty(prev.difficulty, rating);
     final interval = _nextInterval(newStability);
 
     return prev.copyWith(
@@ -102,20 +106,16 @@ class FsrsScheduler {
     final elapsedDays = now.difference(prev.lastReview).inSeconds / 86400.0;
     final r = _retrievability(elapsedDays, prev.stability);
 
-    final newStability = _clampStability(
-      weights[11] *
-          math.pow(prev.difficulty, -weights[12]).toDouble() *
-          (math.pow(prev.stability + 1, weights[13]).toDouble() - 1) *
-          math.exp(weights[14] * (1 - r)),
-    );
+    final lapseStability = weights[11] *
+        math.pow(prev.difficulty, -weights[12]).toDouble() *
+        (math.pow(prev.stability + 1.0, weights[13]).toDouble() - 1.0) *
+        math.exp((1.0 - r) * weights[14]);
 
-    // Again is grade=1; rating - 3 = -2 → difficulty rises by 2*w[6].
-    final newDifficulty = _clampDifficulty(
-      _meanRevertedDifficulty(
-        prev.difficulty - weights[6] * (Rating.again.grade - 3),
-      ),
-    );
+    final shortTermCap = prev.stability * math.exp(weights[17] * weights[18]);
+    final newStability =
+        _clampStability(math.min(lapseStability, shortTermCap));
 
+    final newDifficulty = _nextDifficulty(prev.difficulty, Rating.again);
     final interval = _nextInterval(newStability);
 
     return prev.copyWith(
@@ -133,21 +133,31 @@ class FsrsScheduler {
 
   // ----- helpers -----
 
-  double _initialDifficulty(Rating r) =>
-      _clampDifficulty(weights[4] - (r.grade - 3) * weights[5]);
+  double _initialDifficulty(Rating r) => _clampDifficulty(
+        weights[4] - math.exp(weights[5] * (r.grade - 1)) + 1.0,
+      );
 
-  double _retrievability(double elapsedDays, double stability) => math
-      .pow(1 + kFsrsFactor * elapsedDays / stability, kFsrsDecay)
-      .toDouble();
+  double _retrievability(double elapsedDays, double stability) {
+    final decay = fsrsDecay(weights[20]);
+    final factor = fsrsFactor(weights[20]);
+    return math.pow(1.0 + factor * elapsedDays / stability, decay).toDouble();
+  }
 
-  double _meanRevertedDifficulty(double d) =>
-      weights[7] * weights[4] + (1 - weights[7]) * d;
+  double _nextDifficulty(double d, Rating r) {
+    final delta = -(weights[6] * (r.grade - 3));
+    final dampedDelta = delta * (10.0 - d) / 9.0;
+    final updatedD = d + dampedDelta;
+    final d0Easy = _initialDifficulty(Rating.easy);
+    final meanReverted = weights[7] * d0Easy + (1.0 - weights[7]) * updatedD;
+    return _clampDifficulty(meanReverted);
+  }
 
   double _nextInterval(double stability) {
-    final raw = stability *
-        (math.pow(targetRetention, 1 / kFsrsDecay).toDouble() - 1) /
-        kFsrsFactor;
-    return raw.clamp(1 / 1440, kFsrsMaxStability);
+    final decay = fsrsDecay(weights[20]);
+    final factor = fsrsFactor(weights[20]);
+    final raw = (stability / factor) *
+        (math.pow(targetRetention, 1.0 / decay).toDouble() - 1.0);
+    return math.max(1.0, raw.roundToDouble()).clamp(1.0, kFsrsMaxStability);
   }
 
   double _clampDifficulty(double d) =>

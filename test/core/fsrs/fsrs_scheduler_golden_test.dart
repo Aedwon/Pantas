@@ -1,136 +1,146 @@
-// test/core/fsrs/fsrs_scheduler_golden_test.dart
-//
-// Golden vectors derived from FSRS-4.5 formulas using kFsrsDefaultWeights.
-// Reference: open-spaced-repetition/fsrs4anki FSRS-4.5 release.
-// Values are formula-derived; the code is the source of truth and expected
-// values were adjusted to match actual computed output.
 import 'package:cse_cet_reviewer/core/fsrs/fsrs_scheduler.dart';
 import 'package:cse_cet_reviewer/core/fsrs/rating.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/review_state.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-class _G {
-  const _G({
-    required this.label,
-    required this.stage,
-    required this.s,
-    required this.d,
-    required this.elapsedDays,
-    required this.rating,
-    required this.expectedS,
-    required this.expectedD,
-  });
-
-  final String label;
-  final ReviewStage stage;
-  final double s;
-  final double d;
-  final int elapsedDays;
-  final Rating rating;
-  final double expectedS;
-  final double expectedD;
-}
-
+// Golden vectors derived from FSRS-6 formulas using kFsrsDefaultWeights.
 void main() {
   const scheduler = FsrsScheduler();
 
-  const goldens = <_G>[
-    _G(
-      label: 'G1 newCard + Good',
-      stage: ReviewStage.newCard,
-      s: 0,
-      d: 0,
-      elapsedDays: 0,
-      rating: Rating.good,
-      expectedS: 3.1262,
-      expectedD: 7.2102,
-    ),
-    _G(
-      label: 'G2 newCard + Easy',
-      stage: ReviewStage.newCard,
-      s: 0,
-      d: 0,
-      elapsedDays: 0,
-      rating: Rating.easy,
-      expectedS: 15.4722,
-      expectedD: 6.6786,
-    ),
-    _G(
-      label: 'G3 review S=5 D=5 elapsed=5 Good',
-      stage: ReviewStage.review,
-      s: 5,
-      d: 5,
-      elapsedDays: 5,
-      rating: Rating.good,
-      expectedS: 18.462,
-      expectedD: 5.0517,
-    ),
-    _G(
-      label: 'G4 review S=12 D=3 elapsed=14 Hard',
-      stage: ReviewStage.review,
-      s: 12,
-      d: 3,
-      elapsedDays: 14,
-      rating: Rating.hard,
-      expectedS: 22.399,
-      expectedD: 4.1386,
-    ),
-    _G(
-      label: 'G5 review S=8 D=6.5 elapsed=10 Easy',
-      stage: ReviewStage.review,
-      s: 8,
-      d: 6.5,
-      elapsedDays: 10,
-      rating: Rating.easy,
-      expectedS: 62.021,
-      expectedD: 5.4762,
-    ),
-    _G(
-      label: 'G6 review S=7 D=4 elapsed=8 Again',
-      stage: ReviewStage.review,
-      s: 7,
-      d: 4,
-      elapsedDays: 8,
-      rating: Rating.again,
-      expectedS: 1.9027,
-      expectedD: 6.1563,
-    ),
-  ];
+  test('golden G1 newCard + Good', () {
+    final t0 = DateTime.utc(2026, 5, 1);
+    final seed = ReviewState.seed(questionId: 'q', questionVersion: 1, now: t0);
+    final next = scheduler.next(prev: seed, rating: Rating.good, now: t0);
 
-  for (final g in goldens) {
-    test('golden ${g.label}', () {
-      final last = DateTime.utc(2026);
-      final now = last.add(Duration(days: g.elapsedDays));
-      final prev = g.stage == ReviewStage.newCard
-          ? ReviewState.seed(
-              questionId: 'q',
-              questionVersion: 1,
-              now: last,
-            )
-          : ReviewState(
-              questionId: 'q',
-              questionVersion: 1,
-              stage: g.stage,
-              stability: g.s,
-              difficulty: g.d,
-              due: now,
-              lastReview: last,
-              reps: 1,
-              lapses: 0,
-              elapsedDays: 0,
-              scheduledDays: g.s,
-            );
-      final next = scheduler.next(prev: prev, rating: g.rating, now: now);
-      expect(
-        next.stability,
-        closeTo(g.expectedS, 1e-3),
-        reason: '${g.label} stability',
-      );
-      expect(
-        next.difficulty,
-        closeTo(g.expectedD, 1e-3),
-        reason: '${g.label} difficulty',
-      );
-    });
-  }
+    expect(next.stage, equals(ReviewStage.review));
+    expect(next.stability, closeTo(2.3065, 1e-3));
+    expect(next.difficulty, closeTo(2.1181, 1e-3));
+    expect(next.reps, equals(1));
+    expect(next.lapses, equals(0));
+  });
+
+  test('golden G2 newCard + Easy', () {
+    final t0 = DateTime.utc(2026, 5, 1);
+    final seed = ReviewState.seed(questionId: 'q', questionVersion: 1, now: t0);
+    final next = scheduler.next(prev: seed, rating: Rating.easy, now: t0);
+
+    expect(next.stage, equals(ReviewStage.review));
+    expect(next.stability, closeTo(8.2956, 1e-3));
+    expect(next.difficulty, closeTo(1.0, 1e-3));
+  });
+
+  test('golden G3 review S=5 D=5 elapsed=5 Good', () {
+    final t0 = DateTime.utc(2026, 5, 1);
+    final t1 = DateTime.utc(2026, 5, 6);
+    final prev = ReviewState(
+      questionId: 'q',
+      questionVersion: 1,
+      stage: ReviewStage.review,
+      stability: 5.0,
+      difficulty: 5.0,
+      due: t1,
+      lastReview: t0,
+      reps: 2,
+      lapses: 0,
+      elapsedDays: 5.0,
+      scheduledDays: 5.0,
+    );
+    final next = scheduler.next(prev: prev, rating: Rating.good, now: t1);
+
+    expect(next.stability, closeTo(17.358, 1e-2));
+    expect(next.difficulty, closeTo(4.996, 1e-2));
+    expect(next.reps, equals(3));
+  });
+
+  test('golden G4 review S=12 D=3 elapsed=14 Hard', () {
+    final t0 = DateTime.utc(2026, 5, 1);
+    final t1 = DateTime.utc(2026, 5, 15);
+    final prev = ReviewState(
+      questionId: 'q',
+      questionVersion: 1,
+      stage: ReviewStage.review,
+      stability: 12.0,
+      difficulty: 3.0,
+      due: DateTime.utc(2026, 5, 13),
+      lastReview: t0,
+      reps: 4,
+      lapses: 0,
+      elapsedDays: 14.0,
+      scheduledDays: 12.0,
+    );
+    final next = scheduler.next(prev: prev, rating: Rating.hard, now: t1);
+
+    expect(next.stability, closeTo(34.914, 1e-2));
+    expect(next.difficulty, closeTo(5.344, 1e-2));
+    expect(next.reps, equals(5));
+  });
+
+  test('golden G5 review S=8 D=6.5 elapsed=10 Easy', () {
+    final t0 = DateTime.utc(2026, 5, 1);
+    final t1 = DateTime.utc(2026, 5, 11);
+    final prev = ReviewState(
+      questionId: 'q',
+      questionVersion: 1,
+      stage: ReviewStage.review,
+      stability: 8.0,
+      difficulty: 6.5,
+      due: DateTime.utc(2026, 5, 9),
+      lastReview: t0,
+      reps: 3,
+      lapses: 0,
+      elapsedDays: 10.0,
+      scheduledDays: 8.0,
+    );
+    final next = scheduler.next(prev: prev, rating: Rating.easy, now: t1);
+
+    expect(next.stability, closeTo(38.006, 1e-2));
+    expect(next.difficulty, closeTo(5.322, 1e-2));
+  });
+
+  test('golden G6 review S=7 D=4 elapsed=8 Again', () {
+    final t0 = DateTime.utc(2026, 5, 1);
+    final t1 = DateTime.utc(2026, 5, 9);
+    final prev = ReviewState(
+      questionId: 'q',
+      questionVersion: 1,
+      stage: ReviewStage.review,
+      stability: 7.0,
+      difficulty: 4.0,
+      due: DateTime.utc(2026, 5, 8),
+      lastReview: t0,
+      reps: 3,
+      lapses: 0,
+      elapsedDays: 8.0,
+      scheduledDays: 7.0,
+    );
+    final next = scheduler.next(prev: prev, rating: Rating.again, now: t1);
+
+    expect(next.stage, equals(ReviewStage.relearning));
+    expect(next.stability, closeTo(1.190, 1e-2));
+    expect(next.difficulty, closeTo(8.019, 1e-2));
+    expect(next.lapses, equals(1));
+  });
+
+  test('golden G7 same-day review S=5 D=5 elapsed=0.1 Good', () {
+    final t0 = DateTime.utc(2026, 5, 1, 10);
+    final t1 = DateTime.utc(2026, 5, 1, 12, 24); // 2.4 hours = 0.1 days
+    final prev = ReviewState(
+      questionId: 'q',
+      questionVersion: 1,
+      stage: ReviewStage.review,
+      stability: 5.0,
+      difficulty: 5.0,
+      due: DateTime.utc(2026, 5, 6),
+      lastReview: t0,
+      reps: 2,
+      lapses: 0,
+      elapsedDays: 0.1,
+      scheduledDays: 5.0,
+    );
+    final next = scheduler.next(prev: prev, rating: Rating.good, now: t1);
+
+    expect(next.stage, equals(ReviewStage.review));
+    expect(next.stability, closeTo(4.7255, 1e-2));
+    expect(next.reps, equals(3));
+  });
 }
