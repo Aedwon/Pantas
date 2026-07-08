@@ -127,9 +127,16 @@ against and no upstream fix. **Section 8 is how we make that survivable.**
 
 ### When
 
-- **Never before the log holds enough to mean anything.** Modern Anki removed its hard minimum
-  but the guidance is unchanged: below a few hundred reviews the fit is worse than the
-  defaults. **The threshold is a named constant, not a magic number in a branch.**
+- **At 200 reviews**, as a named constant, not a magic number in a branch.
+
+  **FSRS imposes no minimum. The number is ours.** Anki went from 1000 to 400 to no hard limit,
+  fitting fewer parameters when there is less data.
+
+  **200 rather than the conventional 400, and the reason is the exam date.** At roughly 15
+  questions a session, 400 reviews is about a month of daily use. For a student sitting in
+  eight weeks, a threshold that trips in week five has nearly no time left to help. A general
+  flashcard app can wait because it has no deadline; every user of this one has a date in their
+  head. **The held-out guard below is what makes reaching earlier safe.**
 - **Not during a session.** It runs when the app is idle and charging, or on explicit request
   from Settings.
 - **At most once a week.** Parameters that move every day produce a schedule that feels
@@ -145,9 +152,21 @@ existing due dates were a promise; the new parameters change the promise made fr
 
 ### If the fit is worse than the defaults
 
-**Keep the defaults.** The optimizer reports its loss against the default parameters on the
-same data, and **a fit that does not beat them is discarded.** This is the guard that makes
+**Keep the defaults.** A fit that does not beat them is discarded. This is the guard that makes
 owning the code survivable: the failure mode is falling back to where we already are.
+
+**The comparison is on reviews the fit has never seen.** Split the log by time: fit on the
+earlier reviews, score both parameter sets on the later ones, keep the fitted set only if it
+scores better there.
+
+**Corrected 9 August, and the first version of this section was wrong.** It said to compare
+both sets on the same data the fit used. **That guard is close to worthless:** 21 parameters
+fitted to a dataset will nearly always score better on that same dataset, because that is what
+fitting means. It would have waved through exactly the overfitted parameters it exists to
+catch, and it would have done so most often for the students with the least data.
+
+**This is what makes a low threshold safe.** With a held-out comparison, fitting too early
+costs a little computation and nothing else. Without it, fitting early is actively harmful.
 
 ---
 
@@ -190,8 +209,33 @@ counterfactual we will never have. **So the tests prove the fitting, not the out
   data or is discarded.
 - **A degenerate history produces the defaults, not a crash and not nonsense**: all-correct,
   all-wrong, one card, ten reviews.
+- **The held-out guard actually rejects an overfit.** Feed a small, noisy history and assert
+  the fitted set loses on the later reviews and is discarded. **A guard nobody has watched fail
+  is not a guard**, and this one was wrong once already.
 - **Parameters stay inside FSRS's own bounds.** Difficulty in 1 to 10, stability positive and
   under the ceiling, decay inside its published range.
+
+---
+
+## Section 9b: Who this actually serves, and who it never will
+
+**The optimizer cannot reach a student who is cramming.** Two weeks is not enough to fit
+anything before the exam, at 200 reviews or any other threshold. **They run on the defaults
+from first launch to exam day, and no tuning changes that.**
+
+**FSRS-6's same-day review formula is exactly their case.** Answering the same card twice in
+one day is what cramming is, and FSRS-4.5 has no model for it. **So the version upgrade is
+worth most to precisely the students this spec can never help.**
+
+**The two pieces of work serve different people:** the upgrade serves the short runway, the
+optimizer serves the long one.
+
+**Which matters more is a question about our users that we cannot answer yet.** If most arrive
+with three weeks left, the optimizer is a smaller selling point than its billing suggests and
+the same-day fix is a much larger one. If most arrive with three months, the reverse. **Until
+the answer is measured rather than assumed, neither claim outranks the other, and the
+optimizer's status as a headline feature must not quietly demote the thing that helps a
+short-runway student today.**
 
 ---
 
@@ -208,8 +252,14 @@ counterfactual we will never have. **So the tests prove the fitting, not the out
 
 ## Open, for Aedwon
 
-- **The minimum review count before we stop using the defaults.** The literature says a few
-  hundred. This is a product decision as much as a statistical one: it is how long a new
-  student waits before the app is fitted to them.
-- **Does the Settings line ship in v1**, or does the optimizer run invisibly with no surface
-  at all until there is something worth showing?
+**Both settled 9 August.**
+
+- **The threshold is 200**, reasoned in Section 6 and made safe by the held-out guard.
+- **The Settings line ships in v1.** It is the only evidence the personalization is real, it
+  gives support something to ask about, and **it carries the revert control**. That last is what
+  decided it: we own this optimizer alone, so without a way for a student to fall back to the
+  defaults themselves, a bad fit in the field needs an app update to undo.
+
+**Still open, and it is a question about users rather than about code:** what share of students
+arrive with weeks rather than months. Section 9b says why the answer moves which of these two
+pieces of work we would actually talk about.

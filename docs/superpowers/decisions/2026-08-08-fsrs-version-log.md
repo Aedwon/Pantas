@@ -174,3 +174,61 @@ the honest response was to go looking rather than to reassure.
 **So: not a pattern of things quietly missing.** One real gap, one large known one filed where
 nobody looks, and some honest scaffolding. **The Firebase item should be moved into the
 pipeline**, because a thing everyone knows and nobody reads is only half tracked.
+
+---
+
+## 9 August, later: the threshold, the guard I got wrong, and who FSRS cannot help
+
+### The threshold: 200, not the conventional 400
+
+**FSRS-6 imposes no minimum.** The number is a property of the fitting procedure, not the
+algorithm, so it is entirely ours. Anki went 1000, then 400, then dropped the hard limit
+altogether and instead fits fewer parameters when there is less data.
+
+**200 was chosen because this app has a deadline and a flashcard app does not.** At roughly 15
+questions a session, 400 reviews is a month of daily use. A student sitting in eight weeks
+would be fitted in week five, with almost no time left to benefit.
+
+### The guard in my own spec was wrong, and it would have failed silently
+
+**As first written, Section 6 said a fit is kept only if it beats the defaults on the same
+data.** That is close to worthless. **21 parameters fitted to a dataset will nearly always
+score better on that same dataset, because that is what fitting means.** The guard would have
+waved through exactly the overfitted parameters it existed to catch, and **it would have done
+so most often for the students with the least data**, which is precisely who a lowered
+threshold exposes.
+
+**Corrected to a held-out comparison:** fit on the earlier reviews, score both sets on the
+later ones. **This is what makes 200 safe rather than reckless**, and the two decisions are
+therefore one decision: the lower threshold is only defensible because the guard was fixed.
+
+**Section 9 now carries a test that watches the guard reject an overfit.** A guard nobody has
+seen fail is not a guard, and this one was wrong once already.
+
+### What he noticed, which was sharper than the threshold question
+
+> **"wait this means the fsrs algorithm won't really work on someone cramming right? well, not
+> that it would matter since they're cramming anyway"**
+
+**Right about the optimizer.** Two weeks does not reach a meaningful fit at any threshold. A
+crammer runs on the defaults from first launch to exam day.
+
+**But it inverts into something useful.** FSRS-6's same-day review formula is exactly the
+crammer's case: answering the same card twice in a day is what cramming is, and 4.5 has no
+model for it. **The version upgrade is worth most to the students the optimizer can never
+reach.** The two pieces of work serve different people.
+
+**Where I pushed back:** "not that it would matter since they're cramming anyway" is worth
+measuring rather than assuming. **If most students arrive with three weeks, the optimizer is a
+smaller selling point than its billing and the same-day fix is a much larger one**, and that
+changes which we would put in a store listing. Recorded as Section 9b of the spec, open until
+there are real users to measure.
+
+### Settled
+
+- **Threshold 200**, with the held-out guard.
+- **The Settings line ships in v1.** Not for the state or the date, but because **it carries the
+  revert control**: we own this optimizer alone, and without a student-facing way back to the
+  defaults, a bad fit in the field needs an app update to undo.
+
+Aedwon: **"okay proceed with that"**.
