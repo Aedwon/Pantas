@@ -136,7 +136,6 @@ void main() {
     const ReviewEntry(
       number: 5,
       question: q5,
-      chosenChoiceId: null,
       isFlagged: false,
       subjectName: 'Science',
       label: 'Q5 Blank',
@@ -259,7 +258,6 @@ void main() {
         entries: sampleEntries,
         proIsActive: false,
         grouped: false,
-        initialFilter: ReviewFilter.wrong,
         onToggleFlag: (_) {},
       ),
     );
@@ -278,7 +276,6 @@ void main() {
         entries: sampleEntries,
         proIsActive: true,
         grouped: false,
-        initialFilter: ReviewFilter.wrong,
         onToggleFlag: (_) {},
       ),
     );
@@ -298,7 +295,7 @@ void main() {
         proIsActive: false,
         grouped: false,
         initialFilter: ReviewFilter.all,
-        onToggleFlag: (id) => toggled.add(id),
+        onToggleFlag: toggled.add,
       ),
     );
 

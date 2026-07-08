@@ -289,6 +289,34 @@ class QuizController extends StateNotifier<QuizControllerState> {
     }
   }
 
+  Future<void> startPracticeFromQuestionIds({
+    required ExamId examId,
+    required List<QuestionId> questionIds,
+  }) async {
+    state = const QuizLoading();
+    try {
+      final now = _ref.read(nowProvider)();
+      final result = await _ref.read(startPracticeProvider).fromQuestionIds(
+            userId: _localUserId,
+            examId: examId,
+            questionIds: questionIds,
+            now: now,
+          );
+      switch (result) {
+        case StartPracticeStarted(:final session):
+          state = QuizRunning(
+            session: session,
+            questionShownAt: now,
+            persisted: true,
+          );
+        case StartPracticeNoQuestions(:final message):
+          state = QuizFailure(message);
+      }
+    } catch (e) {
+      state = QuizFailure(e.toString());
+    }
+  }
+
   Future<void> startDrill({
     required ExamId examId,
     required TopicId topicId,

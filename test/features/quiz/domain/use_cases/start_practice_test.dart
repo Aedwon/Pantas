@@ -175,4 +175,33 @@ void main() {
     expect(session.questions, hasLength(1));
     expect(session.questions.single.id, 'q_l1_1');
   });
+
+  test('fromQuestionIds creates session with exact question list', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await seedTopicWithQuestions(
+      db,
+      examId: 'exam_cse_pro',
+      topicId: 'topic_1',
+      topicName: 'Topic 1',
+      questionIds: ['q_1', 'q_2', 'q_3'],
+    );
+
+    final startPractice = StartPractice(
+      content: ContentRepository(db),
+      sessions: QuizSessionRepository(db),
+      attempts: AttemptsRepository(db),
+    );
+
+    final result = await startPractice.fromQuestionIds(
+      userId: 'user_1',
+      examId: 'exam_cse_pro',
+      questionIds: const ['q_1', 'q_3'],
+      now: DateTime.utc(2026, 8),
+    );
+
+    expect(result, isA<StartPracticeStarted>());
+    final session = (result as StartPracticeStarted).session;
+    expect(session.questions.map((q) => q.id), equals(['q_1', 'q_3']));
+  });
 }

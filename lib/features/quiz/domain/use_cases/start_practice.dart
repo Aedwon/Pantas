@@ -118,6 +118,51 @@ class StartPractice {
     return StartPracticeStarted(session);
   }
 
+  Future<StartPracticeResult> fromQuestionIds({
+    required String userId,
+    required ExamId examId,
+    required List<QuestionId> questionIds,
+    required DateTime now,
+  }) async {
+    if (questionIds.isEmpty) {
+      return const StartPracticeNoQuestions(
+        'Flag anything you want to come back to',
+      );
+    }
+
+    final picked = <Question>[];
+    for (final id in questionIds) {
+      final q = await _content.questionById(id);
+      if (q != null) picked.add(q);
+    }
+
+    if (picked.isEmpty) {
+      return const StartPracticeNoQuestions(
+        'There are no questions in what you picked.',
+      );
+    }
+
+    final session = QuizSession.start(
+      sessionId: _uuid.v4(),
+      examId: examId,
+      questions: picked,
+      startedAt: now,
+      origin: SessionOrigin.drill,
+    );
+
+    await _sessions.create(
+      sessionId: session.sessionId,
+      userId: userId,
+      examId: examId,
+      origin: SessionOrigin.drill,
+      topicId: session.topicId,
+      questionIds: picked.map((question) => question.id).toList(),
+      startedAt: now,
+    );
+
+    return StartPracticeStarted(session);
+  }
+
   Future<List<Question>> _poolFor(PracticeUnit unit) async {
     final questions = await _content.questionsByTopic(unit.topicId);
     final lessonId = unit.lessonId;

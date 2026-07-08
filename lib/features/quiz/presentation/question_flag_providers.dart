@@ -1,5 +1,6 @@
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/features/quiz/presentation/review_providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// What just happened, so the caller knows which toast to raise.
@@ -25,12 +26,16 @@ class QuestionFlagController extends Notifier<void> {
 
     if (wasFlagged) {
       await repo.unflag(questionId);
-      ref.invalidate(flaggedIdsProvider);
+      ref
+        ..invalidate(flaggedIdsProvider)
+        ..invalidate(flaggedReviewProvider);
       return FlagToggle.unflagged;
     }
 
     await repo.flag(questionId);
-    ref.invalidate(flaggedIdsProvider);
+    ref
+      ..invalidate(flaggedIdsProvider)
+      ..invalidate(flaggedReviewProvider);
 
     final announced = await prefs.hasAnnouncedFirstFlag();
     if (announced) return FlagToggle.flagged;

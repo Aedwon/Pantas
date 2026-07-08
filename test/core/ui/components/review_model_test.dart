@@ -63,7 +63,6 @@ void main() {
     const ReviewEntry(
       number: 5,
       question: dummyQuestion,
-      chosenChoiceId: null,
       isFlagged: false,
       subjectName: 'Mathematics',
       label: 'Q5',

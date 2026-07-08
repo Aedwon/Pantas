@@ -19,6 +19,7 @@ import 'package:cse_cet_reviewer/features/onboarding/onboarding.dart';
 import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/progress_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/pages/debrief_page.dart';
+import 'package:cse_cet_reviewer/features/quiz/presentation/pages/flagged_list_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/pages/practice_picker_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_results_page.dart';
@@ -208,6 +209,18 @@ List<RouteBase> buildAppRoutes(Ref ref) {
           DebriefPage(attemptId: state.pathParameters['attemptId']!),
     ),
     GoRoute(
+      path: '/quiz/flagged/:examId',
+      builder: (_, state) {
+        final examId = state.pathParameters['examId']!;
+        final proIsActive =
+            ref.watch(entitlementProvider).valueOrNull?.proIsActive ?? false;
+        return FlaggedListPage(
+          examId: examId,
+          proIsActive: proIsActive,
+        );
+      },
+    ),
+    GoRoute(
       path: '/quiz/results/:attemptId',
       builder: (_, state) =>
           QuizResultsPage(attemptId: state.pathParameters['attemptId']!),
@@ -240,7 +253,7 @@ List<RouteBase> buildAppRoutes(Ref ref) {
       builder: (_, state) {
         final attemptId = state.uri.queryParameters['attemptId'] ?? '';
         final proIsActive =
-            ref.watch(entitlementProvider).valueOrNull?.isPro ?? false;
+            ref.watch(entitlementProvider).valueOrNull?.proIsActive ?? false;
         return QuizResultsPage(
           attemptId: attemptId,
           proIsActive: proIsActive,

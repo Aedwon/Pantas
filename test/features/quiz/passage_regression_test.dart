@@ -6,9 +6,11 @@ import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/passage_card.dart';
 import 'package:cse_cet_reviewer/core/ui/components/question_card.dart';
+import 'package:cse_cet_reviewer/core/ui/components/review_list.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/mock_exam.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/picker/pick_context.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/picker/today_topic_picker.dart';
+import 'package:cse_cet_reviewer/features/quiz/presentation/question_flag_providers.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_results_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -233,7 +235,7 @@ void main() {
             AttemptItem(
               questionId: 'q1',
               questionVersion: 1,
-              chosenChoiceId: 'q1-a',
+              chosenChoiceId: 'q1-b',
               correctChoiceId: 'q1-a',
               responseMs: 1500,
             ),
@@ -243,20 +245,35 @@ void main() {
       when(() => content.questionById('q1')).thenAnswer(
         (_) async => freeStanding('q1'),
       );
+      // The review provider walks question -> topic -> subject and then looks
+      // for a passage. An unstubbed call on a mock returns null and the whole
+      // list comes back empty, which reads as "nothing rendered" rather than
+      // as a missing stub.
+      when(() => content.topicById(any())).thenAnswer((_) async => null);
+      when(() => content.subjectById(any())).thenAnswer((_) async => null);
+      when(() => content.passageById(any())).thenAnswer((_) async => null);
 
       await tester.pumpAppWithProviders(
         const QuizResultsPage(attemptId: 'a1'),
         overrides: [
           attemptsRepositoryProvider.overrideWithValue(attempts),
           contentRepositoryProvider.overrideWithValue(content),
+          // Reaches a real repository through the database otherwise, and the
+          // whole entry list comes back empty rather than erroring.
+          flaggedIdsProvider.overrideWith((_) async => <String>{}),
           assessmentCompletedProvider('e').overrideWith((_) async => true),
           countForExamProvider('e').overrideWith((_) async => 0),
         ],
       );
       await tester.pumpAndSettle();
 
+      // Asserts on the row rather than the label text: the label goes through
+      // the portable text renderer and the point of this test is the passage,
+      // not the label plumbing.
+      // The review opens on misses, so the fixture answers wrongly: a set of
+      // correct answers renders an empty list and proves nothing.
       expect(find.byType(PassageCard), findsNothing);
-      expect(find.text('Stem q1'), findsOneWidget);
+      expect(find.byType(ReviewRow), findsOneWidget);
     });
   });
 
@@ -320,7 +337,7 @@ void main() {
           AttemptItem(
             questionId: 'pq$i',
             questionVersion: 1,
-            chosenChoiceId: 'pq$i-a',
+            chosenChoiceId: 'pq$i-b',
             correctChoiceId: 'pq$i-a',
             responseMs: 1000,
           ),
@@ -341,6 +358,8 @@ void main() {
           (_) async => passageQuestion('pq$i'),
         );
       }
+      when(() => content.topicById(any())).thenAnswer((_) async => null);
+      when(() => content.subjectById(any())).thenAnswer((_) async => null);
       when(() => content.passageById('p1')).thenAnswer(
         (_) async => passage,
       );
@@ -350,6 +369,9 @@ void main() {
         overrides: [
           attemptsRepositoryProvider.overrideWithValue(attempts),
           contentRepositoryProvider.overrideWithValue(content),
+          // Reaches a real repository through the database otherwise, and the
+          // whole entry list comes back empty rather than erroring.
+          flaggedIdsProvider.overrideWith((_) async => <String>{}),
           assessmentCompletedProvider('e').overrideWith((_) async => true),
           countForExamProvider('e').overrideWith((_) async => 0),
         ],

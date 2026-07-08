@@ -171,7 +171,7 @@ void main() {
     );
   });
 
-  testWidgets('the flagged row does not open anything yet', (tester) async {
+  testWidgets('the flagged row opens the flagged list', (tester) async {
     await tester.pumpAppWithProviders(
       const QuizTabHome(),
       overrides: [
@@ -192,6 +192,8 @@ void main() {
     final row = tester.widget<InkTableRow>(
       find.widgetWithText(InkTableRow, 'Questions you flagged'),
     );
-    expect(row.onTap, isNull);
+    // The flagged list exists now. This row was deliberately dead until it
+    // did, because a chevron onto nothing is worse than no chevron.
+    expect(row.onTap, isNotNull);
   });
 }

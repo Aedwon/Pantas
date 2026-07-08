@@ -191,8 +191,15 @@ class _FlaggedSection extends ConsumerWidget {
               : '${summary.count} kept, across ${summary.topicCount} '
                   '${summary.topicCount == 1 ? 'topic' : 'topics'}',
           bottomRule: false,
-          // The flagged list is its own screen and has not been built. An
-          // untappable row is honest; a chevron onto nothing is not.
+          onTap: summary.count == 0
+              ? null
+              : () {
+                  final focus = ref.read(activeExamFocusProvider).valueOrNull;
+                  final exam = focus?.exam;
+                  if (exam != null) {
+                    context.push('/quiz/flagged/${exam.id}');
+                  }
+                },
         ),
       ],
     );

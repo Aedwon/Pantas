@@ -1,8 +1,8 @@
-import 'dart:ui';
-import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/passage.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/core/ui/components/answer_reveal.dart';
+import 'package:cse_cet_reviewer/core/ui/components/passage_card.dart';
 import 'package:cse_cet_reviewer/core/ui/components/pennant_mark.dart';
 import 'package:cse_cet_reviewer/core/ui/components/portable_text_renderer.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
@@ -21,6 +21,7 @@ class ReviewEntry {
     required this.label,
     required this.labelIsStem,
     this.chosenChoiceId,
+    this.passage,
   });
 
   final int number;
@@ -37,6 +38,12 @@ class ReviewEntry {
   /// reached this question.
   final String label;
   final bool labelIsStem;
+
+  /// The passage this question belongs to, or null for a free-standing one.
+  ///
+  /// The list prints it once above the run of questions that share it, never
+  /// once per question: spec Section 5.
+  final Passage? passage;
 
   bool get isAnswered => chosenChoiceId != null;
 
@@ -177,12 +184,21 @@ class _ReviewListState extends State<ReviewList> {
             ),
             Container(height: AppDimensions.hairline, color: colors.rule),
           ],
-          for (final entry in entriesInGroup) ...[
+          for (var i = 0; i < entriesInGroup.length; i++) ...[
+            // A passage prints once above the run of questions that share it.
+            // The run is consecutive because a passage set is indivisible and
+            // the picker keeps it together: if that ever stops being true,
+            // this prints the passage more than once rather than failing.
+            if (entriesInGroup[i].passage != null &&
+                (i == 0 ||
+                    entriesInGroup[i - 1].passage?.id !=
+                        entriesInGroup[i].passage!.id))
+              PassageCard(passage: entriesInGroup[i].passage!),
             ReviewRow(
-              entry: entry,
-              isExpanded: _expandedNumbers.contains(entry.number),
+              entry: entriesInGroup[i],
+              isExpanded: _expandedNumbers.contains(entriesInGroup[i].number),
               proIsActive: widget.proIsActive,
-              onToggleExpanded: () => _toggleExpanded(entry.number),
+              onToggleExpanded: () => _toggleExpanded(entriesInGroup[i].number),
               onToggleFlag: widget.onToggleFlag,
             ),
             Container(height: AppDimensions.hairline, color: colors.ruleFaint),
@@ -355,9 +371,6 @@ class ReviewRow extends StatelessWidget {
                 question: entry.question,
                 chosenChoiceId: entry.chosenChoiceId ?? '',
                 proIsActive: proIsActive,
-                // Nothing was just scheduled here, so there is no interval to
-                // state and no verdict to deliver: the marks already said it.
-                nextReviewIntervalDays: null,
               ),
             ),
         ],
