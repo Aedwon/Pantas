@@ -20,7 +20,11 @@ void main() {
       Choice(id: 'c_a', label: 'A', text: 'the wrong one', isCorrect: false),
       Choice(id: 'c_b', label: 'B', text: 'the right one', isCorrect: true),
       Choice(
-          id: 'c_c', label: 'C', text: 'another wrong one', isCorrect: false),
+        id: 'c_c',
+        label: 'C',
+        text: 'another wrong one',
+        isCorrect: false,
+      ),
     ],
     explanation: 'Newton second law.',
   );
@@ -30,7 +34,6 @@ void main() {
       QuestionCard(
         question: sampleQuestion,
         onAnswer: (_) {},
-        revealed: false,
       ),
     );
 

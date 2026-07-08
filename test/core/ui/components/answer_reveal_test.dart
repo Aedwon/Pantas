@@ -143,7 +143,6 @@ void main() {
           label: 'A',
           text: 'Option A',
           isCorrect: false,
-          rationale: null,
         ),
         Choice(
           id: 'c_b',

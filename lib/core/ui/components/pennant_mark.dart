@@ -120,20 +120,22 @@ class _PennantPainter extends CustomPainter {
       ..color = color;
 
     if (fillProgress > 0) {
-      canvas.save();
-      canvas.clipRect(
-        Rect.fromLTWH(0, 0, size.width * fillProgress, size.height),
-      );
-      canvas.drawPath(
-        _pennantPath(scale),
-        Paint()
-          ..style = PaintingStyle.fill
-          ..color = color,
-      );
-      canvas.restore();
+      canvas
+        ..save()
+        ..clipRect(
+          Rect.fromLTWH(0, 0, size.width * fillProgress, size.height),
+        )
+        ..drawPath(
+          _pennantPath(scale),
+          Paint()
+            ..style = PaintingStyle.fill
+            ..color = color,
+        )
+        ..restore();
     }
-    canvas.drawPath(_staffPath(scale), stroke);
-    canvas.drawPath(_pennantPath(scale), stroke);
+    canvas
+      ..drawPath(_staffPath(scale), stroke)
+      ..drawPath(_pennantPath(scale), stroke);
   }
 
   @override

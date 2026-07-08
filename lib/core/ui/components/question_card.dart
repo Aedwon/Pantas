@@ -41,8 +41,8 @@ class QuestionCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         if (passage != null) ...[
-          if (passage!.title != null && passage!.title!.isNotEmpty) ...[
-            Text(passage!.title!, style: textStyles.headlineSmall),
+          if (passage!.title.isNotEmpty) ...[
+            Text(passage!.title, style: textStyles.headlineSmall),
             const SizedBox(height: 8),
           ],
           Text(

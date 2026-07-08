@@ -9,8 +9,10 @@ class PortableTextRenderer extends StatelessWidget {
     this.blocks,
     this.text,
     super.key,
-  }) : assert(blocks != null || text != null,
-            'Either blocks or text must be provided');
+  }) : assert(
+          blocks != null || text != null,
+          'Either blocks or text must be provided',
+        );
 
   final List<Map<String, dynamic>>? blocks;
   final String? text;

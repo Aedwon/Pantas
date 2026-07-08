@@ -2,7 +2,6 @@ import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/core/ui/components/pennant_mark.dart';
 import 'package:cse_cet_reviewer/core/ui/components/progress_rule.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_controller.dart';
@@ -151,7 +150,7 @@ void main() {
 }
 
 class _FakeQuizController extends QuizController {
-  _FakeQuizController(Ref ref, this._initialState) : super(ref);
+  _FakeQuizController(super.ref, this._initialState);
 
   final QuizControllerState _initialState;
 

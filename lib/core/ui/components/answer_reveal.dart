@@ -2,7 +2,6 @@ import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/core/ui/components/portable_text_renderer.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -41,7 +40,6 @@ class AnswerReveal extends StatelessWidget {
               border: Border(
                 top: BorderSide(
                   color: colors.rule,
-                  width: AppDimensions.hairline,
                 ),
               ),
             ),
@@ -124,7 +122,6 @@ class _MarginalNote extends StatelessWidget {
         border: Border(
           top: BorderSide(
             color: colors.ruleFaint,
-            width: AppDimensions.hairline,
           ),
         ),
       ),

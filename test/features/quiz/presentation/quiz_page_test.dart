@@ -100,7 +100,7 @@ void main() {
 
     expect(find.text('Stem One'), findsOneWidget);
     expect(find.text('AlphaText'), findsOneWidget);
-    expect(find.text('Question 1 of 1'), findsOneWidget);
+    expect(find.text('1 of 1'), findsOneWidget);
   });
 
   testWidgets('passes topicId to quick quiz start when provided',
@@ -177,8 +177,10 @@ void main() {
     await tester.tap(find.byTooltip('Quit session'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Quit session?'), findsOneWidget);
-    expect(find.text('Your progress is saved.'), findsOneWidget);
+    // Leaving no longer quits: the session stays open so the tab can offer
+    // to resume it, and the copy says so.
+    expect(find.text('Leave this session?'), findsOneWidget);
+    expect(find.textContaining('already saved'), findsOneWidget);
   });
 
   testWidgets('submitting an answer shows the FSRS feedback toast',

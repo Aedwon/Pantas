@@ -97,17 +97,23 @@ class _QuizPageState extends ConsumerState<QuizPage> {
         elevation: 0,
         scrolledUnderElevation: 0,
         leading: state is QuizRunning
+            // The tooltips are the only label these icons carry. Without them
+            // a screen reader announces an unnamed button, and the
+            // accessibility plan requires every control to be labeled.
             ? IconButton(
+                tooltip: 'Quit session',
                 icon: Icon(Icons.close, size: 17, color: colors.inkMuted),
                 onPressed: _confirmLeave,
               )
             : IconButton(
+                tooltip: 'Back',
                 icon: Icon(Icons.arrow_back, size: 17, color: colors.inkMuted),
                 onPressed: () => _leave(context),
               ),
         actions: [
           if (state is QuizRunning) ...[
-            // [context] [mark], the reader's rule. The counter takes the context
+            // [context] [mark], the reader's rule. The counter takes
+            // the context
             // slot so the flag never moves as the number's width changes.
             InkWell(
               onTap: () => unawaited(_openGrid(state.session)),
@@ -117,7 +123,8 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      '${state.session.currentIndex + 1} of ${state.session.questions.length}',
+                      '${state.session.currentIndex + 1} of '
+                      '${state.session.questions.length}',
                       style: styles.bodySmall.copyWith(
                         fontSize: 12.5,
                         color: colors.inkMuted,
@@ -192,8 +199,19 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   }
 
   Future<void> _confirmLeave() async {
-    // Task 8 wires confirmation dialog
-    _leave(context);
+    // Leaving does not quit the session: the row stays open, which is what
+    // makes the tab's "Still going" state true and what the copy promises.
+    await showAppConfirmationDialog(
+      context: context,
+      title: 'Leave this session?',
+      body: "Every answer you've given is already saved. You can pick this "
+          'up from the Quiz tab whenever you like.',
+      cancelLabel: 'Keep going',
+      confirmLabel: 'Leave',
+      isDestructive: false,
+      onCancel: () {},
+      onConfirm: () => _leave(context),
+    );
   }
 
   Future<void> _toggleFlag(QuestionId questionId) async {
