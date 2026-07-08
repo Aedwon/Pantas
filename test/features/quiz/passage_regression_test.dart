@@ -2,7 +2,6 @@ import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dar
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/passage.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/passage_card.dart';

@@ -5,8 +5,6 @@ import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/core/ui/components/answer_row.dart';
 import 'package:cse_cet_reviewer/core/ui/components/passage_card.dart';
 import 'package:cse_cet_reviewer/core/ui/components/portable_text_renderer.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class QuestionCard extends StatelessWidget {
@@ -35,9 +33,6 @@ class QuestionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
-    final textStyles = context.textStyles;
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [

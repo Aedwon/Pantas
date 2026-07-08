@@ -242,10 +242,12 @@ class _ResultsBodyState extends ConsumerState<_ResultsBody> {
                     groups.last.items
                         .add((item: ri.item, question: ri.question));
                   } else {
-                    groups.add((
-                      passage: passage,
-                      items: [(item: ri.item, question: ri.question)]
-                    ));
+                    groups.add(
+                      (
+                        passage: passage,
+                        items: [(item: ri.item, question: ri.question)]
+                      ),
+                    );
                   }
                 }
 
@@ -263,8 +265,7 @@ class _ResultsBodyState extends ConsumerState<_ResultsBody> {
                           state: entry.item.isCorrect
                               ? InkRowState.done
                               : InkRowState.plain,
-                          meta:
-                              '${(entry.item.responseMs / 1000).toStringAsFixed(1)}s',
+                          meta: _seconds(entry.item.responseMs),
                         ),
                     ],
                   ],
@@ -277,3 +278,5 @@ class _ResultsBodyState extends ConsumerState<_ResultsBody> {
     );
   }
 }
+
+String _seconds(int responseMs) => '${(responseMs / 1000).toStringAsFixed(1)}s';
