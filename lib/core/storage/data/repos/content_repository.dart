@@ -129,6 +129,32 @@ class ContentRepository {
     return row == null ? null : _hydrateLesson(row);
   }
 
+  /// Narrows the corpus to rows whose title, summary or serialised body
+  /// contains [query]. **This can only narrow**: the body column is Portable
+  /// Text JSON, so a hit here may be on a key or a mark name. The caller
+  /// confirms against the flattened text.
+  Future<List<LessonRow>> searchLessonRows({
+    required List<TopicId> topicIds,
+    required String query,
+  }) async {
+    if (query.isEmpty || topicIds.isEmpty) return const [];
+    final needle = '%${query.toLowerCase()}%';
+
+    return (_db.select(_db.lessons)
+          ..where(
+            (l) =>
+                l.topicId.isIn(topicIds) &
+                (l.title.lower().like(needle) |
+                    l.summary.lower().like(needle) |
+                    l.bodyJson.lower().like(needle)),
+          )
+          ..orderBy([
+            (l) => OrderingTerm.asc(l.ordering),
+            (l) => OrderingTerm.asc(l.id),
+          ]))
+        .get();
+  }
+
   Future<Topic?> topicById(TopicId id) async {
     final row = await (_db.select(_db.topics)..where((t) => t.id.equals(id)))
         .getSingleOrNull();
