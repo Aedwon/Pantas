@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:cse_cet_reviewer/core/auth/providers.dart';
 import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
 import 'package:cse_cet_reviewer/core/sync/providers.dart';
 import 'package:cse_cet_reviewer/core/ui/components/exam_date_sheet.dart';
 import 'package:cse_cet_reviewer/core/ui/components/page_scaffold.dart';

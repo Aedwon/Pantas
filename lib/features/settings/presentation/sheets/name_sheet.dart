@@ -47,7 +47,8 @@ class _NameSheetBodyState extends State<_NameSheetBody> {
       children: [
         Text(
           'What should we call you?',
-          style: styles.headlineSmall.copyWith(fontSize: 16, fontWeight: FontWeight.bold),
+          style: styles.headlineSmall
+              .copyWith(fontSize: 16, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 12),
         TextField(

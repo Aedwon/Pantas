@@ -26,6 +26,7 @@ sealed class ExamDateSheetResult {
   const factory ExamDateSheetResult.cleared() = ExamDateCleared;
 }
 
+@immutable
 class ExamDateChosen extends ExamDateSheetResult {
   const ExamDateChosen(this.date);
   final ExamDate date;
@@ -41,6 +42,7 @@ class ExamDateChosen extends ExamDateSheetResult {
   int get hashCode => date.hashCode;
 }
 
+@immutable
 class ExamDateCleared extends ExamDateSheetResult {
   const ExamDateCleared();
 
@@ -116,7 +118,8 @@ class _ExamDateSheetBodyState extends State<_ExamDateSheetBody> {
 
   List<int> _computeActualDays(int monthIndex) {
     final monthDate = _months[monthIndex];
-    final daysInMonth = DateUtils.getDaysInMonth(monthDate.year, monthDate.month);
+    final daysInMonth =
+        DateUtils.getDaysInMonth(monthDate.year, monthDate.month);
     final isCurrentMonth = monthDate.year == widget.today.year &&
         monthDate.month == widget.today.month;
 

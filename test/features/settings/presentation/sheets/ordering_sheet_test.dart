@@ -47,8 +47,7 @@ void main() {
     );
   });
 
-  testWidgets('only the default carries the recommended badge',
-      (tester) async {
+  testWidgets('only the default carries the recommended badge', (tester) async {
     await _open(tester);
 
     expect(find.text('Recommended'), findsOneWidget);

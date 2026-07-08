@@ -10,8 +10,7 @@ void main() {
     await tester.pumpApp(
       Builder(
         builder: (context) => TextButton(
-          onPressed: () =>
-              showNameSheet(context: context, current: 'Aedwon'),
+          onPressed: () => showNameSheet(context: context, current: 'Aedwon'),
           child: const Text('open'),
         ),
       ),
