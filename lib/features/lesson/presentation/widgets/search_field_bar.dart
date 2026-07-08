@@ -1,5 +1,4 @@
 import 'package:cse_cet_reviewer/core/ui/components/ink_magnifier.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/lesson/application/lesson_search_providers.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +31,9 @@ class _SearchFieldBarState extends ConsumerState<SearchFieldBar> {
     super.dispose();
   }
 
+  // A callback passed to onChanged, not a property setter: the lint reads the
+  // one-line body and misses that this is a handler.
+  // ignore: use_setters_to_change_properties
   void _onChanged(String value) {
     ref.read(searchQueryProvider.notifier).state = value;
   }
@@ -58,7 +60,6 @@ class _SearchFieldBarState extends ConsumerState<SearchFieldBar> {
           border: Border(
             bottom: BorderSide(
               color: colors.ink,
-              width: AppDimensions.hairline,
             ),
           ),
         ),

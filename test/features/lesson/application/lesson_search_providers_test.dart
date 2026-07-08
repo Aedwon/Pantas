@@ -1,10 +1,8 @@
 import 'dart:convert';
 
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/lesson/application/lesson_search_providers.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/models/study_map.dart';
 import 'package:drift/drift.dart' hide isNotNull, isNull;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -65,7 +63,7 @@ void main() {
                   {
                     '_type': 'span',
                     'text': 'Diagram content',
-                    'marks': <String>[]
+                    'marks': <String>[],
                   },
                 ],
               },

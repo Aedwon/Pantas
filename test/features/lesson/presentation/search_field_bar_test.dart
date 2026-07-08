@@ -75,10 +75,10 @@ void main() {
   });
 
   testWidgets('the map bar shows one trailing element', (tester) async {
-    final testMap = StudyMap(
+    const testMap = StudyMap(
       examShortName: 'CSE Pro',
       subjects: [
-        const StudySubject(
+        StudySubject(
           id: 's1',
           name: 'Verbal',
           topics: [

@@ -10,6 +10,7 @@ import 'package:cse_cet_reviewer/features/lesson/application/study_map_providers
 import 'package:cse_cet_reviewer/features/lesson/domain/use_cases/build_study_map.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/pinned_topic_bar.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/search_field_bar.dart';
+import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/search_results.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/study_head_block.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/study_topic_section.dart';
 import 'package:flutter/material.dart';
@@ -147,7 +148,7 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
                 ),
               if (_searching)
                 const Expanded(
-                  child: SizedBox.shrink(),
+                  child: SearchResults(),
                 )
               else ...[
                 if (openTopic != null)

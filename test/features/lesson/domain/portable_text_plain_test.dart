@@ -20,7 +20,7 @@ void main() {
           {
             '_type': 'span',
             'text': 'swap',
-            'marks': ['strong']
+            'marks': ['strong'],
           },
           {'_type': 'span', 'text': ' the plan.', 'marks': <String>[]},
         ],
