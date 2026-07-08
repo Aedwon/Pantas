@@ -6,9 +6,12 @@ import 'package:cse_cet_reviewer/features/lesson/application/study_map_providers
 import 'package:cse_cet_reviewer/features/lesson/domain/models/study_map.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+const readDwellFloor = Duration(seconds: 15);
+
 class ReaderContext {
   const ReaderContext({
     required this.lesson,
+    required this.topicId,
     required this.topicName,
     required this.next,
     required this.positionInTopic,
@@ -20,6 +23,7 @@ class ReaderContext {
   });
 
   final Lesson lesson;
+  final TopicId topicId;
   final String topicName;
   final StudyLesson? next;
   final int positionInTopic;
@@ -28,6 +32,47 @@ class ReaderContext {
   final bool isRead;
   final bool isBookmarked;
   final ExamId? examId;
+}
+
+class ReadMarkingController {
+  ReadMarkingController({
+    required this.lessonId,
+    required this.examId,
+    required this.progressRepository,
+    required this.preferencesRepository,
+    DateTime Function()? clock,
+  }) : _clock = clock ?? DateTime.now;
+
+  final LessonId lessonId;
+  final ExamId? examId;
+  final LessonProgressRepository progressRepository;
+  final AppPreferencesRepository preferencesRepository;
+  final DateTime Function() _clock;
+
+  DateTime? _openedAt;
+  bool _hasMarked = false;
+
+  Future<void> onOpen() async {
+    _openedAt = _clock();
+    if (examId != null) {
+      await preferencesRepository.pushOpenedLesson(
+        examId: examId!,
+        lessonId: lessonId,
+      );
+    }
+  }
+
+  void onScroll({required double offset, required double maxExtent}) {
+    if (_hasMarked || _openedAt == null) return;
+
+    final isAtEnd = maxExtent == 0 || offset >= maxExtent - 24;
+    final dwellTime = _clock().difference(_openedAt!);
+
+    if (isAtEnd && dwellTime >= readDwellFloor) {
+      _hasMarked = true;
+      progressRepository.markRead(lessonId);
+    }
+  }
 }
 
 final readerContextProvider =
@@ -41,6 +86,7 @@ final readerContextProvider =
   final focus = await ref.watch(activeExamFocusProvider.future);
   final examId = focus.exam?.id;
 
+  TopicId? topicId;
   String? topicName;
   StudyLesson? nextLesson;
   int? positionInTopic;
@@ -53,6 +99,7 @@ final readerContextProvider =
     for (final topic in subject.topics) {
       final index = topic.lessons.indexWhere((l) => l.id == lessonId);
       if (index != -1) {
+        topicId = topic.id;
         topicName = topic.name;
         positionInTopic = index + 1;
         lessonsInTopic = topic.lessons.length;
@@ -68,12 +115,16 @@ final readerContextProvider =
     if (topicName != null) break;
   }
 
-  if (topicName == null || positionInTopic == null || lessonsInTopic == null) {
+  if (topicId == null ||
+      topicName == null ||
+      positionInTopic == null ||
+      lessonsInTopic == null) {
     return null;
   }
 
   return ReaderContext(
     lesson: lesson,
+    topicId: topicId,
     topicName: topicName,
     next: nextLesson,
     positionInTopic: positionInTopic,

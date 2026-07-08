@@ -19,6 +19,9 @@ import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+export 'package:cse_cet_reviewer/core/storage/data/repos/app_preferences_repository.dart';
+export 'package:cse_cet_reviewer/core/storage/data/repos/lesson_bookmarks_repository.dart';
+export 'package:cse_cet_reviewer/core/storage/data/repos/lesson_progress_repository.dart';
 export 'package:cse_cet_reviewer/core/storage/data/repos/question_flags_repository.dart';
 export 'package:cse_cet_reviewer/core/storage/domain/assessment_question.dart';
 export 'package:cse_cet_reviewer/core/storage/domain/assessment_question_selector.dart';
