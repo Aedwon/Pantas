@@ -919,3 +919,50 @@ would have sat on `main` indefinitely with the reviewed version discarded as red
 **The lesson is not "worktrees do not hold".** It is that **`main` being clean is something to
 check before pushing, not something to assume**, and this is the second time today a caveat
 already written in memory has repeated itself.
+
+---
+
+## 9 August, overnight: a green suite is not a finished plan
+
+**Found by a stop condition, not by a gate.** The study endings run refused to start and said
+why: it needs `PullToAdvance` and a rebuilt lesson page from the reader plan's Task 6, and
+neither exists.
+
+**The reader plan has six tasks. Three ran.** Tasks 4, 5 and 6 were never attempted, the run
+ended after Task 3, and **every gate was green** when it was verified and merged: 1,541 tests
+passing, analyzer clean, formatter clean.
+
+### Why nothing caught it
+
+**Unwritten code fails no test.** The three tasks that ran were correct and tested. The three
+that did not run left no trace: no failing test, no analyzer error, no missing symbol, because
+nothing referenced them yet. **The next plan in the chain was the first thing to notice**, which
+is a full plan and a merge later than it should have been.
+
+**What I actually verified before merging** was the gate set and the three risks I had named in
+the prompt: no invented reading figure, no third body renderer, read marked by the student
+rather than by a scroll threshold. All three were right. **None of them was the question
+"did it finish".**
+
+### The check that was missing, now written down
+
+**Count the plan's tasks against the run's commits before merging.**
+
+```bash
+grep -c "^## Task\|^### Task" docs/superpowers/plans/<PLAN>.md
+git log --oneline main..HEAD | wc -l
+```
+
+They will not match exactly, because a task can take more than one commit and a fix takes
+another. **But three commits against six tasks is a stop, not a rounding difference.**
+
+**This is the second habit of its kind.** The first was "read the diff, never the count", which
+came from content runs that reported the right number over wrong text. This one is its
+structural twin: **a green suite reports the health of what exists, and says nothing at all
+about what is absent.**
+
+### What was done about it
+
+The reader's Tasks 4 to 6 were dispatched immediately, with the note that a legacy
+`lesson_page.dart` already exists and Task 6 must carry over what it does rather than replace it
+with something that does less. Study endings stays unstarted until that lands.
