@@ -118,6 +118,14 @@ class AppPreferencesRepository {
     await _setDeviceValue(key, topicId);
   }
 
+  Future<bool> hasAnnouncedFirstFlag() async {
+    final raw = await _deviceValue('first_flag_announced');
+    return raw == 'true';
+  }
+
+  Future<void> setAnnouncedFirstFlag() =>
+      _setDeviceValue('first_flag_announced', 'true');
+
   Future<String?> _deviceValue(String key) async {
     final row = await (_db.select(_db.devicePrefs)
           ..where((p) => p.key.equals(key)))
