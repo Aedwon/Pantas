@@ -6,12 +6,9 @@ import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/debrief/session_debrief.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/debrief_providers.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/pages/debrief_page.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../helpers/in_memory_database.dart';
@@ -44,7 +41,7 @@ void main() {
   }
 
   QuizSession makeSession({int totalQuestions = 5, int correctCount = 2}) {
-    final start = DateTime.utc(2026, 8, 2, 10, 0);
+    final start = DateTime.utc(2026, 8, 2, 10);
     final questions =
         List.generate(totalQuestions, (i) => makeQuestion('q_$i'));
     final outcomes = List.generate(
@@ -56,7 +53,6 @@ void main() {
         correctChoiceId: 'c_a',
         responseMs: 4000,
         derivedRating: i < correctCount ? Rating.good : Rating.again,
-        nextReviewIntervalDays: 1,
       ),
     );
 
@@ -67,7 +63,6 @@ void main() {
       currentIndex: questions.length,
       outcomes: outcomes,
       startedAt: start,
-      origin: SessionOrigin.todayTopic,
     );
   }
 
@@ -155,7 +150,7 @@ void main() {
 
   testWidgets('the invitation arms three choices under every miss',
       (tester) async {
-    final session = makeSession(totalQuestions: 5, correctCount: 2); // 3 misses
+    final session = makeSession(); // 3 misses
     await pumpDebriefPage(tester, session: session, proIsActive: true);
     await tester.pumpAndSettle();
 
@@ -169,7 +164,7 @@ void main() {
   });
 
   testWidgets('leaving one blank is stated to cost nothing', (tester) async {
-    final session = makeSession(totalQuestions: 5, correctCount: 2); // 3 misses
+    final session = makeSession(); // 3 misses
     await pumpDebriefPage(tester, session: session, proIsActive: true);
     await tester.pumpAndSettle();
 
@@ -195,7 +190,7 @@ void main() {
   });
 
   testWidgets('finishing them all says what it bought', (tester) async {
-    final session = makeSession(totalQuestions: 5, correctCount: 2); // 3 misses
+    final session = makeSession(); // 3 misses
     await pumpDebriefPage(tester, session: session, proIsActive: true);
     await tester.pumpAndSettle();
 
@@ -226,8 +221,7 @@ void main() {
   });
 
   testWidgets('a tag is written to the attempt', (tester) async {
-    final session =
-        makeSession(totalQuestions: 5, correctCount: 4); // 1 miss: q_4
+    final session = makeSession(correctCount: 4); // 1 miss: q_4
     await pumpDebriefPage(tester, session: session, proIsActive: true);
     await tester.pumpAndSettle();
 

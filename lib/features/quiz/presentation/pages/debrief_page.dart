@@ -41,12 +41,14 @@ class DebriefPage extends ConsumerWidget {
     final effectiveProIsActive = proIsActive ?? entitlement.proIsActive;
 
     final debriefAsync = ref.watch(
-      sessionDebriefProvider((
-        attemptId: attemptId,
-        proIsActive: effectiveProIsActive,
-        sessionOverride: sessionOverride,
-        attemptOverride: attemptOverride,
-      )),
+      sessionDebriefProvider(
+        (
+          attemptId: attemptId,
+          proIsActive: effectiveProIsActive,
+          sessionOverride: sessionOverride,
+          attemptOverride: attemptOverride,
+        ),
+      ),
     );
 
     return Scaffold(
@@ -205,7 +207,6 @@ class _DebriefBodyState extends ConsumerState<_DebriefBody> {
                       border: Border(
                         top: BorderSide(
                           color: colors.rule,
-                          width: AppDimensions.hairline,
                         ),
                       ),
                     ),
@@ -214,7 +215,8 @@ class _DebriefBodyState extends ConsumerState<_DebriefBody> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'These are the notes Pantas could write on its own. '
+                                'These are the notes Pantas could write on '
+                                'its own. '
                                 "You're the only one who knows the rest.",
                                 style: styles.bodyMedium
                                     .copyWith(color: colors.inkMuted),
@@ -223,21 +225,25 @@ class _DebriefBodyState extends ConsumerState<_DebriefBody> {
                               InkWell(
                                 onTap: () => setState(() => _isArmed = true),
                                 borderRadius: BorderRadius.circular(
-                                    AppDimensions.radiusButton),
+                                  AppDimensions.radiusButton,
+                                ),
                                 child: Container(
                                   width: double.infinity,
                                   constraints: const BoxConstraints(
-                                      minHeight: AppDimensions.minTapTarget),
+                                    minHeight: AppDimensions.minTapTarget,
+                                  ),
                                   alignment: Alignment.center,
                                   padding: const EdgeInsets.symmetric(
-                                      vertical: 12, horizontal: 16),
+                                    vertical: 12,
+                                    horizontal: 16,
+                                  ),
                                   decoration: BoxDecoration(
                                     border: Border.all(
                                       color: colors.rule,
-                                      width: AppDimensions.hairline,
                                     ),
                                     borderRadius: BorderRadius.circular(
-                                        AppDimensions.radiusButton),
+                                      AppDimensions.radiusButton,
+                                    ),
                                   ),
                                   child: Text(
                                     'Finish the notes',
@@ -261,7 +267,6 @@ class _DebriefBodyState extends ConsumerState<_DebriefBody> {
                     border: Border(
                       top: BorderSide(
                         color: colors.rule,
-                        width: AppDimensions.hairline,
                       ),
                     ),
                   ),
@@ -291,8 +296,8 @@ class _MissRow extends StatelessWidget {
     required this.miss,
     required this.proIsActive,
     required this.isArmed,
-    this.selectedTag,
     required this.onTagSelected,
+    this.selectedTag,
   });
 
   final DebriefMiss miss;
@@ -375,7 +380,8 @@ class _MissRow extends StatelessWidget {
         :final usualSeconds,
         :final topicName
       ) =>
-        'You answered in $responseSeconds seconds. You usually take $usualSeconds on $topicName.',
+        'You answered in $responseSeconds seconds. '
+            'You usually take $usualSeconds on $topicName.',
       SlippedCause(:final lastCorrectAt) =>
         'You had this right on ${_formatDay(lastCorrectAt)}.',
       NewCause() => "It's the first time you've seen this one.",
@@ -396,7 +402,7 @@ class _MissRow extends StatelessWidget {
       'September',
       'October',
       'November',
-      'December'
+      'December',
     ];
     return '${dt.day} ${months[dt.month]}';
   }

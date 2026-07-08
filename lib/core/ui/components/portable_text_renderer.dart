@@ -76,12 +76,14 @@ class PortableTextRenderer extends StatelessWidget {
       } else {
         marker = '•';
       }
-      children.add(_BlockRenderer(
-        block: block,
-        marker: marker,
-        level: level,
-        maxLines: maxLines,
-      ));
+      children.add(
+        _BlockRenderer(
+          block: block,
+          marker: marker,
+          level: level,
+          maxLines: maxLines,
+        ),
+      );
     }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

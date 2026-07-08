@@ -1,6 +1,5 @@
 import 'package:cse_cet_reviewer/core/fsrs/rating.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/debrief/session_debrief.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
@@ -8,8 +7,11 @@ import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  Question makeQuestion(String id,
-      {String? shortLabel, String topicId = 't_chem'}) {
+  Question makeQuestion(
+    String id, {
+    String? shortLabel,
+    String topicId = 't_chem',
+  }) {
     return Question(
       id: id,
       version: 1,
@@ -34,7 +36,7 @@ void main() {
     List<AnswerOutcome>? customOutcomes,
     DateTime? startedAt,
   }) {
-    final start = startedAt ?? DateTime.utc(2026, 8, 2, 10, 0);
+    final start = startedAt ?? DateTime.utc(2026, 8, 2, 10);
     final questions = customQuestions ??
         List.generate(
           totalQuestions,
@@ -57,7 +59,6 @@ void main() {
             correctChoiceId: 'c_a',
             responseMs: 5000,
             derivedRating: i < correctCount ? Rating.good : Rating.again,
-            nextReviewIntervalDays: 1,
           ),
         );
 
@@ -79,7 +80,7 @@ void main() {
   };
 
   test('the headline spells the count', () {
-    final session = makeSession(totalQuestions: 10);
+    final session = makeSession();
     final debrief = BuildSessionDebrief.call(
       session: session,
       topicNames: topicNames,
@@ -111,7 +112,7 @@ void main() {
   });
 
   test('the figures are counted and measured', () {
-    final session = makeSession(totalQuestions: 10, correctCount: 7);
+    final session = makeSession();
     final debrief = BuildSessionDebrief.call(
       session: session,
       topicNames: topicNames,
@@ -129,7 +130,7 @@ void main() {
   });
 
   test('the source line names the topics in the session', () {
-    final session = makeSession(totalQuestions: 10);
+    final session = makeSession();
     final debrief = BuildSessionDebrief.call(
       session: session,
       topicNames: topicNames,
@@ -149,7 +150,7 @@ void main() {
 
   test('one topic reads without a list', () {
     final session = makeSession(
-      customQuestions: [makeQuestion('q_1', topicId: 't_chem')],
+      customQuestions: [makeQuestion('q_1')],
       customOutcomes: [
         const AnswerOutcome(
           questionId: 'q_1',
@@ -191,7 +192,7 @@ void main() {
   });
 
   test('every miss carries its pick and its answer', () {
-    final session = makeSession(totalQuestions: 10, correctCount: 9);
+    final session = makeSession(correctCount: 9);
     final debrief = BuildSessionDebrief.call(
       session: session,
       topicNames: topicNames,
@@ -253,7 +254,7 @@ void main() {
   });
 
   test('the return promise counts the misses and follows the scheduler', () {
-    final session = makeSession(totalQuestions: 10, correctCount: 7);
+    final session = makeSession();
     final debrief = BuildSessionDebrief.call(
       session: session,
       topicNames: topicNames,
@@ -269,7 +270,7 @@ void main() {
   });
 
   test('one miss reads in the singular', () {
-    final session = makeSession(totalQuestions: 10, correctCount: 9);
+    final session = makeSession(correctCount: 9);
     final debrief = BuildSessionDebrief.call(
       session: session,
       topicNames: topicNames,
@@ -296,7 +297,6 @@ void main() {
           chosenChoiceId: 'c_b',
           correctChoiceId: 'c_a',
           responseMs: 1000,
-          nextReviewIntervalDays: 1,
         ),
         const AnswerOutcome(
           questionId: 'q_2',
@@ -323,7 +323,7 @@ void main() {
   });
 
   test('a clean session has no misses and no promise', () {
-    final session = makeSession(totalQuestions: 10, correctCount: 10);
+    final session = makeSession(correctCount: 10);
     final debrief = BuildSessionDebrief.call(
       session: session,
       topicNames: topicNames,

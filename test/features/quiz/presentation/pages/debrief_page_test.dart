@@ -2,14 +2,11 @@ import 'package:cse_cet_reviewer/core/fsrs/rating.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/core/ui/components/ink_chevron.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/debrief/miss_cause.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/debrief/session_debrief.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/debrief_providers.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/pages/debrief_page.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../helpers/pump_app.dart';
@@ -36,10 +33,10 @@ void main() {
     int correctCount = 7,
     SessionOrigin origin = SessionOrigin.todayTopic,
   }) {
-    final start = DateTime.utc(2026, 8, 2, 10, 0);
+    final start = DateTime.utc(2026, 8, 2, 10);
     final questions = List.generate(
       totalQuestions,
-      (i) => makeQuestion('q_$i', topicId: 't_chem'),
+      (i) => makeQuestion('q_$i'),
     );
     final outcomes = List.generate(
       questions.length,
@@ -50,7 +47,6 @@ void main() {
         correctChoiceId: 'c_a',
         responseMs: 4000,
         derivedRating: i < correctCount ? Rating.good : Rating.again,
-        nextReviewIntervalDays: 1,
       ),
     );
 
@@ -211,7 +207,7 @@ void main() {
   });
 
   testWidgets('a clean session drops the section and the row', (tester) async {
-    final session = makeSession(totalQuestions: 10, correctCount: 10);
+    final session = makeSession(correctCount: 10);
     final debrief = BuildSessionDebrief.call(
       session: session,
       topicNames: {'t_chem': 'Chemistry'},

@@ -50,7 +50,7 @@ void main() {
       'q_2': 'topic_algebra',
       'q_3': 'topic_geometry',
     };
-    await save('a_1', DateTime.utc(2026, 8, 1), [
+    await save('a_1', DateTime.utc(2026, 8), [
       item('q_1', correct: true, responseMs: 20000),
       item('q_2', correct: true, responseMs: 40000),
       item('q_3', correct: true, responseMs: 5000),
@@ -71,7 +71,7 @@ void main() {
       'q_1': 'topic_algebra',
       'q_2': 'topic_geometry',
     };
-    await save('a_1', DateTime.utc(2026, 8, 1), [
+    await save('a_1', DateTime.utc(2026, 8), [
       item('q_1', correct: true, responseMs: 20000),
     ]);
 
@@ -117,7 +117,7 @@ void main() {
   });
 
   test('the current attempt cannot count as its own history', () async {
-    final thatMoment = DateTime.utc(2026, 8, 2, 10, 0);
+    final thatMoment = DateTime.utc(2026, 8, 2, 10);
 
     await save('a_now', thatMoment, [item('q_1', correct: true)]);
 
