@@ -141,6 +141,18 @@ class ContentRepository {
     );
   }
 
+  Future<Subject?> subjectById(SubjectId id) async {
+    final row = await (_db.select(_db.subjects)..where((s) => s.id.equals(id)))
+        .getSingleOrNull();
+    if (row == null) return null;
+    return Subject(
+      id: row.id,
+      examId: row.examId,
+      name: row.name,
+      ordering: row.ordering,
+    );
+  }
+
   Lesson _hydrateLesson(LessonRow r) {
     return Lesson(
       id: r.id,

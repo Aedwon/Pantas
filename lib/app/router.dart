@@ -237,7 +237,15 @@ List<RouteBase> buildAppRoutes(Ref ref) {
     ),
     GoRoute(
       path: '/review',
-      builder: (_, __) => const _Stub('Review'),
+      builder: (_, state) {
+        final attemptId = state.uri.queryParameters['attemptId'] ?? '';
+        final proIsActive =
+            ref.watch(entitlementProvider).valueOrNull?.isPro ?? false;
+        return QuizResultsPage(
+          attemptId: attemptId,
+          proIsActive: proIsActive,
+        );
+      },
     ),
     GoRoute(
       path: '/mock-exam',

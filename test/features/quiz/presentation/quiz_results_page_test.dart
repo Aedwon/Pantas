@@ -10,7 +10,7 @@ import '../../../helpers/pump_app.dart';
 class _MockAttempts extends Mock implements AttemptsRepository {}
 
 void main() {
-  testWidgets('renders score from a stored Attempt', (tester) async {
+  testWidgets('renders practice review from a stored Attempt', (tester) async {
     final attempts = _MockAttempts();
     when(() => attempts.byId('a1')).thenAnswer(
       (_) async => Attempt(
@@ -41,13 +41,10 @@ void main() {
       const QuizResultsPage(attemptId: 'a1'),
       overrides: [
         attemptsRepositoryProvider.overrideWithValue(attempts),
-        assessmentCompletedProvider('e').overrideWith((_) async => true),
-        countForExamProvider('e').overrideWith((_) async => 0),
       ],
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('/2'), findsOneWidget);
-    expect(find.textContaining('50%'), findsOneWidget);
+    expect(find.text('All questions'), findsOneWidget);
   });
 }
