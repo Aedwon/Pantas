@@ -3,6 +3,7 @@ import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/passage.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/core/ui/components/answer_row.dart';
+import 'package:cse_cet_reviewer/core/ui/components/passage_card.dart';
 import 'package:cse_cet_reviewer/core/ui/components/portable_text_renderer.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
@@ -40,25 +41,7 @@ class QuestionCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        if (passage != null) ...[
-          if (passage!.title.isNotEmpty) ...[
-            Text(passage!.title, style: textStyles.headlineSmall),
-            const SizedBox(height: 8),
-          ],
-          Text(
-            passage!.body,
-            style: textStyles.bodyLarge.copyWith(
-              height: 1.6,
-              color: colors.ink,
-            ),
-          ),
-          const SizedBox(height: 16),
-          Container(
-            height: AppDimensions.hairline,
-            color: colors.rule,
-          ),
-          const SizedBox(height: 16),
-        ],
+        if (passage != null) PassageCard(passage: passage!),
         // Stems carry LaTeX and markdown. A plain Text renders them
         // literally, which is UI-005 through UI-007.
         PortableTextRenderer(text: question.stem),

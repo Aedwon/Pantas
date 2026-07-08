@@ -1,9 +1,11 @@
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/empty_state.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
+import 'package:cse_cet_reviewer/core/ui/components/passage_card.dart';
 import 'package:cse_cet_reviewer/core/ui/components/ruled_section.dart';
 import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
 import 'package:cse_cet_reviewer/core/ui/components/stats_band.dart';
@@ -21,6 +23,22 @@ final _examNameProvider =
     FutureProvider.family<String, String>((ref, examId) async {
   final exams = await ref.watch(contentRepositoryProvider).listExams();
   return exams.firstWhere((exam) => exam.id == examId).name;
+});
+
+final attemptReviewItemsProvider = FutureProvider.family<
+    List<({AttemptItem item, Question? question, Passage? passage})>,
+    Attempt>((ref, attempt) async {
+  final content = ref.watch(contentRepositoryProvider);
+  final result = <({AttemptItem item, Question? question, Passage? passage})>[];
+  for (final item in attempt.items) {
+    final question = await content.questionById(item.questionId);
+    Passage? passage;
+    if (question?.passageId != null) {
+      passage = await content.passageById(question!.passageId!);
+    }
+    result.add((item: item, question: question, passage: passage));
+  }
+  return result;
 });
 
 class QuizResultsPage extends ConsumerWidget {
@@ -185,12 +203,76 @@ class _ResultsBodyState extends ConsumerState<_ResultsBody> {
         ),
         const SizedBox(height: 12),
         const SectionHeader(title: 'Questions'),
-        for (final item in attempt.items)
-          InkTableRow(
-            title: item.questionId,
-            state: item.isCorrect ? InkRowState.done : InkRowState.plain,
-            meta: '${(item.responseMs / 1000).toStringAsFixed(1)}s',
-          ),
+        Consumer(
+          builder: (context, ref, _) {
+            final asyncItems = ref.watch(attemptReviewItemsProvider(attempt));
+            return asyncItems.when(
+              loading: () => Column(
+                children: [
+                  for (final item in attempt.items)
+                    InkTableRow(
+                      title: item.questionId,
+                      state:
+                          item.isCorrect ? InkRowState.done : InkRowState.plain,
+                      meta: '${(item.responseMs / 1000).toStringAsFixed(1)}s',
+                    ),
+                ],
+              ),
+              error: (_, __) => Column(
+                children: [
+                  for (final item in attempt.items)
+                    InkTableRow(
+                      title: item.questionId,
+                      state:
+                          item.isCorrect ? InkRowState.done : InkRowState.plain,
+                      meta: '${(item.responseMs / 1000).toStringAsFixed(1)}s',
+                    ),
+                ],
+              ),
+              data: (reviewItems) {
+                final groups = <({
+                  Passage? passage,
+                  List<({AttemptItem item, Question? question})> items
+                })>[];
+                for (final ri in reviewItems) {
+                  final passage = ri.passage;
+                  if (groups.isNotEmpty &&
+                      passage != null &&
+                      groups.last.passage?.id == passage.id) {
+                    groups.last.items
+                        .add((item: ri.item, question: ri.question));
+                  } else {
+                    groups.add((
+                      passage: passage,
+                      items: [(item: ri.item, question: ri.question)]
+                    ));
+                  }
+                }
+
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    for (final group in groups) ...[
+                      if (group.passage != null)
+                        PassageCard(passage: group.passage!),
+                      for (final entry in group.items)
+                        InkTableRow(
+                          title: entry.question?.shortLabel ??
+                              entry.question?.stem ??
+                              entry.item.questionId,
+                          state: entry.item.isCorrect
+                              ? InkRowState.done
+                              : InkRowState.plain,
+                          meta:
+                              '${(entry.item.responseMs / 1000).toStringAsFixed(1)}s',
+                        ),
+                    ],
+                  ],
+                );
+              },
+            );
+          },
+        ),
       ],
     );
   }

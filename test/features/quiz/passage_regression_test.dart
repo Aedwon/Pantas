@@ -1,21 +1,35 @@
+import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dart';
+import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/passage.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
+import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/core/ui/components/passage_card.dart';
+import 'package:cse_cet_reviewer/core/ui/components/question_card.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/mock_exam.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/picker/pick_context.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/picker/today_topic_picker.dart';
+import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_results_page.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 
-/// Task 6 of `2026-08-03-passage-pipeline.md`.
+import '../../helpers/pump_app.dart';
+
+class _MockAttempts extends Mock implements AttemptsRepository {}
+
+class _MockContent extends Mock implements ContentRepository {}
+
+/// Tasks 5 and 6 of `2026-08-03-passage-pipeline.md`.
 ///
 /// Section 8 of the spec claims the passage work changes nothing for content
 /// that has no passages. That claim is worth a test rather than a sentence:
 /// every question in the corpus except reading comprehension is free-standing,
 /// so a regression here would be felt everywhere at once.
 ///
-/// **Scope, stated because it is smaller than the plan's:** the plan also asks
-/// this to cover the viewer and the review. Neither exists yet, and the plan
-/// that builds them has not run, so this covers session building and mock
-/// sampling only. The remaining two belong with Task 5.
+/// Task 5 adds the reading surface in the question viewer and in the review,
+/// ensuring a passage renders once above its questions and scrolls naturally.
 void main() {
   Question freeStanding(String id, {String topicId = 't1'}) {
     return Question(
@@ -187,6 +201,168 @@ void main() {
         first.sections.single.questionIds,
         equals(second.sections.single.questionIds),
       );
+    });
+  });
+
+  group('viewer and review with free-standing questions (no passages)', () {
+    testWidgets('viewer renders free-standing question without passage',
+        (tester) async {
+      final q = freeStanding('q1');
+      await tester.pumpApp(
+        QuestionCard(
+          question: q,
+          onAnswer: (_) {},
+        ),
+      );
+
+      expect(find.byType(PassageCard), findsNothing);
+      expect(find.text('Stem q1'), findsOneWidget);
+    });
+
+    testWidgets('review renders free-standing questions without passage',
+        (tester) async {
+      final attempts = _MockAttempts();
+      final content = _MockContent();
+
+      when(() => attempts.byId('a1')).thenAnswer(
+        (_) async => Attempt(
+          id: 'a1',
+          examId: 'e',
+          startedAt: DateTime.utc(2026, 5, 9, 12),
+          completedAt: DateTime.utc(2026, 5, 9, 12, 5),
+          items: const [
+            AttemptItem(
+              questionId: 'q1',
+              questionVersion: 1,
+              chosenChoiceId: 'q1-a',
+              correctChoiceId: 'q1-a',
+              responseMs: 1500,
+            ),
+          ],
+        ),
+      );
+      when(() => content.questionById('q1')).thenAnswer(
+        (_) async => freeStanding('q1'),
+      );
+
+      await tester.pumpAppWithProviders(
+        const QuizResultsPage(attemptId: 'a1'),
+        overrides: [
+          attemptsRepositoryProvider.overrideWithValue(attempts),
+          contentRepositoryProvider.overrideWithValue(content),
+          assessmentCompletedProvider('e').overrideWith((_) async => true),
+          countForExamProvider('e').overrideWith((_) async => 0),
+        ],
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.byType(PassageCard), findsNothing);
+      expect(find.text('Stem q1'), findsOneWidget);
+    });
+  });
+
+  group('Task 5: passage rendering in viewer and review', () {
+    const passage = Passage(
+      id: 'p1',
+      topicId: 't1',
+      title: 'The Palay Harvest',
+      body: 'Farmers in Luzon harvest palay during the dry season.',
+      language: 'en',
+      wordCount: 200,
+    );
+
+    Question passageQuestion(String id) {
+      return Question(
+        id: id,
+        version: 1,
+        examIds: const ['upcat'],
+        topicId: 't1',
+        passageId: 'p1',
+        language: 'en',
+        stem: 'Stem $id',
+        choices: [
+          Choice(id: '$id-a', label: 'A', text: 'Choice A', isCorrect: true),
+          Choice(id: '$id-b', label: 'B', text: 'Choice B', isCorrect: false),
+        ],
+        explanation: 'Explanation $id.',
+      );
+    }
+
+    testWidgets(
+        'viewer renders passage above question in reader serif typography',
+        (tester) async {
+      final q = passageQuestion('pq1');
+      await tester.pumpApp(
+        QuestionCard(
+          question: q,
+          passage: passage,
+          onAnswer: (_) {},
+        ),
+      );
+
+      expect(find.byType(PassageCard), findsOneWidget);
+      expect(find.text('The Palay Harvest'), findsOneWidget);
+      expect(
+        find.text('Farmers in Luzon harvest palay during the dry season.'),
+        findsOneWidget,
+      );
+
+      // Verify no sticky or pinned header widget exists in the subtree
+      expect(find.byType(SliverPersistentHeader), findsNothing);
+    });
+
+    testWidgets('review renders passage ONCE for a set of six questions',
+        (tester) async {
+      final attempts = _MockAttempts();
+      final content = _MockContent();
+
+      final items = [
+        for (var i = 1; i <= 6; i++)
+          AttemptItem(
+            questionId: 'pq$i',
+            questionVersion: 1,
+            chosenChoiceId: 'pq$i-a',
+            correctChoiceId: 'pq$i-a',
+            responseMs: 1000,
+          ),
+      ];
+
+      when(() => attempts.byId('a_passage')).thenAnswer(
+        (_) async => Attempt(
+          id: 'a_passage',
+          examId: 'e',
+          startedAt: DateTime.utc(2026, 5, 9, 12),
+          completedAt: DateTime.utc(2026, 5, 9, 12, 10),
+          items: items,
+        ),
+      );
+
+      for (var i = 1; i <= 6; i++) {
+        when(() => content.questionById('pq$i')).thenAnswer(
+          (_) async => passageQuestion('pq$i'),
+        );
+      }
+      when(() => content.passageById('p1')).thenAnswer(
+        (_) async => passage,
+      );
+
+      await tester.pumpAppWithProviders(
+        const QuizResultsPage(attemptId: 'a_passage'),
+        overrides: [
+          attemptsRepositoryProvider.overrideWithValue(attempts),
+          contentRepositoryProvider.overrideWithValue(content),
+          assessmentCompletedProvider('e').overrideWith((_) async => true),
+          countForExamProvider('e').overrideWith((_) async => 0),
+        ],
+      );
+      await tester.pumpAndSettle();
+
+      // Assert passage appears ONCE for all 6 questions
+      expect(find.byType(PassageCard), findsOneWidget);
+      expect(find.text('The Palay Harvest'), findsOneWidget);
+
+      // Assert no sticky or pinned header widget
+      expect(find.byType(SliverPersistentHeader), findsNothing);
     });
   });
 }

@@ -166,11 +166,23 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                 const SizedBox(height: 16),
                 Expanded(
                   child: SingleChildScrollView(
-                    child: QuestionCard(
-                      question: session.currentQuestion,
-                      onAnswer: (chosenChoiceId) => ref
-                          .read(quizControllerProvider.notifier)
-                          .answer(chosenChoiceId: chosenChoiceId),
+                    child: Consumer(
+                      builder: (context, ref, _) {
+                        final question = session.currentQuestion;
+                        final passageId = question.passageId;
+                        final passage = passageId != null
+                            ? ref
+                                .watch(passageByIdProvider(passageId))
+                                .valueOrNull
+                            : null;
+                        return QuestionCard(
+                          question: question,
+                          passage: passage,
+                          onAnswer: (chosenChoiceId) => ref
+                              .read(quizControllerProvider.notifier)
+                              .answer(chosenChoiceId: chosenChoiceId),
+                        );
+                      },
                     ),
                   ),
                 ),

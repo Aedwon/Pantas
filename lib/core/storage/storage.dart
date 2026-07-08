@@ -14,6 +14,7 @@ import 'package:cse_cet_reviewer/core/storage/data/seeder.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/exam.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/lesson.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/passage.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -21,6 +22,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 export 'package:cse_cet_reviewer/core/storage/data/repos/question_flags_repository.dart';
 export 'package:cse_cet_reviewer/core/storage/domain/assessment_question.dart';
 export 'package:cse_cet_reviewer/core/storage/domain/assessment_question_selector.dart';
+export 'package:cse_cet_reviewer/core/storage/domain/passage.dart';
 
 final appDatabaseProvider = Provider<AppDatabase>(
   (ref) => throw UnimplementedError(
@@ -85,6 +87,11 @@ final topicsByExamProvider =
 final lessonByIdProvider =
     FutureProvider.family<Lesson?, LessonId>((ref, id) async {
   return ref.watch(contentRepositoryProvider).lessonById(id);
+});
+
+final passageByIdProvider =
+    FutureProvider.family<Passage?, PassageId>((ref, id) async {
+  return ref.watch(contentRepositoryProvider).passageById(id);
 });
 
 final topicLessonsProvider =
