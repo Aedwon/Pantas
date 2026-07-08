@@ -1,11 +1,16 @@
+import 'dart:async';
+import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/ui/components/confirmation_dialog.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
+import 'package:cse_cet_reviewer/core/ui/components/pennant_mark.dart';
+import 'package:cse_cet_reviewer/core/ui/components/progress_rule.dart';
 import 'package:cse_cet_reviewer/core/ui/components/question_card.dart';
-import 'package:cse_cet_reviewer/core/ui/components/quiz_progress_bar.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/done_for_today_celebration.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/post_answer_toast.dart';
+import 'package:cse_cet_reviewer/features/quiz/presentation/question_flag_providers.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -19,12 +24,14 @@ class QuizPage extends ConsumerStatefulWidget {
     this.topicId,
     this.lessonId,
     this.mode = QuizPageMode.quick,
+    this.proIsActive = false,
     super.key,
   });
   final String examId;
   final String? topicId;
   final String? lessonId;
   final QuizPageMode mode;
+  final bool proIsActive;
 
   @override
   ConsumerState<QuizPage> createState() => _QuizPageState();
@@ -70,7 +77,10 @@ class _QuizPageState extends ConsumerState<QuizPage> {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.colors;
+    final styles = context.textStyles;
     final state = ref.watch(quizControllerProvider);
+
     ref.listen(quizControllerProvider, (previous, next) {
       final outcome = _latestNewOutcome(previous, next);
       if (outcome != null) {
@@ -82,22 +92,60 @@ class _QuizPageState extends ConsumerState<QuizPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(_titleFor(widget.mode)),
-        // A running session asks before discarding; every other state has
-        // nothing to lose, so it gets a plain back arrow. Neither may be
-        // omitted: this route is pushed full-screen with no tab bar to
-        // fall back on.
+        toolbarHeight: 56,
+        backgroundColor: colors.background,
+        elevation: 0,
+        scrolledUnderElevation: 0,
         leading: state is QuizRunning
             ? IconButton(
-                tooltip: 'Quit session',
-                icon: const Icon(Icons.close),
-                onPressed: () => _confirmQuit(context, ref),
+                icon: Icon(Icons.close, size: 17, color: colors.inkMuted),
+                onPressed: _confirmLeave,
               )
             : IconButton(
-                tooltip: 'Back',
-                icon: const Icon(Icons.arrow_back),
+                icon: Icon(Icons.arrow_back, size: 17, color: colors.inkMuted),
                 onPressed: () => _leave(context),
               ),
+        actions: [
+          if (state is QuizRunning) ...[
+            // [context] [mark], the reader's rule. The counter takes the context
+            // slot so the flag never moves as the number's width changes.
+            InkWell(
+              onTap: () => unawaited(_openGrid(state.session)),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      '${state.session.currentIndex + 1} of ${state.session.questions.length}',
+                      style: styles.bodySmall.copyWith(
+                        fontSize: 12.5,
+                        color: colors.inkMuted,
+                        fontFeatures: const [FontFeature.tabularFigures()],
+                      ),
+                    ),
+                    const SizedBox(width: 4),
+                    Icon(Icons.expand_more, size: 11, color: colors.inkMuted),
+                  ],
+                ),
+              ),
+            ),
+            Consumer(
+              builder: (context, ref, _) {
+                final flagged =
+                    ref.watch(flaggedIdsProvider).valueOrNull ?? const {};
+                return IconButton(
+                  onPressed: () => unawaited(
+                    _toggleFlag(state.session.currentQuestion.id),
+                  ),
+                  icon: PennantMark(
+                    isSet: flagged.contains(state.session.currentQuestion.id),
+                  ),
+                );
+              },
+            ),
+          ],
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -105,9 +153,8 @@ class _QuizPageState extends ConsumerState<QuizPage> {
           QuizIdle() || QuizLoading() => const FaintBars(),
           QuizRunning(:final session) => Column(
               children: [
-                QuizProgressBar(
-                  current: session.currentIndex + 1,
-                  total: session.questions.length,
+                ProgressRule(
+                  value: (session.currentIndex + 1) / session.questions.length,
                 ),
                 const SizedBox(height: 16),
                 Expanded(
@@ -140,31 +187,47 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     );
   }
 
-  String _titleFor(QuizPageMode mode) => switch (mode) {
-        QuizPageMode.quick => 'Quick quiz',
-        QuizPageMode.today => "Today's session",
-        // Resuming is the same session picked up where it was left. Naming it
-        // anything else would tell a student they had started something new.
-        QuizPageMode.resume => "Today's session",
-        QuizPageMode.drill => 'Drill',
-        QuizPageMode.practice => 'Practice',
-        QuizPageMode.retake => 'Retake mistakes',
-        QuizPageMode.inline => 'Quiz yourself',
-      };
+  Future<void> _openGrid(QuizSession session) async {
+    // Task 7 builds the grid sheet
+  }
 
-  Future<void> _confirmQuit(BuildContext context, WidgetRef ref) {
-    return showAppConfirmationDialog(
-      context: context,
-      title: 'Quit session?',
-      body: 'Your progress is saved.',
-      cancelLabel: 'Keep going',
-      confirmLabel: 'Quit',
-      onCancel: () {},
-      onConfirm: () {
-        ref.read(quizControllerProvider.notifier).reset();
-        _leave(context);
-      },
-    );
+  Future<void> _confirmLeave() async {
+    // Task 8 wires confirmation dialog
+    _leave(context);
+  }
+
+  Future<void> _toggleFlag(QuestionId questionId) async {
+    final toggleResult = await ref
+        .read(questionFlagControllerProvider.notifier)
+        .toggle(questionId);
+
+    if (!mounted) return;
+
+    if (toggleResult == FlagToggle.firstFlagged) {
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(
+          SnackBar(
+            content: const Text('Flagged. Find it in the Quiz tab.'),
+            action: SnackBarAction(
+              label: 'Undo',
+              onPressed: () {
+                unawaited(
+                  ref
+                      .read(questionFlagControllerProvider.notifier)
+                      .toggle(questionId),
+                );
+              },
+            ),
+          ),
+        );
+    } else if (toggleResult == FlagToggle.unflagged) {
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(
+          const SnackBar(content: Text('Flag removed')),
+        );
+    }
   }
 
   /// Returns to whatever pushed this session, falling back to the Quiz tab
