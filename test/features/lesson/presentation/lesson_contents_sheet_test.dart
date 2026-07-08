@@ -23,6 +23,7 @@ void main() {
 
     const readerContext = ReaderContext(
       lesson: dummyLesson,
+      topicId: 't1',
       topicName: 'Chemistry',
       next: StudyLesson(
         id: 'l2',
