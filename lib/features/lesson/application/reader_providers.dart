@@ -45,9 +45,9 @@ final readerContextProvider =
   StudyLesson? nextLesson;
   int? positionInTopic;
   int? lessonsInTopic;
-  List<StudyLesson> topicLessons = const [];
-  bool isRead = false;
-  bool isBookmarked = false;
+  var topicLessons = const <StudyLesson>[];
+  var isRead = false;
+  var isBookmarked = false;
 
   for (final subject in map.subjects) {
     for (final topic in subject.topics) {
@@ -91,7 +91,10 @@ final isBookmarkedProvider =
   return repo.isMarked(lessonId);
 });
 
-Future<void> toggleBookmark(dynamic ref, LessonId lessonId) async {
+/// Called from a widget, so it takes a [WidgetRef] rather than a bare
+/// dynamic: an untyped ref turns every call below into a dynamic dispatch and
+/// hides real errors from the analyzer.
+Future<void> toggleBookmark(WidgetRef ref, LessonId lessonId) async {
   final repo = ref.read(lessonBookmarksRepositoryProvider);
   final isMarked = await repo.isMarked(lessonId);
   if (isMarked) {
@@ -99,7 +102,8 @@ Future<void> toggleBookmark(dynamic ref, LessonId lessonId) async {
   } else {
     await repo.mark(lessonId);
   }
-  ref.invalidate(readerContextProvider(lessonId));
-  ref.invalidate(isBookmarkedProvider(lessonId));
-  ref.invalidate(studyMapProvider);
+  ref
+    ..invalidate(readerContextProvider(lessonId))
+    ..invalidate(isBookmarkedProvider(lessonId))
+    ..invalidate(studyMapProvider);
 }

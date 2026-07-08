@@ -31,7 +31,7 @@ class ReaderBar extends StatelessWidget {
     final fraction = (scrollOffset / 90.0).clamp(0.0, 1.0);
     final stripHeight = fraction * 30.0;
 
-    return Container(
+    return ColoredBox(
       color: colors.background,
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -69,7 +69,7 @@ class ReaderBar extends StatelessWidget {
                     behavior: HitTestBehavior.opaque,
                     child: const Padding(
                       padding: EdgeInsets.all(8),
-                      child: ContentsGlyph(size: 22),
+                      child: ContentsGlyph(),
                     ),
                   ),
                   const SizedBox(width: 8),

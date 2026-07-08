@@ -30,7 +30,7 @@ void main() {
 
   testWidgets('the origin word names where the reader came from',
       (tester) async {
-    await pumpBar(tester, origin: ReaderOrigin.study);
+    await pumpBar(tester);
     expect(find.text('Study'), findsOneWidget);
 
     await pumpBar(tester, origin: ReaderOrigin.home);
@@ -38,7 +38,7 @@ void main() {
   });
 
   testWidgets('the title is never in the bar itself', (tester) async {
-    await pumpBar(tester, title: 'Balancing equations', scrollOffset: 0);
+    await pumpBar(tester, title: 'Balancing equations');
 
     expect(find.text('Balancing equations'), findsNothing);
   });

@@ -21,10 +21,10 @@ void main() {
       estimatedMinutes: 10,
     );
 
-    final readerContext = ReaderContext(
+    const readerContext = ReaderContext(
       lesson: dummyLesson,
       topicName: 'Chemistry',
-      next: const StudyLesson(
+      next: StudyLesson(
         id: 'l2',
         title: 'Lesson 2',
         estimatedMinutes: 10,
@@ -33,7 +33,7 @@ void main() {
       ),
       positionInTopic: 1,
       lessonsInTopic: 3,
-      topicLessons: const [
+      topicLessons: [
         StudyLesson(
           id: 'l1',
           title: 'Lesson 1',

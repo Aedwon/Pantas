@@ -15,7 +15,7 @@ Future<void> showLessonContentsSheet(
     context: context,
     backgroundColor: Colors.transparent,
     elevation: 0,
-    barrierColor: colors.ink.withOpacity(0.34),
+    barrierColor: colors.ink.withValues(alpha: 0.34),
     isScrollControlled: true,
     builder: (sheetContext) {
       final sheetColors = sheetContext.colors;
@@ -26,7 +26,7 @@ Future<void> showLessonContentsSheet(
           constraints: BoxConstraints(maxHeight: maxHeight),
           decoration: BoxDecoration(
             border: Border(
-              top: BorderSide(color: sheetColors.rule, width: 1),
+              top: BorderSide(color: sheetColors.rule),
             ),
           ),
           child: Column(
