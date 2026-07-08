@@ -293,6 +293,7 @@ mock's five missing screens.
 | Question approval | Every generated file has `approved:` unset by design. Question Studio is yours |
 | Illustrations | 11 Geometry figure slugs are logged with described stems, so nothing is blocked, but the pictures are yours |
 | **ACET's aptitude timing** | Derived from a rate, not published. It implies 12 seconds an item. **Confirm before that blueprint ships** |
+| **Firebase is never initialized** | **Added 9 August, and it was only in the launch checklist before.** The SDK boot adapter's `initialize` is an empty body: auth, sync, crash reporting and App Check are all inert until the Firebase projects exist and `flutterfire configure` has run. **Nothing in `lib/` imports the four Firebase packages in `pubspec.yaml`.** A thing everyone knows and nobody reads is only half tracked, which is why it is here now |
 
 **Closed 4 August:** `sectionalTiming` for all three exams.
 
