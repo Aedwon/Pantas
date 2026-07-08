@@ -217,6 +217,94 @@ class AttemptsRepository {
     };
   }
 
+  /// Average time on a question, per topic, inside [window].
+  ///
+  /// The caller supplies [topicOf] because `attempts_local` stores question
+  /// ids and nothing else, and this layer must not reach into content to
+  /// resolve them.
+  Future<Map<TopicId, int>> averageResponseMsByTopic({
+    required ExamId examId,
+    required Map<QuestionId, TopicId> topicOf,
+    required DateTime now,
+    Duration window = const Duration(days: 30),
+  }) async {
+    final cutoff = now.subtract(window);
+    final rows = await (_db.select(_db.attemptsLocal)
+          ..where(
+            (t) =>
+                t.examId.equals(examId) &
+                t.startedAt.isBiggerOrEqualValue(cutoff),
+          ))
+        .get();
+
+    final totals = <TopicId, int>{};
+    final counts = <TopicId, int>{};
+    for (final row in rows) {
+      for (final item in _hydrate(row).items) {
+        final topicId = topicOf[item.questionId];
+        if (topicId == null) continue;
+        totals[topicId] = (totals[topicId] ?? 0) + item.responseMs;
+        counts[topicId] = (counts[topicId] ?? 0) + 1;
+      }
+    }
+    return {
+      for (final entry in totals.entries)
+        entry.key: (entry.value / counts[entry.key]!).round(),
+    };
+  }
+
+  /// When this question was last answered correctly before [before], or null.
+  ///
+  /// [before] excludes the session that is being debriefed, so its own answer
+  /// cannot be mistaken for history.
+  Future<DateTime?> lastCorrectAt({
+    required ExamId examId,
+    required QuestionId questionId,
+    required DateTime before,
+  }) async {
+    final rows = await (_db.select(_db.attemptsLocal)
+          ..where(
+            (t) =>
+                t.examId.equals(examId) &
+                t.startedAt.isSmallerThanValue(before),
+          )
+          ..orderBy([(t) => OrderingTerm.desc(t.startedAt)]))
+        .get();
+
+    for (final row in rows) {
+      final attempt = _hydrate(row);
+      for (final item in attempt.items) {
+        if (item.questionId == questionId && item.isCorrect) {
+          return attempt.startedAt;
+        }
+      }
+    }
+    return null;
+  }
+
+  /// Records what the student said went wrong, from the debrief.
+  ///
+  /// Rewrites the whole items blob because they are stored as JSON on the
+  /// attempt row. One tag a tap is not a hot path.
+  Future<void> tagItem({
+    required AttemptId attemptId,
+    required QuestionId questionId,
+    required MistakeTag? tag,
+  }) async {
+    final attempt = await byId(attemptId);
+    if (attempt == null) return;
+    await save(
+      attempt.copyWith(
+        items: [
+          for (final item in attempt.items)
+            item.questionId == questionId
+                ? item.copyWith(mistakeTag: tag)
+                : item,
+        ],
+      ),
+    );
+  }
+
   Future<AttemptLocalRow> rawRowById(AttemptId id) =>
       (_db.select(_db.attemptsLocal)..where((t) => t.id.equals(id)))
           .getSingle();

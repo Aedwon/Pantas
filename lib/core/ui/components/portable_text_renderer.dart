@@ -8,6 +8,7 @@ class PortableTextRenderer extends StatelessWidget {
   const PortableTextRenderer({
     this.blocks,
     this.text,
+    this.maxLines,
     super.key,
   }) : assert(
           blocks != null || text != null,
@@ -16,6 +17,7 @@ class PortableTextRenderer extends StatelessWidget {
 
   final List<Map<String, dynamic>>? blocks;
   final String? text;
+  final int? maxLines;
 
   static List<Map<String, dynamic>> _parseTextToBlocks(String text) {
     final children = <Map<String, dynamic>>[];
@@ -74,7 +76,14 @@ class PortableTextRenderer extends StatelessWidget {
       } else {
         marker = '•';
       }
-      children.add(_BlockRenderer(block: block, marker: marker, level: level));
+      children.add(
+        _BlockRenderer(
+          block: block,
+          marker: marker,
+          level: level,
+          maxLines: maxLines,
+        ),
+      );
     }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,7 +94,7 @@ class PortableTextRenderer extends StatelessWidget {
   Widget _dispatch(BuildContext context, Map<String, dynamic> block) {
     final type = block['_type'] as String? ?? '';
     return switch (type) {
-      'block' => _BlockRenderer(block: block),
+      'block' => _BlockRenderer(block: block, maxLines: maxLines),
       'latex' => _LatexBlockRenderer(block: block),
       'image' => _ImageBlockRenderer(block: block),
       _ => _UnknownBlockPlaceholder(blockType: type),
@@ -94,7 +103,12 @@ class PortableTextRenderer extends StatelessWidget {
 }
 
 class _BlockRenderer extends StatelessWidget {
-  const _BlockRenderer({required this.block, this.marker, this.level = 1});
+  const _BlockRenderer({
+    required this.block,
+    this.marker,
+    this.level = 1,
+    this.maxLines,
+  });
 
   final Map<String, dynamic> block;
 
@@ -103,6 +117,8 @@ class _BlockRenderer extends StatelessWidget {
 
   /// List indent level (1-based); only meaningful when [marker] is set.
   final int level;
+
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -133,6 +149,8 @@ class _BlockRenderer extends StatelessWidget {
           ],
         ),
         style: baseStyle,
+        maxLines: maxLines,
+        overflow: maxLines != null ? TextOverflow.ellipsis : null,
       ),
     );
   }

@@ -9,7 +9,7 @@ import 'package:cse_cet_reviewer/core/ui/components/progress_rule.dart';
 import 'package:cse_cet_reviewer/core/ui/components/question_card.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
-import 'package:cse_cet_reviewer/features/quiz/presentation/done_for_today_celebration.dart';
+import 'package:cse_cet_reviewer/features/quiz/presentation/pages/debrief_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/post_answer_toast.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/question_flag_providers.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_controller.dart';
@@ -189,10 +189,11 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                 ),
               ],
             ),
-          QuizComplete(:final attempt, :final session) =>
-            DoneForTodayCelebration(
-              attempt: attempt,
-              session: session,
+          QuizComplete(:final attempt, :final session) => DebriefPage(
+              attemptId: attempt.id,
+              proIsActive: widget.proIsActive,
+              sessionOverride: session,
+              attemptOverride: attempt,
             ),
           QuizFailure(:final message) => ErrorBanner(
               variant: ErrorBannerVariant.error,

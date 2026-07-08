@@ -18,6 +18,7 @@ import 'package:cse_cet_reviewer/features/notifications/presentation/permission_
 import 'package:cse_cet_reviewer/features/onboarding/onboarding.dart';
 import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/progress_page.dart';
+import 'package:cse_cet_reviewer/features/quiz/presentation/pages/debrief_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/pages/practice_picker_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_results_page.dart';
@@ -200,6 +201,11 @@ List<RouteBase> buildAppRoutes(Ref ref) {
         lessonId: state.pathParameters['lessonId'],
         mode: QuizPageMode.inline,
       ),
+    ),
+    GoRoute(
+      path: '/quiz/debrief/:attemptId',
+      builder: (_, state) =>
+          DebriefPage(attemptId: state.pathParameters['attemptId']!),
     ),
     GoRoute(
       path: '/quiz/results/:attemptId',

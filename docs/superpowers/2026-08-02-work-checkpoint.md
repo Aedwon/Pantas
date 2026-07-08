@@ -547,9 +547,9 @@ and MSU-SASE.
 
 ## Owed by the plans, not yet built
 
-- **Progress must consume the mistake tags.** Plan 5's debrief asks for them and writes
-  `AttemptItem.mistakeTag`. The spec is explicit that three taps surfacing nowhere would be
-  worse than never asking, so the Progress side is a commitment, not an option.
+- **Progress must consume the mistake tags.** The debrief now asks for them and writes
+  `AttemptItem.mistakeTag`. Three taps that surface nowhere would be worse than never
+  asking. Plan 5 Task 4 landed the asking; the Progress side is unbuilt.
 - **The content passes gate three surfaces.** Note B needs a rationale per choice; the
   debrief's miss rows and the review's rows want a short label per question; lesson selection
   in the picker wants the `lessonId` tagging. All three degrade honestly in the plans and all
