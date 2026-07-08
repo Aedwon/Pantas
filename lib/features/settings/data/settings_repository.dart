@@ -102,6 +102,14 @@ class DriftSettingsRepository {
     });
   }
 
+  Future<void> clearExamDate() async {
+    await _writeAccountPrefs({
+      SettingsPrefKeys.examDate: '',
+      SettingsPrefKeys.examDatePrecision: '',
+      SettingsPrefKeys.updatedAt: _clock().toUtc().toIso8601String(),
+    });
+  }
+
   Future<void> updateStrictMockMode({required bool enabled}) async {
     await _writeAccountPrefs({
       SettingsPrefKeys.strictMockMode: enabled ? 'true' : 'false',

@@ -153,4 +153,26 @@ void main() {
       expect(text.data?.contains('—') ?? false, isFalse);
     }
   });
+
+  testWidgets('tapping the exam date row opens a sheet, not a page',
+      (tester) async {
+    await _pump(tester, _settings());
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Exam date'));
+    await tester.pumpAndSettle();
+
+    expect(find.text("I don't know yet"), findsOneWidget);
+  });
+
+  testWidgets('tapping the ordering row opens the ordering sheet',
+      (tester) async {
+    await _pump(tester, _settings());
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('How sessions are built'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('One topic only'), findsOneWidget);
+  });
 }

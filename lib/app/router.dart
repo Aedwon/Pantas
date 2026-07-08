@@ -285,23 +285,6 @@ List<RouteBase> buildAppRoutes(Ref ref) {
       redirect: (_, __) => '/settings',
     ),
     GoRoute(
-      path: '/settings/name',
-      builder: (_, __) => const NotBuiltYetPage(title: 'Name'),
-    ),
-    GoRoute(
-      path: '/settings/exam-date',
-      builder: (_, __) => const NotBuiltYetPage(title: 'Exam date'),
-    ),
-    GoRoute(
-      path: '/settings/reminder',
-      builder: (_, __) => const NotBuiltYetPage(title: 'Daily reminder'),
-    ),
-    GoRoute(
-      path: '/settings/ordering',
-      builder: (_, __) =>
-          const NotBuiltYetPage(title: 'How sessions are built'),
-    ),
-    GoRoute(
       path: '/settings/exam',
       builder: (_, __) => const NotBuiltYetPage(title: 'Exam'),
     ),
