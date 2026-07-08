@@ -53,7 +53,7 @@ const double kFsrsTargetRetention = 0.9;
 /// Parameter bounds.
 const double kFsrsMinDecay = 0.1;
 const double kFsrsMaxDecay = 0.8;
-const double kFsrsMaxInitialStability = 100.0;
+const double kFsrsMaxInitialStability = 100;
 
 /// Difficulty bounds.
 // ignore: prefer_int_literals

@@ -1,11 +1,15 @@
 import 'package:cse_cet_reviewer/core/fsrs/fsrs_scheduler.dart';
+import 'package:cse_cet_reviewer/core/fsrs/rating.dart';
+import 'package:cse_cet_reviewer/core/storage/data/repos/review_log_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/review_state_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/review_log.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/review_state.dart';
 import 'package:cse_cet_reviewer/core/sync/engine/pending_queue.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/new_card_intro_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
+import 'package:cse_cet_reviewer/features/quiz/domain/rating_heuristic.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/submit_answer.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -30,6 +34,7 @@ void main() {
   late _MockSessions sessions;
   late _MockPendingQueue pendingQueue;
   late _MockNewCards newCards;
+  late _RecordingReviewLog reviewLog;
   late SubmitAnswer useCase;
 
   setUp(() {
@@ -37,12 +42,14 @@ void main() {
     sessions = _MockSessions();
     pendingQueue = _MockPendingQueue();
     newCards = _MockNewCards();
+    reviewLog = _RecordingReviewLog();
     useCase = SubmitAnswer(
       reviewRepo: repo,
       scheduler: const FsrsScheduler(),
       sessions: sessions,
       pendingQueue: pendingQueue,
       newCards: newCards,
+      reviewLog: reviewLog,
     );
     when(() => repo.byQuestionId(any())).thenAnswer((_) async => null);
     when(() => repo.upsert(any())).thenAnswer((_) async {});
@@ -177,4 +184,80 @@ void main() {
     verify(() => repo.byQuestionId('q1')).called(1);
     verify(() => repo.upsert(any(that: isA<ReviewState>()))).called(1);
   });
+
+  group('the review log', () {
+    test('one answer appends exactly one row', () async {
+      when(() => repo.byQuestionId(any())).thenAnswer((_) async => null);
+
+      await useCase(
+        question: question,
+        chosenChoiceId: 'c_b',
+        responseMs: 4000,
+        now: DateTime.utc(2026, 8, 9, 10),
+      );
+
+      expect(reviewLog.rows, hasLength(1));
+    });
+
+    test('the stored rating is the rating the scheduler was given', () async {
+      when(() => repo.byQuestionId(any())).thenAnswer((_) async => null);
+
+      // A wrong answer is unambiguously Again. If the row disagrees with what
+      // scheduled the card, the training data describes a review that never
+      // happened that way, which is worse than having no row at all.
+      await useCase(
+        question: question,
+        chosenChoiceId: 'c_a',
+        responseMs: 4000,
+        now: DateTime.utc(2026, 8, 9, 10),
+      );
+
+      expect(reviewLog.rows.single.rating, Rating.again);
+      expect(reviewLog.rows.single.isCorrect, isFalse);
+    });
+
+    test('the row carries the state before the review, not after', () async {
+      when(() => repo.byQuestionId(any())).thenAnswer((_) async => null);
+
+      final now = DateTime.utc(2026, 8, 9, 10);
+      await useCase(
+        question: question,
+        chosenChoiceId: 'c_b',
+        responseMs: 4000,
+        now: now,
+      );
+
+      final captured = verify(() => repo.upsert(captureAny())).captured.single
+          as ReviewState;
+      final row = reviewLog.rows.single;
+
+      // The optimizer replays a fit from the state as it was, so a row holding
+      // the post-review values would train against its own outcome.
+      expect(row.stability, isNot(captured.stability));
+      expect(row.review, now);
+    });
+
+    test('the row records which heuristic produced the rating', () async {
+      when(() => repo.byQuestionId(any())).thenAnswer((_) async => null);
+
+      await useCase(
+        question: question,
+        chosenChoiceId: 'c_b',
+        responseMs: 4000,
+        now: DateTime.utc(2026, 8, 9, 10),
+      );
+
+      expect(reviewLog.rows.single.heuristicVersion, kRatingHeuristicVersion);
+    });
+  });
+}
+
+class _RecordingReviewLog implements ReviewLogRepository {
+  final List<ReviewLog> rows = [];
+
+  @override
+  Future<void> insert(ReviewLog log) async => rows.add(log);
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }

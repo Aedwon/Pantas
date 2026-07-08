@@ -9,7 +9,7 @@ void main() {
     const scheduler = FsrsScheduler();
 
     test('representative 4.5 card advances cleanly on Good', () {
-      final t0 = DateTime.utc(2026, 5, 1);
+      final t0 = DateTime.utc(2026, 5);
       final t1 = DateTime.utc(2026, 5, 6); // 5 days later
       final prev = ReviewState(
         questionId: 'q_legacy',
@@ -21,8 +21,8 @@ void main() {
         lastReview: t0,
         reps: 3,
         lapses: 0,
-        elapsedDays: 5.0,
-        scheduledDays: 7.0,
+        elapsedDays: 5,
+        scheduledDays: 7,
       );
 
       final next = scheduler.next(prev: prev, rating: Rating.good, now: t1);
@@ -40,7 +40,7 @@ void main() {
     });
 
     test('representative 4.5 card transitions to relearning on Again', () {
-      final t0 = DateTime.utc(2026, 5, 1);
+      final t0 = DateTime.utc(2026, 5);
       final t1 = DateTime.utc(2026, 5, 6);
       final prev = ReviewState(
         questionId: 'q_legacy',
@@ -52,8 +52,8 @@ void main() {
         lastReview: t0,
         reps: 3,
         lapses: 0,
-        elapsedDays: 5.0,
-        scheduledDays: 7.0,
+        elapsedDays: 5,
+        scheduledDays: 7,
       );
 
       final next = scheduler.next(prev: prev, rating: Rating.again, now: t1);
@@ -71,21 +71,21 @@ void main() {
     });
 
     test('extreme boundary states stay bounded and produce no NaN or Inf', () {
-      final t0 = DateTime.utc(2026, 5, 1);
+      final t0 = DateTime.utc(2026, 5);
       final t1 = DateTime.utc(2026, 5, 10);
 
       final extremeHigh = ReviewState(
         questionId: 'q_high',
         questionVersion: 1,
         stage: ReviewStage.review,
-        stability: 300.0,
-        difficulty: 1.0,
-        due: DateTime.utc(2026, 8, 1),
+        stability: 300,
+        difficulty: 1,
+        due: DateTime.utc(2026, 8),
         lastReview: t0,
         reps: 15,
         lapses: 0,
-        elapsedDays: 9.0,
-        scheduledDays: 300.0,
+        elapsedDays: 9,
+        scheduledDays: 300,
       );
 
       final extremeLow = ReviewState(
@@ -93,13 +93,13 @@ void main() {
         questionVersion: 1,
         stage: ReviewStage.review,
         stability: 0.1,
-        difficulty: 10.0,
+        difficulty: 10,
         due: DateTime.utc(2026, 5, 2),
         lastReview: t0,
         reps: 1,
         lapses: 5,
-        elapsedDays: 9.0,
-        scheduledDays: 1.0,
+        elapsedDays: 9,
+        scheduledDays: 1,
       );
 
       for (final state in [extremeHigh, extremeLow]) {

@@ -157,7 +157,12 @@ class FsrsScheduler {
     final factor = fsrsFactor(weights[20]);
     final raw = (stability / factor) *
         (math.pow(targetRetention, 1.0 / decay).toDouble() - 1.0);
-    return math.max(1.0, raw.roundToDouble()).clamp(1.0, kFsrsMaxStability);
+    // The literal stays a double: as an int, math.max returns num and the
+    // return type breaks. dart fix offers exactly that change, so the ignore
+    // is here to stop it being applied again.
+    // ignore: prefer_int_literals
+    final double atLeastOneDay = math.max(1.0, raw.roundToDouble());
+    return atLeastOneDay.clamp(1.0, kFsrsMaxStability);
   }
 
   double _clampDifficulty(double d) =>

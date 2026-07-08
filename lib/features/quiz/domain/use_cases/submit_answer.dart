@@ -1,7 +1,9 @@
 import 'package:cse_cet_reviewer/core/fsrs/fsrs_scheduler.dart';
+import 'package:cse_cet_reviewer/core/storage/data/repos/review_log_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/review_state_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/review_log.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/review_state.dart';
 import 'package:cse_cet_reviewer/core/sync/engine/pending_queue.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/new_card_intro_repository.dart';
@@ -16,13 +18,16 @@ class SubmitAnswer {
     QuizSessionRepository? sessions,
     PendingQueue? pendingQueue,
     NewCardIntroRepository? newCards,
-  })  : _reviewRepo = reviewRepo,
+    ReviewLogRepository? reviewLog,
+  })  : _reviewLog = reviewLog,
+        _reviewRepo = reviewRepo,
         _scheduler = scheduler,
         _sessions = sessions,
         _pendingQueue = pendingQueue,
         _newCards = newCards;
 
   final ReviewStateRepository _reviewRepo;
+  final ReviewLogRepository? _reviewLog;
   final FsrsScheduler _scheduler;
   final QuizSessionRepository? _sessions;
   final PendingQueue? _pendingQueue;
@@ -53,6 +58,29 @@ class SubmitAnswer {
     final next = _scheduler.next(prev: prev, rating: rating, now: now);
     final nextIntervalDays = next.scheduledDays.ceil();
     await _reviewRepo.upsert(next);
+
+    // Written with the state as it was before this review, and with the exact
+    // rating the scheduler was handed. A row recording anything else is worse
+    // than no row, because a fit would learn from a review that never happened
+    // that way.
+    await _reviewLog?.insert(
+      ReviewLog(
+        id: '${question.id}-${now.microsecondsSinceEpoch}',
+        questionId: question.id,
+        rating: rating,
+        state: prev.stage,
+        due: prev.due,
+        stability: prev.stability,
+        difficulty: prev.difficulty,
+        elapsedDays: prev.elapsedDays,
+        lastElapsedDays: prev.elapsedDays,
+        scheduledDays: prev.scheduledDays,
+        review: now,
+        durationMs: responseMs,
+        isCorrect: isCorrect,
+        heuristicVersion: kRatingHeuristicVersion,
+      ),
+    );
     if (sessionId != null) {
       await _sessions?.recordAnswer(
         sessionId: sessionId,

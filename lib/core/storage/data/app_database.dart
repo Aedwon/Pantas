@@ -15,6 +15,7 @@ import 'package:cse_cet_reviewer/core/storage/data/tables/question_flags_local_t
 import 'package:cse_cet_reviewer/core/storage/data/tables/questions_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/quiz_nudge_dismissed_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/quiz_sessions_table.dart';
+import 'package:cse_cet_reviewer/core/storage/data/tables/review_logs_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/review_state_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/streak_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/subjects_table.dart';
@@ -52,13 +53,14 @@ part 'app_database.g.dart';
     UserMetricsArchetypesLocal,
     UserMetricsArtifactsLocal,
     Passages,
+    ReviewLogs,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 18;
+  int get schemaVersion => 19;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -123,6 +125,9 @@ class AppDatabase extends _$AppDatabase {
           if (from < 18) {
             await m.createTable(passages);
             await m.addColumn(questions, questions.passageId);
+          }
+          if (from < 19) {
+            await m.createTable(reviewLogs);
           }
         },
       );
