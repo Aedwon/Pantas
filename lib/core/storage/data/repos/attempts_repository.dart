@@ -282,6 +282,29 @@ class AttemptsRepository {
     return null;
   }
 
+  /// Records what the student said went wrong, from the debrief.
+  ///
+  /// Rewrites the whole items blob because they are stored as JSON on the
+  /// attempt row. One tag a tap is not a hot path.
+  Future<void> tagItem({
+    required AttemptId attemptId,
+    required QuestionId questionId,
+    required MistakeTag? tag,
+  }) async {
+    final attempt = await byId(attemptId);
+    if (attempt == null) return;
+    await save(
+      attempt.copyWith(
+        items: [
+          for (final item in attempt.items)
+            item.questionId == questionId
+                ? item.copyWith(mistakeTag: tag)
+                : item,
+        ],
+      ),
+    );
+  }
+
   Future<AttemptLocalRow> rawRowById(AttemptId id) =>
       (_db.select(_db.attemptsLocal)..where((t) => t.id.equals(id)))
           .getSingle();
