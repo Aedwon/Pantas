@@ -1,6 +1,5 @@
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/reader_gap.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/pump_app.dart';
@@ -22,7 +21,7 @@ void main() {
   }
 
   testWidgets('an unread lesson shows no read line', (tester) async {
-    await pumpGap(tester, isRead: false);
+    await pumpGap(tester);
 
     expect(find.text('Read'), findsNothing);
     expect(find.text('marked automatically'), findsNothing);
@@ -37,13 +36,13 @@ void main() {
   });
 
   testWidgets('there is no mark as read button anywhere', (tester) async {
-    await pumpGap(tester, isRead: false);
+    await pumpGap(tester);
 
     expect(find.text('Mark as read'), findsNothing);
   });
 
   testWidgets('the coda names its length', (tester) async {
-    await pumpGap(tester, examId: 'e1');
+    await pumpGap(tester);
 
     expect(find.text('Quiz yourself, 5 questions'), findsOneWidget);
   });

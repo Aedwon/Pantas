@@ -7,7 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../../helpers/in_memory_database.dart';
 
 class TestClock {
-  DateTime now = DateTime(2026, 8, 9, 10, 0, 0);
+  DateTime now = DateTime(2026, 8, 9, 10);
 
   DateTime call() => now;
 
@@ -95,8 +95,9 @@ void main() {
   test('marking happens once, not on every scroll frame', () async {
     await controller.onOpen();
     clock.advance(readDwellFloor);
-    controller.onScroll(offset: 1000, maxExtent: 1000);
-    controller.onScroll(offset: 1000, maxExtent: 1000);
+    controller
+      ..onScroll(offset: 1000, maxExtent: 1000)
+      ..onScroll(offset: 1000, maxExtent: 1000);
     await pumpEventQueue();
 
     expect(await progress.isRead('l1'), isTrue);

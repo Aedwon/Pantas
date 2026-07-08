@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/learn_tab_home.dart';

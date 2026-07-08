@@ -68,7 +68,7 @@ class ReaderGap extends StatelessWidget {
                     horizontal: 15,
                   ),
                   decoration: BoxDecoration(
-                    border: Border.all(color: colors.ink, width: 1),
+                    border: Border.all(color: colors.ink),
                     borderRadius: BorderRadius.circular(5),
                   ),
                   child: Text(

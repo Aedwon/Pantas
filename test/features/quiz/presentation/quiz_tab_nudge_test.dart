@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_tab_home.dart';
 import 'package:drift/drift.dart' show Value;

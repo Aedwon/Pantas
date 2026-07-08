@@ -4,7 +4,6 @@ import 'package:cse_cet_reviewer/app/app.dart';
 import 'package:cse_cet_reviewer/app/flavor.dart';
 import 'package:cse_cet_reviewer/app/router.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/notifications/application/notifications_providers.dart';
 import 'package:cse_cet_reviewer/features/paywall/paywall.dart';

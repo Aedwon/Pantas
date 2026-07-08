@@ -1,5 +1,4 @@
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/lesson_progress_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/practice_picker_providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
