@@ -15,9 +15,9 @@ void main() {
         body: PullToAdvance(
           nextTitle: nextTitle,
           onAdvance: onAdvance ?? () {},
-          child: Container(
+          child: const ColoredBox(
             color: Colors.white,
-            child: const Center(child: Text('Current Content')),
+            child: Center(child: Text('Current Content')),
           ),
         ),
       ),
@@ -34,7 +34,7 @@ void main() {
   });
 
   testWidgets('no next lesson draws no handle', (tester) async {
-    await pumpPull(tester, nextTitle: null, onAdvance: null);
+    await pumpPull(tester, nextTitle: null);
 
     expect(find.byKey(const ValueKey('pull-handle')), findsNothing);
   });

@@ -68,7 +68,6 @@ class _PullToAdvanceState extends State<PullToAdvance>
                 AnimatedContainer(
                   key: const ValueKey('pull-handle'),
                   duration: const Duration(milliseconds: 120),
-                  curve: Curves.linear,
                   width: _isArmed ? 52 : 36,
                   height: 3,
                   decoration: BoxDecoration(

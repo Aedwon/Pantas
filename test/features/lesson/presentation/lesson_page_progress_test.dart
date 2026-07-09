@@ -64,7 +64,11 @@ void main() {
 
   tearDown(() => db.close());
 
-  testWidgets('shows Mark as read button when lesson is unread',
+  // There is no mark-as-read button any more, deliberately. With one, every
+  // coverage figure in the app counted button presses rather than lessons
+  // whose end was actually reached. Read marking is driven by scroll position
+  // now, and `read_marking_test.dart` covers the rule itself.
+  testWidgets('an unread lesson offers no way to declare itself read',
       (tester) async {
     await tester.pumpAppWithProviders(
       const LessonPage(lessonId: 'l1'),
@@ -72,25 +76,11 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Mark as read'), findsOneWidget);
-    expect(find.text('✓ Lesson complete'), findsNothing);
-  });
-
-  testWidgets('tapping Mark as read shows Lesson complete', (tester) async {
-    await tester.pumpAppWithProviders(
-      const LessonPage(lessonId: 'l1'),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
-    );
-    await tester.pumpAndSettle();
-
-    await tester.tap(find.text('Mark as read'));
-    await tester.pumpAndSettle();
-
-    expect(find.text('✓ Lesson complete'), findsOneWidget);
     expect(find.text('Mark as read'), findsNothing);
+    expect(find.text('Read'), findsNothing);
   });
 
-  testWidgets('shows Lesson complete on open when already read',
+  testWidgets('a read lesson says so, and says it was automatic',
       (tester) async {
     await db.into(db.lessonProgressLocal).insert(
           LessonProgressLocalCompanion.insert(
@@ -105,7 +95,8 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('✓ Lesson complete'), findsOneWidget);
+    expect(find.text('Read'), findsOneWidget);
+    expect(find.text('marked automatically'), findsOneWidget);
     expect(find.text('Mark as read'), findsNothing);
   });
 }

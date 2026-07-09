@@ -1,12 +1,10 @@
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/components/portable_text_renderer.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/lesson/application/reader_providers.dart';
-import 'package:cse_cet_reviewer/features/lesson/application/study_map_providers.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/lesson_contents_sheet.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/pull_to_advance.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/reader_bar.dart';
@@ -181,22 +179,12 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
                       examId: reader.examId,
                       lessonId: reader.lesson.id,
                     ),
-                    if (!reader.isRead) ...[
-                      const SizedBox(height: 8),
-                      BoardButton(
-                        label: 'Mark as read',
-                        onPressed: () async {
-                          await ref
-                              .read(lessonProgressRepositoryProvider)
-                              .markRead(reader.lesson.id);
-                          ref
-                            ..invalidate(
-                                readerContextProvider(reader.lesson.id))
-                            ..invalidate(isBookmarkedProvider(reader.lesson.id))
-                            ..invalidate(studyMapProvider);
-                        },
-                      ),
-                    ],
+                    // No mark-as-read button, deliberately. It is the one
+                    // thing this plan changes that everything downstream
+                    // depends on: with a button, every coverage figure in the
+                    // app counts presses rather than lessons whose end was
+                    // actually reached. Read marking is an observer of scroll
+                    // position now.
                   ],
                 ),
               ),
