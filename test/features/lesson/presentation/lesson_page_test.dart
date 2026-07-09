@@ -91,13 +91,12 @@ void main() {
   testWidgets('lesson page renders Quiz yourself card after lesson body',
       (tester) async {
     final router = GoRouter(
-      initialLocation: '/lesson/l1?examId=e1',
+      initialLocation: '/lesson/l1?from=study',
       routes: [
         GoRoute(
           path: '/lesson/:lessonId',
           builder: (_, state) => LessonPage(
             lessonId: state.pathParameters['lessonId']!,
-            examId: state.uri.queryParameters['examId'],
           ),
         ),
         GoRoute(
@@ -116,8 +115,8 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Quiz yourself'), findsOneWidget);
-    await tester.tap(find.text('Quiz yourself'));
+    expect(find.textContaining('Quiz yourself'), findsOneWidget);
+    await tester.tap(find.textContaining('Quiz yourself'));
     await tester.pumpAndSettle();
     expect(find.text('Inline e1 l1'), findsOneWidget);
   });

@@ -70,7 +70,7 @@ class _RecentlyOpenedResults extends ConsumerWidget {
             for (final lesson in recent)
               GestureDetector(
                 behavior: HitTestBehavior.opaque,
-                onTap: () => context.push('/lesson/${lesson.id}'),
+                onTap: () => context.push('/lesson/${lesson.id}?from=study'),
                 child: Container(
                   padding: const EdgeInsets.symmetric(vertical: 12),
                   decoration: BoxDecoration(
@@ -179,7 +179,7 @@ class _HitRow extends StatelessWidget {
 
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
-      onTap: () => context.push('/lesson/${hit.lessonId}'),
+      onTap: () => context.push('/lesson/${hit.lessonId}?from=study'),
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 12),
         decoration: BoxDecoration(

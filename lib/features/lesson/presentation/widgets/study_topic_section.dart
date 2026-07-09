@@ -77,7 +77,7 @@ class StudySubjectSection extends ConsumerWidget {
                   reserveGlyph: true,
                   meta: '${lesson.estimatedMinutes} min',
                   chevron: InkRowChevron.link,
-                  onTap: () => context.push('/lesson/${lesson.id}'),
+                  onTap: () => context.push('/lesson/${lesson.id}?from=study'),
                 ),
               ),
         ],

@@ -99,7 +99,7 @@ class _ResumeRow extends StatelessWidget {
           IntrinsicWidth(
             child: BoardButton(
               label: 'Resume',
-              onPressed: () => context.push('/lesson/${lesson.id}'),
+              onPressed: () => context.push('/lesson/${lesson.id}?from=study'),
             ),
           ),
         ],
