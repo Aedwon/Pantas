@@ -5,6 +5,7 @@ import 'package:cse_cet_reviewer/core/storage/domain/exam.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/telemetry/telemetry.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
+import 'package:cse_cet_reviewer/core/ui/components/exam_selection_row.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
@@ -99,7 +100,7 @@ class _OnboardingPickerStepState extends ConsumerState<OnboardingPickerStep> {
                     itemCount: active.length,
                     itemBuilder: (_, i) {
                       final exam = active[i];
-                      return _ExamRow(
+                      return ExamSelectionRow(
                         exam: exam,
                         selected: _selectedId == exam.id,
                         onTap: () => setState(() => _selectedId = exam.id),
@@ -113,68 +114,6 @@ class _OnboardingPickerStepState extends ConsumerState<OnboardingPickerStep> {
             BoardButton(
               label: 'Continue',
               onPressed: (_selectedId == null || _saving) ? null : _onContinue,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _ExamRow extends StatelessWidget {
-  const _ExamRow({
-    required this.exam,
-    required this.selected,
-    required this.onTap,
-  });
-
-  final Exam exam;
-  final bool selected;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = context.colors;
-    final styles = context.textStyles;
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        constraints: const BoxConstraints(minHeight: 44),
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
-        decoration: selected
-            ? BoxDecoration(
-                color: colors.boardTint,
-                border: Border.all(color: colors.board),
-                borderRadius: BorderRadius.circular(AppDimensions.radiusButton),
-              )
-            : BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(
-                    color: colors.ruleFaint,
-                    // ignore: avoid_redundant_argument_values
-                    width: AppDimensions.hairline,
-                  ),
-                ),
-              ),
-        child: Row(
-          children: [
-            SizedBox(
-              width: 56,
-              child: Text(
-                exam.code,
-                style: styles.headlineSmall.copyWith(
-                  color: selected ? colors.board : colors.inkMuted,
-                ),
-              ),
-            ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: Text(
-                exam.name,
-                style: styles.bodyMedium.copyWith(
-                  fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
-                ),
-              ),
             ),
           ],
         ),
