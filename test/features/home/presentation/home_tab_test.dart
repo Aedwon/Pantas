@@ -77,13 +77,16 @@ void main() {
 
   testWidgets('with no result: masthead and the assessment invitation, no band',
       (tester) async {
+    // ignore: avoid_redundant_argument_values
     await tester.pumpWidget(harness(result: null));
     await tester.pumpAndSettle();
 
     expect(find.byType(HomeMasthead), findsOneWidget);
     expect(find.text('Build your study plan'), findsOneWidget);
-    expect(find.text('Take the assessment to find what to study first.'),
-        findsOneWidget);
+    expect(
+      find.text('Take the assessment to find what to study first.'),
+      findsOneWidget,
+    );
     expect(find.byType(StatsBand), findsNothing);
   });
 

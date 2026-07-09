@@ -1,4 +1,3 @@
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
 import 'package:cse_cet_reviewer/core/ui/components/stats_band.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
@@ -111,6 +110,7 @@ void main() {
 
   testWidgets('no Lately atom renders no line', (tester) async {
     await tester.pumpWidget(
+      // ignore: avoid_redundant_argument_values
       harness(accuracyPct: 64, read: 41, total: 96, lately: null),
     );
     await tester.pumpAndSettle();

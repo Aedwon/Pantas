@@ -71,6 +71,7 @@ class HomeStatsBand extends ConsumerWidget {
               border: Border(
                 bottom: BorderSide(
                   color: colors.rule,
+                  // ignore: avoid_redundant_argument_values
                   width: AppDimensions.hairline,
                 ),
               ),
