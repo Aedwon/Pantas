@@ -3,7 +3,8 @@ import 'package:cse_cet_reviewer/core/ui/components/ink_sheet.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
-/// Prompt shown when switching exams to ask whether to carry over existing progress.
+/// Prompt shown when switching exams, asking whether to carry existing
+/// progress over.
 ///
 /// Returns true if student wants to count them, false for fresh numbers, or null if dismissed/count is 0.
 Future<bool?> showCarryOverPrompt({
@@ -27,8 +28,9 @@ Future<bool?> showCarryOverPrompt({
           ),
           const SizedBox(height: 8),
           Text(
-            '$carryableCount of the questions you\'ve answered are also on '
-            '$examShortName. We\'ll count them toward your $examShortName progress '
+            "$carryableCount of the questions you've answered are also on "
+            "$examShortName. We'll count them toward your "
+            '$examShortName progress '
             'so you can pick up where you are, not where you started.',
             style: styles.bodySmall.copyWith(color: colors.inkMuted),
           ),

@@ -1,10 +1,9 @@
 import 'dart:convert';
 
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/// How many answered questions also belong to [examId].
+/// How many answered questions also belong to `examId`.
 ///
 /// Measured from the student's own attempts, which is why the number may be
 /// printed. Nothing here is inferred.

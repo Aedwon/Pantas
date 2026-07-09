@@ -60,8 +60,9 @@ class ChangeExamPage extends ConsumerWidget {
                         await ref
                             .read(appPreferencesRepositoryProvider)
                             .setSelectedExamId(exam.id);
-                        ref.invalidate(appPreferencesRepositoryProvider);
-                        ref.invalidate(activeExamFocusProvider);
+                        ref
+                          ..invalidate(appPreferencesRepositoryProvider)
+                          ..invalidate(activeExamFocusProvider);
 
                         final carryableCount = await ref
                             .read(carryableCountProvider(exam.id).future);

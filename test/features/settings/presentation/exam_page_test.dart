@@ -4,8 +4,6 @@ import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/settings_group.dart';
 import 'package:cse_cet_reviewer/core/ui/components/settings_switch.dart';
 import 'package:cse_cet_reviewer/core/ui/components/settings_value_row.dart';
-import 'package:cse_cet_reviewer/features/settings/domain/session_ordering.dart';
-import 'package:cse_cet_reviewer/features/settings/domain/user_settings.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/carry_over_prompt.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/exam_page.dart';
 import 'package:cse_cet_reviewer/features/settings/settings.dart';
@@ -91,8 +89,7 @@ void main() {
     );
   });
 
-  testWidgets('the lede states the rule that surprises people',
-      (tester) async {
+  testWidgets('the lede states the rule that surprises people', (tester) async {
     await tester.pumpAppWithProviders(
       const ExamPage(),
       overrides: createOverrides(),
