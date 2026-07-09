@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 Widget harness(Widget child) => MaterialApp(
-    theme: buildLightTheme(), home: Scaffold(body: Center(child: child)));
+      theme: buildLightTheme(),
+      home: Scaffold(body: Center(child: child)),
+    );
 
 void main() {
   testWidgets('renders at the specified size', (tester) async {

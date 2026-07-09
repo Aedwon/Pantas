@@ -177,7 +177,9 @@ void main() {
       }
       for (final text in tester.widgetList<Text>(
         find.descendant(
-            of: find.byType(AppNavBar), matching: find.byType(Text)),
+          of: find.byType(AppNavBar),
+          matching: find.byType(Text),
+        ),
       )) {
         expect(text.style?.color, isNot(board));
       }
