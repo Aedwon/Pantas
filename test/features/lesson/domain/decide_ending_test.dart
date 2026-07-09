@@ -1,4 +1,3 @@
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/features/lesson/domain/models/lesson_ending.dart';
 import 'package:cse_cet_reviewer/features/lesson/domain/models/study_map.dart';
 import 'package:cse_cet_reviewer/features/lesson/domain/use_cases/decide_ending.dart';
@@ -222,21 +221,18 @@ void main() {
     });
 
     test('formats next topic meta for 100 minutes (hour and forty)', () {
-      final topic = topicWith(
-        read: 0,
-        total: 8,
-        name: 'Geometry',
-        lessonMinutes:
-            12, // wait, 8 * 12.5 = 100 => let's make 10 lessons of 10 = 100 or 8 lessons total = 100 min
-      );
-      // Create 8 lessons summing to 100 min: 4 of 12, 4 of 13 -> 48 + 52 = 100
+      // Eight lessons summing to exactly 100 minutes: four of 12 and four of
+      // 13. The point is the hour boundary in the wording, so the total has to
+      // be exact rather than close.
       final lessons = [
         ...List.generate(
-            4, (i) => makeLesson(id: 'g$i', title: 'L', estimatedMinutes: 12)),
+          4,
+          (i) => makeLesson(id: 'g$i', title: 'L', estimatedMinutes: 12),
+        ),
         ...List.generate(
-            4,
-            (i) =>
-                makeLesson(id: 'g${i + 4}', title: 'L', estimatedMinutes: 13)),
+          4,
+          (i) => makeLesson(id: 'g${i + 4}', title: 'L', estimatedMinutes: 13),
+        ),
       ];
       final geomTopic = StudyTopic(
         id: 'geom',

@@ -41,7 +41,7 @@ void main() {
         tester.getSize(find.byKey(const ValueKey('bookplate-card'))).height;
     expect(find.text('Aedwon'), findsNothing);
 
-    await pumpPlate(tester, studentName: 'Aedwon');
+    await pumpPlate(tester);
     final with_ =
         tester.getSize(find.byKey(const ValueKey('bookplate-card'))).height;
 

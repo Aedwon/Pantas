@@ -51,8 +51,6 @@ final class DayFinished extends LessonEnding {
 
 String formatNextTopicMeta(StudyTopic topic) {
   final count = topic.lessons.length;
-  final countStr =
-      _numberToWord(count) ?? (count == 1 ? '1 lesson' : '$count lessons');
   final lessonWord = count == 1 ? 'lesson' : 'lessons';
   final countSegment = count <= 10 && _numberToWord(count) != null
       ? '${_numberToWord(count)} $lessonWord'

@@ -39,13 +39,13 @@ class _BookplateState extends State<Bookplate>
 
     _opacity = CurvedAnimation(
       parent: _controller,
-      curve: const Interval(0.24, 1.0, curve: Curves.fastOutSlowIn),
+      curve: const Interval(0.24, 1, curve: Curves.fastOutSlowIn),
     );
 
     _translateY = Tween<double>(begin: 8, end: 0).animate(
       CurvedAnimation(
         parent: _controller,
-        curve: const Interval(0.24, 1.0, curve: Curves.fastOutSlowIn),
+        curve: const Interval(0.24, 1, curve: Curves.fastOutSlowIn),
       ),
     );
 

@@ -10,6 +10,7 @@ import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/features/assessment/assessment.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/learn_tab_home.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_page.dart';
+import 'package:cse_cet_reviewer/features/lesson/presentation/pages/topic_ending_page.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/reader_bar.dart';
 import 'package:cse_cet_reviewer/features/legal/legal.dart';
 import 'package:cse_cet_reviewer/features/legal/presentation/legal_document_page.dart';
@@ -239,6 +240,12 @@ List<RouteBase> buildAppRoutes(Ref ref) {
         origin: state.uri.queryParameters['from'] == 'home'
             ? ReaderOrigin.home
             : ReaderOrigin.study,
+      ),
+    ),
+    GoRoute(
+      path: '/study/ending/:topicId',
+      builder: (_, state) => TopicEndingPage(
+        topicId: state.pathParameters['topicId']!,
       ),
     ),
     GoRoute(
