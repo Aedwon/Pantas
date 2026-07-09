@@ -42,4 +42,16 @@ void main() {
 
     expect(copy, contains('ends on Jun 12'));
   });
+
+  test('no delete copy anywhere mentions a lifetime purchase', () {
+    for (final plan in SettingsEntitlementPlan.values) {
+      final copy = deleteAccountBillingLine(
+        SettingsEntitlementSnapshot(plan: plan),
+      );
+      if (copy != null) {
+        expect(copy.toLowerCase().contains('lifetime'), isFalse);
+        expect(copy.contains('—'), isFalse);
+      }
+    }
+  });
 }

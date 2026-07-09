@@ -1,5 +1,7 @@
 import 'package:cse_cet_reviewer/core/sync/providers.dart';
 import 'package:cse_cet_reviewer/core/sync/sync_status.dart';
+import 'package:cse_cet_reviewer/core/ui/components/page_scaffold.dart';
+import 'package:cse_cet_reviewer/core/ui/components/settings_bar.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -30,11 +32,12 @@ class BackupPage extends ConsumerWidget {
       backupValue = 'Not backed up yet';
     }
 
-    return Scaffold(
-      appBar: AppBar(title: const Text('Backup')),
+    return PageScaffold(
       body: ListView(
-        padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+        padding: EdgeInsets.zero,
         children: [
+          const SettingsBar(title: 'Backup'),
+          const SizedBox(height: 16),
           Text(
             backupValue,
             style: styles.headlineMedium,

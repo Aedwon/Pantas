@@ -13,7 +13,7 @@ on this tab, and Amendment D's per-panel Free and Pro table.
 Progress is the analytical tab and it currently renders almost nothing. Its trend
 and weakness panels say "Charts land here in an upcoming update",
 `_SignalStatsPanel` returns `SizedBox.shrink()`, and the archetype block does the
-same. Thirteen behavioural signals are written and tested in
+same. Thirteen behavioral signals are written and tested in
 `lib/features/metrics/signals/`; four are surfaced on Home and nine appear nowhere.
 
 The first design of this tab shipped a figure it could not defend: points
@@ -68,7 +68,7 @@ may be shown. The fourth may not be shown as a figure at all.**
 | **T1 Measured** | Directly observed from this student's own use | response times, correctness, lessons read, days active |
 | **T2 Published** | A fact about the exam, transcribed from the testing body | items per section, minutes per section |
 | **T3 Method output** | The output of a named published algorithm used as designed | FSRS stability, FSRS lapse rate |
-| **T4 Our own inference** | A mapping this project invented | items per topic inside a section, points recoverable, what a behaviour "means" |
+| **T4 Our own inference** | A mapping this project invented | items per topic inside a section, points recoverable, what a behavior "means" |
 
 Two consequences that bind the rest of this spec:
 
@@ -136,7 +136,7 @@ title leaves room for the level control in the header's right slot.
    **"Score"** and **"Time"**, each a sort control. Closed by a 1px `rule`.
 3. **The rows.** Title in sans 14/400, a subtext line, and two right-aligned figure
    columns of 52px: accuracy, and seconds per question. The inactive column is
-   `inkMuted` at weight 400; the active column is `ink` at 600 with severity colour.
+   `inkMuted` at weight 400; the active column is `ink` at 600 with severity color.
 
 **The subtext** carries the row's parent at topic and lesson level, and the section's
 published size at subject level ("60 of 180 questions").
@@ -150,8 +150,8 @@ is the elegance requirement met by removing the widget rather than restyling it.
 direction. Sorting Score descending is the deliberate other case: it is the view a
 student screenshots.
 
-**Colour.** Severity applies to accuracy wherever accuracy appears, rust below 50,
-amber below 70, plain ink above. **A row's colour never changes because the table was
+**Color.** Severity applies to accuracy wherever accuracy appears, rust below 50,
+amber below 70, plain ink above. **A row's color never changes because the table was
 re-sorted.** Board green appears nowhere in this table.
 
 **Evidentiary status.** Accuracy and seconds are T1. Section size is T2. Nothing is
@@ -210,7 +210,7 @@ screen's verdict.
 
 ## Section 4: How you work
 
-Panel "Your profile", **centred**: the student's chosen name in serif 24/700, the
+Panel "Your profile", **centered**: the student's chosen name in serif 24/700, the
 archetype beneath it in sans 13/600, then one line. Centring matches Home's stats
 band and tendency deck. With no name stored, the panel shows the "Add your name"
 invitation Home already specifies.
@@ -543,7 +543,9 @@ the Settings flag governing whether they are retained.
 6. **`2026-07-26-home-and-navigation-design.md` Section 2** (onboarding captures name
    and exam date) becomes a prerequisite: Your pace cannot render without the exam
    date, and Your profile cannot render its heading without the name.
-7. **Settings** gains one row, for retained table order.
+7. **Settings** gains one row, named **"Remember table order"**. The longer phrasing this
+   spec first used does not fit Settings' value column on a 290px screen: see
+   `2026-08-03-settings-design.md` Section 5.
 
 ---
 
@@ -573,7 +575,7 @@ the Settings flag governing whether they are retained.
 - Free sees exactly one teaser per screen.
 - Every section header outranks its own rows, and no header draws a rule directly
   above a table head.
-- Re-sorting the table never changes any row's colour.
+- Re-sorting the table never changes any row's color.
 - Sort, direction, level and the subject filter survive a tab switch, and the Settings row
   turns that off.
 - At Subject level the left head cell has no underline and does not respond to a tap.

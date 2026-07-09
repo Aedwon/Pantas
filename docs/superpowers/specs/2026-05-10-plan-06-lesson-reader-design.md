@@ -36,7 +36,7 @@ Deliver the lesson-reading experience end-to-end: a topic browser on the Learn t
 
 ## 3. Navigation
 
-`/learn` is an existing `StatefulShellBranch` (tab index 1, the centre Learn button). It gains sub-routes:
+`/learn` is an existing `StatefulShellBranch` (tab index 1, the center Learn button). It gains sub-routes:
 
 ```
 /learn                              → LearnTabHome (exam list → tap → topic list)
@@ -109,7 +109,7 @@ class PortableTextRenderer extends StatelessWidget {
 | `block` | `_BlockRenderer` — maps `style` (`normal`, `h1`–`h6`, `blockquote`) to `AppTextStyles` tokens; handles inline spans including `latex`-marked spans |
 | `latex` | `_LatexBlockRenderer` — `flutter_math_fork` display mode (`MathStyle.display`) |
 | `image` | `_ImageBlockRenderer` — `CachedNetworkImage` from Sanity CDN URL; respects aspect ratio |
-| anything else | `_UnknownBlockPlaceholder` — grey rounded card: "Content unavailable — update the app"; logs Crashlytics non-fatal with `{blockType, lessonId}` |
+| anything else | `_UnknownBlockPlaceholder` — gray rounded card: "Content unavailable — update the app"; logs Crashlytics non-fatal with `{blockType, lessonId}` |
 
 **Inline LaTeX** (span with `latex` mark inside a `block`):
 - Detected when a `span` child has `"marks": ["latex"]`

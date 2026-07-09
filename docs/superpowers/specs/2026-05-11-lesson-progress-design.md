@@ -61,7 +61,7 @@ if (from < 2) {
 
 File: `lib/core/storage/data/repos/lesson_progress_repository.dart`
 
-| Method | Signature | Behaviour |
+| Method | Signature | Behavior |
 |---|---|---|
 | `markRead` | `Future<void> markRead(LessonId)` | Upserts row with `readAt = DateTime.now()`, `syncState = 'pending'` |
 | `isRead` | `Future<bool> isRead(LessonId)` | True if a row exists for this lesson |
@@ -73,7 +73,7 @@ File: `lib/core/storage/data/repos/lesson_progress_repository.dart`
 
 File: `lib/core/storage/data/repos/quiz_nudge_repository.dart`
 
-| Method | Signature | Behaviour |
+| Method | Signature | Behavior |
 |---|---|---|
 | `hasDismissed` | `Future<bool> hasDismissed()` | True if the singleton dismissal row exists |
 | `markDismissed` | `Future<void> markDismissed()` | Inserts/updates the singleton row with `dismissedAt = DateTime.now()` |

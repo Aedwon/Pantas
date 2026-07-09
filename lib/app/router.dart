@@ -36,6 +36,7 @@ import 'package:cse_cet_reviewer/features/settings/presentation/pages/debug_sett
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/delete_account_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/exam_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/not_built_yet_page.dart';
+import 'package:cse_cet_reviewer/features/settings/presentation/pages/pro_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/settings_home_page.dart';
 import 'package:cse_cet_reviewer/features/study_plan/presentation/plan_page.dart';
 import 'package:cse_cet_reviewer/features/wrapped/presentation/wrapped_reveal_page.dart';
@@ -329,14 +330,7 @@ List<RouteBase> buildAppRoutes(Ref ref) {
     ),
     GoRoute(
       path: '/settings/pro',
-      builder: (_, __) {
-        final entitlement = ref.watch(entitlementProvider).valueOrNull ??
-            const Entitlement.free();
-        return Scaffold(
-          appBar: AppBar(title: const Text('Pro')),
-          body: SubscriptionPanel(entitlement: entitlement),
-        );
-      },
+      builder: (_, __) => const ProPage(),
     ),
     GoRoute(
       path: '/settings/subscription',
@@ -351,8 +345,6 @@ List<RouteBase> buildAppRoutes(Ref ref) {
       builder: (_, __) {
         final contact = ref.watch(legalContactProvider);
         return AboutPage(
-          version: '0.1.0',
-          buildNumber: '1',
           dpoEmail: contact.dpoEmail,
           physicalAddress: contact.physicalAddress,
         );

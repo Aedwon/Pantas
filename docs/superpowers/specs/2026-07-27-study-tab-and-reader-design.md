@@ -84,7 +84,7 @@ Bookmarks, then one subject heading per subject with its topic rows.
 Height 56, `background`, no elevation, no scroll shadow. Title "Study" in
 `headlineMedium` (Source Serif 4, 18/700). One trailing element, the **search
 glyph**: a magnifier at 19px, stroke 1.6, `inkMuted`, drawn as a circle of radius
-6.5 centred at (10.5, 10.5) with a handle from (15.3, 15.3) to (20, 20).
+6.5 centered at (10.5, 10.5) with a handle from (15.3, 15.3) to (20, 20).
 
 The bar has exactly one trailing element and never more.
 
@@ -103,7 +103,7 @@ below, split by a vertical 1px `rule` divider.
 | Left | `read / total * 100`, serif 22/700 with a 12px sans `%` suffix in `inkMuted` | "covered" |
 | Right | remaining `estimatedMinutes` summed over unread lessons, in whole hours, serif 22/700 with a 12px sans `h` | "left to read" |
 
-Labels are `bodySmall` (12) in `inkMuted`, lowercase, centred, 3px beneath the
+Labels are `bodySmall` (12) in `inkMuted`, lowercase, centered, 3px beneath the
 figure.
 
 **Recorded caveat:** "covered" is arithmetically Home's lessons-read figure with
@@ -270,7 +270,7 @@ The field: a 1px `ink` bottom rule, 6px vertical padding, the magnifier leading 
   came from, in `bodySmall` `inkMuted`, with the match in `ink` w700 and an
   ellipsis on each truncated side. Roughly 34 characters of lead and 46 of trail.
   Without this a body match is a row with no visible reason to be there.
-- Highlighting uses weight and colour only. No background fill: `mark` is
+- Highlighting uses weight and color only. No background fill: `mark` is
   transparent.
 
 ### Search states
@@ -278,7 +278,7 @@ The field: a 1px `ink` bottom rule, 6px vertical padding, the magnifier leading 
 | State | Treatment |
 |---|---|
 | Field open, empty query | "Recently opened" kicker over the last three lessons opened, each a tappable row |
-| No matches | Centred, serif 18 "Nothing matched “swap”", body "Try a shorter word, or part of one." |
+| No matches | Centered, serif 18 "Nothing matched “swap”", body "Try a shorter word, or part of one." |
 
 Ordering of results is corpus order (subject, then topic, then the lesson's
 authored `ordering` once it exists). No relevance ranking.
@@ -517,7 +517,7 @@ The rail runs to 100% as the page arrives, 120ms after entry, over 550ms on
 
 ### A finished topic: the bookplate
 
-A hairline box, 1px `rule`, padding 28 by 20, centred. It fades in and rises 8px
+A hairline box, 1px `rule`, padding 28 by 20, centered. It fades in and rises 8px
 over 500ms on the standard curve, 160ms after entry.
 
 ```
@@ -582,7 +582,7 @@ about an hour and forty" is what makes it look small.
 
 ### A finished day
 
-No plate. One line, centred, with 26px above:
+No plate. One line, centered, with 26px above:
 
 > **That's enough for today.**
 
@@ -601,10 +601,10 @@ says nothing about contractions, and this line has to sound like a person.
 
 ### The exit
 
-A ruled row opened by a 1px `rule`, 15px vertical padding, centred, reading "Back
+A ruled row opened by a 1px `rule`, 15px vertical padding, centered, reading "Back
 to Home" or "Back to Study" in 14/600 **`board`**.
 
-Within the colour budget rather than an exception: the closing page has exactly
+Within the color budget rather than an exception: the closing page has exactly
 one action, so this is its primary action. A filled green button would be shouting
 about the door on a page whose primary act is already done. The full row width
 carries the 48dp target.

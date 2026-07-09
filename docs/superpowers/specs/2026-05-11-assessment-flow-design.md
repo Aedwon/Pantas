@@ -116,7 +116,7 @@ enum MasteryLevel { weak, moderate, strong }
 
 File: `lib/core/storage/data/repos/assessment_repository.dart`
 
-| Method | Signature | Behaviour |
+| Method | Signature | Behavior |
 |---|---|---|
 | `saveResult` | `Future<void> saveResult(String examId, DateTime completedAt, List<TopicScore> scores)` | Upserts a single row keyed by `examId` |
 | `resultForExam` | `Future<AssessmentResultRow?> resultForExam(String examId)` | Returns the stored row, or null if not yet taken |

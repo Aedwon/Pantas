@@ -52,7 +52,7 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
             widget.isAnonymous
                 ? 'Your progress on this device will be permanently deleted. '
                     'Sign in first if you want to keep it.'
-                : "You'll lose everything you've done in the app - your study "
+                : "You'll lose everything you've done in the app: your study "
                     'plan, quiz history, mock exam results, and progress.',
             style: styles.bodyMedium.copyWith(color: colors.inkMuted),
           ),

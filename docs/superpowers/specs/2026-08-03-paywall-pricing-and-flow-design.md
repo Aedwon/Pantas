@@ -433,7 +433,7 @@ precision and cannot at month precision.
 - At month precision no screen prints a day count, and the plans column head names the
   month it computed through.
 - The three cost figures on screen 2 always equal price times whole renewal periods to the
-  stated date. No figure is rounded in the app's favour.
+  stated date. No figure is rounded in the app's favor.
 - Screen 3 appears only when Yearly is chosen, and the date on Day 7 matches the charge
   date Play will use.
 - Exactly one board green element per screen, plus the badge.
