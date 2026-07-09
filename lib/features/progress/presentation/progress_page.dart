@@ -6,6 +6,7 @@ import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
+import 'package:cse_cet_reviewer/features/progress/presentation/widgets/your_pace_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -158,15 +159,8 @@ class ProgressPage extends ConsumerWidget {
     );
   }
 
-  Widget _yourPaceSection(BuildContext context, WidgetRef ref) {
-    return const Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SectionHeader(title: 'Your pace'),
-        SizedBox(height: 16),
-      ],
-    );
-  }
+  Widget _yourPaceSection(BuildContext context, WidgetRef ref) =>
+      const YourPacePanel();
 
   Widget _performanceSection(BuildContext context, WidgetRef ref) {
     return const SizedBox.shrink();

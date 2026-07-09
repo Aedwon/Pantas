@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
+import 'package:cse_cet_reviewer/features/progress/application/pace_provider.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/progress_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -26,10 +27,21 @@ Widget harness({bool hasAttempts = true, String? examId = 'cse'}) {
         }
         return ActiveExamFocus.selected(exam);
       }),
-      if (examId != null)
+      if (examId != null) ...[
         countForExamProvider(examId).overrideWith((ref) async {
           return hasAttempts ? 5 : 0;
         }),
+        paceProvider.overrideWith((ref) async {
+          return const PaceReading(
+            lessonsRead: 10,
+            lessonsTotal: 50,
+            daysLeft: 30,
+            lessonsPerWeek: 5,
+            daysPastExam: null,
+            rateToFinishInTime: null,
+          );
+        }),
+      ],
     ],
     child: const ProgressPage(),
   );
