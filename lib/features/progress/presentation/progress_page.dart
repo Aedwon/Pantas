@@ -1,4 +1,6 @@
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
+import 'package:cse_cet_reviewer/features/progress/presentation/widgets/why_you_miss_section.dart';
+
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/empty_state.dart';
@@ -172,9 +174,8 @@ class ProgressPage extends ConsumerWidget {
     return const SizedBox.shrink();
   }
 
-  Widget _whyYouMissSection(BuildContext context, WidgetRef ref) {
-    return const SizedBox.shrink();
-  }
+  Widget _whyYouMissSection(BuildContext context, WidgetRef ref) =>
+      const WhyYouMissSection();
 
   Widget _goDeeperSection(BuildContext context, WidgetRef ref) {
     return const Column(
