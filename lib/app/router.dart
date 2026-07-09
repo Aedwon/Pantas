@@ -29,8 +29,10 @@ import 'package:cse_cet_reviewer/features/settings/settings.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/about_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/account_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/backup_page.dart';
+import 'package:cse_cet_reviewer/features/settings/presentation/pages/change_exam_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/debug_settings_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/delete_account_page.dart';
+import 'package:cse_cet_reviewer/features/settings/presentation/pages/exam_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/not_built_yet_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/settings_home_page.dart';
 import 'package:cse_cet_reviewer/features/study_plan/presentation/plan_page.dart';
@@ -286,7 +288,15 @@ List<RouteBase> buildAppRoutes(Ref ref) {
     ),
     GoRoute(
       path: '/settings/exam',
-      builder: (_, __) => const NotBuiltYetPage(title: 'Exam'),
+      builder: (_, __) => const ExamPage(),
+    ),
+    GoRoute(
+      path: '/settings/exam/change',
+      builder: (_, __) => const ChangeExamPage(),
+    ),
+    GoRoute(
+      path: '/settings/exam/included',
+      builder: (_, __) => const NotBuiltYetPage(title: "What's included"),
     ),
     GoRoute(
       path: '/settings/account',

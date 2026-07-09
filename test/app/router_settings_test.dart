@@ -6,6 +6,8 @@ void main() {
     const required = [
       '/settings',
       '/settings/exam',
+      '/settings/exam/change',
+      '/settings/exam/included',
       '/settings/pro',
       '/settings/account',
       '/settings/backup',
