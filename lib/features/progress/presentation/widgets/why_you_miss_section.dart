@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/components/ruled_panel.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
@@ -98,7 +96,9 @@ class WhyYouMissSection extends ConsumerWidget {
         if (causes.selfNotedMisreads > 0) ...[
           const SizedBox(height: 10),
           Text(
-            'You noted ${causes.selfNotedMisreads} ${causes.selfNotedMisreads == 1 ? 'misread' : 'misreads'} yourself.',
+            'You noted ${causes.selfNotedMisreads} '
+            '${causes.selfNotedMisreads == 1 ? 'misread' : 'misreads'} '
+            'yourself.',
             style: styles.bodySmall.copyWith(color: colors.inkMuted),
           ),
         ],
@@ -112,11 +112,14 @@ class WhyYouMissSection extends ConsumerWidget {
     final fast = causes.answeredTooFast;
 
     if (right >= never && right >= fast) {
-      return 'You mostly know this material already. What is missing is a second pass, not a first one.';
+      return 'You mostly know this material already. What is missing is a '
+          'second pass, not a first one.';
     } else if (never >= fast) {
-      return 'Most of these are questions you have not met before. This is new ground, not lost ground.';
+      return 'Most of these are questions you have not met before. This is '
+          'new ground, not lost ground.';
     } else {
-      return 'Most of these went by quickly. Slowing down on the ones you are unsure of would cost you very little time.';
+      return 'Most of these went by quickly. Slowing down on the ones you '
+          'are unsure of would cost you very little time.';
     }
   }
 
@@ -174,7 +177,8 @@ class WhyYouMissSection extends ConsumerWidget {
         ),
         const SizedBox(height: 12),
         Text(
-          'See why your wrong answers are wrong, derived from your own pace and attempt history.',
+          'See why your wrong answers are wrong, derived from your own pace '
+          'and attempt history.',
           style: styles.bodyMedium.copyWith(color: colors.inkMuted),
         ),
         const SizedBox(height: 12),

@@ -45,11 +45,18 @@ class LatencyDistribution {
     required this.averageMs,
     required this.correctAverageMs,
     required this.incorrectAverageMs,
+    required this.sampleCount,
   });
 
   final double averageMs;
   final double correctAverageMs;
   final double incorrectAverageMs;
+
+  /// How many answers the averages are drawn from.
+  ///
+  /// A caller that turns this into a claim about a student needs to know
+  /// whether there is a distribution here or a single number wearing one.
+  final int sampleCount;
 }
 
 class PacingProfile {

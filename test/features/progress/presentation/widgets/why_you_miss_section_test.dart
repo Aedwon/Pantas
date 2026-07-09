@@ -189,7 +189,7 @@ void main() {
 
   testWidgets('no misses renders no section, on either tier', (tester) async {
     for (final isPro in [true, false]) {
-      await tester.pumpWidget(harness(isPro: isPro, causes: null));
+      await tester.pumpWidget(harness(isPro: isPro));
       await tester.pumpAndSettle();
       expect(find.textContaining('had it right before'), findsNothing);
     }
@@ -198,7 +198,7 @@ void main() {
   testWidgets('Pro extras are absent, not zero, without their data',
       (tester) async {
     await tester.pumpWidget(
-      harness(isPro: true, right: 6, never: 3, fast: 2, selfNoted: 0),
+      harness(isPro: true, right: 6, never: 3, fast: 2),
     );
     await tester.pumpAndSettle();
     expect(find.textContaining('you noted'), findsNothing);

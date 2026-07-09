@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/attempt_origins.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
@@ -19,6 +18,19 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 /// Set to 40% of the student's own average response time so the threshold
 /// travels with them: a naturally fast reader is not accused of rushing.
 const rushedThresholdFraction = 0.4;
+
+/// Answers needed before this student has a pace to be "far below".
+///
+/// **Not in the plan, added 9 August.** The plan says "far below this
+/// student's own distribution" and `PerQuestionSpeedSignal` returns a
+/// distribution from a single answer, so without this a student with one
+/// prior answer could be told they went too fast against an average of one.
+///
+/// Five follows the debrief's `rushedMinimumAnswers`, which makes the same
+/// claim and gates it the same way. The pace panel and `averageResponseMs`
+/// both gate at seven of their own units. **The number is Aedwon's to change;
+/// having no floor at all was not defensible.**
+const rushedMinimumAnswers = 5;
 
 @immutable
 class MissCauses {
@@ -78,7 +90,9 @@ final missCausesProvider = FutureProvider<MissCauses?>((ref) async {
     examId: examId,
   );
 
-  final averageMs = speedDistribution?.averageMs ?? 0;
+  final answerCount = speedDistribution?.sampleCount ?? 0;
+  final averageMs =
+      answerCount >= rushedMinimumAnswers ? speedDistribution!.averageMs : 0;
   final thresholdMs = averageMs * rushedThresholdFraction;
 
   // 3. Fetch questions in reviewStateLocal
