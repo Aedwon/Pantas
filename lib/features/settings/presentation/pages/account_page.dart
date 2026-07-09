@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:cse_cet_reviewer/core/auth/providers.dart';
 import 'package:cse_cet_reviewer/core/auth/sign_in_result.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
+import 'package:cse_cet_reviewer/core/ui/components/page_scaffold.dart';
+import 'package:cse_cet_reviewer/core/ui/components/settings_bar.dart';
 import 'package:cse_cet_reviewer/core/ui/components/settings_value_row.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
@@ -23,11 +25,12 @@ class _AccountPageState extends ConsumerState<AccountPage> {
     final user = ref.watch(currentUserProvider).valueOrNull;
     final isAnonymous = ref.watch(isAnonymousProvider).valueOrNull ?? false;
 
-    return Scaffold(
-      appBar: AppBar(title: const Text('Account')),
+    return PageScaffold(
       body: ListView(
-        padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+        padding: EdgeInsets.zero,
         children: [
+          const SettingsBar(title: 'Account'),
+          const SizedBox(height: 16),
           if (user == null && isAnonymous) ...[
             Text(
               'Your progress is saved on this device. Sign in to back it up '

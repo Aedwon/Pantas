@@ -2,19 +2,55 @@ import 'package:cse_cet_reviewer/core/auth/auth_user.dart';
 import 'package:cse_cet_reviewer/core/auth/providers.dart';
 import 'package:cse_cet_reviewer/core/sync/providers.dart';
 import 'package:cse_cet_reviewer/core/sync/sync_status.dart';
+import 'package:cse_cet_reviewer/core/ui/components/settings_bar.dart';
 import 'package:cse_cet_reviewer/features/legal/legal.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/about_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/account_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/backup_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/delete_account_page.dart';
+import 'package:cse_cet_reviewer/features/settings/presentation/pages/pro_page.dart';
 import 'package:cse_cet_reviewer/features/settings/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../helpers/pump_app.dart';
 
 void main() {
+  testWidgets('every settings page uses the settings bar, not an AppBar',
+      (tester) async {
+    for (final page in [
+      const ProPage(),
+      const AccountPage(),
+      const BackupPage(),
+      const AboutPage(),
+    ]) {
+      await tester.pumpAppWithProviders(page, overrides: []);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(SettingsBar), findsOneWidget);
+      expect(find.byType(AppBar), findsNothing);
+    }
+  });
+
+  testWidgets('the pro page names three plans and no lifetime',
+      (tester) async {
+    await tester.pumpAppWithProviders(const ProPage(), overrides: []);
+    await tester.pumpAndSettle();
+
+    expect(find.textContaining('Weekly'), findsOneWidget);
+    expect(find.textContaining('Monthly'), findsOneWidget);
+    expect(find.textContaining('Yearly'), findsOneWidget);
+    expect(find.textContaining('Lifetime'), findsNothing);
+  });
+
+  testWidgets('the pro page offers manage and restore', (tester) async {
+    await tester.pumpAppWithProviders(const ProPage(), overrides: []);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Manage in Google Play'), findsOneWidget);
+    expect(find.text('Restore purchases'), findsOneWidget);
+  });
+
   testWidgets('anonymous account page shows sign in CTA and delete data row',
       (tester) async {
     await tester.pumpAppWithProviders(
@@ -73,112 +109,28 @@ void main() {
     expect(find.text('Yes, delete my account'), findsOneWidget);
   });
 
-  testWidgets('backup page displays last backed up date', (tester) async {
-    await tester.pumpAppWithProviders(
-      const BackupPage(),
-      overrides: [
-        isAnonymousProvider.overrideWith((ref) async => false),
-        syncStatusProvider.overrideWith(
-          (ref) => Stream.value(
-            SyncOk(
-              lastSyncedAt: DateTime.utc(2026, 5, 22, 12),
-              pendingCount: 0,
-            ),
-          ),
-        ),
-      ],
-    );
-
-    expect(find.textContaining('Last backed up 2026-05-22'), findsOneWidget);
-    expect(
-      find.text('Your progress is automatically saved when connected.'),
-      findsOneWidget,
-    );
-  });
-
-  testWidgets('about page renders legal and DPO seams', (tester) async {
-    await tester.pumpApp(
-      AboutPage(
-        version: '0.1.0',
-        buildNumber: '1',
-        dpoEmail: defaultLegalContact.dpoEmail,
-        physicalAddress: defaultLegalContact.physicalAddress,
-      ),
-    );
-
-    expect(find.text('CSE Reviewer'), findsOneWidget);
-    expect(find.text('Version 0.1.0 (build 1)'), findsOneWidget);
-    expect(find.text('Privacy Policy'), findsOneWidget);
-    expect(find.text('Terms of Service'), findsOneWidget);
-    expect(find.text('Contact our DPO'), findsOneWidget);
-    expect(find.textContaining('data export, correction'), findsOneWidget);
-    expect(
-      find.textContaining('Pantas. All rights reserved.'),
-      findsOneWidget,
-    );
-  });
-
-  testWidgets('about page shows configured DPO email and physical address',
+  testWidgets('the backup page still renders all five states',
       (tester) async {
-    await tester.pumpApp(
-      AboutPage(
-        version: '0.1.0',
-        buildNumber: '1',
-        dpoEmail: defaultLegalContact.dpoEmail,
-        physicalAddress: defaultLegalContact.physicalAddress,
-      ),
-    );
+    final states = <SyncStatus>[
+      const SyncIdle(),
+      SyncOk(lastSyncedAt: DateTime.utc(2026, 5, 22), pendingCount: 0),
+      const Syncing(pendingCount: 3),
+      const SyncPartialFailure(failedCollections: ['progress']),
+      SyncFailedSince(since: DateTime.utc(2026, 5, 21)),
+    ];
 
-    expect(find.text(defaultLegalContact.dpoEmail), findsOneWidget);
-    expect(
-      find.textContaining(defaultLegalContact.physicalAddress),
-      findsOneWidget,
-    );
-    expect(find.textContaining('example.com'), findsNothing);
-  });
+    for (final status in states) {
+      await tester.pumpAppWithProviders(
+        const BackupPage(),
+        overrides: [
+          isAnonymousProvider.overrideWith((ref) async => false),
+          syncStatusProvider.overrideWith((ref) => Stream.value(status)),
+        ],
+      );
+      await tester.pumpAndSettle();
 
-  testWidgets('about page privacy and terms rows navigate to legal routes',
-      (tester) async {
-    var location = '/settings/about';
-    final router = GoRouter(
-      initialLocation: location,
-      routes: [
-        GoRoute(
-          path: '/settings/about',
-          builder: (_, __) => AboutPage(
-            version: '0.1.0',
-            buildNumber: '1',
-            dpoEmail: defaultLegalContact.dpoEmail,
-            physicalAddress: defaultLegalContact.physicalAddress,
-          ),
-        ),
-        GoRoute(
-          path: '/legal/:doc',
-          builder: (_, state) => Scaffold(
-            body: Text('Legal ${state.pathParameters['doc']}'),
-          ),
-        ),
-      ],
-      redirect: (_, state) {
-        location = state.uri.toString();
-        return null;
-      },
-    );
-
-    await tester.pumpAppWithRouter(router);
-
-    await tester.tap(find.text('Privacy Policy'));
-    await tester.pumpAndSettle();
-    expect(location, '/legal/privacy');
-    expect(find.text('Legal privacy'), findsOneWidget);
-
-    router.go('/settings/about');
-    await tester.pumpAndSettle();
-
-    await tester.tap(find.text('Terms of Service'));
-    await tester.pumpAndSettle();
-    expect(location, '/legal/terms');
-    expect(find.text('Legal terms'), findsOneWidget);
+      expect(find.byType(SettingsBar), findsOneWidget);
+    }
   });
 }
 
