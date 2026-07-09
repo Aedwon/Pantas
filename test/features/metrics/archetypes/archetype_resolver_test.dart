@@ -47,6 +47,7 @@ void main() {
           averageMs: 8000,
           correctAverageMs: 7000,
           incorrectAverageMs: 12000,
+          sampleCount: 20,
         ),
       },
     );

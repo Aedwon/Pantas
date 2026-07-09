@@ -57,6 +57,7 @@ class PerQuestionSpeedSignal implements Signal<LatencyDistribution> {
       averageMs: _average(all),
       correctAverageMs: _average(correct),
       incorrectAverageMs: _average(incorrect),
+      sampleCount: all.length,
     );
   }
 

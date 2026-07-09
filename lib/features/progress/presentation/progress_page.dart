@@ -6,6 +6,7 @@ import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
+import 'package:cse_cet_reviewer/features/progress/presentation/widgets/why_you_miss_section.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/widgets/your_pace_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -166,9 +167,8 @@ class ProgressPage extends ConsumerWidget {
     return const SizedBox.shrink();
   }
 
-  Widget _whyYouMissSection(BuildContext context, WidgetRef ref) {
-    return const SizedBox.shrink();
-  }
+  Widget _whyYouMissSection(BuildContext context, WidgetRef ref) =>
+      const WhyYouMissSection();
 
   Widget _goDeeperSection(BuildContext context, WidgetRef ref) {
     return const Column(
