@@ -77,6 +77,45 @@ directly from the orchestrator**, one git worktree per plan.
 
 ## Part 0: Pick up here
 
+**Overnight handoff, 9 August.** Three unattended iterations ran while Aedwon slept.
+
+### What landed
+
+| | State |
+|---|---|
+| **Settings 04, the sheets** | **Merged.** Five commits against five tasks. The wheel column, the exam date sheet with the dash that means month only, the name, reminder and ordering sheets, and all four opening from their rows |
+| **The reader, Tasks 4 and 5** | **Merged.** A lesson marks itself read, and the gap states the mark and offers the coda |
+
+**Main is green: 1,573 tests, analyzer clean under `lib/` and `test/`, formatter clean.**
+
+### What is waiting, and why it was not merged
+
+- **The reader's Task 6 is half built** and sits uncommitted in
+  `.claude/worktrees/study04b`. `PullToAdvance` exists with **one failing test**, "the handle
+  arms past the threshold", and `lesson_page.dart` was never rebuilt around it. **Not merged:
+  a half-wired gesture is worse than none, and nobody was awake to rule on it.**
+- **Study 05, the endings, never started.** It refused, correctly, because it needs Task 6's
+  `PullToAdvance` and the rebuilt page. It is unblocked the moment Task 6 lands.
+- **Home 01 and Settings 05 and 06 were deliberately not dispatched.** Home rebuilds the app
+  shell and touches the router, which 25 plans touch, while the reader work in flight was
+  rebuilding the lesson page and adding a route. **Running those against each other unattended
+  is a 3am merge conflict with nobody to rule on it.**
+
+### One question waiting for Aedwon
+
+**The read-marking dwell floor is 15 seconds and the spec does not give a number.** The plan
+chose it and flagged it deliberately: long enough that a flick from top to bottom of a ten
+minute lesson does not count, short enough that rereading something familiar is never denied
+the mark. **It is one constant and it is his call.**
+
+### The check that came out of the night
+
+**A green suite is not a finished plan.** The reader was merged at six tasks with three done,
+and every gate passed, because unwritten code fails no test. **Count the plan's tasks against
+the run's commits before merging.** Full entry in the dispatch log.
+
+---
+
 **Rewritten 8 August.** Everything the old Part 0 queued has landed.
 
 ### The one instruction that changed everything
