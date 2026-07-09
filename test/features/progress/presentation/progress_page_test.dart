@@ -1,122 +1,138 @@
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
+import 'dart:async';
+
+import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/core/ui/components/stats_band.dart';
-import 'package:cse_cet_reviewer/features/metrics/providers/current_archetype_provider.dart';
-import 'package:cse_cet_reviewer/features/metrics/providers/metrics_signal_providers.dart';
-import 'package:cse_cet_reviewer/features/progress/presentation/paywall_teaser_panel.dart';
+import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/progress_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:go_router/go_router.dart';
 
-import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
 
-GoRouter _buildRouter({required bool proIsActive}) => GoRouter(
-      initialLocation: '/progress',
-      routes: [
-        GoRoute(
-          path: '/progress',
-          builder: (_, __) => Scaffold(
-            body: ProgressPage(proIsActive: proIsActive),
-          ),
-        ),
-        GoRoute(
-          path: '/paywall',
-          builder: (_, __) => const Scaffold(body: Text('Paywall')),
-        ),
-      ],
-    );
+Widget harness({bool hasAttempts = true, String? examId = 'cse'}) {
+  final exam = buildExam(
+    id: 'cse',
+    code: 'CSE',
+    name: 'Civil Service Exam',
+    shortName: 'CSE',
+  );
+
+  return ProviderScope(
+    overrides: [
+      activeExamFocusProvider.overrideWith((ref) async {
+        if (examId == null) {
+          return const ActiveExamFocus.needsSelection();
+        }
+        return ActiveExamFocus.selected(exam);
+      }),
+      if (examId != null)
+        countForExamProvider(examId).overrideWith((ref) async {
+          return hasAttempts ? 5 : 0;
+        }),
+    ],
+    child: const ProgressPage(),
+  );
+}
+
+Widget harnessThatThrows(String errorMsg) {
+  final exam = buildExam(
+    id: 'cse',
+    code: 'CSE',
+    name: 'Civil Service Exam',
+    shortName: 'CSE',
+  );
+
+  return ProviderScope(
+    overrides: [
+      activeExamFocusProvider.overrideWith(
+        (ref) async => ActiveExamFocus.selected(exam),
+      ),
+      countForExamProvider('cse').overrideWith(
+        (ref) => Future<int>.error(errorMsg),
+      ),
+    ],
+    child: const ProgressPage(),
+  );
+}
+
+Widget harnessLoading() {
+  final completer = Completer<ActiveExamFocus>();
+  return ProviderScope(
+    overrides: [
+      activeExamFocusProvider.overrideWith((ref) => completer.future),
+    ],
+    child: const ProgressPage(),
+  );
+}
 
 void main() {
-  late AppDatabase db;
+  testWidgets('opens on the diagnosis, with Go deeper last', (tester) async {
+    await tester.pumpApp(harness(hasAttempts: true));
+    await tester.pumpAndSettle();
 
-  setUp(() async {
-    db = inMemoryDatabase();
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'cse',
-            code: 'CSE',
-            name: 'Civil Service Exam',
-            shortName: 'CSE',
-            language: 'en',
-          ),
-        );
-    await AppPreferencesRepository(db).setSelectedExamId('cse');
+    final paceY = tester.getTopLeft(find.text('Your pace')).dy;
+    final deeperY = tester.getTopLeft(find.text('Go deeper')).dy;
+    expect(paceY, lessThan(deeperY));
   });
 
-  tearDown(() => db.close());
-
-  Future<void> pumpProgress(
-    WidgetTester tester, {
-    required bool proIsActive,
-    List<Override> overrides = const [],
-  }) async {
-    await tester.pumpAppWithRouter(
-      _buildRouter(proIsActive: proIsActive),
-      overrides: [
-        appDatabaseProvider.overrideWithValue(db),
-        currentArchetypeProvider.overrideWith((ref, request) async => null),
-        metricsSignalProvider.overrideWith((ref, request) async => null),
-        ...overrides,
-      ],
-    );
+  testWidgets('day one shows an invitation and never a zero', (tester) async {
+    await tester.pumpApp(harness(hasAttempts: false));
     await tester.pumpAndSettle();
-  }
 
-  testWidgets('free user sees teaser with unlock affordance', (tester) async {
-    await pumpProgress(tester, proIsActive: false);
-
-    expect(find.byType(PaywallTeaserPanel), findsNWidgets(3));
-    expect(find.text('Unlock with Pro'), findsNWidgets(3));
-    expect(find.text('Accuracy trend'), findsOneWidget);
-    expect(find.text("Where you're slipping"), findsOneWidget);
-    expect(find.text('Mock exams'), findsOneWidget);
-    expect(find.text('Milestones'), findsOneWidget);
-
-    await tester.tap(find.text('Unlock with Pro').first);
-    await tester.pumpAndSettle();
-    expect(find.text('Paywall'), findsOneWidget);
+    expect(find.text('Nothing to report yet'), findsOneWidget);
+    expect(find.text('Take the assessment'), findsOneWidget);
+    expect(find.text('0%'), findsNothing);
+    expect(find.text('0'), findsNothing);
   });
 
-  testWidgets('pro user sees coming-soon panel, no unlock text',
-      (tester) async {
-    await pumpProgress(tester, proIsActive: true);
+  testWidgets('an error never shows the exception string', (tester) async {
+    await tester.pumpApp(harnessThatThrows('PlatformException(42)'));
+    await tester.pumpAndSettle();
 
-    expect(find.byType(PaywallTeaserPanel), findsNothing);
-    expect(find.text('Unlock with Pro'), findsNothing);
+    expect(find.textContaining('PlatformException'), findsNothing);
     expect(
-      find.text('Charts land here in an upcoming update.'),
-      findsNWidgets(3),
+      find.text('Could not load your progress. Pull down to try again.'),
+      findsOneWidget,
     );
   });
 
-  testWidgets('archetype panel renders label when provider resolves',
+  testWidgets('loading is faint bars, never shimmer or gray blocks',
       (tester) async {
-    await pumpProgress(
-      tester,
-      proIsActive: false,
-      overrides: [
-        currentArchetypeProvider.overrideWith(
-          (ref, request) async => const CurrentArchetype(
-            id: 'steady_builder',
-            label: 'Steady builder',
-            matchScore: 0.9,
-            synthesizedCopy: 'You study a little every day.',
-          ),
-        ),
-      ],
-    );
+    await tester.pumpApp(harnessLoading());
+    await tester.pump();
 
-    expect(find.text('Your profile'), findsOneWidget);
-    expect(find.text('Steady builder'), findsOneWidget);
-    expect(find.text('You study a little every day.'), findsOneWidget);
+    expect(find.byType(FaintBars), findsWidgets);
+    expect(find.byType(CircularProgressIndicator), findsNothing);
   });
 
-  testWidgets('null signals render no stats band', (tester) async {
-    await pumpProgress(tester, proIsActive: false);
+  testWidgets('no exam shows the existing fallback', (tester) async {
+    await tester.pumpApp(harness(examId: null));
+    await tester.pumpAndSettle();
+    expect(find.text('Choose your exam'), findsOneWidget);
+  });
 
-    expect(find.byType(StatsBand), findsNothing);
+  testWidgets('milestones are gone', (tester) async {
+    await tester.pumpApp(harness(hasAttempts: true));
+    await tester.pumpAndSettle();
+    expect(find.text('Milestones'), findsNothing);
+    expect(find.textContaining('Charts land here'), findsNothing);
+  });
+
+  testWidgets('no banned word appears anywhere', (tester) async {
+    await tester.pumpApp(harness(hasAttempts: true));
+    await tester.pumpAndSettle();
+
+    for (final word in [
+      'FSRS',
+      'stability',
+      'retention',
+      'retrievability',
+      'algorithm',
+      'marks',
+      '—',
+    ]) {
+      expect(find.textContaining(word), findsNothing);
+    }
   });
 }

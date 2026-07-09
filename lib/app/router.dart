@@ -129,12 +129,7 @@ List<RouteBase> buildAppRoutes(Ref ref) {
           routes: [
             GoRoute(
               path: '/progress',
-              builder: (_, __) {
-                final entitlement =
-                    ref.watch(entitlementProvider).valueOrNull ??
-                        const Entitlement.free();
-                return ProgressPage(proIsActive: entitlement.proIsActive);
-              },
+              builder: (_, __) => const ProgressPage(),
             ),
           ],
         ),
