@@ -77,7 +77,7 @@ Six prior statements, several of them mine during this design, are wrong.
    fetches `questionsByTopic(lesson.topicId)` and takes the first five, so **all 17
    Chemistry lessons hand out the same five questions**. The reader coda approved on
    2026-07-27 is therefore live and wrong today.
-6. **The spelling is American.** The repository contains zero instances of "practise"
+6. **The spelling is American.** The repository contains zero instances of "practice"
    and seventeen of "practice".
 
 Two constraints that follow:
@@ -129,11 +129,11 @@ Four states, one per condition of the day.
 | State | Heading | Trailing count | Body |
 |---|---|---|---|
 | No assessment taken | "Start with the assessment" | computed length, e.g. "21 questions" | "A few questions from every subject, to find out where you stand. Everything Pantas gives you afterwards is built on it." Board button "Take the assessment" |
-| Session available | "Today's session" | none | Two centred figures, the composition line, the settings link, board button "Start" |
-| Caught up | "Today's session" | none | Two centred figures, no button at all |
+| Session available | "Today's session" | none | Two centered figures, the composition line, the settings link, board button "Start" |
+| Caught up | "Today's session" | none | Two centered figures, no button at all |
 | Session in progress | "Still going" | "6 of 10" | "You stopped partway through **Chemistry**. Every answer was saved." Board button "Resume", then Discard |
 
-**Figures are centred**, amending nothing: the Home spec already centres its stats
+**Figures are centered**, amending nothing: the Home spec already centers its stats
 band, and the tab was the surface out of step. Value in serif 21/700 with tabular
 figures, a 12px sans suffix in `inkMuted` where one is needed, label beneath in 11.5
 `inkMuted`.
@@ -148,7 +148,7 @@ routing to the ordering setting in Section 5. The tail is not explained in prose
 the setting explains itself.
 
 **Resume and Discard.** "Resume" only, never "Pick up where you left off". Beneath it,
-centred at 12.5, **"Discard this session"** in **board green**, matching every other
+centered at 12.5, **"Discard this session"** in **board green**, matching every other
 text action in the app.
 
 **"Start over" is deleted.** `RestartSession` quits the active row and creates a new
@@ -165,8 +165,8 @@ Heading "Mock exam". The trailing count is the **cooldown, precise to the hour**
 | State | Body |
 |---|---|
 | Never taken | "The whole thing under exam timing. 3 hours 30, and no answers until the end." Then the tier rule. Secondary button "Take the exam" |
-| Free, in cooldown | Three centred figures, then the tier rule with the reopen date, then "View your full results from last time" |
-| Available with history | Three centred figures, the tier rule, the results link, secondary button "Take another" |
+| Free, in cooldown | Three centered figures, then the tier rule with the reopen date, then "View your full results from last time" |
+| Available with history | Three centered figures, the tier rule, the results link, secondary button "Take another" |
 | Session in progress | "Finish your session first. It runs 3 hours 30 and can't be paused." Then the tier rule. No button |
 
 Figures: **last score** as a percentage, **parts passed** as "3 of 5", **taken** as a
@@ -337,11 +337,11 @@ Value in serif 21/700 tabular. Detail in 12 `inkMuted`, with the duration in `in
 w600. When a pool holds fewer than asked, the line appends ", 1 had fewer". With
 nothing selected: an em rule and "Pick a topic or a lesson above".
 
-**The unit control**, centred, 12px: `questions · minutes`, separated by a 1px by 11px
+**The unit control**, centered, 12px: `questions · minutes`, separated by a 1px by 11px
 `rule` tick with 9px margins, the active one in `ink` w700. No pills.
 
 **The wheel.** A horizontal scroll-snapped strip, 58px tall, items in fixed **52px**
-columns so every value lands on one optical centre whatever its size.
+columns so every value lands on one optical center whatever its size.
 
 - The selected value in serif 21/700 `ink`. Its neighbours in sans 14.5 `inkMuted`.
 - **A `boardTint` band, 52 by 38, behind the selected column.** No rails, no border.
@@ -417,9 +417,9 @@ B   what you picked
 - Note **A** always renders. Note **B** renders only on a miss, and only for Pro.
 
 **This treatment is deliberate and replaces a rejected one.** The first draft drew the
-Pro block as a tinted panel with a coloured left border and a coloured label, which is
+Pro block as a tinted panel with a colored left border and a colored label, which is
 the visual signature of generated output and was rejected on sight. Marginal notes are
-a print device, they reuse a grid already on the screen, and they need no new colour.
+a print device, they reuse a grid already on the screen, and they need no new color.
 
 ### What Free sees, and what it does not say
 
@@ -461,7 +461,7 @@ You'll see all three again tomorrow.
 
 - **"Ten answered."** in serif 22/700, computed from the session length. Not "Session
   complete", which is software talking about itself.
-- **Two** centred figures: **correct** and **taken**. Not "spent", which frames the
+- **Two** centered figures: **correct** and **taken**. Not "spent", which frames the
   time as lost. **No streak figure**, for the same reason it was cut from the session
   panel: it is on Home and in Progress and does not need a third home. It is also the
   wrong screen for it, since a streak is a fact about the month and this page is about
@@ -561,7 +561,7 @@ than new machinery.
 Three orderings are exposed in Settings, the default carrying a **recommended** marker
 and each carrying a one-line plain explanation:
 
-| Setting | Behaviour |
+| Setting | Behavior |
 |---|---|
 | Blocked | Every question from the chosen topic |
 | **Interleaved tail** (default, recommended) | Seven from the topic, three from elsewhere |
@@ -583,7 +583,7 @@ returns the same ten in the same order forever.
 **Weighting the picker toward recently-read topics.** Today's session chooses the
 largest backlog, so finishing Chemistry does not mean today's session tests Chemistry.
 If just-read material should come round sooner, the fix belongs in the picker and not
-in a new button. `read_then_quiz_signal.dart` already measures the behaviour.
+in a new button. `read_then_quiz_signal.dart` already measures the behavior.
 
 ---
 
@@ -624,7 +624,7 @@ it.
 **Rejected:** a plain banner, because filled it is a rectangle beside a staff and that
 is close enough to the ribbon to cause a moment of doubt. A dog-ear, which is the
 better paper metaphor and is already the Progress tab's folded sheet. A star, which
-means favourite, and a question is flagged because it beat you.
+means favorite, and a question is flagged because it beat you.
 
 ### The control
 
@@ -728,7 +728,7 @@ and it is **tappable**.
 session. Deliberately ambient: it says how far and nothing else, because the grid
 carries the detail and neither should do the other's job.
 
-**Rejected:** segments coloured by outcome. A running score you cannot look away from
+**Rejected:** segments colored by outcome. A running score you cannot look away from
 means three rust segments at question four is a reason to quit, and the debrief exists
 so that judgment arrives after the work. It would also contradict the mock, where
 outcomes are hidden until the end on purpose.
@@ -757,7 +757,7 @@ The counter opens **a grid, not a list**, as a bottom sheet.
 vertical**. It sets like a printed results table and halves the rule count of a bordered
 grid. Six columns in a mock, five in a quiz, cells at least 46px.
 
-**The cell** is a stack, centred as a pair, which puts the number above the cell's
+**The cell** is a stack, centered as a pair, which puts the number above the cell's
 optical middle:
 
 | Part | Spec |
@@ -781,7 +781,7 @@ grid rather than a thing belonging to a cell.
 
 **Amber, not board, for answered.** A tick in the quiz grid means you were right, which
 is a judgment and earns board. Answered in a mock is not a judgment, so it must not wear
-a judgment colour.
+a judgment color.
 
 **The pennant in a cell is `inkMuted`, not `ink`.** In the bar it is a control and earns
 full ink when set. In a cell it is a record of something already done and must not
@@ -798,8 +798,8 @@ is exactly what flag-for-review exists to serve.
 
 **No border, box or underline.** An underline is a horizontal rule sitting a few pixels
 above another horizontal rule with a different meaning and width, which cannot be
-resolved by nudging. A box centres on the cell while the number is centred as part of a
-stack, so the two centres never agree.
+resolved by nudging. A box centers on the cell while the number is centered as part of a
+stack, so the two centers never agree.
 
 ### The caret travels
 

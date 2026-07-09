@@ -16,7 +16,7 @@ This direction strictly avoids:
 The chosen direction (Option C) translates the strict hierarchy of the "Ink & Rule" specs into a technical, high-information-density dark mode.
 
 - **Backgrounds:** Deep charcoal and off-black (e.g., `#111214`, `#1e1f22`), rather than pure black or trendy tinted purples.
-- **Typography:** Crisp sans-serif fonts, using subtle greys for secondary text to establish strong visual hierarchy without relying heavily on color.
+- **Typography:** Crisp sans-serif fonts, using subtle grays for secondary text to establish strong visual hierarchy without relying heavily on color.
 - **Borders & Dividers:** Thin, subtle borders (`1px solid #2b2d31`) replace the harsh black hairlines of Ink & Rule, providing structure without visual noise.
 - **Accent Colors:** Used sparingly and semantically (e.g., green for positive progress, amber/rust for weak areas, a single primary brand color for main calls to action like "Continue lesson").
 

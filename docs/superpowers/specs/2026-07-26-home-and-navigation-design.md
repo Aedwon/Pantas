@@ -51,7 +51,7 @@ Three rules the implementation must hold:
    instantly. Two glyphs animating at once reads as busy.
 2. The animation is **disabled under reduce-motion**, falling back to a plain
    swap. This is an accessibility requirement, not a preference.
-3. **No board green anywhere in the bar.** The colour budget reserves board for
+3. **No board green anywhere in the bar.** The color budget reserves board for
    primary actions, progress indicators and done-checks. Marking navigation with
    it would cost the primary button meaning.
 
@@ -132,7 +132,7 @@ Home carries four blocks, each enclosed in a **ruled panel**: a 1px `rule`
 border, square corners, on the same paper as the page.
 
 A ruled panel is not a card. What makes a card read as generic is elevation
-(shadow), a large radius, a white surface floating above tint, and a coloured
+(shadow), a large radius, a white surface floating above tint, and a colored
 header strip. The identity bans those by name. It never banned drawing a box,
 and a hairline rectangle around a group of rows is the oldest grouping device in
 print. This gives hard separation with nothing borrowed.
@@ -149,14 +149,14 @@ Block order:
 
 ### Stats band
 
-Two figures, **centred**: accuracy, and lessons read against total. Days to exam
+Two figures, **centered**: accuracy, and lessons read against total. Days to exam
 lives in the masthead meta line instead, so it is not repeated here.
 
 Centring amends both the approved mock (`text-align: left`) and the shipped
 widget (`StatsBand` uses `CrossAxisAlignment.start`). This is a deliberate
-choice for balance against the centred tendency card beneath it, not a drift.
+choice for balance against the centered tendency card beneath it, not a drift.
 
-The "Lately" metric atom sits beneath the band, **centred**, separated by a
+The "Lately" metric atom sits beneath the band, **centered**, separated by a
 faint rule.
 
 ### Up next
@@ -175,7 +175,7 @@ decisions are in `decisions/2026-08-02-home-weakest-areas-log.md` and the causes
 are in Section 8 below.
 
 Three topic rows, weakest first, each carrying an `InlineMeter` and a percentage
-coloured by severity (rust below 50, amber below 70, ink above). Semantic colour
+colored by severity (rust below 50, amber below 70, ink above). Semantic color
 on semantic values, within budget. A chevron per row, under the Study spec's rule
 that a chevron marks a row that is its own destination.
 
@@ -215,7 +215,7 @@ This is the only rule that survives both ends of the assessment. Once all 18
 topics carry questions, `AssessmentQuestionSelector` gives each contributing topic
 `max(1, min(3, 35 ~/ 18))`, which is **one question**. A floor that excluded
 topics from the ranking would therefore empty this panel completely on the day the
-question bank is finished, which is the opposite of the intended behaviour. A
+question bank is finished, which is the opposite of the intended behavior. A
 one-question sample is a fine reason to put Chemistry at the top of a list to work
 on. It is not a reason to print "0%" in rust.
 
@@ -255,7 +255,7 @@ It belongs to the Quiz thread, beside the interleaved-tail item plan 2b raised.
 
 ## Section 4: "Your tendencies"
 
-A Pro-gated panel presenting four behavioural insights, one at a time.
+A Pro-gated panel presenting four behavioral insights, one at a time.
 
 The name matters. The redesign spec reserves the word "readiness" until a real
 projection model backs it, so the panel avoids it. "Your tendencies" is accurate:
@@ -312,7 +312,7 @@ the enclosure; nesting one would be a card in a card.
   reduce-motion is satisfied without a special case.
 - **Worst first.** Ordered by points at stake, descending. Cards blocked by a
   missing prerequisite sort last.
-- **Content is centred**, matching the stats band above it.
+- **Content is centered**, matching the stats band above it.
 - Dots show position; hollow dots mark cards not yet unlocked.
 
 ### Prerequisite state
@@ -322,7 +322,7 @@ specific action that unlocks it ("Finish one full-length mock"). This is muted
 text, never board, so it does not compete with the single primary action.
 
 This turns the two mock-dependent insights into a nudge toward sitting a mock,
-which is the behaviour the app wants anyway. A new user sees "How you answer"
+which is the behavior the app wants anyway. A new user sees "How you answer"
 immediately and three signposts.
 
 ### Free and Pro
@@ -385,7 +385,7 @@ deliberate rather than drift.
 
 1. **Bottom nav gains icons.** The approved mock and reference-sweep plan both
    specify text-only labels.
-2. **Stats band figures are centred.** The mock and `StatsBand` are left-aligned.
+2. **Stats band figures are centered.** The mock and `StatsBand` are left-aligned.
 3. **The masthead gains a meta line.** The approved composition was kicker over
    name, with the gear as the only other element.
 4. **Home blocks are enclosed.** The identity previously grouped by rules and
@@ -417,7 +417,7 @@ Three things, two documented and one found in the code during this round.
    supersedes Spec 4 §7.1 by name. The action pointed at nothing from 28 July on.
 2. **Progress built the same ranking and gated it.** The 30 July Performance
    table is topics ranked by accuracy, default sort Score ascending, severity
-   coloured. Its Section 7 fixes Free at Subject level.
+   colored. Its Section 7 fixes Free at Subject level.
 3. **The figures were frozen and tiny.** `topicMasteries` is written once by
    `CompleteAssessment` and never recomputed, and
    `AssessmentQuestionSelector` gives each contributing topic at most three
@@ -440,7 +440,7 @@ Three things, two documented and one found in the code during this round.
 ## Verification
 
 Per the redesign spec's standing rule: run on the `pantas_pixel` emulator,
-screenshot light and night, check against the colour budget. Specifically:
+screenshot light and night, check against the color budget. Specifically:
 
 - The nav bar at 1.50 stroke on a real screen, both modes, and the 400ms rise
   once page transitions are also running.
