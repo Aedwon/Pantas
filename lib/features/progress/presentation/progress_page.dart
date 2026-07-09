@@ -41,7 +41,8 @@ class ProgressPage extends ConsumerWidget {
                   ref.invalidate(countForExamProvider(exam.id));
                 },
                 child: ListView(
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
                   children: [
                     Text(
                       exam.shortName,
@@ -61,11 +62,11 @@ class ProgressPage extends ConsumerWidget {
                 ),
               );
             },
-            loading: () => _loadingState(),
+            loading: _loadingState,
             error: (error, stack) => _errorState(context, ref, exam.id),
           );
         },
-        loading: () => _loadingState(),
+        loading: _loadingState,
         error: (error, stack) => _errorState(context, ref, null),
       ),
     );
@@ -106,8 +107,8 @@ class ProgressPage extends ConsumerWidget {
       children: [
         EmptyState(
           headline: 'Nothing to report yet',
-          body:
-              'Take the assessment and this fills in. It takes about twenty minutes and it is how Pantas learns where you are.',
+          body: 'Take the assessment and this fills in. It takes about twenty '
+              'minutes and it is how Pantas learns where you are.',
           ctaLabel: 'Take the assessment',
           onCta: () => context.push('/assessment/$examId'),
         ),
@@ -146,9 +147,9 @@ class ProgressPage extends ConsumerWidget {
             ref.invalidate(activeExamFocusProvider);
           }
         },
-        child: SingleChildScrollView(
-          physics: const AlwaysScrollableScrollPhysics(),
-          child: const ErrorBanner(
+        child: const SingleChildScrollView(
+          physics: AlwaysScrollableScrollPhysics(),
+          child: ErrorBanner(
             variant: ErrorBannerVariant.error,
             message: 'Could not load your progress. Pull down to try again.',
           ),

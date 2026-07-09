@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:cse_cet_reviewer/core/ui/components/data_row_tile.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +31,7 @@ void main() {
   testWidgets('a null figure is an empty column, never a dash or a zero',
       (tester) async {
     await tester.pumpApp(
-      const DataRowTile(title: 'Chemistry', primaryFigure: null),
+      const DataRowTile(title: 'Chemistry'),
     );
     expect(find.text('-'), findsNothing);
     expect(find.text('0'), findsNothing);

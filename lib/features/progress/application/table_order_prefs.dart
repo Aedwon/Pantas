@@ -4,7 +4,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 enum TableSortKey { score, time }
+
 enum TableSortDirection { ascending, descending }
+
 enum TableLevel { subject, topic, lesson }
 
 @immutable

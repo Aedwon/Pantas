@@ -68,7 +68,7 @@ Widget harnessLoading() {
 
 void main() {
   testWidgets('opens on the diagnosis, with Go deeper last', (tester) async {
-    await tester.pumpApp(harness(hasAttempts: true));
+    await tester.pumpApp(harness());
     await tester.pumpAndSettle();
 
     final paceY = tester.getTopLeft(find.text('Your pace')).dy;
@@ -113,14 +113,14 @@ void main() {
   });
 
   testWidgets('milestones are gone', (tester) async {
-    await tester.pumpApp(harness(hasAttempts: true));
+    await tester.pumpApp(harness());
     await tester.pumpAndSettle();
     expect(find.text('Milestones'), findsNothing);
     expect(find.textContaining('Charts land here'), findsNothing);
   });
 
   testWidgets('no banned word appears anywhere', (tester) async {
-    await tester.pumpApp(harness(hasAttempts: true));
+    await tester.pumpApp(harness());
     await tester.pumpAndSettle();
 
     for (final word in [

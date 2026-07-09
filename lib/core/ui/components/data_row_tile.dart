@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -33,11 +31,15 @@ class DataRowTile extends StatelessWidget {
     final colors = context.colors;
     final styles = context.textStyles;
 
-    Widget buildFigureColumn(String? figureText, {required bool isActive, Color? color}) {
+    Widget buildFigureColumn(
+      String? figureText, {
+      required bool isActive,
+      Color? color,
+    }) {
       if (figureText == null) {
         return const SizedBox(width: 52);
       }
-      final TextStyle style = styles.bodyRegular.copyWith(
+      final style = styles.bodyRegular.copyWith(
         fontSize: 13,
         fontWeight: isActive ? FontWeight.w600 : FontWeight.w400,
         color: isActive ? (color ?? colors.ink) : colors.inkMuted,
@@ -56,52 +58,55 @@ class DataRowTile extends StatelessWidget {
       );
     }
 
-    final content = Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(minHeight: 30),
-        child: Row(
-          children: [
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: styles.bodyMedium.copyWith(
-                      color: colors.ink,
-                      fontWeight: FontWeight.w400,
-                      height: 1.2,
-                    ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  if (subtext != null)
+    final content = SizedBox(
+      height: 38,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 4),
+        child: SizedBox(
+          height: 30,
+          child: Row(
+            children: [
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
                     Text(
-                      subtext!,
-                      style: styles.bodySmall.copyWith(
-                        color: colors.inkMuted,
-                        fontSize: 12,
+                      title,
+                      style: styles.bodyMedium.copyWith(
+                        color: colors.ink,
+                        fontWeight: FontWeight.w400,
                         height: 1.2,
                       ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
-                ],
+                    if (subtext != null)
+                      Text(
+                        subtext!,
+                        style: styles.bodySmall.copyWith(
+                          color: colors.inkMuted,
+                          fontSize: 12,
+                          height: 1.2,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                  ],
+                ),
               ),
-            ),
-            buildFigureColumn(
-              primaryFigure,
-              isActive: primaryIsActive,
-              color: primaryIsActive ? primaryColor : null,
-            ),
-            if (secondaryFigure != null)
               buildFigureColumn(
-                secondaryFigure,
-                isActive: !primaryIsActive,
+                primaryFigure,
+                isActive: primaryIsActive,
+                color: primaryIsActive ? primaryColor : null,
               ),
-          ],
+              if (secondaryFigure != null)
+                buildFigureColumn(
+                  secondaryFigure,
+                  isActive: !primaryIsActive,
+                ),
+            ],
+          ),
         ),
       ),
     );
