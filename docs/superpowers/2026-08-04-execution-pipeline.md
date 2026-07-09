@@ -77,95 +77,66 @@ directly from the orchestrator**, one git worktree per plan.
 
 ## Part 0: Pick up here
 
-**Overnight handoff, 9 August.** Three unattended iterations ran while Aedwon slept.
+**Rewritten 10 August, at a context boundary.** Nothing is running, no worktree holds unmerged
+work, `main` is clean and pushed.
 
-### What landed
+**Health:** 1,676 tests pass, schema **19**, corpus **2,369 questions**, zero analyzer issues
+under `lib/` and `test/` outside `test/tool/`, formatter clean, content validator 0, content
+audit 0 blockers, layering 13.
 
-| | State |
-|---|---|
-| **Settings 04, the sheets** | **Merged.** Five commits against five tasks. The wheel column, the exam date sheet with the dash that means month only, the name, reminder and ordering sheets, and all four opening from their rows |
-| **The reader, Tasks 4 and 5** | **Merged.** A lesson marks itself read, and the gap states the mark and offers the coda |
+### The first thing a new session must do
 
-**Main is green: 1,573 tests, analyzer clean under `lib/` and `test/`, formatter clean.**
+**Ask Aedwon to re-authorize the Gemini skip-permissions flag.** It is granted per session and
+does not survive a clear. Without it every dispatch does nothing. **Ask for it in the same
+breath as asking for quota headroom**, since neither can be read programmatically.
 
-### What is waiting, and why it was not merged
+### Three threads are finished
 
-- **The reader's Task 6 is half built** and sits uncommitted in
-  `.claude/worktrees/study04b`. `PullToAdvance` exists with **one failing test**, "the handle
-  arms past the threshold", and `lesson_page.dart` was never rebuilt around it. **Not merged:
-  a half-wired gesture is worse than none, and nobody was awake to rule on it.**
-- **Study 05, the endings, never started.** It refused, correctly, because it needs Task 6's
-  `PullToAdvance` and the rebuilt page. It is unblocked the moment Task 6 lands.
-- **Home 01 and Settings 05 and 06 were deliberately not dispatched.** Home rebuilds the app
-  shell and touches the router, which 25 plans touch, while the reader work in flight was
-  rebuilding the lesson page and adding a route. **Running those against each other unattended
-  is a 3am merge conflict with nobody to rule on it.**
+**Quiz, Study and Settings**, all plans merged. Do not re-plan them.
 
-### One question waiting for Aedwon
+### What is left, in the order worth doing it
 
-**The read-marking dwell floor is 15 seconds and the spec does not give a number.** The plan
-chose it and flagged it deliberately: long enough that a flick from top to bottom of a ten
-minute lesson does not count, short enough that rereading something familiar is never denied
-the mark. **It is one constant and it is his call.**
-
-### The check that came out of the night
-
-**A green suite is not a finished plan.** The reader was merged at six tasks with three done,
-and every gate passed, because unwritten code fails no test. **Count the plan's tasks against
-the run's commits before merging.** Full entry in the dispatch log.
-
----
-
-**Rewritten 8 August.** Everything the old Part 0 queued has landed.
-
-### The one instruction that changed everything
-
-**Forbid the agent from running long commands.** Not "run them in the foreground": that was
-tried, written into every prompt, and ignored. **Ban them outright.**
-
-```
-Never run `flutter test` with no arguments. Never run `flutter analyze`. Never run
-`dart run build_runner`. You may run a single test file, which takes seconds. The full
-gate set is run for you after you finish.
-```
-
-**Before this, runs died mid-task and stranded their work, repeatedly.** Gemini launches a long
-command, idles waiting for it, and `agy` times out with everything uncommitted. **After it,
-every run committed its work and none stranded anything.**
-
-**The cost, and it is real:** the agent cannot see the gates, so **six to twenty lint issues
-come back to the dispatcher every time**, plus the occasional failing test. **That is the better
-trade.** Lint is minutes of mechanical work; a stranded half-task is an hour of reading a tree
-to work out what was already done.
-
-### Two habits worth more than any prompt wording
-
-- **Read the diff, never the count.** Every content run reported the number it was asked for,
-  correctly, while the text was wrong. A cleanup that reported zero em dashes had a space before
-  a colon, a comma where a colon belonged, and twelve comma pile-ups, two of them in the lesson
-  that teaches punctuation. **A passing count has never once caught what reading caught.**
-- **Verify before believing a stop.** Runs stop honestly and are usually right, but the reason
-  needs checking. The paywall stopped on a billing API the plan expected and the SDK did not
-  have: correct. A lesson run was about to stop on "every question needs a lesson" over two
-  demo rows that were not authored content: a wrong alarm from a rule that was right to write.
-
-### Then the next wave
-
-Two at a time. **Ask Aedwon for Gemini headroom and for the skip-permissions flag in the same
-breath**: the flag needs re-authorizing every session and there is no way to read the quota
-programmatically.
-
-| Next | Plan | Tier |
+| Next | Plan | Note |
 |---|---|---|
-| 1 | `quiz-tab-02c` onward, the chain | **F**, after 02b |
-| 2 | `settings-03` onward, the chain | **F**, after settings-02 |
-| 3 | `foundations-02-app-check-and-force-update.md` | **P**. Waits on nothing |
-| 4 | `study-02` onward, the chain | **F** |
-| 5 | `passage-pipeline.md` **Tasks 5 and 6** | **P**, after quiz-tab-04 lands |
+| 1 | `home-03-masthead-and-band` | Home's chain. **05 must run before 04**: 05 owns `topicAccuracyProvider` and 04 reads it |
+| 2 | `progress-05-how-you-work`, then `progress-03-performance-table` | **03 is blocked on Home 05**, which owns `topicAccuracyProvider` and defines `severityFor` |
+| 3 | `progress-06-your-record` | Parallel-safe |
+| 4 | `mock-01`, `mock-02`, `mock-03` | A chain |
+| 5 | `foundations-02-app-check-and-force-update` | Waits on nothing |
 
-**The 40 `FORMULA` findings in the content audit need triage before dispatch, not an agent.**
-The first one flags "I before E" in a spelling lesson as an untaught formula. Some of that set
-is noise and sending it out whole would produce confident edits to correct lessons.
+**Progress 02 and 04 are merged.** They conflicted on the page exactly as predicted, both adding
+a section; both were kept in their named slots.
+
+### Two small jobs, both unblocked and both cheap
+
+- **Lift the quiz picker's subject and topic index into `lib/core/ui/`** and repoint Settings'
+  "What's included" row at it. The row points at a stub because `features/settings/` cannot
+  import `features/quiz/`, and the index now exists.
+- **Passage pipeline Tasks 5 and 6 are done.** Nothing outstanding there.
+
+### Open questions waiting on Aedwon
+
+- **The read-marking dwell floor is 15 seconds.** The spec gives no number; the plan chose one
+  and flagged it.
+- **The "answered too fast" floor is 5 answers.** Added 9 August because the plan set none and
+  the speed signal returns a distribution from a single answer. Follows the debrief's precedent.
+- **Finishing a session ends on "Ten answered."** The debrief replaced the celebration, per its
+  plan. He has said before that finishing should feel like something.
+- **Layering is 13, up from 7.** Every new one is Progress reading the metrics providers, the
+  same pattern as the original seven, but it is the fastest that number has moved.
+
+### The habits that earned their place, in order of how much they caught
+
+1. **Read the diff, never the count.** Every content run reported the right number over wrong
+   text.
+2. **A green suite is not a finished plan.** Count the plan's tasks against the run's commits
+   before merging. Unwritten code fails no test.
+3. **Stop rather than reconcile.** A general instruction, not a specific one, caught an
+   analytics switch that would have defaulted to on against RA 10173.
+4. **Ban long commands rather than asking for foreground.** The prompt template in
+   `scratchpad/prompt-progress04.txt` is the current shape.
+5. **Pre-build anything two agents would race to create.** `InkCheckbox` was named by four plans
+   and built by none.
 
 ---
 
