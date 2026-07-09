@@ -78,6 +78,12 @@
 
 **The debug row appears when `--dart-define=DEBUG_SETTINGS=true` and nothing else reveals it.** Spec 8's long-press on the version row is struck: a second gate on a screen already invisible in release, and an undocumented gesture we would forget within a month.
 
+**Corrected 9 August. This plan originally asserted the analytics switch was on by default,
+and a run stopped rather than build it.** That contradicts a shipped and tested position:
+`GatedTelemetry` treats unanswered consent as no, citing RA 10173, and its own comment says
+"consent that does nothing is worse than no switch at all". **A data privacy law outranks a
+plan.** The switch reflects stored consent and reads off until the student says yes.
+
 - [ ] **Step 1: Write the failing test**
 
 Create `test/features/settings/presentation/about_page_test.dart`:
@@ -118,14 +124,15 @@ void main() {
     );
   });
 
-  testWidgets('analytics is a switch, on by default', (tester) async {
+  testWidgets('analytics is a switch, off until the student says yes',
+      (tester) async {
     await tester.pumpAppWithProviders(const AboutPage(), overrides: []);
     await tester.pumpAndSettle();
 
     expect(find.byType(SettingsSwitch), findsOneWidget);
     expect(
       tester.widget<SettingsSwitch>(find.byType(SettingsSwitch)).value,
-      isTrue,
+      isFalse,
     );
   });
 

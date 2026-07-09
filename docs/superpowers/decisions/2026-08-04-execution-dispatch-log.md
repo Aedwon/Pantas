@@ -966,3 +966,38 @@ about what is absent.**
 The reader's Tasks 4 to 6 were dispatched immediately, with the note that a legacy
 `lesson_page.dart` already exists and Task 6 must carry over what it does rather than replace it
 with something that does less. Study endings stays unstarted until that lands.
+
+---
+
+## 9 August: a plan asked for an analytics switch on by default, and stopped
+
+**The settings about-pages run wrote nothing and said why**, quoting the instruction it had been
+given: if this plan contradicts something already built and tested, stop and say so.
+
+**It was right, and this is the most consequential stop any run has made.**
+
+The plan's Task 1 asserts `analytics is a switch, on by default`. **`GatedTelemetry` has shipped
+since Foundations 01 and does the opposite**, deliberately:
+
+> The `consent` argument is deliberately nullable, and null means **unanswered**, which is
+> treated as no. RA10173 makes that the safe reading, and consent that does nothing is worse
+> than no switch at all.
+
+**A data privacy law outranks a plan.** RA 10173 is opt-in consent, the gate already implements
+it, and a switch defaulting to on would have quietly made the app collect analytics from
+students who had never agreed. **It would have passed every gate**: the plan's own test asserted
+the wrong behavior, so the suite would have gone green on a compliance defect.
+
+**The plan is corrected rather than worked around**, with the reason written in beside the test
+so the next reader does not re-derive it.
+
+### Why this one matters more than the others
+
+**Every other stop today was about a dependency or an API shape**, and the cost of getting them
+wrong was rework. **This one was a legal position**, and the cost of getting it wrong is not a
+merge conflict.
+
+**It was caught by a general instruction, not a specific one.** Nothing in the prompt mentioned
+analytics, consent or RA 10173. The line that caught it was: *do not reconcile a contradiction
+yourself, stop and say so.* **A rule broad enough to catch what nobody thought to warn about is
+worth more than a longer list of specific warnings**, and this is the evidence for it.
