@@ -198,10 +198,12 @@ reached them first and other surfaces are specified to share them: `InkWheel` an
 1. **Settings has no entrance until Home's masthead lands.** The gear is built by
    `plans/2026-08-02-home-03-masthead-and-band.md`, unexecuted. Until then `/settings` is
    reachable only by route. Settings needs no further work when it lands.
-2. **"What's included" has no page.** It is the Quiz picker's subject and topic index,
-   which must be built by `plans/2026-08-02-quiz-tab-03-practice-picker.md` and then lifted
-   into `lib/core/ui/`, because `features/settings/` cannot import `features/quiz/`. The
-   row ships pointing at an honest stub.
+2. ~~**"What's included" has no page.**~~ **Updated by `2026-08-03-settings-05-the-exam-page.md`.**
+   `2026-08-03-settings-05-the-exam-page.md` ships the row pointing at `NotBuiltYetPage`. Its
+   page is the Quiz picker's subject and topic index, which must first be built by
+   `2026-08-02-quiz-tab-03-practice-picker.md` and then lifted into `lib/core/ui/`, because
+   `features/settings/` cannot import `features/quiz/`. Repoint the row at the lifted index
+   and delete the stub.
 3. **`settings.session_ordering` has a writer and no reader.** Settings writes the three
    orderings; the session builder must read them, which is
    `plans/2026-08-02-quiz-tab-01-storage-and-content-fields.md`. **Until it does, Settings
