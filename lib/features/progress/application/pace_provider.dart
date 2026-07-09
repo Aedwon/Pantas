@@ -1,9 +1,7 @@
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/settings/application/settings_providers.dart';
-import 'package:drift/drift.dart' hide isNull;
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -42,7 +40,10 @@ class PaceReading {
 
   @override
   String toString() {
-    return 'PaceReading(lessonsRead: $lessonsRead, lessonsTotal: $lessonsTotal, daysLeft: $daysLeft, lessonsPerWeek: $lessonsPerWeek, daysPastExam: $daysPastExam, rateToFinishInTime: $rateToFinishInTime)';
+    return 'PaceReading(lessonsRead: $lessonsRead, '
+        'lessonsTotal: $lessonsTotal, daysLeft: $daysLeft, '
+        'lessonsPerWeek: $lessonsPerWeek, daysPastExam: $daysPastExam, '
+        'rateToFinishInTime: $rateToFinishInTime)';
   }
 }
 

@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
-import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/progress/application/pace_provider.dart';
 import 'package:cse_cet_reviewer/features/settings/application/settings_providers.dart';
@@ -206,7 +205,6 @@ void main() {
   });
 
   test('nothing on this reading is a score', () async {
-    final now = DateTime.now();
     await seedData(totalLessons: 96, readDates: []);
     final pace = await container.read(paceProvider.future);
     // A guard against the field this section is forbidden to grow.

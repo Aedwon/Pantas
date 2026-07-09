@@ -88,7 +88,7 @@ void main() {
 
   testWidgets('finishing in time says so and carries no amber', (tester) async {
     await tester.pumpWidget(
-      harness(read: 41, total: 96, daysLeft: 200, rate: 8, past: null),
+      harness(read: 41, total: 96, daysLeft: 200, rate: 8),
     );
     await tester.pumpAndSettle();
 
@@ -103,7 +103,7 @@ void main() {
 
   testWidgets('a zero rate states the fact and the remainder', (tester) async {
     await tester.pumpWidget(
-      harness(read: 41, total: 96, daysLeft: 120, rate: 0, past: null),
+      harness(read: 41, total: 96, daysLeft: 120, rate: 0),
     );
     await tester.pumpAndSettle();
 
@@ -115,7 +115,7 @@ void main() {
 
   testWidgets('below the floor the figures stand alone', (tester) async {
     await tester.pumpWidget(
-      harness(read: 2, total: 96, daysLeft: 120, rate: null),
+      harness(read: 2, total: 96, daysLeft: 120),
     );
     await tester.pumpAndSettle();
 
@@ -126,7 +126,7 @@ void main() {
   testWidgets('with no day count the sentence never mentions the exam',
       (tester) async {
     await tester.pumpWidget(
-      harness(read: 41, total: 96, daysLeft: null, rate: 3),
+      harness(read: 41, total: 96, rate: 3),
     );
     await tester.pumpAndSettle();
 

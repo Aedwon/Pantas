@@ -145,7 +145,8 @@ class YourPacePanel extends ConsumerWidget {
       final weeksText = _numberToWordsOrDigits(weeks);
       final weekWord = weeks == 1 ? 'week' : 'weeks';
       return Text(
-        'At $rateText $lessonWord a week you have about $weeksText $weekWord of reading left.',
+        'At $rateText $lessonWord a week you have about $weeksText '
+        '$weekWord of reading left.',
         style: baseStyle,
       );
     }
