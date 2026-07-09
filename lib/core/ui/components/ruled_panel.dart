@@ -88,9 +88,8 @@ class RuledPanel extends StatelessWidget {
                     child: Text(
                       action!,
                       style: styles.labelSmall.copyWith(
-                        color: onAction != null
-                            ? colors.board
-                            : colors.inkMuted,
+                        color:
+                            onAction != null ? colors.board : colors.inkMuted,
                       ),
                     ),
                   ),

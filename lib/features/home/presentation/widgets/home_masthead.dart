@@ -41,8 +41,8 @@ class HomeMasthead extends ConsumerWidget {
                     onTap: () => context.push('/settings'),
                     child: Text(
                       'Add your name',
-                      style: styles.displaySmall
-                          .copyWith(color: colors.inkMuted),
+                      style:
+                          styles.displaySmall.copyWith(color: colors.inkMuted),
                     ),
                   )
                 else
@@ -110,8 +110,18 @@ String metaLineFor({
 /// name in a language nothing else here uses.
 String _monthName(int month) {
   const names = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
   ];
   return names[month - 1];
 }

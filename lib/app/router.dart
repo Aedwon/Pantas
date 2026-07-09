@@ -12,6 +12,7 @@ import 'package:cse_cet_reviewer/features/lesson/presentation/learn_tab_home.dar
 import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_page.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/pages/topic_ending_page.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/reader_bar.dart';
+import 'package:cse_cet_reviewer/features/home/presentation/home_tab.dart';
 import 'package:cse_cet_reviewer/features/legal/legal.dart';
 import 'package:cse_cet_reviewer/features/legal/presentation/legal_document_page.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/mock_exam.dart';
@@ -103,7 +104,7 @@ List<RouteBase> buildAppRoutes(Ref ref) {
           routes: [
             GoRoute(
               path: '/home',
-              builder: (_, __) => const AssessmentHomeTab(),
+              builder: (_, __) => const HomeTab(),
             ),
           ],
         ),
