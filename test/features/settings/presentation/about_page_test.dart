@@ -1,6 +1,4 @@
-import 'package:cse_cet_reviewer/core/ui/components/settings_group.dart';
 import 'package:cse_cet_reviewer/core/ui/components/settings_switch.dart';
-import 'package:cse_cet_reviewer/core/ui/components/settings_value_row.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/about_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -45,10 +43,11 @@ void main() {
     );
   });
 
-  testWidgets('without the build flag there is no debug row and no debug '
+  testWidgets(
+      'without the build flag there is no debug row and no debug '
       'heading', (tester) async {
     await tester.pumpAppWithProviders(
-      const AboutPage(debugEnabled: false),
+      const AboutPage(),
       overrides: [],
     );
     await tester.pumpAndSettle();
@@ -56,7 +55,8 @@ void main() {
     expect(find.text('Debug'), findsNothing);
   });
 
-  testWidgets('with the build flag the debug row is plainly visible, with no '
+  testWidgets(
+      'with the build flag the debug row is plainly visible, with no '
       'gesture needed', (tester) async {
     await tester.pumpAppWithProviders(
       const AboutPage(debugEnabled: true),

@@ -168,15 +168,28 @@ finished, and Progress consumes decisions from both.
 
 ---
 
-## Settings: designed and planned, 3 August. Nothing executed.
+## Settings: designed, planned, and built. All six plans merged 9 August.
 
 **Closed the same day it was chosen.** Spec:
 `specs/2026-08-03-settings-design.md`. Decision log:
 `decisions/2026-08-03-settings-log.md`, which keeps the wrong turns including two rounds
 lost to my misreading which switch he had picked.
 
-**Six plans, none executed.** 01 and 02 are independent of each other and of everything
-else, so they can run in parallel. Everything after depends on 03.
+**All six plans have merged**, in order: the kit, storage, the top level, the four sheets,
+the exam page, and about with the pushed pages.
+
+**Two things the thread leaves behind:**
+
+- **The "What's included" row points at a not-built-yet page.** Its real destination is the
+  quiz picker's subject and topic index, and `features/settings/` cannot import
+  `features/quiz/`. **The index now exists**, since the practice picker merged, so the fix is
+  to lift it into `lib/core/ui/` and repoint the row.
+- **The analytics switch is off until the student says yes**, and Plan 06 originally asserted
+  the opposite. A run stopped rather than build it. `GatedTelemetry` treats unanswered consent
+  as no, citing RA 10173, and a data privacy law outranks a plan. Recorded in the dispatch log.
+
+The table below is kept as written, because it is what the thread looked like before any of it
+ran.
 
 | Plan | Builds |
 |---|---|

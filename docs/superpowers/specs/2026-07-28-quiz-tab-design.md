@@ -563,9 +563,13 @@ and each carrying a one-line plain explanation:
 
 | Setting | Behavior |
 |---|---|
-| Blocked | Every question from the chosen topic |
+| One topic only | Every question from the chosen topic |
 | **Interleaved tail** (default, recommended) | Seven from the topic, three from elsewhere |
-| Fully mixed | No two consecutive questions from the same topic |
+| All mixed up | No two consecutive questions from the same topic |
+
+**The first column is the UI label; the stored values keep this spec's original names**
+(`blocked`, `interleavedTail`, `fullyMixed`), which is what
+`lib/features/settings/domain/session_ordering.dart` writes.
 
 The storage exists: `quiz_today_interleaved` is a boolean with no UI that writes it,
 so it widens to a three-way value. The Quiz tab's only reference to any of this is the

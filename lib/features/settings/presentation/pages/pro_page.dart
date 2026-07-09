@@ -50,9 +50,9 @@ class ProPage extends ConsumerWidget {
                 ),
             ],
           ),
-          SettingsGroup(
+          const SettingsGroup(
             title: 'Plans',
-            children: const [
+            children: [
               SettingsValueRow(
                 title: 'Weekly',
                 value: '₱29 / week',

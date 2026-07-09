@@ -338,8 +338,6 @@ List<RouteBase> buildAppRoutes(Ref ref) {
       builder: (_, __) {
         final contact = ref.watch(legalContactProvider);
         return AboutPage(
-          version: '0.1.0',
-          buildNumber: '1',
           dpoEmail: contact.dpoEmail,
           physicalAddress: contact.physicalAddress,
         );

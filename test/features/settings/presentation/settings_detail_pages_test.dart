@@ -32,8 +32,7 @@ void main() {
     }
   });
 
-  testWidgets('the pro page names three plans and no lifetime',
-      (tester) async {
+  testWidgets('the pro page names three plans and no lifetime', (tester) async {
     await tester.pumpAppWithProviders(const ProPage(), overrides: []);
     await tester.pumpAndSettle();
 
@@ -109,8 +108,7 @@ void main() {
     expect(find.text('Yes, delete my account'), findsOneWidget);
   });
 
-  testWidgets('the backup page still renders all five states',
-      (tester) async {
+  testWidgets('the backup page still renders all five states', (tester) async {
     final states = <SyncStatus>[
       const SyncIdle(),
       SyncOk(lastSyncedAt: DateTime.utc(2026, 5, 22), pendingCount: 0),

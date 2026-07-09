@@ -543,7 +543,9 @@ the Settings flag governing whether they are retained.
 6. **`2026-07-26-home-and-navigation-design.md` Section 2** (onboarding captures name
    and exam date) becomes a prerequisite: Your pace cannot render without the exam
    date, and Your profile cannot render its heading without the name.
-7. **Settings** gains one row, for retained table order.
+7. **Settings** gains one row, named **"Remember table order"**. The longer phrasing this
+   spec first used does not fit Settings' value column on a 290px screen: see
+   `2026-08-03-settings-design.md` Section 5.
 
 ---
 

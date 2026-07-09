@@ -1,24 +1,25 @@
 import 'dart:async';
-
 import 'package:cse_cet_reviewer/core/ui/components/page_scaffold.dart';
 import 'package:cse_cet_reviewer/core/ui/components/settings_bar.dart';
 import 'package:cse_cet_reviewer/core/ui/components/settings_group.dart';
 import 'package:cse_cet_reviewer/core/ui/components/settings_switch.dart';
 import 'package:cse_cet_reviewer/core/ui/components/settings_value_row.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/legal/domain/legal_contact.dart';
 import 'package:cse_cet_reviewer/features/settings/application/settings_providers.dart';
 import 'package:cse_cet_reviewer/features/settings/domain/user_settings.dart';
+import 'package:cse_cet_reviewer/features/settings/presentation/pages/debug_settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-const bool _kDebugSettings = bool.fromEnvironment('DEBUG_SETTINGS');
-
+// The flag itself lives in one place, and the release guard enforces that.
+// Reading `fromEnvironment` here would put a second definition in the tree,
+// and this one lacked the `kDebugMode` half, so a release build with the flag
+// set would have shown the debug row.
 class AboutPage extends ConsumerWidget {
   const AboutPage({
     super.key,
-    this.debugEnabled = _kDebugSettings,
+    this.debugEnabled = DebugSettingsPage.enabled,
     this.version = '0.1.0',
     this.buildNumber = '1',
     this.dpoEmail = 'privacy@csecetreviewer.ph',
