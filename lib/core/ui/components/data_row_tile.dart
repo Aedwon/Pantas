@@ -58,51 +58,60 @@ class DataRowTile extends StatelessWidget {
       );
     }
 
-    final content = Container(
-      constraints: BoxConstraints(minHeight: subtext != null ? 44 : 38),
-      padding: const EdgeInsets.symmetric(vertical: 4),
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: styles.bodyMedium.copyWith(
-                    color: colors.ink,
-                    fontWeight: FontWeight.w400,
-                    height: 1.2,
-                  ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                if (subtext != null)
-                  Text(
-                    subtext!,
-                    style: styles.bodySmall.copyWith(
-                      color: colors.inkMuted,
-                      fontSize: 12,
-                      height: 1.2,
+    // A figure row is exactly 38 tall, which is the shipped rule and the
+    // one every table already drawn depends on. A row that carries a
+    // subtext holds two lines and cannot: it keeps the same 4px padding
+    // and takes the height its two lines need.
+    final content = SizedBox(
+      height: subtext == null ? 38 : null,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 4),
+        child: SizedBox(
+          height: subtext == null ? 30 : null,
+          child: Row(
+            children: [
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: styles.bodyMedium.copyWith(
+                        color: colors.ink,
+                        fontWeight: FontWeight.w400,
+                        height: 1.2,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-              ],
-            ),
+                    if (subtext != null)
+                      Text(
+                        subtext!,
+                        style: styles.bodySmall.copyWith(
+                          color: colors.inkMuted,
+                          fontSize: 12,
+                          height: 1.2,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                  ],
+                ),
+              ),
+              buildFigureColumn(
+                primaryFigure,
+                isActive: primaryIsActive,
+                color: primaryIsActive ? primaryColor : null,
+              ),
+              if (secondaryFigure != null)
+                buildFigureColumn(
+                  secondaryFigure,
+                  isActive: !primaryIsActive,
+                ),
+            ],
           ),
-          buildFigureColumn(
-            primaryFigure,
-            isActive: primaryIsActive,
-            color: primaryIsActive ? primaryColor : null,
-          ),
-          if (secondaryFigure != null)
-            buildFigureColumn(
-              secondaryFigure,
-              isActive: !primaryIsActive,
-            ),
-        ],
+        ),
       ),
     );
 

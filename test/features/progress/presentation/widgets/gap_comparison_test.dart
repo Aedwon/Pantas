@@ -90,7 +90,9 @@ void main() {
   testWidgets('the source figures are demoted to 11.5', (tester) async {
     await tester.pumpWidget(harness(tendency: lossOf14, isPro: true));
     expect(
-        tester.widget<Text>(find.textContaining('68%')).style?.fontSize, 11.5);
+      tester.widget<Text>(find.textContaining('68%')).style?.fontSize,
+      11.5,
+    );
   });
 
   testWidgets('no hairline joins the two figures', (tester) async {

@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 
 class GapComparison extends StatelessWidget {
   const GapComparison({
-    super.key,
     required this.tendency,
     required this.isPro,
+    super.key,
   });
 
   final Tendency tendency;

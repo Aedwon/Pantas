@@ -81,7 +81,8 @@ void main() {
           );
     }
 
-    // Insert completed quiz sessions to satisfy window.hasEnoughData (14 sessions)
+    // Fourteen completed quiz sessions, which is what the window needs
+    // before it reports having enough data.
     for (var i = 0; i < 14; i++) {
       await targetDb.into(targetDb.quizSessions).insertOnConflictUpdate(
             QuizSessionsCompanion.insert(
@@ -105,7 +106,7 @@ void main() {
             stability: stability,
             difficulty: 5,
             due: DateTime.utc(2026, 6, 2),
-            lastReview: DateTime.utc(2026, 6, 1),
+            lastReview: DateTime.utc(2026, 6),
             reps: 100,
             lapses: (100 * lapseRate).round(),
             elapsedDays: 1,
@@ -114,7 +115,7 @@ void main() {
         );
 
     // Insert practice attempts for pressure delta
-    final practiceTotal = 100;
+    const practiceTotal = 100;
     final practiceCorrect = (practiceTotal * practiceAcc).round();
     final items = <Map<String, dynamic>>[];
     for (var i = 0; i < practiceTotal; i++) {
@@ -157,7 +158,7 @@ void main() {
 
     if (includeMock) {
       // Insert mock attempt for pressure delta
-      final mockTotal = 50;
+      const mockTotal = 50;
       final mockCorrect = (mockTotal * mockAcc).round();
       final mockQIds = List.generate(mockTotal, (i) => 'q_$i');
       final mockAnswers = <String, dynamic>{};
@@ -181,7 +182,7 @@ void main() {
                 {
                   'sectionId': 'sec_1',
                   'name': 'Section 1',
-                  'questionIds': mockQIds
+                  'questionIds': mockQIds,
                 }
               ]),
               answersJson: Value(jsonEncode(mockAnswers)),
@@ -248,7 +249,7 @@ void main() {
     expect(stamina.unlockAction, 'Finish one full length mock');
 
     nullContainer.dispose();
-    nullDb.close();
+    await nullDb.close();
   });
 
   test('a drop is a loss and a rise is not', () async {
@@ -298,13 +299,14 @@ void main() {
     );
 
     for (final claim in ['better', 'works for you', 'What works']) {
-      expect(study.sentence!, isNot(contains(claim)));
+      expect(study.sentence, isNot(contains(claim)));
     }
   });
 
   test('the three sentences are the whole vocabulary', () async {
     Future<HowYouWork> readWith(
-        (int readThenQuiz, int quizFirst) counts) async {
+      (int readThenQuiz, int quizFirst) counts,
+    ) async {
       final customDb = inMemoryDatabase();
       await seedInitialData(
         customDb,
@@ -320,13 +322,13 @@ void main() {
       await prefsRepo.setSelectedExamId('exam_upcat');
       final result = await c.read(howYouWorkProvider.future);
       c.dispose();
-      customDb.close();
+      await customDb.close();
       return result;
     }
 
-    final readsFirst = (12, 4);
-    final answersFirst = (4, 12);
-    final evenSplit = (8, 8);
+    const readsFirst = (12, 4);
+    const answersFirst = (4, 12);
+    const evenSplit = (8, 8);
 
     for (final (fixture, sentence) in [
       (readsFirst, 'You usually read the lesson first.'),

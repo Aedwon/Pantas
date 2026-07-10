@@ -55,7 +55,10 @@ class HowYouWorkPage extends ConsumerWidget {
                         )
                       else
                         InkWell(
-                          onTap: () => context.push('/settings/account'),
+                          // The name row sits on the Settings home, not the
+                          // account page, and Home's masthead sends the same
+                          // invitation to the same place.
+                          onTap: () => context.push('/settings'),
                           child: Text(
                             'Add your name',
                             style: styles.displaySmall.copyWith(
@@ -125,7 +128,8 @@ class HowYouWorkPage extends ConsumerWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Unlock complete insights into your study habits, pacing, and working hours.',
+                        'Unlock complete insights into your study habits, '
+                        'pacing, and working hours.',
                         style:
                             styles.bodySmall.copyWith(color: colors.inkMuted),
                       ),
@@ -150,10 +154,11 @@ class HowYouWorkPage extends ConsumerWidget {
                       ),
                       children: [
                         const TextSpan(
-                          text:
-                              'Pantas shows a question again just before you would forget it. '
-                              'The ones you forget fast come back often. The ones that stick come back rarely, '
-                              'so your time goes where it is needed. This is called ',
+                          text: 'Pantas shows a question again just before you '
+                              'would forget it. The ones you forget fast come '
+                              'back often. The ones that stick come back '
+                              'rarely, so your time goes where it is needed. '
+                              'This is called ',
                         ),
                         TextSpan(
                           text: 'spaced repetition',

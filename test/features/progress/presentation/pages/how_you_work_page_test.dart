@@ -27,8 +27,8 @@ void main() {
   });
 
   Widget harness({
-    String? name,
     required bool isPro,
+    String? name,
     String? archetype,
   }) {
     final defaultTendencies = [
@@ -125,8 +125,6 @@ void main() {
         ? Entitlement(
             plan: EntitlementPlan.monthly,
             expiresAt: DateTime.now().add(const Duration(days: 30)),
-            willRenew: true,
-            isTrial: false,
           )
         : const Entitlement.free();
 
@@ -144,11 +142,11 @@ void main() {
   }
 
   Widget tabHarness() {
-    final work = HowYouWork(
+    const work = HowYouWork(
       name: 'Aedwon',
       archetype: 'Night-Owl Sprinter',
       archetypeLine: 'Sharpest at 9 pm, in 8 minute sits.',
-      tendencies: const [
+      tendencies: [
         Tendency(
           id: TendencyId.underPressure,
           heading: 'Under pressure',
@@ -211,7 +209,7 @@ void main() {
           unlockAction: 'Review more questions',
         ),
       ],
-      whenYouWork: const [],
+      whenYouWork: [],
     );
 
     final router = GoRouter(
@@ -237,8 +235,6 @@ void main() {
             Entitlement(
               plan: EntitlementPlan.monthly,
               expiresAt: DateTime.now().add(const Duration(days: 30)),
-              willRenew: true,
-              isTrial: false,
             ),
           ),
         ),
@@ -252,7 +248,7 @@ void main() {
                 shortName: 'UPCAT',
                 language: 'en',
                 isActive: true,
-                subjects: const [],
+                subjects: [],
               ),
             ),
           ),
@@ -277,7 +273,7 @@ void main() {
   });
 
   testWidgets('with no name it shows the invitation', (tester) async {
-    await tester.pumpWidget(harness(name: null, isPro: true));
+    await tester.pumpWidget(harness(isPro: true));
     await tester.pumpAndSettle();
     expect(find.text('Add your name'), findsOneWidget);
   });
@@ -321,6 +317,15 @@ void main() {
     ]) {
       expect(find.textContaining(word), findsNothing);
     }
+  });
+
+  testWidgets('the exam is never named beside a day count', (tester) async {
+    await tester.pumpWidget(harness(isPro: true));
+    await tester.pumpAndSettle();
+
+    // The scheduler states how long a memory holds. It does not state what
+    // a student will score, so the day count is never set against the exam.
+    expect(find.textContaining('UPCAT'), findsNothing);
   });
 
   testWidgets('the archetype name carries no article', (tester) async {
