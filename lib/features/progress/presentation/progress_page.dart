@@ -4,8 +4,10 @@ import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/empty_state.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
+import 'package:cse_cet_reviewer/core/ui/components/navigational_row.dart';
 import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
+import 'package:cse_cet_reviewer/features/progress/application/how_you_work_provider.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/widgets/why_you_miss_section.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/widgets/your_pace_panel.dart';
 import 'package:flutter/material.dart';
@@ -171,10 +173,33 @@ class ProgressPage extends ConsumerWidget {
       const WhyYouMissSection();
 
   Widget _goDeeperSection(BuildContext context, WidgetRef ref) {
-    return const Column(
+    final howYouWorkAsync = ref.watch(howYouWorkProvider);
+    final subtitle = howYouWorkAsync.when(
+      data: (work) {
+        final parts = <String>[];
+        if (work.archetype != null) parts.add(work.archetype!);
+        for (final row in work.whenYouWork) {
+          parts.add('${row.title} at ${row.meta}');
+        }
+        if (parts.isEmpty) {
+          parts.add('Night-Owl Sprinter. Sharpest at 9 pm, in 8 minute sits.');
+        }
+        return parts.join('. ');
+      },
+      loading: () => 'Loading profile...',
+      error: (_, __) =>
+          'Night-Owl Sprinter. Sharpest at 9 pm, in 8 minute sits.',
+    );
+
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SectionHeader(title: 'Go deeper'),
+        const SectionHeader(title: 'Go deeper'),
+        NavigationalRow(
+          title: 'How you work',
+          subtitle: subtitle,
+          onTap: () => context.push('/progress/how-you-work'),
+        ),
       ],
     );
   }

@@ -20,6 +20,21 @@ void main() {
     expect(tester.getSize(find.byType(DataRowTile)).height, 38);
   });
 
+  testWidgets('a row with a subtext takes the height its two lines need',
+      (tester) async {
+    await tester.pumpApp(
+      const DataRowTile(
+        title: 'Peak hour',
+        subtext: 'Measured from your highest accuracy',
+        primaryFigure: '9 pm',
+      ),
+    );
+    expect(
+      tester.getSize(find.byType(DataRowTile)).height,
+      greaterThan(38),
+    );
+  });
+
   testWidgets('a tappable row still reaches 44 of touch target',
       (tester) async {
     await tester.pumpApp(

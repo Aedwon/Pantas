@@ -58,12 +58,16 @@ class DataRowTile extends StatelessWidget {
       );
     }
 
+    // A figure row is exactly 38 tall, which is the shipped rule and the
+    // one every table already drawn depends on. A row that carries a
+    // subtext holds two lines and cannot: it keeps the same 4px padding
+    // and takes the height its two lines need.
     final content = SizedBox(
-      height: 38,
+      height: subtext == null ? 38 : null,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 4),
         child: SizedBox(
-          height: 30,
+          height: subtext == null ? 30 : null,
           child: Row(
             children: [
               Expanded(
