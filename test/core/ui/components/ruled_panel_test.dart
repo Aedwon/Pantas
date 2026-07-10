@@ -1,4 +1,5 @@
 import 'package:cse_cet_reviewer/core/ui/components/ruled_panel.dart';
+import 'package:cse_cet_reviewer/core/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -58,5 +59,47 @@ void main() {
     expect(decoration.borderRadius, isNull);
     expect(decoration.boxShadow, isNull);
     expect(decoration.border, isNotNull);
+  });
+
+  testWidgets('an action renders in board and fires', (tester) async {
+    var tapped = false;
+    await tester.pumpApp(
+      RuledPanel(
+        heading: 'Practice',
+        action: 'See all',
+        onAction: () => tapped = true,
+        child: const Text('body'),
+      ),
+    );
+    final action = tester.widget<Text>(find.text('See all'));
+    expect(action.style?.color, AppColors.light.board);
+    await tester.tap(find.text('See all'));
+    expect(tapped, isTrue);
+  });
+
+  testWidgets('an action with no handler is muted, not board', (tester) async {
+    await tester.pumpApp(
+      const RuledPanel(
+        heading: 'Practice',
+        action: 'See all',
+        child: Text('body'),
+      ),
+    );
+    expect(
+      tester.widget<Text>(find.text('See all')).style?.color,
+      AppColors.light.inkMuted,
+    );
+  });
+
+  testWidgets('a count and an action together is an error', (tester) async {
+    expect(
+      () => RuledPanel(
+        heading: 'Practice',
+        count: '3',
+        action: 'See all',
+        child: const Text('body'),
+      ),
+      throwsA(isA<AssertionError>()),
+    );
   });
 }

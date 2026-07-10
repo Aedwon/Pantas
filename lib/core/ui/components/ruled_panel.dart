@@ -15,14 +15,24 @@ class RuledPanel extends StatelessWidget {
     required this.heading,
     required this.child,
     this.count,
+    this.action,
+    this.onAction,
     super.key,
-  });
+  }) : assert(
+          count == null || action == null,
+          'The panel header carries one trailing element: a count or an '
+          'action, never both.',
+        );
 
   final String heading;
   final Widget child;
 
   /// Tabular figures in 12px `inkMuted`. Never a status word.
   final String? count;
+
+  /// A text action in board at 12/600, in the same slot as [count].
+  final String? action;
+  final VoidCallback? onAction;
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +78,22 @@ class RuledPanel extends StatelessWidget {
                   ),
                 ),
               ],
+              if (action != null)
+                InkWell(
+                  onTap: onAction,
+                  borderRadius:
+                      BorderRadius.circular(AppDimensions.radiusButton),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: Text(
+                      action!,
+                      style: styles.labelSmall.copyWith(
+                        color:
+                            onAction != null ? colors.board : colors.inkMuted,
+                      ),
+                    ),
+                  ),
+                ),
             ],
           ),
           const SizedBox(height: 9),
