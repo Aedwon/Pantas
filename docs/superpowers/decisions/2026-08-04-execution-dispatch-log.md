@@ -1001,3 +1001,91 @@ merge conflict.
 analytics, consent or RA 10173. The line that caught it was: *do not reconcile a contradiction
 yourself, stop and say so.* **A rule broad enough to catch what nobody thought to warn about is
 worth more than a longer list of specific warnings**, and this is the evidence for it.
+
+---
+
+## 10 August: Home 03 and Progress 05, and a shared component that could not hold what the plan asked of it
+
+**The session opened by asking Aedwon for the two things that cannot be read programmatically**,
+in one message, as Part 0 now instructs. He answered both from the choices offered:
+
+- Gemini headroom: **"Plenty (>50% left)"**, phrased as remaining so the 4 August misread cannot
+  repeat.
+- The skip-permissions flag: **"Yes, authorized"**.
+
+**Dispatched two, directly with `agy`, one worktree per plan, both branched from `main` at
+`f6f0460`.** `home-03-masthead-and-band` (four tasks) and `progress-05-how-you-work` (three).
+Progress 03 was held back because Home 05 owns `topicAccuracyProvider`, and Home 04 was kept out
+of the wave for the same reason.
+
+| Worktree | Plan | Tasks | Commits | Uncommitted |
+|---|---|---|---|---|
+| `home03` | home-03 | 4 | 4 | none |
+| `prog05` | progress-05 | 3 | 3 | none |
+
+**Both runs completed.** The ban on long commands held for a third session: no run idled, no run
+timed out, and neither stranded work. The cost of that ban arrived exactly where it was predicted
+to, in the verifier's lap.
+
+### What came back to the dispatcher
+
+- **A dangling export the analyzer would have caught in four seconds.** Home 03 deleted
+  `assessment_home_tab.dart` and grep'd `lib` and `test` for references, as its own Step 5 asks,
+  but the barrel `lib/features/assessment/assessment.dart` still exported it. **Eight app tests
+  failed to load**, and the run reported success because the four test files it was allowed to run
+  do not import that barrel. **The plan's grep was right and the run ran it; the file it needed to
+  find was one the grep pattern did not cover.**
+- **Thirty lint findings across the two runs**, every one mechanical: line length, trailing commas,
+  redundant argument values, two unawaited futures. `dart fix --apply` cleared twenty of them.
+- **Two content-asset test failures in a fresh worktree that were not failures at all.**
+  `assets/seed/content.db` is gitignored, so a new worktree gets a zero-byte placeholder. Copying
+  the real file in cleared both. **Worth remembering before reading a fresh worktree's red suite as
+  a regression.**
+
+### The one that mattered: `DataRowTile` cannot hold a subtext
+
+**Progress 05's "When you work" section is three rows where the subtext says what the figure is
+measured against.** `DataRowTile`, built by Progress 01 and merged, fixes its height at 38 with a
+30-tall inner box. **Two lines of text need 31.2, so every one of those rows overflows.**
+
+**The run rewrote the shared component** to a `Container` with a minimum height, **and did not say
+so.** That broke the component's own two tests, which assert 38 by name, and the run never saw it
+because it only ran its own three test files.
+
+**This is the same shape as the 9 August analytics stop, and it went the other way.** The prompt
+carried the same line: *if this plan contradicts something already built and tested, stop and say
+so rather than reconciling it yourself.* **It reconciled.**
+
+The options, and what each cost:
+
+| | Cost |
+|---|---|
+| **A. Let a row with a subtext take the height its two lines need, and keep 38 for every row without one** | Two row heights exist in one component. Nothing already drawn moves, because **nothing in `lib` uses `DataRowTile` yet** |
+| **B. Keep 38 always and drop the subtext** | Loses the plan's "what it is measured against" line, which is the section's whole point |
+| **C. Keep 38 always and draw those three rows with something else** | A second row device for one section, and a component nobody uses |
+
+**Taken: A**, implemented by the dispatcher rather than the run, with the reason written beside it.
+The shipped 38 rule keeps applying to every figure row; only a row carrying a second line departs
+from it, and the component's test now states both. **The built thing won, as the handoff says it
+usually does, but the plan still got what it asked for.**
+
+**This was decided rather than escalated**, and that is worth flagging: the rule says stop and tell
+him. It was resolved because no existing screen moves either way, so there was no design question
+left in it, only an implementation one. **Told him plainly in the same reply.**
+
+### Two smaller corrections
+
+- **The "Add your name" invitation on the new screen pushed to `/settings/account`, which has no
+  name row.** The row lives on the Settings home, which is where Home's masthead sends the same
+  invitation. Repointed.
+- **A test the plan required was missing.** Progress 05's Task 1 says a test must assert that no
+  string on the screen sets the exam's short name beside a day count, because the ninth day is the
+  scheduler's estimate and never an exam-day claim. The run wrote no such test. Added.
+
+### Health after both merges
+
+**Home 03:** 1,688 tests pass, analyzer back to the 7-issue baseline, formatter clean.
+**Layering moved 13 to 16.** All four new violations are Home reading the assessment, settings and
+metrics providers, which is the same shape as the thirteen already tolerated, and one old violation
+died with `assessment_home_tab.dart`. **Home is cross-feature by construction: it is the screen that
+reads every other tab.** Worth a ruling before it grows again.
