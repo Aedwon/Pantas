@@ -26,7 +26,7 @@ void main() {
     figures: null,
     sentence: null,
     unlockAction: 'Finish one full length mock',
-    pointsAtStake: -1.0,
+    pointsAtStake: -1,
   );
 
   const readsFirst = TendencyCard(
@@ -37,7 +37,7 @@ void main() {
     figures: (left: '12', right: '4'),
     sentence: 'You usually read the lesson first.',
     unlockAction: 'Read lessons or attempt topics',
-    pointsAtStake: 0.0,
+    pointsAtStake: 0,
   );
 
   const answersFirst = TendencyCard(
@@ -48,7 +48,7 @@ void main() {
     figures: (left: '4', right: '12'),
     sentence: 'You usually go straight to the questions.',
     unlockAction: 'Read lessons or attempt topics',
-    pointsAtStake: 0.0,
+    pointsAtStake: 0,
   );
 
   const evenSplit = TendencyCard(
@@ -59,7 +59,7 @@ void main() {
     figures: (left: '8', right: '8'),
     sentence: 'You split about evenly between the two.',
     unlockAction: 'Read lessons or attempt topics',
-    pointsAtStake: 0.0,
+    pointsAtStake: 0,
   );
 
   Widget harness(Widget child) {
@@ -94,7 +94,7 @@ void main() {
   testWidgets('Pro with figures shows both figures and the sentence',
       (tester) async {
     await tester.pumpWidget(
-      harness(TendencyCardView(card: withFigures, isPro: true)),
+      harness(const TendencyCardView(card: withFigures, isPro: true)),
     );
     expect(find.text('68%'), findsOneWidget);
     expect(find.text('54%'), findsOneWidget);
@@ -104,7 +104,7 @@ void main() {
   testWidgets('Pro without figures shows the unlock action, muted not board',
       (tester) async {
     await tester.pumpWidget(
-      harness(TendencyCardView(card: blocked, isPro: true)),
+      harness(const TendencyCardView(card: blocked, isPro: true)),
     );
     expect(find.text('Not enough data yet'), findsOneWidget);
     expect(find.text('Finish one full length mock'), findsOneWidget);
@@ -117,7 +117,7 @@ void main() {
   testWidgets('Free sees both labels and bars where the figures go',
       (tester) async {
     await tester.pumpWidget(
-      harness(TendencyCardView(card: withFigures, isPro: false)),
+      harness(const TendencyCardView(card: withFigures, isPro: false)),
     );
     expect(find.text('practising'), findsOneWidget);
     expect(find.text('under time'), findsOneWidget);
@@ -127,7 +127,7 @@ void main() {
 
   testWidgets('no lock icon, no blur, anywhere', (tester) async {
     await tester.pumpWidget(
-      harness(TendencyCardView(card: withFigures, isPro: false)),
+      harness(const TendencyCardView(card: withFigures, isPro: false)),
     );
     expect(find.byIcon(Icons.lock), findsNothing);
     expect(find.byIcon(Icons.lock_outline), findsNothing);
@@ -137,7 +137,7 @@ void main() {
   testWidgets('how you study names the pattern and not its payoff',
       (tester) async {
     await tester.pumpWidget(
-      harness(TendencyCardView(card: readsFirst, isPro: true)),
+      harness(const TendencyCardView(card: readsFirst, isPro: true)),
     );
 
     expect(find.text('How you study'), findsOneWidget);
@@ -156,7 +156,8 @@ void main() {
       (answersFirst, 'You usually go straight to the questions.'),
       (evenSplit, 'You split about evenly between the two.'),
     ]) {
-      await tester.pumpWidget(harness(TendencyCardView(card: card, isPro: true)));
+      await tester
+          .pumpWidget(harness(TendencyCardView(card: card, isPro: true)));
       expect(find.text(sentence), findsOneWidget);
     }
   });

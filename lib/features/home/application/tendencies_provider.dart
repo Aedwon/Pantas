@@ -65,8 +65,7 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
   final pressureDelta =
       await readSignal<PressureDelta>(SignalKey.testModeDelta);
   final staminaDelta = await readSignal<StaminaDelta>(SignalKey.mockStamina);
-  final workflowRatio =
-      await readSignal<WorkflowRatio>(SignalKey.readThenQuiz);
+  final workflowRatio = await readSignal<WorkflowRatio>(SignalKey.readThenQuiz);
   final speedDist =
       await readSignal<LatencyDistribution>(SignalKey.perQuestionSpeed);
 
@@ -92,7 +91,8 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
         figures: (left: '$practicePct%', right: '$mockPct%'),
         sentence: sentence,
         unlockAction: 'Finish one full length mock',
-        pointsAtStake: (pressureDelta.practiceAccuracy - pressureDelta.mockAccuracy).abs(),
+        pointsAtStake:
+            (pressureDelta.practiceAccuracy - pressureDelta.mockAccuracy).abs(),
       ),
     );
   } else {
@@ -105,7 +105,7 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
         figures: null,
         sentence: null,
         unlockAction: 'Finish one full length mock',
-        pointsAtStake: -1.0,
+        pointsAtStake: -1,
       ),
     );
   }
@@ -130,7 +130,9 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
         figures: (left: '$firstPct%', right: '$secondPct%'),
         sentence: sentence,
         unlockAction: 'Finish one full length mock',
-        pointsAtStake: (staminaDelta.firstHalfAccuracy - staminaDelta.secondHalfAccuracy).abs(),
+        pointsAtStake:
+            (staminaDelta.firstHalfAccuracy - staminaDelta.secondHalfAccuracy)
+                .abs(),
       ),
     );
   } else {
@@ -143,14 +145,15 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
         figures: null,
         sentence: null,
         unlockAction: 'Finish one full length mock',
-        pointsAtStake: -1.0,
+        pointsAtStake: -1,
       ),
     );
   }
 
   // 3. How you study
-  // howYouStudy is always 0, because neither direction is a loss and there is nothing
-  // at stake to rank it by. That puts it after the measurable cards and before the blocked ones.
+  // howYouStudy is always 0, because neither direction is a loss and
+  // there is nothing at stake to rank it by. That puts it after the
+  // measurable cards and before the blocked ones.
   if (workflowRatio != null) {
     final readCount = workflowRatio.readThenQuizCount;
     final quizCount = workflowRatio.quizFirstCount;
@@ -171,7 +174,7 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
         figures: (left: '$readCount', right: '$quizCount'),
         sentence: sentence,
         unlockAction: 'Read lessons or attempt topics',
-        pointsAtStake: 0.0,
+        pointsAtStake: 0,
       ),
     );
   } else {
@@ -184,7 +187,7 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
         figures: null,
         sentence: null,
         unlockAction: 'Read lessons or attempt topics',
-        pointsAtStake: -1.0,
+        pointsAtStake: -1,
       ),
     );
   }
@@ -209,7 +212,9 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
         figures: (left: '${correctSec}s', right: '${incorrectSec}s'),
         sentence: sentence,
         unlockAction: 'Answer more questions',
-        pointsAtStake: (speedDist.correctAverageMs - speedDist.incorrectAverageMs).abs() / 1000.0,
+        pointsAtStake:
+            (speedDist.correctAverageMs - speedDist.incorrectAverageMs).abs() /
+                1000.0,
       ),
     );
   } else {
@@ -222,7 +227,7 @@ final tendenciesProvider = FutureProvider<List<TendencyCard>>((ref) async {
         figures: null,
         sentence: null,
         unlockAction: 'Answer more questions',
-        pointsAtStake: -1.0,
+        pointsAtStake: -1,
       ),
     );
   }

@@ -32,9 +32,8 @@ class _TendenciesPanelState extends ConsumerState<TendenciesPanel> {
     final asyncCards = ref.watch(tendenciesProvider);
 
     final actionText = isPro ? 'See full details' : 'Unlock with Pro';
-    final void Function() onAction = isPro
-        ? () => context.go('/progress')
-        : () => context.go('/paywall');
+    final onAction =
+        isPro ? () => context.go('/progress') : () => context.go('/paywall');
 
     return RuledPanel(
       heading: 'Your tendencies',

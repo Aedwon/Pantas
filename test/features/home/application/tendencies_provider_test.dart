@@ -139,13 +139,12 @@ void main() {
 
     if (includeMock) {
       const mockTotal = 50;
-      final mockCorrect = (mockTotal * mockAcc).round();
       final mockQIds = List.generate(mockTotal, (i) => 'q_$i');
       final mockAnswers = <String, dynamic>{};
 
-      final firstHalfCount = mockTotal ~/ 2;
+      const firstHalfCount = mockTotal ~/ 2;
       final firstHalfCorrectTarget = (firstHalfCount * firstHalfAcc).round();
-      final secondHalfCount = mockTotal - firstHalfCount;
+      const secondHalfCount = mockTotal - firstHalfCount;
       final secondHalfCorrectTarget = (secondHalfCount * secondHalfAcc).round();
 
       for (var i = 0; i < mockTotal; i++) {
@@ -218,8 +217,7 @@ void main() {
     // No mocks sat.
     await seedInitialData(db, includeMock: false);
     final cards = await container.read(tendenciesProvider.future);
-    final stamina =
-        cards.firstWhere((c) => c.kind == TendencyKind.stamina);
+    final stamina = cards.firstWhere((c) => c.kind == TendencyKind.stamina);
 
     expect(stamina.figures, isNull);
     expect(stamina.sentence, isNull);
@@ -234,8 +232,16 @@ void main() {
     final customContainer = ProviderContainer(
       overrides: [appDatabaseProvider.overrideWithValue(customDb)],
     );
-    await customContainer.read(appPreferencesRepositoryProvider).setSelectedExamId('exam_upcat');
-    await seedInitialData(customDb, includeMock: false, includeSpeed: true, readThenQuiz: 0, quizFirst: 0);
+    await customContainer
+        .read(appPreferencesRepositoryProvider)
+        .setSelectedExamId('exam_upcat');
+    await seedInitialData(
+      customDb,
+      includeMock: false,
+      includeSpeed: true,
+      readThenQuiz: 0,
+      quizFirst: 0,
+    );
 
     final cards = await customContainer.read(tendenciesProvider.future);
 
@@ -252,14 +258,12 @@ void main() {
     final customContainer = ProviderContainer(
       overrides: [appDatabaseProvider.overrideWithValue(customDb)],
     );
-    await customContainer.read(appPreferencesRepositoryProvider).setSelectedExamId('exam_upcat');
+    await customContainer
+        .read(appPreferencesRepositoryProvider)
+        .setSelectedExamId('exam_upcat');
     await seedInitialData(
       customDb,
-      includeMock: true,
-      practiceAcc: 0.68,
       mockAcc: 0.50, // pressure delta -0.18
-      firstHalfAcc: 0.80,
-      secondHalfAcc: 0.76, // stamina delta -0.04
     );
 
     final cards = await customContainer.read(tendenciesProvider.future);
@@ -277,11 +281,11 @@ void main() {
     final customContainer = ProviderContainer(
       overrides: [appDatabaseProvider.overrideWithValue(customDb)],
     );
-    await customContainer.read(appPreferencesRepositoryProvider).setSelectedExamId('exam_upcat');
+    await customContainer
+        .read(appPreferencesRepositoryProvider)
+        .setSelectedExamId('exam_upcat');
     await seedInitialData(
       customDb,
-      includeMock: true,
-      practiceAcc: 0.68,
       mockAcc: 0.63, // pressure delta -0.05
       firstHalfAcc: 0.60,
       secondHalfAcc: 0.80, // stamina delta +0.20

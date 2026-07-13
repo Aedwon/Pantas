@@ -39,7 +39,7 @@ void main() {
       figures: (left: '12', right: '4'),
       sentence: 'You usually read the lesson first.',
       unlockAction: 'Read lessons or attempt topics',
-      pointsAtStake: 0.0,
+      pointsAtStake: 0,
     ),
     TendencyCard(
       kind: TendencyKind.howYouAnswer,
@@ -49,7 +49,7 @@ void main() {
       figures: (left: '5s', right: '12s'),
       sentence: 'You spend 7s longer on questions you get wrong.',
       unlockAction: 'Answer more questions',
-      pointsAtStake: 7.0,
+      pointsAtStake: 7,
     ),
   ];
 
@@ -62,7 +62,7 @@ void main() {
       figures: (left: '12', right: '4'),
       sentence: 'You usually read the lesson first.',
       unlockAction: 'Read lessons or attempt topics',
-      pointsAtStake: 0.0,
+      pointsAtStake: 0,
     ),
     TendencyCard(
       kind: TendencyKind.howYouAnswer,
@@ -72,7 +72,7 @@ void main() {
       figures: (left: '5s', right: '12s'),
       sentence: 'You spend 7s longer on questions you get wrong.',
       unlockAction: 'Answer more questions',
-      pointsAtStake: 7.0,
+      pointsAtStake: 7,
     ),
     TendencyCard(
       kind: TendencyKind.underPressure,
@@ -82,7 +82,7 @@ void main() {
       figures: null,
       sentence: null,
       unlockAction: 'Finish one full length mock',
-      pointsAtStake: -1.0,
+      pointsAtStake: -1,
     ),
     TendencyCard(
       kind: TendencyKind.stamina,
@@ -92,7 +92,7 @@ void main() {
       figures: null,
       sentence: null,
       unlockAction: 'Finish one full length mock',
-      pointsAtStake: -1.0,
+      pointsAtStake: -1,
     ),
   ];
 
@@ -156,7 +156,10 @@ void main() {
         harness(cards: twoMeasurableTwoBlocked, isPro: isPro),
       );
       await tester.pumpAndSettle();
-      expect(find.byKey(const ValueKey('tendency-dot-hollow')), findsNWidgets(2));
+      expect(
+        find.byKey(const ValueKey('tendency-dot-hollow')),
+        findsNWidgets(2),
+      );
     }
   });
 
@@ -170,8 +173,7 @@ void main() {
     expect(find.text('See full details'), findsNothing);
   });
 
-  testWidgets('Pro gets See full details and no teaser at all',
-      (tester) async {
+  testWidgets('Pro gets See full details and no teaser at all', (tester) async {
     await tester.pumpWidget(harness(cards: fourCards, isPro: true));
     await tester.pumpAndSettle();
 
