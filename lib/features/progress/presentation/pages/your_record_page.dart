@@ -49,7 +49,6 @@ class YourRecordPage extends ConsumerWidget {
                   DataRowTile(
                     title:
                         'since ${mockFormat.format(record.streakStartedOn!)}',
-                    primaryFigure: null,
                   ),
               ],
             ),

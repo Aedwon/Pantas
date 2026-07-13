@@ -30,7 +30,7 @@ void main() {
   ];
 
   final sixPoints = [
-    (weekStart: DateTime(2026, 6, 1), accuracy: 50.0),
+    (weekStart: DateTime(2026, 6), accuracy: 50.0),
     (weekStart: DateTime(2026, 6, 8), accuracy: 55.0),
     (weekStart: DateTime(2026, 6, 15), accuracy: 60.0),
     (weekStart: DateTime(2026, 6, 22), accuracy: 65.0),
@@ -39,7 +39,7 @@ void main() {
   ];
 
   final narrowRange58to63 = [
-    (weekStart: DateTime(2026, 6, 1), accuracy: 58.0),
+    (weekStart: DateTime(2026, 6), accuracy: 58.0),
     (weekStart: DateTime(2026, 6, 8), accuracy: 63.0),
   ];
 

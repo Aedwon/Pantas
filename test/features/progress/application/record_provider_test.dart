@@ -124,14 +124,32 @@ void main() {
     expect(record.daysActive, 1);
   });
 
-  test('the streak start is derived and null when freezes were used', () async {
+  test('the streak start is last active minus the streak, less a day',
+      () async {
     await db.into(db.streakLocal).insert(
           StreakLocalCompanion.insert(
             id: const Value(1),
             current: const Value(5),
             longest: const Value(7),
             lastActiveDate: Value(DateTime(2026, 5, 16)),
-            freezesRemaining: const Value(1), // freeze used (was 2)
+          ),
+        );
+
+    container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+      ],
+    );
+
+    final record = await container.read(recordProvider.future);
+    expect(record.streakStartedOn, DateTime(2026, 5, 12));
+  });
+
+  test('no streak, no start date', () async {
+    await db.into(db.streakLocal).insert(
+          StreakLocalCompanion.insert(
+            id: const Value(1),
+            lastActiveDate: Value(DateTime(2026, 5, 16)),
           ),
         );
 
@@ -273,8 +291,8 @@ void main() {
   });
 
   test('mocks are newest first', () async {
-    final older = DateTime(2026, 6, 1);
-    final newer = DateTime(2026, 7, 1);
+    final older = DateTime(2026, 6);
+    final newer = DateTime(2026, 7);
 
     await db.into(db.mockAttempts).insert(
           MockAttemptsCompanion.insert(

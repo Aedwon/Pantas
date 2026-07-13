@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:drift/drift.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -83,7 +82,7 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
     }
   }
 
-  int weeksIn = 0;
+  var weeksIn = 0;
   if (earliestDate != null) {
     final days = now.difference(earliestDate).inDays;
     weeksIn = max(1, (days / 7.0).ceil());
@@ -94,14 +93,18 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
   final longestStreak = streakRow?.longest ?? 0;
   DateTime? streakStartedOn;
 
+  // The date is derived, so it is only printed while the derivation is
+  // sound. `freezesRemaining` defaults to 0 and nothing in the app grants
+  // or spends a freeze yet, so no streak can have been extended by one and
+  // last active minus the streak's length is the day it began. When a
+  // freeze mechanism lands it must record that a freeze was spent, and
+  // this must return null for those students: a wrong date is worse than
+  // no date in a student's own history.
   if (dayStreak > 0 && streakRow?.lastActiveDate != null) {
-    final freezes = streakRow?.freezesRemaining ?? 0;
-    if (freezes >= 2) {
-      final lastActive = streakRow!.lastActiveDate!;
-      final localLastActive =
-          DateTime(lastActive.year, lastActive.month, lastActive.day);
-      streakStartedOn = localLastActive.subtract(Duration(days: dayStreak - 1));
-    }
+    final lastActive = streakRow!.lastActiveDate!;
+    final localLastActive =
+        DateTime(lastActive.year, lastActive.month, lastActive.day);
+    streakStartedOn = localLastActive.subtract(Duration(days: dayStreak - 1));
   }
 
   // Helper for reading items in attempts_local
@@ -124,8 +127,8 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
   }
 
   // 3. Questions answered & Session minutes
-  int questionsAnswered = 0;
-  int totalSessionSeconds = 0;
+  var questionsAnswered = 0;
+  var totalSessionSeconds = 0;
 
   for (final row in attemptsRows) {
     final items = parseAttemptItems(row.itemsJson);
@@ -189,11 +192,13 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
         if (bestMockPercent == null || pct > bestMockPercent) {
           bestMockPercent = pct;
         }
-        mocksList.add((
-          takenOn: row.submittedAt!,
-          percent: pct,
-          blueprintName: row.blueprintName,
-        ));
+        mocksList.add(
+          (
+            takenOn: row.submittedAt!,
+            percent: pct,
+            blueprintName: row.blueprintName,
+          ),
+        );
       }
     }
     mocksList.sort((a, b) => b.takenOn.compareTo(a.takenOn));
@@ -208,7 +213,7 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
     final localDate = DateTime(dt.year, dt.month, dt.day);
     final weekStart = localDate.subtract(Duration(days: localDate.weekday - 1));
 
-    int correctCount = 0;
+    var correctCount = 0;
     for (final item in items) {
       if (item.isCorrect) correctCount++;
     }

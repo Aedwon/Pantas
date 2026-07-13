@@ -25,7 +25,7 @@ void main() {
     longestStreak: 7,
     bestMockPercent: 68,
     accuracySeries: [
-      (weekStart: DateTime(2026, 5, 1), accuracy: 55.0),
+      (weekStart: DateTime(2026, 5), accuracy: 55.0),
       (weekStart: DateTime(2026, 5, 8), accuracy: 68.0),
     ],
     mocks: [
@@ -47,11 +47,11 @@ void main() {
     daysActive: 18,
     longestStreak: 7,
     bestMockPercent: null,
-    accuracySeries: [],
-    mocks: [],
+    accuracySeries: const [],
+    mocks: const [],
   );
 
-  final recordWithNoStreakStart = StudentRecord(
+  const recordWithNoStreakStart = StudentRecord(
     weeksIn: 3,
     dayStreak: 5,
     streakStartedOn: null,

@@ -65,7 +65,7 @@ class AccuracyLinePainter extends CustomPainter {
 }
 
 class AccuracyLine extends StatelessWidget {
-  const AccuracyLine({super.key, required this.series});
+  const AccuracyLine({required this.series, super.key});
 
   final List<({DateTime weekStart, double accuracy})> series;
 
