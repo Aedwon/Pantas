@@ -9,7 +9,6 @@ import 'package:cse_cet_reviewer/core/ui/theme/app_colors.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_text_styles.dart';
 import 'package:cse_cet_reviewer/features/home/application/topic_accuracy_provider.dart';
 import 'package:cse_cet_reviewer/features/home/presentation/widgets/practice_panel.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_today_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_controller.dart';
 import 'package:flutter/material.dart';
@@ -31,22 +30,25 @@ class StartTodaySessionCall {
 
 class FakeStartTodaySession implements StartTodaySession {
   final calls = <StartTodaySessionCall>[];
-  StartTodaySessionResult resultToReturn = const StartTodaySessionNoQuestions('No questions');
+  StartTodaySessionResult resultToReturn =
+      const StartTodaySessionNoQuestions('No questions');
 
   @override
   Future<StartTodaySessionResult> call({
     required String userId,
     required String examId,
+    required DateTime now,
     String? topicId,
     dynamic preferences,
-    required DateTime now,
     dynamic plan,
   }) async {
-    calls.add(StartTodaySessionCall(
-      userId: userId,
-      examId: examId,
-      topicId: topicId,
-    ));
+    calls.add(
+      StartTodaySessionCall(
+        userId: userId,
+        examId: examId,
+        topicId: topicId,
+      ),
+    );
     return resultToReturn;
   }
 
@@ -101,11 +103,23 @@ void main() {
 
   const threeTopics = [
     TopicAccuracy(
-        topicId: 'chem', topicName: 'Chemistry', correct: 3, answered: 10),
+      topicId: 'chem',
+      topicName: 'Chemistry',
+      correct: 3,
+      answered: 10,
+    ),
     TopicAccuracy(
-        topicId: 'alg', topicName: 'Algebra', correct: 6, answered: 10),
+      topicId: 'alg',
+      topicName: 'Algebra',
+      correct: 6,
+      answered: 10,
+    ),
     TopicAccuracy(
-        topicId: 'geo', topicName: 'Geometry', correct: 9, answered: 10),
+      topicId: 'geo',
+      topicName: 'Geometry',
+      correct: 9,
+      answered: 10,
+    ),
   ];
 
   testWidgets('draws three rows, weakest first, with severity colour',
@@ -128,9 +142,24 @@ void main() {
     // 49% rust, 50% amber, 69% amber, 70% ink.
     await tester.pumpWidget(
       harness(const [
-        TopicAccuracy(topicId: 't1', topicName: 'T1', correct: 49, answered: 100),
-        TopicAccuracy(topicId: 't2', topicName: 'T2', correct: 50, answered: 100),
-        TopicAccuracy(topicId: 't3', topicName: 'T3', correct: 69, answered: 100),
+        TopicAccuracy(
+          topicId: 't1',
+          topicName: 'T1',
+          correct: 49,
+          answered: 100,
+        ),
+        TopicAccuracy(
+          topicId: 't2',
+          topicName: 'T2',
+          correct: 50,
+          answered: 100,
+        ),
+        TopicAccuracy(
+          topicId: 't3',
+          topicName: 'T3',
+          correct: 69,
+          answered: 100,
+        ),
       ]),
     );
     await tester.pumpAndSettle();
@@ -143,7 +172,12 @@ void main() {
 
     await tester.pumpWidget(
       harness(const [
-        TopicAccuracy(topicId: 't4', topicName: 'T4', correct: 70, answered: 100),
+        TopicAccuracy(
+          topicId: 't4',
+          topicName: 'T4',
+          correct: 70,
+          answered: 100,
+        ),
       ]),
     );
     await tester.pumpAndSettle();
@@ -158,7 +192,11 @@ void main() {
     await tester.pumpWidget(
       harness(const [
         TopicAccuracy(
-            topicId: 'chem', topicName: 'Chemistry', correct: 0, answered: 1),
+          topicId: 'chem',
+          topicName: 'Chemistry',
+          correct: 0,
+          answered: 1,
+        ),
       ]),
     );
     await tester.pumpAndSettle();

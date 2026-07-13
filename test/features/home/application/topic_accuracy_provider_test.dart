@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/home/application/topic_accuracy_provider.dart';
 import 'package:drift/drift.dart' hide isNull;
@@ -47,14 +46,15 @@ void main() {
           'chosenChoiceId': item.isCorrect ? 'c_a' : 'c_b',
           'correctChoiceId': 'c_a',
           'responseMs': 1000,
-        }
+        },
     ]);
     await db.into(db.attemptsLocal).insert(
           AttemptsLocalCompanion.insert(
             id: id,
             examId: examId,
             startedAt: DateTime.now(),
-            completedAt: Value(isCompleted ? (completedAt ?? DateTime.now()) : null),
+            completedAt:
+                Value(isCompleted ? (completedAt ?? DateTime.now()) : null),
             origin: Value(origin),
             itemsJson: itemsJson,
           ),

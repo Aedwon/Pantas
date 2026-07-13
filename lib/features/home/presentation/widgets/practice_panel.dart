@@ -1,13 +1,12 @@
+import 'dart:async';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/components/ink_chevron.dart';
 import 'package:cse_cet_reviewer/core/ui/components/inline_meter.dart';
 import 'package:cse_cet_reviewer/core/ui/components/ruled_panel.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_colors.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/home/application/topic_accuracy_provider.dart';
-import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_preferences_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_today_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_controller.dart';
 import 'package:flutter/material.dart';
@@ -109,8 +108,10 @@ class _PracticeRow extends ConsumerWidget {
         if (!context.mounted) return;
 
         switch (result) {
-          case StartTodaySessionStarted(:final session):
-            context.push('/quiz/today/$examId?topicId=${topic.topicId}');
+          case StartTodaySessionStarted():
+            unawaited(
+              context.push('/quiz/today/$examId?topicId=${topic.topicId}'),
+            );
           case StartTodaySessionNoQuestions(:final message):
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(message)),
@@ -126,13 +127,11 @@ class _PracticeRow extends ConsumerWidget {
               ? Border(
                   bottom: BorderSide(
                     color: colors.ruleFaint,
-                    width: AppDimensions.hairline,
                   ),
                 )
               : null,
         ),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
               child: Text(

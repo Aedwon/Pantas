@@ -1,4 +1,3 @@
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
@@ -107,6 +106,7 @@ final topicAccuracyProvider = FutureProvider<List<TopicAccuracy>>((ref) async {
       ),
   ];
 
+  // ignore: cascade_invocations
   results.sort((a, b) {
     final aZero = a.answered == 0;
     final bZero = b.answered == 0;
