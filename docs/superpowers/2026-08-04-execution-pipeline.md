@@ -77,12 +77,12 @@ directly from the orchestrator**, one git worktree per plan.
 
 ## Part 0: Pick up here
 
-**Rewritten 10 August, at a context boundary.** Nothing is running, no worktree holds unmerged
-work, `main` is clean and pushed.
+**Rewritten 10 August, after six plans merged in three waves of two.** Nothing is running, no
+worktree holds unmerged work, `main` is clean.
 
-**Health:** 1,676 tests pass, schema **19**, corpus **2,369 questions**, zero analyzer issues
+**Health:** **1,787 tests pass**, schema **19**, corpus **2,369 questions**, zero analyzer issues
 under `lib/` and `test/` outside `test/tool/`, formatter clean, content validator 0, content
-audit 0 blockers, layering 13.
+audit 0 blockers, **layering 33**.
 
 ### The first thing a new session must do
 
@@ -90,22 +90,25 @@ audit 0 blockers, layering 13.
 does not survive a clear. Without it every dispatch does nothing. **Ask for it in the same
 breath as asking for quota headroom**, since neither can be read programmatically.
 
-### Three threads are finished
+### Four threads are finished
 
-**Quiz, Study and Settings**, all plans merged. Do not re-plan them.
+**Quiz, Study, Settings and now Home**, all plans merged. Do not re-plan them.
+
+**Home closed on 10 August.** Plans 3, 5, 4 and 6 landed in that order, which is the order the
+4 August correction demanded: **5 owns `topicAccuracyProvider` and defines `severityFor`**, and 4
+reads the first. Running 4 and 5 in parallel would have produced two rankings. **4 and 6 did run in
+parallel and conflicted only on an import**, each having filled its own stub.
 
 ### What is left, in the order worth doing it
 
 | Next | Plan | Note |
 |---|---|---|
-| 1 | `home-03-masthead-and-band` | Home's chain. **05 must run before 04**: 05 owns `topicAccuracyProvider` and 04 reads it |
-| 2 | `progress-05-how-you-work`, then `progress-03-performance-table` | **03 is blocked on Home 05**, which owns `topicAccuracyProvider` and defines `severityFor` |
-| 3 | `progress-06-your-record` | Parallel-safe |
-| 4 | `mock-01`, `mock-02`, `mock-03` | A chain |
-| 5 | `foundations-02-app-check-and-force-update` | Waits on nothing |
+| 1 | `progress-03-performance-table` | **No longer blocked.** Home 05 is merged, so `topicAccuracyProvider` and `severityFor` both exist. **Five tasks, the largest plan left**: do not start it under a quarter of quota |
+| 2 | `mock-01`, `mock-02`, `mock-03` | A chain |
+| 3 | `foundations-02-app-check-and-force-update` | Waits on nothing |
 
-**Progress 02 and 04 are merged.** They conflicted on the page exactly as predicted, both adding
-a section; both were kept in their named slots.
+**Progress 02, 04, 05 and 06 are merged.** Every one of them added a section to the same page in
+its own named slot, and none overwrote another's.
 
 ### Two small jobs, both unblocked and both cheap
 
@@ -122,8 +125,14 @@ a section; both were kept in their named slots.
   the speed signal returns a distribution from a single answer. Follows the debrief's precedent.
 - **Finishing a session ends on "Ten answered."** The debrief replaced the celebration, per its
   plan. He has said before that finishing should feel like something.
-- **Layering is 13, up from 7.** Every new one is Progress reading the metrics providers, the
-  same pattern as the original seven, but it is the fastest that number has moved.
+- **Layering is 33, up from 13 in one day.** Every new one is Home or Progress reading another
+  feature's providers, which is what those two screens are for: Home reads the assessment,
+  settings and metrics, and Progress reads metrics and the paywall. **Nothing here is a layering
+  mistake; the rule is what does not fit.** Put to him 10 August, undecided: either write the
+  exception down or stop counting these.
+- **The four shared tendencies are now written twice**, once for Home's deck and once for
+  Progress's screen. The wording matches today because the Home run was told to read the Progress
+  provider first and did. **Nothing enforces that it stays matched.**
 
 ### The habits that earned their place, in order of how much they caught
 

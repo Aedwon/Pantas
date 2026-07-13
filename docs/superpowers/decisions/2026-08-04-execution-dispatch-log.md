@@ -1144,3 +1144,36 @@ code did, not what the screen needed.**
 
 **1,730 tests in the Home worktree, 1,736 in the Progress one**, analyzer at the 7-issue baseline in
 both, formatter clean, no attribution.
+
+### The third wave: Home 04 and Home 06, and a call I corrected in the same breath
+
+**I told Aedwon the next wave should be Home 04 and Progress 03, then counted the tasks and
+reversed it.** Progress 03 is **five tasks, the largest plan left**, and Part 1's rule is not to
+start a plan with unfinished tasks when headroom is thin. At 37% remaining that is the one plan to
+leave alone. **Home 04 (two tasks) and Home 06 (three) went out instead, and they close the Home
+thread outright.**
+
+| Worktree | Plan | Tasks | Commits | Uncommitted |
+|---|---|---|---|---|
+| `home04` | home-04 | 2 | 2 | none |
+| `home06` | home-06 | 3 | 3 | none |
+
+**The copy-parity instruction worked.** Home 06 draws the same four tendencies as Progress 05, and
+the prompt told it to read that provider before writing any string. It did, and reported doing so:
+the sentences match character for character. **This is the first time a parallel pair produced
+matching copy without a human comparing them afterwards.** It is also fragile: **the strings are
+now written twice and nothing enforces that they stay matched.** Logged in Part 0.
+
+**The only merge conflict of the day, and it was the predicted one.** Both plans fill a stub in the
+same page. Git merged the stub bodies cleanly, because they are separate hunks, and conflicted only
+on the import list. **Resolved by hand, both imports kept.** The collision map said router-shaped
+conflicts are merge noise and not logic; this is the same shape and the same verdict.
+
+### Health after six merges
+
+**1,787 tests pass**, analyzer at the 7-issue baseline, formatter clean, layering **33**.
+
+**The layering number tripled in a day and none of it is a mistake.** Home reads the assessment,
+settings and metrics providers; Progress reads metrics and the paywall. That is what those two
+screens are: they display what other features measure. **The rule is what does not fit, not the
+code.** Put to Aedwon and left undecided: write the exception down, or stop counting these.
