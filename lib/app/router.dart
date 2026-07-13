@@ -21,6 +21,7 @@ import 'package:cse_cet_reviewer/features/notifications/presentation/permission_
 import 'package:cse_cet_reviewer/features/onboarding/onboarding.dart';
 import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/pages/how_you_work_page.dart';
+import 'package:cse_cet_reviewer/features/progress/presentation/pages/your_record_page.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/progress_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/pages/debrief_page.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/pages/flagged_list_page.dart';
@@ -158,6 +159,10 @@ List<RouteBase> buildAppRoutes(Ref ref) {
     GoRoute(
       path: '/progress/how-you-work',
       builder: (_, __) => const HowYouWorkPage(),
+    ),
+    GoRoute(
+      path: '/progress/your-record',
+      builder: (_, __) => const YourRecordPage(),
     ),
     GoRoute(
       path: '/quiz/today/:examId',

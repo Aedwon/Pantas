@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/features/metrics/signals/attempt_item_reader.dart';
 import 'package:drift/drift.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -53,12 +52,14 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
   final db = ref.watch(appDatabaseProvider);
   final now = ref.watch(recordNowProvider) ?? DateTime.now();
 
-  const itemReader = AttemptItemReader();
-
   final attemptsRows = await db.select(db.attemptsLocal).get();
   final lessonProgressRows = await db.select(db.lessonProgressLocal).get();
-  final streakRow = await (db.select(db.streakLocal)..where((s) => s.id.equals(1))).getSingleOrNull();
-  final mockAttemptsRows = await (db.select(db.mockAttempts)..where((m) => m.status.equals('completed'))).get();
+  final streakRow = await (db.select(db.streakLocal)
+        ..where((s) => s.id.equals(1)))
+      .getSingleOrNull();
+  final mockAttemptsRows = await (db.select(db.mockAttempts)
+        ..where((m) => m.status.equals('completed')))
+      .get();
 
   // 1. First activity date for weeksIn
   DateTime? earliestDate;
@@ -97,8 +98,28 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
     final freezes = streakRow?.freezesRemaining ?? 0;
     if (freezes >= 2) {
       final lastActive = streakRow!.lastActiveDate!;
-      final localLastActive = DateTime(lastActive.year, lastActive.month, lastActive.day);
+      final localLastActive =
+          DateTime(lastActive.year, lastActive.month, lastActive.day);
       streakStartedOn = localLastActive.subtract(Duration(days: dayStreak - 1));
+    }
+  }
+
+  // Helper for reading items in attempts_local
+  List<({bool isCorrect})> parseAttemptItems(String itemsJson) {
+    try {
+      final decoded = jsonDecode(itemsJson);
+      if (decoded is! List) return const [];
+      final result = <({bool isCorrect})>[];
+      for (final item in decoded) {
+        if (item is Map<String, Object?>) {
+          final chosen = item['chosenChoiceId'];
+          final correct = item['correctChoiceId'];
+          result.add((isCorrect: chosen != null && chosen == correct));
+        }
+      }
+      return result;
+    } catch (_) {
+      return const [];
     }
   }
 
@@ -107,7 +128,7 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
   int totalSessionSeconds = 0;
 
   for (final row in attemptsRows) {
-    final items = itemReader.read(row.itemsJson);
+    final items = parseAttemptItems(row.itemsJson);
     questionsAnswered += items.length;
     final comp = row.completedAt;
     if (comp != null) {
@@ -160,7 +181,10 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
     for (final row in mockAttemptsRows) {
       final scoreRaw = row.scoreRaw;
       final scoreTotal = row.scoreTotal;
-      if (scoreRaw != null && scoreTotal != null && scoreTotal > 0 && row.submittedAt != null) {
+      if (scoreRaw != null &&
+          scoreTotal != null &&
+          scoreTotal > 0 &&
+          row.submittedAt != null) {
         final pct = (scoreRaw * 100 / scoreTotal).round();
         if (bestMockPercent == null || pct > bestMockPercent) {
           bestMockPercent = pct;
@@ -178,7 +202,7 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
   // 7. Accuracy series (one point per week of prep, empty if < 2 points)
   final weeklyAttempts = <DateTime, ({int correct, int total})>{};
   for (final row in attemptsRows) {
-    final items = itemReader.read(row.itemsJson);
+    final items = parseAttemptItems(row.itemsJson);
     if (items.isEmpty) continue;
     final dt = row.startedAt.toLocal();
     final localDate = DateTime(dt.year, dt.month, dt.day);
