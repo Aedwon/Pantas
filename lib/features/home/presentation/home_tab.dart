@@ -8,6 +8,7 @@ import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/assessment/presentation/assessment_result_providers.dart';
 import 'package:cse_cet_reviewer/features/home/presentation/widgets/home_masthead.dart';
 import 'package:cse_cet_reviewer/features/home/presentation/widgets/home_stats_band.dart';
+import 'package:cse_cet_reviewer/features/home/presentation/widgets/practice_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -49,7 +50,7 @@ class _SelectedExamHome extends ConsumerWidget {
       const SizedBox.shrink();
 
   Widget _practicePanel(BuildContext context, WidgetRef ref) =>
-      const SizedBox.shrink();
+      const PracticePanel();
 
   Widget _tendenciesPanel(BuildContext context, WidgetRef ref) =>
       const SizedBox.shrink();
