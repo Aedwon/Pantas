@@ -83,8 +83,6 @@ class UpNextPanel extends ConsumerWidget {
                 InkTableRow(
                   title: day.lessons[i].title,
                   meta: '${day.lessons[i].estimatedMinutes} min',
-                  state: InkRowState.plain,
-                  chevron: InkRowChevron.none,
                   bottomRule: i < day.lessons.length - 1,
                   onTap: () =>
                       context.push('/lesson/${day.lessons[i].lessonId}'),

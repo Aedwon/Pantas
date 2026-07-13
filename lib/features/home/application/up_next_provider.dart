@@ -3,7 +3,6 @@ import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/home/application/topic_accuracy_provider.dart';
-import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta/meta.dart';
 
@@ -66,8 +65,7 @@ class UpNextDay {
           _listEquals(lessons, other.lessons);
 
   @override
-  int get hashCode =>
-      Object.hash(Object.hashAll(lessons), allReadInWeakTopics);
+  int get hashCode => Object.hash(Object.hashAll(lessons), allReadInWeakTopics);
 }
 
 bool _listEquals<T>(List<T> a, List<T> b) {
@@ -147,8 +145,8 @@ final upNextProvider = FutureProvider<UpNextDay>((ref) async {
   }
 
   final totalLessons = lessonRows.length;
-  final allRead = totalLessons > 0 &&
-      lessonRows.every((l) => readLessonIds.contains(l.id));
+  final allRead =
+      totalLessons > 0 && lessonRows.every((l) => readLessonIds.contains(l.id));
 
   return UpNextDay(
     lessons: resultLessons,
