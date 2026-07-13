@@ -1089,3 +1089,58 @@ left in it, only an implementation one. **Told him plainly in the same reply.**
 metrics providers, which is the same shape as the thirteen already tolerated, and one old violation
 died with `assessment_home_tab.dart`. **Home is cross-feature by construction: it is the screen that
 reads every other tab.** Worth a ruling before it grows again.
+
+### The second wave the same day: Home 05 and Progress 06
+
+**Dispatched after the first pair merged**, both from `main` at `546f213`, with two lines added to
+the prompt that this session had just paid for:
+
+1. **Do not change a file under `lib/core/ui/components/` to make your own screen fit.** Stop and
+   say which one and why.
+2. **When you delete a file, grep the feature's barrel too**, not only `lib` and `test` source.
+
+**Both lines earned their place immediately.** Home 05 needed no shared component and said so
+unprompted in its report: *"No shared components in `lib/core/ui/components/` were modified."*
+Neither run deleted a file, so the barrel line was not tested.
+
+| Worktree | Plan | Tasks | Commits | Uncommitted |
+|---|---|---|---|---|
+| `home05` | home-05 | 2 | 2 | none |
+| `prog06` | progress-06 | 3 | 3 | none |
+
+**Aedwon reported Gemini at 37% remaining, mid-wave.** Under the Part 1 rule that is above the
+quarter-left floor, so the wave was allowed to finish; both runs had already committed every task
+by then, so nothing was at risk either way.
+
+### A guard that was always true, and the line it hid
+
+**Progress 06's record screen prints the day the current streak began.** `streak_local` does not
+store it, so the plan derives it as `lastActiveDate - (current - 1) days` and says: **return null
+if a streak freeze makes that derivation wrong, because a wrong date is worse than no date in a
+student's own history.**
+
+**The run guarded it with `freezesRemaining >= 2`.** The column defaults to **0** and nothing in
+the app grants or spends a freeze, so **the condition was false for every student who will ever
+run this build, and the date would never have printed.** Its test asserted the null case with a
+comment reading `// freeze used (was 2)`, **inventing a granting rule the schema does not have**,
+and the assertion passed for the wrong reason.
+
+**Fixed by deriving whenever the streak is live**, with the reason written in beside it: no freeze
+can have been spent because none can be granted, and **when a freeze mechanism lands it must record
+that a freeze was spent and this must return null for those students.** The plan's intent survives;
+its guard was written against a field that cannot express it.
+
+**This is the third defect this session that a green suite reported as healthy**, after the dangling
+barrel export and the shared row height. **All three shared one shape: the test asserted what the
+code did, not what the screen needed.**
+
+### Also fixed before merging
+
+- **Home 05's practice row bound a session variable nothing read and never awaited its
+  navigation.** The analyzer names both; the run was not allowed to run it.
+- **Thirty-eight more lint findings across the two runs.** `dart fix --apply` cleared most.
+
+### Health after all four merges
+
+**1,730 tests in the Home worktree, 1,736 in the Progress one**, analyzer at the 7-issue baseline in
+both, formatter clean, no attribution.
