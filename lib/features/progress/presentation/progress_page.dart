@@ -8,6 +8,7 @@ import 'package:cse_cet_reviewer/core/ui/components/navigational_row.dart';
 import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/progress/application/how_you_work_provider.dart';
+import 'package:cse_cet_reviewer/features/progress/application/record_provider.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/widgets/why_you_miss_section.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/widgets/your_pace_panel.dart';
 import 'package:flutter/material.dart';
@@ -191,6 +192,19 @@ class ProgressPage extends ConsumerWidget {
           'Night-Owl Sprinter. Sharpest at 9 pm, in 8 minute sits.',
     );
 
+    final recordAsync = ref.watch(recordProvider);
+    final recordSubtitle = recordAsync.when(
+      data: (record) {
+        final parts = <String>['Day ${record.daysActive}'];
+        if (record.bestMockPercent != null) {
+          parts.add('Best mock ${record.bestMockPercent}%');
+        }
+        return parts.join('. ');
+      },
+      loading: () => 'Loading record...',
+      error: (_, __) => 'Day 1.',
+    );
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -199,6 +213,11 @@ class ProgressPage extends ConsumerWidget {
           title: 'How you work',
           subtitle: subtitle,
           onTap: () => context.push('/progress/how-you-work'),
+        ),
+        NavigationalRow(
+          title: 'Your record',
+          subtitle: recordSubtitle,
+          onTap: () => context.push('/progress/your-record'),
         ),
       ],
     );
