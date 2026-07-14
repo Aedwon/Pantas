@@ -8,6 +8,8 @@ import 'package:cse_cet_reviewer/core/content/bundle/seed_installer.dart';
 import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/content/content_database_opener.dart';
 import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
+import 'package:cse_cet_reviewer/core/platform/app_check.dart';
+import 'package:cse_cet_reviewer/core/platform/remote_flags_providers.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/telemetry/error_boundary.dart';
 import 'package:cse_cet_reviewer/core/telemetry/firebase_telemetry.dart';
@@ -62,14 +64,17 @@ Future<void> _bootstrap(
   installAppErrorView();
 
   await bootstrapFirebase(flavor);
+  await activateAppCheck(flavor);
 
   final overrides = await bootstrapStorageOverrides();
   final contentOverrides = await bootstrapContentOverrides();
+  final remoteFlagsOverrides = await bootstrapRemoteFlagsOverrides();
 
   final container = ProviderContainer(
     overrides: [
       ...overrides,
       ...contentOverrides,
+      ...remoteFlagsOverrides,
       ...mockEntitlementOverrides,
       // Firebase is initialized by now, so the SDK-backed sink is safe to
       // build. The gate above it still decides whether anything reaches it.
