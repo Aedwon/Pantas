@@ -18,6 +18,7 @@ class RemoteFlags {
     serviceMessage: null,
   );
 
+  // ignore: prefer_constructors_over_static_methods
   static RemoteFlags parse(int? minimum, String? message) {
     final cleanMessage =
         (message == null || message.trim().isEmpty) ? null : message;

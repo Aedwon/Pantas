@@ -14,9 +14,8 @@ Future<void> activateAppCheck(
     final androidProvider = flavor == Flavor.dev
         ? AndroidProvider.debug
         : AndroidProvider.playIntegrity;
-    final appleProvider = flavor == Flavor.dev
-        ? AppleProvider.debug
-        : AppleProvider.deviceCheck;
+    final appleProvider =
+        flavor == Flavor.dev ? AppleProvider.debug : AppleProvider.deviceCheck;
 
     await instance.activate(
       androidProvider: androidProvider,

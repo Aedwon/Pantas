@@ -39,10 +39,7 @@ void main() {
     await activateAppCheck(Flavor.staging, appCheck: mockAppCheck);
 
     verify(
-      () => mockAppCheck.activate(
-        androidProvider: AndroidProvider.playIntegrity,
-        appleProvider: AppleProvider.deviceCheck,
-      ),
+      () => mockAppCheck.activate(),
     ).called(1);
   });
 
@@ -50,10 +47,7 @@ void main() {
     await activateAppCheck(Flavor.prod, appCheck: mockAppCheck);
 
     verify(
-      () => mockAppCheck.activate(
-        androidProvider: AndroidProvider.playIntegrity,
-        appleProvider: AppleProvider.deviceCheck,
-      ),
+      () => mockAppCheck.activate(),
     ).called(1);
   });
 
