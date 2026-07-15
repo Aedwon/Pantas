@@ -1177,3 +1177,65 @@ conflicts are merge noise and not logic; this is the same shape and the same ver
 settings and metrics providers; Progress reads metrics and the paywall. That is what those two
 screens are: they display what other features measure. **The rule is what does not fit, not the
 code.** Put to Aedwon and left undecided: write the exception down, or stop counting these.
+
+---
+
+## 10 August, later: I executed one myself, and Gemini took the small one
+
+**Aedwon: "you can do the executing for now. gemini is at 21% left. proceed. if you think it has
+enough for 1 you can deploy accordingly."**
+
+**21% is below the quarter-left floor**, which says do not start a plan with unfinished tasks. So
+the split was by size rather than by tier:
+
+| | Plan | Who | Why |
+|---|---|---|---|
+| The performance table, 5 tasks | `progress-03` | **Claude** | The largest plan left, and the one whose evidentiary rule needed a ruling mid-task |
+| App Check and remote flags, 2 of 3 tasks | `foundations-02` | **Gemini** | 230 lines, three small tasks, and one of them was already known to be blocked |
+
+**Foundations 02's Task 3 was excluded from its prompt by name.** Its button opens the store
+listing, `url_launcher` is not in `pubspec.yaml`, and the plan itself says stop and ask rather than
+adding a dependency. **Dispatching all three would have burned quota to reach a stop that was
+already known.** Tasks 1 and 2 merged clean at 1,799 tests.
+
+### The ruling the table needed: what a clock can honestly say
+
+**The plan says the Time column is measured from timed mocks only, never from practice.** It does
+not say what to do at topic level, and the data decides it:
+
+**A mock records its clock per section, not per question.** `sectionResults` carries
+`timeSeconds` and `total`; the sampled payload says which questions the section held. So a row can
+carry seconds per question **only when a whole section sits inside that row**.
+
+The options, and their costs:
+
+| | Cost |
+|---|---|
+| **A. A row carries time only when a section lands wholly inside it** | At topic level the column is usually absent, because a section spans many topics |
+| **B. Divide a section's clock across its topics by question count** | A measurement multiplied by an assumption about how the time was spent. **This is Section 1's ban** |
+| **C. Difference consecutive answer timestamps for a per-question time** | Looks the most precise and is the least honest: it assumes the student worked on that question for the whole gap, when they may have idled or gone back |
+
+**Taken: A**, and `timeIsMeasurable` is computed per table rather than per app, so the column is
+**absent rather than empty** when nothing in this view can carry it. **B and C both produce a
+number for every row, which is exactly why they are tempting.**
+
+### Two duplications the plan ordered collapsed, and both are now gone
+
+- **`severityFor` moved to `core/ui`.** Home defined it inside its practice panel yesterday, and
+  Progress needed the same thresholds. A second copy is how a student catches the app disagreeing
+  with itself at 49.6%.
+- **Home's topic ranking now reads the table at topic level** and keeps only its sample floor. Two
+  rankings of the same data is how the app tells a student a topic is weak on Home and strong on
+  Progress. **Home's own tests passed untouched through the swap**, which is the evidence the two
+  really were computing the same thing.
+
+### What I got wrong while writing it
+
+- **A 52px head cell overflowed in tests and not on a device.** Widget tests load no custom font,
+  so a five-character label measures far wider than it will ship. The cell now has a minimum
+  width rather than a fixed one.
+- **My first navigation test asserted on a route observer's `settings.name`, which go_router
+  leaves null.** It passed nothing and proved nothing until it asserted on the destination screen
+  instead.
+- **The section ignored the level my own harness asked for** for one round, because the harness set
+  a level the notifier never read. The test that "passed" was reading the default.

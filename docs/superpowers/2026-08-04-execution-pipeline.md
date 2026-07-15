@@ -77,12 +77,12 @@ directly from the orchestrator**, one git worktree per plan.
 
 ## Part 0: Pick up here
 
-**Rewritten 10 August, after six plans merged in three waves of two.** Nothing is running, no
-worktree holds unmerged work, `main` is clean.
+**Rewritten 10 August, after eight plans merged.** Nothing is running, no worktree holds unmerged
+work, `main` is clean.
 
-**Health:** **1,787 tests pass**, schema **19**, corpus **2,369 questions**, zero analyzer issues
+**Health:** **1,851 tests pass**, schema **19**, corpus **2,369 questions**, zero analyzer issues
 under `lib/` and `test/` outside `test/tool/`, formatter clean, content validator 0, content
-audit 0 blockers, **layering 33**.
+audit 0 blockers, **layering 36**.
 
 ### The first thing a new session must do
 
@@ -90,9 +90,13 @@ audit 0 blockers, **layering 33**.
 does not survive a clear. Without it every dispatch does nothing. **Ask for it in the same
 breath as asking for quota headroom**, since neither can be read programmatically.
 
-### Four threads are finished
+### Five threads are finished
 
-**Quiz, Study, Settings and now Home**, all plans merged. Do not re-plan them.
+**Quiz, Study, Settings, Home and Progress**, all plans merged. Do not re-plan them.
+
+**Progress closed on 10 August** with the performance table, which was the last of its six. Two
+duplications the plan ordered collapsed are now gone: `severityFor` lives in `core/ui`, and Home's
+topic ranking reads the table at topic level rather than counting its own.
 
 **Home closed on 10 August.** Plans 3, 5, 4 and 6 landed in that order, which is the order the
 4 August correction demanded: **5 owns `topicAccuracyProvider` and defines `severityFor`**, and 4
@@ -103,9 +107,8 @@ parallel and conflicted only on an import**, each having filled its own stub.
 
 | Next | Plan | Note |
 |---|---|---|
-| 1 | `progress-03-performance-table` | **No longer blocked.** Home 05 is merged, so `topicAccuracyProvider` and `severityFor` both exist. **Five tasks, the largest plan left**: do not start it under a quarter of quota |
-| 2 | `mock-01`, `mock-02`, `mock-03` | A chain |
-| 3 | `foundations-02-app-check-and-force-update` | Waits on nothing |
+| 1 | `mock-01`, `mock-02`, `mock-03` | A chain, and **all that is left of the UI** |
+| 2 | `foundations-02-app-check-and-force-update` **Task 3 only** | Tasks 1 and 2 merged 10 August. **Task 3 is blocked on the `url_launcher` decision**, which is Part 8's, not an implementor's |
 
 **Progress 02, 04, 05 and 06 are merged.** Every one of them added a section to the same page in
 its own named slot, and none overwrote another's.
@@ -125,7 +128,7 @@ its own named slot, and none overwrote another's.
   the speed signal returns a distribution from a single answer. Follows the debrief's precedent.
 - **Finishing a session ends on "Ten answered."** The debrief replaced the celebration, per its
   plan. He has said before that finishing should feel like something.
-- **Layering is 33, up from 13 in one day.** Every new one is Home or Progress reading another
+- **Layering is 36, up from 13 in one day.** Every new one is Home or Progress reading another
   feature's providers, which is what those two screens are for: Home reads the assessment,
   settings and metrics, and Progress reads metrics and the paywall. **Nothing here is a layering
   mistake; the rule is what does not fit.** Put to him 10 August, undecided: either write the
