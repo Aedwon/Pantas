@@ -1,12 +1,15 @@
+import 'dart:async';
+
 import 'package:cse_cet_reviewer/core/ui/components/answer_row.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_session_state.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/part_clock.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/presentation/clock_rule.dart';
+import 'package:cse_cet_reviewer/features/mock_exam/presentation/proctor_toast.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/presentation/widgets/mock_floating_bar.dart';
 import 'package:flutter/material.dart';
 
-class MockSessionPage extends StatelessWidget {
+class MockSessionPage extends StatefulWidget {
   const MockSessionPage({
     required this.state,
     required this.remainingInPart,
@@ -44,14 +47,60 @@ class MockSessionPage extends StatelessWidget {
   final VoidCallback onPause;
   final VoidCallback onShowNavigator;
 
-  Duration get _effectivePartLength =>
+  Duration get effectivePartLength =>
       partLength ?? Duration(seconds: state.durationSeconds);
+
+  @override
+  State<MockSessionPage> createState() => _MockSessionPageState();
+}
+
+class _MockSessionPageState extends State<MockSessionPage> {
+  late Duration _previousRemaining;
+  int? _proctorToastMinutes;
+  Timer? _toastTimer;
+
+  @override
+  void initState() {
+    super.initState();
+    _previousRemaining = widget.remainingInPart;
+  }
+
+  @override
+  void didUpdateWidget(MockSessionPage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.remainingInPart != oldWidget.remainingInPart) {
+      final threshold = callThresholdCrossed(
+        before: _previousRemaining,
+        after: widget.remainingInPart,
+      );
+      if (threshold != null) {
+        _toastTimer?.cancel();
+        setState(() {
+          _proctorToastMinutes = threshold;
+        });
+        _toastTimer = Timer(const Duration(milliseconds: 2500), () {
+          if (mounted) {
+            setState(() {
+              _proctorToastMinutes = null;
+            });
+          }
+        });
+      }
+      _previousRemaining = widget.remainingInPart;
+    }
+  }
+
+  @override
+  void dispose() {
+    _toastTimer?.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final textStyles = context.textStyles;
     final colors = context.colors;
-    final urgency = urgencyFor(remainingInPart);
+    final urgency = urgencyFor(widget.remainingInPart);
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (_, __) => _confirmLeave(context),
@@ -61,7 +110,7 @@ class MockSessionPage extends StatelessWidget {
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            _formatRemaining(remainingInPart),
+            _formatRemaining(widget.remainingInPart),
             style: textStyles.headlineSmall.copyWith(
               fontFamily: 'SourceSerif4',
               fontSize: 16,
@@ -71,8 +120,8 @@ class MockSessionPage extends StatelessWidget {
             ),
           ),
           bottom: ClockRule(
-            remaining: remainingInPart,
-            partLength: _effectivePartLength,
+            remaining: widget.remainingInPart,
+            partLength: widget.effectivePartLength,
           ),
         ),
         body: Stack(
@@ -80,32 +129,43 @@ class MockSessionPage extends StatelessWidget {
             ListView(
               padding: const EdgeInsets.fromLTRB(20, 24, 20, 96),
               children: [
-                Text(state.currentQuestionId, style: textStyles.headlineMedium),
+                Text(widget.state.currentQuestionId,
+                    style: textStyles.headlineMedium),
                 const SizedBox(height: 20),
                 AnswerRow(
                   letter: 'A',
                   text: 'Choice A',
-                  onTap: () => onAnswer(0),
+                  onTap: () => widget.onAnswer(0),
                 ),
                 AnswerRow(
                   letter: 'B',
                   text: 'Choice B',
-                  onTap: () => onAnswer(1),
+                  onTap: () => widget.onAnswer(1),
                 ),
               ],
             ),
+            if (_proctorToastMinutes != null)
+              Positioned(
+                bottom: 74,
+                left: 20,
+                right: 20,
+                child: Center(
+                  child: ProctorToast(minutes: _proctorToastMinutes!),
+                ),
+              ),
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
                 padding: const EdgeInsets.all(14),
                 child: MockFloatingBar(
-                  position: partPosition,
-                  total: partTotal,
-                  isFlagged: state.flags.contains(state.currentQuestionId),
-                  onPrevious: canGoPrevious ? onPrevious : null,
-                  onNext: canGoNext ? onNext : null,
-                  onGrid: onShowNavigator,
-                  onFlag: onToggleFlag,
+                  position: widget.partPosition,
+                  total: widget.partTotal,
+                  isFlagged: widget.state.flags
+                      .contains(widget.state.currentQuestionId),
+                  onPrevious: widget.canGoPrevious ? widget.onPrevious : null,
+                  onNext: widget.canGoNext ? widget.onNext : null,
+                  onGrid: widget.onShowNavigator,
+                  onFlag: widget.onToggleFlag,
                 ),
               ),
             ),
