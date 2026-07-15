@@ -4,7 +4,7 @@ import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/components/ink_chevron.dart';
 import 'package:cse_cet_reviewer/core/ui/components/inline_meter.dart';
 import 'package:cse_cet_reviewer/core/ui/components/ruled_panel.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_colors.dart';
+import 'package:cse_cet_reviewer/core/ui/severity.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/home/application/topic_accuracy_provider.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_today_session.dart';
@@ -12,16 +12,6 @@ import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_controller.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-
-/// Rust below 50, amber below 70, plain ink above. The same thresholds
-/// Progress's performance table uses, because the two surfaces show the
-/// same figure and a student who sees a topic rust here and plain there
-/// has caught the app disagreeing with itself.
-Color severityFor(double accuracy, AppColors colors) {
-  if (accuracy < 0.5) return colors.rust;
-  if (accuracy < 0.7) return colors.amber;
-  return colors.ink;
-}
 
 class PracticePanel extends ConsumerWidget {
   const PracticePanel({super.key});

@@ -1,9 +1,6 @@
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
-import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/features/metrics/signals/attempt_item_reader.dart';
-import 'package:cse_cet_reviewer/features/metrics/signals/signal_content_helpers.dart';
-import 'package:drift/drift.dart';
+import 'package:cse_cet_reviewer/features/progress/application/performance_provider.dart';
+import 'package:cse_cet_reviewer/features/progress/application/table_order_prefs.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta/meta.dart';
 
@@ -52,57 +49,27 @@ class TopicAccuracy {
   int get hashCode => Object.hash(topicId, topicName, correct, answered);
 }
 
+/// Home's weakest-first ranking, which is the performance table read at
+/// topic level.
+///
+/// It counts nothing itself. Two rankings of the same data is how the app
+/// tells a student a topic is weak on Home and strong on Progress. **The
+/// sample floor stays a Home concern**: the table prints what it measures
+/// at any sample size, because a student who opens a table chose to look.
 final topicAccuracyProvider = FutureProvider<List<TopicAccuracy>>((ref) async {
-  final db = ref.watch(appDatabaseProvider);
-  final focus = await ref.watch(activeExamFocusProvider.future);
-  if (focus.needsSelection || focus.exam == null) {
-    return const [];
-  }
-  final examId = focus.exam!.id;
+  final table = await ref.watch(
+    performanceProvider(
+      const PerformanceQuery(level: TableLevel.topic),
+    ).future,
+  );
 
-  final subjectRows = await (db.select(db.subjects)
-        ..where((s) => s.examId.equals(examId)))
-      .get();
-  final subjectIds = subjectRows.map((s) => s.id).toList();
-  if (subjectIds.isEmpty) return const [];
-
-  final topicRows = await (db.select(db.topics)
-        ..where((t) => t.subjectId.isIn(subjectIds)))
-      .get();
-  if (topicRows.isEmpty) return const [];
-
-  final topicMap = {for (final t in topicRows) t.id: t.name};
-
-  final attemptRows = await (db.select(db.attemptsLocal)
-        ..where((a) => a.examId.equals(examId) & a.completedAt.isNotNull()))
-      .get();
-
-  const reader = AttemptItemReader();
-  final helpers = SignalContentHelpers(db);
-
-  final topicCorrect = <String, int>{for (final id in topicMap.keys) id: 0};
-  final topicAnswered = <String, int>{for (final id in topicMap.keys) id: 0};
-
-  for (final attempt in attemptRows) {
-    final items = reader.read(attempt.itemsJson);
-    for (final item in items) {
-      final topicId = await helpers.topicIdForQuestion(item.questionId);
-      if (topicId != null && topicMap.containsKey(topicId)) {
-        topicAnswered[topicId] = (topicAnswered[topicId] ?? 0) + 1;
-        if (item.isCorrect) {
-          topicCorrect[topicId] = (topicCorrect[topicId] ?? 0) + 1;
-        }
-      }
-    }
-  }
-
-  final results = <TopicAccuracy>[
-    for (final topic in topicRows)
+  final results = [
+    for (final row in table.rows)
       TopicAccuracy(
-        topicId: topic.id,
-        topicName: topic.name,
-        correct: topicCorrect[topic.id] ?? 0,
-        answered: topicAnswered[topic.id] ?? 0,
+        topicId: row.id,
+        topicName: row.title,
+        correct: row.correct,
+        answered: row.answered,
       ),
   ];
 
