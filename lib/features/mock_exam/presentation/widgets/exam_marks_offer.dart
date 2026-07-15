@@ -1,5 +1,4 @@
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +33,8 @@ class ExamMarksOffer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'You marked $count to come back to while the clock was running. Keep them to practice?',
+            'You marked $count to come back to while the clock was '
+            'running. Keep them to practice?',
             style: styles.bodyMedium,
           ),
           const SizedBox(height: 12),

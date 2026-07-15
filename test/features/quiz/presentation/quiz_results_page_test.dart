@@ -36,8 +36,7 @@ void main() {
     );
   });
 
-  testWidgets('the practice review is flat and offers nothing',
-      (tester) async {
+  testWidgets('the practice review is flat and offers nothing', (tester) async {
     final entry = ReviewEntry(
       number: 1,
       question: mockQuestion1,
@@ -63,8 +62,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    final reviewListWidget =
-        tester.widget<ReviewList>(find.byType(ReviewList));
+    final reviewListWidget = tester.widget<ReviewList>(find.byType(ReviewList));
     expect(reviewListWidget.grouped, isFalse);
     expect(find.byType(ExamMarksOffer), findsNothing);
   });

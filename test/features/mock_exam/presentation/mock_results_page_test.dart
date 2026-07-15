@@ -59,7 +59,7 @@ void main() {
 
   testWidgets('the review row stands alone with no heading above it',
       (tester) async {
-    await tester.pumpWidget(resultsHarness(total: 120));
+    await tester.pumpWidget(resultsHarness());
     await tester.pumpAndSettle();
 
     expect(find.text('Go through all 120 questions'), findsOneWidget);

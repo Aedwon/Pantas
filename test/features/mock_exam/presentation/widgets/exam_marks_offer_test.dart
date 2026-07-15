@@ -40,7 +40,10 @@ void main() {
 
   testWidgets('no marks renders nothing', (tester) async {
     await tester.pumpWidget(harness(count: 0));
-    expect(find.byWidgetPredicate((w) => w is ExamMarksOffer && w.count > 0), findsNothing);
+    expect(
+      find.byWidgetPredicate((w) => w is ExamMarksOffer && w.count > 0),
+      findsNothing,
+    );
     expect(find.textContaining('You marked'), findsNothing);
   });
 
@@ -53,7 +56,8 @@ void main() {
 
   testWidgets('dismissing it calls onDismiss', (tester) async {
     var dismissed = false;
-    await tester.pumpWidget(harness(count: 12, onDismiss: () => dismissed = true));
+    await tester
+        .pumpWidget(harness(count: 12, onDismiss: () => dismissed = true));
     await tester.tap(find.text('No thanks'));
     expect(dismissed, isTrue);
   });

@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_results.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +34,7 @@ class _ScoreHeadlineState extends State<ScoreHeadline> {
 
     final animationsDisabled = widget.disableAnimations ||
         (MediaQuery.maybeOf(context)?.disableAnimations ?? false) ||
-        !TickerMode.of(context);
+        !TickerMode.valuesOf(context).enabled;
 
     String? bandText;
     if (!widget.wasForfeited && widget.band != null) {
@@ -48,7 +47,6 @@ class _ScoreHeadlineState extends State<ScoreHeadline> {
 
     return Column(
       mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
