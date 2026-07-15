@@ -20,6 +20,10 @@ class ContentMockBlueprints extends Table {
   /// has published no thresholds.
   TextColumn get scoreBandsJson => text().nullable()();
 
+  /// Every item the real exam contains, so the setup screen can say what
+  /// this practice run leaves out. Null when the exam publishes no total.
+  IntColumn get totalPublishedItems => integer().nullable()();
+
   @override
   Set<Column<Object>> get primaryKey => {id};
 }

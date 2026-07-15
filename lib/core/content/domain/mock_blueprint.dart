@@ -37,6 +37,7 @@ class MockBlueprint {
     required this.sectionsJson,
     this.sectionalTiming,
     this.scoreBands,
+    this.totalPublishedItems,
   });
 
   final String id;
@@ -50,4 +51,10 @@ class MockBlueprint {
 
   /// Null means the exam has not published its thresholds.
   final ScoreBands? scoreBands;
+
+  /// Every item the real exam contains, including the ones this app has no
+  /// concept of: ACET's essay, DCAT's essay and personality test. When it
+  /// exceeds what the sections cover, the setup screen says what is not
+  /// included. Null means the exam publishes no total.
+  final int? totalPublishedItems;
 }

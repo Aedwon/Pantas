@@ -49,6 +49,10 @@ class ContentDatabase extends _$ContentDatabase {
               contentMockBlueprints,
               contentMockBlueprints.scoreBandsJson,
             );
+            await m.addColumn(
+              contentMockBlueprints,
+              contentMockBlueprints.totalPublishedItems,
+            );
           }
         },
       );

@@ -33,6 +33,7 @@ ContentMockBlueprintsCompanion parseMockBlueprint(Map<String, Object?> doc) {
     sectionsJson: jsonEncode(sections),
     sectionalTiming: Value(_timing(doc['sectionalTiming'])),
     scoreBandsJson: Value(_scoreBands(doc['scoreBands'])),
+    totalPublishedItems: Value(_positiveInt(doc['totalPublishedItems'])),
   );
 }
 
@@ -55,3 +56,5 @@ String? _scoreBands(Object? raw) {
   if (pass is! int || close is! int) return null;
   return jsonEncode({'passAtPercent': pass, 'closeAtPercent': close});
 }
+
+int? _positiveInt(Object? raw) => raw is int && raw > 0 ? raw : null;
