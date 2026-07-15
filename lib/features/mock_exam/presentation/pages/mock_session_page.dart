@@ -1,6 +1,8 @@
 import 'package:cse_cet_reviewer/core/ui/components/answer_row.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_session_state.dart';
+import 'package:cse_cet_reviewer/features/mock_exam/domain/part_clock.dart';
+import 'package:cse_cet_reviewer/features/mock_exam/presentation/clock_rule.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/presentation/widgets/mock_floating_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +20,7 @@ class MockSessionPage extends StatelessWidget {
     required this.onToggleFlag,
     required this.onPause,
     required this.onShowNavigator,
+    this.partLength,
     super.key,
   });
 
@@ -26,6 +29,7 @@ class MockSessionPage extends StatelessWidget {
   /// What is left of the open part. The exam's own clock is not shown:
   /// what governs the student is the part they are in.
   final Duration remainingInPart;
+  final Duration? partLength;
 
   /// Where they are within the part, counting from one.
   final int partPosition;
@@ -40,10 +44,14 @@ class MockSessionPage extends StatelessWidget {
   final VoidCallback onPause;
   final VoidCallback onShowNavigator;
 
+  Duration get _effectivePartLength =>
+      partLength ?? Duration(seconds: state.durationSeconds);
+
   @override
   Widget build(BuildContext context) {
     final textStyles = context.textStyles;
     final colors = context.colors;
+    final urgency = urgencyFor(remainingInPart);
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (_, __) => _confirmLeave(context),
@@ -58,9 +66,13 @@ class MockSessionPage extends StatelessWidget {
               fontFamily: 'SourceSerif4',
               fontSize: 16,
               fontWeight: FontWeight.w700,
-              color: colors.ink,
+              color: urgency == ClockUrgency.last ? colors.amber : colors.ink,
               fontFeatures: [const FontFeature.tabularFigures()],
             ),
+          ),
+          bottom: ClockRule(
+            remaining: remainingInPart,
+            partLength: _effectivePartLength,
           ),
         ),
         body: Stack(
