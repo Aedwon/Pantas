@@ -17,6 +17,7 @@ class BlueprintSection {
     required this.suggestedMinutes,
     required this.topicIds,
     required this.topicWeights,
+    this.sectionalMinutes,
   });
 
   final String id;
@@ -25,6 +26,10 @@ class BlueprintSection {
   final int suggestedMinutes;
   final List<String> topicIds;
   final Map<String, double> topicWeights;
+
+  /// The per-part limit, meaningful only when the exam times its parts
+  /// separately. Null otherwise, and null when the body publishes none.
+  final int? sectionalMinutes;
 
   // ignore: prefer_constructors_over_static_methods
   static List<BlueprintSection> parseList(String sectionsJson) {
@@ -69,7 +74,15 @@ class BlueprintSection {
       suggestedMinutes: suggestedMinutes,
       topicIds: List.unmodifiable(topicIds),
       topicWeights: Map.unmodifiable(topicWeights),
+      sectionalMinutes: _readOptionalPositiveInt(value, 'sectionalMinutes'),
     );
+  }
+
+  /// Absent, zero and rubbish all read as "not published".
+  static int? _readOptionalPositiveInt(Map<String, Object?> value, String key) {
+    final raw = value[key];
+    if (raw is int && raw > 0) return raw;
+    return null;
   }
 
   static String _readString(

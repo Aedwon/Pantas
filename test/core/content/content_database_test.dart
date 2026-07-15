@@ -23,9 +23,9 @@ void main() {
     return rows.map((row) => row.read<String>('name')).toList();
   }
 
-  test('content database creates all content tables at schema version 2',
+  test('content database creates all content tables at schema version 3',
       () async {
-    expect(db.schemaVersion, equals(2));
+    expect(db.schemaVersion, equals(3));
     expect(
       await tableNames(db),
       containsAll(<String>[
@@ -146,5 +146,32 @@ void main() {
 
     expect(await columns('content_questions'), contains('subtopic_id'));
     expect(await columns('content_lessons'), contains('subtopic_id'));
+  });
+
+  test('a schema 2 database upgrades and keeps its blueprints', () async {
+    // The two new columns are nullable, so an installed content database
+    // gains them without losing a row.
+    final upgraded = ContentDatabase(NativeDatabase.memory());
+    addTearDown(upgraded.close);
+
+    await upgraded.customStatement('PRAGMA user_version = 2');
+    await upgraded.into(upgraded.contentMockBlueprints).insertOnConflictUpdate(
+          ContentMockBlueprintsCompanion.insert(
+            id: 'bp_1',
+            schemaVersion: 1,
+            updatedAt: DateTime(2026, 8, 1),
+            examId: 'exam_cse',
+            name: 'CSE Practice',
+            durationMinutes: 90,
+            sectionsJson: '[]',
+          ),
+        );
+
+    final row = await (upgraded.select(upgraded.contentMockBlueprints)
+          ..where((b) => b.id.equals('bp_1')))
+        .getSingle();
+
+    expect(row.sectionalTiming, null);
+    expect(row.scoreBandsJson, null);
   });
 }

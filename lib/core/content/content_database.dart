@@ -32,10 +32,24 @@ class ContentDatabase extends _$ContentDatabase {
   ContentDatabase(super.executor);
 
   @override
-  int get schemaVersion => 2;
+  int get schemaVersion => 3;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
         onCreate: (m) async => m.createAll(),
+        onUpgrade: (m, from, to) async {
+          if (from < 3) {
+            // Both are nullable, and null is the honest state for an exam
+            // that has published neither.
+            await m.addColumn(
+              contentMockBlueprints,
+              contentMockBlueprints.sectionalTiming,
+            );
+            await m.addColumn(
+              contentMockBlueprints,
+              contentMockBlueprints.scoreBandsJson,
+            );
+          }
+        },
       );
 }

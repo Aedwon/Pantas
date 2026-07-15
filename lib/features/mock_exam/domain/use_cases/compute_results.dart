@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/content/domain/mock_blueprint.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_results.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_sample.dart';
@@ -9,6 +10,7 @@ class ComputeMockResults {
     required Map<String, MockAnswer> answers,
     required int totalTimeSeconds,
     required bool wasStrict,
+    ScoreBands? scoreBands,
   }) {
     var scoreRaw = 0;
     var scoreTotal = 0;
@@ -68,7 +70,11 @@ class ComputeMockResults {
       scoreRaw: scoreRaw,
       scoreTotal: scoreTotal,
       percent: percent,
-      band: bandFor(scoreRaw: scoreRaw, scoreTotal: scoreTotal),
+      band: bandFor(
+        scoreRaw: scoreRaw,
+        scoreTotal: scoreTotal,
+        scoreBands: scoreBands,
+      ),
       sections: List.unmodifiable(sections),
       topWeak: _topWeak(topicStats),
       totalTimeSeconds: totalTimeSeconds,
@@ -76,11 +82,22 @@ class ComputeMockResults {
     );
   }
 
-  ScoreBand bandFor({required int scoreRaw, required int scoreTotal}) {
+  /// The thresholds are the exam's own, and they are content.
+  ///
+  /// The 75 and 60 here are the fallback Spec 5 names for an exam that has
+  /// published none. They are not a claim about any particular exam, and
+  /// no screen may present them as one.
+  ScoreBand bandFor({
+    required int scoreRaw,
+    required int scoreTotal,
+    ScoreBands? scoreBands,
+  }) {
     if (scoreTotal == 0) return ScoreBand.fail;
+    final passAt = scoreBands?.passAtPercent ?? 75;
+    final closeAt = scoreBands?.closeAtPercent ?? 60;
     final percent = (scoreRaw / scoreTotal) * 100;
-    if (percent >= 75) return ScoreBand.pass;
-    if (percent >= 60) return ScoreBand.borderline;
+    if (percent >= passAt) return ScoreBand.pass;
+    if (percent >= closeAt) return ScoreBand.borderline;
     return ScoreBand.fail;
   }
 
