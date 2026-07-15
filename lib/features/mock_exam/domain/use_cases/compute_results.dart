@@ -10,7 +10,7 @@ class ComputeMockResults {
     required Map<String, MockAnswer> answers,
     required int totalTimeSeconds,
     required bool wasStrict,
-    ScoreBands? scoreBands,
+    required ScoreBands? scoreBands,
   }) {
     var scoreRaw = 0;
     var scoreTotal = 0;
@@ -82,22 +82,19 @@ class ComputeMockResults {
     );
   }
 
-  /// The thresholds are the exam's own, and they are content.
-  ///
-  /// The 75 and 60 here are the fallback Spec 5 names for an exam that has
-  /// published none. They are not a claim about any particular exam, and
-  /// no screen may present them as one.
-  ScoreBand bandFor({
+  /// Thresholds are content, per exam. The 75 and 60 that used to sit here
+  /// were a stand-in the 17 May spec named as such. A blueprint that
+  /// publishes no bands gets no band printed: an unpublished threshold is
+  /// not a reason to invent one.
+  ScoreBand? bandFor({
     required int scoreRaw,
     required int scoreTotal,
-    ScoreBands? scoreBands,
+    required ScoreBands? scoreBands,
   }) {
-    if (scoreTotal == 0) return ScoreBand.fail;
-    final passAt = scoreBands?.passAtPercent ?? 75;
-    final closeAt = scoreBands?.closeAtPercent ?? 60;
+    if (scoreBands == null || scoreTotal == 0) return null;
     final percent = (scoreRaw / scoreTotal) * 100;
-    if (percent >= passAt) return ScoreBand.pass;
-    if (percent >= closeAt) return ScoreBand.borderline;
+    if (percent >= scoreBands.passAtPercent) return ScoreBand.pass;
+    if (percent >= scoreBands.closeAtPercent) return ScoreBand.close;
     return ScoreBand.fail;
   }
 

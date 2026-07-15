@@ -1,6 +1,8 @@
 import 'package:meta/meta.dart';
 
-enum ScoreBand { pass, borderline, fail }
+/// The middle band is "close to passing". "Borderline" is banned by the
+/// copy register, so the code and the copy use the same word.
+enum ScoreBand { pass, close, fail }
 
 @immutable
 class MockAnswer {
@@ -28,17 +30,21 @@ class MockResults {
     required this.scoreRaw,
     required this.scoreTotal,
     required this.percent,
-    required this.band,
     required this.sections,
     required this.topWeak,
     required this.totalTimeSeconds,
     required this.wasStrict,
+    this.band,
   });
 
   final int scoreRaw;
   final int scoreTotal;
   final double percent;
-  final ScoreBand band;
+
+  /// Null when the exam has published no thresholds. An unpublished
+  /// threshold is not a reason to invent one, so the results screen draws
+  /// the score and omits the band line rather than printing "Fail".
+  final ScoreBand? band;
   final List<SectionResult> sections;
   final List<WeakTopic> topWeak;
   final int totalTimeSeconds;

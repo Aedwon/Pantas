@@ -12,8 +12,8 @@ class ContentMockBlueprints extends Table {
   IntColumn get durationMinutes => integer()();
   TextColumn get sectionsJson => text()();
 
-  /// The enum's name, or null for an exam that publishes no timing rule.
-  /// Never defaulted: see [SectionalTiming].
+  /// The `SectionalTiming` enum's name, or null for an exam that publishes
+  /// no timing rule. Never defaulted.
   TextColumn get sectionalTiming => text().nullable()();
 
   /// `{"passAtPercent": 70, "closeAtPercent": 55}`, or null when the exam

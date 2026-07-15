@@ -21,7 +21,6 @@ class ResumeMock {
         scoreRaw: 0,
         scoreTotal: 0,
         percent: 0,
-        band: ScoreBand.fail,
         sections: [],
         topWeak: [],
         totalTimeSeconds: 0,
