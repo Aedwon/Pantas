@@ -77,12 +77,16 @@ directly from the orchestrator**, one git worktree per plan.
 
 ## Part 0: Pick up here
 
-**Rewritten 10 August, after eight plans merged.** Nothing is running, no worktree holds unmerged
+**Rewritten 10 August, after ten plans merged.** Nothing is running, no worktree holds unmerged
 work, `main` is clean.
 
-**Health:** **1,851 tests pass**, schema **19**, corpus **2,369 questions**, zero analyzer issues
-under `lib/` and `test/` outside `test/tool/`, formatter clean, content validator 0, content
-audit 0 blockers, **layering 36**.
+**Health:** **1,906 tests pass**, app schema **19**, **content schema 3**, corpus **2,369
+questions**, zero analyzer issues under `lib/` and `test/` outside `test/tool/`, formatter clean,
+content validator 0, content audit 0 blockers, **layering 36**.
+
+**Run `dart run build_runner build --delete-conflicting-outputs` before judging `main`.** The
+content schema moved to 3 and stale generated files reported **25 analyzer issues that were not
+real**.
 
 ### The first thing a new session must do
 
@@ -90,9 +94,15 @@ audit 0 blockers, **layering 36**.
 does not survive a clear. Without it every dispatch does nothing. **Ask for it in the same
 breath as asking for quota headroom**, since neither can be read programmatically.
 
-### Five threads are finished
+### Four threads are finished, and one was not as finished as this document said
 
-**Quiz, Study, Settings, Home and Progress**, all plans merged. Do not re-plan them.
+**Study, Settings, Home and Progress**, all plans merged. Do not re-plan them.
+
+**Quiz was recorded as finished on 8 August and was not.** `QuestionGridSheet`, its Plan 4
+Task 7, had never been written: the file did not exist and `quiz_page.dart` still carried a
+comment naming the unwritten task. **It was found on 10 August only because the mock's grid
+consumes it**, and it is built now. **No gate could have caught it**, which is habit number 2 in
+this document happening to a thread everyone had signed off.
 
 **Progress closed on 10 August** with the performance table, which was the last of its six. Two
 duplications the plan ordered collapsed are now gone: `severityFor` lives in `core/ui`, and Home's
@@ -107,7 +117,7 @@ parallel and conflicted only on an import**, each having filled its own stub.
 
 | Next | Plan | Note |
 |---|---|---|
-| 1 | `mock-01`, `mock-02`, `mock-03` | A chain, and **all that is left of the UI** |
+| 1 | `mock-02-the-endings`, then `mock-03` | **Mock 01 merged 10 August.** All that is left of the UI |
 | 2 | `foundations-02-app-check-and-force-update` **Task 3 only** | Tasks 1 and 2 merged 10 August. **Task 3 is blocked on the `url_launcher` decision**, which is Part 8's, not an implementor's |
 
 **Progress 02, 04, 05 and 06 are merged.** Every one of them added a section to the same page in

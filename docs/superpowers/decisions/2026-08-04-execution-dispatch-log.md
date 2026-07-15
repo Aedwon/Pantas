@@ -1239,3 +1239,59 @@ number for every row, which is exactly why they are tempting.**
   instead.
 - **The section ignored the level my own harness asked for** for one round, because the harness set
   a level the notifier never read. The test that "passed" was reading the default.
+
+---
+
+## 10 August, after the reset: Mock 01, and a plan that was never executed
+
+**Aedwon asked for the limits reset to be scheduled and his screen kept awake, then "after
+reset you can continue".** I executed `mock-01-the-paper` myself, all five tasks, test first.
+
+### The finding that matters: Quiz Plan 4 Task 7 was never written
+
+**`QuestionGridSheet` did not exist.** Mock Task 3 consumes it, the dependency table says so,
+and `quiz_page.dart` still carried `// Task 7 builds the grid sheet` beside an empty callback.
+
+**Part 0 has said "Quiz, all plans merged" since 8 August.** It was wrong, and **no gate could
+have caught it**: unwritten code fails no test, which is habit number 2 in this very document,
+and it happened anyway on a thread everyone had signed off.
+
+**Built here from the quiz plan's own Task 7**, rather than stopping the mock: the plan for it
+is complete and detailed, and the alternative was leaving two plans half done instead of one.
+**Flagged to Aedwon in the same reply.**
+
+### What the plan corrected in me
+
+**I implemented `bandFor` with a 75 and 60 fallback**, then read Step 6 properly: it says the
+band is **null** when the exam publishes no thresholds, and the results screen omits the line
+rather than printing "Fail". **The plan was right and I was wrong.** The 75 and 60 were a
+stand-in the 17 May spec named as such, and keeping them as a silent default is exactly the
+shape of thing this project bans: a number presented as the exam's when the exam never said it.
+
+`ScoreBand.borderline` became `ScoreBand.close` in the same pass, because the copy register bans
+the first word.
+
+### Three things the design decides, not me
+
+- **A per-part limit is printed only when the exam times its parts separately.** The number
+  exists in the blueprint either way, and printing it on a roamable exam would imply a rule that
+  exam does not have.
+- **The app bar carries the clock alone**, which the spec requires. **That leaves pause with no
+  entry point**, and the mock's pause flow is one of the five things this plan explicitly leaves
+  undone. **I did not invent a home for it.** Logged for Aedwon.
+- **`totalPublishedItems` was added to the blueprint** rather than branching on an exam id, which
+  is what Task 2 instructs when the field does not exist. ACET's essay and DCAT's personality
+  test are now nameable as "not included" from content alone.
+
+### What I got wrong
+
+- **I put `@immutable` in the content domain by importing `flutter/foundation`**, which broke the
+  seed writer and the question importer: both are **plain Dart command line tools and cannot load
+  `dart:ui`**. Every widget and unit test stayed green; only the two tool tests failed. **The
+  content layer is shared with the tools, so it imports `meta` and never Flutter.**
+- **One of my own tests asserted a contradiction**: that a part whose clock expires shows zero
+  remaining *and* has already opened the next part. The code was right, the assertion was not.
+
+### Health
+
+**1,906 tests pass** in the worktree, analyzer at the 7-issue baseline, formatter clean.
