@@ -1295,3 +1295,24 @@ the first word.
 ### Health
 
 **1,906 tests pass** in the worktree, analyzer at the 7-issue baseline, formatter clean.
+
+### The `url_launcher` decision, closed 10 August
+
+**Blocked since the launch checklist was written, and put to Aedwon with a recommendation
+rather than as an open question**, because the options were not symmetric.
+
+| | Cost |
+|---|---|
+| **Add `url_launcher`** | One more dependency, from the same source as `path_provider`, which the app already carries |
+| **Write our own platform channel** | Kotlin and Swift to maintain on two platforms, doing exactly what the package does |
+| **Ship neither** | **The force-update screen is the one modal a student cannot dismiss, and its only button would do nothing.** A student on an old build is stuck on a dead end. The feedback row also stays a stub |
+
+**The "no new dependencies" line in every plan is a guard against implementors reaching for
+packages, not a project ban.** The app carries about thirty, including `app_settings`, which
+does this same class of job by opening a system settings screen. Naming that changed the
+question from "may we" to "which is cheaper".
+
+**Aedwon: "proceed."** Also reported Gemini reset to **100% remaining**.
+
+**The rating prompt stays out.** It is a separate package for a separate job, deferred out of
+the beta, and nothing is blocked on it.
