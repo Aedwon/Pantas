@@ -1,3 +1,35 @@
+// meta, not flutter/foundation: the seed writer and the importer are
+// plain Dart command line tools and cannot load dart:ui.
+import 'package:meta/meta.dart';
+
+/// How the testing body times this exam's parts.
+///
+/// `null` means unpublished, and it is a real state: ACET, DCAT and
+/// MSU-SASE publish nothing. It is never defaulted to either value,
+/// because guessing wrong about whether a student can go back is the most
+/// expensive wrong guess this app can make.
+enum SectionalTiming { sectional, roamable }
+
+/// The percentage at which this exam calls a score a pass, and the one
+/// above which it is close. Content, per exam. `null` means the exam has
+/// not published them.
+@immutable
+class ScoreBands {
+  const ScoreBands({required this.passAtPercent, required this.closeAtPercent});
+
+  final int passAtPercent;
+  final int closeAtPercent;
+
+  @override
+  bool operator ==(Object other) =>
+      other is ScoreBands &&
+      other.passAtPercent == passAtPercent &&
+      other.closeAtPercent == closeAtPercent;
+
+  @override
+  int get hashCode => Object.hash(passAtPercent, closeAtPercent);
+}
+
 class MockBlueprint {
   const MockBlueprint({
     required this.id,
@@ -5,6 +37,9 @@ class MockBlueprint {
     required this.name,
     required this.durationMinutes,
     required this.sectionsJson,
+    this.sectionalTiming,
+    this.scoreBands,
+    this.totalPublishedItems,
   });
 
   final String id;
@@ -12,4 +47,16 @@ class MockBlueprint {
   final String name;
   final int durationMinutes;
   final String sectionsJson;
+
+  /// Null means the testing body has not published how it times the parts.
+  final SectionalTiming? sectionalTiming;
+
+  /// Null means the exam has not published its thresholds.
+  final ScoreBands? scoreBands;
+
+  /// Every item the real exam contains, including the ones this app has no
+  /// concept of: ACET's essay, DCAT's essay and personality test. When it
+  /// exceeds what the sections cover, the setup screen says what is not
+  /// included. Null means the exam publishes no total.
+  final int? totalPublishedItems;
 }

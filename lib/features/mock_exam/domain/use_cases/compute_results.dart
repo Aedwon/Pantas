@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/content/domain/mock_blueprint.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_results.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_sample.dart';
@@ -9,6 +10,7 @@ class ComputeMockResults {
     required Map<String, MockAnswer> answers,
     required int totalTimeSeconds,
     required bool wasStrict,
+    required ScoreBands? scoreBands,
   }) {
     var scoreRaw = 0;
     var scoreTotal = 0;
@@ -68,7 +70,11 @@ class ComputeMockResults {
       scoreRaw: scoreRaw,
       scoreTotal: scoreTotal,
       percent: percent,
-      band: bandFor(scoreRaw: scoreRaw, scoreTotal: scoreTotal),
+      band: bandFor(
+        scoreRaw: scoreRaw,
+        scoreTotal: scoreTotal,
+        scoreBands: scoreBands,
+      ),
       sections: List.unmodifiable(sections),
       topWeak: _topWeak(topicStats),
       totalTimeSeconds: totalTimeSeconds,
@@ -76,11 +82,19 @@ class ComputeMockResults {
     );
   }
 
-  ScoreBand bandFor({required int scoreRaw, required int scoreTotal}) {
-    if (scoreTotal == 0) return ScoreBand.fail;
+  /// Thresholds are content, per exam. The 75 and 60 that used to sit here
+  /// were a stand-in the 17 May spec named as such. A blueprint that
+  /// publishes no bands gets no band printed: an unpublished threshold is
+  /// not a reason to invent one.
+  ScoreBand? bandFor({
+    required int scoreRaw,
+    required int scoreTotal,
+    required ScoreBands? scoreBands,
+  }) {
+    if (scoreBands == null || scoreTotal == 0) return null;
     final percent = (scoreRaw / scoreTotal) * 100;
-    if (percent >= 75) return ScoreBand.pass;
-    if (percent >= 60) return ScoreBand.borderline;
+    if (percent >= scoreBands.passAtPercent) return ScoreBand.pass;
+    if (percent >= scoreBands.closeAtPercent) return ScoreBand.close;
     return ScoreBand.fail;
   }
 

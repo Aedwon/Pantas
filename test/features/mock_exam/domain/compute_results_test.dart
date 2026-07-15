@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/content/domain/mock_blueprint.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/mock_exam.dart';
@@ -16,12 +17,14 @@ void main() {
       },
       totalTimeSeconds: 120,
       wasStrict: false,
+      scoreBands: null,
     );
 
     expect(results.scoreRaw, 1);
     expect(results.scoreTotal, 2);
     expect(results.percent, 50);
-    expect(results.band, ScoreBand.fail);
+    // This blueprint publishes no thresholds, so there is no band.
+    expect(results.band, isNull);
   });
 
   test('excludes retired or missing questions from scoreTotal', () {
@@ -36,6 +39,7 @@ void main() {
       },
       totalTimeSeconds: 30,
       wasStrict: false,
+      scoreBands: null,
     );
 
     expect(results.scoreRaw, 1);
@@ -71,25 +75,37 @@ void main() {
       },
       totalTimeSeconds: 60,
       wasStrict: false,
+      scoreBands: null,
     );
 
     expect(results.sections.map((section) => section.timeSeconds), [20, 25]);
   });
 
-  test('uses default score bands at 75 and 60 percent', () {
+  test("the bands are the exam's own thresholds", () {
     final computer = ComputeMockResults();
+    const bands = ScoreBands(passAtPercent: 70, closeAtPercent: 55);
 
     expect(
-      computer.bandFor(scoreRaw: 3, scoreTotal: 4),
+      computer.bandFor(scoreRaw: 7, scoreTotal: 10, scoreBands: bands),
       ScoreBand.pass,
     );
     expect(
-      computer.bandFor(scoreRaw: 3, scoreTotal: 5),
-      ScoreBand.borderline,
+      computer.bandFor(scoreRaw: 6, scoreTotal: 10, scoreBands: bands),
+      ScoreBand.close,
     );
     expect(
-      computer.bandFor(scoreRaw: 2, scoreTotal: 5),
+      computer.bandFor(scoreRaw: 5, scoreTotal: 10, scoreBands: bands),
       ScoreBand.fail,
+    );
+  });
+
+  test('an exam that publishes no thresholds gets no band', () {
+    final computer = ComputeMockResults();
+
+    // Not "Fail": nothing said what passing is.
+    expect(
+      computer.bandFor(scoreRaw: 3, scoreTotal: 4, scoreBands: null),
+      isNull,
     );
   });
 
@@ -112,6 +128,7 @@ void main() {
       },
       totalTimeSeconds: 10,
       wasStrict: false,
+      scoreBands: null,
     );
 
     expect(
