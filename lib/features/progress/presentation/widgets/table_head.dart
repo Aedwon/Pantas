@@ -14,6 +14,8 @@ class TableHead extends StatelessWidget {
     required this.sortKey,
     required this.direction,
     required this.onSort,
+    this.scopeLabel,
+    this.onScope,
     super.key,
   });
 
@@ -29,6 +31,12 @@ class TableHead extends StatelessWidget {
   final TableSortKey sortKey;
   final TableSortDirection direction;
   final ValueChanged<TableSortKey> onSort;
+
+  /// The left cell's second life. Null renders the row noun as a plain
+  /// label, which is what Subject level does and what a table with fewer
+  /// than two subjects of data does at any level.
+  final String? scopeLabel;
+  final VoidCallback? onScope;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +55,11 @@ class TableHead extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Expanded(child: _HeadLabel(rowNoun.toUpperCase())),
+          Expanded(
+            child: scopeLabel == null
+                ? _HeadLabel(rowNoun.toUpperCase())
+                : _ScopeCell(label: scopeLabel!, onTap: onScope),
+          ),
           _SortCell(
             label: 'SCORE',
             isActive: sortKey == TableSortKey.score,
@@ -78,10 +90,83 @@ class _HeadLabel extends StatelessWidget {
   }
 }
 
+/// The scope cell's copy: `All topics`, or `Science topics` when filtered.
+/// Lesson level mirrors Topic.
+String scopeLabelFor({
+  required TableLevel level,
+  required String? subjectName,
+}) {
+  final noun = level == TableLevel.lesson ? 'lessons' : 'topics';
+  return '${subjectName ?? 'All'} $noun';
+}
+
 /// 11px uppercase in `inkMuted`, shared by the head cells and the scope
 /// control so the row reads as one line.
 TextStyle headStyle(BuildContext context) => context.textStyles.labelSmall
     .copyWith(color: context.colors.inkMuted, letterSpacing: 0.5);
+
+/// The left cell when it governs the table's scope.
+///
+/// The affordance is a 1px dotted underline, chosen because it cannot be
+/// confused with the sort caret two cells to its right. No chevron, no
+/// triangle, no icon.
+class _ScopeCell extends StatelessWidget {
+  const _ScopeCell({required this.label, required this.onTap});
+
+  final String label;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: InkWell(
+        onTap: onTap,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(label, style: headStyle(context)),
+            const SizedBox(height: 2),
+            CustomPaint(
+              key: const ValueKey('scope-underline'),
+              size: Size(_labelWidth(context), AppDimensions.hairline),
+              painter: _DottedRulePainter(color: context.colors.inkMuted),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  double _labelWidth(BuildContext context) {
+    final painter = TextPainter(
+      text: TextSpan(text: label, style: headStyle(context)),
+      textDirection: TextDirection.ltr,
+    )..layout();
+    return painter.width;
+  }
+}
+
+class _DottedRulePainter extends CustomPainter {
+  const _DottedRulePainter({required this.color});
+
+  final Color color;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = color
+      ..strokeWidth = size.height;
+    for (var x = 0.0; x < size.width; x += 3) {
+      canvas.drawLine(Offset(x, 0), Offset(x + 1.5, 0), paint);
+    }
+  }
+
+  @override
+  bool shouldRepaint(_DottedRulePainter oldDelegate) =>
+      oldDelegate.color != color;
+}
 
 class _SortCell extends StatelessWidget {
   const _SortCell({

@@ -88,4 +88,45 @@ void main() {
     final notifier = getNotifier(container);
     expect((await notifier.load()).sortKey, TableSortKey.score);
   });
+
+  test('a subject filter survives a reload', () async {
+    final notifier = getNotifier(container);
+    await notifier.setLevel(TableLevel.topic);
+    await notifier.setSubjectId('sci');
+
+    final freshContainer = createFreshContainer();
+    addTearDown(freshContainer.dispose);
+    final freshNotifier = getNotifier(freshContainer);
+
+    final loaded = await freshNotifier.load();
+    expect(loaded.subjectId, 'sci');
+  });
+
+  test('choosing All clears the stored filter', () async {
+    final notifier = getNotifier(container);
+    await notifier.setLevel(TableLevel.topic);
+    await notifier.setSubjectId('sci');
+    await notifier.setSubjectId(null);
+
+    final freshContainer = createFreshContainer();
+    addTearDown(freshContainer.dispose);
+    final freshNotifier = getNotifier(freshContainer);
+
+    expect((await freshNotifier.load()).subjectId, isNull);
+  });
+
+  test('going back to Subject level drops the filter', () async {
+    final notifier = getNotifier(container);
+    await notifier.setLevel(TableLevel.topic);
+    await notifier.setSubjectId('sci');
+    await notifier.setLevel(TableLevel.subject);
+
+    expect(notifier.state.value?.subjectId, isNull);
+
+    final freshContainer = createFreshContainer();
+    addTearDown(freshContainer.dispose);
+    final freshNotifier = getNotifier(freshContainer);
+
+    expect((await freshNotifier.load()).subjectId, isNull);
+  });
 }
