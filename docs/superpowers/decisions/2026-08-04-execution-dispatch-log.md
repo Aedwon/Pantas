@@ -1316,3 +1316,46 @@ question from "may we" to "which is cheaper".
 
 **The rating prompt stays out.** It is a separate package for a separate job, deferred out of
 the beta, and nothing is blocked on it.
+
+### The wave after the reset: Mock 02 to Gemini, the force-update stop to me
+
+**Aedwon: "proceed. i'm awake now and gemini has reset to 100% usage remaining."**
+
+Two at a time, split by what each is good for: **Gemini took `mock-02-the-endings`** (four
+tasks, one of them already struck), **I took Foundations 02 Task 3**, which was blocked on the
+decision he had just closed.
+
+**Mock 02's prompt carried what Mock 01 changed under it**, because the plan was written before
+today: `ScoreBand.borderline` is gone, `MockResults.band` is nullable, the grid exists, and the
+session controller has parts. **The run honoured all of it**, drew no band when the exam
+publishes no thresholds, and correctly **skipped Task 2**, which Aedwon struck on 3 August in
+favour of the quiz's review component. **A run reading an amendment written a week earlier and
+acting on it is the first time that has happened.**
+
+### The force-update stop, and a provider that would have locked everyone out
+
+`url_launcher` went in, the store button works, and the page is the one modal a student cannot
+dismiss.
+
+**Two decisions inside it were mine and both avoided a second dependency:**
+
+- **The build number comes from a `--dart-define`**, not a package that reads it back from the
+  bundle. CI already knows the number it is building.
+- **`remoteFlagsProvider` now defaults to the fallback instead of throwing.** It was written
+  this morning to throw when unoverridden, mirroring the content database. **That was safe
+  while nothing read it at startup.** The force-update gate reads it on *every route*, so a
+  missing override in any entry point would have redirected every student to the update screen
+  forever. **Twelve router tests failed the moment the gate landed, which is how it surfaced.**
+  The fallback blocks nobody, and failing open is the only defensible direction for a gate
+  whose failure mode is locking people out of an app they paid for.
+
+### A false alarm worth naming
+
+**The seed writer test failed once in the mock worktree and passed on its own a minute later.**
+Two Flutter processes were running in the same worktree, `build_runner` and the suite. **Not
+every red test is a defect, and re-running one file is cheaper than debugging a race that is
+not in the code.**
+
+### Health
+
+**1,924 tests pass on `main`**, analyzer at the 7-issue baseline, formatter clean.
