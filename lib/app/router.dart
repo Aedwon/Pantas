@@ -1,6 +1,9 @@
 // ignore_for_file: directives_ordering
 
+import 'package:cse_cet_reviewer/app/build_info.dart';
 import 'package:cse_cet_reviewer/app/router_refresh_listenable.dart';
+import 'package:cse_cet_reviewer/core/platform/remote_flags_providers.dart';
+import 'package:cse_cet_reviewer/features/shell/presentation/update_required_page.dart';
 import 'package:cse_cet_reviewer/core/auth/providers.dart';
 import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
@@ -58,6 +61,17 @@ final routerProvider = Provider<GoRouter>((ref) {
     initialLocation: '/home',
     refreshListenable: refreshListenable,
     redirect: (context, state) {
+      // The stop comes first: a build the server has retired must not
+      // reach any route, including a deep link.
+      final flags = ref.read(remoteFlagsProvider);
+      final blocked = updateIsRequired(
+        currentBuild: kBuildNumber,
+        minimumSupportedBuild: flags.minimumSupportedBuild,
+      );
+      final atUpdateRequired = state.matchedLocation == '/update-required';
+      if (blocked && !atUpdateRequired) return '/update-required';
+      if (!blocked && atUpdateRequired) return '/home';
+
       final passedAsync = ref.read(passedAgeGateProvider);
       final focusAsync = ref.read(activeExamFocusProvider);
       final passed = passedAsync.valueOrNull;
@@ -345,6 +359,10 @@ List<RouteBase> buildAppRoutes(Ref ref) {
     GoRoute(
       path: '/settings/backup',
       builder: (_, __) => const BackupPage(),
+    ),
+    GoRoute(
+      path: '/update-required',
+      builder: (_, __) => const UpdateRequiredPage(),
     ),
     GoRoute(
       path: '/settings/about',

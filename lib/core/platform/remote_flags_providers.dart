@@ -5,10 +5,14 @@ import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+/// The flags this launch fetched, or the fallback.
+///
+/// It defaults rather than throwing because the router reads it on every
+/// route: a missing override would lock every student out of the app over
+/// a wiring mistake, and the fallback blocks nobody. Bootstrap still
+/// overrides it with what the server actually said.
 final remoteFlagsProvider = Provider<RemoteFlags>(
-  (ref) => throw UnimplementedError(
-    'Override remoteFlagsProvider in main bootstrap or tests',
-  ),
+  (ref) => RemoteFlags.fallback,
 );
 
 /// Prefetches Remote Config once at bootstrap with a short timeout.
