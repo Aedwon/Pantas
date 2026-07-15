@@ -28,8 +28,8 @@ void main() {
         body: ValueListenableBuilder<String?>(
           valueListenable: selected,
           builder: (context, value, _) {
-            final showScope = level != TableLevel.subject &&
-                subjects.length >= 2;
+            final showScope =
+                level != TableLevel.subject && subjects.length >= 2;
             return TableHead(
               rowNoun: level.name,
               showTime: false,

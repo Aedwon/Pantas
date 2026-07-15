@@ -151,7 +151,6 @@ final performanceProvider =
 
   final subjectNameById = {for (final s in subjectRows) s.id: s.name};
   final topicById = {for (final t in topicRows) t.id: t};
-  final lessonById = {for (final l in lessonRows) l.id: l};
   final subjectIdForQuestion = <String, String>{};
   final topicIdForQuestion = <String, String>{};
   final lessonIdForQuestion = <String, String>{};
@@ -230,7 +229,8 @@ final performanceProvider =
     for (final item in reader.read(attempt.itemsJson)) {
       final subjectId = subjectIdForQuestion[item.questionId];
       if (subjectId != null) {
-        answeredPerSubject[subjectId] = (answeredPerSubject[subjectId] ?? 0) + 1;
+        answeredPerSubject[subjectId] =
+            (answeredPerSubject[subjectId] ?? 0) + 1;
       }
       if (!inScope(item.questionId)) continue;
       final bucket = buckets[bucketIdFor(item.questionId)];
@@ -327,7 +327,10 @@ Future<List<_PublishedSection>> _publishedSections(
         _PublishedSection(
           id: id,
           questionCount: count,
-          topicIds: [for (final t in topicIds) if (t is String) t],
+          topicIds: [
+            for (final t in topicIds)
+              if (t is String) t,
+          ],
         ),
       );
     }

@@ -73,6 +73,7 @@ final topicAccuracyProvider = FutureProvider<List<TopicAccuracy>>((ref) async {
       ),
   ];
 
+  // ignore: cascade_invocations
   results.sort((a, b) {
     final aZero = a.answered == 0;
     final bZero = b.answered == 0;

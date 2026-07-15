@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:cse_cet_reviewer/core/content/content.dart';
-import 'package:cse_cet_reviewer/core/content/content_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/progress/application/performance_provider.dart';
@@ -65,19 +64,19 @@ void main() {
       questionIds: ['q_a1', 'q_a2'],
     );
     await db.update(db.subjects).replace(
-          SubjectsCompanion(
-            id: const Value('sci'),
-            examId: const Value(examId),
-            name: const Value('Science'),
-            ordering: const Value(0),
+          const SubjectsCompanion(
+            id: Value('sci'),
+            examId: Value(examId),
+            name: Value('Science'),
+            ordering: Value(0),
           ),
         );
     await db.update(db.subjects).replace(
-          SubjectsCompanion(
-            id: const Value('math'),
-            examId: const Value(examId),
-            name: const Value('Mathematics'),
-            ordering: const Value(1),
+          const SubjectsCompanion(
+            id: Value('math'),
+            examId: Value(examId),
+            name: Value('Mathematics'),
+            ordering: Value(1),
           ),
         );
     await AppPreferencesRepository(db).setSelectedExamId(examId);
@@ -94,7 +93,7 @@ void main() {
             id: id,
             examId: examId,
             origin: Value(origin),
-            startedAt: DateTime(2026, 8, 1),
+            startedAt: DateTime(2026, 8),
             completedAt: Value(DateTime(2026, 8, 1, 0, 20)),
             itemsJson: jsonEncode([
               for (final (questionId, isCorrect) in items)
@@ -160,14 +159,16 @@ void main() {
     List<String> topicIds = const ['chem', 'phys'],
     int questionCount = 180,
   }) async {
-    await contentDb.into(contentDb.contentMockBlueprints).insertOnConflictUpdate(
+    await contentDb
+        .into(contentDb.contentMockBlueprints)
+        .insertOnConflictUpdate(
           ContentMockBlueprintsCompanion.insert(
             id: 'bp_1',
             examId: examId,
             name: 'Full length',
             durationMinutes: 60,
             schemaVersion: 1,
-            updatedAt: DateTime(2026, 8, 1),
+            updatedAt: DateTime(2026, 8),
             sectionsJson: jsonEncode([
               {
                 'id': 'sec_sci',
@@ -221,8 +222,7 @@ void main() {
     expect(science.subtext, '4 of 180 questions');
   });
 
-  test('with no blueprint the subject subtext drops the size clause',
-      () async {
+  test('with no blueprint the subject subtext drops the size clause', () async {
     await seedSyllabus();
     await seedAttempt('att_1', [('q_c1', true)]);
 
