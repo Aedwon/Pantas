@@ -159,7 +159,7 @@ void main() {
           ContentMockBlueprintsCompanion.insert(
             id: 'bp_1',
             schemaVersion: 1,
-            updatedAt: DateTime(2026, 8, 1),
+            updatedAt: DateTime(2026, 8),
             examId: 'exam_cse',
             name: 'CSE Practice',
             durationMinutes: 90,

@@ -50,7 +50,9 @@ void main() {
     );
 
     expect(
-      tester.widgetList<QuestionGridSheet>(find.byType(QuestionGridSheet)).first
+      tester
+          .widgetList<QuestionGridSheet>(find.byType(QuestionGridSheet))
+          .first
           .columns,
       6,
     );

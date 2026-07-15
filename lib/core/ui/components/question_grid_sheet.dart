@@ -63,7 +63,9 @@ class QuestionGridSheet extends StatelessWidget {
     for (var i = 0; i < cells.length; i += columns) {
       rows.add(
         cells.sublist(
-            i, i + columns > cells.length ? cells.length : i + columns),
+          i,
+          i + columns > cells.length ? cells.length : i + columns,
+        ),
       );
     }
 

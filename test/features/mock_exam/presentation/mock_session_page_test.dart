@@ -12,6 +12,13 @@ void main() {
     await tester.pumpApp(
       MockSessionPage(
         state: _state(elapsedSeconds: 60),
+        remainingInPart: const Duration(minutes: 9),
+        partPosition: 1,
+        partTotal: 2,
+        canGoPrevious: false,
+        canGoNext: true,
+        onPrevious: () {},
+        onNext: () {},
         onAnswer: (_) {},
         onToggleFlag: () {},
         onPause: () {},
@@ -23,10 +30,19 @@ void main() {
     expect(find.text('09:00'), findsOneWidget);
   });
 
-  testWidgets('pause button is hidden in strict mode', (tester) async {
+  // The app bar carries the clock alone now, so no control sits there in
+  // either mode. The pause flow itself is not designed yet.
+  testWidgets('no control shares the app bar with the clock', (tester) async {
     await tester.pumpApp(
       MockSessionPage(
         state: _state(strictMode: true),
+        remainingInPart: const Duration(minutes: 10),
+        partPosition: 1,
+        partTotal: 2,
+        canGoPrevious: false,
+        canGoNext: true,
+        onPrevious: () {},
+        onNext: () {},
         onAnswer: (_) {},
         onToggleFlag: () {},
         onPause: () {},
@@ -43,6 +59,13 @@ void main() {
     await tester.pumpApp(
       MockSessionPage(
         state: _state(),
+        remainingInPart: const Duration(minutes: 10),
+        partPosition: 1,
+        partTotal: 2,
+        canGoPrevious: false,
+        canGoNext: true,
+        onPrevious: () {},
+        onNext: () {},
         onAnswer: (value) => answer = value,
         onToggleFlag: () => flagged = true,
         onPause: () {},
@@ -51,7 +74,9 @@ void main() {
     );
 
     await tester.tap(find.text('A'));
-    await tester.tap(find.byIcon(Icons.flag_outlined));
+    // The flag moved into the pager when the app bar became the clock
+    // alone.
+    await tester.tap(find.byKey(const ValueKey('mock-flag')));
 
     expect(answer, 0);
     expect(flagged, isTrue);
@@ -61,6 +86,13 @@ void main() {
     await tester.pumpApp(
       MockSessionPage(
         state: _state(),
+        remainingInPart: const Duration(minutes: 10),
+        partPosition: 1,
+        partTotal: 2,
+        canGoPrevious: false,
+        canGoNext: true,
+        onPrevious: () {},
+        onNext: () {},
         onAnswer: (_) {},
         onToggleFlag: () {},
         onPause: () {},

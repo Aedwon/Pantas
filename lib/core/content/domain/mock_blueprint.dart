@@ -1,4 +1,6 @@
-import 'package:flutter/foundation.dart';
+// meta, not flutter/foundation: the seed writer and the importer are
+// plain Dart command line tools and cannot load dart:ui.
+import 'package:meta/meta.dart';
 
 /// How the testing body times this exam's parts.
 ///

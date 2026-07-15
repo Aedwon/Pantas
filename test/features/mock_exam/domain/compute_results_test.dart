@@ -81,7 +81,7 @@ void main() {
     expect(results.sections.map((section) => section.timeSeconds), [20, 25]);
   });
 
-  test('the bands are the exam\'s own thresholds', () {
+  test("the bands are the exam's own thresholds", () {
     final computer = ComputeMockResults();
     const bands = ScoreBands(passAtPercent: 70, closeAtPercent: 55);
 
