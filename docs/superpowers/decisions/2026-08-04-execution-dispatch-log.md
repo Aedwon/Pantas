@@ -1359,3 +1359,37 @@ not in the code.**
 ### Health
 
 **1,924 tests pass on `main`**, analyzer at the 7-issue baseline, formatter clean.
+
+### Mock 03 closes the chain, and two contradictions it exposed
+
+**Six tasks, seven commits, nothing uncommitted.** The run also exported its new files from the
+feature barrel without being asked, which is the rule added this morning being followed
+proactively for the first time.
+
+**It gave the pause control a home**, at the trailing edge of the app bar, which is what its own
+plan specifies. **That closed the gap Mock 01 left**, and it broke a test I wrote this morning
+asserting that nothing sits beside the clock. **The newer plan wins**: Mock 01 said the clock is
+alone because nothing had yet been designed to sit there, and Mock 03 is the plan that designs
+it. The assertion now names the control rather than banning all of them.
+
+### The one that needed Aedwon's eye
+
+**The pause screen shipped saying "Discard this paper", three times.** `AGENTS.md` bans the word
+in a student-facing string: **it is an exam, and you take it.** Mock 02's own test asserts the
+copy never says it.
+
+**The run was not wrong to write it. The plan's copy table says "paper" verbatim**, at line 715,
+and the run follows the plan. **The plan contradicts the project's voice rule**, and this is the
+first time a contradiction has been in the copy rather than in the code.
+
+**Changed to "Discard this mock"**, which matches the sentence beside it about not using up a
+mock, **and put to Aedwon in the same reply** rather than filed silently: copy is his.
+
+### Health, and what the day added up to
+
+**1,958 tests pass on `main`**, up from 1,676 this morning. Analyzer at the 7-issue baseline,
+formatter clean, layering 36, attribution 0.
+
+**Thirteen plans merged**: Home 03, Progress 05, Home 05, Progress 06, Home 04, Home 06,
+Progress 03, Foundations 02 in two pieces, Mock 01, Mock 02, Mock 03, and the quiz's question
+grid that nobody had noticed was missing. **Every UI thread is now closed.**
