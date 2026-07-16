@@ -117,4 +117,91 @@ void main() {
       );
     });
   });
+
+  group('exam countdown copy', () {
+    test('countdown at 7 days with flagged questions includes count', () {
+      final copy = const NotificationBodyComposer().examCountdown(
+        daysLeft: 7,
+        examName: 'UPCAT',
+        flaggedCount: 42,
+      );
+
+      expect(copy.title, '7 days to UPCAT');
+      expect(copy.body, "You've got 42 questions flagged. Want to clear them?");
+    });
+
+    test('day of exam contains no count and no call to action', () {
+      final copy = const NotificationBodyComposer().examCountdown(
+        daysLeft: 0,
+        examName: 'UPCAT',
+        flaggedCount: 10,
+      );
+
+      expect(copy.title, "Today's the day.");
+      expect(copy.body, 'Good luck.');
+      expect(copy.body.contains(RegExp(r'\d+')), isFalse);
+      expect(copy.body.toLowerCase().contains('want to'), isFalse);
+    });
+
+    test('countdown with no flagged questions sends title with no second line', () {
+      final copy = const NotificationBodyComposer().examCountdown(
+        daysLeft: 14,
+        examName: 'UPCAT',
+        flaggedCount: 0,
+      );
+
+      expect(copy.title, '14 days to UPCAT');
+      expect(copy.body, isEmpty);
+    });
+  });
+
+  group('lapse comeBack copy', () {
+    test('lapse composer with attempt data names subject and past score', () {
+      final copy = const NotificationBodyComposer().comeBack(
+        subjectName: 'Chemistry',
+        correctCount: 12,
+        totalCount: 20,
+      );
+
+      expect(copy, isNotNull);
+      expect(copy!.title, 'Your Chemistry is waiting');
+      expect(
+        copy.body,
+        'You got 12 of 20 last time. One session picks it back up.',
+      );
+    });
+
+    test('lapse composer with no attempts returns null', () {
+      final copy = const NotificationBodyComposer().comeBack(
+        subjectName: null,
+        correctCount: null,
+        totalCount: null,
+      );
+
+      expect(copy, isNull);
+    });
+  });
+
+  group('spec compliance checks across all notification copy', () {
+    test('no body contains an em dash, marks, or banned words', () {
+      const composer = NotificationBodyComposer();
+      final copies = <NotificationCopy>[
+        composer.examCountdown(daysLeft: 7, examName: 'UPCAT', flaggedCount: 42),
+        composer.examCountdown(daysLeft: 0, examName: 'UPCAT'),
+        composer.examCountdown(daysLeft: 14, examName: 'UPCAT'),
+        composer.comeBack(subjectName: 'Chemistry', correctCount: 12, totalCount: 20)!,
+      ];
+
+      for (final copy in copies) {
+        final fullText = '${copy.title} ${copy.body}';
+        expect(fullText.contains('—'), isFalse, reason: 'Contains em dash');
+        expect(fullText.toLowerCase().contains('marks'), isFalse, reason: 'Contains marks');
+        expect(fullText.toLowerCase().contains('falling behind'), isFalse);
+        expect(fullText.toLowerCase().contains('last chance'), isFalse);
+        expect(fullText.toLowerCase().contains('progress will be lost'), isFalse);
+        expect(fullText.toLowerCase().contains('we miss you'), isFalse);
+        expect(fullText.toLowerCase().contains('on track'), isFalse);
+      }
+    });
+  });
 }

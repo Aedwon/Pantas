@@ -102,4 +102,46 @@ class NotificationBodyComposer {
           'streak - a few minutes is all it takes.',
     );
   }
+
+  NotificationCopy examCountdown({
+    required int daysLeft,
+    required String examName,
+    int flaggedCount = 0,
+  }) {
+    if (daysLeft == 0) {
+      return const NotificationCopy(
+        title: "Today's the day.",
+        body: 'Good luck.',
+      );
+    }
+
+    final body = flaggedCount > 0
+        ? "You've got $flaggedCount questions flagged. Want to clear them?"
+        : '';
+
+    return NotificationCopy(
+      title: '$daysLeft days to $examName',
+      body: body,
+    );
+  }
+
+  NotificationCopy? comeBack({
+    required String? subjectName,
+    required int? correctCount,
+    required int? totalCount,
+  }) {
+    if (subjectName == null ||
+        subjectName.isEmpty ||
+        correctCount == null ||
+        totalCount == null ||
+        totalCount <= 0) {
+      return null;
+    }
+
+    return NotificationCopy(
+      title: 'Your $subjectName is waiting',
+      body: 'You got $correctCount of $totalCount last time. One session picks it back up.',
+    );
+  }
 }
+
