@@ -3,7 +3,8 @@ import 'dart:convert';
 enum NotificationKind {
   dailyReminder('daily_reminder'),
   streakSave('streak_save'),
-  wrapped('wrapped');
+  wrapped('wrapped'),
+  examCountdown('exam_countdown');
 
   const NotificationKind(this.storageValue);
 
