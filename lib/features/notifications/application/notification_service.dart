@@ -94,8 +94,7 @@ typedef NotificationPlanReader = Future<NotificationPlanSnapshot> Function();
 typedef NotificationStreakReader = Future<NotificationStreakSnapshot>
     Function();
 typedef NotificationExamDateReader = Future<ExamDate?> Function();
-typedef NotificationLapseReader = Future<NotificationLapseSnapshot>
-    Function();
+typedef NotificationLapseReader = Future<NotificationLapseSnapshot> Function();
 typedef NotificationClock = DateTime Function();
 
 class NotificationServiceImpl implements NotificationService {
@@ -104,9 +103,9 @@ class NotificationServiceImpl implements NotificationService {
     required NotificationSettingsReader settingsReader,
     required NotificationPlanReader planReader,
     required NotificationStreakReader streakReader,
+    required NotificationClock now,
     NotificationExamDateReader? examDateReader,
     NotificationLapseReader? lapseReader,
-    required NotificationClock now,
     NotificationBodyComposer composer = const NotificationBodyComposer(),
     StreakSavePolicy streakPolicy = const StreakSavePolicy(),
     LapsePolicy lapsePolicy = const LapsePolicy(),
@@ -116,8 +115,8 @@ class NotificationServiceImpl implements NotificationService {
         _planReader = planReader,
         _streakReader = streakReader,
         _examDateReader = examDateReader ?? (() async => null),
-        _lapseReader =
-            lapseReader ?? (() async => const NotificationLapseSnapshot.empty()),
+        _lapseReader = lapseReader ??
+            (() async => const NotificationLapseSnapshot.empty()),
         _now = now,
         _composer = composer,
         _streakPolicy = streakPolicy,
@@ -186,7 +185,7 @@ class NotificationServiceImpl implements NotificationService {
         final daysLeft = examDate.daysUntil(date) ?? 0;
         if (daysLeft > 3) continue;
 
-        final fireAt = DateTime(date.year, date.month, date.day, 9, 0);
+        final fireAt = DateTime(date.year, date.month, date.day, 9);
         if (fireAt.isBefore(now)) continue;
 
         final copy = _composer.examCountdown(
@@ -354,7 +353,8 @@ class NotificationServiceImpl implements NotificationService {
       }
     }
 
-    // Group candidate payloads by calendar day and apply NotificationCeiling.pick
+    // Group candidate payloads by calendar day, then let the ceiling
+    // pick one winner from each day.
     final payloadsByDay = <DateTime, List<NotificationPayload>>{};
     for (final payload in candidatePayloads) {
       final dayKey = DateTime(

@@ -25,7 +25,10 @@ void main() {
     );
 
     expect(gateway.log.where((entry) => entry.startsWith('cancel')).length, 4);
-    expect(gateway.log.where((entry) => entry.startsWith('schedule')).length, 1);
+    expect(
+      gateway.log.where((entry) => entry.startsWith('schedule')).length,
+      1,
+    );
     expect(gateway.scheduled.single.title, "Today's session is ready");
     expect(
       gateway.scheduled.single.body,
@@ -33,7 +36,9 @@ void main() {
     );
   });
 
-  test('scheduleDailyReminder chooses higher priority streak save under ceiling', () async {
+  test(
+      'scheduleDailyReminder chooses higher priority streak save under ceiling',
+      () async {
     final gateway = RecordingNotificationsGateway()
       ..permission = NotificationPermission.granted;
     final service = NotificationServiceImpl(

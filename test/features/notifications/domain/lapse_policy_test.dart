@@ -1,45 +1,57 @@
-import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
 import 'package:cse_cet_reviewer/features/notifications/application/notification_service.dart';
 import 'package:cse_cet_reviewer/features/notifications/data/notifications_gateway.dart';
-import 'package:cse_cet_reviewer/features/notifications/domain/lapse_policy.dart';
 import 'package:cse_cet_reviewer/features/notifications/notifications.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('LapsePolicy', () {
     const policy = LapsePolicy();
-    final lastSession = DateTime(2026, 8, 1, 10, 0);
+    final lastSession = DateTime(2026, 8, 1, 10);
 
     test('two quiet days send nothing', () {
-      final now = DateTime(2026, 8, 3, 12, 0); // 2 days after Aug 1
-      expect(policy.shouldSchedule(lastSessionAt: lastSession, now: now), isFalse);
+      final now = DateTime(2026, 8, 3, 12); // 2 days after Aug 1
+      expect(
+        policy.shouldSchedule(lastSessionAt: lastSession, now: now),
+        isFalse,
+      );
     });
 
     test('three quiet days send one', () {
-      final now = DateTime(2026, 8, 4, 12, 0); // 3 days after Aug 1
-      expect(policy.shouldSchedule(lastSessionAt: lastSession, now: now), isTrue);
+      final now = DateTime(2026, 8, 4, 12); // 3 days after Aug 1
+      expect(
+        policy.shouldSchedule(lastSessionAt: lastSession, now: now),
+        isTrue,
+      );
     });
 
     test('four quiet days send nothing more', () {
-      final now = DateTime(2026, 8, 5, 12, 0); // 4 days after Aug 1
-      expect(policy.shouldSchedule(lastSessionAt: lastSession, now: now), isFalse);
+      final now = DateTime(2026, 8, 5, 12); // 4 days after Aug 1
+      expect(
+        policy.shouldSchedule(lastSessionAt: lastSession, now: now),
+        isFalse,
+      );
     });
 
     test('returning and lapsing again sends one more', () {
-      final newSession = DateTime(2026, 8, 6, 14, 0); // returned on Aug 6
-      final now = DateTime(2026, 8, 9, 12, 0); // 3 days after Aug 6
-      expect(policy.shouldSchedule(lastSessionAt: newSession, now: now), isTrue);
+      final newSession = DateTime(2026, 8, 6, 14); // returned on Aug 6
+      final now = DateTime(2026, 8, 9, 12); // 3 days after Aug 6
+      expect(
+        policy.shouldSchedule(lastSessionAt: newSession, now: now),
+        isTrue,
+      );
     });
   });
 
   group('The Switch (reminders off and permission denied)', () {
-    test('with reminders off only the last four countdown rungs fire and comeBack never does', () async {
+    test(
+        'with reminders off, only the last four countdown rungs fire '
+        'and the comeback never does', () async {
       final gateway = RecordingNotificationsGateway()
         ..permission = NotificationPermission.granted;
 
       final examDate = ExamDate.onDay(DateTime(2026, 9, 15));
-      final lastSessionAt = DateTime(2026, 8, 7, 10, 0);
+      final lastSessionAt = DateTime(2026, 8, 7, 10);
 
       // Current time is 2026-08-10.
       // Sept 15 minus 30 days = Aug 16 (rung 30)
@@ -61,7 +73,7 @@ void main() {
           correctCount: 12,
           totalCount: 20,
         ),
-        now: () => DateTime(2026, 8, 10, 12, 0),
+        now: () => DateTime(2026, 8, 10, 12),
       );
 
       await service.rescheduleForForeground();
@@ -70,21 +82,33 @@ void main() {
       final kinds = gateway.scheduled.map((n) => n.kind).toList();
       expect(kinds.contains(NotificationKind.comeBack), isFalse);
 
-      // Only exam countdown rungs 3, 2, 1, 0 (4 dates total) should be scheduled.
+      // Only countdown rungs 3, 2, 1 and 0 are scheduled: four dates.
       expect(kinds.every((k) => k == NotificationKind.examCountdown), isTrue);
       expect(gateway.scheduled.length, 4);
 
-      final scheduledDates = gateway.scheduled.map((n) => DateTime.parse(
-        (NotificationPayload.tryDecode(n.payload))!.scheduledFor.toIso8601String(),
-      )).toList();
+      final scheduledDates = gateway.scheduled
+          .map(
+            (n) => DateTime.parse(
+              NotificationPayload.tryDecode(n.payload)!
+                  .scheduledFor
+                  .toIso8601String(),
+            ),
+          )
+          .toList();
 
-      expect(scheduledDates.any((d) => d.day == 16), isFalse); // rung 30 excluded
-      expect(scheduledDates.any((d) => d.day == 1), isFalse);  // rung 14 excluded
-      expect(scheduledDates.any((d) => d.day == 8), isFalse);  // rung 7 excluded
-      expect(scheduledDates.any((d) => d.day == 12), isTrue);  // rung 3 included
-      expect(scheduledDates.any((d) => d.day == 13), isTrue);  // rung 2 included
-      expect(scheduledDates.any((d) => d.day == 14), isTrue);  // rung 1 included
-      expect(scheduledDates.any((d) => d.day == 15), isTrue);  // rung 0 included
+      expect(
+        scheduledDates.any((d) => d.day == 16),
+        isFalse,
+      ); // rung 30 excluded
+      expect(
+        scheduledDates.any((d) => d.day == 1),
+        isFalse,
+      ); // rung 14 excluded
+      expect(scheduledDates.any((d) => d.day == 8), isFalse); // rung 7 excluded
+      expect(scheduledDates.any((d) => d.day == 12), isTrue); // rung 3 included
+      expect(scheduledDates.any((d) => d.day == 13), isTrue); // rung 2 included
+      expect(scheduledDates.any((d) => d.day == 14), isTrue); // rung 1 included
+      expect(scheduledDates.any((d) => d.day == 15), isTrue); // rung 0 included
     });
 
     test('with permission denied nothing is scheduled at all', () async {
@@ -94,17 +118,25 @@ void main() {
       final examDate = ExamDate.onDay(DateTime(2026, 9, 15));
       final service = NotificationServiceImpl(
         gateway: gateway,
-        settingsReader: () async => NotificationSettingsSnapshot.daily(hour: 19, minute: 0),
-        planReader: () async => const NotificationPlanSnapshot.ready(reviewCount: 10, route: '/study'),
-        streakReader: () async => const NotificationStreakSnapshot(streakLength: 5, freezesRemaining: 1, completedToday: false),
+        settingsReader: () async =>
+            NotificationSettingsSnapshot.daily(hour: 19, minute: 0),
+        planReader: () async => const NotificationPlanSnapshot.ready(
+          reviewCount: 10,
+          route: '/study',
+        ),
+        streakReader: () async => const NotificationStreakSnapshot(
+          streakLength: 5,
+          freezesRemaining: 1,
+          completedToday: false,
+        ),
         examDateReader: () async => examDate,
         lapseReader: () async => NotificationLapseSnapshot(
-          lastSessionAt: DateTime(2026, 8, 7, 10, 0),
+          lastSessionAt: DateTime(2026, 8, 7, 10),
           subjectName: 'Chemistry',
           correctCount: 12,
           totalCount: 20,
         ),
-        now: () => DateTime(2026, 8, 10, 12, 0),
+        now: () => DateTime(2026, 8, 10, 12),
       );
 
       await service.rescheduleForForeground();

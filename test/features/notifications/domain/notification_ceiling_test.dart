@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('NotificationCeiling', () {
-    final day = DateTime(2026, 8, 10, 19, 0);
+    final day = DateTime(2026, 8, 10, 19);
 
     final examCountdownPayload = NotificationPayload(
       kind: NotificationKind.examCountdown,
@@ -23,7 +23,7 @@ void main() {
       scheduledFor: day,
     );
 
-    test('four eligible payloads yield exactly one winner matching highest priority', () {
+    test('four eligible payloads yield one winner, the highest priority', () {
       final eligible = [
         dailyReminderPayload,
         comeBackPayload,
@@ -49,7 +49,9 @@ void main() {
       expect(winner?.kind, NotificationKind.streakSave);
     });
 
-    test('respects priority order when only dailyReminder and comeBack are present', () {
+    test(
+        'respects priority when only the daily reminder and comeback are '
+        'present', () {
       final eligible = [
         comeBackPayload,
         dailyReminderPayload,

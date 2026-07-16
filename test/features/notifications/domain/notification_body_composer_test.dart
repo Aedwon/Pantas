@@ -143,11 +143,11 @@ void main() {
       expect(copy.body.toLowerCase().contains('want to'), isFalse);
     });
 
-    test('countdown with no flagged questions sends title with no second line', () {
+    test('countdown with no flagged questions sends title with no second line',
+        () {
       final copy = const NotificationBodyComposer().examCountdown(
         daysLeft: 14,
         examName: 'UPCAT',
-        flaggedCount: 0,
       );
 
       expect(copy.title, '14 days to UPCAT');
@@ -186,19 +186,34 @@ void main() {
     test('no body contains an em dash, marks, or banned words', () {
       const composer = NotificationBodyComposer();
       final copies = <NotificationCopy>[
-        composer.examCountdown(daysLeft: 7, examName: 'UPCAT', flaggedCount: 42),
+        composer.examCountdown(
+          daysLeft: 7,
+          examName: 'UPCAT',
+          flaggedCount: 42,
+        ),
         composer.examCountdown(daysLeft: 0, examName: 'UPCAT'),
         composer.examCountdown(daysLeft: 14, examName: 'UPCAT'),
-        composer.comeBack(subjectName: 'Chemistry', correctCount: 12, totalCount: 20)!,
+        composer.comeBack(
+          subjectName: 'Chemistry',
+          correctCount: 12,
+          totalCount: 20,
+        )!,
       ];
 
       for (final copy in copies) {
         final fullText = '${copy.title} ${copy.body}';
         expect(fullText.contains('—'), isFalse, reason: 'Contains em dash');
-        expect(fullText.toLowerCase().contains('marks'), isFalse, reason: 'Contains marks');
+        expect(
+          fullText.toLowerCase().contains('marks'),
+          isFalse,
+          reason: 'Contains marks',
+        );
         expect(fullText.toLowerCase().contains('falling behind'), isFalse);
         expect(fullText.toLowerCase().contains('last chance'), isFalse);
-        expect(fullText.toLowerCase().contains('progress will be lost'), isFalse);
+        expect(
+          fullText.toLowerCase().contains('progress will be lost'),
+          isFalse,
+        );
         expect(fullText.toLowerCase().contains('we miss you'), isFalse);
         expect(fullText.toLowerCase().contains('on track'), isFalse);
       }

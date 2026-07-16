@@ -140,8 +140,8 @@ class NotificationBodyComposer {
 
     return NotificationCopy(
       title: 'Your $subjectName is waiting',
-      body: 'You got $correctCount of $totalCount last time. One session picks it back up.',
+      body: 'You got $correctCount of $totalCount last time. One session '
+          'picks it back up.',
     );
   }
 }
-
