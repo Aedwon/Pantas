@@ -4,7 +4,8 @@ enum NotificationKind {
   dailyReminder('daily_reminder'),
   streakSave('streak_save'),
   wrapped('wrapped'),
-  examCountdown('exam_countdown');
+  examCountdown('exam_countdown'),
+  comeBack('come_back');
 
   const NotificationKind(this.storageValue);
 
