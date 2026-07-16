@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:cse_cet_reviewer/core/ui/components/answer_row.dart';
+import 'package:cse_cet_reviewer/core/ui/components/confirmation_dialog.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_session_state.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/part_clock.dart';
@@ -23,6 +24,8 @@ class MockSessionPage extends StatefulWidget {
     required this.onToggleFlag,
     required this.onPause,
     required this.onShowNavigator,
+    this.pauseWarningSeen = false,
+    this.onPauseWarningSeenChanged,
     this.partLength,
     super.key,
   });
@@ -46,6 +49,8 @@ class MockSessionPage extends StatefulWidget {
   final VoidCallback onToggleFlag;
   final VoidCallback onPause;
   final VoidCallback onShowNavigator;
+  final bool pauseWarningSeen;
+  final ValueChanged<bool>? onPauseWarningSeenChanged;
 
   Duration get effectivePartLength =>
       partLength ?? Duration(seconds: state.durationSeconds);
@@ -96,6 +101,27 @@ class _MockSessionPageState extends State<MockSessionPage> {
     super.dispose();
   }
 
+  void _onPausePressed() {
+    if (!widget.pauseWarningSeen) {
+      showAppConfirmationDialog(
+        context: context,
+        title: 'Real exams do not pause.',
+        body:
+            'Use this only when you have to. The clock stops, but you will not get this in the real room.',
+        cancelLabel: 'Keep going',
+        confirmLabel: 'Pause',
+        isDestructive: false,
+        onCancel: () {},
+        onConfirm: () {
+          widget.onPauseWarningSeenChanged?.call(true);
+          widget.onPause();
+        },
+      );
+    } else {
+      widget.onPause();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final textStyles = context.textStyles;
@@ -105,8 +131,6 @@ class _MockSessionPageState extends State<MockSessionPage> {
       canPop: false,
       onPopInvokedWithResult: (_, __) => _confirmLeave(context),
       child: Scaffold(
-        // The clock alone, centred. No title and no trailing element: it
-        // must never be hunted for, and the pager holds everything else.
         appBar: AppBar(
           centerTitle: true,
           title: Text(
@@ -119,6 +143,14 @@ class _MockSessionPageState extends State<MockSessionPage> {
               fontFeatures: [const FontFeature.tabularFigures()],
             ),
           ),
+          actions: [
+            if (!widget.state.strictMode)
+              IconButton(
+                key: const Key('mock-pause'),
+                icon: const Icon(Icons.pause_outlined),
+                onPressed: _onPausePressed,
+              ),
+          ],
           bottom: ClockRule(
             remaining: widget.remainingInPart,
             partLength: widget.effectivePartLength,
