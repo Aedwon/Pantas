@@ -110,8 +110,8 @@ class _MockSessionPageState extends State<MockSessionPage> {
       showAppConfirmationDialog(
         context: context,
         title: 'Real exams do not pause.',
-        body:
-            'Use this only when you have to. The clock stops, but you will not get this in the real room.',
+        body: 'Use this only when you have to. The clock stops, but you '
+            'will not get this in the real room.',
         cancelLabel: 'Keep going',
         confirmLabel: 'Pause',
         isDestructive: false,
@@ -131,11 +131,10 @@ class _MockSessionPageState extends State<MockSessionPage> {
     showAppConfirmationDialog(
       context: context,
       title: 'End Part $partNum now?',
-      body:
-          'Ending now closes Part $partNum for good. The time you have left does not carry over.',
+      body: 'Ending now closes Part $partNum for good. The time you have '
+          'left does not carry over.',
       cancelLabel: 'Keep going',
       confirmLabel: 'End part',
-      isDestructive: true,
       onCancel: () {},
       onConfirm: () => widget.onEndPartEarly?.call(),
     );
@@ -193,8 +192,10 @@ class _MockSessionPageState extends State<MockSessionPage> {
             ListView(
               padding: const EdgeInsets.fromLTRB(20, 24, 20, 96),
               children: [
-                Text(widget.state.currentQuestionId,
-                    style: textStyles.headlineMedium),
+                Text(
+                  widget.state.currentQuestionId,
+                  style: textStyles.headlineMedium,
+                ),
                 const SizedBox(height: 20),
                 AnswerRow(
                   letter: 'A',
@@ -223,7 +224,8 @@ class _MockSessionPageState extends State<MockSessionPage> {
                 left: 20,
                 right: 20,
                 child: Text(
-                  'Part ${widget.currentPartNumber} runs to the end of its time. Strict mock mode is on.',
+                  'Part ${widget.currentPartNumber} runs to the end of its '
+                  'time. Strict mock mode is on.',
                   textAlign: TextAlign.center,
                   style: textStyles.captionSmall.copyWith(
                     color: colors.inkMuted,

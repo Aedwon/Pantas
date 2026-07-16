@@ -100,11 +100,13 @@ void main() {
     VoidCallback? onResume,
     VoidCallback? onDiscard,
   }) async {
-    await tester.pumpWidget(buildPaused(
-      remaining: remaining,
-      onResume: onResume,
-      onDiscard: onDiscard,
-    ));
+    await tester.pumpWidget(
+      buildPaused(
+        remaining: remaining,
+        onResume: onResume,
+        onDiscard: onDiscard,
+      ),
+    );
   }
 
   Color rustOf(WidgetTester tester) {
@@ -130,10 +132,12 @@ void main() {
     required bool pauseWarningSeen,
     bool strictMode = false,
   }) async {
-    await tester.pumpWidget(buildSession(
-      pauseWarningSeen: pauseWarningSeen,
-      strictMode: strictMode,
-    ));
+    await tester.pumpWidget(
+      buildSession(
+        pauseWarningSeen: pauseWarningSeen,
+        strictMode: strictMode,
+      ),
+    );
   }
 
   testWidgets('the paper is not visible while paused', (tester) async {
@@ -143,8 +147,10 @@ void main() {
   });
 
   testWidgets('it shows time left, not time elapsed', (tester) async {
-    await pumpPaused(tester,
-        remaining: const Duration(minutes: 21, seconds: 47));
+    await pumpPaused(
+      tester,
+      remaining: const Duration(minutes: 21, seconds: 47),
+    );
     expect(find.text('21:47'), findsOneWidget);
     expect(find.text('in this part'), findsOneWidget);
   });
@@ -153,7 +159,7 @@ void main() {
       (tester) async {
     await pumpPaused(tester);
     expect(find.byType(BoardButton), findsOneWidget);
-    final discard = tester.widget<Text>(find.text('Discard this paper'));
+    final discard = tester.widget<Text>(find.text('Discard this mock'));
     expect(discard.style!.color, rustOf(tester));
   });
 
@@ -180,9 +186,9 @@ void main() {
   testWidgets('discard takes a rust confirm and does not use up a mock',
       (tester) async {
     await pumpPaused(tester);
-    await tester.tap(find.text('Discard this paper'));
+    await tester.tap(find.text('Discard this mock'));
     await tester.pumpAndSettle();
-    expect(find.text('Discard this paper?'), findsOneWidget);
+    expect(find.text('Discard this mock?'), findsOneWidget);
     expect(find.textContaining('does not use up a mock'), findsOneWidget);
   });
 }

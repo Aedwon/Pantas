@@ -4,14 +4,18 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   group('urgency', () {
     test('ample above five minutes', () {
-      expect(urgencyFor(const Duration(minutes: 5, seconds: 1)),
-          ClockUrgency.ample);
+      expect(
+        urgencyFor(const Duration(minutes: 5, seconds: 1)),
+        ClockUrgency.ample,
+      );
     });
 
     test('closing at five minutes and below', () {
       expect(urgencyFor(const Duration(minutes: 5)), ClockUrgency.closing);
-      expect(urgencyFor(const Duration(minutes: 1, seconds: 1)),
-          ClockUrgency.closing);
+      expect(
+        urgencyFor(const Duration(minutes: 1, seconds: 1)),
+        ClockUrgency.closing,
+      );
     });
 
     test('last at one minute and below', () {

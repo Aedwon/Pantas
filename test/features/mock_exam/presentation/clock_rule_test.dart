@@ -24,7 +24,8 @@ void main() {
     required Duration partLength,
   }) async {
     await tester.pumpWidget(
-        buildApp(remaining: remaining, partLength: partLength));
+      buildApp(remaining: remaining, partLength: partLength),
+    );
   }
 
   Color amberOf(WidgetTester tester) {
@@ -33,9 +34,11 @@ void main() {
   }
 
   testWidgets('the rule retreats as time runs out', (tester) async {
-    await pumpRule(tester,
-        remaining: const Duration(minutes: 15),
-        partLength: const Duration(minutes: 30));
+    await pumpRule(
+      tester,
+      remaining: const Duration(minutes: 15),
+      partLength: const Duration(minutes: 30),
+    );
     final half = tester.widget<FractionallySizedBox>(
       find.byKey(const Key('clock-rule-fill')),
     );
@@ -43,9 +46,11 @@ void main() {
   });
 
   testWidgets('ample time draws a soft hairline', (tester) async {
-    await pumpRule(tester,
-        remaining: const Duration(minutes: 20),
-        partLength: const Duration(minutes: 30));
+    await pumpRule(
+      tester,
+      remaining: const Duration(minutes: 20),
+      partLength: const Duration(minutes: 30),
+    );
     final box =
         tester.widget<Container>(find.byKey(const Key('clock-rule-bar')));
     final decoration = box.decoration! as BoxDecoration;
@@ -55,9 +60,11 @@ void main() {
 
   testWidgets('under five minutes the rule thickens and goes full strength',
       (tester) async {
-    await pumpRule(tester,
-        remaining: const Duration(minutes: 4),
-        partLength: const Duration(minutes: 30));
+    await pumpRule(
+      tester,
+      remaining: const Duration(minutes: 4),
+      partLength: const Duration(minutes: 30),
+    );
     final box =
         tester.widget<Container>(find.byKey(const Key('clock-rule-bar')));
     expect(box.constraints?.maxHeight, 1.6);
@@ -65,9 +72,11 @@ void main() {
 
   testWidgets('under one minute the rule and the clock turn amber',
       (tester) async {
-    await pumpRule(tester,
-        remaining: const Duration(seconds: 45),
-        partLength: const Duration(minutes: 30));
+    await pumpRule(
+      tester,
+      remaining: const Duration(seconds: 45),
+      partLength: const Duration(minutes: 30),
+    );
     final box =
         tester.widget<Container>(find.byKey(const Key('clock-rule-bar')));
     final decoration = box.decoration! as BoxDecoration;

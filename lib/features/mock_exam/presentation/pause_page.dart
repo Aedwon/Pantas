@@ -34,12 +34,11 @@ class PausePage extends StatelessWidget {
   void _confirmDiscard(BuildContext context) {
     showAppConfirmationDialog(
       context: context,
-      title: 'Discard this paper?',
-      body:
-          'Your progress in this mock will be discarded. This paper will be deleted and does not use up a mock.',
+      title: 'Discard this mock?',
+      body: 'Your progress in this mock will be discarded. It will be '
+          'deleted and does not use up a mock.',
       cancelLabel: 'Keep going',
       confirmLabel: 'Discard',
-      isDestructive: true,
       onCancel: () {},
       onConfirm: onDiscard,
     );
@@ -128,9 +127,11 @@ class PausePage extends StatelessWidget {
                     onTap: () => _confirmDiscard(context),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 8, horizontal: 16),
+                        vertical: 8,
+                        horizontal: 16,
+                      ),
                       child: Text(
-                        'Discard this paper',
+                        'Discard this mock',
                         style: textStyles.labelLarge.copyWith(
                           color: colors.rust,
                         ),

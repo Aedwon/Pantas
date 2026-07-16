@@ -24,8 +24,10 @@ void main() {
     );
   }
 
-  Future<void> pumpTransition(WidgetTester tester,
-      {VoidCallback? onStartNext}) async {
+  Future<void> pumpTransition(
+    WidgetTester tester, {
+    VoidCallback? onStartNext,
+  }) async {
     await tester.pumpWidget(buildTransition(onStartNext: onStartNext));
   }
 

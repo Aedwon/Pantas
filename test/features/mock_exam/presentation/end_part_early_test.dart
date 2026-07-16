@@ -84,10 +84,12 @@ void main() {
     required bool strictMode,
     required bool atLastItemOfPart,
   }) async {
-    await tester.pumpWidget(buildSession(
-      strictMode: strictMode,
-      atLastItemOfPart: atLastItemOfPart,
-    ));
+    await tester.pumpWidget(
+      buildSession(
+        strictMode: strictMode,
+        atLastItemOfPart: atLastItemOfPart,
+      ),
+    );
   }
 
   testWidgets('with strict off, next on the last item offers to end the part',
@@ -126,7 +128,9 @@ void main() {
         MockSessionPart(name: 'Part 2', startIndex: 2, count: 1, minutes: 30),
       ],
     );
+    // ignore: cascade_invocations
     controller.tickTo(22 * 60);
+    // ignore: cascade_invocations
     controller.endPartEarly();
     expect(controller.currentPartIndex, 1);
     expect(controller.remainingInPart, const Duration(minutes: 30));

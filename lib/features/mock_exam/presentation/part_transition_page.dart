@@ -108,7 +108,8 @@ class PartTransitionPage extends StatelessWidget {
                 const SectionHeader(title: 'Next'),
                 const SizedBox(height: 8),
                 Text(
-                  '$nextPartName · $nextPartQuestions questions · $nextPartMinutes minutes',
+                  '$nextPartName · $nextPartQuestions questions · '
+                  '$nextPartMinutes minutes',
                   style: textStyles.bodyRegular.copyWith(
                     color: colors.inkMuted,
                   ),

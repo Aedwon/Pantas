@@ -59,10 +59,11 @@ void main() {
     );
 
     expect(find.text('29:00'), findsOneWidget);
-    // No title and no trailing element: the clock must never be hunted
-    // for.
+    // No title: the clock must never be hunted for. Mock Plan 3 gives the
+    // pause control the trailing edge and nothing else joins it there.
     expect(find.text('1 of 70'), findsNothing);
-    expect(find.byType(IconButton), findsNothing);
+    expect(find.byType(IconButton), findsOneWidget);
+    expect(find.byKey(const ValueKey('mock-pause')), findsOneWidget);
   });
 
   testWidgets('the clock counts the part, not the exam', (tester) async {
