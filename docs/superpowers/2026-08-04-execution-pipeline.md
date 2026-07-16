@@ -77,12 +77,12 @@ directly from the orchestrator**, one git worktree per plan.
 
 ## Part 0: Pick up here
 
-**Rewritten 10 August, after ten plans merged.** Nothing is running, no worktree holds unmerged
-work, `main` is clean.
+**Rewritten 10 August, after thirteen plans merged and the last UI thread closed.** Nothing is
+running, no worktree holds unmerged work, `main` is clean.
 
-**Health:** **1,906 tests pass**, app schema **19**, **content schema 3**, corpus **2,369
+**Health:** **1,958 tests pass**, app schema **19**, **content schema 3**, corpus **2,369
 questions**, zero analyzer issues under `lib/` and `test/` outside `test/tool/`, formatter clean,
-content validator 0, content audit 0 blockers, **layering 36**.
+content validator 0, content audit 0 blockers, layering 36, attribution 0.
 
 **Run `dart run build_runner build --delete-conflicting-outputs` before judging `main`.** The
 content schema moved to 3 and stale generated files reported **25 analyzer issues that were not
@@ -94,9 +94,13 @@ real**.
 does not survive a clear. Without it every dispatch does nothing. **Ask for it in the same
 breath as asking for quota headroom**, since neither can be read programmatically.
 
-### Four threads are finished, and one was not as finished as this document said
+### Every UI thread is finished
 
-**Study, Settings, Home and Progress**, all plans merged. Do not re-plan them.
+**Study, Settings, Home, Progress and the Mock**, all plans merged. Do not re-plan them.
+
+**The mock chain closed 10 August**: the paper, the endings, then boundaries and the clock.
+**Mock 03 gave the pause control a home**, which Mock 01 had left without one when the app bar
+became the clock alone.
 
 **Quiz was recorded as finished on 8 August and was not.** `QuestionGridSheet`, its Plan 4
 Task 7, had never been written: the file did not exist and `quiz_page.dart` still carried a
@@ -115,10 +119,15 @@ parallel and conflicted only on an import**, each having filled its own stub.
 
 ### What is left, in the order worth doing it
 
+**No plan in the queue is blocked on code any more.** What is left is Part 6's last items,
+Part 10's five, and the things only Aedwon can do.
+
 | Next | Plan | Note |
 |---|---|---|
-| 1 | `mock-02-the-endings`, then `mock-03` | **Mock 01 merged 10 August.** All that is left of the UI |
-| 2 | `foundations-02-app-check-and-force-update` **Task 3 only** | Tasks 1 and 2 merged 10 August. **Task 3 is blocked on the `url_launcher` decision**, which is Part 8's, not an implementor's |
+| 1 | `foundations-03-l10n-feedback-and-review` | **`url_launcher` landed 10 August**, so the feedback row is unblocked in code. Still needs the community URL and a contact email from Aedwon |
+| 2 | `foundations-04` Tasks 2 and 3 | The kit has stopped changing |
+| 3 | `notifications-countdown-and-comeback` | Waits on nothing now |
+| 4 | `custom-track-a`, then `custom-track-b` | Both read the live schema |
 
 **Progress 02, 04, 05 and 06 are merged.** Every one of them added a section to the same page in
 its own named slot, and none overwrote another's.
