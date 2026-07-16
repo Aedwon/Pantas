@@ -156,6 +156,8 @@ class MockSessionController {
     _state = current.copyWith(currentIndex: currentPart.startIndex);
   }
 
+  void endPartEarly() => closeCurrentPart();
+
   bool get canPause {
     final current = _state;
     return current is MockSessionInProgress && !current.strictMode;

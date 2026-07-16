@@ -26,6 +26,8 @@ class MockSessionPage extends StatefulWidget {
     required this.onShowNavigator,
     this.pauseWarningSeen = false,
     this.onPauseWarningSeenChanged,
+    this.onEndPartEarly,
+    this.currentPartNumber = 1,
     this.partLength,
     super.key,
   });
@@ -51,6 +53,8 @@ class MockSessionPage extends StatefulWidget {
   final VoidCallback onShowNavigator;
   final bool pauseWarningSeen;
   final ValueChanged<bool>? onPauseWarningSeenChanged;
+  final VoidCallback? onEndPartEarly;
+  final int currentPartNumber;
 
   Duration get effectivePartLength =>
       partLength ?? Duration(seconds: state.durationSeconds);
@@ -122,11 +126,39 @@ class _MockSessionPageState extends State<MockSessionPage> {
     }
   }
 
+  void _confirmEndPartEarly(BuildContext context) {
+    final partNum = widget.currentPartNumber;
+    showAppConfirmationDialog(
+      context: context,
+      title: 'End Part $partNum now?',
+      body:
+          'Ending now closes Part $partNum for good. The time you have left does not carry over.',
+      cancelLabel: 'Keep going',
+      confirmLabel: 'End part',
+      isDestructive: true,
+      onCancel: () {},
+      onConfirm: () => widget.onEndPartEarly?.call(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final textStyles = context.textStyles;
     final colors = context.colors;
     final urgency = urgencyFor(widget.remainingInPart);
+    final isLastItemOfPart = widget.partPosition == widget.partTotal;
+
+    final VoidCallback? effectiveOnNext;
+    if (isLastItemOfPart) {
+      if (widget.state.strictMode) {
+        effectiveOnNext = null;
+      } else {
+        effectiveOnNext = () => _confirmEndPartEarly(context);
+      }
+    } else {
+      effectiveOnNext = widget.canGoNext ? widget.onNext : null;
+    }
+
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (_, __) => _confirmLeave(context),
@@ -184,6 +216,19 @@ class _MockSessionPageState extends State<MockSessionPage> {
                 child: Center(
                   child: ProctorToast(minutes: _proctorToastMinutes!),
                 ),
+              )
+            else if (widget.state.strictMode && isLastItemOfPart)
+              Positioned(
+                bottom: 74,
+                left: 20,
+                right: 20,
+                child: Text(
+                  'Part ${widget.currentPartNumber} runs to the end of its time. Strict mock mode is on.',
+                  textAlign: TextAlign.center,
+                  style: textStyles.captionSmall.copyWith(
+                    color: colors.inkMuted,
+                  ),
+                ),
               ),
             Align(
               alignment: Alignment.bottomCenter,
@@ -195,7 +240,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
                   isFlagged: widget.state.flags
                       .contains(widget.state.currentQuestionId),
                   onPrevious: widget.canGoPrevious ? widget.onPrevious : null,
-                  onNext: widget.canGoNext ? widget.onNext : null,
+                  onNext: effectiveOnNext,
                   onGrid: widget.onShowNavigator,
                   onFlag: widget.onToggleFlag,
                 ),
