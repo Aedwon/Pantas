@@ -40,6 +40,7 @@ class ContentRepository {
           shortName: e.shortName,
           language: e.language,
           isActive: e.isActive,
+          isCustom: e.isCustom,
           subjects: (byExam[e.id] ?? <Subject>[])
             ..sort((a, b) => a.ordering.compareTo(b.ordering)),
         ),
