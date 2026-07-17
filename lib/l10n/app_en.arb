@@ -1,0 +1,12 @@
+{
+  "@@locale": "en",
+  "greeting": "Magandang {timeOfDay},",
+  "@greeting": {
+    "description": "Greeting on the home screen masthead",
+    "placeholders": {
+      "timeOfDay": {
+        "type": "String"
+      }
+    }
+  }
+}

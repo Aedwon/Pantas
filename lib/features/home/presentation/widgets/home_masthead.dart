@@ -3,6 +3,7 @@ import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/home/presentation/home_providers.dart';
+import 'package:cse_cet_reviewer/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -26,7 +27,7 @@ class HomeMasthead extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                greetingFor(now),
+                greetingFor(now, AppLocalizations.of(context)),
                 style: styles.bodySmall.copyWith(color: colors.inkMuted),
               ),
               const SizedBox(height: 1),
@@ -75,11 +76,17 @@ class HomeMasthead extends ConsumerWidget {
 }
 
 @visibleForTesting
-String greetingFor(DateTime now) {
+String greetingFor(DateTime now, [AppLocalizations? l10n]) {
   final h = now.hour;
-  if (h < 12) return 'Magandang umaga,';
-  if (h < 18) return 'Magandang hapon,';
-  return 'Magandang gabi,';
+  final timeOfDay = h < 12
+      ? 'umaga'
+      : h < 18
+          ? 'hapon'
+          : 'gabi';
+  if (l10n != null) {
+    return l10n.greeting(timeOfDay);
+  }
+  return 'Magandang $timeOfDay,';
 }
 
 /// The three states the meta line may print, and no fourth.

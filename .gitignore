@@ -37,6 +37,7 @@ android/app/release/
 **/*.freezed.dart
 **/*.gr.dart
 **/*.config.dart
+lib/l10n/app_localizations*.dart
 
 # Firebase
 google-services.json
