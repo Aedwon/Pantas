@@ -1,5 +1,7 @@
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/core/storage/track_scope.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/picker/practice_index.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -8,17 +10,22 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 final practiceIndexProvider =
     FutureProvider.family<PracticeIndex, ExamId>((ref, examId) async {
   final content = ref.watch(contentRepositoryProvider);
-  final exams = await content.listExams();
-  final exam = exams.where((candidate) => candidate.id == examId).firstOrNull;
-  if (exam == null) return PracticeIndex.empty;
+  final scopedTopics = await ref.watch(scopedTopicsProvider(examId).future);
+  final scopedSubjects = await ref.watch(scopedSubjectsProvider(examId).future);
+
+  final topicsBySubjectMap = <SubjectId, List<Topic>>{};
+  for (final t in scopedTopics) {
+    topicsBySubjectMap.putIfAbsent(t.subjectId, () => []).add(t);
+  }
 
   final readIds =
       await ref.watch(lessonProgressRepositoryProvider).readLessonIds();
 
   final subjects = <PracticeSubjectEntry>[];
-  for (final subject in exam.subjects) {
-    final topics = <PracticeTopicEntry>[];
-    for (final topic in await content.topicsBySubject(subject.id)) {
+  for (final subject in scopedSubjects) {
+    final topicEntries = <PracticeTopicEntry>[];
+    final topics = topicsBySubjectMap[subject.id] ?? const [];
+    for (final topic in topics) {
       final questions = await content.questionsByTopic(topic.id);
       final taggedCounts = <LessonId, int>{};
       for (final question in questions) {
@@ -27,7 +34,7 @@ final practiceIndexProvider =
         taggedCounts[lessonId] = (taggedCounts[lessonId] ?? 0) + 1;
       }
 
-      topics.add(
+      topicEntries.add(
         PracticeTopicEntry(
           id: topic.id,
           name: topic.name,
@@ -44,13 +51,15 @@ final practiceIndexProvider =
         ),
       );
     }
-    subjects.add(
-      PracticeSubjectEntry(
-        id: subject.id,
-        name: subject.name,
-        topics: topics,
-      ),
-    );
+    if (topicEntries.isNotEmpty) {
+      subjects.add(
+        PracticeSubjectEntry(
+          id: subject.id,
+          name: subject.name,
+          topics: topicEntries,
+        ),
+      );
+    }
   }
   return PracticeIndex(subjects);
 });

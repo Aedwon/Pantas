@@ -3,6 +3,7 @@ import 'package:cse_cet_reviewer/core/storage/domain/lesson.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/core/storage/track_scope.dart';
 import 'package:cse_cet_reviewer/features/lesson/domain/use_cases/build_study_map.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -14,9 +15,13 @@ final studyMapProvider = FutureProvider<StudyMap?>((ref) async {
   if (exam == null) return null;
 
   final content = ref.watch(contentRepositoryProvider);
+  final scopedTopics = await ref.watch(scopedTopicsProvider(exam.id).future);
+  final scopedSubjects =
+      await ref.watch(scopedSubjectsProvider(exam.id).future);
+
   final topicsBySubject = <SubjectId, List<Topic>>{};
-  for (final subject in exam.subjects) {
-    topicsBySubject[subject.id] = await content.topicsBySubject(subject.id);
+  for (final topic in scopedTopics) {
+    topicsBySubject.putIfAbsent(topic.subjectId, () => []).add(topic);
   }
 
   final topicIds = [
@@ -26,6 +31,7 @@ final studyMapProvider = FutureProvider<StudyMap?>((ref) async {
 
   return buildStudyMap(
     exam: exam,
+    subjects: scopedSubjects,
     topicsBySubject: topicsBySubject,
     lessonsByTopic: await content.lessonsByTopics(topicIds),
     readLessonIds:

@@ -7,6 +7,8 @@ import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/review_state.dart';
 
+import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
+
 class AssessmentQuestionSelector {
   AssessmentQuestionSelector(this._content, this._reviewRepo);
 
@@ -15,12 +17,15 @@ class AssessmentQuestionSelector {
   final ContentRepository _content;
   final ReviewStateRepository _reviewRepo;
 
-  Future<List<AssessmentQuestion>> select(ExamId examId) async {
-    final topics = await _content.topicsByExam(examId);
-    if (topics.isEmpty) return [];
+  Future<List<AssessmentQuestion>> select(
+    ExamId examId, {
+    List<Topic>? topics,
+  }) async {
+    final topicList = topics ?? await _content.topicsByExam(examId);
+    if (topicList.isEmpty) return [];
 
     final contributing = <({TopicId topicId, List<Question> questions})>[];
-    for (final topic in topics) {
+    for (final topic in topicList) {
       final questions = await _content.questionsByTopic(topic.id);
       if (questions.isNotEmpty) {
         contributing.add((topicId: topic.id, questions: questions));

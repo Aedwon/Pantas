@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/core/storage/track_scope.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/models/topic_queue_row.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/build_today_plan.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/build_today_queue.dart';
@@ -40,7 +41,7 @@ final todayInputsProvider =
   final content = ref.watch(contentRepositoryProvider);
   final now = ref.watch(nowProvider)();
 
-  final topics = await content.topicsByExam(examId);
+  final topics = await ref.watch(scopedTopicsProvider(examId).future);
   final questionsByTopic = <TopicId, List<Question>>{};
   for (final topic in topics) {
     questionsByTopic[topic.id] = await content.questionsByTopic(topic.id);
@@ -217,10 +218,11 @@ final sessionPanelProvider =
   final assessed =
       await ref.watch(assessmentRepositoryProvider).hasCompletedForExam(examId);
   if (!assessed) {
+    final scopedTopics = await ref.watch(scopedTopicsProvider(examId).future);
     final questions = await AssessmentQuestionSelector(
       ref.watch(contentRepositoryProvider),
       ref.watch(reviewStateRepositoryProvider),
-    ).select(examId);
+    ).select(examId, topics: scopedTopics);
     return SessionPanelNeedsAssessment(questions.length);
   }
 

@@ -2,6 +2,7 @@ import 'package:cse_cet_reviewer/core/fsrs/fsrs_scheduler.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/assessment_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/core/storage/track_scope.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/components/question_card.dart';
@@ -73,9 +74,11 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
         context.pushReplacement('/assessment/${widget.examId}/results');
         return;
       }
-
-      final session =
-          await ref.read(_startAssessmentProvider).call(widget.examId);
+      final scopedTopics =
+          await ref.read(scopedTopicsProvider(widget.examId).future);
+      final session = await ref
+          .read(_startAssessmentProvider)
+          .call(widget.examId, topics: scopedTopics);
       if (!mounted) return;
       setState(() => _session = session);
     } catch (e) {
