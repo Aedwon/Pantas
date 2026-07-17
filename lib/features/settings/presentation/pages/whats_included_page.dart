@@ -1,7 +1,5 @@
-import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/exam.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/subject.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
@@ -110,7 +108,6 @@ class WhatsIncludedPage extends ConsumerWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: TopicScopeIndex(
                   subjects: data.subjects,
-                  showLessons: false,
                   topicState: (topic) {
                     final isExcluded = data.excluded.contains(topic.id);
                     return isExcluded
@@ -139,10 +136,11 @@ class WhatsIncludedPage extends ConsumerWidget {
                     await ref
                         .read(customTrackRepositoryProvider)
                         .setExcluded(examId: examId, topicIds: newExclusions);
-                    ref.invalidate(trackScopeProvider(examId));
-                    ref.invalidate(scopedTopicsProvider(examId));
-                    ref.invalidate(scopedSubjectsProvider(examId));
-                    ref.invalidate(whatsIncludedDataProvider(examId));
+                    ref
+                      ..invalidate(trackScopeProvider(examId))
+                      ..invalidate(scopedTopicsProvider(examId))
+                      ..invalidate(scopedSubjectsProvider(examId))
+                      ..invalidate(whatsIncludedDataProvider(examId));
                   },
                   onToggleSubject: (subject) async {
                     final topicIds = subject.topics.map((t) => t.id).toList();
@@ -162,10 +160,11 @@ class WhatsIncludedPage extends ConsumerWidget {
                     await ref
                         .read(customTrackRepositoryProvider)
                         .setExcluded(examId: examId, topicIds: newExclusions);
-                    ref.invalidate(trackScopeProvider(examId));
-                    ref.invalidate(scopedTopicsProvider(examId));
-                    ref.invalidate(scopedSubjectsProvider(examId));
-                    ref.invalidate(whatsIncludedDataProvider(examId));
+                    ref
+                      ..invalidate(trackScopeProvider(examId))
+                      ..invalidate(scopedTopicsProvider(examId))
+                      ..invalidate(scopedSubjectsProvider(examId))
+                      ..invalidate(whatsIncludedDataProvider(examId));
                   },
                 ),
               );

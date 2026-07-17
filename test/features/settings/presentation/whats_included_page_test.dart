@@ -8,7 +8,7 @@ import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/ink_checkbox.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/whats_included_page.dart';
-import 'package:drift/drift.dart' hide isNull, isNotNull;
+import 'package:drift/drift.dart' hide isNotNull, isNull;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -76,15 +76,14 @@ void main() {
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
           activeExamFocusProvider.overrideWith(
-            (ref) async => ActiveExamFocus.selected(
-              const Exam(
+            (ref) async => const ActiveExamFocus.selected(
+              Exam(
                 id: 'exam_1',
                 code: 'EX1',
                 name: 'Civil Service Exam',
                 shortName: 'CSE',
                 language: 'en',
                 isActive: true,
-                isCustom: false,
                 subjects: [
                   Subject(
                     id: 'sub_1',

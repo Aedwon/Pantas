@@ -5,7 +5,6 @@ import 'package:cse_cet_reviewer/core/ui/components/ink_checkbox.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/onboarding/presentation/steps/custom_track_name_step.dart';
 import 'package:cse_cet_reviewer/features/onboarding/presentation/steps/custom_track_subjects_step.dart';
-import 'package:drift/drift.dart' hide isNull, isNotNull;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';

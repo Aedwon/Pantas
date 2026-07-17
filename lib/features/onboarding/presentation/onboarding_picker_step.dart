@@ -86,7 +86,7 @@ class _OnboardingPickerStepState extends ConsumerState<OnboardingPickerStep> {
                 ),
                 data: (exams) {
                   final active = [
-                    ...exams.where((e) => e.isActive && !e.isCustom)
+                    ...exams.where((e) => e.isActive && !e.isCustom),
                   ]..sort((a, b) => a.name.compareTo(b.name));
                   return Column(
                     children: [

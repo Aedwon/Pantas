@@ -22,8 +22,6 @@ import 'package:cse_cet_reviewer/features/mock_exam/mock_exam.dart';
 import 'package:cse_cet_reviewer/features/notifications/application/notifications_providers.dart';
 import 'package:cse_cet_reviewer/features/notifications/presentation/permission_rationale_page.dart';
 import 'package:cse_cet_reviewer/features/onboarding/onboarding.dart';
-import 'package:cse_cet_reviewer/features/onboarding/presentation/steps/custom_track_name_step.dart';
-import 'package:cse_cet_reviewer/features/onboarding/presentation/steps/custom_track_subjects_step.dart';
 import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/pages/how_you_work_page.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/pages/your_record_page.dart';
@@ -43,7 +41,6 @@ import 'package:cse_cet_reviewer/features/settings/presentation/pages/change_exa
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/debug_settings_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/delete_account_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/exam_page.dart';
-import 'package:cse_cet_reviewer/features/settings/presentation/pages/not_built_yet_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/pro_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/whats_included_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/settings_home_page.dart';

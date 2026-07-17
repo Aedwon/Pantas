@@ -14,11 +14,11 @@ export 'package:cse_cet_reviewer/features/lesson/domain/models/study_map.dart';
 /// rather than counted, so a stale row in the database cannot move a figure.
 StudyMap buildStudyMap({
   required Exam exam,
-  List<Subject>? subjects,
   required Map<SubjectId, List<Topic>> topicsBySubject,
   required Map<TopicId, List<Lesson>> lessonsByTopic,
   required Set<LessonId> readLessonIds,
   required Set<LessonId> bookmarkedLessonIds,
+  List<Subject>? subjects,
 }) {
   final subjectList = subjects ?? exam.subjects;
   final studySubjects = <StudySubject>[];

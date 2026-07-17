@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/review_state_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/assessment_question_selector.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/storage/track_scope.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/practice_picker_providers.dart';
@@ -146,8 +145,9 @@ void main() {
       examId: 'exam_cse',
       topicIds: {'top_geo', 'top_trig'},
     );
-    container.invalidate(trackScopeProvider('exam_cse'));
-    container.invalidate(scopedTopicsProvider('exam_cse'));
+    container
+      ..invalidate(trackScopeProvider('exam_cse'))
+      ..invalidate(scopedTopicsProvider('exam_cse'));
 
     final narrowedTopics =
         await container.read(scopedTopicsProvider('exam_cse').future);

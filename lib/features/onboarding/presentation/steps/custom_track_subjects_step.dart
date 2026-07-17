@@ -1,4 +1,3 @@
-import 'package:cse_cet_reviewer/core/storage/data/repos/custom_track_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
@@ -6,7 +5,6 @@ import 'package:cse_cet_reviewer/core/storage/track_scope.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/components/ink_checkbox.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -68,10 +66,11 @@ class _CustomTrackSubjectsStepState
       await ref
           .read(appPreferencesRepositoryProvider)
           .setSelectedExamId(newExamId);
-      ref.invalidate(appPreferencesRepositoryProvider);
-      ref.invalidate(activeExamFocusProvider);
-      ref.invalidate(scopedTopicsProvider);
-      ref.invalidate(scopedSubjectsProvider);
+      ref
+        ..invalidate(appPreferencesRepositoryProvider)
+        ..invalidate(activeExamFocusProvider)
+        ..invalidate(scopedTopicsProvider)
+        ..invalidate(scopedSubjectsProvider);
 
       if (mounted) {
         GoRouter.maybeOf(context)?.go('/home');
@@ -101,7 +100,8 @@ class _CustomTrackSubjectsStepState
               ),
               const SizedBox(height: 6),
               Text(
-                'Tick the subjects your exam covers. You can choose exact topics later in Settings.',
+                'Tick the subjects your exam covers. You can choose exact '
+                'topics later in Settings.',
                 style: styles.bodyMedium.copyWith(color: colors.inkMuted),
               ),
               const SizedBox(height: 24),
@@ -141,7 +141,6 @@ class _CustomTrackSubjectsStepState
                               border: Border(
                                 bottom: BorderSide(
                                   color: colors.ruleFaint,
-                                  width: AppDimensions.hairline,
                                 ),
                               ),
                             ),
