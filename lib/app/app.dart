@@ -5,6 +5,8 @@ import 'package:cse_cet_reviewer/features/notifications/application/notification
 import 'package:cse_cet_reviewer/features/notifications/presentation/notification_tap_router.dart';
 import 'package:cse_cet_reviewer/features/settings/settings.dart';
 import 'package:flutter/material.dart';
+import 'package:cse_cet_reviewer/l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class App extends ConsumerWidget {
@@ -22,6 +24,8 @@ class App extends ConsumerWidget {
     final gateway = ref.watch(notificationsGatewayProvider);
     return MaterialApp.router(
       title: flavor.displayName,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       theme: appLightTheme(),
       darkTheme: appDarkTheme(),
       themeMode: themeMode,
