@@ -1,6 +1,7 @@
 import 'package:cse_cet_reviewer/core/storage/domain/exam.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/lesson.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/subject.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
 import 'package:cse_cet_reviewer/features/lesson/domain/models/study_map.dart';
 
@@ -17,13 +18,15 @@ StudyMap buildStudyMap({
   required Map<TopicId, List<Lesson>> lessonsByTopic,
   required Set<LessonId> readLessonIds,
   required Set<LessonId> bookmarkedLessonIds,
+  List<Subject>? subjects,
 }) {
-  final subjects = <StudySubject>[];
+  final subjectList = subjects ?? exam.subjects;
+  final studySubjects = <StudySubject>[];
   var readCount = 0;
   var totalCount = 0;
   var minutesLeft = 0;
 
-  for (final subject in exam.subjects) {
+  for (final subject in subjectList) {
     final topics = <StudyTopic>[];
 
     for (final topic in topicsBySubject[subject.id] ?? const <Topic>[]) {
@@ -67,14 +70,14 @@ StudyMap buildStudyMap({
       );
     }
 
-    subjects.add(
+    studySubjects.add(
       StudySubject(id: subject.id, name: subject.name, topics: topics),
     );
   }
 
   return StudyMap(
     examShortName: exam.shortName,
-    subjects: subjects,
+    subjects: studySubjects,
     readCount: readCount,
     totalCount: totalCount,
     minutesLeftToRead: minutesLeft,

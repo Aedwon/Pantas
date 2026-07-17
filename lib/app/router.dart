@@ -41,8 +41,8 @@ import 'package:cse_cet_reviewer/features/settings/presentation/pages/change_exa
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/debug_settings_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/delete_account_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/exam_page.dart';
-import 'package:cse_cet_reviewer/features/settings/presentation/pages/not_built_yet_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/pro_page.dart';
+import 'package:cse_cet_reviewer/features/settings/presentation/pages/whats_included_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/settings_home_page.dart';
 import 'package:cse_cet_reviewer/features/study_plan/presentation/plan_page.dart';
 import 'package:cse_cet_reviewer/features/wrapped/presentation/wrapped_reveal_page.dart';
@@ -155,6 +155,16 @@ List<RouteBase> buildAppRoutes(Ref ref) {
     GoRoute(
       path: '/onboarding',
       builder: (_, __) => const OnboardingPage(),
+    ),
+    GoRoute(
+      path: '/onboarding/custom/name',
+      builder: (_, __) => const CustomTrackNameStep(),
+    ),
+    GoRoute(
+      path: '/onboarding/custom/subjects',
+      builder: (_, state) => CustomTrackSubjectsStep(
+        name: state.uri.queryParameters['name'] ?? '',
+      ),
     ),
     GoRoute(
       path: '/notifications/rationale',
@@ -327,7 +337,7 @@ List<RouteBase> buildAppRoutes(Ref ref) {
     ),
     GoRoute(
       path: '/settings/exam/included',
-      builder: (_, __) => const NotBuiltYetPage(title: "What's included"),
+      builder: (_, __) => const WhatsIncludedPage(),
     ),
     GoRoute(
       path: '/settings/account',

@@ -1,4 +1,5 @@
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
 import 'package:cse_cet_reviewer/features/assessment/domain/models/assessment_session.dart';
 import 'package:cse_cet_reviewer/features/assessment/domain/services/assessment_question_selector.dart';
 
@@ -7,8 +8,8 @@ class StartAssessment {
 
   final AssessmentQuestionSelector _selector;
 
-  Future<AssessmentSession> call(ExamId examId) async {
-    final questions = await _selector.select(examId);
+  Future<AssessmentSession> call(ExamId examId, {List<Topic>? topics}) async {
+    final questions = await _selector.select(examId, topics: topics);
     if (questions.isEmpty) {
       throw StateError(
         'No questions available for assessment of exam $examId',
