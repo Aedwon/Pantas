@@ -84,9 +84,17 @@ running, no worktree holds unmerged work, `main` is clean.
 questions**, zero analyzer issues under `lib/` and `test/` outside `test/tool/`, formatter clean,
 content validator 0, content audit 0 blockers, layering 36, attribution 0.
 
-**Run `dart run build_runner build --delete-conflicting-outputs` before judging `main`.** The
-content schema moved to 3 and stale generated files reported **25 analyzer issues that were not
-real**.
+**Two generators must run before judging `main`, and both write gitignored files:**
+
+```bash
+dart run build_runner build --delete-conflicting-outputs
+flutter gen-l10n
+```
+
+**Stale or missing generated files report failures that are not real.** The content schema
+moved to 3 and reported 25 analyzer issues that did not exist; the l10n scaffolding landed 10
+August and its absence reports the same way. **Never run `dart fix --apply` in a worktree that
+has not generated yet**: the analyzer sees every import as unused and the fixer deletes them.
 
 ### The first thing a new session must do
 
