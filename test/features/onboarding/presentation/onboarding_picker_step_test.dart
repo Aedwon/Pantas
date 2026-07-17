@@ -3,6 +3,7 @@ import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/onboarding/presentation/onboarding_picker_step.dart';
+import 'package:drift/drift.dart' hide isNull, isNotNull;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -139,5 +140,41 @@ void main() {
       find.widgetWithText(BoardButton, 'Continue'),
     );
     expect(cont.onPressed, isNotNull);
+  });
+
+  testWidgets('the branch row sits below a rule, apart from the exams',
+      (tester) async {
+    await pumpStep(tester);
+
+    expect(find.text("My exam isn't on this list"), findsOneWidget);
+  });
+
+  testWidgets('tapping the branch row does not select anything',
+      (tester) async {
+    await pumpStep(tester);
+
+    await tester.tap(find.text("My exam isn't on this list"));
+    await tester.pumpAndSettle();
+
+    final cont = tester
+        .widget<BoardButton>(find.widgetWithText(BoardButton, 'Continue'));
+    expect(cont.onPressed, isNull);
+  });
+
+  testWidgets('a custom track is never listed as an exam', (tester) async {
+    await db.into(db.exams).insert(
+          ExamsCompanion.insert(
+            id: 'custom_1',
+            code: 'custom',
+            name: 'My Custom Exam',
+            shortName: 'My Custom Exam',
+            language: 'en',
+            isCustom: const Value(true),
+          ),
+        );
+
+    await pumpStep(tester);
+
+    expect(find.text('My Custom Exam'), findsNothing);
   });
 }

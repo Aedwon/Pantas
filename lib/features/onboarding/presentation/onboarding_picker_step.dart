@@ -6,9 +6,11 @@ import 'package:cse_cet_reviewer/core/telemetry/telemetry.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/exam_selection_row.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
+import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class OnboardingPickerStep extends ConsumerStatefulWidget {
   const OnboardingPickerStep({
@@ -83,27 +85,44 @@ class _OnboardingPickerStepState extends ConsumerState<OnboardingPickerStep> {
                   ),
                 ),
                 data: (exams) {
-                  final active = [...exams.where((e) => e.isActive)]
-                    ..sort((a, b) => a.name.compareTo(b.name));
-                  if (active.isEmpty) {
-                    return Center(
-                      child: Text(
-                        'No exams available right now.',
-                        style:
-                            styles.bodyMedium.copyWith(color: colors.inkMuted),
+                  final active = [
+                    ...exams.where((e) => e.isActive && !e.isCustom)
+                  ]..sort((a, b) => a.name.compareTo(b.name));
+                  return Column(
+                    children: [
+                      Expanded(
+                        child: active.isEmpty
+                            ? Center(
+                                child: Text(
+                                  'No exams available right now.',
+                                  style: styles.bodyMedium
+                                      .copyWith(color: colors.inkMuted),
+                                ),
+                              )
+                            : ListView.builder(
+                                itemCount: active.length,
+                                itemBuilder: (_, i) {
+                                  final exam = active[i];
+                                  return ExamSelectionRow(
+                                    exam: exam,
+                                    selected: _selectedId == exam.id,
+                                    onTap: () =>
+                                        setState(() => _selectedId = exam.id),
+                                  );
+                                },
+                              ),
                       ),
-                    );
-                  }
-                  return ListView.builder(
-                    itemCount: active.length,
-                    itemBuilder: (_, i) {
-                      final exam = active[i];
-                      return ExamSelectionRow(
-                        exam: exam,
-                        selected: _selectedId == exam.id,
-                        onTap: () => setState(() => _selectedId = exam.id),
-                      );
-                    },
+                      Container(
+                        height: 1,
+                        color: colors.ruleFaint,
+                      ),
+                      InkTableRow(
+                        title: "My exam isn't on this list",
+                        chevron: InkRowChevron.link,
+                        onTap: () => GoRouter.maybeOf(context)
+                            ?.push('/onboarding/custom/name'),
+                      ),
+                    ],
                   );
                 },
               ),
