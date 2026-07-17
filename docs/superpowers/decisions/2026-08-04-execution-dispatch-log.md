@@ -1393,3 +1393,57 @@ formatter clean, layering 36, attribution 0.
 **Thirteen plans merged**: Home 03, Progress 05, Home 05, Progress 06, Home 04, Home 06,
 Progress 03, Foundations 02 in two pieces, Mock 01, Mock 02, Mock 03, and the quiz's question
 grid that nobody had noticed was missing. **Every UI thread is now closed.**
+
+---
+
+## 10 August, the last wave: accessibility, notifications, and a document about Firebase
+
+**Aedwon asked for a Firebase setup document first**, updated against the console as it is now,
+saved and pushed. It is `docs/firebase-setup.md`, and writing it against the code rather than
+from memory turned up two things nobody had written down:
+
+- **The iOS project has one bundle ID for all three flavors**, where Android has three. A dev
+  build and a prod build cannot sit on the same iPhone until that changes.
+- **`cloud_functions` is in `pubspec.yaml` and nothing calls it.** It needs the paid plan.
+
+The document names **what to configure** rather than asserting a menu path for everything.
+Google has moved App Check and Remote Config between the Build, Run, Release and Security
+groups in different years, and a path that is wrong is worse than no path.
+
+### Two dispatched, both clean
+
+| Worktree | Plan | Tasks | Commits |
+|---|---|---|---|
+| `found04` | foundations-04 accessibility | 3 | 3 |
+| `notif` | notifications countdown and comeback | 4 | 4 |
+
+**The notification run respected the exam date's precision without being told twice.** A
+month-precision date returns an empty ladder, because deriving a day from a month is the figure
+this project bans. The prompt carried that as context and the code carries the reason in a
+comment beside it.
+
+**The accessibility sweep found real defects**, which is worth saying because a sweep that finds
+nothing usually means the harness is wrong: three shared components clipped at 200% text and
+four controls were under the 44px minimum.
+
+**It also touched `DataRowTile`, which I changed this morning**, and it did the right thing:
+**the fixed 38 holds at normal text size and only relaxes when a student scales up**, so nothing
+already drawn moves. This is the third time that component has been the collision point in one
+day and the first time a run handled it without being corrected.
+
+**One harmless miss:** it added its four constraints to nine plans, six of which shipped weeks
+ago, where the text is inert. Not worth reverting.
+
+### A flake, now diagnosed
+
+**The seed writer test failed twice today and passed alone both times.** It spawns a Dart
+command line subprocess, and it loses that race whenever a second Flutter process is running in
+another worktree. **It is not a defect and it is not worth debugging**: run it alone before
+believing it.
+
+### Where the queue stands
+
+**Custom track A is dispatched**, with the live schema number handed to it and an explicit
+exception to run the generator, which the standing prompt bans. **Track B follows it.** After
+those two, **nothing in the queue can move without Aedwon**: the feedback row needs a community
+URL and a contact email, and everything else in Part 10 is his.
