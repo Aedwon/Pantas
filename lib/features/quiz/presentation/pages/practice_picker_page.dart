@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
-import 'package:cse_cet_reviewer/core/ui/components/ink_checkbox.dart';
 import 'package:cse_cet_reviewer/core/ui/components/page_scaffold.dart';
+import 'package:cse_cet_reviewer/core/ui/components/topic_scope_index.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/picker/practice_index.dart';
@@ -40,9 +40,6 @@ class _PracticePickerPageState extends ConsumerState<PracticePickerPage> {
   }
 
   Future<void> _start(PracticeIndex index) async {
-    // The session is built here, before routing, so the run screen renders a
-    // session that already matches the selection rather than rebuilding one
-    // from arguments and risking a different draw.
     await ref.read(quizControllerProvider.notifier).startPractice(
           examId: widget.examId,
           units: _selection.units(index),
@@ -95,6 +92,30 @@ class _PracticePickerPageState extends ConsumerState<PracticePickerPage> {
             averageResponseMs: pace,
           );
 
+          final scopeSubjects = [
+            for (final subject in index.subjects)
+              TopicScopeSubjectData(
+                id: subject.id,
+                name: subject.name,
+                topics: [
+                  for (final topic in subject.topics)
+                    TopicScopeTopicData(
+                      id: topic.id,
+                      name: topic.name,
+                      hasQuestions: topic.hasQuestions,
+                      lessons: [
+                        for (final lesson in topic.lessons)
+                          TopicScopeLessonData(
+                            id: lesson.id,
+                            title: lesson.title,
+                            isRead: lesson.isRead,
+                          ),
+                      ],
+                    ),
+                ],
+              ),
+          ];
+
           return Column(
             children: [
               Expanded(
@@ -111,45 +132,54 @@ class _PracticePickerPageState extends ConsumerState<PracticePickerPage> {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    for (final subject in index.subjects) ...[
-                      Padding(
-                        padding: const EdgeInsets.only(top: 16, bottom: 8),
-                        child: Text(
-                          subject.name,
-                          style: styles.headlineSmall
-                              .copyWith(color: colors.inkMuted),
-                        ),
-                      ),
-                      for (final topic in subject.topics) ...[
-                        _TopicRow(
-                          topic: topic,
-                          state: _selection.topicState(topic),
-                          isUnfolded: _unfolded.contains(topic.id),
-                          onToggle: () => setState(
-                            () => _selection = _selection.toggleTopic(topic),
+                    TopicScopeIndex(
+                      subjects: scopeSubjects,
+                      showLessons: true,
+                      unfoldedTopicIds: _unfolded,
+                      onToggleUnfold: (topicId) => setState(() {
+                        if (_unfolded.contains(topicId)) {
+                          _unfolded.remove(topicId);
+                        } else {
+                          _unfolded.add(topicId);
+                        }
+                      }),
+                      topicState: (topicData) {
+                        final entry = index.subjects
+                            .expand((s) => s.topics)
+                            .firstWhere((t) => t.id == topicData.id);
+                        return switch (_selection.topicState(entry)) {
+                          PracticeCheckState.off => TopicScopeCheckState.off,
+                          PracticeCheckState.partial =>
+                            TopicScopeCheckState.partial,
+                          PracticeCheckState.on => TopicScopeCheckState.on,
+                        };
+                      },
+                      onToggleTopic: (topicData) {
+                        final entry = index.subjects
+                            .expand((s) => s.topics)
+                            .firstWhere((t) => t.id == topicData.id);
+                        setState(
+                          () => _selection = _selection.toggleTopic(entry),
+                        );
+                      },
+                      lessonState: (lesson) =>
+                          _selection.lessonSelected(lesson.id)
+                              ? TopicScopeCheckState.on
+                              : TopicScopeCheckState.off,
+                      onToggleLesson: (topicData, lessonData) {
+                        final topicEntry = index.subjects
+                            .expand((s) => s.topics)
+                            .firstWhere((t) => t.id == topicData.id);
+                        final lessonEntry = topicEntry.lessons
+                            .firstWhere((l) => l.id == lessonData.id);
+                        setState(
+                          () => _selection = _selection.toggleLesson(
+                            topicEntry,
+                            lessonEntry,
                           ),
-                          onUnfold: () => setState(() {
-                            if (_unfolded.contains(topic.id)) {
-                              _unfolded.remove(topic.id);
-                            } else {
-                              _unfolded.add(topic.id);
-                            }
-                          }),
-                        ),
-                        if (_unfolded.contains(topic.id))
-                          for (final lesson in topic.lessons)
-                            _LessonRow(
-                              lesson: lesson,
-                              state: _selection.lessonSelected(lesson.id)
-                                  ? PracticeCheckState.on
-                                  : PracticeCheckState.off,
-                              onToggle: () => setState(
-                                () => _selection =
-                                    _selection.toggleLesson(topic, lesson),
-                              ),
-                            ),
-                      ],
-                    ],
+                        );
+                      },
+                    ),
                   ],
                 ),
               ),
@@ -191,137 +221,6 @@ class _PracticePickerPageState extends ConsumerState<PracticePickerPage> {
             ],
           );
         },
-      ),
-    );
-  }
-}
-
-class _TopicRow extends StatelessWidget {
-  const _TopicRow({
-    required this.topic,
-    required this.state,
-    required this.isUnfolded,
-    required this.onToggle,
-    required this.onUnfold,
-  });
-
-  final PracticeTopicEntry topic;
-  final PracticeCheckState state;
-  final bool isUnfolded;
-  final VoidCallback onToggle;
-  final VoidCallback onUnfold;
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = context.colors;
-    final styles = context.textStyles;
-
-    return Container(
-      constraints: const BoxConstraints(minHeight: 46),
-      decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            color: colors.ruleFaint,
-          ),
-        ),
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: InkWell(
-              onTap: topic.hasQuestions ? onToggle : null,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 11),
-                child: Row(
-                  children: [
-                    InkCheckbox(
-                      state: state.asInkCheckState,
-                      enabled: topic.hasQuestions,
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Text(
-                        topic.name,
-                        style: topic.hasQuestions
-                            ? styles.bodyMedium
-                            : styles.bodyMedium
-                                .copyWith(color: colors.inkMuted),
-                      ),
-                    ),
-                    if (!topic.hasQuestions)
-                      Text(
-                        'no questions yet',
-                        style:
-                            styles.bodySmall.copyWith(color: colors.inkMuted),
-                      ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          if (topic.canUnfold)
-            InkWell(
-              key: ValueKey('caret_${topic.id}'),
-              onTap: onUnfold,
-              child: SizedBox(
-                width: 44,
-                height: 44,
-                child: Icon(
-                  isUnfolded ? Icons.expand_less : Icons.expand_more,
-                  size: 18,
-                  color: colors.inkMuted,
-                ),
-              ),
-            ),
-        ],
-      ),
-    );
-  }
-}
-
-class _LessonRow extends StatelessWidget {
-  const _LessonRow({
-    required this.lesson,
-    required this.state,
-    required this.onToggle,
-  });
-
-  final PracticeLessonEntry lesson;
-  final PracticeCheckState state;
-  final VoidCallback onToggle;
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = context.colors;
-    final styles = context.textStyles;
-
-    return Container(
-      constraints: const BoxConstraints(minHeight: 40),
-      decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            color: colors.ruleFaint,
-          ),
-        ),
-      ),
-      child: InkWell(
-        onTap: onToggle,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 9),
-          child: Row(
-            children: [
-              const SizedBox(width: 22),
-              InkCheckbox(state: state.asInkCheckState, size: 14),
-              const SizedBox(width: 12),
-              Expanded(child: Text(lesson.title, style: styles.bodyMedium)),
-              if (!lesson.isRead)
-                Text(
-                  'not read yet',
-                  style: styles.bodySmall.copyWith(color: colors.rust),
-                ),
-            ],
-          ),
-        ),
       ),
     );
   }
@@ -461,16 +360,4 @@ class _UnitControl extends StatelessWidget {
       ],
     );
   }
-}
-
-/// The picker's tri-state, drawn with the shared checkbox.
-///
-/// The mapping lives here rather than in `domain/` so the domain never
-/// imports a widget.
-extension _CheckGlyph on PracticeCheckState {
-  InkCheckState get asInkCheckState => switch (this) {
-        PracticeCheckState.off => InkCheckState.off,
-        PracticeCheckState.partial => InkCheckState.partial,
-        PracticeCheckState.on => InkCheckState.on,
-      };
 }

@@ -45,6 +45,7 @@ import 'package:cse_cet_reviewer/features/settings/presentation/pages/delete_acc
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/exam_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/not_built_yet_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/pro_page.dart';
+import 'package:cse_cet_reviewer/features/settings/presentation/pages/whats_included_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/settings_home_page.dart';
 import 'package:cse_cet_reviewer/features/study_plan/presentation/plan_page.dart';
 import 'package:cse_cet_reviewer/features/wrapped/presentation/wrapped_reveal_page.dart';
@@ -339,7 +340,7 @@ List<RouteBase> buildAppRoutes(Ref ref) {
     ),
     GoRoute(
       path: '/settings/exam/included',
-      builder: (_, __) => const NotBuiltYetPage(title: "What's included"),
+      builder: (_, __) => const WhatsIncludedPage(),
     ),
     GoRoute(
       path: '/settings/account',
