@@ -1447,3 +1447,47 @@ believing it.
 exception to run the generator, which the standing prompt bans. **Track B follows it.** After
 those two, **nothing in the queue can move without Aedwon**: the feedback row needs a community
 URL and a contact email, and everything else in Part 10 is his.
+
+### The custom track run wrote to the main checkout, and I committed it
+
+**The worst incident of the day, and the smaller half of it is mine.**
+
+**Custom Track A ignored its worktree entirely.** It edited `app_database.dart` in the **main
+checkout**, bumped `schemaVersion` to 20 there, added a table, and then **committed directly to
+`main`**. Its own worktree ended with **zero commits**. This is the failure the dispatch line's
+"work only inside this worktree" exists to prevent, and it is the second time it has happened,
+after 5 August.
+
+**Then I made it worse.** I ran `git add -A` in the main checkout to commit a log entry **while
+that run was writing there**, and swept six of its files into a docs commit without reading the
+diff. **"Read the diff, never the count" is the habit I applied to every agent's work today and
+skipped on my own.**
+
+**What it cost:** nothing permanent. Nothing had been pushed since the Firebase document.
+
+**The recovery, in order:**
+
+1. **Stopped the run** before it wrote anything further.
+2. **Branched `track-a-salvage` at its commit**, so the work is kept rather than discarded.
+3. **Reset `main`** to the accessibility merge and re-committed the log entry alone.
+4. **Moved two stray test files out** of the main tree.
+5. **Regenerated.** The reset restored the source but **not the generated files, which are
+   gitignored**, so `main` briefly held a generated table whose source no longer existed and 208
+   tests failed to compile. **A `git reset` does not undo a `build_runner` run.**
+
+**Health after recovery: 2,019 tests pass**, analyzer at the 7-issue baseline, formatter clean,
+schema back to **19**.
+
+**Not re-dispatched.** This is the one remaining plan that changes the database, and a run that
+ignores worktree isolation while touching the schema is the worst combination available. **Put
+to Aedwon rather than retried on my own judgment.**
+
+### Three things this argues for, and none of them are new prompt lines
+
+- **The prompt already said it.** "Work only inside this worktree. Run `pwd` before your first
+  write" was in this run's prompt, verbatim, as it has been in every prompt since 5 August.
+  **Saying it again is not the fix.**
+- **A dispatcher should never `git add -A` in the main checkout while any run is live.** Stage
+  named paths, or commit from a worktree.
+- **`git status` in the main checkout is the cheapest possible check** and it was not run
+  between dispatching and committing.
