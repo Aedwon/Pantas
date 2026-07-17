@@ -15,6 +15,11 @@ class Exam with _$Exam {
     required String language,
     required bool isActive,
     required List<Subject> subjects,
+
+    /// A track the student named themselves. The picker lists only the
+    /// exams where this is false; everything else keys on the id and does
+    /// not care where the row came from.
+    @Default(false) bool isCustom,
   }) = _Exam;
 
   factory Exam.fromJson(Map<String, dynamic> json) => _$ExamFromJson(json);

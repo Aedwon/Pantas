@@ -21,6 +21,7 @@ import 'package:cse_cet_reviewer/core/storage/data/tables/streak_local_table.dar
 import 'package:cse_cet_reviewer/core/storage/data/tables/subjects_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/sync_meta_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/topics_table.dart';
+import 'package:cse_cet_reviewer/core/storage/data/tables/track_scope_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/user_metrics_archetypes_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/user_metrics_artifacts_local_table.dart';
 import 'package:drift/drift.dart';
@@ -54,13 +55,14 @@ part 'app_database.g.dart';
     UserMetricsArtifactsLocal,
     Passages,
     ReviewLogs,
+    TrackScopeLocal,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 19;
+  int get schemaVersion => 20;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -128,6 +130,10 @@ class AppDatabase extends _$AppDatabase {
           }
           if (from < 19) {
             await m.createTable(reviewLogs);
+          }
+          if (from < 20) {
+            await m.addColumn(exams, exams.isCustom);
+            await m.createTable(trackScopeLocal);
           }
         },
       );
