@@ -4,9 +4,8 @@ import 'package:cse_cet_reviewer/app/theme.dart';
 import 'package:cse_cet_reviewer/features/notifications/application/notifications_providers.dart';
 import 'package:cse_cet_reviewer/features/notifications/presentation/notification_tap_router.dart';
 import 'package:cse_cet_reviewer/features/settings/settings.dart';
-import 'package:flutter/material.dart';
 import 'package:cse_cet_reviewer/l10n/app_localizations.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class App extends ConsumerWidget {

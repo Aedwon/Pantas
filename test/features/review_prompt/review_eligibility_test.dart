@@ -3,7 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('ReviewEligibility', () {
-    test('returns true after a good result when never asked and no recent paywall', () {
+    test('asks after a good result, when never asked and no recent paywall',
+        () {
       expect(
         ReviewEligibility.shouldAsk(
           hasAskedBefore: false,

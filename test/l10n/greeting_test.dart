@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:cse_cet_reviewer/l10n/app_localizations.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('AppLocalizations is reachable and resolves greeting for time of day',
+  testWidgets(
+      'AppLocalizations is reachable and resolves greeting for time of day',
       (tester) async {
     late AppLocalizations l10n;
 
