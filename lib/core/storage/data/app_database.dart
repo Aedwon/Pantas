@@ -21,6 +21,7 @@ import 'package:cse_cet_reviewer/core/storage/data/tables/streak_local_table.dar
 import 'package:cse_cet_reviewer/core/storage/data/tables/subjects_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/sync_meta_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/topics_table.dart';
+import 'package:cse_cet_reviewer/core/storage/data/tables/custom_blueprints_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/track_scope_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/user_metrics_archetypes_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/user_metrics_artifacts_local_table.dart';
@@ -56,13 +57,14 @@ part 'app_database.g.dart';
     Passages,
     ReviewLogs,
     TrackScopeLocal,
+    CustomBlueprintsLocal,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 20;
+  int get schemaVersion => 21;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -134,6 +136,9 @@ class AppDatabase extends _$AppDatabase {
           if (from < 20) {
             await m.addColumn(exams, exams.isCustom);
             await m.createTable(trackScopeLocal);
+          }
+          if (from < 21) {
+            await m.createTable(customBlueprintsLocal);
           }
         },
       );
