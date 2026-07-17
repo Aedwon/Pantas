@@ -13,12 +13,18 @@ class BookmarkRibbon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      behavior: HitTestBehavior.opaque,
-      child: Padding(
-        padding: const EdgeInsets.all(8),
-        child: PennantMark(isSet: isBookmarked),
+    return Semantics(
+      label: isBookmarked ? 'Remove bookmark' : 'Bookmark question',
+      button: true,
+      child: GestureDetector(
+        onTap: onTap,
+        behavior: HitTestBehavior.opaque,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minWidth: 44, minHeight: 44),
+          child: Center(
+            child: PennantMark(isSet: isBookmarked),
+          ),
+        ),
       ),
     );
   }
