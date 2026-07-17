@@ -24,11 +24,11 @@ void main() {
       const NotificationTime(hour: 19, minute: 0),
     );
 
-    expect(gateway.log.map((entry) => entry.split(':').first), [
-      'cancel',
-      'cancel',
-      'schedule',
-    ]);
+    expect(gateway.log.where((entry) => entry.startsWith('cancel')).length, 4);
+    expect(
+      gateway.log.where((entry) => entry.startsWith('schedule')).length,
+      1,
+    );
     expect(gateway.scheduled.single.title, "Today's session is ready");
     expect(
       gateway.scheduled.single.body,
@@ -36,7 +36,9 @@ void main() {
     );
   });
 
-  test('scheduleDailyReminder also schedules eligible streak save', () async {
+  test(
+      'scheduleDailyReminder chooses higher priority streak save under ceiling',
+      () async {
     final gateway = RecordingNotificationsGateway()
       ..permission = NotificationPermission.granted;
     final service = NotificationServiceImpl(
@@ -58,10 +60,9 @@ void main() {
     await service.rescheduleForForeground();
 
     expect(gateway.scheduled.map((n) => n.id), [
-      NotificationIds.dailyReminder,
       NotificationIds.streakSave,
     ]);
-    expect(gateway.scheduled.last.title, "Your 3-day streak's safe tonight");
+    expect(gateway.scheduled.single.title, "Your 3-day streak's safe tonight");
   });
 
   test('scheduleDailyReminder skips scheduling when permission is denied',

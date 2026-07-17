@@ -3,6 +3,8 @@ import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 abstract final class NotificationIds {
   static const dailyReminder = 9001;
   static const streakSave = 9002;
+  static const examCountdown = 9003;
+  static const comeBack = 9004;
 }
 
 class ReminderSchedulerClock {
