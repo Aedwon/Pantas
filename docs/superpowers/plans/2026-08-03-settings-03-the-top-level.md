@@ -87,6 +87,14 @@ mock mode":
 - **`context.push`, never `context.go`.** Every destination sits outside the tab shell and relies on the back arrow, which only appears when the stack can pop.
 - **No Material app bar.** The bar is a back chevron at 19px `inkMuted` then a serif 17/700 title.
 - `flutter analyze` clean and `dart format --output=none --set-exit-if-changed lib test` passing before any commit.
+- **Readable at 200% text scale.** No clipping, no overlap, and no text that
+  carries meaning truncated to an ellipsis. Rules and rhythm may stretch.
+- **Every tap target is at least 44 by 44**, using the pattern in
+  `settings-01`: a smaller visual box inside a larger tappable one.
+- **Color is never the only carrier.** Severity must also read as a word or a
+  position.
+- **Every control has a semantics label.** Icons especially: they have no text
+  to read.
 
 ## Dependencies
 

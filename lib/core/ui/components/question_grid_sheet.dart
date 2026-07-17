@@ -152,8 +152,8 @@ class GridCellView extends StatelessWidget {
       fontFeatures: const [FontFeature.tabularFigures()],
     );
 
-    final cellBody = SizedBox(
-      height: _cellHeight,
+    final cellBody = ConstrainedBox(
+      constraints: const BoxConstraints(minHeight: _cellHeight),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

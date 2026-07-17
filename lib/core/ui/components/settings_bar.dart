@@ -26,19 +26,23 @@ class SettingsBar extends StatelessWidget implements PreferredSizeWidget {
       child: Row(
         children: [
           if (canPop)
-            GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onTap: () => Navigator.of(context).maybePop(),
-              child: SizedBox(
-                width: 30,
-                height: height,
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    '‹',
-                    style: styles.bodyLarge.copyWith(
-                      fontSize: 19,
-                      color: colors.inkMuted,
+            Semantics(
+              label: 'Back',
+              button: true,
+              child: GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: () => Navigator.of(context).maybePop(),
+                child: SizedBox(
+                  width: 44,
+                  height: height,
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      '‹',
+                      style: styles.bodyLarge.copyWith(
+                        fontSize: 19,
+                        color: colors.inkMuted,
+                      ),
                     ),
                   ),
                 ),

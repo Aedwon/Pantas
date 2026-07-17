@@ -23,7 +23,7 @@ class NavigationalRow extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 4),
         child: ConstrainedBox(
-          constraints: const BoxConstraints(minHeight: 30),
+          constraints: const BoxConstraints(minHeight: 44),
           child: Row(
             children: [
               Expanded(

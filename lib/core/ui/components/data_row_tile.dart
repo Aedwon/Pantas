@@ -62,12 +62,15 @@ class DataRowTile extends StatelessWidget {
     // one every table already drawn depends on. A row that carries a
     // subtext holds two lines and cannot: it keeps the same 4px padding
     // and takes the height its two lines need.
+    final textScale = MediaQuery.textScalerOf(context).scale(1);
+    final fixedHeight = (subtext == null && textScale <= 1.0) ? 38.0 : null;
+
     final content = SizedBox(
-      height: subtext == null ? 38 : null,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 4),
-        child: SizedBox(
-          height: subtext == null ? 30 : null,
+      height: fixedHeight,
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(minHeight: 38),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 4),
           child: Row(
             children: [
               Expanded(

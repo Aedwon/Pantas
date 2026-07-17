@@ -46,6 +46,14 @@ Every task's requirements implicitly include this section.
   `lib/features/paywall/domain/`. The live gateway belongs in `data/`.
 - `test/tool/paywall_release_guard_test.dart` requires that `FAKE_PRO` appears **only** in
   `lib/features/paywall/application/paywall_providers.dart`, guarded by `kDebugMode`.
+- **Readable at 200% text scale.** No clipping, no overlap, and no text that
+  carries meaning truncated to an ellipsis. Rules and rhythm may stretch.
+- **Every tap target is at least 44 by 44**, using the pattern in
+  `settings-01`: a smaller visual box inside a larger tappable one.
+- **Color is never the only carrier.** Severity must also read as a word or a
+  position.
+- **Every control has a semantics label.** Icons especially: they have no text
+  to read.
 
 ### Settled values, copied verbatim from the spec
 

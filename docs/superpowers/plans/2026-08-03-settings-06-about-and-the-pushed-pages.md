@@ -42,6 +42,14 @@
 - **Nothing is hidden, disabled or badged by entitlement** anywhere in Settings. A Free student sees every row.
 - **Crashlytics is independent of the analytics toggle** and stays on. The lede must say so.
 - `flutter analyze` clean and `dart format --output=none --set-exit-if-changed lib test` passing before any commit.
+- **Readable at 200% text scale.** No clipping, no overlap, and no text that
+  carries meaning truncated to an ellipsis. Rules and rhythm may stretch.
+- **Every tap target is at least 44 by 44**, using the pattern in
+  `settings-01`: a smaller visual box inside a larger tappable one.
+- **Color is never the only carrier.** Severity must also read as a word or a
+  position.
+- **Every control has a semantics label.** Icons especially: they have no text
+  to read.
 
 ## Dependencies
 

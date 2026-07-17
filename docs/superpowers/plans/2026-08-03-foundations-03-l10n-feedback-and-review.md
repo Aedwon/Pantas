@@ -48,6 +48,14 @@ Aedwon ruled English UI for v1 with Filipino in later versions.
 - **Never ask for a review at a moment of friction.** Section 8. A ranking bought that way is
   a worse deal than it looks.
 - **Analyzer baseline is ~25 issues, all under `tools/` or `test/tool/`. `lib/` is clean and that is the invariant, not the count.**
+- **Readable at 200% text scale.** No clipping, no overlap, and no text that
+  carries meaning truncated to an ellipsis. Rules and rhythm may stretch.
+- **Every tap target is at least 44 by 44**, using the pattern in
+  `settings-01`: a smaller visual box inside a larger tappable one.
+- **Color is never the only carrier.** Severity must also read as a word or a
+  position.
+- **Every control has a semantics label.** Icons especially: they have no text
+  to read.
 - **No AI attribution in commits.**
 
 ## Dependencies

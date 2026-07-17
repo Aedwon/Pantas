@@ -50,35 +50,32 @@ class StatsBand extends StatelessWidget {
     for (var i = 0; i < figures.length; i++) {
       final figure = figures[i];
       children.add(
-        Expanded(
-          child: Column(
-            crossAxisAlignment:
-                centred ? CrossAxisAlignment.center : CrossAxisAlignment.start,
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.baseline,
-                textBaseline: TextBaseline.alphabetic,
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: centred
-                    ? MainAxisAlignment.center
-                    : MainAxisAlignment.start,
-                children: [
-                  Text(figure.value, style: numeralStyle),
-                  if (figure.suffix != null)
-                    Text(figure.suffix!, style: suffixStyle),
-                ],
+        Column(
+          crossAxisAlignment:
+              centred ? CrossAxisAlignment.center : CrossAxisAlignment.start,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.baseline,
+              textBaseline: TextBaseline.alphabetic,
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment:
+                  centred ? MainAxisAlignment.center : MainAxisAlignment.start,
+              children: [
+                Text(figure.value, style: numeralStyle),
+                if (figure.suffix != null)
+                  Text(figure.suffix!, style: suffixStyle),
+              ],
+            ),
+            const SizedBox(height: 4),
+            Text(
+              figure.label,
+              textAlign: centred ? TextAlign.center : TextAlign.start,
+              style: styles.bodySmall.copyWith(
+                fontSize: compact ? 11.5 : null,
+                color: colors.inkMuted,
               ),
-              const SizedBox(height: 4),
-              Text(
-                figure.label,
-                textAlign: centred ? TextAlign.center : TextAlign.start,
-                style: styles.bodySmall.copyWith(
-                  fontSize: compact ? 11.5 : null,
-                  color: colors.inkMuted,
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       );
       if (i < figures.length - 1) {
@@ -94,27 +91,26 @@ class StatsBand extends StatelessWidget {
       }
     }
 
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 12),
-      decoration: BoxDecoration(
-        border: Border(
-          // AppDimensions.hairline (1px) currently equals BorderSide's
-          // default width, but it's stated explicitly so the rule tracks
-          // the constant rather than an implicit default.
-          top: BorderSide(
-            color: colors.rule,
-            // ignore: avoid_redundant_argument_values
-            width: AppDimensions.hairline,
-          ),
-          bottom: BorderSide(
-            color: colors.rule,
-            // ignore: avoid_redundant_argument_values
-            width: AppDimensions.hairline,
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 12),
+        decoration: BoxDecoration(
+          border: Border(
+            top: BorderSide(
+              color: colors.rule,
+            ),
+            bottom: BorderSide(
+              color: colors.rule,
+            ),
           ),
         ),
-      ),
-      child: IntrinsicHeight(
-        child: Row(children: children),
+        child: IntrinsicHeight(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: children,
+          ),
+        ),
       ),
     );
   }
