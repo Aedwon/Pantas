@@ -77,12 +77,12 @@ directly from the orchestrator**, one git worktree per plan.
 
 ## Part 0: Pick up here
 
-**Rewritten 10 August, after thirteen plans merged and the last UI thread closed.** Nothing is
-running, no worktree holds unmerged work, `main` is clean.
+**Rewritten 10 August, after nineteen plans merged.** Nothing is running, no worktree holds
+unmerged work, `main` is clean.
 
-**Health:** **1,958 tests pass**, app schema **19**, **content schema 3**, corpus **2,369
+**Health:** **2,064 tests pass**, app schema **20**, **content schema 3**, corpus **2,369
 questions**, zero analyzer issues under `lib/` and `test/` outside `test/tool/`, formatter clean,
-content validator 0, content audit 0 blockers, layering 36, attribution 0.
+layering 36, attribution 0.
 
 **Two generators must run before judging `main`, and both write gitignored files:**
 
@@ -101,6 +101,12 @@ has not generated yet**: the analyzer sees every import as unused and the fixer 
 **Ask Aedwon to re-authorize the Gemini skip-permissions flag.** It is granted per session and
 does not survive a clear. Without it every dispatch does nothing. **Ask for it in the same
 breath as asking for quota headroom**, since neither can be read programmatically.
+
+### Everything an agent can build is built, except one plan
+
+**Merged 10 August, nineteen plans in a day:** the whole of Home and Progress, all three mock
+plans, the quiz's missing grid, App Check and the force-update stop, the notification ladder,
+the accessibility sweep, the l10n scaffolding, the review policy, and Custom Track A entire.
 
 ### Every UI thread is finished
 
@@ -127,15 +133,12 @@ parallel and conflicted only on an import**, each having filled its own stub.
 
 ### What is left, in the order worth doing it
 
-**No plan in the queue is blocked on code any more.** What is left is Part 6's last items,
-Part 10's five, and the things only Aedwon can do.
+**One plan is left that an agent can execute.** Everything else is Aedwon's.
 
 | Next | Plan | Note |
 |---|---|---|
-| 1 | `foundations-03-l10n-feedback-and-review` | **`url_launcher` landed 10 August**, so the feedback row is unblocked in code. Still needs the community URL and a contact email from Aedwon |
-| 2 | `foundations-04` Tasks 2 and 3 | The kit has stopped changing |
-| 3 | `notifications-countdown-and-comeback` | Waits on nothing now |
-| 4 | `custom-track-a`, then `custom-track-b` | Both read the live schema |
+| 1 | `custom-track-b-student-built-mock` | **The only unexecuted plan.** Custom Track A merged whole on 10 August. **Two corrections its Step 0 needs:** it greps `app_database.dart` for `CustomTrack` and will find nothing, because A's table is `TrackScopeLocal` and its repository is `custom_track_repository.dart`; and the schema is **20**, so it takes **21**. **Dispatched 10 August and stopped by quota before writing anything** |
+| 2 | `foundations-03` **Task 2 only** | The feedback row. Blocked on the community group URL, which is Aedwon's |
 
 **Progress 02, 04, 05 and 06 are merged.** Every one of them added a section to the same page in
 its own named slot, and none overwrote another's.
