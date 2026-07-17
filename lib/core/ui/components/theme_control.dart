@@ -40,38 +40,38 @@ class ThemeControl extends StatelessWidget {
           borderRadius: BorderRadius.circular(1),
         ),
         child: Row(
-              children: [
-                Expanded(
-                  child: _segment(
-                    context,
-                    ThemePreference.light,
-                    'Light theme',
-                    _Mark.sun,
-                  ),
-                ),
-                _divider(colors.rule),
-                Expanded(
-                  child: _segment(
-                    context,
-                    ThemePreference.dark,
-                    'Dark theme',
-                    _Mark.moon,
-                  ),
-                ),
-                _divider(colors.rule),
-                Expanded(
-                  child: _segment(
-                    context,
-                    ThemePreference.system,
-                    'Follow my phone',
-                    _Mark.half,
-                  ),
-                ),
-              ],
+          children: [
+            Expanded(
+              child: _segment(
+                context,
+                ThemePreference.light,
+                'Light theme',
+                _Mark.sun,
+              ),
             ),
-          ),
-        );
-      }
+            _divider(colors.rule),
+            Expanded(
+              child: _segment(
+                context,
+                ThemePreference.dark,
+                'Dark theme',
+                _Mark.moon,
+              ),
+            ),
+            _divider(colors.rule),
+            Expanded(
+              child: _segment(
+                context,
+                ThemePreference.system,
+                'Follow my phone',
+                _Mark.half,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 
   Widget _divider(Color color) =>
       SizedBox(width: _stroke, child: ColoredBox(color: color));

@@ -58,9 +58,8 @@ class StatsBand extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.baseline,
               textBaseline: TextBaseline.alphabetic,
               mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: centred
-                  ? MainAxisAlignment.center
-                  : MainAxisAlignment.start,
+              mainAxisAlignment:
+                  centred ? MainAxisAlignment.center : MainAxisAlignment.start,
               children: [
                 Text(figure.value, style: numeralStyle),
                 if (figure.suffix != null)
@@ -100,11 +99,9 @@ class StatsBand extends StatelessWidget {
           border: Border(
             top: BorderSide(
               color: colors.rule,
-              width: AppDimensions.hairline,
             ),
             bottom: BorderSide(
               color: colors.rule,
-              width: AppDimensions.hairline,
             ),
           ),
         ),

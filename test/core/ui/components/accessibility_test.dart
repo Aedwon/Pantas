@@ -88,7 +88,8 @@ void main() {
     language: 'en',
     wordCount: 20,
     title: 'Reading Comprehension Passage Title on Philippine History',
-    body: 'The history of the Philippines from 1521 to 1898 spans over three centuries of colonial rule.',
+    body: 'The history of the Philippines from 1521 to 1898 spans over '
+        'three centuries of colonial rule.',
   );
 
   const sampleEntry = ReviewEntry(
@@ -120,7 +121,8 @@ void main() {
         tester,
         AnswerRow(
           letter: 'A',
-          text: 'Long choice text that wraps when text scale is increased to 200% scale factor',
+          text: 'Long choice text that wraps when text scale is increased '
+              'to 200% scale factor',
           onTap: () {},
         ),
       );
@@ -175,7 +177,8 @@ void main() {
         tester,
         EmptyState(
           headline: 'No practice sessions available yet',
-          body: 'Select an exam and subtopic to begin your preparation for the exam.',
+          body: 'Select an exam and subtopic to begin your preparation for '
+              'the exam.',
           ctaLabel: 'Select Exam Subtopic',
           onCta: () {},
         ),
@@ -187,7 +190,8 @@ void main() {
         tester,
         ErrorBanner(
           variant: ErrorBannerVariant.error,
-          message: 'Failed to synchronize user data with remote server. Please check internet connection.',
+          message: 'Failed to synchronize user data with remote server. '
+              'Please check internet connection.',
           actionLabel: 'Retry Sync',
           onAction: () {},
         ),
@@ -320,12 +324,14 @@ void main() {
       );
     });
 
-    testWidgets('PortableTextRenderer survives 200% text scale', (tester) async {
+    testWidgets('PortableTextRenderer survives 200% text scale',
+        (tester) async {
       await expectSurvivesTextScale(
         tester,
         const SingleChildScrollView(
           child: PortableTextRenderer(
-            text: r'Mathematical equation $x^2 + y^2 = z^2$ and explanation text for exam review.',
+            text: r'Mathematical equation $x^2 + y^2 = z^2$ and explanation '
+                'text for exam review.',
           ),
         ),
       );
@@ -389,7 +395,8 @@ void main() {
         const RuledPanel(
           heading: 'Performance Overview Panel',
           count: '150 points',
-          child: Text('Content inside ruled panel for practice drill overview.'),
+          child:
+              Text('Content inside ruled panel for practice drill overview.'),
         ),
       );
     });

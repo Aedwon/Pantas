@@ -12,9 +12,7 @@ Future<void> expectSurvivesTextScale(
   for (final scale in scales) {
     final errors = <FlutterErrorDetails>[];
     final originalOnError = FlutterError.onError;
-    FlutterError.onError = (FlutterErrorDetails details) {
-      errors.add(details);
-    };
+    FlutterError.onError = errors.add;
 
     try {
       await tester.pumpWidget(
