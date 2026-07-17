@@ -22,6 +22,8 @@ import 'package:cse_cet_reviewer/features/mock_exam/mock_exam.dart';
 import 'package:cse_cet_reviewer/features/notifications/application/notifications_providers.dart';
 import 'package:cse_cet_reviewer/features/notifications/presentation/permission_rationale_page.dart';
 import 'package:cse_cet_reviewer/features/onboarding/onboarding.dart';
+import 'package:cse_cet_reviewer/features/onboarding/presentation/steps/custom_track_name_step.dart';
+import 'package:cse_cet_reviewer/features/onboarding/presentation/steps/custom_track_subjects_step.dart';
 import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/pages/how_you_work_page.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/pages/your_record_page.dart';
@@ -155,6 +157,16 @@ List<RouteBase> buildAppRoutes(Ref ref) {
     GoRoute(
       path: '/onboarding',
       builder: (_, __) => const OnboardingPage(),
+    ),
+    GoRoute(
+      path: '/onboarding/custom/name',
+      builder: (_, __) => const CustomTrackNameStep(),
+    ),
+    GoRoute(
+      path: '/onboarding/custom/subjects',
+      builder: (_, state) => CustomTrackSubjectsStep(
+        name: state.uri.queryParameters['name'] ?? '',
+      ),
     ),
     GoRoute(
       path: '/notifications/rationale',
