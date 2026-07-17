@@ -94,7 +94,8 @@ void main() {
         );
     await (db.delete(db.trackScopeLocal)
           ..where(
-              (s) => s.examId.equals('exam_upcat') & s.topicId.equals('chem')))
+            (s) => s.examId.equals('exam_upcat') & s.topicId.equals('chem'),
+          ))
         .go();
 
     // Narrowing hides and re-ticking restores, because nothing was ever
