@@ -61,6 +61,14 @@ onboarding's date step rather than duplicated there.
 - **No native picker.** `showDatePicker` and `showTimePicker` are banned: a 28px radius, a drop shadow and a raised Material surface, and a calendar cannot express "October, no day" at all.
 - **A choice takes effect on tap.** No Save and no Cancel on the ordering sheet, because nothing is lost by changing your mind. The wheel sheets do have a Save, because a wheel mid-scroll is not a choice yet.
 - `flutter analyze` clean and `dart format --output=none --set-exit-if-changed lib test` passing before any commit.
+- **Readable at 200% text scale.** No clipping, no overlap, and no text that
+  carries meaning truncated to an ellipsis. Rules and rhythm may stretch.
+- **Every tap target is at least 44 by 44**, using the pattern in
+  `settings-01`: a smaller visual box inside a larger tappable one.
+- **Color is never the only carrier.** Severity must also read as a word or a
+  position.
+- **Every control has a semantics label.** Icons especially: they have no text
+  to read.
 
 ## Dependencies
 

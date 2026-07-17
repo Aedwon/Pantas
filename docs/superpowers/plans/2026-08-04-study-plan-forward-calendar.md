@@ -53,6 +53,14 @@ Every task's requirements implicitly include this section.
   this plan leaves behind, in code or in copy.
 - **Zero board green elements and zero buttons on the page.** This screen is read, not pressed.
 - **Amber only** on the review-only marker, the exam date, and the next-mock-unlock date.
+- **Readable at 200% text scale.** No clipping, no overlap, and no text that
+  carries meaning truncated to an ellipsis. Rules and rhythm may stretch.
+- **Every tap target is at least 44 by 44**, using the pattern in
+  `settings-01`: a smaller visual box inside a larger tappable one.
+- **Color is never the only carrier.** Severity must also read as a word or a
+  position.
+- **Every control has a semantics label.** Icons especially: they have no text
+  to read.
 
 ### The pacing rule, copied from the spec
 

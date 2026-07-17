@@ -84,6 +84,14 @@ writers, is unchanged and still yours.
 - `flutter analyze` clean and `dart format --output=none --set-exit-if-changed lib test` passing before any commit.
 - **Preferences about the student sync. Preferences about the device do not.** Everything this plan adds goes in `accountPrefs` except the theme, which is already in `devicePrefs` and stays there.
 - **Never print a day count derived from a month.** This is the reason `ExamDate` exists and it is enforced by the type, not by a comment.
+- **Readable at 200% text scale.** No clipping, no overlap, and no text that
+  carries meaning truncated to an ellipsis. Rules and rhythm may stretch.
+- **Every tap target is at least 44 by 44**, using the pattern in
+  `settings-01`: a smaller visual box inside a larger tappable one.
+- **Color is never the only carrier.** Severity must also read as a word or a
+  position.
+- **Every control has a semantics label.** Icons especially: they have no text
+  to read.
 
 ## Dependencies
 

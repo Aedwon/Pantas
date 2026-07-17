@@ -57,6 +57,14 @@ Every task's requirements implicitly include this section.
 - **No lock icons, no blur, no banners, no interstitials, no shimmer.**
 - `test/tool/paywall_boundary_test.dart` forbids `package:flutter/` in
   `lib/features/paywall/domain/`. The arithmetic in Task 3 is pure Dart.
+- **Readable at 200% text scale.** No clipping, no overlap, and no text that
+  carries meaning truncated to an ellipsis. Rules and rhythm may stretch.
+- **Every tap target is at least 44 by 44**, using the pattern in
+  `settings-01`: a smaller visual box inside a larger tappable one.
+- **Color is never the only carrier.** Severity must also read as a word or a
+  position.
+- **Every control has a semantics label.** Icons especially: they have no text
+  to read.
 
 ### Copy fixed by the spec, verbatim
 
