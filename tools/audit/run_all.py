@@ -8,9 +8,17 @@ import sweep_devices
 import sweep_illustrations
 import sweep_formulas
 import sweep_ai_tells
+import sweep_questions
 
 OUT = Path(__file__).resolve().parents[2] / "docs" / "content" / "audit" / "sweep-results.tsv"
-SWEEPS = (sweep_structure, sweep_devices, sweep_illustrations, sweep_formulas, sweep_ai_tells)
+SWEEPS = (
+    sweep_structure,
+    sweep_devices,
+    sweep_illustrations,
+    sweep_formulas,
+    sweep_ai_tells,
+    sweep_questions,
+)
 
 
 def main():
