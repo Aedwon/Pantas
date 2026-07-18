@@ -77,10 +77,10 @@ directly from the orchestrator**, one git worktree per plan.
 
 ## Part 0: Pick up here
 
-**Rewritten 10 August, after nineteen plans merged.** Nothing is running, no worktree holds
-unmerged work, `main` is clean.
+**Rewritten 10 August. Every written plan in this repository is executed.** Nothing is running,
+no worktree holds unmerged work, `main` is clean.
 
-**Health:** **2,064 tests pass**, app schema **20**, **content schema 3**, corpus **2,369
+**Health:** **2,099 tests pass**, app schema **21**, **content schema 3**, corpus **2,369
 questions**, zero analyzer issues under `lib/` and `test/` outside `test/tool/`, formatter clean,
 layering 36, attribution 0.
 
@@ -133,12 +133,15 @@ parallel and conflicted only on an import**, each having filled its own stub.
 
 ### What is left, in the order worth doing it
 
-**One plan is left that an agent can execute.** Everything else is Aedwon's.
+**No plan is left.** What remains needs Aedwon, not an implementor.
 
-| Next | Plan | Note |
+| | What | Why it cannot be dispatched |
 |---|---|---|
-| 1 | `custom-track-b-student-built-mock` | **The only unexecuted plan.** Custom Track A merged whole on 10 August. **Two corrections its Step 0 needs:** it greps `app_database.dart` for `CustomTrack` and will find nothing, because A's table is `TrackScopeLocal` and its repository is `custom_track_repository.dart`; and the schema is **20**, so it takes **21**. **Dispatched 10 August and stopped by quota before writing anything** |
-| 2 | `foundations-03` **Task 2 only** | The feedback row. Blocked on the community group URL, which is Aedwon's |
+| 1 | **Approve the 2,369 questions** | Every one has `approved:` unset by design. **The single largest thing between the corpus and a student** |
+| 2 | **Firebase** | Nothing exists. `docs/firebase-setup.md` is the whole list, written 10 August |
+| 3 | **The store side of the paywall** | Dashboard, products, a signed build |
+| 4 | **The feedback row** | Needs the community group URL and a contact email. Its plan's Task 2 is the only task in the repo deliberately left unexecuted |
+| 5 | **11 Geometry figures, and 40 formula findings to triage** | Hand-made pictures, and a set that is partly noise |
 
 **Progress 02, 04, 05 and 06 are merged.** Every one of them added a section to the same page in
 its own named slot, and none overwrote another's.

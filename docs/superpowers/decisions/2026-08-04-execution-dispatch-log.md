@@ -1491,3 +1491,52 @@ to Aedwon rather than retried on my own judgment.**
   named paths, or commit from a worktree.
 - **`git status` in the main checkout is the cheapest possible check** and it was not run
   between dispatching and committing.
+
+---
+
+## 10 August, last: Custom Track B, and the queue empties
+
+**Gemini ran out mid-dispatch**, before writing anything: no commits, clean worktree, nothing
+stranded. **Aedwon: "you're at 46% usage (54% left). proceed."** So Track B was built by hand,
+all five tasks.
+
+### Three places the plan disagreed with the tree, and what won
+
+- **Its Step 0 checks the prerequisite by grepping `app_database.dart` for `CustomTrack`.**
+  Track A's table is `TrackScopeLocal`, so that grep finds nothing and the plan would have
+  stopped for the wrong reason. **The check was wrong, not the prerequisite.** Corrected in the
+  dispatch prompt before it ever ran, and again here.
+- **Its schema numbers are three versions stale.** 21, read from the tree.
+- **Its wheel test asserts `topicWeights` is empty after parsing.** The shipped parser fills
+  equal weights when they are absent, and has done since it was written. **The built thing
+  wins**: the test now asserts the *emitted json* carries no weights and the parsed section
+  carries even ones, which is what the plan actually wanted.
+
+### The second wheel, written deliberately
+
+The plan says reuse the quiz tab's `LengthWheel` if the geometry suits, and **"if a parameter
+is a lie, say so and write the second one deliberately."** It is a lie: that wheel is
+horizontal, sits in the picker footer, and takes its values from the practice unit mode rather
+than from a caller. **Passing a value list, a formatter and a second column through it would
+change what it is.** So there are two wheels, and the reason is in the code.
+
+### What the panel refuses to do
+
+**A custom track serves the same cooldown as a listed exam.** Same corpus, same sampler, same
+paper. Skipping it would let any Free student tick every subject, name a track anything at all,
+and take unlimited mock exams: a hole straight through the Pro proposition. The test asserts
+the Take button is absent during a custom track's cooldown.
+
+### And the refusal that keeps the student's number
+
+A student whose exam is 150 questions but who has ticked only Science gets **refused at Save
+with their 150 still on screen, in rust**, and one tap to widen. The two rejected alternatives
+stay rejected: capping the wheel at the corpus throws their true answer away, and running 60
+while they asked for 150 sells fidelity and delivers a short paper.
+
+### Health
+
+**2,099 tests pass on `main`**, app schema **21**, analyzer at the 7-issue baseline, formatter
+clean, attribution 0.
+
+**Every written plan in this repository is now executed.**
