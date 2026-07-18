@@ -2,6 +2,7 @@ import 'package:cse_cet_reviewer/core/storage/data/tables/account_prefs_table.da
 import 'package:cse_cet_reviewer/core/storage/data/tables/app_preferences_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/assessment_results_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/attempts_local_table.dart';
+import 'package:cse_cet_reviewer/core/storage/data/tables/custom_blueprints_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/daily_new_card_intro_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/device_prefs_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/exams_table.dart';
@@ -21,7 +22,6 @@ import 'package:cse_cet_reviewer/core/storage/data/tables/streak_local_table.dar
 import 'package:cse_cet_reviewer/core/storage/data/tables/subjects_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/sync_meta_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/topics_table.dart';
-import 'package:cse_cet_reviewer/core/storage/data/tables/custom_blueprints_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/track_scope_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/user_metrics_archetypes_local_table.dart';
 import 'package:cse_cet_reviewer/core/storage/data/tables/user_metrics_artifacts_local_table.dart';

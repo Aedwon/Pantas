@@ -19,6 +19,7 @@ import 'package:cse_cet_reviewer/features/home/presentation/home_tab.dart';
 import 'package:cse_cet_reviewer/features/legal/legal.dart';
 import 'package:cse_cet_reviewer/features/legal/presentation/legal_document_page.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/mock_exam.dart';
+import 'package:cse_cet_reviewer/features/mock_exam/presentation/pages/custom_mock_setup_route.dart';
 import 'package:cse_cet_reviewer/features/notifications/application/notifications_providers.dart';
 import 'package:cse_cet_reviewer/features/notifications/presentation/permission_rationale_page.dart';
 import 'package:cse_cet_reviewer/features/onboarding/onboarding.dart';
@@ -263,6 +264,10 @@ List<RouteBase> buildAppRoutes(Ref ref) {
     GoRoute(
       path: '/quiz/mock/setup',
       builder: (_, __) => const MockSetupPlaceholderPage(),
+    ),
+    GoRoute(
+      path: '/quiz/mock/custom-setup',
+      builder: (_, __) => const CustomMockSetupRoute(),
     ),
     GoRoute(
       path: '/lesson/:lessonId',

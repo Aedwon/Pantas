@@ -126,8 +126,11 @@ class _ValueWheelState extends State<ValueWheel> {
 
 /// The sheet's title and its one board control.
 class _WheelFrame extends StatelessWidget {
-  const _WheelFrame(
-      {required this.title, required this.onDone, required this.child});
+  const _WheelFrame({
+    required this.title,
+    required this.onDone,
+    required this.child,
+  });
 
   final String title;
   final VoidCallback onDone;
