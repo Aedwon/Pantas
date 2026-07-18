@@ -4,11 +4,11 @@ import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test('schema version is 20 and passages table exists', () async {
+  test('schema version is 21 and passages table exists', () async {
     final db = AppDatabase(NativeDatabase.memory());
     addTearDown(db.close);
 
-    expect(db.schemaVersion, equals(20));
+    expect(db.schemaVersion, equals(21));
 
     final tables = await db
         .customSelect(

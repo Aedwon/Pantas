@@ -39,6 +39,9 @@ class MockPanel extends StatelessWidget {
     required this.onTake,
     required this.onResume,
     required this.onViewResults,
+    this.customTrack,
+    this.onSetUpCustom,
+    this.onChangeCustomSetup,
     super.key,
   });
 
@@ -46,6 +49,15 @@ class MockPanel extends StatelessWidget {
 
   /// The most recent finished attempt, or null before the first one.
   final MockAttempt? lastAttempt;
+
+  /// The student's own paper, when this track is one they named. Null for a
+  /// listed exam, and null for a custom track that has not been set up yet.
+  final CustomMockSummary? customTrack;
+
+  /// Present only on a custom track. A listed exam's paper is published and
+  /// nobody sets it up.
+  final VoidCallback? onSetUpCustom;
+  final VoidCallback? onChangeCustomSetup;
 
   final bool proIsActive;
   final VoidCallback onTake;
@@ -59,6 +71,10 @@ class MockPanel extends StatelessWidget {
     final inProgress = availability.state == MockAvailabilityState.inProgress;
     final inCooldown = availability.state == MockAvailabilityState.cooldown;
     final hasHistory = attempt?.submittedAt != null;
+    final custom = customTrack;
+    // A custom track with nothing set up has no paper to take, so the panel
+    // offers to build one instead of offering to take it.
+    final needsSetUp = onSetUpCustom != null && custom == null;
 
     return RuledPanel(
       heading: 'Mock exam',
@@ -71,6 +87,13 @@ class MockPanel extends StatelessWidget {
               "Finish your session first. It runs 3 hours 30 and can't be "
               'paused.',
             )
+          else if (needsSetUp)
+            const _Body(
+              'You can build your own mock exam. Tell us how many questions '
+              "and how long it runs, and we'll set it up for you.",
+            )
+          else if (custom != null)
+            _Body(custom.line)
           else if (!hasHistory)
             const _Body(
               'The whole thing under exam timing. 3 hours 30, and no answers '
@@ -83,6 +106,30 @@ class MockPanel extends StatelessWidget {
             proIsActive: proIsActive,
             reopensOn: _reopensOn(remaining),
           ),
+          if (custom != null && !inProgress) ...[
+            const SizedBox(height: 4),
+            InkWell(
+              onTap: onChangeCustomSetup,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: Text(
+                  'Change the setup',
+                  style: context.textStyles.bodyMedium.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: context.colors.board,
+                  ),
+                ),
+              ),
+            ),
+          ],
+          if (needsSetUp) ...[
+            const SizedBox(height: 8),
+            BoardButton(
+              label: 'Set one up',
+              secondary: true,
+              onPressed: onSetUpCustom,
+            ),
+          ],
           if (hasHistory && !inProgress) ...[
             const SizedBox(height: 4),
             BoardButton(
@@ -98,7 +145,7 @@ class MockPanel extends StatelessWidget {
               secondary: true,
               onPressed: onResume,
             ),
-          ] else if (!inCooldown) ...[
+          ] else if (!inCooldown && !needsSetUp) ...[
             const SizedBox(height: 8),
             BoardButton(
               // The heading already says "Mock exam", so the button does not
@@ -227,5 +274,27 @@ class _TierLine extends StatelessWidget {
               ),
             ),
     );
+  }
+}
+
+/// A custom track's paper, as the panel states it back.
+///
+/// The figures are the student's own: what they told the app their exam is.
+@immutable
+class CustomMockSummary {
+  const CustomMockSummary({required this.questions, required this.minutes});
+
+  final int questions;
+  final int minutes;
+
+  String get line {
+    final hours = minutes ~/ 60;
+    final rest = minutes % 60;
+    final duration = switch ((hours, rest)) {
+      (0, final m) => '$m minutes',
+      (final h, 0) => h == 1 ? '1 hour' : '$h hours',
+      (final h, final m) => '${h}h ${m}m',
+    };
+    return '$questions questions, $duration. You set this up.';
   }
 }
