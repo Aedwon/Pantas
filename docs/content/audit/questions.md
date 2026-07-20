@@ -1,7 +1,7 @@
 # Question audit
 
 **10 August 2026.** The first mechanical pass over `content/questions`. The
-existing sweeps read `content/lessons` only; **2,401 questions across 158 files had
+existing sweeps read `content/lessons` only; **2,369 questions across 158 files had
 never been swept by anything.**
 
 Regenerate with `python3 tools/audit/run_all.py`. Findings land in
