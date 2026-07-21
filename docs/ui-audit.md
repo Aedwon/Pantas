@@ -414,3 +414,158 @@ question as much as a rendering one.
 5. **UI-011** — write the missing "data plan" (days-to-exam, lessons count,
    per-subject accuracy, study-plan providers) that four deferred items across
    three plan documents all point at.
+
+
+---
+
+# Session of 10 August 2026, evening: Aedwon's pass on the dev build
+
+**His words are quoted verbatim.** Everything under "Checked" is what the code
+says, not what the screen looked like: several of these are functional gaps
+rather than styling, and two are missing work rather than defects.
+
+## Home
+
+### UI-012 [important] The bottom navigation icons
+> "the navbar icons are wrong and outdated"
+
+Open decision 3 in this document has been open since the Home spec: whether the
+tabs stay text-only, take outline icons, or get a bespoke mark. **They currently
+carry stock Material icons, which is the option nobody chose.**
+
+### UI-013 [important] "Add your name" is shown to a student who has no name
+> "Magandang hapon, 'Add your name' is ew. shouldn't that be ommitted if they
+> haven't given a name?"
+
+**Checked: this is deliberate and it is wrong.** `home_masthead.dart` renders
+the invitation in the name slot, and the Home plan specified it: muted, tapping
+through to Settings. **The plan chose it over an empty slot without considering
+that the greeting reads as an instruction to the student every single launch.**
+Aedwon's reading beats the plan's: a greeting is not a to-do list.
+
+Options: drop the slot entirely when there is no name; or keep the greeting
+alone and put the invitation somewhere it is answered once.
+
+### UI-014 [polish] The stats band figures are not centred
+> "the two figures aren't centered"
+
+`StatsBand` takes `centred` and Home passes it. **Check whether the accessibility
+sweep's horizontal-scroll change on 10 August broke the centring**, since that is
+the only thing that touched this component today.
+
+### UI-015 [polish] Header actions are not right-aligned
+> "the 'See all' buttons should be at the rightmost. same with 'Unlock with Pro'"
+
+### UI-016 [important] The tendency deck's position indicator
+> "at least darken the current 'slide' indicator in the Your tendencies section.
+> it just grows bigger but i know there's a more pleasing way to do it."
+
+He is right that size alone is weak, and he is inviting a better idea rather than
+specifying one. **This is a design round, not a fix.**
+
+## Study
+
+### UI-017 [important] Chevrons are not vertically centred
+> "the chevrons aren't aligned to the center from up and down, it's jarring"
+
+### UI-018 [important] Opening a dropdown displaces the whole screen
+> "when opening the dropdowns, there's an abrupt screen displacement. can you
+> make it so that the part where the user opens just stays still and only under
+> it moves? the top part doesn't? just so it's clearer"
+
+The row you tapped should not move. Everything below it does.
+
+### UI-019 [blocker] Inline maths renders small and sits below the baseline
+> "the rendering of tex equations or just numbers enclosed in $ $ makes it so
+> that the number is lower than the text around it which is weird. it's also much
+> smaller. please fix."
+
+### UI-020 [blocker] Raw dollar signs still reach the screen
+> "in some lessons, the tex is not properly rendered and I'm still seeing actual
+> dollar signs $"
+
+**Related to UI-007, which is still open from the earlier pass.** UI-019 and
+UI-020 together mean the maths pipeline is half-working: some spans render at the
+wrong size and baseline, others not at all.
+
+### UI-021 [important] Broken list numbering
+> "there are a lot of numbering that go like 1, 2, 1 or 1, 1, 1. please fix"
+
+**This is UI-006 from the earlier pass, unfixed and now confirmed against real
+content.** It was left open pending "real content". The content is real now.
+
+## Quiz
+
+### UI-022 [polish] Centre the figure
+> "centering the figure"
+
+### UI-023 [blocker] "Change how sessions are built" opens a Page Not Found
+> "'Change how sessions are built' leads to Page Not Found and it says
+> GoException: no routes for locations: /settings/sessions and then a Home. is
+> this intended?"
+
+**Checked: not intended, and it is a dangling route.** `session_panel.dart:136`
+pushes `/settings/sessions`. **No such route exists** in `router.dart`, which
+carries `/settings`, `/settings/exam`, `/settings/exam/change`,
+`/settings/exam/included`, `/settings/account`, `/settings/pro`,
+`/settings/subscription`, `/settings/backup` and `/settings/about`. The ordering
+setting this is reaching for lives on one of those pages.
+
+### UI-024 [blocker] The practice quiz never reveals the answer
+> "also this is a quiz right not a mock? the expectation is, once the user
+> chooses a question, the correct answer is revealed. wrong answer and
+> explanation as well. but it doesn't do that and just proceeds with another
+> question."
+
+**He is right, and this is the largest finding of the session.** The reveal is
+the defining behaviour of the practice quiz, and the mock exists precisely
+because it withholds it.
+
+**Checked, and it is missing work rather than a defect.** `AnswerReveal` exists
+in `lib/core/ui/components/` and **nothing in `lib/features/quiz/` imports it**.
+`quiz_page.dart` has no reveal state at all.
+
+**This is the second unexecuted task found in Quiz Plan 4 today.** Its Task 7,
+the question grid, had never been written either and was built this morning
+because the mock needed it. **Task 3 of that plan is "The reveal".** The thread
+was recorded as finished on 8 August. **Treat the whole of Quiz Plan 4 as
+unverified rather than assuming only these two are missing.**
+
+### UI-025 [important] The question viewer cannot navigate
+> "when taking the test, I couldn't check or go back using the question viewer
+> dropdown on the top bar"
+
+**Same root cause.** `_openGrid` in `quiz_page.dart` is a stub whose comment
+names Task 7. The sheet it should open now exists; nothing calls it.
+
+### UI-026 [polish] The dismiss control at the end of a quiz is misplaced
+> "at the end of the quiz, the x to dismiss the window is misplaced."
+
+### UI-027 [question] Should the "Go through all X questions" control be board green?
+> "make the 'Go through all X questions' (i forgot the exact string) be green
+> since it's an action button. or would you advise otherwise?"
+
+**He asked for advice, so it needs an answer rather than a fix.** The identity
+reserves board for the single primary action on a surface. If this is the
+primary action of the debrief then it earns green; if "Practice these next" sits
+beside it, then two greens compete and the weaker one should stay text.
+
+### UI-028 [important] "More ways to practice" has no visual hierarchy
+> "the 'More ways to practice' section does not have proper visual hierarchy"
+
+### UI-029 [polish] The Flagged section crowds the one above it
+> "the 'Flagged' section is too near from the above section it feels
+> suffocating. space them more."
+
+---
+
+## What this pass changes about the plan
+
+**Two blockers are unbuilt features, not styling**: the reveal and the grid
+navigation, both from Quiz Plan 4. **They are the first thing to do**, because a
+practice quiz that never shows you the answer is not a practice quiz.
+
+**Three findings are repeats of open items** in this document: the maths
+rendering, the list numbering and the navigation icons. Two of them were left
+open pending real content or a decision. **The content arrived and the decision
+did not.**
