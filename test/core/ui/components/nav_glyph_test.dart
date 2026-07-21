@@ -85,4 +85,62 @@ void main() {
       isTrue,
     );
   });
+
+  _structure();
+}
+
+void _structure() {
+  const painter = NavGlyphPainter(
+    kind: NavGlyphKind.home,
+    fill: 0,
+    color: Color(0xFF000000),
+  );
+
+  group('every glyph has internal structure', () {
+    // A silhouette with nothing inside it reads as a blob at 23px. The first
+    // cut drew only the outer shapes, which is what Aedwon saw.
+    test('the house has a doorway as well as its walls', () {
+      expect(painter.outlineFor(NavGlyphKind.home).computeMetrics().length, 2);
+    });
+
+    test('the book has two leaves', () {
+      expect(painter.outlineFor(NavGlyphKind.study).computeMetrics().length, 2);
+    });
+
+    test('the sheet has a fold and a rising line', () {
+      expect(
+        painter.outlineFor(NavGlyphKind.progress).computeMetrics().length,
+        3,
+      );
+    });
+
+    test('the quiz is three options with three rules', () {
+      expect(painter.outlineFor(NavGlyphKind.quiz).computeMetrics().length, 6);
+    });
+  });
+
+  group('the fill region is not always the whole glyph', () {
+    test('the quiz shades one option, not all three', () {
+      final chosen = painter.fillRegionFor(NavGlyphKind.quiz).getBounds();
+      final whole = painter.outlineFor(NavGlyphKind.quiz).getBounds();
+
+      expect(chosen.height, lessThan(whole.height / 2));
+      // The middle one, so it reads as a choice rather than a list.
+      expect(chosen.center.dy, closeTo(12, 0.01));
+    });
+
+    test('the sheet does not fill its rising line into a blob', () {
+      expect(
+        painter.fillRegionFor(NavGlyphKind.progress).computeMetrics().length,
+        1,
+      );
+    });
+
+    test('the house fills without its doorway punched out', () {
+      expect(
+        painter.fillRegionFor(NavGlyphKind.home).computeMetrics().length,
+        1,
+      );
+    });
+  });
 }

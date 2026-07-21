@@ -429,9 +429,57 @@ rather than styling, and two are missing work rather than defects.
 ### UI-012 [important] The bottom navigation icons
 > "the navbar icons are wrong and outdated"
 
-Open decision 3 in this document has been open since the Home spec: whether the
-tabs stay text-only, take outline icons, or get a bespoke mark. **They currently
-carry stock Material icons, which is the option nobody chose.**
+**The claim under this finding was wrong when it was written.** It said the bar
+carried stock Material icons. It has carried the bespoke painted glyphs since 9
+August. Aedwon was looking at the approved design and still called it wrong,
+which is the more useful fact and was buried by a mistaken diagnosis.
+
+**Resolved 10 August, and he was right twice.**
+
+> "for the navbar icons: i replaced again especially the quiz icon. it's in the
+> docs. please thoroughly check. also i don't think the Home icon is right"
+
+**First: the quiz glyph was decided twice and the second decision was never
+built.** The single shaded bubble was specced on 26 July. **A second round ran
+on 28 July**, `quiz-glyph-v2.html`, whose whole premise was that a circle is
+wrong beside the other three: *"A circle has no internal structure. At 23px
+beside three structured objects it reads as a dot."* His selection is recorded
+in that session's log at the last timestamp: **S1, "Three options and rules"**,
+with the note *"looks natural"*. The bubble was built anyway.
+
+**Now built as chosen:** three options with their rules, and **only the middle
+one shades**. The ink rise survives intact, because ink rising into one bubble
+is still a pencil shading an answer.
+
+**Second, the Home glyph, and this one runs through all four.** Every mockup
+draws the house **with a doorway**. The implementation drew the outer pentagon
+and nothing else. Checking the other three found the same omission each time:
+
+| Glyph | The mockups draw | What was built |
+|---|---|---|
+| Home | Walls, roof, **and a doorway** | The silhouette only |
+| Study | Two leaves **and a spine** | One outline, no spine |
+| Progress | Sheet, **folded corner**, rising line | Sheet and line, no fold |
+| Quiz | (superseded, see above) | The old bubble |
+
+**This is what "outdated" was pointing at.** The v2 round names the thing
+exactly: each glyph is meant to be an object with internal structure, *"a roof
+and a doorway, a spine and two leaves"*. Drawn as bare silhouettes they are
+blobs, and filled solid on the active tab they are worse.
+
+**A third defect fell out of the same reading.** The progress sheet's rising
+line was in the same path as its body, so the ink rise filled it: a stroke
+meant to be a line was being printed as a solid wedge. The fill region and the
+stroked outline are separate now, which is also what lets the quiz shade one
+bubble of three.
+
+**Seven tests cover the shapes**, counting the parts of each glyph and
+asserting the quiz fills one option rather than all of them.
+
+**What I got wrong:** I read the specs and the audit and reported the glyphs as
+correct and the disagreement as his. The decision that superseded them was in a
+companion session log, which is where this project records his choices, and I
+had not looked there. **Check the session logs, not only the specs.**
 
 ### UI-013 [important] "Add your name" is shown to a student who has no name
 > "Magandang hapon, 'Add your name' is ew. shouldn't that be ommitted if they

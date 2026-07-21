@@ -45,6 +45,18 @@ the wrong question. Icons are added.
 Glyphs: **Home** a house, **Study** an open book, **Quiz** a single answer
 bubble, **Progress** a folded sheet with a rising line.
 
+> **Amended 28 July, and the amendment sat unbuilt until 10 August.** The quiz
+> glyph is **three options with their rules**, not a single bubble. A circle has
+> no internal structure, so at 23px beside a house and a book it reads as a dot.
+> **Only the middle option shades**; the ink rise is unchanged and still means a
+> pencil shading an answer. Round: `quiz-glyph-v2.html`. Selection: S1, "Three
+> options and rules".
+>
+> **Every glyph carries its internal detail**, which is what makes it an object
+> rather than a silhouette: the house has **a doorway**, the book has **a
+> spine**, the sheet has **a folded corner**. The first implementation drew the
+> outer shapes only.
+
 Three rules the implementation must hold:
 
 1. The rise plays **only on the tab being activated**. The outgoing tab drains
