@@ -190,11 +190,22 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
   void didUpdateWidget(covariant _ReaderBody oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.reader.lesson.id != widget.reader.lesson.id) {
+      // The body stays mounted across an advance, so the controller keeps
+      // the offset the last lesson was left at and the new one opened part
+      // way down. A lesson starts at its first line.
+      if (_scrollController.hasClients) _scrollController.jumpTo(0);
       _scrollOffset.value = 0;
       _progress.value = 0;
       _isAtEnd.value = false;
       _initMarking();
-      WidgetsBinding.instance.addPostFrameCallback((_) => _syncScrollState());
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        // Again after layout: the offset is clamped against the old lesson's
+        // extent until the new one has been measured.
+        if (mounted && _scrollController.hasClients) {
+          _scrollController.jumpTo(0);
+        }
+        _syncScrollState();
+      });
     }
   }
 

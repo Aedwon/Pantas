@@ -1133,3 +1133,32 @@ provider is not disposed before the pull lands.
 **The test drives the whole advance a frame at a time** and fails if the
 skeleton appears in any of them. **It also asserts the advance happened**,
 without which the loop would pass just as well on a pull that never committed.
+
+### UI-052 [polish] The next lesson opened part way down
+
+**Aedwon:** *"the scroll should be at the top of the next lesson after pulling
+up that to make it clean. currently idk what the behavior is it sometimes ends
+up at the last part of somewhere in the middle"*
+
+**A consequence of advancing becoming a swap.** The body stays mounted across
+an advance now, so the scroll controller kept whatever offset the last lesson
+was left at, and the next one opened wherever that landed. "Sometimes" is
+exactly right: a short next lesson has almost no scroll extent, so the
+framework clamped the stale offset back to zero on its own and it looked fine.
+A long one held it.
+
+**The controller is reset on the swap**, and again after layout, because until
+the new lesson has been measured the offset is still clamped against the old
+one's extent.
+
+**Shipped without a regression test, which is worth recording rather than
+hiding.** Three attempts each passed against the broken build for a different
+reason: pumping a fresh tree mounts a new controller that starts at zero; a
+short second lesson gets clamped to zero anyway; and driving the real gesture
+needs the lesson scrolled to its end, a next lesson resolved, and the drag not
+claimed by the scroll view. The fourth attempt got the preconditions right and
+then the second long lesson would not resolve through the study map at all.
+
+**A test that passes whether or not the fix is present is worse than none**,
+so none was kept. The behaviour is one line in one place and is described
+above; it wants an integration test rather than a widget test.
