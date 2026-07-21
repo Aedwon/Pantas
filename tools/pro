@@ -30,10 +30,12 @@ discover() {
   device_port="$(echo "$forward" | awk '{print $3}' | cut -d: -f2)"
 
   # The token is only ever printed, never stored, so it comes from logcat.
+  # Trailing slash trimmed: the printed URI ends in one and a doubled slash
+  # is a 404 rather than an RPC.
   token="$(adb logcat -d 2>/dev/null \
     | grep -o "http://127.0.0.1:${device_port}/[^/]*/" \
     | tail -1 \
-    | sed -E "s#http://127.0.0.1:${device_port}/##")" || true
+    | sed -E "s#http://127.0.0.1:${device_port}/##; s#/\$##")" || true
   [ -n "$token" ] || die "could not find the service token in logcat. Restart 'flutter run'."
 
   echo "http://127.0.0.1:${host_port}/${token}"
@@ -54,8 +56,21 @@ if [ -z "$base" ]; then
   echo "$base" > "$cache"
 fi
 
-isolate="$(call "${base}/getVM" \
-  | sed -E 's/.*"isolates":\[\{[^}]*"id":"([^"]*)".*/\1/')"
+isolate="$(call "${base}/getVM" | python3 -c '
+import json, sys
+try:
+    isolates = json.load(sys.stdin)["result"]["isolates"]
+except Exception:
+    sys.exit(0)
+# The main isolate is the one the app runs in.
+for i in isolates:
+    if i.get("name", "").endswith("main"):
+        print(i["id"])
+        break
+else:
+    if isolates:
+        print(isolates[0]["id"])
+')"
 [ -n "$isolate" ] || die "no isolate. Is the app running?"
 
 case "${1:-report}" in
