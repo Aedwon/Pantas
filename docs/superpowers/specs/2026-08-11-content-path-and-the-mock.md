@@ -25,15 +25,20 @@ from `content.db`, and **`content.db` is not the database the app runs on**.
 |---|---|---|
 | Built by | `tools/build_dev_seed` from `content/` | `tools/build_content_seed/seed_writer.dart` |
 | Its input | The authored corpus | **`test/fixtures/sanity/content_sample.json`**, a unit test's fixture |
-| Exams | 7, two of them with content | 4 |
+| Exams | 7, two of them with content | **1** |
 | Topics | 19 | **1** |
-| Questions | **2,000** | **16** |
-| Mock blueprints | none, no table | **0 rows** |
+| Questions | **2,000** | **1** |
+| Mock blueprints | none, no table | **1**, and it is the fixture's |
 | Read by | every screen a student sees | `performance_provider` for published sizes, and the mock's blueprint providers |
 
-**The ids do not match.** `content.db` carries `exam-upcat`; the seed the app
-runs on carries `exam_upcat`. Hyphens against underscores, so a blueprint keyed
-to one is invisible to the other.
+**The one blueprint is `blueprint_cse`**, a 90 minute "CSE Practice" keyed to
+`exam_cse`. **The app ships no exam with that id**; its Civil Service exam is
+`exam_cse_pro`. So the single blueprint that exists is addressed to nobody.
+
+**The counts above are from a fresh build**, which is what a checkout and what
+CI produce. A stale `content.db` dated 20 July, holding 16 questions and no
+blueprints, was in one working tree and briefly gave this document worse
+numbers. The file is gitignored; there is no committed copy to disagree with.
 
 **The generator says so itself.** `build_dev_seed.dart` opens with: *"Temporary
 dev tool: the app's shipping content path is the Sanity to content.db pipeline,

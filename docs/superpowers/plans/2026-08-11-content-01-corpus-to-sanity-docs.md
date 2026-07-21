@@ -60,10 +60,19 @@ start**; if a number moved, say so.
 | lessons | 144 |
 | topics | 19 |
 | exams | 7, of which UPCAT and CSE Professional carry subjects |
-| `assets/seed/content.db` questions | 16 |
-| its topics | 1 |
-| its mock blueprints | 0 |
+| `assets/seed/content.db`, **built fresh from the fixture** | 1 exam, 1 topic, **1 question**, **1 blueprint** |
+| that blueprint | `blueprint_cse`, exam `exam_cse`, "CSE Practice", 90 minutes |
 | what CI builds it from | `test/fixtures/sanity/content_sample.json` |
+
+**An earlier version of this plan said 16 questions and 0 blueprints.** Those
+came from a stale `content.db` sitting in one working tree, dated 20 July. **The
+file is gitignored, so a fresh checkout has none**, and what the pipeline
+actually produces is the row above. The first run of this plan stopped and said
+so, which is what it was asked to do and why the numbers are right now.
+
+**The fixture's one blueprint is not a usable paper.** It is keyed to `exam_cse`,
+which is not an exam the app ships: the seed carries `exam_cse_pro`. Nothing
+about the conclusion changes, and the evidence is stronger than it was.
 
 **Id convention is underscores** and does not change: `exam_upcat`,
 `topic_upcat_algebra`, `subj_upcat_mathematics`. The hyphenated ids in the

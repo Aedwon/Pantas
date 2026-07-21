@@ -1405,9 +1405,18 @@ screen. The routes behind it exist: `/quiz/mock/setup`,
 `/quiz/mock/custom-setup`, `/mock-exam`.
 
 **And there is nothing behind the door.** Blueprints decide a mock's shape, and
-`assets/seed/content.db` was opened and read directly: **`content_mock_blueprints`
-has 0 rows.** Wiring the panel alone would put a door on an empty room, which
-is worse than no door.
+`content.db` was opened and read directly.
+
+**Corrected 11 August, after the first Content 01 run stopped on it.** This
+entry first said the table had 0 rows, which was read from a stale `content.db`
+dated 20 July sitting in one working tree. **The file is gitignored**, so a
+checkout has none and the number meant nothing. Built fresh from the fixture CI
+uses, the database holds **1 exam, 1 topic, 1 question and 1 blueprint**.
+
+**That blueprint is `blueprint_cse`, a 90 minute "CSE Practice" keyed to
+`exam_cse`, and the app ships no exam with that id**: its Civil Service exam is
+`exam_cse_pro`. So the one blueprint that exists is addressed to nobody, which
+makes the point more sharply than 0 rows did.
 
 **Not fixed in this pass**, because the fix is a blueprint per exam plus a
 generator step, not a wire. Put to Aedwon with options. **He chose to author a
