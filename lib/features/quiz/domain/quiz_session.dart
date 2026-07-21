@@ -1,6 +1,7 @@
 // ignore_for_file: sort_unnamed_constructors_first
 import 'package:cse_cet_reviewer/core/fsrs/rating.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/passage_set_filler.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -54,7 +55,15 @@ class QuizSession with _$QuizSession {
       QuizSession(
         sessionId: sessionId,
         examId: examId,
-        questions: questions,
+        // Every session is built through here, so this is the one place
+        // that can promise a passage is read once. Patching each use case
+        // missed four of them.
+        //
+        // Safe only because a session starts with no outcomes: those are
+        // indexed by position, so reordering a session that already holds
+        // answers would attach them to the wrong questions. `resume` builds
+        // its session directly and keeps the stored order.
+        questions: groupPassageSets(questions),
         currentIndex: 0,
         outcomes: const [],
         startedAt: startedAt,

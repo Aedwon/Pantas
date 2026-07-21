@@ -169,4 +169,24 @@ void main() {
     expect(back.currentOutcome?.chosenChoiceId, equals('c1b'));
     expect(back.currentOutcome?.isCorrect, isFalse);
   });
+
+  test('start() puts a passage set in one run, whatever order it arrives in',
+      () {
+    final withPassages = [
+      q1.copyWith(id: 'p1-a', passageId: 'p1'),
+      q2.copyWith(id: 'free'),
+      q1.copyWith(id: 'p1-b', passageId: 'p1'),
+    ];
+
+    final s = QuizSession.start(
+      sessionId: 'sess',
+      examId: 'e',
+      questions: withPassages,
+      startedAt: DateTime.utc(2026),
+    );
+
+    // Every builder goes through start(), so none of them can scatter a
+    // passage by forgetting to group it.
+    expect(s.questions.map((q) => q.id), ['p1-a', 'p1-b', 'free']);
+  });
 }
