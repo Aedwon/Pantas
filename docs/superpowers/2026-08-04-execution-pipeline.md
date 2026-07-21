@@ -141,6 +141,10 @@ displacement, and the Quiz tab's spacing.
 | 4 | **The feedback row** | Needs the community group URL and a contact email |
 | 5 | **11 Geometry figures, 40 formula findings** | Hand-made pictures, and a set that is partly noise |
 
+**One chore is written and unplanned:** `2026-08-10-name-cleanup-chore.md`, retiring "CSE/CET
+Reviewer" for Pantas. **Its Tier 2, the Android and iOS identifiers, can only be done before the
+first store submission**, so it is a dependency of item 3 rather than a tidy-up.
+
 ### Open questions waiting on Aedwon
 
 - **The four shared tendencies are written twice**, once per screen, and nothing keeps them
