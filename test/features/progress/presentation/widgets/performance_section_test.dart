@@ -289,6 +289,24 @@ void main() {
     expect(find.text('Show less'), findsOneWidget);
   });
 
+  testWidgets('collapsed shows measured rows, never a run of blanks',
+      (tester) async {
+    // Taking the first six of the sorted table meant a student with nothing
+    // measured opened on six empty rows, which is what collapsing was meant
+    // to remove.
+    await tester.pumpWidget(harness());
+    await tester.pumpAndSettle();
+
+    for (final tile
+        in tester.widgetList<DataRowTile>(find.byType(DataRowTile))) {
+      expect(
+        tile.meterValue,
+        isNotNull,
+        reason: 'a collapsed table shows only rows that have a score',
+      );
+    }
+  });
+
   testWidgets('the section is enclosed like the ones around it',
       (tester) async {
     await tester.pumpWidget(harness());

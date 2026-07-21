@@ -1205,3 +1205,25 @@ green appears nowhere in this table and the colour budget keeps it for primary
 actions. Weight carries it instead.
 
 **The spec is amended in place** rather than left to disagree with the code.
+
+### UI-055 [blocker] The collapse showed blanks to a student with no scores
+
+**Aedwon, asking rather than reporting:** *"what's the behavior if all have
+scores? obviously the 'Show X not started' will reduce in numbers but does that
+mean the amount of lessons being shown gets longer?"*
+
+**The answer to his question is no**: the collapsed height is fixed at six, so
+it never grows. Only the label changes, from *"Show 12 not started"* to
+*"Show 20 more topics"* once nothing is unmeasured.
+
+**But the question found a real defect.** The collapsed view took the first six
+rows of the sorted table, and unmeasured rows sort last **only when measured
+ones exist**. A student with nothing measured yet opened Performance on **six
+blank rows**, which is precisely what collapsing was added to remove.
+
+**Collapsed now takes the first six *measured* rows.** With none measured the
+table draws no rows and one line in their place, because a table head sitting
+over nothing reads as broken rather than as empty.
+
+**A test walks every visible row in the collapsed table and fails if any of
+them has no score.**

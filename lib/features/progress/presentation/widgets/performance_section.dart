@@ -64,12 +64,14 @@ class _PerformanceSectionState extends ConsumerState<PerformanceSection> {
     final sorted = table == null
         ? const <PerformanceRow>[]
         : _sorted(table.rows, order, table.timeIsMeasurable);
-    final hidden = _expanded
-        ? 0
-        : (sorted.length - _collapsedRows).clamp(0, sorted.length);
-    final shown = _expanded ? sorted : sorted.take(_collapsedRows).toList();
-    final unmeasuredHidden =
-        sorted.skip(shown.length).where((r) => r.accuracy == null).length;
+    // Collapsed shows **measured** rows, capped, not the first six of
+    // whatever order the table is in. Taking the first six flat meant a
+    // student with nothing measured yet opened on six blank rows, which is
+    // the thing collapsing was meant to remove.
+    final measured = sorted.where((r) => r.accuracy != null).toList();
+    final shown = _expanded ? sorted : measured.take(_collapsedRows).toList();
+    final hidden = sorted.length - shown.length;
+    final unmeasuredHidden = _expanded ? 0 : sorted.length - measured.length;
 
     return RuledPanel(
       heading: 'Performance',
@@ -107,6 +109,7 @@ class _PerformanceSectionState extends ConsumerState<PerformanceSection> {
                   ? () => _openScope(context, ref, level, table, subjectId)
                   : null,
             ),
+            if (shown.isEmpty && !_expanded) _NothingMeasuredLine(),
             for (final row in shown)
               DataRowTile(
                 title: row.title,
@@ -309,6 +312,26 @@ class _ExpandControl extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
         ),
+      ),
+    );
+  }
+}
+
+/// Stands in for the rows when none of them has a score yet.
+///
+/// Without it the table head sits over nothing at all, which reads as
+/// broken rather than as empty.
+class _NothingMeasuredLine extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.colors;
+    final styles = context.textStyles;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12),
+      child: Text(
+        'No scores here yet. Answer some questions and they will fill in.',
+        style: styles.bodySmall.copyWith(color: colors.inkMuted),
       ),
     );
   }

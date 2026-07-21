@@ -138,6 +138,12 @@ Wholly Free. Spec 11 already placed the on-pace indicator in the Free tier.
 > sort last, so collapsing hides exactly those: it does what deleting them was
 > meant to do without losing the fact that they have not been started.
 >
+> **The six are the six *measured* rows, not the first six of the table.** The
+> collapsed height is fixed, so it does not grow as more parts get a score;
+> only the control's label changes. **With nothing measured yet the table shows
+> no rows at all** and one line in their place, because six blank rows is the
+> thing collapsing exists to remove.
+>
 > **Each measured row carries an inline bar**, the component Home already uses
 > for weakest areas. **A row with nothing measured gets no bar**, because an
 > empty bar is a figure and there is no figure, but its slot is still held so
