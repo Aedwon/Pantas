@@ -98,7 +98,7 @@ questions:
     choices:
       - text: "$2$"
         correct: true
-      - text: "$\frac{1}{2}$"
+      - text: "$\\frac{1}{2}$"
       - text: "$8$"
       - text: "$16$"
     explanation: |
@@ -272,11 +272,11 @@ questions:
     stem: |
       Marco started the day with $\text{₱}500$ in his sari-sari store cash box. During the day, he sold $12$ bottles of juice for $\text{₱}15$ each and spent $\text{₱}80$ from the cash box to buy extra ice. At the end of the day, he divided all the remaining cash equally among himself and his $2$ siblings. How much money did each person receive?
     choices:
-      - text: "$\text{₱}200$"
+      - text: "$\\text{₱}200$"
         correct: true
-      - text: "$\text{₱}300$"
-      - text: "$\text{₱}600$"
-      - text: "$\text{₱}180$"
+      - text: "$\\text{₱}300$"
+      - text: "$\\text{₱}600$"
+      - text: "$\\text{₱}180$"
     explanation: |
       Translate the problem into a single numerical expression:
       $$\text{Amount per person} = (500 + 12 \times 15 - 80) \div 3$$
@@ -354,11 +354,11 @@ questions:
     stem: |
       A jeepney driver starts his morning route with an initial change fund of $\text{₱}350$. During the trip, he collects regular fares from $24$ passengers at $\text{₱}13$ each and discounted fares from $10$ students at $\text{₱}10$ each. He then spends $\text{₱}400$ from his cash box for diesel fuel. Finally, he splits all remaining cash into $2$ equal parts: one part for his daily boundary fee and the other part for his personal net income. What is his personal net income from the morning trip?
     choices:
-      - text: "$\text{₱}181$"
+      - text: "$\\text{₱}181$"
         correct: true
-      - text: "$\text{₱}362$"
-      - text: "$\text{₱}6$"
-      - text: "$\text{₱}381$"
+      - text: "$\\text{₱}362$"
+      - text: "$\\text{₱}6$"
+      - text: "$\\text{₱}381$"
     explanation: |
       Write a single expression for the driver's net income:
       $$\text{Net Income} = \frac{350 + 24 \times 13 + 10 \times 10 - 400}{2}$$

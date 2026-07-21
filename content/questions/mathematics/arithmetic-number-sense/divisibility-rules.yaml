@@ -79,7 +79,7 @@ questions:
         correct: true
       - text: "The test is flawed because $24$ is odd. The correct factors are $2$ and $12$."
       - text: "The test is valid; any number divisible by $4$ and $6$ is always divisible by $24$."
-      - text: "The test is flawed because $4 + 6 \neq 24$. The correct factors are $4$ and $20$."
+      - text: "The test is flawed because $4 + 6 \\neq 24$. The correct factors are $4$ and $20$."
     explanation: |
       To determine divisibility by a composite number $N = a \times b$, the factors $a$ and $b$ must be coprime, meaning their greatest common divisor is 1. Since $\gcd(4, 6) = 2 \neq 1$, a number can be divisible by both $4$ and $6$ without being divisible by $24$. For example, $12$ is divisible by $4$ and $6$, but not by $24$. The correct coprime factors whose product is $24$ are $3$ and $8$ because $\gcd(3, 8) = 1$.
 

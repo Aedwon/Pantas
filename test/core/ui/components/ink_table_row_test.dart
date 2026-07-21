@@ -150,4 +150,44 @@ void main() {
       isFalse,
     );
   });
+
+  testWidgets('the chevron sits in the middle of a row that has a subtitle',
+      (tester) async {
+    // Reported twice. The first fix put it on the title's baseline, which
+    // centres it only while the row is one line, and every row in Study
+    // carries a subtitle. Aedwon: "the chevrons aren't aligned to the center
+    // from up and down, it's jarring".
+    await tester.pumpWidget(
+      harness(
+        InkTableRow(
+          title: 'Measures of Central Tendency',
+          subtitle: 'Mathematics, 11 min',
+          chevron: InkRowChevron.disclosure,
+          onTap: () {},
+        ),
+      ),
+    );
+
+    final row = tester.getRect(find.byType(InkTableRow));
+    final chevron = tester.getRect(find.byType(InkChevron));
+
+    expect(chevron.center.dy, moreOrLessEquals(row.center.dy, epsilon: 0.6));
+  });
+
+  testWidgets('and still sits in the middle of a one line row', (tester) async {
+    await tester.pumpWidget(
+      harness(
+        InkTableRow(
+          title: 'Algebra',
+          chevron: InkRowChevron.link,
+          onTap: () {},
+        ),
+      ),
+    );
+
+    final row = tester.getRect(find.byType(InkTableRow));
+    final chevron = tester.getRect(find.byType(InkChevron));
+
+    expect(chevron.center.dy, moreOrLessEquals(row.center.dy, epsilon: 0.6));
+  });
 }

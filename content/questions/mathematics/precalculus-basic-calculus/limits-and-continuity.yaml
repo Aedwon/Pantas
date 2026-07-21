@@ -125,7 +125,7 @@ questions:
     difficulty: medium
     stem: |
       Consider the piecewise function:
-      $$f(x) = \begin{cases} 2x + 1 & \text{if } x < 3 \\ x^2 - 2 & \text{if } x \ge 3 \end{cases}$$
+      $$f(x) = \begin{cases} 2x + 1 & \text{if } x < 3 \ x^2 - 2 & \text{if } x \ge 3 \end{cases}$$
       Find the right-hand limit $\lim_{x \to 3^+} f(x)$.
     choices:
       - text: $7$
@@ -199,7 +199,7 @@ questions:
     difficulty: hard
     stem: |
       Find the value of the constant $k$ such that the function $f(x)$ is continuous at $x = 2$:
-      $$f(x) = \begin{cases} kx^2 & \text{if } x \le 2 \\ 3x + 2 & \text{if } x > 2 \end{cases}$$
+      $$f(x) = \begin{cases} kx^2 & \text{if } x \le 2 \ 3x + 2 & \text{if } x > 2 \end{cases}$$
     choices:
       - text: $k = 2$
         correct: true

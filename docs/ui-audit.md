@@ -934,3 +934,62 @@ session.** Restarting it dropped the count from 16,350 to 9.
 **Worth remembering: a suite that fails to load every file is an environment
 fault, not a code fault**, and re-running it makes the problem worse rather
 than diagnosing it.
+
+### UI-044 [blocker] "extP1,370.00" in the answer choices, and what was behind it
+
+**Aedwon:** *"i was trying out a quiz and i saw that the options have
+extPXXXX.XX where P is a peso sign. can you diagnose this?"*
+
+**It is a YAML escaping bug, and it had a second bug hiding behind it.**
+
+**The content.** Question choices are authored in YAML. Some were written in
+**double quotes**, where YAML processes backslash escapes, so `"$\text{₱}1,370.00$"`
+became a **tab** followed by `ext{₱}1,370.00`. `\frac` went the same way through
+`\f`, a form feed. **109 tabs and 17 form feeds across 30 questions**, all in
+choices, because stems are written as block scalars where backslashes are
+literal.
+
+The authors were inconsistent rather than uniformly wrong: some double-quoted
+strings correctly used `\\text`. **So the repair normalises a lone backslash to
+a pair inside double-quoted scalars only**, and leaves correct ones alone. The
+opposite error existed too, `\\div` inside block scalars where a pair means a
+line break, and that is fixed the other way.
+
+**A sweep of all 2,376 maths expressions in the bank** found 5 that failed to
+parse. It is 2 now: a piecewise function using display delimiters, and one
+using `\,` before a mid-dot. **Both are recorded and neither is a peso sign.**
+
+**Also found: one stem had an unbalanced `$`.** `$\text{₱}13/fare.` never
+closed, so every delimiter after it paired with the wrong partner.
+
+### The generator had been broken for a day and nothing noticed
+
+**`build_dev_seed` could not compile.** It crashed the Dart compiler's FFI pass
+with *"type 'InvalidType' is not a subtype of type 'FunctionType'"*.
+
+**The cause was a documentation link.** An `import` of
+`portable_text_renderer.dart` had been added so a `[PortableTextRenderer]`
+reference in a doc comment would resolve. That import pulls **Flutter** into a
+plain `dart run` command-line tool, which cannot compile it.
+
+**Bisected across seven commits to find it**, because the crash happens during
+compilation and says nothing about which import caused it. The tool is the only
+way content reaches a build, and **it was broken from 10 August until it was
+needed on 11 August**. Nothing regenerated the seed in between, so nothing
+failed.
+
+### UI-017 [important] The Study chevrons, reported twice
+
+**Aedwon:** *"the chevrons in the study tab still aren't centered vertically.
+please fix"*
+
+**The first fix put the chevron on the title's baseline**, which centres it
+only while the row is one line. **Every row in Study carries a subtitle**, so
+it kept riding high against the second line.
+
+**The text and the chevron want different alignments**, so they are two rows
+now: the text keeps its shared baseline, and the chevron centres against the
+whole row. A chevron marks the row, not the first line of it.
+
+**Two tests**, one row with a subtitle and one without, both asserting the
+chevron's centre matches the row's.

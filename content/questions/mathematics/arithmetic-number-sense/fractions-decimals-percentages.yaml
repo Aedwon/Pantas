@@ -28,11 +28,11 @@ questions:
     stem: |
       Simplify: $\frac{\frac{2}{5} + \frac{1}{3}}{\frac{11}{15}}$
     choices:
-      - text: "$\frac{11}{15}$"
+      - text: "$\\frac{11}{15}$"
       - text: "$1$"
         correct: true
-      - text: "$\frac{121}{225}$"
-      - text: "$\frac{1}{15}$"
+      - text: "$\\frac{121}{225}$"
+      - text: "$\\frac{1}{15}$"
     explanation: |
       Numerator: $\frac{2}{5} + \frac{1}{3} = \frac{6 + 5}{15} = \frac{11}{15}$
 
@@ -46,11 +46,11 @@ questions:
     stem: |
       A sari-sari store owner buys a box of canned milk for $\text{₱}400$. If the wholesaler offers a 15% discount for cash payments, how much does the store owner pay?
     choices:
-      - text: "$\text{₱}60$"
-      - text: "$\text{₱}340$"
+      - text: "$\\text{₱}60$"
+      - text: "$\\text{₱}340$"
         correct: true
-      - text: "$\text{₱}360$"
-      - text: "$\text{₱}385$"
+      - text: "$\\text{₱}360$"
+      - text: "$\\text{₱}385$"
     explanation: |
       Discount amount: $15\% \times \text{₱}400 = 0.15 \times \text{₱}400 = \text{₱}60$
 
@@ -64,11 +64,11 @@ questions:
     stem: |
       Express $0.444...$ as a fraction in lowest terms, then add $\frac{2}{9}$. What is the simplified result?
     choices:
-      - text: "$\frac{6}{9}$"
-      - text: "$\frac{4}{9}$"
-      - text: "$\frac{2}{3}$"
+      - text: "$\\frac{6}{9}$"
+      - text: "$\\frac{4}{9}$"
+      - text: "$\\frac{2}{3}$"
         correct: true
-      - text: "$\frac{44}{99}$"
+      - text: "$\\frac{44}{99}$"
     explanation: |
       The repeating decimal $0.444... = \frac{4}{9}$
 
@@ -84,11 +84,11 @@ questions:
     stem: |
       A restaurant bill is $\text{₱}850$. A 10% service charge is added, then the customer leaves a 5% tip on the new total. What is the final amount paid?
     choices:
-      - text: "$\text{₱}977.50$"
-      - text: "$\text{₱}981.75$"
+      - text: "$\\text{₱}977.50$"
+      - text: "$\\text{₱}981.75$"
         correct: true
-      - text: "$\text{₱}935.00$"
-      - text: "$\text{₱}997.50$"
+      - text: "$\\text{₱}935.00$"
+      - text: "$\\text{₱}997.50$"
     explanation: |
       Add service charge: $\text{₱}850 \times 1.10 = \text{₱}935$
 
@@ -108,7 +108,7 @@ questions:
       - text: "$0.35$"
       - text: "$1$"
         correct: true
-      - text: "$\frac{7}{12}$"
+      - text: "$\\frac{7}{12}$"
     explanation: |
       Parentheses: $\frac{5}{6} - \frac{1}{4} = \frac{10 - 3}{12} = \frac{7}{12}$
 
@@ -184,11 +184,11 @@ questions:
     stem: |
       An investor deposits $\text{₱}12,000$ in a savings account earning 5.5% simple annual interest. How much total interest is earned after 18 months?
     choices:
-      - text: "$\text{₱}660$"
-      - text: "$\text{₱}990$"
+      - text: "$\\text{₱}660$"
+      - text: "$\\text{₱}990$"
         correct: true
-      - text: "$\text{₱}1,188$"
-      - text: "$\text{₱}11,880$"
+      - text: "$\\text{₱}1,188$"
+      - text: "$\\text{₱}11,880$"
     explanation: |
       Convert time: $18$ months $= \frac{18}{12} = 1.5$ years
 
@@ -204,11 +204,11 @@ questions:
     stem: |
       A sari-sari store owner buys 60 kg of rice for $\text{₱}3,000$ total. She sells $\frac{1}{3}$ at 20% profit, $\frac{1}{2}$ at 10% profit, and the rest at cost. What is her overall profit?
     choices:
-      - text: "$\text{₱}300$"
-      - text: "$\text{₱}350$"
+      - text: "$\\text{₱}300$"
+      - text: "$\\text{₱}350$"
         correct: true
-      - text: "$\text{₱}450$"
-      - text: "$\text{₱}900$"
+      - text: "$\\text{₱}450$"
+      - text: "$\\text{₱}900$"
     explanation: |
       Cost per portion:
       - $\frac{1}{3} \times \text{₱}3,000 = \text{₱}1,000$
@@ -246,11 +246,11 @@ questions:
     stem: |
       After a 20% discount on marked price, a customer paid $\text{₱}672$. This included 12% sales tax on the discounted price. What was the original marked price?
     choices:
-      - text: "$\text{₱}700$"
-      - text: "$\text{₱}720$"
-      - text: "$\text{₱}750$"
+      - text: "$\\text{₱}700$"
+      - text: "$\\text{₱}720$"
+      - text: "$\\text{₱}750$"
         correct: true
-      - text: "$\text{₱}800$"
+      - text: "$\\text{₱}800$"
     explanation: |
       Let $P$ be original marked price.
 

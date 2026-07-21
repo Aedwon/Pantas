@@ -107,7 +107,7 @@ questions:
     difficulty: medium
     stem: |
       Given the piecewise function:
-      $$f(x) = \begin{cases} x^2 + 1 & \text{if } x < 3 \\ 2x + 5 & \text{if } x \ge 3 \end{cases}$$
+      $$f(x) = \begin{cases} x^2 + 1 & \text{if } x < 3 \ 2x + 5 & \text{if } x \ge 3 \end{cases}$$
       Evaluate $f(3)$.
     choices:
       - text: $11$

@@ -10,11 +10,11 @@ questions:
     stem: |
       What is the prime factorization of $180$?
     choices:
-      - text: "$1 \times 2^2 \times 3^2 \times 5$"
-      - text: "$2^2 \times 9 \times 5$"
-      - text: "$2^2 \times 3^2 \times 5$"
+      - text: "$1 \\times 2^2 \\times 3^2 \\times 5$"
+      - text: "$2^2 \\times 9 \\times 5$"
+      - text: "$2^2 \\times 3^2 \\times 5$"
         correct: true
-      - text: "$2^3 \times 3 \times 5$"
+      - text: "$2^3 \\times 3 \\times 5$"
     explanation: |
       Divide $180$ by prime factors in sequence:
       - $180 \div 2 = 90$
@@ -77,11 +77,11 @@ questions:
     stem: |
       Which of the following represents the prime factorization of $210$?
     choices:
-      - text: "$2 \times 3 \times 5 \times 7$"
+      - text: "$2 \\times 3 \\times 5 \\times 7$"
         correct: true
-      - text: "$1 \times 2 \times 3 \times 5 \times 7$"
-      - text: "$2 \times 15 \times 7$"
-      - text: "$2^2 \times 3 \times 5 \times 7$"
+      - text: "$1 \\times 2 \\times 3 \\times 5 \\times 7$"
+      - text: "$2 \\times 15 \\times 7$"
+      - text: "$2^2 \\times 3 \\times 5 \\times 7$"
     explanation: |
       Divide $210$ by successive primes:
       - $210 \div 2 = 105$
@@ -136,7 +136,7 @@ questions:
 
       LCM uses highest powers: $2^2 \times 3 \times 5 = 4 \times 3 \times 5 = 60$ minutes
 
-      $6:00\\text{ AM} + 60\\text{ minutes} = 7:00\\text{ AM}$
+      $6:00\text{ AM} + 60\text{ minutes} = 7:00\text{ AM}$
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0007
     type: direct-computation
@@ -235,11 +235,11 @@ questions:
     stem: |
       A charity foundation creates relief packages from 315 blankets (costing $\text{₱}150$ each) and 420 lanterns (costing $\text{₱}250$ each). They create the maximum number of identical packages. What is the total cost of one relief package?
     choices:
-      - text: "$\text{₱}400$"
-      - text: "$\text{₱}1,350$"
-      - text: "$\text{₱}1,450$"
+      - text: "$\\text{₱}400$"
+      - text: "$\\text{₱}1,350$"
+      - text: "$\\text{₱}1,450$"
         correct: true
-      - text: "$\text{₱}10,150$"
+      - text: "$\\text{₱}10,150$"
     explanation: |
       Find maximum packages: GCF(315, 420).
 
@@ -274,9 +274,9 @@ questions:
 
       LCM $= 2^4 \times 3 \times 5 = 16 \times 3 \times 5 = 240$ minutes $= 4$ hours
 
-      Next simultaneous passage: $9:00\\text{ AM} + 4\\text{ hours} = 1:00\\text{ PM}$
+      Next simultaneous passage: $9:00\text{ AM} + 4\text{ hours} = 1:00\text{ PM}$
 
-      Since $1:00\\text{ PM}$ is after noon, this is the answer.
+      Since $1:00\text{ PM}$ is after noon, this is the answer.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0013
     type: direct-computation
@@ -335,11 +335,11 @@ questions:
     stem: |
       Jeepney X and Y depart at 5:00 AM. Jeepney X has a 45-minute round trip ($\text{₱}15$ fare, 20 passengers), while Jeepney Y has a 75-minute round trip ($\text{₱}25$ fare, 16 passengers). What is the combined fare collected by both jeepneys from 5:00 AM through their first simultaneous return to the terminal?
     choices:
-      - text: "$\text{₱}2,100$"
-      - text: "$\text{₱}2,400$"
-      - text: "$\text{₱}2,700$"
+      - text: "$\\text{₱}2,100$"
+      - text: "$\\text{₱}2,400$"
+      - text: "$\\text{₱}2,700$"
         correct: true
-      - text: "$\text{₱}3,100$"
+      - text: "$\\text{₱}3,100$"
     explanation: |
       Find when both return together: LCM(45, 75).
 

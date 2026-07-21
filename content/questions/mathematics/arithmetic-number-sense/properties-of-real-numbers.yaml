@@ -162,7 +162,7 @@ questions:
     type: which-is-true
     difficulty: hard
     stem: |
-      A student evaluates $(12 \\div 4) \\div 2 = 3 \\div 2 = 1.5$. They regroup as $12 \\div (4 \\div 2) = 12 \\div 2 = 6$. Which property explains why these results differ?
+      A student evaluates $(12 \div 4) \div 2 = 3 \div 2 = 1.5$. They regroup as $12 \div (4 \div 2) = 12 \div 2 = 6$. Which property explains why these results differ?
     choices:
       - text: "Division is not associative, so changing the grouping alters the result."
         correct: true
@@ -170,7 +170,7 @@ questions:
       - text: "The Distributive Property fails for division over subtraction."
       - text: "Division lacks a real identity element."
     explanation: |
-      The Associative Property requires $(a \\div b) \\div c = a \\div (b \\div c)$ for all values. This does not hold for division: $(12 \\div 4) \\div 2 = 1.5$ but $12 \\div (4 \\div 2) = 6$. Therefore, division is not associative.
+      The Associative Property requires $(a \div b) \div c = a \div (b \div c)$ for all values. This does not hold for division: $(12 \div 4) \div 2 = 1.5$ but $12 \div (4 \div 2) = 6$. Therefore, division is not associative.
 
       Choice B is incorrect because the order of numbers did not change; only the grouping did. Choices C and D are irrelevant to this particular error.
 
@@ -262,7 +262,7 @@ questions:
     type: direct-computation
     difficulty: exam-level
     stem: |
-      Simplify the algebraic expression: $$-\\frac{3}{4}(8x - 12y) + \\frac{1}{2}(6x - 4y) - 5(x - y)$$
+      Simplify the algebraic expression: $$-\frac{3}{4}(8x - 12y) + \frac{1}{2}(6x - 4y) - 5(x - y)$$
     choices:
       - text: "$-8x + 14y$"
         correct: true
@@ -272,9 +272,9 @@ questions:
     explanation: |
       Expand each product carefully:
 
-      First term: $-\\frac{3}{4}(8x) + (-\\frac{3}{4})(-12y) = -6x + 9y$
+      First term: $-\frac{3}{4}(8x) + (-\frac{3}{4})(-12y) = -6x + 9y$
 
-      Second term: $\\frac{1}{2}(6x) + \\frac{1}{2}(-4y) = 3x - 2y$
+      Second term: $\frac{1}{2}(6x) + \frac{1}{2}(-4y) = 3x - 2y$
 
       Third term: $-5(x) + (-5)(-y) = -5x + 5y$
 

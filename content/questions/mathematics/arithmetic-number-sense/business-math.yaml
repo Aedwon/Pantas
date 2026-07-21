@@ -10,11 +10,11 @@ questions:
     stem: |
       Aling Nena bought a wholesale box of canned goods for $\text{₱}800.00$ to sell in her sari-sari store. If she applies a 25% markup based on cost, what is the selling price?
     choices:
-      - text: "$\text{₱}1,000.00$"
+      - text: "$\\text{₱}1,000.00$"
         correct: true
-      - text: "$\text{₱}1,066.67$"
-      - text: "$\text{₱}200.00$"
-      - text: "$\text{₱}600.00$"
+      - text: "$\\text{₱}1,066.67$"
+      - text: "$\\text{₱}200.00$"
+      - text: "$\\text{₱}600.00$"
     explanation: |
       Markup: $\text{₱}800 \times 0.25 = \text{₱}200$
 
@@ -28,11 +28,11 @@ questions:
     stem: |
       A jeepney charges $\text{₱}13.00$ for first 4 km and $\text{₱}1.80$ per km thereafter. Mang Juan travels 11.5 km. How much is his fare?
     choices:
-      - text: "$\text{₱}26.50$"
-      - text: "$\text{₱}27.40$"
+      - text: "$\\text{₱}26.50$"
+      - text: "$\\text{₱}27.40$"
         correct: true
-      - text: "$\text{₱}33.70$"
-      - text: "$\text{₱}20.70$"
+      - text: "$\\text{₱}33.70$"
+      - text: "$\\text{₱}20.70$"
     explanation: |
       Excess distance: $11.5 - 4 = 7.5$ km
 
@@ -48,11 +48,11 @@ questions:
     stem: |
       Mang Pedro borrowed $\text{₱}15,000$ at 8% simple annual interest. He repaid after 9 months. How much interest?
     choices:
-      - text: "$\text{₱}900.00$"
+      - text: "$\\text{₱}900.00$"
         correct: true
-      - text: "$\text{₱}1,200.00$"
-      - text: "$\text{₱}10,800.00$"
-      - text: "$\text{₱}15,900.00$"
+      - text: "$\\text{₱}1,200.00$"
+      - text: "$\\text{₱}10,800.00$"
+      - text: "$\\text{₱}15,900.00$"
     explanation: |
       Time: $\frac{9}{12} = 0.75$ years
 
@@ -66,11 +66,11 @@ questions:
     stem: |
       Wholesale offers 5% discount on purchases over $\text{₱}1,000$. Aling Rose buys stock tagged at $\text{₱}2,400$. How much after discount?
     choices:
-      - text: "$\text{₱}2,330.00$"
-      - text: "$\text{₱}2,280.00$"
+      - text: "$\\text{₱}2,330.00$"
+      - text: "$\\text{₱}2,280.00$"
         correct: true
-      - text: "$\text{₱}120.00$"
-      - text: "$\text{₱}2,520.00$"
+      - text: "$\\text{₱}120.00$"
+      - text: "$\\text{₱}2,520.00$"
     explanation: |
       Discount: $\text{₱}2,400 \times 0.05 = \text{₱}120$
 
@@ -82,11 +82,11 @@ questions:
     stem: |
       Store assistant earns $\text{₱}400$/day basic + 4% commission on weekly net profit. In 6-day week with $\text{₱}35,000$ revenue and $\text{₱}25,000$ cost, what are total earnings?
     choices:
-      - text: "$\text{₱}3,800.00$"
-      - text: "$\text{₱}2,800.00$"
+      - text: "$\\text{₱}3,800.00$"
+      - text: "$\\text{₱}2,800.00$"
         correct: true
-      - text: "$\text{₱}800.00$"
-      - text: "$\text{₱}2,400.00$"
+      - text: "$\\text{₱}800.00$"
+      - text: "$\\text{₱}2,400.00$"
     explanation: |
       Base wage: $6 \times \text{₱}400 = \text{₱}2,400$
 
@@ -120,11 +120,11 @@ questions:
     stem: |
       Students get 20% jeepney discount. Route base fare $\text{₱}13$ (first 4 km), then $\text{₱}1.75$/km. Student travels 9 km, how much?
     choices:
-      - text: "$\text{₱}21.75$"
-      - text: "$\text{₱}19.15$"
-      - text: "$\text{₱}17.40$"
+      - text: "$\\text{₱}21.75$"
+      - text: "$\\text{₱}19.15$"
+      - text: "$\\text{₱}17.40$"
         correct: true
-      - text: "$\text{₱}20.00$"
+      - text: "$\\text{₱}20.00$"
     explanation: |
       Regular fare: $\text{₱}13 + (9-4) \times \text{₱}1.75 = \text{₱}13 + \text{₱}8.75 = \text{₱}21.75$
 
@@ -138,11 +138,11 @@ questions:
     stem: |
       Mang Ben borrowed $\text{₱}50,000$ at 6% simple annual interest for 15 months. Total repayment?
     choices:
-      - text: "$\text{₱}53,750.00$"
+      - text: "$\\text{₱}53,750.00$"
         correct: true
-      - text: "$\text{₱}54,500.00$"
-      - text: "$\text{₱}3,750.00$"
-      - text: "$\text{₱}95,000.00$"
+      - text: "$\\text{₱}54,500.00$"
+      - text: "$\\text{₱}3,750.00$"
+      - text: "$\\text{₱}95,000.00$"
     explanation: |
       Time: $\frac{15}{12} = 1.25$ years
 
@@ -156,11 +156,11 @@ questions:
     stem: |
       Sari-sari owner orders inventory ($\text{₱}5,000$ list price). Supplier offers successive 10% then 5% discounts. Net price?
     choices:
-      - text: "$\text{₱}4,250.00$"
-      - text: "$\text{₱}4,275.00$"
+      - text: "$\\text{₱}4,250.00$"
+      - text: "$\\text{₱}4,275.00$"
         correct: true
-      - text: "$\text{₱}4,500.00$"
-      - text: "$\text{₱}725.00$"
+      - text: "$\\text{₱}4,500.00$"
+      - text: "$\\text{₱}725.00$"
     explanation: |
       After 10%: $\text{₱}5,000 \times 0.90 = \text{₱}4,500$
 
@@ -174,11 +174,11 @@ questions:
     stem: |
       Mang Juan bought 30 dozen eggs at $\text{₱}90/dozen$. During transport, 3 dozen broke. He wants 20% net profit on total investment. Selling price per dozen?
     choices:
-      - text: "$\text{₱}108.00$"
-      - text: "$\text{₱}100.00$"
-      - text: "$\text{₱}120.00$"
+      - text: "$\\text{₱}108.00$"
+      - text: "$\\text{₱}100.00$"
+      - text: "$\\text{₱}120.00$"
         correct: true
-      - text: "$\text{₱}114.00$"
+      - text: "$\\text{₱}114.00$"
     explanation: |
       Total cost: $30 \times \text{₱}90 = \text{₱}2,700$
 
@@ -212,11 +212,11 @@ questions:
     stem: |
       Soft drink agent earns: 3% on first $\text{₱}50,000$, 5% on next $\text{₱}50,000$, 8% on sales above $\text{₱}100,000$. Total sales $\text{₱}140,000$. Commission?
     choices:
-      - text: "$\text{₱}11,200.00$"
-      - text: "$\text{₱}7,000.00$"
-      - text: "$\text{₱}7,200.00$"
+      - text: "$\\text{₱}11,200.00$"
+      - text: "$\\text{₱}7,000.00$"
+      - text: "$\\text{₱}7,200.00$"
         correct: true
-      - text: "$\text{₱}8,700.00$"
+      - text: "$\\text{₱}8,700.00$"
     explanation: |
       Tier 1: $\text{₱}50,000 \times 0.03 = \text{₱}1,500$
 
@@ -250,13 +250,13 @@ questions:
     type: word-problem
     difficulty: exam-level
     stem: |
-      Mang Cardo's jeepney: 8 round trips daily, 15 passengers per trip, $\text{₱}13/fare. Expenses: $\text{₱}800$ boundary + $\text{₱}950$ fuel. Net daily income?
+      Mang Cardo's jeepney: 8 round trips daily, 15 passengers per trip, $\text{₱}13$/fare. Expenses: $\text{₱}800$ boundary + $\text{₱}950$ fuel. Net daily income?
     choices:
-      - text: "$\text{₱}1,370.00$"
+      - text: "$\\text{₱}1,370.00$"
         correct: true
-      - text: "$-\text{₱}190.00$"
-      - text: "$\text{₱}2,320.00$"
-      - text: "$\text{₱}3,120.00$"
+      - text: "$-\\text{₱}190.00$"
+      - text: "$\\text{₱}2,320.00$"
+      - text: "$\\text{₱}3,120.00$"
     explanation: |
       One-way trips: $8 \times 2 = 16$
 
@@ -274,11 +274,11 @@ questions:
     stem: |
       Tatay Mario borrowed $\text{₱}40,000$ at 9% simple annual interest. After 8 months, he paid $\text{₱}15,000$ (interest paid first, remainder to principal). Remaining principal?
     choices:
-      - text: "$\text{₱}25,000.00$"
-      - text: "$\text{₱}27,400.00$"
+      - text: "$\\text{₱}25,000.00$"
+      - text: "$\\text{₱}27,400.00$"
         correct: true
-      - text: "$\text{₱}28,600.00$"
-      - text: "$\text{₱}22,600.00$"
+      - text: "$\\text{₱}28,600.00$"
+      - text: "$\\text{₱}22,600.00$"
     explanation: |
       Accrued interest: $\text{₱}40,000 \times 0.09 \times \frac{8}{12} = \text{₱}2,400$
 

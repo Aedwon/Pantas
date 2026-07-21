@@ -21,8 +21,6 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:cse_cet_reviewer/core/ui/components/portable_text_renderer.dart'
-    show PortableTextRenderer;
 import 'package:yaml/yaml.dart';
 
 const _examId = 'exam_upcat';
@@ -189,16 +187,21 @@ void main() {
     '${const JsonEncoder.withIndent('  ').convert(seed)}\n',
   );
 
-  stdout
-    ..writeln('Wrote assets/seed/v1.json')
-    ..writeln('  subjects:  ${subjects.length}')
-    ..writeln('  topics:    ${topics.length}')
-    ..writeln(
-      '  questions: ${questions.length} (+${keptQuestions.length} kept)',
-    )
-    ..writeln(
-      '  lessons:   ${lessons.length} (+${keptLessons.length} kept)',
-    );
+  // Deliberately not a cascade. Cascading on `stdout` crashes the compiler's
+  // FFI pass with "type 'InvalidType' is not a subtype of type
+  // 'FunctionType'", so this tool would not build at all. It was made a
+  // cascade on 10 August to clear a `cascade_invocations` info, and nothing
+  // ran the generator afterwards to notice.
+  // ignore_for_file: cascade_invocations
+  stdout.writeln('Wrote assets/seed/v1.json');
+  stdout.writeln('  subjects:  ${subjects.length}');
+  stdout.writeln('  topics:    ${topics.length}');
+  stdout.writeln(
+    '  questions: ${questions.length} (+${keptQuestions.length} kept)',
+  );
+  stdout.writeln(
+    '  lessons:   ${lessons.length} (+${keptLessons.length} kept)',
+  );
 }
 
 String _underscore(String slug) => slug.replaceAll('-', '_');
@@ -381,7 +384,13 @@ List<Map<String, Object?>> buildLessons(Map<String, String> topicIdBySlug) {
 }
 
 /// Converts the lesson markdown subset the corpus uses into the Portable Text
-/// blocks [PortableTextRenderer] understands.
+/// blocks `PortableTextRenderer` understands.
+///
+/// Named in backticks, not as a doc link. A link needs the import, the import
+/// pulls Flutter into a `dart run` command-line tool, and the compiler's FFI
+/// pass then crashes with "type 'InvalidType' is not a subtype of type
+/// 'FunctionType'". The generator could not build at all from 10 August until
+/// 11 August, and nothing noticed because nothing regenerated the seed.
 List<Map<String, Object?>> _markdownToPortableText(String body) {
   final blocks = <Map<String, Object?>>[];
   final paragraph = <String>[];

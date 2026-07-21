@@ -55,7 +55,14 @@ class InkTableRow extends StatelessWidget {
       InkRowState.plain => styles.bodyMedium,
     };
 
-    final row = Row(
+    // The text sits on a shared baseline; the chevron sits in the middle of
+    // the whole row. Two different alignments, so two rows.
+    //
+    // It was put on the title's baseline first, which centres it only while
+    // the row is one line. Every row in Study carries a subtitle, so it kept
+    // riding high against the second line. A chevron marks the row, not the
+    // first line of it.
+    final text = Row(
       crossAxisAlignment: CrossAxisAlignment.baseline,
       textBaseline: TextBaseline.alphabetic,
       children: [
@@ -102,18 +109,16 @@ class InkTableRow extends StatelessWidget {
             style: styles.bodySmall.copyWith(color: colors.inkMuted),
           ),
         ],
+      ],
+    );
+
+    final row = Row(
+      children: [
+        Expanded(child: text),
         if (chevron != InkRowChevron.none) ...[
           const SizedBox(width: 10),
-          // The row aligns its children on the text baseline, and a chevron
-          // has no baseline, so it was pinned to the top of the row and sat
-          // high against a two line title. Giving it the title's baseline
-          // puts it on the line the eye is already reading.
-          Baseline(
-            baseline: (titleStyle.fontSize ?? 14) * 0.78,
-            baselineType: TextBaseline.alphabetic,
-            child: InkChevron(
-              pointsDown: chevron == InkRowChevron.disclosure && expanded,
-            ),
+          InkChevron(
+            pointsDown: chevron == InkRowChevron.disclosure && expanded,
           ),
         ],
       ],
