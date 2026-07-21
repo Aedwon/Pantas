@@ -22,8 +22,15 @@ jobs:
       - name: pub get
         run: flutter pub get
 
+      - name: Generate code
+        run: |
+          dart run build_runner build --delete-conflicting-outputs
+          flutter gen-l10n
+
       - name: dart format check
-        run: dart format --output=none --set-exit-if-changed .
+        # lib and test only, which is what the repo formats. Generated
+        # files now exist by this point and they are not ours to format.
+        run: dart format --output=none --set-exit-if-changed lib test
 
       - name: dart analyze
         run: flutter analyze

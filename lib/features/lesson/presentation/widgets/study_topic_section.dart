@@ -13,11 +13,17 @@ import 'package:go_router/go_router.dart';
 class StudySubjectSection extends ConsumerWidget {
   const StudySubjectSection({
     required this.subject,
+    required this.onToggleTopic,
     this.keyForTopic,
     super.key,
   });
 
   final StudySubject subject;
+
+  /// Opening a topic is the page's business, not this section's: it has to
+  /// hold the tapped row still while the list above it changes height.
+  final void Function(TopicId) onToggleTopic;
+
   final GlobalKey Function(TopicId)? keyForTopic;
 
   @override
@@ -65,7 +71,7 @@ class StudySubjectSection extends ConsumerWidget {
             meta: '${topic.readCount} / ${topic.totalCount}',
             chevron: InkRowChevron.disclosure,
             expanded: openTopicId == topic.id,
-            onTap: () => ref.read(openTopicProvider.notifier).toggle(topic.id),
+            onTap: () => onToggleTopic(topic.id),
           ),
           if (openTopicId == topic.id)
             for (final lesson in topic.lessons)

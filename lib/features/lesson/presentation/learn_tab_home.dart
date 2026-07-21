@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/empty_state.dart';
@@ -57,6 +58,40 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
   void dispose() {
     _scrollController.dispose();
     super.dispose();
+  }
+
+  /// Toggles a topic and leaves the row the student tapped exactly where
+  /// it was on screen.
+  ///
+  /// Only one topic is open at a time, so opening one closes another, and
+  /// when the closed one sits above the tapped row everything below it
+  /// slides up under the finger. The row is measured before and after the
+  /// frame and the scroll is corrected by the difference.
+  Future<void> _toggleTopic(TopicId topicId) async {
+    final before = _offsetOf(topicId);
+    await ref.read(openTopicProvider.notifier).toggle(topicId);
+    if (!mounted) return;
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final after = _offsetOf(topicId);
+      if (before == null || after == null || !_scrollController.hasClients) {
+        return;
+      }
+      final drift = after - before;
+      if (drift.abs() < 0.5) return;
+      final target = (_scrollController.offset + drift).clamp(
+        _scrollController.position.minScrollExtent,
+        _scrollController.position.maxScrollExtent,
+      );
+      _scrollController.jumpTo(target);
+    });
+  }
+
+  double? _offsetOf(TopicId topicId) {
+    final context = _topicKeys[topicId]?.currentContext;
+    final box = context?.findRenderObject() as RenderBox?;
+    if (box == null || !box.attached) return null;
+    return box.localToGlobal(Offset.zero).dy;
   }
 
   void _scrollBackTo(TopicId topicId) {
@@ -164,6 +199,8 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
                       for (final subject in map.subjects)
                         StudySubjectSection(
                           subject: subject,
+                          onToggleTopic: (topicId) =>
+                              unawaited(_toggleTopic(topicId)),
                           keyForTopic: _keyFor,
                         ),
                     ],

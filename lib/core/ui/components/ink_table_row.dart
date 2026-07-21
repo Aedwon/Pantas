@@ -104,7 +104,13 @@ class InkTableRow extends StatelessWidget {
         ],
         if (chevron != InkRowChevron.none) ...[
           const SizedBox(width: 10),
-          Center(
+          // The row aligns its children on the text baseline, and a chevron
+          // has no baseline, so it was pinned to the top of the row and sat
+          // high against a two line title. Giving it the title's baseline
+          // puts it on the line the eye is already reading.
+          Baseline(
+            baseline: (titleStyle.fontSize ?? 14) * 0.78,
+            baselineType: TextBaseline.alphabetic,
             child: InkChevron(
               pointsDown: chevron == InkRowChevron.disclosure && expanded,
             ),

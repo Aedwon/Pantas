@@ -2,6 +2,7 @@ import 'package:cse_cet_reviewer/features/lesson/application/study_map_providers
 import 'package:cse_cet_reviewer/features/lesson/domain/use_cases/build_study_map.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/study_topic_section.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/pump_app.dart';
@@ -36,9 +37,19 @@ final subject = StudySubject(
   ],
 );
 
+/// The page owns opening a topic now, so the section takes a callback.
+/// These tests wire it to the same provider the page does.
 Future<void> pumpSection(WidgetTester tester) async {
   await tester.pumpAppWithProviders(
-    Scaffold(body: StudySubjectSection(subject: subject)),
+    Scaffold(
+      body: Consumer(
+        builder: (context, ref, _) => StudySubjectSection(
+          subject: subject,
+          onToggleTopic: (topicId) =>
+              ref.read(openTopicProvider.notifier).toggle(topicId),
+        ),
+      ),
+    ),
     overrides: [openTopicProvider.overrideWith(FakeOpenTopic.new)],
   );
 }
