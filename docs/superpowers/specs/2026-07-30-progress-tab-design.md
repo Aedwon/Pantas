@@ -122,6 +122,30 @@ Wholly Free. Spec 11 already placed the on-pace indicator in the Free tier.
 
 ### Performance
 
+> **Amended 11 August, on the device.** Aedwon: *"that section feels out of
+> place, not to mention becomes very very long when a Pro user sorts through
+> Lessons"*.
+>
+> **It is enclosed in the same panel as the sections either side of it.** It
+> was the only unframed thing on the tab. The panel's heading replaces the
+> section header, so there is still one rule under the title and not the two
+> four pixels apart this section warns about below. The level control moves
+> under the heading, right aligned, because the panel's own header slot takes
+> text rather than a widget.
+>
+> **The table opens collapsed at six rows**, with a control that names what is
+> behind it rather than saying "Show more". Rows with nothing measured already
+> sort last, so collapsing hides exactly those: it does what deleting them was
+> meant to do without losing the fact that they have not been started.
+>
+> **Each measured row carries an inline bar**, the component Home already uses
+> for weakest areas. **A row with nothing measured gets no bar**, because an
+> empty bar is a figure and there is no figure, but its slot is still held so
+> the columns beside it stay in line.
+>
+> **The expand control is ink, not board.** The rule below that board green
+> appears nowhere in this table still holds; weight carries the control.
+
 The section title is **"Performance"**, not "Performance breakdown": the shorter
 title leaves room for the level control in the header's right slot.
 

@@ -1162,3 +1162,46 @@ then the second long lesson would not resolve through the study map at all.
 **A test that passes whether or not the fix is present is worse than none**,
 so none was kept. The behaviour is one line in one place and is described
 above; it wants an integration test rather than a widget test.
+
+### UI-053 [important] Performance was the loose section on the tab
+
+**Aedwon:** *"in the Progress tab, the Performance section, can you remove the
+topics that don't have a rating yet? or like, maybe grey them out? and also i
+think it would be best to enclose it like the sections above and below it. then
+maybe add a Show more Show less button to expand/contract respectively? that
+section feels out of place, not to mention becomes very very long when a Pro
+user sorts through Lessons"*
+
+**Checking first changed the answer to his first question.** Rows with nothing
+measured **already sort to the bottom**, so they are a run at the end rather
+than scattered through. **Collapsing the table therefore hides exactly them**,
+which is what removing them was meant to achieve, without losing the fact that
+those parts have not been started. So neither deleted nor greyed: behind a door
+that says what is behind it.
+
+**"Show more" was rejected for the same reason.** It makes a student guess
+whether three rows or ninety are behind it. The control reads *"Show 12 not
+started"* or *"Show 20 more, 12 not started"*.
+
+**He is right that it was out of place, and it is checkable rather than a
+matter of taste:** the sections above and below both use the panel frame and
+this one did not. It does now, with the panel's heading replacing the section
+header so there is still one rule under the title rather than the two four
+pixels apart the spec warns about.
+
+### UI-054 The rows carry a bar now
+
+**Aedwon:** *"there's also no progress bar like what exists in Home (the
+section that leads to Progress). can you add those as well? make sure this is
+presented elegantly"*
+
+The same component Home uses for weakest areas. **A row with nothing measured
+draws no bar**, because an empty bar is a figure and there is no figure, **but
+its slot is still held**, which is the rule the figure columns already follow:
+one blank row must not pull the columns beside it out of line.
+
+**The expand control is ink rather than board**, because the spec says board
+green appears nowhere in this table and the colour budget keeps it for primary
+actions. Weight carries it instead.
+
+**The spec is amended in place** rather than left to disagree with the code.

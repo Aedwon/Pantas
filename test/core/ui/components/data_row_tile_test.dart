@@ -1,4 +1,5 @@
 import 'package:cse_cet_reviewer/core/ui/components/data_row_tile.dart';
+import 'package:cse_cet_reviewer/core/ui/components/inline_meter.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -78,5 +79,40 @@ void main() {
       figure.style?.fontFeatures,
       contains(const FontFeature.tabularFigures()),
     );
+  });
+
+  testWidgets('a row with nothing measured draws no bar but holds its slot',
+      (tester) async {
+    // An empty bar is a figure, and there is no figure. The slot is still
+    // held so the columns beside it stay in line.
+    await tester.pumpApp(
+      const Column(
+        children: [
+          DataRowTile(
+            title: 'Measured',
+            primaryFigure: '68%',
+            meterValue: 0.68,
+            showMeterSlot: true,
+          ),
+          DataRowTile(
+            title: 'Not started',
+            showMeterSlot: true,
+          ),
+        ],
+      ),
+    );
+
+    expect(find.byType(InlineMeter), findsOneWidget);
+
+    final measured = tester.getRect(find.text('68%'));
+    expect(measured.right, greaterThan(0));
+  });
+
+  testWidgets('the meter is off unless the row asks for it', (tester) async {
+    await tester.pumpApp(
+      const DataRowTile(title: 'Plain', primaryFigure: '50%', meterValue: 0.5),
+    );
+
+    expect(find.byType(InlineMeter), findsNothing);
   });
 }

@@ -1,5 +1,8 @@
+import 'package:cse_cet_reviewer/core/ui/components/inline_meter.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+
+const double _meterWidth = 54;
 
 class DataRowTile extends StatelessWidget {
   const DataRowTile({
@@ -10,6 +13,8 @@ class DataRowTile extends StatelessWidget {
     this.primaryIsActive = true,
     this.primaryColor,
     this.onTap,
+    this.meterValue,
+    this.showMeterSlot = false,
     super.key,
   });
 
@@ -25,6 +30,17 @@ class DataRowTile extends StatelessWidget {
   final bool primaryIsActive;
   final Color? primaryColor;
   final VoidCallback? onTap;
+
+  /// Accuracy as a fraction, drawn as a bar. Null draws nothing.
+  ///
+  /// **The slot is reserved even when the bar is not drawn**, the same rule
+  /// the figure columns already follow: a row with nothing measured must not
+  /// pull the columns beside it out of line. A row with nothing measured also
+  /// gets no bar, because an empty bar is a figure and there is no figure.
+  final double? meterValue;
+
+  /// Whether to hold the meter's width on rows that have no bar.
+  final bool showMeterSlot;
 
   @override
   Widget build(BuildContext context) {
@@ -102,6 +118,20 @@ class DataRowTile extends StatelessWidget {
                   ],
                 ),
               ),
+              if (showMeterSlot) ...[
+                const SizedBox(width: 10),
+                SizedBox(
+                  width: _meterWidth,
+                  child: meterValue == null
+                      ? null
+                      : InlineMeter(
+                          value: meterValue!,
+                          color: primaryColor ?? colors.ink,
+                          width: _meterWidth,
+                        ),
+                ),
+                const SizedBox(width: 4),
+              ],
               buildFigureColumn(
                 primaryFigure,
                 isActive: primaryIsActive,

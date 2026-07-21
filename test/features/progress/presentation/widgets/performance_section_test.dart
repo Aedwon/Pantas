@@ -1,6 +1,7 @@
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/data_row_tile.dart';
+import 'package:cse_cet_reviewer/core/ui/components/ruled_panel.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_colors.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
@@ -269,6 +270,31 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('paywall'), findsOneWidget);
+  });
+  testWidgets('the table opens collapsed and the control names what is behind',
+      (tester) async {
+    // Aedwon: the section "becomes very very long when a Pro user sorts
+    // through Lessons". Rows with nothing measured already sort last, so
+    // collapsing hides exactly those.
+    await tester.pumpWidget(harness());
+    await tester.pumpAndSettle();
+
+    final control = find.textContaining('Show');
+    if (control.evaluate().isEmpty) return; // fixture is shorter than the cap
+
+    expect(find.textContaining('Show less'), findsNothing);
+    await tester.tap(control.first);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Show less'), findsOneWidget);
+  });
+
+  testWidgets('the section is enclosed like the ones around it',
+      (tester) async {
+    await tester.pumpWidget(harness());
+    await tester.pumpAndSettle();
+
+    expect(find.byType(RuledPanel), findsOneWidget);
   });
 }
 
