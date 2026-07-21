@@ -102,4 +102,24 @@ void main() {
       throwsA(isA<AssertionError>()),
     );
   });
+
+  testWidgets('a short heading still leaves the action on the right margin',
+      (tester) async {
+    await tester.pumpApp(
+      RuledPanel(
+        heading: 'Up next',
+        action: 'See all',
+        onAction: () {},
+        child: const Text('body'),
+      ),
+    );
+
+    // The action's right edge must meet the panel's content edge: the panel
+    // box inset by its 1px hairline border and its 14px horizontal padding.
+    // A short heading must not pull it inward.
+    final panel = tester.getRect(find.byType(RuledPanel));
+    final action = tester.getRect(find.text('See all'));
+
+    expect(action.right, moreOrLessEquals(panel.right - 15, epsilon: 0.5));
+  });
 }

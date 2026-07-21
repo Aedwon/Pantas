@@ -56,6 +56,11 @@ class RuledPanel extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.baseline,
             textBaseline: TextBaseline.alphabetic,
+            // Not a Spacer. A Spacer is a flex child, and so is the heading,
+            // so the two split the free space evenly and left the action
+            // stranded mid-row whenever the heading was short. spaceBetween
+            // gives the leftover to the gap instead of dividing it.
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Flexible(
                 child: Container(
@@ -69,11 +74,8 @@ class RuledPanel extends StatelessWidget {
                 ),
               ),
               // The heading is Flexible so its underline stays the width of
-              // the words. Without this the action sat against the heading
-              // rather than at the edge the eye looks to for it.
-              const Spacer(),
+              // the words and a long one can still shrink.
               if (count != null) ...[
-                const SizedBox(width: 12),
                 Text(
                   count!,
                   style: styles.bodySmall.copyWith(

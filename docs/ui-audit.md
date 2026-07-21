@@ -456,6 +456,24 @@ the only thing that touched this component today.
 ### UI-015 [polish] Header actions are not right-aligned
 > "the 'See all' buttons should be at the rightmost. same with 'Unlock with Pro'"
 
+**Reported fixed on 10 August and it was not.** Aedwon looked again after that
+change: *"also the See All buttons still aren't flush right"*.
+
+**Checked, and he is right.** The header row held two flex children: the
+heading, which is `Flexible` so a long one can shrink, and a `Spacer`. Flutter
+divides free space between flex children, so the two **split it evenly** and the
+Spacer only ever pushed the action half way. With a short heading like "Up next"
+the action landed **236px short of the margin** at a 800px width.
+
+The earlier fix removed the action's right padding, which was a real 8px, and
+so moved it 8px of the 244 it needed. **The remaining 236 was the layout, not
+the padding**, which is why the change looked like it had worked and had not.
+
+**Fixed:** the `Spacer` is gone and the row uses `spaceBetween`, which gives the
+leftover to the gap rather than dividing it. A test now asserts the action's
+right edge meets the panel's content edge, so this cannot regress silently
+again.
+
 ### UI-016 [important] The tendency deck's position indicator
 > "at least darken the current 'slide' indicator in the Your tendencies section.
 > it just grows bigger but i know there's a more pleasing way to do it."
