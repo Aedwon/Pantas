@@ -77,119 +77,75 @@ directly from the orchestrator**, one git worktree per plan.
 
 ## Part 0: Pick up here
 
-**Rewritten 10 August. Every written plan in this repository is executed.** Nothing is running,
-no worktree holds unmerged work, `main` is clean.
+**Rewritten 10 August, late, at a context boundary.** `main` is pushed and clean. Every written
+plan in this repository is executed. **The work now is Aedwon's own UI findings and the things
+only he can do.**
 
-**Health:** **2,110 tests pass**, app schema **21**, **content schema 3**, corpus **2,369
-questions**, **`flutter analyze` clean and exiting 0**, formatter clean, layering 36,
-attribution 0.
+**Health:** **2,110 tests pass**, `flutter analyze` **clean and exiting 0**, formatter clean,
+app schema **21**, content schema **3**, corpus 2,369 questions.
 
-**The "7 issue baseline" every plan quotes is gone, and it was never a baseline.** They were
-seven real infos under `tools/` and `test/tool/`, and **`flutter analyze` exits 1 on an info**,
-so the command CI runs could never pass while they existed. Fixed 10 August: three dynamic
-calls given a typed helper and four writes turned into a cascade. **Do not reintroduce a
-tolerated count.**
+### First, two things a new session must know
 
-**Two generators must run before judging `main`, and both write gitignored files:**
+1. **Ask for Gemini headroom and re-authorize the skip-permissions flag** before dispatching
+   anything. Both are per session and neither can be read programmatically.
+2. **While Aedwon is testing on the emulator, every change ends: gates, commit, push, hot
+   restart.** He asked for that explicitly. Hot restart is `kill -USR2 <pid>` where the pid is
+   `pgrep -f "flutter_tools.snapshot run"`. **Never restart onto a red suite.**
 
-```bash
-dart run build_runner build --delete-conflicting-outputs
-flutter gen-l10n
-```
+### What is running
 
-**Stale or missing generated files report failures that are not real.** The content schema
-moved to 3 and reported 25 analyzer issues that did not exist; the l10n scaffolding landed 10
-August and its absence reports the same way. **Never run `dart fix --apply` in a worktree that
-has not generated yet**: the analyzer sees every import as unused and the fixer deletes them.
+- **The Android emulator** (`pantas_pixel`) and **one `flutter run`** own the app on screen.
+  The run process is what hot restart signals; killing it costs a full rebuild.
+- **iPhone testing is set up except for a cable.** Xcode, its licence, the platform components,
+  CocoaPods and the iOS pods are all done. It needs a USB-C cable for the one-time pairing and
+  Aedwon's Apple ID selected as the team in Xcode. Free provisioning expires every 7 days and
+  never does push.
 
-### The first thing a new session must do
+### CI, and the one thing blocking it
 
-**Ask Aedwon to re-authorize the Gemini skip-permissions flag.** It is granted per session and
-does not survive a clear. Without it every dispatch does nothing. **Ask for it in the same
-breath as asking for quota headroom**, since neither can be read programmatically.
+**CI had failed on every push for weeks and nobody had looked.** Two causes are fixed: the
+workflows never ran `build_runner` or `gen-l10n`, and they never built the gitignored
+`assets/seed/content.db`. Both now happen before `flutter analyze`.
 
-### Everything an agent can build is built, except one plan
+**It now fails at `dart run tool/check_layering.dart`, which exits 1 on the 36 violations.**
+That is the open decision below, not a defect: **either the rule gets its written exception or
+the violations get fixed.** Until one happens CI cannot go green.
 
-**Merged 10 August, nineteen plans in a day:** the whole of Home and Progress, all three mock
-plans, the quiz's missing grid, App Check and the force-update stop, the notification ladder,
-the accessibility sweep, the l10n scaffolding, the review policy, and Custom Track A entire.
+### Aedwon's UI findings
 
-### Every UI thread is finished
+**`docs/ui-audit.md` is the record**, his words verbatim, with what the code said under each.
+UI-012 through UI-034 came from one evening on the emulator.
 
-**Study, Settings, Home, Progress and the Mock**, all plans merged. Do not re-plan them.
+**Fixed and shipped:** the quiz's missing reveal and its grid navigation, the dead settings
+link, the pinned footer, the double back arrow, the caret direction, the post-answer toast,
+passage sets answered in one run, the debrief's empty band, the greeting and masthead, the
+stats band centring, panel actions on the margin, the tendency indicator, inline maths size and
+baseline, raw dollar signs, list numbering through a formula, chevron alignment, the dropdown
+displacement, and the Quiz tab's spacing.
 
-**The mock chain closed 10 August**: the paper, the endings, then boundaries and the clock.
-**Mock 03 gave the pause control a home**, which Mock 01 had left without one when the app bar
-became the clock alone.
+**Open, and both are design decisions rather than fixes:**
 
-**Quiz was recorded as finished on 8 August and was not.** `QuestionGridSheet`, its Plan 4
-Task 7, had never been written: the file did not exist and `quiz_page.dart` still carried a
-comment naming the unwritten task. **It was found on 10 August only because the mock's grid
-consumes it**, and it is built now. **No gate could have caught it**, which is habit number 2 in
-this document happening to a thread everyone had signed off.
+- **UI-012, the bottom navigation icons.** Text-only, outline icons, or a bespoke mark. Stock
+  Material icons are there now, which is the option nobody chose.
+- **The tendency indicator**, now a bar rather than a bigger dot. He may want more.
 
-**Progress closed on 10 August** with the performance table, which was the last of its six. Two
-duplications the plan ordered collapsed are now gone: `severityFor` lives in `core/ui`, and Home's
-topic ranking reads the table at topic level rather than counting its own.
-
-**Home closed on 10 August.** Plans 3, 5, 4 and 6 landed in that order, which is the order the
-4 August correction demanded: **5 owns `topicAccuracyProvider` and defines `severityFor`**, and 4
-reads the first. Running 4 and 5 in parallel would have produced two rankings. **4 and 6 did run in
-parallel and conflicted only on an import**, each having filled its own stub.
-
-### What is left, in the order worth doing it
-
-**No plan is left.** What remains needs Aedwon, not an implementor.
+### What is left, and none of it is code
 
 | | What | Why it cannot be dispatched |
 |---|---|---|
-| 1 | **Approve the 2,369 questions** | Every one has `approved:` unset by design. **The single largest thing between the corpus and a student** |
-| 2 | **Firebase** | Nothing exists. `docs/firebase-setup.md` is the whole list, written 10 August |
+| 1 | **Approve the 2,369 questions** | **Read `docs/content/audit/questions.md` first.** Nothing reads the `approved` flag, and 1,259 questions already carry it |
+| 2 | **Firebase** | Nothing exists. `docs/firebase-setup.md` is the whole list |
 | 3 | **The store side of the paywall** | Dashboard, products, a signed build |
-| 4 | **The feedback row** | Needs the community group URL and a contact email. Its plan's Task 2 is the only task in the repo deliberately left unexecuted |
-| 5 | **11 Geometry figures, and 40 formula findings to triage** | Hand-made pictures, and a set that is partly noise |
-
-**Progress 02, 04, 05 and 06 are merged.** Every one of them added a section to the same page in
-its own named slot, and none overwrote another's.
-
-### Two small jobs, both unblocked and both cheap
-
-- **Lift the quiz picker's subject and topic index into `lib/core/ui/`** and repoint Settings'
-  "What's included" row at it. The row points at a stub because `features/settings/` cannot
-  import `features/quiz/`, and the index now exists.
-- **Passage pipeline Tasks 5 and 6 are done.** Nothing outstanding there.
+| 4 | **The feedback row** | Needs the community group URL and a contact email |
+| 5 | **11 Geometry figures, 40 formula findings** | Hand-made pictures, and a set that is partly noise |
 
 ### Open questions waiting on Aedwon
 
-- **The read-marking dwell floor is 15 seconds.** The spec gives no number; the plan chose one
-  and flagged it.
-- **The "answered too fast" floor is 5 answers.** Added 9 August because the plan set none and
-  the speed signal returns a distribution from a single answer. Follows the debrief's precedent.
-- **Finishing a session ends on "Ten answered."** The debrief replaced the celebration, per its
-  plan. He has said before that finishing should feel like something.
-- **Layering is 36, up from 13 in one day.** Every new one is Home or Progress reading another
-  feature's providers, which is what those two screens are for: Home reads the assessment,
-  settings and metrics, and Progress reads metrics and the paywall. **Nothing here is a layering
-  mistake; the rule is what does not fit.** Put to him 10 August, undecided: either write the
-  exception down or stop counting these.
-- **The four shared tendencies are now written twice**, once for Home's deck and once for
-  Progress's screen. The wording matches today because the Home run was told to read the Progress
-  provider first and did. **Nothing enforces that it stays matched.**
-
-### The habits that earned their place, in order of how much they caught
-
-1. **Read the diff, never the count.** Every content run reported the right number over wrong
-   text.
-2. **A green suite is not a finished plan.** Count the plan's tasks against the run's commits
-   before merging. Unwritten code fails no test.
-3. **Stop rather than reconcile.** A general instruction, not a specific one, caught an
-   analytics switch that would have defaulted to on against RA 10173.
-4. **Ban long commands rather than asking for foreground.** The prompt template in
-   `scratchpad/prompt-progress04.txt` is the current shape.
-5. **Pre-build anything two agents would race to create.** `InkCheckbox` was named by four plans
-   and built by none.
-
----
+- **The layering rule.** 36 violations, all Home and Progress reading what other features
+  measure, which is what those screens are for. **It blocks CI.**
+- **The four shared tendencies are written twice**, once per screen, and nothing keeps them
+  matched.
+- **The quality pass on the questions**, which he asked to schedule and which has not been.
 
 ## Part 2: Done, so it stops being re-planned
 
