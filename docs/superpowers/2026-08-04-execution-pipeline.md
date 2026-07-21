@@ -141,6 +141,13 @@ displacement, and the Quiz tab's spacing.
 | 4 | **The feedback row** | Needs the community group URL and a contact email |
 | 5 | **11 Geometry figures, 40 formula findings** | Hand-made pictures, and a set that is partly noise |
 
+**One project is specced and planned, and nothing of it is executed:** the
+content path and the mock. `specs/2026-08-11-content-path-and-the-mock.md`, then
+plans `2026-08-11-content-01` through `04`, in that order, each merged before
+the next starts. **Content 02 is the one that can lose a student's history**, so
+its ids rule is not negotiable. It ends with a student able to sit a full UPCAT
+paper, which nobody can do today.
+
 **One chore is written and unplanned:** `2026-08-10-name-cleanup-chore.md`, retiring "CSE/CET
 Reviewer" for Pantas. **Its Tier 2, the Android and iOS identifiers, can only be done before the
 first store submission**, so it is a dependency of item 3 rather than a tidy-up.
