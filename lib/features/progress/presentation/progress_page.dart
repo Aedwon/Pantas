@@ -3,6 +3,7 @@ import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/empty_state.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
+import 'package:cse_cet_reviewer/core/ui/components/exam_name_line.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/components/navigational_row.dart';
 import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
@@ -22,7 +23,6 @@ class ProgressPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final styles = context.textStyles;
     final colors = context.colors;
 
     final focusAsync = ref.watch(activeExamFocusProvider);
@@ -61,15 +61,7 @@ class ProgressPage extends ConsumerWidget {
                         child: ListView(
                           padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
                           children: [
-                            Text(
-                              exam.shortName,
-                              // Was respelled in full here. `displaySmall`
-                              // is already sans at 22/700 now that there is
-                              // one family, so the override said the same
-                              // thing twice and could drift from it.
-                              style: styles.displaySmall,
-                            ),
-                            const SizedBox(height: 16),
+                            ExamNameLine(exam.shortName),
                             _yourPaceSection(context, ref),
                             _performanceSection(context, ref),
                             _whyYouMissSection(context, ref),

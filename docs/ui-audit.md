@@ -1351,3 +1351,25 @@ general explanation of the scheduler is not about them at all.
 **It is in the quiz debrief**, where the thing being explained has just
 happened to them. **The wording guard moved with it**, so the ban on naming the
 scheduler holds wherever the copy lives.
+
+### UI-061 [polish] The exam name still did not line up
+
+**Aedwon:** *"the exam name on Study tab still isn't the same with other tabs.
+maybe it's because of the search icon?"*
+
+**Not the icon**, which the fixed header row had already settled. Two other
+things:
+
+- **Study added 6px above the name** inside its head block, which the other
+  tabs did not.
+- **The gap below it was three different numbers**: 14 on Study, 20 on Quiz,
+  16 on Progress.
+
+All three printed it at the same size, which is why only the position looked
+off rather than the type.
+
+**One `ExamNameLine` now owns both gaps**, so a tab supplies the name and
+nothing else and the spacing cannot drift apart again. **Three tests**, one of
+which checks specifically that a trailing action in the header does not move
+the name, since that was his hypothesis and it deserves a guard whether or not
+it was the cause this time.

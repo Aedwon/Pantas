@@ -1,5 +1,6 @@
 import 'package:cse_cet_reviewer/core/storage/domain/lesson.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
+import 'package:cse_cet_reviewer/core/ui/components/exam_name_line.dart';
 import 'package:cse_cet_reviewer/core/ui/components/stats_band.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
@@ -17,15 +18,12 @@ class StudyHeadBlock extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final styles = context.textStyles;
     final lastOpened = ref.watch(lastOpenedLessonProvider).valueOrNull;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(height: 6),
-        Text(map.examShortName, style: styles.displaySmall),
-        const SizedBox(height: 14),
+        ExamNameLine(map.examShortName),
         StatsBand(
           figures: [
             StatFigure(

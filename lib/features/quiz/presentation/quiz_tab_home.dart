@@ -5,6 +5,7 @@ import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
+import 'package:cse_cet_reviewer/core/ui/components/exam_name_line.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
 import 'package:cse_cet_reviewer/core/ui/components/page_scaffold.dart';
@@ -122,7 +123,6 @@ class _QuizTabBody extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final styles = context.textStyles;
     final mistakes = ref.watch(recentMistakeCountProvider(exam.id)).valueOrNull;
 
     return SafeArea(
@@ -137,8 +137,7 @@ class _QuizTabBody extends ConsumerWidget {
             child: ListView(
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
               children: [
-                Text(exam.shortName, style: styles.displaySmall),
-                const SizedBox(height: 20),
+                ExamNameLine(exam.shortName),
                 SessionPanel(
                   exam: exam,
                   onStart: () => _onStartQuiz(context, ref),
