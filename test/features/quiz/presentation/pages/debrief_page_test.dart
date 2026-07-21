@@ -1,4 +1,5 @@
 import 'package:cse_cet_reviewer/core/fsrs/rating.dart';
+import 'package:flutter/material.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/core/ui/components/ink_chevron.dart';
@@ -245,5 +246,28 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.textContaining('You usually take'), findsNothing);
+  });
+
+  testWidgets('the debrief carries no back arrow of its own', (tester) async {
+    final session = makeSession();
+    final debrief = BuildSessionDebrief.call(
+      session: session,
+      topicNames: {'t_chem': 'Chemistry'},
+      topicAverageMs: {},
+      topicAnswerCount: {},
+      priorCorrect: {},
+      priorAttemptedQuestionIds: {},
+      proIsActive: true,
+      now: session.startedAt.add(const Duration(minutes: 9)),
+    );
+
+    await pumpDebrief(tester, debrief: debrief, proIsActive: true);
+    await tester.pumpAndSettle();
+
+    // It renders inside the quiz page's scaffold when a session completes,
+    // and that bar already has one.
+    expect(find.byType(BackButton), findsNothing);
+    expect(find.byIcon(Icons.arrow_back), findsNothing);
+    expect(find.byIcon(Icons.close), findsNothing);
   });
 }

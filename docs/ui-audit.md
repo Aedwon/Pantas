@@ -595,3 +595,31 @@ finish does.
 
 **Fixed 10 August**, both in the same change. The rest of this session's findings
 are still open.
+
+### UI-031 [important] Two back arrows in the debrief, caused by the UI-030 fix
+
+**Aedwon:** *"okay now there's double <- in the post-quiz debrief."*
+
+**Mine, from an hour earlier.** Removing the close control left the app bar with
+no `leading`, so Flutter implied a back arrow of its own. The debrief renders
+**inside the quiz page's scaffold** when a session completes, and that bar
+already carries one.
+
+**Fixed:** `automaticallyImplyLeading: false`, with a test that the debrief
+carries no arrow, no back button and no close icon.
+
+**Worth keeping in the log:** removing a control is not the same as leaving the
+slot empty. The framework fills it.
+
+### UI-032 [polish] The grid's current-question caret pointed away from the number
+
+**Aedwon:** *"isn't the triangle indicator for current question upside down? just
+so it's matched to what the navigation for mock tests does"*
+
+**He is right.** The caret sits in a reserved slot **above** the number and its
+apex was at the top, so it pointed away from the thing it marks. It points down
+at the number now.
+
+**One component, so the mock's grid gets the same fix**: the quiz draws it at
+five columns and the mock at six, and both come from
+`question_grid_sheet.dart`.

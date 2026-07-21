@@ -246,10 +246,12 @@ class _CaretPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
+    // Points down at the number it marks. It sits above the cell, so an
+    // apex at the top pointed away from the thing it was indicating.
     final path = Path()
-      ..moveTo(size.width / 2, 0)
-      ..lineTo(size.width, size.height)
-      ..lineTo(0, size.height)
+      ..moveTo(0, 0)
+      ..lineTo(size.width, 0)
+      ..lineTo(size.width / 2, size.height)
       ..close();
     canvas.drawPath(path, Paint()..color = color);
   }

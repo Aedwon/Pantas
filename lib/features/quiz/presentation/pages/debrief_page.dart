@@ -52,6 +52,10 @@ class DebriefPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
+        // Removing the close control left AppBar to imply a back arrow of
+        // its own, and the quiz page's bar already carries one: the debrief
+        // renders inside it when a session completes.
+        automaticallyImplyLeading: false,
         toolbarHeight: 56,
         backgroundColor: colors.background,
         elevation: 0,
