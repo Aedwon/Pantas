@@ -2,6 +2,7 @@ import 'package:cse_cet_reviewer/core/ui/components/answer_row.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_colors.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 Widget harness(Widget child) =>
@@ -81,5 +82,23 @@ void main() {
       tester.getSize(find.byType(AnswerRow)).height,
       greaterThanOrEqualTo(44),
     );
+  });
+
+  testWidgets('a choice carrying maths renders it rather than its dollars',
+      (tester) async {
+    // 645 of the 2,000 questions in the bank carry maths in a choice, and
+    // every choice reached the screen through a plain Text.
+    await tester.pumpWidget(
+      harness(
+        AnswerRow(
+          letter: 'A',
+          text: r'$x^2$',
+          onTap: () {},
+        ),
+      ),
+    );
+
+    expect(find.byType(Math), findsOneWidget);
+    expect(find.textContaining(r'$'), findsNothing);
   });
 }

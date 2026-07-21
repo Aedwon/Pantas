@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cse_cet_reviewer/core/ui/components/inline_math_text.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
@@ -161,39 +162,12 @@ class _BlockRenderer extends StatelessWidget {
     );
   }
 
-  /// Maths set on the surrounding line rather than under it.
-  ///
-  /// A `WidgetSpan` sits on the bottom of the line by default, which drops
-  /// a formula below the words beside it, and `Math.tex` with no style of
-  /// its own renders at the package's size rather than the body's. Both
-  /// were visible in one glance: the number sat low and small.
-  InlineSpan _inlineMath(String latex, {TextStyle? style}) {
-    return WidgetSpan(
-      alignment: PlaceholderAlignment.baseline,
-      baseline: TextBaseline.alphabetic,
-      child: Builder(
-        builder: (context) {
-          final body = style ?? _ambientStyle(context);
-          return Math.tex(
-            latex,
-            mathStyle: MathStyle.text,
-            textStyle: body,
-            onErrorFallback: (_) =>
-                const _UnknownBlockPlaceholder(blockType: 'latex-inline'),
-          );
-        },
-      ),
-    );
-  }
-
-  TextStyle _ambientStyle(BuildContext context) {
-    final inherited = DefaultTextStyle.of(context).style;
-    return TextStyle(
-      fontSize: inherited.fontSize,
-      color: inherited.color,
-      fontWeight: inherited.fontWeight,
-    );
-  }
+  InlineSpan _inlineMath(String latex, {TextStyle? style}) => inlineMathSpan(
+        latex,
+        style: style,
+        onErrorFallback: (_) =>
+            const _UnknownBlockPlaceholder(blockType: 'latex-inline'),
+      );
 
   InlineSpan _buildInlineSpan(Map<String, dynamic> child) {
     final text = child['text'] as String? ?? '';
@@ -222,27 +196,15 @@ class _BlockRenderer extends StatelessWidget {
     // this renderer is handed a plain string, and lesson bodies arrive as
     // blocks that never went through that step. Those dollars reached the
     // screen as dollars.
-    if (text.contains(r'$')) {
-      final spans = <InlineSpan>[];
-      var lastEnd = 0;
-      for (final match in RegExp(r'\$([^$]+)\$').allMatches(text)) {
-        if (match.start > lastEnd) {
-          spans.add(
-            TextSpan(text: text.substring(lastEnd, match.start), style: style),
-          );
-        }
-        spans.add(_inlineMath(match.group(1) ?? '', style: style));
-        lastEnd = match.end;
-      }
-      if (spans.isNotEmpty) {
-        if (lastEnd < text.length) {
-          spans.add(TextSpan(text: text.substring(lastEnd), style: style));
-        }
-        return TextSpan(children: spans, style: style);
-      }
-    }
-
-    return TextSpan(text: text, style: style);
+    return TextSpan(
+      children: inlineMathSpans(
+        text,
+        style: style,
+        onErrorFallback: (_) =>
+            const _UnknownBlockPlaceholder(blockType: 'latex-inline'),
+      ),
+      style: style,
+    );
   }
 }
 

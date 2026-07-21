@@ -502,6 +502,36 @@ The row you tapped should not move. Everything below it does.
 > "in some lessons, the tex is not properly rendered and I'm still seeing actual
 > dollar signs $"
 
+**Fixed for lessons on 10 August. Aedwon found it again in the choices:** *"i am
+also still seeing $ $ in the choices."*
+
+**Checked, and the choices were never wired to the maths renderer at all.** The
+question stem goes through it. The choices went to the screen through a plain
+`Text`, so every dollar in one printed as a dollar. **645 of the 2,000 questions
+in the bank carry maths in a choice**, so this was a third of the bank, in the
+quiz and the mock alike.
+
+**Fixed:** the `$…$` splitting is now one shared component that both the lesson
+renderer and the answer row use, so a third caller cannot miss it the same way.
+
+### UI-035 [important] Inline fractions are too small to read
+
+**Aedwon:** *"as a general rule please use \dfrac and not \frac because frac
+makes the fractions too small to read properly"*
+
+**He is right, and it is a rendering rule as much as an authoring one.** Inline,
+`\frac` sets its numerator and denominator at script size.
+
+The bank already mixes the two: **674 `\frac` against 739 `\dfrac`**, so an
+authoring rule alone would leave 674 unreadable until someone swept them.
+
+**The renderer promotes a top-level `\frac` to `\dfrac`**, which fixes every
+one of them at once. **Nested fractions are left alone**, because the inner
+fraction of a fraction is meant to be smaller: there are 21 of those in the bank
+and 7 more in the lessons, and a blanket rewrite would have broken all 28.
+
+The authoring rule is written down in `AGENTS.md` under Voice.
+
 **Related to UI-007, which is still open from the earlier pass.** UI-019 and
 UI-020 together mean the maths pipeline is half-working: some spans render at the
 wrong size and baseline, others not at all.

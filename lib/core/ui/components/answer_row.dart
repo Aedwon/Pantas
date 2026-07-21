@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/ui/components/inline_math_text.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
@@ -81,8 +82,10 @@ class AnswerRow extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 10),
+            // A choice is a plain string, so `$…$` in it never reached the
+            // maths renderer the stem goes through and printed its dollars.
             Expanded(
-              child: Text(
+              child: InlineMathText(
                 text,
                 style: bodyStyle.copyWith(
                   color: textColor,

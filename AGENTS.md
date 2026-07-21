@@ -88,6 +88,17 @@ colour as decoration.
 - The words FSRS, stability, retention, retrievability and algorithm never appear in
   a user-facing string.
 
+### Maths in content
+
+- **Write `\dfrac`, never `\frac`.** Aedwon's rule, 10 August: inline, `\frac` sets
+  the numerator and denominator at script size and is too small to read on a phone.
+- **The exception is a fraction inside another fraction**, which is meant to be
+  smaller. Write those as `\frac`.
+- The renderer promotes a top-level `\frac` to `\dfrac` for content already written,
+  and leaves nested ones alone, so nothing on screen is waiting on a content sweep.
+  **New content should still be written correctly** rather than relying on it.
+- Maths goes between single dollars, `$x^2$`. A lone dollar stays a dollar.
+
 ---
 
 ## Never invent a figure
