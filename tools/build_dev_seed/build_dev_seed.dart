@@ -189,15 +189,16 @@ void main() {
     '${const JsonEncoder.withIndent('  ').convert(seed)}\n',
   );
 
-  stdout.writeln('Wrote assets/seed/v1.json');
-  stdout.writeln('  subjects:  ${subjects.length}');
-  stdout.writeln('  topics:    ${topics.length}');
-  stdout.writeln(
-    '  questions: ${questions.length} (+${keptQuestions.length} kept)',
-  );
-  stdout.writeln(
-    '  lessons:   ${lessons.length} (+${keptLessons.length} kept)',
-  );
+  stdout
+    ..writeln('Wrote assets/seed/v1.json')
+    ..writeln('  subjects:  ${subjects.length}')
+    ..writeln('  topics:    ${topics.length}')
+    ..writeln(
+      '  questions: ${questions.length} (+${keptQuestions.length} kept)',
+    )
+    ..writeln(
+      '  lessons:   ${lessons.length} (+${keptLessons.length} kept)',
+    );
 }
 
 String _underscore(String slug) => slug.replaceAll('-', '_');

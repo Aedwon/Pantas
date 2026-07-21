@@ -80,9 +80,15 @@ directly from the orchestrator**, one git worktree per plan.
 **Rewritten 10 August. Every written plan in this repository is executed.** Nothing is running,
 no worktree holds unmerged work, `main` is clean.
 
-**Health:** **2,099 tests pass**, app schema **21**, **content schema 3**, corpus **2,369
-questions**, zero analyzer issues under `lib/` and `test/` outside `test/tool/`, formatter clean,
-layering 36, attribution 0.
+**Health:** **2,110 tests pass**, app schema **21**, **content schema 3**, corpus **2,369
+questions**, **`flutter analyze` clean and exiting 0**, formatter clean, layering 36,
+attribution 0.
+
+**The "7 issue baseline" every plan quotes is gone, and it was never a baseline.** They were
+seven real infos under `tools/` and `test/tool/`, and **`flutter analyze` exits 1 on an info**,
+so the command CI runs could never pass while they existed. Fixed 10 August: three dynamic
+calls given a typed helper and four writes turned into a cascade. **Do not reintroduce a
+tolerated count.**
 
 **Two generators must run before judging `main`, and both write gitignored files:**
 

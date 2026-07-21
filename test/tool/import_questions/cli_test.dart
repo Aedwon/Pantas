@@ -76,10 +76,12 @@ void main() {
 
     final json = jsonDecode(File(seed).readAsStringSync()) as Map;
     expect(json['question'] as List, hasLength(2));
-    expect((json['topic'] as List).first['_id'], 'topic-biology');
-    expect((json['subject'] as List).first['_id'], 'subject-science');
+    String idOf(Object? row) => (row! as Map<String, dynamic>)['_id'] as String;
+
+    expect(idOf((json['topic'] as List).first), 'topic-biology');
+    expect(idOf((json['subject'] as List).first), 'subject-science');
     expect(
-      (json['exam'] as List).map((e) => e['_id']),
+      (json['exam'] as List).map(idOf),
       containsAll(['exam-upcat', 'exam-dost-sei']),
     );
 
