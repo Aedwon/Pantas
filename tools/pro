@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+#
+# Switch the running dev build between Free and Pro without touching the app.
+#
+#   tools/pro           what it is set to now
+#   tools/pro on        Pro
+#   tools/pro off       Free
+#   tools/pro toggle    the other one
+#   tools/pro clear     no override, the real store entitlement decides
+#
+# It talks to the Dart VM service over the port `flutter run` already forwards
+# through adb, so the app keeps running and the screen changes as you watch.
+# The setting is stored, so a hot restart keeps it.
+#
+# Needs the emulator up and one `flutter run` alive. Nothing else.
+
+set -euo pipefail
+
+cache="${TMPDIR:-/tmp}/pantas-vm-service"
+
+die() { echo "pro: $*" >&2; exit 1; }
+
+# The forwarded pair looks like: emulator-5554 tcp:64289 tcp:41007
+discover() {
+  local forward host_port device_port token
+  forward="$(adb forward --list 2>/dev/null | head -1)" || true
+  [ -n "$forward" ] || die "no adb forward. Is 'flutter run' alive?"
+
+  host_port="$(echo "$forward" | awk '{print $2}' | cut -d: -f2)"
+  device_port="$(echo "$forward" | awk '{print $3}' | cut -d: -f2)"
+
+  # The token is only ever printed, never stored, so it comes from logcat.
+  token="$(adb logcat -d 2>/dev/null \
+    | grep -o "http://127.0.0.1:${device_port}/[^/]*/" \
+    | tail -1 \
+    | sed -E "s#http://127.0.0.1:${device_port}/##")" || true
+  [ -n "$token" ] || die "could not find the service token in logcat. Restart 'flutter run'."
+
+  echo "http://127.0.0.1:${host_port}/${token}"
+}
+
+call() {
+  curl -s -m 5 "$1"
+}
+
+base=""
+if [ -f "$cache" ]; then
+  base="$(cat "$cache")"
+  # A cached URI goes stale every time `flutter run` restarts.
+  call "${base}/getVersion" | grep -q '"result"' || base=""
+fi
+if [ -z "$base" ]; then
+  base="$(discover)"
+  echo "$base" > "$cache"
+fi
+
+isolate="$(call "${base}/getVM" \
+  | sed -E 's/.*"isolates":\[\{[^}]*"id":"([^"]*)".*/\1/')"
+[ -n "$isolate" ] || die "no isolate. Is the app running?"
+
+case "${1:-report}" in
+  on|pro|true)    value=true ;;
+  off|free|false) value=false ;;
+  toggle)         value=toggle ;;
+  clear|none)     value=clear ;;
+  report|"")      value=report ;;
+  *)              die "unknown argument '${1}'. Use on, off, toggle or clear." ;;
+esac
+
+response="$(call "${base}/ext.pantas.pro?isolateId=${isolate}&value=${value}")"
+
+case "$response" in
+  *'"pro":true'*)  echo "Pro" ;;
+  *'"pro":false'*) echo "Free" ;;
+  *'"pro":null'*)  echo "no override, the store decides" ;;
+  *) die "unexpected reply: $response" ;;
+esac

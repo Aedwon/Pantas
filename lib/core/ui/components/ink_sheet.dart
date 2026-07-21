@@ -33,7 +33,17 @@ Future<T?> showInkSheet<T>({
             border: Border(top: BorderSide(color: colors.ink)),
           ),
           padding: const EdgeInsets.fromLTRB(18, 15, 18, 18),
-          child: builder(sheetContext),
+          // A sheet grows to its content and then stops. Without the cap a
+          // long one runs off the bottom of the screen: the quiz's question
+          // grid at 120 questions is 24 rows and overflowed by 272px. Short
+          // sheets are unaffected, since the box only constrains the tall
+          // ones and the scroll view has nothing to scroll.
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              maxHeight: MediaQuery.sizeOf(sheetContext).height * 0.85,
+            ),
+            child: SingleChildScrollView(child: builder(sheetContext)),
+          ),
         ),
       );
     },

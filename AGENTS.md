@@ -43,6 +43,25 @@ Loosely typed code fails the analyzer, so write the types.
 
 Generated files (`*.g.dart`, `*.freezed.dart`) are never edited by hand.
 
+### Switching the running build between Free and Pro
+
+```bash
+tools/pro           # what it is set to now
+tools/pro on        # Pro
+tools/pro off       # Free
+tools/pro toggle
+tools/pro clear     # no override, the real store entitlement decides
+```
+
+**No rebuild and no restart.** It reaches the running app over the port
+`flutter run` already forwards through adb, and the screen changes as you watch.
+The setting is stored, so a hot restart keeps it.
+
+**There is deliberately no control for this in the UI.** A real student must
+never find one, and a debug row in Settings is a row somebody has to remember to
+strip before release. The switch is a service extension registered only in a
+debug build.
+
 ---
 
 ## Before writing a widget

@@ -1,4 +1,5 @@
 import 'package:cse_cet_reviewer/app/telemetry_providers.dart';
+import 'package:cse_cet_reviewer/core/dev/dev_pro_switch.dart';
 import 'package:cse_cet_reviewer/features/paywall/application/paywall_controller.dart';
 import 'package:cse_cet_reviewer/features/paywall/data/live_revenuecat_gateway.dart';
 import 'package:cse_cet_reviewer/features/paywall/data/revenuecat_config.dart';
@@ -19,6 +20,18 @@ final revenueCatGatewayProvider = Provider<RevenueCatGateway>((ref) {
 });
 
 final entitlementProvider = StreamProvider<Entitlement>((ref) {
+  if (kDebugMode) {
+    // The switch `tools/pro` flips, which beats FAKE_PRO because it does not
+    // need a rebuild to change.
+    final override = ref.watch(devProOverrideProvider);
+    if (override != null) {
+      return Stream.value(
+        override
+            ? const Entitlement(plan: EntitlementPlan.monthly)
+            : const Entitlement.free(),
+      );
+    }
+  }
   if (kDebugMode && const bool.fromEnvironment('FAKE_PRO')) {
     return Stream.value(const Entitlement(plan: EntitlementPlan.monthly));
   }

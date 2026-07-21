@@ -702,3 +702,25 @@ than jumping to the front, so the shuffle still decides the order of the session
 
 Four tests cover the rule, including the free-standing questions keeping their
 order around the sets.
+
+### UI-036 [blocker] A 120 question session overflows the question grid
+
+**Aedwon:** *"when i selected 120 questions to quiz on, there's a yellow/black
+field that says bottom overflowed by 272 pixels. can you fix this? i hope this
+doesn't happen to other UI"*
+
+**He is right, and his instinct about other screens was right too.** The grid
+is a plain column of rows: 120 questions at five columns is 24 rows of 46px,
+about 1,100px of content in a sheet that had no height cap and no scroll.
+
+**The fix is in the sheet rather than the grid**, because every sheet in the
+app had the same exposure and only this one had content long enough to show it.
+A sheet now stops at 85% of the screen and scrolls past that. **A short sheet is
+unchanged**, since the cap only binds on a tall one.
+
+Checked before changing it: every `Expanded` inside a sheet is inside a `Row`,
+so making the sheet scroll vertically cannot leave one unbounded.
+
+**Covered by two tests:** one that a sheet taller than the screen throws no
+overflow, and one that a short sheet is still only as tall as its content. The
+first fails with "A RenderFlex overflowed by 1274 pixels" without the fix.

@@ -63,4 +63,55 @@ void main() {
     expect(result, 'saved');
     expect(find.text('Save'), findsNothing);
   });
+
+  testWidgets('a sheet taller than the screen scrolls instead of overflowing',
+      (tester) async {
+    // The quiz's question grid at 120 questions is 24 rows and ran 272px off
+    // the bottom of the screen.
+    await tester.pumpApp(
+      Builder(
+        builder: (context) => TextButton(
+          onPressed: () => showInkSheet<void>(
+            context: context,
+            builder: (_) => Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                for (var i = 0; i < 40; i += 1)
+                  SizedBox(height: 46, child: Text('row $i')),
+              ],
+            ),
+          ),
+          child: const Text('open'),
+        ),
+      ),
+    );
+
+    await tester.tap(find.text('open'));
+    await tester.pumpAndSettle();
+
+    expect(tester.takeException(), isNull);
+    expect(find.byType(SingleChildScrollView), findsOneWidget);
+  });
+
+  testWidgets('a short sheet is still only as tall as its content',
+      (tester) async {
+    await tester.pumpApp(
+      Builder(
+        builder: (context) => TextButton(
+          onPressed: () => showInkSheet<void>(
+            context: context,
+            builder: (_) => const SizedBox(height: 80, child: Text('short')),
+          ),
+          child: const Text('open'),
+        ),
+      ),
+    );
+
+    await tester.tap(find.text('open'));
+    await tester.pumpAndSettle();
+
+    final surface = tester.getRect(find.byKey(const Key('inkSheetSurface')));
+    // 80 of content plus the surface's 15 and 18 of vertical padding.
+    expect(surface.height, closeTo(113, 1));
+  });
 }

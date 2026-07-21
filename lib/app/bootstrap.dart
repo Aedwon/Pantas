@@ -7,6 +7,7 @@ import 'package:cse_cet_reviewer/app/telemetry_providers.dart';
 import 'package:cse_cet_reviewer/core/content/bundle/seed_installer.dart';
 import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/content/content_database_opener.dart';
+import 'package:cse_cet_reviewer/core/dev/dev_pro_switch.dart';
 import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/core/platform/app_check.dart';
 import 'package:cse_cet_reviewer/core/platform/remote_flags_providers.dart';
@@ -92,6 +93,7 @@ Future<void> _bootstrap(
   );
   onContainerReady(container);
 
+  await registerDevProSwitch(container);
   await _installContentSeed(container);
   await bootstrapRevenueCat(container);
   await container.read(seederProvider).maybeSeed();
