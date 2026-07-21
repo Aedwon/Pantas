@@ -172,6 +172,9 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                 const SizedBox(height: 16),
                 Expanded(
                   child: SingleChildScrollView(
+                    // Room for the footer, so the last line of a long
+                    // explanation is never sitting under the control.
+                    padding: const EdgeInsets.only(bottom: 12),
                     child: Consumer(
                       builder: (context, ref, _) {
                         final question = session.currentQuestion;
@@ -221,6 +224,18 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                     ),
                   ),
                 ),
+                // The footer, outside the scroll. It sits in the same place
+                // on every question, whatever the length of the reveal
+                // above it: a control that moves has to be found again each
+                // time.
+                if (session.currentOutcome != null)
+                  BoardButton(
+                    label: session.isComplete ? 'Done' : 'Next',
+                    secondary: !session.isComplete,
+                    onPressed: () => unawaited(
+                      ref.read(quizControllerProvider.notifier).next(),
+                    ),
+                  ),
               ],
             ),
           QuizComplete(:final attempt, :final session) => DebriefPage(
