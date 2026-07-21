@@ -1108,3 +1108,28 @@ instant there was room for them and the movement was over before the eye found
 what had moved. Height and ink are separate now, the ink coming up over the
 back half of the opening. `easeOutQuint` rather than `easeOutCubic`, 340ms
 rather than 240, so the end settles instead of stopping.
+
+### UI-051 [important] The advance blanked the whole reader for a moment
+
+**Aedwon:** *"when pulling up, the entire app still has a moment of loading
+sort of"*
+
+**Two causes, both from making the advance a swap rather than a navigation.**
+
+**The skeleton replaced everything.** The page's loading branch renders a
+`FaintBars` placeholder as the whole `Scaffold` body, so the bar and the rail
+went with it. Swapping the lesson put the page back into loading for a frame
+or two, and that frame took the chrome with it. **The reader holds the last
+lesson it loaded** and keeps showing it until the next one is ready. The body
+is already off screen while it waits, so there is nothing to see and nothing
+to flash.
+
+**And it was genuinely waiting.** Nothing had read the next lesson before the
+pull committed, so the swap sat on a database read at exactly the moment the
+movement is meant to be continuous. **The next lesson is now loaded while the
+current one is still being read**, and the subscription is held open so the
+provider is not disposed before the pull lands.
+
+**The test drives the whole advance a frame at a time** and fails if the
+skeleton appears in any of them. **It also asserts the advance happened**,
+without which the loop would pass just as well on a pull that never committed.

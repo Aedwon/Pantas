@@ -37,56 +37,96 @@ class LessonPage extends ConsumerStatefulWidget {
 class _LessonPageState extends ConsumerState<LessonPage> {
   late LessonId _lessonId = widget.lessonId;
 
+  /// The last lesson that actually loaded.
+  ///
+  /// Held so an advance never falls back to the loading skeleton. That
+  /// skeleton replaces the whole body, chrome included, so a swap flashed the
+  /// bar and the rail out and back: *"the entire app still has a moment of
+  /// loading sort of"*. The reader keeps showing what it has until the next
+  /// lesson is ready, and the body is off screen while it waits, so there is
+  /// nothing to see and nothing to flash.
+  ReaderContext? _shown;
+
+  LessonId? _warmedId;
+  ProviderSubscription<Object?>? _warm;
+
   @override
   void didUpdateWidget(covariant LessonPage oldWidget) {
     super.didUpdateWidget(oldWidget);
     // A new route for the same page, so follow it.
     if (oldWidget.lessonId != widget.lessonId) {
       _lessonId = widget.lessonId;
+      _shown = null;
     }
   }
 
+  @override
+  void dispose() {
+    _warm?.close();
+    super.dispose();
+  }
+
   void _advanceTo(LessonId next) => setState(() => _lessonId = next);
+
+  /// Loads the next lesson while this one is still being read.
+  ///
+  /// Kept subscribed so the provider is not disposed before the pull lands.
+  /// Without it the advance waits on a database read at exactly the moment
+  /// the movement is meant to be continuous.
+  void _warmNext(LessonId? nextId) {
+    if (nextId == _warmedId) return;
+    _warmedId = nextId;
+    _warm?.close();
+    _warm = nextId == null
+        ? null
+        : ref.listenManual(readerContextProvider(nextId), (_, __) {});
+  }
 
   @override
   Widget build(BuildContext context) {
     final lessonId = _lessonId;
     final origin = widget.origin;
     final asyncReader = ref.watch(readerContextProvider(lessonId));
+    final loaded = asyncReader.valueOrNull;
+    if (loaded != null) _shown = loaded;
+    final reader = loaded ?? _shown;
 
     return Scaffold(
       backgroundColor: context.colors.background,
-      body: asyncReader.when(
-        loading: () => ListView(
-          padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
-          children: const [FaintBars()],
-        ),
-        error: (e, _) => Padding(
-          padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
-          child: ErrorBanner(
-            variant: ErrorBannerVariant.error,
-            message: 'Failed to load lesson.',
-            actionLabel: 'Retry',
-            onAction: () => ref.refresh(readerContextProvider(lessonId)),
+      body: switch ((reader, asyncReader)) {
+        (final ReaderContext reader, _) => Builder(
+            builder: (context) {
+              WidgetsBinding.instance.addPostFrameCallback(
+                (_) => _warmNext(reader.next?.id),
+              );
+              return _ReaderBody(
+                reader: reader,
+                origin: origin,
+                onAdvance: _advanceTo,
+              );
+            },
           ),
-        ),
-        data: (reader) {
-          if (reader == null) {
-            return Center(
-              child: Text(
-                'Lesson not found.',
-                style: context.textStyles.bodyMedium
-                    .copyWith(color: context.colors.inkMuted),
-              ),
-            );
-          }
-          return _ReaderBody(
-            reader: reader,
-            origin: origin,
-            onAdvance: _advanceTo,
-          );
-        },
-      ),
+        (_, AsyncError()) => Padding(
+            padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+            child: ErrorBanner(
+              variant: ErrorBannerVariant.error,
+              message: 'Failed to load lesson.',
+              actionLabel: 'Retry',
+              onAction: () => ref.refresh(readerContextProvider(lessonId)),
+            ),
+          ),
+        (_, AsyncLoading()) => ListView(
+            padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+            children: const [FaintBars()],
+          ),
+        _ => Center(
+            child: Text(
+              'Lesson not found.',
+              style: context.textStyles.bodyMedium
+                  .copyWith(color: context.colors.inkMuted),
+            ),
+          ),
+      },
     );
   }
 }

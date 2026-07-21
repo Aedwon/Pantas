@@ -2,7 +2,10 @@ import 'dart:convert';
 
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_page.dart';
+import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/pull_to_advance.dart';
+import 'package:drift/drift.dart' show Value;
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
@@ -119,5 +122,64 @@ void main() {
     await tester.tap(find.textContaining('Quiz yourself'));
     await tester.pumpAndSettle();
     expect(find.text('Inline e1 l1'), findsOneWidget);
+  });
+
+  testWidgets('advancing never falls back to the loading skeleton',
+      (tester) async {
+    // Aedwon: "when pulling up, the entire app still has a moment of loading
+    // sort of". The skeleton replaces the whole body, chrome included, so a
+    // swap flashed the bar and the rail out and back.
+    await db.into(db.lessons).insert(
+          LessonsCompanion.insert(
+            id: 'l2',
+            topicId: 't1',
+            title: 'Antonyms',
+            summary: 'Opposites',
+            bodyJson: jsonEncode([
+              {
+                '_type': 'block',
+                'style': 'normal',
+                'children': [
+                  {
+                    '_type': 'span',
+                    'text': 'Antonyms are opposites.',
+                    'marks': <String>[],
+                  },
+                ],
+              },
+            ]),
+            estimatedMinutes: 4,
+            ordering: const Value(2),
+          ),
+        );
+
+    await tester.pumpAppWithProviders(
+      const LessonPage(lessonId: 'l1'),
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Vocabulary Basics'), findsOneWidget);
+
+    // Drive the whole advance a frame at a time and watch for the skeleton.
+    final body = tester.getRect(find.byType(PullToAdvance));
+    final gesture = await tester.startGesture(body.center);
+    await gesture.moveBy(const Offset(0, -140));
+    await tester.pump();
+    await gesture.up();
+
+    for (var i = 0; i < 40; i++) {
+      await tester.pump(const Duration(milliseconds: 20));
+      expect(
+        find.byType(FaintBars),
+        findsNothing,
+        reason: 'the reader must never blank out while advancing',
+      );
+    }
+    await tester.pumpAndSettle();
+
+    // Without this the loop above proves nothing: it would pass just as well
+    // if the pull never committed.
+    expect(find.text('Antonyms'), findsOneWidget);
   });
 }
