@@ -88,7 +88,10 @@ class RuledPanel extends StatelessWidget {
                   borderRadius:
                       BorderRadius.circular(AppDimensions.radiusButton),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    // Left only. Symmetric padding held the words 8px off
+                    // the panel's right edge, so the action never sat on
+                    // the margin every other row is aligned to.
+                    padding: const EdgeInsets.only(left: 8, top: 4, bottom: 4),
                     child: Text(
                       action!,
                       style: styles.labelSmall.copyWith(

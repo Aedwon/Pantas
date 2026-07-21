@@ -32,8 +32,8 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    expect(find.text('Magandang gabi,'), findsOneWidget);
-    expect(find.text('Aedwon'), findsOneWidget);
+    // The name shares the greeting's line and its size.
+    expect(find.text('Magandang gabi, Aedwon'), findsOneWidget);
   });
 
   testWidgets('a day-precision date prints a day count', (tester) async {
@@ -48,7 +48,8 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    expect(find.text('42 days to UPCAT'), findsOneWidget);
+    expect(find.text('42 days to go'), findsOneWidget);
+    expect(find.text('UPCAT'), findsOneWidget);
   });
 
   testWidgets('a month-precision date never prints a day count',
@@ -83,7 +84,8 @@ void main() {
     expect(find.textContaining('Your exam'), findsNothing);
   });
 
-  testWidgets('no name means no slot, not an invitation', (tester) async {
+  testWidgets('no name closes the greeting rather than trailing a comma',
+      (tester) async {
     await tester.pumpWidget(
       harness(
         const HomeMastheadData(
@@ -95,10 +97,10 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    // A greeting is not a to-do list. The plan put "Add your name" here and
-    // it read as an instruction on every single launch.
+    // A comma leads into a name and reads as an unfinished sentence
+    // without one.
     expect(find.text('Add your name'), findsNothing);
-    expect(find.textContaining('Magandang'), findsOneWidget);
+    expect(find.text('Magandang gabi!'), findsOneWidget);
     expect(find.text('UPCAT'), findsOneWidget);
   });
 
@@ -114,7 +116,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    expect(find.text('0 days to UPCAT'), findsOneWidget);
+    expect(find.text('0 days to go'), findsOneWidget);
   });
 
   testWidgets('one day reads "1 day", not "1 days"', (tester) async {
@@ -129,14 +131,14 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    expect(find.text('1 day to UPCAT'), findsOneWidget);
+    expect(find.text('1 day to go'), findsOneWidget);
   });
 
   testWidgets('the kicker follows the hour', (tester) async {
     for (final (hour, kicker) in [
-      (8, 'Magandang umaga,'),
-      (14, 'Magandang hapon,'),
-      (21, 'Magandang gabi,'),
+      (8, 'Magandang umaga, Aedwon'),
+      (14, 'Magandang hapon, Aedwon'),
+      (21, 'Magandang gabi, Aedwon'),
     ]) {
       await tester.pumpWidget(
         harness(

@@ -182,13 +182,17 @@ class WhyYouMissSection extends ConsumerWidget {
           style: styles.bodyMedium.copyWith(color: colors.inkMuted),
         ),
         const SizedBox(height: 12),
-        GestureDetector(
-          onTap: () => context.push('/paywall'),
-          child: Text(
-            'Unlock with Pro',
-            style: styles.bodyMedium.copyWith(
-              color: colors.board,
-              fontWeight: FontWeight.w600,
+        // On the right margin, where the other section actions sit.
+        Align(
+          alignment: Alignment.centerRight,
+          child: GestureDetector(
+            onTap: () => context.push('/paywall'),
+            child: Text(
+              'Unlock with Pro',
+              style: styles.bodyMedium.copyWith(
+                color: colors.board,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
         ),

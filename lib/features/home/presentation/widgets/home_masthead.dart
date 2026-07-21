@@ -21,41 +21,44 @@ class HomeMasthead extends ConsumerWidget {
     final data = ref.watch(homeMastheadProvider).valueOrNull;
 
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // The name shares the greeting's line and its size. Set
+              // large it took a third of the masthead to say something the
+              // student already knows, and the exam is what they came for.
               Text(
-                greetingFor(now, AppLocalizations.of(context)),
+                greetingLineFor(
+                  now,
+                  data?.name,
+                  AppLocalizations.of(context),
+                ),
                 style: styles.bodySmall.copyWith(color: colors.inkMuted),
               ),
-              const SizedBox(height: 1),
+              const SizedBox(height: 2),
               if (data == null)
                 const FaintBars()
               else ...[
-                // No name, no slot. The plan put an "Add your name"
-                // invitation here and it reads as an instruction every
-                // single launch: a greeting is not a to-do list. The
-                // Settings row is where a name is given.
-                if (data.name != null) ...[
-                  Text(data.name!, style: styles.displaySmall),
-                  const SizedBox(height: 2),
-                ],
+                Text(data.examShortName, style: styles.displaySmall),
+                const SizedBox(height: 2),
                 Text(
-                  metaLineFor(
-                    examShortName: data.examShortName,
-                    examDate: data.examDate,
-                    now: now,
-                  ),
+                  countdownLineFor(examDate: data.examDate, now: now),
                   style: styles.bodySmall.copyWith(color: colors.inkMuted),
                 ),
               ],
             ],
           ),
         ),
+        // The default IconButton reserves 48px of height around a 20px
+        // glyph, which pushed the masthead open with space doing no work.
+        // The 44px target is kept and the padding above and below is not.
         IconButton(
           onPressed: () => context.push('/settings'),
+          padding: EdgeInsets.zero,
+          constraints: const BoxConstraints(minWidth: 44, minHeight: 44),
           icon: Icon(
             Icons.settings_outlined,
             size: 20,
@@ -79,29 +82,41 @@ String greetingFor(DateTime now, [AppLocalizations? l10n]) {
   if (l10n != null) {
     return l10n.greeting(timeOfDay);
   }
-  return 'Magandang $timeOfDay,';
+  return 'Magandang $timeOfDay';
 }
 
-/// The three states the meta line may print, and no fourth.
+/// The greeting, with the name on the same line when there is one.
+///
+/// A comma leads into a name and reads as an unfinished sentence without
+/// one, so with nobody to address it closes with an exclamation instead.
+@visibleForTesting
+String greetingLineFor(DateTime now, String? name, [AppLocalizations? l10n]) {
+  final greeting = greetingFor(now, l10n);
+  return name == null ? '$greeting!' : '$greeting, $name';
+}
+
+/// The three states the line under the exam may print, and no fourth.
 ///
 /// A day count derived from a month would be a figure made of a measurement
 /// and an assumption. `ExamDate.day` is null at month precision so that this
 /// cannot be got wrong by reaching around the type.
+///
+/// The exam's name is the headline above this now, so the line no longer
+/// repeats it: with no date there is nothing left to say and it is empty.
 @visibleForTesting
-String metaLineFor({
-  required String examShortName,
+String countdownLineFor({
   required ExamDate? examDate,
   required DateTime now,
 }) {
-  if (examDate == null) return examShortName;
+  if (examDate == null) return '';
   switch (examDate.precision) {
     case ExamDatePrecision.month:
       return 'Your exam is in ${_monthName(examDate.month)} ${examDate.year}';
     case ExamDatePrecision.day:
       final days = examDate.daysUntil(now);
-      if (days == null || days < 0) return examShortName;
+      if (days == null || days < 0) return '';
       final unit = days == 1 ? 'day' : 'days';
-      return '$days $unit to $examShortName';
+      return '$days $unit to go';
   }
 }
 

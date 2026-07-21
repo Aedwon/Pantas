@@ -21,9 +21,11 @@ void main() {
       ),
     );
 
-    expect(l10n.greeting('umaga'), 'Magandang umaga,');
-    expect(l10n.greeting('hapon'), 'Magandang hapon,');
-    expect(l10n.greeting('gabi'), 'Magandang gabi,');
-    expect(find.text('Magandang umaga,'), findsOneWidget);
+    // No trailing punctuation: the masthead adds the comma when a name
+    // follows it and an exclamation when none does.
+    expect(l10n.greeting('umaga'), 'Magandang umaga');
+    expect(l10n.greeting('hapon'), 'Magandang hapon');
+    expect(l10n.greeting('gabi'), 'Magandang gabi');
+    expect(find.text('Magandang umaga'), findsOneWidget);
   });
 }
