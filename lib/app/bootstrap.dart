@@ -76,9 +76,12 @@ Future<void> _bootstrap(
       ...contentOverrides,
       ...remoteFlagsOverrides,
       ...mockEntitlementOverrides,
-      // Firebase is initialized by now, so the SDK-backed sink is safe to
-      // build. The gate above it still decides whether anything reaches it.
-      telemetrySinkProvider.overrideWithValue(FirebaseTelemetry.instances()),
+      // Only when Firebase actually started. It does not yet: there is no
+      // project, so `bootstrapFirebase` initializes nothing. The gate above
+      // this still decides whether anything reaches the sink.
+      telemetrySinkProvider.overrideWithValue(
+        FirebaseTelemetry.instancesIfAvailable(),
+      ),
       notificationServiceProvider.overrideWith(
         (ref) => ref.watch(featureNotificationServiceProvider),
       ),

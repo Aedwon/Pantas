@@ -1,5 +1,6 @@
 import 'package:cse_cet_reviewer/core/telemetry/telemetry.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 
 /// The only file in `lib/` permitted to import an analytics or crash package.
@@ -22,6 +23,18 @@ class FirebaseTelemetry implements Telemetry {
   FirebaseTelemetry.instances()
       : _analytics = FirebaseAnalytics.instance,
         _crashlytics = FirebaseCrashlytics.instance;
+
+  /// The SDK sink when Firebase is running, and the disabled one when it is
+  /// not.
+  ///
+  /// There is no Firebase project yet, so `bootstrapFirebase` initializes
+  /// nothing and touching either singleton throws `[core/no-app]`. Building
+  /// this unconditionally killed the app on launch, at the splash, before a
+  /// single screen drew.
+  static Telemetry instancesIfAvailable() {
+    if (Firebase.apps.isEmpty) return const DisabledTelemetry();
+    return FirebaseTelemetry.instances();
+  }
 
   final FirebaseAnalytics _analytics;
   final FirebaseCrashlytics _crashlytics;
