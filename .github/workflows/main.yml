@@ -21,6 +21,17 @@ jobs:
         run: |
           dart run build_runner build --delete-conflicting-outputs
           flutter gen-l10n
+
+      - name: Build the content asset
+        # Gitignored and built, never committed. Without it `flutter
+        # analyze` warns that a declared asset is missing and exits 1, and
+        # the bundled-database test has nothing to open. The fixture is the
+        # same one that test uses.
+        run: |
+          dart run tools/build_content_seed/seed_writer.dart \
+            test/fixtures/sanity/content_sample.json \
+            assets/seed/content.db
+
       - run: flutter analyze
       - run: dart run tool/check_layering.dart
       - run: dart run tool/check_no_ai_attribution.dart

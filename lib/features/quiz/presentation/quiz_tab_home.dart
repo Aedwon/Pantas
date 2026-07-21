@@ -134,6 +134,9 @@ class _QuizTabBody extends ConsumerWidget {
         const SizedBox(height: 20),
         SessionPanel(exam: exam, onStart: () => _onStartQuiz(context, ref)),
         if (mockPanel != null) mockPanel!,
+        // The panels above are the tab's own work. This is a list of doors
+        // to somewhere else, and it needs the air to say so.
+        const SizedBox(height: 28),
         const SectionHeader(title: 'More ways to practice'),
         InkTableRow(
           title: 'Your mistakes',
@@ -154,6 +157,7 @@ class _QuizTabBody extends ConsumerWidget {
           bottomRule: false,
           onTap: () => context.push('/quiz/practice/${exam.id}'),
         ),
+        const SizedBox(height: 28),
         _FlaggedSection(exam: exam),
       ],
     );
