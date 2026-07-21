@@ -205,18 +205,6 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                 nextReviewIntervalDays:
                                     outcome.nextReviewIntervalDays,
                               ),
-                              const SizedBox(height: 16),
-                              // A way forward, not a way to edit. The answer
-                              // and the scheduler were written on the tap.
-                              BoardButton(
-                                label: session.isComplete ? 'Done' : 'Next',
-                                secondary: !session.isComplete,
-                                onPressed: () => unawaited(
-                                  ref
-                                      .read(quizControllerProvider.notifier)
-                                      .next(),
-                                ),
-                              ),
                             ],
                           ],
                         );
