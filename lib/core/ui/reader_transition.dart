@@ -1,0 +1,96 @@
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+/// The reader advances upward, because that is the direction it is pulled.
+///
+/// The platform default slid the next lesson in from the right while the
+/// gesture that asked for it had been a pull up the screen. The motion
+/// contradicted the hand that started it.
+///
+/// A lesson is a sheet in a bound volume, so the volume feeds: the sheet
+/// being left keeps travelling up and off, and the next one follows it into
+/// place. Both move the same way at the same moment, which is what makes it
+/// read as one movement continued rather than two animations.
+///
+/// The outgoing sheet travels **less** than the incoming one and fades as it
+/// goes. Moving both a full screen height is literal and reads as heavy; the
+/// shorter travel puts the leaving sheet behind the arriving one, which is
+/// where the eye expects the page it has finished with to be.
+const Duration readerAdvanceDuration = Duration(milliseconds: 380);
+
+CustomTransitionPage<void> readerPage({
+  required LocalKey key,
+  required Widget child,
+}) {
+  return CustomTransitionPage<void>(
+    key: key,
+    child: child,
+    transitionDuration: readerAdvanceDuration,
+    reverseTransitionDuration: readerAdvanceDuration,
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      return ReaderAdvanceTransition(
+        animation: animation,
+        secondaryAnimation: secondaryAnimation,
+        child: child,
+      );
+    },
+  );
+}
+
+/// Public so a test can drive it without a router.
+class ReaderAdvanceTransition extends StatelessWidget {
+  const ReaderAdvanceTransition({
+    required this.animation,
+    required this.secondaryAnimation,
+    required this.child,
+    super.key,
+  });
+
+  final Animation<double> animation;
+
+  /// Runs when *this* page is the one being left behind.
+  final Animation<double> secondaryAnimation;
+
+  final Widget child;
+
+  /// How far the sheet being left travels, as a fraction of the screen.
+  static const double _departingTravel = 0.34;
+
+  @override
+  Widget build(BuildContext context) {
+    final arriving = Tween<Offset>(
+      begin: const Offset(0, 1),
+      end: Offset.zero,
+    ).animate(
+      CurvedAnimation(
+        parent: animation,
+        curve: Curves.easeOutCubic,
+        reverseCurve: Curves.easeInCubic,
+      ),
+    );
+
+    final departing = Tween<Offset>(
+      begin: Offset.zero,
+      end: const Offset(0, -_departingTravel),
+    ).animate(
+      CurvedAnimation(
+        parent: secondaryAnimation,
+        curve: Curves.easeOutCubic,
+        reverseCurve: Curves.easeInCubic,
+      ),
+    );
+
+    return SlideTransition(
+      position: departing,
+      child: FadeTransition(
+        // Not to nothing: a sheet that vanishes reads as deleted rather than
+        // passed.
+        opacity: Tween<double>(begin: 1, end: 0.25).animate(secondaryAnimation),
+        child: SlideTransition(
+          position: arriving,
+          child: child,
+        ),
+      ),
+    );
+  }
+}

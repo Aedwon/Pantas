@@ -7,6 +7,7 @@ import 'package:cse_cet_reviewer/features/shell/presentation/update_required_pag
 import 'package:cse_cet_reviewer/core/auth/providers.dart';
 import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/core/ui/reader_transition.dart';
 import 'package:cse_cet_reviewer/core/sync/local_state_wiper.dart';
 import 'package:cse_cet_reviewer/core/storage/age_gate.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
@@ -271,11 +272,14 @@ List<RouteBase> buildAppRoutes(Ref ref) {
     ),
     GoRoute(
       path: '/lesson/:lessonId',
-      builder: (_, state) => LessonPage(
-        lessonId: state.pathParameters['lessonId']!,
-        origin: state.uri.queryParameters['from'] == 'home'
-            ? ReaderOrigin.home
-            : ReaderOrigin.study,
+      pageBuilder: (_, state) => readerPage(
+        key: state.pageKey,
+        child: LessonPage(
+          lessonId: state.pathParameters['lessonId']!,
+          origin: state.uri.queryParameters['from'] == 'home'
+              ? ReaderOrigin.home
+              : ReaderOrigin.study,
+        ),
       ),
     ),
     GoRoute(
