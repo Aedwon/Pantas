@@ -20,7 +20,7 @@ void main() {
       ),
     );
     final numeral = tester.widget<Text>(find.text('78%'));
-    expect(numeral.style?.fontFamily, 'SourceSerif4');
+    expect(numeral.style?.fontFamily, 'SourceSans3');
     expect(numeral.style?.fontSize, 30);
     expect(find.text('/96'), findsOneWidget);
     expect(find.text('Average score'), findsOneWidget);

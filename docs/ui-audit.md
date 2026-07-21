@@ -871,11 +871,18 @@ which is a different mechanism from the one built.
 clean in the app. can we use something else? how about using the same font
 everywhere? or using an Apple font?"*
 
-**Not changed, deliberately.** The serif is not a font choice, it is the
-identity: Ink and Rule is a printed page, and the serif masthead, headings and
-choice letters are most of what makes it read as one. Swapping it is a
-redesign, not a setting, and it touches every screen already approved.
+**Resolved the same evening: the serif is retired.** Three options went to him
+side by side in the companion and he chose one font everywhere, against my
+recommendation and with the better argument. Full round, including what I had
+wrong, in `decisions/2026-08-10-typeface-log.md`.
 
-**It is also worth separating two complaints**, because they have different
-answers: a serif that is wrong for screens, and a serif that is rendering
-badly. Both are possible and the second is cheaper to fix.
+**His reasoning, which is the part worth keeping:** the printed page was never
+the point, quiet was, and quiet exists so a student attends to the content. A
+typeface he calls an eyesore fails that more completely than a missing serif
+does. I had been defending the means as though it were the end.
+
+**Standing constraint from the same message:** *"I still hate vibe-coded AI slop
+signs, so consider that."* With the letterforms no longer distinguishing
+anything, the hairline rules, the underlined section heads, the tabular figures
+and the absence of tinted callouts and rounded cards are the whole of the
+identity now.

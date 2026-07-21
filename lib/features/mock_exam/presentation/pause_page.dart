@@ -61,7 +61,7 @@ class PausePage extends StatelessWidget {
                 Text(
                   'Paused.',
                   style: textStyles.displayMedium.copyWith(
-                    fontFamily: 'SourceSerif4',
+                    fontFamily: 'SourceSans3',
                     fontSize: 24,
                     fontWeight: FontWeight.w700,
                     color: colors.ink,
@@ -84,7 +84,7 @@ class PausePage extends StatelessWidget {
                     Text(
                       _formatRemaining(remaining),
                       style: textStyles.displayLarge.copyWith(
-                        fontFamily: 'SourceSerif4',
+                        fontFamily: 'SourceSans3',
                         fontSize: 30,
                         fontWeight: FontWeight.w700,
                         color: colors.ink,
@@ -94,7 +94,7 @@ class PausePage extends StatelessWidget {
                     Text(
                       'in this part',
                       style: textStyles.mathBody.copyWith(
-                        fontFamily: 'SourceSerif4',
+                        fontFamily: 'SourceSans3',
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
                         color: colors.inkMuted,

@@ -167,7 +167,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
           title: Text(
             _formatRemaining(widget.remainingInPart),
             style: textStyles.headlineSmall.copyWith(
-              fontFamily: 'SourceSerif4',
+              fontFamily: 'SourceSans3',
               fontSize: 16,
               fontWeight: FontWeight.w700,
               color: urgency == ClockUrgency.last ? colors.amber : colors.ink,

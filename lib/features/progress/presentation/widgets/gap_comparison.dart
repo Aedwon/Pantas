@@ -151,7 +151,7 @@ class GapComparison extends StatelessWidget {
           Text(
             tendency.gap!,
             style: TextStyle(
-              fontFamily: 'SourceSerif4',
+              fontFamily: 'SourceSans3',
               fontSize: 34,
               fontWeight: FontWeight.w700,
               color: gapColor,

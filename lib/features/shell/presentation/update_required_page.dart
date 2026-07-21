@@ -47,7 +47,7 @@ class UpdateRequiredPage extends StatelessWidget {
                 Text(
                   'Pantas needs an update to keep working.',
                   style: styles.headlineMedium.copyWith(
-                    fontFamily: 'SourceSerif4',
+                    fontFamily: 'SourceSans3',
                   ),
                 ),
                 const SizedBox(height: 24),

@@ -20,7 +20,7 @@ void main() {
       ),
     );
     final title = tester.widget<Text>(find.text("Today's plan"));
-    expect(title.style?.fontFamily, 'SourceSerif4');
+    expect(title.style?.fontFamily, 'SourceSans3');
     await tester.tap(find.text('2 of 3 done'));
     expect(tapped, isTrue);
   });

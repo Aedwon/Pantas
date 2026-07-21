@@ -34,7 +34,7 @@ class NavigationalRow extends StatelessWidget {
                     Text(
                       title,
                       style: styles.titleSmall.copyWith(
-                        fontFamily: 'SourceSerif4',
+                        fontFamily: 'SourceSans3',
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
                         color: colors.ink,

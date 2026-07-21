@@ -104,7 +104,7 @@ class _ValueWheelState extends State<ValueWheel> {
                     widget.format?.call(candidate) ?? '$candidate',
                     style: isSelected
                         ? styles.displaySmall.copyWith(
-                            fontFamily: 'SourceSerif4',
+                            fontFamily: 'SourceSans3',
                             fontSize: 21,
                             fontWeight: FontWeight.w700,
                             color: colors.ink,
@@ -151,7 +151,7 @@ class _WheelFrame extends StatelessWidget {
               child: Text(
                 title,
                 style: styles.bodyMedium.copyWith(
-                  fontFamily: 'SourceSerif4',
+                  fontFamily: 'SourceSans3',
                   fontSize: 14,
                   fontWeight: FontWeight.w700,
                 ),

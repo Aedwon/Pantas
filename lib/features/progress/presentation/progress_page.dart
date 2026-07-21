@@ -53,7 +53,7 @@ class ProgressPage extends ConsumerWidget {
                     Text(
                       exam.shortName,
                       style: styles.displaySmall.copyWith(
-                        fontFamily: 'SourceSerif4',
+                        fontFamily: 'SourceSans3',
                         fontSize: 22,
                         fontWeight: FontWeight.w700,
                         color: colors.ink,

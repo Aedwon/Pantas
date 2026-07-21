@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 /// Renders a reading comprehension passage in the reader's typography.
 ///
 /// Section 5 of passage spec:
-/// - Reader's typography: serif (`SourceSerif4`), line height 1.6, `ink` color.
+/// - Reader's typography: serif (`SourceSans3`), line height 1.6, `ink` color.
 /// - Hairline rule separates passage from question.
 /// - Scrolls with content (no sticky or pinned header).
 class PassageCard extends StatelessWidget {
@@ -32,7 +32,7 @@ class PassageCard extends StatelessWidget {
         Text(
           passage.body,
           style: textStyles.bodyLarge.copyWith(
-            fontFamily: 'SourceSerif4',
+            fontFamily: 'SourceSans3',
             height: 1.6,
             color: colors.ink,
           ),

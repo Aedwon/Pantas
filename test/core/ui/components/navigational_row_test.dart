@@ -15,7 +15,7 @@ void main() {
       ),
     );
     final title = tester.widget<Text>(find.text('How you work'));
-    expect(title.style?.fontFamily, 'SourceSerif4');
+    expect(title.style?.fontFamily, 'SourceSans3');
     expect(title.style?.fontWeight, FontWeight.w700);
     expect(find.byIcon(Icons.chevron_right), findsOneWidget);
   });

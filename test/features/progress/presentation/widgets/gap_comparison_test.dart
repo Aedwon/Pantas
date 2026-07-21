@@ -63,7 +63,7 @@ void main() {
     final gap = tester.widget<Text>(find.text('14'));
     expect(gap.style?.fontSize, 34);
     expect(gap.style?.fontWeight, FontWeight.w700);
-    expect(gap.style?.fontFamily, 'SourceSerif4');
+    expect(gap.style?.fontFamily, 'SourceSans3');
   });
 
   testWidgets('a loss is rust and a gain is ink', (tester) async {

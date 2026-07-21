@@ -145,7 +145,7 @@ class GridCellView extends StatelessWidget {
     final isAnswered = cell.mark != GridCellMark.none;
 
     final numberStyle = styles.bodyMedium.copyWith(
-      fontFamily: 'SourceSerif4',
+      fontFamily: 'SourceSans3',
       fontSize: 15,
       fontWeight: isAnswered ? FontWeight.w600 : FontWeight.w400,
       color: isAnswered ? colors.ink : colors.inkMuted,

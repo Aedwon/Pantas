@@ -46,7 +46,7 @@ class HowYouWorkPage extends ConsumerWidget {
                         Text(
                           work.name!,
                           style: styles.displaySmall.copyWith(
-                            fontFamily: 'SourceSerif4',
+                            fontFamily: 'SourceSans3',
                             fontSize: 24,
                             fontWeight: FontWeight.w700,
                             color: colors.ink,
@@ -62,7 +62,7 @@ class HowYouWorkPage extends ConsumerWidget {
                           child: Text(
                             'Add your name',
                             style: styles.displaySmall.copyWith(
-                              fontFamily: 'SourceSerif4',
+                              fontFamily: 'SourceSans3',
                               fontSize: 24,
                               fontWeight: FontWeight.w700,
                               color: colors.board,

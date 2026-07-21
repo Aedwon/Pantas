@@ -115,7 +115,7 @@ class ReaderBar extends StatelessWidget {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          fontFamily: 'SourceSerif4',
+                          fontFamily: 'SourceSans3',
                           fontSize: 13,
                           fontWeight: FontWeight.w700,
                           color: colors.ink,

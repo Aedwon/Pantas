@@ -18,7 +18,7 @@ void main() {
     );
 
     final heading = tester.widget<Text>(find.text('How you practice'));
-    expect(heading.style!.fontFamily, 'SourceSerif4');
+    expect(heading.style!.fontFamily, 'SourceSans3');
     expect(heading.style!.fontSize, SettingsGroup.headingSize);
     expect(heading.style!.fontWeight, FontWeight.w700);
     // Sentence case is a copy rule, asserted here so an all-caps heading
