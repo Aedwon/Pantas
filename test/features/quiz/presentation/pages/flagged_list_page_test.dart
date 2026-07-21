@@ -80,9 +80,16 @@ void main() {
 
     when(() => prefsRepo.hasAnnouncedFirstFlag()).thenAnswer((_) async => true);
 
-    when(() => contentRepo.questionById('q_1')).thenAnswer((_) async => q1);
-    when(() => contentRepo.questionById('q_2')).thenAnswer((_) async => q2);
-    when(() => contentRepo.questionById('q_3')).thenAnswer((_) async => q3);
+    // The review reads every question in one query now, not one at a time.
+    when(() => contentRepo.questionsByIds(any()))
+        .thenAnswer((invocation) async {
+      final wanted =
+          (invocation.positionalArguments.first as Iterable<String>).toSet();
+      return {
+        for (final q in [q1, q2, q3])
+          if (wanted.contains(q.id)) q.id: q,
+      };
+    });
 
     when(() => contentRepo.topicById('t_1')).thenAnswer((_) async => t1);
     when(() => contentRepo.topicById('t_2')).thenAnswer((_) async => t2);

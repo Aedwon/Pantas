@@ -14,7 +14,7 @@ void main() {
     await tester.pumpApp(
       Scaffold(
         body: PullToAdvance(
-          isAtEnd: isAtEnd,
+          isAtEnd: ValueNotifier(isAtEnd),
           nextTitle: nextTitle,
           onAdvance: onAdvance ?? () {},
           child: const ColoredBox(

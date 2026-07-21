@@ -76,11 +76,11 @@ class _ReaderBody extends ConsumerStatefulWidget {
 
 class _ReaderBodyState extends ConsumerState<_ReaderBody> {
   late final ScrollController _scrollController;
-  double _scrollOffset = 0;
-  double _progress = 0;
+  final _scrollOffset = ValueNotifier<double>(0);
+  final _progress = ValueNotifier<double>(0);
 
   /// Whether the end of the lesson is on screen. Drives the pull handle.
-  bool _isAtEnd = false;
+  final _isAtEnd = ValueNotifier<bool>(false);
   ReadMarkingController? _markingController;
 
   @override
@@ -116,9 +116,9 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
   void didUpdateWidget(covariant _ReaderBody oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.reader.lesson.id != widget.reader.lesson.id) {
-      _scrollOffset = 0;
-      _progress = 0;
-      _isAtEnd = false;
+      _scrollOffset.value = 0;
+      _progress.value = 0;
+      _isAtEnd.value = false;
       _initMarking();
       WidgetsBinding.instance.addPostFrameCallback((_) => _syncScrollState());
     }
@@ -127,21 +127,33 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
   @override
   void dispose() {
     _scrollController.dispose();
+    _scrollOffset.dispose();
+    _progress.dispose();
+    _isAtEnd.dispose();
     super.dispose();
   }
 
+  /// Scroll position is published through notifiers, never `setState`.
+  ///
+  /// `setState` here rebuilt the whole page on **every scroll frame**, and
+  /// the whole page includes the lesson body: every block, every formula,
+  /// each of which is a laid-out widget. That is the jank in the reader and
+  /// nowhere else, because no other screen rebuilds this much this often.
+  ///
+  /// Only the bar, the rail and the pull handle listen, and each rebuilds
+  /// alone.
   void _onScroll() {
     if (!_scrollController.hasClients) return;
     final offset = _scrollController.offset;
     final maxExtent = _scrollController.position.maxScrollExtent;
-    setState(() {
-      _scrollOffset = offset;
-      _progress = maxExtent > 0 ? (offset / maxExtent).clamp(0.0, 1.0) : 1.0;
-      // Within a line or so of the bottom, not exactly on it: a reader who
-      // has stopped a few pixels short has still reached the end, and
-      // rounding in the scroll metrics means exact equality is rare.
-      _isAtEnd = maxExtent <= 0 || offset >= maxExtent - 24;
-    });
+
+    _scrollOffset.value = offset;
+    _progress.value =
+        maxExtent > 0 ? (offset / maxExtent).clamp(0.0, 1.0) : 1.0;
+    // Within a line or so of the bottom, not exactly on it: a reader who
+    // has stopped a few pixels short has still reached the end, and
+    // rounding in the scroll metrics means exact equality is rare.
+    _isAtEnd.value = maxExtent <= 0 || offset >= maxExtent - 24;
 
     _markingController?.onScroll(offset: offset, maxExtent: maxExtent);
   }
@@ -163,7 +175,10 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
             onContents: () => showLessonContentsSheet(context, reader: reader),
             scrollOffset: _scrollOffset,
           ),
-          ReaderRail(progress: _progress),
+          ValueListenableBuilder<double>(
+            valueListenable: _progress,
+            builder: (_, progress, __) => ReaderRail(progress: progress),
+          ),
           Expanded(
             child: PullToAdvance(
               // The handle belongs to the end of the lesson, so it waits

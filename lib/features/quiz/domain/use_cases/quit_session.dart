@@ -6,13 +6,16 @@ class QuitSession {
 
   final QuizSessionRepository _sessions;
 
+  /// Discards everything still open for this exam.
+  ///
+  /// One at a time was the old behaviour, and with sessions accumulating it
+  /// meant a student had to press Discard once per abandoned session with no
+  /// sign that anything was happening.
   Future<void> call({
     required String userId,
     required ExamId examId,
     required DateTime now,
   }) async {
-    final row = await _sessions.activeFor(userId: userId, examId: examId);
-    if (row == null) return;
-    await _sessions.quit(sessionId: row.id, quitAt: now);
+    await _sessions.quitAllOpen(userId: userId, examId: examId, quitAt: now);
   }
 }

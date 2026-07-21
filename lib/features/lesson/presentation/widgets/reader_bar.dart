@@ -1,6 +1,7 @@
 import 'package:cse_cet_reviewer/core/ui/components/bookmark_ribbon.dart';
 import 'package:cse_cet_reviewer/core/ui/components/contents_glyph.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -22,7 +23,11 @@ class ReaderBar extends StatelessWidget {
   final bool isBookmarked;
   final VoidCallback onBookmark;
   final VoidCallback onContents;
-  final double scrollOffset;
+
+  /// A listenable, not a value. The bar's strip is the only thing on the
+  /// reader that changes with scroll position, so it is the only thing that
+  /// should rebuild when it changes.
+  final ValueListenable<double> scrollOffset;
 
   /// Back to where the reader was opened from.
   ///
@@ -47,9 +52,6 @@ class ReaderBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.colors;
     final originWord = origin == ReaderOrigin.home ? 'Home' : 'Study';
-
-    final fraction = (scrollOffset / 90.0).clamp(0.0, 1.0);
-    final stripHeight = fraction * 30.0;
 
     return ColoredBox(
       color: colors.background,
@@ -101,29 +103,36 @@ class ReaderBar extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
-            key: const ValueKey('reader-title-strip'),
-            height: stripHeight,
-            child: stripHeight > 0
-                ? Opacity(
-                    opacity: fraction,
-                    child: Container(
-                      alignment: Alignment.center,
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: Text(
-                        title,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontFamily: 'SourceSans3',
-                          fontSize: 13,
-                          fontWeight: FontWeight.w700,
-                          color: colors.ink,
+          ValueListenableBuilder<double>(
+            valueListenable: scrollOffset,
+            builder: (context, offset, _) {
+              final fraction = (offset / 90.0).clamp(0.0, 1.0);
+              final stripHeight = fraction * 30.0;
+              return SizedBox(
+                key: const ValueKey('reader-title-strip'),
+                height: stripHeight,
+                child: stripHeight > 0
+                    ? Opacity(
+                        opacity: fraction,
+                        child: Container(
+                          alignment: Alignment.center,
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          child: Text(
+                            title,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontFamily: 'SourceSans3',
+                              fontSize: 13,
+                              fontWeight: FontWeight.w700,
+                              color: colors.ink,
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                  )
-                : const SizedBox.shrink(),
+                      )
+                    : const SizedBox.shrink(),
+              );
+            },
           ),
         ],
       ),

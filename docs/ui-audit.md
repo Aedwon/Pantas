@@ -886,3 +886,51 @@ signs, so consider that."* With the letterforms no longer distinguishing
 anything, the hairline rules, the underlined section heads, the tabular figures
 and the absence of tinted callouts and rounded cards are the whole of the
 identity now.
+
+### UI-043 [blocker] Three performance complaints, three separate causes
+
+**Aedwon:** *"the scrolling is smooth until I open the lesson reader. also
+during quizzes, there are times where the result shows up really slow, like
+it's loading. can you fix this? i fear this might annoy the userbase. same with
+Discarding a session, takes a lot of time before it actually resets (or maybe
+it's storing a lot of sessions that's basically like having the user to discard
+like someone closing multiple windows?). bad UX."*
+
+**All three were real and none shared a cause. His guess about the third was
+exactly right.**
+
+**The reader.** The scroll handler called `setState` on every scroll frame, and
+the page it rebuilt includes the lesson body: every block and every formula,
+each a laid-out widget. **No other screen rebuilds that much that often**,
+which is why scrolling was smooth everywhere else. Scroll position is published
+through notifiers now, so only the bar's strip, the progress rail and the pull
+handle rebuild, each on its own.
+
+**The result screen.** The debrief walked the attempt one question at a time:
+a query for the question, then its topic, then its subject, then its passage.
+**At 120 questions that is around 480 sequential round trips to an encrypted
+database** before anything appears. It is one query for every question now,
+plus one per distinct topic, subject and passage, which for a real session is
+roughly ten.
+
+**Discarding.** **Six use cases create a session and only restart closed the
+previous one**, so every abandoned session stayed open forever. `activeFor`
+reads the newest and only the newest, so the pile was invisible until Discard
+had to work through it: Discard closed one, the panel showed the next, and it
+read as the button not working. Starting a session closes what was open now,
+and Discard closes all of them.
+
+### What the investigation cost, and it was mine
+
+The test suite could not run for about half an hour. **The `flutter run` on the
+emulator had gone into a reconnect loop with its own debug service**, opening
+roughly 170 connections a second to it and holding all 16,384 of the machine's
+ephemeral ports in `TIME_WAIT`. Nothing could open a socket, including the test
+runner, which failed to load every one of its 450 files.
+
+**Probably caused by the ten hot restarts sent to that process over the
+session.** Restarting it dropped the count from 16,350 to 9.
+
+**Worth remembering: a suite that fails to load every file is an environment
+fault, not a code fault**, and re-running it makes the problem worse rather
+than diagnosing it.

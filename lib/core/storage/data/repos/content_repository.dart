@@ -88,6 +88,23 @@ class ContentRepository {
     return row == null ? null : _hydrateQuestion(row);
   }
 
+  /// Every question named, in one query, keyed by id.
+  ///
+  /// The debrief was fetching them one at a time: a finished session asked
+  /// the database once per question and then again for its topic, its
+  /// subject and its passage. At 120 questions that is around 480 round
+  /// trips to an encrypted database, in series, before the result appears.
+  Future<Map<QuestionId, Question>> questionsByIds(
+    Iterable<QuestionId> ids,
+  ) async {
+    final wanted = ids.toSet().toList();
+    if (wanted.isEmpty) return const {};
+    final rows = await (_db.select(_db.questions)
+          ..where((q) => q.id.isIn(wanted)))
+        .get();
+    return {for (final row in rows) row.id: _hydrateQuestion(row)};
+  }
+
   Future<List<Lesson>> lessonsByTopic(TopicId topicId) async {
     final rows = await (_db.select(_db.lessons)
           ..where((l) => l.topicId.equals(topicId))

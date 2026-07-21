@@ -10,6 +10,13 @@ class QuizSessionRepository {
 
   final AppDatabase _db;
 
+  /// Starting a session closes whatever was left open for the same exam.
+  ///
+  /// **This is the one place it can be done once.** Six use cases create a
+  /// session and only one of them, restart, closed the previous one, so an
+  /// abandoned session stayed open forever. `activeFor` reads the newest and
+  /// only the newest, so the app never had a use for two at once: the extras
+  /// were invisible until Discard had to close them one at a time.
   Future<void> create({
     required String sessionId,
     required String userId,
@@ -21,6 +28,7 @@ class QuizSessionRepository {
     SubtopicId? subtopicId,
     LessonId? lessonId,
   }) async {
+    await quitAllOpen(userId: userId, examId: examId, quitAt: startedAt);
     await _db.into(_db.quizSessions).insert(
           QuizSessionsCompanion.insert(
             id: sessionId,
@@ -81,6 +89,28 @@ class QuizSessionRepository {
     return (_db.update(_db.quizSessions)
           ..where((row) => row.id.equals(sessionId)))
         .write(QuizSessionsCompanion(completedAt: Value(completedAt)));
+  }
+
+  /// Closes every session still open for this exam, not only the newest.
+  ///
+  /// Nothing closed a session when the next one started, so an abandoned
+  /// session stayed open forever and they stacked up. Discard then closed
+  /// the newest of the pile and the panel immediately showed the one under
+  /// it, which reads as the button not working.
+  Future<int> quitAllOpen({
+    required String userId,
+    required ExamId examId,
+    required DateTime quitAt,
+  }) {
+    return (_db.update(_db.quizSessions)
+          ..where(
+            (row) =>
+                row.userId.equals(userId) &
+                row.examId.equals(examId) &
+                row.completedAt.isNull() &
+                row.quitAt.isNull(),
+          ))
+        .write(QuizSessionsCompanion(quitAt: Value(quitAt)));
   }
 
   Future<void> quit({required String sessionId, required DateTime quitAt}) {

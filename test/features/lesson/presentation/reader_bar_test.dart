@@ -23,7 +23,7 @@ void main() {
         isBookmarked: isBookmarked,
         onBookmark: onBookmark ?? () {},
         onContents: onContents ?? () {},
-        scrollOffset: scrollOffset,
+        scrollOffset: ValueNotifier(scrollOffset),
       ),
     );
   }

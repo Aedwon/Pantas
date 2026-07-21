@@ -242,8 +242,8 @@ void main() {
           ],
         ),
       );
-      when(() => content.questionById('q1')).thenAnswer(
-        (_) async => freeStanding('q1'),
+      when(() => content.questionsByIds(any())).thenAnswer(
+        (_) async => {'q1': freeStanding('q1')},
       );
       // The review provider walks question -> topic -> subject and then looks
       // for a passage. An unstubbed call on a mock returns null and the whole
@@ -353,11 +353,11 @@ void main() {
         ),
       );
 
-      for (var i = 1; i <= 6; i++) {
-        when(() => content.questionById('pq$i')).thenAnswer(
-          (_) async => passageQuestion('pq$i'),
-        );
-      }
+      when(() => content.questionsByIds(any())).thenAnswer(
+        (_) async => {
+          for (var i = 1; i <= 6; i++) 'pq$i': passageQuestion('pq$i'),
+        },
+      );
       when(() => content.topicById(any())).thenAnswer((_) async => null);
       when(() => content.subjectById(any())).thenAnswer((_) async => null);
       when(() => content.passageById('p1')).thenAnswer(

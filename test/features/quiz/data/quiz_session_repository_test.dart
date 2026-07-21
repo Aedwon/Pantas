@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -125,5 +126,92 @@ void main() {
 
     expect(await repo.activeFor(userId: 'user', examId: 'exam'), isNull);
     expect((await db.select(db.quizSessions).get()).single.quitAt, equals(now));
+  });
+
+  test('starting a session closes whatever was left open for that exam',
+      () async {
+    // Six use cases create a session and only restart closed the previous
+    // one, so abandoned sessions stayed open forever and stacked up.
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = QuizSessionRepository(db);
+
+    await repo.create(
+      sessionId: 'abandoned',
+      userId: 'user',
+      examId: 'exam',
+      origin: SessionOrigin.todayTopic,
+      questionIds: const ['q1'],
+      startedAt: DateTime.utc(2026, 5, 18),
+    );
+    await repo.create(
+      sessionId: 'current',
+      userId: 'user',
+      examId: 'exam',
+      origin: SessionOrigin.todayTopic,
+      questionIds: const ['q2'],
+      startedAt: DateTime.utc(2026, 5, 19),
+    );
+
+    final rows = await db.select(db.quizSessions).get();
+    final open = rows.where((r) => r.quitAt == null && r.completedAt == null);
+    expect(open.map((r) => r.id), ['current']);
+  });
+
+  test('a session for another exam is left alone', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = QuizSessionRepository(db);
+
+    await repo.create(
+      sessionId: 'other-exam',
+      userId: 'user',
+      examId: 'exam-b',
+      origin: SessionOrigin.todayTopic,
+      questionIds: const ['q1'],
+      startedAt: DateTime.utc(2026, 5, 18),
+    );
+    await repo.create(
+      sessionId: 'current',
+      userId: 'user',
+      examId: 'exam-a',
+      origin: SessionOrigin.todayTopic,
+      questionIds: const ['q2'],
+      startedAt: DateTime.utc(2026, 5, 19),
+    );
+
+    final rows = await db.select(db.quizSessions).get();
+    final open = rows.where((r) => r.quitAt == null && r.completedAt == null);
+    expect(open.map((r) => r.id).toSet(), {'other-exam', 'current'});
+  });
+
+  test('quitAllOpen closes every open session, not just the newest', () async {
+    // Discard closed one at a time, so with a pile of them the panel showed
+    // the next one straight away and the button looked broken.
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = QuizSessionRepository(db);
+
+    for (var i = 0; i < 4; i++) {
+      await db.into(db.quizSessions).insert(
+            QuizSessionsCompanion.insert(
+              id: 's$i',
+              userId: 'user',
+              examId: 'exam',
+              origin: SessionOrigin.todayTopic.storageValue,
+              questionIdsJson: '["q1"]',
+              startedAt: DateTime.utc(2026, 5, 18 + i),
+            ),
+          );
+    }
+
+    final closed = await repo.quitAllOpen(
+      userId: 'user',
+      examId: 'exam',
+      quitAt: DateTime.utc(2026, 5, 25),
+    );
+
+    expect(closed, 4);
+    expect(await repo.activeFor(userId: 'user', examId: 'exam'), isNull);
   });
 }

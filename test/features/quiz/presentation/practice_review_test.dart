@@ -91,8 +91,16 @@ void main() {
     when(() => attemptsRepo.byId('a_1')).thenAnswer((_) async => attempt);
     when(() => flagsRepo.flaggedIds()).thenAnswer((_) async => {});
 
-    when(() => contentRepo.questionById('q_1')).thenAnswer((_) async => q1);
-    when(() => contentRepo.questionById('q_2')).thenAnswer((_) async => q2);
+    // One query for all of them now, rather than one per question.
+    when(() => contentRepo.questionsByIds(any()))
+        .thenAnswer((invocation) async {
+      final wanted =
+          (invocation.positionalArguments.first as Iterable<String>).toSet();
+      return {
+        for (final q in [q1, q2])
+          if (wanted.contains(q.id)) q.id: q,
+      };
+    });
     when(() => contentRepo.topicById('t_1')).thenAnswer((_) async => t1);
     when(() => contentRepo.topicById('t_2')).thenAnswer((_) async => t2);
     when(() => contentRepo.subjectById('s_1')).thenAnswer((_) async => s1);

@@ -1,4 +1,5 @@
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class PullToAdvance extends StatefulWidget {
@@ -6,7 +7,7 @@ class PullToAdvance extends StatefulWidget {
     required this.child,
     required this.nextTitle,
     required this.onAdvance,
-    this.isAtEnd = false,
+    required this.isAtEnd,
     super.key,
   });
 
@@ -19,7 +20,7 @@ class PullToAdvance extends StatefulWidget {
   /// The handle used to sit under every lesson from the first line, offering
   /// the next topic to someone who had not read a word of this one. It is an
   /// ending, so it arrives at the end.
-  final bool isAtEnd;
+  final ValueListenable<bool> isAtEnd;
 
   @override
   State<PullToAdvance> createState() => _PullToAdvanceState();
@@ -32,7 +33,9 @@ class _PullToAdvanceState extends State<PullToAdvance>
   static const _threshold = 90.0;
 
   bool get _hasHandle =>
-      widget.nextTitle != null && widget.onAdvance != null && widget.isAtEnd;
+      widget.nextTitle != null &&
+      widget.onAdvance != null &&
+      widget.isAtEnd.value;
   bool get _isArmed => _dragOffset >= _threshold;
 
   void _onVerticalDragUpdate(DragUpdateDetails details) {
@@ -75,56 +78,60 @@ class _PullToAdvanceState extends State<PullToAdvance>
             Expanded(child: widget.child),
             // Fades and grows in as the end comes into view rather than
             // appearing outright, so the arrival is part of the reading.
-            AnimatedSize(
-              duration: const Duration(milliseconds: 260),
-              curve: Curves.easeOutCubic,
-              alignment: Alignment.topCenter,
-              child: !_hasHandle
-                  ? const SizedBox(width: double.infinity)
-                  : AnimatedOpacity(
-                      opacity: 1,
-                      duration: const Duration(milliseconds: 260),
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(vertical: 16),
-                        alignment: Alignment.center,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            AnimatedContainer(
-                              key: const ValueKey('pull-handle'),
-                              duration: const Duration(milliseconds: 120),
-                              width: _isArmed ? 52 : 36,
-                              height: 3,
-                              decoration: BoxDecoration(
-                                color: _isArmed ? colors.board : colors.rule,
-                                borderRadius: BorderRadius.circular(2),
+            ValueListenableBuilder<bool>(
+              valueListenable: widget.isAtEnd,
+              builder: (context, _, __) => AnimatedSize(
+                duration: const Duration(milliseconds: 260),
+                curve: Curves.easeOutCubic,
+                alignment: Alignment.topCenter,
+                child: !_hasHandle
+                    ? const SizedBox(width: double.infinity)
+                    : AnimatedOpacity(
+                        opacity: 1,
+                        duration: const Duration(milliseconds: 260),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(vertical: 16),
+                          alignment: Alignment.center,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              AnimatedContainer(
+                                key: const ValueKey('pull-handle'),
+                                duration: const Duration(milliseconds: 120),
+                                width: _isArmed ? 52 : 36,
+                                height: 3,
+                                decoration: BoxDecoration(
+                                  color: _isArmed ? colors.board : colors.rule,
+                                  borderRadius: BorderRadius.circular(2),
+                                ),
                               ),
-                            ),
-                            const SizedBox(height: 8),
-                            Text.rich(
-                              TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: 'Pull up for ',
-                                    style: textStyles.bodySmall.copyWith(
-                                      color: colors.inkMuted,
+                              const SizedBox(height: 8),
+                              Text.rich(
+                                TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Pull up for ',
+                                      style: textStyles.bodySmall.copyWith(
+                                        color: colors.inkMuted,
+                                      ),
                                     ),
-                                  ),
-                                  TextSpan(
-                                    text: widget.nextTitle,
-                                    style: textStyles.bodySmall.copyWith(
-                                      color:
-                                          _isArmed ? colors.board : colors.ink,
-                                      fontWeight: FontWeight.w600,
+                                    TextSpan(
+                                      text: widget.nextTitle,
+                                      style: textStyles.bodySmall.copyWith(
+                                        color: _isArmed
+                                            ? colors.board
+                                            : colors.ink,
+                                        fontWeight: FontWeight.w600,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                    ),
+              ),
             ),
           ],
         ),
