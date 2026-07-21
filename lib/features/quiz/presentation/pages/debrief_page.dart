@@ -4,7 +4,6 @@ import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/components/ink_checkbox.dart';
-import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
 import 'package:cse_cet_reviewer/core/ui/components/portable_text_renderer.dart';
 import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
 import 'package:cse_cet_reviewer/core/ui/components/stats_band.dart';
@@ -57,11 +56,9 @@ class DebriefPage extends ConsumerWidget {
         backgroundColor: colors.background,
         elevation: 0,
         scrolledUnderElevation: 0,
-        leading: IconButton(
-          tooltip: 'Close',
-          icon: Icon(Icons.close, size: 17, color: colors.inkMuted),
-          onPressed: () => _leave(context),
-        ),
+        // No close control. `Done` at the foot of the screen already
+        // leaves, and a second affordance in the top left reads as "go
+        // back" while doing the same thing as the button that says finish.
       ),
       body: debriefAsync.when(
         data: (debrief) => _DebriefBody(
@@ -270,11 +267,17 @@ class _DebriefBodyState extends ConsumerState<_DebriefBody> {
                       ),
                     ),
                   ),
-                  child: InkTableRow(
-                    title: 'Go through all ${debrief.total}',
-                    bottomRule: false,
-                    onTap: () =>
-                        context.push('/review?attemptId=${widget.attemptId}'),
+                  // A secondary action rather than a navigation row: it
+                  // does something, and board belongs to `Done`, which is
+                  // this screen's one primary action.
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: BoardButton(
+                      label: 'Go through all ${debrief.total}',
+                      secondary: true,
+                      onPressed: () =>
+                          context.push('/review?attemptId=${widget.attemptId}'),
+                    ),
                   ),
                 ),
               ],

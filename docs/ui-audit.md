@@ -569,3 +569,29 @@ practice quiz that never shows you the answer is not a practice quiz.
 rendering, the list numbering and the navigation icons. Two of them were left
 open pending real content or a decision. **The content arrived and the decision
 did not.**
+
+### UI-027, answered 10 August
+
+**Aedwon:** *"the main CTA is done and it's in a green button already. there's no
+other green there so you can make it a secondary CTA less prominent from 'Done'.
+also in hindsight there's 'Done' and an X button that does the same thing? check
+that"*
+
+**Decided:** the review control becomes a **secondary button**, not board. `Done`
+is the debrief's one primary action and keeps the only green on the screen.
+
+It was an `InkTableRow`, which reads as navigation. It does something, so it is a
+button now, and secondary so it cannot compete with `Done`.
+
+### UI-030 [important] Two controls did the same thing, found by him in hindsight
+
+**Checked: he is right.** The close control in the app bar and the `Done` button
+at the foot both called `DebriefPage._leave`. **Identical behaviour, two
+affordances.**
+
+**The X is gone.** `Done` already leaves, and a control in the top left is where
+a back arrow lives, so it read as "go back" while doing what the button that says
+finish does.
+
+**Fixed 10 August**, both in the same change. The rest of this session's findings
+are still open.
