@@ -5,7 +5,7 @@ import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/assessment/presentation/assessment_result_providers.dart';
+import 'package:cse_cet_reviewer/features/assessment/application/assessment_result_providers.dart';
 import 'package:cse_cet_reviewer/features/home/presentation/widgets/home_masthead.dart';
 import 'package:cse_cet_reviewer/features/home/presentation/widgets/home_stats_band.dart';
 import 'package:cse_cet_reviewer/features/home/presentation/widgets/practice_panel.dart';

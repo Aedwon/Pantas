@@ -107,9 +107,11 @@ app schema **21**, content schema **3**, corpus 2,369 questions.
 workflows never ran `build_runner` or `gen-l10n`, and they never built the gitignored
 `assets/seed/content.db`. Both now happen before `flutter analyze`.
 
-**It now fails at `dart run tool/check_layering.dart`, which exits 1 on the 36 violations.**
-That is the open decision below, not a defect: **either the rule gets its written exception or
-the violations get fixed.** Until one happens CI cannot go green.
+**The third cause, `dart run tool/check_layering.dart` exiting 1 on 36 violations, is closed.**
+`2026-08-10-layering-rule-log.md` has the round. R2 now reads: **a feature may import another
+feature's domain, application or data layer, and never its `presentation/`**, a barrel counting
+as presentation because every barrel re-exports it. **32 of the 36 were legitimate under that
+rule and 4 were real misfilings**, all fixed. `check_layering: OK`.
 
 ### Aedwon's UI findings
 
@@ -141,8 +143,6 @@ displacement, and the Quiz tab's spacing.
 
 ### Open questions waiting on Aedwon
 
-- **The layering rule.** 36 violations, all Home and Progress reading what other features
-  measure, which is what those screens are for. **It blocks CI.**
 - **The four shared tendencies are written twice**, once per screen, and nothing keeps them
   matched.
 - **The quality pass on the questions**, which he asked to schedule and which has not been.

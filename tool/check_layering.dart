@@ -2,7 +2,14 @@
 //
 // Rules:
 //   R1: lib/core/** must NOT import from lib/features/**
-//   R2: lib/features/X/** must NOT import from lib/features/Y/** (X != Y)
+//   R2: lib/features/X/** must NOT import another feature's presentation.
+//       A screen composed of what other features measure is the normal
+//       direction: Home reads what Progress computes, everything reads
+//       entitlement and settings. What tangles two features is one reaching
+//       into the other's screens and screen state. So a cross-feature import
+//       is allowed only when it names a layer directory other than
+//       presentation, which also rules out a feature's barrel: barrels
+//       re-export presentation and exist for lib/app/router.dart.
 //   R3: lib/**/domain/** must NOT import flutter, firebase_*, drift, dio,
 //       sqlite3_*, sqlcipher_*, path_provider, flutter_secure_storage,
 //       google_sign_in, sign_in_with_apple, purchases_flutter,
@@ -77,10 +84,13 @@ void main(List<String> args) {
         violations.add('R1 $relPath imports $imp');
       }
 
-      // R2: features must not cross-import
+      // R2: features must not import another feature's presentation
       if (inFeatures && imp.startsWith('package:cse_cet_reviewer/features/')) {
         final importedFeature = _featureFromImport(imp);
-        if (importedFeature != null && importedFeature != featurePrefix) {
+        final layer = _importedLayer(imp);
+        if (importedFeature != null &&
+            importedFeature != featurePrefix &&
+            (layer == null || layer == 'presentation')) {
           violations.add('R2 $relPath imports $imp');
         }
       }
@@ -114,6 +124,15 @@ String? _featureName(String relPath) {
 String? _featureFromImport(String imp) {
   final m =
       RegExp('^package:cse_cet_reviewer/features/([^/]+)/').firstMatch(imp);
+  return m?.group(1);
+}
+
+/// The layer directory a cross-feature import names, or null when it names
+/// none. A barrel (`features/quiz/quiz.dart`) names none, and re-exports
+/// presentation, so null is treated the same as presentation by R2.
+String? _importedLayer(String imp) {
+  final m = RegExp('^package:cse_cet_reviewer/features/[^/]+/([^/]+)/')
+      .firstMatch(imp);
   return m?.group(1);
 }
 
