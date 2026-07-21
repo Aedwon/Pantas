@@ -103,10 +103,14 @@ class _TendencyDot extends StatelessWidget {
 
     return Container(
       key: ValueKey(isHollow ? 'tendency-dot-hollow' : 'tendency-dot-solid'),
-      width: isCurrent ? 8 : 6,
-      height: isCurrent ? 8 : 6,
+      // The current one is a bar rather than a larger dot. Size alone is a
+      // weak signal at this scale: two circles a couple of pixels apart
+      // read as the same mark, and the shape change does not.
+      width: isCurrent ? 16 : 6,
+      height: 6,
       decoration: BoxDecoration(
-        shape: BoxShape.circle,
+        shape: isCurrent ? BoxShape.rectangle : BoxShape.circle,
+        borderRadius: isCurrent ? BorderRadius.circular(3) : null,
         color: isHollow
             ? Colors.transparent
             : (isCurrent ? colors.ink : colors.rule),

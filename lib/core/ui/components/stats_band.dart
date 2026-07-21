@@ -91,24 +91,33 @@ class StatsBand extends StatelessWidget {
       }
     }
 
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 12),
-        decoration: BoxDecoration(
-          border: Border(
-            top: BorderSide(
-              color: colors.rule,
+    // The scroll is what lets the figures survive large text. Inside one
+    // the row shrink wraps, so spaceEvenly had nothing to distribute and
+    // the figures clustered to the left. The minimum width gives it the
+    // viewport back at ordinary sizes and yields to the content above it.
+    return LayoutBuilder(
+      builder: (context, constraints) => SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: ConstrainedBox(
+          constraints: BoxConstraints(minWidth: constraints.maxWidth),
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 12),
+            decoration: BoxDecoration(
+              border: Border(
+                top: BorderSide(
+                  color: colors.rule,
+                ),
+                bottom: BorderSide(
+                  color: colors.rule,
+                ),
+              ),
             ),
-            bottom: BorderSide(
-              color: colors.rule,
+            child: IntrinsicHeight(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: children,
+              ),
             ),
-          ),
-        ),
-        child: IntrinsicHeight(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: children,
           ),
         ),
       ),

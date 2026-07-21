@@ -68,6 +68,10 @@ class RuledPanel extends StatelessWidget {
                   child: Text(heading, style: styles.headlineSmall),
                 ),
               ),
+              // The heading is Flexible so its underline stays the width of
+              // the words. Without this the action sat against the heading
+              // rather than at the edge the eye looks to for it.
+              const Spacer(),
               if (count != null) ...[
                 const SizedBox(width: 12),
                 Text(

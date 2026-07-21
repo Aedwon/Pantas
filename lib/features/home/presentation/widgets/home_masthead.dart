@@ -34,21 +34,14 @@ class HomeMasthead extends ConsumerWidget {
               if (data == null)
                 const FaintBars()
               else ...[
-                if (data.name == null)
-                  // Muted, never board: Home's one primary action is
-                  // "Continue lesson". Tapping through is self-healing, so
-                  // no install needs a migration prompt.
-                  InkWell(
-                    onTap: () => context.push('/settings'),
-                    child: Text(
-                      'Add your name',
-                      style:
-                          styles.displaySmall.copyWith(color: colors.inkMuted),
-                    ),
-                  )
-                else
+                // No name, no slot. The plan put an "Add your name"
+                // invitation here and it reads as an instruction every
+                // single launch: a greeting is not a to-do list. The
+                // Settings row is where a name is given.
+                if (data.name != null) ...[
                   Text(data.name!, style: styles.displaySmall),
-                const SizedBox(height: 2),
+                  const SizedBox(height: 2),
+                ],
                 Text(
                   metaLineFor(
                     examShortName: data.examShortName,

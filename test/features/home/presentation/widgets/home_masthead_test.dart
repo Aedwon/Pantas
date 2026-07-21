@@ -1,5 +1,4 @@
 import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_colors.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/home/presentation/home_providers.dart';
 import 'package:cse_cet_reviewer/features/home/presentation/widgets/home_masthead.dart';
@@ -84,8 +83,7 @@ void main() {
     expect(find.textContaining('Your exam'), findsNothing);
   });
 
-  testWidgets('no name shows the invitation, muted and not board',
-      (tester) async {
+  testWidgets('no name means no slot, not an invitation', (tester) async {
     await tester.pumpWidget(
       harness(
         const HomeMastheadData(
@@ -96,8 +94,12 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    final invitation = tester.widget<Text>(find.text('Add your name'));
-    expect(invitation.style?.color, isNot(AppColors.light.board));
+
+    // A greeting is not a to-do list. The plan put "Add your name" here and
+    // it read as an instruction on every single launch.
+    expect(find.text('Add your name'), findsNothing);
+    expect(find.textContaining('Magandang'), findsOneWidget);
+    expect(find.text('UPCAT'), findsOneWidget);
   });
 
   testWidgets('an exam today prints zero days, not a negative', (tester) async {
