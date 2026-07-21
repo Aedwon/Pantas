@@ -8,12 +8,17 @@ class PullToAdvance extends StatefulWidget {
     required this.nextTitle,
     required this.onAdvance,
     required this.isAtEnd,
+    required this.lessonId,
     super.key,
   });
 
   final Widget child;
   final String? nextTitle;
   final VoidCallback? onAdvance;
+
+  /// Changes when the lesson does, which is what tells the arriving half of
+  /// the movement that the new body is on screen.
+  final String lessonId;
 
   /// Whether the reader has reached the end of the lesson.
   ///
@@ -28,35 +33,99 @@ class PullToAdvance extends StatefulWidget {
 
 class _PullToAdvanceState extends State<PullToAdvance>
     with SingleTickerProviderStateMixin {
-  double _dragOffset = 0;
   static const _maxRange = 150.0;
   static const _threshold = 90.0;
+  static const _leaving = Duration(milliseconds: 190);
+  static const _arriving = Duration(milliseconds: 320);
+
+  /// How far the body is lifted. Positive is up, negative is below the fold.
+  double _lift = 0;
+  // Created in initState, not lazily. A `late final` initialiser runs on
+  // first touch, and the first touch is `dispose()` when the reader is
+  // closed without ever being pulled, which asks a deactivated state for a
+  // ticker.
+  late final AnimationController _controller;
+  // ignore: use_late_for_private_fields_and_variables
+  Animation<double>? _liftAnimation;
+  bool _committing = false;
 
   bool get _hasHandle =>
       widget.nextTitle != null &&
       widget.onAdvance != null &&
       widget.isAtEnd.value;
-  bool get _isArmed => _dragOffset >= _threshold;
+  bool get _isArmed => _lift >= _threshold;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(vsync: this, duration: _leaving);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  void didUpdateWidget(covariant PullToAdvance oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // The new lesson is mounted. Bring it up from below, which is the second
+    // half of the movement the hand started.
+    if (_committing && oldWidget.lessonId != widget.lessonId) {
+      _committing = false;
+      _run(from: -_viewportHeight, to: 0, duration: _arriving);
+    }
+  }
+
+  double get _viewportHeight {
+    final box = context.findRenderObject() as RenderBox?;
+    return box?.size.height ?? 600;
+  }
+
+  void _run({
+    required double from,
+    required double to,
+    required Duration duration,
+    VoidCallback? whenDone,
+  }) {
+    _controller
+      ..stop()
+      ..duration = duration
+      ..reset();
+    _liftAnimation = Tween<double>(begin: from, end: to).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic),
+    )..addListener(() {
+        setState(() => _lift = _liftAnimation!.value);
+      });
+    _controller.forward().whenComplete(() {
+      if (mounted) whenDone?.call();
+    });
+  }
 
   void _onVerticalDragUpdate(DragUpdateDetails details) {
-    if (!_hasHandle) return;
+    if (!_hasHandle || _committing) return;
     setState(() {
-      _dragOffset = (_dragOffset - details.delta.dy).clamp(0.0, _maxRange);
+      _lift = (_lift - details.delta.dy).clamp(0.0, _maxRange);
     });
   }
 
   void _onVerticalDragEnd(DragEndDetails details) {
-    if (!_hasHandle) return;
-    if (_isArmed) {
-      // The lift is not released. The page keeps travelling up into the
-      // route transition, which carries the same motion on, so the hand and
-      // the screen never disagree about which way the reader is going.
-      widget.onAdvance?.call();
+    if (!_hasHandle || _committing) return;
+    if (!_isArmed) {
+      _run(from: _lift, to: 0, duration: _leaving);
       return;
     }
-    setState(() {
-      _dragOffset = 0;
-    });
+    // The hand let go mid-movement, so the body finishes leaving before the
+    // next one starts arriving. The bar and the rail never move: they
+    // describe the reader, not the lesson.
+    _committing = true;
+    _run(
+      from: _lift,
+      to: _viewportHeight,
+      duration: _leaving,
+      whenDone: () => widget.onAdvance?.call(),
+    );
   }
 
   @override
@@ -74,7 +143,7 @@ class _PullToAdvanceState extends State<PullToAdvance>
       // which is what the same text does when you simply scroll.
       child: ClipRect(
         child: Transform.translate(
-          offset: Offset(0, -_dragOffset),
+          offset: Offset(0, -_lift),
           child: Column(
             children: [
               Expanded(child: widget.child),

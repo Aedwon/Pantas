@@ -1052,3 +1052,59 @@ from the topmost can go up and obstruct even the topmost part of the screen"*
 bounds, so the lifted sheet drew over the reader bar and off the top instead of
 disappearing under it the way scrolled text does. **Clipped to its own box
 now**, with a test that the content stays inside the widget while dragged.
+
+### UI-048 [important] The whole page moved, chrome included
+
+**Aedwon:** *"when pulling up, the entire page is animated including the top
+navbar (where the < Study lives). this is not elegant, please be more cautious
+about the entire animation"*
+
+**A fair rebuke as well as a bug report.** This motion had been patched three
+times in a row, each time in one piece, without anyone looking at the whole of
+it.
+
+**The cause was structural, not a value to tune.** The bar lives inside the
+lesson page and advancing was a **navigation**, so the page transition
+necessarily carried the bar and the rail with it: one `< Study` slid out while
+an identical one slid in.
+
+| | Option | Cost |
+|---|---|---|
+| 1 | **Stop making the pull a navigation.** The reader swaps the lesson in place | The reader owns its lesson state; back behaviour needs care |
+| 2 | **Keep the navigation, cross-fade instead of sliding** | Cheap, and throws away the upward motion he asked for |
+| 3 | Leave it | |
+
+**He chose 1, and asked for the rail to hold still as well as the bar.** Both
+describe the reader rather than the lesson, so both stay.
+
+**The movement is now in two halves, sequenced rather than crossed.** The body
+finishes leaving upward from wherever the hand let go, the lesson swaps, and
+the new body comes up from below. One animation controller, one body on screen
+at a time, and no page transition at all.
+
+**A bug found while building it, worth keeping.** The controller was a `late
+final` field. A `late final` initialiser runs on first touch, and the first
+touch is `dispose()` when a reader is closed without ever being pulled, which
+asks an already deactivated state for a ticker. It is created in `initState`
+now.
+
+**Tested:** the chrome's rectangle is captured before the drag and asserted
+unchanged during it and after the advance completes.
+
+### UI-049 [polish] The pull sentence had no margins
+
+**Aedwon:** *"the left and right text spacing on the pull up sentence is
+nonexistent"*
+
+Vertical padding only, so a long lesson title ran to both screen edges. 24
+either side, centred, two lines then ellipsis.
+
+### UI-050 [polish] The topic opening was still abrupt
+
+**Aedwon:** *"the animation is also too snappy and inelegant"*
+
+**Height was the whole animation**, so the rows arrived at full strength the
+instant there was room for them and the movement was over before the eye found
+what had moved. Height and ink are separate now, the ink coming up over the
+back half of the opening. `easeOutQuint` rather than `easeOutCubic`, 340ms
+rather than 240, so the end settles instead of stopping.

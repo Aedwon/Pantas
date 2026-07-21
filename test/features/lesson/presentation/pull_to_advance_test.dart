@@ -10,10 +10,12 @@ void main() {
     String? nextTitle = 'Next Lesson',
     VoidCallback? onAdvance,
     bool isAtEnd = true,
+    String lessonId = 'l1',
   }) async {
     await tester.pumpApp(
       Scaffold(
         body: PullToAdvance(
+          lessonId: lessonId,
           isAtEnd: ValueNotifier(isAtEnd),
           nextTitle: nextTitle,
           onAdvance: onAdvance ?? () {},
@@ -116,5 +118,51 @@ void main() {
     expect(content.top, greaterThanOrEqualTo(box.top - 0.5));
 
     await gesture.up();
+  });
+
+  testWidgets('advancing moves the body and never the chrome', (tester) async {
+    // Aedwon: "when pulling up, the entire page is animated including the top
+    // navbar (where the < Study lives). this is not elegant". Advancing is no
+    // longer a navigation, so nothing above the body can travel with it.
+    var advanced = false;
+    await tester.pumpApp(
+      Scaffold(
+        body: Column(
+          children: [
+            const SizedBox(height: 40, child: Text('Reader chrome')),
+            Expanded(
+              child: PullToAdvance(
+                lessonId: 'l1',
+                isAtEnd: ValueNotifier(true),
+                nextTitle: 'Next Lesson',
+                onAdvance: () => advanced = true,
+                child: const Center(child: Text('Current Content')),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final chromeBefore = tester.getRect(find.text('Reader chrome'));
+
+    final gesture = await tester.startGesture(
+      tester.getRect(find.byType(PullToAdvance)).center,
+    );
+    await gesture.moveBy(const Offset(0, -120));
+    await tester.pump();
+
+    expect(
+      tester.getRect(find.text('Reader chrome')),
+      chromeBefore,
+      reason: 'the chrome must not move while the body is pulled',
+    );
+
+    await gesture.up();
+    await tester.pumpAndSettle();
+
+    expect(advanced, isTrue);
+    expect(tester.getRect(find.text('Reader chrome')), chromeBefore);
   });
 }

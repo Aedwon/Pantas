@@ -12,9 +12,15 @@ import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/reader_gap
 import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/reader_rail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
-class LessonPage extends ConsumerWidget {
+/// The reader.
+///
+/// **Advancing to the next lesson is not a navigation.** It used to push a
+/// route, which meant the page transition carried the bar and the rail with
+/// it: one `< Study` slid out while an identical one slid in. Both describe
+/// the reader rather than the lesson, so both stay still and only the body
+/// travels, in the direction the pull went.
+class LessonPage extends ConsumerStatefulWidget {
   const LessonPage({
     required this.lessonId,
     this.origin = ReaderOrigin.study,
@@ -25,7 +31,27 @@ class LessonPage extends ConsumerWidget {
   final ReaderOrigin origin;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<LessonPage> createState() => _LessonPageState();
+}
+
+class _LessonPageState extends ConsumerState<LessonPage> {
+  late LessonId _lessonId = widget.lessonId;
+
+  @override
+  void didUpdateWidget(covariant LessonPage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // A new route for the same page, so follow it.
+    if (oldWidget.lessonId != widget.lessonId) {
+      _lessonId = widget.lessonId;
+    }
+  }
+
+  void _advanceTo(LessonId next) => setState(() => _lessonId = next);
+
+  @override
+  Widget build(BuildContext context) {
+    final lessonId = _lessonId;
+    final origin = widget.origin;
     final asyncReader = ref.watch(readerContextProvider(lessonId));
 
     return Scaffold(
@@ -54,7 +80,11 @@ class LessonPage extends ConsumerWidget {
               ),
             );
           }
-          return _ReaderBody(reader: reader, origin: origin);
+          return _ReaderBody(
+            reader: reader,
+            origin: origin,
+            onAdvance: _advanceTo,
+          );
         },
       ),
     );
@@ -65,10 +95,14 @@ class _ReaderBody extends ConsumerStatefulWidget {
   const _ReaderBody({
     required this.reader,
     required this.origin,
+    required this.onAdvance,
   });
 
   final ReaderContext reader;
   final ReaderOrigin origin;
+
+  /// Swaps the lesson in place. Not a navigation: see [LessonPage].
+  final void Function(LessonId) onAdvance;
 
   @override
   ConsumerState<_ReaderBody> createState() => _ReaderBodyState();
@@ -158,11 +192,6 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
     _markingController?.onScroll(offset: offset, maxExtent: maxExtent);
   }
 
-  /// `via=pull` tells the router this lesson was advanced to rather than
-  /// opened, so it rises from the bottom instead of coming from the right.
-  String get _originParam =>
-      widget.origin == ReaderOrigin.home ? 'home' : 'study';
-
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
@@ -190,11 +219,9 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
               // until the end is on screen.
               isAtEnd: _isAtEnd,
               nextTitle: reader.next?.title,
+              lessonId: reader.lesson.id,
               onAdvance: reader.next != null
-                  ? () => context.go(
-                        '/lesson/${reader.next!.id}'
-                        '?from=$_originParam&via=pull',
-                      )
+                  ? () => widget.onAdvance(reader.next!.id)
                   : null,
               child: SingleChildScrollView(
                 controller: _scrollController,
