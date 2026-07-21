@@ -623,3 +623,34 @@ at the number now.
 **One component, so the mock's grid gets the same fix**: the quiz draws it at
 five columns and the mock at six, and both come from
 `question_grid_sheet.dart`.
+
+### UI-033 [polish] An empty band above the debrief, also from the UI-030 fix
+
+**Aedwon:** *"there's a huge gap or empty space between the top bar and the next
+line in the debrief please fix."*
+
+**Mine again.** The app bar existed to hold the close control. With that gone it
+was an empty 56px band above a screen that opens with its own heading. **The app
+bar is removed entirely.** The quiz page's bar sits above the debrief when a
+session completes, and `Done` at the foot is the way out.
+
+### UI-034 [important] Questions sharing a passage were scattered through a session
+
+**Aedwon:** *"if the questions use the same passage they should be answered in
+succession no? just like in a real quiz or test."*
+
+**He is right and it was a real defect, not a preference.** `start_quick_quiz`
+shuffled every question and took a slice off the top, which **splits a passage
+set and scatters it**, so one passage could come up three separate times in a
+ten question session. A student reads it again each time.
+
+The daily session picker already chose **whole** sets, through
+`PassageSetFiller`, but nothing ordered the result, so the same scattering
+happened after selection.
+
+**Fixed in both:** whole sets are selected, then `groupPassageSets` puts each
+set's questions in one run. **A set sits where its first question fell** rather
+than jumping to the front, so the shuffle still decides the order of the session.
+
+Four tests cover the rule, including the free-standing questions keeping their
+order around the sets.

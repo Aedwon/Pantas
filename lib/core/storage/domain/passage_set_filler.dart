@@ -36,3 +36,38 @@ abstract final class PassageSetFiller {
     return result;
   }
 }
+
+/// Puts every question that shares a passage next to its siblings.
+///
+/// A student reads a passage once and answers everything about it before
+/// moving on, which is how the real papers ask them. Scattering a set
+/// across a session makes them read the same passage three times.
+///
+/// Stable: the first appearance of a passage fixes where its whole set
+/// sits, and free-standing questions keep their order around them.
+List<Question> groupPassageSets(List<Question> questions) {
+  final order = <String>[];
+  final sets = <String, List<Question>>{};
+  final result = <Question>[];
+
+  for (final q in questions) {
+    final passageId = q.passageId;
+    if (passageId == null || passageId.isEmpty) continue;
+    if (!sets.containsKey(passageId)) {
+      sets[passageId] = [];
+      order.add(passageId);
+    }
+    sets[passageId]!.add(q);
+  }
+
+  final emitted = <String>{};
+  for (final q in questions) {
+    final passageId = q.passageId;
+    if (passageId == null || passageId.isEmpty) {
+      result.add(q);
+      continue;
+    }
+    if (emitted.add(passageId)) result.addAll(sets[passageId]!);
+  }
+  return result;
+}

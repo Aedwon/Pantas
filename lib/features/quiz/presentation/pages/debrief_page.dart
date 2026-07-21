@@ -34,7 +34,6 @@ class DebriefPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final colors = context.colors;
     final entitlement =
         ref.watch(entitlementProvider).valueOrNull ?? const Entitlement.free();
     final effectiveProIsActive = proIsActive ?? entitlement.proIsActive;
@@ -51,19 +50,10 @@ class DebriefPage extends ConsumerWidget {
     );
 
     return Scaffold(
-      appBar: AppBar(
-        // Removing the close control left AppBar to imply a back arrow of
-        // its own, and the quiz page's bar already carries one: the debrief
-        // renders inside it when a session completes.
-        automaticallyImplyLeading: false,
-        toolbarHeight: 56,
-        backgroundColor: colors.background,
-        elevation: 0,
-        scrolledUnderElevation: 0,
-        // No close control. `Done` at the foot of the screen already
-        // leaves, and a second affordance in the top left reads as "go
-        // back" while doing the same thing as the button that says finish.
-      ),
+      // No app bar. It carried the close control, and with that gone it was
+      // an empty 56px band above a screen that opens with its own heading.
+      // The quiz page's bar sits above this when a session completes, and
+      // `Done` at the foot is the way out.
       body: debriefAsync.when(
         data: (debrief) => _DebriefBody(
           debrief: debrief,

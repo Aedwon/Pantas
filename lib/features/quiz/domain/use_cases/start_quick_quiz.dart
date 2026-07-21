@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
+import 'package:cse_cet_reviewer/core/storage/domain/passage_set_filler.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
 import 'package:uuid/uuid.dart';
@@ -42,7 +43,28 @@ class StartQuickQuiz {
 
     final rng = Random(randomSeed);
     final shuffled = [...allQuestions]..shuffle(rng);
-    final picked = shuffled.take(count).toList(growable: false);
+
+    // Taking a slice of a shuffle splits passage sets and scatters them, so
+    // the same passage came up three times in one session. Whole sets are
+    // selected, then the list is ordered so a set is answered in one run.
+    final setsByPassageId = <String, List<Question>>{};
+    final freeStanding = <Question>[];
+    for (final q in shuffled) {
+      final passageId = q.passageId;
+      if (passageId != null && passageId.isNotEmpty) {
+        setsByPassageId.putIfAbsent(passageId, () => []).add(q);
+      } else {
+        freeStanding.add(q);
+      }
+    }
+
+    final picked = groupPassageSets(
+      PassageSetFiller.fill(
+        size: count,
+        freeStanding: freeStanding,
+        setsByPassageId: setsByPassageId,
+      ),
+    ).toList(growable: false);
 
     return QuizSession.start(
       sessionId: _uuid.v4(),
