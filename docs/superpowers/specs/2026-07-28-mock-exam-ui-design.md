@@ -83,6 +83,35 @@ part is not a property of the app, and the exams disagree.
 | DCAT | **Yes** | Established by Aedwon, 4 August 2026. See below |
 | MSU-SASE | **No** | Established by Aedwon, 4 August 2026. One 3 hour block, 150 items |
 
+### UPCAT, supplied 11 August 2026
+
+**UP publishes the shape and not the numbers.** Its admissions site states only
+that "the UPCAT consists of 4 subtests: Language Proficiency (in English and
+Filipino), Reading Comprehension (in English and Filipino), Science, and
+Mathematics", and that "the test administration will last about five hours".
+**No per-subtest item count and no per-subtest time limit is published**, and
+nor is a total item count.
+
+**Aedwon supplied the composition**, marked by him as reported rather than
+published, which is the same standing as ACET and DCAT below.
+
+| Part | Language | Items | Minutes |
+|---|---|---|---|
+| Language Proficiency | English and Filipino | 80 | 70 |
+| Reading Comprehension | English and Filipino | 50 | 35 |
+| Mathematics | English | 60 | 75 |
+| Science | English | 60 | 50 |
+| **Total** | | **250** | **230, or 3h50** |
+
+**The two durations agree.** UP's "about five hours" is the administration,
+which carries instructions, distribution and breaks. 3h50 is time on the paper.
+
+**Two things this corrected.** The wireframes in `docs/wireframes/` show "175
+questions, 2 hours 45 minutes" on one screen and 170 items on another. **Both
+are inventions and both are now known to be wrong.** And **Reasoning is not a
+UPCAT subtest**: UP lists four, while the seed carries five UPCAT subjects. That
+is a content question for Study and Progress, not only for the mock.
+
 ### The three that were unknown, supplied 4 August 2026
 
 **ACET, sectional.** The essay is not simulated, per the note at the end of this section.

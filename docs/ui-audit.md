@@ -1438,3 +1438,42 @@ other are proof of it rather than a tiebreak. **The setup screen prints these
 to a student before they commit three hours**, and the mock decision log
 already recorded that a wrong duration is not cosmetic. Blocked on Aedwon in
 the same form he supplied the other three.
+
+### UI-064 [blocker] The mock reads a content store the app does not use
+
+**Aedwon supplied UPCAT's composition on 11 August**, which unblocked the
+blueprint. Writing it revealed that the blueprint was never the blocker.
+
+**Blueprints are read from `content.db`, not from the seed the app runs on.**
+`mockBlueprintRepoProvider` takes `contentDatabaseProvider`. Everything a
+student sees comes from `assets/seed/v1.json` into `AppDatabase`. They are two
+separate stores.
+
+**`assets/seed/content.db` was opened and counted:**
+
+| Table | Rows |
+|---|---|
+| `content_exams` | 4 |
+| `content_topics` | **1** |
+| `content_questions` | **16** |
+| `content_mock_blueprints` | **0** |
+
+**And its exam ids do not match the app's.** It carries `exam-upcat`; the seed
+the app runs on carries `exam_upcat`. Hyphens against underscores, so a
+blueprint keyed to one is invisible to the other.
+
+**It is built from a test fixture.** All three workflows run
+`seed_writer.dart test/fixtures/sanity/content_sample.json assets/seed/content.db`.
+The file is gitignored and generated, and what generates it is the fixture that
+a unit test uses.
+
+**So authoring the blueprint would not have produced a working mock.** It would
+have gone into a database with 16 questions, one topic, and the wrong exam id,
+which is why this stops here rather than shipping something that looks done.
+
+**Aedwon's figures are recorded in the mock UI spec** so they are not lost, and
+they corrected two things on the way: the wireframes' UPCAT numbers are
+inventions and wrong, and **Reasoning is not a UPCAT subtest** though the seed
+carries it as one.
+
+**The real decision is which store owns published content**, and it is his.
