@@ -208,7 +208,24 @@ app. No ordering explanation is printed, because the student chose the order.
 
 **Pro only, redacted for Free.**
 
-Three counts in a ruled band, then one interpreting sentence:
+> **Amended 11 August, on the device.** Aedwon: *"the presentation of the
+> figures in Why you miss questions ... it's so awkward and not elegant at
+> all"*.
+>
+> **The counts are stacked, one per line, not strung across a band.** The
+> numeral sits in a fixed right-aligned column so a 3 and a 12 put their labels
+> in the same place.
+>
+> **The band was measured and does not fit.** Three counts with these labels
+> need about 368px inside a panel that has 343 at 411dp and less below it, so a
+> band always fell back to scrolling sideways. It had also been built as a
+> single wrapping paragraph with middle dots, where a number could end a line
+> and its label begin the next.
+>
+> Turning the band on its side keeps figures first, keeps every word below, and
+> fits any width.
+
+Three counts, then one interpreting sentence:
 
 > **6** had it right before · **3** never seen it · **2** answered too fast
 >

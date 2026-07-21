@@ -44,49 +44,25 @@ class WhyYouMissSection extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text.rich(
-          TextSpan(
-            children: [
-              TextSpan(
-                text: '${causes.hadItRightBefore} ',
-                style: styles.headlineSmall.copyWith(
-                  fontFeatures: const [FontFeature.tabularFigures()],
-                ),
-              ),
-              TextSpan(
-                text: 'had it right before',
-                style: styles.bodyMedium.copyWith(color: colors.inkMuted),
-              ),
-              TextSpan(
-                text: '  ·  ',
-                style: styles.bodyMedium.copyWith(color: colors.rule),
-              ),
-              TextSpan(
-                text: '${causes.neverSeenIt} ',
-                style: styles.headlineSmall.copyWith(
-                  fontFeatures: const [FontFeature.tabularFigures()],
-                ),
-              ),
-              TextSpan(
-                text: 'never seen it',
-                style: styles.bodyMedium.copyWith(color: colors.inkMuted),
-              ),
-              TextSpan(
-                text: '  ·  ',
-                style: styles.bodyMedium.copyWith(color: colors.rule),
-              ),
-              TextSpan(
-                text: '${causes.answeredTooFast} ',
-                style: styles.headlineSmall.copyWith(
-                  fontFeatures: const [FontFeature.tabularFigures()],
-                ),
-              ),
-              TextSpan(
-                text: 'answered too fast',
-                style: styles.bodyMedium.copyWith(color: colors.inkMuted),
-              ),
-            ],
-          ),
+        // One count per line, the numeral in its own right-aligned column
+        // so the three labels start on a single vertical line.
+        //
+        // It was a ruled band across the panel, which the spec asked for and
+        // which does not fit: measured at three phone widths, the three
+        // counts with their labels need about 368px inside a panel that has
+        // 343 at 411dp and less below that, so it always fell back to
+        // scrolling sideways. Before that it was one wrapping paragraph with
+        // middle dots, where a number could end a line and its label start
+        // the next. Turning the band on its side keeps figures first and
+        // fits any width.
+        _CauseLine(
+          count: causes.hadItRightBefore,
+          label: 'had it right before',
+        ),
+        _CauseLine(count: causes.neverSeenIt, label: 'never seen it'),
+        _CauseLine(
+          count: causes.answeredTooFast,
+          label: 'answered too fast',
         ),
         const SizedBox(height: 12),
         Text(
@@ -197,6 +173,52 @@ class WhyYouMissSection extends ConsumerWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+/// One miss cause: the count, then what it means.
+///
+/// The numeral sits in a fixed right-aligned column so a 3 and a 12 put
+/// their labels in the same place. Tabular figures for the same reason.
+class _CauseLine extends StatelessWidget {
+  const _CauseLine({required this.count, required this.label});
+
+  final int count;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.colors;
+    final styles = context.textStyles;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.baseline,
+        textBaseline: TextBaseline.alphabetic,
+        children: [
+          SizedBox(
+            width: 32,
+            child: Text(
+              '$count',
+              textAlign: TextAlign.right,
+              style: styles.displayLarge.copyWith(
+                fontSize: 21,
+                height: 1,
+                fontFeatures: const [FontFeature.tabularFigures()],
+              ),
+            ),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Text(
+              label,
+              style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

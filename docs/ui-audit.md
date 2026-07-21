@@ -1227,3 +1227,33 @@ over nothing reads as broken rather than as empty.
 
 **A test walks every visible row in the collapsed table and fails if any of
 them has no score.**
+
+### UI-056 [important] The miss counts were a wrapping paragraph
+
+**Aedwon:** *"please fix the presentation of the figures in Why you miss
+questions. it's so awkward and not elegant at all"*
+
+**Two things were wrong, and the spec was one of them.**
+
+**What was built:** the three counts and their labels in a *single* `Text.rich`
+paragraph, separated by middle dots. On a phone that wraps wherever it happens
+to land, so a number could end a line with its label starting the next, and a
+dot could dangle at a line end. That is the awkwardness.
+
+**What the spec asked for was a ruled band**, and the band does not fit.
+Measured at three widths: the three counts with these labels need about
+**368px**, inside a panel that has **343 at 411dp** and less below that. A band
+would always have fallen back to scrolling sideways, which is the accessibility
+fallback rather than a layout.
+
+**Shortening the labels was tried first and was not enough**, and it spends the
+spec's words for nothing.
+
+**Stacked instead, one count per line**, the numeral in a fixed right-aligned
+column so a 3 and a 12 put their labels on the same vertical line. Figures stay
+first, every word survives, and it fits any width.
+
+**Two tests:** that the labels are stacked and share a left edge, and that a
+320dp phone renders it without exception.
+
+**The spec is amended** rather than left asking for a band that cannot fit.

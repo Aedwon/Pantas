@@ -218,4 +218,42 @@ void main() {
     expect(find.textContaining('you noted'), findsNothing);
     expect(find.text('0'), findsNothing);
   });
+
+  testWidgets('each count sits on its own line, labels on one vertical line',
+      (tester) async {
+    // Aedwon: "the presentation of the figures ... it's so awkward and not
+    // elegant at all". It was one wrapping paragraph, so a number could end a
+    // line with its label starting the next.
+    await tester.pumpWidget(
+      harness(isPro: true, right: 6, never: 3, fast: 2),
+    );
+    await tester.pumpAndSettle();
+
+    final first = tester.getRect(find.text('had it right before'));
+    final second = tester.getRect(find.text('never seen it'));
+    final third = tester.getRect(find.text('answered too fast'));
+
+    // Stacked, not strung across one line.
+    expect(second.top, greaterThan(first.top));
+    expect(third.top, greaterThan(second.top));
+
+    // And starting at the same x, which is what the fixed numeral column buys.
+    expect(second.left, first.left);
+    expect(third.left, first.left);
+  });
+
+  testWidgets('the counts never scroll sideways on a narrow phone',
+      (tester) async {
+    tester.view.physicalSize = const Size(320, 800);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+
+    await tester.pumpWidget(
+      harness(isPro: true, right: 6, never: 3, fast: 2),
+    );
+    await tester.pumpAndSettle();
+
+    expect(tester.takeException(), isNull);
+    expect(find.text('had it right before'), findsOneWidget);
+  });
 }
