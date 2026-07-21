@@ -56,14 +56,20 @@ class PortableTextRenderer extends StatelessWidget {
   Widget build(BuildContext context) {
     final children = <Widget>[];
     final effectiveBlocks = blocks ?? _parseTextToBlocks(text!);
-    // Numbered-list counters per indent level. Any non-list block ends the
-    // list, so counters reset; a deeper level resets counters below it.
+    // Numbered-list counters per indent level. A paragraph or heading ends
+    // the list and resets them; a deeper level resets the counters below
+    // it.
+    //
+    // An embedded object does not end it. A step that shows its working
+    // puts a display formula between two items, and treating that as the
+    // end of the list restarted the numbering: "1, 2, 3" then "1" again,
+    // which is what a reader sees in every worked example in Mathematics.
     final numberCounters = <int, int>{};
     for (final block in effectiveBlocks) {
-      final listItem =
-          block['_type'] == 'block' ? block['listItem'] as String? : null;
+      final isParagraph = block['_type'] == 'block';
+      final listItem = isParagraph ? block['listItem'] as String? : null;
       if (listItem == null) {
-        numberCounters.clear();
+        if (isParagraph) numberCounters.clear();
         children.add(_dispatch(context, block));
         continue;
       }
@@ -155,20 +161,45 @@ class _BlockRenderer extends StatelessWidget {
     );
   }
 
+  /// Maths set on the surrounding line rather than under it.
+  ///
+  /// A `WidgetSpan` sits on the bottom of the line by default, which drops
+  /// a formula below the words beside it, and `Math.tex` with no style of
+  /// its own renders at the package's size rather than the body's. Both
+  /// were visible in one glance: the number sat low and small.
+  InlineSpan _inlineMath(String latex, {TextStyle? style}) {
+    return WidgetSpan(
+      alignment: PlaceholderAlignment.baseline,
+      baseline: TextBaseline.alphabetic,
+      child: Builder(
+        builder: (context) {
+          final body = style ?? _ambientStyle(context);
+          return Math.tex(
+            latex,
+            mathStyle: MathStyle.text,
+            textStyle: body,
+            onErrorFallback: (_) =>
+                const _UnknownBlockPlaceholder(blockType: 'latex-inline'),
+          );
+        },
+      ),
+    );
+  }
+
+  TextStyle _ambientStyle(BuildContext context) {
+    final inherited = DefaultTextStyle.of(context).style;
+    return TextStyle(
+      fontSize: inherited.fontSize,
+      color: inherited.color,
+      fontWeight: inherited.fontWeight,
+    );
+  }
+
   InlineSpan _buildInlineSpan(Map<String, dynamic> child) {
     final text = child['text'] as String? ?? '';
     final marks = (child['marks'] as List? ?? []).cast<String>();
 
-    if (marks.contains('latex')) {
-      return WidgetSpan(
-        child: Math.tex(
-          text,
-          mathStyle: MathStyle.text,
-          onErrorFallback: (_) =>
-              const _UnknownBlockPlaceholder(blockType: 'latex-inline'),
-        ),
-      );
-    }
+    if (marks.contains('latex')) return _inlineMath(text);
 
     TextStyle? style;
     if (marks.contains('strong')) {
@@ -186,6 +217,31 @@ class _BlockRenderer extends StatelessWidget {
       style = (style ?? const TextStyle())
           .copyWith(decoration: TextDecoration.combine(decorations));
     }
+
+    // A span can carry `$…$` without a latex mark: the mark is added when
+    // this renderer is handed a plain string, and lesson bodies arrive as
+    // blocks that never went through that step. Those dollars reached the
+    // screen as dollars.
+    if (text.contains(r'$')) {
+      final spans = <InlineSpan>[];
+      var lastEnd = 0;
+      for (final match in RegExp(r'\$([^$]+)\$').allMatches(text)) {
+        if (match.start > lastEnd) {
+          spans.add(
+            TextSpan(text: text.substring(lastEnd, match.start), style: style),
+          );
+        }
+        spans.add(_inlineMath(match.group(1) ?? '', style: style));
+        lastEnd = match.end;
+      }
+      if (spans.isNotEmpty) {
+        if (lastEnd < text.length) {
+          spans.add(TextSpan(text: text.substring(lastEnd), style: style));
+        }
+        return TextSpan(children: spans, style: style);
+      }
+    }
+
     return TextSpan(text: text, style: style);
   }
 }

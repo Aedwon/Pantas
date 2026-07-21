@@ -6,6 +6,13 @@ import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/pump_app.dart';
 
+/// The markers are spans inside a rich paragraph rather than their own
+/// `Text`, so `find.text` never sees them.
+List<String> plainTexts(WidgetTester tester) => tester
+    .widgetList<RichText>(find.byType(RichText))
+    .map((r) => r.text.toPlainText())
+    .toList();
+
 void main() {
   group('block type', () {
     testWidgets('normal block renders its text content', (tester) async {
@@ -319,5 +326,93 @@ void main() {
 
       expect(find.byType(CachedNetworkImage), findsOneWidget);
     });
+  });
+
+  testWidgets('a formula between two steps does not restart the numbering',
+      (tester) async {
+    await tester.pumpApp(
+      const PortableTextRenderer(
+        blocks: [
+          {
+            '_type': 'block',
+            'listItem': 'number',
+            'level': 1,
+            'children': [
+              {'_type': 'span', 'text': 'First step'},
+            ],
+          },
+          {'_type': 'latex', 'latex': 'x = 3'},
+          {
+            '_type': 'block',
+            'listItem': 'number',
+            'level': 1,
+            'children': [
+              {'_type': 'span', 'text': 'Second step'},
+            ],
+          },
+        ],
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    // Every worked example in Mathematics shows its working between the
+    // steps, and that used to end the list.
+    final markers = plainTexts(tester);
+    expect(markers.any((t) => t.startsWith('1.')), isTrue);
+    expect(markers.any((t) => t.startsWith('2.')), isTrue);
+  });
+
+  testWidgets('a paragraph does end the list', (tester) async {
+    await tester.pumpApp(
+      const PortableTextRenderer(
+        blocks: [
+          {
+            '_type': 'block',
+            'listItem': 'number',
+            'level': 1,
+            'children': [
+              {'_type': 'span', 'text': 'One'},
+            ],
+          },
+          {
+            '_type': 'block',
+            'children': [
+              {'_type': 'span', 'text': 'A new thought'},
+            ],
+          },
+          {
+            '_type': 'block',
+            'listItem': 'number',
+            'level': 1,
+            'children': [
+              {'_type': 'span', 'text': 'A fresh list'},
+            ],
+          },
+        ],
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final markers = plainTexts(tester);
+    expect(markers.where((t) => t.startsWith('1.')).length, 2);
+  });
+
+  testWidgets('dollars in a block span render as maths, not as dollars',
+      (tester) async {
+    await tester.pumpApp(
+      const PortableTextRenderer(
+        blocks: [
+          {
+            '_type': 'block',
+            'children': [
+              {'_type': 'span', 'text': r'Solve $x + 1$ now'},
+            ],
+          },
+        ],
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(plainTexts(tester).any((t) => t.contains(r'\$')), isFalse);
   });
 }
