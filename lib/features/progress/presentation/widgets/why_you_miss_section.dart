@@ -44,25 +44,34 @@ class WhyYouMissSection extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // One count per line, the numeral in its own right-aligned column
-        // so the three labels start on a single vertical line.
+        // Centred as a block, not each line on its own.
         //
-        // It was a ruled band across the panel, which the spec asked for and
-        // which does not fit: measured at three phone widths, the three
-        // counts with their labels need about 368px inside a panel that has
-        // 343 at 411dp and less below that, so it always fell back to
-        // scrolling sideways. Before that it was one wrapping paragraph with
-        // middle dots, where a number could end a line and its label start
-        // the next. Turning the band on its side keeps figures first and
-        // fits any width.
-        _CauseLine(
-          count: causes.hadItRightBefore,
-          label: 'had it right before',
-        ),
-        _CauseLine(count: causes.neverSeenIt, label: 'never seen it'),
-        _CauseLine(
-          count: causes.answeredTooFast,
-          label: 'answered too fast',
+        // Flush left they sat against the panel's edge with a long ragged gap
+        // to the right of each label. Centring them one by one would have
+        // been worse: the labels are different lengths, so the numerals would
+        // no longer line up under each other. `IntrinsicWidth` sizes the
+        // group to its widest line and centres that, which keeps the numeral
+        // column and the labels aligned inside it.
+        Center(
+          child: IntrinsicWidth(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _CauseLine(
+                  count: causes.hadItRightBefore,
+                  label: 'had it right before',
+                ),
+                _CauseLine(
+                  count: causes.neverSeenIt,
+                  label: 'never seen it',
+                ),
+                _CauseLine(
+                  count: causes.answeredTooFast,
+                  label: 'answered too fast',
+                ),
+              ],
+            ),
+          ),
         ),
         const SizedBox(height: 12),
         Text(
@@ -195,6 +204,8 @@ class _CauseLine extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: Row(
+        // Shrink wrapped so the group above can size to its widest line.
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.baseline,
         textBaseline: TextBaseline.alphabetic,
         children: [
@@ -211,7 +222,10 @@ class _CauseLine extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 12),
-          Expanded(
+          // Flexible, not plain: the row shrink wraps so the group can size
+          // to its widest line, but on a narrow phone the label still has to
+          // be allowed to wrap rather than overflow.
+          Flexible(
             child: Text(
               label,
               style: styles.bodyMedium.copyWith(color: colors.inkMuted),

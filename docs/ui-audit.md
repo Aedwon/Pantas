@@ -1257,3 +1257,19 @@ first, every word survives, and it fits any width.
 320dp phone renders it without exception.
 
 **The spec is amended** rather than left asking for a band that cannot fit.
+
+### UI-057 [polish] The stacked counts sat against the panel's left edge
+
+**Aedwon:** *"can you at least center them or something they look awkward being
+flushed left"*
+
+**Centred as a block, not line by line.** Centring each line on its own would
+have broken the thing the stack was for: the labels are different lengths, so
+the numerals would stop lining up under each other. The group is sized to its
+widest line and that is centred, which keeps the numeral column and the labels
+aligned inside it.
+
+**The narrow-phone test earned its place immediately.** Removing the label's
+`Expanded` to let the row shrink wrap meant the label could no longer shrink,
+and a 320dp screen overflowed by 25px. It is `Flexible` now: the row still
+sizes to its content, and the label still wraps when squeezed.

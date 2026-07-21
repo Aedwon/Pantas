@@ -1,6 +1,7 @@
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
+import 'package:cse_cet_reviewer/core/ui/components/ruled_panel.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_colors.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_text_styles.dart';
 import 'package:cse_cet_reviewer/features/paywall/application/paywall_providers.dart';
@@ -240,6 +241,28 @@ void main() {
     // And starting at the same x, which is what the fixed numeral column buys.
     expect(second.left, first.left);
     expect(third.left, first.left);
+  });
+
+  testWidgets('the counts sit centred as a block, not flush left',
+      (tester) async {
+    // Aedwon: "can you at least center them or something they look awkward
+    // being flushed left". Centring each line on its own would have broken
+    // the alignment the previous test guards, so the group is centred whole.
+    await tester.pumpWidget(
+      harness(isPro: true, right: 6, never: 3, fast: 2),
+    );
+    await tester.pumpAndSettle();
+
+    final panel = tester.getRect(find.byType(RuledPanel));
+    final longest = tester.getRect(find.text('had it right before'));
+    final shortest = tester.getRect(find.text('never seen it'));
+
+    // Still aligned to each other.
+    expect(shortest.left, longest.left);
+
+    // And the block as a whole is off the panel's left edge, which is what
+    // "not flush left" means here.
+    expect(longest.left - panel.left, greaterThan(20));
   });
 
   testWidgets('the counts never scroll sideways on a narrow phone',
