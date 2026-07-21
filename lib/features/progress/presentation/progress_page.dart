@@ -174,6 +174,16 @@ class ProgressPage extends ConsumerWidget {
       const WhyYouMissSection();
 
   Widget _goDeeperSection(BuildContext context, WidgetRef ref) {
+    // **These subtitles printed the spec's illustrative example as though it
+    // were the student's own reading.** With no archetype and no measured
+    // hours the row said "Night-Owl Sprinter. Sharpest at 9 pm, in 8 minute
+    // sits.", and the page behind it correctly said there was not enough data
+    // yet. Aedwon found the contradiction; the invented figure is the graver
+    // half of it, and it was also the error fallback.
+    //
+    // Nothing measured means nothing claimed. An empty subtitle is not drawn
+    // at all, which is the right answer while a value is still loading or has
+    // failed to load.
     final howYouWorkAsync = ref.watch(howYouWorkProvider);
     final subtitle = howYouWorkAsync.when(
       data: (work) {
@@ -182,14 +192,11 @@ class ProgressPage extends ConsumerWidget {
         for (final row in work.whenYouWork) {
           parts.add('${row.title} at ${row.meta}');
         }
-        if (parts.isEmpty) {
-          parts.add('Night-Owl Sprinter. Sharpest at 9 pm, in 8 minute sits.');
-        }
+        if (parts.isEmpty) return 'Not enough data yet';
         return parts.join('. ');
       },
-      loading: () => 'Loading profile...',
-      error: (_, __) =>
-          'Night-Owl Sprinter. Sharpest at 9 pm, in 8 minute sits.',
+      loading: () => '',
+      error: (_, __) => '',
     );
 
     final recordAsync = ref.watch(recordProvider);
@@ -201,8 +208,9 @@ class ProgressPage extends ConsumerWidget {
         }
         return parts.join('. ');
       },
-      loading: () => 'Loading record...',
-      error: (_, __) => 'Day 1.',
+      loading: () => '',
+      // "Day 1." is a figure, and a failed read has not measured it.
+      error: (_, __) => '',
     );
 
     return Column(

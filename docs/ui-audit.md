@@ -1273,3 +1273,33 @@ aligned inside it.
 `Expanded` to let the row shrink wrap meant the label could no longer shrink,
 and a 320dp screen overflowed by 25px. It is `Flexible` now: the row still
 sizes to its content, and the label still wraps when squeezed.
+
+### UI-058 [blocker] The Go deeper subtitle invented the student's verdict
+
+**Aedwon:** *"for the Go deeper section, the 'How you work' subtitle is already
+showing data but when clicking to see the actual page it all says not enough
+data yet. fix that."*
+
+**He found a contradiction and underneath it was a printed invention.** With no
+archetype and no measured hours the row printed **the design spec's own
+illustrative example**, *"Night-Owl Sprinter. Sharpest at 9 pm, in 8 minute
+sits."*, as though it were this student's reading. The page behind it was
+telling the truth; the row was not.
+
+**It was also the error fallback**, on both rows: a failed read printed the
+same invented verdict, and Your record printed *"Day 1."*, which is equally a
+figure the app had not measured.
+
+**This is the rule in `CLAUDE.md` Section 1**, that nothing this project
+inferred on its own may be printed as a figure. It had already killed a fully
+designed section. Here it had shipped.
+
+**Fixed:** nothing measured says *"Not enough data yet"*, matching the page.
+Loading and error draw no subtitle at all, since an empty one is simply not
+rendered.
+
+**Two guards**, one for the empty case and one for the failed read, both
+verified to fail against the old behaviour. Getting them to bite took four
+attempts: the section does not render without an exam, an attempt count and a
+pace reading, so the earlier versions were passing on a page that had not drawn
+the row at all.

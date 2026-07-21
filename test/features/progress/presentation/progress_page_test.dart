@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
+import 'package:cse_cet_reviewer/features/progress/application/how_you_work_provider.dart';
 import 'package:cse_cet_reviewer/features/progress/application/pace_provider.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/progress_page.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,11 @@ import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/pump_app.dart';
 
-Widget harness({bool hasAttempts = true, String? examId = 'cse'}) {
+Widget harness({
+  bool hasAttempts = true,
+  String? examId = 'cse',
+  HowYouWork? howYouWork,
+}) {
   final exam = buildExam(
     id: 'cse',
     code: 'CSE',
@@ -27,6 +32,8 @@ Widget harness({bool hasAttempts = true, String? examId = 'cse'}) {
         }
         return ActiveExamFocus.selected(exam);
       }),
+      if (howYouWork != null)
+        howYouWorkProvider.overrideWith((ref) async => howYouWork),
       if (examId != null) ...[
         countForExamProvider(examId).overrideWith((ref) async {
           return hasAttempts ? 5 : 0;
@@ -146,5 +153,42 @@ void main() {
     ]) {
       expect(find.textContaining(word), findsNothing);
     }
+  });
+
+  testWidgets('Go deeper never prints a verdict the app has not measured',
+      (tester) async {
+    // The subtitle printed the spec's illustrative example, "Night-Owl
+    // Sprinter. Sharpest at 9 pm, in 8 minute sits.", whenever there was no
+    // archetype and no measured hours, while the page behind it correctly
+    // said there was not enough data. Aedwon found the contradiction. The
+    // invented figure is the graver half: no figure this project inferred on
+    // its own may be printed.
+    await tester.pumpApp(
+      harness(
+        // Nothing measured: no archetype, no hours.
+        howYouWork: const HowYouWork(
+          name: null,
+          archetype: null,
+          archetypeLine: null,
+          tendencies: [],
+          whenYouWork: [],
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    // Guard the guard: if the section is not on screen this proves nothing.
+    expect(find.text('How you work'), findsOneWidget);
+    expect(find.textContaining('Night-Owl Sprinter'), findsNothing);
+    expect(find.textContaining('9 pm'), findsNothing);
+    expect(find.textContaining('8 minute sits'), findsNothing);
+  });
+
+  testWidgets('nor does it invent one when the read fails', (tester) async {
+    await tester.pumpApp(harnessThatThrows('nope'));
+    await tester.pumpAndSettle();
+
+    expect(find.textContaining('Night-Owl Sprinter'), findsNothing);
+    expect(find.text('Day 1.'), findsNothing);
   });
 }
