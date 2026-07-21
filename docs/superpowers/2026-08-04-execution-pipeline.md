@@ -77,12 +77,14 @@ directly from the orchestrator**, one git worktree per plan.
 
 ## Part 0: Pick up here
 
-**Rewritten 10 August, late, at a context boundary.** `main` is pushed and clean. Every written
-plan in this repository is executed. **The work now is Aedwon's own UI findings and the things
-only he can do.**
+**Rewritten 11 August**, after a long session of Aedwon's own testing on the device. `main` is
+pushed and clean.
 
-**Health:** **2,110 tests pass**, `flutter analyze` **clean and exiting 0**, formatter clean,
-app schema **21**, content schema **3**, corpus 2,369 questions.
+**Health:** **2,174 tests pass**, `flutter analyze` **clean and exiting 0**, formatter clean,
+`check_layering` **OK**, corpus 2,000 questions in the shipped seed.
+
+**The work now is the content path and the mock**, which is specced and planned and not started,
+plus Aedwon's remaining UI findings and the things only he can do.
 
 ### First, two things a new session must know
 
@@ -125,11 +127,19 @@ stats band centring, panel actions on the margin, the tendency indicator, inline
 baseline, raw dollar signs, list numbering through a formula, chevron alignment, the dropdown
 displacement, and the Quiz tab's spacing.
 
-**Open, and both are design decisions rather than fixes:**
+**UI-012 through UI-064 are recorded there**, and most of 035 to 064 were fixed on 11 August:
+the peso escaping in the choices, the reader's jank, the slow debrief, the pile of open
+sessions, the pull to advance and everything around it, one tab header for three tabs, and the
+Performance and Why you miss sections.
 
-- **UI-012, the bottom navigation icons.** Text-only, outline icons, or a bespoke mark. Stock
-  Material icons are there now, which is the option nobody chose.
-- **The tendency indicator**, now a bar rather than a bigger dot. He may want more.
+**Two corrections a new session must not repeat**, both of which cost time here:
+
+- **The navigation glyphs were never stock Material.** This document said they were. They are
+  painted paths, and the quiz glyph was decided **twice**: the second round, `quiz-glyph-v2`,
+  chose three options and rules over the single bubble, and sat unbuilt for two weeks.
+  **A decision can live in a companion session log and nowhere else.** Grep
+  `.superpowers/brainstorm/*/state/server.log` before saying a UI matches its spec.
+- **The serif is gone.** One family everywhere since 11 August: `decisions/2026-08-10-typeface-log.md`.
 
 ### What is left, and none of it is code
 
