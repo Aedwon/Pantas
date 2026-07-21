@@ -772,3 +772,40 @@ so making the sheet scroll vertically cannot leave one unbounded.
 **Covered by two tests:** one that a sheet taller than the screen throws no
 overflow, and one that a short sheet is still only as tall as its content. The
 first fails with "A RenderFlex overflowed by 1274 pixels" without the fix.
+
+### UI-037 [important] The fill animation drowned the glyphs it had just been given
+
+**Aedwon:** *"the fillup animation looks weird and just lazily fills out the
+whole outer borders leading the icon to look amateurish. please fix this. the
+quiz icon looks okay though. for the other 3, yuck"*
+
+**He is right, and he located the fix himself without saying so.** The quiz
+works because the ink rises into **one** bubble of three: the fill is a mark,
+not a flood. The other three flooded their whole silhouette, so the doorway,
+the spine and the folded corner that had just been added were painted over the
+moment the tab went active. The glyph became a blob at exactly the moment it
+was meant to be most legible.
+
+**The detail is now cut back out of the ink.** The rise fills the silhouette
+and the doorway, spine, turned corner and chart line are subtracted from it, so
+an active glyph is still the object.
+
+**An opening is cut as a shape, a line is cut as a line.** Cutting the doorway
+with a stroke traced its three edges and left the middle inked: a filled house
+with a floating block in the door. Rendered to pixels and read back, that is
+obvious, and it was invisible in the code.
+
+**What the checking was worth.** The first reading of the render was at 23
+physical pixels, where the sheet's chart line came back as speckle and looked
+like a dead end. **The device draws that glyph at about 60 pixels**, and at 60
+it is clean. A design decision was nearly made against an artefact of the
+probe rather than against anything a student would see.
+
+**Three tests read the rendered pixels**, checking the doorway, the spine and
+the turned corner are open while the material beside each is solid. All three
+fail if the subtraction is removed. **One of them did not**, at first: it
+probed a point outside the sheet's diagonal, which is transparent whatever
+happens, so it passed against the broken build too.
+
+The layer needed for the subtraction is now only allocated when there is
+something to subtract, so the three idle tabs do not pay for it every frame.

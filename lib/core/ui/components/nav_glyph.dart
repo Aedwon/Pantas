@@ -58,7 +58,27 @@ class NavGlyphPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final scale = size.width / _grid;
     final matrix = Matrix4.diagonal3Values(scale, scale, 1).storage;
-    final outline = outlineFor(kind).transform(matrix);
+    final strokeWidth = 1.5 * size.width / 23;
+
+    Paint stroke() => Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = strokeWidth
+      ..strokeJoin = StrokeJoin.round
+      ..strokeCap = StrokeCap.round;
+
+    final opening = fill > 0 ? clearRegionFor(kind) : null;
+    final lines = fill > 0 ? clearLinesFor(kind) : null;
+
+    // A layer, because the detail is punched back out of the ink rather than
+    // drawn over it, and clearing needs somewhere of its own to clear. Only
+    // when there is something to clear: three of the four tabs are idle at
+    // any moment and a layer per frame for them is a cost with no picture.
+    final needsLayer = opening != null || lines != null;
+    if (needsLayer) {
+      canvas.saveLayer(Rect.fromLTWH(0, 0, size.width, size.height), Paint());
+    }
+    canvas.drawPath(outlineFor(kind).transform(matrix), stroke());
 
     if (fill > 0) {
       final top = size.height * (1 - fill);
@@ -68,19 +88,31 @@ class NavGlyphPainter extends CustomPainter {
         ..drawPath(
           fillRegionFor(kind).transform(matrix),
           Paint()..color = color,
-        )
-        ..restore();
+        );
+
+      // The rise used to flood the whole silhouette, which swallowed the
+      // doorway, the spine and the fold and left a blob. The detail is cut
+      // back out of the ink instead, so a filled glyph is still the object.
+      //
+      // An opening is cut as a shape and a line is cut as a line. Cutting an
+      // opening with a stroke traces its edges and strands the middle: the
+      // doorway came out as a floating block.
+      if (opening != null) {
+        canvas.drawPath(
+          opening.transform(matrix),
+          Paint()..blendMode = BlendMode.clear,
+        );
+      }
+      if (lines != null) {
+        canvas.drawPath(
+          lines.transform(matrix),
+          stroke()..blendMode = BlendMode.clear,
+        );
+      }
+      canvas.restore();
     }
 
-    canvas.drawPath(
-      outline,
-      Paint()
-        ..color = color
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 1.5 * size.width / 23
-        ..strokeJoin = StrokeJoin.round
-        ..strokeCap = StrokeCap.round,
-    );
+    if (needsLayer) canvas.restore();
   }
 
   /// Everything the stroke draws. Public so a test can assert on the shape.
@@ -120,12 +152,47 @@ class NavGlyphPainter extends CustomPainter {
     }
   }
 
+  /// The openings cut out of the ink as shapes: a doorway, a turned corner.
+  ///
+  /// Null where the fill region is already a detail rather than a silhouette:
+  /// the quiz shades one option of three, so there is nothing to rescue.
+  Path? clearRegionFor(NavGlyphKind kind) {
+    switch (kind) {
+      case NavGlyphKind.home:
+        return _doorwayOpening();
+      case NavGlyphKind.progress:
+        return _dogEar();
+      case NavGlyphKind.study:
+      case NavGlyphKind.quiz:
+        return null;
+    }
+  }
+
+  /// The detail cut out of the ink as lines rather than shapes.
+  Path? clearLinesFor(NavGlyphKind kind) {
+    switch (kind) {
+      case NavGlyphKind.study:
+        return _spine();
+      case NavGlyphKind.progress:
+        return _risingLine();
+      case NavGlyphKind.home:
+      case NavGlyphKind.quiz:
+        return null;
+    }
+  }
+
   /// A house: roof apex at the top centre, walls to the baseline, a doorway.
-  Path _house() => _houseBody()
+  Path _house() => _houseBody()..addPath(_doorway(), Offset.zero);
+
+  Path _doorway() => Path()
     ..moveTo(9.3, 20.5)
     ..lineTo(9.3, 14.2)
     ..lineTo(14.7, 14.2)
     ..lineTo(14.7, 20.5);
+
+  /// The doorway as the hole it is, so the ink leaves a doorway behind
+  /// rather than an outline of one with the middle still inked.
+  Path _doorwayOpening() => _doorway()..close();
 
   Path _houseBody() => Path()
     ..moveTo(3, 10.5)
@@ -138,8 +205,13 @@ class NavGlyphPainter extends CustomPainter {
   /// An open book: two leaves meeting at a central spine.
   ///
   /// Each leaf closes back to where it started, which is the spine, so the
-  /// spine needs no segment of its own.
+  /// spine needs no segment of its own while the glyph is an outline. It
+  /// needs one to be cut out of the ink once the glyph fills.
   Path _openBook() => _openBookLeaves();
+
+  Path _spine() => Path()
+    ..moveTo(12, 6.4)
+    ..lineTo(12, 20.6);
 
   Path _openBookLeaves() => Path()
     ..moveTo(12, 6.4)
@@ -174,10 +246,21 @@ class NavGlyphPainter extends CustomPainter {
     ..addOval(Rect.fromCircle(center: const Offset(6.4, 12), radius: 2.3));
 
   /// A sheet with a folded corner and a line rising across it.
-  Path _sheet() => _sheetBody()
+  Path _sheet() => _sheetBody()..addPath(_foldAndLine(), Offset.zero);
+
+  Path _foldAndLine() => Path()
+    ..addPath(_dogEar(), Offset.zero)
+    ..addPath(_risingLine(), Offset.zero);
+
+  /// The turned corner, cut as a shape. The sheet's own outline already
+  /// runs the diagonal, so this only has to open the triangle behind it.
+  Path _dogEar() => Path()
     ..moveTo(14, 3.2)
-    ..lineTo(14, 8.2)
     ..lineTo(19, 8.2)
+    ..lineTo(14, 8.2)
+    ..close();
+
+  Path _risingLine() => Path()
     ..moveTo(8, 16.6)
     ..lineTo(10.8, 13.6)
     ..lineTo(13, 15.6)
