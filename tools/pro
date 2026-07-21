@@ -20,23 +20,28 @@ cache="${TMPDIR:-/tmp}/pantas-vm-service"
 
 die() { echo "pro: $*" >&2; exit 1; }
 
-# The forwarded pair looks like: emulator-5554 tcp:64289 tcp:41007
+# The live service announces itself in logcat; the adb forward table can
+# still hold the entry of a run that has been killed, so logcat is the
+# authority and the forward table is looked up from it rather than trusted.
 discover() {
-  local forward host_port device_port token
-  forward="$(adb forward --list 2>/dev/null | head -1)" || true
-  [ -n "$forward" ] || die "no adb forward. Is 'flutter run' alive?"
+  local line device_port token host_port
+  line="$(adb logcat -d 2>/dev/null \
+    | grep -o 'Dart VM service is listening on http://127.0.0.1:[0-9]*/[^/]*/' \
+    | tail -1)" || true
+  [ -n "$line" ] || die "no Dart VM service in logcat. Is 'flutter run' alive?"
 
-  host_port="$(echo "$forward" | awk '{print $2}' | cut -d: -f2)"
-  device_port="$(echo "$forward" | awk '{print $3}' | cut -d: -f2)"
-
-  # The token is only ever printed, never stored, so it comes from logcat.
+  device_port="$(echo "$line" | sed -E 's#.*127\.0\.0\.1:([0-9]+)/.*#\1#')"
   # Trailing slash trimmed: the printed URI ends in one and a doubled slash
   # is a 404 rather than an RPC.
-  token="$(adb logcat -d 2>/dev/null \
-    | grep -o "http://127.0.0.1:${device_port}/[^/]*/" \
-    | tail -1 \
-    | sed -E "s#http://127.0.0.1:${device_port}/##; s#/\$##")" || true
-  [ -n "$token" ] || die "could not find the service token in logcat. Restart 'flutter run'."
+  token="$(echo "$line" | sed -E 's#.*127\.0\.0\.1:[0-9]+/##; s#/$##')"
+
+  host_port="$(adb forward --list 2>/dev/null \
+    | awk -v d="tcp:${device_port}" '$3 == d {print $2}' \
+    | cut -d: -f2 | head -1)"
+  if [ -z "$host_port" ]; then
+    host_port="$(adb forward tcp:0 "tcp:${device_port}" 2>/dev/null)"
+  fi
+  [ -n "$host_port" ] || die "could not forward the service port."
 
   echo "http://127.0.0.1:${host_port}/${token}"
 }
