@@ -68,72 +68,76 @@ class _PullToAdvanceState extends State<PullToAdvance>
       onVerticalDragUpdate: _onVerticalDragUpdate,
       onVerticalDragEnd: _onVerticalDragEnd,
       behavior: HitTestBehavior.translucent,
-      // The pull moves the sheet. Without this the gesture changed the
-      // handle's width and nothing else, so the drag had no object: the
-      // hand pulled and the page stayed where it was.
-      child: Transform.translate(
-        offset: Offset(0, -_dragOffset),
-        child: Column(
-          children: [
-            Expanded(child: widget.child),
-            // Fades and grows in as the end comes into view rather than
-            // appearing outright, so the arrival is part of the reading.
-            ValueListenableBuilder<bool>(
-              valueListenable: widget.isAtEnd,
-              builder: (context, _, __) => AnimatedSize(
-                duration: const Duration(milliseconds: 260),
-                curve: Curves.easeOutCubic,
-                alignment: Alignment.topCenter,
-                child: !_hasHandle
-                    ? const SizedBox(width: double.infinity)
-                    : AnimatedOpacity(
-                        opacity: 1,
-                        duration: const Duration(milliseconds: 260),
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(vertical: 16),
-                          alignment: Alignment.center,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              AnimatedContainer(
-                                key: const ValueKey('pull-handle'),
-                                duration: const Duration(milliseconds: 120),
-                                width: _isArmed ? 52 : 36,
-                                height: 3,
-                                decoration: BoxDecoration(
-                                  color: _isArmed ? colors.board : colors.rule,
-                                  borderRadius: BorderRadius.circular(2),
+      // Clipped to its own box. The lift paints outside its bounds
+      // otherwise, so a pulled sheet slid its first lines up over the reader
+      // bar and off the top of the screen instead of disappearing under it,
+      // which is what the same text does when you simply scroll.
+      child: ClipRect(
+        child: Transform.translate(
+          offset: Offset(0, -_dragOffset),
+          child: Column(
+            children: [
+              Expanded(child: widget.child),
+              // Fades and grows in as the end comes into view rather than
+              // appearing outright, so the arrival is part of the reading.
+              ValueListenableBuilder<bool>(
+                valueListenable: widget.isAtEnd,
+                builder: (context, _, __) => AnimatedSize(
+                  duration: const Duration(milliseconds: 260),
+                  curve: Curves.easeOutCubic,
+                  alignment: Alignment.topCenter,
+                  child: !_hasHandle
+                      ? const SizedBox(width: double.infinity)
+                      : AnimatedOpacity(
+                          opacity: 1,
+                          duration: const Duration(milliseconds: 260),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(vertical: 16),
+                            alignment: Alignment.center,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                AnimatedContainer(
+                                  key: const ValueKey('pull-handle'),
+                                  duration: const Duration(milliseconds: 120),
+                                  width: _isArmed ? 52 : 36,
+                                  height: 3,
+                                  decoration: BoxDecoration(
+                                    color:
+                                        _isArmed ? colors.board : colors.rule,
+                                    borderRadius: BorderRadius.circular(2),
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(height: 8),
-                              Text.rich(
-                                TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: 'Pull up for ',
-                                      style: textStyles.bodySmall.copyWith(
-                                        color: colors.inkMuted,
+                                const SizedBox(height: 8),
+                                Text.rich(
+                                  TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: 'Pull up for ',
+                                        style: textStyles.bodySmall.copyWith(
+                                          color: colors.inkMuted,
+                                        ),
                                       ),
-                                    ),
-                                    TextSpan(
-                                      text: widget.nextTitle,
-                                      style: textStyles.bodySmall.copyWith(
-                                        color: _isArmed
-                                            ? colors.board
-                                            : colors.ink,
-                                        fontWeight: FontWeight.w600,
+                                      TextSpan(
+                                        text: widget.nextTitle,
+                                        style: textStyles.bodySmall.copyWith(
+                                          color: _isArmed
+                                              ? colors.board
+                                              : colors.ink,
+                                          fontWeight: FontWeight.w600,
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
-                      ),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

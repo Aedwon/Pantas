@@ -6,11 +6,16 @@ void main() {
   // The platform default slid the next lesson in from the right, against the
   // upward gesture that asked for it. Aedwon: "at least if we're gonna stick
   // with that have it come from the bottom so the pull up makes sense".
-  Widget harness(Animation<double> arriving, Animation<double> departing) {
+  Widget harness(
+    Animation<double> arriving,
+    Animation<double> departing, {
+    ReaderEntry entry = ReaderEntry.advance,
+  }) {
     return MaterialApp(
       home: ReaderAdvanceTransition(
         animation: arriving,
         secondaryAnimation: departing,
+        entry: entry,
         child: const Text('lesson'),
       ),
     );
@@ -70,5 +75,55 @@ void main() {
       (resting - departedTo).abs(),
       lessThan((arrivingFrom - resting).abs()),
     );
+  });
+
+  testWidgets('a lesson opened by tapping comes from the right',
+      (tester) async {
+    // The row's chevron points that way, so going into it should too.
+    // Aedwon: "since the chevrons are pointing to the right > maybe that's
+    // the part where we use the 'from right to left' insertion".
+    await tester.pumpWidget(
+      harness(
+        const AlwaysStoppedAnimation(0),
+        const AlwaysStoppedAnimation(0),
+        entry: ReaderEntry.forward,
+      ),
+    );
+    final start = tester.getRect(find.text('lesson'));
+
+    await tester.pumpWidget(
+      harness(
+        const AlwaysStoppedAnimation(1),
+        const AlwaysStoppedAnimation(0),
+        entry: ReaderEntry.forward,
+      ),
+    );
+    final end = tester.getRect(find.text('lesson'));
+
+    expect(start.left, greaterThan(end.left));
+    expect(start.top, end.top);
+  });
+
+  testWidgets('and the one it covers leaves to the left', (tester) async {
+    await tester.pumpWidget(
+      harness(
+        const AlwaysStoppedAnimation(1),
+        const AlwaysStoppedAnimation(0),
+        entry: ReaderEntry.forward,
+      ),
+    );
+    final start = tester.getRect(find.text('lesson'));
+
+    await tester.pumpWidget(
+      harness(
+        const AlwaysStoppedAnimation(1),
+        const AlwaysStoppedAnimation(1),
+        entry: ReaderEntry.forward,
+      ),
+    );
+    final end = tester.getRect(find.text('lesson'));
+
+    expect(end.left, lessThan(start.left));
+    expect(start.top, end.top);
   });
 }

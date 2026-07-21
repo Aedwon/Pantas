@@ -993,3 +993,62 @@ whole row. A chevron marks the row, not the first line of it.
 
 **Two tests**, one row with a subtitle and one without, both asserting the
 chevron's centre matches the row's.
+
+### UI-045 [important] The pinned topic bar, and the snap it caused
+
+**Aedwon:** *"when opening a topic, there's an abrupt layout snap. i think the
+cause is the 'opened topic' quick nav the appears on the topmost. actually i
+don't think that's how it's supposed to behave. that top navbar should also not
+show up further than the very first subject. what are elegant solutions for
+this? if there's none i want to remove it. i also want the opening to be
+animated elegantly, not just snapping."*
+
+**His diagnosis was right.** The bar was placed **above** the list, so opening
+a topic changed the list's height and pushed everything down. It also appeared
+the instant a topic opened, which is the one moment you are looking straight at
+the topic it is telling you about.
+
+| | Option | Cost |
+|---|---|---|
+| 1 | **Show it only once the open topic has scrolled out of sight, floated over the list** | Tracking whether that row is on screen, and one more moving part |
+| 2 | **Keep it always, but float it over the list** | Kills the snap and nothing else; still announces a topic you can see |
+| 3 | **Remove it** | Cheapest; no way back to a topic opened deep in a long list |
+
+**He chose 1**, which was the recommendation.
+
+The bar is now stacked over the list rather than placed above it, so nothing
+shifts, and it slides down into view only when the open topic's row leaves the
+screen. Visibility is published through a notifier, not `setState`, because it
+is computed on every scroll frame and the list must not rebuild for it.
+
+**The expansion is animated**, and the row you tapped is still held in place
+while the rows above it change height.
+
+### UI-046 The reader's direction, from his own observation
+
+**Aedwon:** *"since the chevrons are pointing to the right > maybe that's the
+part where we use the 'from right to left' insertion of the topic page. then
+the < Study does the opposite. makes sense?"*
+
+**Yes, and it is better scoped than it first looks.** A topic row's chevron is
+a **disclosure**: it rotates down and expands in place, so there is nothing to
+slide. A lesson row's chevron is a **link**. His rule therefore applies exactly
+where he meant it.
+
+**Both entrances are kept.** The motion describes the relationship rather than
+the destination: tapping a lesson is going forward, so it arrives from the
+right and `< Study` sends it back; pulling up at the end of one is advancing to
+the next sheet, so that keeps rising from below. The router picks by how the
+lesson was reached.
+
+### UI-047 [important] The pulled sheet escaped over the top of the screen
+
+**Aedwon:** *"when i try to pull up to go to the next lesson, the text that's
+in the lesson body does not go under/hidden from the top part (like how it
+normally does when reading and scrolling). its behavior is that all the text
+from the topmost can go up and obstruct even the topmost part of the screen"*
+
+**Mine, from the lift added yesterday.** A `Transform` paints outside its own
+bounds, so the lifted sheet drew over the reader bar and off the top instead of
+disappearing under it the way scrolled text does. **Clipped to its own box
+now**, with a test that the content stays inside the widget while dragged.

@@ -274,6 +274,9 @@ List<RouteBase> buildAppRoutes(Ref ref) {
       path: '/lesson/:lessonId',
       pageBuilder: (_, state) => readerPage(
         key: state.pageKey,
+        entry: state.uri.queryParameters['via'] == 'pull'
+            ? ReaderEntry.advance
+            : ReaderEntry.forward,
         child: LessonPage(
           lessonId: state.pathParameters['lessonId']!,
           origin: state.uri.queryParameters['from'] == 'home'

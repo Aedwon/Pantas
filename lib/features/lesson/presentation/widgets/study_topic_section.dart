@@ -73,19 +73,38 @@ class StudySubjectSection extends ConsumerWidget {
             expanded: openTopicId == topic.id,
             onTap: () => onToggleTopic(topic.id),
           ),
-          if (openTopicId == topic.id)
-            for (final lesson in topic.lessons)
-              Padding(
-                padding: const EdgeInsets.only(left: 22),
-                child: InkTableRow(
-                  title: lesson.title,
-                  state: lesson.isRead ? InkRowState.done : InkRowState.plain,
-                  reserveGlyph: true,
-                  meta: '${lesson.estimatedMinutes} min',
-                  chevron: InkRowChevron.link,
-                  onTap: () => context.push('/lesson/${lesson.id}?from=study'),
-                ),
-              ),
+          // The lessons grow in rather than appearing. A topic that snaps
+          // open gives the eye nothing to follow, and the row you tapped is
+          // held still while this happens.
+          ClipRect(
+            child: AnimatedSize(
+              duration: const Duration(milliseconds: 240),
+              curve: Curves.easeOutCubic,
+              alignment: Alignment.topCenter,
+              child: openTopicId != topic.id
+                  ? const SizedBox(width: double.infinity)
+                  : Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        for (final lesson in topic.lessons)
+                          Padding(
+                            padding: const EdgeInsets.only(left: 22),
+                            child: InkTableRow(
+                              title: lesson.title,
+                              state: lesson.isRead
+                                  ? InkRowState.done
+                                  : InkRowState.plain,
+                              reserveGlyph: true,
+                              meta: '${lesson.estimatedMinutes} min',
+                              chevron: InkRowChevron.link,
+                              onTap: () => context
+                                  .push('/lesson/${lesson.id}?from=study'),
+                            ),
+                          ),
+                      ],
+                    ),
+            ),
+          ),
         ],
       ],
     );

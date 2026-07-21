@@ -18,9 +18,20 @@ import 'package:go_router/go_router.dart';
 /// where the eye expects the page it has finished with to be.
 const Duration readerAdvanceDuration = Duration(milliseconds: 380);
 
+/// How a lesson arrived, which is what decides how it moves.
+///
+/// **The motion describes the relationship, not the destination.** Tapping a
+/// lesson in a list is going forward into it, and the row's chevron already
+/// points that way, so it comes from the right and `< Study` sends it back.
+/// Pulling up at the end of a lesson is advancing to the next sheet, so that
+/// one keeps coming from below. Same screen, two entrances, each matching the
+/// gesture that opened it.
+enum ReaderEntry { forward, advance }
+
 CustomTransitionPage<void> readerPage({
   required LocalKey key,
   required Widget child,
+  ReaderEntry entry = ReaderEntry.forward,
 }) {
   return CustomTransitionPage<void>(
     key: key,
@@ -31,6 +42,7 @@ CustomTransitionPage<void> readerPage({
       return ReaderAdvanceTransition(
         animation: animation,
         secondaryAnimation: secondaryAnimation,
+        entry: entry,
         child: child,
       );
     },
@@ -43,8 +55,11 @@ class ReaderAdvanceTransition extends StatelessWidget {
     required this.animation,
     required this.secondaryAnimation,
     required this.child,
+    this.entry = ReaderEntry.advance,
     super.key,
   });
+
+  final ReaderEntry entry;
 
   final Animation<double> animation;
 
@@ -58,8 +73,14 @@ class ReaderAdvanceTransition extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final from =
+        entry == ReaderEntry.advance ? const Offset(0, 1) : const Offset(1, 0);
+    final to = entry == ReaderEntry.advance
+        ? const Offset(0, -_departingTravel)
+        : const Offset(-_departingTravel, 0);
+
     final arriving = Tween<Offset>(
-      begin: const Offset(0, 1),
+      begin: from,
       end: Offset.zero,
     ).animate(
       CurvedAnimation(
@@ -71,7 +92,7 @@ class ReaderAdvanceTransition extends StatelessWidget {
 
     final departing = Tween<Offset>(
       begin: Offset.zero,
-      end: const Offset(0, -_departingTravel),
+      end: to,
     ).animate(
       CurvedAnimation(
         parent: secondaryAnimation,

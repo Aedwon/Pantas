@@ -96,4 +96,25 @@ void main() {
 
     expect(find.byKey(const ValueKey('pull-handle')), findsOneWidget);
   });
+
+  testWidgets('a pulled sheet is clipped, so nothing escapes upward',
+      (tester) async {
+    // Aedwon: the body text "can go up and obstruct even the topmost part of
+    // the screen" instead of disappearing under the bar the way scrolling
+    // makes it.
+    await pumpPull(tester);
+    await tester.pumpAndSettle();
+
+    final box = tester.getRect(find.byType(PullToAdvance));
+    final gesture = await tester.startGesture(box.center);
+    await gesture.moveBy(const Offset(0, -120));
+    await tester.pump();
+
+    final content = tester.getRect(find.text('Current Content'));
+    // The clip keeps the lifted content inside the widget it belongs to.
+    expect(find.byType(ClipRect), findsWidgets);
+    expect(content.top, greaterThanOrEqualTo(box.top - 0.5));
+
+    await gesture.up();
+  });
 }

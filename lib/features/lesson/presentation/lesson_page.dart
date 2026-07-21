@@ -158,6 +158,11 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
     _markingController?.onScroll(offset: offset, maxExtent: maxExtent);
   }
 
+  /// `via=pull` tells the router this lesson was advanced to rather than
+  /// opened, so it rises from the bottom instead of coming from the right.
+  String get _originParam =>
+      widget.origin == ReaderOrigin.home ? 'home' : 'study';
+
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
@@ -187,7 +192,8 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
               nextTitle: reader.next?.title,
               onAdvance: reader.next != null
                   ? () => context.go(
-                        '/lesson/${reader.next!.id}?from=${widget.origin == ReaderOrigin.home ? 'home' : 'study'}',
+                        '/lesson/${reader.next!.id}'
+                        '?from=$_originParam&via=pull',
                       )
                   : null,
               child: SingleChildScrollView(

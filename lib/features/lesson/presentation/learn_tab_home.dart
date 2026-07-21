@@ -41,11 +41,21 @@ class StudyTabHome extends ConsumerStatefulWidget {
 class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
   final _scrollController = ScrollController();
   final _topicKeys = <TopicId, GlobalKey>{};
+  final _listKey = GlobalKey();
   bool _searching = false;
+
+  /// Whether the open topic's row has left the screen.
+  ///
+  /// The pinned bar exists to get you back to a topic you can no longer see.
+  /// It used to appear the instant a topic opened, which is the one moment
+  /// you are looking straight at it, and it announced that by pushing the
+  /// whole list down.
+  final _openTopicOffScreen = ValueNotifier<bool>(false);
 
   @override
   void initState() {
     super.initState();
+    _scrollController.addListener(_syncPinnedBar);
     final requested = widget.openTopicId;
     if (requested != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -57,7 +67,36 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
   @override
   void dispose() {
     _scrollController.dispose();
+    _openTopicOffScreen.dispose();
     super.dispose();
+  }
+
+  /// A notifier rather than `setState`: this runs on every scroll frame and
+  /// the list below it must not rebuild for it.
+  void _syncPinnedBar() {
+    final topicId = ref.read(openTopicProvider).valueOrNull;
+    if (topicId == null) {
+      _openTopicOffScreen.value = false;
+      return;
+    }
+    _openTopicOffScreen.value = !_isOnScreen(topicId);
+  }
+
+  bool _isOnScreen(TopicId topicId) {
+    final rowContext = _topicKeys[topicId]?.currentContext;
+    final listContext = _listKey.currentContext;
+    final row = rowContext?.findRenderObject() as RenderBox?;
+    final list = listContext?.findRenderObject() as RenderBox?;
+    if (row == null || list == null || !row.attached || !list.attached) {
+      // Unknown, so say it is visible: a bar that appears on a guess is
+      // worse than one that arrives a frame late.
+      return true;
+    }
+    final rowTop = row.localToGlobal(Offset.zero).dy;
+    final rowBottom = rowTop + row.size.height;
+    final listTop = list.localToGlobal(Offset.zero).dy;
+    final listBottom = listTop + list.size.height;
+    return rowBottom > listTop && rowTop < listBottom;
   }
 
   /// Toggles a topic and leaves the row the student tapped exactly where
@@ -77,6 +116,7 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
       if (before == null || after == null || !_scrollController.hasClients) {
         return;
       }
+      _syncPinnedBar();
       final drift = after - before;
       if (drift.abs() < 0.5) return;
       final target = (_scrollController.offset + drift).clamp(
@@ -186,22 +226,52 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
                   child: SearchResults(),
                 )
               else ...[
-                if (openTopic != null)
-                  PinnedTopicBar(
-                    topic: openTopic,
-                    onScrollBack: () => _scrollBackTo(openTopic!.id),
-                  ),
                 Expanded(
-                  child: ListView(
-                    controller: _scrollController,
+                  // The bar is stacked over the list, not placed above it.
+                  // Inserting it changed the list's height the moment a topic
+                  // opened, which is the snap.
+                  child: Stack(
+                    key: _listKey,
                     children: [
-                      StudyHeadBlock(map: map),
-                      for (final subject in map.subjects)
-                        StudySubjectSection(
-                          subject: subject,
-                          onToggleTopic: (topicId) =>
-                              unawaited(_toggleTopic(topicId)),
-                          keyForTopic: _keyFor,
+                      ListView(
+                        controller: _scrollController,
+                        children: [
+                          StudyHeadBlock(map: map),
+                          for (final subject in map.subjects)
+                            StudySubjectSection(
+                              subject: subject,
+                              onToggleTopic: (topicId) =>
+                                  unawaited(_toggleTopic(topicId)),
+                              keyForTopic: _keyFor,
+                            ),
+                        ],
+                      ),
+                      if (openTopic != null)
+                        Positioned(
+                          top: 0,
+                          left: 0,
+                          right: 0,
+                          child: ValueListenableBuilder<bool>(
+                            valueListenable: _openTopicOffScreen,
+                            builder: (context, offScreen, child) =>
+                                IgnorePointer(
+                              ignoring: !offScreen,
+                              child: AnimatedSlide(
+                                offset: Offset(0, offScreen ? 0 : -1),
+                                duration: const Duration(milliseconds: 220),
+                                curve: Curves.easeOutCubic,
+                                child: AnimatedOpacity(
+                                  opacity: offScreen ? 1 : 0,
+                                  duration: const Duration(milliseconds: 180),
+                                  child: child,
+                                ),
+                              ),
+                            ),
+                            child: PinnedTopicBar(
+                              topic: openTopic,
+                              onScrollBack: () => _scrollBackTo(openTopic!.id),
+                            ),
+                          ),
                         ),
                     ],
                   ),
