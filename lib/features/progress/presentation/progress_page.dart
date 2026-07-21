@@ -5,7 +5,7 @@ import 'package:cse_cet_reviewer/core/ui/components/empty_state.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
 import 'package:cse_cet_reviewer/core/ui/components/exam_name_line.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
-import 'package:cse_cet_reviewer/core/ui/components/navigational_row.dart';
+import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
 import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
 import 'package:cse_cet_reviewer/core/ui/components/tab_header.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
@@ -223,14 +223,20 @@ class ProgressPage extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SectionHeader(title: 'Go deeper'),
-        NavigationalRow(
+        // The same row the Quiz tab's "More ways to practice" uses. These
+        // two were `NavigationalRow`, which respelled its title style in
+        // full and drew **Material's `chevron_right`**, the filled glyph the
+        // identity replaced with a hairline one everywhere else.
+        InkTableRow(
           title: 'How you work',
           subtitle: subtitle,
+          chevron: InkRowChevron.link,
           onTap: () => context.push('/progress/how-you-work'),
         ),
-        NavigationalRow(
+        InkTableRow(
           title: 'Your record',
           subtitle: recordSubtitle,
+          chevron: InkRowChevron.link,
           onTap: () => context.push('/progress/your-record'),
         ),
       ],

@@ -21,7 +21,6 @@ import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
 import 'package:cse_cet_reviewer/core/ui/components/ink_wheel.dart';
 import 'package:cse_cet_reviewer/core/ui/components/inline_meter.dart';
 import 'package:cse_cet_reviewer/core/ui/components/nav_glyph.dart';
-import 'package:cse_cet_reviewer/core/ui/components/navigational_row.dart';
 import 'package:cse_cet_reviewer/core/ui/components/page_scaffold.dart';
 import 'package:cse_cet_reviewer/core/ui/components/passage_card.dart';
 import 'package:cse_cet_reviewer/core/ui/components/pennant_mark.dart';
@@ -288,12 +287,16 @@ void main() {
       );
     });
 
-    testWidgets('NavigationalRow survives 200% text scale', (tester) async {
+    testWidgets('a linking row survives 200% text scale', (tester) async {
+      // Was NavigationalRow, which is gone: it respelled its title style in
+      // full and drew Material's filled chevron. InkTableRow does this job
+      // everywhere now, so the coverage follows it.
       await expectSurvivesTextScale(
         tester,
-        NavigationalRow(
+        InkTableRow(
           title: 'General Information & Philippine Constitution',
           subtitle: 'Constitutional Commissions and Rights',
+          chevron: InkRowChevron.link,
           onTap: () {},
         ),
       );

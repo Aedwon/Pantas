@@ -1373,3 +1373,41 @@ nothing else and the spacing cannot drift apart again. **Three tests**, one of
 which checks specifically that a trailing action in the header does not move
 the name, since that was his hypothesis and it deserves a guard whether or not
 it was the cause this time.
+
+### UI-062 [polish] Go deeper used a different row, and a Material chevron
+
+**Aedwon:** *"to be consistent, can you apply the same treatment on More ways
+to practice section in Quiz to the Go deeper section in Progress"*
+
+The two sections do the same job and were built from different rows. `Go
+deeper` used `NavigationalRow`, which **respelled its title style in full**
+and drew **`Icons.chevron_right`**: Material's filled glyph, the one
+`InkChevron` exists to replace because it cannot be drawn at stroke 1.4.
+
+**Both rows are `InkTableRow` now**, the same component the Quiz tab uses.
+`NavigationalRow` had no other caller and is deleted rather than left as a
+second way to draw the same row. Its 200% text-scale coverage moved to the row
+that took its place.
+
+---
+
+### UI-063 [blocker] There is no way to take a mock exam
+
+**Aedwon:** *"where the hell is the part where users can take mock exams?"*
+
+**Two separate gaps, and the second is the one that matters.**
+
+**There is no door.** `MockPanel` is built and its own doc comment says the
+Quiz tab "receives it as a plain `Widget` from the router, so no feature
+imports another". `QuizTabHome` takes that `mockPanel` parameter. **The router
+passes `const QuizTabHome()`**, with nothing. The panel has never been on
+screen. The routes behind it exist: `/quiz/mock/setup`,
+`/quiz/mock/custom-setup`, `/mock-exam`.
+
+**And there is nothing behind the door.** Blueprints decide a mock's shape, and
+`assets/seed/content.db` was opened and read directly: **`content_mock_blueprints`
+has 0 rows.** Wiring the panel alone would put a door on an empty room, which
+is worse than no door.
+
+**Not fixed in this pass**, because the fix is a blueprint per exam plus a
+generator step, not a wire. Put to Aedwon with options.
