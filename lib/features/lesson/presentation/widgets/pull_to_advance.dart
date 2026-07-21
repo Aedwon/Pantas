@@ -92,7 +92,13 @@ class _PullToAdvanceState extends State<PullToAdvance>
                           opacity: 1,
                           duration: const Duration(milliseconds: 260),
                           child: Container(
-                            padding: const EdgeInsets.symmetric(vertical: 16),
+                            // Horizontal too. A long lesson title ran to
+                            // both screen edges with nothing either side of
+                            // it.
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 24,
+                              vertical: 16,
+                            ),
                             alignment: Alignment.center,
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
@@ -129,6 +135,9 @@ class _PullToAdvanceState extends State<PullToAdvance>
                                       ),
                                     ],
                                   ),
+                                  textAlign: TextAlign.center,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ],
                             ),

@@ -76,10 +76,19 @@ class StudySubjectSection extends ConsumerWidget {
           // The lessons grow in rather than appearing. A topic that snaps
           // open gives the eye nothing to follow, and the row you tapped is
           // held still while this happens.
+          //
+          // Height and ink are separated on purpose. Height alone was still
+          // abrupt: the rows arrived at full strength the instant there was
+          // room for them, so the movement finished before the eye had found
+          // what moved. The ink comes up over the back half of the opening,
+          // which is what makes it read as unfolding rather than snapping.
+          //
+          // easeOutQuint over easeOutCubic: it leaves faster and settles
+          // slower, so the end of the movement is soft rather than stopped.
           ClipRect(
             child: AnimatedSize(
-              duration: const Duration(milliseconds: 240),
-              curve: Curves.easeOutCubic,
+              duration: const Duration(milliseconds: 340),
+              curve: Curves.easeOutQuint,
               alignment: Alignment.topCenter,
               child: openTopicId != topic.id
                   ? const SizedBox(width: double.infinity)
@@ -89,16 +98,18 @@ class StudySubjectSection extends ConsumerWidget {
                         for (final lesson in topic.lessons)
                           Padding(
                             padding: const EdgeInsets.only(left: 22),
-                            child: InkTableRow(
-                              title: lesson.title,
-                              state: lesson.isRead
-                                  ? InkRowState.done
-                                  : InkRowState.plain,
-                              reserveGlyph: true,
-                              meta: '${lesson.estimatedMinutes} min',
-                              chevron: InkRowChevron.link,
-                              onTap: () => context
-                                  .push('/lesson/${lesson.id}?from=study'),
+                            child: _FadeIn(
+                              child: InkTableRow(
+                                title: lesson.title,
+                                state: lesson.isRead
+                                    ? InkRowState.done
+                                    : InkRowState.plain,
+                                reserveGlyph: true,
+                                meta: '${lesson.estimatedMinutes} min',
+                                chevron: InkRowChevron.link,
+                                onTap: () => context
+                                    .push('/lesson/${lesson.id}?from=study'),
+                              ),
                             ),
                           ),
                       ],
@@ -107,6 +118,43 @@ class StudySubjectSection extends ConsumerWidget {
           ),
         ],
       ],
+    );
+  }
+}
+
+/// Brings its child up in ink once there is room for it.
+///
+/// Starts after the opening is underway rather than with it, so the height
+/// and the ink are not the same gesture told twice.
+class _FadeIn extends StatefulWidget {
+  const _FadeIn({required this.child});
+
+  final Widget child;
+
+  @override
+  State<_FadeIn> createState() => _FadeInState();
+}
+
+class _FadeInState extends State<_FadeIn> with SingleTickerProviderStateMixin {
+  late final AnimationController _controller = AnimationController(
+    duration: const Duration(milliseconds: 340),
+    vsync: this,
+  )..forward();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FadeTransition(
+      opacity: CurvedAnimation(
+        parent: _controller,
+        curve: const Interval(0.35, 1, curve: Curves.easeOut),
+      ),
+      child: widget.child,
     );
   }
 }
