@@ -9,10 +9,12 @@ void main() {
     WidgetTester tester, {
     String? nextTitle = 'Next Lesson',
     VoidCallback? onAdvance,
+    bool isAtEnd = true,
   }) async {
     await tester.pumpApp(
       Scaffold(
         body: PullToAdvance(
+          isAtEnd: isAtEnd,
           nextTitle: nextTitle,
           onAdvance: onAdvance ?? () {},
           child: const ColoredBox(
@@ -75,5 +77,23 @@ void main() {
     );
 
     await gesture.up();
+  });
+
+  testWidgets('the handle stays away until the end of the lesson',
+      (tester) async {
+    // It used to sit under every lesson from the first line, offering the
+    // next topic to someone who had not read a word of this one.
+    await pumpPull(tester, isAtEnd: false);
+    await tester.pumpAndSettle();
+
+    expect(find.byKey(const ValueKey('pull-handle')), findsNothing);
+    expect(find.textContaining('Pull up for'), findsNothing);
+  });
+
+  testWidgets('the handle arrives once the end is reached', (tester) async {
+    await pumpPull(tester);
+    await tester.pumpAndSettle();
+
+    expect(find.byKey(const ValueKey('pull-handle')), findsOneWidget);
   });
 }

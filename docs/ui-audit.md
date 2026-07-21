@@ -809,3 +809,73 @@ happens, so it passed against the broken build too.
 
 The layer needed for the subtraction is now only allocated when there is
 something to subtract, so the three idle tabs do not pay for it every frame.
+
+# Session of 10 August 2026, late: the lesson reader
+
+### UI-038 [important] The pull handle offered the next lesson before this one was read
+
+**Aedwon:** *"the pull up interface should only appear once the user reaches
+the bottom-most of the current content"*
+
+**He is right.** The handle was a permanent footer under the scroll view, so it
+sat there from the first line of every lesson, naming the next topic to a
+student who had not read a word of this one. **It is an ending, so it arrives
+at the end**, and it grows in rather than appearing outright.
+
+Reaching the end counts as within about a line of the bottom, not exactly on
+it. A lesson too short to scroll counts as read from the start, which needs
+saying in code because such a lesson never fires a scroll event at all.
+
+### UI-039 [important] "< Study" did nothing
+
+**Aedwon:** *"i'd like to insert that i can't use the < Study button"*
+
+**Checked, and it was dead on three of the ways in.** The control called
+`maybePop`, and the contents sheet, the topic ending and the pull to the next
+lesson all **replace** the route rather than stacking on it. That is
+deliberate, so a student who reads ten lessons in a row does not build a
+ten-deep stack, but it leaves nothing to pop.
+
+**The label already says where it goes.** It pops when there is a stack and
+goes to Study or Home when there is not.
+
+### UI-040 [important] The reader had grouping but no hierarchy
+
+**Aedwon:** *"text is too cramped. there should be ample spacing before each
+header. this is also to establish visual hierarchy not just grouping"*
+
+**Every block took the same 4 above and below**, so a heading had no more air
+than the sentence before it and a lesson read as one undifferentiated column.
+
+**A heading now takes its space above, not below.** The gap belongs to the
+section it opens: bound tightly to its own first line, separated from the
+section that ended. Equal space either side is what made it float between two
+blocks instead of belonging to one, which is his distinction exactly.
+
+The opening block takes no gap, since the lesson title already sits over it.
+
+### UI-041 [open] The transition after a pull does not follow the pull
+
+**Aedwon:** *"the animation after pulling up doesn't fit when it transitions to
+the next topic. it should of course be fluous to the pull up"*
+
+**Not fixed. It needs a design round rather than a patch.** The pull is a drag
+that moves content, and the route change that follows is a separate default
+transition, so the motion stops and a different one starts. Making it
+continuous means the next lesson is dragged into place by the same gesture,
+which is a different mechanism from the one built.
+
+### UI-042 [open] The serif does not look clean in the app
+
+**Aedwon:** *"in retrospect and upon observing, the serif font doesn't look
+clean in the app. can we use something else? how about using the same font
+everywhere? or using an Apple font?"*
+
+**Not changed, deliberately.** The serif is not a font choice, it is the
+identity: Ink and Rule is a printed page, and the serif masthead, headings and
+choice letters are most of what makes it read as one. Swapping it is a
+redesign, not a setting, and it touches every screen already approved.
+
+**It is also worth separating two complaints**, because they have different
+answers: a serif that is wrong for screens, and a serif that is rendering
+badly. Both are possible and the second is cheaper to fix.

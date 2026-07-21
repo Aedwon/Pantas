@@ -71,7 +71,7 @@ class PortableTextRenderer extends StatelessWidget {
       final listItem = isParagraph ? block['listItem'] as String? : null;
       if (listItem == null) {
         if (isParagraph) numberCounters.clear();
-        children.add(_dispatch(context, block));
+        children.add(_dispatch(context, block, isFirst: children.isEmpty));
         continue;
       }
       final level = (block['level'] as num?)?.toInt() ?? 1;
@@ -89,6 +89,7 @@ class PortableTextRenderer extends StatelessWidget {
           marker: marker,
           level: level,
           maxLines: maxLines,
+          isFirst: children.isEmpty,
         ),
       );
     }
@@ -98,10 +99,15 @@ class PortableTextRenderer extends StatelessWidget {
     );
   }
 
-  Widget _dispatch(BuildContext context, Map<String, dynamic> block) {
+  Widget _dispatch(
+    BuildContext context,
+    Map<String, dynamic> block, {
+    required bool isFirst,
+  }) {
     final type = block['_type'] as String? ?? '';
     return switch (type) {
-      'block' => _BlockRenderer(block: block, maxLines: maxLines),
+      'block' =>
+        _BlockRenderer(block: block, maxLines: maxLines, isFirst: isFirst),
       'latex' => _LatexBlockRenderer(block: block),
       'image' => _ImageBlockRenderer(block: block),
       _ => _UnknownBlockPlaceholder(blockType: type),
@@ -115,6 +121,7 @@ class _BlockRenderer extends StatelessWidget {
     this.marker,
     this.level = 1,
     this.maxLines,
+    this.isFirst = false,
   });
 
   final Map<String, dynamic> block;
@@ -126,6 +133,10 @@ class _BlockRenderer extends StatelessWidget {
   final int level;
 
   final int? maxLines;
+
+  /// The opening block takes no gap above: the page already sets its own
+  /// top padding and the lesson title sits directly over it.
+  final bool isFirst;
 
   @override
   Widget build(BuildContext context) {
@@ -146,8 +157,21 @@ class _BlockRenderer extends StatelessWidget {
 
     final indent = marker == null ? 0.0 : 12.0 + 16.0 * (level - 1).clamp(0, 4);
 
+    // Every block used to take the same 4 above and below, so a heading had
+    // no more air than the sentence before it and the page read as one
+    // undifferentiated column.
+    //
+    // A heading takes its space **above**, not below. The gap belongs to the
+    // section it opens: bound tightly to its own first line, separated from
+    // the section that ended. Equal space either side makes a heading float
+    // between two blocks instead of belonging to one, which is grouping
+    // without hierarchy.
+    final (double above, double below) = isFirst
+        ? (0, _spaceBelow(style))
+        : (_spaceAbove(style), _spaceBelow(style));
+
     return Padding(
-      padding: EdgeInsets.only(top: 4, bottom: 4, left: indent),
+      padding: EdgeInsets.only(top: above, bottom: below, left: indent),
       child: Text.rich(
         TextSpan(
           children: [
@@ -161,6 +185,25 @@ class _BlockRenderer extends StatelessWidget {
       ),
     );
   }
+
+  /// The gap that separates a block from the one before it.
+  static double _spaceAbove(String style) => switch (style) {
+        'h1' => 34,
+        'h2' => 30,
+        'h3' => 24,
+        'h4' || 'h5' || 'h6' => 18,
+        'blockquote' => 14,
+        _ => 5,
+      };
+
+  /// The gap below, which stays small on a heading so it stays attached to
+  /// the text it introduces.
+  static double _spaceBelow(String style) => switch (style) {
+        'h1' || 'h2' => 9,
+        'h3' || 'h4' || 'h5' || 'h6' => 7,
+        'blockquote' => 14,
+        _ => 5,
+      };
 
   InlineSpan _inlineMath(String latex, {TextStyle? style}) => inlineMathSpan(
         latex,

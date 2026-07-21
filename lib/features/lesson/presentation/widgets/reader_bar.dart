@@ -2,6 +2,7 @@ import 'package:cse_cet_reviewer/core/ui/components/bookmark_ribbon.dart';
 import 'package:cse_cet_reviewer/core/ui/components/contents_glyph.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 enum ReaderOrigin { home, study }
 
@@ -23,6 +24,25 @@ class ReaderBar extends StatelessWidget {
   final VoidCallback onContents;
   final double scrollOffset;
 
+  /// Back to where the reader was opened from.
+  ///
+  /// `maybePop` alone did nothing on three of the ways in. The contents
+  /// sheet, the topic ending and the pull to the next lesson all replace the
+  /// route rather than stacking on it, deliberately, so a student who reads
+  /// ten lessons does not build a ten-deep stack. That leaves nothing to pop
+  /// and the control was dead.
+  ///
+  /// The label already says where it goes, so when there is no stack it goes
+  /// there.
+  void _leave(BuildContext context) {
+    final navigator = Navigator.of(context);
+    if (navigator.canPop()) {
+      navigator.pop();
+      return;
+    }
+    context.go(origin == ReaderOrigin.home ? '/home' : '/study');
+  }
+
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
@@ -43,7 +63,7 @@ class ReaderBar extends StatelessWidget {
               child: Row(
                 children: [
                   GestureDetector(
-                    onTap: () => Navigator.of(context).maybePop(),
+                    onTap: () => _leave(context),
                     behavior: HitTestBehavior.opaque,
                     child: Row(
                       mainAxisSize: MainAxisSize.min,

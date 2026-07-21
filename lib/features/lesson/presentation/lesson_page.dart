@@ -78,6 +78,9 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
   late final ScrollController _scrollController;
   double _scrollOffset = 0;
   double _progress = 0;
+
+  /// Whether the end of the lesson is on screen. Drives the pull handle.
+  bool _isAtEnd = false;
   ReadMarkingController? _markingController;
 
   @override
@@ -86,7 +89,15 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
     _scrollController = ScrollController()..addListener(_onScroll);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _initMarking();
+      _syncScrollState();
     });
+  }
+
+  /// A lesson short enough not to scroll never fires a scroll event, so the
+  /// end is already on screen and nothing would ever say so.
+  void _syncScrollState() {
+    if (!mounted || !_scrollController.hasClients) return;
+    _onScroll();
   }
 
   void _initMarking() {
@@ -107,7 +118,9 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
     if (oldWidget.reader.lesson.id != widget.reader.lesson.id) {
       _scrollOffset = 0;
       _progress = 0;
+      _isAtEnd = false;
       _initMarking();
+      WidgetsBinding.instance.addPostFrameCallback((_) => _syncScrollState());
     }
   }
 
@@ -124,6 +137,10 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
     setState(() {
       _scrollOffset = offset;
       _progress = maxExtent > 0 ? (offset / maxExtent).clamp(0.0, 1.0) : 1.0;
+      // Within a line or so of the bottom, not exactly on it: a reader who
+      // has stopped a few pixels short has still reached the end, and
+      // rounding in the scroll metrics means exact equality is rare.
+      _isAtEnd = maxExtent <= 0 || offset >= maxExtent - 24;
     });
 
     _markingController?.onScroll(offset: offset, maxExtent: maxExtent);
@@ -149,6 +166,9 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody> {
           ReaderRail(progress: _progress),
           Expanded(
             child: PullToAdvance(
+              // The handle belongs to the end of the lesson, so it waits
+              // until the end is on screen.
+              isAtEnd: _isAtEnd,
               nextTitle: reader.next?.title,
               onAdvance: reader.next != null
                   ? () => context.go(

@@ -415,4 +415,69 @@ void main() {
 
     expect(plainTexts(tester).any((t) => t.contains(r'\$')), isFalse);
   });
+
+  testWidgets('a heading takes its air above, not below', (tester) async {
+    // Every block used to take the same 4 either side, so a heading had no
+    // more air than the sentence before it. Aedwon: "text is too cramped.
+    // there should be ample spacing before each header."
+    await tester.pumpApp(
+      const PortableTextRenderer(
+        blocks: [
+          {
+            '_type': 'block',
+            'style': 'normal',
+            'children': [
+              {'text': 'The section that ended.', 'marks': <String>[]},
+            ],
+          },
+          {
+            '_type': 'block',
+            'style': 'h2',
+            'children': [
+              {'text': 'A new section', 'marks': <String>[]},
+            ],
+          },
+          {
+            '_type': 'block',
+            'style': 'normal',
+            'children': [
+              {'text': 'Its first line.', 'marks': <String>[]},
+            ],
+          },
+        ],
+      ),
+    );
+
+    final beforeHeading = tester.getRect(find.text('The section that ended.'));
+    final heading = tester.getRect(find.text('A new section'));
+    final afterHeading = tester.getRect(find.text('Its first line.'));
+
+    final above = heading.top - beforeHeading.bottom;
+    final below = afterHeading.top - heading.bottom;
+
+    // The gap belongs to the section the heading opens, so it is bound to
+    // the line under it and separated from the one over it.
+    expect(above, greaterThan(below * 2));
+  });
+
+  testWidgets('the opening block takes no gap above it', (tester) async {
+    await tester.pumpApp(
+      const PortableTextRenderer(
+        blocks: [
+          {
+            '_type': 'block',
+            'style': 'h2',
+            'children': [
+              {'text': 'Opens the lesson', 'marks': <String>[]},
+            ],
+          },
+        ],
+      ),
+    );
+
+    final renderer = tester.getRect(find.byType(PortableTextRenderer));
+    final heading = tester.getRect(find.text('Opens the lesson'));
+
+    expect(heading.top - renderer.top, lessThan(1));
+  });
 }
