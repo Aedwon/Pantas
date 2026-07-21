@@ -142,36 +142,6 @@ class HowYouWorkPage extends ConsumerWidget {
                   ),
                   const SizedBox(height: 20),
                 ],
-
-                // 5. Spaced repetition explainer
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  child: Text.rich(
-                    TextSpan(
-                      style: styles.bodyMedium.copyWith(
-                        color: colors.inkMuted,
-                        height: 1.4,
-                      ),
-                      children: [
-                        const TextSpan(
-                          text: 'Pantas shows a question again just before you '
-                              'would forget it. The ones you forget fast come '
-                              'back often. The ones that stick come back '
-                              'rarely, so your time goes where it is needed. '
-                              'This is called ',
-                        ),
-                        TextSpan(
-                          text: 'spaced repetition',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w700,
-                            color: colors.ink,
-                          ),
-                        ),
-                        const TextSpan(text: '.'),
-                      ],
-                    ),
-                  ),
-                ),
               ],
             ),
           );

@@ -9,6 +9,7 @@ import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
 import 'package:cse_cet_reviewer/core/ui/components/page_scaffold.dart';
 import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
+import 'package:cse_cet_reviewer/core/ui/components/tab_header.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/practice_row_providers.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/widgets/session_panel.dart';
@@ -28,14 +29,11 @@ class QuizTabHome extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final asyncFocus = ref.watch(activeExamFocusProvider);
 
+    // The header sits above the list rather than in an AppBar, which is how
+    // Study already did it and is what makes all three tabs start at the same
+    // distance from the top.
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 56,
-        backgroundColor: context.colors.background,
-        elevation: 0,
-        scrolledUnderElevation: 0,
-        title: Text('Quiz', style: context.textStyles.headlineMedium),
-      ),
+      backgroundColor: context.colors.background,
       body: asyncFocus.when(
         loading: () => const PageScaffold(body: FaintBars()),
         error: (_, __) => PageScaffold(
@@ -127,39 +125,55 @@ class _QuizTabBody extends ConsumerWidget {
     final styles = context.textStyles;
     final mistakes = ref.watch(recentMistakeCountProvider(exam.id)).valueOrNull;
 
-    return ListView(
-      padding: const EdgeInsets.fromLTRB(20, 6, 20, 24),
-      children: [
-        Text(exam.shortName, style: styles.displaySmall),
-        const SizedBox(height: 20),
-        SessionPanel(exam: exam, onStart: () => _onStartQuiz(context, ref)),
-        if (mockPanel != null) mockPanel!,
-        // The panels above are the tab's own work. This is a list of doors
-        // to somewhere else, and it needs the air to say so.
-        const SizedBox(height: 28),
-        const SectionHeader(title: 'More ways to practice'),
-        InkTableRow(
-          title: 'Your mistakes',
-          subtitle: mistakes == null
-              ? ''
-              : mistakes == 0
-                  ? 'Nothing to fix yet'
-                  : "$mistakes you've got wrong in the last month",
-          // Dimmed with no chevron when empty: a door with nothing behind it
-          // should not invite a tap.
-          onTap: mistakes == null || mistakes == 0
-              ? null
-              : () => context.push('/quiz/retake/${exam.id}'),
-        ),
-        InkTableRow(
-          title: 'Choose what to practice',
-          subtitle: 'One topic or one lesson, your choice of length',
-          bottomRule: false,
-          onTap: () => context.push('/quiz/practice/${exam.id}'),
-        ),
-        const SizedBox(height: 28),
-        _FlaggedSection(exam: exam),
-      ],
+    return SafeArea(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: TabHeader(title: 'Quiz'),
+          ),
+          Expanded(
+            child: ListView(
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
+              children: [
+                Text(exam.shortName, style: styles.displaySmall),
+                const SizedBox(height: 20),
+                SessionPanel(
+                  exam: exam,
+                  onStart: () => _onStartQuiz(context, ref),
+                ),
+                if (mockPanel != null) mockPanel!,
+                // The panels above are the tab's own work. This is a list
+                // of doors to somewhere else, and it needs the air to say so.
+                const SizedBox(height: 28),
+                const SectionHeader(title: 'More ways to practice'),
+                InkTableRow(
+                  title: 'Your mistakes',
+                  subtitle: mistakes == null
+                      ? ''
+                      : mistakes == 0
+                          ? 'Nothing to fix yet'
+                          : "$mistakes you've got wrong in the last month",
+                  // Dimmed with no chevron when empty: a door with
+                  // nothing behind it should not invite a tap.
+                  onTap: mistakes == null || mistakes == 0
+                      ? null
+                      : () => context.push('/quiz/retake/${exam.id}'),
+                ),
+                InkTableRow(
+                  title: 'Choose what to practice',
+                  subtitle: 'One topic or one lesson, your choice of length',
+                  bottomRule: false,
+                  onTap: () => context.push('/quiz/practice/${exam.id}'),
+                ),
+                const SizedBox(height: 28),
+                _FlaggedSection(exam: exam),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

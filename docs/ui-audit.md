@@ -1303,3 +1303,51 @@ verified to fail against the old behaviour. Getting them to bite took four
 attempts: the section does not render without an exam, an attempt count and a
 pace reading, so the earlier versions were passing on a page that had not drawn
 the row at all.
+
+### UI-059 [important] Three tabs, three headers
+
+**Aedwon:** *"while jumping around the tabs, I noticed the unequal spacing
+between the header. particularly the Study Quiz Progress, and their relative
+spacing next to UPCAT or in general the selected exam right? it's not equal.
+the headers themselves aren't equal."*
+
+**Measurably true, and worse than spacing.** The three tabs used three
+different mechanisms:
+
+| Tab | Header | Title | Gap to the exam name |
+|---|---|---|---|
+| Study | Its own `Row` inside the page | `headlineSmall` at **17** | no exam name |
+| Quiz | `AppBar`, height pinned to 56 | `headlineMedium`, **18** | **6** |
+| Progress | A bare `AppBar` | **Material's default**, larger than either | **16** |
+
+Progress also took the Material default for its height and its background,
+which is why it sat lower than Quiz.
+
+**One `TabHeader` now, used by all three**, above the list rather than in an
+`AppBar`, which is how Study already did it. **The row has a fixed height**,
+because left to its content Study's search icon pushed its title half a pixel
+below Quiz's: found by a test, not by eye.
+
+Progress's exam name also respelled `displaySmall` in full, which said the same
+thing twice and could drift from it now that there is one family.
+
+**Home is deliberately not one of these**: it opens on a masthead that greets
+the student by name, not on a tab title.
+
+### UI-060 The spaced repetition explainer moved to the debrief
+
+**Aedwon:** *"it might be better to put the paragraph regarding spaced
+repetition in the Quiz tab no? since that's where the spaced repetition is in
+effect? or am I wrong there"*
+
+**Half right, and the half that was wrong is the useful half.** The Quiz tab is
+where someone is about to answer questions, and an explainer there is something
+to scroll past on the way to what they came for.
+
+**What made it feel wrong is that it sat inside How you work**, which is about
+the student's own habits: their archetype, their hours, their tendencies. A
+general explanation of the scheduler is not about them at all.
+
+**It is in the quiz debrief**, where the thing being explained has just
+happened to them. **The wording guard moved with it**, so the ban on naming the
+scheduler holds wherever the copy lives.

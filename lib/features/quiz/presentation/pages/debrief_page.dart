@@ -6,6 +6,7 @@ import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/components/ink_checkbox.dart';
 import 'package:cse_cet_reviewer/core/ui/components/portable_text_renderer.dart';
 import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
+import 'package:cse_cet_reviewer/core/ui/components/spaced_repetition_note.dart';
 import 'package:cse_cet_reviewer/core/ui/components/stats_band.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
@@ -276,7 +277,12 @@ class _DebriefBodyState extends ConsumerState<_DebriefBody> {
                   ),
                 ),
               ],
-              const SizedBox(height: 24),
+              // Here rather than in How you work, which is about the
+              // student's own habits. This explains what the app just did
+              // with their answers, at the moment it has done it.
+              const SizedBox(height: 20),
+              const SpacedRepetitionNote(),
+              const SizedBox(height: 16),
               BoardButton(
                 label: 'Done',
                 onPressed: () => DebriefPage._leave(context),

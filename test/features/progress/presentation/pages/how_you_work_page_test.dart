@@ -302,21 +302,16 @@ void main() {
     expect(find.text('Unlock with Pro'), findsOneWidget);
   });
 
-  testWidgets('the explainer never names the scheduler', (tester) async {
+  testWidgets('the spaced repetition explainer has left this page',
+      (tester) async {
+    // This page is about the student's own habits. A general explanation of
+    // the scheduler is not about them, which is why it read as out of place.
+    // It lives in the quiz debrief now, where the thing being explained has
+    // just happened. Its wording is guarded there.
     await tester.pumpWidget(harness(isPro: true));
     await tester.pumpAndSettle();
 
-    expect(find.textContaining('spaced repetition'), findsOneWidget);
-    for (final word in [
-      'FSRS',
-      'stability',
-      'retention',
-      'retrievability',
-      'algorithm',
-      'card',
-    ]) {
-      expect(find.textContaining(word), findsNothing);
-    }
+    expect(find.textContaining('spaced repetition'), findsNothing);
   });
 
   testWidgets('the exam is never named beside a day count', (tester) async {

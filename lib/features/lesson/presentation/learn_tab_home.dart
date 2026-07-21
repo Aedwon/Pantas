@@ -6,6 +6,7 @@ import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/components/ink_magnifier.dart';
 import 'package:cse_cet_reviewer/core/ui/components/page_scaffold.dart';
+import 'package:cse_cet_reviewer/core/ui/components/tab_header.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/lesson/application/study_map_providers.dart';
 import 'package:cse_cet_reviewer/features/lesson/domain/use_cases/build_study_map.dart';
@@ -149,7 +150,6 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
 
   @override
   Widget build(BuildContext context) {
-    final styles = context.textStyles;
     final asyncMap = ref.watch(studyMapProvider);
 
     return asyncMap.when(
@@ -201,24 +201,15 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
                   },
                 )
               else
-                Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 8),
-                  child: Row(
-                    children: [
-                      Text(
-                        'Study',
-                        style: styles.headlineSmall.copyWith(fontSize: 17),
-                      ),
-                      const Spacer(),
-                      GestureDetector(
-                        behavior: HitTestBehavior.opaque,
-                        onTap: () => setState(() => _searching = true),
-                        child: const Padding(
-                          padding: EdgeInsets.all(4),
-                          child: InkMagnifier(),
-                        ),
-                      ),
-                    ],
+                TabHeader(
+                  title: 'Study',
+                  trailing: GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: () => setState(() => _searching = true),
+                    child: const Padding(
+                      padding: EdgeInsets.all(4),
+                      child: InkMagnifier(),
+                    ),
                   ),
                 ),
               if (_searching)

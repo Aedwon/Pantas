@@ -6,6 +6,7 @@ import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/core/ui/components/navigational_row.dart';
 import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
+import 'package:cse_cet_reviewer/core/ui/components/tab_header.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/progress/application/how_you_work_provider.dart';
 import 'package:cse_cet_reviewer/features/progress/application/record_provider.dart';
@@ -26,54 +27,67 @@ class ProgressPage extends ConsumerWidget {
 
     final focusAsync = ref.watch(activeExamFocusProvider);
 
+    // No AppBar: it took the Material default for its height, its background
+    // and its title size, so Progress sat lower than Quiz and printed its
+    // name larger than either neighbour.
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Progress'),
-      ),
-      body: focusAsync.when(
-        data: (focus) {
-          final exam = focus.exam;
-          if (exam == null) {
-            return _noExamFallback(context);
-          }
-          final attemptsAsync = ref.watch(countForExamProvider(exam.id));
-          return attemptsAsync.when(
-            data: (count) {
-              if (count == 0) {
-                return _dayOne(context, ref, exam.id);
-              }
-              return RefreshIndicator(
-                onRefresh: () async {
-                  ref.invalidate(countForExamProvider(exam.id));
+      backgroundColor: colors.background,
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: TabHeader(title: 'Progress'),
+            ),
+            Expanded(
+              child: focusAsync.when(
+                data: (focus) {
+                  final exam = focus.exam;
+                  if (exam == null) {
+                    return _noExamFallback(context);
+                  }
+                  final attemptsAsync =
+                      ref.watch(countForExamProvider(exam.id));
+                  return attemptsAsync.when(
+                    data: (count) {
+                      if (count == 0) {
+                        return _dayOne(context, ref, exam.id);
+                      }
+                      return RefreshIndicator(
+                        onRefresh: () async {
+                          ref.invalidate(countForExamProvider(exam.id));
+                        },
+                        child: ListView(
+                          padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
+                          children: [
+                            Text(
+                              exam.shortName,
+                              // Was respelled in full here. `displaySmall`
+                              // is already sans at 22/700 now that there is
+                              // one family, so the override said the same
+                              // thing twice and could drift from it.
+                              style: styles.displaySmall,
+                            ),
+                            const SizedBox(height: 16),
+                            _yourPaceSection(context, ref),
+                            _performanceSection(context, ref),
+                            _whyYouMissSection(context, ref),
+                            _goDeeperSection(context, ref),
+                          ],
+                        ),
+                      );
+                    },
+                    loading: _loadingState,
+                    error: (error, stack) => _errorState(context, ref, exam.id),
+                  );
                 },
-                child: ListView(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-                  children: [
-                    Text(
-                      exam.shortName,
-                      style: styles.displaySmall.copyWith(
-                        fontFamily: 'SourceSans3',
-                        fontSize: 22,
-                        fontWeight: FontWeight.w700,
-                        color: colors.ink,
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                    _yourPaceSection(context, ref),
-                    _performanceSection(context, ref),
-                    _whyYouMissSection(context, ref),
-                    _goDeeperSection(context, ref),
-                  ],
-                ),
-              );
-            },
-            loading: _loadingState,
-            error: (error, stack) => _errorState(context, ref, exam.id),
-          );
-        },
-        loading: _loadingState,
-        error: (error, stack) => _errorState(context, ref, null),
+                loading: _loadingState,
+                error: (error, stack) => _errorState(context, ref, null),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
