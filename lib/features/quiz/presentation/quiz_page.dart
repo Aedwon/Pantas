@@ -15,7 +15,6 @@ import 'package:cse_cet_reviewer/core/ui/components/question_grid_sheet.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/pages/debrief_page.dart';
-import 'package:cse_cet_reviewer/features/quiz/presentation/post_answer_toast.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/question_flag_providers.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_controller.dart';
 import 'package:flutter/material.dart';
@@ -86,15 +85,6 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     final colors = context.colors;
     final styles = context.textStyles;
     final state = ref.watch(quizControllerProvider);
-
-    ref.listen(quizControllerProvider, (previous, next) {
-      final outcome = _latestNewOutcome(previous, next);
-      if (outcome != null) {
-        ScaffoldMessenger.of(context)
-          ..hideCurrentSnackBar()
-          ..showSnackBar(PostAnswerToast.snackBar(outcome));
-      }
-    });
 
     return Scaffold(
       appBar: AppBar(
@@ -338,25 +328,5 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     } else {
       context.go('/quiz');
     }
-  }
-
-  AnswerOutcome? _latestNewOutcome(
-    QuizControllerState? previous,
-    QuizControllerState next,
-  ) {
-    final previousCount = switch (previous) {
-      QuizRunning(:final session) => session.outcomes.length,
-      QuizComplete(:final session) => session.outcomes.length,
-      _ => 0,
-    };
-    final nextOutcomes = switch (next) {
-      QuizRunning(:final session) => session.outcomes,
-      QuizComplete(:final session) => session.outcomes,
-      _ => const <AnswerOutcome>[],
-    };
-    if (nextOutcomes.length <= previousCount || nextOutcomes.isEmpty) {
-      return null;
-    }
-    return nextOutcomes.last;
   }
 }

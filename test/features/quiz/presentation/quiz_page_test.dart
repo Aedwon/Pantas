@@ -6,6 +6,7 @@ import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_quick_quiz
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/submit_answer.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_controller.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_page.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -182,7 +183,7 @@ void main() {
     expect(find.textContaining('already saved'), findsOneWidget);
   });
 
-  testWidgets('submitting an answer shows the FSRS feedback toast',
+  testWidgets('submitting an answer reveals the answer in place',
       (tester) async {
     when(
       () => start(
@@ -233,8 +234,13 @@ void main() {
     await tester.pumpAndSettle();
 
     await tester.tap(find.text('AlphaText'));
-    await tester.pump();
+    await tester.pumpAndSettle();
 
-    expect(find.text('Good · next review in 4d'), findsOneWidget);
+    // The reveal says all of this and stays on screen. A toast said it
+    // once, over the top, on every single answer.
+    expect(find.text('Correct'), findsOneWidget);
+    expect(find.text('back in 4 days'), findsOneWidget);
+    expect(find.byType(SnackBar), findsNothing);
+    expect(find.text('Next'), findsOneWidget);
   });
 }
