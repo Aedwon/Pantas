@@ -1410,4 +1410,31 @@ has 0 rows.** Wiring the panel alone would put a door on an empty room, which
 is worse than no door.
 
 **Not fixed in this pass**, because the fix is a blueprint per exam plus a
-generator step, not a wire. Put to Aedwon with options.
+generator step, not a wire. Put to Aedwon with options. **He chose to author a
+blueprint and wire it**, saying the exam splits and timings were already on
+record.
+
+### Why that stalled: UPCAT's composition is not in the repository
+
+**They are on record for five exams and not for the one that is active.** The
+mock UI spec carries ACET, DCAT and MSU-SASE, which Aedwon supplied on 4
+August, plus CSE at 170 items in 3 hours 10, NMAT, and USTET's Mental Ability.
+For UPCAT it records only **that** the paper is sectional, quoting "you cannot
+return to a subtest once time is called". No item counts, no minutes.
+
+**The only UPCAT figures anywhere are in `docs/wireframes/app-screens.html`,
+and the two screens disagree with each other:**
+
+| Screen | Composition |
+|---|---|
+| Setup | "4 parts. **175** questions. 2 hours 45 minutes." |
+| The exam page | Reading Comprehension 30, Mathematics 45, Science 45, Language Proficiency 50, which is **170** |
+
+The seed also carries **five** UPCAT subjects, adding Reasoning, where both
+wireframes show four parts.
+
+**A wireframe is a mockup, not a source**, and two mockups that contradict each
+other are proof of it rather than a tiebreak. **The setup screen prints these
+to a student before they commit three hours**, and the mock decision log
+already recorded that a wrong duration is not cosmetic. Blocked on Aedwon in
+the same form he supplied the other three.
