@@ -45,7 +45,7 @@ void main() {
     expect(s.currentQuestion, equals(q1));
   });
 
-  test('record() advances index and stores outcome', () {
+  test('record() stores the outcome and stays on the question', () {
     final s = QuizSession.start(
       sessionId: 'sess',
       examId: 'e',
@@ -61,10 +61,29 @@ void main() {
         responseMs: 1500,
       ),
     );
-    expect(s2.currentIndex, equals(1));
+    // The reveal is the point of a practice quiz, so the session stays
+    // where it is until the student has read it.
+    expect(s2.currentIndex, equals(0));
     expect(s2.outcomes, hasLength(1));
-    expect(s2.currentQuestion, equals(q2));
+    expect(s2.currentQuestion, equals(q1));
+    expect(s2.currentOutcome, isNotNull);
     expect(s2.isComplete, isFalse);
+
+    final s3 = s2.advance();
+    expect(s3.currentIndex, equals(1));
+    expect(s3.currentQuestion, equals(q2));
+    expect(s3.currentOutcome, isNull);
+  });
+
+  test('advance() stops at the last question', () {
+    final s = QuizSession.start(
+      sessionId: 'sess',
+      examId: 'e',
+      questions: [q1, q2],
+      startedAt: DateTime.utc(2026),
+    );
+
+    expect(s.advance().advance().advance().currentIndex, equals(1));
   });
 
   test('isComplete after every question answered', () {
@@ -124,5 +143,30 @@ void main() {
     expect(SessionOrigin.drill.isStreakEligible, isFalse);
     expect(SessionOrigin.retake.isStreakEligible, isFalse);
     expect(SessionOrigin.inline.isStreakEligible, isFalse);
+  });
+
+  test('an answered question keeps its outcome when revisited', () {
+    var s = QuizSession.start(
+      sessionId: 'sess',
+      examId: 'e',
+      questions: [q1, q2],
+      startedAt: DateTime.utc(2026),
+    );
+    s = s
+        .record(
+          const AnswerOutcome(
+            questionId: 'q1',
+            questionVersion: 1,
+            chosenChoiceId: 'c1b',
+            correctChoiceId: 'c1a',
+            responseMs: 900,
+          ),
+        )
+        .advance();
+
+    // Going back reads the answer that was written when it was tapped.
+    final back = s.copyWith(currentIndex: 0);
+    expect(back.currentOutcome?.chosenChoiceId, equals('c1b'));
+    expect(back.currentOutcome?.isCorrect, isFalse);
   });
 }

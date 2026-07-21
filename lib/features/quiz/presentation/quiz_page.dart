@@ -1,12 +1,17 @@
 import 'dart:async';
+
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/core/ui/components/answer_reveal.dart';
+import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/confirmation_dialog.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
+import 'package:cse_cet_reviewer/core/ui/components/ink_sheet.dart';
 import 'package:cse_cet_reviewer/core/ui/components/pennant_mark.dart';
 import 'package:cse_cet_reviewer/core/ui/components/progress_rule.dart';
 import 'package:cse_cet_reviewer/core/ui/components/question_card.dart';
+import 'package:cse_cet_reviewer/core/ui/components/question_grid_sheet.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/pages/debrief_page.dart';
@@ -176,12 +181,41 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                 .watch(passageByIdProvider(passageId))
                                 .valueOrNull
                             : null;
-                        return QuestionCard(
-                          question: question,
-                          passage: passage,
-                          onAnswer: (chosenChoiceId) => ref
-                              .read(quizControllerProvider.notifier)
-                              .answer(chosenChoiceId: chosenChoiceId),
+                        final outcome = session.currentOutcome;
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            QuestionCard(
+                              question: question,
+                              passage: passage,
+                              chosenChoiceId: outcome?.chosenChoiceId,
+                              revealed: outcome != null,
+                              onAnswer: (chosenChoiceId) => ref
+                                  .read(quizControllerProvider.notifier)
+                                  .answer(chosenChoiceId: chosenChoiceId),
+                            ),
+                            if (outcome != null) ...[
+                              AnswerReveal(
+                                question: question,
+                                chosenChoiceId: outcome.chosenChoiceId,
+                                proIsActive: widget.proIsActive,
+                                nextReviewIntervalDays:
+                                    outcome.nextReviewIntervalDays,
+                              ),
+                              const SizedBox(height: 16),
+                              // A way forward, not a way to edit. The answer
+                              // and the scheduler were written on the tap.
+                              BoardButton(
+                                label: session.isComplete ? 'Done' : 'Next',
+                                secondary: !session.isComplete,
+                                onPressed: () => unawaited(
+                                  ref
+                                      .read(quizControllerProvider.notifier)
+                                      .next(),
+                                ),
+                              ),
+                            ],
+                          ],
                         );
                       },
                     ),
@@ -208,8 +242,39 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     );
   }
 
+  /// The counter in the app bar opens the session, so a student can see
+  /// what is left and go back to anything they have answered.
   Future<void> _openGrid(QuizSession session) async {
-    // Task 7 builds the grid sheet
+    final flagged = ref.read(flaggedIdsProvider).valueOrNull ?? const {};
+
+    final target = await showInkSheet<int>(
+      context: context,
+      builder: (sheetContext) => QuestionGridSheet(
+        columns: 5,
+        cells: [
+          for (var i = 0; i < session.questions.length; i += 1)
+            GridCell(
+              number: i + 1,
+              mark: i < session.outcomes.length
+                  ? (session.outcomes[i].isCorrect
+                      ? GridCellMark.correct
+                      : GridCellMark.wrong)
+                  : GridCellMark.none,
+              isFlagged: flagged.contains(session.questions[i].id),
+              isCurrent: i == session.currentIndex,
+              // Only what has been answered, and the question on screen.
+              // Jumping ahead would skip questions the scheduler has not
+              // been told about.
+              isEnabled:
+                  i <= session.outcomes.length && i < session.questions.length,
+            ),
+        ],
+        onTap: (number) => Navigator.of(sheetContext).pop(number - 1),
+      ),
+    );
+
+    if (target == null) return;
+    await ref.read(quizControllerProvider.notifier).goTo(target);
   }
 
   Future<void> _confirmLeave() async {

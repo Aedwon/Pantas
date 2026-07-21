@@ -133,7 +133,10 @@ class _Available extends ConsumerWidget {
           const SizedBox(height: 6),
           _BoardTextAction(
             label: 'Change how sessions are built',
-            onTap: () => context.push('/settings/sessions'),
+            // The ordering choice is a sheet on the Settings home, not a
+            // page of its own. This pushed /settings/sessions, which has
+            // never existed, and the tab showed a route error.
+            onTap: () => context.push('/settings'),
           ),
           const SizedBox(height: 12),
           BoardButton(

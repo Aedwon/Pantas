@@ -73,8 +73,21 @@ class QuizSession with _$QuizSession {
     return (correct, outcomes.length);
   }
 
-  QuizSession record(AnswerOutcome o) => copyWith(
-        outcomes: [...outcomes, o],
-        currentIndex: currentIndex + 1,
-      );
+  /// Records the answer and stays on the question.
+  ///
+  /// The reveal is the point of a practice quiz: the student sees what the
+  /// answer was and why before moving. Advancing here is what made the
+  /// session skip straight past it.
+  QuizSession record(AnswerOutcome o) => copyWith(outcomes: [...outcomes, o]);
+
+  /// Moves to the next question once the student has read the reveal.
+  QuizSession advance() => currentIndex + 1 >= questions.length
+      ? this
+      : copyWith(currentIndex: currentIndex + 1);
+
+  /// The outcome for the question on screen, or null while it is unanswered.
+  AnswerOutcome? get currentOutcome =>
+      currentIndex < outcomes.length ? outcomes[currentIndex] : null;
+
+  bool get isOnLastQuestion => currentIndex == questions.length - 1;
 }

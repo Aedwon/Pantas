@@ -417,18 +417,59 @@ class QuizController extends StateNotifier<QuizControllerState> {
       examId: s.persisted ? s.session.examId : null,
     );
 
-    final updated = s.session.record(outcome);
-    if (updated.isComplete) {
-      final attempt =
-          await _ref.read(completeQuizProvider)(session: updated, now: now);
-      state = QuizComplete(attempt: attempt, session: updated);
-    } else {
-      state = QuizRunning(
-        session: updated,
-        questionShownAt: now,
-        persisted: s.persisted,
-      );
+    // The answer is written now, and the session stays where it is so the
+    // reveal can be read. Nothing about the attempt or the scheduler waits
+    // for the student to move on.
+    state = QuizRunning(
+      session: s.session.record(outcome),
+      questionShownAt: s.questionShownAt,
+      persisted: s.persisted,
+    );
+  }
+
+  /// Leaves the reveal for the next question, or ends the session when the
+  /// last one has been answered.
+  Future<void> next() async {
+    final s = state;
+    if (s is! QuizRunning) {
+      throw StateError('next() called when controller is not running');
     }
+    if (s.session.currentOutcome == null) return;
+
+    if (s.session.isComplete) {
+      final now = _ref.read(nowProvider)();
+      final attempt = await _ref.read(completeQuizProvider)(
+        session: s.session,
+        now: now,
+      );
+      state = QuizComplete(attempt: attempt, session: s.session);
+      return;
+    }
+
+    state = QuizRunning(
+      session: s.session.advance(),
+      questionShownAt: _ref.read(nowProvider)(),
+      persisted: s.persisted,
+    );
+  }
+
+  /// Moves to a question the student has already reached.
+  ///
+  /// Read only, and it needs no storage: the session already holds every
+  /// answer in order. Anything past the answered run is refused, because
+  /// jumping ahead would skip questions the scheduler has not been told
+  /// about.
+  Future<void> goTo(int index) async {
+    final s = state;
+    if (s is! QuizRunning) return;
+    if (index < 0 || index > s.session.outcomes.length) return;
+    if (index >= s.session.questions.length) return;
+
+    state = QuizRunning(
+      session: s.session.copyWith(currentIndex: index),
+      questionShownAt: _ref.read(nowProvider)(),
+      persisted: s.persisted,
+    );
   }
 
   void reset() => state = const QuizIdle();

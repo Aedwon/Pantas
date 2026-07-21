@@ -88,7 +88,7 @@ void main() {
     expect((state as QuizRunning).session.questions, hasLength(1));
   });
 
-  test('answer() advances the session and persists via SubmitAnswer', () async {
+  test('answer() records and stays, and next() ends the session', () async {
     final session = QuizSession.start(
       sessionId: 'sess',
       examId: 'e',
@@ -136,7 +136,21 @@ void main() {
     await notifier.start(examId: 'e', count: 1);
     await notifier.answer(chosenChoiceId: 'c1a');
 
-    final state = container.read(quizControllerProvider);
-    expect(state, isA<QuizComplete>());
+    // The answer and the scheduler are written on the tap, and the session
+    // holds still so the reveal can be read.
+    final answered = container.read(quizControllerProvider);
+    expect(answered, isA<QuizRunning>());
+    expect((answered as QuizRunning).session.currentOutcome, isNotNull);
+    verify(
+      () => submit(
+        question: any(named: 'question'),
+        chosenChoiceId: any(named: 'chosenChoiceId'),
+        responseMs: any(named: 'responseMs'),
+        now: any(named: 'now'),
+      ),
+    ).called(1);
+
+    await notifier.next();
+    expect(container.read(quizControllerProvider), isA<QuizComplete>());
   });
 }
