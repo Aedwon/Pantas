@@ -43,6 +43,9 @@ ParsedQuestion parseQuestion(Map<String, Object?> doc) {
         field: 'explanation',
       ),
       version: intField(doc, doctype, 'version'),
+      lessonId: Value(optionalRefField(doc, doctype, 'lesson')),
+      passageId: Value(optionalRefField(doc, doctype, 'passage')),
+      shortLabel: Value(optionalStringField(doc, doctype, 'shortLabel')),
     ),
     choices: _parseChoices(doc, questionId, updatedAt),
     examLinks: [

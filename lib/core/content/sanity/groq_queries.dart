@@ -2,14 +2,14 @@ abstract final class GroqQueries {
   static const examsFull = '''
 *[_type == "exam" && language == "en"]{
   _id, _updatedAt, schemaVersion, code, name, shortName, language, ordering,
-  "isActive": coalesce(isActive, true)
+  "isActive": coalesce(isActive, true), "isCustom": coalesce(isCustom, false)
 }
 ''';
 
   static const examsDelta = r'''
 *[_type == "exam" && language == "en" && _updatedAt > $since]{
   _id, _updatedAt, schemaVersion, code, name, shortName, language, ordering,
-  "isActive": coalesce(isActive, true)
+  "isActive": coalesce(isActive, true), "isCustom": coalesce(isCustom, false)
 }
 ''';
 
@@ -69,6 +69,20 @@ abstract final class GroqQueries {
 }
 ''';
 
+  static const passagesFull = '''
+*[_type == "passage" && language == "en"]{
+  _id, _updatedAt, schemaVersion, topic, title, body, language, wordCount,
+  "isActive": coalesce(isActive, true)
+}
+''';
+
+  static const passagesDelta = r'''
+*[_type == "passage" && language == "en" && _updatedAt > $since]{
+  _id, _updatedAt, schemaVersion, topic, title, body, language, wordCount,
+  "isActive": coalesce(isActive, true)
+}
+''';
+
   static const mockBlueprintsFull = '''
 *[_type == "mockBlueprint"]{
   _id, _updatedAt, schemaVersion, exam, name, durationMinutes, sections,
@@ -117,6 +131,7 @@ abstract final class GroqQueries {
     'topic': topicsFull,
     'question': questionsFull,
     'lesson': lessonsFull,
+    'passage': passagesFull,
     'mockExam': mockExamsFull,
     'mockBlueprint': mockBlueprintsFull,
     'diagnosticSet': diagnosticSetsFull,
@@ -128,6 +143,7 @@ abstract final class GroqQueries {
     'topic': topicsDelta,
     'question': questionsDelta,
     'lesson': lessonsDelta,
+    'passage': passagesDelta,
     'mockExam': mockExamsDelta,
     'mockBlueprint': mockBlueprintsDelta,
     'diagnosticSet': diagnosticSetsDelta,

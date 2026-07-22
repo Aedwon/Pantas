@@ -7,6 +7,7 @@ import 'package:cse_cet_reviewer/core/content/sanity/parsers/exam_parser.dart';
 import 'package:cse_cet_reviewer/core/content/sanity/parsers/lesson_parser.dart';
 import 'package:cse_cet_reviewer/core/content/sanity/parsers/mock_blueprint_parser.dart';
 import 'package:cse_cet_reviewer/core/content/sanity/parsers/mock_exam_parser.dart';
+import 'package:cse_cet_reviewer/core/content/sanity/parsers/passage_parser.dart';
 import 'package:cse_cet_reviewer/core/content/sanity/parsers/question_parser.dart';
 import 'package:cse_cet_reviewer/core/content/sanity/parsers/subject_parser.dart';
 import 'package:cse_cet_reviewer/core/content/sanity/parsers/topic_parser.dart';
@@ -49,6 +50,11 @@ Future<void> writeContentSeed({
         return db
             .into(db.contentTopics)
             .insertOnConflictUpdate(parseTopic(doc));
+      });
+      await _insertMaybeList(json['passage'], (doc) {
+        return db
+            .into(db.contentPassages)
+            .insertOnConflictUpdate(parsePassage(doc));
       });
       await _insertMaybeList(json['question'], (doc) async {
         final parsed = parseQuestion(doc);

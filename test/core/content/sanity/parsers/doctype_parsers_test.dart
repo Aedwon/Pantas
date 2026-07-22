@@ -7,6 +7,7 @@ import 'package:cse_cet_reviewer/core/content/sanity/parsers/exam_parser.dart';
 import 'package:cse_cet_reviewer/core/content/sanity/parsers/lesson_parser.dart';
 import 'package:cse_cet_reviewer/core/content/sanity/parsers/mock_blueprint_parser.dart';
 import 'package:cse_cet_reviewer/core/content/sanity/parsers/mock_exam_parser.dart';
+import 'package:cse_cet_reviewer/core/content/sanity/parsers/passage_parser.dart';
 import 'package:cse_cet_reviewer/core/content/sanity/parsers/question_parser.dart';
 import 'package:cse_cet_reviewer/core/content/sanity/parsers/subject_parser.dart';
 import 'package:cse_cet_reviewer/core/content/sanity/parsers/topic_parser.dart';
@@ -39,6 +40,10 @@ void main() {
       equals('Vocabulary Basics'),
     );
     expect(
+      parsePassage(fixture['passage'] as Map<String, Object?>).title.value,
+      equals('Passage Title'),
+    );
+    expect(
       parseMockBlueprint(fixture['mockBlueprint'] as Map<String, Object?>)
           .durationMinutes
           .value,
@@ -67,6 +72,7 @@ void main() {
           'topic' => parseTopic(doc),
           'question' => parseQuestion(doc),
           'lesson' => parseLesson(doc),
+          'passage' => parsePassage(doc),
           'mockBlueprint' => parseMockBlueprint(doc),
           'mockExam' => parseMockExam(doc),
           'diagnosticSet' => parseDiagnosticSet(doc),
@@ -83,6 +89,9 @@ void main() {
 
     expect(parsed.question.id.value, equals('q_001'));
     expect(parsed.question.subtopicId.value, equals('subtopic_synonyms'));
+    expect(parsed.question.lessonId.value, equals('lesson_vocab'));
+    expect(parsed.question.passageId.value, equals('passage_001'));
+    expect(parsed.question.shortLabel.value, equals('Q1'));
     expect(
       parsed.choices.map((choice) => choice.id.value),
       equals(['choice_a', 'choice_b']),
@@ -93,13 +102,27 @@ void main() {
     );
   });
 
-  test('question parser accepts missing subtopic for old seed compatibility',
-      () {
+  test(
+    'question parser accepts missing nullable fields '
+    'for old seed compatibility',
+    () {
     final doc = Map<String, Object?>.from(fixture['question'] as Map);
-    final parsed = parseQuestion(doc..remove('subtopic'));
+    final parsed = parseQuestion(
+      doc
+        ..remove('subtopic')
+        ..remove('lesson')
+        ..remove('passage')
+        ..remove('shortLabel'),
+    );
 
     expect(parsed.question.subtopicId.present, isTrue);
     expect(parsed.question.subtopicId.value, isNull);
+    expect(parsed.question.lessonId.present, isTrue);
+    expect(parsed.question.lessonId.value, isNull);
+    expect(parsed.question.passageId.present, isTrue);
+    expect(parsed.question.passageId.value, isNull);
+    expect(parsed.question.shortLabel.present, isTrue);
+    expect(parsed.question.shortLabel.value, isNull);
   });
 
   test('lesson parser reads subtopic reference when present', () {

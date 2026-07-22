@@ -30,6 +30,21 @@ String stringField(Map<String, Object?> doc, String doctype, String field) {
   );
 }
 
+String? optionalStringField(
+  Map<String, Object?> doc,
+  String doctype,
+  String field,
+) {
+  if (!doc.containsKey(field) || doc[field] == null) return null;
+  final value = doc[field];
+  if (value is String && value.isNotEmpty) return value;
+  throw ParseException(
+    doctype: doctype,
+    field: field,
+    message: 'expected non-empty string or null',
+  );
+}
+
 int intField(Map<String, Object?> doc, String doctype, String field) {
   final value = doc[field];
   if (value is int) return value;

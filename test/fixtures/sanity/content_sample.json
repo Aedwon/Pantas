@@ -8,7 +8,8 @@
     "name": "Civil Service Exam",
     "shortName": "CSE",
     "language": "en",
-    "ordering": 1
+    "ordering": 1,
+    "isCustom": false
   },
   "subject": {
     "_id": "subject_verbal",
@@ -35,6 +36,9 @@
     "isActive": true,
     "topic": {"_ref": "topic_vocab"},
     "subtopic": {"_ref": "subtopic_synonyms"},
+    "lesson": {"_ref": "lesson_vocab"},
+    "passage": {"_ref": "passage_001"},
+    "shortLabel": "Q1",
     "examIds": [{"_ref": "exam_cse"}],
     "language": "en",
     "stem": [
@@ -77,6 +81,17 @@
         ]
       }
     ]
+  },
+  "passage": {
+    "_id": "passage_001",
+    "_updatedAt": "2026-05-17T00:00:00Z",
+    "schemaVersion": 1,
+    "isActive": true,
+    "topic": {"_ref": "topic_vocab"},
+    "title": "Passage Title",
+    "body": "Passage body",
+    "language": "en",
+    "wordCount": 100
   },
   "mockBlueprint": {
     "_id": "blueprint_cse",

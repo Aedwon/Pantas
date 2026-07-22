@@ -11,6 +11,7 @@ class ContentExams extends Table {
   TextColumn get shortName => text()();
   TextColumn get language => text()();
   IntColumn get ordering => integer()();
+  BoolColumn get isCustom => boolean().withDefault(const Constant(false))();
 
   @override
   Set<Column<Object>> get primaryKey => {id};

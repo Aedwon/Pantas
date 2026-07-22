@@ -5,6 +5,7 @@ import 'package:cse_cet_reviewer/core/content/tables/content_lessons.dart';
 import 'package:cse_cet_reviewer/core/content/tables/content_meta.dart';
 import 'package:cse_cet_reviewer/core/content/tables/content_mock_blueprints.dart';
 import 'package:cse_cet_reviewer/core/content/tables/content_mock_exams.dart';
+import 'package:cse_cet_reviewer/core/content/tables/content_passages.dart';
 import 'package:cse_cet_reviewer/core/content/tables/content_question_exams.dart';
 import 'package:cse_cet_reviewer/core/content/tables/content_questions.dart';
 import 'package:cse_cet_reviewer/core/content/tables/content_subjects.dart';
@@ -22,6 +23,7 @@ part 'content_database.g.dart';
     ContentChoices,
     ContentQuestionExams,
     ContentLessons,
+    ContentPassages,
     ContentMockBlueprints,
     ContentMockExams,
     ContentDiagnosticSets,
@@ -32,7 +34,7 @@ class ContentDatabase extends _$ContentDatabase {
   ContentDatabase(super.executor);
 
   @override
-  int get schemaVersion => 3;
+  int get schemaVersion => 4;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -53,6 +55,25 @@ class ContentDatabase extends _$ContentDatabase {
               contentMockBlueprints,
               contentMockBlueprints.totalPublishedItems,
             );
+          }
+          if (from < 4) {
+            // await m.createTable(contentPassages);
+            // await m.addColumn(
+            //   contentQuestions,
+            //   contentQuestions.lessonId,
+            // );
+            // await m.addColumn(
+            //   contentQuestions,
+            //   contentQuestions.passageId,
+            // );
+            // await m.addColumn(
+            //   contentQuestions,
+            //   contentQuestions.shortLabel,
+            // );
+            // await m.addColumn(
+            //   contentExams,
+            //   contentExams.isCustom,
+            // );
           }
         },
       );
