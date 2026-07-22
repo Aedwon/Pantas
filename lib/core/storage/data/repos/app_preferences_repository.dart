@@ -18,7 +18,12 @@ class AppPreferencesRepository {
     final row = await (_db.select(_db.devicePrefs)
           ..where((p) => p.key.equals(_onboardingCompleteKey)))
         .getSingleOrNull();
-    return row?.value == 'true';
+    if (row != null) return row.value == 'true';
+
+    // Installs from before the flag existed finished onboarding the moment
+    // they chose an exam. Treat that as complete rather than sending them
+    // back through a flow they already did.
+    return await selectedExamId() != null;
   }
 
   Future<void> setCompletedOnboarding({required bool value}) async {
