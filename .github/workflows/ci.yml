@@ -30,11 +30,12 @@ jobs:
       - name: Build the content asset
         # Gitignored and built, never committed. Without it `flutter
         # analyze` warns that a declared asset is missing and exits 1, and
-        # the bundled-database test has nothing to open. The fixture is the
-        # same one that test uses.
+        # the bundled-database test has nothing to open. Built from the corpus.
         run: |
+          mkdir -p build
+          dart run tools/build_content_export/build_content_export.dart build/export.json
           dart run tools/build_content_seed/seed_writer.dart \
-            test/fixtures/sanity/content_sample.json \
+            build/export.json \
             assets/seed/content.db
 
       - name: dart format check

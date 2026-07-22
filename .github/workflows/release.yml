@@ -17,15 +17,10 @@ jobs:
           flutter-version: '3.41.x'
       - run: flutter pub get
       - name: Generate bundled content seed
-        env:
-          SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
-          SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
-          SANITY_READ_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
         run: |
-          npm ci --prefix tools/build_content_seed
           mkdir -p build assets/seed
-          node tools/build_content_seed/build.mjs > build/seed_data.json
-          dart run tools/build_content_seed/seed_writer.dart build/seed_data.json assets/seed/content.db
+          dart run tools/build_content_export/build_content_export.dart build/export.json
+          dart run tools/build_content_seed/seed_writer.dart build/export.json assets/seed/content.db
       - name: Build Android App Bundle (prod, unsigned)
         run: flutter build appbundle --release --flavor prod -t lib/main_prod.dart
       - uses: actions/upload-artifact@v4
