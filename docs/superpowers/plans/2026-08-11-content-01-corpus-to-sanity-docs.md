@@ -125,6 +125,21 @@ Run the writer, feed its output to `seed_writer.dart`, open the result and
 count. **The test asserts the counts above**, not "greater than zero": a
 pipeline that silently drops 1,900 questions passes a "not empty" check.
 
+### The figure-pending skip, which this plan first left out
+
+**2,000 is not every question in the corpus.** `build_dev_seed` skips any
+question carrying a non-empty `figure` field and prints the count: **155 are
+skipped today**, because their pictures do not exist yet. The corpus holds
+about 2,155; `v1.json` holds 2,000, which is 1,998 generated plus 2 kept from
+the CSE demo.
+
+**The export applies the same rule**, so the two stores agree and no
+unanswerable question reaches a student. **Print the skipped count** the way
+`build_dev_seed` does, so the number is visible rather than inferred.
+
+**If your count is 2,155 rather than 2,000, that is this rule missing**, not a
+wrong assertion. Do not change the expected number to match what you produced.
+
 **Assert the ids are underscored**, by reading one exam id back and matching
 `exam_upcat`.
 
