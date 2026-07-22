@@ -80,6 +80,12 @@ but it has one subject of content and a mock of it would be thin.
 
 ### 4.1 The content database becomes the one the app reads
 
+> **Corrected 11 August.** This section said "where the two schemas differ,
+> adapt in this file and comment why", which assumed the differences were
+> cosmetic. **They were structural.** The content schema could not hold a
+> passage, a lesson link, a short label or a custom-exam flag. Stage 1b exists
+> to close that before any reader moves.
+
 **`v1.json` is retired as a runtime input.** Every screen reads
 `ContentDatabase`. This is the roadmap's design and the reason the parsers,
 the queries and the installer already exist.
@@ -146,7 +152,14 @@ Each step ships and is verifiable on the device before the next begins.
 
 1. **The corpus builds Sanity-shaped documents.** `content/` gains an export
    that `seed_writer` accepts. Verified by counts: the content database holds
-   2,000 questions and 144 lessons, not 16 and 0.
+   2,000 questions and 144 lessons, not 1 and 0. **Merged 11 August.**
+1b. **The content schema gains what the app reads.** Passages as a table,
+   and a question's lesson, passage and short label. **This spec assumed the
+   two schemas were equivalent and they are not**: the content database had no
+   passages at all, which would have taken 32 passages and the 160 reading
+   comprehension questions that need them, and no lesson link, which would have
+   taken it from 1,998 questions. Found when Content 02 stopped in its second
+   task rather than defaulting the missing fields.
 2. **The app reads the content database.** Readers move over behind the
    existing repos. Verified by the app running with `v1.json` removed from
    `pubspec.yaml`.
