@@ -94,6 +94,7 @@ dev_dependencies:
   # Content tooling
   yaml: ^3.1.2
 
+  crypto: any
 flutter:
   uses-material-design: true
   generate: true   # enables ARB-driven l10n in Plan 2+
