@@ -49,7 +49,8 @@ Widget _wrap(Widget child, [FakeSettingsRepository? settingsRepo]) {
 }
 
 void main() {
-  testWidgets('the step offers a dash above day 1', (tester) async {
+  testWidgets('the step offers a month-only option above day 1',
+      (tester) async {
     await tester.pumpWidget(_wrap(OnboardingExamDateStep(onCompleted: () {})));
 
     expect(find.text('When is your exam?'), findsOneWidget);
@@ -58,7 +59,10 @@ void main() {
       findsOneWidget,
     );
     expect(find.text("I don't know yet"), findsOneWidget);
-    expect(find.text('—'), findsWidgets);
+    // A word, not a dash. The identity bans the em dash by name and a wheel
+    // is not the place to make a student decode a mark.
+    expect(find.text('Any'), findsWidgets);
+    expect(find.text('—'), findsNothing);
   });
 
   testWidgets('skipping writes no date', (tester) async {
