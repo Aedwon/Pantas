@@ -151,6 +151,33 @@ Performance and Why you miss sections.
 | 4 | **The feedback row** | Needs the community group URL and a contact email |
 | 5 | **11 Geometry figures, 40 formula findings** | Hand-made pictures, and a set that is partly noise |
 
+### What is actually unexecuted, audited 11 August
+
+**"Every written plan is executed" was not true**, and this is the second time
+that claim has cost a session. Checked by looking for the artifacts each plan
+was meant to produce, not by reading the plans.
+
+**`2026-08-02-onboarding-flow-and-new-steps.md` is half built.** Tasks 1 and 2
+landed, so `ExamDate` and the name's storage exist. **Tasks 3, 4, 5, 6, 9 and
+10 did not.** Verified by symbol: `OnboardingNameStep`, `OnboardingExamDateStep`
+and `acceptedTerms` do not exist anywhere in `lib/`, there is no onboarding
+completion flag, and the router still gates on the age gate and exam selection
+rather than on completion.
+
+**What that means for a student:** onboarding is welcome, age gate, exam
+picker. **Nobody is ever asked their name or their exam date**, though both are
+settable in Settings, and **nothing records acceptance of the Terms and Privacy
+Policy**. Home's masthead and its countdown are reading fields no one is asked
+to fill, which is where UI-013 came from.
+
+**The passage pipeline's Tasks 5 and 6 are done**, contrary to Part 2 below.
+`test/features/quiz/passage_regression_test.dart` carries both the Task 5 group
+and the no-passage regressions.
+
+**`NotBuiltYetPage` has no callers.** Dead since Settings was built.
+
+---
+
 **One project is specced and planned, and nothing of it is executed:** the
 content path and the mock. `specs/2026-08-11-content-path-and-the-mock.md`, then
 plans `2026-08-11-content-01` through `04`, in that order, each merged before
@@ -183,7 +210,7 @@ first store submission**, so it is a dependency of item 3 rather than a tidy-up.
 | **Offline posture** | **Merged 4 August.** The cached-wins entitlement rule is live: a paying student keeps Pro in a dead zone. |
 | **Mathematics** | **Complete, 689 questions across all 44 subtopics.** |
 | **Six plan conflicts, the readiness sweep, the attribution gate, the validator** | As before. |
-| **The passage pipeline** | **Merged 4 August, Tasks 1 to 4.** Passages table, schema **18**, the YAML and seed carry them, and a passage set is indivisible in both the picker and the mock sampler. **Tasks 5 and 6 remain**, behind Quiz Plan 4 |
+| **The passage pipeline** | **Merged 4 August, Tasks 1 to 4.** Passages table, schema **18**, the YAML and seed carry them, and a passage set is indivisible in both the picker and the mock sampler. ~~Tasks 5 and 6 remain~~ **Both landed**, verified 11 August |
 | **The CSE tagging pass** | **Merged 4 August.** 38 files carry `cse-pro`, 30 of them `cse-sub`, no Science file touched. The CSE goes from 2 questions to most of its verbal, analytical and numerical paper |
 | **Reading comprehension** | **Merged 4 August.** All 13 subtopics, 32 passages, **160 questions**, after a revision pass fixed the correct answer being the longest choice in 120 of them |
 | **The choice-order defect** | **Fixed 4 August.** The correct answer was first in **2,072 of 2,153 questions**, and choices were never shuffled. A question's choices are now ordered from its id when read. **Do not hand-vary answer position in new content** |
