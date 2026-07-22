@@ -1,5 +1,11 @@
 # Ink & Rule Reference Sweep (Plan 2A) Implementation Plan
 
+> **Typography, amended 11 August 2026.** Any "serif" below is superseded: the
+> app uses one family, Source Sans 3, everywhere. See
+> `decisions/2026-08-10-typeface-log.md`.
+
+
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Apply the Ink & Rule identity to the app's navigation spine — Material ColorScheme, shell nav (Home | Study | Quiz | Progress with Settings behind Home's gear), the Progress tab, and the Home tab as the reference implementation — plus the kit-hardening items ordered by Plan 1's branch review.
