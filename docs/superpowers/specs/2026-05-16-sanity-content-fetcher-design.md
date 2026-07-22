@@ -1,5 +1,16 @@
 # Spec 2 — Sanity Content Fetcher + Drift Cache
 
+> **Superseded in sequence, 11 August 2026, not in intent.** This spec's goal,
+> replacing `assets/seed/v1.json` with content served from the content
+> database, is the plan of record and is now underway. **How it gets there
+> changed**: `specs/2026-08-11-content-path-and-the-mock.md` migrates the
+> corpus through `seed_writer` into a bundled database first, and leaves the
+> live Sanity fetch for later. Nothing here is wrong; read the newer spec for
+> the order, and this one for the client, the queries and the parsers, which
+> exist and work.
+
+
+
 **Date:** 2026-05-16
 **Status:** Approved design, ready for implementation plan
 **Critical-path position:** 2 of 11 (blocks Spec 3 Sync, informs Specs 4/5/6/10)
