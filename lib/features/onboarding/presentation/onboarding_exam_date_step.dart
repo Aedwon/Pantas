@@ -129,9 +129,13 @@ class _OnboardingExamDateStepState
                       onSelectedItemChanged: (i) =>
                           setState(() => _selectedDayIndex = i),
                       children: [
+                        // The month-only option. Not an em dash: the project
+                        // bans them by name, and a student reading a wheel
+                        // should see a word rather than a mark they have to
+                        // interpret.
                         Center(
                           child: Text(
-                            '—',
+                            'Any',
                             style: TextStyle(color: colors.inkMuted),
                           ),
                         ),
