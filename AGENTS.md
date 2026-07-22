@@ -138,9 +138,10 @@ Things that are not obvious from the code and have cost time:
 
 - **Two content paths.** The app ships content from `assets/seed/v1.json` into
   `AppDatabase` via `Seeder`. The Sanity stack writes `content.db` and is read by
-  `contentDatabaseProvider`, but `assets/seed/content.db` is **not declared in
-  `pubspec.yaml`** and `SeedInstaller` **has no callers**, so nothing installs it.
-  Anything reading `content.db` gets an empty database today.
+  `contentDatabaseProvider`. `assets/seed/content.db` is declared at line 101
+  of `pubspec.yaml` and installed from `bootstrap`.
+  To build the `v1.json` asset: `dart run tools/build_dev_seed/build_dev_seed.dart`
+  To build the `content.db` asset: `mkdir -p build && dart run tools/build_content_export/build_content_export.dart build/export.json && dart run tools/build_content_seed/seed_writer.dart build/export.json assets/seed/content.db`
 - **No blueprints exist.** `content_mock_blueprints` has zero rows, so
   `mockBlueprintsProvider` is empty and mock exams cannot run.
 - **Questions have no `lessonId`.** They carry `topicId` only. Anything needing
