@@ -52,7 +52,7 @@ const _rosterExams = <Map<String, Object?>>[
 ];
 
 void main(List<String> args) {
-  if (args.length < 1 || args.length > 2) {
+  if (args.isEmpty || args.length > 2) {
     stderr.writeln('Usage: build_content_export.dart <output.json> [root]');
     exit(64);
   }
@@ -60,7 +60,8 @@ void main(List<String> args) {
 
   final outlineFile = File('$root/tools/lesson_author/outline.json');
   final outlineUpdatedAt = _getFileHashTimestamp(outlineFile);
-  final outline = jsonDecode(outlineFile.readAsStringSync()) as Map<String, dynamic>;
+  final outline =
+      jsonDecode(outlineFile.readAsStringSync()) as Map<String, dynamic>;
 
   final topicIdBySlug = loadTopicIdBySlug(outline);
 
@@ -149,7 +150,8 @@ void main(List<String> args) {
       'language': exam['language'],
       'ordering': 1,
     });
-    for (final subject in exam['subjects'] as List) {
+    for (final subject
+        in (exam['subjects'] as List).cast<Map<String, dynamic>>()) {
       subjects.add({
         '_id': subject['id'],
         '_updatedAt': v1UpdatedAt,
@@ -208,19 +210,20 @@ void main(List<String> args) {
       'isActive': true,
       'topic': {'_ref': q['topicId']},
       if (q['lessonId'] != null) 'lesson': {'_ref': q['lessonId']},
-      'examIds': (q['examIds'] as List? ?? []).map((id) => {'_ref': id}).toList(),
+      'examIds':
+          (q['examIds'] as List? ?? []).map((id) => {'_ref': id}).toList(),
       'language': q['language'] ?? 'en',
       'stem': _textToPortableText(q['stem'] as String),
       'explanation': _textToPortableText(q['explanation'] as String),
       'version': q['version'] ?? 1,
       'choices': [
-        for (final c in q['choices'] as List)
+        for (final c in (q['choices'] as List).cast<Map<String, dynamic>>())
           {
             '_key': c['id'],
             'label': c['label'],
             'text': c['text'],
             'isCorrect': c['isCorrect'],
-          }
+          },
       ],
     });
   }
@@ -248,17 +251,26 @@ void main(List<String> args) {
     'mockBlueprint': <Map<String, Object?>>[],
   };
 
-  File(args[0]).writeAsStringSync('${const JsonEncoder.withIndent('  ').convert(seed)}\n');
+  File(args[0]).writeAsStringSync(
+    '${const JsonEncoder.withIndent('  ').convert(seed)}\n',
+  );
 }
 
 String _underscore(String slug) => slug.replaceAll('-', '_');
 
+/// A stable `_updatedAt` derived from the file's contents.
+///
+/// **Not the wall clock and not the file's modification time.** Either makes
+/// every document in every build look like it changed, which defeats the
+/// incremental `_updatedAt > $since` sync this pipeline exists to allow. The
+/// same content produces the same timestamp, so a rebuild that changes
+/// nothing changes nothing.
+///
+/// It is a hash rendered as a date rather than a real instant, because the
+/// parsers want ISO 8601 and nothing compares it to a calendar.
 String _getFileHashTimestamp(File file) {
   final bytes = file.readAsBytesSync();
   final digest = sha256.convert(bytes);
-  // We use the first 12 chars of the hash as a hex number, convert to microseconds.
-  // Wait, Sanity requires an ISO 8601 string. We can just use modified time, but stable.
-  // Or we can just build a pseudo-timestamp from the hash bytes.
   final hex = digest.toString().substring(0, 15);
   final ms = int.parse(hex, radix: 16) % 1000000000000;
   return DateTime.fromMillisecondsSinceEpoch(ms).toUtc().toIso8601String();
@@ -278,7 +290,10 @@ Map<String, String> loadTopicIdBySlug(Map<String, dynamic> outline) {
   return topicIdBySlug;
 }
 
-List<Map<String, Object?>> buildQuestions(Map<String, String> topicIdBySlug, String root) {
+List<Map<String, Object?>> buildQuestions(
+  Map<String, String> topicIdBySlug,
+  String root,
+) {
   const labels = ['A', 'B', 'C', 'D', 'E', 'F'];
   final questions = <Map<String, Object?>>[];
   var skippedFigures = 0;
@@ -321,7 +336,8 @@ List<Map<String, Object?>> buildQuestions(Map<String, String> topicIdBySlug, Str
         'examIds': examIds.map((e) => {'_ref': e}).toList(),
         'language': 'en',
         'stem': _textToPortableText((question['stem'] as String).trim()),
-        'explanation': _textToPortableText((question['explanation'] as String).trim()),
+        'explanation':
+            _textToPortableText((question['explanation'] as String).trim()),
         'version': 1,
         'choices': [
           for (var i = 0; i < choices.length; i++)
@@ -340,7 +356,10 @@ List<Map<String, Object?>> buildQuestions(Map<String, String> topicIdBySlug, Str
   return questions;
 }
 
-List<Map<String, Object?>> buildLessons(Map<String, String> topicIdBySlug, String root) {
+List<Map<String, Object?>> buildLessons(
+  Map<String, String> topicIdBySlug,
+  String root,
+) {
   final lessons = <Map<String, Object?>>[];
 
   final nextOrdering = <String, int>{};
@@ -365,7 +384,8 @@ List<Map<String, Object?>> buildLessons(Map<String, String> topicIdBySlug, Strin
       exitCode = 65;
       continue;
     }
-    final subtopicSlug = front['_id'].toString().replaceFirst('lesson-$topicSlug-', '');
+    final subtopicSlug =
+        front['_id'].toString().replaceFirst('lesson-$topicSlug-', '');
 
     final fallback = (nextOrdering[topicId] ?? 0) + 1;
     nextOrdering[topicId] = fallback;
@@ -399,7 +419,7 @@ List<Map<String, Object?>> _textToPortableText(String text) {
           'text': text,
           'marks': <String>[],
         }
-      ]
+      ],
     }
   ];
 }

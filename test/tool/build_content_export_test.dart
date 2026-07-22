@@ -14,34 +14,43 @@ void main() {
     addTearDown(() => tempDir.deleteSync(recursive: true));
 
     // Setup assets/seed/v1.json
-    final seedDir = Directory('${tempDir.path}/assets/seed')..createSync(recursive: true);
-    File('${seedDir.path}/v1.json').writeAsStringSync(jsonEncode({
-      'exams': [],
-      'topics': [],
-      'questions': [],
-      'lessons': [],
-    }));
+    final seedDir = Directory('${tempDir.path}/assets/seed')
+      ..createSync(recursive: true);
+    File('${seedDir.path}/v1.json').writeAsStringSync(
+      jsonEncode(<String, List<Object?>>{
+        'exams': <Object?>[],
+        'topics': <Object?>[],
+        'questions': <Object?>[],
+        'lessons': <Object?>[],
+      }),
+    );
 
     // Setup tools/lesson_author/outline.json
-    final outlineDir = Directory('${tempDir.path}/tools/lesson_author')..createSync(recursive: true);
-    File('${outlineDir.path}/outline.json').writeAsStringSync(jsonEncode({
-      'subjects': [
-        {
-          'slug': 'mathematics',
-          'name': 'Mathematics',
-          'topics': [
-            {
-              'slug': 'algebra',
-              'name': 'Algebra',
-            }
-          ]
-        }
-      ]
-    }));
+    final outlineDir = Directory('${tempDir.path}/tools/lesson_author')
+      ..createSync(recursive: true);
+    File('${outlineDir.path}/outline.json').writeAsStringSync(
+      jsonEncode({
+        'subjects': [
+          {
+            'slug': 'mathematics',
+            'name': 'Mathematics',
+            'topics': [
+              {
+                'slug': 'algebra',
+                'name': 'Algebra',
+              }
+            ],
+          }
+        ],
+      }),
+    );
 
     // Setup content/lessons
-    final lessonsDir = Directory('${tempDir.path}/content/lessons/mathematics/algebra')..createSync(recursive: true);
-    File('${lessonsDir.path}/01-intro.md').writeAsStringSync('''---
+    final lessonsDir =
+        Directory('${tempDir.path}/content/lessons/mathematics/algebra')
+          ..createSync(recursive: true);
+    File('${lessonsDir.path}/01-intro.md').writeAsStringSync('''
+---
 _id: lesson-algebra-intro
 isActive: true
 topic: topic-algebra
@@ -55,8 +64,11 @@ This is a lesson.
 ''');
 
     // Setup content/questions
-    final questionsDir = Directory('${tempDir.path}/content/questions/mathematics/algebra')..createSync(recursive: true);
-    File('${questionsDir.path}/01-intro.yaml').writeAsStringSync('''meta:
+    final questionsDir =
+        Directory('${tempDir.path}/content/questions/mathematics/algebra')
+          ..createSync(recursive: true);
+    File('${questionsDir.path}/01-intro.yaml').writeAsStringSync('''
+meta:
   subject: mathematics
   topic: algebra
   subtopic: intro
@@ -92,13 +104,14 @@ questions:
 
     expect(result.exitCode, 0, reason: result.stderr.toString());
 
-    final output = jsonDecode(File(exportPath).readAsStringSync()) as Map<String, dynamic>;
+    final output =
+        jsonDecode(File(exportPath).readAsStringSync()) as Map<String, dynamic>;
 
-    expect(output, containsPair('exam', isA<List>()));
-    expect(output, containsPair('subject', isA<List>()));
-    expect(output, containsPair('topic', isA<List>()));
-    expect(output, containsPair('question', isA<List>()));
-    expect(output, containsPair('lesson', isA<List>()));
+    expect(output, containsPair('exam', isA<List<Object?>>()));
+    expect(output, containsPair('subject', isA<List<Object?>>()));
+    expect(output, containsPair('topic', isA<List<Object?>>()));
+    expect(output, containsPair('question', isA<List<Object?>>()));
+    expect(output, containsPair('lesson', isA<List<Object?>>()));
 
     for (final doc in output['exam'] as List) {
       parseExam(doc as Map<String, Object?>);
