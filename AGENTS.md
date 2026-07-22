@@ -84,8 +84,16 @@ as generic and have been rejected repeatedly:
 - Coloured left-border panels
 - Blur, lock icons, shimmer loading
 
-Grouping is done with hairline rules and rectangles. Two typefaces only: a serif
-for headings and figures, a sans for body and data rows.
+Grouping is done with hairline rules and rectangles.
+
+**One typeface, Source Sans 3, everywhere.** The serif was retired on 11 August:
+Aedwon called it an eyesore, and a reader noticing the type is not reading the
+lesson. `decisions/2026-08-10-typeface-log.md` has the round.
+
+**This makes the rest of the identity carry more, not less.** Nothing about the
+letterforms distinguishes this app now, so the hairline rules, the underlined
+section heads, the tabular figures and the absence of tinted callouts and
+rounded cards are the whole of it. His standing words: no vibe-coded AI slop.
 
 **Colour must always carry meaning.** Board green is reserved for the single
 primary action on a screen. Severity is rust, then amber, then plain ink. Never add
