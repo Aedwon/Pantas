@@ -6,8 +6,18 @@
 > the spec, then `lib/core/content/content.dart` in full, then
 > `lib/core/storage/data/repos/content_repository.dart`.
 
-**Content 01 must be merged first.** This plan assumes the content database
-already carries 2,000 questions.
+**Content 01 and 01b must be merged first.** Both are, as of 11 August. The
+content database now carries **2,000 questions, 144 lessons, 19 topics and 32
+passages**, and a question carries its lesson, its passage and its short label.
+
+**Task 1's inventory is already written**, at
+`docs/superpowers/2026-08-11-content-reader-inventory.md`. Read it, check it is
+still true, and extend it rather than starting again.
+
+**The gap that stopped the first attempt is closed.** `content_passages`
+exists, and `content_questions` has `lesson_id`, `passage_id` and
+`short_label`. **`short_label` is null everywhere**, because the corpus carries
+none: that is expected, not a missing mapping.
 
 **Stop and say so if the two schemas disagree in a way this plan does not
 name.** A silent adapter that returns an empty list where a field is missing is
