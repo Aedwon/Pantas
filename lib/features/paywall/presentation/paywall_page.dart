@@ -10,6 +10,7 @@ import 'package:cse_cet_reviewer/features/paywall/presentation/what_pro_adds_pag
 import 'package:cse_cet_reviewer/features/settings/application/settings_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 enum _PaywallStep {
   whatProAdds,
@@ -51,6 +52,31 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
         );
   }
 
+  /// Off the paywall, whichever way the student arrived.
+  ///
+  /// `maybePop` alone did nothing on the two ways in that do not stack: Home's
+  /// "Unlock with Pro" uses `go`, and a Pro-gated route redirects. Both leave
+  /// no stack, and `/paywall` sits outside the tab shell, so the close control
+  /// was dead and there was no tab bar to escape by.
+  ///
+  /// `returnTo` carries the route the student was reaching for when they were
+  /// stopped. It was being recorded for telemetry and never used to send them
+  /// anywhere, so subscribing did not take them to the thing they subscribed
+  /// for.
+  void _leave() {
+    final navigator = Navigator.of(context);
+    if (navigator.canPop()) {
+      navigator.pop();
+      return;
+    }
+    final destination = widget.returnTo;
+    if (destination != null && destination.isNotEmpty) {
+      context.go(Uri.decodeComponent(destination));
+      return;
+    }
+    context.go('/home');
+  }
+
   Future<void> _handlePurchase(PaywallPackage package) async {
     final controller = ref.read(paywallControllerProvider);
     final purchaseFn = widget.onPurchase ?? controller.purchase;
@@ -59,7 +85,13 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
       if (!mounted) return;
       if (result.errorMessage != null) {
         setState(() => _errorMessage = result.errorMessage);
+        return;
       }
+      // A student who has just paid must not be left looking at the offer.
+      // Nothing navigated here before: the entitlement updated, the router
+      // re-evaluated, and `/paywall` is not a Pro route so no redirect moved
+      // them. They stayed on the screen that had already taken their money.
+      if (result.entitlement.proIsActive) _leave();
     } catch (_) {
       if (!mounted) return;
       setState(
@@ -133,7 +165,7 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.close),
-          onPressed: () => Navigator.of(context).maybePop(),
+          onPressed: _leave,
         ),
         title: const Text('Try Pro'),
         actions: [
