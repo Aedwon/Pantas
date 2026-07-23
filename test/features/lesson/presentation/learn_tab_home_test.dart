@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
@@ -114,7 +115,10 @@ void main() {
 
     await tester.pumpAppWithRouter(
       buildRouter(),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+      ],
     );
     await tester.pumpAndSettle();
 
@@ -143,7 +147,10 @@ void main() {
       (tester) async {
     await tester.pumpAppWithRouter(
       buildRouter(),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+      ],
     );
     await tester.pumpAndSettle();
 

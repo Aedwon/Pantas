@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/seeder.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_controller.dart';
@@ -15,7 +16,10 @@ void main() {
     addTearDown(db.close);
 
     final container = ProviderContainer(
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+      ],
     );
     addTearDown(container.dispose);
 

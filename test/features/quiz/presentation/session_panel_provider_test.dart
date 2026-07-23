@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/assessment_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
@@ -16,7 +17,10 @@ void main() {
   setUp(() {
     db = inMemoryDatabase();
     container = ProviderContainer(
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+      ],
     );
   });
   tearDown(() {

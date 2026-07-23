@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/age_gate.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
@@ -39,6 +40,7 @@ void main() {
       ProviderScope(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
           settingsRepositoryProvider.overrideWithValue(
             DriftSettingsRepository(db),
           ),

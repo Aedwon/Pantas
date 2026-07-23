@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_tab_home.dart';
@@ -116,7 +117,10 @@ void main() {
       (tester) async {
     await tester.pumpAppWithRouter(
       _buildRouter(),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+      ],
     );
     await tester.pumpAndSettle();
 
@@ -129,7 +133,10 @@ void main() {
   testWidgets('shows only selected exam quiz entry', (tester) async {
     await tester.pumpAppWithRouter(
       _buildRouter(),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+      ],
     );
     await tester.pumpAndSettle();
 
@@ -147,7 +154,10 @@ void main() {
 
     await tester.pumpAppWithRouter(
       _buildRouter(),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+      ],
     );
     await tester.pumpAndSettle();
 
@@ -160,7 +170,10 @@ void main() {
   testWidgets('renders practice CTAs', (tester) async {
     await tester.pumpAppWithRouter(
       _buildRouter(),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+      ],
     );
     await tester.pumpAndSettle();
 
@@ -179,7 +192,10 @@ void main() {
 
     await tester.pumpAppWithRouter(
       _buildRouter(),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+      ],
     );
     await tester.pumpAndSettle();
 
@@ -200,7 +216,10 @@ void main() {
 
     await tester.pumpAppWithRouter(
       _buildRouter(),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+      ],
     );
     await tester.pumpAndSettle();
 
@@ -216,7 +235,10 @@ void main() {
 
     await tester.pumpAppWithRouter(
       _buildRouter(),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+      ],
     );
     await tester.pumpAndSettle();
 

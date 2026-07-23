@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
@@ -137,7 +138,11 @@ void main() {
     Future<void> pumpSubjectsStep(WidgetTester tester) async {
       await tester.pumpWidget(
         ProviderScope(
-          overrides: [appDatabaseProvider.overrideWithValue(db)],
+          overrides: [
+            appDatabaseProvider.overrideWithValue(db),
+            contentDatabaseProvider
+                .overrideWithValue(openTestContentDatabase()),
+          ],
           child: MaterialApp(
             theme: buildLightTheme(),
             home: const CustomTrackSubjectsStep(name: 'PUP CET'),

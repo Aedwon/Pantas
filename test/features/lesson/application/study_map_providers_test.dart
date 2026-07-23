@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/lesson/application/study_map_providers.dart';
@@ -15,7 +16,10 @@ void main() {
   setUp(() async {
     db = inMemoryDatabase();
     container = ProviderContainer(
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+      ],
     );
     addTearDown(container.dispose);
     addTearDown(db.close);
@@ -75,7 +79,10 @@ void main() {
 
   test('the map is null when no exam is chosen', () async {
     final blank = ProviderContainer(
-      overrides: [appDatabaseProvider.overrideWithValue(inMemoryDatabase())],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(inMemoryDatabase()),
+        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+      ],
     );
     addTearDown(blank.dispose);
 
@@ -109,7 +116,10 @@ void main() {
     await container.read(openTopicProvider.notifier).toggle('t1');
 
     final second = ProviderContainer(
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+      ],
     );
     addTearDown(second.dispose);
 

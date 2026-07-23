@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/progress/application/how_you_work_provider.dart';
@@ -200,6 +201,7 @@ void main() {
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
       ],
     );
 
@@ -234,6 +236,7 @@ void main() {
     final nullContainer = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(nullDb),
+        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
       ],
     );
     final prefsRepo = nullContainer.read(appPreferencesRepositoryProvider);
@@ -316,6 +319,7 @@ void main() {
       final c = ProviderContainer(
         overrides: [
           appDatabaseProvider.overrideWithValue(customDb),
+          contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
         ],
       );
       final prefsRepo = c.read(appPreferencesRepositoryProvider);

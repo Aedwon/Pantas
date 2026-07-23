@@ -3,11 +3,24 @@ import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 AppDatabase inMemoryDatabase() => AppDatabase(NativeDatabase.memory());
 
 ContentDatabase inMemoryContentDatabase() =>
     ContentDatabase(NativeDatabase.memory());
+
+/// A content database that closes itself when the test ends.
+///
+/// Most tests here assert on a student's own data and touch the corpus only
+/// because a provider they depend on reads it. They still have to supply a
+/// content database or that provider throws. Call this from inside a test or
+/// a `setUp` so the teardown registers against the right scope.
+ContentDatabase openTestContentDatabase() {
+  final db = inMemoryContentDatabase();
+  addTearDown(db.close);
+  return db;
+}
 
 /// The content tables all carry `schemaVersion` and `updatedAt`, which the
 /// sync path writes and a test never asserts on. These four helpers supply

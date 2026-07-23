@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
@@ -73,6 +74,7 @@ void main() {
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
       ],
     );
   });

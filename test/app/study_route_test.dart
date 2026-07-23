@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:cse_cet_reviewer/app/app.dart';
 import 'package:cse_cet_reviewer/app/flavor.dart';
 import 'package:cse_cet_reviewer/app/router.dart';
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/notifications/application/notifications_providers.dart';
@@ -66,6 +67,7 @@ void main() {
       ProviderScope(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
           entitlementProvider.overrideWith(
             (_) => Stream.value(const Entitlement.free()),
           ),

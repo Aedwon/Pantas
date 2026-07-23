@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/home/application/tendencies_provider.dart';
@@ -190,6 +191,7 @@ void main() {
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
       ],
     );
 
@@ -230,7 +232,10 @@ void main() {
     // Only howYouAnswer has data (speed dist data).
     final customDb = inMemoryDatabase();
     final customContainer = ProviderContainer(
-      overrides: [appDatabaseProvider.overrideWithValue(customDb)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(customDb),
+        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+      ],
     );
     await customContainer
         .read(appPreferencesRepositoryProvider)
@@ -256,7 +261,10 @@ void main() {
     // pressure delta -0.18, stamina delta -0.04.
     final customDb = inMemoryDatabase();
     final customContainer = ProviderContainer(
-      overrides: [appDatabaseProvider.overrideWithValue(customDb)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(customDb),
+        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+      ],
     );
     await customContainer
         .read(appPreferencesRepositoryProvider)
@@ -279,7 +287,10 @@ void main() {
     // stamina delta +0.20, pressure delta -0.05.
     final customDb = inMemoryDatabase();
     final customContainer = ProviderContainer(
-      overrides: [appDatabaseProvider.overrideWithValue(customDb)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(customDb),
+        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+      ],
     );
     await customContainer
         .read(appPreferencesRepositoryProvider)
