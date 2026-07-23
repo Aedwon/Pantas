@@ -55,6 +55,7 @@ import 'package:go_router/go_router.dart';
 final routerProvider = Provider<GoRouter>((ref) {
   final refreshListenable = RouterRefreshListenable(ref, [
     passedAgeGateProvider,
+    onboardingCompleteProvider,
     activeExamFocusProvider,
     entitlementProvider,
     notificationRationaleShownProvider,
@@ -76,23 +77,24 @@ final routerProvider = Provider<GoRouter>((ref) {
 
       final passedAsync = ref.read(passedAgeGateProvider);
       final focusAsync = ref.read(activeExamFocusProvider);
+      final completeAsync = ref.read(onboardingCompleteProvider);
       final passed = passedAsync.valueOrNull;
       final focus = focusAsync.valueOrNull;
-      if (passed == null || focus == null) return null;
+      final complete = completeAsync.valueOrNull;
+      if (passed == null || focus == null || complete == null) return null;
       final atOnboarding = state.matchedLocation == '/onboarding';
       final atNotificationRationale =
           state.matchedLocation == '/notifications/rationale';
       final atPaywall = state.matchedLocation == '/paywall';
-      final needsSelection = focus.needsSelection;
       if (!passed && !atOnboarding) return '/onboarding';
-      if (passed && needsSelection && !atOnboarding) return '/onboarding';
-      if (passed && !needsSelection && atOnboarding) {
+      if (passed && !complete && !atOnboarding) return '/onboarding';
+      if (passed && complete && atOnboarding) {
         final rationaleShown =
             ref.read(notificationRationaleShownProvider).valueOrNull;
         if (rationaleShown == false) return '/notifications/rationale';
         return '/home';
       }
-      if (passed && !needsSelection && atNotificationRationale) {
+      if (passed && complete && atNotificationRationale) {
         final rationaleShown =
             ref.read(notificationRationaleShownProvider).valueOrNull;
         if (rationaleShown ?? false) return '/home';

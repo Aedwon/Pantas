@@ -3,12 +3,14 @@ import 'package:cse_cet_reviewer/core/storage/age_gate.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/telemetry/telemetry.dart';
 import 'package:cse_cet_reviewer/features/onboarding/presentation/onboarding_age_gate_step.dart';
+import 'package:cse_cet_reviewer/features/onboarding/presentation/onboarding_exam_date_step.dart';
+import 'package:cse_cet_reviewer/features/onboarding/presentation/onboarding_name_step.dart';
 import 'package:cse_cet_reviewer/features/onboarding/presentation/onboarding_picker_step.dart';
 import 'package:cse_cet_reviewer/features/onboarding/presentation/onboarding_welcome_step.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-enum _OnboardingStep { welcome, ageGate, picker }
+enum _OnboardingStep { welcome, ageGate, picker, examDate, name }
 
 class OnboardingPage extends ConsumerStatefulWidget {
   const OnboardingPage({super.key});
@@ -25,6 +27,8 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
       _OnboardingStep.welcome => 'welcome',
       _OnboardingStep.ageGate => 'age_gate',
       _OnboardingStep.picker => 'picker',
+      _OnboardingStep.examDate => 'exam_date',
+      _OnboardingStep.name => 'name',
     };
     ref.read(telemetryProvider).log(
       TelemetryEvent.onboardingStepReached,
@@ -52,7 +56,9 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     if (!passed) return _OnboardingStep.welcome;
     final focus = ref.read(activeExamFocusProvider).valueOrNull;
     if (focus?.needsSelection ?? true) return _OnboardingStep.picker;
-    return _OnboardingStep.welcome;
+    // The exam is chosen but onboarding is not complete, or the router would
+    // not have sent us here. Resume at the first step that follows it.
+    return _OnboardingStep.examDate;
   }
 
   Widget _buildStep(_OnboardingStep step) {
@@ -77,8 +83,22 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
         return KeyedSubtree(
           key: const ValueKey('picker'),
           child: OnboardingPickerStep(
+            onCompleted: () => setState(() => _step = _OnboardingStep.examDate),
+          ),
+        );
+      case _OnboardingStep.examDate:
+        return KeyedSubtree(
+          key: const ValueKey('examDate'),
+          child: OnboardingExamDateStep(
+            onCompleted: () => setState(() => _step = _OnboardingStep.name),
+          ),
+        );
+      case _OnboardingStep.name:
+        return KeyedSubtree(
+          key: const ValueKey('name'),
+          child: OnboardingNameStep(
             onCompleted: () {
-              // Router redirect handles navigation when prefs change.
+              // Router redirect handles navigation once the flag is written.
             },
           ),
         );
