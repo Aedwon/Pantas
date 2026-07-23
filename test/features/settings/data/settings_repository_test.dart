@@ -197,6 +197,26 @@ void main() {
     expect(settings.sessionOrdering, SessionOrdering.fullyMixed);
     expect(settings.retainTableOrder, isFalse);
   });
+
+  test('acceptance records the time and the policy version', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = DriftSettingsRepository(db);
+
+    await repo.recordPolicyAcceptance();
+
+    final rows = await db.select(db.accountPrefs).get();
+    final values = {for (final row in rows) row.key: row.value};
+
+    expect(
+      values['settings.policy_version'],
+      DriftSettingsRepository.currentPolicyVersion,
+    );
+    expect(
+      DateTime.tryParse(values['settings.policy_accepted_at'] ?? ''),
+      isNotNull,
+    );
+  });
 }
 
 class RecordingAnalyticsConsentGateway implements AnalyticsConsentGateway {

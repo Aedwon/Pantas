@@ -24,6 +24,8 @@ abstract final class SettingsPrefKeys {
   static const dailyReminderTime = 'settings.daily_reminder_time';
   static const examDate = 'settings.exam_date';
   static const examDatePrecision = 'settings.exam_date_precision';
+  static const policyAcceptedAt = 'settings.policy_accepted_at';
+  static const policyVersion = 'settings.policy_version';
   static const strictMockMode = 'strict_mock_mode';
   static const helpImproveApp = 'settings.help_improve_app';
   static const carryOverProgress = 'settings.carry_over_progress';
@@ -40,6 +42,11 @@ class DriftSettingsRepository {
     SettingsClock? clock,
   })  : _analytics = analytics ?? const NoopAnalyticsConsentGateway(),
         _clock = clock ?? DateTime.now;
+
+  /// Bumped whenever the Terms or the Privacy Policy change materially. It is
+  /// what lets a later release re-prompt only the students who accepted an
+  /// older document.
+  static const currentPolicyVersion = '1';
 
   final AppDatabase _db;
   final AnalyticsConsentGateway _analytics;
@@ -75,6 +82,14 @@ class DriftSettingsRepository {
   Future<void> updateName(String? name) async {
     await _writeAccountPrefs({
       SettingsPrefKeys.name: name?.trim() ?? '',
+      SettingsPrefKeys.updatedAt: _clock().toUtc().toIso8601String(),
+    });
+  }
+
+  Future<void> recordPolicyAcceptance() async {
+    await _writeAccountPrefs({
+      SettingsPrefKeys.policyAcceptedAt: _clock().toUtc().toIso8601String(),
+      SettingsPrefKeys.policyVersion: currentPolicyVersion,
       SettingsPrefKeys.updatedAt: _clock().toUtc().toIso8601String(),
     });
   }

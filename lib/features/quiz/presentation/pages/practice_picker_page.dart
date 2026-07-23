@@ -239,13 +239,11 @@ class _SummaryView extends StatelessWidget {
     if (summary.isEmpty) {
       return Column(
         children: [
-          Text(
-            '—',
-            style: styles.displaySmall.copyWith(
-              fontSize: 21,
-              color: colors.inkMuted,
-            ),
-          ),
+          // No dash standing in for the figure. The identity bans the em
+          // dash outright, and `DataRowTile` already carries the narrower
+          // rule this follows: an absent figure renders as nothing, never as
+          // a mark a student has to interpret. The detail line below says
+          // what to do, which is the part that helps.
           const SizedBox(height: 2),
           Text(
             summary.detail,

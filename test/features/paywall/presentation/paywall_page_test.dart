@@ -3,6 +3,7 @@ import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 
 void main() {
   const weekly = PaywallPackage(
@@ -131,5 +132,87 @@ void main() {
       ),
       findsOneWidget,
     );
+  });
+
+  testWidgets('closing with no stack goes where the student was headed',
+      (tester) async {
+    // Home's "Unlock with Pro" uses go and a Pro-gated route redirects, so
+    // neither leaves a stack, and /paywall sits outside the tab shell. The
+    // close control popped nothing and there was no tab bar to escape by.
+    final router = GoRouter(
+      initialLocation: '/paywall?returnTo=%2Fprogress',
+      routes: [
+        GoRoute(
+          path: '/paywall',
+          builder: (_, state) => PaywallPage(
+            packages: packages,
+            returnTo: state.uri.queryParameters['returnTo'],
+          ),
+        ),
+        GoRoute(path: '/progress', builder: (_, __) => const Text('Progress')),
+      ],
+    );
+    addTearDown(router.dispose);
+
+    await tester.pumpWidget(
+      ProviderScope(
+        child: MaterialApp.router(
+          theme: buildLightTheme(),
+          routerConfig: router,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.byIcon(Icons.close));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Progress'), findsOneWidget);
+  });
+
+  testWidgets('a successful purchase does not leave them on the offer',
+      (tester) async {
+    final router = GoRouter(
+      initialLocation: '/paywall?returnTo=%2Fprogress',
+      routes: [
+        GoRoute(
+          path: '/paywall',
+          builder: (_, state) => PaywallPage(
+            packages: packages,
+            returnTo: state.uri.queryParameters['returnTo'],
+            onPurchase: (_) async => PaywallCommandResult(
+              entitlement: Entitlement(
+                plan: EntitlementPlan.monthly,
+                expiresAt: DateTime.now().add(const Duration(days: 30)),
+              ),
+            ),
+          ),
+        ),
+        GoRoute(path: '/progress', builder: (_, __) => const Text('Progress')),
+      ],
+    );
+    addTearDown(router.dispose);
+
+    await tester.pumpWidget(
+      ProviderScope(
+        child: MaterialApp.router(
+          theme: buildLightTheme(),
+          routerConfig: router,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.ensureVisible(find.text('See plans'));
+    await tester.tap(find.text('See plans'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Monthly'));
+    await tester.tap(find.text('Monthly'));
+    await tester.pump();
+    await tester.ensureVisible(find.textContaining('Get Pro.'));
+    await tester.tap(find.textContaining('Get Pro.'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Progress'), findsOneWidget);
   });
 }

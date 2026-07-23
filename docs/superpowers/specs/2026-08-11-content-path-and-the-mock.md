@@ -182,10 +182,26 @@ Each step ships and is verifiable on the device before the next begins.
 
 ## Section 8: Open, and Aedwon's to answer
 
-1. **Is Reasoning a UPCAT subject?** UP lists four subtests and the seed
-   carries five, adding Reasoning. The blueprint has four parts either way;
-   the question is whether Study and Progress should keep teaching a fifth
-   that is not on the paper.
+1. **Is Reasoning a UPCAT subject?** **Measured 11 August, and the content
+   already answers it.** UP lists four subtests. The seed carries five. But
+   **not one Reasoning question is tagged for UPCAT**: all 64 are tagged
+   `exam_acet`, `exam_ustet`, `exam_dost_sei`, `exam_cse_pro` and
+   `exam_cse_sub`.
+
+   **So a UPCAT student today sees a Reasoning subject with 3 topics and 14
+   lessons and zero questions they can be asked.** They can read all 14 and
+   never be quizzed on one, and Progress will show the subject as unmeasurable
+   forever, because there is nothing to measure.
+
+   | Option | Cost |
+   |---|---|
+   | **Drop Reasoning from UPCAT's subject list** | 14 lessons leave the UPCAT student's Study tab. They stay authored and reach ACET, USTET and CSE students when those exams open |
+   | Tag the 64 questions for UPCAT as well | Puts questions on a paper UP does not say it tests, which is the kind of claim this project does not make |
+   | Leave it | A subject that can be read and never practised, and a permanent hole in Progress |
+
+   **Recommended: drop it.** The content already treats Reasoning as not-UPCAT;
+   the subject list is the only thing disagreeing, and it is the thing costing
+   a student a dead end.
 2. **CSE Professional's per-section composition**, if its mock should be more
    than one untimed booklet of 170.
 3. **DLSUCET and PUPCET timings**, whenever their content is authored. Not

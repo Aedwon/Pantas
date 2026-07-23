@@ -213,4 +213,16 @@ void main() {
 
     expect(await db.select(db.accountPrefs).get(), isEmpty);
   });
+
+  test('onboarding is not complete until it is marked complete', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = AppPreferencesRepository(db);
+
+    expect(await repo.hasCompletedOnboarding(), isFalse);
+
+    await repo.setCompletedOnboarding(value: true);
+
+    expect(await repo.hasCompletedOnboarding(), isTrue);
+  });
 }
