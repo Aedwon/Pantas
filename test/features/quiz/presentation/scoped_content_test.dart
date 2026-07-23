@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/review_state_repository.dart';
@@ -10,92 +11,68 @@ import 'package:cse_cet_reviewer/features/quiz/presentation/today_providers.dart
 import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:cse_cet_reviewer/core/content/content.dart';
-import 'package:drift/native.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
 void main() {
-  late ContentDatabase db;
+  // The track a student excludes and the attempts they have made are their
+  // own data; the corpus they are scoping is not. This test needs both.
+  late AppDatabase db;
+  late ContentDatabase contentDb;
 
   setUp(() async {
-    db = ContentDatabase(NativeDatabase.memory());
+    db = inMemoryDatabase();
+    contentDb = inMemoryContentDatabase();
 
-    // Exam
-    await db.into(db.contentExams).insert(
-          ContentExamsCompanion.insert(
-            id: 'exam_cse',
-            code: 'CSE',
-            name: 'Civil Service Exam',
-            shortName: 'CSE',
-            language: 'en',
-          ),
-        );
+    await seedContentExam(
+      contentDb,
+      examId: 'exam_cse',
+      code: 'CSE',
+      name: 'Civil Service Exam',
+    );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'sub_math',
+      examId: 'exam_cse',
+      name: 'Mathematics',
+    );
 
-    // Subject
-    await db.into(db.contentSubjects).insert(
-          ContentSubjectsCompanion.insert(
-            id: 'sub_math',
-            examId: 'exam_cse',
-            name: 'Mathematics',
-            ordering: 1,
-          ),
-        );
-
-    // Topics
-    await db.into(db.contentTopics).insert(
-          ContentTopicsCompanion.insert(
-            id: 'top_alg',
-            subjectId: 'sub_math',
-            name: 'Algebra',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.contentTopics).insert(
-          ContentTopicsCompanion.insert(
-            id: 'top_geo',
-            subjectId: 'sub_math',
-            name: 'Geometry',
-            ordering: 2,
-          ),
-        );
-    await db.into(db.contentTopics).insert(
-          ContentTopicsCompanion.insert(
-            id: 'top_trig',
-            subjectId: 'sub_math',
-            name: 'Trigonometry',
-            ordering: 3,
-          ),
-        );
-
-    // Questions for topics
-    for (final topicId in ['top_alg', 'top_geo', 'top_trig']) {
+    const topicNames = {
+      'top_alg': 'Algebra',
+      'top_geo': 'Geometry',
+      'top_trig': 'Trigonometry',
+    };
+    var ordering = 1;
+    for (final entry in topicNames.entries) {
+      await seedContentTopic(
+        contentDb,
+        topicId: entry.key,
+        subjectId: 'sub_math',
+        name: entry.value,
+        ordering: ordering++,
+      );
       for (var i = 1; i <= 5; i++) {
-        await db.into(db.contentQuestions).insert(
-              ContentQuestionsCompanion.insert(
-                id: 'q_${topicId}_$i',
-                version: 1,
-                examIdsJson: jsonEncode(['exam_cse']),
-                topicId: topicId,
-                language: 'en',
-                stem: 'Question $i for $topicId',
-                choicesJson: jsonEncode([
-                  {'id': 'c1', 'label': 'A', 'text': 'A', 'isCorrect': true},
-                  {'id': 'c2', 'label': 'B', 'text': 'B', 'isCorrect': false},
-                ]),
-                explanation: 'Explanation',
-              ),
-            );
+        await seedContentQuestion(
+          contentDb,
+          questionId: 'q_${entry.key}_$i',
+          topicId: entry.key,
+          examId: 'exam_cse',
+          stem: 'Question $i for ${entry.key}',
+        );
       }
     }
   });
 
-  tearDown(() => db.close());
+  tearDown(() async {
+    await db.close();
+    await contentDb.close();
+  });
 
   ProviderContainer createContainer() {
     return ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
   }
@@ -132,7 +109,7 @@ void main() {
   test('the assessment shortens when the track narrows', () async {
     final container = createContainer();
     final selector = AssessmentQuestionSelector(
-      ContentRepository(db),
+      ContentRepository(contentDb),
       ReviewStateRepository(db),
     );
 

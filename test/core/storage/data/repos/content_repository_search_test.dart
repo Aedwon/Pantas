@@ -1,16 +1,14 @@
 import 'dart:convert';
 
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:cse_cet_reviewer/core/content/content.dart';
+import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
 import 'package:drift/native.dart';
-
-import '../../../../helpers/in_memory_database.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   late ContentDatabase db;
   late ContentRepository repo;
+  final now = DateTime.utc(2026, 8, 11);
 
   setUp(() async {
     db = ContentDatabase(NativeDatabase.memory());
@@ -23,6 +21,9 @@ void main() {
             name: 'CSE Pro',
             shortName: 'CSE Pro',
             language: 'en',
+            ordering: 1,
+            schemaVersion: 1,
+            updatedAt: now,
           ),
         );
     await db.into(db.contentSubjects).insert(
@@ -31,6 +32,8 @@ void main() {
             examId: 'exam_cse_pro',
             name: 'Verbal',
             ordering: 1,
+            schemaVersion: 1,
+            updatedAt: now,
           ),
         );
     await db.into(db.contentTopics).insert(
@@ -39,6 +42,8 @@ void main() {
             subjectId: 's1',
             name: 'Vocabulary',
             ordering: 1,
+            schemaVersion: 1,
+            updatedAt: now,
           ),
         );
     await db.into(db.contentTopics).insert(
@@ -47,6 +52,8 @@ void main() {
             subjectId: 's1',
             name: 'Other',
             ordering: 2,
+            schemaVersion: 1,
+            updatedAt: now,
           ),
         );
 
@@ -59,6 +66,8 @@ void main() {
             summary: 'Summary A',
             bodyJson: jsonEncode(<Map<String, Object?>>[]),
             estimatedMinutes: 5,
+            schemaVersion: 1,
+            updatedAt: now,
           ),
         );
 
@@ -71,6 +80,8 @@ void main() {
             summary: 'This includes gemdas trick',
             bodyJson: jsonEncode(<Map<String, Object?>>[]),
             estimatedMinutes: 5,
+            schemaVersion: 1,
+            updatedAt: now,
           ),
         );
 
@@ -95,6 +106,8 @@ void main() {
               },
             ]),
             estimatedMinutes: 5,
+            schemaVersion: 1,
+            updatedAt: now,
           ),
         );
 
@@ -107,6 +120,8 @@ void main() {
             summary: 'Unrelated summary',
             bodyJson: jsonEncode(<Map<String, Object?>>[]),
             estimatedMinutes: 5,
+            schemaVersion: 1,
+            updatedAt: now,
           ),
         );
   });

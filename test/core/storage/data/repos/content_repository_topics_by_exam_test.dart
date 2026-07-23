@@ -1,14 +1,12 @@
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:cse_cet_reviewer/core/content/content.dart';
+import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
 import 'package:drift/native.dart';
-
-import '../../../../helpers/in_memory_database.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   late ContentDatabase db;
   late ContentRepository repo;
+  final now = DateTime.utc(2026, 8, 11);
 
   setUp(() async {
     db = ContentDatabase(NativeDatabase.memory());
@@ -21,6 +19,9 @@ void main() {
             name: 'Civil Service Exam',
             shortName: 'CSE',
             language: 'en',
+            ordering: 1,
+            schemaVersion: 1,
+            updatedAt: now,
           ),
         );
     await db.into(db.contentSubjects).insert(
@@ -29,6 +30,8 @@ void main() {
             examId: 'e1',
             name: 'Verbal',
             ordering: 1,
+            schemaVersion: 1,
+            updatedAt: now,
           ),
         );
     await db.into(db.contentSubjects).insert(
@@ -37,6 +40,8 @@ void main() {
             examId: 'e1',
             name: 'Numerical',
             ordering: 2,
+            schemaVersion: 1,
+            updatedAt: now,
           ),
         );
     await db.into(db.contentTopics).insert(
@@ -45,6 +50,8 @@ void main() {
             subjectId: 's1',
             name: 'Vocabulary',
             ordering: 1,
+            schemaVersion: 1,
+            updatedAt: now,
           ),
         );
     await db.into(db.contentTopics).insert(
@@ -53,6 +60,8 @@ void main() {
             subjectId: 's2',
             name: 'Arithmetic',
             ordering: 1,
+            schemaVersion: 1,
+            updatedAt: now,
           ),
         );
   });

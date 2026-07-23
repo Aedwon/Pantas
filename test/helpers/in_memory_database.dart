@@ -6,6 +6,143 @@ import 'package:drift/native.dart';
 
 AppDatabase inMemoryDatabase() => AppDatabase(NativeDatabase.memory());
 
+ContentDatabase inMemoryContentDatabase() =>
+    ContentDatabase(NativeDatabase.memory());
+
+/// The content tables all carry `schemaVersion` and `updatedAt`, which the
+/// sync path writes and a test never asserts on. These four helpers supply
+/// them so a test seeds only the fields it is actually about.
+final _seedStamp = DateTime.utc(2026, 8, 11);
+
+Future<void> seedContentExam(
+  ContentDatabase db, {
+  required String examId,
+  String? code,
+  String? name,
+  int ordering = 1,
+}) async {
+  await db.into(db.contentExams).insertOnConflictUpdate(
+        ContentExamsCompanion.insert(
+          id: examId,
+          code: code ?? examId,
+          name: name ?? examId,
+          shortName: code ?? examId,
+          language: 'en',
+          ordering: ordering,
+          schemaVersion: 1,
+          updatedAt: _seedStamp,
+        ),
+      );
+}
+
+Future<void> seedContentSubject(
+  ContentDatabase db, {
+  required String subjectId,
+  required String examId,
+  String? name,
+  int ordering = 1,
+}) async {
+  await db.into(db.contentSubjects).insertOnConflictUpdate(
+        ContentSubjectsCompanion.insert(
+          id: subjectId,
+          examId: examId,
+          name: name ?? subjectId,
+          ordering: ordering,
+          schemaVersion: 1,
+          updatedAt: _seedStamp,
+        ),
+      );
+}
+
+Future<void> seedContentTopic(
+  ContentDatabase db, {
+  required String topicId,
+  required String subjectId,
+  String? name,
+  int ordering = 1,
+}) async {
+  await db.into(db.contentTopics).insertOnConflictUpdate(
+        ContentTopicsCompanion.insert(
+          id: topicId,
+          subjectId: subjectId,
+          name: name ?? topicId,
+          ordering: ordering,
+          schemaVersion: 1,
+          updatedAt: _seedStamp,
+        ),
+      );
+}
+
+/// Seeds one question with two choices, A correct, and tags it for [examId].
+/// The exam tag is a row in its own table now, so a question seeded without
+/// one is invisible to every exam-scoped read.
+Future<void> seedContentQuestion(
+  ContentDatabase db, {
+  required String questionId,
+  required String topicId,
+  required String examId,
+  String? stem,
+  String? lessonId,
+  bool isActive = true,
+  String correctText = 'Choice A',
+  String wrongText = 'Choice B',
+}) async {
+  await db.into(db.contentQuestions).insertOnConflictUpdate(
+        ContentQuestionsCompanion.insert(
+          id: questionId,
+          version: 1,
+          topicId: topicId,
+          lessonId: Value(lessonId),
+          language: 'en',
+          stemJson: _portableText(stem ?? 'Question $questionId?'),
+          explanationJson: _portableText('Explanation for $questionId'),
+          isActive: Value(isActive),
+          schemaVersion: 1,
+          updatedAt: _seedStamp,
+        ),
+      );
+  await db.into(db.contentChoices).insertOnConflictUpdate(
+        ContentChoicesCompanion.insert(
+          id: '${questionId}_a',
+          questionId: questionId,
+          label: 'A',
+          textValue: correctText,
+          isCorrect: true,
+          ordering: 1,
+          schemaVersion: 1,
+          updatedAt: _seedStamp,
+        ),
+      );
+  await db.into(db.contentChoices).insertOnConflictUpdate(
+        ContentChoicesCompanion.insert(
+          id: '${questionId}_b',
+          questionId: questionId,
+          label: 'B',
+          textValue: wrongText,
+          isCorrect: false,
+          ordering: 2,
+          schemaVersion: 1,
+          updatedAt: _seedStamp,
+        ),
+      );
+  await db.into(db.contentQuestionExams).insertOnConflictUpdate(
+        ContentQuestionExamsCompanion.insert(
+          questionId: questionId,
+          examId: examId,
+        ),
+      );
+}
+
+String _portableText(String text) => jsonEncode([
+      {
+        '_type': 'block',
+        'style': 'normal',
+        'children': [
+          {'_type': 'span', 'text': text, 'marks': <String>[]},
+        ],
+      },
+    ]);
+
 Future<void> seedTopicWithQuestions(
   AppDatabase db, {
   required String examId,
@@ -140,13 +277,9 @@ Future<void> seedContentTopicWithQuestions(
             topicId: topicId,
             lessonId: Value(questionLessonMap[qId]),
             language: 'en',
-            stemJson: jsonEncode([
-              {'_type': 'block', 'children': [{'_type': 'span', 'text': 'stem $qId'}]}
-            ]),
-            explanationJson: jsonEncode([
-              {'_type': 'block', 'children': [{'_type': 'span', 'text': 'explanation $qId'}]}
-            ]),
-            updatedAt: DateTime.now(),
+            stemJson: _portableText('stem $qId'),
+            explanationJson: _portableText('explanation $qId'),
+            updatedAt: _seedStamp,
             schemaVersion: 1,
           ),
         );

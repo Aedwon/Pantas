@@ -79,16 +79,16 @@ void main() {
               {
                 '_type': 'block',
                 'children': [
-                  {'_type': 'span', 'text': 'stem'}
-                ]
+                  {'_type': 'span', 'text': 'stem'},
+                ],
               }
             ]),
             explanationJson: jsonEncode([
               {
                 '_type': 'block',
                 'children': [
-                  {'_type': 'span', 'text': 'because y'}
-                ]
+                  {'_type': 'span', 'text': 'because y'},
+                ],
               }
             ]),
           ),

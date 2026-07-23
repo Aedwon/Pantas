@@ -1,5 +1,4 @@
-import 'dart:convert';
-
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/assessment_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
@@ -28,65 +27,51 @@ GoRouter _buildRouter(String examId) => GoRouter(
       ],
     );
 
-Future<AppDatabase> _seedDb() async {
-  final db = inMemoryDatabase();
-  await db.into(db.exams).insert(
-        ExamsCompanion.insert(
-          id: 'e1',
-          code: 'CSE',
-          name: 'CSE',
-          shortName: 'CSE',
-          language: 'en',
-        ),
-      );
-  await db.into(db.subjects).insert(
-        SubjectsCompanion.insert(
-          id: 's1',
-          examId: 'e1',
-          name: 'Verbal',
-          ordering: 1,
-        ),
-      );
-  await db.into(db.topics).insert(
-        TopicsCompanion.insert(
-          id: 't1',
-          subjectId: 's1',
-          name: 'Vocabulary',
-          ordering: 1,
-        ),
-      );
-  final choices = jsonEncode([
-    {'id': 'c_a', 'label': 'A', 'text': 'Option A', 'isCorrect': true},
-    {'id': 'c_b', 'label': 'B', 'text': 'Option B', 'isCorrect': false},
-  ]);
-  await db.into(db.questions).insert(
-        QuestionsCompanion.insert(
-          id: 'q1',
-          version: 1,
-          examIdsJson: jsonEncode(['e1']),
-          topicId: 't1',
-          language: 'en',
-          stem: 'What does ephemeral mean?',
-          choicesJson: choices,
-          explanation: 'Short-lived.',
-        ),
-      );
+Future<ContentDatabase> _seedContentDb() async {
+  final db = inMemoryContentDatabase();
+  await seedContentExam(db, examId: 'e1', code: 'CSE', name: 'CSE');
+  await seedContentSubject(db, subjectId: 's1', examId: 'e1', name: 'Verbal');
+  await seedContentTopic(
+    db,
+    topicId: 't1',
+    subjectId: 's1',
+    name: 'Vocabulary',
+  );
+  await seedContentQuestion(
+    db,
+    questionId: 'q1',
+    topicId: 't1',
+    examId: 'e1',
+    stem: 'What does ephemeral mean?',
+    correctText: 'Option A',
+    wrongText: 'Option B',
+  );
   return db;
 }
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
 
   setUp(() async {
-    db = await _seedDb();
+    db = inMemoryDatabase();
+    contentDb = await _seedContentDb();
   });
 
-  tearDown(() => db.close());
+  tearDown(() async {
+    await db.close();
+    await contentDb.close();
+  });
+
+  List<Override> databaseOverrides() => [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ];
 
   testWidgets('shows progress bar when assessment is running', (tester) async {
     await tester.pumpAppWithRouter(
       _buildRouter('e1'),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: databaseOverrides(),
     );
     await tester.pumpAndSettle();
 
@@ -97,7 +82,7 @@ void main() {
       (tester) async {
     await tester.pumpAppWithRouter(
       _buildRouter('e1'),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: databaseOverrides(),
     );
     await tester.pumpAndSettle();
 
@@ -111,7 +96,7 @@ void main() {
       (tester) async {
     await tester.pumpAppWithRouter(
       _buildRouter('e1'),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: databaseOverrides(),
     );
     await tester.pumpAndSettle();
 
@@ -145,7 +130,7 @@ void main() {
 
     await tester.pumpAppWithRouter(
       _buildRouter('e1'),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: databaseOverrides(),
     );
     await tester.pumpAndSettle();
 
@@ -156,7 +141,7 @@ void main() {
   testWidgets('back navigation shows confirm dialog', (tester) async {
     await tester.pumpAppWithRouter(
       _buildRouter('e1'),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: databaseOverrides(),
     );
     await tester.pumpAndSettle();
 

@@ -1,19 +1,15 @@
 import 'dart:convert';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/seeder.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_retake.dart';
-import 'package:flutter/services.dart';
-import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:cse_cet_reviewer/core/content/content.dart';
-import 'package:drift/native.dart';
 
 import '../../../../helpers/in_memory_database.dart';
 
@@ -26,7 +22,14 @@ void main() {
     final contentDb = ContentDatabase(NativeDatabase.memory());
     addTearDown(contentDb.close);
     addTearDown(db.close);
-    await seedContentTopicWithQuestions(contentDb, examId: "exam_cse_pro", subjectId: "subj_cse_verbal", topicId: "topic_cse_vocab", topicName: "Vocab", questionIds: List.generate(30, (i) => "q$i"));
+    await seedContentTopicWithQuestions(
+      contentDb,
+      examId: 'exam_cse_pro',
+      subjectId: 'subj_cse_verbal',
+      topicId: 'topic_cse_vocab',
+      topicName: 'Vocab',
+      questionIds: List.generate(30, (i) => 'q$i'),
+    );
     final attempts = AttemptsRepository(db);
     await attempts.save(
       _attempt(
@@ -63,7 +66,14 @@ void main() {
     final contentDb = ContentDatabase(NativeDatabase.memory());
     addTearDown(contentDb.close);
     addTearDown(db.close);
-    await seedContentTopicWithQuestions(contentDb, examId: "exam_cse_pro", subjectId: "subj_cse_verbal", topicId: "topic_cse_vocab", topicName: "Vocab", questionIds: List.generate(30, (i) => "q$i"));
+    await seedContentTopicWithQuestions(
+      contentDb,
+      examId: 'exam_cse_pro',
+      subjectId: 'subj_cse_verbal',
+      topicId: 'topic_cse_vocab',
+      topicName: 'Vocab',
+      questionIds: List.generate(30, (i) => 'q$i'),
+    );
     await _insertExtraQuestions(db, count: 55);
     final attempts = AttemptsRepository(db);
     await attempts.save(
@@ -92,7 +102,14 @@ void main() {
     final contentDb = ContentDatabase(NativeDatabase.memory());
     addTearDown(contentDb.close);
     addTearDown(db.close);
-    await seedContentTopicWithQuestions(contentDb, examId: "exam_cse_pro", subjectId: "subj_cse_verbal", topicId: "topic_cse_vocab", topicName: "Vocab", questionIds: List.generate(30, (i) => "q$i"));
+    await seedContentTopicWithQuestions(
+      contentDb,
+      examId: 'exam_cse_pro',
+      subjectId: 'subj_cse_verbal',
+      topicId: 'topic_cse_vocab',
+      topicName: 'Vocab',
+      questionIds: List.generate(30, (i) => 'q$i'),
+    );
 
     final result = await StartRetake(
       content: ContentRepository(contentDb),

@@ -85,7 +85,8 @@ class ContentRepository {
   }
 
   Future<Question?> questionById(QuestionId id) async {
-    final row = await (_db.select(_db.contentQuestions)..where((q) => q.id.equals(id)))
+    final row = await (_db.select(_db.contentQuestions)
+          ..where((q) => q.id.equals(id)))
         .getSingleOrNull();
     return row == null ? null : await _hydrateQuestion(row);
   }
@@ -145,7 +146,8 @@ class ContentRepository {
   }
 
   Future<Lesson?> lessonById(LessonId id) async {
-    final row = await (_db.select(_db.contentLessons)..where((l) => l.id.equals(id)))
+    final row = await (_db.select(_db.contentLessons)
+          ..where((l) => l.id.equals(id)))
         .getSingleOrNull();
     return row == null ? null : _hydrateLesson(row);
   }
@@ -190,7 +192,8 @@ class ContentRepository {
   }
 
   Future<Topic?> topicById(TopicId id) async {
-    final row = await (_db.select(_db.contentTopics)..where((t) => t.id.equals(id)))
+    final row = await (_db.select(_db.contentTopics)
+          ..where((t) => t.id.equals(id)))
         .getSingleOrNull();
     if (row == null) return null;
     return Topic(
@@ -202,7 +205,8 @@ class ContentRepository {
   }
 
   Future<Subject?> subjectById(SubjectId id) async {
-    final row = await (_db.select(_db.contentSubjects)..where((s) => s.id.equals(id)))
+    final row = await (_db.select(_db.contentSubjects)
+          ..where((s) => s.id.equals(id)))
         .getSingleOrNull();
     if (row == null) return null;
     return Subject(
@@ -228,7 +232,8 @@ class ContentRepository {
   }
 
   Future<Passage?> passageById(PassageId id) async {
-    final row = await (_db.select(_db.contentPassages)..where((p) => p.id.equals(id)))
+    final row = await (_db.select(_db.contentPassages)
+          ..where((p) => p.id.equals(id)))
         .getSingleOrNull();
     return row == null ? null : _hydratePassage(row);
   }
