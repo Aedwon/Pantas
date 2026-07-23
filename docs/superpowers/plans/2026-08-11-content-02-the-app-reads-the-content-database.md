@@ -14,6 +14,15 @@ passages**, and a question carries its lesson, its passage and its short label.
 `docs/superpowers/2026-08-11-content-reader-inventory.md`. Read it, check it is
 still true, and extend it rather than starting again.
 
+**Two mappings this plan now names, because two attempts stopped on them.**
+
+- **`isWithdrawn` against `isActive`.** The app's questions table carries
+  `isWithdrawn`; the content schema carries `isActive`. They are the same fact
+  inverted. **Map it, do not stop on it**, and write the inversion down where
+  you map it.
+- **`ordering` on lessons.** Added to the content schema on 11 August, after the
+  second attempt found the app sorts every lesson list by it.
+
 **The gap that stopped the first attempt is closed.** `content_passages`
 exists, and `content_questions` has `lesson_id`, `passage_id` and
 `short_label`. **`short_label` is null everywhere**, because the corpus carries
