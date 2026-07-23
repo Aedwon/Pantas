@@ -1486,3 +1486,21 @@ inventions and wrong, and **Reasoning is not a UPCAT subtest** though the seed
 carries it as one.
 
 **The real decision is which store owns published content**, and it is his.
+
+### UI-065 [important] UPCAT's Reasoning subject has no questions at all
+
+**Found 11 August while checking whether Reasoning belongs on the UPCAT paper.**
+It does not, and the consequence is larger than a blueprint question.
+
+**A UPCAT student's Study tab lists Reasoning with 3 topics and 14 lessons.**
+**Not one Reasoning question is tagged for UPCAT.** All 64 carry `exam_acet`,
+`exam_ustet`, `exam_dost_sei`, `exam_cse_pro` and `exam_cse_sub`.
+
+So a student can read fourteen lessons and never be asked a single question on
+them, and Performance will show Reasoning as unmeasurable for as long as the
+app exists, because there is nothing there to measure. That is a dead end
+presented as a subject.
+
+**UP lists four subtests and the content agrees with UP.** The seed's subject
+list is the only thing that does not. Options and a recommendation are in the
+content path spec's open questions.
