@@ -80,8 +80,13 @@ directly from the orchestrator**, one git worktree per plan.
 **Rewritten 11 August**, after a long session of Aedwon's own testing on the device. `main` is
 pushed and clean.
 
-**Health:** **2,174 tests pass**, `flutter analyze` **clean and exiting 0**, formatter clean,
+**Health:** **2,194 tests pass**, `flutter analyze` **clean and exiting 0**, formatter clean,
 `check_layering` **OK**, corpus 2,000 questions in the shipped seed.
+
+**Run `dart run build_runner build --delete-conflicting-outputs` before judging any gate
+after a schema merge.** Generated files are gitignored, so a merge that adds a table
+leaves your tree failing to compile while the pushed branch is fine. It cost a false
+alarm on 11 August.
 
 **The work now is the content path and the mock**, which is specced and planned and not started,
 plus Aedwon's remaining UI findings and the things only he can do.
@@ -178,8 +183,20 @@ and the no-passage regressions.
 
 ---
 
-**One project is specced and planned, and nothing of it is executed:** the
-content path and the mock. `specs/2026-08-11-content-path-and-the-mock.md`, then
+**The content path is half executed as of 11 August.** `01` and `01b` are merged: the
+content database now carries the real corpus, 2,000 questions, 144 lessons, 19 topics
+and 32 passages, and a question carries its lesson and its passage. **`02` is running,
+`03` and `04` follow.** The one that can orphan a student's history is `02`, and its
+done-condition needs a device with real attempts, which is Aedwon's.
+
+**Onboarding's six unexecuted tasks are merged**: a student is asked their name and
+their exam date now, and acceptance of the Terms is recorded.
+
+**Two questions are waiting on him**, both written up with data rather than left as
+opinions: whether Reasoning stays a UPCAT subject when not one of its 64 questions is
+tagged for UPCAT, and the six authored topics missing from the outline.
+
+The original plan text follows: `specs/2026-08-11-content-path-and-the-mock.md`, then
 plans `2026-08-11-content-01` through `04`, in that order, each merged before
 the next starts. **Content 02 is the one that can lose a student's history**, so
 its ids rule is not negotiable. It ends with a student able to sit a full UPCAT
