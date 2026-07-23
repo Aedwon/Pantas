@@ -1,5 +1,11 @@
 # Study plan: the forward calendar
 
+> **Typography, amended 11 August 2026.** Any "serif" below is superseded: the
+> app uses one family, Source Sans 3, everywhere. See
+> `decisions/2026-08-10-typeface-log.md`.
+
+
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development
 > (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use
 > checkbox (`- [ ]`) syntax for tracking.

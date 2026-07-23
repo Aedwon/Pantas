@@ -1,5 +1,11 @@
 # Settings 03: the top level
 
+> **Typography, amended 11 August 2026.** Any "serif" below is superseded: the
+> app uses one family, Source Sans 3, everywhere. See
+> `decisions/2026-08-10-typeface-log.md`.
+
+
+
 > **How to work this plan.** Implement it task by task, in order. For each task: write the
 > failing test first, run it and confirm it fails, then write the code that makes it pass. Do
 > not skip a step and do not batch tasks. Steps use checkbox (`- [ ]`) syntax so progress can

@@ -13,6 +13,51 @@ the door, and the room has to be furnished before it does.
 
 ---
 
+## Two doors, and both are missing a hinge
+
+**Found 11 August, after this plan was written.** There is a second route to a
+mock and it is in the same state as the first.
+
+**The published route:** `MockPanel` to `/quiz/mock/setup`, which reads a
+`mockBlueprint` from the content database. **No blueprint exists** until
+Content 03 authors one.
+
+**The custom route:** `/quiz/mock/custom-setup` lets a student compose their
+own paper by subject, and `CustomBlueprintRepository.save` writes it to the
+**app** database, not the content one. **So a custom mock needs no published
+blueprint at all.**
+
+**But nothing reads it back.** `CustomBlueprintRepository.read` and `.exists`
+have no callers anywhere in `lib/`, and `mock_setup_page.dart` reads published
+blueprints only. **A student could compose a paper and nothing would use it**,
+and nothing navigates to `/quiz/mock/custom-setup` either.
+
+**Both routes therefore need finishing**, and this plan gains Task 1b for the
+custom one. It is the cheaper of the two to make real, because its data does
+not wait on anyone.
+
+---
+
+## Task 1b: the custom paper is read back and can be sat
+
+**Files:**
+- Modify: `lib/features/mock_exam/presentation/pages/mock_setup_page.dart`
+- Modify: whatever offers the route, per Task 1
+- Test: `test/features/mock_exam/custom_blueprint_roundtrip_test.dart`
+
+**A saved custom blueprint is read and sampled.** Compose, save, start, and
+the paper drawn matches the composition: the subjects chosen, the counts
+chosen, and nothing from a subject that was not.
+
+**A student who has saved one is offered it.** The panel says a custom paper
+exists and offers to sit it, rather than sending them through setup again.
+
+**Never invent a duration.** A custom paper has no published timing, so it
+either carries the time the student chose or it is untimed and says so. **It
+must not borrow another exam's minutes.**
+
+---
+
 ## The one thing to understand before you start
 
 **`MockPanel` already documents the contract.** Its comment reads: "Built here

@@ -1,5 +1,17 @@
 # Study tab and lesson reader redesign
 
+> **Typography, amended 11 August 2026.** Every mention of a serif below is
+> superseded. **The app uses one family, Source Sans 3, everywhere**: the serif
+> was retired because Aedwon found it an eyesore, and a reader noticing the
+> type is not reading the lesson. Read a "serif 16/700" here as "16/700".
+> The round is in `decisions/2026-08-10-typeface-log.md`.
+>
+> **What the serif carried, the rest of the identity now carries alone**: the
+> hairline rules, the underlined section heads, the tabular figures, and the
+> absence of tinted callouts, rounded cards and drop shadows.
+
+
+
 **Date:** 2026-07-27
 **Status:** Approved by Aedwon, validated interactively against live mockups in
 `.superpowers/brainstorm/64324-1785062431/content/`
