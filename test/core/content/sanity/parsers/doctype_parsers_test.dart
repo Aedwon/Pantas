@@ -103,9 +103,8 @@ void main() {
   });
 
   test(
-    'question parser accepts missing nullable fields '
-    'for old seed compatibility',
-    () {
+      'question parser accepts missing nullable fields '
+      'for old seed compatibility', () {
     final doc = Map<String, Object?>.from(fixture['question'] as Map);
     final parsed = parseQuestion(
       doc

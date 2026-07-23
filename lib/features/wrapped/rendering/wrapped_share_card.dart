@@ -1,6 +1,13 @@
 import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_payload.dart';
 import 'package:flutter/material.dart';
 
+// The light palette by value, not by theme lookup. A share card is rendered
+// off screen to a PNG and must not follow the reader's dark mode: what they
+// post is a sheet of paper whatever their phone is set to.
+const Color _paper = Color(0xFFFBF9F4);
+const Color _ink = Color(0xFF26221B);
+const Color _inkMuted = Color(0xFF6E675C);
+
 class WrappedShareCard extends StatelessWidget {
   const WrappedShareCard({
     required this.payload,
@@ -19,14 +26,15 @@ class WrappedShareCard extends StatelessWidget {
     final primarySlide = payload.slides.isEmpty ? null : payload.slides.first;
     return AspectRatio(
       aspectRatio: 9 / 16,
+      // Paper and ink, not a gradient.
+      //
+      // This was purple and navy over white, which is pre-redesign styling and
+      // specifically a gradient, the first thing the identity lists among the
+      // patterns it exists to remove. **It is also the most public thing the
+      // app makes**: the one artefact a student posts, seen by people who have
+      // never opened Pantas.
       child: DecoratedBox(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Color(0xFF16213E), Color(0xFF533483), Color(0xFF0F3460)],
-          ),
-        ),
+        decoration: const BoxDecoration(color: _paper),
         child: Padding(
           padding: const EdgeInsets.all(32),
           child: Column(
@@ -35,32 +43,38 @@ class WrappedShareCard extends StatelessWidget {
               Text(
                 'Pantas Wrapped',
                 style: theme.textTheme.labelLarge?.copyWith(
-                  color: Colors.white70,
+                  color: _inkMuted,
                   fontWeight: FontWeight.w700,
                 ),
+              ),
+              const SizedBox(height: 10),
+              // The rule under the wordmark, which is the device every ruled
+              // surface in the app opens with.
+              const SizedBox(
+                width: double.infinity,
+                height: 1.6,
+                child: ColoredBox(color: _ink),
               ),
               const Spacer(),
               Text(
                 payload.title,
                 style: theme.textTheme.headlineMedium?.copyWith(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w800,
+                  color: _ink,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
               const SizedBox(height: 18),
               if (primarySlide != null)
                 Text(
                   primarySlide.body,
-                  style: theme.textTheme.titleMedium?.copyWith(
-                    color: Colors.white.withValues(alpha: 0.88),
-                  ),
+                  style: theme.textTheme.titleMedium?.copyWith(color: _ink),
                 ),
               if (includeArchetype) ...[
                 const SizedBox(height: 24),
                 Text(
                   payload.archetypeId.replaceAll('_', ' ').toUpperCase(),
                   style: theme.textTheme.labelLarge?.copyWith(
-                    color: Colors.white70,
+                    color: _inkMuted,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -68,12 +82,12 @@ class WrappedShareCard extends StatelessWidget {
               const Spacer(),
               const Text(
                 'pantas.app/wrapped',
-                style: TextStyle(color: Colors.white70),
+                style: TextStyle(color: _inkMuted),
               ),
               const SizedBox(height: 8),
               const Text(
                 'Watermarked by Pantas',
-                style: TextStyle(color: Colors.white54),
+                style: TextStyle(color: _inkMuted),
               ),
             ],
           ),

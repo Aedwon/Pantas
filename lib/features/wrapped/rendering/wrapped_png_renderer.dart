@@ -6,6 +6,12 @@ import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_share_url.dart'
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
+// The light palette by value. A share card is rendered off screen and must
+// not follow the reader's dark mode: what they post is a sheet of paper.
+const Color _paper = Color(0xFFFBF9F4);
+const Color _ink = Color(0xFF26221B);
+const Color _inkMuted = Color(0xFF6E675C);
+
 class WrappedPngRenderer {
   const WrappedPngRenderer();
 
@@ -23,19 +29,22 @@ class WrappedPngRenderer {
     final recorder = ui.PictureRecorder();
     final canvas = Canvas(recorder);
     const rect = Rect.fromLTWH(0, 0, 1080, 1920);
-    final paint = Paint()
-      ..shader = const LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        colors: [Color(0xFF16213E), Color(0xFF533483), Color(0xFF0F3460)],
-      ).createShader(rect);
-    canvas.drawRect(rect, paint);
+    // Paper, not a gradient, and the same paper whatever the reader's theme
+    // is set to. This is the artefact a student posts, so it is the one place
+    // the identity is seen by people who have never opened the app.
+    canvas
+      ..drawRect(rect, Paint()..color = _paper)
+      // The rule under the wordmark, as on every ruled surface in the app.
+      ..drawRect(
+        const Rect.fromLTWH(84, 190, 1080 - 168, 2),
+        Paint()..color = _ink,
+      );
     _drawText(
       canvas,
       'Pantas Wrapped',
       const Offset(84, 128),
       42,
-      Colors.white70,
+      _inkMuted,
       FontWeight.w700,
       width - 168,
     );
@@ -44,8 +53,8 @@ class WrappedPngRenderer {
       payload.title,
       const Offset(84, 640),
       76,
-      Colors.white,
-      FontWeight.w800,
+      _ink,
+      FontWeight.w700,
       width - 168,
     );
     if (payload.slides.isNotEmpty) {
@@ -54,7 +63,7 @@ class WrappedPngRenderer {
         payload.slides.first.body,
         const Offset(84, 880),
         46,
-        Colors.white.withValues(alpha: 0.88),
+        _ink,
         FontWeight.w500,
         width - 168,
       );
@@ -65,7 +74,7 @@ class WrappedPngRenderer {
         payload.archetypeId.replaceAll('_', ' ').toUpperCase(),
         const Offset(84, 1260),
         34,
-        Colors.white70,
+        _inkMuted,
         FontWeight.w700,
         width - 168,
       );
@@ -75,7 +84,7 @@ class WrappedPngRenderer {
       shareUrl.replaceFirst('https://', ''),
       const Offset(84, 1700),
       34,
-      Colors.white70,
+      _inkMuted,
       FontWeight.w500,
       width - 168,
     );
@@ -84,7 +93,7 @@ class WrappedPngRenderer {
       'Watermarked by Pantas',
       const Offset(84, 1764),
       30,
-      Colors.white54,
+      _inkMuted,
       FontWeight.w500,
       width - 168,
     );

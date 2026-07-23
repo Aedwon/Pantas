@@ -88,15 +88,19 @@ void main() {
             )
             .getSingle())
         .read<int>('c');
-    final lessonLinksCount = (await db.customSelect(
-      'SELECT COUNT(*) AS c FROM content_questions '
-      'WHERE lesson_id IS NOT NULL',
-    ).getSingle())
+    final lessonLinksCount = (await db
+            .customSelect(
+              'SELECT COUNT(*) AS c FROM content_questions '
+              'WHERE lesson_id IS NOT NULL',
+            )
+            .getSingle())
         .read<int>('c');
-    final passageLinksCount = (await db.customSelect(
-      'SELECT COUNT(*) AS c FROM content_questions '
-      'WHERE passage_id IS NOT NULL',
-    ).getSingle())
+    final passageLinksCount = (await db
+            .customSelect(
+              'SELECT COUNT(*) AS c FROM content_questions '
+              'WHERE passage_id IS NOT NULL',
+            )
+            .getSingle())
         .read<int>('c');
 
     expect(questionsCount, 2000, reason: 'Expected 2,000 questions');

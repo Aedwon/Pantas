@@ -161,7 +161,10 @@ under reduce-motion. Glyphs: house, open book, single shaded answer bubble,
 folded sheet with a rising line. Full rationale in
 `docs/superpowers/specs/2026-07-26-home-and-navigation-design.md`.
 
-### UI-010 [important] Home greeting names the exam, not the user — OPEN
+### UI-010 [important] Home greeting names the exam, not the user — FIXED
+
+> **Closed 11 August.** The masthead greets the student's name, and onboarding
+> asks for it: the name step was one of six unexecuted tasks merged today.
 
 Reported 2026-07-25: "in the topmost part it says Magandang gabi, UPCAT which
 is wrong. aren't we supposed to get an input for the user's name/nickname for
@@ -219,7 +222,10 @@ approved masthead line "UPCAT · 42 days to go" cannot render for anyone. An
 exam-date step belongs beside the name step. This also blocks the days-to-exam
 figure in UI-011.
 
-### UI-011 [important] Home shows one section — three of the mock's four blocks are unbuilt — OPEN
+### UI-011 [important] Home shows one section — three of the mock's four blocks are unbuilt — FIXED
+
+> **Closed 11 August.** Home carries the stats band, Up next, Practice and Your
+> tendencies.
 
 Reported 2026-07-25: "is the focus topic the only thing shown in the home? it
 feels so empty... i assume it's because we now have a dedicated progress tab
@@ -287,7 +293,15 @@ targets. That remains its own project, tracked as UI-003.
 Home composition beyond this block list was still being explored when this
 decision was recorded; see the design spec for the settled layout.
 
-### UI-012 [blocker] Focus-topic taps still strand the user — UI-001 missed two call sites — OPEN
+### UI-012 [blocker] Focus-topic taps still strand the user — UI-001 missed two call sites — STALE
+
+> **Closed 11 August, by deletion rather than by fix.** `assessment_home_tab.dart`
+> no longer exists and neither does `/study/topic/:topicId`; Home was rebuilt as
+> its own feature and topics expand in place on the Study map.
+>
+> **The pattern it describes was real and did survive elsewhere.** Looking for
+> it today found the same defect on the money path, where the paywall's close
+> control popped a stack that was never there. See UI-066.
 
 Found 2026-07-26 while mapping where each Home block navigates to, for the Home
 redesign.
@@ -318,7 +332,19 @@ the destination decides, not the call site. Worth extracting the choice into a
 helper so the rule cannot drift again, and worth a regression test that asserts
 a strong-mastery row pushes rather than replaces.
 
-### UI-013 [important] The share card was missed by the Ink & Rule sweep — OPEN
+### UI-013 [important] The share card was missed by the Ink & Rule sweep — FIXED
+
+> **Closed 11 August**, sixteen days after it was found. Both the widget and
+> the PNG renderer drew the same purple and navy gradient, and both are paper
+> and ink now, with the wordmark rule the rest of the app opens with.
+>
+> **It renders the light palette by value rather than by theme.** A share card
+> is drawn off screen to a PNG and must not follow the reader's dark mode:
+> what a student posts is a sheet of paper whatever their phone is set to.
+>
+> **This was the most public thing the app makes**, seen by people who have
+> never opened it, and it carried pre-redesign styling for the whole of the
+> redesign.
 
 Found 2026-07-26 while discussing Pro card variants.
 
@@ -854,7 +880,11 @@ blocks instead of belonging to one, which is his distinction exactly.
 
 The opening block takes no gap, since the lesson title already sits over it.
 
-### UI-041 [open] The transition after a pull does not follow the pull
+### UI-041 [important] The transition after a pull does not follow the pull — FIXED
+
+> **Closed 11 August**, and then twice more. Advancing is no longer a
+> navigation at all: the reader swaps the lesson in place, so the bar and the
+> rail never move and only the body travels. See UI-046 through UI-052.
 
 **Aedwon:** *"the animation after pulling up doesn't fit when it transitions to
 the next topic. it should of course be fluous to the pull up"*
@@ -865,7 +895,7 @@ transition, so the motion stops and a different one starts. Making it
 continuous means the next lesson is dragged into place by the same gesture,
 which is a different mechanism from the one built.
 
-### UI-042 [open] The serif does not look clean in the app
+### UI-042 [important] The serif does not look clean in the app — FIXED
 
 **Aedwon:** *"in retrospect and upon observing, the serif font doesn't look
 clean in the app. can we use something else? how about using the same font
