@@ -10,18 +10,20 @@ import 'package:cse_cet_reviewer/features/quiz/presentation/today_providers.dart
 import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:cse_cet_reviewer/core/content/content.dart';
+import 'package:drift/native.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
 void main() {
-  late AppDatabase db;
+  late ContentDatabase db;
 
   setUp(() async {
-    db = inMemoryDatabase();
+    db = ContentDatabase(NativeDatabase.memory());
 
     // Exam
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
+    await db.into(db.contentExams).insert(
+          ContentExamsCompanion.insert(
             id: 'exam_cse',
             code: 'CSE',
             name: 'Civil Service Exam',
@@ -31,8 +33,8 @@ void main() {
         );
 
     // Subject
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
+    await db.into(db.contentSubjects).insert(
+          ContentSubjectsCompanion.insert(
             id: 'sub_math',
             examId: 'exam_cse',
             name: 'Mathematics',
@@ -41,24 +43,24 @@ void main() {
         );
 
     // Topics
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
+    await db.into(db.contentTopics).insert(
+          ContentTopicsCompanion.insert(
             id: 'top_alg',
             subjectId: 'sub_math',
             name: 'Algebra',
             ordering: 1,
           ),
         );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
+    await db.into(db.contentTopics).insert(
+          ContentTopicsCompanion.insert(
             id: 'top_geo',
             subjectId: 'sub_math',
             name: 'Geometry',
             ordering: 2,
           ),
         );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
+    await db.into(db.contentTopics).insert(
+          ContentTopicsCompanion.insert(
             id: 'top_trig',
             subjectId: 'sub_math',
             name: 'Trigonometry',
@@ -69,8 +71,8 @@ void main() {
     // Questions for topics
     for (final topicId in ['top_alg', 'top_geo', 'top_trig']) {
       for (var i = 1; i <= 5; i++) {
-        await db.into(db.questions).insert(
-              QuestionsCompanion.insert(
+        await db.into(db.contentQuestions).insert(
+              ContentQuestionsCompanion.insert(
                 id: 'q_${topicId}_$i',
                 version: 1,
                 examIdsJson: jsonEncode(['exam_cse']),

@@ -11,6 +11,8 @@ import 'package:cse_cet_reviewer/features/assessment/domain/models/assessment_qu
 import 'package:cse_cet_reviewer/features/assessment/domain/models/assessment_session.dart';
 import 'package:cse_cet_reviewer/features/assessment/domain/use_cases/complete_assessment.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:cse_cet_reviewer/core/content/content.dart';
+import 'package:drift/native.dart';
 
 import '../../../../helpers/in_memory_database.dart';
 
@@ -49,7 +51,7 @@ void main() {
     db = inMemoryDatabase();
     assessmentRepo = AssessmentRepository(db);
     reviewRepo = ReviewStateRepository(db);
-    contentRepo = ContentRepository(db);
+    contentRepo = ContentRepository(contentDb);
     attemptsRepo = AttemptsRepository(db);
     useCase = CompleteAssessment(
       assessmentRepo: assessmentRepo,

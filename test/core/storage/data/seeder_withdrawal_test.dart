@@ -3,7 +3,11 @@ import 'dart:convert';
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/seeder.dart';
 import 'package:flutter/services.dart';
+import 'package:cse_cet_reviewer/core/content/content.dart';
+import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:cse_cet_reviewer/core/content/content.dart';
+import 'package:drift/native.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
@@ -58,7 +62,7 @@ void main() {
   test(
       'withdrawn question is excluded from pickers '
       'but accessible by id for history', () async {
-    final db = inMemoryDatabase();
+    final db = ContentDatabase(NativeDatabase.memory());
     addTearDown(db.close);
 
     await Seeder(db, bundle: _FixtureBundle(_v1WithdrawnJson)).maybeSeed();

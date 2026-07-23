@@ -8,7 +8,11 @@ import 'package:cse_cet_reviewer/features/quiz/domain/picker/pick_context.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/picker/question_picker.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_drill.dart';
 import 'package:flutter/services.dart';
+import 'package:cse_cet_reviewer/core/content/content.dart';
+import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:cse_cet_reviewer/core/content/content.dart';
+import 'package:drift/native.dart';
 
 import '../../../../helpers/in_memory_database.dart';
 
@@ -26,9 +30,11 @@ void main() {
 
   test('start drill stores drill origin and subtopicId', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await Seeder(db, bundle: rootBundle).maybeSeed();
-    final content = ContentRepository(db);
+    await seedContentTopicWithQuestions(contentDb, examId: "exam_cse_pro", subjectId: "subj_cse_verbal", topicId: "topic_cse_vocab", topicName: "Vocab", questionIds: List.generate(30, (i) => "q$i"));
+    final content = ContentRepository(contentDb);
     final topic = (await content.topicsBySubject('subj_cse_verbal')).first;
 
     final result = await StartDrill(
@@ -57,9 +63,11 @@ void main() {
 
   test('start drill supports 5 10 20 and all available lengths', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await Seeder(db, bundle: rootBundle).maybeSeed();
-    final content = ContentRepository(db);
+    await seedContentTopicWithQuestions(contentDb, examId: "exam_cse_pro", subjectId: "subj_cse_verbal", topicId: "topic_cse_vocab", topicName: "Vocab", questionIds: List.generate(30, (i) => "q$i"));
+    final content = ContentRepository(contentDb);
     final topic = (await content.topicsBySubject('subj_cse_verbal')).first;
 
     for (final length in [5, 10, 20, QuizPreferences.allDueSessionLength]) {
@@ -87,9 +95,11 @@ void main() {
   test('start drill falls back to General topic bucket when subtopicId is null',
       () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await Seeder(db, bundle: rootBundle).maybeSeed();
-    final content = ContentRepository(db);
+    await seedContentTopicWithQuestions(contentDb, examId: "exam_cse_pro", subjectId: "subj_cse_verbal", topicId: "topic_cse_vocab", topicName: "Vocab", questionIds: List.generate(30, (i) => "q$i"));
+    final content = ContentRepository(contentDb);
     final topic = (await content.topicsBySubject('subj_cse_verbal')).first;
 
     final result = await StartDrill(

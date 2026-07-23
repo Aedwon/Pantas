@@ -9,7 +9,11 @@ import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repositor
 import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_retake.dart';
 import 'package:flutter/services.dart';
+import 'package:cse_cet_reviewer/core/content/content.dart';
+import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:cse_cet_reviewer/core/content/content.dart';
+import 'package:drift/native.dart';
 
 import '../../../../helpers/in_memory_database.dart';
 
@@ -19,8 +23,10 @@ void main() {
   test('start retake stores retake origin and dedupes missed question ids',
       () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await Seeder(db, bundle: rootBundle).maybeSeed();
+    await seedContentTopicWithQuestions(contentDb, examId: "exam_cse_pro", subjectId: "subj_cse_verbal", topicId: "topic_cse_vocab", topicName: "Vocab", questionIds: List.generate(30, (i) => "q$i"));
     final attempts = AttemptsRepository(db);
     await attempts.save(
       _attempt(
@@ -31,7 +37,7 @@ void main() {
     );
 
     final result = await StartRetake(
-      content: ContentRepository(db),
+      content: ContentRepository(contentDb),
       attempts: attempts,
       sessions: QuizSessionRepository(db),
     )(
@@ -54,8 +60,10 @@ void main() {
 
   test('start retake caps the pool at 50 questions', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await Seeder(db, bundle: rootBundle).maybeSeed();
+    await seedContentTopicWithQuestions(contentDb, examId: "exam_cse_pro", subjectId: "subj_cse_verbal", topicId: "topic_cse_vocab", topicName: "Vocab", questionIds: List.generate(30, (i) => "q$i"));
     await _insertExtraQuestions(db, count: 55);
     final attempts = AttemptsRepository(db);
     await attempts.save(
@@ -67,7 +75,7 @@ void main() {
     );
 
     final result = await StartRetake(
-      content: ContentRepository(db),
+      content: ContentRepository(contentDb),
       attempts: attempts,
       sessions: QuizSessionRepository(db),
     )(
@@ -81,11 +89,13 @@ void main() {
 
   test('empty mistake pool returns an empty-state result', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await Seeder(db, bundle: rootBundle).maybeSeed();
+    await seedContentTopicWithQuestions(contentDb, examId: "exam_cse_pro", subjectId: "subj_cse_verbal", topicId: "topic_cse_vocab", topicName: "Vocab", questionIds: List.generate(30, (i) => "q$i"));
 
     final result = await StartRetake(
-      content: ContentRepository(db),
+      content: ContentRepository(contentDb),
       attempts: AttemptsRepository(db),
       sessions: QuizSessionRepository(db),
     )(

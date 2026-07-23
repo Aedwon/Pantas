@@ -3,19 +3,21 @@ import 'dart:convert';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:cse_cet_reviewer/core/content/content.dart';
+import 'package:drift/native.dart';
 
 import '../../../../helpers/in_memory_database.dart';
 
 void main() {
-  late AppDatabase db;
+  late ContentDatabase db;
   late ContentRepository repo;
 
   setUp(() async {
-    db = inMemoryDatabase();
+    db = ContentDatabase(NativeDatabase.memory());
     repo = ContentRepository(db);
 
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
+    await db.into(db.contentExams).insert(
+          ContentExamsCompanion.insert(
             id: 'exam_cse_pro',
             code: 'CSE_PRO',
             name: 'CSE Pro',
@@ -23,24 +25,24 @@ void main() {
             language: 'en',
           ),
         );
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
+    await db.into(db.contentSubjects).insert(
+          ContentSubjectsCompanion.insert(
             id: 's1',
             examId: 'exam_cse_pro',
             name: 'Verbal',
             ordering: 1,
           ),
         );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
+    await db.into(db.contentTopics).insert(
+          ContentTopicsCompanion.insert(
             id: 't1',
             subjectId: 's1',
             name: 'Vocabulary',
             ordering: 1,
           ),
         );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
+    await db.into(db.contentTopics).insert(
+          ContentTopicsCompanion.insert(
             id: 't_other',
             subjectId: 's1',
             name: 'Other',
@@ -49,8 +51,8 @@ void main() {
         );
 
     // Title match
-    await db.into(db.lessons).insert(
-          LessonsCompanion.insert(
+    await db.into(db.contentLessons).insert(
+          ContentLessonsCompanion.insert(
             id: 'l_title',
             topicId: 't1',
             title: 'Venn diagrams',
@@ -61,8 +63,8 @@ void main() {
         );
 
     // Summary match
-    await db.into(db.lessons).insert(
-          LessonsCompanion.insert(
+    await db.into(db.contentLessons).insert(
+          ContentLessonsCompanion.insert(
             id: 'l_summary',
             topicId: 't1',
             title: 'Summary title',
@@ -73,8 +75,8 @@ void main() {
         );
 
     // Body match
-    await db.into(db.lessons).insert(
-          LessonsCompanion.insert(
+    await db.into(db.contentLessons).insert(
+          ContentLessonsCompanion.insert(
             id: 'l_body',
             topicId: 't1',
             title: 'Algebraic Expressions',
@@ -97,8 +99,8 @@ void main() {
         );
 
     // Nothing match
-    await db.into(db.lessons).insert(
-          LessonsCompanion.insert(
+    await db.into(db.contentLessons).insert(
+          ContentLessonsCompanion.insert(
             id: 'l_none',
             topicId: 't1',
             title: 'Unrelated title',

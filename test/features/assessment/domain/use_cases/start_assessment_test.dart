@@ -6,11 +6,13 @@ import 'package:cse_cet_reviewer/core/storage/data/repos/review_state_repository
 import 'package:cse_cet_reviewer/features/assessment/domain/services/assessment_question_selector.dart';
 import 'package:cse_cet_reviewer/features/assessment/domain/use_cases/start_assessment.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:cse_cet_reviewer/core/content/content.dart';
+import 'package:drift/native.dart';
 
 import '../../../../helpers/in_memory_database.dart';
 
 StartAssessment _makeUseCase(AppDatabase db) {
-  final content = ContentRepository(db);
+  final content = ContentRepository(contentDb);
   final review = ReviewStateRepository(db);
   return StartAssessment(AssessmentQuestionSelector(content, review));
 }

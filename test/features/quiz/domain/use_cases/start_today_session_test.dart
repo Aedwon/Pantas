@@ -11,7 +11,11 @@ import 'package:cse_cet_reviewer/features/quiz/domain/picker/question_picker.dar
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/build_today_plan.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_today_session.dart';
 import 'package:flutter/services.dart';
+import 'package:cse_cet_reviewer/core/content/content.dart';
+import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:cse_cet_reviewer/core/content/content.dart';
+import 'package:drift/native.dart';
 
 import '../../../../helpers/in_memory_database.dart';
 
@@ -38,9 +42,11 @@ void main() {
       'per-topic start builds context for selected topic and stores '
       'today_topic origin', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await Seeder(db, bundle: rootBundle).maybeSeed();
-    final content = ContentRepository(db);
+    await seedContentTopicWithQuestions(contentDb, examId: "exam_cse_pro", subjectId: "subj_cse_verbal", topicId: "topic_cse_vocab", topicName: "Vocab", questionIds: List.generate(30, (i) => "q$i"));
+    final content = ContentRepository(contentDb);
     final topic = (await content.topicsBySubject('subj_cse_verbal')).first;
 
     final result = await StartTodaySession(
@@ -78,11 +84,13 @@ void main() {
 
   test('interleaved start stores today_interleaved origin', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await Seeder(db, bundle: rootBundle).maybeSeed();
+    await seedContentTopicWithQuestions(contentDb, examId: "exam_cse_pro", subjectId: "subj_cse_verbal", topicId: "topic_cse_vocab", topicName: "Vocab", questionIds: List.generate(30, (i) => "q$i"));
 
     final result = await StartTodaySession(
-      content: ContentRepository(db),
+      content: ContentRepository(contentDb),
       sessions: QuizSessionRepository(db),
       topicPicker: const _EmptyPicker(),
       interleavedPicker: const _TakingPicker(),
@@ -109,11 +117,13 @@ void main() {
   test('empty picker output returns a user-facing no questions failure',
       () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await Seeder(db, bundle: rootBundle).maybeSeed();
+    await seedContentTopicWithQuestions(contentDb, examId: "exam_cse_pro", subjectId: "subj_cse_verbal", topicId: "topic_cse_vocab", topicName: "Vocab", questionIds: List.generate(30, (i) => "q$i"));
 
     final result = await StartTodaySession(
-      content: ContentRepository(db),
+      content: ContentRepository(contentDb),
       sessions: QuizSessionRepository(db),
       topicPicker: const _EmptyPicker(),
       interleavedPicker: const _EmptyPicker(),
@@ -140,8 +150,10 @@ void main() {
 
   test('a supplied plan is the session that gets created', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    final content = ContentRepository(db);
+    final content = ContentRepository(contentDb);
     final sessions = QuizSessionRepository(db);
 
     final plan = TodaySessionPlan(
@@ -170,8 +182,10 @@ void main() {
 
   test('an empty plan reports no questions', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    final content = ContentRepository(db);
+    final content = ContentRepository(contentDb);
     final sessions = QuizSessionRepository(db);
 
     final result = await StartTodaySession(
@@ -190,8 +204,10 @@ void main() {
 
   test('the named topic is recorded under the interleaved tail', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    final content = ContentRepository(db);
+    final content = ContentRepository(contentDb);
     final sessions = QuizSessionRepository(db);
 
     final plan = TodaySessionPlan(

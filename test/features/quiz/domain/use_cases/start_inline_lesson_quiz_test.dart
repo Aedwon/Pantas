@@ -4,7 +4,11 @@ import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repositor
 import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_inline_lesson_quiz.dart';
 import 'package:flutter/services.dart';
+import 'package:cse_cet_reviewer/core/content/content.dart';
+import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:cse_cet_reviewer/core/content/content.dart';
+import 'package:drift/native.dart';
 
 import '../../../../helpers/in_memory_database.dart';
 
@@ -14,9 +18,11 @@ void main() {
   test('inline lesson quiz stores inline origin lessonId and subtopicId',
       () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await Seeder(db, bundle: rootBundle).maybeSeed();
-    final content = ContentRepository(db);
+    await seedContentTopicWithQuestions(contentDb, examId: "exam_cse_pro", subjectId: "subj_cse_verbal", topicId: "topic_cse_vocab", topicName: "Vocab", questionIds: List.generate(30, (i) => "q$i"));
+    final content = ContentRepository(contentDb);
     final lesson = (await content.lessonsByTopic('topic_cse_vocab')).first;
 
     final result = await StartInlineLessonQuiz(
@@ -42,9 +48,11 @@ void main() {
 
   test('inline lesson quiz requests exactly five questions', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await Seeder(db, bundle: rootBundle).maybeSeed();
-    final content = ContentRepository(db);
+    await seedContentTopicWithQuestions(contentDb, examId: "exam_cse_pro", subjectId: "subj_cse_verbal", topicId: "topic_cse_vocab", topicName: "Vocab", questionIds: List.generate(30, (i) => "q$i"));
+    final content = ContentRepository(contentDb);
     final lesson = (await content.lessonsByTopic('topic_cse_vocab')).first;
 
     final result = await StartInlineLessonQuiz(
@@ -65,9 +73,11 @@ void main() {
   test('inline lesson quiz falls back to topic when lesson has no subtopicId',
       () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await Seeder(db, bundle: rootBundle).maybeSeed();
-    final content = ContentRepository(db);
+    await seedContentTopicWithQuestions(contentDb, examId: "exam_cse_pro", subjectId: "subj_cse_verbal", topicId: "topic_cse_vocab", topicName: "Vocab", questionIds: List.generate(30, (i) => "q$i"));
+    final content = ContentRepository(contentDb);
     final lesson = (await content.lessonsByTopic('topic_cse_vocab')).first;
 
     final result = await StartInlineLessonQuiz(
