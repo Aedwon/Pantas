@@ -96,7 +96,6 @@ Future<void> _bootstrap(
   await registerDevProSwitch(container);
   await _installContentSeed(container);
   await bootstrapRevenueCat(container);
-  await container.read(seederProvider).maybeSeed();
 
   final notificationsLifecycleObserver = NotificationsLifecycleObserver(
     service: container.read(notificationServiceProvider),

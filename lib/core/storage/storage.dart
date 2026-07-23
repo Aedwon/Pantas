@@ -27,6 +27,8 @@ export 'package:cse_cet_reviewer/core/storage/domain/assessment_question.dart';
 export 'package:cse_cet_reviewer/core/storage/domain/assessment_question_selector.dart';
 export 'package:cse_cet_reviewer/core/storage/domain/passage.dart';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
+
 final appDatabaseProvider = Provider<AppDatabase>(
   (ref) => throw UnimplementedError(
     'Override appDatabaseProvider in main bootstrap or tests',
@@ -34,7 +36,7 @@ final appDatabaseProvider = Provider<AppDatabase>(
 );
 
 final contentRepositoryProvider = Provider<ContentRepository>(
-  (ref) => ContentRepository(ref.watch(appDatabaseProvider)),
+  (ref) => ContentRepository(ref.watch(contentDatabaseProvider)),
 );
 
 final attemptsRepositoryProvider = Provider<AttemptsRepository>(
