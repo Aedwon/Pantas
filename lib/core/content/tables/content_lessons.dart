@@ -12,6 +12,14 @@ class ContentLessons extends Table {
   TextColumn get title => text()();
   TextColumn get summary => text()();
   IntColumn get estimatedMinutes => integer()();
+
+  /// Position within its topic.
+  ///
+  /// **The app sorts every lesson list by this**, so without it a structured
+  /// course is served in whatever order the rows come back. 141 of the 144
+  /// authored lessons carry one; the three without are unplaced and fall to 0,
+  /// which is what the app's own schema does with them.
+  IntColumn get ordering => integer().withDefault(const Constant(0))();
   TextColumn get bodyJson => text()();
 
   @override

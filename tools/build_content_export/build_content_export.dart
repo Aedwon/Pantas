@@ -243,6 +243,7 @@ void main(List<String> args) {
       'title': l['title'],
       'summary': l['summary'],
       'estimatedMinutes': l['estimatedMinutes'],
+      'ordering': l['ordering'] ?? 0,
       'body': l['bodyJson'],
     });
   }

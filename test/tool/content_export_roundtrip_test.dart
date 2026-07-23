@@ -78,6 +78,16 @@ void main() {
             .customSelect('SELECT COUNT(*) AS c FROM content_topics')
             .getSingle())
         .read<int>('c');
+    // 141 of 144 lessons carry a position within their topic. The app sorts
+    // every lesson list by it, so losing it serves a structured course in
+    // arbitrary order.
+    final orderedLessons = (await db
+            .customSelect(
+              'SELECT COUNT(*) AS c FROM content_lessons WHERE ordering > 0',
+            )
+            .getSingle())
+        .read<int>('c');
+    expect(orderedLessons, 141);
     final examsCount = (await db
             .customSelect('SELECT COUNT(*) AS c FROM content_exams')
             .getSingle())

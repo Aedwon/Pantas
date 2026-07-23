@@ -23,9 +23,12 @@ void main() {
     return rows.map((row) => row.read<String>('name')).toList();
   }
 
-  test('content database creates all content tables at schema version 4',
+  test('content database creates all content tables at schema version 5',
       () async {
-    expect(db.schemaVersion, equals(4));
+    // 5 since 11 August: lessons carry their ordering, which the app sorts
+    // every lesson list by. Without it a structured course is served in
+    // whatever order the rows come back.
+    expect(db.schemaVersion, equals(5));
     expect(
       await tableNames(db),
       containsAll(<String>[

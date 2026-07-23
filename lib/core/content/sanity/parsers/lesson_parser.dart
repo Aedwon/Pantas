@@ -21,6 +21,9 @@ ContentLessonsCompanion parseLesson(Map<String, Object?> doc) {
     title: stringField(doc, doctype, 'title'),
     summary: stringField(doc, doctype, 'summary'),
     estimatedMinutes: intField(doc, doctype, 'estimatedMinutes'),
+    // Absent means unplaced, which sorts first, exactly as the app's own
+    // schema treats the three lessons that carry no ordering.
+    ordering: Value(doc['ordering'] is int ? doc['ordering']! as int : 0),
     bodyJson: portableTextToJson(doc['body'], doctype: doctype, field: 'body'),
   );
 }
