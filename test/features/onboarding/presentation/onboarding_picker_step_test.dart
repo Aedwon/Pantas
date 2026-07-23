@@ -4,7 +4,6 @@ import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/onboarding/presentation/onboarding_picker_step.dart';
-import 'package:drift/drift.dart' hide isNotNull, isNull;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -27,24 +26,20 @@ void main() {
   setUp(() async {
     db = inMemoryDatabase();
     contentDb = openTestContentDatabase();
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'cse',
-            code: 'CSE',
-            name: 'Civil Service Exam',
-            shortName: 'CSE',
-            language: 'en',
-          ),
-        );
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'upcat',
-            code: 'UPCAT',
-            name: 'UPCAT',
-            shortName: 'UPCAT',
-            language: 'en',
-          ),
-        );
+    await seedContentExam(
+      contentDb,
+      examId: 'cse',
+      code: 'CSE',
+      name: 'Civil Service Exam',
+      shortName: 'CSE',
+    );
+    await seedContentExam(
+      contentDb,
+      examId: 'upcat',
+      code: 'UPCAT',
+      name: 'UPCAT',
+      shortName: 'UPCAT',
+    );
   });
 
   tearDown(() => db.close());
@@ -169,16 +164,14 @@ void main() {
   });
 
   testWidgets('a custom track is never listed as an exam', (tester) async {
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'custom_1',
-            code: 'custom',
-            name: 'My Custom Exam',
-            shortName: 'My Custom Exam',
-            language: 'en',
-            isCustom: const Value(true),
-          ),
-        );
+    await seedContentExam(
+      contentDb,
+      examId: 'custom_1',
+      code: 'custom',
+      name: 'My Custom Exam',
+      shortName: 'My Custom Exam',
+      isCustom: true,
+    );
 
     await pumpStep(tester);
 

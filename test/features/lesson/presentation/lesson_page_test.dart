@@ -6,7 +6,6 @@ import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_page.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/pull_to_advance.dart';
-import 'package:drift/drift.dart' show Value;
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
@@ -22,53 +21,45 @@ void main() {
     db = inMemoryDatabase();
     contentDb = openTestContentDatabase();
 
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'e1',
-            code: 'CSE',
-            name: 'Civil Service Exam',
-            shortName: 'CSE',
-            language: 'en',
-          ),
-        );
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
-            id: 's1',
-            examId: 'e1',
-            name: 'Verbal',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
-            id: 't1',
-            subjectId: 's1',
-            name: 'Vocabulary',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.lessons).insert(
-          LessonsCompanion.insert(
-            id: 'l1',
-            topicId: 't1',
-            title: 'Vocabulary Basics',
-            summary: 'Core vocab',
-            bodyJson: jsonEncode(<Map<String, Object?>>[
-              {
-                '_type': 'block',
-                'style': 'normal',
-                'children': <Map<String, Object?>>[
-                  {
-                    '_type': 'span',
-                    'text': 'Synonyms share meaning.',
-                    'marks': <String>[],
-                  },
-                ],
-              },
-            ]),
-            estimatedMinutes: 5,
-          ),
-        );
+    await seedContentExam(
+      contentDb,
+      examId: 'e1',
+      code: 'CSE',
+      name: 'Civil Service Exam',
+      shortName: 'CSE',
+    );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 's1',
+      examId: 'e1',
+      name: 'Verbal',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 't1',
+      subjectId: 's1',
+      name: 'Vocabulary',
+    );
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l1',
+      topicId: 't1',
+      title: 'Vocabulary Basics',
+      summary: 'Core vocab',
+      bodyJson: jsonEncode(<Map<String, Object?>>[
+        {
+          '_type': 'block',
+          'style': 'normal',
+          'children': <Map<String, Object?>>[
+            {
+              '_type': 'span',
+              'text': 'Synonyms share meaning.',
+              'marks': <String>[],
+            },
+          ],
+        },
+      ]),
+    );
   });
 
   tearDown(() => db.close());
@@ -141,29 +132,28 @@ void main() {
     // Aedwon: "when pulling up, the entire app still has a moment of loading
     // sort of". The skeleton replaces the whole body, chrome included, so a
     // swap flashed the bar and the rail out and back.
-    await db.into(db.lessons).insert(
-          LessonsCompanion.insert(
-            id: 'l2',
-            topicId: 't1',
-            title: 'Antonyms',
-            summary: 'Opposites',
-            bodyJson: jsonEncode([
-              {
-                '_type': 'block',
-                'style': 'normal',
-                'children': [
-                  {
-                    '_type': 'span',
-                    'text': 'Antonyms are opposites.',
-                    'marks': <String>[],
-                  },
-                ],
-              },
-            ]),
-            estimatedMinutes: 4,
-            ordering: const Value(2),
-          ),
-        );
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l2',
+      topicId: 't1',
+      title: 'Antonyms',
+      summary: 'Opposites',
+      bodyJson: jsonEncode([
+        {
+          '_type': 'block',
+          'style': 'normal',
+          'children': [
+            {
+              '_type': 'span',
+              'text': 'Antonyms are opposites.',
+              'marks': <String>[],
+            },
+          ],
+        },
+      ]),
+      estimatedMinutes: 4,
+      ordering: 2,
+    );
 
     await tester.pumpAppWithProviders(
       const LessonPage(lessonId: 'l1'),

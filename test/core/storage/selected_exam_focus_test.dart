@@ -29,15 +29,13 @@ void main() {
   });
 
   Future<void> insertExam(String id, String name) async {
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: id,
-            code: id.toUpperCase(),
-            name: name,
-            shortName: id.toUpperCase(),
-            language: 'en',
-          ),
-        );
+    await seedContentExam(
+      contentDb,
+      examId: id,
+      code: id.toUpperCase(),
+      name: name,
+      shortName: id.toUpperCase(),
+    );
   }
 
   test('uses persisted selected exam when valid', () async {

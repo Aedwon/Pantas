@@ -24,15 +24,13 @@ void main() {
   setUp(() async {
     db = inMemoryDatabase();
     contentDb = openTestContentDatabase();
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'cse',
-            code: 'CSE',
-            name: 'Civil Service Exam',
-            shortName: 'CSE',
-            language: 'en',
-          ),
-        );
+    await seedContentExam(
+      contentDb,
+      examId: 'cse',
+      code: 'CSE',
+      name: 'Civil Service Exam',
+      shortName: 'CSE',
+    );
   });
 
   tearDown(() => db.close());

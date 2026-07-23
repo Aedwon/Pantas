@@ -21,15 +21,13 @@ void main() {
   setUp(() async {
     db = inMemoryDatabase();
     contentDb = openTestContentDatabase();
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'e1',
-            code: 'UPCAT',
-            name: 'UP College Admission Test',
-            shortName: 'UPCAT',
-            language: 'en',
-          ),
-        );
+    await seedContentExam(
+      contentDb,
+      examId: 'e1',
+      code: 'UPCAT',
+      name: 'UP College Admission Test',
+      shortName: 'UPCAT',
+    );
     await AppPreferencesRepository(db).setSelectedExamId('e1');
   });
 

@@ -32,16 +32,19 @@ Future<void> seedContentExam(
   required String examId,
   String? code,
   String? name,
+  String? shortName,
   int ordering = 1,
+  bool isCustom = false,
 }) async {
   await db.into(db.contentExams).insertOnConflictUpdate(
         ContentExamsCompanion.insert(
           id: examId,
           code: code ?? examId,
           name: name ?? examId,
-          shortName: code ?? examId,
+          shortName: shortName ?? code ?? examId,
           language: 'en',
           ordering: ordering,
+          isCustom: Value(isCustom),
           schemaVersion: 1,
           updatedAt: _seedStamp,
         ),
@@ -93,6 +96,7 @@ Future<void> seedContentLesson(
   String? title,
   String summary = 'Summary',
   List<Map<String, Object?>>? body,
+  String? bodyJson,
   int estimatedMinutes = 5,
   int ordering = 0,
 }) async {
@@ -102,7 +106,8 @@ Future<void> seedContentLesson(
           topicId: topicId,
           title: title ?? 'Lesson $lessonId',
           summary: summary,
-          bodyJson: jsonEncode(body ?? const <Map<String, Object?>>[]),
+          bodyJson:
+              bodyJson ?? jsonEncode(body ?? const <Map<String, Object?>>[]),
           estimatedMinutes: estimatedMinutes,
           ordering: Value(ordering),
           schemaVersion: 1,
@@ -163,6 +168,62 @@ Future<void> seedContentQuestion(
           updatedAt: _seedStamp,
         ),
       );
+  await db.into(db.contentQuestionExams).insertOnConflictUpdate(
+        ContentQuestionExamsCompanion.insert(
+          questionId: questionId,
+          examId: examId,
+        ),
+      );
+}
+
+/// Seeds a question whose choices are given explicitly, keeping the ids the
+/// caller chose. Tests that assert on a chosen answer name those ids, so a
+/// helper that invented its own would quietly change what they check.
+///
+/// [choices] takes the shape the old asset used: id, label, text, isCorrect.
+Future<void> seedContentQuestionWithChoices(
+  ContentDatabase db, {
+  required String questionId,
+  required String topicId,
+  required String examId,
+  required List<Map<String, Object?>> choices,
+  String? stem,
+  String? explanation,
+  String? lessonId,
+  String? passageId,
+  bool isActive = true,
+  int version = 1,
+}) async {
+  await db.into(db.contentQuestions).insertOnConflictUpdate(
+        ContentQuestionsCompanion.insert(
+          id: questionId,
+          version: version,
+          topicId: topicId,
+          lessonId: Value(lessonId),
+          passageId: Value(passageId),
+          language: 'en',
+          stemJson: _portableText(stem ?? 'Question $questionId?'),
+          explanationJson: _portableText(explanation ?? 'Explanation'),
+          isActive: Value(isActive),
+          schemaVersion: 1,
+          updatedAt: _seedStamp,
+        ),
+      );
+  var ordering = 1;
+  for (final choice in choices) {
+    await db.into(db.contentChoices).insertOnConflictUpdate(
+          ContentChoicesCompanion.insert(
+            id: choice['id']! as String,
+            questionId: questionId,
+            label: choice['label']! as String,
+            textValue: choice['text']! as String,
+            isCorrect: choice['isCorrect'] == true,
+            ordering: ordering++,
+            schemaVersion: 1,
+            updatedAt: _seedStamp,
+          ),
+        );
+  }
   await db.into(db.contentQuestionExams).insertOnConflictUpdate(
         ContentQuestionExamsCompanion.insert(
           questionId: questionId,

@@ -1,7 +1,5 @@
-import 'dart:convert';
 
 import 'package:cse_cet_reviewer/core/content/content.dart';
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
@@ -74,7 +72,7 @@ void main() {
       topicName: 'Vocab',
       questionIds: List.generate(30, (i) => 'q$i'),
     );
-    await _insertExtraQuestions(db, count: 55);
+    await _insertExtraQuestions(contentDb, count: 55);
     final attempts = AttemptsRepository(db);
     await attempts.save(
       _attempt(
@@ -149,24 +147,24 @@ Attempt _attempt({
   );
 }
 
-Future<void> _insertExtraQuestions(AppDatabase db, {required int count}) async {
-  final topic = (await db.select(db.topics).get()).first;
-  final choices = jsonEncode([
+Future<void> _insertExtraQuestions(
+  ContentDatabase contentDb, {
+  required int count,
+}) async {
+  final topic = (await contentDb.select(contentDb.contentTopics).get()).first;
+  const choices = [
     {'id': 'wrong', 'label': 'A', 'text': 'Wrong', 'isCorrect': false},
     {'id': 'correct', 'label': 'B', 'text': 'Correct', 'isCorrect': true},
-  ]);
+  ];
   for (var i = 0; i < count; i++) {
-    await db.into(db.questions).insert(
-          QuestionsCompanion.insert(
-            id: 'extra_$i',
-            version: 1,
-            examIdsJson: jsonEncode(['exam_cse_pro']),
-            topicId: topic.id,
-            language: 'en',
-            stem: 'Extra $i',
-            choicesJson: choices,
-            explanation: 'Explanation',
-          ),
-        );
+    await seedContentQuestionWithChoices(
+      contentDb,
+      questionId: 'extra_$i',
+      topicId: topic.id,
+      examId: 'exam_cse_pro',
+      choices: choices,
+      stem: 'Extra $i',
+      explanation: 'Explanation',
+    );
   }
 }

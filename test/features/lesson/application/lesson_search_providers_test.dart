@@ -4,7 +4,6 @@ import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/lesson/application/lesson_search_providers.dart';
-import 'package:drift/drift.dart' hide isNotNull, isNull;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -19,87 +18,77 @@ void main() {
     db = inMemoryDatabase();
     contentDb = openTestContentDatabase();
 
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'exam_cse_pro',
-            code: 'CSE_PRO',
-            name: 'CSE Pro',
-            shortName: 'CSE Pro',
-            language: 'en',
-          ),
-        );
+    await seedContentExam(
+      contentDb,
+      examId: 'exam_cse_pro',
+      code: 'CSE_PRO',
+      name: 'CSE Pro',
+      shortName: 'CSE Pro',
+    );
     await db.into(db.devicePrefs).insert(
           DevicePrefsCompanion.insert(
             key: 'selected_exam_id',
             value: 'exam_cse_pro',
           ),
         );
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
-            id: 's1',
-            examId: 'exam_cse_pro',
-            name: 'Verbal',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
-            id: 't1',
-            subjectId: 's1',
-            name: 'Vocabulary',
-            ordering: 1,
-          ),
-        );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 's1',
+      examId: 'exam_cse_pro',
+      name: 'Verbal',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 't1',
+      subjectId: 's1',
+      name: 'Vocabulary',
+    );
 
     // l1: Title match ("Venn diagrams")
-    await db.into(db.lessons).insert(
-          LessonsCompanion.insert(
-            id: 'l1',
-            topicId: 't1',
-            title: 'Venn diagrams',
-            summary: 'Summary for Venn',
-            bodyJson: jsonEncode([
-              {
-                '_type': 'block',
-                'style': 'normal',
-                'children': [
-                  {
-                    '_type': 'span',
-                    'text': 'Diagram content',
-                    'marks': <String>[],
-                  },
-                ],
-              },
-            ]),
-            estimatedMinutes: 5,
-            ordering: const Value(1),
-          ),
-        );
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l1',
+      topicId: 't1',
+      title: 'Venn diagrams',
+      summary: 'Summary for Venn',
+      bodyJson: jsonEncode([
+        {
+          '_type': 'block',
+          'style': 'normal',
+          'children': [
+            {
+              '_type': 'span',
+              'text': 'Diagram content',
+              'marks': <String>[],
+            },
+          ],
+        },
+      ]),
+      ordering: 1,
+    );
 
     // l2: Body-only match ("swap the plan")
-    await db.into(db.lessons).insert(
-          LessonsCompanion.insert(
-            id: 'l2',
-            topicId: 't1',
-            title: 'Algebraic Expressions',
-            summary: 'Summary for Expressions',
-            bodyJson: jsonEncode([
-              {
-                '_type': 'block',
-                'style': 'normal',
-                'children': [
-                  {
-                    '_type': 'span',
-                    'text': 'Less than means swap the plan completely.',
-                    'marks': <String>[],
-                  },
-                ],
-              },
-            ]),
-            estimatedMinutes: 5,
-            ordering: const Value(2),
-          ),
-        );
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l2',
+      topicId: 't1',
+      title: 'Algebraic Expressions',
+      summary: 'Summary for Expressions',
+      bodyJson: jsonEncode([
+        {
+          '_type': 'block',
+          'style': 'normal',
+          'children': [
+            {
+              '_type': 'span',
+              'text': 'Less than means swap the plan completely.',
+              'marks': <String>[],
+            },
+          ],
+        },
+      ]),
+      ordering: 2,
+    );
 
     container = ProviderContainer(
       overrides: [

@@ -4,7 +4,6 @@ import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/lesson/application/reader_providers.dart';
-import 'package:drift/drift.dart' hide isNull;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -27,44 +26,36 @@ void main() {
     addTearDown(container.dispose);
     addTearDown(db.close);
 
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'e1',
-            code: 'CSE',
-            name: 'Civil Service Exam',
-            shortName: 'CSE',
-            language: 'en',
-          ),
-        );
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
-            id: 's1',
-            examId: 'e1',
-            name: 'Science',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
-            id: 't1',
-            subjectId: 's1',
-            name: 'Chemistry',
-            ordering: 1,
-          ),
-        );
+    await seedContentExam(
+      contentDb,
+      examId: 'e1',
+      code: 'CSE',
+      name: 'Civil Service Exam',
+      shortName: 'CSE',
+    );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 's1',
+      examId: 'e1',
+      name: 'Science',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 't1',
+      subjectId: 's1',
+      name: 'Chemistry',
+    );
     var order = 1;
     for (final id in ['l1', 'l2', 'l3']) {
-      await db.into(db.lessons).insert(
-            LessonsCompanion.insert(
-              id: id,
-              topicId: 't1',
-              title: 'Lesson $id',
-              summary: 'Summary',
-              bodyJson: jsonEncode(<Map<String, Object?>>[]),
-              estimatedMinutes: 10,
-              ordering: Value(order++),
-            ),
-          );
+      await seedContentLesson(
+        contentDb,
+        lessonId: id,
+        topicId: 't1',
+        title: 'Lesson $id',
+        bodyJson: jsonEncode(<Map<String, Object?>>[]),
+        estimatedMinutes: 10,
+        ordering: order++,
+      );
     }
     await container
         .read(appPreferencesRepositoryProvider)
