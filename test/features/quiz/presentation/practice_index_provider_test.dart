@@ -9,14 +9,16 @@ import '../../../helpers/in_memory_database.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
   late ProviderContainer container;
 
   setUp(() {
     db = inMemoryDatabase();
+    contentDb = openTestContentDatabase();
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
-        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
   });
@@ -33,8 +35,8 @@ void main() {
   });
 
   test('topics arrive under their subject in ordering', () async {
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'exam_cse_pro',
       topicId: 'topic_algebra',
       topicName: 'Algebra',
@@ -49,8 +51,8 @@ void main() {
   });
 
   test('a lesson read is marked read', () async {
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'exam_cse_pro',
       topicId: 'topic_algebra',
       topicName: 'Algebra',

@@ -14,9 +14,11 @@ import '../../../helpers/in_memory_database.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
 
   setUp(() async {
     db = inMemoryDatabase();
+    contentDb = openTestContentDatabase();
 
     // Exam 1
     await db.into(db.exams).insert(
@@ -140,8 +142,7 @@ void main() {
         ProviderScope(
           overrides: [
             appDatabaseProvider.overrideWithValue(db),
-            contentDatabaseProvider
-                .overrideWithValue(openTestContentDatabase()),
+            contentDatabaseProvider.overrideWithValue(contentDb),
           ],
           child: MaterialApp(
             theme: buildLightTheme(),

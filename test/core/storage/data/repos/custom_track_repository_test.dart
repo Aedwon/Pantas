@@ -37,7 +37,6 @@ void main() {
       subjectId: 'sci',
       examId: 'exam_upcat',
       name: 'Science',
-      ordering: 1,
     );
     await seedContentTopic(
       contentDb,

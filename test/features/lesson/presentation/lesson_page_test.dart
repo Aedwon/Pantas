@@ -16,9 +16,11 @@ import '../../../helpers/pump_app.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
 
   setUp(() async {
     db = inMemoryDatabase();
+    contentDb = openTestContentDatabase();
 
     await db.into(db.exams).insert(
           ExamsCompanion.insert(
@@ -76,7 +78,7 @@ void main() {
       const LessonPage(lessonId: 'l1'),
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
-        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
     await tester.pumpAndSettle();
@@ -90,7 +92,7 @@ void main() {
       const LessonPage(lessonId: 'l1'),
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
-        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
     await tester.pumpAndSettle();
@@ -123,7 +125,7 @@ void main() {
       router,
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
-        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
     await tester.pumpAndSettle();
@@ -167,7 +169,7 @@ void main() {
       const LessonPage(lessonId: 'l1'),
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
-        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
     await tester.pumpAndSettle();

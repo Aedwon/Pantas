@@ -35,9 +35,11 @@ GoRouter _buildRouter() => GoRouter(
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
 
   setUp(() async {
     db = inMemoryDatabase();
+    contentDb = openTestContentDatabase();
     await db.into(db.exams).insert(
           ExamsCompanion.insert(
             id: 'e1',
@@ -119,7 +121,7 @@ void main() {
       _buildRouter(),
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
-        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
     await tester.pumpAndSettle();
@@ -135,7 +137,7 @@ void main() {
       _buildRouter(),
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
-        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
     await tester.pumpAndSettle();
@@ -156,7 +158,7 @@ void main() {
       _buildRouter(),
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
-        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
     await tester.pumpAndSettle();
@@ -172,7 +174,7 @@ void main() {
       _buildRouter(),
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
-        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
     await tester.pumpAndSettle();
@@ -194,7 +196,7 @@ void main() {
       _buildRouter(),
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
-        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
     await tester.pumpAndSettle();
@@ -218,7 +220,7 @@ void main() {
       _buildRouter(),
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
-        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
     await tester.pumpAndSettle();
@@ -237,7 +239,7 @@ void main() {
       _buildRouter(),
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
-        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
     await tester.pumpAndSettle();

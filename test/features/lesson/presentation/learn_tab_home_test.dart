@@ -14,6 +14,7 @@ import '../../../helpers/pump_app.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
 
   GoRouter buildRouter() => GoRouter(
         initialLocation: '/study',
@@ -42,6 +43,7 @@ void main() {
 
   setUp(() async {
     db = inMemoryDatabase();
+    contentDb = openTestContentDatabase();
     await db.into(db.exams).insert(
           ExamsCompanion.insert(
             id: 'e1',
@@ -117,7 +119,7 @@ void main() {
       buildRouter(),
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
-        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
     await tester.pumpAndSettle();
@@ -149,7 +151,7 @@ void main() {
       buildRouter(),
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
-        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
     await tester.pumpAndSettle();

@@ -12,14 +12,16 @@ import '../../../helpers/in_memory_database.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
   late ProviderContainer container;
 
   setUp(() {
     db = inMemoryDatabase();
+    contentDb = openTestContentDatabase();
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
-        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
   });
@@ -119,8 +121,8 @@ void main() {
 
   test('takes unread lessons from the weakest topics first', () async {
     await setupExam('upcat');
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'chemistry',
       topicName: 'Chemistry',
@@ -135,8 +137,8 @@ void main() {
             ordering: 0,
           ),
         );
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'algebra',
       topicName: 'Algebra',
@@ -151,8 +153,8 @@ void main() {
             ordering: 0,
           ),
         );
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'geometry',
       topicName: 'Geometry',
@@ -241,8 +243,8 @@ void main() {
 
   test('never returns a lesson already read', () async {
     await setupExam('upcat');
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'chemistry',
       topicName: 'Chemistry',
@@ -294,8 +296,8 @@ void main() {
 
   test('stops at three', () async {
     await setupExam('upcat');
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'chemistry',
       topicName: 'Chemistry',
@@ -360,8 +362,8 @@ void main() {
   test('all read in the weak topics is a distinct state from no content',
       () async {
     await setupExam('upcat');
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'chemistry',
       topicName: 'Chemistry',
@@ -403,8 +405,8 @@ void main() {
 
   test('no lessons at all is not reported as all read', () async {
     await setupExam('upcat');
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'chemistry',
       topicName: 'Chemistry',
@@ -429,8 +431,8 @@ void main() {
   test('a topic with no answered questions does not jump the ranking',
       () async {
     await setupExam('upcat');
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'chemistry',
       topicName: 'Chemistry',
@@ -445,8 +447,8 @@ void main() {
             ordering: 0,
           ),
         );
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'algebra',
       topicName: 'Algebra',

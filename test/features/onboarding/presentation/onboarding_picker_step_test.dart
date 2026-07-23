@@ -22,9 +22,11 @@ class _ThrowingPrefsRepo extends AppPreferencesRepository {
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
 
   setUp(() async {
     db = inMemoryDatabase();
+    contentDb = openTestContentDatabase();
     await db.into(db.exams).insert(
           ExamsCompanion.insert(
             id: 'cse',
@@ -55,7 +57,7 @@ void main() {
       ProviderScope(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
-          contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+          contentDatabaseProvider.overrideWithValue(contentDb),
         ],
         child: MaterialApp(
           theme: buildLightTheme(),
@@ -117,7 +119,7 @@ void main() {
       ProviderScope(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
-          contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+          contentDatabaseProvider.overrideWithValue(contentDb),
           appPreferencesRepositoryProvider.overrideWith(
             (ref) => _ThrowingPrefsRepo(db),
           ),

@@ -21,6 +21,7 @@ void main() {
 
   setUp(() {
     db = inMemoryDatabase();
+    contentDb = openTestContentDatabase();
     contentDb = ContentDatabase(NativeDatabase.memory());
   });
 
@@ -34,8 +35,8 @@ void main() {
   Future<void> seedSyllabus({
     Map<String, String?> questionLessons = const {},
   }) async {
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: examId,
       subjectId: 'sci',
       topicId: 'chem',
@@ -47,16 +48,16 @@ void main() {
           if (entry.value != null) entry.key: entry.value!,
       },
     );
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: examId,
       subjectId: 'sci',
       topicId: 'phys',
       topicName: 'Physics',
       questionIds: ['q_p1'],
     );
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: examId,
       subjectId: 'math',
       topicId: 'alg',

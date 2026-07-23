@@ -9,14 +9,16 @@ import '../../../helpers/in_memory_database.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
   late ProviderContainer container;
 
   setUp(() {
     db = inMemoryDatabase();
+    contentDb = openTestContentDatabase();
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
-        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
   });
@@ -34,8 +36,8 @@ void main() {
   });
 
   test('topics with unseen questions come back as fresh backlog', () async {
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'exam_cse_pro',
       topicId: 'topic_algebra',
       topicName: 'Algebra',
@@ -52,15 +54,15 @@ void main() {
   });
 
   test('the largest backlog is the recommended topic', () async {
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'exam_cse_pro',
       topicId: 'topic_algebra',
       topicName: 'Algebra',
       questionIds: ['q_1'],
     );
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'exam_cse_pro',
       topicId: 'topic_geometry',
       topicName: 'Geometry',

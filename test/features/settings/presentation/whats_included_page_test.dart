@@ -18,9 +18,11 @@ import '../../../helpers/in_memory_database.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
 
   setUp(() async {
     db = inMemoryDatabase();
+    contentDb = openTestContentDatabase();
     await db.into(db.exams).insert(
           ExamsCompanion.insert(
             id: 'exam_1',
@@ -76,7 +78,7 @@ void main() {
       ProviderScope(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
-          contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+          contentDatabaseProvider.overrideWithValue(contentDb),
           activeExamFocusProvider.overrideWith(
             (ref) async => const ActiveExamFocus.selected(
               Exam(

@@ -12,6 +12,7 @@ import '../../../helpers/in_memory_database.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
   late ProviderContainer container;
 
   Future<void> seedInitialData(
@@ -198,10 +199,11 @@ void main() {
 
   setUp(() async {
     db = inMemoryDatabase();
+    contentDb = openTestContentDatabase();
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
-        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
 
@@ -236,7 +238,7 @@ void main() {
     final nullContainer = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(nullDb),
-        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
     final prefsRepo = nullContainer.read(appPreferencesRepositoryProvider);
@@ -319,7 +321,7 @@ void main() {
       final c = ProviderContainer(
         overrides: [
           appDatabaseProvider.overrideWithValue(customDb),
-          contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+          contentDatabaseProvider.overrideWithValue(contentDb),
         ],
       );
       final prefsRepo = c.read(appPreferencesRepositoryProvider);
