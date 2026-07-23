@@ -100,7 +100,6 @@ flutter:
   generate: true   # enables ARB-driven l10n in Plan 2+
   assets:
     - assets/seed/content.db
-    - assets/seed/v1.json
   fonts:
     - family: SourceSans3
       fonts:

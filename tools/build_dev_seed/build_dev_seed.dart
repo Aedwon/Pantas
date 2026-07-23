@@ -1,22 +1,12 @@
 // Builds assets/seed/v1.json from the authored corpus under content/ so the
 // running app shows real questions and lessons instead of the demo rows.
 //
-// Temporary dev tool: the app's shipping content path is the Sanity ->
-// content.db pipeline, which no UI reads yet. This fills the v1 seed the
-// AppDatabase actually loads, for UI/UX work against real content.
+// SUPERSEDED: This generator and the v1.json asset it produces are superseded
+// by the content.db pipeline. The asset is no longer shipped with the app.
+// Do not delete this file or the asset yet, as Stage 3 needs a known-good
+// corpus to compare against.
 //
 // Usage: dart run tools/build_dev_seed/build_dev_seed.dart
-//
-// COMMIT the assets/seed/v1.json this writes. It is a shipping asset: the app
-// bundles it and seeds from it, so the corpus only reaches a build through the
-// committed copy. Rebuild and commit it whenever content lands.
-//
-// This comment used to say the opposite, on the grounds that the committed seed
-// was a small demo file and that seeder_test.dart asserted that shape. Neither
-// is true: those tests build their own fixture JSON inline and never read this
-// asset. The practice changed when the seed was first rebuilt in full and the
-// warning was not updated, which left the file telling every later reader to
-// discard the thing they had just correctly generated.
 
 import 'dart:convert';
 import 'dart:io';
