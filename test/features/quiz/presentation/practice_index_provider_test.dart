@@ -57,7 +57,7 @@ void main() {
       questionIds: ['q_1'],
       lessonIds: ['l_1', 'l_2'],
     );
-    await LessonProgressRepository(db).markRead('l_1');
+    await LessonProgressRepository(db, contentDb).markRead('l_1');
 
     final index =
         await container.read(practiceIndexProvider('exam_cse_pro').future);

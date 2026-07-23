@@ -86,6 +86,31 @@ Future<void> seedContentTopic(
       );
 }
 
+Future<void> seedContentLesson(
+  ContentDatabase db, {
+  required String lessonId,
+  required String topicId,
+  String? title,
+  String summary = 'Summary',
+  List<Map<String, Object?>>? body,
+  int estimatedMinutes = 5,
+  int ordering = 0,
+}) async {
+  await db.into(db.contentLessons).insertOnConflictUpdate(
+        ContentLessonsCompanion.insert(
+          id: lessonId,
+          topicId: topicId,
+          title: title ?? 'Lesson $lessonId',
+          summary: summary,
+          bodyJson: jsonEncode(body ?? const <Map<String, Object?>>[]),
+          estimatedMinutes: estimatedMinutes,
+          ordering: Value(ordering),
+          schemaVersion: 1,
+          updatedAt: _seedStamp,
+        ),
+      );
+}
+
 /// Seeds one question with two choices, A correct, and tags it for [examId].
 /// The exam tag is a row in its own table now, so a question seeded without
 /// one is invisible to every exam-scoped read.

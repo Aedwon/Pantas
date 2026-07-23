@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/custom_track_repository.dart';
 import 'package:drift/drift.dart';
@@ -9,59 +10,47 @@ import '../../../../helpers/in_memory_database.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
   late CustomTrackRepository repo;
 
   setUp(() {
     db = inMemoryDatabase();
-    repo = CustomTrackRepository(db);
+    contentDb = inMemoryContentDatabase();
+    repo = CustomTrackRepository(db, contentDb);
   });
 
   tearDown(() async {
     await db.close();
+    await contentDb.close();
   });
 
   Future<void> seedCorpus() async {
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'exam_upcat',
-            code: 'UPCAT',
-            name: 'UPCAT',
-            shortName: 'UPCAT',
-            language: 'en',
-          ),
-        );
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
-            id: 'math',
-            examId: 'exam_upcat',
-            name: 'Mathematics',
-            ordering: 0,
-          ),
-        );
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
-            id: 'sci',
-            examId: 'exam_upcat',
-            name: 'Science',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
-            id: 'algebra',
-            subjectId: 'math',
-            name: 'Algebra',
-            ordering: 0,
-          ),
-        );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
-            id: 'chem',
-            subjectId: 'sci',
-            name: 'Chemistry',
-            ordering: 0,
-          ),
-        );
+    await seedContentExam(contentDb, examId: 'exam_upcat', code: 'UPCAT');
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'math',
+      examId: 'exam_upcat',
+      name: 'Mathematics',
+    );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'sci',
+      examId: 'exam_upcat',
+      name: 'Science',
+      ordering: 1,
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 'algebra',
+      subjectId: 'math',
+      name: 'Algebra',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 'chem',
+      subjectId: 'sci',
+      name: 'Chemistry',
+    );
   }
 
   test('creating a track stores its name and hides nothing it includes',
@@ -73,7 +62,8 @@ void main() {
       includedTopicIds: {'algebra', 'chem'},
     );
 
-    final exam = await (db.select(db.exams)..where((e) => e.id.equals(examId)))
+    final exam = await (contentDb.select(contentDb.contentExams)
+          ..where((e) => e.id.equals(examId)))
         .getSingle();
     expect(exam.name, 'Provincial scholarship exam');
     expect(exam.shortName, 'Provincial scholarship exam');
@@ -95,12 +85,13 @@ void main() {
     await seedCorpus();
 
     final examId = await repo.create(name: 'Mine', includedTopicIds: {});
-    final exam = await (db.select(db.exams)..where((e) => e.id.equals(examId)))
+    final exam = await (contentDb.select(contentDb.contentExams)
+          ..where((e) => e.id.equals(examId)))
         .getSingle();
 
     expect(exam.isCustom, isTrue);
 
-    final listed = await (db.select(db.exams)
+    final listed = await (contentDb.select(contentDb.contentExams)
           ..where((e) => e.isCustom.equals(false)))
         .get();
     expect(listed.map((e) => e.id), ['exam_upcat']);

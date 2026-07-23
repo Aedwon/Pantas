@@ -1,12 +1,16 @@
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/sync_state.dart';
 import 'package:drift/drift.dart';
 
+/// What a student has read is theirs; which lessons a topic has is corpus.
+/// Counting the first against the second is why this holds both databases.
 class LessonProgressRepository {
-  LessonProgressRepository(this._db);
+  LessonProgressRepository(this._db, this._contentDb);
 
   final AppDatabase _db;
+  final ContentDatabase _contentDb;
 
   Future<void> markRead(LessonId lessonId) async {
     // readAt updates on every call: records most-recent confirmation,
@@ -33,7 +37,7 @@ class LessonProgressRepository {
   }
 
   Future<int> readCountForTopic(TopicId topicId) async {
-    final lessonIds = await (_db.select(_db.lessons)
+    final lessonIds = await (_contentDb.select(_contentDb.contentLessons)
           ..where((l) => l.topicId.equals(topicId)))
         .map((r) => r.id)
         .get();

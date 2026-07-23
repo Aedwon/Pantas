@@ -110,7 +110,10 @@ final lessonsByTopicsProvider =
 });
 
 final lessonProgressRepositoryProvider = Provider<LessonProgressRepository>(
-  (ref) => LessonProgressRepository(ref.watch(appDatabaseProvider)),
+  (ref) => LessonProgressRepository(
+    ref.watch(appDatabaseProvider),
+    ref.watch(contentDatabaseProvider),
+  ),
 );
 
 final lessonBookmarksRepositoryProvider = Provider<LessonBookmarksRepository>(
