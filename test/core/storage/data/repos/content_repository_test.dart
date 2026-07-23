@@ -1,51 +1,60 @@
 import 'dart:convert';
 
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
 import 'package:drift/drift.dart' hide isNotNull, isNull;
+import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../../helpers/in_memory_database.dart';
-
 void main() {
-  late AppDatabase db;
+  late ContentDatabase db;
   late ContentRepository repo;
 
   setUp(() async {
-    db = inMemoryDatabase();
+    db = ContentDatabase(NativeDatabase.memory());
     repo = ContentRepository(db);
 
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
+    await db.into(db.contentExams).insert(
+          ContentExamsCompanion.insert(
             id: 'exam_cse_pro',
             code: 'CSE_PRO',
             name: 'CSE Pro',
             shortName: 'CSE Pro',
             language: 'en',
+            ordering: 1,
+            isCustom: const Value(false),
+            updatedAt: DateTime.now(),
+            schemaVersion: 1,
           ),
         );
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
+    await db.into(db.contentSubjects).insert(
+          ContentSubjectsCompanion.insert(
             id: 's1',
             examId: 'exam_cse_pro',
             name: 'Verbal',
             ordering: 1,
+            updatedAt: DateTime.now(),
+            schemaVersion: 1,
           ),
         );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
+    await db.into(db.contentTopics).insert(
+          ContentTopicsCompanion.insert(
             id: 't1',
             subjectId: 's1',
             name: 'Vocabulary',
             ordering: 1,
+            updatedAt: DateTime.now(),
+            schemaVersion: 1,
           ),
         );
-    await db.into(db.lessons).insert(
-          LessonsCompanion.insert(
+    await db.into(db.contentLessons).insert(
+          ContentLessonsCompanion.insert(
             id: 'l1',
             topicId: 't1',
             title: 'Vocabulary Basics',
             summary: 'Core vocabulary concepts',
+            updatedAt: DateTime.now(),
+            schemaVersion: 1,
             bodyJson: jsonEncode(<Map<String, Object?>>[
               {
                 '_type': 'block',
@@ -58,19 +67,60 @@ void main() {
             estimatedMinutes: 5,
           ),
         );
-    await db.into(db.questions).insert(
-          QuestionsCompanion.insert(
+    await db.into(db.contentQuestions).insert(
+          ContentQuestionsCompanion.insert(
             id: 'q1',
             version: 1,
-            examIdsJson: jsonEncode(['exam_cse_pro']),
             topicId: 't1',
             language: 'en',
-            stem: 'stem',
-            choicesJson: jsonEncode([
-              {'id': 'c_a', 'label': 'A', 'text': 'x', 'isCorrect': false},
-              {'id': 'c_b', 'label': 'B', 'text': 'y', 'isCorrect': true},
+            updatedAt: DateTime.now(),
+            schemaVersion: 1,
+            stemJson: jsonEncode([
+              {
+                '_type': 'block',
+                'children': [
+                  {'_type': 'span', 'text': 'stem'}
+                ]
+              }
             ]),
-            explanation: 'because y',
+            explanationJson: jsonEncode([
+              {
+                '_type': 'block',
+                'children': [
+                  {'_type': 'span', 'text': 'because y'}
+                ]
+              }
+            ]),
+          ),
+        );
+    await db.into(db.contentChoices).insert(
+          ContentChoicesCompanion.insert(
+            id: 'c_a',
+            questionId: 'q1',
+            label: 'A',
+            textValue: 'x',
+            isCorrect: false,
+            ordering: 1,
+            updatedAt: DateTime.now(),
+            schemaVersion: 1,
+          ),
+        );
+    await db.into(db.contentChoices).insert(
+          ContentChoicesCompanion.insert(
+            id: 'c_b',
+            questionId: 'q1',
+            label: 'B',
+            textValue: 'y',
+            isCorrect: true,
+            ordering: 2,
+            updatedAt: DateTime.now(),
+            schemaVersion: 1,
+          ),
+        );
+    await db.into(db.contentQuestionExams).insert(
+          ContentQuestionExamsCompanion.insert(
+            questionId: 'q1',
+            examId: 'exam_cse_pro',
           ),
         );
   });
@@ -121,14 +171,16 @@ void main() {
   });
 
   Future<void> insertLesson(String id, String title, {int? ordering}) {
-    return db.into(db.lessons).insert(
-          LessonsCompanion.insert(
+    return db.into(db.contentLessons).insert(
+          ContentLessonsCompanion.insert(
             id: id,
             topicId: 't1',
             title: title,
             summary: 'Summary of $title',
             bodyJson: jsonEncode(<Map<String, Object?>>[]),
             estimatedMinutes: 5,
+            updatedAt: DateTime.now(),
+            schemaVersion: 1,
             ordering: ordering == null ? const Value.absent() : Value(ordering),
           ),
         );
@@ -167,24 +219,28 @@ void main() {
   });
 
   test('lessonsByTopics groups by topic and keeps authored order', () async {
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
+    await db.into(db.contentTopics).insert(
+          ContentTopicsCompanion.insert(
             id: 't2',
             subjectId: 's1',
             name: 'Physics',
             ordering: 2,
+            updatedAt: DateTime.now(),
+            schemaVersion: 1,
           ),
         );
     await insertLesson('l_b', 'Second', ordering: 2);
     await insertLesson('l_a', 'First', ordering: 1);
-    await db.into(db.lessons).insert(
-          LessonsCompanion.insert(
+    await db.into(db.contentLessons).insert(
+          ContentLessonsCompanion.insert(
             id: 'l_p',
             topicId: 't2',
             title: 'Physics one',
             summary: 'S.',
             bodyJson: jsonEncode(<Map<String, Object?>>[]),
             estimatedMinutes: 7,
+            updatedAt: DateTime.now(),
+            schemaVersion: 1,
             ordering: const Value(1),
           ),
         );
@@ -201,12 +257,14 @@ void main() {
 
   test('lessonsByTopics returns an empty list for a topic with no lessons',
       () async {
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
+    await db.into(db.contentTopics).insert(
+          ContentTopicsCompanion.insert(
             id: 't3',
             subjectId: 's1',
             name: 'Empty',
             ordering: 3,
+            updatedAt: DateTime.now(),
+            schemaVersion: 1,
           ),
         );
 
