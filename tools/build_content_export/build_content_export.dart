@@ -129,6 +129,9 @@ void main(List<String> args) {
       if (keptTopicIds.contains((question as Map<String, dynamic>)['topicId']))
         question,
   ];
+  final keptPassages = [
+    for (final passage in existing['passages'] as List? ?? []) passage,
+  ];
   final keptLessons = [
     for (final lesson in existing['lessons'] as List)
       if (keptTopicIds.contains((lesson as Map<String, dynamic>)['topicId']))
@@ -210,6 +213,8 @@ void main(List<String> args) {
       'isActive': true,
       'topic': {'_ref': q['topicId']},
       if (q['lessonId'] != null) 'lesson': {'_ref': q['lessonId']},
+      if (q['passageId'] != null) 'passage': {'_ref': q['passageId']},
+      if (q['shortLabel'] != null) 'shortLabel': q['shortLabel'],
       'examIds':
           (q['examIds'] as List? ?? []).map((id) => {'_ref': id}).toList(),
       'language': q['language'] ?? 'en',
@@ -242,10 +247,26 @@ void main(List<String> args) {
     });
   }
 
+  final passagesOutput = <Map<String, Object?>>[];
+  for (final p in keptPassages) {
+    passagesOutput.add({
+      '_id': (p as Map<String, dynamic>)['id'],
+      '_updatedAt': v1UpdatedAt,
+      'schemaVersion': 1,
+      'isActive': true,
+      'topic': {'_ref': p['topicId']},
+      'title': p['title'],
+      'body': p['body'],
+      'language': p['language'],
+      'wordCount': p['wordCount'],
+    });
+  }
+
   final seed = {
     'exam': examsOutput,
     'subject': subjects,
     'topic': topics,
+    'passage': passagesOutput,
     'question': questions,
     'lesson': lessons,
     'mockBlueprint': <Map<String, Object?>>[],
@@ -333,6 +354,11 @@ List<Map<String, Object?>> buildQuestions(
         'isActive': true,
         'topic': {'_ref': topicId},
         'subtopic': {'_ref': 'subtopic_$subtopicSlug'},
+        'lesson': {'_ref': 'lesson-$topicSlug-$subtopicSlug'},
+        if (question['passage'] != null)
+          'passage': {'_ref': question['passage']},
+        if (question['shortLabel'] != null)
+          'shortLabel': question['shortLabel'],
         'examIds': examIds.map((e) => {'_ref': e}).toList(),
         'language': 'en',
         'stem': _textToPortableText((question['stem'] as String).trim()),

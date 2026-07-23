@@ -20,5 +20,6 @@ ContentExamsCompanion parseExam(Map<String, Object?> doc) {
     shortName: stringField(doc, doctype, 'shortName'),
     language: stringField(doc, doctype, 'language'),
     ordering: intField(doc, doctype, 'ordering'),
+    isCustom: Value(boolField(doc, doctype, 'isCustom')),
   );
 }

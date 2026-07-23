@@ -82,11 +82,30 @@ void main() {
             .customSelect('SELECT COUNT(*) AS c FROM content_exams')
             .getSingle())
         .read<int>('c');
+    final passagesCount = (await db
+            .customSelect(
+              'SELECT COUNT(*) AS c FROM content_passages',
+            )
+            .getSingle())
+        .read<int>('c');
+    final lessonLinksCount = (await db.customSelect(
+      'SELECT COUNT(*) AS c FROM content_questions '
+      'WHERE lesson_id IS NOT NULL',
+    ).getSingle())
+        .read<int>('c');
+    final passageLinksCount = (await db.customSelect(
+      'SELECT COUNT(*) AS c FROM content_questions '
+      'WHERE passage_id IS NOT NULL',
+    ).getSingle())
+        .read<int>('c');
 
     expect(questionsCount, 2000, reason: 'Expected 2,000 questions');
     expect(lessonsCount, 144, reason: 'Expected 144 lessons');
     expect(topicsCount, 19, reason: 'Expected 19 topics');
     expect(examsCount, 7, reason: 'Expected 7 exams');
+    expect(passagesCount, 32, reason: 'Expected 32 passages');
+    expect(lessonLinksCount, 1998, reason: 'Expected 1,998 lesson links');
+    expect(passageLinksCount, 160, reason: 'Expected 160 passage links');
 
     // 4. Assert the ids are underscored by reading one exam id back
     final upcatExam = await (db.select(db.contentExams)

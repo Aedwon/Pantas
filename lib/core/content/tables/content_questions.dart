@@ -1,3 +1,5 @@
+import 'package:cse_cet_reviewer/core/content/tables/content_lessons.dart';
+import 'package:cse_cet_reviewer/core/content/tables/content_passages.dart';
 import 'package:cse_cet_reviewer/core/content/tables/content_topics.dart';
 import 'package:drift/drift.dart';
 
@@ -13,6 +15,11 @@ class ContentQuestions extends Table {
   TextColumn get stemJson => text()();
   TextColumn get explanationJson => text()();
   IntColumn get version => integer()();
+  TextColumn get lessonId =>
+      text().nullable().references(ContentLessons, #id)();
+  TextColumn get passageId =>
+      text().nullable().references(ContentPassages, #id)();
+  TextColumn get shortLabel => text().nullable()();
 
   @override
   Set<Column<Object>> get primaryKey => {id};
