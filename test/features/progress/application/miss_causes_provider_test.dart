@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
@@ -14,13 +15,16 @@ import '../../../helpers/pump_app.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
   late ProviderContainer container;
 
   setUp(() async {
     db = inMemoryDatabase();
+    contentDb = openTestContentDatabase();
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
         activeExamFocusProvider.overrideWith((ref) async {
           return ActiveExamFocus.selected(
             buildExam(
@@ -65,8 +69,8 @@ void main() {
 
     for (var i = 1; i <= 6; i++) {
       final qId = 'q_prior_$i';
-      await seedTopicWithQuestions(
-        db,
+      await seedContentTopicWithQuestions(
+        contentDb,
         examId: 'cse',
         topicId: 'topic1',
         topicName: 'Topic 1',
@@ -113,8 +117,8 @@ void main() {
 
     for (var i = 1; i <= 3; i++) {
       final qId = 'q_never_$i';
-      await seedTopicWithQuestions(
-        db,
+      await seedContentTopicWithQuestions(
+        contentDb,
         examId: 'cse',
         topicId: 'topic1',
         topicName: 'Topic 1',
@@ -147,8 +151,8 @@ void main() {
     final baselineItems = <AttemptItem>[];
     for (var i = 1; i <= 5; i++) {
       final qId = 'q_base_$i';
-      await seedTopicWithQuestions(
-        db,
+      await seedContentTopicWithQuestions(
+        contentDb,
         examId: 'cse',
         topicId: 'topic1',
         topicName: 'Topic 1',
@@ -199,8 +203,8 @@ void main() {
     final baselineItems = <AttemptItem>[];
     for (var i = 1; i <= 5; i++) {
       final qId = 'q_base_fast_$i';
-      await seedTopicWithQuestions(
-        db,
+      await seedContentTopicWithQuestions(
+        contentDb,
         examId: 'cse',
         topicId: 'topic1',
         topicName: 'Topic 1',
@@ -242,8 +246,8 @@ void main() {
 
   test('a miss falls into exactly one cause', () async {
     final now = DateTime.now();
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'cse',
       topicId: 'topic1',
       topicName: 'Topic 1',
@@ -285,8 +289,8 @@ void main() {
 
   test('an untimed miss is never answered too fast', () async {
     final now = DateTime.now();
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'cse',
       topicId: 'topic1',
       topicName: 'Topic 1',
@@ -315,8 +319,8 @@ void main() {
 
   test('an unclassified miss is counted nowhere', () async {
     final now = DateTime.now();
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'cse',
       topicId: 'topic1',
       topicName: 'Topic 1',
@@ -361,8 +365,8 @@ void main() {
 
   test('with no misses at all the provider returns null', () async {
     final now = DateTime.now();
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'cse',
       topicId: 'topic1',
       topicName: 'Topic 1',
@@ -388,8 +392,8 @@ void main() {
 
   test('self-noted misreads are zero until the debrief writes tags', () async {
     final now = DateTime.now();
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'cse',
       topicId: 'topic1',
       topicName: 'Topic 1',
@@ -416,8 +420,8 @@ void main() {
 
   test('a tagged misread is counted once the debrief writes it', () async {
     final now = DateTime.now();
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'cse',
       topicId: 'topic1',
       topicName: 'Topic 1',

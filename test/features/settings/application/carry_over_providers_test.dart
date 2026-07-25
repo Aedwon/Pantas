@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/settings/application/carry_over_providers.dart';
@@ -10,13 +11,16 @@ import '../../../helpers/in_memory_database.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
   late ProviderContainer container;
 
   setUp(() {
     db = inMemoryDatabase();
+    contentDb = openTestContentDatabase();
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
   });
@@ -30,18 +34,15 @@ void main() {
     required String id,
     required List<String> examIds,
   }) async {
-    await db.into(db.questions).insert(
-          QuestionsCompanion.insert(
-            id: id,
-            version: 1,
-            examIdsJson: jsonEncode(examIds),
-            topicId: 't1',
-            language: 'en',
-            stem: 'Stem',
-            choicesJson: '[]',
-            explanation: 'Exp',
-          ),
-        );
+    await seedContentQuestionWithChoices(
+      contentDb,
+      questionId: id,
+      topicId: 't1',
+      examId: 'e1',
+      choices: const [],
+      stem: 'Stem',
+      explanation: 'Exp',
+    );
   }
 
   var attemptCounter = 0;

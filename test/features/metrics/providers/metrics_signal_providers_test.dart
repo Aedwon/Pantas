@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/metrics/domain/metrics_window.dart';
@@ -9,6 +10,8 @@ import 'package:drift/native.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import '../../../helpers/in_memory_database.dart';
+
 void main() {
   test('signal registry exposes exactly the 13 locked measured signals', () {
     expect(metricsSignalRegistry.keys.toSet(), SignalKey.values.toSet());
@@ -18,8 +21,9 @@ void main() {
   test('metricsSignalProvider resolves a signal through appDatabaseProvider',
       () async {
     final db = AppDatabase(NativeDatabase.memory());
+    final contentDb = openTestContentDatabase();
     addTearDown(db.close);
-    await _content(db);
+    await _content(contentDb);
     await db.into(db.lessonProgressLocal).insert(
           LessonProgressLocalCompanion.insert(
             lessonId: 'lesson_1',
@@ -38,7 +42,10 @@ void main() {
           ),
         );
     final container = ProviderContainer(
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
     addTearDown(container.dispose);
 
@@ -58,40 +65,32 @@ void main() {
   });
 }
 
-Future<void> _content(AppDatabase db) async {
-  await db.into(db.exams).insert(
-        ExamsCompanion.insert(
-          id: 'exam_cse',
-          code: 'CSE',
-          name: 'Civil Service Exam',
-          shortName: 'CSE',
-          language: 'en',
-        ),
-      );
-  await db.into(db.subjects).insert(
-        SubjectsCompanion.insert(
-          id: 'subject_1',
-          examId: 'exam_cse',
-          name: 'General',
-          ordering: 1,
-        ),
-      );
-  await db.into(db.topics).insert(
-        TopicsCompanion.insert(
-          id: 'topic_1',
-          subjectId: 'subject_1',
-          name: 'Topic',
-          ordering: 1,
-        ),
-      );
-  await db.into(db.lessons).insert(
-        LessonsCompanion.insert(
-          id: 'lesson_1',
-          topicId: 'topic_1',
-          title: 'Lesson',
-          summary: '',
-          bodyJson: '{}',
-          estimatedMinutes: 5,
-        ),
-      );
+Future<void> _content(ContentDatabase contentDb) async {
+  await seedContentExam(
+    contentDb,
+    examId: 'exam_cse',
+    code: 'CSE',
+    name: 'Civil Service Exam',
+    shortName: 'CSE',
+  );
+  await seedContentSubject(
+    contentDb,
+    subjectId: 'subject_1',
+    examId: 'exam_cse',
+    name: 'General',
+  );
+  await seedContentTopic(
+    contentDb,
+    topicId: 'topic_1',
+    subjectId: 'subject_1',
+    name: 'Topic',
+  );
+  await seedContentLesson(
+    contentDb,
+    lessonId: 'lesson_1',
+    topicId: 'topic_1',
+    title: 'Lesson',
+    summary: '',
+    bodyJson: '{}',
+  );
 }
