@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// How many answered questions also belong to `examId`.
@@ -10,6 +12,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 final carryableCountProvider =
     FutureProvider.family<int, String>((ref, examId) async {
   final db = ref.watch(appDatabaseProvider);
+  final contentDb = ref.watch(contentDatabaseProvider);
   final rows = await db.select(db.attemptsLocal).get();
 
   final answeredQuestionIds = <String>{};
@@ -28,17 +31,15 @@ final carryableCountProvider =
     return 0;
   }
 
-  final questions = await (db.select(db.questions)
-        ..where((q) => q.id.isIn(answeredQuestionIds)))
+  // Which exams a question belongs to is a table of its own now, not a JSON
+  // column, so the exam filter is part of the query rather than a loop.
+  final tagged = await (contentDb.select(contentDb.contentQuestionExams)
+        ..where(
+          (qe) =>
+              qe.questionId.isIn(answeredQuestionIds) &
+              qe.examId.equals(examId),
+        ))
       .get();
 
-  var count = 0;
-  for (final q in questions) {
-    final examIds = (jsonDecode(q.examIdsJson) as List).cast<String>();
-    if (examIds.contains(examId)) {
-      count++;
-    }
-  }
-
-  return count;
+  return tagged.length;
 });

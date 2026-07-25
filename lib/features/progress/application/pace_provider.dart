@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
@@ -49,12 +50,13 @@ class PaceReading {
 
 final paceProvider = FutureProvider<PaceReading?>((ref) async {
   final db = ref.watch(appDatabaseProvider);
+  final contentDb = ref.watch(contentDatabaseProvider);
   final focus = await ref.watch(activeExamFocusProvider.future);
   final exam = focus.exam;
   if (exam == null) return null;
 
   // Total lessons for this exam
-  final subjectRows = await (db.select(db.subjects)
+  final subjectRows = await (contentDb.select(contentDb.contentSubjects)
         ..where((s) => s.examId.equals(exam.id)))
       .get();
   final subjectIds = subjectRows.map((s) => s.id).toList();
@@ -69,7 +71,7 @@ final paceProvider = FutureProvider<PaceReading?>((ref) async {
     );
   }
 
-  final topicRows = await (db.select(db.topics)
+  final topicRows = await (contentDb.select(contentDb.contentTopics)
         ..where((t) => t.subjectId.isIn(subjectIds)))
       .get();
   final topicIds = topicRows.map((t) => t.id).toList();
@@ -84,7 +86,7 @@ final paceProvider = FutureProvider<PaceReading?>((ref) async {
     );
   }
 
-  final lessonRows = await (db.select(db.lessons)
+  final lessonRows = await (contentDb.select(contentDb.contentLessons)
         ..where((l) => l.topicId.isIn(topicIds)))
       .get();
   final lessonsTotal = lessonRows.length;

@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
@@ -61,19 +62,20 @@ class LessonsRead {
 final lessonsReadProvider =
     FutureProvider.family<LessonsRead, ExamId>((ref, examId) async {
   final db = ref.watch(appDatabaseProvider);
-  final subjectRows = await (db.select(db.subjects)
+  final contentDb = ref.watch(contentDatabaseProvider);
+  final subjectRows = await (contentDb.select(contentDb.contentSubjects)
         ..where((s) => s.examId.equals(examId)))
       .get();
   final subjectIds = subjectRows.map((s) => s.id).toList();
   if (subjectIds.isEmpty) return const LessonsRead(read: 0, total: 0);
 
-  final topicRows = await (db.select(db.topics)
+  final topicRows = await (contentDb.select(contentDb.contentTopics)
         ..where((t) => t.subjectId.isIn(subjectIds)))
       .get();
   final topicIds = topicRows.map((t) => t.id).toList();
   if (topicIds.isEmpty) return const LessonsRead(read: 0, total: 0);
 
-  final lessonRows = await (db.select(db.lessons)
+  final lessonRows = await (contentDb.select(contentDb.contentLessons)
         ..where((l) => l.topicId.isIn(topicIds)))
       .get();
   final lessonIds = lessonRows.map((l) => l.id).toSet();

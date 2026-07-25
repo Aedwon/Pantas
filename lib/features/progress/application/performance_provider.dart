@@ -111,6 +111,7 @@ final performanceProvider =
     FutureProvider.family<PerformanceTable, PerformanceQuery>(
         (ref, query) async {
   final db = ref.watch(appDatabaseProvider);
+  final contentDb = ref.watch(contentDatabaseProvider);
   final focus = await ref.watch(activeExamFocusProvider.future);
   final exam = focus.exam;
   if (exam == null) {
@@ -123,7 +124,7 @@ final performanceProvider =
   }
   final examId = exam.id;
 
-  final subjectRows = await (db.select(db.subjects)
+  final subjectRows = await (contentDb.select(contentDb.contentSubjects)
         ..where((s) => s.examId.equals(examId))
         ..orderBy([(s) => OrderingTerm.asc(s.ordering)]))
       .get();
@@ -137,14 +138,14 @@ final performanceProvider =
   }
   final subjectIds = [for (final s in subjectRows) s.id];
 
-  final topicRows = await (db.select(db.topics)
+  final topicRows = await (contentDb.select(contentDb.contentTopics)
         ..where((t) => t.subjectId.isIn(subjectIds))
         ..orderBy([(t) => OrderingTerm.asc(t.ordering)]))
       .get();
-  final questionRows = await (db.select(db.questions)
+  final questionRows = await (contentDb.select(contentDb.contentQuestions)
         ..where((q) => q.topicId.isIn([for (final t in topicRows) t.id])))
       .get();
-  final lessonRows = await (db.select(db.lessons)
+  final lessonRows = await (contentDb.select(contentDb.contentLessons)
         ..where((l) => l.topicId.isIn([for (final t in topicRows) t.id]))
         ..orderBy([(l) => OrderingTerm.asc(l.ordering)]))
       .get();
@@ -344,7 +345,7 @@ Future<List<_PublishedSection>> _publishedSections(
 int? _publishedSizeForSubject(
   String subjectId, {
   required List<_PublishedSection> published,
-  required Map<String, TopicRow> topicById,
+  required Map<String, ContentTopicRow> topicById,
 }) {
   var total = 0;
   var found = false;

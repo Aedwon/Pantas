@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
@@ -78,6 +78,7 @@ bool _listEquals<T>(List<T> a, List<T> b) {
 
 final upNextProvider = FutureProvider<UpNextDay>((ref) async {
   final db = ref.watch(appDatabaseProvider);
+  final contentDb = ref.watch(contentDatabaseProvider);
   final focus = await ref.watch(activeExamFocusProvider.future);
   if (focus.needsSelection || focus.exam == null) {
     return const UpNextDay(lessons: [], allReadInWeakTopics: false);
@@ -89,12 +90,12 @@ final upNextProvider = FutureProvider<UpNextDay>((ref) async {
     return const UpNextDay(lessons: [], allReadInWeakTopics: false);
   }
 
-  final subjectRows = await (db.select(db.subjects)
+  final subjectRows = await (contentDb.select(contentDb.contentSubjects)
         ..where((s) => s.examId.equals(examId)))
       .get();
   final subjectMap = {for (final s in subjectRows) s.id: s.name};
 
-  final topicRows = await (db.select(db.topics)
+  final topicRows = await (contentDb.select(contentDb.contentTopics)
         ..where((t) => t.subjectId.isIn(subjectMap.keys)))
       .get();
   final topicSubjectMap = {for (final t in topicRows) t.id: t.subjectId};
@@ -102,11 +103,11 @@ final upNextProvider = FutureProvider<UpNextDay>((ref) async {
   final progressRows = await db.select(db.lessonProgressLocal).get();
   final readLessonIds = {for (final p in progressRows) p.lessonId};
 
-  final lessonRows = await (db.select(db.lessons)
+  final lessonRows = await (contentDb.select(contentDb.contentLessons)
         ..where((l) => l.topicId.isIn(topicSubjectMap.keys)))
       .get();
 
-  final lessonsByTopic = <TopicId, List<LessonRow>>{};
+  final lessonsByTopic = <TopicId, List<ContentLessonRow>>{};
   for (final lesson in lessonRows) {
     lessonsByTopic.putIfAbsent(lesson.topicId, () => []).add(lesson);
   }
