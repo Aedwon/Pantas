@@ -1,17 +1,21 @@
-import 'dart:convert';
-
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/features/metrics/domain/metric_signal.dart';
 import 'package:cse_cet_reviewer/features/metrics/domain/metrics_window.dart';
 import 'package:cse_cet_reviewer/features/metrics/domain/signal_outputs.dart';
 import 'package:cse_cet_reviewer/features/metrics/signals/mock_payload_reader.dart';
+import 'package:cse_cet_reviewer/features/metrics/signals/signal_content_helpers.dart';
 import 'package:drift/drift.dart';
 
 class MockStaminaSignal implements Signal<StaminaDelta> {
-  const MockStaminaSignal(this._db, {MockPayloadReader? reader})
-      : _reader = reader ?? const MockPayloadReader();
+  const MockStaminaSignal(
+    this._db,
+    this._contentDb, {
+    MockPayloadReader? reader,
+  }) : _reader = reader ?? const MockPayloadReader();
 
   final AppDatabase _db;
+  final ContentDatabase _contentDb;
   final MockPayloadReader _reader;
 
   @override
@@ -75,18 +79,6 @@ class MockStaminaSignal implements Signal<StaminaDelta> {
     );
   }
 
-  Future<int?> _correctIndex(String questionId) async {
-    final row = await (_db.select(_db.questions)
-          ..where((question) => question.id.equals(questionId)))
-        .getSingleOrNull();
-    if (row == null) return null;
-    final choices = jsonDecode(row.choicesJson) as List;
-    for (var i = 0; i < choices.length; i += 1) {
-      final choice = choices[i];
-      if (choice is Map<String, Object?> && choice['isCorrect'] == true) {
-        return i;
-      }
-    }
-    return null;
-  }
+  Future<int?> _correctIndex(String questionId) =>
+      SignalContentHelpers(_contentDb).correctIndex(questionId);
 }

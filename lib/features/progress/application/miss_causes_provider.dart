@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/attempt_origins.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
@@ -69,6 +70,7 @@ final missCausesProvider = FutureProvider<MissCauses?>((ref) async {
   if (examId == null) return null;
 
   final db = ref.watch(appDatabaseProvider);
+  final contentDb = ref.watch(contentDatabaseProvider);
 
   // 1. Fetch completed attempts for active exam in chronological order
   final attempts = await (db.select(db.attemptsLocal)
@@ -101,7 +103,7 @@ final missCausesProvider = FutureProvider<MissCauses?>((ref) async {
       reviewStateRows.map((r) => r.questionId).toSet();
 
   // 4. Topic names mapping helper
-  final content = SignalContentHelpers(db);
+  final content = SignalContentHelpers(contentDb);
   final topicNameCache = <String, String>{};
 
   Future<String> getTopicName(String questionId) async {
