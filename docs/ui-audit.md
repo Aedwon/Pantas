@@ -1534,3 +1534,32 @@ presented as a subject.
 **UP lists four subtests and the content agrees with UP.** The seed's subject
 list is the only thing that does not. Options and a recommendation are in the
 content path spec's open questions.
+
+### UI-066 [important] A sweep for built-but-unreachable surfaces
+
+**Prompted by the mock panel**, which was finished, routed and never once shown
+because the router passed nothing. If that could happen to a whole feature, it
+could have happened elsewhere, so every route was checked against what
+navigates to it.
+
+**Two real findings and one already known.**
+
+**The paywall could trap a student**, which is written up as its own fix above:
+`/paywall` sits outside the tab shell, both ways in leave no stack, its close
+control popped nothing, and a successful purchase navigated nowhere.
+
+**`QuizResultsPage` has no caller at all.** It is routed at
+`/quiz/results/:attemptId`, it has tests, and nothing in the app links to it.
+The debrief replaced it as the after-a-session screen and is rendered inline by
+the quiz page rather than by its route. **Nothing lists past attempts**: Your
+record does not link to them either. So a student cannot reach any finished
+attempt again.
+
+**Is that a missing wire or dead code?** It is a question rather than a defect:
+either past attempts get a list, which is a feature, or the page and its route
+go. **Aedwon's to decide**, and the sweep's job was to surface it.
+
+**The rest were the sweep being crude rather than the app being broken**:
+`/more` is a deliberate redirect to Settings, `/plan` is hidden on purpose while
+the study plan's providers are stubs, and the settings pages are reached
+through rows the first pattern did not match.
