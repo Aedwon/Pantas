@@ -16,15 +16,15 @@ void main() {
     final contentDb = ContentDatabase(NativeDatabase.memory());
     addTearDown(contentDb.close);
     addTearDown(db.close);
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'exam_cse_pro',
       topicId: 'topic_1',
       topicName: 'Topic 1',
       questionIds: [for (var i = 1; i <= 20; i++) 'q1_$i'],
     );
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'exam_cse_pro',
       topicId: 'topic_2',
       topicName: 'Topic 2',
@@ -66,8 +66,8 @@ void main() {
     final contentDb = ContentDatabase(NativeDatabase.memory());
     addTearDown(contentDb.close);
     addTearDown(db.close);
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'exam_cse_pro',
       topicId: 'topic_short',
       topicName: 'Short Topic',
@@ -121,8 +121,8 @@ void main() {
     final contentDb = ContentDatabase(NativeDatabase.memory());
     addTearDown(contentDb.close);
     addTearDown(db.close);
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'exam_cse_pro',
       topicId: 'topic_1',
       topicName: 'Topic 1',
@@ -156,8 +156,8 @@ void main() {
     final contentDb = ContentDatabase(NativeDatabase.memory());
     addTearDown(contentDb.close);
     addTearDown(db.close);
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'exam_cse_pro',
       topicId: 'topic_1',
       topicName: 'Topic 1',
@@ -193,8 +193,8 @@ void main() {
     final contentDb = ContentDatabase(NativeDatabase.memory());
     addTearDown(contentDb.close);
     addTearDown(db.close);
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'exam_cse_pro',
       topicId: 'topic_1',
       topicName: 'Topic 1',

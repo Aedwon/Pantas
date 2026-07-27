@@ -80,34 +80,31 @@ void main() {
         .getSingleOrNull();
     if (topicRow == null) {
       final subjectId = 'subj_$topicId';
-      await db.into(db.subjects).insertOnConflictUpdate(
-            SubjectsCompanion.insert(
-              id: subjectId,
-              examId: 'upcat',
-              name: subjectName,
-              ordering: 0,
-            ),
-          );
-      await db.into(db.topics).insertOnConflictUpdate(
-            TopicsCompanion.insert(
-              id: topicId,
-              subjectId: subjectId,
-              name: topicId,
-              ordering: 0,
-            ),
-          );
+      await seedContentSubject(
+        contentDb,
+        subjectId: subjectId,
+        examId: 'upcat',
+        name: subjectName,
+        ordering: 0,
+      );
+      await seedContentTopic(
+        contentDb,
+        topicId: topicId,
+        subjectId: subjectId,
+        name: topicId,
+        ordering: 0,
+      );
     }
-    await db.into(db.lessons).insertOnConflictUpdate(
-          LessonsCompanion.insert(
-            id: lessonId,
-            topicId: topicId,
-            title: title,
-            summary: 'summary',
-            bodyJson: jsonEncode([]),
-            estimatedMinutes: estimatedMinutes,
-            ordering: Value(ordering),
-          ),
-        );
+    await seedContentLesson(
+      contentDb,
+      lessonId: lessonId,
+      topicId: topicId,
+      title: title,
+      summary: 'summary',
+      bodyJson: jsonEncode([]),
+      estimatedMinutes: estimatedMinutes,
+      ordering: ordering,
+    );
   }
 
   Future<void> markLessonRead(AppDatabase db, String lessonId) async {
@@ -129,14 +126,13 @@ void main() {
       subjectId: 'subj_chem',
       questionIds: ['q_chem_1', 'q_chem_2', 'q_chem_3', 'q_chem_4', 'q_chem_5'],
     );
-    await db.into(db.subjects).insertOnConflictUpdate(
-          SubjectsCompanion.insert(
-            id: 'subj_chem',
-            examId: 'upcat',
-            name: 'Chemistry',
-            ordering: 0,
-          ),
-        );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'subj_chem',
+      examId: 'upcat',
+      name: 'Chemistry',
+      ordering: 0,
+    );
     await seedContentTopicWithQuestions(
       contentDb,
       examId: 'upcat',
@@ -145,14 +141,13 @@ void main() {
       subjectId: 'subj_alg',
       questionIds: ['q_alg_1', 'q_alg_2', 'q_alg_3', 'q_alg_4', 'q_alg_5'],
     );
-    await db.into(db.subjects).insertOnConflictUpdate(
-          SubjectsCompanion.insert(
-            id: 'subj_alg',
-            examId: 'upcat',
-            name: 'Algebra',
-            ordering: 0,
-          ),
-        );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'subj_alg',
+      examId: 'upcat',
+      name: 'Algebra',
+      ordering: 0,
+    );
     await seedContentTopicWithQuestions(
       contentDb,
       examId: 'upcat',
@@ -161,14 +156,13 @@ void main() {
       subjectId: 'subj_geo',
       questionIds: ['q_geo_1', 'q_geo_2', 'q_geo_3', 'q_geo_4', 'q_geo_5'],
     );
-    await db.into(db.subjects).insertOnConflictUpdate(
-          SubjectsCompanion.insert(
-            id: 'subj_geo',
-            examId: 'upcat',
-            name: 'Geometry',
-            ordering: 0,
-          ),
-        );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'subj_geo',
+      examId: 'upcat',
+      name: 'Geometry',
+      ordering: 0,
+    );
 
     await insertAttempt(
       db,
@@ -251,14 +245,13 @@ void main() {
       subjectId: 'subj_chem',
       questionIds: ['q_chem_1', 'q_chem_2', 'q_chem_3'],
     );
-    await db.into(db.subjects).insertOnConflictUpdate(
-          SubjectsCompanion.insert(
-            id: 'subj_chem',
-            examId: 'upcat',
-            name: 'Chemistry',
-            ordering: 0,
-          ),
-        );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'subj_chem',
+      examId: 'upcat',
+      name: 'Chemistry',
+      ordering: 0,
+    );
     await insertAttempt(
       db,
       id: 'att_1',
@@ -304,14 +297,13 @@ void main() {
       subjectId: 'subj_chem',
       questionIds: ['q_chem_1', 'q_chem_2', 'q_chem_3'],
     );
-    await db.into(db.subjects).insertOnConflictUpdate(
-          SubjectsCompanion.insert(
-            id: 'subj_chem',
-            examId: 'upcat',
-            name: 'Chemistry',
-            ordering: 0,
-          ),
-        );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'subj_chem',
+      examId: 'upcat',
+      name: 'Chemistry',
+      ordering: 0,
+    );
     await insertAttempt(
       db,
       id: 'att_1',
@@ -370,14 +362,13 @@ void main() {
       subjectId: 'subj_chem',
       questionIds: ['q_chem_1', 'q_chem_2', 'q_chem_3'],
     );
-    await db.into(db.subjects).insertOnConflictUpdate(
-          SubjectsCompanion.insert(
-            id: 'subj_chem',
-            examId: 'upcat',
-            name: 'Chemistry',
-            ordering: 0,
-          ),
-        );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'subj_chem',
+      examId: 'upcat',
+      name: 'Chemistry',
+      ordering: 0,
+    );
     await insertAttempt(
       db,
       id: 'att_1',
@@ -413,14 +404,13 @@ void main() {
       subjectId: 'subj_chem',
       questionIds: ['q_chem_1', 'q_chem_2', 'q_chem_3'],
     );
-    await db.into(db.subjects).insertOnConflictUpdate(
-          SubjectsCompanion.insert(
-            id: 'subj_chem',
-            examId: 'upcat',
-            name: 'Chemistry',
-            ordering: 0,
-          ),
-        );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'subj_chem',
+      examId: 'upcat',
+      name: 'Chemistry',
+      ordering: 0,
+    );
 
     final day = await container.read(upNextProvider.future);
 
@@ -439,14 +429,13 @@ void main() {
       subjectId: 'subj_chem',
       questionIds: ['q_chem_1', 'q_chem_2', 'q_chem_3'],
     );
-    await db.into(db.subjects).insertOnConflictUpdate(
-          SubjectsCompanion.insert(
-            id: 'subj_chem',
-            examId: 'upcat',
-            name: 'Chemistry',
-            ordering: 0,
-          ),
-        );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'subj_chem',
+      examId: 'upcat',
+      name: 'Chemistry',
+      ordering: 0,
+    );
     await seedContentTopicWithQuestions(
       contentDb,
       examId: 'upcat',
@@ -455,14 +444,13 @@ void main() {
       subjectId: 'subj_alg',
       questionIds: ['q_alg_1', 'q_alg_2', 'q_alg_3'],
     );
-    await db.into(db.subjects).insertOnConflictUpdate(
-          SubjectsCompanion.insert(
-            id: 'subj_alg',
-            examId: 'upcat',
-            name: 'Algebra',
-            ordering: 0,
-          ),
-        );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'subj_alg',
+      examId: 'upcat',
+      name: 'Algebra',
+      ordering: 0,
+    );
 
     await insertAttempt(
       db,
