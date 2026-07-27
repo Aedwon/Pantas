@@ -6,7 +6,15 @@
 > UPCAT table in `specs/2026-07-28-mock-exam-ui-design.md`, and
 > `lib/features/mock_exam/data/blueprint_section.dart` in full.
 
-**Content 01 and 02 must be merged first.**
+**Content 01 and 01b must be merged first. Both are.** This plan does **not**
+depend on Content 02: a blueprint is read from the content database by
+`mockBlueprintRepoProvider`, and Progress reads published sizes through it
+today, whichever database the app's other readers point at.
+
+**Reasoning is settled by measurement.** Not one of its 64 questions is tagged
+for UPCAT: they carry ACET, USTET, DOST-SEI and both CSE tracks. **So no part
+of this blueprint draws from a Reasoning topic**, and that is a fact rather
+than a judgment call.
 
 **Every figure in this plan came from Aedwon on 11 August and is marked
 reported, not published.** Do not adjust one to make an arithmetic check pass.
