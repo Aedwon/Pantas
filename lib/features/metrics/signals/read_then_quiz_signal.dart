@@ -8,11 +8,12 @@ import 'package:cse_cet_reviewer/features/metrics/signals/signal_content_helpers
 import 'package:drift/drift.dart';
 
 class ReadThenQuizSignal implements Signal<WorkflowRatio> {
-  ReadThenQuizSignal(this._db, ContentDatabase contentDb)
+  ReadThenQuizSignal(this._db, this._contentDb)
       : _reader = const AttemptItemReader(),
-        _content = SignalContentHelpers(contentDb);
+        _content = SignalContentHelpers(_contentDb);
 
   final AppDatabase _db;
+  final ContentDatabase _contentDb;
   final AttemptItemReader _reader;
   final SignalContentHelpers _content;
 
@@ -49,7 +50,7 @@ class ReadThenQuizSignal implements Signal<WorkflowRatio> {
     var quizFirst = 0;
     final progress = await _db.select(_db.lessonProgressLocal).get();
     for (final row in progress) {
-      final lesson = await (_db.select(_db.lessons)
+      final lesson = await (_contentDb.select(_contentDb.contentLessons)
             ..where((lesson) => lesson.id.equals(row.lessonId)))
           .getSingleOrNull();
       if (lesson == null) continue;

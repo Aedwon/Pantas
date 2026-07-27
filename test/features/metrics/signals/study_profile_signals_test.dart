@@ -194,9 +194,11 @@ Future<void> _content(ContentDatabase contentDb) async {
       questionId: id,
       topicId: 'topic_1',
       examId: 'exam_cse',
-      choices: const [
-        {'id': 'a', 'label': 'A', 'text': 'A', 'isCorrect': true},
-        {'id': 'b', 'label': 'B', 'text': 'B', 'isCorrect': false},
+      // Choices are rows with a primary key of their own now, so an id
+      // reused across questions would overwrite the earlier question's.
+      choices: [
+        {'id': '${id}_a', 'label': 'A', 'text': 'A', 'isCorrect': true},
+        {'id': '${id}_b', 'label': 'B', 'text': 'B', 'isCorrect': false},
       ],
       stem: id,
       explanation: '',
