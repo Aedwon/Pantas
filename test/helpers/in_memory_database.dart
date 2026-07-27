@@ -185,9 +185,9 @@ Future<void> seedContentQuestionWithChoices(
   ContentDatabase db, {
   required String questionId,
   required String topicId,
+  required List<Map<String, Object?>> choices,
   String? examId,
   List<String> examIds = const [],
-  required List<Map<String, Object?>> choices,
   String? stem,
   String? explanation,
   String? lessonId,
