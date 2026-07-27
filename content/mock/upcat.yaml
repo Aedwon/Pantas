@@ -1,0 +1,69 @@
+_id: mock_blueprint_upcat
+schemaVersion: 2
+isActive: true
+exam: exam_upcat
+name: UPCAT Practice Paper
+durationMinutes: 230
+sectionalTiming: sectional
+totalPublishedItems: 250
+source: reported
+sourceNote: 'Supplied by Aedwon, 11 August 2026. UP publishes the four subtest names and about five hours of administration only.'
+sections:
+  - id: sec_upcat_language_proficiency
+    name: Language Proficiency
+    questionCount: 80
+    suggestedMinutes: 70
+    sectionalMinutes: 70
+    topicIds:
+      - topic_upcat_vocabulary
+      - topic_upcat_grammar_and_structure
+      - topic_upcat_language_application
+    topicWeights:
+      topic_upcat_vocabulary: 0.3333333333333333
+      topic_upcat_grammar_and_structure: 0.3333333333333333
+      topic_upcat_language_application: 0.3333333333333334
+  - id: sec_upcat_reading_comprehension
+    name: Reading Comprehension
+    questionCount: 50
+    suggestedMinutes: 35
+    sectionalMinutes: 35
+    topicIds:
+      - topic_upcat_text_types
+      - topic_upcat_comprehension_skills
+    topicWeights:
+      topic_upcat_text_types: 0.5
+      topic_upcat_comprehension_skills: 0.5
+  - id: sec_upcat_mathematics
+    name: Mathematics
+    questionCount: 60
+    suggestedMinutes: 75
+    sectionalMinutes: 75
+    topicIds:
+      - topic_upcat_arithmetic_number_sense
+      - topic_upcat_algebra
+      - topic_upcat_geometry
+      - topic_upcat_trigonometry
+      - topic_upcat_statistics_and_probability
+      - topic_upcat_precalculus_basic_calculus
+    topicWeights:
+      topic_upcat_arithmetic_number_sense: 0.16666666666666666
+      topic_upcat_algebra: 0.16666666666666666
+      topic_upcat_geometry: 0.16666666666666666
+      topic_upcat_trigonometry: 0.16666666666666666
+      topic_upcat_statistics_and_probability: 0.16666666666666666
+      topic_upcat_precalculus_basic_calculus: 0.1666666666666667
+  - id: sec_upcat_science
+    name: Science
+    questionCount: 60
+    suggestedMinutes: 50
+    sectionalMinutes: 50
+    topicIds:
+      - topic_upcat_earth_science_astronomy
+      - topic_upcat_biology
+      - topic_upcat_chemistry
+      - topic_upcat_physics
+    topicWeights:
+      topic_upcat_earth_science_astronomy: 0.25
+      topic_upcat_biology: 0.25
+      topic_upcat_chemistry: 0.25
+      topic_upcat_physics: 0.25

@@ -24,6 +24,13 @@ class ContentMockBlueprints extends Table {
   /// this practice run leaves out. Null when the exam publishes no total.
   IntColumn get totalPublishedItems => integer().nullable()();
 
+  /// Where the blueprint's numbers came from: `published`, `reported`,
+  /// or `unknown`.
+  TextColumn get source => text().nullable()();
+
+  /// Citation or attribution note for the blueprint source.
+  TextColumn get sourceNote => text().nullable()();
+
   @override
   Set<Column<Object>> get primaryKey => {id};
 }
