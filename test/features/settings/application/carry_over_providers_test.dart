@@ -38,7 +38,7 @@ void main() {
       contentDb,
       questionId: id,
       topicId: 't1',
-      examId: 'e1',
+      examIds: examIds,
       choices: const [],
       stem: 'Stem',
       explanation: 'Exp',

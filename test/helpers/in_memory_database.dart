@@ -185,7 +185,8 @@ Future<void> seedContentQuestionWithChoices(
   ContentDatabase db, {
   required String questionId,
   required String topicId,
-  required String examId,
+  String? examId,
+  List<String> examIds = const [],
   required List<Map<String, Object?>> choices,
   String? stem,
   String? explanation,
@@ -224,12 +225,14 @@ Future<void> seedContentQuestionWithChoices(
           ),
         );
   }
-  await db.into(db.contentQuestionExams).insertOnConflictUpdate(
-        ContentQuestionExamsCompanion.insert(
-          questionId: questionId,
-          examId: examId,
-        ),
-      );
+  for (final tag in {if (examId != null) examId, ...examIds}) {
+    await db.into(db.contentQuestionExams).insertOnConflictUpdate(
+          ContentQuestionExamsCompanion.insert(
+            questionId: questionId,
+            examId: tag,
+          ),
+        );
+  }
 }
 
 String _portableText(String text) => jsonEncode([

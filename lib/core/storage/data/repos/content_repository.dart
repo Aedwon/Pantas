@@ -109,6 +109,25 @@ class ContentRepository {
     return {for (final q in questions) q.id: q};
   }
 
+  /// How many of [questionIds] are tagged for [examId].
+  ///
+  /// Answers the carry-over question: a student switching exams wants to know
+  /// how much of what they have already answered still counts. Exam membership
+  /// is a table of its own, so this is one query rather than a decode per row.
+  Future<int> countQuestionsTaggedForExam({
+    required Iterable<QuestionId> questionIds,
+    required ExamId examId,
+  }) async {
+    final wanted = questionIds.toSet().toList();
+    if (wanted.isEmpty) return 0;
+    final rows = await (_db.select(_db.contentQuestionExams)
+          ..where(
+            (row) => row.questionId.isIn(wanted) & row.examId.equals(examId),
+          ))
+        .get();
+    return rows.length;
+  }
+
   Future<List<Lesson>> lessonsByTopic(TopicId topicId) async {
     final rows = await (_db.select(_db.contentLessons)
           ..where((l) => l.topicId.equals(topicId))
