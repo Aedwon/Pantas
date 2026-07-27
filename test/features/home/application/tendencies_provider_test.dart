@@ -16,7 +16,8 @@ void main() {
   late ProviderContainer container;
 
   Future<void> seedInitialData(
-    AppDatabase targetDb, {
+    AppDatabase targetDb,
+    ContentDatabase contentDb, {
     int readThenQuiz = 12,
     int quizFirst = 4,
     double practiceAcc = 0.68,
@@ -27,49 +28,41 @@ void main() {
     bool includeSpeed = false,
   }) async {
     const examId = 'exam_upcat';
-    await targetDb.into(targetDb.exams).insertOnConflictUpdate(
-          ExamsCompanion.insert(
-            id: examId,
-            code: 'UPCAT',
-            name: 'UP College Admissions Test',
-            shortName: 'UPCAT',
-            language: 'en',
-          ),
-        );
+    await seedContentExam(
+      contentDb,
+      examId: examId,
+      code: 'UPCAT',
+      name: 'UP College Admissions Test',
+      shortName: 'UPCAT',
+    );
 
-    await targetDb.into(targetDb.subjects).insertOnConflictUpdate(
-          SubjectsCompanion.insert(
-            id: 'sub_1',
-            examId: examId,
-            name: 'Math',
-            ordering: 1,
-          ),
-        );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'sub_1',
+      examId: examId,
+      name: 'Math',
+    );
 
-    await targetDb.into(targetDb.topics).insertOnConflictUpdate(
-          TopicsCompanion.insert(
-            id: 'top_1',
-            subjectId: 'sub_1',
-            name: 'Algebra',
-            ordering: 1,
-          ),
-        );
+    await seedContentTopic(
+      contentDb,
+      topicId: 'top_1',
+      subjectId: 'sub_1',
+      name: 'Algebra',
+    );
 
     final firstAttemptTime = DateTime.utc(2026, 5, 10);
 
     final totalLessons = readThenQuiz + quizFirst;
     for (var i = 0; i < totalLessons; i++) {
       final lessonId = 'les_$i';
-      await targetDb.into(targetDb.lessons).insertOnConflictUpdate(
-            LessonsCompanion.insert(
-              id: lessonId,
-              topicId: 'top_1',
-              title: 'Lesson $i',
-              summary: '',
-              bodyJson: '{}',
-              estimatedMinutes: 5,
-            ),
-          );
+      await seedContentLesson(
+        contentDb,
+        lessonId: lessonId,
+        topicId: 'top_1',
+        title: 'Lesson $i',
+        summary: '',
+        bodyJson: '{}',
+      );
 
       final readAt = i < readThenQuiz
           ? firstAttemptTime.subtract(Duration(days: 2 + i))
@@ -112,20 +105,18 @@ void main() {
     }
 
     for (var i = 0; i < practiceTotal; i++) {
-      await targetDb.into(targetDb.questions).insertOnConflictUpdate(
-            QuestionsCompanion.insert(
-              id: 'q_$i',
-              version: 1,
-              examIdsJson: '["$examId"]',
-              topicId: 'top_1',
-              language: 'en',
-              stem: 'Question $i',
-              choicesJson:
-                  '[{"id":"a","label":"A","text":"A","isCorrect":true},'
-                  '{"id":"b","label":"B","text":"B","isCorrect":false}]',
-              explanation: '',
-            ),
-          );
+      await seedContentQuestionWithChoices(
+        contentDb,
+        questionId: 'q_$i',
+        topicId: 'top_1',
+        examId: examId,
+        choices: [
+          {'id': 'q${i}_a', 'label': 'A', 'text': 'A', 'isCorrect': true},
+          {'id': 'q${i}_b', 'label': 'B', 'text': 'B', 'isCorrect': false},
+        ],
+        stem: 'Question $i',
+        explanation: '',
+      );
     }
 
     await targetDb.into(targetDb.attemptsLocal).insertOnConflictUpdate(
@@ -207,7 +198,7 @@ void main() {
   });
 
   test('always four cards, in every data state', () async {
-    await seedInitialData(db);
+    await seedInitialData(db, contentDb);
     final cards = await container.read(tendenciesProvider.future);
     expect(cards, hasLength(4));
     expect(
@@ -219,7 +210,7 @@ void main() {
   test('a null signal becomes a prerequisite card, not a missing one',
       () async {
     // No mocks sat.
-    await seedInitialData(db, includeMock: false);
+    await seedInitialData(db, contentDb, includeMock: false);
     final cards = await container.read(tendenciesProvider.future);
     final stamina = cards.firstWhere((c) => c.kind == TendencyKind.stamina);
 
@@ -233,10 +224,11 @@ void main() {
   test('measurable cards sort before blocked ones', () async {
     // Only howYouAnswer has data (speed dist data).
     final customDb = inMemoryDatabase();
+    final customContentDb = openTestContentDatabase();
     final customContainer = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(customDb),
-        contentDatabaseProvider.overrideWithValue(contentDb),
+        contentDatabaseProvider.overrideWithValue(customContentDb),
       ],
     );
     await customContainer
@@ -244,6 +236,7 @@ void main() {
         .setSelectedExamId('exam_upcat');
     await seedInitialData(
       customDb,
+      customContentDb,
       includeMock: false,
       includeSpeed: true,
       readThenQuiz: 0,
@@ -262,10 +255,11 @@ void main() {
   test('worst first among measurable cards', () async {
     // pressure delta -0.18, stamina delta -0.04.
     final customDb = inMemoryDatabase();
+    final customContentDb = openTestContentDatabase();
     final customContainer = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(customDb),
-        contentDatabaseProvider.overrideWithValue(contentDb),
+        contentDatabaseProvider.overrideWithValue(customContentDb),
       ],
     );
     await customContainer
@@ -273,6 +267,7 @@ void main() {
         .setSelectedExamId('exam_upcat');
     await seedInitialData(
       customDb,
+      customContentDb,
       mockAcc: 0.50, // pressure delta -0.18
     );
 
@@ -288,10 +283,11 @@ void main() {
   test('a gain sorts by size, not by sign', () async {
     // stamina delta +0.20, pressure delta -0.05.
     final customDb = inMemoryDatabase();
+    final customContentDb = openTestContentDatabase();
     final customContainer = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(customDb),
-        contentDatabaseProvider.overrideWithValue(contentDb),
+        contentDatabaseProvider.overrideWithValue(customContentDb),
       ],
     );
     await customContainer
@@ -299,6 +295,7 @@ void main() {
         .setSelectedExamId('exam_upcat');
     await seedInitialData(
       customDb,
+      customContentDb,
       mockAcc: 0.63, // pressure delta -0.05
       firstHalfAcc: 0.60,
       secondHalfAcc: 0.80, // stamina delta +0.20
@@ -314,7 +311,7 @@ void main() {
   });
 
   test('no user-facing string names the scheduler', () async {
-    await seedInitialData(db);
+    await seedInitialData(db, contentDb);
     final cards = await container.read(tendenciesProvider.future);
     const banned = ['FSRS', 'stability', 'retention', 'algorithm', 'marks'];
     for (final card in cards) {
