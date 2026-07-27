@@ -177,7 +177,7 @@ void main() {
       await tester.tap(find.widgetWithText(BoardButton, 'Continue'));
       await tester.pumpAndSettle();
 
-      final exams = await db.select(db.exams).get();
+      final exams = await contentDb.select(contentDb.contentExams).get();
       final custom = exams.where((e) => e.isCustom).firstOrNull;
       expect(custom, isNotNull);
       expect(custom!.name, equals('PUP CET'));
@@ -194,7 +194,7 @@ void main() {
       await tester.tap(find.widgetWithText(BoardButton, 'Continue'));
       await tester.pumpAndSettle();
 
-      final exams = await db.select(db.exams).get();
+      final exams = await contentDb.select(contentDb.contentExams).get();
       final custom = exams.where((e) => e.isCustom).firstOrNull;
       expect(custom, isNotNull);
       expect(custom!.name, equals('PUP CET'));

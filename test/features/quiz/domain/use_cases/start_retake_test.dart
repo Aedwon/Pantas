@@ -25,7 +25,9 @@ void main() {
       subjectId: 'subj_cse_verbal',
       topicId: 'topic_cse_vocab',
       topicName: 'Vocab',
-      questionIds: List.generate(30, (i) => 'q$i'),
+      // The attempt below names these ids; the asset corpus this test used to
+      // seed carried them, so they have to be seeded explicitly now.
+      questionIds: const ['q_001', 'q_002'],
     );
     final attempts = AttemptsRepository(db);
     await attempts.save(

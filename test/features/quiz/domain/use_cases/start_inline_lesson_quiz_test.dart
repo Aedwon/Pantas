@@ -24,6 +24,12 @@ void main() {
       topicId: 'topic_cse_vocab',
       topicName: 'Vocab',
       questionIds: List.generate(30, (i) => 'q$i'),
+      // These used to seed the whole asset corpus, which carried lessons with
+      // it. An inline quiz starts from a lesson, so the topic needs one.
+      lessonIds: const ['les_vocab'],
+      questionLessonMap: {
+        for (var i = 0; i < 30; i++) 'q$i': 'les_vocab',
+      },
     );
     final content = ContentRepository(contentDb);
     final lesson = (await content.lessonsByTopic('topic_cse_vocab')).first;
@@ -61,6 +67,12 @@ void main() {
       topicId: 'topic_cse_vocab',
       topicName: 'Vocab',
       questionIds: List.generate(30, (i) => 'q$i'),
+      // These used to seed the whole asset corpus, which carried lessons with
+      // it. An inline quiz starts from a lesson, so the topic needs one.
+      lessonIds: const ['les_vocab'],
+      questionLessonMap: {
+        for (var i = 0; i < 30; i++) 'q$i': 'les_vocab',
+      },
     );
     final content = ContentRepository(contentDb);
     final lesson = (await content.lessonsByTopic('topic_cse_vocab')).first;
@@ -93,6 +105,12 @@ void main() {
       topicId: 'topic_cse_vocab',
       topicName: 'Vocab',
       questionIds: List.generate(30, (i) => 'q$i'),
+      // These used to seed the whole asset corpus, which carried lessons with
+      // it. An inline quiz starts from a lesson, so the topic needs one.
+      lessonIds: const ['les_vocab'],
+      questionLessonMap: {
+        for (var i = 0; i < 30; i++) 'q$i': 'les_vocab',
+      },
     );
     final content = ContentRepository(contentDb);
     final lesson = (await content.lessonsByTopic('topic_cse_vocab')).first;

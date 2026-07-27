@@ -75,7 +75,9 @@ void main() {
     final blank = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(inMemoryDatabase()),
-        contentDatabaseProvider.overrideWithValue(contentDb),
+        // A blank state means no corpus either; sharing the seeded one let
+        // the provider fall back to an exam this test never chose.
+        contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
       ],
     );
     addTearDown(blank.dispose);
