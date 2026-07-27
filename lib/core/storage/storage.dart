@@ -11,13 +11,11 @@ import 'package:cse_cet_reviewer/core/storage/data/repos/question_flags_reposito
 import 'package:cse_cet_reviewer/core/storage/data/repos/quiz_nudge_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/review_state_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/streak_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/seeder.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/exam.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/lesson.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/passage.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 export 'package:cse_cet_reviewer/core/storage/data/repos/app_preferences_repository.dart';
@@ -56,10 +54,6 @@ final streakRepositoryProvider = Provider<StreakRepository>(
 
 final appPreferencesRepositoryProvider = Provider<AppPreferencesRepository>(
   (ref) => AppPreferencesRepository(ref.watch(appDatabaseProvider)),
-);
-
-final seederProvider = Provider<Seeder>(
-  (ref) => Seeder(ref.watch(appDatabaseProvider), bundle: rootBundle),
 );
 
 /// Opens the encrypted DB and returns a ProviderContainer override list.
