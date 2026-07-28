@@ -29,11 +29,11 @@ void main() {
         examId: 'e1',
         code: 'CSE',
         name: 'Civil Service Exam',
-        shortName: 'CSE');
+        shortName: 'CSE',);
     await seedContentSubject(contentDb,
-        subjectId: 's1', examId: 'e1', name: 'Science');
+        subjectId: 's1', examId: 'e1', name: 'Science',);
     await seedContentTopic(contentDb,
-        topicId: 't1', subjectId: 's1', name: 'Chemistry');
+        topicId: 't1', subjectId: 's1', name: 'Chemistry',);
 
     for (var i = 1; i <= 10; i++) {
       await seedContentLesson(
@@ -140,7 +140,7 @@ void main() {
   });
 
   testWidgets('grips appear only in custom order', (tester) async {
-    await pumpSheet(tester, rows: 3, order: BookmarkOrder.recent);
+    await pumpSheet(tester, rows: 3);
     expect(find.byKey(const ValueKey('bookmark-grip')), findsNothing);
 
     await pumpSheet(tester, rows: 3, order: BookmarkOrder.custom);
@@ -171,7 +171,7 @@ void main() {
   });
 
   testWidgets('reset order is offered only in custom', (tester) async {
-    await pumpSheet(tester, rows: 3, order: BookmarkOrder.recent);
+    await pumpSheet(tester, rows: 3);
     expect(find.text('Reset order'), findsNothing);
 
     await pumpSheet(tester, rows: 3, order: BookmarkOrder.custom);
