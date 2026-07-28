@@ -13,6 +13,7 @@ import 'package:cse_cet_reviewer/core/content/sanity/parsers/question_parser.dar
 import 'package:cse_cet_reviewer/core/content/sanity/parsers/subject_parser.dart';
 import 'package:cse_cet_reviewer/core/content/sanity/parsers/topic_parser.dart';
 import 'package:drift/native.dart';
+import 'package:path/path.dart' as p;
 
 Future<void> main(List<String> args) async {
   if (args.length != 2) {
@@ -25,7 +26,14 @@ Future<void> main(List<String> args) async {
     inputJson: File(args[0]),
     outputDb: outputDb,
   );
-  await _writeVersionFile(outputDb);
+  // Only the shipped asset has a version worth recording. Tests build the
+  // database into a temp directory through this same entry point, and writing
+  // then would stamp the app with the digest of a fixture.
+  if (p
+      .normalize(outputDb.path)
+      .endsWith(p.join('assets', 'seed', 'content.db'))) {
+    await _writeVersionFile(outputDb);
+  }
 }
 
 /// Records what was just built, so the installer never has to be told by hand.
