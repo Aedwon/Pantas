@@ -1,14 +1,11 @@
-import 'dart:convert';
-
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/seeder.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_retake.dart';
-import 'package:flutter/services.dart';
+import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../helpers/in_memory_database.dart';
@@ -19,8 +16,19 @@ void main() {
   test('start retake stores retake origin and dedupes missed question ids',
       () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await Seeder(db, bundle: rootBundle).maybeSeed();
+    await seedContentTopicWithQuestions(
+      contentDb,
+      examId: 'exam_cse_pro',
+      subjectId: 'subj_cse_verbal',
+      topicId: 'topic_cse_vocab',
+      topicName: 'Vocab',
+      // The attempt below names these ids; the asset corpus this test used to
+      // seed carried them, so they have to be seeded explicitly now.
+      questionIds: const ['q_001', 'q_002'],
+    );
     final attempts = AttemptsRepository(db);
     await attempts.save(
       _attempt(
@@ -31,7 +39,7 @@ void main() {
     );
 
     final result = await StartRetake(
-      content: ContentRepository(db),
+      content: ContentRepository(contentDb),
       attempts: attempts,
       sessions: QuizSessionRepository(db),
     )(
@@ -54,9 +62,18 @@ void main() {
 
   test('start retake caps the pool at 50 questions', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await Seeder(db, bundle: rootBundle).maybeSeed();
-    await _insertExtraQuestions(db, count: 55);
+    await seedContentTopicWithQuestions(
+      contentDb,
+      examId: 'exam_cse_pro',
+      subjectId: 'subj_cse_verbal',
+      topicId: 'topic_cse_vocab',
+      topicName: 'Vocab',
+      questionIds: List.generate(30, (i) => 'q$i'),
+    );
+    await _insertExtraQuestions(contentDb, count: 55);
     final attempts = AttemptsRepository(db);
     await attempts.save(
       _attempt(
@@ -67,7 +84,7 @@ void main() {
     );
 
     final result = await StartRetake(
-      content: ContentRepository(db),
+      content: ContentRepository(contentDb),
       attempts: attempts,
       sessions: QuizSessionRepository(db),
     )(
@@ -81,11 +98,20 @@ void main() {
 
   test('empty mistake pool returns an empty-state result', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await Seeder(db, bundle: rootBundle).maybeSeed();
+    await seedContentTopicWithQuestions(
+      contentDb,
+      examId: 'exam_cse_pro',
+      subjectId: 'subj_cse_verbal',
+      topicId: 'topic_cse_vocab',
+      topicName: 'Vocab',
+      questionIds: List.generate(30, (i) => 'q$i'),
+    );
 
     final result = await StartRetake(
-      content: ContentRepository(db),
+      content: ContentRepository(contentDb),
       attempts: AttemptsRepository(db),
       sessions: QuizSessionRepository(db),
     )(
@@ -122,24 +148,24 @@ Attempt _attempt({
   );
 }
 
-Future<void> _insertExtraQuestions(AppDatabase db, {required int count}) async {
-  final topic = (await db.select(db.topics).get()).first;
-  final choices = jsonEncode([
+Future<void> _insertExtraQuestions(
+  ContentDatabase contentDb, {
+  required int count,
+}) async {
+  final topic = (await contentDb.select(contentDb.contentTopics).get()).first;
+  const choices = [
     {'id': 'wrong', 'label': 'A', 'text': 'Wrong', 'isCorrect': false},
     {'id': 'correct', 'label': 'B', 'text': 'Correct', 'isCorrect': true},
-  ]);
+  ];
   for (var i = 0; i < count; i++) {
-    await db.into(db.questions).insert(
-          QuestionsCompanion.insert(
-            id: 'extra_$i',
-            version: 1,
-            examIdsJson: jsonEncode(['exam_cse_pro']),
-            topicId: topic.id,
-            language: 'en',
-            stem: 'Extra $i',
-            choicesJson: choices,
-            explanation: 'Explanation',
-          ),
-        );
+    await seedContentQuestionWithChoices(
+      contentDb,
+      questionId: 'extra_$i',
+      topicId: topic.id,
+      examId: 'exam_cse_pro',
+      choices: choices,
+      stem: 'Extra $i',
+      explanation: 'Explanation',
+    );
   }
 }

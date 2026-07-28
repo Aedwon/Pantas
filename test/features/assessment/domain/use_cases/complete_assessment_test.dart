@@ -1,5 +1,4 @@
-import 'dart:convert';
-
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/fsrs/fsrs_scheduler.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/assessment_repository.dart';
@@ -16,6 +15,7 @@ import '../../../../helpers/in_memory_database.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
   late AssessmentRepository assessmentRepo;
   late ReviewStateRepository reviewRepo;
   late ContentRepository contentRepo;
@@ -24,32 +24,21 @@ void main() {
 
   // Returns (correctChoiceId, wrongChoiceId).
   Future<(String, String)> seedQuestion(String id, String topicId) async {
-    final correctId = '${id}_correct';
-    final wrongId = '${id}_wrong';
-    final choices = [
-      {'id': correctId, 'label': 'A', 'text': 'Correct', 'isCorrect': true},
-      {'id': wrongId, 'label': 'B', 'text': 'Wrong', 'isCorrect': false},
-    ];
-    await db.into(db.questions).insert(
-          QuestionsCompanion.insert(
-            id: id,
-            version: 1,
-            examIdsJson: jsonEncode(['e1']),
-            topicId: topicId,
-            language: 'en',
-            stem: 'Q $id?',
-            choicesJson: jsonEncode(choices),
-            explanation: '',
-          ),
-        );
-    return (correctId, wrongId);
+    await seedContentQuestion(
+      contentDb,
+      questionId: id,
+      topicId: topicId,
+      examId: 'e1',
+    );
+    return ('${id}_a', '${id}_b');
   }
 
   setUp(() async {
     db = inMemoryDatabase();
+    contentDb = inMemoryContentDatabase();
     assessmentRepo = AssessmentRepository(db);
     reviewRepo = ReviewStateRepository(db);
-    contentRepo = ContentRepository(db);
+    contentRepo = ContentRepository(contentDb);
     attemptsRepo = AttemptsRepository(db);
     useCase = CompleteAssessment(
       assessmentRepo: assessmentRepo,
@@ -59,50 +48,39 @@ void main() {
       attemptsRepo: attemptsRepo,
     );
 
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'e1',
-            code: 'CSE',
-            name: 'CSE',
-            shortName: 'CSE',
-            language: 'en',
-          ),
-        );
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
-            id: 's1',
-            examId: 'e1',
-            name: 'Verbal',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
-            id: 's2',
-            examId: 'e1',
-            name: 'Numerical',
-            ordering: 2,
-          ),
-        );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
-            id: 't1',
-            subjectId: 's1',
-            name: 'Vocabulary',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
-            id: 't2',
-            subjectId: 's2',
-            name: 'Arithmetic',
-            ordering: 2,
-          ),
-        );
+    await seedContentExam(contentDb, examId: 'e1', code: 'CSE', name: 'CSE');
+    await seedContentSubject(
+      contentDb,
+      subjectId: 's1',
+      examId: 'e1',
+      name: 'Verbal',
+    );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 's2',
+      examId: 'e1',
+      name: 'Numerical',
+      ordering: 2,
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 't1',
+      subjectId: 's1',
+      name: 'Vocabulary',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 't2',
+      subjectId: 's2',
+      name: 'Arithmetic',
+      ordering: 2,
+    );
   });
 
-  tearDown(() => db.close());
+  tearDown(() async {
+    await db.close();
+    await contentDb.close();
+  });
 
   test('saveResult is called once and result is retrievable', () async {
     final (correctId, _) = await seedQuestion('q1', 't1');

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/home/application/topic_accuracy_provider.dart';
@@ -11,12 +12,17 @@ import '../../../helpers/in_memory_database.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
   late ProviderContainer container;
 
   setUp(() {
     db = inMemoryDatabase();
+    contentDb = openTestContentDatabase();
     container = ProviderContainer(
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
   });
 
@@ -63,22 +69,22 @@ void main() {
 
   test('ranks measured topics weakest first', () async {
     await setupExam('upcat');
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'chemistry',
       topicName: 'Chemistry',
       questionIds: ['q_chem_1', 'q_chem_2', 'q_chem_3', 'q_chem_4', 'q_chem_5'],
     );
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'algebra',
       topicName: 'Algebra',
       questionIds: ['q_alg_1', 'q_alg_2', 'q_alg_3', 'q_alg_4', 'q_alg_5'],
     );
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'geometry',
       topicName: 'Geometry',
@@ -119,15 +125,15 @@ void main() {
 
   test('an untouched topic sorts last, never at nought per cent', () async {
     await setupExam('upcat');
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'chemistry',
       topicName: 'Chemistry',
       questionIds: ['q_chem_1', 'q_chem_2', 'q_chem_3', 'q_chem_4', 'q_chem_5'],
     );
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'physics',
       topicName: 'Physics',
@@ -158,8 +164,8 @@ void main() {
 
   test('below the floor a topic is ranked and prints nothing', () async {
     await setupExam('upcat');
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'chemistry',
       topicName: 'Chemistry',
@@ -186,8 +192,8 @@ void main() {
 
   test('exactly three answered clears the floor', () async {
     await setupExam('upcat');
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'chemistry',
       topicName: 'Chemistry',
@@ -215,8 +221,8 @@ void main() {
 
   test('assessment attempts count toward accuracy', () async {
     await setupExam('upcat');
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'chemistry',
       topicName: 'Chemistry',
@@ -245,8 +251,8 @@ void main() {
 
   test('an unfinished attempt is not counted', () async {
     await setupExam('upcat');
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'chemistry',
       topicName: 'Chemistry',
@@ -270,15 +276,15 @@ void main() {
 
   test('a topic from another exam never appears', () async {
     await setupExam('upcat');
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'chemistry',
       topicName: 'Chemistry',
       questionIds: ['q_chem_1'],
     );
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'cse',
       topicId: 'cse-only-topic',
       topicName: 'CSE Topic',

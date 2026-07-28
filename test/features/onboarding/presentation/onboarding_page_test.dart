@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/age_gate.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
@@ -18,18 +19,18 @@ import '../../../helpers/in_memory_database.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
 
   setUp(() async {
     db = inMemoryDatabase();
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'cse',
-            code: 'CSE',
-            name: 'Civil Service Exam',
-            shortName: 'CSE',
-            language: 'en',
-          ),
-        );
+    contentDb = openTestContentDatabase();
+    await seedContentExam(
+      contentDb,
+      examId: 'cse',
+      code: 'CSE',
+      name: 'Civil Service Exam',
+      shortName: 'CSE',
+    );
   });
 
   tearDown(() => db.close());
@@ -39,6 +40,7 @@ void main() {
       ProviderScope(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
           settingsRepositoryProvider.overrideWithValue(
             DriftSettingsRepository(db),
           ),

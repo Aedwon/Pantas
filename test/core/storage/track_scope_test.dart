@@ -1,5 +1,4 @@
-import 'dart:convert';
-
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/storage/track_scope.dart';
@@ -10,12 +9,17 @@ import '../../helpers/in_memory_database.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
   late ProviderContainer container;
 
   setUp(() {
     db = inMemoryDatabase();
+    contentDb = openTestContentDatabase();
     container = ProviderContainer(
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
   });
 
@@ -28,65 +32,55 @@ void main() {
   /// the default rather than a special one.
   Future<void> seedTwoExams({int upcatAlgebraQuestions = 1}) async {
     for (final exam in ['exam_upcat', 'exam_cse']) {
-      await db.into(db.exams).insert(
-            ExamsCompanion.insert(
-              id: exam,
-              code: exam,
-              name: exam,
-              shortName: exam,
-              language: 'en',
-            ),
-          );
-      await db.into(db.subjects).insert(
-            SubjectsCompanion.insert(
-              id: '${exam}_math',
-              examId: exam,
-              name: 'Mathematics',
-              ordering: 0,
-            ),
-          );
-      await db.into(db.topics).insert(
-            TopicsCompanion.insert(
-              id: '${exam}_algebra',
-              subjectId: '${exam}_math',
-              name: 'Algebra',
-              ordering: 0,
-            ),
-          );
+      await seedContentExam(
+        contentDb,
+        examId: exam,
+        code: exam,
+        name: exam,
+        shortName: exam,
+      );
+      await seedContentSubject(
+        contentDb,
+        subjectId: '${exam}_math',
+        examId: exam,
+        name: 'Mathematics',
+        ordering: 0,
+      );
+      await seedContentTopic(
+        contentDb,
+        topicId: '${exam}_algebra',
+        subjectId: '${exam}_math',
+        name: 'Algebra',
+        ordering: 0,
+      );
     }
 
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
-            id: 'upcat_sci',
-            examId: 'exam_upcat',
-            name: 'Science',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
-            id: 'upcat_chem',
-            subjectId: 'upcat_sci',
-            name: 'Chemistry',
-            ordering: 0,
-          ),
-        );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'upcat_sci',
+      examId: 'exam_upcat',
+      name: 'Science',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 'upcat_chem',
+      subjectId: 'upcat_sci',
+      name: 'Chemistry',
+      ordering: 0,
+    );
 
     for (var i = 0; i < upcatAlgebraQuestions; i += 1) {
-      await db.into(db.questions).insert(
-            QuestionsCompanion.insert(
-              id: 'q_upcat_$i',
-              version: 1,
-              examIdsJson: jsonEncode(['exam_upcat']),
-              topicId: 'exam_upcat_algebra',
-              language: 'en',
-              stem: 'stem',
-              choicesJson: jsonEncode([
-                {'id': 'a', 'label': 'A', 'text': 'a', 'isCorrect': true},
-              ]),
-              explanation: 'why',
-            ),
-          );
+      await seedContentQuestionWithChoices(
+        contentDb,
+        questionId: 'q_upcat_$i',
+        topicId: 'exam_upcat_algebra',
+        examId: 'exam_upcat',
+        choices: [
+          {'id': 'a', 'label': 'A', 'text': 'a', 'isCorrect': true},
+        ],
+        stem: 'stem',
+        explanation: 'why',
+      );
     }
   }
 

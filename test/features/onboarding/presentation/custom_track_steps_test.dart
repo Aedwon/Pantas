@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
@@ -13,79 +14,67 @@ import '../../../helpers/in_memory_database.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
 
   setUp(() async {
     db = inMemoryDatabase();
+    contentDb = openTestContentDatabase();
 
     // Exam 1
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'exam1',
-            code: 'EX1',
-            name: 'Exam 1',
-            shortName: 'EX1',
-            language: 'en',
-          ),
-        );
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
-            id: 'sub1',
-            examId: 'exam1',
-            name: 'Mathematics',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
-            id: 'top1',
-            subjectId: 'sub1',
-            name: 'Algebra',
-            ordering: 1,
-          ),
-        );
+    await seedContentExam(
+      contentDb,
+      examId: 'exam1',
+      code: 'EX1',
+      name: 'Exam 1',
+      shortName: 'EX1',
+    );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'sub1',
+      examId: 'exam1',
+      name: 'Mathematics',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 'top1',
+      subjectId: 'sub1',
+      name: 'Algebra',
+    );
 
     // Exam 2 sharing Mathematics subject name + carrying Science subject
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'exam2',
-            code: 'EX2',
-            name: 'Exam 2',
-            shortName: 'EX2',
-            language: 'en',
-          ),
-        );
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
-            id: 'sub2',
-            examId: 'exam2',
-            name: 'Mathematics',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
-            id: 'top2',
-            subjectId: 'sub2',
-            name: 'Geometry',
-            ordering: 2,
-          ),
-        );
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
-            id: 'sub3',
-            examId: 'exam2',
-            name: 'Science',
-            ordering: 2,
-          ),
-        );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
-            id: 'top3',
-            subjectId: 'sub3',
-            name: 'Biology',
-            ordering: 1,
-          ),
-        );
+    await seedContentExam(
+      contentDb,
+      examId: 'exam2',
+      code: 'EX2',
+      name: 'Exam 2',
+      shortName: 'EX2',
+    );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'sub2',
+      examId: 'exam2',
+      name: 'Mathematics',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 'top2',
+      subjectId: 'sub2',
+      name: 'Geometry',
+      ordering: 2,
+    );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'sub3',
+      examId: 'exam2',
+      name: 'Science',
+      ordering: 2,
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 'top3',
+      subjectId: 'sub3',
+      name: 'Biology',
+    );
   });
 
   tearDown(() => db.close());
@@ -137,7 +126,10 @@ void main() {
     Future<void> pumpSubjectsStep(WidgetTester tester) async {
       await tester.pumpWidget(
         ProviderScope(
-          overrides: [appDatabaseProvider.overrideWithValue(db)],
+          overrides: [
+            appDatabaseProvider.overrideWithValue(db),
+            contentDatabaseProvider.overrideWithValue(contentDb),
+          ],
           child: MaterialApp(
             theme: buildLightTheme(),
             home: const CustomTrackSubjectsStep(name: 'PUP CET'),
@@ -185,7 +177,7 @@ void main() {
       await tester.tap(find.widgetWithText(BoardButton, 'Continue'));
       await tester.pumpAndSettle();
 
-      final exams = await db.select(db.exams).get();
+      final exams = await contentDb.select(contentDb.contentExams).get();
       final custom = exams.where((e) => e.isCustom).firstOrNull;
       expect(custom, isNotNull);
       expect(custom!.name, equals('PUP CET'));
@@ -202,7 +194,7 @@ void main() {
       await tester.tap(find.widgetWithText(BoardButton, 'Continue'));
       await tester.pumpAndSettle();
 
-      final exams = await db.select(db.exams).get();
+      final exams = await contentDb.select(contentDb.contentExams).get();
       final custom = exams.where((e) => e.isCustom).firstOrNull;
       expect(custom, isNotNull);
       expect(custom!.name, equals('PUP CET'));

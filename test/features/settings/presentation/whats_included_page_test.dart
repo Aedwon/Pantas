@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/exam.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/subject.dart';
@@ -17,53 +18,45 @@ import '../../../helpers/in_memory_database.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
 
   setUp(() async {
     db = inMemoryDatabase();
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'exam_1',
-            code: 'EX1',
-            name: 'Civil Service Exam',
-            shortName: 'CSE',
-            language: 'en',
-          ),
-        );
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
-            id: 'sub_1',
-            examId: 'exam_1',
-            name: 'Mathematics',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
-            id: 'top_1',
-            subjectId: 'sub_1',
-            name: 'Algebra',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
-            id: 'top_2',
-            subjectId: 'sub_1',
-            name: 'Geometry',
-            ordering: 2,
-          ),
-        );
-    await db.into(db.lessons).insert(
-          LessonsCompanion.insert(
-            id: 'les_1',
-            topicId: 'top_1',
-            title: 'Linear Equations',
-            summary: 'Summary',
-            bodyJson: '[]',
-            estimatedMinutes: 5,
-            ordering: const Value(1),
-          ),
-        );
+    contentDb = openTestContentDatabase();
+    await seedContentExam(
+      contentDb,
+      examId: 'exam_1',
+      code: 'EX1',
+      name: 'Civil Service Exam',
+      shortName: 'CSE',
+    );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'sub_1',
+      examId: 'exam_1',
+      name: 'Mathematics',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 'top_1',
+      subjectId: 'sub_1',
+      name: 'Algebra',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 'top_2',
+      subjectId: 'sub_1',
+      name: 'Geometry',
+      ordering: 2,
+    );
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'les_1',
+      topicId: 'top_1',
+      title: 'Linear Equations',
+      bodyJson: '[]',
+      ordering: 1,
+    );
 
     await AppPreferencesRepository(db).setSelectedExamId('exam_1');
   });
@@ -75,6 +68,7 @@ void main() {
       ProviderScope(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
           activeExamFocusProvider.overrideWith(
             (ref) async => const ActiveExamFocus.selected(
               Exam(

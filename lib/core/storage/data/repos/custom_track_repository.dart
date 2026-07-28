@@ -1,13 +1,22 @@
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:drift/drift.dart';
 import 'package:uuid/uuid.dart';
 
 /// Creates a student's own track and stores what it hides.
+///
+/// This needs both databases. What the track hides is the student's own and
+/// stays in [AppDatabase]; the exam row it creates and the topics it inverts
+/// against are corpus, so they live in [ContentDatabase]. The custom row
+/// survives a sync because the content sync only ever upserts, and
+/// `isCustom` exists on the content schema for exactly this row.
 class CustomTrackRepository {
-  CustomTrackRepository(this._db, {Uuid? uuid}) : _uuid = uuid ?? const Uuid();
+  CustomTrackRepository(this._db, this._contentDb, {Uuid? uuid})
+      : _uuid = uuid ?? const Uuid();
 
   final AppDatabase _db;
+  final ContentDatabase _contentDb;
   final Uuid _uuid;
 
   /// Creates the track and hides everything it did not include.
@@ -21,8 +30,9 @@ class CustomTrackRepository {
     required Set<TopicId> includedTopicIds,
   }) async {
     final examId = 'exam_custom_${_uuid.v4()}';
-    await _db.into(_db.exams).insert(
-          ExamsCompanion.insert(
+    final now = DateTime.now();
+    await _contentDb.into(_contentDb.contentExams).insert(
+          ContentExamsCompanion.insert(
             id: examId,
             code: 'custom',
             name: name,
@@ -30,11 +40,15 @@ class CustomTrackRepository {
             // would otherwise appear, so both carry it.
             shortName: name,
             language: 'en',
+            // A custom track sorts after every published exam.
+            ordering: 9999,
             isCustom: const Value(true),
+            schemaVersion: 1,
+            updatedAt: now,
           ),
         );
 
-    final allTopics = await _db.select(_db.topics).get();
+    final allTopics = await _contentDb.select(_contentDb.contentTopics).get();
     await setExcluded(
       examId: examId,
       topicIds: {

@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
@@ -15,18 +16,18 @@ import '../../../helpers/pump_app.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
 
   setUp(() async {
     db = inMemoryDatabase();
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'e1',
-            code: 'UPCAT',
-            name: 'UP College Admission Test',
-            shortName: 'UPCAT',
-            language: 'en',
-          ),
-        );
+    contentDb = openTestContentDatabase();
+    await seedContentExam(
+      contentDb,
+      examId: 'e1',
+      code: 'UPCAT',
+      name: 'UP College Admission Test',
+      shortName: 'UPCAT',
+    );
     await AppPreferencesRepository(db).setSelectedExamId('e1');
   });
 
@@ -56,7 +57,10 @@ void main() {
       (tester) async {
     await tester.pumpAppWithProviders(
       const QuizTabHome(),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
     await tester.pumpAndSettle();
 
@@ -67,7 +71,10 @@ void main() {
   testWidgets('the tab no longer offers a Study row', (tester) async {
     await tester.pumpAppWithProviders(
       const QuizTabHome(),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
     await tester.pumpAndSettle();
 
@@ -77,7 +84,10 @@ void main() {
   testWidgets('the tab no longer offers a Drill a topic row', (tester) async {
     await tester.pumpAppWithProviders(
       const QuizTabHome(),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
     await tester.pumpAndSettle();
 
@@ -96,6 +106,7 @@ void main() {
           ),
         ),
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
     await tester.pumpAndSettle();
@@ -114,6 +125,7 @@ void main() {
           ),
         ),
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
     await tester.pumpAndSettle();
@@ -135,6 +147,7 @@ void main() {
           (ref) => const FlagSummary(count: 12, topicCount: 4),
         ),
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
     await tester.pumpAndSettle();
@@ -160,6 +173,7 @@ void main() {
           (ref) => FlagSummary.empty,
         ),
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
     await tester.pumpAndSettle();
@@ -184,6 +198,7 @@ void main() {
           (ref) => const FlagSummary(count: 12, topicCount: 4),
         ),
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
     await tester.pumpAndSettle();

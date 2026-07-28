@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/choice_order.dart';
@@ -15,11 +16,11 @@ import 'package:drift/drift.dart';
 class ContentRepository {
   ContentRepository(this._db);
 
-  final AppDatabase _db;
+  final ContentDatabase _db;
 
   Future<List<Exam>> listExams() async {
-    final examRows = await _db.select(_db.exams).get();
-    final subjectRows = await _db.select(_db.subjects).get();
+    final examRows = await _db.select(_db.contentExams).get();
+    final subjectRows = await _db.select(_db.contentSubjects).get();
     final byExam = <ExamId, List<Subject>>{};
     for (final s in subjectRows) {
       byExam.putIfAbsent(s.examId, () => []).add(
@@ -48,7 +49,7 @@ class ContentRepository {
   }
 
   Future<List<Topic>> topicsBySubject(SubjectId subjectId) async {
-    final rows = await (_db.select(_db.topics)
+    final rows = await (_db.select(_db.contentTopics)
           ..where((t) => t.subjectId.equals(subjectId)))
         .get();
     return [
@@ -63,7 +64,7 @@ class ContentRepository {
   }
 
   Future<List<Topic>> topicsByExam(ExamId examId) async {
-    final subjectRows = await (_db.select(_db.subjects)
+    final subjectRows = await (_db.select(_db.contentSubjects)
           ..where((s) => s.examId.equals(examId)))
         .get();
     final allTopics = <Topic>[];
@@ -74,18 +75,20 @@ class ContentRepository {
   }
 
   Future<List<Question>> questionsByTopic(TopicId topicId) async {
-    final rows = await (_db.select(_db.questions)
+    final rows = await (_db.select(_db.contentQuestions)
           ..where(
-            (q) => q.topicId.equals(topicId) & q.isWithdrawn.equals(false),
+            // isWithdrawn is isActive inverted
+            (q) => q.topicId.equals(topicId) & q.isActive.equals(true),
           ))
         .get();
-    return rows.map(_hydrateQuestion).toList();
+    return Future.wait(rows.map(_hydrateQuestion));
   }
 
   Future<Question?> questionById(QuestionId id) async {
-    final row = await (_db.select(_db.questions)..where((q) => q.id.equals(id)))
+    final row = await (_db.select(_db.contentQuestions)
+          ..where((q) => q.id.equals(id)))
         .getSingleOrNull();
-    return row == null ? null : _hydrateQuestion(row);
+    return row == null ? null : await _hydrateQuestion(row);
   }
 
   /// Every question named, in one query, keyed by id.
@@ -99,14 +102,34 @@ class ContentRepository {
   ) async {
     final wanted = ids.toSet().toList();
     if (wanted.isEmpty) return const {};
-    final rows = await (_db.select(_db.questions)
+    final rows = await (_db.select(_db.contentQuestions)
           ..where((q) => q.id.isIn(wanted)))
         .get();
-    return {for (final row in rows) row.id: _hydrateQuestion(row)};
+    final questions = await Future.wait(rows.map(_hydrateQuestion));
+    return {for (final q in questions) q.id: q};
+  }
+
+  /// How many of [questionIds] are tagged for [examId].
+  ///
+  /// Answers the carry-over question: a student switching exams wants to know
+  /// how much of what they have already answered still counts. Exam membership
+  /// is a table of its own, so this is one query rather than a decode per row.
+  Future<int> countQuestionsTaggedForExam({
+    required Iterable<QuestionId> questionIds,
+    required ExamId examId,
+  }) async {
+    final wanted = questionIds.toSet().toList();
+    if (wanted.isEmpty) return 0;
+    final rows = await (_db.select(_db.contentQuestionExams)
+          ..where(
+            (row) => row.questionId.isIn(wanted) & row.examId.equals(examId),
+          ))
+        .get();
+    return rows.length;
   }
 
   Future<List<Lesson>> lessonsByTopic(TopicId topicId) async {
-    final rows = await (_db.select(_db.lessons)
+    final rows = await (_db.select(_db.contentLessons)
           ..where((l) => l.topicId.equals(topicId))
           ..orderBy([
             (l) => OrderingTerm.asc(l.ordering),
@@ -127,7 +150,7 @@ class ContentRepository {
     final grouped = {for (final id in topicIds) id: <Lesson>[]};
     if (topicIds.isEmpty) return grouped;
 
-    final rows = await (_db.select(_db.lessons)
+    final rows = await (_db.select(_db.contentLessons)
           ..where((l) => l.topicId.isIn(topicIds))
           ..orderBy([
             (l) => OrderingTerm.asc(l.ordering),
@@ -142,7 +165,8 @@ class ContentRepository {
   }
 
   Future<Lesson?> lessonById(LessonId id) async {
-    final row = await (_db.select(_db.lessons)..where((l) => l.id.equals(id)))
+    final row = await (_db.select(_db.contentLessons)
+          ..where((l) => l.id.equals(id)))
         .getSingleOrNull();
     return row == null ? null : _hydrateLesson(row);
   }
@@ -158,7 +182,7 @@ class ContentRepository {
     if (query.isEmpty || topicIds.isEmpty) return const [];
     final needle = '%${query.toLowerCase()}%';
 
-    return (_db.select(_db.lessons)
+    final rows = await (_db.select(_db.contentLessons)
           ..where(
             (l) =>
                 l.topicId.isIn(topicIds) &
@@ -171,10 +195,24 @@ class ContentRepository {
             (l) => OrderingTerm.asc(l.id),
           ]))
         .get();
+
+    return [
+      for (final r in rows)
+        LessonRow(
+          id: r.id,
+          topicId: r.topicId,
+          title: r.title,
+          summary: r.summary,
+          bodyJson: r.bodyJson,
+          estimatedMinutes: r.estimatedMinutes,
+          ordering: r.ordering,
+        ),
+    ];
   }
 
   Future<Topic?> topicById(TopicId id) async {
-    final row = await (_db.select(_db.topics)..where((t) => t.id.equals(id)))
+    final row = await (_db.select(_db.contentTopics)
+          ..where((t) => t.id.equals(id)))
         .getSingleOrNull();
     if (row == null) return null;
     return Topic(
@@ -186,7 +224,8 @@ class ContentRepository {
   }
 
   Future<Subject?> subjectById(SubjectId id) async {
-    final row = await (_db.select(_db.subjects)..where((s) => s.id.equals(id)))
+    final row = await (_db.select(_db.contentSubjects)
+          ..where((s) => s.id.equals(id)))
         .getSingleOrNull();
     if (row == null) return null;
     return Subject(
@@ -197,7 +236,7 @@ class ContentRepository {
     );
   }
 
-  Lesson _hydrateLesson(LessonRow r) {
+  Lesson _hydrateLesson(ContentLessonRow r) {
     return Lesson(
       id: r.id,
       topicId: r.topicId,
@@ -212,12 +251,13 @@ class ContentRepository {
   }
 
   Future<Passage?> passageById(PassageId id) async {
-    final row = await (_db.select(_db.passages)..where((p) => p.id.equals(id)))
+    final row = await (_db.select(_db.contentPassages)
+          ..where((p) => p.id.equals(id)))
         .getSingleOrNull();
     return row == null ? null : _hydratePassage(row);
   }
 
-  Passage _hydratePassage(PassageRow r) {
+  Passage _hydratePassage(ContentPassageRow r) {
     return Passage(
       id: r.id,
       topicId: r.topicId,
@@ -228,27 +268,54 @@ class ContentRepository {
     );
   }
 
-  Question _hydrateQuestion(QuestionRow r) {
-    final examIds = (jsonDecode(r.examIdsJson) as List).cast<String>();
-    final choices = orderChoicesFor(
-      r.id,
-      (jsonDecode(r.choicesJson) as List)
-          .cast<Map<String, dynamic>>()
-          .map(Choice.fromJson)
-          .toList(),
-    );
+  Future<Question> _hydrateQuestion(ContentQuestionRow r) async {
+    final choiceRows = await (_db.select(_db.contentChoices)
+          ..where(
+            (choice) =>
+                choice.questionId.equals(r.id) & choice.isActive.equals(true),
+          )
+          ..orderBy([(choice) => OrderingTerm.asc(choice.ordering)]))
+        .get();
+    final examRows = await (_db.select(_db.contentQuestionExams)
+          ..where((exam) => exam.questionId.equals(r.id)))
+        .get();
     return Question(
       id: r.id,
       version: r.version,
-      examIds: examIds,
+      examIds: [for (final exam in examRows) exam.examId],
       topicId: r.topicId,
       lessonId: r.lessonId,
       passageId: r.passageId,
       language: r.language,
-      stem: r.stem,
-      choices: choices,
-      explanation: r.explanation,
+      stem: _plainText(r.stemJson),
+      choices: orderChoicesFor(r.id, [
+        for (final choice in choiceRows)
+          Choice(
+            id: choice.id,
+            label: choice.label,
+            text: choice.textValue,
+            isCorrect: choice.isCorrect,
+          ),
+      ]),
+      explanation: _plainText(r.explanationJson),
       shortLabel: r.shortLabel,
     );
+  }
+
+  String _plainText(String portableTextJson) {
+    final decoded = jsonDecode(portableTextJson);
+    if (decoded is! List) return '';
+    return decoded
+        .whereType<Map<String, Object?>>()
+        .expand((block) {
+          final children = block['children'];
+          if (children is! List) return const <String>[];
+          return children
+              .whereType<Map<String, Object?>>()
+              .map((child) => child['text'])
+              .whereType<String>();
+        })
+        .join('\n')
+        .trim();
   }
 }

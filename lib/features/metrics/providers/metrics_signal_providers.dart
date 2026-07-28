@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/metrics/domain/metric_signal.dart';
@@ -20,21 +21,27 @@ import 'package:cse_cet_reviewer/features/metrics/signals/time_of_day_signal.dar
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta/meta.dart';
 
-typedef MetricsSignalFactory = Signal<Object?> Function(AppDatabase db);
+/// Every signal is built from both databases even when it needs only one.
+/// A uniform factory is what lets the registry stay a plain map; the signals
+/// that never touch the corpus simply ignore the second argument.
+typedef MetricsSignalFactory = Signal<Object?> Function(
+  AppDatabase db,
+  ContentDatabase contentDb,
+);
 
 final Map<SignalKey, MetricsSignalFactory> metricsSignalRegistry = {
-  SignalKey.timeOfDay: TimeOfDaySignal.new,
-  SignalKey.sessionShape: SessionShapeSignal.new,
-  SignalKey.consistency: ConsistencySignal.new,
-  SignalKey.perQuestionSpeed: PerQuestionSpeedSignal.new,
-  SignalKey.mockPacing: MockPacingSignal.new,
+  SignalKey.timeOfDay: (db, _) => TimeOfDaySignal(db),
+  SignalKey.sessionShape: (db, _) => SessionShapeSignal(db),
+  SignalKey.consistency: (db, _) => ConsistencySignal(db),
+  SignalKey.perQuestionSpeed: (db, _) => PerQuestionSpeedSignal(db),
+  SignalKey.mockPacing: (db, _) => MockPacingSignal(db),
   SignalKey.mockStamina: MockStaminaSignal.new,
-  SignalKey.flagRevisit: FlagRevisitSignal.new,
+  SignalKey.flagRevisit: (db, _) => FlagRevisitSignal(db),
   SignalKey.subjectAffinity: SubjectAffinitySignal.new,
   SignalKey.testModeDelta: TestModeDeltaSignal.new,
-  SignalKey.difficultyCalibration: DifficultyCalibrationSignal.new,
+  SignalKey.difficultyCalibration: (db, _) => DifficultyCalibrationSignal(db),
   SignalKey.readThenQuiz: ReadThenQuizSignal.new,
-  SignalKey.retentionShape: RetentionShapeSignal.new,
+  SignalKey.retentionShape: (db, _) => RetentionShapeSignal(db),
   SignalKey.coverageBreadth: CoverageBreadthSignal.new,
 };
 
@@ -72,7 +79,8 @@ final metricsSignalProvider = FutureProvider.family
     .autoDispose<SignalResult<Object?>?, MetricsSignalRequest>(
         (ref, request) async {
   final db = ref.watch(appDatabaseProvider);
-  final signal = metricsSignalRegistry[request.signal]!(db);
+  final contentDb = ref.watch(contentDatabaseProvider);
+  final signal = metricsSignalRegistry[request.signal]!(db, contentDb);
   if (!signal.supportedWindows.contains(request.window)) return null;
   final resolved = await MetricsWindowResolver(db).resolve(
     examId: request.examId,

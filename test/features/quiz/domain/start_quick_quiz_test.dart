@@ -1,7 +1,7 @@
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/seeder.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_quick_quiz.dart';
-import 'package:flutter/services.dart';
+import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/in_memory_database.dart';
@@ -11,10 +11,19 @@ void main() {
 
   test('scopes questions by topic id while migration is in progress', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await Seeder(db, bundle: rootBundle).maybeSeed();
+    await seedContentTopicWithQuestions(
+      contentDb,
+      examId: 'exam_cse_pro',
+      subjectId: 'subj_cse_verbal',
+      topicId: 'topic_cse_vocab',
+      topicName: 'Vocab',
+      questionIds: List.generate(30, (i) => 'q$i'),
+    );
 
-    final content = ContentRepository(db);
+    final content = ContentRepository(contentDb);
     final topics = await content.topicsBySubject('subj_cse_verbal');
     final topic = topics.first;
 
@@ -35,10 +44,19 @@ void main() {
 
   test('keeps deterministic random ordering when a seed is supplied', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await Seeder(db, bundle: rootBundle).maybeSeed();
+    await seedContentTopicWithQuestions(
+      contentDb,
+      examId: 'exam_cse_pro',
+      subjectId: 'subj_cse_verbal',
+      topicId: 'topic_cse_vocab',
+      topicName: 'Vocab',
+      questionIds: List.generate(30, (i) => 'q$i'),
+    );
 
-    final content = ContentRepository(db);
+    final content = ContentRepository(contentDb);
     final useCase = StartQuickQuiz(content);
 
     final first = await useCase(

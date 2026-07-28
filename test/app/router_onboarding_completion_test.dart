@@ -1,6 +1,7 @@
 import 'package:cse_cet_reviewer/app/app.dart';
 import 'package:cse_cet_reviewer/app/flavor.dart';
 import 'package:cse_cet_reviewer/app/router.dart';
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/notifications/application/notifications_providers.dart';
@@ -14,9 +15,11 @@ import '../helpers/in_memory_database.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
 
   setUp(() async {
     db = inMemoryDatabase();
+    contentDb = openTestContentDatabase();
     await db.into(db.exams).insert(
           ExamsCompanion.insert(
             id: 'cse',
@@ -35,6 +38,7 @@ void main() {
       ProviderScope(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
           entitlementProvider.overrideWith(
             (_) => Stream.value(const Entitlement.free()),
           ),

@@ -1,9 +1,11 @@
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/picker/practice_selection.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_practice.dart';
+import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../helpers/in_memory_database.dart';
@@ -11,16 +13,18 @@ import '../../../../helpers/in_memory_database.dart';
 void main() {
   test('each unit contributes its own questions', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'exam_cse_pro',
       topicId: 'topic_1',
       topicName: 'Topic 1',
       questionIds: [for (var i = 1; i <= 20; i++) 'q1_$i'],
     );
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'exam_cse_pro',
       topicId: 'topic_2',
       topicName: 'Topic 2',
@@ -28,7 +32,7 @@ void main() {
     );
 
     final startPractice = StartPractice(
-      content: ContentRepository(db),
+      content: ContentRepository(contentDb),
       sessions: QuizSessionRepository(db),
       attempts: AttemptsRepository(db),
     );
@@ -59,9 +63,11 @@ void main() {
 
   test('a short pool contributes what it has', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'exam_cse_pro',
       topicId: 'topic_short',
       topicName: 'Short Topic',
@@ -69,7 +75,7 @@ void main() {
     );
 
     final startPractice = StartPractice(
-      content: ContentRepository(db),
+      content: ContentRepository(contentDb),
       sessions: QuizSessionRepository(db),
       attempts: AttemptsRepository(db),
     );
@@ -89,10 +95,12 @@ void main() {
 
   test('no units means no session', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
 
     final startPractice = StartPractice(
-      content: ContentRepository(db),
+      content: ContentRepository(contentDb),
       sessions: QuizSessionRepository(db),
       attempts: AttemptsRepository(db),
     );
@@ -110,9 +118,11 @@ void main() {
 
   test('the session is recorded as a drill', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'exam_cse_pro',
       topicId: 'topic_1',
       topicName: 'Topic 1',
@@ -120,7 +130,7 @@ void main() {
     );
 
     final startPractice = StartPractice(
-      content: ContentRepository(db),
+      content: ContentRepository(contentDb),
       sessions: QuizSessionRepository(db),
       attempts: AttemptsRepository(db),
     );
@@ -143,9 +153,11 @@ void main() {
 
   test('a lesson unit draws only that lesson', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'exam_cse_pro',
       topicId: 'topic_1',
       topicName: 'Topic 1',
@@ -158,7 +170,7 @@ void main() {
     );
 
     final startPractice = StartPractice(
-      content: ContentRepository(db),
+      content: ContentRepository(contentDb),
       sessions: QuizSessionRepository(db),
       attempts: AttemptsRepository(db),
     );
@@ -178,9 +190,11 @@ void main() {
 
   test('fromQuestionIds creates session with exact question list', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'exam_cse_pro',
       topicId: 'topic_1',
       topicName: 'Topic 1',
@@ -188,7 +202,7 @@ void main() {
     );
 
     final startPractice = StartPractice(
-      content: ContentRepository(db),
+      content: ContentRepository(contentDb),
       sessions: QuizSessionRepository(db),
       attempts: AttemptsRepository(db),
     );

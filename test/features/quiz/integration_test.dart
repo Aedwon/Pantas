@@ -1,7 +1,6 @@
-import 'package:cse_cet_reviewer/core/storage/data/seeder.dart';
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_controller.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -14,12 +13,25 @@ void main() {
     final db = inMemoryDatabase();
     addTearDown(db.close);
 
+    final contentDb = openTestContentDatabase();
     final container = ProviderContainer(
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
     addTearDown(container.dispose);
 
-    await Seeder(db, bundle: rootBundle).maybeSeed();
+    // This used to seed the shipped asset. The corpus comes from the content
+    // database now, and a quick quiz needs only a topic with questions in it.
+    await seedContentTopicWithQuestions(
+      contentDb,
+      examId: 'exam_cse_pro',
+      subjectId: 'subj_cse_verbal',
+      topicId: 'topic_cse_vocab',
+      topicName: 'Vocab',
+      questionIds: List.generate(10, (i) => 'q$i'),
+    );
 
     final notifier = container.read(quizControllerProvider.notifier);
     await notifier.start(examId: 'exam_cse_pro', count: 2, randomSeed: 1);

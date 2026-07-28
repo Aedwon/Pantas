@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/features/metrics/domain/metrics_window.dart';
 import 'package:cse_cet_reviewer/features/metrics/signals/subject_affinity_signal.dart';
@@ -7,63 +8,60 @@ import 'package:drift/drift.dart' hide isNotNull, isNull;
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import '../../../helpers/in_memory_database.dart';
+
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
 
   setUp(() async {
     db = AppDatabase(NativeDatabase.memory());
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
-            id: 'sub_sci',
-            examId: 'exam_cse',
-            name: 'Science',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
-            id: 'sub_math',
-            examId: 'exam_cse',
-            name: 'Maths',
-            ordering: 2,
-          ),
-        );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
-            id: 'top_sci',
-            subjectId: 'sub_sci',
-            name: 'Physics',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
-            id: 'top_math',
-            subjectId: 'sub_math',
-            name: 'Algebra',
-            ordering: 1,
-          ),
-        );
+    contentDb = ContentDatabase(NativeDatabase.memory());
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'sub_sci',
+      examId: 'exam_cse',
+      name: 'Science',
+    );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'sub_math',
+      examId: 'exam_cse',
+      name: 'Maths',
+      ordering: 2,
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 'top_sci',
+      subjectId: 'sub_sci',
+      name: 'Physics',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 'top_math',
+      subjectId: 'sub_math',
+      name: 'Algebra',
+    );
   });
 
-  tearDown(() => db.close());
+  tearDown(() async {
+    await db.close();
+    await contentDb.close();
+  });
 
   Future<void> seedQuestion(String id, String topicId) async {
-    await db.into(db.questions).insert(
-          QuestionsCompanion.insert(
-            id: id,
-            version: 1,
-            examIdsJson: jsonEncode(['exam_cse']),
-            topicId: topicId,
-            language: 'en',
-            stem: 'Stem $id',
-            choicesJson: jsonEncode([
-              {'id': 'a', 'label': 'A', 'text': 'A', 'isCorrect': true},
-              {'id': 'b', 'label': 'B', 'text': 'B', 'isCorrect': false},
-            ]),
-            explanation: '',
-          ),
-        );
+    await seedContentQuestionWithChoices(
+      contentDb,
+      questionId: id,
+      topicId: topicId,
+      examId: 'exam_cse',
+      choices: [
+        {'id': 'a', 'label': 'A', 'text': 'A', 'isCorrect': true},
+        {'id': 'b', 'label': 'B', 'text': 'B', 'isCorrect': false},
+      ],
+      stem: 'Stem $id',
+      explanation: '',
+    );
   }
 
   Future<void> insertAttempt({
@@ -128,7 +126,7 @@ void main() {
       responseMsPerItem: 0,
     );
 
-    final result = await SubjectAffinitySignal(db).compute(
+    final result = await SubjectAffinitySignal(db, contentDb).compute(
       window: window(),
       examId: 'exam_cse',
     );
@@ -155,7 +153,7 @@ void main() {
       responseMsPerItem: 6000,
     );
 
-    final result = await SubjectAffinitySignal(db).compute(
+    final result = await SubjectAffinitySignal(db, contentDb).compute(
       window: window(),
       examId: 'exam_cse',
     );
@@ -178,7 +176,7 @@ void main() {
       responseMsPerItem: 0,
     );
 
-    final result = await SubjectAffinitySignal(db).compute(
+    final result = await SubjectAffinitySignal(db, contentDb).compute(
       window: window(),
       examId: 'exam_cse',
     );

@@ -1,6 +1,7 @@
 import 'package:cse_cet_reviewer/app/app.dart';
 import 'package:cse_cet_reviewer/app/flavor.dart';
 import 'package:cse_cet_reviewer/app/router.dart';
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/notifications/application/notifications_providers.dart';
@@ -14,27 +15,25 @@ import '../helpers/in_memory_database.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
 
   setUp(() async {
     db = inMemoryDatabase();
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'cse',
-            code: 'CSE',
-            name: 'Civil Service Exam',
-            shortName: 'CSE',
-            language: 'en',
-          ),
-        );
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'upcat',
-            code: 'UPCAT',
-            name: 'UPCAT',
-            shortName: 'UPCAT',
-            language: 'en',
-          ),
-        );
+    contentDb = openTestContentDatabase();
+    await seedContentExam(
+      contentDb,
+      examId: 'cse',
+      code: 'CSE',
+      name: 'Civil Service Exam',
+      shortName: 'CSE',
+    );
+    await seedContentExam(
+      contentDb,
+      examId: 'upcat',
+      code: 'UPCAT',
+      name: 'UPCAT',
+      shortName: 'UPCAT',
+    );
   });
 
   tearDown(() => db.close());
@@ -44,6 +43,7 @@ void main() {
       ProviderScope(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
           entitlementProvider.overrideWith(
             (_) => Stream.value(const Entitlement.free()),
           ),
@@ -229,6 +229,7 @@ void main() {
       ProviderScope(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
           entitlementProvider.overrideWith(
             (_) => Stream.value(
               const Entitlement(plan: EntitlementPlan.monthly),

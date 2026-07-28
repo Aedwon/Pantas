@@ -34,8 +34,8 @@ void main() {
   Future<void> seedSyllabus({
     Map<String, String?> questionLessons = const {},
   }) async {
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: examId,
       subjectId: 'sci',
       topicId: 'chem',
@@ -47,38 +47,37 @@ void main() {
           if (entry.value != null) entry.key: entry.value!,
       },
     );
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: examId,
       subjectId: 'sci',
       topicId: 'phys',
       topicName: 'Physics',
       questionIds: ['q_p1'],
     );
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: examId,
       subjectId: 'math',
       topicId: 'alg',
       topicName: 'Algebra',
       questionIds: ['q_a1', 'q_a2'],
     );
-    await db.update(db.subjects).replace(
-          const SubjectsCompanion(
-            id: Value('sci'),
-            examId: Value(examId),
-            name: Value('Science'),
-            ordering: Value(0),
-          ),
-        );
-    await db.update(db.subjects).replace(
-          const SubjectsCompanion(
-            id: Value('math'),
-            examId: Value(examId),
-            name: Value('Mathematics'),
-            ordering: Value(1),
-          ),
-        );
+    // The helper names a subject after its id; these are the names the rows
+    // are asserted by.
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'sci',
+      examId: examId,
+      name: 'Science',
+      ordering: 0,
+    );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'math',
+      examId: examId,
+      name: 'Mathematics',
+    );
     await AppPreferencesRepository(db).setSelectedExamId(examId);
   }
 

@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/metrics/atoms/atom.dart';
@@ -7,10 +8,13 @@ import 'package:drift/native.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import '../../../helpers/in_memory_database.dart';
+
 void main() {
   test('selects a fallback atom when the first rotated atom has no data',
       () async {
     final db = AppDatabase(NativeDatabase.memory());
+    final contentDb = openTestContentDatabase();
     addTearDown(db.close);
     for (var i = 0; i < 7; i += 1) {
       await db.into(db.quizSessions).insert(
@@ -28,7 +32,10 @@ void main() {
           );
     }
     final container = ProviderContainer(
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
     addTearDown(container.dispose);
 

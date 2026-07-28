@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/home/application/up_next_provider.dart';
@@ -11,12 +12,17 @@ import '../../../helpers/in_memory_database.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
   late ProviderContainer container;
 
   setUp(() {
     db = inMemoryDatabase();
+    contentDb = openTestContentDatabase();
     container = ProviderContainer(
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
   });
 
@@ -74,34 +80,31 @@ void main() {
         .getSingleOrNull();
     if (topicRow == null) {
       final subjectId = 'subj_$topicId';
-      await db.into(db.subjects).insertOnConflictUpdate(
-            SubjectsCompanion.insert(
-              id: subjectId,
-              examId: 'upcat',
-              name: subjectName,
-              ordering: 0,
-            ),
-          );
-      await db.into(db.topics).insertOnConflictUpdate(
-            TopicsCompanion.insert(
-              id: topicId,
-              subjectId: subjectId,
-              name: topicId,
-              ordering: 0,
-            ),
-          );
+      await seedContentSubject(
+        contentDb,
+        subjectId: subjectId,
+        examId: 'upcat',
+        name: subjectName,
+        ordering: 0,
+      );
+      await seedContentTopic(
+        contentDb,
+        topicId: topicId,
+        subjectId: subjectId,
+        name: topicId,
+        ordering: 0,
+      );
     }
-    await db.into(db.lessons).insertOnConflictUpdate(
-          LessonsCompanion.insert(
-            id: lessonId,
-            topicId: topicId,
-            title: title,
-            summary: 'summary',
-            bodyJson: jsonEncode([]),
-            estimatedMinutes: estimatedMinutes,
-            ordering: Value(ordering),
-          ),
-        );
+    await seedContentLesson(
+      contentDb,
+      lessonId: lessonId,
+      topicId: topicId,
+      title: title,
+      summary: 'summary',
+      bodyJson: jsonEncode([]),
+      estimatedMinutes: estimatedMinutes,
+      ordering: ordering,
+    );
   }
 
   Future<void> markLessonRead(AppDatabase db, String lessonId) async {
@@ -115,54 +118,51 @@ void main() {
 
   test('takes unread lessons from the weakest topics first', () async {
     await setupExam('upcat');
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'chemistry',
       topicName: 'Chemistry',
       subjectId: 'subj_chem',
       questionIds: ['q_chem_1', 'q_chem_2', 'q_chem_3', 'q_chem_4', 'q_chem_5'],
     );
-    await db.into(db.subjects).insertOnConflictUpdate(
-          SubjectsCompanion.insert(
-            id: 'subj_chem',
-            examId: 'upcat',
-            name: 'Chemistry',
-            ordering: 0,
-          ),
-        );
-    await seedTopicWithQuestions(
-      db,
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'subj_chem',
+      examId: 'upcat',
+      name: 'Chemistry',
+      ordering: 0,
+    );
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'algebra',
       topicName: 'Algebra',
       subjectId: 'subj_alg',
       questionIds: ['q_alg_1', 'q_alg_2', 'q_alg_3', 'q_alg_4', 'q_alg_5'],
     );
-    await db.into(db.subjects).insertOnConflictUpdate(
-          SubjectsCompanion.insert(
-            id: 'subj_alg',
-            examId: 'upcat',
-            name: 'Algebra',
-            ordering: 0,
-          ),
-        );
-    await seedTopicWithQuestions(
-      db,
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'subj_alg',
+      examId: 'upcat',
+      name: 'Algebra',
+      ordering: 0,
+    );
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'geometry',
       topicName: 'Geometry',
       subjectId: 'subj_geo',
       questionIds: ['q_geo_1', 'q_geo_2', 'q_geo_3', 'q_geo_4', 'q_geo_5'],
     );
-    await db.into(db.subjects).insertOnConflictUpdate(
-          SubjectsCompanion.insert(
-            id: 'subj_geo',
-            examId: 'upcat',
-            name: 'Geometry',
-            ordering: 0,
-          ),
-        );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'subj_geo',
+      examId: 'upcat',
+      name: 'Geometry',
+      ordering: 0,
+    );
 
     await insertAttempt(
       db,
@@ -237,22 +237,21 @@ void main() {
 
   test('never returns a lesson already read', () async {
     await setupExam('upcat');
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'chemistry',
       topicName: 'Chemistry',
       subjectId: 'subj_chem',
       questionIds: ['q_chem_1', 'q_chem_2', 'q_chem_3'],
     );
-    await db.into(db.subjects).insertOnConflictUpdate(
-          SubjectsCompanion.insert(
-            id: 'subj_chem',
-            examId: 'upcat',
-            name: 'Chemistry',
-            ordering: 0,
-          ),
-        );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'subj_chem',
+      examId: 'upcat',
+      name: 'Chemistry',
+      ordering: 0,
+    );
     await insertAttempt(
       db,
       id: 'att_1',
@@ -290,22 +289,21 @@ void main() {
 
   test('stops at three', () async {
     await setupExam('upcat');
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'chemistry',
       topicName: 'Chemistry',
       subjectId: 'subj_chem',
       questionIds: ['q_chem_1', 'q_chem_2', 'q_chem_3'],
     );
-    await db.into(db.subjects).insertOnConflictUpdate(
-          SubjectsCompanion.insert(
-            id: 'subj_chem',
-            examId: 'upcat',
-            name: 'Chemistry',
-            ordering: 0,
-          ),
-        );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'subj_chem',
+      examId: 'upcat',
+      name: 'Chemistry',
+      ordering: 0,
+    );
     await insertAttempt(
       db,
       id: 'att_1',
@@ -356,22 +354,21 @@ void main() {
   test('all read in the weak topics is a distinct state from no content',
       () async {
     await setupExam('upcat');
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'chemistry',
       topicName: 'Chemistry',
       subjectId: 'subj_chem',
       questionIds: ['q_chem_1', 'q_chem_2', 'q_chem_3'],
     );
-    await db.into(db.subjects).insertOnConflictUpdate(
-          SubjectsCompanion.insert(
-            id: 'subj_chem',
-            examId: 'upcat',
-            name: 'Chemistry',
-            ordering: 0,
-          ),
-        );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'subj_chem',
+      examId: 'upcat',
+      name: 'Chemistry',
+      ordering: 0,
+    );
     await insertAttempt(
       db,
       id: 'att_1',
@@ -399,22 +396,21 @@ void main() {
 
   test('no lessons at all is not reported as all read', () async {
     await setupExam('upcat');
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'chemistry',
       topicName: 'Chemistry',
       subjectId: 'subj_chem',
       questionIds: ['q_chem_1', 'q_chem_2', 'q_chem_3'],
     );
-    await db.into(db.subjects).insertOnConflictUpdate(
-          SubjectsCompanion.insert(
-            id: 'subj_chem',
-            examId: 'upcat',
-            name: 'Chemistry',
-            ordering: 0,
-          ),
-        );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'subj_chem',
+      examId: 'upcat',
+      name: 'Chemistry',
+      ordering: 0,
+    );
 
     final day = await container.read(upNextProvider.future);
 
@@ -425,38 +421,36 @@ void main() {
   test('a topic with no answered questions does not jump the ranking',
       () async {
     await setupExam('upcat');
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'chemistry',
       topicName: 'Chemistry',
       subjectId: 'subj_chem',
       questionIds: ['q_chem_1', 'q_chem_2', 'q_chem_3'],
     );
-    await db.into(db.subjects).insertOnConflictUpdate(
-          SubjectsCompanion.insert(
-            id: 'subj_chem',
-            examId: 'upcat',
-            name: 'Chemistry',
-            ordering: 0,
-          ),
-        );
-    await seedTopicWithQuestions(
-      db,
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'subj_chem',
+      examId: 'upcat',
+      name: 'Chemistry',
+      ordering: 0,
+    );
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: 'upcat',
       topicId: 'algebra',
       topicName: 'Algebra',
       subjectId: 'subj_alg',
       questionIds: ['q_alg_1', 'q_alg_2', 'q_alg_3'],
     );
-    await db.into(db.subjects).insertOnConflictUpdate(
-          SubjectsCompanion.insert(
-            id: 'subj_alg',
-            examId: 'upcat',
-            name: 'Algebra',
-            ordering: 0,
-          ),
-        );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'subj_alg',
+      examId: 'upcat',
+      name: 'Algebra',
+      ordering: 0,
+    );
 
     await insertAttempt(
       db,

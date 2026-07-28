@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
@@ -13,6 +14,7 @@ import '../../../helpers/pump_app.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
 
   GoRouter buildRouter() => GoRouter(
         initialLocation: '/study',
@@ -41,69 +43,55 @@ void main() {
 
   setUp(() async {
     db = inMemoryDatabase();
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'e1',
-            code: 'CSE',
-            name: 'Civil Service Exam',
-            shortName: 'CSE',
-            language: 'en',
-          ),
-        );
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'e2',
-            code: 'UPCAT',
-            name: 'UPCAT',
-            shortName: 'UPCAT',
-            language: 'en',
-          ),
-        );
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
-            id: 's1',
-            examId: 'e1',
-            name: 'Verbal',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
-            id: 's2',
-            examId: 'e2',
-            name: 'Language Proficiency',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
-            id: 't1',
-            subjectId: 's1',
-            name: 'Vocabulary',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
-            id: 't2',
-            subjectId: 's2',
-            name: 'Grammar',
-            ordering: 1,
-          ),
-        );
+    contentDb = openTestContentDatabase();
+    await seedContentExam(
+      contentDb,
+      examId: 'e1',
+      code: 'CSE',
+      name: 'Civil Service Exam',
+      shortName: 'CSE',
+    );
+    await seedContentExam(
+      contentDb,
+      examId: 'e2',
+      code: 'UPCAT',
+      name: 'UPCAT',
+      shortName: 'UPCAT',
+    );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 's1',
+      examId: 'e1',
+      name: 'Verbal',
+    );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 's2',
+      examId: 'e2',
+      name: 'Language Proficiency',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 't1',
+      subjectId: 's1',
+      name: 'Vocabulary',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 't2',
+      subjectId: 's2',
+      name: 'Grammar',
+    );
     // The map is built from lessons. Without one per topic it renders its
     // empty state and there is no exam content to isolate.
     for (final (id, topicId) in [('l1', 't1'), ('l2', 't2')]) {
-      await db.into(db.lessons).insert(
-            LessonsCompanion.insert(
-              id: id,
-              topicId: topicId,
-              title: 'Lesson $id',
-              summary: 'Summary',
-              bodyJson: jsonEncode([]),
-              estimatedMinutes: 5,
-            ),
-          );
+      await seedContentLesson(
+        contentDb,
+        lessonId: id,
+        topicId: topicId,
+        title: 'Lesson $id',
+        bodyJson: jsonEncode([]),
+      );
     }
   });
 
@@ -114,7 +102,10 @@ void main() {
 
     await tester.pumpAppWithRouter(
       buildRouter(),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
     await tester.pumpAndSettle();
 
@@ -143,7 +134,10 @@ void main() {
       (tester) async {
     await tester.pumpAppWithRouter(
       buildRouter(),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
     await tester.pumpAndSettle();
 

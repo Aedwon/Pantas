@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_tab_home.dart';
@@ -34,69 +35,57 @@ GoRouter _buildRouter() => GoRouter(
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
 
   setUp(() async {
     db = inMemoryDatabase();
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'e1',
-            code: 'CSE',
-            name: 'Civil Service Exam',
-            shortName: 'CSE',
-            language: 'en',
-          ),
-        );
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'e2',
-            code: 'UPCAT',
-            name: 'UPCAT',
-            shortName: 'UPCAT',
-            language: 'en',
-          ),
-        );
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
-            id: 's1',
-            examId: 'e1',
-            name: 'Verbal',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
-            id: 't1',
-            subjectId: 's1',
-            name: 'Vocabulary',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.lessons).insert(
-          LessonsCompanion.insert(
-            id: 'l1',
-            topicId: 't1',
-            title: 'Lesson 1',
-            summary: 'Summary',
-            bodyJson: jsonEncode([]),
-            estimatedMinutes: 5,
-          ),
-        );
+    contentDb = openTestContentDatabase();
+    await seedContentExam(
+      contentDb,
+      examId: 'e1',
+      code: 'CSE',
+      name: 'Civil Service Exam',
+      shortName: 'CSE',
+    );
+    await seedContentExam(
+      contentDb,
+      examId: 'e2',
+      code: 'UPCAT',
+      name: 'UPCAT',
+      shortName: 'UPCAT',
+    );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 's1',
+      examId: 'e1',
+      name: 'Verbal',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 't1',
+      subjectId: 's1',
+      name: 'Vocabulary',
+    );
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l1',
+      topicId: 't1',
+      title: 'Lesson 1',
+      bodyJson: jsonEncode([]),
+    );
     // The session panel offers a session only when there are questions to
     // build one from. Without these it sits in its assessment state and the
     // nudge never gets a chance to fire.
     for (var i = 1; i <= 12; i++) {
-      await db.into(db.questions).insert(
-            QuestionsCompanion.insert(
-              id: 'q$i',
-              version: 1,
-              examIdsJson: '["e1"]',
-              topicId: 't1',
-              language: 'en',
-              stem: 'Question $i',
-              choicesJson: '[]',
-              explanation: 'Because.',
-            ),
-          );
+      await seedContentQuestionWithChoices(
+        contentDb,
+        questionId: 'q$i',
+        topicId: 't1',
+        examId: 'e1',
+        choices: const [],
+        stem: 'Question $i',
+        explanation: 'Because.',
+      );
     }
     // The panel leads with the assessment until one is completed, so without
     // this the nudge never gets a chance to fire.
@@ -116,7 +105,10 @@ void main() {
       (tester) async {
     await tester.pumpAppWithRouter(
       _buildRouter(),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
     await tester.pumpAndSettle();
 
@@ -129,7 +121,10 @@ void main() {
   testWidgets('shows only selected exam quiz entry', (tester) async {
     await tester.pumpAppWithRouter(
       _buildRouter(),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
     await tester.pumpAndSettle();
 
@@ -147,7 +142,10 @@ void main() {
 
     await tester.pumpAppWithRouter(
       _buildRouter(),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
     await tester.pumpAndSettle();
 
@@ -160,7 +158,10 @@ void main() {
   testWidgets('renders practice CTAs', (tester) async {
     await tester.pumpAppWithRouter(
       _buildRouter(),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
     await tester.pumpAndSettle();
 
@@ -179,7 +180,10 @@ void main() {
 
     await tester.pumpAppWithRouter(
       _buildRouter(),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
     await tester.pumpAndSettle();
 
@@ -200,7 +204,10 @@ void main() {
 
     await tester.pumpAppWithRouter(
       _buildRouter(),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
     await tester.pumpAndSettle();
 
@@ -216,7 +223,10 @@ void main() {
 
     await tester.pumpAppWithRouter(
       _buildRouter(),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
     await tester.pumpAndSettle();
 

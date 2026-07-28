@@ -28,17 +28,10 @@ final carryableCountProvider =
     return 0;
   }
 
-  final questions = await (db.select(db.questions)
-        ..where((q) => q.id.isIn(answeredQuestionIds)))
-      .get();
-
-  var count = 0;
-  for (final q in questions) {
-    final examIds = (jsonDecode(q.examIdsJson) as List).cast<String>();
-    if (examIds.contains(examId)) {
-      count++;
-    }
-  }
-
-  return count;
+// Exam membership is corpus, so the count comes from the content repository
+  // rather than from this feature reaching into the content database itself.
+  return ref.watch(contentRepositoryProvider).countQuestionsTaggedForExam(
+        questionIds: answeredQuestionIds,
+        examId: examId,
+      );
 });

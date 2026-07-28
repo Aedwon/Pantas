@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/features/metrics/domain/metric_signal.dart';
 import 'package:cse_cet_reviewer/features/metrics/domain/metrics_window.dart';
@@ -8,10 +9,10 @@ import 'package:cse_cet_reviewer/features/metrics/signals/signal_content_helpers
 import 'package:drift/drift.dart';
 
 class TestModeDeltaSignal implements Signal<PressureDelta> {
-  TestModeDeltaSignal(this._db)
+  TestModeDeltaSignal(this._db, ContentDatabase contentDb)
       : _attemptReader = const AttemptItemReader(),
         _mockReader = const MockPayloadReader(),
-        _content = SignalContentHelpers(_db);
+        _content = SignalContentHelpers(contentDb);
 
   final AppDatabase _db;
   final AttemptItemReader _attemptReader;

@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
@@ -8,12 +9,17 @@ import '../../helpers/in_memory_database.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
   late ProviderContainer container;
 
   setUp(() {
     db = inMemoryDatabase();
+    contentDb = openTestContentDatabase();
     container = ProviderContainer(
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
   });
 
@@ -23,15 +29,13 @@ void main() {
   });
 
   Future<void> insertExam(String id, String name) async {
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: id,
-            code: id.toUpperCase(),
-            name: name,
-            shortName: id.toUpperCase(),
-            language: 'en',
-          ),
-        );
+    await seedContentExam(
+      contentDb,
+      examId: id,
+      code: id.toUpperCase(),
+      name: name,
+      shortName: id.toUpperCase(),
+    );
   }
 
   test('uses persisted selected exam when valid', () async {

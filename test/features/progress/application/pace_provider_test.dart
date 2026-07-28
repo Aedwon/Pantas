@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
@@ -13,6 +14,7 @@ import '../../../helpers/in_memory_database.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
   late ProviderContainer container;
 
   Future<void> seedData({
@@ -21,8 +23,8 @@ void main() {
     ExamDate? examDate,
   }) async {
     const examId = 'exam_upcat';
-    await seedTopicWithQuestions(
-      db,
+    await seedContentTopicWithQuestions(
+      contentDb,
       examId: examId,
       topicId: 'topic_1',
       topicName: 'Topic 1',
@@ -32,17 +34,15 @@ void main() {
     // Insert totalLessons into lessons table
     for (var i = 0; i < totalLessons; i++) {
       final lessonId = 'lesson_$i';
-      await db.into(db.lessons).insertOnConflictUpdate(
-            LessonsCompanion.insert(
-              id: lessonId,
-              topicId: 'topic_1',
-              title: 'Lesson $i',
-              summary: 'Summary $i',
-              bodyJson: jsonEncode([]),
-              estimatedMinutes: 5,
-              ordering: Value(i),
-            ),
-          );
+      await seedContentLesson(
+        contentDb,
+        lessonId: lessonId,
+        topicId: 'topic_1',
+        title: 'Lesson $i',
+        summary: 'Summary $i',
+        bodyJson: jsonEncode([]),
+        ordering: i,
+      );
     }
 
     // Insert read dates into lesson_progress_local
@@ -70,9 +70,11 @@ void main() {
 
   setUp(() {
     db = inMemoryDatabase();
+    contentDb = openTestContentDatabase();
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
   });

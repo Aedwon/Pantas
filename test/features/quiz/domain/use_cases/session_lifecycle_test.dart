@@ -1,11 +1,11 @@
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/seeder.dart';
 import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/quit_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/restart_session.dart';
 import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/resume_session.dart';
-import 'package:flutter/services.dart';
+import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../helpers/in_memory_database.dart';
@@ -15,9 +15,18 @@ void main() {
 
   test('resume hydrates question N plus saved progress', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await Seeder(db, bundle: rootBundle).maybeSeed();
-    final content = ContentRepository(db);
+    await seedContentTopicWithQuestions(
+      contentDb,
+      examId: 'exam_cse_pro',
+      subjectId: 'subj_cse_verbal',
+      topicId: 'topic_cse_vocab',
+      topicName: 'Vocab',
+      questionIds: List.generate(30, (i) => 'q$i'),
+    );
+    final content = ContentRepository(contentDb);
     final questions = await content.questionsByTopic('topic_cse_vocab');
     final sessions = QuizSessionRepository(db);
     await sessions.create(
@@ -51,9 +60,18 @@ void main() {
 
   test('quit marks the active session quit and keeps answers', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await Seeder(db, bundle: rootBundle).maybeSeed();
-    final content = ContentRepository(db);
+    await seedContentTopicWithQuestions(
+      contentDb,
+      examId: 'exam_cse_pro',
+      subjectId: 'subj_cse_verbal',
+      topicId: 'topic_cse_vocab',
+      topicName: 'Vocab',
+      questionIds: List.generate(30, (i) => 'q$i'),
+    );
+    final content = ContentRepository(contentDb);
     final questions = await content.questionsByTopic('topic_cse_vocab');
     final sessions = QuizSessionRepository(db);
     await sessions.create(
@@ -87,9 +105,18 @@ void main() {
 
   test('restart requires explicit call and creates a new session', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await Seeder(db, bundle: rootBundle).maybeSeed();
-    final content = ContentRepository(db);
+    await seedContentTopicWithQuestions(
+      contentDb,
+      examId: 'exam_cse_pro',
+      subjectId: 'subj_cse_verbal',
+      topicId: 'topic_cse_vocab',
+      topicName: 'Vocab',
+      questionIds: List.generate(30, (i) => 'q$i'),
+    );
+    final content = ContentRepository(contentDb);
     final questions = await content.questionsByTopic('topic_cse_vocab');
     final sessions = QuizSessionRepository(db);
     await sessions.create(
@@ -129,9 +156,18 @@ void main() {
 
   test('completed sessions are not resumable', () async {
     final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
     addTearDown(db.close);
-    await Seeder(db, bundle: rootBundle).maybeSeed();
-    final content = ContentRepository(db);
+    await seedContentTopicWithQuestions(
+      contentDb,
+      examId: 'exam_cse_pro',
+      subjectId: 'subj_cse_verbal',
+      topicId: 'topic_cse_vocab',
+      topicName: 'Vocab',
+      questionIds: List.generate(30, (i) => 'q$i'),
+    );
+    final content = ContentRepository(contentDb);
     final questions = await content.questionsByTopic('topic_cse_vocab');
     final sessions = QuizSessionRepository(db);
     await sessions.create(

@@ -1,5 +1,4 @@
-import 'dart:convert';
-
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/lesson_progress_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -8,60 +7,40 @@ import '../../../../helpers/in_memory_database.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
   late LessonProgressRepository repo;
 
   setUp(() async {
     db = inMemoryDatabase();
-    repo = LessonProgressRepository(db);
+    contentDb = inMemoryContentDatabase();
+    repo = LessonProgressRepository(db, contentDb);
 
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'e1',
-            code: 'CSE',
-            name: 'Civil Service Exam',
-            shortName: 'CSE',
-            language: 'en',
-          ),
-        );
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
-            id: 's1',
-            examId: 'e1',
-            name: 'Verbal',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
-            id: 't1',
-            subjectId: 's1',
-            name: 'Vocabulary',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.lessons).insert(
-          LessonsCompanion.insert(
-            id: 'l1',
-            topicId: 't1',
-            title: 'Lesson 1',
-            summary: 'Summary',
-            bodyJson: jsonEncode([]),
-            estimatedMinutes: 5,
-          ),
-        );
-    await db.into(db.lessons).insert(
-          LessonsCompanion.insert(
-            id: 'l2',
-            topicId: 't1',
-            title: 'Lesson 2',
-            summary: 'Summary',
-            bodyJson: jsonEncode([]),
-            estimatedMinutes: 5,
-          ),
-        );
+    await seedContentExam(
+      contentDb,
+      examId: 'e1',
+      code: 'CSE',
+      name: 'Civil Service Exam',
+    );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 's1',
+      examId: 'e1',
+      name: 'Verbal',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 't1',
+      subjectId: 's1',
+      name: 'Vocabulary',
+    );
+    await seedContentLesson(contentDb, lessonId: 'l1', topicId: 't1');
+    await seedContentLesson(contentDb, lessonId: 'l2', topicId: 't1');
   });
 
-  tearDown(() => db.close());
+  tearDown(() async {
+    await db.close();
+    await contentDb.close();
+  });
 
   test('isRead returns false before markRead', () async {
     expect(await repo.isRead('l1'), isFalse);

@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/features/metrics/domain/metrics_window.dart';
 import 'package:cse_cet_reviewer/features/metrics/signals/mock_stamina_signal.dart';
@@ -5,14 +6,18 @@ import 'package:drift/drift.dart' hide isNotNull, isNull;
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import '../../../helpers/in_memory_database.dart';
+
 void main() {
   test('compares first-half and second-half mock accuracy', () async {
     final db = AppDatabase(NativeDatabase.memory());
+    final contentDb = ContentDatabase(NativeDatabase.memory());
     addTearDown(db.close);
-    await _content(db);
+    addTearDown(contentDb.close);
+    await _content(contentDb);
     await _mock(db);
 
-    final result = await MockStaminaSignal(db).compute(
+    final result = await MockStaminaSignal(db, contentDb).compute(
       window: _window(),
       examId: 'exam_cse',
     );
@@ -24,47 +29,41 @@ void main() {
   });
 }
 
-Future<void> _content(AppDatabase db) async {
-  await db.into(db.exams).insert(
-        ExamsCompanion.insert(
-          id: 'exam_cse',
-          code: 'CSE',
-          name: 'Civil Service Exam',
-          shortName: 'CSE',
-          language: 'en',
-        ),
-      );
-  await db.into(db.subjects).insert(
-        SubjectsCompanion.insert(
-          id: 'subject_1',
-          examId: 'exam_cse',
-          name: 'General',
-          ordering: 1,
-        ),
-      );
-  await db.into(db.topics).insert(
-        TopicsCompanion.insert(
-          id: 'topic_1',
-          subjectId: 'subject_1',
-          name: 'Topic',
-          ordering: 1,
-        ),
-      );
+Future<void> _content(ContentDatabase contentDb) async {
+  await seedContentExam(
+    contentDb,
+    examId: 'exam_cse',
+    code: 'CSE',
+    name: 'Civil Service Exam',
+    shortName: 'CSE',
+  );
+  await seedContentSubject(
+    contentDb,
+    subjectId: 'subject_1',
+    examId: 'exam_cse',
+    name: 'General',
+  );
+  await seedContentTopic(
+    contentDb,
+    topicId: 'topic_1',
+    subjectId: 'subject_1',
+    name: 'Topic',
+  );
   for (final id in ['q1', 'q2', 'q3', 'q4']) {
-    await db.into(db.questions).insert(
-          QuestionsCompanion.insert(
-            id: id,
-            version: 1,
-            examIdsJson: '["exam_cse"]',
-            topicId: 'topic_1',
-            language: 'en',
-            stem: id,
-            choicesJson: '''
-[{"id":"a","label":"A","text":"A","isCorrect":true},{"id":"b","label":"B","text":"B","isCorrect":false}]
-''',
-            explanation: '',
-          ),
-        );
+    await seedContentQuestionWithChoices(
+      contentDb,
+      questionId: id,
+      topicId: 'topic_1',
+      examId: 'exam_cse',
+      // Choices are rows with a primary key of their own now, so an id
+      // reused across questions would overwrite the earlier question's.
+      choices: [
+        {'id': '${id}_a', 'label': 'A', 'text': 'A', 'isCorrect': true},
+        {'id': '${id}_b', 'label': 'B', 'text': 'B', 'isCorrect': false},
+      ],
+      stem: id,
+      explanation: '',
+    );
   }
 }
 

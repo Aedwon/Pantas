@@ -1,5 +1,4 @@
-import 'dart:convert';
-
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/data/repos/review_state_repository.dart';
@@ -9,69 +8,52 @@ import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../helpers/in_memory_database.dart';
 
-StartAssessment _makeUseCase(AppDatabase db) {
-  final content = ContentRepository(db);
+StartAssessment _makeUseCase(AppDatabase db, ContentDatabase contentDb) {
+  final content = ContentRepository(contentDb);
   final review = ReviewStateRepository(db);
   return StartAssessment(AssessmentQuestionSelector(content, review));
 }
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
   late StartAssessment useCase;
 
   Future<void> seedQuestion(String id, String topicId) async {
-    final choices = [
-      {'id': '${id}_a', 'label': 'A', 'text': 'Option A', 'isCorrect': true},
-      {'id': '${id}_b', 'label': 'B', 'text': 'Option B', 'isCorrect': false},
-    ];
-    await db.into(db.questions).insert(
-          QuestionsCompanion.insert(
-            id: id,
-            version: 1,
-            examIdsJson: jsonEncode(['e1']),
-            topicId: topicId,
-            language: 'en',
-            stem: 'Question $id?',
-            choicesJson: jsonEncode(choices),
-            explanation: 'Explanation',
-          ),
-        );
+    await seedContentQuestion(
+      contentDb,
+      questionId: id,
+      topicId: topicId,
+      examId: 'e1',
+    );
   }
 
   setUp(() async {
     db = inMemoryDatabase();
-    useCase = _makeUseCase(db);
+    contentDb = inMemoryContentDatabase();
+    useCase = _makeUseCase(db, contentDb);
 
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'e1',
-            code: 'CSE',
-            name: 'CSE',
-            shortName: 'CSE',
-            language: 'en',
-          ),
-        );
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
-            id: 's1',
-            examId: 'e1',
-            name: 'Verbal',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
-            id: 't1',
-            subjectId: 's1',
-            name: 'Vocabulary',
-            ordering: 1,
-          ),
-        );
+    await seedContentExam(contentDb, examId: 'e1', code: 'CSE', name: 'CSE');
+    await seedContentSubject(
+      contentDb,
+      subjectId: 's1',
+      examId: 'e1',
+      name: 'Verbal',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 't1',
+      subjectId: 's1',
+      name: 'Vocabulary',
+    );
     await seedQuestion('q1', 't1');
     await seedQuestion('q2', 't1');
   });
 
-  tearDown(() => db.close());
+  tearDown(() async {
+    await db.close();
+    await contentDb.close();
+  });
 
   test('returns session with correct examId', () async {
     final session = await useCase.call('e1');
@@ -87,31 +69,25 @@ void main() {
   });
 
   test('throws StateError when exam has no questions', () async {
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'empty',
-            code: 'XX',
-            name: 'Empty',
-            shortName: 'XX',
-            language: 'en',
-          ),
-        );
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
-            id: 's_empty',
-            examId: 'empty',
-            name: 'S',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
-            id: 't_empty',
-            subjectId: 's_empty',
-            name: 'T',
-            ordering: 1,
-          ),
-        );
+    await seedContentExam(
+      contentDb,
+      examId: 'empty',
+      code: 'XX',
+      name: 'Empty',
+      ordering: 2,
+    );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 's_empty',
+      examId: 'empty',
+      name: 'S',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 't_empty',
+      subjectId: 's_empty',
+      name: 'T',
+    );
 
     expect(
       useCase.call('empty'),

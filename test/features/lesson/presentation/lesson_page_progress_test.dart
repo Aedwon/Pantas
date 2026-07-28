@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/lesson_page.dart';
@@ -10,55 +11,49 @@ import '../../../helpers/pump_app.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
 
   Future<void> seedLesson(AppDatabase db) async {
-    await db.into(db.exams).insert(
-          ExamsCompanion.insert(
-            id: 'e1',
-            code: 'CSE',
-            name: 'Civil Service Exam',
-            shortName: 'CSE',
-            language: 'en',
-          ),
-        );
-    await db.into(db.subjects).insert(
-          SubjectsCompanion.insert(
-            id: 's1',
-            examId: 'e1',
-            name: 'Verbal',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.topics).insert(
-          TopicsCompanion.insert(
-            id: 't1',
-            subjectId: 's1',
-            name: 'Vocabulary',
-            ordering: 1,
-          ),
-        );
-    await db.into(db.lessons).insert(
-          LessonsCompanion.insert(
-            id: 'l1',
-            topicId: 't1',
-            title: 'Vocabulary Basics',
-            summary: 'Core vocab',
-            bodyJson: jsonEncode(<Map<String, Object?>>[
-              {
-                '_type': 'block',
-                'style': 'normal',
-                'children': <Map<String, Object?>>[
-                  {'_type': 'span', 'text': 'Study hard.', 'marks': <String>[]},
-                ],
-              },
-            ]),
-            estimatedMinutes: 5,
-          ),
-        );
+    await seedContentExam(
+      contentDb,
+      examId: 'e1',
+      code: 'CSE',
+      name: 'Civil Service Exam',
+      shortName: 'CSE',
+    );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 's1',
+      examId: 'e1',
+      name: 'Verbal',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 't1',
+      subjectId: 's1',
+      name: 'Vocabulary',
+    );
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l1',
+      topicId: 't1',
+      title: 'Vocabulary Basics',
+      summary: 'Core vocab',
+      bodyJson: jsonEncode(<Map<String, Object?>>[
+        {
+          '_type': 'block',
+          'style': 'normal',
+          'children': <Map<String, Object?>>[
+            {'_type': 'span', 'text': 'Study hard.', 'marks': <String>[]},
+          ],
+        },
+      ]),
+    );
   }
 
   setUp(() async {
     db = inMemoryDatabase();
+    contentDb = openTestContentDatabase();
     await seedLesson(db);
   });
 
@@ -72,7 +67,10 @@ void main() {
       (tester) async {
     await tester.pumpAppWithProviders(
       const LessonPage(lessonId: 'l1'),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
     await tester.pumpAndSettle();
 
@@ -91,7 +89,10 @@ void main() {
 
     await tester.pumpAppWithProviders(
       const LessonPage(lessonId: 'l1'),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
     await tester.pumpAndSettle();
 
