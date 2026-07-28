@@ -142,7 +142,51 @@ List<RouteBase> buildAppRoutes(Ref ref) {
           routes: [
             GoRoute(
               path: '/quiz',
-              builder: (_, __) => const QuizTabHome(),
+              builder: (_, __) => Consumer(
+                builder: (context, ref, _) {
+                  final focus = ref.watch(activeExamFocusProvider).valueOrNull;
+                  if (focus == null || focus.exam == null) {
+                    return const QuizTabHome();
+                  }
+
+                  final examId = focus.exam!.id;
+                  final user = ref.watch(currentUserProvider).valueOrNull;
+                  final userId = user?.uid ?? '';
+                  final request = MockAvailabilityRequest(
+                    userId: userId,
+                    examId: examId,
+                  );
+
+                  final availability =
+                      ref.watch(mockAvailabilityProvider(request)).valueOrNull;
+                  if (availability == null) {
+                    return const QuizTabHome();
+                  }
+
+                  final lastAttempt =
+                      ref.watch(lastSubmittedMockProvider(request)).valueOrNull;
+                  final proIsActive = ref
+                          .watch(entitlementProvider)
+                          .valueOrNull
+                          ?.proIsActive ??
+                      false;
+
+                  return QuizTabHome(
+                    mockPanel: MockPanel(
+                      availability: availability,
+                      lastAttempt: lastAttempt,
+                      proIsActive: proIsActive,
+                      onTake: () => context.push('/quiz/mock/setup?examId=$examId'),
+                      onResume: () => context.push('/quiz/resume/$examId'),
+                      onViewResults: () {
+                        if (lastAttempt != null) {
+                          context.push('/quiz/results/${lastAttempt.id}');
+                        }
+                      },
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),
