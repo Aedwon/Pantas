@@ -30,9 +30,8 @@ ContentMockBlueprintsCompanion parseMockBlueprint(Map<String, Object?> doc) {
   final sourceStr = version == 1
       ? BlueprintSource.unknown.name
       : (parsedSource ?? BlueprintSource.unknown.name);
-  final sourceNoteStr = version == 1
-      ? null
-      : optionalStringField(doc, doctype, 'sourceNote');
+  final sourceNoteStr =
+      version == 1 ? null : optionalStringField(doc, doctype, 'sourceNote');
 
   return ContentMockBlueprintsCompanion.insert(
     id: stringField(doc, doctype, '_id'),

@@ -7,7 +7,12 @@ durationMinutes: 230
 sectionalTiming: sectional
 totalPublishedItems: 250
 source: reported
-sourceNote: 'Supplied by Aedwon, 11 August 2026. UP publishes the four subtest names and about five hours of administration only.'
+sourceNote: 'Items and minutes supplied by Aedwon, 11 August 2026, reported
+  rather than published: UP publishes the four subtest names and about five
+  hours of administration and nothing else. The topic weights within each
+  section are an even split chosen here, not a published composition. They are
+  a sampling parameter and are never printed to a student; weighting them by
+  how deep the bank happens to be would be just as invented and less honest.'
 sections:
   - id: sec_upcat_language_proficiency
     name: Language Proficiency

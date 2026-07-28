@@ -151,8 +151,7 @@ void main() {
       expect(
         entry.value,
         0,
-        reason:
-            'Corpus shortfall for section "${entry.key}": '
+        reason: 'Corpus shortfall for section "${entry.key}": '
             '${entry.value} items short',
       );
     }
