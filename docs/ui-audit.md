@@ -1532,8 +1532,15 @@ app exists, because there is nothing there to measure. That is a dead end
 presented as a subject.
 
 **UP lists four subtests and the content agrees with UP.** The seed's subject
-list is the only thing that does not. Options and a recommendation are in the
-content path spec's open questions.
+list is the only thing that does not.
+
+**Decided 11 August. Aedwon: *"drop reasoning from upcat"*.**
+
+**It is two changes, not one.** Reasoning's 244 questions are generated only
+because the outline places them under UPCAT, so removing the entry alone would
+strand them exactly as General Information is stranded. They move to CSE
+Professional, the one active exam that tests reasoning. Full round in
+`decisions/2026-08-11-reasoning-and-upcat-log.md`.
 
 ### UI-066 [important] A sweep for built-but-unreachable surfaces
 
