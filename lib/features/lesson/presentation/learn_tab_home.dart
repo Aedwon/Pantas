@@ -10,6 +10,7 @@ import 'package:cse_cet_reviewer/core/ui/components/tab_header.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/lesson/application/study_map_providers.dart';
 import 'package:cse_cet_reviewer/features/lesson/domain/use_cases/build_study_map.dart';
+import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/bookmarks_section.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/pinned_topic_bar.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/search_field_bar.dart';
 import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/search_results.dart';
@@ -228,6 +229,7 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
                         controller: _scrollController,
                         children: [
                           StudyHeadBlock(map: map),
+                          const BookmarksSection(),
                           for (final subject in map.subjects)
                             StudySubjectSection(
                               subject: subject,
