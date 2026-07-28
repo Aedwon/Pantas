@@ -5,7 +5,7 @@ abstract final class SchemaVersions {
   static const question = 1;
   static const lesson = 1;
   static const passage = 1;
-  static const mockBlueprint = 1;
+  static const mockBlueprint = 2;
   static const mockExam = 1;
   static const diagnosticSet = 1;
 }
