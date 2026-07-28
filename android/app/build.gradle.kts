@@ -35,18 +35,18 @@ android {
             dimension = "default"
             applicationId = "com.aerol.csecet.dev"
             versionNameSuffix = "-dev"
-            resValue("string", "app_name", "CSE/CET Reviewer Dev")
+            resValue("string", "app_name", "Pantas Dev")
         }
         create("staging") {
             dimension = "default"
             applicationId = "com.aerol.csecet.dev.staging"
             versionNameSuffix = "-staging"
-            resValue("string", "app_name", "CSE/CET Reviewer Staging")
+            resValue("string", "app_name", "Pantas Staging")
         }
         create("prod") {
             dimension = "default"
             applicationId = "com.aerol.csecet"
-            resValue("string", "app_name", "CSE/CET Reviewer")
+            resValue("string", "app_name", "Pantas")
         }
     }
 
