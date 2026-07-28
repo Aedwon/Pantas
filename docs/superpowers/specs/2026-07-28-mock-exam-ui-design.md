@@ -124,6 +124,53 @@ are inventions and both are now known to be wrong.** And **Reasoning is not a
 UPCAT subtest**: UP lists four, while the seed carries five UPCAT subjects. That
 is a content question for Study and Progress, not only for the mock.
 
+### CSE Professional and Subprofessional, verified 11 August 2026
+
+**Searched rather than supplied**, at Aedwon's instruction, because the earlier
+row above recorded "CSE" as a single exam and the app carries two.
+
+| Level | Items | Time limit | Sectional |
+|---|---|---|---|
+| Professional | 170 | 3h10, so 190 minutes | No |
+| Subprofessional | 165 | 2h40, so 160 minutes | No |
+
+**Published subject coverage**, from the CSC's own announcements:
+
+| Level | Subject areas |
+|---|---|
+| Professional | Verbal Ability, Numerical Ability, Analytical Ability, General Information |
+| Subprofessional | Verbal Ability, Numerical Ability, Clerical Ability, General Information |
+
+**What is published and what is not.** The item total, the time limit and the
+subject areas are published. **The per-subject item counts are not.** Several
+review sites print a split; none of them cites the CSC and they disagree with
+each other, so none of it may be printed here. A CSE blueprint therefore takes
+the same shape as UPCAT's: published total and duration, with the split marked
+as a sampling parameter that is never shown to a student.
+
+**General Information's four topics are published by name** and they match the
+authored content exactly: the Philippine Constitution, the Code of Conduct and
+Ethical Standards (R.A. 6713), Peace and Human Rights, and Environment
+Management. That is a useful confirmation that the content follows the exam
+rather than the other way round.
+
+### Why the CSE blueprint is still not authored
+
+**Not for want of figures. It is blocked on a structural limit.** A subject
+belongs to exactly one exam, because a topic belongs to one subject and a
+question belongs to one topic. So:
+
+- CSE Professional's published papers include **Numerical Ability**, and the
+  app's numerical content sits under UPCAT's Mathematics subject. Many of those
+  questions are tagged `cse-pro`, so a CSE student can be **quizzed** on them,
+  but the subject cannot appear on two exams.
+- A blueprint authored today would cover three of the four published subject
+  areas and silently omit the fourth.
+
+**Fixing this properly means subjects keyed independently of exam**, with a join
+between them, which is a schema change and its own stage. Recorded here so the
+blueprint is not authored incomplete and then trusted.
+
 ### The three that were unknown, supplied 4 August 2026
 
 **ACET, sectional.** The essay is not simulated, per the note at the end of this section.

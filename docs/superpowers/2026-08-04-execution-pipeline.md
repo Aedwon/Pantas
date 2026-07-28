@@ -77,60 +77,86 @@ directly from the orchestrator**, one git worktree per plan.
 
 ## Part 0: Pick up here
 
-**Rewritten 11 August, mid-session, at 100% context.** `main` is pushed and green.
-
-**Health on `main`:** **2,203 tests pass**, `flutter analyze` clean, `check_layering` OK,
+**Rewritten 11 August, later the same day.** `main` is pushed and green:
+**2,190 tests pass**, `flutter analyze` clean, `check_layering` OK,
 `check_no_ai_attribution` OK.
 
 ### Merged today
 
 | | What |
 |---|---|
-| **Content 01** | The corpus builds the content database: 2,000 questions, 144 lessons, 19 topics, where the fixture gave 1 |
-| **Content 01b** | The content schema gains passages, the lesson link, the passage link, the short label, the custom-exam flag and lesson ordering |
-| **Content 03** | The UPCAT blueprint: 4 parts, 250 items, 230 minutes, sectional, with `source` and `sourceNote` recording that the figures are reported rather than published |
-| **Onboarding** | Six unexecuted tasks: the name step, the exam date step, Terms acceptance, a completion flag, the router gate, and the five-step order |
-| **Defects found while auditing** | The paywall trapped a student who had just paid; the share card was still a purple gradient; two em dashes in user-facing code |
+| **Content 01** | The corpus builds the content database |
+| **Content 01b** | Passages, the lesson link, the passage link, the short label, the custom-exam flag, lesson ordering |
+| **Content 03** | The UPCAT blueprint: 4 parts, 250 items, 230 minutes, sectional |
+| **Content 02** | **Repaired and merged.** See below, because what it turned out to be is the useful part |
+| **Reasoning and General Information** | Reasoning left UPCAT and the six unmapped topics were mapped: 2,000 questions to 2,216, 144 lessons to 161 |
+| **The app is called Pantas** | Launcher label, notification dialog, in-app name, and the iOS display name that was hardcoded |
+| **Onboarding** | Six unexecuted tasks from the earlier handoff |
 
-### Content 02 is NOT merged and its branch does not compile
+### What Content 02 actually was, because the lesson generalises
 
-**Branch `wt-content02c`, worktree `.claude/worktrees/content02`.** Its five tasks are
-committed and its report claims the gates passed. **They do not.**
+Its branch had five committed tasks and a report claiming green gates. It had
+**55 analyzer errors and 144 failing tests**. Most were not a test problem.
 
-- **55 analyzer errors at its HEAD**, mostly `missing_required_argument` in the tests it
-  migrated: `ContentXCompanion.insert` calls missing `schemaVersion`, `updatedAt` and
-  `ordering`.
-- **239 analyzer issues in total**, including 90 `prefer_single_quotes`.
-- **There is also a stash**, `content02 uncommitted tail`, which is work in progress that
-  makes it worse rather than better: with it applied the count goes to 585 and adds 74
-  `undefined_identifier`. **Treat the stash as discardable** unless it proves useful.
+**Five areas of the app were still reading the corpus from the user database**,
+and Task 1's inventory could not see any of them because that inventory walked
+`ContentRepository`'s public methods while these query the database directly:
+the custom track, Progress performance and pace, Home's up next, the Settings
+carry-over count, and the metrics signals.
 
-**Do not merge it as it stands.** Either repair the test migration or redo Task 5 on top
-of the sound parts, which are Tasks 2, 3 and 4: the repository reading `ContentDatabase`,
-the provider pointing at it, and `v1.json` leaving `pubspec.yaml`.
+**Creating a custom track was the worst, because it was silent.** It wrote its
+exam row where nothing lists it and inverted the included set against an empty
+topics table, so a student tapped Continue, a track was created, and it was
+absent everywhere afterwards.
 
-**This is the third attempt.** The first two stopped correctly on real schema gaps, which
-is how 01b came to exist. **The instruction to stop rather than default has paid for
-itself three times and must stay in every plan.**
+**The lesson for the next inventory: walk the tables, not the repository.**
+`grep` for the content tables against the user database, not for the calls to
+the layer that is supposed to own them.
+
+Full account, including two schema traps and a boundary the repair broke and put
+back, is `decisions/2026-08-11-content-02-repair-log.md`.
 
 ### What is left
 
-1. **Repair and merge Content 02.**
-2. **Content 04**, `plans/2026-08-11-content-04-wire-the-mock.md`, which now covers **two**
-   doors: the published route and the custom one. Nothing reads a saved custom blueprint
-   and nothing navigates to `/quiz/mock/custom-setup` either.
-3. **Content 02's done-condition needs Aedwon's device**, with real attempt history. Do not
-   claim it from a test.
+1. **Content 04**, both doors. Dispatched to Gemini 3.1 Pro on 11 August, in
+   `.claude/worktrees/content04`. Verify and merge it before trusting it.
+2. **Lesson bookmarks.** Dispatched to 3.6 Flash, in
+   `.claude/worktrees/bookmarks`. The ribbon and storage already exist on main;
+   only the order, prefs, providers, section and sheet are missing.
+3. **Three small plan gaps, not yet dispatched** because two agents at a time is
+   the limit: the mock review screen, the session-building settings page, and
+   the feedback intent from the localization plan.
+4. **The study plan** stays deferred. Its providers are stubs and its entry row
+   is deliberately hidden.
+5. **Content 02's done-condition still needs Aedwon's device**, with real
+   attempt history. Do not claim it from a test.
 
-### Three questions waiting on him, all with the data behind them written up
+### Blocked on Aedwon, not on work
 
-1. **Reasoning is not a UPCAT subject.** Not one of its 64 questions is tagged for UPCAT,
-   yet a UPCAT student's Study tab lists it with 14 lessons and zero questions. UI-065.
-2. **248 authored questions reach no student**, including all 156 of General Information,
-   because the outline carries five subjects and General Information is not one of them.
-   Both generators exit 65 when it happens and nothing reads that exit code. UI-067.
-3. **`QuizResultsPage` has no caller.** Routed, tested, unreachable, and nothing lists past
-   attempts. Feature or dead code. UI-066.
+- **Crash reporting.** The boundary, all three collectors and the Crashlytics
+  sink are wired and tested. `firebaseConfigForFlavor` returns null because
+  there is no Firebase project, so nothing initializes. **One `flutterfire
+  configure` away from working**, and until then a beta tester's crash is
+  invisible.
+- **The CSE mock blueprint.** Its figures are now verified and recorded, and it
+  is blocked on structure instead: **a subject belongs to exactly one exam**, so
+  CSE Professional cannot show Numerical Ability while that content sits under
+  UPCAT's Mathematics. Authoring it now would quietly cover three of the four
+  published subject areas. Fixing it means subjects keyed independently of exam,
+  which is a schema stage of its own.
+- **`exam_dost_sei` has no exam row** while 1,160 question-to-exam rows and 84
+  authored files reference it. Which exams the app offers is his call.
+
+### Two things that are not blockers, contrary to the 3 August checklist
+
+- **Short labels.** Nullable by design, with a fallback to the stem that is
+  implemented and specified. Zero of them is a quality gap, not a blocker.
+- **The per-choice rationale.** Gates two Pro-only sentences, so it is revenue
+  polish rather than a beta gate.
+
+**The 3 August launch checklist is stale in both directions** and should be read
+against the code, not trusted. Its "39 unexecuted plans" is the worst of it:
+every plan branch but two has reached main.
 
 ### First, two things a new session must know
 
