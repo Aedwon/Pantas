@@ -37,7 +37,13 @@ void main() {
     expect(bp.sectionalTiming, SectionalTiming.sectional);
     expect(bp.totalPublishedItems, 250);
     expect(bp.source, BlueprintSource.reported);
-    expect(bp.sourceNote, contains('Supplied by Aedwon, 11 August 2026.'));
+    // Attribution and date, not the sentence. The note is prose and will be
+    // reworded; what must survive is who supplied the figures and when, since
+    // "reported" is meaningless without them.
+    expect(bp.sourceNote, contains('Aedwon'));
+    expect(bp.sourceNote, contains('11 August 2026'));
+    // And that the weights are not passed off as published.
+    expect(bp.sourceNote, contains('weights'));
 
     final sections = BlueprintSection.parseList(bp.sectionsJson);
     expect(sections, hasLength(4));
