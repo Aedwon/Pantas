@@ -263,6 +263,8 @@ void main(List<String> args) {
     });
   }
 
+  final mockBlueprints = buildMockBlueprints(root);
+
   final seed = {
     'exam': examsOutput,
     'subject': subjects,
@@ -270,7 +272,7 @@ void main(List<String> args) {
     'passage': passagesOutput,
     'question': questions,
     'lesson': lessons,
-    'mockBlueprint': <Map<String, Object?>>[],
+    'mockBlueprint': mockBlueprints,
   };
 
   File(args[0]).writeAsStringSync(
@@ -591,3 +593,50 @@ List<File> _filesUnder(String root, String extension) =>
       return file.path.endsWith(extension);
     }).toList()
       ..sort((a, b) => a.path.compareTo(b.path));
+
+List<Map<String, Object?>> buildMockBlueprints(String root) {
+  final mockBlueprints = <Map<String, Object?>>[];
+  final mockDir = Directory('$root/content/mock');
+  if (!mockDir.existsSync()) return mockBlueprints;
+
+  for (final file in _filesUnder(mockDir.path, '.yaml')) {
+    final updatedAt = _getFileHashTimestamp(file);
+    final doc = loadYaml(file.readAsStringSync()) as YamlMap;
+    mockBlueprints.add({
+      '_id': doc['_id'] as String,
+      '_updatedAt': updatedAt,
+      'schemaVersion': doc['schemaVersion'] as int? ?? 2,
+      'isActive': doc['isActive'] as bool? ?? true,
+      'exam': {'_ref': doc['exam'] as String},
+      'name': doc['name'] as String,
+      'durationMinutes': doc['durationMinutes'] as int,
+      if (doc['sectionalTiming'] != null)
+        'sectionalTiming': doc['sectionalTiming'] as String,
+      if (doc['totalPublishedItems'] != null)
+        'totalPublishedItems': doc['totalPublishedItems'] as int,
+      if (doc['source'] != null) 'source': doc['source'] as String,
+      if (doc['sourceNote'] != null) 'sourceNote': doc['sourceNote'] as String,
+      if (doc['scoreBands'] != null)
+        'scoreBands': _convertYaml(doc['scoreBands']),
+      'sections': [
+        for (final section in doc['sections'] as YamlList)
+          _convertYaml(section),
+      ],
+    });
+  }
+
+  return mockBlueprints;
+}
+
+Object? _convertYaml(Object? node) {
+  if (node is YamlMap) {
+    return {
+      for (final entry in node.entries)
+        '${entry.key}': _convertYaml(entry.value),
+    };
+  }
+  if (node is YamlList) {
+    return [for (final item in node) _convertYaml(item)];
+  }
+  return node;
+}

@@ -1532,5 +1532,81 @@ app exists, because there is nothing there to measure. That is a dead end
 presented as a subject.
 
 **UP lists four subtests and the content agrees with UP.** The seed's subject
-list is the only thing that does not. Options and a recommendation are in the
-content path spec's open questions.
+list is the only thing that does not.
+
+**Decided 11 August. Aedwon: *"drop reasoning from upcat"*.**
+
+**It is two changes, not one.** Reasoning's 244 questions are generated only
+because the outline places them under UPCAT, so removing the entry alone would
+strand them exactly as General Information is stranded. They move to CSE
+Professional, the one active exam that tests reasoning. Full round in
+`decisions/2026-08-11-reasoning-and-upcat-log.md`.
+
+### UI-066 [important] A sweep for built-but-unreachable surfaces
+
+**Prompted by the mock panel**, which was finished, routed and never once shown
+because the router passed nothing. If that could happen to a whole feature, it
+could have happened elsewhere, so every route was checked against what
+navigates to it.
+
+**Two real findings and one already known.**
+
+**The paywall could trap a student**, which is written up as its own fix above:
+`/paywall` sits outside the tab shell, both ways in leave no stack, its close
+control popped nothing, and a successful purchase navigated nowhere.
+
+**`QuizResultsPage` has no caller at all.** It is routed at
+`/quiz/results/:attemptId`, it has tests, and nothing in the app links to it.
+The debrief replaced it as the after-a-session screen and is rendered inline by
+the quiz page rather than by its route. **Nothing lists past attempts**: Your
+record does not link to them either. So a student cannot reach any finished
+attempt again.
+
+**Is that a missing wire or dead code?** It is a question rather than a defect:
+either past attempts get a list, which is a feature, or the page and its route
+go. **Aedwon's to decide**, and the sweep's job was to surface it.
+
+**The rest were the sweep being crude rather than the app being broken**:
+`/more` is a deliberate redirect to Settings, `/plan` is hidden on purpose while
+the study plan's providers are stubs, and the settings pages are reached
+through rows the first pattern did not match.
+
+### UI-067 [blocker] 248 authored questions reach no student, including all of General Information
+
+**Found 11 August**, following the export's exit code 65 to what it actually
+means.
+
+**The corpus holds 2,401 questions. The seed generates 1,998.** The 403
+difference breaks down:
+
+| | Count | Why |
+|---|---|---|
+| Parked pending figures | **155** | Deliberate and printed by the tool. Their pictures do not exist yet |
+| **Dropped for having no outline topic** | **248** | Silent, and the reason for exit 65 |
+
+**`tools/lesson_author/outline.json` carries five subjects**: mathematics,
+science, language-proficiency, reading-comprehension, reasoning. **There is no
+General Information.** So every one of its **156 questions and 13 lessons is
+skipped by both generators**, and the same happens to six topics inside
+subjects that do exist: `philippine-constitution` 60, `data-interpretation` 24,
+`clerical-ability` 24, `environment-management` 20, `peace-and-human-rights`
+16, `verbal-logic` 12.
+
+**The pipeline's Part 2 records General Information as merged on 8 August**,
+"216 questions across the Code of Conduct, the Constitution, peace and human
+rights, and environment, every one written against a file in
+`content/reference/cse/`". **It was authored and it has never reached a
+student.** The seed carries no General Information subject at all.
+
+**This is the mock panel again in a different costume**: work finished,
+recorded as done, and unreachable, because the thing that would have caught it
+was a claim rather than a check.
+
+**It also hollows out the CSE track.** The seed's Civil Service exam carries
+one subject, Verbal Ability, with 2 questions, while the CSE tagging pass of 4
+August put `cse-pro` on 38 files.
+
+**The fix is a content decision rather than a code change:** the outline gains
+General Information and the six topics, or the content is explicitly parked.
+**The generators already exit 65 when it happens; nothing reads that exit
+code**, which is why it ran for days unseen.

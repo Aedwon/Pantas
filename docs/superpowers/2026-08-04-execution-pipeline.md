@@ -77,19 +77,60 @@ directly from the orchestrator**, one git worktree per plan.
 
 ## Part 0: Pick up here
 
-**Rewritten 11 August**, after a long session of Aedwon's own testing on the device. `main` is
-pushed and clean.
+**Rewritten 11 August, mid-session, at 100% context.** `main` is pushed and green.
 
-**Health:** **2,194 tests pass**, `flutter analyze` **clean and exiting 0**, formatter clean,
-`check_layering` **OK**, corpus 2,000 questions in the shipped seed.
+**Health on `main`:** **2,203 tests pass**, `flutter analyze` clean, `check_layering` OK,
+`check_no_ai_attribution` OK.
 
-**Run `dart run build_runner build --delete-conflicting-outputs` before judging any gate
-after a schema merge.** Generated files are gitignored, so a merge that adds a table
-leaves your tree failing to compile while the pushed branch is fine. It cost a false
-alarm on 11 August.
+### Merged today
 
-**The work now is the content path and the mock**, which is specced and planned and not started,
-plus Aedwon's remaining UI findings and the things only he can do.
+| | What |
+|---|---|
+| **Content 01** | The corpus builds the content database: 2,000 questions, 144 lessons, 19 topics, where the fixture gave 1 |
+| **Content 01b** | The content schema gains passages, the lesson link, the passage link, the short label, the custom-exam flag and lesson ordering |
+| **Content 03** | The UPCAT blueprint: 4 parts, 250 items, 230 minutes, sectional, with `source` and `sourceNote` recording that the figures are reported rather than published |
+| **Onboarding** | Six unexecuted tasks: the name step, the exam date step, Terms acceptance, a completion flag, the router gate, and the five-step order |
+| **Defects found while auditing** | The paywall trapped a student who had just paid; the share card was still a purple gradient; two em dashes in user-facing code |
+
+### Content 02 is NOT merged and its branch does not compile
+
+**Branch `wt-content02c`, worktree `.claude/worktrees/content02`.** Its five tasks are
+committed and its report claims the gates passed. **They do not.**
+
+- **55 analyzer errors at its HEAD**, mostly `missing_required_argument` in the tests it
+  migrated: `ContentXCompanion.insert` calls missing `schemaVersion`, `updatedAt` and
+  `ordering`.
+- **239 analyzer issues in total**, including 90 `prefer_single_quotes`.
+- **There is also a stash**, `content02 uncommitted tail`, which is work in progress that
+  makes it worse rather than better: with it applied the count goes to 585 and adds 74
+  `undefined_identifier`. **Treat the stash as discardable** unless it proves useful.
+
+**Do not merge it as it stands.** Either repair the test migration or redo Task 5 on top
+of the sound parts, which are Tasks 2, 3 and 4: the repository reading `ContentDatabase`,
+the provider pointing at it, and `v1.json` leaving `pubspec.yaml`.
+
+**This is the third attempt.** The first two stopped correctly on real schema gaps, which
+is how 01b came to exist. **The instruction to stop rather than default has paid for
+itself three times and must stay in every plan.**
+
+### What is left
+
+1. **Repair and merge Content 02.**
+2. **Content 04**, `plans/2026-08-11-content-04-wire-the-mock.md`, which now covers **two**
+   doors: the published route and the custom one. Nothing reads a saved custom blueprint
+   and nothing navigates to `/quiz/mock/custom-setup` either.
+3. **Content 02's done-condition needs Aedwon's device**, with real attempt history. Do not
+   claim it from a test.
+
+### Three questions waiting on him, all with the data behind them written up
+
+1. **Reasoning is not a UPCAT subject.** Not one of its 64 questions is tagged for UPCAT,
+   yet a UPCAT student's Study tab lists it with 14 lessons and zero questions. UI-065.
+2. **248 authored questions reach no student**, including all 156 of General Information,
+   because the outline carries five subjects and General Information is not one of them.
+   Both generators exit 65 when it happens and nothing reads that exit code. UI-067.
+3. **`QuizResultsPage` has no caller.** Routed, tested, unreachable, and nothing lists past
+   attempts. Feature or dead code. UI-066.
 
 ### First, two things a new session must know
 

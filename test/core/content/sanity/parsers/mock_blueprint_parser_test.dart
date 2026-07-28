@@ -110,4 +110,20 @@ void main() {
     expect(blueprint.sectionalTiming, SectionalTiming.sectional);
     expect(blueprint.scoreBands?.passAtPercent, 70);
   });
+
+  test('v1 blueprint missing source parses to unknown', () {
+    final row = parseMockBlueprint(blueprintDoc());
+    expect(row.source.value, 'unknown');
+    expect(row.sourceNote.value, isNull);
+  });
+
+  test('v2 blueprint parses source and sourceNote', () {
+    final doc = blueprintDoc()
+      ..['schemaVersion'] = 2
+      ..['source'] = 'reported'
+      ..['sourceNote'] = 'Supplied by Aedwon';
+    final row = parseMockBlueprint(doc);
+    expect(row.source.value, 'reported');
+    expect(row.sourceNote.value, 'Supplied by Aedwon');
+  });
 }

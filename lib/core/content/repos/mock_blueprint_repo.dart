@@ -28,6 +28,8 @@ class MockBlueprintRepo {
           sectionalTiming: _timingFrom(row.sectionalTiming),
           scoreBands: _bandsFrom(row.scoreBandsJson),
           totalPublishedItems: row.totalPublishedItems,
+          source: _sourceFrom(row.source),
+          sourceNote: row.sourceNote,
         ),
     ];
   }
@@ -36,6 +38,14 @@ class MockBlueprintRepo {
 SectionalTiming? _timingFrom(String? stored) {
   if (stored == null) return null;
   for (final value in SectionalTiming.values) {
+    if (value.name == stored) return value;
+  }
+  return null;
+}
+
+BlueprintSource? _sourceFrom(String? stored) {
+  if (stored == null) return null;
+  for (final value in BlueprintSource.values) {
     if (value.name == stored) return value;
   }
   return null;

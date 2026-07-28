@@ -231,6 +231,20 @@ void main() {
     expect(science.subtext, isNull);
   });
 
+  test(
+      'a subject with no matching blueprint section carries null subtext '
+      'rather than zero', () async {
+    await seedSyllabus();
+    await seedAttempt('att_1', [('q_c1', true), ('q_a1', true)]);
+    // Blueprint only has Science section, not Mathematics
+    await seedBlueprint();
+
+    final table = await read(TableLevel.subject);
+
+    final math = table.rows.firstWhere((r) => r.title == 'Mathematics');
+    expect(math.subtext, isNull);
+  });
+
   test('topic level carries the parent, never a size', () async {
     await seedSyllabus();
     await seedAttempt('att_1', [('q_c1', true), ('q_c2', false)]);

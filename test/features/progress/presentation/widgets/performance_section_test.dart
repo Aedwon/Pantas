@@ -209,6 +209,40 @@ void main() {
     );
   });
 
+  testWidgets('a subject with a section prints its published size',
+      (tester) async {
+    final rowsWithSize = [
+      const PerformanceRow(
+        id: 'sci',
+        title: 'Science',
+        subtext: '10 of 60 questions',
+        correct: 3,
+        answered: 10,
+        secondsPerQuestion: null,
+      ),
+    ];
+
+    await tester.pumpWidget(
+      harness(rows: rowsWithSize, level: TableLevel.subject),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('10 of 60 questions'), findsOneWidget);
+  });
+
+  testWidgets('a subject with no section prints no subtext rather than zero',
+      (tester) async {
+    await tester.pumpWidget(harness(rows: rowsWithNullSubtext));
+    await tester.pumpAndSettle();
+
+    expect(find.textContaining('of 0 questions'), findsNothing);
+    expect(find.textContaining('0 of 0'), findsNothing);
+    for (final tile
+        in tester.widgetList<DataRowTile>(find.byType(DataRowTile))) {
+      expect(tile.subtext, isNull);
+    }
+  });
+
   testWidgets('a lesson row opens the reader', (tester) async {
     await tester.pumpWidget(
       harness(rows: lessonRows, level: TableLevel.lesson),

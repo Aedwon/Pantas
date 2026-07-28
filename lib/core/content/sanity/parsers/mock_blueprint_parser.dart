@@ -9,11 +9,14 @@ import 'package:drift/drift.dart';
 
 ContentMockBlueprintsCompanion parseMockBlueprint(Map<String, Object?> doc) {
   const doctype = 'mockBlueprint';
-  checkSchemaVersion(
-    doc: doc,
-    doctype: doctype,
-    expected: SchemaVersions.mockBlueprint,
-  );
+  final version = requireSchemaVersion(doc, doctype);
+  if (version != 1 && version != 2) {
+    throw SchemaMismatchException(
+      doctype: doctype,
+      got: version,
+      expected: SchemaVersions.mockBlueprint,
+    );
+  }
   final sections = doc['sections'];
   if (sections is! List) {
     throw const ParseException(
@@ -22,9 +25,17 @@ ContentMockBlueprintsCompanion parseMockBlueprint(Map<String, Object?> doc) {
       message: 'expected list',
     );
   }
+  final rawSource = doc['source'];
+  final parsedSource = _source(rawSource);
+  final sourceStr = version == 1
+      ? BlueprintSource.unknown.name
+      : (parsedSource ?? BlueprintSource.unknown.name);
+  final sourceNoteStr =
+      version == 1 ? null : optionalStringField(doc, doctype, 'sourceNote');
+
   return ContentMockBlueprintsCompanion.insert(
     id: stringField(doc, doctype, '_id'),
-    schemaVersion: SchemaVersions.mockBlueprint,
+    schemaVersion: version,
     isActive: Value(boolField(doc, doctype, 'isActive')),
     updatedAt: dateTimeField(doc, doctype, '_updatedAt'),
     examId: refField(doc, doctype, 'exam'),
@@ -34,7 +45,17 @@ ContentMockBlueprintsCompanion parseMockBlueprint(Map<String, Object?> doc) {
     sectionalTiming: Value(_timing(doc['sectionalTiming'])),
     scoreBandsJson: Value(_scoreBands(doc['scoreBands'])),
     totalPublishedItems: Value(_positiveInt(doc['totalPublishedItems'])),
+    source: Value(sourceStr),
+    sourceNote: Value(sourceNoteStr),
   );
+}
+
+String? _source(Object? raw) {
+  if (raw is! String) return null;
+  for (final value in BlueprintSource.values) {
+    if (value.name == raw) return value.name;
+  }
+  return null;
 }
 
 /// Absent is absent, and so is anything this app does not recognise. A

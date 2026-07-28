@@ -10,6 +10,9 @@ import 'package:meta/meta.dart';
 /// expensive wrong guess this app can make.
 enum SectionalTiming { sectional, roamable }
 
+/// Where the blueprint's figures came from.
+enum BlueprintSource { published, reported, unknown }
+
 /// The percentage at which this exam calls a score a pass, and the one
 /// above which it is close. Content, per exam. `null` means the exam has
 /// not published them.
@@ -40,6 +43,8 @@ class MockBlueprint {
     this.sectionalTiming,
     this.scoreBands,
     this.totalPublishedItems,
+    this.source,
+    this.sourceNote,
   });
 
   final String id;
@@ -59,4 +64,10 @@ class MockBlueprint {
   /// exceeds what the sections cover, the setup screen says what is not
   /// included. Null means the exam publishes no total.
   final int? totalPublishedItems;
+
+  /// Where the blueprint's numbers came from.
+  final BlueprintSource? source;
+
+  /// Citation or attribution note for the blueprint source.
+  final String? sourceNote;
 }
