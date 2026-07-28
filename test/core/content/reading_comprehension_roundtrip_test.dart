@@ -15,7 +15,9 @@ void main() {
       'tools/build_content_export/build_content_export.dart',
       exportPath,
     ]);
-    expect(resultExport.exitCode, 65, reason: resultExport.stderr.toString());
+    // 0 since 11 August: this asserted 65 while six authored topics were
+    // unmapped and their questions dropped.
+    expect(resultExport.exitCode, 0, reason: resultExport.stderr.toString());
 
     final dbPath = '${tempDir.path}/content.db';
     final resultSeed = await Process.run('dart', [

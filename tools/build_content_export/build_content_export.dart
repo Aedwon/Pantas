@@ -68,19 +68,30 @@ void main(List<String> args) {
   final subjects = <Map<String, Object?>>[];
   final topics = <Map<String, Object?>>[];
 
-  var subjectOrder = 1;
+  // Ordering runs per exam, so a subject that is second on its own paper does
+  // not inherit a number from the exam listed before it.
+  final subjectOrderByExam = <String, int>{};
   for (final rawSubject in outline['subjects'] as List) {
     final subject = rawSubject as Map<String, dynamic>;
     final subjectSlug = subject['slug'] as String;
+    // Which paper a subject sits on. Absent means UPCAT, which is what every
+    // subject in this outline meant before the field existed.
+    final examCode = subject['exam'] as String? ?? 'upcat';
+    final examId = 'exam_${_underscore(examCode)}';
+    // The `upcat` in these ids is historical and is now just a namespace. It
+    // stays because `track_scope_local` stores topic ids: a student who has
+    // hidden a topic has that id on their device, and renaming would silently
+    // un-hide it. Renaming is its own migration, not a side effect of this.
     final subjectId = 'subj_upcat_${_underscore(subjectSlug)}';
     subjects.add({
       '_id': subjectId,
       '_updatedAt': outlineUpdatedAt,
       'schemaVersion': 1,
       'isActive': true,
-      'exam': {'_ref': _examId},
+      'exam': {'_ref': examId},
       'name': subject['name'] as String,
-      'ordering': subjectOrder++,
+      'ordering': (subjectOrderByExam[examId] =
+          (subjectOrderByExam[examId] ?? 0) + 1),
     });
 
     var topicOrder = 1;

@@ -17,22 +17,17 @@ void main() {
       'tools/build_content_export/build_content_export.dart',
       exportPath,
     ]);
-    // 65, not 0, and pinned rather than waved through.
+    // 0, and pinned so a regression cannot hide.
     //
-    // The export exits 65 when a lesson or question names a topic the
-    // outline does not carry. **`build_dev_seed` has always done the same**,
-    // with the same six topics, so this is a standing content gap rather
-    // than something this tool introduced: `clerical-ability`,
-    // `data-interpretation`, `environment-management`,
-    // `peace-and-human-rights`, `philippine-constitution` and `verbal-logic`
-    // are authored but unmapped.
-    //
-    // The set is asserted so a **seventh** breaks the build. Accepting
-    // `anyOf(0, 65)` would let a new and unrelated failure through wearing
-    // the same exit code.
+    // This asserted 65 until 11 August, with the six authored-but-unmapped
+    // topics listed as a standing content gap. That pinned the defect: the
+    // export exits 65 when a lesson or question names a topic the outline
+    // does not carry, and those questions are silently dropped. All six are
+    // mapped now, so a whole corpus exits 0 and any new unmapped topic turns
+    // the build red instead of joining an accepted list.
     expect(
       resultExport.exitCode,
-      65,
+      0,
       reason: resultExport.stderr.toString(),
     );
 
@@ -40,14 +35,7 @@ void main() {
         .allMatches('${resultExport.stdout}${resultExport.stderr}')
         .map((m) => m.group(1))
         .toSet();
-    expect(unmapped, {
-      'clerical-ability',
-      'data-interpretation',
-      'environment-management',
-      'peace-and-human-rights',
-      'philippine-constitution',
-      'verbal-logic',
-    });
+    expect(unmapped, isEmpty);
 
     // 2. Feed its output to seed_writer.dart
     final dbPath = '${tempDir.path}/content.db';
@@ -87,7 +75,9 @@ void main() {
             )
             .getSingle())
         .read<int>('c');
-    expect(orderedLessons, 141);
+    // 141 before the six topics were mapped; the 17 lessons that arrived
+    // with them carry their ordering too.
+    expect(orderedLessons, 158);
     final examsCount = (await db
             .customSelect('SELECT COUNT(*) AS c FROM content_exams')
             .getSingle())
@@ -113,12 +103,17 @@ void main() {
             .getSingle())
         .read<int>('c');
 
-    expect(questionsCount, 2000, reason: 'Expected 2,000 questions');
-    expect(lessonsCount, 144, reason: 'Expected 144 lessons');
-    expect(topicsCount, 19, reason: 'Expected 19 topics');
+    // Up from 2,000 / 144 / 19 on 11 August, when the six unmapped topics
+    // were added to the outline: General Information's 156 questions and
+    // Reasoning's clerical and verbal-logic sets were authored and reaching
+    // nobody, because a question whose topic the outline does not carry is
+    // dropped by the export.
+    expect(questionsCount, 2216, reason: 'Expected 2,216 questions');
+    expect(lessonsCount, 161, reason: 'Expected 161 lessons');
+    expect(topicsCount, 26, reason: 'Expected 26 topics');
     expect(examsCount, 7, reason: 'Expected 7 exams');
     expect(passagesCount, 32, reason: 'Expected 32 passages');
-    expect(lessonLinksCount, 1998, reason: 'Expected 1,998 lesson links');
+    expect(lessonLinksCount, 2214, reason: 'Expected 2,214 lesson links');
     expect(passageLinksCount, 160, reason: 'Expected 160 passage links');
 
     // 4. Assert the ids are underscored by reading one exam id back

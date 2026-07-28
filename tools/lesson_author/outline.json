@@ -3,166 +3,636 @@
     {
       "name": "Mathematics",
       "slug": "mathematics",
+      "exam": "upcat",
       "topics": [
         {
           "name": "Arithmetic & Number Sense",
           "slug": "arithmetic-number-sense",
           "lessons": [
-            { "title": "Order of Operations (PEMDAS/GEMDAS)", "slug": "order-of-operations", "sections": [] },
-            { "title": "Real and Imaginary Number Systems", "slug": "real-imaginary-numbers", "sections": [] },
-            { "title": "Properties of Real Numbers (Commutative, Associative, Distributive, Identity, Inverse)", "slug": "properties-of-real-numbers", "sections": [] },
-            { "title": "Prime Factorization, GCF, and LCM", "slug": "prime-factorization-gcf-lcm", "sections": [] },
-            { "title": "Fractions, Decimals, and Percentages", "slug": "fractions-decimals-percentages", "sections": [] },
-            { "title": "Ratio and Proportion (Direct, Inverse, Partitive)", "slug": "ratio-and-proportion", "sections": [] },
-            { "title": "Divisibility Rules", "slug": "divisibility-rules", "sections": [] },
-            { "title": "Sequences and Series (Arithmetic, Geometric, Fibonacci, Harmonic)", "slug": "sequences-and-series", "sections": [] },
-            { "title": "Business Math", "slug": "business-math", "sections": ["Discounts and Markups", "Simple and Compound Interest"] }
+            {
+              "title": "Order of Operations (PEMDAS/GEMDAS)",
+              "slug": "order-of-operations",
+              "sections": []
+            },
+            {
+              "title": "Real and Imaginary Number Systems",
+              "slug": "real-imaginary-numbers",
+              "sections": []
+            },
+            {
+              "title": "Properties of Real Numbers (Commutative, Associative, Distributive, Identity, Inverse)",
+              "slug": "properties-of-real-numbers",
+              "sections": []
+            },
+            {
+              "title": "Prime Factorization, GCF, and LCM",
+              "slug": "prime-factorization-gcf-lcm",
+              "sections": []
+            },
+            {
+              "title": "Fractions, Decimals, and Percentages",
+              "slug": "fractions-decimals-percentages",
+              "sections": []
+            },
+            {
+              "title": "Ratio and Proportion (Direct, Inverse, Partitive)",
+              "slug": "ratio-and-proportion",
+              "sections": []
+            },
+            {
+              "title": "Divisibility Rules",
+              "slug": "divisibility-rules",
+              "sections": []
+            },
+            {
+              "title": "Sequences and Series (Arithmetic, Geometric, Fibonacci, Harmonic)",
+              "slug": "sequences-and-series",
+              "sections": []
+            },
+            {
+              "title": "Business Math",
+              "slug": "business-math",
+              "sections": [
+                "Discounts and Markups",
+                "Simple and Compound Interest"
+              ]
+            }
           ]
         },
         {
           "name": "Algebra",
           "slug": "algebra",
           "lessons": [
-            { "title": "Sets and Set Notation (Unions, Intersections, Subsets, Venn Diagrams)", "slug": "sets-and-set-notation", "sections": [] },
-            { "title": "Algebraic Expressions (Translation, Simplification, Evaluation)", "slug": "algebraic-expressions", "sections": [] },
-            { "title": "Laws of Exponents and Logarithms", "slug": "exponents-and-logarithms", "sections": [] },
-            { "title": "Radicals and Rationalization", "slug": "radicals-and-rationalization", "sections": [] },
-            { "title": "Polynomials", "slug": "polynomials", "sections": ["Operations on Polynomials", "Special Products", "Factoring Techniques", "Long Division and Synthetic Division", "Remainder and Factor Theorems"] },
-            { "title": "Linear Equations and Inequalities (Solving and Graphing)", "slug": "linear-equations-inequalities", "sections": [] },
-            { "title": "Quadratic Equations", "slug": "quadratic-equations", "sections": ["Standard Form", "Factoring", "Completing the Square", "Quadratic Formula and Discriminant"] },
-            { "title": "Systems of Linear and Non-Linear Equations (Substitution, Elimination, Graphing)", "slug": "systems-of-equations", "sections": [] },
-            { "title": "Functions and Relations", "slug": "functions-and-relations", "sections": ["Domain and Range", "Function Evaluation and Composition", "Inverse Functions"] },
-            { "title": "Types of Functions (Linear, Quadratic, Rational, Absolute Value, Exponential, Logarithmic, Piecewise)", "slug": "types-of-functions", "sections": [] },
-            { "title": "Word Problems (Age, Motion, Work, Mixture, Coin, and Digit Problems)", "slug": "word-problems", "sections": [] }
+            {
+              "title": "Sets and Set Notation (Unions, Intersections, Subsets, Venn Diagrams)",
+              "slug": "sets-and-set-notation",
+              "sections": []
+            },
+            {
+              "title": "Algebraic Expressions (Translation, Simplification, Evaluation)",
+              "slug": "algebraic-expressions",
+              "sections": []
+            },
+            {
+              "title": "Laws of Exponents and Logarithms",
+              "slug": "exponents-and-logarithms",
+              "sections": []
+            },
+            {
+              "title": "Radicals and Rationalization",
+              "slug": "radicals-and-rationalization",
+              "sections": []
+            },
+            {
+              "title": "Polynomials",
+              "slug": "polynomials",
+              "sections": [
+                "Operations on Polynomials",
+                "Special Products",
+                "Factoring Techniques",
+                "Long Division and Synthetic Division",
+                "Remainder and Factor Theorems"
+              ]
+            },
+            {
+              "title": "Linear Equations and Inequalities (Solving and Graphing)",
+              "slug": "linear-equations-inequalities",
+              "sections": []
+            },
+            {
+              "title": "Quadratic Equations",
+              "slug": "quadratic-equations",
+              "sections": [
+                "Standard Form",
+                "Factoring",
+                "Completing the Square",
+                "Quadratic Formula and Discriminant"
+              ]
+            },
+            {
+              "title": "Systems of Linear and Non-Linear Equations (Substitution, Elimination, Graphing)",
+              "slug": "systems-of-equations",
+              "sections": []
+            },
+            {
+              "title": "Functions and Relations",
+              "slug": "functions-and-relations",
+              "sections": [
+                "Domain and Range",
+                "Function Evaluation and Composition",
+                "Inverse Functions"
+              ]
+            },
+            {
+              "title": "Types of Functions (Linear, Quadratic, Rational, Absolute Value, Exponential, Logarithmic, Piecewise)",
+              "slug": "types-of-functions",
+              "sections": []
+            },
+            {
+              "title": "Word Problems (Age, Motion, Work, Mixture, Coin, and Digit Problems)",
+              "slug": "word-problems",
+              "sections": []
+            }
           ]
         },
         {
           "name": "Geometry",
           "slug": "geometry",
           "lessons": [
-            { "title": "Basic Geometric Concepts (Points, Lines, Planes, Angles)", "slug": "basic-geometric-concepts", "sections": [] },
-            { "title": "Logic and Reasoning (Conditional Statements, Converses, Inverses, Contrapositives)", "slug": "logic-and-reasoning", "sections": [] },
-            { "title": "Parallel and Perpendicular Lines (Transversals, Angle Pairs)", "slug": "parallel-perpendicular-lines", "sections": [] },
-            { "title": "Triangles", "slug": "triangles", "sections": ["Properties and Theorems (Triangle Inequality, Exterior Angle)", "Congruence Postulates (SSS, SAS, ASA, AAS, HL)", "Similarity and Proportionality", "Pythagorean Theorem and Special Right Triangles"] },
-            { "title": "Quadrilaterals and Polygons (Properties, Interior and Exterior Angle Sums)", "slug": "quadrilaterals-and-polygons", "sections": [] },
-            { "title": "Circles (Radii, Diameters, Chords, Tangents, Secants, Arcs, Sectors)", "slug": "circles", "sections": [] },
-            { "title": "Measurement", "slug": "measurement", "sections": ["Perimeter and Area of 2D Figures", "Surface Area and Volume of 3D Solids"] },
-            { "title": "Coordinate (Analytic) Geometry", "slug": "coordinate-geometry", "sections": ["Distance and Midpoint Formulas", "Slope of a Line", "Equations of a Line"] }
+            {
+              "title": "Basic Geometric Concepts (Points, Lines, Planes, Angles)",
+              "slug": "basic-geometric-concepts",
+              "sections": []
+            },
+            {
+              "title": "Logic and Reasoning (Conditional Statements, Converses, Inverses, Contrapositives)",
+              "slug": "logic-and-reasoning",
+              "sections": []
+            },
+            {
+              "title": "Parallel and Perpendicular Lines (Transversals, Angle Pairs)",
+              "slug": "parallel-perpendicular-lines",
+              "sections": []
+            },
+            {
+              "title": "Triangles",
+              "slug": "triangles",
+              "sections": [
+                "Properties and Theorems (Triangle Inequality, Exterior Angle)",
+                "Congruence Postulates (SSS, SAS, ASA, AAS, HL)",
+                "Similarity and Proportionality",
+                "Pythagorean Theorem and Special Right Triangles"
+              ]
+            },
+            {
+              "title": "Quadrilaterals and Polygons (Properties, Interior and Exterior Angle Sums)",
+              "slug": "quadrilaterals-and-polygons",
+              "sections": []
+            },
+            {
+              "title": "Circles (Radii, Diameters, Chords, Tangents, Secants, Arcs, Sectors)",
+              "slug": "circles",
+              "sections": []
+            },
+            {
+              "title": "Measurement",
+              "slug": "measurement",
+              "sections": [
+                "Perimeter and Area of 2D Figures",
+                "Surface Area and Volume of 3D Solids"
+              ]
+            },
+            {
+              "title": "Coordinate (Analytic) Geometry",
+              "slug": "coordinate-geometry",
+              "sections": [
+                "Distance and Midpoint Formulas",
+                "Slope of a Line",
+                "Equations of a Line"
+              ]
+            }
           ]
         },
         {
           "name": "Trigonometry",
           "slug": "trigonometry",
           "lessons": [
-            { "title": "Angles and Radian Measure (Conversion)", "slug": "angles-and-radian-measure", "sections": [] },
-            { "title": "Basic Trigonometric Ratios (SOH-CAH-TOA)", "slug": "basic-trigonometric-ratios", "sections": [] },
-            { "title": "The Unit Circle (Exact Values of Standard Angles)", "slug": "unit-circle", "sections": [] },
-            { "title": "Trigonometric Identities (Reciprocal, Quotient, Pythagorean)", "slug": "trigonometric-identities", "sections": [] },
-            { "title": "Solving Right Triangles (Angles of Elevation and Depression)", "slug": "solving-right-triangles", "sections": [] },
-            { "title": "Laws of Sines and Cosines", "slug": "laws-of-sines-and-cosines", "sections": [] },
-            { "title": "Inverse Trigonometric Functions", "slug": "inverse-trigonometric-functions", "sections": [] }
+            {
+              "title": "Angles and Radian Measure (Conversion)",
+              "slug": "angles-and-radian-measure",
+              "sections": []
+            },
+            {
+              "title": "Basic Trigonometric Ratios (SOH-CAH-TOA)",
+              "slug": "basic-trigonometric-ratios",
+              "sections": []
+            },
+            {
+              "title": "The Unit Circle (Exact Values of Standard Angles)",
+              "slug": "unit-circle",
+              "sections": []
+            },
+            {
+              "title": "Trigonometric Identities (Reciprocal, Quotient, Pythagorean)",
+              "slug": "trigonometric-identities",
+              "sections": []
+            },
+            {
+              "title": "Solving Right Triangles (Angles of Elevation and Depression)",
+              "slug": "solving-right-triangles",
+              "sections": []
+            },
+            {
+              "title": "Laws of Sines and Cosines",
+              "slug": "laws-of-sines-and-cosines",
+              "sections": []
+            },
+            {
+              "title": "Inverse Trigonometric Functions",
+              "slug": "inverse-trigonometric-functions",
+              "sections": []
+            }
           ]
         },
         {
           "name": "Statistics and Probability",
           "slug": "statistics-and-probability",
           "lessons": [
-            { "title": "Measures of Central Tendency (Mean, Median, Mode)", "slug": "measures-of-central-tendency", "sections": [] },
-            { "title": "Measures of Variability (Range, Variance, Standard Deviation)", "slug": "measures-of-variability", "sections": [] },
-            { "title": "Data Analysis and Graph Interpretation (Pie Charts, Bar Graphs, Scatter Plots)", "slug": "data-analysis-graphs", "sections": [] },
-            { "title": "Combinatorics", "slug": "combinatorics", "sections": ["Fundamental Counting Principle", "Permutations", "Combinations"] },
-            { "title": "Basic Probability (Independent vs. Dependent Events, Mutually Exclusive Events)", "slug": "basic-probability", "sections": [] }
+            {
+              "title": "Measures of Central Tendency (Mean, Median, Mode)",
+              "slug": "measures-of-central-tendency",
+              "sections": []
+            },
+            {
+              "title": "Measures of Variability (Range, Variance, Standard Deviation)",
+              "slug": "measures-of-variability",
+              "sections": []
+            },
+            {
+              "title": "Data Analysis and Graph Interpretation (Pie Charts, Bar Graphs, Scatter Plots)",
+              "slug": "data-analysis-graphs",
+              "sections": []
+            },
+            {
+              "title": "Combinatorics",
+              "slug": "combinatorics",
+              "sections": [
+                "Fundamental Counting Principle",
+                "Permutations",
+                "Combinations"
+              ]
+            },
+            {
+              "title": "Basic Probability (Independent vs. Dependent Events, Mutually Exclusive Events)",
+              "slug": "basic-probability",
+              "sections": []
+            }
           ]
         },
         {
           "name": "Pre-Calculus & Basic Calculus",
           "slug": "precalculus-basic-calculus",
           "lessons": [
-            { "title": "Conic Sections (Circle, Parabola, Ellipse, Hyperbola)", "slug": "conic-sections", "sections": [] },
-            { "title": "Limits and Continuity", "slug": "limits-and-continuity", "sections": [] },
-            { "title": "Basic Derivatives (Power Rule, Product/Quotient Rule, Chain Rule)", "slug": "basic-derivatives", "sections": [] },
-            { "title": "Basic Integrals", "slug": "basic-integrals", "sections": [] }
+            {
+              "title": "Conic Sections (Circle, Parabola, Ellipse, Hyperbola)",
+              "slug": "conic-sections",
+              "sections": []
+            },
+            {
+              "title": "Limits and Continuity",
+              "slug": "limits-and-continuity",
+              "sections": []
+            },
+            {
+              "title": "Basic Derivatives (Power Rule, Product/Quotient Rule, Chain Rule)",
+              "slug": "basic-derivatives",
+              "sections": []
+            },
+            {
+              "title": "Basic Integrals",
+              "slug": "basic-integrals",
+              "sections": []
+            }
           ]
+        },
+        {
+          "name": "Data Interpretation",
+          "slug": "data-interpretation",
+          "lessons": []
         }
       ]
     },
     {
       "name": "Science",
       "slug": "science",
+      "exam": "upcat",
       "topics": [
         {
           "name": "Earth Science & Astronomy",
           "slug": "earth-science-astronomy",
           "lessons": [
-            { "title": "Origin of the Universe and Solar System (Big Bang Theory, Nebular Hypothesis)", "slug": "origin-of-the-universe", "sections": [] },
-            { "title": "Heavenly Bodies (Stars, Galaxies, Comets, Asteroids, Meteors)", "slug": "heavenly-bodies", "sections": [] },
-            { "title": "Earth's Motions (Rotation, Revolution, Precession)", "slug": "earths-motions", "sections": [] },
-            { "title": "Lunar and Solar Eclipses, Phases of the Moon", "slug": "eclipses-and-moon-phases", "sections": [] },
-            { "title": "The Earth's Subsystems (Lithosphere, Hydrosphere, Atmosphere, Biosphere)", "slug": "earths-subsystems", "sections": [] },
-            { "title": "Layers of the Earth and Composition", "slug": "layers-of-the-earth", "sections": [] },
-            { "title": "Minerals and Rocks (Igneous, Sedimentary, Metamorphic, Rock Cycle)", "slug": "minerals-and-rocks", "sections": [] },
-            { "title": "Plate Tectonics", "slug": "plate-tectonics", "sections": ["Continental Drift and Seafloor Spreading", "Types of Plate Boundaries", "Faults, Earthquakes, and Seismic Waves", "Volcanoes and Magmatism"] },
-            { "title": "Weather and Climate", "slug": "weather-and-climate", "sections": ["Atmospheric Layers", "Monsoons and Typhoons", "Climate Change and Global Warming"] },
-            { "title": "The Water Cycle and Basic Oceanography", "slug": "water-cycle-oceanography", "sections": [] },
-            { "title": "Fossils, Stratigraphy, and Geologic Time Scale", "slug": "fossils-and-geologic-time", "sections": [] }
+            {
+              "title": "Origin of the Universe and Solar System (Big Bang Theory, Nebular Hypothesis)",
+              "slug": "origin-of-the-universe",
+              "sections": []
+            },
+            {
+              "title": "Heavenly Bodies (Stars, Galaxies, Comets, Asteroids, Meteors)",
+              "slug": "heavenly-bodies",
+              "sections": []
+            },
+            {
+              "title": "Earth's Motions (Rotation, Revolution, Precession)",
+              "slug": "earths-motions",
+              "sections": []
+            },
+            {
+              "title": "Lunar and Solar Eclipses, Phases of the Moon",
+              "slug": "eclipses-and-moon-phases",
+              "sections": []
+            },
+            {
+              "title": "The Earth's Subsystems (Lithosphere, Hydrosphere, Atmosphere, Biosphere)",
+              "slug": "earths-subsystems",
+              "sections": []
+            },
+            {
+              "title": "Layers of the Earth and Composition",
+              "slug": "layers-of-the-earth",
+              "sections": []
+            },
+            {
+              "title": "Minerals and Rocks (Igneous, Sedimentary, Metamorphic, Rock Cycle)",
+              "slug": "minerals-and-rocks",
+              "sections": []
+            },
+            {
+              "title": "Plate Tectonics",
+              "slug": "plate-tectonics",
+              "sections": [
+                "Continental Drift and Seafloor Spreading",
+                "Types of Plate Boundaries",
+                "Faults, Earthquakes, and Seismic Waves",
+                "Volcanoes and Magmatism"
+              ]
+            },
+            {
+              "title": "Weather and Climate",
+              "slug": "weather-and-climate",
+              "sections": [
+                "Atmospheric Layers",
+                "Monsoons and Typhoons",
+                "Climate Change and Global Warming"
+              ]
+            },
+            {
+              "title": "The Water Cycle and Basic Oceanography",
+              "slug": "water-cycle-oceanography",
+              "sections": []
+            },
+            {
+              "title": "Fossils, Stratigraphy, and Geologic Time Scale",
+              "slug": "fossils-and-geologic-time",
+              "sections": []
+            }
           ]
         },
         {
           "name": "Biology",
           "slug": "biology",
           "lessons": [
-            { "title": "Characteristics of Life", "slug": "characteristics-of-life", "sections": [] },
-            { "title": "Cell Biology", "slug": "cell-biology", "sections": ["Organelles and Their Functions", "Plant vs. Animal Cells", "Cell Membrane and Cellular Transport (Osmosis, Diffusion, Active Transport)"] },
-            { "title": "Cellular Reproduction (Cell Cycle, Mitosis, Meiosis)", "slug": "cellular-reproduction", "sections": [] },
-            { "title": "Cellular Metabolism (Photosynthesis, Cellular Respiration)", "slug": "cellular-metabolism", "sections": [] },
-            { "title": "Genetics and Heredity", "slug": "genetics-and-heredity", "sections": ["Mendelian Laws of Inheritance", "Non-Mendelian Genetics", "DNA, RNA, and Protein Synthesis", "Pedigree Analysis and Punnett Squares"] },
-            { "title": "Human Anatomy and Physiology", "slug": "human-anatomy-physiology", "sections": ["Digestive System", "Respiratory System", "Circulatory System", "Nervous System", "Endocrine System", "Skeletal System", "Muscular System", "Excretory System", "Reproductive System", "Immune System"] },
-            { "title": "Taxonomy and Classification (Domains, Kingdoms, Binomial Nomenclature)", "slug": "taxonomy-and-classification", "sections": [] },
-            { "title": "Evolution (Theories of Evolution, Natural Selection, Speciation)", "slug": "evolution", "sections": [] },
-            { "title": "Ecology", "slug": "ecology", "sections": ["Ecosystems and Biomes", "Food Chains, Food Webs, and Energy Pyramids", "Biogeochemical Cycles (Carbon, Nitrogen, Phosphorus, Water)", "Symbiotic Relationships"] },
-            { "title": "Botany (Plant Tissue, Tropisms, Plant Reproduction)", "slug": "botany", "sections": [] }
+            {
+              "title": "Characteristics of Life",
+              "slug": "characteristics-of-life",
+              "sections": []
+            },
+            {
+              "title": "Cell Biology",
+              "slug": "cell-biology",
+              "sections": [
+                "Organelles and Their Functions",
+                "Plant vs. Animal Cells",
+                "Cell Membrane and Cellular Transport (Osmosis, Diffusion, Active Transport)"
+              ]
+            },
+            {
+              "title": "Cellular Reproduction (Cell Cycle, Mitosis, Meiosis)",
+              "slug": "cellular-reproduction",
+              "sections": []
+            },
+            {
+              "title": "Cellular Metabolism (Photosynthesis, Cellular Respiration)",
+              "slug": "cellular-metabolism",
+              "sections": []
+            },
+            {
+              "title": "Genetics and Heredity",
+              "slug": "genetics-and-heredity",
+              "sections": [
+                "Mendelian Laws of Inheritance",
+                "Non-Mendelian Genetics",
+                "DNA, RNA, and Protein Synthesis",
+                "Pedigree Analysis and Punnett Squares"
+              ]
+            },
+            {
+              "title": "Human Anatomy and Physiology",
+              "slug": "human-anatomy-physiology",
+              "sections": [
+                "Digestive System",
+                "Respiratory System",
+                "Circulatory System",
+                "Nervous System",
+                "Endocrine System",
+                "Skeletal System",
+                "Muscular System",
+                "Excretory System",
+                "Reproductive System",
+                "Immune System"
+              ]
+            },
+            {
+              "title": "Taxonomy and Classification (Domains, Kingdoms, Binomial Nomenclature)",
+              "slug": "taxonomy-and-classification",
+              "sections": []
+            },
+            {
+              "title": "Evolution (Theories of Evolution, Natural Selection, Speciation)",
+              "slug": "evolution",
+              "sections": []
+            },
+            {
+              "title": "Ecology",
+              "slug": "ecology",
+              "sections": [
+                "Ecosystems and Biomes",
+                "Food Chains, Food Webs, and Energy Pyramids",
+                "Biogeochemical Cycles (Carbon, Nitrogen, Phosphorus, Water)",
+                "Symbiotic Relationships"
+              ]
+            },
+            {
+              "title": "Botany (Plant Tissue, Tropisms, Plant Reproduction)",
+              "slug": "botany",
+              "sections": []
+            }
           ]
         },
         {
           "name": "Chemistry",
           "slug": "chemistry",
           "lessons": [
-            { "title": "Matter (Classification, States, Properties, Phase Changes)", "slug": "matter", "sections": [] },
-            { "title": "Mixtures and Separation Techniques (Filtration, Distillation, Chromatography)", "slug": "mixtures-and-separation", "sections": [] },
-            { "title": "History of the Atom and Atomic Models", "slug": "history-of-the-atom", "sections": [] },
-            { "title": "Atomic Structure and Subatomic Particles (Protons, Neutrons, Electrons, Isotopes, Ions)", "slug": "atomic-structure", "sections": [] },
-            { "title": "Quantum Numbers and Electron Configuration", "slug": "quantum-numbers-electron-configuration", "sections": [] },
-            { "title": "The Periodic Table", "slug": "periodic-table", "sections": ["Families and Groups", "Periodic Trends (Electronegativity, Ionization Energy, Atomic Radius, Electron Affinity)"] },
-            { "title": "Chemical Bonding (Ionic, Covalent, Metallic, Lewis Structures, VSEPR Theory)", "slug": "chemical-bonding", "sections": [] },
-            { "title": "Chemical Nomenclature (Naming Compounds and Writing Formulas)", "slug": "chemical-nomenclature", "sections": [] },
-            { "title": "The Mole Concept, Molar Mass, and Avogadro's Number", "slug": "mole-concept", "sections": [] },
-            { "title": "Chemical Reactions (Types of Reactions, Balancing Equations)", "slug": "chemical-reactions", "sections": [] },
-            { "title": "Stoichiometry (Limiting/Excess Reactants, Percent Yield, Empirical/Molecular Formulas)", "slug": "stoichiometry", "sections": [] },
-            { "title": "Gas Laws (Boyle's, Charles's, Gay-Lussac's, Combined, Avogadro's, Ideal Gas Law)", "slug": "gas-laws", "sections": [] },
-            { "title": "Solutions (Solubility, Molarity, Molality, Percent by Mass/Volume)", "slug": "solutions", "sections": [] },
-            { "title": "Acids, Bases, and pH Scale", "slug": "acids-bases-ph", "sections": [] },
-            { "title": "Thermodynamics and Kinetics (Endothermic vs. Exothermic Reactions, Catalysts)", "slug": "thermodynamics-and-kinetics", "sections": [] },
-            { "title": "Basic Organic Chemistry (Hydrocarbons, Functional Groups, Naming Conventions)", "slug": "basic-organic-chemistry", "sections": [] },
-            { "title": "Nuclear Chemistry (Alpha, Beta, Gamma Decay, Fission vs. Fusion)", "slug": "nuclear-chemistry", "sections": [] }
+            {
+              "title": "Matter (Classification, States, Properties, Phase Changes)",
+              "slug": "matter",
+              "sections": []
+            },
+            {
+              "title": "Mixtures and Separation Techniques (Filtration, Distillation, Chromatography)",
+              "slug": "mixtures-and-separation",
+              "sections": []
+            },
+            {
+              "title": "History of the Atom and Atomic Models",
+              "slug": "history-of-the-atom",
+              "sections": []
+            },
+            {
+              "title": "Atomic Structure and Subatomic Particles (Protons, Neutrons, Electrons, Isotopes, Ions)",
+              "slug": "atomic-structure",
+              "sections": []
+            },
+            {
+              "title": "Quantum Numbers and Electron Configuration",
+              "slug": "quantum-numbers-electron-configuration",
+              "sections": []
+            },
+            {
+              "title": "The Periodic Table",
+              "slug": "periodic-table",
+              "sections": [
+                "Families and Groups",
+                "Periodic Trends (Electronegativity, Ionization Energy, Atomic Radius, Electron Affinity)"
+              ]
+            },
+            {
+              "title": "Chemical Bonding (Ionic, Covalent, Metallic, Lewis Structures, VSEPR Theory)",
+              "slug": "chemical-bonding",
+              "sections": []
+            },
+            {
+              "title": "Chemical Nomenclature (Naming Compounds and Writing Formulas)",
+              "slug": "chemical-nomenclature",
+              "sections": []
+            },
+            {
+              "title": "The Mole Concept, Molar Mass, and Avogadro's Number",
+              "slug": "mole-concept",
+              "sections": []
+            },
+            {
+              "title": "Chemical Reactions (Types of Reactions, Balancing Equations)",
+              "slug": "chemical-reactions",
+              "sections": []
+            },
+            {
+              "title": "Stoichiometry (Limiting/Excess Reactants, Percent Yield, Empirical/Molecular Formulas)",
+              "slug": "stoichiometry",
+              "sections": []
+            },
+            {
+              "title": "Gas Laws (Boyle's, Charles's, Gay-Lussac's, Combined, Avogadro's, Ideal Gas Law)",
+              "slug": "gas-laws",
+              "sections": []
+            },
+            {
+              "title": "Solutions (Solubility, Molarity, Molality, Percent by Mass/Volume)",
+              "slug": "solutions",
+              "sections": []
+            },
+            {
+              "title": "Acids, Bases, and pH Scale",
+              "slug": "acids-bases-ph",
+              "sections": []
+            },
+            {
+              "title": "Thermodynamics and Kinetics (Endothermic vs. Exothermic Reactions, Catalysts)",
+              "slug": "thermodynamics-and-kinetics",
+              "sections": []
+            },
+            {
+              "title": "Basic Organic Chemistry (Hydrocarbons, Functional Groups, Naming Conventions)",
+              "slug": "basic-organic-chemistry",
+              "sections": []
+            },
+            {
+              "title": "Nuclear Chemistry (Alpha, Beta, Gamma Decay, Fission vs. Fusion)",
+              "slug": "nuclear-chemistry",
+              "sections": []
+            }
           ]
         },
         {
           "name": "Physics",
           "slug": "physics",
           "lessons": [
-            { "title": "Units, Measurements, and Conversions (Dimensional Analysis)", "slug": "units-and-measurements", "sections": [] },
-            { "title": "Scalars and Vectors (Vector Addition and Resolution)", "slug": "scalars-and-vectors", "sections": [] },
-            { "title": "Kinematics", "slug": "kinematics", "sections": ["One-Dimensional Motion (Displacement, Velocity, Acceleration)", "Free Fall Equations"] },
-            { "title": "Two-Dimensional Motion (Projectile Motion, Uniform Circular Motion)", "slug": "two-dimensional-motion", "sections": [] },
-            { "title": "Dynamics", "slug": "dynamics", "sections": ["Newton's Laws of Motion", "Force, Friction, Tension, and Normal Force", "Free Body Diagrams"] },
-            { "title": "Work, Energy, and Power (Kinetic and Potential Energy, Conservation of Energy)", "slug": "work-energy-power", "sections": [] },
-            { "title": "Momentum and Impulse (Conservation of Momentum, Elastic vs. Inelastic Collisions)", "slug": "momentum-and-impulse", "sections": [] },
-            { "title": "Gravity and Kepler's Laws of Planetary Motion", "slug": "gravity-and-keplers-laws", "sections": [] },
-            { "title": "Fluid Mechanics (Density, Pressure, Buoyancy, Archimedes' Principle, Bernoulli's Principle)", "slug": "fluid-mechanics", "sections": [] },
-            { "title": "Thermodynamics (Heat Transfer Mechanisms, Laws of Thermodynamics, Specific Heat Capacity)", "slug": "thermodynamics", "sections": [] },
-            { "title": "Waves and Sound (Wave Properties, Mechanical vs. Electromagnetic Waves, Doppler Effect)", "slug": "waves-and-sound", "sections": [] },
-            { "title": "Light and Optics (Reflection, Refraction, Mirrors, Lenses, Electromagnetic Spectrum)", "slug": "light-and-optics", "sections": [] },
-            { "title": "Electricity and Magnetism", "slug": "electricity-and-magnetism", "sections": ["Coulomb's Law and Electric Fields", "Ohm's Law", "Electric Circuits (Series, Parallel, Complex)", "Magnetism and Electromagnetism"] }
+            {
+              "title": "Units, Measurements, and Conversions (Dimensional Analysis)",
+              "slug": "units-and-measurements",
+              "sections": []
+            },
+            {
+              "title": "Scalars and Vectors (Vector Addition and Resolution)",
+              "slug": "scalars-and-vectors",
+              "sections": []
+            },
+            {
+              "title": "Kinematics",
+              "slug": "kinematics",
+              "sections": [
+                "One-Dimensional Motion (Displacement, Velocity, Acceleration)",
+                "Free Fall Equations"
+              ]
+            },
+            {
+              "title": "Two-Dimensional Motion (Projectile Motion, Uniform Circular Motion)",
+              "slug": "two-dimensional-motion",
+              "sections": []
+            },
+            {
+              "title": "Dynamics",
+              "slug": "dynamics",
+              "sections": [
+                "Newton's Laws of Motion",
+                "Force, Friction, Tension, and Normal Force",
+                "Free Body Diagrams"
+              ]
+            },
+            {
+              "title": "Work, Energy, and Power (Kinetic and Potential Energy, Conservation of Energy)",
+              "slug": "work-energy-power",
+              "sections": []
+            },
+            {
+              "title": "Momentum and Impulse (Conservation of Momentum, Elastic vs. Inelastic Collisions)",
+              "slug": "momentum-and-impulse",
+              "sections": []
+            },
+            {
+              "title": "Gravity and Kepler's Laws of Planetary Motion",
+              "slug": "gravity-and-keplers-laws",
+              "sections": []
+            },
+            {
+              "title": "Fluid Mechanics (Density, Pressure, Buoyancy, Archimedes' Principle, Bernoulli's Principle)",
+              "slug": "fluid-mechanics",
+              "sections": []
+            },
+            {
+              "title": "Thermodynamics (Heat Transfer Mechanisms, Laws of Thermodynamics, Specific Heat Capacity)",
+              "slug": "thermodynamics",
+              "sections": []
+            },
+            {
+              "title": "Waves and Sound (Wave Properties, Mechanical vs. Electromagnetic Waves, Doppler Effect)",
+              "slug": "waves-and-sound",
+              "sections": []
+            },
+            {
+              "title": "Light and Optics (Reflection, Refraction, Mirrors, Lenses, Electromagnetic Spectrum)",
+              "slug": "light-and-optics",
+              "sections": []
+            },
+            {
+              "title": "Electricity and Magnetism",
+              "slug": "electricity-and-magnetism",
+              "sections": [
+                "Coulomb's Law and Electric Fields",
+                "Ohm's Law",
+                "Electric Circuits (Series, Parallel, Complex)",
+                "Magnetism and Electromagnetism"
+              ]
+            }
           ]
         }
       ]
@@ -170,42 +640,119 @@
     {
       "name": "Language Proficiency (English & Filipino)",
       "slug": "language-proficiency",
+      "exam": "upcat",
       "topics": [
         {
           "name": "Vocabulary",
           "slug": "vocabulary",
           "lessons": [
-            { "title": "Word Meanings through Context Clues", "slug": "context-clues", "sections": [] },
-            { "title": "Synonyms and Antonyms", "slug": "synonyms-and-antonyms", "sections": [] },
-            { "title": "Idioms and Figures of Speech / Sawikain at Tayutay", "slug": "idioms-and-figures-of-speech", "sections": [] },
-            { "title": "Root Words, Prefixes, and Suffixes", "slug": "root-words-prefixes-suffixes", "sections": [] },
-            { "title": "Confusing Words (Affect vs. Effect, Its vs. It's, Nang vs. Ng, Sila vs. Sina)", "slug": "confusing-words", "sections": [] },
-            { "title": "Spelling Rules", "slug": "spelling-rules", "sections": [] }
+            {
+              "title": "Word Meanings through Context Clues",
+              "slug": "context-clues",
+              "sections": []
+            },
+            {
+              "title": "Synonyms and Antonyms",
+              "slug": "synonyms-and-antonyms",
+              "sections": []
+            },
+            {
+              "title": "Idioms and Figures of Speech / Sawikain at Tayutay",
+              "slug": "idioms-and-figures-of-speech",
+              "sections": []
+            },
+            {
+              "title": "Root Words, Prefixes, and Suffixes",
+              "slug": "root-words-prefixes-suffixes",
+              "sections": []
+            },
+            {
+              "title": "Confusing Words (Affect vs. Effect, Its vs. It's, Nang vs. Ng, Sila vs. Sina)",
+              "slug": "confusing-words",
+              "sections": []
+            },
+            {
+              "title": "Spelling Rules",
+              "slug": "spelling-rules",
+              "sections": []
+            }
           ]
         },
         {
           "name": "Grammar and Structure",
           "slug": "grammar-and-structure",
           "lessons": [
-            { "title": "Parts of Speech / Bahagi ng Pananalita", "slug": "parts-of-speech", "sections": [] },
-            { "title": "Subject-Verb Agreement / Wastong Gamit ng Salita", "slug": "subject-verb-agreement", "sections": [] },
-            { "title": "Pronoun-Antecedent Agreement", "slug": "pronoun-antecedent-agreement", "sections": [] },
-            { "title": "Tenses and Voice of Verbs (Active vs. Passive)", "slug": "tenses-and-voice", "sections": [] },
-            { "title": "Phrases and Clauses (Independent vs. Dependent)", "slug": "phrases-and-clauses", "sections": [] },
-            { "title": "Sentence Structure (Simple, Compound, Complex, Compound-Complex)", "slug": "sentence-structure", "sections": [] },
-            { "title": "Modifiers (Identifying Misplaced and Dangling Modifiers)", "slug": "modifiers", "sections": [] },
-            { "title": "Parallelism / Parallel Structure", "slug": "parallelism", "sections": [] },
-            { "title": "Punctuation and Capitalization Rules", "slug": "punctuation-and-capitalization", "sections": [] },
-            { "title": "Redundancy and Double Negatives", "slug": "redundancy-and-double-negatives", "sections": [] }
+            {
+              "title": "Parts of Speech / Bahagi ng Pananalita",
+              "slug": "parts-of-speech",
+              "sections": []
+            },
+            {
+              "title": "Subject-Verb Agreement / Wastong Gamit ng Salita",
+              "slug": "subject-verb-agreement",
+              "sections": []
+            },
+            {
+              "title": "Pronoun-Antecedent Agreement",
+              "slug": "pronoun-antecedent-agreement",
+              "sections": []
+            },
+            {
+              "title": "Tenses and Voice of Verbs (Active vs. Passive)",
+              "slug": "tenses-and-voice",
+              "sections": []
+            },
+            {
+              "title": "Phrases and Clauses (Independent vs. Dependent)",
+              "slug": "phrases-and-clauses",
+              "sections": []
+            },
+            {
+              "title": "Sentence Structure (Simple, Compound, Complex, Compound-Complex)",
+              "slug": "sentence-structure",
+              "sections": []
+            },
+            {
+              "title": "Modifiers (Identifying Misplaced and Dangling Modifiers)",
+              "slug": "modifiers",
+              "sections": []
+            },
+            {
+              "title": "Parallelism / Parallel Structure",
+              "slug": "parallelism",
+              "sections": []
+            },
+            {
+              "title": "Punctuation and Capitalization Rules",
+              "slug": "punctuation-and-capitalization",
+              "sections": []
+            },
+            {
+              "title": "Redundancy and Double Negatives",
+              "slug": "redundancy-and-double-negatives",
+              "sections": []
+            }
           ]
         },
         {
           "name": "Application",
           "slug": "language-application",
           "lessons": [
-            { "title": "Error Identification / Sentence Correction", "slug": "error-identification", "sections": [] },
-            { "title": "Sentence Completion / Fill-in-the-Blanks", "slug": "sentence-completion", "sections": [] },
-            { "title": "Paragraph Organization (Logical Ordering of Sentences)", "slug": "paragraph-organization", "sections": [] }
+            {
+              "title": "Error Identification / Sentence Correction",
+              "slug": "error-identification",
+              "sections": []
+            },
+            {
+              "title": "Sentence Completion / Fill-in-the-Blanks",
+              "slug": "sentence-completion",
+              "sections": []
+            },
+            {
+              "title": "Paragraph Organization (Logical Ordering of Sentences)",
+              "slug": "paragraph-organization",
+              "sections": []
+            }
           ]
         }
       ]
@@ -213,30 +760,83 @@
     {
       "name": "Reading Comprehension (English & Filipino)",
       "slug": "reading-comprehension",
+      "exam": "upcat",
       "topics": [
         {
           "name": "Text Types",
           "slug": "text-types",
           "lessons": [
-            { "title": "Essays, Editorials, and Articles", "slug": "essays-editorials-articles", "sections": [] },
-            { "title": "Short Stories and Excerpts from Novels", "slug": "short-stories-and-novels", "sections": [] },
-            { "title": "Poetry", "slug": "poetry", "sections": [] },
-            { "title": "Speeches", "slug": "speeches", "sections": [] },
-            { "title": "Visual Media (Comic Strips, Editorial Cartoons, Charts, and Graphs)", "slug": "visual-media", "sections": [] }
+            {
+              "title": "Essays, Editorials, and Articles",
+              "slug": "essays-editorials-articles",
+              "sections": []
+            },
+            {
+              "title": "Short Stories and Excerpts from Novels",
+              "slug": "short-stories-and-novels",
+              "sections": []
+            },
+            {
+              "title": "Poetry",
+              "slug": "poetry",
+              "sections": []
+            },
+            {
+              "title": "Speeches",
+              "slug": "speeches",
+              "sections": []
+            },
+            {
+              "title": "Visual Media (Comic Strips, Editorial Cartoons, Charts, and Graphs)",
+              "slug": "visual-media",
+              "sections": []
+            }
           ]
         },
         {
           "name": "Comprehension Skills",
           "slug": "comprehension-skills",
           "lessons": [
-            { "title": "Identifying the Main Idea / Topic Sentence / Paksa ng Talata", "slug": "main-idea", "sections": [] },
-            { "title": "Choosing an Appropriate Title", "slug": "choosing-a-title", "sections": [] },
-            { "title": "Noting Specific Details (Skimming and Scanning)", "slug": "noting-specific-details", "sections": [] },
-            { "title": "Inferencing and Drawing Conclusions", "slug": "inferencing-and-conclusions", "sections": [] },
-            { "title": "Distinguishing Fact from Opinion", "slug": "fact-vs-opinion", "sections": [] },
-            { "title": "Identifying Author's Purpose, Tone, and Point of View", "slug": "authors-purpose-tone-pov", "sections": [] },
-            { "title": "Meaning through Context Clues (within Full Passages)", "slug": "context-clues-in-passages", "sections": [] },
-            { "title": "Sequencing of Events", "slug": "sequencing-of-events", "sections": [] }
+            {
+              "title": "Identifying the Main Idea / Topic Sentence / Paksa ng Talata",
+              "slug": "main-idea",
+              "sections": []
+            },
+            {
+              "title": "Choosing an Appropriate Title",
+              "slug": "choosing-a-title",
+              "sections": []
+            },
+            {
+              "title": "Noting Specific Details (Skimming and Scanning)",
+              "slug": "noting-specific-details",
+              "sections": []
+            },
+            {
+              "title": "Inferencing and Drawing Conclusions",
+              "slug": "inferencing-and-conclusions",
+              "sections": []
+            },
+            {
+              "title": "Distinguishing Fact from Opinion",
+              "slug": "fact-vs-opinion",
+              "sections": []
+            },
+            {
+              "title": "Identifying Author's Purpose, Tone, and Point of View",
+              "slug": "authors-purpose-tone-pov",
+              "sections": []
+            },
+            {
+              "title": "Meaning through Context Clues (within Full Passages)",
+              "slug": "context-clues-in-passages",
+              "sections": []
+            },
+            {
+              "title": "Sequencing of Events",
+              "slug": "sequencing-of-events",
+              "sections": []
+            }
           ]
         }
       ]
@@ -244,38 +844,132 @@
     {
       "name": "Reasoning",
       "slug": "reasoning",
+      "exam": "cse-pro",
       "topics": [
         {
           "name": "Logical & Verbal Reasoning",
           "slug": "logical-verbal-reasoning",
           "lessons": [
-            { "title": "Syllogisms and Deductive Logic", "slug": "syllogisms-and-deductive-logic", "sections": [] },
-            { "title": "Word Analogies (Single and Double Analogies)", "slug": "word-analogies", "sections": [] },
-            { "title": "Number and Letter Sequences", "slug": "number-and-letter-sequences", "sections": [] },
-            { "title": "Truth Tables and Propositional Logic", "slug": "truth-tables-propositional-logic", "sections": [] }
+            {
+              "title": "Syllogisms and Deductive Logic",
+              "slug": "syllogisms-and-deductive-logic",
+              "sections": []
+            },
+            {
+              "title": "Word Analogies (Single and Double Analogies)",
+              "slug": "word-analogies",
+              "sections": []
+            },
+            {
+              "title": "Number and Letter Sequences",
+              "slug": "number-and-letter-sequences",
+              "sections": []
+            },
+            {
+              "title": "Truth Tables and Propositional Logic",
+              "slug": "truth-tables-propositional-logic",
+              "sections": []
+            }
           ]
         },
         {
           "name": "Spatial & Abstract (Non-Verbal) Reasoning",
           "slug": "spatial-abstract-reasoning",
           "lessons": [
-            { "title": "Figure Series (Predicting the Next Shape in a Pattern)", "slug": "figure-series", "sections": [] },
-            { "title": "Figure Grouping (Identifying the Odd-One-Out)", "slug": "figure-grouping", "sections": [] },
-            { "title": "Figure Matrices (Completing a 2x2 or 3x3 Grid of Shapes)", "slug": "figure-matrices", "sections": [] },
-            { "title": "Paper Folding and Cutting Rules", "slug": "paper-folding-and-cutting", "sections": [] },
-            { "title": "Mental Rotation and 3D Visualization (Unfolding Cubes, Shadow Casting)", "slug": "mental-rotation-3d-visualization", "sections": [] }
+            {
+              "title": "Figure Series (Predicting the Next Shape in a Pattern)",
+              "slug": "figure-series",
+              "sections": []
+            },
+            {
+              "title": "Figure Grouping (Identifying the Odd-One-Out)",
+              "slug": "figure-grouping",
+              "sections": []
+            },
+            {
+              "title": "Figure Matrices (Completing a 2x2 or 3x3 Grid of Shapes)",
+              "slug": "figure-matrices",
+              "sections": []
+            },
+            {
+              "title": "Paper Folding and Cutting Rules",
+              "slug": "paper-folding-and-cutting",
+              "sections": []
+            },
+            {
+              "title": "Mental Rotation and 3D Visualization (Unfolding Cubes, Shadow Casting)",
+              "slug": "mental-rotation-3d-visualization",
+              "sections": []
+            }
           ]
         },
         {
           "name": "Mechanical & Technical Reasoning",
           "slug": "mechanical-technical-reasoning",
           "lessons": [
-            { "title": "Gear Rotations (Predicting Clockwise vs. Counter-Clockwise Movement)", "slug": "gear-rotations", "sections": [] },
-            { "title": "Pulleys and Levers (Mechanical Advantage, Balance, Fulcrums)", "slug": "pulleys-and-levers", "sections": [] },
-            { "title": "Springs and Weights", "slug": "springs-and-weights", "sections": [] },
-            { "title": "Fluid Pressure in Pipes and Containers", "slug": "fluid-pressure", "sections": [] },
-            { "title": "Structural Stability and Center of Gravity", "slug": "structural-stability", "sections": [] }
+            {
+              "title": "Gear Rotations (Predicting Clockwise vs. Counter-Clockwise Movement)",
+              "slug": "gear-rotations",
+              "sections": []
+            },
+            {
+              "title": "Pulleys and Levers (Mechanical Advantage, Balance, Fulcrums)",
+              "slug": "pulleys-and-levers",
+              "sections": []
+            },
+            {
+              "title": "Springs and Weights",
+              "slug": "springs-and-weights",
+              "sections": []
+            },
+            {
+              "title": "Fluid Pressure in Pipes and Containers",
+              "slug": "fluid-pressure",
+              "sections": []
+            },
+            {
+              "title": "Structural Stability and Center of Gravity",
+              "slug": "structural-stability",
+              "sections": []
+            }
           ]
+        },
+        {
+          "name": "Clerical Ability",
+          "slug": "clerical-ability",
+          "lessons": []
+        },
+        {
+          "name": "Verbal Logic",
+          "slug": "verbal-logic",
+          "lessons": []
+        }
+      ]
+    },
+    {
+      "name": "General Information",
+      "slug": "general-information",
+      "exam": "cse-pro",
+      "topics": [
+        {
+          "name": "Philippine Constitution",
+          "slug": "philippine-constitution",
+          "lessons": []
+        },
+        {
+          "name": "Code of Conduct (RA 6713)",
+          "slug": "code-of-conduct-ra-6713",
+          "lessons": []
+        },
+        {
+          "name": "Peace and Human Rights",
+          "slug": "peace-and-human-rights",
+          "lessons": []
+        },
+        {
+          "name": "Environment Management",
+          "slug": "environment-management",
+          "lessons": []
         }
       ]
     }
