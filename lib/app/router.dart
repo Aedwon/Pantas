@@ -25,6 +25,9 @@ import 'package:cse_cet_reviewer/features/notifications/application/notification
 import 'package:cse_cet_reviewer/features/notifications/presentation/permission_rationale_page.dart';
 import 'package:cse_cet_reviewer/features/onboarding/onboarding.dart';
 import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
+import 'package:cse_cet_reviewer/features/mock_exam/presentation/pages/mock_setup_page.dart';
+import 'package:cse_cet_reviewer/features/mock_exam/presentation/pages/mock_setup_route.dart';
+import 'package:cse_cet_reviewer/features/mock_exam/presentation/widgets/mock_panel.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/pages/how_you_work_page.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/pages/your_record_page.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/progress_page.dart';
@@ -171,12 +174,33 @@ List<RouteBase> buildAppRoutes(Ref ref) {
                           ?.proIsActive ??
                       false;
 
+                  final customTrack = focus.exam!.isCustom
+                      ? ref.watch(customMockSummaryProvider(examId)).valueOrNull
+                      : null;
+
                   return QuizTabHome(
                     mockPanel: MockPanel(
                       availability: availability,
                       lastAttempt: lastAttempt,
                       proIsActive: proIsActive,
-                      onTake: () => context.push('/quiz/mock/setup?examId=$examId'),
+                      customTrack: customTrack,
+                      onSetUpCustom: focus.exam!.isCustom
+                          ? () => context.push('/quiz/mock/custom-setup')
+                          : null,
+                      onChangeCustomSetup: focus.exam!.isCustom
+                          ? () => context.push('/quiz/mock/custom-setup')
+                          : null,
+                      onTake: () {
+                         if (focus.exam!.isCustom) {
+                            if (customTrack != null) {
+                               context.push('/quiz/mock/setup?examId=$examId');
+                            } else {
+                               context.push('/quiz/mock/custom-setup');
+                            }
+                         } else {
+                            context.push('/quiz/mock/setup?examId=$examId');
+                         }
+                      },
                       onResume: () => context.push('/quiz/resume/$examId'),
                       onViewResults: () {
                         if (lastAttempt != null) {
@@ -310,7 +334,15 @@ List<RouteBase> buildAppRoutes(Ref ref) {
     ),
     GoRoute(
       path: '/quiz/mock/setup',
-      builder: (_, __) => const MockSetupPlaceholderPage(),
+      builder: (context, state) {
+        final examId = state.uri.queryParameters['examId'] ?? '';
+        return MockSetupRoute(
+          examId: examId,
+          onStart: (blueprintId) {
+            context.push('/quiz/mock/start?blueprintId=$blueprintId');
+          },
+        );
+      },
     ),
     GoRoute(
       path: '/quiz/mock/custom-setup',
