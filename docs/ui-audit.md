@@ -1563,3 +1563,43 @@ go. **Aedwon's to decide**, and the sweep's job was to surface it.
 `/more` is a deliberate redirect to Settings, `/plan` is hidden on purpose while
 the study plan's providers are stubs, and the settings pages are reached
 through rows the first pattern did not match.
+
+### UI-067 [blocker] 248 authored questions reach no student, including all of General Information
+
+**Found 11 August**, following the export's exit code 65 to what it actually
+means.
+
+**The corpus holds 2,401 questions. The seed generates 1,998.** The 403
+difference breaks down:
+
+| | Count | Why |
+|---|---|---|
+| Parked pending figures | **155** | Deliberate and printed by the tool. Their pictures do not exist yet |
+| **Dropped for having no outline topic** | **248** | Silent, and the reason for exit 65 |
+
+**`tools/lesson_author/outline.json` carries five subjects**: mathematics,
+science, language-proficiency, reading-comprehension, reasoning. **There is no
+General Information.** So every one of its **156 questions and 13 lessons is
+skipped by both generators**, and the same happens to six topics inside
+subjects that do exist: `philippine-constitution` 60, `data-interpretation` 24,
+`clerical-ability` 24, `environment-management` 20, `peace-and-human-rights`
+16, `verbal-logic` 12.
+
+**The pipeline's Part 2 records General Information as merged on 8 August**,
+"216 questions across the Code of Conduct, the Constitution, peace and human
+rights, and environment, every one written against a file in
+`content/reference/cse/`". **It was authored and it has never reached a
+student.** The seed carries no General Information subject at all.
+
+**This is the mock panel again in a different costume**: work finished,
+recorded as done, and unreachable, because the thing that would have caught it
+was a claim rather than a check.
+
+**It also hollows out the CSE track.** The seed's Civil Service exam carries
+one subject, Verbal Ability, with 2 questions, while the CSE tagging pass of 4
+August put `cse-pro` on 38 files.
+
+**The fix is a content decision rather than a code change:** the outline gains
+General Information and the six topics, or the content is explicitly parked.
+**The generators already exit 65 when it happens; nothing reads that exit
+code**, which is why it ran for days unseen.
