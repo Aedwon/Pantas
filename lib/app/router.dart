@@ -25,6 +25,7 @@ import 'package:cse_cet_reviewer/features/notifications/application/notification
 import 'package:cse_cet_reviewer/features/notifications/presentation/permission_rationale_page.dart';
 import 'package:cse_cet_reviewer/features/onboarding/onboarding.dart';
 import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
+import 'package:cse_cet_reviewer/features/mock_exam/presentation/pages/mock_setup_route.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/pages/how_you_work_page.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/pages/your_record_page.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/progress_page.dart';
@@ -142,7 +143,70 @@ List<RouteBase> buildAppRoutes(Ref ref) {
           routes: [
             GoRoute(
               path: '/quiz',
-              builder: (_, __) => const QuizTabHome(),
+              builder: (_, __) => Consumer(
+                builder: (context, ref, _) {
+                  final focus = ref.watch(activeExamFocusProvider).valueOrNull;
+                  if (focus == null || focus.exam == null) {
+                    return const QuizTabHome();
+                  }
+
+                  final examId = focus.exam!.id;
+                  final user = ref.watch(currentUserProvider).valueOrNull;
+                  final userId = user?.uid ?? '';
+                  final request = MockAvailabilityRequest(
+                    userId: userId,
+                    examId: examId,
+                  );
+
+                  final availability =
+                      ref.watch(mockAvailabilityProvider(request)).valueOrNull;
+                  if (availability == null) {
+                    return const QuizTabHome();
+                  }
+
+                  final lastAttempt =
+                      ref.watch(lastSubmittedMockProvider(request)).valueOrNull;
+                  final proIsActive =
+                      ref.watch(entitlementProvider).valueOrNull?.proIsActive ??
+                          false;
+
+                  final customTrack = focus.exam!.isCustom
+                      ? ref.watch(customMockSummaryProvider(examId)).valueOrNull
+                      : null;
+
+                  return QuizTabHome(
+                    mockPanel: MockPanel(
+                      availability: availability,
+                      lastAttempt: lastAttempt,
+                      proIsActive: proIsActive,
+                      customTrack: customTrack,
+                      onSetUpCustom: focus.exam!.isCustom
+                          ? () => context.push('/quiz/mock/custom-setup')
+                          : null,
+                      onChangeCustomSetup: focus.exam!.isCustom
+                          ? () => context.push('/quiz/mock/custom-setup')
+                          : null,
+                      onTake: () {
+                        if (focus.exam!.isCustom) {
+                          if (customTrack != null) {
+                            context.push('/quiz/mock/setup?examId=$examId');
+                          } else {
+                            context.push('/quiz/mock/custom-setup');
+                          }
+                        } else {
+                          context.push('/quiz/mock/setup?examId=$examId');
+                        }
+                      },
+                      onResume: () => context.push('/quiz/resume/$examId'),
+                      onViewResults: () {
+                        if (lastAttempt != null) {
+                          context.push('/quiz/results/${lastAttempt.id}');
+                        }
+                      },
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),
@@ -266,7 +330,15 @@ List<RouteBase> buildAppRoutes(Ref ref) {
     ),
     GoRoute(
       path: '/quiz/mock/setup',
-      builder: (_, __) => const MockSetupPlaceholderPage(),
+      builder: (context, state) {
+        final examId = state.uri.queryParameters['examId'] ?? '';
+        return MockSetupRoute(
+          examId: examId,
+          onStart: (blueprintId) {
+            context.push('/quiz/mock/start?blueprintId=$blueprintId');
+          },
+        );
+      },
     ),
     GoRoute(
       path: '/quiz/mock/custom-setup',

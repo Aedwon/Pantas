@@ -25,15 +25,25 @@ void main() {
     contentDb = openTestContentDatabase();
     repo = LessonBookmarksRepository(db);
 
-    await seedContentExam(contentDb,
-        examId: 'e1',
-        code: 'CSE',
-        name: 'Civil Service Exam',
-        shortName: 'CSE',);
-    await seedContentSubject(contentDb,
-        subjectId: 's1', examId: 'e1', name: 'Science',);
-    await seedContentTopic(contentDb,
-        topicId: 't1', subjectId: 's1', name: 'Chemistry',);
+    await seedContentExam(
+      contentDb,
+      examId: 'e1',
+      code: 'CSE',
+      name: 'Civil Service Exam',
+      shortName: 'CSE',
+    );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 's1',
+      examId: 'e1',
+      name: 'Science',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 't1',
+      subjectId: 's1',
+      name: 'Chemistry',
+    );
 
     for (var i = 1; i <= 10; i++) {
       await seedContentLesson(
