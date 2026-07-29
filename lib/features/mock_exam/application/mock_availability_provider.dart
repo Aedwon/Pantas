@@ -1,3 +1,4 @@
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/data/mock_attempt_repo.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_availability.dart';
@@ -21,6 +22,10 @@ final mockAvailabilityProvider =
     final repo = ref.watch(mockAttemptRepoProvider);
     final active = await repo.findInProgress(request.userId);
     if (active != null) return MockAvailability.inProgress(active);
+
+    final blueprintRepo = ref.watch(mockBlueprintRepoProvider);
+    final blueprints = await blueprintRepo.byExam(request.examId);
+    if (blueprints.isEmpty) return const MockAvailability.noBlueprint();
 
     final entitlement = ref.watch(mockEntitlementProvider);
     if (entitlement.proIsActive) return const MockAvailability.available();

@@ -1,9 +1,30 @@
+import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/mock_exam.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+class _FakeMockBlueprintRepo implements MockBlueprintRepo {
+  @override
+  ContentDatabase get database => throw UnimplementedError();
+
+  @override
+  Future<List<MockBlueprint>> byExam(String examId) async {
+    if (examId == 'exam_no_blueprint') return [];
+    return [
+      const MockBlueprint(
+        id: 'bp_1',
+        examId: 'exam_cse',
+        name: 'CSE Practice',
+        durationMinutes: 90,
+        sectionsJson: '[]',
+        totalPublishedItems: 90,
+      ),
+    ];
+  }
+}
 
 void main() {
   late AppDatabase db;
@@ -17,10 +38,14 @@ void main() {
 
   tearDown(() => db.close());
 
-  Future<MockAvailability> availability({required bool proIsActive}) async {
+  Future<MockAvailability> availability({
+    required bool proIsActive,
+    String examId = 'exam_cse',
+  }) async {
     final container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        mockBlueprintRepoProvider.overrideWithValue(_FakeMockBlueprintRepo()),
         mockEntitlementProvider.overrideWithValue(
           MockEntitlementSnapshot(proIsActive: proIsActive),
         ),
@@ -30,7 +55,7 @@ void main() {
     addTearDown(container.dispose);
     return container.read(
       mockAvailabilityProvider(
-        const MockAvailabilityRequest(userId: 'user_1', examId: 'exam_cse'),
+        MockAvailabilityRequest(userId: 'user_1', examId: examId),
       ).future,
     );
   }
