@@ -390,6 +390,18 @@ List<RouteBase> buildAppRoutes(Ref ref) {
       },
     ),
     GoRoute(
+      path: '/mock/review/:attemptId',
+      builder: (_, state) {
+        final attemptId = state.pathParameters['attemptId']!;
+        final proIsActive =
+            ref.watch(entitlementProvider).valueOrNull?.proIsActive ?? false;
+        return MockReviewPage(
+          attemptId: attemptId,
+          proIsActive: proIsActive,
+        );
+      },
+    ),
+    GoRoute(
       path: '/mock-exam',
       builder: (_, __) => const _Stub('Mock Exam'),
     ),
