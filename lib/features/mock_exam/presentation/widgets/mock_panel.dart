@@ -70,8 +70,7 @@ class MockPanel extends StatelessWidget {
     final attempt = lastAttempt;
     final inProgress = availability.state == MockAvailabilityState.inProgress;
     final inCooldown = availability.state == MockAvailabilityState.cooldown;
-    final noBlueprint =
-        availability.state == MockAvailabilityState.noBlueprint;
+    final noBlueprint = availability.state == MockAvailabilityState.noBlueprint;
     final hasHistory = attempt?.submittedAt != null;
     final custom = customTrack;
     // A custom track with nothing set up has no paper to take, so the panel

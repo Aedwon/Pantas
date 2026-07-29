@@ -32,7 +32,7 @@ class _FakeMockBlueprintRepo implements MockBlueprintRepo {
 void main() {
   group('MockPanel no blueprint state', () {
     testWidgets(
-        'states plainly that the paper is not ready with no call to action and no invented figures',
+        'says the paper is not ready, with no call to action and no figure',
         (tester) async {
       await tester.pumpApp(
         MockPanel(
@@ -46,14 +46,17 @@ void main() {
       );
 
       // Must say the paper is not ready plainly
-      expect(find.text('This exam has no mock paper ready yet.'), findsOneWidget);
+      expect(
+        find.text('This exam has no mock paper ready yet.'),
+        findsOneWidget,
+      );
 
       // No call to action or dead button to take the exam
       expect(find.text('Take the exam'), findsNothing);
       expect(find.text('Take another'), findsNothing);
       expect(find.byType(BoardButton), findsNothing);
 
-      // No invented figures (no duration, no item count, no date, no coming soon)
+      // No invented figure: no duration, item count, date or "coming soon".
       expect(find.textContaining('3 hours'), findsNothing);
       expect(find.textContaining('questions'), findsNothing);
       expect(find.textContaining('coming soon'), findsNothing);

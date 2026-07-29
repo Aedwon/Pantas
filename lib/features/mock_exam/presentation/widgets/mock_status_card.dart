@@ -47,7 +47,7 @@ class MockStatusCard extends StatelessWidget {
           ),
           if (action != null) ...[
             const SizedBox(height: 12),
-            BoardButton(label: action, onPressed: callback!),
+            BoardButton(label: action, onPressed: callback),
           ],
         ],
       ),
