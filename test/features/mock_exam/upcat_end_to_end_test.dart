@@ -82,6 +82,10 @@ void main() {
       currentIndex += s.questionIds.length;
     }
 
+    // The blueprint asking for 250 is not the same as a paper of 250: a thin
+    // pool would sample short and every assertion below would still pass.
+    expect(allQuestionIds, hasLength(250));
+
     // 6. Drive it
     final controller = MockSessionController.initial(
       attemptId: 'test_upcat',
@@ -92,14 +96,16 @@ void main() {
 
     // Answer through the first part
     final firstPart = parts[0];
-    expect(firstPart.minutes, 70); // first part is 70 mins
+    // Language Proficiency runs 70 minutes on its own clock.
+    expect(firstPart.minutes, 70);
 
     for (var i = 0; i < firstPart.count; i++) {
-      controller.answerCurrent(0);
-      controller.goNext();
+      controller
+        ..answerCurrent(0)
+        ..goNext();
     }
-    
-    // We reached the end of the first part. Let's try to go past it before closing.
+
+    // At the end of the first part, and it must not run on into the second.
     expect(controller.canGoNext, isFalse);
 
     // Let the first part's clock expire (tick to 70 mins)
@@ -107,9 +113,13 @@ void main() {
 
     // Confirm the paper moves on (now in part 1)
     expect(controller.currentPartIndex, 1);
-    
+
     // Finished part cannot be re-entered
     controller.goTo(0);
-    expect((controller.state as MockSessionInProgress).currentIndex, firstPart.count); // unchanged, remains in Part 2
+    expect(
+      (controller.state as MockSessionInProgress).currentIndex,
+      firstPart.count,
+      reason: 'a finished part cannot be re-entered',
+    );
   });
 }
