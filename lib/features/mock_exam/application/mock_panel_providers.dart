@@ -20,7 +20,8 @@ final lastSubmittedMockProvider =
       .lastCooldownAttempt(request.userId, request.examId),
 );
 
-final customMockSummaryProvider = FutureProvider.family<CustomMockSummary?, ExamId>((ref, examId) async {
+final customMockSummaryProvider =
+    FutureProvider.family<CustomMockSummary?, ExamId>((ref, examId) async {
   final repo = CustomBlueprintRepository(ref.watch(appDatabaseProvider));
   final row = await repo.read(examId);
   if (row == null) return null;

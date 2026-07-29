@@ -42,7 +42,8 @@ class MockSetupPage extends StatelessWidget {
                 const SizedBox(height: 4),
                 Text(
                   blueprint.durationMinutes > 0
-                      ? '${blueprint.durationMinutes} min · $totalQuestions questions'
+                      ? '${blueprint.durationMinutes} min '
+                          '· $totalQuestions questions'
                       : 'Untimed · $totalQuestions questions',
                   style: textStyles.bodySmall.copyWith(color: colors.inkMuted),
                 ),

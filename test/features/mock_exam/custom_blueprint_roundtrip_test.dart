@@ -1,12 +1,10 @@
 import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/application/mock_blueprint_providers.dart';
+import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/data/custom_blueprint_repository.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/data/mock_sampler.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/domain/custom_blueprint.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/presentation/pages/mock_setup_route.dart';
-import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -20,7 +18,7 @@ void main() {
   setUp(() async {
     appDb = inMemoryDatabase();
     contentDb = openTestContentDatabase();
-    
+
     // Seed content
     await seedContentExam(
       contentDb,
@@ -30,12 +28,32 @@ void main() {
       shortName: 'CUST',
       isCustom: true,
     );
-    await seedContentSubject(contentDb, examId: 'custom_1', subjectId: 'math', name: 'Math');
-    await seedContentSubject(contentDb, examId: 'custom_1', subjectId: 'science', name: 'Science');
-    
+    await seedContentSubject(
+      contentDb,
+      examId: 'custom_1',
+      subjectId: 'math',
+      name: 'Math',
+    );
+    await seedContentSubject(
+      contentDb,
+      examId: 'custom_1',
+      subjectId: 'science',
+      name: 'Science',
+    );
+
     // Add topics
-    await seedContentTopic(contentDb, topicId: 'math_t1', subjectId: 'math', name: 'Math T1');
-    await seedContentTopic(contentDb, topicId: 'sci_t1', subjectId: 'science', name: 'Sci T1');
+    await seedContentTopic(
+      contentDb,
+      topicId: 'math_t1',
+      subjectId: 'math',
+      name: 'Math T1',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 'sci_t1',
+      subjectId: 'science',
+      name: 'Sci T1',
+    );
 
     // Add questions for Math (5 questions)
     for (var i = 0; i < 5; i++) {
@@ -47,7 +65,7 @@ void main() {
         stem: 'Math Q $i',
       );
     }
-    
+
     // Add questions for Science (5 questions)
     for (var i = 0; i < 5; i++) {
       await seedContentQuestion(
@@ -58,7 +76,7 @@ void main() {
         stem: 'Sci Q $i',
       );
     }
-    
+
     // Set up provider container
     container = ProviderContainer(
       overrides: [
@@ -74,16 +92,16 @@ void main() {
     await contentDb.close();
   });
 
-  test('Compose, save, start, and the paper drawn matches the composition', () async {
+  test('Compose, save, start, and the paper drawn matches the composition',
+      () async {
     final customRepo = CustomBlueprintRepository(appDb);
-    
+
     // Compose: 3 Math, 2 Science
-    final draft = CustomBlueprint(
+    const draft = CustomBlueprint(
       examId: 'custom_1',
       totalQuestions: 5,
       totalMinutes: 10,
-      sectionsTimedSeparately: false,
-      sections: const [
+      sections: [
         CustomBlueprintSectionDraft(
           name: 'Math Part',
           questions: 3,
@@ -98,7 +116,7 @@ void main() {
         ),
       ],
     );
-    
+
     // Save
     await customRepo.save(
       draft,
@@ -108,9 +126,9 @@ void main() {
       },
       now: DateTime(2026, 8, 11),
     );
-    
-    // Wait, we need the activeExamFocusProvider to return custom Exam.
-    // The ActiveExamFocusProvider reads examListProvider and appPreferencesRepositoryProvider.
+
+    // The active exam focus reads the exam list and the stored selection, so
+    // the custom exam has to be selected for the custom branch to be taken.
     final prefs = AppPreferencesRepository(appDb);
     await prefs.setSelectedExamId('custom_1');
 
@@ -121,11 +139,12 @@ void main() {
         contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
-    
+
     // Read the parsed blueprint
-    final parsed = await container.read(mockSetupParsedBlueprintProvider('custom_1').future);
+    final parsed = await container
+        .read(mockSetupParsedBlueprintProvider('custom_1').future);
     expect(parsed, isNotNull);
-    
+
     final sampler = MockSampler();
     final sample = sampler.sample(
       sections: parsed!.sections,
@@ -136,23 +155,25 @@ void main() {
       recentlySampledQuestionIds: {},
       seed: 123,
     );
-    
+
     expect(sample.sections.length, 2);
-    
-    final mathSection = sample.sections.firstWhere((s) => s.name == 'Math Part');
+
+    final mathSection =
+        sample.sections.firstWhere((s) => s.name == 'Math Part');
     expect(mathSection.questionIds.length, 3);
     expect(
-      mathSection.questionIds.every((id) => id.startsWith('math_q')), 
+      mathSection.questionIds.every((id) => id.startsWith('math_q')),
       isTrue,
     );
-    
-    final sciSection = sample.sections.firstWhere((s) => s.name == 'Science Part');
+
+    final sciSection =
+        sample.sections.firstWhere((s) => s.name == 'Science Part');
     expect(sciSection.questionIds.length, 2);
     expect(
-      sciSection.questionIds.every((id) => id.startsWith('sci_q')), 
+      sciSection.questionIds.every((id) => id.startsWith('sci_q')),
       isTrue,
     );
-    
+
     container.dispose();
   });
 }

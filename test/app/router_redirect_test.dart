@@ -4,6 +4,7 @@ import 'package:cse_cet_reviewer/app/router.dart';
 import 'package:cse_cet_reviewer/core/content/content.dart';
 import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
+import 'package:cse_cet_reviewer/features/mock_exam/presentation/pages/mock_setup_route.dart';
 import 'package:cse_cet_reviewer/features/notifications/application/notifications_providers.dart';
 import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -110,7 +111,10 @@ void main() {
     router.go('/quiz/mock/setup?examId=cse');
     await tester.pumpAndSettle();
 
-    expect(find.text('Mock setup'), findsOneWidget);
+    // This asserted the text of a placeholder until the route began building
+    // the real page. What the test is for is that the router accepts the
+    // route, so it names the page rather than a string inside it.
+    expect(find.byType(MockSetupRoute), findsOneWidget);
   });
 
   testWidgets('/paywall route builds real paywall page', (tester) async {

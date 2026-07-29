@@ -25,9 +25,7 @@ import 'package:cse_cet_reviewer/features/notifications/application/notification
 import 'package:cse_cet_reviewer/features/notifications/presentation/permission_rationale_page.dart';
 import 'package:cse_cet_reviewer/features/onboarding/onboarding.dart';
 import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/presentation/pages/mock_setup_page.dart';
 import 'package:cse_cet_reviewer/features/mock_exam/presentation/pages/mock_setup_route.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/presentation/widgets/mock_panel.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/pages/how_you_work_page.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/pages/your_record_page.dart';
 import 'package:cse_cet_reviewer/features/progress/presentation/progress_page.dart';
@@ -168,11 +166,9 @@ List<RouteBase> buildAppRoutes(Ref ref) {
 
                   final lastAttempt =
                       ref.watch(lastSubmittedMockProvider(request)).valueOrNull;
-                  final proIsActive = ref
-                          .watch(entitlementProvider)
-                          .valueOrNull
-                          ?.proIsActive ??
-                      false;
+                  final proIsActive =
+                      ref.watch(entitlementProvider).valueOrNull?.proIsActive ??
+                          false;
 
                   final customTrack = focus.exam!.isCustom
                       ? ref.watch(customMockSummaryProvider(examId)).valueOrNull
@@ -191,15 +187,15 @@ List<RouteBase> buildAppRoutes(Ref ref) {
                           ? () => context.push('/quiz/mock/custom-setup')
                           : null,
                       onTake: () {
-                         if (focus.exam!.isCustom) {
-                            if (customTrack != null) {
-                               context.push('/quiz/mock/setup?examId=$examId');
-                            } else {
-                               context.push('/quiz/mock/custom-setup');
-                            }
-                         } else {
+                        if (focus.exam!.isCustom) {
+                          if (customTrack != null) {
                             context.push('/quiz/mock/setup?examId=$examId');
-                         }
+                          } else {
+                            context.push('/quiz/mock/custom-setup');
+                          }
+                        } else {
+                          context.push('/quiz/mock/setup?examId=$examId');
+                        }
                       },
                       onResume: () => context.push('/quiz/resume/$examId'),
                       onViewResults: () {
