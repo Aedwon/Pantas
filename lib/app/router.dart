@@ -45,6 +45,7 @@ import 'package:cse_cet_reviewer/features/settings/presentation/pages/debug_sett
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/delete_account_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/exam_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/pro_page.dart';
+import 'package:cse_cet_reviewer/features/settings/presentation/pages/session_building_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/pages/whats_included_page.dart';
 import 'package:cse_cet_reviewer/features/settings/presentation/settings_home_page.dart';
 import 'package:cse_cet_reviewer/features/study_plan/presentation/plan_page.dart';
@@ -420,6 +421,10 @@ List<RouteBase> buildAppRoutes(Ref ref) {
     GoRoute(
       path: '/settings',
       builder: (_, __) => const SettingsHomePage(),
+    ),
+    GoRoute(
+      path: '/settings/sessions',
+      builder: (_, __) => const SessionBuildingPage(),
     ),
     GoRoute(
       path: '/more',
