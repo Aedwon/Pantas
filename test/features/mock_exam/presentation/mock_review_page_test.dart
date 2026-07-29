@@ -55,14 +55,6 @@ void main() {
   const s2 =
       Subject(id: 's_2', examId: 'cse_prof', name: 'Science', ordering: 2);
 
-  final sampleSectionsJson = [
-    {
-      'sectionId': 'sec_1',
-      'name': 'Section 1',
-      'questionIds': markedIds,
-    }
-  ];
-
   late MockAttempt mockAttempt;
   final prefsStore = <String, String>{};
 
@@ -83,19 +75,21 @@ void main() {
       status: MockAttemptStatus.completed,
       strictMode: false,
       sampledQuestionsJson:
-          '[{"sectionId":"sec_1","name":"Section 1","questionIds":${markedIds.map((id) => '"$id"').toList()}}]',
+          // ignore: missing_whitespace_between_adjacent_strings
+          '[{"sectionId":"sec_1","name":"Section 1","questionIds":'
+          '${markedIds.map((id) => '"$id"').toList()}}]',
       elapsedSeconds: 3600,
       accumulatedPausedSeconds: 0,
       pausedAtLastFlush: false,
       answersJson: '{"q_1":{"selectedIndex":1,"atSec":10}}',
       flagsJson: '[${markedIds.map((id) => '"$id"').join(',')}]',
       currentIndex: 0,
-      startedAt: DateTime.utc(2026, 8, 1),
-      lastFlushedAt: DateTime.utc(2026, 8, 1),
-      updatedAt: DateTime.utc(2026, 8, 1),
+      startedAt: DateTime.utc(2026, 8),
+      lastFlushedAt: DateTime.utc(2026, 8),
+      updatedAt: DateTime.utc(2026, 8),
       scoreRaw: 1,
       scoreTotal: 12,
-      submittedAt: DateTime.utc(2026, 8, 1),
+      submittedAt: DateTime.utc(2026, 8),
     );
 
     when(() => attemptRepo.findById('attempt_1'))
@@ -229,9 +223,9 @@ void main() {
       answersJson: '{}',
       flagsJson: '[]',
       currentIndex: 0,
-      startedAt: DateTime.utc(2026, 8, 1),
-      lastFlushedAt: DateTime.utc(2026, 8, 1),
-      updatedAt: DateTime.utc(2026, 8, 1),
+      startedAt: DateTime.utc(2026, 8),
+      lastFlushedAt: DateTime.utc(2026, 8),
+      updatedAt: DateTime.utc(2026, 8),
     );
 
     when(() => attemptRepo.findById('attempt_no_marks'))

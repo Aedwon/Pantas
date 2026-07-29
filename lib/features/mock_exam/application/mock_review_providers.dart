@@ -1,6 +1,5 @@
 import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/passage.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/subject.dart';
 import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';

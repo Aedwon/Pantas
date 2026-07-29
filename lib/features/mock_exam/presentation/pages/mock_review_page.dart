@@ -1,5 +1,3 @@
-import 'package:cse_cet_reviewer/core/storage/data/repos/app_preferences_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/question_flags_repository.dart';
 import 'package:cse_cet_reviewer/core/storage/storage.dart';
 import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
 import 'package:cse_cet_reviewer/core/ui/components/review_list.dart';
@@ -40,8 +38,6 @@ class MockReviewPage extends ConsumerWidget {
               entries: entries,
               proIsActive: proIsActive,
               grouped: true,
-              showFilters: true,
-              initialFilter: ReviewFilter.wrong,
               onToggleFlag: (questionId) async {
                 final repo = ref.read(questionFlagsRepositoryProvider);
                 final currentlyFlagged = await repo.isFlagged(questionId);
@@ -67,8 +63,9 @@ class MockReviewPage extends ConsumerWidget {
                           'mock_flag_offer_handled_$attemptId',
                           'true',
                         );
-                        ref.invalidate(mockOfferHandledProvider(attemptId));
-                        ref.invalidate(mockReviewProvider(attemptId));
+                        ref
+                          ..invalidate(mockOfferHandledProvider(attemptId))
+                          ..invalidate(mockReviewProvider(attemptId));
                       },
                       onDismiss: () async {
                         final prefsRepo =
@@ -117,7 +114,8 @@ class _FlagOffer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            'You marked $count to come back to while the clock was running. Keep them to practice?',
+            'You marked $count to come back to while the clock was '
+            'running. Keep them to practice?',
             style: styles.bodyMedium,
           ),
           const SizedBox(height: 12),
