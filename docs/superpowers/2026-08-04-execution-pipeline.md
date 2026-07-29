@@ -123,9 +123,12 @@ back, is `decisions/2026-08-11-content-02-repair-log.md`.
 2. **Lesson bookmarks.** Dispatched to 3.6 Flash, in
    `.claude/worktrees/bookmarks`. The ribbon and storage already exist on main;
    only the order, prefs, providers, section and sheet are missing.
-3. **Three small plan gaps, not yet dispatched** because two agents at a time is
-   the limit: the mock review screen, the session-building settings page, and
-   the feedback intent from the localization plan.
+3. **The session-building settings page**, dispatched to 3.6 Flash. The mock
+   review screen landed. **The feedback intent is not unbuilt work at all:**
+   that plan's Task 1 is on main and its Tasks 2 and 3 are blocked on two
+   dependencies nobody has approved, `url_launcher` and `in_app_review`. A
+   dispatched run stopped on both rather than adding them, which is the
+   behaviour every plan asks for.
 4. **The study plan** stays deferred. Its providers are stubs and its entry row
    is deliberately hidden.
 5. **Content 02's done-condition still needs Aedwon's device**, with real
@@ -144,6 +147,10 @@ back, is `decisions/2026-08-11-content-02-repair-log.md`.
   UPCAT's Mathematics. Authoring it now would quietly cover three of the four
   published subject areas. Fixing it means subjects keyed independently of exam,
   which is a schema stage of its own.
+- **Two dependencies to approve or refuse**, each blocking a task that is
+  otherwise written: `url_launcher` for giving feedback a destination, and
+  `in_app_review` for asking for a store review once. A feedback destination
+  also needs a URL in `docs/OPERATIONS.md`, which is empty.
 - **`exam_dost_sei` has no exam row** while 1,160 question-to-exam rows and 84
   authored files reference it. Which exams the app offers is his call.
 
