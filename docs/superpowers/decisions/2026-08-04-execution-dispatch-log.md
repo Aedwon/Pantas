@@ -1540,3 +1540,74 @@ while they asked for 150 sells fidelity and delivers a short paper.
 clean, attribution 0.
 
 **Every written plan in this repository is now executed.**
+
+---
+
+## 11 August: four dispatches, and what `agy` actually does
+
+**"Every written plan is now executed" above was wrong**, and worth leaving as
+written. An audit on 11 August found five plans with unbuilt files. Two of them
+turned out to be renames; three were real.
+
+### The finding that cost the most: `agy` chooses its own working directory
+
+**It does not follow the shell.** The bookmarks run was dispatched from
+`.claude/worktrees/bookmarks` and wrote into `.claude/worktrees/study03a`, an
+older worktree for the same feature. Nothing in the output said so. It was found
+by looking for the files it claimed to have written.
+
+**It also rebased that branch onto a current `main` unasked**, which discarded a
+previous run's stranded commit. That commit had altered the shared table row's
+alignment for the sake of one section, so losing it was the outcome I wanted and
+not one I chose.
+
+**The mitigation, used for the three dispatches after it and effective:** state
+the absolute worktree path at the top of the prompt as the only place it may
+write, and pass `--add-dir` with the same path. Then verify where the files
+landed before merging, every time.
+
+**A second flag lesson.** `--print` takes the prompt as its value, so
+`--print --dangerously-skip-permissions` silently swallows the flag and the run
+dies with "a tool required the command permission that headless mode cannot
+prompt for". Use `--prompt "<text>"` and keep `--print` out of it.
+
+### Triage, as Aedwon asked for it
+
+| Work | Tier | Outcome |
+|---|---|---|
+| Lesson bookmarks | 3.6 Flash high | Complete, 33 tests, merged after repair |
+| Content 04, the two doors | 3.1 Pro high | **Timed out mid-plan** after one commit. Tasks 1b and 1 landed; 2 to 4 did not |
+| The mock review | 3.6 Flash high | Complete, merged after repair |
+| Session-building page, feedback intent | 3.6 Flash high | Dispatched |
+
+**Flash did the better job of the two**, on work chosen to suit it. The Pro run
+was given the task with the most judgment in it and ran out of time rather than
+out of ability, which is an argument for cutting a plan into smaller dispatches
+rather than for changing tier.
+
+### What every run needed repairing afterwards
+
+Neither model's report was trustworthy on its own, and both claimed green gates.
+
+- **Lints, every time.** Long lines, missing trailing commas, redundant
+  arguments, a dead local, a cascade. A dispatched run cannot run `flutter
+  analyze`, so it cannot know.
+- **A deprecated API**: the bookmarks sheet used `onReorder`, whose index still
+  counts the dragged row, which is why it carried an adjustment.
+- **A test asserting a placeholder** that the route it tests no longer builds.
+- **A stray `assets/seed/content.sqlite`** that nothing references.
+- **A comment written while reasoning**, left in the test file.
+
+**What was not wrong, twice, when I suspected it was.** I flagged a generic
+preference accessor as a new escape hatch: it was already on `main`. I flagged
+the one-time offer flag as read but never written: the page writes it and three
+tests cover it. Both times the mistake was grepping one file instead of the
+feature.
+
+### The worktree tax nobody warns about
+
+**Three generated artifacts are gitignored, so every fresh worktree fails the
+gates until they are built**: `assets/seed/content.db`, the localizations, and
+the drift output. Content 03's blueprint tests failed on a stale database copy
+and looked like a merge conflict. The commands are in `AGENTS.md`; a worktree is
+not usable without them.
