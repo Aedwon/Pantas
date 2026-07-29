@@ -28,6 +28,11 @@ class MockStatusCard extends StatelessWidget {
           onStart
         ),
       MockAvailabilityState.inProgress => ('Resume mock', 'Resume', onResume),
+      MockAvailabilityState.noBlueprint => (
+          'Mock paper not ready',
+          null,
+          null,
+        ),
     };
 
     return RuledSection(
@@ -40,8 +45,10 @@ class MockStatusCard extends StatelessWidget {
             'A timed exam-style practice run.',
             style: textStyles.bodySmall.copyWith(color: colors.inkMuted),
           ),
-          const SizedBox(height: 12),
-          BoardButton(label: action, onPressed: callback),
+          if (action != null) ...[
+            const SizedBox(height: 12),
+            BoardButton(label: action, onPressed: callback!),
+          ],
         ],
       ),
     );

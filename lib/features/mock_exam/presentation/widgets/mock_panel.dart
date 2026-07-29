@@ -70,6 +70,8 @@ class MockPanel extends StatelessWidget {
     final attempt = lastAttempt;
     final inProgress = availability.state == MockAvailabilityState.inProgress;
     final inCooldown = availability.state == MockAvailabilityState.cooldown;
+    final noBlueprint =
+        availability.state == MockAvailabilityState.noBlueprint;
     final hasHistory = attempt?.submittedAt != null;
     final custom = customTrack;
     // A custom track with nothing set up has no paper to take, so the panel
@@ -94,6 +96,10 @@ class MockPanel extends StatelessWidget {
             )
           else if (custom != null)
             _Body(custom.line)
+          else if (noBlueprint)
+            const _Body(
+              'This exam has no mock paper ready yet.',
+            )
           else if (!hasHistory)
             const _Body(
               'The whole thing under exam timing. 3 hours 30, and no answers '
@@ -145,7 +151,7 @@ class MockPanel extends StatelessWidget {
               secondary: true,
               onPressed: onResume,
             ),
-          ] else if (!inCooldown && !needsSetUp) ...[
+          ] else if (!inCooldown && !needsSetUp && !noBlueprint) ...[
             const SizedBox(height: 8),
             BoardButton(
               // The heading already says "Mock exam", so the button does not

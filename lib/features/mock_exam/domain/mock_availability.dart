@@ -1,7 +1,7 @@
 import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_attempt.dart';
 import 'package:meta/meta.dart';
 
-enum MockAvailabilityState { available, cooldown, inProgress }
+enum MockAvailabilityState { available, cooldown, inProgress, noBlueprint }
 
 class MockAvailability {
   const MockAvailability({
@@ -22,6 +22,11 @@ class MockAvailability {
   const MockAvailability.inProgress(this.activeAttempt)
       : state = MockAvailabilityState.inProgress,
         cooldownRemaining = null;
+
+  const MockAvailability.noBlueprint()
+      : state = MockAvailabilityState.noBlueprint,
+        cooldownRemaining = null,
+        activeAttempt = null;
 
   final MockAvailabilityState state;
   final Duration? cooldownRemaining;
