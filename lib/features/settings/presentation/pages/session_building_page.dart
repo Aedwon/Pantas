@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
 import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:cse_cet_reviewer/features/settings/application/settings_providers.dart';
 import 'package:cse_cet_reviewer/features/settings/domain/session_ordering.dart';
@@ -49,7 +48,6 @@ class SessionBuildingPage extends ConsumerWidget {
                   border: Border(
                     bottom: BorderSide(
                       color: colors.ruleFaint,
-                      width: AppDimensions.hairline,
                     ),
                   ),
                 ),
