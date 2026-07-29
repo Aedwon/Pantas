@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:crypto/crypto.dart';
 import 'package:cse_cet_reviewer/core/content/content_database.dart';
 import 'package:cse_cet_reviewer/core/content/sanity/parsers/diagnostic_set_parser.dart';
 import 'package:cse_cet_reviewer/core/content/sanity/parsers/exam_parser.dart';
@@ -12,6 +13,7 @@ import 'package:cse_cet_reviewer/core/content/sanity/parsers/question_parser.dar
 import 'package:cse_cet_reviewer/core/content/sanity/parsers/subject_parser.dart';
 import 'package:cse_cet_reviewer/core/content/sanity/parsers/topic_parser.dart';
 import 'package:drift/native.dart';
+import 'package:path/path.dart' as p;
 
 Future<void> main(List<String> args) async {
   if (args.length != 2) {
@@ -19,10 +21,45 @@ Future<void> main(List<String> args) async {
     exitCode = 64;
     return;
   }
+  final outputDb = File(args[1]);
   await writeContentSeed(
     inputJson: File(args[0]),
-    outputDb: File(args[1]),
+    outputDb: outputDb,
   );
+  // Only the shipped asset has a version worth recording. Tests build the
+  // database into a temp directory through this same entry point, and writing
+  // then would stamp the app with the digest of a fixture.
+  if (p
+      .normalize(outputDb.path)
+      .endsWith(p.join('assets', 'seed', 'content.db'))) {
+    await _writeVersionFile(outputDb);
+  }
+}
+
+/// Records what was just built, so the installer never has to be told by hand.
+///
+/// The installer writes the bundled database to a device only when this string
+/// differs from the one the device recorded. It used to be a date maintained by
+/// whoever remembered: Content 01, 01b and 03 each regenerated the asset and
+/// none of them changed it, and then a same-day rebuild slipped past a bump
+/// because a date cannot tell two builds in one day apart. A digest of the
+/// bytes cannot be forgotten and cannot collide.
+Future<void> _writeVersionFile(File outputDb) async {
+  final digest = sha256.convert(await outputDb.readAsBytes());
+  final version = digest.toString().substring(0, 16);
+  final target = File('lib/core/content/content_seed_version.dart');
+  await target.writeAsString('''
+// Written by tools/build_content_seed/seed_writer.dart. Do not edit by hand.
+//
+// Deliberately not a `.g.dart` file: those are gitignored here, and this one
+// has to be committed so it travels with the asset it describes.
+//
+// A digest of `assets/seed/content.db` as built. Rebuild the asset and this
+// changes with it, which is what tells an installed app its copy is stale.
+
+const contentSeedVersion = '$version';
+''');
+  stdout.writeln('content seed version: $version');
 }
 
 Future<void> writeContentSeed({
