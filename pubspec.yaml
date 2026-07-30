@@ -49,7 +49,7 @@ dependencies:
   sign_in_with_apple: ^8.0.0
 
   # IAP via RevenueCat
-  purchases_flutter: ^8.0.0
+  purchases_flutter: ^10.8.0
 
   # Secure storage (Keychain / Keystore)
   flutter_secure_storage: ^9.2.2

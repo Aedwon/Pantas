@@ -129,9 +129,12 @@ class LiveRevenueCatGateway implements RevenueCatGateway {
       ),
     );
 
-    // 8.11.0 returns CustomerInfo directly rather than a result wrapper.
-    final info = await Purchases.purchasePackage(target);
-    final entitlement = entitlementFromCustomerInfo(info);
+    // 10.x replaced `purchasePackage` with `purchase(PurchaseParams)` and
+    // returns a result carrying the customer info and the transaction. We
+    // want the customer info; the transaction is the store's receipt and
+    // nothing here reads it.
+    final result = await Purchases.purchase(PurchaseParams.package(target));
+    final entitlement = entitlementFromCustomerInfo(result.customerInfo);
     _cached = entitlement;
     return entitlement;
   }
