@@ -398,3 +398,72 @@ person.** The property rules keep the app on the right side of it by constructio
 no identifiers beyond a closed set, no free text, no answers. **Keep that
 enforcement.** It is the difference between a defensible privacy promise and one
 that depends on nobody adding a careless call site.
+
+---
+
+## 10. Amended: consent on a screen of its own, and item analytics
+
+**Aedwon, 11 August**, on consent: *"can we add this to the very first onboarding
+screen? a checklist, maybe two of them, one is terms of use, privacy policy, or
+something like that, and then the help improve blablabla"*
+
+And on events: *"since button-level tracking isn't in the spec can you amend it?
+this is important data. also, question data as well. that is, how many got it
+right, how many got it wrong, at which answer, things like those."* With the
+condition: *"if the engineering cost of this is too large and unnecessary for the
+MVP (i really need to do beta testing already), then we can defer this."*
+
+**Amended in `plans/2026-08-11-telemetry-02-consent-and-item-analytics.md`.**
+
+### Two ticks, and one correction to where they go
+
+**The two-tick instinct is right and matters more than it looks.** Terms
+acceptance and analytics consent are different kinds of agreement and must not be
+one checkbox.
+
+**The correction is that the analytics tick cannot block Continue and cannot start
+ticked.** Consent under RA 10173 has to be freely given and specific: a pre-ticked
+box is not consent, and consent that is a condition of using the app is not
+consent either. Bundled into one "I agree", every event collected afterwards loses
+its legal basis.
+
+**The other correction is the position.** Not the very first screen: **third,
+straight after the age gate.** Asking a thirteen-year-old to accept terms and then
+blocking them for being under age takes an agreement from someone never eligible to
+give one.
+
+**Also found while checking: Terms acceptance does not exist at all.** The
+documents are readable and routable; no step asks and no flag records it. An
+earlier handoff listed it as merged. It was not.
+
+### The property rule is narrowed, not deleted
+
+The earlier spec banned any event carrying a student's answer or a score. Question
+data needs part of that back, so the line moved to a defensible place:
+
+**Allowed**, because each describes the question: the question id, whether it was
+answered correctly, the letter of the choice chosen, and the mode it was answered
+in.
+
+**Still banned, still enforced by a throw**: any question or answer text, a name,
+an email, any free text, and **any aggregate score for a student**, including
+accuracy, streak or rank.
+
+**Why that line.** "Sixty percent choose B here" is a fact about a question, and it
+is the best content signal available: it finds the misleading distractor, the
+question nobody gets right because it is wrong, and the one everybody gets right
+because it is trivial. **None of it needs to know who anyone is.** What stays
+banned is the shape that builds a picture of a person.
+
+### The cost, since he asked
+
+| Work | Cost | For the beta? |
+|---|---|---|
+| The consent step | Small: one step, one flag, two ticks, wired to a setting that already exists | **Yes, and first.** No telemetry is lawful without it |
+| `question_answered` | **Small, and this surprised me.** An answer becomes an outcome in exactly one place, so it is one call site | **Yes.** Highest value per unit effort, and it is the data that cannot be reconstructed later |
+| `element_tapped` | Moderate, and the cost is call sites rather than the event | **Defer.** `tab_opened` already answers which surfaces are dead |
+
+**So the answer to "is this too large for the MVP" is no for two of the three.**
+Item analytics being one call site is what makes this cheap, and it is the piece
+worth having before a beta rather than after, because every week without it is a
+week of answers nobody can go back and count.
