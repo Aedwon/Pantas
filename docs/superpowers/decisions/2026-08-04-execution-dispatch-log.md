@@ -1640,3 +1640,59 @@ for one window, not a model too weak for the work.
 **The pattern across nine dispatches today: the code is usually right and the
 assertions are usually weaker than the task asked for.** Reading the test is
 worth more than reading the report.
+
+---
+
+## 11 August, evening: two dependency dispatches, and one of them found the order was wrong
+
+**Aedwon: "please dispatch to gemini 3.1 pro high or 3.6 flash high depending on
+the complexity when you can. i'm still currently configuring firebase and
+revenuecat"** and, on the two per-session questions,
+**"100% usage left. i authorize you to use --dangerously-skip-permissions for
+the dispatch"**.
+
+Neither group had a plan, so two were written first. Both worktrees had pub get,
+gen-l10n, the drift output and `content.db` built before dispatch, which is the
+fix from earlier in the day and it held: neither run tripped on them.
+
+| Work | Tier | Outcome |
+|---|---|---|
+| The safe bumps | 3.6 Flash high | Two commits, merged. 2,261 tests, analyzer clean |
+| The encryption stack | 3.1 Pro high | **Stopped on Task 1, correctly**, and the finding is worth more than the task |
+
+### What Flash did, and the one thing my plan invited
+
+`dio`, `path_provider`, `uuid` and `meta` moved with nothing behind them.
+
+**`app_settings` went up three majors and `sign_in_with_apple` two**, because I
+wrote "latest that resolves" for the low-risk row instead of naming versions.
+Both are defensible: `app_settings` has one call site and the analyzer is clean
+against the new API, and `sign_in_with_apple` has no call site at all yet. **But
+nothing exercised either one**, and I would not write that phrase again.
+
+**It left `timezone` alone** and was right to. `flutter_local_notifications` 17
+holds it, and that package is its own migration.
+
+### What Pro found, which reorders the whole audit
+
+It stopped where the plan told it to and reported pub's own output rather than
+widening a constraint to force the resolve. **That is the behavior the stop
+condition exists for.**
+
+The chain, each link read from a resolver failure:
+
+1. `drift_dev` 2.34 needs `build` 3. `freezed` 2 pins `build` to 2.
+2. `freezed` 3 needs `freezed_annotation` 3. `purchases_flutter` 8 forbids it.
+3. `purchases_flutter` 10 clears that, and then `build_runner` 2.15 needs
+   `build` 4, which `riverpod_generator` 2 pins to 2.
+
+**So the encryption group is not next. It is last.** The order is
+`purchases_flutter`, `freezed` 3, Riverpod 3, then encryption.
+
+**I stopped probing at the third link**, so the chain is known to be at least
+that long. I have not shown that Riverpod 3 closes it.
+
+**What I got wrong.** I sized these two as independent and dispatched them
+together. They were not independent, and the audit I wrote the plans from had
+the order backwards. Ten minutes of resolving before writing either plan would
+have found it.

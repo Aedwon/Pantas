@@ -93,6 +93,25 @@ to anything live yet.
 | `go_router` | 14.8 | 17.5 | Three majors, and routing is where a mistake is invisible until a screen is opened |
 | `freezed` + `freezed_annotation` | 2.5 | 3.2 | Codegen change across every model |
 
+## The order above is wrong, found 11 August by dispatching it
+
+**The encryption group cannot go next.** A Pro run stopped on Task 1 when
+`flutter pub get` refused to resolve, and the chain behind it is four packages
+deep. Each link was read from pub's own failure, not guessed:
+
+1. `drift_dev` 2.34 needs `build` 3 or newer. `freezed` 2 pins `build` to 2.
+2. `freezed` 3 needs `freezed_annotation` 3. `purchases_flutter` 8 forbids it.
+3. `purchases_flutter` 10 clears that. Then `build_runner` 2.15 needs `build` 4,
+   and `riverpod_generator` 2 pins it to 2.
+
+**So the real order is `purchases_flutter`, then `freezed` 3, then Riverpod 3,
+and the encryption group last.** That is close to the reverse of what this
+document said. Group C was written as "central, deserves a quiet branch", which
+read as "later". It is a prerequisite.
+
+**The last link is unverified.** The probe was stopped before Riverpod 3 was
+tried, so the chain is known to be at least that long and may be longer.
+
 ## Group D: the encryption stack, one change or none
 
 `drift` 2.28 to 2.34, `sqlite3` 2.9 to 3.5, and **removing
