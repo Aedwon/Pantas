@@ -105,8 +105,7 @@ void main() {
         );
   }
 
-  testWidgets(
-      'Progress section shows no-time line initially, and replaces it with Time column after a submitted mock',
+  testWidgets('the no-time line gives way to a Time column once a mock is sat',
       (tester) async {
     await seedSyllabus();
     await seedAttempt();
@@ -141,7 +140,8 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    // Side 1: With no mock sat, the line explaining why pace is not shown is present, and TIME column header is absent.
+    // With no mock sat: the line explaining why pace is absent is shown, and
+    // there is no TIME column.
     expect(
       find.textContaining('after your first full length mock'),
       findsOneWidget,
@@ -149,13 +149,15 @@ void main() {
     expect(find.text('TIME'), findsNothing);
 
     // Now seed a submitted mock.
-    await seedSubmittedMock(timeSeconds: 600);
+    await seedSubmittedMock();
 
     // Refresh provider and re-render.
     container.invalidate(performanceProvider);
     await tester.pumpAndSettle();
 
-    // Side 2: Line is gone, TIME column header is present, and measured seconds per question figure is rendered.
+    // With one sat: the line is gone, TIME appears, and the seconds per
+    // question shown is measured from that attempt. 600 seconds over two
+    // questions is the 300s below, not a figure this test chose.
     expect(
       find.textContaining('after your first full length mock'),
       findsNothing,
