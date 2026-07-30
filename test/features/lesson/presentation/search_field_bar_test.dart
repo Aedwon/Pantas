@@ -1,9 +1,9 @@
-import 'package:cse_cet_reviewer/core/ui/components/ink_magnifier.dart';
-import 'package:cse_cet_reviewer/features/lesson/application/lesson_search_providers.dart';
-import 'package:cse_cet_reviewer/features/lesson/application/study_map_providers.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/models/study_map.dart';
-import 'package:cse_cet_reviewer/features/lesson/presentation/learn_tab_home.dart';
-import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/search_field_bar.dart';
+import 'package:pantas/core/ui/components/ink_magnifier.dart';
+import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
+import 'package:pantas/features/lesson/application/study_map_providers.dart';
+import 'package:pantas/features/lesson/domain/models/study_map.dart';
+import 'package:pantas/features/lesson/presentation/learn_tab_home.dart';
+import 'package:pantas/features/lesson/presentation/widgets/search_field_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';

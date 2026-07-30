@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/features/study_plan/domain/compute_plan_view.dart';
-import 'package:cse_cet_reviewer/features/study_plan/domain/plan_prefs.dart';
+import 'package:pantas/features/study_plan/domain/compute_plan_view.dart';
+import 'package:pantas/features/study_plan/domain/plan_prefs.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class StudyPlanExam {

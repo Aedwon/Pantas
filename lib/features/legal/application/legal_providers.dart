@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/features/legal/domain/legal_contact.dart';
-import 'package:cse_cet_reviewer/features/legal/domain/legal_document.dart';
+import 'package:pantas/features/legal/domain/legal_contact.dart';
+import 'package:pantas/features/legal/domain/legal_document.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final legalContactProvider = Provider<LegalContact>(

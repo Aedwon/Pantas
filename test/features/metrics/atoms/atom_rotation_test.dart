@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/features/metrics/atoms/atom.dart';
-import 'package:cse_cet_reviewer/features/metrics/atoms/atom_rotation.dart';
+import 'package:pantas/features/metrics/atoms/atom.dart';
+import 'package:pantas/features/metrics/atoms/atom_rotation.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

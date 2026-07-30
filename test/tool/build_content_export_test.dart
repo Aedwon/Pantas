@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:cse_cet_reviewer/core/content/sanity/parsers/exam_parser.dart';
-import 'package:cse_cet_reviewer/core/content/sanity/parsers/lesson_parser.dart';
-import 'package:cse_cet_reviewer/core/content/sanity/parsers/question_parser.dart';
-import 'package:cse_cet_reviewer/core/content/sanity/parsers/subject_parser.dart';
-import 'package:cse_cet_reviewer/core/content/sanity/parsers/topic_parser.dart';
+import 'package:pantas/core/content/sanity/parsers/exam_parser.dart';
+import 'package:pantas/core/content/sanity/parsers/lesson_parser.dart';
+import 'package:pantas/core/content/sanity/parsers/question_parser.dart';
+import 'package:pantas/core/content/sanity/parsers/subject_parser.dart';
+import 'package:pantas/core/content/sanity/parsers/topic_parser.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

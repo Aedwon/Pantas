@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/telemetry/gated_telemetry.dart';
-import 'package:cse_cet_reviewer/core/telemetry/telemetry.dart';
+import 'package:pantas/core/telemetry/gated_telemetry.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 /// Records what reached the SDK seam, so the gate can be proven rather than

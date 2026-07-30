@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/features/study_plan/domain/plan_prefs.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/features/study_plan/domain/plan_prefs.dart';
 import 'package:drift/drift.dart';
 
 class PastExamDateException implements Exception {

@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/practice_index.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/practice_selection.dart';
+import 'package:pantas/features/quiz/domain/picker/practice_index.dart';
+import 'package:pantas/features/quiz/domain/picker/practice_selection.dart';
 
 enum PracticeUnitMode { questions, minutes }
 

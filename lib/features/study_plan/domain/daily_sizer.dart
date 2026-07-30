@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
-import 'package:cse_cet_reviewer/features/study_plan/domain/pace_curve.dart';
-import 'package:cse_cet_reviewer/features/study_plan/domain/plan_prefs.dart';
+import 'package:pantas/features/study_plan/domain/pace_curve.dart';
+import 'package:pantas/features/study_plan/domain/plan_prefs.dart';
 
 enum DailySizingMode {
   study,

@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/features/settings/domain/user_settings.dart';
-import 'package:cse_cet_reviewer/features/settings/presentation/sheets/reminder_sheet.dart';
+import 'package:pantas/features/settings/domain/user_settings.dart';
+import 'package:pantas/features/settings/presentation/sheets/reminder_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

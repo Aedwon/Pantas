@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_payload.dart';
+import 'package:pantas/features/wrapped/domain/wrapped_payload.dart';
 import 'package:flutter/material.dart';
 
 // The light palette by value, not by theme lookup. A share card is rendered

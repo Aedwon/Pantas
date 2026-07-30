@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/use_cases/build_search_snippet.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/features/lesson/domain/use_cases/build_search_snippet.dart';
 
 /// A single search result hit within a lesson.
 class LessonSearchHit {

@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/sync/sync_status.dart';
-import 'package:cse_cet_reviewer/features/settings/domain/backup_status.dart';
+import 'package:pantas/core/sync/sync_status.dart';
+import 'package:pantas/features/settings/domain/backup_status.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/progress/application/table_order_prefs.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/progress/application/table_order_prefs.dart';
 import 'package:flutter/material.dart';
 
 /// Subject, Topic, Lesson, separated by rule ticks. No pills, and nothing

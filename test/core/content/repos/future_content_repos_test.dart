@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:cse_cet_reviewer/core/content/content_database.dart';
-import 'package:cse_cet_reviewer/core/content/repos/diagnostic_set_repo.dart';
-import 'package:cse_cet_reviewer/core/content/repos/mock_blueprint_repo.dart';
-import 'package:cse_cet_reviewer/core/content/repos/mock_exam_repo.dart';
+import 'package:pantas/core/content/content_database.dart';
+import 'package:pantas/core/content/repos/diagnostic_set_repo.dart';
+import 'package:pantas/core/content/repos/mock_blueprint_repo.dart';
+import 'package:pantas/core/content/repos/mock_exam_repo.dart';
 import 'package:drift/drift.dart' show Value;
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';

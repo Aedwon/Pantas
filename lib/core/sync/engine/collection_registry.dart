@@ -1,12 +1,12 @@
-import 'package:cse_cet_reviewer/core/sync/mapping/assessment_mapper.dart';
-import 'package:cse_cet_reviewer/core/sync/mapping/attempt_mapper.dart';
-import 'package:cse_cet_reviewer/core/sync/mapping/fsrs_card_mapper.dart';
-import 'package:cse_cet_reviewer/core/sync/mapping/lesson_bookmark_mapper.dart';
-import 'package:cse_cet_reviewer/core/sync/mapping/lesson_progress_mapper.dart';
-import 'package:cse_cet_reviewer/core/sync/mapping/mock_attempt_mapper.dart';
-import 'package:cse_cet_reviewer/core/sync/mapping/preferences_mapper.dart';
-import 'package:cse_cet_reviewer/core/sync/mapping/question_flag_mapper.dart';
-import 'package:cse_cet_reviewer/core/sync/mapping/sync_mapper.dart';
+import 'package:pantas/core/sync/mapping/assessment_mapper.dart';
+import 'package:pantas/core/sync/mapping/attempt_mapper.dart';
+import 'package:pantas/core/sync/mapping/fsrs_card_mapper.dart';
+import 'package:pantas/core/sync/mapping/lesson_bookmark_mapper.dart';
+import 'package:pantas/core/sync/mapping/lesson_progress_mapper.dart';
+import 'package:pantas/core/sync/mapping/mock_attempt_mapper.dart';
+import 'package:pantas/core/sync/mapping/preferences_mapper.dart';
+import 'package:pantas/core/sync/mapping/question_flag_mapper.dart';
+import 'package:pantas/core/sync/mapping/sync_mapper.dart';
 
 class SyncCollectionEntry {
   const SyncCollectionEntry({

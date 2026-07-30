@@ -1,30 +1,30 @@
-import 'package:cse_cet_reviewer/core/content/content.dart';
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/core/storage/data/database_opener.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/app_preferences_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/assessment_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/lesson_bookmarks_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/lesson_progress_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/question_flags_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/quiz_nudge_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/review_state_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/streak_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/exam.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/lesson.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/passage.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
+import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/database_opener.dart';
+import 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
+import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
+import 'package:pantas/core/storage/data/repos/attempts_repository.dart';
+import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/core/storage/data/repos/lesson_bookmarks_repository.dart';
+import 'package:pantas/core/storage/data/repos/lesson_progress_repository.dart';
+import 'package:pantas/core/storage/data/repos/question_flags_repository.dart';
+import 'package:pantas/core/storage/data/repos/quiz_nudge_repository.dart';
+import 'package:pantas/core/storage/data/repos/review_state_repository.dart';
+import 'package:pantas/core/storage/data/repos/streak_repository.dart';
+import 'package:pantas/core/storage/domain/exam.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/lesson.dart';
+import 'package:pantas/core/storage/domain/passage.dart';
+import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-export 'package:cse_cet_reviewer/core/storage/data/repos/app_preferences_repository.dart';
-export 'package:cse_cet_reviewer/core/storage/data/repos/lesson_bookmarks_repository.dart';
-export 'package:cse_cet_reviewer/core/storage/data/repos/lesson_progress_repository.dart';
-export 'package:cse_cet_reviewer/core/storage/data/repos/question_flags_repository.dart';
-export 'package:cse_cet_reviewer/core/storage/domain/assessment_question.dart';
-export 'package:cse_cet_reviewer/core/storage/domain/assessment_question_selector.dart';
-export 'package:cse_cet_reviewer/core/storage/domain/passage.dart';
+export 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
+export 'package:pantas/core/storage/data/repos/lesson_bookmarks_repository.dart';
+export 'package:pantas/core/storage/data/repos/lesson_progress_repository.dart';
+export 'package:pantas/core/storage/data/repos/question_flags_repository.dart';
+export 'package:pantas/core/storage/domain/assessment_question.dart';
+export 'package:pantas/core/storage/domain/assessment_question_selector.dart';
+export 'package:pantas/core/storage/domain/passage.dart';
 
 final appDatabaseProvider = Provider<AppDatabase>(
   (ref) => throw UnimplementedError(

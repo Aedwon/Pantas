@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_attempt.dart';
+import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
 import 'package:meta/meta.dart';
 
 enum MockAvailabilityState { available, cooldown, inProgress, noBlueprint }

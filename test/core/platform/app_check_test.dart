@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/app/flavor.dart';
-import 'package:cse_cet_reviewer/core/platform/app_check.dart';
+import 'package:pantas/app/flavor.dart';
+import 'package:pantas/core/platform/app_check.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';

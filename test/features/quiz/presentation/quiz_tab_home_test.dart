@@ -1,13 +1,13 @@
 import 'dart:io';
 
-import 'package:cse_cet_reviewer/core/content/content.dart';
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
-import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
-import 'package:cse_cet_reviewer/features/quiz/presentation/practice_row_providers.dart';
-import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_tab_home.dart';
-import 'package:cse_cet_reviewer/features/quiz/presentation/today_providers.dart';
+import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/ink_table_row.dart';
+import 'package:pantas/features/quiz/presentation/practice_row_providers.dart';
+import 'package:pantas/features/quiz/presentation/quiz_tab_home.dart';
+import 'package:pantas/features/quiz/presentation/today_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

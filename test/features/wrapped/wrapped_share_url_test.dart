@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_share_url.dart';
+import 'package:pantas/features/wrapped/domain/wrapped_share_url.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

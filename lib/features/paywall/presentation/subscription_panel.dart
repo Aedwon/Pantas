@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
-import 'package:cse_cet_reviewer/core/ui/components/ruled_section.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/paywall/domain/entitlement.dart';
-import 'package:cse_cet_reviewer/features/paywall/domain/trial_notice.dart';
+import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/ruled_section.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/paywall/domain/entitlement.dart';
+import 'package:pantas/features/paywall/domain/trial_notice.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

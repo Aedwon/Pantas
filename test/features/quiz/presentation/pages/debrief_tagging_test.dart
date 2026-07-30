@@ -1,14 +1,14 @@
-import 'package:cse_cet_reviewer/core/fsrs/rating.dart';
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/debrief/session_debrief.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
-import 'package:cse_cet_reviewer/features/quiz/presentation/debrief_providers.dart';
-import 'package:cse_cet_reviewer/features/quiz/presentation/pages/debrief_page.dart';
+import 'package:pantas/core/fsrs/rating.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/repos/attempts_repository.dart';
+import 'package:pantas/core/storage/domain/attempt.dart';
+import 'package:pantas/core/storage/domain/choice.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/quiz/domain/debrief/session_debrief.dart';
+import 'package:pantas/features/quiz/domain/quiz_session.dart';
+import 'package:pantas/features/quiz/presentation/debrief_providers.dart';
+import 'package:pantas/features/quiz/presentation/pages/debrief_page.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../helpers/in_memory_database.dart';

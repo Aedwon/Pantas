@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/core/sync/engine/pending_queue.dart';
-import 'package:cse_cet_reviewer/core/sync/firestore/firestore_gateway.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/sync/engine/pending_queue.dart';
+import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
 
 class PushPipeline {
   PushPipeline({

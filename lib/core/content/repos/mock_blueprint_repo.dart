@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:cse_cet_reviewer/core/content/content_database.dart';
-import 'package:cse_cet_reviewer/core/content/domain/mock_blueprint.dart';
+import 'package:pantas/core/content/content_database.dart';
+import 'package:pantas/core/content/domain/mock_blueprint.dart';
 import 'package:drift/drift.dart';
 
 class MockBlueprintRepo {

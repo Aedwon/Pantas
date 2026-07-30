@@ -1,12 +1,12 @@
-import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
-import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
-import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/features/paywall/application/paywall_providers.dart';
-import 'package:cse_cet_reviewer/features/settings/data/settings_repository.dart';
-import 'package:cse_cet_reviewer/features/settings/domain/session_ordering.dart';
-import 'package:cse_cet_reviewer/features/settings/domain/theme_preference.dart';
-import 'package:cse_cet_reviewer/features/settings/domain/user_settings.dart';
+import 'package:pantas/core/notifications/notification_service.dart';
+import 'package:pantas/core/storage/domain/exam_date.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/settings/data/settings_repository.dart';
+import 'package:pantas/features/settings/domain/session_ordering.dart';
+import 'package:pantas/features/settings/domain/theme_preference.dart';
+import 'package:pantas/features/settings/domain/user_settings.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 enum ReminderSaveResult { scheduled }

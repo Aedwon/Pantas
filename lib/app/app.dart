@@ -1,10 +1,10 @@
-import 'package:cse_cet_reviewer/app/flavor.dart';
-import 'package:cse_cet_reviewer/app/router.dart';
-import 'package:cse_cet_reviewer/app/theme.dart';
-import 'package:cse_cet_reviewer/features/notifications/application/notifications_providers.dart';
-import 'package:cse_cet_reviewer/features/notifications/presentation/notification_tap_router.dart';
-import 'package:cse_cet_reviewer/features/settings/settings.dart';
-import 'package:cse_cet_reviewer/l10n/app_localizations.dart';
+import 'package:pantas/app/flavor.dart';
+import 'package:pantas/app/router.dart';
+import 'package:pantas/app/theme.dart';
+import 'package:pantas/features/notifications/application/notifications_providers.dart';
+import 'package:pantas/features/notifications/presentation/notification_tap_router.dart';
+import 'package:pantas/features/settings/settings.dart';
+import 'package:pantas/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

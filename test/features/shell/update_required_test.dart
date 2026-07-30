@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/core/platform/remote_flags.dart';
-import 'package:cse_cet_reviewer/core/platform/remote_flags_providers.dart';
-import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/shell/presentation/update_required_page.dart';
+import 'package:pantas/core/platform/remote_flags.dart';
+import 'package:pantas/core/platform/remote_flags_providers.dart';
+import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/shell/presentation/update_required_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';

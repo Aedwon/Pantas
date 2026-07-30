@@ -1,9 +1,9 @@
 import 'dart:typed_data';
 
-import 'package:cse_cet_reviewer/features/wrapped/data/user_metrics_artifact_repository.dart';
-import 'package:cse_cet_reviewer/features/wrapped/domain/share_id_generator.dart';
-import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_share_host.dart';
-import 'package:cse_cet_reviewer/features/wrapped/rendering/wrapped_png_renderer.dart';
+import 'package:pantas/features/wrapped/data/user_metrics_artifact_repository.dart';
+import 'package:pantas/features/wrapped/domain/share_id_generator.dart';
+import 'package:pantas/features/wrapped/domain/wrapped_share_host.dart';
+import 'package:pantas/features/wrapped/rendering/wrapped_png_renderer.dart';
 
 class WrappedShareResult {
   const WrappedShareResult({required this.pngBytes, required this.shareId});

@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/paywall/application/paywall_controller.dart';
-import 'package:cse_cet_reviewer/features/paywall/domain/entitlement.dart';
-import 'package:cse_cet_reviewer/features/paywall/domain/paywall_package.dart';
-import 'package:cse_cet_reviewer/features/paywall/presentation/paywall_page.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/paywall/application/paywall_controller.dart';
+import 'package:pantas/features/paywall/domain/entitlement.dart';
+import 'package:pantas/features/paywall/domain/paywall_package.dart';
+import 'package:pantas/features/paywall/presentation/paywall_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';

@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/fsrs/rating.dart';
+import 'package:pantas/core/fsrs/rating.dart';
 
 abstract final class FsrsRatingHeuristic {
   static const int slowThresholdMs = 25000;

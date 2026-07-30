@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/domain/question.dart';
 
 abstract final class RecencyFilter {
   static List<Question> noConsecutiveSameTopic(List<Question> questions) {

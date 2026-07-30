@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/ui/components/empty_state.dart';
+import 'package:pantas/core/ui/components/empty_state.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/pump_app.dart';

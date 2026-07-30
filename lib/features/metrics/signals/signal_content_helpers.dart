@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/content/content.dart';
+import 'package:pantas/core/content/content.dart';
 import 'package:drift/drift.dart';
 
 /// The corpus lookups the signals need, against the content database.

@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/auth/auth.dart';
+import 'package:pantas/core/auth/auth.dart';
 
 // ignore: one_member_abstracts
 abstract interface class CrashReportingSink {

@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:cse_cet_reviewer/core/telemetry/telemetry.dart';
-import 'package:cse_cet_reviewer/features/paywall/data/revenuecat_gateway.dart';
-import 'package:cse_cet_reviewer/features/paywall/domain/entitlement.dart';
-import 'package:cse_cet_reviewer/features/paywall/domain/paywall_package.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
+import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
+import 'package:pantas/features/paywall/domain/entitlement.dart';
+import 'package:pantas/features/paywall/domain/paywall_package.dart';
 
 class PaywallController {
   PaywallController(

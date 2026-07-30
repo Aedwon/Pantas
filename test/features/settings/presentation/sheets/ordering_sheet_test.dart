@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/features/settings/domain/session_ordering.dart';
-import 'package:cse_cet_reviewer/features/settings/presentation/sheets/ordering_sheet.dart';
+import 'package:pantas/features/settings/domain/session_ordering.dart';
+import 'package:pantas/features/settings/presentation/sheets/ordering_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

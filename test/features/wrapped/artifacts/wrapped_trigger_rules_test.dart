@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/features/wrapped/artifacts/mastery_crossing_artifact.dart';
-import 'package:cse_cet_reviewer/features/wrapped/artifacts/post_exam_debrief_artifact.dart';
-import 'package:cse_cet_reviewer/features/wrapped/artifacts/post_mock_recap_artifact.dart';
-import 'package:cse_cet_reviewer/features/wrapped/artifacts/streak_milestone_artifact.dart';
+import 'package:pantas/features/wrapped/artifacts/mastery_crossing_artifact.dart';
+import 'package:pantas/features/wrapped/artifacts/post_exam_debrief_artifact.dart';
+import 'package:pantas/features/wrapped/artifacts/post_mock_recap_artifact.dart';
+import 'package:pantas/features/wrapped/artifacts/streak_milestone_artifact.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

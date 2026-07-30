@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
 
 class QuitSession {
   const QuitSession(this._sessions);

@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/ui/components/pennant_mark.dart';
-import 'package:cse_cet_reviewer/core/ui/components/question_grid_sheet.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/components/pennant_mark.dart';
+import 'package:pantas/core/ui/components/question_grid_sheet.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

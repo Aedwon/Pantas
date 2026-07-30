@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/core/auth/providers.dart';
-import 'package:cse_cet_reviewer/core/sync/providers.dart';
-import 'package:cse_cet_reviewer/core/sync/sync_status.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/settings/presentation/pages/backup_page.dart';
+import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/sync/providers.dart';
+import 'package:pantas/core/sync/sync_status.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/settings/presentation/pages/backup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';

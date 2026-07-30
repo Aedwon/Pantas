@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/features/lesson/domain/models/bookmark_order.dart';
+import 'package:pantas/features/lesson/domain/models/bookmark_order.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

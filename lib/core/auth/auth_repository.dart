@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/auth/auth_state.dart';
-import 'package:cse_cet_reviewer/core/auth/sign_in_result.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/sign_in_result.dart';
 
 typedef Clock = DateTime Function();
 

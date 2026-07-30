@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/paywall/paywall.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';

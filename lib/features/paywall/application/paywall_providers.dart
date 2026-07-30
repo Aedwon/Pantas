@@ -1,11 +1,11 @@
-import 'package:cse_cet_reviewer/app/telemetry_providers.dart';
-import 'package:cse_cet_reviewer/core/dev/dev_pro_switch.dart';
-import 'package:cse_cet_reviewer/features/paywall/application/paywall_controller.dart';
-import 'package:cse_cet_reviewer/features/paywall/data/live_revenuecat_gateway.dart';
-import 'package:cse_cet_reviewer/features/paywall/data/revenuecat_config.dart';
-import 'package:cse_cet_reviewer/features/paywall/data/revenuecat_gateway.dart';
-import 'package:cse_cet_reviewer/features/paywall/domain/entitlement.dart';
-import 'package:cse_cet_reviewer/features/paywall/domain/paywall_recommendation.dart';
+import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/dev/dev_pro_switch.dart';
+import 'package:pantas/features/paywall/application/paywall_controller.dart';
+import 'package:pantas/features/paywall/data/live_revenuecat_gateway.dart';
+import 'package:pantas/features/paywall/data/revenuecat_config.dart';
+import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
+import 'package:pantas/features/paywall/domain/entitlement.dart';
+import 'package:pantas/features/paywall/domain/paywall_recommendation.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

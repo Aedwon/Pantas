@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/content/domain/mock_blueprint.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/mock_exam.dart';
+import 'package:pantas/core/content/domain/mock_blueprint.dart';
+import 'package:pantas/core/storage/domain/choice.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/features/mock_exam/mock_exam.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

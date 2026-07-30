@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/paywall/presentation/pro_specimen_panel.dart';
+import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/paywall/presentation/pro_specimen_panel.dart';
 import 'package:flutter/material.dart';
 
 /// Screen 1 of three. Makes the want. Shown to everyone.

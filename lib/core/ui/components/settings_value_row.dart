@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 /// One row of the Settings ledger: a title, then a right-aligned value or a

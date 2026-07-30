@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_payload.dart';
-import 'package:cse_cet_reviewer/features/wrapped/rendering/wrapped_share_card.dart';
+import 'package:pantas/features/wrapped/domain/wrapped_payload.dart';
+import 'package:pantas/features/wrapped/rendering/wrapped_share_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

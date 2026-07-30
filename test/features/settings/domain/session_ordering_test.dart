@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/features/settings/domain/session_ordering.dart';
+import 'package:pantas/features/settings/domain/session_ordering.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

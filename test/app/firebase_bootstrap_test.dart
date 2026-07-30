@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/app/firebase_bootstrap.dart';
-import 'package:cse_cet_reviewer/app/flavor.dart';
+import 'package:pantas/app/firebase_bootstrap.dart';
+import 'package:pantas/app/flavor.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
+import 'package:pantas/core/storage/domain/choice.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/features/quiz/domain/models/session_origin.dart';
+import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

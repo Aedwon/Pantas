@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
+import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
-import 'package:cse_cet_reviewer/features/assessment/domain/models/topic_mastery.dart';
+import 'package:pantas/core/storage/domain/topic.dart';
+import 'package:pantas/features/assessment/domain/models/topic_mastery.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 Topic _topic() => const Topic(

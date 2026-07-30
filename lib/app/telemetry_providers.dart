@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/core/auth/providers.dart';
-import 'package:cse_cet_reviewer/core/telemetry/crash_reporting.dart';
-import 'package:cse_cet_reviewer/core/telemetry/gated_telemetry.dart';
-import 'package:cse_cet_reviewer/core/telemetry/telemetry.dart';
-import 'package:cse_cet_reviewer/features/settings/application/settings_providers.dart';
+import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/telemetry/crash_reporting.dart';
+import 'package:pantas/core/telemetry/gated_telemetry.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// The app's telemetry, gated on the student's answer.

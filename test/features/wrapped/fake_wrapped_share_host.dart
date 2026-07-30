@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_share_host.dart';
+import 'package:pantas/features/wrapped/domain/wrapped_share_host.dart';
 
 class PublishedCardRecord {
   PublishedCardRecord({

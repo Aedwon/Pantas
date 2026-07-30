@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/content/sanity/parsers/question_parser.dart';
+import 'package:pantas/core/content/sanity/parsers/question_parser.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:yaml/yaml.dart';
 // Path import: the tool is not part of lib/, so import by relative file path.

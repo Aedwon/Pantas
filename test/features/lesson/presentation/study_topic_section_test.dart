@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/features/lesson/application/study_map_providers.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/use_cases/build_study_map.dart';
-import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/study_topic_section.dart';
+import 'package:pantas/features/lesson/application/study_map_providers.dart';
+import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
+import 'package:pantas/features/lesson/presentation/widgets/study_topic_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';

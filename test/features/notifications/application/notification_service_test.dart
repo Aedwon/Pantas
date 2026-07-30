@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/features/notifications/application/notification_service.dart';
-import 'package:cse_cet_reviewer/features/notifications/data/notifications_gateway.dart';
-import 'package:cse_cet_reviewer/features/notifications/notifications.dart';
+import 'package:pantas/features/notifications/application/notification_service.dart';
+import 'package:pantas/features/notifications/data/notifications_gateway.dart';
+import 'package:pantas/features/notifications/notifications.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

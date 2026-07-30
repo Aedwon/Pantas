@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:drift/drift.dart';
 
 class NewCardIntroRepository {

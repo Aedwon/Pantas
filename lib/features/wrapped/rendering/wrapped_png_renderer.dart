@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
-import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_payload.dart';
-import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_share_url.dart';
+import 'package:pantas/features/wrapped/domain/wrapped_payload.dart';
+import 'package:pantas/features/wrapped/domain/wrapped_share_url.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 

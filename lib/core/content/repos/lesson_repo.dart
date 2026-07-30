@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:cse_cet_reviewer/core/content/content_database.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/lesson.dart';
+import 'package:pantas/core/content/content_database.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/lesson.dart';
 import 'package:drift/drift.dart';
 
 class LessonRepo {

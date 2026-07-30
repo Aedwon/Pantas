@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/fsrs/rating.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/review_state.dart';
+import 'package:pantas/core/fsrs/rating.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/review_state.dart';
 import 'package:meta/meta.dart';
 
 @immutable

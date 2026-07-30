@@ -1,16 +1,16 @@
 import 'dart:convert';
 
-import 'package:cse_cet_reviewer/core/content/content.dart';
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/choice_order.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/exam.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/lesson.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/passage.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/subject.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
+import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/domain/choice.dart';
+import 'package:pantas/core/storage/domain/choice_order.dart';
+import 'package:pantas/core/storage/domain/exam.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/lesson.dart';
+import 'package:pantas/core/storage/domain/passage.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/domain/subject.dart';
+import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:drift/drift.dart';
 
 class ContentRepository {

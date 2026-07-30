@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/ui/components/bookmark_ribbon.dart';
-import 'package:cse_cet_reviewer/core/ui/components/contents_glyph.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/components/bookmark_ribbon.dart';
+import 'package:pantas/core/ui/components/contents_glyph.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

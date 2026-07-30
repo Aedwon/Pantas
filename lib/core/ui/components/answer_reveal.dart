@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/core/ui/components/portable_text_renderer.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/storage/domain/choice.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/ui/components/portable_text_renderer.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 /// What appears under the choices the moment a student commits.

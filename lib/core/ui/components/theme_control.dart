@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/theme_preference.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/theme_preference.dart';
 import 'package:flutter/material.dart';
 
 /// The theme switch, which is the settings switch at three positions: a

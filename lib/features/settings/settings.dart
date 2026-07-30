@@ -1,7 +1,7 @@
 // ExamDate moved to core so the paywall and the study plan can read it
 // without a cross-feature import. Re-exported here so settings consumers
 // keep one import.
-export 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
+export 'package:pantas/core/storage/domain/exam_date.dart';
 export 'application/settings_providers.dart';
 export 'application/theme_mode_mapping.dart';
 export 'data/settings_repository.dart';

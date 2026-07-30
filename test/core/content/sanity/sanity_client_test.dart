@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:cse_cet_reviewer/core/content/sanity/sanity_client.dart';
-import 'package:cse_cet_reviewer/core/content/sanity/sanity_config.dart';
+import 'package:pantas/core/content/sanity/sanity_client.dart';
+import 'package:pantas/core/content/sanity/sanity_config.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 

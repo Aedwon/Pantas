@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/domain/question.dart';
 
 /// Fills requested slots, taking passage sets whole or not at all.
 ///

@@ -1,5 +1,5 @@
 // ignore_for_file: sort_unnamed_constructors_first
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'attempt.freezed.dart';

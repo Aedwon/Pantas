@@ -1,10 +1,10 @@
-import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
-import 'package:cse_cet_reviewer/features/metrics/domain/metrics_window.dart';
-import 'package:cse_cet_reviewer/features/metrics/domain/signal_key.dart';
-import 'package:cse_cet_reviewer/features/metrics/domain/signal_outputs.dart';
-import 'package:cse_cet_reviewer/features/metrics/providers/current_archetype_provider.dart';
-import 'package:cse_cet_reviewer/features/metrics/providers/metrics_signal_providers.dart';
-import 'package:cse_cet_reviewer/features/settings/application/settings_providers.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/features/metrics/domain/metrics_window.dart';
+import 'package:pantas/features/metrics/domain/signal_key.dart';
+import 'package:pantas/features/metrics/domain/signal_outputs.dart';
+import 'package:pantas/features/metrics/providers/current_archetype_provider.dart';
+import 'package:pantas/features/metrics/providers/metrics_signal_providers.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

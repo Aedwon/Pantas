@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/features/metrics/domain/metrics_thresholds.dart';
-import 'package:cse_cet_reviewer/features/metrics/domain/metrics_window.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/features/metrics/domain/metrics_thresholds.dart';
+import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:drift/drift.dart';
 
 class MetricsWindowResolver {

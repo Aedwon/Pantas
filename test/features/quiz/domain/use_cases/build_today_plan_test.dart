@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_ordering.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_preferences.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/build_today_plan.dart';
+import 'package:pantas/core/storage/domain/choice.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/features/quiz/domain/models/quiz_ordering.dart';
+import 'package:pantas/features/quiz/domain/models/quiz_preferences.dart';
+import 'package:pantas/features/quiz/domain/use_cases/build_today_plan.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 Question question(String id, {String topicId = 'topic_algebra'}) => Question(

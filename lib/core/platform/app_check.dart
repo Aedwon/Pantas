@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/app/flavor.dart';
+import 'package:pantas/app/flavor.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:flutter/foundation.dart';
 

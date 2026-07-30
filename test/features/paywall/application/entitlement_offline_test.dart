@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:cse_cet_reviewer/features/paywall/application/paywall_providers.dart';
-import 'package:cse_cet_reviewer/features/paywall/data/revenuecat_gateway.dart';
-import 'package:cse_cet_reviewer/features/paywall/domain/entitlement.dart';
-import 'package:cse_cet_reviewer/features/paywall/domain/paywall_package.dart';
+import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
+import 'package:pantas/features/paywall/domain/entitlement.dart';
+import 'package:pantas/features/paywall/domain/paywall_package.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 

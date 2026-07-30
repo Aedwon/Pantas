@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/ui/components/ruled_panel.dart';
-import 'package:cse_cet_reviewer/core/ui/components/stats_band.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/progress/application/pace_provider.dart';
+import 'package:pantas/core/ui/components/ruled_panel.dart';
+import 'package:pantas/core/ui/components/stats_band.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/progress/application/pace_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

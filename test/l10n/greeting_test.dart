@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/l10n/app_localizations.dart';
+import 'package:pantas/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

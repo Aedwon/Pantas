@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/features/mock_exam/mock_exam.dart';
+import 'package:pantas/features/mock_exam/mock_exam.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 // ignore_for_file: cascade_invocations, unnecessary_lambdas

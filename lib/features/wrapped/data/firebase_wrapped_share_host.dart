@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_share_host.dart';
+import 'package:pantas/features/wrapped/domain/wrapped_share_host.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 /// Firebase-backed [WrappedShareHost]: Cloud Storage for the PNG, Firestore

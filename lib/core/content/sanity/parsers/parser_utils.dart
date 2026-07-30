@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/content/sanity/parser_exceptions.dart';
+import 'package:pantas/core/content/sanity/parser_exceptions.dart';
 
 int requireSchemaVersion(Map<String, Object?> doc, String doctype) {
   final got = doc['schemaVersion'] as int? ?? -1;

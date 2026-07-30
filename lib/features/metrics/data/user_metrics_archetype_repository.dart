@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:drift/drift.dart';
 
 class UserMetricsArchetypeCacheEntry {

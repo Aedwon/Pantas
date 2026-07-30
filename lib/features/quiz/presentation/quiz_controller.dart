@@ -1,19 +1,19 @@
-import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/features/quiz/application/quiz_providers.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/practice_selection.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/build_today_plan.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_drill.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_inline_lesson_quiz.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_practice.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_retake.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_today_session.dart';
+import 'package:pantas/core/storage/domain/attempt.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/features/quiz/application/quiz_providers.dart';
+import 'package:pantas/features/quiz/domain/picker/practice_selection.dart';
+import 'package:pantas/features/quiz/domain/quiz_session.dart';
+import 'package:pantas/features/quiz/domain/use_cases/build_today_plan.dart';
+import 'package:pantas/features/quiz/domain/use_cases/start_drill.dart';
+import 'package:pantas/features/quiz/domain/use_cases/start_inline_lesson_quiz.dart';
+import 'package:pantas/features/quiz/domain/use_cases/start_practice.dart';
+import 'package:pantas/features/quiz/domain/use_cases/start_retake.dart';
+import 'package:pantas/features/quiz/domain/use_cases/start_today_session.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Re-exported so the thirteen files that reach for the quiz's wiring through
 // the controller keep working; the wiring itself now lives in application/.
-export 'package:cse_cet_reviewer/features/quiz/application/quiz_providers.dart';
+export 'package:pantas/features/quiz/application/quiz_providers.dart';
 
 sealed class QuizControllerState {
   const QuizControllerState();

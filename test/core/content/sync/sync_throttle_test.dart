@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/content/sync/sync_status.dart';
-import 'package:cse_cet_reviewer/core/content/sync/sync_throttle.dart';
+import 'package:pantas/core/content/sync/sync_status.dart';
+import 'package:pantas/core/content/sync/sync_throttle.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

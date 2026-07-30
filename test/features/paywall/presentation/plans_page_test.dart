@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/paywall/domain/paywall_package.dart';
-import 'package:cse_cet_reviewer/features/paywall/presentation/plans_page.dart';
+import 'package:pantas/core/storage/domain/exam_date.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/paywall/domain/paywall_package.dart';
+import 'package:pantas/features/paywall/presentation/plans_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

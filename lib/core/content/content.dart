@@ -1,14 +1,14 @@
-import 'package:cse_cet_reviewer/core/content/content_database.dart';
-import 'package:cse_cet_reviewer/core/content/content_database_opener.dart';
-import 'package:cse_cet_reviewer/core/content/repos/diagnostic_set_repo.dart';
-import 'package:cse_cet_reviewer/core/content/repos/exam_repo.dart';
-import 'package:cse_cet_reviewer/core/content/repos/lesson_repo.dart';
-import 'package:cse_cet_reviewer/core/content/repos/mock_blueprint_repo.dart';
-import 'package:cse_cet_reviewer/core/content/repos/mock_exam_repo.dart';
-import 'package:cse_cet_reviewer/core/content/repos/question_repo.dart';
-import 'package:cse_cet_reviewer/core/content/repos/subject_repo.dart';
-import 'package:cse_cet_reviewer/core/content/repos/topic_repo.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/exam.dart';
+import 'package:pantas/core/content/content_database.dart';
+import 'package:pantas/core/content/content_database_opener.dart';
+import 'package:pantas/core/content/repos/diagnostic_set_repo.dart';
+import 'package:pantas/core/content/repos/exam_repo.dart';
+import 'package:pantas/core/content/repos/lesson_repo.dart';
+import 'package:pantas/core/content/repos/mock_blueprint_repo.dart';
+import 'package:pantas/core/content/repos/mock_exam_repo.dart';
+import 'package:pantas/core/content/repos/question_repo.dart';
+import 'package:pantas/core/content/repos/subject_repo.dart';
+import 'package:pantas/core/content/repos/topic_repo.dart';
+import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 export 'content_database.dart';

@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:cse_cet_reviewer/features/notifications/data/notifications_gateway.dart';
-import 'package:cse_cet_reviewer/features/notifications/presentation/notification_tap_handler.dart';
+import 'package:pantas/features/notifications/data/notifications_gateway.dart';
+import 'package:pantas/features/notifications/presentation/notification_tap_handler.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 

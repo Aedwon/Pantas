@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/features/wrapped/application/wrapped_composer.dart';
-import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_trigger_event.dart';
+import 'package:pantas/features/wrapped/application/wrapped_composer.dart';
+import 'package:pantas/features/wrapped/domain/wrapped_trigger_event.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_trigger_event.dart';
+import 'package:pantas/features/wrapped/domain/wrapped_trigger_event.dart';
 
 class WrappedBatcher {
   const WrappedBatcher();

@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:cse_cet_reviewer/app/router.dart';
-import 'package:cse_cet_reviewer/features/legal/legal.dart';
-import 'package:cse_cet_reviewer/features/settings/presentation/pages/delete_account_page.dart';
-import 'package:cse_cet_reviewer/features/settings/settings.dart';
+import 'package:pantas/app/router.dart';
+import 'package:pantas/features/legal/legal.dart';
+import 'package:pantas/features/settings/presentation/pages/delete_account_page.dart';
+import 'package:pantas/features/settings/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

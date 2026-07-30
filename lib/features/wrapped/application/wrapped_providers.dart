@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/features/wrapped/data/firebase_wrapped_share_host.dart';
-import 'package:cse_cet_reviewer/features/wrapped/data/user_metrics_artifact_repository.dart';
-import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_share_host.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/wrapped/data/firebase_wrapped_share_host.dart';
+import 'package:pantas/features/wrapped/data/user_metrics_artifact_repository.dart';
+import 'package:pantas/features/wrapped/domain/wrapped_share_host.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final userMetricsArtifactRepositoryProvider =

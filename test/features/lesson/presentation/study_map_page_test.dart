@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:cse_cet_reviewer/core/ui/components/empty_state.dart';
-import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
-import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
-import 'package:cse_cet_reviewer/features/lesson/application/study_map_providers.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/use_cases/build_study_map.dart';
-import 'package:cse_cet_reviewer/features/lesson/presentation/learn_tab_home.dart';
+import 'package:pantas/core/ui/components/empty_state.dart';
+import 'package:pantas/core/ui/components/error_banner.dart';
+import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/features/lesson/application/study_map_providers.dart';
+import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
+import 'package:pantas/features/lesson/presentation/learn_tab_home.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/pump_app.dart';

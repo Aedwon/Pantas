@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/features/notifications/notifications.dart';
+import 'package:pantas/features/notifications/notifications.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

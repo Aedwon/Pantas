@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/features/metrics/archetypes/archetype.dart';
-import 'package:cse_cet_reviewer/features/metrics/domain/signal_key.dart';
-import 'package:cse_cet_reviewer/features/metrics/domain/signal_outputs.dart';
+import 'package:pantas/features/metrics/archetypes/archetype.dart';
+import 'package:pantas/features/metrics/domain/signal_key.dart';
+import 'package:pantas/features/metrics/domain/signal_outputs.dart';
 
 class ArchetypeTemplates {
   const ArchetypeTemplates();

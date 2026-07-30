@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/storage/domain/lesson.dart';
-import 'package:cse_cet_reviewer/features/lesson/application/reader_providers.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/models/study_map.dart';
-import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/lesson_contents_sheet.dart';
+import 'package:pantas/core/storage/domain/lesson.dart';
+import 'package:pantas/features/lesson/application/reader_providers.dart';
+import 'package:pantas/features/lesson/domain/models/study_map.dart';
+import 'package:pantas/features/lesson/presentation/widgets/lesson_contents_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

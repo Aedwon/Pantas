@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:cse_cet_reviewer/core/content/content_database.dart';
-import 'package:cse_cet_reviewer/core/content/repos/mock_blueprint_repo.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/application/mock_session_controller.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/data/blueprint_section.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/data/mock_sampler.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_session_state.dart';
+import 'package:pantas/core/content/content_database.dart';
+import 'package:pantas/core/content/repos/mock_blueprint_repo.dart';
+import 'package:pantas/features/mock_exam/application/mock_session_controller.dart';
+import 'package:pantas/features/mock_exam/data/blueprint_section.dart';
+import 'package:pantas/features/mock_exam/data/mock_sampler.dart';
+import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 

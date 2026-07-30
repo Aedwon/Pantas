@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
-import 'package:cse_cet_reviewer/features/assessment/domain/models/assessment_session.dart';
-import 'package:cse_cet_reviewer/features/assessment/domain/services/assessment_question_selector.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/topic.dart';
+import 'package:pantas/features/assessment/domain/models/assessment_session.dart';
+import 'package:pantas/features/assessment/domain/services/assessment_question_selector.dart';
 
 class StartAssessment {
   StartAssessment(this._selector);

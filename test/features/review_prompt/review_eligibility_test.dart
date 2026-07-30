@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/features/review_prompt/domain/review_eligibility.dart';
+import 'package:pantas/features/review_prompt/domain/review_eligibility.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

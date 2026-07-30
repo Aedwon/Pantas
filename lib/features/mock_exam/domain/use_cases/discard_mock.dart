@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/features/mock_exam/data/mock_attempt_repo.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_attempt.dart';
+import 'package:pantas/features/mock_exam/data/mock_attempt_repo.dart';
+import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
 
 class DiscardMock {
   const DiscardMock({required MockAttemptRepo repo}) : _repo = repo;

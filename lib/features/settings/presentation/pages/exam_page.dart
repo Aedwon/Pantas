@@ -1,14 +1,14 @@
 import 'dart:async';
 
-import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/core/ui/components/page_scaffold.dart';
-import 'package:cse_cet_reviewer/core/ui/components/settings_bar.dart';
-import 'package:cse_cet_reviewer/core/ui/components/settings_group.dart';
-import 'package:cse_cet_reviewer/core/ui/components/settings_switch.dart';
-import 'package:cse_cet_reviewer/core/ui/components/settings_value_row.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/settings/application/settings_providers.dart';
-import 'package:cse_cet_reviewer/features/settings/domain/user_settings.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/page_scaffold.dart';
+import 'package:pantas/core/ui/components/settings_bar.dart';
+import 'package:pantas/core/ui/components/settings_group.dart';
+import 'package:pantas/core/ui/components/settings_switch.dart';
+import 'package:pantas/core/ui/components/settings_value_row.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
+import 'package:pantas/features/settings/domain/user_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';

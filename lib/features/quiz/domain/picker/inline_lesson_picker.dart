@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/drill_picker.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/pick_context.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/question_picker.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/features/quiz/domain/picker/drill_picker.dart';
+import 'package:pantas/features/quiz/domain/picker/pick_context.dart';
+import 'package:pantas/features/quiz/domain/picker/question_picker.dart';
 
 class InlineLessonPicker implements QuestionPicker {
   @override

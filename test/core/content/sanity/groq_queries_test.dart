@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/content/sanity/groq_queries.dart';
+import 'package:pantas/core/content/sanity/groq_queries.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

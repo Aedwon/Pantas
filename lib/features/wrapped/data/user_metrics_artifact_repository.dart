@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_payload.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/features/wrapped/domain/wrapped_payload.dart';
 import 'package:drift/drift.dart';
 
 class UserMetricsArtifactEntry {

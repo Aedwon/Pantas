@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
-import 'package:cse_cet_reviewer/core/ui/components/ink_sheet.dart';
-import 'package:cse_cet_reviewer/core/ui/components/ink_wheel.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/settings/domain/user_settings.dart';
+import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/ink_sheet.dart';
+import 'package:pantas/core/ui/components/ink_wheel.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/settings/domain/user_settings.dart';
 import 'package:flutter/material.dart';
 
 const List<int> _hours12 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];

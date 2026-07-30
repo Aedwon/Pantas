@@ -1,11 +1,11 @@
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/features/lesson/application/study_map_providers.dart';
-import 'package:cse_cet_reviewer/features/lesson/data/repos/bookmark_prefs_repository.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/models/bookmark_order.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/lesson/application/study_map_providers.dart';
+import 'package:pantas/features/lesson/data/repos/bookmark_prefs_repository.dart';
+import 'package:pantas/features/lesson/domain/models/bookmark_order.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-export 'package:cse_cet_reviewer/features/lesson/domain/models/bookmark_order.dart';
+export 'package:pantas/features/lesson/domain/models/bookmark_order.dart';
 
 /// What one bookmark row prints. Everything on it comes from the map the
 /// screen behind is already holding, so a row costs no query of its own.

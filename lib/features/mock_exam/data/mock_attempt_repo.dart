@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_attempt.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_results.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
+import 'package:pantas/features/mock_exam/domain/mock_results.dart';
 import 'package:drift/drift.dart';
 
 class MockAttemptRepo {

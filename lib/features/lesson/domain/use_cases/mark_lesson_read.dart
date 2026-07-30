@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/storage/data/repos/lesson_progress_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/data/repos/lesson_progress_repository.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
 
 class MarkLessonRead {
   MarkLessonRead(this._progress);

@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/app/app.dart';
-import 'package:cse_cet_reviewer/app/flavor.dart';
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/features/settings/settings.dart';
+import 'package:pantas/app/app.dart';
+import 'package:pantas/app/flavor.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/settings/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';

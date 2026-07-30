@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/fsrs/default_weights.dart';
+import 'package:pantas/core/fsrs/default_weights.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

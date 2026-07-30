@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:cse_cet_reviewer/features/wrapped/domain/share_id_generator.dart';
+import 'package:pantas/features/wrapped/domain/share_id_generator.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

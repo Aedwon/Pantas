@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/question.dart';
 
 /// One question offered to the weakness reading, carrying **its topic's**
 /// recent record rather than its own.

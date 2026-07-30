@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/telemetry/telemetry.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_results.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_session_state.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
+import 'package:pantas/features/mock_exam/domain/mock_results.dart';
+import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 
 /// One timed part of the paper.
 ///

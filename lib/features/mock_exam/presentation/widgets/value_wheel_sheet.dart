@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:cse_cet_reviewer/core/ui/components/ink_sheet.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/corpus_ceiling.dart';
+import 'package:pantas/core/ui/components/ink_sheet.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/mock_exam/domain/corpus_ceiling.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

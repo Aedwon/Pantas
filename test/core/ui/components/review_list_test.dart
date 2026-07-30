@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/core/ui/components/answer_reveal.dart';
-import 'package:cse_cet_reviewer/core/ui/components/pennant_mark.dart';
-import 'package:cse_cet_reviewer/core/ui/components/review_list.dart';
+import 'package:pantas/core/storage/domain/choice.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/ui/components/answer_reveal.dart';
+import 'package:pantas/core/ui/components/pennant_mark.dart';
+import 'package:pantas/core/ui/components/review_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

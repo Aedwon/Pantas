@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
 
 enum TopicQueueStatus { ready, caughtUp }
 

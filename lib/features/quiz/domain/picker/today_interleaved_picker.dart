@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/pick_context.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/question_picker.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/today_topic_picker.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/selectors/recency_filter.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/features/quiz/domain/picker/pick_context.dart';
+import 'package:pantas/features/quiz/domain/picker/question_picker.dart';
+import 'package:pantas/features/quiz/domain/picker/today_topic_picker.dart';
+import 'package:pantas/features/quiz/domain/selectors/recency_filter.dart';
 
 class TodayInterleavedPicker implements QuestionPicker {
   @override

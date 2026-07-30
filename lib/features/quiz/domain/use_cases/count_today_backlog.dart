@@ -1,10 +1,10 @@
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question_outcome.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/review_state.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/selectors/fsrs_due_selector.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/selectors/new_card_selector.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/selectors/weakness_selector.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/domain/question_outcome.dart';
+import 'package:pantas/core/storage/domain/review_state.dart';
+import 'package:pantas/features/quiz/domain/selectors/fsrs_due_selector.dart';
+import 'package:pantas/features/quiz/domain/selectors/new_card_selector.dart';
+import 'package:pantas/features/quiz/domain/selectors/weakness_selector.dart';
 
 /// One topic's questions split three ways. The lists never overlap.
 class TopicBacklog {

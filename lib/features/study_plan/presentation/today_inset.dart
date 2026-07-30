@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
-import 'package:cse_cet_reviewer/core/ui/components/ruled_section.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/study_plan/domain/compute_plan_view.dart';
+import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/ruled_section.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/study_plan/domain/compute_plan_view.dart';
 import 'package:flutter/material.dart';
 
 class TodayInset extends StatelessWidget {

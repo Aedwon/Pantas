@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/app/telemetry_providers.dart';
-import 'package:cse_cet_reviewer/core/telemetry/telemetry.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/shell/presentation/app_shell.dart';
+import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/shell/presentation/app_shell.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';

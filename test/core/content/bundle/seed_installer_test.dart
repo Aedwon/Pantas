@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:cse_cet_reviewer/core/content/bundle/seed_installer.dart';
+import 'package:pantas/core/content/bundle/seed_installer.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:path/path.dart' as p;
 

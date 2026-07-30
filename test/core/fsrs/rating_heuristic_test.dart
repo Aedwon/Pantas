@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/fsrs/rating.dart';
-import 'package:cse_cet_reviewer/core/fsrs/rating_heuristic.dart';
+import 'package:pantas/core/fsrs/rating.dart';
+import 'package:pantas/core/fsrs/rating_heuristic.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

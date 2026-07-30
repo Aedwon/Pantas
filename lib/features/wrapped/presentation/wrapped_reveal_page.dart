@@ -1,12 +1,12 @@
-import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
-import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
-import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/wrapped/application/wrapped_providers.dart';
-import 'package:cse_cet_reviewer/features/wrapped/application/wrapped_share_flow.dart';
-import 'package:cse_cet_reviewer/features/wrapped/data/user_metrics_artifact_repository.dart';
-import 'package:cse_cet_reviewer/features/wrapped/presentation/my_shared_cards_page.dart';
-import 'package:cse_cet_reviewer/features/wrapped/presentation/share_privacy_sheet.dart';
+import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/core/ui/components/ink_table_row.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/wrapped/application/wrapped_providers.dart';
+import 'package:pantas/features/wrapped/application/wrapped_share_flow.dart';
+import 'package:pantas/features/wrapped/data/user_metrics_artifact_repository.dart';
+import 'package:pantas/features/wrapped/presentation/my_shared_cards_page.dart';
+import 'package:pantas/features/wrapped/presentation/share_privacy_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

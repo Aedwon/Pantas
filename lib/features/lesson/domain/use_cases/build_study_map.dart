@@ -1,11 +1,11 @@
-import 'package:cse_cet_reviewer/core/storage/domain/exam.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/lesson.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/subject.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/models/study_map.dart';
+import 'package:pantas/core/storage/domain/exam.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/lesson.dart';
+import 'package:pantas/core/storage/domain/subject.dart';
+import 'package:pantas/core/storage/domain/topic.dart';
+import 'package:pantas/features/lesson/domain/models/study_map.dart';
 
-export 'package:cse_cet_reviewer/features/lesson/domain/models/study_map.dart';
+export 'package:pantas/features/lesson/domain/models/study_map.dart';
 
 /// Turns the exam's tree and the read set into everything the map draws.
 ///

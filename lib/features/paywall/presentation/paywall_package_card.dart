@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/paywall/domain/paywall_package.dart';
+import 'package:pantas/core/ui/theme/app_dimensions.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/paywall/domain/paywall_package.dart';
 import 'package:flutter/material.dart';
 
 class PaywallPackageCard extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/features/notifications/domain/notification_payload.dart';
+import 'package:pantas/features/notifications/domain/notification_payload.dart';
 
 class NotificationTapHandler {
   const NotificationTapHandler({

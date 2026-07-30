@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/ui/components/ruled_section.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/components/ruled_section.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class ProWelcomeBanner extends StatelessWidget {

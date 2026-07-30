@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/auth/auth_repository.dart';
-import 'package:cse_cet_reviewer/core/sync/firestore/firestore_gateway.dart';
+import 'package:pantas/core/auth/auth_repository.dart';
+import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
 
 class SyncCloudProgressGateway implements CloudProgressGateway {
   SyncCloudProgressGateway(this._gateway);

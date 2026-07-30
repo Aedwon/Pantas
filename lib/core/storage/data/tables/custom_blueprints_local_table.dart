@@ -1,5 +1,5 @@
 // coverage:ignore-file
-import 'package:cse_cet_reviewer/core/storage/data/tables/exams_table.dart';
+import 'package:pantas/core/storage/data/tables/exams_table.dart';
 import 'package:drift/drift.dart';
 
 /// The paper a student described for their own track.

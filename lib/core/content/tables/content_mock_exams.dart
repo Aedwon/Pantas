@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/content/tables/content_mock_blueprints.dart';
+import 'package:pantas/core/content/tables/content_mock_blueprints.dart';
 import 'package:drift/drift.dart';
 
 @DataClassName('ContentMockExamRow')

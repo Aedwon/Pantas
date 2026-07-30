@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/features/metrics/atoms/home_atoms.dart';
-import 'package:cse_cet_reviewer/features/metrics/domain/metrics_window.dart';
-import 'package:cse_cet_reviewer/features/metrics/domain/signal_key.dart';
-import 'package:cse_cet_reviewer/features/metrics/domain/signal_outputs.dart';
+import 'package:pantas/features/metrics/atoms/home_atoms.dart';
+import 'package:pantas/features/metrics/domain/metrics_window.dart';
+import 'package:pantas/features/metrics/domain/signal_key.dart';
+import 'package:pantas/features/metrics/domain/signal_outputs.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

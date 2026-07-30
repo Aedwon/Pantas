@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/features/study_plan/data/plan_prefs_repository.dart';
-import 'package:cse_cet_reviewer/features/study_plan/domain/plan_prefs.dart';
+import 'package:pantas/features/study_plan/data/plan_prefs_repository.dart';
+import 'package:pantas/features/study_plan/domain/plan_prefs.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/in_memory_database.dart';

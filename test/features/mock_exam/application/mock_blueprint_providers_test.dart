@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:cse_cet_reviewer/core/content/content.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/mock_exam.dart';
+import 'package:pantas/core/content/content.dart';
+import 'package:pantas/features/mock_exam/mock_exam.dart';
 import 'package:drift/drift.dart' show Value;
 import 'package:drift/native.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

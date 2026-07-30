@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/content/sanity/sanity_config.dart';
+import 'package:pantas/core/content/sanity/sanity_config.dart';
 import 'package:dio/dio.dart';
 
 class SanityClient {

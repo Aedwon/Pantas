@@ -1,11 +1,11 @@
-import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/subject.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
-import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/core/ui/components/review_list.dart';
-import 'package:cse_cet_reviewer/features/metrics/signals/mock_payload_reader.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/application/mock_availability_provider.dart';
+import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/subject.dart';
+import 'package:pantas/core/storage/domain/topic.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/review_list.dart';
+import 'package:pantas/features/metrics/signals/mock_payload_reader.dart';
+import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Every question in one finished mock attempt, in paper order.

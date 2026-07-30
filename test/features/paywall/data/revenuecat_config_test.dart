@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/features/paywall/data/revenuecat_config.dart';
+import 'package:pantas/features/paywall/data/revenuecat_config.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

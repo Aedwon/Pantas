@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/storage/domain/exam.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/build_today_plan.dart';
-import 'package:cse_cet_reviewer/features/quiz/presentation/today_providers.dart';
-import 'package:cse_cet_reviewer/features/quiz/presentation/widgets/session_panel.dart';
+import 'package:pantas/core/storage/domain/exam.dart';
+import 'package:pantas/features/quiz/domain/use_cases/build_today_plan.dart';
+import 'package:pantas/features/quiz/presentation/today_providers.dart';
+import 'package:pantas/features/quiz/presentation/widgets/session_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

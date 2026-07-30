@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/features/paywall/domain/pro_specimen.dart';
+import 'package:pantas/features/paywall/domain/pro_specimen.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

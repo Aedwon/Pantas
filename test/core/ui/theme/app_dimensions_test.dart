@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
+import 'package:pantas/core/ui/theme/app_dimensions.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

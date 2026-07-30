@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/ui/components/progress_rule.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/components/progress_rule.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class QuizProgressBar extends StatelessWidget {

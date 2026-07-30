@@ -1,5 +1,5 @@
 // coverage:ignore-file
-import 'package:cse_cet_reviewer/core/storage/data/tables/questions_table.dart';
+import 'package:pantas/core/storage/data/tables/questions_table.dart';
 import 'package:drift/drift.dart';
 
 /// A question the student kept for later, from the reveal or from a mock's

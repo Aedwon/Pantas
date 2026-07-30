@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/features/mock_exam/data/mock_attempt_repo.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_attempt.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_results.dart';
+import 'package:pantas/features/mock_exam/data/mock_attempt_repo.dart';
+import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
+import 'package:pantas/features/mock_exam/domain/mock_results.dart';
 
 class ResumeMock {
   const ResumeMock({required MockAttemptRepo repo}) : _repo = repo;

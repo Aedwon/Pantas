@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:cse_cet_reviewer/features/paywall/data/live_revenuecat_gateway.dart';
-import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
+import 'package:pantas/features/paywall/data/live_revenuecat_gateway.dart';
+import 'package:pantas/features/paywall/paywall.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 

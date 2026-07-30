@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/core/sync/mapping/lesson_progress_mapper.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/sync/mapping/lesson_progress_mapper.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/bookplate.dart';
+import 'package:pantas/features/lesson/presentation/widgets/bookplate.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

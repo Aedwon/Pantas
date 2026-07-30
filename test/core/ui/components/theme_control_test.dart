@@ -1,7 +1,7 @@
 import 'dart:ui' show Tristate;
 
-import 'package:cse_cet_reviewer/core/ui/components/theme_control.dart';
-import 'package:cse_cet_reviewer/features/settings/domain/theme_preference.dart';
+import 'package:pantas/core/ui/components/theme_control.dart';
+import 'package:pantas/features/settings/domain/theme_preference.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

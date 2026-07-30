@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_controller.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// One month, matching the row's own copy: "28 you've got wrong in the last

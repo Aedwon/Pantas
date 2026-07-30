@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_results.dart';
+import 'package:pantas/features/mock_exam/domain/mock_results.dart';
 
 sealed class MockSessionState {
   const MockSessionState();

@@ -1,13 +1,13 @@
 import 'dart:async';
 
-import 'package:cse_cet_reviewer/core/ui/components/answer_row.dart';
-import 'package:cse_cet_reviewer/core/ui/components/confirmation_dialog.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_session_state.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/part_clock.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/presentation/clock_rule.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/presentation/proctor_toast.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/presentation/widgets/mock_floating_bar.dart';
+import 'package:pantas/core/ui/components/answer_row.dart';
+import 'package:pantas/core/ui/components/confirmation_dialog.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
+import 'package:pantas/features/mock_exam/domain/part_clock.dart';
+import 'package:pantas/features/mock_exam/presentation/clock_rule.dart';
+import 'package:pantas/features/mock_exam/presentation/proctor_toast.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/mock_floating_bar.dart';
 import 'package:flutter/material.dart';
 
 class MockSessionPage extends StatefulWidget {

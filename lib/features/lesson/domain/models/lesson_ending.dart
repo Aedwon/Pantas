@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/features/lesson/domain/models/study_map.dart';
+import 'package:pantas/features/lesson/domain/models/study_map.dart';
 
 sealed class LessonEnding {
   const LessonEnding();

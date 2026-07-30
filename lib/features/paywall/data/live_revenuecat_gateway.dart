@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:cse_cet_reviewer/features/paywall/data/revenuecat_gateway.dart';
-import 'package:cse_cet_reviewer/features/paywall/domain/entitlement.dart';
-import 'package:cse_cet_reviewer/features/paywall/domain/paywall_package.dart';
+import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
+import 'package:pantas/features/paywall/domain/entitlement.dart';
+import 'package:pantas/features/paywall/domain/paywall_package.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 
 /// The RevenueCat entitlement identifier configured in the dashboard.

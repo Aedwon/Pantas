@@ -1,5 +1,5 @@
 // coverage:ignore-file
-import 'package:cse_cet_reviewer/core/storage/data/tables/lessons_table.dart';
+import 'package:pantas/core/storage/data/tables/lessons_table.dart';
 import 'package:drift/drift.dart';
 
 /// A lesson the student marked to come back to. Separate from

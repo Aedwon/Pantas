@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/ui/components/inline_math_text.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/components/inline_math_text.dart';
+import 'package:pantas/core/ui/theme/app_dimensions.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 enum AnswerRowState { plain, selected, correct, incorrect, correctMissed }
