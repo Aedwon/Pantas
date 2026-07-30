@@ -26,7 +26,7 @@ class FlutterLocalNotificationsGateway implements NotificationsGateway {
     const androidInit = AndroidInitializationSettings('@mipmap/ic_launcher');
     const darwinInit = DarwinInitializationSettings();
     await _plugin.initialize(
-      const InitializationSettings(android: androidInit, iOS: darwinInit),
+      settings: const InitializationSettings(android: androidInit, iOS: darwinInit),
       onDidReceiveNotificationResponse: (response) {
         _tapController.add(response.payload);
       },
@@ -51,7 +51,7 @@ class FlutterLocalNotificationsGateway implements NotificationsGateway {
   Stream<String?> get notificationTapPayloads => _tapController.stream;
 
   @override
-  Future<void> cancel(int id) => _plugin.cancel(id);
+  Future<void> cancel(int id) => _plugin.cancel(id: id);
 
   @override
   Future<void> cancelAll() => _plugin.cancelAll();
@@ -114,14 +114,12 @@ class FlutterLocalNotificationsGateway implements NotificationsGateway {
       iOS: const DarwinNotificationDetails(),
     );
     return _plugin.zonedSchedule(
-      notification.id,
-      notification.title,
-      notification.body,
-      tz.TZDateTime.from(notification.fireAt, tz.local),
-      details,
+      id: notification.id,
+      title: notification.title,
+      body: notification.body,
+      scheduledDate: tz.TZDateTime.from(notification.fireAt, tz.local),
+      notificationDetails: details,
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
-      uiLocalNotificationDateInterpretation:
-          UILocalNotificationDateInterpretation.absoluteTime,
       payload: notification.payload,
     );
   }
