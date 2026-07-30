@@ -389,8 +389,41 @@ account, so the iOS bundle argument that used to be here only produced prompts
 about a platform nothing can ship to.
 
 `flutterfire configure` creates the Firebase apps if they do not exist, writes the options file,
-and adds the required Gradle plugins. It also drops `google-services.json` into the Android
-flavor folders and `GoogleService-Info.plist` into the iOS project.
+and adds the required Gradle plugins.
+
+### The trap, found 12 August after running all three
+
+**It does not drop `google-services.json` into the flavor folders. It writes one
+file at `android/app/google-services.json` and each run overwrites the last.**
+This document said otherwise and it was wrong.
+
+**What that leaves you with:** one file, holding whichever project ran last, and
+it names only that flavor's package. A dev build then fails at Gradle with "No
+matching client found for package name com.aedwon.pantas.dev", and if the three
+projects had shared a package name it would have been worse: a dev build quietly
+writing into the production project.
+
+**The fix is to move each one as it is written**, into the flavor's own source
+folder, which is where the Google Services plugin looks first:
+
+```bash
+mkdir -p android/app/src/staging
+mv android/app/google-services.json android/app/src/prod/google-services.json
+
+flutterfire configure --project=pantas-dev-090126 \
+  --out=lib/firebase_options_dev.dart --platforms=android \
+  --android-package-name=com.aedwon.pantas.dev
+mv android/app/google-services.json android/app/src/dev/google-services.json
+
+flutterfire configure --project=pantas-staging \
+  --out=lib/firebase_options_staging.dart --platforms=android \
+  --android-package-name=com.aedwon.pantas.dev.staging
+mv android/app/google-services.json android/app/src/staging/google-services.json
+```
+
+**`google-services.json` is gitignored**, so none of these three files reach the
+repository. **CI will need them supplied some other way** before it can build a
+Firebase-enabled release. That is not solved yet.
 
 **Then the code has to be wired**, and this is the step that is easy to forget because nothing
 fails loudly without it:
