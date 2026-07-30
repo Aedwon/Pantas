@@ -101,7 +101,24 @@ and cancellations never arrive.
 details below were wrong when this was written the day before, and they are
 marked.
 
-**In Google Cloud, on the project linked to your Play account:**
+**If there is no Google Cloud project yet, make one first.** Sign in to
+`console.cloud.google.com` with **the same Google account that owns the Play
+developer account**, and create a project. Any name.
+
+**You do not have to link it to Play.** Google removed that requirement:
+"You no longer need to link your developer account to a Google Cloud Project in
+order to access the Google Play Developer API." The connection is made by
+inviting the service account in Play Console, which is step 4 below. Older
+guides that send you to Play Console's API access page to link a project are
+out of date.
+
+**Google may ask for a billing account when Pub/Sub is enabled.** The usage here
+is a handful of messages a day and sits inside the free allowance. **Whether
+Google forces a billing account on the project before it will enable the API is
+not something this file can promise.** If it asks, that is normal and not a sign
+you did something wrong.
+
+**In Google Cloud, on that project:**
 
 1. **Enable three APIs**, all of them, not just the first:
    - **Android Publisher API.** **Corrected:** this file called it the Google
