@@ -202,3 +202,104 @@ to the world for 30 days, which is not.
   neither, and it disagrees with the code in at least two places.
 - **Whether Cloud Functions stay in the manifest.** Nothing calls them, and both
   export and deletion assume them.
+
+---
+
+## 7. Option B costed properly, and a correction
+
+**Asked directly: what if everyone who signs in can sync?** Here is the
+arithmetic, and it changes the argument.
+
+### What one student writes in a day
+
+Measured from the sync registry rather than guessed. Nine collections, seven
+active, and the shapes differ:
+
+| What | Documents |
+|---|---|
+| An attempt | **One document per session.** The items are packed into one field, so a 20-question quiz is 1 write, not 20 |
+| Review state | **One document per question answered.** This is the dominant term |
+| A lesson read | One document |
+| Flags, bookmarks, preferences | A handful, and only when touched |
+| A finished mock | One document, and only when terminal |
+
+So a light day is roughly 25 writes and a heavy one 70. **Take 40 writes per
+active student per day.**
+
+### The bill
+
+Free tier is 20,000 writes a day, then **$0.18 per 100k writes** and **$0.26 per
+GB per month** stored.
+
+| Daily active syncing students | Writes per month | Monthly write cost | Storage after a year | Monthly total |
+|---|---|---|---|---|
+| 500 | 0.6M | **$0** (inside the free tier) | under 1 GB | **$0** |
+| 5,000 | 6M | about **$10** | about 10 GB, $2.60 | **about $13** |
+| 50,000 | 60M | about **$107** | about 100 GB, $26 | **about $133** |
+
+**Storage is bounded better than it looks.** Review state is updated in place, one
+document per question, so it stops growing at the size of the corpus rather than
+with time. Attempts do append, at roughly 2 MB per student per year.
+
+**Reads are near zero today**, because nothing downloads. If a restore is built it
+costs the student's whole history once per new device, a few thousand reads, which
+is cents. **The danger is only a restore that runs on every launch instead of once**,
+and that is a code review question, not a pricing one.
+
+### The correction
+
+**I led with cost as the reason to keep sync for Pro. The arithmetic does not
+support that.** At any scale this app is likely to reach, letting every signed-in
+student sync costs tens of dollars a month, not hundreds. **Cost is not the
+deciding factor and I should not have implied it was.**
+
+### So what actually decides it
+
+**For letting everyone sync:**
+
+- **It is the humane answer.** The students most likely to lose a phone are the
+  ones this app is for, and losing months of work is the worst thing the app can
+  do to someone.
+- **A signed-in Free student who gets nothing for signing in feels tricked**, and
+  no copy fully fixes that.
+- **It makes sign-in worth doing**, which is what gives you a stable identity to
+  measure retention against rather than a device id.
+- **It is cheap**, per above.
+
+**Against:**
+
+- **It spends the clearest thing Pro sells.** "Your progress follows you to any
+  phone" is concrete to a student who does not yet believe question banks are
+  worth paying for. Sold once, it cannot be sold again.
+- **The downside is unbounded even though the expected cost is not.** Firebase has
+  no spending cap. A bad query shipped to 50,000 students is a four-figure day,
+  and the blast radius is proportional to how many people sync.
+- **It is abuse surface.** Every syncing account is writable storage behind an
+  account anyone can create. App Check and rules make that expensive rather than
+  impossible.
+- **Right now it buys nobody anything.** See below.
+
+### The finding that outranks the pricing
+
+**Sync is upload only. Nothing downloads it.** The engine flushes a pending queue
+upward; the only cloud read anywhere is a yes-or-no check at sign-in for whether
+an account already has data, used to detect a collision.
+
+**So the phrase "your progress follows you to a new phone" is not true for anyone
+today, Pro included.** Uploads accumulate and no code restores them.
+
+**That reorders the question.** Deciding who may sync is deciding who may *back
+up*, and until a restore exists, extending it to Free students would pay to
+upload data that nobody, Free or Pro, can get back.
+
+**Recommended, revised:**
+
+1. **Build the restore first.** It is what makes sync mean anything, it is
+   required before Pro can honestly advertise it, and it is the same work
+   whichever way the boundary goes.
+2. **Then let everyone signed in sync**, because the cost is small and the
+   goodwill is not, and find a different concrete promise for Pro. The mock
+   papers and the unlimited practice are that promise; cross-device backup is a
+   thin moat to build a subscription on.
+3. **Set the budget alert regardless.** The expected bill is trivial; the
+   worst case is not bounded by anything except noticing.
