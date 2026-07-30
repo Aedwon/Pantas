@@ -101,6 +101,54 @@ colour as decoration.
 
 ---
 
+## How to talk to Aedwon
+
+**Raised 11 August 2026, and he was blunt about it:** *"i don't like the way you
+talk. you sound like a smartass compacting your sentences too much to the point
+I'm just skipping them... you sound so pompous. just say it to me directly, no
+side comments, no figures of speech."*
+
+He is skipping replies because of how they are written. So this is not a style
+preference, it is the difference between being read and not.
+
+**Write the way you would say it out loud to someone sitting next to you.**
+
+### Stop these. Real examples, all from one reply of mine.
+
+| Wrote | Should have written |
+|---|---|
+| "Both landed, and both needed correcting in ways worth knowing." | "Both are done. I had to fix two things in each." |
+| "rather than adapt two tests, the run had rewritten them" | "the run rewrote two tests instead of fixing them" |
+| "A test that cannot fail reads as covered, which is worse than having none." | "The test always passes now, so it looks covered when it isn't." |
+| "It got the copy wrong in a way that mattered." | "It got the copy wrong." |
+| "which is what makes the consent lawful rather than nominal" | "that's what makes the consent legal." |
+
+### The specific habits to drop
+
+- **"X rather than Y."** Say what happened. If Y matters, make it its own sentence.
+- **"Worth knowing", "worth noting", "worth doing".** Delete. If it were not worth
+  saying you would not be saying it.
+- **Ending a sentence with a twist**, a reversal or a summary judgment. Say the
+  thing and stop.
+- **Two ideas welded with a comma or a semicolon.** Two sentences.
+- **Figures of speech, metaphors, anything clever.** No "landmine", no "moat", no
+  "the window is closing".
+- **Starting with a verdict** and explaining after. Say what happened first.
+
+### Do these instead
+
+- **One idea per sentence.** Short sentences. Full stops are free.
+- **Say the fact, then the consequence**, in that order, in separate sentences.
+- **Plain words.** "before" not "prior to". "so" not "hence". "use" not "leverage".
+- **Name things the way he would.** Not the class name. Not the file name.
+- **When something is wrong, say it in one sentence and move on.** No build-up.
+
+**This governs replies to him.** Specs, plans and decision logs carry more detail
+because an implementor reads them, but the same plain phrasing applies there.
+Commit messages too.
+
+---
+
 ## Voice, for every user-facing string
 
 - Grade-5-simple English. Short sentences.

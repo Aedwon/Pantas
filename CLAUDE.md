@@ -99,6 +99,28 @@ He does the visual verification and files findings in `docs/ui-audit.md`.
   agreeing. He has been right against me more than once and expects the same in
   return.
 - When I am wrong, correct it in a sentence and move on. No ceremony, no tallying.
+## Phrasing. He raised this on 11 August and it is the second-biggest rule after length.
+
+**Verbatim:** *"i don't like the way you talk. you sound like a smartass compacting
+your sentences too much to the point I'm just skipping them because, while you're
+using grammatically correct words, the sequence and choices are awkward and don't
+have a place in daily speech... you sound so pompous. just say it to me directly,
+no side comments, no figures of speech."*
+
+**He is skipping replies.** Length was never the only problem. The phrasing is.
+
+**Full rules and a table of my own bad sentences are in `AGENTS.md`, "How to talk
+to Aedwon".** The short version:
+
+- Write it the way you would say it out loud.
+- One idea per sentence.
+- Never "X rather than Y". Never "worth knowing". Never end on a clever reversal.
+- No metaphors. No figures of speech.
+- Say what happened first, then why, in separate sentences.
+- When wrong, one sentence, then move on.
+
+---
+
 ### Length, and this is the rule I break most
 
 **He has raised it four times. Twice on 4 August alone, the second time because I wrote the
