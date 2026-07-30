@@ -29,6 +29,30 @@ name and is faster than hunting the tree.
 
 ---
 
+## 0. Do this before you create anything, added 11 August
+
+**Every Firebase package here is a major version behind**, and `google_sign_in` is
+one behind a breaking rewrite. Upgrade first.
+
+The three adapter methods in Section 9 are still empty, so nothing in the app
+calls a Firebase API that an upgrade can break: today the upgrade is a version
+bump and a test run. **After the wiring exists it is a migration across every call
+site.**
+
+`google_sign_in` 7 replaced the constructor with a singleton, requires an awaited
+`initialize`, splits authentication from authorization, and needs `serverClientId`
+on Android from 7.1. Sign-in here sits behind one gateway interface, so that lands
+in a single adapter.
+
+**Also set a Blaze budget alert on the day you enable billing.** It caps nothing,
+because Firebase has no spending cap, but it decides whether you notice a runaway
+query in an hour or in a month.
+
+Scale, cost and the account boundary are worked through in
+`docs/superpowers/2026-08-11-data-at-scale-and-the-account-boundary.md`.
+
+---
+
 ## 1. The projects
 
 **Three projects, one per flavor.** They must be separate projects, not one project with three
