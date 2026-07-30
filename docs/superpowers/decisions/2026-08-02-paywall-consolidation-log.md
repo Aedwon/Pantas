@@ -442,3 +442,25 @@ shown on the Pro page.
 product for a four month need is a mismatch no price fixes, and a pass priced to
 the exam date would fit the market better. **Not before beta**, and recorded here
 so it is not lost.
+
+---
+
+## 11 August 2026: the product IDs, which are permanent
+
+**Put to him because a Play product ID cannot be renamed, deleted, or reused after
+deletion**, and `docs/OPERATIONS.md` still carried the old ones plus a lifetime SKU
+he had already removed.
+
+| Proposed | Replaces |
+|---|---|
+| `pantas_pro_weekly` | `cse_cet_pro_monthly` and friends, which predate the rename |
+| `pantas_pro_monthly` | |
+| `pantas_pro_yearly` | |
+
+**Aedwon:** *"for the product IDs, your suggestions are okay. let's go with that."*
+
+**Nothing in the app hardcodes a product ID**, so this is a store and RevenueCat
+concern rather than a code change. Entitlement carries `productId` for display
+only.
+
+**Recorded in `docs/revenuecat-setup.md` Section 2**, and `OPERATIONS.md` corrected.
