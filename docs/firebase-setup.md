@@ -84,15 +84,20 @@ these for you, which is the recommended path, but you need to know the identifie
 
 ### Android application IDs, from `android/app/build.gradle.kts`
 
+**Changed 11 August**, before any store entry existed, and permanent from the
+first submission.
+
 | Flavor | Application ID |
 |---|---|
-| dev | `com.aerol.csecet.dev` |
-| staging | `com.aerol.csecet.dev.staging` |
-| prod | `com.aerol.csecet` |
+| dev | `com.aedwon.pantas.dev` |
+| staging | `com.aedwon.pantas.dev.staging` |
+| prod | `com.aedwon.pantas` |
 
 ### iOS bundle ID, from `ios/Runner.xcodeproj`
 
-`com.aedwon.cseCetReviewer`
+`com.aedwon.pantas`, matching Android. **They used to disagree**: Android's
+application id said `aerol` while the namespace and iOS said `aedwon`, so the two
+platforms would have shipped under different identities.
 
 **A gap worth knowing about:** the Android flavors have three distinct application IDs and iOS
 has **one bundle ID for all three flavors**. If you want a dev build and a prod build installed

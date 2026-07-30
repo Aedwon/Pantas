@@ -75,6 +75,8 @@ one iPhone.
 ### Google Play
 
 - Developer account: held.
+- **Application ID: `com.aedwon.pantas`**, with `.dev` and `.dev.staging` for the
+  other flavors. Set 11 August 2026 and **permanent from the first submission.**
 - **A Google Cloud service account must be invited into Play Console** before
   RevenueCat can read subscriptions. This is the step that fails quietly. See
   `docs/revenuecat-setup.md` Section 3.

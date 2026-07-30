@@ -139,8 +139,8 @@ immediately after setup, wait before assuming it is misconfigured.
 ## 4. In RevenueCat itself
 
 1. **Create the project**, and add the **Android app** with the package name
-   `com.aerol.csecet` for production. The dev and staging flavors have their own
-   package names, `com.aerol.csecet.dev` and `com.aerol.csecet.dev.staging`; a
+   **`com.aedwon.pantas`** for production. The dev and staging flavors are
+   `com.aedwon.pantas.dev` and `com.aedwon.pantas.dev.staging`; a
    separate RevenueCat project per flavor is cleaner than mixing test and real
    revenue in one dashboard.
 2. **Create the entitlement `pro`.**
