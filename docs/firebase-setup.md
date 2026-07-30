@@ -317,7 +317,7 @@ sends nothing.
 - **Enabling Analytics on prod only means telemetry cannot be tested in dev.** Either accept
   that events are only ever seen in production, or enable Analytics on the dev project too. If
   you do, use **DebugView** to watch events arrive in real time, which needs
-  `adb shell setprop debug.firebase.analytics.app com.aerol.csecet.dev` on the device.
+  `adb shell setprop debug.firebase.analytics.app com.aedwon.pantas.dev` on the device.
 - **Firebase Analytics caps distinct event names at 500 per project**, and names cannot be
   deleted once used. The app's events are an enum, so the cap is nowhere near, but a future
   event whose name embeds an id would burn through it.
@@ -365,20 +365,20 @@ dart pub global activate flutterfire_cli
 flutterfire configure \
   --project=pantas-dev \
   --out=lib/firebase_options_dev.dart \
-  --ios-bundle-id=com.aedwon.cseCetReviewer \
-  --android-package-name=com.aerol.csecet.dev
+  --ios-bundle-id=com.aedwon.pantas \
+  --android-package-name=com.aedwon.pantas.dev
 
 flutterfire configure \
   --project=pantas-staging \
   --out=lib/firebase_options_staging.dart \
-  --ios-bundle-id=com.aedwon.cseCetReviewer \
-  --android-package-name=com.aerol.csecet.dev.staging
+  --ios-bundle-id=com.aedwon.pantas \
+  --android-package-name=com.aedwon.pantas.dev.staging
 
 flutterfire configure \
   --project=pantas-prod \
   --out=lib/firebase_options_prod.dart \
-  --ios-bundle-id=com.aedwon.cseCetReviewer \
-  --android-package-name=com.aerol.csecet
+  --ios-bundle-id=com.aedwon.pantas \
+  --android-package-name=com.aedwon.pantas
 ```
 
 `flutterfire configure` creates the Firebase apps if they do not exist, writes the options file,

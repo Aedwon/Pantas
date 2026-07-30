@@ -65,7 +65,7 @@ app name. **Do not create products from the old list.** Full setup, in order, is
 
 **None held as of 11 August 2026**, so nothing iOS is set up and nothing needs to
 be. The bundle IDs previously listed here were three guesses that did not match the
-one actually in the Xcode project, `com.aedwon.cseCetReviewer`. Left here only so
+one actually in the Xcode project, `com.aedwon.pantas`. Left here only so
 nobody treats the old list as configured.
 
 Blocked on an Apple account, and only when iOS matters: Apple sign-in, App Attest,

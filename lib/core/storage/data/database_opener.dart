@@ -11,8 +11,12 @@ import 'package:path_provider/path_provider.dart';
 import 'package:sqlcipher_flutter_libs/sqlcipher_flutter_libs.dart';
 import 'package:sqlite3/open.dart';
 
-const _dbFileName = 'cse_cet_reviewer.db';
-const _keyStorageKey = 'cse_cet_db_key';
+// Renamed from cse_cet_reviewer.db on 11 August 2026, with the key below.
+// Safe only because the emulator was the only install: a rename abandons the
+// old file rather than migrating it, so doing this after a beta would have
+// silently reset every tester's progress.
+const _dbFileName = 'pantas.db';
+const _keyStorageKey = 'pantas_db_key';
 
 Future<AppDatabase> openEncryptedDatabase({
   FlutterSecureStorage storage = const FlutterSecureStorage(),

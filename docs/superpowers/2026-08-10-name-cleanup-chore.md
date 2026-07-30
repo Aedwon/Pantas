@@ -132,7 +132,17 @@ appears in the Play Store listing URL, which anyone can read.
 
 - **`exam_cse_pro` and `exam_cse_sub`**, and every mention of CSE, CET or Civil
   Service in lesson content, question text and topic names. Tier 0 held.
-- **The database file, still `cse_cet_reviewer.db`.** It exists on real devices and
-  renaming it orphans a student's progress. **This is now permanent in practice**
-  and should be recorded as such rather than tidied later.
+- ~~**The database file, still `cse_cet_reviewer.db`.**~~ **Reversed the same day.**
+
+  I left it and called it permanent. **Aedwon overruled that and was right:**
+  *"nothing to worry about since the only device (well i don't think you could even
+  call it that) is the emulator which is just easily replaceable."*
+
+  **I had applied a rule about real devices to a situation with no real devices.**
+  The file is `pantas.db` now, and the secure-storage key holding its encryption
+  key went with it.
+
+  **The window for this was narrower than the identifiers'.** A rename abandons the
+  old file rather than migrating it, so doing this after a beta would have silently
+  reset every tester's progress. Today it cost one emulator nobody minds.
 - A historical analyzer message quoted in an old plan.
