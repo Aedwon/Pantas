@@ -77,89 +77,64 @@ directly from the orchestrator**, one git worktree per plan.
 
 ## Part 0: Pick up here
 
-**Rewritten 11 August, evening.** `main` is pushed and green:
-**2,241 tests pass**, `flutter analyze` clean, `check_layering` OK,
-`check_no_ai_attribution` OK.
+**Rewritten 11 August, end of day.** `main` is pushed and green. **2,245 tests
+pass**, analyzer clean, `check_layering` OK, `check_no_ai_attribution` OK.
 
-### Merged today
+### Read this before anything else
+
+**`AGENTS.md`, the section "How to talk to Aedwon".** He said on 11 August that he
+skips replies because of how they are written. That is now the first rule, ahead of
+length. Two more rules went in with it: answer a question and stop rather than
+starting work, and read a feature's plan and spec in full before touching it.
+
+### What is running
+
+- The Android emulator and one `flutter run`. Hot restart is `kill -USR2` on the
+  pid from `pgrep -f "flutter_tools.snapshot run"`.
+- **Aedwon is configuring Firebase and RevenueCat by hand.** Do not create Firebase
+  options files or fill the empty adapter bodies. He is doing that.
+
+### Done 11 August
 
 | | What |
 |---|---|
-| **Content 01** | The corpus builds the content database |
-| **Content 01b** | Passages, the lesson link, the passage link, the short label, the custom-exam flag, lesson ordering |
-| **Content 03** | The UPCAT blueprint: 4 parts, 250 items, 230 minutes, sectional |
-| **Content 02** | **Repaired and merged.** See below, because what it turned out to be is the useful part |
-| **Reasoning and General Information** | Reasoning left UPCAT and the six unmapped topics were mapped: 2,000 questions to 2,216, 144 lessons to 161 |
-| **The app is called Pantas** | Launcher label, notification dialog, in-app name, and the iOS display name that was hardcoded |
-| **Onboarding** | Six unexecuted tasks from the earlier handoff |
+| **Content 02** | Repaired and merged. Five parts of the app still read the corpus from the user database. Custom track creation failed silently |
+| **Reasoning and General Information** | Reasoning left UPCAT. Six unmapped topics mapped. 2,000 questions to 2,216, 144 lessons to 161 |
+| **Content 04** | All tasks. Both doors, the empty state, a paper sat end to end, results in Progress |
+| **Bookmarks, mock review, session-building page** | Merged |
+| **The app is Pantas** | Package, launcher label, and one store identity, `com.aedwon.pantas`. The database file is `pantas.db` |
+| **The consent step** | Terms required, usage optional and off by default, third in onboarding |
+| **Firebase packages** | Up one major, all ten, before wiring |
+| **Yearly price** | ₱999 to ₱799, and the recommendation boundary moved with it |
 
-### What Content 02 actually was, because the lesson generalises
+### What to do next
 
-Its branch had five committed tasks and a report claiming green gates. It had
-**55 analyzer errors and 144 failing tests**. Most were not a test problem.
+1. **`purchases_flutter` 8 to 10.** Before the Play products exist.
+2. **The encryption group.** `sqlcipher_flutter_libs` is end of life and does
+   nothing from 0.7.0. It goes with drift and sqlite3 and the move to
+   SQLite3MultipleCiphers, one change or none. Lower risk than it sounds now: the
+   database rename left no data to migrate, and the opener already fails closed.
+3. **Telemetry Task 2**, `question_answered`. One call site. Task 3 is deferred.
+4. **Riverpod 3, go_router 17, freezed 3**, one branch each. The linter last.
 
-**Five areas of the app were still reading the corpus from the user database**,
-and Task 1's inventory could not see any of them because that inventory walked
-`ContentRepository`'s public methods while these query the database directly:
-the custom track, Progress performance and pace, Home's up next, the Settings
-carry-over count, and the metrics signals.
+Everything is in `2026-08-11-dependency-audit.md` and
+`plans/2026-08-11-telemetry-02-consent-and-item-analytics.md`.
 
-**Creating a custom track was the worst, because it was silent.** It wrote its
-exam row where nothing lists it and inverted the included set against an empty
-topics table, so a student tapped Continue, a track was created, and it was
-absent everywhere afterwards.
+### Blocked on Aedwon
 
-**The lesson for the next inventory: walk the tables, not the repository.**
-`grep` for the content tables against the user database, not for the calls to
-the layer that is supposed to own them.
+- **The device check.** His attempt history still resolving, Progress showing rows,
+  a custom track appearing after he makes one. No test can claim it.
+- **Firebase and RevenueCat setup.** In progress.
+- **`url_launcher` and `in_app_review`**, each blocking a written task.
+- **The CSE blueprint.** A subject belongs to one exam, so CSE Professional cannot
+  show Numerical Ability while that content sits under UPCAT's Mathematics. Its
+  figures are verified and recorded. Fixing it is a schema stage.
 
-Full account, including two schema traps and a boundary the repair broke and put
-back, is `decisions/2026-08-11-content-02-repair-log.md`.
+### Two stale worktrees, not live work
 
-### What is left
-
-**Nothing that is not blocked on Aedwon.** Every written plan with buildable work
-in it is executed and merged as of 11 August, evening.
-
-1. **Content 04 is complete except its device check.** Tasks 1b, 1, 2, 3 and 4
-   are merged: both doors open, an exam with no paper says so, a UPCAT paper is
-   sat end to end on an injected clock, and a sat mock gives Progress its Time
-   column. **Task 5 is the device check and is his.**
-2. **The study plan stays deferred**, on his earlier decision. Its providers are
-   stubs and its entry row is hidden on purpose.
-3. **The rationale per choice** is content debt, not a blocker: it gates two
-   Pro-only sentences.
-
-### Blocked on Aedwon, not on work
-
-- **Crash reporting.** The boundary, all three collectors and the Crashlytics
-  sink are wired and tested. `firebaseConfigForFlavor` returns null because
-  there is no Firebase project, so nothing initializes. **One `flutterfire
-  configure` away from working**, and until then a beta tester's crash is
-  invisible.
-- **The CSE mock blueprint.** Its figures are now verified and recorded, and it
-  is blocked on structure instead: **a subject belongs to exactly one exam**, so
-  CSE Professional cannot show Numerical Ability while that content sits under
-  UPCAT's Mathematics. Authoring it now would quietly cover three of the four
-  published subject areas. Fixing it means subjects keyed independently of exam,
-  which is a schema stage of its own.
-- **Two dependencies to approve or refuse**, each blocking a task that is
-  otherwise written: `url_launcher` for giving feedback a destination, and
-  `in_app_review` for asking for a store review once. A feedback destination
-  also needs a URL in `docs/OPERATIONS.md`, which is empty.
-- **`exam_dost_sei` has no exam row** while 1,160 question-to-exam rows and 84
-  authored files reference it. Which exams the app offers is his call.
-
-### Two things that are not blockers, contrary to the 3 August checklist
-
-- **Short labels.** Nullable by design, with a fallback to the stem that is
-  implemented and specified. Zero of them is a quality gap, not a blocker.
-- **The per-choice rationale.** Gates two Pro-only sentences, so it is revenue
-  polish rather than a beta gate.
-
-**The 3 August launch checklist is stale in both directions** and should be read
-against the code, not trusted. Its "39 unexecuted plans" is the worst of it:
-every plan branch but two has reached main.
+`agent-a22d3d5ddf2a5a2a9` and `/private/tmp/seedcheck` both have uncommitted files
+from before 11 August. Both are superseded by the content work that has since
+merged. Delete them or ignore them.
 
 ### First, two things a new session must know
 
