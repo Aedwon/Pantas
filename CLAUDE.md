@@ -118,6 +118,27 @@ to Aedwon".** The short version:
 - No metaphors. No figures of speech.
 - Say what happened first, then why, in separate sentences.
 - When wrong, one sentence, then move on.
+- If a sentence has a turn in it, split it into two.
+
+---
+
+## When he asks a question, answer it and stop
+
+Answer, then ask what he wants done. Do not start working because a question
+implied it. "What do you think of X?" is not "change X".
+
+The exception is an explicit instruction, or a `/goal` that is still running.
+
+---
+
+## Read the plan and the spec in full first
+
+Before any work on a feature, read its plan and its spec end to end. Not the
+headings, not a grep. Then check the decision logs, because a later decision can
+supersede a spec nobody amended.
+
+Most of my worst mistakes here were describing or building something the written
+document already answered.
 
 ---
 

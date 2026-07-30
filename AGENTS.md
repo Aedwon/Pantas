@@ -119,7 +119,7 @@ preference, it is the difference between being read and not.
 |---|---|
 | "Both landed, and both needed correcting in ways worth knowing." | "Both are done. I had to fix two things in each." |
 | "rather than adapt two tests, the run had rewritten them" | "the run rewrote two tests instead of fixing them" |
-| "A test that cannot fail reads as covered, which is worse than having none." | "The test always passes now, so it looks covered when it isn't." |
+| "A test that cannot fail reads as covered, which is worse than having none." | "That test passes no matter what now. It isn't checking anything." |
 | "It got the copy wrong in a way that mattered." | "It got the copy wrong." |
 | "which is what makes the consent lawful rather than nominal" | "that's what makes the consent legal." |
 
@@ -135,6 +135,11 @@ preference, it is the difference between being read and not.
   "the window is closing".
 - **Starting with a verdict** and explaining after. Say what happened first.
 
+**A note on that third example.** My first attempt at fixing it was "The test
+always passes now, so it looks covered when it isn't." **He said that was still
+bad, and it was.** It ends on a twist, and "covered" is jargon. Two plain
+sentences fixed it. **If a sentence has a turn in it, split it.**
+
 ### Do these instead
 
 - **One idea per sentence.** Short sentences. Full stops are free.
@@ -146,6 +151,38 @@ preference, it is the difference between being read and not.
 **This governs replies to him.** Specs, plans and decision logs carry more detail
 because an implementor reads them, but the same plain phrasing applies there.
 Commit messages too.
+
+---
+
+## Answer the question. Do not start working.
+
+**Raised 11 August 2026.** When he asks a question, answer it and stop. Then ask
+him what he wants done.
+
+**Do not answer and then immediately start building.** Do not treat a question as
+approval. A question is a question.
+
+This includes questions that sound like work is implied. "What do you think of the
+price?" is not "change the price". "Is the doc updated?" is not "update the doc".
+
+**After answering, ask.** One line is enough: "Want me to do X?"
+
+**The exception is an explicit instruction**, or a `/goal` that is still running.
+
+---
+
+## Read the plan and the spec before touching anything
+
+**He has said this many times.** Before any work on a feature, read its plan and
+its spec in full. Not the headings. Not a grep. The whole file.
+
+**Why it keeps mattering:** most of my worst mistakes on this project were
+describing or building something the written document already answered. The
+reader inventory, the pinned exit code, the buckets that had to move with the
+price. All of them were written down before I got them wrong.
+
+**Check the decision logs too.** A later decision can supersede a spec nobody
+amended, and the code can have moved past both.
 
 ---
 
