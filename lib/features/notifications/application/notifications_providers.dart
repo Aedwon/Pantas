@@ -5,11 +5,22 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/notifications/application/notification_service.dart';
 import 'package:pantas/features/notifications/data/flutter_local_notifications_gateway.dart';
+import 'package:pantas/features/notifications/data/inert_notifications_gateway.dart';
 import 'package:pantas/features/notifications/data/notifications_gateway.dart';
 
 const _dailyReminderTimeKey = 'settings.daily_reminder_time';
 
+/// Inert by default, and overridden in `bootstrap` with the real plugin.
+///
+/// The same seam `telemetrySinkProvider` uses. Before 12 August this built the
+/// live gateway everywhere, which was safe only because the old plugin stayed
+/// quiet with no platform behind it. Version 22 throws instead.
 final notificationsGatewayProvider = Provider<NotificationsGateway>((ref) {
+  return InertNotificationsGateway();
+});
+
+/// The real one. `bootstrap` points [notificationsGatewayProvider] at this.
+final liveNotificationsGatewayProvider = Provider<NotificationsGateway>((ref) {
   return FlutterLocalNotificationsGateway();
 });
 

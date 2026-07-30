@@ -92,6 +92,9 @@ Future<void> _bootstrap(
       reviewPromptStoreProvider.overrideWith(
         (ref) => DriftReviewPromptStore(ref.watch(appDatabaseProvider)),
       ),
+      notificationsGatewayProvider.overrideWith(
+        (ref) => ref.watch(liveNotificationsGatewayProvider),
+      ),
       notificationServiceProvider.overrideWith(
         (ref) => ref.watch(featureNotificationServiceProvider),
       ),
