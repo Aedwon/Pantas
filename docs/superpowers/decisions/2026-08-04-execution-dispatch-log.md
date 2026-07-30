@@ -1611,3 +1611,32 @@ gates until they are built**: `assets/seed/content.db`, the localizations, and
 the drift output. Content 03's blueprint tests failed on a stale database copy
 and looked like a merge conflict. The commands are in `AGENTS.md`; a worktree is
 not usable without them.
+
+### Splitting the plan fixed the timeout, 11 August evening
+
+**Content 04's Tasks 2, 3 and 4 were dispatched as three runs of one task each.**
+The same plan as a single dispatch had timed out earlier in the day after one
+commit. All three finished, none hit a stop condition, and each needed only lints
+fixing.
+
+**The other half of the fix was preparing the worktree first.** Every run before
+these tripped on the three gitignored artifacts, and one of them papered over it
+by creating an empty `assets/seed/content.db` with `touch`, so its green report
+was against no content at all. Building the corpus, the localizations and the
+drift output before dispatching removed the whole class of problem.
+
+**Tier did not matter as much as size.** Flash took Tasks 2 and 4, Pro took
+Task 3, and all three were equally clean. The earlier failure was a plan too big
+for one window, not a model too weak for the work.
+
+**What still had to be corrected by hand**, and it was the same shape every time:
+
+- Task 3 asserted the blueprint asks for 250 items rather than that the sampled
+  paper has 250. A thin pool would have sampled short and passed.
+- Task 4 asserted a measured `300s` without saying where it came from. It is 600
+  seconds over two questions, and a later reader would have had to derive that.
+- Long lines, trailing commas and redundant arguments, in all three.
+
+**The pattern across nine dispatches today: the code is usually right and the
+assertions are usually weaker than the task asked for.** Reading the test is
+worth more than reading the report.

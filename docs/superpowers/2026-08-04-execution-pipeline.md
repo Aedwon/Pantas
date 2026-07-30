@@ -77,8 +77,8 @@ directly from the orchestrator**, one git worktree per plan.
 
 ## Part 0: Pick up here
 
-**Rewritten 11 August, later the same day.** `main` is pushed and green:
-**2,190 tests pass**, `flutter analyze` clean, `check_layering` OK,
+**Rewritten 11 August, evening.** `main` is pushed and green:
+**2,241 tests pass**, `flutter analyze` clean, `check_layering` OK,
 `check_no_ai_attribution` OK.
 
 ### Merged today
@@ -118,21 +118,17 @@ back, is `decisions/2026-08-11-content-02-repair-log.md`.
 
 ### What is left
 
-1. **Content 04**, both doors. Dispatched to Gemini 3.1 Pro on 11 August, in
-   `.claude/worktrees/content04`. Verify and merge it before trusting it.
-2. **Lesson bookmarks.** Dispatched to 3.6 Flash, in
-   `.claude/worktrees/bookmarks`. The ribbon and storage already exist on main;
-   only the order, prefs, providers, section and sheet are missing.
-3. **The session-building settings page**, dispatched to 3.6 Flash. The mock
-   review screen landed. **The feedback intent is not unbuilt work at all:**
-   that plan's Task 1 is on main and its Tasks 2 and 3 are blocked on two
-   dependencies nobody has approved, `url_launcher` and `in_app_review`. A
-   dispatched run stopped on both rather than adding them, which is the
-   behaviour every plan asks for.
-4. **The study plan** stays deferred. Its providers are stubs and its entry row
-   is deliberately hidden.
-5. **Content 02's done-condition still needs Aedwon's device**, with real
-   attempt history. Do not claim it from a test.
+**Nothing that is not blocked on Aedwon.** Every written plan with buildable work
+in it is executed and merged as of 11 August, evening.
+
+1. **Content 04 is complete except its device check.** Tasks 1b, 1, 2, 3 and 4
+   are merged: both doors open, an exam with no paper says so, a UPCAT paper is
+   sat end to end on an injected clock, and a sat mock gives Progress its Time
+   column. **Task 5 is the device check and is his.**
+2. **The study plan stays deferred**, on his earlier decision. Its providers are
+   stubs and its entry row is hidden on purpose.
+3. **The rationale per choice** is content debt, not a blocker: it gates two
+   Pro-only sentences.
 
 ### Blocked on Aedwon, not on work
 
