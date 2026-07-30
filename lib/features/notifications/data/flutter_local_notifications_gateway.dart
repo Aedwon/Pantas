@@ -26,7 +26,10 @@ class FlutterLocalNotificationsGateway implements NotificationsGateway {
     const androidInit = AndroidInitializationSettings('@mipmap/ic_launcher');
     const darwinInit = DarwinInitializationSettings();
     await _plugin.initialize(
-      settings: const InitializationSettings(android: androidInit, iOS: darwinInit),
+      settings: const InitializationSettings(
+        android: androidInit,
+        iOS: darwinInit,
+      ),
       onDidReceiveNotificationResponse: (response) {
         _tapController.add(response.payload);
       },
