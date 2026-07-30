@@ -65,7 +65,6 @@ class UserSettings {
       sessionOrdering: SessionOrdering.interleavedTail,
       retainTableOrder: true,
       updatedAt: null,
-      acceptedTermsAt: null,
     );
   }
 

@@ -81,8 +81,7 @@ void main() {
     expect(cont.onPressed, isNull);
   });
 
-  testWidgets(
-      'Continue is enabled with terms tick alone and leaving usage tick off writes false',
+  testWidgets('the terms tick alone enables Continue, and usage stays false',
       (tester) async {
     var completed = false;
     await pumpStep(tester, onCompleted: () => completed = true);
@@ -134,8 +133,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(pushed, contains('/legal/terms'));
 
-    final nav = tester.state<NavigatorState>(find.byType(Navigator));
-    nav.pop();
+    tester.state<NavigatorState>(find.byType(Navigator)).pop();
     await tester.pumpAndSettle();
 
     await tester.tap(find.text('Privacy Policy'));

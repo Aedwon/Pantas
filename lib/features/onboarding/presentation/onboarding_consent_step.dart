@@ -19,8 +19,7 @@ class OnboardingConsentStep extends ConsumerStatefulWidget {
       _OnboardingConsentStepState();
 }
 
-class _OnboardingConsentStepState
-    extends ConsumerState<OnboardingConsentStep> {
+class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
   bool _acceptedTerms = false;
   bool _acceptedUsage = false;
   bool _saving = false;
@@ -32,8 +31,9 @@ class _OnboardingConsentStepState
       final repo = ref.read(settingsRepositoryProvider);
       await repo.recordPolicyAcceptance();
       await repo.updateHelpImproveApp(enabled: _acceptedUsage);
-      ref.invalidate(settingsRepositoryProvider);
-      ref.invalidate(userSettingsProvider);
+      ref
+        ..invalidate(settingsRepositoryProvider)
+        ..invalidate(userSettingsProvider);
       widget.onCompleted();
     } finally {
       if (mounted) setState(() => _saving = false);
@@ -127,8 +127,12 @@ class _OnboardingConsentStepState
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          'Sends anonymous app diagnostics and performance metrics. Never shares your name or answers.',
-                          style: styles.bodySmall.copyWith(color: colors.inkMuted),
+                          'Sends anonymous data about how the app is used, '
+                          'including which questions get answered '
+                          'correctly. Never your name, and never '
+                          'anything you type.',
+                          style:
+                              styles.bodySmall.copyWith(color: colors.inkMuted),
                         ),
                       ],
                     ),
