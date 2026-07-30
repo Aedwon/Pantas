@@ -109,8 +109,25 @@ and the encryption group last.** That is close to the reverse of what this
 document said. Group C was written as "central, deserves a quiet branch", which
 read as "later". It is a prerequisite.
 
-**The last link is unverified.** The probe was stopped before Riverpod 3 was
-tried, so the chain is known to be at least that long and may be longer.
+**Corrected again, hours later, and this time by resolving it instead of
+reading errors one at a time. Riverpod 3 is not in the chain.**
+
+The blocker at link 3 was `riverpod_generator`, and **nothing in this repository
+uses it.** There is not one `@riverpod` annotation in `lib/`. It and
+`riverpod_annotation` are declared, unused, and holding `build` at version 2.
+
+**Delete those two lines and the whole thing resolves**: freezed 3, drift 2.34,
+`sqlite3` 3.5 and no `sqlcipher_flutter_libs`, with `flutter_riverpod` untouched
+on 2.x. Verified by running the resolver, not inferred.
+
+**So the order is `purchases_flutter` (done), then freezed 3 with the two
+removals, then the encryption group.** Riverpod 3 becomes an upgrade we choose
+when we want it, not a prerequisite for anything.
+
+**What this cost:** I wrote "the real order is purchases_flutter, freezed 3,
+Riverpod 3, encryption" and published it before testing whether the third link
+was load-bearing. It was not. One resolver run would have shown that, and it is
+the second time today that resolving before writing would have saved a round.
 
 ## Group D: the encryption stack, one change or none
 
