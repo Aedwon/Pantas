@@ -12,7 +12,11 @@ Written 10 August 2026, against the console as it is now.
 **Nothing Firebase does in this app works today.** The SDK boot adapter's `initialize` is an
 empty method body: sign in, sync, crash reporting, analytics, the force update gate and App
 Check are all inert until the projects below exist and `flutterfire configure` has been run.
-Nothing in `lib/` imports the Firebase packages that `pubspec.yaml` carries.
+
+**Corrected 11 August.** This section used to say nothing in `lib/` imports the Firebase
+packages. **That was wrong**, and wrong in the direction that matters: four files already do,
+covering App Check, remote flags, telemetry and Wrapped sharing. **Much more is wired than that
+sentence implied**, which is why the work below is configuration rather than implementation.
 
 **That is deliberate.** The code was built and tested against injected adapters so it could be
 finished before the projects existed. This document is the other half.
@@ -273,7 +277,39 @@ first report. The work is local:
 
 Enabled at project creation on prod. The app logs its own named events and **gates all of them
 behind consent**, which is unanswered by default under RA 10173: a student who has not agreed
-sends nothing. There is nothing to switch on in the console for this.
+sends nothing.
+
+**Three things that are not obvious**, added 11 August:
+
+- **A custom event parameter is invisible in reports until you register it** as a custom
+  definition, under **Analytics > Custom definitions > Create custom dimension**, using the
+  parameter's exact name. The event itself arrives either way, so this fails silently: you will
+  see the event count and not the breakdown, and conclude the code is wrong.
+- **Enabling Analytics on prod only means telemetry cannot be tested in dev.** Either accept
+  that events are only ever seen in production, or enable Analytics on the dev project too. If
+  you do, use **DebugView** to watch events arrive in real time, which needs
+  `adb shell setprop debug.firebase.analytics.app com.aerol.csecet.dev` on the device.
+- **Firebase Analytics caps distinct event names at 500 per project**, and names cannot be
+  deleted once used. The app's events are an enum, so the cap is nowhere near, but a future
+  event whose name embeds an id would burn through it.
+
+### Adding telemetry later, which needs no console work
+
+**The switch is already built.** Telemetry resolves through an interface with two
+implementations: a no-op one, and the Firebase one. The chooser checks whether a Firebase app
+exists at all and returns the no-op when none does, which is why the app boots today instead of
+dying at the splash on `[core/no-app]`.
+
+**So the moment `flutterfire configure` has run and the bootstrap is wired, telemetry starts
+reporting with no further change.** Nothing needs switching on per event.
+
+**A new event is one line**: a case on the telemetry event enum with its snake_case wire name.
+Keep the comment grouping, which is written as the question the event answers rather than the
+feature it sits in, because that is what makes an unused event obvious later. Register any new
+parameter as a custom dimension per the note above.
+
+**Crash reporting needs nothing per call site.** All three of Flutter's throw sites are already
+funnelled into one reporter, so a new screen is covered the moment it exists.
 
 ### Cloud Messaging
 
