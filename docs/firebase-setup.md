@@ -399,6 +399,20 @@ traffic onto your quota.
 
 ## 10. The order I would do it in
 
+**Android only.** There is no Apple developer account, so skip Apple sign-in, App
+Attest and the APNs key entirely. They are not blockers; they do not exist yet.
+
+**Link the BigQuery export on the day you create the project.** It is free in the
+sandbox and **it is not retroactive**: analytics data from before you link it can
+never be imported, and the Firebase console alone cannot answer questions of your
+own shape. This is the cheapest thing here to get right and the most expensive to
+get wrong.
+
+**Backup is Pro only**, decided 11 August, so Firestore only ever holds the data of
+students who both signed in and subscribed. That keeps Section 4's cost profile
+small, and it does not change the rules: they still scope a student to their own
+subtree.
+
 1. **Create the prod project only.** Dev and staging can wait; you cannot test anything
    end to end without prod anyway, and three projects is three times the console work before
    you know the flow.
@@ -410,8 +424,14 @@ traffic onto your quota.
 7. Storage, only when Wrapped sharing matters.
 8. Messaging, only when notifications ship.
 
-**Not Firebase, and often confused with it:** the paywall runs on RevenueCat with products
-defined in the Play Console and App Store Connect. None of that is in this document.
+**Not Firebase, and often confused with it:** the paywall runs on RevenueCat with
+products defined in the Play Console. **That now has its own document,
+`docs/revenuecat-setup.md`**, including the Google Cloud service account that has
+to be invited into Play Console before RevenueCat can see a subscription.
+
+**A student can subscribe without ever signing in**, because entitlement comes from
+the store and the device rather than from an account. So the paywall does not wait
+on any of this.
 
 ---
 

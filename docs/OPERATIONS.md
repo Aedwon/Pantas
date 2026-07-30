@@ -48,22 +48,36 @@ Last updated: 2026-05-07
 
 ### RevenueCat
 
-- Project: CSE/CET Reviewer
+**Corrected 11 August 2026.** This section listed a lifetime product and the old
+app name. **Do not create products from the old list.** Full setup, in order, is
+`docs/revenuecat-setup.md`.
+
+- Project: Pantas
 - Entitlement: `pro`
-- Products: `cse_cet_pro_monthly`, `cse_cet_pro_yearly`, `cse_cet_pro_lifetime`
-- Webhook secret: stored in 1Password under "CSE/CET Reviewer — RevenueCat Webhook"
+- Products: `pantas_pro_weekly`, `pantas_pro_monthly`, `pantas_pro_yearly`
+- **No lifetime product**, removed by decision on 3 August 2026. A Play product ID
+  cannot be deleted once used, so creating one would be permanent.
+- Prices: ₱29 weekly, ₱99 monthly, ₱999 yearly
+- Android only. There is no Apple developer account, so no App Store side exists.
+- Webhook secret: stored in 1Password under "Pantas, RevenueCat Webhook"
 
 ### Apple Developer
 
-- Team ID: TBD
-- Bundle IDs:
-  - Dev: `com.aedwon.csecetreviewer.dev`
-  - Staging: `com.aedwon.csecetreviewer.staging`
-  - Prod: `com.aedwon.csecetreviewer`
+**None held as of 11 August 2026**, so nothing iOS is set up and nothing needs to
+be. The bundle IDs previously listed here were three guesses that did not match the
+one actually in the Xcode project, `com.aedwon.cseCetReviewer`. Left here only so
+nobody treats the old list as configured.
+
+Blocked on an Apple account, and only when iOS matters: Apple sign-in, App Attest,
+the APNs key, and per-flavor bundle IDs so a dev and a prod build can coexist on
+one iPhone.
 
 ### Google Play
 
-- Developer account: TBD
+- Developer account: held.
+- **A Google Cloud service account must be invited into Play Console** before
+  RevenueCat can read subscriptions. This is the step that fails quietly. See
+  `docs/revenuecat-setup.md` Section 3.
 
 ## Manual configuration steps
 
