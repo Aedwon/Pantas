@@ -1,7 +1,7 @@
-import 'package:pantas/features/study_plan/domain/compute_plan_view.dart';
-import 'package:pantas/features/study_plan/presentation/today_inset.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/study_plan/domain/compute_plan_view.dart';
+import 'package:pantas/features/study_plan/presentation/today_inset.dart';
 
 import '../../../helpers/pump_app.dart';
 

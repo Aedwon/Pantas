@@ -1,5 +1,5 @@
-import 'package:pantas/features/mock_exam/domain/corpus_ceiling.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/mock_exam/domain/corpus_ceiling.dart';
 
 void main() {
   test('a paper the corpus can carry fits', () {

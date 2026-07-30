@@ -1,3 +1,5 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:meta/meta.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -18,8 +20,6 @@ import 'package:pantas/features/metrics/signals/session_shape_signal.dart';
 import 'package:pantas/features/metrics/signals/subject_affinity_signal.dart';
 import 'package:pantas/features/metrics/signals/test_mode_delta_signal.dart';
 import 'package:pantas/features/metrics/signals/time_of_day_signal.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:meta/meta.dart';
 
 /// Every signal is built from both databases even when it needs only one.
 /// A uniform factory is what lets the registry stay a plain map; the signals

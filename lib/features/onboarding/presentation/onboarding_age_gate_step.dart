@@ -1,8 +1,8 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/board_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class OnboardingAgeGateStep extends ConsumerStatefulWidget {
   const OnboardingAgeGateStep({

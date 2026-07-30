@@ -1,6 +1,6 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/quiz/domain/picker/practice_index.dart';
 import 'package:pantas/features/quiz/domain/picker/practice_selection.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 PracticeLessonEntry lesson(String id, {int questionCount = 4}) =>
     PracticeLessonEntry(

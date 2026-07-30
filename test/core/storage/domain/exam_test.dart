@@ -1,6 +1,6 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('Exam round-trips JSON including nested subjects', () {

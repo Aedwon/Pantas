@@ -1,5 +1,5 @@
-import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
 
 part 'review_state.freezed.dart';
 part 'review_state.g.dart';

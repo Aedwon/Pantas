@@ -1,8 +1,8 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/wrapped/artifacts/mastery_crossing_artifact.dart';
 import 'package:pantas/features/wrapped/artifacts/post_exam_debrief_artifact.dart';
 import 'package:pantas/features/wrapped/artifacts/post_mock_recap_artifact.dart';
 import 'package:pantas/features/wrapped/artifacts/streak_milestone_artifact.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('post mock recap fires for first mock or new personal best only', () {

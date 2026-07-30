@@ -1,6 +1,6 @@
-import 'package:pantas/app/flavor.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:flutter/foundation.dart';
+import 'package:pantas/app/flavor.dart';
 
 /// Activates Firebase App Check with flavor-specific providers.
 ///

@@ -1,12 +1,12 @@
 import 'dart:async';
 
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/empty_state.dart';
 import 'package:pantas/core/ui/components/error_banner.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
 import 'package:pantas/features/lesson/presentation/learn_tab_home.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/pump_app.dart';
 import 'fake_open_topic.dart';

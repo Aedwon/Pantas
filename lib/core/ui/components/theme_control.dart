@@ -1,8 +1,8 @@
 import 'dart:math' as math;
 
+import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/theme_preference.dart';
-import 'package:flutter/material.dart';
 
 /// The theme switch, which is the settings switch at three positions: a
 /// hairline enclosure with the live segment filled solid ink.

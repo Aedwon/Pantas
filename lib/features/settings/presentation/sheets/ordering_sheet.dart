@@ -1,7 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/ink_sheet.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/settings/domain/session_ordering.dart';
-import 'package:flutter/material.dart';
 
 const String _lede =
     'Each session has one main topic. This sets how much comes from '

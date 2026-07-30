@@ -1,7 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_dimensions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/progress/application/table_order_prefs.dart';
-import 'package:flutter/material.dart';
 
 /// The table's head, which is also its only sort control.
 ///

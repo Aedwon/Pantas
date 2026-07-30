@@ -1,5 +1,5 @@
-import 'package:pantas/core/content/tables/content_exams.dart';
 import 'package:drift/drift.dart';
+import 'package:pantas/core/content/tables/content_exams.dart';
 
 @DataClassName('ContentMockBlueprintRow')
 class ContentMockBlueprints extends Table {

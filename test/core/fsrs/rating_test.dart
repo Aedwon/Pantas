@@ -1,5 +1,5 @@
-import 'package:pantas/core/fsrs/rating.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/fsrs/rating.dart';
 
 void main() {
   test('values map to grades 1..4', () {

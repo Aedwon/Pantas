@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:app_settings/app_settings.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/features/notifications/data/notifications_gateway.dart';
 import 'package:pantas/features/notifications/domain/notification_payload.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/data/latest.dart' as tz_data;
 import 'package:timezone/timezone.dart' as tz;
 

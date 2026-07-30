@@ -1,3 +1,4 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
@@ -7,7 +8,6 @@ import 'package:pantas/features/settings/data/settings_repository.dart';
 import 'package:pantas/features/settings/domain/session_ordering.dart';
 import 'package:pantas/features/settings/domain/theme_preference.dart';
 import 'package:pantas/features/settings/domain/user_settings.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 enum ReminderSaveResult { scheduled }
 

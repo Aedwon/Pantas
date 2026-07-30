@@ -1,9 +1,9 @@
-import 'package:pantas/core/storage/data/app_database.dart';
-import 'package:pantas/features/metrics/domain/metrics_window.dart';
-import 'package:pantas/features/metrics/signals/mock_pacing_signal.dart';
 import 'package:drift/drift.dart' hide isNotNull, isNull;
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/features/metrics/domain/metrics_window.dart';
+import 'package:pantas/features/metrics/signals/mock_pacing_signal.dart';
 
 void main() {
   test('computes average spare seconds and section timing', () async {

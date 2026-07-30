@@ -1,6 +1,6 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/choice_order.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   List<Choice> makeChoices({int count = 4, int correctIndex = 0}) {

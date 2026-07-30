@@ -1,5 +1,5 @@
-import 'package:pantas/core/content/tables/content_questions.dart';
 import 'package:drift/drift.dart';
+import 'package:pantas/core/content/tables/content_questions.dart';
 
 @DataClassName('ContentChoiceRow')
 class ContentChoices extends Table {

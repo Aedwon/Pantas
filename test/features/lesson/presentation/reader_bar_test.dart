@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/bookmark_ribbon.dart';
 import 'package:pantas/core/ui/components/contents_glyph.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/pump_app.dart';
 

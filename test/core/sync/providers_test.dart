@@ -1,7 +1,7 @@
-import 'package:pantas/core/sync/providers.dart';
-import 'package:pantas/core/sync/sync_status.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/sync/providers.dart';
+import 'package:pantas/core/sync/sync_status.dart';
 
 void main() {
   test('syncStatusProvider emits idle from fake engine', () async {

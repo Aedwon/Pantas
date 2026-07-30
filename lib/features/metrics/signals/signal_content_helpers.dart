@@ -1,5 +1,5 @@
-import 'package:pantas/core/content/content.dart';
 import 'package:drift/drift.dart';
+import 'package:pantas/core/content/content.dart';
 
 /// The corpus lookups the signals need, against the content database.
 ///

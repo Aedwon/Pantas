@@ -1,7 +1,7 @@
+import 'package:drift/drift.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/features/mock_exam/domain/custom_blueprint.dart';
-import 'package:drift/drift.dart';
 
 /// Stores the one blueprint a custom track carries, replaced on save.
 class CustomBlueprintRepository {

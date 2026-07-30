@@ -1,12 +1,12 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/board_button.dart';
 import 'package:pantas/core/ui/components/ruled_panel.dart';
 import 'package:pantas/core/ui/theme/app_colors.dart';
 import 'package:pantas/core/ui/theme/app_text_styles.dart';
 import 'package:pantas/features/home/application/up_next_provider.dart';
 import 'package:pantas/features/home/presentation/widgets/up_next_panel.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   Widget harness({required UpNextDay day}) {

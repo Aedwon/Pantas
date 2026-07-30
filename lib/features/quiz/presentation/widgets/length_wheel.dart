@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/features/quiz/domain/picker/practice_summary.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/quiz/domain/picker/practice_summary.dart';
 
 /// Fixed column width, so every value lands on one optical centre whatever
 /// its number of digits.

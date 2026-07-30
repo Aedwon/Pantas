@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
@@ -11,9 +14,6 @@ import 'package:pantas/features/lesson/domain/use_cases/decide_ending.dart';
 import 'package:pantas/features/lesson/presentation/widgets/bookplate.dart';
 import 'package:pantas/features/lesson/presentation/widgets/next_topic_block.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_rail.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 class TopicEndingPage extends ConsumerWidget {
   const TopicEndingPage({

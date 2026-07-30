@@ -1,5 +1,5 @@
-import 'package:pantas/features/study_plan/domain/pace_curve.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/study_plan/domain/pace_curve.dart';
 
 void main() {
   final curve = PaceCurve(

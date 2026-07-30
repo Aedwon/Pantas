@@ -1,8 +1,8 @@
+import 'package:drift/drift.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/sync_state.dart';
-import 'package:drift/drift.dart';
 
 /// What a student has read is theirs; which lessons a topic has is corpus.
 /// Counting the first against the second is why this holds both databases.

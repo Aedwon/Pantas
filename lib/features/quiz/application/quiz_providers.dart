@@ -1,3 +1,4 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/fsrs/fsrs_scheduler.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
@@ -18,7 +19,6 @@ import 'package:pantas/features/quiz/domain/use_cases/start_quick_quiz.dart';
 import 'package:pantas/features/quiz/domain/use_cases/start_retake.dart';
 import 'package:pantas/features/quiz/domain/use_cases/start_today_session.dart';
 import 'package:pantas/features/quiz/domain/use_cases/submit_answer.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// The quiz feature's wiring: every use case and repository the quiz builds
 /// on, and the clock they read.

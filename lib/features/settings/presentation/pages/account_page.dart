@@ -1,4 +1,8 @@
 import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/auth/sign_in_result.dart';
 import 'package:pantas/core/ui/components/board_button.dart';
@@ -6,9 +10,6 @@ import 'package:pantas/core/ui/components/page_scaffold.dart';
 import 'package:pantas/core/ui/components/settings_bar.dart';
 import 'package:pantas/core/ui/components/settings_value_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 class AccountPage extends ConsumerStatefulWidget {
   const AccountPage({super.key});

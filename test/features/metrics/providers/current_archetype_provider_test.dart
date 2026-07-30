@@ -1,3 +1,6 @@
+import 'package:drift/native.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/metrics/domain/metric_signal.dart';
@@ -6,9 +9,6 @@ import 'package:pantas/features/metrics/domain/signal_key.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
 import 'package:pantas/features/metrics/providers/current_archetype_provider.dart';
 import 'package:pantas/features/metrics/providers/metrics_signal_providers.dart';
-import 'package:drift/native.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('resolves archetype from signal provider and writes cache', () async {

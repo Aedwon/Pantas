@@ -1,9 +1,9 @@
 import 'dart:io';
 
-import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:drift/drift.dart' show GeneratedDatabase, Value;
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
 
 void main() {
   test('app database creates local artifact cache table at schema version 14',

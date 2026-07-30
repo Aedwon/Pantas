@@ -1,6 +1,6 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class FakeOpenTopic extends OpenTopicController {
   TopicId? _value;

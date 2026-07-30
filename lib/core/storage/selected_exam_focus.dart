@@ -1,6 +1,6 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ActiveExamFocus {
   const ActiveExamFocus._({

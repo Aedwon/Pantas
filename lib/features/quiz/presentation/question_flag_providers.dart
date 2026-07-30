@@ -1,7 +1,7 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/quiz/presentation/review_providers.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// What just happened, so the caller knows which toast to raise.
 enum FlagToggle { firstFlagged, flagged, unflagged }

@@ -1,5 +1,5 @@
-import 'package:pantas/core/sync/engine/pull_pipeline.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/sync/engine/pull_pipeline.dart';
 
 void main() {
   test('incoming row inserts when no local row exists', () {

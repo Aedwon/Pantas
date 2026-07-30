@@ -1,6 +1,6 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/sync/sync_status.dart';
 import 'package:pantas/core/content/sync/sync_throttle.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   final now = DateTime.utc(2026, 5, 17, 8);

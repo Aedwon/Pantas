@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
@@ -7,8 +9,6 @@ import 'package:pantas/features/onboarding/presentation/onboarding_exam_date_ste
 import 'package:pantas/features/onboarding/presentation/onboarding_name_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_picker_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_welcome_step.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 enum _OnboardingStep { welcome, ageGate, picker, examDate, name }
 

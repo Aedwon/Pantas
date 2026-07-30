@@ -1,8 +1,8 @@
 // coverage:ignore-file
 import 'dart:io';
 
-import 'package:pantas/core/content/content_database.dart';
 import 'package:drift/native.dart';
+import 'package:pantas/core/content/content_database.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 

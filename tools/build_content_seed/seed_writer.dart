@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:crypto/crypto.dart';
+import 'package:drift/native.dart';
 import 'package:pantas/core/content/content_database.dart';
 import 'package:pantas/core/content/sanity/parsers/diagnostic_set_parser.dart';
 import 'package:pantas/core/content/sanity/parsers/exam_parser.dart';
@@ -12,7 +13,6 @@ import 'package:pantas/core/content/sanity/parsers/passage_parser.dart';
 import 'package:pantas/core/content/sanity/parsers/question_parser.dart';
 import 'package:pantas/core/content/sanity/parsers/subject_parser.dart';
 import 'package:pantas/core/content/sanity/parsers/topic_parser.dart';
-import 'package:drift/native.dart';
 import 'package:path/path.dart' as p;
 
 Future<void> main(List<String> args) async {

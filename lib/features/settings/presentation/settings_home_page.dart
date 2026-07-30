@@ -1,5 +1,8 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/sync/providers.dart';
@@ -15,9 +18,6 @@ import 'package:pantas/features/settings/presentation/sheets/name_sheet.dart';
 import 'package:pantas/features/settings/presentation/sheets/ordering_sheet.dart';
 import 'package:pantas/features/settings/presentation/sheets/reminder_sheet.dart';
 import 'package:pantas/features/settings/settings.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 /// Settings, reached by the gear in Home's masthead. There is no Settings tab.
 ///

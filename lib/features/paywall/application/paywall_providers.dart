@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/dev/dev_pro_switch.dart';
 import 'package:pantas/features/paywall/application/paywall_controller.dart';
@@ -6,8 +8,6 @@ import 'package:pantas/features/paywall/data/revenuecat_config.dart';
 import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/paywall_recommendation.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final revenueCatConfigProvider = Provider<RevenueCatConfig>(
   (ref) => RevenueCatConfig.fromEnvironment(),

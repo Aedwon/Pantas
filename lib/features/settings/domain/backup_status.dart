@@ -1,5 +1,5 @@
-import 'package:pantas/core/sync/sync_status.dart';
 import 'package:meta/meta.dart';
+import 'package:pantas/core/sync/sync_status.dart';
 
 @immutable
 class BackupDiagnostics {

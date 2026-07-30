@@ -1,5 +1,5 @@
-import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 
 /// The title at the top of a tab.
 ///

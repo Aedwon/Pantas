@@ -1,6 +1,6 @@
 // coverage:ignore-file
-import 'package:pantas/core/storage/data/tables/lessons_table.dart';
 import 'package:drift/drift.dart';
+import 'package:pantas/core/storage/data/tables/lessons_table.dart';
 
 @DataClassName('LessonProgressLocalRow')
 class LessonProgressLocal extends Table {

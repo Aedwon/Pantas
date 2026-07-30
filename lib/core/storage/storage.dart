@@ -1,3 +1,4 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/database_opener.dart';
@@ -16,7 +17,6 @@ import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/lesson.dart';
 import 'package:pantas/core/storage/domain/passage.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 export 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
 export 'package:pantas/core/storage/data/repos/lesson_bookmarks_repository.dart';

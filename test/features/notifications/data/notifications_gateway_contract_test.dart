@@ -1,8 +1,8 @@
 import 'dart:async';
 
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/notifications/data/notifications_gateway.dart';
 import 'package:pantas/features/notifications/notifications.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('fake gateway records initialize schedule cancel and cancelAll calls',

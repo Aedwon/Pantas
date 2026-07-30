@@ -1,3 +1,4 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/question.dart';
@@ -5,7 +6,6 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/quiz/domain/debrief/session_debrief.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 typedef DebriefParams = ({
   String attemptId,

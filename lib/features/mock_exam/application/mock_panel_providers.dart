@@ -1,3 +1,4 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
@@ -5,7 +6,6 @@ import 'package:pantas/features/mock_exam/data/custom_blueprint_repository.dart'
 import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
 import 'package:pantas/features/mock_exam/domain/mock_availability.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_panel.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// The most recent completed or forfeited attempt for this exam, which is the
 /// one the panel's figures describe.

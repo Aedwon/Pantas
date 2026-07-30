@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:pantas/core/platform/remote_flags.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/platform/remote_flags.dart';
 
 /// The flags this launch fetched, or the fallback.
 ///

@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_dimensions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:flutter/material.dart';
 
 /// A bookplate for a finished topic or a topic stopped short.
 class Bookplate extends StatefulWidget {

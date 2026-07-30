@@ -1,9 +1,9 @@
+import 'package:drift/drift.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/features/settings/domain/session_ordering.dart';
 import 'package:pantas/features/settings/domain/theme_preference.dart';
 import 'package:pantas/features/settings/domain/user_settings.dart';
-import 'package:drift/drift.dart';
 
 typedef SettingsClock = DateTime Function();
 

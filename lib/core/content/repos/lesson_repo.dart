@@ -1,9 +1,9 @@
 import 'dart:convert';
 
+import 'package:drift/drift.dart';
 import 'package:pantas/core/content/content_database.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/lesson.dart';
-import 'package:drift/drift.dart';
 
 class LessonRepo {
   LessonRepo(this._db);

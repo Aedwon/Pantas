@@ -1,7 +1,7 @@
-import 'package:pantas/core/storage/data/repos/lesson_progress_repository.dart';
-import 'package:pantas/features/lesson/domain/use_cases/mark_lesson_read.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:pantas/core/storage/data/repos/lesson_progress_repository.dart';
+import 'package:pantas/features/lesson/domain/use_cases/mark_lesson_read.dart';
 
 class _MockProgress extends Mock implements LessonProgressRepository {}
 

@@ -10,16 +10,16 @@ void main() {
     expect(gradle, contains('create("prod")'));
   });
 
-  test('dev flavor uses com.aerol.csecet.dev', () {
+  test('dev flavor uses com.aedwon.pantas.dev', () {
     final gradle = File('android/app/build.gradle.kts').readAsStringSync();
 
-    expect(gradle, contains('applicationId = "com.aerol.csecet.dev"'));
+    expect(gradle, contains('applicationId = "com.aedwon.pantas.dev"'));
   });
 
-  test('prod flavor uses com.aerol.csecet', () {
+  test('prod flavor uses com.aedwon.pantas', () {
     final gradle = File('android/app/build.gradle.kts').readAsStringSync();
 
-    expect(gradle, contains('applicationId = "com.aerol.csecet"'));
+    expect(gradle, contains('applicationId = "com.aedwon.pantas"'));
   });
 
   test('repo does not commit google-services json placeholders', () {

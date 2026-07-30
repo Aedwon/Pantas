@@ -1,9 +1,9 @@
-import 'package:pantas/core/ui/components/bookmark_ribbon.dart';
-import 'package:pantas/core/ui/components/contents_glyph.dart';
-import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/ui/components/bookmark_ribbon.dart';
+import 'package:pantas/core/ui/components/contents_glyph.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 
 enum ReaderOrigin { home, study }
 

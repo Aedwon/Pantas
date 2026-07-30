@@ -1,5 +1,5 @@
-import 'package:pantas/features/mock_exam/domain/part_clock.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/mock_exam/domain/part_clock.dart';
 
 void main() {
   group('urgency', () {

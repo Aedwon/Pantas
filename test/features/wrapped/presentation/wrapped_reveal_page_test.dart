@@ -1,9 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/wrapped/data/user_metrics_artifact_repository.dart';
 import 'package:pantas/features/wrapped/domain/wrapped_payload.dart';
 import 'package:pantas/features/wrapped/presentation/wrapped_reveal_page.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';

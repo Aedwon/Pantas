@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/app.dart';
 import 'package:pantas/app/firebase_bootstrap.dart';
 import 'package:pantas/app/flavor.dart';
@@ -20,8 +22,6 @@ import 'package:pantas/features/mock_exam/domain/mock_availability.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
 import 'package:pantas/features/notifications/presentation/notifications_lifecycle_observer.dart';
 import 'package:pantas/features/paywall/paywall.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Feeds the real subscription into the mock cooldown.
 ///

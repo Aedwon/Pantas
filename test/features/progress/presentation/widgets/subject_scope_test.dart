@@ -1,9 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/progress/application/table_order_prefs.dart';
 import 'package:pantas/features/progress/presentation/widgets/subject_scope_sheet.dart';
 import 'package:pantas/features/progress/presentation/widgets/table_head.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 typedef ScopeSubject = ({String id, String name, int rowCount});
 

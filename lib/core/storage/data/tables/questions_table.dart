@@ -1,8 +1,8 @@
 // coverage:ignore-file
+import 'package:drift/drift.dart';
 import 'package:pantas/core/storage/data/tables/lessons_table.dart';
 import 'package:pantas/core/storage/data/tables/passages_table.dart';
 import 'package:pantas/core/storage/data/tables/topics_table.dart';
-import 'package:drift/drift.dart';
 
 @DataClassName('QuestionRow')
 class Questions extends Table {

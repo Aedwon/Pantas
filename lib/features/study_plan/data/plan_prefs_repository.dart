@@ -1,6 +1,6 @@
+import 'package:drift/drift.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/features/study_plan/domain/plan_prefs.dart';
-import 'package:drift/drift.dart';
 
 class PastExamDateException implements Exception {
   const PastExamDateException(this.date);

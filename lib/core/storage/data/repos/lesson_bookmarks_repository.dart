@@ -1,7 +1,7 @@
+import 'package:drift/drift.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/sync_state.dart';
-import 'package:drift/drift.dart';
 
 /// Lessons the student marked to come back to. Ordering by subject is not here
 /// on purpose: it needs the subject tree, which lives in `ContentRepository`,

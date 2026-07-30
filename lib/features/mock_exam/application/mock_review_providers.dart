@@ -1,3 +1,4 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
@@ -6,7 +7,6 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/review_list.dart';
 import 'package:pantas/features/metrics/signals/mock_payload_reader.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Every question in one finished mock attempt, in paper order.
 final mockReviewProvider =

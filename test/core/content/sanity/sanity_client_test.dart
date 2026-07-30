@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:pantas/core/content/sanity/sanity_client.dart';
-import 'package:pantas/core/content/sanity/sanity_config.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/sanity/sanity_client.dart';
+import 'package:pantas/core/content/sanity/sanity_config.dart';
 
 void main() {
   test('SanityConfig.fromEnvironment returns null when missing values', () {

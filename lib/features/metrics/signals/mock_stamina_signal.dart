@@ -1,3 +1,4 @@
+import 'package:drift/drift.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/features/metrics/domain/metric_signal.dart';
@@ -5,7 +6,6 @@ import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
 import 'package:pantas/features/metrics/signals/mock_payload_reader.dart';
 import 'package:pantas/features/metrics/signals/signal_content_helpers.dart';
-import 'package:drift/drift.dart';
 
 class MockStaminaSignal implements Signal<StaminaDelta> {
   const MockStaminaSignal(

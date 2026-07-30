@@ -1,8 +1,8 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/metrics/atoms/home_atoms.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_key.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('time of day atom reports the sharpest hour', () async {

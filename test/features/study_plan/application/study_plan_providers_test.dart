@@ -1,7 +1,7 @@
-import 'package:pantas/features/study_plan/application/study_plan_providers.dart';
-import 'package:pantas/features/study_plan/domain/plan_prefs.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/study_plan/application/study_plan_providers.dart';
+import 'package:pantas/features/study_plan/domain/plan_prefs.dart';
 
 void main() {
   ProviderContainer container({

@@ -1,5 +1,5 @@
-import 'package:pantas/core/sync/engine/backoff_policy.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/sync/engine/backoff_policy.dart';
 
 void main() {
   test('backoff emits 1s through 1024s then caps at 30 minutes', () {

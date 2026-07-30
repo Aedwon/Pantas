@@ -1,4 +1,8 @@
 import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/ui/components/board_button.dart';
 import 'package:pantas/core/ui/components/empty_state.dart';
@@ -16,9 +20,6 @@ import 'package:pantas/features/lesson/presentation/widgets/search_field_bar.dar
 import 'package:pantas/features/lesson/presentation/widgets/search_results.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_head_block.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_topic_section.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 class LearnTabHome extends ConsumerWidget {
   const LearnTabHome({this.openTopicId, super.key});

@@ -1,5 +1,5 @@
-import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 
 /// What a checkbox is showing.
 ///

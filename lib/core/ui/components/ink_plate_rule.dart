@@ -1,5 +1,5 @@
-import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 
 /// A 1.6px ink rule drawn under a section header or plate.
 class InkPlateRule extends StatelessWidget {

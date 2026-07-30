@@ -1,8 +1,8 @@
 import 'dart:convert';
 
+import 'package:drift/drift.dart';
 import 'package:pantas/core/content/content_database.dart';
 import 'package:pantas/core/content/domain/mock_blueprint.dart';
-import 'package:drift/drift.dart';
 
 class MockBlueprintRepo {
   MockBlueprintRepo(this._db);

@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/ui/components/board_button.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
 import 'package:pantas/core/ui/components/ink_table_row.dart';
@@ -7,8 +9,6 @@ import 'package:pantas/features/wrapped/application/wrapped_share_flow.dart';
 import 'package:pantas/features/wrapped/data/user_metrics_artifact_repository.dart';
 import 'package:pantas/features/wrapped/presentation/my_shared_cards_page.dart';
 import 'package:pantas/features/wrapped/presentation/share_privacy_sheet.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class WrappedRevealPage extends ConsumerStatefulWidget {
   const WrappedRevealPage({required this.artifactId, super.key});

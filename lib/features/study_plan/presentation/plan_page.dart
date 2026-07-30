@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
 import 'package:pantas/core/ui/components/section_header.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -6,9 +9,6 @@ import 'package:pantas/features/study_plan/presentation/collapsed_plan_section.d
 import 'package:pantas/features/study_plan/presentation/mock_week_card.dart';
 import 'package:pantas/features/study_plan/presentation/today_inset.dart';
 import 'package:pantas/features/study_plan/presentation/upcoming_day_chip.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 class PlanPage extends ConsumerWidget {
   const PlanPage({super.key});

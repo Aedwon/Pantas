@@ -1,5 +1,5 @@
-import 'package:pantas/features/wrapped/domain/wrapped_share_url.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/wrapped/domain/wrapped_share_url.dart';
 
 void main() {
   test('base is the canonical wrapped path', () {

@@ -1,5 +1,5 @@
-import 'package:pantas/core/sync/engine/sync_engine.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/sync/engine/sync_engine.dart';
 
 void main() {
   test('start opens one listener per active subcollection for named users',

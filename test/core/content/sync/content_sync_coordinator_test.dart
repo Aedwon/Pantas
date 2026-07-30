@@ -1,8 +1,8 @@
+import 'package:drift/native.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content_database.dart';
 import 'package:pantas/core/content/sync/content_sync_coordinator.dart';
 import 'package:pantas/core/content/sync/sync_status.dart';
-import 'package:drift/native.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   late ContentDatabase db;

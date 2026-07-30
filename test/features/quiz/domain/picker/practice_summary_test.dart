@@ -1,7 +1,7 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/quiz/domain/picker/practice_index.dart';
 import 'package:pantas/features/quiz/domain/picker/practice_selection.dart';
 import 'package:pantas/features/quiz/domain/picker/practice_summary.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 PracticeTopicEntry topic(String id, int questionCount) => PracticeTopicEntry(
       id: id,

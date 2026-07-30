@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/core/ui/components/error_banner.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/paywall/application/paywall_controller.dart';
@@ -8,9 +11,6 @@ import 'package:pantas/features/paywall/presentation/plans_page.dart';
 import 'package:pantas/features/paywall/presentation/trial_timeline_page.dart';
 import 'package:pantas/features/paywall/presentation/what_pro_adds_page.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 enum _PaywallStep {
   whatProAdds,

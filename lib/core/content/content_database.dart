@@ -1,3 +1,4 @@
+import 'package:drift/drift.dart';
 import 'package:pantas/core/content/tables/content_choices.dart';
 import 'package:pantas/core/content/tables/content_diagnostic_sets.dart';
 import 'package:pantas/core/content/tables/content_exams.dart';
@@ -10,7 +11,6 @@ import 'package:pantas/core/content/tables/content_question_exams.dart';
 import 'package:pantas/core/content/tables/content_questions.dart';
 import 'package:pantas/core/content/tables/content_subjects.dart';
 import 'package:pantas/core/content/tables/content_topics.dart';
-import 'package:drift/drift.dart';
 
 part 'content_database.g.dart';
 

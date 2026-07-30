@@ -1,6 +1,6 @@
 // ignore_for_file: sort_unnamed_constructors_first
-import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
 
 part 'passage.freezed.dart';
 part 'passage.g.dart';

@@ -1,8 +1,8 @@
+import 'package:drift/drift.dart';
 import 'package:pantas/core/content/content_database.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
-import 'package:drift/drift.dart';
 
 class ExamRepo {
   ExamRepo(this._db);

@@ -1,10 +1,10 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/core/ui/components/board_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/legal/legal.dart';
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class LegalDocumentPage extends StatelessWidget {
   const LegalDocumentPage({

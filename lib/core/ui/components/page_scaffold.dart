@@ -1,5 +1,5 @@
-import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 
 /// Standard screen shell: paper background, safe area, identity padding.
 class PageScaffold extends StatelessWidget {

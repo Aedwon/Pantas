@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_dimensions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:flutter/material.dart';
 
 /// A stateful object drawn as a bordered rectangle on the page's own paper.
 ///

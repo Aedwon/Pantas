@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -9,7 +10,6 @@ import 'package:pantas/features/quiz/domain/use_cases/build_today_plan.dart';
 import 'package:pantas/features/quiz/domain/use_cases/build_today_queue.dart';
 import 'package:pantas/features/quiz/domain/use_cases/count_today_backlog.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// The user id every local write already uses. Mirrors `quiz_controller.dart`.
 const todayUserId = 'local';

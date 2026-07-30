@@ -1,8 +1,8 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/study_plan/domain/compute_plan_view.dart';
 import 'package:pantas/features/study_plan/presentation/mock_week_card.dart';
 import 'package:pantas/features/study_plan/presentation/plan_updated_chip.dart';
 import 'package:pantas/features/study_plan/presentation/upcoming_day_chip.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/pump_app.dart';
 

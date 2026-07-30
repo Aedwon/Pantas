@@ -1,5 +1,5 @@
-import 'package:pantas/core/content/sanity/groq_queries.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/sanity/groq_queries.dart';
 
 void main() {
   test('GROQ delta queries include updatedAt since filter', () {

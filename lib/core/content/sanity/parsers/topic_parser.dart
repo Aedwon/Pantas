@@ -1,7 +1,7 @@
+import 'package:drift/drift.dart';
 import 'package:pantas/core/content/content_database.dart';
 import 'package:pantas/core/content/sanity/parsers/parser_utils.dart';
 import 'package:pantas/core/content/sanity/schema_versions.dart';
-import 'package:drift/drift.dart';
 
 ContentTopicsCompanion parseTopic(Map<String, Object?> doc) {
   const doctype = 'topic';

@@ -1,5 +1,5 @@
-import 'package:pantas/core/sync/sync_coordinator.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/sync/sync_coordinator.dart';
 
 void main() {
   test('pushLocalToCloud delegates to full push', () async {

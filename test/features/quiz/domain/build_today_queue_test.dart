@@ -1,6 +1,6 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/quiz/domain/models/topic_queue_row.dart';
 import 'package:pantas/features/quiz/domain/use_cases/build_today_queue.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('topic queue shows due weakness and new counts per topic', () {

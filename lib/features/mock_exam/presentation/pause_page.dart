@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/board_button.dart';
 import 'package:pantas/core/ui/components/confirmation_dialog.dart';
 import 'package:pantas/core/ui/components/section_header.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:flutter/material.dart';
 
 class PausePage extends StatelessWidget {
   const PausePage({

@@ -1,6 +1,6 @@
-import 'package:pantas/core/auth/auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/auth/auth.dart';
 
 void main() {
   test('currentUserProvider returns null for unknown and signedOut', () async {

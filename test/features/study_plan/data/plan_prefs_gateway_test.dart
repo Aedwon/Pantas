@@ -1,6 +1,6 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/study_plan/data/plan_prefs_gateway.dart';
 import 'package:pantas/features/study_plan/domain/plan_prefs.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('exam date update serializes only examDate and examDateIsProvisional',

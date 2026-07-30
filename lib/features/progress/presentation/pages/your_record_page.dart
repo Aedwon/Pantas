@@ -1,10 +1,10 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/intl.dart';
 import 'package:pantas/core/ui/components/data_row_tile.dart';
 import 'package:pantas/core/ui/components/ruled_panel.dart';
 import 'package:pantas/features/progress/application/record_provider.dart';
 import 'package:pantas/features/progress/presentation/widgets/accuracy_line.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
 
 class YourRecordPage extends ConsumerWidget {
   const YourRecordPage({super.key});

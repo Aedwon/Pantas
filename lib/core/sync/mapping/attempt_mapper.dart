@@ -1,6 +1,6 @@
+import 'package:drift/drift.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/sync/mapping/sync_mapper.dart';
-import 'package:drift/drift.dart';
 
 class AttemptMapper implements SyncMapper {
   const AttemptMapper();

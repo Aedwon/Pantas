@@ -1,6 +1,6 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/study_plan/domain/compute_plan_view.dart';
 import 'package:pantas/features/study_plan/domain/plan_prefs.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   ComputePlanInput input({

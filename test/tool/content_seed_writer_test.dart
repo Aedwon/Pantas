@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:pantas/core/content/content_database.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/content_database.dart';
 
 void main() {
   test(

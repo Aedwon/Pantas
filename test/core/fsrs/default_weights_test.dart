@@ -1,5 +1,5 @@
-import 'package:pantas/core/fsrs/default_weights.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/fsrs/default_weights.dart';
 
 void main() {
   group('FSRS-6 default weights and constants', () {

@@ -1,3 +1,4 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
@@ -9,7 +10,6 @@ import 'package:pantas/features/quiz/domain/use_cases/start_inline_lesson_quiz.d
 import 'package:pantas/features/quiz/domain/use_cases/start_practice.dart';
 import 'package:pantas/features/quiz/domain/use_cases/start_retake.dart';
 import 'package:pantas/features/quiz/domain/use_cases/start_today_session.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Re-exported so the thirteen files that reach for the quiz's wiring through
 // the controller keep working; the wiring itself now lives in application/.

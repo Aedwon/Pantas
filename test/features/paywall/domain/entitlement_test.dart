@@ -1,5 +1,5 @@
-import 'package:pantas/features/paywall/paywall.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/paywall/paywall.dart';
 
 void main() {
   test('the ladder has exactly three paid plans and no lifetime', () {

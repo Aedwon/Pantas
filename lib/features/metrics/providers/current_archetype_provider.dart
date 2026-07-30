@@ -1,3 +1,5 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:meta/meta.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/metrics/archetypes/archetype_catalog.dart';
 import 'package:pantas/features/metrics/archetypes/archetype_resolver.dart';
@@ -6,8 +8,6 @@ import 'package:pantas/features/metrics/data/user_metrics_archetype_repository.d
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_key.dart';
 import 'package:pantas/features/metrics/providers/metrics_signal_providers.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:meta/meta.dart';
 
 @immutable
 class CurrentArchetypeRequest {

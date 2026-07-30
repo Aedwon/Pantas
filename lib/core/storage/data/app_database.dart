@@ -1,3 +1,4 @@
+import 'package:drift/drift.dart';
 import 'package:pantas/core/storage/data/tables/account_prefs_table.dart';
 import 'package:pantas/core/storage/data/tables/app_preferences_local_table.dart';
 import 'package:pantas/core/storage/data/tables/assessment_results_local_table.dart';
@@ -25,7 +26,6 @@ import 'package:pantas/core/storage/data/tables/topics_table.dart';
 import 'package:pantas/core/storage/data/tables/track_scope_local_table.dart';
 import 'package:pantas/core/storage/data/tables/user_metrics_archetypes_local_table.dart';
 import 'package:pantas/core/storage/data/tables/user_metrics_artifacts_local_table.dart';
-import 'package:drift/drift.dart';
 
 part 'app_database.g.dart';
 

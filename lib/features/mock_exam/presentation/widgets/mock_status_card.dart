@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/board_button.dart';
 import 'package:pantas/core/ui/components/ruled_section.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/domain/mock_availability.dart';
-import 'package:flutter/material.dart';
 
 class MockStatusCard extends StatelessWidget {
   const MockStatusCard({

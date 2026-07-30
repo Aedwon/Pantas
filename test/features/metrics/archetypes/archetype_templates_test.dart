@@ -1,8 +1,8 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/metrics/archetypes/archetype.dart';
 import 'package:pantas/features/metrics/archetypes/archetype_templates.dart';
 import 'package:pantas/features/metrics/domain/signal_key.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('synthesis copy is deterministic for the same archetype and signals',

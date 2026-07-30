@@ -1,3 +1,4 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/fsrs/fsrs_scheduler.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
@@ -9,7 +10,6 @@ import 'package:pantas/core/storage/domain/review_state.dart';
 import 'package:pantas/features/assessment/domain/models/assessment_question.dart';
 import 'package:pantas/features/assessment/domain/models/assessment_session.dart';
 import 'package:pantas/features/assessment/domain/use_cases/complete_assessment.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../helpers/in_memory_database.dart';
 

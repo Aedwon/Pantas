@@ -1,3 +1,4 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/features/quiz/domain/picker/inline_lesson_picker.dart';
@@ -6,7 +7,6 @@ import 'package:pantas/features/quiz/domain/picker/retake_picker.dart';
 import 'package:pantas/features/quiz/domain/picker/today_interleaved_picker.dart';
 import 'package:pantas/features/quiz/domain/picker/today_topic_picker.dart';
 import 'package:pantas/features/quiz/domain/selectors/subtopic_filter.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('TodayTopicPicker uses due weakness new composition with due cards', () {

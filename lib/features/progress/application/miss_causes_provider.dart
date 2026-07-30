@@ -1,5 +1,8 @@
 import 'dart:convert';
 
+import 'package:drift/drift.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/domain/attempt_origins.dart';
@@ -9,9 +12,6 @@ import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/signals/attempt_item_reader.dart';
 import 'package:pantas/features/metrics/signals/per_question_speed_signal.dart';
 import 'package:pantas/features/metrics/signals/signal_content_helpers.dart';
-import 'package:drift/drift.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// The fraction of a student's own average response time below which an answer
 /// is considered "answered too fast" (rushed).

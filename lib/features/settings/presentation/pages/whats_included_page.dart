@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
@@ -9,8 +11,6 @@ import 'package:pantas/core/ui/components/page_scaffold.dart';
 import 'package:pantas/core/ui/components/settings_bar.dart';
 import 'package:pantas/core/ui/components/topic_scope_index.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final whatsIncludedDataProvider = FutureProvider.family<
     ({Exam exam, List<TopicScopeSubjectData> subjects, Set<TopicId> excluded}),

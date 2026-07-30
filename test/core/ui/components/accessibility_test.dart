@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/domain/passage.dart';
@@ -40,8 +42,6 @@ import 'package:pantas/core/ui/components/settings_value_row.dart';
 import 'package:pantas/core/ui/components/stats_band.dart';
 import 'package:pantas/core/ui/components/theme_control.dart';
 import 'package:pantas/core/ui/theme/theme_preference.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/accessibility.dart';
 

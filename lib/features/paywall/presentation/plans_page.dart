@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/ui/components/board_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -5,7 +6,6 @@ import 'package:pantas/features/paywall/domain/paywall_package.dart';
 import 'package:pantas/features/paywall/domain/paywall_recommendation.dart';
 import 'package:pantas/features/paywall/domain/plan_cost.dart';
 import 'package:pantas/features/paywall/presentation/plan_row.dart';
-import 'package:flutter/material.dart';
 
 /// Screen 2 of three. The plans and their arithmetic.
 ///

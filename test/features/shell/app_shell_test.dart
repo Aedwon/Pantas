@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/app.dart';
 import 'package:pantas/app/flavor.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
@@ -6,9 +9,6 @@ import 'package:pantas/core/ui/components/nav_glyph.dart';
 import 'package:pantas/core/ui/theme/app_colors.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/shell/presentation/app_shell.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 import '../../helpers/in_memory_database.dart';
 

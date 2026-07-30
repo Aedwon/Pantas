@@ -1,5 +1,5 @@
-import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/domain/exam_date.dart';
 
 void main() {
   test('a day-precision date exposes its day', () {

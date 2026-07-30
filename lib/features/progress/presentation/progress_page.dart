@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/board_button.dart';
@@ -14,9 +17,6 @@ import 'package:pantas/features/progress/application/record_provider.dart';
 import 'package:pantas/features/progress/presentation/widgets/performance_section.dart';
 import 'package:pantas/features/progress/presentation/widgets/why_you_miss_section.dart';
 import 'package:pantas/features/progress/presentation/widgets/your_pace_panel.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 class ProgressPage extends ConsumerWidget {
   const ProgressPage({super.key});

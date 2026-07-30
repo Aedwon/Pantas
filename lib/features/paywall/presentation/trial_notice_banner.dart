@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:pantas/core/ui/theme/app_dimensions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/paywall/domain/trial_notice.dart';
-import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class TrialNoticeBanner extends StatelessWidget {
   const TrialNoticeBanner({required this.notice, super.key});

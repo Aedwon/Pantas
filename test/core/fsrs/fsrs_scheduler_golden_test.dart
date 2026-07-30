@@ -1,7 +1,7 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/fsrs/fsrs_scheduler.dart';
 import 'package:pantas/core/fsrs/rating.dart';
 import 'package:pantas/core/storage/domain/review_state.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 // Golden vectors derived from FSRS-6 formulas using kFsrsDefaultWeights.
 void main() {

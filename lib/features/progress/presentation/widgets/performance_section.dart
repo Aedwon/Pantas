@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/core/ui/components/data_row_tile.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
 import 'package:pantas/core/ui/components/ruled_panel.dart';
@@ -10,9 +13,6 @@ import 'package:pantas/features/progress/application/table_order_prefs.dart';
 import 'package:pantas/features/progress/presentation/widgets/level_control.dart';
 import 'package:pantas/features/progress/presentation/widgets/subject_scope_sheet.dart';
 import 'package:pantas/features/progress/presentation/widgets/table_head.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 /// The tab's centre: accuracy and pace, readable at three levels, whose
 /// labels are its own controls.

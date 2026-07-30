@@ -1,5 +1,5 @@
-import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/domain/subject.dart';
 
 void main() {
   test('Subject round-trips JSON', () {

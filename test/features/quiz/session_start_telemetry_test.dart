@@ -1,3 +1,4 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/question.dart';
@@ -8,7 +9,6 @@ import 'package:pantas/features/quiz/domain/models/quiz_ordering.dart';
 import 'package:pantas/features/quiz/domain/models/quiz_preferences.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/domain/use_cases/start_today_session.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('StartTodaySession emits sessionStarted telemetry event', () async {

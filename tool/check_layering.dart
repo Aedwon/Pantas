@@ -122,8 +122,7 @@ String? _featureName(String relPath) {
 }
 
 String? _featureFromImport(String imp) {
-  final m =
-      RegExp('^package:pantas/features/([^/]+)/').firstMatch(imp);
+  final m = RegExp('^package:pantas/features/([^/]+)/').firstMatch(imp);
   return m?.group(1);
 }
 
@@ -131,8 +130,7 @@ String? _featureFromImport(String imp) {
 /// none. A barrel (`features/quiz/quiz.dart`) names none, and re-exports
 /// presentation, so null is treated the same as presentation by R2.
 String? _importedLayer(String imp) {
-  final m = RegExp('^package:pantas/features/[^/]+/([^/]+)/')
-      .firstMatch(imp);
+  final m = RegExp('^package:pantas/features/[^/]+/([^/]+)/').firstMatch(imp);
   return m?.group(1);
 }
 

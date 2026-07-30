@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/core/ui/components/board_button.dart';
 import 'package:pantas/core/ui/components/data_row_tile.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
@@ -8,9 +11,6 @@ import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/progress/application/how_you_work_provider.dart';
 import 'package:pantas/features/progress/presentation/widgets/gap_comparison.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 class HowYouWorkPage extends ConsumerWidget {
   const HowYouWorkPage({super.key});

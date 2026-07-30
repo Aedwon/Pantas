@@ -1,7 +1,7 @@
+import 'package:drift/drift.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
 import 'package:pantas/features/mock_exam/domain/mock_results.dart';
-import 'package:drift/drift.dart';
 
 class MockAttemptRepo {
   MockAttemptRepo(this._db);

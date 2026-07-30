@@ -1,6 +1,6 @@
 // coverage:ignore-file
-import 'package:pantas/core/storage/data/tables/lessons_table.dart';
 import 'package:drift/drift.dart';
+import 'package:pantas/core/storage/data/tables/lessons_table.dart';
 
 /// A lesson the student marked to come back to. Separate from
 /// `lesson_progress_local` on purpose: a row there means "read", and its

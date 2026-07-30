@@ -1,7 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/board_button.dart';
 import 'package:pantas/core/ui/components/ink_table_row.dart';
 import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
-import 'package:flutter/material.dart';
 
 class MockHistoryPage extends StatefulWidget {
   const MockHistoryPage({

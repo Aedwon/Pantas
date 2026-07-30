@@ -1,5 +1,5 @@
-import 'package:pantas/features/notifications/notifications.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/notifications/notifications.dart';
 
 void main() {
   test('payload encodes kind scheduled timestamp and optional route', () {

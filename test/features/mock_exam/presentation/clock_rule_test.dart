@@ -1,7 +1,7 @@
-import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/features/mock_exam/presentation/clock_rule.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/mock_exam/presentation/clock_rule.dart';
 
 void main() {
   Widget buildApp({required Duration remaining, required Duration partLength}) {

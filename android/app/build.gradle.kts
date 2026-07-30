@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.aedwon.cse_cet_reviewer"
+    namespace = "com.aedwon.pantas"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -22,7 +22,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.aerol.csecet"
+        applicationId = "com.aedwon.pantas"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
@@ -33,19 +33,19 @@ android {
     productFlavors {
         create("dev") {
             dimension = "default"
-            applicationId = "com.aerol.csecet.dev"
+            applicationId = "com.aedwon.pantas.dev"
             versionNameSuffix = "-dev"
             resValue("string", "app_name", "Pantas Dev")
         }
         create("staging") {
             dimension = "default"
-            applicationId = "com.aerol.csecet.dev.staging"
+            applicationId = "com.aedwon.pantas.dev.staging"
             versionNameSuffix = "-staging"
             resValue("string", "app_name", "Pantas Staging")
         }
         create("prod") {
             dimension = "default"
-            applicationId = "com.aerol.csecet"
+            applicationId = "com.aedwon.pantas"
             resValue("string", "app_name", "Pantas")
         }
     }

@@ -1,8 +1,8 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:meta/meta.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/features/progress/application/performance_provider.dart';
 import 'package:pantas/features/progress/application/table_order_prefs.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:meta/meta.dart';
 
 /// A topic's measured accuracy, or the fact that it is not yet measurable.
 @immutable

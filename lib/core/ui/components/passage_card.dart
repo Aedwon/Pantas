@@ -1,7 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:pantas/core/storage/domain/passage.dart';
 import 'package:pantas/core/ui/theme/app_dimensions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:flutter/material.dart';
 
 /// Renders a reading comprehension passage in the reader's typography.
 ///

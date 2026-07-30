@@ -1,9 +1,9 @@
 import 'dart:ui' show Tristate;
 
-import 'package:pantas/core/ui/components/theme_control.dart';
-import 'package:pantas/features/settings/domain/theme_preference.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/theme_control.dart';
+import 'package:pantas/features/settings/domain/theme_preference.dart';
 
 import '../../../helpers/pump_app.dart';
 

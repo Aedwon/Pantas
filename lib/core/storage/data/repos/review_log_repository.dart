@@ -1,9 +1,9 @@
+import 'package:drift/drift.dart';
 import 'package:pantas/core/fsrs/rating.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/review_log.dart';
 import 'package:pantas/core/storage/domain/review_state.dart';
-import 'package:drift/drift.dart';
 
 /// Append-only. A review that happened is a fact, so there is no update path.
 ///

@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/auth_user.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/sync/providers.dart';
@@ -10,8 +12,6 @@ import 'package:pantas/features/settings/presentation/pages/backup_page.dart';
 import 'package:pantas/features/settings/presentation/pages/delete_account_page.dart';
 import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
 import 'package:pantas/features/settings/settings.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/pump_app.dart';
 

@@ -1,6 +1,6 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/sync/mapping/lesson_progress_mapper.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('lesson progress mapper uses lessonId as document id', () {

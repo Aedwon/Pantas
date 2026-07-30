@@ -1,6 +1,6 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('a choice carries an optional rationale through json', () {

@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_dimensions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:flutter/material.dart';
 
 /// The card replacement: a flat content block bounded by a 1px hairline.
 /// Depth comes from rules, never shadows.

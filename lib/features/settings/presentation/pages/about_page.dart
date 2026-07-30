@@ -1,4 +1,8 @@
 import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/core/ui/components/page_scaffold.dart';
 import 'package:pantas/core/ui/components/settings_bar.dart';
 import 'package:pantas/core/ui/components/settings_group.dart';
@@ -8,9 +12,6 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 import 'package:pantas/features/settings/domain/user_settings.dart';
 import 'package:pantas/features/settings/presentation/pages/debug_settings_page.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 // The flag itself lives in one place, and the release guard enforces that.
 // Reading `fromEnvironment` here would put a second definition in the tree,

@@ -1,6 +1,6 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/notifications/domain/notification_ceiling.dart';
 import 'package:pantas/features/notifications/domain/notification_payload.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('NotificationCeiling', () {

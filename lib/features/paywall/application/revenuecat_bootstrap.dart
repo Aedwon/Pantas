@@ -1,7 +1,7 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/data/revenuecat_config.dart';
 import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class RevenueCatBootstrapper {
   RevenueCatBootstrapper(this._gateway);

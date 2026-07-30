@@ -1,6 +1,6 @@
-import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 
 /// Replaces the framework's error screen in release builds.
 ///

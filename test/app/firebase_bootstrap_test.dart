@@ -1,6 +1,6 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/firebase_bootstrap.dart';
 import 'package:pantas/app/flavor.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('firebaseConfigForFlavor returns null until generated options exist',

@@ -1,6 +1,6 @@
-import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:drift/drift.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
 
 import '../../../helpers/in_memory_database.dart';
 

@@ -1,5 +1,5 @@
-import 'package:pantas/features/lesson/domain/use_cases/build_search_snippet.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/lesson/domain/use_cases/build_search_snippet.dart';
 
 void main() {
   const sentence =

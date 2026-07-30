@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/flavor.dart';
 import 'package:pantas/app/router.dart';
 import 'package:pantas/app/theme.dart';
@@ -5,8 +7,6 @@ import 'package:pantas/features/notifications/application/notifications_provider
 import 'package:pantas/features/notifications/presentation/notification_tap_router.dart';
 import 'package:pantas/features/settings/settings.dart';
 import 'package:pantas/l10n/app_localizations.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class App extends ConsumerWidget {
   const App({required this.flavor, super.key});

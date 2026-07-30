@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/settings_group.dart';
 import 'package:pantas/core/ui/components/settings_switch.dart';
@@ -5,8 +7,6 @@ import 'package:pantas/core/ui/components/settings_value_row.dart';
 import 'package:pantas/core/ui/components/theme_control.dart';
 import 'package:pantas/features/settings/presentation/settings_home_page.dart';
 import 'package:pantas/features/settings/settings.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';

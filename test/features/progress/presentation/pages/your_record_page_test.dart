@@ -1,3 +1,7 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
@@ -6,10 +10,6 @@ import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/progress/application/record_provider.dart';
 import 'package:pantas/features/progress/presentation/pages/your_record_page.dart';
 import 'package:pantas/features/progress/presentation/progress_page.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../../helpers/pump_app.dart';
 

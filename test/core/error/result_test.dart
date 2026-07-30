@@ -1,5 +1,5 @@
-import 'package:pantas/core/error/error.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/error/error.dart';
 
 void main() {
   group('Result', () {

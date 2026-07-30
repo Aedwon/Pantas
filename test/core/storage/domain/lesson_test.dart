@@ -1,5 +1,5 @@
-import 'package:pantas/core/storage/domain/lesson.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/domain/lesson.dart';
 
 void main() {
   test('Lesson preserves bodyJson opaque list through serialization', () {

@@ -1,5 +1,5 @@
-import 'package:pantas/core/sync/sync_status.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/sync/sync_status.dart';
 
 void main() {
   test('partialFailure is emitted after three consecutive failures', () {

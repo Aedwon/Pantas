@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_dimensions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:flutter/material.dart';
 
 /// Compact meter for score contexts (weak areas). Caller supplies the
 /// semantic color per the budget: rust, amber, or board.

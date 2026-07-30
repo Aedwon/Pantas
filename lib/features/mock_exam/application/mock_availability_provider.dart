@@ -1,8 +1,8 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/mock_exam/data/mock_attempt_repo.dart';
 import 'package:pantas/features/mock_exam/domain/mock_availability.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final mockAttemptRepoProvider = Provider<MockAttemptRepo>(
   (ref) => MockAttemptRepo(ref.watch(appDatabaseProvider)),

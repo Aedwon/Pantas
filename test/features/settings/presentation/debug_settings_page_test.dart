@@ -1,5 +1,5 @@
-import 'package:pantas/features/settings/presentation/pages/debug_settings_page.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/settings/presentation/pages/debug_settings_page.dart';
 
 import '../../../helpers/pump_app.dart';
 

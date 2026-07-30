@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/board_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// Whether this build is below the minimum the server publishes.

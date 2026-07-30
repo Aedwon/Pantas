@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/stats_band.dart';
@@ -8,9 +11,6 @@ import 'package:pantas/features/home/presentation/home_providers.dart';
 import 'package:pantas/features/home/presentation/home_tab.dart';
 import 'package:pantas/features/home/presentation/widgets/home_masthead.dart';
 import 'package:pantas/features/home/presentation/widgets/home_stats_band.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 Widget harness({
   ActiveExamFocus? focus,

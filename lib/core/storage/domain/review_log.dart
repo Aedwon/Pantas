@@ -1,7 +1,7 @@
+import 'package:meta/meta.dart';
 import 'package:pantas/core/fsrs/rating.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/review_state.dart';
-import 'package:meta/meta.dart';
 
 @immutable
 class ReviewLog {

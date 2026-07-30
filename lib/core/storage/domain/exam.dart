@@ -1,6 +1,6 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'exam.freezed.dart';
 part 'exam.g.dart';

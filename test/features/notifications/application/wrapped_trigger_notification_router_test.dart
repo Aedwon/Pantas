@@ -1,6 +1,6 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/notifications/application/wrapped_trigger_notification_router.dart';
 import 'package:pantas/features/notifications/domain/notification_payload.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('routes wrapped trigger using payload title and deep link', () {

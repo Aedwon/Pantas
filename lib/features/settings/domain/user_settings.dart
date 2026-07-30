@@ -1,6 +1,6 @@
+import 'package:meta/meta.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/features/settings/domain/session_ordering.dart';
-import 'package:meta/meta.dart';
 
 @immutable
 class SettingsTime {

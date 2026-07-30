@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/passage.dart';
@@ -5,7 +6,6 @@ import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/ui/components/answer_row.dart';
 import 'package:pantas/core/ui/components/passage_card.dart';
 import 'package:pantas/core/ui/components/portable_text_renderer.dart';
-import 'package:flutter/material.dart';
 
 class QuestionCard extends StatelessWidget {
   const QuestionCard({

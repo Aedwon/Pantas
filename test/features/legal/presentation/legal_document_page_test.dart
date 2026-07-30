@@ -1,8 +1,8 @@
-import 'package:pantas/features/legal/legal.dart';
-import 'package:pantas/features/legal/presentation/legal_document_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/features/legal/legal.dart';
+import 'package:pantas/features/legal/presentation/legal_document_page.dart';
 
 import '../../../helpers/pump_app.dart';
 

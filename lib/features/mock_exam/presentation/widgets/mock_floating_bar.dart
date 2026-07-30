@@ -1,7 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/pennant_mark.dart';
 import 'package:pantas/core/ui/theme/app_dimensions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:flutter/material.dart';
 
 /// The pager, floating over the paper.
 ///

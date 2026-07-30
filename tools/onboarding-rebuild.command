@@ -5,7 +5,7 @@
 
 cd "${0:A:h}/.." || exit 1
 
-PKG="com.aerol.csecet.dev"
+PKG="com.aedwon.pantas.dev"
 AVD="pantas_pixel"
 ADB="$HOME/Library/Android/sdk/platform-tools/adb"
 FLUTTER="/opt/homebrew/bin/flutter"

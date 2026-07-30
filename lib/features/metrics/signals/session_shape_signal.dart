@@ -1,8 +1,8 @@
+import 'package:drift/drift.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/features/metrics/domain/metric_signal.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
-import 'package:drift/drift.dart';
 
 class SessionShapeSignal implements Signal<DurationDistribution> {
   const SessionShapeSignal(this._db);

@@ -1,9 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:pantas/core/content/domain/mock_blueprint.dart';
 import 'package:pantas/core/ui/components/board_button.dart';
 import 'package:pantas/core/ui/components/ruled_section.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
-import 'package:flutter/material.dart';
 
 class MockSetupPage extends StatelessWidget {
   const MockSetupPage({

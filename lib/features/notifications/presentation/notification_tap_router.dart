@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:pantas/features/notifications/data/notifications_gateway.dart';
-import 'package:pantas/features/notifications/presentation/notification_tap_handler.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/features/notifications/data/notifications_gateway.dart';
+import 'package:pantas/features/notifications/presentation/notification_tap_handler.dart';
 
 class NotificationTapRouter extends StatefulWidget {
   const NotificationTapRouter({

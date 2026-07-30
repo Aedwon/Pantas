@@ -1,9 +1,9 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/data/repos/bookmark_prefs_repository.dart';
 import 'package:pantas/features/lesson/domain/models/bookmark_order.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 export 'package:pantas/features/lesson/domain/models/bookmark_order.dart';
 

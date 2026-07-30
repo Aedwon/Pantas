@@ -1,7 +1,7 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/sync/engine/pending_queue.dart';
 import 'package:pantas/core/sync/engine/push_pipeline.dart';
 import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 import '../../helpers/in_memory_database.dart';
 
