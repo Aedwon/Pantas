@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -62,13 +63,20 @@ void main() {
   });
 
   test('firebase.json points at firestore.rules and local emulators', () {
-    final config = File('firebase.json').readAsStringSync();
+    // Read as JSON, not as text. `flutterfire configure` rewrites this file
+    // minified, and the old string match wanted the spacing a human editor
+    // leaves behind. It failed on 12 August against a correct config.
+    final config = jsonDecode(File('firebase.json').readAsStringSync())
+        as Map<String, dynamic>;
 
-    expect(config, contains('"rules": "firestore.rules"'));
-    expect(config, contains('"emulators"'));
-    expect(config, contains('"firestore"'));
-    expect(config, contains('"auth"'));
-    expect(config, contains('"functions"'));
-    expect(config, contains('"storage"'));
+    final firestore = config['firestore']! as Map<String, dynamic>;
+    expect(firestore['rules'], 'firestore.rules');
+
+    final storage = config['storage']! as Map<String, dynamic>;
+    expect(storage['rules'], 'storage.rules');
+
+    final emulators = config['emulators']! as Map<String, dynamic>;
+    expect(emulators.keys, containsAll(['firestore', 'auth', 'functions']));
+    expect(emulators.containsKey('storage'), isTrue);
   });
 }

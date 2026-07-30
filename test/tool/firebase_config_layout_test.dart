@@ -22,13 +22,19 @@ void main() {
     expect(gradle, contains('applicationId = "com.aedwon.pantas"'));
   });
 
-  test('repo does not commit google-services json placeholders', () {
-    final generatedConfigs = Directory('android/app/src')
-        .listSync(recursive: true)
-        .whereType<File>()
-        .where((file) => file.path.endsWith('google-services.json'))
-        .toList();
+  test('no google-services json is tracked by git', () {
+    // Asks git, not the filesystem. From 12 August every configured machine
+    // has three of these files, one per flavor, written by
+    // `flutterfire configure`. The old check looked for the files at all and
+    // so failed as soon as Firebase was actually set up. What must never
+    // happen is committing one, and that is what this asks now.
+    final tracked = Process.runSync('git', [
+      'ls-files',
+      '--',
+      '*google-services.json',
+    ]);
 
-    expect(generatedConfigs, isEmpty);
+    expect(tracked.exitCode, 0, reason: 'git ls-files failed');
+    expect((tracked.stdout as String).trim(), isEmpty);
   });
 }
