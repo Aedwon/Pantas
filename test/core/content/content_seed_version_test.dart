@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:crypto/crypto.dart';
-import 'package:cse_cet_reviewer/core/content/content_database_opener.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/content_database_opener.dart';
 
 /// The installed corpus goes stale silently, so this is the guard.
 ///

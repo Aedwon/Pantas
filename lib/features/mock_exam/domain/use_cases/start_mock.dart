@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:cse_cet_reviewer/features/mock_exam/data/mock_attempt_repo.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_attempt.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_sample.dart';
+import 'package:pantas/features/mock_exam/data/mock_attempt_repo.dart';
+import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
+import 'package:pantas/features/mock_exam/domain/mock_sample.dart';
 
 class StartMock {
   const StartMock({required MockAttemptRepo repo}) : _repo = repo;

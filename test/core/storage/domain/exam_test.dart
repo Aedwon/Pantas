@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/storage/domain/exam.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/subject.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/domain/exam.dart';
+import 'package:pantas/core/storage/domain/subject.dart';
 
 void main() {
   test('Exam round-trips JSON including nested subjects', () {

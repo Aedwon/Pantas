@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/features/paywall/domain/paywall_package.dart';
+import 'package:pantas/features/paywall/domain/paywall_package.dart';
 
 PaywallSku recommendedSkuForExamDate({
   required DateTime today,

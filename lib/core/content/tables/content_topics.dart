@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/content/tables/content_subjects.dart';
 import 'package:drift/drift.dart';
+import 'package:pantas/core/content/tables/content_subjects.dart';
 
 @DataClassName('ContentTopicRow')
 class ContentTopics extends Table {

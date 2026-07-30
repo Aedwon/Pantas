@@ -1,9 +1,9 @@
-import 'package:cse_cet_reviewer/core/ui/components/ink_chevron.dart';
-import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_colors.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/ink_chevron.dart';
+import 'package:pantas/core/ui/components/ink_table_row.dart';
+import 'package:pantas/core/ui/theme/app_colors.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 
 Widget harness(Widget child) =>
     MaterialApp(theme: buildLightTheme(), home: Scaffold(body: child));

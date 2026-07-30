@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/features/legal/legal.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/legal/legal.dart';
 
 void main() {
   test('unknown legal document id returns null', () {

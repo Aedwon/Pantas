@@ -1,15 +1,15 @@
-import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
-import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
-import 'package:cse_cet_reviewer/core/ui/components/ink_chevron.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_colors.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_text_styles.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/lesson/application/lesson_search_providers.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/models/lesson_search_hit.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/use_cases/build_search_snippet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/ui/components/error_banner.dart';
+import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/core/ui/components/ink_chevron.dart';
+import 'package:pantas/core/ui/theme/app_colors.dart';
+import 'package:pantas/core/ui/theme/app_text_styles.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
+import 'package:pantas/features/lesson/domain/models/lesson_search_hit.dart';
+import 'package:pantas/features/lesson/domain/use_cases/build_search_snippet.dart';
 
 /// Renders search results, the empty query state showing what was recently
 /// opened, or the no-match state.

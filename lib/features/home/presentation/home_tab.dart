@@ -1,19 +1,19 @@
 // lib/features/home/presentation/home_tab.dart
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
-import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
-import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
-import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/assessment/application/assessment_result_providers.dart';
-import 'package:cse_cet_reviewer/features/home/presentation/widgets/home_masthead.dart';
-import 'package:cse_cet_reviewer/features/home/presentation/widgets/home_stats_band.dart';
-import 'package:cse_cet_reviewer/features/home/presentation/widgets/practice_panel.dart';
-import 'package:cse_cet_reviewer/features/home/presentation/widgets/tendencies_panel.dart';
-import 'package:cse_cet_reviewer/features/home/presentation/widgets/up_next_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/error_banner.dart';
+import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
+import 'package:pantas/features/home/presentation/widgets/home_masthead.dart';
+import 'package:pantas/features/home/presentation/widgets/home_stats_band.dart';
+import 'package:pantas/features/home/presentation/widgets/practice_panel.dart';
+import 'package:pantas/features/home/presentation/widgets/tendencies_panel.dart';
+import 'package:pantas/features/home/presentation/widgets/up_next_panel.dart';
 
 class HomeTab extends ConsumerWidget {
   const HomeTab({super.key});

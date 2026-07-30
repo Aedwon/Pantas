@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/fsrs/fsrs_scheduler.dart';
-import 'package:cse_cet_reviewer/core/fsrs/rating.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/review_state.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/fsrs/fsrs_scheduler.dart';
+import 'package:pantas/core/fsrs/rating.dart';
+import 'package:pantas/core/storage/domain/review_state.dart';
 
 void main() {
   // These expectations were computed outside Dart, from the FSRS-6 formulas

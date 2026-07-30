@@ -1,16 +1,16 @@
-import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/subject.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
-import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/core/ui/components/review_list.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/application/mock_availability_provider.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/data/mock_attempt_repo.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_attempt.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/presentation/pages/mock_review_page.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/core/storage/domain/choice.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/domain/subject.dart';
+import 'package:pantas/core/storage/domain/topic.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/review_list.dart';
+import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
+import 'package:pantas/features/mock_exam/data/mock_attempt_repo.dart';
+import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
+import 'package:pantas/features/mock_exam/presentation/pages/mock_review_page.dart';
 
 import '../../../helpers/pump_app.dart';
 

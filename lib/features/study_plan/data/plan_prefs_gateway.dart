@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/features/study_plan/domain/plan_prefs.dart';
+import 'package:pantas/features/study_plan/domain/plan_prefs.dart';
 
 class PlanPrefsCloudUpdate {
   const PlanPrefsCloudUpdate._(this.fields);

@@ -1,10 +1,10 @@
-import 'package:cse_cet_reviewer/core/sync/providers.dart';
-import 'package:cse_cet_reviewer/core/sync/sync_status.dart';
-import 'package:cse_cet_reviewer/core/ui/components/page_scaffold.dart';
-import 'package:cse_cet_reviewer/core/ui/components/settings_bar.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/sync/providers.dart';
+import 'package:pantas/core/sync/sync_status.dart';
+import 'package:pantas/core/ui/components/page_scaffold.dart';
+import 'package:pantas/core/ui/components/settings_bar.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 
 class BackupPage extends ConsumerWidget {
   const BackupPage({super.key});

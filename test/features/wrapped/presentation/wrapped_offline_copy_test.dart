@@ -1,9 +1,9 @@
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/wrapped/application/wrapped_providers.dart';
-import 'package:cse_cet_reviewer/features/wrapped/presentation/wrapped_reveal_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/wrapped/application/wrapped_providers.dart';
+import 'package:pantas/features/wrapped/presentation/wrapped_reveal_page.dart';
 
 void main() {
   group('Wrapped offline copy', () {

@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/review_state.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/domain/review_state.dart';
 
 abstract final class FsrsDueSelector {
   static List<Question> select({

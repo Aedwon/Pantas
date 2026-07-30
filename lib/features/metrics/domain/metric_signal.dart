@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/features/metrics/domain/metrics_window.dart';
+import 'package:pantas/features/metrics/domain/metrics_window.dart';
 
 abstract interface class Signal<T> {
   Set<MetricsWindow> get supportedWindows;

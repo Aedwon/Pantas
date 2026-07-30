@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:cse_cet_reviewer/core/telemetry/error_boundary.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/telemetry/error_boundary.dart';
 
 /// Records what the boundary forwards. The repo has no mocking package, so a
 /// plain recorder is the house style.

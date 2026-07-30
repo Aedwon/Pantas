@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/paywall/domain/pro_specimen.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/paywall/domain/pro_specimen.dart';
 
 /// Screen 1's argument: one real gated panel, shown as a Free user sees it
 /// and as Pro sees it. Both halves are the sample.

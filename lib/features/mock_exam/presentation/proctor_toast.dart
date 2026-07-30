@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 
 String proctorCopyFor(int minutes) {
   final unit = minutes == 1 ? 'minute' : 'minutes';

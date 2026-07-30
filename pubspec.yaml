@@ -1,4 +1,4 @@
-name: cse_cet_reviewer
+name: pantas
 description: Gamified Philippine exam reviewer with spaced repetition.
 publish_to: 'none'
 version: 0.1.0+1

@@ -1,11 +1,11 @@
-import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/features/notifications/application/notification_service.dart';
-import 'package:cse_cet_reviewer/features/notifications/data/flutter_local_notifications_gateway.dart';
-import 'package:cse_cet_reviewer/features/notifications/data/notifications_gateway.dart';
 import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/notifications/notification_service.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/notifications/application/notification_service.dart';
+import 'package:pantas/features/notifications/data/flutter_local_notifications_gateway.dart';
+import 'package:pantas/features/notifications/data/notifications_gateway.dart';
 
 const _dailyReminderTimeKey = 'settings.daily_reminder_time';
 

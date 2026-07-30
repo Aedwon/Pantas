@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/core/content/content.dart';
-import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_controller.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 
 import '../../helpers/in_memory_database.dart';
 

@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/features/notifications/domain/notification_payload.dart';
+import 'package:pantas/features/notifications/domain/notification_payload.dart';
 
 /// One notification per day. When two are eligible the order is fixed
 /// and is not a judgment call.

@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/app/flavor.dart';
+import 'package:pantas/app/flavor.dart';
 
 enum AppCheckProvider { debug, playIntegrity }
 

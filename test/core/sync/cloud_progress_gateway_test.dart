@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/sync/cloud_progress_gateway.dart';
-import 'package:cse_cet_reviewer/core/sync/firestore/firestore_gateway.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/sync/cloud_progress_gateway.dart';
+import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
 
 void main() {
   test('cloud progress is false when all meaningful collections are empty',

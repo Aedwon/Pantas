@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:cse_cet_reviewer/core/content/domain/mock_blueprint.dart';
-import 'package:cse_cet_reviewer/core/content/sanity/parsers/mock_blueprint_parser.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/domain/mock_blueprint.dart';
+import 'package:pantas/core/content/sanity/parsers/mock_blueprint_parser.dart';
 
 Map<String, Object?> blueprintDoc({
   Object? sectionalTiming,

@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/features/metrics/data/user_metrics_archetype_repository.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/features/metrics/data/user_metrics_archetype_repository.dart';
 
 void main() {
   test('returns cached archetype only before validUntil', () async {

@@ -1,17 +1,17 @@
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
-import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
-import 'package:cse_cet_reviewer/core/ui/components/portable_text_renderer.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/lesson/application/reader_providers.dart';
-import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/lesson_contents_sheet.dart';
-import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/pull_to_advance.dart';
-import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/reader_bar.dart';
-import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/reader_gap.dart';
-import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/reader_rail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/error_banner.dart';
+import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/core/ui/components/portable_text_renderer.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/lesson/application/reader_providers.dart';
+import 'package:pantas/features/lesson/presentation/widgets/lesson_contents_sheet.dart';
+import 'package:pantas/features/lesson/presentation/widgets/pull_to_advance.dart';
+import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
+import 'package:pantas/features/lesson/presentation/widgets/reader_gap.dart';
+import 'package:pantas/features/lesson/presentation/widgets/reader_rail.dart';
 
 /// The reader.
 ///

@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/practice_index.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/quiz/domain/picker/practice_index.dart';
 
 PracticeLessonEntry lesson(
   String id, {

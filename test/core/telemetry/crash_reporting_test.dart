@@ -1,9 +1,9 @@
-import 'package:cse_cet_reviewer/app/telemetry_providers.dart';
-import 'package:cse_cet_reviewer/core/auth/auth.dart';
-import 'package:cse_cet_reviewer/core/telemetry/crash_reporting.dart';
-import 'package:cse_cet_reviewer/core/telemetry/telemetry.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/auth/auth.dart';
+import 'package:pantas/core/telemetry/crash_reporting.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
 
 void main() {
   test('CrashReporter clears user id for signedOut', () async {

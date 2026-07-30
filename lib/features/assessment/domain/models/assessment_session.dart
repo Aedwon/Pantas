@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/features/assessment/domain/models/assessment_question.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/features/assessment/domain/models/assessment_question.dart';
 
 class AssessmentSession {
   const AssessmentSession({

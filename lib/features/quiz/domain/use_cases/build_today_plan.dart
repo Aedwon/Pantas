@@ -1,11 +1,11 @@
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_ordering.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_preferences.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/pick_context.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/question_picker.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/today_interleaved_picker.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/today_topic_picker.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/features/quiz/domain/models/quiz_ordering.dart';
+import 'package:pantas/features/quiz/domain/models/quiz_preferences.dart';
+import 'package:pantas/features/quiz/domain/picker/pick_context.dart';
+import 'package:pantas/features/quiz/domain/picker/question_picker.dart';
+import 'package:pantas/features/quiz/domain/picker/today_interleaved_picker.dart';
+import 'package:pantas/features/quiz/domain/picker/today_topic_picker.dart';
 
 /// The session today's panel describes and the Start button creates.
 ///

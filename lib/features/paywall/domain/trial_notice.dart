@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/features/paywall/domain/entitlement.dart';
+import 'package:pantas/features/paywall/domain/entitlement.dart';
 
 class TrialNotice {
   const TrialNotice({

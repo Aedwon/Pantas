@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/content/content_database.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/subject.dart';
 import 'package:drift/drift.dart';
+import 'package:pantas/core/content/content_database.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/subject.dart';
 
 class SubjectRepo {
   SubjectRepo(this._db);

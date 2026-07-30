@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_ordering.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_preferences.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/features/quiz/domain/models/quiz_ordering.dart';
+import 'package:pantas/features/quiz/domain/models/quiz_preferences.dart';
 
 class QuizPreferencesRepository {
   QuizPreferencesRepository(this._db);

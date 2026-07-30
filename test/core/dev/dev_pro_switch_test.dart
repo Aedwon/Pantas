@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/core/dev/dev_pro_switch.dart';
-import 'package:cse_cet_reviewer/features/paywall/application/paywall_providers.dart';
-import 'package:cse_cet_reviewer/features/paywall/data/revenuecat_gateway.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/dev/dev_pro_switch.dart';
+import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
 
 void main() {
   tearDown(() => devProOverride.value = null);

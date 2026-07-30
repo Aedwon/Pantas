@@ -80,12 +80,12 @@ void main(List<String> args) {
 
     for (final imp in imports) {
       // R1: core must not import features
-      if (inCore && imp.contains('package:cse_cet_reviewer/features/')) {
+      if (inCore && imp.contains('package:pantas/features/')) {
         violations.add('R1 $relPath imports $imp');
       }
 
       // R2: features must not import another feature's presentation
-      if (inFeatures && imp.startsWith('package:cse_cet_reviewer/features/')) {
+      if (inFeatures && imp.startsWith('package:pantas/features/')) {
         final importedFeature = _featureFromImport(imp);
         final layer = _importedLayer(imp);
         if (importedFeature != null &&
@@ -122,8 +122,7 @@ String? _featureName(String relPath) {
 }
 
 String? _featureFromImport(String imp) {
-  final m =
-      RegExp('^package:cse_cet_reviewer/features/([^/]+)/').firstMatch(imp);
+  final m = RegExp('^package:pantas/features/([^/]+)/').firstMatch(imp);
   return m?.group(1);
 }
 
@@ -131,8 +130,7 @@ String? _featureFromImport(String imp) {
 /// none. A barrel (`features/quiz/quiz.dart`) names none, and re-exports
 /// presentation, so null is treated the same as presentation by R2.
 String? _importedLayer(String imp) {
-  final m = RegExp('^package:cse_cet_reviewer/features/[^/]+/([^/]+)/')
-      .firstMatch(imp);
+  final m = RegExp('^package:pantas/features/[^/]+/([^/]+)/').firstMatch(imp);
   return m?.group(1);
 }
 

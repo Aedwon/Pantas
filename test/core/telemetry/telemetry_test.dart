@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/telemetry/telemetry.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
 
 void main() {
   group('DisabledTelemetry collects nothing', () {

@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 
 /// A hairline chevron. Material's `Icons.chevron_right` is a filled glyph and
 /// cannot be drawn at stroke 1.4, which is what the row rule asks for.

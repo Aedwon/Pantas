@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/drill_picker.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/pick_context.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/domain/choice.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/features/quiz/domain/picker/drill_picker.dart';
+import 'package:pantas/features/quiz/domain/picker/pick_context.dart';
 
 Question question(String id) => Question(
       id: id,

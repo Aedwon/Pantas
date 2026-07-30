@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/review_state.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/selectors/fsrs_due_selector.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/domain/choice.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/domain/review_state.dart';
+import 'package:pantas/features/quiz/domain/selectors/fsrs_due_selector.dart';
 
 void main() {
   test('sorts overdue cards by due date then lapses', () {

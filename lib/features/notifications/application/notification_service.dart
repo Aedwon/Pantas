@@ -1,13 +1,13 @@
-import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
-import 'package:cse_cet_reviewer/features/notifications/data/notifications_gateway.dart';
-import 'package:cse_cet_reviewer/features/notifications/domain/exam_countdown_schedule.dart';
-import 'package:cse_cet_reviewer/features/notifications/domain/lapse_policy.dart';
-import 'package:cse_cet_reviewer/features/notifications/domain/notification_body_composer.dart';
-import 'package:cse_cet_reviewer/features/notifications/domain/notification_ceiling.dart';
-import 'package:cse_cet_reviewer/features/notifications/domain/notification_payload.dart';
-import 'package:cse_cet_reviewer/features/notifications/domain/reminder_schedule.dart';
-import 'package:cse_cet_reviewer/features/notifications/domain/streak_save_policy.dart';
+import 'package:pantas/core/notifications/notification_service.dart';
+import 'package:pantas/core/storage/domain/exam_date.dart';
+import 'package:pantas/features/notifications/data/notifications_gateway.dart';
+import 'package:pantas/features/notifications/domain/exam_countdown_schedule.dart';
+import 'package:pantas/features/notifications/domain/lapse_policy.dart';
+import 'package:pantas/features/notifications/domain/notification_body_composer.dart';
+import 'package:pantas/features/notifications/domain/notification_ceiling.dart';
+import 'package:pantas/features/notifications/domain/notification_payload.dart';
+import 'package:pantas/features/notifications/domain/reminder_schedule.dart';
+import 'package:pantas/features/notifications/domain/streak_save_policy.dart';
 
 class NotificationSettingsSnapshot {
   const NotificationSettingsSnapshot.none() : reminderTime = null;

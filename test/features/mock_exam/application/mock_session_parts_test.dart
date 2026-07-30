@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/features/mock_exam/application/mock_session_controller.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_session_state.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/mock_exam/application/mock_session_controller.dart';
+import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 
 void main() {
   MockSessionController sectional({int at = 0}) {

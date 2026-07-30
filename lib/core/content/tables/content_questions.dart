@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/content/tables/content_lessons.dart';
-import 'package:cse_cet_reviewer/core/content/tables/content_passages.dart';
-import 'package:cse_cet_reviewer/core/content/tables/content_topics.dart';
 import 'package:drift/drift.dart';
+import 'package:pantas/core/content/tables/content_lessons.dart';
+import 'package:pantas/core/content/tables/content_passages.dart';
+import 'package:pantas/core/content/tables/content_topics.dart';
 
 @DataClassName('ContentQuestionRow')
 class ContentQuestions extends Table {

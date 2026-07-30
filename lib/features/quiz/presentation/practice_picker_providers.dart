@@ -1,9 +1,9 @@
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
-import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/core/storage/track_scope.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/practice_index.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/topic.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/storage/track_scope.dart';
+import 'package:pantas/features/quiz/domain/picker/practice_index.dart';
 
 /// Everything the picker lists: subjects in order, their topics in order, and
 /// each topic's lessons with their read state.

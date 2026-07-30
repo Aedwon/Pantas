@@ -1,14 +1,14 @@
-import 'package:cse_cet_reviewer/core/fsrs/fsrs_scheduler.dart';
-import 'package:cse_cet_reviewer/core/fsrs/rating.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/assessment_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/review_state_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/review_state.dart';
-import 'package:cse_cet_reviewer/features/assessment/domain/models/assessment_result.dart';
-import 'package:cse_cet_reviewer/features/assessment/domain/models/assessment_session.dart';
-import 'package:cse_cet_reviewer/features/assessment/domain/models/topic_mastery.dart';
+import 'package:pantas/core/fsrs/fsrs_scheduler.dart';
+import 'package:pantas/core/fsrs/rating.dart';
+import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
+import 'package:pantas/core/storage/data/repos/attempts_repository.dart';
+import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/core/storage/data/repos/review_state_repository.dart';
+import 'package:pantas/core/storage/domain/attempt.dart';
+import 'package:pantas/core/storage/domain/review_state.dart';
+import 'package:pantas/features/assessment/domain/models/assessment_result.dart';
+import 'package:pantas/features/assessment/domain/models/assessment_session.dart';
+import 'package:pantas/features/assessment/domain/models/topic_mastery.dart';
 import 'package:uuid/uuid.dart';
 
 class CompleteAssessment {

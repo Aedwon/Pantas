@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/core/ui/components/ink_chevron.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/models/study_map.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/ink_chevron.dart';
+import 'package:pantas/core/ui/theme/app_dimensions.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/lesson/domain/models/study_map.dart';
 
 /// A block presenting the next topic after finishing one.
 class NextTopicBlock extends StatelessWidget {

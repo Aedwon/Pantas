@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/features/lesson/domain/portable_text_plain.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/lesson/domain/portable_text_plain.dart';
 
 Map<String, dynamic> block(String text, {String style = 'normal'}) => {
       '_type': 'block',

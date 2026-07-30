@@ -1,15 +1,15 @@
 import 'dart:convert';
 
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/core/storage/track_scope.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/models/topic_queue_row.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/build_today_plan.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/build_today_queue.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/count_today_backlog.dart';
-import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_controller.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/storage/track_scope.dart';
+import 'package:pantas/features/quiz/domain/models/topic_queue_row.dart';
+import 'package:pantas/features/quiz/domain/use_cases/build_today_plan.dart';
+import 'package:pantas/features/quiz/domain/use_cases/build_today_queue.dart';
+import 'package:pantas/features/quiz/domain/use_cases/count_today_backlog.dart';
+import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 
 /// The user id every local write already uses. Mirrors `quiz_controller.dart`.
 const todayUserId = 'local';

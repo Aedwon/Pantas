@@ -1,13 +1,13 @@
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/passage.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/core/ui/components/answer_reveal.dart';
-import 'package:cse_cet_reviewer/core/ui/components/passage_card.dart';
-import 'package:cse_cet_reviewer/core/ui/components/pennant_mark.dart';
-import 'package:cse_cet_reviewer/core/ui/components/portable_text_renderer.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/passage.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/ui/components/answer_reveal.dart';
+import 'package:pantas/core/ui/components/passage_card.dart';
+import 'package:pantas/core/ui/components/pennant_mark.dart';
+import 'package:pantas/core/ui/components/portable_text_renderer.dart';
+import 'package:pantas/core/ui/theme/app_dimensions.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 
 enum ReviewFilter { all, wrong, flagged }
 

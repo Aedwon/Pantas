@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/ui/components/pennant_mark.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/pennant_mark.dart';
 
 class BookmarkRibbon extends StatelessWidget {
   const BookmarkRibbon({

@@ -1,11 +1,11 @@
-import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/core/ui/components/review_list.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/presentation/widgets/exam_marks_offer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:pantas/core/storage/domain/choice.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/ui/components/review_list.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/exam_marks_offer.dart';
 
 class MockQuestion extends Mock implements Question {}
 

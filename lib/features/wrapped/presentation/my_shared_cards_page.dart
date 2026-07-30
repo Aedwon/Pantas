@@ -1,10 +1,10 @@
-import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/wrapped/application/wrapped_providers.dart';
-import 'package:cse_cet_reviewer/features/wrapped/data/user_metrics_artifact_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/core/ui/theme/app_dimensions.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/wrapped/application/wrapped_providers.dart';
+import 'package:pantas/features/wrapped/data/user_metrics_artifact_repository.dart';
 
 /// Lists the user's hosted Wrapped cards and lets them revoke a public link
 /// (landing-page spec §5.2). Revoking falls the link back to the generic page.

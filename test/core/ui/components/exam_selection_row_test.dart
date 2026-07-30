@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/ui/components/exam_selection_row.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/exam_selection_row.dart';
 
 import '../../../helpers/pump_app.dart';
 

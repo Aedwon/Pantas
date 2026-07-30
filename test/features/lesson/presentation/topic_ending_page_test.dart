@@ -1,15 +1,15 @@
-import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
-import 'package:cse_cet_reviewer/core/ui/components/bookmark_ribbon.dart';
-import 'package:cse_cet_reviewer/core/ui/components/contents_glyph.dart';
-import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/models/lesson_ending.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/models/study_map.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/use_cases/decide_ending.dart';
-import 'package:cse_cet_reviewer/features/lesson/presentation/pages/topic_ending_page.dart';
-import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/bookplate.dart';
-import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/pull_to_advance.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/bookmark_ribbon.dart';
+import 'package:pantas/core/ui/components/contents_glyph.dart';
+import 'package:pantas/core/ui/components/ink_table_row.dart';
+import 'package:pantas/features/lesson/domain/models/lesson_ending.dart';
+import 'package:pantas/features/lesson/domain/models/study_map.dart';
+import 'package:pantas/features/lesson/domain/use_cases/decide_ending.dart';
+import 'package:pantas/features/lesson/presentation/pages/topic_ending_page.dart';
+import 'package:pantas/features/lesson/presentation/widgets/bookplate.dart';
+import 'package:pantas/features/lesson/presentation/widgets/pull_to_advance.dart';
 
 import '../../../helpers/pump_app.dart';
 

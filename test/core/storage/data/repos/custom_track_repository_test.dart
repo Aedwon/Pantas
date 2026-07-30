@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:cse_cet_reviewer/core/content/content.dart';
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/custom_track_repository.dart';
 import 'package:drift/drift.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 
 import '../../../../helpers/in_memory_database.dart';
 

@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/features/wrapped/data/user_metrics_artifact_repository.dart';
-import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_payload.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/features/wrapped/data/user_metrics_artifact_repository.dart';
+import 'package:pantas/features/wrapped/domain/wrapped_payload.dart';
 
 void main() {
   test('persists and reads wrapped payload json', () async {

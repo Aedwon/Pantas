@@ -1,13 +1,13 @@
 import 'dart:math' as math;
 
-import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/review_state_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/assessment_question.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/review_state.dart';
+import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/core/storage/data/repos/review_state_repository.dart';
+import 'package:pantas/core/storage/domain/assessment_question.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/domain/review_state.dart';
 
-import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
+import 'package:pantas/core/storage/domain/topic.dart';
 
 class AssessmentQuestionSelector {
   AssessmentQuestionSelector(this._content, this._reviewRepo);

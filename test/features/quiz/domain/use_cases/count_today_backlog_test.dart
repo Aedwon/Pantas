@@ -1,9 +1,9 @@
-import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question_outcome.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/review_state.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/count_today_backlog.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/domain/choice.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/domain/question_outcome.dart';
+import 'package:pantas/core/storage/domain/review_state.dart';
+import 'package:pantas/features/quiz/domain/use_cases/count_today_backlog.dart';
 
 Question question(String id, {String topicId = 'topic_algebra'}) => Question(
       id: id,

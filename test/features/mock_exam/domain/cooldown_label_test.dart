@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/features/mock_exam/domain/cooldown_label.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/mock_exam/domain/cooldown_label.dart';
 
 void main() {
   test('days and hours', () {

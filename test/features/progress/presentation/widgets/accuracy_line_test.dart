@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/core/ui/theme/app_colors.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/progress/presentation/widgets/accuracy_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/theme/app_colors.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/progress/presentation/widgets/accuracy_line.dart';
 
 void main() {
   Widget harness({

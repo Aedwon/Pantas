@@ -1,11 +1,11 @@
-import 'package:cse_cet_reviewer/core/content/domain/mock_blueprint.dart';
-import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/application/mock_blueprint_providers.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/data/blueprint_section.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/presentation/pages/mock_setup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/domain/mock_blueprint.dart';
+import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
+import 'package:pantas/features/mock_exam/data/blueprint_section.dart';
+import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_page.dart';
 
 void main() {
   Widget harness({

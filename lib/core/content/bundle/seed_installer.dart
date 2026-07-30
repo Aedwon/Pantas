@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:cse_cet_reviewer/core/content/content_database_opener.dart';
 import 'package:flutter/services.dart';
+import 'package:pantas/core/content/content_database_opener.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 

@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:cse_cet_reviewer/core/sync/sync_status.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/sync/sync_status.dart';
 
 abstract interface class SyncEngineSurface {
   Stream<SyncStatus> get statuses;

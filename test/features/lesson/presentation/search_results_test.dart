@@ -1,10 +1,10 @@
-import 'package:cse_cet_reviewer/features/lesson/application/lesson_search_providers.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/models/lesson_search_hit.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/use_cases/build_search_snippet.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/use_cases/build_study_map.dart';
-import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/search_results.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
+import 'package:pantas/features/lesson/domain/models/lesson_search_hit.dart';
+import 'package:pantas/features/lesson/domain/use_cases/build_search_snippet.dart';
+import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
+import 'package:pantas/features/lesson/presentation/widgets/search_results.dart';
 
 import '../../../helpers/pump_app.dart';
 

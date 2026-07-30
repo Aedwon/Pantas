@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/features/metrics/archetypes/archetype_catalog.dart';
-import 'package:cse_cet_reviewer/features/metrics/archetypes/archetype_resolver.dart';
-import 'package:cse_cet_reviewer/features/metrics/domain/signal_key.dart';
-import 'package:cse_cet_reviewer/features/metrics/domain/signal_outputs.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/metrics/archetypes/archetype_catalog.dart';
+import 'package:pantas/features/metrics/archetypes/archetype_resolver.dart';
+import 'package:pantas/features/metrics/domain/signal_key.dart';
+import 'package:pantas/features/metrics/domain/signal_outputs.dart';
 
 void main() {
   test('catalog contains the 14 starter archetypes from the spec', () {

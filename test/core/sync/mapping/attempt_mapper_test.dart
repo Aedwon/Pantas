@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/core/sync/mapping/attempt_mapper.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/sync/mapping/attempt_mapper.dart';
 
 void main() {
   test('attempt mapper includes row fields and sync metadata', () {

@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/content/domain/mock_blueprint.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_results.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_sample.dart';
+import 'package:pantas/core/content/domain/mock_blueprint.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/features/mock_exam/domain/mock_results.dart';
+import 'package:pantas/features/mock_exam/domain/mock_sample.dart';
 
 class ComputeMockResults {
   MockResults call({

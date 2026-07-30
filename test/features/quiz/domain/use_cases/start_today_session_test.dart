@@ -1,17 +1,17 @@
-import 'package:cse_cet_reviewer/core/content/content.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_ordering.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_preferences.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/pick_context.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/question_picker.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/build_today_plan.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_today_session.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/core/storage/domain/choice.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
+import 'package:pantas/features/quiz/domain/models/quiz_ordering.dart';
+import 'package:pantas/features/quiz/domain/models/quiz_preferences.dart';
+import 'package:pantas/features/quiz/domain/models/session_origin.dart';
+import 'package:pantas/features/quiz/domain/picker/pick_context.dart';
+import 'package:pantas/features/quiz/domain/picker/question_picker.dart';
+import 'package:pantas/features/quiz/domain/use_cases/build_today_plan.dart';
+import 'package:pantas/features/quiz/domain/use_cases/start_today_session.dart';
 
 import '../../../../helpers/in_memory_database.dart';
 

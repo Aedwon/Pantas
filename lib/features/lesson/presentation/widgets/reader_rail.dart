@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/ui/components/progress_rule.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/progress_rule.dart';
 
 class ReaderRail extends StatelessWidget {
   const ReaderRail({required this.progress, super.key});

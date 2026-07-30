@@ -1,21 +1,21 @@
 import 'dart:async';
 
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
-import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
-import 'package:cse_cet_reviewer/core/ui/components/page_scaffold.dart';
-import 'package:cse_cet_reviewer/core/ui/components/topic_scope_index.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/practice_index.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/practice_selection.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/practice_summary.dart';
-import 'package:cse_cet_reviewer/features/quiz/presentation/practice_picker_providers.dart';
-import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_controller.dart';
-import 'package:cse_cet_reviewer/features/quiz/presentation/widgets/length_wheel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/core/ui/components/page_scaffold.dart';
+import 'package:pantas/core/ui/components/topic_scope_index.dart';
+import 'package:pantas/core/ui/theme/app_dimensions.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/quiz/domain/picker/practice_index.dart';
+import 'package:pantas/features/quiz/domain/picker/practice_selection.dart';
+import 'package:pantas/features/quiz/domain/picker/practice_summary.dart';
+import 'package:pantas/features/quiz/presentation/practice_picker_providers.dart';
+import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
+import 'package:pantas/features/quiz/presentation/widgets/length_wheel.dart';
 
 class PracticePickerPage extends ConsumerStatefulWidget {
   const PracticePickerPage({required this.examId, super.key});

@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/sync/engine/collection_registry.dart';
+import 'package:pantas/core/sync/engine/collection_registry.dart';
 
 class SyncEngine {
   SyncEngine({

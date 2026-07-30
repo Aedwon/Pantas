@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/settings/application/settings_providers.dart';
-import 'package:cse_cet_reviewer/features/settings/domain/session_ordering.dart';
-import 'package:cse_cet_reviewer/features/settings/domain/user_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
+import 'package:pantas/features/settings/domain/session_ordering.dart';
+import 'package:pantas/features/settings/domain/user_settings.dart';
 
 String _explain(SessionOrdering ordering) => switch (ordering) {
       SessionOrdering.blocked => 'Every question from the chosen topic',

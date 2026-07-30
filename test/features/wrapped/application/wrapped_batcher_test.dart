@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/features/wrapped/application/wrapped_batcher.dart';
-import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_trigger_event.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/wrapped/application/wrapped_batcher.dart';
+import 'package:pantas/features/wrapped/domain/wrapped_trigger_event.dart';
 
 void main() {
   test('batches same-day streak and mastery triggers', () {

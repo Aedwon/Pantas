@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/content/content.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/data/blueprint_section.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/content/content.dart';
+import 'package:pantas/features/mock_exam/data/blueprint_section.dart';
 
 final mockBlueprintsForExamProvider =
     FutureProvider.family<MockBlueprintLoadResult, String>((ref, examId) async {

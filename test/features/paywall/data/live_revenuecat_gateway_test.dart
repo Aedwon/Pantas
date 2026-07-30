@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/features/paywall/data/live_revenuecat_gateway.dart';
-import 'package:cse_cet_reviewer/features/paywall/domain/entitlement.dart';
-import 'package:cse_cet_reviewer/features/paywall/domain/paywall_package.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/paywall/data/live_revenuecat_gateway.dart';
+import 'package:pantas/features/paywall/domain/entitlement.dart';
+import 'package:pantas/features/paywall/domain/paywall_package.dart';
 
 void main() {
   group('skuFromProductId', () {

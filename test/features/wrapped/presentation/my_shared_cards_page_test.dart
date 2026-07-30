@@ -1,13 +1,13 @@
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/wrapped/application/wrapped_providers.dart';
-import 'package:cse_cet_reviewer/features/wrapped/data/user_metrics_artifact_repository.dart';
-import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_payload.dart';
-import 'package:cse_cet_reviewer/features/wrapped/presentation/my_shared_cards_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/wrapped/application/wrapped_providers.dart';
+import 'package:pantas/features/wrapped/data/user_metrics_artifact_repository.dart';
+import 'package:pantas/features/wrapped/domain/wrapped_payload.dart';
+import 'package:pantas/features/wrapped/presentation/my_shared_cards_page.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';

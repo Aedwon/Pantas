@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
+import 'package:pantas/core/storage/domain/exam_date.dart';
 
 /// The fixed ladder. Seven notifications across the whole run-up and
 /// never two in one day.

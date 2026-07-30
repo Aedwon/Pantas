@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/features/quiz/data/repos/new_card_intro_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/quiz/data/repos/new_card_intro_repository.dart';
 
 import '../../../helpers/in_memory_database.dart';
 

@@ -1,10 +1,10 @@
-import 'package:cse_cet_reviewer/core/content/content.dart';
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/review_state_repository.dart';
-import 'package:cse_cet_reviewer/features/assessment/domain/services/assessment_question_selector.dart';
-import 'package:cse_cet_reviewer/features/assessment/domain/use_cases/start_assessment.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/core/storage/data/repos/review_state_repository.dart';
+import 'package:pantas/features/assessment/domain/services/assessment_question_selector.dart';
+import 'package:pantas/features/assessment/domain/use_cases/start_assessment.dart';
 
 import '../../../../helpers/in_memory_database.dart';
 

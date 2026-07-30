@@ -1,14 +1,14 @@
 import 'dart:convert';
 
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
-import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/features/lesson/application/study_map_providers.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/models/lesson_search_hit.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/models/study_map.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/portable_text_plain.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/use_cases/build_search_snippet.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/lesson/application/study_map_providers.dart';
+import 'package:pantas/features/lesson/domain/models/lesson_search_hit.dart';
+import 'package:pantas/features/lesson/domain/models/study_map.dart';
+import 'package:pantas/features/lesson/domain/portable_text_plain.dart';
+import 'package:pantas/features/lesson/domain/use_cases/build_search_snippet.dart';
 
 final searchQueryProvider = StateProvider<String>((ref) => '');
 

@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_attempt.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_availability.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/presentation/widgets/mock_panel.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
+import 'package:pantas/features/mock_exam/domain/mock_availability.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/mock_panel.dart';
 
 import '../../../helpers/pump_app.dart';
 

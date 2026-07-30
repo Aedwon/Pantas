@@ -1,6 +1,6 @@
 // coverage:ignore-file
-import 'package:cse_cet_reviewer/core/storage/data/tables/questions_table.dart';
 import 'package:drift/drift.dart';
+import 'package:pantas/core/storage/data/tables/questions_table.dart';
 
 /// A question the student kept for later, from the reveal or from a mock's
 /// review. Durable: unlike `mock_attempt.flagsJson`, which expires with the

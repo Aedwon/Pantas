@@ -1,10 +1,10 @@
 // ignore_for_file: sort_unnamed_constructors_first
-import 'package:cse_cet_reviewer/core/fsrs/rating.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/passage_set_filler.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:pantas/core/fsrs/rating.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/passage_set_filler.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 
 part 'quiz_session.freezed.dart';
 

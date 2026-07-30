@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/telemetry/telemetry.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
 
 /// Wraps a `Telemetry` and lets nothing through until the student has said
 /// yes.

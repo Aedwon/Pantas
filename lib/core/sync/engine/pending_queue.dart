@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:drift/drift.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
 
 enum PendingSyncOp { upsert, delete }
 

@@ -1,8 +1,8 @@
 // coverage:ignore-file
-import 'package:cse_cet_reviewer/core/storage/data/tables/lessons_table.dart';
-import 'package:cse_cet_reviewer/core/storage/data/tables/passages_table.dart';
-import 'package:cse_cet_reviewer/core/storage/data/tables/topics_table.dart';
 import 'package:drift/drift.dart';
+import 'package:pantas/core/storage/data/tables/lessons_table.dart';
+import 'package:pantas/core/storage/data/tables/passages_table.dart';
+import 'package:pantas/core/storage/data/tables/topics_table.dart';
 
 @DataClassName('QuestionRow')
 class Questions extends Table {

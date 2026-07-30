@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/app/bootstrap.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/application/mock_availability_provider.dart';
-import 'package:cse_cet_reviewer/features/paywall/paywall.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/app/bootstrap.dart';
+import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
+import 'package:pantas/features/paywall/paywall.dart';
 
 void main() {
   test('a Pro entitlement reaches the mock cooldown', () async {

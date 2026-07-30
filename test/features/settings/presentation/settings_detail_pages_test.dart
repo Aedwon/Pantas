@@ -1,17 +1,17 @@
-import 'package:cse_cet_reviewer/core/auth/auth_user.dart';
-import 'package:cse_cet_reviewer/core/auth/providers.dart';
-import 'package:cse_cet_reviewer/core/sync/providers.dart';
-import 'package:cse_cet_reviewer/core/sync/sync_status.dart';
-import 'package:cse_cet_reviewer/core/ui/components/settings_bar.dart';
-import 'package:cse_cet_reviewer/features/legal/legal.dart';
-import 'package:cse_cet_reviewer/features/settings/presentation/pages/about_page.dart';
-import 'package:cse_cet_reviewer/features/settings/presentation/pages/account_page.dart';
-import 'package:cse_cet_reviewer/features/settings/presentation/pages/backup_page.dart';
-import 'package:cse_cet_reviewer/features/settings/presentation/pages/delete_account_page.dart';
-import 'package:cse_cet_reviewer/features/settings/presentation/pages/pro_page.dart';
-import 'package:cse_cet_reviewer/features/settings/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/auth/auth_user.dart';
+import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/sync/providers.dart';
+import 'package:pantas/core/sync/sync_status.dart';
+import 'package:pantas/core/ui/components/settings_bar.dart';
+import 'package:pantas/features/legal/legal.dart';
+import 'package:pantas/features/settings/presentation/pages/about_page.dart';
+import 'package:pantas/features/settings/presentation/pages/account_page.dart';
+import 'package:pantas/features/settings/presentation/pages/backup_page.dart';
+import 'package:pantas/features/settings/presentation/pages/delete_account_page.dart';
+import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
+import 'package:pantas/features/settings/settings.dart';
 
 import '../../../helpers/pump_app.dart';
 

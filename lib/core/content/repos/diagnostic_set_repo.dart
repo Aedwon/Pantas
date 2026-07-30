@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:cse_cet_reviewer/core/content/content_database.dart';
-import 'package:cse_cet_reviewer/core/content/domain/diagnostic_set.dart';
 import 'package:drift/drift.dart';
+import 'package:pantas/core/content/content_database.dart';
+import 'package:pantas/core/content/domain/diagnostic_set.dart';
 
 class DiagnosticSetRepo {
   DiagnosticSetRepo(this._db);

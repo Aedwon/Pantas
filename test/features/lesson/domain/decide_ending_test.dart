@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/features/lesson/domain/models/lesson_ending.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/models/study_map.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/use_cases/decide_ending.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/lesson/domain/models/lesson_ending.dart';
+import 'package:pantas/features/lesson/domain/models/study_map.dart';
+import 'package:pantas/features/lesson/domain/use_cases/decide_ending.dart';
 
 void main() {
   StudyLesson makeLesson({

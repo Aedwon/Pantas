@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/features/metrics/signals/mock_payload_reader.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/metrics/signals/mock_payload_reader.dart';
 
 void main() {
   test('parses mock sample, answers, flags, and section results', () {

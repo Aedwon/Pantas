@@ -1,12 +1,12 @@
-import 'package:cse_cet_reviewer/app/telemetry_providers.dart';
-import 'package:cse_cet_reviewer/core/storage/age_gate.dart';
-import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
-import 'package:cse_cet_reviewer/core/telemetry/telemetry.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/onboarding/presentation/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/storage/age_gate.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/onboarding/presentation/onboarding_page.dart';
 
 void main() {
   testWidgets('Onboarding emits onboardingStepReached for initial step',

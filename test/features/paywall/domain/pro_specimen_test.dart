@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/features/paywall/domain/pro_specimen.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/paywall/domain/pro_specimen.dart';
 
 void main() {
   test('the specimen is authored and constant, never derived', () {

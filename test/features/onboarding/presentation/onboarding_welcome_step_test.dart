@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/onboarding/presentation/onboarding_welcome_step.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/onboarding/presentation/onboarding_welcome_step.dart';
 
 void main() {
   testWidgets('renders headline, subtitle, and Get started CTA',

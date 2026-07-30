@@ -1,13 +1,13 @@
 import 'dart:convert';
 
-import 'package:cse_cet_reviewer/core/content/content_database.dart';
-import 'package:cse_cet_reviewer/core/content/repos/exam_repo.dart';
-import 'package:cse_cet_reviewer/core/content/repos/lesson_repo.dart';
-import 'package:cse_cet_reviewer/core/content/repos/question_repo.dart';
-import 'package:cse_cet_reviewer/core/content/repos/topic_repo.dart';
 import 'package:drift/drift.dart' show Value;
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/content_database.dart';
+import 'package:pantas/core/content/repos/exam_repo.dart';
+import 'package:pantas/core/content/repos/lesson_repo.dart';
+import 'package:pantas/core/content/repos/question_repo.dart';
+import 'package:pantas/core/content/repos/topic_repo.dart';
 
 void main() {
   late ContentDatabase db;

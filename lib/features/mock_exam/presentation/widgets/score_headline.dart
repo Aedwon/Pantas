@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_results.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/mock_exam/domain/mock_results.dart';
 
 class ScoreHeadline extends StatefulWidget {
   const ScoreHeadline({

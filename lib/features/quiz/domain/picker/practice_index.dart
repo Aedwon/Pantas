@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
 
 /// One lesson inside a topic, as the picker lists it.
 class PracticeLessonEntry {

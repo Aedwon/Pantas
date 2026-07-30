@@ -1,17 +1,18 @@
 import 'dart:async';
-import 'package:cse_cet_reviewer/core/storage/selected_exam_focus.dart';
-import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
-import 'package:cse_cet_reviewer/core/ui/components/ink_chevron.dart';
-import 'package:cse_cet_reviewer/core/ui/components/inline_meter.dart';
-import 'package:cse_cet_reviewer/core/ui/components/ruled_panel.dart';
-import 'package:cse_cet_reviewer/core/ui/severity.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/home/application/topic_accuracy_provider.dart';
-import 'package:cse_cet_reviewer/features/quiz/application/quiz_providers.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_today_session.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/core/ui/components/ink_chevron.dart';
+import 'package:pantas/core/ui/components/inline_meter.dart';
+import 'package:pantas/core/ui/components/ruled_panel.dart';
+import 'package:pantas/core/ui/severity.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/home/application/topic_accuracy_provider.dart';
+import 'package:pantas/features/quiz/application/quiz_providers.dart';
+import 'package:pantas/features/quiz/domain/use_cases/start_today_session.dart';
 
 class PracticePanel extends ConsumerWidget {
   const PracticePanel({super.key});

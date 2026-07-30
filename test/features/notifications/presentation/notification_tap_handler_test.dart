@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/features/notifications/notifications.dart';
-import 'package:cse_cet_reviewer/features/notifications/presentation/notification_tap_handler.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/notifications/notifications.dart';
+import 'package:pantas/features/notifications/presentation/notification_tap_handler.dart';
 
 void main() {
   test('fresh payload with route opens that route', () {

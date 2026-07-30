@@ -1,11 +1,11 @@
-import 'package:cse_cet_reviewer/features/metrics/atoms/atom.dart';
-import 'package:cse_cet_reviewer/features/metrics/atoms/atom_rotation.dart';
-import 'package:cse_cet_reviewer/features/metrics/atoms/home_atoms.dart';
-import 'package:cse_cet_reviewer/features/metrics/domain/metrics_window.dart';
-import 'package:cse_cet_reviewer/features/metrics/domain/signal_key.dart';
-import 'package:cse_cet_reviewer/features/metrics/providers/metrics_signal_providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta/meta.dart';
+import 'package:pantas/features/metrics/atoms/atom.dart';
+import 'package:pantas/features/metrics/atoms/atom_rotation.dart';
+import 'package:pantas/features/metrics/atoms/home_atoms.dart';
+import 'package:pantas/features/metrics/domain/metrics_window.dart';
+import 'package:pantas/features/metrics/domain/signal_key.dart';
+import 'package:pantas/features/metrics/providers/metrics_signal_providers.dart';
 
 @immutable
 class HomeAtomRequest {

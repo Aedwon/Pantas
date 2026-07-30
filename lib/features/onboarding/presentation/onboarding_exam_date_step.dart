@@ -1,11 +1,11 @@
-import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
-import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
-import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/settings/application/settings_providers.dart';
-import 'package:cse_cet_reviewer/features/settings/domain/user_settings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/storage/domain/exam_date.dart';
+import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/error_banner.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
+import 'package:pantas/features/settings/domain/user_settings.dart';
 
 class OnboardingExamDateStep extends ConsumerStatefulWidget {
   const OnboardingExamDateStep({

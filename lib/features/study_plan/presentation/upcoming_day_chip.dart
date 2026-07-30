@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/ui/components/ink_table_row.dart';
-import 'package:cse_cet_reviewer/features/study_plan/domain/compute_plan_view.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/ink_table_row.dart';
+import 'package:pantas/features/study_plan/domain/compute_plan_view.dart';
 
 class UpcomingDayChip extends StatelessWidget {
   const UpcomingDayChip({

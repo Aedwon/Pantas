@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/fsrs/rating.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/rating_heuristic.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/fsrs/rating.dart';
+import 'package:pantas/features/quiz/domain/rating_heuristic.dart';
 
 void main() {
   test('incorrect always → Again', () {

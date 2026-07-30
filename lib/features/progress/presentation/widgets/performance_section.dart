@@ -1,18 +1,18 @@
-import 'package:cse_cet_reviewer/core/ui/components/data_row_tile.dart';
-import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
-import 'package:cse_cet_reviewer/core/ui/components/ruled_panel.dart';
-import 'package:cse_cet_reviewer/core/ui/severity.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/paywall/application/paywall_providers.dart';
-import 'package:cse_cet_reviewer/features/paywall/domain/entitlement.dart';
-import 'package:cse_cet_reviewer/features/progress/application/performance_provider.dart';
-import 'package:cse_cet_reviewer/features/progress/application/table_order_prefs.dart';
-import 'package:cse_cet_reviewer/features/progress/presentation/widgets/level_control.dart';
-import 'package:cse_cet_reviewer/features/progress/presentation/widgets/subject_scope_sheet.dart';
-import 'package:cse_cet_reviewer/features/progress/presentation/widgets/table_head.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/ui/components/data_row_tile.dart';
+import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/core/ui/components/ruled_panel.dart';
+import 'package:pantas/core/ui/severity.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/paywall/domain/entitlement.dart';
+import 'package:pantas/features/progress/application/performance_provider.dart';
+import 'package:pantas/features/progress/application/table_order_prefs.dart';
+import 'package:pantas/features/progress/presentation/widgets/level_control.dart';
+import 'package:pantas/features/progress/presentation/widgets/subject_scope_sheet.dart';
+import 'package:pantas/features/progress/presentation/widgets/table_head.dart';
 
 /// The tab's centre: accuracy and pace, readable at three levels, whose
 /// labels are its own controls.

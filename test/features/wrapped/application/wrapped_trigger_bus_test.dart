@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:cse_cet_reviewer/features/wrapped/application/wrapped_trigger_bus.dart';
-import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_trigger_event.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/wrapped/application/wrapped_trigger_bus.dart';
+import 'package:pantas/features/wrapped/domain/wrapped_trigger_event.dart';
 
 void main() {
   test('emits wrapped trigger events without replaying old events', () async {

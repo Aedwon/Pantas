@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:cse_cet_reviewer/core/content/content_database.dart';
-import 'package:cse_cet_reviewer/core/content/sync/sync_status.dart';
-import 'package:cse_cet_reviewer/core/content/sync/sync_throttle.dart';
+import 'package:pantas/core/content/content_database.dart';
+import 'package:pantas/core/content/sync/sync_status.dart';
+import 'package:pantas/core/content/sync/sync_throttle.dart';
 
 enum ContentFetchResult { success, failure }
 

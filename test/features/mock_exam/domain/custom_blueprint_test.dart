@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:cse_cet_reviewer/features/mock_exam/data/blueprint_section.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/custom_blueprint.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/mock_exam/data/blueprint_section.dart';
+import 'package:pantas/features/mock_exam/domain/custom_blueprint.dart';
 
 void main() {
   const topicsBySubject = {

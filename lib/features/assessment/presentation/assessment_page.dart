@@ -1,19 +1,19 @@
-import 'package:cse_cet_reviewer/core/fsrs/fsrs_scheduler.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/assessment_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/core/storage/track_scope.dart';
-import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
-import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
-import 'package:cse_cet_reviewer/core/ui/components/question_card.dart';
-import 'package:cse_cet_reviewer/core/ui/components/quiz_progress_bar.dart';
-import 'package:cse_cet_reviewer/features/assessment/application/assessment_result_providers.dart';
-import 'package:cse_cet_reviewer/features/assessment/domain/models/assessment_session.dart';
-import 'package:cse_cet_reviewer/features/assessment/domain/use_cases/complete_assessment.dart';
-import 'package:cse_cet_reviewer/features/assessment/domain/use_cases/start_assessment.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/fsrs/fsrs_scheduler.dart';
+import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/storage/track_scope.dart';
+import 'package:pantas/core/ui/components/error_banner.dart';
+import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/core/ui/components/question_card.dart';
+import 'package:pantas/core/ui/components/quiz_progress_bar.dart';
+import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
+import 'package:pantas/features/assessment/domain/models/assessment_session.dart';
+import 'package:pantas/features/assessment/domain/use_cases/complete_assessment.dart';
+import 'package:pantas/features/assessment/domain/use_cases/start_assessment.dart';
 
 final _startAssessmentProvider = Provider<StartAssessment>(
   (ref) => StartAssessment(

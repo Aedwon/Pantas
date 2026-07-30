@@ -1,14 +1,15 @@
 import 'dart:async';
-import 'package:cse_cet_reviewer/core/auth/providers.dart';
-import 'package:cse_cet_reviewer/core/auth/sign_in_result.dart';
-import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
-import 'package:cse_cet_reviewer/core/ui/components/page_scaffold.dart';
-import 'package:cse_cet_reviewer/core/ui/components/settings_bar.dart';
-import 'package:cse_cet_reviewer/core/ui/components/settings_value_row.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/auth/sign_in_result.dart';
+import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/page_scaffold.dart';
+import 'package:pantas/core/ui/components/settings_bar.dart';
+import 'package:pantas/core/ui/components/settings_value_row.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 
 class AccountPage extends ConsumerStatefulWidget {
   const AccountPage({super.key});

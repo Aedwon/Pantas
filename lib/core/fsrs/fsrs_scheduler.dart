@@ -1,8 +1,8 @@
 import 'dart:math' as math;
 
-import 'package:cse_cet_reviewer/core/fsrs/default_weights.dart';
-import 'package:cse_cet_reviewer/core/fsrs/rating.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/review_state.dart';
+import 'package:pantas/core/fsrs/default_weights.dart';
+import 'package:pantas/core/fsrs/rating.dart';
+import 'package:pantas/core/storage/domain/review_state.dart';
 
 class FsrsScheduler {
   const FsrsScheduler({

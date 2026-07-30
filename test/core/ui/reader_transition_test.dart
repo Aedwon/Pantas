@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/ui/reader_transition.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/reader_transition.dart';
 
 void main() {
   // The platform default slid the next lesson in from the right, against the

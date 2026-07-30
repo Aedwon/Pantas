@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/telemetry/telemetry.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/application/mock_session_controller.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
+import 'package:pantas/features/mock_exam/application/mock_session_controller.dart';
 
 void main() {
   test(

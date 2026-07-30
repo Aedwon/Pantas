@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
-import 'package:cse_cet_reviewer/features/notifications/presentation/notifications_lifecycle_observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/notifications/notification_service.dart';
+import 'package:pantas/features/notifications/presentation/notifications_lifecycle_observer.dart';
 
 // ignore_for_file: cascade_invocations
 

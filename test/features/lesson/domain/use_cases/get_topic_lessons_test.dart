@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/lesson.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/use_cases/get_topic_lessons.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/core/storage/domain/lesson.dart';
+import 'package:pantas/features/lesson/domain/use_cases/get_topic_lessons.dart';
 
 class _MockContent extends Mock implements ContentRepository {}
 

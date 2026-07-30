@@ -1,9 +1,9 @@
-import 'package:cse_cet_reviewer/core/ui/components/ink_chevron.dart';
-import 'package:cse_cet_reviewer/features/lesson/application/study_map_providers.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/use_cases/build_study_map.dart';
-import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/pinned_topic_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/ink_chevron.dart';
+import 'package:pantas/features/lesson/application/study_map_providers.dart';
+import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
+import 'package:pantas/features/lesson/presentation/widgets/pinned_topic_bar.dart';
 
 import '../../../helpers/pump_app.dart';
 import 'fake_open_topic.dart';

@@ -1,13 +1,13 @@
-import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/features/metrics/archetypes/archetype_catalog.dart';
-import 'package:cse_cet_reviewer/features/metrics/archetypes/archetype_resolver.dart';
-import 'package:cse_cet_reviewer/features/metrics/archetypes/archetype_templates.dart';
-import 'package:cse_cet_reviewer/features/metrics/data/user_metrics_archetype_repository.dart';
-import 'package:cse_cet_reviewer/features/metrics/domain/metrics_window.dart';
-import 'package:cse_cet_reviewer/features/metrics/domain/signal_key.dart';
-import 'package:cse_cet_reviewer/features/metrics/providers/metrics_signal_providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta/meta.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/metrics/archetypes/archetype_catalog.dart';
+import 'package:pantas/features/metrics/archetypes/archetype_resolver.dart';
+import 'package:pantas/features/metrics/archetypes/archetype_templates.dart';
+import 'package:pantas/features/metrics/data/user_metrics_archetype_repository.dart';
+import 'package:pantas/features/metrics/domain/metrics_window.dart';
+import 'package:pantas/features/metrics/domain/signal_key.dart';
+import 'package:pantas/features/metrics/providers/metrics_signal_providers.dart';
 
 @immutable
 class CurrentArchetypeRequest {

@@ -1,12 +1,12 @@
-import 'package:cse_cet_reviewer/core/ui/components/ink_chevron.dart';
-import 'package:cse_cet_reviewer/core/ui/components/inline_meter.dart';
-import 'package:cse_cet_reviewer/core/ui/components/section_header.dart';
-import 'package:cse_cet_reviewer/core/ui/severity.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_results.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/presentation/widgets/score_headline.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/ink_chevron.dart';
+import 'package:pantas/core/ui/components/inline_meter.dart';
+import 'package:pantas/core/ui/components/section_header.dart';
+import 'package:pantas/core/ui/severity.dart';
+import 'package:pantas/core/ui/theme/app_dimensions.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/mock_exam/domain/mock_results.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/score_headline.dart';
 
 class MockResultsPage extends StatelessWidget {
   const MockResultsPage({

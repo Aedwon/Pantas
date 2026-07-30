@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/auth/auth_repository.dart';
-import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
+import 'package:pantas/core/auth/auth_repository.dart';
+import 'package:pantas/core/notifications/notification_service.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
 
 class SyncLocalStateWiper implements LocalStateWiper {
   SyncLocalStateWiper(

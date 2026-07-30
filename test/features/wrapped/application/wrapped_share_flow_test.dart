@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/features/wrapped/application/wrapped_share_flow.dart';
-import 'package:cse_cet_reviewer/features/wrapped/data/user_metrics_artifact_repository.dart';
-import 'package:cse_cet_reviewer/features/wrapped/domain/wrapped_payload.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/wrapped/application/wrapped_share_flow.dart';
+import 'package:pantas/features/wrapped/data/user_metrics_artifact_repository.dart';
+import 'package:pantas/features/wrapped/domain/wrapped_payload.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../fake_wrapped_share_host.dart';

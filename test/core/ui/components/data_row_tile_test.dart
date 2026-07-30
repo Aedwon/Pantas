@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/core/ui/components/data_row_tile.dart';
-import 'package:cse_cet_reviewer/core/ui/components/inline_meter.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/data_row_tile.dart';
+import 'package:pantas/core/ui/components/inline_meter.dart';
+import 'package:pantas/core/ui/theme/app_colors.dart';
 
 import '../../../helpers/pump_app.dart';
 

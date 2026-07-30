@@ -1,15 +1,15 @@
-import 'package:cse_cet_reviewer/core/fsrs/fsrs_scheduler.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/review_log_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/review_state_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/review_log.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/review_state.dart';
-import 'package:cse_cet_reviewer/core/sync/engine/pending_queue.dart';
-import 'package:cse_cet_reviewer/features/quiz/data/repos/new_card_intro_repository.dart';
-import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/rating_heuristic.dart';
+import 'package:pantas/core/fsrs/fsrs_scheduler.dart';
+import 'package:pantas/core/storage/data/repos/review_log_repository.dart';
+import 'package:pantas/core/storage/data/repos/review_state_repository.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/domain/review_log.dart';
+import 'package:pantas/core/storage/domain/review_state.dart';
+import 'package:pantas/core/sync/engine/pending_queue.dart';
+import 'package:pantas/features/quiz/data/repos/new_card_intro_repository.dart';
+import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
+import 'package:pantas/features/quiz/domain/quiz_session.dart';
+import 'package:pantas/features/quiz/domain/rating_heuristic.dart';
 
 class SubmitAnswer {
   SubmitAnswer({

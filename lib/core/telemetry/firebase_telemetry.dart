@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/telemetry/telemetry.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
 
 /// The only file in `lib/` permitted to import an analytics or crash package.
 ///

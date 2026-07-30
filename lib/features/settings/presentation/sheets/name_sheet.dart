@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
-import 'package:cse_cet_reviewer/core/ui/components/ink_sheet.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/ink_sheet.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 
 /// Returns the new name. An empty result clears it, because empty and absent
 /// are the same state.

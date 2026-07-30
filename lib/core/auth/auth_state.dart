@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/auth/auth_user.dart';
 import 'package:meta/meta.dart';
+import 'package:pantas/core/auth/auth_user.dart';
 
 @immutable
 class AuthSession {

@@ -1,14 +1,14 @@
-import 'package:cse_cet_reviewer/core/storage/data/repos/attempts_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/attempt.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/subject.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
-import 'package:cse_cet_reviewer/core/storage/storage.dart';
-import 'package:cse_cet_reviewer/features/quiz/presentation/quiz_results_page.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:pantas/core/storage/data/repos/attempts_repository.dart';
+import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/core/storage/domain/attempt.dart';
+import 'package:pantas/core/storage/domain/choice.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/domain/subject.dart';
+import 'package:pantas/core/storage/domain/topic.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/quiz/presentation/quiz_results_page.dart';
 
 import '../../../helpers/pump_app.dart';
 

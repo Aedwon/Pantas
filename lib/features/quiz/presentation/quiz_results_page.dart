@@ -1,10 +1,10 @@
-import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
-import 'package:cse_cet_reviewer/core/ui/components/review_list.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/quiz/presentation/question_flag_providers.dart';
-import 'package:cse_cet_reviewer/features/quiz/presentation/review_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/core/ui/components/review_list.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/quiz/presentation/question_flag_providers.dart';
+import 'package:pantas/features/quiz/presentation/review_providers.dart';
 
 class QuizResultsPage extends ConsumerWidget {
   const QuizResultsPage({

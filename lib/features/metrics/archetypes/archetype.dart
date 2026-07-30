@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/features/metrics/domain/signal_key.dart';
+import 'package:pantas/features/metrics/domain/signal_key.dart';
 
 enum ArchetypeCategory {
   pressureMode,

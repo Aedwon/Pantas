@@ -1,18 +1,18 @@
 import 'dart:async';
 
-import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/core/telemetry/telemetry.dart';
-import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_ordering.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_preferences.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/question_picker.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/today_interleaved_picker.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/picker/today_topic_picker.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/build_today_plan.dart';
+import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
+import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
+import 'package:pantas/features/quiz/domain/models/quiz_ordering.dart';
+import 'package:pantas/features/quiz/domain/models/quiz_preferences.dart';
+import 'package:pantas/features/quiz/domain/models/session_origin.dart';
+import 'package:pantas/features/quiz/domain/picker/question_picker.dart';
+import 'package:pantas/features/quiz/domain/picker/today_interleaved_picker.dart';
+import 'package:pantas/features/quiz/domain/picker/today_topic_picker.dart';
+import 'package:pantas/features/quiz/domain/quiz_session.dart';
+import 'package:pantas/features/quiz/domain/use_cases/build_today_plan.dart';
 import 'package:uuid/uuid.dart';
 
 sealed class StartTodaySessionResult {

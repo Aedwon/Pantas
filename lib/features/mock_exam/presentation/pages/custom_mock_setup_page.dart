@@ -1,16 +1,16 @@
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/subject.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/topic.dart';
-import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
-import 'package:cse_cet_reviewer/core/ui/components/settings_switch.dart';
-import 'package:cse_cet_reviewer/core/ui/components/settings_value_row.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/corpus_ceiling.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/custom_blueprint.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/presentation/widgets/value_wheel_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/subject.dart';
+import 'package:pantas/core/storage/domain/topic.dart';
+import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/settings_switch.dart';
+import 'package:pantas/core/ui/components/settings_value_row.dart';
+import 'package:pantas/core/ui/theme/app_dimensions.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/mock_exam/domain/corpus_ceiling.dart';
+import 'package:pantas/features/mock_exam/domain/custom_blueprint.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/value_wheel_sheet.dart';
 
 /// What the screen needs to know about the student's track.
 @immutable

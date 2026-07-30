@@ -1,10 +1,10 @@
 import 'dart:math';
 
-import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/passage_set_filler.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/quiz_session.dart';
+import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/passage_set_filler.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:uuid/uuid.dart';
 
 class StartQuickQuiz {

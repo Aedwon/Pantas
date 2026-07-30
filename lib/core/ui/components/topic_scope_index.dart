@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/ui/components/ink_checkbox.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/ink_checkbox.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 
 enum TopicScopeCheckState { off, partial, on }
 

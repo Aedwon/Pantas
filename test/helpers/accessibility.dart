@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/ui/theme/app_colors.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/theme/app_colors.dart';
+import 'package:pantas/core/ui/theme/app_text_styles.dart';
 
 /// Pumps [widget] at 1.0 and at 2.0 text scale and fails on any overflow.
 Future<void> expectSurvivesTextScale(

@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/features/settings/domain/session_ordering.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/settings/domain/session_ordering.dart';
 
 void main() {
   test('the default is the interleaved tail, and it is the recommended one',

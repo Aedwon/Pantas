@@ -1,12 +1,12 @@
 import 'dart:async';
 
-import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
-import 'package:cse_cet_reviewer/features/notifications/data/notifications_gateway.dart';
-import 'package:cse_cet_reviewer/features/notifications/domain/notification_payload.dart';
-import 'package:cse_cet_reviewer/features/notifications/presentation/notification_tap_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/notifications/notification_service.dart';
+import 'package:pantas/features/notifications/data/notifications_gateway.dart';
+import 'package:pantas/features/notifications/domain/notification_payload.dart';
+import 'package:pantas/features/notifications/presentation/notification_tap_router.dart';
 
 void main() {
   testWidgets('warm notification tap opens fresh payload route',

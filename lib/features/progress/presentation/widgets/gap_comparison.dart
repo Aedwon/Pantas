@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/progress/application/how_you_work_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/progress/application/how_you_work_provider.dart';
 
 class GapComparison extends StatelessWidget {
   const GapComparison({

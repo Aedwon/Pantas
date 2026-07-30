@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/fsrs/rating.dart';
-import 'package:cse_cet_reviewer/core/fsrs/rating_heuristic.dart';
+import 'package:pantas/core/fsrs/rating.dart';
+import 'package:pantas/core/fsrs/rating_heuristic.dart';
 
 /// Bump this whenever the derivation below changes.
 ///

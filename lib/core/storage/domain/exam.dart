@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/subject.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/subject.dart';
 
 part 'exam.freezed.dart';
 part 'exam.g.dart';

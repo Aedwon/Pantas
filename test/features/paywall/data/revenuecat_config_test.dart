@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/features/paywall/data/revenuecat_config.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/paywall/data/revenuecat_config.dart';
 
 void main() {
   test('config is disabled when Android API key is missing', () {

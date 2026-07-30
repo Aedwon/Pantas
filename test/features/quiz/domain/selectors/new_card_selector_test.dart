@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/question.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/selectors/new_card_selector.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/domain/choice.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/features/quiz/domain/selectors/new_card_selector.dart';
 
 void main() {
   test('excludes questions with review state and respects cap remaining', () {

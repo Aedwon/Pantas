@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/sync/firestore/firestore_gateway.dart';
-import 'package:cse_cet_reviewer/core/sync/firestore/functions_gateway.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
+import 'package:pantas/core/sync/firestore/functions_gateway.dart';
 
 void main() {
   test('fake gateway records batched set delete and root preference writes',

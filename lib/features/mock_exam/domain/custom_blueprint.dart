@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
 import 'package:meta/meta.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
 
 /// One part of the paper, as the student described it.
 @immutable

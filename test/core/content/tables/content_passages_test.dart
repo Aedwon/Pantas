@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/content/content_database.dart';
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/content_database.dart';
 
 void main() {
   late ContentDatabase db;

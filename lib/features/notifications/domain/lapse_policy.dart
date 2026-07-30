@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
+import 'package:pantas/core/notifications/notification_service.dart';
 
 class LapsePolicy {
   const LapsePolicy();

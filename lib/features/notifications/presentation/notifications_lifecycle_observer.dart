@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
 import 'package:flutter/widgets.dart';
+import 'package:pantas/core/notifications/notification_service.dart';
 
 typedef NotificationsPeriodicStarter = VoidCallback Function(
   Duration interval,

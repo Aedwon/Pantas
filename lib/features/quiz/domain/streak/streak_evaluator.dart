@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/storage/data/repos/streak_repository.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
+import 'package:pantas/core/storage/data/repos/streak_repository.dart';
+import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 
 class StreakEvaluation {
   const StreakEvaluation({

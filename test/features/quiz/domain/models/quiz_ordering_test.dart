@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/features/quiz/domain/models/quiz_ordering.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/quiz/domain/models/quiz_ordering.dart';
 
 void main() {
   test('each ordering round-trips through storage', () {

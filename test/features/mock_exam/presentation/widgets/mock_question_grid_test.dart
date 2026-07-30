@@ -1,10 +1,10 @@
-import 'package:cse_cet_reviewer/core/ui/components/pennant_mark.dart';
-import 'package:cse_cet_reviewer/core/ui/components/question_grid_sheet.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_colors.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/presentation/widgets/mock_question_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/pennant_mark.dart';
+import 'package:pantas/core/ui/components/question_grid_sheet.dart';
+import 'package:pantas/core/ui/theme/app_colors.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/mock_question_grid.dart';
 
 void main() {
   MockGridPart part(

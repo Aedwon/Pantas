@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/features/lesson/data/repos/bookmark_prefs_repository.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/models/bookmark_order.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/features/lesson/data/repos/bookmark_prefs_repository.dart';
+import 'package:pantas/features/lesson/domain/models/bookmark_order.dart';
 
 import '../../../helpers/in_memory_database.dart';
 

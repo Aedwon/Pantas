@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
-import 'package:cse_cet_reviewer/features/settings/domain/session_ordering.dart';
 import 'package:meta/meta.dart';
+import 'package:pantas/core/storage/domain/exam_date.dart';
+import 'package:pantas/features/settings/domain/session_ordering.dart';
 
 @immutable
 class SettingsTime {

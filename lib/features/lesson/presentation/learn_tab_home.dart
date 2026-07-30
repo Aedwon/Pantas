@@ -1,24 +1,25 @@
 import 'dart:async';
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
-import 'package:cse_cet_reviewer/core/ui/components/empty_state.dart';
-import 'package:cse_cet_reviewer/core/ui/components/error_banner.dart';
-import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
-import 'package:cse_cet_reviewer/core/ui/components/ink_magnifier.dart';
-import 'package:cse_cet_reviewer/core/ui/components/page_scaffold.dart';
-import 'package:cse_cet_reviewer/core/ui/components/tab_header.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/lesson/application/study_map_providers.dart';
-import 'package:cse_cet_reviewer/features/lesson/domain/use_cases/build_study_map.dart';
-import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/bookmarks_section.dart';
-import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/pinned_topic_bar.dart';
-import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/search_field_bar.dart';
-import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/search_results.dart';
-import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/study_head_block.dart';
-import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/study_topic_section.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/empty_state.dart';
+import 'package:pantas/core/ui/components/error_banner.dart';
+import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/core/ui/components/ink_magnifier.dart';
+import 'package:pantas/core/ui/components/page_scaffold.dart';
+import 'package:pantas/core/ui/components/tab_header.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/lesson/application/study_map_providers.dart';
+import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
+import 'package:pantas/features/lesson/presentation/widgets/bookmarks_section.dart';
+import 'package:pantas/features/lesson/presentation/widgets/pinned_topic_bar.dart';
+import 'package:pantas/features/lesson/presentation/widgets/search_field_bar.dart';
+import 'package:pantas/features/lesson/presentation/widgets/search_results.dart';
+import 'package:pantas/features/lesson/presentation/widgets/study_head_block.dart';
+import 'package:pantas/features/lesson/presentation/widgets/study_topic_section.dart';
 
 class LearnTabHome extends ConsumerWidget {
   const LearnTabHome({this.openTopicId, super.key});

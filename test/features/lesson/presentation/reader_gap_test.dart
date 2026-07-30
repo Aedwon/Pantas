@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/features/lesson/presentation/widgets/reader_gap.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/features/lesson/presentation/widgets/reader_gap.dart';
 
 import '../../../helpers/pump_app.dart';
 

@@ -1,4 +1,4 @@
-import 'package:cse_cet_reviewer/core/telemetry/crash_reporting.dart';
+import 'package:pantas/core/telemetry/crash_reporting.dart';
 
 /// The six questions this app needs answered at launch, and nothing beyond
 /// them. Section 3 of

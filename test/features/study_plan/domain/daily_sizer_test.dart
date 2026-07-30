@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/features/study_plan/domain/daily_sizer.dart';
-import 'package:cse_cet_reviewer/features/study_plan/domain/pace_curve.dart';
-import 'package:cse_cet_reviewer/features/study_plan/domain/plan_prefs.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/study_plan/domain/daily_sizer.dart';
+import 'package:pantas/features/study_plan/domain/pace_curve.dart';
+import 'package:pantas/features/study_plan/domain/plan_prefs.dart';
 
 void main() {
   DailySizingInput input({

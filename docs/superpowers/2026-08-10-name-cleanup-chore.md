@@ -97,4 +97,42 @@ closes at first submission. **Tier 1 last**, because it is the noisiest diff in
 the repository's history and should not be tangled with anything that needs
 review.
 
-**Not started.** No plan written.
+---
+
+## Done, 11 August 2026
+
+**All four tiers, in the order this document proposed.**
+
+**Tier 3**, earlier the same day: the launcher label, the notification dialog and
+the in-app name. The iOS display name was hardcoded, so the per-flavor value the
+configs define could never have taken effect; it reads the variable now.
+
+**Tier 1**, dispatched to Gemini 3.1 Pro against this document: the Dart package is
+`pantas`, across **907 files and 3,402 sites**. The four hardcoded regexes in
+`tool/check_layering.dart` moved with it, **and the tool was proved still to
+enforce** by feeding it a deliberate violation rather than trusting that it passed.
+
+**Tier 2**, and this is the one that had a deadline: **one identity across both
+platforms, `com.aedwon.pantas`.** The three disagreeing identifiers are gone.
+
+| Was | Now |
+|---|---|
+| Android application id `com.aerol.csecet` | `com.aedwon.pantas` |
+| Android namespace `com.aedwon.cse_cet_reviewer` | `com.aedwon.pantas` |
+| iOS bundle id `com.aedwon.cseCetReviewer` | `com.aedwon.pantas` |
+
+Flavor suffixes kept: `.dev` and `.dev.staging`. Downstream references in the two
+onboarding scripts and the Firebase config layout test moved with them.
+
+**Aedwon's question when choosing it:** whether the identifier is visible to a
+student. **Mostly not, but it is not secret:** the app never displays it, and it
+appears in the Play Store listing URL, which anyone can read.
+
+### Left alone on purpose
+
+- **`exam_cse_pro` and `exam_cse_sub`**, and every mention of CSE, CET or Civil
+  Service in lesson content, question text and topic names. Tier 0 held.
+- **The database file, still `cse_cet_reviewer.db`.** It exists on real devices and
+  renaming it orphans a student's progress. **This is now permanent in practice**
+  and should be recorded as such rather than tidied later.
+- A historical analyzer message quoted in an old plan.

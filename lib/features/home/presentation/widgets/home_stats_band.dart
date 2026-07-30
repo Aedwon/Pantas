@@ -1,13 +1,13 @@
 // lib/features/home/presentation/widgets/home_stats_band.dart
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/core/ui/components/stats_band.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_dimensions.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/assessment/application/assessment_result_providers.dart';
-import 'package:cse_cet_reviewer/features/home/presentation/home_providers.dart';
-import 'package:cse_cet_reviewer/features/metrics/providers/home_atom_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/ui/components/stats_band.dart';
+import 'package:pantas/core/ui/theme/app_dimensions.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
+import 'package:pantas/features/home/presentation/home_providers.dart';
+import 'package:pantas/features/metrics/providers/home_atom_provider.dart';
 
 class HomeStatsBand extends ConsumerWidget {
   const HomeStatsBand({

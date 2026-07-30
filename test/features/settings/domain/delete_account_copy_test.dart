@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/features/settings/domain/delete_account_copy.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/settings/domain/delete_account_copy.dart';
 
 void main() {
   test('free named copy omits billing line', () {

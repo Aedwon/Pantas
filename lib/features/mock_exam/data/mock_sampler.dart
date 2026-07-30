@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:cse_cet_reviewer/core/storage/domain/passage_set_filler.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/data/blueprint_section.dart';
-import 'package:cse_cet_reviewer/features/mock_exam/domain/mock_sample.dart';
+import 'package:pantas/core/storage/domain/passage_set_filler.dart';
+import 'package:pantas/features/mock_exam/data/blueprint_section.dart';
+import 'package:pantas/features/mock_exam/domain/mock_sample.dart';
 
 class MockSamplingException implements Exception {
   const MockSamplingException(this.message);

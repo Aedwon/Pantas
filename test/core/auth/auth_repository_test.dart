@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:cse_cet_reviewer/core/auth/auth.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/auth/auth.dart';
 
 void main() {
   test('ensureAnonymous signs in when there is no current user', () async {

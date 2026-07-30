@@ -1,13 +1,13 @@
 import 'dart:async';
 
-import 'package:cse_cet_reviewer/core/ui/components/faint_bars.dart';
-import 'package:cse_cet_reviewer/features/study_plan/application/study_plan_providers.dart';
-import 'package:cse_cet_reviewer/features/study_plan/domain/compute_plan_view.dart';
-import 'package:cse_cet_reviewer/features/study_plan/domain/pace_curve.dart';
-import 'package:cse_cet_reviewer/features/study_plan/presentation/plan_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/features/study_plan/application/study_plan_providers.dart';
+import 'package:pantas/features/study_plan/domain/compute_plan_view.dart';
+import 'package:pantas/features/study_plan/domain/pace_curve.dart';
+import 'package:pantas/features/study_plan/presentation/plan_page.dart';
 
 import '../../../helpers/pump_app.dart';
 

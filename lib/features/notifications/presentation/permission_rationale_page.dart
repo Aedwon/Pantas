@@ -1,10 +1,10 @@
-import 'package:cse_cet_reviewer/core/notifications/notification_service.dart';
-import 'package:cse_cet_reviewer/core/ui/components/board_button.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
-import 'package:cse_cet_reviewer/features/notifications/application/notifications_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/notifications/notification_service.dart';
+import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/notifications/application/notifications_providers.dart';
 
 class PermissionRationalePage extends ConsumerStatefulWidget {
   const PermissionRationalePage({super.key});

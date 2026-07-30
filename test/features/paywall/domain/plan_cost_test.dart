@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
-import 'package:cse_cet_reviewer/features/paywall/domain/paywall_package.dart';
-import 'package:cse_cet_reviewer/features/paywall/domain/plan_cost.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/domain/exam_date.dart';
+import 'package:pantas/features/paywall/domain/paywall_package.dart';
+import 'package:pantas/features/paywall/domain/plan_cost.dart';
 
 void main() {
   final today = DateTime(2026, 8, 2);

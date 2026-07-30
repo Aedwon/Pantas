@@ -1,15 +1,15 @@
-import 'package:cse_cet_reviewer/core/content/content.dart';
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
-import 'package:cse_cet_reviewer/features/metrics/domain/metrics_window.dart';
-import 'package:cse_cet_reviewer/features/metrics/signals/coverage_breadth_signal.dart';
-import 'package:cse_cet_reviewer/features/metrics/signals/difficulty_calibration_signal.dart';
-import 'package:cse_cet_reviewer/features/metrics/signals/read_then_quiz_signal.dart';
-import 'package:cse_cet_reviewer/features/metrics/signals/retention_shape_signal.dart';
-import 'package:cse_cet_reviewer/features/metrics/signals/subject_affinity_signal.dart';
-import 'package:cse_cet_reviewer/features/metrics/signals/test_mode_delta_signal.dart';
 import 'package:drift/drift.dart' hide isNotNull, isNull;
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/features/metrics/domain/metrics_window.dart';
+import 'package:pantas/features/metrics/signals/coverage_breadth_signal.dart';
+import 'package:pantas/features/metrics/signals/difficulty_calibration_signal.dart';
+import 'package:pantas/features/metrics/signals/read_then_quiz_signal.dart';
+import 'package:pantas/features/metrics/signals/retention_shape_signal.dart';
+import 'package:pantas/features/metrics/signals/subject_affinity_signal.dart';
+import 'package:pantas/features/metrics/signals/test_mode_delta_signal.dart';
 
 import '../../../helpers/in_memory_database.dart';
 

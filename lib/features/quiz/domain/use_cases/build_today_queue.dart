@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/storage/domain/ids.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/models/topic_queue_row.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/features/quiz/domain/models/topic_queue_row.dart';
 
 abstract final class BuildTodayQueue {
   static List<TopicQueueRow> call({

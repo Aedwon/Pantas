@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:cse_cet_reviewer/core/storage/domain/choice.dart';
+import 'package:pantas/core/storage/domain/choice.dart';
 
 const _labels = ['A', 'B', 'C', 'D', 'E', 'F'];
 

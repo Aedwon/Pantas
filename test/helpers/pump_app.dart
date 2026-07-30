@@ -1,11 +1,11 @@
-import 'package:cse_cet_reviewer/core/storage/domain/exam.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/subject.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_colors.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/storage/domain/exam.dart';
+import 'package:pantas/core/storage/domain/subject.dart';
+import 'package:pantas/core/ui/theme/app_colors.dart';
+import 'package:pantas/core/ui/theme/app_text_styles.dart';
 
 extension PumpApp on WidgetTester {
   Future<void> pumpApp(Widget widget) async {

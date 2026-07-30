@@ -1,9 +1,9 @@
-import 'package:cse_cet_reviewer/core/content/content_database.dart';
-import 'package:cse_cet_reviewer/core/content/sanity/parser_exceptions.dart';
-import 'package:cse_cet_reviewer/core/content/sanity/parsers/parser_utils.dart';
-import 'package:cse_cet_reviewer/core/content/sanity/parsers/portable_text_parser.dart';
-import 'package:cse_cet_reviewer/core/content/sanity/schema_versions.dart';
 import 'package:drift/drift.dart';
+import 'package:pantas/core/content/content_database.dart';
+import 'package:pantas/core/content/sanity/parser_exceptions.dart';
+import 'package:pantas/core/content/sanity/parsers/parser_utils.dart';
+import 'package:pantas/core/content/sanity/parsers/portable_text_parser.dart';
+import 'package:pantas/core/content/sanity/schema_versions.dart';
 
 class ParsedQuestion {
   const ParsedQuestion({

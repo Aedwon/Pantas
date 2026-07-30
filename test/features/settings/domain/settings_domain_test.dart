@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/features/settings/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/settings/settings.dart';
 
 void main() {
   test('theme preference converts to Flutter theme modes', () {

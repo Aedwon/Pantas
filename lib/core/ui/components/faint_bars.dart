@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 
 /// Rows of faint paper-toned bars: the identity's loading skeleton and
 /// "unprinted" teaser fill. No gray blocks, no shimmer.

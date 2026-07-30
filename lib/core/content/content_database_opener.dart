@@ -1,8 +1,8 @@
 // coverage:ignore-file
 import 'dart:io';
 
-import 'package:cse_cet_reviewer/core/content/content_database.dart';
 import 'package:drift/native.dart';
+import 'package:pantas/core/content/content_database.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 
@@ -10,7 +10,7 @@ import 'package:path_provider/path_provider.dart';
 /// importing one file. Written by the seed writer from the asset's own bytes,
 /// because a hand-maintained version was missed by three content stages in a
 /// row and then by a same-day rebuild.
-export 'package:cse_cet_reviewer/core/content/content_seed_version.dart';
+export 'package:pantas/core/content/content_seed_version.dart';
 
 const contentDbFileName = 'content.db';
 Future<ContentDatabase> openContentDatabase() async {

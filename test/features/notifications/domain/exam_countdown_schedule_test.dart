@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
-import 'package:cse_cet_reviewer/features/notifications/domain/exam_countdown_schedule.dart';
-import 'package:cse_cet_reviewer/features/notifications/domain/notification_payload.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/domain/exam_date.dart';
+import 'package:pantas/features/notifications/domain/exam_countdown_schedule.dart';
+import 'package:pantas/features/notifications/domain/notification_payload.dart';
 
 void main() {
   group('ExamCountdownSchedule', () {

@@ -1,8 +1,8 @@
-import 'package:cse_cet_reviewer/core/content/content_database.dart';
-import 'package:cse_cet_reviewer/core/storage/data/app_database.dart';
 import 'package:drift/drift.dart' show GeneratedDatabase;
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/content_database.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
 
 void main() {
   test('app database creates mock_attempts at schema version 14', () async {

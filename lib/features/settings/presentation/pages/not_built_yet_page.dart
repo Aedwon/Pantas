@@ -1,7 +1,7 @@
-import 'package:cse_cet_reviewer/core/ui/components/page_scaffold.dart';
-import 'package:cse_cet_reviewer/core/ui/components/settings_bar.dart';
-import 'package:cse_cet_reviewer/core/ui/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/page_scaffold.dart';
+import 'package:pantas/core/ui/components/settings_bar.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 
 /// Temporary destination for a row whose page lands in a later plan.
 ///

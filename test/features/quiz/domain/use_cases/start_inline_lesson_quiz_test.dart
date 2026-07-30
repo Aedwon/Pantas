@@ -1,10 +1,10 @@
-import 'package:cse_cet_reviewer/core/content/content.dart';
-import 'package:cse_cet_reviewer/core/storage/data/repos/content_repository.dart';
-import 'package:cse_cet_reviewer/features/quiz/data/repos/quiz_session_repository.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/models/session_origin.dart';
-import 'package:cse_cet_reviewer/features/quiz/domain/use_cases/start_inline_lesson_quiz.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
+import 'package:pantas/features/quiz/domain/models/session_origin.dart';
+import 'package:pantas/features/quiz/domain/use_cases/start_inline_lesson_quiz.dart';
 
 import '../../../../helpers/in_memory_database.dart';
 

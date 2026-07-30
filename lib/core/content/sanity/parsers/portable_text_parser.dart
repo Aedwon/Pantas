@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:cse_cet_reviewer/core/content/sanity/parser_exceptions.dart';
+import 'package:pantas/core/content/sanity/parser_exceptions.dart';
 
 String portableTextToJson(
   Object? value, {

@@ -1,5 +1,5 @@
-import 'package:cse_cet_reviewer/features/metrics/signals/attempt_item_reader.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/metrics/signals/attempt_item_reader.dart';
 
 void main() {
   test('parses attempt items json with response timing and correctness', () {

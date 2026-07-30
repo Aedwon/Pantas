@@ -1,6 +1,6 @@
-import 'package:cse_cet_reviewer/core/auth/auth_user.dart';
-import 'package:cse_cet_reviewer/core/storage/domain/exam_date.dart';
-import 'package:cse_cet_reviewer/core/sync/sync_status.dart';
+import 'package:pantas/core/auth/auth_user.dart';
+import 'package:pantas/core/storage/domain/exam_date.dart';
+import 'package:pantas/core/sync/sync_status.dart';
 
 /// Every string that lands in the value column.
 ///
