@@ -121,9 +121,10 @@ you did something wrong.
 **In Google Cloud, on that project:**
 
 1. **Enable three APIs**, all of them, not just the first:
-   - **Android Publisher API.** **Corrected:** this file called it the Google
-     Play Android Developer API. Same API, but the console lists it under the
-     new name and searching the old one finds nothing.
+   - **Google Play Android Developer API.** RevenueCat's docs call this the
+     Android Publisher API. **They are the same API and the Cloud console uses
+     the Google Play name**, so search for that one. On 12 August I wrote the
+     opposite here, and Aedwon's console proved it wrong within the minute.
    - Google Play Developer Reporting API
    - Cloud Pub/Sub API
 2. **Create a service account** under IAM & Admin, and **create a JSON key** for
