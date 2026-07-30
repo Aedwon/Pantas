@@ -6,10 +6,19 @@ import 'package:pantas/core/platform/app_check.dart';
 
 class MockFirebaseAppCheck extends Mock implements FirebaseAppCheck {}
 
+/// firebase_app_check 0.4 renamed the activate parameters and turned the two
+/// provider enums into class hierarchies, so a provider can no longer be
+/// compared by identity. Each class carries a `type` string, and that is what
+/// these assert on.
+///
+/// **The upgrade quietly emptied two of these tests.** They kept their names,
+/// "activates with playIntegrity", while verifying a bare `activate()` that
+/// says nothing about which provider was chosen. A test that cannot fail is
+/// worse than no test, because it reads as covered.
 void main() {
   setUpAll(() {
-    registerFallbackValue(AndroidProvider.debug);
-    registerFallbackValue(AppleProvider.debug);
+    registerFallbackValue(const AndroidDebugProvider());
+    registerFallbackValue(const AppleDebugProvider());
   });
 
   late MockFirebaseAppCheck mockAppCheck;
@@ -18,44 +27,46 @@ void main() {
     mockAppCheck = MockFirebaseAppCheck();
     when(
       () => mockAppCheck.activate(
-        androidProvider: any(named: 'androidProvider'),
-        appleProvider: any(named: 'appleProvider'),
+        providerAndroid: any(named: 'providerAndroid'),
+        providerApple: any(named: 'providerApple'),
       ),
     ).thenAnswer((_) async {});
   });
 
-  test('activates with debug provider for Flavor.dev', () async {
-    await activateAppCheck(Flavor.dev, appCheck: mockAppCheck);
-
-    verify(
+  /// The pair of provider `type` strings handed to activate.
+  (String, String) capturedProviders() {
+    final captured = verify(
       () => mockAppCheck.activate(
-        androidProvider: AndroidProvider.debug,
-        appleProvider: AppleProvider.debug,
+        providerAndroid: captureAny(named: 'providerAndroid'),
+        providerApple: captureAny(named: 'providerApple'),
       ),
-    ).called(1);
+    ).captured;
+    return (
+      (captured[0] as AndroidAppCheckProvider).type,
+      (captured[1] as AppleAppCheckProvider).type,
+    );
+  }
+
+  test('dev attests with the debug providers', () async {
+    await activateAppCheck(Flavor.dev, appCheck: mockAppCheck);
+    expect(capturedProviders(), ('debug', 'debug'));
   });
 
-  test('activates with playIntegrity for Flavor.staging', () async {
+  test('staging attests with Play Integrity and Device Check', () async {
     await activateAppCheck(Flavor.staging, appCheck: mockAppCheck);
-
-    verify(
-      () => mockAppCheck.activate(),
-    ).called(1);
+    expect(capturedProviders(), ('playIntegrity', 'deviceCheck'));
   });
 
-  test('activates with playIntegrity for Flavor.prod', () async {
+  test('prod attests with Play Integrity and Device Check', () async {
     await activateAppCheck(Flavor.prod, appCheck: mockAppCheck);
-
-    verify(
-      () => mockAppCheck.activate(),
-    ).called(1);
+    expect(capturedProviders(), ('playIntegrity', 'deviceCheck'));
   });
 
-  test('swallows activation throwing error', () async {
+  test('a failure to attest never blocks studying', () async {
     when(
       () => mockAppCheck.activate(
-        androidProvider: any(named: 'androidProvider'),
-        appleProvider: any(named: 'appleProvider'),
+        providerAndroid: any(named: 'providerAndroid'),
+        providerApple: any(named: 'providerApple'),
       ),
     ).thenThrow(Exception('App check failure'));
 
