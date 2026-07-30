@@ -51,6 +51,7 @@ class UserSettings {
     required this.sessionOrdering,
     required this.retainTableOrder,
     required this.updatedAt,
+    this.acceptedTermsAt,
   });
 
   factory UserSettings.defaults() {
@@ -84,6 +85,7 @@ class UserSettings {
   final bool retainTableOrder;
 
   final DateTime? updatedAt;
+  final DateTime? acceptedTermsAt;
 }
 
 class InvalidExamDateException implements Exception {

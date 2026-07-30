@@ -58,7 +58,7 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  testWidgets('the flow runs welcome, age gate, picker, date, name',
+  testWidgets('the flow runs welcome, age gate, consent, picker, date, name',
       (tester) async {
     await pumpPage(tester);
 
@@ -75,19 +75,26 @@ void main() {
     await tester.tap(find.widgetWithText(BoardButton, 'Continue'));
     await tester.pumpAndSettle();
 
-    // Step 3: Exam picker
+    // Step 3: Consent
+    expect(find.text('Terms & Privacy'), findsOneWidget);
+    await tester.tap(find.text('I agree to the '));
+    await tester.pumpAndSettle();
+    await tester.tap(find.widgetWithText(BoardButton, 'Continue'));
+    await tester.pumpAndSettle();
+
+    // Step 4: Exam picker
     expect(find.text('Choose your exam'), findsOneWidget);
     await tester.tap(find.text('Civil Service Exam'));
     await tester.pumpAndSettle();
     await tester.tap(find.widgetWithText(BoardButton, 'Continue'));
     await tester.pumpAndSettle();
 
-    // Step 4: Exam date
+    // Step 5: Exam date
     expect(find.text('When is your exam?'), findsOneWidget);
     await tester.tap(find.widgetWithText(BoardButton, 'Continue'));
     await tester.pumpAndSettle();
 
-    // Step 5: Name
+    // Step 6: Name
     expect(find.text('What should we call you?'), findsOneWidget);
   });
 }
