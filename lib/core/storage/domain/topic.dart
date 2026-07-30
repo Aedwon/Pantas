@@ -5,7 +5,7 @@ part 'topic.freezed.dart';
 part 'topic.g.dart';
 
 @freezed
-class Topic with _$Topic {
+abstract class Topic with _$Topic {
   const factory Topic({
     required TopicId id,
     required SubjectId subjectId,

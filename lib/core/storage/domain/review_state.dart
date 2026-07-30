@@ -16,7 +16,7 @@ enum ReviewStage {
 }
 
 @freezed
-class ReviewState with _$ReviewState {
+abstract class ReviewState with _$ReviewState {
   const factory ReviewState({
     required QuestionId questionId,
     required int questionVersion,

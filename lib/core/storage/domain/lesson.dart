@@ -5,7 +5,7 @@ part 'lesson.freezed.dart';
 part 'lesson.g.dart';
 
 @freezed
-class Lesson with _$Lesson {
+abstract class Lesson with _$Lesson {
   const factory Lesson({
     required LessonId id,
     required TopicId topicId,

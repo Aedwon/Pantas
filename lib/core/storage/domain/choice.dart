@@ -5,7 +5,7 @@ part 'choice.freezed.dart';
 part 'choice.g.dart';
 
 @freezed
-class Choice with _$Choice {
+abstract class Choice with _$Choice {
   const factory Choice({
     required ChoiceId id,
     required String label,
