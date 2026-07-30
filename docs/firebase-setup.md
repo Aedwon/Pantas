@@ -363,23 +363,30 @@ dart pub global activate flutterfire_cli
 
 # once per flavor, from the repo root
 flutterfire configure \
-  --project=pantas-dev \
+  --project=pantas-dev-090126 \
   --out=lib/firebase_options_dev.dart \
-  --ios-bundle-id=com.aedwon.pantas \
+  --platforms=android \
   --android-package-name=com.aedwon.pantas.dev
 
 flutterfire configure \
   --project=pantas-staging \
   --out=lib/firebase_options_staging.dart \
-  --ios-bundle-id=com.aedwon.pantas \
+  --platforms=android \
   --android-package-name=com.aedwon.pantas.dev.staging
 
 flutterfire configure \
   --project=pantas-prod \
   --out=lib/firebase_options_prod.dart \
-  --ios-bundle-id=com.aedwon.pantas \
+  --platforms=android \
   --android-package-name=com.aedwon.pantas
 ```
+
+**The dev project is `pantas-dev-090126`, not `pantas-dev`.** Project IDs are
+global and somebody else holds that one. Created 12 August 2026.
+
+**Android only, and `--platforms=android` says so.** There is no Apple developer
+account, so the iOS bundle argument that used to be here only produced prompts
+about a platform nothing can ship to.
 
 `flutterfire configure` creates the Firebase apps if they do not exist, writes the options file,
 and adds the required Gradle plugins. It also drops `google-services.json` into the Android
