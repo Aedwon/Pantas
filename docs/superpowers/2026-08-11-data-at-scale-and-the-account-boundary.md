@@ -303,3 +303,98 @@ upload data that nobody, Free or Pro, can get back.
    thin moat to build a subscription on.
 3. **Set the budget alert regardless.** The expected bill is trivial; the
    worst case is not bounded by anything except noticing.
+
+---
+
+## 8. Decided: backup is Pro only
+
+**Aedwon, 11 August:** *"let's just stick with only Pro can backup. your Free
+argument of them losing their phone is such a highly unlikely event, and even
+then their biggest problem isn't even the app itself."*
+
+**He is right and I over-weighted it.** I built an argument on a rare event and on
+a student whose worse problem, if it happens, is not the reviewer app. Option A
+stands: **a Free student is local only whether or not they sign in.**
+
+**What survives from section 7 regardless of the boundary:**
+
+- **The restore still has to be built**, because Pro cannot honestly be sold
+  cross-device backup that no code performs.
+- **Sign-in copy still has to be honest** about what signing in does for a Free
+  student, which is now: nothing, until they subscribe.
+
+---
+
+## 9. Usage data: Firebase Analytics, and it needs no account
+
+**Asked directly: does Firebase handle usage data, including for Free anonymous
+users?** Yes, and this is entirely separate from sync.
+
+**Analytics is device-scoped, not account-scoped.** It keys on an app-instance id
+the SDK generates. **A student who never signs in is measured exactly as well as a
+Pro subscriber.** Nothing about the Pro-only backup decision touches this.
+
+### What is already built, not planned
+
+**All eleven events exist and emit today.** They go nowhere only because no
+Firebase project exists yet. Grouped by the question each answers:
+
+| Question | Events |
+|---|---|
+| Do students finish onboarding? | `onboarding_step_reached`, `onboarding_completed` |
+| Do they come back? | `session_started` |
+| Does anyone reach the paywall? | `paywall_shown` |
+| Does anyone buy? | `purchase_started`, `purchase_completed`, `purchase_failed` |
+| Which surfaces are dead? | `tab_opened` |
+| Does the mock work at all? | `mock_started`, `mock_completed`, `mock_abandoned` |
+
+### The constraint that governs all of it
+
+**Consent defaults to false.** Until a student turns on "Help improve the app",
+the telemetry provider hands back the no-op implementation and **nothing is
+sent**. Turning it off later also calls the Firebase SDKs' own disable, so
+collection stops rather than being silently ignored.
+
+**So every number will be a sample of the consenting, not of everyone.** That is a
+floor under RA 10173, not a setting to reconsider, and it has a practical
+consequence: **absolute counts are not the population**, so read rates and ratios
+rather than totals.
+
+### What the current set does NOT do, and what it would take
+
+**Button-level tracking is not in it.** `tab_opened` records which of five tabs
+was opened. Nothing records that a particular button was pressed.
+
+**The plan forbids adding a twelfth event without a decision**, deliberately, and
+the property rules are enforced in code rather than by convention: **a property
+must be an int, a bool, or a short identifier from a closed set, and no event may
+carry a question's text, a student's answer, a score, a name, an email or any free
+text.** An attempt to log otherwise throws.
+
+**So "how many times was this button pressed" is a spec change**, not a
+configuration change. It is a reasonable one, and the cheap version is a single
+`element_tapped` event with the element's identifier as a closed-set property,
+rather than one event name per button, which would eat the 500-name budget.
+
+### The thing to do on day one, because it cannot be undone later
+
+**Link BigQuery export immediately.** Two reasons:
+
+1. **The Firebase console cannot answer "at what time".** It gives you event
+   counts and a handful of built-in breakdowns. Arbitrary questions, hour of day,
+   sequences, cohorts, funnels of your own shape, all need the raw event tables.
+2. **The export is not retroactive.** Data from before you link is never
+   importable. **Every month you delay is a month you can never analyze**, and
+   this is the single most expensive thing to get wrong here, because it costs
+   nothing to get right.
+
+**It is free**, in the BigQuery sandbox, for Analytics and Crashlytics both.
+
+### Marketing use, and the one line to watch
+
+Using this for marketing is fine and is what the consent copy already implies.
+**The line is between measuring behaviour in aggregate and building a profile of a
+person.** The property rules keep the app on the right side of it by construction:
+no identifiers beyond a closed set, no free text, no answers. **Keep that
+enforcement.** It is the difference between a defensible privacy promise and one
+that depends on nobody adding a careless call site.
