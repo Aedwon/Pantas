@@ -85,9 +85,15 @@ simpler one for a first release is one subscription per billing period**, becaus
 the offering in RevenueCat then maps one to one and there is less to reason about
 when something does not appear.
 
-**Nothing in the app hardcodes a product ID.** Entitlement carries `productId` for
-display only, so this naming is a store and RevenueCat concern rather than a code
-change.
+**Wrong when written, corrected 12 August. The app does hardcode the product
+IDs.** `live_revenuecat_gateway.dart` maps `pro_weekly`, `pro_monthly` and
+`pro_yearly` onto the three plans, and **a product it does not recognize is
+skipped when the offering is read.** So creating `pantas_pro_weekly` today
+produces a paywall with nothing on it, and no error anywhere.
+
+**The IDs in the store and the three constants in that file must agree.** The
+store's are permanent and the code's are one line each, so the store decides and
+the code follows.
 
 ---
 
