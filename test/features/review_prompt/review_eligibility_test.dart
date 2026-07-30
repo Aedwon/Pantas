@@ -48,4 +48,18 @@ void main() {
       );
     });
   });
+
+  group('finishedWell', () {
+    test('four in five right counts as well', () {
+      expect(ReviewEligibility.finishedWell(correct: 8, total: 10), isTrue);
+    });
+
+    test('just under does not', () {
+      expect(ReviewEligibility.finishedWell(correct: 7, total: 10), isFalse);
+    });
+
+    test('an empty session is not a good one', () {
+      expect(ReviewEligibility.finishedWell(correct: 0, total: 0), isFalse);
+    });
+  });
 }

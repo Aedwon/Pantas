@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/settings_switch.dart';
+import 'package:pantas/features/legal/legal.dart';
 import 'package:pantas/features/settings/presentation/pages/about_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../helpers/pump_app.dart';
 
@@ -65,6 +67,66 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Debug'), findsOneWidget);
+  });
+
+  testWidgets('the feedback row names where it goes and opens the group',
+      (tester) async {
+    final opened = <Uri>[];
+    final modes = <LaunchMode>[];
+
+    await tester.pumpAppWithProviders(
+      AboutPage(
+        opener: (url, {mode = LaunchMode.platformDefault}) async {
+          opened.add(url);
+          modes.add(mode);
+          return true;
+        },
+      ),
+      overrides: [],
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Facebook group'), findsOneWidget);
+
+    await tester.tap(find.text('Send feedback'));
+    await tester.pumpAndSettle();
+
+    expect(opened.single, Uri.parse(defaultLegalContact.communityGroupUrl));
+    expect(modes.single, LaunchMode.externalApplication);
+  });
+
+  testWidgets('the DPO row opens mail to the DPO address', (tester) async {
+    final opened = <Uri>[];
+
+    await tester.pumpAppWithProviders(
+      AboutPage(
+        opener: (url, {mode = LaunchMode.platformDefault}) async {
+          opened.add(url);
+          return true;
+        },
+      ),
+      overrides: [],
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text(defaultLegalContact.dpoEmail), findsOneWidget);
+
+    await tester.tap(find.text('Contact our DPO'));
+    await tester.pumpAndSettle();
+
+    expect(opened.single.scheme, 'mailto');
+    expect(opened.single.path, defaultLegalContact.dpoEmail);
+  });
+
+  testWidgets('the page names the app Pantas and not the old product',
+      (tester) async {
+    await tester.pumpAppWithProviders(const AboutPage(), overrides: []);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Pantas'), findsOneWidget);
+    for (final text in tester.widgetList<Text>(find.byType(Text))) {
+      expect(text.data?.contains('CSE Reviewer') ?? false, isFalse);
+    }
   });
 
   testWidgets('nothing on the page mentions a lifetime purchase',

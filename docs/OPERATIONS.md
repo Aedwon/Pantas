@@ -61,6 +61,20 @@ app name. **Do not create products from the old list.** Full setup, in order, is
 - Android only. There is no Apple developer account, so no App Store side exists.
 - Webhook secret: stored in 1Password under "Pantas, RevenueCat Webhook"
 
+### Contact, set 11 August 2026
+
+- **Privacy and data requests: `dpo@pantas.app`.** Printed on the privacy page
+  and opened by the "Contact our DPO" row.
+- **Play listing contact: `contact@pantas.app`.** Play requires a developer
+  contact email and a community group does not satisfy it. No row in the app
+  points at this address.
+- **Feedback: the Facebook group**,
+  `https://www.facebook.com/groups/1760794271928040`, created 11 August 2026.
+  This is where the "Send feedback" row goes. It is a moderation commitment.
+- **No postal address.** There is no office, and a placeholder under a privacy
+  policy is worse than none. The Play Console asks for an address when a
+  developer account is verified. That is the console's, not the app's.
+
 ### Apple Developer
 
 **None held as of 11 August 2026**, so nothing iOS is set up and nothing needs to

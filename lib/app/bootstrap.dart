@@ -22,6 +22,9 @@ import 'package:pantas/features/mock_exam/domain/mock_availability.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
 import 'package:pantas/features/notifications/presentation/notifications_lifecycle_observer.dart';
 import 'package:pantas/features/paywall/paywall.dart';
+import 'package:pantas/features/review_prompt/application/review_prompt_providers.dart';
+import 'package:pantas/features/review_prompt/data/in_app_review_gateway.dart';
+import 'package:pantas/features/review_prompt/data/review_prompt_store.dart';
 
 /// Feeds the real subscription into the mock cooldown.
 ///
@@ -82,6 +85,12 @@ Future<void> _bootstrap(
       // this still decides whether anything reaches the sink.
       telemetrySinkProvider.overrideWithValue(
         FirebaseTelemetry.instancesIfAvailable(),
+      ),
+      // The review popup and the record of having asked. Both are inert
+      // until this runs, so nothing pops in a test.
+      appReviewGatewayProvider.overrideWith((ref) => InAppReviewGateway()),
+      reviewPromptStoreProvider.overrideWith(
+        (ref) => DriftReviewPromptStore(ref.watch(appDatabaseProvider)),
       ),
       notificationServiceProvider.overrideWith(
         (ref) => ref.watch(featureNotificationServiceProvider),

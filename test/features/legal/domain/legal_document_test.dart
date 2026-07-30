@@ -40,9 +40,20 @@ void main() {
     );
   });
 
-  test('legal contact uses non-example DPO email and physical address', () {
+  test('legal contact carries real addresses and the group', () {
     expect(defaultLegalContact.dpoEmail, isNot(contains('example.com')));
     expect(defaultLegalContact.dpoEmail, contains('@'));
-    expect(defaultLegalContact.physicalAddress, contains('Philippines'));
+    expect(defaultLegalContact.supportEmail, contains('@'));
+    expect(defaultLegalContact.communityGroupUrl, startsWith('https://'));
+  });
+
+  test('nothing legal still names the old product', () {
+    for (final document in legalDocumentFallbacks.values) {
+      for (final section in document.sections) {
+        expect(section.body, isNot(contains('CSE Reviewer')));
+      }
+    }
+    expect(defaultLegalContact.dpoEmail, isNot(contains('csecetreviewer')));
+    expect(defaultLegalContact.supportEmail, isNot(contains('csecetreviewer')));
   });
 }

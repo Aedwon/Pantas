@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -10,6 +12,7 @@ import 'package:pantas/features/paywall/domain/paywall_recommendation.dart';
 import 'package:pantas/features/paywall/presentation/plans_page.dart';
 import 'package:pantas/features/paywall/presentation/trial_timeline_page.dart';
 import 'package:pantas/features/paywall/presentation/what_pro_adds_page.dart';
+import 'package:pantas/features/review_prompt/application/review_prompt_providers.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 
 enum _PaywallStep {
@@ -50,6 +53,9 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
     ref.read(paywallControllerProvider).logPaywallShown(
           trigger: widget.returnTo ?? 'manual',
         );
+    // Money is the sharpest friction in the app, so seeing this screen
+    // buys a quiet period from the review popup.
+    unawaited(ref.read(reviewPromptControllerProvider).recordPaywallSeen());
   }
 
   /// Off the paywall, whichever way the student arrived.

@@ -30,7 +30,7 @@ final legalDocumentFallbacks = <String, LegalDocument>{
     sections: const [
       LegalSection(
         heading: 'Your data',
-        body: 'CSE Reviewer keeps your study progress, quiz attempts, mock '
+        body: 'Pantas keeps your study progress, quiz attempts, mock '
             'exam results, preferences, and account details so the app can '
             'save your work across devices. Regenerable content stays in '
             'content.db and is not synced as user data.',
@@ -56,7 +56,7 @@ final legalDocumentFallbacks = <String, LegalDocument>{
     sections: const [
       LegalSection(
         heading: 'Use of the app',
-        body: 'CSE Reviewer is a study tool. It does not guarantee exam '
+        body: 'Pantas is a study tool. It does not guarantee exam '
             'results or replace official exam instructions.',
       ),
       LegalSection(

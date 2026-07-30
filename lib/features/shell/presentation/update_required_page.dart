@@ -27,7 +27,7 @@ class UpdateRequiredPage extends StatelessWidget {
   final Uri? storeUrl;
 
   static final Uri _playListing = Uri.parse(
-    'https://play.google.com/store/apps/details?id=com.pantas.app',
+    'https://play.google.com/store/apps/details?id=com.aedwon.pantas',
   );
 
   @override

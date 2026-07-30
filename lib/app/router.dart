@@ -479,13 +479,7 @@ List<RouteBase> buildAppRoutes(Ref ref) {
     ),
     GoRoute(
       path: '/settings/about',
-      builder: (_, __) {
-        final contact = ref.watch(legalContactProvider);
-        return AboutPage(
-          dpoEmail: contact.dpoEmail,
-          physicalAddress: contact.physicalAddress,
-        );
-      },
+      builder: (_, __) => const AboutPage(),
     ),
     GoRoute(
       path: '/settings/_debug',

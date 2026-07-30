@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -19,6 +21,8 @@ import 'package:pantas/features/quiz/domain/debrief/miss_cause.dart';
 import 'package:pantas/features/quiz/domain/debrief/session_debrief.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/presentation/debrief_providers.dart';
+import 'package:pantas/features/review_prompt/application/review_prompt_providers.dart';
+import 'package:pantas/features/review_prompt/domain/review_eligibility.dart';
 
 class DebriefPage extends ConsumerWidget {
   const DebriefPage({
@@ -104,6 +108,21 @@ class _DebriefBodyState extends ConsumerState<_DebriefBody> {
         _tags[miss.questionId] = miss.tag;
       }
     }
+
+    // A finished session that went well is the honest moment to ask for a
+    // review. The controller asks at most once, ever, and never near the
+    // paywall. It draws nothing itself: the popup is the store's.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      unawaited(
+        ref.read(reviewPromptControllerProvider).maybeAsk(
+              justFinishedWell: ReviewEligibility.finishedWell(
+                correct: widget.debrief.correct,
+                total: widget.debrief.total,
+              ),
+            ),
+      );
+    });
   }
 
   void _onTagSelected(QuestionId questionId, MistakeTag tag) {

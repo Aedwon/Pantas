@@ -9,9 +9,12 @@ import 'package:pantas/core/ui/components/settings_group.dart';
 import 'package:pantas/core/ui/components/settings_switch.dart';
 import 'package:pantas/core/ui/components/settings_value_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/legal/application/legal_providers.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 import 'package:pantas/features/settings/domain/user_settings.dart';
+import 'package:pantas/features/settings/presentation/feedback_intent.dart';
 import 'package:pantas/features/settings/presentation/pages/debug_settings_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 // The flag itself lives in one place, and the release guard enforces that.
 // Reading `fromEnvironment` here would put a second definition in the tree,
@@ -23,15 +26,15 @@ class AboutPage extends ConsumerWidget {
     this.debugEnabled = DebugSettingsPage.enabled,
     this.version = '0.1.0',
     this.buildNumber = '1',
-    this.dpoEmail = 'privacy@csecetreviewer.ph',
-    this.physicalAddress = 'CSE Reviewer, Metro Manila, Philippines',
+    this.opener,
   });
 
   final bool debugEnabled;
   final String version;
   final String buildNumber;
-  final String dpoEmail;
-  final String physicalAddress;
+
+  /// Overridden in tests. Null uses the platform's own launcher.
+  final LinkOpener? opener;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -40,6 +43,9 @@ class AboutPage extends ConsumerWidget {
     final settings =
         ref.watch(userSettingsProvider).valueOrNull ?? UserSettings.defaults();
     final actions = ref.read(settingsActionsProvider);
+    // One definition of the addresses, read here rather than passed down,
+    // so a page and a router cannot drift apart on what they say.
+    final contact = ref.watch(legalContactProvider);
 
     return PageScaffold(
       body: ListView(
@@ -47,7 +53,7 @@ class AboutPage extends ConsumerWidget {
         children: [
           const SettingsBar(title: 'About'),
           const SizedBox(height: 16),
-          Text('CSE Reviewer', style: styles.displaySmall),
+          Text('Pantas', style: styles.displaySmall),
           const SizedBox(height: 4),
           Text(
             'Version $version (build $buildNumber)',
@@ -91,17 +97,30 @@ class AboutPage extends ConsumerWidget {
               ),
               SettingsValueRow(
                 title: 'Contact our DPO',
-                value: dpoEmail,
-                onTap: () {},
+                value: contact.dpoEmail,
+                onTap: () => unawaited(
+                  openDpoMail(
+                    contact.dpoEmail,
+                    open: opener ?? launchUrl,
+                  ),
+                ),
               ),
             ],
           ),
           SettingsGroup(
             title: 'Get in touch',
             children: [
+              // The row names where it goes. Sending a student out of the
+              // app without saying where is worse than not offering it.
               SettingsValueRow(
                 title: 'Send feedback',
-                onTap: () {},
+                value: 'Facebook group',
+                onTap: () => unawaited(
+                  openCommunityGroup(
+                    contact.communityGroupUrl,
+                    open: opener ?? launchUrl,
+                  ),
+                ),
               ),
             ],
           ),

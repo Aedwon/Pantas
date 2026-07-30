@@ -56,8 +56,6 @@ class LegalDocumentPage extends StatelessWidget {
           Text('Data Protection Officer', style: styles.headlineSmall),
           const SizedBox(height: 8),
           Text(contact.dpoEmail, style: styles.bodyMedium),
-          const SizedBox(height: 4),
-          Text(contact.physicalAddress, style: styles.bodyMedium),
           if (document.id == 'privacy') ...[
             const SizedBox(height: 16),
             BoardButton(

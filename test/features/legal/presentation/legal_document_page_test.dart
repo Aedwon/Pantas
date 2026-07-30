@@ -41,10 +41,9 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text(defaultLegalContact.dpoEmail), findsOneWidget);
-    expect(
-      find.textContaining(defaultLegalContact.physicalAddress),
-      findsOneWidget,
-    );
+    // There is no postal address. Aedwon has no office, and a placeholder
+    // printed under a privacy policy is worse than none.
+    expect(find.textContaining('Metro Manila'), findsNothing);
 
     await tester.tap(find.text('Manage account data'));
     await tester.pumpAndSettle();

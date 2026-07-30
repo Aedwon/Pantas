@@ -125,7 +125,10 @@ Everything is in `2026-08-11-dependency-audit.md` and
 - **The device check.** His attempt history still resolving, Progress showing rows,
   a custom track appearing after he makes one. No test can claim it.
 - **Firebase and RevenueCat setup.** In progress.
-- **`url_launcher` and `in_app_review`**, each blocking a written task.
+- ~~**`url_launcher` and `in_app_review`**~~. **Closed 11 August.** `url_launcher`
+  was never blocked after 10 August; that line was stale. `in_app_review` is
+  approved and in, because Aedwon wants the popup tested in the beta.
+  `decisions/2026-08-11-contact-and-review-prompt-log.md` has the round.
 - **The CSE blueprint.** A subject belongs to one exam, so CSE Professional cannot
   show Numerical Ability while that content sits under UPCAT's Mathematics. Its
   figures are verified and recorded. Fixing it is a schema stage.
