@@ -63,7 +63,7 @@ class ProPage extends ConsumerWidget {
               ),
               SettingsValueRow(
                 title: 'Yearly',
-                value: '₱999 / year (7-day free trial)',
+                value: '₱799 / year (7-day free trial)',
               ),
             ],
           ),

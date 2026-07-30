@@ -57,7 +57,7 @@ app name. **Do not create products from the old list.** Full setup, in order, is
 - Products: `pantas_pro_weekly`, `pantas_pro_monthly`, `pantas_pro_yearly`
 - **No lifetime product**, removed by decision on 3 August 2026. A Play product ID
   cannot be deleted once used, so creating one would be permanent.
-- Prices: ₱29 weekly, ₱99 monthly, ₱999 yearly
+- Prices: ₱29 weekly, ₱99 monthly, **₱799 yearly**, lowered from ₱999 on 11 August 2026
 - Android only. There is no Apple developer account, so no App Store side exists.
 - Webhook secret: stored in 1Password under "Pantas, RevenueCat Webhook"
 

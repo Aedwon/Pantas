@@ -382,3 +382,63 @@ on 3 August.
 **Noted, not fixed:** `practising` is British and the project rule is American spelling. It is
 the label the tendency deck ships, so the paywall quotes it rather than diverging from the
 surface it illustrates. The label is wrong wherever it lives and that is a separate job.
+
+---
+
+## 11 August 2026: Yearly comes down to ₱799, and the buckets move again
+
+**Aedwon asked for my view on the yearly price**, framing it as the last time he
+would raise it.
+
+**What I said, and I argued against the price rather than hedging.** At ₱99
+monthly, ₱999 is a **16% discount** and breaks even at **10.1 months**. Almost no
+student's prep window is ten months, which is exactly why the 3 August entry above
+had to push the buckets to "ten months and up". **A price the app's own coach can
+almost never honestly recommend is one that gets bought by people who did not do
+the arithmetic**, and that is the opposite of this app's position.
+
+**Who the yearly is actually for**, which is the part that sets the number. Not the
+student with a four month window; they correctly buy Monthly at any yearly price.
+It is the early starter, the Grade 11 student a year out, and above all **the
+repeat taker**: CSE runs twice a year, so a student who fails in March and sits
+again in August spans seven to twelve months. **At ₱999 both groups are missed.**
+
+| Option | Crossover | Discount vs Monthly | Cost |
+|---|---|---|---|
+| Keep ₱999 | 10.1 months | 16% | The coach recommends it to almost nobody, so it converts by accident |
+| **₱799** | **8.07 months** | **33%** | Conservative. Reaches the retaker and the early starter |
+| ₱699 | 7.06 months | 41% | What I recommended. Reaches more, and takes cash up front from students who would otherwise renew monthly and churn |
+| ₱599 | 6.05 months | 50% | Risks under-pricing the flagship plan |
+
+**I recommended ₱699. He chose ₱799.**
+
+**Aedwon:** *"let's go with 799. update the docs and decision log"*
+
+**No argument from me.** ₱799 fixes the thing that was actually wrong, which was a
+crossover longer than any real prep window, and it is the safer of the two against
+under-pricing. The difference between 8.07 and 7.06 months is a judgment call about
+how many early starters exist, and neither of us has that number yet. **It is also
+now measurable**: `paywall_shown` and the purchase events will say which plan
+students actually pick against their exam date.
+
+### The consequence that had to move with it, and this is the second time
+
+**The recommendation boundary is not decoration, it is the coach's honesty.** At
+₱999 it sat at ten months. At ₱799 the crossover is 8.07, so **the boundary moved
+to eight**: a student nine months out is now told Yearly, and at the old boundary
+they would have been pushed onto Monthly that costs them more.
+
+**This is the same trap as 3 August, in the opposite direction.** Then, a price
+rise left the buckets too generous and would have overcharged a six month student
+by ₱405. Now, a price cut would have left them too mean. **A price changed without
+its boundary is a coach that lies, and it lies quietly.**
+
+Changed together: the boundary, its comment, the two boundary tests, and the price
+shown on the Pro page.
+
+### Left open, deliberately
+
+**The yearly may be the wrong shape rather than the wrong price.** A twelve month
+product for a four month need is a mismatch no price fixes, and a pass priced to
+the exam date would fit the market better. **Not before beta**, and recorded here
+so it is not lost.

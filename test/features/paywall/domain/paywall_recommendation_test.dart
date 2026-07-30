@@ -72,7 +72,7 @@ void main() {
           const PaywallPackage(
             sku: PaywallSku.yearly,
             productId: 'pro_yearly',
-            priceString: '₱999',
+            priceString: '₱799',
             priceAmount: 999,
           ),
         ),
@@ -94,7 +94,7 @@ void main() {
           const PaywallPackage(
             sku: PaywallSku.yearly,
             productId: 'pro_yearly',
-            priceString: '₱999',
+            priceString: '₱799',
             priceAmount: 999,
           ),
         ),
@@ -114,7 +114,7 @@ void main() {
     );
   });
 
-  group('recommendation buckets at the ₱999 crossover', () {
+  group('recommendation buckets at the ₱799 crossover', () {
     final today = DateTime(2026, 8, 4);
 
     test('no exam date recommends Monthly, not Yearly', () {
@@ -165,21 +165,24 @@ void main() {
       );
     });
 
-    test('ten months out still recommends Monthly', () {
+    test('eight months out still recommends Monthly', () {
       expect(
         recommendedSkuForExamDate(
           today: today,
-          examDate: DateTime(2027, 6, 4),
+          examDate: DateTime(2027, 4, 4),
         ),
         PaywallSku.monthly,
       );
     });
 
-    test('eleven months out recommends Yearly', () {
+    // The boundary moved from ten to eight when Yearly went ₱999 to ₱799.
+    // A retaker sitting CSE twice in a year lands here, and that is the
+    // student the old boundary pushed onto Monthly for no reason.
+    test('nine months out recommends Yearly', () {
       expect(
         recommendedSkuForExamDate(
           today: today,
-          examDate: DateTime(2027, 7, 4),
+          examDate: DateTime(2027, 5, 4),
         ),
         PaywallSku.yearly,
       );

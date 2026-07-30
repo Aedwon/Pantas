@@ -49,7 +49,7 @@ you change or reuse them.** See Section 2. Getting this wrong is permanent.
 |---|---|---|
 | Weekly | ₱29 | Deliberate: at ₱29 it is its own low-risk trial for a student who budgets weekly |
 | Monthly | ₱99 | |
-| Yearly | ₱999 | |
+| Yearly | ₱799 | Lowered from ₱999 on 11 August. At ₱999 the crossover against Monthly was 10.1 months, longer than any real prep window |
 
 **There is no lifetime product and there must not be one.** Aedwon removed it on
 3 August: *"i want to remove the lifetime purchase, for reasons that the app has a
