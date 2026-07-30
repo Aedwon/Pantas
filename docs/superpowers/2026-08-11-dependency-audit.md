@@ -22,14 +22,27 @@ done with SQLite3MultipleCiphers instead. **SQLCipher no longer has a
 straightforward setup**, though existing SQLCipher databases can still be opened
 through the new library.
 
-**Why this is the dangerous one.** The user database on every device is encrypted
-with the current stack. **Getting this wrong means an installed app cannot open its
-own database**, and the data is not recoverable from the app. It is also entangled
-with the drift and sqlite3 upgrades, so those cannot be treated as routine minors.
+**Two things checked after writing that, and both lower the risk.**
 
-**This wants its own round with its own migration test**, proving a database
-written by the old stack still opens under the new one. **It must not be bundled
-into a general upgrade sweep.**
+**One: there is no longer any data to preserve.** The database file was renamed to
+`pantas.db` on 11 August, so the only install in existence starts from an empty
+database anyway. **The migration test I said this needed was for keeping existing
+data, and there is none.** What remains is making encryption work under the new
+library, not migrating anything into it.
+
+**Two: the opener fails closed, loudly.** After setting the key it runs
+`PRAGMA cipher_version` and throws `StateError('SQLCipher not loaded')` when the
+cipher is absent. **So a botched upgrade crashes at launch rather than silently
+writing an unencrypted database**, which was the failure I had assumed and should
+have checked before writing it down.
+
+**What is still true:** the upgrade cannot be done incrementally. Bumping
+`sqlcipher_flutter_libs` to 0.7.0 alone makes the loader a no-op, the guard fires
+and the app will not start. **The package removal, the drift bump, the sqlite3 bump
+and the move to SQLite3MultipleCiphers are one change or none.**
+
+**Revised: this is now dispatchable**, and its verification is that the app opens
+an encrypted database and the guard still fires when the cipher is missing.
 
 ---
 
@@ -80,13 +93,14 @@ to anything live yet.
 | `go_router` | 14.8 | 17.5 | Three majors, and routing is where a mistake is invisible until a screen is opened |
 | `freezed` + `freezed_annotation` | 2.5 | 3.2 | Codegen change across every model |
 
-## Group D: the encryption stack, and it is not an upgrade
+## Group D: the encryption stack, one change or none
 
 `drift` 2.28 to 2.34, `sqlite3` 2.9 to 3.5, and **removing
 `sqlcipher_flutter_libs` in favour of SQLite3MultipleCiphers.**
 
-**Done together or not at all**, and gated on a test that opens a database written
-by the current stack. See the finding above.
+**Not incremental.** Bumping the EOL package alone makes the loader a no-op and the
+opener's guard stops the app at launch. See the finding above for why this is now
+lower risk than it first looked.
 
 ## Group E: last
 
@@ -94,16 +108,10 @@ by the current stack. See the finding above.
 
 ---
 
-## The one-way thing that is not a package
+## The one-way thing that was not a package: settled
 
-**The Android `applicationId` and the iOS bundle id still carry the old name, and
-they disagree with each other**: `com.aerol.csecet` on Android's application id,
-`com.aedwon.cse_cet_reviewer` on Android's namespace, `com.aedwon.cseCetReviewer`
-on iOS.
+**Done 11 August, hours after this was written and before any store entry existed.**
+All three identifiers are now `com.aedwon.pantas`. They had disagreed with each
+other, so the two platforms would have shipped under different identities.
 
-**These can never be changed once the app is published.** They are the store's
-permanent key for the listing, its reviews and its subscribers.
-
-**And the window is closing this week**, because creating the Play Console entry
-for RevenueCat fixes the application id permanently. **This needs deciding before
-that step, not after.**
+Recorded in `2026-08-10-name-cleanup-chore.md`.
