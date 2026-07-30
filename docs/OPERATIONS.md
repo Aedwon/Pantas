@@ -95,6 +95,28 @@ one iPhone.
   RevenueCat can read subscriptions. This is the step that fails quietly. See
   `docs/revenuecat-setup.md` Section 3.
 
+#### Done 12 August 2026
+
+- **Google Cloud project: `pantas-090126`**, owned by the same account as Play.
+  It was not linked to Play Console, and it does not need to be.
+- **Service account: `revenuecat-play@pantas-090126.iam.gserviceaccount.com`**,
+  with Pub/Sub Editor and Monitoring Viewer.
+- **Three APIs enabled**: Google Play Android Developer, Google Play Developer
+  Reporting, Cloud Pub/Sub.
+- **Invited into Play Console and showing Active**, with all three permissions.
+  **The 36-hour clock started here.**
+- **The JSON key is on Aedwon's Mac and nowhere else.** Not in this repo, not in
+  any cloud folder shared with anyone. A replacement takes a minute, so it is
+  deleted rather than kept once RevenueCat has it.
+
+#### Still open on the Play side
+
+- **Identity verification and the device check are unfinished.** They block
+  production, and possibly the products themselves. Nothing done so far needed
+  them.
+- The RevenueCat project, the products and the real-time notifications all wait
+  on `purchases_flutter` 10 and an internal testing build.
+
 ## Manual configuration steps
 
 These cannot be scripted in this repo and must be redone if the relevant config is regenerated.
