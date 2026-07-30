@@ -27,8 +27,11 @@ Last updated: 2026-05-07
 
 #### User-data sync setup
 
-- [ ] Deploy Firestore owner rules: `firebase deploy --only firestore:rules`
-  and confirm the deployed ruleset matches `firestore.rules`.
+- [x] **Deploy Firestore owner rules. Done 12 August 2026**, to all three
+  projects: `pantas-dev-090126`, `pantas-staging`, `pantas-prod`. Each reported
+  "released rules firestore.rules to cloud.firestore".
+- [ ] **Storage rules are not deployed.** No bucket exists yet, and the deploy
+  fails without one. Do it when Cloud Storage is turned on.
 - [ ] Deploy the reset callable:
   `firebase deploy --only functions:resetCloudUserData`.
 - [ ] Validate App Check enforcement for Firestore and Functions in dev and
