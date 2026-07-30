@@ -76,6 +76,9 @@ class DriftSettingsRepository {
           SessionOrdering.fromStorage(values[SettingsPrefKeys.sessionOrdering]),
       retainTableOrder: values[SettingsPrefKeys.retainTableOrder] != 'false',
       updatedAt: DateTime.tryParse(values[SettingsPrefKeys.updatedAt] ?? ''),
+      acceptedTermsAt: DateTime.tryParse(
+        values[SettingsPrefKeys.policyAcceptedAt] ?? '',
+      ),
     );
   }
 

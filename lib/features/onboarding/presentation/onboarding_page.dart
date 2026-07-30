@@ -5,12 +5,13 @@ import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_age_gate_step.dart';
+import 'package:pantas/features/onboarding/presentation/onboarding_consent_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_exam_date_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_name_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_picker_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_welcome_step.dart';
 
-enum _OnboardingStep { welcome, ageGate, picker, examDate, name }
+enum _OnboardingStep { welcome, ageGate, consent, picker, examDate, name }
 
 class OnboardingPage extends ConsumerStatefulWidget {
   const OnboardingPage({super.key});
@@ -26,6 +27,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     final stepName = switch (step) {
       _OnboardingStep.welcome => 'welcome',
       _OnboardingStep.ageGate => 'age_gate',
+      _OnboardingStep.consent => 'consent',
       _OnboardingStep.picker => 'picker',
       _OnboardingStep.examDate => 'exam_date',
       _OnboardingStep.name => 'name',
@@ -76,7 +78,14 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
           key: const ValueKey('ageGate'),
           child: OnboardingAgeGateStep(
             currentYear: DateTime.now().year,
-            onAgeGatePassed: () => _setStep(_OnboardingStep.picker),
+            onAgeGatePassed: () => _setStep(_OnboardingStep.consent),
+          ),
+        );
+      case _OnboardingStep.consent:
+        return KeyedSubtree(
+          key: const ValueKey('consent'),
+          child: OnboardingConsentStep(
+            onCompleted: () => _setStep(_OnboardingStep.picker),
           ),
         );
       case _OnboardingStep.picker:
