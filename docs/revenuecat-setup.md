@@ -97,24 +97,38 @@ change.
 "credentials need attention" and purchases appear to work in testing while renewals
 and cancellations never arrive.
 
+**Checked against RevenueCat's own documentation on 12 August 2026.** Three
+details below were wrong when this was written the day before, and they are
+marked.
+
 **In Google Cloud, on the project linked to your Play account:**
 
 1. **Enable three APIs**, all of them, not just the first:
-   - Google Play Android Developer API
+   - **Android Publisher API.** **Corrected:** this file called it the Google
+     Play Android Developer API. Same API, but the console lists it under the
+     new name and searching the old one finds nothing.
    - Google Play Developer Reporting API
    - Cloud Pub/Sub API
 2. **Create a service account** under IAM & Admin, and **create a JSON key** for
    it. Download it once; it cannot be downloaded again.
-3. **Grant it two roles**: **Pub/Sub Admin**, which is what lets Google's real-time
-   notifications reach RevenueCat, and **Monitoring Viewer**, which is what makes
-   the queue's health visible when something stalls.
+3. **Grant it two roles**: **Pub/Sub Editor** and **Monitoring Viewer**.
+   **Corrected:** this said Pub/Sub Admin. Editor is enough for almost everyone.
+   Some accounts hit a permission error when the topic is created, and Admin is
+   the fix for that, so start with Editor and only widen if it fails. Monitoring
+   Viewer is what makes the queue's health visible when something stalls.
 
 **In Play Console:**
 
 4. **Users and permissions > Invite new user**, using the service account's email
-   address. Grant it access to the app with financial data and order management
-   permissions. **A service account with a Cloud role but no Play Console invitation
-   is the single most common cause of the credentials error.**
+   address. **Grant three permissions**, not two. **Corrected:** the first one
+   was missing here.
+   - View app information and download bulk reports (read-only)
+   - View financial data, orders, and cancellation survey responses
+   - Manage orders and subscriptions
+
+   **A service account with a Cloud role but no Play Console invitation is the
+   single most common cause of the credentials error.** Confirm the invitation
+   shows as **Active** rather than pending.
 
 **In RevenueCat:**
 
@@ -132,7 +146,16 @@ and cancellations never arrive.
    second month.
 
 **Credentials can take up to 36 hours to become valid.** If step 8 fails
-immediately after setup, wait before assuming it is misconfigured.
+immediately after setup, wait before assuming it is misconfigured. Until they
+are valid you will see "Invalid Play Store credentials" and no purchase will go
+through.
+
+**One thing that sometimes shortens the wait**, from RevenueCat's own docs: open
+any product under Monetize in Play Console, change the description, and save it.
+It is not guaranteed and it costs a minute.
+
+**Sources for this section**, read 12 August 2026:
+<https://www.revenuecat.com/docs/service-credentials/creating-play-service-credentials>
 
 ---
 
