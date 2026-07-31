@@ -1606,6 +1606,24 @@ feature.
 
 ### The worktree tax nobody warns about
 
+**A fourth artifact from 13 August: the encryption library is downloaded, not
+vendored.** `sqlite3` fetches `libsqlite3mc` from a GitHub release the first time
+a checkout builds anything that opens a database. **The download failed twice on
+the first worktree prepared after the switch**, and every content tool stopped
+with "Running build hooks failed" while the real cause sat ten lines down in the
+stderr.
+
+The fix is to copy a warm copy from a checkout that has one:
+
+```bash
+cp -R <working-checkout>/.dart_tool/hooks_runner/shared/sqlite3/build/download-* \
+  <new-worktree>/.dart_tool/hooks_runner/shared/sqlite3/build/
+```
+
+**CI has nothing to borrow from**, so it will hit this on a bad network day and
+the error will not say so.
+
+
 **Three generated artifacts are gitignored, so every fresh worktree fails the
 gates until they are built**: `assets/seed/content.db`, the localizations, and
 the drift output. Content 03's blueprint tests failed on a stale database copy
