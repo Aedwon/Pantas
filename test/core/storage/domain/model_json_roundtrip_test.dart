@@ -2,7 +2,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
-import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 
 void main() {
@@ -53,9 +52,9 @@ void main() {
     final attempt = Attempt(
       id: 'a1',
       examId: 'e1',
-      startedAt: DateTime.utc(2026, 1, 1),
+      startedAt: DateTime.utc(2026, 2, 3),
       items: [attemptItem],
-      origin: 'today_topic',
+      origin: 'mock',
     );
 
     final attemptJson = attempt.toJson();
@@ -71,7 +70,6 @@ void main() {
       language: 'en',
       isActive: true,
       subjects: [],
-      isCustom: false,
     );
 
     final examJson = exam.toJson();
