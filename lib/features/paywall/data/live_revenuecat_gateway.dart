@@ -9,12 +9,20 @@ import 'package:purchases_flutter/purchases_flutter.dart';
 /// One entitlement covers all three SKUs.
 const proEntitlementId = 'pro';
 
-const _weeklyProductId = 'pro_weekly';
-const _monthlyProductId = 'pro_monthly';
-const _yearlyProductId = 'pro_yearly';
+/// The Play product IDs, chosen 12 August 2026 and permanent from the first
+/// submission. A Play product ID cannot be renamed, deleted or reused.
+///
+/// **These three strings and the products in Play Console must agree.** A
+/// product this file does not recognize is skipped when the offering is read,
+/// so a mismatch shows up as a paywall with nothing on it and no error
+/// anywhere.
+const _weeklyProductId = 'pantas_pro_weekly';
+const _monthlyProductId = 'pantas_pro_monthly';
+const _yearlyProductId = 'pantas_pro_yearly';
 
 /// Google Play appends a base plan id to the product id, as in
-/// `pro_monthly:monthly-autorenewing`. Compare on the part before the colon.
+/// `pantas_pro_monthly:monthly-autorenewing`. Compare on the part before the
+/// colon.
 PaywallSku? skuFromProductId(String productId) {
   final base = productId.split(':').first;
   return switch (base) {

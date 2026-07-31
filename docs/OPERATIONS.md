@@ -57,7 +57,10 @@ app name. **Do not create products from the old list.** Full setup, in order, is
 
 - Project: Pantas
 - Entitlement: `pro`
-- Products: `pantas_pro_weekly`, `pantas_pro_monthly`, `pantas_pro_yearly`
+- **Products, settled 12 August 2026: `pantas_pro_weekly`, `pantas_pro_monthly`,
+  `pantas_pro_yearly`.** Three separate subscriptions, one per billing period,
+  not one subscription with three base plans. **The same three strings are
+  hardcoded in the RevenueCat gateway and must not drift from these.**
 - **No lifetime product**, removed by decision on 3 August 2026. A Play product ID
   cannot be deleted once used, so creating one would be permanent.
 - Prices: ₱29 weekly, ₱99 monthly, **₱799 yearly**, lowered from ₱999 on 11 August 2026
