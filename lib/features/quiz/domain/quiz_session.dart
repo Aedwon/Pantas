@@ -9,7 +9,7 @@ import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 part 'quiz_session.freezed.dart';
 
 @freezed
-class AnswerOutcome with _$AnswerOutcome {
+abstract class AnswerOutcome with _$AnswerOutcome {
   const AnswerOutcome._();
 
   const factory AnswerOutcome({
@@ -26,7 +26,7 @@ class AnswerOutcome with _$AnswerOutcome {
 }
 
 @freezed
-class QuizSession with _$QuizSession {
+abstract class QuizSession with _$QuizSession {
   const QuizSession._();
 
   const factory QuizSession({

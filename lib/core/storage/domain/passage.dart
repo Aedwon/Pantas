@@ -6,7 +6,7 @@ part 'passage.freezed.dart';
 part 'passage.g.dart';
 
 @freezed
-class Passage with _$Passage {
+abstract class Passage with _$Passage {
   const Passage._();
 
   const factory Passage({

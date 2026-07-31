@@ -11,7 +11,7 @@ part 'attempt.g.dart';
 enum MistakeTag { misread, slipped, unknown }
 
 @freezed
-class AttemptItem with _$AttemptItem {
+abstract class AttemptItem with _$AttemptItem {
   const AttemptItem._();
 
   const factory AttemptItem({
@@ -30,7 +30,7 @@ class AttemptItem with _$AttemptItem {
 }
 
 @freezed
-class Attempt with _$Attempt {
+abstract class Attempt with _$Attempt {
   const Attempt._();
 
   const factory Attempt({
