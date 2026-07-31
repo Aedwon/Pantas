@@ -31,13 +31,15 @@ most likely to go wrong.
 
 ## 0. Do this before creating anything
 
-**`purchases_flutter` is two major versions behind**: 8.11.0 installed, **10.8.0**
-current. Upgrade first, for the same reason as the Firebase packages: the wiring is
-one adapter today, and a major upgrade after the products exist is a migration
-under pressure with real money attached.
+**Done 12 August 2026: `purchases_flutter` is on 10.8.0.** One call changed and
+the whole surface was one adapter, which is exactly why it was done before any
+product existed.
 
-**Decide the product IDs before you create them, because Play Console will not let
-you change or reuse them.** See Section 2. Getting this wrong is permanent.
+**Done 12 August 2026: the product IDs are settled.** `pantas_pro_weekly`,
+`pantas_pro_monthly`, `pantas_pro_yearly`, three separate subscriptions. They are
+in the code. See Section 2.
+
+**So this section is closed.** Start at Section 1.
 
 ---
 
@@ -70,14 +72,19 @@ display.
 That list predates the rename and the lifetime decision. **Do not create products
 from it.**
 
-**Decide now.** Play product IDs cannot be renamed, cannot be deleted, and cannot be
-reused after deletion. The app is called Pantas.
+**Settled 12 August 2026.** Play product IDs cannot be renamed, cannot be deleted,
+and cannot be reused after deletion.
 
-| Suggested | Why |
+| Product ID | Price |
 |---|---|
-| `pantas_pro_weekly` | |
-| `pantas_pro_monthly` | |
-| `pantas_pro_yearly` | |
+| `pantas_pro_weekly` | ₱29 |
+| `pantas_pro_monthly` | ₱99 |
+| `pantas_pro_yearly` | ₱799 |
+
+**Three separate subscriptions, one per billing period**, not one subscription
+with three base plans. Play prefers base plans. Three separate ones map one to
+one onto the RevenueCat offering, and that is the simpler thing to debug when a
+product does not appear.
 
 **Subscriptions in Play are a product with base plans**, not three separate
 products, if you want them grouped. Either shape works with RevenueCat. **The
