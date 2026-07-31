@@ -107,9 +107,30 @@ starting work, and read a feature's plan and spec in full before touching it.
 | **Firebase packages** | Up one major, all ten, before wiring |
 | **Yearly price** | ₱999 to ₱799, and the recommendation boundary moved with it |
 
+### Done 12 August, and the whole dependency queue with it
+
+**All four items on the list below are merged.** `main` is green at **2,262
+tests**, analyzer clean, both scripts OK.
+
+| | What |
+|---|---|
+| **`purchases_flutter` 8 to 10** | One call changed. `purchasePackage` became `purchase(PurchaseParams)` |
+| **freezed 3** | Ten models, one word each. `riverpod_annotation` and `riverpod_generator` deleted: nothing ever used them, and they were the real blocker |
+| **The encryption group** | Off `sqlcipher_flutter_libs`, onto SQLite3MultipleCiphers. **Unverified on a device** |
+| **`flutter_local_notifications` 17 to 22** | Three calls moved to named arguments. Version 22 throws where 17 stayed quiet, which broke 23 tests that had been running the real gateway by accident |
+| **Contact rows, and the review popup** | Feedback opens the Facebook group, the DPO row opens mail, `in_app_review` is in for the beta |
+| **Firebase, by Aedwon** | Three projects, three apps, Analytics on prod, Remote Config, auth providers. Firestore rules deployed to all three |
+
+**Riverpod 3 is not required by anything.** It is an upgrade to choose, not a
+prerequisite. `2026-08-11-dependency-audit.md` has why, and how the order was
+wrong twice before that was found.
+
+**The one thing owed:** the encryption change has to be installed on the device,
+and Aedwon has to confirm his existing data is still there. No test can claim it.
+
 ### What to do next
 
-1. **`purchases_flutter` 8 to 10.** Before the Play products exist.
+1. ~~**`purchases_flutter` 8 to 10.**~~ Done 12 August.
 2. **The encryption group.** `sqlcipher_flutter_libs` is end of life and does
    nothing from 0.7.0. It goes with drift and sqlite3 and the move to
    SQLite3MultipleCiphers, one change or none. Lower risk than it sounds now: the
