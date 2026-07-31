@@ -27,10 +27,13 @@ Future<AppDatabase> openEncryptedDatabase({
     NativeDatabase.createInBackground(
       file,
       setup: (db) {
-        // These are what let the new library read the database SQLCipher wrote.
-        db.execute("PRAGMA cipher = 'sqlcipher';");
-        db.execute('PRAGMA legacy = 4;');
-        db.execute("PRAGMA key = \"x'${_toHex(key)}'\";");
+        // The first two are what let SQLite3MultipleCiphers read a database
+        // SQLCipher wrote, and they have to run before the key. There is one
+        // such database: the test device's, with a day of real use in it.
+        db
+          ..execute("PRAGMA cipher = 'sqlcipher';")
+          ..execute('PRAGMA legacy = 4;')
+          ..execute("PRAGMA key = \"x'${_toHex(key)}'\";");
         final cipherVersion = db.select('PRAGMA cipher_version;');
         if (cipherVersion.isEmpty) {
           throw StateError(
