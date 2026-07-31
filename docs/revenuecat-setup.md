@@ -86,21 +86,14 @@ with three base plans. Play prefers base plans. Three separate ones map one to
 one onto the RevenueCat offering, and that is the simpler thing to debug when a
 product does not appear.
 
-**Subscriptions in Play are a product with base plans**, not three separate
-products, if you want them grouped. Either shape works with RevenueCat. **The
-simpler one for a first release is one subscription per billing period**, because
-the offering in RevenueCat then maps one to one and there is less to reason about
-when something does not appear.
-
 **Wrong when written, corrected 12 August. The app does hardcode the product
-IDs.** `live_revenuecat_gateway.dart` maps `pro_weekly`, `pro_monthly` and
-`pro_yearly` onto the three plans, and **a product it does not recognize is
-skipped when the offering is read.** So creating `pantas_pro_weekly` today
-produces a paywall with nothing on it, and no error anywhere.
+IDs.** `live_revenuecat_gateway.dart` maps them onto the three plans, and **a
+product it does not recognize is skipped when the offering is read.** A mismatch
+shows up as a paywall with nothing on it and no error anywhere.
 
-**The IDs in the store and the three constants in that file must agree.** The
-store's are permanent and the code's are one line each, so the store decides and
-the code follows.
+**Those three constants now hold the IDs above**, and a test pins the old
+`pro_weekly` style names as unrecognized, so a half-finished rename fails loudly
+instead of quietly.
 
 ---
 
