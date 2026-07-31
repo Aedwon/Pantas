@@ -8,8 +8,6 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
-import 'package:sqlcipher_flutter_libs/sqlcipher_flutter_libs.dart';
-import 'package:sqlite3/open.dart';
 
 // Renamed from cse_cet_reviewer.db on 11 August 2026, with the key below.
 // Safe only because the emulator was the only install: a rename abandons the
@@ -21,8 +19,6 @@ const _keyStorageKey = 'pantas_db_key';
 Future<AppDatabase> openEncryptedDatabase({
   FlutterSecureStorage storage = const FlutterSecureStorage(),
 }) async {
-  await applyWorkaroundToOpenSqlCipherOnOldAndroidVersions();
-
   final dir = await getApplicationDocumentsDirectory();
   final file = File(p.join(dir.path, _dbFileName));
   final key = await _readOrCreateKey(storage);
@@ -30,13 +26,14 @@ Future<AppDatabase> openEncryptedDatabase({
   return AppDatabase(
     NativeDatabase.createInBackground(
       file,
-      // The database opens in a background isolate; the SQLCipher loader
-      // override is per-isolate, so it must be applied there.
-      isolateSetup: () {
-        open.overrideFor(OperatingSystem.android, openCipherOnAndroid);
-      },
       setup: (db) {
-        db.execute("PRAGMA key = \"x'${_toHex(key)}'\";");
+        // The first two are what let SQLite3MultipleCiphers read a database
+        // SQLCipher wrote, and they have to run before the key. There is one
+        // such database: the test device's, with a day of real use in it.
+        db
+          ..execute("PRAGMA cipher = 'sqlcipher';")
+          ..execute('PRAGMA legacy = 4;')
+          ..execute("PRAGMA key = \"x'${_toHex(key)}'\";");
         final cipherVersion = db.select('PRAGMA cipher_version;');
         if (cipherVersion.isEmpty) {
           throw StateError(
