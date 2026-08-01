@@ -50,9 +50,8 @@ void main() {
     });
 
     test("every event traces to one of the spec's six questions", () {
-      // Section 3 of the platform foundations spec. An event answering no
-      // question on that list does not get added.
-      expect(TelemetryEvent.values, hasLength(11));
+      // Section 3 of the platform foundations spec and Telemetry 02 plan.
+      expect(TelemetryEvent.values, hasLength(12));
     });
   });
 
