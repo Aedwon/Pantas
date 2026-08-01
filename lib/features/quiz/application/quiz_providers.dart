@@ -101,6 +101,7 @@ final submitAnswerProvider = Provider<SubmitAnswer>(
     sessions: ref.watch(quizSessionRepositoryProvider),
     pendingQueue: ref.watch(pendingQueueProvider),
     newCards: ref.watch(newCardIntroRepositoryProvider),
+    telemetry: ref.watch(telemetryProvider),
   ),
 );
 

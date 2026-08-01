@@ -1,11 +1,13 @@
 import 'package:pantas/core/fsrs/fsrs_scheduler.dart';
 import 'package:pantas/core/storage/data/repos/review_log_repository.dart';
 import 'package:pantas/core/storage/data/repos/review_state_repository.dart';
+import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/domain/review_log.dart';
 import 'package:pantas/core/storage/domain/review_state.dart';
 import 'package:pantas/core/sync/engine/pending_queue.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/features/quiz/data/repos/new_card_intro_repository.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
@@ -19,7 +21,9 @@ class SubmitAnswer {
     PendingQueue? pendingQueue,
     NewCardIntroRepository? newCards,
     ReviewLogRepository? reviewLog,
-  })  : _reviewLog = reviewLog,
+    Telemetry? telemetry,
+  })  : _telemetry = telemetry,
+        _reviewLog = reviewLog,
         _reviewRepo = reviewRepo,
         _scheduler = scheduler,
         _sessions = sessions,
@@ -32,6 +36,7 @@ class SubmitAnswer {
   final QuizSessionRepository? _sessions;
   final PendingQueue? _pendingQueue;
   final NewCardIntroRepository? _newCards;
+  final Telemetry? _telemetry;
 
   Future<AnswerOutcome> call({
     required Question question,
@@ -41,9 +46,30 @@ class SubmitAnswer {
     String? sessionId,
     String? userId,
     ExamId? examId,
+    String? origin,
   }) async {
     final correctId = question.correctChoice.id;
     final isCorrect = chosenChoiceId == correctId;
+
+    final chosenChoice = question.choices.firstWhere(
+      (c) => c.id == chosenChoiceId,
+      orElse: () => Choice(
+        id: chosenChoiceId,
+        label: chosenChoiceId,
+        text: '',
+        isCorrect: isCorrect,
+      ),
+    );
+
+    await _telemetry?.log(
+      TelemetryEvent.questionAnswered,
+      properties: {
+        'question_id': question.id,
+        'is_correct': isCorrect,
+        'chosen_label': chosenChoice.label,
+        'origin': origin ?? 'unknown',
+      },
+    );
 
     final existing = await _reviewRepo.byQuestionId(question.id);
     final prev = existing ??

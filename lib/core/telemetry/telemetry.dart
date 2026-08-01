@@ -30,7 +30,10 @@ enum TelemetryEvent {
   // Does the mock work at all?
   mockStarted('mock_started'),
   mockCompleted('mock_completed'),
-  mockAbandoned('mock_abandoned');
+  mockAbandoned('mock_abandoned'),
+
+  // How do questions perform?
+  questionAnswered('question_answered');
 
   const TelemetryEvent(this.name);
 
@@ -39,23 +42,38 @@ enum TelemetryEvent {
   final String name;
 }
 
+const _forbiddenKeys = {
+  'score',
+  'accuracy',
+  'streak',
+  'rank',
+  'name',
+  'email',
+  'stem',
+  'text',
+  'answer',
+};
+
 /// A property value must be an int, a bool, or a short identifier drawn from a
-/// closed set. Throws [ArgumentError] otherwise.
+/// closed set or identifier pattern. Throws [ArgumentError] otherwise.
 ///
-/// **No event carries a question's text, a student's answer, a score, a name,
-/// an email or any free-text field.** This is enforced here rather than left to
-/// whoever adds the next call site, because a privacy promise kept by
-/// convention is a privacy promise that will be broken.
+/// Item analytics properties (`question_id`, `is_correct`, `chosen_label`,
+/// `origin`) describe the question rather than the person and are permitted.
+///
+/// **Still forbidden and enforced by a throw:**
+/// - Any question or answer text
+/// - A student's name, email or any free text
+/// - Any aggregate score for a student, their accuracy, their streak, or rank
 void assertPropertiesAllowed(Map<String, Object> properties) {
   final keyPattern = RegExp(r'^[a-z][a-z0-9_]*$');
-  final identifierPattern = RegExp(r'^[a-zA-Z][a-zA-Z0-9_]{0,31}$');
+  final identifierPattern = RegExp(r'^[a-zA-Z0-9_-]{1,64}$');
 
   for (final entry in properties.entries) {
-    if (!keyPattern.hasMatch(entry.key)) {
+    if (!keyPattern.hasMatch(entry.key) || _forbiddenKeys.contains(entry.key)) {
       throw ArgumentError.value(
         entry.key,
         'properties',
-        'keys are snake_case identifiers',
+        'keys must be permitted snake_case identifiers',
       );
     }
 

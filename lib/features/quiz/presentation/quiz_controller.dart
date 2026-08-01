@@ -299,6 +299,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
       sessionId: s.persisted ? s.session.sessionId : null,
       userId: s.persisted ? _localUserId : null,
       examId: s.persisted ? s.session.examId : null,
+      origin: s.session.origin.storageValue,
     );
 
     // The answer is written now, and the session stays where it is so the
