@@ -13,12 +13,19 @@ questions:
       - text: "$7 + 12 = 12 + 7$"
         correct: true
       - text: "$(3 + 5) + 4 = 3 + (5 + 4)$"
+        rationale: |
+          You picked a change of grouping, not of order. Moving the brackets is the
+          associative property.
       - text: "$9 + 0 = 9$"
+        rationale: |
+          You picked adding zero. That is the additive identity: the number keeps
+          its value.
       - text: "$6 + (-6) = 0$"
+        rationale: |
+          You picked a number and its opposite adding to zero. That is the additive
+          inverse.
     explanation: |
-      The Commutative Property of Addition states that changing the order of addends does not change their sum: $a + b = b + a$. Choice A shows $7$ and $12$ swapping positions, which is the definition of the commutative property.
-
-      Choice B changes the grouping, which is the associative property. Choice C shows the additive identity (adding 0). Choice D shows the additive inverse (opposites summing to 0).
+      The Commutative Property of Addition says that changing the order of addends does not change their sum: $a + b = b + a$. The correct equation shows $7$ and $12$ swapping positions, and nothing else about it changes.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0002
     type: which-is-true
@@ -29,12 +36,18 @@ questions:
       - text: "$-\\frac{4}{7} \\cdot \\left(-\\frac{7}{4}\\right) = 1$"
         correct: true
       - text: "$-\\frac{4}{7} \\cdot 1 = -\\frac{4}{7}$"
+        rationale: |
+          You picked multiplying by $1$. That is the multiplicative identity, which
+          leaves the number unchanged.
       - text: "$-\\frac{4}{7} \\cdot 0 = 0$"
+        rationale: |
+          You picked multiplying by $0$. That always gives $0$, whatever the number.
       - text: "$-\\frac{4}{7} + \\frac{4}{7} = 0$"
+        rationale: |
+          You picked a number and its opposite adding to $0$. That is the additive
+          inverse, and this question is about multiplying.
     explanation: |
       The Multiplicative Inverse Property states that a non-zero number multiplied by its reciprocal equals 1: $a \times \frac{1}{a} = 1$. The reciprocal of $-\frac{4}{7}$ is $-\frac{7}{4}$, and their product is 1.
-
-      Choice B shows the multiplicative identity (multiplying by 1). Choice C shows the zero product property. Choice D shows the additive inverse (opposites summing to 0).
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0003
     type: direct-computation
@@ -45,13 +58,18 @@ questions:
       - text: "$12x + 28$"
         correct: true
       - text: "$12x + 7$"
+        rationale: |
+          You multiplied the first term only. The $4$ has to reach every term inside
+          the brackets, including the $7$.
       - text: "$7x + 11$"
+        rationale: |
+          You added $4$ and $3$ instead of multiplying them.
       - text: "$12x + 11$"
+        rationale: |
+          Check $4 \times 7$. It is $28$, not $11$.
     explanation: |
       Apply the distributive property by multiplying the outer factor 4 by each term inside the parentheses:
       $$4(3x) + 4(7) = 12x + 28$$
-
-      Choice B forgets to multiply the constant 7 by 4. Choice C incorrectly adds 4 and 3 instead of multiplying. Choice D has the wrong product for $4 \times 7$.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0004
     type: which-is-true
@@ -62,12 +80,20 @@ questions:
       - text: "Subtraction is not commutative because $5 - 3 \\neq 3 - 5$."
         correct: true
       - text: "Subtraction is commutative because the numerical value remains 2."
+        rationale: |
+          You read $2$ and $-2$ as the same size and called it commutative. They
+          are different numbers, so the order did change the answer.
       - text: "Subtraction is associative because $(8 - 4) - 2 = 8 - (4 - 2)$."
+        rationale: |
+          You accepted the grouping claim without testing it. Work both sides out:
+          $(8 - 4) - 2 = 2$ and $8 - (4 - 2) = 6$. They differ, so subtraction is
+          not associative either.
       - text: "Subtraction has an identity element of 0 because $x - 0 = 0 - x$."
+        rationale: |
+          You accepted $x - 0 = 0 - x$. It does give $x$ one way, but the other way
+          gives $-x$. An identity has to work from both sides.
     explanation: |
       Subtraction is not commutative. Changing the order changes the result: $5 - 3 = 2$ but $3 - 5 = -2$. These are not equal.
-
-      Choice B is wrong because $2 \neq -2$. Choice C is wrong: $(8 - 4) - 2 = 2$ but $8 - (4 - 2) = 6$. Choice D is wrong: while $x - 0 = x$, we have $0 - x = -x$, so 0 is not a two-sided identity for subtraction.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0005
     type: which-is-true
@@ -111,16 +137,21 @@ questions:
       - text: "$-11a - 12b$"
         correct: true
       - text: "$-a - 12b$"
+        rationale: |
+          Check the $a$ terms. $-6a - 5a$ is $-11a$, not $-a$.
       - text: "$-11a + 12b$"
+        rationale: |
+          Check the sign on $b$. Distributing $-3$ across $+4b$ gives $-12b$.
       - text: "$-23ab$"
+        rationale: |
+          You combined $a$ and $b$ into one term. They are unlike terms and stay
+          separate.
     explanation: |
       First distribute $-3$:
       $$-3(2a) + (-3)(4b) = -6a - 12b$$
 
       Then combine like terms with $-5a$:
       $$-6a - 5a - 12b = -11a - 12b$$
-
-      Choice B makes an arithmetic error: $-6a - 5a = -11a$, not $-a$. Choice C has the wrong sign on $b$. Choice D incorrectly combines unlike terms $a$ and $b$ into a single term.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0008
     type: direct-computation
@@ -151,12 +182,19 @@ questions:
       - text: "The additive inverse of any real number $x$ is $-x$, and their sum is the additive identity, 0."
         correct: true
       - text: "The multiplicative inverse of a negative real number is positive."
+        rationale: |
+          You made the reciprocal change sign. It cannot: the two have to multiply
+          to positive $1$, so a negative number has a negative reciprocal.
       - text: "Every real number has a unique multiplicative inverse."
+        rationale: |
+          You said every real number has one. $0$ is the exception, because nothing
+          multiplied by $0$ gives $1$.
       - text: "The additive identity is 1 and the multiplicative identity is 0."
+        rationale: |
+          You have the two identities swapped. $0$ is the additive one and $1$ is
+          the multiplicative one.
     explanation: |
       By definition, $x + (-x) = 0$, where 0 is the additive identity. This is true for all real numbers.
-
-      Choice B is wrong: for $-\frac{4}{7}$ to have product 1 with its multiplicative inverse, the inverse must be $-\frac{7}{4}$ (negative). Choice C is wrong: 0 is a real number but has no multiplicative inverse (division by zero is undefined). Choice D swaps the identities: 0 is additive identity and 1 is multiplicative identity.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0010
     type: which-is-true
@@ -167,12 +205,19 @@ questions:
       - text: "Division is not associative, so changing the grouping alters the result."
         correct: true
       - text: "Division is not commutative, so changing the order of operands alters the result."
+        rationale: |
+          You named the wrong property. The order of the numbers never changed
+          here. Only the brackets moved, and that is grouping.
       - text: "The Distributive Property fails for division over subtraction."
+        rationale: |
+          You reached for distribution, and nothing here distributes. The question
+          is about where the brackets sit.
       - text: "Division lacks a real identity element."
+        rationale: |
+          You picked the identity element, and that is not what changed. The
+          brackets moved and the answer moved with them.
     explanation: |
       The Associative Property requires $(a \div b) \div c = a \div (b \div c)$ for all values. This does not hold for division: $(12 \div 4) \div 2 = 1.5$ but $12 \div (4 \div 2) = 6$. Therefore, division is not associative.
-
-      Choice B is incorrect because the order of numbers did not change; only the grouping did. Choices C and D are irrelevant to this particular error.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0011
     type: direct-computation
@@ -183,8 +228,15 @@ questions:
       - text: "$-2y$"
         correct: true
       - text: "$-24x - 2y$"
+        rationale: |
+          You kept the $x$ terms. $-4$ times $-2y$ is $+8y$ and $-2$ times $-6x$ is
+          $+12x$, and those $x$ terms cancel.
       - text: "$-24x + 18y$"
+        rationale: |
+          Check the signs as you expand. Two negatives multiplied give a positive.
       - text: "$-8x - 2y$"
+        rationale: |
+          The $x$ terms cancel completely here. You are left with $y$ only.
     explanation: |
       Expand both sets of parentheses carefully:
       $$-4(3x) + (-4)(-2y) = -12x + 8y$$
@@ -192,8 +244,6 @@ questions:
 
       Combine:
       $$-12x + 8y - 10y + 12x = (-12x + 12x) + (8y - 10y) = 0 - 2y = -2y$$
-
-      Choice B forgets that $-4 \times (-2y) = +8y$ and $-2 \times (-6x) = +12x$, which cancel the $x$ terms. Choice C has sign errors. Choice D fails to cancel the $x$ terms completely.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0012
     type: which-is-true
@@ -233,7 +283,6 @@ questions:
       Therefore:
       $$87 \times 0 = 0$$
 
-      Choices B and C result from arithmetic errors when combining inside the bracket.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0014
     type: which-is-true
@@ -256,7 +305,7 @@ questions:
     explanation: |
       From Line 2 to Line 3, the expression inside the parentheses changed from $(5 + 2x)$ to $(2x + 5)$. The addends 5 and $2x$ swapped positions. Changing the order of addends is the Commutative Property of Addition: $a + b = b + a$.
 
-      The Associative Property (choice B) was used from Line 1 to Line 2 and Line 3 to Line 4, but not here. The key trap is recognizing that the presence of parentheses does not automatically indicate associativity; you must check if the order changed (commutative) or only the grouping changed (associative).
+      Parentheses on their own do not make a step associative. Check what actually moved: if the order of the addends changed it is commutative, and if only the grouping changed it is associative.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0015
     type: direct-computation
@@ -267,8 +316,16 @@ questions:
       - text: "$-8x + 14y$"
         correct: true
       - text: "$-8x + 4y$"
+        rationale: |
+          Check the last product. $-5$ times $-y$ is $+5y$, not $-5y$.
       - text: "$2x + 12y$"
+        rationale: |
+          Check the signs on each expansion. A negative outside the bracket flips
+          every sign inside it.
       - text: "$-8x - 2y$"
+        rationale: |
+          Check the $y$ terms. They come to $14y$ once all three products are
+          collected.
     explanation: |
       Expand each product carefully:
 
@@ -285,5 +342,3 @@ questions:
       $y$ terms: $9y - 2y + 5y = 14y$
 
       Result: $-8x + 14y$
-
-      Choice B forgets that $-5 \times (-y) = +5y$, not $-5y$. Choices C and D have multiple sign errors across the variable terms.

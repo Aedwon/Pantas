@@ -13,12 +13,19 @@ questions:
       - text: '$0$'
         correct: true
       - text: '$1$'
+        rationale: |
+          You picked $1$. It is a whole number, but it is also a natural number, so
+          it does not answer the question. The question wants the one that is whole
+          and not natural.
       - text: '$-1$'
+        rationale: |
+          You picked $-1$. Negative numbers are integers. Whole numbers start at $0$
+          and go up, so $-1$ is not one of them.
       - text: '$\frac{1}{2}$'
+        rationale: |
+          You picked a fraction. Whole numbers have no fractional part at all.
     explanation: |
       Natural numbers are counting numbers starting from $1$: $1, 2, 3, \dots$. Whole numbers include $0$ plus all natural numbers: $0, 1, 2, 3, \dots$. Therefore, $0$ is a whole number, but it is not a natural number.
-
-      Choice B ($1$) is both a whole number and a natural number. Choice C ($-1$) is an integer, not a whole number. Choice D ($\frac{1}{2}$) is a rational number, not a whole number.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0002
     type: which-is-true
@@ -29,12 +36,19 @@ questions:
       - text: '$\sqrt{7}$'
         correct: true
       - text: '$\sqrt{9}$'
+        rationale: |
+          You picked $\sqrt{9}$. A root only stays irrational when the number under
+          it is not a perfect square. $9$ is a perfect square, so this equals $3$.
       - text: '$0.75$'
+        rationale: |
+          You picked $0.75$. Its decimal stops, and any decimal that stops can be
+          written as a fraction. This one is $\dfrac{3}{4}$.
       - text: '$-\frac{5}{3}$'
+        rationale: |
+          You picked a number already written as a fraction of two integers. That is
+          the definition of rational.
     explanation: |
       An irrational number cannot be written as a fraction of two integers, and its decimal form never ends and never repeats. Since $7$ is not a perfect square, $\sqrt{7}$ is irrational.
-
-      Choice B simplifies to $\sqrt{9} = 3$, which is rational. Choice C is a terminating decimal ($0.75 = \frac{3}{4}$), which is rational. Choice D is already written as a fraction, so it is rational.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0003
     type: direct-computation
@@ -45,12 +59,18 @@ questions:
       - text: '$-1$'
         correct: true
       - text: '$1$'
+        rationale: |
+          You picked $1$. That is $i^4$, one full turn of the cycle. $i^2$ is only
+          half way around.
       - text: '$i$'
+        rationale: |
+          You picked $i$ itself. That is $i^1$. Squaring it has to change it.
       - text: '$-i$'
+        rationale: |
+          You picked $-i$, which is $i^3$. You went one step too far around the
+          cycle.
     explanation: |
       By definition, $i = \sqrt{-1}$. Squaring both sides gives $i^2 = -1$.
-
-      Choice B ($1$) is equal to $i^4$. Choice C ($i$) is equal to $i^1$. Choice D ($-i$) is equal to $i^3$.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0004
     type: direct-computation
@@ -61,13 +81,19 @@ questions:
       - text: '$7 + 3i$'
         correct: true
       - text: '$7 + 7i$'
+        rationale: |
+          You added the imaginary parts instead of subtracting. The second number
+          carries $-2i$, so it is $5i - 2i$, not $5i + 2i$.
       - text: '$1 + 3i$'
+        rationale: |
+          You subtracted the real parts. Both numbers are being added here, so the
+          real parts add too.
       - text: '$12 - 10i$'
+        rationale: |
+          You multiplied the two numbers. The question asks you to add them.
     explanation: |
       To add complex numbers, add the real parts together and the imaginary parts together:
       $$(4 + 3) + (5i - 2i) = 7 + 3i$$
-
-      Choice B adds $5i + 2i$ instead of subtracting $2i$. Choice C subtracts the real parts ($4 - 3 = 1$). Choice D multiplies the terms instead of adding them.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0005
     type: direct-computation
@@ -78,13 +104,19 @@ questions:
       - text: '$4 + 5i$'
         correct: true
       - text: '$4 - i$'
+        rationale: |
+          You did not carry the minus sign onto $-3i$. Subtracting a negative makes
+          it positive, so it is $2i + 3i$.
       - text: '$16 - i$'
+        rationale: |
+          You added the real parts. The question subtracts, so it is $10 - 6$.
       - text: '$4 - 5i$'
+        rationale: |
+          You subtracted the imaginary parts. Two minus signs meet here and make a
+          plus.
     explanation: |
       Distribute the negative sign to the second complex number:
       $$(10 + 2i) - (6 - 3i) = (10 - 6) + (2i - (-3i)) = 4 + (2i + 3i) = 4 + 5i$$
-
-      Choice B forgets to distribute the minus sign to $-3i$, computing $2i - 3i = -i$. Choice C adds the real parts ($10 + 6 = 16$). Choice D subtracts the imaginary part instead of adding.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0006
     type: direct-computation
@@ -95,14 +127,20 @@ questions:
       - text: '$i$'
         correct: true
       - text: '$-1$'
+        rationale: |
+          You picked the value for a remainder of $2$. Divide $57$ by $4$ and the
+          remainder is $1$, not $2$.
       - text: '$-i$'
+        rationale: |
+          You picked the value for a remainder of $3$. The remainder here is $1$.
       - text: '$1$'
+        rationale: |
+          You picked the value for a remainder of $0$. A remainder of $0$ means the
+          exponent divides evenly by $4$, and $57$ does not.
     explanation: |
       The powers of $i$ repeat every $4$ steps in a cycle: $i^1 = i$, $i^2 = -1$, $i^3 = -i$, $i^4 = 1$. Divide the exponent $57$ by $4$:
       $$57 \div 4 = 14 \text{ with a remainder of } 1$$
       A remainder of $1$ means $i^{57} = i^1 = i$.
-
-      Choice B ($-1$) corresponds to a remainder of $2$. Choice C ($-i$) corresponds to a remainder of $3$. Choice D ($1$) corresponds to a remainder of $0$.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0007
     type: error-spotting
@@ -124,7 +162,6 @@ questions:
       $$(4i)(5i) = 20i^2 = 20(-1) = -20$$
       Combining negative square roots under a single root as in Step 1 is incorrect because $\sqrt{a} \cdot \sqrt{b} = \sqrt{ab}$ only applies when at least one number is non-negative.
 
-      Choices B, C, and D describe steps that were mathematically correct arithmetic inside the student's incorrect strategy.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0008
     type: direct-computation
@@ -135,8 +172,16 @@ questions:
       - text: '$22 - 7i$'
         correct: true
       - text: '$2 - 7i$'
+        rationale: |
+          You left $-10i^2$ as $-10$. Since $i^2 = -1$, that term becomes $+10$,
+          which is why the real part grows instead of shrinking.
       - text: '$12 - 10i$'
+        rationale: |
+          You multiplied the real parts together and the imaginary parts together.
+          Both numbers have two terms, so every term has to meet every other one.
       - text: '$22 + 7i$'
+        rationale: |
+          You combined $-15i$ and $8i$ as $+7i$. Adding those gives $-7i$.
     explanation: |
       Use the FOIL method to expand $(3 + 2i)(4 - 5i)$:
       $$\text{First: } 3 \times 4 = 12$$
@@ -145,8 +190,6 @@ questions:
       $$\text{Last: } 2i \times (-5i) = -10i^2$$
       Combine terms and substitute $i^2 = -1$:
       $$12 - 15i + 8i - 10(-1) = 12 - 7i + 10 = 22 - 7i$$
-
-      Choice B forgets that $-10i^2 = +10$, computing $12 - 10 = 2$. Choice C multiplies only the real and imaginary components separately. Choice D evaluates $-15i + 8i$ incorrectly as $+7i$.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0009
     type: direct-computation
@@ -157,14 +200,21 @@ questions:
       - text: '$34$'
         correct: true
       - text: '$16$'
+        rationale: |
+          You subtracted $25 - 9$. A number times its conjugate adds the squares,
+          because the $i^2$ turns the minus into a plus.
       - text: '$34 - 30i$'
+        rationale: |
+          You kept an imaginary term. When you multiply conjugates the two imaginary
+          terms cancel exactly, so nothing imaginary survives.
       - text: '$25 - 9i$'
+        rationale: |
+          You left $-9i$ in place. That term is $-9i^2$, and $i^2 = -1$, so it
+          becomes $+9$.
     explanation: |
       The complex conjugate of $(5 - 3i)$ is $(5 + 3i)$.
       Using the product of conjugates formula $(a - bi)(a + bi) = a^2 + b^2$:
       $$5^2 + 3^2 = 25 + 9 = 34$$
-
-      Choice B subtracts $25 - 9 = 16$. Choice C keeps an imaginary term from incorrect FOIL expansion. Choice D forgets that $i^2 = -1$, leaving $-9i$.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0010
     type: which-is-true
@@ -175,12 +225,19 @@ questions:
       - text: Every real number is a complex number with an imaginary part of zero.
         correct: true
       - text: The product of two imaginary numbers is always an imaginary number.
+        rationale: |
+          Try it: $(2i)(3i) = 6i^2 = -6$. Two imaginary numbers multiplied can land
+          on a real answer, so this one is false.
       - text: The sum of two irrational numbers is always an irrational number.
+        rationale: |
+          Try it: $\sqrt{2} + (-\sqrt{2}) = 0$, and $0$ is rational. So two
+          irrational numbers can add to a rational one.
       - text: The square of any complex number is a positive real number.
+        rationale: |
+          Try it: $i^2 = -1$, which is negative. So a squared complex number is not
+          always positive.
     explanation: |
       A complex number has the form $a + bi$. When $b = 0$, $a + 0i = a$, which is a real number. Therefore, all real numbers are complex numbers whose imaginary part is zero.
-
-      Choice B is false because $(2i)(3i) = 6i^2 = -6$, which is a real number. Choice C is false because $\sqrt{2} + (-\sqrt{2}) = 0$, which is rational. Choice D is false because $i^2 = -1$, which is a negative real number.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0011
     type: direct-computation
@@ -191,8 +248,17 @@ questions:
       - text: '$1 + i$'
         correct: true
       - text: '$1 - i$'
+        rationale: |
+          You have the sign of the imaginary part backwards. Multiplying by the
+          conjugate $(3 + i)$ makes both middle terms positive here.
       - text: '$\frac{5}{4} + \frac{1}{2}i$'
+        rationale: |
+          Your denominator is wrong. Multiplying $(3 - i)$ by $(3 + i)$ gives $9 + 1
+          = 10$, not $8$.
       - text: '$\frac{7}{5} + \frac{1}{5}i$'
+        rationale: |
+          Your numerator is incomplete. Every one of the four products has to be
+          collected before you divide.
     explanation: |
       Multiply the numerator and denominator by the conjugate of the denominator, which is $(3 + i)$:
       $$\dfrac{(4 + 2i)(3 + i)}{(3 - i)(3 + i)}$$
@@ -202,8 +268,6 @@ questions:
       $$3^2 + 1^2 = 9 + 1 = 10$$
       Divide the numerator by the denominator:
       $$\dfrac{10 + 10i}{10} = 1 + i$$
-
-      Choice B has an incorrect sign for the imaginary term. Choice C uses an incorrect denominator of $8$. Choice D fails to double numerator terms properly.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0012
     type: direct-computation
@@ -215,16 +279,23 @@ questions:
       - text: '$-1$'
         correct: true
       - text: '$0$'
+        rationale: |
+          You assumed all $99$ terms cancel. They cancel in groups of four, and $99$
+          leaves three terms over.
       - text: '$i$'
+        rationale: |
+          You stopped at $i^{97}$. Three terms are left after the full groups, not
+          one.
       - text: '$1$'
+        rationale: |
+          You gave the sum of a complete block of four, which is $0$ plus one full
+          cycle. The leftover here is three terms, not four.
     explanation: |
       Notice that any four consecutive powers of $i$ sum to zero:
       $$i + i^2 + i^3 + i^4 = i + (-1) + (-i) + 1 = 0$$
       Dividing $99$ by $4$ yields $24$ full groups of $4$ terms (covering $i^1$ through $i^{96}$) with $3$ terms remaining ($i^{97}, i^{98}, i^{99}$).
       The $24$ full groups sum to $0$. The remaining $3$ terms equal the first $3$ terms of the cycle:
       $$i^{97} + i^{98} + i^{99} = i + (-1) + (-i) = -1$$
-
-      Choice B assumes all $99$ terms cancel out completely. Choice C gives the value of $i^{97}$ alone. Choice D gives the sum of a complete $4$-term block.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0013
     type: direct-computation
@@ -235,8 +306,17 @@ questions:
       - text: '$0$'
         correct: true
       - text: '$2$'
+        rationale: |
+          Check your expansion of $(2 - i)^2$. The middle term is $-4i$ and the last
+          term is $i^2 = -1$, so the square is $3 - 4i$.
       - text: '$10 - 8i$'
+        rationale: |
+          You left the imaginary parts uncancelled. The $-4i$ from the square and
+          the $+4i$ from $-4x$ cancel exactly.
       - text: '$-4$'
+        rationale: |
+          Check the sign when you distribute $-4$ across $(2 - i)$. It gives $-8 +
+          4i$.
     explanation: |
       First, compute $x^2$:
       $$x^2 = (2 - i)^2 = 4 - 4i + i^2 = 4 - 4i - 1 = 3 - 4i$$
@@ -244,8 +324,6 @@ questions:
       $$-4(2 - i) = -8 + 4i$$
       Substitute these values into $x^2 - 4x + 5$:
       $$(3 - 4i) + (-8 + 4i) + 5 = (3 - 8 + 5) + (-4i + 4i) = 0$$
-
-      Choice B, C, and D result from sign errors when expanding $(2 - i)^2$ or distributing $-4$.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0014
     type: direct-computation
@@ -257,8 +335,16 @@ questions:
       - text: '$3i$'
         correct: true
       - text: '$-3i$'
+        rationale: |
+          You have the sign backwards at the last step. Dividing by $i$ is the same
+          as multiplying by $-i$, which flips the sign.
       - text: '$-3$'
+        rationale: |
+          You treated the roots as real numbers. Each one is negative under the
+          root, so each carries an $i$.
       - text: '$3$'
+        rationale: |
+          You treated the roots as real numbers and lost the $i$ along the way.
     explanation: |
       Convert each negative square root to imaginary form:
       $$\sqrt{-36} = 6i, \quad \sqrt{-4} = 2i, \quad \sqrt{-16} = 4i$$
@@ -266,8 +352,6 @@ questions:
       $$\dfrac{(6i)(2i)}{4i} = \dfrac{12i^2}{4i} = \dfrac{-12}{4i}$$
       Since $\frac{1}{i} = -i$:
       $$\dfrac{-12}{4i} = -3(-i) = 3i$$
-
-      Choice B ($-3i$) fails to handle dividing by $i$ correctly. Choice C ($-3$) and D ($3$) treat the roots as real numbers without preserving $i$.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0015
     type: word-problem
@@ -278,8 +362,16 @@ questions:
       - text: '$23 - 14i\text{ ohms}$'
         correct: true
       - text: '$8 - 15i\text{ ohms}$'
+        rationale: |
+          You multiplied the real parts together and the imaginary parts together.
+          Each term in the first bracket has to meet each term in the second.
       - text: '$23 + 14i\text{ ohms}$'
+        rationale: |
+          You combined $-20i$ and $6i$ as $+14i$. Adding those gives $-14i$.
       - text: '$-7 - 14i\text{ ohms}$'
+        rationale: |
+          You subtracted $15$ instead of adding it. The last term is $-15i^2$, and
+          $i^2 = -1$, so it becomes $+15$.
     explanation: |
       Multiply the two complex numbers $Z_1$ and $Z_2$:
       $$Z_{\text{total}} = (4 + 3i)(2 - 5i)$$
@@ -290,5 +382,3 @@ questions:
       $$\text{Last: } 3i \times (-5i) = -15i^2$$
       Substitute $i^2 = -1$:
       $$Z_{\text{total}} = 8 - 20i + 6i - 15(-1) = 8 - 14i + 15 = 23 - 14i\text{ ohms}$$
-
-      Choice B multiplies real parts and imaginary parts separately without FOIL. Choice C calculates $-20i + 6i$ incorrectly as $+14i$. Choice D subtracts $15$ instead of adding $15$.

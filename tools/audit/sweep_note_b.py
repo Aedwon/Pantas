@@ -33,7 +33,15 @@ ROOT = Path(__file__).resolve().parents[2] / "content" / "questions"
 NAMES_A_LETTER = re.compile(
     r"\b(option|choice|answer)\s+[A-E]\b|\bletter\s+[A-E]\b", re.IGNORECASE
 )
-SECOND_PERSON = re.compile(r"\byou\b|\byour\b|\byou're\b", re.IGNORECASE)
+# "You picked the antonym" and "Check the $a$ terms" both speak to the
+# student. An imperative opener is second person with the subject left out,
+# so it counts. Requiring the literal word "you" flagged seventeen notes
+# that were addressed to the reader perfectly well.
+SECOND_PERSON = re.compile(
+    r"\byou\b|\byour\b|\byou're\b"
+    r"|^(check|try|look|read|count|compare|watch|remember|notice|work)\b",
+    re.IGNORECASE,
+)
 MIN_LEN, MAX_LEN = 40, 400
 
 
