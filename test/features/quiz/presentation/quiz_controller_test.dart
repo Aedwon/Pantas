@@ -109,6 +109,7 @@ void main() {
         chosenChoiceId: any(named: 'chosenChoiceId'),
         responseMs: any(named: 'responseMs'),
         now: any(named: 'now'),
+        origin: any(named: 'origin'),
       ),
     ).thenAnswer(
       (_) async => const AnswerOutcome(
@@ -147,6 +148,7 @@ void main() {
         chosenChoiceId: any(named: 'chosenChoiceId'),
         responseMs: any(named: 'responseMs'),
         now: any(named: 'now'),
+        origin: any(named: 'origin'),
       ),
     ).called(1);
 
