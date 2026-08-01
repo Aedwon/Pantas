@@ -665,7 +665,7 @@ QSTEM	polish	mathematics/arithmetic-number-sense/fractions-decimals-percentages.
 QSTEM	polish	mathematics/arithmetic-number-sense/fractions-decimals-percentages.yaml:159	stem ends without a question mark, colon or period: '{4} \\div 0.125 + 2.5 \\times \\frac{2}{5}$'
 QPOSITION	polish	mathematics/arithmetic-number-sense/order-of-operations.yaml:1	the correct choice is authored first in 15 of 15
 QLONGEST	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:198	the correct choice is far the longest, which is a tell a student can read
-QSTEM	polish	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:261	stem ends without a question mark, colon or period: '2y) + \\\\frac{1}{2}(6x - 4y) - 5(x - y)$$'
+QSTEM	polish	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:261	stem ends without a question mark, colon or period: '12y) + \\frac{1}{2}(6x - 4y) - 5(x - y)$$'
 QPOSITION	polish	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:1	the correct choice is authored first in 15 of 15
 QSTEM	polish	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:208	stem ends without a question mark, colon or period: 'i^2 + i^3 + i^4 + i^5 + \\dots + i^{99}$$'
 QSTEM	polish	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:250	stem ends without a question mark, colon or period: 'sqrt{-36} \\cdot \\sqrt{-4}}{\\sqrt{-16}}$$'
@@ -2101,3 +2101,219 @@ QAPPROVED	polish	science/physics/work-energy-power.yaml:193	carries approved: tr
 QSTEM	polish	science/physics/work-energy-power.yaml:207	stem ends without a question mark, colon or period: '\\text{ m/s}^2$ and energy conservation.)'
 QAPPROVED	polish	science/physics/work-energy-power.yaml:207	carries approved: true
 QPOSITION	polish	science/physics/work-energy-power.yaml:1	the correct choice is authored first in 15 of 15
+TIERB	blocker	general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	general-information/code-of-conduct-ra-6713/norms-of-conduct.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	general-information/code-of-conduct-ra-6713/penalties-and-enforcement.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	general-information/environment-management/environmental-concepts.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 8 questions
+TIERB	blocker	general-information/environment-management/the-environmental-laws.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 12 questions
+TIERB	blocker	general-information/peace-and-human-rights/human-rights-fundamentals.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 8 questions
+TIERB	blocker	general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 8 questions
+TIERB	blocker	general-information/philippine-constitution/accountability-and-impeachment.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	general-information/philippine-constitution/bill-of-rights.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	general-information/philippine-constitution/the-articles-in-outline.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	general-information/philippine-constitution/the-civil-service-commission.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	language-proficiency/grammar-and-structure/modifiers.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	language-proficiency/grammar-and-structure/parallelism.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	language-proficiency/grammar-and-structure/parts-of-speech.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 20 questions
+TIERB	blocker	language-proficiency/grammar-and-structure/phrases-and-clauses.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	language-proficiency/grammar-and-structure/pronoun-antecedent-agreement.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 18 questions
+TIERB	blocker	language-proficiency/grammar-and-structure/punctuation-and-capitalization.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 20 questions
+TIERB	blocker	language-proficiency/grammar-and-structure/redundancy-and-double-negatives.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	language-proficiency/grammar-and-structure/sentence-structure.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
+TIERB	blocker	language-proficiency/grammar-and-structure/subject-verb-agreement.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 20 questions
+TIERB	blocker	language-proficiency/grammar-and-structure/tenses-and-voice.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 18 questions
+TIERB	blocker	language-proficiency/language-application/error-identification.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	language-proficiency/language-application/paragraph-organization.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	language-proficiency/language-application/sentence-completion.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	language-proficiency/vocabulary/confusing-words.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	language-proficiency/vocabulary/context-clues.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	language-proficiency/vocabulary/idioms-and-figures-of-speech.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 18 questions
+TIERB	blocker	language-proficiency/vocabulary/root-words-prefixes-suffixes.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 18 questions
+TIERB	blocker	language-proficiency/vocabulary/spelling-rules.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 18 questions
+TIERLEAK	important	language-proficiency/vocabulary/synonyms-and-antonyms.yaml:142	note A names the options, which is note B's job and is what Pro pays for
+TIERB	blocker	language-proficiency/vocabulary/synonyms-and-antonyms.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 18 questions
+TIERLEAK	polish	mathematics/algebra/algebraic-expressions.yaml:91	note A rules on an alternative, which edges into note B
+TIERLEAK	polish	mathematics/algebra/algebraic-expressions.yaml:166	note A rules on an alternative, which edges into note B
+TIERLEAK	polish	mathematics/algebra/algebraic-expressions.yaml:241	note A rules on an alternative, which edges into note B
+TIERB	blocker	mathematics/algebra/algebraic-expressions.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 18 questions
+TIERB	blocker	mathematics/algebra/exponents-and-logarithms.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	mathematics/algebra/functions-and-relations.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERLEAK	polish	mathematics/algebra/linear-equations-inequalities.yaml:49	note A rules on an alternative, which edges into note B
+TIERLEAK	polish	mathematics/algebra/linear-equations-inequalities.yaml:152	note A rules on an alternative, which edges into note B
+TIERB	blocker	mathematics/algebra/linear-equations-inequalities.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 18 questions
+TIERB	blocker	mathematics/algebra/polynomials.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 18 questions
+TIERB	blocker	mathematics/algebra/quadratic-equations.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 18 questions
+TIERB	blocker	mathematics/algebra/radicals-and-rationalization.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 18 questions
+TIERB	blocker	mathematics/algebra/sets-and-set-notation.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	mathematics/algebra/systems-of-equations.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 18 questions
+TIERLEAK	important	mathematics/algebra/types-of-functions.yaml:63	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	polish	mathematics/algebra/types-of-functions.yaml:105	note A rules on an alternative, which edges into note B
+TIERLEAK	important	mathematics/algebra/types-of-functions.yaml:191	note A names the options, which is note B's job and is what Pro pays for
+TIERB	blocker	mathematics/algebra/types-of-functions.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERLEAK	important	mathematics/algebra/word-problems.yaml:260	note A names the options, which is note B's job and is what Pro pays for
+TIERB	blocker	mathematics/algebra/word-problems.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 18 questions
+TIERB	blocker	mathematics/arithmetic-number-sense/business-math.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERLEAK	important	mathematics/arithmetic-number-sense/divisibility-rules.yaml:186	note A names the options, which is note B's job and is what Pro pays for
+TIERB	blocker	mathematics/arithmetic-number-sense/divisibility-rules.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	mathematics/arithmetic-number-sense/fractions-decimals-percentages.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERLEAK	polish	mathematics/arithmetic-number-sense/order-of-operations.yaml:47	note A rules on an alternative, which edges into note B
+TIERB	blocker	mathematics/arithmetic-number-sense/order-of-operations.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERLEAK	important	mathematics/arithmetic-number-sense/prime-factorization-gcf-lcm.yaml:7	note A names the options, which is note B's job and is what Pro pays for
+TIERB	blocker	mathematics/arithmetic-number-sense/prime-factorization-gcf-lcm.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERLEAK	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:7	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:23	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:39	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:56	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:105	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:145	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:161	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:177	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:214	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:238	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:261	note A names the options, which is note B's job and is what Pro pays for
+TIERB	blocker	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	mathematics/arithmetic-number-sense/ratio-and-proportion.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:7	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:23	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:39	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:55	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:72	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:89	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:107	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:129	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:151	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:169	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:185	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:208	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:229	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:250	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:272	note A names the options, which is note B's job and is what Pro pays for
+TIERB	blocker	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	mathematics/arithmetic-number-sense/sequences-and-series.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	mathematics/data-interpretation/rates-ratios-and-percentages-in-context.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 12 questions
+TIERB	blocker	mathematics/data-interpretation/tables-and-charts.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 12 questions
+TIERB	blocker	mathematics/geometry/basic-geometric-concepts.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	mathematics/geometry/circles.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	mathematics/geometry/coordinate-geometry.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	mathematics/geometry/logic-and-reasoning.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	mathematics/geometry/measurement.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	mathematics/geometry/parallel-perpendicular-lines.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	mathematics/geometry/quadrilaterals-and-polygons.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	mathematics/geometry/triangles.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	mathematics/precalculus-basic-calculus/basic-derivatives.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	mathematics/precalculus-basic-calculus/basic-integrals.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	mathematics/precalculus-basic-calculus/conic-sections.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	mathematics/precalculus-basic-calculus/limits-and-continuity.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	mathematics/statistics-and-probability/basic-probability.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
+TIERB	blocker	mathematics/statistics-and-probability/combinatorics.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
+TIERB	blocker	mathematics/statistics-and-probability/data-analysis-graphs.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
+TIERLEAK	important	mathematics/statistics-and-probability/measures-of-central-tendency.yaml:68	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/statistics-and-probability/measures-of-central-tendency.yaml:87	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	polish	mathematics/statistics-and-probability/measures-of-central-tendency.yaml:128	note A rules on an alternative, which edges into note B
+TIERLEAK	important	mathematics/statistics-and-probability/measures-of-central-tendency.yaml:353	note A names the options, which is note B's job and is what Pro pays for
+TIERB	blocker	mathematics/statistics-and-probability/measures-of-central-tendency.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
+TIERLEAK	important	mathematics/statistics-and-probability/measures-of-variability.yaml:85	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/statistics-and-probability/measures-of-variability.yaml:104	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	mathematics/statistics-and-probability/measures-of-variability.yaml:237	note A names the options, which is note B's job and is what Pro pays for
+TIERB	blocker	mathematics/statistics-and-probability/measures-of-variability.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
+TIERLEAK	polish	mathematics/trigonometry/angles-and-radian-measure.yaml:121	note A rules on an alternative, which edges into note B
+TIERB	blocker	mathematics/trigonometry/angles-and-radian-measure.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
+TIERB	blocker	mathematics/trigonometry/basic-trigonometric-ratios.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
+TIERLEAK	important	mathematics/trigonometry/inverse-trigonometric-functions.yaml:46	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	polish	mathematics/trigonometry/inverse-trigonometric-functions.yaml:72	note A rules on an alternative, which edges into note B
+TIERB	blocker	mathematics/trigonometry/inverse-trigonometric-functions.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
+TIERB	blocker	mathematics/trigonometry/laws-of-sines-and-cosines.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
+TIERB	blocker	mathematics/trigonometry/solving-right-triangles.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
+TIERLEAK	polish	mathematics/trigonometry/trigonometric-identities.yaml:65	note A rules on an alternative, which edges into note B
+TIERLEAK	polish	mathematics/trigonometry/trigonometric-identities.yaml:221	note A rules on an alternative, which edges into note B
+TIERB	blocker	mathematics/trigonometry/trigonometric-identities.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
+TIERB	blocker	mathematics/trigonometry/unit-circle.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
+TIERB	blocker	reading-comprehension/comprehension-skills/authors-purpose-tone-pov.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	reading-comprehension/comprehension-skills/choosing-a-title.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 10 questions
+TIERB	blocker	reading-comprehension/comprehension-skills/context-clues-in-passages.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 10 questions
+TIERLEAK	important	reading-comprehension/comprehension-skills/fact-vs-opinion.yaml:31	note A names the options, which is note B's job and is what Pro pays for
+TIERB	blocker	reading-comprehension/comprehension-skills/fact-vs-opinion.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 10 questions
+TIERB	blocker	reading-comprehension/comprehension-skills/inferencing-and-conclusions.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERLEAK	important	reading-comprehension/comprehension-skills/main-idea.yaml:40	note A names the options, which is note B's job and is what Pro pays for
+TIERLEAK	important	reading-comprehension/comprehension-skills/main-idea.yaml:175	note A names the options, which is note B's job and is what Pro pays for
+TIERB	blocker	reading-comprehension/comprehension-skills/main-idea.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	reading-comprehension/comprehension-skills/noting-specific-details.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	reading-comprehension/comprehension-skills/sequencing-of-events.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 10 questions
+TIERB	blocker	reading-comprehension/text-types/essays-editorials-articles.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	reading-comprehension/text-types/poetry.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	reading-comprehension/text-types/short-stories-and-novels.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 10 questions
+TIERB	blocker	reading-comprehension/text-types/speeches.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 10 questions
+TIERB	blocker	reading-comprehension/text-types/visual-media.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 10 questions
+TIERB	blocker	reasoning/clerical-ability/alphabetic-filing-rules.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 12 questions
+TIERB	blocker	reasoning/clerical-ability/numeric-and-chronological-filing.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 12 questions
+TIERB	blocker	reasoning/logical-verbal-reasoning/number-and-letter-sequences.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
+TIERB	blocker	reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
+TIERB	blocker	reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
+TIERB	blocker	reasoning/logical-verbal-reasoning/word-analogies.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
+TIERB	blocker	reasoning/mechanical-technical-reasoning/fluid-pressure.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	reasoning/mechanical-technical-reasoning/gear-rotations.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERLEAK	polish	reasoning/mechanical-technical-reasoning/pulleys-and-levers.yaml:119	note A rules on an alternative, which edges into note B
+TIERB	blocker	reasoning/mechanical-technical-reasoning/pulleys-and-levers.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	reasoning/mechanical-technical-reasoning/structural-stability.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	reasoning/spatial-abstract-reasoning/figure-grouping.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	reasoning/spatial-abstract-reasoning/figure-matrices.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	reasoning/spatial-abstract-reasoning/figure-series.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	reasoning/spatial-abstract-reasoning/mental-rotation-3d-visualization.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	reasoning/spatial-abstract-reasoning/paper-folding-and-cutting.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	reasoning/verbal-logic/assumptions-and-conclusions.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 12 questions
+TIERB	blocker	science/biology/botany.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
+TIERB	blocker	science/biology/cell-biology.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
+TIERB	blocker	science/biology/cellular-metabolism.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	science/biology/cellular-reproduction.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	science/biology/characteristics-of-life.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	science/biology/ecology.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 18 questions
+TIERB	blocker	science/biology/evolution.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERLEAK	polish	science/biology/genetics-and-heredity.yaml:183	note A rules on an alternative, which edges into note B
+TIERB	blocker	science/biology/genetics-and-heredity.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	science/biology/human-anatomy-physiology.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	science/biology/taxonomy-and-classification.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	science/chemistry/acids-bases-ph.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	science/chemistry/atomic-structure.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	science/chemistry/basic-organic-chemistry.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	science/chemistry/chemical-bonding.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	science/chemistry/chemical-nomenclature.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	science/chemistry/chemical-reactions.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	science/chemistry/gas-laws.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	science/chemistry/history-of-the-atom.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	science/chemistry/matter.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
+TIERB	blocker	science/chemistry/mixtures-and-separation.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	science/chemistry/mole-concept.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	science/chemistry/nuclear-chemistry.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	science/chemistry/periodic-table.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	science/chemistry/quantum-numbers-electron-configuration.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	science/chemistry/solutions.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	science/chemistry/stoichiometry.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	science/chemistry/thermodynamics-and-kinetics.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	science/earth-science-astronomy/earths-motions.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	science/earth-science-astronomy/earths-subsystems.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	science/earth-science-astronomy/eclipses-and-moon-phases.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
+TIERB	blocker	science/earth-science-astronomy/fossils-and-geologic-time.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 21 questions
+TIERB	blocker	science/earth-science-astronomy/heavenly-bodies.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
+TIERB	blocker	science/earth-science-astronomy/layers-of-the-earth.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
+TIERB	blocker	science/earth-science-astronomy/minerals-and-rocks.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 18 questions
+TIERB	blocker	science/earth-science-astronomy/origin-of-the-universe.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	science/earth-science-astronomy/plate-tectonics.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 20 questions
+TIERLEAK	polish	science/earth-science-astronomy/water-cycle-oceanography.yaml:172	note A rules on an alternative, which edges into note B
+TIERB	blocker	science/earth-science-astronomy/water-cycle-oceanography.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 17 questions
+TIERB	blocker	science/earth-science-astronomy/weather-and-climate.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 22 questions
+TIERB	blocker	science/physics/dynamics.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	science/physics/electricity-and-magnetism.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	science/physics/fluid-mechanics.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	science/physics/gravity-and-keplers-laws.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	science/physics/kinematics.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	science/physics/light-and-optics.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	science/physics/momentum-and-impulse.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	science/physics/scalars-and-vectors.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	science/physics/thermodynamics.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	science/physics/two-dimensional-motion.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	science/physics/units-and-measurements.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
+TIERB	blocker	science/physics/waves-and-sound.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	science/physics/work-energy-power.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERB	blocker	summary:1	2369 questions across 158 files have no note B at all, out of 2369

@@ -9,6 +9,8 @@ import sweep_illustrations
 import sweep_formulas
 import sweep_ai_tells
 import sweep_questions
+import sweep_tier_boundary
+import sweep_note_b
 
 OUT = Path(__file__).resolve().parents[2] / "docs" / "content" / "audit" / "sweep-results.tsv"
 SWEEPS = (
@@ -18,6 +20,8 @@ SWEEPS = (
     sweep_formulas,
     sweep_ai_tells,
     sweep_questions,
+    sweep_tier_boundary,
+    sweep_note_b,
 )
 
 
