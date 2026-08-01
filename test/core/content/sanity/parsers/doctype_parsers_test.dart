@@ -102,6 +102,24 @@ void main() {
     );
   });
 
+  test('a choice carries note B when it has one, and null when it does not',
+      () {
+    final parsed = parseQuestion(fixture['question'] as Map<String, Object?>);
+
+    final withNote = parsed.choices.firstWhere(
+      (choice) => choice.id.value == 'choice_b',
+    );
+    final without = parsed.choices.firstWhere(
+      (choice) => choice.id.value == 'choice_a',
+    );
+
+    expect(withNote.rationale.value, isNotNull);
+    expect(withNote.rationale.value, contains('antonym'));
+    // Absent is not an error. It means Pro adds nothing on this one, which
+    // was true of the entire corpus on 13 August 2026.
+    expect(without.rationale.value, isNull);
+  });
+
   test(
       'question parser accepts missing nullable fields '
       'for old seed compatibility', () {

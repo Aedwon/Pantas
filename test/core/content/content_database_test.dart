@@ -23,9 +23,9 @@ void main() {
     return rows.map((row) => row.read<String>('name')).toList();
   }
 
-  test('content database creates all content tables at schema version 6',
+  test('content database creates all content tables at schema version 7',
       () async {
-    expect(db.schemaVersion, equals(6));
+    expect(db.schemaVersion, equals(7));
     expect(
       await tableNames(db),
       containsAll(<String>[

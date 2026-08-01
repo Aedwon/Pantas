@@ -34,7 +34,7 @@ class ContentDatabase extends _$ContentDatabase {
   ContentDatabase(super.executor);
 
   @override
-  int get schemaVersion => 6;
+  int get schemaVersion => 7;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -65,6 +65,11 @@ class ContentDatabase extends _$ContentDatabase {
               contentMockBlueprints,
               contentMockBlueprints.sourceNote,
             );
+          }
+          if (from < 7) {
+            // Note B, the reveal's Pro note. Nullable, and null everywhere
+            // until the corpus carries one.
+            await m.addColumn(contentChoices, contentChoices.rationale);
           }
         },
       );

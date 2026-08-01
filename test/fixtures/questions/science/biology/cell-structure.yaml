@@ -13,6 +13,9 @@ questions:
       - text: Chloroplast
         correct: true
       - text: Mitochondrion
+        rationale: |
+          Mitochondria release energy from food that is already made. The
+          chloroplast is where the food gets made in the first place.
       - text: Ribosome
       - text: Golgi apparatus
     explanation: |

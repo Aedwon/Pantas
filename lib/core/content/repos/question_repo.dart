@@ -98,6 +98,7 @@ class QuestionRepo {
             label: choice.label,
             text: choice.textValue,
             isCorrect: choice.isCorrect,
+            rationale: choice.rationale,
           ),
       ]),
       explanation: _plainText(row.explanationJson),

@@ -100,6 +100,9 @@ ContentChoicesCompanion _parseChoice(
     label: stringField(value, doctype, 'label'),
     textValue: stringField(value, doctype, 'text'),
     isCorrect: boolField(value, doctype, 'isCorrect'),
+    // Note B. Absent for every question authored before 13 August 2026,
+    // and absent is not an error: it means Pro adds nothing on this one.
+    rationale: Value(optionalStringField(value, doctype, 'rationale')),
     ordering: index + 1,
   );
 }

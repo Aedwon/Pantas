@@ -239,6 +239,9 @@ void main(List<String> args) {
             'label': c['label'],
             'text': c['text'],
             'isCorrect': c['isCorrect'],
+            // Note B. Omitted when absent so the document shape stays the
+            // same as it was for every question authored before it existed.
+            if (c['rationale'] != null) 'rationale': c['rationale'],
           },
       ],
     });
@@ -386,6 +389,8 @@ List<Map<String, Object?>> buildQuestions(
               'label': labels[i],
               'text': '${choices[i]['text']}'.trim(),
               'isCorrect': choices[i]['correct'] == true,
+              if (choices[i]['rationale'] != null)
+                'rationale': '${choices[i]['rationale']}'.trim(),
             },
         ],
       });

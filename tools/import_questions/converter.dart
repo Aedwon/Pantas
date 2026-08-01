@@ -104,11 +104,22 @@ Map<String, Object?> questionToDoc(
       throw FormatException('$id: choice ${i + 1} has empty text');
     }
     rejectEmDash(text, id, 'choice ${i + 1}');
+    final rationale = c['rationale'];
+    if (rationale != null && rationale is! String) {
+      throw FormatException('$id: choice ${i + 1} rationale must be a string');
+    }
+    if (rationale is String && rationale.trim().isNotEmpty) {
+      rejectEmDash(rationale, id, 'choice ${i + 1} rationale');
+    }
     choices.add({
       '_key': '$id-choice-${labels[i].toLowerCase()}',
       'label': labels[i],
       'text': text.trim(),
       'isCorrect': c['correct'] == true,
+      // Note B, the reveal's Pro note. Omitted rather than empty when the
+      // question has none.
+      if (rationale is String && rationale.trim().isNotEmpty)
+        'rationale': rationale.trim(),
     });
   }
 

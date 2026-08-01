@@ -120,5 +120,23 @@ void main() {
       hasLength(allChoiceIds.length),
       reason: 'choice ids must be unique across questions',
     );
+
+    // Note B has to survive the whole way: YAML, the NDJSON document, the
+    // seed database and the shipping repo. It is what a Pro subscriber
+    // buys at the answer reveal, and until 13 August 2026 nothing carried
+    // it past the YAML.
+    final first = allQuestions.firstWhere(
+      (q) => q.id == 'q-biology-cell-structure-0001',
+    );
+    final mitochondrion = first.choices.firstWhere(
+      (c) => c.text == 'Mitochondrion',
+    );
+    expect(mitochondrion.rationale, isNotNull);
+    expect(mitochondrion.rationale, contains('already made'));
+
+    // And a choice without one stays null rather than becoming empty text,
+    // because the reveal decides on null.
+    final ribosome = first.choices.firstWhere((c) => c.text == 'Ribosome');
+    expect(ribosome.rationale, isNull);
   });
 }

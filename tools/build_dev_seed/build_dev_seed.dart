@@ -315,6 +315,8 @@ List<Map<String, Object?>> buildQuestions(Map<String, String> topicIdBySlug) {
               'label': labels[i],
               'text': '${choices[i]['text']}'.trim(),
               'isCorrect': choices[i]['correct'] == true,
+              if (choices[i]['rationale'] != null)
+                'rationale': '${choices[i]['rationale']}'.trim(),
             },
         ],
         'explanation': (question['explanation'] as String).trim(),

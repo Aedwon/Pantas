@@ -295,6 +295,7 @@ class ContentRepository {
             label: choice.label,
             text: choice.textValue,
             isCorrect: choice.isCorrect,
+            rationale: choice.rationale,
           ),
       ]),
       explanation: _plainText(r.explanationJson),
