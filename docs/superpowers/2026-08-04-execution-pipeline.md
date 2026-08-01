@@ -77,6 +77,13 @@ directly from the orchestrator**, one git worktree per plan.
 
 ## Part 0: Pick up here
 
+> **13 August 2026: the list of what is left has moved to
+> `2026-08-13-handover-checkpoint.md`.** That document was checked against the
+> repository rather than assembled from older lists, and it is the one to read
+> first. This part stays for how work gets dispatched and for what happened on
+> 11 and 12 August.
+
+
 **Rewritten 11 August, end of day.** `main` is pushed and green. **2,245 tests
 pass**, analyzer clean, `check_layering` OK, `check_no_ai_attribution` OK.
 

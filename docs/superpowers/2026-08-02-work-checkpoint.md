@@ -1,3 +1,6 @@
+> **Superseded 13 August 2026 by `2026-08-13-handover-checkpoint.md`.** Kept
+> for its history. Do not work from this list.
+
 # Work checkpoint, 2 August 2026
 
 A snapshot of what is outstanding, taken before the onboarding pass begins. Every
