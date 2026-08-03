@@ -15,8 +15,14 @@ questions:
       - text: Chairman and two Commissioners
         correct: true
       - text: Chairman and four Commissioners
+        rationale: |
+          You selected four commissioners, which overcounts commission membership. Article IX-B specifies a Chairman and two Commissioners.
       - text: Chairman and six Commissioners
+        rationale: |
+          You picked six commissioners, which is the membership count of COMELEC. The Civil Service Commission has a Chairman and two Commissioners.
       - text: Chairman and one Commissioner
+        rationale: |
+          You chose one commissioner, which provides no tie-breaking panel. Under Section 1(1), the CSC consists of a Chairman and two Commissioners.
     explanation: |
       Section 1(1) of Article IX-B specifies that the Civil Service Commission shall be composed of a Chairman and two Commissioners.
 
@@ -29,8 +35,14 @@ questions:
       - text: Natural-born citizens
         correct: true
       - text: Naturalized citizens of the state
+        rationale: |
+          You selected naturalized citizens, which falls short of constitutional criteria. Article IX-B requires members to be natural-born citizens.
       - text: Permanent resident aliens
+        rationale: |
+          You picked permanent resident aliens, who lack citizenship. Constitutional Commissioners must be natural-born citizens of the Philippines.
       - text: Registered voter residents
+        rationale: |
+          You chose registered voters, which is a general voter qualification. CSC Commissioners must specifically be natural-born citizens.
     explanation: |
       Section 1(1) of Article IX-B mandates that the Chairman and Commissioners must be natural-born citizens of the Philippines.
 
@@ -43,8 +55,14 @@ questions:
       - text: 35 years old
         correct: true
       - text: 25 years old
+        rationale: |
+          You selected 25 years old, which is the minimum age for Representatives. Appointees to the CSC must be at least 35 years old.
       - text: 30 years old
+        rationale: |
+          You picked 30 years old, which is the minimum age for Senators. Appointees to the Civil Service Commission must be at least 35 years old.
       - text: 40 years old
+        rationale: |
+          You chose 40 years old, which is the minimum age for Supreme Court Justices. The minimum age for CSC appointees is 35 years old.
     explanation: |
       Section 1(1) of Article IX-B specifies that members must be at least 35 years of age at the time of their appointment.
 
@@ -57,8 +75,14 @@ questions:
       - text: President with CA consent
         correct: true
       - text: House of Representatives committee
+        rationale: |
+          You selected House committee, which lacks executive appointment authority. CSC Commissioners are appointed by the President with CA consent.
       - text: Supreme Court en banc council
+        rationale: |
+          You picked Supreme Court en banc, which is a judicial body. Executive appointment of CSC Commissioners is made by the President with CA consent.
       - text: Judicial and Bar Council committee
+        rationale: |
+          You chose Judicial and Bar Council, which nominates judges. Civil Service Commissioners are appointed by the President with CA consent.
     explanation: |
       Section 1(2) of Article IX-B states that Commissioners are appointed by the President with the consent of the Commission on Appointments.
 
@@ -71,8 +95,14 @@ questions:
       - text: Seven years without reappointment
         correct: true
       - text: Five years with one reappointment
+        rationale: |
+          You selected five years with reappointment, which misstates the term limit. Members are appointed for a 7 year term without reappointment.
       - text: Six years with unlimited reappointment
+        rationale: |
+          You picked six years with unlimited reappointment, which violates independence. Article IX-B sets a single 7 year term without reappointment.
       - text: Ten years during good behavior
+        rationale: |
+          You chose ten years during good behavior, which applies to judicial tenure rules. CSC members serve a fixed 7 year term without reappointment.
     explanation: |
       Section 1(2) of Article IX-B provides that members are appointed for a term of seven years without reappointment.
 
@@ -85,8 +115,14 @@ questions:
       - text: Not an elective candidate in the preceding election
         correct: true
       - text: Must have served as a military officer for twenty active years
+        rationale: |
+          You selected military service, which is not a constitutional requirement for CSC. Appointees must not have run in the preceding election.
       - text: Must hold a doctorate degree in business administrative science
+        rationale: |
+          You picked a doctorate degree, which is not a specified prerequisite. The law requires candidates not to have run in the preceding election.
       - text: Must have practiced trial litigation law for fifteen full years
+        rationale: |
+          You chose trial litigation practice, which applies to judicial qualifications. Section 1 bans candidates from the immediately preceding election.
     explanation: |
       Section 1(1) of Article IX-B requires that appointees must not have been candidates for any elective position in the election immediately preceding their appointment.
 
@@ -99,8 +135,14 @@ questions:
       - text: Article IX-B
         correct: true
       - text: Article III section 5
+        rationale: |
+          You selected Article III, which is the Bill of Rights. The Civil Service Commission is governed specifically under Article IX-B.
       - text: Article VI section 2
+        rationale: |
+          You picked Article VI, which covers the Legislative Department. Provisions for the Civil Service Commission sit under Article IX-B.
       - text: Article XI section 1
+        rationale: |
+          You chose Article XI, which covers Accountability of Public Officers. The Civil Service Commission itself is set out in Article IX-B.
     explanation: |
       Sub-article B of Article IX is specifically devoted to the Civil Service Commission.
 
@@ -113,8 +155,14 @@ questions:
       - text: No, reappointment is prohibited
         correct: true
       - text: Yes, for one additional consecutive term
+        rationale: |
+          You selected one additional term, assuming reappointment is permitted. Section 1(2) strictly prohibits any reappointment to the CSC.
       - text: Yes, upon unanimous consent of the Senate
+        rationale: |
+          You picked Senate consent, assuming legislative approval overrides the ban. Article IX-B explicitly prohibits reappointment of members.
       - text: Yes, if re-nominated by the sitting President
+        rationale: |
+          You chose presidential re-nomination, which ignores the constitutional bar. Reappointment of CSC members after a full term is prohibited.
     explanation: |
       Section 1(2) of Article IX-B explicitly prohibits reappointment of Commissioners after serving their term.
 
@@ -127,8 +175,14 @@ questions:
       - text: Capacity for public administration
         correct: true
       - text: High competence in corporate financial auditing
+        rationale: |
+          You selected corporate financial auditing, which is the specialty required for COA. CSC Commissioners must have proven capacity for public administration.
       - text: Extensive experience in international diplomacy
+        rationale: |
+          You picked international diplomacy, which relates to foreign service duties. Article IX-B requires proven capacity for public administration.
       - text: Former service in judicial appellate trial courts
+        rationale: |
+          You chose judicial trial court service, which is required for judicial offices. CSC appointees must demonstrate capacity for public administration.
     explanation: |
       Section 1(1) of Article IX-B requires proven capacity for public administration.
 
@@ -141,8 +195,14 @@ questions:
       - text: Central personnel agency
         correct: true
       - text: Central judicial tribunal
+        rationale: |
+          You selected central judicial tribunal, which describes the Supreme Court. The CSC is established as the central personnel agency of government.
       - text: Central monetary authority
+        rationale: |
+          You picked central monetary authority, which describes the Bangko Sentral. Section 3 defines the CSC as the central personnel agency.
       - text: Central legislative council
+        rationale: |
+          You chose central legislative council, which describes Congress. Article IX-B Section 3 defines the CSC as the central personnel agency.
     explanation: |
       Section 3 of Article IX-B establishes the Civil Service Commission as the central personnel agency of the Government.
 
@@ -155,8 +215,14 @@ questions:
       - text: Staggered terms
         correct: true
       - text: Synchronized terms
+        rationale: |
+          You selected synchronized terms, which would mean all members leave simultaneously. Article IX mandates staggered terms for institutional continuity.
       - text: Indefinite terms
+        rationale: |
+          You picked indefinite terms, which lacks fixed term boundaries. Members serve fixed 7-year staggered terms to ensure commission continuity.
       - text: Annual rotation
+        rationale: |
+          You chose annual rotation, which rotates leadership too frequently. Terms are fixed at 7 years and staggered to maintain continuity.
     explanation: |
       Article IX provides for staggered terms of office among the Chairman and Commissioners to ensure institutional continuity.
 
@@ -169,8 +235,14 @@ questions:
       - text: Yes, as Constitutional Commissioners
         correct: true
       - text: No, subject only to private civil arbitration lawsuits
+        rationale: |
+          You selected private civil lawsuits, which ignores public accountability. As Constitutional Commissioners, CSC members are subject to impeachment.
       - text: No, exempt from all public administrative proceedings
+        rationale: |
+          You picked exempt from proceedings, assuming complete immunity. CSC Commissioners are explicitly listed as impeachable officers in Article XI.
       - text: No, removable only by a local provincial governor
+        rationale: |
+          You chose removal by provincial governor, which misstates jurisdictional hierarchy. CSC Commissioners can only be removed through impeachment.
     explanation: |
       Article XI, Section 2 includes Members of the Constitutional Commissions in the closed list of impeachable officers.
 
@@ -183,8 +255,14 @@ questions:
       - text: Commission on Appointments
         correct: true
       - text: House of Representatives committee
+        rationale: |
+          You selected House committee, which initiates impeachment, not appointment confirmations. Confirmation requires the Commission on Appointments.
       - text: Supreme Court en banc council
+        rationale: |
+          You picked Supreme Court en banc, which is a judicial court. Confirming presidential appointments of CSC members belongs to Commission on Appointments.
       - text: Judicial and Bar Council committee
+        rationale: |
+          You chose Judicial and Bar Council, which handles judicial nominations. Presidential appointments to CSC require Commission on Appointments consent.
     explanation: |
       Section 1(2) of Article IX-B specifies that appointment requires the consent of the Commission on Appointments.
 
@@ -197,8 +275,14 @@ questions:
       - text: At time of appointment
         correct: true
       - text: At time of academic university graduation
+        rationale: |
+          You selected university graduation, which measures educational history. Appointees must meet the 35 year age threshold at the time of appointment.
       - text: At time of civil service examination registration
+        rationale: |
+          You picked examination registration, which applies to examinees. Commissioners must meet the minimum age of 35 at the time of appointment.
       - text: At completion of first official service year
+        rationale: |
+          You chose completion of first service year, which allows underaged appointment. Appointees must be at least 35 years old at time of appointment.
     explanation: |
       Section 1(1) of Article IX-B states that Commissioners must be at least 35 years old at the time of their appointment.
 
@@ -211,7 +295,13 @@ questions:
       - text: Civil Service Commission
         correct: true
       - text: National Economic Development Authority
+        rationale: |
+          You selected NEDA, which is an executive planning agency. Article IX designates CSC, COMELEC, and COA as independent Constitutional Commissions.
       - text: Securities and Exchange Commission
+        rationale: |
+          You picked SEC, which is a corporate regulatory agency. The independent Constitutional Commissions under Article IX are CSC, COMELEC, and COA.
       - text: Department of Budget and Management
+        rationale: |
+          You chose DBM, which is an executive department. The three independent Constitutional Commissions created in Article IX are CSC, COMELEC, and COA.
     explanation: |
       Article IX creates three independent Constitutional Commissions: CSC, COMELEC, and COA.

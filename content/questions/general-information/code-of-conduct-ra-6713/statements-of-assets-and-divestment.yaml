@@ -15,8 +15,14 @@ questions:
       - text: 30 days
         correct: true
       - text: 45 days
+        rationale: |
+          You picked 45 days, which is the deadline for annual performance reports. SALN filings upon assumption of office must be submitted within 30 days.
       - text: 60 days
+        rationale: |
+          You selected 60 days, which is the timeframe for business shareholding divestment. Filing a SALN upon entering office must happen within 30 days.
       - text: 90 days
+        rationale: |
+          You chose 90 days, which is three times the statutory limit. Section 8 requires new public officers to file a SALN within 30 days of entry.
     explanation: |
       Section 8(A)(a) requires a public official to file a SALN within 30 days after assumption of office.
 
@@ -29,8 +35,14 @@ questions:
       - text: On or before April 30
         correct: true
       - text: On or before December 31
+        rationale: |
+          You selected December 31, which is the end of the covered tax and calendar year. The annual SALN filing deadline is on or before April 30.
       - text: On or before September 30
+        rationale: |
+          You picked September 30, which falls in the third quarter. Section 8 mandates annual SALN submission on or before April 30 of each year.
       - text: On or before November 30
+        rationale: |
+          You chose November 30, which misses the statutory spring deadline. Annual SALN filings must be submitted on or before April 30.
     explanation: |
       Section 8(A)(b) mandates annual filing on or before April 30 of every year, reckoned as of the end of the preceding year.
 
@@ -43,8 +55,14 @@ questions:
       - text: 30 days
         correct: true
       - text: 15 days
+        rationale: |
+          You selected 15 days, which is shorter than the statutory allowance. Officials separating from government service have 30 days to file their SALN.
       - text: 60 days
+        rationale: |
+          You picked 60 days, which doubles the allowed timeframe. Section 8 mandates filing a final SALN within 30 days after separation from service.
       - text: 90 days
+        rationale: |
+          You chose 90 days, which is three times the legal allowance. Final SALN filings after leaving government service are due within 30 days.
     explanation: |
       Section 8(A)(c) requires filing a SALN within 30 days after separation from service.
 
@@ -57,8 +75,14 @@ questions:
       - text: Fourth civil degree
         correct: true
       - text: Second civil degree
+        rationale: |
+          You selected second civil degree, which is too narrow and covers only parents, children, and siblings. Disclosure extends to the fourth civil degree.
       - text: Third civil degree
+        rationale: |
+          You picked third civil degree, which includes uncles and aunts but stops short. Section 8 requires disclosing relatives up to the fourth degree.
       - text: Fifth civil degree
+        rationale: |
+          You chose fifth civil degree, which exceeds the statutory coverage. Section 8 caps government relative disclosures at the fourth civil degree.
     explanation: |
       Section 8(B) requires disclosure of relatives in government service up to the fourth civil degree of consanguinity or affinity.
 
@@ -71,8 +95,14 @@ questions:
       - text: 60 days
         correct: true
       - text: 30 days
+        rationale: |
+          You picked 30 days, which is the deadline for private position resignation. Divesting private business shareholdings is allowed up to 60 days.
       - text: 45 days
+        rationale: |
+          You selected 45 days, which is not a statutory divestment milestone. Section 9 allows 60 days from assumption of office to divest shareholdings.
       - text: 90 days
+        rationale: |
+          You chose 90 days, which exceeds the legal divestment allowance. Shareholding divestment for conflicts of interest must occur within 60 days.
     explanation: |
       Section 9 requires divestment of shareholdings or interest in a private business within 60 days from assumption of office or conflict occurrence.
 
@@ -85,8 +115,14 @@ questions:
       - text: 30 days
         correct: true
       - text: 15 days
+        rationale: |
+          You selected 15 days, which is half the legal timeframe. Section 9 gives public officers 30 days from assumption to resign from private positions.
       - text: 60 days
+        rationale: |
+          You picked 60 days, which is the deadline for divesting shareholdings. Resigning from a private position must happen sooner, within 30 days.
       - text: 90 days
+        rationale: |
+          You chose 90 days, which is three times the statutory limit. Public officers must resign from conflicting private positions within 30 days.
     explanation: |
       Section 9 specifies that resignation from any position in a private business enterprise must occur within 30 days.
 
@@ -99,8 +135,14 @@ questions:
       - text: 10 working days
         correct: true
       - text: 5 working days
+        rationale: |
+          You selected 5 working days, which cuts the public processing window in half. Section 8 requires 10 working days after filing before public release.
       - text: 15 working days
+        rationale: |
+          You picked 15 working days, which is the deadline for letter responses. SALN documents become available for public inspection after 10 working days.
       - text: 30 working days
+        rationale: |
+          You chose 30 working days, which delays public access unnecessarily. Section 8 makes filed SALN records available to the public after 10 working days.
     explanation: |
       Section 8(C) specifies that SALN statements shall be made available for public inspection after 10 working days from filing.
 
@@ -113,8 +155,14 @@ questions:
       - text: 10 years
         correct: true
       - text: 5 years
+        rationale: |
+          You picked 5 years, which cuts the mandatory preservation period in half. Section 8 requires filed SALN documents to be kept for 10 years.
       - text: 15 years
+        rationale: |
+          You selected 15 years, which exceeds the standard 10 year retention rule. SALN records may be destroyed after 10 years unless under investigation.
       - text: 20 years
+        rationale: |
+          You chose 20 years, which doubles the statutory preservation period. Section 8 specifies that SALN records must be preserved for 10 years.
     explanation: |
       Section 8(C) provides that SALN statements remain available for 10 years, after which they may be destroyed unless needed in an investigation.
 
@@ -127,8 +175,14 @@ questions:
       - text: Office of the President
         correct: true
       - text: Civil Service Commission headquarters
+        rationale: |
+          You selected the Civil Service Commission, which receives general rank-and-file SALNs. Cabinet members and GOCC heads file with the Office of the President.
       - text: Office of the Ombudsman central unit
+        rationale: |
+          You picked the Ombudsman central unit, which handles regional or local filings. Cabinet heads file directly with the Office of the President.
       - text: Supreme Court Clerk of Court office
+        rationale: |
+          You chose the Supreme Court Clerk, which handles judicial filings. Executive Cabinet members and undersecretaries file with the Office of the President.
     explanation: |
       Section 8(A) designates the Office of the President as the repository for SALN filings of Cabinet members, undersecretaries, and heads of GOCCs.
 
@@ -141,8 +195,14 @@ questions:
       - text: Secretary of Senate or House
         correct: true
       - text: Civil Service Commission central unit
+        rationale: |
+          You picked the Civil Service Commission, which handles executive branch employees. Legislative members file with the Secretary of the Senate or House.
       - text: Supreme Court Clerk of Court office
+        rationale: |
+          You selected the Supreme Court Clerk, which handles judicial branch filings. Members of Congress file with the Secretary of their respective house.
       - text: Office of the President director
+        rationale: |
+          You chose the Office of the President, which receives executive Cabinet SALNs. Legislative members file with the Secretary of the Senate or House.
     explanation: |
       Section 8(A) designates the Secretary of the Senate or the Secretary of the House of Representatives as the recipient for congressional SALNs.
 
@@ -155,8 +215,14 @@ questions:
       - text: Civil Service Commission
         correct: true
       - text: Office of the Ombudsman director
+        rationale: |
+          You picked the Ombudsman, which handles regional officials and local cases. General non-executive public employees file with the Civil Service Commission.
       - text: Office of the President main desk
+        rationale: |
+          You selected the Office of the President, which receives Cabinet-level filings. General public employees file with the Civil Service Commission.
       - text: Department of Justice secretariat
+        rationale: |
+          You chose the Department of Justice, which handles legal prosecutions, not general SALNs. Non-executive employees file with Civil Service Commission.
     explanation: |
       Section 8(A) designates the Civil Service Commission as the filing office for public officers and employees not listed under specific repositories.
 
@@ -169,8 +235,14 @@ questions:
       - text: Spouse and unmarried children under 18 in household
         correct: true
       - text: Spouse, parents, adult children, and business partners
+        rationale: |
+          You picked extended adult family and partners, which goes beyond the rule. SALNs cover only the official, spouse, and minor unmarried children under 18.
       - text: Unmarried children under 21 and all immediate siblings
+        rationale: |
+          You selected siblings and children up to 21, which misstates the age limit. Mandatory SALN reporting applies to unmarried children under 18 years.
       - text: Spouse and all financially dependent extended relatives
+        rationale: |
+          You chose extended dependents, which expands statutory coverage. The law limits family SALN reporting to spouse and unmarried children under 18.
     explanation: |
       Section 8(A) requires inclusion of the assets and liabilities of the official's spouse and unmarried children under 18 years living in their household.
 
@@ -183,8 +255,14 @@ questions:
       - text: Deputy Ombudsman of their region
         correct: true
       - text: Office of the President legal desk
+        rationale: |
+          You picked the Office of the President, which receives Cabinet-level filings. Regional officials and state college employees file with Deputy Ombudsman.
       - text: Civil Service Commission main desk
+        rationale: |
+          You selected Civil Service main desk, which receives non-executive national filings. Regional personnel file with their regional Deputy Ombudsman.
       - text: Supreme Court Administrator office
+        rationale: |
+          You chose the Supreme Court Administrator, which receives trial judge filings. Regional public officials file with the regional Deputy Ombudsman.
     explanation: |
       Under RA 6713 rules, regional and local officials as well as state college/university personnel file with the Deputy Ombudsman in their respective region.
 
@@ -197,8 +275,14 @@ questions:
       - text: Clerk of the Supreme Court
         correct: true
       - text: Office of the Ombudsman main desk
+        rationale: |
+          You selected the Ombudsman, which investigates offenses but does not store Supreme Court SALNs. Supreme Court Justices file with the Supreme Court Clerk.
       - text: Civil Service Commission director
+        rationale: |
+          You picked the Civil Service Commission, which receives executive employee filings. Supreme Court Justices file with the Clerk of the Supreme Court.
       - text: Secretary of the House of Reps
+        rationale: |
+          You chose the House Secretary, who handles congressional filings. Supreme Court Justices file their SALN with the Clerk of the Supreme Court.
     explanation: |
       Section 8(A) designates the Clerk of the Supreme Court as the repository for SALN filings of Supreme Court Justices.
 
@@ -211,7 +295,13 @@ questions:
       - text: Court Administrator
         correct: true
       - text: Office of the President
+        rationale: |
+          You picked the Office of the President, which receives Cabinet-level filings. Trial Court Judges file their SALN with the Court Administrator.
       - text: Secretary of the Senate
+        rationale: |
+          You selected the Secretary of the Senate, who receives Senate member filings. Trial Court Judges file their SALN with the Court Administrator.
       - text: Ombudsman Central Office
+        rationale: |
+          You chose the Ombudsman Central Office, which handles regional/local cases. Trial Court Judges file their SALN with the Court Administrator.
     explanation: |
       Section 8(A) specifies that judges file their SALN with the Court Administrator.

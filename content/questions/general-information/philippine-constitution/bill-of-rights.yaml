@@ -15,8 +15,14 @@ questions:
       - text: 22 sections
         correct: true
       - text: 15 sections
+        rationale: |
+          You picked 15 sections, which underestimates the scope of Article III. The Bill of Rights contains exactly 22 sections.
       - text: 20 sections
+        rationale: |
+          You selected 20 sections, which misses the final two sections. Article III (Bill of Rights) consists of 22 sections.
       - text: 25 sections
+        rationale: |
+          You chose 25 sections, which overcounts the constitutional sections. Article III contains exactly 22 sections.
     explanation: |
       Article III (Bill of Rights) of the 1987 Constitution contains exactly 22 sections.
 
@@ -29,8 +35,14 @@ questions:
       - text: Due process of law
         correct: true
       - text: Right to equal compensation rates
+        rationale: |
+          You selected equal compensation rates, which concerns labor pay. Protecting life, liberty, and property from arbitrary loss is due process.
       - text: Protection against search warrants
+        rationale: |
+          You picked protection against search warrants, which relates to Section 2 searches. Protecting life, liberty, and property is due process.
       - text: Right to free state housing grants
+        rationale: |
+          You chose free state housing grants, which is a social welfare program. Guaranteeing legal fairness before taking life or property is due process.
     explanation: |
       Section 1 of Article III provides that no person shall be deprived of life, liberty, or property without due process of law.
 
@@ -43,8 +55,14 @@ questions:
       - text: Article III
         correct: true
       - text: Article I
+        rationale: |
+          You selected Article I, which defines the National Territory. Freedom of speech, expression, and press are guaranteed in Article III Section 4.
       - text: Article II
+        rationale: |
+          You picked Article II, which states Principles and State Policies. Free speech and press freedoms sit in Article III Section 4.
       - text: Article IV
+        rationale: |
+          You chose Article IV, which defines Citizenship rules. Free expression, speech, and press protections are set out in Article III.
     explanation: |
       Section 4 of Article III (Bill of Rights) protects freedom of speech, expression, the press, assembly, and petition.
 
@@ -57,8 +75,14 @@ questions:
       - text: Eminent domain limit
         correct: true
       - text: Freedom of association
+        rationale: |
+          You selected freedom of association, which protects joining unions or groups. Requiring just compensation when taking private property is eminent domain.
       - text: Non-impairment clause
+        rationale: |
+          You picked non-impairment clause, which protects contract obligations. Compensating owners when taking land for public use is eminent domain.
       - text: Right to information
+        rationale: |
+          You chose right to information, which grants public record access. Paying fair value for private property taken for public use is eminent domain.
     explanation: |
       Section 9 of Article III provides that private property shall not be taken for public use without just compensation.
 
@@ -71,8 +95,14 @@ questions:
       - text: Non-impairment clause
         correct: true
       - text: Equal protection clause
+        rationale: |
+          You selected equal protection, which guarantees uniform legal application. Barring laws that alter existing contracts is the non-impairment clause.
       - text: Due process guarantee
+        rationale: |
+          You picked due process, which requires legal fairness before taking rights. Protecting existing contracts from legislative change is non-impairment.
       - text: Ex post facto clause
+        rationale: |
+          You chose ex post facto, which bans retroactive penal laws. Protecting valid private contracts from retroactive laws is the non-impairment clause.
     explanation: |
       Section 10 of Article III states that no law impairing the obligation of contracts shall be passed.
 
@@ -85,8 +115,14 @@ questions:
       - text: Liberty against unlawful detention
         correct: true
       - text: Freedom from all state property assessments
+        rationale: |
+          You selected property assessments, which concerns municipal taxation. Habeas corpus orders custodians to produce a detainee and justify detention.
       - text: Property rights in municipal land disputes
+        rationale: |
+          You picked municipal land disputes, which concern civil property claims. Habeas corpus protects personal liberty against illegal detention.
       - text: Equal access to government civil employment
+        rationale: |
+          You chose civil employment, which concerns public service jobs. The writ of habeas corpus secures release from illegal physical detention.
     explanation: |
       The writ of habeas corpus is an order commanding the custodian of a detained person to produce the body and justify the detention.
 
@@ -99,8 +135,14 @@ questions:
       - text: Presumption of innocence
         correct: true
       - text: Right to immediate executive pardon
+        rationale: |
+          You selected executive pardon, which is an executive clemency act after conviction. Presumption of innocence treats the accused as innocent in trial.
       - text: Privilege against public prosecution
+        rationale: |
+          You picked privilege against prosecution, which would block criminal trials. Section 14(2) presumes the accused innocent until guilt is proven.
       - text: Protection from all state questioning
+        rationale: |
+          You chose protection from questioning, which relates to custodial silence. Presumption of innocence requires the state to prove guilt beyond doubt.
     explanation: |
       Section 14(2) of Article III provides that in all criminal prosecutions, the accused shall be presumed innocent until the contrary is proved.
 
@@ -113,8 +155,14 @@ questions:
       - text: Protection against double jeopardy
         correct: true
       - text: Protection against ex post facto laws
+        rationale: |
+          You selected ex post facto laws, which bars retroactive penal statutes. Protecting an individual from a second trial for the same crime is double jeopardy.
       - text: Protection against bills of attainder
+        rationale: |
+          You picked bills of attainder, which bans legislative punishment without trial. Preventing multiple trials for one offense is double jeopardy.
       - text: Privilege against self-incrimination
+        rationale: |
+          You chose self-incrimination, which protects against compelled self-accusation. Barring second prosecution for the same offense is double jeopardy.
     explanation: |
       Section 21 of Article III protects individuals against double jeopardy for the same offense.
 
@@ -127,8 +175,14 @@ questions:
       - text: Ex post facto law
         correct: true
       - text: Legislative bill of attainder
+        rationale: |
+          You selected bill of attainder, which inflicts punishment without judicial trial. Retroactively criminalizing past legal acts is an ex post facto law.
       - text: Judicial writ of prohibition
+        rationale: |
+          You picked writ of prohibition, which is a court order stopping excess jurisdiction. Retroactive penal legislation is an ex post facto law.
       - text: Executive emergency decree
+        rationale: |
+          You chose executive emergency decree, which is an executive issuance. Laws making past lawful acts criminal retroactively are ex post facto laws.
     explanation: |
       Section 22 of Article III prohibits ex post facto laws, which retroactively make an act criminal that was legal when committed.
 
@@ -141,8 +195,14 @@ questions:
       - text: Bill of attainder
         correct: true
       - text: Ex post facto law
+        rationale: |
+          You selected ex post facto law, which retroactively criminalizes past acts. Legislative acts punishing individuals without trial are bills of attainder.
       - text: Double jeopardy rule
+        rationale: |
+          You picked double jeopardy rule, which bars twice trying someone for the same crime. Legislative conviction without trial is a bill of attainder.
       - text: Search warrant decree
+        rationale: |
+          You chose search warrant decree, which governs judicial search orders. Legislative infliction of guilt without court trial is a bill of attainder.
     explanation: |
       Section 22 of Article III prohibits bills of attainder, which are legislative acts that declare a person guilty without trial.
 
@@ -155,8 +215,14 @@ questions:
       - text: Debt or non-payment of a poll tax
         correct: true
       - text: Failure to hold valid identity passports
+        rationale: |
+          You selected passport validity, which relates to immigration regulations. Section 20 explicitly bans imprisonment for debt or non-payment of poll tax.
       - text: Failure to register a private business
+        rationale: |
+          You picked business registration, which carries commercial penalties. Section 20 strictly forbids imprisonment for civil debt or poll tax.
       - text: Violation of local curfew municipal rules
+        rationale: |
+          You chose local curfew rules, which are police power ordinances. Section 20 guarantees that no person shall be imprisoned for financial debt.
     explanation: |
       Section 20 of Article III provides that no person shall be imprisoned for debt or non-payment of a poll tax.
 
@@ -169,8 +235,14 @@ questions:
       - text: Miranda rights
         correct: true
       - text: Habeas corpus
+        rationale: |
+          You selected habeas corpus, which tests the legal custody of a detainee. Section 12 rights to silence and counsel are known as Miranda rights.
       - text: Right to bail
+        rationale: |
+          You picked right to bail, which allows temporary provisional release. Warnings regarding silence and legal counsel are termed Miranda rights.
       - text: Double jeopardy
+        rationale: |
+          You chose double jeopardy, which prevents re-trial for the same offense. Rights during custodial investigation are known as Miranda rights.
     explanation: |
       Section 12 of Article III contains custodial rights, commonly referred to as Miranda rights in constitutional law.
 
@@ -183,8 +255,14 @@ questions:
       - text: Article III
         correct: true
       - text: Article I
+        rationale: |
+          You selected Article I, which defines National Territory. Prohibition of cruel, degrading, or inhuman punishment is set out in Article III Section 19.
       - text: Article IV
+        rationale: |
+          You picked Article IV, which covers Citizenship. Ban on cruel, degrading, or inhuman treatment is a Bill of Rights protection under Article III.
       - text: Article IX
+        rationale: |
+          You chose Article IX, which governs Constitutional Commissions. Protection against cruel or inhuman punishment is in Article III Section 19.
     explanation: |
       Section 19(1) of Article III prohibits cruel, degrading, or inhuman punishment.
 
@@ -197,8 +275,14 @@ questions:
       - text: Search warrant upon probable cause
         correct: true
       - text: Executive mandate upon private suspicion
+        rationale: |
+          You selected executive mandate, which lacks judicial review. Search warrants require probable cause determined personally by a judge under oath.
       - text: Verbal approval from a local chief officer
+        rationale: |
+          You picked verbal approval from a local chief, which ignores court warrants. Valid searches require a written warrant based on probable cause.
       - text: Administrative order from a city mayor
+        rationale: |
+          You chose administrative mayor order, which is an executive issuance. Section 2 requires a judge to find probable cause for a search warrant.
     explanation: |
       Section 2 of Article III provides that search warrants shall issue only upon probable cause determined personally by a judge after examination under oath.
 
@@ -211,7 +295,13 @@ questions:
       - text: Right against self-incrimination
         correct: true
       - text: Freedom from involuntary servitude
+        rationale: |
+          You selected involuntary servitude, which prohibits forced labor. Protecting a person from forced self-incriminating testimony is self-incrimination.
       - text: Right to speedy disposition of cases
+        rationale: |
+          You picked speedy disposition, which prevents unreasonable court delays. Protecting a witness from testifying against oneself is self-incrimination.
       - text: Protection against ex post facto laws
+        rationale: |
+          You chose ex post facto laws, which bars retroactive penal statutes. Protecting accused persons from forced testimony is self-incrimination.
     explanation: |
       Section 17 of Article III states that no person shall be compelled to be a witness against himself.
