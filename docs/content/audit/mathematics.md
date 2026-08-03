@@ -14,7 +14,9 @@ guarantee.
 
 ## arithmetic-number-sense
 
-### MATH-ARI-001 [blocker] prime-factorization-gcf-lcm.md — question lists no answer choices
+### MATH-ARI-001 ~~[blocker]~~ **RESOLVED, verified 13 August 2026.** Four choices are listed under the stem, and the correct one is $2^3 \times 3^2 \times 5$.
+
+Original finding: prime-factorization-gcf-lcm.md — question lists no answer choices
 Evidence: `arithmetic-number-sense/prime-factorization-gcf-lcm.md:38` —
 "Which of the following represents the prime factorization of $360$?" with
 no options A–D beneath it.
@@ -58,7 +60,9 @@ lesson's Core Concept. See Dismissed list.
 
 ## geometry
 
-### MATH-GEO-001 [blocker] logic-and-reasoning.md — "pick the equivalent statement" with choices only described in prose
+### MATH-GEO-001 ~~[blocker]~~ **RESOLVED, verified 13 August 2026.** Example #4 lists four choices under the stem and the solution points at one of them.
+
+Original finding: logic-and-reasoning.md — "pick the equivalent statement" with choices only described in prose
 Evidence: `geometry/logic-and-reasoning.md:84` Example #4 asks the student
 to pick the equivalent statement, but the options are narrated inside the
 solution ("The converse … is among the choices") rather than listed as

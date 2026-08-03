@@ -12,20 +12,31 @@ italic, which now contradicts the word "underlined") or lost their marking
 entirely. This blocks the student: the instruction refers to a cue that
 isn't visually there or doesn't match.
 
-### LANG-APP-001 [blocker] error-identification.md:40 — "underlined portion" is actually italic
+### LANG-APP-001 ~~[blocker]~~ **RESOLVED, verified 13 August 2026**
+The copy now reads "the portion in bold" and the portion is bold. Fixed by
+the revision pass rather than by this audit; recorded here so the next
+reader does not go looking for it.
+
+Original finding: error-identification.md:40 — "underlined portion" is actually italic
 Evidence: "Choose the best correction for the underlined portion: '… *along
 with their supervisor* …'" — the portion is italicized, not underlined.
 Fix: change "underlined" to match the chosen convention (see decision).
 
-### LANG-VOC-001 [blocker] context-clues.md:32 — "underlined word" is actually bold
+### LANG-VOC-001 ~~[blocker]~~ **RESOLVED, verified 13 August 2026.** The lesson says "the word in bold" and **edict** is bold.
+
+Original finding: context-clues.md:32 — "underlined word" is actually bold
 Evidence: `vocabulary/context-clues.md:32` "the underlined word" but
 **edict** is bold.
 
-### LANG-VOC-002 [blocker] context-clues.md:81 — "underlined term" is actually bold
+### LANG-VOC-002 ~~[blocker]~~ **RESOLVED, verified 13 August 2026.** The lesson says "the term in bold" and **platitudes** is bold.
+
+Original finding: context-clues.md:81 — "underlined term" is actually bold
 Evidence: `vocabulary/context-clues.md:81` "the underlined term" but
 **platitudes** is bold.
 
-### LANG-VOC-003 [blocker] spelling-rules.md:24 — four "underlined words" are not marked at all
+### LANG-VOC-003 ~~[blocker]~~ **RESOLVED, verified 13 August 2026.** All four words are bold and the copy says "in bold".
+
+Original finding: spelling-rules.md:24 — four "underlined words" are not marked at all
 Evidence: `vocabulary/spelling-rules.md:24` "the $4$ underlined words in
 this sentence: 'The chief of police could not concieve why the strange
 neighbor would seize the stolen goods.'" — none of chief / concieve /

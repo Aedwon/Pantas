@@ -664,11 +664,11 @@ QSTEM	polish	mathematics/arithmetic-number-sense/fractions-decimals-percentages.
 QSTEM	polish	mathematics/arithmetic-number-sense/fractions-decimals-percentages.yaml:101	stem ends without a question mark, colon or period: 'ac{5}{6} - \\frac{1}{4}\\right) \\div 0.35$'
 QSTEM	polish	mathematics/arithmetic-number-sense/fractions-decimals-percentages.yaml:159	stem ends without a question mark, colon or period: '{4} \\div 0.125 + 2.5 \\times \\frac{2}{5}$'
 QPOSITION	polish	mathematics/arithmetic-number-sense/order-of-operations.yaml:1	the correct choice is authored first in 15 of 15
-QLONGEST	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:198	the correct choice is far the longest, which is a tell a student can read
-QSTEM	polish	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:261	stem ends without a question mark, colon or period: '12y) + \\frac{1}{2}(6x - 4y) - 5(x - y)$$'
+QLONGEST	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:248	the correct choice is far the longest, which is a tell a student can read
+QSTEM	polish	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:310	stem ends without a question mark, colon or period: '12y) + \\frac{1}{2}(6x - 4y) - 5(x - y)$$'
 QPOSITION	polish	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:1	the correct choice is authored first in 15 of 15
-QSTEM	polish	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:208	stem ends without a question mark, colon or period: 'i^2 + i^3 + i^4 + i^5 + \\dots + i^{99}$$'
-QSTEM	polish	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:250	stem ends without a question mark, colon or period: 'sqrt{-36} \\cdot \\sqrt{-4}}{\\sqrt{-16}}$$'
+QSTEM	polish	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:272	stem ends without a question mark, colon or period: 'i^2 + i^3 + i^4 + i^5 + \\dots + i^{99}$$'
+QSTEM	polish	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:328	stem ends without a question mark, colon or period: 'sqrt{-36} \\cdot \\sqrt{-4}}{\\sqrt{-16}}$$'
 QPOSITION	polish	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:1	the correct choice is authored first in 15 of 15
 QSTEM	polish	mathematics/arithmetic-number-sense/sequences-and-series.yaml:7	stem ends without a question mark, colon or period: 'd the 15th term of $5, 9, 13, 17, \\dots$'
 QSTEM	polish	mathematics/arithmetic-number-sense/sequences-and-series.yaml:35	stem ends without a question mark, colon or period: ' first 10 terms of $4, 7, 10, 13, \\dots$'
@@ -882,48 +882,48 @@ QLONGEST	important	reasoning/mechanical-technical-reasoning/pulleys-and-levers.y
 QAPPROVED	polish	reasoning/mechanical-technical-reasoning/pulleys-and-levers.yaml:231	carries approved: true
 QPOSITION	polish	reasoning/mechanical-technical-reasoning/pulleys-and-levers.yaml:1	the correct choice is authored first in 15 of 15
 QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:7	carries approved: true
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:23	carries approved: true
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:39	carries approved: true
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:55	carries approved: true
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:71	carries approved: true
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:87	carries approved: true
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:103	carries approved: true
-QLONGEST	important	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:119	the correct choice is far the longest, which is a tell a student can read
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:119	carries approved: true
-QLONGEST	important	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:135	the correct choice is far the longest, which is a tell a student can read
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:135	carries approved: true
-QLONGEST	important	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:151	the correct choice is far the longest, which is a tell a student can read
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:151	carries approved: true
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:167	carries approved: true
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:29	carries approved: true
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:51	carries approved: true
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:73	carries approved: true
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:95	carries approved: true
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:117	carries approved: true
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:139	carries approved: true
+QLONGEST	important	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:161	the correct choice is far the longest, which is a tell a student can read
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:161	carries approved: true
+QLONGEST	important	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:183	the correct choice is far the longest, which is a tell a student can read
 QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:183	carries approved: true
-QLONGEST	important	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:199	the correct choice is far the longest, which is a tell a student can read
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:199	carries approved: true
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:215	carries approved: true
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:231	carries approved: true
+QLONGEST	important	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:205	the correct choice is far the longest, which is a tell a student can read
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:205	carries approved: true
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:227	carries approved: true
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:249	carries approved: true
+QLONGEST	important	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:271	the correct choice is far the longest, which is a tell a student can read
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:271	carries approved: true
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:293	carries approved: true
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:315	carries approved: true
 QPOSITION	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:1	the correct choice is authored first in 15 of 15
 QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:7	carries approved: true
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:23	carries approved: true
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:39	carries approved: true
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:55	carries approved: true
-QLONGEST	important	reasoning/mechanical-technical-reasoning/structural-stability.yaml:71	the correct choice is far the longest, which is a tell a student can read
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:71	carries approved: true
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:87	carries approved: true
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:103	carries approved: true
-QLONGEST	important	reasoning/mechanical-technical-reasoning/structural-stability.yaml:119	the correct choice is far the longest, which is a tell a student can read
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:119	carries approved: true
-QLONGEST	important	reasoning/mechanical-technical-reasoning/structural-stability.yaml:135	the correct choice is far the longest, which is a tell a student can read
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:135	carries approved: true
-QLONGEST	important	reasoning/mechanical-technical-reasoning/structural-stability.yaml:151	the correct choice is far the longest, which is a tell a student can read
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:151	carries approved: true
-QLONGEST	important	reasoning/mechanical-technical-reasoning/structural-stability.yaml:167	the correct choice is far the longest, which is a tell a student can read
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:167	carries approved: true
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:29	carries approved: true
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:51	carries approved: true
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:73	carries approved: true
+QLONGEST	important	reasoning/mechanical-technical-reasoning/structural-stability.yaml:95	the correct choice is far the longest, which is a tell a student can read
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:95	carries approved: true
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:117	carries approved: true
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:139	carries approved: true
+QLONGEST	important	reasoning/mechanical-technical-reasoning/structural-stability.yaml:161	the correct choice is far the longest, which is a tell a student can read
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:161	carries approved: true
 QLONGEST	important	reasoning/mechanical-technical-reasoning/structural-stability.yaml:183	the correct choice is far the longest, which is a tell a student can read
 QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:183	carries approved: true
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:199	carries approved: true
-QLONGEST	important	reasoning/mechanical-technical-reasoning/structural-stability.yaml:215	the correct choice is far the longest, which is a tell a student can read
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:215	carries approved: true
-QLONGEST	important	reasoning/mechanical-technical-reasoning/structural-stability.yaml:231	the correct choice is far the longest, which is a tell a student can read
-QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:231	carries approved: true
+QLONGEST	important	reasoning/mechanical-technical-reasoning/structural-stability.yaml:205	the correct choice is far the longest, which is a tell a student can read
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:205	carries approved: true
+QLONGEST	important	reasoning/mechanical-technical-reasoning/structural-stability.yaml:227	the correct choice is far the longest, which is a tell a student can read
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:227	carries approved: true
+QLONGEST	important	reasoning/mechanical-technical-reasoning/structural-stability.yaml:249	the correct choice is far the longest, which is a tell a student can read
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:249	carries approved: true
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:271	carries approved: true
+QLONGEST	important	reasoning/mechanical-technical-reasoning/structural-stability.yaml:293	the correct choice is far the longest, which is a tell a student can read
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:293	carries approved: true
+QLONGEST	important	reasoning/mechanical-technical-reasoning/structural-stability.yaml:315	the correct choice is far the longest, which is a tell a student can read
+QAPPROVED	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:315	carries approved: true
 QPOSITION	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:1	the correct choice is authored first in 15 of 15
 QAPPROVED	polish	reasoning/spatial-abstract-reasoning/figure-grouping.yaml:7	carries approved: true
 QLONGEST	important	reasoning/spatial-abstract-reasoning/figure-grouping.yaml:23	the correct choice is far the longest, which is a tell a student can read
@@ -2101,18 +2101,6 @@ QAPPROVED	polish	science/physics/work-energy-power.yaml:193	carries approved: tr
 QSTEM	polish	science/physics/work-energy-power.yaml:207	stem ends without a question mark, colon or period: '\\text{ m/s}^2$ and energy conservation.)'
 QAPPROVED	polish	science/physics/work-energy-power.yaml:207	carries approved: true
 QPOSITION	polish	science/physics/work-energy-power.yaml:1	the correct choice is authored first in 15 of 15
-TIERB	blocker	general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
-TIERB	blocker	general-information/code-of-conduct-ra-6713/norms-of-conduct.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
-TIERB	blocker	general-information/code-of-conduct-ra-6713/penalties-and-enforcement.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
-TIERB	blocker	general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
-TIERB	blocker	general-information/environment-management/environmental-concepts.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 8 questions
-TIERB	blocker	general-information/environment-management/the-environmental-laws.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 12 questions
-TIERB	blocker	general-information/peace-and-human-rights/human-rights-fundamentals.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 8 questions
-TIERB	blocker	general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 8 questions
-TIERB	blocker	general-information/philippine-constitution/accountability-and-impeachment.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
-TIERB	blocker	general-information/philippine-constitution/bill-of-rights.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
-TIERB	blocker	general-information/philippine-constitution/the-articles-in-outline.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
-TIERB	blocker	general-information/philippine-constitution/the-civil-service-commission.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
 TIERB	blocker	language-proficiency/grammar-and-structure/modifiers.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
 TIERB	blocker	language-proficiency/grammar-and-structure/parallelism.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
 TIERB	blocker	language-proficiency/grammar-and-structure/parts-of-speech.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 20 questions
@@ -2161,35 +2149,8 @@ TIERLEAK	polish	mathematics/arithmetic-number-sense/order-of-operations.yaml:47	
 TIERB	blocker	mathematics/arithmetic-number-sense/order-of-operations.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
 TIERLEAK	important	mathematics/arithmetic-number-sense/prime-factorization-gcf-lcm.yaml:7	note A names the options, which is note B's job and is what Pro pays for
 TIERB	blocker	mathematics/arithmetic-number-sense/prime-factorization-gcf-lcm.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
-TIERLEAK	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:7	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:23	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:39	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:56	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:105	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:145	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:161	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:177	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:214	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:238	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:261	note A names the options, which is note B's job and is what Pro pays for
-TIERB	blocker	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
 TIERB	blocker	mathematics/arithmetic-number-sense/ratio-and-proportion.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
-TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:7	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:23	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:39	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:55	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:72	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:89	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:107	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:129	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:151	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:169	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:185	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:208	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:229	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:250	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	important	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:272	note A names the options, which is note B's job and is what Pro pays for
-TIERB	blocker	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
+TIERLEAK	polish	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:145	note A rules on an alternative, which edges into note B
 TIERB	blocker	mathematics/arithmetic-number-sense/sequences-and-series.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
 TIERB	blocker	mathematics/data-interpretation/rates-ratios-and-percentages-in-context.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 12 questions
 TIERB	blocker	mathematics/data-interpretation/tables-and-charts.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 12 questions
@@ -2255,8 +2216,6 @@ TIERB	blocker	reasoning/mechanical-technical-reasoning/fluid-pressure.yaml:1	no 
 TIERB	blocker	reasoning/mechanical-technical-reasoning/gear-rotations.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
 TIERLEAK	polish	reasoning/mechanical-technical-reasoning/pulleys-and-levers.yaml:119	note A rules on an alternative, which edges into note B
 TIERB	blocker	reasoning/mechanical-technical-reasoning/pulleys-and-levers.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
-TIERB	blocker	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
-TIERB	blocker	reasoning/mechanical-technical-reasoning/structural-stability.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
 TIERB	blocker	reasoning/spatial-abstract-reasoning/figure-grouping.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
 TIERB	blocker	reasoning/spatial-abstract-reasoning/figure-matrices.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
 TIERB	blocker	reasoning/spatial-abstract-reasoning/figure-series.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
@@ -2316,4 +2275,57 @@ TIERB	blocker	science/physics/two-dimensional-motion.yaml:1	no choice in this fi
 TIERB	blocker	science/physics/units-and-measurements.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
 TIERB	blocker	science/physics/waves-and-sound.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
 TIERB	blocker	science/physics/work-energy-power.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
-TIERB	blocker	summary:1	2369 questions across 158 files have no note B at all, out of 2369
+TIERB	blocker	summary:1	2153 questions across 142 files have no note B at all, out of 2369
+QDUPE	polish	general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.yaml:49	q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0003 asks what q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0001 asks, 72% the same and the same answer
+QDUPE	polish	language-proficiency/grammar-and-structure/parts-of-speech.yaml:127	q-grammar-and-structure-parts-of-speech-0009 asks what q-grammar-and-structure-parts-of-speech-0001 asks, 60% the same and the same answer
+QDUPE	polish	language-proficiency/grammar-and-structure/phrases-and-clauses.yaml:112	q-grammar-and-structure-phrases-and-clauses-0008 asks what q-grammar-and-structure-phrases-and-clauses-0004 asks, 70% the same and the same answer
+QDUPE	polish	language-proficiency/grammar-and-structure/pronoun-antecedent-agreement.yaml:97	q-grammar-and-structure-pronoun-antecedent-agreement-0007 asks what q-grammar-and-structure-pronoun-antecedent-agreement-0002 asks, 63% the same and the same answer
+QDUPE	polish	language-proficiency/grammar-and-structure/pronoun-antecedent-agreement.yaml:52	q-grammar-and-structure-pronoun-antecedent-agreement-0004 asks what q-grammar-and-structure-pronoun-antecedent-agreement-0003 asks, 74% the same and the same answer
+QDUPE	polish	language-proficiency/grammar-and-structure/pronoun-antecedent-agreement.yaml:247	q-grammar-and-structure-pronoun-antecedent-agreement-0017 asks what q-grammar-and-structure-pronoun-antecedent-agreement-0003 asks, 70% the same and the same answer
+QDUPE	polish	language-proficiency/grammar-and-structure/pronoun-antecedent-agreement.yaml:247	q-grammar-and-structure-pronoun-antecedent-agreement-0017 asks what q-grammar-and-structure-pronoun-antecedent-agreement-0004 asks, 65% the same and the same answer
+QDUPE	polish	language-proficiency/grammar-and-structure/sentence-structure.yaml:67	q-grammar-and-structure-sentence-structure-0005 asks what q-grammar-and-structure-sentence-structure-0001 asks, 61% the same and the same answer
+QDUPE	polish	language-proficiency/grammar-and-structure/subject-verb-agreement.yaml:52	q-grammar-and-structure-subject-verb-agreement-0004 asks what q-grammar-and-structure-subject-verb-agreement-0003 asks, 63% the same and the same answer
+QDUPE	polish	language-proficiency/grammar-and-structure/subject-verb-agreement.yaml:127	q-grammar-and-structure-subject-verb-agreement-0009 asks what q-grammar-and-structure-subject-verb-agreement-0005 asks, 63% the same and the same answer
+QDUPE	polish	mathematics/algebra/algebraic-expressions.yaml:166	q-algebra-algebraic-expressions-0012 asks what q-algebra-algebraic-expressions-0007 asks, 85% the same and the same answer
+QDUPE	polish	mathematics/algebra/functions-and-relations.yaml:203	q-algebra-functions-and-relations-0015 asks what q-algebra-functions-and-relations-0012 asks, 93% the same and the same answer
+QDUPE	polish	mathematics/algebra/linear-equations-inequalities.yaml:138	q-algebra-linear-equations-inequalities-0010 asks what q-algebra-linear-equations-inequalities-0001 asks, 100% the same and the same answer
+QDUPE	polish	mathematics/algebra/radicals-and-rationalization.yaml:133	q-algebra-radicals-and-rationalization-0010 asks what q-algebra-radicals-and-rationalization-0002 asks, 83% the same and the same answer
+QDUPE	polish	mathematics/algebra/systems-of-equations.yaml:236	q-algebra-systems-of-equations-0017 asks what q-algebra-systems-of-equations-0007 asks, 100% the same and the same answer
+QDUPE	polish	mathematics/precalculus-basic-calculus/limits-and-continuity.yaml:109	q-precalculus-basic-calculus-limits-and-continuity-0008 asks what q-precalculus-basic-calculus-limits-and-continuity-0002 asks, 85% the same and the same answer
+QDUPE	polish	mathematics/precalculus-basic-calculus/limits-and-continuity.yaml:169	q-precalculus-basic-calculus-limits-and-continuity-0012 asks what q-precalculus-basic-calculus-limits-and-continuity-0004 asks, 90% the same and the same answer
+QDUPE	polish	mathematics/trigonometry/unit-circle.yaml:224	q-trigonometry-unit-circle-0015 asks what q-trigonometry-unit-circle-0001 asks, 81% the same and the same answer
+QDUPE	polish	mathematics/trigonometry/unit-circle.yaml:99	q-trigonometry-unit-circle-0007 asks what q-trigonometry-unit-circle-0005 asks, 81% the same and the same answer
+QDUPE	polish	mathematics/trigonometry/unit-circle.yaml:194	q-trigonometry-unit-circle-0013 asks what q-trigonometry-unit-circle-0005 asks, 81% the same and the same answer
+QDUPE	polish	mathematics/trigonometry/unit-circle.yaml:194	q-trigonometry-unit-circle-0013 asks what q-trigonometry-unit-circle-0007 asks, 100% the same and the same answer
+QDUPE	polish	reading-comprehension/text-types/poetry.yaml:175	rc-tt-po-0008 asks what rc-tt-po-0001 asks, 69% the same and the same answer
+QDUPE	polish	reasoning/logical-verbal-reasoning/number-and-letter-sequences.yaml:202	q-logical-verbal-reasoning-number-and-letter-sequences-0014 asks what q-logical-verbal-reasoning-number-and-letter-sequences-0009 asks, 87% the same and the same answer
+QDUPE	polish	reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.yaml:37	q-logical-verbal-reasoning-truth-tables-propositional-logic-0003 asks what q-logical-verbal-reasoning-truth-tables-propositional-logic-0001 asks, 61% the same and the same answer
+QDUPE	polish	reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.yaml:52	q-logical-verbal-reasoning-truth-tables-propositional-logic-0004 asks what q-logical-verbal-reasoning-truth-tables-propositional-logic-0001 asks, 85% the same and the same answer
+QDUPE	polish	reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.yaml:82	q-logical-verbal-reasoning-truth-tables-propositional-logic-0006 asks what q-logical-verbal-reasoning-truth-tables-propositional-logic-0001 asks, 65% the same and the same answer
+QDUPE	polish	reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.yaml:142	q-logical-verbal-reasoning-truth-tables-propositional-logic-0010 asks what q-logical-verbal-reasoning-truth-tables-propositional-logic-0001 asks, 74% the same and the same answer
+QDUPE	polish	reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.yaml:187	q-logical-verbal-reasoning-truth-tables-propositional-logic-0013 asks what q-logical-verbal-reasoning-truth-tables-propositional-logic-0001 asks, 83% the same and the same answer
+QDUPE	polish	reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.yaml:52	q-logical-verbal-reasoning-truth-tables-propositional-logic-0004 asks what q-logical-verbal-reasoning-truth-tables-propositional-logic-0003 asks, 69% the same and the same answer
+QDUPE	polish	reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.yaml:82	q-logical-verbal-reasoning-truth-tables-propositional-logic-0006 asks what q-logical-verbal-reasoning-truth-tables-propositional-logic-0003 asks, 63% the same and the same answer
+QDUPE	polish	reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.yaml:187	q-logical-verbal-reasoning-truth-tables-propositional-logic-0013 asks what q-logical-verbal-reasoning-truth-tables-propositional-logic-0003 asks, 80% the same and the same answer
+QDUPE	polish	reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.yaml:82	q-logical-verbal-reasoning-truth-tables-propositional-logic-0006 asks what q-logical-verbal-reasoning-truth-tables-propositional-logic-0004 asks, 73% the same and the same answer
+QDUPE	polish	reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.yaml:187	q-logical-verbal-reasoning-truth-tables-propositional-logic-0013 asks what q-logical-verbal-reasoning-truth-tables-propositional-logic-0004 asks, 85% the same and the same answer
+QDUPE	polish	reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.yaml:187	q-logical-verbal-reasoning-truth-tables-propositional-logic-0013 asks what q-logical-verbal-reasoning-truth-tables-propositional-logic-0006 asks, 69% the same and the same answer
+QDUPE	polish	reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.yaml:67	q-logical-verbal-reasoning-truth-tables-propositional-logic-0005 asks what q-logical-verbal-reasoning-truth-tables-propositional-logic-0002 asks, 85% the same and the same answer
+QDUPE	polish	reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.yaml:97	q-logical-verbal-reasoning-truth-tables-propositional-logic-0007 asks what q-logical-verbal-reasoning-truth-tables-propositional-logic-0002 asks, 79% the same and the same answer
+QDUPE	polish	reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.yaml:97	q-logical-verbal-reasoning-truth-tables-propositional-logic-0007 asks what q-logical-verbal-reasoning-truth-tables-propositional-logic-0005 asks, 73% the same and the same answer
+QDUPE	polish	reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.yaml:157	q-logical-verbal-reasoning-truth-tables-propositional-logic-0011 asks what q-logical-verbal-reasoning-truth-tables-propositional-logic-0005 asks, 74% the same and the same answer
+QDUPE	polish	reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.yaml:232	q-logical-verbal-reasoning-truth-tables-propositional-logic-0016 asks what q-logical-verbal-reasoning-truth-tables-propositional-logic-0007 asks, 73% the same and the same answer
+QDUPE	polish	reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.yaml:232	q-logical-verbal-reasoning-truth-tables-propositional-logic-0016 asks what q-logical-verbal-reasoning-truth-tables-propositional-logic-0011 asks, 73% the same and the same answer
+QDUPE	polish	reasoning/mechanical-technical-reasoning/gear-rotations.yaml:55	q-mechanical-technical-reasoning-gear-rotations-0004 asks what q-mechanical-technical-reasoning-gear-rotations-0001 asks, 91% the same and the same answer
+QDUPE	polish	reasoning/mechanical-technical-reasoning/gear-rotations.yaml:199	q-mechanical-technical-reasoning-gear-rotations-0013 asks what q-mechanical-technical-reasoning-gear-rotations-0001 asks, 94% the same and the same answer
+QDUPE	polish	reasoning/mechanical-technical-reasoning/gear-rotations.yaml:199	q-mechanical-technical-reasoning-gear-rotations-0013 asks what q-mechanical-technical-reasoning-gear-rotations-0004 asks, 92% the same and the same answer
+QDUPE	polish	reasoning/mechanical-technical-reasoning/gear-rotations.yaml:39	q-mechanical-technical-reasoning-gear-rotations-0003 asks what q-mechanical-technical-reasoning-gear-rotations-0002 asks, 92% the same and the same answer
+QDUPE	polish	science/chemistry/atomic-structure.yaml:81	q-chemistry-atomic-structure-0006 asks what q-chemistry-atomic-structure-0005 asks, 86% the same and the same answer
+QDUPE	polish	science/chemistry/chemical-bonding.yaml:165	q-chemistry-chemical-bonding-0012 asks what q-chemistry-chemical-bonding-0001 asks, 72% the same and the same answer
+QDUPE	polish	science/chemistry/chemical-bonding.yaml:179	q-chemistry-chemical-bonding-0013 asks what q-chemistry-chemical-bonding-0002 asks, 88% the same and the same answer
+QDUPE	polish	science/chemistry/chemical-reactions.yaml:207	q-chemistry-chemical-reactions-0015 asks what q-chemistry-chemical-reactions-0002 asks, 85% the same and the same answer
+QDUPE	polish	science/chemistry/chemical-reactions.yaml:193	q-chemistry-chemical-reactions-0014 asks what q-chemistry-chemical-reactions-0008 asks, 91% the same and the same answer
+QDUPE	polish	science/chemistry/gas-laws.yaml:193	q-chemistry-gas-laws-0014 asks what q-chemistry-gas-laws-0003 asks, 73% the same and the same answer
+QDUPE	polish	science/chemistry/mixtures-and-separation.yaml:39	q-chemistry-mixtures-and-separation-0003 asks what q-chemistry-mixtures-and-separation-0001 asks, 71% the same and the same answer
+QDUPE	polish	science/chemistry/nuclear-chemistry.yaml:179	q-chemistry-nuclear-chemistry-0013 asks what q-chemistry-nuclear-chemistry-0004 asks, 89% the same and the same answer
+QDUPE	polish	science/chemistry/solutions.yaml:165	q-chemistry-solutions-0012 asks what q-chemistry-solutions-0001 asks, 77% the same and the same answer

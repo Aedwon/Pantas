@@ -122,3 +122,80 @@ parser read passages as questions with no answer, no stem and no explanation.
 Worth recording because the failure mode is general: **a sweep that does not
 understand one file shape reports that shape as broken content**, and the numbers
 look serious enough to act on.
+
+---
+
+# The tier pass, 13 August 2026
+
+**A different question from the ones above: does the corpus support the Free
+and Pro split at all?** Nothing had asked it.
+
+## The finding: Pro bought nothing at the answer reveal
+
+The reveal has two notes. **Note A** is the question's explanation and both
+tiers see it. **Note B** is written on the choice the student actually picked,
+it appears only on a miss, and it is the whole of what Pro adds there.
+
+**Not one question in the corpus had a note B.** All 2,369 of them. The screen
+that draws it has been built since the quiz tab landed, and the pipeline threw
+the field away anyway: the importer, both exporters and the content schema all
+stopped at the choice's text and whether it was correct.
+
+**So a paying student saw exactly what a free one saw, on every question.**
+
+Fixed on the code side the same day: the column, the parser, both readers, all
+three writers, and a test that follows one note from the YAML through the seed
+database to the shipping repo.
+
+## The second finding: the free note was already doing note B's job
+
+**42 explanations named the options**, and 23 of those named them by letter.
+
+The letters are a live defect, not only a tier one. **The app reshuffles choices
+per student**, so "Choice B changes the grouping" points at whatever happens to
+sit second on that student's screen.
+
+All 23 are fixed. Each lettered paragraph became a rationale on the choice it
+was about, rewritten to address the student who picked it. That is 69 notes, and
+the free explanation still explains the correct answer in full.
+
+## Where note B stands now
+
+| Subject | Questions | With note B |
+|---|---|---|
+| General Information | 156 | **156** |
+| Reasoning | 244 | 90 |
+| Mathematics | 713 | 69 |
+| Science | 777 | 0 |
+| Language Proficiency | 319 | 0 |
+| Reading Comprehension | 192 | 0 |
+
+**The rate, measured rather than guessed:** one dispatched run authored a
+subject of 12 files in a single window; another managed two files of harder
+material. Expect roughly 90 to 460 notes per run depending on how mechanical the
+subject is.
+
+**One note in twenty had a wrong claim** in the run I read line by line: it said
+a distractor halved a value it had doubled. The sweeps cannot catch that. **Read
+them before merging.**
+
+## Two questions that ask the same thing
+
+Found by a dispatched run and confirmed by hand:
+
+- `duties-and-prohibited-acts-0015` repeats `-0003`: both ask for the 45 working
+  days on an annual performance report.
+- `environmental-concepts-0005` repeats `-0003`: both answer Environmental
+  Compliance Certificate.
+
+`tools/audit/sweep_near_duplicates.py` now looks for this across the corpus. It
+reports 53, and **most are false positives by design**: truth tables and
+subject-verb drills share their wording on purpose. Read them, dismiss the
+drills, keep the prose ones.
+
+## The six lesson blockers were already fixed
+
+Verified against the corpus on 13 August: all four "underlined" cases now say
+"in bold" and the words are bold, and both Mathematics examples list their
+choices. **The reports above were stale, not the corpus.** They are marked
+resolved in place.
