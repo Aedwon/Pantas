@@ -15,8 +15,14 @@ questions:
       - text: Article XI
         correct: true
       - text: Article IX
+        rationale: |
+          You selected Article IX, which governs Constitutional Commissions. Accountability of Public Officers and impeachment are under Article XI.
       - text: Article VII
+        rationale: |
+          You picked Article VII, which covers the Executive Department. Accountability of Public Officers and Ombudsman rules sit under Article XI.
       - text: Article III
+        rationale: |
+          You chose Article III, which is the Bill of Rights. Public officer accountability and impeachment procedures are set out in Article XI.
     explanation: |
       Article XI of the 1987 Constitution is entitled Accountability of Public Officers.
 
@@ -29,8 +35,14 @@ questions:
       - text: Public office is a public trust
         correct: true
       - text: Public office is a private business
+        rationale: |
+          You selected private business, which treats public service as commercial gain. Article XI Section 1 states public office is a public trust.
       - text: Public office is a family right
+        rationale: |
+          You picked family right, which implies dynastic ownership. Section 1 explicitly declares that public office is a public trust.
       - text: Public office is a corporate franchise
+        rationale: |
+          You chose corporate franchise, which treats office as a business concession. Section 1 mandates that public office is a public trust.
     explanation: |
       Section 1 of Article XI begins with the fundamental declaration that Public office is a public trust.
 
@@ -43,8 +55,14 @@ questions:
       - text: Ombudsman
         correct: true
       - text: Cabinet Secretary
+        rationale: |
+          You selected Cabinet Secretary, who is an executive official appointed by the President. Impeachable officers are limited to 5 categories in Section 2.
       - text: Provincial Governor
+        rationale: |
+          You picked Provincial Governor, who is a local executive official. Governors are disciplined by administrative bodies, not by impeachment.
       - text: City Mayor
+        rationale: |
+          You chose City Mayor, who is a municipal executive. Local government officials are not impeachable under Article XI Section 2.
     explanation: |
       Section 2 of Article XI lists five categories of impeachable officers: President, Vice-President, Members of Supreme Court, Members of Constitutional Commissions, and the Ombudsman.
 
@@ -57,8 +75,14 @@ questions:
       - text: Senator of the Republic
         correct: true
       - text: President of the Philippines
+        rationale: |
+          You selected the President, who is the head of state. The President is explicitly listed as an impeachable officer in Article XI Section 2.
       - text: Vice-President of the Philippines
+        rationale: |
+          You picked the Vice-President, who is second in executive succession. The Vice-President is an impeachable officer under Article XI.
       - text: Member of the Supreme Court
+        rationale: |
+          You chose Member of the Supreme Court, which covers high court justices. Supreme Court Justices are impeachable officers under Article XI.
     explanation: |
       Senators and Representatives are members of Congress and are disciplined by their respective Houses under Article VI, not by impeachment under Article XI.
 
@@ -71,8 +95,14 @@ questions:
       - text: Betrayal of public trust
         correct: true
       - text: Negligence in public duties
+        rationale: |
+          You selected negligence, which is an administrative ground for lesser discipline. Betrayal of public trust is a constitutional impeachment ground.
       - text: Insubordination to superiors
+        rationale: |
+          You picked insubordination, which is an administrative infraction. Impeachment requires grave grounds like betrayal of public trust.
       - text: Minor traffic law violation
+        rationale: |
+          You chose minor traffic law violation, which is a minor infraction. Impeachment grounds require severe offenses like betrayal of public trust.
     explanation: |
       Section 2 of Article XI lists Betrayal of public trust as one of the six exclusive grounds for impeachment.
 
@@ -85,8 +115,14 @@ questions:
       - text: Inefficiency in office
         correct: true
       - text: Treason
+        rationale: |
+          You selected treason, which is an explicit constitutional ground for impeachment. Inefficiency is not an impeachment ground under Section 2.
       - text: Bribery
+        rationale: |
+          You picked bribery, which is an explicit constitutional ground for impeachment. Inefficiency in office is not an impeachment ground.
       - text: Culpable violation of the Constitution
+        rationale: |
+          You chose culpable violation of the Constitution, which is a primary impeachment ground. Inefficiency in office is not an impeachment ground.
     explanation: |
       Inefficiency is not a ground for impeachment. The six grounds are culpable violation of the Constitution, treason, bribery, graft and corruption, other high crimes, and betrayal of public trust.
 
@@ -99,8 +135,14 @@ questions:
       - text: Yes, listed under Article XI
         correct: true
       - text: No, removable by President only
+        rationale: |
+          You selected removable by President, which violates constitutional independence. Constitutional Commission members are impeachable under Article XI.
       - text: No, removable by Senate vote only
+        rationale: |
+          You picked removable by Senate vote only, which skips House impeachment initiation. Constitutional Commission members are impeachable under Section 2.
       - text: No, exempt from all proceedings
+        rationale: |
+          You chose exempt from proceedings, which grants total immunity. Members of Constitutional Commissions are explicitly subject to impeachment.
     explanation: |
       Section 2 of Article XI explicitly includes Members of the Constitutional Commissions in the closed list of impeachable officers.
 
@@ -113,8 +155,14 @@ questions:
       - text: No, not impeachable officers
         correct: true
       - text: Yes, listed as impeachable judicial officers
+        rationale: |
+          You selected impeachable judicial officers, assuming all judges are covered. Only Supreme Court Justices are impeachable under Article XI.
       - text: Yes, as full members of the supreme court bench
+        rationale: |
+          You picked full members of Supreme Court bench, which confuses trial judges with Justices. RTC judges are disciplined by the Supreme Court directly.
       - text: Yes, subject to mandatory Senate impeachment trial
+        rationale: |
+          You chose mandatory Senate trial, which applies only to the 5 impeachable categories. RTC judges are disciplined administratively by Supreme Court.
     explanation: |
       Only Members of the Supreme Court are impeachable among judicial officers. Lower court judges are disciplined by the Supreme Court.
 
@@ -127,8 +175,14 @@ questions:
       - text: Servants of the people
         correct: true
       - text: Rulers of the citizenry
+        rationale: |
+          You selected rulers of the citizenry, which reverses democratic accountability. Section 1 states public officers are servants of the people.
       - text: Private business owners
+        rationale: |
+          You picked private business owners, which treats state service as commercial enterprise. Section 1 declares officers are servants of the people.
       - text: Corporate board members
+        rationale: |
+          You chose corporate board members, which uses corporate terminology. Article XI Section 1 specifies public officers are servants of the people.
     explanation: |
       Section 1 of Article XI mandates that public officers must at all times be accountable to the people and serve them with integrity and efficiency.
 
@@ -141,8 +195,14 @@ questions:
       - text: Bribery
         correct: true
       - text: Treason
+        rationale: |
+          You selected treason, which involves waging war or aiding enemies of the state. Accepting bribes or favors to influence official action is bribery.
       - text: Betrayal of public trust
+        rationale: |
+          You picked betrayal of public trust, which is a broad catch-all ground. Receiving financial favors or gifts for official acts is bribery.
       - text: Culpable violation of law
+        rationale: |
+          You chose culpable violation of law, which involves deliberate statutory breach. Accepting money to influence official actions is bribery.
     explanation: |
       Bribery involves giving or receiving something of value to influence official action and is a specified ground for impeachment in Section 2.
 
@@ -155,8 +215,14 @@ questions:
       - text: Treason
         correct: true
       - text: Bribery
+        rationale: |
+          You picked bribery, which involves financial corruption. Levying war against the Republic or giving aid and comfort to enemies is treason.
       - text: Graft and corruption
+        rationale: |
+          You selected graft and corruption, which involves financial self-enrichment. Waging war or aiding state enemies is classified as treason.
       - text: Betrayal of public trust
+        rationale: |
+          You chose betrayal of public trust, which covers general abuse of power. Levying war or giving aid and comfort to national enemies is treason.
     explanation: |
       Treason is an explicit constitutional ground for impeachment under Article XI, Section 2.
 
@@ -169,8 +235,14 @@ questions:
       - text: 5 categories
         correct: true
       - text: 3 categories
+        rationale: |
+          You selected 3 categories, which omits Constitutional Commissions and Ombudsman. Article XI Section 2 enumerates 5 impeachable categories.
       - text: 8 categories
+        rationale: |
+          You picked 8 categories, which expands the closed statutory list. Section 2 specifies exactly 5 categories of impeachable officials.
       - text: 10 categories
+        rationale: |
+          You chose 10 categories, which doubles the constitutional list. Article XI Section 2 specifies exactly 5 impeachable officer categories.
     explanation: |
       The five impeachable categories are: President, Vice-President, Members of the Supreme Court, Members of the Constitutional Commissions, and the Ombudsman.
 
@@ -183,8 +255,14 @@ questions:
       - text: 6 grounds
         correct: true
       - text: 4 grounds
+        rationale: |
+          You selected 4 grounds, which omits key constitutional bases. Section 2 of Article XI lists exactly 6 grounds for impeachment.
       - text: 8 grounds
+        rationale: |
+          You picked 8 grounds, which adds non-constitutional categories. Section 2 of Article XI enumerates 6 specific grounds for impeachment.
       - text: 10 grounds
+        rationale: |
+          You chose 10 grounds, which overcounts the listed bases. Article XI Section 2 defines 6 constitutional grounds for impeachment.
     explanation: |
       Section 2 of Article XI lists exactly six grounds for impeachment.
 
@@ -197,8 +275,14 @@ questions:
       - text: Yes, listed in Article XI
         correct: true
       - text: No, subject to Judicial Council
+        rationale: |
+          You selected subject to Judicial Council, which confuses lower court discipline. Supreme Court Justices are impeachable under Article XI.
       - text: No, removable by President
+        rationale: |
+          You picked removable by President, which destroys judicial independence. Supreme Court Justices can only be removed through impeachment.
       - text: No, totally immune from suit
+        rationale: |
+          You chose totally immune, which misstates constitutional accountability. Supreme Court Justices are explicitly subject to impeachment.
     explanation: |
       Members of the Supreme Court are explicitly listed as impeachable officers in Article XI, Section 2.
 
@@ -211,7 +295,13 @@ questions:
       - text: Intentional violation of constitutional mandate
         correct: true
       - text: Minor clerical error in typing an official administrative memo
+        rationale: |
+          You selected minor clerical error, which is an accidental mistake. Impeachment for culpable violation requires willful, intentional breach.
       - text: Arriving late to a scheduled congressional committee hearing
+        rationale: |
+          You picked arriving late, which is a minor tardiness issue. Culpable violation of the Constitution requires deliberate, willful defiance.
       - text: Misplacing an unclassified non-essential public file folder
+        rationale: |
+          You chose misplacing a file folder, which is simple negligence. Culpable constitutional violation requires willful and intentional breach.
     explanation: |
       Culpable violation of the Constitution involves a deliberate and willful breach of constitutional provisions, not minor administrative errors.
