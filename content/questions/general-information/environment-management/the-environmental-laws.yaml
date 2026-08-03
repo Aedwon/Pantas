@@ -15,8 +15,14 @@ questions:
       - text: RA 9003
         correct: true
       - text: RA 8749
+        rationale: |
+          You picked RA 8749, which is the Clean Air Act of 1999. Solid waste management and recycling are governed by RA 9003.
       - text: RA 9275
+        rationale: |
+          You selected RA 9275, which is the Clean Water Act of 2004. Solid waste management and landfill regulation fall under RA 9003.
       - text: RA 9729
+        rationale: |
+          You chose RA 9729, which is the Climate Change Act of 2009. The Ecological Solid Waste Management Act is designated as RA 9003.
     explanation: |
       RA 9003 is titled the Ecological Solid Waste Management Act of 2000.
 
@@ -29,8 +35,14 @@ questions:
       - text: Philippine Clean Air Act of 1999
         correct: true
       - text: Ecological Solid Waste Management Act
+        rationale: |
+          You picked Ecological Solid Waste Management, which is RA 9003. RA 8749 focuses on air pollution and is the Clean Air Act of 1999.
       - text: Philippine Clean Water Act of 2004
+        rationale: |
+          You selected Clean Water Act, which is RA 9275. RA 8749 regulates air quality and industrial emissions as the Clean Air Act of 1999.
       - text: Climate Change Act of 2009
+        rationale: |
+          You chose Climate Change Act, which is RA 9729. RA 8749 regulates air emissions and pollution as the Clean Air Act of 1999.
     explanation: |
       RA 8749 is the Philippine Clean Air Act of 1999.
 
@@ -43,8 +55,14 @@ questions:
       - text: RA 9275
         correct: true
       - text: RA 9003
+        rationale: |
+          You picked RA 9003, which covers solid waste management. Water quality management and wastewater discharge permits are governed by RA 9275.
       - text: RA 8749
+        rationale: |
+          You selected RA 8749, which covers air quality management. Protection of water bodies and wastewater permits are regulated under RA 9275.
       - text: RA 10121
+        rationale: |
+          You chose RA 10121, which covers disaster risk reduction. Water quality management and wastewater permits are governed by RA 9275.
     explanation: |
       RA 9275 is the Philippine Clean Water Act of 2004.
 
@@ -57,8 +75,14 @@ questions:
       - text: Climate Change Act of 2009
         correct: true
       - text: Disaster Risk Reduction Act
+        rationale: |
+          You selected Disaster Risk Reduction Act, which is RA 10121. RA 9729 created the Climate Change Commission under the Climate Change Act of 2009.
       - text: Clean Air Act of 1999
+        rationale: |
+          You picked Clean Air Act, which is RA 8749. RA 9729 established climate adaptation policy under the Climate Change Act of 2009.
       - text: Clean Water Act of 2004
+        rationale: |
+          You chose Clean Water Act, which is RA 9275. RA 9729 created the Climate Change Commission under the Climate Change Act of 2009.
     explanation: |
       RA 9729 is the Climate Change Act of 2009.
 
@@ -71,8 +95,14 @@ questions:
       - text: RA 10121
         correct: true
       - text: RA 9003
+        rationale: |
+          You selected RA 9003, which is the Solid Waste Management Act. The Disaster Risk Reduction and Management Act of 2010 is RA 10121.
       - text: RA 9729
+        rationale: |
+          You picked RA 9729, which is the Climate Change Act. Disaster risk reduction policy and council coordination are designated as RA 10121.
       - text: RA 9147
+        rationale: |
+          You chose RA 9147, which is the Wildlife Conservation Act. The Disaster Risk Reduction and Management Act of 2010 is RA 10121.
     explanation: |
       RA 10121 is the Philippine Disaster Risk Reduction and Management Act of 2010.
 
@@ -85,8 +115,14 @@ questions:
       - text: PD 1586
         correct: true
       - text: PD 1152
+        rationale: |
+          You selected PD 1152, which is the Philippine Environment Code of 1977. The Environmental Impact Statement System was established by PD 1586.
       - text: PD 705
+        rationale: |
+          You picked PD 705, which is the Revised Forestry Code. The Environmental Impact Statement System requiring an ECC was enacted under PD 1586.
       - text: PD 984
+        rationale: |
+          You chose PD 984, which was the National Pollution Control Decree. The Environmental Impact Statement System was established under PD 1586.
     explanation: |
       PD 1586 established the Environmental Impact Statement System in the Philippines.
 
@@ -99,8 +135,14 @@ questions:
       - text: Wildlife resources and habitats
         correct: true
       - text: Solid waste recycling facilities
+        rationale: |
+          You selected solid waste recycling facilities, which are regulated by RA 9003. RA 9147 protects wildlife species and their habitats.
       - text: Air quality monitoring stations
+        rationale: |
+          You picked air quality monitoring stations, which fall under RA 8749. RA 9147 is the Wildlife Resources Conservation and Protection Act.
       - text: Industrial wastewater plants
+        rationale: |
+          You chose industrial wastewater plants, which fall under RA 9275. RA 9147 governs the conservation of wildlife resources and habitats.
     explanation: |
       RA 9147 is the Wildlife Resources Conservation and Protection Act.
 
@@ -113,8 +155,14 @@ questions:
       - text: National Integrated Protected Areas System
         correct: true
       - text: Ecological Solid Waste Diversion Management System
+        rationale: |
+          You selected solid waste management, which falls under RA 9003. RA 7586 established NIPAS for protected natural parks and reserves.
       - text: National Climate Change Action Framework System
+        rationale: |
+          You picked climate change framework, which is under RA 9729. Protected national parks and bio-reserves are governed under NIPAS by RA 7586.
       - text: Environmental Compliance Assessment Clearance System
+        rationale: |
+          You chose environmental clearance, which falls under PD 1586. RA 7586 established the protected areas system known as NIPAS.
     explanation: |
       RA 7586 established the National Integrated Protected Areas System (NIPAS).
 
@@ -127,8 +175,14 @@ questions:
       - text: Department of Environment and Natural Resources
         correct: true
       - text: Department of Interior and Local Government Office
+        rationale: |
+          You selected DILG, which oversees local government units. Primary enforcement of national environmental laws is led by DENR.
       - text: Department of Public Works and Highways Agency
+        rationale: |
+          You picked DPWH, which builds public infrastructure projects. Primary executive enforcement of environmental laws belongs to DENR.
       - text: Department of Science and Technology Executive Board
+        rationale: |
+          You chose DOST, which manages scientific research. DENR is the primary executive department tasked with enforcing environmental laws.
     explanation: |
       The Department of Environment and Natural Resources (DENR) is the primary executive department for environmental enforcement.
 
@@ -141,8 +195,14 @@ questions:
       - text: Office of the President
         correct: true
       - text: Department of Environment
+        rationale: |
+          You selected DENR, which handles natural resources. The Climate Change Commission is attached directly to the Office of the President.
       - text: National Security Council
+        rationale: |
+          You picked National Security Council, which advises on national defense. Under RA 9729, Climate Change Commission reports to the President.
       - text: Department of Energy
+        rationale: |
+          You chose Department of Energy, which handles power policy. The Climate Change Commission is attached directly to the Office of the President.
     explanation: |
       The Climate Change Commission created under RA 9729 is attached to the Office of the President.
 
@@ -155,8 +215,14 @@ questions:
       - text: RA 8749
         correct: true
       - text: RA 9003
+        rationale: |
+          You picked RA 9003, which covers solid waste management. Banning incineration of garbage and regulating emissions is under the Clean Air Act, RA 8749.
       - text: RA 9275
+        rationale: |
+          You selected RA 9275, which regulates water quality and wastewater. Banning waste incineration and air emissions is under RA 8749.
       - text: RA 7586
+        rationale: |
+          You chose RA 7586, which governs protected areas under NIPAS. Banning waste incineration and regulating air quality is under RA 8749.
     explanation: |
       Section 20 of RA 8749 (Philippine Clean Air Act) explicitly prohibits waste incineration.
 
@@ -169,7 +235,13 @@ questions:
       - text: RA 9003
         correct: true
       - text: RA 8749
+        rationale: |
+          You selected RA 8749, which is the Clean Air Act. Banning open dumpsites and requiring waste segregation at source is mandated by RA 9003.
       - text: RA 9729
+        rationale: |
+          You picked RA 9729, which is the Climate Change Act. Regulating solid waste disposal and banning open dumps is mandated under RA 9003.
       - text: RA 10121
+        rationale: |
+          You chose RA 10121, which covers disaster management. Phasing out open dumpsites and requiring waste segregation at source is under RA 9003.
     explanation: |
       RA 9003 mandates waste segregation at source and bans open dumpsites in favor of sanitary landfills.
