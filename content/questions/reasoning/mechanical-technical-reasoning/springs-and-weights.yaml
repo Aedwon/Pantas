@@ -15,7 +15,7 @@ questions:
         correct: true
       - text: "10 cm"
         rationale: |
-          You halved the original stretch instead of scaling it up. The weight increased from 2 kg to 8 kg, so the stretch must increase, not decrease.
+          You doubled the stretch when the weight went up four times. From 2 kg to 8 kg is a factor of four, so the stretch is $5 \times 4$.
       - text: "13 cm"
         rationale: |
           You added the new weight to the original stretch. Stretch and weight are different units and scale by multiplication, not addition.
