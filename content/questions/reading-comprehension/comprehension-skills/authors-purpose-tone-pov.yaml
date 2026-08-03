@@ -47,8 +47,14 @@ questions:
       - text: To persuade leaders and residents to protect historical ancestral houses.
         correct: true
       - text: To inform readers about the high construction cost of modern fast-food franchises.
+        rationale: |
+          You picked a minor economic detail mentioned in paragraph 1, mistaking it for the main persuasive goal of protecting heritage.
       - text: To entertain readers with humorous traditional stories about Ilocano artisans.
+        rationale: |
+          You picked an entertainment purpose not present in the text. The passage is a serious call for heritage protection.
       - text: To describe the detailed manufacturing process of capiz window panes.
+        rationale: |
+          You picked a specific material detail mentioned in passing, missing the author's primary persuasive purpose.
     explanation: |
       The passage uses strong persuasive language ("must act immediately", "cultural tragedy we cannot afford") to convince leaders and readers to enforce preservation laws.
 
@@ -62,8 +68,14 @@ questions:
       - text: Critical and urgent
         correct: true
       - text: Indifferent and passive
+        rationale: |
+          You picked an attitude opposite to the text. Words like commercial greed and cultural tragedy convey strong urgency and criticism.
       - text: Admiring and celebratory
+        rationale: |
+          You picked an admiring tone that contradicts the author's harsh criticism of developers razing ancestral homes.
       - text: Sarcastic and playful
+        rationale: |
+          You misidentified the emotional register. The author's tone is serious and urgent, not sarcastic or playful.
     explanation: |
       Phrases like "commercial greed", "cultural tragedy", and "sterile glass storefronts" convey a strongly critical and urgent tone against un-regulated development.
 
@@ -77,8 +89,14 @@ questions:
       - text: First person plural ("we" and "our"), expressing a shared community perspective.
         correct: true
       - text: First person singular ("I"), recounting a private diary entry.
+        rationale: |
+          You picked first person singular. The passage uses plural pronouns like we, our heritage, and our identity.
       - text: Third person limited, focusing exclusively on one property developer's thoughts.
+        rationale: |
+          You picked third person limited, but the author directly addresses readers using inclusive plural pronouns like we and our.
       - text: Second person ("you"), providing step-by-step instructions.
+        rationale: |
+          You picked second person instructions. The text uses first-person plural pronouns to rally community action.
     explanation: |
       The author uses "we cannot afford", "our heritage", and "our identity", which is first person plural used to address and represent the community.
 
@@ -92,8 +110,14 @@ questions:
       - text: Preservation forms the foundation of long-term tourism vitality.
         correct: true
       - text: Preservation permanently destroys all local commercial investment opportunities.
+        rationale: |
+          You picked a view opposite to the author's argument. The author asserts heritage supports tourism and economy.
       - text: Economic progress requires tearing down all heritage buildings constructed before 1900.
+        rationale: |
+          You picked the argument made by commercial developers, which the author strongly opposes throughout the text.
       - text: Heritage preservation is far less important than short-term tax collection.
+        rationale: |
+          You picked a commercial perspective rejected by the author, who calls short-term financial gain a mistake.
     explanation: |
       The author explicitly states that heritage is not an obstacle to economic progress but the foundation of Vigan's long-term tourism vitality.
 
@@ -107,8 +131,14 @@ questions:
       - text: Emotional words contrasting heritage with sterile structures.
         correct: true
       - text: Statistical data tables comparing annual municipal tax revenue figures.
+        rationale: |
+          You picked a statistical device not present in the text. The author uses loaded descriptive words rather than tables.
       - text: Humorous scripted dialogues between property investors and city officials.
+        rationale: |
+          You picked a theatrical dialogue device not found in the passage.
       - text: Rhyming poetic stanzas emphasizing local architectural history.
+        rationale: |
+          You picked a poetic form. The passage is written in persuasive argumentative prose.
     explanation: |
       The author uses emotionally charged language ("authentic craftsmanship" vs "sterile glass storefronts") to emphasize the contrast in values.
 
@@ -122,8 +152,14 @@ questions:
       - text: First person ("I" and "my")
         correct: true
       - text: Second person ("you")
+        rationale: |
+          You picked second person. The passage is written from the personal first-person stance of the narrator (I stood, my family home).
       - text: Third person limited narrative
+        rationale: |
+          You picked third person limited, ignoring the explicit use of first-person pronouns throughout the narrative.
       - text: Third person omniscient perspective
+        rationale: |
+          You picked third person omniscient, missing the personal first-person memory narrative structure.
     explanation: |
       The passage uses "I stood at the railing", "my family home", "my grandmother", establishing first-person narrative perspective.
 
@@ -137,8 +173,14 @@ questions:
       - text: Nostalgic and reflective
         correct: true
       - text: Bitter and resentful
+        rationale: |
+          You misread the emotion. Reconnecting with family and childhood scents creates a nostalgic, reflective mood, not bitterness.
       - text: Scientific and objective
+        rationale: |
+          You picked a clinical tone that contradicts the personal emotional memories described in the story.
       - text: Fearful and suspicious
+        rationale: |
+          You picked a hostile tone unsupported by the warm greetings and emotional comfort described in the text.
     explanation: |
       Sensory memories of lechon and greetings, combined with reflecting on passing time and self-identity, create a nostalgic and reflective tone.
 
@@ -152,8 +194,14 @@ questions:
       - text: To reflect on how returning home reconnects with personal roots.
         correct: true
       - text: To persuade tourists and readers to buy residential property near Ormoc Bay.
+        rationale: |
+          You picked a commercial real estate motivation not present in this reflective personal essay.
       - text: To inform tourists about passenger ferry ticket prices between Manila and Leyte.
+        rationale: |
+          You picked a practical travel detail missing from the passage. The story focuses on personal reconnection.
       - text: To criticize university higher education systems across Manila.
+        rationale: |
+          You picked a critical academic purpose not supported by the narrator's personal reflections.
     explanation: |
       The narrator concludes that being back home allowed them to pause and remember who they were, showing the reflective purpose of the narrative.
 
@@ -167,8 +215,14 @@ questions:
       - text: Solitary routine in Manila versus warm communal belonging in Leyte.
         correct: true
       - text: High agricultural income in Manila versus low university tuition fees in Leyte.
+        rationale: |
+          You introduced tuition and farming income details that are not discussed in the narrative.
       - text: Quiet coastal atmosphere in Manila versus loud urban traffic in Leyte.
+        rationale: |
+          You inverted the locations. Manila has noisy traffic while Leyte provides a coastal hometown atmosphere.
       - text: Warm family support in Manila versus cold social isolation in Leyte.
+        rationale: |
+          You reversed the passage contrast. Manila felt isolated (eating alone), while Leyte offered warm family greetings.
     explanation: |
       The text contrasts "noisy traffic, crowded dormitories, and fast-food dinners eaten alone" in Manila with warm greetings, family embrace, and communal rhythms in Leyte.
 
@@ -182,8 +236,14 @@ questions:
       - text: Awareness of aging and the passage of time during absence.
         correct: true
       - text: The grandmother's personal preference for modern hair treatments in Leyte.
+        rationale: |
+          You inferred a cosmetic preference. Noticing silvered hair highlights time passing while studying away.
       - text: Conclusive proof that the narrator was living away for over twenty years.
+        rationale: |
+          You picked a timeframe contradicting the text statement that the narrator was away for three years.
       - text: Evidence that rural life in Leyte is stressful for elderly relatives.
+        rationale: |
+          You inferred stress from aging. Silvered hair naturally marks the passage of three years' time.
     explanation: |
       Noticing silvered hair highlights the passage of time during three years away at university, adding to the bittersweet reflection.
 
@@ -197,8 +257,14 @@ questions:
       - text: To inform readers about scientific causes of bioluminescent plankton.
         correct: true
       - text: To persuade tourists to book commercial guided night dives in Sarangani Bay.
+        rationale: |
+          You picked a commercial promotional purpose, whereas the passage provides objective scientific explanations.
       - text: To entertain readers with mythical ancient stories of glowing sea monsters.
+        rationale: |
+          You picked a folklore purpose not found in this factual marine biology text.
       - text: To criticize government marine biologists for banning local shellfish harvesting.
+        rationale: |
+          You picked a critical stance that contradicts the text's approval of regular water testing for public safety.
     explanation: |
       The text provides factual explanations of dinoflagellates, cell thresholds, and water testing, fulfilling an informative scientific purpose.
 
@@ -212,8 +278,14 @@ questions:
       - text: Objective and informative
         correct: true
       - text: Highly emotional and dramatic
+        rationale: |
+          You picked an emotional tone that contradicts the neutral scientific language used in the passage.
       - text: Sarcastic and skeptical
+        rationale: |
+          You picked a sarcastic tone unsupported by the factual marine biology descriptions.
       - text: Romantic and poetic
+        rationale: |
+          You mistook scientific descriptions of glowing plankton for romantic poetry. The tone remains objective throughout.
     explanation: |
       The author uses clear scientific terminology ("biochemical reactions", "dinoflagellate", "paralytic shellfish poisoning") without emotional bias, keeping an objective tone.
 
@@ -227,8 +299,14 @@ questions:
       - text: Third person objective
         correct: true
       - text: First person singular ("I")
+        rationale: |
+          You picked first person singular. The passage contains no personal pronouns like I or my.
       - text: Second person ("you")
+        rationale: |
+          You picked second person. The text uses third person objective reporting without addressing the reader directly.
       - text: First person plural ("we")
+        rationale: |
+          You picked first person plural. The text uses third-person neutral scientific descriptions throughout.
     explanation: |
       The narrator remains neutral outside the text, presenting facts about Sarangani Bay without personal pronouns or subjective viewpoints.
 
@@ -242,8 +320,14 @@ questions:
       - text: To show how environmental monitoring balances benefits with health risks.
         correct: true
       - text: To argue that ecotourism activities should be permanently banned in Sarangani Bay.
+        rationale: |
+          You picked an extreme policy stance not advocated by the author, who supports balanced monitoring.
       - text: To prove that bioluminescent dinoflagellate plankton cannot survive near fishponds.
+        rationale: |
+          You picked a false biological claim. High plankton blooms occur near agricultural and fishpond runoff.
       - text: To show that marine biologists prefer local shellfish over ecotourism revenue.
+        rationale: |
+          You picked a false conflict. Monitoring ensures ecotourism operates safely without health risks from contaminated shellfish.
     explanation: |
       Mentioning both ecotourism appeal and health bans illustrates the dual role of environmental monitoring in balancing safety with economic activities.
 
@@ -257,7 +341,13 @@ questions:
       - text: "primarily driven by dense blooms of Pyrodinium bahamense"
         correct: true
       - text: "magical glowing waters of enchanted southern Mindanao"
+        rationale: |
+          You picked emotional promotional phrasing not found in this objective scientific text.
       - text: "reckless industrial expansion of dangerous coastal fishponds"
+        rationale: |
+          You picked biased sensational phrasing. The passage neutrally mentions fishpond effluents and runoff.
       - text: "frightening chemical toxicity threatening unaware local swimmers"
+        rationale: |
+          You picked alarmist emotional phrasing that contradicts the objective tone of the text.
     explanation: |
       The precise botanical name and neutral descriptive language represent the passage's objective scientific perspective.
