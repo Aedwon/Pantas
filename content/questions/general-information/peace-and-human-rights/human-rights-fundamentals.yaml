@@ -15,8 +15,14 @@ questions:
       - text: Article XIII
         correct: true
       - text: Article III
+        rationale: |
+          You selected Article III, which is the Bill of Rights. The Commission on Human Rights itself is established under Article XIII.
       - text: Article IX
+        rationale: |
+          You picked Article IX, which governs Constitutional Commissions like CSC and COMELEC. The CHR is created under Article XIII.
       - text: Article XI
+        rationale: |
+          You chose Article XI, which covers Accountability of Public Officers. Creation of the CHR is mandated in Article XIII.
     explanation: |
       Article XIII (Social Justice and Human Rights) mandates the creation of the independent Commission on Human Rights.
 
@@ -29,8 +35,14 @@ questions:
       - text: Social Justice and Human Rights
         correct: true
       - text: Bill of Rights and Constitutional Freedoms
+        rationale: |
+          You selected Bill of Rights, which is the title of Article III. Article XIII is officially titled Social Justice and Human Rights.
       - text: General Provisions and Public Office Rules
+        rationale: |
+          You picked General Provisions, which corresponds to Article XVI. Article XIII is titled Social Justice and Human Rights.
       - text: Declaration of Principles and State Policy
+        rationale: |
+          You chose Declaration of Principles, which is the title of Article II. Article XIII is titled Social Justice and Human Rights.
     explanation: |
       Article XIII of the 1987 Constitution is titled Social Justice and Human Rights.
 
@@ -43,8 +55,14 @@ questions:
       - text: Article III
         correct: true
       - text: Article I
+        rationale: |
+          You selected Article I, which defines the National Territory. Individual civil and political rights are guaranteed in Article III.
       - text: Article IV
+        rationale: |
+          You picked Article IV, which defines Philippine Citizenship. The fundamental domestic guarantee of human rights is Article III.
       - text: Article V
+        rationale: |
+          You chose Article V, which governs Suffrage. The primary constitutional guarantee of individual rights is the Bill of Rights in Article III.
     explanation: |
       Article III (Bill of Rights) is the fundamental domestic guarantee of civil and political rights.
 
@@ -57,8 +75,14 @@ questions:
       - text: State authorities
         correct: true
       - text: Private corporate executives
+        rationale: |
+          You selected corporate executives, who are governed by civil and criminal laws. International human rights law directly binds state authorities.
       - text: International tourist travelers
+        rationale: |
+          You picked international tourists, who are individual visitors. Human rights treaties primarily bind state authorities to protect people.
       - text: Foreign commercial shipping firms
+        rationale: |
+          You chose foreign shipping firms, which are private maritime entities. Legal obligations under human rights law bind state authorities.
     explanation: |
       Human rights law primarily places legal duties on state authorities to respect and protect individuals within their jurisdiction.
 
@@ -71,8 +95,14 @@ questions:
       - text: Possessed by virtue of humanity
         correct: true
       - text: Granted exclusively by government presidential decree
+        rationale: |
+          You selected presidential decree, which treats rights as government gifts. Human rights are inherent and possessed by virtue of humanity.
       - text: Conditioned upon paying annual state property income taxes
+        rationale: |
+          You picked paying property taxes, which confuses financial taxes with human rights. Rights exist inherently by virtue of being human.
       - text: Restricted to wealthy landholding property title holders
+        rationale: |
+          You chose landholding property holders, which limits rights to wealth. Human rights are universal and possessed by virtue of humanity.
     explanation: |
       Human rights are inherent to every person by virtue of being human, rather than granted by government favor.
 
@@ -85,8 +115,14 @@ questions:
       - text: Commission on Human Rights
         correct: true
       - text: National Security Council office
+        rationale: |
+          You picked National Security Council, which handles national security policy. The constitutional body for human rights is the CHR.
       - text: Department of Justice secretariat
+        rationale: |
+          You selected Department of Justice, which is an executive prosecutorial arm. The independent body created by the Constitution is the CHR.
       - text: Armed Forces Grievance tribunal
+        rationale: |
+          You chose Armed Forces tribunal, which is an internal military body. The independent constitutional human rights office is the CHR.
     explanation: |
       The Commission on Human Rights is created under Section 17 of Article XIII of the Constitution.
 
@@ -99,8 +135,14 @@ questions:
       - text: At all times in peace and conflict
         correct: true
       - text: Only during formally declared active international wartime
+        rationale: |
+          You selected active wartime only, confusing human rights with humanitarian law. Human rights law applies at all times in peace and conflict.
       - text: Only during official national presidential election periods
+        rationale: |
+          You picked election periods, which are temporary political events. Human rights protection applies continuously in peace and conflict.
       - text: Only during municipal emergency disaster curfew hours
+        rationale: |
+          You chose emergency curfew hours, which are brief local measures. Human rights apply at all times during both peacetime and conflict.
     explanation: |
       Human rights law applies at all times, during peacetime as well as during armed conflict.
 
@@ -113,7 +155,13 @@ questions:
       - text: Inherent to human dignity
         correct: true
       - text: Revocable at any local mayor personal discretion
+        rationale: |
+          You selected local mayor discretion, which treats rights as local permits. Human rights are non-revocable and inherent to human dignity.
       - text: Expiring automatically after five calendar years
+        rationale: |
+          You picked automatic expiration, which treats rights as temporary licenses. Human rights never expire and are inherent to human dignity.
       - text: Subject to mandatory monthly state fee payment
+        rationale: |
+          You chose monthly fee payment, which treats rights as paid services. Human rights are universal, free, and inherent to human dignity.
     explanation: |
       Human rights are inherent to human dignity, unlike statutory privileges which are granted and regulated by legislation.
