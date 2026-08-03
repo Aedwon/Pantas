@@ -38,8 +38,14 @@ questions:
       - text: Engineers requested intake filter replacements.
         correct: true
       - text: The municipal filtration facility unexpectedly suspended operations.
+        rationale: |
+          You picked the June event that opens the passage. The filter replacement request was submitted earlier in January.
       - text: Procurement committee delayed approval during contested budget disputes.
+        rationale: |
+          You picked the March delay. The filter replacement request occurred earlier in January.
       - text: Replacement turbine parts arrived from Cebu.
+        rationale: |
+          You picked the final event of the passage in July, rather than the earliest event in January.
     explanation: |
       Although the passage opens with the June shutdown, engineers had submitted the filter replacement request in January, making it the earliest event in chronological time.
 
@@ -53,8 +59,14 @@ questions:
       - text: (3) Procurement delayed approval → (1) Emergency flushings attempted → (2) Turbines seized
         correct: true
       - text: (2) Turbines seized → (3) Procurement delayed approval → (1) Emergency flushings attempted
+        rationale: |
+          You followed text order rather than chronological order. Procurement delayed in March, flushings occurred in May, and turbines seized in June.
       - text: (1) Emergency flushings attempted → (2) Turbines seized → (3) Procurement delayed approval
+        rationale: |
+          You placed the March procurement delay at the end of the sequence instead of at the beginning.
       - text: (3) Procurement delayed approval → (2) Turbines seized → (1) Emergency flushings attempted
+        rationale: |
+          You placed the May emergency flushings after the June turbine failure. Flushings were attempted before the failure occurred.
     explanation: |
       Procurement delayed approval occurred in March, emergency flushings were attempted in early May, and the turbines seized in June.
 
@@ -68,8 +80,14 @@ questions:
       - text: Replacement turbine parts were ordered from Cebu.
         correct: true
       - text: Engineers submitted the initial filter replacement request.
+        rationale: |
+          You picked the January event that occurred months before the June turbine failure.
       - text: Worn filter meshes began allowing coarse river gravel to enter chambers.
+        rationale: |
+          You picked the April cause that led to the turbine seizure, not the event that followed it.
       - text: Maintenance engineers conducted scheduled January inspections.
+        rationale: |
+          You picked an event from January, five months before the June incident.
     explanation: |
       The passage notes that replacement turbine parts were ordered during the June emergency that followed the turbine failure.
 
@@ -83,8 +101,14 @@ questions:
       - text: The text opens with the outcome before reviewing causes.
         correct: true
       - text: The author confused the month of January with the month of July.
+        rationale: |
+          You assumed an author error. The passage purposefully uses a reverse narrative structure to explain the root causes of the June shutdown.
       - text: Replacement parts were manufactured before the facility was constructed.
+        rationale: |
+          You picked a false chronological assumption not supported by the text.
       - text: Technicians performed maintenance after full operations were completed.
+        rationale: |
+          You misread the sequence. Emergency flushings were performed in May before the June shutdown occurred.
     explanation: |
       Explanatory news reports frequently state the dramatic outcome (the June shutdown) first, then detail the preceding sequence of causes (January to May).
 
@@ -98,8 +122,14 @@ questions:
       - text: Full filtration operations were restored on July 2.
         correct: true
       - text: Main intake turbines seized on June 15.
+        rationale: |
+          You picked the June shutdown event. Operations were later restored on July 2 after replacement parts arrived.
       - text: Procurement committee delayed budget approvals in March.
+        rationale: |
+          You picked a middle event from March, long before operations were restored in July.
       - text: Emergency flushings were performed in May.
+        rationale: |
+          You picked an event from May, which preceded both the June shutdown and the July restoration.
     explanation: |
       Full operations were restored on July 2 after replacement parts arrived, representing the final event in the chronological sequence.
 
@@ -113,8 +143,14 @@ questions:
       - text: Captain Mendoza received early storm warnings on Sunday afternoon.
         correct: true
       - text: Typhoon Egay breached an earthen dike upstream on Monday evening.
+        rationale: |
+          You picked the Monday evening event. The captain received storm warnings earlier on Sunday afternoon.
       - text: Captain Mendoza walked through the village sounding an iron gong at midnight.
+        rationale: |
+          You picked the midnight event. Warnings were received on Sunday, and the gong was sounded late Monday night.
       - text: Rescue motorboats reached the chapel at six in the morning on Tuesday.
+        rationale: |
+          You picked the final rescue event on Tuesday morning rather than the opening warning on Sunday.
     explanation: |
       Although mentioned midway through the text, receiving early storm warnings on Sunday afternoon is the earliest event in time.
 
@@ -128,8 +164,14 @@ questions:
       - text: (1) Elderly residents moved → (2) Earthen dike breached → (3) Rescue boats evacuated villagers
         correct: true
       - text: (3) Rescue boats evacuated villagers → (1) Elderly residents moved → (2) Earthen dike breached
+        rationale: |
+          You followed the narrative opening order rather than actual time order. Elderly moved Sunday/Monday, dike burst Monday, boats arrived Tuesday.
       - text: (2) Earthen dike breached → (3) Rescue boats evacuated villagers → (1) Elderly residents moved
+        rationale: |
+          You placed the evacuation of elderly residents at the end, but they were instructed to move hours before the dike burst.
       - text: (1) Elderly residents moved → (3) Rescue boats evacuated villagers → (2) Earthen dike breached
+        rationale: |
+          You placed the Tuesday boat rescue before the Monday night dike breach.
     explanation: |
       Elderly residents moved hours before the dike burst late Monday, and motorboats evacuated them early Tuesday morning.
 
@@ -143,8 +185,14 @@ questions:
       - text: The phrase "Hours before the dike burst... had already instructed"
         correct: true
       - text: The phrase "At six in the morning on Tuesday"
+        rationale: |
+          You picked a phrase indicating the time of the boat rescue on Tuesday, not when residents were instructed to move.
       - text: The phrase "By Monday night, floodwaters had completely submerged"
+        rationale: |
+          You picked a phrase describing the flooding severity on Monday night, not the earlier movement signal.
       - text: The phrase "At midnight, Barangay Captain Carlos Mendoza had walked"
+        rationale: |
+          You picked the timestamp for the gong warning at midnight, which happened after the dike burst.
     explanation: |
       The signal phrase "Hours before the dike burst... had already instructed" uses past perfect grammar to explicitly mark the earlier timing of the instruction.
 
@@ -158,8 +206,14 @@ questions:
       - text: Captain Mendoza sounded an iron gong at midnight.
         correct: true
       - text: Disaster officials issued initial storm warnings on Sunday afternoon.
+        rationale: |
+          You picked an event from Sunday afternoon, which occurred before the dike burst late Monday.
       - text: Rescue boats arrived from Manila on Wednesday afternoon.
+        rationale: |
+          You picked a detail not mentioned in the text. Rescue boats arrived at six in the morning on Tuesday.
       - text: Elderly residents began packing their bags on Sunday morning.
+        rationale: |
+          You picked an event from Sunday, prior to the Monday dike breach.
     explanation: |
       The passage states that after Typhoon Egay breached the dike late Monday, Captain Mendoza walked through the village sounding an iron gong at midnight.
 
@@ -173,7 +227,13 @@ questions:
       - text: The story begins with Tuesday, flashing back to Sunday.
         correct: true
       - text: The passage fails to mention any specific days of the week or time indicators.
+        rationale: |
+          You picked a false claim. The passage explicitly names Sunday, Monday, Tuesday, midnight, and six in the morning.
       - text: The rescue boats arrived before the major typhoon occurred.
+        rationale: |
+          You misread the text. The rescue boats arrived on Tuesday morning after the typhoon hit on Monday.
       - text: Captain Mendoza instructed residents after the rescue was completed.
+        rationale: |
+          You picked a sequence that contradicts the text. Mendoza instructed elderly residents hours before the dike burst.
     explanation: |
       Opening with the Tuesday rescue and then jumping back to Sunday and Monday requires the reader to resequence the non-chronological narrative.
