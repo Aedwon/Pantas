@@ -15,8 +15,14 @@ questions:
       - text: 18 articles
         correct: true
       - text: 12 articles
+        rationale: |
+          You selected 12 articles, which leaves out major sections. The 1987 Constitution consists of a Preamble and 18 numbered articles.
       - text: 15 articles
+        rationale: |
+          You picked 15 articles, which misses three final articles. The 1987 Constitution contains 18 numbered articles.
       - text: 20 articles
+        rationale: |
+          You chose 20 articles, which overcounts the actual text. The 1987 Constitution has a total of 18 numbered articles.
     explanation: |
       The 1987 Constitution consists of a Preamble followed by 18 numbered Articles.
 
@@ -29,8 +35,14 @@ questions:
       - text: Article III
         correct: true
       - text: Article I
+        rationale: |
+          You selected Article I, which defines the National Territory. The Bill of Rights is contained in Article III.
       - text: Article V
+        rationale: |
+          You picked Article V, which governs Suffrage. The Bill of Rights is contained in Article III.
       - text: Article VII
+        rationale: |
+          You chose Article VII, which defines the Executive Department. The Bill of Rights is contained in Article III.
     explanation: |
       Article III of the 1987 Constitution is entitled the Bill of Rights.
 
@@ -43,8 +55,14 @@ questions:
       - text: Article IV
         correct: true
       - text: Article II
+        rationale: |
+          You selected Article II, which states Principles and State Policies. Philippine Citizenship is governed by Article IV.
       - text: Article VI
+        rationale: |
+          You picked Article VI, which governs the Legislative Department. Citizenship rules are set out in Article IV.
       - text: Article VIII
+        rationale: |
+          You chose Article VIII, which defines the Judicial Department. Citizenship provisions sit in Article IV.
     explanation: |
       Article IV of the 1987 Constitution defines Philippine Citizenship.
 
@@ -57,8 +75,14 @@ questions:
       - text: Suffrage
         correct: true
       - text: Citizenship
+        rationale: |
+          You selected Citizenship, which is covered in Article IV. Article V exclusively governs Suffrage and voting rights.
       - text: Bill of Rights
+        rationale: |
+          You picked Bill of Rights, which is covered in Article III. Article V deals with Suffrage and electoral qualifications.
       - text: Local Government
+        rationale: |
+          You chose Local Government, which is governed by Article X. Article V addresses Suffrage and the right to vote.
     explanation: |
       Article V of the 1987 Constitution governs Suffrage.
 
@@ -71,8 +95,14 @@ questions:
       - text: Article VII
         correct: true
       - text: Article VI
+        rationale: |
+          You selected Article VI, which details the Legislative Department. The Executive Department is governed by Article VII.
       - text: Article VIII
+        rationale: |
+          You picked Article VIII, which details the Judicial Department. The Executive Department is defined in Article VII.
       - text: Article IX
+        rationale: |
+          You chose Article IX, which governs Constitutional Commissions. The Executive Department is set out in Article VII.
     explanation: |
       Article VII of the 1987 Constitution details the Executive Department.
 
@@ -85,8 +115,14 @@ questions:
       - text: Constitutional Commissions
         correct: true
       - text: Accountability of Public Officers
+        rationale: |
+          You selected Accountability of Public Officers, which is Article XI. Article IX is dedicated to Constitutional Commissions.
       - text: Social Justice and Human Rights
+        rationale: |
+          You picked Social Justice and Human Rights, which is Article XIII. Article IX governs the Constitutional Commissions.
       - text: National Economy and Patrimony
+        rationale: |
+          You chose National Economy and Patrimony, which is Article XII. Article IX is dedicated to Constitutional Commissions.
     explanation: |
       Article IX governs the independent Constitutional Commissions (CSC, COMELEC, and COA).
 
@@ -99,8 +135,14 @@ questions:
       - text: Article X
         correct: true
       - text: Article VIII
+        rationale: |
+          You selected Article VIII, which covers the Judicial Department. Local Government units and autonomy are governed by Article X.
       - text: Article XII
+        rationale: |
+          You picked Article XII, which covers National Economy and Patrimony. Local Government is set out in Article X.
       - text: Article XIV
+        rationale: |
+          You chose Article XIV, which covers Education, Science and Culture. Local Government provisions sit in Article X.
     explanation: |
       Article X of the 1987 Constitution governs Local Government units.
 
@@ -113,8 +155,14 @@ questions:
       - text: Accountability of Public Officers
         correct: true
       - text: Transitory Provisions structure
+        rationale: |
+          You selected Transitory Provisions, which is Article XVIII. Article XI regulates government ethics and impeachment of high officials.
       - text: Amendments or Revisions procedure
+        rationale: |
+          You picked Amendments or Revisions, which is Article XVII. Article XI sets rules for public officer integrity and the Ombudsman.
       - text: General Provisions outline
+        rationale: |
+          You chose General Provisions, which is Article XVI. Article XI details standards of public trust and official accountability.
     explanation: |
       Article XI is titled Accountability of Public Officers.
 
@@ -127,8 +175,14 @@ questions:
       - text: Article XIV
         correct: true
       - text: Article XII
+        rationale: |
+          You selected Article XII, which covers National Economy and Patrimony. Academic institutions, research, and sports policy sit in Article XIV.
       - text: Article XIII
+        rationale: |
+          You picked Article XIII, which covers Social Justice and Human Rights. Schooling, scientific advancement, and national heritage sit in Article XIV.
       - text: Article XV
+        rationale: |
+          You chose Article XV, which covers The Family. Educational mandates, state research, and cultural promotion are set out in Article XIV.
     explanation: |
       Article XIV covers Education, Science and Technology, Arts, Culture and Sports.
 
@@ -141,8 +195,14 @@ questions:
       - text: Article XVII
         correct: true
       - text: Article XV
+        rationale: |
+          You selected Article XV, which covers The Family. Amendments or Revisions to the Constitution are governed by Article XVII.
       - text: Article XVI
+        rationale: |
+          You picked Article XVI, which covers General Provisions. Constitutional Amendments or Revisions sit in Article XVII.
       - text: Article XVIII
+        rationale: |
+          You chose Article XVIII, which covers Transitory Provisions. Procedures for Amendments or Revisions are in Article XVII.
     explanation: |
       Article XVII governs Amendments or Revisions to the Constitution.
 
@@ -155,8 +215,14 @@ questions:
       - text: Article VIII
         correct: true
       - text: Article VI
+        rationale: |
+          You selected Article VI, which details the Legislative Department. The Judicial Department is defined in Article VIII.
       - text: Article VII
+        rationale: |
+          You picked Article VII, which details the Executive Department. The Judicial Department is defined in Article VIII.
       - text: Article IX
+        rationale: |
+          You chose Article IX, which details Constitutional Commissions. The Judicial Department is defined in Article VIII.
     explanation: |
       Article VIII defines the Judicial Department and judicial power.
 
@@ -169,8 +235,14 @@ questions:
       - text: National Economy and Patrimony
         correct: true
       - text: Social Justice and Human Rights
+        rationale: |
+          You selected Social Justice and Human Rights, which belongs to Article XIII. Article XII defines state policies on national resources and economic ownership.
       - text: General Provisions outline
+        rationale: |
+          You picked General Provisions, which is Article XVI. Article XII focuses on national economic wealth and public domain resources.
       - text: Transitory Provisions rules
+        rationale: |
+          You chose Transitory Provisions, which is Article XVIII. Article XII regulates national state ownership and economic development.
     explanation: |
       Article XII governs National Economy and Patrimony.
 
@@ -183,8 +255,14 @@ questions:
       - text: Article XV
         correct: true
       - text: Article XIII
+        rationale: |
+          You selected Article XIII, which covers Social Justice and Human Rights. Article XV is titled The Family.
       - text: Article XIV
+        rationale: |
+          You picked Article XIV, which covers Education, Science and Culture. Article XV is titled The Family.
       - text: Article XVI
+        rationale: |
+          You chose Article XVI, which covers General Provisions. Article XV is titled The Family.
     explanation: |
       Article XV is titled The Family.
 
@@ -197,8 +275,14 @@ questions:
       - text: National Territory
         correct: true
       - text: Declaration of Principles and State Policies
+        rationale: |
+          You selected Declaration of Principles, which is Article II. Article I defines the National Territory of the Philippines.
       - text: Accountability of Public Officers in office
+        rationale: |
+          You picked Accountability of Public Officers, which is Article XI. Article I defines the National Territory.
       - text: Constitutional Commissions administrative rules
+        rationale: |
+          You chose Constitutional Commissions, which is Article IX. Article I defines the National Territory.
     explanation: |
       Article I defines the National Territory of the Philippines.
 
@@ -211,7 +295,13 @@ questions:
       - text: Article VI
         correct: true
       - text: Article V
+        rationale: |
+          You selected Article V, which covers Suffrage. The Legislative Department (Congress) is defined in Article VI.
       - text: Article VII
+        rationale: |
+          You picked Article VII, which covers the Executive Department. The Legislative Department is set out in Article VI.
       - text: Article VIII
+        rationale: |
+          You chose Article VIII, which covers the Judicial Department. The Legislative Department is set out in Article VI.
     explanation: |
       Article VI details the Legislative Department (Congress of the Philippines).
