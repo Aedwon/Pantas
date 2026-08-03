@@ -15,8 +15,14 @@ questions:
       - text: 15 working days
         correct: true
       - text: 30 working days
+        rationale: |
+          You picked 30 days, which is twice the statutory limit. RA 6713 requires action within 15 working days so public requests are resolved quickly.
       - text: 45 working days
+        rationale: |
+          You selected 45 days, which is the deadline for annual reports rather than daily letters. Official responses must go out within 15 working days.
       - text: 60 working days
+        rationale: |
+          You chose 60 days, which is far too long for simple correspondence. Public officers must act on letters within 15 working days.
     explanation: |
       Section 5(a) of RA 6713 mandates that all public officials and employees act on letters and requests within 15 working days from receipt.
 
@@ -29,8 +35,14 @@ questions:
       - text: At most three signatures
         correct: true
       - text: At most five official signatures
+        rationale: |
+          You picked five signatures, which allows excessive bureaucracy. Section 5 limits written actions to at most three initials or signatures.
       - text: At most four official signatures
+        rationale: |
+          You chose four signatures, which is still above the legal limit. The law caps total initials or signatures at three to cut red tape.
       - text: At most six official signatures
+        rationale: |
+          You selected six signatures, which doubles the allowed limit. RA 6713 strictly limits official approval trails to at most three signatures.
     explanation: |
       Section 5(b) requires that written actions contain no more than three initials or signatures.
 
@@ -43,8 +55,14 @@ questions:
       - text: 45 working days
         correct: true
       - text: 30 working days
+        rationale: |
+          You selected 30 days, which is shorter than the allowed period. Heads of offices have 45 working days after year end to submit annual reports.
       - text: 60 working days
+        rationale: |
+          You picked 60 days, which exceeds the statutory timeframe. Annual performance reports are due within 45 working days from the end of the year.
       - text: 90 working days
+        rationale: |
+          You chose 90 days, which is a full quarter of a year. The law allows only 45 working days after year end for filing annual reports.
     explanation: |
       Section 5(c) states that heads of offices must render an annual performance report within 45 working days from the end of the year.
 
@@ -57,8 +75,14 @@ questions:
       - text: 1 year
         correct: true
       - text: 2 years
+        rationale: |
+          You picked 2 years, which doubles the actual prohibition window. Section 7 bars private practice before your former office for 1 year.
       - text: 3 years
+        rationale: |
+          You selected 3 years, which is longer than the statutory ban. The restriction on practice regarding former office matters lasts for 1 year.
       - text: 6 months
+        rationale: |
+          You chose 6 months, which is too brief to prevent undue influence. The law enforces a full 1 year prohibition after leaving government.
     explanation: |
       Section 7(b) prohibits former public officials from practicing their profession in connection with any matter before their former office for 1 year after separation.
 
@@ -71,8 +95,14 @@ questions:
       - text: Unsolicited gifts of nominal value
         correct: true
       - text: Cash gifts given prior to a procurement vote
+        rationale: |
+          You picked cash gifts before a vote, which is direct bribery. The law only permits unsolicited gifts of nominal value with no expectations attached.
       - text: Luxury travel grants paid by private vendors
+        rationale: |
+          You selected vendor-funded luxury travel, which creates a clear conflict of interest. Only nominal, unsolicited gifts are exempted under RA 6713.
       - text: Valuable jewelry offered by an applicant
+        rationale: |
+          You chose valuable jewelry from an applicant, which is prohibited influence. Statutory exceptions apply only to unsolicited gifts of nominal value.
     explanation: |
       Unsolicited gifts of nominal or insignificant value not given in anticipation of a favor are recognized exceptions under the rules of RA 6713.
 
@@ -85,8 +115,14 @@ questions:
       - text: Administrative action grounds
         correct: true
       - text: Automatic forfeiture of civil rights
+        rationale: |
+          You selected civil rights forfeiture, which is an extreme penalty for a constitutional right. Missing the 15 day deadline is an administrative offense.
       - text: Immediate criminal treason charges
+        rationale: |
+          You chose criminal treason, which applies only to war against the state. Failing to act on requests leads to administrative disciplinary action.
       - text: Automatic revocation of citizenship
+        rationale: |
+          You picked citizenship revocation, which is reserved for severe denationalization acts. Processing delays lead to administrative sanctions.
     explanation: |
       Failure to act on letters and requests within 15 working days constitutes a ground for administrative disciplinary action under RA 6713.
 
@@ -99,8 +135,14 @@ questions:
       - text: Recommending persons to firms with pending office business
         correct: true
       - text: Recommending relatives to state university academic degree programs
+        rationale: |
+          You picked university admissions, which follow academic rules. Section 7 explicitly prohibits recommending anyone to private firms with office business.
       - text: Accepting authorized teaching duties at local public institutions
+        rationale: |
+          You chose authorized teaching, which is permitted if approved. The law specifically bans recommending people to private firms doing office business.
       - text: Writing recommendation letters for government merit scholarship grants
+        rationale: |
+          You selected government merit scholarships, which are public merit programs. Section 7 forbids recommending persons to private business applicants.
     explanation: |
       Section 7(c) explicitly prohibits recommending any person to a position in a private enterprise that has pending or regular transactions with their office.
 
@@ -113,8 +155,14 @@ questions:
       - text: Value, kinship, and motivation
         correct: true
       - text: Brand reputation and retail venue
+        rationale: |
+          You selected brand and retail venue, which focus on store marketing. Section 7 judges gift impropriety by monetary value, kinship, and motivation.
       - text: Physical weight and delivery location
+        rationale: |
+          You picked weight and delivery location, which are physical logistics. Impropriety depends on the gift's value, personal kinship, and intent.
       - text: Exterior design and gift container
+        rationale: |
+          You chose exterior design and packaging, which are cosmetic details. The law evaluates gift impropriety using value, kinship, and underlying motive.
     explanation: |
       Under RA 6713 rules, impropriety is evaluated based on the monetary value, the kinship between giver and receiver, and the underlying motivation.
 
@@ -127,8 +175,14 @@ questions:
       - text: Officially confidential
         correct: true
       - text: Temporarily unindexed or unfiled
+        rationale: |
+          You picked unindexed or unfiled status, which is an internal clerical issue. Public access can only be restricted if officially classified as confidential.
       - text: Written in technical language
+        rationale: |
+          You selected technical language, which affects readability, not legal access. Public documents remain open unless officially classified as confidential.
       - text: Stored in secondary archives
+        rationale: |
+          You chose secondary archives, which concerns storage location. Under Section 5, only official confidential classification limits public access.
     explanation: |
       Section 5(e) requires public documents to be accessible to the public during office hours unless officially classified as confidential.
 
@@ -141,8 +195,14 @@ questions:
       - text: Prohibited act
         correct: true
       - text: Standard procedure
+        rationale: |
+          You selected standard procedure, which would normalize conflict of interest. Private practice conflicting with official duties is a prohibited act.
       - text: Recommended option
+        rationale: |
+          You picked recommended option, which contradicts ethical public service. Conflicting private practice is explicitly banned under Section 7.
       - text: Voluntary option
+        rationale: |
+          You chose voluntary option, which treats a violation as a personal choice. Outside practice that conflicts with public duties is strictly prohibited.
     explanation: |
       Section 7(b) classifies private practice that conflicts with official functions as a prohibited act and transaction.
 
@@ -155,8 +215,14 @@ questions:
       - text: Travel grants outside the Philippines
         correct: true
       - text: All domestic resort trips funded by local contractors
+        rationale: |
+          You picked contractor-funded domestic resort trips, which create direct corruption risks. Allowed travel gifts must be foreign grants for official duties.
       - text: Personal holiday vacations paid by registered vendors
+        rationale: |
+          You chose vendor-paid personal vacations, which are strictly illegal bribes. Foreign travel grants appropriate to official duties are the only exception.
       - text: Local weekend leisure trips funded by private applicants
+        rationale: |
+          You selected local leisure trips from applicants, which violate gift rules. Section 7 exempts only foreign travel grants related to official work.
     explanation: |
       Travel grants entirely outside the Philippines appropriate to official functions are listed as an exception under RA 6713 rules.
 
@@ -169,8 +235,14 @@ questions:
       - text: 15 working days
         correct: true
       - text: 20 working days
+        rationale: |
+          You selected 20 days, which exceeds the statutory rule. Acknowledgments for written requests must be sent within 15 working days.
       - text: 30 working days
+        rationale: |
+          You picked 30 days, which doubles the legal timeframe. Formal requests require a prompt response within 15 working days of receipt.
       - text: 45 working days
+        rationale: |
+          You chose 45 days, which confuses request acknowledgments with year end performance reports. Written requests need a 15 working day response.
     explanation: |
       Section 5(a) specifies that written requests must be acknowledged within 15 working days from receipt.
 
@@ -183,8 +255,14 @@ questions:
       - text: Section 7
         correct: true
       - text: Section 2
+        rationale: |
+          You picked Section 2, which states the general policy of the law. Misuse of confidential information for private gain is banned in Section 7.
       - text: Section 12
+        rationale: |
+          You selected Section 12, which deals with promulgation of rules. Banning confidential information misuse for private gain is under Section 7.
       - text: Section 15
+        rationale: |
+          You chose Section 15, which covers separability clauses. Banning the misuse of confidential official information for gain is in Section 7.
     explanation: |
       Section 7(d) prohibits disclosing or misusing confidential or classified information for private gain or interest.
 
@@ -197,8 +275,14 @@ questions:
       - text: Law
         correct: true
       - text: Personal preference
+        rationale: |
+          You picked personal preference, which ignores legal oversight. Owning a business regulated by your office is prohibited unless authorized by law.
       - text: Informal verbal consent
+        rationale: |
+          You selected informal verbal consent, which lacks legal force. Section 7 forbids owning regulated private enterprises unless authorized by law.
       - text: Departmental custom
+        rationale: |
+          You chose departmental custom, which cannot override statutory prohibitions. Outside ownership in regulated firms is prohibited unless authorized by law.
     explanation: |
       Section 7(b)(1) states that outside ownership or management of a regulated business is prohibited unless authorized by law.
 
@@ -211,7 +295,13 @@ questions:
       - text: 45 working days
         correct: true
       - text: 15 working days
+        rationale: |
+          You selected 15 days, which is the limit for answering letters. Heads of offices get 45 working days after year end to submit performance reports.
       - text: 30 working days
+        rationale: |
+          You picked 30 days, which underestimates the allowed timeframe. Public officers get up to 45 working days after year end to submit annual reports.
       - text: 60 working days
+        rationale: |
+          You chose 60 days, which goes beyond the statutory allowance. Annual performance reports must be submitted within 45 working days.
     explanation: |
       Section 5(c) sets the deadline for submitting annual performance reports to superiors at within 45 working days from year end.
