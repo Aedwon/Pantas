@@ -10,14 +10,14 @@ questions:
     stem: |
       Identify the part of the sentence that contains an error.
 
-      "Every one of the new laptops (A) imported for the engineering team (B) have arrived (C) with pre-installed diagnostic software. (D) No error (E)"
+      "Every one of the new laptops imported for the engineering team have arrived with pre-installed diagnostic software."
     choices:
-      - text: A
-      - text: B
-      - text: C
+      - text: "Every one of the new laptops"
+      - text: "imported for the engineering team"
+      - text: "have arrived"
         correct: true
-      - text: D
-      - text: E
+      - text: "with pre-installed diagnostic software."
+      - text: "No error"
     explanation: |
       "Every one" is a singular subject, so it requires the singular verb "has arrived" instead of the plural "have arrived."
 
@@ -27,14 +27,14 @@ questions:
     stem: |
       Identify the part of the sentence that contains an error.
 
-      "The executive committee (A) requested that all department heads (B) submit their quarterly budget reports, (C) update their inventory logs, and to review their staffing needs. (D) No error (E)"
+      "The executive committee requested that all department heads submit their quarterly budget reports, update their inventory logs, and to review their staffing needs."
     choices:
-      - text: A
-      - text: B
-      - text: C
-      - text: D
+      - text: "The executive committee"
+      - text: "requested that all department heads"
+      - text: "submit their quarterly budget reports,"
+      - text: "update their inventory logs, and to review their staffing needs."
         correct: true
-      - text: E
+      - text: "No error"
     explanation: |
       Items in a series must follow parallel structure. The phrase should be "and review" (not "and to review") to match "submit" and "update."
 
@@ -44,14 +44,14 @@ questions:
     stem: |
       Identify the part of the sentence that contains an error.
 
-      "Walking through the newly renovated research facilities, (A) several state-of-the-art spectrometers (B) were noticed by (C) the visiting delegates. (D) No error (E)"
+      "Walking through the newly renovated research facilities, several state-of-the-art spectrometers were noticed by the visiting delegates."
     choices:
-      - text: A
+      - text: "Walking through the newly renovated research facilities,"
         correct: true
-      - text: B
-      - text: C
-      - text: D
-      - text: E
+      - text: "several state-of-the-art spectrometers"
+      - text: "were noticed by"
+      - text: "the visiting delegates."
+      - text: "No error"
     explanation: |
       The introductory phrase "Walking through the newly renovated research facilities" is a dangling modifier. Spectrometers cannot walk, so the main clause should have a person as the subject.
 
@@ -61,14 +61,14 @@ questions:
     stem: |
       Identify the part of the sentence that contains an error.
 
-      "The efficiency rating of the upgraded solar panel (A) is significantly higher than (B) the older models (C) installed last winter. (D) No error (E)"
+      "The efficiency rating of the upgraded solar panel is significantly higher than the older models installed last winter."
     choices:
-      - text: A
-      - text: B
-      - text: C
+      - text: "The efficiency rating of the upgraded solar panel"
+      - text: "is significantly higher than"
+      - text: "the older models"
         correct: true
-      - text: D
-      - text: E
+      - text: "installed last winter."
+      - text: "No error"
     explanation: |
       This is a faulty comparison. It compares "efficiency rating" to "models" instead of comparing "efficiency rating" to "efficiency rating of the older models."
 
@@ -78,14 +78,14 @@ questions:
     stem: |
       Identify the part of the sentence that contains an error.
 
-      "The sudden drop in atmospheric pressure (A) will adversely (B) effect (C) the performance of the high-altitude sensors. (D) No error (E)"
+      "The sudden drop in atmospheric pressure will adversely effect the performance of the high-altitude sensors."
     choices:
-      - text: A
-      - text: B
-      - text: C
+      - text: "The sudden drop in atmospheric pressure"
+      - text: "will adversely"
+      - text: "effect"
         correct: true
-      - text: D
-      - text: E
+      - text: "the performance of the high-altitude sensors."
+      - text: "No error"
     explanation: |
       "Effect" is used as a noun here, but the sentence needs the verb "affect" (to influence). The correct usage is "will adversely affect."
 
@@ -95,14 +95,14 @@ questions:
     stem: |
       Identify the part of the sentence that contains an error.
 
-      "The lead scientist, (A) whom (B) had conducted extensive fieldwork (C) in South America, presented her findings at the international symposium. (D) No error (E)"
+      "The lead scientist, whom had conducted extensive fieldwork in South America, presented her findings at the international symposium."
     choices:
-      - text: A
-      - text: B
+      - text: "The lead scientist,"
+      - text: "whom"
         correct: true
-      - text: C
-      - text: D
-      - text: E
+      - text: "had conducted extensive fieldwork"
+      - text: "in South America, presented her findings at the international symposium."
+      - text: "No error"
     explanation: |
       "Whom" is an objective pronoun, but this clause needs the nominative "who" because it is the subject of the clause "who had conducted."
 
@@ -112,14 +112,14 @@ questions:
     stem: |
       Identify the part of the sentence that contains an error.
 
-      "When the supervisor spoke to the project manager (A) after the presentation, (B) he expressed (C) dissatisfaction with the proposed timeline. (D) No error (E)"
+      "When the supervisor spoke to the project manager after the presentation, he expressed dissatisfaction with the proposed timeline."
     choices:
-      - text: A
-      - text: B
-      - text: C
+      - text: "When the supervisor spoke to the project manager"
+      - text: "after the presentation,"
+      - text: "he expressed"
         correct: true
-      - text: D
-      - text: E
+      - text: "dissatisfaction with the proposed timeline."
+      - text: "No error"
     explanation: |
       The pronoun "he" is ambiguous: it could refer to either the supervisor or the project manager. The sentence should explicitly name which person expressed dissatisfaction.
 
@@ -129,14 +129,14 @@ questions:
     stem: |
       Identify the part of the sentence that contains an error.
 
-      "By the time the audit committee (A) finished inspecting the fiscal records, (B) the accounting department (C) already resolved (D) all major discrepancies. (E) No error"
+      "By the time the audit committee finished inspecting the fiscal records, the accounting department already resolved all major discrepancies."
     choices:
-      - text: A
-      - text: B
-      - text: C
-      - text: D
+      - text: "By the time the audit committee"
+      - text: "finished inspecting the fiscal records,"
+      - text: "the accounting department"
+      - text: "already resolved"
         correct: true
-      - text: E
+      - text: "No error"
     explanation: |
       When two past actions are described with one happening before the other, the earlier one needs past perfect tense. It should be "had already resolved" not "already resolved."
 
@@ -146,14 +146,14 @@ questions:
     stem: |
       Identify the part of the sentence that contains an error.
 
-      "The company expanded its operations (A) into three new regions, (B) however, (C) initial profits remained (D) below projected expectations. (E) No error"
+      "The company expanded its operations into three new regions, however, initial profits remained below projected expectations."
     choices:
-      - text: A
-      - text: B
+      - text: "The company expanded its operations"
+      - text: "into three new regions,"
         correct: true
-      - text: C
-      - text: D
-      - text: E
+      - text: "however,"
+      - text: "initial profits remained"
+      - text: "No error"
     explanation: |
       This sentence has a comma splice. "However" is a conjunctive adverb, not a coordinating conjunction. A semicolon should precede "however" to join these two independent clauses.
 
@@ -163,13 +163,13 @@ questions:
     stem: |
       Identify the part of the sentence that contains an error.
 
-      "The research panel (A) are presenting (B) their individual evaluations (C) at the conference today. (D) No error (E)"
+      "The research panel are presenting their individual evaluations at the conference today."
     choices:
-      - text: A
-      - text: B
-      - text: C
-      - text: D
-      - text: E
+      - text: "The research panel"
+      - text: "are presenting"
+      - text: "their individual evaluations"
+      - text: "at the conference today."
+      - text: "No error"
         correct: true
     explanation: |
       There is no error. When a collective noun like "panel" refers to individual actions within the group, it takes a plural verb and pronoun ("are presenting their"), which is correct here.
@@ -180,14 +180,14 @@ questions:
     stem: |
       Identify the part of the sentence that contains an error.
 
-      "The technician repaired (A) the electrical generator (B) using a heavy-duty wrench (C) that had stopped working during the storm. (D) No error (E)"
+      "The technician repaired the electrical generator using a heavy-duty wrench that had stopped working during the storm."
     choices:
-      - text: A
-      - text: B
-      - text: C
+      - text: "The technician repaired"
+      - text: "the electrical generator"
+      - text: "using a heavy-duty wrench"
         correct: true
-      - text: D
-      - text: E
+      - text: "that had stopped working during the storm."
+      - text: "No error"
     explanation: |
       The relative clause "that had stopped working" is misplaced. It appears to modify "wrench" but logically refers to "generator." The clause should come immediately after "generator."
 
@@ -197,14 +197,14 @@ questions:
     stem: |
       Identify the part of the sentence that contains an error.
 
-      "The chief executive officer emphasized (A) that the two merging firms (B) must revert (C) back to their core operational principles. (D) No error (E)"
+      "The chief executive officer emphasized that the two merging firms must revert back to their core operational principles."
     choices:
-      - text: A
-      - text: B
-      - text: C
+      - text: "The chief executive officer emphasized"
+      - text: "that the two merging firms"
+      - text: "must revert"
         correct: true
-      - text: D
-      - text: E
+      - text: "back to their core operational principles."
+      - text: "No error"
     explanation: |
       "Revert back" is redundant. The verb "revert" already means to return, so "back" is unnecessary. The sentence should say "must revert to."
 
@@ -214,14 +214,14 @@ questions:
     stem: |
       Identify the part of the sentence that contains an error.
 
-      "Between you and (A) I, (B) the proposed structural reforms (C) will require approval (D) from the regional board. (E) No error"
+      "Between you and I, the proposed structural reforms will require approval from the regional board."
     choices:
-      - text: A
+      - text: "Between you and"
         correct: true
-      - text: B
-      - text: C
-      - text: D
-      - text: E
+      - text: "I,"
+      - text: "the proposed structural reforms"
+      - text: "will require approval"
+      - text: "No error"
     explanation: |
       The preposition "Between" requires an objective pronoun. It should be "Between you and me" (not "I").
 
@@ -231,14 +231,14 @@ questions:
     stem: |
       Identify the part of the sentence that contains an error.
 
-      "If the analysts (A) would have reviewed (B) the statistical data earlier, (C) they would have caught (D) the error before publication. (E) No error"
+      "If the analysts would have reviewed the statistical data earlier, they would have caught the error before publication."
     choices:
-      - text: A
-      - text: B
+      - text: "If the analysts"
+      - text: "would have reviewed"
         correct: true
-      - text: C
-      - text: D
-      - text: E
+      - text: "the statistical data earlier,"
+      - text: "they would have caught"
+      - text: "No error"
     explanation: |
       In third conditional sentences, the if-clause requires past perfect ("had reviewed"), not "would have reviewed." The correct form is "If the analysts had reviewed..."
 
@@ -248,13 +248,13 @@ questions:
     stem: |
       Identify the part of the sentence that contains an error.
 
-      "The architectural firm designed (A) a sustainable office building, (B) consequently, (C) it won (D) several regional design accolades. (E) No error"
+      "The architectural firm designed a sustainable office building, consequently, it won several regional design accolades."
     choices:
-      - text: A
-      - text: B
+      - text: "The architectural firm designed"
+      - text: "a sustainable office building,"
         correct: true
-      - text: C
-      - text: D
-      - text: E
+      - text: "consequently,"
+      - text: "it won"
+      - text: "No error"
     explanation: |
       This sentence has a comma splice. "Consequently" is a conjunctive adverb, not a coordinating conjunction. A semicolon should replace the comma before "consequently."

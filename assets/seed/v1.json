@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "contentVersion": 2026081218,
-  "generatedAt": "2026-08-12T18:36:27.539872Z",
+  "generatedAt": "2026-08-12T18:40:58.598068Z",
   "exams": [
     {
       "id": "exam_cse_pro",
@@ -14737,36 +14737,36 @@
       "topicId": "topic_upcat_language_application",
       "lessonId": "lesson-language-application-error-identification",
       "language": "en",
-      "stem": "Identify the part of the sentence that contains an error.\n\n\"Every one of the new laptops (A) imported for the engineering team (B) have arrived (C) with pre-installed diagnostic software. (D) No error (E)\"",
+      "stem": "Identify the part of the sentence that contains an error.\n\n\"Every one of the new laptops imported for the engineering team have arrived with pre-installed diagnostic software.\"",
       "choices": [
         {
           "id": "q-language-application-error-identification-0001_a",
           "label": "A",
-          "text": "A",
+          "text": "Every one of the new laptops",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0001_b",
           "label": "B",
-          "text": "B",
+          "text": "imported for the engineering team",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0001_c",
           "label": "C",
-          "text": "C",
+          "text": "have arrived",
           "isCorrect": true
         },
         {
           "id": "q-language-application-error-identification-0001_d",
           "label": "D",
-          "text": "D",
+          "text": "with pre-installed diagnostic software.",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0001_e",
           "label": "E",
-          "text": "E",
+          "text": "No error",
           "isCorrect": false
         }
       ],
@@ -14787,36 +14787,36 @@
       "topicId": "topic_upcat_language_application",
       "lessonId": "lesson-language-application-error-identification",
       "language": "en",
-      "stem": "Identify the part of the sentence that contains an error.\n\n\"The executive committee (A) requested that all department heads (B) submit their quarterly budget reports, (C) update their inventory logs, and to review their staffing needs. (D) No error (E)\"",
+      "stem": "Identify the part of the sentence that contains an error.\n\n\"The executive committee requested that all department heads submit their quarterly budget reports, update their inventory logs, and to review their staffing needs.\"",
       "choices": [
         {
           "id": "q-language-application-error-identification-0002_a",
           "label": "A",
-          "text": "A",
+          "text": "The executive committee",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0002_b",
           "label": "B",
-          "text": "B",
+          "text": "requested that all department heads",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0002_c",
           "label": "C",
-          "text": "C",
+          "text": "submit their quarterly budget reports,",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0002_d",
           "label": "D",
-          "text": "D",
+          "text": "update their inventory logs, and to review their staffing needs.",
           "isCorrect": true
         },
         {
           "id": "q-language-application-error-identification-0002_e",
           "label": "E",
-          "text": "E",
+          "text": "No error",
           "isCorrect": false
         }
       ],
@@ -14837,36 +14837,36 @@
       "topicId": "topic_upcat_language_application",
       "lessonId": "lesson-language-application-error-identification",
       "language": "en",
-      "stem": "Identify the part of the sentence that contains an error.\n\n\"Walking through the newly renovated research facilities, (A) several state-of-the-art spectrometers (B) were noticed by (C) the visiting delegates. (D) No error (E)\"",
+      "stem": "Identify the part of the sentence that contains an error.\n\n\"Walking through the newly renovated research facilities, several state-of-the-art spectrometers were noticed by the visiting delegates.\"",
       "choices": [
         {
           "id": "q-language-application-error-identification-0003_a",
           "label": "A",
-          "text": "A",
+          "text": "Walking through the newly renovated research facilities,",
           "isCorrect": true
         },
         {
           "id": "q-language-application-error-identification-0003_b",
           "label": "B",
-          "text": "B",
+          "text": "several state-of-the-art spectrometers",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0003_c",
           "label": "C",
-          "text": "C",
+          "text": "were noticed by",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0003_d",
           "label": "D",
-          "text": "D",
+          "text": "the visiting delegates.",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0003_e",
           "label": "E",
-          "text": "E",
+          "text": "No error",
           "isCorrect": false
         }
       ],
@@ -14887,36 +14887,36 @@
       "topicId": "topic_upcat_language_application",
       "lessonId": "lesson-language-application-error-identification",
       "language": "en",
-      "stem": "Identify the part of the sentence that contains an error.\n\n\"The efficiency rating of the upgraded solar panel (A) is significantly higher than (B) the older models (C) installed last winter. (D) No error (E)\"",
+      "stem": "Identify the part of the sentence that contains an error.\n\n\"The efficiency rating of the upgraded solar panel is significantly higher than the older models installed last winter.\"",
       "choices": [
         {
           "id": "q-language-application-error-identification-0004_a",
           "label": "A",
-          "text": "A",
+          "text": "The efficiency rating of the upgraded solar panel",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0004_b",
           "label": "B",
-          "text": "B",
+          "text": "is significantly higher than",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0004_c",
           "label": "C",
-          "text": "C",
+          "text": "the older models",
           "isCorrect": true
         },
         {
           "id": "q-language-application-error-identification-0004_d",
           "label": "D",
-          "text": "D",
+          "text": "installed last winter.",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0004_e",
           "label": "E",
-          "text": "E",
+          "text": "No error",
           "isCorrect": false
         }
       ],
@@ -14937,36 +14937,36 @@
       "topicId": "topic_upcat_language_application",
       "lessonId": "lesson-language-application-error-identification",
       "language": "en",
-      "stem": "Identify the part of the sentence that contains an error.\n\n\"The sudden drop in atmospheric pressure (A) will adversely (B) effect (C) the performance of the high-altitude sensors. (D) No error (E)\"",
+      "stem": "Identify the part of the sentence that contains an error.\n\n\"The sudden drop in atmospheric pressure will adversely effect the performance of the high-altitude sensors.\"",
       "choices": [
         {
           "id": "q-language-application-error-identification-0005_a",
           "label": "A",
-          "text": "A",
+          "text": "The sudden drop in atmospheric pressure",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0005_b",
           "label": "B",
-          "text": "B",
+          "text": "will adversely",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0005_c",
           "label": "C",
-          "text": "C",
+          "text": "effect",
           "isCorrect": true
         },
         {
           "id": "q-language-application-error-identification-0005_d",
           "label": "D",
-          "text": "D",
+          "text": "the performance of the high-altitude sensors.",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0005_e",
           "label": "E",
-          "text": "E",
+          "text": "No error",
           "isCorrect": false
         }
       ],
@@ -14987,36 +14987,36 @@
       "topicId": "topic_upcat_language_application",
       "lessonId": "lesson-language-application-error-identification",
       "language": "en",
-      "stem": "Identify the part of the sentence that contains an error.\n\n\"The lead scientist, (A) whom (B) had conducted extensive fieldwork (C) in South America, presented her findings at the international symposium. (D) No error (E)\"",
+      "stem": "Identify the part of the sentence that contains an error.\n\n\"The lead scientist, whom had conducted extensive fieldwork in South America, presented her findings at the international symposium.\"",
       "choices": [
         {
           "id": "q-language-application-error-identification-0006_a",
           "label": "A",
-          "text": "A",
+          "text": "The lead scientist,",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0006_b",
           "label": "B",
-          "text": "B",
+          "text": "whom",
           "isCorrect": true
         },
         {
           "id": "q-language-application-error-identification-0006_c",
           "label": "C",
-          "text": "C",
+          "text": "had conducted extensive fieldwork",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0006_d",
           "label": "D",
-          "text": "D",
+          "text": "in South America, presented her findings at the international symposium.",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0006_e",
           "label": "E",
-          "text": "E",
+          "text": "No error",
           "isCorrect": false
         }
       ],
@@ -15037,36 +15037,36 @@
       "topicId": "topic_upcat_language_application",
       "lessonId": "lesson-language-application-error-identification",
       "language": "en",
-      "stem": "Identify the part of the sentence that contains an error.\n\n\"When the supervisor spoke to the project manager (A) after the presentation, (B) he expressed (C) dissatisfaction with the proposed timeline. (D) No error (E)\"",
+      "stem": "Identify the part of the sentence that contains an error.\n\n\"When the supervisor spoke to the project manager after the presentation, he expressed dissatisfaction with the proposed timeline.\"",
       "choices": [
         {
           "id": "q-language-application-error-identification-0007_a",
           "label": "A",
-          "text": "A",
+          "text": "When the supervisor spoke to the project manager",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0007_b",
           "label": "B",
-          "text": "B",
+          "text": "after the presentation,",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0007_c",
           "label": "C",
-          "text": "C",
+          "text": "he expressed",
           "isCorrect": true
         },
         {
           "id": "q-language-application-error-identification-0007_d",
           "label": "D",
-          "text": "D",
+          "text": "dissatisfaction with the proposed timeline.",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0007_e",
           "label": "E",
-          "text": "E",
+          "text": "No error",
           "isCorrect": false
         }
       ],
@@ -15087,36 +15087,36 @@
       "topicId": "topic_upcat_language_application",
       "lessonId": "lesson-language-application-error-identification",
       "language": "en",
-      "stem": "Identify the part of the sentence that contains an error.\n\n\"By the time the audit committee (A) finished inspecting the fiscal records, (B) the accounting department (C) already resolved (D) all major discrepancies. (E) No error\"",
+      "stem": "Identify the part of the sentence that contains an error.\n\n\"By the time the audit committee finished inspecting the fiscal records, the accounting department already resolved all major discrepancies.\"",
       "choices": [
         {
           "id": "q-language-application-error-identification-0008_a",
           "label": "A",
-          "text": "A",
+          "text": "By the time the audit committee",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0008_b",
           "label": "B",
-          "text": "B",
+          "text": "finished inspecting the fiscal records,",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0008_c",
           "label": "C",
-          "text": "C",
+          "text": "the accounting department",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0008_d",
           "label": "D",
-          "text": "D",
+          "text": "already resolved",
           "isCorrect": true
         },
         {
           "id": "q-language-application-error-identification-0008_e",
           "label": "E",
-          "text": "E",
+          "text": "No error",
           "isCorrect": false
         }
       ],
@@ -15137,36 +15137,36 @@
       "topicId": "topic_upcat_language_application",
       "lessonId": "lesson-language-application-error-identification",
       "language": "en",
-      "stem": "Identify the part of the sentence that contains an error.\n\n\"The company expanded its operations (A) into three new regions, (B) however, (C) initial profits remained (D) below projected expectations. (E) No error\"",
+      "stem": "Identify the part of the sentence that contains an error.\n\n\"The company expanded its operations into three new regions, however, initial profits remained below projected expectations.\"",
       "choices": [
         {
           "id": "q-language-application-error-identification-0009_a",
           "label": "A",
-          "text": "A",
+          "text": "The company expanded its operations",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0009_b",
           "label": "B",
-          "text": "B",
+          "text": "into three new regions,",
           "isCorrect": true
         },
         {
           "id": "q-language-application-error-identification-0009_c",
           "label": "C",
-          "text": "C",
+          "text": "however,",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0009_d",
           "label": "D",
-          "text": "D",
+          "text": "initial profits remained",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0009_e",
           "label": "E",
-          "text": "E",
+          "text": "No error",
           "isCorrect": false
         }
       ],
@@ -15187,36 +15187,36 @@
       "topicId": "topic_upcat_language_application",
       "lessonId": "lesson-language-application-error-identification",
       "language": "en",
-      "stem": "Identify the part of the sentence that contains an error.\n\n\"The research panel (A) are presenting (B) their individual evaluations (C) at the conference today. (D) No error (E)\"",
+      "stem": "Identify the part of the sentence that contains an error.\n\n\"The research panel are presenting their individual evaluations at the conference today.\"",
       "choices": [
         {
           "id": "q-language-application-error-identification-0010_a",
           "label": "A",
-          "text": "A",
+          "text": "The research panel",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0010_b",
           "label": "B",
-          "text": "B",
+          "text": "are presenting",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0010_c",
           "label": "C",
-          "text": "C",
+          "text": "their individual evaluations",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0010_d",
           "label": "D",
-          "text": "D",
+          "text": "at the conference today.",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0010_e",
           "label": "E",
-          "text": "E",
+          "text": "No error",
           "isCorrect": true
         }
       ],
@@ -15237,36 +15237,36 @@
       "topicId": "topic_upcat_language_application",
       "lessonId": "lesson-language-application-error-identification",
       "language": "en",
-      "stem": "Identify the part of the sentence that contains an error.\n\n\"The technician repaired (A) the electrical generator (B) using a heavy-duty wrench (C) that had stopped working during the storm. (D) No error (E)\"",
+      "stem": "Identify the part of the sentence that contains an error.\n\n\"The technician repaired the electrical generator using a heavy-duty wrench that had stopped working during the storm.\"",
       "choices": [
         {
           "id": "q-language-application-error-identification-0011_a",
           "label": "A",
-          "text": "A",
+          "text": "The technician repaired",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0011_b",
           "label": "B",
-          "text": "B",
+          "text": "the electrical generator",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0011_c",
           "label": "C",
-          "text": "C",
+          "text": "using a heavy-duty wrench",
           "isCorrect": true
         },
         {
           "id": "q-language-application-error-identification-0011_d",
           "label": "D",
-          "text": "D",
+          "text": "that had stopped working during the storm.",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0011_e",
           "label": "E",
-          "text": "E",
+          "text": "No error",
           "isCorrect": false
         }
       ],
@@ -15287,36 +15287,36 @@
       "topicId": "topic_upcat_language_application",
       "lessonId": "lesson-language-application-error-identification",
       "language": "en",
-      "stem": "Identify the part of the sentence that contains an error.\n\n\"The chief executive officer emphasized (A) that the two merging firms (B) must revert (C) back to their core operational principles. (D) No error (E)\"",
+      "stem": "Identify the part of the sentence that contains an error.\n\n\"The chief executive officer emphasized that the two merging firms must revert back to their core operational principles.\"",
       "choices": [
         {
           "id": "q-language-application-error-identification-0012_a",
           "label": "A",
-          "text": "A",
+          "text": "The chief executive officer emphasized",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0012_b",
           "label": "B",
-          "text": "B",
+          "text": "that the two merging firms",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0012_c",
           "label": "C",
-          "text": "C",
+          "text": "must revert",
           "isCorrect": true
         },
         {
           "id": "q-language-application-error-identification-0012_d",
           "label": "D",
-          "text": "D",
+          "text": "back to their core operational principles.",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0012_e",
           "label": "E",
-          "text": "E",
+          "text": "No error",
           "isCorrect": false
         }
       ],
@@ -15337,36 +15337,36 @@
       "topicId": "topic_upcat_language_application",
       "lessonId": "lesson-language-application-error-identification",
       "language": "en",
-      "stem": "Identify the part of the sentence that contains an error.\n\n\"Between you and (A) I, (B) the proposed structural reforms (C) will require approval (D) from the regional board. (E) No error\"",
+      "stem": "Identify the part of the sentence that contains an error.\n\n\"Between you and I, the proposed structural reforms will require approval from the regional board.\"",
       "choices": [
         {
           "id": "q-language-application-error-identification-0013_a",
           "label": "A",
-          "text": "A",
+          "text": "Between you and",
           "isCorrect": true
         },
         {
           "id": "q-language-application-error-identification-0013_b",
           "label": "B",
-          "text": "B",
+          "text": "I,",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0013_c",
           "label": "C",
-          "text": "C",
+          "text": "the proposed structural reforms",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0013_d",
           "label": "D",
-          "text": "D",
+          "text": "will require approval",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0013_e",
           "label": "E",
-          "text": "E",
+          "text": "No error",
           "isCorrect": false
         }
       ],
@@ -15387,36 +15387,36 @@
       "topicId": "topic_upcat_language_application",
       "lessonId": "lesson-language-application-error-identification",
       "language": "en",
-      "stem": "Identify the part of the sentence that contains an error.\n\n\"If the analysts (A) would have reviewed (B) the statistical data earlier, (C) they would have caught (D) the error before publication. (E) No error\"",
+      "stem": "Identify the part of the sentence that contains an error.\n\n\"If the analysts would have reviewed the statistical data earlier, they would have caught the error before publication.\"",
       "choices": [
         {
           "id": "q-language-application-error-identification-0014_a",
           "label": "A",
-          "text": "A",
+          "text": "If the analysts",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0014_b",
           "label": "B",
-          "text": "B",
+          "text": "would have reviewed",
           "isCorrect": true
         },
         {
           "id": "q-language-application-error-identification-0014_c",
           "label": "C",
-          "text": "C",
+          "text": "the statistical data earlier,",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0014_d",
           "label": "D",
-          "text": "D",
+          "text": "they would have caught",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0014_e",
           "label": "E",
-          "text": "E",
+          "text": "No error",
           "isCorrect": false
         }
       ],
@@ -15437,36 +15437,36 @@
       "topicId": "topic_upcat_language_application",
       "lessonId": "lesson-language-application-error-identification",
       "language": "en",
-      "stem": "Identify the part of the sentence that contains an error.\n\n\"The architectural firm designed (A) a sustainable office building, (B) consequently, (C) it won (D) several regional design accolades. (E) No error\"",
+      "stem": "Identify the part of the sentence that contains an error.\n\n\"The architectural firm designed a sustainable office building, consequently, it won several regional design accolades.\"",
       "choices": [
         {
           "id": "q-language-application-error-identification-0015_a",
           "label": "A",
-          "text": "A",
+          "text": "The architectural firm designed",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0015_b",
           "label": "B",
-          "text": "B",
+          "text": "a sustainable office building,",
           "isCorrect": true
         },
         {
           "id": "q-language-application-error-identification-0015_c",
           "label": "C",
-          "text": "C",
+          "text": "consequently,",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0015_d",
           "label": "D",
-          "text": "D",
+          "text": "it won",
           "isCorrect": false
         },
         {
           "id": "q-language-application-error-identification-0015_e",
           "label": "E",
-          "text": "E",
+          "text": "No error",
           "isCorrect": false
         }
       ],
@@ -20459,30 +20459,30 @@
       "topicId": "topic_upcat_vocabulary",
       "lessonId": "lesson-vocabulary-spelling-rules",
       "language": "en",
-      "stem": "Identify the ONE correctly spelled word among these four choices, each testing a different spelling rule: (A) acommodate, (B) mispell, (C) truly, (D) sieze.",
+      "stem": "Identify the ONE correctly spelled word. Each of the four tests a different spelling rule.",
       "choices": [
         {
           "id": "q-vocabulary-spelling-rules-0018_a",
           "label": "A",
-          "text": "Truly (C)",
+          "text": "Truly",
           "isCorrect": true
         },
         {
           "id": "q-vocabulary-spelling-rules-0018_b",
           "label": "B",
-          "text": "Acommodate (A)",
+          "text": "Acommodate",
           "isCorrect": false
         },
         {
           "id": "q-vocabulary-spelling-rules-0018_c",
           "label": "C",
-          "text": "Mispell (B)",
+          "text": "Mispell",
           "isCorrect": false
         },
         {
           "id": "q-vocabulary-spelling-rules-0018_d",
           "label": "D",
-          "text": "Sieze (D)",
+          "text": "Sieze",
           "isCorrect": false
         }
       ],
@@ -21207,30 +21207,30 @@
       "topicId": "topic_upcat_vocabulary",
       "lessonId": "lesson-vocabulary-synonyms-and-antonyms",
       "language": "en",
-      "stem": "Select the word that is most nearly opposite in meaning to the word \"humble\": (A) modest, (B) unassuming, (C) meek, (D) arrogant. Three of the four choices mean nearly the same thing. Use this pattern to find the true antonym.",
+      "stem": "Select the word that is most nearly opposite in meaning to the word \"humble\". Three of the four choices mean nearly the same thing. Use that pattern to find the true antonym.",
       "choices": [
         {
           "id": "q-vocabulary-synonyms-and-antonyms-0017_a",
           "label": "A",
-          "text": "Arrogant (D): the other three (modest, unassuming, meek) are all synonyms of \"humble,\" leaving arrogant as the true antonym",
+          "text": "Arrogant",
           "isCorrect": true
         },
         {
           "id": "q-vocabulary-synonyms-and-antonyms-0017_b",
           "label": "B",
-          "text": "Modest (A), since it appears first in the list",
+          "text": "Modest",
           "isCorrect": false
         },
         {
           "id": "q-vocabulary-synonyms-and-antonyms-0017_c",
           "label": "C",
-          "text": "Unassuming (B), since it is the longest word",
+          "text": "Unassuming",
           "isCorrect": false
         },
         {
           "id": "q-vocabulary-synonyms-and-antonyms-0017_d",
           "label": "D",
-          "text": "Meek (C), since it sounds the most different",
+          "text": "Meek",
           "isCorrect": false
         }
       ],

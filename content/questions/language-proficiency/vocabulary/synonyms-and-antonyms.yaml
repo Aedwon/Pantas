@@ -248,13 +248,13 @@ questions:
     type: antonym
     difficulty: hard
     stem: |
-      Select the word that is most nearly opposite in meaning to the word "humble": (A) modest, (B) unassuming, (C) meek, (D) arrogant. Three of the four choices mean nearly the same thing. Use this pattern to find the true antonym.
+      Select the word that is most nearly opposite in meaning to the word "humble". Three of the four choices mean nearly the same thing. Use that pattern to find the true antonym.
     choices:
-      - text: 'Arrogant (D): the other three (modest, unassuming, meek) are all synonyms of "humble," leaving arrogant as the true antonym'
+      - text: "Arrogant"
         correct: true
-      - text: Modest (A), since it appears first in the list
-      - text: Unassuming (B), since it is the longest word
-      - text: Meek (C), since it sounds the most different
+      - text: "Modest"
+      - text: "Unassuming"
+      - text: "Meek"
     explanation: |
       If you must guess an antonym, look at all 4 choices together. Here, "modest," "unassuming," and "meek" all mean nearly the same thing as "humble" itself, so the one odd choice left behind, "arrogant," must be the true antonym.
     approved: true

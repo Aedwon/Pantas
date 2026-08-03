@@ -263,13 +263,13 @@ questions:
     type: spelling-correction
     difficulty: exam
     stem: |
-      Identify the ONE correctly spelled word among these four choices, each testing a different spelling rule: (A) acommodate, (B) mispell, (C) truly, (D) sieze.
+      Identify the ONE correctly spelled word. Each of the four tests a different spelling rule.
     choices:
-      - text: Truly (C)
+      - text: "Truly"
         correct: true
-      - text: Acommodate (A)
-      - text: Mispell (B)
-      - text: Sieze (D)
+      - text: "Acommodate"
+      - text: "Mispell"
+      - text: "Sieze"
     explanation: |
       "Acommodate" is missing a double letter (should be "accommodate"), "mispell" drops a shared border letter (should be "misspell"), and "sieze" reverses the letters (should be "seize"). "Truly" is the one correctly spelled word: a strict exception that drops the silent "e" from "true."
     approved: true
