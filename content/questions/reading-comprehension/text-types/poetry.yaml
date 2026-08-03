@@ -77,8 +77,14 @@ questions:
       - text: abab
         correct: true
       - text: aabb
+        rationale: |
+          You picked aabb, which means lines 1 and 2 rhyme, and lines 3 and 4 rhyme. In stanza 1, shore (line 1) rhymes with oar (line 3).
       - text: abba
+        rationale: |
+          You picked abba, which means lines 1 and 4 rhyme. Here, shore (line 1) rhymes with oar (line 3), forming an abab pattern.
       - text: abcb
+        rationale: |
+          You picked abcb, where only lines 2 and 4 rhyme. In this stanza, both line pairs rhyme (shore/oar and grey/day).
     explanation: |
       Line 1 (shore) rhymes with line 3 (oar) [A], and line 2 (grey) rhymes with line 4 (day) [B], creating an abab rhyme scheme pattern.
 
@@ -92,8 +98,14 @@ questions:
       - text: "The sea is like a mother fierce and deep"
         correct: true
       - text: "The quiet ocean whispers to the shore"
+        rationale: |
+          You picked a line that contains personification (whispers), not a simile using comparison words like or as.
       - text: "The sturdy boat sets out with wooden oar"
+        rationale: |
+          You picked a literal descriptive line. Similes explicitly compare two different things using like or as.
       - text: "The rising sun transforms the sea to gold"
+        rationale: |
+          You picked a metaphorical line. Metaphors make direct comparisons without using like or as.
     explanation: |
       The line "The sea is like a mother fierce and deep" compares the sea to a mother using the comparison word "like", making it a simile.
 
@@ -107,8 +119,14 @@ questions:
       - text: "The quiet ocean whispers to the shore"
         correct: true
       - text: "With silver fish that glitter in the hold"
+        rationale: |
+          You picked a literal visual description of fish, not personification which assigns human qualities to non-human things.
       - text: "The sturdy boat sets out with wooden oar"
+        rationale: |
+          You picked a factual description of a boat setting out, which contains no personification.
       - text: "He turns his boat toward the coastal sand"
+        rationale: |
+          You picked a literal action performed by the human fisherman, not personification of a non-human object.
     explanation: |
       Attributing the human action of "whispering" to the "quiet ocean" gives human qualities to something non-human, which is personification.
 
@@ -122,8 +140,14 @@ questions:
       - text: Appreciative of traditional endurance
         correct: true
       - text: Critical of marine pollution and coastal destruction
+        rationale: |
+          You inferred environmental criticism. The poem focuses on peaceful daily labor and natural rewards, not pollution.
       - text: Dismissive and mocking of rural poverty
+        rationale: |
+          You picked a mocking tone that directly contradicts the respectful and reverent depiction of the fisherman's work.
       - text: Fearful and hopeless regarding ocean storms
+        rationale: |
+          You picked a fearful tone. The poem describes the fisherman trusting the ancient water as golden light breaks.
     explanation: |
       Images of "bountiful reward", "honest pride", and trusting the ancient water convey a respectful and appreciative tone.
 
@@ -137,8 +161,14 @@ questions:
       - text: Comparing morning sunlight on water to gold.
         correct: true
       - text: Suggesting the fisherman dropped shiny gold coins into the sea.
+        rationale: |
+          You took the metaphor literally as real gold coins rather than a poetic comparison to golden morning sunlight.
       - text: Claiming the ocean water chemically turned into solid gold.
+        rationale: |
+          You interpreted the poetic metaphor as a literal chemical transformation of seawater into physical metal.
       - text: Describing the yellow color of commercial nylon fishing nets.
+        rationale: |
+          You misidentified the object. The phrase describes sunlight on the ocean surface, not nylon fishing gear.
     explanation: |
       The phrase metaphorically compares the golden reflection of sunrise on ocean water to precious gold without using "like" or "as".
 
@@ -152,8 +182,14 @@ questions:
       - text: "The threads are flowing like a mountain stream"
         correct: true
       - text: "The wooden shuttle dances swiftly through the thread"
+        rationale: |
+          You picked a line using personification (dances) rather than a simile containing like or as.
       - text: "Bright crimson colors mingle softly with the red"
+        rationale: |
+          You picked a literal visual description of yarn colors, not a simile.
       - text: "The ancient loom is breathing quietly in the room"
+        rationale: |
+          You picked a line using personification (breathing loom) rather than a simile.
     explanation: |
       Comparing the flowing threads to a mountain stream using the word "like" is a simile.
 
@@ -167,8 +203,14 @@ questions:
       - text: "The ancient loom is breathing in the room"
         correct: true
       - text: "Beneath the guidance of a patient hand"
+        rationale: |
+          You picked a literal description of the human weaver's hand, which is not personification.
       - text: "Across the frame where silent patterns grow"
+        rationale: |
+          You picked a description of growing patterns, whereas breathing loom gives human biological traits to a wooden object.
       - text: "The finished cloth shines bright with honest pride"
+        rationale: |
+          You picked a line describing the finished fabric, not the personification of the loom breathing.
     explanation: |
       Describing the wooden loom as "breathing" assigns a living human action to an inanimate object, which is personification.
 
@@ -182,8 +224,14 @@ questions:
       - text: abab
         correct: true
       - text: aabb
+        rationale: |
+          You picked aabb, which means adjacent line pairs rhyme. In stanza 3, room (line 1) rhymes with bloom (line 3).
       - text: abba
+        rationale: |
+          You picked abba, which puts line 1 rhyming with line 4. Stanza 3 pairs line 1 (room) with line 3 (bloom).
       - text: abcb
+        rationale: |
+          You picked abcb, but both line pairs rhyme in this stanza (room/bloom and hour/power).
     explanation: |
       Line 1 (room) rhymes with line 3 (bloom) [A], and line 2 (hour) rhymes with line 4 (power) [B], forming an abab rhyme scheme.
 
@@ -197,8 +245,14 @@ questions:
       - text: The continuity of ancestral craft traditions.
         correct: true
       - text: A crowd of curious villagers watching the weaver work.
+        rationale: |
+          You took the symbolic phrase literally as physical villagers standing in the room.
       - text: The high monetary cost of buying modern commercial looms.
+        rationale: |
+          You introduced a commercial cost theme not expressed by the symbolic mention of past generations.
       - text: Physical doctors closely inspecting the weaver's hands.
+        rationale: |
+          You picked an absurd literal interpretation about medical staff.
     explanation: |
       Ancestral generations standing by her side symbolizes the continuity of traditional heritage and skills inherited from past weavers.
 
@@ -212,8 +266,14 @@ questions:
       - text: It contrasts humble raw materials with crafted artistic beauty.
         correct: true
       - text: It explains how real flowers are planted inside weaving workshops.
+        rationale: |
+          You interpreted the poetic imagery of a floral bloom on cloth as literal horticulture inside a building.
       - text: It warns weavers against using cotton fiber in traditional foot looms.
+        rationale: |
+          You picked a warning that contradicts the poem's celebration of cotton weaving craftsmanship.
       - text: It describes garden flowers growing along outdoor workshop walls.
+        rationale: |
+          You took the floral tapestry metaphor literally as outdoor garden plants.
     explanation: |
       Contrasting simple cotton with a blooming tapestry emphasizes how art transforms raw materials through dedicated skill.
 
@@ -227,8 +287,14 @@ questions:
       - text: "The rain is like a cloak of silver thread"
         correct: true
       - text: "The heavy clouds press low above the street"
+        rationale: |
+          You picked a literal description of low storm clouds, not a simile using like or as.
       - text: "The city streets are washed of dust and heat"
+        rationale: |
+          You picked a literal statement describing rain cleaning the streets, which contains no simile.
       - text: "And washes clean the avenues of gray"
+        rationale: |
+          You picked a literal description of rain washing urban avenues, not a simile.
     explanation: |
       The phrase "The rain is like a cloak of silver thread" uses "like" to compare rain to a silver cloak, making it a simile.
 
@@ -242,8 +308,14 @@ questions:
       - text: Auditory imagery (appealing to hearing)
         correct: true
       - text: Olfactory imagery (appealing to the sense of smell)
+        rationale: |
+          You picked olfactory imagery (smell), but steady beat describes a rhythm heard by the ears.
       - text: Gustatory imagery (appealing to the sense of taste)
+        rationale: |
+          You picked gustatory imagery (taste), which does not apply to hearing a steady rain beat.
       - text: Thermal imagery (appealing to temperature)
+        rationale: |
+          You picked thermal imagery (temperature), but rushing rain's steady beat appeals to sound.
     explanation: |
       Describing a "rushing rain" with a "steady beat" appeals to the sense of hearing (auditory imagery).
 
@@ -257,8 +329,14 @@ questions:
       - text: From oppressive heaviness to hopeful clarity
         correct: true
       - text: From joyful celebration to angry disappointment
+        rationale: |
+          You reversed the emotional arc. The poem begins with dark heavy clouds and ends with golden sunlight and hope.
       - text: From humorous comedy to frightening terror
+        rationale: |
+          You misidentified the genre. The poem is not a comedy or a horror story.
       - text: From academic curiosity to commercial greed
+        rationale: |
+          You introduced financial and academic themes not present in this reflective poem about city rain.
     explanation: |
       The poem opens with heavy clouds pressing low and city heat, but ends with parting clouds, golden sunlight, and rising hope.
 
@@ -272,8 +350,14 @@ questions:
       - text: Comparing rainwater streams to silver rivers.
         correct: true
       - text: Describing real molten silver metal flowing in city gutters.
+        rationale: |
+          You interpreted the poetic metaphor literally as molten silver liquid in stone gutters.
       - text: Explaining how mountain rivers carry silver ore to cities.
+        rationale: |
+          You introduced mining geology into a poem about urban rain streams.
       - text: Claiming that city roads were paved with pure metallic silver.
+        rationale: |
+          You took the poetic metaphor literally as valuable silver paving materials.
     explanation: |
       Comparing rainwater streams on pavement to silver rivers without using "like" or "as" is a metaphor.
 
@@ -287,7 +371,13 @@ questions:
       - text: Rain brings cleansing relief and hope to urban weariness.
         correct: true
       - text: City storms permanently destroy urban public transportation systems.
+        rationale: |
+          You introduced destruction details not present in this poem about peaceful cleansing and rising hope.
       - text: Travelers should avoid sitting on outdoor porches during heavy rain.
+        rationale: |
+          You picked a practical safety tip rather than the poem's thematic message of emotional cleansing and hope.
       - text: Paved city streets are superior to natural rural riverways.
+        rationale: |
+          You picked an urbanization comparison not explored in the text.
     explanation: |
       The poem depicts rain washing away dust, heat, and worry, restoring quiet peace and fresh hope to the city.
