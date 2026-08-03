@@ -14,8 +14,14 @@ questions:
       - text: "20 cm"
         correct: true
       - text: "10 cm"
+        rationale: |
+          You doubled the stretch when the weight went up four times. From 2 kg to 8 kg is a factor of four, so the stretch is $5 \times 4$.
       - text: "13 cm"
+        rationale: |
+          You added the new weight to the original stretch. Stretch and weight are different units and scale by multiplication, not addition.
       - text: "40 cm"
+        rationale: |
+          You multiplied the stretch by the new weight directly. You must scale by the ratio of the weights, which is 4, not the new weight itself.
     explanation: |
       The weight increased by a factor of $8 \div 2 = 4$. Since stretch is proportional to weight, the stretch also increases by the same factor: $5 \times 4 = 20$ cm.
     approved: true
@@ -30,8 +36,14 @@ questions:
       - text: "18 cm"
         correct: true
       - text: "12 cm"
+        rationale: |
+          You doubled the stretch instead of tripling it. The weight increased from 3 kg to 9 kg, which is a factor of three.
       - text: "15 cm"
+        rationale: |
+          You added the new weight to the original stretch. You must scale the stretch by the ratio of the weights, not add them together.
       - text: "54 cm"
+        rationale: |
+          You multiplied the stretch by the new weight directly. You must scale by the ratio of the weights, which is 3, not the new weight itself.
     explanation: |
       The weight increased by a factor of $9 \div 3 = 3$. Since stretch is proportional to weight, the stretch also increases by the same factor: $6 \times 3 = 18$ cm.
     approved: true
@@ -46,8 +58,14 @@ questions:
       - text: "5 kg"
         correct: true
       - text: "16 kg"
+        rationale: |
+          You subtracted the unit stretch from the total stretch. You must divide the total stretch by the unit stretch to find the weight.
       - text: "24 kg"
+        rationale: |
+          You added the total stretch and the unit stretch together. You must divide the total stretch by the stretch per kilogram to find the weight.
       - text: "4 kg"
+        rationale: |
+          You confused the unit stretch with the total weight. The spring stretches 4 cm per kg, so a 20 cm stretch requires 5 kg.
     explanation: |
       Each 4 cm unit of stretch corresponds to 1 kg. Dividing the total stretch by that unit: $20 \div 4 = 5$, so 5 kg is attached.
     approved: true
@@ -62,8 +80,14 @@ questions:
       - text: "9 kg"
         correct: true
       - text: "16 kg"
+        rationale: |
+          You subtracted the unit stretch from the total stretch. You must divide the total stretch by the stretch per kilogram to find the weight.
       - text: "36 kg"
+        rationale: |
+          You multiplied the total stretch by the unit stretch. You must divide the total stretch by the stretch per kilogram to find the weight.
       - text: "2 kg"
+        rationale: |
+          You confused the unit stretch with the total weight. The spring stretches 2 cm per kg, so an 18 cm stretch requires 9 kg.
     explanation: |
       Each 2 cm unit of stretch corresponds to 1 kg. Dividing the total stretch by that unit: $18 \div 2 = 9$, so 9 kg is attached.
     approved: true
@@ -78,8 +102,14 @@ questions:
       - text: Spring A, since it stretched less under the identical weight
         correct: true
       - text: Spring B, since it stretched more under the identical weight
+        rationale: |
+          You assumed that a stiffer spring moves more. Stiffness is the resistance to stretching, so the stiffer spring is the one that stretches less.
       - text: Both springs are equally stiff, since they hold the same weight
+        rationale: |
+          You assumed that holding the same weight makes them equally stiff. Stiffness is determined by how much they stretch under that weight, which differs here.
       - text: Neither spring can be compared without knowing their exact spring constants
+        rationale: |
+          You assumed you need the exact constants. You can compare stiffness directly by looking at which spring stretches less under the same weight.
     explanation: |
       Under the identical weight, Spring A stretched less (3 cm) than Spring B (8 cm). A spring that stretches less under the same weight is stiffer.
     approved: true
@@ -94,8 +124,14 @@ questions:
       - text: "6 cm"
         correct: true
       - text: "9 cm"
+        rationale: |
+          You added the original weight to the stretch. You must multiply the stretch by the ratio of the new weight to the old weight.
       - text: "3 cm"
+        rationale: |
+          You assumed the stretch remains the same. Since the weight increased, the stretch must also increase proportionally.
       - text: "36 cm"
+        rationale: |
+          You multiplied the stretch by the new weight directly. You must multiply by the ratio of the weights, which is 2, not 12.
     explanation: |
       The scaling factor between the weights is $12 \div 6 = 2$. Applying the same factor to the stretch: $3 \times 2 = 6$ cm.
     approved: true
@@ -110,8 +146,14 @@ questions:
       - text: Spring C, since it stretched less under the identical weight
         correct: true
       - text: Spring D, since it stretched more under the identical weight
+        rationale: |
+          You assumed that a larger stretch means greater stiffness. Stiffness is the resistance to stretching, so the stiffer spring stretches less.
       - text: Both springs are equally stiff
+        rationale: |
+          You assumed they are equally stiff because they hold the same weight. Since they stretch different amounts under that weight, their stiffness differs.
       - text: Neither spring can be compared without more information
+        rationale: |
+          You assumed more data is needed. Since both springs are tested under the identical weight, you can directly compare their stretch to find which is stiffer.
     explanation: |
       Under the identical 8 kg weight, Spring C stretched less (4 cm) than Spring D (10 cm), making Spring C the stiffer spring.
     approved: true
@@ -126,8 +168,14 @@ questions:
       - text: The actual stretch is 6 cm ($3 \div 2 = 1.5$ scaling factor, so $4 \times 1.5 = 6$ cm); the student's error was adding a fixed amount per fixed weight increment instead of scaling by the true ratio, which only coincidentally matches for whole-number multiples of the original weight.
         correct: true
       - text: The actual stretch is 8 cm, matching the student's fixed-amount reasoning exactly.
+        rationale: |
+          You accepted the student's error of adding a fixed amount. Stretch scales proportionally by multiplication, so a 1.5 times increase in weight means a 1.5 times increase in stretch.
       - text: The actual stretch is 4 cm, since only the original weight and stretch matter.
+        rationale: |
+          You assumed the stretch does not change when the weight changes. Stretch increases proportionally as weight increases.
       - text: The actual stretch cannot be determined without knowing the spring's exact material.
+        rationale: |
+          You assumed the material is needed. The ratio of stretch to weight provides all the information required to predict the new stretch.
     explanation: |
       Stretch is proportional to weight (a constant ratio), not simply increased by a fixed amount each time weight increases by some fixed increment. The correct approach scales by the true ratio ($3 \div 2 = 1.5$), giving $4 \times 1.5 = 6$ cm: the student's fixed-amount reasoning only happens to work for whole-number weight multiples, not fractional ones like this.
     approved: true
@@ -142,8 +190,14 @@ questions:
       - text: 'No: a stiffer spring stretches less under the same weight, not more; Spring F, which stretched less, is actually the stiffer spring.'
         correct: true
       - text: 'Yes: "stiffer" means the spring that stretches the most under a given weight.'
+        rationale: |
+          You agreed with the student's misconception that stiffness means moving more. Stiffness is resistance to stretching, so the stiffer spring moves less.
       - text: 'Yes: but only because Spring E is physically larger than Spring F.'
+        rationale: |
+          You assumed physical size determines stiffness. Stiffness is determined entirely by how much a spring stretches under a given weight, not its size.
       - text: 'No: but only because Spring E and Spring F are actually the same spring.'
+        rationale: |
+          You assumed the springs are identical. Since they stretch different amounts under the same weight, they must be different springs with different stiffness.
     explanation: |
       It is easy to intuitively assume "stiffer" means "moves more" or "stretches more." In fact, stiffness describes resistance to stretching, so a stiffer spring is precisely the one that stretches the least for a given weight: here, Spring F, not Spring E.
     approved: true
@@ -158,8 +212,14 @@ questions:
       - text: 'No: the two springs were tested under different weights, so this comparison is not valid; Spring H is actually stiffer, since it resisted stretching just as much despite carrying double the weight of Spring G.'
         correct: true
       - text: 'Yes: since both springs stretched exactly 4 cm, they must be equally stiff regardless of the weights used.'
+        rationale: |
+          You ignored the different weights. To compare stiffness, you must factor in the weight applied; Spring H held twice the weight for the same stretch, making it stiffer.
       - text: 'Yes: but only because both springs are made of the same material.'
+        rationale: |
+          You assumed the material guarantees equal stiffness. The different weights required to produce the same stretch prove the springs have different stiffness.
       - text: 'No: but only because Spring G and Spring H cannot both stretch exactly 4 cm.'
+        rationale: |
+          You assumed two springs cannot stretch the same amount. They can, but because they required different weights to do so, their stiffness is not equal.
     explanation: |
       To fairly compare which spring is stiffer, the weight applied to each spring must be the same: comparing stretches under different weights does not directly reveal which spring is inherently stiffer. Spring H is actually stiffer, since it resisted stretching just as much despite a heavier weight.
     approved: true
@@ -174,8 +234,14 @@ questions:
       - text: "14 cm under 7 kg; 10.5 kg would cause a 21 cm stretch"
         correct: true
       - text: "9 cm under 7 kg; 19 kg would cause a 21 cm stretch"
+        rationale: |
+          You added the weight to the ratio instead of multiplying. You must multiply 7 kg by 2 cm/kg to find the stretch, and divide 21 cm by 2 cm/kg to find the weight.
       - text: "14 cm under 7 kg; 42 kg would cause a 21 cm stretch"
+        rationale: |
+          You multiplied the 21 cm stretch by the ratio instead of dividing. To find the weight, you must divide the total stretch by the stretch per kilogram.
       - text: "7 cm under 7 kg; 10.5 kg would cause a 21 cm stretch"
+        rationale: |
+          You assumed the stretch is equal to the weight. Since the spring stretches 2 cm for every 1 kg, a 7 kg weight causes a 14 cm stretch.
     explanation: |
       Using the ratio of 2 cm per kg: at 7 kg, stretch $= 2 \times 7 = 14$ cm. For a 21 cm stretch, weight $= 21 \div 2 = 10.5$ kg.
     approved: true
@@ -190,8 +256,14 @@ questions:
       - text: Spring I, since it stretched more under the identical weight
         correct: true
       - text: Spring J, since it stretched less under the identical weight
+        rationale: |
+          You confused looser with stiffer. A looser spring offers less resistance, so it will stretch more, not less, under the same weight.
       - text: Both springs are equally loose
+        rationale: |
+          You assumed holding the same weight makes them equally loose. Since they stretched different amounts, one spring offers less resistance than the other.
       - text: Neither spring can be classified as looser without more data
+        rationale: |
+          You assumed you need more data. Since both were tested with the exact same weight, the one that stretched more is clearly looser.
     explanation: |
       A spring that stretches more under the same weight is the looser (less stiff) one. Spring I stretched more (7 cm vs. 3 cm), so it is the looser spring.
     approved: true
@@ -206,8 +278,14 @@ questions:
       - text: 'No: the first ratio is $4 \div 2 = 2$ cm per kg, but the second ratio is $10 \div 4 = 2.5$ cm per kg; since these ratios are not equal, this spring''s behavior is not simply proportional.'
         correct: true
       - text: 'Yes: both stretches came from the same spring, so they must automatically be proportional.'
+        rationale: |
+          You assumed a single spring always behaves proportionally. You must check the ratios; since they differ (2 vs 2.5), the spring's behavior is not proportional.
       - text: 'Yes: the ratios $4 \div 2$ and $10 \div 4$ are actually equal.'
+        rationale: |
+          You miscalculated the ratios. $4 \div 2$ is 2, while $10 \div 4$ is 2.5, so the ratios are not equal and the relationship is not proportional.
       - text: 'No: but only because a spring can never stretch different amounts under different weights.'
+        rationale: |
+          You assumed springs cannot stretch different amounts. They do, but the relationship is only proportional if the ratio of stretch to weight remains constant.
     explanation: |
       To check proportionality, compute stretch-per-weight for each data point: $4 \div 2 = 2$ cm/kg and $10 \div 4 = 2.5$ cm/kg. Since these two ratios differ, the data is not consistent with a simple proportional relationship.
     approved: true
@@ -222,8 +300,14 @@ questions:
       - text: "8 kg causes a 20 cm stretch; 4 kg more (12 kg total) is needed to reach 30 cm"
         correct: true
       - text: "8 kg causes a 20 cm stretch; 10 kg more is needed to reach 30 cm"
+        rationale: |
+          You gave the difference in stretch instead of the difference in weight. The extra 10 cm of stretch requires only 4 kg more weight, since the ratio is 2.5 cm/kg.
       - text: "4 kg causes a 20 cm stretch; 2 kg more is needed to reach 30 cm"
+        rationale: |
+          You divided the stretch by 5 instead of 2.5. The ratio is $5 \div 2 = 2.5$ cm/kg, so a 20 cm stretch requires 8 kg, not 4 kg.
       - text: "8 kg causes a 20 cm stretch; 8 kg more is needed to reach 30 cm"
+        rationale: |
+          You assumed reaching 30 cm requires doubling the weight. A 30 cm stretch requires 12 kg in total, which is only 4 kg more than the 8 kg already attached.
     explanation: |
       The ratio is $5 \div 2 = 2.5$ cm per kg. For 20 cm: $20 \div 2.5 = 8$ kg. For 30 cm: $30 \div 2.5 = 12$ kg. The additional weight needed beyond 8 kg is $12 - 8 = 4$ kg.
     approved: true
@@ -238,8 +322,14 @@ questions:
       - text: Spring R is stiffest (1 cm/kg); Springs P and Q are tied for second, equally less stiff than R (each 2 cm/kg)
         correct: true
       - text: Spring P is stiffest, then Spring Q, then Spring R, based on their raw stretch amounts (6 cm, 8 cm, 5 cm)
+        rationale: |
+          You ranked them by raw stretch without accounting for the different weights. You must calculate the stretch-per-kilogram ratio to compare their stiffness fairly.
       - text: Spring R is loosest, since it has the smallest raw stretch number
+        rationale: |
+          You assumed a smaller raw stretch means it is looser, and you ignored the weights. A smaller stretch-per-kilogram ratio actually means a stiffer spring.
       - text: All three springs are equally stiff, since they were tested under different weights and cannot be compared
+        rationale: |
+          You assumed they cannot be compared. By calculating the stretch-per-kilogram ratio for each spring, you can compare their stiffness directly despite the different weights.
     explanation: |
       Since the weights differ, compare stretch-per-kilogram instead of raw stretch: Spring P is $6 \div 3 = 2$ cm/kg, Spring Q is $8 \div 4 = 2$ cm/kg, and Spring R is $5 \div 5 = 1$ cm/kg. A smaller ratio means a stiffer spring, so Spring R is stiffest, with P and Q tied for second.
     approved: true
