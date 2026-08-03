@@ -15,8 +15,14 @@ questions:
       - text: Separating waste at the point of origin
         correct: true
       - text: Sorting collected waste at a municipal landfill
+        rationale: |
+          You picked sorting at landfill, which happens after waste collection. Segregation at source requires separating waste at the point of origin.
       - text: Incinerating all mixed waste at high temperature
+        rationale: |
+          You selected high temperature incineration, which is a disposal method. Segregation at source means sorting waste before disposal or burning.
       - text: Transporting all unsorted waste to sea dumping
+        rationale: |
+          You chose sea dumping transport, which is illegal ocean dumping. Segregation at source requires sorting waste where it is generated.
     explanation: |
       Segregation at source requires solid waste to be separated into distinct categories at the point where it is produced.
 
@@ -29,8 +35,14 @@ questions:
       - text: Waste diversion
         correct: true
       - text: Open waste dumping
+        rationale: |
+          You picked open waste dumping, which is an illegal disposal practice. Diverting waste away from disposal sites through reuse is waste diversion.
       - text: Municipal incineration
+        rationale: |
+          You selected municipal incineration, which burns waste instead of diverting it. Diverting waste via recycling and composting is waste diversion.
       - text: Sanitary landfilling
+        rationale: |
+          You chose sanitary landfilling, which is a final land disposal method. Keeping materials out of landfills through recycling is waste diversion.
     explanation: |
       Waste diversion refers to activities that reduce the volume of waste entering final disposal facilities.
 
@@ -43,8 +55,14 @@ questions:
       - text: Environmental Compliance Certificate
         correct: true
       - text: Certificate of Municipal Non-Taxable Status
+        rationale: |
+          You selected municipal non-taxable status, which concerns local tax exemptions. Environmental impact compliance requires an ECC from DENR.
       - text: Business Operating Permit Authorization Clearance
+        rationale: |
+          You picked business operating permit, which is a general commercial license. Project environmental compliance is certified by an ECC.
       - text: Building Structural Safety Inspection Permit
+        rationale: |
+          You chose structural safety inspection, which covers engineering safety. Evaluating environmental impacts of projects requires an ECC.
     explanation: |
       An Environmental Compliance Certificate (ECC) is issued under PD 1586 certifying environmental compliance.
 
@@ -57,8 +75,14 @@ questions:
       - text: Shift to proactive risk reduction
         correct: true
       - text: Shift from local government to total foreign aid dependency
+        rationale: |
+          You selected foreign aid dependency, which undermines local resilience. RA 10121 shifted the focus to proactive disaster risk reduction.
       - text: Shift from civil emergency protection to military rule control
+        rationale: |
+          You chose military control, which replaces civilian emergency bodies. RA 10121 shifted disaster policy to proactive risk reduction.
       - text: Shift from early prevention to post-disaster structural rebuilding
+        rationale: |
+          You picked post-disaster rebuilding, which describes the old reactive model. RA 10121 shifted policy to proactive disaster prevention.
     explanation: |
       RA 10121 shifted the disaster management policy from reactive post-disaster response to proactive disaster risk reduction.
 
@@ -71,8 +95,14 @@ questions:
       - text: Environmental Compliance Certificate
         correct: true
       - text: Certificate of Municipal Tax Exemption Status
+        rationale: |
+          You picked tax exemption status, which deals with local revenue. PD 1586 requires an ECC before starting environmentally critical projects.
       - text: Local Mayor General Business Operating License
+        rationale: |
+          You selected mayor's business license, which is a local commercial permit. Prior to construction, PD 1586 requires securing an ECC.
       - text: Fire Safety Building Clearance Inspection Permit
+        rationale: |
+          You chose fire safety clearance, which is a building code requirement. Environmental impact assessment compliance requires an ECC.
     explanation: |
       Projects falling within the Environmental Impact Statement System must secure an ECC from DENR prior to commencement.
 
@@ -85,8 +115,14 @@ questions:
       - text: Waste diversion
         correct: true
       - text: Open dumping
+        rationale: |
+          You selected open dumping, which is an illegal practice that pollutes land. Keeping materials out of landfills via composting is waste diversion.
       - text: Mass combustion
+        rationale: |
+          You picked mass combustion, which burns solid waste. Diverting organics and plastics away from disposal through recycling is waste diversion.
       - text: Deep sea disposal
+        rationale: |
+          You chose deep sea disposal, which pollutes marine ecosystems. Reusing and composting waste to reduce landfill volume is waste diversion.
     explanation: |
       Composting, recycling, and reduction are methods used to achieve waste diversion.
 
@@ -99,8 +135,14 @@ questions:
       - text: NDRRMC
         correct: true
       - text: DENR
+        rationale: |
+          You selected DENR, which manages natural resources and environment. The lead disaster risk reduction coordinating council is NDRRMC.
       - text: NEDA
+        rationale: |
+          You picked NEDA, which is the national economic and development planning agency. Overall disaster management coordination belongs to NDRRMC.
       - text: DSWD
+        rationale: |
+          You chose DSWD, which handles social welfare and relief distribution. Overall disaster risk reduction coordination is led by NDRRMC.
     explanation: |
       The National Disaster Risk Reduction and Management Council (NDRRMC) leads national disaster risk reduction efforts under RA 10121.
 
@@ -113,7 +155,13 @@ questions:
       - text: Segregation at source
         correct: true
       - text: Municipal open waste burning
+        rationale: |
+          You selected open waste burning, which causes air pollution and is banned under RA 9003. Sorting waste at premises is segregation at source.
       - text: Sanitary landfill capping seal
+        rationale: |
+          You picked landfill capping seal, which is a final disposal engineering cover. Sorting trash at home or business is segregation at source.
       - text: Offshore deep sea waste dumping
+        rationale: |
+          You chose offshore sea dumping, which violates environmental marine laws. Mandating waste sorting at household level is segregation at source.
     explanation: |
       Separating waste at household or business premises prior to collection is segregation at source.
