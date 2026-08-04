@@ -13,8 +13,14 @@ questions:
       - text: Her
         correct: true
       - text: Their
+        rationale: |
+          You picked the plural pronoun "their," but "girl" is singular and requires a singular pronoun.
       - text: His
+        rationale: |
+          You picked the masculine pronoun "his," but the antecedent "girl" is female.
       - text: Its
+        rationale: |
+          You picked the neuter pronoun "its," which is used for objects or animals rather than female persons.
     explanation: |
       "Girl" is a singular antecedent, so it needs the singular pronoun "her."
     approved: true
@@ -28,8 +34,14 @@ questions:
       - text: Their
         correct: true
       - text: Her
+        rationale: |
+          You picked the singular pronoun "her," but "girls" is plural and requires a plural pronoun.
       - text: His
+        rationale: |
+          You picked the singular masculine pronoun "his," but the antecedent "girls" is plural.
       - text: Its
+        rationale: |
+          You picked the singular neuter pronoun "its," but "girls" is a plural group of people.
     explanation: |
       "Girls" is a plural antecedent, so it needs the plural pronoun "their."
     approved: true
@@ -43,8 +55,14 @@ questions:
       - text: His or her
         correct: true
       - text: Their
+        rationale: |
+          You selected "their," which is common in casual speech, but formal grammar treats "each" as singular.
       - text: Our
+        rationale: |
+          You picked "our," but the speaker is not part of the group of students mentioned.
       - text: Its
+        rationale: |
+          You picked "its," which is a neuter pronoun used for non-human objects rather than students.
     explanation: |
       "Each" is a singular indefinite pronoun, even though it refers to a group of students. Under strict, traditional grammar rules, a singular antecedent needs a singular pronoun: "his or her."
     approved: true
@@ -58,8 +76,14 @@ questions:
       - text: His or her
         correct: true
       - text: Their
+        rationale: |
+          You picked "their," but formal grammar rules view "somebody" as a singular indefinite antecedent.
       - text: Our
+        rationale: |
+          You picked "our," but "somebody" refers to a third person, not the speaker's group.
       - text: Its
+        rationale: |
+          You picked "its," which is used for non-human things rather than a person.
     explanation: |
       "Somebody" is an indefinite pronoun ending in "-body," always singular, so the traditionally expected pronoun is "his or her."
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: Its
         correct: true
       - text: Their
+        rationale: |
+          You picked "their," treating "company" as plural. Collective nouns acting as one unit take "its."
       - text: His
+        rationale: |
+          You picked "his," but a corporation or company is a non-person entity requiring a neuter pronoun.
       - text: Her
+        rationale: |
+          You picked "her," but a business organization is not a female person.
     explanation: |
       "Company" is a collective noun, referring to one organization acting as a single unit, so it takes the singular pronoun "its."
     approved: true
@@ -88,8 +118,14 @@ questions:
       - text: Its
         correct: true
       - text: Their
+        rationale: |
+          You picked "their," but "class" is a collective noun acting as a single unit here.
       - text: His
+        rationale: |
+          You assigned a gendered pronoun to "class," which is a collective group requiring a neuter pronoun.
       - text: Her
+        rationale: |
+          You assigned a female pronoun to "class," but collective nouns take "its" when acting as a unit.
     explanation: |
       "Class" is a collective noun, acting as one unit when finishing the project together, so it takes the singular pronoun "its."
     approved: true
@@ -103,8 +139,14 @@ questions:
       - text: Their
         correct: true
       - text: Her
+        rationale: |
+          You picked "her," focusing only on Liza, but compound antecedents joined by "and" are plural.
       - text: His
+        rationale: |
+          You picked "his," focusing only on Carlo, but compound antecedents joined by "and" are plural.
       - text: Its
+        rationale: |
+          You picked "its," which is used for objects rather than a group of human beings.
     explanation: |
       "Liza and Carlo" is a compound antecedent joined by "and," making it plural, so it takes the pronoun "their."
     approved: true
@@ -118,8 +160,14 @@ questions:
       - text: Their
         correct: true
       - text: His
+        rationale: |
+          You picked "his" based on the first noun ("coach"), but with "neither...nor," match the closer noun ("players").
       - text: Its
+        rationale: |
+          You picked "its," but "players" refers to human beings rather than non-human items.
       - text: Her
+        rationale: |
+          You picked "her," but the closer antecedent "players" is plural and requires "their."
     explanation: |
       With "neither...nor," the pronoun matches the closer antecedent. The closer antecedent, "players," is plural, so the pronoun is "their."
     approved: true
@@ -133,8 +181,14 @@ questions:
       - text: 'The pronoun "she" is ambiguous: it could refer to either Mrs. Santos or Anna.'
         correct: true
       - text: The sentence has a subject-verb agreement error.
+        rationale: |
+          You misidentified the error. The verbs agree with their subjects, but "she" could point to two different people.
       - text: The sentence incorrectly uses "she" since both people are named individuals.
+        rationale: |
+          You assumed named individuals cannot be referenced by "she." Pronouns are fine as long as the antecedent is clear.
       - text: There is no problem; the sentence is fully correct and clear.
+        rationale: |
+          You assumed the sentence was clear, but a reader cannot determine whether Mrs. Santos or Anna was upset.
     explanation: |
       The pronoun "she" could refer to either Mrs. Santos or Anna: it is unclear which one seemed upset. This is an ambiguous (unclear) antecedent, a common sentence-correction error.
     approved: true
@@ -148,8 +202,14 @@ questions:
       - text: 'The pronoun "he" is ambiguous: it could refer to either Mark or John.'
         correct: true
       - text: The sentence has a subject-verb agreement error.
+        rationale: |
+          You looked for verb agreement issues, but verbs are fine. The real error is the ambiguous pronoun "he."
       - text: The sentence incorrectly uses "he" since both people are named individuals.
+        rationale: |
+          You claimed pronouns cannot follow proper names, but the issue is having two male names for one pronoun.
       - text: There is no problem; the sentence is fully correct and clear.
+        rationale: |
+          You assumed the sentence was clear, but "he" could refer to either Mark or John.
     explanation: |
       The pronoun "he" could refer to either Mark or John: it is unclear who smiled. This is an ambiguous antecedent error, fixable by naming the person directly.
     approved: true
@@ -163,8 +223,14 @@ questions:
       - text: Walang tinutukoy na kasarian, maaaring lalaki o babae
         correct: true
       - text: Tumutukoy lamang sa babae
+        rationale: |
+          You: Pinili mo ang babae, ngunit ang "siya" sa Filipino ay gender-neutral at ginagamit din sa lalaki.
       - text: Tumutukoy lamang sa lalaki
+        rationale: |
+          You: Pinili mo ang lalaki, ngunit ang "siya" ay pwedeng gamitin para sa babae o lalaki.
       - text: Ginagamit lamang para sa mga bagay
+        rationale: |
+          You: Pinili mo ang mga bagay, ngunit ang "siya" ay ginagamit para sa tao.
     explanation: |
       Ang "siya" ay gender-neutral sa Filipino: nangangahulugan itong "he" o "she" nang walang hiwalay na salita para sa bawat isa.
     approved: true
@@ -178,8 +244,14 @@ questions:
       - text: Niya
         correct: true
       - text: Nila
+        rationale: |
+          You: Pinili mo ang "nila" (maramihan), ngunit ang tinutukoy ay "isang estudyante lamang" (isahan).
       - text: Namin
+        rationale: |
+          You: Pinili mo ang "namin," ngunit kasama roon ang nagsasalita at hindi ang solong estudyante.
       - text: Ninyo
+        rationale: |
+          You: Pinili mo ang "ninyo," na ginagamit para sa taong kausap sa halip na sa ikatlong tao.
     explanation: |
       Dahil "isang estudyante lamang" (isang tao lamang) ang tinutukoy, ang tamang panghalip ay "niya" (isahan), hindi "nila" (maramihan).
     approved: true
@@ -193,8 +265,14 @@ questions:
       - text: Siya
         correct: true
       - text: Niya
+        rationale: |
+          You: Pinili mo ang "niya," ngunit ito ay kabilang sa "ng" set at hindi sa "ang" set.
       - text: Kaniya
+        rationale: |
+          You: Pinili mo ang "kaniya," ngunit ito ay kabilang sa "sa" set at hindi sa "ang" set.
       - text: Nila
+        rationale: |
+          You: Pinili mo ang "nila," ngunit ito ay maramihan at kabilang sa "ng" set.
     explanation: |
       Ang "siya" ay kabilang sa "ang" set, na ginagamit para sa tagaganap o paksa ng pangungusap. Ang "niya" ay "ng" set, at ang "kaniya" ay "sa" set.
     approved: true
@@ -208,8 +286,14 @@ questions:
       - text: 'No: under strict formal grammar rules, "everybody" is a singular indefinite antecedent, so the traditionally expected answer is "his or her," even though "their" is common in everyday speech.'
         correct: true
       - text: 'Yes: "their" is always correct in every context, formal or informal.'
+        rationale: |
+          You assumed informal usage applies everywhere, but formal exam grammar treats "everybody" as singular.
       - text: 'Yes: but only because "everybody" is actually a plural antecedent.'
+        rationale: |
+          You misclassified "everybody" as plural. Indefinite pronouns ending in "-body" are grammatically singular.
       - text: 'No: but only because "lunch" is the real antecedent, not "everybody."'
+        rationale: |
+          You identified "lunch" as the antecedent, but "lunch" is the object being brought, not the possessor.
     explanation: |
       Everyday speech often uses "they/their" for indefinite pronouns like "everybody," but grammar-focused exam questions typically expect the traditionally "correct" singular form ("his or her") when testing this specific rule.
     approved: true
@@ -223,8 +307,14 @@ questions:
       - text: 'No: collective nouns like "team" usually take a singular pronoun ("its"), since they act as one unit; "The team celebrated its victory" is the grammatically consistent choice.'
         correct: true
       - text: 'Yes: collective nouns always take plural pronouns, since they refer to multiple people.'
+        rationale: |
+          You assumed collective nouns are always plural, but when acting as a unified body, they take singular pronouns.
       - text: 'Yes: but only because "victory" is itself a plural noun.'
+        rationale: |
+          You misidentified "victory" as plural, but "victory" is singular and does not control the pronoun.
       - text: 'No: but only because teams cannot celebrate anything.'
+        rationale: |
+          You claimed teams cannot celebrate, which ignores how collective nouns function in sentences.
     explanation: |
       Writing "The team celebrated their victory" breaks strict agreement rules; the grammatically consistent choice is "its victory," since collective nouns act as one unit.
     approved: true
@@ -238,8 +328,14 @@ questions:
       - text: 'It is unclear: "her" could refer to either Sarah or Michelle, since both are female nouns mentioned earlier in the sentence.'
         correct: true
       - text: It clearly refers to Sarah, since she is mentioned first in the sentence.
+        rationale: |
+          You assumed word order resolves ambiguity, but grammatical rules require explicit clarity rather than position.
       - text: It clearly refers to Michelle, since she is mentioned second in the sentence.
+        rationale: |
+          You assumed proximity resolves ambiguity, but placing a pronoun near a name does not automatically make it the antecedent.
       - text: There is no ambiguity, since only one person's painting can win.
+        rationale: |
+          You relied on context outside the sentence, but grammatically the antecedent remains ambiguous.
     explanation: |
       If a pronoun could refer to more than one noun in the sentence, the antecedent is unclear. Here, "her" could logically point to either Sarah or Michelle: a common ambiguous-antecedent error that exams test.
     approved: true
@@ -253,8 +349,14 @@ questions:
       - text: His or her
         correct: true
       - text: Their
+        rationale: |
+          You picked "their" based on "players," but with "neither...nor," match the closer noun ("coach"), which is singular.
       - text: Its
+        rationale: |
+          You picked "its," which is a neuter pronoun unsuitable for a human coach.
       - text: Our
+        rationale: |
+          You picked "our," but the sentence refers to third-person entities ("players", "coach").
     explanation: |
       With "neither...nor," the pronoun matches the closer antecedent. The closer antecedent, "coach," is singular, so under strict rules the pronoun is "his or her."
     approved: true
@@ -268,8 +370,14 @@ questions:
       - text: His or her, its
         correct: true
       - text: Their, their
+        rationale: |
+          You used plural pronouns for both blanks, ignoring that "each" is singular and "team" acts as a single unit.
       - text: His or her, their
+        rationale: |
+          You got the first blank right but treated the collective noun "team" as plural in the second blank.
       - text: Their, its
+        rationale: |
+          You used plural "their" for "each," breaking strict agreement rules on indefinite pronouns.
     explanation: |
       "Each" is a singular indefinite antecedent, so the first blank needs "his or her" under strict rules. "Team" is a collective noun acting as one unit, so the second blank needs "its."
     approved: true
