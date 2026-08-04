@@ -38,8 +38,14 @@ questions:
       - text: Internal conflict between rushed desire and patient craftsmanship.
         correct: true
       - text: External conflict between himself and a hostile rival apprentice in Marikina.
+        rationale: |
+          You introduced a rival apprentice character who does not exist in the passage.
       - text: Environmental conflict between his workshop and a sudden river flood.
+        rationale: |
+          You introduced a flood disaster that is not mentioned anywhere in the story.
       - text: Financial conflict over the cost of purchasing imported steel bars.
+        rationale: |
+          You introduced a financial cost dispute that is outside the personal craftsmanship focus of the text.
     explanation: |
       Mateo's internal struggle pits his eager pride and desire to prove independence against the patient discipline needed to forge metal properly.
 
@@ -53,8 +59,14 @@ questions:
       - text: The moment a hairline crack splinters the glowing steel edge.
         correct: true
       - text: Mang Tomas sitting quietly on the bench smoking a clove cigarette.
+        rationale: |
+          You picked a quiet background scene from the exposition rather than the moment of highest tension (the climax).
       - text: Mateo heating the initial leaf-spring steel bar in the forge.
+        rationale: |
+          You picked an opening action from the exposition before the conflict reaches its peak.
       - text: Mang Tomas retrieving a fresh steel bar from the workshop rack.
+        rationale: |
+          You picked part of the resolution after the climax has already occurred.
     explanation: |
       The cracking of the steel is the moment of highest tension and turning point (climax) where Mateo's rushed hammering fails and forces a resolution.
 
@@ -68,8 +80,14 @@ questions:
       - text: He is a wise mentor who uses mistakes as teaching opportunities.
         correct: true
       - text: He is a harsh disciplinarian who fires apprentices for minor errors.
+        rationale: |
+          You picked a harsh character trait that directly contradicts Mang Tomas's calm and encouraging reaction.
       - text: He is indifferent to the quality of the knives produced in his forge.
+        rationale: |
+          You inferred indifference, but his advice about fire and patience shows deep care for craftsmanship.
       - text: He is eager to finish work early to leave the workshop.
+        rationale: |
+          You inferred impatience, which contradicts his patient explanation to Mateo.
     explanation: |
       Rather than reprimanding Mateo, Mang Tomas gently explains the lesson ("let the fire teach your hammer patience") and provides fresh steel, showing patient wisdom.
 
@@ -83,8 +101,14 @@ questions:
       - text: Place the fresh steel into the fire and forge it with patience.
         correct: true
       - text: Quit his apprenticeship and leave the Marikina workshop immediately.
+        rationale: |
+          You inferred quitting, but Mang Tomas's encouraging words set up Mateo to try again patiently.
       - text: Sell the cracked steel blade to a neighboring market vendor.
+        rationale: |
+          You picked an action that ignores Mang Tomas handing him fresh steel to forge again.
       - text: Argue with Mang Tomas about the temperature of the forge fire.
+        rationale: |
+          You inferred an argumentative conflict that contradicts Mateo's respect for his master's guidance.
     explanation: |
       Mang Tomas hands him a fresh bar and instructs him to heat it again and practice patience, setting up a slower second forging attempt.
 
@@ -98,8 +122,14 @@ questions:
       - text: Craft requires discipline and patience over rushed pride.
         correct: true
       - text: Apprentice blacksmiths should avoid using heavy mallets.
+        rationale: |
+          You picked a narrow tool tip rather than the story's deeper moral lesson about patience and craftsmanship.
       - text: Clove cigarettes are essential for managing workshop fatigue.
+        rationale: |
+          You picked a minor character detail about Mang Tomas, mistaking it for the main theme.
       - text: Kitchen knives forged in Marikina are always prone to cracking.
+        rationale: |
+          You picked a negative generalization that misses the moral theme of learning from mistakes.
     explanation: |
       The story illustrates how rushing due to pride leads to broken work, while true craftsmanship depends on patient discipline.
 
@@ -113,8 +143,14 @@ questions:
       - text: Conflict between professional duty and personal safety during a storm.
         correct: true
       - text: Physical combat between Benjamin and cargo thieves inside the container.
+        rationale: |
+          You introduced a physical fight with thieves that is not described in the story.
       - text: Legal dispute between Benjamin and the Manila port authority over wages.
+        rationale: |
+          You picked an administrative wage dispute not mentioned in the narrative.
       - text: Personal disagreement between Benjamin and a fellow night watchman.
+        rationale: |
+          You introduced a rival watchman character who does not appear in the text.
     explanation: |
       Benjamin is torn between the safety protocol requiring him to climb a slippery ladder to secure the latch and the danger/discomfort of rain and fatigue.
 
@@ -128,8 +164,14 @@ questions:
       - text: Heavy rain and thunderclaps create a tense atmosphere.
         correct: true
       - text: Bright sunshine and calm sea breezes create a cheerful and relaxed mood.
+        rationale: |
+          You picked a weather setting opposite to the midnight storm described in the text.
       - text: Busy market crowds and street music create a festive holiday environment.
+        rationale: |
+          You picked a cheerful market setting that contradicts the dark, rain-soaked port yard.
       - text: Quiet air-conditioned office rooms create an academic research setting.
+        rationale: |
+          You picked an indoor office setting that does not match the outdoor pier environment.
     explanation: |
       The midnight storm, dark container maze, slick ladder, and thunderclaps build a tense, hazardous mood.
 
@@ -143,8 +185,14 @@ questions:
       - text: He has decided to climb the ladder despite the storm.
         correct: true
       - text: He has decided to abandon his job and run back to the guardhouse.
+        rationale: |
+          You picked an action opposite to Benjamin's choice to attach his harness and climb the ladder.
       - text: He is handing his equipment to a replacement watchman.
+        rationale: |
+          You introduced a secondary character who is not present in the scene.
       - text: He is throwing his flashlight into the sea.
+        rationale: |
+          You picked a random destructive action unsupported by the text.
     explanation: |
       Hooking his safety harness to the ladder shows he is preparing to climb up and secure the loose container latch.
 
@@ -158,8 +206,14 @@ questions:
       - text: He is a responsible worker who takes his duty seriously.
         correct: true
       - text: He is a careless watchman who frequently sleeps inside the guardhouse.
+        rationale: |
+          You picked a negative characterization that contradicts Benjamin leaving the guardhouse to check a noise.
       - text: He is an inexperienced worker who does not know port safety protocols.
+        rationale: |
+          You inferred inexperience, but Benjamin specifically follows company safety protocols despite the storm.
       - text: He is a suspicious character planning to steal container cargo.
+        rationale: |
+          You inferred criminal intent unsupported by Benjamin's duty to protect cargo.
     explanation: |
       Choosing to inspect the banging noise and climb a wet ladder near the end of a long shift demonstrates his conscientiousness and commitment to duty.
 
@@ -173,7 +227,13 @@ questions:
       - text: It ends at a moment of suspense before action is complete.
         correct: true
       - text: It presents a complete historical timeline of Manila port construction.
+        rationale: |
+          You misidentified fiction as a non-fiction historical timeline of port construction.
       - text: It lists verified statistics on container shipping revenue.
+        rationale: |
+          You misidentified the story as a statistical report on shipping revenue.
       - text: It provides an authorial footnote explaining port legal codes.
+        rationale: |
+          You misidentified the narrative ending as a legal textbook footnote.
     explanation: |
       Fiction excerpts frequently conclude at a pivotal moment of suspense (preparing to climb the ladder), inviting the reader to infer what follows based on character setup.
