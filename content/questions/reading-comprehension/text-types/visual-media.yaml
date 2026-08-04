@@ -38,8 +38,14 @@ questions:
       - text: Uncovered water drums (fifty percent)
         correct: true
       - text: Discarded tires and tin cans (thirty percent)
+        rationale: |
+          You picked thirty percent, which is the second largest slice in the chart, not the largest slice (fifty percent).
       - text: Clogged roof gutters (fifteen percent)
+        rationale: |
+          You picked fifteen percent, which is smaller than fifty percent for uncovered water drums.
       - text: Flower vase water (five percent)
+        rationale: |
+          You picked five percent, which represents the smallest percentage in the pie chart rather than the largest.
     explanation: |
       The passage explicitly states that fifty percent of breeding sites in the pie chart is labeled "uncovered water drums".
 
@@ -53,8 +59,14 @@ questions:
       - text: To provide actionable steps to eliminate mosquito breeding.
         correct: true
       - text: To decorate the poster with artistic color illustrations.
+        rationale: |
+          You mistook functional health icons for mere artistic decoration without recognizing their instructional role.
       - text: To explain the biological life cycle of the Aedes aegypti mosquito.
+        rationale: |
+          You picked mosquito biology, but the icons illustrate human cleaning actions like covering drums and clearing gutters.
       - text: To display the historical budget of the Department of Health.
+        rationale: |
+          You picked financial budget information, which is not depicted by preventive action icons.
     explanation: |
       The action icons demonstrate preventive measures (covering drums, clearing gutters, recycling tires), providing clear actionable guidance for viewers.
 
@@ -68,8 +80,14 @@ questions:
       - text: To draw visual attention to critical hazard warnings.
         correct: true
       - text: To hide the mosquito's black and white striped legs.
+        rationale: |
+          You inferred an attempt to conceal details, but callout boxes are designed to highlight information.
       - text: To indicate that mosquitoes only breed in yellow containers.
+        rationale: |
+          You took the yellow design color literally as a container color rule.
       - text: To match the light blue background of the headline.
+        rationale: |
+          You picked color matching, but yellow is used specifically to contrast against blue and signal a hazard warning.
     explanation: |
       Bright callout boxes are a visual design device used to attract immediate attention to high-priority safety warnings.
 
@@ -83,8 +101,14 @@ questions:
       - text: To motivate residents to eliminate stagnant water sources.
         correct: true
       - text: To promote commercial sales of synthetic insect repellents.
+        rationale: |
+          You picked a commercial sales objective, whereas public health infographics focus on disease prevention.
       - text: To criticize municipal workers for failing to clean public roads.
+        rationale: |
+          You inferred political criticism, but the poster focuses on household action to prevent dengue.
       - text: To collect statistical data from hospital dengue patients.
+        rationale: |
+          You picked data collection, which is an administrative task rather than a public awareness goal.
     explanation: |
       Combining breeding site data, mosquito warnings, and practical cleaning steps aims to motivate residents to eliminate stagnant water.
 
@@ -98,8 +122,14 @@ questions:
       - text: The footer banner with the DOH hotline number.
         correct: true
       - text: The magnified vector illustration of the mosquito.
+        rationale: |
+          You picked the mosquito vector drawing, which is a hazard illustration rather than an official authority marker.
       - text: The pie chart slice showing five percent flower vase water.
+        rationale: |
+          You picked a data point from the chart, not the official agency contact resource located in the footer.
       - text: The yellow background color behind the action icons.
+        rationale: |
+          You picked a background design color rather than the official DOH hotline banner.
     explanation: |
       The footer banner displaying official agency information and hotline details provides the authority marker and emergency contact resource.
 
@@ -113,8 +143,14 @@ questions:
       - text: The financial burden on drivers from rising fuel costs.
         correct: true
       - text: The physical weight of passenger luggage carried on jeepney roofs.
+        rationale: |
+          You took the cartoon boulder literally as passenger luggage rather than a symbol for fuel price burdens.
       - text: The construction materials used to repair mountain roads.
+        rationale: |
+          You took the boulder literally as road construction material, ignoring its political label.
       - text: The high quality of imported petroleum products.
+        rationale: |
+          You inferred positive quality from an iron boulder, which is drawn as an oppressive crushing weight.
     explanation: |
       In editorial cartooning, a heavy crushing object labeled with a problem symbolizes an overwhelming burden on affected individuals.
 
@@ -128,8 +164,14 @@ questions:
       - text: Critical of oil importers who remain detached from the struggle.
         correct: true
       - text: Supportive of oil importers for providing financial aid to transport workers.
+        rationale: |
+          You inferred financial aid, which contradicts the importers standing detached with binoculars on a peak.
       - text: Neutral, showing both groups working together to push the cart.
+        rationale: |
+          You inferred cooperation, but the driver pulls alone while the importers watch from above.
       - text: Praising jeepney drivers for buying expensive binoculars.
+        rationale: |
+          You misread the text. The oil importers hold the binoculars, not the struggling driver.
     explanation: |
       Depicting figures in suits standing safely at the top holding binoculars and a "market forces" sign conveys a critical stance on their detachment from the driver's struggle.
 
@@ -143,8 +185,14 @@ questions:
       - text: Highlighting the gap between fuel costs and earnings.
         correct: true
       - text: Showing that coin purses are manufactured from iron metal.
+        rationale: |
+          You took the visual contrast literally as coin purse manufacturing material.
       - text: Proving that jeepney fares are higher than fuel prices.
+        rationale: |
+          You reversed the financial contrast. The tiny purse shows fares are inadequate to meet high fuel costs.
       - text: Demonstrating that watchmen should carry safety harnesses.
+        rationale: |
+          You mixed up details from the pier watchman passage into this editorial cartoon question.
     explanation: |
       Contrasting a colossal iron boulder with a tiny, empty purse visually emphasizes the disparity between heavy costs and small incomes.
 
@@ -158,8 +206,14 @@ questions:
       - text: Representing economic hardship felt by the commuting community.
         correct: true
       - text: Indicating that a real typhoon storm is currently flooding the city.
+        rationale: |
+          You took the storm clouds literally as weather rather than a cartoon symbol for economic distress.
       - text: Showing that electric buses produce heavy air pollution.
+        rationale: |
+          You introduced electric buses and air pollution, which are not depicted in this editorial cartoon.
       - text: Decorating the top edge of the drawing with natural scenery.
+        rationale: |
+          You dismissed the clouds as background decoration, ignoring political cartoon symbolism.
     explanation: |
       Storm clouds in editorial cartoons frequently symbolize looming trouble, hardship, or economic distress affecting a population.
 
@@ -173,7 +227,13 @@ questions:
       - text: To suggest economic relief is becoming increasingly distant.
         correct: true
       - text: To guide drivers toward the nearest commercial gasoline station.
+        rationale: |
+          You took the economic relief sign literally as a directional sign for a gas station.
       - text: To prove that mountain roads are safer than paved city streets.
+        rationale: |
+          You inferred road safety advice, which is unrelated to political cartoon symbolism.
       - text: To show that the jeepney driver is driving in the wrong direction.
+        rationale: |
+          You misinterpreted the sign as navigation error rather than relief receding into the past.
     explanation: |
       A sign pointing backward away from the climbing driver symbolizes that relief is moving out of reach as struggles increase.
