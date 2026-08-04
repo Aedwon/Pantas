@@ -48,7 +48,7 @@ dependencies:
   firebase_storage: ^13.0.0
 
   # Auth providers
-  google_sign_in: ^6.2.1
+  google_sign_in: ^7.2.0
   sign_in_with_apple: ^8.0.0
 
   # IAP via RevenueCat
