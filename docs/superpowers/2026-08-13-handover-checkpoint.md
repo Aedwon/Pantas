@@ -114,8 +114,55 @@ Full detail: `docs/revenuecat-setup.md`, corrected four times on 12 August.
 
 ## Part 4: Content, which is where the honest risk is
 
-The corpus is large and it has never had a judgment pass. **The mechanical sweeps
-have run; a human reading has not.**
+**Rewritten later on 13 August, after a QA pass. Read this version.**
+
+### What that pass found, and it was not what the old reports said
+
+**The six lesson blockers this audit carried since July are all already fixed.**
+Every "underlined word" now says "in bold" and is bold, and both Mathematics
+examples list their choices. The reports were stale, not the corpus. They are
+marked resolved in place.
+
+**The real finding was the tier boundary.** The answer reveal has two notes. Note
+A is the explanation and both tiers see it. Note B sits on the choice the student
+picked, appears only on a miss, and is the whole of what Pro adds there.
+
+**No question in the corpus had a note B**, and the pipeline threw the field away
+anyway. **A paying student saw exactly what a free one saw, on all 2,369
+questions.** The code side is fixed and tested end to end. The content is being
+written now, subject by subject.
+
+**Eighteen questions were unanswerable on screen.** Fifteen error-identification
+questions had choices that were literally the letters A to E, pointing at markers
+inside the stem, and the app reshuffles choices and re-letters them. The row
+labelled A could hold the text C. All eighteen now quote the words they mean.
+
+**Twenty-three explanations named choices by letter**, which is wrong on screen
+for the same reason and was also giving away note B for free. All fixed, and the
+per-option material became the note B it should always have been.
+
+### The answers themselves look sound
+
+**Eighteen questions worked by hand, three from each subject, chosen by seed.**
+All eighteen answer keys were correct. That is a sample, not a claim about 2,369,
+and it is the only correctness evidence this project has.
+
+### Note B, where it stands
+
+| Subject | Questions | With note B |
+|---|---|---|
+| General Information | 156 | **all** |
+| Reading Comprehension | 192 | **all** |
+| Language Proficiency | 319 | in progress |
+| Reasoning | 244 | 90 |
+| Mathematics | 713 | 69 |
+| Science | 777 | 0 |
+
+**Measured rate:** a dispatched run does a mechanical subject in one window and
+two files of hard material in the same time. **One note in twenty had a wrong
+claim** in the run read line by line, so these are read before they merge.
+
+### The rest of the content backlog
 
 ### 4.1 Six lesson blockers, unfixed
 
