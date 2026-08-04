@@ -13,8 +13,14 @@ questions:
       - text: Barks
         correct: true
       - text: Bark
+        rationale: |
+          You picked the plural verb "bark," but the subject "dog" is singular and requires "barks."
       - text: Barking
+        rationale: |
+          You picked the present participle "barking," which cannot function as the main verb without a helping verb.
       - text: Barked (referring to an ongoing habit)
+        rationale: |
+          You picked past tense "barked," but the phrase "every morning" indicates a routine present habit.
     explanation: |
       "Dog" is a singular subject, so it needs the singular verb form "barks."
     approved: true
@@ -28,8 +34,14 @@ questions:
       - text: Bark
         correct: true
       - text: Barks
+        rationale: |
+          You picked the singular verb "barks," but the plural subject "dogs" requires the plural verb "bark."
       - text: Is barking
+        rationale: |
+          You picked the singular verb phrase "is barking," which mismatches the plural subject "dogs."
       - text: Has barked
+        rationale: |
+          You picked the singular verb phrase "has barked," but "dogs" is plural and requires a plural verb.
     explanation: |
       "Dogs" is a plural subject, so it needs the plural verb form "bark."
     approved: true
@@ -43,8 +55,14 @@ questions:
       - text: Is
         correct: true
       - text: Are
+        rationale: |
+          You matched the verb to the plural prepositional noun "items" instead of the true singular subject "list."
       - text: Were
+        rationale: |
+          You chose a plural past-tense verb, but the true subject "list" is singular and requires a singular verb.
       - text: Have been
+        rationale: |
+          You selected a plural verb phrase, but the subject "list" is singular.
     explanation: |
       The true subject is "list" (singular), not "items." Ignoring the describing phrase "of items on the shelf," the verb must match "list": "is."
     approved: true
@@ -58,8 +76,14 @@ questions:
       - text: Is
         correct: true
       - text: Are
+        rationale: |
+          You matched the verb to "chocolates" instead of the true singular subject "box."
       - text: Were
+        rationale: |
+          You selected a plural verb, but the subject of the sentence is the singular noun "box."
       - text: Have been
+        rationale: |
+          You selected a plural verb phrase, but the subject "box" requires a singular verb.
     explanation: |
       The true subject is "box" (singular), not "chocolates." Ignoring the describing phrase "of chocolates," the verb must match "box": "is."
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: Has
         correct: true
       - text: Have
+        rationale: |
+          You picked plural "have," treating "committee" as separate individuals rather than one collective unit.
       - text: Were
+        rationale: |
+          You selected a plural verb, but collective nouns acting as a single entity take singular verbs.
       - text: Are
+        rationale: |
+          You selected a plural verb, but "committee" acts as a single group here requiring a singular verb.
     explanation: |
       "Committee" is a collective noun, treated as one singular unit when acting together as a group, so it takes the singular verb "has."
     approved: true
@@ -88,8 +118,14 @@ questions:
       - text: Is
         correct: true
       - text: Are
+        rationale: |
+          You picked plural "are," but "family" is a collective noun acting as a single unit.
       - text: Were
+        rationale: |
+          You picked a plural past-tense verb, but "family" is acting as one singular unit here.
       - text: Have
+        rationale: |
+          You picked plural "have," but collective nouns acting together take singular verbs.
     explanation: |
       "Family" is a collective noun, treated as one singular unit when planning together, so it takes the singular verb "is."
     approved: true
@@ -103,8 +139,14 @@ questions:
       - text: Is
         correct: true
       - text: Are
+        rationale: |
+          You selected plural "are," but indefinite pronouns ending in "-body" are always singular.
       - text: Were
+        rationale: |
+          You selected plural "were," but "everybody" is a singular indefinite pronoun.
       - text: Have been
+        rationale: |
+          You chose a plural verb phrase, but "everybody" is grammatically singular.
     explanation: |
       Indefinite pronouns ending in "-body" (like "everybody") are always singular, regardless of how many people they refer to, so the verb must be "is."
     approved: true
@@ -118,8 +160,14 @@ questions:
       - text: Seems
         correct: true
       - text: Seem
+        rationale: |
+          You selected plural "seem," but indefinite pronouns ending in "-thing" are singular.
       - text: Were seeming
+        rationale: |
+          You selected a plural continuous verb phrase, but "nothing" is a singular subject.
       - text: Have seemed
+        rationale: |
+          You selected a plural perfect verb phrase, but "nothing" requires a singular verb.
     explanation: |
       Indefinite pronouns ending in "-thing" (like "nothing") are always singular, so the verb must be "seems."
     approved: true
@@ -133,8 +181,14 @@ questions:
       - text: Has
         correct: true
       - text: Have
+        rationale: |
+          You chose plural "have," but "most" takes its number from "water," which is an uncountable singular noun.
       - text: Were
+        rationale: |
+          You chose a plural verb, but "water" is an uncountable singular noun requiring a singular verb.
       - text: Are
+        rationale: |
+          You chose a plural verb, but "water" is uncountable and singular.
     explanation: |
       "Most" can be singular or plural, depending on the noun following "of." Here, "water" is uncountable and singular, so the verb must be "has."
     approved: true
@@ -148,8 +202,14 @@ questions:
       - text: Are
         correct: true
       - text: Is
+        rationale: |
+          You picked singular "is," but "some" takes its number from "cookies," which is plural.
       - text: Was
+        rationale: |
+          You picked a singular past-tense verb, but "cookies" is a plural noun requiring a plural verb.
       - text: Has been
+        rationale: |
+          You picked a singular verb phrase, but the subject noun after "of" ("cookies") is plural.
     explanation: |
       "Some" can be singular or plural, depending on the noun following "of." Here, "cookies" is plural, so the verb must be "are."
     approved: true
@@ -163,8 +223,14 @@ questions:
       - text: Are
         correct: true
       - text: Is
+        rationale: |
+          You picked singular "is," but compound subjects joined by "and" are plural.
       - text: Was
+        rationale: |
+          You picked singular "was," but "Ana and Ben" forms a plural subject.
       - text: Has been
+        rationale: |
+          You picked a singular verb phrase, but two subjects joined by "and" require a plural verb.
     explanation: |
       Compound subjects joined by "and" are usually plural, so "Ana and Ben" takes the plural verb "are."
     approved: true
@@ -178,8 +244,14 @@ questions:
       - text: Were
         correct: true
       - text: Was
+        rationale: |
+          You picked singular "was" based on "manager," but with "neither...nor," match the closer noun ("employees").
       - text: Is
+        rationale: |
+          You picked singular "is," but the closer subject "employees" is plural and requires a plural verb.
       - text: Has been
+        rationale: |
+          You picked a singular verb phrase, but the closer subject "employees" is plural.
     explanation: |
       With "neither...nor," the verb must agree with the subject closest to it. The closer subject, "employees," is plural, so the verb must be "were."
     approved: true
@@ -193,8 +265,14 @@ questions:
       - text: Was
         correct: true
       - text: Were
+        rationale: |
+          You picked plural "were" based on "students," but with "neither...nor," match the closer noun ("teacher").
       - text: Are
+        rationale: |
+          You picked plural "are," but the closer subject "teacher" is singular.
       - text: Have been
+        rationale: |
+          You selected a plural verb phrase, but the subject closest to the verb ("teacher") is singular.
     explanation: |
       With "neither...nor," the verb must agree with the subject closest to it. The closer subject, "teacher," is singular, so the verb must be "was," even though "students" (plural) appears first.
     approved: true
@@ -208,8 +286,14 @@ questions:
       - text: 'No: the true subject is "box" (singular), not "chocolates"; test-makers place a plural noun right before the verb specifically to tempt you into matching the wrong, nearer word instead of the true subject.'
         correct: true
       - text: 'Yes: the noun closest to the verb always determines agreement, regardless of the true subject.'
+        rationale: |
+          You assumed proximity rules override true subject agreement, which is grammatically wrong.
       - text: 'Yes: but only because "chocolates" is actually the true subject in this sentence.'
+        rationale: |
+          You misidentified "chocolates" as the subject, but "chocolates" is just the object of the preposition.
       - text: 'No: but only because "box" and "chocolates" are both plural.'
+        rationale: |
+          You claimed "box" is plural, but "box" is singular.
     explanation: |
       The true subject decides the verb, even if other nouns sit closer to the verb in the sentence. "The box of chocolates is (not are) on the table" is correct, since "box" is the true, singular subject.
     approved: true
@@ -223,8 +307,14 @@ questions:
       - text: 'No: collective nouns like "team" are usually treated as singular, since they name one group acting as a unit; unless the sentence clearly emphasizes individual members acting separately, use the singular verb "is."'
         correct: true
       - text: 'Yes: any noun referring to multiple people always takes a plural verb.'
+        rationale: |
+          You assumed all group nouns take plural verbs, but collective nouns take singular verbs when acting as a unit.
       - text: 'Yes: but only because "team" contains the letter combination that signals plurality.'
+        rationale: |
+          You linked grammar rules to arbitrary letter patterns inside words.
       - text: 'No: but only because "team" is not actually a collective noun.'
+        rationale: |
+          You incorrectly claimed "team" is not a collective noun.
     explanation: |
       Many students assume a "team" or "family" (multiple people) needs a plural verb. Unless the sentence clearly emphasizes the individual members acting separately, collective nouns are treated as singular.
     approved: true
@@ -238,8 +328,14 @@ questions:
       - text: 'No: "everybody" is an indefinite pronoun ending in "-body," which is always singular, no matter how many people it refers to; the correct verb is "has," not "have."'
         correct: true
       - text: 'Yes: "everybody" always takes a plural verb, since it refers to a group of people.'
+        rationale: |
+          You assumed referring to multiple people requires a plural verb, but "everybody" is grammatically singular.
       - text: 'Yes: but only when the sentence is about opinions specifically.'
+        rationale: |
+          You linked subject-verb agreement to sentence topic instead of pronoun type.
       - text: 'No: but only because "everybody" is not actually a pronoun.'
+        rationale: |
+          You claimed "everybody" is not a pronoun, but it is an indefinite pronoun.
     explanation: |
       Even though "everybody" refers to many people, it grammatically behaves as one singular unit. "Everybody has (not have) their own opinion" is correct.
     approved: true
@@ -253,8 +349,14 @@ questions:
       - text: 'No: with "or" or "nor," match the verb to the subject closest to it, not the first one mentioned; the closer subject here is "teacher" (singular), so the correct verb is "was," not "were."'
         correct: true
       - text: 'Yes: the first subject mentioned always determines the verb in an "or/nor" sentence.'
+        rationale: |
+          You assumed the first noun controls agreement in "or/nor" structures, but the closer noun controls it.
       - text: 'Yes: but only because "students" and "teacher" are both considered plural together.'
+        rationale: |
+          You added the two subjects together like an "and" structure, but "nor" does not combine subjects.
       - text: 'No: but only because "neither...nor" sentences never require verb agreement at all.'
+        rationale: |
+          You claimed "neither...nor" ignores agreement rules, which is incorrect.
     explanation: |
       With "or" or "nor," match the verb to the subject closest to it, not the first one mentioned. "Neither the students nor the teacher was late" is correct, matching "teacher," the closer subject.
     approved: true
@@ -268,8 +370,14 @@ questions:
       - text: Ang
         correct: true
       - text: Ng
+        rationale: |
+          You: Pinili mo ang "ng," ngunit ang "kumain" ay actor-focus kaya "ang" ang gagamitin sa tagaganap ("bata").
       - text: Sa
+        rationale: |
+          You: Pinili mo ang "sa," ngunit ang "sa" ay para sa lokasyon o direksyon at hindi sa paksa.
       - text: Na
+        rationale: |
+          You: Pinili mo ang "na," ngunit ang "na" ay pang-angkop at hindi panandang ang-pantukoy.
     explanation: |
       Ang "kumain" ay pandiwang naka-focus sa gumagawa (actor focus), kaya ang gumagawa ng kilos ("bata") ay dapat markahan ng pananda na "ang."
     approved: true
@@ -283,8 +391,14 @@ questions:
       - text: Ng
         correct: true
       - text: Ang
+        rationale: |
+          You: Pinili mo ang "ang," ngunit ang "kinain" ay object-focus kaya "ng" ang gagamitin sa tagaganap.
       - text: Sa
+        rationale: |
+          You: Pinili mo ang "sa," ngunit ang "sa" ay para sa lugar o kinaroroonan at hindi sa tagaganap.
       - text: Na
+        rationale: |
+          You: Pinili mo ang "na," ngunit ang "na" ay pang-angkop at hindi panandang ng-pantukoy.
     explanation: |
       Ang "kinain" ay pandiwang naka-focus sa bagay ("ang tinapay"), kaya ang gumagawa ng kilos ("bata") ay markahan ng pananda na "ng," hindi "ang."
     approved: true
@@ -298,8 +412,14 @@ questions:
       - text: Were, was
         correct: true
       - text: Was, were
+        rationale: |
+          You reversed both verb choices: the first blank needs plural "were" and the second needs singular "was."
       - text: Were, were
+        rationale: |
+          You picked plural "were" for the second blank, but "most" modifies the singular noun "crowd."
       - text: Was, was
+        rationale: |
+          You picked singular "was" for the first blank, but the closer subject "players" is plural.
     explanation: |
       In the first clause, "neither...nor" matches the closer subject, "players" (plural), giving "were." In the second clause, "most" takes its number from "crowd" (singular, a collective noun), giving "was."
     approved: true
