@@ -164,26 +164,7 @@ claim** in the run read line by line, so these are read before they merge.
 
 ### The rest of the content backlog
 
-### 4.1 Six lesson blockers, unfixed
-
-From `docs/content/audit/`, all report-only and none fixed:
-
-| Finding | What |
-|---|---|
-| LANG-APP-001 | "underlined portion" is italic, not underlined |
-| LANG-VOC-001, 002 | "underlined word" is bold |
-| LANG-VOC-003 | four "underlined words" are not marked at all |
-| MATH-ARI-001 | a question promises answer choices and lists none |
-| MATH-GEO-001 | "pick the equivalent statement" with the choices only described in prose |
-
-**Every one of these is a lesson that asks a student to look at something that is
-not on the page.** They are small edits and they need a person who can see the
-lesson.
-
-Eleven `important` findings sit behind them, including whether the Filipino
-lessons teach Filipino or only gloss it.
-
-### 4.2 The approval flag gates nothing
+### The approval flag gates nothing
 
 **1,259 questions carry `approved: true` and nothing reads it.** A question
 reaches a student whether the flag is true, false or absent.
@@ -192,7 +173,7 @@ The recommendation on record is to make the seed skip unapproved questions, so
 the review becomes a real gate. **That may empty some subjects**, which is the
 point. Aedwon has not ruled on it.
 
-### 4.3 The correct answer is often the longest
+### The correct answer is often the longest
 
 **403 questions**, 17% of the corpus, where the correct choice is more than half
 again longer than the longest distractor. A student can score by picking the
@@ -200,19 +181,24 @@ longest without reading. Reading Comprehension was fixed on 4 August by
 lengthening distractors; **Science 193, Language 104, Reasoning 82 and
 Mathematics 24 were not touched.**
 
-### 4.4 155 questions are parked on pictures that do not exist
+`plans/2026-08-13-content-distractor-length.md` is written and Science is running
+against it. **The rule is lengthen the distractors, never shorten the answer**,
+and the risk it names out loud is a distractor lengthened into a second correct
+answer.
+
+### 155 questions are parked on pictures that do not exist
 
 `content/illustrations/` is empty. The workflow is decided: hand-made in Canva,
 PowerPoint or Illustrator, never AI-generated, then through the Illustration
 Studio. **Nobody has drawn one.**
 
-### 4.5 One mock blueprint
+### One mock blueprint
 
 `content/mock/upcat.yaml` exists and works. **The other six exams have no paper.**
 Sectional timings are on record for UPCAT, USTET, NMAT and CSE; ACET, DCAT and
 MSU-SASE were still being asked around for.
 
-### 4.6 Questions carry no lesson id
+### Questions carry no lesson id
 
 They carry a topic id only. Anything that wants lesson-level question data is
 blocked until that tagging exists.
