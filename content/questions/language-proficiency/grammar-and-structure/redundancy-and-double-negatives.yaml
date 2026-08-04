@@ -13,8 +13,14 @@ questions:
       - text: Honest and truthful mean essentially the same thing, so using both is redundant; corrected, it should read "Please give us your honest opinion."
         correct: true
       - text: There is no error in this sentence.
+        rationale: |
+          You assumed the sentence was fine, but pairing "honest" and "truthful" repeats identical meanings in the same phrase.
       - text: Give should be changed to "gives."
+        rationale: |
+          You changed the verb form, but "give" is an imperative command addressed to "you," which is correct.
       - text: The sentence needs a comma after "honest."
+        rationale: |
+          You looked for a punctuation error, but adding a comma does not eliminate the redundant pairing of near-synonyms.
     explanation: |
       "Honest" and "truthful" mean essentially the same thing, so using both is redundant. Keeping only one of the two words fixes the error.
     approved: true
@@ -28,8 +34,14 @@ questions:
       - text: This is a double negative ("doesn't" and "no"); corrected, it should read "She doesn't want any help with the project."
         correct: true
       - text: There is no error in this sentence.
+        rationale: |
+          You assumed the sentence was correct, but combining "doesn't" and "no" creates a grammatically improper double negative.
       - text: Want should be changed to "wants."
+        rationale: |
+          You modified the base verb, but "doesn't" already carries third-person singular agreement with "want."
       - text: The sentence needs a comma after "help."
+        rationale: |
+          You looked for a punctuation fix, but punctuation cannot resolve a double negative error.
     explanation: |
       "Doesn't" and "no" are both negative words in the same clause, creating a double negative. Changing "no" to "any" fixes the error.
     approved: true
@@ -43,8 +55,14 @@ questions:
       - text: The two of them collaborated on the mural.
         correct: true
       - text: The two of them collaborated together on the mural.
+        rationale: |
+          You selected a sentence containing "collaborated together." "Collaborate" already means working together.
       - text: Both sentences avoid redundancy.
+        rationale: |
+          You accepted both versions, but adding "together" to "collaborate" creates unnecessary repetition.
       - text: Neither sentence avoids redundancy.
+        rationale: |
+          You rejected the sentence that cleanly uses "collaborated" without adding the redundant word "together."
     explanation: |
       "Collaborated" already means "worked together," so adding "together" repeats the same idea. The correct choice says the same thing without the unnecessary repetition.
     approved: true
@@ -58,8 +76,14 @@ questions:
       - text: This is a double negative ("can't" and "hardly," which means "almost not"); corrected, it should read "I can hardly hear you from over here."
         correct: true
       - text: There is no error in this sentence.
+        rationale: |
+          You overlooked the double negative. "Hardly" functions as a negative word, so pairing it with "can't" is an error.
       - text: Hear should be changed to "heard."
+        rationale: |
+          You changed the verb tense, but "can't" requires a base verb ("hear"). The real issue is the double negative.
       - text: The sentence needs a comma after "hardly."
+        rationale: |
+          You looked for a punctuation fix, but inserting a comma does not correct the double negative.
     explanation: |
       "Can't" and "hardly" are both negative words, even though "hardly" does not look like an obvious negative at first glance. Using both together creates an unintended double negative.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: Advance planning is redundant, since planning is inherently done ahead of time; corrected, it should read "The committee finalized their planning for the event."
         correct: true
       - text: There is no error in this sentence.
+        rationale: |
+          You assumed the phrase was fine, but "planning" is inherently done in advance, making "advance" redundant.
       - text: Finalized should be changed to "finalizes."
+        rationale: |
+          You changed verb tense, but "finalized" is grammatically correct in past tense. The error is "advance planning."
       - text: The sentence needs a comma after "planning."
+        rationale: |
+          You looked for punctuation issues, but a comma does not remove the redundant modifier "advance."
     explanation: |
       "Planning" already implies preparing in advance, so "advance planning" repeats the same idea unnecessarily.
     approved: true
@@ -88,8 +118,14 @@ questions:
       - text: This is a double negative ("didn't" and "nothing"); corrected, it should read "They didn't see anything unusual that night."
         correct: true
       - text: There is no error in this sentence.
+        rationale: |
+          You assumed the sentence was correct, but combining "didn't" and "nothing" forms a double negative.
       - text: See should be changed to "saw."
+        rationale: |
+          You changed the verb form, but "didn't" requires the base verb "see." The error is "nothing" instead of "anything."
       - text: The sentence needs a comma after "nothing."
+        rationale: |
+          You looked for a punctuation error, but a comma does not fix the double negative.
     explanation: |
       "Didn't" and "nothing" are both negative words in the same clause, creating a double negative. Changing "nothing" to "anything" fixes the error.
     approved: true
@@ -103,8 +139,14 @@ questions:
       - text: The outcome of the election surprised everyone.
         correct: true
       - text: The final outcome of the election surprised everyone.
+        rationale: |
+          You selected a sentence with "final outcome." An "outcome" is already the final result, so "final" is redundant.
       - text: Both sentences avoid redundancy.
+        rationale: |
+          You accepted both sentences, but "final outcome" contains a redundant adjective.
       - text: Neither sentence avoids redundancy.
+        rationale: |
+          You rejected the sentence that cleanly uses "outcome" without the unnecessary modifier "final."
     explanation: |
       "Outcome" already means the final result, so adding "final" repeats the same idea. The correct choice avoids this unnecessary repetition.
     approved: true
@@ -118,8 +160,14 @@ questions:
       - text: This is a double negative ("hasn't" and "barely"); corrected, it should read "She has barely started her homework yet."
         correct: true
       - text: There is no error in this sentence.
+        rationale: |
+          You assumed the sentence was fine, but "barely" acts as a negative, creating a double negative with "hasn't."
       - text: Started should be changed to "starting."
+        rationale: |
+          You changed the participle, but "hasn't" requires the past participle "started." The issue is the double negative.
       - text: The sentence needs a comma after "barely."
+        rationale: |
+          You looked for a punctuation fix, but inserting a comma does not resolve the double negative.
     explanation: |
       "Hasn't" and "barely" are both negative words, since "barely" functions as a negative even though it does not contain "not" or "no."
     approved: true
@@ -133,8 +181,14 @@ questions:
       - text: 'Yes: a surprise is by definition unexpected, so pairing the two words repeats the same idea, even though each word is perfectly normal on its own.'
         correct: true
       - text: 'No: "unexpected" and "surprise" mean completely different things.'
+        rationale: |
+          You claimed the words mean different things, but "surprise" already implies an event was unexpected.
       - text: 'No: redundancy only applies to verbs, not adjective-noun pairs.'
+        rationale: |
+          You assumed redundancy only occurs with verbs, but it frequently happens with adjective-noun pairings.
       - text: 'Yes: but only because "surprise" is used incorrectly here.'
+        rationale: |
+          You thought "surprise" was misused, but the word is valid; adding "unexpected" makes it redundant.
     explanation: |
       Check whether two words or phrases in the same sentence repeat the same idea, even if each one is a perfectly normal word by itself. "Unexpected surprise" pairs a word with another word that already implies its meaning.
     approved: true
@@ -148,8 +202,14 @@ questions:
       - text: 'Yes: "scarcely" functions as a negative in standard grammar, even though it does not look like a typical negative word; combined with "couldn''t," this creates a double negative.'
         correct: true
       - text: 'No: "scarcely" is not a negative word at all.'
+        rationale: |
+          You assumed "scarcely" is not negative, but in formal grammar it acts as a negative word meaning "almost not."
       - text: 'No: double negatives can only form using "not" and "no" specifically.'
+        rationale: |
+          You restricted double negatives to "not" and "no," but adverbs like "hardly," "barely," and "scarcely" also count.
       - text: 'Yes: but only because "race" implies a competitive context.'
+        rationale: |
+          You linked the rule to context, but "scarcely" forms a double negative with "couldn't" regardless of topic.
     explanation: |
       "Hardly," "barely," and "scarcely" function as negatives in standard grammar, even though they do not contain "not" or "no" directly. Pairing any of these with another negative word creates a double negative.
     approved: true
@@ -163,8 +223,14 @@ questions:
       - text: 'No: some double negatives sound natural in casual speech but are still grammatically flagged as errors on formal exams; the corrected form is "I don''t have any time."'
         correct: true
       - text: 'Yes: if a phrase sounds natural in speech, it is always grammatically correct.'
+        rationale: |
+          You relied on conversational speech patterns, but formal exams strictly enforce single-negative constructions.
       - text: 'Yes: but only because "time" is an uncountable noun.'
+        rationale: |
+          You linked the error to noun countability, but double negatives violate agreement regardless of noun type.
       - text: 'No: but only because "don''t" should be replaced with "doesn''t."'
+        rationale: |
+          You targeted subject-verb agreement, but "I don't" is correct; the issue is pairing "don't" with "no."
     explanation: |
       Phrases like "I don't have no time" are common in relaxed conversation, but formal grammar exams expect the corrected, single-negative form.
     approved: true
@@ -178,8 +244,14 @@ questions:
       - text: Return back is redundant, since returning already implies going back; corrected, it should read "Please return the library books by Friday."
         correct: true
       - text: There is no error in this sentence.
+        rationale: |
+          You assumed the phrase was fine, but "return" already means to go or give back, making "back" redundant.
       - text: Return should be changed to "returns."
+        rationale: |
+          You changed the verb form, but "return" is an imperative command and takes the base form.
       - text: The sentence needs a comma after "back."
+        rationale: |
+          You looked for a punctuation fix, but adding a comma does not resolve the redundancy.
     explanation: |
       "Return" already implies going back, so "return back" repeats the same idea unnecessarily.
     approved: true
@@ -193,8 +265,14 @@ questions:
       - text: Repeat again is redundant, since repeating already implies doing something again; corrected, it should read "Could you please repeat what you just said?"
         correct: true
       - text: There is no error in this sentence.
+        rationale: |
+          You assumed the sentence was correct, but "repeat" already means to say again, making "again" redundant.
       - text: Said should be changed to "say."
+        rationale: |
+          You altered the past tense verb "said," which is correct after "just." The real issue is "repeat again."
       - text: The sentence needs a comma after "repeat."
+        rationale: |
+          You looked for punctuation issues, but a comma does not remove the redundant word "again."
     explanation: |
       "Repeat" already implies doing something again, so "repeat again" repeats the same idea unnecessarily.
     approved: true
@@ -208,8 +286,14 @@ questions:
       - text: This is a double negative ("isn't" and "nobody"); corrected, it should read "There isn't anybody at the office right now."
         correct: true
       - text: There is no error in this sentence.
+        rationale: |
+          You assumed the sentence was correct, but combining "isn't" with "nobody" forms a double negative.
       - text: Office should be changed to "offices."
+        rationale: |
+          You changed noun number, but "office" is fine. The error is the double negative "isn't nobody."
       - text: The sentence needs a comma after "nobody."
+        rationale: |
+          You looked for a punctuation fix, but inserting a comma does not resolve the double negative.
     explanation: |
       "Isn't" and "nobody" are both negative words in the same clause, creating a double negative. Changing "nobody" to "anybody" fixes the error.
     approved: true
@@ -223,8 +307,14 @@ questions:
       - text: Corrected, it should read "The outcome wasn't surprising, since the planning for the event had already predicted the same result."
         correct: true
       - text: There are no errors in this sentence.
+        rationale: |
+          You missed four separate errors: three redundant modifiers and one double negative construction.
       - text: Only the double negative ("wasn't hardly") needs fixing; the redundancies are fine as written.
+        rationale: |
+          You fixed the double negative but left redundant phrases like "final outcome" and "advance planning."
       - text: Only the redundancies need fixing; the double negative is fine as written.
+        rationale: |
+          You fixed the redundant phrases but left the double negative "wasn't hardly" intact.
     explanation: |
       Multiple errors are hidden here: "final outcome" is redundant (outcome already means final result), "wasn't hardly" is a double negative, "advance planning" is redundant (planning is inherently done ahead of time), and "same exact" is redundant (same already means exact).
     approved: true
