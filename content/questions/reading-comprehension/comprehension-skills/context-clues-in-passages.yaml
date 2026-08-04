@@ -38,8 +38,14 @@ questions:
       - text: To shelter or keep safe in a protected area
         correct: true
       - text: A natural coastal port for commercial ships
+        rationale: |
+          You picked the literal noun definition of a port for ships. In this passage, harbor is a verb that means to shelter or protect young fish.
       - text: To entertain secretive negative thoughts
+        rationale: |
+          You picked an idiom about holding bad feelings like grudges. The passage uses harbor as a physical action of protecting young fish.
       - text: To anchor a large motorized vessel
+        rationale: |
+          You picked a nautical action for ships. In this passage, harbor refers to holding and protecting young fish in nursery pens.
     explanation: |
       In the passage, "harbor juvenile bangus in shallow, net-enclosed nursery pens" means to shelter or protect the young fish from harsh currents.
 
@@ -53,8 +59,14 @@ questions:
       - text: "protect the fragile fish from turbulent lake currents"
         correct: true
       - text: "recurring environmental challenges caused by seasonal water"
+        rationale: |
+          You picked a phrase that describes the environmental problem rather than the specific clue that defines what harbor means.
       - text: "dissolved oxygen levels drop sharply at night"
+        rationale: |
+          You picked a detail from paragraph 2 about algae blooms. Paragraph 1 uses harbor in the context of protecting young fish from currents.
       - text: "expanding fingerling purchases after monsoon months"
+        rationale: |
+          You picked a detail about business decisions mentioned later. It does not explain the meaning of sheltering fish in paragraph 1.
     explanation: |
       The phrase "protect the fragile fish from turbulent lake currents" directly explains the action of sheltering or harboring the fish.
 
@@ -68,8 +80,14 @@ questions:
       - text: To postpone for future consideration
         correct: true
       - text: A flat piece of wooden furniture used for dining
+        rationale: |
+          You picked the everyday noun definition of furniture. In this context, table is used as a verb meaning to delay or postpone plans.
       - text: To present a mathematical statistical spreadsheet of data
+        rationale: |
+          You picked a technical definition used for data display. In this passage, table refers to delaying expansion investments.
       - text: To build a large wooden platform over open water
+        rationale: |
+          You picked a physical construction activity. The passage uses table procedurally to mean postponing spending on new fingerlings.
     explanation: |
       The passage explains that leaders "table plans... postponing all non-essential investments until water quality stabilizes", showing that "table" means to postpone.
 
@@ -83,8 +101,14 @@ questions:
       - text: It shows expansion was delayed so funds could address aeration.
         correct: true
       - text: It proves that commercial aeration pumps require wooden tables to function properly.
+        rationale: |
+          You misinterpreted table as a physical piece of furniture rather than the procedural action of postponing expansion plans.
       - text: It indicates that local fish farmers permanently abandoned buying fingerlings.
+        rationale: |
+          You assumed the delay was permanent. The passage states that plans were postponed only until water quality stabilized.
       - text: It demonstrates that seasonal green algae blooms increase fish growth rates.
+        rationale: |
+          You picked a statement that contradicts the passage. Algae blooms drop oxygen levels and threaten fish rather than helping them grow.
     explanation: |
       The passage contrasts tabling (postponing) expansion plans with immediately redirecting funds toward running aeration pumps during oxygen drops.
 
@@ -98,8 +122,14 @@ questions:
       - text: Assuming it refers to furniture rather than procedural delay.
         correct: true
       - text: Assuming the word means to accelerate a new commercial business proposal.
+        rationale: |
+          You picked the exact opposite of what table means here. The passage explains that table means to postpone or delay investments.
       - text: Confusing fragile juvenile bangus fish with microscopic green algae.
+        rationale: |
+          You picked a distractor about biological elements. The question specifically asks about avoiding traps when interpreting the word table.
       - text: Believing that net-enclosed fish pens are located in ocean waters.
+        rationale: |
+          You picked a distractor about location. The passage explicitly states the pens are located along Laguna de Bay, a lake.
     explanation: |
       The word "table" commonly refers to furniture in everyday speech, but in this operational context it means postponing a decision.
 
@@ -113,8 +143,14 @@ questions:
       - text: To transform raw material into a refined state
         correct: true
       - text: To translate written text from one language into another
+        rationale: |
+          You picked a definition of render used for translation. Here, the weaver is processing raw cotton fibers into smooth thread.
       - text: To melt down raw animal fat for commercial cooking oil
+        rationale: |
+          You picked a culinary definition of render. In this passage, the word refers to converting raw cotton into continuous thread.
       - text: To formally surrender property to legal municipal authorities
+        rationale: |
+          You picked a legal definition of render. The passage uses the word to describe transforming raw cotton fibers into smooth yarn.
     explanation: |
       The passage describes how the weaver must "render raw, unrefined cotton fibers into smooth, continuous threads by manually combing out seeds", meaning to process or transform.
 
@@ -128,8 +164,14 @@ questions:
       - text: "combing out seeds and carding the cotton"
         correct: true
       - text: "preserves the traditional craft of Abel Iloco cloth"
+        rationale: |
+          You picked a general statement about preserving craft traditions. It does not describe the specific process of transforming the fiber.
       - text: "dye loses its intensity and produces uneven coloration"
+        rationale: |
+          You picked a detail about indigo dyeing from paragraph 2. The word render appears in paragraph 1 regarding cotton preparation.
       - text: "fed with rice wine and wood ash daily"
+        rationale: |
+          You picked a detail about maintaining the dye culture. This describes feeding microorganisms, not rendering raw cotton into thread.
     explanation: |
       The specific processing steps ("combing out seeds and carding") describe how the raw cotton is transformed or rendered into thread.
 
@@ -143,8 +185,14 @@ questions:
       - text: A medium containing cultivated microorganisms.
         correct: true
       - text: The artistic customs and traditional heritage beliefs of a nation.
+        rationale: |
+          You picked the sociological definition of culture. In this context, the passage describes a living biological vat of dye microorganisms.
       - text: High social class refinement and formal academic university education.
+        rationale: |
+          You picked a definition referring to personal refinement. Here, culture refers to the living biological culture used for indigo dyeing.
       - text: A museum exhibition of ancient historical artifacts from Vigan.
+        rationale: |
+          You picked a distractor related to history and museums. The text uses culture to mean a living fermentation medium.
     explanation: |
       The passage describes the indigo dye as a "living fermentation vat... active microorganisms that extract rich blue pigments", showing that "culture" refers to cultivated microorganisms.
 
@@ -158,8 +206,14 @@ questions:
       - text: By describing it as a living vat requiring feeding and active microbes.
         correct: true
       - text: By mentioning that Abel Iloco woven textiles are celebrated as cultural heritage.
+        rationale: |
+          You picked a detail about social heritage from paragraph 3. That uses cultural in a sociological sense, not the biological sense asked about.
       - text: By explaining how traditional foot-pedal looms operate in Vigan workshops.
+        rationale: |
+          You picked a detail about loom equipment from paragraph 1. It does not explain or support the biological definition of dye culture.
       - text: By contrasting natural organic indigo dyes with synthetic commercial paints.
+        rationale: |
+          You picked an inference about synthetic paints that is not mentioned anywhere in the passage.
     explanation: |
       The paragraph explicitly mentions a "living fermentation vat, fed with rice wine... active microorganisms", reinforcing the biological meaning of a microorganism culture.
 
@@ -173,7 +227,13 @@ questions:
       - text: They would fail to see why the vat requires daily feeding and care.
         correct: true
       - text: They would assume Aling Teresa stopped weaving traditional regional patterns.
+        rationale: |
+          You picked an unfounded conclusion. Misunderstanding culture as social tradition obscures the biological needs of the dye vat, not her patterns.
       - text: They would think the cotton threads were made from synthetic commercial nylon.
+        rationale: |
+          You picked a detail about yarn materials that is not mentioned or implied by confusing the definitions of culture.
       - text: They would believe that wild indigo plants grow exclusively in clay jars.
+        rationale: |
+          You picked a false claim about plant growth. Clay jars hold the fermented dye mixture, not wild growing plants.
     explanation: |
       Misinterpreting "culture" as social tradition obscures the passage's explanation of maintaining a living biological fermentation process requiring daily feeding and care.

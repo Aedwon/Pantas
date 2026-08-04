@@ -47,8 +47,14 @@ questions:
       - text: Farmers adapted crops to withstand longer dry spells.
         correct: true
       - text: Traditional wet-season rice varieties became completely extinct across Isabela.
+        rationale: |
+          You inferred total extinction. The passage describes farmers switching crops on farm plots, not total species extinction.
       - text: Municipal authorities banned the use of monsoonal rainfall for crop irrigation.
+        rationale: |
+          You inferred an official ban not mentioned in the text. The farmers changed seed varieties voluntarily to adapt to weather.
       - text: Farmers stopped growing rice to focus exclusively on commercial solar power generation.
+        rationale: |
+          You inferred a complete change of business. Solar pumps were installed to irrigate rice fields, not to sell solar electricity.
     explanation: |
       The passage notes that dry spells during growing months had doubled in duration, so shifting to drought-tolerant, short-maturing rice directly reflects an adaptation to these longer dry periods.
 
@@ -62,8 +68,14 @@ questions:
       - text: Cooperatives sought protection against weather crop losses.
         correct: true
       - text: Insurance companies mandated that all Isabela farmers stop using tube wells.
+        rationale: |
+          You picked a false mandate. Farmers dug tube wells and bought insurance as complementary risk management strategies.
       - text: The farmers expected their crop yields to double within the next growing year.
+        rationale: |
+          You inferred rapid yield growth. Insurance is purchased for risk protection against loss, not to double crop yields.
       - text: Government regulations required all agricultural extension workers to sell insurance.
+        rationale: |
+          You inferred an unsupported administrative regulation. Cooperatives bought policies to protect their financial investment.
     explanation: |
       Purchasing crop insurance for the first time in thirty years alongside purchasing pumps and drought-tolerant seeds indicates that cooperatives sought financial safeguards against crop failure risks.
 
@@ -77,8 +89,14 @@ questions:
       - text: Rainfall distribution can shift while volume stays constant.
         correct: true
       - text: Municipal records always undercount total annual rainfall in rural areas.
+        rationale: |
+          You inferred record inaccuracy. The passage explicitly states that rainfall volume was constant, but dry spells doubled.
       - text: Solar-powered pumps increase the total amount of rain falling on crops.
+        rationale: |
+          You picked an absurd physical claim. Solar pumps move groundwater; they do not alter atmospheric rainfall amounts.
       - text: Short-maturing rice requires twice as much annual rainfall as traditional rice.
+        rationale: |
+          You picked a claim that contradicts the passage. Short-maturing hybrid rice is drought-tolerant, requiring less water time.
     explanation: |
       The text notes that total annual precipitation remained constant, but dry spells during growing months doubled, showing that rainfall distribution across months changed significantly.
 
@@ -92,8 +110,14 @@ questions:
       - text: They invested in tools when risks threatened yields.
         correct: true
       - text: They rejected modern technology until forced by municipal legislation.
+        rationale: |
+          You inferred legislative coercion. The passage shows farmers voluntarily adopted pumps and hybrid seeds to protect crops.
       - text: They preferred manual water fetching over solar-powered pumps.
+        rationale: |
+          You inferred an attitude opposite to their actions. Farmers installed solar pumps to irrigate fields efficiently.
       - text: They distrusted hybrid seeds because of high purchase costs.
+        rationale: |
+          You inferred distrust that contradicts the text. Farmers rapidly substituted traditional varieties with drought-tolerant hybrids.
     explanation: |
       The rapid adoption of tube wells, solar pumps, and hybrid seeds within two years demonstrates their willingness to adopt technological innovations when environmental risks threatened their livelihoods.
 
@@ -107,8 +131,14 @@ questions:
       - text: To highlight rapid agricultural adaptations over two years.
         correct: true
       - text: To prove that Isabela experienced its highest annual rainfall in 2021.
+        rationale: |
+          You picked a detail about rainfall levels not supported by the text. Annual rainfall remained constant between visits.
       - text: To criticize Ramon Gomez for visiting fields only once every three years.
+        rationale: |
+          You inferred criticism of the extension worker. His observations documented changes across three consecutive years.
       - text: To argue that traditional farming methods are superior to modern technology.
+        rationale: |
+          You picked a conclusion opposite to the passage theme, which highlights successful technology adoption.
     explanation: |
       Comparing 2021 and 2023 demonstrates the contrast between traditional practices and the recent rapid technological and operational adaptations.
 
@@ -122,8 +152,14 @@ questions:
       - text: The inhabitants engaged in both fishing and grain agriculture for sustenance.
         correct: true
       - text: The settlement depended entirely on imported food from neighboring islands.
+        rationale: |
+          You inferred total trade dependence. Local net sinkers and carbonized rice demonstrate local fishing and farming.
       - text: The inhabitants used net sinkers to crush rice grains into flour.
+        rationale: |
+          You misidentified tool function. Net sinkers are weights for fishing nets, while pestles or mortars crush grain.
       - text: The community suffered from chronic food shortages throughout the tenth century.
+        rationale: |
+          You inferred chronic famine. The presence of food remains (rice and fish gear) indicates active subsistence strategies.
     explanation: |
       Net sinkers indicate fishing activity, while carbonized rice indicates grain consumption/agriculture, showing that the community relied on both subsistence activities.
 
@@ -137,8 +173,14 @@ questions:
       - text: Trade transactions took place primarily along the river waterway.
         correct: true
       - text: Lead tokens were accidentally dropped during fishpond construction.
+        rationale: |
+          You introduced modern fishponds into an ancient tenth-century site context where they were not mentioned.
       - text: The ancient riverbank was used exclusively as a burial ground.
+        rationale: |
+          You inferred a burial site. The text connects tokens near the riverbank to riverine trade and economic activity.
       - text: Inhabitants melted metallic tokens to build river boats.
+        rationale: |
+          You inferred boat building from trade tokens. Non-local metallic tokens point to trade exchanges along the river edge.
     explanation: |
       Recovering non-local metallic tokens exclusively near the river edge suggests that river-based trade and commercial exchanges occurred along the water's edge.
 
@@ -152,8 +194,14 @@ questions:
       - text: The site featured permanent residential or storage structures.
         correct: true
       - text: The jars fell from passing modern river barges.
+        rationale: |
+          You introduced modern barges into an ancient archaeological stratum dating between the tenth and twelfth centuries.
       - text: The settlement was destroyed by a major earthquake in the twelfth century.
+        rationale: |
+          You inferred an unmentioned catastrophe. Post-hole impressions and arranged jars indicate orderly structure, not destruction.
       - text: Ancient residents lived exclusively in natural limestone caves.
+        rationale: |
+          You inferred cave living, which contradicts the physical post-hole evidence of built ground structures.
     explanation: |
       Orderly rows of storage jars alongside post-hole impressions imply built wooden or bamboo structures used for living or storage.
 
@@ -167,8 +215,14 @@ questions:
       - text: To establish an absolute timeframe for the settlement layer.
         correct: true
       - text: To determine whether the rice was imported from external trade partners.
+        rationale: |
+          You misidentified the purpose of radiometric dating. Radiometric carbon testing determines age, not trade origin.
       - text: To clean the basalt adzes discovered in the lower soil layer.
+        rationale: |
+          You confused dating methods with artifact cleaning procedures. Radiometric testing dates organic material like rice.
       - text: To locate written records buried beneath the riverbank.
+        rationale: |
+          You picked an unmentioned goal. The passage explicitly notes that no written records survived from the settlement.
     explanation: |
       The text notes that radiometric testing established that the site was occupied between the tenth and twelfth centuries, providing an accurate timeframe in the absence of written records.
 
@@ -182,8 +236,14 @@ questions:
       - text: They maintained a settled community in riverine trade networks.
         correct: true
       - text: They lived as nomadic hunter-gatherers who avoided river systems.
+        rationale: |
+          You picked a conclusion that contradicts the evidence of post-hole structures, rice farming, and riverbank trade tokens.
       - text: They possessed advanced written alphabets recorded on clay tablets.
+        rationale: |
+          You picked a claim that contradicts the text statement that no written records survived from the settlement.
       - text: They focused exclusively on metal mining to the exclusion of agriculture.
+        rationale: |
+          You inferred exclusive mining, ignoring the carbonized rice and clay net sinkers showing farming and fishing.
     explanation: |
       The combination of rice, permanent post-holes, fishing gear, and non-local trade tokens supports the conclusion of a settled riverine trading community.
 
@@ -197,8 +257,14 @@ questions:
       - text: Driver fatigue from long hours without breaks to maximize pay.
         correct: true
       - text: Mechanical failures caused by defective engine manufacturing.
+        rationale: |
+          You inferred mechanical manufacturing defects. Paragraph 3 connects erratic driving directly to fatigue and commission pressure.
       - text: Lack of passenger interest in provincial bus transportation.
+        rationale: |
+          You inferred low passenger interest, which does not explain driver behavior or fatigue on long-haul routes.
       - text: Strict speed limit regulations imposed by municipal traffic police.
+        rationale: |
+          You inferred police speed regulation as a cause of bad driving. Limiters were installed later by the transit company.
     explanation: |
       The text connects skipping meal breaks and driving over four hours to maximize commissions with previous erratic driving, showing fatigue under commission incentives was the cause.
 
@@ -212,8 +278,14 @@ questions:
       - text: It removed financial pressure to rush trips recklessly for pay.
         correct: true
       - text: It forced drivers to buy their own digital logging badges.
+        rationale: |
+          You inferred driver equipment purchases. Salaries reduced complaints by removing the financial incentive to rush.
       - text: It allowed drivers to set their own speed limits above eighty kilometers per hour.
+        rationale: |
+          You picked a claim opposite to the text. Speed limiters were calibrated to capped maximum speeds.
       - text: It reduced the total number of buses operating between Manila and Ilocos.
+        rationale: |
+          You inferred fleet reduction. The safety improvements came from changing driver incentives and resting schedules.
     explanation: |
       Under commission pay, drivers rushed and skipped breaks to earn more; fixed salaries removed the financial incentive to drive dangerously fast or tired.
 
@@ -227,8 +299,14 @@ questions:
       - text: Drivers appreciated predictable earnings and rest periods.
         correct: true
       - text: Drivers preferred working without electronic badges or speed limiters.
+        rationale: |
+          You inferred dissatisfaction with safety tech. Stabilized turnover rates show drivers chose to stay with the company.
       - text: Most drivers resigned to join un-regulated city bus lines.
+        rationale: |
+          You picked a claim that contradicts stabilized turnover. Lower turnover means fewer drivers resigned.
       - text: The company replaced all human drivers with automated steering systems.
+        rationale: |
+          You inferred autonomous buses. Human drivers continued driving under mandatory logging and fixed salaries.
     explanation: |
       Stabilized turnover rates indicate that drivers stayed with the company, benefiting from fixed pay and enforced rest breaks despite mandatory speed limiters.
 
@@ -242,8 +320,14 @@ questions:
       - text: Compliance with rest periods after four hours of driving.
         correct: true
       - text: Complete adherence to the eighty-kilometer-per-hour speed limit.
+        rationale: |
+          You confused the ignition lock with speed limiters. Ignition locks engaged when driving exceeded four hours without rest.
       - text: Timely collection of cash passenger fares at designated checkpoints.
+        rationale: |
+          You inferred fare collection. Checkpoints verified driver identity and driving hours via electronic badge.
       - text: Daily engine maintenance checks at terminal garages.
+        rationale: |
+          You inferred garage maintenance. The logging system tracked active driving hours to mandate thirty-minute rest breaks.
     explanation: |
       The text directly links the ignition lock to exceeding four continuous hours of driving without taking a mandatory thirty-minute break.
 
@@ -257,7 +341,13 @@ questions:
       - text: Aligning incentives with safety enforcement improves outcomes.
         correct: true
       - text: Daily trip commissions are essential for maintaining high driver morale.
+        rationale: |
+          You picked a statement that contradicts the passage. Replacing trip commissions with fixed pay improved outcomes.
       - text: Passenger complaints cannot be reduced without increasing ticket prices.
+        rationale: |
+          You introduced ticket price increases not mentioned in the text. Complaints dropped due to safety and pay reforms.
       - text: Speed limiters should be turned off during long-haul night trips.
+        rationale: |
+          You picked a claim that undermines safety rules. Speed limiters were calibrated to enforce eighty km/h caps continuously.
     explanation: |
       Combining structural compensation changes (fixed salary) with automated safety enforcement (limiters, digital badges) successfully improved safety and driver retention.

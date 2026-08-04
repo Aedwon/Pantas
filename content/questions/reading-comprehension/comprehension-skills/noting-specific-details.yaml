@@ -47,8 +47,14 @@ questions:
       - text: April 2022
         correct: true
       - text: July 2022
+        rationale: |
+          You picked the date when the electronic RFID tag system was introduced, not when the expressway opened for commercial operation.
       - text: December 2022
+        rationale: |
+          You picked the date when cash toll booths were completely phased out, rather than when commercial operations began.
       - text: March 2018
+        rationale: |
+          You picked a date when construction was starting. The passage explicitly states commercial operation began in April 2022.
     explanation: |
       The first paragraph explicitly states that CCLEX opened for commercial operation in April 2022.
 
@@ -62,8 +68,14 @@ questions:
       - text: 33 billion pesos
         correct: true
       - text: Twenty-six billion pesos
+        rationale: |
+          You picked the initial estimated construction cost before inflation and reinforcement adjustments raised the total to thirty-three billion pesos.
       - text: Fifty billion pesos
+        rationale: |
+          You picked fifty thousand, which is the daily vehicle capacity of the bridge, not the monetary investment cost.
       - text: Fourteen billion pesos
+        rationale: |
+          You picked a figure not mentioned in the text. The passage lists initial costs at 26 billion and final costs at 33 billion.
     explanation: |
       The final paragraph states that while initial costs were estimated at twenty-six billion pesos, final reports placed total investments at thirty-three billion pesos.
 
@@ -77,8 +89,14 @@ questions:
       - text: December 2022
         correct: true
       - text: July 2022
+        rationale: |
+          You picked the month when the electronic RFID tag system was introduced, five months before cash booths were fully phased out.
       - text: April 2022
+        rationale: |
+          You picked the month CCLEX opened for operation. Cash booths were phased out later in December 2022.
       - text: November 2023
+        rationale: |
+          You picked a date from a different passage. Cash booths on CCLEX were phased out by December 2022.
     explanation: |
       The second paragraph states that operators introduced RFID in July 2022 and phased out cash toll booths completely by December 2022.
 
@@ -92,8 +110,14 @@ questions:
       - text: 145 meters
         correct: true
       - text: 8.9 meters
+        rationale: |
+          You picked the total length of the expressway across the channel, not the height of the main towers above sea level.
       - text: 50 meters
+        rationale: |
+          You picked fifty, which refers to the daily vehicle capacity of fifty thousand vehicles, not the height of the main towers.
       - text: 200 meters
+        rationale: |
+          You picked a figure not found in the passage. Paragraph 2 explicitly states the main towers rise 145 meters above sea level.
     explanation: |
       The second paragraph specifies that the stay cables are anchored to two main towers rising 145 meters above sea level.
 
@@ -107,8 +131,14 @@ questions:
       - text: Manuel Santos
         correct: true
       - text: Engineer Elena Cruz
+        rationale: |
+          You picked a name not mentioned in the text. The passage explicitly names Engineer Manuel Santos.
       - text: Engineer Ramon Vega
+        rationale: |
+          You picked a name that does not appear in the passage. Paragraph 2 names Manuel Santos as the chief inspector.
       - text: Engineer Rosa Santos
+        rationale: |
+          You picked a different surname variation. The chief structural inspector named in paragraph 2 is Engineer Manuel Santos.
     explanation: |
       The second paragraph explicitly identifies Engineer Manuel Santos as the chief structural inspector during the final phase.
 
@@ -122,8 +152,14 @@ questions:
       - text: Saint Clement
         correct: true
       - text: Saint Joseph
+        rationale: |
+          You picked a saint not mentioned in the text. The passage explicitly names Saint Clement, the patron saint of fishermen.
       - text: Saint Francis
+        rationale: |
+          You picked a saint not named in the passage. Paragraph 1 states the festival honors Saint Clement.
       - text: Saint Lorenzo
+        rationale: |
+          You picked a saint not mentioned in the text. The opening sentence identifies Saint Clement as the honored patron saint.
     explanation: |
       The first sentence of the passage states that the festival is held in honor of Saint Clement, patron saint of fishermen.
 
@@ -137,8 +173,14 @@ questions:
       - text: Fiberglass resin
         correct: true
       - text: Recycled newspapers
+        rationale: |
+          You picked the original paper-mache head material used during the Spanish colonial period, before fiberglass resin was introduced in 1998.
       - text: Carved wood
+        rationale: |
+          You picked a material not mentioned for the heads. Paragraph 2 describes bamboo frames and paper-mache, later updated with fiberglass.
       - text: Woven bamboo
+        rationale: |
+          You picked the frame material used for the bodies, not the fiberglass resin material introduced for the heads.
     explanation: |
       The second paragraph notes that local artisan guilds introduced aluminum frames and fiberglass resin heads in 1998.
 
@@ -152,8 +194,14 @@ questions:
       - text: Fifty-six
         correct: true
       - text: Forty
+        rationale: |
+          You picked forty, which refers to forty thousand estimated tourists along the route, not the number of giant figures.
       - text: Ten
+        rationale: |
+          You picked a figure not mentioned in the text. Paragraph 3 states that fifty-six giant figures participated in 2023.
       - text: Two hundred
+        rationale: |
+          You picked a number not found in this passage. Paragraph 3 states that fifty-six giant figures participated in 2023.
     explanation: |
       The third paragraph specifies that in 2023, fifty-six giant figures participated in the grand procession.
 
@@ -167,8 +215,14 @@ questions:
       - text: November 23
         correct: true
       - text: Mid-November
+        rationale: |
+          You picked the timeframe introduced when tourism officials expanded the festival into a two-week event in 2010.
       - text: October 31
+        rationale: |
+          You picked a date not mentioned in the text. Historically, the parade took place exclusively on November 23.
       - text: December 1
+        rationale: |
+          You picked a date outside the festival timeframe. Paragraph 1 states the original historical parade date was November 23.
     explanation: |
       The first paragraph explains that historically the parade took place exclusively on November 23 before expansion in 2010.
 
@@ -182,8 +236,14 @@ questions:
       - text: 3 kilometers
         correct: true
       - text: Five kilometers
+        rationale: |
+          You picked a distance not mentioned in the passage. Paragraph 3 specifies that the parade route was three kilometers long.
       - text: Ten kilometers
+        rationale: |
+          You picked a distance not found in the text. The passage states tourists lined a three-kilometer route.
       - text: Two kilometers
+        rationale: |
+          You picked two, which refers to the minimum of two figures contributed by each barangay, not the parade route distance.
     explanation: |
       The final paragraph states that forty thousand tourists witnessed the parade along the three-kilometer parade route.
 
@@ -197,8 +257,14 @@ questions:
       - text: "2014"
         correct: true
       - text: "2019"
+        rationale: |
+          You picked the year green coffee bean prices were two hundred pesos, five years after the cooperative was founded in 2014.
       - text: "2021"
+        rationale: |
+          You picked the year the cooperative established its wet-milling facility, not the founding year of 2014.
       - text: "2023"
+        rationale: |
+          You picked the year farmgate bean prices reached five hundred fifty pesos per kilogram.
     explanation: |
       The first sentence states that the cooperative was founded in 2014 with fourteen founding members.
 
@@ -212,8 +278,14 @@ questions:
       - text: Nov to Feb
         correct: true
       - text: March to June
+        rationale: |
+          You picked months outside the harvest season. Paragraph 2 explicitly states harvesting takes place between November and February.
       - text: July to October
+        rationale: |
+          You picked off-season months. The passage states farm workers hand-pick red cherries exclusively between November and February.
       - text: January to April
+        rationale: |
+          You picked an overlapping four-month window. The text explicitly limits harvesting to November through February.
     explanation: |
       The second paragraph states that harvesting takes place exclusively between November and February.
 
@@ -227,8 +299,14 @@ questions:
       - text: 550 pesos
         correct: true
       - text: Two hundred pesos
+        rationale: |
+          You picked the lower farmgate price from 2019, before processing improvements raised the price to five hundred fifty pesos by 2023.
       - text: Three hundred pesos
+        rationale: |
+          You picked three, which refers to the three-million-peso agricultural grant received in 2021, not bean price per kilogram.
       - text: Eight hundred pesos
+        rationale: |
+          You picked a figure not found in the passage. The 2023 price was five hundred fifty pesos per kilogram.
     explanation: |
       The final sentence states that green coffee bean prices rose from two hundred pesos in 2019 to five hundred fifty pesos per kilogram by 2023.
 
@@ -242,8 +320,14 @@ questions:
       - text: 1,200 to 1,600 meters above sea level
         correct: true
       - text: Between 500 and 800 meters above sea level
+        rationale: |
+          You picked an elevation lower than what is required for high-altitude Arabica. Paragraph 1 states 1,200 to 1,600 meters.
       - text: Below 1,000 meters above sea level
+        rationale: |
+          You picked an elevation below the cooperative's growing zone. The text explicitly specifies 1,200 to 1,600 meters.
       - text: Above 2,500 meters above sea level
+        rationale: |
+          You picked an elevation higher than the range specified in paragraph 1 (1,200 to 1,600 meters above sea level).
     explanation: |
       The first paragraph specifies that Arabica coffee is cultivated at elevations between 1,200 and 1,600 meters above sea level.
 
@@ -257,7 +341,13 @@ questions:
       - text: A centralized wet-milling facility
         correct: true
       - text: A manual hand-cranked pulper workshop
+        rationale: |
+          You picked the old individual processing method used by farmers at home before the 2021 wet-milling facility was built.
       - text: A tourist coffee tasting laboratory
+        rationale: |
+          You picked a facility not mentioned in the passage. The grant funded a centralized wet-milling facility.
       - text: A solar-powered bean roasting warehouse
+        rationale: |
+          You picked a processing facility not named in the text. The passage explicitly states the grant built a wet-milling facility.
     explanation: |
       The second paragraph states that in 2021, the cooperative established a centralized wet-milling facility funded by a three-million-peso agricultural grant.

@@ -38,8 +38,14 @@ questions:
       - text: "Preserving Ifugao Rice Terraces"
         correct: true
       - text: Ancient Mountain Stone Walls
+        rationale: |
+          You picked a narrow structural feature from paragraph 1. It ignores the threats to the terraces and ongoing restoration workshops.
       - text: How Gravity-Fed Water Channels Function in Mountain Rice Fields
+        rationale: |
+          You picked a title focused on one engineering detail. The passage covers heritage value, decay threats, and youth restoration programs.
       - text: The Complete History of Agriculture in the Cordilleras
+        rationale: |
+          You picked a title that is far too broad. The passage focuses specifically on the Ifugao Rice Terraces, not all regional agriculture.
     explanation: |
       The passage discusses the terraces' significance, maintenance challenges (wall collapse, youth migration), and restoration initiatives, making this title the complete fit.
 
@@ -53,8 +59,14 @@ questions:
       - text: It focuses on a single engineering detail, ignoring restoration.
         correct: true
       - text: It is far too broad and could apply to any traditional irrigation project worldwide.
+        rationale: |
+          You misidentified the flaw. The title is far too narrow, focusing on one specific feature described in paragraph 1.
       - text: It directly contradicts the historical construction information presented in paragraph 1.
+        rationale: |
+          You picked a false premise. Gravity-fed channels are accurately described in paragraph 1, but they are only one minor detail.
       - text: It fails to mention that young agricultural farmers migrate to urban centers.
+        rationale: |
+          You picked a specific detail from paragraph 2 that is not the main reason why the proposed title fails as a title.
     explanation: |
       Gravity-fed channels are mentioned in paragraph 1 as one engineering feature, so using it as the title makes it far too narrow.
 
@@ -68,8 +80,14 @@ questions:
       - text: It is overly broad, failing to specify context or challenges.
         correct: true
       - text: It is far too narrow and mentions only ancient hand-built stone walls.
+        rationale: |
+          You misidentified the title flaw. Single-word titles like Terraces are overly broad, not overly narrow.
       - text: It focuses exclusively on modern urban youth migration trends.
+        rationale: |
+          You picked a false statement. The word Terraces does not mention youth migration at all.
       - text: It misstates the exact historical age of the mountain agricultural structures.
+        rationale: |
+          You picked a false premise. The word Terraces does not state any age or numerical historical figure.
     explanation: |
       A single generic word like "Terraces" is far too broad and fails to specify the Ifugao context or the restoration thesis.
 
@@ -83,8 +101,14 @@ questions:
       - text: "Sustaining Ifugao Terraces"
         correct: true
       - text: The Rise of Modern Concrete Buildings in Cordillera Mountain Cities
+        rationale: |
+          You picked a title about urban concrete construction that is not discussed in this passage.
       - text: Commercial Rice Exporting in Northern Luzon
+        rationale: |
+          You picked a title about commercial rice exports, whereas the passage discusses indigenous mountain terrace conservation.
       - text: Monsoon Rainfall Patterns Across Two Thousand Years
+        rationale: |
+          You picked a title focused on meteorology rather than the cultural engineering and restoration of the terraces.
     explanation: |
       This alternative title captures both the heritage conservation aspect and the restoration workshops training young volunteers.
 
@@ -98,8 +122,14 @@ questions:
       - text: Reference to terrace values and restoration efforts.
         correct: true
       - text: Exact mathematical figures regarding stone retaining wall heights.
+        rationale: |
+          You picked a minor technical detail requirement. Strong titles capture main themes rather than specific numbers.
       - text: A detailed list of all high-paying jobs available in urban centers.
+        rationale: |
+          You picked an off-topic detail about urban employment that is outside the passage focus.
       - text: An exclusive focus on modern soil stabilization machinery.
+        rationale: |
+          You picked a narrow technical aspect, ignoring the indigenous heritage and community stonemasonry aspects.
     explanation: |
       A comprehensive title must encompass both the cultural engineering value and the active efforts to resolve maintenance threats.
 
@@ -113,8 +143,14 @@ questions:
       - text: Urban Parks in Metro Manila
         correct: true
       - text: Measuring Cortisol Levels
+        rationale: |
+          You picked a narrow supporting detail from paragraph 2 about stress reduction, not the overall subject of urban parks.
       - text: Metro Manila Concrete Buildings
+        rationale: |
+          You picked a title focused on urban structures that cause heat, ignoring the main topic of expanding public parks.
       - text: The Complete Architecture of Urban Heat Islands
+        rationale: |
+          You picked a title focused on urban heat causes, whereas the passage emphasizes green infrastructure solutions.
     explanation: |
       The passage outlines how parks cool urban temperatures, improve mental health, and foster social cohesion, making this title accurate and complete.
 
@@ -128,8 +164,14 @@ questions:
       - text: It names only one specific physiological detail from paragraph 2.
         correct: true
       - text: It is far too broad and describes global public healthcare policies.
+        rationale: |
+          You misidentified the flaw. The title is far too narrow, referencing a single health measurement mentioned in paragraph 2.
       - text: It contradicts the passage's argument about cooling urban heat islands.
+        rationale: |
+          You picked a false claim. Cortisol measurement supports the health argument and does not contradict urban cooling.
       - text: It focuses exclusively on private commercial real estate investments.
+        rationale: |
+          You picked a false premise. Cortisol levels relate to stress measurement, not real estate investments.
     explanation: |
       Cortisol measurement is a supporting detail in paragraph 2 used to prove mental health benefits; as a title, it is far too narrow.
 
@@ -143,8 +185,14 @@ questions:
       - text: It names a cause of heat islands without reflecting park benefits.
         correct: true
       - text: It is far too narrow and mentions only psychological stress reduction.
+        rationale: |
+          You mischaracterized the title flaw. Concrete buildings relate to heat creation, not psychological stress reduction.
       - text: It misidentifies Metro Manila as a rural agricultural farming region.
+        rationale: |
+          You picked a false claim. The passage explicitly identifies Metro Manila as a dense urban area.
       - text: It focuses exclusively on recreational sports rather than architecture.
+        rationale: |
+          You picked a statement that contradicts the title wording. Buildings refer to urban structures, not sports.
     explanation: |
       Concrete buildings explain why urban heat islands form, but the passage's thesis advocates for expanding public parks to mitigate these problems.
 
@@ -158,8 +206,14 @@ questions:
       - text: "Urban Parks: Essential Public Investments"
         correct: true
       - text: Why Commercial Real Estate Development Should Replace All Public Parks
+        rationale: |
+          You picked a title that directly contradicts the paragraph's argument that public parks must be prioritized.
       - text: The History of Four-Degree Temperature Increases in Rural Areas
+        rationale: |
+          You misread the text. The passage states urban areas run four degrees warmer than rural areas, not rural increases.
       - text: Decorative Landscaping in Metro Manila Shopping Malls
+        rationale: |
+          You picked a commercial retail title that is not discussed in the passage.
     explanation: |
       The final paragraph argues that parks are not luxuries but vital investments for urban health, cooling, and well-being, which this title captures.
 
@@ -173,7 +227,13 @@ questions:
       - text: It covers environmental, psychological, and social dimensions.
         correct: true
       - text: It contains only one short word and is very easy to memorize.
+        rationale: |
+          You picked a trivial formatting criteria. Title balance depends on thematic coverage, not word brevity.
       - text: It mentions only the four-degree temperature measurement figure.
+        rationale: |
+          You picked a title criteria focused on a single stat, which would make the title narrow rather than well-balanced.
       - text: It focuses exclusively on annual financial budget allocations for trees.
+        rationale: |
+          You picked a narrow financial focus that ignores the health and social benefits discussed in the text.
     explanation: |
       A well-balanced title reflects all main dimensions discussed in the text: environmental cooling, health/stress reduction, and community social cohesion.

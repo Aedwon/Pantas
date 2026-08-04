@@ -47,8 +47,14 @@ questions:
       - text: News report (article)
         correct: true
       - text: Editorial opinion piece
+        rationale: |
+          You misidentified objective news as an opinionated editorial. The text neutrally reports facts without expressing opinions.
       - text: Personal reflective essay
+        rationale: |
+          You misidentified a news report as a personal essay. The passage contains no first-person pronouns or personal memories.
       - text: Dramatic theatrical script
+        rationale: |
+          You picked a dramatic script format, but the text is structured as a non-fiction news article with a dateline.
     explanation: |
       The passage features a dateline ("CAVITE CITY, Philippines"), neutral objective reporting, and answers who, what, when, and where without personal opinions, matching a news article.
 
@@ -62,8 +68,14 @@ questions:
       - text: A dateline and lead sentence summarizing essential facts.
         correct: true
       - text: Emotional appeals urging citizens to protest government infrastructure spending.
+        rationale: |
+          You picked emotional political appeals, which belong in editorials, not neutral news leads.
       - text: First-person narrative memories of growing up near Manila Bay.
+        rationale: |
+          You picked first-person narrative memories, which belong in personal essays rather than news reports.
       - text: Rhyming poetic couplets describing seasonal ocean tides.
+        rationale: |
+          You picked poetic form features not present in this prose news report.
     explanation: |
       The presence of a dateline ("CAVITE CITY") and an opening lead sentence providing key factual information is a defining feature of news articles.
 
@@ -77,8 +89,14 @@ questions:
       - text: It maintains a neutral, objective reporting tone.
         correct: true
       - text: It uses angry rhetorical questions to criticize local municipal engineers.
+        rationale: |
+          You attributed angry rhetorical questions to the news report, whereas objective articles avoid emotional criticism.
       - text: It expresses deep personal nostalgia for historical coastal seawalls.
+        rationale: |
+          You attributed personal nostalgia to the news passage, which neutrally reports infrastructure construction.
       - text: It uses humorous satire to mock official government announcements.
+        rationale: |
+          You picked satirical humor, which is absent from this factual news report.
     explanation: |
       Unlike an editorial which uses opinionated value judgments, a news article maintains a neutral and objective tone reporting verified facts.
 
@@ -92,8 +110,14 @@ questions:
       - text: Citing specific dates, names of officials, and disaster records.
         correct: true
       - text: Calling the seawall the most beautiful architectural marvel constructed in Luzon.
+        rationale: |
+          You picked subjective praise. Objective news reporting relies on verified facts rather than value judgments.
       - text: Accusing project directors of wasting twenty-four million pesos.
+        rationale: |
+          You picked a biased accusation that contradicts the objective tone of the news report.
       - text: Providing personal childhood memories of seasonal high tide flooding.
+        rationale: |
+          You introduced personal memories not included in this news article.
     explanation: |
       Citing specific verified sources ("Engineer Ramon Cruz", "disaster office records", dates) shows objective news reporting.
 
@@ -107,8 +131,14 @@ questions:
       - text: To provide context regarding phase two of the project.
         correct: true
       - text: To present an inspiring moral lesson about local environmental protection.
+        rationale: |
+          You attributed a moral lesson to news reporting, which delivers factual context rather than personal morals.
       - text: To demand that Congress immediately fire the department directors.
+        rationale: |
+          You attributed a political call to action to the closing paragraph of an objective news report.
       - text: To describe how local mangrove trees are harvested for commercial timber.
+        rationale: |
+          You misread the text. Paragraph 3 discusses mangrove buffer zone expansion for protection, not timber harvesting.
     explanation: |
       In news articles (inverted pyramid structure), ending paragraphs provide additional context or future developments related to the main story.
 
@@ -122,8 +152,14 @@ questions:
       - text: Editorial opinion piece
         correct: true
       - text: Neutral news report
+        rationale: |
+          You misidentified an opinionated editorial as a neutral news report. Words like shortsighted express strong opinion.
       - text: Personal reflective essay
+        rationale: |
+          You misidentified an editorial as a personal essay. The passage argues a public policy issue without personal memoirs.
       - text: Technical instructional manual
+        rationale: |
+          You misidentified an editorial as a technical manual. The text advocates policy changes rather than step-by-step instructions.
     explanation: |
       The passage expresses a strong persuasive stance ("shortsighted policy", "completely unacceptable", "Congress must immediately mandate"), matching an editorial.
 
@@ -137,8 +173,14 @@ questions:
       - text: Use of value-laden opinion words like "shortsighted" and "crushing".
         correct: true
       - text: Inclusion of a formal city dateline and official press release citations.
+        rationale: |
+          You attributed news report features (dateline and press release) to an editorial piece.
       - text: First-person narrative descriptions of ancestral rice farming memories.
+        rationale: |
+          You attributed personal essay memoirs to an editorial focused on national economic policy.
       - text: Objective statistical charts comparing global agricultural fertilizer production.
+        rationale: |
+          You introduced statistical charts not present in the editorial text.
     explanation: |
       Value-laden words expressing clear disapproval ("shortsighted policy", "crushing input costs") are key features of an editorial opinion piece.
 
@@ -152,8 +194,14 @@ questions:
       - text: To issue a call to action demanding policy changes from Congress.
         correct: true
       - text: To report the total annual tonnage of imported commercial fertilizer in 2023.
+        rationale: |
+          You picked a neutral statistical report goal, missing the editorial's persuasive call to action.
       - text: To reflect nostalgically on traditional ancient rice harvesting methods.
+        rationale: |
+          You picked a nostalgic essay goal that contradicts the urgent political demand for subsidies.
       - text: To explain the detailed chemical composition of organic fertilizers.
+        rationale: |
+          You picked a scientific explanation goal not found in this opinionated editorial.
     explanation: |
       Editorials conclude with a clear call to action ("Congress must immediately mandate..."), attempting to convince readers and leaders to act.
 
@@ -167,8 +215,14 @@ questions:
       - text: The author openly criticizes policies as "band-aid solutions".
         correct: true
       - text: The author presents both opposing sides using official government press release quotes.
+        rationale: |
+          You described a balanced news article approach, whereas the editorial takes a strongly critical single-sided stance.
       - text: The author avoids discussing national agricultural policies altogether.
+        rationale: |
+          You claimed policies are avoided, but the entire editorial focuses on criticizing government agricultural policies.
       - text: The author uses detailed scientific data tables to calculate soil pH levels.
+        rationale: |
+          You introduced scientific soil data not discussed in the text.
     explanation: |
       Editorials express clear critical judgment ("band-aid solution", "lecture rural communities") rather than presenting news in a neutral, balanced format.
 
@@ -182,8 +236,14 @@ questions:
       - text: Offering emergency handouts is a band-aid solution.
         correct: true
       - text: Rice is imported through major local Philippine maritime ports.
+        rationale: |
+          You picked a factual statement about maritime trade rather than a subjective opinion.
       - text: Smallholder farmers cultivate rice fields across Nueva Ecija.
+        rationale: |
+          You picked a verifiable geographical fact about farming in Nueva Ecija.
       - text: Organic fertilizers contain essential chemical nutrients used in agriculture.
+        rationale: |
+          You picked a factual scientific statement about organic fertilizers.
     explanation: |
       Labeling government emergency handouts as a "band-aid solution" is a value judgment, whereas rice growing and importing are factual realities.
 
@@ -197,8 +257,14 @@ questions:
       - text: Personal reflective essay
         correct: true
       - text: Neutral news report
+        rationale: |
+          You misidentified a personal memoir as a neutral news report. The text reflects on childhood memories and life lessons.
       - text: Persuasive political editorial
+        rationale: |
+          You misidentified a reflective essay as a political editorial. The text contains no policy debates or political calls.
       - text: Scientific research paper
+        rationale: |
+          You misidentified a personal essay as a scientific paper. The text shares personal memories rather than research data.
     explanation: |
       The passage is written in the first person ("I", "my grandfather"), recounting a personal memory and reflecting on its life lesson, matching a personal essay.
 
@@ -212,8 +278,14 @@ questions:
       - text: First-person narrative perspective paired with personal reflection.
         correct: true
       - text: A formal news dateline and official quotes from government municipal officials.
+        rationale: |
+          You attributed news report features (datelines and official quotes) to a personal essay.
       - text: A urgent call to action demanding that Congress pass new national laws.
+        rationale: |
+          You attributed political editorial features (demanding legislation) to a personal essay.
       - text: A list of step-by-step technical instructions for manufacturing commercial baskets.
+        rationale: |
+          You misidentified the memoir as a technical instruction manual.
     explanation: |
       First-person narrative perspective ("I", "my grandfather") paired with reflecting on a personal lesson is a defining feature of personal essays.
 
@@ -227,8 +299,14 @@ questions:
       - text: Applying patient craftsmanship to adult life and academic challenges.
         correct: true
       - text: Demanding that Bohol artisans receive higher monthly government pensions.
+        rationale: |
+          You introduced political pension demands missing from this personal reflective essay.
       - text: Proving that woven bamboo baskets are far superior to modern plastic containers.
+        rationale: |
+          You picked a product comparison not explored in the narrator's personal reflection on patience.
       - text: Reporting the commercial market price of hand-woven 'bukag' baskets in Manila.
+        rationale: |
+          You introduced commercial pricing details outside the scope of the personal life lesson.
     explanation: |
       The final paragraph reflects on how the lesson learned while weaving baskets ("true progress is built with patient hands") guides the narrator at university.
 
@@ -242,8 +320,14 @@ questions:
       - text: His silent unlacing models patience over rushed anger.
         correct: true
       - text: His reaction demonstrates the complex legal regulations governing international basket exports in Bohol.
+        rationale: |
+          You introduced export trade regulations that are not part of this personal family narrative.
       - text: His reaction explicitly warns readers against moving away to study at Manila universities.
+        rationale: |
+          You inferred a warning against studying in Manila that contradicts the narrator's university journey.
       - text: His reaction proves that raw rattan stalks are far too weak for traditional basket weaving.
+        rationale: |
+          You inferred material weakness, but the grandfather uses rattan effectively to teach patience.
     explanation: |
       The grandfather's calm, silent unlacing of flawed work illustrates the values of patience and care, reinforcing the reflective tone of the essay.
 
@@ -257,7 +341,13 @@ questions:
       - text: The essay explores a personal experience, while an editorial persuades readers on a public issue.
         correct: true
       - text: The essay reports objective news facts from official records, while an editorial tells fictional short stories.
+        rationale: |
+          You mischaracterized both genres. Essays reflect on personal experiences, while editorials argue public opinions.
       - text: The essay contains step-by-step technical manufacturing blueprints, while an editorial contains short rhyming poetry.
+        rationale: |
+          You misidentified essays as technical blueprints and editorials as poetry.
       - text: The essay urges readers toward immediate political voting, while an editorial reflects on personal childhood memories.
+        rationale: |
+          You reversed the goals. Editorials address public issues, while personal essays reflect on memories.
     explanation: |
       Personal essays explore personal experiences and insights, whereas editorials aim to persuade readers to adopt a specific stance on a public issue.

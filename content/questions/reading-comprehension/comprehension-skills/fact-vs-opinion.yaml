@@ -38,8 +38,14 @@ questions:
       - text: Fleet carbon emissions dropped by twelve percent.
         correct: true
       - text: Modern minibuses provide an overwhelmingly superior commuter experience.
+        rationale: |
+          You picked a subjective value judgment about commuter experience. Factual statements must be verifiable by data or records.
       - text: Modern minibuses are the absolute best choice for urban transportation.
+        rationale: |
+          You picked a subjective claim containing superlative praise rather than a verifiable measurement.
       - text: Traditional jeepneys are completely obsolete relics.
+        rationale: |
+          You picked an emotional opinion expressing a negative value judgment, not a verifiable fact.
     explanation: |
       The twelve percent reduction in carbon emissions is a measured, verifiable datum from municipal records, whereas the other options express subjective judgments.
 
@@ -53,8 +59,14 @@ questions:
       - text: Traditional jeepneys are completely obsolete relics.
         correct: true
       - text: Iloilo City introduced fifty low-emission minibus units across five primary routes.
+        rationale: |
+          You picked a verifiable factual statement containing documented vehicle counts and route numbers.
       - text: Minibuses served an average of twenty-two thousand passengers daily.
+        rationale: |
+          You picked a factual statistic from city transport board records.
       - text: Modern minibus units require an initial investment of 2.4 million pesos per unit.
+        rationale: |
+          You picked an objective financial cost fact, not a subjective opinion.
     explanation: |
       Calling jeepneys "obsolete relics that should be removed" is a value judgment, unlike the specific unit counts, passenger averages, and cost figures.
 
@@ -68,8 +80,14 @@ questions:
       - text: It relies on personal judgment regarding comfort.
         correct: true
       - text: It contains a specific numerical figure that can be verified in a lab.
+        rationale: |
+          You picked a false premise. The claim contains no numerical figures or laboratory measurements.
       - text: It was written directly by an official government transport board.
+        rationale: |
+          You assumed official authorship makes a statement a fact. Government statements can still express opinions or value judgments.
       - text: It describes historical events that occurred before 2022.
+        rationale: |
+          You picked a detail about timing that does not explain why the statement is classified as an opinion.
     explanation: |
       What constitutes a "superior experience" depends on personal criteria and individual passenger preferences rather than an objective measurement.
 
@@ -83,8 +101,14 @@ questions:
       - text: It combines a cost fact with a subjective judgment.
         correct: true
       - text: It is entirely factual because the cost figure is explicitly included.
+        rationale: |
+          You ignored the phrase excessive waste of public funds, which is a subjective value judgment.
       - text: It is entirely opinion because it mentions public transportation funds.
+        rationale: |
+          You ignored the unit cost of 2.4 million pesos, which is a verifiable fact within the sentence.
       - text: It is an unverified statistical projection about future municipal budgets.
+        rationale: |
+          You misidentified the sentence as a future projection. It evaluates a current spending decision.
     explanation: |
       The cost per unit (2.4 million pesos) is a verifiable fact, while calling it an "excessive waste" is a subjective opinion.
 
@@ -98,8 +122,14 @@ questions:
       - text: "absolute best choice"
         correct: true
       - text: "twenty-two thousand passengers"
+        rationale: |
+          You picked a factual passenger statistic from paragraph 1, not a signal phrase indicating an opinion.
       - text: "five primary routes"
+        rationale: |
+          You picked a factual route count, not an opinion signal word from paragraph 2.
       - text: "twelve percent reduction"
+        rationale: |
+          You picked a factual percentage measurement of emissions reduction from paragraph 1.
     explanation: |
       Superlative phrases like "absolute best choice" express subjective value judgments rather than objective facts.
 
@@ -113,8 +143,14 @@ questions:
       - text: The facility generates one hundred fifty megawatts of electricity annually.
         correct: true
       - text: The solar farm represents the most magnificent clean energy triumph in history.
+        rationale: |
+          You picked an opinion phrase containing praise, not a verifiable measurement.
       - text: Solar energy is obviously far superior to all other forms of power generation.
+        rationale: |
+          You picked a subjective opinion that uses biased wording such as obviously far superior.
       - text: Converting agricultural land was a tragic mistake that ruined the landscape.
+        rationale: |
+          You picked an emotional value judgment made by critics, not a verifiable fact.
     explanation: |
       The annual megawatt generation figure is verified by official grid operator reports, making it a fact.
 
@@ -128,8 +164,14 @@ questions:
       - text: Converting agricultural soil was a tragic mistake.
         correct: true
       - text: The plant operates over two hundred thousand photovoltaic panels.
+        rationale: |
+          You picked a verifiable physical count of panels reported by the grid operator.
       - text: The project was completed in eighteen months.
+        rationale: |
+          You picked a factual timeframe measurement, not a subjective opinion.
       - text: The total cost of construction was 4.8 billion pesos.
+        rationale: |
+          You picked a verifiable financial cost figure, not an opinion.
     explanation: |
       Describing land conversion as a "tragic mistake" expresses an opinion, whereas panel counts, months, and costs are factual measurements.
 
@@ -143,8 +185,14 @@ questions:
       - text: A statistical projection based on official applications.
         correct: true
       - text: A subjective personal opinion expressing strong emotional preference.
+        rationale: |
+          You mistook a data-driven projection for an emotional opinion. The projection is based on facility applications.
       - text: A historical fact about past electricity generation in 2010.
+        rationale: |
+          You misidentified a future growth projection as a past historical fact.
       - text: A speculative guess unsupported by any energy department records.
+        rationale: |
+          You ignored the passage statement that the projection is based on department of energy application records.
     explanation: |
       Projections based on stated methodology and official facility applications function as data-supported calculations rather than subjective personal opinions.
 
@@ -158,8 +206,14 @@ questions:
       - text: Words like "magnificent" convey emotional praise.
         correct: true
       - text: It cites official grid operator megawatt generation reports.
+        rationale: |
+          You picked a detail about generation reports, which relates to facts rather than why magnificent is an opinion word.
       - text: It specifies the exact land size measured in hectares.
+        rationale: |
+          You picked a land area measurement detail that does not explain why calling something magnificent is an opinion.
       - text: It was published in an official municipal agricultural report.
+        rationale: |
+          You picked a false source attribution that does not explain the emotional nature of the word magnificent.
     explanation: |
       Praise words like "magnificent" and "triumph" express subjective value judgments rather than objective scientific measurements.
 
@@ -173,7 +227,13 @@ questions:
       - text: Separating data and records from judgment words.
         correct: true
       - text: Assuming that any sentence containing a number must be entirely an opinion.
+        rationale: |
+          You picked a rule that is false. Numbers typically indicate verifiable facts, not opinions.
       - text: Believing that editorial claims represent universally accepted facts.
+        rationale: |
+          You picked an error in reasoning. Editorials express opinions and persuasive claims, not objective facts.
       - text: Ignoring all government reports and focusing only on emotional quotes.
+        rationale: |
+          You picked the opposite of critical reading. Fact-checking relies on official reports and data over emotional quotes.
     explanation: |
       Checking whether claims are backed by measurable data and official records versus value-laden judgment words is the core method for distinguishing facts from opinions.

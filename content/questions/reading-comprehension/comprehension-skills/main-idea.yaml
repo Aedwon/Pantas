@@ -47,8 +47,14 @@ questions:
       - text: A community resolved a land-use conflict by creating a shared hybrid space.
         correct: true
       - text: Young residents needed a safe basketball court within walking distance.
+        rationale: |
+          You picked a specific supporting argument made by the youth association, not the main idea of the entire passage.
       - text: Rising food prices forced low-income families to start farming.
+        rationale: |
+          You picked a detail explaining the background rationale for the garden proposal, not the main resolution described in the text.
       - text: Barangay Captain Elena Cruz approved the construction of a full basketball court.
+        rationale: |
+          You picked a statement that contradicts the passage. The council approved a hybrid design with a half-court, not a full court.
     explanation: |
       The passage focuses on how a dispute over a vacant lot was resolved through community consultation into a successful hybrid space. The other options represent specific arguments or details mentioned in the text.
 
@@ -62,8 +68,14 @@ questions:
       - text: Sixty percent
         correct: true
       - text: Forty percent
+        rationale: |
+          You picked the remaining percentage allocated to the half-court basketball area, not the garden bed allocation.
       - text: Fifty percent
+        rationale: |
+          You assumed an equal half-and-half split. Paragraph 2 explicitly states sixty percent was dedicated to garden beds.
       - text: Thirty percent
+        rationale: |
+          You picked thirty, which refers to the thirty neighborhood families who received harvests, not the percentage of land.
     explanation: |
       The second paragraph explicitly states that under the approved design, sixty percent of the lot was dedicated to raised garden beds.
 
@@ -77,8 +89,14 @@ questions:
       - text: She prefers collaborative problem-solving over top-down orders.
         correct: true
       - text: She avoids making decisions until external municipal architects intervene.
+        rationale: |
+          You picked an inference unsupported by the passage. The volunteer architect helped design the layout after Cruz started consultations.
       - text: She favors youth athletic activities over local agricultural projects.
+        rationale: |
+          You picked an inference that contradicts the text. Cruz adopted a hybrid layout that accommodated both needs.
       - text: She rejected the original proposals because of severe budget limitations.
+        rationale: |
+          You inferred a financial restriction not mentioned in the text. The compromise was built to resolve conflicting community demands.
     explanation: |
       By organizing public consultations with elders, parents, and youth leaders to find a shared solution, Captain Cruz demonstrated a collaborative leadership style rather than imposing a single choice.
 
@@ -92,8 +110,14 @@ questions:
       - text: They believed youth lacked safe nearby sports facilities.
         correct: true
       - text: They wanted to stop low-income families from harvesting vegetables.
+        rationale: |
+          You picked a hostile motive not supported by the passage. The youth simply wanted a sports venue nearby.
       - text: They hoped to install solar lighting across the whole barangay.
+        rationale: |
+          You picked a detail added to the court in the final hybrid design, not their original petition motive.
       - text: They owned the construction debris left on the vacant lot.
+        rationale: |
+          You picked a false claim. The lot was an informal dumping ground, not property owned by the youth association.
     explanation: |
       The first paragraph notes that the youth association petitioned for a basketball court because young residents lacked safe recreational facilities within walking distance.
 
@@ -107,8 +131,14 @@ questions:
       - text: It demonstrates positive outcomes of the hybrid resolution.
         correct: true
       - text: It introduces a brand new dispute between neighboring barangays.
+        rationale: |
+          You misinterpreted the conclusion. Neighboring barangays saw the project as a model, not as a new dispute.
       - text: It details the exact financial budget required for solar lighting installation.
+        rationale: |
+          You picked a financial detail not mentioned in the paragraph. The paragraph focuses on harvests and community usage.
       - text: It argues that vegetable gardens are more valuable than sports courts.
+        rationale: |
+          You picked a biased claim that contradicts the passage's emphasis on successful shared co-existence.
     explanation: |
       The final paragraph describes the harvest and youth activity by August, showing how the hybrid resolution achieved positive results for both sides and created a useful model.
 
@@ -122,8 +152,14 @@ questions:
       - text: Store owners stay viable by balancing trust with discipline.
         correct: true
       - text: Supermarkets will soon replace all neighborhood sari-sari stores.
+        rationale: |
+          You picked a prediction that contradicts the passage. The text explains why small sari-sari stores endure despite supermarkets.
       - text: Micro-retail businesses should avoid giving credit to neighbors.
+        rationale: |
+          You picked the opposite of the passage thesis. Aling Rosa succeeds specifically by managing credit prudently, not by avoiding it.
       - text: Buying inventory on Monday mornings is the only way to earn a profit.
+        rationale: |
+          You picked a specific operational detail from paragraph 2, mistaking it for the main thesis of the whole passage.
     explanation: |
       The main idea is stated in the concluding paragraph: small neighborhood stores endure when owners combine community empathy with prudent management habits.
 
@@ -137,8 +173,14 @@ questions:
       - text: Recording credit transactions for regular customers
         correct: true
       - text: Listing wholesale market prices in nearby cities
+        rationale: |
+          You picked an unmentioned function. Paragraph 2 explicitly states she uses the talaan to record customer credit transactions.
       - text: Tracking mobile phone load expiration dates across all vendors
+        rationale: |
+          You picked a task not described in the text. The ledger book is used to manage customer credit risk.
       - text: Calculating monthly tax payments for the municipal barangay
+        rationale: |
+          You picked a municipal administrative function not mentioned in the passage.
     explanation: |
       The second paragraph states that Aling Rosa records credit transactions in a ledger book called a 'talaan'.
 
@@ -152,8 +194,14 @@ questions:
       - text: They value physical proximity and flexible credit terms.
         correct: true
       - text: Supermarkets do not carry daily items like cooking oil or phone load.
+        rationale: |
+          You picked a false claim. The passage notes supermarkets offer lower prices on daily essentials, but sari-sari stores offer convenience.
       - text: Aling Rosa sells wholesale inventory at half price every weekend.
+        rationale: |
+          You picked a detail not found in the passage. Aling Rosa buys wholesale, but sells retail to her customers.
       - text: The barangay mandates that residents purchase goods locally.
+        rationale: |
+          You picked an unsupported municipal rule. Residents choose to buy from her due to proximity and credit.
     explanation: |
       The first paragraph explains that small neighborhood stores survive because they provide unmatched physical convenience and flexible credit terms during financial bottlenecks.
 
@@ -167,8 +215,14 @@ questions:
       - text: Customers must settle credit balances before new charges.
         correct: true
       - text: Customers must pay a monthly interest fee on all grocery debts.
+        rationale: |
+          You picked a financial penalty not mentioned in the text. Aling Rosa controls risk by requiring balances to be paid before new charges.
       - text: Credit is granted only to customers who purchase wholesale inventory.
+        rationale: |
+          You misidentified her customer base. Credit is given to regular retail neighbors, not wholesale buyers.
       - text: Credit transactions are limited to mobile phone load purchases.
+        rationale: |
+          You restricted credit to one product type. Paragraph 1 lists items like cooking oil as daily essentials.
     explanation: |
       The second paragraph explains that Aling Rosa requires credit balances to be settled before new purchases can be charged.
 
@@ -182,8 +236,14 @@ questions:
       - text: Aling Rosa buys wholesale stock every Monday morning to get discounts.
         correct: true
       - text: Personal relationships and financial discipline keep micro-retail stores viable.
+        rationale: |
+          You picked the main thesis of the passage rather than a specific supporting detail.
       - text: Sari-sari stores endure by offering convenience and community trust.
+        rationale: |
+          You picked a main idea summary statement rather than a supporting detail.
       - text: Prudent cash flow management allows small stores to withstand modern competition.
+        rationale: |
+          You picked a broad conclusion summarizing why small stores survive, which is a main idea.
     explanation: |
       Buying wholesale stock on Mondays is a specific operational detail, whereas the other options summarize the broader thesis of the passage.
 
@@ -197,8 +257,14 @@ questions:
       - text: Mangrove reforestation strengthened coastal defense and marine life.
         correct: true
       - text: Typhoon storm surges destroyed all commercial fishponds in Quezon province.
+        rationale: |
+          You picked an exaggerated detail not stated in the passage. The text focuses on environmental restoration efforts.
       - text: Planting seedlings in coastal mud requires specialized industrial machinery.
+        rationale: |
+          You picked a claim that contradicts the text. Volunteers hand-planted saplings and breached dikes manually.
       - text: Local youth groups were paid by marine biologists to clean roads.
+        rationale: |
+          You picked a minor detail about youth training and distorted it into the main point of the passage.
     explanation: |
       The passage shows how local fisherfolk and scientists successfully restored mangroves, resulting in reduced storm damage and improved fishery yields.
 
@@ -212,8 +278,14 @@ questions:
       - text: To restore seawater circulation for wild propagules to take root
         correct: true
       - text: To make space for building new coastal roads and concrete bridges
+        rationale: |
+          You picked an infrastructure goal not mentioned in the passage. Dikes were breached for ecological water flow.
       - text: To prevent local fisherfolk from harvesting mud crabs in the bay
+        rationale: |
+          You picked a negative outcome that contradicts the text. Restoration actually boosted fishery yields and crab populations.
       - text: To drain seawater away from the fragile mangrove saplings
+        rationale: |
+          You picked the opposite of ecological reality. Mangroves need tidal seawater circulation to grow and spread.
     explanation: |
       The second paragraph states that dikes were breached to restore natural seawater circulation, which helped wild mangrove propagules take root.
 
@@ -227,8 +299,14 @@ questions:
       - text: Organizers used scientific methods to maximize seedling survival.
         correct: true
       - text: All mangrove trees grow equally well in any coastal environment.
+        rationale: |
+          You picked a false assumption. Selecting species based on tidal elevation and salinity proves different species have specific needs.
       - text: Nursery-grown seedlings were completely unavailable in Real, Quezon.
+        rationale: |
+          You picked a statement contradicting paragraph 2, which explicitly mentions nursery-grown seedlings.
       - text: Salinity levels were lowered by dumping fresh water into the sea.
+        rationale: |
+          You picked an absurd physical intervention not mentioned in the passage.
     explanation: |
       Tailoring mangrove species selection to specific tidal elevations and soil salinities demonstrates a scientifically informed approach designed to ensure high survival rates.
 
@@ -242,8 +320,14 @@ questions:
       - text: Reduced wave energy and increased marine habitats
         correct: true
       - text: Higher tourism revenue and lower fishpond construction costs
+        rationale: |
+          You picked commercial benefits not mentioned in the text. The passage lists wave reduction and increased fish yields.
       - text: Free plastic clearing services and expanded coastal road lanes
+        rationale: |
+          You picked maintenance details rather than the environmental and economic double benefits stated in the conclusion.
       - text: Elimination of all typhoons and expanded freshwater reservoirs
+        rationale: |
+          You picked an impossible weather claim. Mangroves reduce storm surge impact, but cannot eliminate typhoons.
     explanation: |
       The final paragraph notes that the mangroves reduced wave energy (disaster resilience) and provided nurseries for fish and mud crabs (livelihood benefit).
 
@@ -257,7 +341,13 @@ questions:
       - text: Restoring Coastal Protection Through Reforestation
         correct: true
       - text: The Complete History of Fishpond Construction in Quezon
+        rationale: |
+          You picked a title that focuses narrowly on historical fishponds rather than the reforestation theme.
       - text: How Plastic Debris Destructive Waves Harms Local Youth
+        rationale: |
+          You picked a garbled title that focuses on secondary maintenance details rather than the main project.
       - text: Commercial Fishing Strategies in Extreme Typhoons
+        rationale: |
+          You picked a title about commercial fishing operations, which is not the subject of this restoration passage.
     explanation: |
       The title reflects the central theme of environmental restoration bringing both disaster protection and economic benefits to coastal communities.
