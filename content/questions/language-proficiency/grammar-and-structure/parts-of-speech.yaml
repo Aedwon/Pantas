@@ -13,8 +13,14 @@ questions:
       - text: Noun
         correct: true
       - text: Verb
+        rationale: |
+          You picked verb, but "book" does not state an action here. It names a physical object that Maria bought.
       - text: Adjective
+        rationale: |
+          You picked adjective, but "book" does not describe another noun in this sentence. It is the direct object.
       - text: Adverb
+        rationale: |
+          You picked adverb, but "book" does not modify a verb, adjective, or other adverb. It names an item.
     explanation: |
       "Book" names a thing, making it a noun.
     approved: true
@@ -28,8 +34,14 @@ questions:
       - text: Pronoun
         correct: true
       - text: Noun
+        rationale: |
+          You picked noun, but "he" is a pronoun standing in for the specific person Carlos.
       - text: Adjective
+        rationale: |
+          You picked adjective, but "he" is not modifying a noun. It is acting as the subject of the clause.
       - text: Conjunction
+        rationale: |
+          You picked conjunction, but "he" does not join words or clauses. It replaces the noun Carlos.
     explanation: |
       "He" replaces the noun "Carlos" so it does not need to be repeated, making it a pronoun.
     approved: true
@@ -43,8 +55,14 @@ questions:
       - text: Verb
         correct: true
       - text: Noun
+        rationale: |
+          You picked noun, but "laughed" is not the name of a person, place, or thing here. It expresses an action.
       - text: Adjective
+        rationale: |
+          You picked adjective, but "laughed" describes an action performed by the subject, not a quality of a noun.
       - text: Adverb
+        rationale: |
+          You picked adverb, but "laughed" is the main action of the sentence, not a modifier.
     explanation: |
       "Laughed" shows an action the children performed, making it a verb.
     approved: true
@@ -58,8 +76,14 @@ questions:
       - text: Adjective
         correct: true
       - text: Adverb
+        rationale: |
+          You picked adverb, but "diligent" describes the student rather than how the action was performed.
       - text: Noun
+        rationale: |
+          You picked noun, but "diligent" is a modifier describing "student," not a person, place, or thing itself.
       - text: Verb
+        rationale: |
+          You picked verb, but "diligent" does not show an action or state of being. It describes a noun.
     explanation: |
       "Diligent" describes the noun "student," telling us what kind of student she is: this is an adjective.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: Adverb
         correct: true
       - text: Adjective
+        rationale: |
+          You picked adjective, but "quickly" tells how she finished the project, modifying the verb "finished."
       - text: Verb
+        rationale: |
+          You picked verb, but "quickly" modifies the verb "finished" rather than expressing the action itself.
       - text: Noun
+        rationale: |
+          You picked noun, but "quickly" is a modifier telling how an action occurred, not a person or thing.
     explanation: |
       "Quickly" describes the verb "finished," telling us how she finished: this is an adverb.
     approved: true
@@ -88,8 +118,14 @@ questions:
       - text: Preposition
         correct: true
       - text: Adverb
+        rationale: |
+          You picked adverb, but "under" links the noun "table" to the rest of the sentence to show position.
       - text: Conjunction
+        rationale: |
+          You picked conjunction, but "under" introduces a prepositional phrase rather than connecting two clauses.
       - text: Adjective
+        rationale: |
+          You picked adjective, but "under" is not describing the qualities of a noun.
     explanation: |
       "Under" shows the relationship (location) between the cat and the table, making it a preposition.
     approved: true
@@ -103,8 +139,14 @@ questions:
       - text: Conjunction
         correct: true
       - text: Preposition
+        rationale: |
+          You picked preposition, but "but" is connecting two independent clauses rather than introducing a phrase.
       - text: Adverb
+        rationale: |
+          You picked adverb, but "but" acts as a coordinating conjunction joining two complete thoughts.
       - text: Interjection
+        rationale: |
+          You picked interjection, but "but" is not an isolated outburst of emotion. It joins two clauses.
     explanation: |
       "But" connects two clauses (wanting to attend, and having homework), making it a conjunction.
     approved: true
@@ -118,8 +160,14 @@ questions:
       - text: Interjection
         correct: true
       - text: Noun
+        rationale: |
+          You picked noun, but "Ouch" is an exclamation of pain rather than a named entity.
       - text: Adverb
+        rationale: |
+          You picked adverb, but "Ouch" does not modify a verb, adjective, or other adverb.
       - text: Verb
+        rationale: |
+          You picked verb, but "Ouch" is a sudden emotion word rather than an action verb.
     explanation: |
       "Ouch" expresses a sudden feeling (pain), making it an interjection.
     approved: true
@@ -133,8 +181,14 @@ questions:
       - text: Noun
         correct: true
       - text: Verb
+        rationale: |
+          You picked verb, but "light" follows the article "the" here and functions as a physical object.
       - text: Adjective
+        rationale: |
+          You picked adjective, but "light" is the direct object receiving the action, not a modifier.
       - text: Adverb
+        rationale: |
+          You picked adverb, but "light" is a noun naming the object being turned on.
     explanation: |
       Here, "light" names a thing (a lamp or its glow), making it a noun.
     approved: true
@@ -148,8 +202,14 @@ questions:
       - text: Verb
         correct: true
       - text: Noun
+        rationale: |
+          You picked noun, but "light" expresses the action being requested here, not a physical item.
       - text: Adjective
+        rationale: |
+          You picked adjective, but "light" is acting as the main verb of the command.
       - text: Preposition
+        rationale: |
+          You picked preposition, but "light" is an action verb, not a positional word.
     explanation: |
       Here, "light" shows an action (to ignite the candle), making it a verb.
     approved: true
@@ -163,8 +223,14 @@ questions:
       - text: Adjective
         correct: true
       - text: Noun
+        rationale: |
+          You picked noun, but "light" describes the bag's weight after removing books.
       - text: Verb
+        rationale: |
+          You picked verb, but "light" is a predicate adjective following the linking verb "felt."
       - text: Adverb
+        rationale: |
+          You picked adverb, but "light" describes the noun "bag," not the verb "felt."
     explanation: |
       Here, "light" describes the bag, telling us its weight, making it an adjective.
     approved: true
@@ -178,8 +244,14 @@ questions:
       - text: Pang-uri
         correct: true
       - text: Pangngalan
+        rationale: |
+          You: Pinili mo ang pangngalan, ngunit ang "matapang" ay naglalarawan sa katangian ng sundalo, hindi pangalan ng tao o bagay.
       - text: Pandiwa
+        rationale: |
+          You: Pinili mo ang pandiwa, ngunit ang "matapang" ay walang ipinapakitang kilos.
       - text: Pang-abay
+        rationale: |
+          You: Pinili mo ang pang-abay, ngunit ang "matapang" ay naglalarawan sa pangngalan ("sundalo") at hindi sa pandiwa.
     explanation: |
       Ang "matapang" ay naglalarawan sa pangngalang "sundalo," kaya ito ay pang-uri (adjective).
     approved: true
@@ -193,8 +265,14 @@ questions:
       - text: Pangngalan
         correct: true
       - text: Panghalip
+        rationale: |
+          You: Pinili mo ang panghalip, ngunit ang "bata" ay mismong pangalan ng tao, hindi pamalit sa pangalan.
       - text: Pandiwa
+        rationale: |
+          You: Pinili mo ang pandiwa, ngunit ang "bata" ay hindi nagpapakita ng kilos.
       - text: Pang-uri
+        rationale: |
+          You: Pinili mo ang pang-uri, ngunit ang "bata" ay tinutukoy na paksa o tao at hindi naglalarawan ng ibang salita.
     explanation: |
       Ang "bata" ay pangalan ng isang tao (bagay), kaya ito ay pangngalan (noun).
     approved: true
@@ -208,8 +286,14 @@ questions:
       - text: Panghalip
         correct: true
       - text: Pangngalan
+        rationale: |
+          You: Pinili mo ang pangngalan, ngunit ang "Siya" ay ginagamit na pamalit sa pangalan ng tao.
       - text: Pang-uri
+        rationale: |
+          You: Pinili mo ang pang-uri, ngunit ang "Siya" ay hindi naglalarawan ng katangian.
       - text: Pandiwa
+        rationale: |
+          You: Pinili mo ang pandiwa, ngunit ang "Siya" ay humahalili sa tao at walang kilos.
     explanation: |
       Ang "Siya" ay humahalili sa isang pangngalan (pangalan ng tao) upang hindi ito ulit-ulitin, kaya ito ay panghalip (pronoun).
     approved: true
@@ -223,8 +307,14 @@ questions:
       - text: Pandiwa
         correct: true
       - text: Pangngalan
+        rationale: |
+          You: Pinili mo ang pangngalan, ngunit ang "Kumain" ay nagpapakita ng kilos at hindi pangalan ng bagay.
       - text: Pang-uri
+        rationale: |
+          You: Pinili mo ang pang-uri, ngunit ang "Kumain" ay isang aksyon at hindi naglalarawan sa bata.
       - text: Pang-abay
+        rationale: |
+          You: Pinili mo ang pang-abay, ngunit ang "Kumain" ang mismong pangunahing kilos sa pangungusap.
     explanation: |
       Ang "Kumain" ay nagpapahiwatig ng kilos na ginawa ng mga bata, kaya ito ay pandiwa (verb).
     approved: true
@@ -238,8 +328,14 @@ questions:
       - text: Pang-abay
         correct: true
       - text: Pang-uri
+        rationale: |
+          You: Pinili mo ang pang-uri, ngunit ang "Mabilis" ay naglalarawan sa kilos na "tumakbo" at hindi sa atleta.
       - text: Pandiwa
+        rationale: |
+          You: Pinili mo ang pandiwa, ngunit ang "Mabilis" ay naglalarawan sa paraan ng pagtakbo.
       - text: Pangngalan
+        rationale: |
+          You: Pinili mo ang pangngalan, ngunit ang "Mabilis" ay isang salitang naglalarawan ng kilos.
     explanation: |
       Ang "Mabilis" dito ay naglalarawan kung paano tumakbo ang atleta (isang pandiwa), kaya ito ay pang-abay (adverb), hindi pang-uri.
     approved: true
@@ -253,8 +349,14 @@ questions:
       - text: 'No: here "run" is a noun (referring to the activity or exercise session), not a verb; the same word can have different jobs in different sentences.'
         correct: true
       - text: 'Yes: "run" is always a verb regardless of context.'
+        rationale: |
+          You assumed a word's part of speech is fixed, but "a run" functions as a noun naming an activity here.
       - text: 'Yes: but only because "morning" is also functioning as a verb here.'
+        rationale: |
+          You misidentified "morning" as a verb. "Morning" is a noun acting as part of a time phrase.
       - text: 'No: "run" can never function as a verb in any sentence.'
+        rationale: |
+          You claimed "run" can never be a verb, but it acts as a verb in sentences like "they run fast."
     explanation: |
       Words like "run" can be nouns or verbs depending on how they are used. Here, "a run" names an activity (a noun), not an action being performed directly.
     approved: true
@@ -268,8 +370,14 @@ questions:
       - text: 'No: "friendly" is actually an adjective here, describing the noun "neighbor"; not every word ending in "-ly" is an adverb.'
         correct: true
       - text: 'Yes: any word ending in "-ly" is always an adverb.'
+        rationale: |
+          You assumed ending in "-ly" strictly makes a word an adverb, but "friendly" describes the noun "neighbor."
       - text: 'Yes: but only because "neighbor" is also functioning as an adverb here.'
+        rationale: |
+          You assumed "neighbor" changed function, but "neighbor" remains a standard noun acting as the subject.
       - text: 'No: "friendly" is a noun, not an adverb or adjective.'
+        rationale: |
+          You labeled "friendly" a noun, but it acts as a modifier describing what kind of neighbor waved.
     explanation: |
       "Friendly," "lovely," and "lonely" all end in "-ly" but are adjectives, since they describe nouns. Always check the word's job in the sentence, not just its ending.
     approved: true
@@ -283,8 +391,14 @@ questions:
       - text: 'No: in the second sentence, "before" is followed by a full clause with its own subject and verb ("we finished dinner"), making it a conjunction instead of a preposition.'
         correct: true
       - text: 'Yes: "before" is always a preposition regardless of what follows it.'
+        rationale: |
+          You assumed "before" cannot shift functions, but following it with a clause turns it into a conjunction.
       - text: 'Yes: but only because "dinner" changes its part of speech instead.'
+        rationale: |
+          You thought "dinner" shifted roles, but "dinner" remains a noun inside the dependent clause.
       - text: 'No: "before" functions as an adverb in both sentences.'
+        rationale: |
+          You misidentified "before" as an adverb in both cases, ignoring the prepositional phrase and clause.
     explanation: |
       Words like "before," "after," and "since" can function as either a preposition (followed by just a noun phrase) or a conjunction (followed by a full clause with its own subject and verb).
     approved: true
@@ -298,8 +412,14 @@ questions:
       - text: (1) Adverb, (2) Adjective, (3) Adverb, (4) Conjunction
         correct: true
       - text: (1) Adjective, (2) Adverb, (3) Adjective, (4) Preposition
+        rationale: |
+          You swapped adverbs and adjectives: "extremely" modifies an adjective and "before" introduces a full clause.
       - text: (1) Adverb, (2) Adjective, (3) Adverb, (4) Preposition
+        rationale: |
+          You correctly identified the first three parts of speech but misidentified "before" as a preposition.
       - text: (1) Adjective, (2) Noun, (3) Verb, (4) Conjunction
+        rationale: |
+          You misclassified "diligent" as a noun and "quietly" as a verb, confusing modifiers with core elements.
     explanation: |
       "Extremely" describes the adjective "diligent" (adverb). "Diligent" describes the noun "students" (adjective). "Quietly" describes the verb "finished" (adverb). "Before" is followed by a full clause ("the bell rang"), making it a conjunction, not a preposition.
     approved: true
