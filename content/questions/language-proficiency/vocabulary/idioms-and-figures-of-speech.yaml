@@ -13,8 +13,14 @@ questions:
       - text: To return to the beginning
         correct: true
       - text: To play a board game
+        rationale: |
+          You took the idiom literally about board games, but idioms express figurative meanings rather than literal games.
       - text: To get angry at a mistake
+        rationale: |
+          You picked getting angry, but "square one" refers to starting point position rather than an emotional reaction.
       - text: To give up completely
+        rationale: |
+          You picked giving up completely, whereas Maria restarted her review rather than quitting.
     explanation: |
       If you lose all your progress, you must start over from the very beginning. "Back to square one" means to return to the beginning.
     approved: true
@@ -28,8 +34,14 @@ questions:
       - text: To reveal a secret
         correct: true
       - text: To cook food
+        rationale: |
+          You took the idiom literally about beans and cooking, but "spill the beans" is a figurative expression for disclosing secrets.
       - text: To clean the floor
+        rationale: |
+          You took the idiom literally as a physical mess to clean up, which misses the figurative meaning of revealing secrets.
       - text: To argue loudly
+        rationale: |
+          You picked arguing, but "spill the beans" focuses specifically on disclosing hidden information.
     explanation: |
       "Spill the beans" is an idiom that means to reveal a secret: it has nothing to do with actual beans or cooking.
     approved: true
@@ -43,8 +55,14 @@ questions:
       - text: Personification
         correct: true
       - text: Simile
+        rationale: |
+          You picked simile, but the sentence does not use comparison signal words like "as" or "like."
       - text: Metaphor
+        rationale: |
+          You picked metaphor, but giving human emotions ("groaned," "complaining") to floorboards is specifically personification.
       - text: Hyperbole
+        rationale: |
+          You picked hyperbole, but the central poetic device is giving human human traits to non-human floorboards.
     explanation: |
       Groaning and complaining are human actions. Giving these human traits to non-human floorboards is personification.
     approved: true
@@ -58,8 +76,14 @@ questions:
       - text: Simile
         correct: true
       - text: Metaphor
+        rationale: |
+          You picked metaphor, but the presence of the comparison word "as" ("as bright as") makes it a simile.
       - text: Personification
+        rationale: |
+          You picked personification, but the sentence compares a smile to the sun rather than attributing human behaviors to nature.
       - text: Oxymoron
+        rationale: |
+          You picked oxymoron, but comparing a smile to the sun is a comparison, not a combination of contradictory terms.
     explanation: |
       The phrase "as bright as" uses the trigger word "as" to compare two things: this is a simile.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: Metaphor
         correct: true
       - text: Simile
+        rationale: |
+          You picked simile, but a simile requires comparison words like "as" or "like" between the classroom and a zoo.
       - text: Personification
+        rationale: |
+          You picked personification, but the sentence compares one thing to another rather than giving human attributes.
       - text: Hyperbole
+        rationale: |
+          You picked hyperbole, but the primary figure of speech is a direct comparison between the classroom and a zoo.
     explanation: |
       The sentence directly compares the classroom to a zoo without using "like" or "as": this is a metaphor.
     approved: true
@@ -88,8 +118,14 @@ questions:
       - text: Hyperbole
         correct: true
       - text: Simile
+        rationale: |
+          You picked simile, but the sentence contains no comparison using "like" or "as."
       - text: Alliteration
+        rationale: |
+          You picked alliteration, but the line lacks repeated initial consonant sounds across consecutive words.
       - text: Onomatopoeia
+        rationale: |
+          You picked onomatopoeia, but the sentence contains no words that imitate physical sounds.
     explanation: |
       No one has literally said something a million times: this is an extreme exaggeration, which is hyperbole.
     approved: true
@@ -103,8 +139,14 @@ questions:
       - text: Alliteration
         correct: true
       - text: Onomatopoeia
+        rationale: |
+          You picked onomatopoeia, but repeating initial "p" sounds is alliteration, not sound-imitation words.
       - text: Metaphor
+        rationale: |
+          You picked metaphor, but there is no direct comparison between two unlike things.
       - text: Oxymoron
+        rationale: |
+          You picked oxymoron, but the line contains no contradictory terms paired together.
     explanation: |
       The repeated "p" sound at the beginning of nearby words (Peter, Piper, picked, peck, pickled, peppers) is alliteration.
     approved: true
@@ -118,8 +160,14 @@ questions:
       - text: Onomatopoeia
         correct: true
       - text: Alliteration
+        rationale: |
+          You picked alliteration, but the sentence focuses on sound-imitation ("sizzled") rather than repeated initial consonants.
       - text: Simile
+        rationale: |
+          You picked simile, but there is no comparative trigger word such as "like" or "as."
       - text: Hyperbole
+        rationale: |
+          You picked hyperbole, but describing bacon sizzling is a sensory description rather than an extreme exaggeration.
     explanation: |
       "Sizzled" is a word that sounds like the noise it describes: this is onomatopoeia.
     approved: true
@@ -133,8 +181,14 @@ questions:
       - text: Oxymoron
         correct: true
       - text: Hyperbole
+        rationale: |
+          You picked hyperbole, but combining opposite concepts ("deafening" and "silence") is an oxymoron.
       - text: Simile
+        rationale: |
+          You picked simile, but the phrase lacks comparative connectors like "like" or "as."
       - text: Metaphor
+        rationale: |
+          You picked metaphor, but placing two opposing words side by side specifically forms an oxymoron.
     explanation: |
       "Deafening" and "silence" are two opposite ideas put together: this combination of contradictory words is an oxymoron.
     approved: true
@@ -148,8 +202,14 @@ questions:
       - text: Sumuko
         correct: true
       - text: Nagwakas ang laban
+        rationale: |
+          You: Pinili mo ang "nagwakas ang laban," ngunit ang sawikain ay tumutukoy sa mismong kilos ng pagpapasya na sumuko na.
       - text: Nanalo
+        rationale: |
+          You: Pinili mo ang "nanalo," na kasalungat ng kahulugan ng pagtatapon ng tuwalya.
       - text: Nagsimula ulit
+        rationale: |
+          You: Pinili mo ang "nagsimula ulit," ngunit ang pagtatapon ng tuwalya ay nangangahulugang paghinto at pagsuway na magpatuloy.
     explanation: |
       Ang "itinapon ang tuwalya" ay sawikain na nangangahulugang sumuko, katulad ng ginagawa ng isang boksingero kapag hindi na kaya ang laban.
     approved: true
@@ -163,8 +223,14 @@ questions:
       - text: Pagmamalabis
         correct: true
       - text: Pagtutulad
+        rationale: |
+          You: Pinili mo ang pagtutulad, ngunit walang ginamit na salitang pang-uri tulad ng "parang" o "kasing-."
       - text: Pagwawangis
+        rationale: |
+          You: Pinili mo ang pagwawangis, ngunit ang "libu-libong beses" ay matinding eksaherasyon (hyperbole).
       - text: Pagbibigay-katauhan
+        rationale: |
+          You: Pinili mo ang pagbibigay-katauhan, ngunit ang sinabi ay ukol sa tao at hindi nagbibigay ng katangian ng tao sa bagay.
     explanation: |
       Walang tao na literal na nagsabi ng isang bagay ng "libu-libong beses": ito ay matinding pagmamalabis (hyperbole).
     approved: true
@@ -178,8 +244,14 @@ questions:
       - text: Pagtutulad
         correct: true
       - text: Pagwawangis
+        rationale: |
+          You: Pinili mo ang pagwawangis, ngunit ang paggamit ng panandang "kasing-" ay nagpapatunay na ito ay pagtutulad (simile).
       - text: Pagmamalabis
+        rationale: |
+          You: Pinili mo ang pagmamalabis, ngunit ang pangungusap ay naghahambing ng mata sa bituin gamit ang panandang salita.
       - text: Pagbibigay-katauhan
+        rationale: |
+          You: Pinili mo ang pagbibigay-katauhan, ngunit walang ibinigay na kilos ng tao sa mga bituin.
     explanation: |
       Ang panandang salitang "kasing-" (katulad ng) ay tanda ng pagtutulad (simile), dahil ginagamit nito ang salitang pang-ugnay sa paghahambing.
     approved: true
@@ -193,8 +265,14 @@ questions:
       - text: Pagwawangis
         correct: true
       - text: Pagtutulad
+        rationale: |
+          You: Pinili mo ang pagtutulad, ngunit walang ginamit na salitang pang-ugnay tulad ng "parang" o "tulad ng."
       - text: Pagmamalabis
+        rationale: |
+          You: Pinili mo ang pagmamalabis, ngunit ito ay direktang paghahambing sa guro at ilaw (metaphor).
       - text: Pagbibigay-katauhan
+        rationale: |
+          You: Pinili mo ang pagbibigay-katauhan, ngunit hindi binigyan ng kilos ng tao ang ilaw.
     explanation: |
       Walang panandang salita tulad ng "parang" o "tulad ng" na ginamit: direktang paghahambing ito ng guro sa ilaw, kaya ito ay pagwawangis (metaphor).
     approved: true
@@ -208,8 +286,14 @@ questions:
       - text: Pagbibigay-katauhan
         correct: true
       - text: Pagtutulad
+        rationale: |
+          You: Pinili mo ang pagtutulad, ngunit walang panandang salita ng paghahambing at ang pahayag ay nagbibigay ng kilos ng tao.
       - text: Pagwawangis
+        rationale: |
+          You: Pinili mo ang pagwawangis, ngunit ang pagtutok ng pangungusap ay ang pagbibigay ng kilos ng tao (kumanta, sumasayaw).
       - text: Pagmamalabis
+        rationale: |
+          You: Pinili mo ang pagmamalabis, ngunit ang personipikasyon o pagbibigay-katauhan ang pangunahing tayutay.
     explanation: |
       Ang pagkanta at pagsayaw ay mga kilos ng tao. Ang pagbibigay ng mga katangiang pantao sa mga dahon at ibon ay pagbibigay-katauhan (personification).
     approved: true
@@ -223,8 +307,14 @@ questions:
       - text: 'No: "kicked the bucket" is an idiom meaning to pass away (die); the literal description of physically kicking a bucket is a trap, since idioms are never meant literally.'
         correct: true
       - text: 'Yes: the dog must have literally kicked an actual bucket.'
+        rationale: |
+          You interpreted the idiom literally, but idioms express figurative meanings rather than physical actions.
       - text: 'Yes: but only because dogs commonly interact with buckets.'
+        rationale: |
+          You tried to justify a literal interpretation using real-world context, ignoring the idiomatic meaning.
       - text: 'No: but only because the dog never actually existed in this sentence.'
+        rationale: |
+          You claimed the dog was fictional, which is irrelevant to whether "kicked the bucket" is figurative.
     explanation: |
       Test-makers know you might translate an idiom word by word. If an exam choice gives the exact dictionary meaning of the idiom's words, cross it out: idioms are never literal. "Kicked the bucket" actually means to pass away.
     approved: true
@@ -238,8 +328,14 @@ questions:
       - text: 'No: roaring is an animal trait, not a human trait, so the engine is being compared to an animal (like a lion), not given human traits; this makes it a metaphor, not personification.'
         correct: true
       - text: 'Yes: any non-human thing performing an action is automatically personification.'
+        rationale: |
+          You assumed any action makes a figure personification, but personification requires specifically human traits.
       - text: 'Yes: but only because engines cannot actually make any sound.'
+        rationale: |
+          You claimed engines cannot make sound, which is factually false and misses the metaphor.
       - text: 'No: but only because engines are not capable of movement.'
+        rationale: |
+          You claimed engines cannot move, which is false and irrelevant to why roaring is a metaphor.
     explanation: |
       Just because a thing moves or acts does not mean it is human. Personification requires a human trait specifically. "Roared" is an animal trait, so this compares the engine to a lion: that comparison, without "like" or "as," is a metaphor, not personification.
     approved: true
@@ -253,8 +349,14 @@ questions:
       - text: 'Mali: pagwawangis (metaphor) ito, dahil direktang paghahambing ito ng ina sa ilaw nang walang ginamit na panandang salita; ang pagtutulad ay nangangailangan ng panandang salita tulad ng "parang" o "tulad ng."'
         correct: true
       - text: 'Tama: bawat paghahambing ng dalawang bagay ay palaging pagtutulad, may panandang salita man o wala.'
+        rationale: |
+          You: Inakala mong pagtutulad ito kahit walang panandang salita, ngunit pagwawangis ang direktang paghahambing.
       - text: 'Tama: dahil ang ina ay literal na tumutulong bilang ilaw ng bahay.'
+        rationale: |
+          You: Inakala mong literal na ilaw ang ina, ngunit ito ay metapora o pagwawangis.
       - text: 'Mali: pagmamalabis ito, hindi pagtutulad o pagwawangis.'
+        rationale: |
+          You: Pinili mo ang pagmamalabis, ngunit ang pahayag ay isang direktang paghahambing (pagwawangis).
     explanation: |
       Madalas pinaghahalo ng mga mag-aaral ang pagtutulad (simile) at pagwawangis (metaphor). Ang pagtutulad ay may panandang salita tulad ng "gaya ng," "animo'y," o "kawangis." Dahil walang panandang salita dito, ito ay direktang paghahambing: pagwawangis.
     approved: true
@@ -268,8 +370,14 @@ questions:
       - text: (1) Personification, (2) Metaphor, (3) Simile
         correct: true
       - text: (1) Simile, (2) Personification, (3) Metaphor
+        rationale: |
+          You misidentified all three: winked is personification, voice was music is metaphor, and like a lion is simile.
       - text: (1) Metaphor, (2) Simile, (3) Personification
+        rationale: |
+          You reversed the figures of speech for all three items in the sequence.
       - text: (1) Personification, (2) Simile, (3) Metaphor
+        rationale: |
+          You swapped items (2) and (3), mistaking "voice was music" for a simile and "like a lion" for a metaphor.
     explanation: |
       Sentence 1 gives the human action "winked" to stars (personification). Sentence 2 directly compares a voice to music without "like" or "as" (metaphor). Sentence 3 uses the trigger word "like" to compare thunder to a lion (simile).
     approved: true
