@@ -14,8 +14,14 @@ questions:
       - text: Difficult
         correct: true
       - text: Easy
+        rationale: |
+          You picked "easy," which is an antonym of arduous, whereas "or difficult" directly restates its meaning.
       - text: Short
+        rationale: |
+          You picked "short," but the sentence states students had to focus for hours, contradicting brevity.
       - text: Boring
+        rationale: |
+          You picked "boring," which describes lack of interest rather than the difficulty level defined by the clue.
     explanation: |
       The word "or" signals a synonym clue: "or difficult" directly restates the meaning of "arduous." The correct answer is difficult.
     approved: true
@@ -30,8 +36,14 @@ questions:
       - text: A statement that seems to contradict itself, yet may still be true
         correct: true
       - text: A false statement with no possible truth
+        rationale: |
+          You picked a false statement, but a paradox can still contain truth despite its self-contradictory appearance.
       - text: A proven scientific fact
+        rationale: |
+          You picked a proven scientific fact, ignoring the contradictory nature defined in the sentence.
       - text: A question with no possible answer
+        rationale: |
+          You called it a question, but the sentence explicitly defines a paradox as a type of statement.
     explanation: |
       The sentence uses "is" to give a direct definition clue, stating exactly what a paradox means.
     approved: true
@@ -46,8 +58,14 @@ questions:
       - text: Cooking tools
         correct: true
       - text: Ingredients
+        rationale: |
+          You picked "ingredients," but spatulas, tongs, and whisks are physical tools used to prepare food, not ingredients.
       - text: Recipes
+        rationale: |
+          You picked "recipes," but spatulas, tongs, and whisks are physical items rather than written cooking instructions.
       - text: Spices
+        rationale: |
+          You picked "spices," but spatulas and whisks are equipment, not food seasonings.
     explanation: |
       The signal words "such as" introduce examples: spatulas, tongs, and whisks are all cooking tools, revealing the meaning of "utensils."
     approved: true
@@ -62,8 +80,14 @@ questions:
       - text: Reserved and quiet
         correct: true
       - text: Talkative
+        rationale: |
+          You picked "talkative," which is the quality of Elena, whereas "Unlike" indicates her brother has the opposite trait.
       - text: Friendly
+        rationale: |
+          You picked "friendly," but the clue "rarely spoke a word" specifically targets speech habits rather than social warmth.
       - text: Rude
+        rationale: |
+          You picked "rude," but not speaking often indicates quietness or reserve rather than bad manners.
     explanation: |
       The word "Unlike" signals an antonym clue: Elena (who chats endlessly) is the opposite of her taciturn brother, so "taciturn" means reserved and quiet.
     approved: true
@@ -78,8 +102,14 @@ questions:
       - text: Run-down and decaying
         correct: true
       - text: Beautifully restored
+        rationale: |
+          You picked "beautifully restored," which directly contradicts descriptions of caved-in roofs and shattered windows.
       - text: Newly built
+        rationale: |
+          You picked "newly built," which is the opposite of a house with crumbling walls and caved-in roofs.
       - text: Haunted
+        rationale: |
+          You picked "haunted," which assumes supernatural presence rather than the physical state of decay described.
     explanation: |
       There are no easy signal words here, so you must infer from the whole story: a caved-in roof, shattered windows, and crumbling walls all describe a run-down, decaying building.
     approved: true
@@ -94,8 +124,14 @@ questions:
       - text: Pagpapasensya
         correct: true
       - text: Pagtakas
+        rationale: |
+          You: Pinili mo ang "pagtakas," ngunit ang pagpapasensya at pagtitiis ay hindi nangangahulugang pagtakas sa problema.
       - text: Pagyayabang
+        rationale: |
+          You: Pinili mo ang "pagyayabang," ngunit ang "pagtitiis" o pagpapasensya ay kaisipang nakatuon sa pakikipaglaban sa pagsubok.
       - text: Pagtulong
+        rationale: |
+          You: Pinili mo ang "pagtulong," ngunit ang pagtulong ay ibang kilos kumpara sa pagpapasensya.
     explanation: |
       Ang salitang "o" ay senyales ng kasingkahulugan (synonym clue): direktang sinasabi ng pangungusap na ang "pagtitiis" ay "pagpapasensya."
     approved: true
@@ -110,8 +146,14 @@ questions:
       - text: Madamot
         correct: true
       - text: Mapagbigay
+        rationale: |
+          You: Pinili mo ang "mapagbigay," ngunit ang "Taliwas sa" ay nagpapakita na ang maramot ay kasalungat ng bukas-palad (mapagbigay).
       - text: Mayaman
+        rationale: |
+          You: Pinili mo ang "mayaman," ngunit ang pahayag ay ukol sa gawi sa pagbabahagi, hindi sa dami ng pera.
       - text: Mabait
+        rationale: |
+          You: Pinili mo ang "mabait," ngunit ang tiyak na kahulugan ng maramot batay sa pangungusap ay madamot.
     explanation: |
       Ang salitang "Taliwas sa" ay senyales ng kasalungat (antonym clue): si Rosa (bukas-palad) ay taliwas sa kanyang kapatid, kaya ang "maramot" ay nangangahulugang "madamot," hindi mapagbigay.
     approved: true
@@ -126,8 +168,14 @@ questions:
       - text: 'No: here "sanction" means official approval, a secondary meaning; picking "punishment" just because it is the most common meaning would not make sense in this sentence, since the policy is proceeding, not being stopped.'
         correct: true
       - text: 'Yes: "sanction" always means a penalty or punishment, regardless of context.'
+        rationale: |
+          You assumed words have only one meaning, but "sanction" can mean approval depending on context.
       - text: 'Yes: the sentence describes the policy being punished by the committee.'
+        rationale: |
+          You misread the context, ignoring that the policy was allowed to proceed immediately with official approval.
       - text: 'No: but only because "sanction" has no relationship to approval or punishment at all.'
+        rationale: |
+          You claimed "sanction" is unrelated to approval or punishment, but it is a contronym that means both.
     explanation: |
       Test makers love to use words with a common meaning in a different, secondary way. Here, the sentence describes the policy proceeding due to "full official approval," so "sanction" means approval, not its more common meaning of punishment. Always plug the choice back into the sentence to see if it makes sense.
     approved: true
@@ -141,8 +189,14 @@ questions:
       - text: 'No: "relating to the belly" is a look-alike trap based on how the word appears, not its actual meaning; the context (screaming, threatening to fight) shows "belligerent" means hostile and aggressive.'
         correct: true
       - text: 'Yes: "belligerent" and "belly" share the same root, so they mean the same thing.'
+        rationale: |
+          You relied on visual similarity, but "belligerent" comes from Latin roots meaning war and aggression.
       - text: 'Yes: the customer''s behavior described relates to stomach pain.'
+        rationale: |
+          You assumed stomach issues caused the behavior, but context focuses on hostile behavior, not physical ailments.
       - text: 'No: but only because the customer was not actually angry.'
+        rationale: |
+          You claimed the customer was not angry, ignoring context that explicitly describes screaming and threatening to fight.
     explanation: |
       If a choice looks or sounds exactly like the hard word, it is usually a trap. The test maker hopes you will panic and pick a word that looks familiar. Ignore how the word looks: focus only on the clues in the sentence, which describe screaming and threatening to fight, meaning "hostile and aggressive."
     approved: true
@@ -157,8 +211,14 @@ questions:
       - text: Duplicitous means deceptive and two-faced; missing the contrast signal "however" makes it seem like the sentence continues describing the politician as genuine, when it actually reverses direction to reveal the opposite.
         correct: true
       - text: Duplicitous means genuine and honest, matching the sentence's first half exactly.
+        rationale: |
+          You ignored "however," which signals a reversal of meaning away from "genuine."
       - text: Duplicitous cannot be determined from this sentence at all, with or without "however."
+        rationale: |
+          You claimed the sentence gives no context, but contrast signals provide clear context.
       - text: Duplicitous means generous, since the sentence describes a politician making promises.
+        rationale: |
+          You associated promises with generosity, ignoring the contrast signal "however."
     explanation: |
       Missing the word "however" will make you pick the exact wrong answer: if you miss an antonym signal, you pick a synonym instead. Here, "however" reverses the direction from "seemed genuine" to reveal the politician is actually "duplicitous," meaning deceptive and two-faced.
     approved: true
@@ -173,8 +233,14 @@ questions:
       - text: Honest
         correct: true
       - text: Rude
+        rationale: |
+          You picked "rude," but the phrase "or honest opinions" directly defines what candid means.
       - text: Quiet
+        rationale: |
+          You picked "quiet," but making candid remarks involves speaking out openly.
       - text: Confusing
+        rationale: |
+          You picked "confusing," but candid remarks are clear and direct, not confusing.
     explanation: |
       The word "or" signals a synonym clue: "or honest opinions" directly restates the meaning of "candid."
     approved: true
@@ -189,8 +255,14 @@ questions:
       - text: Having more than one possible meaning
         correct: true
       - text: Being completely clear
+        rationale: |
+          You picked being clear, which is the opposite of ambiguity.
       - text: Being very loud
+        rationale: |
+          You picked being loud, which relates to sound rather than linguistic interpretation.
       - text: Lacking any meaning
+        rationale: |
+          You picked lacking meaning, whereas ambiguity means having multiple meanings.
     explanation: |
       The sentence uses "is" to give a direct definition clue, stating exactly what ambiguity means.
     approved: true
@@ -205,8 +277,14 @@ questions:
       - text: Historical objects
         correct: true
       - text: Modern inventions
+        rationale: |
+          You picked modern inventions, contradicting ancient pottery and stone tools.
       - text: Paintings only
+        rationale: |
+          You restricted artifacts to paintings, but the examples include pottery, tools, and coins.
       - text: Living animals
+        rationale: |
+          You picked living animals, but pottery and coins are inanimate man-made objects.
     explanation: |
       The signal word "including" introduces examples: ancient pottery, stone tools, and bronze coins are all historical objects, revealing the meaning of "artifacts."
     approved: true
@@ -221,8 +299,14 @@ questions:
       - text: Thrifty
         correct: true
       - text: Wasteful
+        rationale: |
+          You picked "wasteful," which describes the son's behavior after the contrast phrase "In contrast to."
       - text: Generous
+        rationale: |
+          You picked "generous," but saving every peso describes careful spending (thrifty) rather than giving away money.
       - text: Poor
+        rationale: |
+          You picked "poor," but saving money does not mean lacking wealth.
     explanation: |
       The phrase "In contrast to" signals an antonym clue: the reckless-spending son is the opposite of the frugal shopkeeper, so "frugal" means thrifty (careful with money).
     approved: true
@@ -237,8 +321,14 @@ questions:
       - text: Unconventional and unusual
         correct: true
       - text: Standard and conventional
+        rationale: |
+          You picked "standard and conventional," which is the exact contrast specified by "rather than any conventional standard technique."
       - text: Illegal
+        rationale: |
+          You picked "illegal," but running practices at midnight is unusual, not unlawful.
       - text: Exhausting
+        rationale: |
+          You picked "exhausting," which describes physical strain rather than the unconventional nature of the techniques.
     explanation: |
       Two clues confirm the same meaning here: the example clue ("such as running practice at midnight...") lists unusual practices, and the contrast clue ("rather than any conventional standard technique") confirms "unorthodox" means unconventional and unusual, not standard.
     approved: true
