@@ -163,12 +163,14 @@ the free explanation still explains the correct answer in full.
 
 | Subject | Questions | With note B |
 |---|---|---|
-| General Information | 156 | **156** |
-| Reasoning | 244 | 90 |
-| Mathematics | 713 | 69 |
-| Science | 777 | 0 |
-| Language Proficiency | 319 | 0 |
-| Reading Comprehension | 192 | 0 |
+| General Information | 156 | **all** |
+| Reading Comprehension | 192 | **all** |
+| Language Proficiency | 319 | **all** |
+| Reasoning | 244 | 30 questions, the rest running |
+| Mathematics | 713 | 23 questions |
+| Science | 777 | none yet |
+
+**1,989 choices carry note B**, out of 8,879.
 
 **The rate, measured rather than guessed:** one dispatched run authored a
 subject of 12 files in a single window; another managed two files of harder
