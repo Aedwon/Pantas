@@ -278,8 +278,12 @@ All Aedwon's, all outside the repository:
 - **Two content paths exist.** The app ships `assets/seed/v1.json` into the user
   database; the Sanity stack writes `content.db`. Know which one you are looking
   at.
-- **25 git worktrees and 54 branches** are lying around. Most are merged and
-  prunable.
+- ~~**25 git worktrees and 54 branches**~~ **Cleaned up 13 August.** 26 merged
+  worktrees removed and 57 merged branches deleted. What is left is `main`, the
+  worktrees of whatever is running, and **`track-a-salvage`**, which is not
+  merged and dates from 10 August. It carries a custom-track storage migration
+  and its own test. **Nobody has decided whether the content work that merged on
+  11 August superseded it.** That decision is still open.
 
 ---
 
