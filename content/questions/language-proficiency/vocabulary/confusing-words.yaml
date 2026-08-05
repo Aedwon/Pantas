@@ -13,8 +13,14 @@ questions:
       - text: Affect
         correct: true
       - text: Effect
+        rationale: |
+          You picked "effect," which is a noun meaning result, but this blank follows "will" and requires a base verb.
       - text: Affects
+        rationale: |
+          You picked "affects" with an -s ending, but modal auxiliary "will" requires the base verb form "affect."
       - text: Effects
+        rationale: |
+          You picked "effects," which is the plural noun form, but this position requires a base action verb.
     explanation: |
       "Affect" is the verb (action word); "effect" is the noun (result). Since the blank follows "will" and needs a base-form verb, "affect" is correct.
     approved: true
@@ -28,8 +34,14 @@ questions:
       - text: Its
         correct: true
       - text: It's
+        rationale: |
+          You picked "it's," which is a contraction for "it is" or "it has." The sentence requires possessive "its."
       - text: Its'
+        rationale: |
+          You picked "its'," which is a non-existent fake word created to confuse test takers.
       - text: Their
+        rationale: |
+          You picked plural "their," but "company" is a singular noun requiring the singular possessive pronoun "its."
     explanation: |
       Testing "it is policy" sounds wrong, so the possessive word "its" (no apostrophe) is needed, since the company owns the policy.
     approved: true
@@ -43,8 +55,14 @@ questions:
       - text: Nang
         correct: true
       - text: Ng
+        rationale: |
+          You: Pinili mo ang "ng," ngunit ang "maganda" ay pang-abay na naglalarawan kung paano kumanta, kaya "nang" ang dapat gamitin.
       - text: Na
+        rationale: |
+          You: Pinili mo ang "na," ngunit ang "na" ay pang-angkop na hindi umaangkop sa pang-abay ng paraan.
       - text: May
+        rationale: |
+          You: Pinili mo ang "may," ngunit ang "may" ay ginagamit bago ang pangngalan o pandiwa, hindi pang-abay.
     explanation: |
       Ang salitang "maganda" pagkatapos ng patlang ay sumasagot sa tanong na "paano" (how) sila kumanta: isang pang-abay (adverb). Gamitin ang "nang" para sa mga pang-abay.
     approved: true
@@ -58,8 +76,14 @@ questions:
       - text: Sina
         correct: true
       - text: Sila
+        rationale: |
+          You: Pinili mo ang "Sila," ngunit ang "Sila" ay panghalip at hindi dapat sundan ng mga tiyak na pangalan ng tao (Pedro, Ana, Miguel).
       - text: Kina
+        rationale: |
+          You: Pinili mo ang "Kina," ngunit ang "Kina" ay ginagamit sa paksa ng kinaroroonan o ukol sa mga tao, hindi bilang lagda ng paksa.
       - text: Ang
+        rationale: |
+          You: Pinili mo ang "Ang," ngunit ang "Ang" ay para lamang sa isahang pangngalan at hindi sa maramihang pangalan ng tao.
     explanation: |
       Dahil sinusundan ng patlang ang aktwal na mga pangalan (Pedro, Ana, Miguel), kailangan ang panandang "Sina" para sa maramihang pangalan, hindi ang panghalip na "Sila."
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: Effect, it's
         correct: true
       - text: Affect, its
+        rationale: |
+          You reversed both words: the first blank needs noun "effect" and the second needs contraction "it's."
       - text: Effect, its
+        rationale: |
+          You chose possessive "its" for the second blank, but the clause requires contraction "it's" ("it is obvious").
       - text: Affect, it's
+        rationale: |
+          You chose verb "affect" for the first blank, but "devastating" modifies a noun ("effect").
     explanation: |
       The first blank follows "a devastating," a descriptive phrase pointing to a noun: "effect." The second blank, tested with "it is obvious," sounds correct, so "it's" is needed.
     approved: true
@@ -88,8 +118,14 @@ questions:
       - text: Affect
         correct: true
       - text: Effect
+        rationale: |
+          You picked "effect," which is a noun meaning result, but "can negatively" requires an action verb.
       - text: Affecting
+        rationale: |
+          You picked participle "affecting," but modal verb "can" requires a base-form verb.
       - text: Effected
+        rationale: |
+          You picked past participle "effected," but the sentence requires present base verb "affect."
     explanation: |
       The blank needs an action word (verb) describing what loud noises do to concentration: "affect."
     approved: true
@@ -103,8 +139,14 @@ questions:
       - text: Its
         correct: true
       - text: It's
+        rationale: |
+          You picked "it's," which means "it is" or "it has," but the sentence requires possessive "its" for ownership.
       - text: Its'
+        rationale: |
+          You picked "its'," which is an ungrammatical non-existent word.
       - text: Their
+        rationale: |
+          You picked plural "their," but "cat" is a singular noun taking singular "its."
     explanation: |
       Testing "it is paws" sounds wrong, so the possessive word "its" (no apostrophe) is needed, since the paws belong to the cat.
     approved: true
@@ -118,8 +160,14 @@ questions:
       - text: Nang
         correct: true
       - text: Ng
+        rationale: |
+          You: Pinili mo ang "ng," ngunit ginagamit ang "nang" sa pag-uulit ng salitang-kilos (umiyak nang umiyak).
       - text: Na
+        rationale: |
+          You: Pinili mo ang "na," ngunit hindi ito ginagamit bilang tagapag-ugnay ng inuulit na pandiwa.
       - text: May
+        rationale: |
+          You: Pinili mo ang "may," ngunit ang "may" ay ginagamit bago ang pangngalan o iba pang bahagi ng pananalita.
     explanation: |
       Ginagamit ang "nang" upang ikonekta ang paulit-ulit na pandiwa (umiyak nang umiyak), kagaya ng "takbo nang takbo."
     approved: true
@@ -133,8 +181,14 @@ questions:
       - text: Sina
         correct: true
       - text: Sila
+        rationale: |
+          You: Pinili mo ang "Sila," ngunit kailangang gamitin ang "Sina" kapag kasunod ang mga pangalan ng tao (Elena at Ricardo).
       - text: Kina
+        rationale: |
+          You: Pinili mo ang "Kina," ngunit ang "Kina" ay ginagamit para sa pook o direksyon ng tao, hindi sa mismong paksa.
       - text: Ang
+        rationale: |
+          You: Pinili mo ang "Ang," ngunit ang "Ang" ay para sa isahang pangngalan at hindi maramihang pangalan ng tao.
     explanation: |
       Dahil sinusundan ng patlang ang aktwal na mga pangalan (Elena at Ricardo), kailangan ang panandang "Sina," hindi ang panghalip na "Sila."
     approved: true
@@ -148,8 +202,14 @@ questions:
       - text: 'No: "its''" is a fake word that does not exist in the English language; exam makers include it as a common trap.'
         correct: true
       - text: 'Yes: "its''" is the correct plural possessive form.'
+        rationale: |
+          You assumed "its'" is a valid plural possessive, but "its'" does not exist in English.
       - text: 'Yes: but only used in very formal academic writing.'
+        rationale: |
+          You claimed "its'" is used in formal writing, but it is invalid in all registers.
       - text: 'No: but only because possessive words can never end in an apostrophe.'
+        rationale: |
+          You claimed possessive words cannot end in an apostrophe, but plural possessives like "dogs'" do.
     explanation: |
       Exam makers love to put "its'" in the choices, hoping you think it is a plural ownership word. This word does not exist in the English language: cross it out immediately.
     approved: true
@@ -163,8 +223,14 @@ questions:
       - text: 'Mali: dapat "Sina Maria" ang gamitin kapag sinusundan ito ng aktwal na pangalan; ang "Sila" ay ginagamit lamang kung wala nang nakasulat na pangalan, tulad ng "Umalis sila."'
         correct: true
       - text: 'Tama: palaging tama ang "Sila" bago ang isang pangalan.'
+        rationale: |
+          You: Inakala mong tama ang "Sila Maria," ngunit mali ito sa pormal na Filipino kung may nakasulat na pangalan.
       - text: 'Mali: dapat "Kina Maria" ang laging gamitin sa lahat ng pagkakataon.'
+        rationale: |
+          You: Pinili mo ang "Kina Maria," ngunit ang "Kina" ay para sa patutunguhan/kinaroroonan at hindi para sa paksa.
       - text: 'Tama: ang "Sila" at "Sina" ay palaging maaaring gamitin nang magkapalit.'
+        rationale: |
+          You: Inakala mong puwedeng pagpalitin ang "Sila" at "Sina," ngunit may tiyak na tuntunin ang bawat isa.
     explanation: |
       Karaniwang sinasabi ng mga Pilipino ang "Sila Maria" sa pang-araw-araw na usapan, ngunit mali ito sa pormal na Filipino. Sinusubok ng pagsusulit ang pormal na tuntunin: gamitin ang "Sina" kapag sinusundan ng mga pangalan; gamitin ang "Sila" lamang kung wala nang nakasulat na pangalan.
     approved: true
@@ -178,8 +244,14 @@ questions:
       - text: 'No: "ng" is correct here, since the sentence gives an exact clock time (alas-singko), not a "how" or repeating action; "nang" is reserved for adverbs and repeating actions, not specific times.'
         correct: true
       - text: 'Yes: "nang" should always be used whenever a sentence mentions time.'
+        rationale: |
+          You: Inakala mong "nang" ang ginagamit sa oras, ngunit "ng" ang gamit sa tiyak na oras sa orasan (alas-singko).
       - text: 'Yes: but only because "alas-singko" is not considered an exact time.'
+        rationale: |
+          You: Inakala mong hindi tiyak na oras ang "alas-singko," ngunit ito ay malinaw na oras sa orasan.
       - text: 'No: but only because "ng" can never appear before a time expression.'
+        rationale: |
+          You: Inakala mong hindi puwedeng gamitin ang "ng" sa oras, ngunit "ng" ang karaniwang gamit sa oras.
     explanation: |
       Use "nang" to mean "when" for an event, but if the sentence gives an exact clock time or specific day, use "ng" instead. Test makers try to confuse you here since both deal with time, but exact clock times take "ng."
     approved: true
@@ -193,8 +265,14 @@ questions:
       - text: Effect
         correct: true
       - text: Affect
+        rationale: |
+          You picked "affect," which is a verb, but "a lasting" requires the noun "effect."
       - text: Effects
+        rationale: |
+          You picked plural "effects," but article "a" requires a singular noun ("effect").
       - text: Affecting
+        rationale: |
+          You picked participle "affecting," but article "a" requires a singular noun.
     explanation: |
       The word "a" right before the blank signals that a noun is needed: "effect," the result of the therapy.
     approved: true
@@ -208,8 +286,14 @@ questions:
       - text: Ng
         correct: true
       - text: Nang
+        rationale: |
+          You: Pinili mo ang "nang," ngunit ang pangungusap ay nagpapakita ng pagmamay-ari (bahay ng lola), hindi ng paraan.
       - text: Na
+        rationale: |
+          You: Pinili mo ang "na," ngunit ang "na" ay pang-angkop at hindi panandang nagpapakita ng pagmamay-ari.
       - text: May
+        rationale: |
+          You: Pinili mo ang "may," ngunit ang "may" ay hindi ginagamit bilang panandang pagmamay-ari sa pagitan ng dalawang pangngalan.
     explanation: |
       Ang patlang ay tumuturo sa pagmamay-ari (ang bahay ng lola) at hindi sumasagot sa tanong na "paano," kaya ang "ng" ang tamang gamitin, hindi ang "nang."
     approved: true
@@ -223,8 +307,14 @@ questions:
       - text: Effect, its
         correct: true
       - text: Affect, it's
+        rationale: |
+          You reversed both words: the first blank needs noun "effect" and the second needs possessive pronoun "its."
       - text: Effect, it's
+        rationale: |
+          You picked contraction "it's" for the second blank, but "handling" is a noun requiring possessive "its."
       - text: Affect, its
+        rationale: |
+          You picked verb "affect" for the first blank, but possessive "scandal's" requires noun "effect."
     explanation: |
       The first blank follows "the scandal's," a possessive phrase pointing to a noun: "effect" (the result). The second blank describes ownership of the "handling," and testing "it is handling" sounds wrong, so the possessive "its" is needed.
     approved: true
