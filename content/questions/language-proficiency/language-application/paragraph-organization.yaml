@@ -18,10 +18,17 @@ questions:
       - text: "2, 4, 1, 3"
         correct: true
       - text: "1, 2, 4, 3"
+        rationale: |
+          You placed the conclusion word "Consequently" at the very beginning before establishing the budget problem.
       - text: "4, 2, 3, 1"
+        rationale: |
+          You placed the action to conduct an audit before stating the problem of high energy costs that prompted it.
       - text: "2, 1, 3, 4"
+        rationale: |
+          You jumped to the council vote before mentioning the audit conducted to evaluate energy usage.
     explanation: |
       Sentence 2 introduces the problem. Sentence 4 describes the action to address it. Sentence 1 shows the decision using "Consequently." Sentence 3 provides the final outcome.
+    approved: true
 
   - id: q-language-application-paragraph-organization-0002
     type: sentence-ordering
@@ -37,10 +44,17 @@ questions:
       - text: "2, 1, 4, 3"
         correct: true
       - text: "1, 2, 4, 3"
+        rationale: |
+          You started with "Next" before introducing the initial collection step marked by "First."
       - text: "2, 4, 1, 3"
+        rationale: |
+          You placed the melting process before sorting and cleaning the raw materials.
       - text: "3, 2, 1, 4"
+        rationale: |
+          You placed the final step ("Finally") at the beginning of the sequence instead of the end.
     explanation: |
       This paragraph follows a clear chronological sequence. Sentence 2 begins with "First," followed by "Next" in sentence 1, "After cleaning" in sentence 4, and "Finally" in sentence 3.
+    approved: true
 
   - id: q-language-application-paragraph-organization-0003
     type: sentence-ordering
@@ -56,10 +70,17 @@ questions:
       - text: "2, 1, 3, 4"
         correct: true
       - text: "1, 2, 3, 4"
+        rationale: |
+          You placed the specific example before introducing the general topic of artificial intelligence.
       - text: "2, 3, 1, 4"
+        rationale: |
+          You placed the counter-point ("Nevertheless") before giving the example of AI capabilities.
       - text: "3, 1, 2, 4"
+        rationale: |
+          You opened the paragraph with "Nevertheless," which requires a preceding statement to contrast against.
     explanation: |
       Sentence 2 provides the general topic. Sentence 1 illustrates with "For example." Sentence 3 presents a counter-point using "Nevertheless." Sentence 4 synthesizes using "As a result."
+    approved: true
 
   - id: q-language-application-paragraph-organization-0004
     type: sentence-ordering
@@ -75,10 +96,17 @@ questions:
       - text: "2, 1, 3, 4"
         correct: true
       - text: "1, 2, 3, 4"
+        rationale: |
+          You placed "Among these structural innovations" before establishing the general search for lightweight materials.
       - text: "2, 3, 1, 4"
+        rationale: |
+          You described weight reduction benefits before introducing carbon fiber as the material being discussed.
       - text: "3, 1, 4, 2"
+        rationale: |
+          You started with the specific benefits of weight reduction before introducing the aerospace background.
     explanation: |
       Sentence 2 provides context. Sentence 1 narrows focus with "Among these structural innovations." Sentences 3 and 4 describe benefits using "By reducing" and "Furthermore."
+    approved: true
 
   - id: q-language-application-paragraph-organization-0005
     type: sentence-ordering
@@ -95,10 +123,17 @@ questions:
       - text: "2, 5, 1, 4, 3"
         correct: true
       - text: "5, 2, 1, 3, 4"
+        rationale: |
+          You introduced the participant pool before establishing the five-year study that recruited them.
       - text: "2, 1, 5, 4, 3"
+        rationale: |
+          You reported study findings ("They found...") before introducing the group of participants studied.
       - text: "1, 4, 2, 5, 3"
+        rationale: |
+          You started with specific findings before introducing the research team or the longitudinal study.
     explanation: |
       Sentence 2 introduces the study. Sentence 5 specifies participants. Sentence 1 reports the primary finding. Sentence 4 elaborates with "Specifically." Sentence 3 concludes with broader implications.
+    approved: true
 
   - id: q-language-application-paragraph-organization-0006
     type: sentence-ordering
@@ -115,10 +150,17 @@ questions:
       - text: "2, 4, 1, 5, 3"
         correct: true
       - text: "4, 2, 1, 3, 5"
+        rationale: |
+          You placed heat absorption in oceans before explaining that greenhouse gases trap atmospheric heat.
       - text: "2, 1, 4, 5, 3"
+        rationale: |
+          You mentioned thermal expansion before explaining that ocean heat absorption causes seawater to warm.
       - text: "1, 4, 2, 3, 5"
+        rationale: |
+          You opened with "This thermal expansion" before introducing heat trapping and ocean warming.
     explanation: |
       Sentence 2 introduces the primary cause. Sentence 4 describes the effect on oceans. Sentence 1 connects thermal expansion to sea level rise. Sentence 5 presents consequences. Sentence 3 provides the practical implication.
+    approved: true
 
   - id: q-language-application-paragraph-organization-0007
     type: sentence-ordering
@@ -134,10 +176,17 @@ questions:
       - text: "2, 1, 4, 3"
         correct: true
       - text: "1, 2, 4, 3"
+        rationale: |
+          You started with the contrast word "However" before establishing the historical meteorology baseline.
       - text: "2, 4, 1, 3"
+        rationale: |
+          You introduced "These automated systems" before mentioning machine learning automation.
       - text: "4, 2, 1, 3"
+        rationale: |
+          You referenced "These automated systems" in the first sentence before defining what they are.
     explanation: |
       Sentence 2 establishes the historical baseline. Sentence 1 introduces a contrast with "However." Sentence 4 explains the new methods using "These automated systems." Sentence 3 concludes with results using "As a result."
+    approved: true
 
   - id: q-language-application-paragraph-organization-0008
     type: sentence-ordering
@@ -154,10 +203,17 @@ questions:
       - text: "1, 3, 4, 5, 2"
         correct: true
       - text: "3, 1, 4, 2, 5"
+        rationale: |
+          You placed the contrasting findings ("however") before introducing original skeptic beliefs.
       - text: "1, 4, 3, 5, 2"
+        rationale: |
+          You placed the explanation of positive trends before presenting the productivity metrics showing those trends.
       - text: "2, 1, 3, 4, 5"
+        rationale: |
+          You described today's hybrid models before explaining the historical skepticism and research that caused them.
     explanation: |
       Sentence 1 introduces the historical skepticism. Sentence 3 presents contrasting evidence using "however." Sentence 4 explains why with "This positive trend." Sentence 5 shows the response using "As a result." Sentence 2 describes the current state.
+    approved: true
 
   - id: q-language-application-paragraph-organization-0009
     type: sentence-ordering
@@ -173,10 +229,17 @@ questions:
       - text: "1, 3, 4, 2"
         correct: true
       - text: "3, 1, 4, 2"
+        rationale: |
+          You placed the editor's revision suggestions before establishing that the manuscript was submitted to an editor.
       - text: "1, 4, 3, 2"
+        rationale: |
+          You had the author spend weeks revising before introducing the editor's suggestions that prompted the revisions.
       - text: "4, 3, 1, 2"
+        rationale: |
+          You started with revision work before the manuscript was written or submitted.
     explanation: |
       Sentence 1 initiates the process. Sentence 3 shows the editor's feedback. Sentence 4 describes revisions based on that feedback. Sentence 2 concludes with final publication.
+    approved: true
 
   - id: q-language-application-paragraph-organization-0010
     type: sentence-ordering
@@ -192,10 +255,17 @@ questions:
       - text: "2, 3, 1, 4"
         correct: true
       - text: "1, 2, 3, 4"
+        rationale: |
+          You placed the executive statement before introducing the integration challenges that prompted it.
       - text: "3, 2, 1, 4"
+        rationale: |
+          You placed the appointment of a task force before describing the post-merger problems.
       - text: "2, 1, 4, 3"
+        rationale: |
+          You placed the final realignment outcome before the task force and executive directives.
     explanation: |
       Sentence 2 introduces the problem. Sentence 3 describes the solution effort. Sentence 1 states the executive emphasis. Sentence 4 provides the final outcome.
+    approved: true
 
   - id: q-language-application-paragraph-organization-0011
     type: sentence-ordering
@@ -211,10 +281,17 @@ questions:
       - text: "1, 2, 3, 4"
         correct: true
       - text: "4, 1, 2, 3"
+        rationale: |
+          You placed the engineering solution at the beginning before explaining the thermal degradation issue.
       - text: "1, 3, 2, 4"
+        rationale: |
+          You placed rapid degradation effects before identifying extreme heat as the triggering condition.
       - text: "2, 1, 3, 4"
+        rationale: |
+          You started with electrolyte decomposition conditions before introducing lithium-ion batteries.
     explanation: |
       Sentence 1 introduces the topic. Sentence 2 identifies a vulnerability. Sentence 3 details the consequence. Sentence 4 presents the technological solution.
+    approved: true
 
   - id: q-language-application-paragraph-organization-0012
     type: sentence-ordering
@@ -230,10 +307,17 @@ questions:
       - text: "2, 3, 4, 1"
         correct: true
       - text: "3, 2, 4, 1"
+        rationale: |
+          You described the three-year study before introducing the scientists' initial questions that led to it.
       - text: "2, 4, 3, 1"
+        rationale: |
+          You presented the study findings before describing the study that produced them.
       - text: "4, 2, 3, 1"
+        rationale: |
+          You started with research findings before introducing the research topic or study.
     explanation: |
       Sentence 2 raises the initial question. Sentence 3 describes the investigation. Sentence 4 presents the findings. Sentence 1 concludes with the broader significance.
+    approved: true
 
   - id: q-language-application-paragraph-organization-0013
     type: sentence-ordering
@@ -250,10 +334,17 @@ questions:
       - text: "1, 2, 3, 4, 5"
         correct: true
       - text: "2, 1, 3, 4, 5"
+        rationale: |
+          You described upward heat conduction before introducing radioactive decay as the heat source.
       - text: "1, 3, 2, 4, 5"
+        rationale: |
+          You jumped to long-term geological effects before explaining upward heat transfer through the crust.
       - text: "3, 1, 2, 4, 5"
+        rationale: |
+          You started with "this continuous internal engine" before explaining mantle decay.
     explanation: |
       Sentence 1 defines the origin. Sentence 2 tracks upward heat movement. Sentence 3 describes geological effects. Sentence 4 pivots to human utilization. Sentence 5 provides the conclusion.
+    approved: true
 
   - id: q-language-application-paragraph-organization-0014
     type: sentence-ordering
@@ -269,10 +360,17 @@ questions:
       - text: "3, 1, 2, 4"
         correct: true
       - text: "1, 3, 2, 4"
+        rationale: |
+          You described soil contamination history before introducing the specific factory site being targeted.
       - text: "3, 2, 1, 4"
+        rationale: |
+          You placed phytoremediation cleanup before explaining what contamination needed cleaning.
       - text: "1, 2, 3, 4"
+        rationale: |
+          You described industrial pollution before identifying the site targeted for urban renewal.
     explanation: |
       Sentence 3 introduces the site. Sentence 1 describes the problem. Sentence 2 outlines the solution. Sentence 4 provides the positive outcome.
+    approved: true
 
   - id: q-language-application-paragraph-organization-0015
     type: sentence-ordering
@@ -289,7 +387,14 @@ questions:
       - text: "2, 1, 3, 4, 5"
         correct: true
       - text: "1, 2, 3, 4, 5"
+        rationale: |
+          You started with digital payment risks before introducing the global transition to electronic systems.
       - text: "2, 3, 1, 4, 5"
+        rationale: |
+          You placed privacy concerns before introducing security risks associated with digital payments.
       - text: "3, 2, 1, 5, 4"
+        rationale: |
+          You opened with privacy concerns before introducing electronic transaction systems.
     explanation: |
       Sentence 2 introduces the transition to digital systems. Sentence 1 identifies security risks. Sentence 3 adds privacy concerns. Sentence 4 describes regulatory response. Sentence 5 reflects on the balance achieved.
+    approved: true
