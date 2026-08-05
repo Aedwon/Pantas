@@ -9,6 +9,14 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 
+// The database key lives in flutter_secure_storage, which is on 10.x
+// deliberately. **Version 11 removes the old Android ciphers and makes
+// anything written by 9.x unreadable**, and its own changelog says to go
+// through 10 first so the data migrates. Jumping to 11 would hand the app a
+// fresh key, and a fresh key cannot open the database that already exists.
+// Move to 11 only after a build on 10 has run once on every device that
+// matters.
+//
 // Renamed from cse_cet_reviewer.db on 11 August 2026, with the key below.
 // Safe only because the emulator was the only install: a rename abandons the
 // old file rather than migrating it, so doing this after a beta would have
