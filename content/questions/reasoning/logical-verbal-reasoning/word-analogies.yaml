@@ -13,8 +13,14 @@ questions:
       - text: Cut
         correct: true
       - text: Sharp
+        rationale: |
+          You picked an adjective describing scissors rather than the primary function action.
       - text: Paper
+        rationale: |
+          You picked the object acted upon rather than the action performed by the tool.
       - text: Blade
+        rationale: |
+          You picked a component of scissors rather than the function action.
     explanation: |
       A pen is used to write. Applying the same "used to" pattern: scissors are used to cut.
     approved: true
@@ -28,8 +34,14 @@ questions:
       - text: Movie
         correct: true
       - text: Actor
+        rationale: |
+          You picked a collaborator who works with the director rather than the product created.
       - text: Theater
+        rationale: |
+          You picked the venue where movies are shown rather than the work created by the director.
       - text: Camera
+        rationale: |
+          You picked a tool used during production rather than the final creative work.
     explanation: |
       An author creates a book. Applying the same "creates" pattern: a director creates a movie.
     approved: true
@@ -43,8 +55,14 @@ questions:
       - text: Tree
         correct: true
       - text: Wood
+        rationale: |
+          You picked the material oak produces rather than its overarching category.
       - text: Leaf
+        rationale: |
+          You picked a part of an oak tree rather than the general category.
       - text: Forest
+        rationale: |
+          You picked the group environment where oak trees grow rather than the category.
     explanation: |
       A hammer is a type of tool: this is a category relationship. Applying the same pattern: an oak is a type of tree. "Wood" describes the material, not the category, so it does not match.
     approved: true
@@ -58,8 +76,14 @@ questions:
       - text: Tree
         correct: true
       - text: Leaf
+        rationale: |
+          You picked another individual part of a plant rather than the whole structure containing the branch.
       - text: Root
+        rationale: |
+          You picked an opposing structural part rather than the parent organism.
       - text: Forest
+        rationale: |
+          You skipped a level of organization. A branch is a part of a single tree, not directly a part of a forest.
     explanation: |
       A petal is part of a flower: this is a part-to-whole relationship. Applying the same pattern: a branch is part of a tree.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: Thunder
         correct: true
       - text: Rain
+        rationale: |
+          You picked a weather phenomenon that often accompanies storms rather than the direct effect caused by lightning.
       - text: Cloud
+        rationale: |
+          You picked the origin site of lightning rather than the sensory result produced by it.
       - text: Wind
+        rationale: |
+          You picked an associated storm element rather than the direct acoustic output of lightning.
     explanation: |
       Fire produces ash: a cause-and-effect relationship. Applying the same pattern: lightning produces (causes) thunder.
     approved: true
@@ -88,8 +118,14 @@ questions:
       - text: Furious
         correct: true
       - text: Calm
+        rationale: |
+          You picked an antonym of angry instead of a synonym matching the relationship.
       - text: Sad
+        rationale: |
+          You picked a different emotion instead of a word with a similar meaning to angry.
       - text: Nervous
+        rationale: |
+          You picked an unrelated state of mind rather than a synonym for angry.
     explanation: |
       Happy and joyful are synonyms (similar meaning). Applying the same pattern: angry and furious are synonyms.
     approved: true
@@ -103,8 +139,14 @@ questions:
       - text: Slow
         correct: true
       - text: Quick
+        rationale: |
+          You picked a synonym of fast instead of the antonym required by the first pair.
       - text: Speedy
+        rationale: |
+          You picked a word with the same meaning as fast instead of an opposite.
       - text: Rapid
+        rationale: |
+          You picked another synonym for fast rather than its antonym.
     explanation: |
       Hot and cold are antonyms (opposite meaning). Applying the same pattern: fast and slow are antonyms.
     approved: true
@@ -118,8 +160,14 @@ questions:
       - text: Cold
         correct: true
       - text: Warm
+        rationale: |
+          You picked an antonym for cool instead of increasing the thermal intensity in the same direction.
       - text: Mild
+        rationale: |
+          You picked a word representing lower intensity rather than higher cold intensity.
       - text: Humid
+        rationale: |
+          You switched to a moisture quality instead of following the temperature intensity scale.
     explanation: |
       Warm and hot describe a difference in degree (intensity) of the same quality. Applying the same pattern: cool and cold are a matching pair, cold being the more intense version of cool.
     approved: true
@@ -133,8 +181,14 @@ questions:
       - text: Brush
         correct: true
       - text: Canvas
+        rationale: |
+          You picked the surface being painted on rather than the primary tool held by the worker.
       - text: Wall
+        rationale: |
+          You picked a surface worked upon rather than the tool used by the painter.
       - text: Color
+        rationale: |
+          You picked an attribute of paint rather than the physical tool.
     explanation: |
       A carpenter is a worker who uses a hammer as their tool. Applying the same pattern: a painter is a worker who uses a brush as their tool.
     approved: true
@@ -148,8 +202,14 @@ questions:
       - text: Knife
         correct: true
       - text: Kitchen
+        rationale: |
+          You picked the workspace location rather than the handheld tool used by the worker.
       - text: Restaurant
+        rationale: |
+          You picked the business establishment rather than the primary tool.
       - text: Food
+        rationale: |
+          You picked the material prepared by the chef rather than the tool used.
     explanation: |
       A farmer is a worker who uses a tractor as their tool. Applying the same worker-to-tool pattern: a chef is a worker who uses a knife as their tool. "Kitchen," "restaurant," and "food" are merely related to a chef, but none of them is the chef's tool.
     approved: true
@@ -163,8 +223,14 @@ questions:
       - text: Ruler is correct, since a ruler is used to measure, matching the same function relationship as pen is to write; paper is merely something used alongside a pen, not a matching function word.
         correct: true
       - text: Paper is correct, since paper is closely associated with both writing and measuring.
+        rationale: |
+          You selected an associated material rather than a tool whose primary function matches the target action.
       - text: Ruler is correct, but so is paper, since both are equally valid answers.
+        rationale: |
+          You treated associated objects and primary tools as equivalent in functional analogies.
       - text: Neither ruler nor paper completes this analogy correctly.
+        rationale: |
+          You rejected ruler despite it matching the tool-to-function pattern established by pen and write.
     explanation: |
       A vague relationship sentence like "these are related" lets multiple choices seem to fit. The precise sentence "a pen is used to write" requires the second pair to follow "used to measure": matching "ruler," not "paper," which is merely associated with writing, not the function itself.
     approved: true
@@ -178,8 +244,14 @@ questions:
       - text: 'No: "author is to book" means "author creates book," but "book is to author" reverses the direction, meaning "book was created by author"; the correct completion should reflect this reversed direction, not repeat "author" as if the relationship were symmetric.'
         correct: true
       - text: 'Yes: "author" correctly completes the analogy, since the relationship is the same in both directions.'
+        rationale: |
+          You assumed analogy relationships are symmetric regardless of word order.
       - text: 'Yes: "book is to author" and "author is to book" always mean the exact same thing.'
+        rationale: |
+          You ignored directional order in relational pairs.
       - text: 'No: but only because books cannot have authors.'
+        rationale: |
+          You disputed the existence of authors rather than analyzing word direction.
     explanation: |
       "Author is to book" (author creates book) is different from "book is to author" (book was created by author). Checking whether the relationship goes from first word to second word, or the reverse, and applying that same direction consistently is essential for a correct match.
     approved: true
@@ -193,8 +265,14 @@ questions:
       - text: Dance
         correct: true
       - text: Music
+        rationale: |
+          You picked the accompanying medium rather than the direct categorical type of a waltz.
       - text: Ballroom
+        rationale: |
+          You picked the setting where a waltz is performed rather than its category.
       - text: Composer
+        rationale: |
+          You picked the person who writes music rather than the category of waltz.
     explanation: |
       A sonnet is a type of poem: a category relationship. Applying the same pattern: a waltz is a type of dance.
     approved: true
@@ -208,8 +286,14 @@ questions:
       - text: Airplane
         correct: true
       - text: Feather
+        rationale: |
+          You picked a smaller sub-component of a bird's wing rather than the whole vehicle.
       - text: Sky
+        rationale: |
+          You picked the medium in which wings operate rather than the vehicle containing the wing.
       - text: Flight
+        rationale: |
+          You picked the action enabled by wings rather than the whole object.
     explanation: |
       A wheel is part of a car: a part-to-whole relationship. Applying the same pattern: a wing is part of an airplane.
     approved: true
@@ -223,8 +307,14 @@ questions:
       - text: Cow, leaf
         correct: true
       - text: Cow, branch
+        rationale: |
+          You selected branch, which is a structural part, but the question key expects leaf for the petal counterpart.
       - text: Cat, leaf
+        rationale: |
+          You paired calf with cat instead of cow. A calf is a young cow, not a cat.
       - text: Horse, root
+        rationale: |
+          You paired calf with horse instead of cow. A calf is a young cow.
     explanation: |
       First pair: a puppy is a baby dog, so a calf is a baby cow. Second pair: a petal is a part of a flower, so a leaf is a part of a tree. Checking both relationships together, "cow, leaf" satisfies both correctly.
     approved: true
@@ -238,8 +328,14 @@ questions:
       - text: Chicken, ignition
         correct: true
       - text: Chicken, wheel
+        rationale: |
+          You selected wheel for the engine starter. An ignition starts an engine, just as a key unlocks a lock.
       - text: Rooster, ignition
+        rationale: |
+          You paired chick with adult male rooster instead of the general species name chicken.
       - text: Duck, battery
+        rationale: |
+          You paired chick with duck instead of chicken. A chick is a young chicken.
     explanation: |
       First pair: a kitten is a baby cat, so a chick is a baby chicken. Second pair: a key is used to start (unlock/activate) a lock, so an ignition is used to start an engine. Checking both relationships together, "chicken, ignition" satisfies both correctly.
     approved: true
