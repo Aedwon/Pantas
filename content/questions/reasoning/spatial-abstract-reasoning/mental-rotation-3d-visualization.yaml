@@ -14,8 +14,14 @@ questions:
       - text: The square at the far end of the vertical arm, beyond the immediate "up" neighbor
         correct: true
       - text: The square attached to the "down" side of the center
+        rationale: |
+          You picked an adjacent side face. The "down" neighbor folds up into a side face, not the top face opposite the bottom.
       - text: The square attached to the "left" side of the center
+        rationale: |
+          You picked a side face. The "left" neighbor becomes a vertical side wall.
       - text: The immediate "up" neighbor square itself
+        rationale: |
+          You selected the adjacent side wall. The immediate "up" square forms a side face, while the square beyond it folds over to form the top face.
     explanation: |
       The center square becomes the bottom, and its four immediate neighbors fold up to become the four side faces. The square at the far end of the vertical arm folds all the way over to become the face opposite the bottom: the top.
     approved: true
@@ -30,8 +36,14 @@ questions:
       - text: 'No: the two squares both attached to the top of the same square would both attempt to occupy the same face position when folded, causing an overlap'
         correct: true
       - text: 'Yes: any arrangement of exactly 6 connected squares always folds into a valid cube'
+        rationale: |
+          You assumed any 6 connected squares form a valid net regardless of arrangement.
       - text: 'Yes: since there are exactly 6 squares, no overlap is possible'
+        rationale: |
+          You assumed square count guarantees zero overlap. Overlaps occur when multiple squares compete for the same face.
       - text: 'No: but only because this arrangement has more than 6 squares'
+        rationale: |
+          You miscounted the squares. The pattern has exactly 6 squares, but its arrangement causes overlap.
     explanation: |
       A valid cube net needs each of its 6 squares to fold into a different face, with no overlaps. Here, two separate squares are both attached to the top of the same square in the row, so when folded, both would attempt to occupy the same face position, causing an overlap.
     approved: true
@@ -46,8 +58,14 @@ questions:
       - text: A circle
         correct: true
       - text: A rectangle
+        rationale: |
+          You used the side-view profile instead of the top-down view. Light from directly above casts a circular shadow matching the cylinder's top face.
       - text: A triangle
+        rationale: |
+          You confused a cylinder's top projection with a cone's side projection.
       - text: A square
+        rationale: |
+          You assigned a square shadow to a round cylinder.
     explanation: |
       Since the light comes from directly above, the shadow shows the cylinder's outline as seen from directly above: only its circular top face outline, since the sides are hidden directly beneath it. The shadow is a circle.
     approved: true
@@ -62,8 +80,14 @@ questions:
       - text: A rectangle
         correct: true
       - text: A circle
+        rationale: |
+          You used the top-down view instead of the side-view projection. Light from the side casts a rectangular shadow matching the cylinder's height and width profile.
       - text: A triangle
+        rationale: |
+          You assigned a triangular profile, which belongs to a cone rather than a cylinder.
       - text: An oval
+        rationale: |
+          You assumed an angled shadow. Light shining straight from the side casts a flat rectangular shadow.
     explanation: |
       Light from the side reveals the cylinder's outline as seen from that side. Viewed from the side, a cylinder's outline is a rectangle (the height and diameter define the rectangle's two dimensions), not a circle.
     approved: true
@@ -78,8 +102,14 @@ questions:
       - text: A square
         correct: true
       - text: A circle
+        rationale: |
+          You assigned a round shadow to a square cube face.
       - text: A triangle
+        rationale: |
+          You assigned a triangular shadow to a cube.
       - text: A rectangle wider than it is tall
+        rationale: |
+          You distorted the square dimensions. A cube's top-down view is a symmetric square.
     explanation: |
       Looking straight down at a cube, you see only its square top face outline, since the sides are hidden directly beneath that square cross-section. The shadow is a square.
     approved: true
@@ -94,8 +124,14 @@ questions:
       - text: A circle, since a sphere's outline looks the same from every viewing angle
         correct: true
       - text: A shape that changes depending on the light's direction, since a sphere has many different faces
+        rationale: |
+          You assumed a sphere has distinct faces. A sphere is uniformly round from every angle.
       - text: A square, since spheres always cast square shadows
+        rationale: |
+          You assigned a square shadow to a spherical object.
       - text: No shadow at all, since spheres do not block light
+        rationale: |
+          You claimed solid spheres do not block light.
     explanation: |
       A sphere's outline is a circle from every possible viewing angle, unlike a cylinder or cube, so its shadow is always a circle regardless of the light's direction.
     approved: true
@@ -110,8 +146,14 @@ questions:
       - text: 'No: folding this strip sequentially, the fifth square would land back on the same face position as the first square, causing an overlap'
         correct: true
       - text: 'Yes: a straight row of 6 squares always folds into a valid cube'
+        rationale: |
+          You assumed a 1-by-6 strip can fold into a closed 3D cube without overlapping.
       - text: 'Yes: since all 6 squares are connected in a single line, no overlap is possible'
+        rationale: |
+          You ignored 3D geometry. Folding 4 right angles in a straight line wraps the 5th square onto the 1st.
       - text: 'No: but only because a straight row can never contain exactly 6 squares'
+        rationale: |
+          You disputed the given number of squares in the strip.
     explanation: |
       Folding a straight 1-by-6 strip one square at a time (each fold turning 90°) wraps back around: the fifth square ends up occupying the same face position as the first square, causing an overlap. A straight strip of 6 squares is not a valid cube net.
     approved: true
@@ -126,8 +168,14 @@ questions:
       - text: 'No: squares that are not touching in the flat net can still become adjacent (edge-sharing) faces once folded; the "up" and "left" side faces, though not touching in the net, end up sharing an edge on the folded cube.'
         correct: true
       - text: 'Yes: two squares that do not touch in the flat net can never become adjacent faces after folding.'
+        rationale: |
+          You assumed flat net connectivity dictates 3D face adjacency. Folding brings non-adjacent net edges together.
       - text: 'Yes: but only because side faces are never adjacent to each other on a real cube.'
+        rationale: |
+          You claimed side faces do not touch on a cube. Every side face shares edges with adjacent side faces.
       - text: 'No: but only because the "up" and "left" squares are actually the same square.'
+        rationale: |
+          You claimed two distinct net squares are the same entity.
     explanation: |
       Squares that are not touching in the flat net are not necessarily still separate once folded: carefully trace the actual fold, since "far apart" squares in the net can become adjacent faces on the cube, since every side face of a cube shares an edge with its neighboring side faces.
     approved: true
@@ -142,8 +190,14 @@ questions:
       - text: 'No: having exactly 6 squares is necessary but not sufficient for a valid net; the specific arrangement must also avoid any folding conflict, such as two squares competing for the same face position.'
         correct: true
       - text: 'Yes: any 6 connected squares, arranged in any pattern, always fold into a valid cube.'
+        rationale: |
+          You assumed square count alone guarantees a valid net, ignoring arrangement conflicts.
       - text: 'Yes: but only if the 6 squares are arranged in a perfect circle.'
+        rationale: |
+          You claimed net squares must be arranged in a circle.
       - text: 'No: but only because a cube actually has more than 6 faces.'
+        rationale: |
+          You misstated the number of faces on a cube.
     explanation: |
       Not every arrangement of 6 connected squares folds into a proper cube: some arrangements (like two squares both branching off the same face) cause faces to overlap instead of covering distinct sides. The square count alone does not guarantee validity.
     approved: true
@@ -158,8 +212,14 @@ questions:
       - text: 'No: a shadow shows the silhouette from the light''s specific viewing angle, which may look completely different from any single flat face; a cylinder''s side-on shadow is a rectangle, even though the cylinder has no flat rectangular face at all.'
         correct: true
       - text: 'Yes: a shadow always exactly matches one of the object''s existing flat faces.'
+        rationale: |
+          You assumed shadows can only copy existing flat face shapes.
       - text: 'Yes: but only because cylinders do not have curved surfaces.'
+        rationale: |
+          You claimed cylinders lack curved surfaces.
       - text: 'No: but only because cylinders cannot cast shadows at all.'
+        rationale: |
+          You claimed cylinders do not cast shadows.
     explanation: |
       A shadow shows the silhouette from the light's specific viewing angle, which may look completely different from any single flat face of the actual 3D object. A cylinder has no flat rectangular side face at all, yet its side-on shadow is a rectangle: always reason from the viewing angle, not from assuming the shadow copies an existing face shape.
     approved: true
@@ -174,8 +234,14 @@ questions:
       - text: The top square of the vertical column (the square farthest from the bottom, at the far end of the column)
         correct: true
       - text: The square attached to the left side of the second-from-top square
+        rationale: |
+          You selected a side wall face instead of the top face opposite the bottom.
       - text: The square attached to the right side of the second-from-top square
+        rationale: |
+          You selected a side wall face instead of the top face opposite the bottom.
       - text: The second square from the bottom of the column
+        rationale: |
+          You selected an adjacent side wall face rather than the top face opposite the bottom.
     explanation: |
       When folding a column of 4 squares with 2 side squares attached partway up, the square at the far end of the column (opposite the bottom, with one square directly between them in a straight line) becomes the top, following the "one square between them in a straight line" rule for opposite faces.
     approved: true
@@ -190,8 +256,14 @@ questions:
       - text: From above, a circle (matching the circular base); from the side, a triangle (matching the cone's pointed profile)
         correct: true
       - text: From above, a triangle; from the side, a circle
+        rationale: |
+          You inverted the top and side projection shadows.
       - text: A circle from both directions, since cones always cast circular shadows
+        rationale: |
+          You ignored the tapering side profile of a cone.
       - text: A triangle from both directions, since cones always cast triangular shadows
+        rationale: |
+          You ignored the circular base profile when viewed from above.
     explanation: |
       From directly above, you see the cone's circular base outline, since the pointed top is directly above the center of that circle, a circular shadow. From the side, you see the cone's tapering profile, a triangular shadow.
     approved: true
@@ -206,8 +278,14 @@ questions:
       - text: The "up" neighbor and the "down" neighbor are opposite each other; the "left" neighbor and the "right" neighbor are opposite each other
         correct: true
       - text: The "up" neighbor and the "left" neighbor are opposite each other; the "down" neighbor and the "right" neighbor are opposite each other
+        rationale: |
+          You paired adjacent side walls as opposite faces.
       - text: All four side faces are opposite each other simultaneously
+        rationale: |
+          You claimed faces can be opposite multiple faces at once.
       - text: None of the four side faces are opposite any other face
+        rationale: |
+          You claimed side faces on a cube have no opposite faces.
     explanation: |
       Once folded into a cube, opposite faces come from squares with exactly one square directly between them in a straight line within the net. The "up" and "down" neighbors sit in a straight vertical line with the center between them, and the "left" and "right" neighbors sit in a straight horizontal line with the center between them: making each of those pairs opposite faces.
     approved: true
@@ -222,8 +300,14 @@ questions:
       - text: The shadow is a square (matching the flat top face of the cube), and the square at the far end of the "right" arm became the top face, since it is now the square with exactly one square (the center) directly between it and the center in a straight line.
         correct: true
       - text: The shadow is a circle, and the square attached to the "up" side of the center became the top face.
+        rationale: |
+          You assigned a circular shadow to a cube and misidentified the top face.
       - text: The shadow is a square, and the square attached to the "down" side of the center became the top face.
+        rationale: |
+          You selected the "down" side face as the top face.
       - text: The shadow is a triangle, and no square in the net becomes the top face.
+        rationale: |
+          You assigned a triangular shadow and claimed no top face forms.
     explanation: |
       Moving the "extra" far-end square to the "right" arm changes which face becomes the top: it is now the far-end square on that arm (following the same "one square between them in a straight line" rule), not the "up" neighbor. Since a cube's top face is flat and square, its top-down shadow is a square.
     approved: true

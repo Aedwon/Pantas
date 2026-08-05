@@ -14,8 +14,14 @@ questions:
       - text: 50 kg worth of force is required; only the direction of pulling changes (you can pull down to lift the load up)
         correct: true
       - text: 25 kg worth of force is required, since a pulley always halves the needed force
+        rationale: |
+          You assumed all pulleys reduce force. Fixed pulleys only redirect force without offering mechanical advantage.
       - text: 100 kg worth of force is required, since a fixed pulley doubles the needed force
+        rationale: |
+          You assumed fixed pulleys double effort. Fixed pulleys redirect pulling force without changing effort magnitude.
       - text: No force is required, since pulleys eliminate the need for effort entirely
+        rationale: |
+          You assumed pulleys eliminate work. Mechanical advantage cannot reduce required work to zero.
     explanation: |
       A fixed pulley only changes the direction of the force; it does not reduce the amount of force needed. The pulling force required still equals the load's weight, 50 kg worth of force.
     approved: true
@@ -30,8 +36,14 @@ questions:
       - text: 30 kg of force is required, and 4 meters of rope must be pulled
         correct: true
       - text: 60 kg of force is required, and 2 meters of rope must be pulled
+        rationale: |
+          You treated the movable pulley as fixed. Movable pulleys halve force ( \div 2 = 30$ kg) while doubling rope distance ( \times 2 = 4$ m).
       - text: 30 kg of force is required, and 2 meters of rope must be pulled
+        rationale: |
+          You correctly halved the force but forgot distance trade-off. Halving effort requires doubling rope distance to 4 meters.
       - text: 15 kg of force is required, and 8 meters of rope must be pulled
+        rationale: |
+          You applied a 4:1 mechanical advantage. A single movable pulley provides a 2:1 mechanical advantage ($ kg, $ m).
     explanation: |
       A single movable pulley halves the force needed: $60 \div 2 = 30$ kg worth of force. Since force is halved, the rope must be pulled twice as far as the load moves: $2 \times 2 = 4$ meters.
     approved: true
@@ -46,8 +58,14 @@ questions:
       - text: 20 kg of force is required, and 12 meters of rope must be pulled
         correct: true
       - text: 40 kg of force is required, and 6 meters of rope must be pulled
+        rationale: |
+          You applied a single movable pulley ratio (2:1) instead of 2 movable pulleys (4:1). Force is  \div 4 = 20$ kg and distance is  \times 4 = 12$ m.
       - text: 20 kg of force is required, and 6 meters of rope must be pulled
+        rationale: |
+          You correctly calculated force ( \div 4 = 20$ kg) but used a 2:1 distance multiplier instead of 4:1 ( \times 4 = 12$ m).
       - text: 10 kg of force is required, and 24 meters of rope must be pulled
+        rationale: |
+          You applied an 8:1 mechanical advantage instead of 4:1 for 2 movable pulleys.
     explanation: |
       With 2 movable pulleys, only one-quarter the load's weight in force is needed: $80 \div 4 = 20$ kg. The rope must be pulled four times the lifting distance: $3 \times 4 = 12$ meters.
     approved: true
@@ -62,8 +80,14 @@ questions:
       - text: "40 kg"
         correct: true
       - text: "20 kg"
+        rationale: |
+          You divided load by 5 instead of calculating $\text{effort} \times 5 = 100 \times 2$. Effort is  \div 5 = 40$ kg.
       - text: "50 kg"
+        rationale: |
+          You divided 100 kg by 2 instead of computing torque equilibrium ($\text{effort} \times 5 = 100 \times 2$).
       - text: "250 kg"
+        rationale: |
+          You cross-multiplied incorrectly as $\text{effort} \times 2 = 100 \times 5$. Effort pairs with effort distance.
     explanation: |
       Using effort $\times$ effort distance = load $\times$ load distance: $\text{effort} \times 5 = 100 \times 2 = 200$, so $\text{effort} = 200 \div 5 = 40$ kg.
     approved: true
@@ -78,8 +102,14 @@ questions:
       - text: "30 kg"
         correct: true
       - text: "27 kg"
+        rationale: |
+          You subtracted load distance from effort distance. Torque equilibrium requires $\text{effort} \times 9 = 90 \times 3 = 270$, giving $ kg.
       - text: "10 kg"
+        rationale: |
+          You divided load by effort distance directly ( \div 9$). You must multiply load by load distance first ( \times 3 = 270$).
       - text: "270 kg"
+        rationale: |
+          You forgot to divide total torque by effort distance ( \div 9 = 30$ kg).
     explanation: |
       Using effort $\times$ effort distance = load $\times$ load distance: $\text{effort} \times 9 = 90 \times 3 = 270$, so $\text{effort} = 270 \div 9 = 30$ kg.
     approved: true
@@ -94,8 +124,14 @@ questions:
       - text: The required effort drops from 40 kg to 20 kg, since moving the fulcrum closer to the load reduces the effort needed
         correct: true
       - text: The required effort increases from 40 kg to 80 kg
+        rationale: |
+          You assumed moving fulcrum closer to load increases effort. Shorter load distance reduces required effort ($\text{effort} \times 5 = 100 \times 1 = 100 \implies 20$ kg).
       - text: The required effort stays the same at 40 kg, since only the effort distance affects the balance
+        rationale: |
+          You ignored load distance. Torque balance depends on both load distance and effort distance.
       - text: The required effort drops to 10 kg, since halving the load distance quarters the effort
+        rationale: |
+          You quartered effort instead of halving it ( \times 1 \div 5 = 20$ kg).
     explanation: |
       Recomputing: $\text{effort} \times 5 = 100 \times 1 = 100$, so $\text{effort} = 100 \div 5 = 20$ kg. Moving the fulcrum closer to the load (from 2 m to 1 m) reduced the required effort from 40 kg to 20 kg.
     approved: true
@@ -110,8 +146,14 @@ questions:
       - text: The required effort increases from 40 kg to 80 kg, since moving the fulcrum farther from the load requires more effort
         correct: true
       - text: The required effort decreases from 40 kg to 20 kg
+        rationale: |
+          You inverted the effect. Moving fulcrum farther from load increases load torque, requiring more effort ($\text{effort} \times 5 = 100 \times 4 = 400 \implies 80$ kg).
       - text: The required effort stays the same at 40 kg
+        rationale: |
+          You assumed load distance does not alter required effort.
       - text: The required effort increases to 400 kg
+        rationale: |
+          You forgot to divide total torque by effort distance ( \div 5 = 80$ kg).
     explanation: |
       Recomputing: $\text{effort} \times 5 = 100 \times 4 = 400$, so $\text{effort} = 400 \div 5 = 80$ kg. Moving the fulcrum farther from the load (from 2 m to 4 m) increased the required effort from 40 kg to 80 kg.
     approved: true
@@ -126,8 +168,14 @@ questions:
       - text: 'No: only movable pulleys (attached to the load) reduce the required force; a fixed pulley only changes the direction of the force, so the full 70 kg worth of force is still needed.'
         correct: true
       - text: 'Yes: any pulley, fixed or movable, always reduces the required force by half.'
+        rationale: |
+          You assumed fixed pulleys provide mechanical advantage. Only movable pulleys reduce required force.
       - text: 'Yes: but only because this specific load happens to weigh exactly 70 kg.'
+        rationale: |
+          You assumed load weight gives fixed pulleys mechanical advantage.
       - text: 'No: but only because fixed pulleys actually require more force than lifting without any pulley.'
+        rationale: |
+          You claimed fixed pulleys increase force. Fixed pulleys require equal force to the load weight.
     explanation: |
       Assuming a single fixed pulley "makes lifting easier" in terms of force is incorrect: it only makes lifting more convenient by letting you pull in a different direction, while still requiring the full weight's worth of force.
     approved: true
@@ -142,8 +190,14 @@ questions:
       - text: 'No: reducing the required force always comes with a distance trade-off; a movable pulley that halves the force requires pulling the rope twice as far as the load actually rises, not half as far.'
         correct: true
       - text: 'Yes: halving the force always means halving the pulling distance as well.'
+        rationale: |
+          You ignored work conservation. Halving effort force requires doubling displacement distance.
       - text: 'Yes: but only because this specific load weighs 50 kg.'
+        rationale: |
+          You tied the work trade-off strictly to the specific load value.
       - text: 'No: but only because movable pulleys never affect rope-pulling distance at all.'
+        rationale: |
+          You claimed movable pulleys do not change distance. Movable pulleys double required rope travel.
     explanation: |
       Simple machines like pulleys reduce the force needed but always require moving a correspondingly greater distance: you cannot reduce force without some distance trade-off. A movable pulley halving the force also doubles the rope distance you must pull, not halves it.
     approved: true
@@ -158,8 +212,14 @@ questions:
       - text: The student cross-paired the values incorrectly; the correct equation is effort × effort distance = load × load distance, giving effort × 5 = 100 × 2, so the correct effort is 40 kg, not 250 kg.
         correct: true
       - text: Nothing is wrong; 250 kg is the correct effort force needed.
+        rationale: |
+          You accepted cross-paired torque equations. Effort pairs with effort arm length.
       - text: The student's equation is correct, but their arithmetic is wrong; the correct effort using their equation is 200 kg.
+        rationale: |
+          You validated an incorrect mechanical formula.
       - text: The lever balance equation does not apply to this scenario at all.
+        rationale: |
+          You claimed lever balance formulas do not apply to levers.
     explanation: |
       Keep effort paired with its own distance, and load paired with its own distance: do not cross-pair effort's force with the load's distance (or vice versa). The correct equation, effort × effort distance = load × load distance, gives effort × 5 = 100 × 2 = 200, so effort = 40 kg.
     approved: true
@@ -174,8 +234,14 @@ questions:
       - text: "2 meters"
         correct: true
       - text: "4 meters"
+        rationale: |
+          You divided $ by $ instead of $. Load distance is  \times 8 \div 100 = 2$ meters.
       - text: "8 meters"
+        rationale: |
+          You assumed load distance equals effort distance despite unequal forces.
       - text: "32 meters"
+        rationale: |
+          You multiplied effort distance by ratio  \div 25$ instead of dividing ( \div 4 = 2$ meters).
     explanation: |
       Using effort $\times$ effort distance = load $\times$ load distance: $25 \times 8 = 200 = 100 \times \text{load distance}$, so load distance $= 200 \div 100 = 2$ meters.
     approved: true
@@ -190,8 +256,14 @@ questions:
       - text: "18 meters"
         correct: true
       - text: "6 meters"
+        rationale: |
+          You divided load weight by effort force ( \div 15$) without multiplying by load distance ( \div 15 = 18$ m).
       - text: "270 meters"
+        rationale: |
+          You forgot to divide total torque by effort force ( \div 15 = 18$ meters).
       - text: "5 meters"
+        rationale: |
+          You estimated the calculation ( \times 3 \div 15 = 18$ meters).
     explanation: |
       Using effort $\times$ effort distance = load $\times$ load distance: $15 \times \text{effort distance} = 90 \times 3 = 270$, so effort distance $= 270 \div 15 = 18$ meters.
     approved: true
@@ -206,8 +278,14 @@ questions:
       - text: "3 movable pulleys"
         correct: true
       - text: "2 movable pulleys"
+        rationale: |
+          You calculated ^2 = 4$, which gives $\dfrac{1}{4}$ force. 3 pulleys give $\dfrac{1}{2^3} = \dfrac{1}{8}$ force.
       - text: "4 movable pulleys"
+        rationale: |
+          You calculated ^4 = 16$, which gives $\dfrac{1}{16}$ force. 3 pulleys give $\dfrac{1}{8}$ force.
       - text: "8 movable pulleys"
+        rationale: |
+          You used pulley count equal to denominator. Pulley count $ reduces force by $\dfrac{1}{2^n}$.
     explanation: |
       Each movable pulley halves the required force again: 1 pulley gives one-half, 2 pulleys give one-quarter, and 3 pulleys give one-eighth ($\dfrac{1}{2^3} = \dfrac{1}{8}$).
     approved: true
@@ -222,8 +300,14 @@ questions:
       - text: "20 kg"
         correct: true
       - text: "40 kg"
+        rationale: |
+          You calculated lever effort ( \times 2 \div 6 = 40$ kg) but omitted the movable pulley's 2:1 reduction ( \div 2 = 20$ kg).
       - text: "10 kg"
+        rationale: |
+          You quartered the lever effort instead of halving it ( \div 2 = 20$ kg).
       - text: "80 kg"
+        rationale: |
+          You multiplied lever effort by 2 instead of dividing ( \div 2 = 20$ kg).
     explanation: |
       First, the lever balance: $\text{effort} \times 6 = 120 \times 2 = 240$, so the lever requires $240 \div 6 = 40$ kg of effort force. Since a movable pulley halves the pulling force needed, the final rope-pulling force is $40 \div 2 = 20$ kg.
     approved: true
@@ -238,8 +322,14 @@ questions:
       - text: Both setups require the same 25 kg of force (Setup A gives $100 \times 2 \div 8 = 25$ kg; Setup B gives $100 \div 4 = 25$ kg), but Setup B requires pulling the rope farther (8 meters, since 2 movable pulleys require 4 times the lifting distance) compared to Setup A's effort-side movement.
         correct: true
       - text: Setup A requires less force than Setup B, and both require the same travel distance.
+        rationale: |
+          You incorrectly claimed Setup A needs less force ($ kg vs $ kg) and ignored Setup B's 8m rope travel.
       - text: Setup B requires less force than Setup A, and Setup A requires a farther travel distance.
+        rationale: |
+          You inverted force and distance comparisons between lever and pulley setups.
       - text: Both setups require exactly the same force and the same travel distance, with no difference at all.
+        rationale: |
+          You ignored distance trade-offs. Setup B requires pulling 8m of rope to lift 2m.
     explanation: |
       Setup A (lever): $\text{effort} \times 8 = 100 \times 2 = 200$, so effort $= 200 \div 8 = 25$ kg. Setup B (2 movable pulleys): force $= 100 \div 4 = 25$ kg, matching Setup A's force, but Setup B requires pulling the rope $2 \times 4 = 8$ meters to lift the load 2 meters, illustrating that different mechanisms can reach the same force reduction with different distance trade-offs.
     approved: true

@@ -14,8 +14,14 @@ questions:
       - text: A square rotated 90° from the first bottom-row square
         correct: true
       - text: A square rotated 180° from the first bottom-row square
+        rationale: |
+          You doubled the rotation angle to 180°. The top row establishes a 90° rotation pattern.
       - text: A triangle rotated 90°, matching the top row exactly
+        rationale: |
+          You copied the shape from the top row instead of applying the rotation transformation to the bottom row's square.
       - text: The same square, unrotated
+        rationale: |
+          You omitted the transformation. The row rule requires a 90° rotation.
     explanation: |
       The row pattern is a 90° rotation moving left to right. Applying the same pattern to the bottom row, the blank cell should show the square rotated 90° from the first bottom-row square.
     approved: true
@@ -30,8 +36,14 @@ questions:
       - text: "5 dots"
         correct: true
       - text: "4 dots"
+        rationale: |
+          You repeated the second cell's count instead of continuing the +1 increment to 5.
       - text: "6 dots"
+        rationale: |
+          You added 2 instead of 1. The constant step size across each row is +1 dot.
       - text: "3 dots"
+        rationale: |
+          You repeated the first cell's count instead of advancing the row progression.
     explanation: |
       Within each row, the dot count increases by 1 moving left to right. Row 3 continues $3 \to 4 \to \, ?$, so the blank cell should have $5$ dots.
     approved: true
@@ -46,8 +58,14 @@ questions:
       - text: Large
         correct: true
       - text: Medium, repeating the cell above it
+        rationale: |
+          You repeated the middle cell instead of completing the small to medium to large progression.
       - text: Small, repeating the top of the column
+        rationale: |
+          You restarted the sequence at small instead of following the vertical growth rule to large.
       - text: Extra-large, skipping ahead one step
+        rationale: |
+          You skipped the expected large size to pick an extra-large figure.
     explanation: |
       The column pattern shows size growing (small, medium, large) moving down. Column 2 follows the same rule, so its blank bottom cell should be large.
     approved: true
@@ -62,8 +80,14 @@ questions:
       - text: Large, black
         correct: true
       - text: Large, white
+        rationale: |
+          You assigned white shading. Following the row pattern (black to white to black), the right-most cell must be black.
       - text: Medium, black
+        rationale: |
+          You assigned medium size. The bottom row position requires large size per the column growth rule.
       - text: Small, black
+        rationale: |
+          You assigned small size, which belongs to the top row rather than the bottom row.
     explanation: |
       Since the blank is in the bottom row, the column pattern (small → medium → large) makes its size large. Since the blank is in the right-most position of its row, the row pattern (black → white → black) makes its shading black.
     approved: true
@@ -78,8 +102,14 @@ questions:
       - text: A square with both diagonal lines drawn (forming an X pattern)
         correct: true
       - text: A square with only the first diagonal line, repeated
+        rationale: |
+          You repeated the first cell without combining the second diagonal line.
       - text: A blank square with no lines at all
+        rationale: |
+          You subtracted the lines instead of combining them into an X pattern.
       - text: A square with a horizontal and vertical line, like the circle row
+        rationale: |
+          You copied line orientations from a different row rather than combining the diagonal lines present in this row.
     explanation: |
       The combination rule from the completed first row shows the third cell combines both features from the first two cells. Applying the same logic, the third cell should show a square with both diagonal lines, forming an X.
     approved: true
@@ -94,8 +124,14 @@ questions:
       - text: A triangle shaded on both halves (fully shaded)
         correct: true
       - text: A triangle shaded on neither half (fully unshaded)
+        rationale: |
+          You cleared the shading instead of combining the left and right shaded halves.
       - text: A triangle shaded only on its left half, repeated
+        rationale: |
+          You ignored the right-half shading from the second cell.
       - text: A triangle shaded only on its right half, repeated
+        rationale: |
+          You ignored the left-half shading from the first cell.
     explanation: |
       Following the combination rule, the third cell should combine both features from the first two cells: a triangle shaded on its left half plus one shaded on its right half combine into a fully shaded triangle.
     approved: true
@@ -110,8 +146,14 @@ questions:
       - text: The right position, matching the same 90° clockwise rotation rule
         correct: true
       - text: The top position, unchanged from the first bottom-row cell
+        rationale: |
+          You left the dot un-rotated instead of applying the 90° clockwise shift.
       - text: The bottom position, a 180° rotation instead of 90°
+        rationale: |
+          You rotated 180° instead of the 90° clockwise angle shown in the top row.
       - text: The left position, a counterclockwise rotation instead
+        rationale: |
+          You rotated counterclockwise instead of matching the top row's clockwise rotation.
     explanation: |
       The row pattern is a 90° clockwise rotation of the dot's position, moving left to right. Applying the same rule to the bottom row, the dot should move from the top position to the right position.
     approved: true
@@ -126,8 +168,14 @@ questions:
       - text: 'The student checked only one direction; this matrix requires checking both the column pattern (for size) and the row pattern (for shading) together: the complete answer should be "large, black," not size alone.'
         correct: true
       - text: 'Nothing is wrong: size alone is always a complete answer for any figure matrix.'
+        rationale: |
+          You assumed checking one pattern dimension is sufficient for multi-rule matrices.
       - text: The student's approach is correct, since shading never applies to matrix questions.
+        rationale: |
+          You claimed shading does not apply to matrices.
       - text: The student should have checked only the row pattern and ignored the column pattern entirely.
+        rationale: |
+          You swapped one single-dimension approach for another instead of evaluating both row and column rules.
     explanation: |
       Many matrices require checking both the row pattern and the column pattern together: solving only one direction gives an incomplete answer. Here, size follows the column direction while shading follows the row direction, so both must be checked.
     approved: true
@@ -142,8 +190,14 @@ questions:
       - text: 'No: this row uses a combination rule, where the third cell combines both features from the first two cells; the correct answer is a circle with both a horizontal and vertical line (a plus-sign pattern), not a diagonal line.'
         correct: true
       - text: 'Yes: a diagonal line is always the correct continuation of a two-line pattern.'
+        rationale: |
+          You assumed a sequential angle progression applies instead of combining the horizontal and vertical lines into a plus sign.
       - text: 'Yes: combination rules never apply to circles, only to squares.'
+        rationale: |
+          You claimed combination rules are limited to squares.
       - text: 'No: but only because circles cannot have any lines at all.'
+        rationale: |
+          You claimed circles cannot contain interior lines.
     explanation: |
       Assuming the third cell should follow a simple incrementing pattern (like a figure series) when it is actually meant to combine features from the first two cells leads to a plausible but incorrect prediction. The correct answer combines both lines into a plus-sign pattern.
     approved: true
@@ -158,8 +212,14 @@ questions:
       - text: 'No: different rows can apply the same transformation rule (like a 90° rotation) to different starting shapes; the bottom row correctly uses pentagons, and the blank cell should show a pentagon rotated 90°, not a triangle.'
         correct: true
       - text: 'Yes: every row in a figure matrix must use the exact same shapes as every other row.'
+        rationale: |
+          You assumed all rows must feature identical geometric shapes rather than identical transformation rules.
       - text: 'Yes: but only because pentagons and triangles are actually the same shape.'
+        rationale: |
+          You claimed pentagons and triangles are the same shape.
       - text: 'No: but only because the top row''s shapes are also invalid.'
+        rationale: |
+          You claimed top row figures are invalid.
     explanation: |
       Different rows or columns can apply the same transformation rule to different starting shapes: do not expect literally identical figures across rows, only a consistent pattern of change. Recognizing the rule (90° rotation), not memorizing specific shapes, is the key skill.
     approved: true
@@ -174,8 +234,14 @@ questions:
       - text: Black
         correct: true
       - text: White
+        rationale: |
+          You repeated white instead of maintaining the alternating black to white to black pattern.
       - text: Half black, half white
+        rationale: |
+          You introduced partial shading not present in the alternating binary sequence.
       - text: Gray
+        rationale: |
+          You introduced an intermediate shade not matching the black and white alternation rule.
     explanation: |
       The row pattern shows shading alternating (black, white) moving left to right. Continuing the alternation, the third cell should return to black.
     approved: true
@@ -190,8 +256,14 @@ questions:
       - text: Down (a further 90° clockwise turn from "right")
         correct: true
       - text: Up, repeating the first cell
+        rationale: |
+          You reset the arrow to the top position instead of continuing the 90° clockwise rotation down.
       - text: Left (a 90° counterclockwise turn instead)
+        rationale: |
+          You rotated counterclockwise instead of continuing clockwise.
       - text: Right, repeating the second cell
+        rationale: |
+          You repeated the second cell's position without applying the third rotation step.
     explanation: |
       The column pattern shows a 90° clockwise rotation moving top to bottom (up → right). Continuing the same rotation, the third cell's arrow should point down.
     approved: true
@@ -206,8 +278,14 @@ questions:
       - text: A pentagon rotated 90°
         correct: true
       - text: A square rotated 90°
+        rationale: |
+          You picked a square (4 sides) instead of the 5-sided pentagon specified by the bottom row's growth rule.
       - text: A pentagon rotated 45°
+        rationale: |
+          You assigned a 45° rotation, which belongs to the middle column rather than the right column.
       - text: A hexagon rotated 90°
+        rationale: |
+          You advanced the side count past 5 to 6 sides.
     explanation: |
       Since the blank is in the bottom row, the column pattern (triangle → square → pentagon) makes its shape a pentagon. Since the blank is in the right-most column, the row pattern (0° → 45° → 90°) makes its rotation 90°.
     approved: true
@@ -222,8 +300,14 @@ questions:
       - text: A black circle with both a horizontal and vertical line
         correct: true
       - text: A white circle with both lines, ignoring the column shading rule
+        rationale: |
+          You ignored the column 3 shading rule requiring black fill.
       - text: A black circle with only a horizontal line, ignoring the row combination rule
+        rationale: |
+          You ignored the row combination rule by omitting the vertical line.
       - text: A white circle with neither line, ignoring both rules
+        rationale: |
+          You broke both the shading rule and the line combination rule.
     explanation: |
       Two rules apply at once: the row rule combines both lines from the first two cells (horizontal + vertical = both), and the column rule fixes column 3's shading as black. Combining both gives a black circle with both a horizontal and vertical line.
     approved: true

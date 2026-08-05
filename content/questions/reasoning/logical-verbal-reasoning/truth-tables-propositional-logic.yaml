@@ -13,8 +13,14 @@ questions:
       - text: "True"
         correct: true
       - text: "False"
+        rationale: |
+          You treated the conjunction as false. Conjunction ( \land Q$) is true whenever both component statements are true.
       - text: Cannot be determined
+        rationale: |
+          You assumed information was missing. Having true values for both $ and $ fully determines  \land Q$ as true.
       - text: Both true and false
+        rationale: |
+          You assumed a statement can hold two truth values at once. Propositions carry a single definite truth value.
     explanation: |
       "And" is true only when both statements are true. Since $P$ is true and $Q$ is true, "$P \land Q$" is true.
     approved: true
@@ -28,8 +34,14 @@ questions:
       - text: "False"
         correct: true
       - text: "True"
+        rationale: |
+          You evaluated conjunction as true when only one component is true. Conjunction requires both $ and $ to be true.
       - text: Cannot be determined
+        rationale: |
+          You assumed  \land Q$ cannot be evaluated. Since $ is false,  \land Q$ is definitely false.
       - text: Both true and false
+        rationale: |
+          You assigned dual truth values. A propositional statement is strictly true or false.
     explanation: |
       "And" requires both statements to be true. Since $Q$ is false, "$P \land Q$" is false, even though $P$ is true.
     approved: true
@@ -43,8 +55,14 @@ questions:
       - text: "True"
         correct: true
       - text: "False"
+        rationale: |
+          You failed to invert the truth value. Negation ($\neg P$) flips false to true.
       - text: Cannot be determined
+        rationale: |
+          You assumed negation requires external context. Negating a false statement always yields true.
       - text: Both true and false
+        rationale: |
+          You assigned two values. Negation produces a single inverted truth value.
     explanation: |
       "Not" flips a statement's truth value. Since $P$ is false, "$\neg P$" is true.
     approved: true
@@ -58,8 +76,14 @@ questions:
       - text: "True"
         correct: true
       - text: "False"
+        rationale: |
+          You required both inputs to be true. Disjunction ( \lor Q$) is true as long as at least one component is true.
       - text: Cannot be determined
+        rationale: |
+          You assumed missing information. A true value for $ guarantees that  \lor Q$ is true.
       - text: Both true and false
+        rationale: |
+          You assumed non-deterministic truth values. Disjunction evaluates to a single truth value.
     explanation: |
       "Or" is true when at least one of the two statements is true. Here, $Q$ is true (even though $P$ is false), so "$P \lor Q$" is true.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: "False"
         correct: true
       - text: "True"
+        rationale: |
+          You evaluated disjunction as true when neither component is true.  \lor Q$ is false when both $ and $ are false.
       - text: Cannot be determined
+        rationale: |
+          You assumed the result is unknown. False for both inputs makes disjunction strictly false.
       - text: Both true and false
+        rationale: |
+          You assigned contradictory truth values to a disjunction.
     explanation: |
       "Or" is false only when both statements are false. Since both $P$ and $Q$ are false, "$P \lor Q$" is false.
     approved: true
@@ -88,8 +118,14 @@ questions:
       - text: "True"
         correct: true
       - text: "False"
+        rationale: |
+          You assumed a false antecedent makes the implication false. A conditional statement is vacuous and true whenever its "if" part is false.
       - text: Cannot be determined
+        rationale: |
+          You assumed a false antecedent leaves the conditional unknown. In formal logic,  \rightarrow Q$ is true when $ is false.
       - text: Both true and false
+        rationale: |
+          You assigned dual values to a conditional statement.
     explanation: |
       The conditional "$P \rightarrow Q$" is false only when $P$ is true and $Q$ is false. Since $P$ is false here, this "broken promise" case does not apply, so "$P \rightarrow Q$" is true.
     approved: true
@@ -103,8 +139,14 @@ questions:
       - text: "False"
         correct: true
       - text: "True"
+        rationale: |
+          You overlooked the single false case of a conditional. An implication  \rightarrow Q$ is false when $ is true and $ is false.
       - text: Cannot be determined
+        rationale: |
+          You assumed the conditional cannot be evaluated. True antecedent with false consequent yields false.
       - text: Both true and false
+        rationale: |
+          You assigned non-exclusive truth values.
     explanation: |
       The conditional "$P \rightarrow Q$" is false only in this one case: $P$ true, $Q$ false. This is exactly that case, so "$P \rightarrow Q$" is false.
     approved: true
@@ -118,8 +160,14 @@ questions:
       - text: 'No: formal propositional logic always assigns a definite truth value to a conditional whose "if" part is false; "$P \rightarrow Q$" is true whenever $P$ is false, no matter what $Q$ is.'
         correct: true
       - text: 'Yes: the truth value of a conditional cannot be determined when its "if" part is false.'
+        rationale: |
+          You applied everyday intuition instead of formal logic. In formal logic, a false antecedent guarantees the conditional is true.
       - text: 'No: but only because conditionals are never actually true or false.'
+        rationale: |
+          You claimed conditionals lack truth values. Conditionals always evaluate to either true or false in propositional logic.
       - text: 'Yes: everyday intuition about conditionals always matches formal propositional logic exactly.'
+        rationale: |
+          You assumed intuition matches formal logic. Everyday usage often treats false antecedents as undefined, whereas formal logic defines them as true.
     explanation: |
       Everyday intuition might suggest that "if $P$ is false, we can't say anything about the conditional," but formal propositional logic always assigns a definite truth value (true, in this case) to a conditional whose "if" part is false.
     approved: true
@@ -133,8 +181,14 @@ questions:
       - text: 'No: "and" requires both statements to be true, but "or" requires only at least one to be true; "or" is the more lenient connective, "and" is the stricter one.'
         correct: true
       - text: 'Yes: "and" and "or" always require the exact same condition to be true.'
+        rationale: |
+          You equated conjunction and disjunction. "And" requires both components true, while "or" requires only one.
       - text: 'No: but only because "or" can never be true under any circumstance.'
+        rationale: |
+          You claimed disjunction can never be true. Disjunction is true whenever at least one component is true.
       - text: 'Yes: both connectives are false whenever either statement is false.'
+        rationale: |
+          You applied the rule of conjunction to disjunction. Disjunction is only false when both components are false.
     explanation: |
       Mixing up and and or is one of the most common truth-table errors. And is the stricter connective (requires both true), while or is more lenient (requires only at least one true).
     approved: true
@@ -148,8 +202,14 @@ questions:
       - text: "True"
         correct: true
       - text: "False"
+        rationale: |
+          You evaluated the outer disjunction as false. Since $ is true, the disjunction "false $\lor$ true" evaluates to true.
       - text: Cannot be determined
+        rationale: |
+          You assumed missing data. The individual truth values fully determine the compound expression.
       - text: Both true and false
+        rationale: |
+          You assigned contradictory truth values to the expression.
     explanation: |
       First evaluate "$P \land Q$": $P$ is true, $Q$ is false, so this is false (and requires both true). Then evaluate "false $\lor$ R": since $R$ is true, and or is true when at least one side is true, the full expression is true.
     approved: true
@@ -163,8 +223,14 @@ questions:
       - text: "False"
         correct: true
       - text: "True"
+        rationale: |
+          You evaluated the conjunction as true without checking $. Since $ is false, "true $\land$ false" evaluates to false.
       - text: Cannot be determined
+        rationale: |
+          You assumed the expression cannot be evaluated. The given inputs fully evaluate to false.
       - text: Both true and false
+        rationale: |
+          You assigned dual truth values to a logic expression.
     explanation: |
       First evaluate "$P \lor Q$": $P$ is false, $Q$ is true, so this is true (or requires at least one true). Then evaluate "true $\land$ R": since $R$ is false, and requires both sides true, so the full expression is false.
     approved: true
@@ -178,8 +244,14 @@ questions:
       - text: The student ignored the parentheses grouping $P$ and $Q$ together; just like order of operations in math, the innermost parentheses must be evaluated first. Evaluating correctly, "$P \land Q$" is false, and "false $\lor R$" (with $R$ true) gives the correct answer of true.
         correct: true
       - text: 'The approach is correct: parentheses grouping does not affect the order of evaluation in propositional logic.'
+        rationale: |
+          You claimed parentheses do not dictate evaluation order. Parentheses determine which connective evaluates first.
       - text: The student's approach is correct, and the final answer is false.
+        rationale: |
+          You accepted an incorrect evaluation order that violates precedence in propositional logic.
       - text: Neither the student's approach nor the correct approach can determine a final truth value.
+        rationale: |
+          You claimed compound expressions cannot be evaluated under any circumstances.
     explanation: |
       Evaluating combined expressions in the wrong order (ignoring parentheses grouping) produces an incorrect final truth value. Just like arithmetic order of operations, evaluate the innermost parentheses first: "$P \land Q$" first, giving false, then "false $\lor R$," giving true.
     approved: true
@@ -193,8 +265,14 @@ questions:
       - text: "True"
         correct: true
       - text: "False"
+        rationale: |
+          You forgot to negate $ before evaluating the conjunction. $\neg P$ is true, so "true $\land$ true" is true.
       - text: Cannot be determined
+        rationale: |
+          You assumed the expression is incomplete. Knowing $ and $ fully determines the result as true.
       - text: Both true and false
+        rationale: |
+          You assigned multiple truth values to a single propositional logic expression.
     explanation: |
       First, "$\neg P$": since $P$ is false, "$\neg P$" is true. Then, "$\neg P \land Q$" becomes "true $\land$ true," and since both sides are true, the result is true.
     approved: true
@@ -208,8 +286,14 @@ questions:
       - text: And ($\land$)
         correct: true
       - text: Or ($\lor$)
+        rationale: |
+          You picked disjunction. Disjunction is true when at least one statement is true, not only when both are true.
       - text: Not ($\neg$)
+        rationale: |
+          You picked negation. Negation operates on a single statement, not a pair of statements.
       - text: If...then ($\rightarrow$)
+        rationale: |
+          You picked implication. Implication is true in three out of four cases, including when the antecedent is false.
     explanation: |
       "And" ($\land$) is true only when both statements are true, and false in every other case.
     approved: true
@@ -223,8 +307,14 @@ questions:
       - text: (T,T) → true, (T,F) → false, (F,T) → true, (F,F) → true
         correct: true
       - text: (T,T) → true, (T,F) → true, (F,T) → false, (F,F) → false
+        rationale: |
+          You inverted the true and false cases of the conditional, placing false on (F,T) and (F,F).
       - text: (T,T) → false, (T,F) → false, (F,T) → true, (F,F) → true
+        rationale: |
+          You flipped the truth value of (T,T). When $ and $ are both true,  \rightarrow Q$ is true.
       - text: (T,T) → true, (T,F) → false, (F,T) → false, (F,F) → false
+        rationale: |
+          You treated the conditional like a conjunction. A false antecedent makes a conditional true, not false.
     explanation: |
       "$P \rightarrow Q$" is false only in the one case where $P$ is true and $Q$ is false: (T,F) → false. Every other combination (T,T), (F,T) and (F,F) is true.
     approved: true
@@ -238,8 +328,14 @@ questions:
       - text: "False"
         correct: true
       - text: "True"
+        rationale: |
+          You evaluated one of the sub-expressions as true.  \rightarrow Q$ is false (true implies false), and $\neg Q \land R$ is false (true and false), so false $\lor$ false is false.
       - text: Cannot be determined
+        rationale: |
+          You assumed information was missing to resolve the nested connectives.
       - text: Both true and false
+        rationale: |
+          You assigned conflicting values to the expression.
     explanation: |
       First, "$P \rightarrow Q$": $P$ true, $Q$ false is exactly the one false case for a conditional, so this is false. Next, "$\neg Q$": since $Q$ is false, "$\neg Q$" is true; then "$\neg Q \land R$" becomes "true $\land$ false" (since $R$ is false), which is false (and requires both true). Finally, "false $\lor$ false" is false.
     approved: true

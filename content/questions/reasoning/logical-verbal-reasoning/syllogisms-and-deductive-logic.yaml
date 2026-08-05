@@ -14,8 +14,14 @@ questions:
       - text: A whale is warm-blooded.
         correct: true
       - text: All warm-blooded animals are mammals.
+        rationale: |
+          You reversed the direction of the premise. "All mammals are warm-blooded" does not mean all warm-blooded animals are mammals.
       - text: A whale is not a mammal.
+        rationale: |
+          You contradicted the given premise. The premise explicitly states that a whale is a mammal.
       - text: Some mammals are not warm-blooded.
+        rationale: |
+          You contradicted the universal premise. The rule states that all mammals are warm-blooded without exception.
     explanation: |
       Since all mammals are warm-blooded, and a whale is a mammal, the whale must also be warm-blooded.
     approved: true
@@ -30,8 +36,14 @@ questions:
       - text: All squares have four sides.
         correct: true
       - text: All rectangles are squares.
+        rationale: |
+          You converted a universal statement into its converse. Being a rectangle does not automatically make a shape a square.
       - text: Some four-sided shapes are not rectangles.
+        rationale: |
+          You made an inference outside the deductive chain. The premises connect squares, rectangles, and four sides, establishing that all squares have four sides.
       - text: No squares have four sides.
+        rationale: |
+          You contradicted the combined premises. Since squares are rectangles and rectangles have four sides, all squares must have four sides.
     explanation: |
       If every square is a rectangle, and every rectangle has four sides, then every square must also have four sides.
     approved: true
@@ -46,8 +58,14 @@ questions:
       - text: 'No: the premise only guarantees studying leads to passing; Maria could have passed for another reason, such as an easy exam or prior knowledge.'
         correct: true
       - text: 'Yes: passing the exam guarantees that a student studied hard.'
+        rationale: |
+          You assumed passing can only happen by studying hard. The premise says studying guarantees passing, not that passing requires studying.
       - text: 'Yes: this follows the modus ponens pattern correctly.'
+        rationale: |
+          You confused affirming the consequent with modus ponens. Modus ponens starts from the condition (studying), not the result (passing).
       - text: 'No: but only because Maria did not actually pass the exam.'
+        rationale: |
+          You rejected the given fact that Maria passed. Logical validity evaluates the reasoning structure, assuming the premises are true.
     explanation: |
       This is the "affirming the consequent" fallacy. The premise only says studying leads to passing, not that passing can only happen by studying. Maria could have passed for other reasons.
     approved: true
@@ -62,8 +80,14 @@ questions:
       - text: 'No: the ground could still be wet from another cause, like a sprinkler or a spilled drink.'
         correct: true
       - text: 'Yes: if it did not rain, the ground must be dry.'
+        rationale: |
+          You assumed rain is the only possible cause of wet ground. Denying the condition does not rule out other causes of wetness.
       - text: 'Yes: this follows the modus tollens pattern correctly.'
+        rationale: |
+          You confused denying the antecedent with modus tollens. Modus tollens denies the result (ground wet), not the condition (rain).
       - text: 'No: but only because it actually did rain.'
+        rationale: |
+          You rejected the premise statement that it did not rain. Validity tests logical inference, not empirical facts outside the premise.
     explanation: |
       This is the "denying the antecedent" fallacy. The premise only guarantees rain causes wetness; it does not rule out other causes of wetness when it does not rain.
     approved: true
@@ -78,8 +102,14 @@ questions:
       - text: 'Yes: this is modus tollens; since a working alarm guarantees ringing, and it did not ring, the alarm must not have been working.'
         correct: true
       - text: 'No: the alarm could have been working even though it did not ring.'
+        rationale: |
+          You ignored the premise guarantee. If a working alarm always rings during a fire, failing to ring proves it was not working.
       - text: 'Yes: but only because the fire never actually happened.'
+        rationale: |
+          You contradicted the scenario premise. The problem states that the fire did happen.
       - text: 'No: this is the affirming the consequent fallacy.'
+        rationale: |
+          You misidentified modus tollens. Denying the consequent (did not ring) validly proves the antecedent (working alarm) was false.
     explanation: |
       This matches modus tollens: "If A, then B. B is false. Therefore, A is false." A working alarm guarantees ringing during a fire, so if it did not ring, it was not working.
     approved: true
@@ -94,8 +124,14 @@ questions:
       - text: This metal bar expanded.
         correct: true
       - text: This metal bar did not expand.
+        rationale: |
+          You contradicted modus ponens. Since heating causes expansion and the bar was heated, it must expand.
       - text: This metal bar was not heated.
+        rationale: |
+          You contradicted the given premise that the bar was heated.
       - text: All metals expand, whether heated or not.
+        rationale: |
+          You overstated the claim beyond the conditional premise. The premise only specifies behavior when heated.
     explanation: |
       This follows modus ponens: "If A, then B. A is true. Therefore, B is true." Since heating causes expansion, and this bar was heated, it must have expanded.
     approved: true
@@ -110,8 +146,14 @@ questions:
       - text: 'It is valid (the logical structure is correct), but not sound, since the major premise ("all birds can fly") is actually false: penguins cannot fly.'
         correct: true
       - text: It is both valid and sound, since the structure and conclusion both hold.
+        rationale: |
+          You ignored factual accuracy when checking soundness. An argument cannot be sound if its premise ("all birds fly") is false.
       - text: It is neither valid nor sound, since the structure itself is broken.
+        rationale: |
+          You confused logical validity with factual truth. The logical structure is valid, even though the premise is false.
       - text: It is sound but not valid, since the premise is false but the conclusion happens to be true.
+        rationale: |
+          You swapped the definitions of valid and sound. Validity refers to structure, while soundness requires true premises.
     explanation: |
       Structurally, this follows a valid pattern (all X have trait Y, Z is an X, therefore Z has trait Y). But the major premise is factually false, so the syllogism is valid but not sound.
     approved: true
@@ -125,8 +167,14 @@ questions:
       - text: 'No: an argument''s validity depends on its logical structure, not on whether the conclusion happens to be true; this argument''s structure (affirming the consequent) is flawed regardless of whether Maria actually studied.'
         correct: true
       - text: 'Yes: a true conclusion always proves the argument that produced it was valid.'
+        rationale: |
+          You judged validity by the conclusion outcome. Validity depends entirely on whether the premise structure logically forces the conclusion.
       - text: 'No: but only because Maria did not actually pass the exam.'
+        rationale: |
+          You disputed the premise fact instead of assessing the logical fallacy of affirming the consequent.
       - text: 'Yes: validity is defined entirely by whether the conclusion matches reality.'
+        rationale: |
+          You confused truth with validity. Truth concerns real-world facts, while validity concerns structural logic.
     explanation: |
       "Maria passed the exam" being true does not automatically make "therefore she studied hard" a valid deduction. The argument's structure itself (affirming the consequent) is flawed, regardless of whether Maria actually did study.
     approved: true
@@ -140,8 +188,14 @@ questions:
       - text: 'No: only the original direction of the conditional (rain leads to wetness) is guaranteed; its reverse is not automatically true unless separately established.'
         correct: true
       - text: 'Yes: a conditional statement and its reverse always mean the same thing.'
+        rationale: |
+          You treated a conditional statement and its converse as logically equivalent. Conditional statements are unidirectional.
       - text: 'No: but only because rain never actually causes the ground to get wet.'
+        rationale: |
+          You rejected the cause-and-effect premise instead of recognizing the fallacy of converting conditionals.
       - text: 'Yes: "if A, then B" and "if B, then A" are logically identical statements.'
+        rationale: |
+          You assumed converse equivalence. "If A then B" is logically equivalent to its contrapositive ("If not B then not A"), not its converse.
     explanation: |
       Assuming "if A, then B" is interchangeable with "if B, then A" causes the affirming-the-consequent error. Only the original direction of the conditional is guaranteed by the premise.
     approved: true
@@ -155,8 +209,14 @@ questions:
       - text: 'No: a valid argument only has correct logical structure; a sound argument must be both valid and have premises that are actually true. Checking structure alone only answers the validity question, not the soundness question.'
         correct: true
       - text: 'Yes: validity and soundness mean exactly the same thing, so checking structure alone is sufficient.'
+        rationale: |
+          You treated validity and soundness as identical concepts. Soundness requires both valid structure and true premises.
       - text: 'No: but only because logical structure has no bearing on either validity or soundness.'
+        rationale: |
+          You claimed structure does not matter. Structural correctness is the defining requirement for validity.
       - text: 'Yes: soundness only depends on logical structure, never on whether premises are true.'
+        rationale: |
+          You assigned the definition of validity to soundness. Soundness explicitly requires true premises in the real world.
     explanation: |
       A valid argument has correct logical structure. A sound argument is valid and has premises that are actually true. Exam questions may ask specifically about one or the other: checking structure alone answers validity, not soundness.
     approved: true
@@ -171,8 +231,14 @@ questions:
       - text: A spider is not an insect.
         correct: true
       - text: A spider is an insect.
+        rationale: |
+          You ignored the premise requirement. If all insects have six legs, an animal with eight legs cannot be an insect.
       - text: All six-legged animals are spiders.
+        rationale: |
+          You reversed the relationship and misapplied the categories. The premises say nothing about six-legged animals being spiders.
       - text: Spiders have six legs.
+        rationale: |
+          You contradicted the explicit premise stating that a spider has eight legs.
     explanation: |
       Since all insects have six legs, and a spider has eight legs, the spider cannot be an insect: if it were, it would need to have exactly six legs.
     approved: true
@@ -187,8 +253,14 @@ questions:
       - text: 'No: the flashlight could fail to turn on for another reason, such as a broken bulb or a loose connection, not just a dead battery.'
         correct: true
       - text: 'Yes: a flashlight failing to turn on always means the battery is dead.'
+        rationale: |
+          You assumed a dead battery is the only reason a flashlight will not light.
       - text: 'Yes: this is a valid modus tollens argument.'
+        rationale: |
+          You confused affirming the consequent with modus tollens. Modus tollens requires the flashlight turning on to conclude the battery is not dead.
       - text: 'No: but only because the flashlight actually did turn on.'
+        rationale: |
+          You disputed the premise that the flashlight did not turn on.
     explanation: |
       This is "affirming the consequent" in reverse form: the premise only guarantees a dead battery prevents the flashlight from turning on, not that this is the only possible cause of failure.
     approved: true
@@ -203,8 +275,14 @@ questions:
       - text: This shape is not a triangle.
         correct: true
       - text: This shape is a triangle.
+        rationale: |
+          You contradicted the modus tollens inference. Lacking a required trait of triangles means the shape cannot be a triangle.
       - text: This shape has exactly three sides.
+        rationale: |
+          You contradicted the given premise stating the shape does not have three sides.
       - text: Nothing can be concluded about this shape.
+        rationale: |
+          You overlooked modus tollens. Denying a necessary condition validly proves the shape is not a triangle.
     explanation: |
       This is modus tollens: since having three sides is guaranteed for triangles, and this shape lacks three sides, it cannot be a triangle.
     approved: true
@@ -219,8 +297,14 @@ questions:
       - text: 'No: passing a driving test does not guarantee being licensed; Juan could have passed the test without completing other licensing requirements, such as registration or fees.'
         correct: true
       - text: 'Yes: passing a driving test always means someone is a licensed driver.'
+        rationale: |
+          You assumed passing a test is the sole condition for getting a license.
       - text: 'Yes: this follows modus ponens correctly.'
+        rationale: |
+          You misidentified affirming the consequent as modus ponens. Modus ponens starts with "Juan is a licensed driver".
       - text: 'No: but only because Juan never actually took a driving test.'
+        rationale: |
+          You questioned the premise facts rather than analyzing the validity of the deduction.
     explanation: |
       This is "affirming the consequent." The premise only says licensed drivers have passed a test, not that everyone who passes a test automatically becomes licensed: other requirements might still apply.
     approved: true
@@ -235,8 +319,14 @@ questions:
       - text: 'No: the premise only guarantees fish live in water; it does not say everything living in water is a fish, so this conclusion does not follow.'
         correct: true
       - text: 'Yes: since a dolphin lives in water, and all fish live in water, a dolphin must be a fish.'
+        rationale: |
+          You assumed living in water is an exclusive property of fish.
       - text: 'Yes: this is a valid deductive conclusion using modus ponens.'
+        rationale: |
+          You misidentified affirming the consequent as modus ponens.
       - text: 'No: but only because dolphins do not actually live in water.'
+        rationale: |
+          You disputed the factual premise that dolphins live in water.
     explanation: |
       This is a category version of "affirming the consequent." "All fish live in water" does not mean "everything that lives in water is a fish": a dolphin is actually a mammal, not a fish, despite living in water.
     approved: true
@@ -250,8 +340,14 @@ questions:
       - text: 'The first argument is invalid (it affirms the consequent, since "cold-blooded" does not guarantee "reptile": some fish and amphibians are also cold-blooded); the second argument is valid, since it correctly applies the trait from the category to a confirmed member of it.'
         correct: true
       - text: Both arguments are valid, since they use the same two facts about reptiles.
+        rationale: |
+          You treated argument structure as irrelevant. Premise order and direction determine validity.
       - text: Both arguments are invalid, since neither can be evaluated without knowing if snakes are truly reptiles.
+        rationale: |
+          You confused deductive validity with empirical checking. Validity tests structural necessity given premises.
       - text: The first argument is valid, and the second is invalid, reversing the correct evaluation.
+        rationale: |
+          You inverted valid deduction and affirming the consequent.
     explanation: |
       The first argument reasons backward from a shared trait to category membership, which is invalid since other animals (like some fish and amphibians) are also cold-blooded. The second argument correctly reasons forward from confirmed category membership to a guaranteed trait, making it valid.
     approved: true

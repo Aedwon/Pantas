@@ -14,8 +14,14 @@ questions:
       - text: The triangle, since it has only 3 sides while the other three shapes all have 4 sides
         correct: true
       - text: The square, since it is the only shape with equal sides
+        rationale: |
+          You focused on equal side lengths instead of total side count. The rhombus also has four equal sides.
       - text: The rectangle, since it is the only shape that is not a rhombus
+        rationale: |
+          You focused on named shape sub-types. Square, rectangle, and rhombus are all 4-sided quadrilaterals.
       - text: The rhombus, since it is the only shape with slanted sides
+        rationale: |
+          You focused on visual orientation. All three 4-sided shapes share quadrilateral membership.
     explanation: |
       The square, rectangle, and rhombus all have 4 sides (they are all quadrilaterals). The triangle has only 3 sides, so it is the odd-one-out.
     approved: true
@@ -30,8 +36,14 @@ questions:
       - text: The irregular blob, since it has no line of symmetry, while the other three shapes can all be folded so both halves match
         correct: true
       - text: The circle, since it is the only shape without straight sides
+        rationale: |
+          You picked curvature instead of symmetry. The circle, square, and triangle all share reflective symmetry.
       - text: The square, since it is the only shape with four equal sides
+        rationale: |
+          You picked a side count feature that does not group the remaining three shapes.
       - text: The equilateral triangle, since it is the only shape with three sides
+        rationale: |
+          You selected a side-count rule that leaves circle and square in different categories.
     explanation: |
       The circle, square, and equilateral triangle can all be folded along at least one line so both halves match exactly (they are all symmetric). The irregular blob has no such line, so it is the odd-one-out.
     approved: true
@@ -46,8 +58,14 @@ questions:
       - text: The circle with 2 off-center lines (3 uneven regions), since the other three all have lines through the center creating an even number of regions
         correct: true
       - text: The circle with 1 line through the center, since it has the fewest regions
+        rationale: |
+          You picked the lowest quantity instead of finding the structural rule. Lines through center always create even region counts.
       - text: The circle with 3 lines through the center, since it has the most regions
+        rationale: |
+          You picked the highest quantity. The three matching circles all have center-intersecting lines.
       - text: The circle with 2 lines through the center, since it has an even number of lines
+        rationale: |
+          You counted line segments instead of region symmetry.
     explanation: |
       The first three figures follow a consistent rule: lines through the center split a circle into an even number of regions (2, 4, 6). The fourth figure's off-center lines create an uneven split (3 regions), breaking that pattern.
     approved: true
@@ -62,8 +80,14 @@ questions:
       - text: The shape with two shaded dots, since the other four all contain exactly one shaded dot, regardless of their outer shape
         correct: true
       - text: Whichever shape has the largest outer outline
+        rationale: |
+          You focused on outer scale rather than internal dot count.
       - text: Whichever shape has the most sides
+        rationale: |
+          You focused on outer polygon side counts when the rule governs interior dot count.
       - text: Whichever shape is positioned in the middle of the row
+        rationale: |
+          You judged by display position instead of geometric features.
     explanation: |
       Four figures share the specific feature of containing exactly one shaded dot, regardless of their outer shape. The fifth figure contains two shaded dots, breaking that count: the shared rule here is about the dot count, not the outer shape.
     approved: true
@@ -78,8 +102,14 @@ questions:
       - text: The circle, since it is made entirely of a curved line, while the other three are made entirely of straight lines
         correct: true
       - text: The square, since it is the only shape with four equal sides
+        rationale: |
+          You picked equal side lengths instead of straight versus curved lines.
       - text: The triangle, since it is the only shape with three sides
+        rationale: |
+          You focused on side count, which leaves square and rectangle un-grouped with circle.
       - text: The rectangle, since it is the only shape with two pairs of equal sides
+        rationale: |
+          You picked a sub-property of 4-sided polygons.
     explanation: |
       The square, triangle, and rectangle are all made entirely of straight lines. The circle is made entirely of a curved line, breaking the "straight lines only" pattern shared by the other three.
     approved: true
@@ -94,8 +124,14 @@ questions:
       - text: The hexagon, since it has 6 sides while the other three shapes all have 5 sides
         correct: true
       - text: The first pentagon, since it appears first in the row
+        rationale: |
+          You used row position instead of side count.
       - text: The second pentagon, since it is positioned in the middle
+        rationale: |
+          You used layout placement instead of counting polygon sides.
       - text: The third pentagon, since it appears last in the row
+        rationale: |
+          You judged by array order rather than side count.
     explanation: |
       Three of the shapes are pentagons, sharing a 5-side count. The hexagon has 6 sides, breaking that shared feature.
     approved: true
@@ -110,8 +146,14 @@ questions:
       - text: The scalene triangle, since it has no line of symmetry, while the star, square, circle, and isosceles triangle can all be folded so both halves match
         correct: true
       - text: The star, since it has the most points
+        rationale: |
+          You picked point count rather than symmetry. Star, square, circle, and isosceles triangle all have lines of symmetry.
       - text: The square, since it is the only quadrilateral
+        rationale: |
+          You focused on 4-sided shapes, which fails to group star, circle, and isosceles triangle together.
       - text: The circle, since it has no straight sides
+        rationale: |
+          You picked curved outline, which leaves star, square, and isosceles triangle as different polygon types.
     explanation: |
       The star, square, circle, and isosceles triangle can all be folded along at least one line so both halves match exactly. The scalene triangle has no matching sides and no line of symmetry, so it is the odd-one-out.
     approved: true
@@ -126,8 +168,14 @@ questions:
       - text: 'No: the rotated square still has 4 sides, matching the small square and rectangle; the triangle, with only 3 sides, is the actual odd-one-out, even though it is not the most visually unusual-looking figure.'
         correct: true
       - text: 'Yes: the most visually different-looking figure is always the correct odd-one-out.'
+        rationale: |
+          You judged by superficial rotation appearance. Rotating a square does not change its 4-side count.
       - text: 'Yes: but only because rotated shapes never count as quadrilaterals.'
+        rationale: |
+          You claimed rotation alters polygon classification. A square remains a 4-sided quadrilateral when rotated.
       - text: 'No: but only because the triangle and the rotated square are actually the same shape.'
+        rationale: |
+          You claimed a triangle and square are the same shape.
     explanation: |
       The most visually striking figure is not always the correct odd-one-out. The rotated square still shares the true underlying rule (4 sides) with the small square and rectangle, while the "normal-looking" triangle actually breaks the rule with only 3 sides.
     approved: true
@@ -142,8 +190,14 @@ questions:
       - text: The shape with only 1 internal line does not belong; the student initially missed that the shared rule was an internal detail (the number of crossing lines inside each shape), not the outer shape at all.
         correct: true
       - text: None of the shapes belong together, since their outer shapes are all different.
+        rationale: |
+          You abandoned searching for a pattern when outer outlines differed, ignoring internal line details.
       - text: The circle does not belong, simply because it is the only shape without straight sides.
+        rationale: |
+          You relied on outer shape features instead of counting internal crossing lines.
       - text: All four shapes belong together equally, since outer shape is the only feature that matters.
+        rationale: |
+          You assumed only outer outlines determine grouping.
     explanation: |
       Some grouping rules are about details inside the figures (like internal line counts), not the outer shape at all. Missing this internal-detail rule by only comparing outer shapes leads to incorrectly assuming there is no pattern.
     approved: true
@@ -158,8 +212,14 @@ questions:
       - text: 'No: "all shapes have straight sides" fits all four shapes and is too broad to distinguish them; the more specific true rule is "3 sides," which the three triangles share but the four-sided kite breaks, making the kite the actual odd-one-out.'
         correct: true
       - text: 'Yes: since all four shapes have straight sides, there is genuinely no odd-one-out in this group.'
+        rationale: |
+          You accepted an overly broad rule that fails to separate any shape.
       - text: 'No: but only because triangles never have straight sides.'
+        rationale: |
+          You claimed triangles do not have straight sides.
       - text: 'Yes: the broadest rule that fits all figures is always the correct one to use.'
+        rationale: |
+          You assumed broad rules take precedence. Grouping rules must isolate a specific odd-one-out.
     explanation: |
       A valid shared rule must be specific enough to distinguish the true odd-one-out, not just broadly true of every figure. Settling for an overly broad rule that fits everyone (including the kite) misses the more specific rule (3 sides) that only the three triangles actually share.
     approved: true
@@ -174,8 +234,14 @@ questions:
       - text: The completely unshaded shape, since the other four each contain exactly one shaded region
         correct: true
       - text: Whichever shape has the most sides
+        rationale: |
+          You evaluated polygon side count instead of region shading.
       - text: Whichever shape is largest in the group
+        rationale: |
+          You judged by visual area scale rather than shading count.
       - text: Whichever shape is positioned first in the row
+        rationale: |
+          You judged by row position instead of internal shading.
     explanation: |
       Four figures share the specific feature of containing exactly one shaded region. The fifth figure has zero shaded regions, breaking that shared shading rule.
     approved: true
@@ -190,8 +256,14 @@ questions:
       - text: The shape divided into 4 regions, since the other four are all divided into exactly 3 regions
         correct: true
       - text: Whichever shape has the most internal lines drawn
+        rationale: |
+          You focused on line segment count instead of total enclosed regions.
       - text: Whichever shape has curved internal lines
+        rationale: |
+          You evaluated line curvature instead of region count.
       - text: Whichever shape is shaded differently from the rest
+        rationale: |
+          You searched for shading differences when region count is the defining rule.
     explanation: |
       Four figures share the feature of being divided into exactly 3 regions by their internal lines. The fifth figure is divided into 4 regions, breaking that shared region count.
     approved: true
@@ -206,8 +278,14 @@ questions:
       - text: The symmetric pentagon does not belong; although it shares the symmetry feature with the other four, it breaks the "exactly 4 sides" feature, since it has 5 sides.
         correct: true
       - text: The symmetric pentagon does not belong, since it is the only shape that is symmetric.
+        rationale: |
+          You inverted the symmetry property. All five shapes in the group are symmetric.
       - text: The kite does not belong, since it is the only shape that is not a common household object.
+        rationale: |
+          You used real-world object associations instead of geometric side count.
       - text: None of the shapes belong together, since a pentagon can never be symmetric.
+        rationale: |
+          You claimed pentagons cannot be symmetric. Regular and isosceles pentagons have lines of symmetry.
     explanation: |
       This group is defined by two combined features: symmetry AND exactly 4 sides. The pentagon shares the symmetry feature but breaks the 4-sides feature, making it the odd-one-out on that specific dimension, even though it isn't wrong on every dimension.
     approved: true
@@ -222,8 +300,14 @@ questions:
       - text: 'The triangle does not belong; the shared rule was an internal/marking detail (the direction the marked dot points), not the outer shape, side count, or symmetry: a subtler category easy to miss without checking markings specifically.'
         correct: true
       - text: The hexagon does not belong, since it has the most sides among the five shapes.
+        rationale: |
+          You evaluated outer side count when the true rule governs dot orientation.
       - text: The star does not belong, since it is the only shape with points instead of flat sides.
+        rationale: |
+          You relied on outer outline type instead of checking marked dot orientation.
       - text: No shape is the odd-one-out, since all five outer outlines are completely different.
+        rationale: |
+          You gave up searching when outer outlines differed, missing dot orientation.
     explanation: |
       When outer shape, side count, and symmetry checks all fail to reveal a pattern, check smaller markings or internal details, like the direction of a marked dot. Here, four shapes share a dot pointing toward the top, while the triangle's dot points toward the bottom, making it the true odd-one-out.
     approved: true

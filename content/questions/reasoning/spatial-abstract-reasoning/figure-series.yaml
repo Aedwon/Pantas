@@ -14,8 +14,14 @@ questions:
       - text: Lower-right (a further 45° clockwise turn from "right")
         correct: true
       - text: Straight down (a 90° clockwise turn from "right")
+        rationale: |
+          You turned 90° clockwise instead of 45°. The established pattern turns 45° clockwise per step.
       - text: Straight up, repeating square 1
+        rationale: |
+          You reset to the start position instead of advancing 45° clockwise to lower-right.
       - text: Upper-left (a 45° counterclockwise turn from "right")
+        rationale: |
+          You reversed rotation direction to counterclockwise.
     explanation: |
       The line turns 45° clockwise at each step (up → upper-right → right). Continuing the same rotation from "right," the next position is lower-right.
     approved: true
@@ -30,8 +36,14 @@ questions:
       - text: 6 sides, a hexagon
         correct: true
       - text: 5 sides, another pentagon
+        rationale: |
+          You repeated 5 sides instead of incrementing by +1 to 6 sides.
       - text: 7 sides, a heptagon
+        rationale: |
+          You added 2 sides instead of continuing the constant +1 side increment.
       - text: 8 sides, an octagon
+        rationale: |
+          You jumped three sides ahead. The pattern adds one side each step, so the next one has six.
     explanation: |
       The number of sides increases by 1 each step ($3, 4, 5, \ldots$). The fourth figure should have $6$ sides: a hexagon.
     approved: true
@@ -46,8 +58,14 @@ questions:
       - text: Fully white (empty)
         correct: true
       - text: Fully black
+        rationale: |
+          You repeated black instead of maintaining the strict black and white alternation.
       - text: Half black, half white
+        rationale: |
+          You introduced partial shading not present in the binary alternating sequence.
       - text: Gray (a blend of black and white)
+        rationale: |
+          You introduced an intermediate shade when the sequence alternates between solid black and white.
     explanation: |
       The shading alternates strictly: black, white, black. Since the pattern alternates every step, the figure after "black" should return to "white."
     approved: true
@@ -62,8 +80,14 @@ questions:
       - text: Extra-large, white
         correct: true
       - text: Extra-large, black
+        rationale: |
+          You correctly identified extra-large size but kept black shading instead of alternating to white.
       - text: Large, white
+        rationale: |
+          You correctly identified white shading but failed to advance size from large to extra-large.
       - text: Small, white
+        rationale: |
+          You reset size back to small instead of continuing to extra-large.
     explanation: |
       Tracking size separately (small, medium, large, increasing one step each time) gives extra-large next. Tracking shading separately (black, white, black, alternating) gives white next. Combined: extra-large, white.
     approved: true
@@ -78,8 +102,14 @@ questions:
       - text: Bottom-left corner
         correct: true
       - text: Top-left corner, repeating square 1
+        rationale: |
+          You skipped to the top-left corner instead of continuing clockwise to bottom-left.
       - text: Top-right corner
+        rationale: |
+          You jumped back to top-right instead of advancing to bottom-left.
       - text: Center of the square
+        rationale: |
+          You moved the dot off the perimeter corners into the center.
     explanation: |
       The dot moves one corner clockwise at each step (top-left → top-right → bottom-right). Continuing clockwise from bottom-right, the next corner is bottom-left.
     approved: true
@@ -94,8 +124,14 @@ questions:
       - text: Left (a further 90° clockwise turn from "down")
         correct: true
       - text: Up, repeating circle 1
+        rationale: |
+          You reset to up instead of continuing 90° clockwise to left.
       - text: Right, repeating circle 2
+        rationale: |
+          You jumped back to right instead of advancing to left.
       - text: Down, repeating circle 3
+        rationale: |
+          You repeated down without applying the next 90° clockwise rotation.
     explanation: |
       The arrow turns 90° clockwise at each step (up → right → down). Continuing clockwise from "down," the next direction is left.
     approved: true
@@ -110,8 +146,14 @@ questions:
       - text: "4 dots"
         correct: true
       - text: "5 dots"
+        rationale: |
+          You added 2 dots instead of continuing the +1 dot increment.
       - text: "3 dots, the same as circle 3"
+        rationale: |
+          You repeated 3 dots instead of advancing to 4 dots.
       - text: "6 dots"
+        rationale: |
+          You doubled the dot count instead of adding 1.
     explanation: |
       The number of dots increases by 1 each step ($1, 2, 3, \ldots$). The fourth circle should have $4$ dots.
     approved: true
@@ -126,8 +168,14 @@ questions:
       - text: Extra small (smaller than the small square)
         correct: true
       - text: Extra large (larger than the large square)
+        rationale: |
+          You inverted the shrinking trend to growing extra large.
       - text: Medium, repeating square 2
+        rationale: |
+          You reversed the size trend back to medium.
       - text: The same size as the small square
+        rationale: |
+          You stopped shrinking and repeated the small size.
     explanation: |
       The size decreases by one step each time (large, medium, small). Continuing this shrinking pattern, the fourth square should be extra small.
     approved: true
@@ -142,8 +190,14 @@ questions:
       - text: The student ignored the shading feature, which alternates (black, white, black); tracking both features separately, the fourth figure should be extra-large and white, not extra-large and black.
         correct: true
       - text: The student's prediction is correct, since shading always matches the previous figure once size changes.
+        rationale: |
+          You assumed shading stops alternating when size changes.
       - text: The student's prediction is correct, but only because shading is irrelevant in this series.
+        rationale: |
+          You claimed shading is irrelevant when both size and shading vary systematically.
       - text: Neither size nor shading can be predicted from this series.
+        rationale: |
+          You claimed multi-feature series cannot be predicted.
     explanation: |
       A figure series can change several features at once: missing that both size and shading are changing leads to only half-correct predictions. Size continues growing (extra-large), and shading continues alternating (white after black).
     approved: true
@@ -158,8 +212,14 @@ questions:
       - text: 'No: the established direction is counterclockwise (top-left → bottom-left → bottom-right), so the fourth square''s dot should continue counterclockwise to top-right, not switch direction.'
         correct: true
       - text: 'Yes: the dot should always reverse direction after two steps.'
+        rationale: |
+          You assumed rotation direction reverses after two steps without evidence.
       - text: 'Yes: the dot should return to bottom-left, since patterns commonly repeat every two steps.'
+        rationale: |
+          You assumed a 2-step oscillation pattern.
       - text: 'No: but only because the dot cannot move to any corner other than top-left.'
+        rationale: |
+          You claimed dots are restricted from moving to top-right.
     explanation: |
       Carefully confirm the established rotation direction by comparing at least two consecutive steps rather than assuming a direction switch. Here, the dot consistently moves counterclockwise, so it should continue to top-right next.
     approved: true
@@ -174,8 +234,14 @@ questions:
       - text: 'No: this is a repeating cycle, not a steadily cumulative pattern; after 75%, the cycle restarts at 25%, not continuing to 100%.'
         correct: true
       - text: 'Yes: the shading always increases steadily without ever restarting.'
+        rationale: |
+          You assumed steady cumulative growth instead of observing the repeating cycle rule.
       - text: 'Yes: 100% filled is the correct next step in this specific series.'
+        rationale: |
+          You applied a linear cumulative rule to a cycling sequence.
       - text: 'No: but only because circles cannot be partially shaded.'
+        rationale: |
+          You claimed partial shading is impossible.
     explanation: |
       Not every changing feature increases steadily forever: some patterns cycle back to an earlier state after reaching a certain point. Here, the series explicitly cycles (25%, 50%, 75%, 25%, ...), so the fourth figure returns to 25%, not 100%.
     approved: true
@@ -190,8 +256,14 @@ questions:
       - text: Near the top corner, completing one full clockwise cycle around the triangle
         correct: true
       - text: Near the bottom-left corner, repeating triangle 2
+        rationale: |
+          You repeated the second corner position instead of completing the 3-corner cycle.
       - text: Near the bottom-right corner, repeating triangle 3
+        rationale: |
+          You repeated the third corner position without advancing clockwise.
       - text: In the center of the triangle
+        rationale: |
+          You moved the dot away from the corners into the interior center.
     explanation: |
       A triangle has three corners. The dot moves clockwise, one corner per step (top → bottom-left → bottom-right). After all three corners, the fourth figure completes the cycle back at the top corner.
     approved: true
@@ -206,8 +278,14 @@ questions:
       - text: Extra-large, white, 6 sides (hexagon), point rotated to the left (a further 90° clockwise turn)
         correct: true
       - text: Extra-large, black, 6 sides (hexagon), point rotated to the left
+        rationale: |
+          You correctly tracked size, sides, and rotation but failed to alternate shading to white.
       - text: Large, white, 5 sides (pentagon), point pointing down
+        rationale: |
+          You repeated figure 3's size, sides, and rotation, changing only shading.
       - text: Extra-large, white, 5 sides (pentagon), point rotated up
+        rationale: |
+          You failed to advance side count to 6 and misrotated the point orientation.
     explanation: |
       Tracking each feature separately: size grows one step (extra-large); shading alternates (black, white, black, so white next); sides increase by 1 each step (3, 4, 5, so 6 next); rotation turns 90° clockwise each step (up, right, down, so left next).
     approved: true
@@ -222,8 +300,14 @@ questions:
       - text: Top-left corner (completing one full clockwise cycle), with 5 lines
         correct: true
       - text: Bottom-left corner, repeating figure 4, with 5 lines
+        rationale: |
+          You repeated the corner position of figure 4 instead of completing the 4-corner cycle.
       - text: Top-left corner, with 4 lines, repeating the line count
+        rationale: |
+          You correctly cycled the dot position but failed to advance the line count to 5.
       - text: Top-right corner, with 5 lines
+        rationale: |
+          You skipped to top-right instead of returning to top-left after 4 steps.
     explanation: |
       The dot completes one clockwise corner move per figure; after 4 figures (one full cycle of 4 corners), it returns to the top-left corner for figure 5. Separately, the line count increases by 1 each figure ($1, 2, 3, 4, \ldots$), so figure 5 should have 5 lines.
     approved: true

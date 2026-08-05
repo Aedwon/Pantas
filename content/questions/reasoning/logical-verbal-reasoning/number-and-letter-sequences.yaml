@@ -13,8 +13,14 @@ questions:
       - text: "24"
         correct: true
       - text: "23"
+        rationale: |
+          You added 4 to the last term instead of 5. The pattern adds 5 to each term ( + 5 = 24$).
       - text: "25"
+        rationale: |
+          You added 6 to the last term instead of 5. Each step increases by exactly 5 ( + 5 = 24$).
       - text: "22"
+        rationale: |
+          You added 3 to the last term instead of 5. Check the difference between consecutive terms ( - 4 = 5$).
     explanation: |
       Each term increases by 5 ($9-4=5$, $14-9=5$, $19-14=5$). The next term is $19+5=24$.
     approved: true
@@ -28,8 +34,14 @@ questions:
       - text: "25"
         correct: true
       - text: "24"
+        rationale: |
+          You subtracted 1 from the correct term. The sequence adds 5 to 20, which equals 25.
       - text: "30"
+        rationale: |
+          You added 10 to the last term instead of 5. The constant difference is 5, giving  + 5 = 25$.
       - text: "22"
+        rationale: |
+          You subtracted 3 from the expected term. The step size is a constant +5.
     explanation: |
       Each term increases by 5. The next term is $20+5=25$.
     approved: true
@@ -43,8 +55,14 @@ questions:
       - text: "162"
         correct: true
       - text: "108"
+        rationale: |
+          You multiplied 54 by 2 instead of 3. The ratio between consecutive terms is 3 ( 	imes 3 = 162$).
       - text: "216"
+        rationale: |
+          You multiplied 54 by 4 instead of 3. The common ratio is  \div 2 = 3$.
       - text: "150"
+        rationale: |
+          You added a fixed amount instead of multiplying. This is a geometric sequence with ratio 3.
     explanation: |
       Each term is multiplied by 3 ($6\div2=3$, $18\div6=3$, $54\div18=3$). The next term is $54\times3=162$.
     approved: true
@@ -58,8 +76,14 @@ questions:
       - text: "405"
         correct: true
       - text: "270"
+        rationale: |
+          You multiplied 135 by 2 instead of 3. The common ratio is 3 ( 	imes 3 = 405$).
       - text: "540"
+        rationale: |
+          You multiplied 135 by 4 instead of 3. The sequence multiplies each term by 3.
       - text: "360"
+        rationale: |
+          You estimated the multiplication.  	imes 3$ equals 405.
     explanation: |
       Each term is multiplied by 3 ($15\div5=3$, $45\div15=3$, $135\div45=3$). The next term is $135\times3=405$.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: "17"
         correct: true
       - text: "15"
+        rationale: |
+          You added 3 instead of 5. The differences are , 2, 3, 4$, so the next difference is $ ( + 5 = 17$).
       - text: "16"
+        rationale: |
+          You added 4 again instead of increasing the difference to 5. The differences increase by 1 each step.
       - text: "18"
+        rationale: |
+          You added 6 to the last term instead of 5. The next step increment is 5, giving  + 5 = 17$.
     explanation: |
       The differences increase by 1 each time ($1, 2, 3, 4$), so the next difference is $5$. The next term is $12+5=17$.
     approved: true
@@ -88,8 +118,14 @@ questions:
       - text: "16"
         correct: true
       - text: "14"
+        rationale: |
+          You added 3 to 11 instead of 5. The step sizes are , 2, 3, 4$, so the next addition is 5.
       - text: "15"
+        rationale: |
+          You added 4 again instead of increasing the step to 5. The difference increases by 1 each term.
       - text: "18"
+        rationale: |
+          You added 7 to 11. The next difference in the sequence is 5 ( + 5 = 16$).
     explanation: |
       The differences increase by 1 each time ($1, 2, 3, 4$), so the next difference is $5$. The next term is $11+5=16$.
     approved: true
@@ -103,8 +139,14 @@ questions:
       - text: "7"
         correct: true
       - text: "4"
+        rationale: |
+          You evaluated the even position pattern (, 8, 6, 4$) instead of the odd position pattern. The 7th term is an odd position (, 3, 5, 7$).
       - text: "8"
+        rationale: |
+          You selected a value from the decreasing even sequence. The 7th term follows the odd sequence , 3, 5, 7$.
       - text: "9"
+        rationale: |
+          You added 4 to the 5th term instead of 2. The odd positions increase by 2 each time.
     explanation: |
       This sequence interleaves two patterns: odd positions increase by 2 ($1, 3, 5, \ldots$) and even positions decrease by 2 ($10, 8, 6, \ldots$). The 7th term (an odd position) continues $1, 3, 5, 7$, so the answer is $7$.
     approved: true
@@ -118,8 +160,14 @@ questions:
       - text: "13"
         correct: true
       - text: "11"
+        rationale: |
+          You added 3 to 8. Fibonacci terms are formed by adding the two preceding terms ( + 8 = 13$).
       - text: "12"
+        rationale: |
+          You added 4 to 8. In a Fibonacci sequence, each term is the sum of the previous two terms ( + 8 = 13$).
       - text: "10"
+        rationale: |
+          You added 2 to 8. You must add the preceding term 5 to 8 to get 13.
     explanation: |
       Each term is the sum of the two terms before it (Fibonacci-style): $5+8=13$.
     approved: true
@@ -133,8 +181,14 @@ questions:
       - text: P
         correct: true
       - text: "O"
+        rationale: |
+          You converted position 15 instead of 16. The position increments are , 3, 4$, so  + 5 = 16$, which is P.
       - text: "N"
+        rationale: |
+          You converted position 14. The next difference is 5, giving letter position  + 5 = 16$ (P).
       - text: "Q"
+        rationale: |
+          You converted position 17 (adding 6 instead of 5). The next position increment is 5.
     explanation: |
       Converting to alphabet positions: $B=2, D=4, G=7, K=11$. The differences increase by 1 each time ($2, 3, 4$), so the next difference is $5$: $11+5=16$, which is the letter $P$.
     approved: true
@@ -148,8 +202,14 @@ questions:
       - text: I
         correct: true
       - text: "H"
+        rationale: |
+          You added 1 letter position instead of 2. The sequence skips one letter each step (, 3, 5, 7, 9$), giving I.
       - text: "J"
+        rationale: |
+          You added 3 letter positions instead of 2.  + 2 = 9$, which corresponds to I.
       - text: "K"
+        rationale: |
+          You added 4 letter positions. The pattern has a constant difference of +2 in alphabet positions.
     explanation: |
       Converting to alphabet positions: $A=1, C=3, E=5, G=7$, each increasing by 2. The next position is $7+2=9$, which is the letter $I$.
     approved: true
@@ -163,8 +223,14 @@ questions:
       - text: 'The guess is incorrect: the differences actually increase by 1 each time ($2, 3, 4, 5$), so the correct next term is $17+6=23$, not $17+2=19$.'
         correct: true
       - text: 'The guess is correct: the next term is $17+2=19$.'
+        rationale: |
+          You assumed the first gap of +2 applies to all terms. The differences actually increase (, 3, 4, 5$), so the next term is  + 6 = 23$.
       - text: The guess is correct, but only because every sequence must add a constant amount.
+        rationale: |
+          You assumed sequences always add a constant amount. Sequences can have growing differences.
       - text: Neither guess nor calculation can be verified from the given terms.
+        rationale: |
+          You assumed the pattern cannot be determined. Five terms provide enough evidence to verify increasing differences.
     explanation: |
       Checking all the differences ($2, 3, 4, 5$) reveals they are increasing, not constant: a changing-difference pattern, not simple arithmetic. The correct next difference is $6$, giving $17+6=23$.
     approved: true
@@ -178,8 +244,14 @@ questions:
       - text: 'The guess is incorrect: checking all the terms shows the pattern is actually "add 3 each time" (arithmetic), not "multiply by 2"; the correct next term is $15+3=18$.'
         correct: true
       - text: 'The guess is correct: the next term is $15\times2=30$.'
+        rationale: |
+          You relied on the first two terms alone. Checking all terms shows a constant addition of 3, not multiplication by 2.
       - text: The guess is correct, since the first two terms alone are always enough to confirm any pattern.
+        rationale: |
+          You assumed two terms are sufficient to confirm a pattern. Two terms can fit multiple rules.
       - text: Neither an arithmetic nor a geometric pattern can describe this sequence.
+        rationale: |
+          You claimed no pattern describes the sequence. A constant difference of 3 describes it cleanly.
     explanation: |
       Two terms alone can match multiple possible patterns ($3, 6$ fits both "add 3" and "multiply by 2"). Checking the full sequence ($3, 6, 9, 12, 15$) confirms a constant difference of $3$ (arithmetic), not a constant ratio, so the next term is $15+3=18$.
     approved: true
@@ -193,8 +265,14 @@ questions:
       - text: The student forgot to convert the numeric answer back into its corresponding letter; since position 21 corresponds to U, the final answer should be U, not the number 21.
         correct: true
       - text: The student made no mistake; "21" is an acceptable final answer for a letter sequence question.
+        rationale: |
+          You accepted a numerical output for a letter sequence. The numerical value must be converted back to a letter.
       - text: The student's numeric calculation itself was wrong, regardless of the conversion step.
+        rationale: |
+          You focused on the math rather than the representation. The math 21 was correct, but required conversion to U.
       - text: Letter sequences should always be answered using alphabet positions, never letters.
+        rationale: |
+          You inverted the output rule. Letter sequences require letter answers.
     explanation: |
       After solving a letter sequence using alphabet position numbers, you must always convert your final numeric answer back into its corresponding letter. Solving that the next number is $21$ is not the final answer if the question asks for a letter: the correct answer is $U$ (the 21st letter).
     approved: true
@@ -208,8 +286,14 @@ questions:
       - text: P
         correct: true
       - text: "O"
+        rationale: |
+          You converted position 15 instead of 16. The letter positions are , 7, 10, 13$, so  + 3 = 16$ (P).
       - text: "Q"
+        rationale: |
+          You added 4 letter positions instead of 3 ( + 4 = 17$). The constant difference is +3.
       - text: "N"
+        rationale: |
+          You added 1 letter position instead of 3. The pattern increments by +3 alphabet positions.
     explanation: |
       Converting to alphabet positions: $D=4, G=7, J=10, M=13$, each increasing by 3. The next position is $13+3=16$, which is the letter $P$.
     approved: true
@@ -223,8 +307,14 @@ questions:
       - text: "14"
         correct: true
       - text: "8"
+        rationale: |
+          You evaluated the odd positions (, 4, 6, 8$) instead of the even positions. The 8th term is an even position (, 18, 16, 14$).
       - text: "12"
+        rationale: |
+          You subtracted 4 from 16 instead of 2. The even sequence decreases by 2 each step.
       - text: "10"
+        rationale: |
+          You subtracted 6 from 16. The even terms decrease by 2 (, 18, 16, 14$).
     explanation: |
       This sequence interleaves two patterns: odd positions increase by 2 ($2, 4, 6, \ldots$) and even positions decrease by 2 ($20, 18, 16, \ldots$). The 8th term (an even position) continues $20, 18, 16, 14$, so the answer is $14$.
     approved: true
@@ -238,8 +328,14 @@ questions:
       - text: Q
         correct: true
       - text: "P"
+        rationale: |
+          You converted position 16 instead of 17. The position differences are , 2, 3, 4$, so  + 5 = 17$ (Q).
       - text: "R"
+        rationale: |
+          You converted position 18 (adding 6 instead of 5). The next difference is 5.
       - text: "N"
+        rationale: |
+          You converted position 14. The position of L is 12 and the next difference is 5, giving 17 (Q).
     explanation: |
       Converting to alphabet positions: $B=2, C=3, E=5, H=8, L=12$. The differences increase by 1 each time ($1, 2, 3, 4$), so the next difference is $5$: $12+5=17$, which is the letter $Q$.
     approved: true
