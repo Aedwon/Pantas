@@ -12,6 +12,7 @@ import sweep_questions
 import sweep_tier_boundary
 import sweep_note_b
 import sweep_near_duplicates
+import sweep_padded_choices
 
 OUT = Path(__file__).resolve().parents[2] / "docs" / "content" / "audit" / "sweep-results.tsv"
 SWEEPS = (
@@ -24,6 +25,7 @@ SWEEPS = (
     sweep_tier_boundary,
     sweep_note_b,
     sweep_near_duplicates,
+    sweep_padded_choices,
 )
 
 
