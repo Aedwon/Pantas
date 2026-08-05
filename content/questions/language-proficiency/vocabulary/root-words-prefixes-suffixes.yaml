@@ -13,8 +13,14 @@ questions:
       - text: Harmless and good
         correct: true
       - text: Growing quickly
+        rationale: |
+          You picked "growing quickly," but the prefix "ben-" relates to goodness rather than growth speed.
       - text: Painful
+        rationale: |
+          You picked "painful," which describes discomfort rather than the positive meaning implied by "ben-."
       - text: Unpredictable
+        rationale: |
+          You picked "unpredictable," but "ben-" indicates a good or favorable quality rather than instability.
     explanation: |
       The word starts with "ben-," a short form of the prefix "bene-," which means good. The only positive choice, "harmless and good," matches this.
     approved: true
@@ -28,8 +34,14 @@ questions:
       - text: Harmful and cruel
         correct: true
       - text: Kind and helpful
+        rationale: |
+          You picked "kind and helpful," which is the opposite of the negative prefix "mal-" (bad or evil).
       - text: Confused
+        rationale: |
+          You picked "confused," but "mal-" means bad or harmful, which does not relate to confusion.
       - text: Tired
+        rationale: |
+          You picked "tired," but "mal-" points to bad or evil intent rather than physical exhaustion.
     explanation: |
       The word starts with "mal-," a prefix that means bad. The only negative, harm-related choice, "harmful and cruel," matches this.
     approved: true
@@ -43,8 +55,14 @@ questions:
       - text: Hirap
         correct: true
       - text: Pinag
+        rationale: |
+          You: Pinili mo ang "Pinag," ngunit ito ay unlapi (prefix) at hindi ang batayang salitang-ugat.
       - text: Naghirap
+        rationale: |
+          You: Pinili mo ang "Naghirap," ngunit ito ay nakakabit nang salita na may panlaping "nag-."
       - text: Hirapan
+        rationale: |
+          You: Pinili mo ang "Hirapan," ngunit may hulaping "-an" pa rin ito kaya hindi pa ito ang tunay na salitang-ugat.
     explanation: |
       Alisin ang unlapi na "pinag-" at ang hulapi na "-an" mula sa salita, at ang matitira ay ang salitang-ugat na "hirap."
     approved: true
@@ -62,8 +80,14 @@ questions:
       - text: Pinagsumikapan
         correct: true
       - text: Kasaganaan
+        rationale: |
+          You: Pinili mo ang "Kasaganaan," ngunit ito ay may kabilaan lamang (ka-...-an) at walang gitlapi.
       - text: Pag-ibig
+        rationale: |
+          You: Pinili mo ang "Pag-ibig," ngunit ito ay may unlapi lamang (pag-) at walang gitlapi o hulapi.
       - text: Ginawa
+        rationale: |
+          You: Pinili mo ang "Ginawa," ngunit ito ay may gitlapi lamang (-in-) at walang unlapi o hulapi.
     explanation: |
       Ang "pinagsumikapan" ay may salitang-ugat na "sikap," na may unlapi ("pinag-"), gitlapi ("-um-"), at hulapi ("-an"): lahat ng 3 bahagi. Ang "kasaganaan" ay kabilaan lamang (ka- ... -an); ang "pag-ibig" ay unlapi lamang; ang "ginawa" ay gitlapi lamang.
     approved: true
@@ -77,8 +101,14 @@ questions:
       - text: Someone who speaks many languages
         correct: true
       - text: Someone who is silent
+        rationale: |
+          You picked silent, but "poly-" means many and "-glot" relates to language or speech.
       - text: A type of parrot
+        rationale: |
+          You picked a type of parrot, taking a guess instead of combining the roots "poly-" (many) and "-glot" (language).
       - text: A rare disease
+        rationale: |
+          You picked a rare disease, ignoring the linguistic roots "poly-" (many) and "-glot" (language).
     explanation: |
       "Poly-" means many, and "-glot" relates to tongue or language. Together, they describe someone who speaks many languages.
     approved: true
@@ -92,8 +122,14 @@ questions:
       - text: Benevolent
         correct: true
       - text: Malicious
+        rationale: |
+          You picked "malicious," which is a synonym of malevolent, both containing the negative prefix "mal-."
       - text: Violent
+        rationale: |
+          You picked "violent," which describes aggressive action rather than the direct antonym with prefix "bene-."
       - text: Gloomy
+        rationale: |
+          You picked "gloomy," which means dark or depressing, missing the prefix-based antonym "benevolent."
     explanation: |
       "Malevolent" breaks down into "mal-" (bad) and "vol" (wish): wishing bad things on others. The opposite prefix, "bene-" (good), gives "benevolent," the exact opposite word.
     approved: true
@@ -107,8 +143,14 @@ questions:
       - text: All-knowing
         correct: true
       - text: All-powerful
+        rationale: |
+          You picked all-powerful, but "sci-" refers to knowledge (knowing), whereas power is expressed by "potent" (omnipotent).
       - text: Blind
+        rationale: |
+          You picked blind, which contradicts the prefix "omni-" meaning all.
       - text: Forgetful
+        rationale: |
+          You picked forgetful, which is the opposite of knowing everything.
     explanation: |
       "Omni-" means all, and the root relates to knowing (as in "science"). Together, "omniscient" means all-knowing.
     approved: true
@@ -122,8 +164,14 @@ questions:
       - text: Ordered by time
         correct: true
       - text: Ordered by importance
+        rationale: |
+          You picked ordered by importance, but the root "chron-" specifically means time.
       - text: Ordered alphabetically
+        rationale: |
+          You picked ordered alphabetically, but "chron-" relates to time sequence rather than letter order.
       - text: Ordered randomly
+        rationale: |
+          You picked ordered randomly, contradicting the structured sequence implied by "chron-" and "-logical."
     explanation: |
       "Chron-" means time. "Chronological" describes an order arranged according to time, from earliest to latest.
     approved: true
@@ -137,8 +185,14 @@ questions:
       - text: A fake name
         correct: true
       - text: A nickname given by friends
+        rationale: |
+          You picked a nickname, but "pseudo-" means fake or false, indicating a deliberately adopted alias.
       - text: A legal name
+        rationale: |
+          You picked a legal name, which contradicts the prefix "pseudo-" meaning fake.
       - text: A title of respect
+        rationale: |
+          You picked a title of respect, ignoring the root "-nym" (name) and prefix "pseudo-" (fake).
     explanation: |
       "Pseudo-" means fake, and "-nym" relates to name (as in "synonym"). Together, "pseudonym" means a fake name.
     approved: true
@@ -152,8 +206,14 @@ questions:
       - text: Gawa
         correct: true
       - text: Gin
+        rationale: |
+          You: Pinili mo ang "Gin," ngunit ito ay kabahagi lamang ng gitlapi at hindi salitang-ugat.
       - text: Ginawa
+        rationale: |
+          You: Pinili mo ang "Ginawa," ngunit ito ang mismong buong salitang may panlapi at hindi ang salitang-ugat.
       - text: Gawain
+        rationale: |
+          You: Pinili mo ang "Gawain," ngunit may hulapi pa itong "-in" kaya hindi pa ito ang pinakapayang salitang-ugat.
     explanation: |
       Ang "ginawa" ay may gitlapi na "-in-" na isiningit sa salitang-ugat na "gawa," kaya ang salitang-ugat ay "gawa."
     approved: true
@@ -171,8 +231,14 @@ questions:
       - text: Kabataan
         correct: true
       - text: Tumakbo
+        rationale: |
+          You: Pinili mo ang "Tumakbo," ngunit ito ay may gitlapi lamang (-um-) at walang unlapi o hulapi.
       - text: Sinulat
+        rationale: |
+          You: Pinili mo ang "Sinulat," ngunit ito ay may gitlapi lamang (-in-) at hindi kabilaan.
       - text: Maganda
+        rationale: |
+          You: Pinili mo ang "Maganda," ngunit ito ay may unlapi lamang (ma-) at walang hulapi.
     explanation: |
       Ang "kabataan" ay may salitang-ugat na "bata," na may unlapi ("ka-") at hulapi ("-an") na parehong ginamit: ito ay kabilaan.
     approved: true
@@ -190,8 +256,14 @@ questions:
       - text: Pag-ibig
         correct: true
       - text: Kasaganaan
+        rationale: |
+          You: Pinili mo ang "Kasaganaan," ngunit ito ay may kabilaan (ka-...-an) at hindi unlapi lamang.
       - text: Ginawa
+        rationale: |
+          You: Pinili mo ang "Ginawa," ngunit ito ay may gitlapi (-in-) at hindi unlapi.
       - text: Pinagsumikapan
+        rationale: |
+          You: Pinili mo ang "Pinagsumikapan," ngunit ito ay laguhan na may 3 panlapi.
     explanation: |
       Ang "pag-ibig" ay may salitang-ugat na "ibig," na may unlapi lamang ("pag-"). Ang "kasaganaan" ay kabilaan, ang "ginawa" ay gitlapi, at ang "pinagsumikapan" ay laguhan.
     approved: true
@@ -209,8 +281,14 @@ questions:
       - text: Ginawa
         correct: true
       - text: Kasaganaan
+        rationale: |
+          You: Pinili mo ang "Kasaganaan," ngunit ito ay may kabilaan (ka-...-an) at hindi gitlapi.
       - text: Pag-ibig
+        rationale: |
+          You: Pinili mo ang "Pag-ibig," ngunit ito ay may unlapi (pag-) at hindi gitlapi.
       - text: Pinagsumikapan
+        rationale: |
+          You: Pinili mo ang "Pinagsumikapan," ngunit ito ay laguhan na may tatlong panlapi.
     explanation: |
       Ang "ginawa" ay may salitang-ugat na "gawa," na may gitlapi lamang ("-in-") na isiningit sa loob nito. Ang iba ay gumagamit ng ibang kombinasyon ng panlapi.
     approved: true
@@ -224,8 +302,14 @@ questions:
       - text: 'No: "inflammable" actually means the same as "flammable"; it CAN catch fire. Here, "in-" does not mean "not," making this a common exam trap.'
         correct: true
       - text: 'Yes: "inflammable" always means safe from fire.'
+        rationale: |
+          You assumed "in-" creates an antonym here, but "inflammable" means able to burst into flame.
       - text: 'Yes: but only because this specific material happens to be fireproof.'
+        rationale: |
+          You assumed the material is fireproof, but "inflammable" means highly combustive.
       - text: 'No: "inflammable" means "extremely fireproof," the strongest possible protection.'
+        rationale: |
+          You claimed "inflammable" means fireproof, but it means capable of catching fire easily.
     explanation: |
       Usually, "in-" means "not" (like "invisible" means not visible). But sometimes "in-" means "inside" or "into." "Inflammable" is the biggest trap: it means the exact same thing as "flammable": it can burst into flames.
     approved: true
@@ -239,8 +323,14 @@ questions:
       - text: 'No: "restive" actually means restless, nervous, or stubborn; despite looking like it contains "rest," its true meaning is closer to the opposite of relaxed.'
         correct: true
       - text: 'Yes: "restive" always means calm and relaxed, matching the word "rest" inside it.'
+        rationale: |
+          You fell for the root-word trap, assuming "rest" implies calm when "restive" means restless.
       - text: 'Yes: but only because the crowd was simply tired from waiting.'
+        rationale: |
+          You assumed "restive" meant tired from waiting, but context shows the crowd was impatient and unruly.
       - text: 'No: but only because "restive" has no relationship to any real word at all.'
+        rationale: |
+          You claimed "restive" is not a real word, but it is a standard English adjective meaning restless.
     explanation: |
       Test-makers will put choices that match a fake root. "Restive" looks like it has the root "rest," so it seems like it should mean "relaxed", but it actually means restless, nervous, or stubborn. Always read the whole sentence for clues rather than blindly trusting the letters.
     approved: true
@@ -254,8 +344,14 @@ questions:
       - text: Dahil ang "sayaw" ay nagsisimula sa katinig (consonant), kaya ang "um-" ay isinisingit sa loob (gitlapi); ang "alis" ay nagsisimula sa patinig (vowel), kaya ang "um-" ay idinaragdag sa harap (unlapi).
         correct: true
       - text: Dahil magkaibang salita ang "sumayaw" at "umalis," kaya kailanman ay hindi pareho ang klasipikasyon ng kanilang panlapi.
+        rationale: |
+          You: Inakala mong dahil magkaiba ang salita ay hindi puwedeng pareho ang panlapi, ngunit ang simula ng salitang-ugat ang dahilan.
       - text: Dahil ang "um-" ay palaging unlapi sa lahat ng pagkakataon, walang pagbubukod.
+        rationale: |
+          You: Inakala mong palaging unlapi ang "um-," ngunit nagiging gitlapi ito kung isinisingit sa salitang-ugat na nagsisimula sa katinig.
       - text: Dahil ang "um-" ay palaging gitlapi sa lahat ng pagkakataon, walang pagbubukod.
+        rationale: |
+          You: Inakala mong palaging gitlapi ang "um-," ngunit unlapi ito kapag ikinabit sa salitang-ugat na nagsisimula sa patinig.
     explanation: |
       Ang gitlapi ay maaaring magmukhang unlapi kung hindi maingat ang pagsusuri. Kung ang salitang-ugat ay nagsisimula sa katinig (tulad ng "sayaw"), ang "um-" ay isiningit sa loob bilang gitlapi. Kung nagsisimula ito sa patinig (tulad ng "alis"), ang "um-" ay nasa harap bilang unlapi.
     approved: true
@@ -269,8 +365,14 @@ questions:
       - text: To work together
         correct: true
       - text: To argue constantly
+        rationale: |
+          You picked arguing, but "co-" means together and "labor" means work, describing cooperation.
       - text: To work alone
+        rationale: |
+          You picked working alone, which contradicts the prefix "co-" meaning together.
       - text: To celebrate a victory
+        rationale: |
+          You picked celebrating, which ignores the root "labor" meaning work.
     explanation: |
       If you are stuck on an English word, look for a smaller, easier word hidden inside it. "Collaborate" has "labor" (work) inside it, with the prefix "co-" (together), giving the meaning "to work together."
     approved: true
@@ -284,8 +386,14 @@ questions:
       - text: To sail completely around something
         correct: true
       - text: To sink a ship deliberately
+        rationale: |
+          You picked sinking a ship, ignoring the prefix "circum-" which means around.
       - text: To travel underground
+        rationale: |
+          You picked traveling underground, but "navig-" refers to sailing ships.
       - text: To navigate using only the stars
+        rationale: |
+          You picked navigating by stars, missing the core meaning of "circum-" (around).
     explanation: |
       "Circum-" means around, and "navig-" relates to sailing (from the Latin "navis," meaning ship). Together, "circumnavigate" means to sail completely around something.
     approved: true
