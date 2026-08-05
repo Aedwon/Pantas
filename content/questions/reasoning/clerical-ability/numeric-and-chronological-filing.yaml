@@ -14,8 +14,14 @@ questions:
       - text: "0102, 0103, 0104, 0105"
         correct: true
       - text: "0105, 0104, 0103, 0102"
+        rationale: |
+          You picked descending order instead of ascending order. Ascending order goes from the lowest number to the highest.
       - text: "0102, 0104, 0103, 0105"
+        rationale: |
+          You flipped 0104 and 0103. Consecutive numerical order requires each number to increase by 1 without skipping or swapping.
       - text: "0103, 0102, 0105, 0104"
+        rationale: |
+          You picked an unsorted sequence. Numbers in ascending consecutive order must increase steadily from lowest to highest.
     explanation: |
       Consecutive numeric filing arranges numbers in simple counting order from lowest to highest.
 
@@ -28,8 +34,14 @@ questions:
       - text: "2024-01-15"
         correct: true
       - text: "2024-03-20"
+        rationale: |
+          You picked a date two months later in 2024. In oldest-first filing, January 15 comes before March 20.
       - text: "2025-01-10"
+        rationale: |
+          You focused on the month and day while ignoring the year. The year 2024 comes before 2025.
       - text: "2025-05-04"
+        rationale: |
+          You picked the date with the highest year and month values. Oldest-first chronological filing requires the earliest calendar date first.
     explanation: |
       When filing from oldest to newest, January 15, 2024 is the earliest date in the group.
 
@@ -42,8 +54,14 @@ questions:
       - text: "2026-11-30"
         correct: true
       - text: "2026-02-15"
+        rationale: |
+          You picked an earlier date in 2026. The question asks for the document filed last, which is the latest date overall.
       - text: "2025-12-01"
+        rationale: |
+          You picked a date in 2025. Dates in 2026 are later than 2025, so 2025 comes earlier in the file.
       - text: "2024-08-20"
+        rationale: |
+          You picked the oldest date in the list instead of the newest. The question asks for the date filed last, not first.
     explanation: |
       November 30, 2026 is the latest date among the options and will be filed last.
 
@@ -56,8 +74,14 @@ questions:
       - text: Between 4588 and 4590
         correct: true
       - text: Before document 4500 numerical filing series
+        rationale: |
+          You placed 4589 before 4500. Consecutive filing orders numbers from smallest to largest, so 4589 comes after 4500.
       - text: After document 4600 numerical archive folder
+        rationale: |
+          You placed 4589 after 4600. Since 4589 is smaller than 4600, it must go before 4600.
       - text: Between 4590 and 4600 secondary numeric folders
+        rationale: |
+          You placed 4589 after 4590. 4589 is smaller than 4590, so it must precede 4590.
     explanation: |
       Number 4589 falls directly between 4588 and 4590 in consecutive sequence.
 
@@ -70,8 +94,14 @@ questions:
       - text: "10-100"
         correct: true
       - text: "10-098"
+        rationale: |
+          You picked the number that comes immediately before 10-099. The question asks for the number that comes after it.
       - text: "10-200"
+        rationale: |
+          You added 101 to the suffix instead of 1. Consecutive numbering increments the final section by 1, turning 099 into 100.
       - text: "11-000"
+        rationale: |
+          You incremented the prefix section instead of the suffix. The suffix 099 reaches 100 before the prefix 10 changes.
     explanation: |
       Adding 1 to 099 gives 100, so 10-099 is followed immediately by 10-100.
 
@@ -84,8 +114,14 @@ questions:
       - text: "2025-06-10"
         correct: true
       - text: "2025-06-20"
+        rationale: |
+          You picked a date five days after June 15. The question asks for a date that precedes (comes before) June 15.
       - text: "2025-07-01"
+        rationale: |
+          You picked a date in July. July comes after June, so it follows June 15 rather than preceding it.
       - text: "2025-12-15"
+        rationale: |
+          You picked a date six months later. Chronological order requires earlier dates to come before later dates.
     explanation: |
       June 10, 2025 comes before June 15, 2025.
 
@@ -98,8 +134,14 @@ questions:
       - text: "402.15"
         correct: true
       - text: "402.20"
+        rationale: |
+          You picked a larger decimal value. In decimal ordering, .15 is smaller than .20, so 402.15 comes first.
       - text: "402.80"
+        rationale: |
+          You picked the largest decimal suffix in the 402 series. Ascending order requires the smallest number first.
       - text: "403.05"
+        rationale: |
+          You looked past the whole number component. 402 is smaller than 403, so all 402 entries precede 403.05.
     explanation: |
       402.15 is the smallest value among the decimal numbers listed.
 
@@ -112,8 +154,14 @@ questions:
       - text: "4999"
         correct: true
       - text: "4990"
+        rationale: |
+          You subtracted 10 instead of 1. Consecutive numbering counts by single units, so 5000 minus 1 is 4999.
       - text: "5001"
+        rationale: |
+          You picked the number that comes immediately after 5000. The question asks for the number that comes before.
       - text: "5010"
+        rationale: |
+          You added 10 to 5000. The question asks for the number that immediately precedes 5000.
     explanation: |
       Subtracting 1 from 5000 yields 4999.
 
@@ -126,8 +174,14 @@ questions:
       - text: Rightmost digits
         correct: true
       - text: Leftmost primary digits
+        rationale: |
+          You described standard consecutive filing. Terminal digit filing starts indexing with the last (rightmost) group of digits.
       - text: Middle section digits
+        rationale: |
+          You picked the middle group. Middle digits are secondary in terminal digit filing, while the rightmost digits are primary.
       - text: Random sequence digits
+        rationale: |
+          You assumed indexing is unorganized. Terminal digit filing follows a strict order starting from the rightmost digits.
     explanation: |
       Terminal digit filing indexes numbers by starting with the last (rightmost) group of digits.
 
@@ -140,8 +194,14 @@ questions:
       - text: Most recent date
         correct: true
       - text: Earliest historical date
+        rationale: |
+          You described standard chronological filing. Reverse chronological filing places the newest date at the front.
       - text: Middle calendar date
+        rationale: |
+          You picked a median date. Reverse chronological order places the newest date at the top and oldest at the bottom.
       - text: Randomly picked date
+        rationale: |
+          You assumed reverse chronological sorting has no set order. It strictly places the most recent date at the top.
     explanation: |
       Reverse chronological filing places the most recent document at the front/top of the file folder.
 
@@ -154,8 +214,14 @@ questions:
       - text: "88-449"
         correct: true
       - text: "88-451"
+        rationale: |
+          You picked the number that follows 88-450. The question asks for the file number that precedes it.
       - text: "88-460"
+        rationale: |
+          You added 10 to the suffix. Consecutive filing counts by ones, so the preceding number is 88-449.
       - text: "89-000"
+        rationale: |
+          You incremented the prefix section. Preceding numbers decrease by 1, giving 88-449.
     explanation: |
       88-449 immediately precedes 88-450 in consecutive numerical sequence.
 
@@ -168,7 +234,13 @@ questions:
       - text: 101-A before 101-B
         correct: true
       - text: 101-B before 101-A
+        rationale: |
+          You inverted the alphabetical order of the suffixes. "A" comes before "B" when matching numeric prefixes exist.
       - text: Sequenced by date only
+        rationale: |
+          You ignored the letter suffixes. When document numbers carry letter suffixes, the suffixes determine their order.
       - text: Filed in separate drawers
+        rationale: |
+          You assumed suffix letters separate folders into different locations. Letter suffixes sub-sort files within the same numeric section.
     explanation: |
       Identical numeric prefixes are sub-sorted alphabetically by their letter suffixes, so 101-A comes before 101-B.
