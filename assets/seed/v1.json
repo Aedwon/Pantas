@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "contentVersion": 2026081218,
-  "generatedAt": "2026-08-12T18:57:32.326519Z",
+  "contentVersion": 2026081219,
+  "generatedAt": "2026-08-12T19:10:48.538446Z",
   "exams": [
     {
       "id": "exam_cse_pro",
@@ -59236,19 +59236,22 @@
           "id": "q-clerical-ability-alphabetic-filing-rules-0001_b",
           "label": "B",
           "text": "Juan, Carlos Dela Cruz",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You started with the first name instead of the surname. Unit 1 must always be the surname when indexing individual names."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0001_c",
           "label": "C",
           "text": "Carlos, Dela Cruz Juan",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You indexed the middle name first. Under standard filing rules, Unit 1 is the surname, Unit 2 is the first name, and Unit 3 is the middle name."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0001_d",
           "label": "D",
           "text": "Cruz, Dela Juan Carlos",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You separated the prefix \"Dela\" from the surname \"Cruz\". Prefixes like \"De\", \"Dela\", or \"Van\" combine with the surname as a single unit."
         }
       ],
       "explanation": "Surnames with prefixes are treated as a single unit (Delacruz) as Unit 1, followed by first name (Juan) and middle name (Carlos)."
@@ -59274,19 +59277,22 @@
           "id": "q-clerical-ability-alphabetic-filing-rules-0002_b",
           "label": "B",
           "text": "Adams, Benjamin",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a name with the same surname whose first name comes later. \"Arthur\" comes before \"Benjamin\" alphabetically."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0002_c",
           "label": "C",
           "text": "Adamson, Albert",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You ignored the shorter surname rule. \"Adams\" finishes before \"Adamson\", so all \"Adams\" entries come first."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0002_d",
           "label": "D",
           "text": "Adan, Anthony",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You looked past the third letter. \"Adams\" comes before \"Adan\" because \"m\" comes before \"n\" in the alphabet."
         }
       ],
       "explanation": "Comparing unit by unit: Adams comes before Adamson and Adan. Between Adams, Arthur and Adams, Benjamin, Arthur comes first."
@@ -59312,19 +59318,22 @@
           "id": "q-clerical-ability-alphabetic-filing-rules-0003_b",
           "label": "B",
           "text": "Placed in the first unit",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed minor words are moved to the front. Prepositions, conjunctions, and articles are ignored when alphabetizing business names."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0003_c",
           "label": "C",
           "text": "Capitalized for sorting",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed capitalization gives prepositions sorting priority. Standard rules disregard words like \"and\", \"of\", and \"the\" during indexing."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0003_d",
           "label": "D",
           "text": "Repeated in every unit",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed minor connective words are appended to every unit. They are completely ignored during indexing."
         }
       ],
       "explanation": "Articles, prepositions, and conjunctions are generally disregarded when alphabetizing business names."
@@ -59350,19 +59359,22 @@
           "id": "q-clerical-ability-alphabetic-filing-rules-0004_b",
           "label": "B",
           "text": "Split into three separate independent indexing units",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You treated each word in the prefix as a separate unit. Prefixes combine with the root surname to form a single unit."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0004_c",
           "label": "C",
           "text": "Filed under the letter R in all search indexes",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You skipped the prefix to file under the main root name. Prefixes are retained and combined with the surname, so filing starts with D."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0004_d",
           "label": "D",
           "text": "Ignored during the main alphabetical filing search",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed prefixes are dropped entirely. Prefixes are merged directly with the surname to create the key unit."
         }
       ],
       "explanation": "Prefixes such as De, De la, or Van are combined with the surname and indexed as a single unit."
@@ -59388,19 +59400,22 @@
           "id": "q-clerical-ability-alphabetic-filing-rules-0005_b",
           "label": "B",
           "text": "By numerical date of birth registration",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You chose personal birth records for tie-breaking. Standard filing rules use geographic location when full names match."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0005_c",
           "label": "C",
           "text": "By total years of public employment service",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You chose employment tenure for tie-breaking. Alphabetic indexing uses location names like city or state to break identical name ties."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0005_d",
           "label": "D",
           "text": "By social security identification card code number",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You chose numerical ID codes. Alphabetic indexing relies on geographic names to order identical personal names."
         }
       ],
       "explanation": "When complete individual names are identical, filing order is determined alphabetically by geographic location (city or town)."
@@ -59426,19 +59441,22 @@
           "id": "q-clerical-ability-alphabetic-filing-rules-0006_b",
           "label": "B",
           "text": "First name",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked normal reading order. Filing rules invert individual names so the surname is Unit 1."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0006_c",
           "label": "C",
           "text": "Middle initial",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You chose the middle initial. The surname is always Unit 1, followed by the first name (Unit 2) and middle initial (Unit 3)."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0006_d",
           "label": "D",
           "text": "Professional title",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You chose the title. Professional titles are placed in the last unit or ignored, while the last name is Unit 1."
         }
       ],
       "explanation": "Under standard indexing rules for individuals, the last name (surname) is Unit 1."
@@ -59464,19 +59482,22 @@
           "id": "q-clerical-ability-alphabetic-filing-rules-0007_b",
           "label": "B",
           "text": "Placed as the first unit",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You placed seniority at the very front. Seniority titles go at the end so identical names group by family and first name first."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0007_c",
           "label": "C",
           "text": "Omitted entirely from record",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed seniority terms are deleted. They are retained as the final indexing unit to distinguish family members."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0007_d",
           "label": "D",
           "text": "Combined with first name",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You merged the suffix with the given name. Seniority terms form their own separate unit after all name units."
         }
       ],
       "explanation": "Seniority designations (Jr., Sr., II, III) are placed in the final indexing unit."
@@ -59502,19 +59523,22 @@
           "id": "q-clerical-ability-alphabetic-filing-rules-0008_b",
           "label": "B",
           "text": "Apex Book Distributors Corporation",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You compared past the third unit. \"Company\" comes before \"Distributors\" when evaluating Unit 3."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0008_c",
           "label": "C",
           "text": "Apex Book Mart Enterprises Incorporated",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a name whose third unit starts with M. \"Company\" comes before \"Mart\" alphabetically."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0008_d",
           "label": "D",
           "text": "Apex Book Publishers Agency Limited",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a name whose third unit starts with P. \"Company\" comes before \"Publishers\" alphabetically."
         }
       ],
       "explanation": "All names start with \"Apex Book\". Comparing the third unit: Company comes before Distributors, Mart, and Publishers."
@@ -59540,19 +59564,22 @@
           "id": "q-clerical-ability-alphabetic-filing-rules-0009_b",
           "label": "B",
           "text": "Indexed under letter S only",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You kept the literal abbreviation without expanding it. \"St.\" must be spelled out fully as \"Saint\" before filing."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0009_c",
           "label": "C",
           "text": "Abbreviated as Stmartin",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You removed spaces while leaving \"St.\" unexpanded. Filing rules require expanding abbreviations like \"St.\" to \"Saint\"."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0009_d",
           "label": "D",
           "text": "Omitted from filing index",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed titles starting with \"St.\" are ignored. The prefix is expanded to \"Saint\" and indexed as a standard word."
         }
       ],
       "explanation": "Abbreviated words like \"St.\" are spelled out in full as \"Saint\" when indexing."
@@ -59578,19 +59605,22 @@
           "id": "q-clerical-ability-alphabetic-filing-rules-0010_b",
           "label": "B",
           "text": "Unit 1",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You placed the middle name in the primary spot. Unit 1 is reserved for the surname."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0010_c",
           "label": "C",
           "text": "Unit 2",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assigned the middle name to Unit 2. Unit 2 is for the first name, and the middle name is Unit 3."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0010_d",
           "label": "D",
           "text": "Unit 4",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You pushed the middle name to Unit 4. Unit 3 holds the middle name, while Unit 4 is for titles or suffixes."
         }
       ],
       "explanation": "In individual name indexing: Unit 1 is Surname, Unit 2 is First Name, Unit 3 is Middle Name/Initial."
@@ -59616,19 +59646,22 @@
           "id": "q-clerical-ability-alphabetic-filing-rules-0011_b",
           "label": "B",
           "text": "Bureau or division subtopic title",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You indexed the specific agency branch first. Government records are grouped first by the governing country or location."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0011_c",
           "label": "C",
           "text": "Executive director personal full name",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You indexed the agency head's personal name. Government entries are indexed under the country or jurisdiction name first."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0011_d",
           "label": "D",
           "text": "Department cabinet administrative rank",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You indexed the administrative hierarchy rank first. Filing rules place the country or municipality name in Unit 1."
         }
       ],
       "explanation": "Government names are indexed first by the name of the governing country, state, or municipality (e.g., Philippines, Republic of the)."
@@ -59654,19 +59687,22 @@
           "id": "q-clerical-ability-alphabetic-filing-rules-0012_b",
           "label": "B",
           "text": "Santos, Maria Teresa",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a name starting with M. \"Victor\" comes after \"Maria\" in alphabetical order."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0012_c",
           "label": "C",
           "text": "Santos, Juan Carlos",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a name starting with J. The question asks for the name that comes last, so \"Victor\" comes after \"Juan\"."
         },
         {
           "id": "q-clerical-ability-alphabetic-filing-rules-0012_d",
           "label": "D",
           "text": "Santos, Ana Patricia",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the name that comes first instead of last. \"Ana\" is first alphabetically, while \"Victor\" is last."
         }
       ],
       "explanation": "All have the surname Santos. Comparing first names: Ana, Juan, Maria, Victor. Victor comes last alphabetically."
@@ -59692,19 +59728,22 @@
           "id": "q-clerical-ability-numeric-and-chronological-filing-0001_b",
           "label": "B",
           "text": "0105, 0104, 0103, 0102",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked descending order instead of ascending order. Ascending order goes from the lowest number to the highest."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0001_c",
           "label": "C",
           "text": "0102, 0104, 0103, 0105",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You flipped 0104 and 0103. Consecutive numerical order requires each number to increase by 1 without skipping or swapping."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0001_d",
           "label": "D",
           "text": "0103, 0102, 0105, 0104",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked an unsorted sequence. Numbers in ascending consecutive order must increase steadily from lowest to highest."
         }
       ],
       "explanation": "Consecutive numeric filing arranges numbers in simple counting order from lowest to highest."
@@ -59730,19 +59769,22 @@
           "id": "q-clerical-ability-numeric-and-chronological-filing-0002_b",
           "label": "B",
           "text": "2024-03-20",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a date two months later in 2024. In oldest-first filing, January 15 comes before March 20."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0002_c",
           "label": "C",
           "text": "2025-01-10",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You focused on the month and day while ignoring the year. The year 2024 comes before 2025."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0002_d",
           "label": "D",
           "text": "2025-05-04",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the date with the highest year and month values. Oldest-first chronological filing requires the earliest calendar date first."
         }
       ],
       "explanation": "When filing from oldest to newest, January 15, 2024 is the earliest date in the group."
@@ -59768,19 +59810,22 @@
           "id": "q-clerical-ability-numeric-and-chronological-filing-0003_b",
           "label": "B",
           "text": "2026-02-15",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked an earlier date in 2026. The question asks for the document filed last, which is the latest date overall."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0003_c",
           "label": "C",
           "text": "2025-12-01",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a date in 2025. Dates in 2026 are later than 2025, so 2025 comes earlier in the file."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0003_d",
           "label": "D",
           "text": "2024-08-20",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the oldest date in the list instead of the newest. The question asks for the date filed last, not first."
         }
       ],
       "explanation": "November 30, 2026 is the latest date among the options and will be filed last."
@@ -59806,19 +59851,22 @@
           "id": "q-clerical-ability-numeric-and-chronological-filing-0004_b",
           "label": "B",
           "text": "Before document 4500 numerical filing series",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You placed 4589 before 4500. Consecutive filing orders numbers from smallest to largest, so 4589 comes after 4500."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0004_c",
           "label": "C",
           "text": "After document 4600 numerical archive folder",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You placed 4589 after 4600. Since 4589 is smaller than 4600, it must go before 4600."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0004_d",
           "label": "D",
           "text": "Between 4590 and 4600 secondary numeric folders",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You placed 4589 after 4590. 4589 is smaller than 4590, so it must precede 4590."
         }
       ],
       "explanation": "Number 4589 falls directly between 4588 and 4590 in consecutive sequence."
@@ -59844,19 +59892,22 @@
           "id": "q-clerical-ability-numeric-and-chronological-filing-0005_b",
           "label": "B",
           "text": "10-098",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the number that comes immediately before 10-099. The question asks for the number that comes after it."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0005_c",
           "label": "C",
           "text": "10-200",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 101 to the suffix instead of 1. Consecutive numbering increments the final section by 1, turning 099 into 100."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0005_d",
           "label": "D",
           "text": "11-000",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You incremented the prefix section instead of the suffix. The suffix 099 reaches 100 before the prefix 10 changes."
         }
       ],
       "explanation": "Adding 1 to 099 gives 100, so 10-099 is followed immediately by 10-100."
@@ -59882,19 +59933,22 @@
           "id": "q-clerical-ability-numeric-and-chronological-filing-0006_b",
           "label": "B",
           "text": "2025-06-20",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a date five days after June 15. The question asks for a date that precedes (comes before) June 15."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0006_c",
           "label": "C",
           "text": "2025-07-01",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a date in July. July comes after June, so it follows June 15 rather than preceding it."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0006_d",
           "label": "D",
           "text": "2025-12-15",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a date six months later. Chronological order requires earlier dates to come before later dates."
         }
       ],
       "explanation": "June 10, 2025 comes before June 15, 2025."
@@ -59920,19 +59974,22 @@
           "id": "q-clerical-ability-numeric-and-chronological-filing-0007_b",
           "label": "B",
           "text": "402.20",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a larger decimal value. In decimal ordering, .15 is smaller than .20, so 402.15 comes first."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0007_c",
           "label": "C",
           "text": "402.80",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the largest decimal suffix in the 402 series. Ascending order requires the smallest number first."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0007_d",
           "label": "D",
           "text": "403.05",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You looked past the whole number component. 402 is smaller than 403, so all 402 entries precede 403.05."
         }
       ],
       "explanation": "402.15 is the smallest value among the decimal numbers listed."
@@ -59958,19 +60015,22 @@
           "id": "q-clerical-ability-numeric-and-chronological-filing-0008_b",
           "label": "B",
           "text": "4990",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted 10 instead of 1. Consecutive numbering counts by single units, so 5000 minus 1 is 4999."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0008_c",
           "label": "C",
           "text": "5001",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the number that comes immediately after 5000. The question asks for the number that comes before."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0008_d",
           "label": "D",
           "text": "5010",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 10 to 5000. The question asks for the number that immediately precedes 5000."
         }
       ],
       "explanation": "Subtracting 1 from 5000 yields 4999."
@@ -59996,19 +60056,22 @@
           "id": "q-clerical-ability-numeric-and-chronological-filing-0009_b",
           "label": "B",
           "text": "Leftmost primary digits",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You described standard consecutive filing. Terminal digit filing starts indexing with the last (rightmost) group of digits."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0009_c",
           "label": "C",
           "text": "Middle section digits",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the middle group. Middle digits are secondary in terminal digit filing, while the rightmost digits are primary."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0009_d",
           "label": "D",
           "text": "Random sequence digits",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed indexing is unorganized. Terminal digit filing follows a strict order starting from the rightmost digits."
         }
       ],
       "explanation": "Terminal digit filing indexes numbers by starting with the last (rightmost) group of digits."
@@ -60034,19 +60097,22 @@
           "id": "q-clerical-ability-numeric-and-chronological-filing-0010_b",
           "label": "B",
           "text": "Earliest historical date",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You described standard chronological filing. Reverse chronological filing places the newest date at the front."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0010_c",
           "label": "C",
           "text": "Middle calendar date",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a median date. Reverse chronological order places the newest date at the top and oldest at the bottom."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0010_d",
           "label": "D",
           "text": "Randomly picked date",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed reverse chronological sorting has no set order. It strictly places the most recent date at the top."
         }
       ],
       "explanation": "Reverse chronological filing places the most recent document at the front/top of the file folder."
@@ -60072,19 +60138,22 @@
           "id": "q-clerical-ability-numeric-and-chronological-filing-0011_b",
           "label": "B",
           "text": "88-451",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the number that follows 88-450. The question asks for the file number that precedes it."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0011_c",
           "label": "C",
           "text": "88-460",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 10 to the suffix. Consecutive filing counts by ones, so the preceding number is 88-449."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0011_d",
           "label": "D",
           "text": "89-000",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You incremented the prefix section. Preceding numbers decrease by 1, giving 88-449."
         }
       ],
       "explanation": "88-449 immediately precedes 88-450 in consecutive numerical sequence."
@@ -60110,19 +60179,22 @@
           "id": "q-clerical-ability-numeric-and-chronological-filing-0012_b",
           "label": "B",
           "text": "101-B before 101-A",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You inverted the alphabetical order of the suffixes. \"A\" comes before \"B\" when matching numeric prefixes exist."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0012_c",
           "label": "C",
           "text": "Sequenced by date only",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You ignored the letter suffixes. When document numbers carry letter suffixes, the suffixes determine their order."
         },
         {
           "id": "q-clerical-ability-numeric-and-chronological-filing-0012_d",
           "label": "D",
           "text": "Filed in separate drawers",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed suffix letters separate folders into different locations. Letter suffixes sub-sort files within the same numeric section."
         }
       ],
       "explanation": "Identical numeric prefixes are sub-sorted alphabetically by their letter suffixes, so 101-A comes before 101-B."
@@ -60152,19 +60224,22 @@
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0001_b",
           "label": "B",
           "text": "23",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 4 to the last term instead of 5. The pattern adds 5 to each term ( + 5 = 24$)."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0001_c",
           "label": "C",
           "text": "25",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 6 to the last term instead of 5. Each step increases by exactly 5 ( + 5 = 24$)."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0001_d",
           "label": "D",
           "text": "22",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 3 to the last term instead of 5. Check the difference between consecutive terms ( - 4 = 5$)."
         }
       ],
       "explanation": "Each term increases by 5 ($9-4=5$, $14-9=5$, $19-14=5$). The next term is $19+5=24$."
@@ -60194,19 +60269,22 @@
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0002_b",
           "label": "B",
           "text": "24",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted 1 from the correct term. The sequence adds 5 to 20, which equals 25."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0002_c",
           "label": "C",
           "text": "30",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 10 to the last term instead of 5. The constant difference is 5, giving  + 5 = 25$."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0002_d",
           "label": "D",
           "text": "22",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted 3 from the expected term. The step size is a constant +5."
         }
       ],
       "explanation": "Each term increases by 5. The next term is $20+5=25$."
@@ -60236,19 +60314,22 @@
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0003_b",
           "label": "B",
           "text": "108",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You multiplied 54 by 2 instead of 3. The ratio between consecutive terms is 3 ( \times 3 = 162$)."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0003_c",
           "label": "C",
           "text": "216",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You multiplied 54 by 4 instead of 3. The common ratio is  \\div 2 = 3$."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0003_d",
           "label": "D",
           "text": "150",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added a fixed amount instead of multiplying. This is a geometric sequence with ratio 3."
         }
       ],
       "explanation": "Each term is multiplied by 3 ($6\\div2=3$, $18\\div6=3$, $54\\div18=3$). The next term is $54\\times3=162$."
@@ -60278,19 +60359,22 @@
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0004_b",
           "label": "B",
           "text": "270",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You multiplied 135 by 2 instead of 3. The common ratio is 3 ( \times 3 = 405$)."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0004_c",
           "label": "C",
           "text": "540",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You multiplied 135 by 4 instead of 3. The sequence multiplies each term by 3."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0004_d",
           "label": "D",
           "text": "360",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You estimated the multiplication.  \times 3$ equals 405."
         }
       ],
       "explanation": "Each term is multiplied by 3 ($15\\div5=3$, $45\\div15=3$, $135\\div45=3$). The next term is $135\\times3=405$."
@@ -60320,19 +60404,22 @@
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0005_b",
           "label": "B",
           "text": "15",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 3 instead of 5. The differences are , 2, 3, 4$, so the next difference is $ ( + 5 = 17$)."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0005_c",
           "label": "C",
           "text": "16",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 4 again instead of increasing the difference to 5. The differences increase by 1 each step."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0005_d",
           "label": "D",
           "text": "18",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 6 to the last term instead of 5. The next step increment is 5, giving  + 5 = 17$."
         }
       ],
       "explanation": "The differences increase by 1 each time ($1, 2, 3, 4$), so the next difference is $5$. The next term is $12+5=17$."
@@ -60362,19 +60449,22 @@
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0006_b",
           "label": "B",
           "text": "14",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 3 to 11 instead of 5. The step sizes are , 2, 3, 4$, so the next addition is 5."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0006_c",
           "label": "C",
           "text": "15",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 4 again instead of increasing the step to 5. The difference increases by 1 each term."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0006_d",
           "label": "D",
           "text": "18",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 7 to 11. The next difference in the sequence is 5 ( + 5 = 16$)."
         }
       ],
       "explanation": "The differences increase by 1 each time ($1, 2, 3, 4$), so the next difference is $5$. The next term is $11+5=16$."
@@ -60404,19 +60494,22 @@
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0007_b",
           "label": "B",
           "text": "4",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated the even position pattern (, 8, 6, 4$) instead of the odd position pattern. The 7th term is an odd position (, 3, 5, 7$)."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0007_c",
           "label": "C",
           "text": "8",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You selected a value from the decreasing even sequence. The 7th term follows the odd sequence , 3, 5, 7$."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0007_d",
           "label": "D",
           "text": "9",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 4 to the 5th term instead of 2. The odd positions increase by 2 each time."
         }
       ],
       "explanation": "This sequence interleaves two patterns: odd positions increase by 2 ($1, 3, 5, \\ldots$) and even positions decrease by 2 ($10, 8, 6, \\ldots$). The 7th term (an odd position) continues $1, 3, 5, 7$, so the answer is $7$."
@@ -60446,19 +60539,22 @@
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0008_b",
           "label": "B",
           "text": "11",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 3 to 8. Fibonacci terms are formed by adding the two preceding terms ( + 8 = 13$)."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0008_c",
           "label": "C",
           "text": "12",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 4 to 8. In a Fibonacci sequence, each term is the sum of the previous two terms ( + 8 = 13$)."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0008_d",
           "label": "D",
           "text": "10",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 2 to 8. You must add the preceding term 5 to 8 to get 13."
         }
       ],
       "explanation": "Each term is the sum of the two terms before it (Fibonacci-style): $5+8=13$."
@@ -60488,19 +60584,22 @@
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0009_b",
           "label": "B",
           "text": "O",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You converted position 15 instead of 16. The position increments are , 3, 4$, so  + 5 = 16$, which is P."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0009_c",
           "label": "C",
           "text": "N",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You converted position 14. The next difference is 5, giving letter position  + 5 = 16$ (P)."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0009_d",
           "label": "D",
           "text": "Q",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You converted position 17 (adding 6 instead of 5). The next position increment is 5."
         }
       ],
       "explanation": "Converting to alphabet positions: $B=2, D=4, G=7, K=11$. The differences increase by 1 each time ($2, 3, 4$), so the next difference is $5$: $11+5=16$, which is the letter $P$."
@@ -60530,19 +60629,22 @@
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0010_b",
           "label": "B",
           "text": "H",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 1 letter position instead of 2. The sequence skips one letter each step (, 3, 5, 7, 9$), giving I."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0010_c",
           "label": "C",
           "text": "J",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 3 letter positions instead of 2.  + 2 = 9$, which corresponds to I."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0010_d",
           "label": "D",
           "text": "K",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 4 letter positions. The pattern has a constant difference of +2 in alphabet positions."
         }
       ],
       "explanation": "Converting to alphabet positions: $A=1, C=3, E=5, G=7$, each increasing by 2. The next position is $7+2=9$, which is the letter $I$."
@@ -60572,19 +60674,22 @@
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0011_b",
           "label": "B",
           "text": "The guess is correct: the next term is $17+2=19$.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed the first gap of +2 applies to all terms. The differences actually increase (, 3, 4, 5$), so the next term is  + 6 = 23$."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0011_c",
           "label": "C",
           "text": "The guess is correct, but only because every sequence must add a constant amount.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed sequences always add a constant amount. Sequences can have growing differences."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0011_d",
           "label": "D",
           "text": "Neither guess nor calculation can be verified from the given terms.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed the pattern cannot be determined. Five terms provide enough evidence to verify increasing differences."
         }
       ],
       "explanation": "Checking all the differences ($2, 3, 4, 5$) reveals they are increasing, not constant: a changing-difference pattern, not simple arithmetic. The correct next difference is $6$, giving $17+6=23$."
@@ -60614,19 +60719,22 @@
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0012_b",
           "label": "B",
           "text": "The guess is correct: the next term is $15\\times2=30$.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You relied on the first two terms alone. Checking all terms shows a constant addition of 3, not multiplication by 2."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0012_c",
           "label": "C",
           "text": "The guess is correct, since the first two terms alone are always enough to confirm any pattern.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed two terms are sufficient to confirm a pattern. Two terms can fit multiple rules."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0012_d",
           "label": "D",
           "text": "Neither an arithmetic nor a geometric pattern can describe this sequence.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You claimed no pattern describes the sequence. A constant difference of 3 describes it cleanly."
         }
       ],
       "explanation": "Two terms alone can match multiple possible patterns ($3, 6$ fits both \"add 3\" and \"multiply by 2\"). Checking the full sequence ($3, 6, 9, 12, 15$) confirms a constant difference of $3$ (arithmetic), not a constant ratio, so the next term is $15+3=18$."
@@ -60656,19 +60764,22 @@
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0013_b",
           "label": "B",
           "text": "The student made no mistake; \"21\" is an acceptable final answer for a letter sequence question.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You accepted a numerical output for a letter sequence. The numerical value must be converted back to a letter."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0013_c",
           "label": "C",
           "text": "The student's numeric calculation itself was wrong, regardless of the conversion step.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You focused on the math rather than the representation. The math 21 was correct, but required conversion to U."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0013_d",
           "label": "D",
           "text": "Letter sequences should always be answered using alphabet positions, never letters.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You inverted the output rule. Letter sequences require letter answers."
         }
       ],
       "explanation": "After solving a letter sequence using alphabet position numbers, you must always convert your final numeric answer back into its corresponding letter. Solving that the next number is $21$ is not the final answer if the question asks for a letter: the correct answer is $U$ (the 21st letter)."
@@ -60698,19 +60809,22 @@
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0014_b",
           "label": "B",
           "text": "O",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You converted position 15 instead of 16. The letter positions are , 7, 10, 13$, so  + 3 = 16$ (P)."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0014_c",
           "label": "C",
           "text": "Q",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 4 letter positions instead of 3 ( + 4 = 17$). The constant difference is +3."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0014_d",
           "label": "D",
           "text": "N",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 1 letter position instead of 3. The pattern increments by +3 alphabet positions."
         }
       ],
       "explanation": "Converting to alphabet positions: $D=4, G=7, J=10, M=13$, each increasing by 3. The next position is $13+3=16$, which is the letter $P$."
@@ -60740,19 +60854,22 @@
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0015_b",
           "label": "B",
           "text": "8",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated the odd positions (, 4, 6, 8$) instead of the even positions. The 8th term is an even position (, 18, 16, 14$)."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0015_c",
           "label": "C",
           "text": "12",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted 4 from 16 instead of 2. The even sequence decreases by 2 each step."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0015_d",
           "label": "D",
           "text": "10",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted 6 from 16. The even terms decrease by 2 (, 18, 16, 14$)."
         }
       ],
       "explanation": "This sequence interleaves two patterns: odd positions increase by 2 ($2, 4, 6, \\ldots$) and even positions decrease by 2 ($20, 18, 16, \\ldots$). The 8th term (an even position) continues $20, 18, 16, 14$, so the answer is $14$."
@@ -60782,19 +60899,22 @@
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0016_b",
           "label": "B",
           "text": "P",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You converted position 16 instead of 17. The position differences are , 2, 3, 4$, so  + 5 = 17$ (Q)."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0016_c",
           "label": "C",
           "text": "R",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You converted position 18 (adding 6 instead of 5). The next difference is 5."
         },
         {
           "id": "q-logical-verbal-reasoning-number-and-letter-sequences-0016_d",
           "label": "D",
           "text": "N",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You converted position 14. The position of L is 12 and the next difference is 5, giving 17 (Q)."
         }
       ],
       "explanation": "Converting to alphabet positions: $B=2, C=3, E=5, H=8, L=12$. The differences increase by 1 each time ($1, 2, 3, 4$), so the next difference is $5$: $12+5=17$, which is the letter $Q$."
@@ -60823,19 +60943,22 @@
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0001_b",
           "label": "B",
           "text": "All warm-blooded animals are mammals.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You reversed the direction of the premise. \"All mammals are warm-blooded\" does not mean all warm-blooded animals are mammals."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0001_c",
           "label": "C",
           "text": "A whale is not a mammal.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You contradicted the given premise. The premise explicitly states that a whale is a mammal."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0001_d",
           "label": "D",
           "text": "Some mammals are not warm-blooded.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You contradicted the universal premise. The rule states that all mammals are warm-blooded without exception."
         }
       ],
       "explanation": "Since all mammals are warm-blooded, and a whale is a mammal, the whale must also be warm-blooded."
@@ -60864,19 +60987,22 @@
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0002_b",
           "label": "B",
           "text": "All rectangles are squares.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You converted a universal statement into its converse. Being a rectangle does not automatically make a shape a square."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0002_c",
           "label": "C",
           "text": "Some four-sided shapes are not rectangles.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You made an inference outside the deductive chain. The premises connect squares, rectangles, and four sides, establishing that all squares have four sides."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0002_d",
           "label": "D",
           "text": "No squares have four sides.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You contradicted the combined premises. Since squares are rectangles and rectangles have four sides, all squares must have four sides."
         }
       ],
       "explanation": "If every square is a rectangle, and every rectangle has four sides, then every square must also have four sides."
@@ -60905,19 +61031,22 @@
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0003_b",
           "label": "B",
           "text": "Yes: passing the exam guarantees that a student studied hard.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed passing can only happen by studying hard. The premise says studying guarantees passing, not that passing requires studying."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0003_c",
           "label": "C",
           "text": "Yes: this follows the modus ponens pattern correctly.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You confused affirming the consequent with modus ponens. Modus ponens starts from the condition (studying), not the result (passing)."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0003_d",
           "label": "D",
           "text": "No: but only because Maria did not actually pass the exam.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You rejected the given fact that Maria passed. Logical validity evaluates the reasoning structure, assuming the premises are true."
         }
       ],
       "explanation": "This is the \"affirming the consequent\" fallacy. The premise only says studying leads to passing, not that passing can only happen by studying. Maria could have passed for other reasons."
@@ -60946,19 +61075,22 @@
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0004_b",
           "label": "B",
           "text": "Yes: if it did not rain, the ground must be dry.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed rain is the only possible cause of wet ground. Denying the condition does not rule out other causes of wetness."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0004_c",
           "label": "C",
           "text": "Yes: this follows the modus tollens pattern correctly.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You confused denying the antecedent with modus tollens. Modus tollens denies the result (ground wet), not the condition (rain)."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0004_d",
           "label": "D",
           "text": "No: but only because it actually did rain.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You rejected the premise statement that it did not rain. Validity tests logical inference, not empirical facts outside the premise."
         }
       ],
       "explanation": "This is the \"denying the antecedent\" fallacy. The premise only guarantees rain causes wetness; it does not rule out other causes of wetness when it does not rain."
@@ -60987,19 +61119,22 @@
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0005_b",
           "label": "B",
           "text": "No: the alarm could have been working even though it did not ring.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You ignored the premise guarantee. If a working alarm always rings during a fire, failing to ring proves it was not working."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0005_c",
           "label": "C",
           "text": "Yes: but only because the fire never actually happened.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You contradicted the scenario premise. The problem states that the fire did happen."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0005_d",
           "label": "D",
           "text": "No: this is the affirming the consequent fallacy.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You misidentified modus tollens. Denying the consequent (did not ring) validly proves the antecedent (working alarm) was false."
         }
       ],
       "explanation": "This matches modus tollens: \"If A, then B. B is false. Therefore, A is false.\" A working alarm guarantees ringing during a fire, so if it did not ring, it was not working."
@@ -61028,19 +61163,22 @@
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0006_b",
           "label": "B",
           "text": "This metal bar did not expand.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You contradicted modus ponens. Since heating causes expansion and the bar was heated, it must expand."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0006_c",
           "label": "C",
           "text": "This metal bar was not heated.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You contradicted the given premise that the bar was heated."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0006_d",
           "label": "D",
           "text": "All metals expand, whether heated or not.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You overstated the claim beyond the conditional premise. The premise only specifies behavior when heated."
         }
       ],
       "explanation": "This follows modus ponens: \"If A, then B. A is true. Therefore, B is true.\" Since heating causes expansion, and this bar was heated, it must have expanded."
@@ -61069,19 +61207,22 @@
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0007_b",
           "label": "B",
           "text": "It is both valid and sound, since the structure and conclusion both hold.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You ignored factual accuracy when checking soundness. An argument cannot be sound if its premise (\"all birds fly\") is false."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0007_c",
           "label": "C",
           "text": "It is neither valid nor sound, since the structure itself is broken.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You confused logical validity with factual truth. The logical structure is valid, even though the premise is false."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0007_d",
           "label": "D",
           "text": "It is sound but not valid, since the premise is false but the conclusion happens to be true.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You swapped the definitions of valid and sound. Validity refers to structure, while soundness requires true premises."
         }
       ],
       "explanation": "Structurally, this follows a valid pattern (all X have trait Y, Z is an X, therefore Z has trait Y). But the major premise is factually false, so the syllogism is valid but not sound."
@@ -61110,19 +61251,22 @@
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0008_b",
           "label": "B",
           "text": "Yes: a true conclusion always proves the argument that produced it was valid.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You judged validity by the conclusion outcome. Validity depends entirely on whether the premise structure logically forces the conclusion."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0008_c",
           "label": "C",
           "text": "No: but only because Maria did not actually pass the exam.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You disputed the premise fact instead of assessing the logical fallacy of affirming the consequent."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0008_d",
           "label": "D",
           "text": "Yes: validity is defined entirely by whether the conclusion matches reality.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You confused truth with validity. Truth concerns real-world facts, while validity concerns structural logic."
         }
       ],
       "explanation": "\"Maria passed the exam\" being true does not automatically make \"therefore she studied hard\" a valid deduction. The argument's structure itself (affirming the consequent) is flawed, regardless of whether Maria actually did study."
@@ -61151,19 +61295,22 @@
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0009_b",
           "label": "B",
           "text": "Yes: a conditional statement and its reverse always mean the same thing.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You treated a conditional statement and its converse as logically equivalent. Conditional statements are unidirectional."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0009_c",
           "label": "C",
           "text": "No: but only because rain never actually causes the ground to get wet.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You rejected the cause-and-effect premise instead of recognizing the fallacy of converting conditionals."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0009_d",
           "label": "D",
           "text": "Yes: \"if A, then B\" and \"if B, then A\" are logically identical statements.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed converse equivalence. \"If A then B\" is logically equivalent to its contrapositive (\"If not B then not A\"), not its converse."
         }
       ],
       "explanation": "Assuming \"if A, then B\" is interchangeable with \"if B, then A\" causes the affirming-the-consequent error. Only the original direction of the conditional is guaranteed by the premise."
@@ -61192,19 +61339,22 @@
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0010_b",
           "label": "B",
           "text": "Yes: validity and soundness mean exactly the same thing, so checking structure alone is sufficient.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You treated validity and soundness as identical concepts. Soundness requires both valid structure and true premises."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0010_c",
           "label": "C",
           "text": "No: but only because logical structure has no bearing on either validity or soundness.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You claimed structure does not matter. Structural correctness is the defining requirement for validity."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0010_d",
           "label": "D",
           "text": "Yes: soundness only depends on logical structure, never on whether premises are true.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assigned the definition of validity to soundness. Soundness explicitly requires true premises in the real world."
         }
       ],
       "explanation": "A valid argument has correct logical structure. A sound argument is valid and has premises that are actually true. Exam questions may ask specifically about one or the other: checking structure alone answers validity, not soundness."
@@ -61233,19 +61383,22 @@
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0011_b",
           "label": "B",
           "text": "A spider is an insect.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You ignored the premise requirement. If all insects have six legs, an animal with eight legs cannot be an insect."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0011_c",
           "label": "C",
           "text": "All six-legged animals are spiders.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You reversed the relationship and misapplied the categories. The premises say nothing about six-legged animals being spiders."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0011_d",
           "label": "D",
           "text": "Spiders have six legs.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You contradicted the explicit premise stating that a spider has eight legs."
         }
       ],
       "explanation": "Since all insects have six legs, and a spider has eight legs, the spider cannot be an insect: if it were, it would need to have exactly six legs."
@@ -61274,19 +61427,22 @@
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0012_b",
           "label": "B",
           "text": "Yes: a flashlight failing to turn on always means the battery is dead.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed a dead battery is the only reason a flashlight will not light."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0012_c",
           "label": "C",
           "text": "Yes: this is a valid modus tollens argument.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You confused affirming the consequent with modus tollens. Modus tollens requires the flashlight turning on to conclude the battery is not dead."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0012_d",
           "label": "D",
           "text": "No: but only because the flashlight actually did turn on.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You disputed the premise that the flashlight did not turn on."
         }
       ],
       "explanation": "This is \"affirming the consequent\" in reverse form: the premise only guarantees a dead battery prevents the flashlight from turning on, not that this is the only possible cause of failure."
@@ -61315,19 +61471,22 @@
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0013_b",
           "label": "B",
           "text": "This shape is a triangle.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You contradicted the modus tollens inference. Lacking a required trait of triangles means the shape cannot be a triangle."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0013_c",
           "label": "C",
           "text": "This shape has exactly three sides.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You contradicted the given premise stating the shape does not have three sides."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0013_d",
           "label": "D",
           "text": "Nothing can be concluded about this shape.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You overlooked modus tollens. Denying a necessary condition validly proves the shape is not a triangle."
         }
       ],
       "explanation": "This is modus tollens: since having three sides is guaranteed for triangles, and this shape lacks three sides, it cannot be a triangle."
@@ -61356,19 +61515,22 @@
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0014_b",
           "label": "B",
           "text": "Yes: passing a driving test always means someone is a licensed driver.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed passing a test is the sole condition for getting a license."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0014_c",
           "label": "C",
           "text": "Yes: this follows modus ponens correctly.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You misidentified affirming the consequent as modus ponens. Modus ponens starts with \"Juan is a licensed driver\"."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0014_d",
           "label": "D",
           "text": "No: but only because Juan never actually took a driving test.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You questioned the premise facts rather than analyzing the validity of the deduction."
         }
       ],
       "explanation": "This is \"affirming the consequent.\" The premise only says licensed drivers have passed a test, not that everyone who passes a test automatically becomes licensed: other requirements might still apply."
@@ -61397,19 +61559,22 @@
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0015_b",
           "label": "B",
           "text": "Yes: since a dolphin lives in water, and all fish live in water, a dolphin must be a fish.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed living in water is an exclusive property of fish."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0015_c",
           "label": "C",
           "text": "Yes: this is a valid deductive conclusion using modus ponens.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You misidentified affirming the consequent as modus ponens."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0015_d",
           "label": "D",
           "text": "No: but only because dolphins do not actually live in water.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You disputed the factual premise that dolphins live in water."
         }
       ],
       "explanation": "This is a category version of \"affirming the consequent.\" \"All fish live in water\" does not mean \"everything that lives in water is a fish\": a dolphin is actually a mammal, not a fish, despite living in water."
@@ -61438,19 +61603,22 @@
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0016_b",
           "label": "B",
           "text": "Both arguments are valid, since they use the same two facts about reptiles.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You treated argument structure as irrelevant. Premise order and direction determine validity."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0016_c",
           "label": "C",
           "text": "Both arguments are invalid, since neither can be evaluated without knowing if snakes are truly reptiles.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You confused deductive validity with empirical checking. Validity tests structural necessity given premises."
         },
         {
           "id": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0016_d",
           "label": "D",
           "text": "The first argument is valid, and the second is invalid, reversing the correct evaluation.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You inverted valid deduction and affirming the consequent."
         }
       ],
       "explanation": "The first argument reasons backward from a shared trait to category membership, which is invalid since other animals (like some fish and amphibians) are also cold-blooded. The second argument correctly reasons forward from confirmed category membership to a guaranteed trait, making it valid."
@@ -61479,19 +61647,22 @@
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0001_b",
           "label": "B",
           "text": "False",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You treated the conjunction as false. Conjunction ( \\land Q$) is true whenever both component statements are true."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0001_c",
           "label": "C",
           "text": "Cannot be determined",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed information was missing. Having true values for both $ and $ fully determines  \\land Q$ as true."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0001_d",
           "label": "D",
           "text": "Both true and false",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed a statement can hold two truth values at once. Propositions carry a single definite truth value."
         }
       ],
       "explanation": "\"And\" is true only when both statements are true. Since $P$ is true and $Q$ is true, \"$P \\land Q$\" is true."
@@ -61520,19 +61691,22 @@
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0002_b",
           "label": "B",
           "text": "True",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated conjunction as true when only one component is true. Conjunction requires both $ and $ to be true."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0002_c",
           "label": "C",
           "text": "Cannot be determined",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed  \\land Q$ cannot be evaluated. Since $ is false,  \\land Q$ is definitely false."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0002_d",
           "label": "D",
           "text": "Both true and false",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assigned dual truth values. A propositional statement is strictly true or false."
         }
       ],
       "explanation": "\"And\" requires both statements to be true. Since $Q$ is false, \"$P \\land Q$\" is false, even though $P$ is true."
@@ -61561,19 +61735,22 @@
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0003_b",
           "label": "B",
           "text": "False",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You failed to invert the truth value. Negation ($\\neg P$) flips false to true."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0003_c",
           "label": "C",
           "text": "Cannot be determined",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed negation requires external context. Negating a false statement always yields true."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0003_d",
           "label": "D",
           "text": "Both true and false",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assigned two values. Negation produces a single inverted truth value."
         }
       ],
       "explanation": "\"Not\" flips a statement's truth value. Since $P$ is false, \"$\\neg P$\" is true."
@@ -61602,19 +61779,22 @@
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0004_b",
           "label": "B",
           "text": "False",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You required both inputs to be true. Disjunction ( \\lor Q$) is true as long as at least one component is true."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0004_c",
           "label": "C",
           "text": "Cannot be determined",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed missing information. A true value for $ guarantees that  \\lor Q$ is true."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0004_d",
           "label": "D",
           "text": "Both true and false",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed non-deterministic truth values. Disjunction evaluates to a single truth value."
         }
       ],
       "explanation": "\"Or\" is true when at least one of the two statements is true. Here, $Q$ is true (even though $P$ is false), so \"$P \\lor Q$\" is true."
@@ -61643,19 +61823,22 @@
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0005_b",
           "label": "B",
           "text": "True",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated disjunction as true when neither component is true.  \\lor Q$ is false when both $ and $ are false."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0005_c",
           "label": "C",
           "text": "Cannot be determined",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed the result is unknown. False for both inputs makes disjunction strictly false."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0005_d",
           "label": "D",
           "text": "Both true and false",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assigned contradictory truth values to a disjunction."
         }
       ],
       "explanation": "\"Or\" is false only when both statements are false. Since both $P$ and $Q$ are false, \"$P \\lor Q$\" is false."
@@ -61684,19 +61867,22 @@
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0006_b",
           "label": "B",
           "text": "False",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed a false antecedent makes the implication false. A conditional statement is vacuous and true whenever its \"if\" part is false."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0006_c",
           "label": "C",
           "text": "Cannot be determined",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed a false antecedent leaves the conditional unknown. In formal logic,  \\rightarrow Q$ is true when $ is false."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0006_d",
           "label": "D",
           "text": "Both true and false",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assigned dual values to a conditional statement."
         }
       ],
       "explanation": "The conditional \"$P \\rightarrow Q$\" is false only when $P$ is true and $Q$ is false. Since $P$ is false here, this \"broken promise\" case does not apply, so \"$P \\rightarrow Q$\" is true."
@@ -61725,19 +61911,22 @@
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0007_b",
           "label": "B",
           "text": "True",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You overlooked the single false case of a conditional. An implication  \\rightarrow Q$ is false when $ is true and $ is false."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0007_c",
           "label": "C",
           "text": "Cannot be determined",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed the conditional cannot be evaluated. True antecedent with false consequent yields false."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0007_d",
           "label": "D",
           "text": "Both true and false",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assigned non-exclusive truth values."
         }
       ],
       "explanation": "The conditional \"$P \\rightarrow Q$\" is false only in this one case: $P$ true, $Q$ false. This is exactly that case, so \"$P \\rightarrow Q$\" is false."
@@ -61766,19 +61955,22 @@
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0008_b",
           "label": "B",
           "text": "Yes: the truth value of a conditional cannot be determined when its \"if\" part is false.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You applied everyday intuition instead of formal logic. In formal logic, a false antecedent guarantees the conditional is true."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0008_c",
           "label": "C",
           "text": "No: but only because conditionals are never actually true or false.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You claimed conditionals lack truth values. Conditionals always evaluate to either true or false in propositional logic."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0008_d",
           "label": "D",
           "text": "Yes: everyday intuition about conditionals always matches formal propositional logic exactly.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed intuition matches formal logic. Everyday usage often treats false antecedents as undefined, whereas formal logic defines them as true."
         }
       ],
       "explanation": "Everyday intuition might suggest that \"if $P$ is false, we can't say anything about the conditional,\" but formal propositional logic always assigns a definite truth value (true, in this case) to a conditional whose \"if\" part is false."
@@ -61807,19 +61999,22 @@
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0009_b",
           "label": "B",
           "text": "Yes: \"and\" and \"or\" always require the exact same condition to be true.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You equated conjunction and disjunction. \"And\" requires both components true, while \"or\" requires only one."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0009_c",
           "label": "C",
           "text": "No: but only because \"or\" can never be true under any circumstance.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You claimed disjunction can never be true. Disjunction is true whenever at least one component is true."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0009_d",
           "label": "D",
           "text": "Yes: both connectives are false whenever either statement is false.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You applied the rule of conjunction to disjunction. Disjunction is only false when both components are false."
         }
       ],
       "explanation": "Mixing up and and or is one of the most common truth-table errors. And is the stricter connective (requires both true), while or is more lenient (requires only at least one true)."
@@ -61848,19 +62043,22 @@
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0010_b",
           "label": "B",
           "text": "False",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated the outer disjunction as false. Since $ is true, the disjunction \"false $\\lor$ true\" evaluates to true."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0010_c",
           "label": "C",
           "text": "Cannot be determined",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed missing data. The individual truth values fully determine the compound expression."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0010_d",
           "label": "D",
           "text": "Both true and false",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assigned contradictory truth values to the expression."
         }
       ],
       "explanation": "First evaluate \"$P \\land Q$\": $P$ is true, $Q$ is false, so this is false (and requires both true). Then evaluate \"false $\\lor$ R\": since $R$ is true, and or is true when at least one side is true, the full expression is true."
@@ -61889,19 +62087,22 @@
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0011_b",
           "label": "B",
           "text": "True",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated the conjunction as true without checking $. Since $ is false, \"true $\\land$ false\" evaluates to false."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0011_c",
           "label": "C",
           "text": "Cannot be determined",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed the expression cannot be evaluated. The given inputs fully evaluate to false."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0011_d",
           "label": "D",
           "text": "Both true and false",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assigned dual truth values to a logic expression."
         }
       ],
       "explanation": "First evaluate \"$P \\lor Q$\": $P$ is false, $Q$ is true, so this is true (or requires at least one true). Then evaluate \"true $\\land$ R\": since $R$ is false, and requires both sides true, so the full expression is false."
@@ -61930,19 +62131,22 @@
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0012_b",
           "label": "B",
           "text": "The approach is correct: parentheses grouping does not affect the order of evaluation in propositional logic.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You claimed parentheses do not dictate evaluation order. Parentheses determine which connective evaluates first."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0012_c",
           "label": "C",
           "text": "The student's approach is correct, and the final answer is false.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You accepted an incorrect evaluation order that violates precedence in propositional logic."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0012_d",
           "label": "D",
           "text": "Neither the student's approach nor the correct approach can determine a final truth value.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You claimed compound expressions cannot be evaluated under any circumstances."
         }
       ],
       "explanation": "Evaluating combined expressions in the wrong order (ignoring parentheses grouping) produces an incorrect final truth value. Just like arithmetic order of operations, evaluate the innermost parentheses first: \"$P \\land Q$\" first, giving false, then \"false $\\lor R$,\" giving true."
@@ -61971,19 +62175,22 @@
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0013_b",
           "label": "B",
           "text": "False",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You forgot to negate $ before evaluating the conjunction. $\\neg P$ is true, so \"true $\\land$ true\" is true."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0013_c",
           "label": "C",
           "text": "Cannot be determined",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed the expression is incomplete. Knowing $ and $ fully determines the result as true."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0013_d",
           "label": "D",
           "text": "Both true and false",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assigned multiple truth values to a single propositional logic expression."
         }
       ],
       "explanation": "First, \"$\\neg P$\": since $P$ is false, \"$\\neg P$\" is true. Then, \"$\\neg P \\land Q$\" becomes \"true $\\land$ true,\" and since both sides are true, the result is true."
@@ -62012,19 +62219,22 @@
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0014_b",
           "label": "B",
           "text": "Or ($\\lor$)",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked disjunction. Disjunction is true when at least one statement is true, not only when both are true."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0014_c",
           "label": "C",
           "text": "Not ($\\neg$)",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked negation. Negation operates on a single statement, not a pair of statements."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0014_d",
           "label": "D",
           "text": "If...then ($\\rightarrow$)",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked implication. Implication is true in three out of four cases, including when the antecedent is false."
         }
       ],
       "explanation": "\"And\" ($\\land$) is true only when both statements are true, and false in every other case."
@@ -62053,19 +62263,22 @@
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0015_b",
           "label": "B",
           "text": "(T,T) → true, (T,F) → true, (F,T) → false, (F,F) → false",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You inverted the true and false cases of the conditional, placing false on (F,T) and (F,F)."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0015_c",
           "label": "C",
           "text": "(T,T) → false, (T,F) → false, (F,T) → true, (F,F) → true",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You flipped the truth value of (T,T). When $ and $ are both true,  \\rightarrow Q$ is true."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0015_d",
           "label": "D",
           "text": "(T,T) → true, (T,F) → false, (F,T) → false, (F,F) → false",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You treated the conditional like a conjunction. A false antecedent makes a conditional true, not false."
         }
       ],
       "explanation": "\"$P \\rightarrow Q$\" is false only in the one case where $P$ is true and $Q$ is false: (T,F) → false. Every other combination (T,T), (F,T) and (F,F) is true."
@@ -62094,19 +62307,22 @@
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0016_b",
           "label": "B",
           "text": "True",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated one of the sub-expressions as true.  \\rightarrow Q$ is false (true implies false), and $\\neg Q \\land R$ is false (true and false), so false $\\lor$ false is false."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0016_c",
           "label": "C",
           "text": "Cannot be determined",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed information was missing to resolve the nested connectives."
         },
         {
           "id": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0016_d",
           "label": "D",
           "text": "Both true and false",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assigned conflicting values to the expression."
         }
       ],
       "explanation": "First, \"$P \\rightarrow Q$\": $P$ true, $Q$ false is exactly the one false case for a conditional, so this is false. Next, \"$\\neg Q$\": since $Q$ is false, \"$\\neg Q$\" is true; then \"$\\neg Q \\land R$\" becomes \"true $\\land$ false\" (since $R$ is false), which is false (and requires both true). Finally, \"false $\\lor$ false\" is false."
@@ -62135,19 +62351,22 @@
           "id": "q-logical-verbal-reasoning-word-analogies-0001_b",
           "label": "B",
           "text": "Sharp",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked an adjective describing scissors rather than the primary function action."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0001_c",
           "label": "C",
           "text": "Paper",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the object acted upon rather than the action performed by the tool."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0001_d",
           "label": "D",
           "text": "Blade",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a component of scissors rather than the function action."
         }
       ],
       "explanation": "A pen is used to write. Applying the same \"used to\" pattern: scissors are used to cut."
@@ -62176,19 +62395,22 @@
           "id": "q-logical-verbal-reasoning-word-analogies-0002_b",
           "label": "B",
           "text": "Actor",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a collaborator who works with the director rather than the product created."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0002_c",
           "label": "C",
           "text": "Theater",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the venue where movies are shown rather than the work created by the director."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0002_d",
           "label": "D",
           "text": "Camera",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a tool used during production rather than the final creative work."
         }
       ],
       "explanation": "An author creates a book. Applying the same \"creates\" pattern: a director creates a movie."
@@ -62217,19 +62439,22 @@
           "id": "q-logical-verbal-reasoning-word-analogies-0003_b",
           "label": "B",
           "text": "Wood",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the material oak produces rather than its overarching category."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0003_c",
           "label": "C",
           "text": "Leaf",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a part of an oak tree rather than the general category."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0003_d",
           "label": "D",
           "text": "Forest",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the group environment where oak trees grow rather than the category."
         }
       ],
       "explanation": "A hammer is a type of tool: this is a category relationship. Applying the same pattern: an oak is a type of tree. \"Wood\" describes the material, not the category, so it does not match."
@@ -62258,19 +62483,22 @@
           "id": "q-logical-verbal-reasoning-word-analogies-0004_b",
           "label": "B",
           "text": "Leaf",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked another individual part of a plant rather than the whole structure containing the branch."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0004_c",
           "label": "C",
           "text": "Root",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked an opposing structural part rather than the parent organism."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0004_d",
           "label": "D",
           "text": "Forest",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You skipped a level of organization. A branch is a part of a single tree, not directly a part of a forest."
         }
       ],
       "explanation": "A petal is part of a flower: this is a part-to-whole relationship. Applying the same pattern: a branch is part of a tree."
@@ -62299,19 +62527,22 @@
           "id": "q-logical-verbal-reasoning-word-analogies-0005_b",
           "label": "B",
           "text": "Rain",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a weather phenomenon that often accompanies storms rather than the direct effect caused by lightning."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0005_c",
           "label": "C",
           "text": "Cloud",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the origin site of lightning rather than the sensory result produced by it."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0005_d",
           "label": "D",
           "text": "Wind",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked an associated storm element rather than the direct acoustic output of lightning."
         }
       ],
       "explanation": "Fire produces ash: a cause-and-effect relationship. Applying the same pattern: lightning produces (causes) thunder."
@@ -62340,19 +62571,22 @@
           "id": "q-logical-verbal-reasoning-word-analogies-0006_b",
           "label": "B",
           "text": "Calm",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked an antonym of angry instead of a synonym matching the relationship."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0006_c",
           "label": "C",
           "text": "Sad",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a different emotion instead of a word with a similar meaning to angry."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0006_d",
           "label": "D",
           "text": "Nervous",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked an unrelated state of mind rather than a synonym for angry."
         }
       ],
       "explanation": "Happy and joyful are synonyms (similar meaning). Applying the same pattern: angry and furious are synonyms."
@@ -62381,19 +62615,22 @@
           "id": "q-logical-verbal-reasoning-word-analogies-0007_b",
           "label": "B",
           "text": "Quick",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a synonym of fast instead of the antonym required by the first pair."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0007_c",
           "label": "C",
           "text": "Speedy",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a word with the same meaning as fast instead of an opposite."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0007_d",
           "label": "D",
           "text": "Rapid",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked another synonym for fast rather than its antonym."
         }
       ],
       "explanation": "Hot and cold are antonyms (opposite meaning). Applying the same pattern: fast and slow are antonyms."
@@ -62422,19 +62659,22 @@
           "id": "q-logical-verbal-reasoning-word-analogies-0008_b",
           "label": "B",
           "text": "Warm",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked an antonym for cool instead of increasing the thermal intensity in the same direction."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0008_c",
           "label": "C",
           "text": "Mild",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a word representing lower intensity rather than higher cold intensity."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0008_d",
           "label": "D",
           "text": "Humid",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You switched to a moisture quality instead of following the temperature intensity scale."
         }
       ],
       "explanation": "Warm and hot describe a difference in degree (intensity) of the same quality. Applying the same pattern: cool and cold are a matching pair, cold being the more intense version of cool."
@@ -62463,19 +62703,22 @@
           "id": "q-logical-verbal-reasoning-word-analogies-0009_b",
           "label": "B",
           "text": "Canvas",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the surface being painted on rather than the primary tool held by the worker."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0009_c",
           "label": "C",
           "text": "Wall",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a surface worked upon rather than the tool used by the painter."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0009_d",
           "label": "D",
           "text": "Color",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked an attribute of paint rather than the physical tool."
         }
       ],
       "explanation": "A carpenter is a worker who uses a hammer as their tool. Applying the same pattern: a painter is a worker who uses a brush as their tool."
@@ -62504,19 +62747,22 @@
           "id": "q-logical-verbal-reasoning-word-analogies-0010_b",
           "label": "B",
           "text": "Kitchen",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the workspace location rather than the handheld tool used by the worker."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0010_c",
           "label": "C",
           "text": "Restaurant",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the business establishment rather than the primary tool."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0010_d",
           "label": "D",
           "text": "Food",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the material prepared by the chef rather than the tool used."
         }
       ],
       "explanation": "A farmer is a worker who uses a tractor as their tool. Applying the same worker-to-tool pattern: a chef is a worker who uses a knife as their tool. \"Kitchen,\" \"restaurant,\" and \"food\" are merely related to a chef, but none of them is the chef's tool."
@@ -62545,19 +62791,22 @@
           "id": "q-logical-verbal-reasoning-word-analogies-0011_b",
           "label": "B",
           "text": "Paper is correct, since paper is closely associated with both writing and measuring.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You selected an associated material rather than a tool whose primary function matches the target action."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0011_c",
           "label": "C",
           "text": "Ruler is correct, but so is paper, since both are equally valid answers.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You treated associated objects and primary tools as equivalent in functional analogies."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0011_d",
           "label": "D",
           "text": "Neither ruler nor paper completes this analogy correctly.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You rejected ruler despite it matching the tool-to-function pattern established by pen and write."
         }
       ],
       "explanation": "A vague relationship sentence like \"these are related\" lets multiple choices seem to fit. The precise sentence \"a pen is used to write\" requires the second pair to follow \"used to measure\": matching \"ruler,\" not \"paper,\" which is merely associated with writing, not the function itself."
@@ -62586,19 +62835,22 @@
           "id": "q-logical-verbal-reasoning-word-analogies-0012_b",
           "label": "B",
           "text": "Yes: \"author\" correctly completes the analogy, since the relationship is the same in both directions.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed analogy relationships are symmetric regardless of word order."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0012_c",
           "label": "C",
           "text": "Yes: \"book is to author\" and \"author is to book\" always mean the exact same thing.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You ignored directional order in relational pairs."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0012_d",
           "label": "D",
           "text": "No: but only because books cannot have authors.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You disputed the existence of authors rather than analyzing word direction."
         }
       ],
       "explanation": "\"Author is to book\" (author creates book) is different from \"book is to author\" (book was created by author). Checking whether the relationship goes from first word to second word, or the reverse, and applying that same direction consistently is essential for a correct match."
@@ -62627,19 +62879,22 @@
           "id": "q-logical-verbal-reasoning-word-analogies-0013_b",
           "label": "B",
           "text": "Music",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the accompanying medium rather than the direct categorical type of a waltz."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0013_c",
           "label": "C",
           "text": "Ballroom",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the setting where a waltz is performed rather than its category."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0013_d",
           "label": "D",
           "text": "Composer",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the person who writes music rather than the category of waltz."
         }
       ],
       "explanation": "A sonnet is a type of poem: a category relationship. Applying the same pattern: a waltz is a type of dance."
@@ -62668,19 +62923,22 @@
           "id": "q-logical-verbal-reasoning-word-analogies-0014_b",
           "label": "B",
           "text": "Feather",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a smaller sub-component of a bird's wing rather than the whole vehicle."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0014_c",
           "label": "C",
           "text": "Sky",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the medium in which wings operate rather than the vehicle containing the wing."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0014_d",
           "label": "D",
           "text": "Flight",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the action enabled by wings rather than the whole object."
         }
       ],
       "explanation": "A wheel is part of a car: a part-to-whole relationship. Applying the same pattern: a wing is part of an airplane."
@@ -62709,19 +62967,22 @@
           "id": "q-logical-verbal-reasoning-word-analogies-0015_b",
           "label": "B",
           "text": "Cow, branch",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You selected branch, which is a structural part, but the question key expects leaf for the petal counterpart."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0015_c",
           "label": "C",
           "text": "Cat, leaf",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You paired calf with cat instead of cow. A calf is a young cow, not a cat."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0015_d",
           "label": "D",
           "text": "Horse, root",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You paired calf with horse instead of cow. A calf is a young cow."
         }
       ],
       "explanation": "First pair: a puppy is a baby dog, so a calf is a baby cow. Second pair: a petal is a part of a flower, so a leaf is a part of a tree. Checking both relationships together, \"cow, leaf\" satisfies both correctly."
@@ -62750,19 +63011,22 @@
           "id": "q-logical-verbal-reasoning-word-analogies-0016_b",
           "label": "B",
           "text": "Chicken, wheel",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You selected wheel for the engine starter. An ignition starts an engine, just as a key unlocks a lock."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0016_c",
           "label": "C",
           "text": "Rooster, ignition",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You paired chick with adult male rooster instead of the general species name chicken."
         },
         {
           "id": "q-logical-verbal-reasoning-word-analogies-0016_d",
           "label": "D",
           "text": "Duck, battery",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You paired chick with duck instead of chicken. A chick is a young chicken."
         }
       ],
       "explanation": "First pair: a kitten is a baby cat, so a chick is a baby chicken. Second pair: a key is used to start (unlock/activate) a lock, so an ignition is used to start an engine. Checking both relationships together, \"chicken, ignition\" satisfies both correctly."
@@ -62788,19 +63052,22 @@
           "id": "q-verbal-logic-assumptions-and-conclusions-0001_b",
           "label": "B",
           "text": "Bonuses will double for senior employees next year",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a future compensation change not required for the current statement to hold."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0001_c",
           "label": "C",
           "text": "Non-participating staff members will face penalty",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed non-participants are punished. The statement only addresses rewards for participants."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0001_d",
           "label": "D",
           "text": "Training programs are conducted outside city limits",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You introduced an irrelevant geographic requirement."
         }
       ],
       "explanation": "The statement assumes that completing the training program is an achievable goal, enabling employees to earn the bonus."
@@ -62826,19 +63093,22 @@
           "id": "q-verbal-logic-assumptions-and-conclusions-0002_b",
           "label": "B",
           "text": "Traffic congestion will vanish completely within two days",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed an extreme and instant elimination of traffic rather than a reasonable reduction mechanism."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0002_c",
           "label": "C",
           "text": "Public transit fare rates will decrease by fifty percent",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You introduced an unstated pricing assumption not required for transit expansion to lower car usage."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0002_d",
           "label": "D",
           "text": "City residents dislike walking to nearby municipal offices",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You introduced an irrelevant pedestrian behavioral preference."
         }
       ],
       "explanation": "The council's decision assumes that expanding transit routes encourages commuters to use public transit instead of private cars, reducing traffic."
@@ -62864,19 +63134,22 @@
           "id": "q-verbal-logic-assumptions-and-conclusions-0003_b",
           "label": "B",
           "text": "Maria is automatically appointed to a senior executive director role",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed passing one exam guarantees an immediate senior job appointment."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0003_c",
           "label": "C",
           "text": "Maria scored highest among all examination test takers nationwide",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed top rank performance when the premise states only that she passed."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0003_d",
           "label": "D",
           "text": "Maria is exempt from all future annual official evaluation tests",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You inferred future testing exemptions not stated in the premises."
         }
       ],
       "explanation": "Passing the ethics exam fulfills one mandatory requirement, but does not guarantee an immediate senior appointment or top score."
@@ -62902,19 +63175,22 @@
           "id": "q-verbal-logic-assumptions-and-conclusions-0004_b",
           "label": "B",
           "text": "It definitely rained heavily during assembly hours",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You committed the fallacy of affirming the consequent. Moving indoors could have occurred for other reasons."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0004_c",
           "label": "C",
           "text": "The outdoor venue was destroyed by severe winds",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You inferred extreme physical destruction not supported by the premises."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0004_d",
           "label": "D",
           "text": "Community members refused to attend outdoor events",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You inferred member refusal without premise evidence."
         }
       ],
       "explanation": "Holding the assembly indoors could be due to rain, but moving indoors could also happen for other unstated reasons."
@@ -62940,19 +63216,22 @@
           "id": "q-verbal-logic-assumptions-and-conclusions-0005_b",
           "label": "B",
           "text": "All customers prefer receiving digital billing receipts monthly",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed customer preference drives cost reduction."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0005_c",
           "label": "C",
           "text": "Paper invoices will be banned nationwide by government decree",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed an external legal ban motivated the company's decision."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0005_d",
           "label": "D",
           "text": "Processing digital receipts requires zero electrical energy consumption",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed digital billing requires zero energy, which is impossible and unnecessary for net savings."
         }
       ],
       "explanation": "Replacing paper with digital billing to cut costs assumes that processing digital bills incurs lower total expenses than paper invoicing."
@@ -62978,19 +63257,22 @@
           "id": "q-verbal-logic-assumptions-and-conclusions-0006_b",
           "label": "B",
           "text": "Vehicle A belongs to the department head",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You inferred specific ownership not indicated by the registration rule."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0006_c",
           "label": "C",
           "text": "Vehicle A was manufactured recently",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You introduced an irrelevant vehicle age feature."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0006_d",
           "label": "D",
           "text": "Vehicle A has electric power features",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You introduced an irrelevant engine type attribute."
         }
       ],
       "explanation": "Since unregistered vehicles are barred, any vehicle parked inside must be registered."
@@ -63016,19 +63298,22 @@
           "id": "q-verbal-logic-assumptions-and-conclusions-0007_b",
           "label": "B",
           "text": "Elena definitely does not hold any master's degree credential",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You committed denying the antecedent. Non-supervisors can also possess master's degrees."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0007_c",
           "label": "C",
           "text": "Elena is disqualified from holding any public office job title",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You inferred general job disqualification beyond the supervisor requirement."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0007_d",
           "label": "D",
           "text": "Elena will be appointed supervisor next month by executive vote",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed a future appointment contrary to her current status."
         }
       ],
       "explanation": "Holding a master's degree is a requirement for supervisors, but non-supervisors may still hold master's degrees."
@@ -63054,19 +63339,22 @@
           "id": "q-verbal-logic-assumptions-and-conclusions-0008_b",
           "label": "B",
           "text": "All residents produce zero non-recyclable waste products daily",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed an extreme zero-waste threshold rather than a 30% reduction contribution."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0008_c",
           "label": "C",
           "text": "Landfills in Municipality Y will close next year permanently",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You inferred complete and permanent landfill closure."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0008_d",
           "label": "D",
           "text": "Recycling facilities generate huge net financial profits yearly",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You introduced financial profitability assumptions unrelated to volume reduction."
         }
       ],
       "explanation": "Attributing the thirty percent drop to strict waste segregation assumes a causal link between segregation efforts and volume reduction."
@@ -63092,19 +63380,22 @@
           "id": "q-verbal-logic-assumptions-and-conclusions-0009_b",
           "label": "B",
           "text": "Juan scored highest in his class",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed Juan was top rank when the premise only guarantees he passed."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0009_c",
           "label": "C",
           "text": "Juan is guaranteed a job offer",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You inferred employment guarantees beyond passing the test."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0009_d",
           "label": "D",
           "text": "Juan will retake the test soon",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You inferred a retake despite Juan successfully passing."
         }
       ],
       "explanation": "Since 85% exceeds the 80% passing threshold, Juan necessarily passed the examination."
@@ -63130,19 +63421,22 @@
           "id": "q-verbal-logic-assumptions-and-conclusions-0010_b",
           "label": "B",
           "text": "All paper records will be destroyed today permanently",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed immediate destruction of historical paper records."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0010_c",
           "label": "C",
           "text": "Computer hardware systems never experience technical errors",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed zero technical failure, which is unrequired for reducing paper usage."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0010_d",
           "label": "D",
           "text": "Employees prefer reading computer screens over printed sheets",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed user media preferences drive paper savings."
         }
       ],
       "explanation": "Adopting electronic recordkeeping to reduce paper usage assumes that digital filing consumes less paper overall."
@@ -63168,19 +63462,22 @@
           "id": "q-verbal-logic-assumptions-and-conclusions-0011_b",
           "label": "B",
           "text": "Mark owns the building project",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You inferred project ownership rather than engineering credentials."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0011_c",
           "label": "C",
           "text": "Project A is located downtown",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You introduced an unstated geographic location."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0011_d",
           "label": "D",
           "text": "Project A cost millions of pesos",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You introduced an unstated financial cost."
         }
       ],
       "explanation": "Because only licensed engineers can approve building plans, Mark must be a licensed engineer to have approved them."
@@ -63206,19 +63503,22 @@
           "id": "q-verbal-logic-assumptions-and-conclusions-0012_b",
           "label": "B",
           "text": "Electricity rates dropped nationwide this month significantly",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You attributed the savings to external rate drops, which would negate the solar panel's causal role."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0012_c",
           "label": "C",
           "text": "School Z turned off all air conditioning units completely",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed air conditioning shutdown rather than solar generation caused the savings."
         },
         {
           "id": "q-verbal-logic-assumptions-and-conclusions-0012_d",
           "label": "D",
           "text": "School Z operates only during daytime operating hours",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed daytime-only operation instead of solar substitution."
         }
       ],
       "explanation": "Attributing lower electric bills to solar panels assumes that generated solar power substituted for utility grid electricity."
