@@ -39,7 +39,12 @@ NAMES_A_LETTER = re.compile(
 # that were addressed to the reader perfectly well.
 SECOND_PERSON = re.compile(
     r"\byou\b|\byour\b|\byou're\b"
-    r"|^(check|try|look|read|count|compare|watch|remember|notice|work)\b",
+    r"|^(check|try|look|read|count|compare|watch|remember|notice|work)\b"
+    # Filipino. Some vocabulary and idiom questions are in Filipino and
+    # their notes are too. A run asked to address the student in Filipino
+    # satisfied this rule by writing "You:" in front of a Tagalog
+    # sentence, 150 times, because the rule only knew English.
+    r"|\bmo(ng)?\b|\bka\b|\bikaw\b|\biyong\b|\bpinili\b|\bpiliin\b|\binakala\b",
     re.IGNORECASE,
 )
 MIN_LEN, MAX_LEN = 40, 400

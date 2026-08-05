@@ -13,11 +13,19 @@ questions:
       "Every one of the new laptops imported for the engineering team have arrived with pre-installed diagnostic software."
     choices:
       - text: "Every one of the new laptops"
+        rationale: |
+          You flagged this section, but "Every one of the new laptops" is grammatically sound as the introductory subject noun phrase.
       - text: "imported for the engineering team"
+        rationale: |
+          You flagged this section, but "imported for the engineering team" is a correct past-participial modifier.
       - text: "have arrived"
         correct: true
       - text: "with pre-installed diagnostic software."
+        rationale: |
+          You flagged this section, but "with pre-installed diagnostic software" is a valid prepositional modifier.
       - text: "No error"
+        rationale: |
+          You assumed there was no error, but "Every one" is a singular subject that requires the singular verb "has arrived."
     explanation: |
       "Every one" is a singular subject, so it requires the singular verb "has arrived" instead of the plural "have arrived."
 
@@ -30,11 +38,19 @@ questions:
       "The executive committee requested that all department heads submit their quarterly budget reports, update their inventory logs, and to review their staffing needs."
     choices:
       - text: "The executive committee"
+        rationale: |
+          You flagged this section, but "The executive committee" correctly functions as the subject of the main clause.
       - text: "requested that all department heads"
+        rationale: |
+          You flagged this section, but "requested that all department heads" properly sets up the subjunctive clause that follows.
       - text: "submit their quarterly budget reports,"
+        rationale: |
+          You flagged this section, but "submit their quarterly budget reports" correctly provides the first parallel base verb.
       - text: "update their inventory logs, and to review their staffing needs."
         correct: true
       - text: "No error"
+        rationale: |
+          You assumed there was no error, but "and to review" breaks the parallel list established by "submit" and "update."
     explanation: |
       Items in a series must follow parallel structure. The phrase should be "and review" (not "and to review") to match "submit" and "update."
 
@@ -49,9 +65,17 @@ questions:
       - text: "Walking through the newly renovated research facilities,"
         correct: true
       - text: "several state-of-the-art spectrometers"
+        rationale: |
+          You flagged the main subject, but "spectrometers" is grammatically sound; the error is that it cannot perform the walking.
       - text: "were noticed by"
+        rationale: |
+          You flagged the verb phrase, but "were noticed by" is valid passive voice; the error is the dangling opening modifier.
       - text: "the visiting delegates."
+        rationale: |
+          You flagged the prepositional object, but "the visiting delegates" is grammatically fine where it sits.
       - text: "No error"
+        rationale: |
+          You assumed there was no error, but "Walking..." is a dangling modifier because spectrometers cannot walk.
     explanation: |
       The introductory phrase "Walking through the newly renovated research facilities" is a dangling modifier. Spectrometers cannot walk, so the main clause should have a person as the subject.
 
@@ -64,11 +88,19 @@ questions:
       "The efficiency rating of the upgraded solar panel is significantly higher than the older models installed last winter."
     choices:
       - text: "The efficiency rating of the upgraded solar panel"
+        rationale: |
+          You flagged the subject phrase, but "The efficiency rating..." is correctly formed and clear.
       - text: "is significantly higher than"
+        rationale: |
+          You flagged the comparative phrase, but "is significantly higher than" correctly sets up a comparison.
       - text: "the older models"
         correct: true
       - text: "installed last winter."
+        rationale: |
+          You flagged the modifier at the end, but "installed last winter" properly describes the older models.
       - text: "No error"
+        rationale: |
+          You assumed there was no error, but comparing "efficiency rating" directly to "models" is an illogical comparison.
     explanation: |
       This is a faulty comparison. It compares "efficiency rating" to "models" instead of comparing "efficiency rating" to "efficiency rating of the older models."
 
@@ -81,11 +113,19 @@ questions:
       "The sudden drop in atmospheric pressure will adversely effect the performance of the high-altitude sensors."
     choices:
       - text: "The sudden drop in atmospheric pressure"
+        rationale: |
+          You flagged the subject noun phrase, but "The sudden drop..." is grammatically sound.
       - text: "will adversely"
+        rationale: |
+          You flagged the adverb phrase, but "will adversely" correctly modifies the action verb that follows.
       - text: "effect"
         correct: true
       - text: "the performance of the high-altitude sensors."
+        rationale: |
+          You flagged the object phrase, but "the performance..." is grammatically correct.
       - text: "No error"
+        rationale: |
+          You assumed there was no error, but "effect" is a noun here when the action verb "affect" is required.
     explanation: |
       "Effect" is used as a noun here, but the sentence needs the verb "affect" (to influence). The correct usage is "will adversely affect."
 
@@ -98,11 +138,19 @@ questions:
       "The lead scientist, whom had conducted extensive fieldwork in South America, presented her findings at the international symposium."
     choices:
       - text: "The lead scientist,"
+        rationale: |
+          You flagged the subject noun, but "The lead scientist" is grammatically correct.
       - text: "whom"
         correct: true
       - text: "had conducted extensive fieldwork"
+        rationale: |
+          You flagged the verb phrase, but "had conducted extensive fieldwork" is grammatically sound.
       - text: "in South America, presented her findings at the international symposium."
+        rationale: |
+          You flagged the predicate phrase, but this portion is grammatically sound.
       - text: "No error"
+        rationale: |
+          You assumed there was no error, but "whom" is used as a subject pronoun in this relative clause where "who" is required.
     explanation: |
       "Whom" is an objective pronoun, but this clause needs the nominative "who" because it is the subject of the clause "who had conducted."
 
@@ -115,11 +163,19 @@ questions:
       "When the supervisor spoke to the project manager after the presentation, he expressed dissatisfaction with the proposed timeline."
     choices:
       - text: "When the supervisor spoke to the project manager"
+        rationale: |
+          You flagged the introductory dependent clause, but its structure and prepositional phrasing are fine.
       - text: "after the presentation,"
+        rationale: |
+          You flagged the prepositional time phrase, but "after the presentation" is correctly punctuated and placed.
       - text: "he expressed"
         correct: true
       - text: "dissatisfaction with the proposed timeline."
+        rationale: |
+          You flagged the noun phrase, but "dissatisfaction with..." is grammatically sound.
       - text: "No error"
+        rationale: |
+          You assumed there was no error, but "he" is ambiguous because it could refer to either the supervisor or the manager.
     explanation: |
       The pronoun "he" is ambiguous: it could refer to either the supervisor or the project manager. The sentence should explicitly name which person expressed dissatisfaction.
 
@@ -132,11 +188,19 @@ questions:
       "By the time the audit committee finished inspecting the fiscal records, the accounting department already resolved all major discrepancies."
     choices:
       - text: "By the time the audit committee"
+        rationale: |
+          You flagged the opening clause marker, but "By the time..." correctly sets up a time relationship.
       - text: "finished inspecting the fiscal records,"
+        rationale: |
+          You flagged the dependent clause verb phrase, but "finished inspecting..." is correctly in simple past tense.
       - text: "the accounting department"
+        rationale: |
+          You flagged the subject of the main clause, but "the accounting department" is grammatically correct.
       - text: "already resolved"
         correct: true
       - text: "No error"
+        rationale: |
+          You assumed there was no error, but the earlier past action requires past perfect ("had already resolved").
     explanation: |
       When two past actions are described with one happening before the other, the earlier one needs past perfect tense. It should be "had already resolved" not "already resolved."
 
@@ -149,11 +213,19 @@ questions:
       "The company expanded its operations into three new regions, however, initial profits remained below projected expectations."
     choices:
       - text: "The company expanded its operations"
+        rationale: |
+          You flagged the initial independent clause, but "The company expanded..." is grammatically fine.
       - text: "into three new regions,"
         correct: true
       - text: "however,"
+        rationale: |
+          You flagged the subject and verb of the second clause, but "initial profits remained" is correct.
       - text: "initial profits remained"
+        rationale: |
+          You flagged the prepositional phrase, but "below projected expectations" is grammatically correct.
       - text: "No error"
+        rationale: |
+          You assumed there was no error, but joining two independent clauses with a comma before "however" forms a comma splice.
     explanation: |
       This sentence has a comma splice. "However" is a conjunctive adverb, not a coordinating conjunction. A semicolon should precede "however" to join these two independent clauses.
 
@@ -166,9 +238,17 @@ questions:
       "The research panel are presenting their individual evaluations at the conference today."
     choices:
       - text: "The research panel"
+        rationale: |
+          You flagged the subject noun phrase, but "The research panel" is grammatically valid.
       - text: "are presenting"
+        rationale: |
+          You flagged the plural verb, but here the panel refers to individual members taking separate actions.
       - text: "their individual evaluations"
+        rationale: |
+          You flagged the pronoun, but "their" correctly matches the plural reference to individual panel members.
       - text: "at the conference today."
+        rationale: |
+          You flagged the prepositional phrase, but "at the conference today" is grammatically sound.
       - text: "No error"
         correct: true
     explanation: |
@@ -183,11 +263,19 @@ questions:
       "The technician repaired the electrical generator using a heavy-duty wrench that had stopped working during the storm."
     choices:
       - text: "The technician repaired"
+        rationale: |
+          You flagged the main subject and verb, but "The technician repaired" is grammatically fine.
       - text: "the electrical generator"
+        rationale: |
+          You flagged the direct object, but "the electrical generator" is correctly written.
       - text: "using a heavy-duty wrench"
         correct: true
       - text: "that had stopped working during the storm."
+        rationale: |
+          You flagged the participial phrase, but "using a heavy-duty wrench" correctly describes the repair method.
       - text: "No error"
+        rationale: |
+          You assumed there was no error, but the relative clause is misplaced next to "wrench" instead of "generator."
     explanation: |
       The relative clause "that had stopped working" is misplaced. It appears to modify "wrench" but logically refers to "generator." The clause should come immediately after "generator."
 
@@ -200,11 +288,19 @@ questions:
       "The chief executive officer emphasized that the two merging firms must revert back to their core operational principles."
     choices:
       - text: "The chief executive officer emphasized"
+        rationale: |
+          You flagged the main subject and verb, but "The chief executive officer emphasized" is correct.
       - text: "that the two merging firms"
+        rationale: |
+          You flagged the subordinate clause introduction, but "that the two merging firms" is fine.
       - text: "must revert"
         correct: true
       - text: "back to their core operational principles."
+        rationale: |
+          You flagged "must revert," but modal verb phrasing is grammatically correct.
       - text: "No error"
+        rationale: |
+          You assumed there was no error, but "revert back" is redundant because "revert" already means to go back.
     explanation: |
       "Revert back" is redundant. The verb "revert" already means to return, so "back" is unnecessary. The sentence should say "must revert to."
 
@@ -219,9 +315,17 @@ questions:
       - text: "Between you and"
         correct: true
       - text: "I,"
+        rationale: |
+          You flagged the pronoun position, but the issue is using the nominative "I" after the preposition "Between."
       - text: "the proposed structural reforms"
+        rationale: |
+          You flagged the main clause subject, but "the proposed structural reforms" is grammatically sound.
       - text: "will require approval"
+        rationale: |
+          You flagged the verb phrase, but "will require approval" is grammatically correct.
       - text: "No error"
+        rationale: |
+          You assumed there was no error, but prepositions require objective pronouns, so it must be "Between you and me."
     explanation: |
       The preposition "Between" requires an objective pronoun. It should be "Between you and me" (not "I").
 
@@ -234,11 +338,19 @@ questions:
       "If the analysts would have reviewed the statistical data earlier, they would have caught the error before publication."
     choices:
       - text: "If the analysts"
+        rationale: |
+          You flagged the conditional subject, but "If the analysts" is grammatically sound.
       - text: "would have reviewed"
         correct: true
       - text: "the statistical data earlier,"
+        rationale: |
+          You flagged the noun phrase, but "the statistical data earlier" is correctly phrased.
       - text: "they would have caught"
+        rationale: |
+          You flagged the main clause verb, but "they would have caught" is the correct conditional result.
       - text: "No error"
+        rationale: |
+          You assumed there was no error, but hypothetical past conditions require past perfect ("had reviewed") in the if-clause.
     explanation: |
       In third conditional sentences, the if-clause requires past perfect ("had reviewed"), not "would have reviewed." The correct form is "If the analysts had reviewed..."
 
@@ -251,10 +363,18 @@ questions:
       "The architectural firm designed a sustainable office building, consequently, it won several regional design accolades."
     choices:
       - text: "The architectural firm designed"
+        rationale: |
+          You flagged the main clause, but "The architectural firm designed" is grammatically sound.
       - text: "a sustainable office building,"
         correct: true
       - text: "consequently,"
+        rationale: |
+          You flagged the direct object, but "a sustainable office building" is grammatically correct.
       - text: "it won"
+        rationale: |
+          You flagged the second clause subject and verb, but "it won" is grammatically fine.
       - text: "No error"
+        rationale: |
+          You assumed there was no error, but joining two main clauses with a comma before "consequently" is a comma splice.
     explanation: |
       This sentence has a comma splice. "Consequently" is a conjunctive adverb, not a coordinating conjunction. A semicolon should replace the comma before "consequently."

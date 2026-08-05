@@ -13,8 +13,14 @@ questions:
       - text: Fleeting
         correct: true
       - text: Eternal
+        rationale: |
+          You picked "eternal," which is an antonym of ephemeral (lasting forever rather than a short time).
       - text: Glowing
+        rationale: |
+          You picked "glowing," which describes brightness or light rather than short duration.
       - text: Rigid
+        rationale: |
+          You picked "rigid," which means stiff or inflexible, which is unrelated to time or duration.
     explanation: |
       "Ephemeral" means lasting for a very short time. "Fleeting" means passing quickly, matching this meaning. "Eternal" means the opposite (lasting forever), "glowing" means shining brightly, and "rigid" means stiff or hard.
     approved: true
@@ -28,8 +34,14 @@ questions:
       - text: Aggravate
         correct: true
       - text: Alleviate
+        rationale: |
+          You picked "alleviate," which is a synonym of mitigate (to lessen severity), whereas the question asks for an antonym.
       - text: Placate
+        rationale: |
+          You picked "placate," which means to soothe or appease (a synonym-like response rather than an antonym).
       - text: Isolate
+        rationale: |
+          You picked "isolate," which means to separate or set apart, which does not mean to make worse.
     explanation: |
       "Mitigate" means to make a problem less painful or severe. "Aggravate" means to make a problem much worse: the opposite. "Alleviate" and "placate" are synonyms of "mitigate," not opposites, and "isolate" means to separate someone.
     approved: true
@@ -43,8 +55,14 @@ questions:
       - text: Nasira
         correct: true
       - text: Natupad
+        rationale: |
+          Pinili mo ang "natupad," ngunit ang sakuna ay nagdudulot ng pagkawasak ng pangarap, hindi ng pagkatupad.
       - text: Naglaho
+        rationale: |
+          Pinili mo ang "naglaho," ngunit ang "gumuho" sa kontekstong ito ay tumutukoy sa direktang pagkawasak (nasira).
       - text: Lumaki
+        rationale: |
+          Pinili mo ang "lumaki," na hindi angkop sa sakunang sumira sa pangarap.
     explanation: |
       Ang "gumuho" ay nangangahulugang bumagsak o gumuho, katulad ng "nasira." Ang "natupad" ay nangangahulugang natapos nang maayos, ang "naglaho" ay nawala, at ang "lumaki" ay tumaas ang laki: hindi ito angkop sa pangungusap.
     approved: true
@@ -58,8 +76,14 @@ questions:
       - text: Mayaman
         correct: true
       - text: Mahirap
+        rationale: |
+          Pinili mo ang "mahirap," ngunit kasingkahulugan ito ng maralita, samantalang kasalungat ang hinahanap.
       - text: Masipag
+        rationale: |
+          Pinili mo ang "masipag," ngunit ang kasipagan ay hindi kasalungat ng katayuan sa buhay (maralita).
       - text: Tamad
+        rationale: |
+          Pinili mo ang "tamad," ngunit ang tamad ay kasalungat ng masipag, hindi ng maralita.
     explanation: |
       Ang "maralita" ay nangangahulugang mahirap. Ang kasalungat ng mahirap ay mayaman. Ang "mahirap" ay kasingkahulugan (hindi kasalungat), samantalang ang "masipag" at "tamad" ay walang kaugnayan sa kayamanan.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: Flattering
         correct: true
       - text: Rebellious
+        rationale: |
+          You picked "rebellious," which means resisting authority, contrasting with an assistant who agrees with everything.
       - text: Intelligent
+        rationale: |
+          You picked "intelligent," but sycophantic behavior refers to insincere praise rather than intellect.
       - text: Lazy
+        rationale: |
+          You picked "lazy," but sycophantic describes kissing up to superiors rather than lack of effort.
     explanation: |
       The assistant "agreed with every terrible idea" just to "get a quick promotion": giving fake praise to get a reward. "Flattering" means giving too much praise, matching this behavior perfectly.
     approved: true
@@ -88,8 +118,14 @@ questions:
       - text: Precise
         correct: true
       - text: Careless
+        rationale: |
+          You picked "careless," which is an antonym of meticulous (showing no care or detail).
       - text: Fast
+        rationale: |
+          You picked "fast," but meticulous refers to thoroughness and precision rather than speed.
       - text: Loud
+        rationale: |
+          You picked "loud," which describes sound volume rather than careful attention to detail.
     explanation: |
       "Meticulous" means showing great attention to detail and being very careful. "Precise" is the closest match; "careless" is nearly opposite, and "fast" and "loud" are unrelated.
     approved: true
@@ -103,8 +139,14 @@ questions:
       - text: Malevolent
         correct: true
       - text: Kind
+        rationale: |
+          You picked "kind," which is a synonym of benevolent, whereas the question asks for the opposite meaning.
       - text: Wealthy
+        rationale: |
+          You picked "wealthy," which describes financial status rather than good intent toward others.
       - text: Shy
+        rationale: |
+          You picked "shy," which describes social bashfulness rather than harmful intent.
     explanation: |
       "Benevolent" means kind and generous. "Malevolent" means having ill will or wanting to harm others: the direct opposite. "Kind" is actually a synonym, not an antonym.
     approved: true
@@ -118,8 +160,14 @@ questions:
       - text: Mabait
         correct: true
       - text: Galit
+        rationale: |
+          Pinili mo ang "galit," ngunit kasalungat ito ng salitang magiliw (palakaibigan at mabait).
       - text: Tamad
+        rationale: |
+          Pinili mo ang "tamad," ngunit ang tamad ay ukol sa pagkilos at hindi sa pagiging magiliw.
       - text: Mayabang
+        rationale: |
+          Pinili mo ang "mayabang," ngunit ang mayabang ay ukol sa pagmamalaki at hindi kasingkahulugan ng magiliw.
     explanation: |
       Ang "magiliw" ay nangangahulugang mapagmahal o palakaibigan. Ang "mabait" ang pinakamalapit na kasingkahulugan; ang "galit," "tamad," at "mayabang" ay hindi angkop.
     approved: true
@@ -133,8 +181,14 @@ questions:
       - text: Duwag
         correct: true
       - text: Malakas
+        rationale: |
+          Pinili mo ang "malakas," ngunit ang lakas ng katawan ay hindi tuwirang kasalungat ng lakas ng loob (matapang).
       - text: Matalino
+        rationale: |
+          Pinili mo ang "matalino," ngunit ang talino ay hindi kasalungat ng katapangan.
       - text: Mabait
+        rationale: |
+          Pinili mo ang "mabait," ngunit ang kabaitan ay hindi kasalungat ng katapangan.
     explanation: |
       Ang "matapang" ay nangangahulugang may lakas ng loob. Ang tuwirang kasalungat nito ay "duwag" (walang lakas ng loob). Ang "malakas," "matalino," at "mabait" ay hindi tuwirang kasalungat.
     approved: true
@@ -148,8 +202,14 @@ questions:
       - text: Deceptive
         correct: true
       - text: Honest
+        rationale: |
+          You fell for the trap choice: "honest" is a synonym of candid, but the question asks for the antonym.
       - text: Quiet
+        rationale: |
+          You picked "quiet," which refers to volume or speech frequency rather than deceit.
       - text: Angry
+        rationale: |
+          You picked "angry," which describes emotion rather than honesty or deception.
     explanation: |
       "Candid" means honest and straightforward. Test makers often place a synonym like "honest" (choice A here) as a trap on antonym questions, hoping you'll recognize the meaning of "candid" and quickly pick it without checking that the question asks for the opposite. The true antonym is "deceptive."
     approved: true
@@ -163,8 +223,14 @@ questions:
       - text: Malungkot
         correct: true
       - text: Natutuwa
+        rationale: |
+          Pinili mo ang kasingkahulugan na "natutuwa," ngunit ang tanong ay humihingi ng kasalungat (malungkot).
       - text: Mabait
+        rationale: |
+          Pinili mo ang "mabait," ngunit ang kabaitan ay hindi kasalungat ng damdamin ng kasayahan.
       - text: Matalino
+        rationale: |
+          Pinili mo ang "matalino," ngunit ang talino ay walang kaugnayan sa kasalungat ng masaya.
     explanation: |
       Madalas naglalagay ang mga gumagawa ng pagsusulit ng kasingkahulugan (tulad ng "natutuwa" dito) bilang bitag sa mga tanong tungkol sa kasalungat, umaasang mapipili mo agad ito dahil kahawig ito ng "masaya." Ang tunay na kasalungat ay "malungkot."
     approved: true
@@ -178,8 +244,14 @@ questions:
       - text: To stop eating
         correct: true
       - text: Quick
+        rationale: |
+          You picked the common meaning "quick," but in this sentence "fast" is used as a verb meaning to abstain from food.
       - text: To run
+        rationale: |
+          You picked "to run," confusing the adverb meaning of moving quickly with the verb form used here.
       - text: To sleep
+        rationale: |
+          You picked "to sleep," which is unrelated to the context of eating nothing until sundown.
     explanation: |
       "Fast" usually means quick, but here the sentence describes monks "eating nothing until sundown": a hidden second meaning of "fast," which is to stop eating (as in a religious fast). Always read the whole sentence to see how the word is actually acting.
     approved: true
@@ -193,8 +265,14 @@ questions:
       - text: Daring
         correct: true
       - text: Fearful
+        rationale: |
+          You picked "fearful," which is an antonym of audacious (timid or afraid to take risks).
       - text: Quiet
+        rationale: |
+          You picked "quiet," which describes sound or demeanor rather than boldness.
       - text: Generous
+        rationale: |
+          You picked "generous," which describes willingness to give rather than willingness to take risks.
     explanation: |
       "Audacious" means bold and willing to take risks. "Daring" is the closest match; "fearful" is nearly opposite, and "quiet" and "generous" are unrelated.
     approved: true
@@ -208,8 +286,14 @@ questions:
       - text: Scarce
         correct: true
       - text: Plentiful
+        rationale: |
+          You fell for the trap synonym "plentiful," whereas the question asks for an antonym.
       - text: Heavy
+        rationale: |
+          You picked "heavy," which describes physical weight rather than quantity.
       - text: Fast
+        rationale: |
+          You picked "fast," which describes speed rather than amount or supply.
     explanation: |
       "Abundant" means existing in large quantities. "Scarce" means existing in very small quantities: the direct opposite. "Plentiful" is actually a synonym, not an antonym.
     approved: true
@@ -223,8 +307,14 @@ questions:
       - text: Matatag
         correct: true
       - text: Tamad
+        rationale: |
+          Pinili mo ang "tamad," ngunit ang tamad ay kasalungat ng masipag, hindi kasingkahulugan ng matiyaga.
       - text: Mayabang
+        rationale: |
+          Pinili mo ang "mayabang," ngunit ang pagmamayabang ay walang kaugnayan sa pagiging matiyaga.
       - text: Galit
+        rationale: |
+          Pinili mo ang "galit," ngunit ang galit ay isang damdamin at hindi kasingkahulugan ng matiyaga.
     explanation: |
       Ang "matiyaga" ay nangangahulugang nagtitiyaga o hindi sumusuko. Ang "matatag" (steadfast) ang pinakamalapit na kasingkahulugan; ang iba ay hindi angkop.
     approved: true
@@ -238,8 +328,14 @@ questions:
       - text: Sinungaling
         correct: true
       - text: Tapat
+        rationale: |
+          Pinili mo ang kasingkahulugan na "tapat," ngunit kasalungat ang hinahanap sa tanong.
       - text: Masipag
+        rationale: |
+          Pinili mo ang "masipag," ngunit ang kasipagan ay hindi kasalungat ng katapatan.
       - text: Matalino
+        rationale: |
+          Pinili mo ang "matalino," ngunit ang karunungan ay hindi kasalungat ng katapatan.
     explanation: |
       Ang "matapat" ay nangangahulugang tapat o may katapatan. Ang tuwirang kasalungat nito ay "sinungaling" (madalas magsinungaling). Ang "tapat" ay kasingkahulugan lamang, hindi kasalungat.
     approved: true
@@ -253,8 +349,14 @@ questions:
       - text: "Arrogant"
         correct: true
       - text: "Modest"
+        rationale: |
+          You picked "modest," but modest is a synonym of humble rather than its antonym.
       - text: "Unassuming"
+        rationale: |
+          You picked "unassuming," but unassuming is a synonym of humble, not an antonym.
       - text: "Meek"
+        rationale: |
+          You picked "meek," but meek is a synonym of humble rather than its opposite.
     explanation: |
       If you must guess an antonym, look at all 4 choices together. Here, "modest," "unassuming," and "meek" all mean nearly the same thing as "humble" itself, so the one odd choice left behind, "arrogant," must be the true antonym.
     approved: true
@@ -268,8 +370,14 @@ questions:
       - text: Indolent
         correct: true
       - text: Hardworking
+        rationale: |
+          You picked "hardworking," which is a synonym of diligent rather than its antonym.
       - text: Careful
+        rationale: |
+          You picked "careful," which describes a quality of diligent work rather than the antonym.
       - text: Happy
+        rationale: |
+          You picked "happy," which describes emotional state rather than willingness to work.
     explanation: |
       The antonym of "diligent" (hardworking) is "lazy." The word most similar in meaning to "lazy" among the choices is "indolent," which also means lazy or avoiding work.
     approved: true

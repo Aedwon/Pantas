@@ -13,8 +13,14 @@ questions:
       - text: Covered in cheese is misplaced, making it sound like the customer is covered in cheese; it should read The waiter served the customer the pasta covered in cheese.
         correct: true
       - text: There is no error in this sentence.
+        rationale: |
+          You assumed the sentence was fine, but "covered in cheese" sits next to "customer." That makes it sound like the customer was covered in cheese instead of the pasta.
       - text: Served should be changed to serves.
+        rationale: |
+          You focused on verb tense, but "served" is already correct in past tense. The real issue is that "covered in cheese" sits next to the wrong noun.
       - text: The sentence needs a comma after "pasta."
+        rationale: |
+          You focused on punctuation instead of word order. A comma will not fix the fact that "covered in cheese" describes the customer instead of the pasta.
     explanation: |
       As written, "covered in cheese" sits right after "customer," making it sound like the customer is covered in cheese, not the pasta. Moving the modifier closer to "pasta" fixes the error.
     approved: true
@@ -28,8 +34,14 @@ questions:
       - text: 'This is a dangling modifier: "after finishing the marathon" has no logical subject, since a bath cannot finish a marathon; it should read "After finishing the marathon, she felt that a warm bath was amazing."'
         correct: true
       - text: There is no error in this sentence.
+        rationale: |
+          You assumed the sentence was correct, but "after finishing the marathon" describes the subject that follows it. A bath cannot finish a marathon.
       - text: Amazing should be changed to amazed.
+        rationale: |
+          You focused on changing the adjective form, but "amazing" correctly describes the bath. The real error is that the bath cannot run a marathon.
       - text: The sentence needs a semicolon instead of a comma.
+        rationale: |
+          You focused on punctuation rather than logic. Changing the punctuation does not provide a person who finished the marathon.
     explanation: |
       "After finishing the marathon" needs a person who finished the marathon, but the sentence's actual subject is "a warm bath": baths cannot run marathons. Adding the correct subject fixes the dangling modifier.
     approved: true
@@ -43,8 +55,14 @@ questions:
       - text: Driving through the mountains, the tourists were amazed by the scenery.
         correct: true
       - text: Driving through the mountains, the scenery amazed the tourists.
+        rationale: |
+          You picked a sentence where "driving through the mountains" attaches to "scenery." Scenery cannot drive a vehicle.
       - text: Both sentences are correctly modified.
+        rationale: |
+          You assumed both sentences work, but scenery cannot drive through mountains. Only the tourists can perform that action.
       - text: Neither sentence is correctly modified.
+        rationale: |
+          You rejected the sentence where "driving through the mountains" correctly sits right before "the tourists."
     explanation: |
       In the correct choice, "driving through the mountains" correctly attaches to "the tourists," who are capable of driving. In the incorrect version, the scenery cannot drive.
     approved: true
@@ -58,8 +76,14 @@ questions:
       - text: In the first, "only" modifies "she" (she alone gave it); in the second, "only" modifies "him" (he alone received it).
         correct: true
       - text: Both sentences mean exactly the same thing.
+        rationale: |
+          You assumed the position of "only" does not matter. Putting "only" before "she" limits who gave the answer, while putting it before "him" limits who received it.
       - text: The first sentence is grammatically incorrect.
+        rationale: |
+          You assumed "only" cannot come first in a sentence. Placing "only" before "she" is completely valid and emphasizes that she alone gave the answer.
       - text: Only has no effect on meaning in either sentence.
+        rationale: |
+          You assumed "only" is just filler. Placing "only" next to different words changes who did the action versus who received the result.
     explanation: |
       Moving the single word "only" changes exactly who the sentence is emphasizing: a small modifier can be just as sensitive to placement as a long phrase.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: With a torn cover is misplaced, making it sound like the student has a torn cover; it should read The librarian handed the student the book with a torn cover.
         correct: true
       - text: There is no error in this sentence.
+        rationale: |
+          You overlooked the placement mistake. The phrase describing the torn cover is attached to the student rather than the item being read.
       - text: Handed should be changed to hands.
+        rationale: |
+          You focused on verb tense instead of word order. The past tense "handed" is fine, but "with a torn cover" is attached to the wrong noun.
       - text: The sentence needs a comma after "book."
+        rationale: |
+          You looked for a punctuation error, but adding a comma does not move "with a torn cover" next to "book."
     explanation: |
       As written, "with a torn cover" sits right after "student," making it sound like the student has a torn cover, not the book.
     approved: true
@@ -88,8 +118,14 @@ questions:
       - text: 'This is a dangling modifier: "rushing to catch the bus" has no logical subject, since coffee cannot rush; it should read "Rushing to catch the bus, I spilled my coffee everywhere."'
         correct: true
       - text: There is no error in this sentence.
+        rationale: |
+          You overlooked the dangling phrase. The subject following the comma is "my coffee," which makes the action impossible.
       - text: Spilled should be changed to spills.
+        rationale: |
+          You focused on verb tense, but "spilled" is correct. The real error is that the introductory phrase describes coffee instead of a person.
       - text: The sentence needs a semicolon instead of a comma.
+        rationale: |
+          You looked for a punctuation error, but changing the punctuation does not fix the dangling modifier.
     explanation: |
       "Rushing to catch the bus" needs a person who was rushing, but the sentence's actual subject is "my coffee": coffee cannot rush anywhere.
     approved: true
@@ -103,8 +139,14 @@ questions:
       - text: Exhausted from the long hike, the campers set up their tents quickly.
         correct: true
       - text: Exhausted from the long hike, the tents were set up quickly.
+        rationale: |
+          You picked a sentence where "exhausted from the long hike" attaches to "tents." Tents cannot feel exhausted.
       - text: Both sentences are correctly modified.
+        rationale: |
+          You assumed both sentences work, but tents cannot be exhausted from a hike. Only the campers can be exhausted.
       - text: Neither sentence is correctly modified.
+        rationale: |
+          You rejected the sentence where "exhausted from the long hike" correctly modifies "the campers."
     explanation: |
       In the correct choice, "exhausted from the long hike" correctly attaches to "the campers," who are capable of being exhausted. Tents cannot be exhausted.
     approved: true
@@ -118,8 +160,14 @@ questions:
       - text: In the first, "only" modifies the action of eating (eating was all she did); in the second, "only" modifies "vegetables" (vegetables were all she ate).
         correct: true
       - text: Both sentences mean exactly the same thing.
+        rationale: |
+          You assumed the placement of "only" has no effect. Placing it before "ate" limits her action to eating, while placing it before "vegetables" limits what she ate.
       - text: The first sentence is grammatically incorrect.
+        rationale: |
+          You assumed "only ate" is ungrammatical. It is valid English, but it means eating was the only thing she did.
       - text: Only has no effect on meaning in either sentence.
+        rationale: |
+          You ignored how "only" modifies the word that immediately follows it. Moving "only" alters the entire emphasis of the sentence.
     explanation: |
       "She only ate vegetables" (eating, not some other activity, was all she did) is subtly different from "She ate only vegetables" (vegetables, and nothing else, was what she ate).
     approved: true
@@ -133,8 +181,14 @@ questions:
       - text: 'No: check what the modifier logically should describe (the pasta), not just whichever noun happens to sit closest; test-makers deliberately place unrelated nouns near modifiers to create confusing sentences.'
         correct: true
       - text: 'Yes: a modifier always describes the nearest noun, regardless of logic.'
+        rationale: |
+          You assumed proximity overrides logic. A modifier must logically describe the noun it sits next to, so placing it next to the wrong noun creates an error.
       - text: 'Yes: but only because a customer could logically be covered in cheese.'
+        rationale: |
+          You assumed the sentence was correct because the imagery is possible. Grammar requires the modifier to sit next to what the writer actually intends to describe.
       - text: 'No: but only because "covered in cheese" is not actually a modifier.'
+        rationale: |
+          You mistook "covered in cheese" for a main clause or noun. It is a participial phrase acting as an adjective modifier.
     explanation: |
       Test-makers deliberately place an unrelated noun right next to a modifier phrase to create a silly or confusing misplaced-modifier sentence, hoping you won't notice the mismatch.
     approved: true
@@ -148,8 +202,14 @@ questions:
       - text: 'No: despite sounding smooth, a bath cannot finish a marathon; slow down and ask specifically who or what is performing the introductory action to catch this dangling modifier.'
         correct: true
       - text: 'Yes: if a sentence sounds smooth when read aloud, it cannot have a dangling modifier.'
+        rationale: |
+          You relied on sound rather than logic. Dangling modifiers often sound smooth until you check whether the subject can perform the action.
       - text: 'Yes: but only because baths are commonly associated with relaxation after exercise.'
+        rationale: |
+          You relied on real-world associations rather than grammatical structure. The sentence literally claims the bath finished the marathon.
       - text: 'No: but only because the sentence is missing a comma.'
+        rationale: |
+          You focused on missing punctuation, but the sentence already has a comma. The issue is that "a warm bath" cannot finish a marathon.
     explanation: |
       Sentences with dangling modifiers can sound smooth on a quick read, but a bath cannot finish a marathon. Always check the literal logic, not just the sentence's overall flow.
     approved: true
@@ -163,8 +223,14 @@ questions:
       - text: 'Yes: single words like "only," "just," and "almost" can also be misplaced, changing meaning subtly, even though they are not long phrases.'
         correct: true
       - text: 'No: misplaced modifiers only apply to phrases of at least three words.'
+        rationale: |
+          You assumed modifier rules only apply to long multi-word phrases. Single-word adverbs like "only" or "just" are also modifiers.
       - text: 'No: single words never affect a sentence''s meaning.'
+        rationale: |
+          You assumed single words cannot shift meaning. Placing "only" next to different words completely changes what is being restricted.
       - text: 'Yes: but only when the word is capitalized.'
+        rationale: |
+          You linked modifier placement to capitalization. Capital letters do not control how a modifier functions in a sentence.
     explanation: |
       Modifiers are not just long phrases: single words like "only," "just," and "almost" can also be misplaced, changing meaning subtly depending on exactly which word they sit next to.
     approved: true
@@ -178,8 +244,14 @@ questions:
       - text: 'Dangling modifier: the exam did not study; it should read "Having studied all night, she found the exam easy."'
         correct: true
       - text: There is no error in this sentence.
+        rationale: |
+          You assumed the sentence was fine, but "having studied all night" describes "the exam." An exam cannot study.
       - text: This is a misplaced modifier, not a dangling one.
+        rationale: |
+          You confused a misplaced modifier with a dangling modifier. The subject who studied is missing entirely from the main clause, making it dangling.
       - text: This is a subject-verb agreement error.
+        rationale: |
+          You misidentified the error as subject-verb agreement. The verb form is fine, but the introductory phrase lacks a proper subject.
     explanation: |
       "Having studied all night" needs a person who studied, but the sentence's actual subject is "the exam": exams cannot study.
     approved: true
@@ -193,8 +265,14 @@ questions:
       - text: 'Misplaced modifier: "wrapped in gold paper" should describe the award, not the student; it should read "The teacher gave the student the award wrapped in gold paper."'
         correct: true
       - text: There is no error in this sentence.
+        rationale: |
+          You overlooked the misplaced descriptive phrase. The words describing the gold wrapping are attached to the student rather than the prize.
       - text: This is a dangling modifier, not a misplaced one.
+        rationale: |
+          You misclassified the error. The noun being modified ("award") is in the sentence, but the phrase sits next to "student," making it misplaced.
       - text: This is a verb tense error.
+        rationale: |
+          You looked for a verb tense issue, but "gave" is correct. The problem is that the descriptive phrase is placed next to the wrong noun.
     explanation: |
       As written, "wrapped in gold paper" sits right after "student," making it sound like the student is wrapped in gold paper, not the award.
     approved: true
@@ -208,8 +286,14 @@ questions:
       - text: Excited about the trip, we packed the suitcases a week early.
         correct: true
       - text: The suitcases, excited about the trip, were packed a week early.
+        rationale: |
+          You kept "excited about the trip" attached to "suitcases." Suitcases cannot feel excitement.
       - text: A week early, excited suitcases were packed for the trip.
+        rationale: |
+          You described the suitcases themselves as "excited." Inanimate objects cannot feel excited.
       - text: No fix is needed; the sentence is already correct.
+        rationale: |
+          You assumed the original sentence was fine, but "excited about the trip" describes suitcases instead of the people packing them.
     explanation: |
       Suitcases cannot feel excited. Adding a logical subject ("we") right after the introductory modifier fixes the dangling modifier.
     approved: true
@@ -223,8 +307,14 @@ questions:
       - text: "Walking into the room, we were greeted by the smell of fresh bread. The baker served us warm bread wrapped in a cloth napkin."
         correct: true
       - text: The passage has no modifier errors as written.
+        rationale: |
+          You overlooked two placement mistakes here. Neither the smell can walk into a room nor can the napkin wrap around a baker.
       - text: Only the first sentence has an error; the second sentence is correct as written.
+        rationale: |
+          You caught the dangling modifier in the first sentence but missed the misplaced modifier ("wrapped in a cloth napkin") in the second.
       - text: Only the second sentence has an error; the first sentence is correct as written.
+        rationale: |
+          You caught the misplaced modifier in the second sentence but missed the dangling modifier ("walking into the room") in the first.
     explanation: |
       The first sentence has a dangling modifier (a smell cannot walk into a room). The second sentence has a misplaced modifier ("wrapped in a cloth napkin" should describe the bread, not the baker). Both need fixing.
     approved: true

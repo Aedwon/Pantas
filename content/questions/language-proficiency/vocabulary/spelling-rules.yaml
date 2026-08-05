@@ -13,8 +13,14 @@ questions:
       - text: Beleif
         correct: true
       - text: Thief
+        rationale: |
+          You flagged "thief," but it correctly follows the "i before e" rule.
       - text: Grief
+        rationale: |
+          You flagged "grief," but it correctly follows the "i before e" rule.
       - text: Field
+        rationale: |
+          You flagged "field," but it correctly follows the "i before e" rule.
     explanation: |
       "Beleif" breaks the "i before e" rule with no "c" before it and no "a" sound; the correct spelling is "belief." "Thief," "grief," and "field" all correctly follow the rule.
     approved: true
@@ -28,8 +34,14 @@ questions:
       - text: Hopeing
         correct: true
       - text: Argument
+        rationale: |
+          You flagged "argument," which correctly drops the silent "e" before "-ment."
       - text: Believable
+        rationale: |
+          You flagged "believable," which correctly drops the silent "e" before "-able."
       - text: Truly
+        rationale: |
+          You flagged "truly," which is an exception that correctly drops the silent "e" from "true."
     explanation: |
       "Hopeing" should drop the silent "e" before the vowel suffix "-ing," giving "hoping." "Argument," "believable," and "truly" are all correctly spelled.
     approved: true
@@ -43,8 +55,14 @@ questions:
       - text: Beginning
         correct: true
       - text: Begining
+        rationale: |
+          You picked single "n," but the stressed final CVC syllable (be-GIN) requires doubling the final consonant.
       - text: Beggining
+        rationale: |
+          You doubled the "g," but stress falls on the second syllable (be-GIN), so only the final "n" doubles.
       - text: Beginnning
+        rationale: |
+          You used triple "n," which is an ungrammatical spelling.
     explanation: |
       The root "begin" ends in a consonant-vowel-consonant pattern, and the spoken stress falls on the last syllable (be-GIN), so the final consonant "n" is doubled before adding "-ing": "beginning."
     approved: true
@@ -58,8 +76,14 @@ questions:
       - text: Silya
         correct: true
       - text: Kwarto
+        rationale: |
+          Pinili mo ang "Kwarto," ngunit kailangan ang "u" bago ang "w" sa pormal na baybay ("kuwarto").
       - text: Byahe
+        rationale: |
+          Pinili mo ang "Byahe," ngunit kailangan ang "i" bago ang "y" sa pormal na baybay ("biyahe").
       - text: Gwardiya
+        rationale: |
+          Pinili mo ang "Gwardiya," ngunit kailangan ang "u" bago ang "w" sa pormal na baybay ("guwardiya").
     explanation: |
       Ang "silya" (mula sa Espanyol na "silla") ay tama. Ang "kwarto" ay dapat "kuwarto," ang "byahe" ay dapat "biyahe," at ang "gwardiya" ay dapat "guwardiya": kailangan ang "u" o "i" bago ang "w" o "y" sa mga hiram na salita.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: Accommodate
         correct: true
       - text: Acommodate
+        rationale: |
+          You missed the double "c," but "accommodate" requires both double "c" and double "m."
       - text: Accomodate
+        rationale: |
+          You missed the double "m," but "accommodate" requires both double "c" and double "m."
       - text: Acomodate
+        rationale: |
+          You missed both double consonants, but "accommodate" requires double "c" and double "m."
     explanation: |
       "Accommodate" is a "double-double" word, requiring both a double "c" and a double "m": a frequently tested spelling.
     approved: true
@@ -88,8 +118,14 @@ questions:
       - text: Embarrass
         correct: true
       - text: Embarass
+        rationale: |
+          You missed the double "r," but "embarrass" requires both double "r" and double "s."
       - text: Embarras
+        rationale: |
+          You missed the double "s," but "embarrass" requires both double "r" and double "s."
       - text: Emabarrass
+        rationale: |
+          You misspelled the prefix with an extra "a" before "b."
     explanation: |
       "Embarrass" is a "double-double" word, requiring both a double "r" and a double "s": a frequently tested spelling.
     approved: true
@@ -103,8 +139,14 @@ questions:
       - text: Committee
         correct: true
       - text: Comittee
+        rationale: |
+          You missed the double "m," but "committee" requires double "m," double "t," and double "e."
       - text: Committe
+        rationale: |
+          You missed the double "e" at the end, but "committee" ends in double "e."
       - text: Comitee
+        rationale: |
+          You missed both double "m" and double "t," but "committee" requires all three double letters.
     explanation: |
       "Committee" is a "double-double" word, requiring a double "m," a double "t," and a double "e": a frequently tested spelling.
     approved: true
@@ -118,8 +160,14 @@ questions:
       - text: 'No: the correct spelling is "separate," from the root "par" (as in "part"), not the lazy schwa sound heard when spoken.'
         correct: true
       - text: 'Yes: "seperate" is an acceptable alternate spelling.'
+        rationale: |
+          You accepted "seperate," but spelling it with an "e" in the middle is a common mistake.
       - text: 'Yes: schwa sounds should always be spelled with an "e."'
+        rationale: |
+          You relied on spoken sound instead of root word structure ("par" as in "part").
       - text: 'No: the correct spelling is "separrate," with a double "r."'
+        rationale: |
+          You doubled the "r," but "separate" contains only a single "r."
     explanation: |
       The lazy "uh" sound (schwa) tricks people into spelling "separate" as "seperate." Do not trust your ears: find the root word. "Separate" comes from "par" (as in "part"), so it needs an "a."
     approved: true
@@ -133,8 +181,14 @@ questions:
       - text: 'No: the correct spelling is "definite," from the root related to "finite" (finish), not the lazy schwa sound heard when spoken.'
         correct: true
       - text: 'Yes: "definate" is an acceptable alternate spelling.'
+        rationale: |
+          You accepted "definate," but spelling it with an "a" in the middle is a common mistake.
       - text: 'Yes: schwa sounds should always be spelled with an "a."'
+        rationale: |
+          You relied on spoken sound instead of root word structure ("finite").
       - text: 'No: the correct spelling is "definnate," with a double "n."'
+        rationale: |
+          You doubled the "n," but "definite" contains only a single "n."
     explanation: |
       The lazy "uh" sound (schwa) tricks people into spelling "definite" as "definate." Do not trust your ears: find the root word. "Definite" comes from "finite" (finish), so it needs an "i."
     approved: true
@@ -148,8 +202,14 @@ questions:
       - text: 'No: "misspell" keeps both "s" letters, since one "s" belongs to the prefix "mis-" and the other belongs to the root "spell"; sharing a border letter does not mean you drop one.'
         correct: true
       - text: 'Yes: "mispell" is an acceptable simplified spelling.'
+        rationale: |
+          You accepted "mispell," but dropping a letter at the prefix boundary is a common spelling error.
       - text: 'Yes: prefixes always drop a shared border letter with the root word.'
+        rationale: |
+          You assumed border letters are dropped, but prefixes keep all original letters when joining roots.
       - text: 'No: the correct spelling is "misspel," with only one final "l."'
+        rationale: |
+          You dropped a final "l," but the root "spell" keeps both of its final "l" letters.
     explanation: |
       Students often spell "misspell" as "mispell." This is a trap: you just add the pieces together. If the prefix and root share a border letter, you keep both: one "s" belongs to "mis-," and the other belongs to "spell."
     approved: true
@@ -163,8 +223,14 @@ questions:
       - text: 'No: "unnecessary" keeps both "n" letters, since one "n" belongs to the prefix "un-" and the other belongs to the root "necessary"; sharing a border letter does not mean you drop one.'
         correct: true
       - text: 'Yes: "unecessary" is an acceptable simplified spelling.'
+        rationale: |
+          You accepted "unecessary," but dropping a letter at the prefix boundary is a spelling error.
       - text: 'Yes: prefixes always drop a shared border letter with the root word.'
+        rationale: |
+          You assumed border letters drop, but prefixes retain all letters when connecting to roots.
       - text: 'No: the correct spelling is "unnecesary," with only one "s."'
+        rationale: |
+          You dropped an "s," but "necessary" requires a double "s."
     explanation: |
       Students often spell "unnecessary" as "unecessary." This is a trap: if the prefix and root share a border letter, you keep both: one "n" belongs to "un-," and the other belongs to "necessary."
     approved: true
@@ -178,8 +244,14 @@ questions:
       - text: 'No: the exam does not test text language; the standard spelling for exams requires the "i" or "u" before the "y" or "w," giving "siya" and "kuwarto."'
         correct: true
       - text: 'Yes: text-message spelling is always accepted on formal exams.'
+        rationale: |
+          Inakala mong tinatanggap ang baybay sa text messaging, ngunit pormal na tuntunin ang sinusubok sa pagsusulit.
       - text: 'Yes: but only because "sya" and "kwarto" are actually the official spellings.'
+        rationale: |
+          Inakala mong opisyal na baybay ang "sya" at "kwarto," ngunit kailangan ang "i" at "u" ("siya" at "kuwarto").
       - text: 'No: but only because "siya" and "kuwarto" are informal slang instead.'
+        rationale: |
+          Inakala mong balbal ang "siya" at "kuwarto," ngunit ito ang opisyal at pormal na baybay.
     explanation: |
       Many students text their friends using short spellings like "sya" or "kwarto." But the exam does not test text language: you must write the "i" or "u" before the "y" or "w": "siya" and "kuwarto."
     approved: true
@@ -193,8 +265,14 @@ questions:
       - text: Recieve
         correct: true
       - text: Yield
+        rationale: |
+          You flagged "yield," but it correctly puts "i" before "e" when there is no preceding "c."
       - text: Ceiling
+        rationale: |
+          You flagged "ceiling," but it correctly puts "e" before "i" after the letter "c."
       - text: Perceive
+        rationale: |
+          You flagged "perceive," which correctly uses "e" before "i" after "c."
     explanation: |
       "Recieve" comes right after a "c," so the rule ("except after C") means the "e" must come before the "i": the correct spelling is "receive." "Yield," "ceiling," and "perceive" are all correctly spelled.
     approved: true
@@ -208,8 +286,14 @@ questions:
       - text: Writeing
         correct: true
       - text: Changeable
+        rationale: |
+          You flagged "changeable," which correctly keeps the silent "e" to preserve the soft "g" sound.
       - text: Loving
+        rationale: |
+          You flagged "loving," which correctly drops the silent "e" before adding "-ing."
       - text: Argument
+        rationale: |
+          You flagged "argument," which correctly drops the silent "e" from "argue."
     explanation: |
       "Writeing" should drop the silent "e" before the vowel suffix "-ing," giving "writing." "Changeable" correctly keeps the "e" (to preserve the soft "g" sound), and "loving" and "argument" are correctly spelled.
     approved: true
@@ -223,8 +307,14 @@ questions:
       - text: Referred
         correct: true
       - text: Refered
+        rationale: |
+          You picked single "r," but the stressed final CVC syllable (re-FER) requires doubling the final "r."
       - text: Reffered
+        rationale: |
+          You doubled the first "f," but stress falls on the second syllable (re-FER), so only the final "r" doubles.
       - text: Referrred
+        rationale: |
+          You used triple "r," which is an ungrammatical spelling.
     explanation: |
       The root "refer" ends in a consonant-vowel-consonant pattern, and the spoken stress falls on the last syllable (re-FER), so the final consonant "r" is doubled before adding "-ed": "referred."
     approved: true
@@ -238,8 +328,14 @@ questions:
       - text: Suwerte
         correct: true
       - text: Swerte
+        rationale: |
+          Pinili mo ang "Swerte," ngunit kailangan ang "u" bago ang "w" sa pormal na baybay sa Filipino ("suwerte").
       - text: Suerte
+        rationale: |
+          Pinili mo ang "Suerte," ngunit baybay-Espanyol ito at kailangan ang "w" sa baybay-Filipino ("suwerte").
       - text: Siwerte
+        rationale: |
+          Pinili mo ang "Siwerte," ngunit "u" ang tamang vokales na ginagamit sa salitang ito ("suwerte").
     explanation: |
       Ang "suwerte" (mula sa Espanyol na "suerte") ay nangangailangan ng "u" bago ang "w," kaya ito ang wastong baybay, hindi ang "swerte" o "suerte."
     approved: true
@@ -253,8 +349,14 @@ questions:
       - text: Seize
         correct: true
       - text: Chief
+        rationale: |
+          You picked "chief," but it regularly follows the "i before e" rule.
       - text: Believe
+        rationale: |
+          You picked "believe," but it regularly follows the "i before e" rule.
       - text: Niece
+        rationale: |
+          You picked "niece," but it regularly follows the "i before e" rule.
     explanation: |
       "Seize" is a famous exception: it breaks all the usual patterns (no preceding "c," no "a" sound) but is still spelled correctly. "Chief," "believe," and "niece" all correctly follow the standard rule.
     approved: true
@@ -268,8 +370,14 @@ questions:
       - text: "Truly"
         correct: true
       - text: "Acommodate"
+        rationale: |
+          You picked this misspelled word, which is missing a second "c" (should be "accommodate").
       - text: "Mispell"
+        rationale: |
+          You picked this misspelled word, which drops a border letter from the prefix "mis-" (should be "misspell").
       - text: "Sieze"
+        rationale: |
+          You picked this misspelled word, which reverses the letters of the exception "seize."
     explanation: |
       "Acommodate" is missing a double letter (should be "accommodate"), "mispell" drops a shared border letter (should be "misspell"), and "sieze" reverses the letters (should be "seize"). "Truly" is the one correctly spelled word: a strict exception that drops the silent "e" from "true."
     approved: true
