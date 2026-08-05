@@ -13,10 +13,17 @@ questions:
       - text: resilient
         correct: true
       - text: hesitant
+        rationale: |
+          You picked "hesitant," but being doubtful or pausing does not fit a team that successfully delivered on schedule.
       - text: indifferent
+        rationale: |
+          You picked "indifferent," which means lacking concern or care, whereas overcoming obstacles requires active effort.
       - text: indolent
+        rationale: |
+          You picked "indolent," which means lazy, contrasting directly with a team that pushed through obstacles.
     explanation: |
       "Resilient" means able to withstand or recover quickly from difficult conditions. The contrast between obstacles and on-time delivery calls for this word.
+    approved: true
 
   - id: q-language-application-sentence-completion-0002
     type: fill-in-the-blank
@@ -25,12 +32,19 @@ questions:
       Although the initial evidence was ________, the lead investigator refused to draw firm conclusions until the laboratory results arrived.
     choices:
       - text: compelling
+        rationale: |
+          You picked "compelling," but strong convincing evidence would lead to conclusions rather than delaying them.
       - text: equivocal
         correct: true
       - text: irrefutable
+        rationale: |
+          You picked "irrefutable," which means impossible to deny, contradicting the investigator's decision to wait for more data.
       - text: exhaustive
+        rationale: |
+          You picked "exhaustive," meaning thorough and complete, which conflicts with needing further lab results.
     explanation: |
       "Equivocal" means ambiguous or open to multiple interpretations. The word "Although" signals a contrast with refusing to conclude, explaining why conclusions could not be drawn.
+    approved: true
 
   - id: q-language-application-sentence-completion-0003
     type: fill-in-the-blank
@@ -41,10 +55,17 @@ questions:
       - text: "radical ... resistance"
         correct: true
       - text: "modest ... enthusiasm"
+        rationale: |
+          You chose "modest ... enthusiasm," but modest proposals rarely trigger strong reactions, and traditionalists would not feel enthusiasm.
       - text: "orthodox ... hostility"
+        rationale: |
+          You chose "orthodox ... hostility," but an orthodox proposal aligns with tradition, so traditional managers would not react with hostility.
       - text: "innovative ... acquiescence"
+        rationale: |
+          You chose "innovative ... acquiescence," but traditional managers would resist innovations rather than passively agreeing to them.
     explanation: |
       A "radical" (extreme/unconventional) proposal would spark "resistance" from managers who favor traditional methods. This pair creates the logical cause-effect relationship.
+    approved: true
 
   - id: q-language-application-sentence-completion-0004
     type: fill-in-the-blank
@@ -55,10 +76,17 @@ questions:
       - text: disparate
         correct: true
       - text: harmonious
+        rationale: |
+          You picked "harmonious," but agreeing viewpoints would allow rapid consensus without weeks of intense negotiation.
       - text: congruent
+        rationale: |
+          You picked "congruent," which means matching or in agreement, whereas intense negotiation stems from differing views.
       - text: superficial
+        rationale: |
+          You picked "superficial," which means shallow, failing to explain why deep negotiation was necessary.
     explanation: |
       "Disparate" means essentially different or distinct. The cause-effect signal "Because" connects differing viewpoints to the need for intense negotiation.
+    approved: true
 
   - id: q-language-application-sentence-completion-0005
     type: fill-in-the-blank
@@ -69,10 +97,17 @@ questions:
       - text: lucid
         correct: true
       - text: ambiguous
+        rationale: |
+          You picked "ambiguous," which means open to multiple interpretations, contradicting a clear explanation.
       - text: convoluted
+        rationale: |
+          You picked "convoluted," which means extremely complex, contrasting with an explanation that novice employees understood.
       - text: obscure
+        rationale: |
+          You picked "obscure," which means hard to understand, contradicting the outcome where all employees understood.
     explanation: |
       "Lucid" means clear and easy to understand. The sentence describes an explanation that ensured understanding, which "lucid" perfectly captures.
+    approved: true
 
   - id: q-language-application-sentence-completion-0006
     type: fill-in-the-blank
@@ -83,10 +118,17 @@ questions:
       - text: "coherent ... contradictory"
         correct: true
       - text: "vague ... explicit"
+        rationale: |
+          You chose "vague ... explicit," but explicit statements clarify meaning rather than confusing the public.
       - text: "detailed ... comprehensive"
+        rationale: |
+          You chose "detailed ... comprehensive," which lists two positive qualities that fail to explain why the public was confused.
       - text: "accurate ... verifiable"
+        rationale: |
+          You chose "accurate ... verifiable," which describes reliable data rather than statements that cause confusion.
     explanation: |
       "Far from coherent" (clear and logical) is clarified by "in fact" which intensifies the idea. Contradictory statements explain why the public was confused.
+    approved: true
 
   - id: q-language-application-sentence-completion-0007
     type: fill-in-the-blank
@@ -97,10 +139,17 @@ questions:
       - text: depleted
         correct: true
       - text: augmented
+        rationale: |
+          You picked "augmented," which means increased or added to, contradicting the need for mandatory water rationing.
       - text: replenished
+        rationale: |
+          You picked "replenished," which means refilled, whereas drought reduces water supplies.
       - text: stabilized
+        rationale: |
+          You picked "stabilized," which implies maintaining a steady state, whereas a severe drought disrupts reservoir levels.
     explanation: |
       "Depleted" means exhausted or diminished. The cause-effect relationship shows that depleted reservoirs caused mandatory rationing.
+    approved: true
 
   - id: q-language-application-sentence-completion-0008
     type: fill-in-the-blank
@@ -111,10 +160,17 @@ questions:
       - text: detrimental
         correct: true
       - text: beneficial
+        rationale: |
+          You picked "beneficial," which means helpful, contradicting the speaker's warning about lack of adequate funding.
       - text: conducive
+        rationale: |
+          You picked "conducive," which means helping to bring about a desirable outcome, contrasting with a cautionary warning.
       - text: paramount
+        rationale: |
+          You picked "paramount," which means supreme or chief, which does not fit as a descriptive adjective for harm.
     explanation: |
       "Detrimental" means tending to cause harm. The contrast words "While... nevertheless cautioned" show a shift from praise to warning about a harmful outcome.
+    approved: true
 
   - id: q-language-application-sentence-completion-0009
     type: fill-in-the-blank
@@ -125,10 +181,17 @@ questions:
       - text: "boost ... reducing"
         correct: true
       - text: "curtail ... inflating"
+        rationale: |
+          You chose "curtail ... inflating," but company policies aim to increase productivity and lower costs, not reduce output and raise costs.
       - text: "hinder ... maintaining"
+        rationale: |
+          You chose "hinder ... maintaining," but policies do not aim to hinder productivity.
       - text: "minimize ... expanding"
+        rationale: |
+          You chose "minimize ... expanding," which describes reducing productivity and inflating costs.
     explanation: |
       Organizational policies typically aim to increase productivity and decrease costs. "Boost" and "reducing" form the logical complementary pair.
+    approved: true
 
   - id: q-language-application-sentence-completion-0010
     type: fill-in-the-blank
@@ -139,10 +202,17 @@ questions:
       - text: eloquently
         correct: true
       - text: eloquence
+        rationale: |
+          You picked "eloquence," which is a noun, but modifying the action verb "spoke" requires an adverb.
       - text: eloquent
+        rationale: |
+          You picked "eloquent," which is an adjective, whereas describing how someone "spoke" requires an adverb.
       - text: eloquenced
+        rationale: |
+          You picked "eloquenced," which is an invalid non-word form.
     explanation: |
       The blank requires an adverb to modify the verb "spoke." "Eloquently" is the only adverb form; the others are a noun and adjective.
+    approved: true
 
   - id: q-language-application-sentence-completion-0011
     type: fill-in-the-blank
@@ -153,10 +223,17 @@ questions:
       - text: implement
         correct: true
       - text: inflict
+        rationale: |
+          You picked "inflict," which means to impose something painful or harmful, which is idiomatically wrong for policies or measures.
       - text: implicate
+        rationale: |
+          You picked "implicate," which means to show someone is involved in a crime, which does not fit implementing company policy.
       - text: impair
+        rationale: |
+          You picked "impair," which means to weaken or damage, whereas boards implement measures to prevent losses.
     explanation: |
       "Implement" is the idiomatically correct verb meaning to put measures or policies into action. The other words do not fit this meaning or syntax.
+    approved: true
 
   - id: q-language-application-sentence-completion-0012
     type: fill-in-the-blank
@@ -167,10 +244,17 @@ questions:
       - text: "comprehensive ... rigorous"
         correct: true
       - text: "lenient ... strict"
+        rationale: |
+          You chose "lenient ... strict," which creates a conflicting tone across a "not only ... but" cumulative structure.
       - text: "superficial ... thorough"
+        rationale: |
+          You chose "superficial ... thorough," which pairs a negative shallow quality with a positive thorough quality.
       - text: "restricted ... stringent"
+        rationale: |
+          You chose "restricted ... stringent," which pairs narrow scope with strict enforcement, failing to match the positive tone.
     explanation: |
       The correlative conjunction "not only... but" requires parallelism and cumulative emphasis. "Comprehensive" and "rigorous" reinforce each other positively.
+    approved: true
 
   - id: q-language-application-sentence-completion-0013
     type: fill-in-the-blank
@@ -181,10 +265,17 @@ questions:
       - text: sluggish
         correct: true
       - text: rapid
+        rationale: |
+          You picked "rapid," which means fast, directly contradicting the action verb "crawl."
       - text: brisk
+        rationale: |
+          You picked "brisk," which means quick and energetic, contrasting with traffic crawling in a snowstorm.
       - text: hasty
+        rationale: |
+          You picked "hasty," which means rushed or hurried, contrasting with crawling traffic.
     explanation: |
       "Sluggish" means slow-moving or inactive. The verb "crawl" implies extremely slow movement, and "sluggish" best describes this pace.
+    approved: true
 
   - id: q-language-application-sentence-completion-0014
     type: fill-in-the-blank
@@ -195,10 +286,17 @@ questions:
       - text: flustered
         correct: true
       - text: serene
+        rationale: |
+          You picked "serene," which means calm, but the contrast phrase "Far from being" requires a word opposite to composed.
       - text: confident
+        rationale: |
+          You picked "confident," which is a synonym of composed rather than an opposite quality.
       - text: poised
+        rationale: |
+          You picked "poised," which means dignified and self-assured, matching "composed" instead of contrasting with it.
     explanation: |
       "Flustered" (agitated or confused) is the opposite of "composed and articulate." The phrase "Far from being" establishes a direct contrast.
+    approved: true
 
   - id: q-language-application-sentence-completion-0015
     type: fill-in-the-blank
@@ -209,7 +307,14 @@ questions:
       - text: "inconclusive ... definitive"
         correct: true
       - text: "promising ... ambiguous"
+        rationale: |
+          You chose "promising ... ambiguous," but subsequent controlled studies clarify results rather than making them more ambiguous.
       - text: "decisive ... doubtful"
+        rationale: |
+          You chose "decisive ... doubtful," which reverses the logical progression from uncertain initial trials to clear findings.
       - text: "consistent ... erratic"
+        rationale: |
+          You chose "consistent ... erratic," which suggests controlled studies yielded wild erratic data, contradicting "remarkably."
     explanation: |
       "Although" signals a contrast. "Inconclusive" (unclear) for the initial trial contrasts with "definitive" (conclusive) for subsequent studies.
+    approved: true
