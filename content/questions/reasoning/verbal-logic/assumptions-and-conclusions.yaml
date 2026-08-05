@@ -15,8 +15,14 @@ questions:
       - text: Training program completion is achievable
         correct: true
       - text: Bonuses will double for senior employees next year
+        rationale: |
+          You picked a future compensation change not required for the current statement to hold.
       - text: Non-participating staff members will face penalty
+        rationale: |
+          You assumed non-participants are punished. The statement only addresses rewards for participants.
       - text: Training programs are conducted outside city limits
+        rationale: |
+          You introduced an irrelevant geographic requirement.
     explanation: |
       The statement assumes that completing the training program is an achievable goal, enabling employees to earn the bonus.
 
@@ -30,8 +36,14 @@ questions:
       - text: Increased transit reduces private car usage
         correct: true
       - text: Traffic congestion will vanish completely within two days
+        rationale: |
+          You assumed an extreme and instant elimination of traffic rather than a reasonable reduction mechanism.
       - text: Public transit fare rates will decrease by fifty percent
+        rationale: |
+          You introduced an unstated pricing assumption not required for transit expansion to lower car usage.
       - text: City residents dislike walking to nearby municipal offices
+        rationale: |
+          You introduced an irrelevant pedestrian behavioral preference.
     explanation: |
       The council's decision assumes that expanding transit routes encourages commuters to use public transit instead of private cars, reducing traffic.
 
@@ -45,8 +57,14 @@ questions:
       - text: Maria satisfied one requirement for civil service
         correct: true
       - text: Maria is automatically appointed to a senior executive director role
+        rationale: |
+          You assumed passing one exam guarantees an immediate senior job appointment.
       - text: Maria scored highest among all examination test takers nationwide
+        rationale: |
+          You assumed top rank performance when the premise states only that she passed.
       - text: Maria is exempt from all future annual official evaluation tests
+        rationale: |
+          You inferred future testing exemptions not stated in the premises.
     explanation: |
       Passing the ethics exam fulfills one mandatory requirement, but does not guarantee an immediate senior appointment or top score.
 
@@ -60,8 +78,14 @@ questions:
       - text: Rain was a possible reason for moving indoors
         correct: true
       - text: It definitely rained heavily during assembly hours
+        rationale: |
+          You committed the fallacy of affirming the consequent. Moving indoors could have occurred for other reasons.
       - text: The outdoor venue was destroyed by severe winds
+        rationale: |
+          You inferred extreme physical destruction not supported by the premises.
       - text: Community members refused to attend outdoor events
+        rationale: |
+          You inferred member refusal without premise evidence.
     explanation: |
       Holding the assembly indoors could be due to rain, but moving indoors could also happen for other unstated reasons.
 
@@ -75,8 +99,14 @@ questions:
       - text: Digital billing costs less than paper processing
         correct: true
       - text: All customers prefer receiving digital billing receipts monthly
+        rationale: |
+          You assumed customer preference drives cost reduction.
       - text: Paper invoices will be banned nationwide by government decree
+        rationale: |
+          You assumed an external legal ban motivated the company's decision.
       - text: Processing digital receipts requires zero electrical energy consumption
+        rationale: |
+          You assumed digital billing requires zero energy, which is impossible and unnecessary for net savings.
     explanation: |
       Replacing paper with digital billing to cut costs assumes that processing digital bills incurs lower total expenses than paper invoicing.
 
@@ -90,8 +120,14 @@ questions:
       - text: Vehicle A is a registered vehicle
         correct: true
       - text: Vehicle A belongs to the department head
+        rationale: |
+          You inferred specific ownership not indicated by the registration rule.
       - text: Vehicle A was manufactured recently
+        rationale: |
+          You introduced an irrelevant vehicle age feature.
       - text: Vehicle A has electric power features
+        rationale: |
+          You introduced an irrelevant engine type attribute.
     explanation: |
       Since unregistered vehicles are barred, any vehicle parked inside must be registered.
 
@@ -105,8 +141,14 @@ questions:
       - text: Elena may or may not hold a master's degree
         correct: true
       - text: Elena definitely does not hold any master's degree credential
+        rationale: |
+          You committed denying the antecedent. Non-supervisors can also possess master's degrees.
       - text: Elena is disqualified from holding any public office job title
+        rationale: |
+          You inferred general job disqualification beyond the supervisor requirement.
       - text: Elena will be appointed supervisor next month by executive vote
+        rationale: |
+          You assumed a future appointment contrary to her current status.
     explanation: |
       Holding a master's degree is a requirement for supervisors, but non-supervisors may still hold master's degrees.
 
@@ -120,8 +162,14 @@ questions:
       - text: Waste segregation contributed to volume reduction
         correct: true
       - text: All residents produce zero non-recyclable waste products daily
+        rationale: |
+          You assumed an extreme zero-waste threshold rather than a 30% reduction contribution.
       - text: Landfills in Municipality Y will close next year permanently
+        rationale: |
+          You inferred complete and permanent landfill closure.
       - text: Recycling facilities generate huge net financial profits yearly
+        rationale: |
+          You introduced financial profitability assumptions unrelated to volume reduction.
     explanation: |
       Attributing the thirty percent drop to strict waste segregation assumes a causal link between segregation efforts and volume reduction.
 
@@ -135,8 +183,14 @@ questions:
       - text: Juan passed the examination
         correct: true
       - text: Juan scored highest in his class
+        rationale: |
+          You assumed Juan was top rank when the premise only guarantees he passed.
       - text: Juan is guaranteed a job offer
+        rationale: |
+          You inferred employment guarantees beyond passing the test.
       - text: Juan will retake the test soon
+        rationale: |
+          You inferred a retake despite Juan successfully passing.
     explanation: |
       Since 85% exceeds the 80% passing threshold, Juan necessarily passed the examination.
 
@@ -150,8 +204,14 @@ questions:
       - text: Electronic recordkeeping uses less paper
         correct: true
       - text: All paper records will be destroyed today permanently
+        rationale: |
+          You assumed immediate destruction of historical paper records.
       - text: Computer hardware systems never experience technical errors
+        rationale: |
+          You assumed zero technical failure, which is unrequired for reducing paper usage.
       - text: Employees prefer reading computer screens over printed sheets
+        rationale: |
+          You assumed user media preferences drive paper savings.
     explanation: |
       Adopting electronic recordkeeping to reduce paper usage assumes that digital filing consumes less paper overall.
 
@@ -165,8 +225,14 @@ questions:
       - text: Mark is a licensed engineer
         correct: true
       - text: Mark owns the building project
+        rationale: |
+          You inferred project ownership rather than engineering credentials.
       - text: Project A is located downtown
+        rationale: |
+          You introduced an unstated geographic location.
       - text: Project A cost millions of pesos
+        rationale: |
+          You introduced an unstated financial cost.
     explanation: |
       Because only licensed engineers can approve building plans, Mark must be a licensed engineer to have approved them.
 
@@ -180,7 +246,13 @@ questions:
       - text: Solar energy replaced paid grid electricity
         correct: true
       - text: Electricity rates dropped nationwide this month significantly
+        rationale: |
+          You attributed the savings to external rate drops, which would negate the solar panel's causal role.
       - text: School Z turned off all air conditioning units completely
+        rationale: |
+          You assumed air conditioning shutdown rather than solar generation caused the savings.
       - text: School Z operates only during daytime operating hours
+        rationale: |
+          You assumed daytime-only operation instead of solar substitution.
     explanation: |
       Attributing lower electric bills to solar panels assumes that generated solar power substituted for utility grid electricity.
