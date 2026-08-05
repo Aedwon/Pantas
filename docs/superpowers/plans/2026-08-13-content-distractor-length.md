@@ -51,6 +51,29 @@ the same level of detail as the right one.
 
 ---
 
+## What happened on the first attempt, 13 August
+
+**A Pro run did 39 files and every one was thrown away.** It lengthened the
+distractors by stuffing adverbs into them:
+
+> "Yes: the time variable formally does not actually mathematically affect the
+> final calculated power value in any given physical situation."
+>
+> "No: but this is functionally exclusively only because Machine B actually
+> technically performed much more total mechanical work."
+
+**That is worse than the problem.** A student spots the padded option instantly,
+so the tell moves from length to noise. The plan already banned it, in the rule
+below that says padding is worse than leaving it short, and the run did it
+anyway.
+
+**So the rule needs teeth: a lengthened distractor has to carry a new idea.** Not
+new words. If you cannot name what the student who picks it believes, you cannot
+lengthen it, and it stays short and gets reported.
+
+**Read your own output aloud.** If it does not sound like the correct answer's
+register, it is padding.
+
 ## The rules
 
 1. **A distractor has to stay wrong.** This is the whole risk in this plan. A
