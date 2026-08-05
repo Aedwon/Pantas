@@ -14,8 +14,14 @@ questions:
       - text: Point B, since it is deeper and has more fluid stacked above it
         correct: true
       - text: Point A, since it is closer to the open air
+        rationale: |
+          You assumed proximity to open air increases fluid pressure. Fluid pressure depends on the weight of fluid above, so deeper points experience greater pressure.
       - text: Both points experience exactly the same pressure
+        rationale: |
+          You ignored depth differences. Fluid pressure varies with depth ( = \rho g h$), so deeper points have higher pressure.
       - text: Neither point experiences any pressure, since the water is not moving
+        rationale: |
+          You confused static fluid pressure with dynamic flow. Static fluids still exert hydrostatic pressure due to gravity.
     explanation: |
       Pressure increases with depth, since more fluid is stacked above deeper points. Point B (near the bottom) has more fluid above it than Point A, so it experiences greater pressure.
     approved: true
@@ -30,8 +36,14 @@ questions:
       - text: 'Neither: the water levels are the same in both containers'
         correct: true
       - text: The wide container, since it holds more total water
+        rationale: |
+          You assumed total water volume determines surface height. Pressure balances across connected open vessels when fluid levels reach equal height.
       - text: The narrow container, since narrow containers always fill higher
+        rationale: |
+          You assumed container shape forces fluid higher. Open connected containers equalize to identical heights regardless of width.
       - text: Whichever container was filled first
+        rationale: |
+          You assumed fill sequence creates permanent height differences. Fluids flow through the connecting tube until levels balance.
     explanation: |
       Connected, open containers always settle to the same fluid level, regardless of their width. The water levels are the same in both the wide and narrow containers.
     approved: true
@@ -46,8 +58,14 @@ questions:
       - text: The water speeds up in the narrow section
         correct: true
       - text: The water slows down in the narrow section
+        rationale: |
+          You assumed a tighter passage restricts speed. To maintain a constant volume flow rate, fluid must speed up when cross-sectional area decreases.
       - text: The water's speed stays exactly the same
+        rationale: |
+          You assumed flow speed is independent of pipe diameter. Narrowing area forces velocity to increase to satisfy continuity.
       - text: The water stops flowing entirely in the narrow section
+        rationale: |
+          You assumed narrow pipes block steady fluid movement. Continuous incompressible flow accelerates through narrower sections.
     explanation: |
       The same volume of water must pass through both sections per second. Since the narrow section has less cross-sectional area, the water must move faster to maintain the same volume flow rate.
     approved: true
@@ -62,8 +80,14 @@ questions:
       - text: The pressure is lower in the narrow section
         correct: true
       - text: The pressure is higher in the narrow section
+        rationale: |
+          You relied on intuition that tight spaces create high pressure. Faster fluid speed in a narrow section results in lower internal pressure.
       - text: The pressure is exactly the same in both sections
+        rationale: |
+          You assumed pressure is unaffected by flow speed. Changes in fluid speed cause corresponding changes in internal pressure.
       - text: Pressure cannot be compared without knowing the pipe's material
+        rationale: |
+          You assumed wall material dictates fluid pressure dynamics. Speed and area changes determine internal pressure differences.
     explanation: |
       The water moves faster in the narrow section. By the relationship between fluid speed and pressure (faster flow means lower pressure), the pressure in the faster-moving narrow section is lower than in the wider section.
     approved: true
@@ -78,8 +102,14 @@ questions:
       - text: All three containers settle at exactly the same water level
         correct: true
       - text: The widest container settles at the lowest level
+        rationale: |
+          You assumed wider containers spread fluid lower. Connected open vessels balance at equal heights regardless of container shape or width.
       - text: The narrowest container settles at the highest level
+        rationale: |
+          You assumed narrow columns push fluid higher. Fluid levels balance strictly by depth and atmospheric pressure equality.
       - text: Each container settles at a different level, proportional to its width
+        rationale: |
+          You assumed level varies with width. Communicating vessels equalize to a single horizontal level.
     explanation: |
       Connected, open containers always settle at the same fluid level, no matter how many containers are connected or how different their widths and shapes are.
     approved: true
@@ -94,8 +124,14 @@ questions:
       - text: Point X (lowest), then Point Y, then Point Z (highest)
         correct: true
       - text: Point Z (lowest), then Point Y, then Point X (highest)
+        rationale: |
+          You inverted the pressure ranking. Shallow points have less fluid weight above them, so Point X has the lowest pressure and Point Z has the highest.
       - text: All three points have exactly equal pressure
+        rationale: |
+          You assumed pressure is uniform throughout a fluid volume. Hydrostatic pressure increases linearly with depth.
       - text: Point Y (lowest), then Point X, then Point Z (highest)
+        rationale: |
+          You misordered the shallowest point X. Pressure increases continuously from top to bottom.
     explanation: |
       Pressure increases steadily with depth. Point X (shallowest) has the lowest pressure, Point Z (deepest) has the highest pressure, and Point Y (middle depth) falls in between.
     approved: true
@@ -110,8 +146,14 @@ questions:
       - text: The water slows down in the wide section
         correct: true
       - text: The water speeds up in the wide section
+        rationale: |
+          You assumed wider pipes increase flow velocity. Expanding cross-sectional area allows fluid to move slower while maintaining flow rate.
       - text: The water's speed stays exactly the same
+        rationale: |
+          You assumed pipe width does not influence speed. Flow velocity decreases when cross-sectional area increases.
       - text: The water stops flowing entirely in the wide section
+        rationale: |
+          You assumed widening halts fluid movement. Flow continues steadily at a lower speed.
     explanation: |
       Since the wide section has more cross-sectional area, the same volume of water can pass through more slowly while still maintaining the same overall flow rate: the water slows down in the wide section.
     approved: true
@@ -126,8 +168,14 @@ questions:
       - text: The pressure is higher in the wide section
         correct: true
       - text: The pressure is lower in the wide section
+        rationale: |
+          You assumed wider sections have lower pressure. Slower-moving fluid in a wider pipe section has higher internal pressure.
       - text: The pressure is exactly the same in both sections
+        rationale: |
+          You ignored the relationship between fluid speed and pressure. Velocity changes cause inverse pressure changes.
       - text: Pressure cannot be compared without knowing the flow rate
+        rationale: |
+          You assumed relative pressure cannot be determined. The cross-sectional ratio establishes that the wider section has lower speed and higher pressure.
     explanation: |
       The water moves slower in the wide section. Since slower-moving fluid exerts higher pressure, the pressure in the wide section is higher than in the narrow section.
     approved: true
@@ -142,8 +190,14 @@ questions:
       - text: 'No: connected, open containers always settle at the same fluid level, no matter how different their widths are; the wide container does not settle lower just because it holds more total water.'
         correct: true
       - text: 'Yes: wider containers always settle at a lower level than narrower ones.'
+        rationale: |
+          You assumed surface area lowers fluid height. Open connected containers equalize pressure by maintaining matching fluid heights.
       - text: 'Yes: but only because the narrow container was filled first.'
+        rationale: |
+          You assumed filling sequence determines settled height. Fluid flows between vessels until heights balance.
       - text: 'No: but only because the two containers are not actually connected.'
+        rationale: |
+          You disputed the problem premise. The containers are connected at the bottom.
     explanation: |
       A wider container does not settle at a lower level just because it "holds more water" overall: the surface level still equalizes with any connected narrower container, since pressure at the connecting point must balance out equally on both sides.
     approved: true
@@ -158,8 +212,14 @@ questions:
       - text: 'No: a narrower section of pipe causes the fluid to speed up, not slow down, in order to maintain the same overall flow volume passing through per second.'
         correct: true
       - text: 'Yes: narrower openings always slow down fluid flow.'
+        rationale: |
+          You applied intuition that tighter spaces slow movement. Decreasing opening area increases exit velocity to maintain flow rate.
       - text: 'Yes: but only because hose nozzles are a special exception to normal fluid behavior.'
+        rationale: |
+          You treated nozzles as an exception. Fluid acceleration through narrow openings is standard continuity behavior.
       - text: 'No: but only because water cannot flow through narrow openings at all.'
+        rationale: |
+          You assumed narrow openings block flow completely. Water flows through at increased speed.
     explanation: |
       Confusing this with everyday intuition (like assuming a "tighter squeeze" naturally slows things down) leads to the opposite, incorrect prediction: the fluid actually accelerates through a narrower opening, which is exactly why squeezing a hose nozzle makes the water spray faster.
     approved: true
@@ -174,8 +234,14 @@ questions:
       - text: 'No: sections with faster movement (like narrow pipe sections) have lower pressure, not higher, following the relationship between fluid speed and pressure.'
         correct: true
       - text: 'Yes: faster-flowing sections always have higher pressure than slower sections.'
+        rationale: |
+          You equated flow velocity with internal fluid pressure. Faster-moving fluid exerts lower internal pressure.
       - text: 'Yes: but only because "forceful" and "high pressure" always mean the same thing.'
+        rationale: |
+          You confused kinetic impact force of a spray with internal static fluid pressure.
       - text: 'No: but only because narrow pipe sections never have any measurable pressure.'
+        rationale: |
+          You claimed narrow pipes lack pressure. Moving fluids maintain measurable pressure that varies inversely with speed.
     explanation: |
       Assuming a narrow, fast-flowing section must have higher pressure (since it "feels more forceful" intuitively) reverses the correct relationship between fluid speed and pressure: faster flow actually means lower pressure.
     approved: true
@@ -190,8 +256,14 @@ questions:
       - text: 'No: despite looking taller overall, its water surface still settles at the exact same level as the other connected containers'
         correct: true
       - text: 'Yes: the visually taller container always has a higher water surface'
+        rationale: |
+          You confused container wall height with fluid level. Open connected containers equalize water surfaces to the same height.
       - text: 'Yes: but only because its cross-sectional shape is different from the others'
+        rationale: |
+          You assumed container shape alters fluid height equilibrium. Shape does not affect settled fluid level.
       - text: It depends on which container was filled with water first
+        rationale: |
+          You assumed filling order prevents equilibrium. Fluid flows between connected vessels until levels equalize.
     explanation: |
       Container height or shape does not affect the settled water surface level in a connected, open system: only the fluid level itself equalizes, regardless of how tall, wide, or oddly shaped each individual container looks.
     approved: true
@@ -206,8 +278,14 @@ questions:
       - text: The middle section has the fastest flow speed and the lowest pressure; both wide end sections have slower flow speed and higher pressure
         correct: true
       - text: The middle section has the slowest flow speed and the highest pressure
+        rationale: |
+          You inverted both speed and pressure relationships. Narrow sections have faster flow and lower pressure.
       - text: All three sections have identical flow speed and pressure
+        rationale: |
+          You assumed pipe width variations do not affect flow speed or pressure.
       - text: The middle section has the fastest flow speed and the highest pressure
+        rationale: |
+          You correctly identified faster speed but incorrectly assumed faster flow creates higher internal pressure.
     explanation: |
       The narrow middle section forces the water to speed up (to maintain the same flow volume), and faster-moving fluid has lower pressure. The wider end sections allow slower flow and correspondingly higher pressure.
     approved: true
@@ -222,8 +300,14 @@ questions:
       - text: (a) The water surface levels are equal in both containers, regardless of width; (b) the narrowed section of the pipe has faster flow speed and lower pressure than the wider parts of the pipe.
         correct: true
       - text: (a) The wide container settles at a lower level than the narrow container; (b) the narrowed section has slower flow speed and higher pressure.
+        rationale: |
+          You incorrectly assumed wider containers settle lower and narrow pipes slow down fluid flow.
       - text: (a) The narrow container settles at a lower level than the wide container; (b) the narrowed section has faster flow speed and higher pressure.
+        rationale: |
+          You incorrectly assumed narrow containers settle lower and faster flow creates higher pressure.
       - text: (a) The water surface levels are equal in both containers; (b) the narrowed section has slower flow speed and lower pressure.
+        rationale: |
+          You correctly identified equal levels, but incorrectly claimed fluid slows down in narrow sections.
     explanation: |
       Connected, open containers always settle at the same fluid level regardless of width, so (a) the levels are equal. Within the connecting pipe, the narrowed section forces faster flow (to maintain the same flow volume) and correspondingly lower pressure than the wider sections, so (b) faster flow speed and lower pressure in the narrow section.
     approved: true
