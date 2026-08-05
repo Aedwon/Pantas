@@ -14,8 +14,14 @@ questions:
       - text: Delacruz, Juan Carlos
         correct: true
       - text: Juan, Carlos Dela Cruz
+        rationale: |
+          You started with the first name instead of the surname. Unit 1 must always be the surname when indexing individual names.
       - text: Carlos, Dela Cruz Juan
+        rationale: |
+          You indexed the middle name first. Under standard filing rules, Unit 1 is the surname, Unit 2 is the first name, and Unit 3 is the middle name.
       - text: Cruz, Dela Juan Carlos
+        rationale: |
+          You separated the prefix "Dela" from the surname "Cruz". Prefixes like "De", "Dela", or "Van" combine with the surname as a single unit.
     explanation: |
       Surnames with prefixes are treated as a single unit (Delacruz) as Unit 1, followed by first name (Juan) and middle name (Carlos).
 
@@ -28,8 +34,14 @@ questions:
       - text: Adams, Arthur
         correct: true
       - text: Adams, Benjamin
+        rationale: |
+          You picked a name with the same surname whose first name comes later. "Arthur" comes before "Benjamin" alphabetically.
       - text: Adamson, Albert
+        rationale: |
+          You ignored the shorter surname rule. "Adams" finishes before "Adamson", so all "Adams" entries come first.
       - text: Adan, Anthony
+        rationale: |
+          You looked past the third letter. "Adams" comes before "Adan" because "m" comes before "n" in the alphabet.
     explanation: |
       Comparing unit by unit: Adams comes before Adamson and Adan. Between Adams, Arthur and Adams, Benjamin, Arthur comes first.
 
@@ -42,8 +54,14 @@ questions:
       - text: Disregarded in indexing
         correct: true
       - text: Placed in the first unit
+        rationale: |
+          You assumed minor words are moved to the front. Prepositions, conjunctions, and articles are ignored when alphabetizing business names.
       - text: Capitalized for sorting
+        rationale: |
+          You assumed capitalization gives prepositions sorting priority. Standard rules disregard words like "and", "of", and "the" during indexing.
       - text: Repeated in every unit
+        rationale: |
+          You assumed minor connective words are appended to every unit. They are completely ignored during indexing.
     explanation: |
       Articles, prepositions, and conjunctions are generally disregarded when alphabetizing business names.
 
@@ -56,8 +74,14 @@ questions:
       - text: 'As one unit: Delarosa'
         correct: true
       - text: Split into three separate independent indexing units
+        rationale: |
+          You treated each word in the prefix as a separate unit. Prefixes combine with the root surname to form a single unit.
       - text: Filed under the letter R in all search indexes
+        rationale: |
+          You skipped the prefix to file under the main root name. Prefixes are retained and combined with the surname, so filing starts with D.
       - text: Ignored during the main alphabetical filing search
+        rationale: |
+          You assumed prefixes are dropped entirely. Prefixes are merged directly with the surname to create the key unit.
     explanation: |
       Prefixes such as De, De la, or Van are combined with the surname and indexed as a single unit.
 
@@ -70,8 +94,14 @@ questions:
       - text: By city location
         correct: true
       - text: By numerical date of birth registration
+        rationale: |
+          You chose personal birth records for tie-breaking. Standard filing rules use geographic location when full names match.
       - text: By total years of public employment service
+        rationale: |
+          You chose employment tenure for tie-breaking. Alphabetic indexing uses location names like city or state to break identical name ties.
       - text: By social security identification card code number
+        rationale: |
+          You chose numerical ID codes. Alphabetic indexing relies on geographic names to order identical personal names.
     explanation: |
       When complete individual names are identical, filing order is determined alphabetically by geographic location (city or town).
 
@@ -84,8 +114,14 @@ questions:
       - text: Last name
         correct: true
       - text: First name
+        rationale: |
+          You picked normal reading order. Filing rules invert individual names so the surname is Unit 1.
       - text: Middle initial
+        rationale: |
+          You chose the middle initial. The surname is always Unit 1, followed by the first name (Unit 2) and middle initial (Unit 3).
       - text: Professional title
+        rationale: |
+          You chose the title. Professional titles are placed in the last unit or ignored, while the last name is Unit 1.
     explanation: |
       Under standard indexing rules for individuals, the last name (surname) is Unit 1.
 
@@ -98,8 +134,14 @@ questions:
       - text: Placed as the final unit
         correct: true
       - text: Placed as the first unit
+        rationale: |
+          You placed seniority at the very front. Seniority titles go at the end so identical names group by family and first name first.
       - text: Omitted entirely from record
+        rationale: |
+          You assumed seniority terms are deleted. They are retained as the final indexing unit to distinguish family members.
       - text: Combined with first name
+        rationale: |
+          You merged the suffix with the given name. Seniority terms form their own separate unit after all name units.
     explanation: |
       Seniority designations (Jr., Sr., II, III) are placed in the final indexing unit.
 
@@ -112,8 +154,14 @@ questions:
       - text: Apex Book Company
         correct: true
       - text: Apex Book Distributors Corporation
+        rationale: |
+          You compared past the third unit. "Company" comes before "Distributors" when evaluating Unit 3.
       - text: Apex Book Mart Enterprises Incorporated
+        rationale: |
+          You picked a name whose third unit starts with M. "Company" comes before "Mart" alphabetically.
       - text: Apex Book Publishers Agency Limited
+        rationale: |
+          You picked a name whose third unit starts with P. "Company" comes before "Publishers" alphabetically.
     explanation: |
       All names start with "Apex Book". Comparing the third unit: Company comes before Distributors, Mart, and Publishers.
 
@@ -126,8 +174,14 @@ questions:
       - text: Indexed as Saint Martin
         correct: true
       - text: Indexed under letter S only
+        rationale: |
+          You kept the literal abbreviation without expanding it. "St." must be spelled out fully as "Saint" before filing.
       - text: Abbreviated as Stmartin
+        rationale: |
+          You removed spaces while leaving "St." unexpanded. Filing rules require expanding abbreviations like "St." to "Saint".
       - text: Omitted from filing index
+        rationale: |
+          You assumed titles starting with "St." are ignored. The prefix is expanded to "Saint" and indexed as a standard word.
     explanation: |
       Abbreviated words like "St." are spelled out in full as "Saint" when indexing.
 
@@ -140,8 +194,14 @@ questions:
       - text: Unit 3
         correct: true
       - text: Unit 1
+        rationale: |
+          You placed the middle name in the primary spot. Unit 1 is reserved for the surname.
       - text: Unit 2
+        rationale: |
+          You assigned the middle name to Unit 2. Unit 2 is for the first name, and the middle name is Unit 3.
       - text: Unit 4
+        rationale: |
+          You pushed the middle name to Unit 4. Unit 3 holds the middle name, while Unit 4 is for titles or suffixes.
     explanation: |
       In individual name indexing: Unit 1 is Surname, Unit 2 is First Name, Unit 3 is Middle Name/Initial.
 
@@ -154,8 +214,14 @@ questions:
       - text: Country or location name
         correct: true
       - text: Bureau or division subtopic title
+        rationale: |
+          You indexed the specific agency branch first. Government records are grouped first by the governing country or location.
       - text: Executive director personal full name
+        rationale: |
+          You indexed the agency head's personal name. Government entries are indexed under the country or jurisdiction name first.
       - text: Department cabinet administrative rank
+        rationale: |
+          You indexed the administrative hierarchy rank first. Filing rules place the country or municipality name in Unit 1.
     explanation: |
       Government names are indexed first by the name of the governing country, state, or municipality (e.g., Philippines, Republic of the).
 
@@ -168,7 +234,13 @@ questions:
       - text: Santos, Victor
         correct: true
       - text: Santos, Maria Teresa
+        rationale: |
+          You picked a name starting with M. "Victor" comes after "Maria" in alphabetical order.
       - text: Santos, Juan Carlos
+        rationale: |
+          You picked a name starting with J. The question asks for the name that comes last, so "Victor" comes after "Juan".
       - text: Santos, Ana Patricia
+        rationale: |
+          You picked the name that comes first instead of last. "Ana" is first alphabetically, while "Victor" is last.
     explanation: |
       All have the surname Santos. Comparing first names: Ana, Juan, Maria, Victor. Victor comes last alphabetically.
