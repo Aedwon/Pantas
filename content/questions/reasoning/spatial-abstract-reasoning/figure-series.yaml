@@ -43,7 +43,7 @@ questions:
           You added 2 sides instead of continuing the constant +1 side increment.
       - text: 8 sides, an octagon
         rationale: |
-          You doubled the side count or skipped steps instead of advancing to 6 sides.
+          You jumped three sides ahead. The pattern adds one side each step, so the next one has six.
     explanation: |
       The number of sides increases by 1 each step ($3, 4, 5, \ldots$). The fourth figure should have $6$ sides: a hexagon.
     approved: true
