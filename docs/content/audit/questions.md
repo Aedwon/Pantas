@@ -201,3 +201,23 @@ Verified against the corpus on 13 August: all four "underlined" cases now say
 "in bold" and the words are bold, and both Mathematics examples list their
 choices. **The reports above were stale, not the corpus.** They are marked
 resolved in place.
+
+
+---
+
+## The distractor-length attempt that was thrown away, 13 August
+
+**A run fixed 129 of the 193 flagged Science questions and none of it was
+kept.** It lengthened the wrong answers with adverbs rather than with content:
+
+> "Yes: the time variable formally does not actually mathematically affect the
+> final calculated power value in any given physical situation."
+
+**A padded option is a louder tell than a long one.** The plan had banned this in
+writing and the run did it anyway, which is the argument for a machine check
+rather than a rule. `tools/audit/sweep_padded_choices.py` now flags any choice
+carrying three or more hedge words.
+
+**So all 403 are still flagged.** The plan is amended: a lengthened distractor
+has to carry an idea a student actually believes, and if you cannot name that
+belief, the distractor stays short and goes in the report.
