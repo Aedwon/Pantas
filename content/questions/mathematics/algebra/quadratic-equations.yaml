@@ -13,8 +13,17 @@ questions:
       - text: $x = 3$ or $x = 5$
         correct: true
       - text: $x = 3$ or $x = 6$
+        rationale: |
+          You found a pair that adds to 8 but not one that multiplies to 15. $3
+          \times 6 = 18$, so 6 is not a root here.
       - text: $x = 1$ or $x = 15$
+        rationale: |
+          You picked the factor pair 1 and 15. They multiply to 15, but they add to
+          16, not 8.
       - text: $x = 5$ or $x = 8$
+        rationale: |
+          You kept 5 and took 8 from the middle term. The middle number is the sum
+          of the roots, not one of them.
     explanation: |
       Find two numbers that multiply to 15 and add to -8. These are -3 and -5. So $(x-3)(x-5) = 0$, giving $x = 3$ or $x = 5$.
 
@@ -27,8 +36,16 @@ questions:
       - text: $x = -2$ or $x = -3$
         correct: true
       - text: $x = 2$ or $x = 3$
+        rationale: |
+          You found the right pair but kept them positive. The factors are
+          $(x+2)(x+3)$, so the roots are the negatives.
       - text: $x = -1$ or $x = -6$
+        rationale: |
+          You picked 1 and 6. They multiply to 6, but they add to 7, not 5.
       - text: $x = 1$ or $x = 6$
+        rationale: |
+          You picked 1 and 6 and left them positive. Both parts of that are wrong:
+          check the sum, then flip the signs.
     explanation: |
       Find two numbers that multiply to 6 and add to 5. These are 2 and 3. So $(x+2)(x+3) = 0$, giving $x = -2$ or $x = -3$.
 
@@ -41,8 +58,16 @@ questions:
       - text: $x = -\dfrac{1}{2}$ or $x = -3$
         correct: true
       - text: $x = \dfrac{1}{2}$ or $x = 3$
+        rationale: |
+          You have both signs backwards. Every term in this equation is positive, so
+          both roots have to be negative.
       - text: $x = -2$ or $x = -3$
+        rationale: |
+          You factored as if the leading number were 1. With $2x^2$ you have to
+          split the middle term first.
       - text: $x = 1$ or $x = 3$
+        rationale: |
+          You ignored the leading 2 and got the signs wrong as well.
     explanation: |
       Multiply $a$ and $c$: $2 \times 3 = 6$. Find two numbers that multiply to 6 and add to 7: 6 and 1. Split: $2x^2 + 6x + x + 3 = 0$, then factor: $(2x+1)(x+3) = 0$. Roots are $x = -\dfrac{1}{2}$ and $x = -3$.
 
@@ -55,8 +80,14 @@ questions:
       - text: $x = 5$
         correct: true
       - text: $x = -5$
+        rationale: |
+          You flipped the sign. The bracket is $(x - 5)$, so the root is $+5$.
       - text: $x = 0$ or $x = 10$
+        rationale: |
+          You solved $x^2 - 10x = 0$ and left the 25 out.
       - text: $x = 2$ or $x = 5$
+        rationale: |
+          You found a pair that multiplies to 10 instead of 25.
     explanation: |
       This is a perfect square: $(x-5)^2 = 0$, so $x = 5$ is the only solution.
 
@@ -69,8 +100,17 @@ questions:
       - text: $x = 0$ or $x = 4$
         correct: true
       - text: $x = 4$
+        rationale: |
+          You divided both sides by $x$. That throws away the solution $x = 0$,
+          because you cannot divide by something that might be zero.
       - text: $x = 0$ or $x = -4$
+        rationale: |
+          You have the sign backwards. Factoring gives $x(x - 4)$, so the second
+          root is $+4$.
       - text: $x = 2$
+        rationale: |
+          You halved the 4. That is what you do to complete a square, not to solve
+          this one.
     explanation: |
       Move everything to one side: $x^2 - 4x = 0$. Factor: $x(x-4) = 0$. So $x = 0$ or $x = 4$.
 
@@ -83,8 +123,17 @@ questions:
       - text: Dividing by $x$ loses the solution $x = 0$.
         correct: true
       - text: There is no error.
+        rationale: |
+          You have it. Dividing by $x$ looks harmless and silently removes one of
+          the two answers.
       - text: The student should have gotten $x = 2$.
+        rationale: |
+          You looked for an arithmetic slip. The method is what fails: dividing by
+          $x$ throws a solution away.
       - text: The correct answer is only $x = 4$.
+        rationale: |
+          You accepted the single answer. There are two, and losing one is the
+          whole point of the mistake.
     explanation: |
       Never divide by $x$ because you lose the solution $x = 0$. The correct method is to write $x^2 - 4x = 0$, then factor as $x(x-4) = 0$, giving $x = 0$ or $x = 4$.
 
@@ -97,8 +146,15 @@ questions:
       - text: $5$
         correct: true
       - text: $1$
+        rationale: |
+          You used $c$ on its own. The discriminant is $b^2 - 4ac$, so it needs all
+          three.
       - text: $3$
+        rationale: |
+          You used $b$ on its own without squaring it or subtracting anything.
       - text: $13$
+        rationale: |
+          You added $4ac$ instead of subtracting it: $9 + 4$ gives 13.
     explanation: |
       Using $b^2 - 4ac$ with $a = 1$, $b = 3$, $c = 1$: discriminant $= 3^2 - 4(1)(1) = 9 - 4 = 5$.
 
@@ -111,8 +167,17 @@ questions:
       - text: One repeated real root
         correct: true
       - text: Two distinct real roots
+        rationale: |
+          You went for two roots. Two distinct roots need a discriminant above
+          zero, and this one is exactly zero.
       - text: Two complex roots
+        rationale: |
+          You went for complex roots. Those need a discriminant below zero, and
+          this one sits exactly on the boundary at zero.
       - text: No real roots
+        rationale: |
+          You ruled out real roots. There is one, because a zero discriminant
+          still touches the axis.
     explanation: |
       Discriminant $= 6^2 - 4(1)(9) = 36 - 36 = 0$. When the discriminant is 0, there is exactly one repeated real root.
 
@@ -125,8 +190,15 @@ questions:
       - text: $4$
         correct: true
       - text: $-4$
+        rationale: |
+          You dropped a minus sign. The formula is $-b/a$ and $b$ is already
+          negative, so the two cancel.
       - text: $12$
+        rationale: |
+          You used $b$ on its own and skipped the division by $a$. Here $a$ is 3.
       - text: $\dfrac{7}{3}$
+        rationale: |
+          You used $c/a$, which is the product of the roots, not the sum.
     explanation: |
       Using Vieta's formula, sum of roots $= -\dfrac{b}{a} = -\dfrac{-12}{3} = 4$.
 
@@ -139,8 +211,15 @@ questions:
       - text: $\dfrac{7}{3}$
         correct: true
       - text: $3$
+        rationale: |
+          You used $a$ on its own. The product is $c/a$, so it needs both.
       - text: $7$
+        rationale: |
+          You used $c$ on its own and skipped the division by $a$. Here $a$ is 3.
       - text: $-\dfrac{7}{3}$
+        rationale: |
+          You added a minus sign. The product is $c/a$ with no sign change; only the
+          sum flips.
     explanation: |
       Using Vieta's formula, product of roots $= \dfrac{c}{a} = \dfrac{7}{3}$.
 
@@ -153,8 +232,17 @@ questions:
       - text: The equation must be set to zero first, moving 6 to get $x^2 - 5x - 6 = 0$.
         correct: true
       - text: There is no error.
+        rationale: |
+          You said there was no error. There is, and it comes before any
+          factoring: the equation has to equal zero first.
       - text: The left side cannot be factored.
+        rationale: |
+          You blamed the left side. It factors perfectly well once you move the 6
+          across.
       - text: Both sides are already equal.
+        rationale: |
+          You read equal sides as ready to factor. They are not the same thing:
+          one side has to be zero first.
     explanation: |
       Before factoring, the equation must equal 0. Move the 6 to the left: $x^2 - 5x - 6 = 0$, then factor.
 
@@ -167,8 +255,17 @@ questions:
       - text: The negative solution $x = -5$.
         correct: true
       - text: Nothing, the answer is correct.
+        rationale: |
+          You accepted one answer. A squared unknown has two square roots, one
+          positive and one negative.
       - text: The answer should be $x = 0$.
+        rationale: |
+          You picked zero. It is not a solution here, because $0^2$ is 0 and the
+          equation needs 25.
       - text: The answer should be $x = 25$.
+        rationale: |
+          You gave the number that was squared. The question asks for $x$, and 25
+          is $x^2$.
     explanation: |
       Every positive number has two square roots: $x = 5$ and $x = -5$. Both are solutions to $x^2 = 25$.
 
@@ -181,8 +278,17 @@ questions:
       - text: $x = 4$ or $x = -4$
         correct: true
       - text: $x = 4$
+        rationale: |
+          You stopped at the first bracket. The difference of squares gives two
+          roots, not one.
       - text: $x = 16$
+        rationale: |
+          You gave the number that was squared. Taking the square root of 16 gives
+          4, and that is only one of the two roots.
       - text: $x = 0$ or $x = 4$
+        rationale: |
+          You brought a zero root along. There is no lone $x$ in this equation to
+          produce one.
     explanation: |
       Factor as difference of squares: $(x-4)(x+4) = 0$. Roots are $x = 4$ and $x = -4$.
 
@@ -195,8 +301,16 @@ questions:
       - text: $x = 2$ or $x = -4$
         correct: true
       - text: $x = 2$ or $x = 4$
+        rationale: |
+          You have the sign of the second root backwards. The formula gives $(-2 -
+          6)/2$, which is $-4$.
       - text: $x = -1$ or $x = 8$
+        rationale: |
+          You read the factors off the constant without checking the middle term. 1
+          and 8 add to 9, not 2.
       - text: $x = 1$ or $x = -8$
+        rationale: |
+          You found the right pair of numbers and gave both the wrong sign.
     explanation: |
       Using $x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}$: $x = \dfrac{-2 \pm \sqrt{4 + 32}}{2} = \dfrac{-2 \pm 6}{2}$. So $x = 2$ or $x = -4$.
 
@@ -209,8 +323,17 @@ questions:
       - text: $x^2 + x + 1 = 0$
         correct: true
       - text: $x^2 - 4 = 0$
+        rationale: |
+          You picked the difference of squares. It factors cleanly, so it has two
+          real roots.
       - text: $x^2 - 5x + 6 = 0$
+        rationale: |
+          You picked one that factors into two whole-number brackets, so its roots
+          are real.
       - text: $x^2 + 3x = 0$
+        rationale: |
+          You picked the one with a common factor of $x$. That makes one root 0
+          and the other real.
     explanation: |
       For $x^2 + x + 1 = 0$, discriminant $= 1 - 4 = -3 < 0$, so no real roots. The others all have positive discriminants.
 
@@ -223,8 +346,17 @@ questions:
       - text: Both roots have the same sign.
         correct: true
       - text: One root is positive and one is negative.
+        rationale: |
+          You went for opposite signs. Those need a negative product, and here the
+          product is $+6$.
       - text: Both roots are positive.
+        rationale: |
+          You made both positive. Two positives cannot add to a negative sum, and
+          the sum here is $-5$.
       - text: We cannot determine the signs.
+        rationale: |
+          You gave up too early. You can tell without solving, because the signs of
+          $b$ and $c$ decide it between them.
     explanation: |
       When $c$ is positive, both roots have the same sign. Since the product is positive, the roots must both be negative or both be positive. Here, since their sum ($-5$) is negative, both must be negative.
 
@@ -237,8 +369,17 @@ questions:
       - text: $2$ cm
         correct: true
       - text: $3$ cm
+        rationale: |
+          You used the 3 from the length. That is the difference between the sides,
+          not the width.
       - text: $5$ cm
+        rationale: |
+          You picked the root the factoring throws away. $(w + 5)$ gives $w = -5$,
+          and a width cannot be negative.
       - text: $10$ cm
+        rationale: |
+          You used the area as the width. The area is the two sides multiplied
+          together.
     explanation: |
       Let $w$ be width. Then $w(w+3) = 10$, giving $w^2 + 3w - 10 = 0$. Factoring: $(w+5)(w-2) = 0$. Since width must be positive, $w = 2$ cm.
 
@@ -251,7 +392,15 @@ questions:
       - text: $k = 6$ or $k = -6$
         correct: true
       - text: $k = 9$
+        rationale: |
+          You used $c$ itself. The discriminant needs $k^2 = 4ac$, so $k^2$ is 36
+          and $k$ is 6.
       - text: $k = 3$
+        rationale: |
+          You took the square root of 9. The discriminant needs $4ac$, which is 36,
+          so the root you want is 6.
       - text: $k = 18$
+        rationale: |
+          You doubled 9. The step is a square root of $4 \times 9$, not a doubling.
     explanation: |
       For exactly one real root, the discriminant must be 0: $k^2 - 4(1)(9) = 0$. This gives $k^2 = 36$, so $k = 6$ or $k = -6$.
