@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "contentVersion": 2026081219,
-  "generatedAt": "2026-08-12T19:10:48.538446Z",
+  "generatedAt": "2026-08-12T19:18:30.413781Z",
   "exams": [
     {
       "id": "exam_cse_pro",
@@ -22277,19 +22277,22 @@
           "id": "q-algebra-algebraic-expressions-0001_b",
           "label": "B",
           "text": "$x + 3$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 3 to $x$ instead of multiplying. The phrase \"three times\" means multiplication, not addition."
         },
         {
           "id": "q-algebra-algebraic-expressions-0001_c",
           "label": "C",
           "text": "$\\frac{x}{3}$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You divided $x$ by 3 instead of multiplying. \"Three times\" indicates multiplication, not division."
         },
         {
           "id": "q-algebra-algebraic-expressions-0001_d",
           "label": "D",
           "text": "$x - 3$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted 3 from $x$ instead of multiplying. \"Three times\" means you must multiply $x$ by 3."
         }
       ],
       "explanation": "\"Three times\" means multiply by 3, so the expression is $3x$."
@@ -22319,19 +22322,22 @@
           "id": "q-algebra-algebraic-expressions-0002_b",
           "label": "B",
           "text": "$7 - y$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted $y$ from 7 instead of 7 from $y$. The word \"than\" means you must start with $y$ first."
         },
         {
           "id": "q-algebra-algebraic-expressions-0002_c",
           "label": "C",
           "text": "$y + 7$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 7 to $y$ instead of subtracting. The phrase \"less than\" means subtraction, not addition."
         },
         {
           "id": "q-algebra-algebraic-expressions-0002_d",
           "label": "D",
           "text": "$7y$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You multiplied 7 by $y$ instead of subtracting. The phrase \"less than\" indicates subtraction."
         }
       ],
       "explanation": "The word \"than\" means we swap the order. Seven less than $y$ means start with $y$ and subtract 7, giving $y - 7$."
@@ -22361,19 +22367,22 @@
           "id": "q-algebra-algebraic-expressions-0003_b",
           "label": "B",
           "text": "$15$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You may have added 2 and 3 first to get 5, then multiplied by 3 instead of substituting $x = 4$."
         },
         {
           "id": "q-algebra-algebraic-expressions-0003_c",
           "label": "C",
           "text": "$8$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You multiplied 2 by 4 to get 8, but forgot to add 3. Make sure to finish evaluating the whole expression."
         },
         {
           "id": "q-algebra-algebraic-expressions-0003_d",
           "label": "D",
           "text": "$13$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You may have added an extra 2 after calculating $2(4) + 3 = 11$, or substituted the wrong value for $x$."
         }
       ],
       "explanation": "Replace $x$ with 4: $2(4) + 3 = 8 + 3 = 11$."
@@ -22403,19 +22412,22 @@
           "id": "q-algebra-algebraic-expressions-0004_b",
           "label": "B",
           "text": "$\\frac{4}{d}$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You put 4 in the numerator and $d$ in the denominator. \"Distance $d$ divided by 4\" means $d$ is divided by 4."
         },
         {
           "id": "q-algebra-algebraic-expressions-0004_c",
           "label": "C",
           "text": "$d - 4$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted 4 from $d$ instead of dividing. The phrase \"divided by\" indicates division, not subtraction."
         },
         {
           "id": "q-algebra-algebraic-expressions-0004_d",
           "label": "D",
           "text": "$4d$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You multiplied $d$ by 4 instead of dividing. The phrase \"divided by\" means you must divide $d$ by 4."
         }
       ],
       "explanation": "\"Divided by\" means we use the division symbol. The distance $d$ goes on top, 4 goes on bottom: $\\frac{d}{4}$."
@@ -22445,19 +22457,22 @@
           "id": "q-algebra-algebraic-expressions-0005_b",
           "label": "B",
           "text": "$5a^2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You squared the variable $a$ when adding like terms. When adding, keep the variable as $a$, do not change it to $a^2$."
         },
         {
           "id": "q-algebra-algebraic-expressions-0005_c",
           "label": "C",
           "text": "$6a$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You multiplied the coefficients 3 and 2 instead of adding them. For addition of like terms, add $3 + 2 = 5$."
         },
         {
           "id": "q-algebra-algebraic-expressions-0005_d",
           "label": "D",
           "text": "$a$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted the coefficients $3 - 2$ instead of adding them. The plus sign means you must add $3 + 2 = 5$."
         }
       ],
       "explanation": "Combine like terms. Both terms have $a$, so add the coefficients: $3 + 2 = 5$, giving $5a$."
@@ -22487,19 +22502,22 @@
           "id": "q-algebra-algebraic-expressions-0006_b",
           "label": "B",
           "text": "$2x + 3$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You distributed the 2 to $x$ but forgot to multiply 3 by 2. You must multiply both terms inside the parentheses by 2."
         },
         {
           "id": "q-algebra-algebraic-expressions-0006_c",
           "label": "C",
           "text": "$x + 6$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You multiplied 3 by 2 to get 6, but forgot to multiply $x$ by 2. Distribute 2 to every term inside the parentheses."
         },
         {
           "id": "q-algebra-algebraic-expressions-0006_d",
           "label": "D",
           "text": "$2x + 2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You replaced 3 with 2 instead of multiplying 3 by 2. Multiplying 3 by 2 gives 6, so the second term should be 6."
         }
       ],
       "explanation": "Distribute the 2 to both terms inside the parentheses. $2 \\times x = 2x$ and $2 \\times 3 = 6$, giving $2x + 6$."
@@ -22529,19 +22547,22 @@
           "id": "q-algebra-algebraic-expressions-0007_b",
           "label": "B",
           "text": "Step 2",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked Step 2, but Step 2 simply repeats Step 1. The error occurred in Step 1 when 3 was not distributed to 2."
         },
         {
           "id": "q-algebra-algebraic-expressions-0007_c",
           "label": "C",
           "text": "Both steps",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You marked both steps as wrong, but the error started and ended in Step 1 where 3 was not distributed to 2."
         },
         {
           "id": "q-algebra-algebraic-expressions-0007_d",
           "label": "D",
           "text": "No step is wrong.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You concluded the work is correct, but 3 was not multiplied by 2. Distributing 3 gives $3a + 6$, so Step 1 is incorrect."
         }
       ],
       "explanation": "Step 1 is wrong. The 3 must multiply both the $a$ and the 2. It should be $3a + 6$, not $3a + 2$. The distributive property applies to every term in the parentheses."
@@ -22571,19 +22592,22 @@
           "id": "q-algebra-algebraic-expressions-0008_b",
           "label": "B",
           "text": "$6$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You multiplied the base 3 by the exponent 2. Squaring a number means multiplying it by itself: $3 \\times 3 = 9$."
         },
         {
           "id": "q-algebra-algebraic-expressions-0008_c",
           "label": "C",
           "text": "$3$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You kept the value of $x$ without applying the exponent. You must evaluate $3^2$, which equals $3 \\times 3 = 9$."
         },
         {
           "id": "q-algebra-algebraic-expressions-0008_d",
           "label": "D",
           "text": "$1$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You got 1, which happens if you divide 3 by 3. The expression asks for $3^2$, which means $3 \\times 3 = 9$."
         }
       ],
       "explanation": "Replace $x$ with 3 and square it: $3^2 = 3 \\times 3 = 9$."
@@ -22613,19 +22637,22 @@
           "id": "q-algebra-algebraic-expressions-0009_b",
           "label": "B",
           "text": "$4$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You treated the expression as $(-x)^2$ and squared the negative sign. The negative is outside, so calculate $-(2^2) = -4$."
         },
         {
           "id": "q-algebra-algebraic-expressions-0009_c",
           "label": "C",
           "text": "$-2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You multiplied $-1$ by 2 without squaring 2 first. Exponents come before negation, so calculate $2^2 = 4$, then negate to get $-4$."
         },
         {
           "id": "q-algebra-algebraic-expressions-0009_d",
           "label": "D",
           "text": "$2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You returned the value of $x$ without squaring or applying the negative sign. You must evaluate $-(2^2) = -4$."
         }
       ],
       "explanation": "The negative sign is outside the exponent. First square the 2 to get 4, then apply the negative: $-(2^2) = -(4) = -4$."
@@ -22655,19 +22682,22 @@
           "id": "q-algebra-algebraic-expressions-0010_b",
           "label": "B",
           "text": "$-4$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You applied the negative sign after squaring. Because $-x$ is inside parentheses, square the entire term $(-2) \\times (-2) = 4$."
         },
         {
           "id": "q-algebra-algebraic-expressions-0010_c",
           "label": "C",
           "text": "$2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You kept the value 2 without applying the negative sign or squaring. Substituting $x = 2$ gives $(-2)^2 = 4$."
         },
         {
           "id": "q-algebra-algebraic-expressions-0010_d",
           "label": "D",
           "text": "$-2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated $-x = -2$ but forgot to square the result. Squaring $-2$ gives $(-2) \\times (-2) = 4$."
         }
       ],
       "explanation": "The negative is inside the parentheses, so it gets squared too. $(-2)^2 = (-2) \\times (-2) = 4$."
@@ -22697,19 +22727,22 @@
           "id": "q-algebra-algebraic-expressions-0011_b",
           "label": "B",
           "text": "$3x - 3$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted $2x$ correctly to get $3x$, but did not distribute the negative sign to $-3$. Subtracting $-3$ gives $+3$."
         },
         {
           "id": "q-algebra-algebraic-expressions-0011_c",
           "label": "C",
           "text": "$7x - 3$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added $5x$ and $2x$ instead of subtracting $2x$. Distributing the minus sign gives $5x - 2x + 3 = 3x + 3$."
         },
         {
           "id": "q-algebra-algebraic-expressions-0011_d",
           "label": "D",
           "text": "$3x$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You simplified the $x$ terms to $3x$ but dropped the constant term. Distributing the minus sign to $-3$ gives $+3$, so the answer is $3x + 3$."
         }
       ],
       "explanation": "When you subtract a group, flip all the signs inside. The $2x$ becomes $-2x$ and the $-3$ becomes $+3$. So $5x - 2x + 3 = 3x + 3$."
@@ -22739,19 +22772,22 @@
           "id": "q-algebra-algebraic-expressions-0012_b",
           "label": "B",
           "text": "Step 2",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You chose Step 2, but Step 2 correctly computed $8 - 3 = 5$ from Step 1. The mistake happened in Step 1 where $-(-x)$ was written as $-x$."
         },
         {
           "id": "q-algebra-algebraic-expressions-0012_c",
           "label": "C",
           "text": "Both steps",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You marked both steps as wrong. Step 2 logically follows from Step 1, but Step 1 is where the negative sign failed to flip $-x$ to $+x$."
         },
         {
           "id": "q-algebra-algebraic-expressions-0012_d",
           "label": "D",
           "text": "No step is wrong.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You thought no step was wrong, but subtracting $(3 - x)$ requires flipping both signs to get $8 - 3 + x = 5 + x$. Step 1 is wrong."
         }
       ],
       "explanation": "Step 1 is wrong. When subtracting a group, both signs must flip. It should be $8 - 3 + x$, not $8 - 3 - x$. So the correct answer is $5 + x$."
@@ -22781,19 +22817,22 @@
           "id": "q-algebra-algebraic-expressions-0013_b",
           "label": "B",
           "text": "$n + 0.5$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 0.5 to $n$ instead of multiplying. The word \"of\" in percent problems means multiplication, not addition."
         },
         {
           "id": "q-algebra-algebraic-expressions-0013_c",
           "label": "C",
           "text": "$n - 0.5$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted 0.5 from $n$ instead of multiplying. Finding a percentage \"of\" a quantity requires multiplication."
         },
         {
           "id": "q-algebra-algebraic-expressions-0013_d",
           "label": "D",
           "text": "$\\frac{n}{0.5}$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You divided $n$ by 0.5 instead of multiplying. Multiplying $n$ by 0.5 gives $0.5n$, which represents 50% of $n$."
         }
       ],
       "explanation": "\"Of\" means multiply. 50% is 0.5, so the expression is $0.5n$."
@@ -22823,19 +22862,22 @@
           "id": "q-algebra-algebraic-expressions-0014_b",
           "label": "B",
           "text": "$10x + 4$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You got $+4$ as the constant term. Distributing 2 to $-1$ gives $-2$, not $+4$. Combining terms gives $10x - 2$."
         },
         {
           "id": "q-algebra-algebraic-expressions-0014_c",
           "label": "C",
           "text": "$6x - 2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You distributed $2(3x - 1)$ to get $6x - 2$, but forgot to add the $+4x$ term at the end to get $10x - 2$."
         },
         {
           "id": "q-algebra-algebraic-expressions-0014_d",
           "label": "D",
           "text": "$5x - 1$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 2 and 3 to get 5 instead of multiplying $2 \\times 3 = 6$. You must distribute by multiplying: $2(3x) = 6x$."
         }
       ],
       "explanation": "First distribute: $2(3x) = 6x$ and $2(-1) = -2$, giving $6x - 2 + 4x$. Combine like terms: $6x + 4x = 10x$. The answer is $10x - 2$."
@@ -22865,19 +22907,22 @@
           "id": "q-algebra-algebraic-expressions-0015_b",
           "label": "B",
           "text": "$-2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You may have multiplied $b = -2$ by 4 or evaluated $(-2)^3$ instead of $(-2)^2 = 4$. Check your exponent calculation."
         },
         {
           "id": "q-algebra-algebraic-expressions-0015_c",
           "label": "C",
           "text": "$2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated $(-2)^2$ as $-4$ instead of $+4$. Squaring a negative number yields a positive result: $(-2)^2 = 4$, so $6 + 4 = 10$."
         },
         {
           "id": "q-algebra-algebraic-expressions-0015_d",
           "label": "D",
           "text": "$6$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You calculated $2(3) = 6$ but forgot to add $b^2$. Since $b = -2$, $b^2 = 4$, making the final result $6 + 4 = 10$."
         }
       ],
       "explanation": "Replace $a$ with 3 and $b$ with $-2$. Calculate $2(3) = 6$. Calculate $(-2)^2 = 4$. Then $6 + 4 = 10$."
@@ -22907,19 +22952,22 @@
           "id": "q-algebra-algebraic-expressions-0016_b",
           "label": "B",
           "text": "$4(x + 5)$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You multiplied 4 by the quantity $(x + 5)$. The phrase specifies the product of 4 and $x$ first, then adding 5, giving $4x + 5$."
         },
         {
           "id": "q-algebra-algebraic-expressions-0016_c",
           "label": "C",
           "text": "$4x - 5$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted 5 instead of adding. The word \"plus\" indicates addition, so the expression is $4x + 5$."
         },
         {
           "id": "q-algebra-algebraic-expressions-0016_d",
           "label": "D",
           "text": "$4 + x + 5$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 4 and $x$ instead of multiplying them. \"Product\" means multiplication, so 4 and $x$ multiply to form $4x$."
         }
       ],
       "explanation": "\"Product of 4 and $x$\" means $4x$. \"Plus 5\" means we add 5. The expression is $4x + 5$."
@@ -22943,7 +22991,8 @@
           "id": "q-algebra-algebraic-expressions-0017_a",
           "label": "A",
           "text": "Step 1",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You chose Step 1, but \"twice a number $y$\" is correctly translated as $2y$. The mistake is in Step 2."
         },
         {
           "id": "q-algebra-algebraic-expressions-0017_b",
@@ -22955,13 +23004,15 @@
           "id": "q-algebra-algebraic-expressions-0017_c",
           "label": "C",
           "text": "Both steps",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You marked both steps wrong, but Step 1 correctly translated \"twice a number $y$\" as $2y$. Only Step 2 has an error."
         },
         {
           "id": "q-algebra-algebraic-expressions-0017_d",
           "label": "D",
           "text": "No step is wrong.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You thought no step was wrong, but \"6 less than $2y$\" means starting with $2y$ and subtracting 6, which is $2y - 6$."
         }
       ],
       "explanation": "Step 2 is wrong. The word \"than\" means we swap the order. It should be $2y - 6$, not $6 - 2y$."
@@ -22991,19 +23042,22 @@
           "id": "q-algebra-algebraic-expressions-0018_b",
           "label": "B",
           "text": "$2x + 2y$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted the $y$ terms to get $2y$. Both $2y$ and $4y$ are positive, so add them to get $2y + 4y = 6y$."
         },
         {
           "id": "q-algebra-algebraic-expressions-0018_c",
           "label": "C",
           "text": "$4x + 6y$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added $3x$ and $x$ to get $4x$. The term is $-x$, so you must subtract: $3x - x = 2x$."
         },
         {
           "id": "q-algebra-algebraic-expressions-0018_d",
           "label": "D",
           "text": "$3x + 6y$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You combined the $y$ terms correctly but left $3x$ unchanged. You must combine $3x - x$ to get $2x$."
         }
       ],
       "explanation": "Combine the $x$ terms: $3x - x = 2x$. Combine the $y$ terms: $2y + 4y = 6y$. The answer is $2x + 6y$."
@@ -23033,19 +23087,22 @@
           "id": "q-algebra-exponents-and-logarithms-0001_b",
           "label": "B",
           "text": "$x^{15}$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You multiplied the exponents $3 \\times 5 = 15$. When multiplying terms with the same base, add exponents: $3 + 5 = 8$."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0001_c",
           "label": "C",
           "text": "$x^{-2}$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted 3 and 5 to get $-2$. Subtraction is used when dividing powers with the same base, not multiplying."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0001_d",
           "label": "D",
           "text": "$x^2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted $5 - 3 = 2$. Exponents are added when multiplying powers with the same base: $3 + 5 = 8$."
         }
       ],
       "explanation": "When multiplying powers with the same base, add the exponents: $x^3 \\cdot x^5 = x^{3+5} = x^8$."
@@ -23075,19 +23132,22 @@
           "id": "q-algebra-exponents-and-logarithms-0002_b",
           "label": "B",
           "text": "$x^{10}$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added the exponents $7 + 3 = 10$. When dividing powers with the same base, subtract exponents: $7 - 3 = 4$."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0002_c",
           "label": "C",
           "text": "$x^{-4}$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted $3 - 7 = -4$ instead of $7 - 3 = 4$. Subtract the bottom exponent from the top exponent."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0002_d",
           "label": "D",
           "text": "$x$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You divided the exponents $7 \\div 3$. Division of powers requires subtracting the exponents: $7 - 3 = 4$."
         }
       ],
       "explanation": "When dividing powers with the same base, subtract the exponents: $\\dfrac{x^7}{x^3} = x^{7-3} = x^4$."
@@ -23117,19 +23177,22 @@
           "id": "q-algebra-exponents-and-logarithms-0003_b",
           "label": "B",
           "text": "$x^5$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added the exponents $3 + 2 = 5$. When raising a power to a power, multiply the exponents: $3 \\times 2 = 6$."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0003_c",
           "label": "C",
           "text": "$x^9$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You squared the exponent $3^2 = 9$. When raising a power to a power, multiply exponents: $3 \\times 2 = 6$."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0003_d",
           "label": "D",
           "text": "$x^{3/2}$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You turned the outer exponent into a denominator. Power to a power requires multiplying exponents: $3 \\times 2 = 6$."
         }
       ],
       "explanation": "When raising a power to a power, multiply the exponents: $(x^3)^2 = x^{3 \\cdot 2} = x^6$."
@@ -23159,19 +23222,22 @@
           "id": "q-algebra-exponents-and-logarithms-0004_b",
           "label": "B",
           "text": "$4$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated $8^{\\frac{2}{3}} = 4$, but ignored the negative sign on the exponent, which flips the value to $\\dfrac{1}{4}$."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0004_c",
           "label": "C",
           "text": "$-4$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You treated the negative exponent as a negative multiplier. A negative exponent creates a fraction: $\\dfrac{1}{8^{2/3}} = \\dfrac{1}{4}$."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0004_d",
           "label": "D",
           "text": "$\\dfrac{1}{2}$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You took the cube root $\\sqrt[3]{8} = 2$ and flipped it, but forgot to square the result: $2^2 = 4$, giving $\\dfrac{1}{4}$."
         }
       ],
       "explanation": "Handle the negative: $\\dfrac{1}{8^{\\frac{2}{3}}}$. The fraction means cube root then square: $\\sqrt[3]{8} = 2$, so $2^2 = 4$. Final answer: $\\dfrac{1}{4}$."
@@ -23201,19 +23267,22 @@
           "id": "q-algebra-exponents-and-logarithms-0005_b",
           "label": "B",
           "text": "$-8$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You treated the negative exponent as a negative coefficient. A negative exponent flips the base to a fraction: $\\dfrac{1}{2^3} = \\dfrac{1}{8}$."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0005_c",
           "label": "C",
           "text": "$-\\dfrac{1}{8}$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You made the fraction negative. A negative exponent makes the base a reciprocal, but does not make the overall value negative."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0005_d",
           "label": "D",
           "text": "$8$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated $2^3 = 8$ and ignored the negative sign on the exponent. The negative exponent flips 8 to $\\dfrac{1}{8}$."
         }
       ],
       "explanation": "A negative exponent means flip the fraction: $2^{-3} = \\dfrac{1}{2^3} = \\dfrac{1}{8}$."
@@ -23243,19 +23312,22 @@
           "id": "q-algebra-exponents-and-logarithms-0006_b",
           "label": "B",
           "text": "$\\log_2(8) = 4$ because $2 \\times 4 = 8$.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You used multiplication instead of exponentiation. Logarithms find the power, so $\\log_2(8) = 3$ because $2^3 = 8$."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0006_c",
           "label": "C",
           "text": "$\\log_2(8) = 2$ because $2^2 = 4$.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated $2^2 = 4$, which does not equal 8. The power needed on base 2 to reach 8 is 3, because $2^3 = 8$."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0006_d",
           "label": "D",
           "text": "$\\log_2(8)$ is undefined.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You marked $\\log_2(8)$ as undefined, but 8 is positive and base 2 is valid, so $\\log_2(8) = 3$."
         }
       ],
       "explanation": "The logarithm asks: \"What power do I need on 2 to get 8?\" Since $2^3 = 8$, the answer is 3."
@@ -23285,19 +23357,22 @@
           "id": "q-algebra-exponents-and-logarithms-0007_b",
           "label": "B",
           "text": "$3$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated $3^3 = 27$ instead of finding the power for 81. Since $3^4 = 81$, the logarithm equals 4."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0007_c",
           "label": "C",
           "text": "$27$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You divided 81 by 3 to get 27. Logarithms ask for the exponent power, not division: $3^4 = 81$, so $\\log_3(81) = 4$."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0007_d",
           "label": "D",
           "text": "$2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated $3^2 = 9$. The logarithm asks for the exponent that produces 81, which is 4 because $3^4 = 81$."
         }
       ],
       "explanation": "Ask: \"3 raised to what power gives 81?\" Since $3^4 = 81$, the answer is 4."
@@ -23327,19 +23402,22 @@
           "id": "q-algebra-exponents-and-logarithms-0008_b",
           "label": "B",
           "text": "There is no error.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You claimed there is no error, but $2^3 \\cdot 2^4 = 2^{3+4} = 2^7$. Multiplying exponents to get $2^{12}$ is wrong."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0008_c",
           "label": "C",
           "text": "The bases should be different.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You thought the bases must differ, but exponent rules apply specifically when multiplying terms with the same base."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0008_d",
           "label": "D",
           "text": "The answer should be $2^1$.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted exponents $4 - 3 = 1$. When multiplying powers with the same base, add exponents: $3 + 4 = 7$."
         }
       ],
       "explanation": "Multiply means add exponents: $2^3 \\cdot 2^4 = 2^{3+4} = 2^7$. Multiplying the exponents gives $2^{12}$."
@@ -23369,19 +23447,22 @@
           "id": "q-algebra-exponents-and-logarithms-0009_b",
           "label": "B",
           "text": "There is no error.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You claimed there is no error, but power of a power requires multiplying exponents: $2 \\times 3 = 6$, giving $2^6$."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0009_c",
           "label": "C",
           "text": "The answer should be $2^{-1}$.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted the exponents $2 - 3 = -1$. Power of a power rule states you must multiply exponents: $2 \\times 3 = 6$."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0009_d",
           "label": "D",
           "text": "Powers cannot be raised to powers.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You claimed powers cannot be raised to powers, but they can by multiplying the inner and outer exponents."
         }
       ],
       "explanation": "Power to a power means multiply: $(2^2)^3 = 2^{2 \\times 3} = 2^6$. Adding gives $2^5$."
@@ -23411,19 +23492,22 @@
           "id": "q-algebra-exponents-and-logarithms-0010_b",
           "label": "B",
           "text": "$x^5 y^2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You put $y^2$ in the numerator. In the denominator $y^3$ exceeds the numerator $y^1$, leaving $y^2$ in the denominator."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0010_c",
           "label": "C",
           "text": "$\\dfrac{x^3}{y^2}$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted $x^4 - x^1$ incorrectly. The numerator has $x^3 \\cdot x^4 = x^7$, and dividing by $x^2$ gives $x^{7-2} = x^5$."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0010_d",
           "label": "D",
           "text": "$x^2 y$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You miscalculated both powers. Combining numerator and denominator gives $x^{3+4-2} = x^5$ and $y^{2-1-3} = y^{-2}$."
         }
       ],
       "explanation": "Combine top: $x^3 \\cdot x^4 = x^7$ and $y^2 \\cdot y^{-1} = y^1$. Divide by bottom: $\\dfrac{x^7 y}{x^2 y^3} = \\dfrac{x^5}{y^2}$."
@@ -23453,19 +23537,22 @@
           "id": "q-algebra-exponents-and-logarithms-0011_b",
           "label": "B",
           "text": "$\\log(2xy)$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You kept 2 as a multiplier inside the logarithm. The power rule moves 2 to become an exponent on $x$, giving $\\log(x^2 y)$."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0011_c",
           "label": "C",
           "text": "$\\log(x^2 + y)$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added the arguments inside the logarithm. Adding logarithms corresponds to multiplying their arguments: $\\log(x^2 \\cdot y)$."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0011_d",
           "label": "D",
           "text": "$\\log(xy^2)$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You put the exponent 2 on $y$ instead of $x$. The coefficient 2 is in front of $\\log(x)$, so $x$ gets squared."
         }
       ],
       "explanation": "Bring exponents back: $\\log(x^2) + \\log(y)$. Addition in logs means multiply: $\\log(x^2 y)$."
@@ -23495,19 +23582,22 @@
           "id": "q-algebra-exponents-and-logarithms-0012_b",
           "label": "B",
           "text": "$x = 1$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You may have set $2x - 1 = x + 1$ without converting 4 and 8 to base 2. $4 = 2^2$ gives $2(2x-1) = 4x-2$, yielding $x = 5$."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0012_c",
           "label": "C",
           "text": "$x = -1$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You miscalculated the algebra after equating exponents. From $4x - 2 = 3x + 3$, subtracting $3x$ and adding 2 gives $x = 5$."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0012_d",
           "label": "D",
           "text": "$x = 3$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You made an arithmetic error solving $4x - 2 = 3x + 3$. Subtracting $3x$ gives $x - 2 = 3$, so $x = 3 + 2 = 5$."
         }
       ],
       "explanation": "Rewrite with base 2: $(2^2)^{2x-1} = (2^3)^{x+1}$. Multiply powers: $2^{4x-2} = 2^{3x+3}$. Set exponents equal: $4x - 2 = 3x + 3$, so $x = 5$."
@@ -23537,19 +23627,22 @@
           "id": "q-algebra-exponents-and-logarithms-0013_b",
           "label": "B",
           "text": "$a + b$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated $\\log_{10}(6) = a + b$ because $2 \\times 3 = 6$. Since $12 = 2^2 \\times 3$, you need $2a + b$."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0013_c",
           "label": "C",
           "text": "$a + 2b$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You squared 3 instead of 2. $12 = 4 \\times 3 = 2^2 \\times 3$, which expands to $2\\log(2) + \\log(3) = 2a + b$."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0013_d",
           "label": "D",
           "text": "$ab$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You multiplied $a$ and $b$. Logarithm of a product becomes addition of logarithms: $\\log(2^2 \\cdot 3) = 2a + b$."
         }
       ],
       "explanation": "Write $12 = 4 \\times 3 = 2^2 \\times 3$. Then $\\log_{10}(2^2 \\times 3) = \\log_{10}(2^2) + \\log_{10}(3) = 2\\log_{10}(2) + \\log_{10}(3) = 2a + b$."
@@ -23579,19 +23672,22 @@
           "id": "q-algebra-exponents-and-logarithms-0014_b",
           "label": "B",
           "text": "There is no error.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You claimed there is no error, but $3^{-2} = \\dfrac{1}{3^2} = \\dfrac{1}{9}$. Negative exponents make fractions, not negative numbers."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0014_c",
           "label": "C",
           "text": "The answer should be $-3$.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You divided $-9$ by 3. A negative exponent creates a positive fraction $\\dfrac{1}{3^2} = \\dfrac{1}{9}$."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0014_d",
           "label": "D",
           "text": "Negative exponents are undefined.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You claimed negative exponents are undefined, but $x^{-n} = \\dfrac{1}{x^n}$ for any non-zero $x$."
         }
       ],
       "explanation": "$3^{-2} = \\dfrac{1}{3^2} = \\dfrac{1}{9}$. The negative sign on the exponent is not a minus sign in the answer."
@@ -23621,19 +23717,22 @@
           "id": "q-algebra-exponents-and-logarithms-0015_b",
           "label": "B",
           "text": "$12$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You multiplied 16 by $\\dfrac{3}{4}$ to get 12. Fractional exponents mean root and power: $\\sqrt[4]{16} = 2$ and $2^3 = 8$."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0015_c",
           "label": "C",
           "text": "$4$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated the fourth root $\\sqrt[4]{16} = 2$ and multiplied by 2 instead of cubing: $2^3 = 8$."
         },
         {
           "id": "q-algebra-exponents-and-logarithms-0015_d",
           "label": "D",
           "text": "$64$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You cubed 16 to get 4096 and took the fourth root, or calculated $4^3 = 64$ using 4 as base. The base is 16, so $\\sqrt[4]{16} = 2$ and $2^3 = 8$."
         }
       ],
       "explanation": "The fractional exponent means fourth root then cube: $\\sqrt[4]{16} = 2$, and $2^3 = 8$."
@@ -23663,19 +23762,22 @@
           "id": "q-algebra-functions-and-relations-0001_b",
           "label": "B",
           "text": "$\\{(1, 4), (1, 5), (2, 6)\\}$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a relation where input 1 maps to two different outputs, 4 and 5. A function must assign exactly one output per input."
         },
         {
           "id": "q-algebra-functions-and-relations-0001_c",
           "label": "C",
           "text": "$\\{(2, 3), (2, 4), (3, 5)\\}$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You chose a relation where input 2 maps to both 3 and 4. A function cannot map a single input value to multiple outputs."
         },
         {
           "id": "q-algebra-functions-and-relations-0001_d",
           "label": "D",
           "text": "$\\{(1, 2), (2, 3), (1, 4)\\}$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You selected a relation where input 1 produces two outputs, 2 and 4. Inputs cannot repeat with different output values."
         }
       ],
       "explanation": "A function has one input → one output. Check inputs: in the first, inputs are 1, 2, 3 (no repeats). Others have repeated inputs with different outputs, so they are not functions."
@@ -23705,19 +23807,22 @@
           "id": "q-algebra-functions-and-relations-0002_b",
           "label": "B",
           "text": "$9$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added $3 + 4 + 2 = 9$ or added 3 and 4 first. Make sure to multiply 3 by $x = 4$ to get 12, then add 2 to get 14."
         },
         {
           "id": "q-algebra-functions-and-relations-0002_c",
           "label": "C",
           "text": "$12$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You calculated $3(4) = 12$, but forgot to add the $+2$ constant term. Finishing the evaluation gives $12 + 2 = 14$."
         },
         {
           "id": "q-algebra-functions-and-relations-0002_d",
           "label": "D",
           "text": "$5$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You calculated $3 + 2 = 5$ and ignored the $x$ input. You must substitute $x = 4$ to evaluate $3(4) + 2 = 14$."
         }
       ],
       "explanation": "Substitute $x = 4$: $f(4) = 3(4) + 2 = 12 + 2 = 14$."
@@ -23747,19 +23852,22 @@
           "id": "q-algebra-functions-and-relations-0003_b",
           "label": "B",
           "text": "$3$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You computed $2(-2)^2 = 8$ correctly, but evaluated $-3(-2)$ as $-6$ instead of $+6$, giving $8 - 6 + 1 = 3$."
         },
         {
           "id": "q-algebra-functions-and-relations-0003_c",
           "label": "C",
           "text": "$-1$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated $(-2)^2$ as $-4$, getting $2(-4) - 3(-2) + 1 = -8 + 6 + 1 = -1$. Check your signs when squaring negative numbers."
         },
         {
           "id": "q-algebra-functions-and-relations-0003_d",
           "label": "D",
           "text": "$11$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You forgot to add 1 at the end, or miscalculated $8 + 6 = 14$ instead of $8 + 6 + 1 = 15$. Check each step of your arithmetic."
         }
       ],
       "explanation": "Substitute $x = -2$ carefully: $f(-2) = 2(-2)^2 - 3(-2) + 1 = 2(4) + 6 + 1 = 8 + 6 + 1 = 15$."
@@ -23789,19 +23897,22 @@
           "id": "q-algebra-functions-and-relations-0004_b",
           "label": "B",
           "text": "All real numbers",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You ignored the denominator. When $x = 3$, the denominator $x - 3 = 0$, causing division by zero, which is undefined."
         },
         {
           "id": "q-algebra-functions-and-relations-0004_c",
           "label": "C",
           "text": "$x \\geq 3$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You applied a square root rule to a fraction. Rational functions allow negative values as long as the denominator is not zero."
         },
         {
           "id": "q-algebra-functions-and-relations-0004_d",
           "label": "D",
           "text": "$x > 3$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You restricted $x$ to strictly positive values beyond 3. Values less than 3 are allowed because they do not make $x - 3 = 0$."
         }
       ],
       "explanation": "The denominator cannot be zero. Setting $x - 3 = 0$ gives $x = 3$, which is forbidden. Domain is all reals except 3."
@@ -23831,19 +23942,22 @@
           "id": "q-algebra-functions-and-relations-0005_b",
           "label": "B",
           "text": "$x > 2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You excluded $x = 2$. Substituting $x = 2$ gives $\\sqrt{0} = 0$, which is defined, so $x = 2$ is included in the domain."
         },
         {
           "id": "q-algebra-functions-and-relations-0005_c",
           "label": "C",
           "text": "All real numbers",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You included values where $x < 2$. For example, if $x = 0$, $\\sqrt{-2}$ is not a real number, so $x \\geq 2$ is required."
         },
         {
           "id": "q-algebra-functions-and-relations-0005_d",
           "label": "D",
           "text": "$x \\le 2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You reversed the inequality direction. If $x < 2$, $x - 2$ becomes negative, making the square root undefined."
         }
       ],
       "explanation": "The inside of a square root must be non-negative: $x - 2 \\geq 0$, so $x \\geq 2$."
@@ -23873,19 +23987,22 @@
           "id": "q-algebra-functions-and-relations-0006_b",
           "label": "B",
           "text": "The reciprocal $\\dfrac{1}{f(x)}$.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You treated the $-1$ superscript as an exponent rather than inverse notation. In function notation, $f^{-1}$ undoes $f$."
         },
         {
           "id": "q-algebra-functions-and-relations-0006_c",
           "label": "C",
           "text": "The negative of $f(x)$.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You confused inverse functions with negating a function $-f(x)$. The inverse function swaps input and output values."
         },
         {
           "id": "q-algebra-functions-and-relations-0006_d",
           "label": "D",
           "text": "It cannot be determined.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You selected undetermined, but $f^{-1}(x)$ is standard mathematical notation representing the inverse function."
         }
       ],
       "explanation": "$f^{-1}(x)$ is the inverse function. If $f(2) = 7$, then $f^{-1}(7) = 2$. It is not $\\dfrac{1}{f(x)}$."
@@ -23915,19 +24032,22 @@
           "id": "q-algebra-functions-and-relations-0007_b",
           "label": "B",
           "text": "$1$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated $g(2) = 2^2 - 3 = 1$, but forgot to apply $f(1) = 2(1) + 1 = 3$. Complete the outer function call."
         },
         {
           "id": "q-algebra-functions-and-relations-0007_c",
           "label": "C",
           "text": "$5$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You calculated $f(2) = 5$ first, evaluating $(g \\circ f)(2) = g(5) = 22$, or got confused between composition orders."
         },
         {
           "id": "q-algebra-functions-and-relations-0007_d",
           "label": "D",
           "text": "$9$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You squared $f(2) = 5$ or miscalculated $(f \\circ g)(2)$. First find $g(2) = 1$, then plug 1 into $f(x)$ to get $f(1) = 3$."
         }
       ],
       "explanation": "Work inside out. First $g(2) = 2^2 - 3 = 1$. Then $f(1) = 2(1) + 1 = 3$."
@@ -23957,19 +24077,22 @@
           "id": "q-algebra-functions-and-relations-0008_b",
           "label": "B",
           "text": "$3$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated $(f \\circ g)(2)$ instead of $(g \\circ f)(2)$. For $(g \\circ f)(2)$, evaluate $f(2) = 5$ first, then $g(5) = 22$."
         },
         {
           "id": "q-algebra-functions-and-relations-0008_c",
           "label": "C",
           "text": "$9$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated $f(2) = 5$ and computed $2(5) - 1 = 9$ instead of $g(5) = 5^2 - 3 = 22$. Check your function formula."
         },
         {
           "id": "q-algebra-functions-and-relations-0008_d",
           "label": "D",
           "text": "$1$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated $g(2) = 1$ instead of $f(2) = 5$. Inside out means compute $f(2) = 5$ first, then $g(5) = 25 - 3 = 22$."
         }
       ],
       "explanation": "Work inside out. First $f(2) = 2(2) + 1 = 5$. Then $g(5) = 5^2 - 3 = 25 - 3 = 22$."
@@ -23999,19 +24122,22 @@
           "id": "q-algebra-functions-and-relations-0009_b",
           "label": "B",
           "text": "$f^{-1}(x) = \\dfrac{5}{2x - 3}$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You took the reciprocal of the fraction. To find an inverse function, swap $x$ and $y$ and solve for $y$: $y = \\dfrac{5x+3}{2}$."
         },
         {
           "id": "q-algebra-functions-and-relations-0009_c",
           "label": "C",
           "text": "$f^{-1}(x) = \\dfrac{2x + 3}{5}$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You flipped the negative 3 to positive 3 but forgot to multiply by 5 when solving $5x = 2y - 3$."
         },
         {
           "id": "q-algebra-functions-and-relations-0009_d",
           "label": "D",
           "text": "$f^{-1}(x) = \\dfrac{3 - 2x}{5}$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You negated the numerator instead of solving $x = \\dfrac{2y-3}{5}$ for $y$. Multiplying by 5 gives $5x = 2y - 3$, so $y = \\dfrac{5x+3}{2}$."
         }
       ],
       "explanation": "Write $y = \\dfrac{2x - 3}{5}$. Swap $x$ and $y$: $x = \\dfrac{2y - 3}{5}$. Solve: $5x = 2y - 3$, so $2y = 5x + 3$ and $y = \\dfrac{5x + 3}{2}$."
@@ -24041,19 +24167,22 @@
           "id": "q-algebra-functions-and-relations-0010_b",
           "label": "B",
           "text": "There is no error.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You claimed there is no error, but squaring any real number never produces a negative result, so $y \\geq 0$."
         },
         {
           "id": "q-algebra-functions-and-relations-0010_c",
           "label": "C",
           "text": "The range is negative numbers only.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You claimed the range is negative numbers, but $x^2$ produces non-negative numbers like $0, 1, 4$."
         },
         {
           "id": "q-algebra-functions-and-relations-0010_d",
           "label": "D",
           "text": "The function has no range.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You claimed the function has no range, but every function has a valid range of output values."
         }
       ],
       "explanation": "Squaring always gives non-negative values. The range excludes negative numbers."
@@ -24083,19 +24212,22 @@
           "id": "q-algebra-functions-and-relations-0011_b",
           "label": "B",
           "text": "Yes, always.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You selected \"Yes, always\", but a relation with multiple $y$ values for one $x$ value fails the definition of a function."
         },
         {
           "id": "q-algebra-functions-and-relations-0011_c",
           "label": "C",
           "text": "Only for some functions.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You thought some functions allow multiple outputs per input, but by definition no function allows duplicate $x$ values."
         },
         {
           "id": "q-algebra-functions-and-relations-0011_d",
           "label": "D",
           "text": "It depends on the domain.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You thought it depends on the domain, but the rule that each input maps to one output holds across all domains."
         }
       ],
       "explanation": "The definition of a function requires exactly one output for each input. If an input has two outputs, it is not a function."
@@ -24125,19 +24257,22 @@
           "id": "q-algebra-functions-and-relations-0012_b",
           "label": "B",
           "text": "$19$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated $f(7) = 3(7) - 2 = 19$ instead of the inverse. Finding $f^{-1}(7)$ means solving $3x - 2 = 7$, which gives $x = 3$."
         },
         {
           "id": "q-algebra-functions-and-relations-0012_c",
           "label": "C",
           "text": "$1$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted 2 from 7 or miscalculated $3x = 9$. Solving $3x - 2 = 7$ gives $3x = 9$, so dividing by 3 yields $x = 3$."
         },
         {
           "id": "q-algebra-functions-and-relations-0012_d",
           "label": "D",
           "text": "$5$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 7 and 3 or miscalculated the linear equation. Solving $3x - 2 = 7$ leads to $3x = 9$, so $x = 3$."
         }
       ],
       "explanation": "Ask: \"What input to $f$ gives output 7?\" Solve $3x - 2 = 7$: $3x = 9$, so $x = 3$."
@@ -24167,19 +24302,22 @@
           "id": "q-algebra-functions-and-relations-0013_b",
           "label": "B",
           "text": "$x \\geq -1$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You handled the square root condition $x + 1 \\geq 0$, but forgot to exclude $x = 2$ which makes the denominator zero."
         },
         {
           "id": "q-algebra-functions-and-relations-0013_c",
           "label": "C",
           "text": "$x > 2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You excluded all numbers below 2. Values like $x = 0$ are valid because $\\sqrt{0+1} = 1$ and $0-2 = -2$, giving $-\\dfrac{1}{2}$."
         },
         {
           "id": "q-algebra-functions-and-relations-0013_d",
           "label": "D",
           "text": "All real numbers",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You ignored both domain restrictions. Square roots require $x+1 \\geq 0$ and denominators cannot equal zero."
         }
       ],
       "explanation": "Two conditions: square root needs $x + 1 \\geq 0$ (so $x \\geq -1$) and denominator needs $x - 2 \\ne 0$ (so $x \\ne 2$). Both must hold."
@@ -24209,19 +24347,22 @@
           "id": "q-algebra-functions-and-relations-0014_b",
           "label": "B",
           "text": "No, the output repeats.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You thought repeated outputs make a relation non-functional. Functions allow different inputs to share the same output."
         },
         {
           "id": "q-algebra-functions-and-relations-0014_c",
           "label": "C",
           "text": "No, inputs must be consecutive.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You thought inputs must be consecutive. Input values do not need to follow a pattern for a relation to be a function."
         },
         {
           "id": "q-algebra-functions-and-relations-0014_d",
           "label": "D",
           "text": "Cannot be determined.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You selected cannot be determined, but inspecting the inputs $(2, 3, 4)$ shows no input repeats, so it is a function."
         }
       ],
       "explanation": "A function can repeat outputs. Each input (2, 3, 4) has exactly one output (1). This is allowed."
@@ -24251,19 +24392,22 @@
           "id": "q-algebra-functions-and-relations-0015_b",
           "label": "B",
           "text": "$15$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated $(-3)^2 = -9$ or added $-9 - 6 = -15$. Squaring gives $(-3)^2 = 9$, and $2(-3) = -6$, so $9 - 6 = 3$."
         },
         {
           "id": "q-algebra-functions-and-relations-0015_c",
           "label": "C",
           "text": "$-3$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated $(-3)^2 = 3$ instead of 9. Squaring $-3$ gives 9, so $9 + 2(-3) = 9 - 6 = 3$."
         },
         {
           "id": "q-algebra-functions-and-relations-0015_d",
           "label": "D",
           "text": "$9$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You calculated $(-3)^2 = 9$ but omitted the $+ 2x$ term. Adding $2(-3) = -6$ yields $9 - 6 = 3$."
         }
       ],
       "explanation": "$f(-3) = (-3)^2 + 2(-3) = 9 - 6 = 3$."
@@ -24293,19 +24437,22 @@
           "id": "q-algebra-linear-equations-inequalities-0001_b",
           "label": "B",
           "text": "$5$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 3 to 7 to get 10, then divided by 2. You must subtract 3 from 7 to get $2x = 4$, so $x = 2$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0001_c",
           "label": "C",
           "text": "$7$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You kept the right-side constant 7 as your answer without solving for $x$. Subtract 3 and divide by 2 to get $x = 2$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0001_d",
           "label": "D",
           "text": "$1$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted 3 to get 4, but divided 4 by 4 instead of 2. Dividing $2x = 4$ by 2 gives $x = 2$."
         }
       ],
       "explanation": "Subtract 3 from both sides: $2x = 4$. Divide by 2: $x = 2$."
@@ -24335,19 +24482,22 @@
           "id": "q-algebra-linear-equations-inequalities-0002_b",
           "label": "B",
           "text": "$15$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 5 to 10 to get 15, but forgot to divide by 3. Divide $3x = 15$ by 3 to get $x = 5$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0002_c",
           "label": "C",
           "text": "$3$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted 5 from 10 to get 5 instead of adding 5. Adding 5 gives $3x = 15$, so $x = 5$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0002_d",
           "label": "D",
           "text": "$2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You divided 10 by 5 to get 2. You must add 5 to 10 to get $3x = 15$, then divide by 3 to get $x = 5$."
         }
       ],
       "explanation": "Add 5 to both sides: $3x = 15$. Divide by 3: $x = 5$."
@@ -24377,19 +24527,22 @@
           "id": "q-algebra-linear-equations-inequalities-0003_b",
           "label": "B",
           "text": "$x > 5$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You flipped the inequality sign without multiplying or dividing by a negative number. Keep the sign as $<$ to get $x < 5$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0003_c",
           "label": "C",
           "text": "$x < 4$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted 5 from 9 instead of subtracting 4. Subtracting 4 from 9 gives $x < 5$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0003_d",
           "label": "D",
           "text": "$x > 4$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted 5 from 9 and flipped the sign. Subtracting 4 from both sides yields $x < 5$."
         }
       ],
       "explanation": "Subtract 4 from both sides: $x < 5$."
@@ -24413,7 +24566,8 @@
           "id": "q-algebra-linear-equations-inequalities-0004_a",
           "label": "A",
           "text": "Step 1",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked Step 1, but dividing both sides by $-2$ is a valid method. The error occurs in Step 2."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0004_b",
@@ -24425,13 +24579,15 @@
           "id": "q-algebra-linear-equations-inequalities-0004_c",
           "label": "C",
           "text": "Both steps",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You marked both steps as wrong, but Step 1 is a correct approach. Only Step 2 failed to flip the inequality sign."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0004_d",
           "label": "D",
           "text": "No step is wrong.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed the solution was correct, but dividing by $-2$ requires flipping the greater-than sign to less-than: $x < -5$."
         }
       ],
       "explanation": "Step 2 is wrong. When dividing by a negative number, we must flip the inequality sign. It should be $x < -5$."
@@ -24461,19 +24617,22 @@
           "id": "q-algebra-linear-equations-inequalities-0005_b",
           "label": "B",
           "text": "$\\dfrac{7}{11}$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You inverted the final fraction. Solving $7x = 11$ by dividing both sides by 7 yields $x = \\dfrac{11}{7}$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0005_c",
           "label": "C",
           "text": "$-\\dfrac{11}{7}$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added $-3$ and $-8$ to get $-11$. Cross-multiplying gives $9x - 3 = 2x + 8$, so $7x = 11$ and $x = \\dfrac{11}{7}$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0005_d",
           "label": "D",
           "text": "$3$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You rounded or miscalculated the linear combination. From $9x - 3 = 2x + 8$, subtracting $2x$ and adding 3 gives $7x = 11$, so $x = \\dfrac{11}{7}$."
         }
       ],
       "explanation": "Cross-multiply: $3(3x - 1) = 2(x + 4)$, giving $9x - 3 = 2x + 8$. Combine like terms: $7x = 11$, so $x = \\dfrac{11}{7}$."
@@ -24503,19 +24662,22 @@
           "id": "q-algebra-linear-equations-inequalities-0006_b",
           "label": "B",
           "text": "$x > -1$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You forgot to flip the inequality sign when dividing by $-5$. Dividing $-5x > 5$ by $-5$ flips the sign to $x < -1$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0006_c",
           "label": "C",
           "text": "$x < 1$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You distributed $-2(-4)$ as $-8$ instead of $+8$, getting $-5x > 21$ or miscalculating $13 - 8 = 5$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0006_d",
           "label": "D",
           "text": "$x > 1$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You made a sign error during distribution and forgot to flip the inequality sign. Distribute to get $-2x + 8 > 3x + 13$, so $x < -1$."
         }
       ],
       "explanation": "Distribute: $-2x + 8 > 3x + 13$. Combine terms: $-2x - 3x > 13 - 8$, giving $-5x > 5$. Divide by $-5$, flipping the sign: $x < -1$."
@@ -24545,19 +24707,22 @@
           "id": "q-algebra-linear-equations-inequalities-0007_b",
           "label": "B",
           "text": "$\\dfrac{2}{3}$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You forgot the negative sign in the slope formula $m = -\\dfrac{A}{B}$. For $2x + 3y = 6$, $m = -\\dfrac{2}{3}$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0007_c",
           "label": "C",
           "text": "$\\dfrac{3}{2}$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You took $\\dfrac{B}{A}$ without a negative sign. The slope of $Ax + By = C$ is $m = -\\dfrac{A}{B} = -\\dfrac{2}{3}$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0007_d",
           "label": "D",
           "text": "$-\\dfrac{3}{2}$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You took $-\\dfrac{B}{A}$ instead of $-\\dfrac{A}{B}$. The coefficient of $x$ is 2 and $y$ is 3, so $m = -\\dfrac{2}{3}$."
         }
       ],
       "explanation": "For a line in the form $Ax + By = C$, the slope is $m = -\\dfrac{A}{B}$. Here, $m = -\\dfrac{2}{3}$."
@@ -24587,19 +24752,22 @@
           "id": "q-algebra-linear-equations-inequalities-0008_b",
           "label": "B",
           "text": "A perpendicular line has slope $3$.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You gave the slope of a parallel line. Perpendicular lines have negative reciprocal slopes, so 3 becomes $-\\dfrac{1}{3}$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0008_c",
           "label": "C",
           "text": "A perpendicular line has slope $\\dfrac{1}{3}$.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You took the reciprocal without changing the sign. Perpendicular slopes are negative reciprocals: $-\\dfrac{1}{3}$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0008_d",
           "label": "D",
           "text": "A perpendicular line has slope $-3$.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You negated the slope without taking the reciprocal. The perpendicular slope must be both flipped and negated: $-\\dfrac{1}{3}$."
         }
       ],
       "explanation": "Perpendicular lines have slopes that are negative reciprocals. For slope $3 = \\dfrac{3}{1}$, the perpendicular slope is $-\\dfrac{1}{3}$."
@@ -24629,19 +24797,22 @@
           "id": "q-algebra-linear-equations-inequalities-0009_b",
           "label": "B",
           "text": "$8$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You divided 800 by 100 or miscalculated $800 \\div 80$. Dividing $800 \\div 80$ gives 10 shirts."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0009_c",
           "label": "C",
           "text": "$12$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added extra shirts to the quota. Solve $80s = 800$ by dividing 800 by 80 to get 10."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0009_d",
           "label": "D",
           "text": "$15$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You miscalculated the division $800 \\div 80$. Dividing 800 by 80 gives exactly 10 shirts."
         }
       ],
       "explanation": "Let $s$ be the number of shirts. The equation is $80s = 800$. Divide by 80: $s = 10$."
@@ -24671,19 +24842,22 @@
           "id": "q-algebra-linear-equations-inequalities-0010_b",
           "label": "B",
           "text": "$4$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted 2 from 6 or miscalculated $2x = 4$. Distributing gives $2x + 6 = 10$, so $2x = 4$ and $x = 2$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0010_c",
           "label": "C",
           "text": "$5$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You divided 10 by 2 to get 5, but forgot to subtract 3 afterwards. Dividing first gives $x + 3 = 5$, so $x = 2$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0010_d",
           "label": "D",
           "text": "$7$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 2 and 5 or miscalculated $2x + 6 = 10$. Subtracting 6 gives $2x = 4$, so $x = 2$."
         }
       ],
       "explanation": "Distribute: $2x + 6 = 10$. Subtract 6: $2x = 4$. Divide by 2: $x = 2$."
@@ -24707,13 +24881,15 @@
           "id": "q-algebra-linear-equations-inequalities-0011_a",
           "label": "A",
           "text": "Step 1",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You selected Step 1, but subtracting 5 from both sides to get $-x > 2 - 5$ is correct."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0011_b",
           "label": "B",
           "text": "Step 2",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You selected Step 2, but calculating $2 - 5 = -3$ is correct. The error occurs in Step 3."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0011_c",
@@ -24725,7 +24901,8 @@
           "id": "q-algebra-linear-equations-inequalities-0011_d",
           "label": "D",
           "text": "No step is wrong.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed all steps were accurate, but dividing by $-1$ reverses the inequality symbol, making $x < 3$ the true result."
         }
       ],
       "explanation": "Step 3 is wrong. When dividing by $-1$, we must flip the inequality sign. It should be $x < 3$."
@@ -24755,19 +24932,22 @@
           "id": "q-algebra-linear-equations-inequalities-0012_b",
           "label": "B",
           "text": "$\\dfrac{1}{2}$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You calculated $\\dfrac{\\Delta x}{\\Delta y} = \\dfrac{3 - 1}{6 - 2} = \\dfrac{2}{4} = \\dfrac{1}{2}$. Slope is $\\dfrac{\\Delta y}{\\Delta x} = \\dfrac{4}{2} = 2$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0012_c",
           "label": "C",
           "text": "$1$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted coordinates from different points ($3 - 2 = 1$). To find slope, apply $\\dfrac{y_2 - y_1}{x_2 - x_1} = \\dfrac{6 - 2}{3 - 1} = 2$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0012_d",
           "label": "D",
           "text": "$3$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You used the x-coordinate of the second point. Calculate slope using $m = \\dfrac{6 - 2}{3 - 1} = \\dfrac{4}{2} = 2$."
         }
       ],
       "explanation": "Using the slope formula $m = \\dfrac{y_2 - y_1}{x_2 - x_1}$, we get $m = \\dfrac{6 - 2}{3 - 1} = \\dfrac{4}{2} = 2$."
@@ -24797,19 +24977,22 @@
           "id": "q-algebra-linear-equations-inequalities-0013_b",
           "label": "B",
           "text": "$y = 2x + 3$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You used the y-coordinate 3 directly as the y-intercept $b$. Substitute $(1, 3)$ into $y = 2x + b$ to find $3 = 2(1) + b$, so $b = 1$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0013_c",
           "label": "C",
           "text": "$y = 2x - 1$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted 2 from 1 instead of calculating $b = 3 - 2 = 1$. Substituting $(1, 3)$ yields $y = 2x + 1$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0013_d",
           "label": "D",
           "text": "$y = 2x - 3$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted 3 instead of solving $3 = 2(1) + b$. The y-intercept is $b = 3 - 2 = 1$, giving $y = 2x + 1$."
         }
       ],
       "explanation": "Using point-slope form: $y - 3 = 2(x - 1)$. Expand: $y - 3 = 2x - 2$. Solve for $y$: $y = 2x + 1$."
@@ -24839,19 +25022,22 @@
           "id": "q-algebra-linear-equations-inequalities-0014_b",
           "label": "B",
           "text": "$6$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You computed the x-intercept instead. To get the y-intercept, set $x = 0$, leading to $3y = 12$, which gives $y = 4$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0014_c",
           "label": "C",
           "text": "$2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the coefficient of $x$. To find the y-intercept, set $x = 0$ and solve $3y = 12$ to get $y = 4$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0014_d",
           "label": "D",
           "text": "$3$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the coefficient of $y$. Divide the constant 12 by the coefficient 3 to get the y-intercept $y = 4$."
         }
       ],
       "explanation": "Cover the $x$ term with your finger. You see $3y = 12$, so $y = 4$."
@@ -24881,19 +25067,22 @@
           "id": "q-algebra-linear-equations-inequalities-0015_b",
           "label": "B",
           "text": "$4$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You calculated the y-intercept instead. For the x-intercept, substitute $y = 0$ into $2x + 3y = 12$ to find $x = 6$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0015_c",
           "label": "C",
           "text": "$2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the coefficient of $x$. Divide 12 by 2 to get the x-intercept $x = 6$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0015_d",
           "label": "D",
           "text": "$3$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You chose 3, which is the coefficient of $y$. To find the x-intercept, set $y = 0$, giving $2x = 12$, so $x = 6$."
         }
       ],
       "explanation": "Cover the $y$ term with your finger. You see $2x = 12$, so $x = 6$."
@@ -24923,19 +25112,22 @@
           "id": "q-algebra-linear-equations-inequalities-0016_b",
           "label": "B",
           "text": "$x \\le 5$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked an inequality with $\\le$, which includes the boundary and requires a solid line, not dashed."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0016_c",
           "label": "C",
           "text": "$x \\ge 5$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You selected $\\ge$, which includes boundary points. A solid line represents $\\ge$, whereas dashed lines are for strict inequalities."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0016_d",
           "label": "D",
           "text": "$x = 5$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked an equation. Equations are drawn with solid lines, whereas strict inequalities use dashed boundary lines."
         }
       ],
       "explanation": "A dashed line is used for strict inequalities: $<$ or $>$. Non-strict inequalities ($\\le$ or $\\ge$) use solid lines."
@@ -24965,19 +25157,22 @@
           "id": "q-algebra-linear-equations-inequalities-0017_b",
           "label": "B",
           "text": "$6$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You calculated $1200 \\div 200 = 6$ or made an error dividing 1200 by 150. Dividing $1200 \\div 150$ gives 8 hours."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0017_c",
           "label": "C",
           "text": "$10$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated $1200 \\div 120 = 10$. Solve $150h = 1200$ by dividing 1200 by 150 to get 8 hours."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0017_d",
           "label": "D",
           "text": "$1200$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the overall daily pay in pesos. To solve for hours, divide the total pay of 1200 pesos by the hourly rate of 150 pesos."
         }
       ],
       "explanation": "Let $h$ be the hours worked. The equation is $150h = 1200$. Divide by 150: $h = 8$."
@@ -25007,19 +25202,22 @@
           "id": "q-algebra-linear-equations-inequalities-0018_b",
           "label": "B",
           "text": "$4$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted 3 from 5 to get 2, then multiplied by 2. You must add 3 to 5 to get $\\dfrac{x}{2} = 8$, so $x = 16$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0018_c",
           "label": "C",
           "text": "$8$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 3 to 5 to get $\\dfrac{x}{2} = 8$, but forgot to multiply by 2. Multiplying 8 by 2 gives $x = 16$."
         },
         {
           "id": "q-algebra-linear-equations-inequalities-0018_d",
           "label": "D",
           "text": "$20$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 3 to 5 to get 8, then multiplied by something else, or added $5 \\times 2 + 10$. Adding 3 gives $\\dfrac{x}{2} = 8$, so $x = 16$."
         }
       ],
       "explanation": "Add 3 to both sides: $\\dfrac{x}{2} = 8$. Multiply by 2: $x = 16$."
@@ -25049,19 +25247,22 @@
           "id": "q-algebra-polynomials-0001_b",
           "label": "B",
           "text": "$4x^2 + 6x - 2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added $-2x$ and $4x$ as $+6x$. $-2 + 4 = 2$, so the middle term is $+2x$, giving $4x^2 + 2x - 2$."
         },
         {
           "id": "q-algebra-polynomials-0001_c",
           "label": "C",
           "text": "$4x^2 - 2x - 4$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted $4x$ instead of adding it, and miscalculated $1 - 3$. $-2x + 4x = 2x$ and $1 - 3 = -2$."
         },
         {
           "id": "q-algebra-polynomials-0001_d",
           "label": "D",
           "text": "$2x^2 + 2x - 2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted $x^2$ from $3x^2$ to get $2x^2$. Add $3x^2 + x^2 = 4x^2$."
         }
       ],
       "explanation": "Combine like terms: $3x^2 + x^2 = 4x^2$, $-2x + 4x = 2x$, and $1 - 3 = -2$. Result: $4x^2 + 2x - 2$."
@@ -25091,19 +25292,22 @@
           "id": "q-algebra-polynomials-0002_b",
           "label": "B",
           "text": "$3x^2 + 4x + 1$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added $3x + x = 4x$ and kept $+1$. Subtracting the group requires flipping all inner signs to $-2x^2 - x - 1$."
         },
         {
           "id": "q-algebra-polynomials-0002_c",
           "label": "C",
           "text": "$7x^2 + 4x - 1$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added $5x^2 + 2x^2 = 7x^2$ instead of subtracting. Subtraction yields $5x^2 - 2x^2 = 3x^2$."
         },
         {
           "id": "q-algebra-polynomials-0002_d",
           "label": "D",
           "text": "$3x^2 + 2x + 1$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You forgot to distribute the minus sign to the constant $+1$. Subtracting $+1$ yields $-1$, giving $3x^2 + 2x - 1$."
         }
       ],
       "explanation": "Distribute the negative sign: $(5x^2 + 3x) + (-2x^2 - x - 1) = 3x^2 + 2x - 1$."
@@ -25133,19 +25337,22 @@
           "id": "q-algebra-polynomials-0003_b",
           "label": "B",
           "text": "The $x^2$ coefficient should be different.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You claimed the $x^2$ term was wrong, but $5x^2 - 2x^2 = 3x^2$ is correct. The error is failing to flip $+1$ to $-1$."
         },
         {
           "id": "q-algebra-polynomials-0003_c",
           "label": "C",
           "text": "There is no error.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You claimed there is no error, but subtracting $(2x^2 + x + 1)$ requires distributing the negative to 1, yielding $-1$."
         },
         {
           "id": "q-algebra-polynomials-0003_d",
           "label": "D",
           "text": "The $x$ term should be $2x$.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You stated the $x$ term was incorrect, but $3x - x = 2x$ is already correct. The constant $+1$ should be $-1$."
         }
       ],
       "explanation": "When subtracting, the negative sign must be distributed to every term in the second group, including the constant 1. It should be $3x^2 + 2x - 1$."
@@ -25175,19 +25382,22 @@
           "id": "q-algebra-polynomials-0004_b",
           "label": "B",
           "text": "$x^2 + 5x + 5$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added $3 + 2 = 5$ for the last term instead of multiplying. The last term is $3 \\times 2 = 6$."
         },
         {
           "id": "q-algebra-polynomials-0004_c",
           "label": "C",
           "text": "$x^2 + 6x + 6$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You multiplied $3 \\times 2 = 6$ for the middle coefficient instead of adding. The middle term is $(3 + 2)x = 5x$."
         },
         {
           "id": "q-algebra-polynomials-0004_d",
           "label": "D",
           "text": "$2x + 5$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added the terms $x + x$ and $3 + 2$ instead of multiplying polynomials. FOIL requires multiplying terms to get $x^2 + 5x + 6$."
         }
       ],
       "explanation": "FOIL: First $x \\cdot x = x^2$, Outer $x \\cdot 2 = 2x$, Inner $3 \\cdot x = 3x$, Last $3 \\cdot 2 = 6$. Sum: $x^2 + 5x + 6$."
@@ -25217,19 +25427,22 @@
           "id": "q-algebra-polynomials-0005_b",
           "label": "B",
           "text": "$x^2 + 9$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You squared both terms individually and omitted the middle term $2(x)(3) = 6x$. Squaring a binomial yields $x^2 + 6x + 9$."
         },
         {
           "id": "q-algebra-polynomials-0005_c",
           "label": "C",
           "text": "$x^2 + 3x + 9$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You forgot to double the inner product $3x$. The middle term of $(x+3)^2$ is $2(3x) = 6x$, giving $x^2 + 6x + 9$."
         },
         {
           "id": "q-algebra-polynomials-0005_d",
           "label": "D",
           "text": "$2x + 6$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You multiplied the binomial by 2 instead of squaring it. $(x+3)^2 = (x+3)(x+3) = x^2 + 6x + 9$."
         }
       ],
       "explanation": "$(x+3)^2 = (x+3)(x+3) = x^2 + 3x + 3x + 9 = x^2 + 6x + 9$."
@@ -25259,19 +25472,22 @@
           "id": "q-algebra-polynomials-0006_b",
           "label": "B",
           "text": "Nothing, this is correct.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You claimed the expansion is correct, but squaring a binomial creates a middle term $2 \\cdot 3 \\cdot x = 6x$."
         },
         {
           "id": "q-algebra-polynomials-0006_c",
           "label": "C",
           "text": "The exponent should be different.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You thought the exponent was wrong, but the power 2 is correct. The error is the missing middle term $6x$."
         },
         {
           "id": "q-algebra-polynomials-0006_d",
           "label": "D",
           "text": "The constant should be larger.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You thought 9 was too small, but $3^2 = 9$ is correct. The missing piece is the middle term $2(x)(3) = 6x$."
         }
       ],
       "explanation": "The perfect square trinomial requires three terms: $x^2 + 2(x)(3) + 9 = x^2 + 6x + 9$. The middle term $6x$ is essential."
@@ -25301,19 +25517,22 @@
           "id": "q-algebra-polynomials-0007_b",
           "label": "B",
           "text": "$x^2 + 16$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You made the constant positive. Multiplying $-4 \\times 4$ gives $-16$, resulting in the difference of squares $x^2 - 16$."
         },
         {
           "id": "q-algebra-polynomials-0007_c",
           "label": "C",
           "text": "$x^2 - 8$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added $-4 - 4 = -8$ or multiplied $-4 \\times 2$. The product of $-4$ and $+4$ is $-16$, so the answer is $x^2 - 16$."
         },
         {
           "id": "q-algebra-polynomials-0007_d",
           "label": "D",
           "text": "$2x$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added the binomials instead of multiplying them. $(x-4)(x+4)$ produces a quadratic expression $x^2 - 16$."
         }
       ],
       "explanation": "Difference of squares: $(x-4)(x+4) = x^2 - 16$."
@@ -25343,19 +25562,22 @@
           "id": "q-algebra-polynomials-0008_b",
           "label": "B",
           "text": "$(x + 2)(x + 3)$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You used positive signs. Positive numbers add to $+5$, but the middle term is $-5x$, requiring $-2$ and $-3$."
         },
         {
           "id": "q-algebra-polynomials-0008_c",
           "label": "C",
           "text": "$(x - 1)(x - 6)$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You used $-1$ and $-6$, which add to $-7$, not $-5$. You need $-2$ and $-3$ because $-2 - 3 = -5$ and $(-2)(-3) = 6$."
         },
         {
           "id": "q-algebra-polynomials-0008_d",
           "label": "D",
           "text": "$(x - 5)(x + 1)$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You used $-5$ and $+1$, which multiply to $-5$, not $+6$. The factors must multiply to $+6$ and add to $-5$."
         }
       ],
       "explanation": "Find two numbers that multiply to 6 and add to -5. These are -2 and -3. So $x^2 - 5x + 6 = (x-2)(x-3)$."
@@ -25385,19 +25607,22 @@
           "id": "q-algebra-polynomials-0009_b",
           "label": "B",
           "text": "$5$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You substituted $x = -2$ or miscalculated $P(2)$. Substituting $x = 2$ gives $16 - 24 + 4 - 5 = -9$."
         },
         {
           "id": "q-algebra-polynomials-0009_c",
           "label": "C",
           "text": "$-5$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You evaluated only the constant term $P(0) = -5$. By the Remainder Theorem, evaluate $P(2) = 16 - 24 + 4 - 5 = -9$."
         },
         {
           "id": "q-algebra-polynomials-0009_d",
           "label": "D",
           "text": "$9$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You miscalculated the sign of the result. $16 - 24 + 4 - 5 = -9$, not $+9$."
         }
       ],
       "explanation": "By the Remainder Theorem, substitute $x = 2$: $P(2) = 2^4 - 3(2^3) + 2(2) - 5 = 16 - 24 + 4 - 5 = -9$."
@@ -25427,19 +25652,22 @@
           "id": "q-algebra-polynomials-0010_b",
           "label": "B",
           "text": "$2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You got $k = 2$. By the Factor Theorem, set $P(3) = 0$: $27 - 9k + 12 - 12 = 0 \\implies 9k = 27 \\implies k = 3$."
         },
         {
           "id": "q-algebra-polynomials-0010_c",
           "label": "C",
           "text": "$4$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You set $k$ to the coefficient of $x$. Solve $P(3) = 27 - 9k = 0$ to get $9k = 27$, so $k = 3$."
         },
         {
           "id": "q-algebra-polynomials-0010_d",
           "label": "D",
           "text": "$-3$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You made a sign error solving $27 - 9k = 0$. Subtracting 27 gives $-9k = -27$, so dividing by $-9$ yields $k = 3$."
         }
       ],
       "explanation": "By the Factor Theorem, if $x - 3$ is a factor, then $P(3) = 0$. Substitute: $27 - 9k + 12 - 12 = 0$, so $27 = 9k$ and $k = 3$."
@@ -25469,19 +25697,22 @@
           "id": "q-algebra-polynomials-0011_b",
           "label": "B",
           "text": "$7x^2 + 8x + 11$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added $-4x + 4x = 0$ or added $+8x$. Subtracting $B$ means $-4x - 4x = -8x$."
         },
         {
           "id": "q-algebra-polynomials-0011_c",
           "label": "C",
           "text": "$5x^2 - 8x + 4$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted $B$ from $2A$ without doubling $A$'s constant $2(5) = 10$, and calculated $6x^2 - x^2 = 5x^2$. $2A - B$ gives $7x^2 - 8x + 11$."
         },
         {
           "id": "q-algebra-polynomials-0011_d",
           "label": "D",
           "text": "$6x^2 - 6x + 10$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You did not subtract $B$ properly. $2A = 6x^2 - 4x + 10$, and subtracting $(-x^2 + 4x - 1)$ gives $7x^2 - 8x + 11$."
         }
       ],
       "explanation": "$2A = 6x^2 - 4x + 10$. Subtract $B$: $(6x^2 - 4x + 10) - (-x^2 + 4x - 1) = 7x^2 - 8x + 11$."
@@ -25511,19 +25742,22 @@
           "id": "q-algebra-polynomials-0012_b",
           "label": "B",
           "text": "$4x(x + 4)$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You wrote 4 inside instead of 2. Dividing $8x$ by $4x$ gives 2, so the factored form is $4x(x + 2)$."
         },
         {
           "id": "q-algebra-polynomials-0012_c",
           "label": "C",
           "text": "$2x(2x + 4)$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You pulled out $2x$, but 2 is not the largest numerical factor. Divide both terms by $4x$ to complete factoring."
         },
         {
           "id": "q-algebra-polynomials-0012_d",
           "label": "D",
           "text": "$4(x^2 + 2x)$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You extracted only the numerical factor 4. Since $x$ is shared by both terms, factor out $4x$ fully."
         }
       ],
       "explanation": "Pull out the greatest common factor: $4x$. Then $4x^2 + 8x = 4x(x + 2)$."
@@ -25553,19 +25787,22 @@
           "id": "q-algebra-polynomials-0013_b",
           "label": "B",
           "text": "$x^4 + 81$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You got $+81$ for the last term. $(x^2 - 9)(x^2 + 9)$ is a difference of squares, which equals $x^4 - 81$."
         },
         {
           "id": "q-algebra-polynomials-0013_c",
           "label": "C",
           "text": "$x^4 - 27$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You calculated $3 \\times 9 = 27$ or $3^3 = 27$. The constant term is $9 \\times 9 = 81$, so $(x^2-9)(x^2+9) = x^4 - 81$."
         },
         {
           "id": "q-algebra-polynomials-0013_d",
           "label": "D",
           "text": "$x^3 - 27$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You multiplied $(x-3)(x^2+9)$ and dropped factors. Multiplying all three terms gives $(x^2-9)(x^2+9) = x^4 - 81$."
         }
       ],
       "explanation": "First, $(x-3)(x+3) = x^2 - 9$. Then $(x^2 - 9)(x^2 + 9) = x^4 - 81$ (difference of squares)."
@@ -25595,19 +25832,22 @@
           "id": "q-algebra-polynomials-0014_b",
           "label": "B",
           "text": "$(x + 2)^2 = x^2 + 4$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You omitted the middle term $2(x)(2) = 4x$. Squaring $(x + 2)$ produces a trinomial $x^2 + 4x + 4$."
         },
         {
           "id": "q-algebra-polynomials-0014_c",
           "label": "C",
           "text": "$(x + 2)^2 = x^2 + 2x + 4$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You forgot to double the product of $x$ and 2. The middle term is $2(2x) = 4x$, giving $x^2 + 4x + 4$."
         },
         {
           "id": "q-algebra-polynomials-0014_d",
           "label": "D",
           "text": "$(x + 2)^2 = x^2 + 2x + 2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You used 2 for both the middle coefficient and constant term. $(x+2)^2 = x^2 + 4x + 4$."
         }
       ],
       "explanation": "$(x+2)^2 = x^2 + 2(2)(x) + 4 = x^2 + 4x + 4$."
@@ -25637,19 +25877,22 @@
           "id": "q-algebra-polynomials-0015_b",
           "label": "B",
           "text": "$(3x - 1)(2x + 3)$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You flipped the signs of the binomial factors. Multiplying $(3x - 1)(2x + 3)$ gives $6x^2 + 7x - 3$, not $-7x$."
         },
         {
           "id": "q-algebra-polynomials-0015_c",
           "label": "C",
           "text": "$(2x + 1)(3x - 3)$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You did not simplify the second factor $(3x - 3)$, which has a common factor 3, and $(2x+1)(3x-3)$ gives $6x^2 - 3x - 3$."
         },
         {
           "id": "q-algebra-polynomials-0015_d",
           "label": "D",
           "text": "$(6x - 1)(x + 3)$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You used factors of 6 and 1. Expanding $(6x - 1)(x + 3)$ yields $6x^2 + 17x - 3$, which does not match $-7x$."
         }
       ],
       "explanation": "Multiply $a$ and $c$: $6 \\times (-3) = -18$. Find numbers multiplying to -18 and adding to -7: -9 and 2. Split and group: $6x^2 - 9x + 2x - 3 = 3x(2x - 3) + 1(2x - 3) = (3x+1)(2x-3)$."
@@ -25679,19 +25922,22 @@
           "id": "q-algebra-polynomials-0016_b",
           "label": "B",
           "text": "There is no error.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You claimed there is no error, but synthetic division uses the root of $x - 5 = 0$, which is $+5$."
         },
         {
           "id": "q-algebra-polynomials-0016_c",
           "label": "C",
           "text": "Synthetic division cannot be used here.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You claimed synthetic division is invalid here, but it works for any linear divisor of the form $x - c$."
         },
         {
           "id": "q-algebra-polynomials-0016_d",
           "label": "D",
           "text": "The box should hold the coefficient, not the constant.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You thought the box holds coefficients, but synthetic division uses the root of the divisor in the box."
         }
       ],
       "explanation": "In synthetic division, when you divide by $x - 5$, you flip the sign and use $+5$ in the box. The divisor $x - 5$ has a zero at $x = 5$."
@@ -25721,19 +25967,22 @@
           "id": "q-algebra-polynomials-0017_b",
           "label": "B",
           "text": "$6x^2 + x - 2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You calculated $-4x + 3x = +x$. Combining $-4x$ and $3x$ gives $-1x$, so the middle term is $-x$."
         },
         {
           "id": "q-algebra-polynomials-0017_c",
           "label": "C",
           "text": "$6x^2 - 4x - 2$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You forgot to add the inner product $1 \\cdot 3x = 3x$. FOIL gives $-4x + 3x = -x$, so the middle term is $-x$."
         },
         {
           "id": "q-algebra-polynomials-0017_d",
           "label": "D",
           "text": "$5x - 1$",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added coefficients instead of multiplying terms. FOIL requires multiplying $2x \\cdot 3x = 6x^2$ to get $6x^2 - x - 2$."
         }
       ],
       "explanation": "FOIL: First $2x \\cdot 3x = 6x^2$, Outer $2x \\cdot (-2) = -4x$, Inner $1 \\cdot 3x = 3x$, Last $1 \\cdot (-2) = -2$. Sum: $6x^2 - x - 2$."
@@ -25763,19 +26012,22 @@
           "id": "q-algebra-polynomials-0018_b",
           "label": "B",
           "text": "No, because $P(2) \\ne 0$.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You claimed $P(2) \\ne 0$, but evaluating $P(2) = 2^3 - 3(2^2) + 2(2) = 8 - 12 + 4 = 0$, proving $(x-2)$ is a factor."
         },
         {
           "id": "q-algebra-polynomials-0018_c",
           "label": "C",
           "text": "Cannot determine without factoring completely.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You thought factoring was required, but the Factor Theorem lets you test divisibility by checking if $P(2) = 0$."
         },
         {
           "id": "q-algebra-polynomials-0018_d",
           "label": "D",
           "text": "No, because the polynomial has three terms.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You claimed a three-term polynomial cannot have linear factors, but degree 3 polynomials can have up to 3 linear factors."
         }
       ],
       "explanation": "Use the Factor Theorem. Substitute $x = 2$: $P(2) = 8 - 12 + 4 = 0$. Since $P(2) = 0$, $(x-2)$ is a factor."
@@ -75232,19 +75484,22 @@
           "id": "q-chemistry-mixtures-and-separation-0001_b",
           "label": "B",
           "text": "Heterogeneous",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the mixture type that has visibly distinct parts or layers. Black coffee has a uniform appearance throughout."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0001_c",
           "label": "C",
           "text": "A compound",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a pure substance formed when elements chemically bond together. Coffee is a physical blend of water and dissolved compounds."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0001_d",
           "label": "D",
           "text": "An element",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a fundamental substance made of only one kind of atom. Coffee contains many distinct chemical compounds mixed together."
         }
       ],
       "explanation": "A homogeneous mixture looks completely uniform, with no visible separate parts. Since the coffee shows no separate parts, it is homogeneous."
@@ -75273,19 +75528,22 @@
           "id": "q-chemistry-mixtures-and-separation-0002_b",
           "label": "B",
           "text": "Homogeneous",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the mixture type that looks completely uniform throughout. Vegetable soup has visibly separate ingredients and layers."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0002_c",
           "label": "C",
           "text": "A compound",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a pure substance joined by chemical bonds. Vegetable soup is a physical mixture whose components retain their identities."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0002_d",
           "label": "D",
           "text": "An element",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a basic chemical substance that cannot be broken down further. Soup is a physical combination of many different compounds."
         }
       ],
       "explanation": "A heterogeneous mixture has visible separate parts. Since the vegetable chunks can clearly be seen, the soup is heterogeneous."
@@ -75314,19 +75572,22 @@
           "id": "q-chemistry-mixtures-and-separation-0003_b",
           "label": "B",
           "text": "Heterogeneous",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the classification for mixtures with visible parts or separate phases. Clean air looks uniform and evenly mixed throughout."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0003_c",
           "label": "C",
           "text": "A compound",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a substance formed by chemically bonded elements. Air is a physical mixture of separate gas molecules like nitrogen and oxygen."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0003_d",
           "label": "D",
           "text": "An element",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a single pure substance of one atomic type. Air is a mixture containing several different gases."
         }
       ],
       "explanation": "Since the gases in clean air blend together with no visible separate parts, it is a homogeneous mixture."
@@ -75355,19 +75616,22 @@
           "id": "q-chemistry-mixtures-and-separation-0004_b",
           "label": "B",
           "text": "Homogeneous",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the term for a uniform blend with no visible differences. Sand and gravel remain clearly distinct from each other."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0004_c",
           "label": "C",
           "text": "A pure substance",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a material made of only one type of element or compound. Sand and gravel are a physical mixture of distinct mineral grains."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0004_d",
           "label": "D",
           "text": "A compound",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a substance formed by chemical bonding between elements. Mixing sand and gravel is a physical process without chemical bonds."
         }
       ],
       "explanation": "Since the sand and gravel particles remain visibly distinct and unevenly distributed, this is a heterogeneous mixture."
@@ -75396,19 +75660,22 @@
           "id": "q-chemistry-mixtures-and-separation-0005_b",
           "label": "B",
           "text": "Distillation",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the technique used to separate dissolved liquids by boiling point. Sand is an insoluble solid that can be filtered much faster."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0005_c",
           "label": "C",
           "text": "Chromatography",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the method used to separate dissolved solutes like pigments. Undissolved sand particles are easily trapped with a simple filter."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0005_d",
           "label": "D",
           "text": "Evaporation",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the method that boils away the liquid. Filtration is faster and lets you keep both the sand and liquid water."
         }
       ],
       "explanation": "Filtration uses a material with tiny holes that let the liquid pass through while trapping solid particles. Since sand does not dissolve in water, filtration easily traps it."
@@ -75437,19 +75704,22 @@
           "id": "q-chemistry-mixtures-and-separation-0006_b",
           "label": "B",
           "text": "Filtration",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the method for trapping undissolved solids. Salt dissolves into particles far too small for a liquid filter to trap."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0006_c",
           "label": "C",
           "text": "Chromatography",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the method used to separate mixtures of colored dyes based on attraction. Evaporation is the standard way to recover a dissolved solid."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0006_d",
           "label": "D",
           "text": "Distillation",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the process that cools and collects evaporated liquid vapor. Since you do not need the water, simple evaporation saves time."
         }
       ],
       "explanation": "Evaporation heats the mixture until the liquid turns to vapor and escapes, leaving the dissolved solid behind. Since the water does not need to be collected, simply letting it evaporate away is enough."
@@ -75478,19 +75748,22 @@
           "id": "q-chemistry-mixtures-and-separation-0007_b",
           "label": "B",
           "text": "Evaporation",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the method that lets boiled vapor escape into the air. Distillation cools and collects that vapor so you keep both liquids."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0007_c",
           "label": "C",
           "text": "Filtration",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the method for solid-liquid mixtures. Alcohol and water are completely dissolved together and pass right through a filter."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0007_d",
           "label": "D",
           "text": "Chromatography",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the technique used to analyze component pigments in tiny samples. Distillation is designed for collecting bulk liquid mixtures."
         }
       ],
       "explanation": "Distillation heats the mixture so the substance with the lower boiling point evaporates first, then cools that vapor back into a liquid and collects it separately. This is the only technique here that captures both liquids instead of letting one escape."
@@ -75519,19 +75792,22 @@
           "id": "q-chemistry-mixtures-and-separation-0008_b",
           "label": "B",
           "text": "Filtration",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the method for trapping insoluble solids. Ink dyes are dissolved liquids or tiny particles that pass through filter paper."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0008_c",
           "label": "C",
           "text": "Evaporation",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the method that leaves all dissolved solids together in one pile. It cannot separate individual dyes from one another."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0008_d",
           "label": "D",
           "text": "Distillation",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the technique for separating liquids by boiling points. Chromatography separates dissolved pigments along a paper strip."
         }
       ],
       "explanation": "Chromatography separates the different components of a mixture based on how strongly each one is attracted to a moving liquid versus a fixed material. If the ink is really several dyes, they will separate into visible bands of different colors."
@@ -75560,19 +75836,22 @@
           "id": "q-chemistry-mixtures-and-separation-0009_b",
           "label": "B",
           "text": "Evaporation only works on solids, never on liquid mixtures.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a rule that is incorrect because liquids can evaporate. The failure occurs because the escaped vapor is not condensed or saved."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0009_c",
           "label": "C",
           "text": "Evaporation destroys the chemical identity of both liquids.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a statement implying a chemical reaction occurs. Evaporation is a physical change that leaves chemical structures intact."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0009_d",
           "label": "D",
           "text": "Evaporation requires a stationary phase that alcohol-water mixtures do not have.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a requirement that applies to chromatography. Evaporation depends on heat and vapor pressure, not a stationary phase."
         }
       ],
       "explanation": "Evaporation simply lets the vapor escape into the air: it never captures it. To keep both liquids, the vapor must be cooled and collected, which is exactly what distillation does that evaporation does not."
@@ -75601,19 +75880,22 @@
           "id": "q-chemistry-mixtures-and-separation-0010_b",
           "label": "B",
           "text": "Filtration only works on gases, never on liquids.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked an incorrect limitation. Filtration is widely used on liquids to trap insoluble solids like sand or coffee grounds."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0010_c",
           "label": "C",
           "text": "Salt is a compound, so it cannot be separated by any physical method.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a statement that confuses physical mixtures with chemical bonds. Saltwater is a mixture that can be separated physically by evaporation."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0010_d",
           "label": "D",
           "text": "Filtration only works if the mixture is heterogeneous, and dissolved salt makes the water homogeneous, so filtration is unrelated to that idea.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked an explanation with flawed logic. Homogeneous mixtures like saltwater cannot be filtered because the solute particles are dissolved."
         }
       ],
       "explanation": "Filtration relies on solid particles being too large to pass through the filter's tiny holes. Once salt fully dissolves, its particles become far too small to trap, so evaporation or distillation is needed instead."
@@ -75642,19 +75924,22 @@
           "id": "q-chemistry-mixtures-and-separation-0011_b",
           "label": "B",
           "text": "Yes: homogeneous mixtures can never be physically separated.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a choice that confuses visual appearance with chemical bonding. Homogeneous mixtures can be separated by physical methods like distillation."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0011_c",
           "label": "C",
           "text": "No: but only because saltwater is actually a compound, not a mixture.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a classification error. Saltwater is a physical mixture of sodium chloride and water, not a single chemical compound."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0011_d",
           "label": "D",
           "text": "Yes: only heterogeneous mixtures can be separated using physical methods.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a rule that excludes solutions. Homogeneous mixtures can easily be separated using phase changes like boiling or evaporating."
         }
       ],
       "explanation": "Looking uniform (homogeneous) only describes appearance: it says nothing about whether a mixture can be separated. Saltwater can still be separated by evaporation or distillation, even though it looks completely smooth."
@@ -75683,19 +75968,22 @@
           "id": "q-chemistry-mixtures-and-separation-0012_b",
           "label": "B",
           "text": "Liquid B, because higher boiling points evaporate first.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the liquid that requires more thermal energy to boil. The component with the lower boiling point always vaporizes first."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0012_c",
           "label": "C",
           "text": "Both evaporate at exactly the same time.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked an option that ignores differences in physical properties. Distinct boiling points cause liquids to boil off one after the other."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0012_d",
           "label": "D",
           "text": "Neither evaporates until the mixture reaches its freezing point.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the phase transition where liquids freeze into solids. Vaporization occurs when heating toward boiling points."
         }
       ],
       "explanation": "During distillation, the substance with the lower boiling point turns to vapor first as the mixture is heated, so it is the first one collected after cooling."
@@ -75724,19 +76012,22 @@
           "id": "q-chemistry-mixtures-and-separation-0013_b",
           "label": "B",
           "text": "It is heavier than the slower dye.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked mass as the primary factor. Chromatography separates components based on solubility and phase attraction, not weight."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0013_c",
           "label": "C",
           "text": "It has a higher boiling point than the slower dye.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a property relevant to distillation. Chromatography depends on molecular attraction between stationary and mobile phases."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0013_d",
           "label": "D",
           "text": "It is not actually part of the original ink mixture.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked an option that treats separated dyes as external contaminants. Every band on the paper came directly from the original ink sample."
         }
       ],
       "explanation": "In chromatography, components that are less strongly attracted to the stationary phase (the paper) get carried farther by the mobile phase (the moving liquid). Traveling farther means weaker attraction to the paper."
@@ -75765,19 +76056,22 @@
           "id": "q-chemistry-mixtures-and-separation-0014_b",
           "label": "B",
           "text": "Homogeneous",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the term for mixtures with a single uniform appearance. Fruit salad has distinct pieces of different fruits throughout."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0014_c",
           "label": "C",
           "text": "A compound",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a pure substance formed by chemical bonds. Fruit salad is a physical combination of fruit pieces that keep their identities."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0014_d",
           "label": "D",
           "text": "An element",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a single chemical substance made of one atom type. Fruit salad is a mixture containing many different organic compounds."
         }
       ],
       "explanation": "Since the different fruit pieces remain visibly separate and unevenly distributed, the fruit salad is a heterogeneous mixture."
@@ -75806,19 +76100,22 @@
           "id": "q-chemistry-mixtures-and-separation-0015_b",
           "label": "B",
           "text": "Chromatography first, then evaporation.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked paper chromatography, which is a analytical laboratory method for micro-samples, not a bulk water purification process."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0015_c",
           "label": "C",
           "text": "Distillation first, then filtration.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the steps in reverse. Boiling muddy water directly ruins distillation equipment with thick mud before filtration happens."
         },
         {
           "id": "q-chemistry-mixtures-and-separation-0015_d",
           "label": "D",
           "text": "Filtration alone is enough; no second step is needed.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a single step that only catches solid dirt. Filter paper cannot stop dissolved minerals or contaminants."
         }
       ],
       "explanation": "Filtration removes the undissolved solid dirt, since it is too large to pass through the filter. But dissolved impurities remain in the water even after filtering, so distillation is still needed afterward to collect only the purified water vapor."
@@ -77610,19 +77907,22 @@
           "id": "q-chemistry-quantum-numbers-electron-configuration-0001_b",
           "label": "B",
           "text": "6",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the electron capacity of a set of $p$ orbitals. An $s$ orbital holds a maximum of 2 electrons."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0001_c",
           "label": "C",
           "text": "10",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the electron capacity of a $d$ subshell. Single $s$ orbitals hold at most 2 electrons."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0001_d",
           "label": "D",
           "text": "14",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the electron capacity of an $f$ subshell. An $s$ orbital holds only up to 2 electrons."
         }
       ],
       "explanation": "An $s$ orbital holds up to 2 electrons: the smallest capacity of the four orbital types."
@@ -77651,19 +77951,22 @@
           "id": "q-chemistry-quantum-numbers-electron-configuration-0002_b",
           "label": "B",
           "text": "2",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the capacity of an $s$ orbital. A $p$ subshell contains three orbitals and holds 6 electrons."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0002_c",
           "label": "C",
           "text": "10",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the capacity of a $d$ subshell. A $p$ subshell holds a maximum of 6 electrons."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0002_d",
           "label": "D",
           "text": "14",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the capacity of an $f$ subshell. A $p$ subshell can hold up to 6 electrons."
         }
       ],
       "explanation": "A $p$ orbital (a set of three sub-orbitals) holds up to 6 electrons in total."
@@ -77692,19 +77995,22 @@
           "id": "q-chemistry-quantum-numbers-electron-configuration-0003_b",
           "label": "B",
           "text": "2",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the maximum capacity of an $s$ orbital. A $d$ subshell has five orbitals that hold 10 electrons."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0003_c",
           "label": "C",
           "text": "6",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the capacity of a $p$ subshell. A $d$ subshell holds up to 10 electrons."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0003_d",
           "label": "D",
           "text": "14",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the capacity of an $f$ subshell. A $d$ subshell has five orbitals holding up to 10 electrons."
         }
       ],
       "explanation": "A $d$ orbital (a set of five sub-orbitals) holds up to 10 electrons in total."
@@ -77733,19 +78039,22 @@
           "id": "q-chemistry-quantum-numbers-electron-configuration-0004_b",
           "label": "B",
           "text": "1s^2 2s^2 2p^5",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You counted 9 total electrons instead of 7. Subtract 2 to account for nitrogen having only 7 electrons."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0004_c",
           "label": "C",
           "text": "1s^2 2s^3 2p^2",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You placed 3 electrons into the 2s orbital. Remember that $s$ orbitals hold a maximum of 2 electrons."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0004_d",
           "label": "D",
           "text": "1s^2 2s^2 2p^4",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assigned 8 total electrons instead of 7. Nitrogen has an atomic number of 7 so $2p$ receives 3."
         }
       ],
       "explanation": "Fill the lowest-energy orbitals first: 1s holds 2, 2s holds 2, leaving $7 - 2 - 2 = 3$ for 2p. Adding the superscripts confirms the total: $2 + 2 + 3 = 7$."
@@ -77774,19 +78083,22 @@
           "id": "q-chemistry-quantum-numbers-electron-configuration-0005_b",
           "label": "B",
           "text": "1s^2 2s^2 2p^6",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You wrote the configuration for 10 electrons (neon). Oxygen has only 8 electrons, so $2p$ holds 4."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0005_c",
           "label": "C",
           "text": "1s^2 2s^4 2p^2",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You put 4 electrons into the 2s orbital. The $s$ subshell can only hold up to 2 electrons."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0005_d",
           "label": "D",
           "text": "1s^2 2s^2 2p^3",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You wrote the configuration for 7 electrons (nitrogen). Oxygen has 8 electrons, so $2p$ requires 4."
         }
       ],
       "explanation": "Fill 1s with 2 and 2s with 2, leaving $8 - 2 - 2 = 4$ for 2p. Adding the superscripts confirms the total: $2 + 2 + 4 = 8$."
@@ -77815,19 +78127,22 @@
           "id": "q-chemistry-quantum-numbers-electron-configuration-0006_b",
           "label": "B",
           "text": "The 3d orbital, because 3 is a smaller number than 4.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed principal quantum numbers strictly dictate energy. Orbitals fill by total energy, and 4s has lower energy than 3d."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0006_c",
           "label": "C",
           "text": "Both fill at exactly the same time.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed degenerate orbital energies. 4s and 3d have different energy levels, so 4s fills before 3d."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0006_d",
           "label": "D",
           "text": "Neither fills before the other; 3d is skipped entirely.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked an option that ignores standard electron configurations. 3d fills immediately after 4s is full."
         }
       ],
       "explanation": "The Aufbau principle fills orbitals by increasing energy, not simply by increasing leading number. The 4s orbital has slightly lower energy than 3d at this point in the periodic table, so it fills first: this is why potassium's configuration ends in $4s^1$, not $3d^1$."
@@ -77856,19 +78171,22 @@
           "id": "q-chemistry-quantum-numbers-electron-configuration-0007_b",
           "label": "B",
           "text": "Yes: as long as the total adds up correctly.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You ignored subshell capacity rules. A $p$ subshell cannot hold more than 6 electrons regardless of atomic total."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0007_c",
           "label": "C",
           "text": "No: because the $2s$ orbital should come after $2p$.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You reversed the energy ordering. 2s has lower energy than 2p and fills before 2p in valid configurations."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0007_d",
           "label": "D",
           "text": "Yes: $p$ orbitals can hold up to 8 electrons.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You confused subshell capacity with the octet rule. A $p$ subshell holds 6 electrons, not 8."
         }
       ],
       "explanation": "Each orbital type has a fixed maximum capacity, and $p$ can never exceed 6 electrons. A superscript of 8 on a $p$ orbital is impossible, no matter what the total electron count is."
@@ -77897,19 +78215,22 @@
           "id": "q-chemistry-quantum-numbers-electron-configuration-0008_b",
           "label": "B",
           "text": "Two electrons pair up in one orbital, leaving one orbital completely empty.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You paired electrons prematurely. Hund's Rule requires placing one electron per degenerate orbital before pairing."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0008_c",
           "label": "C",
           "text": "All three electrons pair up in a single orbital.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You placed 3 electrons in one orbital, violating Pauli Exclusion and Hund's Rule. Orbitals hold at most 2 electrons."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0008_d",
           "label": "D",
           "text": "Any arrangement is equally correct, since the total electron count is the same either way.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed orbital distribution does not affect energy. Unpaired parallel spins minimize electron repulsion."
         }
       ],
       "explanation": "Hund's Rule says electrons fill each available same-energy orbital singly before any orbital receives a second electron. With three electrons and three empty orbitals available, each orbital should get exactly one electron."
@@ -77938,19 +78259,22 @@
           "id": "q-chemistry-quantum-numbers-electron-configuration-0009_b",
           "label": "B",
           "text": "Yes: spin direction does not matter within a single orbital.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You ignored quantum number restrictions. Pauli Exclusion states two electrons in the same orbital must have opposite spins."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0009_c",
           "label": "C",
           "text": "No: an orbital can never hold two electrons at all.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You set orbital capacity to one. Orbitals can hold up to two electrons if their spins are paired opposite."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0009_d",
           "label": "D",
           "text": "Yes: as long as the orbital is an $s$ orbital.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You exempted s orbitals from spin rules. Pauli Exclusion applies equally to all orbital types."
         }
       ],
       "explanation": "The Pauli Exclusion Principle allows at most 2 electrons per orbital, and requires those two to have opposite spins. Two electrons with the same spin cannot share the same orbital."
@@ -77979,19 +78303,22 @@
           "id": "q-chemistry-quantum-numbers-electron-configuration-0010_b",
           "label": "B",
           "text": "13",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You likely miscounted the electrons in $2p$ or $3p$. Adding $2+2+6+2+3$ gives 15 electrons."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0010_c",
           "label": "C",
           "text": "17",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added extra electrons to the total. Summing all superscripts $2+2+6+2+3$ equals 15."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0010_d",
           "label": "D",
           "text": "5",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You counted only the valence shell electrons ($3s^2 3p^3$). Atomic number requires counting all electrons."
         }
       ],
       "explanation": "Add up all the superscripts: $2 + 2 + 6 + 2 + 3 = 15$. Since this is a neutral atom, its atomic number equals its total electron count, 15 (phosphorus)."
@@ -78020,19 +78347,22 @@
           "id": "q-chemistry-quantum-numbers-electron-configuration-0011_b",
           "label": "B",
           "text": "3",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You counted only the electrons in the $3p$ subshell. Outermost electrons include both $3s$ and $3p$ ($2+3=5$)."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0011_c",
           "label": "C",
           "text": "15",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You gave the total atomic number of the atom. The outermost energy level (n=3) contains 5 valence electrons."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0011_d",
           "label": "D",
           "text": "8",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You stated the maximum octet capacity instead of counting the $3s^2 3p^3$ valence electrons."
         }
       ],
       "explanation": "The outermost energy level is level 3 (from the $3s$ and $3p$ terms). Adding their superscripts: $2 + 3 = 5$."
@@ -78061,19 +78391,22 @@
           "id": "q-chemistry-quantum-numbers-electron-configuration-0012_b",
           "label": "B",
           "text": "1s^2 2s^2 2p^6 3s^1",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You gave the configuration for neutral sodium. The 1+ ion loses its single outer electron from $3s$."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0012_c",
           "label": "C",
           "text": "1s^2 2s^2 2p^6 3s^2",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added an electron as if it were an anion ($Na^-$). Positive ions lose electrons."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0012_d",
           "label": "D",
           "text": "1s^2 2s^2 2p^5",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You removed two electrons instead of one. $Na^+$ loses only 1 electron to reach 10 total."
         }
       ],
       "explanation": "$Na^+$ has lost one electron compared to neutral sodium, leaving $11 - 1 = 10$ electrons. Removing the single $3s$ electron from neutral sodium's configuration leaves $1s^2\\ 2s^2\\ 2p^6$: do not just copy the neutral atom's configuration without adjusting for the charge."
@@ -78102,19 +78435,22 @@
           "id": "q-chemistry-quantum-numbers-electron-configuration-0013_b",
           "label": "B",
           "text": "23",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You miscounted the sum of superscripts. Adding $2+2+6+2+6+2+5$ gives an atomic number of 25."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0013_c",
           "label": "C",
           "text": "20",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You stopped counting at $4s^2$ and ignored the 5 electrons in the $3d$ subshell."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0013_d",
           "label": "D",
           "text": "35",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 10 extra electrons to the total. Summing the given superscripts yields 25."
         }
       ],
       "explanation": "Add up every superscript: $2 + 2 + 6 + 2 + 6 + 2 + 5 = 25$. This is manganese, whose configuration fills $4s$ before $3d$, following the established energy order."
@@ -78143,19 +78479,22 @@
           "id": "q-chemistry-quantum-numbers-electron-configuration-0014_b",
           "label": "B",
           "text": "10",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You gave the electron count of the ion rather than the neutral parent atom. Add 1 electron back to find atomic number 11."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0014_c",
           "label": "C",
           "text": "9",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You subtracted 1 electron from the ion count. A 1+ charge means the neutral atom had one MORE electron."
         },
         {
           "id": "q-chemistry-quantum-numbers-electron-configuration-0014_d",
           "label": "D",
           "text": "12",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added 2 electrons instead of 1. A 1+ ion lost only a single electron relative to its neutral atom."
         }
       ],
       "explanation": "The ion has $2 + 2 + 6 = 10$ electrons. Since it lost one electron to reach a 1+ charge, the neutral atom must have had $10 + 1 = 11$ electrons, giving an atomic number of 11 (sodium)."
@@ -78184,19 +78523,22 @@
           "id": "q-chemistry-solutions-0001_b",
           "label": "B",
           "text": "2 M",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You inverted the fraction by dividing 6 liters by 3 moles. Molarity requires moles divided by liters."
         },
         {
           "id": "q-chemistry-solutions-0001_c",
           "label": "C",
           "text": "3 M",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You took the number of moles without dividing by the 6 liters of solution volume."
         },
         {
           "id": "q-chemistry-solutions-0001_d",
           "label": "D",
           "text": "18 M",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You multiplied 3 moles by 6 liters instead of dividing moles by liters of solution."
         }
       ],
       "explanation": "Molarity equals moles of solute divided by liters of solution: $\\dfrac{3 \\text{ mol}}{6 \\text{ L}} = 0.5$ M."
@@ -78225,19 +78567,22 @@
           "id": "q-chemistry-solutions-0002_b",
           "label": "B",
           "text": "2 m",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You divided 4 kilograms by 2 moles. Molality is moles of solute divided by kilograms of solvent."
         },
         {
           "id": "q-chemistry-solutions-0002_c",
           "label": "C",
           "text": "4 m",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You used the mass of the solvent as the answer without dividing by the moles of solute."
         },
         {
           "id": "q-chemistry-solutions-0002_d",
           "label": "D",
           "text": "8 m",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You multiplied 2 moles by 4 kilograms instead of dividing moles by kilograms of solvent."
         }
       ],
       "explanation": "Molality equals moles of solute divided by kilograms of solvent: $\\dfrac{2 \\text{ mol}}{4 \\text{ kg}} = 0.5$ m."
@@ -78266,19 +78611,22 @@
           "id": "q-chemistry-solutions-0003_b",
           "label": "B",
           "text": "15%",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You used the solute mass directly as a percentage without dividing by the total solution mass."
         },
         {
           "id": "q-chemistry-solutions-0003_c",
           "label": "C",
           "text": "11.1%",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You divided solute mass by solvent mass (135 g) instead of total solution mass (150 g)."
         },
         {
           "id": "q-chemistry-solutions-0003_d",
           "label": "D",
           "text": "90%",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You calculated the percent by mass of the water solvent rather than the salt solute."
         }
       ],
       "explanation": "Total solution mass is $15 + 135 = 150$ g. Percent by mass: $\\dfrac{15}{150} \\times 100\\% = 10\\%$."
@@ -78307,19 +78655,22 @@
           "id": "q-chemistry-solutions-0004_b",
           "label": "B",
           "text": "Unsaturated",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the term for a solution that can still dissolve more solute at its current temperature."
         },
         {
           "id": "q-chemistry-solutions-0004_c",
           "label": "C",
           "text": "Molal",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a concentration unit based on mass rather than a solubility state classification."
         },
         {
           "id": "q-chemistry-solutions-0004_d",
           "label": "D",
           "text": "Diluted",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a term describing relative concentration rather than maximum capacity at equilibrium."
         }
       ],
       "explanation": "A saturated solution holds as much dissolved solute as it possibly can at that temperature. Any additional solute added would simply not dissolve."
@@ -78348,19 +78699,22 @@
           "id": "q-chemistry-solutions-0005_b",
           "label": "B",
           "text": "Solubility is always the same at every temperature.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed solubility is constant, but thermal energy increases the rate and capacity for solid solubility."
         },
         {
           "id": "q-chemistry-solutions-0005_c",
           "label": "C",
           "text": "Sugar becomes a different substance when dissolved in hot water.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed a chemical reaction occurred, but dissolving sugar in hot water is purely a physical process."
         },
         {
           "id": "q-chemistry-solutions-0005_d",
           "label": "D",
           "text": "Cold water dissolves solids better than hot water.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You reversed the relationship. Higher temperature generally increases solid solute dissolution."
         }
       ],
       "explanation": "Solubility describes the maximum amount of solute that can dissolve at a given temperature, and for most solids, that maximum increases as temperature rises: exactly why hot tea dissolves more sugar than cold tea."
@@ -78389,19 +78743,22 @@
           "id": "q-chemistry-solutions-0006_b",
           "label": "B",
           "text": "Yes: molarity and molality use the exact same denominator.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You confused molarity with molality. Molarity uses total solution volume while molality uses solvent mass."
         },
         {
           "id": "q-chemistry-solutions-0006_c",
           "label": "C",
           "text": "No: molarity should divide by kilograms of solvent instead.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You described the formula for molality instead of molarity. Molarity uses total solution volume in liters."
         },
         {
           "id": "q-chemistry-solutions-0006_d",
           "label": "D",
           "text": "Yes: solvent volume and solution volume are always identical.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You assumed solute volume is zero. Dissolving a solute changes the total volume of the final solution."
         }
       ],
       "explanation": "Molarity is moles of solute per liter of solution (the whole mixture). Confusing this with molality's denominator (kilograms of solvent alone) is one of the most commonly swapped concentration mistakes."
@@ -78430,19 +78787,22 @@
           "id": "q-chemistry-solutions-0007_b",
           "label": "B",
           "text": "Yes: dividing by solvent mass alone gives the same result.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You ignored the mass contribution of the solute. Percent by mass requires total solution mass in the denominator."
         },
         {
           "id": "q-chemistry-solutions-0007_c",
           "label": "C",
           "text": "No: percent by mass should divide by moles, not mass.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You confused mass percentage with mole fraction. Mass percent uses gram masses for both solute and solution."
         },
         {
           "id": "q-chemistry-solutions-0007_d",
           "label": "D",
           "text": "Yes: percent by mass problems never include the solute's own mass in the total.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You excluded the solute from total solution mass. The total solution mass is the sum of solute and solvent masses."
         }
       ],
       "explanation": "Dividing by the solvent's mass alone gives an inflated, incorrect percentage. The correct denominator is always the total solution mass: solute mass plus solvent mass added together."
@@ -78471,19 +78831,22 @@
           "id": "q-chemistry-solutions-0008_b",
           "label": "B",
           "text": "Yes: solubility never depends on temperature.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You treated solubility as temperature-independent. Heating solvent usually increases solid solute solubility."
         },
         {
           "id": "q-chemistry-solutions-0008_c",
           "label": "C",
           "text": "No: solubility only depends on the solute's color.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a non-relevant physical property. Color has no effect on chemical solubility in a solvent."
         },
         {
           "id": "q-chemistry-solutions-0008_d",
           "label": "D",
           "text": "Yes: but only for solutions made with water.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You created an incorrect exception for water. Water solutions show strong temperature dependence for solubility."
         }
       ],
       "explanation": "Solubility is defined at a specific temperature and generally changes as temperature changes: for most solids, more can dissolve at higher temperatures."
@@ -78512,19 +78875,22 @@
           "id": "q-chemistry-solutions-0009_b",
           "label": "B",
           "text": "Yes: \"saturated\" always requires a large, fixed amount of solute.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You confused saturation with concentration. Sparingly soluble compounds reach saturation at very low concentrations."
         },
         {
           "id": "q-chemistry-solutions-0009_c",
           "label": "C",
           "text": "No: \"saturated\" only applies to gases, never to solids dissolved in liquids.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You limited saturation to gas solutions. Saturation applies to solid, liquid, and gas solutes alike."
         },
         {
           "id": "q-chemistry-solutions-0009_d",
           "label": "D",
           "text": "Yes: a small amount of dissolved solute is always called \"unsaturated,\" regardless of the solute.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You equated low concentration with unsaturated state. If a substance has low solubility, a small amount saturates it."
         }
       ],
       "explanation": "Saturation is relative to the specific solute's own maximum solubility, not an absolute amount. A solute with very low solubility can saturate a solution with only a small amount dissolved."
@@ -78553,19 +78919,22 @@
           "id": "q-chemistry-solutions-0010_b",
           "label": "B",
           "text": "Molality depends on volume, and volume never changes; molarity depends on mass, which shrinks when heated.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You swapped the definitions of molarity and molality. Molarity depends on volume, while molality depends on mass."
         },
         {
           "id": "q-chemistry-solutions-0010_c",
           "label": "C",
           "text": "Both molality and molarity depend on volume, so both should change equally with temperature.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You incorrectly assumed both units use volume denominators. Molality relies on mass in kilograms."
         },
         {
           "id": "q-chemistry-solutions-0010_d",
           "label": "D",
           "text": "Molarity is always more accurate than molality at any temperature.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You made an ungrounded accuracy claim. Molality is preferred for thermal changes because mass is invariant with heat."
         }
       ],
       "explanation": "Molarity's denominator (solution volume) shifts due to normal thermal expansion or contraction. Molality's denominator (solvent mass) does not change with temperature, since heating or cooling does not add or remove matter."
@@ -78594,19 +78963,22 @@
           "id": "q-chemistry-solutions-0011_b",
           "label": "B",
           "text": "75%",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You calculated the volume percentage of water solvent instead of the alcohol solute."
         },
         {
           "id": "q-chemistry-solutions-0011_c",
           "label": "C",
           "text": "4%",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You divided 100 mL by 25 mL without converting to a percentage value."
         },
         {
           "id": "q-chemistry-solutions-0011_d",
           "label": "D",
           "text": "100%",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You used the total solution volume as the numerator instead of the solute volume."
         }
       ],
       "explanation": "Percent by volume equals the solute's volume divided by the total solution's volume, times 100%: $\\dfrac{25}{100} \\times 100\\% = 25\\%$."
@@ -78635,19 +79007,22 @@
           "id": "q-chemistry-solutions-0012_b",
           "label": "B",
           "text": "1 M",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You found the number of moles (1 mole) but forgot to divide by the 2 liters of solution."
         },
         {
           "id": "q-chemistry-solutions-0012_c",
           "label": "C",
           "text": "29.25 M",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You divided 58.5 grams by 2 liters directly without converting mass into moles first."
         },
         {
           "id": "q-chemistry-solutions-0012_d",
           "label": "D",
           "text": "2 M",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You divided 2 liters by 1 mole instead of dividing moles by liters of solution."
         }
       ],
       "explanation": "First convert grams to moles: $\\dfrac{58.5 \\text{ g}}{58.5 \\text{ g/mol}} = 1$ mol. Then apply molarity: $\\dfrac{1 \\text{ mol}}{2 \\text{ L}} = 0.5$ M."
@@ -78676,19 +79051,22 @@
           "id": "q-chemistry-solutions-0013_b",
           "label": "B",
           "text": "0.5 m",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You inverted the formula by dividing 1.5 kg solvent by 3 moles of solute."
         },
         {
           "id": "q-chemistry-solutions-0013_c",
           "label": "C",
           "text": "4.5 m",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You multiplied 3 moles by 1.5 kg solvent instead of dividing moles by kilograms."
         },
         {
           "id": "q-chemistry-solutions-0013_d",
           "label": "D",
           "text": "1.5 m",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You used the solvent mass value directly without accounting for the 3 moles of solute."
         }
       ],
       "explanation": "Molality equals moles of solute divided by kilograms of solvent: $\\dfrac{3 \\text{ mol}}{1.5 \\text{ kg}} = 2$ m."
@@ -78717,19 +79095,22 @@
           "id": "q-chemistry-solutions-0014_b",
           "label": "B",
           "text": "Molality will shift slightly; molarity will stay constant.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You reversed the temperature dependencies. Volume expands with heat affecting molarity, while mass stays fixed."
         },
         {
           "id": "q-chemistry-solutions-0014_c",
           "label": "C",
           "text": "Both molarity and molality will shift by the same amount.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You treated mass and volume as equally thermal-sensitive. Mass is constant under temperature shifts."
         },
         {
           "id": "q-chemistry-solutions-0014_d",
           "label": "D",
           "text": "Neither molarity nor molality is ever affected by temperature.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You ignored thermal expansion of liquids. Volume changes with temperature, which shifts molarity."
         }
       ],
       "explanation": "Molarity's denominator is solution volume, which expands with heat, so molarity shifts slightly. Molality's denominator is solvent mass, which does not change with temperature, so molality stays constant: this is exactly why molality is preferred for temperature-sensitive experiments."
