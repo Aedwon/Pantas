@@ -33,7 +33,8 @@ void main() {
 
     final withNote = await db
         .customSelect(
-          'select count(*) as c from content_choices where rationale is not null',
+          'select count(*) as c from content_choices '
+          'where rationale is not null',
         )
         .getSingle();
     final count = withNote.read<int>('c');
