@@ -13,8 +13,14 @@ questions:
       - text: $\{(1, 4), (2, 5), (3, 4)\}$
         correct: true
       - text: $\{(1, 4), (1, 5), (2, 6)\}$
+        rationale: |
+          You picked a relation where input 1 maps to two different outputs, 4 and 5. A function must assign exactly one output per input.
       - text: $\{(2, 3), (2, 4), (3, 5)\}$
+        rationale: |
+          You chose a relation where input 2 maps to both 3 and 4. A function cannot map a single input value to multiple outputs.
       - text: $\{(1, 2), (2, 3), (1, 4)\}$
+        rationale: |
+          You selected a relation where input 1 produces two outputs, 2 and 4. Inputs cannot repeat with different output values.
     explanation: |
       A function has one input → one output. Check inputs: in the first, inputs are 1, 2, 3 (no repeats). Others have repeated inputs with different outputs, so they are not functions.
 
@@ -27,8 +33,14 @@ questions:
       - text: $14$
         correct: true
       - text: $9$
+        rationale: |
+          You added $3 + 4 + 2 = 9$ or added 3 and 4 first. Make sure to multiply 3 by $x = 4$ to get 12, then add 2 to get 14.
       - text: $12$
+        rationale: |
+          You calculated $3(4) = 12$, but forgot to add the $+2$ constant term. Finishing the evaluation gives $12 + 2 = 14$.
       - text: $5$
+        rationale: |
+          You calculated $3 + 2 = 5$ and ignored the $x$ input. You must substitute $x = 4$ to evaluate $3(4) + 2 = 14$.
     explanation: |
       Substitute $x = 4$: $f(4) = 3(4) + 2 = 12 + 2 = 14$.
 
@@ -41,8 +53,14 @@ questions:
       - text: $15$
         correct: true
       - text: $3$
+        rationale: |
+          You computed $2(-2)^2 = 8$ correctly, but evaluated $-3(-2)$ as $-6$ instead of $+6$, giving $8 - 6 + 1 = 3$.
       - text: $-1$
+        rationale: |
+          You evaluated $(-2)^2$ as $-4$, getting $2(-4) - 3(-2) + 1 = -8 + 6 + 1 = -1$. Check your signs when squaring negative numbers.
       - text: $11$
+        rationale: |
+          You forgot to add 1 at the end, or miscalculated $8 + 6 = 14$ instead of $8 + 6 + 1 = 15$. Check each step of your arithmetic.
     explanation: |
       Substitute $x = -2$ carefully: $f(-2) = 2(-2)^2 - 3(-2) + 1 = 2(4) + 6 + 1 = 8 + 6 + 1 = 15$.
 
@@ -55,8 +73,14 @@ questions:
       - text: All real numbers except $x = 3$
         correct: true
       - text: All real numbers
+        rationale: |
+          You ignored the denominator. When $x = 3$, the denominator $x - 3 = 0$, causing division by zero, which is undefined.
       - text: $x \geq 3$
+        rationale: |
+          You applied a square root rule to a fraction. Rational functions allow negative values as long as the denominator is not zero.
       - text: $x > 3$
+        rationale: |
+          You restricted $x$ to strictly positive values beyond 3. Values less than 3 are allowed because they do not make $x - 3 = 0$.
     explanation: |
       The denominator cannot be zero. Setting $x - 3 = 0$ gives $x = 3$, which is forbidden. Domain is all reals except 3.
 
@@ -69,8 +93,14 @@ questions:
       - text: $x \geq 2$
         correct: true
       - text: $x > 2$
+        rationale: |
+          You excluded $x = 2$. Substituting $x = 2$ gives $\sqrt{0} = 0$, which is defined, so $x = 2$ is included in the domain.
       - text: All real numbers
+        rationale: |
+          You included values where $x < 2$. For example, if $x = 0$, $\sqrt{-2}$ is not a real number, so $x \geq 2$ is required.
       - text: $x \le 2$
+        rationale: |
+          You reversed the inequality direction. If $x < 2$, $x - 2$ becomes negative, making the square root undefined.
     explanation: |
       The inside of a square root must be non-negative: $x - 2 \geq 0$, so $x \geq 2$.
 
@@ -83,8 +113,14 @@ questions:
       - text: The inverse function that undoes $f$.
         correct: true
       - text: The reciprocal $\dfrac{1}{f(x)}$.
+        rationale: |
+          You treated the $-1$ superscript as an exponent rather than inverse notation. In function notation, $f^{-1}$ undoes $f$.
       - text: The negative of $f(x)$.
+        rationale: |
+          You confused inverse functions with negating a function $-f(x)$. The inverse function swaps input and output values.
       - text: It cannot be determined.
+        rationale: |
+          You selected undetermined, but $f^{-1}(x)$ is standard mathematical notation representing the inverse function.
     explanation: |
       $f^{-1}(x)$ is the inverse function. If $f(2) = 7$, then $f^{-1}(7) = 2$. It is not $\dfrac{1}{f(x)}$.
 
@@ -97,8 +133,14 @@ questions:
       - text: $3$
         correct: true
       - text: $1$
+        rationale: |
+          You evaluated $g(2) = 2^2 - 3 = 1$, but forgot to apply $f(1) = 2(1) + 1 = 3$. Complete the outer function call.
       - text: $5$
+        rationale: |
+          You calculated $f(2) = 5$ first, evaluating $(g \circ f)(2) = g(5) = 22$, or got confused between composition orders.
       - text: $9$
+        rationale: |
+          You squared $f(2) = 5$ or miscalculated $(f \circ g)(2)$. First find $g(2) = 1$, then plug 1 into $f(x)$ to get $f(1) = 3$.
     explanation: |
       Work inside out. First $g(2) = 2^2 - 3 = 1$. Then $f(1) = 2(1) + 1 = 3$.
 
@@ -111,8 +153,14 @@ questions:
       - text: $22$
         correct: true
       - text: $3$
+        rationale: |
+          You evaluated $(f \circ g)(2)$ instead of $(g \circ f)(2)$. For $(g \circ f)(2)$, evaluate $f(2) = 5$ first, then $g(5) = 22$.
       - text: $9$
+        rationale: |
+          You evaluated $f(2) = 5$ and computed $2(5) - 1 = 9$ instead of $g(5) = 5^2 - 3 = 22$. Check your function formula.
       - text: $1$
+        rationale: |
+          You evaluated $g(2) = 1$ instead of $f(2) = 5$. Inside out means compute $f(2) = 5$ first, then $g(5) = 25 - 3 = 22$.
     explanation: |
       Work inside out. First $f(2) = 2(2) + 1 = 5$. Then $g(5) = 5^2 - 3 = 25 - 3 = 22$.
 
@@ -125,8 +173,14 @@ questions:
       - text: $f^{-1}(x) = \dfrac{5x + 3}{2}$
         correct: true
       - text: $f^{-1}(x) = \dfrac{5}{2x - 3}$
+        rationale: |
+          You took the reciprocal of the fraction. To find an inverse function, swap $x$ and $y$ and solve for $y$: $y = \dfrac{5x+3}{2}$.
       - text: $f^{-1}(x) = \dfrac{2x + 3}{5}$
+        rationale: |
+          You flipped the negative 3 to positive 3 but forgot to multiply by 5 when solving $5x = 2y - 3$.
       - text: $f^{-1}(x) = \dfrac{3 - 2x}{5}$
+        rationale: |
+          You negated the numerator instead of solving $x = \dfrac{2y-3}{5}$ for $y$. Multiplying by 5 gives $5x = 2y - 3$, so $y = \dfrac{5x+3}{2}$.
     explanation: |
       Write $y = \dfrac{2x - 3}{5}$. Swap $x$ and $y$: $x = \dfrac{2y - 3}{5}$. Solve: $5x = 2y - 3$, so $2y = 5x + 3$ and $y = \dfrac{5x + 3}{2}$.
 
@@ -139,8 +193,14 @@ questions:
       - text: Since $x^2 \geq 0$, the range is $y \geq 0$, not all real numbers.
         correct: true
       - text: There is no error.
+        rationale: |
+          You claimed there is no error, but squaring any real number never produces a negative result, so $y \geq 0$.
       - text: The range is negative numbers only.
+        rationale: |
+          You claimed the range is negative numbers, but $x^2$ produces non-negative numbers like $0, 1, 4$.
       - text: The function has no range.
+        rationale: |
+          You claimed the function has no range, but every function has a valid range of output values.
     explanation: |
       Squaring always gives non-negative values. The range excludes negative numbers.
 
@@ -153,8 +213,14 @@ questions:
       - text: No, by definition a function has one input → one output.
         correct: true
       - text: Yes, always.
+        rationale: |
+          You selected "Yes, always", but a relation with multiple $y$ values for one $x$ value fails the definition of a function.
       - text: Only for some functions.
+        rationale: |
+          You thought some functions allow multiple outputs per input, but by definition no function allows duplicate $x$ values.
       - text: It depends on the domain.
+        rationale: |
+          You thought it depends on the domain, but the rule that each input maps to one output holds across all domains.
     explanation: |
       The definition of a function requires exactly one output for each input. If an input has two outputs, it is not a function.
 
@@ -167,8 +233,14 @@ questions:
       - text: $3$
         correct: true
       - text: $19$
+        rationale: |
+          You evaluated $f(7) = 3(7) - 2 = 19$ instead of the inverse. Finding $f^{-1}(7)$ means solving $3x - 2 = 7$, which gives $x = 3$.
       - text: $1$
+        rationale: |
+          You subtracted 2 from 7 or miscalculated $3x = 9$. Solving $3x - 2 = 7$ gives $3x = 9$, so dividing by 3 yields $x = 3$.
       - text: $5$
+        rationale: |
+          You added 7 and 3 or miscalculated the linear equation. Solving $3x - 2 = 7$ leads to $3x = 9$, so $x = 3$.
     explanation: |
       Ask: "What input to $f$ gives output 7?" Solve $3x - 2 = 7$: $3x = 9$, so $x = 3$.
 
@@ -181,8 +253,14 @@ questions:
       - text: $x \geq -1$ except $x = 2$
         correct: true
       - text: $x \geq -1$
+        rationale: |
+          You handled the square root condition $x + 1 \geq 0$, but forgot to exclude $x = 2$ which makes the denominator zero.
       - text: $x > 2$
+        rationale: |
+          You excluded all numbers below 2. Values like $x = 0$ are valid because $\sqrt{0+1} = 1$ and $0-2 = -2$, giving $-\dfrac{1}{2}$.
       - text: All real numbers
+        rationale: |
+          You ignored both domain restrictions. Square roots require $x+1 \geq 0$ and denominators cannot equal zero.
     explanation: |
       Two conditions: square root needs $x + 1 \geq 0$ (so $x \geq -1$) and denominator needs $x - 2 \ne 0$ (so $x \ne 2$). Both must hold.
 
@@ -195,8 +273,14 @@ questions:
       - text: Yes, multiple inputs can share the same output.
         correct: true
       - text: No, the output repeats.
+        rationale: |
+          You thought repeated outputs make a relation non-functional. Functions allow different inputs to share the same output.
       - text: No, inputs must be consecutive.
+        rationale: |
+          You thought inputs must be consecutive. Input values do not need to follow a pattern for a relation to be a function.
       - text: Cannot be determined.
+        rationale: |
+          You selected cannot be determined, but inspecting the inputs $(2, 3, 4)$ shows no input repeats, so it is a function.
     explanation: |
       A function can repeat outputs. Each input (2, 3, 4) has exactly one output (1). This is allowed.
 
@@ -209,7 +293,14 @@ questions:
       - text: $3$
         correct: true
       - text: $15$
+        rationale: |
+          You evaluated $(-3)^2 = -9$ or added $-9 - 6 = -15$. Squaring gives $(-3)^2 = 9$, and $2(-3) = -6$, so $9 - 6 = 3$.
       - text: $-3$
+        rationale: |
+          You evaluated $(-3)^2 = 3$ instead of 9. Squaring $-3$ gives 9, so $9 + 2(-3) = 9 - 6 = 3$.
       - text: $9$
+        rationale: |
+          You calculated $(-3)^2 = 9$ but omitted the $+ 2x$ term. Adding $2(-3) = -6$ yields $9 - 6 = 3$.
     explanation: |
       $f(-3) = (-3)^2 + 2(-3) = 9 - 6 = 3$.
+

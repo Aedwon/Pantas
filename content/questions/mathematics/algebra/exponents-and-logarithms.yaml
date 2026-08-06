@@ -13,8 +13,14 @@ questions:
       - text: $x^8$
         correct: true
       - text: $x^{15}$
+        rationale: |
+          You multiplied the exponents $3 \times 5 = 15$. When multiplying terms with the same base, add exponents: $3 + 5 = 8$.
       - text: $x^{-2}$
+        rationale: |
+          You subtracted 3 and 5 to get $-2$. Subtraction is used when dividing powers with the same base, not multiplying.
       - text: $x^2$
+        rationale: |
+          You subtracted $5 - 3 = 2$. Exponents are added when multiplying powers with the same base: $3 + 5 = 8$.
     explanation: |
       When multiplying powers with the same base, add the exponents: $x^3 \cdot x^5 = x^{3+5} = x^8$.
 
@@ -27,8 +33,14 @@ questions:
       - text: $x^4$
         correct: true
       - text: $x^{10}$
+        rationale: |
+          You added the exponents $7 + 3 = 10$. When dividing powers with the same base, subtract exponents: $7 - 3 = 4$.
       - text: $x^{-4}$
+        rationale: |
+          You subtracted $3 - 7 = -4$ instead of $7 - 3 = 4$. Subtract the bottom exponent from the top exponent.
       - text: $x$
+        rationale: |
+          You divided the exponents $7 \div 3$. Division of powers requires subtracting the exponents: $7 - 3 = 4$.
     explanation: |
       When dividing powers with the same base, subtract the exponents: $\dfrac{x^7}{x^3} = x^{7-3} = x^4$.
 
@@ -41,8 +53,14 @@ questions:
       - text: $x^6$
         correct: true
       - text: $x^5$
+        rationale: |
+          You added the exponents $3 + 2 = 5$. When raising a power to a power, multiply the exponents: $3 \times 2 = 6$.
       - text: $x^9$
+        rationale: |
+          You squared the exponent $3^2 = 9$. When raising a power to a power, multiply exponents: $3 \times 2 = 6$.
       - text: $x^{3/2}$
+        rationale: |
+          You turned the outer exponent into a denominator. Power to a power requires multiplying exponents: $3 \times 2 = 6$.
     explanation: |
       When raising a power to a power, multiply the exponents: $(x^3)^2 = x^{3 \cdot 2} = x^6$.
 
@@ -55,8 +73,14 @@ questions:
       - text: $\dfrac{1}{4}$
         correct: true
       - text: $4$
+        rationale: |
+          You evaluated $8^{\frac{2}{3}} = 4$, but ignored the negative sign on the exponent, which flips the value to $\dfrac{1}{4}$.
       - text: $-4$
+        rationale: |
+          You treated the negative exponent as a negative multiplier. A negative exponent creates a fraction: $\dfrac{1}{8^{2/3}} = \dfrac{1}{4}$.
       - text: $\dfrac{1}{2}$
+        rationale: |
+          You took the cube root $\sqrt[3]{8} = 2$ and flipped it, but forgot to square the result: $2^2 = 4$, giving $\dfrac{1}{4}$.
     explanation: |
       Handle the negative: $\dfrac{1}{8^{\frac{2}{3}}}$. The fraction means cube root then square: $\sqrt[3]{8} = 2$, so $2^2 = 4$. Final answer: $\dfrac{1}{4}$.
 
@@ -69,8 +93,14 @@ questions:
       - text: $\dfrac{1}{8}$
         correct: true
       - text: $-8$
+        rationale: |
+          You treated the negative exponent as a negative coefficient. A negative exponent flips the base to a fraction: $\dfrac{1}{2^3} = \dfrac{1}{8}$.
       - text: $-\dfrac{1}{8}$
+        rationale: |
+          You made the fraction negative. A negative exponent makes the base a reciprocal, but does not make the overall value negative.
       - text: $8$
+        rationale: |
+          You evaluated $2^3 = 8$ and ignored the negative sign on the exponent. The negative exponent flips 8 to $\dfrac{1}{8}$.
     explanation: |
       A negative exponent means flip the fraction: $2^{-3} = \dfrac{1}{2^3} = \dfrac{1}{8}$.
 
@@ -83,8 +113,14 @@ questions:
       - text: $\log_2(8) = 3$ because $2^3 = 8$.
         correct: true
       - text: $\log_2(8) = 4$ because $2 \times 4 = 8$.
+        rationale: |
+          You used multiplication instead of exponentiation. Logarithms find the power, so $\log_2(8) = 3$ because $2^3 = 8$.
       - text: $\log_2(8) = 2$ because $2^2 = 4$.
+        rationale: |
+          You evaluated $2^2 = 4$, which does not equal 8. The power needed on base 2 to reach 8 is 3, because $2^3 = 8$.
       - text: $\log_2(8)$ is undefined.
+        rationale: |
+          You marked $\log_2(8)$ as undefined, but 8 is positive and base 2 is valid, so $\log_2(8) = 3$.
     explanation: |
       The logarithm asks: "What power do I need on 2 to get 8?" Since $2^3 = 8$, the answer is 3.
 
@@ -97,8 +133,14 @@ questions:
       - text: $4$
         correct: true
       - text: $3$
+        rationale: |
+          You evaluated $3^3 = 27$ instead of finding the power for 81. Since $3^4 = 81$, the logarithm equals 4.
       - text: $27$
+        rationale: |
+          You divided 81 by 3 to get 27. Logarithms ask for the exponent power, not division: $3^4 = 81$, so $\log_3(81) = 4$.
       - text: $2$
+        rationale: |
+          You evaluated $3^2 = 9$. The logarithm asks for the exponent that produces 81, which is 4 because $3^4 = 81$.
     explanation: |
       Ask: "3 raised to what power gives 81?" Since $3^4 = 81$, the answer is 4.
 
@@ -111,8 +153,14 @@ questions:
       - text: When multiplying powers with the same base, add the exponents, not multiply them. It should be $2^7$.
         correct: true
       - text: There is no error.
+        rationale: |
+          You claimed there is no error, but $2^3 \cdot 2^4 = 2^{3+4} = 2^7$. Multiplying exponents to get $2^{12}$ is wrong.
       - text: The bases should be different.
+        rationale: |
+          You thought the bases must differ, but exponent rules apply specifically when multiplying terms with the same base.
       - text: The answer should be $2^1$.
+        rationale: |
+          You subtracted exponents $4 - 3 = 1$. When multiplying powers with the same base, add exponents: $3 + 4 = 7$.
     explanation: |
       Multiply means add exponents: $2^3 \cdot 2^4 = 2^{3+4} = 2^7$. Multiplying the exponents gives $2^{12}$.
 
@@ -125,8 +173,14 @@ questions:
       - text: When raising a power to a power, multiply the exponents, not add them. It should be $2^6$.
         correct: true
       - text: There is no error.
+        rationale: |
+          You claimed there is no error, but power of a power requires multiplying exponents: $2 \times 3 = 6$, giving $2^6$.
       - text: The answer should be $2^{-1}$.
+        rationale: |
+          You subtracted the exponents $2 - 3 = -1$. Power of a power rule states you must multiply exponents: $2 \times 3 = 6$.
       - text: Powers cannot be raised to powers.
+        rationale: |
+          You claimed powers cannot be raised to powers, but they can by multiplying the inner and outer exponents.
     explanation: |
       Power to a power means multiply: $(2^2)^3 = 2^{2 \times 3} = 2^6$. Adding gives $2^5$.
 
@@ -139,8 +193,14 @@ questions:
       - text: $\dfrac{x^5}{y^2}$
         correct: true
       - text: $x^5 y^2$
+        rationale: |
+          You put $y^2$ in the numerator. In the denominator $y^3$ exceeds the numerator $y^1$, leaving $y^2$ in the denominator.
       - text: $\dfrac{x^3}{y^2}$
+        rationale: |
+          You subtracted $x^4 - x^1$ incorrectly. The numerator has $x^3 \cdot x^4 = x^7$, and dividing by $x^2$ gives $x^{7-2} = x^5$.
       - text: $x^2 y$
+        rationale: |
+          You miscalculated both powers. Combining numerator and denominator gives $x^{3+4-2} = x^5$ and $y^{2-1-3} = y^{-2}$.
     explanation: |
       Combine top: $x^3 \cdot x^4 = x^7$ and $y^2 \cdot y^{-1} = y^1$. Divide by bottom: $\dfrac{x^7 y}{x^2 y^3} = \dfrac{x^5}{y^2}$.
 
@@ -153,8 +213,14 @@ questions:
       - text: $\log(x^2 y)$
         correct: true
       - text: $\log(2xy)$
+        rationale: |
+          You kept 2 as a multiplier inside the logarithm. The power rule moves 2 to become an exponent on $x$, giving $\log(x^2 y)$.
       - text: $\log(x^2 + y)$
+        rationale: |
+          You added the arguments inside the logarithm. Adding logarithms corresponds to multiplying their arguments: $\log(x^2 \cdot y)$.
       - text: $\log(xy^2)$
+        rationale: |
+          You put the exponent 2 on $y$ instead of $x$. The coefficient 2 is in front of $\log(x)$, so $x$ gets squared.
     explanation: |
       Bring exponents back: $\log(x^2) + \log(y)$. Addition in logs means multiply: $\log(x^2 y)$.
 
@@ -167,8 +233,14 @@ questions:
       - text: $x = 5$
         correct: true
       - text: $x = 1$
+        rationale: |
+          You may have set $2x - 1 = x + 1$ without converting 4 and 8 to base 2. $4 = 2^2$ gives $2(2x-1) = 4x-2$, yielding $x = 5$.
       - text: $x = -1$
+        rationale: |
+          You miscalculated the algebra after equating exponents. From $4x - 2 = 3x + 3$, subtracting $3x$ and adding 2 gives $x = 5$.
       - text: $x = 3$
+        rationale: |
+          You made an arithmetic error solving $4x - 2 = 3x + 3$. Subtracting $3x$ gives $x - 2 = 3$, so $x = 3 + 2 = 5$.
     explanation: |
       Rewrite with base 2: $(2^2)^{2x-1} = (2^3)^{x+1}$. Multiply powers: $2^{4x-2} = 2^{3x+3}$. Set exponents equal: $4x - 2 = 3x + 3$, so $x = 5$.
 
@@ -181,8 +253,14 @@ questions:
       - text: $2a + b$
         correct: true
       - text: $a + b$
+        rationale: |
+          You evaluated $\log_{10}(6) = a + b$ because $2 \times 3 = 6$. Since $12 = 2^2 \times 3$, you need $2a + b$.
       - text: $a + 2b$
+        rationale: |
+          You squared 3 instead of 2. $12 = 4 \times 3 = 2^2 \times 3$, which expands to $2\log(2) + \log(3) = 2a + b$.
       - text: $ab$
+        rationale: |
+          You multiplied $a$ and $b$. Logarithm of a product becomes addition of logarithms: $\log(2^2 \cdot 3) = 2a + b$.
     explanation: |
       Write $12 = 4 \times 3 = 2^2 \times 3$. Then $\log_{10}(2^2 \times 3) = \log_{10}(2^2) + \log_{10}(3) = 2\log_{10}(2) + \log_{10}(3) = 2a + b$.
 
@@ -195,8 +273,14 @@ questions:
       - text: A negative exponent means flip to make a fraction. It should be $\dfrac{1}{9}$, not $-9$.
         correct: true
       - text: There is no error.
+        rationale: |
+          You claimed there is no error, but $3^{-2} = \dfrac{1}{3^2} = \dfrac{1}{9}$. Negative exponents make fractions, not negative numbers.
       - text: The answer should be $-3$.
+        rationale: |
+          You divided $-9$ by 3. A negative exponent creates a positive fraction $\dfrac{1}{3^2} = \dfrac{1}{9}$.
       - text: Negative exponents are undefined.
+        rationale: |
+          You claimed negative exponents are undefined, but $x^{-n} = \dfrac{1}{x^n}$ for any non-zero $x$.
     explanation: |
       $3^{-2} = \dfrac{1}{3^2} = \dfrac{1}{9}$. The negative sign on the exponent is not a minus sign in the answer.
 
@@ -209,7 +293,14 @@ questions:
       - text: $8$
         correct: true
       - text: $12$
+        rationale: |
+          You multiplied 16 by $\dfrac{3}{4}$ to get 12. Fractional exponents mean root and power: $\sqrt[4]{16} = 2$ and $2^3 = 8$.
       - text: $4$
+        rationale: |
+          You evaluated the fourth root $\sqrt[4]{16} = 2$ and multiplied by 2 instead of cubing: $2^3 = 8$.
       - text: $64$
+        rationale: |
+          You cubed 16 to get 4096 and took the fourth root, or calculated $4^3 = 64$ using 4 as base. The base is 16, so $\sqrt[4]{16} = 2$ and $2^3 = 8$.
     explanation: |
       The fractional exponent means fourth root then cube: $\sqrt[4]{16} = 2$, and $2^3 = 8$.
+
