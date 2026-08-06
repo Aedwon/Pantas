@@ -17,8 +17,11 @@ questions:
       - text: Homogeneous
         correct: true
       - text: Heterogeneous
+        rationale: "You picked the mixture type that has visibly distinct parts or layers. Black coffee has a uniform appearance throughout."
       - text: A compound
+        rationale: "You picked a pure substance formed when elements chemically bond together. Coffee is a physical blend of water and dissolved compounds."
       - text: An element
+        rationale: "You picked a fundamental substance made of only one kind of atom. Coffee contains many distinct chemical compounds mixed together."
     explanation: |
       A homogeneous mixture looks completely uniform, with no visible separate parts. Since the coffee shows no separate parts, it is homogeneous.
     approved: true
@@ -31,8 +34,11 @@ questions:
       - text: Heterogeneous
         correct: true
       - text: Homogeneous
+        rationale: "You picked the mixture type that looks completely uniform throughout. Vegetable soup has visibly separate ingredients and layers."
       - text: A compound
+        rationale: "You picked a pure substance joined by chemical bonds. Vegetable soup is a physical mixture whose components retain their identities."
       - text: An element
+        rationale: "You picked a basic chemical substance that cannot be broken down further. Soup is a physical combination of many different compounds."
     explanation: |
       A heterogeneous mixture has visible separate parts. Since the vegetable chunks can clearly be seen, the soup is heterogeneous.
     approved: true
@@ -45,8 +51,11 @@ questions:
       - text: Homogeneous
         correct: true
       - text: Heterogeneous
+        rationale: "You picked the classification for mixtures with visible parts or separate phases. Clean air looks uniform and evenly mixed throughout."
       - text: A compound
+        rationale: "You picked a substance formed by chemically bonded elements. Air is a physical mixture of separate gas molecules like nitrogen and oxygen."
       - text: An element
+        rationale: "You picked a single pure substance of one atomic type. Air is a mixture containing several different gases."
     explanation: |
       Since the gases in clean air blend together with no visible separate parts, it is a homogeneous mixture.
     approved: true
@@ -59,8 +68,11 @@ questions:
       - text: Heterogeneous
         correct: true
       - text: Homogeneous
+        rationale: "You picked the term for a uniform blend with no visible differences. Sand and gravel remain clearly distinct from each other."
       - text: A pure substance
+        rationale: "You picked a material made of only one type of element or compound. Sand and gravel are a physical mixture of distinct mineral grains."
       - text: A compound
+        rationale: "You picked a substance formed by chemical bonding between elements. Mixing sand and gravel is a physical process without chemical bonds."
     explanation: |
       Since the sand and gravel particles remain visibly distinct and unevenly distributed, this is a heterogeneous mixture.
     approved: true
@@ -73,8 +85,11 @@ questions:
       - text: Filtration
         correct: true
       - text: Distillation
+        rationale: "You picked the technique used to separate dissolved liquids by boiling point. Sand is an insoluble solid that can be filtered much faster."
       - text: Chromatography
+        rationale: "You picked the method used to separate dissolved solutes like pigments. Undissolved sand particles are easily trapped with a simple filter."
       - text: Evaporation
+        rationale: "You picked the method that boils away the liquid. Filtration is faster and lets you keep both the sand and liquid water."
     explanation: |
       Filtration uses a material with tiny holes that let the liquid pass through while trapping solid particles. Since sand does not dissolve in water, filtration easily traps it.
     approved: true
@@ -87,8 +102,11 @@ questions:
       - text: Evaporation
         correct: true
       - text: Filtration
+        rationale: "You picked the method for trapping undissolved solids. Salt dissolves into particles far too small for a liquid filter to trap."
       - text: Chromatography
+        rationale: "You picked the method used to separate mixtures of colored dyes based on attraction. Evaporation is the standard way to recover a dissolved solid."
       - text: Distillation
+        rationale: "You picked the process that cools and collects evaporated liquid vapor. Since you do not need the water, simple evaporation saves time."
     explanation: |
       Evaporation heats the mixture until the liquid turns to vapor and escapes, leaving the dissolved solid behind. Since the water does not need to be collected, simply letting it evaporate away is enough.
     approved: true
@@ -101,8 +119,11 @@ questions:
       - text: Distillation
         correct: true
       - text: Evaporation
+        rationale: "You picked the method that lets boiled vapor escape into the air. Distillation cools and collects that vapor so you keep both liquids."
       - text: Filtration
+        rationale: "You picked the method for solid-liquid mixtures. Alcohol and water are completely dissolved together and pass right through a filter."
       - text: Chromatography
+        rationale: "You picked the technique used to analyze component pigments in tiny samples. Distillation is designed for collecting bulk liquid mixtures."
     explanation: |
       Distillation heats the mixture so the substance with the lower boiling point evaporates first, then cools that vapor back into a liquid and collects it separately. This is the only technique here that captures both liquids instead of letting one escape.
     approved: true
@@ -115,8 +136,11 @@ questions:
       - text: Chromatography
         correct: true
       - text: Filtration
+        rationale: "You picked the method for trapping insoluble solids. Ink dyes are dissolved liquids or tiny particles that pass through filter paper."
       - text: Evaporation
+        rationale: "You picked the method that leaves all dissolved solids together in one pile. It cannot separate individual dyes from one another."
       - text: Distillation
+        rationale: "You picked the technique for separating liquids by boiling points. Chromatography separates dissolved pigments along a paper strip."
     explanation: |
       Chromatography separates the different components of a mixture based on how strongly each one is attracted to a moving liquid versus a fixed material. If the ink is really several dyes, they will separate into visible bands of different colors.
     approved: true
@@ -129,8 +153,11 @@ questions:
       - text: Evaporation lets the vapor escape into the air instead of collecting it, so the more volatile liquid is lost rather than recovered.
         correct: true
       - text: Evaporation only works on solids, never on liquid mixtures.
+        rationale: "You picked a rule that is incorrect because liquids can evaporate. The failure occurs because the escaped vapor is not condensed or saved."
       - text: Evaporation destroys the chemical identity of both liquids.
+        rationale: "You picked a statement implying a chemical reaction occurs. Evaporation is a physical change that leaves chemical structures intact."
       - text: Evaporation requires a stationary phase that alcohol-water mixtures do not have.
+        rationale: "You picked a requirement that applies to chromatography. Evaporation depends on heat and vapor pressure, not a stationary phase."
     explanation: |
       Evaporation simply lets the vapor escape into the air: it never captures it. To keep both liquids, the vapor must be cooled and collected, which is exactly what distillation does that evaporation does not.
     approved: true
@@ -143,8 +170,11 @@ questions:
       - text: Filtration only traps undissolved solid particles; a fully dissolved solid has broken into particles too small for the filter to catch.
         correct: true
       - text: Filtration only works on gases, never on liquids.
+        rationale: "You picked an incorrect limitation. Filtration is widely used on liquids to trap insoluble solids like sand or coffee grounds."
       - text: Salt is a compound, so it cannot be separated by any physical method.
+        rationale: "You picked a statement that confuses physical mixtures with chemical bonds. Saltwater is a mixture that can be separated physically by evaporation."
       - text: Filtration only works if the mixture is heterogeneous, and dissolved salt makes the water homogeneous, so filtration is unrelated to that idea.
+        rationale: "You picked an explanation with flawed logic. Homogeneous mixtures like saltwater cannot be filtered because the solute particles are dissolved."
     explanation: |
       Filtration relies on solid particles being too large to pass through the filter's tiny holes. Once salt fully dissolves, its particles become far too small to trap, so evaporation or distillation is needed instead.
     approved: true
@@ -157,8 +187,11 @@ questions:
       - text: 'No: homogeneous mixtures can still be separated, for example with evaporation or distillation.'
         correct: true
       - text: 'Yes: homogeneous mixtures can never be physically separated.'
+        rationale: "You picked a choice that confuses visual appearance with chemical bonding. Homogeneous mixtures can be separated by physical methods like distillation."
       - text: 'No: but only because saltwater is actually a compound, not a mixture.'
+        rationale: "You picked a classification error. Saltwater is a physical mixture of sodium chloride and water, not a single chemical compound."
       - text: 'Yes: only heterogeneous mixtures can be separated using physical methods.'
+        rationale: "You picked a rule that excludes solutions. Homogeneous mixtures can easily be separated using phase changes like boiling or evaporating."
     explanation: |
       Looking uniform (homogeneous) only describes appearance: it says nothing about whether a mixture can be separated. Saltwater can still be separated by evaporation or distillation, even though it looks completely smooth.
     approved: true
@@ -171,8 +204,11 @@ questions:
       - text: Liquid A, because substances with lower boiling points evaporate at lower temperatures.
         correct: true
       - text: Liquid B, because higher boiling points evaporate first.
+        rationale: "You picked the liquid that requires more thermal energy to boil. The component with the lower boiling point always vaporizes first."
       - text: Both evaporate at exactly the same time.
+        rationale: "You picked an option that ignores differences in physical properties. Distinct boiling points cause liquids to boil off one after the other."
       - text: Neither evaporates until the mixture reaches its freezing point.
+        rationale: "You picked the phase transition where liquids freeze into solids. Vaporization occurs when heating toward boiling points."
     explanation: |
       During distillation, the substance with the lower boiling point turns to vapor first as the mixture is heated, so it is the first one collected after cooling.
     approved: true
@@ -185,8 +221,11 @@ questions:
       - text: It is less strongly attracted to the paper (stationary phase) and more easily carried by the moving liquid (mobile phase).
         correct: true
       - text: It is heavier than the slower dye.
+        rationale: "You picked mass as the primary factor. Chromatography separates components based on solubility and phase attraction, not weight."
       - text: It has a higher boiling point than the slower dye.
+        rationale: "You picked a property relevant to distillation. Chromatography depends on molecular attraction between stationary and mobile phases."
       - text: It is not actually part of the original ink mixture.
+        rationale: "You picked an option that treats separated dyes as external contaminants. Every band on the paper came directly from the original ink sample."
     explanation: |
       In chromatography, components that are less strongly attracted to the stationary phase (the paper) get carried farther by the mobile phase (the moving liquid). Traveling farther means weaker attraction to the paper.
     approved: true
@@ -199,8 +238,11 @@ questions:
       - text: Heterogeneous
         correct: true
       - text: Homogeneous
+        rationale: "You picked the term for mixtures with a single uniform appearance. Fruit salad has distinct pieces of different fruits throughout."
       - text: A compound
+        rationale: "You picked a pure substance formed by chemical bonds. Fruit salad is a physical combination of fruit pieces that keep their identities."
       - text: An element
+        rationale: "You picked a single chemical substance made of one atom type. Fruit salad is a mixture containing many different organic compounds."
     explanation: |
       Since the different fruit pieces remain visibly separate and unevenly distributed, the fruit salad is a heterogeneous mixture.
     approved: true
@@ -213,8 +255,11 @@ questions:
       - text: Filtration first to remove the visible dirt, then distillation to purify the water further by removing dissolved impurities.
         correct: true
       - text: Chromatography first, then evaporation.
+        rationale: "You picked paper chromatography, which is a analytical laboratory method for micro-samples, not a bulk water purification process."
       - text: Distillation first, then filtration.
+        rationale: "You picked the steps in reverse. Boiling muddy water directly ruins distillation equipment with thick mud before filtration happens."
       - text: Filtration alone is enough; no second step is needed.
+        rationale: "You picked a single step that only catches solid dirt. Filter paper cannot stop dissolved minerals or contaminants."
     explanation: |
       Filtration removes the undissolved solid dirt, since it is too large to pass through the filter. But dissolved impurities remain in the water even after filtering, so distillation is still needed afterward to collect only the purified water vapor.
     approved: true

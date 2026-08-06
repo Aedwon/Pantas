@@ -17,8 +17,11 @@ questions:
       - text: "2"
         correct: true
       - text: "6"
+        rationale: "You picked the electron capacity of a set of $p$ orbitals. An $s$ orbital holds a maximum of 2 electrons."
       - text: "10"
+        rationale: "You picked the electron capacity of a $d$ subshell. Single $s$ orbitals hold at most 2 electrons."
       - text: "14"
+        rationale: "You picked the electron capacity of an $f$ subshell. An $s$ orbital holds only up to 2 electrons."
     explanation: |
       An $s$ orbital holds up to 2 electrons: the smallest capacity of the four orbital types.
     approved: true
@@ -31,8 +34,11 @@ questions:
       - text: "6"
         correct: true
       - text: "2"
+        rationale: "You picked the capacity of an $s$ orbital. A $p$ subshell contains three orbitals and holds 6 electrons."
       - text: "10"
+        rationale: "You picked the capacity of a $d$ subshell. A $p$ subshell holds a maximum of 6 electrons."
       - text: "14"
+        rationale: "You picked the capacity of an $f$ subshell. A $p$ subshell can hold up to 6 electrons."
     explanation: |
       A $p$ orbital (a set of three sub-orbitals) holds up to 6 electrons in total.
     approved: true
@@ -45,8 +51,11 @@ questions:
       - text: "10"
         correct: true
       - text: "2"
+        rationale: "You picked the maximum capacity of an $s$ orbital. A $d$ subshell has five orbitals that hold 10 electrons."
       - text: "6"
+        rationale: "You picked the capacity of a $p$ subshell. A $d$ subshell holds up to 10 electrons."
       - text: "14"
+        rationale: "You picked the capacity of an $f$ subshell. A $d$ subshell has five orbitals holding up to 10 electrons."
     explanation: |
       A $d$ orbital (a set of five sub-orbitals) holds up to 10 electrons in total.
     approved: true
@@ -59,8 +68,11 @@ questions:
       - text: 1s^2 2s^2 2p^3
         correct: true
       - text: 1s^2 2s^2 2p^5
+        rationale: "You counted 9 total electrons instead of 7. Subtract 2 to account for nitrogen having only 7 electrons."
       - text: 1s^2 2s^3 2p^2
+        rationale: "You placed 3 electrons into the 2s orbital. Remember that $s$ orbitals hold a maximum of 2 electrons."
       - text: 1s^2 2s^2 2p^4
+        rationale: "You assigned 8 total electrons instead of 7. Nitrogen has an atomic number of 7 so $2p$ receives 3."
     explanation: |
       Fill the lowest-energy orbitals first: 1s holds 2, 2s holds 2, leaving $7 - 2 - 2 = 3$ for 2p. Adding the superscripts confirms the total: $2 + 2 + 3 = 7$.
     approved: true
@@ -73,8 +85,11 @@ questions:
       - text: 1s^2 2s^2 2p^4
         correct: true
       - text: 1s^2 2s^2 2p^6
+        rationale: "You wrote the configuration for 10 electrons (neon). Oxygen has only 8 electrons, so $2p$ holds 4."
       - text: 1s^2 2s^4 2p^2
+        rationale: "You put 4 electrons into the 2s orbital. The $s$ subshell can only hold up to 2 electrons."
       - text: 1s^2 2s^2 2p^3
+        rationale: "You wrote the configuration for 7 electrons (nitrogen). Oxygen has 8 electrons, so $2p$ requires 4."
     explanation: |
       Fill 1s with 2 and 2s with 2, leaving $8 - 2 - 2 = 4$ for 2p. Adding the superscripts confirms the total: $2 + 2 + 4 = 8$.
     approved: true
@@ -87,8 +102,11 @@ questions:
       - text: The 4s orbital, because it has slightly lower energy than 3d at this point, even though its leading number is larger.
         correct: true
       - text: The 3d orbital, because 3 is a smaller number than 4.
+        rationale: "You assumed principal quantum numbers strictly dictate energy. Orbitals fill by total energy, and 4s has lower energy than 3d."
       - text: Both fill at exactly the same time.
+        rationale: "You assumed degenerate orbital energies. 4s and 3d have different energy levels, so 4s fills before 3d."
       - text: Neither fills before the other; 3d is skipped entirely.
+        rationale: "You picked an option that ignores standard electron configurations. 3d fills immediately after 4s is full."
     explanation: |
       The Aufbau principle fills orbitals by increasing energy, not simply by increasing leading number. The 4s orbital has slightly lower energy than 3d at this point in the periodic table, so it fills first: this is why potassium's configuration ends in $4s^1$, not $3d^1$.
     approved: true
@@ -101,8 +119,11 @@ questions:
       - text: 'No: a $p$ orbital can never hold more than 6 electrons.'
         correct: true
       - text: 'Yes: as long as the total adds up correctly.'
+        rationale: "You ignored subshell capacity rules. A $p$ subshell cannot hold more than 6 electrons regardless of atomic total."
       - text: 'No: because the $2s$ orbital should come after $2p$.'
+        rationale: "You reversed the energy ordering. 2s has lower energy than 2p and fills before 2p in valid configurations."
       - text: 'Yes: $p$ orbitals can hold up to 8 electrons.'
+        rationale: "You confused subshell capacity with the octet rule. A $p$ subshell holds 6 electrons, not 8."
     explanation: |
       Each orbital type has a fixed maximum capacity, and $p$ can never exceed 6 electrons. A superscript of 8 on a $p$ orbital is impossible, no matter what the total electron count is.
     approved: true
@@ -115,8 +136,11 @@ questions:
       - text: Each of the three orbitals gets exactly one electron.
         correct: true
       - text: Two electrons pair up in one orbital, leaving one orbital completely empty.
+        rationale: "You paired electrons prematurely. Hund's Rule requires placing one electron per degenerate orbital before pairing."
       - text: All three electrons pair up in a single orbital.
+        rationale: "You placed 3 electrons in one orbital, violating Pauli Exclusion and Hund's Rule. Orbitals hold at most 2 electrons."
       - text: Any arrangement is equally correct, since the total electron count is the same either way.
+        rationale: "You assumed orbital distribution does not affect energy. Unpaired parallel spins minimize electron repulsion."
     explanation: |
       Hund's Rule says electrons fill each available same-energy orbital singly before any orbital receives a second electron. With three electrons and three empty orbitals available, each orbital should get exactly one electron.
     approved: true
@@ -129,8 +153,11 @@ questions:
       - text: 'No: the Pauli Exclusion Principle requires the two electrons in one orbital to have opposite spins.'
         correct: true
       - text: 'Yes: spin direction does not matter within a single orbital.'
+        rationale: "You ignored quantum number restrictions. Pauli Exclusion states two electrons in the same orbital must have opposite spins."
       - text: 'No: an orbital can never hold two electrons at all.'
+        rationale: "You set orbital capacity to one. Orbitals can hold up to two electrons if their spins are paired opposite."
       - text: 'Yes: as long as the orbital is an $s$ orbital.'
+        rationale: "You exempted s orbitals from spin rules. Pauli Exclusion applies equally to all orbital types."
     explanation: |
       The Pauli Exclusion Principle allows at most 2 electrons per orbital, and requires those two to have opposite spins. Two electrons with the same spin cannot share the same orbital.
     approved: true
@@ -143,8 +170,11 @@ questions:
       - text: "15"
         correct: true
       - text: "13"
+        rationale: "You likely miscounted the electrons in $2p$ or $3p$. Adding $2+2+6+2+3$ gives 15 electrons."
       - text: "17"
+        rationale: "You added extra electrons to the total. Summing all superscripts $2+2+6+2+3$ equals 15."
       - text: "5"
+        rationale: "You counted only the valence shell electrons ($3s^2 3p^3$). Atomic number requires counting all electrons."
     explanation: |
       Add up all the superscripts: $2 + 2 + 6 + 2 + 3 = 15$. Since this is a neutral atom, its atomic number equals its total electron count, 15 (phosphorus).
     approved: true
@@ -157,8 +187,11 @@ questions:
       - text: "5"
         correct: true
       - text: "3"
+        rationale: "You counted only the electrons in the $3p$ subshell. Outermost electrons include both $3s$ and $3p$ ($2+3=5$)."
       - text: "15"
+        rationale: "You gave the total atomic number of the atom. The outermost energy level (n=3) contains 5 valence electrons."
       - text: "8"
+        rationale: "You stated the maximum octet capacity instead of counting the $3s^2 3p^3$ valence electrons."
     explanation: |
       The outermost energy level is level 3 (from the $3s$ and $3p$ terms). Adding their superscripts: $2 + 3 = 5$.
     approved: true
@@ -171,8 +204,11 @@ questions:
       - text: 1s^2 2s^2 2p^6
         correct: true
       - text: 1s^2 2s^2 2p^6 3s^1
+        rationale: "You gave the configuration for neutral sodium. The 1+ ion loses its single outer electron from $3s$."
       - text: 1s^2 2s^2 2p^6 3s^2
+        rationale: "You added an electron as if it were an anion ($Na^-$). Positive ions lose electrons."
       - text: 1s^2 2s^2 2p^5
+        rationale: "You removed two electrons instead of one. $Na^+$ loses only 1 electron to reach 10 total."
     explanation: |
       $Na^+$ has lost one electron compared to neutral sodium, leaving $11 - 1 = 10$ electrons. Removing the single $3s$ electron from neutral sodium's configuration leaves $1s^2\ 2s^2\ 2p^6$: do not just copy the neutral atom's configuration without adjusting for the charge.
     approved: true
@@ -185,8 +221,11 @@ questions:
       - text: "25"
         correct: true
       - text: "23"
+        rationale: "You miscounted the sum of superscripts. Adding $2+2+6+2+6+2+5$ gives an atomic number of 25."
       - text: "20"
+        rationale: "You stopped counting at $4s^2$ and ignored the 5 electrons in the $3d$ subshell."
       - text: "35"
+        rationale: "You added 10 extra electrons to the total. Summing the given superscripts yields 25."
     explanation: |
       Add up every superscript: $2 + 2 + 6 + 2 + 6 + 2 + 5 = 25$. This is manganese, whose configuration fills $4s$ before $3d$, following the established energy order.
     approved: true
@@ -199,8 +238,11 @@ questions:
       - text: "11"
         correct: true
       - text: "10"
+        rationale: "You gave the electron count of the ion rather than the neutral parent atom. Add 1 electron back to find atomic number 11."
       - text: "9"
+        rationale: "You subtracted 1 electron from the ion count. A 1+ charge means the neutral atom had one MORE electron."
       - text: "12"
+        rationale: "You added 2 electrons instead of 1. A 1+ ion lost only a single electron relative to its neutral atom."
     explanation: |
       The ion has $2 + 2 + 6 = 10$ electrons. Since it lost one electron to reach a 1+ charge, the neutral atom must have had $10 + 1 = 11$ electrons, giving an atomic number of 11 (sodium).
     approved: true
