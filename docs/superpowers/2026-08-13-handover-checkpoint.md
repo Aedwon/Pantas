@@ -149,6 +149,12 @@ and it is the only correctness evidence this project has.
 
 ### Note B, where it stands
 
+**Run `python3 tools/audit/note_b_todo.py` for the live count and the next
+dispatch line.** As of the end of 13 August: **four subjects complete, 1,315
+questions still without a note, all in Mathematics and Science.** Gemini's quota
+ran out with 87 files left, which is the only reason it is not finished.
+
+
 | Subject | Questions | With note B |
 |---|---|---|
 | General Information | 156 | **all** |
