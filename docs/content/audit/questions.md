@@ -221,3 +221,53 @@ carrying three or more hedge words.
 **So all 403 are still flagged.** The plan is amended: a lengthened distractor
 has to carry an idea a student actually believes, and if you cannot name that
 belief, the distractor stays short and goes in the report.
+
+---
+
+## The answer-key check, 13 August
+
+**The first mechanical check in this repository that can find a wrong answer
+key.** Whether an answer is right is a judgment call, but whether a question
+*contradicts itself* is not: if the explanation works through to one value and a
+different choice carries the tick, one of the two is wrong.
+
+`tools/audit/sweep_answer_key.py`. Three tests: the explanation naming a wrong
+choice and never the right one, two choices that say the same thing, and an
+explanation that never repeats its own answer.
+
+### What it took to make it honest
+
+**Five passes, and every early one lied.** It reported ninety broken keys, then
+sixty-five, then thirty-two, and each batch was the checker's fault:
+
+- `5` matched inside `15`.
+- A full stop ending a sentence blocked a match, so "making it a pronoun." did
+  not contain "pronoun".
+- Then the same for numbers, so "all real numbers except $x = 5$." did not
+  contain itself.
+- Stripping apostrophes made "Its" and "Its'" the same choice, in the three
+  questions whose entire subject is that apostrophe.
+- Lowercasing made "We visited manila" and "we visited Manila" the same choice,
+  in a capitalization question.
+
+**Read a finding before you believe it.** That is the lesson, and it is why the
+remaining six are listed here rather than fixed.
+
+### What it found that was real
+
+**Two reading-comprehension questions where the correct answer was the only
+numeral on screen.** "33 billion pesos" among "Twenty-six billion pesos" and
+"Fifty billion pesos". A student picks the odd one out without reading the
+passage. Both now spell the number out, like their distractors.
+
+### The six it still reports, all judged and none defects
+
+- Four Mathematics questions whose answer is written one way in the choice and
+  another in the explanation: "$x = 4$ or $x = -4$" against "Roots are $x = 4$
+  and $x = -4$". The key is right; the wording differs.
+- One Science question where the explanation says "Ribosomes" and the choice
+  says "Ribosome".
+- One naming question that explains the rule instead of repeating the name.
+
+**The 1,077 `polish` lines are explanations that never repeat their own answer**,
+which is normal for a well-written explanation and is why they are polish.

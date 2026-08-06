@@ -65,7 +65,7 @@ questions:
     stem: |
       What were the final total project investments reported for the CCLEX construction?
     choices:
-      - text: 33 billion pesos
+      - text: Thirty-three billion pesos
         correct: true
       - text: Twenty-six billion pesos
         rationale: |
@@ -296,7 +296,7 @@ questions:
     stem: |
       What was the farmgate price per kilogram of green coffee beans in 2023?
     choices:
-      - text: 550 pesos
+      - text: Five hundred fifty pesos
         correct: true
       - text: Two hundred pesos
         rationale: |

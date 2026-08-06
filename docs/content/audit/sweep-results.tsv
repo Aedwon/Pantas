@@ -666,15 +666,15 @@ QAPPROVED	polish	language-proficiency/vocabulary/synonyms-and-antonyms.yaml:343	
 QAPPROVED	polish	language-proficiency/vocabulary/synonyms-and-antonyms.yaml:364	carries approved: true
 QPOSITION	polish	language-proficiency/vocabulary/synonyms-and-antonyms.yaml:1	the correct choice is authored first in 18 of 18
 QPOSITION	polish	mathematics/algebra/algebraic-expressions.yaml:1	the correct choice is authored first in 17 of 18
-QLONGEST	important	mathematics/algebra/exponents-and-logarithms.yaml:105	the correct choice is far the longest, which is a tell a student can read
-QLONGEST	important	mathematics/algebra/exponents-and-logarithms.yaml:119	the correct choice is far the longest, which is a tell a student can read
-QLONGEST	important	mathematics/algebra/exponents-and-logarithms.yaml:189	the correct choice is far the longest, which is a tell a student can read
+QLONGEST	important	mathematics/algebra/exponents-and-logarithms.yaml:147	the correct choice is far the longest, which is a tell a student can read
+QLONGEST	important	mathematics/algebra/exponents-and-logarithms.yaml:167	the correct choice is far the longest, which is a tell a student can read
+QLONGEST	important	mathematics/algebra/exponents-and-logarithms.yaml:267	the correct choice is far the longest, which is a tell a student can read
 QPOSITION	polish	mathematics/algebra/exponents-and-logarithms.yaml:1	the correct choice is authored first in 15 of 15
-QLONGEST	important	mathematics/algebra/functions-and-relations.yaml:49	the correct choice is far the longest, which is a tell a student can read
-QLONGEST	important	mathematics/algebra/functions-and-relations.yaml:133	the correct choice is far the longest, which is a tell a student can read
-QLONGEST	important	mathematics/algebra/functions-and-relations.yaml:147	the correct choice is far the longest, which is a tell a student can read
-QLONGEST	important	mathematics/algebra/functions-and-relations.yaml:175	the correct choice is far the longest, which is a tell a student can read
-QLONGEST	important	mathematics/algebra/functions-and-relations.yaml:189	the correct choice is far the longest, which is a tell a student can read
+QLONGEST	important	mathematics/algebra/functions-and-relations.yaml:67	the correct choice is far the longest, which is a tell a student can read
+QLONGEST	important	mathematics/algebra/functions-and-relations.yaml:187	the correct choice is far the longest, which is a tell a student can read
+QLONGEST	important	mathematics/algebra/functions-and-relations.yaml:207	the correct choice is far the longest, which is a tell a student can read
+QLONGEST	important	mathematics/algebra/functions-and-relations.yaml:247	the correct choice is far the longest, which is a tell a student can read
+QLONGEST	important	mathematics/algebra/functions-and-relations.yaml:267	the correct choice is far the longest, which is a tell a student can read
 QPOSITION	polish	mathematics/algebra/functions-and-relations.yaml:1	the correct choice is authored first in 15 of 15
 QPOSITION	polish	mathematics/algebra/linear-equations-inequalities.yaml:1	the correct choice is authored first in 16 of 18
 QPOSITION	polish	mathematics/algebra/polynomials.yaml:1	the correct choice is authored first in 18 of 18
@@ -1444,23 +1444,23 @@ QAPPROVED	polish	science/chemistry/matter.yaml:207	carries approved: true
 QAPPROVED	polish	science/chemistry/matter.yaml:221	carries approved: true
 QPOSITION	polish	science/chemistry/matter.yaml:1	the correct choice is authored first in 16 of 16
 QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:11	carries approved: true
-QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:25	carries approved: true
-QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:39	carries approved: true
-QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:53	carries approved: true
-QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:67	carries approved: true
-QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:81	carries approved: true
-QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:95	carries approved: true
-QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:109	carries approved: true
-QLONGEST	important	science/chemistry/mixtures-and-separation.yaml:123	the correct choice is far the longest, which is a tell a student can read
-QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:123	carries approved: true
-QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:137	carries approved: true
-QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:151	carries approved: true
-QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:165	carries approved: true
-QLONGEST	important	science/chemistry/mixtures-and-separation.yaml:179	the correct choice is far the longest, which is a tell a student can read
-QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:179	carries approved: true
-QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:193	carries approved: true
-QLONGEST	important	science/chemistry/mixtures-and-separation.yaml:207	the correct choice is far the longest, which is a tell a student can read
-QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:207	carries approved: true
+QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:28	carries approved: true
+QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:45	carries approved: true
+QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:62	carries approved: true
+QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:79	carries approved: true
+QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:96	carries approved: true
+QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:113	carries approved: true
+QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:130	carries approved: true
+QLONGEST	important	science/chemistry/mixtures-and-separation.yaml:147	the correct choice is far the longest, which is a tell a student can read
+QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:147	carries approved: true
+QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:164	carries approved: true
+QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:181	carries approved: true
+QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:198	carries approved: true
+QLONGEST	important	science/chemistry/mixtures-and-separation.yaml:215	the correct choice is far the longest, which is a tell a student can read
+QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:215	carries approved: true
+QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:232	carries approved: true
+QLONGEST	important	science/chemistry/mixtures-and-separation.yaml:249	the correct choice is far the longest, which is a tell a student can read
+QAPPROVED	polish	science/chemistry/mixtures-and-separation.yaml:249	carries approved: true
 QPOSITION	polish	science/chemistry/mixtures-and-separation.yaml:1	the correct choice is authored first in 15 of 15
 QAPPROVED	polish	science/chemistry/mole-concept.yaml:11	carries approved: true
 QAPPROVED	polish	science/chemistry/mole-concept.yaml:25	carries approved: true
@@ -1516,41 +1516,41 @@ QAPPROVED	polish	science/chemistry/periodic-table.yaml:193	carries approved: tru
 QAPPROVED	polish	science/chemistry/periodic-table.yaml:207	carries approved: true
 QPOSITION	polish	science/chemistry/periodic-table.yaml:1	the correct choice is authored first in 15 of 15
 QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:11	carries approved: true
-QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:25	carries approved: true
-QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:39	carries approved: true
-QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:53	carries approved: true
-QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:67	carries approved: true
-QLONGEST	important	science/chemistry/quantum-numbers-electron-configuration.yaml:81	the correct choice is far the longest, which is a tell a student can read
-QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:81	carries approved: true
-QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:95	carries approved: true
-QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:109	carries approved: true
-QLONGEST	important	science/chemistry/quantum-numbers-electron-configuration.yaml:123	the correct choice is far the longest, which is a tell a student can read
-QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:123	carries approved: true
-QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:137	carries approved: true
-QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:151	carries approved: true
-QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:165	carries approved: true
-QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:179	carries approved: true
-QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:193	carries approved: true
+QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:28	carries approved: true
+QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:45	carries approved: true
+QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:62	carries approved: true
+QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:79	carries approved: true
+QLONGEST	important	science/chemistry/quantum-numbers-electron-configuration.yaml:96	the correct choice is far the longest, which is a tell a student can read
+QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:96	carries approved: true
+QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:113	carries approved: true
+QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:130	carries approved: true
+QLONGEST	important	science/chemistry/quantum-numbers-electron-configuration.yaml:147	the correct choice is far the longest, which is a tell a student can read
+QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:147	carries approved: true
+QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:164	carries approved: true
+QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:181	carries approved: true
+QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:198	carries approved: true
+QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:215	carries approved: true
+QAPPROVED	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:232	carries approved: true
 QPOSITION	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:1	the correct choice is authored first in 14 of 14
 QAPPROVED	polish	science/chemistry/solutions.yaml:11	carries approved: true
-QLONGEST	important	science/chemistry/solutions.yaml:25	the correct choice is far the longest, which is a tell a student can read
-QAPPROVED	polish	science/chemistry/solutions.yaml:25	carries approved: true
-QAPPROVED	polish	science/chemistry/solutions.yaml:39	carries approved: true
-QAPPROVED	polish	science/chemistry/solutions.yaml:53	carries approved: true
-QAPPROVED	polish	science/chemistry/solutions.yaml:67	carries approved: true
-QAPPROVED	polish	science/chemistry/solutions.yaml:81	carries approved: true
-QAPPROVED	polish	science/chemistry/solutions.yaml:95	carries approved: true
-QLONGEST	important	science/chemistry/solutions.yaml:109	the correct choice is far the longest, which is a tell a student can read
-QAPPROVED	polish	science/chemistry/solutions.yaml:109	carries approved: true
-QLONGEST	important	science/chemistry/solutions.yaml:123	the correct choice is far the longest, which is a tell a student can read
-QAPPROVED	polish	science/chemistry/solutions.yaml:123	carries approved: true
-QLONGEST	important	science/chemistry/solutions.yaml:137	the correct choice is far the longest, which is a tell a student can read
-QAPPROVED	polish	science/chemistry/solutions.yaml:137	carries approved: true
-QAPPROVED	polish	science/chemistry/solutions.yaml:151	carries approved: true
-QAPPROVED	polish	science/chemistry/solutions.yaml:165	carries approved: true
-QAPPROVED	polish	science/chemistry/solutions.yaml:179	carries approved: true
-QLONGEST	important	science/chemistry/solutions.yaml:193	the correct choice is far the longest, which is a tell a student can read
-QAPPROVED	polish	science/chemistry/solutions.yaml:193	carries approved: true
+QLONGEST	important	science/chemistry/solutions.yaml:28	the correct choice is far the longest, which is a tell a student can read
+QAPPROVED	polish	science/chemistry/solutions.yaml:28	carries approved: true
+QAPPROVED	polish	science/chemistry/solutions.yaml:45	carries approved: true
+QAPPROVED	polish	science/chemistry/solutions.yaml:62	carries approved: true
+QAPPROVED	polish	science/chemistry/solutions.yaml:79	carries approved: true
+QAPPROVED	polish	science/chemistry/solutions.yaml:96	carries approved: true
+QAPPROVED	polish	science/chemistry/solutions.yaml:113	carries approved: true
+QLONGEST	important	science/chemistry/solutions.yaml:130	the correct choice is far the longest, which is a tell a student can read
+QAPPROVED	polish	science/chemistry/solutions.yaml:130	carries approved: true
+QLONGEST	important	science/chemistry/solutions.yaml:147	the correct choice is far the longest, which is a tell a student can read
+QAPPROVED	polish	science/chemistry/solutions.yaml:147	carries approved: true
+QLONGEST	important	science/chemistry/solutions.yaml:164	the correct choice is far the longest, which is a tell a student can read
+QAPPROVED	polish	science/chemistry/solutions.yaml:164	carries approved: true
+QAPPROVED	polish	science/chemistry/solutions.yaml:181	carries approved: true
+QAPPROVED	polish	science/chemistry/solutions.yaml:198	carries approved: true
+QAPPROVED	polish	science/chemistry/solutions.yaml:215	carries approved: true
+QLONGEST	important	science/chemistry/solutions.yaml:232	the correct choice is far the longest, which is a tell a student can read
+QAPPROVED	polish	science/chemistry/solutions.yaml:232	carries approved: true
 QPOSITION	polish	science/chemistry/solutions.yaml:1	the correct choice is authored first in 14 of 14
 QAPPROVED	polish	science/chemistry/stoichiometry.yaml:11	carries approved: true
 QAPPROVED	polish	science/chemistry/stoichiometry.yaml:25	carries approved: true
@@ -2132,16 +2132,11 @@ QSTEM	polish	science/physics/work-energy-power.yaml:207	stem ends without a ques
 QAPPROVED	polish	science/physics/work-energy-power.yaml:207	carries approved: true
 QPOSITION	polish	science/physics/work-energy-power.yaml:1	the correct choice is authored first in 15 of 15
 TIERLEAK	important	language-proficiency/vocabulary/synonyms-and-antonyms.yaml:196	note A names the options, which is note B's job and is what Pro pays for
-TIERLEAK	polish	mathematics/algebra/algebraic-expressions.yaml:91	note A rules on an alternative, which edges into note B
-TIERLEAK	polish	mathematics/algebra/algebraic-expressions.yaml:166	note A rules on an alternative, which edges into note B
-TIERLEAK	polish	mathematics/algebra/algebraic-expressions.yaml:241	note A rules on an alternative, which edges into note B
-TIERB	blocker	mathematics/algebra/algebraic-expressions.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 18 questions
-TIERB	blocker	mathematics/algebra/exponents-and-logarithms.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
-TIERB	blocker	mathematics/algebra/functions-and-relations.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
-TIERLEAK	polish	mathematics/algebra/linear-equations-inequalities.yaml:49	note A rules on an alternative, which edges into note B
-TIERLEAK	polish	mathematics/algebra/linear-equations-inequalities.yaml:152	note A rules on an alternative, which edges into note B
-TIERB	blocker	mathematics/algebra/linear-equations-inequalities.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 18 questions
-TIERB	blocker	mathematics/algebra/polynomials.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 18 questions
+TIERLEAK	polish	mathematics/algebra/algebraic-expressions.yaml:127	note A rules on an alternative, which edges into note B
+TIERLEAK	polish	mathematics/algebra/algebraic-expressions.yaml:232	note A rules on an alternative, which edges into note B
+TIERLEAK	polish	mathematics/algebra/algebraic-expressions.yaml:337	note A rules on an alternative, which edges into note B
+TIERLEAK	polish	mathematics/algebra/linear-equations-inequalities.yaml:67	note A rules on an alternative, which edges into note B
+TIERLEAK	polish	mathematics/algebra/linear-equations-inequalities.yaml:212	note A rules on an alternative, which edges into note B
 TIERB	blocker	mathematics/algebra/quadratic-equations.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 18 questions
 TIERB	blocker	mathematics/algebra/radicals-and-rationalization.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 18 questions
 TIERB	blocker	mathematics/algebra/sets-and-set-notation.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
@@ -2225,12 +2220,9 @@ TIERB	blocker	science/chemistry/chemical-reactions.yaml:1	no choice in this file
 TIERB	blocker	science/chemistry/gas-laws.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
 TIERB	blocker	science/chemistry/history-of-the-atom.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
 TIERB	blocker	science/chemistry/matter.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 16 questions
-TIERB	blocker	science/chemistry/mixtures-and-separation.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
 TIERB	blocker	science/chemistry/mole-concept.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
 TIERB	blocker	science/chemistry/nuclear-chemistry.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
 TIERB	blocker	science/chemistry/periodic-table.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
-TIERB	blocker	science/chemistry/quantum-numbers-electron-configuration.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
-TIERB	blocker	science/chemistry/solutions.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
 TIERB	blocker	science/chemistry/stoichiometry.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
 TIERB	blocker	science/chemistry/thermodynamics-and-kinetics.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
 TIERB	blocker	science/earth-science-astronomy/earths-motions.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
@@ -2258,7 +2250,7 @@ TIERB	blocker	science/physics/two-dimensional-motion.yaml:1	no choice in this fi
 TIERB	blocker	science/physics/units-and-measurements.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 14 questions
 TIERB	blocker	science/physics/waves-and-sound.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
 TIERB	blocker	science/physics/work-energy-power.yaml:1	no choice in this file carries a rationale, so Pro sees exactly what Free sees on every one of its 15 questions
-TIERB	blocker	summary:1	1460 questions across 95 files have no note B at all, out of 2369
+TIERB	blocker	summary:1	1333 questions across 87 files have no note B at all, out of 2369
 QDUPE	polish	general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.yaml:49	q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0003 asks what q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0001 asks, 72% the same and the same answer
 QDUPE	polish	language-proficiency/grammar-and-structure/parts-of-speech.yaml:175	q-grammar-and-structure-parts-of-speech-0009 asks what q-grammar-and-structure-parts-of-speech-0001 asks, 60% the same and the same answer
 QDUPE	polish	language-proficiency/grammar-and-structure/phrases-and-clauses.yaml:154	q-grammar-and-structure-phrases-and-clauses-0008 asks what q-grammar-and-structure-phrases-and-clauses-0004 asks, 70% the same and the same answer
@@ -2269,9 +2261,9 @@ QDUPE	polish	language-proficiency/grammar-and-structure/pronoun-antecedent-agree
 QDUPE	polish	language-proficiency/grammar-and-structure/sentence-structure.yaml:91	q-grammar-and-structure-sentence-structure-0005 asks what q-grammar-and-structure-sentence-structure-0001 asks, 61% the same and the same answer
 QDUPE	polish	language-proficiency/grammar-and-structure/subject-verb-agreement.yaml:70	q-grammar-and-structure-subject-verb-agreement-0004 asks what q-grammar-and-structure-subject-verb-agreement-0003 asks, 63% the same and the same answer
 QDUPE	polish	language-proficiency/grammar-and-structure/subject-verb-agreement.yaml:175	q-grammar-and-structure-subject-verb-agreement-0009 asks what q-grammar-and-structure-subject-verb-agreement-0005 asks, 63% the same and the same answer
-QDUPE	polish	mathematics/algebra/algebraic-expressions.yaml:166	q-algebra-algebraic-expressions-0012 asks what q-algebra-algebraic-expressions-0007 asks, 85% the same and the same answer
-QDUPE	polish	mathematics/algebra/functions-and-relations.yaml:203	q-algebra-functions-and-relations-0015 asks what q-algebra-functions-and-relations-0012 asks, 93% the same and the same answer
-QDUPE	polish	mathematics/algebra/linear-equations-inequalities.yaml:138	q-algebra-linear-equations-inequalities-0010 asks what q-algebra-linear-equations-inequalities-0001 asks, 100% the same and the same answer
+QDUPE	polish	mathematics/algebra/algebraic-expressions.yaml:232	q-algebra-algebraic-expressions-0012 asks what q-algebra-algebraic-expressions-0007 asks, 85% the same and the same answer
+QDUPE	polish	mathematics/algebra/functions-and-relations.yaml:287	q-algebra-functions-and-relations-0015 asks what q-algebra-functions-and-relations-0012 asks, 93% the same and the same answer
+QDUPE	polish	mathematics/algebra/linear-equations-inequalities.yaml:192	q-algebra-linear-equations-inequalities-0010 asks what q-algebra-linear-equations-inequalities-0001 asks, 100% the same and the same answer
 QDUPE	polish	mathematics/algebra/radicals-and-rationalization.yaml:133	q-algebra-radicals-and-rationalization-0010 asks what q-algebra-radicals-and-rationalization-0002 asks, 83% the same and the same answer
 QDUPE	polish	mathematics/algebra/systems-of-equations.yaml:236	q-algebra-systems-of-equations-0017 asks what q-algebra-systems-of-equations-0007 asks, 100% the same and the same answer
 QDUPE	polish	mathematics/precalculus-basic-calculus/limits-and-continuity.yaml:109	q-precalculus-basic-calculus-limits-and-continuity-0008 asks what q-precalculus-basic-calculus-limits-and-continuity-0002 asks, 85% the same and the same answer
@@ -2309,6 +2301,1089 @@ QDUPE	polish	science/chemistry/chemical-bonding.yaml:179	q-chemistry-chemical-bo
 QDUPE	polish	science/chemistry/chemical-reactions.yaml:207	q-chemistry-chemical-reactions-0015 asks what q-chemistry-chemical-reactions-0002 asks, 85% the same and the same answer
 QDUPE	polish	science/chemistry/chemical-reactions.yaml:193	q-chemistry-chemical-reactions-0014 asks what q-chemistry-chemical-reactions-0008 asks, 91% the same and the same answer
 QDUPE	polish	science/chemistry/gas-laws.yaml:193	q-chemistry-gas-laws-0014 asks what q-chemistry-gas-laws-0003 asks, 73% the same and the same answer
-QDUPE	polish	science/chemistry/mixtures-and-separation.yaml:39	q-chemistry-mixtures-and-separation-0003 asks what q-chemistry-mixtures-and-separation-0001 asks, 71% the same and the same answer
+QDUPE	polish	science/chemistry/mixtures-and-separation.yaml:45	q-chemistry-mixtures-and-separation-0003 asks what q-chemistry-mixtures-and-separation-0001 asks, 71% the same and the same answer
 QDUPE	polish	science/chemistry/nuclear-chemistry.yaml:179	q-chemistry-nuclear-chemistry-0013 asks what q-chemistry-nuclear-chemistry-0004 asks, 89% the same and the same answer
-QDUPE	polish	science/chemistry/solutions.yaml:165	q-chemistry-solutions-0012 asks what q-chemistry-solutions-0001 asks, 77% the same and the same answer
+QDUPE	polish	science/chemistry/solutions.yaml:198	q-chemistry-solutions-0012 asks what q-chemistry-solutions-0001 asks, 77% the same and the same answer
+QKEY	polish	general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.yaml:29	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.yaml:89	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.yaml:109	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.yaml:129	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.yaml:149	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/code-of-conduct-ra-6713/duties-and-prohibited-acts.yaml:209	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/code-of-conduct-ra-6713/norms-of-conduct.yaml:9	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/code-of-conduct-ra-6713/penalties-and-enforcement.yaml:9	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/code-of-conduct-ra-6713/penalties-and-enforcement.yaml:29	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/code-of-conduct-ra-6713/penalties-and-enforcement.yaml:49	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/code-of-conduct-ra-6713/penalties-and-enforcement.yaml:69	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/code-of-conduct-ra-6713/penalties-and-enforcement.yaml:109	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/code-of-conduct-ra-6713/penalties-and-enforcement.yaml:129	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/code-of-conduct-ra-6713/penalties-and-enforcement.yaml:149	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/code-of-conduct-ra-6713/penalties-and-enforcement.yaml:189	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/code-of-conduct-ra-6713/penalties-and-enforcement.yaml:209	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.yaml:189	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.yaml:229	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/code-of-conduct-ra-6713/statements-of-assets-and-divestment.yaml:249	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/environment-management/environmental-concepts.yaml:9	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/environment-management/environmental-concepts.yaml:69	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/environment-management/environmental-concepts.yaml:89	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/environment-management/the-environmental-laws.yaml:129	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/peace-and-human-rights/human-rights-fundamentals.yaml:89	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/peace-and-human-rights/human-rights-fundamentals.yaml:129	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.yaml:9	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.yaml:49	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.yaml:89	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/peace-and-human-rights/humanitarian-law-and-human-rights-law.yaml:129	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/philippine-constitution/accountability-and-impeachment.yaml:129	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/philippine-constitution/accountability-and-impeachment.yaml:149	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/philippine-constitution/accountability-and-impeachment.yaml:169	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/philippine-constitution/accountability-and-impeachment.yaml:229	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/philippine-constitution/accountability-and-impeachment.yaml:249	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/philippine-constitution/accountability-and-impeachment.yaml:269	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/philippine-constitution/accountability-and-impeachment.yaml:289	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/philippine-constitution/bill-of-rights.yaml:89	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/philippine-constitution/bill-of-rights.yaml:109	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/philippine-constitution/bill-of-rights.yaml:129	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/philippine-constitution/bill-of-rights.yaml:149	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/philippine-constitution/bill-of-rights.yaml:189	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/philippine-constitution/bill-of-rights.yaml:269	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/philippine-constitution/bill-of-rights.yaml:289	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/philippine-constitution/the-articles-in-outline.yaml:9	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/philippine-constitution/the-civil-service-commission.yaml:49	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/philippine-constitution/the-civil-service-commission.yaml:69	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/philippine-constitution/the-civil-service-commission.yaml:109	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/philippine-constitution/the-civil-service-commission.yaml:129	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/philippine-constitution/the-civil-service-commission.yaml:149	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/philippine-constitution/the-civil-service-commission.yaml:229	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/philippine-constitution/the-civil-service-commission.yaml:269	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	general-information/philippine-constitution/the-civil-service-commission.yaml:289	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/modifiers.yaml:7	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/modifiers.yaml:28	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/modifiers.yaml:49	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/modifiers.yaml:70	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/modifiers.yaml:91	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/modifiers.yaml:112	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/modifiers.yaml:133	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/modifiers.yaml:154	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/modifiers.yaml:175	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/modifiers.yaml:196	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/modifiers.yaml:238	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/modifiers.yaml:259	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/modifiers.yaml:280	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/modifiers.yaml:301	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/parallelism.yaml:7	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/parallelism.yaml:49	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/parallelism.yaml:70	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/parallelism.yaml:91	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/parallelism.yaml:112	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/parallelism.yaml:133	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/parallelism.yaml:154	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/parallelism.yaml:175	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/parallelism.yaml:196	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/parallelism.yaml:217	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/parallelism.yaml:238	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/parallelism.yaml:259	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/parallelism.yaml:280	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/parts-of-speech.yaml:343	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/parts-of-speech.yaml:364	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/parts-of-speech.yaml:385	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/parts-of-speech.yaml:406	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/phrases-and-clauses.yaml:91	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/phrases-and-clauses.yaml:112	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/phrases-and-clauses.yaml:175	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/phrases-and-clauses.yaml:196	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/phrases-and-clauses.yaml:217	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/phrases-and-clauses.yaml:238	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/phrases-and-clauses.yaml:259	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/phrases-and-clauses.yaml:301	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/pronoun-antecedent-agreement.yaml:175	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/pronoun-antecedent-agreement.yaml:196	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/pronoun-antecedent-agreement.yaml:217	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/pronoun-antecedent-agreement.yaml:280	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/pronoun-antecedent-agreement.yaml:301	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/pronoun-antecedent-agreement.yaml:322	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/pronoun-antecedent-agreement.yaml:364	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/punctuation-and-capitalization.yaml:7	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/punctuation-and-capitalization.yaml:49	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/punctuation-and-capitalization.yaml:70	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/punctuation-and-capitalization.yaml:91	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/punctuation-and-capitalization.yaml:112	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/punctuation-and-capitalization.yaml:133	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/punctuation-and-capitalization.yaml:154	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/punctuation-and-capitalization.yaml:175	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/punctuation-and-capitalization.yaml:196	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/punctuation-and-capitalization.yaml:217	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/punctuation-and-capitalization.yaml:238	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/punctuation-and-capitalization.yaml:259	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/punctuation-and-capitalization.yaml:301	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/punctuation-and-capitalization.yaml:322	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/punctuation-and-capitalization.yaml:343	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/punctuation-and-capitalization.yaml:364	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/punctuation-and-capitalization.yaml:385	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/punctuation-and-capitalization.yaml:406	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/redundancy-and-double-negatives.yaml:7	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/redundancy-and-double-negatives.yaml:28	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/redundancy-and-double-negatives.yaml:49	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/redundancy-and-double-negatives.yaml:70	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/redundancy-and-double-negatives.yaml:91	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/redundancy-and-double-negatives.yaml:112	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/redundancy-and-double-negatives.yaml:133	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/redundancy-and-double-negatives.yaml:154	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/redundancy-and-double-negatives.yaml:175	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/redundancy-and-double-negatives.yaml:217	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/redundancy-and-double-negatives.yaml:238	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/redundancy-and-double-negatives.yaml:259	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/redundancy-and-double-negatives.yaml:280	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/redundancy-and-double-negatives.yaml:301	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/sentence-structure.yaml:259	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/sentence-structure.yaml:280	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/sentence-structure.yaml:301	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/sentence-structure.yaml:322	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/subject-verb-agreement.yaml:280	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/subject-verb-agreement.yaml:301	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/subject-verb-agreement.yaml:322	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/subject-verb-agreement.yaml:343	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/subject-verb-agreement.yaml:406	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/tenses-and-voice.yaml:7	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/tenses-and-voice.yaml:28	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/tenses-and-voice.yaml:49	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/tenses-and-voice.yaml:112	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/tenses-and-voice.yaml:133	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/tenses-and-voice.yaml:217	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/tenses-and-voice.yaml:238	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/tenses-and-voice.yaml:259	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/tenses-and-voice.yaml:280	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/grammar-and-structure/tenses-and-voice.yaml:364	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/error-identification.yaml:32	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/error-identification.yaml:57	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/error-identification.yaml:157	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/error-identification.yaml:207	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/error-identification.yaml:257	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/error-identification.yaml:357	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/paragraph-organization.yaml:7	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/paragraph-organization.yaml:33	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/paragraph-organization.yaml:59	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/paragraph-organization.yaml:111	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/paragraph-organization.yaml:138	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/paragraph-organization.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/paragraph-organization.yaml:191	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/paragraph-organization.yaml:218	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/paragraph-organization.yaml:244	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/paragraph-organization.yaml:270	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/paragraph-organization.yaml:296	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/paragraph-organization.yaml:322	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/paragraph-organization.yaml:349	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/paragraph-organization.yaml:375	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/sentence-completion.yaml:49	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/sentence-completion.yaml:112	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/sentence-completion.yaml:175	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/language-application/sentence-completion.yaml:301	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/vocabulary/confusing-words.yaml:91	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/vocabulary/confusing-words.yaml:196	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/vocabulary/confusing-words.yaml:217	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/vocabulary/confusing-words.yaml:238	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/vocabulary/confusing-words.yaml:301	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/vocabulary/context-clues.yaml:29	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/vocabulary/context-clues.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/vocabulary/context-clues.yaml:161	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/vocabulary/context-clues.yaml:183	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/vocabulary/context-clues.yaml:204	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/vocabulary/context-clues.yaml:248	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/vocabulary/idioms-and-figures-of-speech.yaml:301	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/vocabulary/idioms-and-figures-of-speech.yaml:322	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/vocabulary/idioms-and-figures-of-speech.yaml:343	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/vocabulary/idioms-and-figures-of-speech.yaml:364	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/vocabulary/root-words-prefixes-suffixes.yaml:158	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/vocabulary/root-words-prefixes-suffixes.yaml:317	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/vocabulary/root-words-prefixes-suffixes.yaml:338	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/vocabulary/spelling-rules.yaml:154	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/vocabulary/spelling-rules.yaml:175	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/vocabulary/spelling-rules.yaml:196	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/vocabulary/spelling-rules.yaml:217	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	language-proficiency/vocabulary/spelling-rules.yaml:238	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/exponents-and-logarithms.yaml:107	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/exponents-and-logarithms.yaml:147	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/exponents-and-logarithms.yaml:167	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/exponents-and-logarithms.yaml:267	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/functions-and-relations.yaml:7	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/functions-and-relations.yaml:67	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/functions-and-relations.yaml:107	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/functions-and-relations.yaml:167	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/functions-and-relations.yaml:187	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/functions-and-relations.yaml:207	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	blocker	mathematics/algebra/functions-and-relations.yaml:247	the explanation names '$x \\geq -1$' and never the choice marked correct ('$x \\geq -1$ except $x = 2$')
+QKEY	polish	mathematics/algebra/functions-and-relations.yaml:267	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/linear-equations-inequalities.yaml:152	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/linear-equations-inequalities.yaml:318	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/polynomials.yaml:47	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/polynomials.yaml:110	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/polynomials.yaml:150	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/polynomials.yaml:270	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/polynomials.yaml:290	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/polynomials.yaml:310	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/polynomials.yaml:350	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/quadratic-equations.yaml:35	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/quadratic-equations.yaml:77	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/quadratic-equations.yaml:147	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/quadratic-equations.yaml:161	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	blocker	mathematics/algebra/quadratic-equations.yaml:175	the explanation names '$x = 4$' and never the choice marked correct ('$x = 4$ or $x = -4$')
+QKEY	polish	mathematics/algebra/radicals-and-rationalization.yaml:49	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/radicals-and-rationalization.yaml:161	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/radicals-and-rationalization.yaml:231	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/sets-and-set-notation.yaml:49	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/systems-of-equations.yaml:7	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/systems-of-equations.yaml:21	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/systems-of-equations.yaml:35	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/systems-of-equations.yaml:63	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/systems-of-equations.yaml:77	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/systems-of-equations.yaml:119	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/systems-of-equations.yaml:138	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/systems-of-equations.yaml:208	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/systems-of-equations.yaml:222	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	blocker	mathematics/algebra/types-of-functions.yaml:91	the explanation names '$x = -2$' and never the choice marked correct ('$x = 2$')
+QKEY	polish	mathematics/algebra/types-of-functions.yaml:121	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/types-of-functions.yaml:149	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/types-of-functions.yaml:177	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/types-of-functions.yaml:205	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/word-problems.yaml:7	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/word-problems.yaml:99	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/word-problems.yaml:164	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/algebra/word-problems.yaml:197	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/business-math.yaml:7	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/business-math.yaml:45	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/business-math.yaml:63	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/business-math.yaml:79	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/business-math.yaml:135	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/business-math.yaml:153	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/business-math.yaml:171	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/business-math.yaml:209	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/business-math.yaml:249	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/business-math.yaml:271	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/divisibility-rules.yaml:21	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/divisibility-rules.yaml:72	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/divisibility-rules.yaml:130	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/divisibility-rules.yaml:267	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:7	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:30	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:74	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:98	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:176	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/properties-of-real-numbers.yaml:199	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/ratio-and-proportion.yaml:79	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/ratio-and-proportion.yaml:187	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:145	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/real-imaginary-numbers.yaml:219	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/sequences-and-series.yaml:21	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/sequences-and-series.yaml:92	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/arithmetic-number-sense/sequences-and-series.yaml:179	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/data-interpretation/tables-and-charts.yaml:8	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/data-interpretation/tables-and-charts.yaml:31	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/data-interpretation/tables-and-charts.yaml:126	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/data-interpretation/tables-and-charts.yaml:149	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/data-interpretation/tables-and-charts.yaml:189	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/geometry/basic-geometric-concepts.yaml:59	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/geometry/basic-geometric-concepts.yaml:81	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/geometry/basic-geometric-concepts.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/geometry/basic-geometric-concepts.yaml:147	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/geometry/basic-geometric-concepts.yaml:171	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/geometry/basic-geometric-concepts.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/geometry/basic-geometric-concepts.yaml:215	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/geometry/basic-geometric-concepts.yaml:239	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/geometry/basic-geometric-concepts.yaml:263	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/geometry/basic-geometric-concepts.yaml:289	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/geometry/basic-geometric-concepts.yaml:314	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/geometry/basic-geometric-concepts.yaml:338	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/geometry/coordinate-geometry.yaml:284	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/geometry/logic-and-reasoning.yaml:129	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/geometry/logic-and-reasoning.yaml:146	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/geometry/logic-and-reasoning.yaml:235	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/geometry/logic-and-reasoning.yaml:277	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/geometry/logic-and-reasoning.yaml:303	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/geometry/measurement.yaml:313	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/geometry/triangles.yaml:36	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/geometry/triangles.yaml:171	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/precalculus-basic-calculus/basic-derivatives.yaml:169	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/precalculus-basic-calculus/conic-sections.yaml:7	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/precalculus-basic-calculus/conic-sections.yaml:78	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/precalculus-basic-calculus/conic-sections.yaml:93	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/precalculus-basic-calculus/conic-sections.yaml:108	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/precalculus-basic-calculus/conic-sections.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/precalculus-basic-calculus/conic-sections.yaml:138	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/precalculus-basic-calculus/conic-sections.yaml:152	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/precalculus-basic-calculus/limits-and-continuity.yaml:37	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/precalculus-basic-calculus/limits-and-continuity.yaml:140	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/precalculus-basic-calculus/limits-and-continuity.yaml:183	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/statistics-and-probability/measures-of-central-tendency.yaml:68	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/statistics-and-probability/measures-of-central-tendency.yaml:87	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/statistics-and-probability/measures-of-central-tendency.yaml:211	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/statistics-and-probability/measures-of-central-tendency.yaml:353	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/statistics-and-probability/measures-of-central-tendency.yaml:372	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/statistics-and-probability/measures-of-variability.yaml:85	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/statistics-and-probability/measures-of-variability.yaml:104	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/statistics-and-probability/measures-of-variability.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/statistics-and-probability/measures-of-variability.yaml:237	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/statistics-and-probability/measures-of-variability.yaml:274	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/statistics-and-probability/measures-of-variability.yaml:367	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/angles-and-radian-measure.yaml:21	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/angles-and-radian-measure.yaml:49	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/angles-and-radian-measure.yaml:78	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/angles-and-radian-measure.yaml:106	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/angles-and-radian-measure.yaml:121	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/angles-and-radian-measure.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/angles-and-radian-measure.yaml:178	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/angles-and-radian-measure.yaml:211	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/angles-and-radian-measure.yaml:224	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/basic-trigonometric-ratios.yaml:198	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/basic-trigonometric-ratios.yaml:218	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/inverse-trigonometric-functions.yaml:7	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/inverse-trigonometric-functions.yaml:20	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/inverse-trigonometric-functions.yaml:33	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/inverse-trigonometric-functions.yaml:59	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/inverse-trigonometric-functions.yaml:72	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/inverse-trigonometric-functions.yaml:85	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/inverse-trigonometric-functions.yaml:124	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/inverse-trigonometric-functions.yaml:150	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/inverse-trigonometric-functions.yaml:163	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/inverse-trigonometric-functions.yaml:189	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	blocker	mathematics/trigonometry/inverse-trigonometric-functions.yaml:202	the explanation names '$\\dfrac{2}{5}$' and never the choice marked correct ('$\\dfrac{2}{\\sqrt{21}}$ or $\\')
+QKEY	polish	mathematics/trigonometry/laws-of-sines-and-cosines.yaml:26	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/laws-of-sines-and-cosines.yaml:97	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/laws-of-sines-and-cosines.yaml:163	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/laws-of-sines-and-cosines.yaml:222	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/laws-of-sines-and-cosines.yaml:253	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/solving-right-triangles.yaml:7	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/solving-right-triangles.yaml:24	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/solving-right-triangles.yaml:56	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/solving-right-triangles.yaml:72	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/solving-right-triangles.yaml:88	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/solving-right-triangles.yaml:146	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/solving-right-triangles.yaml:180	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/solving-right-triangles.yaml:219	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/solving-right-triangles.yaml:262	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/trigonometric-identities.yaml:86	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/trigonometric-identities.yaml:154	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/trigonometric-identities.yaml:170	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/trigonometric-identities.yaml:221	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/trigonometric-identities.yaml:234	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/trigonometric-identities.yaml:261	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/unit-circle.yaml:116	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/unit-circle.yaml:168	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	mathematics/trigonometry/unit-circle.yaml:211	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/authors-purpose-tone-pov.yaml:40	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/authors-purpose-tone-pov.yaml:82	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/authors-purpose-tone-pov.yaml:103	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/authors-purpose-tone-pov.yaml:124	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/authors-purpose-tone-pov.yaml:145	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/authors-purpose-tone-pov.yaml:187	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/authors-purpose-tone-pov.yaml:208	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/authors-purpose-tone-pov.yaml:229	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/authors-purpose-tone-pov.yaml:250	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/authors-purpose-tone-pov.yaml:271	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/authors-purpose-tone-pov.yaml:292	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/authors-purpose-tone-pov.yaml:313	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/authors-purpose-tone-pov.yaml:334	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/choosing-a-title.yaml:31	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/choosing-a-title.yaml:52	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/choosing-a-title.yaml:73	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/choosing-a-title.yaml:94	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/choosing-a-title.yaml:115	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/choosing-a-title.yaml:136	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/choosing-a-title.yaml:157	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/choosing-a-title.yaml:178	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/choosing-a-title.yaml:199	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/choosing-a-title.yaml:220	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/context-clues-in-passages.yaml:31	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/context-clues-in-passages.yaml:73	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/context-clues-in-passages.yaml:94	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/context-clues-in-passages.yaml:115	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/context-clues-in-passages.yaml:136	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/context-clues-in-passages.yaml:157	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/context-clues-in-passages.yaml:178	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/context-clues-in-passages.yaml:199	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/context-clues-in-passages.yaml:220	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/fact-vs-opinion.yaml:31	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/fact-vs-opinion.yaml:52	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/fact-vs-opinion.yaml:73	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/fact-vs-opinion.yaml:94	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/fact-vs-opinion.yaml:136	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/fact-vs-opinion.yaml:157	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/fact-vs-opinion.yaml:178	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/fact-vs-opinion.yaml:199	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/fact-vs-opinion.yaml:220	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/inferencing-and-conclusions.yaml:40	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/inferencing-and-conclusions.yaml:61	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/inferencing-and-conclusions.yaml:82	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/inferencing-and-conclusions.yaml:103	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/inferencing-and-conclusions.yaml:124	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/inferencing-and-conclusions.yaml:145	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/inferencing-and-conclusions.yaml:166	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/inferencing-and-conclusions.yaml:187	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/inferencing-and-conclusions.yaml:208	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/inferencing-and-conclusions.yaml:229	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/inferencing-and-conclusions.yaml:250	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/inferencing-and-conclusions.yaml:271	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/inferencing-and-conclusions.yaml:292	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/inferencing-and-conclusions.yaml:313	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/inferencing-and-conclusions.yaml:334	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/main-idea.yaml:40	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/main-idea.yaml:82	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/main-idea.yaml:103	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/main-idea.yaml:124	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/main-idea.yaml:145	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/main-idea.yaml:166	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/main-idea.yaml:187	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/main-idea.yaml:208	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/main-idea.yaml:229	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/main-idea.yaml:250	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/main-idea.yaml:271	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/main-idea.yaml:292	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/main-idea.yaml:313	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/main-idea.yaml:334	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/noting-specific-details.yaml:229	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/noting-specific-details.yaml:271	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/noting-specific-details.yaml:313	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/sequencing-of-events.yaml:31	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/sequencing-of-events.yaml:52	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/sequencing-of-events.yaml:73	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/sequencing-of-events.yaml:94	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/sequencing-of-events.yaml:115	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/sequencing-of-events.yaml:136	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/sequencing-of-events.yaml:157	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/sequencing-of-events.yaml:178	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/sequencing-of-events.yaml:199	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/comprehension-skills/sequencing-of-events.yaml:220	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/essays-editorials-articles.yaml:40	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/essays-editorials-articles.yaml:61	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/essays-editorials-articles.yaml:82	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/essays-editorials-articles.yaml:103	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/essays-editorials-articles.yaml:124	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/essays-editorials-articles.yaml:145	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/essays-editorials-articles.yaml:166	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/essays-editorials-articles.yaml:187	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/essays-editorials-articles.yaml:208	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/essays-editorials-articles.yaml:229	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/essays-editorials-articles.yaml:250	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/essays-editorials-articles.yaml:271	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/essays-editorials-articles.yaml:292	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/essays-editorials-articles.yaml:313	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/essays-editorials-articles.yaml:334	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/poetry.yaml:112	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/poetry.yaml:133	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/poetry.yaml:154	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/poetry.yaml:175	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/poetry.yaml:196	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/poetry.yaml:238	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/poetry.yaml:259	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/poetry.yaml:301	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/poetry.yaml:322	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/poetry.yaml:343	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/poetry.yaml:364	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/short-stories-and-novels.yaml:31	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/short-stories-and-novels.yaml:52	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/short-stories-and-novels.yaml:73	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/short-stories-and-novels.yaml:94	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/short-stories-and-novels.yaml:115	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/short-stories-and-novels.yaml:136	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/short-stories-and-novels.yaml:157	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/short-stories-and-novels.yaml:178	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/short-stories-and-novels.yaml:199	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/short-stories-and-novels.yaml:220	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/speeches.yaml:31	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/speeches.yaml:52	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/speeches.yaml:73	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/speeches.yaml:94	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/speeches.yaml:115	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/speeches.yaml:136	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/speeches.yaml:157	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/speeches.yaml:178	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/speeches.yaml:199	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/speeches.yaml:220	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/visual-media.yaml:31	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/visual-media.yaml:52	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/visual-media.yaml:73	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/visual-media.yaml:94	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/visual-media.yaml:115	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/visual-media.yaml:136	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/visual-media.yaml:157	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/visual-media.yaml:178	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/visual-media.yaml:199	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reading-comprehension/text-types/visual-media.yaml:220	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/clerical-ability/alphabetic-filing-rules.yaml:8	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/clerical-ability/alphabetic-filing-rules.yaml:48	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/clerical-ability/alphabetic-filing-rules.yaml:68	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/clerical-ability/alphabetic-filing-rules.yaml:88	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/clerical-ability/alphabetic-filing-rules.yaml:128	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/clerical-ability/alphabetic-filing-rules.yaml:148	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/clerical-ability/alphabetic-filing-rules.yaml:168	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/clerical-ability/alphabetic-filing-rules.yaml:208	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/clerical-ability/alphabetic-filing-rules.yaml:228	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/clerical-ability/numeric-and-chronological-filing.yaml:8	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/clerical-ability/numeric-and-chronological-filing.yaml:28	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/clerical-ability/numeric-and-chronological-filing.yaml:48	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/clerical-ability/numeric-and-chronological-filing.yaml:108	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/clerical-ability/numeric-and-chronological-filing.yaml:168	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/clerical-ability/numeric-and-chronological-filing.yaml:188	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/clerical-ability/numeric-and-chronological-filing.yaml:228	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/logical-verbal-reasoning/number-and-letter-sequences.yaml:217	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/logical-verbal-reasoning/number-and-letter-sequences.yaml:238	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/logical-verbal-reasoning/number-and-letter-sequences.yaml:259	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.yaml:7	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.yaml:29	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.yaml:51	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.yaml:117	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.yaml:139	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.yaml:161	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.yaml:182	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.yaml:203	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.yaml:224	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.yaml:290	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.yaml:312	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/logical-verbal-reasoning/syllogisms-and-deductive-logic.yaml:334	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.yaml:175	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/logical-verbal-reasoning/truth-tables-propositional-logic.yaml:301	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/logical-verbal-reasoning/word-analogies.yaml:238	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/fluid-pressure.yaml:7	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/fluid-pressure.yaml:29	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/fluid-pressure.yaml:51	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/fluid-pressure.yaml:73	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/fluid-pressure.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/fluid-pressure.yaml:117	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/fluid-pressure.yaml:161	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/fluid-pressure.yaml:183	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/fluid-pressure.yaml:205	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/fluid-pressure.yaml:227	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/fluid-pressure.yaml:249	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/fluid-pressure.yaml:271	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/fluid-pressure.yaml:293	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/gear-rotations.yaml:161	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/gear-rotations.yaml:183	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/gear-rotations.yaml:205	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/gear-rotations.yaml:293	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/pulleys-and-levers.yaml:7	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/pulleys-and-levers.yaml:29	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/pulleys-and-levers.yaml:51	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/pulleys-and-levers.yaml:117	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/pulleys-and-levers.yaml:139	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/pulleys-and-levers.yaml:161	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/pulleys-and-levers.yaml:183	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/pulleys-and-levers.yaml:205	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/pulleys-and-levers.yaml:271	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/pulleys-and-levers.yaml:315	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:139	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:161	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:183	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:205	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:227	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:249	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:271	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:293	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/springs-and-weights.yaml:315	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:73	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:117	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:139	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:161	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:183	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:205	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:227	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:249	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:271	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:293	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/mechanical-technical-reasoning/structural-stability.yaml:315	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/figure-grouping.yaml:161	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/figure-grouping.yaml:205	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/figure-matrices.yaml:7	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/figure-matrices.yaml:73	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/figure-matrices.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/figure-matrices.yaml:117	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/figure-matrices.yaml:139	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/figure-matrices.yaml:183	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/figure-matrices.yaml:205	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/figure-matrices.yaml:249	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/figure-matrices.yaml:271	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/figure-series.yaml:7	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/figure-series.yaml:29	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/figure-series.yaml:51	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/figure-series.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/figure-series.yaml:117	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/figure-series.yaml:161	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/figure-series.yaml:183	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/figure-series.yaml:205	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/figure-series.yaml:227	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/figure-series.yaml:249	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/figure-series.yaml:271	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/figure-series.yaml:293	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/mental-rotation-3d-visualization.yaml:7	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/mental-rotation-3d-visualization.yaml:29	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/mental-rotation-3d-visualization.yaml:117	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/mental-rotation-3d-visualization.yaml:139	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/mental-rotation-3d-visualization.yaml:183	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/mental-rotation-3d-visualization.yaml:227	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/mental-rotation-3d-visualization.yaml:249	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/mental-rotation-3d-visualization.yaml:271	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/mental-rotation-3d-visualization.yaml:293	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/paper-folding-and-cutting.yaml:51	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/paper-folding-and-cutting.yaml:73	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/paper-folding-and-cutting.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/paper-folding-and-cutting.yaml:117	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/paper-folding-and-cutting.yaml:139	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/paper-folding-and-cutting.yaml:161	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/paper-folding-and-cutting.yaml:183	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/paper-folding-and-cutting.yaml:205	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/paper-folding-and-cutting.yaml:227	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/paper-folding-and-cutting.yaml:271	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/spatial-abstract-reasoning/paper-folding-and-cutting.yaml:293	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/verbal-logic/assumptions-and-conclusions.yaml:8	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/verbal-logic/assumptions-and-conclusions.yaml:29	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/verbal-logic/assumptions-and-conclusions.yaml:50	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/verbal-logic/assumptions-and-conclusions.yaml:71	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/verbal-logic/assumptions-and-conclusions.yaml:92	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/verbal-logic/assumptions-and-conclusions.yaml:113	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/verbal-logic/assumptions-and-conclusions.yaml:155	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/verbal-logic/assumptions-and-conclusions.yaml:176	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/verbal-logic/assumptions-and-conclusions.yaml:197	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/verbal-logic/assumptions-and-conclusions.yaml:218	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	reasoning/verbal-logic/assumptions-and-conclusions.yaml:239	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/botany.yaml:67	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/botany.yaml:82	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/botany.yaml:127	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/botany.yaml:172	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/botany.yaml:217	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/botany.yaml:232	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cell-biology.yaml:27	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	blocker	science/biology/cell-biology.yaml:43	the explanation names 'Golgi apparatus' and never the choice marked correct ('Ribosome')
+QKEY	polish	science/biology/cell-biology.yaml:78	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cell-biology.yaml:164	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cell-biology.yaml:180	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cell-biology.yaml:196	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cell-biology.yaml:214	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cell-biology.yaml:231	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cell-biology.yaml:249	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cell-biology.yaml:269	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cellular-metabolism.yaml:11	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cellular-metabolism.yaml:25	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cellular-metabolism.yaml:67	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cellular-metabolism.yaml:81	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cellular-metabolism.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cellular-metabolism.yaml:109	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cellular-metabolism.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cellular-metabolism.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cellular-metabolism.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cellular-metabolism.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cellular-metabolism.yaml:179	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cellular-metabolism.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cellular-reproduction.yaml:39	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cellular-reproduction.yaml:53	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cellular-reproduction.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cellular-reproduction.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cellular-reproduction.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cellular-reproduction.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cellular-reproduction.yaml:179	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/cellular-reproduction.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/characteristics-of-life.yaml:53	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/characteristics-of-life.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/characteristics-of-life.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/characteristics-of-life.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/characteristics-of-life.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/characteristics-of-life.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/characteristics-of-life.yaml:179	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/characteristics-of-life.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/ecology.yaml:37	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/ecology.yaml:82	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/ecology.yaml:127	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/ecology.yaml:172	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/ecology.yaml:187	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/ecology.yaml:262	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/evolution.yaml:22	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/evolution.yaml:37	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/evolution.yaml:52	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/evolution.yaml:82	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/evolution.yaml:112	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/evolution.yaml:127	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/evolution.yaml:142	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/evolution.yaml:157	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/evolution.yaml:172	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/evolution.yaml:187	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/evolution.yaml:202	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/genetics-and-heredity.yaml:39	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/genetics-and-heredity.yaml:53	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/genetics-and-heredity.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/genetics-and-heredity.yaml:141	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/genetics-and-heredity.yaml:155	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/genetics-and-heredity.yaml:169	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/genetics-and-heredity.yaml:183	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/genetics-and-heredity.yaml:197	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/genetics-and-heredity.yaml:211	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/human-anatomy-physiology.yaml:11	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/human-anatomy-physiology.yaml:39	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/human-anatomy-physiology.yaml:53	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/human-anatomy-physiology.yaml:81	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/human-anatomy-physiology.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/human-anatomy-physiology.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/human-anatomy-physiology.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/human-anatomy-physiology.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/human-anatomy-physiology.yaml:179	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/human-anatomy-physiology.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/taxonomy-and-classification.yaml:22	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/taxonomy-and-classification.yaml:37	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/taxonomy-and-classification.yaml:52	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/taxonomy-and-classification.yaml:85	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/taxonomy-and-classification.yaml:100	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/taxonomy-and-classification.yaml:115	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/taxonomy-and-classification.yaml:130	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/taxonomy-and-classification.yaml:145	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/taxonomy-and-classification.yaml:160	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/taxonomy-and-classification.yaml:190	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/biology/taxonomy-and-classification.yaml:205	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/acids-bases-ph.yaml:53	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/acids-bases-ph.yaml:67	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/acids-bases-ph.yaml:81	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/acids-bases-ph.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/acids-bases-ph.yaml:109	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/acids-bases-ph.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/acids-bases-ph.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/acids-bases-ph.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/acids-bases-ph.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/acids-bases-ph.yaml:179	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/acids-bases-ph.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/acids-bases-ph.yaml:207	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/atomic-structure.yaml:39	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/atomic-structure.yaml:53	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/atomic-structure.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/atomic-structure.yaml:109	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/atomic-structure.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/atomic-structure.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/atomic-structure.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/atomic-structure.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/atomic-structure.yaml:207	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/basic-organic-chemistry.yaml:11	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/basic-organic-chemistry.yaml:25	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/basic-organic-chemistry.yaml:39	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/basic-organic-chemistry.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/basic-organic-chemistry.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/basic-organic-chemistry.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/basic-organic-chemistry.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/basic-organic-chemistry.yaml:179	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/basic-organic-chemistry.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/chemical-bonding.yaml:53	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/chemical-bonding.yaml:67	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/chemical-bonding.yaml:81	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/chemical-bonding.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/chemical-bonding.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/chemical-bonding.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/chemical-bonding.yaml:207	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/chemical-nomenclature.yaml:11	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	blocker	science/chemistry/chemical-nomenclature.yaml:25	the explanation names 'Carbon dioxide' and never the choice marked correct ('Carbon monoxide')
+QKEY	polish	science/chemistry/chemical-nomenclature.yaml:53	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/chemical-nomenclature.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/chemical-nomenclature.yaml:109	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/chemical-nomenclature.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/chemical-nomenclature.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/chemical-nomenclature.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/chemical-nomenclature.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/chemical-nomenclature.yaml:179	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/chemical-nomenclature.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/chemical-nomenclature.yaml:207	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/chemical-reactions.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/chemical-reactions.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/chemical-reactions.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/chemical-reactions.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/chemical-reactions.yaml:179	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/gas-laws.yaml:81	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/gas-laws.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/gas-laws.yaml:109	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/gas-laws.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/gas-laws.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/gas-laws.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/gas-laws.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/gas-laws.yaml:179	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/history-of-the-atom.yaml:11	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/history-of-the-atom.yaml:25	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/history-of-the-atom.yaml:39	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/history-of-the-atom.yaml:53	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/history-of-the-atom.yaml:67	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/history-of-the-atom.yaml:81	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/history-of-the-atom.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/history-of-the-atom.yaml:109	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/history-of-the-atom.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/history-of-the-atom.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/history-of-the-atom.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/history-of-the-atom.yaml:179	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/history-of-the-atom.yaml:198	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/matter.yaml:53	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/matter.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/matter.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/matter.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/matter.yaml:179	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/matter.yaml:207	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/matter.yaml:221	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/mixtures-and-separation.yaml:147	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/mixtures-and-separation.yaml:164	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/mixtures-and-separation.yaml:181	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/mixtures-and-separation.yaml:198	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/mixtures-and-separation.yaml:215	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/mixtures-and-separation.yaml:249	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/mole-concept.yaml:53	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/mole-concept.yaml:67	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/mole-concept.yaml:81	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/mole-concept.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/mole-concept.yaml:109	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/mole-concept.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/mole-concept.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/mole-concept.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/nuclear-chemistry.yaml:53	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/nuclear-chemistry.yaml:67	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/nuclear-chemistry.yaml:109	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/nuclear-chemistry.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/nuclear-chemistry.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/nuclear-chemistry.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/nuclear-chemistry.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/nuclear-chemistry.yaml:179	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/nuclear-chemistry.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/periodic-table.yaml:11	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/periodic-table.yaml:25	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/periodic-table.yaml:39	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/periodic-table.yaml:53	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/periodic-table.yaml:67	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/periodic-table.yaml:81	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/periodic-table.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/periodic-table.yaml:109	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/periodic-table.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/periodic-table.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/periodic-table.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/periodic-table.yaml:179	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/periodic-table.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:62	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:79	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:96	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:113	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:130	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/quantum-numbers-electron-configuration.yaml:147	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/solutions.yaml:79	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/solutions.yaml:96	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/solutions.yaml:113	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/solutions.yaml:130	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/solutions.yaml:147	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/solutions.yaml:164	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/solutions.yaml:232	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/stoichiometry.yaml:11	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/stoichiometry.yaml:39	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/stoichiometry.yaml:53	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/stoichiometry.yaml:67	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/stoichiometry.yaml:81	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/stoichiometry.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/stoichiometry.yaml:109	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/stoichiometry.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/stoichiometry.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/stoichiometry.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/stoichiometry.yaml:179	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/thermodynamics-and-kinetics.yaml:53	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/thermodynamics-and-kinetics.yaml:67	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/thermodynamics-and-kinetics.yaml:81	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/thermodynamics-and-kinetics.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/thermodynamics-and-kinetics.yaml:109	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/thermodynamics-and-kinetics.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/thermodynamics-and-kinetics.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/thermodynamics-and-kinetics.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/chemistry/thermodynamics-and-kinetics.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/earths-motions.yaml:112	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/earths-motions.yaml:127	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/earths-motions.yaml:142	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/earths-motions.yaml:157	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/earths-motions.yaml:187	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/earths-motions.yaml:202	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/earths-subsystems.yaml:142	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/earths-subsystems.yaml:157	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/earths-subsystems.yaml:172	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/earths-subsystems.yaml:202	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/earths-subsystems.yaml:217	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/eclipses-and-moon-phases.yaml:52	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/eclipses-and-moon-phases.yaml:142	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/eclipses-and-moon-phases.yaml:157	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/eclipses-and-moon-phases.yaml:172	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/eclipses-and-moon-phases.yaml:187	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/eclipses-and-moon-phases.yaml:217	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/eclipses-and-moon-phases.yaml:232	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/fossils-and-geologic-time.yaml:22	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/fossils-and-geologic-time.yaml:67	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/fossils-and-geologic-time.yaml:82	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/fossils-and-geologic-time.yaml:97	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/fossils-and-geologic-time.yaml:112	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/fossils-and-geologic-time.yaml:187	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/fossils-and-geologic-time.yaml:202	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/fossils-and-geologic-time.yaml:232	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/fossils-and-geologic-time.yaml:247	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/fossils-and-geologic-time.yaml:262	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/fossils-and-geologic-time.yaml:277	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/fossils-and-geologic-time.yaml:307	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/heavenly-bodies.yaml:67	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/heavenly-bodies.yaml:97	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/heavenly-bodies.yaml:112	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/heavenly-bodies.yaml:127	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/heavenly-bodies.yaml:187	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/heavenly-bodies.yaml:202	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/heavenly-bodies.yaml:232	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/layers-of-the-earth.yaml:37	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/layers-of-the-earth.yaml:67	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/layers-of-the-earth.yaml:112	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/layers-of-the-earth.yaml:127	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/layers-of-the-earth.yaml:142	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/layers-of-the-earth.yaml:172	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/layers-of-the-earth.yaml:187	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/layers-of-the-earth.yaml:202	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/layers-of-the-earth.yaml:217	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/layers-of-the-earth.yaml:232	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/minerals-and-rocks.yaml:37	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/minerals-and-rocks.yaml:82	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/minerals-and-rocks.yaml:142	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/minerals-and-rocks.yaml:187	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/minerals-and-rocks.yaml:232	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/minerals-and-rocks.yaml:247	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/minerals-and-rocks.yaml:262	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/origin-of-the-universe.yaml:52	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/origin-of-the-universe.yaml:82	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/origin-of-the-universe.yaml:97	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/origin-of-the-universe.yaml:112	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/origin-of-the-universe.yaml:142	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/origin-of-the-universe.yaml:157	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/origin-of-the-universe.yaml:172	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/origin-of-the-universe.yaml:187	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/origin-of-the-universe.yaml:202	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/origin-of-the-universe.yaml:217	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/plate-tectonics.yaml:52	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/plate-tectonics.yaml:67	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/plate-tectonics.yaml:142	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/plate-tectonics.yaml:202	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/plate-tectonics.yaml:217	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/plate-tectonics.yaml:232	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/plate-tectonics.yaml:247	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/plate-tectonics.yaml:262	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/plate-tectonics.yaml:277	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/plate-tectonics.yaml:292	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/water-cycle-oceanography.yaml:67	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/water-cycle-oceanography.yaml:82	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/water-cycle-oceanography.yaml:127	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/water-cycle-oceanography.yaml:172	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/water-cycle-oceanography.yaml:187	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/water-cycle-oceanography.yaml:232	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/water-cycle-oceanography.yaml:247	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/weather-and-climate.yaml:37	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/weather-and-climate.yaml:52	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/weather-and-climate.yaml:187	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/weather-and-climate.yaml:202	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/weather-and-climate.yaml:247	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/weather-and-climate.yaml:262	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/weather-and-climate.yaml:292	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/weather-and-climate.yaml:307	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/earth-science-astronomy/weather-and-climate.yaml:322	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/dynamics.yaml:11	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/dynamics.yaml:53	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/dynamics.yaml:67	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/dynamics.yaml:81	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/dynamics.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/dynamics.yaml:109	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/dynamics.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/dynamics.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/dynamics.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/dynamics.yaml:179	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/dynamics.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/dynamics.yaml:207	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/electricity-and-magnetism.yaml:11	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/electricity-and-magnetism.yaml:25	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/electricity-and-magnetism.yaml:81	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/electricity-and-magnetism.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/electricity-and-magnetism.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/electricity-and-magnetism.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/electricity-and-magnetism.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/electricity-and-magnetism.yaml:179	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/electricity-and-magnetism.yaml:207	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/fluid-mechanics.yaml:11	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/fluid-mechanics.yaml:25	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/fluid-mechanics.yaml:39	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/fluid-mechanics.yaml:67	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/fluid-mechanics.yaml:81	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/fluid-mechanics.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/fluid-mechanics.yaml:109	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/fluid-mechanics.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/fluid-mechanics.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/fluid-mechanics.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/fluid-mechanics.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/fluid-mechanics.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/gravity-and-keplers-laws.yaml:11	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/gravity-and-keplers-laws.yaml:25	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/gravity-and-keplers-laws.yaml:39	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/gravity-and-keplers-laws.yaml:53	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/gravity-and-keplers-laws.yaml:67	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/gravity-and-keplers-laws.yaml:81	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/gravity-and-keplers-laws.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/gravity-and-keplers-laws.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/gravity-and-keplers-laws.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/gravity-and-keplers-laws.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/gravity-and-keplers-laws.yaml:179	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/gravity-and-keplers-laws.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/kinematics.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/kinematics.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/kinematics.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/kinematics.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/kinematics.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/light-and-optics.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/light-and-optics.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/light-and-optics.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/light-and-optics.yaml:179	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/light-and-optics.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/light-and-optics.yaml:207	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/momentum-and-impulse.yaml:11	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/momentum-and-impulse.yaml:81	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/momentum-and-impulse.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/momentum-and-impulse.yaml:109	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/momentum-and-impulse.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/momentum-and-impulse.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/momentum-and-impulse.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/momentum-and-impulse.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/scalars-and-vectors.yaml:11	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/scalars-and-vectors.yaml:25	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/scalars-and-vectors.yaml:39	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/scalars-and-vectors.yaml:53	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/scalars-and-vectors.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/scalars-and-vectors.yaml:109	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/scalars-and-vectors.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/scalars-and-vectors.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/scalars-and-vectors.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/scalars-and-vectors.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/thermodynamics.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/thermodynamics.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/thermodynamics.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/thermodynamics.yaml:179	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/thermodynamics.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/thermodynamics.yaml:207	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/two-dimensional-motion.yaml:39	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/two-dimensional-motion.yaml:53	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/two-dimensional-motion.yaml:67	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/two-dimensional-motion.yaml:81	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/two-dimensional-motion.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/two-dimensional-motion.yaml:109	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/two-dimensional-motion.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/two-dimensional-motion.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/two-dimensional-motion.yaml:179	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/units-and-measurements.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/units-and-measurements.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/units-and-measurements.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/units-and-measurements.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/units-and-measurements.yaml:179	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/units-and-measurements.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/waves-and-sound.yaml:53	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/waves-and-sound.yaml:67	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/waves-and-sound.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/waves-and-sound.yaml:137	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/waves-and-sound.yaml:151	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/waves-and-sound.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/waves-and-sound.yaml:179	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/waves-and-sound.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/waves-and-sound.yaml:207	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/work-energy-power.yaml:53	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/work-energy-power.yaml:81	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/work-energy-power.yaml:95	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/work-energy-power.yaml:109	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/work-energy-power.yaml:123	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/work-energy-power.yaml:165	the explanation never repeats the correct answer, so nothing here can confirm the key
+QKEY	polish	science/physics/work-energy-power.yaml:193	the explanation never repeats the correct answer, so nothing here can confirm the key

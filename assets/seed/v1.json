@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "contentVersion": 2026081219,
-  "generatedAt": "2026-08-12T19:18:30.413781Z",
+  "generatedAt": "2026-08-12T19:27:30.250569Z",
   "exams": [
     {
       "id": "exam_cse_pro",
@@ -55705,7 +55705,7 @@
         {
           "id": "rc-cs-nsd-0002_a",
           "label": "A",
-          "text": "33 billion pesos",
+          "text": "Thirty-three billion pesos",
           "isCorrect": true
         },
         {
@@ -56200,7 +56200,7 @@
         {
           "id": "rc-cs-nsd-0013_a",
           "label": "A",
-          "text": "550 pesos",
+          "text": "Five hundred fifty pesos",
           "isCorrect": true
         },
         {
