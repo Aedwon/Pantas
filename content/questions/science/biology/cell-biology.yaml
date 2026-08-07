@@ -19,16 +19,19 @@ questions:
         correct: true
       - text: Mitochondrion
         rationale: |
-          You picked the cell's energy producer. The mitochondrion breaks down glucose
-          to make ATP. It does not store DNA or direct the cell's activities.
+          You picked the organelle that makes energy, not the one that runs the
+          cell. The mitochondrion breaks down glucose into ATP. It does not
+          store DNA or give the cell its instructions.
       - text: Ribosome
         rationale: |
-          You picked the protein builder. Ribosomes read copied instructions and link
-          amino acids together. They do not hold the cell's DNA.
+          You picked the organelle that builds proteins. The ribosome reads
+          instructions from the DNA, but it does not store DNA or direct the
+          cell's activities.
       - text: Golgi apparatus
         rationale: |
-          You picked the packaging organelle. The Golgi apparatus sorts and ships
-          proteins. It does not store DNA or control the cell.
+          You picked the organelle that packages and ships proteins. The Golgi
+          apparatus handles proteins after they are made. It does not store DNA
+          or control the cell.
     explanation: |
       The nucleus stores the DNA and controls what the cell does. The other
       organelles listed do not hold the cell's DNA.
@@ -44,16 +47,17 @@ questions:
         correct: true
       - text: Ribosome
         rationale: |
-          You picked the protein builder. Ribosomes link amino acids together to make
-          proteins. They do not break down glucose to make ATP.
+          You picked the organelle that builds proteins. The ribosome links
+          amino acids together to make proteins, not ATP.
       - text: Nucleus
         rationale: |
-          You picked the control center. The nucleus stores DNA and directs the cell.
-          It does not produce energy from glucose.
+          You picked the organelle that stores DNA and controls the cell. The
+          nucleus directs what the cell does, but it does not break down
+          glucose for energy.
       - text: Vacuole
         rationale: |
-          You picked the storage sac. Vacuoles store water, waste, or nutrients.
-          They do not produce ATP.
+          You picked the organelle that stores water, nutrients, or waste. The
+          vacuole holds things inside the cell but does not produce ATP.
     explanation: |
       Mitochondria break down glucose and release energy as ATP, the fuel
       the cell uses to do work. Ribosomes build proteins, not energy.
@@ -69,16 +73,18 @@ questions:
         correct: true
       - text: Golgi apparatus
         rationale: |
-          You picked the packaging organelle. The Golgi apparatus receives proteins
-          after they are built and ships them out. It does not build proteins.
+          You picked the organelle that packages proteins after they are built.
+          The Golgi apparatus modifies and ships proteins. It does not build
+          them by reading DNA.
       - text: Mitochondrion
         rationale: |
-          You picked the energy producer. The mitochondrion makes ATP from glucose.
-          It does not read DNA instructions to build proteins.
+          You picked the organelle that makes energy. The mitochondrion breaks
+          down glucose into ATP. It does not build proteins by reading DNA
+          instructions.
       - text: Cell membrane
         rationale: |
-          You picked the outer boundary. The cell membrane controls what enters and
-          leaves the cell. It does not build proteins.
+          You picked the barrier that controls what enters and leaves the cell.
+          The cell membrane acts as a gate but does not build proteins.
     explanation: |
       Ribosomes read copied DNA instructions and link amino acids together
       to build proteins. The Golgi apparatus packages proteins afterward:
@@ -96,17 +102,18 @@ questions:
         correct: true
       - text: Rough endoplasmic reticulum
         rationale: |
-          You picked the structure that helps build proteins. The rough ER is studded
-          with ribosomes and processes proteins early. It does not package and ship
-          them the way the Golgi does.
+          You picked the organelle that helps build and process proteins. The
+          rough ER works earlier in the pipeline. It does not package proteins
+          and send them to their destination.
       - text: Nucleus
         rationale: |
-          You picked the control center. The nucleus stores DNA and directs cell
-          activity. It does not modify and ship proteins.
+          You picked the organelle that stores DNA and gives instructions. The
+          nucleus controls the cell but does not package or ship proteins.
       - text: Mitochondrion
         rationale: |
-          You picked the energy producer. The mitochondrion makes ATP. It does not
-          sort or package proteins for delivery.
+          You picked the organelle that makes ATP. The mitochondrion releases
+          energy from glucose. It does not sort or package proteins for
+          shipping.
     explanation: |
       The Golgi apparatus works like a packaging and shipping center for the
       cell. The rough ER helps build proteins earlier in the process, but it
@@ -123,17 +130,17 @@ questions:
         correct: true
       - text: Smooth endoplasmic reticulum
         rationale: |
-          You picked the other ER type. The smooth ER has no ribosomes on its surface.
-          It builds lipids, not proteins. The ribosomes on the rough ER are what
-          distinguish it.
+          You picked the other type of endoplasmic reticulum. The smooth ER
+          has no ribosomes on its surface and builds lipids, not proteins.
       - text: Golgi apparatus
         rationale: |
-          You picked the packaging organelle. The Golgi receives proteins after they
-          are built and ships them. It does not have ribosomes on its surface.
+          You picked the organelle that packages and ships proteins. The Golgi
+          apparatus handles proteins after the rough ER has finished processing
+          them.
       - text: Lysosome
         rationale: |
-          You picked the waste-disposal organelle. Lysosomes break down worn-out cell
-          parts using digestive enzymes. They do not have ribosomes or build proteins.
+          You picked the organelle that breaks down waste and old cell parts.
+          The lysosome is a cleanup unit, not a protein-building structure.
     explanation: |
       The rough ER is named for the ribosomes dotting its surface, and those
       ribosomes build proteins. The smooth ER has no ribosomes and builds
@@ -150,16 +157,19 @@ questions:
         correct: true
       - text: Cell wall
         rationale: |
-          You picked the rigid outer layer found in plant cells. The cell wall gives
-          shape and support. It does not selectively control what passes through.
+          You picked the rigid outer layer found in plant cells. The cell wall
+          gives the cell its shape and support. It does not control which
+          substances pass through.
       - text: Cytoplasm
         rationale: |
-          You picked the fluid inside the cell. The cytoplasm is where organelles
-          float. It is not a barrier controlling entry and exit.
+          You picked the fluid inside the cell that holds the organelles. The
+          cytoplasm is not a barrier and does not control what enters or
+          leaves.
       - text: Nucleolus
         rationale: |
-          You picked a structure inside the nucleus. The nucleolus produces ribosomal
-          RNA. It does not control what enters or leaves the cell.
+          You picked a structure inside the nucleus that makes ribosomes. The
+          nucleolus is not a barrier and does not select substances entering
+          or leaving the cell.
     explanation: |
       The cell membrane is the gatekeeper: it lets some substances in and
       keeps others out. The cell wall only gives the cell shape and support;
@@ -176,16 +186,18 @@ questions:
         correct: true
       - text: Cell wall
         rationale: |
-          You picked a plant-only structure. The cell wall is found in plant cells,
-          not animal cells. The question asks for the animal-only structure.
+          You picked a structure found in plant cells, not animal cells. The
+          cell wall gives plants their rigid shape. Animal cells do not have
+          one.
       - text: Chloroplast
         rationale: |
-          You picked a plant-only structure. Chloroplasts capture sunlight for
-          photosynthesis. Animal cells do not have them.
+          You picked a structure found in plant cells, not animal cells.
+          Chloroplasts do photosynthesis. Animal cells lack them entirely.
       - text: Central vacuole
         rationale: |
-          You picked a plant-only structure. The large central vacuole stores water
-          and helps keep the plant firm. Animal cells do not have it.
+          You picked a structure found in plant cells, not animal cells. The
+          central vacuole stores water and keeps the plant firm. Animal cells
+          do not have one.
     explanation: |
       Animal cells typically have a centrosome, which helps organize cell
       division. Cell wall, chloroplast, and central vacuole are the three
@@ -202,18 +214,19 @@ questions:
         correct: true
       - text: Cell wall
         rationale: |
-          You picked a plant-only structure, but the question asks for the one that
-          is NOT plant-only. The cell wall is one of the three structures found only
-          in plant cells.
+          You picked one of the three plant-only structures. The cell wall is
+          found in plants but not animal cells. It is part of the set the
+          question asks about.
       - text: Chloroplast
         rationale: |
-          You picked a plant-only structure, but the question asks for the exception.
-          Chloroplasts are one of the three structures unique to plant cells.
+          You picked one of the three plant-only structures. Chloroplasts make
+          food for the plant through photosynthesis. They are not found in
+          animal cells.
       - text: Central vacuole
         rationale: |
-          You picked a plant-only structure, but the question asks for the one that
-          does not belong. The central vacuole is one of the three plant-only
-          structures.
+          You picked one of the three plant-only structures. The central
+          vacuole stores water and helps keep plants firm. Animal cells do not
+          have one.
     explanation: |
       Lysosomes are typically found in animal cells, where they break down
       waste. Cell wall, chloroplast, and central vacuole are the three
@@ -231,17 +244,19 @@ questions:
         correct: true
       - text: Animal cell
         rationale: |
-          You said animal cell. Animal cells do not have a cell wall, a large central
-          vacuole, or chloroplasts. All three features described belong to plant cells.
+          You picked the wrong cell type. Animal cells have no rigid outer
+          wall, no large central water sac, and no green structures. All three
+          clues point to a plant cell.
       - text: It cannot be either type of cell
         rationale: |
-          You said it fits neither type. The rigid wall, large water sac, and green
-          structures are exactly the three features that define a plant cell.
+          You said neither type matches, but all three clues are plant-only
+          structures. A rigid wall is a cell wall, the sac is a central
+          vacuole, and the green structures are chloroplasts.
       - text: Both are equally likely
         rationale: |
-          You said it could be either. Animal cells lack cell walls, large central
-          vacuoles, and chloroplasts. All three described features point only to a
-          plant cell.
+          You said both cell types are equally possible, but animal cells lack
+          cell walls, central vacuoles, and chloroplasts. Three plant-only
+          clues rule out the animal cell.
     explanation: |
       A rigid wall matches the cell wall, the water-filled sac matches the
       central vacuole, and the green structures match chloroplasts. All
@@ -257,16 +272,18 @@ questions:
         correct: true
       - text: Diffusion is specifically the movement of water; osmosis can involve any particle.
         rationale: |
-          You swapped them. Osmosis is the water-specific term. Diffusion is the
-          broader term that covers any particle moving from high to low concentration.
+          You have the two terms swapped. Osmosis is the specific case and it
+          only describes water. Diffusion is the broader term that covers any
+          particle moving from high to low concentration.
       - text: Osmosis requires energy; diffusion does not.
         rationale: |
-          You said osmosis needs energy. It does not. Both osmosis and diffusion are
-          passive processes. Neither one needs the cell to spend energy.
+          You added an energy requirement that is not there. Both osmosis and
+          diffusion move particles from high to low concentration on their own,
+          without the cell spending energy.
       - text: Diffusion only happens in animal cells; osmosis only happens in plant cells.
         rationale: |
-          You limited each process to one cell type. Both diffusion and osmosis happen
-          in all living cells, plant and animal alike.
+          You applied a cell-type restriction that does not exist. Both
+          processes happen in all living cells, not in one type only.
     explanation: |
       Osmosis is a special case of diffusion that applies only to water.
       Diffusion is the broader term and can describe any particle moving
@@ -282,19 +299,19 @@ questions:
         correct: true
       - text: Diffusion needs energy and moves particles from low to high concentration; active transport needs no energy.
         rationale: |
-          You reversed the roles. Diffusion is passive and needs no energy. Active
-          transport is the one that needs energy to push particles against their
-          concentration gradient.
+          You reversed both descriptions. Diffusion needs no energy and moves
+          particles from high to low. Active transport needs energy and moves
+          particles from low to high.
       - text: Both processes always move particles from low to high concentration.
         rationale: |
-          You said both move against the gradient. Only active transport does that.
-          Diffusion moves particles from high to low concentration on its own, with
-          no energy needed.
+          You applied the active transport rule to diffusion. Diffusion follows
+          the concentration gradient, moving from high to low concentration on
+          its own.
       - text: Active transport only happens in plant cells.
         rationale: |
-          You limited active transport to plants. It happens in all living cells.
-          Animal cells use active transport for many vital functions, including
-          nerve signals and muscle contractions.
+          You added a cell-type restriction that is not true. Active transport
+          happens in all living cells that need to move substances against a
+          concentration gradient.
     explanation: |
       Diffusion follows the concentration gradient (high to low) on its own.
       Active transport pushes particles against the gradient (low to high),
@@ -312,17 +329,19 @@ questions:
         correct: true
       - text: Water moves out of the cell, and it shrinks.
         rationale: |
-          You predicted the outcome for a hypertonic solution. The outside solution
-          here has less solute than the cell, so water moves in, not out.
+          You described what happens in a hypertonic solution. The surrounding
+          solution here has less solute than the cell, so water is pulled into
+          the cell, not out of it.
       - text: No water moves, and the cell stays the same size.
         rationale: |
-          You predicted isotonic conditions. That would require equal solute
-          concentrations inside and outside. Here, the outside has less solute,
-          so water will move inward.
+          You described isotonic conditions. This solution has a lower solute
+          concentration than the cell, so water does move, and it moves
+          inward.
       - text: The cell wall prevents any change.
         rationale: |
-          You said the cell wall blocks this. Red blood cells do not have a cell wall.
-          Only plant cells have a cell wall. Nothing stops the water from moving in.
+          You applied a plant cell feature to a red blood cell. Animal cells
+          have no cell wall, so nothing stops water from moving in and
+          swelling the cell.
     explanation: |
       A solution with lower solute concentration than the cell is
       hypotonic. Water moves toward the higher solute concentration, which
@@ -339,18 +358,19 @@ questions:
         correct: true
       - text: Hypotonic solution
         rationale: |
-          You picked the solution that would cause the cell to swell, not shrink.
-          A hypotonic solution has less solute than the cell, so water moves in.
-          Shrinking means water moved out, into a higher-solute environment.
+          You picked the solution where the cell swells, not shrinks. In a
+          hypotonic solution, water moves into the cell because the outside
+          has less solute than the inside.
       - text: Isotonic solution
         rationale: |
-          You picked the solution where the cell would stay the same size. An isotonic
-          solution has the same solute concentration as the cell. No net water
-          movement happens, so the cell would not shrink.
+          You picked the solution where the cell stays the same size. In an
+          isotonic solution, water moves in and out at the same rate and the
+          cell does not change shape.
       - text: Neutral solution
         rationale: |
-          You picked a pH term. Neutral refers to a pH of 7, not to solute
-          concentration. The cell's shrinking tells you about osmosis, not pH.
+          You picked a term that describes pH, not the relationship between
+          solute concentrations. Tonicity is about how much solute is on each
+          side of the membrane, not whether the solution is acidic or basic.
     explanation: |
       The cell shrank, so water moved out of it. Water leaves a cell when
       the surrounding solution has a higher solute concentration than the
@@ -368,18 +388,19 @@ questions:
         correct: true
       - text: It swells and may burst.
         rationale: |
-          You predicted the outcome for a hypotonic solution. That would mean the
-          outside has less solute, pushing water in. Here, the concentrations are
-          equal, so no net water movement occurs.
+          You described what happens in a hypotonic solution. A hypotonic
+          solution has less solute outside than inside, so water moves in.
+          This solution has equal solute on both sides.
       - text: It shrinks and shrivels.
         rationale: |
-          You predicted the outcome for a hypertonic solution. That would mean the
-          outside has more solute, pulling water out. Here, the concentrations are
-          equal, so the cell stays the same size.
+          You described what happens in a hypertonic solution. A hypertonic
+          solution has more solute outside than inside, so water moves out.
+          This solution is equal on both sides.
       - text: It splits into two smaller cells.
         rationale: |
-          You predicted cell division. Equal solute concentrations have no connection
-          to cell division. The cell simply stays the same size.
+          You described cell division, which is a separate process driven by
+          the cell cycle. A change in surrounding solute concentration does
+          not cause a cell to divide.
     explanation: |
       Equal solute concentration inside and outside is called isotonic.
       Water still moves in and out, but at the same rate in both
@@ -399,17 +420,19 @@ questions:
         correct: true
       - text: 1, 2, 3
         rationale: |
-          You put the Golgi first. The Golgi packages proteins after they are built
-          and processed. Building (ribosome) has to come before packaging (Golgi).
+          You put the Golgi apparatus first. The Golgi packages proteins at the
+          end, not the beginning. The ribosome builds the protein first, then
+          the rough ER processes it, and then the Golgi ships it.
       - text: 3, 2, 1
         rationale: |
-          You put the rough ER first. The rough ER processes the protein after the
-          ribosome builds it. A protein cannot be processed before it is built.
+          You started with the rough ER. The ribosome builds the protein before
+          the rough ER ever touches it. Packaging by the Golgi comes last, not
+          first.
       - text: 2, 1, 3
         rationale: |
-          You skipped the rough ER. The correct path is ribosome builds, rough ER
-          processes, then Golgi packages. You sent the protein straight from the
-          ribosome to the Golgi.
+          You skipped the rough ER. The ribosome builds the protein first, but
+          the rough ER must process it before the Golgi can package and ship
+          it.
     explanation: |
       A ribosome builds the protein first. The rough ER, covered in
       ribosomes, then helps process it. Last, the Golgi apparatus packages
@@ -428,17 +451,19 @@ questions:
         correct: true
       - text: The nutrient will keep moving into the cell at the same rate.
         rationale: |
-          You said the transport continues unchanged. Active transport requires ATP
-          to run. Without ATP, the pump stops. The nutrient cannot keep moving in.
+          You assumed the transport continues without fuel. Active transport
+          needs ATP to push substances against the concentration gradient.
+          Without ATP, the pump stops.
       - text: The nutrient will be pumped in even faster.
         rationale: |
-          You said the rate increases. Without ATP, active transport cannot work at
-          all. The pump would slow and stop, not speed up.
+          You predicted the opposite of what happens. The pump needs ATP to
+          run. With no ATP, it cannot move the nutrient at all, let alone
+          faster.
       - text: The nutrient will convert into a different substance.
         rationale: |
-          You said the nutrient changes chemically. Running out of ATP affects
-          transport, not the identity of the substance. The nutrient stays the
-          same; it just stops being actively moved.
+          You described a chemical reaction, not a transport process. Losing
+          ATP stops the pump. It does not change the chemical identity of the
+          nutrient being transported.
     explanation: |
       Active transport needs ATP to move a substance against its
       concentration gradient. Without ATP, the cell cannot keep pumping the

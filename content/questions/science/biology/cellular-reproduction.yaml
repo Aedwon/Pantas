@@ -17,8 +17,21 @@ questions:
       - text: Mitosis
         correct: true
       - text: Meiosis
+        rationale: |
+          You picked the division type used to make sex cells. Meiosis
+          produces four genetically different cells with half the normal
+          chromosome number. Body repair uses mitosis, which keeps the
+          chromosome number the same and produces identical copies.
       - text: Both processes equally
+        rationale: |
+          You said both processes apply, but only one fits. Meiosis makes sex
+          cells with half the chromosomes. Mitosis makes identical copies for
+          growth and repair. This scenario matches mitosis alone.
       - text: 'Neither: this is not a form of cell division'
+        rationale: |
+          You said no cell division is happening, but the scenario describes a
+          cell producing two daughter cells. That is cell division. The
+          correct type is mitosis.
     explanation: |
       Producing two genetically identical daughter cells for growth or repair is exactly what mitosis does.
     approved: true
@@ -31,8 +44,21 @@ questions:
       - text: Meiosis
         correct: true
       - text: Mitosis
+        rationale: |
+          You picked the division type used for growth and repair. Mitosis
+          makes two identical copies with the full chromosome number. Sex
+          cells need half the normal chromosome number, so meiosis is used
+          instead.
       - text: Both processes equally
+        rationale: |
+          You said both processes apply, but sex cells are made only by
+          meiosis. Mitosis would give each sperm the full chromosome count,
+          which would double the offspring's chromosomes at fertilization.
       - text: 'Neither: sperm cells are not produced through cell division'
+        rationale: |
+          You said sperm cells are not made by cell division, but they are.
+          Meiosis divides a parent cell to produce four sperm cells, each
+          with half the normal chromosome number.
     explanation: |
       Meiosis is used specifically to make sex cells (sperm and egg cells) for sexual reproduction.
     approved: true
@@ -45,8 +71,20 @@ questions:
       - text: 4 daughter cells, each with 23 chromosomes
         correct: true
       - text: 2 daughter cells, each with 46 chromosomes
+        rationale: |
+          You described mitosis, not meiosis. Mitosis produces 2 cells with
+          the full chromosome number. Meiosis produces 4 cells, each with
+          half: 23 chromosomes.
       - text: 4 daughter cells, each with 46 chromosomes
+        rationale: |
+          You got the cell count right but not the chromosome count. Meiosis
+          halves the chromosomes in each daughter cell. Four cells with 46
+          each would mean no halving occurred.
       - text: 2 daughter cells, each with 23 chromosomes
+        rationale: |
+          You got the chromosome count right but not the cell count. Meiosis
+          goes through two rounds of division and always produces 4 daughter
+          cells, not 2.
     explanation: |
       Meiosis always produces 4 daughter cells, each with half the original chromosome number: $\dfrac{46}{2} = 23$.
     approved: true
@@ -59,8 +97,20 @@ questions:
       - text: 2 daughter cells, each with 20 chromosomes
         correct: true
       - text: 4 daughter cells, each with 10 chromosomes
+        rationale: |
+          You described meiosis, not mitosis. Meiosis produces 4 cells with
+          half the chromosomes. Mitosis produces 2 cells, each with the full
+          chromosome number unchanged.
       - text: 2 daughter cells, each with 10 chromosomes
+        rationale: |
+          You got the cell count right but halved the chromosomes. Mitosis
+          does not reduce the chromosome number. Each daughter cell gets a
+          complete copy of all 20 chromosomes.
       - text: 4 daughter cells, each with 20 chromosomes
+        rationale: |
+          You described the meiosis cell count but with the mitosis chromosome
+          number. Mitosis produces 2 daughter cells, not 4, and each keeps
+          the full 20 chromosomes.
     explanation: |
       Mitosis always produces 2 daughter cells, each with the same chromosome number as the original cell: no halving occurs.
     approved: true
@@ -73,8 +123,20 @@ questions:
       - text: Metaphase
         correct: true
       - text: Prophase
+        rationale: |
+          You picked the first phase. Prophase is when chromosomes condense
+          into visible structures and the nuclear membrane breaks down.
+          Lining up at the center happens later, in metaphase.
       - text: Anaphase
+        rationale: |
+          You picked the phase after lineup. Anaphase is when sister
+          chromatids separate and are pulled to opposite ends. The lineup at
+          the center happens just before this, in metaphase.
       - text: Telophase
+        rationale: |
+          You picked the final phase. Telophase is when two new nuclei form
+          before the cell splits. The lineup at the center happens much
+          earlier, in metaphase.
     explanation: |
       Metaphase is defined by chromosomes lining up along the cell's center, attached to spindle fibers from opposite sides.
     approved: true
@@ -87,8 +149,20 @@ questions:
       - text: Prophase
         correct: true
       - text: Metaphase
+        rationale: |
+          You picked the phase when chromosomes line up at the center.
+          Metaphase comes after the chromosomes have already condensed.
+          Condensing and nuclear membrane breakdown both happen in prophase.
       - text: Anaphase
+        rationale: |
+          You picked the phase when sister chromatids separate. Anaphase
+          comes after condensing and after the nuclear membrane has already
+          broken down. Both events happen in prophase.
       - text: Telophase
+        rationale: |
+          You picked the last phase, when new nuclei form and the cell splits.
+          Telophase is the end of mitosis. Condensing and nuclear membrane
+          breakdown happen at the beginning, in prophase.
     explanation: |
       Prophase is defined by DNA condensing into visible chromosomes and the breakdown of the nuclear membrane.
     approved: true
@@ -101,8 +175,20 @@ questions:
       - text: Anaphase
         correct: true
       - text: Prophase
+        rationale: |
+          You picked the first phase. Prophase is when chromosomes condense
+          and the nuclear membrane breaks down. Sister chromatids do not
+          separate until anaphase.
       - text: Metaphase
+        rationale: |
+          You picked the phase when chromosomes line up at the center.
+          Separation of sister chromatids comes right after the lineup, in
+          anaphase.
       - text: Telophase
+        rationale: |
+          You picked the last phase. By telophase, the chromatids have
+          already separated and reached opposite ends. The separation itself
+          happens in anaphase.
     explanation: |
       Anaphase is defined by the separation of sister chromatids, pulled toward opposite ends of the cell.
     approved: true
@@ -115,8 +201,20 @@ questions:
       - text: Telophase
         correct: true
       - text: Prophase
+        rationale: |
+          You picked the first phase. Prophase is when the original nucleus
+          breaks down, not when new nuclei form. New nuclei appear at the
+          end of mitosis, in telophase.
       - text: Metaphase
+        rationale: |
+          You picked the phase when chromosomes line up at the center.
+          Metaphase is the middle of mitosis. Two new nuclei form near the
+          end, in telophase.
       - text: Anaphase
+        rationale: |
+          You picked the phase when chromatids separate. After anaphase
+          delivers the chromosomes to opposite ends, telophase forms a new
+          nucleus around each set.
     explanation: |
       Telophase is defined by the formation of two new nuclei, followed by the cell splitting into two separate cells.
     approved: true
@@ -129,8 +227,20 @@ questions:
       - text: 'No: mitosis produces two daughter cells; meiosis is the process that produces four.'
         correct: true
       - text: 'Yes: both mitosis and meiosis produce four daughter cells.'
+        rationale: |
+          You applied meiosis's cell count to both processes. Meiosis goes
+          through two division rounds to produce four cells. Mitosis goes
+          through one round and produces two.
       - text: 'No: mitosis actually produces one daughter cell.'
+        rationale: |
+          You got the verdict right but the number wrong. Mitosis produces
+          two daughter cells, not one. One cell divides into two identical
+          copies.
       - text: 'Yes: mitosis always produces more daughter cells than meiosis.'
+        rationale: |
+          You said mitosis produces more daughter cells than meiosis, but it
+          is the opposite. Mitosis produces two. Meiosis produces four. Meiosis
+          goes through two rounds of division.
     explanation: |
       Mitosis produces two identical daughter cells. Meiosis, used to make sex cells, produces four. This is one of the most commonly swapped facts between the two processes.
     approved: true
@@ -143,8 +253,22 @@ questions:
       - text: 'No: meiosis shuffles genetic material between chromosome pairs, so its four daughter cells are genetically different from each other and from the parent cell.'
         correct: true
       - text: 'Yes: meiosis always produces identical daughter cells, just like mitosis.'
+        rationale: |
+          You applied the mitosis outcome to meiosis. Mitosis copies DNA
+          without shuffling it, so its cells are identical. Meiosis shuffles
+          genetic material between chromosome pairs, producing four different
+          cells.
       - text: 'No: but only because meiosis produces no daughter cells at all.'
+        rationale: |
+          You got the verdict right but the reason is wrong. Meiosis does
+          produce daughter cells. It produces four of them. They are
+          genetically different from each other because of shuffling.
       - text: 'Yes: genetic differences only appear after fertilization, never during meiosis itself.'
+        rationale: |
+          You placed the genetic variation at fertilization, but it starts
+          during meiosis. The shuffling of chromosome pairs in meiosis is
+          itself a major source of genetic variation, before any fertilization
+          occurs.
     explanation: |
       Unlike mitosis, meiosis includes genetic shuffling between chromosome pairs, which is a major source of variation: the four resulting cells are not identical to each other or to the parent.
     approved: true
@@ -157,8 +281,21 @@ questions:
       - text: 'No: each sex cell already carries half the normal chromosome number, so combining two returns the total to the normal full number, not double.'
         correct: true
       - text: 'Yes: fertilization always doubles the chromosome number beyond the normal count.'
+        rationale: |
+          You accepted the doubling idea, but meiosis exists precisely to
+          prevent it. Sex cells each carry half the normal number so that
+          combining two gives back the correct full number.
       - text: 'No: fertilization actually results in zero chromosomes.'
+        rationale: |
+          You got the verdict right but the reason is wrong. Fertilization
+          does not eliminate chromosomes. It combines the chromosomes from
+          both sex cells to produce the normal full number.
       - text: 'Yes: this is why each new generation has more chromosomes than the last.'
+        rationale: |
+          You said chromosomes accumulate each generation, but that would
+          make reproduction impossible over time. Meiosis halves the count
+          in sex cells so fertilization restores the same number every
+          generation.
     explanation: |
       Meiosis halves the chromosome number in each sex cell specifically so that combining a sperm and egg cell restores the normal full chromosome count, not doubles it.
     approved: true
@@ -171,8 +308,20 @@ questions:
       - text: "No: a valid description of mitosis must include all four phases, in order: prophase, metaphase, anaphase, and telophase."
         correct: true
       - text: 'Yes: mitosis can skip phases as long as the cell still divides in the end.'
+        rationale: |
+          You said phases can be skipped, but mitosis is a fixed sequence.
+          Chromosomes must line up in metaphase before they can separate in
+          anaphase. Neither step can be left out.
       - text: 'No: but only because telophase must come before prophase.'
+        rationale: |
+          You got the verdict right but reversed the order. Prophase is first
+          and telophase is last. The description skipped metaphase and
+          anaphase, not put telophase first.
       - text: 'Yes: metaphase and anaphase are optional steps in mitosis.'
+        rationale: |
+          You said metaphase and anaphase are optional, but they are not. The
+          chromosomes must line up in metaphase and separate in anaphase.
+          Both are required steps in the correct order.
     explanation: |
       All four phases of mitosis must occur in order. A description that skips metaphase and anaphase is missing required steps and does not correctly describe the full process.
     approved: true
@@ -185,8 +334,22 @@ questions:
       - text: So that when a sperm cell and egg cell combine during fertilization, their chromosome counts add back up to the normal full number.
         correct: true
       - text: So that the resulting offspring will have fewer chromosomes than either parent.
+        rationale: |
+          You said the goal is to reduce the offspring's chromosomes, but
+          the goal is to keep the count normal. Half plus half equals the
+          full number. The offspring ends up with the same count as each
+          parent.
       - text: So that sex cells can divide faster than regular body cells.
+        rationale: |
+          You replaced the chromosome-number reason with a speed argument,
+          but division speed is not why sex cells have half the number. The
+          reason is to make sure the chromosome count stays correct after
+          fertilization.
       - text: There is no specific reason; it is simply a coincidence of biology.
+        rationale: |
+          You said the halving is random, but it is not. It is the direct
+          result of meiosis, which exists so that two sex cells can combine
+          and still give the offspring the correct chromosome number.
     explanation: |
       If sex cells carried the full chromosome number, offspring would end up with double the normal amount after fertilization. Halving the number in each sex cell keeps the combined total correct.
     approved: true
@@ -203,8 +366,20 @@ questions:
       - text: 3, 4, 1, 2
         correct: true
       - text: 3, 1, 4, 2
+        rationale: |
+          You put anaphase before metaphase. Chromosomes must line up in
+          metaphase before they can be pulled apart in anaphase. The correct
+          order is prophase, metaphase, anaphase, telophase.
       - text: 4, 3, 1, 2
+        rationale: |
+          You started with metaphase and put prophase second. Prophase is
+          always first. Chromosomes must condense before they can line up.
+          The correct order is prophase, metaphase, anaphase, telophase.
       - text: 3, 4, 2, 1
+        rationale: |
+          You put telophase before anaphase. The chromatids must separate in
+          anaphase first, then the new nuclei form in telophase. The correct
+          order is prophase, metaphase, anaphase, telophase.
     explanation: |
       The correct order is Prophase, Metaphase, Anaphase, Telophase (remembered as "PMAT: Prepare, Middle, Apart, Two").
     approved: true
@@ -217,8 +392,20 @@ questions:
       - text: "46"
         correct: true
       - text: "23"
+        rationale: |
+          You kept only one sex cell's count. Fertilization combines the
+          chromosomes from both. Adding 23 from the sperm and 23 from the
+          egg gives 46 chromosomes total.
       - text: "92"
+        rationale: |
+          You doubled the full count. The sperm contributes 23 and the egg
+          contributes 23. Together they add up to 46, which is the normal
+          human chromosome number, not 92.
       - text: "11.5"
+        rationale: |
+          You halved instead of added. Fertilization combines chromosomes.
+          The sperm's 23 and the egg's 23 are added together to give the
+          offspring 46 chromosomes.
     explanation: |
       Fertilization combines the chromosomes from both sex cells: $23 + 23 = 46$, restoring the normal full chromosome number.
     approved: true
