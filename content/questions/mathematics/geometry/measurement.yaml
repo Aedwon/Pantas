@@ -140,7 +140,6 @@ questions:
   - id: q-geometry-measurement-0007
     type: direct-computation
     difficulty: medium
-    figure: geometry-measurement-07
     stem: |
       A flat metal template is composed of a rectangle of length $12\text{ cm}$ and width $8\text{ cm}$, with a semicircle attached along one of its $8\text{ cm}$ sides. What is the total area of the compound shape?
     choices:
@@ -271,7 +270,6 @@ questions:
   - id: q-geometry-measurement-0013
     type: direct-computation
     difficulty: hard
-    figure: geometry-measurement-13
     stem: |
       A storage silo is composed of a cylinder of radius $3\text{ m}$ and height $8\text{ m}$, topped by a hemisphere of radius $3\text{ m}$. What is the total volume of the storage silo?
     choices:

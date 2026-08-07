@@ -158,7 +158,6 @@ questions:
   - id: q-geometry-circles-0008
     type: direct-computation
     difficulty: medium
-    figure: geometry-circles-08
     stem: |
       Quadrilateral $ABCD$ is inscribed in a circle. Angle $\angle A = (4x + 20)^\circ$ and opposite angle $\angle C = (2x + 40)^\circ$. What is the measure of $\angle C$?
     choices:
@@ -293,7 +292,6 @@ questions:
   - id: q-geometry-circles-0014
     type: direct-computation
     difficulty: hard
-    figure: geometry-circles-14
     stem: |
       In a circle with center $O$, chord $AB$ subtends central angle $\angle AOB = (5x - 10)^\circ$ and inscribed angle $\angle ACB = (2x + 10)^\circ$ standing on the same arc $AB$. What is the measure of central angle $\angle AOB$?
     choices:

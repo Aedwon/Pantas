@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "contentVersion": 2026081220,
-  "generatedAt": "2026-08-12T20:47:12.904734Z",
+  "generatedAt": "2026-08-12T20:54:22.883585Z",
   "exams": [
     {
       "id": "exam_cse_pro",
@@ -38378,6 +38378,48 @@
       "explanation": "1. Sector area formula: $A = \\frac{\\theta}{360^\\circ} \\times \\pi r^2$.\n2. Substitute values: $A = \\frac{90^\\circ}{360^\\circ} \\times \\pi (8^2) = \\frac{1}{4} \\times 64\\pi = 16\\pi\\text{ cm}^2$.\n\nCommon Trap: Calculating arc length ($\\frac{1}{4} \\times 16\\pi = 4\\pi$) instead of sector area."
     },
     {
+      "id": "q-geometry-circles-0008",
+      "version": 1,
+      "examIds": [
+        "exam_upcat",
+        "exam_acet",
+        "exam_dlsucet",
+        "exam_ustet",
+        "exam_pupcet"
+      ],
+      "topicId": "topic_upcat_geometry",
+      "lessonId": "lesson-geometry-circles",
+      "language": "en",
+      "stem": "Quadrilateral $ABCD$ is inscribed in a circle. Angle $\\angle A = (4x + 20)^\\circ$ and opposite angle $\\angle C = (2x + 40)^\\circ$. What is the measure of $\\angle C$?",
+      "choices": [
+        {
+          "id": "q-geometry-circles-0008_a",
+          "label": "A",
+          "text": "$80^\\circ$",
+          "isCorrect": true
+        },
+        {
+          "id": "q-geometry-circles-0008_b",
+          "label": "B",
+          "text": "$100^\\circ$",
+          "isCorrect": false
+        },
+        {
+          "id": "q-geometry-circles-0008_c",
+          "label": "C",
+          "text": "$20^\\circ$",
+          "isCorrect": false
+        },
+        {
+          "id": "q-geometry-circles-0008_d",
+          "label": "D",
+          "text": "$10^\\circ$",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Opposite angles in an inscribed quadrilateral are supplementary ($180^\\circ$).\n\n1. Set up equation: $(4x + 20) + (2x + 40) = 180$.\n2. Combine like terms: $6x + 60 = 180 \\implies 6x = 120 \\implies x = 20$.\n3. Calculate $\\angle C$:\n   $$\\angle C = 2(20) + 40 = 40 + 40 = 80^\\circ$$\n\nCommon Trap: Reporting opposite angle $\\angle A = 100^\\circ$ or setting them equal ($4x+20 = 2x+40 \\implies x=10$)."
+    },
+    {
       "id": "q-geometry-circles-0009",
       "version": 1,
       "examIds": [
@@ -38588,6 +38630,48 @@
       "explanation": "1. Circle Area $= \\pi r^2 = \\pi (6^2) = 36\\pi\\text{ cm}^2$.\n2. The diagonal $d$ of the inscribed square equals the diameter of the circle: $d = 2r = 12\\text{ cm}$.\n3. Square Area $= \\frac{d^2}{2} = \\frac{12^2}{2} = \\frac{144}{2} = 72\\text{ cm}^2$.\n4. Shaded Area $= \\text{Circle Area} - \\text{Square Area} = 36\\pi - 72\\text{ cm}^2$."
     },
     {
+      "id": "q-geometry-circles-0014",
+      "version": 1,
+      "examIds": [
+        "exam_upcat",
+        "exam_acet",
+        "exam_dlsucet",
+        "exam_ustet",
+        "exam_pupcet"
+      ],
+      "topicId": "topic_upcat_geometry",
+      "lessonId": "lesson-geometry-circles",
+      "language": "en",
+      "stem": "In a circle with center $O$, chord $AB$ subtends central angle $\\angle AOB = (5x - 10)^\\circ$ and inscribed angle $\\angle ACB = (2x + 10)^\\circ$ standing on the same arc $AB$. What is the measure of central angle $\\angle AOB$?",
+      "choices": [
+        {
+          "id": "q-geometry-circles-0014_a",
+          "label": "A",
+          "text": "$140^\\circ$",
+          "isCorrect": true
+        },
+        {
+          "id": "q-geometry-circles-0014_b",
+          "label": "B",
+          "text": "$70^\\circ$",
+          "isCorrect": false
+        },
+        {
+          "id": "q-geometry-circles-0014_c",
+          "label": "C",
+          "text": "$30^\\circ$",
+          "isCorrect": false
+        },
+        {
+          "id": "q-geometry-circles-0014_d",
+          "label": "D",
+          "text": "$110^\\circ$",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "A central angle is twice the measure of an inscribed angle standing on the same arc.\n\n1. Set up equation: $\\angle AOB = 2 \\times \\angle ACB \\implies 5x - 10 = 2(2x + 10)$.\n2. Expand: $5x - 10 = 4x + 20 \\implies x = 30$.\n3. Calculate central angle $\\angle AOB$:\n   $$\\angle AOB = 5(30) - 10 = 150 - 10 = 140^\\circ$$\n\nCommon Trap: Reporting the inscribed angle measure ($70^\\circ$) instead of the central angle measure ($140^\\circ$)."
+    },
+    {
       "id": "q-geometry-circles-0015",
       "version": 1,
       "examIds": [
@@ -38720,6 +38804,51 @@
       "explanation": "Apply midpoint formula $M = \\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$:\n\n1. $x_M = \\frac{-6 + 2}{2} = \\frac{-4}{2} = -2$.\n2. $y_M = \\frac{8 + (-4)}{2} = \\frac{4}{2} = 2$.\n3. Midpoint coordinates are $(-2, 2)$.\n\nCommon Trap: Forgetting to divide by $2$ gives $(-4, 4)$, or subtracting coordinates instead of adding them."
     },
     {
+      "id": "q-geometry-coordinate-geometry-0003",
+      "version": 1,
+      "examIds": [
+        "exam_upcat",
+        "exam_acet",
+        "exam_dlsucet",
+        "exam_ustet",
+        "exam_pupcet"
+      ],
+      "topicId": "topic_upcat_geometry",
+      "lessonId": "lesson-geometry-coordinate-geometry",
+      "language": "en",
+      "stem": "In the coordinate graph, line $L$ passes through point $A(1, 3)$ and point $B(5, 11)$. What is the slope of line $L$?",
+      "choices": [
+        {
+          "id": "q-geometry-coordinate-geometry-0003_a",
+          "label": "A",
+          "text": "$2$",
+          "isCorrect": true
+        },
+        {
+          "id": "q-geometry-coordinate-geometry-0003_b",
+          "label": "B",
+          "text": "$\\frac{1}{2}$",
+          "isCorrect": false,
+          "rationale": "You put the run over the rise. Slope is the change in $y$ divided by the\nchange in $x$, so it is $8$ over $4$."
+        },
+        {
+          "id": "q-geometry-coordinate-geometry-0003_c",
+          "label": "C",
+          "text": "$-2$",
+          "isCorrect": false,
+          "rationale": "You made the slope negative. Both coordinates grow from $A$ to $B$, so the\nline rises."
+        },
+        {
+          "id": "q-geometry-coordinate-geometry-0003_d",
+          "label": "D",
+          "text": "$\\frac{4}{8}$",
+          "isCorrect": false,
+          "rationale": "You left the fraction uncancelled and built it from the wrong pair. The\nrise is 8 and the run is 4."
+        }
+      ],
+      "explanation": "Apply slope formula $m = \\frac{y_2 - y_1}{x_2 - x_1}$:\n\n1. $y_2 - y_1 = 11 - 3 = 8$.\n2. $x_2 - x_1 = 5 - 1 = 4$.\n3. $m = \\frac{8}{4} = 2$.\n\nCommon Trap: Inverting the formula to calculate $\\frac{\\Delta x}{\\Delta y} = \\frac{4}{8} = \\frac{1}{2}$."
+    },
+    {
       "id": "q-geometry-coordinate-geometry-0004",
       "version": 1,
       "examIds": [
@@ -38763,6 +38892,51 @@
         }
       ],
       "explanation": "Parallel lines always have equal slopes.\n\n1. The slope of $L_1$ from $y = 3x - 7$ is $m_1 = 3$.\n2. Since $L_2 \\parallel L_1$, $m_2 = m_1 = 3$.\n\nCommon Trap: Reporting the perpendicular slope ($-\\frac{1}{3}$) instead of the parallel slope."
+    },
+    {
+      "id": "q-geometry-coordinate-geometry-0005",
+      "version": 1,
+      "examIds": [
+        "exam_upcat",
+        "exam_acet",
+        "exam_dlsucet",
+        "exam_ustet",
+        "exam_pupcet"
+      ],
+      "topicId": "topic_upcat_geometry",
+      "lessonId": "lesson-geometry-coordinate-geometry",
+      "language": "en",
+      "stem": "Line $m$ graphed on the Cartesian plane has a slope of $-\\frac{4}{5}$. What is the slope of any line perpendicular to line $m$?",
+      "choices": [
+        {
+          "id": "q-geometry-coordinate-geometry-0005_a",
+          "label": "A",
+          "text": "$\\frac{5}{4}$",
+          "isCorrect": true
+        },
+        {
+          "id": "q-geometry-coordinate-geometry-0005_b",
+          "label": "B",
+          "text": "$-\\frac{5}{4}$",
+          "isCorrect": false,
+          "rationale": "You took the reciprocal and kept the sign. Perpendicular slopes have to\nmultiply to $-1$, so the sign flips too."
+        },
+        {
+          "id": "q-geometry-coordinate-geometry-0005_c",
+          "label": "C",
+          "text": "$\\frac{4}{5}$",
+          "isCorrect": false,
+          "rationale": "You flipped the sign without turning the fraction over. Both steps are\nneeded."
+        },
+        {
+          "id": "q-geometry-coordinate-geometry-0005_d",
+          "label": "D",
+          "text": "$-\\frac{4}{5}$",
+          "isCorrect": false,
+          "rationale": "You gave the same slope back. That would be a parallel line, not a\nperpendicular one."
+        }
+      ],
+      "explanation": "Perpendicular lines have slopes that are negative reciprocals of each other ($m_1 \\cdot m_2 = -1$).\n\n1. Take reciprocal of $-\\frac{4}{5} \\implies -\\frac{5}{4}$.\n2. Change sign: $-\\left(-\\frac{5}{4}\\right) = \\frac{5}{4}$.\n\nCommon Trap: Taking the reciprocal without changing the sign ($-\\frac{5}{4}$) or changing the sign without taking the reciprocal ($\\frac{4}{5}$)."
     },
     {
       "id": "q-geometry-coordinate-geometry-0006",
@@ -38855,6 +39029,51 @@
       "explanation": "1. Find slope of segment $AB$: $m_{AB} = \\frac{7 - 1}{5 - (-3)} = \\frac{6}{8} = \\frac{3}{4}$.\n2. The perpendicular bisector is perpendicular to $AB$, so its slope is the negative reciprocal of $m_{AB}$:\n   $$m_{\\perp} = -\\frac{1}{3/4} = -\\frac{4}{3}$$\n\nCommon Trap: Reporting slope of $AB$ ($\\frac{3}{4}$) or neglecting the negative sign ($-\\frac{3}{4}$)."
     },
     {
+      "id": "q-geometry-coordinate-geometry-0008",
+      "version": 1,
+      "examIds": [
+        "exam_upcat",
+        "exam_acet",
+        "exam_dlsucet",
+        "exam_ustet",
+        "exam_pupcet"
+      ],
+      "topicId": "topic_upcat_geometry",
+      "lessonId": "lesson-geometry-coordinate-geometry",
+      "language": "en",
+      "stem": "Vertices $A(2, 7)$, $B(8, 7)$, and $C(5, 3)$ form $\\triangle ABC$ in the coordinate plane. What is the area of $\\triangle ABC$?",
+      "choices": [
+        {
+          "id": "q-geometry-coordinate-geometry-0008_a",
+          "label": "A",
+          "text": "$12$",
+          "isCorrect": true
+        },
+        {
+          "id": "q-geometry-coordinate-geometry-0008_b",
+          "label": "B",
+          "text": "$24$",
+          "isCorrect": false,
+          "rationale": "You forgot to halve. A triangle is half of the rectangle with the same\nbase and height."
+        },
+        {
+          "id": "q-geometry-coordinate-geometry-0008_c",
+          "label": "C",
+          "text": "$10$",
+          "isCorrect": false,
+          "rationale": "You used a height of 3 rather than the distance from $C$ up to the line $y\n= 7$, which is 4."
+        },
+        {
+          "id": "q-geometry-coordinate-geometry-0008_d",
+          "label": "D",
+          "text": "$14$",
+          "isCorrect": false,
+          "rationale": "You added the base and the height instead of multiplying them."
+        }
+      ],
+      "explanation": "1. Base $AB$ is horizontal along $y = 7$: $\\text{base} = |8 - 2| = 6$.\n2. Perpendicular height $h$ is vertical distance from $C(5, 3)$ to $y = 7$: $h = |7 - 3| = 4$.\n3. Triangle area $= \\frac{1}{2} \\times \\text{base} \\times h = \\frac{1}{2} \\times 6 \\times 4 = 12$.\n\nCommon Trap: Forgetting to divide by $2$ gives $6 \\times 4 = 24$."
+    },
+    {
       "id": "q-geometry-coordinate-geometry-0009",
       "version": 1,
       "examIds": [
@@ -38900,6 +39119,51 @@
       "explanation": "1. Multiply entire equation by $3$ to clear fraction:\n   $$3(y - 4) = -2(x + 6) \\implies 3y - 12 = -2x - 12$$\n2. Move $x$-term to left side and constant to right side:\n   $$2x + 3y = -12 + 12 \\implies 2x + 3y = 0$$\n\nCommon Trap: Moving $-12$ with sign error leads to $2x + 3y = 24$."
     },
     {
+      "id": "q-geometry-coordinate-geometry-0010",
+      "version": 1,
+      "examIds": [
+        "exam_upcat",
+        "exam_acet",
+        "exam_dlsucet",
+        "exam_ustet",
+        "exam_pupcet"
+      ],
+      "topicId": "topic_upcat_geometry",
+      "lessonId": "lesson-geometry-coordinate-geometry",
+      "language": "en",
+      "stem": "Three points $A(-1, k)$, $B(2, 5)$, and $C(5, 11)$ lie on the same straight line in the Cartesian plane. What is the value of $k$?",
+      "choices": [
+        {
+          "id": "q-geometry-coordinate-geometry-0010_a",
+          "label": "A",
+          "text": "$-1$",
+          "isCorrect": true
+        },
+        {
+          "id": "q-geometry-coordinate-geometry-0010_b",
+          "label": "B",
+          "text": "$1$",
+          "isCorrect": false,
+          "rationale": "You have the sign backwards. Working back from $B$ with a slope of 2 gives\n$5 - 6$, which is $-1$."
+        },
+        {
+          "id": "q-geometry-coordinate-geometry-0010_c",
+          "label": "C",
+          "text": "$-2$",
+          "isCorrect": false,
+          "rationale": "You used a slope of 1 rather than 2. Between $B$ and $C$ the rise is 6\nover a run of 3."
+        },
+        {
+          "id": "q-geometry-coordinate-geometry-0010_d",
+          "label": "D",
+          "text": "$2$",
+          "isCorrect": false,
+          "rationale": "You went up from $B$ instead of down. $A$ sits to the left, so the value\nis lower."
+        }
+      ],
+      "explanation": "Collinear points have equal slopes between any pair of points.\n\n1. Calculate slope of line using points $B$ and $C$:\n   $$m = \\frac{11 - 5}{5 - 2} = \\frac{6}{3} = 2$$\n2. Set slope between $A$ and $B$ equal to $2$:\n   $$\\frac{5 - k}{2 - (-1)} = 2 \\implies \\frac{5 - k}{3} = 2 \\implies 5 - k = 6$$\n3. Solve for $k$: $k = 5 - 6 = -1$.\n\nCommon Trap: Sign error solving $5 - k = 6 \\implies k = 1$."
+    },
+    {
       "id": "q-geometry-coordinate-geometry-0011",
       "version": 1,
       "examIds": [
@@ -38943,6 +39207,51 @@
         }
       ],
       "explanation": "1. Slope of $3x - 4y = 12$ is $m_1 = \\frac{3}{4}$.\n2. Perpendicular slope $m_{\\perp} = -\\frac{4}{3}$.\n3. Use point-slope form with $(6, -1)$:\n   $$y - (-1) = -\\frac{4}{3}(x - 6) \\implies y + 1 = -\\frac{4}{3}x + 8$$\n4. Multiply by $3$: $3y + 3 = -4x + 24 \\implies 4x + 3y = 21$."
+    },
+    {
+      "id": "q-geometry-coordinate-geometry-0012",
+      "version": 1,
+      "examIds": [
+        "exam_upcat",
+        "exam_acet",
+        "exam_dlsucet",
+        "exam_ustet",
+        "exam_pupcet"
+      ],
+      "topicId": "topic_upcat_geometry",
+      "lessonId": "lesson-geometry-coordinate-geometry",
+      "language": "en",
+      "stem": "Quadrilateral $OABC$ has vertices at $O(0, 0)$, $A(6, 0)$, $B(8, 5)$, and $C(2, 5)$ in the Cartesian plane. What is the area of parallelogram $OABC$?",
+      "choices": [
+        {
+          "id": "q-geometry-coordinate-geometry-0012_a",
+          "label": "A",
+          "text": "$30$",
+          "isCorrect": true
+        },
+        {
+          "id": "q-geometry-coordinate-geometry-0012_b",
+          "label": "B",
+          "text": "$15$",
+          "isCorrect": false,
+          "rationale": "You halved the area. This is a parallelogram, not a triangle, so there is\nno halving step."
+        },
+        {
+          "id": "q-geometry-coordinate-geometry-0012_c",
+          "label": "C",
+          "text": "$40$",
+          "isCorrect": false,
+          "rationale": "You used a base of 8 rather than the 6 along the axis."
+        },
+        {
+          "id": "q-geometry-coordinate-geometry-0012_d",
+          "label": "D",
+          "text": "$20$",
+          "isCorrect": false,
+          "rationale": "You used a height of 4 instead of 5. The height is the vertical distance\nup to $y = 5$."
+        }
+      ],
+      "explanation": "1. Base $OA$ lies along the x-axis: $\\text{base} = |6 - 0| = 6$.\n2. Perpendicular height $h$ is the vertical y-distance: $h = 5 - 0 = 5$.\n3. Parallelogram area $= \\text{base} \\times h = 6 \\times 5 = 30$.\n\nCommon Trap: Dividing by $2$ ($15$) as if calculating triangle area."
     },
     {
       "id": "q-geometry-coordinate-geometry-0013",
@@ -39033,6 +39342,51 @@
         }
       ],
       "explanation": "Solve the system of equations by elimination:\n\n1. Multiply first equation by $2$: $4x + 6y = 26$.\n2. Multiply second equation by $3$: $15x - 6y = 12$.\n3. Add equations: $19x = 38 \\implies x = 2$.\n4. Substitute $x = 2$ into $2(2) + 3y = 13 \\implies 4 + 3y = 13 \\implies 3y = 9 \\implies y = 3$.\n5. Point of intersection is $(2, 3)$."
+    },
+    {
+      "id": "q-geometry-coordinate-geometry-0015",
+      "version": 1,
+      "examIds": [
+        "exam_upcat",
+        "exam_acet",
+        "exam_dlsucet",
+        "exam_ustet",
+        "exam_pupcet"
+      ],
+      "topicId": "topic_upcat_geometry",
+      "lessonId": "lesson-geometry-coordinate-geometry",
+      "language": "en",
+      "stem": "Line $L$ given by equation $3x + 4y = 20$ intersects the axes to form a right triangle with the origin. What is the shortest perpendicular distance from origin $(0, 0)$ to line $L$?",
+      "choices": [
+        {
+          "id": "q-geometry-coordinate-geometry-0015_a",
+          "label": "A",
+          "text": "$4$",
+          "isCorrect": true
+        },
+        {
+          "id": "q-geometry-coordinate-geometry-0015_b",
+          "label": "B",
+          "text": "$5$",
+          "isCorrect": false,
+          "rationale": "You used one of the intercepts as the distance. The distance to a line is\nmeasured along the perpendicular, not along an axis."
+        },
+        {
+          "id": "q-geometry-coordinate-geometry-0015_c",
+          "label": "C",
+          "text": "$\\frac{20}{3}$",
+          "isCorrect": false,
+          "rationale": "You used the other intercept. The perpendicular distance is shorter than\nboth."
+        },
+        {
+          "id": "q-geometry-coordinate-geometry-0015_d",
+          "label": "D",
+          "text": "$20$",
+          "isCorrect": false,
+          "rationale": "You stopped at the numerator. It still has to be divided by the root of\n$3^2 + 4^2$, which is 5."
+        }
+      ],
+      "explanation": "Distance $d$ from point $(x_0, y_0)$ to line $Ax + By + C = 0$:\n$$d = \\frac{|A x_0 + B y_0 + C|}{\\sqrt{A^2 + B^2}}$$\n\n1. For line $3x + 4y - 20 = 0$ and point $(0,0)$:\n   $$d = \\frac{|3(0) + 4(0) - 20|}{\\sqrt{3^2 + 4^2}} = \\frac{|-20|}{\\sqrt{9 + 16}} = \\frac{20}{\\sqrt{25}} = \\frac{20}{5} = 4$$\n\nCommon Trap: Reporting the y-intercept ($5$) or x-intercept ($\\frac{20}{3}$) instead of perpendicular distance."
     },
     {
       "id": "q-geometry-logic-and-reasoning-0001",
@@ -39917,6 +40271,48 @@
       "explanation": "Area of a trapezoid is $A = \\frac{b_1 + b_2}{2} \\times h$.\n\n1. Substitute values: $A = \\frac{10 + 18}{2} \\times 4 = 14 \\times 4 = 56\\text{ cm}^2$.\n\nCommon Trap: Using the slant side length ($5\\text{ cm}$) instead of perpendicular height ($4\\text{ cm}$) gives $\\frac{10+18}{2} \\times 5 = 70\\text{ cm}^2$."
     },
     {
+      "id": "q-geometry-measurement-0007",
+      "version": 1,
+      "examIds": [
+        "exam_upcat",
+        "exam_acet",
+        "exam_dlsucet",
+        "exam_ustet",
+        "exam_pupcet"
+      ],
+      "topicId": "topic_upcat_geometry",
+      "lessonId": "lesson-geometry-measurement",
+      "language": "en",
+      "stem": "A flat metal template is composed of a rectangle of length $12\\text{ cm}$ and width $8\\text{ cm}$, with a semicircle attached along one of its $8\\text{ cm}$ sides. What is the total area of the compound shape?",
+      "choices": [
+        {
+          "id": "q-geometry-measurement-0007_a",
+          "label": "A",
+          "text": "$96 + 8\\pi\\text{ cm}^2$",
+          "isCorrect": true
+        },
+        {
+          "id": "q-geometry-measurement-0007_b",
+          "label": "B",
+          "text": "$96 + 16\\pi\\text{ cm}^2$",
+          "isCorrect": false
+        },
+        {
+          "id": "q-geometry-measurement-0007_c",
+          "label": "C",
+          "text": "$96 + 32\\pi\\text{ cm}^2$",
+          "isCorrect": false
+        },
+        {
+          "id": "q-geometry-measurement-0007_d",
+          "label": "D",
+          "text": "$104\\pi\\text{ cm}^2$",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "1. Rectangle area $= l \\times w = 12 \\times 8 = 96\\text{ cm}^2$.\n2. Semicircle diameter $= 8\\text{ cm} \\implies \\text{radius } r = 4\\text{ cm}$.\n3. Semicircle area $= \\frac{\\pi r^2}{2} = \\frac{\\pi (4^2)}{2} = \\frac{16\\pi}{2} = 8\\pi\\text{ cm}^2$.\n4. Total area $= 96 + 8\\pi\\text{ cm}^2$.\n\nCommon Trap: Calculating a full circle area ($16\\pi$) or using diameter as radius ($32\\pi$)."
+    },
+    {
       "id": "q-geometry-measurement-0008",
       "version": 1,
       "examIds": [
@@ -40125,6 +40521,48 @@
         }
       ],
       "explanation": "By conservation of volume: $\\text{Sphere Volume} = \\text{Cylinder Volume}$.\n\n1. Sphere Volume $= \\frac{4}{3}\\pi r^3 = \\frac{4}{3}\\pi (3^3) = \\frac{4}{3}\\pi (27) = 36\\pi\\text{ cm}^3$.\n2. Cylinder Volume $= \\pi r^2 h = \\pi (3^2) h = 9\\pi h$.\n3. Set volumes equal: $9\\pi h = 36\\pi \\implies h = \\frac{36}{9} = 4\\text{ cm}$."
+    },
+    {
+      "id": "q-geometry-measurement-0013",
+      "version": 1,
+      "examIds": [
+        "exam_upcat",
+        "exam_acet",
+        "exam_dlsucet",
+        "exam_ustet",
+        "exam_pupcet"
+      ],
+      "topicId": "topic_upcat_geometry",
+      "lessonId": "lesson-geometry-measurement",
+      "language": "en",
+      "stem": "A storage silo is composed of a cylinder of radius $3\\text{ m}$ and height $8\\text{ m}$, topped by a hemisphere of radius $3\\text{ m}$. What is the total volume of the storage silo?",
+      "choices": [
+        {
+          "id": "q-geometry-measurement-0013_a",
+          "label": "A",
+          "text": "$90\\pi\\text{ m}^3$",
+          "isCorrect": true
+        },
+        {
+          "id": "q-geometry-measurement-0013_b",
+          "label": "B",
+          "text": "$108\\pi\\text{ m}^3$",
+          "isCorrect": false
+        },
+        {
+          "id": "q-geometry-measurement-0013_c",
+          "label": "C",
+          "text": "$72\\pi\\text{ m}^3$",
+          "isCorrect": false
+        },
+        {
+          "id": "q-geometry-measurement-0013_d",
+          "label": "D",
+          "text": "$126\\pi\\text{ m}^3$",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "1. Cylinder Volume $= \\pi r^2 h = \\pi (3^2)(8) = 72\\pi\\text{ m}^3$.\n2. Hemisphere Volume $= \\frac{1}{2} \\times \\left(\\frac{4}{3}\\pi r^3\\right) = \\frac{2}{3}\\pi (3^3) = \\frac{2}{3}\\pi (27) = 18\\pi\\text{ m}^3$.\n3. Total Volume $= 72\\pi + 18\\pi = 90\\pi\\text{ m}^3$.\n\nCommon Trap: Adding a full sphere volume ($36\\pi$) instead of a hemisphere ($18\\pi$) gives $108\\pi\\text{ m}^3$."
     },
     {
       "id": "q-geometry-measurement-0014",
