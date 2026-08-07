@@ -13,8 +13,17 @@ questions:
       - text: Dermal tissue
         correct: true
       - text: Vascular tissue
+        rationale: |
+          You picked the tissue that moves water and sugar around the plant. Vascular tissue
+          is the plant's transport system, not its outer covering.
       - text: Ground tissue
+        rationale: |
+          You picked the tissue that fills most of the plant's body. Ground tissue handles
+          photosynthesis and storage. It sits inside, not on the surface.
       - text: Xylem
+        rationale: |
+          You picked one type of vascular tissue. Xylem carries water upward from the roots.
+          It does not form the plant's outer covering.
     explanation: |
       Dermal tissue forms the plant's outer covering, like skin, protecting it and controlling gas exchange and water loss.
     approved: true
@@ -28,8 +37,17 @@ questions:
       - text: Xylem
         correct: true
       - text: Phloem
+        rationale: |
+          You picked the tissue that carries sugar, not water. Phloem moves sugars from
+          the leaves to wherever the plant needs them. Water is xylem's job.
       - text: Dermal tissue
+        rationale: |
+          You picked the plant's outer covering. Dermal tissue protects the surface and
+          controls gas exchange. It does not transport water.
       - text: Ground tissue
+        rationale: |
+          You picked the filler tissue. Ground tissue handles photosynthesis and storage.
+          It does not carry water up from the roots.
     explanation: |
       Xylem carries water and minerals upward from the roots, made of dead cells that act like hollow pipes.
     approved: true
@@ -43,8 +61,17 @@ questions:
       - text: Phloem
         correct: true
       - text: Xylem
+        rationale: |
+          You picked the tissue that carries water, not sugar. Xylem moves water upward
+          from the roots through dead, hollow cells. Sugar distribution is phloem's job.
       - text: Dermal tissue
+        rationale: |
+          You picked the plant's outer covering. Dermal tissue protects the surface. It
+          does not carry sugars.
       - text: Ground tissue
+        rationale: |
+          You picked the bulk tissue. Ground tissue stores and uses energy, but it does
+          not transport sugars around the plant. That is phloem's job.
     explanation: |
       Phloem carries sugars (food made through photosynthesis) throughout the plant, made of living cells, unlike the dead cells of xylem.
     approved: true
@@ -58,8 +85,17 @@ questions:
       - text: Ground tissue
         correct: true
       - text: Dermal tissue
+        rationale: |
+          You picked the outer skin layer. Dermal tissue covers the surface. It does not
+          fill the body or handle photosynthesis and storage.
       - text: Xylem
+        rationale: |
+          You picked one part of the transport system. Xylem is a tube inside the stem
+          that carries water. It does not make up most of the plant's body.
       - text: Phloem
+        rationale: |
+          You picked the other part of the transport system. Phloem carries sugars. It
+          does not fill the bulk of the plant's body.
     explanation: |
       Ground tissue makes up most of a plant's body, filling the space between dermal and vascular tissue, handling photosynthesis, storage, and support.
     approved: true
@@ -73,8 +109,17 @@ questions:
       - text: Xylem transports the water upward; phloem transports the sugar.
         correct: true
       - text: Phloem transports the water upward; xylem transports the sugar.
+        rationale: |
+          You swapped them. Phloem carries sugar, not water. Xylem carries water, not
+          sugar. Their jobs are the opposite of what you chose.
       - text: Xylem transports both the water and the sugar.
+        rationale: |
+          You gave xylem both jobs. Xylem only carries water upward through dead cells.
+          Sugar needs living phloem cells to move it around the plant.
       - text: Ground tissue transports both the water and the sugar.
+        rationale: |
+          You picked the filler tissue. Ground tissue does not transport anything around
+          the plant. Transport is the job of the vascular tissues: xylem and phloem.
     explanation: |
       Water traveling upward from roots to leaves is the job of xylem. Sugar traveling from the leaves (where it is made) to the roots is the job of phloem.
     approved: true
@@ -88,8 +133,18 @@ questions:
       - text: 'No: this swaps their jobs; xylem carries water upward from the roots, while phloem carries sugar throughout the plant.'
         correct: true
       - text: 'Yes: phloem always carries water, and xylem always carries sugar.'
+        rationale: |
+          You agreed with the swap. Phloem carries sugar, not water. Xylem carries water,
+          not sugar. The student's claim has both tissues doing the wrong job.
       - text: 'No: but only because neither tissue transports any substance.'
+        rationale: |
+          You said neither tissue transports anything, which is wrong. Both xylem and
+          phloem are transport tissues. Xylem moves water; phloem moves sugar.
       - text: 'Yes: xylem and phloem are simply two different names for the same tissue.'
+        rationale: |
+          You said they are the same tissue. They are two distinct tissues with different
+          cell types and different jobs. Xylem uses dead cells for water; phloem uses
+          living cells for sugar.
     explanation: |
       These two terms are frequently swapped. Anchor them with their cell type: xylem is made of dead, hollow cells for water transport, while phloem is made of living cells actively distributing sugar (food).
     approved: true
@@ -103,8 +158,17 @@ questions:
       - text: Phototropism
         correct: true
       - text: Gravitropism
+        rationale: |
+          You picked the growth response to gravity, not to light. Gravitropism describes
+          how roots grow down and stems grow up in response to gravity.
       - text: Thigmotropism
+        rationale: |
+          You picked the growth response to touch. Thigmotropism is what makes a vine's
+          tendril curl around a fence post. Light is a different stimulus.
       - text: Pollination
+        rationale: |
+          You picked a reproductive process. Pollination is the transfer of pollen from
+          one flower part to another. It has nothing to do with directional growth.
     explanation: |
       Phototropism is a plant's directional growth response to light.
     approved: true
@@ -118,8 +182,17 @@ questions:
       - text: Gravitropism
         correct: true
       - text: Phototropism
+        rationale: |
+          You picked the growth response to light. Phototropism describes how a stem
+          bends toward a window. Gravity is a different stimulus.
       - text: Thigmotropism
+        rationale: |
+          You picked the growth response to touch. Thigmotropism is what makes tendrils
+          curl around objects they contact. Gravity is a different stimulus.
       - text: Fertilization
+        rationale: |
+          You picked a reproductive process. Fertilization is when a sperm cell joins an
+          egg cell. It has nothing to do with directional growth in response to gravity.
     explanation: |
       Gravitropism is a plant's directional growth response to gravity.
     approved: true
@@ -133,8 +206,17 @@ questions:
       - text: Positive thigmotropism, a growth response to touch
         correct: true
       - text: Positive phototropism, a growth response to light
+        rationale: |
+          You picked the response to light. The stimulus here is physical contact with
+          the post, not light. Growth toward a touch stimulus is thigmotropism.
       - text: Negative gravitropism, a growth response to gravity
+        rationale: |
+          You picked the response to gravity. Gravitropism explains why stems grow up
+          and roots grow down. The tendril is responding to the fence post it touched.
       - text: Negative thigmotropism, a growth response to touch
+        rationale: |
+          You got the right tropism but the wrong direction. The tendril grew toward and
+          around the post, not away from it. Moving toward the stimulus is positive.
     explanation: |
       Thigmotropism is a plant's growth response to touch or physical contact. The tendril curling toward and around the fence post (the stimulus) is positive thigmotropism.
     approved: true
@@ -148,8 +230,18 @@ questions:
       - text: Positive phototropism
         correct: true
       - text: Negative phototropism
+        rationale: |
+          You got the right tropism but the wrong direction. Negative means growing away
+          from the stimulus. The stem is growing toward the light, which is positive.
       - text: Positive gravitropism
+        rationale: |
+          You picked the response to gravity. Gravitropism explains why stems grow up
+          and roots grow down. The stimulus here is light, not gravity.
       - text: Negative gravitropism
+        rationale: |
+          You picked the response to gravity with the wrong direction. The stem is
+          responding to light, not gravity. Growth away from gravity is negative
+          gravitropism, which describes roots.
     explanation: |
       Stems typically show positive phototropism, growing toward the light stimulus.
     approved: true
@@ -163,8 +255,19 @@ questions:
       - text: Negative phototropism
         correct: true
       - text: Positive phototropism
+        rationale: |
+          You got the right tropism but the wrong direction. Positive means growing
+          toward the light. The roots are growing away from the light source.
       - text: Positive gravitropism
+        rationale: |
+          You picked the response to gravity. The roots are also showing positive
+          gravitropism (growing down), but the question asks about the response to
+          the light source specifically.
       - text: Negative gravitropism
+        rationale: |
+          You picked the response to gravity in the wrong direction. Negative gravitropism
+          means growing against gravity, which is what stems do. The question asks about
+          the roots' response to the light source.
     explanation: |
       Roots typically show negative phototropism, growing away from light, while also independently showing positive gravitropism by growing downward with gravity.
     approved: true
@@ -178,8 +281,19 @@ questions:
       - text: 'No: roots and stems typically show opposite tropic responses to the same stimulus; while stems show positive phototropism (toward light), roots typically show negative phototropism (away from light).'
         correct: true
       - text: 'Yes: every part of a plant always responds identically to the same stimulus.'
+        rationale: |
+          You agreed that all plant parts respond the same way. They do not. Roots and
+          stems often respond oppositely to the same stimulus. Stems grow toward light;
+          roots grow away from it.
       - text: 'No: but only because roots cannot respond to light at all.'
+        rationale: |
+          You said roots ignore light entirely. Roots can respond to light. They typically
+          show negative phototropism, growing away from it, not zero response.
       - text: 'Yes: since stems and roots are directly connected, they must grow in the same direction.'
+        rationale: |
+          You said physical connection forces the same response. Being connected does not
+          mean the same response. Roots and stems are connected and still grow in opposite
+          directions in response to light.
     explanation: |
       A common error is assuming the whole plant responds the same way to a stimulus. In reality, roots and stems often show opposite tropic responses: stems grow toward light (positive phototropism) while roots grow away from it (negative phototropism).
     approved: true
@@ -193,8 +307,18 @@ questions:
       - text: Pollination
         correct: true
       - text: Fertilization
+        rationale: |
+          You picked the next step. Fertilization is when the sperm cell from pollen
+          actually joins with an egg cell. Pollination is just the transfer of pollen
+          to the flower's female part.
       - text: Gravitropism
+        rationale: |
+          You picked a tropism. Gravitropism is a plant's growth response to gravity.
+          It has nothing to do with pollen transfer.
       - text: Germination
+        rationale: |
+          You picked the process where a seed sprouts into a new plant. Germination
+          comes after fertilization. It is not about pollen transfer between flower parts.
     explanation: |
       Pollination is the transfer of pollen from the male part of a flower to the female part, often carried by wind, insects, or other animals.
     approved: true
@@ -208,8 +332,19 @@ questions:
       - text: Fertilization
         correct: true
       - text: Pollination
+        rationale: |
+          You picked the step before. Pollination is the transfer of pollen to the
+          flower's female part. Fertilization is the actual joining of sperm and egg
+          cells that happens afterward.
       - text: Thigmotropism
+        rationale: |
+          You picked a tropism. Thigmotropism is a plant's growth response to touch.
+          It has nothing to do with sex cells joining.
       - text: Dispersal
+        rationale: |
+          You picked the spreading of seeds away from the parent plant. Dispersal
+          happens after fertilization and seed formation. It is not the joining of
+          sex cells.
     explanation: |
       Fertilization is the joining of a male sex cell from pollen with a female egg cell, forming a zygote that develops into a plant embryo.
     approved: true
@@ -223,8 +358,19 @@ questions:
       - text: 'Pollination only: pollination is just the transfer of pollen; fertilization requires the additional step of a sperm cell actually fusing with an egg cell, which is not mentioned here.'
         correct: true
       - text: Fertilization only, since any contact between pollen and a flower counts as fertilization.
+        rationale: |
+          You said contact with pollen is fertilization. It is not. Fertilization requires
+          a sperm cell to fuse with an egg cell inside the ovule. Pollen landing on the
+          flower is only pollination.
       - text: Both pollination and fertilization, since one step always implies the other has already happened.
+        rationale: |
+          You said pollination implies fertilization has also occurred. It does not.
+          Pollination can happen without fertilization following. The description mentions
+          no joining of sex cells, so only pollination is described.
       - text: Neither, since depositing pollen does not relate to plant reproduction.
+        rationale: |
+          You said pollen transfer is unrelated to reproduction. It is the first step.
+          Pollination is the start of plant sexual reproduction, even before fertilization.
     explanation: |
       A description of only pollen landing on a flower's female part (without mentioning any joining of sex cells) is describing pollination alone. Fertilization requires the additional step of a sperm cell fusing with an egg cell, which happens afterward.
     approved: true
@@ -238,8 +384,20 @@ questions:
       - text: The root will curve to grow downward (positive gravitropism), and the stem will curve to grow upward (negative gravitropism), since gravity is the stimulus and roots and stems typically respond oppositely to it.
         correct: true
       - text: Both the root and the stem will curve to grow downward, since both parts respond identically to gravity.
+        rationale: |
+          You said both parts grow downward. Roots grow down (positive gravitropism) but
+          stems grow up (negative gravitropism). They respond to gravity in opposite
+          directions.
       - text: Neither the root nor the stem will change direction, since gravity does not affect plant growth.
+        rationale: |
+          You said gravity has no effect. Gravity is a key stimulus for plant growth.
+          Gravitropism causes roots to grow down and stems to grow up, whatever
+          direction the seedling starts in.
       - text: The root will curve upward, and the stem will curve downward, reversing the typical gravitropic response.
+        rationale: |
+          You reversed the typical responses. Roots grow downward (positive gravitropism)
+          and stems grow upward (negative gravitropism). Your answer has each part doing
+          the other's job.
     explanation: |
       This is gravitropism: the root grows downward, in the same direction as gravity (positive gravitropism), while the stem grows upward, against gravity (negative gravitropism): the typical gravitropic pattern regardless of the seedling's starting orientation.
     approved: true
