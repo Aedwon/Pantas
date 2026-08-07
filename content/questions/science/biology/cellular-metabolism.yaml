@@ -17,8 +17,17 @@ questions:
       - text: Glucose and oxygen
         correct: true
       - text: Carbon dioxide and water
+        rationale: |
+          You listed the inputs, not the outputs. Carbon dioxide and water are what
+          photosynthesis consumes. Glucose and oxygen are what it produces.
       - text: ATP and water
+        rationale: |
+          You picked the products of cellular respiration, not photosynthesis. ATP is
+          the energy product of respiration. Photosynthesis produces glucose and oxygen.
       - text: Glucose and carbon dioxide
+        rationale: |
+          You got glucose right but swapped oxygen for carbon dioxide. Carbon dioxide
+          is an input to photosynthesis, not an output. Oxygen is the other product.
     explanation: |
       Photosynthesis combines carbon dioxide, water, and light energy to produce glucose (the plant's food) and oxygen (released as a byproduct).
     approved: true
@@ -31,8 +40,17 @@ questions:
       - text: Carbon dioxide, water, and ATP (energy)
         correct: true
       - text: Glucose and oxygen
+        rationale: |
+          You listed the inputs, not the outputs. Glucose and oxygen are what cellular
+          respiration consumes. It produces carbon dioxide, water, and ATP.
       - text: Only oxygen
+        rationale: |
+          You listed one input, not any product. Oxygen is consumed by cellular
+          respiration. The products are carbon dioxide, water, and ATP.
       - text: Light energy and glucose
+        rationale: |
+          You listed the inputs of photosynthesis, not the products of cellular
+          respiration. Cellular respiration produces carbon dioxide, water, and ATP.
     explanation: |
       Cellular respiration breaks down glucose and oxygen to produce carbon dioxide, water, and usable energy stored as ATP.
     approved: true
@@ -45,8 +63,17 @@ questions:
       - text: Chloroplast
         correct: true
       - text: Mitochondrion
+        rationale: |
+          You picked the organelle for cellular respiration. The mitochondrion breaks
+          down glucose to make ATP. Photosynthesis happens in the chloroplast.
       - text: Nucleus
+        rationale: |
+          You picked the control center. The nucleus stores DNA and directs the cell.
+          It does not capture light or make glucose.
       - text: Ribosome
+        rationale: |
+          You picked the protein builder. Ribosomes link amino acids to make proteins.
+          They are not involved in photosynthesis.
     explanation: |
       Photosynthesis happens inside the chloroplast, using chlorophyll to capture sunlight.
     approved: true
@@ -59,8 +86,18 @@ questions:
       - text: Mitochondrion
         correct: true
       - text: Chloroplast
+        rationale: |
+          You picked the organelle for photosynthesis. The chloroplast captures light
+          to make glucose. Cellular respiration, which breaks glucose down for ATP,
+          happens in the mitochondrion.
       - text: Nucleus
+        rationale: |
+          You picked the control center. The nucleus stores DNA and directs cell
+          activity. It does not break down glucose.
       - text: Ribosome
+        rationale: |
+          You picked the protein builder. Ribosomes make proteins. They are not
+          involved in breaking down glucose to release energy.
     explanation: |
       Cellular respiration mainly happens inside the mitochondrion, which is why it is often called the cell's "powerhouse."
     approved: true
@@ -73,8 +110,20 @@ questions:
       - text: Photosynthesis, since this describes a chloroplast.
         correct: true
       - text: Cellular respiration, since this describes a mitochondrion.
+        rationale: |
+          You identified it as a mitochondrion. Mitochondria are bean-shaped, not
+          disc-shaped, and not green. The green color and disc shape point to a
+          chloroplast, which performs photosynthesis.
       - text: Both processes equally.
+        rationale: |
+          You said both processes happen here. A single organelle does not do both.
+          The green, disc-shaped chloroplast does photosynthesis. The mitochondrion
+          does cellular respiration.
       - text: 'Neither: this organelle does not perform any energy process.'
+        rationale: |
+          You said the organelle does nothing. The green color is the giveaway: it
+          comes from chlorophyll, the molecule that captures sunlight. Capturing
+          light for energy is the whole job of this organelle.
     explanation: |
       A green, disc-shaped organelle matches the chloroplast, whose green color comes from chlorophyll, and which performs photosynthesis.
     approved: true
@@ -87,8 +136,20 @@ questions:
       - text: Cellular respiration, since this describes a mitochondrion.
         correct: true
       - text: Photosynthesis, since this describes a chloroplast.
+        rationale: |
+          You confused the two organelles. Chloroplasts are green and disc-shaped.
+          The description here is bean-shaped with folded inner membranes. Those
+          features belong to the other energy organelle.
       - text: Both processes equally.
+        rationale: |
+          You said both processes happen here. A single organelle does not do both.
+          The bean-shaped mitochondrion does cellular respiration. The disc-shaped
+          green chloroplast does photosynthesis.
       - text: 'Neither: this organelle does not perform any energy process.'
+        rationale: |
+          You said it does nothing. The folded inner membranes are the clue: they
+          create extra surface area for chemical reactions. That is the structure
+          of an organelle built specifically to make energy.
     explanation: |
       A bean-shaped organelle with folded inner membranes matches the mitochondrion, which performs cellular respiration.
     approved: true
@@ -101,8 +162,19 @@ questions:
       - text: Photosynthesis in plants produces oxygen as a byproduct while making glucose, which animals then use in cellular respiration.
         correct: true
       - text: Animals produce their own oxygen internally, unrelated to plants.
+        rationale: |
+          You said animals make their own oxygen. Animals consume oxygen through
+          breathing. They cannot produce it. Oxygen comes from photosynthesis in
+          plants and photosynthetic organisms.
       - text: Plants absorb oxygen from animals and store it for later use.
+        rationale: |
+          You reversed the flow. Plants release oxygen as a byproduct of
+          photosynthesis. They do not absorb it from animals and store it.
       - text: Oxygen is created directly by the Sun, unrelated to any living process.
+        rationale: |
+          You said the Sun makes oxygen directly. The Sun provides light energy, but
+          it does not produce oxygen. Oxygen is released by plants during
+          photosynthesis.
     explanation: |
       Photosynthesis releases oxygen as a byproduct of making glucose. This oxygen becomes available for animals (and plants themselves) to use as a raw material in cellular respiration.
     approved: true
@@ -115,8 +187,19 @@ questions:
       - text: 'No: plants perform both photosynthesis (to make food) and cellular respiration (to use that food for energy), just like animal cells.'
         correct: true
       - text: 'Yes: plants never need ATP energy, unlike animals.'
+        rationale: |
+          You said plants do not need ATP. Every living cell needs ATP to do work,
+          including plant cells. Plants run cellular respiration to produce their own
+          ATP from the glucose they make.
       - text: 'No: plants only perform cellular respiration, never photosynthesis.'
+        rationale: |
+          You removed photosynthesis from plants. Plants do perform photosynthesis.
+          The claim is wrong because it also says plants do not do respiration, but
+          plants do both.
       - text: 'Yes: only animal cells contain mitochondria.'
+        rationale: |
+          You said only animal cells have mitochondria. Plant cells also have
+          mitochondria and use them for cellular respiration, just like animal cells.
     explanation: |
       Plant cells need ATP energy just as much as animal cells do. To get it, they also perform cellular respiration, breaking down some of the glucose they produced through photosynthesis.
     approved: true
@@ -129,8 +212,20 @@ questions:
       - text: 'No: an equation with light energy as an input describes photosynthesis, not cellular respiration.'
         correct: true
       - text: 'Yes: light energy is always an input for cellular respiration.'
+        rationale: |
+          You said cellular respiration needs light energy. It does not. Cellular
+          respiration uses glucose and oxygen. Light energy is an input only for
+          photosynthesis.
       - text: 'No: but only because light energy is never used by any biological process.'
+        rationale: |
+          You said no biological process uses light. Photosynthesis uses light energy
+          as a key input to make glucose. The equation with light energy describes
+          photosynthesis, not cellular respiration.
       - text: 'Yes: photosynthesis and cellular respiration use identical inputs.'
+        rationale: |
+          You said both processes use the same inputs. They use opposite substances.
+          Photosynthesis takes in carbon dioxide, water, and light. Cellular
+          respiration takes in glucose and oxygen.
     explanation: |
       Light energy is a defining input of photosynthesis. Cellular respiration's defining output is ATP energy, not an input of light: mixing these up reverses the two equations.
     approved: true
@@ -143,8 +238,19 @@ questions:
       - text: 'No: the chloroplast performs photosynthesis; the mitochondrion performs cellular respiration.'
         correct: true
       - text: 'Yes: both processes happen in the mitochondrion.'
+        rationale: |
+          You said both processes happen in the mitochondrion. Photosynthesis happens
+          in the chloroplast. The mitochondrion only does cellular respiration.
       - text: 'No: but only because neither organelle is involved in energy production.'
+        rationale: |
+          You said neither organelle handles energy. Both do. The mitochondrion
+          releases energy through respiration; the chloroplast captures energy
+          through photosynthesis.
       - text: 'Yes: the mitochondrion is simply another name for the chloroplast.'
+        rationale: |
+          You said they are the same organelle. They are distinct. The chloroplast
+          is green and disc-shaped. The mitochondrion is bean-shaped with folded
+          inner membranes. They perform different processes.
     explanation: |
       Chloroplasts (found only in plant-type cells) capture light energy for photosynthesis. Mitochondria (found in nearly all cells) release energy from glucose through cellular respiration: different organelles, different processes.
     approved: true
@@ -157,8 +263,19 @@ questions:
       - text: 'No: cellular respiration consumes oxygen as a raw material; it does not produce it. Oxygen is a product of photosynthesis instead.'
         correct: true
       - text: 'Yes: cellular respiration always produces oxygen as a byproduct.'
+        rationale: |
+          You said respiration produces oxygen. It consumes oxygen. Producing oxygen
+          is what photosynthesis does. Cellular respiration produces carbon dioxide
+          and water instead.
       - text: 'No: cellular respiration produces glucose instead of oxygen.'
+        rationale: |
+          You said respiration produces glucose. Glucose is an input to respiration,
+          not a product. Cellular respiration breaks glucose down and produces
+          carbon dioxide, water, and ATP.
       - text: 'Yes: both photosynthesis and cellular respiration produce oxygen.'
+        rationale: |
+          You said both processes produce oxygen. Cellular respiration consumes
+          oxygen. Only photosynthesis produces oxygen as a byproduct.
     explanation: |
       Cellular respiration uses oxygen as an input to release energy, producing carbon dioxide and water as byproducts. Oxygen is strictly consumed here, not produced: it is photosynthesis that produces oxygen.
     approved: true
@@ -171,8 +288,21 @@ questions:
       - text: "They are essentially opposite processes: the products of one are the raw materials the other needs, and vice versa."
         correct: true
       - text: They are identical processes that happen in the same organelle.
+        rationale: |
+          You said they are identical and share an organelle. They are opposite
+          processes. Photosynthesis builds glucose; respiration breaks it down.
+          They happen in different organelles: chloroplast vs. mitochondrion.
       - text: They are completely unrelated processes with no shared substances.
+        rationale: |
+          You said they share no substances. They are deeply connected. The glucose
+          and oxygen that photosynthesis produces are exactly what respiration needs.
+          The carbon dioxide and water that respiration produces feed back into
+          photosynthesis.
       - text: Cellular respiration is simply an early stage of photosynthesis.
+        rationale: |
+          You said respiration is a stage of photosynthesis. They are two separate
+          processes. Cellular respiration breaks down glucose for energy. It is not
+          part of photosynthesis.
     explanation: |
       Photosynthesis's products (glucose and oxygen) are exactly what cellular respiration needs as reactants, and respiration's products (carbon dioxide and water) are exactly what photosynthesis needs: making them mirror-image processes.
     approved: true
@@ -185,8 +315,20 @@ questions:
       - text: 6O2 (oxygen gas); this is photosynthesis.
         correct: true
       - text: 6CO2 (carbon dioxide); this is cellular respiration.
+        rationale: |
+          You listed carbon dioxide as the missing product. Carbon dioxide is an
+          input to this equation, not an output. And the equation with light energy
+          as an input describes photosynthesis, not cellular respiration.
       - text: ATP (energy); this is cellular respiration.
+        rationale: |
+          You picked ATP and called it cellular respiration. The equation shows
+          light energy as an input, which means this is photosynthesis. And the
+          missing product is oxygen gas, not ATP.
       - text: 6H2O (water); this is photosynthesis.
+        rationale: |
+          You said the missing product is water. Water is an input to this equation.
+          The missing product is oxygen gas. You correctly identified the process
+          as photosynthesis.
     explanation: |
       This equation matches photosynthesis (carbon dioxide, water, and light energy combining to form glucose). The complete equation also produces oxygen gas ($6O_2$) as the other product.
     approved: true
@@ -199,8 +341,20 @@ questions:
       - text: 'Yes: plant cells perform cellular respiration continuously, alongside photosynthesis, to convert some of their own glucose into usable ATP energy.'
         correct: true
       - text: 'No: plant cells only perform cellular respiration at night, never during the day.'
+        rationale: |
+          You said respiration only happens at night in plants. Plants run cellular
+          respiration continuously, day and night, because they always need ATP energy.
+          Photosynthesis is the process that stops at night, not respiration.
       - text: 'No: plant cells never perform cellular respiration at all.'
+        rationale: |
+          You said plants never do cellular respiration. Plant cells have mitochondria
+          and perform cellular respiration just like animal cells. They need ATP to
+          survive, and respiration is how they make it.
       - text: 'Yes: but only because the plant has stopped photosynthesizing for the day.'
+        rationale: |
+          You got the yes right but gave the wrong reason. The plant has not stopped
+          photosynthesizing. Both processes run at the same time during daylight.
+          Photosynthesis makes glucose; respiration uses some of it for ATP.
     explanation: |
       Photosynthesis happens mainly during the day, but cellular respiration happens continuously in plant cells, just like in animal cells, since plant cells constantly need ATP energy for their own life processes.
     approved: true
