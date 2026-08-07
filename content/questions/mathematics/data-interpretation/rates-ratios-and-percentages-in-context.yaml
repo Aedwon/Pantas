@@ -21,8 +21,18 @@ questions:
       - text: '$25\%$'
         correct: true
       - text: '$20\%$'
+        rationale: |
+          You divided the rise by the later figure instead of the earlier one.
+          Percentage increase always measures against where you started, which is
+          40.
       - text: '$30\%$'
+        rationale: |
+          You used the difference against a rounder number than the one in the
+          table. The base here is 40.
       - text: '$40\%$'
+        rationale: |
+          You compared the rise to 25 rather than to 40. The starting figure is what
+          the increase is measured against.
     explanation: |
       $$\text{Percentage Increase} = \frac{50 - 40}{40} \times 100\% = \frac{10}{40} \times 100\% = 25\%$$
 
@@ -35,8 +45,16 @@ questions:
       - text: '$2:3$'
         correct: true
       - text: '$1:2$'
+        rationale: |
+          You rounded 75 down to 100 in your head. The exact pair is 50 and 75,
+          which cancels to 2 to 3.
       - text: '$3:4$'
+        rationale: |
+          You cancelled to the wrong pair. Dividing both by 25 gives 2 and 3, not 3
+          and 4.
       - text: '$4:5$'
+        rationale: |
+          You compared the wrong two numbers. The pair in the table is 50 and 75.
     explanation: |
       $$\text{Ratio} = \frac{50}{75} = \frac{2}{3} \implies 2:3$$
 
@@ -57,8 +75,15 @@ questions:
       - text: '$15\%$'
         correct: true
       - text: '$12\%$'
+        rationale: |
+          You divided by a larger total than the one given. The population here is
+          8000.
       - text: '$18\%$'
+        rationale: |
+          You used a different barangay's pair. This row is 1200 out of 8000.
       - text: '$20\%$'
+        rationale: |
+          You rounded the share up. 1200 out of 8000 is exactly 15 in every hundred.
     explanation: |
       $$\text{Percentage} = \frac{1200}{8000} \times 100\% = 15\%$$
 
@@ -71,8 +96,16 @@ questions:
       - text: '$5:7$'
         correct: true
       - text: '$3:5$'
+        rationale: |
+          You cancelled too far. Dividing 1500 and 2100 by 300 gives 5 and 7, and
+          neither shrinks further.
       - text: '$4:5$'
+        rationale: |
+          You used a pair that does not divide these two numbers. 1500 to 2100
+          reduces to 5 to 7.
       - text: '$5:8$'
+        rationale: |
+          You kept 5 and mismatched its partner. 2100 divided by 300 is 7, not 8.
     explanation: |
       $$\text{Ratio} = \frac{1500}{2100} = \frac{15}{21} = \frac{5}{7} \implies 5:7$$
 
@@ -92,8 +125,16 @@ questions:
       - text: '$25\%$'
         correct: true
       - text: '$15\%$'
+        rationale: |
+          You measured the rise against the later quarter. The base is the earlier
+          figure, 120.
       - text: '$20\%$'
+        rationale: |
+          You used a base of 150 instead of 120. The increase is always measured
+          from where you began.
       - text: '$30\%$'
+        rationale: |
+          You compared the rise of 30 to 100. The base in the table is 120.
     explanation: |
       $$\text{Percentage Increase} = \frac{150 - 120}{120} \times 100\% = \frac{30}{120} \times 100\% = 25\%$$
 
@@ -106,8 +147,16 @@ questions:
       - text: '$60\%$'
         correct: true
       - text: '$40\%$'
+        rationale: |
+          You used the other facility's share. The question asks for Y, which is 180
+          of the 300.
       - text: '$50\%$'
+        rationale: |
+          You assumed an even split. The two facilities are 120 and 180, which is
+          not half each.
       - text: '$65\%$'
+        rationale: |
+          You rounded the share up. 180 out of 300 is exactly 60 in every hundred.
     explanation: |
       $$\text{Total Q1} = 120 + 180 = 300$$
       $$\text{Proportion Y} = \frac{180}{300} \times 100\% = 60\%$$
@@ -128,8 +177,17 @@ questions:
       - text: '$40\%$'
         correct: true
       - text: '$20\%$'
+        rationale: |
+          You measured the rise of 8 against the later figure. The base is Q1, which
+          is 20.
       - text: '$35\%$'
+        rationale: |
+          You used a base larger than 20. Growth is measured from the starting
+          quarter.
       - text: '$50\%$'
+        rationale: |
+          You compared 28 to 20 as a whole rather than the change. The rise itself
+          is 8.
     explanation: |
       $$\text{Growth} = \frac{28 - 20}{20} \times 100\% = \frac{8}{20} \times 100\% = 40\%$$
 
@@ -142,8 +200,15 @@ questions:
       - text: '$2:3$'
         correct: true
       - text: '$1:2$'
+        rationale: |
+          You rounded 30 up to 40 in your head. The exact pair is 20 and 30, which
+          cancels to 2 to 3.
       - text: '$3:4$'
+        rationale: |
+          You cancelled to the wrong pair. Dividing both by 10 gives 2 and 3.
       - text: '$4:5$'
+        rationale: |
+          You used a pair that does not divide 20 and 30.
     explanation: |
       $$\text{Ratio} = \frac{20}{30} = \frac{2}{3} \implies 2:3$$
 
@@ -163,8 +228,16 @@ questions:
       - text: '$40\%$'
         correct: true
       - text: '$25\%$'
+        rationale: |
+          You divided the female figure by the male one. The share is measured
+          against the two added together.
       - text: '$30\%$'
+        rationale: |
+          You used a total larger than 500. The engineering total is 300 plus 200.
       - text: '$50\%$'
+        rationale: |
+          You assumed an even split. The two figures are 300 and 200, so the shares
+          differ.
     explanation: |
       $$\text{Total Engineering} = 300 + 200 = 500$$
       $$\text{Percentage Female} = \frac{200}{500} \times 100\% = 40\%$$
@@ -178,8 +251,16 @@ questions:
       - text: '$1:3$'
         correct: true
       - text: '$1:2$'
+        rationale: |
+          You halved instead of taking a third. 450 is three times 150, not twice
+          it.
       - text: '$2:3$'
+        rationale: |
+          You cancelled to the wrong pair. Dividing 150 and 450 by 150 gives 1 and
+          3.
       - text: '$4:5$'
+        rationale: |
+          You used a pair that does not divide these two numbers.
     explanation: |
       $$\text{Ratio} = \frac{150}{450} = \frac{1}{3} \implies 1:3$$
 
@@ -199,8 +280,16 @@ questions:
       - text: '$25\%$'
         correct: true
       - text: '$10\%$'
+        rationale: |
+          You measured the rise of 1000 against a base ten times too large. The
+          starting figure is 4000.
       - text: '$20\%$'
+        rationale: |
+          You used 5000 as the base. The increase is measured from Year 1, which is
+          4000.
       - text: '$30\%$'
+        rationale: |
+          You compared the rise to a smaller base than 4000.
     explanation: |
       $$\text{Percentage Increase} = \frac{5000 - 4000}{4000} \times 100\% = \frac{1000}{4000} \times 100\% = 25\%$$
 
@@ -213,8 +302,15 @@ questions:
       - text: '$33.33\%$'
         correct: true
       - text: '$25.00\%$'
+        rationale: |
+          You divided 2000 by 8000. The Year 1 total is 4000 plus 2000, which is
+          6000.
       - text: '$50.00\%$'
+        rationale: |
+          You assumed the two types split evenly. The figures are 4000 and 2000.
       - text: '$66.67\%$'
+        rationale: |
+          You gave the other type's share. Automobiles are the 2000, not the 4000.
     explanation: |
       $$\text{Total Year 1} = 4000 + 2000 = 6000$$
       $$\text{Percentage Automobiles} = \frac{2000}{6000} \times 100\% = 33.33\%$$
