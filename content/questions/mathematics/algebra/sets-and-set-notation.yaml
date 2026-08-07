@@ -13,8 +13,16 @@ questions:
       - text: $\{3, 5\}$
         correct: true
       - text: $\{1, 3, 5, 7, 8, 9\}$
+        rationale: |
+          You gave the union. Intersection keeps only what appears in both sets, not
+          everything from either.
       - text: $\{1, 7\}$
+        rationale: |
+          You gave what is in the first set alone. Intersection is the overlap, so
+          both sets have to contain it.
       - text: $\{8, 9\}$
+        rationale: |
+          You gave what is in the second set alone. The overlap is what they share.
     explanation: |
       The intersection $A \cap B$ contains elements present in both set $A$ and set $B$. The numbers 3 and 5 appear in both sets, so $A \cap B = \{3, 5\}$.
 
@@ -27,8 +35,16 @@ questions:
       - text: $5 \in S$
         correct: true
       - text: $5 \subset S$
+        rationale: |
+          You used the subset symbol. That says one set sits inside another, and 5
+          here is a single element, not a set.
       - text: $S \in 5$
+        rationale: |
+          You wrote it backwards. Membership reads element first, then the set.
       - text: $5 \subseteq S$
+        rationale: |
+          You used the subset symbol again, this time the one that allows equality.
+          Membership is a different relation.
     explanation: |
       The symbol $\in$ denotes element membership ($5 \in S$). The symbols $\subset$ and $\subseteq$ represent subset relationships between sets, not elements and sets.
 
@@ -41,8 +57,17 @@ questions:
       - text: $\{1, 3, 5, 7\}$
         correct: true
       - text: $\{2, 4, 6, 8\}$
+        rationale: |
+          You gave the set itself. The complement is everything in the universal set
+          that is left over.
       - text: $\{1, 2, 3, 4, 5, 6, 7, 8\}$
+        rationale: |
+          You gave the whole universal set. The complement leaves out the members of
+          the set.
       - text: $\emptyset$
+        rationale: |
+          You emptied it. There are four numbers in the universal set that are not
+          in this one.
     explanation: |
       The complement $A'$ consists of all elements in the universal set $U$ that are not in set $A$. Subtracting $A$ from $U$ leaves $\{1, 3, 5, 7\}$.
 
@@ -55,8 +80,17 @@ questions:
       - text: The empty set $\emptyset$ is a subset of every set.
         correct: true
       - text: The empty set contains the number 0.
+        rationale: |
+          You confused the empty set with a set holding zero. It holds nothing at
+          all, not even 0.
       - text: The empty set is an element of every set.
+        rationale: |
+          You said element where subset belongs. It sits inside every set as a
+          subset, not as a member of it.
       - text: The complement of any set is equal to the empty set.
+        rationale: |
+          You mixed up complement with the empty set. A complement depends on the
+          universal set.
     explanation: |
       By definition, the empty set $\emptyset$ (containing zero elements) is a subset of every set. It does not contain the number 0; it contains no elements at all.
 
@@ -69,8 +103,16 @@ questions:
       - text: $\{a, b, c, d, e\}$
         correct: true
       - text: $\{b, c\}$
+        rationale: |
+          You gave the intersection. Union collects everything from both sets, not
+          only the shared part.
       - text: $\{a\}$
+        rationale: |
+          You kept only what the first set has on its own. Union keeps the shared
+          members too.
       - text: $\{d, e\}$
+        rationale: |
+          You kept only what the second set has on its own.
     explanation: |
       The union $A \cup B$ combines all distinct elements from both set $A$ and set $B$. Combining them gives $\{a, b, c, d, e\}$.
 
@@ -83,8 +125,17 @@ questions:
       - text: $35$
         correct: true
       - text: $45$
+        rationale: |
+          You added the two clubs and forgot to subtract the overlap. The ten in
+          both would be counted twice.
       - text: $15$
+        rationale: |
+          You subtracted the overlap twice, or you gave the count for one club minus
+          the overlap.
       - text: $30$
+        rationale: |
+          You dropped one club's members. The formula adds both totals first, then
+          removes the overlap once.
     explanation: |
       Using the set overlap formula $|M \cup S| = |M| + |S| - |M \cap S|$, we get $|M \cup S| = 25 + 20 - 10 = 35$. Adding $25 + 20 = 45$ without subtracting the intersection counts students in both clubs twice.
 
@@ -97,8 +148,17 @@ questions:
       - text: $10$
         correct: true
       - text: $2$
+        rationale: |
+          You subtracted in the wrong direction somewhere. Start from the 42 who
+          like at least one, then use the two totals.
       - text: $18$
+        rationale: |
+          You gave a difference between the two dessert counts. The overlap comes
+          from the union formula.
       - text: $12$
+        rationale: |
+          You used 50 as the union instead of 42. Eight students like neither, so
+          they are outside it.
     explanation: |
       The number of students who like at least one dessert is $50 - 8 = 42$. Using $|H \cup B| = |H| + |B| - |H \cap B|$, we get $42 = 30 + 22 - |H \cap B| \implies 42 = 52 - |H \cap B|$, so $|H \cap B| = 10$.
 
@@ -111,8 +171,17 @@ questions:
       - text: $16$
         correct: true
       - text: $8$
+        rationale: |
+          You used $2 \times 4$. The count of subsets is $2$ raised to the number of
+          elements.
       - text: $15$
+        rationale: |
+          You subtracted 1 to drop the empty set. It counts, so the total stays at
+          16.
       - text: $4$
+        rationale: |
+          You gave the number of elements. Each element can be in or out, which
+          multiplies the possibilities.
     explanation: |
       The total number of subsets for a set with $n$ elements is given by $2^n$. For $n = 4$, the number of subsets is $2^4 = 16$. (15 is the number of proper subsets).
 
@@ -125,8 +194,16 @@ questions:
       - text: $27$
         correct: true
       - text: $28$
+        rationale: |
+          You gave the Filipino count. The question asks how many take Filipino and
+          not Spanish, so the overlap comes off.
       - text: $1$
+        rationale: |
+          You gave the overlap itself. Take that away from the Filipino total
+          instead.
       - text: $17$
+        rationale: |
+          You used the Spanish total. The subject you want is Filipino.
     explanation: |
       First find the number of students studying both: $|F \cup S| = |F| + |S| - |F \cap S| \implies 45 = 28 + 18 - x \implies x = 1$. The number studying only Filipino is $28 - 1 = 27$.
 
@@ -139,8 +216,16 @@ questions:
       - text: $A \cap B'$
         correct: true
       - text: $A \cup B'$
+        rationale: |
+          You used union. In $A$ and not in $B$ means both conditions hold at once,
+          so it is an intersection.
       - text: $A' \cap B$
+        rationale: |
+          You have the two sets swapped. This says in $B$ and not in $A$.
       - text: $(A \cap B)'$
+        rationale: |
+          You took the complement of the whole overlap, which also picks up
+          everything outside $A$.
     explanation: |
       The set of elements in $A$ and not in $B$ is the relative complement $A \setminus B$, which equals $A \cap B'$ (the intersection of $A$ with the complement of $B$).
 
@@ -160,8 +245,16 @@ questions:
       - text: $93$
         correct: true
       - text: $125$
+        rationale: |
+          You added the three totals and never subtracted the overlaps. Everyone in
+          two sports is counted twice that way.
       - text: $88$
+        rationale: |
+          You subtracted the triple overlap instead of adding it back. It comes off
+          three times in the pair terms, so it goes back once.
       - text: $98$
+        rationale: |
+          You missed one of the pair overlaps when subtracting.
     explanation: |
       Using the 3-set inclusion-exclusion principle:
       $|B \cup V \cup D| = |B| + |V| + |D| - |B \cap V| - |V \cap D| - |B \cap D| + |B \cap V \cap D|$
@@ -176,8 +269,16 @@ questions:
       - text: $7$
         correct: true
       - text: $12$
+        rationale: |
+          You subtracted the wrong figure from 100. The 93 is the number who like at
+          least one.
       - text: $0$
+        rationale: |
+          You assumed everybody liked something. Seven of the hundred are outside
+          all three sports.
       - text: $15$
+        rationale: |
+          You used a union total that is not the one given.
     explanation: |
       The number of students who like none of the sports is the total number of students minus those who like at least one sport: $100 - 93 = 7$.
 
@@ -190,8 +291,16 @@ questions:
       - text: $\{3\}$
         correct: true
       - text: $\{-2, 3\}$
+        rationale: |
+          You included $-2$. It is in the first set, but the second stops short of
+          $-3$ and starts at $-2$, so check which members both share above zero.
       - text: $\emptyset$
+        rationale: |
+          You emptied it. Both sets contain 3 in this case, so the difference is not
+          empty.
       - text: $\{-3, 3\}$
+        rationale: |
+          You added $-3$. The first set starts at $-2$, so $-3$ is in neither.
     explanation: |
       Listing elements in roster form: $A = \{-2, -1, 0, 1, 2, 3\}$. For set $B$, $x^2 < 9 \implies -3 < x < 3$, so integers in $B$ are $\{-2, -1, 0, 1, 2\}$. Subtracting $B$ from $A$ leaves $A \setminus B = \{3\}$.
 
@@ -204,8 +313,16 @@ questions:
       - text: $(A \cup B)' = A' \cap B'$
         correct: true
       - text: $(A \cup B)' = A' \cup B'$
+        rationale: |
+          You kept the union symbol on the right. De Morgan flips it: the complement
+          of a union is an intersection.
       - text: $(A \cap B)' = A' \cap B'$
+        rationale: |
+          You applied it to an intersection and kept the intersection. That one
+          flips to a union.
       - text: $A \cap (B \cup C) = (A \cap B) \cup C$
+        rationale: |
+          You picked the distributive rule, and it is written wrongly here as well.
     explanation: |
       De Morgan's Laws state that the complement of a union is the intersection of the complements: $(A \cup B)' = A' \cap B'$, and the complement of an intersection is the union of the complements: $(A \cap B)' = A' \cup B'$.
 
@@ -218,8 +335,17 @@ questions:
       - text: $8$
         correct: true
       - text: $5$
+        rationale: |
+          You forgot to add the three who do all three back in, or you dropped one
+          of the overlaps.
       - text: $10$
+        rationale: |
+          You used one of the pair overlaps as the answer instead of working out the
+          choir-only figure.
       - text: $12$
+        rationale: |
+          You subtracted the triple overlap once instead of twice from the pair
+          totals.
     explanation: |
       Choir total $= 20$.
       Choir and mobile games only $= 7 - 3 = 4$.
