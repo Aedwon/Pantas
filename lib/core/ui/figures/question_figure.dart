@@ -5,6 +5,7 @@ import 'package:pantas/core/ui/figures/gear_train_figure.dart';
 import 'package:pantas/core/ui/figures/lever_balance_figure.dart';
 import 'package:pantas/core/ui/figures/pulley_system_figure.dart';
 import 'package:pantas/core/ui/figures/spring_scale_figure.dart';
+import 'package:pantas/core/ui/figures/stability_shape_figure.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
 /// A question's diagram, drawn from the spec in its own content file.
@@ -63,6 +64,8 @@ class QuestionFigure extends StatelessWidget {
         return LeverBalanceFigure.fromSpec(spec);
       case PulleySystemFigure.kind:
         return PulleySystemFigure.fromSpec(spec);
+      case StabilityShapeFigure.kind:
+        return StabilityShapeFigure.fromSpec(spec);
       default:
         return null;
     }

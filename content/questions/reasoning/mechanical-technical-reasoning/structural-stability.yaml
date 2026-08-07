@@ -7,7 +7,6 @@ questions:
   - id: q-mechanical-technical-reasoning-structural-stability-0001
     type: structural-stability
     difficulty: easy
-    figure: structural-stability-01
     stem: |
       What is the term for the single point where an object's entire weight can be thought of as concentrated, balancing perfectly in every direction?
     choices:
@@ -29,7 +28,6 @@ questions:
   - id: q-mechanical-technical-reasoning-structural-stability-0002
     type: structural-stability
     difficulty: easy
-    figure: structural-stability-02
     stem: |
       What is the term for the area on the ground enclosed by an object's points (or edges) of contact with the ground?
     choices:
@@ -52,6 +50,12 @@ questions:
     type: structural-stability
     difficulty: medium
     figure: structural-stability-03
+    figureSpec:
+      kind: stability-shape
+      shapes:
+        - form: box
+          baseWidth: 2
+          height: 3
     stem: |
       Figure shows an object with an imaginary vertical line dropped straight down from its center of gravity. Under what condition does the object remain stable and not tip over?
     choices:
@@ -74,6 +78,15 @@ questions:
     type: structural-stability
     difficulty: medium
     figure: structural-stability-04
+    figureSpec:
+      kind: stability-shape
+      shapes:
+        - form: pyramid
+          baseWidth: 3
+          height: 1
+        - form: pyramid
+          baseWidth: 1
+          height: 3
     stem: |
       Figure shows a short, wide pyramid and a tall, narrow pyramid, both the same weight and made of the same uniform material. Which one is more stable, and why?
     choices:
@@ -96,6 +109,13 @@ questions:
     type: structural-stability
     difficulty: medium
     figure: structural-stability-05
+    figureSpec:
+      kind: stability-shape
+      tilt: 22
+      shapes:
+        - form: box
+          baseWidth: 2
+          height: 3
     stem: |
       Figure shows a rectangular box being slowly tilted to one side, pivoting on one bottom edge. At what point does the box tip over rather than settling back down?
     choices:
@@ -117,7 +137,6 @@ questions:
   - id: q-mechanical-technical-reasoning-structural-stability-0006
     type: structural-stability
     difficulty: medium
-    figure: structural-stability-06
     stem: |
       A moving truck carries the same total weight of cargo, either stacked very high or spread out lower. Which loading method makes the truck more stable while turning corners?
     choices:
@@ -139,7 +158,6 @@ questions:
   - id: q-mechanical-technical-reasoning-structural-stability-0007
     type: structural-stability
     difficulty: medium
-    figure: structural-stability-07
     stem: |
       A person standing with feet close together is compared to the same person standing with feet spread wider apart. Which stance is more stable against being pushed sideways?
     choices:
@@ -161,7 +179,6 @@ questions:
   - id: q-mechanical-technical-reasoning-structural-stability-0008
     type: structural-stability
     difficulty: hard
-    figure: structural-stability-08
     stem: |
       An object has a very low center of gravity but an extremely narrow base of support. A student assumes this object must be very stable, "since only the center of gravity's height matters." Is this assumption correct?
     choices:
@@ -183,7 +200,6 @@ questions:
   - id: q-mechanical-technical-reasoning-structural-stability-0009
     type: structural-stability
     difficulty: hard
-    figure: structural-stability-09
     stem: |
       A very heavy object has a high center of gravity and a narrow base of support. A student assumes this object must be stable, "since heavier objects are always more stable." Is this assumption correct?
     choices:
@@ -205,7 +221,6 @@ questions:
   - id: q-mechanical-technical-reasoning-structural-stability-0010
     type: structural-stability
     difficulty: hard
-    figure: structural-stability-10
     stem: |
       A student says, "this box is stable," treating stability as a fixed, permanent property of the box regardless of how it is positioned. Is this the correct way to think about stability?
     choices:
@@ -227,7 +242,6 @@ questions:
   - id: q-mechanical-technical-reasoning-structural-stability-0011
     type: structural-stability
     difficulty: medium
-    figure: structural-stability-11
     stem: |
       A bottom-heavy roly-poly toy (weighted heavily at its rounded base) is pushed over onto its side. Why does it always return to standing upright?
     choices:
@@ -249,7 +263,6 @@ questions:
   - id: q-mechanical-technical-reasoning-structural-stability-0012
     type: structural-stability
     difficulty: medium
-    figure: structural-stability-12
     stem: |
       A sports utility vehicle (SUV) has a higher center of gravity than a sports car with the same wheel base width. Which vehicle is more prone to rolling over while making a sharp turn?
     choices:
@@ -271,7 +284,6 @@ questions:
   - id: q-mechanical-technical-reasoning-structural-stability-0013
     type: structural-stability
     difficulty: medium
-    figure: structural-stability-13
     stem: |
       A ladder with widely spread legs is compared to an identical-height ladder with legs placed close together. Which ladder is more stable against tipping sideways?
     choices:
@@ -293,7 +305,6 @@ questions:
   - id: q-mechanical-technical-reasoning-structural-stability-0014
     type: structural-stability
     difficulty: hard
-    figure: structural-stability-14
     stem: |
       A box's base of support extends 3 meters from the edge it is currently pivoting on. At a certain tilt angle, the vertical line dropped from its center of gravity falls 2 meters from that same edge, still within the base. Does the box tip over at this specific angle?
     choices:
@@ -315,7 +326,6 @@ questions:
   - id: q-mechanical-technical-reasoning-structural-stability-0015
     type: structural-stability
     difficulty: exam
-    figure: structural-stability-15
     stem: |
       Box P has a low center of gravity and a wide base of support. Box Q has a high center of gravity and a narrow base of support. Both boxes are gradually tilted at the same steady rate, starting from level ground. Which box tips over first, and why?
     choices:

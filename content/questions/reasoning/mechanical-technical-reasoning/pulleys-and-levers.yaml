@@ -85,7 +85,6 @@ questions:
   - id: q-mechanical-technical-reasoning-pulleys-and-levers-0004
     type: pulley-lever
     difficulty: medium
-    figure: pulleys-and-levers-04
     figureSpec:
       kind: lever-balance
       loadDistance: 2
@@ -111,7 +110,6 @@ questions:
   - id: q-mechanical-technical-reasoning-pulleys-and-levers-0005
     type: pulley-lever
     difficulty: medium
-    figure: pulleys-and-levers-05
     figureSpec:
       kind: lever-balance
       loadDistance: 3
@@ -137,7 +135,6 @@ questions:
   - id: q-mechanical-technical-reasoning-pulleys-and-levers-0006
     type: pulley-lever
     difficulty: medium
-    figure: pulleys-and-levers-06
     figureSpec:
       kind: lever-balance
       loadDistance: 1
@@ -163,7 +160,6 @@ questions:
   - id: q-mechanical-technical-reasoning-pulleys-and-levers-0007
     type: pulley-lever
     difficulty: medium
-    figure: pulleys-and-levers-07
     figureSpec:
       kind: lever-balance
       loadDistance: 4
@@ -189,7 +185,6 @@ questions:
   - id: q-mechanical-technical-reasoning-pulleys-and-levers-0008
     type: pulley-lever
     difficulty: hard
-    figure: pulleys-and-levers-08
     figureSpec:
       kind: pulley-system
       fixed: 1
@@ -215,7 +210,6 @@ questions:
   - id: q-mechanical-technical-reasoning-pulleys-and-levers-0009
     type: pulley-lever
     difficulty: hard
-    figure: pulleys-and-levers-09
     figureSpec:
       kind: pulley-system
       fixed: 1
@@ -241,7 +235,6 @@ questions:
   - id: q-mechanical-technical-reasoning-pulleys-and-levers-0010
     type: pulley-lever
     difficulty: hard
-    figure: pulleys-and-levers-10
     figureSpec:
       kind: lever-balance
       loadDistance: 2
@@ -267,7 +260,6 @@ questions:
   - id: q-mechanical-technical-reasoning-pulleys-and-levers-0011
     type: pulley-lever
     difficulty: medium
-    figure: pulleys-and-levers-11
     figureSpec:
       kind: lever-balance
       loadDistance: 2
@@ -293,7 +285,6 @@ questions:
   - id: q-mechanical-technical-reasoning-pulleys-and-levers-0012
     type: pulley-lever
     difficulty: medium
-    figure: pulleys-and-levers-12
     figureSpec:
       kind: lever-balance
       loadDistance: 3
@@ -319,7 +310,6 @@ questions:
   - id: q-mechanical-technical-reasoning-pulleys-and-levers-0013
     type: pulley-lever
     difficulty: medium
-    figure: pulleys-and-levers-13
     figureSpec:
       kind: pulley-system
       fixed: 1
@@ -345,7 +335,6 @@ questions:
   - id: q-mechanical-technical-reasoning-pulleys-and-levers-0014
     type: pulley-lever
     difficulty: hard
-    figure: pulleys-and-levers-14
     figureSpec:
       kind: lever-balance
       loadDistance: 2
@@ -371,7 +360,6 @@ questions:
   - id: q-mechanical-technical-reasoning-pulleys-and-levers-0015
     type: pulley-lever
     difficulty: exam
-    figure: pulleys-and-levers-15
     figureSpec:
       kind: lever-balance
       loadDistance: 2

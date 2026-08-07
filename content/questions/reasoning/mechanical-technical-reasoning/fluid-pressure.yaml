@@ -73,7 +73,6 @@ questions:
   - id: q-mechanical-technical-reasoning-fluid-pressure-0004
     type: fluid-pressure
     difficulty: medium
-    figure: fluid-pressure-04
     stem: |
       Using the same narrowing pipe as before, how does the pressure in the narrow section compare to the pressure in the wide section?
     choices:
@@ -161,7 +160,6 @@ questions:
   - id: q-mechanical-technical-reasoning-fluid-pressure-0008
     type: fluid-pressure
     difficulty: medium
-    figure: fluid-pressure-08
     stem: |
       Using the same widening pipe as before, how does the pressure in the wide section compare to the pressure in the narrow section?
     choices:
@@ -183,7 +181,6 @@ questions:
   - id: q-mechanical-technical-reasoning-fluid-pressure-0009
     type: fluid-pressure
     difficulty: hard
-    figure: fluid-pressure-09
     stem: |
       A student sees a very wide container connected to a very narrow container, both open at the top, and assumes the wide container must settle at a lower water level, "since it needs to spread its water across more area." Is this assumption correct?
     choices:
@@ -205,7 +202,6 @@ questions:
   - id: q-mechanical-technical-reasoning-fluid-pressure-0010
     type: fluid-pressure
     difficulty: hard
-    figure: fluid-pressure-10
     stem: |
       A student assumes that squeezing a hose nozzle to make the opening narrower will slow down the water flow, "since it's a tighter squeeze." Is this assumption correct?
     choices:
@@ -227,7 +223,6 @@ questions:
   - id: q-mechanical-technical-reasoning-fluid-pressure-0011
     type: fluid-pressure
     difficulty: hard
-    figure: fluid-pressure-11
     stem: |
       A student reasons that the narrow, fast-flowing section of a pipe must have higher pressure than the wide section, "since it feels more forceful and energetic." Is this reasoning correct?
     choices:
@@ -293,7 +288,6 @@ questions:
   - id: q-mechanical-technical-reasoning-fluid-pressure-0014
     type: fluid-pressure
     difficulty: exam
-    figure: fluid-pressure-14
     stem: |
       A tall, wide open container is connected at the bottom to a tall, narrow open container, forming a U-shape; water is poured in until it settles. A pipe leads from the bottom of the wide container, narrowing partway along its length before opening into the narrow container. Determine: (a) how the settled water surface levels in the wide and narrow containers compare, and (b) how the flow speed and pressure in the narrowed section of the connecting pipe compare to the wider parts of that same pipe, while water is actively flowing through it.
     choices:

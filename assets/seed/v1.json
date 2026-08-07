@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "contentVersion": 2026081220,
-  "generatedAt": "2026-08-12T20:29:29.330721Z",
+  "generatedAt": "2026-08-12T20:35:44.733621Z",
   "exams": [
     {
       "id": "exam_cse_pro",
@@ -63587,6 +63587,252 @@
       "explanation": "First pair: a kitten is a baby cat, so a chick is a baby chicken. Second pair: a key is used to start (unlock/activate) a lock, so an ignition is used to start an engine. Checking both relationships together, \"chicken, ignition\" satisfies both correctly."
     },
     {
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0004",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-fluid-pressure",
+      "language": "en",
+      "stem": "Using the same narrowing pipe as before, how does the pressure in the narrow section compare to the pressure in the wide section?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0004_a",
+          "label": "A",
+          "text": "The pressure is lower in the narrow section",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0004_b",
+          "label": "B",
+          "text": "The pressure is higher in the narrow section",
+          "isCorrect": false,
+          "rationale": "You relied on intuition that tight spaces create high pressure. Faster fluid speed in a narrow section results in lower internal pressure."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0004_c",
+          "label": "C",
+          "text": "The pressure is exactly the same in both sections",
+          "isCorrect": false,
+          "rationale": "You assumed pressure is unaffected by flow speed. Changes in fluid speed cause corresponding changes in internal pressure."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0004_d",
+          "label": "D",
+          "text": "Pressure cannot be compared without knowing the pipe's material",
+          "isCorrect": false,
+          "rationale": "You assumed wall material dictates fluid pressure dynamics. Speed and area changes determine internal pressure differences."
+        }
+      ],
+      "explanation": "The water moves faster in the narrow section. By the relationship between fluid speed and pressure (faster flow means lower pressure), the pressure in the faster-moving narrow section is lower than in the wider section."
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0008",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-fluid-pressure",
+      "language": "en",
+      "stem": "Using the same widening pipe as before, how does the pressure in the wide section compare to the pressure in the narrow section?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0008_a",
+          "label": "A",
+          "text": "The pressure is higher in the wide section",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0008_b",
+          "label": "B",
+          "text": "The pressure is lower in the wide section",
+          "isCorrect": false,
+          "rationale": "You assumed wider sections have lower pressure. Slower-moving fluid in a wider pipe section has higher internal pressure."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0008_c",
+          "label": "C",
+          "text": "The pressure is exactly the same in both sections",
+          "isCorrect": false,
+          "rationale": "You ignored the relationship between fluid speed and pressure. Velocity changes cause inverse pressure changes."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0008_d",
+          "label": "D",
+          "text": "Pressure cannot be compared without knowing the flow rate",
+          "isCorrect": false,
+          "rationale": "You assumed relative pressure cannot be determined. The cross-sectional ratio establishes that the wider section has lower speed and higher pressure."
+        }
+      ],
+      "explanation": "The water moves slower in the wide section. Since slower-moving fluid exerts higher pressure, the pressure in the wide section is higher than in the narrow section."
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0009",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-fluid-pressure",
+      "language": "en",
+      "stem": "A student sees a very wide container connected to a very narrow container, both open at the top, and assumes the wide container must settle at a lower water level, \"since it needs to spread its water across more area.\" Is this assumption correct?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0009_a",
+          "label": "A",
+          "text": "No: connected, open containers always settle at the same fluid level, no matter how different their widths are; the wide container does not settle lower just because it holds more total water.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0009_b",
+          "label": "B",
+          "text": "Yes: wider containers always settle at a lower level than narrower ones.",
+          "isCorrect": false,
+          "rationale": "You assumed surface area lowers fluid height. Open connected containers equalize pressure by maintaining matching fluid heights."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0009_c",
+          "label": "C",
+          "text": "Yes: but only because the narrow container was filled first.",
+          "isCorrect": false,
+          "rationale": "You assumed filling sequence determines settled height. Fluid flows between vessels until heights balance."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0009_d",
+          "label": "D",
+          "text": "No: but only because the two containers are not actually connected.",
+          "isCorrect": false,
+          "rationale": "You disputed the problem premise. The containers are connected at the bottom."
+        }
+      ],
+      "explanation": "A wider container does not settle at a lower level just because it \"holds more water\" overall: the surface level still equalizes with any connected narrower container, since pressure at the connecting point must balance out equally on both sides."
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0010",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-fluid-pressure",
+      "language": "en",
+      "stem": "A student assumes that squeezing a hose nozzle to make the opening narrower will slow down the water flow, \"since it's a tighter squeeze.\" Is this assumption correct?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0010_a",
+          "label": "A",
+          "text": "No: a narrower section of pipe causes the fluid to speed up, not slow down, in order to maintain the same overall flow volume passing through per second.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0010_b",
+          "label": "B",
+          "text": "Yes: narrower openings always slow down fluid flow.",
+          "isCorrect": false,
+          "rationale": "You applied intuition that tighter spaces slow movement. Decreasing opening area increases exit velocity to maintain flow rate."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0010_c",
+          "label": "C",
+          "text": "Yes: but only because hose nozzles are a special exception to normal fluid behavior.",
+          "isCorrect": false,
+          "rationale": "You treated nozzles as an exception. Fluid acceleration through narrow openings is standard continuity behavior."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0010_d",
+          "label": "D",
+          "text": "No: but only because water cannot flow through narrow openings at all.",
+          "isCorrect": false,
+          "rationale": "You assumed narrow openings block flow completely. Water flows through at increased speed."
+        }
+      ],
+      "explanation": "Confusing this with everyday intuition (like assuming a \"tighter squeeze\" naturally slows things down) leads to the opposite, incorrect prediction: the fluid actually accelerates through a narrower opening, which is exactly why squeezing a hose nozzle makes the water spray faster."
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0011",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-fluid-pressure",
+      "language": "en",
+      "stem": "A student reasons that the narrow, fast-flowing section of a pipe must have higher pressure than the wide section, \"since it feels more forceful and energetic.\" Is this reasoning correct?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0011_a",
+          "label": "A",
+          "text": "No: sections with faster movement (like narrow pipe sections) have lower pressure, not higher, following the relationship between fluid speed and pressure.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0011_b",
+          "label": "B",
+          "text": "Yes: faster-flowing sections always have higher pressure than slower sections.",
+          "isCorrect": false,
+          "rationale": "You equated flow velocity with internal fluid pressure. Faster-moving fluid exerts lower internal pressure."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0011_c",
+          "label": "C",
+          "text": "Yes: but only because \"forceful\" and \"high pressure\" always mean the same thing.",
+          "isCorrect": false,
+          "rationale": "You confused kinetic impact force of a spray with internal static fluid pressure."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0011_d",
+          "label": "D",
+          "text": "No: but only because narrow pipe sections never have any measurable pressure.",
+          "isCorrect": false,
+          "rationale": "You claimed narrow pipes lack pressure. Moving fluids maintain measurable pressure that varies inversely with speed."
+        }
+      ],
+      "explanation": "Assuming a narrow, fast-flowing section must have higher pressure (since it \"feels more forceful\" intuitively) reverses the correct relationship between fluid speed and pressure: faster flow actually means lower pressure."
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0014",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-fluid-pressure",
+      "language": "en",
+      "stem": "A tall, wide open container is connected at the bottom to a tall, narrow open container, forming a U-shape; water is poured in until it settles. A pipe leads from the bottom of the wide container, narrowing partway along its length before opening into the narrow container. Determine: (a) how the settled water surface levels in the wide and narrow containers compare, and (b) how the flow speed and pressure in the narrowed section of the connecting pipe compare to the wider parts of that same pipe, while water is actively flowing through it.",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0014_a",
+          "label": "A",
+          "text": "(a) The water surface levels are equal in both containers, regardless of width; (b) the narrowed section of the pipe has faster flow speed and lower pressure than the wider parts of the pipe.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0014_b",
+          "label": "B",
+          "text": "(a) The wide container settles at a lower level than the narrow container; (b) the narrowed section has slower flow speed and higher pressure.",
+          "isCorrect": false,
+          "rationale": "You incorrectly assumed wider containers settle lower and narrow pipes slow down fluid flow."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0014_c",
+          "label": "C",
+          "text": "(a) The narrow container settles at a lower level than the wide container; (b) the narrowed section has faster flow speed and higher pressure.",
+          "isCorrect": false,
+          "rationale": "You incorrectly assumed narrow containers settle lower and faster flow creates higher pressure."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0014_d",
+          "label": "D",
+          "text": "(a) The water surface levels are equal in both containers; (b) the narrowed section has slower flow speed and lower pressure.",
+          "isCorrect": false,
+          "rationale": "You correctly identified equal levels, but incorrectly claimed fluid slows down in narrow sections."
+        }
+      ],
+      "explanation": "Connected, open containers always settle at the same fluid level regardless of width, so (a) the levels are equal. Within the connecting pipe, the narrowed section forces faster flow (to maintain the same flow volume) and correspondingly lower pressure than the wider sections, so (b) faster flow speed and lower pressure in the narrow section."
+    },
+    {
       "id": "q-mechanical-technical-reasoning-gear-rotations-0001",
       "version": 1,
       "examIds": [
@@ -65349,6 +65595,624 @@
       ],
       "explanation": "Since the weights differ, compare stretch-per-kilogram instead of raw stretch: Spring P is $6 \\div 3 = 2$ cm/kg, Spring Q is $8 \\div 4 = 2$ cm/kg, and Spring R is $5 \\div 5 = 1$ cm/kg. A smaller ratio means a stiffer spring, so Spring R is stiffest, with P and Q tied for second.",
       "figureSpecJson": "{\"kind\":\"spring-scale\",\"springs\":[{\"label\":\"P\",\"stretch\":6},{\"label\":\"Q\",\"stretch\":8},{\"label\":\"R\",\"stretch\":5}]}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-structural-stability-0001",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-structural-stability",
+      "language": "en",
+      "stem": "What is the term for the single point where an object's entire weight can be thought of as concentrated, balancing perfectly in every direction?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0001_a",
+          "label": "A",
+          "text": "Center of gravity",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0001_b",
+          "label": "B",
+          "text": "Base of support",
+          "isCorrect": false,
+          "rationale": "You confused the concentration of weight with the area the object rests on. The base of support is the contact area on the ground, not a single point of balance."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0001_c",
+          "label": "C",
+          "text": "Fulcrum",
+          "isCorrect": false,
+          "rationale": "You confused the balancing point of the object itself with a pivot point. A fulcrum is the external support about which a lever pivots, not the object's internal balancing point."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0001_d",
+          "label": "D",
+          "text": "Tipping point",
+          "isCorrect": false,
+          "rationale": "You confused the balance point with the critical angle of tilt. A tipping point is the threshold where an object falls over, not the point where its weight is concentrated."
+        }
+      ],
+      "explanation": "The center of gravity is the single point where an object's entire weight can be thought of as concentrated, balancing perfectly in every direction."
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-structural-stability-0002",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-structural-stability",
+      "language": "en",
+      "stem": "What is the term for the area on the ground enclosed by an object's points (or edges) of contact with the ground?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0002_a",
+          "label": "A",
+          "text": "Base of support",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0002_b",
+          "label": "B",
+          "text": "Center of gravity",
+          "isCorrect": false,
+          "rationale": "You confused the area on the ground with the single point where weight is concentrated. Center of gravity is an internal balance point, not the contact area."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0002_c",
+          "label": "C",
+          "text": "Fulcrum",
+          "isCorrect": false,
+          "rationale": "You confused the resting area with a pivot point. A fulcrum is the specific point a lever rests or turns on, not the entire area enclosed by the object's feet."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0002_d",
+          "label": "D",
+          "text": "Load distance",
+          "isCorrect": false,
+          "rationale": "You guessed a term related to levers. Load distance refers to how far a weight is from a fulcrum, not the area an object rests upon."
+        }
+      ],
+      "explanation": "The base of support is the area on the ground enclosed by an object's points or edges of contact with the ground, like the rectangle connecting a table's four feet."
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-structural-stability-0003",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-structural-stability",
+      "language": "en",
+      "stem": "Figure shows an object with an imaginary vertical line dropped straight down from its center of gravity. Under what condition does the object remain stable and not tip over?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0003_a",
+          "label": "A",
+          "text": "The vertical line falls within the object's base of support",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0003_b",
+          "label": "B",
+          "text": "The vertical line falls exactly at the center of the object's base",
+          "isCorrect": false,
+          "rationale": "You assumed the line must be perfectly centered. As long as the line falls anywhere within the boundaries of the base of support, the object remains stable."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0003_c",
+          "label": "C",
+          "text": "The object's weight is below a certain threshold",
+          "isCorrect": false,
+          "rationale": "You assumed stability depends on how light the object is. Stability depends on the alignment of the center of gravity with the base, not the total weight."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0003_d",
+          "label": "D",
+          "text": "The object's base of support is perfectly circular",
+          "isCorrect": false,
+          "rationale": "You assumed a specific shape is required for stability. The base of support can be any shape, as long as the vertical line from the center of gravity falls within it."
+        }
+      ],
+      "explanation": "An object remains stable as long as an imaginary vertical line dropped straight down from its center of gravity falls within its base of support. If that line falls outside the base of support, the object tips over.",
+      "figureSpecJson": "{\"kind\":\"stability-shape\",\"shapes\":[{\"form\":\"box\",\"baseWidth\":2,\"height\":3}]}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-structural-stability-0004",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-structural-stability",
+      "language": "en",
+      "stem": "Figure shows a short, wide pyramid and a tall, narrow pyramid, both the same weight and made of the same uniform material. Which one is more stable, and why?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0004_a",
+          "label": "A",
+          "text": "The short, wide pyramid, since it has both a lower center of gravity and a wider base of support",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0004_b",
+          "label": "B",
+          "text": "The tall, narrow pyramid, since height always improves stability",
+          "isCorrect": false,
+          "rationale": "You assumed being taller makes an object more stable. A taller object has a higher center of gravity, which actually makes it easier to tip over."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0004_c",
+          "label": "C",
+          "text": "Both pyramids are equally stable, since they weigh the same",
+          "isCorrect": false,
+          "rationale": "You assumed equal weight means equal stability. Stability also depends heavily on the height of the center of gravity and the width of the base."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0004_d",
+          "label": "D",
+          "text": "The tall, narrow pyramid, since a narrower base is always more stable",
+          "isCorrect": false,
+          "rationale": "You assumed a narrower base is better. A narrow base means the center of gravity has less distance to shift before the object tips over."
+        }
+      ],
+      "explanation": "The short, wide pyramid has a lower center of gravity (since it is shorter) and a wider base of support (since it is wider). Both factors independently improve stability, making it more stable than the tall, narrow pyramid.",
+      "figureSpecJson": "{\"kind\":\"stability-shape\",\"shapes\":[{\"form\":\"pyramid\",\"baseWidth\":3,\"height\":1},{\"form\":\"pyramid\",\"baseWidth\":1,\"height\":3}]}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-structural-stability-0005",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-structural-stability",
+      "language": "en",
+      "stem": "Figure shows a rectangular box being slowly tilted to one side, pivoting on one bottom edge. At what point does the box tip over rather than settling back down?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0005_a",
+          "label": "A",
+          "text": "The moment the vertical line from its center of gravity moves beyond the edge of the base of support it is pivoting on",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0005_b",
+          "label": "B",
+          "text": "As soon as the box is tilted at all, even slightly",
+          "isCorrect": false,
+          "rationale": "You assumed any tilt causes tipping. An object will rock back to its original position as long as its center of gravity remains over its base of support."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0005_c",
+          "label": "C",
+          "text": "Only once the box is tilted a full 90 degrees",
+          "isCorrect": false,
+          "rationale": "You assumed it must fall completely flat to tip. The tipping point happens much earlier, the moment its center of gravity passes the edge it is pivoting on."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0005_d",
+          "label": "D",
+          "text": "The box never tips over regardless of tilt, since it is resting on the ground",
+          "isCorrect": false,
+          "rationale": "You assumed resting on the ground makes it immune to tipping. Once the center of gravity is pushed past the pivot edge, gravity will pull the object over."
+        }
+      ],
+      "explanation": "The box remains stable as long as the vertical line from its center of gravity stays within its base of support. It tips over at the exact moment this line moves beyond the edge of the base of support it is still pivoting on.",
+      "figureSpecJson": "{\"kind\":\"stability-shape\",\"tilt\":22,\"shapes\":[{\"form\":\"box\",\"baseWidth\":2,\"height\":3}]}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-structural-stability-0006",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-structural-stability",
+      "language": "en",
+      "stem": "A moving truck carries the same total weight of cargo, either stacked very high or spread out lower. Which loading method makes the truck more stable while turning corners?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0006_a",
+          "label": "A",
+          "text": "Spreading the cargo lower, since it keeps the center of gravity closer to the ground",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0006_b",
+          "label": "B",
+          "text": "Stacking the cargo high, since it distributes weight more evenly",
+          "isCorrect": false,
+          "rationale": "You assumed stacking high distributes weight evenly. Stacking high raises the center of gravity, making the truck much more likely to tip over during a turn."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0006_c",
+          "label": "C",
+          "text": "Both loading methods provide exactly the same stability",
+          "isCorrect": false,
+          "rationale": "You assumed only the total weight matters. How the weight is distributed vertically changes the center of gravity, which directly affects stability."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0006_d",
+          "label": "D",
+          "text": "Stacking the cargo high, since a higher center of gravity always improves turning stability",
+          "isCorrect": false,
+          "rationale": "You assumed a higher center of gravity is better for turns. A higher center of gravity acts like a longer lever arm for tipping, making the truck less stable."
+        }
+      ],
+      "explanation": "Spreading cargo lower keeps the center of gravity closer to the ground, requiring a larger tilt (like from a sharp turn) before the vertical line from the center of gravity could be pushed outside the truck's base of support: making it more stable while turning."
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-structural-stability-0007",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-structural-stability",
+      "language": "en",
+      "stem": "A person standing with feet close together is compared to the same person standing with feet spread wider apart. Which stance is more stable against being pushed sideways?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0007_a",
+          "label": "A",
+          "text": "Feet spread wider apart, since it increases the base of support",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0007_b",
+          "label": "B",
+          "text": "Feet close together, since it lowers the center of gravity",
+          "isCorrect": false,
+          "rationale": "You assumed bringing feet together lowers the center of gravity. It actually narrows the base of support, making it much easier to be pushed over."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0007_c",
+          "label": "C",
+          "text": "Both stances are equally stable against sideways pushes",
+          "isCorrect": false,
+          "rationale": "You assumed the width of the stance does not matter. Spreading your feet widens your base of support, meaning you can lean further before falling."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0007_d",
+          "label": "D",
+          "text": "Feet close together, since a narrower base is always more stable",
+          "isCorrect": false,
+          "rationale": "You assumed a narrower base is better. A narrow base means your center of gravity only has to shift a tiny bit sideways before you tip over."
+        }
+      ],
+      "explanation": "Spreading the feet wider apart increases the base of support, meaning the vertical line from the center of gravity can shift farther sideways before falling outside that base: making the wider stance more stable against sideways pushes."
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-structural-stability-0008",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-structural-stability",
+      "language": "en",
+      "stem": "An object has a very low center of gravity but an extremely narrow base of support. A student assumes this object must be very stable, \"since only the center of gravity's height matters.\" Is this assumption correct?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0008_a",
+          "label": "A",
+          "text": "No: stability depends on both the center of gravity's height and the base of support's width; an object with a low center of gravity but an extremely narrow base can still tip over easily.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0008_b",
+          "label": "B",
+          "text": "Yes: a low center of gravity alone always guarantees maximum stability, regardless of base width.",
+          "isCorrect": false,
+          "rationale": "You assumed the center of gravity is the only factor that matters. If the base is extremely narrow, even a low center of gravity will quickly shift outside it and cause tipping."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0008_c",
+          "label": "C",
+          "text": "Yes: base of support width has no effect on stability at all.",
+          "isCorrect": false,
+          "rationale": "You assumed the base of support is irrelevant. The base defines the safe zone; if it is too narrow, the object will tip over with very little tilt."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0008_d",
+          "label": "D",
+          "text": "No: but only because this object cannot have a center of gravity at all.",
+          "isCorrect": false,
+          "rationale": "You assumed an object can exist without a center of gravity. Every object with mass has a center of gravity where its weight is effectively concentrated."
+        }
+      ],
+      "explanation": "An object could have a low center of gravity but still be unstable if its base of support is extremely narrow; both factors must be considered together, not just one in isolation."
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-structural-stability-0009",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-structural-stability",
+      "language": "en",
+      "stem": "A very heavy object has a high center of gravity and a narrow base of support. A student assumes this object must be stable, \"since heavier objects are always more stable.\" Is this assumption correct?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0009_a",
+          "label": "A",
+          "text": "No: stability depends on the location of the center of gravity relative to the base of support, not simply on how much an object weighs; a heavy object with a high center of gravity and narrow base can still tip over easily.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0009_b",
+          "label": "B",
+          "text": "Yes: heavier objects are always more stable than lighter ones, regardless of their shape.",
+          "isCorrect": false,
+          "rationale": "You assumed weight alone creates stability. If that heavy weight is balanced high above a narrow base, it will still tip over very easily."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0009_c",
+          "label": "C",
+          "text": "Yes: but only because this object's weight makes its base of support automatically wider.",
+          "isCorrect": false,
+          "rationale": "You assumed weight changes the physical dimensions of the base. An object's weight does not automatically widen its contact area with the ground."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0009_d",
+          "label": "D",
+          "text": "No: but only because heavy objects cannot have a center of gravity.",
+          "isCorrect": false,
+          "rationale": "You assumed heavy objects lack a center of gravity. Every object has a center of gravity, and a high one makes tipping easier regardless of weight."
+        }
+      ],
+      "explanation": "Stability depends on the location of the center of gravity relative to the base of support, not simply on how much an object weighs overall. A very heavy object with a high center of gravity and a narrow base can still tip over easily, despite its large weight."
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-structural-stability-0010",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-structural-stability",
+      "language": "en",
+      "stem": "A student says, \"this box is stable,\" treating stability as a fixed, permanent property of the box regardless of how it is positioned. Is this the correct way to think about stability?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0010_a",
+          "label": "A",
+          "text": "No: an object can be perfectly stable while sitting still, but become unstable once tilted enough that its center of gravity's vertical line moves outside the base of support; stability depends on the specific tilt angle, not a fixed, unchanging fact.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0010_b",
+          "label": "B",
+          "text": "Yes: once an object is described as \"stable,\" it remains stable at every possible tilt angle.",
+          "isCorrect": false,
+          "rationale": "You assumed stability is absolute. As soon as you tilt the object far enough, its center of gravity moves past its base, and it will fall over."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0010_c",
+          "label": "C",
+          "text": "Yes: stability is a permanent property that never changes, regardless of orientation.",
+          "isCorrect": false,
+          "rationale": "You assumed orientation does not matter. If you turn a stable box on its pointed corner, it immediately becomes unstable."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0010_d",
+          "label": "D",
+          "text": "No: but only because boxes can never be considered stable under any circumstance.",
+          "isCorrect": false,
+          "rationale": "You assumed no box is ever stable. A box sitting flat on the ground with its center of gravity over its base is perfectly stable until disturbed."
+        }
+      ],
+      "explanation": "Assuming an object \"is stable\" as an absolute, unchanging fact (rather than \"is stable at this specific tilt angle\") misses that further tilting can push any object past its tipping point, given enough tilt."
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-structural-stability-0011",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-structural-stability",
+      "language": "en",
+      "stem": "A bottom-heavy roly-poly toy (weighted heavily at its rounded base) is pushed over onto its side. Why does it always return to standing upright?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0011_a",
+          "label": "A",
+          "text": "Its center of gravity is very low (concentrated near its heavy base), so the vertical line from its center of gravity quickly returns within its base of support as it rocks, pulling it back upright",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0011_b",
+          "label": "B",
+          "text": "Its base of support is extremely narrow, which always causes objects to return upright",
+          "isCorrect": false,
+          "rationale": "You assumed a narrow base helps it stand up. A narrow base usually makes an object tip over easier; it is the extremely low center of gravity that pulls this toy back up."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0011_c",
+          "label": "C",
+          "text": "The toy has no center of gravity, so it cannot tip over in the first place",
+          "isCorrect": false,
+          "rationale": "You assumed the toy lacks a center of gravity. The reason it works is precisely because its center of gravity is heavily weighted at the very bottom."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0011_d",
+          "label": "D",
+          "text": "The toy is simply too light to be affected by gravity at all",
+          "isCorrect": false,
+          "rationale": "You assumed it ignores gravity. Gravity is exactly what pulls the heavy, rounded bottom back down against the ground."
+        }
+      ],
+      "explanation": "The toy's very low center of gravity, concentrated near its heavy rounded base, means the vertical line from its center of gravity stays within (or quickly returns within) its base of support as it rocks, pulling it back upright rather than tipping over completely."
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-structural-stability-0012",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-structural-stability",
+      "language": "en",
+      "stem": "A sports utility vehicle (SUV) has a higher center of gravity than a sports car with the same wheel base width. Which vehicle is more prone to rolling over while making a sharp turn?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0012_a",
+          "label": "A",
+          "text": "The SUV, since its higher center of gravity requires less tilt before the vertical line from its center of gravity could fall outside its base of support",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0012_b",
+          "label": "B",
+          "text": "The sports car, since lower vehicles are always more prone to rolling over",
+          "isCorrect": false,
+          "rationale": "You assumed being lower increases rollover risk. A lower center of gravity keeps the vertical line inside the wheelbase much better during a turn."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0012_c",
+          "label": "C",
+          "text": "Both vehicles are equally prone to rolling over, since they share the same wheel base width",
+          "isCorrect": false,
+          "rationale": "You assumed only the wheelbase matters. Because the SUV is taller, its center of gravity swings out further and faster during a sharp turn than the sports car's does."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0012_d",
+          "label": "D",
+          "text": "Neither vehicle can roll over, since both have four wheels providing support",
+          "isCorrect": false,
+          "rationale": "You assumed four wheels guarantee stability. Any vehicle can roll over if cornering forces push its center of gravity outside the footprint of its wheels."
+        }
+      ],
+      "explanation": "A higher center of gravity requires less tilt before the vertical line from the center of gravity could be pushed outside the base of support (the wheel base). Since the SUV has a higher center of gravity than the sports car (with the same base width), it is more prone to rolling over."
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-structural-stability-0013",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-structural-stability",
+      "language": "en",
+      "stem": "A ladder with widely spread legs is compared to an identical-height ladder with legs placed close together. Which ladder is more stable against tipping sideways?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0013_a",
+          "label": "A",
+          "text": "The ladder with widely spread legs, since it has a wider base of support",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0013_b",
+          "label": "B",
+          "text": "The ladder with legs close together, since a narrower base concentrates support",
+          "isCorrect": false,
+          "rationale": "You assumed concentrated support is better. A narrow base means even a small sideways lean will push your center of gravity outside the base, causing a fall."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0013_c",
+          "label": "C",
+          "text": "Both ladders are equally stable, since they are the same height",
+          "isCorrect": false,
+          "rationale": "You assumed height is the only factor. The width of the base of support is just as critical; a wider base allows you to lean further safely."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0013_d",
+          "label": "D",
+          "text": "Neither ladder can be compared without knowing their exact weight",
+          "isCorrect": false,
+          "rationale": "You assumed weight determines stability. While weight matters, the geometric relationship between the center of gravity and the base of support dictates when tipping occurs."
+        }
+      ],
+      "explanation": "A wider base of support means the vertical line from the center of gravity can shift farther sideways before falling outside that base, making the widely-spread-leg ladder more stable against tipping sideways."
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-structural-stability-0014",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-structural-stability",
+      "language": "en",
+      "stem": "A box's base of support extends 3 meters from the edge it is currently pivoting on. At a certain tilt angle, the vertical line dropped from its center of gravity falls 2 meters from that same edge, still within the base. Does the box tip over at this specific angle?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0014_a",
+          "label": "A",
+          "text": "No: since 2 meters is still within the 3-meter base of support, the box remains stable at this tilt angle; it would only tip if the vertical line moved beyond the 3-meter edge",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0014_b",
+          "label": "B",
+          "text": "Yes: any tilt at all causes the box to tip over immediately",
+          "isCorrect": false,
+          "rationale": "You assumed an object cannot tilt without falling. As long as the center of gravity remains directly over any part of the base, the object will rock back to a stable position."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0014_c",
+          "label": "C",
+          "text": "Yes: since 2 meters is more than half of 3 meters, the box has already tipped",
+          "isCorrect": false,
+          "rationale": "You assumed it tips once it passes the halfway mark. It only tips once the center of gravity passes the very outer edge of the 3-meter base."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0014_d",
+          "label": "D",
+          "text": "It cannot be determined without knowing the box's exact weight",
+          "isCorrect": false,
+          "rationale": "You assumed weight changes the tipping geometry. Tipping is based purely on whether the center of gravity is over the base, regardless of how heavy the box is."
+        }
+      ],
+      "explanation": "The box remains stable as long as the vertical line from its center of gravity stays within its base of support. Since 2 meters is still within the 3-meter base, the box has not yet tipped: it would only tip once the line moves beyond the 3-meter edge."
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-structural-stability-0015",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-structural-stability",
+      "language": "en",
+      "stem": "Box P has a low center of gravity and a wide base of support. Box Q has a high center of gravity and a narrow base of support. Both boxes are gradually tilted at the same steady rate, starting from level ground. Which box tips over first, and why?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0015_a",
+          "label": "A",
+          "text": "Box Q tips over first, since both its higher center of gravity and its narrower base of support independently require less tilt before the vertical line from its center of gravity falls outside its base, compared to Box P's more favorable combination of both factors.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0015_b",
+          "label": "B",
+          "text": "Box P tips over first, since a lower center of gravity always causes objects to tip sooner.",
+          "isCorrect": false,
+          "rationale": "You assumed a lower center of gravity makes tipping easier. It actually makes it much harder, because the object must tilt further before its weight shifts outside its base."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0015_c",
+          "label": "C",
+          "text": "Both boxes tip over at exactly the same tilt angle, since tilt rate is the only factor that matters.",
+          "isCorrect": false,
+          "rationale": "You assumed the speed of tilting is all that matters. The physical dimensions (how wide the base is and how high the weight is centered) determine the exact angle they tip at."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-structural-stability-0015_d",
+          "label": "D",
+          "text": "Neither box will ever tip over, regardless of how far they are tilted.",
+          "isCorrect": false,
+          "rationale": "You assumed they are immune to tipping. Once any box is tilted far enough that its center of gravity passes its base, it will inevitably tip over."
+        }
+      ],
+      "explanation": "Both stability factors favor Box P: a lower center of gravity and a wider base of support each independently require a larger tilt before the vertical line from the center of gravity is pushed outside the base. Box Q, with both a higher center of gravity and a narrower base, tips over first."
     },
     {
       "id": "q-verbal-logic-assumptions-and-conclusions-0001",

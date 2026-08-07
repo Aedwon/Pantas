@@ -140,7 +140,6 @@ questions:
   - id: q-mechanical-technical-reasoning-springs-and-weights-0006
     type: spring-weight
     difficulty: medium
-    figure: springs-and-weights-06
     figureSpec:
       kind: spring-scale
       springs:
@@ -195,7 +194,6 @@ questions:
   - id: q-mechanical-technical-reasoning-springs-and-weights-0008
     type: spring-weight
     difficulty: hard
-    figure: springs-and-weights-08
     figureSpec:
       kind: spring-scale
       springs:
@@ -221,7 +219,6 @@ questions:
   - id: q-mechanical-technical-reasoning-springs-and-weights-0009
     type: spring-weight
     difficulty: hard
-    figure: springs-and-weights-09
     figureSpec:
       kind: spring-scale
       springs:
@@ -250,7 +247,6 @@ questions:
   - id: q-mechanical-technical-reasoning-springs-and-weights-0010
     type: spring-weight
     difficulty: hard
-    figure: springs-and-weights-10
     figureSpec:
       kind: spring-scale
       springs:
@@ -279,7 +275,6 @@ questions:
   - id: q-mechanical-technical-reasoning-springs-and-weights-0011
     type: spring-weight
     difficulty: medium
-    figure: springs-and-weights-11
     figureSpec:
       kind: spring-scale
       springs:
@@ -334,7 +329,6 @@ questions:
   - id: q-mechanical-technical-reasoning-springs-and-weights-0013
     type: spring-weight
     difficulty: hard
-    figure: springs-and-weights-13
     figureSpec:
       kind: spring-scale
       springs:
@@ -360,7 +354,6 @@ questions:
   - id: q-mechanical-technical-reasoning-springs-and-weights-0014
     type: spring-weight
     difficulty: hard
-    figure: springs-and-weights-14
     figureSpec:
       kind: spring-scale
       springs:
@@ -386,7 +379,6 @@ questions:
   - id: q-mechanical-technical-reasoning-springs-and-weights-0015
     type: spring-weight
     difficulty: exam
-    figure: springs-and-weights-15
     figureSpec:
       kind: spring-scale
       springs:

@@ -213,7 +213,6 @@ questions:
   - id: q-mechanical-technical-reasoning-gear-rotations-0009
     type: gear-direction
     difficulty: hard
-    figure: gear-rotations-09
     figureSpec:
       kind: gear-train
       gears: 2
@@ -240,7 +239,6 @@ questions:
   - id: q-mechanical-technical-reasoning-gear-rotations-0010
     type: gear-direction
     difficulty: hard
-    figure: gear-rotations-10
     figureSpec:
       kind: gear-train
       gears: 2
@@ -289,7 +287,6 @@ questions:
   - id: q-mechanical-technical-reasoning-gear-rotations-0012
     type: gear-direction
     difficulty: medium
-    figure: gear-rotations-12
     figureSpec:
       kind: gear-train
       gears: 2
