@@ -13,8 +13,16 @@ questions:
       - text: $7$
         correct: true
       - text: $17$
+        rationale: |
+          You added the 5 instead of subtracting it. $3(4) = 12$, and the rule takes
+          5 away, so it is $12 - 5$.
       - text: $2$
+        rationale: |
+          You worked out $3 + 4$ and then took 5 away. The 3 multiplies the input,
+          it does not add to it.
       - text: $12$
+        rationale: |
+          You stopped at $3 \times 4$. The rule still has $-5$ left to apply.
     explanation: |
       Substitute $x = 4$ into $f(x)$: $f(4) = 3(4) - 5 = 12 - 5 = 7$.
 
@@ -27,8 +35,17 @@ questions:
       - text: $f(x) = 4^x$
         correct: true
       - text: $f(x) = x^4$
+        rationale: |
+          You picked the one with the variable in the base. An exponential function
+          has the variable in the exponent, not under it.
       - text: $f(x) = 4x$
+        rationale: |
+          You picked a straight line. There is no exponent on the variable at all
+          here.
       - text: $f(x) = x^2 + 4$
+        rationale: |
+          You picked a quadratic. The exponent is fixed at 2 and the variable is the
+          base.
     explanation: |
       An exponential function has the variable in the exponent, such as $f(x) = 4^x$. A function like $f(x) = x^4$ has a variable base with a constant exponent, making it a power/polynomial function.
 
@@ -41,8 +58,17 @@ questions:
       - text: $(3, 4)$
         correct: true
       - text: $(-3, 4)$
+        rationale: |
+          You read $h$ straight off the bracket. The form is $(x - h)$, so a $-3$
+          inside means $h$ is $+3$.
       - text: $(3, -4)$
+        rationale: |
+          You flipped the sign of $k$. Only $h$ changes sign coming out of the
+          bracket; $k$ is read as it stands.
       - text: $(-3, -4)$
+        rationale: |
+          You flipped both signs. $h$ flips because it sits inside $(x - h)$, and
+          $k$ does not.
     explanation: |
       In vertex form $f(x) = a(x - h)^2 + k$, the vertex is $(h, k)$. Here, $h = 3$ and $k = 4$, so the vertex is $(3, 4)$. A common error is flipping the sign of $h$ to $-3$.
 
@@ -55,8 +81,17 @@ questions:
       - text: All real numbers except $x = 5$
         correct: true
       - text: All real numbers except $x = -5$
+        rationale: |
+          You flipped the sign. Setting $x - 5 = 0$ gives $x = +5$, so that is the
+          value to exclude.
       - text: All real numbers except $x = -1$
+        rationale: |
+          You solved the numerator instead. The top being zero is allowed: it just
+          makes the whole fraction zero.
       - text: All real numbers
+        rationale: |
+          You excluded nothing. The denominator can hit zero here, and there the
+          function has no value.
     explanation: |
       Division by zero is undefined, so the denominator $x - 5$ cannot be zero. Setting $x - 5 = 0$ gives $x = 5$, so the domain is all real numbers except $x = 5$.
 
@@ -69,8 +104,14 @@ questions:
       - text: $3$
         correct: true
       - text: $9$
+        rationale: |
+          You divided 27 by 3. A logarithm asks for the exponent, not the quotient.
       - text: $81$
+        rationale: |
+          You multiplied 27 by 3. The question asks what power of 3 gives 27.
       - text: $1$
+        rationale: |
+          You picked 1, which would mean $3^1 = 27$. It gives 3.
     explanation: |
       $\log_3(27) = y$ means $3^y = 27$. Since $3^3 = 27$, $y = 3$. Dividing $27 \div 3 = 9$ is a common distractor error.
 
@@ -83,8 +124,16 @@ questions:
       - text: $x = 3$
         correct: true
       - text: $x = -3$
+        rationale: |
+          You flipped the sign. Solving $2x - 6 = 0$ gives $2x = 6$ and $x = +3$.
       - text: $x = 1$
+        rationale: |
+          You divided 6 by 6 or read the numerator. The denominator is what has to
+          be zero.
       - text: $y = 1$
+        rationale: |
+          You gave a horizontal line. A vertical asymptote is a value of $x$, not of
+          $y$.
     explanation: |
       Vertical asymptotes occur where the denominator is zero (and the numerator is non-zero). Setting $2x - 6 = 0$ gives $2x = 6$, so $x = 3$.
 
@@ -97,8 +146,17 @@ questions:
       - text: $x = 2$
         correct: true
       - text: $x = -2$
+        rationale: |
+          You dropped a minus sign. The formula is $-b/2a$ and $b$ is already $-8$,
+          so the two minus signs cancel.
       - text: $x = 4$
+        rationale: |
+          You used $-b/a$ and forgot the 2 underneath. The denominator is $2a$,
+          which is 4 here.
       - text: $x = -4$
+        rationale: |
+          You used $b/a$ with the sign left alone. Both the sign and the 2 are
+          missing.
     explanation: |
       The $x$-coordinate of the vertex is $h = -\frac{b}{2a}$. Here $a = 2$ and $b = -8$, so $h = -\frac{-8}{2(2)} = \frac{8}{4} = 2$. Forgetting the negative sign in the formula leads to $x = -2$.
 
@@ -113,8 +171,16 @@ questions:
       - text: $11$
         correct: true
       - text: $10$
+        rationale: |
+          You used the first piece. The condition there is $x$ below 3, and 3 itself
+          belongs to the second piece.
       - text: $6$
+        rationale: |
+          You stopped at $2 \times 3$. The second piece still has $+5$ to add.
       - text: $14$
+        rationale: |
+          You used the first piece and then added the 5 from the second. Only one
+          piece applies to any input.
     explanation: |
       Since $x = 3$ satisfies the condition $x \ge 3$, use the second piece: $f(3) = 2(3) + 5 = 6 + 5 = 11$. Using the first piece gives $3^2 + 1 = 10$, which is wrong because $x < 3$ does not include $3$.
 
@@ -127,8 +193,17 @@ questions:
       - text: $f(x)$ is an exponential function because the variable is in the exponent, while $g(x)$ is a polynomial function because the variable is the base.
         correct: true
       - text: $f(x)$ is a polynomial function because the variable is in the exponent, while $g(x)$ is an exponential function.
+        rationale: |
+          You have the two labels swapped. A polynomial has the variable in the
+          base, and this one has it in the exponent.
       - text: Both $f(x)$ and $g(x)$ are exponential functions because both involve powers of 5.
+        rationale: |
+          You called both exponential. Only one has the variable in the exponent;
+          the other has it in the base.
       - text: $f(x)$ has a constant rate of change, while $g(x)$ grows at a linear rate.
+        rationale: |
+          You gave the constant rate of change to the wrong one, and a constant rate
+          belongs to a straight line rather than to either of these.
     explanation: |
       $f(x) = 5^x$ has a constant base (5) and variable exponent ($x$), defining an exponential function. $g(x) = x^5$ has a variable base ($x$) and constant exponent (5), defining a polynomial function.
 
@@ -141,8 +216,17 @@ questions:
       - text: $y \ge 3$
         correct: true
       - text: $y \ge 2$
+        rationale: |
+          You used the 2 from inside the bars. That shifts the graph sideways, and
+          the range is set by what is added outside.
       - text: $y \ge -3$
+        rationale: |
+          You made the 3 negative. The bars can never return a negative, so nothing
+          here goes below 3.
       - text: All real numbers
+        rationale: |
+          You treated it as a straight line. Absolute value never goes below zero,
+          so the output has a floor.
     explanation: |
       Since $|x - 2| \ge 0$ for all real numbers $x$, adding 3 gives $|x - 2| + 3 \ge 3$. Thus, the minimum value of $f(x)$ is 3, and its range is $y \ge 3$.
 
@@ -155,8 +239,17 @@ questions:
       - text: $y = 2$
         correct: true
       - text: $y = 0$
+        rationale: |
+          You used the rule for when the bottom has the higher degree. Here the
+          degrees match, so the asymptote is the ratio of the leading numbers.
       - text: No horizontal asymptote
+        rationale: |
+          You ruled one out. That happens when the top has the higher degree, and
+          here the two are equal.
       - text: $y = -3$
+        rationale: |
+          You used the constant from the top. The asymptote comes from the leading
+          terms, not the constants.
     explanation: |
       When the degree of the numerator equals the degree of the denominator (both are degree 2), the horizontal asymptote is the ratio of their leading coefficients: $y = \frac{4}{2} = 2$.
 
@@ -169,8 +262,17 @@ questions:
       - text: $x = 13$
         correct: true
       - text: $x = 5$
+        rationale: |
+          You worked out $2 \times 4$ and then took 3 away. The 4 is an exponent, so
+          it is $2^4$.
       - text: $x = 11$
+        rationale: |
+          You added 3 instead of subtracting it. The 3 is already on the left, so it
+          moves across as a subtraction.
       - text: $x = 61$
+        rationale: |
+          You used $4^3$ instead of $2^4$. The base and the exponent are the other
+          way round.
     explanation: |
       Rewrite the logarithmic equation in exponential form: $x + 3 = 2^4 = 16$. Subtract 3 from both sides to get $x = 13$.
 
@@ -183,8 +285,17 @@ questions:
       - text: The domain is all real numbers except $x = 3$, and the graph has a hole (removable discontinuity) at $x = 3$.
         correct: true
       - text: The function is continuous for all real numbers because $x - 3$ cancels out.
+        rationale: |
+          You called it continuous everywhere. At $x = 3$ the denominator is zero,
+          so the function has no value there at all.
       - text: The domain is all real numbers except $x = 3$, and the graph has a vertical asymptote at $x = 3$.
+        rationale: |
+          You have the kind of break wrong. The factor cancels, so the graph has a
+          single missing point rather than an asymptote.
       - text: The domain is all real numbers except $x = -3$ and $x = 3$.
+        rationale: |
+          You excluded $-3$ as well. That value only makes the top zero, which is
+          allowed.
     explanation: |
       Because $x - 3 = 0$ at $x = 3$, the function is undefined at $x = 3$. Since $\frac{x^2 - 9}{x - 3} = \frac{(x-3)(x+3)}{x-3} = x + 3$ for $x \neq 3$, the factor cancels out, creating a hole (removable discontinuity) at $x = 3$ rather than a vertical asymptote.
 
@@ -197,8 +308,15 @@ questions:
       - text: $x = 5$
         correct: true
       - text: $x = 16$
+        rationale: |
+          You divided 32 by 2. The question asks which power of 2 gives 32, not what
+          half of it is.
       - text: $x = 6$
+        rationale: |
+          You solved $2^x = 64$. Taking 1 from 33 leaves 32, not 64.
       - text: $x = 4$
+        rationale: |
+          You stopped at $2^4 = 16$. That leaves the equation at 17, not 33.
     explanation: |
       Set $2^x + 1 = 33 \implies 2^x = 32$. Since $32 = 2^5$, we have $x = 5$. Dividing $32 \div 2 = 16$ is a common distractor error.
 
@@ -211,7 +329,16 @@ questions:
       - text: Yes, because the product of their slopes is $-1$.
         correct: true
       - text: No, because their slopes are not equal.
+        rationale: |
+          You looked for equal slopes. Equal slopes make lines parallel, not
+          perpendicular.
       - text: No, because one slope is positive and the other is negative.
+        rationale: |
+          You used the signs alone. Plenty of pairs have one positive and one
+          negative slope without being perpendicular.
       - text: Yes, because their $y$-intercepts sum to zero.
+        rationale: |
+          You used the intercepts. Perpendicularity is decided by the slopes, and
+          the intercepts only move the lines around.
     explanation: |
       Two non-vertical lines are perpendicular if and only if the product of their slopes is $-1$. Here $m_1 = 3$ and $m_2 = -\frac{1}{3}$, so $m_1 \cdot m_2 = 3 \cdot \left(-\frac{1}{3}\right) = -1$.
