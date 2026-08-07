@@ -19,10 +19,19 @@ questions:
       - text: "$10$"
         correct: true
       - text: "$14$"
+        rationale: |
+          You added the two gaps instead of squaring them. The distance formula
+          squares 6 and 8 first, then takes the root of the sum.
         correct: false
       - text: '$\sqrt{28}$'
+        rationale: |
+          You subtracted the squares instead of adding them. The formula adds $36$
+          and $64$.
         correct: false
       - text: "$100$"
+        rationale: |
+          You stopped before the square root. $100$ is the sum of the squares, and
+          the distance is its root.
         correct: false
     explanation: |
       Apply the distance formula $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$:
@@ -42,10 +51,18 @@ questions:
       - text: "$(-2, 2)$"
         correct: true
       - text: "$(-4, 4)$"
+        rationale: |
+          You halved only one coordinate and doubled the other. Both are averages:
+          add the pair, then divide by 2.
         correct: false
       - text: "$(4, -6)$"
+        rationale: |
+          You swapped the two coordinates. The first slot holds the average of the
+          $x$ values.
         correct: false
       - text: "$(2, -2)$"
+        rationale: |
+          You flipped both signs. Averaging $-6$ and $2$ gives $-2$, not $+2$.
         correct: false
     explanation: |
       Apply midpoint formula $M = \left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right)$:
@@ -66,10 +83,19 @@ questions:
       - text: "$2$"
         correct: true
       - text: '$\frac{1}{2}$'
+        rationale: |
+          You put the run over the rise. Slope is the change in $y$ divided by the
+          change in $x$, so it is $8$ over $4$.
         correct: false
       - text: "$-2$"
+        rationale: |
+          You made the slope negative. Both coordinates grow from $A$ to $B$, so the
+          line rises.
         correct: false
       - text: '$\frac{4}{8}$'
+        rationale: |
+          You left the fraction uncancelled and built it from the wrong pair. The
+          rise is 8 and the run is 4.
         correct: false
     explanation: |
       Apply slope formula $m = \frac{y_2 - y_1}{x_2 - x_1}$:
@@ -89,10 +115,18 @@ questions:
       - text: "$3$"
         correct: true
       - text: '$-\frac{1}{3}$'
+        rationale: |
+          You used the perpendicular rule. Parallel lines keep the same slope; it is
+          perpendicular ones that flip and negate it.
         correct: false
       - text: "$-3$"
+        rationale: |
+          You flipped the sign. Parallel means identical, so the slope stays at $3$.
         correct: false
       - text: "$5$"
+        rationale: |
+          You read the wrong number off the equation. The slope is the coefficient
+          of $x$, not a value from the point.
         correct: false
     explanation: |
       Parallel lines always have equal slopes.
@@ -112,10 +146,19 @@ questions:
       - text: '$\frac{5}{4}$'
         correct: true
       - text: '$-\frac{5}{4}$'
+        rationale: |
+          You took the reciprocal and kept the sign. Perpendicular slopes have to
+          multiply to $-1$, so the sign flips too.
         correct: false
       - text: '$\frac{4}{5}$'
+        rationale: |
+          You flipped the sign without turning the fraction over. Both steps are
+          needed.
         correct: false
       - text: '$-\frac{4}{5}$'
+        rationale: |
+          You gave the same slope back. That would be a parallel line, not a
+          perpendicular one.
         correct: false
     explanation: |
       Perpendicular lines have slopes that are negative reciprocals of each other ($m_1 \cdot m_2 = -1$).
@@ -134,10 +177,19 @@ questions:
       - text: "$y = -4x + 10$"
         correct: true
       - text: "$y = -4x - 14$"
+        rationale: |
+          You subtracted 2 instead of the other way round. Expanding gives $y + 2 =
+          -4x + 12$, so $y = -4x + 10$.
         correct: false
       - text: "$y = -4x + 14$"
+        rationale: |
+          You kept the 12 and dropped the 2. Moving the $+2$ across takes the
+          constant down to 10.
         correct: false
       - text: "$y = 4x - 10$"
+        rationale: |
+          You lost the minus sign on the slope. It is $-4$, and it stays negative
+          through the whole rearrangement.
         correct: false
     explanation: |
       1. Use point-slope form $y - y_1 = m(x - x_1)$:
@@ -156,10 +208,19 @@ questions:
       - text: '$-\frac{4}{3}$'
         correct: true
       - text: '$\frac{3}{4}$'
+        rationale: |
+          You gave the slope of the segment itself. The bisector is perpendicular to
+          it, so it flips and negates.
         correct: false
       - text: '$-\frac{3}{4}$'
+        rationale: |
+          You negated without turning the fraction over. Both steps are needed for a
+          perpendicular.
         correct: false
       - text: '$\frac{4}{3}$'
+        rationale: |
+          You turned the fraction over and left it positive. The sign has to flip as
+          well.
         correct: false
     explanation: |
       1. Find slope of segment $AB$: $m_{AB} = \frac{7 - 1}{5 - (-3)} = \frac{6}{8} = \frac{3}{4}$.
@@ -178,10 +239,18 @@ questions:
       - text: "$12$"
         correct: true
       - text: "$24$"
+        rationale: |
+          You forgot to halve. A triangle is half of the rectangle with the same
+          base and height.
         correct: false
       - text: "$10$"
+        rationale: |
+          You used a height of 3 rather than the distance from $C$ up to the line $y
+          = 7$, which is 4.
         correct: false
       - text: "$14$"
+        rationale: |
+          You added the base and the height instead of multiplying them.
         correct: false
     explanation: |
       1. Base $AB$ is horizontal along $y = 7$: $\text{base} = |8 - 2| = 6$.
@@ -199,10 +268,19 @@ questions:
       - text: "$2x + 3y = 0$"
         correct: true
       - text: "$2x + 3y = 24$"
+        rationale: |
+          You dropped the $-12$ from one side. Both sides carry it, so they cancel
+          and the constant is 0.
         correct: false
       - text: "$2x - 3y = 0$"
+        rationale: |
+          You have the sign on the $y$ term wrong. Multiplying through leaves $+3y$
+          on the left.
         correct: false
       - text: "$3x + 2y = 0$"
+        rationale: |
+          You attached the 3 to $x$ and the 2 to $y$. The 3 comes from clearing the
+          denominator under the $x$ term.
         correct: false
     explanation: |
       1. Multiply entire equation by $3$ to clear fraction:
@@ -222,10 +300,19 @@ questions:
       - text: "$-1$"
         correct: true
       - text: "$1$"
+        rationale: |
+          You have the sign backwards. Working back from $B$ with a slope of 2 gives
+          $5 - 6$, which is $-1$.
         correct: false
       - text: "$-2$"
+        rationale: |
+          You used a slope of 1 rather than 2. Between $B$ and $C$ the rise is 6
+          over a run of 3.
         correct: false
       - text: "$2$"
+        rationale: |
+          You went up from $B$ instead of down. $A$ sits to the left, so the value
+          is lower.
         correct: false
     explanation: |
       Collinear points have equal slopes between any pair of points.
@@ -247,10 +334,19 @@ questions:
       - text: "$4x + 3y = 21$"
         correct: true
       - text: "$3x - 4y = 22$"
+        rationale: |
+          You kept the original line's coefficients. A perpendicular swaps them and
+          changes one sign.
         correct: false
       - text: "$4x - 3y = 27$"
+        rationale: |
+          You swapped the coefficients but kept the sign. The perpendicular slope is
+          negative here.
         correct: false
       - text: "$4x + 3y = 27$"
+        rationale: |
+          You have the right shape and the wrong constant. Substituting the point
+          gives 21.
         correct: false
     explanation: |
       1. Slope of $3x - 4y = 12$ is $m_1 = \frac{3}{4}$.
@@ -269,10 +365,18 @@ questions:
       - text: "$30$"
         correct: true
       - text: "$15$"
+        rationale: |
+          You halved the area. This is a parallelogram, not a triangle, so there is
+          no halving step.
         correct: false
       - text: "$40$"
+        rationale: |
+          You used a base of 8 rather than the 6 along the axis.
         correct: false
       - text: "$20$"
+        rationale: |
+          You used a height of 4 instead of 5. The height is the vertical distance
+          up to $y = 5$.
         correct: false
     explanation: |
       1. Base $OA$ lies along the x-axis: $\text{base} = |6 - 0| = 6$.
@@ -290,10 +394,19 @@ questions:
       - text: "Center $(3, -4)$, Radius $6$"
         correct: true
       - text: "Center $(-3, 4)$, Radius $6$"
+        rationale: |
+          You read the centre straight off the equation without flipping the signs.
+          Completing the square turns $-6x$ into $(x - 3)$.
         correct: false
       - text: "Center $(3, -4)$, Radius $36$"
+        rationale: |
+          You stopped at $36$. That is the radius squared, and the radius is its
+          root.
         correct: false
       - text: "Center $(-6, 8)$, Radius $11$"
+        rationale: |
+          You used the coefficients themselves as the centre and the constant as the
+          radius. Both come out of completing the square instead.
         correct: false
     explanation: |
       Complete the square for $x$ and $y$:
@@ -314,10 +427,17 @@ questions:
       - text: "$(2, 3)$"
         correct: true
       - text: "$(3, 2)$"
+        rationale: |
+          You swapped the two coordinates. Solving gives $x = 2$ and $y = 3$.
         correct: false
       - text: "$(1, 4)$"
+        rationale: |
+          You solved only one equation. This pair fits the first equation but not
+          the second.
         correct: false
       - text: "$(-2, 5)$"
+        rationale: |
+          You made $x$ negative. Eliminating leaves a positive $x$ here.
         correct: false
     explanation: |
       Solve the system of equations by elimination:
@@ -338,10 +458,19 @@ questions:
       - text: "$4$"
         correct: true
       - text: "$5$"
+        rationale: |
+          You used one of the intercepts as the distance. The distance to a line is
+          measured along the perpendicular, not along an axis.
         correct: false
       - text: '$\frac{20}{3}$'
+        rationale: |
+          You used the other intercept. The perpendicular distance is shorter than
+          both.
         correct: false
       - text: "$20$"
+        rationale: |
+          You stopped at the numerator. It still has to be divided by the root of
+          $3^2 + 4^2$, which is 5.
         correct: false
     explanation: |
       Distance $d$ from point $(x_0, y_0)$ to line $Ax + By + C = 0$:
