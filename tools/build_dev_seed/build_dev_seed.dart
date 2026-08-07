@@ -287,7 +287,12 @@ List<Map<String, Object?>> buildQuestions(Map<String, String> topicIdBySlug) {
     for (final raw in doc['questions'] as YamlList) {
       final question = raw as YamlMap;
       final figure = question['figure'];
-      if (figure != null && '$figure'.trim().isNotEmpty) {
+      // A figure the app draws itself is not pending. Only the ones still
+      // waiting on a hand-drawn picture are held back.
+      final drawnSpec = question['figureSpec'];
+      if (figure != null &&
+          '$figure'.trim().isNotEmpty &&
+          drawnSpec == null) {
         skippedFigures++;
         continue;
       }
@@ -320,6 +325,8 @@ List<Map<String, Object?>> buildQuestions(Map<String, String> topicIdBySlug) {
             },
         ],
         'explanation': (question['explanation'] as String).trim(),
+        if (drawnSpec != null)
+          'figureSpecJson': jsonEncode(_plainMap(drawnSpec)),
       });
     }
   }
@@ -522,3 +529,21 @@ List<File> _filesUnder(String root, String extension) =>
       return file.path.endsWith(extension);
     }).toList()
       ..sort((a, b) => a.path.compareTo(b.path));
+
+
+/// YAML maps are not JSON encodable on their own. This turns one into a
+/// plain map so the figure spec can be stored as text.
+Map<String, Object?> _plainMap(Object? value) {
+  final map = value! as Map;
+  return {
+    for (final entry in map.entries)
+      '${entry.key}': entry.value is Map
+          ? _plainMap(entry.value)
+          : entry.value is List
+              ? [
+                  for (final item in entry.value as List)
+                    item is Map ? _plainMap(item) : item,
+                ]
+              : entry.value,
+  };
+}

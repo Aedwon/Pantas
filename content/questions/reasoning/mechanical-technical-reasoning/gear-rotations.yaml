@@ -8,6 +8,10 @@ questions:
     type: gear-direction
     difficulty: easy
     figure: gear-rotations-01
+    figureSpec:
+      kind: gear-train
+      gears: 3
+      firstTurns: clockwise
     stem: |
       Figure shows three gears connected in a row, each meshing directly with its neighbor. The first gear turns clockwise. What direction does the third gear turn?
     choices:
@@ -30,6 +34,10 @@ questions:
     type: gear-direction
     difficulty: easy
     figure: gear-rotations-02
+    figureSpec:
+      kind: gear-train
+      gears: 5
+      firstTurns: counter-clockwise
     stem: |
       Figure shows five gears connected in a row, each meshing directly with its neighbor. The first gear turns counter-clockwise. What direction does the fifth gear turn?
     choices:
@@ -52,6 +60,10 @@ questions:
     type: gear-direction
     difficulty: medium
     figure: gear-rotations-03
+    figureSpec:
+      kind: gear-train
+      gears: 4
+      firstTurns: clockwise
     stem: |
       Figure shows four gears connected in a row, each meshing directly with its neighbor. The first gear turns clockwise. What direction does the fourth gear turn?
     choices:
@@ -74,6 +86,10 @@ questions:
     type: gear-direction
     difficulty: medium
     figure: gear-rotations-04
+    figureSpec:
+      kind: gear-train
+      gears: 6
+      firstTurns: counter-clockwise
     stem: |
       Figure shows six gears connected in a row, each meshing directly with its neighbor. The first gear turns counter-clockwise. What direction does the sixth gear turn?
     choices:
@@ -96,6 +112,11 @@ questions:
     type: gear-direction
     difficulty: medium
     figure: gear-rotations-05
+    figureSpec:
+      kind: gear-train
+      gears: 2
+      firstTurns: clockwise
+      teeth: [10, 30]
     stem: |
       Figure shows a small gear with 10 teeth meshing with a large gear with 30 teeth. If the small gear completes 6 full rotations, how many full rotations does the large gear complete?
     choices:
@@ -118,6 +139,11 @@ questions:
     type: gear-direction
     difficulty: medium
     figure: gear-rotations-06
+    figureSpec:
+      kind: gear-train
+      gears: 2
+      firstTurns: clockwise
+      teeth: [8, 24]
     stem: |
       Figure shows a small gear with 8 teeth meshing with a large gear with 24 teeth. If the small gear completes 9 full rotations, how many full rotations does the large gear complete?
     choices:
@@ -162,6 +188,10 @@ questions:
     type: gear-direction
     difficulty: hard
     figure: gear-rotations-08
+    figureSpec:
+      kind: gear-train
+      gears: 3
+      firstTurns: clockwise
     stem: |
       Figure shows three gears connected in a row. Gear 1 turns clockwise, and gear 2 (meshing directly with gear 1) turns counter-clockwise. A student assumes gear 3 (meshing directly with gear 2) must also turn counter-clockwise, "matching gear 2." Is this assumption correct?
     choices:
@@ -184,6 +214,11 @@ questions:
     type: gear-direction
     difficulty: hard
     figure: gear-rotations-09
+    figureSpec:
+      kind: gear-train
+      gears: 2
+      firstTurns: clockwise
+      teeth: [40, 10]
     stem: |
       A very large gear meshes directly with a very small gear. A student assumes the large gear, because of its size, must always turn in the same direction as other large gears elsewhere in a machine, regardless of the meshing pattern. Is this reasoning correct?
     choices:
@@ -206,6 +241,11 @@ questions:
     type: gear-direction
     difficulty: hard
     figure: gear-rotations-10
+    figureSpec:
+      kind: gear-train
+      gears: 2
+      firstTurns: clockwise
+      teeth: [12, 36]
     stem: |
       A small gear with 12 teeth meshes with a large gear with 36 teeth. A student says, "the large gear obviously spins slower, so let's just guess it completes half as many rotations as the small gear," without calculating the exact teeth ratio. If the small gear completes 9 rotations, is "half as many" (4.5 rotations) the correct answer for the large gear?
     choices:
@@ -250,6 +290,11 @@ questions:
     type: gear-direction
     difficulty: medium
     figure: gear-rotations-12
+    figureSpec:
+      kind: gear-train
+      gears: 2
+      firstTurns: clockwise
+      teeth: [15, 45]
     stem: |
       A small gear with 15 teeth meshes with a large gear with 45 teeth. If the large gear completes 4 full rotations, how many full rotations does the small gear complete?
     choices:
@@ -272,6 +317,10 @@ questions:
     type: gear-direction
     difficulty: medium
     figure: gear-rotations-13
+    figureSpec:
+      kind: gear-train
+      gears: 7
+      firstTurns: clockwise
     stem: |
       Figure shows seven gears connected in a row, each meshing directly with its neighbor. The first gear turns clockwise. What direction does the seventh gear turn?
     choices:
@@ -294,6 +343,11 @@ questions:
     type: gear-direction
     difficulty: hard
     figure: gear-rotations-14
+    figureSpec:
+      kind: gear-train
+      gears: 4
+      firstTurns: clockwise
+      teeth: [20, 10, 20, 10]
     stem: |
       Figure shows four gears connected in a row. Gear 1 has 20 teeth and turns clockwise at 10 rotations per minute. Gear 2 has 10 teeth. What direction does gear 2 turn, and how many rotations per minute does it complete?
     choices:

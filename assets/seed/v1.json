@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "contentVersion": 2026081219,
-  "generatedAt": "2026-08-12T19:58:30.047069Z",
+  "contentVersion": 2026081220,
+  "generatedAt": "2026-08-12T20:12:33.772447Z",
   "exams": [
     {
       "id": "exam_cse_pro",
@@ -63585,6 +63585,510 @@
         }
       ],
       "explanation": "First pair: a kitten is a baby cat, so a chick is a baby chicken. Second pair: a key is used to start (unlock/activate) a lock, so an ignition is used to start an engine. Checking both relationships together, \"chicken, ignition\" satisfies both correctly."
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-gear-rotations-0001",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-gear-rotations",
+      "language": "en",
+      "stem": "Figure shows three gears connected in a row, each meshing directly with its neighbor. The first gear turns clockwise. What direction does the third gear turn?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0001_a",
+          "label": "A",
+          "text": "Clockwise",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0001_b",
+          "label": "B",
+          "text": "Counter-clockwise",
+          "isCorrect": false,
+          "rationale": "You assumed every gear in a chain turns counter-clockwise. Odd-numbered gears in a linear chain turn in the same direction as the first gear."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0001_c",
+          "label": "C",
+          "text": "It does not turn at all",
+          "isCorrect": false,
+          "rationale": "You assumed connected gears jam. Linear gear trains turn smoothly when properly aligned."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0001_d",
+          "label": "D",
+          "text": "It turns in both directions at once",
+          "isCorrect": false,
+          "rationale": "You assigned impossible dual directions. A single gear rotates in only one direction at a time."
+        }
+      ],
+      "explanation": "Meshing gears alternate direction: gear 1 clockwise, gear 2 counter-clockwise, gear 3 clockwise. Since gears 1 and 3 are both in odd positions, they turn in the same direction.",
+      "figureSpecJson": "{\"kind\":\"gear-train\",\"gears\":3,\"firstTurns\":\"clockwise\"}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-gear-rotations-0002",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-gear-rotations",
+      "language": "en",
+      "stem": "Figure shows five gears connected in a row, each meshing directly with its neighbor. The first gear turns counter-clockwise. What direction does the fifth gear turn?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0002_a",
+          "label": "A",
+          "text": "Counter-clockwise",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0002_b",
+          "label": "B",
+          "text": "Clockwise",
+          "isCorrect": false,
+          "rationale": "You applied an even-position rule to an odd position. Gear 5 is in an odd position in the chain, so it matches gear 1."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0002_c",
+          "label": "C",
+          "text": "It does not turn at all",
+          "isCorrect": false,
+          "rationale": "You assumed the chain locks up. An odd-numbered chain of meshing gears turns freely without jamming."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0002_d",
+          "label": "D",
+          "text": "It turns in both directions at once",
+          "isCorrect": false,
+          "rationale": "You assigned impossible dual rotation directions to a single gear."
+        }
+      ],
+      "explanation": "Gears 1, 3, and 5 are all in odd positions, so they share the same rotation direction as gear 1. Since gear 1 turns counter-clockwise, gear 5 also turns counter-clockwise.",
+      "figureSpecJson": "{\"kind\":\"gear-train\",\"gears\":5,\"firstTurns\":\"counter-clockwise\"}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-gear-rotations-0003",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-gear-rotations",
+      "language": "en",
+      "stem": "Figure shows four gears connected in a row, each meshing directly with its neighbor. The first gear turns clockwise. What direction does the fourth gear turn?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0003_a",
+          "label": "A",
+          "text": "Counter-clockwise",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0003_b",
+          "label": "B",
+          "text": "Clockwise",
+          "isCorrect": false,
+          "rationale": "You applied the odd-position rule to an even position. Gear 4 is in an even position, so it turns opposite to gear 1."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0003_c",
+          "label": "C",
+          "text": "It does not turn at all",
+          "isCorrect": false,
+          "rationale": "You assumed the 4-gear train jams. A linear 4-gear train rotates smoothly without locking up."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0003_d",
+          "label": "D",
+          "text": "It turns in both directions at once",
+          "isCorrect": false,
+          "rationale": "You assigned opposing simultaneous rotation directions to a single gear."
+        }
+      ],
+      "explanation": "Gear 4 is in an even position, so it turns opposite to gear 1. Since gear 1 turns clockwise, gear 4 turns counter-clockwise.",
+      "figureSpecJson": "{\"kind\":\"gear-train\",\"gears\":4,\"firstTurns\":\"clockwise\"}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-gear-rotations-0004",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-gear-rotations",
+      "language": "en",
+      "stem": "Figure shows six gears connected in a row, each meshing directly with its neighbor. The first gear turns counter-clockwise. What direction does the sixth gear turn?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0004_a",
+          "label": "A",
+          "text": "Clockwise",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0004_b",
+          "label": "B",
+          "text": "Counter-clockwise",
+          "isCorrect": false,
+          "rationale": "You assumed gear 6 matches gear 1. Gear 6 is in an even position, so it turns opposite to gear 1."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0004_c",
+          "label": "C",
+          "text": "It does not turn at all",
+          "isCorrect": false,
+          "rationale": "You assumed a 6-gear train locks up. Linear gear trains turn freely regardless of chain length."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0004_d",
+          "label": "D",
+          "text": "It turns in both directions at once",
+          "isCorrect": false,
+          "rationale": "You assigned conflicting simultaneous rotation directions."
+        }
+      ],
+      "explanation": "Gear 6 is in an even position, so it turns opposite to gear 1. Since gear 1 turns counter-clockwise, gear 6 turns clockwise.",
+      "figureSpecJson": "{\"kind\":\"gear-train\",\"gears\":6,\"firstTurns\":\"counter-clockwise\"}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-gear-rotations-0005",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-gear-rotations",
+      "language": "en",
+      "stem": "Figure shows a small gear with 10 teeth meshing with a large gear with 30 teeth. If the small gear completes 6 full rotations, how many full rotations does the large gear complete?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0005_a",
+          "label": "A",
+          "text": "2 rotations",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0005_b",
+          "label": "B",
+          "text": "6 rotations",
+          "isCorrect": false,
+          "rationale": "You assumed both gears complete the same number of rotations. Larger gears have more teeth and complete fewer rotations."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0005_c",
+          "label": "C",
+          "text": "18 rotations",
+          "isCorrect": false,
+          "rationale": "You multiplied rotations by the teeth ratio instead of dividing. The larger gear completes  \\times 6 \\div 30 = 2$ rotations."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0005_d",
+          "label": "D",
+          "text": "3 rotations",
+          "isCorrect": false,
+          "rationale": "You miscalculated the teeth ratio. The ratio is  \\div 10 = 3$, so  \\div 3 = 2$ rotations."
+        }
+      ],
+      "explanation": "The number of teeth passing the meshing point must be equal for both gears: the small gear completes $10 \\times 6 = 60$ teeth passing. The large gear (30 teeth) must also have 60 teeth pass, so it completes $60 \\div 30 = 2$ rotations.",
+      "figureSpecJson": "{\"kind\":\"gear-train\",\"gears\":2,\"firstTurns\":\"clockwise\",\"teeth\":[10,30]}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-gear-rotations-0006",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-gear-rotations",
+      "language": "en",
+      "stem": "Figure shows a small gear with 8 teeth meshing with a large gear with 24 teeth. If the small gear completes 9 full rotations, how many full rotations does the large gear complete?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0006_a",
+          "label": "A",
+          "text": "3 rotations",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0006_b",
+          "label": "B",
+          "text": "9 rotations",
+          "isCorrect": false,
+          "rationale": "You assumed rotation count is unaffected by gear size. The 24-tooth gear is 3 times larger, so it rotates 3 times fewer."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0006_c",
+          "label": "C",
+          "text": "27 rotations",
+          "isCorrect": false,
+          "rationale": "You multiplied rotations by 3 instead of dividing. Small-to-large gear transmission reduces rotation count ( \\div 24 = 3$)."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0006_d",
+          "label": "D",
+          "text": "6 rotations",
+          "isCorrect": false,
+          "rationale": "You estimated the calculation.  \\times 9 = 72$ teeth passing, so  \\div 24 = 3$ rotations."
+        }
+      ],
+      "explanation": "The small gear completes $8 \\times 9 = 72$ teeth passing the contact point. The large gear (24 teeth) must also have 72 teeth pass, so it completes $72 \\div 24 = 3$ rotations.",
+      "figureSpecJson": "{\"kind\":\"gear-train\",\"gears\":2,\"firstTurns\":\"clockwise\",\"teeth\":[8,24]}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-gear-rotations-0008",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-gear-rotations",
+      "language": "en",
+      "stem": "Figure shows three gears connected in a row. Gear 1 turns clockwise, and gear 2 (meshing directly with gear 1) turns counter-clockwise. A student assumes gear 3 (meshing directly with gear 2) must also turn counter-clockwise, \"matching gear 2.\" Is this assumption correct?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0008_a",
+          "label": "A",
+          "text": "No: gear 3 meshes directly with gear 2, so it must turn opposite to gear 2 (clockwise), alternating back to match gear 1's direction, not continuing gear 2's direction.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0008_b",
+          "label": "B",
+          "text": "Yes: once a gear in the chain turns counter-clockwise, every gear after it also turns counter-clockwise.",
+          "isCorrect": false,
+          "rationale": "You assumed a direction persists down the chain. Meshing gears alternate direction at every step."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0008_c",
+          "label": "C",
+          "text": "Yes: but only because gear 3 does not actually mesh with gear 2.",
+          "isCorrect": false,
+          "rationale": "You disputed the given meshing connection between the gears."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0008_d",
+          "label": "D",
+          "text": "No: but only because gear 1 and gear 2 actually turn in the same direction.",
+          "isCorrect": false,
+          "rationale": "You disputed the premise that meshing gears turn in opposite directions."
+        }
+      ],
+      "explanation": "Assuming the third gear spins the same direction as the second (rather than correctly alternating back to match the first) is one of the most common gear-direction errors. Directly meshing gears always spin in opposite directions, so gear 3 must be opposite gear 2, which means it matches gear 1.",
+      "figureSpecJson": "{\"kind\":\"gear-train\",\"gears\":3,\"firstTurns\":\"clockwise\"}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-gear-rotations-0009",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-gear-rotations",
+      "language": "en",
+      "stem": "A very large gear meshes directly with a very small gear. A student assumes the large gear, because of its size, must always turn in the same direction as other large gears elsewhere in a machine, regardless of the meshing pattern. Is this reasoning correct?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0009_a",
+          "label": "A",
+          "text": "No: gear size (number of teeth) affects rotation speed, not direction; direction depends only on whether gears mesh directly (always opposite) or how many gears separate them in a chain, independent of size.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0009_b",
+          "label": "B",
+          "text": "Yes: larger gears always share the same rotation direction as each other, regardless of meshing.",
+          "isCorrect": false,
+          "rationale": "You assumed physical size determines rotation direction. Direction is governed entirely by meshing connections."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0009_c",
+          "label": "C",
+          "text": "Yes: smaller gears always share the same rotation direction as each other, regardless of meshing.",
+          "isCorrect": false,
+          "rationale": "You assumed small size forces matching rotation directions."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0009_d",
+          "label": "D",
+          "text": "No: but only because gear size has no effect on anything mechanical.",
+          "isCorrect": false,
+          "rationale": "You claimed gear size has no mechanical effect. Gear size determines rotation speed and torque."
+        }
+      ],
+      "explanation": "A larger gear does not automatically spin the \"same direction\" or \"opposite direction\" based on its size alone. Direction is governed purely by the meshing/alternating rule; gear size only affects rotation speed.",
+      "figureSpecJson": "{\"kind\":\"gear-train\",\"gears\":2,\"firstTurns\":\"clockwise\",\"teeth\":[40,10]}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-gear-rotations-0010",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-gear-rotations",
+      "language": "en",
+      "stem": "A small gear with 12 teeth meshes with a large gear with 36 teeth. A student says, \"the large gear obviously spins slower, so let's just guess it completes half as many rotations as the small gear,\" without calculating the exact teeth ratio. If the small gear completes 9 rotations, is \"half as many\" (4.5 rotations) the correct answer for the large gear?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0010_a",
+          "label": "A",
+          "text": "No: the exact ratio must be calculated from the actual teeth counts (36 ÷ 12 = 3, so the large gear turns 3 times slower); the small gear's $9$ rotations mean $12 \\times 9 = 108$ teeth pass, so the large gear completes $108 \\div 36 = 3$ rotations, not 4.5.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0010_b",
+          "label": "B",
+          "text": "Yes: \"half as many rotations\" is always a safe guess for any two meshing gears, regardless of their teeth counts.",
+          "isCorrect": false,
+          "rationale": "You relied on a random guess instead of calculating the exact ratio from teeth counts ( \\div 12 = 3$)."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0010_c",
+          "label": "C",
+          "text": "Yes: since the large gear is 3 times bigger, guessing half its rotations is close enough for these questions.",
+          "isCorrect": false,
+          "rationale": "You accepted an approximation. Mechanical calculations require exact ratios ( \\div 36 = 3$)."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0010_d",
+          "label": "D",
+          "text": "No: but only because gears with different teeth counts can never mesh together.",
+          "isCorrect": false,
+          "rationale": "You claimed gears with different teeth counts cannot mesh together."
+        }
+      ],
+      "explanation": "Assuming two gears \"just spin at different speeds\" without calculating the precise inverse ratio from their actual teeth counts leads to an incorrect answer. The correct ratio here is 3:1 (36 ÷ 12 = 3), giving 3 rotations for the large gear, not a guessed 4.5.",
+      "figureSpecJson": "{\"kind\":\"gear-train\",\"gears\":2,\"firstTurns\":\"clockwise\",\"teeth\":[12,36]}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-gear-rotations-0012",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-gear-rotations",
+      "language": "en",
+      "stem": "A small gear with 15 teeth meshes with a large gear with 45 teeth. If the large gear completes 4 full rotations, how many full rotations does the small gear complete?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0012_a",
+          "label": "A",
+          "text": "12 rotations",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0012_b",
+          "label": "B",
+          "text": "4 rotations",
+          "isCorrect": false,
+          "rationale": "You assumed the smaller gear rotates at the same speed. The smaller gear has fewer teeth and must rotate faster ( \\div 15 = 12$)."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0012_c",
+          "label": "C",
+          "text": "36 rotations",
+          "isCorrect": false,
+          "rationale": "You multiplied by 9 instead of the 3:1 gear ratio.  \\times 4 \\div 15 = 12$."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0012_d",
+          "label": "D",
+          "text": "8 rotations",
+          "isCorrect": false,
+          "rationale": "You miscalculated the teeth ratio. The ratio is  \\div 15 = 3$, so  \\times 3 = 12$ rotations."
+        }
+      ],
+      "explanation": "The large gear completes $45 \\times 4 = 180$ teeth passing the contact point. The small gear (15 teeth) must also have 180 teeth pass, so it completes $180 \\div 15 = 12$ rotations.",
+      "figureSpecJson": "{\"kind\":\"gear-train\",\"gears\":2,\"firstTurns\":\"clockwise\",\"teeth\":[15,45]}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-gear-rotations-0013",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-gear-rotations",
+      "language": "en",
+      "stem": "Figure shows seven gears connected in a row, each meshing directly with its neighbor. The first gear turns clockwise. What direction does the seventh gear turn?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0013_a",
+          "label": "A",
+          "text": "Clockwise",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0013_b",
+          "label": "B",
+          "text": "Counter-clockwise",
+          "isCorrect": false,
+          "rationale": "You assigned an even-position direction to position 7. Odd positions match gear 1."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0013_c",
+          "label": "C",
+          "text": "It does not turn at all",
+          "isCorrect": false,
+          "rationale": "You assumed a 7-gear train locks up and prevents movement."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0013_d",
+          "label": "D",
+          "text": "It turns in both directions at once",
+          "isCorrect": false,
+          "rationale": "You assigned impossible dual rotation directions to a single gear."
+        }
+      ],
+      "explanation": "Gear 7 is in an odd position, so it shares the same direction as gear 1. Since gear 1 turns clockwise, gear 7 also turns clockwise.",
+      "figureSpecJson": "{\"kind\":\"gear-train\",\"gears\":7,\"firstTurns\":\"clockwise\"}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-gear-rotations-0014",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-gear-rotations",
+      "language": "en",
+      "stem": "Figure shows four gears connected in a row. Gear 1 has 20 teeth and turns clockwise at 10 rotations per minute. Gear 2 has 10 teeth. What direction does gear 2 turn, and how many rotations per minute does it complete?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0014_a",
+          "label": "A",
+          "text": "Counter-clockwise, at 20 rotations per minute",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0014_b",
+          "label": "B",
+          "text": "Clockwise, at 20 rotations per minute",
+          "isCorrect": false,
+          "rationale": "You kept the same rotation direction. Meshing gears turn in opposite directions, so gear 2 turns counter-clockwise."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0014_c",
+          "label": "C",
+          "text": "Counter-clockwise, at 5 rotations per minute",
+          "isCorrect": false,
+          "rationale": "You halved the speed instead of doubling it. A gear with half the teeth must spin twice as fast ( \\div 10 = 20$ rpm)."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-gear-rotations-0014_d",
+          "label": "D",
+          "text": "Clockwise, at 10 rotations per minute",
+          "isCorrect": false,
+          "rationale": "You assumed identical speed and direction. Smaller meshing gears turn faster and in the opposite direction."
+        }
+      ],
+      "explanation": "Gear 2 meshes directly with gear 1, so it turns opposite (counter-clockwise). Since gear 1 (20 teeth) turns 10 times per minute, $20 \\times 10 = 200$ teeth pass per minute; gear 2 (10 teeth) must also have 200 teeth pass per minute, so it completes $200 \\div 10 = 20$ rotations per minute.",
+      "figureSpecJson": "{\"kind\":\"gear-train\",\"gears\":4,\"firstTurns\":\"clockwise\",\"teeth\":[20,10,20,10]}"
     },
     {
       "id": "q-verbal-logic-assumptions-and-conclusions-0001",

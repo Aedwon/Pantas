@@ -17,10 +17,22 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 /// `gears` is how many sit in the row, two to eight. `firstTurns` is
 /// `clockwise` or `counter-clockwise` and only the first gear is marked,
 /// because working out the rest is the question.
+///
+/// An optional `teeth` list sizes them relative to each other, for the
+/// questions that turn on one gear being bigger than another:
+///
+/// ```yaml
+///       teeth: [10, 30]
+/// ```
+///
+/// **The tooth counts are drawn as sizes, never printed.** The stem states
+/// them, and a number on a drawing this project did not measure is a figure
+/// it must not print.
 class GearTrainFigure extends StatelessWidget {
   const GearTrainFigure({
     required this.gears,
     required this.firstTurnsClockwise,
+    this.teeth,
     super.key,
   });
 
@@ -28,6 +40,9 @@ class GearTrainFigure extends StatelessWidget {
 
   final int gears;
   final bool firstTurnsClockwise;
+
+  /// Relative sizes. Null draws them all the same.
+  final List<int>? teeth;
 
   /// Null when the spec cannot be read. The caller draws the missing box.
   static GearTrainFigure? fromSpec(Map<String, Object?> spec) {
@@ -41,7 +56,23 @@ class GearTrainFigure extends StatelessWidget {
       _ => null,
     };
     if (clockwise == null) return null;
-    return GearTrainFigure(gears: count, firstTurnsClockwise: clockwise);
+
+    final rawTeeth = spec['teeth'];
+    List<int>? teeth;
+    if (rawTeeth != null) {
+      if (rawTeeth is! List || rawTeeth.length != count) return null;
+      teeth = <int>[];
+      for (final value in rawTeeth) {
+        if (value is! int || value < 4 || value > 200) return null;
+        teeth.add(value);
+      }
+    }
+
+    return GearTrainFigure(
+      gears: count,
+      firstTurnsClockwise: clockwise,
+      teeth: teeth,
+    );
   }
 
   @override
@@ -56,6 +87,7 @@ class GearTrainFigure extends StatelessWidget {
           painter: _GearTrainPainter(
             gears: gears,
             firstTurnsClockwise: firstTurnsClockwise,
+            teeth: teeth,
             ink: colors.ink,
           ),
           size: Size.infinite,
@@ -70,10 +102,12 @@ class _GearTrainPainter extends CustomPainter {
     required this.gears,
     required this.firstTurnsClockwise,
     required this.ink,
+    this.teeth,
   });
 
   final int gears;
   final bool firstTurnsClockwise;
+  final List<int>? teeth;
   final Color ink;
 
   static const _teeth = 12;
@@ -83,16 +117,25 @@ class _GearTrainPainter extends CustomPainter {
     // Gears touch, so the spacing is twice the radius less one tooth's
     // depth. Everything is derived from the width so the row fits whatever
     // it is given.
-    final radius = math.min(
-      size.height / 2 - 6,
-      size.width / (gears * 1.9 + 0.4),
-    );
-    if (radius <= 4) return;
+    // Relative sizes come from the tooth counts when the question turns on
+    // one gear being bigger. Otherwise every gear is the same.
+    final counts = teeth ?? List<int>.filled(gears, 1);
+    final largest = counts.reduce(math.max).toDouble();
+    final scales = [for (final c in counts) c / largest];
 
-    final toothDepth = radius * 0.16;
-    final spacing = radius * 2 - toothDepth;
-    final totalWidth = spacing * (gears - 1) + radius * 2;
-    var cx = (size.width - totalWidth) / 2 + radius;
+    final unit = math.min(
+      size.height / 2 - 6,
+      size.width / (scales.fold<double>(0, (a, b) => a + b) * 1.9 + 0.4),
+    );
+    if (unit <= 4) return;
+
+    final radii = [for (final s in scales) math.max<double>(unit * s, 8)];
+    var totalWidth = radii.first + radii.last;
+    for (var i = 0; i < gears - 1; i++) {
+      totalWidth += radii[i] + radii[i + 1] - unit * 0.16;
+    }
+
+    var cx = (size.width - totalWidth) / 2 + radii.first;
     final cy = size.height / 2;
 
     final hairline = Paint()
@@ -101,11 +144,16 @@ class _GearTrainPainter extends CustomPainter {
       ..color = ink;
 
     for (var i = 0; i < gears; i++) {
-      _drawGear(canvas, Offset(cx, cy), radius, toothDepth, hairline);
+      final radius = radii[i];
+      _drawGear(canvas, Offset(cx, cy), radius, radius * 0.16, hairline);
       if (i == 0) {
         _drawTurnArrow(canvas, Offset(cx, cy), radius * 0.52, hairline);
       }
-      cx += spacing;
+      if (i < gears - 1) {
+        // Meshed, so the centres sit one tooth's depth closer than the two
+        // radii would put them.
+        cx += radius + radii[i + 1] - unit * 0.16;
+      }
     }
   }
 

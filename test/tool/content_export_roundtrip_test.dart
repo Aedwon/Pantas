@@ -108,12 +108,14 @@ void main() {
     // Reasoning's clerical and verbal-logic sets were authored and reaching
     // nobody, because a question whose topic the outline does not carry is
     // dropped by the export.
-    expect(questionsCount, 2216, reason: 'Expected 2,216 questions');
+    // 2,228 from 13 August: twelve gear questions that the app can now draw
+    // its own diagram for stopped being held back as figure-pending.
+    expect(questionsCount, 2228, reason: 'Expected 2,228 questions');
     expect(lessonsCount, 161, reason: 'Expected 161 lessons');
     expect(topicsCount, 26, reason: 'Expected 26 topics');
     expect(examsCount, 7, reason: 'Expected 7 exams');
     expect(passagesCount, 32, reason: 'Expected 32 passages');
-    expect(lessonLinksCount, 2214, reason: 'Expected 2,214 lesson links');
+    expect(lessonLinksCount, 2226, reason: 'Expected 2,226 lesson links');
     expect(passageLinksCount, 160, reason: 'Expected 160 passage links');
 
     // 4. Assert the ids are underscored by reading one exam id back

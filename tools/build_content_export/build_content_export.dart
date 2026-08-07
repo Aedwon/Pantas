@@ -357,7 +357,12 @@ List<Map<String, Object?>> buildQuestions(
     for (final raw in doc['questions'] as YamlList) {
       final question = raw as YamlMap;
       final figure = question['figure'];
-      if (figure != null && '$figure'.trim().isNotEmpty) {
+      // A figure the app draws itself is not pending. Only the ones still
+      // waiting on a hand-drawn picture are held back.
+      final drawnSpec = question['figureSpec'];
+      if (figure != null &&
+          '$figure'.trim().isNotEmpty &&
+          drawnSpec == null) {
         skippedFigures++;
         continue;
       }
