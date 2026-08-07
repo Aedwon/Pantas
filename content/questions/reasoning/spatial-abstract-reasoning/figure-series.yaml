@@ -8,6 +8,16 @@ questions:
     type: figure-series
     difficulty: easy
     figure: figure-series-01
+    figureSpec:
+      kind: figure-series
+      items:
+        - form: square
+          line: 0
+        - form: square
+          line: 45
+        - form: square
+          line: 90
+      blank: true
     stem: |
       Figure shows a row of three squares, each containing a single line. Square 1's line points straight up. Square 2's line points to the upper-right (a 45° clockwise turn from square 1). Square 3's line points directly right (another 45° clockwise turn from square 2). What direction should the line point in the fourth square?
     choices:
@@ -30,6 +40,13 @@ questions:
     type: figure-series
     difficulty: easy
     figure: figure-series-02
+    figureSpec:
+      kind: figure-series
+      items:
+        - form: triangle
+        - form: square
+        - form: pentagon
+      blank: true
     stem: |
       Figure shows a row of three shapes: a triangle (3 sides), a square (4 sides), and a pentagon (5 sides). How many sides should the fourth figure have, and what shape is it?
     choices:
@@ -52,6 +69,16 @@ questions:
     type: figure-series
     difficulty: medium
     figure: figure-series-03
+    figureSpec:
+      kind: figure-series
+      items:
+        - form: circle
+          fill: black
+        - form: circle
+          fill: white
+        - form: circle
+          fill: black
+      blank: true
     stem: |
       Figure shows a row of three circles: a fully black circle, then a fully white (empty) circle, then a fully black circle again. What should the fourth circle look like?
     choices:
@@ -74,6 +101,19 @@ questions:
     type: figure-series
     difficulty: medium
     figure: figure-series-04
+    figureSpec:
+      kind: figure-series
+      items:
+        - form: triangle
+          size: small
+          fill: black
+        - form: triangle
+          size: medium
+          fill: white
+        - form: triangle
+          size: large
+          fill: black
+      blank: true
     stem: |
       Figure shows a row of three triangles: a small black triangle, a medium white triangle, and a large black triangle. Predict the size and shading of the fourth triangle.
     choices:
@@ -96,6 +136,16 @@ questions:
     type: figure-series
     difficulty: medium
     figure: figure-series-05
+    figureSpec:
+      kind: figure-series
+      items:
+        - form: square
+          dot: top-left
+        - form: square
+          dot: top-right
+        - form: square
+          dot: bottom-right
+      blank: true
     stem: |
       Figure shows a row of three squares, each with a black dot in one corner. Square 1's dot is in the top-left corner. Square 2's dot is in the top-right corner (moved clockwise one corner). Square 3's dot is in the bottom-right corner (moved clockwise one more corner). Where should the dot be in the fourth square?
     choices:
@@ -118,6 +168,16 @@ questions:
     type: figure-series
     difficulty: medium
     figure: figure-series-06
+    figureSpec:
+      kind: figure-series
+      items:
+        - form: circle
+          arrow: up
+        - form: circle
+          arrow: right
+        - form: circle
+          arrow: down
+      blank: true
     stem: |
       Figure shows a row of three circles, each with an arrow inside. Circle 1's arrow points up. Circle 2's arrow points right (a 90° clockwise turn). Circle 3's arrow points down (another 90° clockwise turn). What direction should the arrow point in the fourth circle?
     choices:
@@ -140,6 +200,16 @@ questions:
     type: figure-series
     difficulty: medium
     figure: figure-series-07
+    figureSpec:
+      kind: figure-series
+      items:
+        - form: circle
+          dots: 1
+        - form: circle
+          dots: 2
+        - form: circle
+          dots: 3
+      blank: true
     stem: |
       Figure shows a row of three circles, each containing small dots. Circle 1 has 1 dot. Circle 2 has 2 dots. Circle 3 has 3 dots. How many dots should the fourth circle have?
     choices:
@@ -162,6 +232,16 @@ questions:
     type: figure-series
     difficulty: medium
     figure: figure-series-08
+    figureSpec:
+      kind: figure-series
+      items:
+        - form: square
+          size: large
+        - form: square
+          size: medium
+        - form: square
+          size: small
+      blank: true
     stem: |
       Figure shows a row of three squares, decreasing in size: a large square, a medium square, and a small square. What size should the fourth square be?
     choices:
@@ -184,6 +264,19 @@ questions:
     type: figure-series
     difficulty: hard
     figure: figure-series-09
+    figureSpec:
+      kind: figure-series
+      items:
+        - form: star
+          size: small
+          fill: black
+        - form: star
+          size: medium
+          fill: white
+        - form: star
+          size: large
+          fill: black
+      blank: true
     stem: |
       Figure shows a row of three stars: a small black star, a medium white star, and a large black star. A student predicts the fourth figure should be "extra-large, black," tracking only the size feature and assuming shading stays the same as figure 3. What is wrong with this prediction, and what should the fourth figure actually be?
     choices:
@@ -206,6 +299,16 @@ questions:
     type: figure-series
     difficulty: hard
     figure: figure-series-10
+    figureSpec:
+      kind: figure-series
+      items:
+        - form: square
+          dot: top-left
+        - form: square
+          dot: bottom-left
+        - form: square
+          dot: bottom-right
+      blank: true
     stem: |
       Figure shows a row of three squares, each with a dot in one corner. Square 1's dot is top-left. Square 2's dot is bottom-left (moved counterclockwise one corner). Square 3's dot is bottom-right (moved counterclockwise one more corner). A student assumes the dot must now move clockwise for the fourth square, predicting bottom-left again. Is this assumption correct?
     choices:
@@ -228,6 +331,16 @@ questions:
     type: figure-series
     difficulty: hard
     figure: figure-series-11
+    figureSpec:
+      kind: figure-series
+      items:
+        - form: circle
+          fill: 0.25
+        - form: circle
+          fill: 0.5
+        - form: circle
+          fill: 0.75
+      blank: true
     stem: |
       Figure shows a row of three circles with shading: 25% filled, 50% filled, 75% filled. A student assumes this is a cumulative pattern and predicts the fourth circle should be 100% filled. Given that the actual series repeats as 25%, 50%, 75%, 25%, 50%, 75%, ..., is the student's prediction correct?
     choices:
@@ -250,6 +363,16 @@ questions:
     type: figure-series
     difficulty: medium
     figure: figure-series-12
+    figureSpec:
+      kind: figure-series
+      items:
+        - form: triangle
+          dot: top
+        - form: triangle
+          dot: bottom-left
+        - form: triangle
+          dot: bottom-right
+      blank: true
     stem: |
       Figure shows a row of three triangles, each with a dot near one corner. Triangle 1's dot is near the top corner. Triangle 2's dot is near the bottom-left corner (moved clockwise). Triangle 3's dot is near the bottom-right corner (moved clockwise again). Where should the dot be in the fourth triangle?
     choices:
@@ -272,6 +395,19 @@ questions:
     type: figure-series
     difficulty: hard
     figure: figure-series-13
+    figureSpec:
+      kind: figure-series
+      items:
+        - form: triangle
+          size: small
+          fill: black
+        - form: square
+          size: medium
+          fill: white
+        - form: pentagon
+          size: large
+          fill: black
+      blank: true
     stem: |
       Figure shows a row of three figures, each changing in three ways at once: figure 1 is a small black triangle rotated with its point up; figure 2 is a medium white square rotated with its point (top corner) to the right (a 90° clockwise turn from the triangle's orientation, and the shape gained one side); figure 3 is a large black pentagon rotated with its point pointing down (another 90° clockwise turn, and the shape gained one more side). Predict the size, shading, side count, and rotation of the fourth figure.
     choices:
@@ -294,6 +430,22 @@ questions:
     type: figure-series
     difficulty: exam
     figure: figure-series-14
+    figureSpec:
+      kind: figure-series
+      items:
+        - form: square
+          dot: top-left
+          edgeLines: 1
+        - form: square
+          dot: top-right
+          edgeLines: 2
+        - form: square
+          dot: bottom-right
+          edgeLines: 3
+        - form: square
+          dot: bottom-left
+          edgeLines: 4
+      blank: true
     stem: |
       Figure shows a row of four squares, each with a dot in a corner and a number of small lines along one edge: square 1 has a dot in the top-left corner and 1 line; square 2 has a dot in the top-right corner (moved clockwise) and 2 lines; square 3 has a dot in the bottom-right corner (moved clockwise again) and 3 lines; square 4 has a dot in the bottom-left corner (moved clockwise again) and 4 lines. If the series continues for one more figure (figure 5), where should the dot be, and how many lines should there be?
     choices:

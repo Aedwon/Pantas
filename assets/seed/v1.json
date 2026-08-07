@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "contentVersion": 2026081220,
-  "generatedAt": "2026-08-12T20:54:22.883585Z",
+  "contentVersion": 2026081221,
+  "generatedAt": "2026-08-12T21:00:41.999893Z",
   "exams": [
     {
       "id": "exam_cse_pro",
@@ -67437,6 +67437,636 @@
       ],
       "explanation": "This group is defined by two combined features: symmetry AND exactly 4 sides. The pentagon shares the symmetry feature but breaks the 4-sides feature, making it the odd-one-out on that specific dimension, even though it isn't wrong on every dimension.",
       "figureSpecJson": "{\"kind\":\"shape-row\",\"shapes\":[{\"form\":\"square\"},{\"form\":\"rectangle\"},{\"form\":\"rhombus\"},{\"form\":\"pentagon\"}]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0001",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-series",
+      "language": "en",
+      "stem": "Figure shows a row of three squares, each containing a single line. Square 1's line points straight up. Square 2's line points to the upper-right (a 45° clockwise turn from square 1). Square 3's line points directly right (another 45° clockwise turn from square 2). What direction should the line point in the fourth square?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0001_a",
+          "label": "A",
+          "text": "Lower-right (a further 45° clockwise turn from \"right\")",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0001_b",
+          "label": "B",
+          "text": "Straight down (a 90° clockwise turn from \"right\")",
+          "isCorrect": false,
+          "rationale": "You turned 90° clockwise instead of 45°. The established pattern turns 45° clockwise per step."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0001_c",
+          "label": "C",
+          "text": "Straight up, repeating square 1",
+          "isCorrect": false,
+          "rationale": "You reset to the start position instead of advancing 45° clockwise to lower-right."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0001_d",
+          "label": "D",
+          "text": "Upper-left (a 45° counterclockwise turn from \"right\")",
+          "isCorrect": false,
+          "rationale": "You reversed rotation direction to counterclockwise."
+        }
+      ],
+      "explanation": "The line turns 45° clockwise at each step (up → upper-right → right). Continuing the same rotation from \"right,\" the next position is lower-right.",
+      "figureSpecJson": "{\"kind\":\"figure-series\",\"items\":[{\"form\":\"square\",\"line\":0},{\"form\":\"square\",\"line\":45},{\"form\":\"square\",\"line\":90}],\"blank\":true}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0002",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-series",
+      "language": "en",
+      "stem": "Figure shows a row of three shapes: a triangle (3 sides), a square (4 sides), and a pentagon (5 sides). How many sides should the fourth figure have, and what shape is it?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0002_a",
+          "label": "A",
+          "text": "6 sides, a hexagon",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0002_b",
+          "label": "B",
+          "text": "5 sides, another pentagon",
+          "isCorrect": false,
+          "rationale": "You repeated 5 sides instead of incrementing by +1 to 6 sides."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0002_c",
+          "label": "C",
+          "text": "7 sides, a heptagon",
+          "isCorrect": false,
+          "rationale": "You added 2 sides instead of continuing the constant +1 side increment."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0002_d",
+          "label": "D",
+          "text": "8 sides, an octagon",
+          "isCorrect": false,
+          "rationale": "You jumped three sides ahead. The pattern adds one side each step, so the next one has six."
+        }
+      ],
+      "explanation": "The number of sides increases by 1 each step ($3, 4, 5, \\ldots$). The fourth figure should have $6$ sides: a hexagon.",
+      "figureSpecJson": "{\"kind\":\"figure-series\",\"items\":[{\"form\":\"triangle\"},{\"form\":\"square\"},{\"form\":\"pentagon\"}],\"blank\":true}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0003",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-series",
+      "language": "en",
+      "stem": "Figure shows a row of three circles: a fully black circle, then a fully white (empty) circle, then a fully black circle again. What should the fourth circle look like?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0003_a",
+          "label": "A",
+          "text": "Fully white (empty)",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0003_b",
+          "label": "B",
+          "text": "Fully black",
+          "isCorrect": false,
+          "rationale": "You repeated black instead of maintaining the strict black and white alternation."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0003_c",
+          "label": "C",
+          "text": "Half black, half white",
+          "isCorrect": false,
+          "rationale": "You introduced partial shading not present in the binary alternating sequence."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0003_d",
+          "label": "D",
+          "text": "Gray (a blend of black and white)",
+          "isCorrect": false,
+          "rationale": "You introduced an intermediate shade when the sequence alternates between solid black and white."
+        }
+      ],
+      "explanation": "The shading alternates strictly: black, white, black. Since the pattern alternates every step, the figure after \"black\" should return to \"white.\"",
+      "figureSpecJson": "{\"kind\":\"figure-series\",\"items\":[{\"form\":\"circle\",\"fill\":\"black\"},{\"form\":\"circle\",\"fill\":\"white\"},{\"form\":\"circle\",\"fill\":\"black\"}],\"blank\":true}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0004",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-series",
+      "language": "en",
+      "stem": "Figure shows a row of three triangles: a small black triangle, a medium white triangle, and a large black triangle. Predict the size and shading of the fourth triangle.",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0004_a",
+          "label": "A",
+          "text": "Extra-large, white",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0004_b",
+          "label": "B",
+          "text": "Extra-large, black",
+          "isCorrect": false,
+          "rationale": "You correctly identified extra-large size but kept black shading instead of alternating to white."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0004_c",
+          "label": "C",
+          "text": "Large, white",
+          "isCorrect": false,
+          "rationale": "You correctly identified white shading but failed to advance size from large to extra-large."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0004_d",
+          "label": "D",
+          "text": "Small, white",
+          "isCorrect": false,
+          "rationale": "You reset size back to small instead of continuing to extra-large."
+        }
+      ],
+      "explanation": "Tracking size separately (small, medium, large, increasing one step each time) gives extra-large next. Tracking shading separately (black, white, black, alternating) gives white next. Combined: extra-large, white.",
+      "figureSpecJson": "{\"kind\":\"figure-series\",\"items\":[{\"form\":\"triangle\",\"size\":\"small\",\"fill\":\"black\"},{\"form\":\"triangle\",\"size\":\"medium\",\"fill\":\"white\"},{\"form\":\"triangle\",\"size\":\"large\",\"fill\":\"black\"}],\"blank\":true}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0005",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-series",
+      "language": "en",
+      "stem": "Figure shows a row of three squares, each with a black dot in one corner. Square 1's dot is in the top-left corner. Square 2's dot is in the top-right corner (moved clockwise one corner). Square 3's dot is in the bottom-right corner (moved clockwise one more corner). Where should the dot be in the fourth square?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0005_a",
+          "label": "A",
+          "text": "Bottom-left corner",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0005_b",
+          "label": "B",
+          "text": "Top-left corner, repeating square 1",
+          "isCorrect": false,
+          "rationale": "You skipped to the top-left corner instead of continuing clockwise to bottom-left."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0005_c",
+          "label": "C",
+          "text": "Top-right corner",
+          "isCorrect": false,
+          "rationale": "You jumped back to top-right instead of advancing to bottom-left."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0005_d",
+          "label": "D",
+          "text": "Center of the square",
+          "isCorrect": false,
+          "rationale": "You moved the dot off the perimeter corners into the center."
+        }
+      ],
+      "explanation": "The dot moves one corner clockwise at each step (top-left → top-right → bottom-right). Continuing clockwise from bottom-right, the next corner is bottom-left.",
+      "figureSpecJson": "{\"kind\":\"figure-series\",\"items\":[{\"form\":\"square\",\"dot\":\"top-left\"},{\"form\":\"square\",\"dot\":\"top-right\"},{\"form\":\"square\",\"dot\":\"bottom-right\"}],\"blank\":true}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0006",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-series",
+      "language": "en",
+      "stem": "Figure shows a row of three circles, each with an arrow inside. Circle 1's arrow points up. Circle 2's arrow points right (a 90° clockwise turn). Circle 3's arrow points down (another 90° clockwise turn). What direction should the arrow point in the fourth circle?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0006_a",
+          "label": "A",
+          "text": "Left (a further 90° clockwise turn from \"down\")",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0006_b",
+          "label": "B",
+          "text": "Up, repeating circle 1",
+          "isCorrect": false,
+          "rationale": "You reset to up instead of continuing 90° clockwise to left."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0006_c",
+          "label": "C",
+          "text": "Right, repeating circle 2",
+          "isCorrect": false,
+          "rationale": "You jumped back to right instead of advancing to left."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0006_d",
+          "label": "D",
+          "text": "Down, repeating circle 3",
+          "isCorrect": false,
+          "rationale": "You repeated down without applying the next 90° clockwise rotation."
+        }
+      ],
+      "explanation": "The arrow turns 90° clockwise at each step (up → right → down). Continuing clockwise from \"down,\" the next direction is left.",
+      "figureSpecJson": "{\"kind\":\"figure-series\",\"items\":[{\"form\":\"circle\",\"arrow\":\"up\"},{\"form\":\"circle\",\"arrow\":\"right\"},{\"form\":\"circle\",\"arrow\":\"down\"}],\"blank\":true}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0007",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-series",
+      "language": "en",
+      "stem": "Figure shows a row of three circles, each containing small dots. Circle 1 has 1 dot. Circle 2 has 2 dots. Circle 3 has 3 dots. How many dots should the fourth circle have?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0007_a",
+          "label": "A",
+          "text": "4 dots",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0007_b",
+          "label": "B",
+          "text": "5 dots",
+          "isCorrect": false,
+          "rationale": "You added 2 dots instead of continuing the +1 dot increment."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0007_c",
+          "label": "C",
+          "text": "3 dots, the same as circle 3",
+          "isCorrect": false,
+          "rationale": "You repeated 3 dots instead of advancing to 4 dots."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0007_d",
+          "label": "D",
+          "text": "6 dots",
+          "isCorrect": false,
+          "rationale": "You doubled the dot count instead of adding 1."
+        }
+      ],
+      "explanation": "The number of dots increases by 1 each step ($1, 2, 3, \\ldots$). The fourth circle should have $4$ dots.",
+      "figureSpecJson": "{\"kind\":\"figure-series\",\"items\":[{\"form\":\"circle\",\"dots\":1},{\"form\":\"circle\",\"dots\":2},{\"form\":\"circle\",\"dots\":3}],\"blank\":true}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0008",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-series",
+      "language": "en",
+      "stem": "Figure shows a row of three squares, decreasing in size: a large square, a medium square, and a small square. What size should the fourth square be?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0008_a",
+          "label": "A",
+          "text": "Extra small (smaller than the small square)",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0008_b",
+          "label": "B",
+          "text": "Extra large (larger than the large square)",
+          "isCorrect": false,
+          "rationale": "You inverted the shrinking trend to growing extra large."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0008_c",
+          "label": "C",
+          "text": "Medium, repeating square 2",
+          "isCorrect": false,
+          "rationale": "You reversed the size trend back to medium."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0008_d",
+          "label": "D",
+          "text": "The same size as the small square",
+          "isCorrect": false,
+          "rationale": "You stopped shrinking and repeated the small size."
+        }
+      ],
+      "explanation": "The size decreases by one step each time (large, medium, small). Continuing this shrinking pattern, the fourth square should be extra small.",
+      "figureSpecJson": "{\"kind\":\"figure-series\",\"items\":[{\"form\":\"square\",\"size\":\"large\"},{\"form\":\"square\",\"size\":\"medium\"},{\"form\":\"square\",\"size\":\"small\"}],\"blank\":true}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0009",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-series",
+      "language": "en",
+      "stem": "Figure shows a row of three stars: a small black star, a medium white star, and a large black star. A student predicts the fourth figure should be \"extra-large, black,\" tracking only the size feature and assuming shading stays the same as figure 3. What is wrong with this prediction, and what should the fourth figure actually be?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0009_a",
+          "label": "A",
+          "text": "The student ignored the shading feature, which alternates (black, white, black); tracking both features separately, the fourth figure should be extra-large and white, not extra-large and black.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0009_b",
+          "label": "B",
+          "text": "The student's prediction is correct, since shading always matches the previous figure once size changes.",
+          "isCorrect": false,
+          "rationale": "You assumed shading stops alternating when size changes."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0009_c",
+          "label": "C",
+          "text": "The student's prediction is correct, but only because shading is irrelevant in this series.",
+          "isCorrect": false,
+          "rationale": "You claimed shading is irrelevant when both size and shading vary systematically."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0009_d",
+          "label": "D",
+          "text": "Neither size nor shading can be predicted from this series.",
+          "isCorrect": false,
+          "rationale": "You claimed multi-feature series cannot be predicted."
+        }
+      ],
+      "explanation": "A figure series can change several features at once: missing that both size and shading are changing leads to only half-correct predictions. Size continues growing (extra-large), and shading continues alternating (white after black).",
+      "figureSpecJson": "{\"kind\":\"figure-series\",\"items\":[{\"form\":\"star\",\"size\":\"small\",\"fill\":\"black\"},{\"form\":\"star\",\"size\":\"medium\",\"fill\":\"white\"},{\"form\":\"star\",\"size\":\"large\",\"fill\":\"black\"}],\"blank\":true}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0010",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-series",
+      "language": "en",
+      "stem": "Figure shows a row of three squares, each with a dot in one corner. Square 1's dot is top-left. Square 2's dot is bottom-left (moved counterclockwise one corner). Square 3's dot is bottom-right (moved counterclockwise one more corner). A student assumes the dot must now move clockwise for the fourth square, predicting bottom-left again. Is this assumption correct?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0010_a",
+          "label": "A",
+          "text": "No: the established direction is counterclockwise (top-left → bottom-left → bottom-right), so the fourth square's dot should continue counterclockwise to top-right, not switch direction.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0010_b",
+          "label": "B",
+          "text": "Yes: the dot should always reverse direction after two steps.",
+          "isCorrect": false,
+          "rationale": "You assumed rotation direction reverses after two steps without evidence."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0010_c",
+          "label": "C",
+          "text": "Yes: the dot should return to bottom-left, since patterns commonly repeat every two steps.",
+          "isCorrect": false,
+          "rationale": "You assumed a 2-step oscillation pattern."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0010_d",
+          "label": "D",
+          "text": "No: but only because the dot cannot move to any corner other than top-left.",
+          "isCorrect": false,
+          "rationale": "You claimed dots are restricted from moving to top-right."
+        }
+      ],
+      "explanation": "Carefully confirm the established rotation direction by comparing at least two consecutive steps rather than assuming a direction switch. Here, the dot consistently moves counterclockwise, so it should continue to top-right next.",
+      "figureSpecJson": "{\"kind\":\"figure-series\",\"items\":[{\"form\":\"square\",\"dot\":\"top-left\"},{\"form\":\"square\",\"dot\":\"bottom-left\"},{\"form\":\"square\",\"dot\":\"bottom-right\"}],\"blank\":true}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0011",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-series",
+      "language": "en",
+      "stem": "Figure shows a row of three circles with shading: 25% filled, 50% filled, 75% filled. A student assumes this is a cumulative pattern and predicts the fourth circle should be 100% filled. Given that the actual series repeats as 25%, 50%, 75%, 25%, 50%, 75%, ..., is the student's prediction correct?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0011_a",
+          "label": "A",
+          "text": "No: this is a repeating cycle, not a steadily cumulative pattern; after 75%, the cycle restarts at 25%, not continuing to 100%.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0011_b",
+          "label": "B",
+          "text": "Yes: the shading always increases steadily without ever restarting.",
+          "isCorrect": false,
+          "rationale": "You assumed steady cumulative growth instead of observing the repeating cycle rule."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0011_c",
+          "label": "C",
+          "text": "Yes: 100% filled is the correct next step in this specific series.",
+          "isCorrect": false,
+          "rationale": "You applied a linear cumulative rule to a cycling sequence."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0011_d",
+          "label": "D",
+          "text": "No: but only because circles cannot be partially shaded.",
+          "isCorrect": false,
+          "rationale": "You claimed partial shading is impossible."
+        }
+      ],
+      "explanation": "Not every changing feature increases steadily forever: some patterns cycle back to an earlier state after reaching a certain point. Here, the series explicitly cycles (25%, 50%, 75%, 25%, ...), so the fourth figure returns to 25%, not 100%.",
+      "figureSpecJson": "{\"kind\":\"figure-series\",\"items\":[{\"form\":\"circle\",\"fill\":0.25},{\"form\":\"circle\",\"fill\":0.5},{\"form\":\"circle\",\"fill\":0.75}],\"blank\":true}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0012",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-series",
+      "language": "en",
+      "stem": "Figure shows a row of three triangles, each with a dot near one corner. Triangle 1's dot is near the top corner. Triangle 2's dot is near the bottom-left corner (moved clockwise). Triangle 3's dot is near the bottom-right corner (moved clockwise again). Where should the dot be in the fourth triangle?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0012_a",
+          "label": "A",
+          "text": "Near the top corner, completing one full clockwise cycle around the triangle",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0012_b",
+          "label": "B",
+          "text": "Near the bottom-left corner, repeating triangle 2",
+          "isCorrect": false,
+          "rationale": "You repeated the second corner position instead of completing the 3-corner cycle."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0012_c",
+          "label": "C",
+          "text": "Near the bottom-right corner, repeating triangle 3",
+          "isCorrect": false,
+          "rationale": "You repeated the third corner position without advancing clockwise."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0012_d",
+          "label": "D",
+          "text": "In the center of the triangle",
+          "isCorrect": false,
+          "rationale": "You moved the dot away from the corners into the interior center."
+        }
+      ],
+      "explanation": "A triangle has three corners. The dot moves clockwise, one corner per step (top → bottom-left → bottom-right). After all three corners, the fourth figure completes the cycle back at the top corner.",
+      "figureSpecJson": "{\"kind\":\"figure-series\",\"items\":[{\"form\":\"triangle\",\"dot\":\"top\"},{\"form\":\"triangle\",\"dot\":\"bottom-left\"},{\"form\":\"triangle\",\"dot\":\"bottom-right\"}],\"blank\":true}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0013",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-series",
+      "language": "en",
+      "stem": "Figure shows a row of three figures, each changing in three ways at once: figure 1 is a small black triangle rotated with its point up; figure 2 is a medium white square rotated with its point (top corner) to the right (a 90° clockwise turn from the triangle's orientation, and the shape gained one side); figure 3 is a large black pentagon rotated with its point pointing down (another 90° clockwise turn, and the shape gained one more side). Predict the size, shading, side count, and rotation of the fourth figure.",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0013_a",
+          "label": "A",
+          "text": "Extra-large, white, 6 sides (hexagon), point rotated to the left (a further 90° clockwise turn)",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0013_b",
+          "label": "B",
+          "text": "Extra-large, black, 6 sides (hexagon), point rotated to the left",
+          "isCorrect": false,
+          "rationale": "You correctly tracked size, sides, and rotation but failed to alternate shading to white."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0013_c",
+          "label": "C",
+          "text": "Large, white, 5 sides (pentagon), point pointing down",
+          "isCorrect": false,
+          "rationale": "You repeated figure 3's size, sides, and rotation, changing only shading."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0013_d",
+          "label": "D",
+          "text": "Extra-large, white, 5 sides (pentagon), point rotated up",
+          "isCorrect": false,
+          "rationale": "You failed to advance side count to 6 and misrotated the point orientation."
+        }
+      ],
+      "explanation": "Tracking each feature separately: size grows one step (extra-large); shading alternates (black, white, black, so white next); sides increase by 1 each step (3, 4, 5, so 6 next); rotation turns 90° clockwise each step (up, right, down, so left next).",
+      "figureSpecJson": "{\"kind\":\"figure-series\",\"items\":[{\"form\":\"triangle\",\"size\":\"small\",\"fill\":\"black\"},{\"form\":\"square\",\"size\":\"medium\",\"fill\":\"white\"},{\"form\":\"pentagon\",\"size\":\"large\",\"fill\":\"black\"}],\"blank\":true}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0014",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-series",
+      "language": "en",
+      "stem": "Figure shows a row of four squares, each with a dot in a corner and a number of small lines along one edge: square 1 has a dot in the top-left corner and 1 line; square 2 has a dot in the top-right corner (moved clockwise) and 2 lines; square 3 has a dot in the bottom-right corner (moved clockwise again) and 3 lines; square 4 has a dot in the bottom-left corner (moved clockwise again) and 4 lines. If the series continues for one more figure (figure 5), where should the dot be, and how many lines should there be?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0014_a",
+          "label": "A",
+          "text": "Top-left corner (completing one full clockwise cycle), with 5 lines",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0014_b",
+          "label": "B",
+          "text": "Bottom-left corner, repeating figure 4, with 5 lines",
+          "isCorrect": false,
+          "rationale": "You repeated the corner position of figure 4 instead of completing the 4-corner cycle."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0014_c",
+          "label": "C",
+          "text": "Top-left corner, with 4 lines, repeating the line count",
+          "isCorrect": false,
+          "rationale": "You correctly cycled the dot position but failed to advance the line count to 5."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-series-0014_d",
+          "label": "D",
+          "text": "Top-right corner, with 5 lines",
+          "isCorrect": false,
+          "rationale": "You skipped to top-right instead of returning to top-left after 4 steps."
+        }
+      ],
+      "explanation": "The dot completes one clockwise corner move per figure; after 4 figures (one full cycle of 4 corners), it returns to the top-left corner for figure 5. Separately, the line count increases by 1 each figure ($1, 2, 3, 4, \\ldots$), so figure 5 should have 5 lines.",
+      "figureSpecJson": "{\"kind\":\"figure-series\",\"items\":[{\"form\":\"square\",\"dot\":\"top-left\",\"edgeLines\":1},{\"form\":\"square\",\"dot\":\"top-right\",\"edgeLines\":2},{\"form\":\"square\",\"dot\":\"bottom-right\",\"edgeLines\":3},{\"form\":\"square\",\"dot\":\"bottom-left\",\"edgeLines\":4}],\"blank\":true}"
     },
     {
       "id": "q-verbal-logic-assumptions-and-conclusions-0001",

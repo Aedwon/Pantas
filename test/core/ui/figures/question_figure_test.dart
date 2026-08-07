@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/figures/figure_series_figure.dart';
 import 'package:pantas/core/ui/figures/fluid_vessel_figure.dart';
 import 'package:pantas/core/ui/figures/gear_train_figure.dart';
 import 'package:pantas/core/ui/figures/lever_balance_figure.dart';
@@ -150,6 +151,40 @@ void main() {
     expect(find.textContaining('does not belong'), findsNothing);
   });
 
+  testWidgets('a series ends in a blank the answer is not drawn into',
+      (tester) async {
+    await tester.pumpApp(
+      const QuestionFigure(
+        specJson: '{"kind":"figure-series","items":['
+            '{"form":"square","line":0},{"form":"square","line":45},'
+            '{"form":"square","line":90}],"blank":true}',
+      ),
+    );
+
+    final figure = tester.widget<FigureSeriesFigure>(
+      find.byType(FigureSeriesFigure),
+    );
+    expect(figure.items, hasLength(3));
+    expect(figure.blank, isTrue);
+    // Three drawn figures and one empty frame. The fourth is what the
+    // student works out, so nothing may draw it.
+    expect(figure.items.last.lineDegrees, 90);
+  });
+
+  testWidgets('a part-filled figure keeps its fraction', (tester) async {
+    await tester.pumpApp(
+      const QuestionFigure(
+        specJson: '{"kind":"figure-series","items":['
+            '{"form":"circle","fill":0.25},{"form":"circle","fill":0.5}]}',
+      ),
+    );
+
+    final figure = tester.widget<FigureSeriesFigure>(
+      find.byType(FigureSeriesFigure),
+    );
+    expect(figure.items.first.fill, 0.25);
+  });
+
   group('a spec it cannot read says so and draws nothing plausible', () {
     const bad = <String, String>{
       'not JSON': 'gears: 3',
@@ -181,6 +216,12 @@ void main() {
           '[{"form":"dodecahedron"},{"form":"square"}]}',
       'a row of one shape': '{"kind":"shape-row","shapes":'
           '[{"form":"square"}]}',
+      'a series with one item': '{"kind":"figure-series","items":'
+          '[{"form":"square"}]}',
+      'a fill outside nought to one': '{"kind":"figure-series","items":'
+          '[{"form":"circle","fill":1.4},{"form":"circle"}]}',
+      'a corner nobody has': '{"kind":"figure-series","items":'
+          '[{"form":"square","dot":"middle"},{"form":"square"}]}',
     };
 
     for (final entry in bad.entries) {
@@ -193,6 +234,7 @@ void main() {
         expect(find.byType(PulleySystemFigure), findsNothing);
         expect(find.byType(FluidVesselFigure), findsNothing);
         expect(find.byType(ShapeRowFigure), findsNothing);
+        expect(find.byType(FigureSeriesFigure), findsNothing);
         expect(
           find.textContaining('has not been drawn yet'),
           findsOneWidget,

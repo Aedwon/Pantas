@@ -111,12 +111,12 @@ void main() {
     // 2,258 from 13 August. Gears, springs, levers and pulleys are drawn by
     // the app now, so those questions stopped being held back as
     // figure-pending. The number moves with each family that lands.
-    expect(questionsCount, 2307, reason: 'Expected 2,307 questions');
+    expect(questionsCount, 2321, reason: 'Expected 2,321 questions');
     expect(lessonsCount, 161, reason: 'Expected 161 lessons');
     expect(topicsCount, 26, reason: 'Expected 26 topics');
     expect(examsCount, 7, reason: 'Expected 7 exams');
     expect(passagesCount, 32, reason: 'Expected 32 passages');
-    expect(lessonLinksCount, 2305, reason: 'Expected 2,305 lesson links');
+    expect(lessonLinksCount, 2319, reason: 'Expected 2,319 lesson links');
     expect(passageLinksCount, 160, reason: 'Expected 160 passage links');
 
     // 4. Assert the ids are underscored by reading one exam id back
