@@ -8,6 +8,10 @@ questions:
     type: spring-weight
     difficulty: easy
     figure: springs-and-weights-01
+    figureSpec:
+      kind: spring-scale
+      springs:
+        - stretch: 5
     stem: |
       Figure shows a spring that stretches 5 cm when a 2 kg weight is attached. How far will it stretch with an 8 kg weight?
     choices:
@@ -30,6 +34,10 @@ questions:
     type: spring-weight
     difficulty: easy
     figure: springs-and-weights-02
+    figureSpec:
+      kind: spring-scale
+      springs:
+        - stretch: 6
     stem: |
       Figure shows a spring that stretches 6 cm when a 3 kg weight is attached. How far will it stretch with a 9 kg weight?
     choices:
@@ -52,6 +60,10 @@ questions:
     type: spring-weight
     difficulty: medium
     figure: springs-and-weights-03
+    figureSpec:
+      kind: spring-scale
+      springs:
+        - stretch: 20
     stem: |
       Figure shows a spring that stretches 4 cm for every 1 kg attached. How much weight is attached if the spring has stretched 20 cm?
     choices:
@@ -74,6 +86,10 @@ questions:
     type: spring-weight
     difficulty: medium
     figure: springs-and-weights-04
+    figureSpec:
+      kind: spring-scale
+      springs:
+        - stretch: 18
     stem: |
       Figure shows a spring that stretches 2 cm for every 1 kg attached. How much weight is attached if the spring has stretched 18 cm?
     choices:
@@ -96,6 +112,13 @@ questions:
     type: spring-weight
     difficulty: medium
     figure: springs-and-weights-05
+    figureSpec:
+      kind: spring-scale
+      springs:
+        - label: A
+          stretch: 3
+        - label: B
+          stretch: 8
     stem: |
       Figure shows Spring A stretching 3 cm under a 6 kg weight, and Spring B stretching 8 cm under the same 6 kg weight. Which spring is stiffer?
     choices:
@@ -118,6 +141,10 @@ questions:
     type: spring-weight
     difficulty: medium
     figure: springs-and-weights-06
+    figureSpec:
+      kind: spring-scale
+      springs:
+        - stretch: 3
     stem: |
       Using Spring A from before (stretches 3 cm under a 6 kg weight), predict its stretch under a 12 kg weight.
     choices:
@@ -140,6 +167,13 @@ questions:
     type: spring-weight
     difficulty: medium
     figure: springs-and-weights-07
+    figureSpec:
+      kind: spring-scale
+      springs:
+        - label: C
+          stretch: 4
+        - label: D
+          stretch: 10
     stem: |
       Figure shows Spring C stretching 4 cm under an 8 kg weight, and Spring D stretching 10 cm under the same 8 kg weight. Which spring is stiffer?
     choices:
@@ -162,6 +196,10 @@ questions:
     type: spring-weight
     difficulty: hard
     figure: springs-and-weights-08
+    figureSpec:
+      kind: spring-scale
+      springs:
+        - stretch: 4
     stem: |
       A spring stretches 4 cm under a 2 kg weight. A student assumes "every additional 2 kg simply adds another 4 cm," and uses this to predict the stretch under a 3 kg weight by rounding up to "2 lots of 2 kg," predicting $4+4=8$ cm. What is the actual stretch at 3 kg, using the correct proportional (ratio) method, and what did the student get wrong?
     choices:
@@ -184,6 +222,13 @@ questions:
     type: spring-weight
     difficulty: hard
     figure: springs-and-weights-09
+    figureSpec:
+      kind: spring-scale
+      springs:
+        - label: E
+          stretch: 9
+        - label: F
+          stretch: 3
     stem: |
       Spring E stretches 9 cm under a 3 kg weight. Spring F stretches 3 cm under the same 3 kg weight. A student claims Spring E is the "stiffer" spring, reasoning that it moved (stretched) more. Is this correct?
     choices:
@@ -206,6 +251,13 @@ questions:
     type: spring-weight
     difficulty: hard
     figure: springs-and-weights-10
+    figureSpec:
+      kind: spring-scale
+      springs:
+        - label: G
+          stretch: 4
+        - label: H
+          stretch: 4
     stem: |
       Spring G stretches 4 cm under an 8 kg weight. Spring H stretches 4 cm under a 16 kg weight. A student claims both springs are equally stiff, since they stretched the same amount. Is this a valid comparison?
     choices:
@@ -228,6 +280,10 @@ questions:
     type: spring-weight
     difficulty: medium
     figure: springs-and-weights-11
+    figureSpec:
+      kind: spring-scale
+      springs:
+        - stretch: 2
     stem: |
       A spring stretches 2 cm for every 1 kg attached. What is its stretch under a 7 kg weight, and what weight would cause a 21 cm stretch?
     choices:
@@ -250,6 +306,13 @@ questions:
     type: spring-weight
     difficulty: medium
     figure: springs-and-weights-12
+    figureSpec:
+      kind: spring-scale
+      springs:
+        - label: I
+          stretch: 7
+        - label: J
+          stretch: 3
     stem: |
       Figure shows Spring I stretching 7 cm under a 5 kg weight, and Spring J stretching 3 cm under the same 5 kg weight. Which spring is looser (less stiff)?
     choices:
@@ -272,6 +335,10 @@ questions:
     type: spring-weight
     difficulty: hard
     figure: springs-and-weights-13
+    figureSpec:
+      kind: spring-scale
+      springs:
+        - stretch: 4
     stem: |
       Spring L stretches 4 cm under a 2 kg weight, and 10 cm under a 4 kg weight. A student claims this data is consistent with a simple proportional (Hooke's law) relationship. Check the ratios: is this claim correct?
     choices:
@@ -294,6 +361,10 @@ questions:
     type: spring-weight
     difficulty: hard
     figure: springs-and-weights-14
+    figureSpec:
+      kind: spring-scale
+      springs:
+        - stretch: 5
     stem: |
       A spring stretches 5 cm under a 2 kg weight. What total weight would cause a 20 cm stretch, and how much additional weight beyond that would be needed to reach a 30 cm stretch?
     choices:
@@ -316,6 +387,15 @@ questions:
     type: spring-weight
     difficulty: exam
     figure: springs-and-weights-15
+    figureSpec:
+      kind: spring-scale
+      springs:
+        - label: P
+          stretch: 6
+        - label: Q
+          stretch: 8
+        - label: R
+          stretch: 5
     stem: |
       Spring P stretches 6 cm under a 3 kg weight. Spring Q stretches 8 cm under a 4 kg weight. Spring R stretches 5 cm under a 5 kg weight. Since these three springs were tested under three different weights, rank them from stiffest to loosest using their stretch-per-kilogram ratio.
     choices:

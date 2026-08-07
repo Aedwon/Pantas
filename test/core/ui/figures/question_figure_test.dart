@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/figures/gear_train_figure.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
+import 'package:pantas/core/ui/figures/spring_scale_figure.dart';
 
 import '../../../helpers/pump_app.dart';
 
@@ -46,6 +47,23 @@ void main() {
     expect(find.text('30'), findsNothing);
   });
 
+  testWidgets('two springs draw side by side with their own labels',
+      (tester) async {
+    await tester.pumpApp(
+      const QuestionFigure(
+        specJson: '{"kind":"spring-scale","springs":['
+            '{"label":"A","stretch":3},{"label":"B","stretch":8}]}',
+      ),
+    );
+
+    final figure = tester.widget<SpringScaleFigure>(
+      find.byType(SpringScaleFigure),
+    );
+    expect(figure.springs, hasLength(2));
+    expect(figure.springs.first.label, 'A');
+    expect(figure.springs.last.stretch, 8);
+  });
+
   group('a spec it cannot read says so and draws nothing plausible', () {
     const bad = <String, String>{
       'not JSON': 'gears: 3',
@@ -58,6 +76,11 @@ void main() {
           '"firstTurns":"widdershins"}',
       'teeth do not match the count': '{"kind":"gear-train","gears":3,'
           '"firstTurns":"clockwise","teeth":[10,30]}',
+      'a spring with no stretch': '{"kind":"spring-scale","springs":'
+          '[{"label":"A"}]}',
+      'a spring list that is empty': '{"kind":"spring-scale","springs":[]}',
+      'a negative stretch': '{"kind":"spring-scale","springs":'
+          '[{"stretch":-3}]}',
     };
 
     for (final entry in bad.entries) {
@@ -65,6 +88,7 @@ void main() {
         await tester.pumpApp(QuestionFigure(specJson: entry.value));
 
         expect(find.byType(GearTrainFigure), findsNothing);
+        expect(find.byType(SpringScaleFigure), findsNothing);
         expect(
           find.textContaining('has not been drawn yet'),
           findsOneWidget,

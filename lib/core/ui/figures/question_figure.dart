@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/figures/gear_train_figure.dart';
+import 'package:pantas/core/ui/figures/spring_scale_figure.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
 /// A question's diagram, drawn from the spec in its own content file.
@@ -54,6 +55,8 @@ class QuestionFigure extends StatelessWidget {
     switch (kind) {
       case GearTrainFigure.kind:
         return GearTrainFigure.fromSpec(spec);
+      case SpringScaleFigure.kind:
+        return SpringScaleFigure.fromSpec(spec);
       default:
         return null;
     }
