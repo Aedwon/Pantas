@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "contentVersion": 2026081220,
-  "generatedAt": "2026-08-12T20:41:53.804215Z",
+  "generatedAt": "2026-08-12T20:47:12.904734Z",
   "exams": [
     {
       "id": "exam_cse_pro",
@@ -66549,6 +66549,456 @@
         }
       ],
       "explanation": "Both stability factors favor Box P: a lower center of gravity and a wider base of support each independently require a larger tilt before the vertical line from the center of gravity is pushed outside the base. Box Q, with both a higher center of gravity and a narrower base, tips over first."
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-grouping-0001",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-grouping",
+      "language": "en",
+      "stem": "Figure shows four shapes: a square, a rectangle, a rhombus, and a triangle. Which one does not belong, and why?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0001_a",
+          "label": "A",
+          "text": "The triangle, since it has only 3 sides while the other three shapes all have 4 sides",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0001_b",
+          "label": "B",
+          "text": "The square, since it is the only shape with equal sides",
+          "isCorrect": false,
+          "rationale": "You focused on equal side lengths instead of total side count. The rhombus also has four equal sides."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0001_c",
+          "label": "C",
+          "text": "The rectangle, since it is the only shape that is not a rhombus",
+          "isCorrect": false,
+          "rationale": "You focused on named shape sub-types. Square, rectangle, and rhombus are all 4-sided quadrilaterals."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0001_d",
+          "label": "D",
+          "text": "The rhombus, since it is the only shape with slanted sides",
+          "isCorrect": false,
+          "rationale": "You focused on visual orientation. All three 4-sided shapes share quadrilateral membership."
+        }
+      ],
+      "explanation": "The square, rectangle, and rhombus all have 4 sides (they are all quadrilaterals). The triangle has only 3 sides, so it is the odd-one-out.",
+      "figureSpecJson": "{\"kind\":\"shape-row\",\"shapes\":[{\"form\":\"square\"},{\"form\":\"rectangle\"},{\"form\":\"rhombus\"},{\"form\":\"triangle\"}]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-grouping-0002",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-grouping",
+      "language": "en",
+      "stem": "Figure shows four shapes: a perfect circle, a square, an equilateral triangle, and an irregular, lopsided blob shape with no matching sides. Which one does not belong?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0002_a",
+          "label": "A",
+          "text": "The irregular blob, since it has no line of symmetry, while the other three shapes can all be folded so both halves match",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0002_b",
+          "label": "B",
+          "text": "The circle, since it is the only shape without straight sides",
+          "isCorrect": false,
+          "rationale": "You picked curvature instead of symmetry. The circle, square, and triangle all share reflective symmetry."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0002_c",
+          "label": "C",
+          "text": "The square, since it is the only shape with four equal sides",
+          "isCorrect": false,
+          "rationale": "You picked a side count feature that does not group the remaining three shapes."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0002_d",
+          "label": "D",
+          "text": "The equilateral triangle, since it is the only shape with three sides",
+          "isCorrect": false,
+          "rationale": "You selected a side-count rule that leaves circle and square in different categories."
+        }
+      ],
+      "explanation": "The circle, square, and equilateral triangle can all be folded along at least one line so both halves match exactly (they are all symmetric). The irregular blob has no such line, so it is the odd-one-out.",
+      "figureSpecJson": "{\"kind\":\"shape-row\",\"shapes\":[{\"form\":\"circle\"},{\"form\":\"square\"},{\"form\":\"triangle\"},{\"form\":\"blob\"}]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-grouping-0003",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-grouping",
+      "language": "en",
+      "stem": "Figure shows four circles, each cut by straight lines: one circle has 1 line through the center (creating 2 regions), one has 2 lines through the center (creating 4 regions), one has 3 lines through the center (creating 6 regions), and one has 2 lines that do not pass through the center, creating 3 uneven regions. Which one does not belong?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0003_a",
+          "label": "A",
+          "text": "The circle with 2 off-center lines (3 uneven regions), since the other three all have lines through the center creating an even number of regions",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0003_b",
+          "label": "B",
+          "text": "The circle with 1 line through the center, since it has the fewest regions",
+          "isCorrect": false,
+          "rationale": "You picked the lowest quantity instead of finding the structural rule. Lines through center always create even region counts."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0003_c",
+          "label": "C",
+          "text": "The circle with 3 lines through the center, since it has the most regions",
+          "isCorrect": false,
+          "rationale": "You picked the highest quantity. The three matching circles all have center-intersecting lines."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0003_d",
+          "label": "D",
+          "text": "The circle with 2 lines through the center, since it has an even number of lines",
+          "isCorrect": false,
+          "rationale": "You counted line segments instead of region symmetry."
+        }
+      ],
+      "explanation": "The first three figures follow a consistent rule: lines through the center split a circle into an even number of regions (2, 4, 6). The fourth figure's off-center lines create an uneven split (3 regions), breaking that pattern.",
+      "figureSpecJson": "{\"kind\":\"shape-row\",\"shapes\":[{\"form\":\"circle\",\"lines\":1},{\"form\":\"circle\",\"lines\":2},{\"form\":\"circle\",\"lines\":3},{\"form\":\"circle\",\"lines\":2,\"through\":\"off\"}]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-grouping-0004",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-grouping",
+      "language": "en",
+      "stem": "Figure shows five different shapes. Four of them each contain exactly one small shaded (black) dot somewhere inside. The fifth shape contains two small shaded dots inside. Which one does not belong?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0004_a",
+          "label": "A",
+          "text": "The shape with two shaded dots, since the other four all contain exactly one shaded dot, regardless of their outer shape",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0004_b",
+          "label": "B",
+          "text": "Whichever shape has the largest outer outline",
+          "isCorrect": false,
+          "rationale": "You focused on outer scale rather than internal dot count."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0004_c",
+          "label": "C",
+          "text": "Whichever shape has the most sides",
+          "isCorrect": false,
+          "rationale": "You focused on outer polygon side counts when the rule governs interior dot count."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0004_d",
+          "label": "D",
+          "text": "Whichever shape is positioned in the middle of the row",
+          "isCorrect": false,
+          "rationale": "You judged by display position instead of geometric features."
+        }
+      ],
+      "explanation": "Four figures share the specific feature of containing exactly one shaded dot, regardless of their outer shape. The fifth figure contains two shaded dots, breaking that count: the shared rule here is about the dot count, not the outer shape.",
+      "figureSpecJson": "{\"kind\":\"shape-row\",\"shapes\":[{\"form\":\"square\",\"dots\":1},{\"form\":\"triangle\",\"dots\":1},{\"form\":\"circle\",\"dots\":1},{\"form\":\"pentagon\",\"dots\":1},{\"form\":\"hexagon\",\"dots\":2}]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-grouping-0005",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-grouping",
+      "language": "en",
+      "stem": "Figure shows four shapes: a square, a triangle, a rectangle, and a circle. Which one does not belong?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0005_a",
+          "label": "A",
+          "text": "The circle, since it is made entirely of a curved line, while the other three are made entirely of straight lines",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0005_b",
+          "label": "B",
+          "text": "The square, since it is the only shape with four equal sides",
+          "isCorrect": false,
+          "rationale": "You picked equal side lengths instead of straight versus curved lines."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0005_c",
+          "label": "C",
+          "text": "The triangle, since it is the only shape with three sides",
+          "isCorrect": false,
+          "rationale": "You focused on side count, which leaves square and rectangle un-grouped with circle."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0005_d",
+          "label": "D",
+          "text": "The rectangle, since it is the only shape with two pairs of equal sides",
+          "isCorrect": false,
+          "rationale": "You picked a sub-property of 4-sided polygons."
+        }
+      ],
+      "explanation": "The square, triangle, and rectangle are all made entirely of straight lines. The circle is made entirely of a curved line, breaking the \"straight lines only\" pattern shared by the other three.",
+      "figureSpecJson": "{\"kind\":\"shape-row\",\"shapes\":[{\"form\":\"square\"},{\"form\":\"triangle\"},{\"form\":\"rectangle\"},{\"form\":\"circle\"}]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-grouping-0006",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-grouping",
+      "language": "en",
+      "stem": "Figure shows four shapes: a pentagon (5 sides), another pentagon (5 sides), a hexagon (6 sides), and a third pentagon (5 sides). Which one does not belong?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0006_a",
+          "label": "A",
+          "text": "The hexagon, since it has 6 sides while the other three shapes all have 5 sides",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0006_b",
+          "label": "B",
+          "text": "The first pentagon, since it appears first in the row",
+          "isCorrect": false,
+          "rationale": "You used row position instead of side count."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0006_c",
+          "label": "C",
+          "text": "The second pentagon, since it is positioned in the middle",
+          "isCorrect": false,
+          "rationale": "You used layout placement instead of counting polygon sides."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0006_d",
+          "label": "D",
+          "text": "The third pentagon, since it appears last in the row",
+          "isCorrect": false,
+          "rationale": "You judged by array order rather than side count."
+        }
+      ],
+      "explanation": "Three of the shapes are pentagons, sharing a 5-side count. The hexagon has 6 sides, breaking that shared feature.",
+      "figureSpecJson": "{\"kind\":\"shape-row\",\"shapes\":[{\"form\":\"pentagon\"},{\"form\":\"pentagon\"},{\"form\":\"hexagon\"},{\"form\":\"pentagon\"}]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-grouping-0008",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-grouping",
+      "language": "en",
+      "stem": "Figure shows four quadrilaterals: a large square rotated 45° so it looks like a diamond, a small square, a rectangle, and a triangle drawn the same size as the others. A student picks the rotated diamond-looking square as the odd-one-out, since it \"looks the most different\" at a glance. Is this the correct answer?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0008_a",
+          "label": "A",
+          "text": "No: the rotated square still has 4 sides, matching the small square and rectangle; the triangle, with only 3 sides, is the actual odd-one-out, even though it is not the most visually unusual-looking figure.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0008_b",
+          "label": "B",
+          "text": "Yes: the most visually different-looking figure is always the correct odd-one-out.",
+          "isCorrect": false,
+          "rationale": "You judged by superficial rotation appearance. Rotating a square does not change its 4-side count."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0008_c",
+          "label": "C",
+          "text": "Yes: but only because rotated shapes never count as quadrilaterals.",
+          "isCorrect": false,
+          "rationale": "You claimed rotation alters polygon classification. A square remains a 4-sided quadrilateral when rotated."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0008_d",
+          "label": "D",
+          "text": "No: but only because the triangle and the rotated square are actually the same shape.",
+          "isCorrect": false,
+          "rationale": "You claimed a triangle and square are the same shape."
+        }
+      ],
+      "explanation": "The most visually striking figure is not always the correct odd-one-out. The rotated square still shares the true underlying rule (4 sides) with the small square and rectangle, while the \"normal-looking\" triangle actually breaks the rule with only 3 sides.",
+      "figureSpecJson": "{\"kind\":\"shape-row\",\"shapes\":[{\"form\":\"rhombus\"},{\"form\":\"square\"},{\"form\":\"rectangle\"},{\"form\":\"triangle\"}]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-grouping-0010",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-grouping",
+      "language": "en",
+      "stem": "Figure shows four shapes: a triangle, another triangle, a third triangle, and a four-sided kite shape. A student proposes the rule \"all shapes have straight sides,\" noting this fits three of the triangles and technically fits the kite too, so they conclude there is no odd-one-out. Is this the correct conclusion, given that the three triangles are meant to share a more specific true rule?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0010_a",
+          "label": "A",
+          "text": "No: \"all shapes have straight sides\" fits all four shapes and is too broad to distinguish them; the more specific true rule is \"3 sides,\" which the three triangles share but the four-sided kite breaks, making the kite the actual odd-one-out.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0010_b",
+          "label": "B",
+          "text": "Yes: since all four shapes have straight sides, there is genuinely no odd-one-out in this group.",
+          "isCorrect": false,
+          "rationale": "You accepted an overly broad rule that fails to separate any shape."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0010_c",
+          "label": "C",
+          "text": "No: but only because triangles never have straight sides.",
+          "isCorrect": false,
+          "rationale": "You claimed triangles do not have straight sides."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0010_d",
+          "label": "D",
+          "text": "Yes: the broadest rule that fits all figures is always the correct one to use.",
+          "isCorrect": false,
+          "rationale": "You assumed broad rules take precedence. Grouping rules must isolate a specific odd-one-out."
+        }
+      ],
+      "explanation": "A valid shared rule must be specific enough to distinguish the true odd-one-out, not just broadly true of every figure. Settling for an overly broad rule that fits everyone (including the kite) misses the more specific rule (3 sides) that only the three triangles actually share.",
+      "figureSpecJson": "{\"kind\":\"shape-row\",\"shapes\":[{\"form\":\"triangle\"},{\"form\":\"triangle\"},{\"form\":\"triangle\"},{\"form\":\"rhombus\"}]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-grouping-0012",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-grouping",
+      "language": "en",
+      "stem": "Figure shows four shapes, each divided into exactly 3 regions by internal lines, and a fifth shape divided into 4 regions. Which one does not belong?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0012_a",
+          "label": "A",
+          "text": "The shape divided into 4 regions, since the other four are all divided into exactly 3 regions",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0012_b",
+          "label": "B",
+          "text": "Whichever shape has the most internal lines drawn",
+          "isCorrect": false,
+          "rationale": "You focused on line segment count instead of total enclosed regions."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0012_c",
+          "label": "C",
+          "text": "Whichever shape has curved internal lines",
+          "isCorrect": false,
+          "rationale": "You evaluated line curvature instead of region count."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0012_d",
+          "label": "D",
+          "text": "Whichever shape is shaded differently from the rest",
+          "isCorrect": false,
+          "rationale": "You searched for shading differences when region count is the defining rule."
+        }
+      ],
+      "explanation": "Four figures share the feature of being divided into exactly 3 regions by their internal lines. The fifth figure is divided into 4 regions, breaking that shared region count.",
+      "figureSpecJson": "{\"kind\":\"shape-row\",\"shapes\":[{\"form\":\"circle\",\"lines\":2},{\"form\":\"square\",\"lines\":2},{\"form\":\"hexagon\",\"lines\":2},{\"form\":\"pentagon\",\"lines\":3}]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-grouping-0013",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-grouping",
+      "language": "en",
+      "stem": "Figure shows four shapes that are each both symmetric (foldable into matching halves) and have exactly 4 sides: a square, a rectangle, a rhombus, and a kite. A fifth shape is a symmetric pentagon (foldable into matching halves, but with 5 sides). Which one does not belong, and which specific shared rule does it break?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0013_a",
+          "label": "A",
+          "text": "The symmetric pentagon does not belong; although it shares the symmetry feature with the other four, it breaks the \"exactly 4 sides\" feature, since it has 5 sides.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0013_b",
+          "label": "B",
+          "text": "The symmetric pentagon does not belong, since it is the only shape that is symmetric.",
+          "isCorrect": false,
+          "rationale": "You inverted the symmetry property. All five shapes in the group are symmetric."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0013_c",
+          "label": "C",
+          "text": "The kite does not belong, since it is the only shape that is not a common household object.",
+          "isCorrect": false,
+          "rationale": "You used real-world object associations instead of geometric side count."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-grouping-0013_d",
+          "label": "D",
+          "text": "None of the shapes belong together, since a pentagon can never be symmetric.",
+          "isCorrect": false,
+          "rationale": "You claimed pentagons cannot be symmetric. Regular and isosceles pentagons have lines of symmetry."
+        }
+      ],
+      "explanation": "This group is defined by two combined features: symmetry AND exactly 4 sides. The pentagon shares the symmetry feature but breaks the 4-sides feature, making it the odd-one-out on that specific dimension, even though it isn't wrong on every dimension.",
+      "figureSpecJson": "{\"kind\":\"shape-row\",\"shapes\":[{\"form\":\"square\"},{\"form\":\"rectangle\"},{\"form\":\"rhombus\"},{\"form\":\"pentagon\"}]}"
     },
     {
       "id": "q-verbal-logic-assumptions-and-conclusions-0001",

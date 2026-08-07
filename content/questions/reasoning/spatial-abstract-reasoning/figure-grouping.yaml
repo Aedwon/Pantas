@@ -8,6 +8,13 @@ questions:
     type: odd-figure
     difficulty: easy
     figure: figure-grouping-01
+    figureSpec:
+      kind: shape-row
+      shapes:
+        - form: square
+        - form: rectangle
+        - form: rhombus
+        - form: triangle
     stem: |
       Figure shows four shapes: a square, a rectangle, a rhombus, and a triangle. Which one does not belong, and why?
     choices:
@@ -30,6 +37,13 @@ questions:
     type: odd-figure
     difficulty: easy
     figure: figure-grouping-02
+    figureSpec:
+      kind: shape-row
+      shapes:
+        - form: circle
+        - form: square
+        - form: triangle
+        - form: blob
     stem: |
       Figure shows four shapes: a perfect circle, a square, an equilateral triangle, and an irregular, lopsided blob shape with no matching sides. Which one does not belong?
     choices:
@@ -52,6 +66,18 @@ questions:
     type: odd-figure
     difficulty: medium
     figure: figure-grouping-03
+    figureSpec:
+      kind: shape-row
+      shapes:
+        - form: circle
+          lines: 1
+        - form: circle
+          lines: 2
+        - form: circle
+          lines: 3
+        - form: circle
+          lines: 2
+          through: off
     stem: |
       Figure shows four circles, each cut by straight lines: one circle has 1 line through the center (creating 2 regions), one has 2 lines through the center (creating 4 regions), one has 3 lines through the center (creating 6 regions), and one has 2 lines that do not pass through the center, creating 3 uneven regions. Which one does not belong?
     choices:
@@ -74,6 +100,19 @@ questions:
     type: odd-figure
     difficulty: medium
     figure: figure-grouping-04
+    figureSpec:
+      kind: shape-row
+      shapes:
+        - form: square
+          dots: 1
+        - form: triangle
+          dots: 1
+        - form: circle
+          dots: 1
+        - form: pentagon
+          dots: 1
+        - form: hexagon
+          dots: 2
     stem: |
       Figure shows five different shapes. Four of them each contain exactly one small shaded (black) dot somewhere inside. The fifth shape contains two small shaded dots inside. Which one does not belong?
     choices:
@@ -96,6 +135,13 @@ questions:
     type: odd-figure
     difficulty: medium
     figure: figure-grouping-05
+    figureSpec:
+      kind: shape-row
+      shapes:
+        - form: square
+        - form: triangle
+        - form: rectangle
+        - form: circle
     stem: |
       Figure shows four shapes: a square, a triangle, a rectangle, and a circle. Which one does not belong?
     choices:
@@ -118,6 +164,13 @@ questions:
     type: odd-figure
     difficulty: medium
     figure: figure-grouping-06
+    figureSpec:
+      kind: shape-row
+      shapes:
+        - form: pentagon
+        - form: pentagon
+        - form: hexagon
+        - form: pentagon
     stem: |
       Figure shows four shapes: a pentagon (5 sides), another pentagon (5 sides), a hexagon (6 sides), and a third pentagon (5 sides). Which one does not belong?
     choices:
@@ -162,6 +215,13 @@ questions:
     type: odd-figure
     difficulty: hard
     figure: figure-grouping-08
+    figureSpec:
+      kind: shape-row
+      shapes:
+        - form: rhombus
+        - form: square
+        - form: rectangle
+        - form: triangle
     stem: |
       Figure shows four quadrilaterals: a large square rotated 45° so it looks like a diamond, a small square, a rectangle, and a triangle drawn the same size as the others. A student picks the rotated diamond-looking square as the odd-one-out, since it "looks the most different" at a glance. Is this the correct answer?
     choices:
@@ -206,6 +266,13 @@ questions:
     type: odd-figure
     difficulty: hard
     figure: figure-grouping-10
+    figureSpec:
+      kind: shape-row
+      shapes:
+        - form: triangle
+        - form: triangle
+        - form: triangle
+        - form: rhombus
     stem: |
       Figure shows four shapes: a triangle, another triangle, a third triangle, and a four-sided kite shape. A student proposes the rule "all shapes have straight sides," noting this fits three of the triangles and technically fits the kite too, so they conclude there is no odd-one-out. Is this the correct conclusion, given that the three triangles are meant to share a more specific true rule?
     choices:
@@ -250,6 +317,17 @@ questions:
     type: odd-figure
     difficulty: medium
     figure: figure-grouping-12
+    figureSpec:
+      kind: shape-row
+      shapes:
+        - form: circle
+          lines: 2
+        - form: square
+          lines: 2
+        - form: hexagon
+          lines: 2
+        - form: pentagon
+          lines: 3
     stem: |
       Figure shows four shapes, each divided into exactly 3 regions by internal lines, and a fifth shape divided into 4 regions. Which one does not belong?
     choices:
@@ -272,6 +350,13 @@ questions:
     type: odd-figure
     difficulty: hard
     figure: figure-grouping-13
+    figureSpec:
+      kind: shape-row
+      shapes:
+        - form: square
+        - form: rectangle
+        - form: rhombus
+        - form: pentagon
     stem: |
       Figure shows four shapes that are each both symmetric (foldable into matching halves) and have exactly 4 sides: a square, a rectangle, a rhombus, and a kite. A fifth shape is a symmetric pentagon (foldable into matching halves, but with 5 sides). Which one does not belong, and which specific shared rule does it break?
     choices:

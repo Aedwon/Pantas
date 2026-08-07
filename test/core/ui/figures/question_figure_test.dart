@@ -4,6 +4,7 @@ import 'package:pantas/core/ui/figures/gear_train_figure.dart';
 import 'package:pantas/core/ui/figures/lever_balance_figure.dart';
 import 'package:pantas/core/ui/figures/pulley_system_figure.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
+import 'package:pantas/core/ui/figures/shape_row_figure.dart';
 import 'package:pantas/core/ui/figures/spring_scale_figure.dart';
 
 import '../../../helpers/pump_app.dart';
@@ -130,6 +131,25 @@ void main() {
     expect(figure.widths, [3, 1, 3]);
   });
 
+  testWidgets('a shape row keeps the order and never marks the odd one',
+      (tester) async {
+    await tester.pumpApp(
+      const QuestionFigure(
+        specJson: '{"kind":"shape-row","shapes":[{"form":"square"},'
+            '{"form":"rectangle"},{"form":"rhombus"},{"form":"triangle"}]}',
+      ),
+    );
+
+    final figure = tester.widget<ShapeRowFigure>(find.byType(ShapeRowFigure));
+    expect(
+      figure.shapes.map((s) => s.form),
+      ['square', 'rectangle', 'rhombus', 'triangle'],
+    );
+    // Nothing in the drawing says which one is the answer. Finding it is
+    // the question.
+    expect(find.textContaining('does not belong'), findsNothing);
+  });
+
   group('a spec it cannot read says so and draws nothing plausible', () {
     const bad = <String, String>{
       'not JSON': 'gears: 3',
@@ -157,6 +177,10 @@ void main() {
       'a pipe with no widths': '{"kind":"fluid-vessel","vessel":"pipe"}',
       'a pipe with one section': '{"kind":"fluid-vessel","vessel":"pipe",'
           '"widths":[3]}',
+      'a shape nobody drew': '{"kind":"shape-row","shapes":'
+          '[{"form":"dodecahedron"},{"form":"square"}]}',
+      'a row of one shape': '{"kind":"shape-row","shapes":'
+          '[{"form":"square"}]}',
     };
 
     for (final entry in bad.entries) {
@@ -168,6 +192,7 @@ void main() {
         expect(find.byType(LeverBalanceFigure), findsNothing);
         expect(find.byType(PulleySystemFigure), findsNothing);
         expect(find.byType(FluidVesselFigure), findsNothing);
+        expect(find.byType(ShapeRowFigure), findsNothing);
         expect(
           find.textContaining('has not been drawn yet'),
           findsOneWidget,
