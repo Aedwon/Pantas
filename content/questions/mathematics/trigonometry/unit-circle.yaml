@@ -13,8 +13,14 @@ questions:
       - text: $\dfrac{\sqrt{2}}{2}$
         correct: true
       - text: $\dfrac{\sqrt{3}}{2}$
+        rationale: |
+          You used the value for $\sin 60°$. The square-root ladder for sine runs $\dfrac{\sqrt{0}}{2}, \dfrac{\sqrt{1}}{2}, \dfrac{\sqrt{2}}{2}, \dfrac{\sqrt{3}}{2}, \dfrac{\sqrt{4}}{2}$ at 0, 30, 45, 60, 90 degrees. At 45 degrees the answer is the middle step.
       - text: $\dfrac{1}{2}$
+        rationale: |
+          You used the value for $\sin 30°$. The square-root ladder for sine places $\dfrac{1}{2}$ at 30 degrees and $\dfrac{\sqrt{2}}{2}$ at 45 degrees. Move one step up the ladder.
       - text: $\dfrac{\sqrt{2}}{3}$
+        rationale: |
+          You kept the right numerator but changed the denominator from 2 to 3. The unit circle formula always has 2 in the denominator for the standard angles. $\sin 45° = \dfrac{\sqrt{2}}{2}$.
     explanation: |
       $45$ degrees is a standard angle in Quadrant I. Use the square-root ladder for sine: the values at $0, 30, 45, 60, 90$ degrees are $\dfrac{\sqrt{0}}{2}, \dfrac{\sqrt{1}}{2}, \dfrac{\sqrt{2}}{2}, \dfrac{\sqrt{3}}{2}, \dfrac{\sqrt{4}}{2}$.
       $$\sin 45^\circ = \dfrac{\sqrt{2}}{2}$$
@@ -27,8 +33,14 @@ questions:
       - text: $\dfrac{\sqrt{3}}{2}$
         correct: true
       - text: $\dfrac{1}{2}$
+        rationale: |
+          You used the value for $\cos 60°$, not $\cos 30°$. Cosine runs the sine ladder backwards, so at 30 degrees cosine gives $\dfrac{\sqrt{3}}{2}$, the same value sine gives at 60 degrees.
       - text: $\dfrac{\sqrt{2}}{2}$
+        rationale: |
+          You used the value for $\cos 45°$. At 30 degrees, cosine is $\dfrac{\sqrt{3}}{2}$. The $\dfrac{\sqrt{2}}{2}$ value belongs to the 45-degree angle, not 30.
       - text: $\dfrac{\sqrt{3}}{3}$
+        rationale: |
+          You divided $\sqrt{3}$ by 3 instead of 2. All standard unit circle values have a denominator of 2. $\cos 30° = \dfrac{\sqrt{3}}{2}$.
     explanation: |
       Cosine runs the sine ladder backwards. At $30$ degrees in Quadrant I:
       $$\cos 30^\circ = \dfrac{\sqrt{3}}{2}$$
@@ -42,8 +54,14 @@ questions:
       - text: $1$
         correct: true
       - text: $0$
+        rationale: |
+          You used the value for $\sin 0°$ or $\cos 90°$. At 90 degrees the unit circle point is $(0, 1)$. Sine is the $y$-coordinate, which is 1, not 0.
       - text: $\dfrac{1}{2}$
+        rationale: |
+          You used the value for $\sin 30°$. At 90 degrees the unit circle point is $(0, 1)$, so sine equals 1. The $\dfrac{1}{2}$ value belongs to the 30-degree angle.
       - text: Undefined
+        rationale: |
+          You confused this with $\tan 90°$, which is undefined because it divides by $\cos 90° = 0$. Sine itself never divides by zero. At 90 degrees, $\sin 90° = 1$.
     explanation: |
       At $90$ degrees, the ray points straight up at the point $(0, 1)$ on the unit circle. Sine is the $y$-coordinate.
       $$\sin 90^\circ = 1$$
@@ -56,8 +74,14 @@ questions:
       - text: $-1$
         correct: true
       - text: $1$
+        rationale: |
+          You got the size right but dropped the negative sign. At 180 degrees the unit circle point is $(-1, 0)$. Cosine is the $x$-coordinate, which is $-1$, not $1$.
       - text: $0$
+        rationale: |
+          You used the value for $\cos 90°$ or $\sin 180°$. At 180 degrees the unit circle point is $(-1, 0)$, so cosine equals $-1$, not $0$.
       - text: Undefined
+        rationale: |
+          You confused this with $\tan 90°$, which is undefined. Cosine is the $x$-coordinate on the unit circle. At 180 degrees that coordinate is $-1$, a perfectly defined value.
     explanation: |
       At $180$ degrees, the ray points left at the point $(-1, 0)$ on the unit circle. Cosine is the $x$-coordinate.
       $$\cos 180^\circ = -1$$
@@ -70,8 +94,14 @@ questions:
       - text: $-\dfrac{1}{2}$
         correct: true
       - text: $\dfrac{1}{2}$
+        rationale: |
+          You got the size right but forgot the sign. The reference angle is 60 degrees and $\cos 60° = \dfrac{1}{2}$, but 120 degrees is in Quadrant II where cosine is negative. Add the negative sign.
       - text: $-\dfrac{\sqrt{3}}{2}$
+        rationale: |
+          You used the sine of the reference angle instead of the cosine. The reference angle is 60 degrees. $\sin 60° = \dfrac{\sqrt{3}}{2}$, but you need $\cos 60° = \dfrac{1}{2}$. Then apply the Quadrant II negative sign.
       - text: $\dfrac{\sqrt{3}}{2}$
+        rationale: |
+          You used the sine of the reference angle and dropped the negative sign. The reference angle is 60 degrees and $\cos 60° = \dfrac{1}{2}$, not $\dfrac{\sqrt{3}}{2}$. Quadrant II also makes cosine negative.
     explanation: |
       $120$ degrees is in Quadrant II. Use the reference-angle routine:
       1. Reference angle: $180 - 120 = 60$ degrees.
@@ -88,8 +118,14 @@ questions:
       - text: $-\dfrac{\sqrt{2}}{2}$
         correct: true
       - text: $\dfrac{\sqrt{2}}{2}$
+        rationale: |
+          You got the size right but forgot the sign. The reference angle is 45 degrees and $\sin 45° = \dfrac{\sqrt{2}}{2}$, but 225 degrees is in Quadrant III where sine is negative.
       - text: $-\dfrac{\sqrt{3}}{2}$
+        rationale: |
+          You used the 60-degree value instead of the 45-degree value. The reference angle for 225 degrees is $225 - 180 = 45$ degrees, so you need $\sin 45° = \dfrac{\sqrt{2}}{2}$, not the 60-degree value.
       - text: $-\dfrac{1}{2}$
+        rationale: |
+          You used the 30-degree value instead of the 45-degree value. The reference angle for 225 degrees is $225 - 180 = 45$ degrees, so you need $\sin 45° = \dfrac{\sqrt{2}}{2}$, not the 30-degree value.
     explanation: |
       $225$ degrees is in Quadrant III. Reference-angle routine:
       1. Reference angle: $225 - 180 = 45$ degrees.
@@ -105,8 +141,14 @@ questions:
       - text: $-\dfrac{1}{2}$
         correct: true
       - text: $\dfrac{1}{2}$
+        rationale: |
+          You found the right size but treated the angle as positive. Negative angles sweep clockwise into Quadrant IV, where sine is negative. $\sin(-30°) = -\sin(30°) = -\dfrac{1}{2}$.
       - text: $-\dfrac{\sqrt{3}}{2}$
+        rationale: |
+          You used the 60-degree value instead of the 30-degree value. The reference angle is 30 degrees, giving $\sin 30° = \dfrac{1}{2}$. Apply the negative sign for Quadrant IV to get $-\dfrac{1}{2}$.
       - text: $\dfrac{\sqrt{3}}{2}$
+        rationale: |
+          You used the 60-degree value and treated the angle as positive. The reference angle is 30 degrees, so the size is $\dfrac{1}{2}$. Negative angles in Quadrant IV also make sine negative.
     explanation: |
       Negative angles swing clockwise. $-30$ degrees is $30$ degrees below the positive $x$-axis, in Quadrant IV.
       1. Reference angle: $30$ degrees.
@@ -120,10 +162,16 @@ questions:
       Which statement is true about the unit circle and quadrant signs?
     choices:
       - text: In Quadrant II, both sine and cosine are positive.
+        rationale: |
+          You described Quadrant I, not Quadrant II. In Quadrant I all three ratios are positive. In Quadrant II only sine is positive. Cosine is negative because the $x$-coordinate is negative there.
       - text: In Quadrant III, only tangent is positive.
         correct: true
       - text: In Quadrant IV, only sine is positive.
+        rationale: |
+          You described Quadrant II, not Quadrant IV. In Quadrant II only sine is positive. In Quadrant IV the $x$-coordinate is positive and the $y$-coordinate is negative, so cosine is positive and sine is negative.
       - text: In Quadrant I, sine is positive but cosine is negative.
+        rationale: |
+          You described Quadrant II, not Quadrant I. In Quadrant I all coordinates are positive, so both sine and cosine are positive. Quadrant II is where cosine turns negative.
     explanation: |
       Quadrant I: all positive. Quadrant II: only sine positive (the mnemonic: **A**ll, **S**ine, **T**angent, **C**osine). Quadrant III: only tangent positive (since sine and cosine are both negative, their ratio is positive). Quadrant IV: only cosine positive. The second statement is the correct one.
   - id: q-trigonometry-unit-circle-0009
@@ -135,8 +183,14 @@ questions:
       - text: $-\sqrt{3}$
         correct: true
       - text: $\sqrt{3}$
+        rationale: |
+          You got the size right but forgot the sign. The reference angle is 60 degrees and $\tan 60° = \sqrt{3}$, but 300 degrees is in Quadrant IV where tangent is negative.
       - text: $-\dfrac{\sqrt{3}}{3}$
+        rationale: |
+          You used the value for $\tan 30°$ instead of $\tan 60°$. The reference angle for 300 degrees is $360 - 300 = 60$ degrees. $\tan 60° = \sqrt{3}$, not $\dfrac{\sqrt{3}}{3}$. Apply the Quadrant IV negative sign.
       - text: $\dfrac{\sqrt{3}}{3}$
+        rationale: |
+          You used the value for $\tan 30°$ and dropped the negative sign. The reference angle is 60 degrees, giving $\tan 60° = \sqrt{3}$. Quadrant IV also makes tangent negative.
     explanation: |
       $300$ degrees is in Quadrant IV. Reference-angle routine:
       1. Reference angle: $360 - 300 = 60$ degrees.
@@ -152,8 +206,14 @@ questions:
       - text: $1$
         correct: true
       - text: $0$
+        rationale: |
+          You found the right values but applied the wrong sign to one of them. $\sin 150° = \dfrac{1}{2}$ (Quadrant II, sine positive) and $\cos 300° = \dfrac{1}{2}$ (Quadrant IV, cosine positive). Both are positive, so the sum is $1$, not $0$.
       - text: $\dfrac{\sqrt{3}}{2}$
+        rationale: |
+          You used the 60-degree size for both terms. The reference angle for 150 degrees is 30 degrees, giving $\sin 30° = \dfrac{1}{2}$. The reference angle for 300 degrees is also 60 degrees, giving $\cos 60° = \dfrac{1}{2}$. The sum is $\dfrac{1}{2} + \dfrac{1}{2} = 1$.
       - text: $\dfrac{1}{2}$
+        rationale: |
+          You computed one term correctly but forgot to add the second. Both $\sin 150°$ and $\cos 300°$ equal $\dfrac{1}{2}$. You need to add them: $\dfrac{1}{2} + \dfrac{1}{2} = 1$.
     explanation: |
       Handle each term separately.
       
@@ -174,8 +234,14 @@ questions:
       - text: Cosine is always the first coordinate and sine is always the second coordinate.
         correct: true
       - text: Sine is always the first coordinate and cosine is always the second coordinate.
+        rationale: |
+          You swapped the coordinates. The unit circle point is $(\cos \theta, \sin \theta)$: cosine is the $x$-coordinate (first) and sine is the $y$-coordinate (second). Swapping them changes every answer you ever calculate from the unit circle.
       - text: The point $(\sin 45^\circ, \cos 45^\circ)$ is $\left(\dfrac{\sqrt{2}}{2}, \dfrac{\sqrt{2}}{2}\right)$.
+        rationale: |
+          You wrote the coordinates in the right order, but the notation $(\sin \theta, \cos \theta)$ puts sine first. A unit circle point is always $(\cos \theta, \sin \theta)$. At 45 degrees both values equal $\dfrac{\sqrt{2}}{2}$, so the numbers are correct, but the order is reversed.
       - text: For a $120$ degree angle, the point is $\left(\dfrac{\sqrt{3}}{2}, \dfrac{1}{2}\right)$.
+        rationale: |
+          You used the first-quadrant values without applying the Quadrant II signs. $\cos 120° = -\dfrac{1}{2}$ and $\sin 120° = \dfrac{\sqrt{3}}{2}$, so the correct point is $\left(-\dfrac{1}{2}, \dfrac{\sqrt{3}}{2}\right)$.
     explanation: |
       The point on the unit circle for angle $\theta$ is $(\cos \theta, \sin \theta)$: cosine is the $x$-coordinate (first), and sine is the $y$-coordinate (second). Swapping them is a silent error that changes every answer. For the third statement: $\sin 45^\circ = \cos 45^\circ = \dfrac{\sqrt{2}}{2}$, so the point would be correct, but the notation $(\sin 45^\circ, \cos 45^\circ)$ reverses the order: it should be $(\cos 45^\circ, \sin 45^\circ)$. For the fourth: $\cos 120^\circ = -\dfrac{1}{2}$ and $\sin 120^\circ = \dfrac{\sqrt{3}}{2}$, so the point is $\left(-\dfrac{1}{2}, \dfrac{\sqrt{3}}{2}\right)$, not the stated point.
   - id: q-trigonometry-unit-circle-0012
@@ -187,8 +253,14 @@ questions:
       - text: Undefined
         correct: true
       - text: $0$
+        rationale: |
+          You used the value for $\tan 0°$ or $\sin 90°$. At 90 degrees, $\cos 90° = 0$, so $\tan 90° = \dfrac{\sin 90°}{\cos 90°} = \dfrac{1}{0}$, which is undefined, not 0.
       - text: $1$
+        rationale: |
+          You used the value for $\tan 45°$. At 90 degrees, $\cos 90° = 0$, making the denominator of $\dfrac{\sin}{\cos}$ equal to zero. Division by zero is undefined.
       - text: $\infty$
+        rationale: |
+          You treated infinity as a number. In mathematics, infinity is not a value. When the denominator is zero, the expression is undefined. The correct answer is "Undefined," not $\infty$.
     explanation: |
       At $90$ degrees, cosine $= 0$. Tangent is $\dfrac{\sin \theta}{\cos \theta}$, so we would be dividing by zero. Division by zero is undefined. The planted wrong answers are $0$ (where tangent is actually zero) and $1$ (a guess). Do not use $\infty$: in rigorous mathematics, infinity is not a number, so "undefined" is the correct answer.
   - id: q-trigonometry-unit-circle-0013
@@ -200,8 +272,14 @@ questions:
       - text: $-\dfrac{1}{2}$
         correct: true
       - text: $\dfrac{1}{2}$
+        rationale: |
+          You got the size right but forgot the sign. The reference angle is 30 degrees and $\sin 30° = \dfrac{1}{2}$, but 210 degrees is in Quadrant III where sine is negative.
       - text: $-\dfrac{\sqrt{3}}{2}$
+        rationale: |
+          You used the 60-degree value instead of the 30-degree value. The reference angle for 210 degrees is $210 - 180 = 30$ degrees. $\sin 30° = \dfrac{1}{2}$, not $\dfrac{\sqrt{3}}{2}$. Apply the Quadrant III negative sign.
       - text: $\dfrac{\sqrt{3}}{2}$
+        rationale: |
+          You used the 60-degree value and dropped the sign. The reference angle is $210 - 180 = 30$ degrees, giving $\sin 30° = \dfrac{1}{2}$. Quadrant III also makes sine negative.
     explanation: |
       $210$ degrees is in Quadrant III. Reference-angle routine:
       1. Reference angle: $210 - 180 = 30$ degrees.
@@ -217,8 +295,14 @@ questions:
       - text: The reference angle for $300$ degrees is $60$ degrees, calculated as $360 - 300$.
         correct: true
       - text: The reference angle for $200$ degrees is $20$ degrees, calculated as $200 - 180$.
+        rationale: |
+          You got the right answer value, but the formula $200 - 180$ only works for Quadrant III angles. It is not a general rule for all angles. The first choice is true because it correctly names both the formula and the specific quadrant it applies to.
       - text: All reference angles are found using $180 - \theta$.
+        rationale: |
+          That formula only works for Quadrant II. Each quadrant has its own formula: Quadrant II uses $180 - \theta$, Quadrant III uses $\theta - 180$, and Quadrant IV uses $360 - \theta$. You cannot use one formula for all four.
       - text: Reference angles are always positive and always less than $45$ degrees.
+        rationale: |
+          You are right that reference angles are always positive, but they can go up to 90 degrees, not just under 45. The reference angle for 120 degrees is 60 degrees, which is greater than 45.
     explanation: |
       The reference angle depends on the quadrant. For Quadrant IV ($270 < \theta < 360$), it is $360 - \theta$, so $300$ degrees gives $60$ degrees. For Quadrant III ($180 < \theta < 270$), it is $\theta - 180$, so $200$ degrees gives $200 - 180 = 20$ degrees, which is correct. However, the second statement says it is $20$ degrees, which happens to be right, but the formula shown ($200 - 180$) is for Quadrant III, not just any angle. The third statement is false: Quadrant II uses $180 - \theta$, not all angles. The fourth is false: reference angles can exceed $45$ degrees (for example, the reference angle for $120$ degrees is $60$ degrees). The first statement correctly identifies both the angle and the formula for Quadrant IV.
   - id: q-trigonometry-unit-circle-0015
@@ -230,8 +314,14 @@ questions:
       - text: $\dfrac{\sqrt{2}}{2}$
         correct: true
       - text: $-\dfrac{\sqrt{2}}{2}$
+        rationale: |
+          You applied a negative sign that does not belong. Cosine is an even function: $\cos(-\theta) = \cos(\theta)$. At $-45$ degrees the angle lands in Quadrant IV where cosine is positive. The answer is $\dfrac{\sqrt{2}}{2}$.
       - text: $\dfrac{1}{2}$
+        rationale: |
+          You used the 60-degree size instead of the 45-degree size. The reference angle for $-45$ degrees is 45 degrees, giving $\cos 45° = \dfrac{\sqrt{2}}{2}$. The $\dfrac{1}{2}$ value belongs to the 60-degree angle.
       - text: $-\dfrac{1}{2}$
+        rationale: |
+          You used the 60-degree size and applied a negative sign that does not belong. The reference angle is 45 degrees, giving $\cos 45° = \dfrac{\sqrt{2}}{2}$. Quadrant IV also keeps cosine positive.
     explanation: |
       Negative angles swing clockwise. $-45$ degrees is $45$ degrees below the positive $x$-axis, in Quadrant IV.
       1. Reference angle: $45$ degrees.
@@ -247,8 +337,14 @@ questions:
       - text: $-\dfrac{\sqrt{3}}{2}$
         correct: true
       - text: $\dfrac{\sqrt{3}}{2}$
+        rationale: |
+          You got the size right but forgot the sign. The reference angle is 60 degrees and $\sin 60° = \dfrac{\sqrt{3}}{2}$, but 240 degrees is in Quadrant III where sine is negative.
       - text: $-\dfrac{1}{2}$
+        rationale: |
+          You used the 30-degree value instead of the 60-degree value. The reference angle for 240 degrees is $240 - 180 = 60$ degrees. $\sin 60° = \dfrac{\sqrt{3}}{2}$, not $\dfrac{1}{2}$. Apply the Quadrant III negative sign.
       - text: $\dfrac{1}{2}$
+        rationale: |
+          You used the 30-degree value and dropped the sign. The reference angle is $240 - 180 = 60$ degrees, giving $\sin 60° = \dfrac{\sqrt{3}}{2}$. Quadrant III also makes sine negative.
     explanation: |
       $240$ degrees is in Quadrant III. Reference-angle routine:
       1. Reference angle: $240 - 180 = 60$ degrees.
