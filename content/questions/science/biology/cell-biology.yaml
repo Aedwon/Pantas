@@ -18,8 +18,17 @@ questions:
       - text: Nucleus
         correct: true
       - text: Mitochondrion
+        rationale: |
+          You picked the cell's energy producer. The mitochondrion breaks down glucose
+          to make ATP. It does not store DNA or direct the cell's activities.
       - text: Ribosome
+        rationale: |
+          You picked the protein builder. Ribosomes read copied instructions and link
+          amino acids together. They do not hold the cell's DNA.
       - text: Golgi apparatus
+        rationale: |
+          You picked the packaging organelle. The Golgi apparatus sorts and ships
+          proteins. It does not store DNA or control the cell.
     explanation: |
       The nucleus stores the DNA and controls what the cell does. The other
       organelles listed do not hold the cell's DNA.
@@ -34,8 +43,17 @@ questions:
       - text: Mitochondrion
         correct: true
       - text: Ribosome
+        rationale: |
+          You picked the protein builder. Ribosomes link amino acids together to make
+          proteins. They do not break down glucose to make ATP.
       - text: Nucleus
+        rationale: |
+          You picked the control center. The nucleus stores DNA and directs the cell.
+          It does not produce energy from glucose.
       - text: Vacuole
+        rationale: |
+          You picked the storage sac. Vacuoles store water, waste, or nutrients.
+          They do not produce ATP.
     explanation: |
       Mitochondria break down glucose and release energy as ATP, the fuel
       the cell uses to do work. Ribosomes build proteins, not energy.
@@ -50,8 +68,17 @@ questions:
       - text: Ribosome
         correct: true
       - text: Golgi apparatus
+        rationale: |
+          You picked the packaging organelle. The Golgi apparatus receives proteins
+          after they are built and ships them out. It does not build proteins.
       - text: Mitochondrion
+        rationale: |
+          You picked the energy producer. The mitochondrion makes ATP from glucose.
+          It does not read DNA instructions to build proteins.
       - text: Cell membrane
+        rationale: |
+          You picked the outer boundary. The cell membrane controls what enters and
+          leaves the cell. It does not build proteins.
     explanation: |
       Ribosomes read copied DNA instructions and link amino acids together
       to build proteins. The Golgi apparatus packages proteins afterward:
@@ -68,8 +95,18 @@ questions:
       - text: Golgi apparatus
         correct: true
       - text: Rough endoplasmic reticulum
+        rationale: |
+          You picked the structure that helps build proteins. The rough ER is studded
+          with ribosomes and processes proteins early. It does not package and ship
+          them the way the Golgi does.
       - text: Nucleus
+        rationale: |
+          You picked the control center. The nucleus stores DNA and directs cell
+          activity. It does not modify and ship proteins.
       - text: Mitochondrion
+        rationale: |
+          You picked the energy producer. The mitochondrion makes ATP. It does not
+          sort or package proteins for delivery.
     explanation: |
       The Golgi apparatus works like a packaging and shipping center for the
       cell. The rough ER helps build proteins earlier in the process, but it
@@ -85,8 +122,18 @@ questions:
       - text: Rough endoplasmic reticulum
         correct: true
       - text: Smooth endoplasmic reticulum
+        rationale: |
+          You picked the other ER type. The smooth ER has no ribosomes on its surface.
+          It builds lipids, not proteins. The ribosomes on the rough ER are what
+          distinguish it.
       - text: Golgi apparatus
+        rationale: |
+          You picked the packaging organelle. The Golgi receives proteins after they
+          are built and ships them. It does not have ribosomes on its surface.
       - text: Lysosome
+        rationale: |
+          You picked the waste-disposal organelle. Lysosomes break down worn-out cell
+          parts using digestive enzymes. They do not have ribosomes or build proteins.
     explanation: |
       The rough ER is named for the ribosomes dotting its surface, and those
       ribosomes build proteins. The smooth ER has no ribosomes and builds
@@ -102,8 +149,17 @@ questions:
       - text: Cell membrane
         correct: true
       - text: Cell wall
+        rationale: |
+          You picked the rigid outer layer found in plant cells. The cell wall gives
+          shape and support. It does not selectively control what passes through.
       - text: Cytoplasm
+        rationale: |
+          You picked the fluid inside the cell. The cytoplasm is where organelles
+          float. It is not a barrier controlling entry and exit.
       - text: Nucleolus
+        rationale: |
+          You picked a structure inside the nucleus. The nucleolus produces ribosomal
+          RNA. It does not control what enters or leaves the cell.
     explanation: |
       The cell membrane is the gatekeeper: it lets some substances in and
       keeps others out. The cell wall only gives the cell shape and support;
@@ -119,8 +175,17 @@ questions:
       - text: Centrosome
         correct: true
       - text: Cell wall
+        rationale: |
+          You picked a plant-only structure. The cell wall is found in plant cells,
+          not animal cells. The question asks for the animal-only structure.
       - text: Chloroplast
+        rationale: |
+          You picked a plant-only structure. Chloroplasts capture sunlight for
+          photosynthesis. Animal cells do not have them.
       - text: Central vacuole
+        rationale: |
+          You picked a plant-only structure. The large central vacuole stores water
+          and helps keep the plant firm. Animal cells do not have it.
     explanation: |
       Animal cells typically have a centrosome, which helps organize cell
       division. Cell wall, chloroplast, and central vacuole are the three
@@ -136,8 +201,19 @@ questions:
       - text: Lysosome
         correct: true
       - text: Cell wall
+        rationale: |
+          You picked a plant-only structure, but the question asks for the one that
+          is NOT plant-only. The cell wall is one of the three structures found only
+          in plant cells.
       - text: Chloroplast
+        rationale: |
+          You picked a plant-only structure, but the question asks for the exception.
+          Chloroplasts are one of the three structures unique to plant cells.
       - text: Central vacuole
+        rationale: |
+          You picked a plant-only structure, but the question asks for the one that
+          does not belong. The central vacuole is one of the three plant-only
+          structures.
     explanation: |
       Lysosomes are typically found in animal cells, where they break down
       waste. Cell wall, chloroplast, and central vacuole are the three
@@ -154,8 +230,18 @@ questions:
       - text: Plant cell
         correct: true
       - text: Animal cell
+        rationale: |
+          You said animal cell. Animal cells do not have a cell wall, a large central
+          vacuole, or chloroplasts. All three features described belong to plant cells.
       - text: It cannot be either type of cell
+        rationale: |
+          You said it fits neither type. The rigid wall, large water sac, and green
+          structures are exactly the three features that define a plant cell.
       - text: Both are equally likely
+        rationale: |
+          You said it could be either. Animal cells lack cell walls, large central
+          vacuoles, and chloroplasts. All three described features point only to a
+          plant cell.
     explanation: |
       A rigid wall matches the cell wall, the water-filled sac matches the
       central vacuole, and the green structures match chloroplasts. All
@@ -170,8 +256,17 @@ questions:
       - text: Osmosis is specifically the movement of water; diffusion can involve any particle, including water.
         correct: true
       - text: Diffusion is specifically the movement of water; osmosis can involve any particle.
+        rationale: |
+          You swapped them. Osmosis is the water-specific term. Diffusion is the
+          broader term that covers any particle moving from high to low concentration.
       - text: Osmosis requires energy; diffusion does not.
+        rationale: |
+          You said osmosis needs energy. It does not. Both osmosis and diffusion are
+          passive processes. Neither one needs the cell to spend energy.
       - text: Diffusion only happens in animal cells; osmosis only happens in plant cells.
+        rationale: |
+          You limited each process to one cell type. Both diffusion and osmosis happen
+          in all living cells, plant and animal alike.
     explanation: |
       Osmosis is a special case of diffusion that applies only to water.
       Diffusion is the broader term and can describe any particle moving
@@ -186,8 +281,20 @@ questions:
       - text: Diffusion moves particles from high to low concentration and needs no energy; active transport moves particles from low to high concentration and needs energy.
         correct: true
       - text: Diffusion needs energy and moves particles from low to high concentration; active transport needs no energy.
+        rationale: |
+          You reversed the roles. Diffusion is passive and needs no energy. Active
+          transport is the one that needs energy to push particles against their
+          concentration gradient.
       - text: Both processes always move particles from low to high concentration.
+        rationale: |
+          You said both move against the gradient. Only active transport does that.
+          Diffusion moves particles from high to low concentration on its own, with
+          no energy needed.
       - text: Active transport only happens in plant cells.
+        rationale: |
+          You limited active transport to plants. It happens in all living cells.
+          Animal cells use active transport for many vital functions, including
+          nerve signals and muscle contractions.
     explanation: |
       Diffusion follows the concentration gradient (high to low) on its own.
       Active transport pushes particles against the gradient (low to high),
@@ -204,8 +311,18 @@ questions:
       - text: Water moves into the cell, and it may swell or burst.
         correct: true
       - text: Water moves out of the cell, and it shrinks.
+        rationale: |
+          You predicted the outcome for a hypertonic solution. The outside solution
+          here has less solute than the cell, so water moves in, not out.
       - text: No water moves, and the cell stays the same size.
+        rationale: |
+          You predicted isotonic conditions. That would require equal solute
+          concentrations inside and outside. Here, the outside has less solute,
+          so water will move inward.
       - text: The cell wall prevents any change.
+        rationale: |
+          You said the cell wall blocks this. Red blood cells do not have a cell wall.
+          Only plant cells have a cell wall. Nothing stops the water from moving in.
     explanation: |
       A solution with lower solute concentration than the cell is
       hypotonic. Water moves toward the higher solute concentration, which
@@ -221,8 +338,19 @@ questions:
       - text: Hypertonic solution
         correct: true
       - text: Hypotonic solution
+        rationale: |
+          You picked the solution that would cause the cell to swell, not shrink.
+          A hypotonic solution has less solute than the cell, so water moves in.
+          Shrinking means water moved out, into a higher-solute environment.
       - text: Isotonic solution
+        rationale: |
+          You picked the solution where the cell would stay the same size. An isotonic
+          solution has the same solute concentration as the cell. No net water
+          movement happens, so the cell would not shrink.
       - text: Neutral solution
+        rationale: |
+          You picked a pH term. Neutral refers to a pH of 7, not to solute
+          concentration. The cell's shrinking tells you about osmosis, not pH.
     explanation: |
       The cell shrank, so water moved out of it. Water leaves a cell when
       the surrounding solution has a higher solute concentration than the
@@ -239,8 +367,19 @@ questions:
       - text: It stays the same size.
         correct: true
       - text: It swells and may burst.
+        rationale: |
+          You predicted the outcome for a hypotonic solution. That would mean the
+          outside has less solute, pushing water in. Here, the concentrations are
+          equal, so no net water movement occurs.
       - text: It shrinks and shrivels.
+        rationale: |
+          You predicted the outcome for a hypertonic solution. That would mean the
+          outside has more solute, pulling water out. Here, the concentrations are
+          equal, so the cell stays the same size.
       - text: It splits into two smaller cells.
+        rationale: |
+          You predicted cell division. Equal solute concentrations have no connection
+          to cell division. The cell simply stays the same size.
     explanation: |
       Equal solute concentration inside and outside is called isotonic.
       Water still moves in and out, but at the same rate in both
@@ -259,8 +398,18 @@ questions:
       - text: 2, 3, 1
         correct: true
       - text: 1, 2, 3
+        rationale: |
+          You put the Golgi first. The Golgi packages proteins after they are built
+          and processed. Building (ribosome) has to come before packaging (Golgi).
       - text: 3, 2, 1
+        rationale: |
+          You put the rough ER first. The rough ER processes the protein after the
+          ribosome builds it. A protein cannot be processed before it is built.
       - text: 2, 1, 3
+        rationale: |
+          You skipped the rough ER. The correct path is ribosome builds, rough ER
+          processes, then Golgi packages. You sent the protein straight from the
+          ribosome to the Golgi.
     explanation: |
       A ribosome builds the protein first. The rough ER, covered in
       ribosomes, then helps process it. Last, the Golgi apparatus packages
@@ -278,8 +427,18 @@ questions:
       - text: The nutrient will stop being pumped in and may start leaking back out along its concentration gradient.
         correct: true
       - text: The nutrient will keep moving into the cell at the same rate.
+        rationale: |
+          You said the transport continues unchanged. Active transport requires ATP
+          to run. Without ATP, the pump stops. The nutrient cannot keep moving in.
       - text: The nutrient will be pumped in even faster.
+        rationale: |
+          You said the rate increases. Without ATP, active transport cannot work at
+          all. The pump would slow and stop, not speed up.
       - text: The nutrient will convert into a different substance.
+        rationale: |
+          You said the nutrient changes chemically. Running out of ATP affects
+          transport, not the identity of the substance. The nutrient stays the
+          same; it just stops being actively moved.
     explanation: |
       Active transport needs ATP to move a substance against its
       concentration gradient. Without ATP, the cell cannot keep pumping the
