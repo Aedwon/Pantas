@@ -147,9 +147,9 @@ questions:
         correct: true
       - text: Photosynthesis, since this describes a chloroplast.
         rationale: |
-          You named the wrong organelle. A chloroplast is green and disc-
-          shaped. A bean-shaped organelle with folded inner membranes is a
-          mitochondrion, which performs cellular respiration.
+          You named the wrong organelle. Photosynthesis happens in a
+          chloroplast, which is green and disc-shaped. The one described here
+          has no pigment and a folded interior.
       - text: Both processes equally.
         rationale: |
           You split the function between both processes, but each organelle
