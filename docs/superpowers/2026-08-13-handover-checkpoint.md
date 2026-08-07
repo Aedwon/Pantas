@@ -192,7 +192,25 @@ against it. **The rule is lengthen the distractors, never shorten the answer**,
 and the risk it names out loud is a distractor lengthened into a second correct
 answer.
 
-### 155 questions are parked on pictures that do not exist
+### The parked figures, and what 13 August did to them
+
+**155 became 64.** The pile was never 155 drawings: it was ten families of
+about fifteen, plus a generator that tagged questions with a figure id whether
+they needed one or not.
+
+| | |
+|---|---|
+| **Drawn by the app** | Gears, springs, levers and pulleys, stability shapes, fluid vessels, shape rows. Six painters, 63 questions |
+| **Never needed a figure** | 51 questions whose stems state everything: a ladder with its legs spread, a lever whose distances are in the sentence, a line through two named points. The tag alone kept them out |
+| **Still parked** | 64. All but one are the four abstract puzzle families: figure series, matrices, paper folding, 3D rotation |
+
+**The seed carries 2,307 questions, up from 2,216 this morning.**
+
+`specs/2026-08-13-drawn-figures-design.md` has the argument and the rules a
+painter follows. The order of work at the end of it is still right, and the
+four families left are the four it warned would be hardest.
+
+### The lesson illustrations, which are a different problem
 
 `content/illustrations/` is empty. The workflow is decided: hand-made in Canva,
 PowerPoint or Illustrator, never AI-generated, then through the Illustration
