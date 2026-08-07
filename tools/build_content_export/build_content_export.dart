@@ -226,6 +226,7 @@ void main(List<String> args) {
       if (q['lessonId'] != null) 'lesson': {'_ref': q['lessonId']},
       if (q['passageId'] != null) 'passage': {'_ref': q['passageId']},
       if (q['shortLabel'] != null) 'shortLabel': q['shortLabel'],
+      if (q['figureSpec'] != null) 'figureSpec': q['figureSpec'],
       'examIds':
           (q['examIds'] as List? ?? []).map((id) => {'_ref': id}).toList(),
       'language': q['language'] ?? 'en',
@@ -376,6 +377,8 @@ List<Map<String, Object?>> buildQuestions(
           'passage': {'_ref': question['passage']},
         if (question['shortLabel'] != null)
           'shortLabel': question['shortLabel'],
+        if (question['figureSpec'] != null)
+          'figureSpec': question['figureSpec'],
         'examIds': examIds.map((e) => {'_ref': e}).toList(),
         'language': 'en',
         'stem': _textToPortableText((question['stem'] as String).trim()),

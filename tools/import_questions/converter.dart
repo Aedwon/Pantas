@@ -124,7 +124,17 @@ Map<String, Object?> questionToDoc(
   }
 
   final figure = q['figure'];
-  final isFigurePending = figure is String && figure.trim().isNotEmpty;
+  final figureSpec = q['figureSpec'];
+  if (figureSpec != null && figureSpec is! Map) {
+    throw FormatException('$id: figureSpec must be a map');
+  }
+  if (figureSpec is Map && figureSpec['kind'] is! String) {
+    throw FormatException('$id: figureSpec needs a kind');
+  }
+  // A figure the app can draw is not pending. Only a question waiting on a
+  // hand-drawn picture stays inactive.
+  final isFigurePending =
+      figure is String && figure.trim().isNotEmpty && figureSpec == null;
   final passageRef = q['passage'];
   final passageId = passageRef is String ? passageRef.trim() : null;
 
@@ -136,6 +146,8 @@ Map<String, Object?> questionToDoc(
     'isActive': !isFigurePending,
     if (passageId != null && passageId.isNotEmpty)
       'passage': {'_ref': passageId},
+    if (figureSpec is Map)
+      'figureSpec': figureSpec.map((k, v) => MapEntry('$k', v)),
     'topic': {'_ref': topicId(meta.topicSlug)},
     'subtopic': {'_ref': lessonId(meta.topicSlug, meta.subtopicSlug)},
     'examIds': [

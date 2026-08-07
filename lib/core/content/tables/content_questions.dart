@@ -21,6 +21,13 @@ class ContentQuestions extends Table {
       text().nullable().references(ContentPassages, #id)();
   TextColumn get shortLabel => text().nullable()();
 
+  /// How to draw this question's diagram, as JSON.
+  ///
+  /// Null for a question with no figure, and for the ones still waiting on a
+  /// hand-drawn picture. `2026-08-13-drawn-figures-design.md` has the
+  /// families and what each one carries.
+  TextColumn get figureSpecJson => text().nullable()();
+
   @override
   Set<Column<Object>> get primaryKey => {id};
 }

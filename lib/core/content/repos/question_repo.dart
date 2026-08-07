@@ -102,6 +102,7 @@ class QuestionRepo {
           ),
       ]),
       explanation: _plainText(row.explanationJson),
+      figureSpecJson: row.figureSpecJson,
     );
   }
 

@@ -29,6 +29,10 @@ abstract class Question with _$Question {
     /// A few words naming what the question is about, for the debrief's miss
     /// rows. Null falls back to the stem clamped to two lines.
     String? shortLabel,
+
+    /// How to draw this question's diagram, as JSON. Null when it has none.
+    /// The painter decodes it; nothing else has to understand it.
+    String? figureSpecJson,
   }) = _Question;
 
   factory Question.fromJson(Map<String, dynamic> json) =>

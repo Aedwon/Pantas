@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:drift/drift.dart';
 import 'package:pantas/core/content/content_database.dart';
 import 'package:pantas/core/content/sanity/parser_exceptions.dart';
@@ -46,6 +48,11 @@ ParsedQuestion parseQuestion(Map<String, Object?> doc) {
       lessonId: Value(optionalRefField(doc, doctype, 'lesson')),
       passageId: Value(optionalRefField(doc, doctype, 'passage')),
       shortLabel: Value(optionalStringField(doc, doctype, 'shortLabel')),
+      // Stored as text. The painter decodes it; nothing between here and
+      // there needs to understand a gear from a spring.
+      figureSpecJson: Value(
+        doc['figureSpec'] == null ? null : jsonEncode(doc['figureSpec']),
+      ),
     ),
     choices: _parseChoices(doc, questionId, updatedAt),
     examLinks: [

@@ -300,6 +300,7 @@ class ContentRepository {
       ]),
       explanation: _plainText(r.explanationJson),
       shortLabel: r.shortLabel,
+      figureSpecJson: r.figureSpecJson,
     );
   }
 

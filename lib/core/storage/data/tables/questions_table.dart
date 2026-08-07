@@ -19,6 +19,9 @@ class Questions extends Table {
   TextColumn get choicesJson => text()();
   TextColumn get explanation => text()();
   TextColumn get shortLabel => text().nullable()();
+
+  /// How to draw this question's diagram, as JSON. Null when there is none.
+  TextColumn get figureSpecJson => text().nullable()();
   TextColumn get passageId => text().nullable().references(Passages, #id)();
 
   /// A withdrawn question is never served again by sessions/drills/mocks/pickers,

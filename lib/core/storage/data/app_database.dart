@@ -64,7 +64,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
   @override
-  int get schemaVersion => 21;
+  int get schemaVersion => 22;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -139,6 +139,11 @@ class AppDatabase extends _$AppDatabase {
           }
           if (from < 21) {
             await m.createTable(customBlueprintsLocal);
+          }
+          if (from < 22) {
+            // How to draw a question's diagram. Null everywhere until the
+            // seed carries one.
+            await m.addColumn(questions, questions.figureSpecJson);
           }
         },
       );
