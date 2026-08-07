@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/figures/fluid_vessel_figure.dart';
 import 'package:pantas/core/ui/figures/gear_train_figure.dart';
 import 'package:pantas/core/ui/figures/lever_balance_figure.dart';
 import 'package:pantas/core/ui/figures/pulley_system_figure.dart';
@@ -66,6 +67,8 @@ class QuestionFigure extends StatelessWidget {
         return PulleySystemFigure.fromSpec(spec);
       case StabilityShapeFigure.kind:
         return StabilityShapeFigure.fromSpec(spec);
+      case FluidVesselFigure.kind:
+        return FluidVesselFigure.fromSpec(spec);
       default:
         return null;
     }

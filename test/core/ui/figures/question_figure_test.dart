@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/figures/fluid_vessel_figure.dart';
 import 'package:pantas/core/ui/figures/gear_train_figure.dart';
 import 'package:pantas/core/ui/figures/lever_balance_figure.dart';
 import 'package:pantas/core/ui/figures/pulley_system_figure.dart';
@@ -100,6 +101,35 @@ void main() {
     expect(figure.movable, 2);
   });
 
+  testWidgets('a fluid vessel reads its shape and its marked points',
+      (tester) async {
+    await tester.pumpApp(
+      const QuestionFigure(
+        specJson: '{"kind":"fluid-vessel","vessel":"column",'
+            '"points":["X","Y","Z"]}',
+      ),
+    );
+
+    final figure = tester.widget<FluidVesselFigure>(
+      find.byType(FluidVesselFigure),
+    );
+    expect(figure.vessel, 'column');
+    expect(figure.points, ['X', 'Y', 'Z']);
+  });
+
+  testWidgets('a pipe carries the width of each section', (tester) async {
+    await tester.pumpApp(
+      const QuestionFigure(
+        specJson: '{"kind":"fluid-vessel","vessel":"pipe","widths":[3,1,3]}',
+      ),
+    );
+
+    final figure = tester.widget<FluidVesselFigure>(
+      find.byType(FluidVesselFigure),
+    );
+    expect(figure.widths, [3, 1, 3]);
+  });
+
   group('a spec it cannot read says so and draws nothing plausible', () {
     const bad = <String, String>{
       'not JSON': 'gears: 3',
@@ -122,6 +152,11 @@ void main() {
           '"loadDistance":0,"effortDistance":5}',
       'a pulley system with no pulleys': '{"kind":"pulley-system",'
           '"fixed":0,"movable":0}',
+      'a vessel shape nobody drew': '{"kind":"fluid-vessel",'
+          '"vessel":"aquarium"}',
+      'a pipe with no widths': '{"kind":"fluid-vessel","vessel":"pipe"}',
+      'a pipe with one section': '{"kind":"fluid-vessel","vessel":"pipe",'
+          '"widths":[3]}',
     };
 
     for (final entry in bad.entries) {
@@ -132,6 +167,7 @@ void main() {
         expect(find.byType(SpringScaleFigure), findsNothing);
         expect(find.byType(LeverBalanceFigure), findsNothing);
         expect(find.byType(PulleySystemFigure), findsNothing);
+        expect(find.byType(FluidVesselFigure), findsNothing);
         expect(
           find.textContaining('has not been drawn yet'),
           findsOneWidget,

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "contentVersion": 2026081220,
-  "generatedAt": "2026-08-12T20:35:44.733621Z",
+  "generatedAt": "2026-08-12T20:41:53.804215Z",
   "exams": [
     {
       "id": "exam_cse_pro",
@@ -63587,6 +63587,132 @@
       "explanation": "First pair: a kitten is a baby cat, so a chick is a baby chicken. Second pair: a key is used to start (unlock/activate) a lock, so an ignition is used to start an engine. Checking both relationships together, \"chicken, ignition\" satisfies both correctly."
     },
     {
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0001",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-fluid-pressure",
+      "language": "en",
+      "stem": "Figure shows a container filled with water. Point A is near the surface, and Point B is near the bottom. Which point experiences greater pressure?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0001_a",
+          "label": "A",
+          "text": "Point B, since it is deeper and has more fluid stacked above it",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0001_b",
+          "label": "B",
+          "text": "Point A, since it is closer to the open air",
+          "isCorrect": false,
+          "rationale": "You assumed proximity to open air increases fluid pressure. Fluid pressure depends on the weight of fluid above, so deeper points experience greater pressure."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0001_c",
+          "label": "C",
+          "text": "Both points experience exactly the same pressure",
+          "isCorrect": false,
+          "rationale": "You ignored depth differences. Fluid pressure varies with depth ( = \\rho g h$), so deeper points have higher pressure."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0001_d",
+          "label": "D",
+          "text": "Neither point experiences any pressure, since the water is not moving",
+          "isCorrect": false,
+          "rationale": "You confused static fluid pressure with dynamic flow. Static fluids still exert hydrostatic pressure due to gravity."
+        }
+      ],
+      "explanation": "Pressure increases with depth, since more fluid is stacked above deeper points. Point B (near the bottom) has more fluid above it than Point A, so it experiences greater pressure.",
+      "figureSpecJson": "{\"kind\":\"fluid-vessel\",\"vessel\":\"column\",\"points\":[\"A\",\"B\"]}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0002",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-fluid-pressure",
+      "language": "en",
+      "stem": "Figure shows a wide container and a narrow container connected at the bottom by a tube, forming a U-shape, both open to the air at the top. Water is poured in until it settles. Which container has the higher water level?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0002_a",
+          "label": "A",
+          "text": "Neither: the water levels are the same in both containers",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0002_b",
+          "label": "B",
+          "text": "The wide container, since it holds more total water",
+          "isCorrect": false,
+          "rationale": "You assumed total water volume determines surface height. Pressure balances across connected open vessels when fluid levels reach equal height."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0002_c",
+          "label": "C",
+          "text": "The narrow container, since narrow containers always fill higher",
+          "isCorrect": false,
+          "rationale": "You assumed container shape forces fluid higher. Open connected containers equalize to identical heights regardless of width."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0002_d",
+          "label": "D",
+          "text": "Whichever container was filled first",
+          "isCorrect": false,
+          "rationale": "You assumed fill sequence creates permanent height differences. Fluids flow through the connecting tube until levels balance."
+        }
+      ],
+      "explanation": "Connected, open containers always settle to the same fluid level, regardless of their width. The water levels are the same in both the wide and narrow containers.",
+      "figureSpecJson": "{\"kind\":\"fluid-vessel\",\"vessel\":\"connected\",\"columns\":2}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0003",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-fluid-pressure",
+      "language": "en",
+      "stem": "Figure shows water flowing steadily through a pipe that narrows from a wide section to a narrow section. Compared to the wide section, how does the water's speed change in the narrow section?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0003_a",
+          "label": "A",
+          "text": "The water speeds up in the narrow section",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0003_b",
+          "label": "B",
+          "text": "The water slows down in the narrow section",
+          "isCorrect": false,
+          "rationale": "You assumed a tighter passage restricts speed. To maintain a constant volume flow rate, fluid must speed up when cross-sectional area decreases."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0003_c",
+          "label": "C",
+          "text": "The water's speed stays exactly the same",
+          "isCorrect": false,
+          "rationale": "You assumed flow speed is independent of pipe diameter. Narrowing area forces velocity to increase to satisfy continuity."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0003_d",
+          "label": "D",
+          "text": "The water stops flowing entirely in the narrow section",
+          "isCorrect": false,
+          "rationale": "You assumed narrow pipes block steady fluid movement. Continuous incompressible flow accelerates through narrower sections."
+        }
+      ],
+      "explanation": "The same volume of water must pass through both sections per second. Since the narrow section has less cross-sectional area, the water must move faster to maintain the same volume flow rate.",
+      "figureSpecJson": "{\"kind\":\"fluid-vessel\",\"vessel\":\"pipe\",\"widths\":[3,1]}"
+    },
+    {
       "id": "q-mechanical-technical-reasoning-fluid-pressure-0004",
       "version": 1,
       "examIds": [
@@ -63626,6 +63752,132 @@
         }
       ],
       "explanation": "The water moves faster in the narrow section. By the relationship between fluid speed and pressure (faster flow means lower pressure), the pressure in the faster-moving narrow section is lower than in the wider section."
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0005",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-fluid-pressure",
+      "language": "en",
+      "stem": "Figure shows three open containers of different shapes and widths (one wide, one narrow, one medium), all connected at the bottom. Water is poured in until it settles. How do the three water levels compare?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0005_a",
+          "label": "A",
+          "text": "All three containers settle at exactly the same water level",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0005_b",
+          "label": "B",
+          "text": "The widest container settles at the lowest level",
+          "isCorrect": false,
+          "rationale": "You assumed wider containers spread fluid lower. Connected open vessels balance at equal heights regardless of container shape or width."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0005_c",
+          "label": "C",
+          "text": "The narrowest container settles at the highest level",
+          "isCorrect": false,
+          "rationale": "You assumed narrow columns push fluid higher. Fluid levels balance strictly by depth and atmospheric pressure equality."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0005_d",
+          "label": "D",
+          "text": "Each container settles at a different level, proportional to its width",
+          "isCorrect": false,
+          "rationale": "You assumed level varies with width. Communicating vessels equalize to a single horizontal level."
+        }
+      ],
+      "explanation": "Connected, open containers always settle at the same fluid level, no matter how many containers are connected or how different their widths and shapes are.",
+      "figureSpecJson": "{\"kind\":\"fluid-vessel\",\"vessel\":\"connected\",\"columns\":3}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0006",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-fluid-pressure",
+      "language": "en",
+      "stem": "Figure shows a deep container of water with three marked points: Point X near the surface, Point Y at the middle depth, and Point Z at the very bottom. Rank the three points from lowest to highest pressure.",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0006_a",
+          "label": "A",
+          "text": "Point X (lowest), then Point Y, then Point Z (highest)",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0006_b",
+          "label": "B",
+          "text": "Point Z (lowest), then Point Y, then Point X (highest)",
+          "isCorrect": false,
+          "rationale": "You inverted the pressure ranking. Shallow points have less fluid weight above them, so Point X has the lowest pressure and Point Z has the highest."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0006_c",
+          "label": "C",
+          "text": "All three points have exactly equal pressure",
+          "isCorrect": false,
+          "rationale": "You assumed pressure is uniform throughout a fluid volume. Hydrostatic pressure increases linearly with depth."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0006_d",
+          "label": "D",
+          "text": "Point Y (lowest), then Point X, then Point Z (highest)",
+          "isCorrect": false,
+          "rationale": "You misordered the shallowest point X. Pressure increases continuously from top to bottom."
+        }
+      ],
+      "explanation": "Pressure increases steadily with depth. Point X (shallowest) has the lowest pressure, Point Z (deepest) has the highest pressure, and Point Y (middle depth) falls in between.",
+      "figureSpecJson": "{\"kind\":\"fluid-vessel\",\"vessel\":\"column\",\"points\":[\"X\",\"Y\",\"Z\"]}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0007",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-fluid-pressure",
+      "language": "en",
+      "stem": "Figure shows water flowing steadily through a pipe that widens from a narrow section to a wide section. Compared to the narrow section, how does the water's speed change in the wide section?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0007_a",
+          "label": "A",
+          "text": "The water slows down in the wide section",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0007_b",
+          "label": "B",
+          "text": "The water speeds up in the wide section",
+          "isCorrect": false,
+          "rationale": "You assumed wider pipes increase flow velocity. Expanding cross-sectional area allows fluid to move slower while maintaining flow rate."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0007_c",
+          "label": "C",
+          "text": "The water's speed stays exactly the same",
+          "isCorrect": false,
+          "rationale": "You assumed pipe width does not influence speed. Flow velocity decreases when cross-sectional area increases."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0007_d",
+          "label": "D",
+          "text": "The water stops flowing entirely in the wide section",
+          "isCorrect": false,
+          "rationale": "You assumed widening halts fluid movement. Flow continues steadily at a lower speed."
+        }
+      ],
+      "explanation": "Since the wide section has more cross-sectional area, the same volume of water can pass through more slowly while still maintaining the same overall flow rate: the water slows down in the wide section.",
+      "figureSpecJson": "{\"kind\":\"fluid-vessel\",\"vessel\":\"pipe\",\"widths\":[1,3]}"
     },
     {
       "id": "q-mechanical-technical-reasoning-fluid-pressure-0008",
@@ -63790,6 +64042,90 @@
         }
       ],
       "explanation": "Assuming a narrow, fast-flowing section must have higher pressure (since it \"feels more forceful\" intuitively) reverses the correct relationship between fluid speed and pressure: faster flow actually means lower pressure."
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0012",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-fluid-pressure",
+      "language": "en",
+      "stem": "Figure shows four open containers of completely different shapes (round, square, triangular cross-section, and irregular), all connected at the bottom by tubes. After water settles, one container appears visually taller than the others. Does its water surface actually sit higher than the others?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0012_a",
+          "label": "A",
+          "text": "No: despite looking taller overall, its water surface still settles at the exact same level as the other connected containers",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0012_b",
+          "label": "B",
+          "text": "Yes: the visually taller container always has a higher water surface",
+          "isCorrect": false,
+          "rationale": "You confused container wall height with fluid level. Open connected containers equalize water surfaces to the same height."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0012_c",
+          "label": "C",
+          "text": "Yes: but only because its cross-sectional shape is different from the others",
+          "isCorrect": false,
+          "rationale": "You assumed container shape alters fluid height equilibrium. Shape does not affect settled fluid level."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0012_d",
+          "label": "D",
+          "text": "It depends on which container was filled with water first",
+          "isCorrect": false,
+          "rationale": "You assumed filling order prevents equilibrium. Fluid flows between connected vessels until levels equalize."
+        }
+      ],
+      "explanation": "Container height or shape does not affect the settled water surface level in a connected, open system: only the fluid level itself equalizes, regardless of how tall, wide, or oddly shaped each individual container looks.",
+      "figureSpecJson": "{\"kind\":\"fluid-vessel\",\"vessel\":\"connected\",\"columns\":4}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-fluid-pressure-0013",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-fluid-pressure",
+      "language": "en",
+      "stem": "Figure shows a pipe that narrows in the middle section, then widens back to its original width at the far end (wide → narrow → wide). Compare the flow speed and pressure in the middle (narrow) section to the two wide end sections.",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0013_a",
+          "label": "A",
+          "text": "The middle section has the fastest flow speed and the lowest pressure; both wide end sections have slower flow speed and higher pressure",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0013_b",
+          "label": "B",
+          "text": "The middle section has the slowest flow speed and the highest pressure",
+          "isCorrect": false,
+          "rationale": "You inverted both speed and pressure relationships. Narrow sections have faster flow and lower pressure."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0013_c",
+          "label": "C",
+          "text": "All three sections have identical flow speed and pressure",
+          "isCorrect": false,
+          "rationale": "You assumed pipe width variations do not affect flow speed or pressure."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-fluid-pressure-0013_d",
+          "label": "D",
+          "text": "The middle section has the fastest flow speed and the highest pressure",
+          "isCorrect": false,
+          "rationale": "You correctly identified faster speed but incorrectly assumed faster flow creates higher internal pressure."
+        }
+      ],
+      "explanation": "The narrow middle section forces the water to speed up (to maintain the same flow volume), and faster-moving fluid has lower pressure. The wider end sections allow slower flow and correspondingly higher pressure.",
+      "figureSpecJson": "{\"kind\":\"fluid-vessel\",\"vessel\":\"pipe\",\"widths\":[3,1,3]}"
     },
     {
       "id": "q-mechanical-technical-reasoning-fluid-pressure-0014",

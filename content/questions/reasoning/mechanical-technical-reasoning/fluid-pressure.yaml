@@ -8,6 +8,10 @@ questions:
     type: fluid-pressure
     difficulty: easy
     figure: fluid-pressure-01
+    figureSpec:
+      kind: fluid-vessel
+      vessel: column
+      points: [A, B]
     stem: |
       Figure shows a container filled with water. Point A is near the surface, and Point B is near the bottom. Which point experiences greater pressure?
     choices:
@@ -30,6 +34,10 @@ questions:
     type: fluid-pressure
     difficulty: easy
     figure: fluid-pressure-02
+    figureSpec:
+      kind: fluid-vessel
+      vessel: connected
+      columns: 2
     stem: |
       Figure shows a wide container and a narrow container connected at the bottom by a tube, forming a U-shape, both open to the air at the top. Water is poured in until it settles. Which container has the higher water level?
     choices:
@@ -52,6 +60,10 @@ questions:
     type: fluid-pressure
     difficulty: medium
     figure: fluid-pressure-03
+    figureSpec:
+      kind: fluid-vessel
+      vessel: pipe
+      widths: [3, 1]
     stem: |
       Figure shows water flowing steadily through a pipe that narrows from a wide section to a narrow section. Compared to the wide section, how does the water's speed change in the narrow section?
     choices:
@@ -95,6 +107,10 @@ questions:
     type: fluid-pressure
     difficulty: medium
     figure: fluid-pressure-05
+    figureSpec:
+      kind: fluid-vessel
+      vessel: connected
+      columns: 3
     stem: |
       Figure shows three open containers of different shapes and widths (one wide, one narrow, one medium), all connected at the bottom. Water is poured in until it settles. How do the three water levels compare?
     choices:
@@ -117,6 +133,10 @@ questions:
     type: fluid-pressure
     difficulty: medium
     figure: fluid-pressure-06
+    figureSpec:
+      kind: fluid-vessel
+      vessel: column
+      points: [X, Y, Z]
     stem: |
       Figure shows a deep container of water with three marked points: Point X near the surface, Point Y at the middle depth, and Point Z at the very bottom. Rank the three points from lowest to highest pressure.
     choices:
@@ -139,6 +159,10 @@ questions:
     type: fluid-pressure
     difficulty: medium
     figure: fluid-pressure-07
+    figureSpec:
+      kind: fluid-vessel
+      vessel: pipe
+      widths: [1, 3]
     stem: |
       Figure shows water flowing steadily through a pipe that widens from a narrow section to a wide section. Compared to the narrow section, how does the water's speed change in the wide section?
     choices:
@@ -245,6 +269,10 @@ questions:
     type: fluid-pressure
     difficulty: medium
     figure: fluid-pressure-12
+    figureSpec:
+      kind: fluid-vessel
+      vessel: connected
+      columns: 4
     stem: |
       Figure shows four open containers of completely different shapes (round, square, triangular cross-section, and irregular), all connected at the bottom by tubes. After water settles, one container appears visually taller than the others. Does its water surface actually sit higher than the others?
     choices:
@@ -267,6 +295,10 @@ questions:
     type: fluid-pressure
     difficulty: hard
     figure: fluid-pressure-13
+    figureSpec:
+      kind: fluid-vessel
+      vessel: pipe
+      widths: [3, 1, 3]
     stem: |
       Figure shows a pipe that narrows in the middle section, then widens back to its original width at the far end (wide → narrow → wide). Compare the flow speed and pressure in the middle (narrow) section to the two wide end sections.
     choices:
