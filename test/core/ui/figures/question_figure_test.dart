@@ -1,5 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/figures/gear_train_figure.dart';
+import 'package:pantas/core/ui/figures/lever_balance_figure.dart';
+import 'package:pantas/core/ui/figures/pulley_system_figure.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/figures/spring_scale_figure.dart';
 
@@ -64,6 +66,40 @@ void main() {
     expect(figure.springs.last.stretch, 8);
   });
 
+  testWidgets('a lever puts the fulcrum where the distances put it',
+      (tester) async {
+    await tester.pumpApp(
+      const QuestionFigure(
+        specJson: '{"kind":"lever-balance","loadDistance":2,'
+            '"effortDistance":5}',
+      ),
+    );
+
+    final figure = tester.widget<LeverBalanceFigure>(
+      find.byType(LeverBalanceFigure),
+    );
+    expect(figure.loadDistance, 2);
+    expect(figure.effortDistance, 5);
+    // The distances are in metres in the stem. Printing them on the drawing
+    // would be a figure this app never measured.
+    expect(find.text('2'), findsNothing);
+    expect(find.text('5'), findsNothing);
+  });
+
+  testWidgets('a pulley system tells fixed from movable', (tester) async {
+    await tester.pumpApp(
+      const QuestionFigure(
+        specJson: '{"kind":"pulley-system","fixed":1,"movable":2}',
+      ),
+    );
+
+    final figure = tester.widget<PulleySystemFigure>(
+      find.byType(PulleySystemFigure),
+    );
+    expect(figure.fixed, 1);
+    expect(figure.movable, 2);
+  });
+
   group('a spec it cannot read says so and draws nothing plausible', () {
     const bad = <String, String>{
       'not JSON': 'gears: 3',
@@ -81,6 +117,11 @@ void main() {
       'a spring list that is empty': '{"kind":"spring-scale","springs":[]}',
       'a negative stretch': '{"kind":"spring-scale","springs":'
           '[{"stretch":-3}]}',
+      'a lever with no distances': '{"kind":"lever-balance"}',
+      'a lever with a zero distance': '{"kind":"lever-balance",'
+          '"loadDistance":0,"effortDistance":5}',
+      'a pulley system with no pulleys': '{"kind":"pulley-system",'
+          '"fixed":0,"movable":0}',
     };
 
     for (final entry in bad.entries) {
@@ -89,6 +130,8 @@ void main() {
 
         expect(find.byType(GearTrainFigure), findsNothing);
         expect(find.byType(SpringScaleFigure), findsNothing);
+        expect(find.byType(LeverBalanceFigure), findsNothing);
+        expect(find.byType(PulleySystemFigure), findsNothing);
         expect(
           find.textContaining('has not been drawn yet'),
           findsOneWidget,

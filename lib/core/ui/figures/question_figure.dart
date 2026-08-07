@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/figures/gear_train_figure.dart';
+import 'package:pantas/core/ui/figures/lever_balance_figure.dart';
+import 'package:pantas/core/ui/figures/pulley_system_figure.dart';
 import 'package:pantas/core/ui/figures/spring_scale_figure.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
@@ -57,6 +59,10 @@ class QuestionFigure extends StatelessWidget {
         return GearTrainFigure.fromSpec(spec);
       case SpringScaleFigure.kind:
         return SpringScaleFigure.fromSpec(spec);
+      case LeverBalanceFigure.kind:
+        return LeverBalanceFigure.fromSpec(spec);
+      case PulleySystemFigure.kind:
+        return PulleySystemFigure.fromSpec(spec);
       default:
         return null;
     }

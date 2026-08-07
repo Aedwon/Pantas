@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "contentVersion": 2026081220,
-  "generatedAt": "2026-08-12T20:24:01.536198Z",
+  "generatedAt": "2026-08-12T20:29:29.330721Z",
   "exams": [
     {
       "id": "exam_cse_pro",
@@ -64089,6 +64089,636 @@
       ],
       "explanation": "Gear 2 meshes directly with gear 1, so it turns opposite (counter-clockwise). Since gear 1 (20 teeth) turns 10 times per minute, $20 \\times 10 = 200$ teeth pass per minute; gear 2 (10 teeth) must also have 200 teeth pass per minute, so it completes $200 \\div 10 = 20$ rotations per minute.",
       "figureSpecJson": "{\"kind\":\"gear-train\",\"gears\":4,\"firstTurns\":\"clockwise\",\"teeth\":[20,10,20,10]}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0001",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+      "language": "en",
+      "stem": "Figure shows a fixed pulley used to lift a 50 kg load. How much pulling force is required, and does the direction of pulling matter?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0001_a",
+          "label": "A",
+          "text": "50 kg worth of force is required; only the direction of pulling changes (you can pull down to lift the load up)",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0001_b",
+          "label": "B",
+          "text": "25 kg worth of force is required, since a pulley always halves the needed force",
+          "isCorrect": false,
+          "rationale": "You assumed all pulleys reduce force. Fixed pulleys only redirect force without offering mechanical advantage."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0001_c",
+          "label": "C",
+          "text": "100 kg worth of force is required, since a fixed pulley doubles the needed force",
+          "isCorrect": false,
+          "rationale": "You assumed fixed pulleys double effort. Fixed pulleys redirect pulling force without changing effort magnitude."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0001_d",
+          "label": "D",
+          "text": "No force is required, since pulleys eliminate the need for effort entirely",
+          "isCorrect": false,
+          "rationale": "You assumed pulleys eliminate work. Mechanical advantage cannot reduce required work to zero."
+        }
+      ],
+      "explanation": "A fixed pulley only changes the direction of the force; it does not reduce the amount of force needed. The pulling force required still equals the load's weight, 50 kg worth of force.",
+      "figureSpecJson": "{\"kind\":\"pulley-system\",\"fixed\":1,\"movable\":0}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0002",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+      "language": "en",
+      "stem": "Figure shows a movable pulley used to lift a 60 kg load. How much pulling force is required, and how far must the rope be pulled to lift the load by 2 meters?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0002_a",
+          "label": "A",
+          "text": "30 kg of force is required, and 4 meters of rope must be pulled",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0002_b",
+          "label": "B",
+          "text": "60 kg of force is required, and 2 meters of rope must be pulled",
+          "isCorrect": false,
+          "rationale": "You treated the movable pulley as fixed. Movable pulleys halve force ( \\div 2 = 30$ kg) while doubling rope distance ( \\times 2 = 4$ m)."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0002_c",
+          "label": "C",
+          "text": "30 kg of force is required, and 2 meters of rope must be pulled",
+          "isCorrect": false,
+          "rationale": "You correctly halved the force but forgot distance trade-off. Halving effort requires doubling rope distance to 4 meters."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0002_d",
+          "label": "D",
+          "text": "15 kg of force is required, and 8 meters of rope must be pulled",
+          "isCorrect": false,
+          "rationale": "You applied a 4:1 mechanical advantage. A single movable pulley provides a 2:1 mechanical advantage ($ kg, $ m)."
+        }
+      ],
+      "explanation": "A single movable pulley halves the force needed: $60 \\div 2 = 30$ kg worth of force. Since force is halved, the rope must be pulled twice as far as the load moves: $2 \\times 2 = 4$ meters.",
+      "figureSpecJson": "{\"kind\":\"pulley-system\",\"fixed\":1,\"movable\":1}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0003",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+      "language": "en",
+      "stem": "Figure shows 2 movable pulleys working together to lift an 80 kg load. How much pulling force is required, and how far must the rope be pulled to lift the load by 3 meters?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0003_a",
+          "label": "A",
+          "text": "20 kg of force is required, and 12 meters of rope must be pulled",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0003_b",
+          "label": "B",
+          "text": "40 kg of force is required, and 6 meters of rope must be pulled",
+          "isCorrect": false,
+          "rationale": "You applied a single movable pulley ratio (2:1) instead of 2 movable pulleys (4:1). Force is  \\div 4 = 20$ kg and distance is  \\times 4 = 12$ m."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0003_c",
+          "label": "C",
+          "text": "20 kg of force is required, and 6 meters of rope must be pulled",
+          "isCorrect": false,
+          "rationale": "You correctly calculated force ( \\div 4 = 20$ kg) but used a 2:1 distance multiplier instead of 4:1 ( \\times 4 = 12$ m)."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0003_d",
+          "label": "D",
+          "text": "10 kg of force is required, and 24 meters of rope must be pulled",
+          "isCorrect": false,
+          "rationale": "You applied an 8:1 mechanical advantage instead of 4:1 for 2 movable pulleys."
+        }
+      ],
+      "explanation": "With 2 movable pulleys, only one-quarter the load's weight in force is needed: $80 \\div 4 = 20$ kg. The rope must be pulled four times the lifting distance: $3 \\times 4 = 12$ meters.",
+      "figureSpecJson": "{\"kind\":\"pulley-system\",\"fixed\":1,\"movable\":2}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0004",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+      "language": "en",
+      "stem": "A lever has a load of 100 kg placed 2 meters from the fulcrum. How much effort force is needed if applied 5 meters from the fulcrum on the other side?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0004_a",
+          "label": "A",
+          "text": "40 kg",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0004_b",
+          "label": "B",
+          "text": "20 kg",
+          "isCorrect": false,
+          "rationale": "You divided load by 5 instead of calculating $\\text{effort} \\times 5 = 100 \\times 2$. Effort is  \\div 5 = 40$ kg."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0004_c",
+          "label": "C",
+          "text": "50 kg",
+          "isCorrect": false,
+          "rationale": "You divided 100 kg by 2 instead of computing torque equilibrium ($\\text{effort} \\times 5 = 100 \\times 2$)."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0004_d",
+          "label": "D",
+          "text": "250 kg",
+          "isCorrect": false,
+          "rationale": "You cross-multiplied incorrectly as $\\text{effort} \\times 2 = 100 \\times 5$. Effort pairs with effort distance."
+        }
+      ],
+      "explanation": "Using effort $\\times$ effort distance = load $\\times$ load distance: $\\text{effort} \\times 5 = 100 \\times 2 = 200$, so $\\text{effort} = 200 \\div 5 = 40$ kg.",
+      "figureSpecJson": "{\"kind\":\"lever-balance\",\"loadDistance\":2,\"effortDistance\":5}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0005",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+      "language": "en",
+      "stem": "A lever has a load of 90 kg placed 3 meters from the fulcrum. How much effort force is needed if applied 9 meters from the fulcrum on the other side?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0005_a",
+          "label": "A",
+          "text": "30 kg",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0005_b",
+          "label": "B",
+          "text": "27 kg",
+          "isCorrect": false,
+          "rationale": "You subtracted load distance from effort distance. Torque equilibrium requires $\\text{effort} \\times 9 = 90 \\times 3 = 270$, giving $ kg."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0005_c",
+          "label": "C",
+          "text": "10 kg",
+          "isCorrect": false,
+          "rationale": "You divided load by effort distance directly ( \\div 9$). You must multiply load by load distance first ( \\times 3 = 270$)."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0005_d",
+          "label": "D",
+          "text": "270 kg",
+          "isCorrect": false,
+          "rationale": "You forgot to divide total torque by effort distance ( \\div 9 = 30$ kg)."
+        }
+      ],
+      "explanation": "Using effort $\\times$ effort distance = load $\\times$ load distance: $\\text{effort} \\times 9 = 90 \\times 3 = 270$, so $\\text{effort} = 270 \\div 9 = 30$ kg.",
+      "figureSpecJson": "{\"kind\":\"lever-balance\",\"loadDistance\":3,\"effortDistance\":9}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0006",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+      "language": "en",
+      "stem": "Using the same 100 kg load and 5-meter effort distance as before, if the fulcrum is moved so the load is now only 1 meter from the fulcrum (instead of 2 meters), how does the required effort change?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0006_a",
+          "label": "A",
+          "text": "The required effort drops from 40 kg to 20 kg, since moving the fulcrum closer to the load reduces the effort needed",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0006_b",
+          "label": "B",
+          "text": "The required effort increases from 40 kg to 80 kg",
+          "isCorrect": false,
+          "rationale": "You assumed moving fulcrum closer to load increases effort. Shorter load distance reduces required effort ($\\text{effort} \\times 5 = 100 \\times 1 = 100 \\implies 20$ kg)."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0006_c",
+          "label": "C",
+          "text": "The required effort stays the same at 40 kg, since only the effort distance affects the balance",
+          "isCorrect": false,
+          "rationale": "You ignored load distance. Torque balance depends on both load distance and effort distance."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0006_d",
+          "label": "D",
+          "text": "The required effort drops to 10 kg, since halving the load distance quarters the effort",
+          "isCorrect": false,
+          "rationale": "You quartered effort instead of halving it ( \\times 1 \\div 5 = 20$ kg)."
+        }
+      ],
+      "explanation": "Recomputing: $\\text{effort} \\times 5 = 100 \\times 1 = 100$, so $\\text{effort} = 100 \\div 5 = 20$ kg. Moving the fulcrum closer to the load (from 2 m to 1 m) reduced the required effort from 40 kg to 20 kg.",
+      "figureSpecJson": "{\"kind\":\"lever-balance\",\"loadDistance\":1,\"effortDistance\":5}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0007",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+      "language": "en",
+      "stem": "Using the same 100 kg load and 5-meter effort distance, if the fulcrum is instead moved so the load is now 4 meters from the fulcrum (instead of 2 meters), how does the required effort change?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0007_a",
+          "label": "A",
+          "text": "The required effort increases from 40 kg to 80 kg, since moving the fulcrum farther from the load requires more effort",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0007_b",
+          "label": "B",
+          "text": "The required effort decreases from 40 kg to 20 kg",
+          "isCorrect": false,
+          "rationale": "You inverted the effect. Moving fulcrum farther from load increases load torque, requiring more effort ($\\text{effort} \\times 5 = 100 \\times 4 = 400 \\implies 80$ kg)."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0007_c",
+          "label": "C",
+          "text": "The required effort stays the same at 40 kg",
+          "isCorrect": false,
+          "rationale": "You assumed load distance does not alter required effort."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0007_d",
+          "label": "D",
+          "text": "The required effort increases to 400 kg",
+          "isCorrect": false,
+          "rationale": "You forgot to divide total torque by effort distance ( \\div 5 = 80$ kg)."
+        }
+      ],
+      "explanation": "Recomputing: $\\text{effort} \\times 5 = 100 \\times 4 = 400$, so $\\text{effort} = 400 \\div 5 = 80$ kg. Moving the fulcrum farther from the load (from 2 m to 4 m) increased the required effort from 40 kg to 80 kg.",
+      "figureSpecJson": "{\"kind\":\"lever-balance\",\"loadDistance\":4,\"effortDistance\":5}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0008",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+      "language": "en",
+      "stem": "A student sets up a single fixed pulley to lift a 70 kg load and claims, \"using this pulley makes the load easier to lift, since pulleys always reduce the force needed.\" Is this claim correct?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0008_a",
+          "label": "A",
+          "text": "No: only movable pulleys (attached to the load) reduce the required force; a fixed pulley only changes the direction of the force, so the full 70 kg worth of force is still needed.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0008_b",
+          "label": "B",
+          "text": "Yes: any pulley, fixed or movable, always reduces the required force by half.",
+          "isCorrect": false,
+          "rationale": "You assumed fixed pulleys provide mechanical advantage. Only movable pulleys reduce required force."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0008_c",
+          "label": "C",
+          "text": "Yes: but only because this specific load happens to weigh exactly 70 kg.",
+          "isCorrect": false,
+          "rationale": "You assumed load weight gives fixed pulleys mechanical advantage."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0008_d",
+          "label": "D",
+          "text": "No: but only because fixed pulleys actually require more force than lifting without any pulley.",
+          "isCorrect": false,
+          "rationale": "You claimed fixed pulleys increase force. Fixed pulleys require equal force to the load weight."
+        }
+      ],
+      "explanation": "Assuming a single fixed pulley \"makes lifting easier\" in terms of force is incorrect: it only makes lifting more convenient by letting you pull in a different direction, while still requiring the full weight's worth of force.",
+      "figureSpecJson": "{\"kind\":\"pulley-system\",\"fixed\":1,\"movable\":0}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0009",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+      "language": "en",
+      "stem": "A movable pulley halves the force needed to lift a 50 kg load, requiring only 25 kg of pulling force. A student assumes that since the force is halved, the rope-pulling distance must also be halved compared to how far the load rises. Is this assumption correct?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0009_a",
+          "label": "A",
+          "text": "No: reducing the required force always comes with a distance trade-off; a movable pulley that halves the force requires pulling the rope twice as far as the load actually rises, not half as far.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0009_b",
+          "label": "B",
+          "text": "Yes: halving the force always means halving the pulling distance as well.",
+          "isCorrect": false,
+          "rationale": "You ignored work conservation. Halving effort force requires doubling displacement distance."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0009_c",
+          "label": "C",
+          "text": "Yes: but only because this specific load weighs 50 kg.",
+          "isCorrect": false,
+          "rationale": "You tied the work trade-off strictly to the specific load value."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0009_d",
+          "label": "D",
+          "text": "No: but only because movable pulleys never affect rope-pulling distance at all.",
+          "isCorrect": false,
+          "rationale": "You claimed movable pulleys do not change distance. Movable pulleys double required rope travel."
+        }
+      ],
+      "explanation": "Simple machines like pulleys reduce the force needed but always require moving a correspondingly greater distance: you cannot reduce force without some distance trade-off. A movable pulley halving the force also doubles the rope distance you must pull, not halves it.",
+      "figureSpecJson": "{\"kind\":\"pulley-system\",\"fixed\":1,\"movable\":1}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0010",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+      "language": "en",
+      "stem": "A student sets up the lever balance equation as \"effort × load distance = load × effort distance\" for a lever with a 100 kg load 2 meters from the fulcrum and effort applied 5 meters from the fulcrum. Using this (incorrect) setup, they compute effort × 2 = 100 × 5, getting effort = 250 kg. What is wrong with this approach, and what is the correct effort?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0010_a",
+          "label": "A",
+          "text": "The student cross-paired the values incorrectly; the correct equation is effort × effort distance = load × load distance, giving effort × 5 = 100 × 2, so the correct effort is 40 kg, not 250 kg.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0010_b",
+          "label": "B",
+          "text": "Nothing is wrong; 250 kg is the correct effort force needed.",
+          "isCorrect": false,
+          "rationale": "You accepted cross-paired torque equations. Effort pairs with effort arm length."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0010_c",
+          "label": "C",
+          "text": "The student's equation is correct, but their arithmetic is wrong; the correct effort using their equation is 200 kg.",
+          "isCorrect": false,
+          "rationale": "You validated an incorrect mechanical formula."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0010_d",
+          "label": "D",
+          "text": "The lever balance equation does not apply to this scenario at all.",
+          "isCorrect": false,
+          "rationale": "You claimed lever balance formulas do not apply to levers."
+        }
+      ],
+      "explanation": "Keep effort paired with its own distance, and load paired with its own distance: do not cross-pair effort's force with the load's distance (or vice versa). The correct equation, effort × effort distance = load × load distance, gives effort × 5 = 100 × 2 = 200, so effort = 40 kg.",
+      "figureSpecJson": "{\"kind\":\"lever-balance\",\"loadDistance\":2,\"effortDistance\":5}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0011",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+      "language": "en",
+      "stem": "A lever balances a load using 25 kg of effort applied 8 meters from the fulcrum, against a 100 kg load. How far from the fulcrum is the load placed?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0011_a",
+          "label": "A",
+          "text": "2 meters",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0011_b",
+          "label": "B",
+          "text": "4 meters",
+          "isCorrect": false,
+          "rationale": "You divided $ by $ instead of $. Load distance is  \\times 8 \\div 100 = 2$ meters."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0011_c",
+          "label": "C",
+          "text": "8 meters",
+          "isCorrect": false,
+          "rationale": "You assumed load distance equals effort distance despite unequal forces."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0011_d",
+          "label": "D",
+          "text": "32 meters",
+          "isCorrect": false,
+          "rationale": "You multiplied effort distance by ratio  \\div 25$ instead of dividing ( \\div 4 = 2$ meters)."
+        }
+      ],
+      "explanation": "Using effort $\\times$ effort distance = load $\\times$ load distance: $25 \\times 8 = 200 = 100 \\times \\text{load distance}$, so load distance $= 200 \\div 100 = 2$ meters.",
+      "figureSpecJson": "{\"kind\":\"lever-balance\",\"loadDistance\":2,\"effortDistance\":8}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0012",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+      "language": "en",
+      "stem": "A lever balances a 90 kg load placed 3 meters from the fulcrum, using 15 kg of effort force. How far from the fulcrum must the effort be applied?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0012_a",
+          "label": "A",
+          "text": "18 meters",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0012_b",
+          "label": "B",
+          "text": "6 meters",
+          "isCorrect": false,
+          "rationale": "You divided load weight by effort force ( \\div 15$) without multiplying by load distance ( \\div 15 = 18$ m)."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0012_c",
+          "label": "C",
+          "text": "270 meters",
+          "isCorrect": false,
+          "rationale": "You forgot to divide total torque by effort force ( \\div 15 = 18$ meters)."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0012_d",
+          "label": "D",
+          "text": "5 meters",
+          "isCorrect": false,
+          "rationale": "You estimated the calculation ( \\times 3 \\div 15 = 18$ meters)."
+        }
+      ],
+      "explanation": "Using effort $\\times$ effort distance = load $\\times$ load distance: $15 \\times \\text{effort distance} = 90 \\times 3 = 270$, so effort distance $= 270 \\div 15 = 18$ meters.",
+      "figureSpecJson": "{\"kind\":\"lever-balance\",\"loadDistance\":3,\"effortDistance\":18}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0013",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+      "language": "en",
+      "stem": "How many movable pulleys, working together, are needed to reduce the required lifting force to one-eighth of the load's weight?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0013_a",
+          "label": "A",
+          "text": "3 movable pulleys",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0013_b",
+          "label": "B",
+          "text": "2 movable pulleys",
+          "isCorrect": false,
+          "rationale": "You calculated ^2 = 4$, which gives $\\dfrac{1}{4}$ force. 3 pulleys give $\\dfrac{1}{2^3} = \\dfrac{1}{8}$ force."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0013_c",
+          "label": "C",
+          "text": "4 movable pulleys",
+          "isCorrect": false,
+          "rationale": "You calculated ^4 = 16$, which gives $\\dfrac{1}{16}$ force. 3 pulleys give $\\dfrac{1}{8}$ force."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0013_d",
+          "label": "D",
+          "text": "8 movable pulleys",
+          "isCorrect": false,
+          "rationale": "You used pulley count equal to denominator. Pulley count $ reduces force by $\\dfrac{1}{2^n}$."
+        }
+      ],
+      "explanation": "Each movable pulley halves the required force again: 1 pulley gives one-half, 2 pulleys give one-quarter, and 3 pulleys give one-eighth ($\\dfrac{1}{2^3} = \\dfrac{1}{8}$).",
+      "figureSpecJson": "{\"kind\":\"pulley-system\",\"fixed\":1,\"movable\":3}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0014",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+      "language": "en",
+      "stem": "A 120 kg load sits on a lever, 2 meters from the fulcrum. Effort is applied 6 meters from the fulcrum, but the effort itself is supplied through a rope running over a single movable pulley system, which halves the pulling force needed at the rope. What is the final pulling force required at the rope?",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0014_a",
+          "label": "A",
+          "text": "20 kg",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0014_b",
+          "label": "B",
+          "text": "40 kg",
+          "isCorrect": false,
+          "rationale": "You calculated lever effort ( \\times 2 \\div 6 = 40$ kg) but omitted the movable pulley's 2:1 reduction ( \\div 2 = 20$ kg)."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0014_c",
+          "label": "C",
+          "text": "10 kg",
+          "isCorrect": false,
+          "rationale": "You quartered the lever effort instead of halving it ( \\div 2 = 20$ kg)."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0014_d",
+          "label": "D",
+          "text": "80 kg",
+          "isCorrect": false,
+          "rationale": "You multiplied lever effort by 2 instead of dividing ( \\div 2 = 20$ kg)."
+        }
+      ],
+      "explanation": "First, the lever balance: $\\text{effort} \\times 6 = 120 \\times 2 = 240$, so the lever requires $240 \\div 6 = 40$ kg of effort force. Since a movable pulley halves the pulling force needed, the final rope-pulling force is $40 \\div 2 = 20$ kg.",
+      "figureSpecJson": "{\"kind\":\"lever-balance\",\"loadDistance\":2,\"effortDistance\":6}"
+    },
+    {
+      "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0015",
+      "version": 1,
+      "examIds": [
+        "exam_dost_sei"
+      ],
+      "topicId": "topic_upcat_mechanical_technical_reasoning",
+      "lessonId": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+      "language": "en",
+      "stem": "Two different setups are used to lift the same 100 kg load. Setup A uses a lever: the load is placed 2 meters from the fulcrum, and effort is applied 8 meters from the fulcrum. Setup B uses 2 movable pulleys working together directly on the load, with no lever involved. Compare the required force in each setup, and identify which setup requires the rope or effort to travel farther for the same 2-meter lift.",
+      "choices": [
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0015_a",
+          "label": "A",
+          "text": "Both setups require the same 25 kg of force (Setup A gives $100 \\times 2 \\div 8 = 25$ kg; Setup B gives $100 \\div 4 = 25$ kg), but Setup B requires pulling the rope farther (8 meters, since 2 movable pulleys require 4 times the lifting distance) compared to Setup A's effort-side movement.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0015_b",
+          "label": "B",
+          "text": "Setup A requires less force than Setup B, and both require the same travel distance.",
+          "isCorrect": false,
+          "rationale": "You incorrectly claimed Setup A needs less force ($ kg vs $ kg) and ignored Setup B's 8m rope travel."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0015_c",
+          "label": "C",
+          "text": "Setup B requires less force than Setup A, and Setup A requires a farther travel distance.",
+          "isCorrect": false,
+          "rationale": "You inverted force and distance comparisons between lever and pulley setups."
+        },
+        {
+          "id": "q-mechanical-technical-reasoning-pulleys-and-levers-0015_d",
+          "label": "D",
+          "text": "Both setups require exactly the same force and the same travel distance, with no difference at all.",
+          "isCorrect": false,
+          "rationale": "You ignored distance trade-offs. Setup B requires pulling 8m of rope to lift 2m."
+        }
+      ],
+      "explanation": "Setup A (lever): $\\text{effort} \\times 8 = 100 \\times 2 = 200$, so effort $= 200 \\div 8 = 25$ kg. Setup B (2 movable pulleys): force $= 100 \\div 4 = 25$ kg, matching Setup A's force, but Setup B requires pulling the rope $2 \\times 4 = 8$ meters to lift the load 2 meters, illustrating that different mechanisms can reach the same force reduction with different distance trade-offs.",
+      "figureSpecJson": "{\"kind\":\"lever-balance\",\"loadDistance\":2,\"effortDistance\":6}"
     },
     {
       "id": "q-mechanical-technical-reasoning-springs-and-weights-0001",
