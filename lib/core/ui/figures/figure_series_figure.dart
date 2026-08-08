@@ -64,6 +64,46 @@ class FigureSeriesFigure extends StatelessWidget {
 
     final items = <SeriesItem>[];
     for (final entry in raw) {
+      final item = parseItem(entry);
+      if (item == null) return null;
+      items.add(item);
+    }
+    return FigureSeriesFigure(items: items, blank: blank);
+  }
+
+  /// Draws one figure, shared with the matrix so both look the same.
+  static void paintItem(
+    Canvas canvas,
+    SeriesItem item,
+    Offset centre,
+    double radius,
+    Color ink,
+  ) {
+    _SeriesPainter(
+      items: const [],
+      blank: false,
+      ink: ink,
+      faint: ink,
+      markStyle: const TextStyle(),
+    )._drawItem(
+      canvas,
+      item,
+      centre,
+      radius,
+      Paint()
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 1
+        ..color = ink,
+      Paint()
+        ..style = PaintingStyle.fill
+        ..color = ink,
+    );
+  }
+
+  /// One cell, shared with the matrix figure so both read the same shape.
+  /// Null when it cannot be read.
+  static SeriesItem? parseItem(Object? entry) {
+    {
       if (entry is! Map) return null;
       final form = entry['form'];
       if (form is! String || !forms.contains(form)) return null;
@@ -102,20 +142,17 @@ class FigureSeriesFigure extends StatelessWidget {
         return null;
       }
 
-      items.add(
-        SeriesItem(
-          form: form,
-          scale: sizes[size]!,
-          fill: fill,
-          dotCorner: dot as String?,
-          dots: dots,
-          edgeLines: edgeLines,
-          lineDegrees: (line as num?)?.toDouble(),
-          arrowDegrees: arrow == null ? null : arrows[arrow],
-        ),
+      return SeriesItem(
+        form: form,
+        scale: sizes[size]!,
+        fill: fill,
+        dotCorner: dot as String?,
+        dots: dots,
+        edgeLines: edgeLines,
+        lineDegrees: (line as num?)?.toDouble(),
+        arrowDegrees: arrow == null ? null : arrows[arrow],
       );
     }
-    return FigureSeriesFigure(items: items, blank: blank);
   }
 
   @override

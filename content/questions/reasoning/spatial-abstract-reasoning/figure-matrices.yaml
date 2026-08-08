@@ -8,6 +8,16 @@ questions:
     type: figure-matrix
     difficulty: easy
     figure: figure-matrices-01
+    figureSpec:
+      kind: figure-matrix
+      rows: 2
+      cols: 2
+      cells:
+        - form: triangle
+        - form: triangle
+          line: 90
+        - form: square
+        - blank
     stem: |
       A 2x2 matrix's top row shows a triangle, then the same triangle rotated 90°. The bottom row shows a square, then a blank cell. What should the blank cell show?
     choices:
@@ -30,6 +40,28 @@ questions:
     type: figure-matrix
     difficulty: easy
     figure: figure-matrices-02
+    figureSpec:
+      kind: figure-matrix
+      rows: 3
+      cols: 3
+      cells:
+        - form: circle
+          dots: 1
+        - form: circle
+          dots: 2
+        - form: circle
+          dots: 3
+        - form: circle
+          dots: 2
+        - form: circle
+          dots: 3
+        - form: circle
+          dots: 4
+        - form: circle
+          dots: 3
+        - form: circle
+          dots: 4
+        - blank
     stem: |
       A 3x3 matrix's rows show circles with an increasing number of dots: row 1 has circles with 1, 2, 3 dots; row 2 has circles with 2, 3, 4 dots; row 3 has circles with 3, 4, and a blank cell. How many dots should the blank cell have?
     choices:
@@ -52,6 +84,22 @@ questions:
     type: figure-matrix
     difficulty: medium
     figure: figure-matrices-03
+    figureSpec:
+      kind: figure-matrix
+      rows: 3
+      cols: 2
+      cells:
+        - form: square
+          size: small
+        - form: square
+          size: small
+        - form: square
+          size: medium
+        - form: square
+          size: medium
+        - form: square
+          size: large
+        - blank
     stem: |
       A 3x3 matrix's columns show a shape growing in size moving top to bottom: column 1 has small, medium, large squares. The blank cell is at the bottom of column 2, which has small and medium squares above it. What size should the blank cell's square be?
     choices:
@@ -74,6 +122,36 @@ questions:
     type: figure-matrix
     difficulty: medium
     figure: figure-matrices-04
+    figureSpec:
+      kind: figure-matrix
+      rows: 3
+      cols: 3
+      cells:
+        - form: square
+          size: small
+          fill: black
+        - form: square
+          size: small
+          fill: white
+        - form: square
+          size: small
+          fill: black
+        - form: square
+          size: medium
+          fill: black
+        - form: square
+          size: medium
+          fill: white
+        - form: square
+          size: medium
+          fill: black
+        - form: square
+          size: large
+          fill: black
+        - blank
+        - form: square
+          size: large
+          fill: black
     stem: |
       A 3x3 matrix's columns show a shape's size growing (small, medium, large) moving top to bottom, while its rows show the shape's shading alternating (black, white, black) moving left to right. The blank is in the bottom-right cell. What size and shading should it have?
     choices:
@@ -96,6 +174,22 @@ questions:
     type: figure-matrix
     difficulty: medium
     figure: figure-matrices-05
+    figureSpec:
+      kind: figure-matrix
+      rows: 2
+      cols: 3
+      cells:
+        - form: circle
+          line: 90
+        - form: circle
+          line: 0
+        - form: circle
+          line: 45
+        - form: circle
+          line: 90
+        - form: circle
+          line: 0
+        - blank
     stem: |
       A 3x3 matrix's first row shows: a circle with a horizontal line, a circle with a vertical line, and a circle with both lines (a plus-sign pattern) in the third cell. The same combination rule applies to another row: a square with a diagonal line (top-left to bottom-right), a square with the other diagonal line (top-right to bottom-left), and a blank third cell. What should the third cell show?
     choices:
@@ -118,6 +212,22 @@ questions:
     type: figure-matrix
     difficulty: medium
     figure: figure-matrices-06
+    figureSpec:
+      kind: figure-matrix
+      rows: 2
+      cols: 3
+      cells:
+        - form: triangle
+          fill: 0.5
+        - form: triangle
+          fill: 0.5
+        - form: triangle
+          fill: black
+        - form: triangle
+          fill: 0.5
+        - form: triangle
+          fill: 0.5
+        - blank
     stem: |
       A 3x3 matrix's row shows: a triangle shaded on its left half, a triangle shaded on its right half, and a blank third cell, following the same "combination" rule established in a previous, already-completed row. What should the third cell show?
     choices:
@@ -140,6 +250,18 @@ questions:
     type: figure-matrix
     difficulty: medium
     figure: figure-matrices-07
+    figureSpec:
+      kind: figure-matrix
+      rows: 2
+      cols: 2
+      cells:
+        - form: circle
+          dot: top
+        - form: circle
+          dot: top-right
+        - form: square
+          dot: top
+        - blank
     stem: |
       A 2x2 matrix's top row shows a circle with a dot in the top position, then the same circle rotated 90° clockwise (dot now in the right position). The bottom row shows a square with a dot in the top position, then a blank cell. Where should the dot be in the blank cell?
     choices:
@@ -162,6 +284,36 @@ questions:
     type: figure-matrix
     difficulty: hard
     figure: figure-matrices-08
+    figureSpec:
+      kind: figure-matrix
+      rows: 3
+      cols: 3
+      cells:
+        - form: triangle
+          size: small
+          fill: black
+        - form: triangle
+          size: small
+          fill: white
+        - form: triangle
+          size: small
+          fill: black
+        - form: triangle
+          size: medium
+          fill: black
+        - form: triangle
+          size: medium
+          fill: white
+        - form: triangle
+          size: medium
+          fill: black
+        - form: triangle
+          size: large
+          fill: black
+        - form: triangle
+          size: large
+          fill: white
+        - blank
     stem: |
       A 3x3 matrix's columns show a shape's size growing (small, medium, large) moving top to bottom, while its rows show the shape's shading alternating (black, white, black) moving left to right. The blank is in the bottom-right cell. A student checks only the column pattern and answers "large" without specifying shading, assuming the row direction does not matter here. What is wrong with this approach?
     choices:
@@ -184,6 +336,22 @@ questions:
     type: figure-matrix
     difficulty: hard
     figure: figure-matrices-09
+    figureSpec:
+      kind: figure-matrix
+      rows: 2
+      cols: 3
+      cells:
+        - form: circle
+          line: 90
+        - form: circle
+          line: 0
+        - form: circle
+          line: 45
+        - form: circle
+          line: 90
+        - form: circle
+          line: 0
+        - blank
     stem: |
       A 3x3 matrix's row shows a circle with a horizontal line, then a circle with a vertical line, then a blank third cell. A student assumes the third cell should follow a simple step-by-step progression (like rotating the line further), predicting a circle with a diagonal line. Given that this matrix actually uses a combination rule, is the student's prediction correct?
     choices:
@@ -206,6 +374,16 @@ questions:
     type: figure-matrix
     difficulty: hard
     figure: figure-matrices-10
+    figureSpec:
+      kind: figure-matrix
+      rows: 2
+      cols: 2
+      cells:
+        - form: triangle
+        - form: triangle
+          line: 90
+        - form: pentagon
+        - blank
     stem: |
       A 2x2 matrix's top row shows a triangle, then a triangle rotated 90°. Its bottom row shows a completely different shape, a pentagon, then a blank cell. A student assumes the bottom row must also use triangles, since "all rows in a matrix should use the same shapes." Is this assumption correct?
     choices:
@@ -228,6 +406,22 @@ questions:
     type: figure-matrix
     difficulty: medium
     figure: figure-matrices-11
+    figureSpec:
+      kind: figure-matrix
+      rows: 2
+      cols: 3
+      cells:
+        - form: star
+          fill: black
+        - form: star
+          fill: white
+        - form: star
+          fill: black
+        - form: star
+          fill: black
+        - form: star
+          fill: white
+        - blank
     stem: |
       A 3x3 matrix's row shows a star shaded black, then a star shaded white, then a blank third cell, with shading alternating left to right. What shading should the blank third cell have?
     choices:
@@ -250,6 +444,22 @@ questions:
     type: figure-matrix
     difficulty: medium
     figure: figure-matrices-12
+    figureSpec:
+      kind: figure-matrix
+      rows: 3
+      cols: 2
+      cells:
+        - form: circle
+          arrow: up
+        - form: circle
+          arrow: up
+        - form: circle
+          arrow: right
+        - form: circle
+          arrow: right
+        - blank
+        - form: circle
+          arrow: down
     stem: |
       A 3x3 matrix's column shows an arrow pointing up, then the same arrow rotated 90° clockwise (pointing right), then a blank third cell, moving top to bottom. What direction should the arrow point in the blank third cell?
     choices:
@@ -272,6 +482,28 @@ questions:
     type: figure-matrix
     difficulty: hard
     figure: figure-matrices-13
+    figureSpec:
+      kind: figure-matrix
+      rows: 3
+      cols: 3
+      cells:
+        - form: triangle
+          line: 0
+        - form: triangle
+          line: 45
+        - form: triangle
+          line: 90
+        - form: square
+          line: 0
+        - form: square
+          line: 45
+        - form: square
+          line: 90
+        - form: pentagon
+          line: 0
+        - form: pentagon
+          line: 45
+        - blank
     stem: |
       A 3x3 matrix's columns show a shape's number of sides increasing (triangle, square, pentagon) moving top to bottom, while its rows show the shape rotated further (0°, 45°, 90°) moving left to right. The blank is in the bottom-right cell. What shape and rotation should it show?
     choices:
@@ -294,6 +526,28 @@ questions:
     type: figure-matrix
     difficulty: exam
     figure: figure-matrices-14
+    figureSpec:
+      kind: figure-matrix
+      rows: 3
+      cols: 3
+      cells:
+        - form: circle
+          line: 90
+        - form: circle
+          line: 0
+        - form: circle
+          line: 45
+        - form: circle
+          line: 90
+        - form: circle
+          line: 0
+        - form: circle
+          line: 45
+        - form: circle
+          line: 90
+        - form: circle
+          line: 0
+        - blank
     stem: |
       A 3x3 matrix has two rules running at once. Row rule: the third cell in each row combines the line features of the first two cells (e.g., a horizontal line plus a vertical line becomes both lines together). Column rule: every shape in column 1 is shaded black, every shape in column 2 is shaded white, and every shape in column 3 is shaded black, regardless of row. Row 2 shows: a black circle with a horizontal line (column 1), a white circle with a vertical line (column 2), and a blank third cell (column 3). What should the blank third cell show?
     choices:
