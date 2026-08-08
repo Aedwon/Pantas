@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "contentVersion": 2026081221,
-  "generatedAt": "2026-08-12T21:00:41.999893Z",
+  "contentVersion": 2026081303,
+  "generatedAt": "2026-08-13T03:23:49.564385Z",
   "exams": [
     {
       "id": "exam_cse_pro",
@@ -67437,6 +67437,636 @@
       ],
       "explanation": "This group is defined by two combined features: symmetry AND exactly 4 sides. The pentagon shares the symmetry feature but breaks the 4-sides feature, making it the odd-one-out on that specific dimension, even though it isn't wrong on every dimension.",
       "figureSpecJson": "{\"kind\":\"shape-row\",\"shapes\":[{\"form\":\"square\"},{\"form\":\"rectangle\"},{\"form\":\"rhombus\"},{\"form\":\"pentagon\"}]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0001",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-matrices",
+      "language": "en",
+      "stem": "A 2x2 matrix's top row shows a triangle, then the same triangle rotated 90°. The bottom row shows a square, then a blank cell. What should the blank cell show?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0001_a",
+          "label": "A",
+          "text": "A square rotated 90° from the first bottom-row square",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0001_b",
+          "label": "B",
+          "text": "A square rotated 180° from the first bottom-row square",
+          "isCorrect": false,
+          "rationale": "You doubled the rotation angle to 180°. The top row establishes a 90° rotation pattern."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0001_c",
+          "label": "C",
+          "text": "A triangle rotated 90°, matching the top row exactly",
+          "isCorrect": false,
+          "rationale": "You copied the shape from the top row instead of applying the rotation transformation to the bottom row's square."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0001_d",
+          "label": "D",
+          "text": "The same square, unrotated",
+          "isCorrect": false,
+          "rationale": "You omitted the transformation. The row rule requires a 90° rotation."
+        }
+      ],
+      "explanation": "The row pattern is a 90° rotation moving left to right. Applying the same pattern to the bottom row, the blank cell should show the square rotated 90° from the first bottom-row square.",
+      "figureSpecJson": "{\"kind\":\"figure-matrix\",\"rows\":2,\"cols\":2,\"cells\":[{\"form\":\"triangle\"},{\"form\":\"triangle\",\"line\":90},{\"form\":\"square\"},\"blank\"]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0002",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-matrices",
+      "language": "en",
+      "stem": "A 3x3 matrix's rows show circles with an increasing number of dots: row 1 has circles with 1, 2, 3 dots; row 2 has circles with 2, 3, 4 dots; row 3 has circles with 3, 4, and a blank cell. How many dots should the blank cell have?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0002_a",
+          "label": "A",
+          "text": "5 dots",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0002_b",
+          "label": "B",
+          "text": "4 dots",
+          "isCorrect": false,
+          "rationale": "You repeated the second cell's count instead of continuing the +1 increment to 5."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0002_c",
+          "label": "C",
+          "text": "6 dots",
+          "isCorrect": false,
+          "rationale": "You added 2 instead of 1. The constant step size across each row is +1 dot."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0002_d",
+          "label": "D",
+          "text": "3 dots",
+          "isCorrect": false,
+          "rationale": "You repeated the first cell's count instead of advancing the row progression."
+        }
+      ],
+      "explanation": "Within each row, the dot count increases by 1 moving left to right. Row 3 continues $3 \\to 4 \\to \\, ?$, so the blank cell should have $5$ dots.",
+      "figureSpecJson": "{\"kind\":\"figure-matrix\",\"rows\":3,\"cols\":3,\"cells\":[{\"form\":\"circle\",\"dots\":1},{\"form\":\"circle\",\"dots\":2},{\"form\":\"circle\",\"dots\":3},{\"form\":\"circle\",\"dots\":2},{\"form\":\"circle\",\"dots\":3},{\"form\":\"circle\",\"dots\":4},{\"form\":\"circle\",\"dots\":3},{\"form\":\"circle\",\"dots\":4},\"blank\"]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0003",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-matrices",
+      "language": "en",
+      "stem": "A 3x3 matrix's columns show a shape growing in size moving top to bottom: column 1 has small, medium, large squares. The blank cell is at the bottom of column 2, which has small and medium squares above it. What size should the blank cell's square be?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0003_a",
+          "label": "A",
+          "text": "Large",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0003_b",
+          "label": "B",
+          "text": "Medium, repeating the cell above it",
+          "isCorrect": false,
+          "rationale": "You repeated the middle cell instead of completing the small to medium to large progression."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0003_c",
+          "label": "C",
+          "text": "Small, repeating the top of the column",
+          "isCorrect": false,
+          "rationale": "You restarted the sequence at small instead of following the vertical growth rule to large."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0003_d",
+          "label": "D",
+          "text": "Extra-large, skipping ahead one step",
+          "isCorrect": false,
+          "rationale": "You skipped the expected large size to pick an extra-large figure."
+        }
+      ],
+      "explanation": "The column pattern shows size growing (small, medium, large) moving down. Column 2 follows the same rule, so its blank bottom cell should be large.",
+      "figureSpecJson": "{\"kind\":\"figure-matrix\",\"rows\":3,\"cols\":2,\"cells\":[{\"form\":\"square\",\"size\":\"small\"},{\"form\":\"square\",\"size\":\"small\"},{\"form\":\"square\",\"size\":\"medium\"},{\"form\":\"square\",\"size\":\"medium\"},{\"form\":\"square\",\"size\":\"large\"},\"blank\"]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0004",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-matrices",
+      "language": "en",
+      "stem": "A 3x3 matrix's columns show a shape's size growing (small, medium, large) moving top to bottom, while its rows show the shape's shading alternating (black, white, black) moving left to right. The blank is in the bottom-right cell. What size and shading should it have?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0004_a",
+          "label": "A",
+          "text": "Large, black",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0004_b",
+          "label": "B",
+          "text": "Large, white",
+          "isCorrect": false,
+          "rationale": "You assigned white shading. Following the row pattern (black to white to black), the right-most cell must be black."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0004_c",
+          "label": "C",
+          "text": "Medium, black",
+          "isCorrect": false,
+          "rationale": "You assigned medium size. The bottom row position requires large size per the column growth rule."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0004_d",
+          "label": "D",
+          "text": "Small, black",
+          "isCorrect": false,
+          "rationale": "You assigned small size, which belongs to the top row rather than the bottom row."
+        }
+      ],
+      "explanation": "Since the blank is in the bottom row, the column pattern (small → medium → large) makes its size large. Since the blank is in the right-most position of its row, the row pattern (black → white → black) makes its shading black.",
+      "figureSpecJson": "{\"kind\":\"figure-matrix\",\"rows\":3,\"cols\":3,\"cells\":[{\"form\":\"square\",\"size\":\"small\",\"fill\":\"black\"},{\"form\":\"square\",\"size\":\"small\",\"fill\":\"white\"},{\"form\":\"square\",\"size\":\"small\",\"fill\":\"black\"},{\"form\":\"square\",\"size\":\"medium\",\"fill\":\"black\"},{\"form\":\"square\",\"size\":\"medium\",\"fill\":\"white\"},{\"form\":\"square\",\"size\":\"medium\",\"fill\":\"black\"},{\"form\":\"square\",\"size\":\"large\",\"fill\":\"black\"},\"blank\",{\"form\":\"square\",\"size\":\"large\",\"fill\":\"black\"}]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0005",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-matrices",
+      "language": "en",
+      "stem": "A 3x3 matrix's first row shows: a circle with a horizontal line, a circle with a vertical line, and a circle with both lines (a plus-sign pattern) in the third cell. The same combination rule applies to another row: a square with a diagonal line (top-left to bottom-right), a square with the other diagonal line (top-right to bottom-left), and a blank third cell. What should the third cell show?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0005_a",
+          "label": "A",
+          "text": "A square with both diagonal lines drawn (forming an X pattern)",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0005_b",
+          "label": "B",
+          "text": "A square with only the first diagonal line, repeated",
+          "isCorrect": false,
+          "rationale": "You repeated the first cell without combining the second diagonal line."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0005_c",
+          "label": "C",
+          "text": "A blank square with no lines at all",
+          "isCorrect": false,
+          "rationale": "You subtracted the lines instead of combining them into an X pattern."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0005_d",
+          "label": "D",
+          "text": "A square with a horizontal and vertical line, like the circle row",
+          "isCorrect": false,
+          "rationale": "You copied line orientations from a different row rather than combining the diagonal lines present in this row."
+        }
+      ],
+      "explanation": "The combination rule from the completed first row shows the third cell combines both features from the first two cells. Applying the same logic, the third cell should show a square with both diagonal lines, forming an X.",
+      "figureSpecJson": "{\"kind\":\"figure-matrix\",\"rows\":2,\"cols\":3,\"cells\":[{\"form\":\"circle\",\"line\":90},{\"form\":\"circle\",\"line\":0},{\"form\":\"circle\",\"line\":45},{\"form\":\"circle\",\"line\":90},{\"form\":\"circle\",\"line\":0},\"blank\"]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0006",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-matrices",
+      "language": "en",
+      "stem": "A 3x3 matrix's row shows: a triangle shaded on its left half, a triangle shaded on its right half, and a blank third cell, following the same \"combination\" rule established in a previous, already-completed row. What should the third cell show?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0006_a",
+          "label": "A",
+          "text": "A triangle shaded on both halves (fully shaded)",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0006_b",
+          "label": "B",
+          "text": "A triangle shaded on neither half (fully unshaded)",
+          "isCorrect": false,
+          "rationale": "You cleared the shading instead of combining the left and right shaded halves."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0006_c",
+          "label": "C",
+          "text": "A triangle shaded only on its left half, repeated",
+          "isCorrect": false,
+          "rationale": "You ignored the right-half shading from the second cell."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0006_d",
+          "label": "D",
+          "text": "A triangle shaded only on its right half, repeated",
+          "isCorrect": false,
+          "rationale": "You ignored the left-half shading from the first cell."
+        }
+      ],
+      "explanation": "Following the combination rule, the third cell should combine both features from the first two cells: a triangle shaded on its left half plus one shaded on its right half combine into a fully shaded triangle.",
+      "figureSpecJson": "{\"kind\":\"figure-matrix\",\"rows\":2,\"cols\":3,\"cells\":[{\"form\":\"triangle\",\"fill\":0.5},{\"form\":\"triangle\",\"fill\":0.5},{\"form\":\"triangle\",\"fill\":\"black\"},{\"form\":\"triangle\",\"fill\":0.5},{\"form\":\"triangle\",\"fill\":0.5},\"blank\"]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0007",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-matrices",
+      "language": "en",
+      "stem": "A 2x2 matrix's top row shows a circle with a dot in the top position, then the same circle rotated 90° clockwise (dot now in the right position). The bottom row shows a square with a dot in the top position, then a blank cell. Where should the dot be in the blank cell?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0007_a",
+          "label": "A",
+          "text": "The right position, matching the same 90° clockwise rotation rule",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0007_b",
+          "label": "B",
+          "text": "The top position, unchanged from the first bottom-row cell",
+          "isCorrect": false,
+          "rationale": "You left the dot un-rotated instead of applying the 90° clockwise shift."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0007_c",
+          "label": "C",
+          "text": "The bottom position, a 180° rotation instead of 90°",
+          "isCorrect": false,
+          "rationale": "You rotated 180° instead of the 90° clockwise angle shown in the top row."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0007_d",
+          "label": "D",
+          "text": "The left position, a counterclockwise rotation instead",
+          "isCorrect": false,
+          "rationale": "You rotated counterclockwise instead of matching the top row's clockwise rotation."
+        }
+      ],
+      "explanation": "The row pattern is a 90° clockwise rotation of the dot's position, moving left to right. Applying the same rule to the bottom row, the dot should move from the top position to the right position.",
+      "figureSpecJson": "{\"kind\":\"figure-matrix\",\"rows\":2,\"cols\":2,\"cells\":[{\"form\":\"circle\",\"dot\":\"top\"},{\"form\":\"circle\",\"dot\":\"top-right\"},{\"form\":\"square\",\"dot\":\"top\"},\"blank\"]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0008",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-matrices",
+      "language": "en",
+      "stem": "A 3x3 matrix's columns show a shape's size growing (small, medium, large) moving top to bottom, while its rows show the shape's shading alternating (black, white, black) moving left to right. The blank is in the bottom-right cell. A student checks only the column pattern and answers \"large\" without specifying shading, assuming the row direction does not matter here. What is wrong with this approach?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0008_a",
+          "label": "A",
+          "text": "The student checked only one direction; this matrix requires checking both the column pattern (for size) and the row pattern (for shading) together: the complete answer should be \"large, black,\" not size alone.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0008_b",
+          "label": "B",
+          "text": "Nothing is wrong: size alone is always a complete answer for any figure matrix.",
+          "isCorrect": false,
+          "rationale": "You assumed checking one pattern dimension is sufficient for multi-rule matrices."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0008_c",
+          "label": "C",
+          "text": "The student's approach is correct, since shading never applies to matrix questions.",
+          "isCorrect": false,
+          "rationale": "You claimed shading does not apply to matrices."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0008_d",
+          "label": "D",
+          "text": "The student should have checked only the row pattern and ignored the column pattern entirely.",
+          "isCorrect": false,
+          "rationale": "You swapped one single-dimension approach for another instead of evaluating both row and column rules."
+        }
+      ],
+      "explanation": "Many matrices require checking both the row pattern and the column pattern together: solving only one direction gives an incomplete answer. Here, size follows the column direction while shading follows the row direction, so both must be checked.",
+      "figureSpecJson": "{\"kind\":\"figure-matrix\",\"rows\":3,\"cols\":3,\"cells\":[{\"form\":\"triangle\",\"size\":\"small\",\"fill\":\"black\"},{\"form\":\"triangle\",\"size\":\"small\",\"fill\":\"white\"},{\"form\":\"triangle\",\"size\":\"small\",\"fill\":\"black\"},{\"form\":\"triangle\",\"size\":\"medium\",\"fill\":\"black\"},{\"form\":\"triangle\",\"size\":\"medium\",\"fill\":\"white\"},{\"form\":\"triangle\",\"size\":\"medium\",\"fill\":\"black\"},{\"form\":\"triangle\",\"size\":\"large\",\"fill\":\"black\"},{\"form\":\"triangle\",\"size\":\"large\",\"fill\":\"white\"},\"blank\"]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0009",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-matrices",
+      "language": "en",
+      "stem": "A 3x3 matrix's row shows a circle with a horizontal line, then a circle with a vertical line, then a blank third cell. A student assumes the third cell should follow a simple step-by-step progression (like rotating the line further), predicting a circle with a diagonal line. Given that this matrix actually uses a combination rule, is the student's prediction correct?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0009_a",
+          "label": "A",
+          "text": "No: this row uses a combination rule, where the third cell combines both features from the first two cells; the correct answer is a circle with both a horizontal and vertical line (a plus-sign pattern), not a diagonal line.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0009_b",
+          "label": "B",
+          "text": "Yes: a diagonal line is always the correct continuation of a two-line pattern.",
+          "isCorrect": false,
+          "rationale": "You assumed a sequential angle progression applies instead of combining the horizontal and vertical lines into a plus sign."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0009_c",
+          "label": "C",
+          "text": "Yes: combination rules never apply to circles, only to squares.",
+          "isCorrect": false,
+          "rationale": "You claimed combination rules are limited to squares."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0009_d",
+          "label": "D",
+          "text": "No: but only because circles cannot have any lines at all.",
+          "isCorrect": false,
+          "rationale": "You claimed circles cannot contain interior lines."
+        }
+      ],
+      "explanation": "Assuming the third cell should follow a simple incrementing pattern (like a figure series) when it is actually meant to combine features from the first two cells leads to a plausible but incorrect prediction. The correct answer combines both lines into a plus-sign pattern.",
+      "figureSpecJson": "{\"kind\":\"figure-matrix\",\"rows\":2,\"cols\":3,\"cells\":[{\"form\":\"circle\",\"line\":90},{\"form\":\"circle\",\"line\":0},{\"form\":\"circle\",\"line\":45},{\"form\":\"circle\",\"line\":90},{\"form\":\"circle\",\"line\":0},\"blank\"]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0010",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-matrices",
+      "language": "en",
+      "stem": "A 2x2 matrix's top row shows a triangle, then a triangle rotated 90°. Its bottom row shows a completely different shape, a pentagon, then a blank cell. A student assumes the bottom row must also use triangles, since \"all rows in a matrix should use the same shapes.\" Is this assumption correct?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0010_a",
+          "label": "A",
+          "text": "No: different rows can apply the same transformation rule (like a 90° rotation) to different starting shapes; the bottom row correctly uses pentagons, and the blank cell should show a pentagon rotated 90°, not a triangle.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0010_b",
+          "label": "B",
+          "text": "Yes: every row in a figure matrix must use the exact same shapes as every other row.",
+          "isCorrect": false,
+          "rationale": "You assumed all rows must feature identical geometric shapes rather than identical transformation rules."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0010_c",
+          "label": "C",
+          "text": "Yes: but only because pentagons and triangles are actually the same shape.",
+          "isCorrect": false,
+          "rationale": "You claimed pentagons and triangles are the same shape."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0010_d",
+          "label": "D",
+          "text": "No: but only because the top row's shapes are also invalid.",
+          "isCorrect": false,
+          "rationale": "You claimed top row figures are invalid."
+        }
+      ],
+      "explanation": "Different rows or columns can apply the same transformation rule to different starting shapes: do not expect literally identical figures across rows, only a consistent pattern of change. Recognizing the rule (90° rotation), not memorizing specific shapes, is the key skill.",
+      "figureSpecJson": "{\"kind\":\"figure-matrix\",\"rows\":2,\"cols\":2,\"cells\":[{\"form\":\"triangle\"},{\"form\":\"triangle\",\"line\":90},{\"form\":\"pentagon\"},\"blank\"]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0011",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-matrices",
+      "language": "en",
+      "stem": "A 3x3 matrix's row shows a star shaded black, then a star shaded white, then a blank third cell, with shading alternating left to right. What shading should the blank third cell have?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0011_a",
+          "label": "A",
+          "text": "Black",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0011_b",
+          "label": "B",
+          "text": "White",
+          "isCorrect": false,
+          "rationale": "You repeated white instead of maintaining the alternating black to white to black pattern."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0011_c",
+          "label": "C",
+          "text": "Half black, half white",
+          "isCorrect": false,
+          "rationale": "You introduced partial shading not present in the alternating binary sequence."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0011_d",
+          "label": "D",
+          "text": "Gray",
+          "isCorrect": false,
+          "rationale": "You introduced an intermediate shade not matching the black and white alternation rule."
+        }
+      ],
+      "explanation": "The row pattern shows shading alternating (black, white) moving left to right. Continuing the alternation, the third cell should return to black.",
+      "figureSpecJson": "{\"kind\":\"figure-matrix\",\"rows\":2,\"cols\":3,\"cells\":[{\"form\":\"star\",\"fill\":\"black\"},{\"form\":\"star\",\"fill\":\"white\"},{\"form\":\"star\",\"fill\":\"black\"},{\"form\":\"star\",\"fill\":\"black\"},{\"form\":\"star\",\"fill\":\"white\"},\"blank\"]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0012",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-matrices",
+      "language": "en",
+      "stem": "A 3x3 matrix's column shows an arrow pointing up, then the same arrow rotated 90° clockwise (pointing right), then a blank third cell, moving top to bottom. What direction should the arrow point in the blank third cell?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0012_a",
+          "label": "A",
+          "text": "Down (a further 90° clockwise turn from \"right\")",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0012_b",
+          "label": "B",
+          "text": "Up, repeating the first cell",
+          "isCorrect": false,
+          "rationale": "You reset the arrow to the top position instead of continuing the 90° clockwise rotation down."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0012_c",
+          "label": "C",
+          "text": "Left (a 90° counterclockwise turn instead)",
+          "isCorrect": false,
+          "rationale": "You rotated counterclockwise instead of continuing clockwise."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0012_d",
+          "label": "D",
+          "text": "Right, repeating the second cell",
+          "isCorrect": false,
+          "rationale": "You repeated the second cell's position without applying the third rotation step."
+        }
+      ],
+      "explanation": "The column pattern shows a 90° clockwise rotation moving top to bottom (up → right). Continuing the same rotation, the third cell's arrow should point down.",
+      "figureSpecJson": "{\"kind\":\"figure-matrix\",\"rows\":3,\"cols\":2,\"cells\":[{\"form\":\"circle\",\"arrow\":\"up\"},{\"form\":\"circle\",\"arrow\":\"up\"},{\"form\":\"circle\",\"arrow\":\"right\"},{\"form\":\"circle\",\"arrow\":\"right\"},\"blank\",{\"form\":\"circle\",\"arrow\":\"down\"}]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0013",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-matrices",
+      "language": "en",
+      "stem": "A 3x3 matrix's columns show a shape's number of sides increasing (triangle, square, pentagon) moving top to bottom, while its rows show the shape rotated further (0°, 45°, 90°) moving left to right. The blank is in the bottom-right cell. What shape and rotation should it show?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0013_a",
+          "label": "A",
+          "text": "A pentagon rotated 90°",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0013_b",
+          "label": "B",
+          "text": "A square rotated 90°",
+          "isCorrect": false,
+          "rationale": "You picked a square (4 sides) instead of the 5-sided pentagon specified by the bottom row's growth rule."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0013_c",
+          "label": "C",
+          "text": "A pentagon rotated 45°",
+          "isCorrect": false,
+          "rationale": "You assigned a 45° rotation, which belongs to the middle column rather than the right column."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0013_d",
+          "label": "D",
+          "text": "A hexagon rotated 90°",
+          "isCorrect": false,
+          "rationale": "You advanced the side count past 5 to 6 sides."
+        }
+      ],
+      "explanation": "Since the blank is in the bottom row, the column pattern (triangle → square → pentagon) makes its shape a pentagon. Since the blank is in the right-most column, the row pattern (0° → 45° → 90°) makes its rotation 90°.",
+      "figureSpecJson": "{\"kind\":\"figure-matrix\",\"rows\":3,\"cols\":3,\"cells\":[{\"form\":\"triangle\",\"line\":0},{\"form\":\"triangle\",\"line\":45},{\"form\":\"triangle\",\"line\":90},{\"form\":\"square\",\"line\":0},{\"form\":\"square\",\"line\":45},{\"form\":\"square\",\"line\":90},{\"form\":\"pentagon\",\"line\":0},{\"form\":\"pentagon\",\"line\":45},\"blank\"]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0014",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-figure-matrices",
+      "language": "en",
+      "stem": "A 3x3 matrix has two rules running at once. Row rule: the third cell in each row combines the line features of the first two cells (e.g., a horizontal line plus a vertical line becomes both lines together). Column rule: every shape in column 1 is shaded black, every shape in column 2 is shaded white, and every shape in column 3 is shaded black, regardless of row. Row 2 shows: a black circle with a horizontal line (column 1), a white circle with a vertical line (column 2), and a blank third cell (column 3). What should the blank third cell show?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0014_a",
+          "label": "A",
+          "text": "A black circle with both a horizontal and vertical line",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0014_b",
+          "label": "B",
+          "text": "A white circle with both lines, ignoring the column shading rule",
+          "isCorrect": false,
+          "rationale": "You ignored the column 3 shading rule requiring black fill."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0014_c",
+          "label": "C",
+          "text": "A black circle with only a horizontal line, ignoring the row combination rule",
+          "isCorrect": false,
+          "rationale": "You ignored the row combination rule by omitting the vertical line."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-figure-matrices-0014_d",
+          "label": "D",
+          "text": "A white circle with neither line, ignoring both rules",
+          "isCorrect": false,
+          "rationale": "You broke both the shading rule and the line combination rule."
+        }
+      ],
+      "explanation": "Two rules apply at once: the row rule combines both lines from the first two cells (horizontal + vertical = both), and the column rule fixes column 3's shading as black. Combining both gives a black circle with both a horizontal and vertical line.",
+      "figureSpecJson": "{\"kind\":\"figure-matrix\",\"rows\":3,\"cols\":3,\"cells\":[{\"form\":\"circle\",\"line\":90},{\"form\":\"circle\",\"line\":0},{\"form\":\"circle\",\"line\":45},{\"form\":\"circle\",\"line\":90},{\"form\":\"circle\",\"line\":0},{\"form\":\"circle\",\"line\":45},{\"form\":\"circle\",\"line\":90},{\"form\":\"circle\",\"line\":0},\"blank\"]}"
     },
     {
       "id": "q-spatial-abstract-reasoning-figure-series-0001",

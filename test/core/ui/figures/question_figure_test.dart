@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/figures/figure_matrix_figure.dart';
 import 'package:pantas/core/ui/figures/figure_series_figure.dart';
 import 'package:pantas/core/ui/figures/fluid_vessel_figure.dart';
 import 'package:pantas/core/ui/figures/gear_train_figure.dart';
@@ -185,6 +186,23 @@ void main() {
     expect(figure.items.first.fill, 0.25);
   });
 
+  testWidgets('a matrix has exactly one blank and it is empty', (tester) async {
+    await tester.pumpApp(
+      const QuestionFigure(
+        specJson: '{"kind":"figure-matrix","rows":2,"cols":2,"cells":['
+            '{"form":"triangle"},{"form":"triangle","line":90},'
+            '{"form":"square"},"blank"]}',
+      ),
+    );
+
+    final figure = tester.widget<FigureMatrixFigure>(
+      find.byType(FigureMatrixFigure),
+    );
+    expect(figure.cells, hasLength(4));
+    expect(figure.cells.where((c) => c == null), hasLength(1));
+    expect(figure.cells.last, isNull);
+  });
+
   group('a spec it cannot read says so and draws nothing plausible', () {
     const bad = <String, String>{
       'not JSON': 'gears: 3',
@@ -222,6 +240,14 @@ void main() {
           '[{"form":"circle","fill":1.4},{"form":"circle"}]}',
       'a corner nobody has': '{"kind":"figure-series","items":'
           '[{"form":"square","dot":"middle"},{"form":"square"}]}',
+      'a matrix with two blanks': '{"kind":"figure-matrix","rows":2,'
+          '"cols":2,"cells":[{"form":"square"},"blank",'
+          '{"form":"square"},"blank"]}',
+      'a matrix with no blank': '{"kind":"figure-matrix","rows":2,"cols":2,'
+          '"cells":[{"form":"square"},{"form":"square"},'
+          '{"form":"square"},{"form":"square"}]}',
+      'a matrix whose cells do not fill it': '{"kind":"figure-matrix",'
+          '"rows":3,"cols":3,"cells":[{"form":"square"},"blank"]}',
     };
 
     for (final entry in bad.entries) {
@@ -235,6 +261,7 @@ void main() {
         expect(find.byType(FluidVesselFigure), findsNothing);
         expect(find.byType(ShapeRowFigure), findsNothing);
         expect(find.byType(FigureSeriesFigure), findsNothing);
+        expect(find.byType(FigureMatrixFigure), findsNothing);
         expect(
           find.textContaining('has not been drawn yet'),
           findsOneWidget,
