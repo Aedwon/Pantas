@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "contentVersion": 2026081303,
-  "generatedAt": "2026-08-13T03:23:49.564385Z",
+  "generatedAt": "2026-08-13T03:28:19.883283Z",
   "exams": [
     {
       "id": "exam_cse_pro",
@@ -68697,6 +68697,546 @@
       ],
       "explanation": "The dot completes one clockwise corner move per figure; after 4 figures (one full cycle of 4 corners), it returns to the top-left corner for figure 5. Separately, the line count increases by 1 each figure ($1, 2, 3, 4, \\ldots$), so figure 5 should have 5 lines.",
       "figureSpecJson": "{\"kind\":\"figure-series\",\"items\":[{\"form\":\"square\",\"dot\":\"top-left\",\"edgeLines\":1},{\"form\":\"square\",\"dot\":\"top-right\",\"edgeLines\":2},{\"form\":\"square\",\"dot\":\"bottom-right\",\"edgeLines\":3},{\"form\":\"square\",\"dot\":\"bottom-left\",\"edgeLines\":4}],\"blank\":true}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0001",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-paper-folding-and-cutting",
+      "language": "en",
+      "stem": "A square paper is folded exactly in half (vertically, left side onto right side). A small triangular notch is cut out of the folded paper, entirely within one layer (not on the fold line itself). How many notches appear when the paper is fully unfolded?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0001_a",
+          "label": "A",
+          "text": "2 notches",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0001_b",
+          "label": "B",
+          "text": "1 notch",
+          "isCorrect": false,
+          "rationale": "You assumed 1 fold produces 1 notch. One fold creates 2 layers, yielding ^1 = 2$ notches."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0001_c",
+          "label": "C",
+          "text": "4 notches",
+          "isCorrect": false,
+          "rationale": "You doubled the layer count. One fold creates 2 layers (^1 = 2$)."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0001_d",
+          "label": "D",
+          "text": "3 notches",
+          "isCorrect": false,
+          "rationale": "You added the fold count to the cut count instead of calculating ^{\\text{folds}}$."
+        }
+      ],
+      "explanation": "One fold means the cut passes through 2 layers, so unfolding reveals $2^1 = 2$ notches.",
+      "figureSpecJson": "{\"kind\":\"paper-fold\",\"folds\":[\"vertical\"],\"cut\":\"notch\",\"at\":\"interior\"}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0002",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-paper-folding-and-cutting",
+      "language": "en",
+      "stem": "A square paper is folded in half vertically, then folded in half again horizontally (into a quarter-square). A small circular hole is cut through all the folded layers at once. How many holes appear when fully unfolded?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0002_a",
+          "label": "A",
+          "text": "4 holes",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0002_b",
+          "label": "B",
+          "text": "2 holes",
+          "isCorrect": false,
+          "rationale": "You assumed 2 folds produce 2 holes. Two folds create ^2 = 4$ layers, yielding 4 holes."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0002_c",
+          "label": "C",
+          "text": "8 holes",
+          "isCorrect": false,
+          "rationale": "You applied a 3-fold formula (^3 = 8$) to a 2-fold problem."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0002_d",
+          "label": "D",
+          "text": "1 hole",
+          "isCorrect": false,
+          "rationale": "You assumed all layers fold over the same spot without multiplying."
+        }
+      ],
+      "explanation": "Two folds mean the cut passes through $2^2 = 4$ layers, so unfolding reveals 4 holes.",
+      "figureSpecJson": "{\"kind\":\"paper-fold\",\"folds\":[\"vertical\",\"horizontal\"],\"cut\":\"hole\",\"at\":\"interior\"}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0003",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-paper-folding-and-cutting",
+      "language": "en",
+      "stem": "A rectangular paper is folded in half three separate times (each fold halving it again). A cut is made through all the layers at once. How many holes appear when fully unfolded?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0003_a",
+          "label": "A",
+          "text": "8 holes",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0003_b",
+          "label": "B",
+          "text": "6 holes",
+          "isCorrect": false,
+          "rationale": "You multiplied 3 folds by 2 layers per fold ( \\times 2 = 6$) instead of using exponential growth ^3 = 8$."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0003_c",
+          "label": "C",
+          "text": "3 holes",
+          "isCorrect": false,
+          "rationale": "You assumed the hole count equals the fold count."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0003_d",
+          "label": "D",
+          "text": "16 holes",
+          "isCorrect": false,
+          "rationale": "You applied a 4-fold formula (^4 = 16$) to a 3-fold scenario."
+        }
+      ],
+      "explanation": "Three folds mean $2^3 = 8$ layers are cut through simultaneously, so unfolding reveals 8 separate holes.",
+      "figureSpecJson": "{\"kind\":\"paper-fold\",\"folds\":[\"vertical\",\"horizontal\",\"vertical\"],\"cut\":\"hole\",\"at\":\"interior\"}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0004",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-paper-folding-and-cutting",
+      "language": "en",
+      "stem": "A square paper is folded in half vertically, then folded in half again horizontally (into a quarter-square). A small circular hole is cut near the corner where all the folded edges meet (the center of the original square). Where will the resulting holes appear when unfolded?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0004_a",
+          "label": "A",
+          "text": "Four small holes, one in each quadrant, all positioned near the center of the original square",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0004_b",
+          "label": "B",
+          "text": "Four small holes, one in each quadrant, all positioned near the four outer corners of the original square",
+          "isCorrect": false,
+          "rationale": "You placed the holes at the outer corners. Cutting near the all-folds intersection clusters the 4 holes near the center."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0004_c",
+          "label": "C",
+          "text": "One single hole at the exact center, with no other holes elsewhere",
+          "isCorrect": false,
+          "rationale": "You merged the holes into a single center hole. A cut near the corner produces 4 distinct holes near the center."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0004_d",
+          "label": "D",
+          "text": "Four holes scattered randomly with no symmetric relationship to each other",
+          "isCorrect": false,
+          "rationale": "You ignored reflection symmetry. Unfolded cuts form symmetric patterns across fold axes."
+        }
+      ],
+      "explanation": "Since the cut is positioned at the center corner (where all folds meet), each of the 4 layers corresponds to one of the 4 quadrants, and unfolding reveals 4 small holes, each mirrored close to the center point in its own quadrant.",
+      "figureSpecJson": "{\"kind\":\"paper-fold\",\"folds\":[\"vertical\",\"horizontal\"],\"cut\":\"hole\",\"at\":\"corner\"}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0005",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-paper-folding-and-cutting",
+      "language": "en",
+      "stem": "Using the same two-fold setup as before (folded into a quarter-square), a notch is cut this time along the outer edge of the folded paper, far from the center corner where the folds meet. Where will the resulting holes appear when unfolded?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0005_a",
+          "label": "A",
+          "text": "Four notches, one along each outer edge/corner region of the original square, symmetric about both fold lines",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0005_b",
+          "label": "B",
+          "text": "Four notches, all clustered near the exact center of the original square",
+          "isCorrect": false,
+          "rationale": "You placed outer-edge cuts near the center. Cuts on the outer edge remain near the outer edges when unfolded."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0005_c",
+          "label": "C",
+          "text": "A single connected notch spanning the entire outer edge of the square",
+          "isCorrect": false,
+          "rationale": "You assumed outer cuts merge into one giant continuous notch."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0005_d",
+          "label": "D",
+          "text": "Two notches only, since the cut is far from one of the fold lines",
+          "isCorrect": false,
+          "rationale": "You halved the hole count based on distance from fold lines."
+        }
+      ],
+      "explanation": "Since the cut is on the outer edge (far from the fold-meeting corner), reflecting it across both fold lines places the four resulting holes near the four outer edges of the original square, not near the center.",
+      "figureSpecJson": "{\"kind\":\"paper-fold\",\"folds\":[\"vertical\",\"horizontal\"],\"cut\":\"notch\",\"at\":\"edge\"}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0006",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-paper-folding-and-cutting",
+      "language": "en",
+      "stem": "A square paper is folded exactly in half (vertically, left side onto right side). A triangular notch is cut exactly on the folded edge (the fold line itself), at the vertical midpoint. What does the unfolded paper look like?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0006_a",
+          "label": "A",
+          "text": "A single diamond-shaped hole straddling the center fold line, not two fully separate notches",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0006_b",
+          "label": "B",
+          "text": "Two completely separate triangular notches, one on each side of the fold line",
+          "isCorrect": false,
+          "rationale": "You treated a cut on the fold line as two separate holes. A cut on a fold line merges across the line into one connected diamond shape."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0006_c",
+          "label": "C",
+          "text": "No hole at all, since cutting on the fold line does not go through any paper",
+          "isCorrect": false,
+          "rationale": "You claimed cutting a fold line produces no hole."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0006_d",
+          "label": "D",
+          "text": "Four separate notches, since cutting on a fold line doubles the usual count",
+          "isCorrect": false,
+          "rationale": "You quadrupled the hole count for a single fold cut."
+        }
+      ],
+      "explanation": "A cut positioned exactly on a fold line typically becomes a single connected shape straddling that line once unfolded, rather than the usual number of fully separate holes.",
+      "figureSpecJson": "{\"kind\":\"paper-fold\",\"folds\":[\"vertical\"],\"cut\":\"notch\",\"at\":\"on-fold\"}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0008",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-paper-folding-and-cutting",
+      "language": "en",
+      "stem": "A paper is folded in half twice (into a quarter-square), giving 4 layers. A cut is made that crosses one of the fold lines directly, rather than sitting entirely within one layer's interior. A student predicts this will still produce exactly 4 fully separate holes when unfolded, using the standard $2^{\\text{folds}}$ formula. Is this prediction correct?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0008_a",
+          "label": "A",
+          "text": "No: a cut that crosses a fold line directly gets reflected across that fold line, merging what would otherwise be separate holes into fewer, larger connected shapes, rather than 4 fully separate holes.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0008_b",
+          "label": "B",
+          "text": "Yes: the $2^{\\text{folds}}$ formula always applies regardless of where the cut is positioned relative to the fold lines.",
+          "isCorrect": false,
+          "rationale": "You assumed cut position does not affect whether holes merge across fold lines."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0008_c",
+          "label": "C",
+          "text": "Yes: cuts crossing fold lines always produce more holes than the formula predicts, not fewer.",
+          "isCorrect": false,
+          "rationale": "You claimed crossing fold lines increases the total hole count."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0008_d",
+          "label": "D",
+          "text": "No: but only because cuts can never cross a fold line.",
+          "isCorrect": false,
+          "rationale": "You claimed paper cuts cannot cross fold lines."
+        }
+      ],
+      "explanation": "If the cut crosses a fold line directly (rather than sitting entirely within one folded layer's interior), unfolding may connect what would otherwise be separate holes into one continuous connected shape, changing the expected count.",
+      "figureSpecJson": "{\"kind\":\"paper-fold\",\"folds\":[\"vertical\",\"horizontal\"],\"cut\":\"notch\",\"at\":\"on-fold\"}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0010",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-paper-folding-and-cutting",
+      "language": "en",
+      "stem": "A square paper is folded in half four separate times (each fold halving it again). A cut is made through all the layers at once, entirely within one layer's interior. How many holes appear when fully unfolded?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0010_a",
+          "label": "A",
+          "text": "16 holes",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0010_b",
+          "label": "B",
+          "text": "8 holes",
+          "isCorrect": false,
+          "rationale": "You used a 3-fold calculation (^3 = 8$) for a 4-fold process (^4 = 16$)."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0010_c",
+          "label": "C",
+          "text": "4 holes",
+          "isCorrect": false,
+          "rationale": "You assumed 4 folds produce 4 holes ( \\times 1 = 4$)."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0010_d",
+          "label": "D",
+          "text": "12 holes",
+          "isCorrect": false,
+          "rationale": "You multiplied 4 folds by 3 instead of evaluating ^4 = 16$."
+        }
+      ],
+      "explanation": "Four folds mean $2^4 = 16$ layers are cut through simultaneously, so unfolding reveals 16 separate holes.",
+      "figureSpecJson": "{\"kind\":\"paper-fold\",\"folds\":[\"vertical\",\"horizontal\",\"vertical\"],\"cut\":\"hole\",\"at\":\"interior\"}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0011",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-paper-folding-and-cutting",
+      "language": "en",
+      "stem": "A square paper is folded in half once (vertically). A small notch is cut entirely within the interior of the folded layer, away from the fold line and away from the paper's outer edges. How many separate notches appear when unfolded, and are they connected or fully separate?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0011_a",
+          "label": "A",
+          "text": "2 fully separate notches, one mirrored on each side of the fold line",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0011_b",
+          "label": "B",
+          "text": "1 connected notch straddling the fold line",
+          "isCorrect": false,
+          "rationale": "You treated an interior cut as a fold-line cut. Cuts away from fold lines remain fully separate."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0011_c",
+          "label": "C",
+          "text": "4 fully separate notches",
+          "isCorrect": false,
+          "rationale": "You doubled the result of a single fold (^1 = 2$)."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0011_d",
+          "label": "D",
+          "text": "No notches, since the cut is not on the fold line or an outer edge",
+          "isCorrect": false,
+          "rationale": "You claimed interior cuts produce no holes when unfolded."
+        }
+      ],
+      "explanation": "A cut positioned away from all fold lines becomes multiple separate holes, one per layer. With one fold (2 layers), unfolding reveals 2 fully separate notches, mirrored across the fold line.",
+      "figureSpecJson": "{\"kind\":\"paper-fold\",\"folds\":[\"vertical\"],\"cut\":\"notch\",\"at\":\"interior\"}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0012",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-paper-folding-and-cutting",
+      "language": "en",
+      "stem": "A square paper is folded in half vertically, then folded in half again horizontally (into a quarter-square). A notch is cut near one specific corner of the folded quarter-square, not the corner where both folds meet, and not along an outer edge, but the corner diagonally opposite the all-folds corner. Predict how many notches appear when unfolded, and their general position.",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0012_a",
+          "label": "A",
+          "text": "4 notches, one in each quadrant, each mirrored to the position diagonally opposite the center within its own quadrant",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0012_b",
+          "label": "B",
+          "text": "4 notches, all clustered at the exact center of the original square",
+          "isCorrect": false,
+          "rationale": "You placed the notches at the center. The cut was made at the outer opposite corner, so notches cluster in outer corners."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0012_c",
+          "label": "C",
+          "text": "2 notches only, since this corner is not the all-folds corner",
+          "isCorrect": false,
+          "rationale": "You halved the hole count because the cut was away from the all-folds corner."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0012_d",
+          "label": "D",
+          "text": "1 notch, since cuts away from the all-folds corner do not get mirrored",
+          "isCorrect": false,
+          "rationale": "You claimed cuts away from the center do not mirror across fold axes."
+        }
+      ],
+      "explanation": "Regardless of which specific point on the folded shape is cut, two folds always produce $2^2 = 4$ holes when the cut is away from any fold line. Each hole is mirrored into its own quadrant at the position corresponding to where the cut was made on the folded shape.",
+      "figureSpecJson": "{\"kind\":\"paper-fold\",\"folds\":[\"vertical\",\"horizontal\"],\"cut\":\"notch\",\"at\":\"corner\"}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0013",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-paper-folding-and-cutting",
+      "language": "en",
+      "stem": "Two square papers are each folded twice into a quarter-square (4 layers). On paper 1, a notch is cut near the all-folds center corner. On paper 2, an identical-sized notch is cut near the outer edge, far from the center. Both papers are then unfolded. Do the two papers end up with the same hole count, the same hole positions, or neither?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0013_a",
+          "label": "A",
+          "text": "Both papers end up with the same hole count (4 holes each, since both used 2 folds), but different hole positions: paper 1's holes cluster near the center, while paper 2's holes appear near the outer edges.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0013_b",
+          "label": "B",
+          "text": "Both papers end up with the same hole count and the same hole positions, since both used the same number of folds and the same notch size.",
+          "isCorrect": false,
+          "rationale": "You assumed cut location on the folded paper does not affect unfolded hole positions."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0013_c",
+          "label": "C",
+          "text": "The two papers end up with different hole counts, since cut position affects the total number of holes.",
+          "isCorrect": false,
+          "rationale": "You claimed cut location changes the number of layers cut through."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0013_d",
+          "label": "D",
+          "text": "Neither paper produces any holes, since folding twice cancels out any cut made afterward.",
+          "isCorrect": false,
+          "rationale": "You claimed folding cancels out paper cuts."
+        }
+      ],
+      "explanation": "The number of folds determines the hole count ($2^{\\text{folds}}$), independent of where exactly the cut is placed (as long as it's away from any fold line). But the specific position of the cut on the folded shape determines where each of those holes ends up once unfolded, so the count matches, but the positions differ.",
+      "figureSpecJson": "{\"kind\":\"paper-fold\",\"folds\":[\"vertical\",\"horizontal\"],\"cut\":\"notch\",\"at\":\"corner\"}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0014",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-paper-folding-and-cutting",
+      "language": "en",
+      "stem": "A rectangular paper is folded in half vertically (fold A), then folded in half again horizontally (fold B), then folded in half a third time along a diagonal (fold C). A small triangular notch is cut through all the layers at once, entirely within one layer's interior, away from any fold line. Determine: (a) how many notches appear when fully unfolded, and (b) in what order the folds should be undone to correctly trace each notch's final position.",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0014_a",
+          "label": "A",
+          "text": "(a) $2^3 = 8$ notches; (b) undo fold C first (the most recently made fold), then fold B, then fold A last, reflecting the cut's position at each step in that reverse order.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0014_b",
+          "label": "B",
+          "text": "(a) 3 notches, one per fold; (b) undo the folds in the same order they were made: A, then B, then C.",
+          "isCorrect": false,
+          "rationale": "You miscounted holes as equal to folds and used forward unfolding order instead of reverse order."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0014_c",
+          "label": "C",
+          "text": "(a) 6 notches; (b) the order of undoing folds does not matter for the final positions.",
+          "isCorrect": false,
+          "rationale": "You miscalculated ^3$ as 6 and claimed unfolding order does not matter."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0014_d",
+          "label": "D",
+          "text": "(a) 8 notches; (b) undo fold A first, then B, then C, following the original folding order.",
+          "isCorrect": false,
+          "rationale": "You correctly calculated 8 notches but failed to reverse the unfolding order."
+        }
+      ],
+      "explanation": "Three folds mean $2^3=8$ layers are cut through, producing 8 notches. To correctly trace each notch's position, folds must be undone in reverse order, the most recently made fold (C) first, then B, then A, reflecting the cut's position across the correct fold line at each step.",
+      "figureSpecJson": "{\"kind\":\"paper-fold\",\"folds\":[\"vertical\",\"horizontal\",\"vertical\"],\"cut\":\"hole\",\"at\":\"interior\"}"
     },
     {
       "id": "q-verbal-logic-assumptions-and-conclusions-0001",

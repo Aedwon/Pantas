@@ -4,6 +4,7 @@ import 'package:pantas/core/ui/figures/figure_series_figure.dart';
 import 'package:pantas/core/ui/figures/fluid_vessel_figure.dart';
 import 'package:pantas/core/ui/figures/gear_train_figure.dart';
 import 'package:pantas/core/ui/figures/lever_balance_figure.dart';
+import 'package:pantas/core/ui/figures/paper_fold_figure.dart';
 import 'package:pantas/core/ui/figures/pulley_system_figure.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/figures/shape_row_figure.dart';
@@ -203,6 +204,22 @@ void main() {
     expect(figure.cells.last, isNull);
   });
 
+  testWidgets('a folded paper never draws the unfolded result', (tester) async {
+    await tester.pumpApp(
+      const QuestionFigure(
+        specJson: '{"kind":"paper-fold","folds":["vertical","horizontal"],'
+            '"cut":"hole","at":"corner"}',
+      ),
+    );
+
+    final figure = tester.widget<PaperFoldFigure>(
+      find.byType(PaperFoldFigure),
+    );
+    expect(figure.folds, ['vertical', 'horizontal']);
+    expect(figure.cut, 'hole');
+    expect(figure.at, 'corner');
+  });
+
   group('a spec it cannot read says so and draws nothing plausible', () {
     const bad = <String, String>{
       'not JSON': 'gears: 3',
@@ -248,6 +265,10 @@ void main() {
           '{"form":"square"},{"form":"square"}]}',
       'a matrix whose cells do not fill it': '{"kind":"figure-matrix",'
           '"rows":3,"cols":3,"cells":[{"form":"square"},"blank"]}',
+      'a fold nobody makes': '{"kind":"paper-fold","folds":["diagonal"]}',
+      'a paper folded no times': '{"kind":"paper-fold","folds":[]}',
+      'a cut nobody makes': '{"kind":"paper-fold","folds":["vertical"],'
+          '"cut":"shred"}',
     };
 
     for (final entry in bad.entries) {
@@ -262,6 +283,7 @@ void main() {
         expect(find.byType(ShapeRowFigure), findsNothing);
         expect(find.byType(FigureSeriesFigure), findsNothing);
         expect(find.byType(FigureMatrixFigure), findsNothing);
+        expect(find.byType(PaperFoldFigure), findsNothing);
         expect(
           find.textContaining('has not been drawn yet'),
           findsOneWidget,

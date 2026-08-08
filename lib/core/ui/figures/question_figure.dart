@@ -6,6 +6,7 @@ import 'package:pantas/core/ui/figures/figure_series_figure.dart';
 import 'package:pantas/core/ui/figures/fluid_vessel_figure.dart';
 import 'package:pantas/core/ui/figures/gear_train_figure.dart';
 import 'package:pantas/core/ui/figures/lever_balance_figure.dart';
+import 'package:pantas/core/ui/figures/paper_fold_figure.dart';
 import 'package:pantas/core/ui/figures/pulley_system_figure.dart';
 import 'package:pantas/core/ui/figures/shape_row_figure.dart';
 import 'package:pantas/core/ui/figures/spring_scale_figure.dart';
@@ -78,6 +79,8 @@ class QuestionFigure extends StatelessWidget {
         return FigureSeriesFigure.fromSpec(spec);
       case FigureMatrixFigure.kind:
         return FigureMatrixFigure.fromSpec(spec);
+      case PaperFoldFigure.kind:
+        return PaperFoldFigure.fromSpec(spec);
       default:
         return null;
     }

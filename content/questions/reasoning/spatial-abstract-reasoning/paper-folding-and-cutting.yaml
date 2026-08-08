@@ -8,6 +8,11 @@ questions:
     type: paper-folding
     difficulty: easy
     figure: paper-folding-and-cutting-01
+    figureSpec:
+      kind: paper-fold
+      folds: [vertical]
+      cut: notch
+      at: interior
     stem: |
       A square paper is folded exactly in half (vertically, left side onto right side). A small triangular notch is cut out of the folded paper, entirely within one layer (not on the fold line itself). How many notches appear when the paper is fully unfolded?
     choices:
@@ -30,6 +35,11 @@ questions:
     type: paper-folding
     difficulty: easy
     figure: paper-folding-and-cutting-02
+    figureSpec:
+      kind: paper-fold
+      folds: [vertical, horizontal]
+      cut: hole
+      at: interior
     stem: |
       A square paper is folded in half vertically, then folded in half again horizontally (into a quarter-square). A small circular hole is cut through all the folded layers at once. How many holes appear when fully unfolded?
     choices:
@@ -52,6 +62,11 @@ questions:
     type: paper-folding
     difficulty: medium
     figure: paper-folding-and-cutting-03
+    figureSpec:
+      kind: paper-fold
+      folds: [vertical, horizontal, vertical]
+      cut: hole
+      at: interior
     stem: |
       A rectangular paper is folded in half three separate times (each fold halving it again). A cut is made through all the layers at once. How many holes appear when fully unfolded?
     choices:
@@ -74,6 +89,11 @@ questions:
     type: paper-folding
     difficulty: medium
     figure: paper-folding-and-cutting-04
+    figureSpec:
+      kind: paper-fold
+      folds: [vertical, horizontal]
+      cut: hole
+      at: corner
     stem: |
       A square paper is folded in half vertically, then folded in half again horizontally (into a quarter-square). A small circular hole is cut near the corner where all the folded edges meet (the center of the original square). Where will the resulting holes appear when unfolded?
     choices:
@@ -96,6 +116,11 @@ questions:
     type: paper-folding
     difficulty: medium
     figure: paper-folding-and-cutting-05
+    figureSpec:
+      kind: paper-fold
+      folds: [vertical, horizontal]
+      cut: notch
+      at: edge
     stem: |
       Using the same two-fold setup as before (folded into a quarter-square), a notch is cut this time along the outer edge of the folded paper, far from the center corner where the folds meet. Where will the resulting holes appear when unfolded?
     choices:
@@ -118,6 +143,11 @@ questions:
     type: paper-folding
     difficulty: medium
     figure: paper-folding-and-cutting-06
+    figureSpec:
+      kind: paper-fold
+      folds: [vertical]
+      cut: notch
+      at: on-fold
     stem: |
       A square paper is folded exactly in half (vertically, left side onto right side). A triangular notch is cut exactly on the folded edge (the fold line itself), at the vertical midpoint. What does the unfolded paper look like?
     choices:
@@ -162,6 +192,11 @@ questions:
     type: paper-folding
     difficulty: hard
     figure: paper-folding-and-cutting-08
+    figureSpec:
+      kind: paper-fold
+      folds: [vertical, horizontal]
+      cut: notch
+      at: on-fold
     stem: |
       A paper is folded in half twice (into a quarter-square), giving 4 layers. A cut is made that crosses one of the fold lines directly, rather than sitting entirely within one layer's interior. A student predicts this will still produce exactly 4 fully separate holes when unfolded, using the standard $2^{\text{folds}}$ formula. Is this prediction correct?
     choices:
@@ -206,6 +241,11 @@ questions:
     type: paper-folding
     difficulty: medium
     figure: paper-folding-and-cutting-10
+    figureSpec:
+      kind: paper-fold
+      folds: [vertical, horizontal, vertical]
+      cut: hole
+      at: interior
     stem: |
       A square paper is folded in half four separate times (each fold halving it again). A cut is made through all the layers at once, entirely within one layer's interior. How many holes appear when fully unfolded?
     choices:
@@ -228,6 +268,11 @@ questions:
     type: paper-folding
     difficulty: medium
     figure: paper-folding-and-cutting-11
+    figureSpec:
+      kind: paper-fold
+      folds: [vertical]
+      cut: notch
+      at: interior
     stem: |
       A square paper is folded in half once (vertically). A small notch is cut entirely within the interior of the folded layer, away from the fold line and away from the paper's outer edges. How many separate notches appear when unfolded, and are they connected or fully separate?
     choices:
@@ -250,6 +295,11 @@ questions:
     type: paper-folding
     difficulty: hard
     figure: paper-folding-and-cutting-12
+    figureSpec:
+      kind: paper-fold
+      folds: [vertical, horizontal]
+      cut: notch
+      at: corner
     stem: |
       A square paper is folded in half vertically, then folded in half again horizontally (into a quarter-square). A notch is cut near one specific corner of the folded quarter-square, not the corner where both folds meet, and not along an outer edge, but the corner diagonally opposite the all-folds corner. Predict how many notches appear when unfolded, and their general position.
     choices:
@@ -272,6 +322,11 @@ questions:
     type: paper-folding
     difficulty: hard
     figure: paper-folding-and-cutting-13
+    figureSpec:
+      kind: paper-fold
+      folds: [vertical, horizontal]
+      cut: notch
+      at: corner
     stem: |
       Two square papers are each folded twice into a quarter-square (4 layers). On paper 1, a notch is cut near the all-folds center corner. On paper 2, an identical-sized notch is cut near the outer edge, far from the center. Both papers are then unfolded. Do the two papers end up with the same hole count, the same hole positions, or neither?
     choices:
@@ -294,6 +349,11 @@ questions:
     type: paper-folding
     difficulty: exam
     figure: paper-folding-and-cutting-14
+    figureSpec:
+      kind: paper-fold
+      folds: [vertical, horizontal, vertical]
+      cut: hole
+      at: interior
     stem: |
       A rectangular paper is folded in half vertically (fold A), then folded in half again horizontally (fold B), then folded in half a third time along a diagonal (fold C). A small triangular notch is cut through all the layers at once, entirely within one layer's interior, away from any fold line. Determine: (a) how many notches appear when fully unfolded, and (b) in what order the folds should be undone to correctly trace each notch's final position.
     choices:
