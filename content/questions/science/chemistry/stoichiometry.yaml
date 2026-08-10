@@ -17,8 +17,14 @@ questions:
       - text: H2, since 5 moles of N2 need 15 moles of H2, but only 12 are available
         correct: true
       - text: N2, since it has fewer starting moles than H2
+        rationale: |
+          You compared raw mole counts instead of using the stoichiometric ratio. $N_2$ needs 3 times as much $H_2$, making $H_2$ run out first.
       - text: 'Neither: both reactants are used up at exactly the same time'
+        rationale: |
+          You assumed a stoichiometric match. 5 moles of $N_2$ require 15 moles of $H_2$, so 12 moles of $H_2$ will run out early.
       - text: NH3, since it is the product, not a reactant
+        rationale: |
+          You picked a product. Only starting reactants ($N_2$ or $H_2$) can be limiting reactants.
     explanation: |
       The equation needs 3 moles of $H_2$ for every mole of $N_2$. For 5 moles of $N_2$, $5 \times 3 = 15$ moles of $H_2$ are needed, but only 12 are available. $H_2$ runs out first, making it the limiting reactant.
     approved: true
@@ -31,8 +37,14 @@ questions:
       - text: 85%
         correct: true
       - text: 68%
+        rationale: |
+          You took the actual yield value in grams directly as a percentage instead of dividing by theoretical yield ($\dfrac{68}{80} \times 100\%$).
       - text: 80%
+        rationale: |
+          You took the theoretical yield value in grams directly as a percentage instead of dividing actual yield by theoretical yield.
       - text: 118%
+        rationale: |
+          You inverted the fraction ($\dfrac{80}{68}$). Percent yield is actual yield divided by theoretical yield ($\dfrac{68}{80}$).
     explanation: |
       Percent yield equals actual yield divided by theoretical yield, times 100%: $\dfrac{68}{80} \times 100\% = 85\%$.
     approved: true
@@ -45,8 +57,14 @@ questions:
       - text: CH2O
         correct: true
       - text: C3H6O3
+        rationale: |
+          You wrote the molecular formula ratio. An empirical formula requires dividing by the greatest common factor (3) to get the simplest ratio.
       - text: CH3O
+        rationale: |
+          You miscalculated the hydrogen ratio. Dividing 6 moles of hydrogen by 3 gives 2 ($CH_2O$), not 3.
       - text: C2H4O2
+        rationale: |
+          You divided by 1.5 instead of 3. Always divide every mole value by the smallest mole value present (3) to get $CH_2O$.
     explanation: |
       Divide every mole amount by the smallest value (3): $\dfrac{3}{3} = 1$, $\dfrac{6}{3} = 2$, $\dfrac{3}{3} = 1$. The simplest ratio is carbon 1, hydrogen 2, oxygen 1: $CH_2O$.
     approved: true
@@ -59,8 +77,14 @@ questions:
       - text: C6H12O6
         correct: true
       - text: C3H6O3
+        rationale: |
+          You multiplied subscripts by 3 ($\dfrac{90}{30}$). The multiplier is $\dfrac{180}{30} = 6$, giving $C_6H_{12}O_6$.
       - text: C2H4O2
+        rationale: |
+          You multiplied subscripts by 2 ($\dfrac{60}{30}$). Dividing 180 by 30 gives 6, so multiply all subscripts by 6.
       - text: C4H8O4
+        rationale: |
+          You multiplied subscripts by 4 ($\dfrac{120}{30}$). The ratio of 180 to 30 is 6, giving $C_6H_{12}O_6$.
     explanation: |
       Divide the actual molar mass by the empirical formula mass: $\dfrac{180}{30} = 6$. Multiply every subscript in $CH_2O$ by 6: $C_6H_{12}O_6$.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: 'No: the limiting reactant depends on the equation''s mole ratio, not just on which reactant has fewer raw moles.'
         correct: true
       - text: 'Yes: the reactant with fewer moles is always limiting, regardless of the equation.'
+        rationale: |
+          You ignored reaction coefficients. A reactant with fewer starting moles may not run out first if the reaction consumes the other faster.
       - text: 'Yes: but only for reactions involving gases.'
+        rationale: |
+          You made gas phase an exception. Stoichiometric ratios apply to all states of matter, not just gases.
       - text: 'No: the reactant with more moles is always limiting instead.'
+        rationale: |
+          You reversed the rule. Neither raw larger nor smaller mole count dictates limiting status without the balanced equation's ratio.
     explanation: |
       A reactant with a "bigger number" of moles can still run out first if the equation requires even more of it. The mole ratio from the balanced equation must always be checked, not just the raw starting amounts.
     approved: true
@@ -87,8 +117,14 @@ questions:
       - text: 'No: percent yield divides actual yield by theoretical yield, not the reverse.'
         correct: true
       - text: 'Yes: either order gives the same meaningful result.'
+        rationale: |
+          You assumed division order is reversible. Reversing the fraction produces numbers over 100%, which changes the physical meaning.
       - text: 'No: percent yield should divide theoretical yield by itself.'
+        rationale: |
+          You divided a value by itself. Dividing theoretical yield by theoretical yield always equals 100%, ignoring actual experimental results.
       - text: 'Yes: dividing theoretical by actual is the standard formula.'
+        rationale: |
+          You accepted the inverted formula. Standard percent yield compares actual experimental yield against the theoretical maximum.
     explanation: |
       Percent yield is actual yield divided by theoretical yield, times 100%. Reversing the formula would often produce a result over 100%, which does not match how percent yield is meant to work, since real yields rarely exceed the theoretical maximum.
     approved: true
@@ -101,8 +137,14 @@ questions:
       - text: 'No: they describe the same substance; the molecular formula is simply a whole-number multiple of the empirical ratio.'
         correct: true
       - text: 'Yes: different formulas always mean different substances.'
+        rationale: |
+          You assumed empirical and molecular formulas belong to different compounds. Empirical formula is just the reduced ratio of the molecular formula.
       - text: 'No: but only because glucose has no true molecular formula.'
+        rationale: |
+          You denied the molecular formula of glucose. $C_6H_{12}O_6$ is the real, actual molecular formula of glucose.
       - text: 'Yes: the empirical formula is an older, outdated compound.'
+        rationale: |
+          You treated empirical formulas as historical relics. Empirical formulas are mathematical representations of simplest atomic ratios.
     explanation: |
       The empirical formula shows the simplest ratio of atoms; the molecular formula shows the true total count in one molecule. Both describe glucose: the molecular formula is just the empirical ratio multiplied by a whole number (6, in this case).
     approved: true
@@ -115,8 +157,14 @@ questions:
       - text: 'No: every element must be divided by the same smallest value; here that value is 2, giving a ratio of 2, 4, 1 instead.'
         correct: true
       - text: 'Yes: each element can be divided by whatever number makes it a whole number.'
+        rationale: |
+          You allowed inconsistent divisors. Dividing by different numbers alters the chemical ratio between elements.
       - text: 'No: the values should not be divided at all.'
+        rationale: |
+          You rejected simplifying mole ratios. Empirical formulas require dividing by the smallest mole value to find simplest ratios.
       - text: 'Yes: the resulting ratio 1, 2, 1 is correct.'
+        rationale: |
+          You accepted the wrong formula ($CH_2O$). Dividing 4, 8, 2 all by 2 yields $C_2H_4O$, not $CH_2O$.
     explanation: |
       All elements must be divided by the same smallest mole value to preserve the true ratio between them. Here the smallest value is 2, so the correct division gives $\dfrac{4}{2}=2$, $\dfrac{8}{2}=4$, $\dfrac{2}{2}=1$: an empirical formula of $C_2H_4O$, not the student's mismatched result.
     approved: true
@@ -129,8 +177,14 @@ questions:
       - text: Cl2, since 6 moles of Al need 9 moles of Cl2, but only 8 are available
         correct: true
       - text: Al, since it has fewer starting moles than Cl2
+        rationale: |
+          You picked the smaller raw mole count. 6 moles of $Al$ need 9 moles of $Cl_2$ (ratio 2:3), so $Cl_2$ runs out first.
       - text: 'Neither: both reactants are used up at exactly the same time'
+        rationale: |
+          You assumed an exact ratio match. $Al$ needs 1.5 times its moles in $Cl_2$, so 6 moles of $Al$ need 9 moles of $Cl_2$.
       - text: AlCl3, since it is the product, not a reactant
+        rationale: |
+          You picked the reaction product. Only starting reactants can be limiting.
     explanation: |
       The equation needs 3 moles of $Cl_2$ for every 2 moles of $Al$. For 6 moles of $Al$, $6 \times \dfrac{3}{2} = 9$ moles of $Cl_2$ are needed, but only 8 are available. $Cl_2$ runs out first.
     approved: true
@@ -143,8 +197,14 @@ questions:
       - text: 80%
         correct: true
       - text: 20%
+        rationale: |
+          You took the actual yield mass directly as the percentage instead of calculating $\dfrac{20}{25} \times 100\%$.
       - text: 25%
+        rationale: |
+          You took the theoretical yield mass directly as the percentage instead of calculating $\dfrac{20}{25} \times 100\%$.
       - text: 125%
+        rationale: |
+          You inverted the yield formula ($\dfrac{25}{20}$). Percent yield is actual divided by theoretical ($\dfrac{20}{25}$).
     explanation: |
       Percent yield equals actual yield divided by theoretical yield, times 100%: $\dfrac{20}{25} \times 100\% = 80\%$.
     approved: true
@@ -157,8 +217,14 @@ questions:
       - text: CH4
         correct: true
       - text: C4H
+        rationale: |
+          You swapped the element subscripts. Carbon has 1 mole and hydrogen has 4, giving $CH_4$, not $C_4H$.
       - text: C2H8
+        rationale: |
+          You multiplied the simplest ratio by 2. Empirical formulas must express the simplest whole-number ratio ($CH_4$).
       - text: CH2
+        rationale: |
+          You halved the hydrogen count. 4 moles of hydrogen with 1 mole of carbon gives $CH_4$.
     explanation: |
       Divide every mole amount by the smallest value (1): carbon stays 1, hydrogen stays 4. Since these are already the simplest whole-number ratio, the empirical formula is $CH_4$.
     approved: true
@@ -171,8 +237,14 @@ questions:
       - text: N2O4
         correct: true
       - text: NO2
+        rationale: |
+          You kept the empirical formula unchanged. The actual mass of 92 g/mol is twice 46 g/mol, requiring doubled subscripts ($N_2O_4$).
       - text: N4O8
+        rationale: |
+          You multiplied subscripts by 4. The ratio of 92 to 46 is 2, so multiply subscripts by 2 ($N_2O_4$).
       - text: N2O2
+        rationale: |
+          You did not multiply oxygen's subscript of 2. Multiplying both subscripts in $NO_2$ by 2 yields $N_2O_4$.
     explanation: |
       Divide the actual molar mass by the empirical formula mass: $\dfrac{92}{46} = 2$. Multiply every subscript in $NO_2$ by 2: $N_2O_4$.
     approved: true
@@ -185,8 +257,14 @@ questions:
       - text: 6 mol
         correct: true
       - text: 9 mol
+        rationale: |
+          You used the limiting reactant's mole count directly as product. Use the 3:2 mole ratio from the balanced equation ($9 \times \dfrac{2}{3} = 6$).
       - text: 4 mol
+        rationale: |
+          You used excess reactant $N_2$ for the calculation. Product yield is determined by the limiting reactant $H_2$.
       - text: 3 mol
+        rationale: |
+          You used the coefficient of $H_2$. Multiply limiting moles (9) by the mole ratio $\dfrac{2}{3}$ to get 6 moles of $NH_3$.
     explanation: |
       The equation's ratio is 3 moles of $H_2$ to 2 moles of $NH_3$. Using the limiting reactant's 9 moles: $9 \times \dfrac{2}{3} = 6$ moles of $NH_3$.
     approved: true
@@ -199,8 +277,14 @@ questions:
       - text: Theoretical yield
         correct: true
       - text: Actual yield
+        rationale: |
+          You picked the real-world measured amount. Actual yield is what you weigh after running the experiment.
       - text: Percent yield
+        rationale: |
+          You picked the ratio measure. Percent yield compares actual yield to theoretical yield as a percentage.
       - text: Empirical yield
+        rationale: |
+          You used the term for simplest atomic ratios. Empirical applies to formulas, not maximum reaction yields.
     explanation: |
       The theoretical yield is the maximum amount the balanced equation predicts, calculated from the limiting reactant, before any real-world losses are considered.
     approved: true
