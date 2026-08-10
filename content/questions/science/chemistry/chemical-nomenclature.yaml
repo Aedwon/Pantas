@@ -17,8 +17,14 @@ questions:
       - text: Potassium bromide
         correct: true
       - text: Potassium bromine
+        rationale: |
+          You forgot to change the nonmetal ending. Binary ionic compounds change the nonmetal's suffix to "-ide" (bromide).
       - text: Bromide potassium
+        rationale: |
+          You reversed the element order. Ionic naming always puts the metal cation first, followed by the nonmetal anion.
       - text: Potassium (I) bromide
+        rationale: |
+          You added unnecessary Roman numerals. Potassium is an alkali metal with only one fixed charge (+1), so Roman numerals are omitted.
     explanation: |
       An ionic compound's name is the metal's name unchanged, plus the nonmetal's name with its ending changed to "-ide." Potassium stays potassium; bromine becomes bromide.
     approved: true
@@ -31,8 +37,14 @@ questions:
       - text: Carbon monoxide
         correct: true
       - text: Carbon oxide
+        rationale: |
+          You omitted the prefix "mono-". The second element in covalent binary compounds requires a prefix to distinguish $CO$ from $CO_2$.
       - text: Monocarbon oxide
+        rationale: |
+          You added "mono-" to the first element. The first element skips "mono-" when only one atom is present.
       - text: Carbon dioxide
+        rationale: |
+          You used the prefix "di-". Carbon monoxide has 1 oxygen atom ($CO$), whereas carbon dioxide has 2 ($CO_2$).
     explanation: |
       In covalent naming, the second element always gets a prefix, even for one atom. "Mono-" on oxide specifically distinguishes $CO$ from $CO_2$ (carbon dioxide).
     approved: true
@@ -45,8 +57,14 @@ questions:
       - text: Carbon dioxide
         correct: true
       - text: Carbon monoxide
+        rationale: |
+          You picked the name for 1 oxygen atom. Carbon dioxide has 2 oxygen atoms ($CO_2$), while monoxide has 1 ($CO$).
       - text: Dicarbon oxide
+        rationale: |
+          You put the "di-" prefix on carbon. The subscript 2 belongs to oxygen, not carbon ($CO_2$).
       - text: Carbon oxide
+        rationale: |
+          You omitted the numerical prefix. Binary nonmetal compounds require Greek prefixes to state atom counts.
     explanation: |
       The first element (carbon, one atom) skips its prefix; the second element (two oxygen atoms) gets "di-": carbon dioxide.
     approved: true
@@ -59,8 +77,14 @@ questions:
       - text: Copper is 2+ here, so the compound is copper (II) oxide.
         correct: true
       - text: Copper is 1+ here, so the compound is copper (I) oxide.
+        rationale: |
+          You assumed a 1+ copper charge. One $O^{2-}$ ion requires one $Cu^{2+}$ ion for neutral balance, making copper 2+.
       - text: Copper's charge cannot be determined from this compound.
+        rationale: |
+          You assumed the charge is unknown. Charge balance with oxide ($O^{2-}$) directly determines copper's 2+ charge.
       - text: Copper is 2+ here, so the compound is copper (I) oxide.
+        rationale: |
+          You matched 2+ charge with the wrong Roman numeral. Roman numeral (II) represents a 2+ charge, not (I).
     explanation: |
       Oxide has a charge of 2-. For the compound to be neutral, copper's charge here must be 2+. Since copper can form more than one charge, the Roman numeral (II) is required: copper (II) oxide.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: Iron (III) chloride
         correct: true
       - text: Iron (II) chloride
+        rationale: |
+          You assigned a 2+ charge. 3 chloride ions ($3 \times 1-$) balance one $Fe^{3+}$ ion, requiring Roman numeral (III).
       - text: Iron chloride
+        rationale: |
+          You omitted the Roman numeral. Transition metals with multiple charges require a Roman numeral to specify the charge.
       - text: Triiron chloride
+        rationale: |
+          You used covalent Greek prefixes on an ionic compound. Ionic compounds use Roman numerals for transition metal charges, not Greek prefixes.
     explanation: |
       Each chloride ion has a charge of 1-, and there are 3 of them, so the total negative charge is 3-. Iron's charge here must be 3+, so the Roman numeral (III) is required: iron (III) chloride.
     approved: true
@@ -87,8 +117,14 @@ questions:
       - text: Dinitrogen pentoxide
         correct: true
       - text: Nitrogen pentoxide
+        rationale: |
+          You omitted the prefix "di-" on nitrogen. Nonmetal covalent compounds specify both element counts with prefixes ($N_2$ needs "di-").
       - text: Dinitrogen pentaoxide
+        rationale: |
+          You kept the extra vowel "a". When "penta-" combines with "oxide," the vowel "a" is dropped to form "pentoxide."
       - text: Nitrogen (V) oxide
+        rationale: |
+          You used ionic Roman numeral naming on a covalent compound. Compounds of two nonmetals use Greek prefixes, not Roman numerals.
     explanation: |
       Two nitrogen atoms get the prefix "di-"; five oxygen atoms get "penta-," but the "a" is dropped before the vowel in "oxide," giving "pentoxide." Full name: dinitrogen pentoxide.
     approved: true
@@ -101,8 +137,14 @@ questions:
       - text: Ca(NO3)2
         correct: true
       - text: Ca2NO3
+        rationale: |
+          You swapped the criss-cross subscripts. Calcium's 2+ charge becomes the subscript for nitrate, yielding $Ca(NO_3)_2$.
       - text: CaNO3
+        rationale: |
+          You assumed a 1:1 ratio. $Ca^{2+}$ requires two $NO_3^-$ ions ($2 \times 1-$) to balance the 2+ charge.
       - text: Ca2(NO3)2
+        rationale: |
+          You doubled both subscripts. Ratios in ionic formulas are reduced to simplest whole numbers ($1:2$).
     explanation: |
       Using the criss-cross method, calcium's charge (2) becomes nitrate's subscript, and nitrate's charge (1) becomes calcium's subscript (omitted since it's 1). Since nitrate is polyatomic, its formula needs parentheses when a subscript is added: $Ca(NO_3)_2$.
     approved: true
@@ -115,8 +157,14 @@ questions:
       - text: Al2(SO4)3
         correct: true
       - text: Al3(SO4)2
+        rationale: |
+          You inverted the criss-cross subscripts. Aluminum's 3+ charge goes to sulfate (3), and sulfate's 2- charge goes to aluminum (2).
       - text: AlSO4
+        rationale: |
+          You assumed charges match 1:1. $Al^{3+}$ and $SO_4^{2-}$ require a common multiple of 6, giving $Al_2(SO_4)_3$.
       - text: Al2SO4
+        rationale: |
+          You omitted parentheses and the subscript 3 on sulfate. Parentheses around $(SO_4)$ are required when adding a subscript of 3.
     explanation: |
       Using the criss-cross method, aluminum's charge (3) becomes sulfate's subscript, and sulfate's charge (2) becomes aluminum's subscript: $Al_2(SO_4)_3$. The parentheses are needed since more than one sulfate ion is present.
     approved: true
@@ -129,8 +177,14 @@ questions:
       - text: 'No: without the Roman numeral, "iron chloride" could also mean $FeCl_2$, since iron can form more than one charge.'
         correct: true
       - text: 'Yes: Roman numerals are optional decoration, not required information.'
+        rationale: |
+          You treated Roman numerals as optional. Transition metals with multiple oxidation states require Roman numerals for clear identification.
       - text: 'Yes: "iron chloride" always refers only to $FeCl_3$.'
+        rationale: |
+          You assumed "iron chloride" is unique. Both $FeCl_2$ and $FeCl_3$ exist, making Roman numerals essential.
       - text: 'No: but only because iron is not actually a metal.'
+        rationale: |
+          You misclassified iron. Iron is a transition metal, which is why it forms multiple positive cation charges.
     explanation: |
       Since iron can form both $Fe^{2+}$ and $Fe^{3+}$, "iron chloride" alone does not say which compound is meant. The Roman numeral (III) is required to specify $FeCl_3$ rather than $FeCl_2$ (iron (II) chloride).
     approved: true
@@ -143,8 +197,14 @@ questions:
       - text: 'No: the second element in covalent naming always gets a prefix, even for one atom, so it must be "carbon monoxide."'
         correct: true
       - text: 'Yes: "mono-" is always dropped for a single atom, on both elements.'
+        rationale: |
+          You applied the "mono-" drop rule to the second element. Only the first element drops "mono-"; the second element always keeps it.
       - text: 'No: but only because the first element needs the prefix instead.'
+        rationale: |
+          You put "mono-" on the first element. The first element drops "mono-", while the second element must include it.
       - text: 'Yes: "carbon oxide" and "carbon monoxide" refer to different compounds.'
+        rationale: |
+          You assumed "carbon oxide" is a valid distinct compound name. "Carbon oxide" is an incomplete name for carbon monoxide.
     explanation: |
       Only the *first* element skips "mono-" for a single atom. The second element always keeps its prefix, precisely so that "carbon monoxide" ($CO$) is never confused with "carbon dioxide" ($CO_2$).
     approved: true
@@ -157,8 +217,14 @@ questions:
       - text: 'No: polyatomic ions like hydroxide keep their own special name; the compound is simply "sodium hydroxide."'
         correct: true
       - text: 'Yes: every anion''s name must end in "-ide," including polyatomic ions.'
+        rationale: |
+          You modified a polyatomic ion name. Polyatomic ions like hydroxide ($OH^-$) retain their set names without adding extra suffixes.
       - text: 'No: but only because sodium is not really a metal.'
+        rationale: |
+          You misclassified sodium. Sodium is an alkali metal, and $NaOH$ is a standard ionic compound.
       - text: 'Yes: "sodium hydroxide-ide" is the fully correct chemical name.'
+        rationale: |
+          You accepted the double suffix. The name hydroxide already contains its proper ending; adding "-ide" is incorrect.
     explanation: |
       The "-ide" ending rule applies only to simple, single-element anions (like chloride or oxide). Polyatomic ions such as hydroxide keep their own name as-is: the compound is named sodium hydroxide.
     approved: true
@@ -171,8 +237,14 @@ questions:
       - text: SO3^2-
         correct: true
       - text: SO5^2-
+        rationale: |
+          You added an oxygen atom instead of subtracting one. The suffix "-ite" means one fewer oxygen atom than "-ate" ($SO_3^{2-}$).
       - text: SO4^2-
+        rationale: |
+          You gave the formula for sulfate. Sulfite must have one less oxygen atom ($SO_3^{2-}$).
       - text: SO4^-
+        rationale: |
+          You altered the ionic charge. Changing between "-ate" and "-ite" alters the oxygen count, not the charge.
     explanation: |
       The "-ite" ending has one fewer oxygen atom than the matching "-ate" ending, with the same charge. Since sulfate is $SO_4^{2-}$, sulfite is $SO_3^{2-}$.
     approved: true
@@ -185,8 +257,14 @@ questions:
       - text: Covalent naming, using Greek prefixes on both elements.
         correct: true
       - text: Ionic naming, using a cation name plus an "-ide" ending.
+        rationale: |
+          You applied metal and nonmetal bonding rules. When both elements are nonmetals, use prefix naming rather than cation-anion naming.
       - text: Neither system applies to compounds made of two nonmetals.
+        rationale: |
+          You claimed no system applies. Covalent naming with Greek prefixes specifically governs binary nonmetal compounds.
       - text: Both systems apply equally and give the same name.
+        rationale: |
+          You treated naming systems as interchangeable. Ionic naming uses charges, while covalent naming uses Greek prefixes.
     explanation: |
       Ionic naming applies to metal-nonmetal compounds. Two nonmetals combining always use covalent naming, with Greek prefixes showing exactly how many atoms of each element are present.
     approved: true
@@ -199,8 +277,14 @@ questions:
       - text: Mg3(PO4)2
         correct: true
       - text: Mg2(PO4)3
+        rationale: |
+          You placed the cation charge on the cation itself and the anion charge on the anion. The charges must cross over to become the opposite ion's subscript.
       - text: MgPO4
+        rationale: |
+          You assumed a 1:1 ratio. Balancing $2+$ and $3-$ charges requires 3 $Mg^{2+}$ and 2 $PO_4^{3-}$ to equal 6.
       - text: Mg3PO4
+        rationale: |
+          You omitted parentheses around phosphate. Polyatomic ions require parentheses when followed by a subscript greater than 1 ($Mg_3(PO_4)_2$).
     explanation: |
       Using the criss-cross method, magnesium's charge (2) becomes phosphate's subscript, and phosphate's charge (3) becomes magnesium's subscript: $Mg_3(PO_4)_2$.
     approved: true
@@ -213,8 +297,14 @@ questions:
       - text: Iron is 3+ here, so the compound is iron (III) oxide.
         correct: true
       - text: Iron is 2+ here, so the compound is iron (II) oxide.
+        rationale: |
+          You calculated for iron (II) oxide. $Fe^{2+}$ with $O^{2-}$ gives $FeO$, whereas $Fe_2O_3$ contains $Fe^{3+}$.
       - text: Iron is 6+ here, so the compound is iron (VI) oxide.
+        rationale: |
+          You gave the total charge of both iron atoms combined. Roman numerals specify the charge per single iron ion (+3).
       - text: Iron's charge cannot be determined without more information.
+        rationale: |
+          You assumed insufficient data. Knowing 3 oxide ions contribute $6-$ total charge determines that 2 iron atoms contribute $3+$ each.
     explanation: |
       Three oxide ions contribute a total charge of $3 \times 2- = 6-$. To balance this, the 2 iron atoms together must contribute $6+$, so each individual iron atom is $3+$. The compound is iron (III) oxide.
     approved: true
