@@ -17,8 +17,14 @@ questions:
       - text: 1 liter
         correct: true
       - text: 5 liters
+        rationale: |
+          You kept the original volume. Increasing pressure 5 times forces volume to shrink proportionally, from 5 liters down to 1 liter.
       - text: 3 liters
+        rationale: |
+          You used the original pressure value as the volume. Solve $P_1V_1 = P_2V_2$: $(3)(5) = 15 \times V_2$, yielding $V_2 = 1$ liter.
       - text: 25 liters
+        rationale: |
+          You multiplied volume by pressure increase ($5 \times 5$). Boyle's Law is inverse: multiplying pressure by 5 divides volume by 5.
     explanation: |
       $P_1V_1 = P_2V_2$: $(3)(5) = (15)(V_2)$, so $15 = 15V_2$, giving $V_2 = 1$ liter. Pressure went up 5 times, so volume shrank to one-fifth.
     approved: true
@@ -31,8 +37,14 @@ questions:
       - text: 8 liters
         correct: true
       - text: 2 liters
+        rationale: |
+          You halved the volume instead of doubling it. Charles's Law is a direct relationship: doubling temperature doubles volume.
       - text: 4 liters
+        rationale: |
+          You kept the initial volume unchanged. Heating a gas at constant pressure causes it to expand as temperature rises.
       - text: 16 liters
+        rationale: |
+          You quadrupled the volume ($4 \times 4$). Since temperature doubled from 200 K to 400 K, volume doubles from 4 liters to 8 liters.
     explanation: |
       $\dfrac{4}{200} = \dfrac{V_2}{400}$. Cross multiplying: $4 \times 400 = 200 \times V_2$, so $V_2 = 8$ liters. Doubling the temperature doubled the volume.
     approved: true
@@ -45,8 +57,14 @@ questions:
       - text: 4 atm
         correct: true
       - text: 2 atm
+        rationale: |
+          You kept pressure unchanged. Heating gas in a rigid container increases particle collisions, raising pressure as temperature doubles.
       - text: 1 atm
+        rationale: |
+          You halved the pressure. Gay-Lussac's Law is a direct relationship: doubling temperature from 250 K to 500 K doubles pressure.
       - text: 8 atm
+        rationale: |
+          You quadrupled the pressure ($2 \times 4$). Temperature doubled ($250 \rightarrow 500$ K), so pressure doubles from 2 atm to 4 atm.
     explanation: |
       $\dfrac{2}{250} = \dfrac{P_2}{500}$. Cross multiplying: $2 \times 500 = 250 \times P_2$, so $P_2 = 4$ atm. Doubling the temperature doubled the pressure.
     approved: true
@@ -59,8 +77,14 @@ questions:
       - text: 9 liters
         correct: true
       - text: 3 liters
+        rationale: |
+          You kept initial volume unchanged. Adding 3 times as many moles at constant pressure expands the gas to 3 times its volume.
       - text: 6 liters
+        rationale: |
+          You copied the new mole count as volume. Avogadro's Law uses proportions: $\dfrac{3}{2} = \dfrac{V_2}{6}$, giving $V_2 = 9$ liters.
       - text: 1 liter
+        rationale: |
+          You divided volume by mole increase ($3 \div 3$). Avogadro's Law is direct: tripling moles triples volume to 9 liters.
     explanation: |
       $\dfrac{3}{2} = \dfrac{V_2}{6}$. Cross multiplying: $3 \times 6 = 2 \times V_2$, so $V_2 = 9$ liters. Tripling the moles tripled the volume.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: 4 liters
         correct: true
       - text: 8 liters
+        rationale: |
+          You applied temperature doubling without applying pressure doubling. Doubling pressure halves volume, offsetting the temperature double.
       - text: 2 liters
+        rationale: |
+          You applied pressure doubling without applying temperature doubling. Doubling temperature doubles volume, balancing the pressure effect.
       - text: 16 liters
+        rationale: |
+          You multiplied both factor changes together ($4 \times 2 \times 2$). Combining $\dfrac{P_1V_1}{T_1} = \dfrac{P_2V_2}{T_2}$ leaves volume at 4 liters.
     explanation: |
       $\dfrac{(2)(4)}{200} = \dfrac{(4)(V_2)}{400}$. Cross multiplying: $8 \times 400 = 200 \times 4 \times V_2$, so $3200 = 800V_2$, giving $V_2 = 4$ liters. Pressure doubling (which alone would halve volume) and temperature doubling (which alone would double volume) cancel out.
     approved: true
@@ -87,8 +117,14 @@ questions:
       - text: About 1.22 moles
         correct: true
       - text: About 0.81 moles
+        rationale: |
+          You inverted the fraction ($\dfrac{RT}{PV}$). The ideal gas law for moles is $n = \dfrac{PV}{RT} = \dfrac{30}{24.63} \approx 1.22$ moles.
       - text: About 3.00 moles
+        rationale: |
+          You divided $PV$ by 10 instead of $RT$. $RT = 0.0821 \times 300 = 24.63$, so $n = \dfrac{30}{24.63} \approx 1.22$ moles.
       - text: About 24.63 moles
+        rationale: |
+          You calculated the denominator $RT$ ($0.0821 \times 300$) without dividing $PV = 30$ by it.
     explanation: |
       $n = \dfrac{PV}{RT} = \dfrac{(3)(10)}{(0.0821)(300)} = \dfrac{30}{24.63} \approx 1.22$ moles.
     approved: true
@@ -101,8 +137,14 @@ questions:
       - text: 'No: all gas law formulas require temperature in kelvin; the student must add 273 to convert first.'
         correct: true
       - text: 'Yes: Celsius and kelvin can be used interchangeably in gas law formulas.'
+        rationale: |
+          You assumed unit interchangeability. Gas laws rely on absolute zero ($0 \text{ K}$), so temperatures must be converted to kelvin ($K = °C + 273$).
       - text: 'No: but only because 25°C is too low a temperature for gas laws to apply.'
+        rationale: |
+          You questioned temperature validity. Gas laws work at room temperature ($25°C$), but the value must be converted to $298 \text{ K}$.
       - text: 'Yes: only pressure and volume need consistent units, not temperature.'
+        rationale: |
+          You excluded temperature from unit rules. Temperature MUST be in kelvin to maintain proper proportionality.
     explanation: |
       Gas law formulas depend on kelvin specifically, since zero kelvin truly means no thermal energy. Using Celsius directly (especially without converting) breaks the proportional relationships these laws rely on.
     approved: true
@@ -115,8 +157,14 @@ questions:
       - text: 'No: pressure and volume are inversely related (Boyle''s Law); squeezing a gas into less space increases its pressure.'
         correct: true
       - text: 'Yes: pressure and volume always increase or decrease together.'
+        rationale: |
+          You treated pressure and volume as directly proportional. Squeezing gas into smaller volume forces more collisions, raising pressure.
       - text: 'No: but only because temperature is not held constant.'
+        rationale: |
+          You made temperature non-constancy the primary issue. Boyle's Law assumes constant temperature, where smaller volume means higher pressure.
       - text: 'Yes: this is exactly what Boyle''s Law states.'
+        rationale: |
+          You misremembered Boyle's Law. Boyle's Law states pressure and volume are inversely related, not directly related.
     explanation: |
       Boyle's Law describes an inverse relationship: at constant temperature, decreasing volume increases pressure, not the other way the student assumed.
     approved: true
@@ -129,8 +177,14 @@ questions:
       - text: 'No: since temperature is also changing, the combined gas law is needed, not Boyle''s Law alone.'
         correct: true
       - text: 'Yes: Boyle''s Law can always be used regardless of how many quantities change.'
+        rationale: |
+          You applied Boyle's Law universally. Boyle's Law requires constant temperature; when temperature changes, use the combined gas law.
       - text: 'No: the ideal gas law should be used instead, since three quantities are changing.'
+        rationale: |
+          You picked the Ideal Gas Law for a before-and-after change. The combined gas law handles two-state changes with constant moles.
       - text: 'Yes: as long as pressure and volume are correctly identified.'
+        rationale: |
+          You ignored temperature changes. Omitting temperature variations from calculations yields wrong values.
     explanation: |
       Boyle's Law only accounts for pressure and volume, assuming temperature stays fixed. Since temperature is also changing here, the combined gas law (which merges all three relationships) is required.
     approved: true
@@ -143,8 +197,14 @@ questions:
       - text: The Ideal Gas Law ($PV = nRT$), since it handles a single snapshot in time.
         correct: true
       - text: The Combined Gas Law, since it always applies whenever all quantities are given.
+        rationale: |
+          You picked a two-state comparison law. The combined gas law requires initial and final conditions ($P_1V_1/T_1 = P_2V_2/T_2$).
       - text: Boyle's Law, since pressure and volume are both given.
+        rationale: |
+          You ignored moles and temperature. Boyle's Law only connects $P$ and $V$ when temperature and moles remain constant.
       - text: Avogadro's Law, since moles are given.
+        rationale: |
+          You picked a two-state mole-volume law. Avogadro's Law compares $\dfrac{V_1}{n_1} = \dfrac{V_2}{n_2}$, not a single static state.
     explanation: |
       The Combined Gas Law compares two different states (before and after a change) for a fixed amount of gas. Since this problem describes only one single moment (with moles included), the Ideal Gas Law is the correct choice.
     approved: true
@@ -157,8 +217,14 @@ questions:
       - text: It increases, since pressure and volume are inversely related at constant temperature.
         correct: true
       - text: It decreases, since pressure and volume move in the same direction.
+        rationale: |
+          You treated pressure and volume as directly proportional. Compressing gas into a smaller space increases collision frequency and pressure.
       - text: It stays exactly the same.
+        rationale: |
+          You assumed pressure is unaffected by volume. Changing volume at constant temperature directly alters gas pressure.
       - text: It cannot be determined without knowing the exact volume.
+        rationale: |
+          You assumed exact values are needed. The qualitative direction (increase) follows directly from Boyle's inverse relationship.
     explanation: |
       Boyle's Law describes an inverse relationship between pressure and volume at constant temperature: shrinking the volume raises the pressure.
     approved: true
@@ -171,8 +237,14 @@ questions:
       - text: It increases, since volume and temperature are directly related at constant pressure.
         correct: true
       - text: It decreases, since heating always shrinks a gas.
+        rationale: |
+          You claimed heating shrinks gas. Heating increases kinetic energy, causing gas molecules to push outward and expand volume.
       - text: It stays exactly the same.
+        rationale: |
+          You assumed volume remains fixed under heating. At constant pressure, a gas must expand when heated (Charles's Law).
       - text: It cannot be determined without knowing the exact temperature.
+        rationale: |
+          You assumed exact values are needed. Charles's Law dictates that heating at constant pressure always increases volume.
     explanation: |
       Charles's Law describes a direct relationship between volume and temperature at constant pressure: heating the gas makes it expand.
     approved: true
@@ -185,8 +257,14 @@ questions:
       - text: It increases, since pressure and temperature are directly related at constant volume.
         correct: true
       - text: It decreases, since heating always lowers pressure in a sealed container.
+        rationale: |
+          You predicted a pressure drop. Heating gas speeds up molecules, causing harder and more frequent wall collisions, raising pressure.
       - text: It stays exactly the same, since the container is rigid.
+        rationale: |
+          You confused container volume with gas pressure. Rigid walls hold volume constant, forcing internal pressure to rise when heated.
       - text: It cannot be determined without knowing the exact temperature.
+        rationale: |
+          You assumed exact numbers are required. Gay-Lussac's Law establishes that heating a rigid container always raises pressure.
     explanation: |
       Gay-Lussac's Law describes a direct relationship between pressure and temperature at constant volume: heating a sealed, rigid container raises its internal pressure.
     approved: true
@@ -199,8 +277,14 @@ questions:
       - text: 4 atm
         correct: true
       - text: 24 atm
+        rationale: |
+          You used Celsius temperatures directly without converting ($2 \times \dfrac{327}{27}$). Convert to kelvin first ($300 \text{ K} \rightarrow 600 \text{ K}$).
       - text: 2 atm
+        rationale: |
+          You kept initial pressure unchanged. Doubling absolute temperature from $300 \text{ K}$ to $600 \text{ K}$ doubles pressure from 2 atm to 4 atm.
       - text: 8 atm
+        rationale: |
+          You quadrupled the pressure. The temperature doubled in kelvin ($300 \rightarrow 600 \text{ K}$), so pressure doubles from 2 atm to 4 atm.
     explanation: |
       Convert to kelvin: $27°C + 273 = 300$ K, and $327°C + 273 = 600$ K. Using Gay-Lussac's Law: $\dfrac{2}{300} = \dfrac{P_2}{600}$, giving $P_2 = 4$ atm.
     approved: true
@@ -213,8 +297,14 @@ questions:
       - text: The Ideal Gas Law
         correct: true
       - text: The Combined Gas Law
+        rationale: |
+          You picked the two-state comparison law. The combined gas law requires initial and final state changes ($P_1V_1/T_1 = P_2V_2/T_2$).
       - text: Boyle's Law
+        rationale: |
+          You picked the two-variable law for constant temperature. The Ideal Gas Law relates all four variables ($P, V, n, T$) simultaneously.
       - text: Charles's Law
+        rationale: |
+          You picked the volume-temperature law. Charles's Law requires constant pressure and a two-state comparison ($\dfrac{V_1}{T_1} = \dfrac{V_2}{T_2}$).
     explanation: |
       The Ideal Gas Law ($PV = nRT$) relates pressure, volume, moles, and temperature all at once, without needing a "before and after" comparison: exactly the situation described here.
     approved: true
