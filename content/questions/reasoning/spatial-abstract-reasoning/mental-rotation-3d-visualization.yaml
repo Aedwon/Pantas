@@ -8,6 +8,15 @@ questions:
     type: mental-rotation
     difficulty: easy
     figure: mental-rotation-3d-visualization-01
+    figureSpec:
+      kind: cube-net
+      cells:
+        - [0, 1]
+        - [1, 0]
+        - [1, 1]
+        - [1, 2]
+        - [2, 1]
+        - [3, 1]
     stem: |
       A cross-shaped (plus-sign) net has one central square, with four squares attached to its four sides (up, down, left, right), and one more square attached to the far end of the "up" arm. If the center square becomes the bottom of the cube once folded, which square becomes the top?
     choices:
@@ -30,6 +39,15 @@ questions:
     type: mental-rotation
     difficulty: medium
     figure: mental-rotation-3d-visualization-02
+    figureSpec:
+      kind: cube-net
+      cells:
+        - [1, 0]
+        - [1, 1]
+        - [1, 2]
+        - [1, 3]
+        - [0, 1]
+        - [2, 1]
     stem: |
       A flat pattern has 6 squares arranged with 4 in a straight horizontal row, and 2 more squares both attached to the top of the same square (the second square in the row), stacked directly on top of each other. Does this net fold into a valid cube?
     choices:
@@ -51,7 +69,6 @@ questions:
   - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0003
     type: mental-rotation
     difficulty: medium
-    figure: mental-rotation-3d-visualization-03
     stem: |
       A solid cylinder (like a can) stands upright, with light shining straight down from directly above it. What shape is the shadow cast on the ground?
     choices:
@@ -73,7 +90,6 @@ questions:
   - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0004
     type: mental-rotation
     difficulty: medium
-    figure: mental-rotation-3d-visualization-04
     stem: |
       The same upright cylinder now has light shining from directly the side (horizontally), rather than from above. What shape is the shadow cast on a wall behind it?
     choices:
@@ -95,7 +111,6 @@ questions:
   - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0005
     type: mental-rotation
     difficulty: medium
-    figure: mental-rotation-3d-visualization-05
     stem: |
       A solid cube sits on a table, with light shining straight down from directly above it. What shape is the shadow cast on the table?
     choices:
@@ -117,7 +132,6 @@ questions:
   - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0006
     type: mental-rotation
     difficulty: medium
-    figure: mental-rotation-3d-visualization-06
     stem: |
       A solid sphere (like a ball) has light shining on it from any direction. What shape is the shadow cast, regardless of the light's direction?
     choices:
@@ -140,6 +154,15 @@ questions:
     type: mental-rotation
     difficulty: medium
     figure: mental-rotation-3d-visualization-07
+    figureSpec:
+      kind: cube-net
+      cells:
+        - [0, 0]
+        - [0, 1]
+        - [0, 2]
+        - [0, 3]
+        - [0, 4]
+        - [0, 5]
     stem: |
       A flat pattern has 6 squares arranged in a single straight horizontal row (a 1-by-6 strip, with each square attached only to its immediate left and right neighbors). Does this net fold into a valid cube?
     choices:
@@ -162,6 +185,15 @@ questions:
     type: mental-rotation
     difficulty: hard
     figure: mental-rotation-3d-visualization-08
+    figureSpec:
+      kind: cube-net
+      cells:
+        - [0, 1]
+        - [1, 0]
+        - [1, 1]
+        - [1, 2]
+        - [2, 1]
+        - [3, 1]
     stem: |
       In a cross-shaped net, the "up" neighbor and the "left" neighbor of the center square do not touch each other in the flat net (each only touches the center directly). A student assumes that since these two squares are not touching in the flat net, they must also not be touching (not adjacent) as faces once the cube is folded. Is this assumption correct?
     choices:
@@ -184,6 +216,15 @@ questions:
     type: mental-rotation
     difficulty: hard
     figure: mental-rotation-3d-visualization-09
+    figureSpec:
+      kind: cube-net
+      cells:
+        - [0, 0]
+        - [0, 1]
+        - [0, 2]
+        - [1, 0]
+        - [1, 1]
+        - [1, 2]
     stem: |
       A student sees any arrangement of 6 connected squares and assumes it must automatically fold into a valid cube, since "a cube has 6 faces, and this net has 6 squares." Is this assumption correct?
     choices:
@@ -205,7 +246,6 @@ questions:
   - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0010
     type: mental-rotation
     difficulty: hard
-    figure: mental-rotation-3d-visualization-10
     stem: |
       A student assumes a cylinder's shadow, no matter the light's direction, must always match one of the cylinder's actual flat surfaces (its circular top or bottom). Given that a cylinder's side is curved, not flat, is this assumption correct?
     choices:
@@ -228,6 +268,15 @@ questions:
     type: mental-rotation
     difficulty: medium
     figure: mental-rotation-3d-visualization-11
+    figureSpec:
+      kind: cube-net
+      cells:
+        - [0, 1]
+        - [1, 0]
+        - [1, 1]
+        - [1, 2]
+        - [2, 1]
+        - [3, 1]
     stem: |
       A T-shaped net has 4 squares in a vertical column, with 2 more squares attached to the sides of the second square from the top (one on the left, one on the right). If the bottom square of the vertical column becomes the bottom of the cube once folded, which square becomes the top?
     choices:
@@ -249,7 +298,6 @@ questions:
   - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0012
     type: mental-rotation
     difficulty: medium
-    figure: mental-rotation-3d-visualization-12
     stem: |
       A solid cone (like an ice cream cone shape, pointed at the top, circular at the base) sits with its circular base on a table. Light shines straight down from above, and separately, light shines from directly the side. What shape is the shadow in each case?
     choices:
@@ -272,6 +320,15 @@ questions:
     type: mental-rotation
     difficulty: hard
     figure: mental-rotation-3d-visualization-13
+    figureSpec:
+      kind: cube-net
+      cells:
+        - [0, 1]
+        - [1, 0]
+        - [1, 1]
+        - [1, 2]
+        - [2, 1]
+        - [3, 1]
     stem: |
       In the same cross-shaped net as before (center square as bottom, four immediate neighbors as sides, and one far-end square on the vertical arm as the top), which two faces are opposite each other among the four side faces (up, down, left, right neighbors of the center)?
     choices:
@@ -294,6 +351,15 @@ questions:
     type: mental-rotation
     difficulty: exam
     figure: mental-rotation-3d-visualization-14
+    figureSpec:
+      kind: cube-net
+      cells:
+        - [0, 1]
+        - [1, 0]
+        - [1, 1]
+        - [1, 2]
+        - [2, 1]
+        - [2, 2]
     stem: |
       A flat pattern has 6 squares: a central square, with four squares attached to its four sides (forming the same cross shape as before), but this time, the fifth "extra" square is attached to the far end of the "right" arm instead of the "up" arm. If the center square becomes the bottom, and light later shines straight down onto the assembled cube's top face, what shape is the shadow, and which square in the net became the face casting it?
     choices:

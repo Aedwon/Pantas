@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/figures/cube_net_figure.dart';
 import 'package:pantas/core/ui/figures/figure_matrix_figure.dart';
 import 'package:pantas/core/ui/figures/figure_series_figure.dart';
 import 'package:pantas/core/ui/figures/fluid_vessel_figure.dart';
@@ -81,6 +82,8 @@ class QuestionFigure extends StatelessWidget {
         return FigureMatrixFigure.fromSpec(spec);
       case PaperFoldFigure.kind:
         return PaperFoldFigure.fromSpec(spec);
+      case CubeNetFigure.kind:
+        return CubeNetFigure.fromSpec(spec);
       default:
         return null;
     }

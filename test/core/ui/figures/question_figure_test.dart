@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/figures/cube_net_figure.dart';
 import 'package:pantas/core/ui/figures/figure_matrix_figure.dart';
 import 'package:pantas/core/ui/figures/figure_series_figure.dart';
 import 'package:pantas/core/ui/figures/fluid_vessel_figure.dart';
@@ -220,6 +221,22 @@ void main() {
     expect(figure.at, 'corner');
   });
 
+  testWidgets('a cube net draws the squares and says nothing about folding',
+      (tester) async {
+    await tester.pumpApp(
+      const QuestionFigure(
+        specJson: '{"kind":"cube-net","cells":[[0,1],[1,0],[1,1],[1,2],'
+            '[2,1],[3,1]]}',
+      ),
+    );
+
+    final figure = tester.widget<CubeNetFigure>(find.byType(CubeNetFigure));
+    expect(figure.cells, hasLength(6));
+    // Whether it folds into a cube is the question. Nothing in the drawing
+    // may hint either way.
+    expect(find.textContaining('cube'), findsNothing);
+  });
+
   group('a spec it cannot read says so and draws nothing plausible', () {
     const bad = <String, String>{
       'not JSON': 'gears: 3',
@@ -269,6 +286,10 @@ void main() {
       'a paper folded no times': '{"kind":"paper-fold","folds":[]}',
       'a cut nobody makes': '{"kind":"paper-fold","folds":["vertical"],'
           '"cut":"shred"}',
+      'a net with a repeated cell': '{"kind":"cube-net","cells":'
+          '[[0,0],[0,0]]}',
+      'a net cell that is not a pair': '{"kind":"cube-net","cells":'
+          '[[0,0,1],[1,1]]}',
     };
 
     for (final entry in bad.entries) {
@@ -284,6 +305,7 @@ void main() {
         expect(find.byType(FigureSeriesFigure), findsNothing);
         expect(find.byType(FigureMatrixFigure), findsNothing);
         expect(find.byType(PaperFoldFigure), findsNothing);
+        expect(find.byType(CubeNetFigure), findsNothing);
         expect(
           find.textContaining('has not been drawn yet'),
           findsOneWidget,

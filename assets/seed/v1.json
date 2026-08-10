@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "contentVersion": 2026081303,
-  "generatedAt": "2026-08-13T03:28:19.883283Z",
+  "generatedAt": "2026-08-13T03:33:30.293659Z",
   "exams": [
     {
       "id": "exam_cse_pro",
@@ -68697,6 +68697,630 @@
       ],
       "explanation": "The dot completes one clockwise corner move per figure; after 4 figures (one full cycle of 4 corners), it returns to the top-left corner for figure 5. Separately, the line count increases by 1 each figure ($1, 2, 3, 4, \\ldots$), so figure 5 should have 5 lines.",
       "figureSpecJson": "{\"kind\":\"figure-series\",\"items\":[{\"form\":\"square\",\"dot\":\"top-left\",\"edgeLines\":1},{\"form\":\"square\",\"dot\":\"top-right\",\"edgeLines\":2},{\"form\":\"square\",\"dot\":\"bottom-right\",\"edgeLines\":3},{\"form\":\"square\",\"dot\":\"bottom-left\",\"edgeLines\":4}],\"blank\":true}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0001",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization",
+      "language": "en",
+      "stem": "A cross-shaped (plus-sign) net has one central square, with four squares attached to its four sides (up, down, left, right), and one more square attached to the far end of the \"up\" arm. If the center square becomes the bottom of the cube once folded, which square becomes the top?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0001_a",
+          "label": "A",
+          "text": "The square at the far end of the vertical arm, beyond the immediate \"up\" neighbor",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0001_b",
+          "label": "B",
+          "text": "The square attached to the \"down\" side of the center",
+          "isCorrect": false,
+          "rationale": "You picked an adjacent side face. The \"down\" neighbor folds up into a side face, not the top face opposite the bottom."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0001_c",
+          "label": "C",
+          "text": "The square attached to the \"left\" side of the center",
+          "isCorrect": false,
+          "rationale": "You picked a side face. The \"left\" neighbor becomes a vertical side wall."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0001_d",
+          "label": "D",
+          "text": "The immediate \"up\" neighbor square itself",
+          "isCorrect": false,
+          "rationale": "You selected the adjacent side wall. The immediate \"up\" square forms a side face, while the square beyond it folds over to form the top face."
+        }
+      ],
+      "explanation": "The center square becomes the bottom, and its four immediate neighbors fold up to become the four side faces. The square at the far end of the vertical arm folds all the way over to become the face opposite the bottom: the top.",
+      "figureSpecJson": "{\"kind\":\"cube-net\",\"cells\":[[0,1],[1,0],[1,1],[1,2],[2,1],[3,1]]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0002",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization",
+      "language": "en",
+      "stem": "A flat pattern has 6 squares arranged with 4 in a straight horizontal row, and 2 more squares both attached to the top of the same square (the second square in the row), stacked directly on top of each other. Does this net fold into a valid cube?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0002_a",
+          "label": "A",
+          "text": "No: the two squares both attached to the top of the same square would both attempt to occupy the same face position when folded, causing an overlap",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0002_b",
+          "label": "B",
+          "text": "Yes: any arrangement of exactly 6 connected squares always folds into a valid cube",
+          "isCorrect": false,
+          "rationale": "You assumed any 6 connected squares form a valid net regardless of arrangement."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0002_c",
+          "label": "C",
+          "text": "Yes: since there are exactly 6 squares, no overlap is possible",
+          "isCorrect": false,
+          "rationale": "You assumed square count guarantees zero overlap. Overlaps occur when multiple squares compete for the same face."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0002_d",
+          "label": "D",
+          "text": "No: but only because this arrangement has more than 6 squares",
+          "isCorrect": false,
+          "rationale": "You miscounted the squares. The pattern has exactly 6 squares, but its arrangement causes overlap."
+        }
+      ],
+      "explanation": "A valid cube net needs each of its 6 squares to fold into a different face, with no overlaps. Here, two separate squares are both attached to the top of the same square in the row, so when folded, both would attempt to occupy the same face position, causing an overlap.",
+      "figureSpecJson": "{\"kind\":\"cube-net\",\"cells\":[[1,0],[1,1],[1,2],[1,3],[0,1],[2,1]]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0003",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization",
+      "language": "en",
+      "stem": "A solid cylinder (like a can) stands upright, with light shining straight down from directly above it. What shape is the shadow cast on the ground?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0003_a",
+          "label": "A",
+          "text": "A circle",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0003_b",
+          "label": "B",
+          "text": "A rectangle",
+          "isCorrect": false,
+          "rationale": "You used the side-view profile instead of the top-down view. Light from directly above casts a circular shadow matching the cylinder's top face."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0003_c",
+          "label": "C",
+          "text": "A triangle",
+          "isCorrect": false,
+          "rationale": "You confused a cylinder's top projection with a cone's side projection."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0003_d",
+          "label": "D",
+          "text": "A square",
+          "isCorrect": false,
+          "rationale": "You assigned a square shadow to a round cylinder."
+        }
+      ],
+      "explanation": "Since the light comes from directly above, the shadow shows the cylinder's outline as seen from directly above: only its circular top face outline, since the sides are hidden directly beneath it. The shadow is a circle."
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0004",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization",
+      "language": "en",
+      "stem": "The same upright cylinder now has light shining from directly the side (horizontally), rather than from above. What shape is the shadow cast on a wall behind it?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0004_a",
+          "label": "A",
+          "text": "A rectangle",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0004_b",
+          "label": "B",
+          "text": "A circle",
+          "isCorrect": false,
+          "rationale": "You used the top-down view instead of the side-view projection. Light from the side casts a rectangular shadow matching the cylinder's height and width profile."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0004_c",
+          "label": "C",
+          "text": "A triangle",
+          "isCorrect": false,
+          "rationale": "You assigned a triangular profile, which belongs to a cone rather than a cylinder."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0004_d",
+          "label": "D",
+          "text": "An oval",
+          "isCorrect": false,
+          "rationale": "You assumed an angled shadow. Light shining straight from the side casts a flat rectangular shadow."
+        }
+      ],
+      "explanation": "Light from the side reveals the cylinder's outline as seen from that side. Viewed from the side, a cylinder's outline is a rectangle (the height and diameter define the rectangle's two dimensions), not a circle."
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0005",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization",
+      "language": "en",
+      "stem": "A solid cube sits on a table, with light shining straight down from directly above it. What shape is the shadow cast on the table?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0005_a",
+          "label": "A",
+          "text": "A square",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0005_b",
+          "label": "B",
+          "text": "A circle",
+          "isCorrect": false,
+          "rationale": "You assigned a round shadow to a square cube face."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0005_c",
+          "label": "C",
+          "text": "A triangle",
+          "isCorrect": false,
+          "rationale": "You assigned a triangular shadow to a cube."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0005_d",
+          "label": "D",
+          "text": "A rectangle wider than it is tall",
+          "isCorrect": false,
+          "rationale": "You distorted the square dimensions. A cube's top-down view is a symmetric square."
+        }
+      ],
+      "explanation": "Looking straight down at a cube, you see only its square top face outline, since the sides are hidden directly beneath that square cross-section. The shadow is a square."
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0006",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization",
+      "language": "en",
+      "stem": "A solid sphere (like a ball) has light shining on it from any direction. What shape is the shadow cast, regardless of the light's direction?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0006_a",
+          "label": "A",
+          "text": "A circle, since a sphere's outline looks the same from every viewing angle",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0006_b",
+          "label": "B",
+          "text": "A shape that changes depending on the light's direction, since a sphere has many different faces",
+          "isCorrect": false,
+          "rationale": "You assumed a sphere has distinct faces. A sphere is uniformly round from every angle."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0006_c",
+          "label": "C",
+          "text": "A square, since spheres always cast square shadows",
+          "isCorrect": false,
+          "rationale": "You assigned a square shadow to a spherical object."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0006_d",
+          "label": "D",
+          "text": "No shadow at all, since spheres do not block light",
+          "isCorrect": false,
+          "rationale": "You claimed solid spheres do not block light."
+        }
+      ],
+      "explanation": "A sphere's outline is a circle from every possible viewing angle, unlike a cylinder or cube, so its shadow is always a circle regardless of the light's direction."
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0007",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization",
+      "language": "en",
+      "stem": "A flat pattern has 6 squares arranged in a single straight horizontal row (a 1-by-6 strip, with each square attached only to its immediate left and right neighbors). Does this net fold into a valid cube?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0007_a",
+          "label": "A",
+          "text": "No: folding this strip sequentially, the fifth square would land back on the same face position as the first square, causing an overlap",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0007_b",
+          "label": "B",
+          "text": "Yes: a straight row of 6 squares always folds into a valid cube",
+          "isCorrect": false,
+          "rationale": "You assumed a 1-by-6 strip can fold into a closed 3D cube without overlapping."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0007_c",
+          "label": "C",
+          "text": "Yes: since all 6 squares are connected in a single line, no overlap is possible",
+          "isCorrect": false,
+          "rationale": "You ignored 3D geometry. Folding 4 right angles in a straight line wraps the 5th square onto the 1st."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0007_d",
+          "label": "D",
+          "text": "No: but only because a straight row can never contain exactly 6 squares",
+          "isCorrect": false,
+          "rationale": "You disputed the given number of squares in the strip."
+        }
+      ],
+      "explanation": "Folding a straight 1-by-6 strip one square at a time (each fold turning 90°) wraps back around: the fifth square ends up occupying the same face position as the first square, causing an overlap. A straight strip of 6 squares is not a valid cube net.",
+      "figureSpecJson": "{\"kind\":\"cube-net\",\"cells\":[[0,0],[0,1],[0,2],[0,3],[0,4],[0,5]]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0008",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization",
+      "language": "en",
+      "stem": "In a cross-shaped net, the \"up\" neighbor and the \"left\" neighbor of the center square do not touch each other in the flat net (each only touches the center directly). A student assumes that since these two squares are not touching in the flat net, they must also not be touching (not adjacent) as faces once the cube is folded. Is this assumption correct?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0008_a",
+          "label": "A",
+          "text": "No: squares that are not touching in the flat net can still become adjacent (edge-sharing) faces once folded; the \"up\" and \"left\" side faces, though not touching in the net, end up sharing an edge on the folded cube.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0008_b",
+          "label": "B",
+          "text": "Yes: two squares that do not touch in the flat net can never become adjacent faces after folding.",
+          "isCorrect": false,
+          "rationale": "You assumed flat net connectivity dictates 3D face adjacency. Folding brings non-adjacent net edges together."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0008_c",
+          "label": "C",
+          "text": "Yes: but only because side faces are never adjacent to each other on a real cube.",
+          "isCorrect": false,
+          "rationale": "You claimed side faces do not touch on a cube. Every side face shares edges with adjacent side faces."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0008_d",
+          "label": "D",
+          "text": "No: but only because the \"up\" and \"left\" squares are actually the same square.",
+          "isCorrect": false,
+          "rationale": "You claimed two distinct net squares are the same entity."
+        }
+      ],
+      "explanation": "Squares that are not touching in the flat net are not necessarily still separate once folded: carefully trace the actual fold, since \"far apart\" squares in the net can become adjacent faces on the cube, since every side face of a cube shares an edge with its neighboring side faces.",
+      "figureSpecJson": "{\"kind\":\"cube-net\",\"cells\":[[0,1],[1,0],[1,1],[1,2],[2,1],[3,1]]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0009",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization",
+      "language": "en",
+      "stem": "A student sees any arrangement of 6 connected squares and assumes it must automatically fold into a valid cube, since \"a cube has 6 faces, and this net has 6 squares.\" Is this assumption correct?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0009_a",
+          "label": "A",
+          "text": "No: having exactly 6 squares is necessary but not sufficient for a valid net; the specific arrangement must also avoid any folding conflict, such as two squares competing for the same face position.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0009_b",
+          "label": "B",
+          "text": "Yes: any 6 connected squares, arranged in any pattern, always fold into a valid cube.",
+          "isCorrect": false,
+          "rationale": "You assumed square count alone guarantees a valid net, ignoring arrangement conflicts."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0009_c",
+          "label": "C",
+          "text": "Yes: but only if the 6 squares are arranged in a perfect circle.",
+          "isCorrect": false,
+          "rationale": "You claimed net squares must be arranged in a circle."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0009_d",
+          "label": "D",
+          "text": "No: but only because a cube actually has more than 6 faces.",
+          "isCorrect": false,
+          "rationale": "You misstated the number of faces on a cube."
+        }
+      ],
+      "explanation": "Not every arrangement of 6 connected squares folds into a proper cube: some arrangements (like two squares both branching off the same face) cause faces to overlap instead of covering distinct sides. The square count alone does not guarantee validity.",
+      "figureSpecJson": "{\"kind\":\"cube-net\",\"cells\":[[0,0],[0,1],[0,2],[1,0],[1,1],[1,2]]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0010",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization",
+      "language": "en",
+      "stem": "A student assumes a cylinder's shadow, no matter the light's direction, must always match one of the cylinder's actual flat surfaces (its circular top or bottom). Given that a cylinder's side is curved, not flat, is this assumption correct?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0010_a",
+          "label": "A",
+          "text": "No: a shadow shows the silhouette from the light's specific viewing angle, which may look completely different from any single flat face; a cylinder's side-on shadow is a rectangle, even though the cylinder has no flat rectangular face at all.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0010_b",
+          "label": "B",
+          "text": "Yes: a shadow always exactly matches one of the object's existing flat faces.",
+          "isCorrect": false,
+          "rationale": "You assumed shadows can only copy existing flat face shapes."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0010_c",
+          "label": "C",
+          "text": "Yes: but only because cylinders do not have curved surfaces.",
+          "isCorrect": false,
+          "rationale": "You claimed cylinders lack curved surfaces."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0010_d",
+          "label": "D",
+          "text": "No: but only because cylinders cannot cast shadows at all.",
+          "isCorrect": false,
+          "rationale": "You claimed cylinders do not cast shadows."
+        }
+      ],
+      "explanation": "A shadow shows the silhouette from the light's specific viewing angle, which may look completely different from any single flat face of the actual 3D object. A cylinder has no flat rectangular side face at all, yet its side-on shadow is a rectangle: always reason from the viewing angle, not from assuming the shadow copies an existing face shape."
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0011",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization",
+      "language": "en",
+      "stem": "A T-shaped net has 4 squares in a vertical column, with 2 more squares attached to the sides of the second square from the top (one on the left, one on the right). If the bottom square of the vertical column becomes the bottom of the cube once folded, which square becomes the top?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0011_a",
+          "label": "A",
+          "text": "The top square of the vertical column (the square farthest from the bottom, at the far end of the column)",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0011_b",
+          "label": "B",
+          "text": "The square attached to the left side of the second-from-top square",
+          "isCorrect": false,
+          "rationale": "You selected a side wall face instead of the top face opposite the bottom."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0011_c",
+          "label": "C",
+          "text": "The square attached to the right side of the second-from-top square",
+          "isCorrect": false,
+          "rationale": "You selected a side wall face instead of the top face opposite the bottom."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0011_d",
+          "label": "D",
+          "text": "The second square from the bottom of the column",
+          "isCorrect": false,
+          "rationale": "You selected an adjacent side wall face rather than the top face opposite the bottom."
+        }
+      ],
+      "explanation": "When folding a column of 4 squares with 2 side squares attached partway up, the square at the far end of the column (opposite the bottom, with one square directly between them in a straight line) becomes the top, following the \"one square between them in a straight line\" rule for opposite faces.",
+      "figureSpecJson": "{\"kind\":\"cube-net\",\"cells\":[[0,1],[1,0],[1,1],[1,2],[2,1],[3,1]]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0012",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization",
+      "language": "en",
+      "stem": "A solid cone (like an ice cream cone shape, pointed at the top, circular at the base) sits with its circular base on a table. Light shines straight down from above, and separately, light shines from directly the side. What shape is the shadow in each case?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0012_a",
+          "label": "A",
+          "text": "From above, a circle (matching the circular base); from the side, a triangle (matching the cone's pointed profile)",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0012_b",
+          "label": "B",
+          "text": "From above, a triangle; from the side, a circle",
+          "isCorrect": false,
+          "rationale": "You inverted the top and side projection shadows."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0012_c",
+          "label": "C",
+          "text": "A circle from both directions, since cones always cast circular shadows",
+          "isCorrect": false,
+          "rationale": "You ignored the tapering side profile of a cone."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0012_d",
+          "label": "D",
+          "text": "A triangle from both directions, since cones always cast triangular shadows",
+          "isCorrect": false,
+          "rationale": "You ignored the circular base profile when viewed from above."
+        }
+      ],
+      "explanation": "From directly above, you see the cone's circular base outline, since the pointed top is directly above the center of that circle, a circular shadow. From the side, you see the cone's tapering profile, a triangular shadow."
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0013",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization",
+      "language": "en",
+      "stem": "In the same cross-shaped net as before (center square as bottom, four immediate neighbors as sides, and one far-end square on the vertical arm as the top), which two faces are opposite each other among the four side faces (up, down, left, right neighbors of the center)?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0013_a",
+          "label": "A",
+          "text": "The \"up\" neighbor and the \"down\" neighbor are opposite each other; the \"left\" neighbor and the \"right\" neighbor are opposite each other",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0013_b",
+          "label": "B",
+          "text": "The \"up\" neighbor and the \"left\" neighbor are opposite each other; the \"down\" neighbor and the \"right\" neighbor are opposite each other",
+          "isCorrect": false,
+          "rationale": "You paired adjacent side walls as opposite faces."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0013_c",
+          "label": "C",
+          "text": "All four side faces are opposite each other simultaneously",
+          "isCorrect": false,
+          "rationale": "You claimed faces can be opposite multiple faces at once."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0013_d",
+          "label": "D",
+          "text": "None of the four side faces are opposite any other face",
+          "isCorrect": false,
+          "rationale": "You claimed side faces on a cube have no opposite faces."
+        }
+      ],
+      "explanation": "Once folded into a cube, opposite faces come from squares with exactly one square directly between them in a straight line within the net. The \"up\" and \"down\" neighbors sit in a straight vertical line with the center between them, and the \"left\" and \"right\" neighbors sit in a straight horizontal line with the center between them: making each of those pairs opposite faces.",
+      "figureSpecJson": "{\"kind\":\"cube-net\",\"cells\":[[0,1],[1,0],[1,1],[1,2],[2,1],[3,1]]}"
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0014",
+      "version": 1,
+      "examIds": [
+        "exam_acet",
+        "exam_ustet",
+        "exam_dost_sei",
+        "exam_cse_pro"
+      ],
+      "topicId": "topic_upcat_spatial_abstract_reasoning",
+      "lessonId": "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization",
+      "language": "en",
+      "stem": "A flat pattern has 6 squares: a central square, with four squares attached to its four sides (forming the same cross shape as before), but this time, the fifth \"extra\" square is attached to the far end of the \"right\" arm instead of the \"up\" arm. If the center square becomes the bottom, and light later shines straight down onto the assembled cube's top face, what shape is the shadow, and which square in the net became the face casting it?",
+      "choices": [
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0014_a",
+          "label": "A",
+          "text": "The shadow is a square (matching the flat top face of the cube), and the square at the far end of the \"right\" arm became the top face, since it is now the square with exactly one square (the center) directly between it and the center in a straight line.",
+          "isCorrect": true
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0014_b",
+          "label": "B",
+          "text": "The shadow is a circle, and the square attached to the \"up\" side of the center became the top face.",
+          "isCorrect": false,
+          "rationale": "You assigned a circular shadow to a cube and misidentified the top face."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0014_c",
+          "label": "C",
+          "text": "The shadow is a square, and the square attached to the \"down\" side of the center became the top face.",
+          "isCorrect": false,
+          "rationale": "You selected the \"down\" side face as the top face."
+        },
+        {
+          "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0014_d",
+          "label": "D",
+          "text": "The shadow is a triangle, and no square in the net becomes the top face.",
+          "isCorrect": false,
+          "rationale": "You assigned a triangular shadow and claimed no top face forms."
+        }
+      ],
+      "explanation": "Moving the \"extra\" far-end square to the \"right\" arm changes which face becomes the top: it is now the far-end square on that arm (following the same \"one square between them in a straight line\" rule), not the \"up\" neighbor. Since a cube's top face is flat and square, its top-down shadow is a square.",
+      "figureSpecJson": "{\"kind\":\"cube-net\",\"cells\":[[0,1],[1,0],[1,1],[1,2],[2,1],[2,2]]}"
     },
     {
       "id": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0001",
