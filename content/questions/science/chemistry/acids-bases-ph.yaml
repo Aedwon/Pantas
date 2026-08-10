@@ -17,8 +17,14 @@ questions:
       - text: Acidic
         correct: true
       - text: Neutral
+        rationale: |
+          You picked the midpoint. Neutral requires a pH of exactly 7, but 2 is well below 7.
       - text: Basic
+        rationale: |
+          You picked the high pH classification. Bases have a pH greater than 7, whereas 2 is strongly acidic.
       - text: Cannot be determined from pH alone
+        rationale: |
+          You assumed more data is needed. The pH value directly defines whether a solution is acidic, neutral, or basic.
     explanation: |
       A pH below 7 is acidic. Since 2 is well below 7, this solution is acidic.
     approved: true
@@ -31,8 +37,14 @@ questions:
       - text: Neutral
         correct: true
       - text: Acidic
+        rationale: |
+          You picked the low pH classification. Acidic solutions have a pH strictly below 7.
       - text: Basic
+        rationale: |
+          You picked the high pH classification. Basic solutions have a pH strictly above 7.
       - text: Cannot be determined from pH alone
+        rationale: |
+          You assumed pH is insufficient. A pH of 7 at room temperature directly indicates a neutral solution.
     explanation: |
       A pH of exactly 7 is neutral, like pure water.
     approved: true
@@ -45,8 +57,14 @@ questions:
       - text: Basic
         correct: true
       - text: Acidic
+        rationale: |
+          You picked the low pH classification. Acidic solutions have a pH below 7, while 11 is basic.
       - text: Neutral
+        rationale: |
+          You picked the midpoint value. A neutral solution has a pH of exactly 7, not 11.
       - text: Cannot be determined from pH alone
+        rationale: |
+          You assumed more information is required. The pH scale directly classifies solutions above 7 as basic.
     explanation: |
       A pH above 7 is basic (alkaline). Since 11 is well above 7, this solution is basic.
     approved: true
@@ -59,8 +77,14 @@ questions:
       - text: Solution A is 100 times more acidic than Solution B.
         correct: true
       - text: Solution B is 100 times more acidic than Solution A.
+        rationale: |
+          You picked the higher pH as more acidic. Lower pH numbers mean higher acidity, so pH 3 is more acidic than pH 5.
       - text: Solution A is 2 times more acidic than Solution B.
+        rationale: |
+          You subtracted pH values linearly ($5 - 3 = 2$). The pH scale is logarithmic, so a 2-unit drop means $10^2 = 100$ times more acidic.
       - text: Both solutions are equally acidic.
+        rationale: |
+          You treated different pH values as equal. Each whole pH step represents a tenfold difference in hydrogen ion concentration.
     explanation: |
       Lower pH means more acidic, so Solution A (pH 3) is more acidic. The difference is 2 whole steps, and each step is a factor of 10, so $10 \times 10 = 100$ times more acidic.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: Solution C is 1,000 times more acidic than Solution D.
         correct: true
       - text: Solution D is 1,000 times more acidic than Solution C.
+        rationale: |
+          You picked the higher pH as more acidic. Lower pH indicates higher acidity; pH 6 is acidic and pH 9 is basic.
       - text: Solution C is 3 times more acidic than Solution D.
+        rationale: |
+          You subtracted pH values linearly ($9 - 6 = 3$). Because pH is logarithmic, a 3-unit difference means $10^3 = 1{,}000$ times more acidic.
       - text: Both solutions are equally acidic.
+        rationale: |
+          You ignored the pH difference. Solution C (pH 6) is acidic, while Solution D (pH 9) is basic.
     explanation: |
       Lower pH means more acidic, so Solution C (pH 6) is more acidic. The difference is 3 whole steps, so $10 \times 10 \times 10 = 1{,}000$ times more acidic.
     approved: true
@@ -87,8 +117,14 @@ questions:
       - text: Acid X is strong; Acid Y is weak.
         correct: true
       - text: Acid X is weak; Acid Y is strong.
+        rationale: |
+          You swapped strong and weak definitions. Complete dissociation defines a strong acid, while partial dissociation defines a weak acid.
       - text: Both acids are strong.
+        rationale: |
+          You classified Acid Y as strong. Acids that only partially dissociate in water are weak acids.
       - text: Both acids are weak.
+        rationale: |
+          You classified Acid X as weak. Acids that dissociate completely into ions are strong acids.
     explanation: |
       A strong acid completely dissociates into ions, matching Acid X. A weak acid only partially dissociates, matching Acid Y.
     approved: true
@@ -101,8 +137,14 @@ questions:
       - text: Hydrogen ions (H+)
         correct: true
       - text: Hydroxide ions (OH-)
+        rationale: |
+          You picked the Arrhenius definition of a base. Bases produce hydroxide ions ($OH^-$), while acids produce hydrogen ions ($H^+$).
       - text: Salt directly
+        rationale: |
+          You picked a product of neutralization. Acids produce $H^+$ ions in water, forming salts only when reacting with bases.
       - text: Pure water only
+        rationale: |
+          You picked a neutralization product. Dissolving an acid in water increases $H^+$ ion concentration.
     explanation: |
       The Arrhenius definition says an acid produces hydrogen ions ($H^+$) when dissolved in water.
     approved: true
@@ -115,8 +157,14 @@ questions:
       - text: Hydroxide ions (OH-)
         correct: true
       - text: Hydrogen ions (H+)
+        rationale: |
+          You picked the Arrhenius definition of an acid. Acids release $H^+$, while bases release $OH^-$ in water.
       - text: Salt directly
+        rationale: |
+          You picked a reaction product. Dissolving a base in water produces hydroxide ions, not a salt by itself.
       - text: Carbon dioxide
+        rationale: |
+          You picked a carbonate reaction byproduct. Arrhenius bases produce hydroxide ions ($OH^-$) in aqueous solution.
     explanation: |
       The Arrhenius definition says a base produces hydroxide ions ($OH^-$) when dissolved in water.
     approved: true
@@ -129,8 +177,14 @@ questions:
       - text: A proton (H+) donor
         correct: true
       - text: A proton (H+) acceptor
+        rationale: |
+          You picked the Brønsted-Lowry definition of a base. Acids donate protons ($H^+$), while bases accept protons.
       - text: A substance that only exists in water
+        rationale: |
+          You restricted Brønsted-Lowry theory to water. Brønsted-Lowry definitions extend to non-aqueous proton transfer.
       - text: A substance with pH exactly 7
+        rationale: |
+          You picked the neutral pH value. Acids have a pH below 7 and act as proton donors.
     explanation: |
       The Brønsted-Lowry definition describes an acid as a proton donor and a base as a proton acceptor: broader than the Arrhenius definition since it applies beyond just water.
     approved: true
@@ -143,8 +197,14 @@ questions:
       - text: 'No: lower pH numbers mean more acidic, so pH 2 is actually far more acidic than pH 5.'
         correct: true
       - text: 'Yes: smaller pH numbers always mean less acidic.'
+        rationale: |
+          You accepted the inverse assumption. The pH scale is inverse: smaller numbers mean higher $H^+$ concentration and stronger acidity.
       - text: 'No: but only because pH 2 and pH 5 are actually the same acidity.'
+        rationale: |
+          You treated different pH values as equal. pH 2 has 1,000 times higher $H^+$ concentration than pH 5.
       - text: 'Yes: pH works the same as ordinary counting, where smaller means less.'
+        rationale: |
+          You treated pH as linear counting. Because $\text{pH} = -\log[H^+]$, smaller values represent larger hydrogen ion amounts.
     explanation: |
       The pH scale runs in the opposite direction from everyday intuition: lower numbers mean more acidic (more $H^+$ ions), not less.
     approved: true
@@ -157,8 +217,14 @@ questions:
       - text: 'No: the pH scale is logarithmic, so a 2-unit difference means 100 times more acidic, not twice.'
         correct: true
       - text: 'Yes: a 2-unit pH difference always means exactly twice as acidic.'
+        rationale: |
+          You treated pH as a linear scale. Each pH unit is a power of 10, so 2 units equal $10^2 = 100$ times more acidic.
       - text: 'No: a 2-unit pH difference actually means half as acidic.'
+        rationale: |
+          You inverted the direction. Lowering pH by 2 units increases acidity by a factor of 100.
       - text: 'Yes: pH differences are always simple linear differences.'
+        rationale: |
+          You assumed a linear relationship. pH is logarithmic ($-\log[H^+]$), so differences represent powers of 10.
     explanation: |
       Each whole pH step represents a ten-times change in acidity. A 2-step difference means $10 \times 10 = 100$ times more acidic, not a simple doubling.
     approved: true
@@ -171,8 +237,14 @@ questions:
       - text: 'No: "strong" describes how completely an acid dissociates into ions, while "concentrated" describes how much is dissolved; these are different properties.'
         correct: true
       - text: 'Yes: "strong" and "concentrated" always mean exactly the same thing.'
+        rationale: |
+          You equated strength with concentration. Strength measures ion dissociation, while concentration measures moles per liter.
       - text: 'No: "strong" only applies to bases, never to acids.'
+        rationale: |
+          You restricted strength terminology. Both acids and bases are classified as strong or weak based on ionization.
       - text: 'Yes: a strong acid must always be present in a large amount.'
+        rationale: |
+          You assumed strong acids cannot be diluted. A strong acid like $HCl$ remains strong even when diluted in a small amount.
     explanation: |
       A dilute solution of a strong acid (small amount, but fully dissociating) is a different situation from a concentrated solution of a weak acid (large amount, but only partially dissociating). "Strong" and "concentrated" measure different things.
     approved: true
@@ -185,8 +257,14 @@ questions:
       - text: 'No: neutralization always produces salt and water, but the resulting salt solution is not guaranteed to have exactly pH 7.'
         correct: true
       - text: 'Yes: every acid-base reaction always results in exactly pH 7.'
+        rationale: |
+          You assumed all neutralizations yield pH 7. Weak acids or weak bases produce salts that can hydrolyze, shifting final pH.
       - text: 'No: acid-base reactions never produce water.'
+        rationale: |
+          You denied water formation. Neutralization between Arrhenius acids and bases typically produces salt and water.
       - text: 'Yes: "neutralization" specifically guarantees a final pH of 7 in every case.'
+        rationale: |
+          You took the term "neutralization" literally. Neutralization means acid and base react stoichiometrically, not always pH 7.
     explanation: |
       "Neutralization" refers to the $H^+$ and $OH^-$ combining to form water, not a guarantee that the final mixed solution's pH lands exactly at 7: some resulting salts can make the solution slightly acidic or slightly basic.
     approved: true
@@ -199,8 +277,14 @@ questions:
       - text: The acid's H+ combines with the base's OH- to form water, while the remaining ions form a salt, matching the pattern acid + base -> salt + water.
         correct: true
       - text: Because both HCl and NaOH have exactly pH 7 before reacting.
+        rationale: |
+          You assumed reactants start at pH 7. $HCl$ is strongly acidic (pH < 7) and $NaOH$ is strongly basic (pH > 7).
       - text: Because sodium chloride is always a neutral, harmless substance.
+        rationale: |
+          You focused on salt safety. Neutralization is defined by the reaction pattern ($\text{acid} + \text{base} \rightarrow \text{salt} + \text{water}$).
       - text: Because no ions are involved in this reaction at all.
+        rationale: |
+          You claimed no ions participate. $HCl$ and $NaOH$ dissociate into $H^+$, $Cl^-$, $Na^+$, and $OH^-$ ions in water.
     explanation: |
       $HCl$ is an acid, producing $H^+$; $NaOH$ is a base, producing $OH^-$. Their $H^+$ and $OH^-$ combine to form water, while the leftover $Na^+$ and $Cl^-$ form the salt sodium chloride: exactly the acid + base → salt + water pattern.
     approved: true
@@ -213,8 +297,14 @@ questions:
       - text: Solution E is 1,000,000 times more acidic than Solution F.
         correct: true
       - text: Solution F is 1,000,000 times more acidic than Solution E.
+        rationale: |
+          You picked higher pH as more acidic. Lower pH numbers indicate higher acidity, making pH 2 much more acidic than pH 8.
       - text: Solution E is 6 times more acidic than Solution F.
+        rationale: |
+          You subtracted pH values linearly ($8 - 2 = 6$). Each pH unit is a factor of 10, so 6 steps equal $10^6 = 1{,}000{,}000$ times.
       - text: Both solutions are equally acidic.
+        rationale: |
+          You treated pH 2 and pH 8 as equal. pH 2 is strongly acidic while pH 8 is weakly basic.
     explanation: |
       Lower pH means more acidic, so Solution E (pH 2) is more acidic. The difference is 6 whole steps, so $10^6 = 1{,}000{,}000$ times more acidic.
     approved: true
