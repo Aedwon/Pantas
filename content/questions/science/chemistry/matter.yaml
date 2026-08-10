@@ -17,8 +17,14 @@ questions:
       - text: Element
         correct: true
       - text: Compound
+        rationale: |
+          You focused on the subscript of 2. $O_2$ is a molecule, but because it contains only one type of atom (oxygen), it is an element, not a compound.
       - text: Mixture
+        rationale: |
+          You picked a physical combination of different substances. Pure oxygen contains only $O_2$ molecules, with no other substances present.
       - text: Solution
+        rationale: |
+          You picked a homogeneous mixture. Pure oxygen gas is a pure substance, not a solution of different components.
     explanation: |
       An element is made of only one kind of atom and cannot be broken down into simpler substances. Oxygen gas fits this exactly.
     approved: true
@@ -31,8 +37,14 @@ questions:
       - text: Compound
         correct: true
       - text: Element
+        rationale: |
+          You picked a substance with one atom type. Table salt combines two different elements (sodium and chlorine), making it a compound.
       - text: Mixture
+        rationale: |
+          You picked a physical combination. Sodium and chlorine are chemically bonded in a fixed ratio, not just physically mixed.
       - text: Alloy
+        rationale: |
+          You picked a metal mixture. Table salt is a chemical compound formed by ionic bonding, not a mixture of metals.
     explanation: |
       A compound is two or more elements chemically bonded in a fixed ratio. Table salt is always one sodium atom for every one chlorine atom, so it is a compound.
     approved: true
@@ -45,8 +57,14 @@ questions:
       - text: Mixture
         correct: true
       - text: Compound
+        rationale: |
+          You assumed a fixed chemical formula. Lemonade's ingredients are physically mixed in variable proportions without chemical bonds.
       - text: Element
+        rationale: |
+          You picked a single pure type of atom. Lemonade is made of multiple distinct substances.
       - text: Pure substance
+        rationale: |
+          You treated lemonade as a single pure chemical. Lemonade contains variable amounts of water, sugar, and citric acid.
     explanation: |
       A mixture is two or more substances physically combined in amounts that can vary. Since the sugar and lemon juice can be added in different amounts, lemonade is a mixture.
     approved: true
@@ -59,8 +77,14 @@ questions:
       - text: No, because the ratio of salt to water can vary, which makes it a mixture.
         correct: true
       - text: Yes, because it looks completely uniform.
+        rationale: |
+          You confused uniform appearance with chemical compound status. Homogeneous mixtures look uniform but have variable ratios.
       - text: No, because saltwater has no fixed composition, so it cannot be classified at all.
+        rationale: |
+          You claimed variable composition prevents classification. Variable composition is the defining feature of a mixture.
       - text: Yes, because salt and water cannot be separated once combined.
+        rationale: |
+          You assumed saltwater cannot be separated. Water and salt can be physically separated by evaporating the water.
     explanation: |
       Looking uniform does not make something a compound. A compound must have a fixed ratio of elements. Since you can dissolve more or less salt in the same water, saltwater is a mixture, even though it looks smooth and even.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: Melting
         correct: true
       - text: Freezing
+        rationale: |
+          You picked the reverse phase change. Freezing converts liquid water into solid ice, while melting converts solid ice into liquid.
       - text: Evaporation
+        rationale: |
+          You picked the liquid-to-gas change. Turning solid ice into liquid water is melting, not evaporation.
       - text: Sublimation
+        rationale: |
+          You picked the solid-to-gas transition. Sublimation skips liquid entirely, but ice melting forms a liquid puddle.
     explanation: |
       Melting is the change from solid to liquid. Ice (solid) turning into water (liquid) is melting.
     approved: true
@@ -87,8 +117,14 @@ questions:
       - text: Condensation
         correct: true
       - text: Evaporation
+        rationale: |
+          You picked the liquid-to-gas process. Water vapor (gas) turning into liquid droplets is condensation.
       - text: Freezing
+        rationale: |
+          You picked the liquid-to-solid process. Droplets formed on glass are liquid water, not solid ice.
       - text: Deposition
+        rationale: |
+          You picked the gas-to-solid transition. Forming liquid water droplets from gas is condensation; forming ice frost directly is deposition.
     explanation: |
       Condensation is the change from gas to liquid. Water vapor (gas) turning into droplets (liquid) is condensation.
     approved: true
@@ -101,8 +137,14 @@ questions:
       - text: Sublimation
         correct: true
       - text: Evaporation
+        rationale: |
+          You picked the liquid-to-gas transition. Dry ice transitions directly from solid to gas, skipping the liquid phase.
       - text: Melting
+        rationale: |
+          You picked the solid-to-liquid change. Dry ice does not form liquid at normal atmospheric pressure.
       - text: Condensation
+        rationale: |
+          You picked the gas-to-liquid change. Solid carbon dioxide turning into gas is an endothermic phase change called sublimation.
     explanation: |
       Sublimation is the change from solid directly to gas, skipping the liquid phase entirely. Since the dry ice never becomes liquid, this is sublimation, not evaporation.
     approved: true
@@ -115,8 +157,14 @@ questions:
       - text: Deposition
         correct: true
       - text: Freezing
+        rationale: |
+          You picked the liquid-to-solid transition. Frost forming directly from gas vapor without liquid water is deposition.
       - text: Sublimation
+        rationale: |
+          You picked the reverse solid-to-gas change. Vapor turning into solid ice is deposition; ice turning into gas is sublimation.
       - text: Condensation
+        rationale: |
+          You picked the gas-to-liquid change. Condensation yields liquid water droplets, while frost is solid ice crystals.
     explanation: |
       Deposition is the change from gas directly to solid, skipping the liquid phase. Frost forming straight from water vapor is deposition.
     approved: true
@@ -129,8 +177,14 @@ questions:
       - text: Endothermic, because the substance absorbs energy to break apart its ordered solid structure.
         correct: true
       - text: Exothermic, because the substance releases energy as it becomes a liquid.
+        rationale: |
+          You reversed energy flow. Melting requires absorbing heat to disrupt solid crystal bonds, making it endothermic.
       - text: Endothermic, because the substance releases energy as it becomes more ordered.
+        rationale: |
+          You paired endothermic with releasing energy. Endothermic processes absorb energy, and liquids are less ordered than solids.
       - text: Exothermic, because no energy is involved in melting.
+        rationale: |
+          You claimed no energy is involved. Phase changes always absorb or release latent heat.
     explanation: |
       Melting moves a substance from a more ordered state (solid) to a less ordered one (liquid). Becoming less ordered always requires absorbing energy, which makes melting endothermic.
     approved: true
@@ -143,8 +197,14 @@ questions:
       - text: Exothermic, because the substance releases energy as it becomes a more ordered solid.
         correct: true
       - text: Endothermic, because the substance absorbs energy as it becomes a solid.
+        rationale: |
+          You claimed freezing absorbs energy. Freezing releases latent heat to form an ordered solid, making it exothermic.
       - text: Exothermic, because the substance absorbs energy to form a solid.
+        rationale: |
+          You paired exothermic with absorbing energy. Exothermic processes release energy to their surroundings.
       - text: Endothermic, because freezing always requires added heat.
+        rationale: |
+          You assumed freezing requires added heat. Heat must be removed from liquid for freezing to occur.
     explanation: |
       Freezing moves a substance from a less ordered state (liquid) to a more ordered one (solid). Becoming more ordered always releases energy, which makes freezing exothermic.
     approved: true
@@ -157,8 +217,14 @@ questions:
       - text: Physical property
         correct: true
       - text: Chemical property
+        rationale: |
+          You picked a chemical trait. Magnetic attraction can be observed without changing iron into a different chemical substance.
       - text: Physical change
+        rationale: |
+          You chose a process instead of a property. Being attracted to a magnet is a measurable characteristic, not an event.
       - text: Chemical change
+        rationale: |
+          You chose a chemical reaction event. Magnetism is an intrinsic physical characteristic, not a reaction forming new compounds.
     explanation: |
       A physical property can be observed without changing what the substance is made of. Being attracted to a magnet does not turn iron into a different substance, so it is a physical property.
     approved: true
@@ -171,8 +237,14 @@ questions:
       - text: Chemical property, because it describes something the iron could do, not something that has already happened.
         correct: true
       - text: Chemical change, because rust has already formed.
+        rationale: |
+          You treated a potential capability as a past event. Saying iron *can* react states a property; actual rusting is the change.
       - text: Physical property, because rusting only affects the iron's surface.
+        rationale: |
+          You classified rusting as physical. Forming rust changes iron into iron oxide, a completely different chemical compound.
       - text: Physical change, because no new substance is involved.
+        rationale: |
+          You claimed no new substance forms. Rust (iron oxide) is a distinct new chemical compound with different properties.
     explanation: |
       This sentence describes a potential reaction, what iron *could* do, not an event that already occurred. A description of what a substance is capable of doing is a chemical property. If the sentence said "this nail has rusted," that would describe an actual event, a chemical change.
     approved: true
@@ -185,8 +257,14 @@ questions:
       - text: Chemical change, because a new substance (rust) has actually formed.
         correct: true
       - text: Chemical property, because it describes how iron generally behaves.
+        rationale: |
+          You picked a general property statement. The nail actually rusted, making this an observed chemical change event.
       - text: Physical change, because the nail's shape is different.
+        rationale: |
+          You focused on appearance. The formation of rust involves a chemical reaction creating a new substance ($Fe_2O_3$).
       - text: Physical property, because the coating can be seen.
+        rationale: |
+          You treated visible rust as a physical trait. The actual transformation of iron metal into rust is a chemical change.
     explanation: |
       This sentence describes something that has already happened: the iron reacted with oxygen and moisture to form rust, a new substance with different properties. An event that has already occurred, producing a new substance, is a chemical change.
     approved: true
@@ -199,8 +277,14 @@ questions:
       - text: Physical change
         correct: true
       - text: Chemical change
+        rationale: |
+          You assumed a new substance formed. Tearing changes paper size and shape, but the chemical identity remains paper.
       - text: Physical property
+        rationale: |
+          You picked a property instead of a change. Tearing paper is an action or event, which makes it a physical change.
       - text: Chemical property
+        rationale: |
+          You picked a chemical capacity. Tearing is a physical action, not a chemical reactivity trait.
     explanation: |
       Tearing paper changes its shape and size, but it is still made of the same paper: no new substance is formed. That makes it a physical change.
     approved: true
@@ -213,8 +297,14 @@ questions:
       - text: 'The student is wrong: boiling is a phase change, and phase changes never create a new substance, only a new physical state.'
         correct: true
       - text: 'The student is correct: steam is chemically different from liquid water.'
+        rationale: |
+          You assumed steam is chemically distinct. Liquid water and steam share the exact same chemical formula ($H_2O$).
       - text: The student is wrong, but only because steam is actually a mixture, not a pure substance.
+        rationale: |
+          You called steam a mixture. Pure water steam consists entirely of $H_2O$ molecules in the gas phase.
       - text: The student is correct, since boiling requires heat, and any change that requires heat is a chemical change.
+        rationale: |
+          You linked heat requirement to chemical changes. Many physical processes (like melting and boiling) absorb heat without chemical reactions.
     explanation: |
       Phase changes only change how tightly packed and ordered the particles are: they never change what the substance actually is. Both liquid water and water vapor (steam) are still $H_2O$. Needing heat does not by itself make a change chemical; several phase changes need heat and are still physical changes.
     approved: true
@@ -227,8 +317,14 @@ questions:
       - text: Chemical change; exothermic
         correct: true
       - text: Physical change; exothermic
+        rationale: |
+          You misclassified burning as physical. Burning creates new chemical products (ash, $CO_2$, water vapor), making it a chemical change.
       - text: Chemical change; endothermic
+        rationale: |
+          You reversed energy flow. Releasing heat during combustion makes the reaction exothermic, not endothermic.
       - text: Physical change; endothermic
+        rationale: |
+          You misidentified both terms. Combustion forms new chemical substances (chemical change) and releases heat (exothermic).
     explanation: |
       Burning paper produces new substances (ash, smoke, gases) that are different from paper, so it is a chemical change. Since the reaction releases heat instead of absorbing it, it is also exothermic.
     approved: true
