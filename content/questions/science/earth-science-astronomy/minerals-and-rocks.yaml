@@ -13,8 +13,14 @@ questions:
       - text: A mineral
         correct: true
       - text: A rock
+        rationale: |
+          You picked a heterogeneous aggregate. A rock is an aggregate of one or more minerals without a single fixed chemical formula.
       - text: Sediment
+        rationale: |
+          You picked loose mineral/rock debris. Sediment consists of weathered particulate fragments accumulated by erosion.
       - text: Magma
+        rationale: |
+          You picked molten subterranean rock. Magma is liquid molten silicate material beneath Earth's surface.
     explanation: |
       A mineral is a naturally occurring, solid substance with a specific chemical makeup and an orderly crystal structure.
     approved: true
@@ -28,8 +34,14 @@ questions:
       - text: A rock
         correct: true
       - text: A mineral
+        rationale: |
+          You picked a pure chemical substance. A mineral is a single pure inorganic compound with a fixed crystal structure.
       - text: Magma
+        rationale: |
+          You picked molten rock. Magma is liquid molten rock beneath the surface, not a solid mineral mixture.
       - text: A crystal
+        rationale: |
+          You picked an ordered solid geometry. A crystal is a single solid specimen with continuous repeating lattice geometry.
     explanation: |
       A rock is simply a mix of one or more minerals stuck together.
     approved: true
@@ -43,8 +55,14 @@ questions:
       - text: 1 (very soft) to 10 (very hard)
         correct: true
       - text: 1 (very hard) to 10 (very soft)
+        rationale: |
+          You inverted the scale direction. On the Mohs scale, 1 is softest (talc) and 10 is hardest (diamond).
       - text: 0 (very soft) to 100 (very hard)
+        rationale: |
+          You expanded to a 0-100 scale. The Mohs scale is a qualitative 1 to 10 ordinal ranking.
       - text: 1 to 5 only
+        rationale: |
+          You truncated the scale range. The Mohs scale extends to 10 reference minerals.
     explanation: |
       The Mohs hardness scale ranges from 1 (very soft, like talc) to 10 (very hard, like diamond).
     approved: true
@@ -58,8 +76,14 @@ questions:
       - text: B, A, C
         correct: true
       - text: A, B, C
+        rationale: |
+          You placed A softer than B. Since A scratches B, A must be harder than B.
       - text: C, A, B
+        rationale: |
+          You reversed hardness ranking. C scratches both A and B, so C is hardest, not softest.
       - text: B, C, A
+        rationale: |
+          You placed C between B and A. C scratches A, so C is harder than A.
     explanation: |
       Since A can scratch B, A is harder than B. Since C can scratch both A and B, C is the hardest of the three. Order from softest to hardest: B, A, C.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: Streak
         correct: true
       - text: Luster
+        rationale: |
+          You picked light reflection property. Luster describes how a mineral reflects surface light.
       - text: Cleavage
+        rationale: |
+          You picked plane breakage behavior. Cleavage is breaking along smooth structural planes.
       - text: Fracture
+        rationale: |
+          You picked irregular breakage. Fracture is breaking with uneven, jagged surfaces.
     explanation: |
       Streak is the color of a mineral's powder, made by rubbing it on an unglazed tile, and is more reliable than the mineral's outer color.
     approved: true
@@ -88,8 +118,14 @@ questions:
       - text: 'No: the dark greenish-black powder is pyrite''s streak, which can be very different from its golden outer color; streak, not outer color, is what the scratch test reveals.'
         correct: true
       - text: 'Yes: the streak test always reveals the mineral''s outer color.'
+        rationale: |
+          You assumed streak equals outer color. Streak color often differs from external crystal specimen color.
       - text: 'No: but only because pyrite does not actually have a streak.'
+        rationale: |
+          You denied pyrite streak formation. Pyrite consistently leaves a dark greenish-black powder streak.
       - text: 'Yes: pyrite''s streak and outer color are always identical.'
+        rationale: |
+          You claimed identical colors. Pyrite is brassy gold externally but leaves a dark greenish-black streak.
     explanation: |
       A question describing "the color left behind when scratched on a tile" is asking about streak, not the visible outer color of the whole mineral sample. Pyrite looks golden outside but leaves a dark greenish-black streak.
     approved: true
@@ -103,8 +139,14 @@ questions:
       - text: Luster
         correct: true
       - text: Streak
+        rationale: |
+          You picked powder color test. Streak is the color of pulverized mineral powder on a streak plate.
       - text: Cleavage
+        rationale: |
+          You picked lattice breakage planes. Cleavage describes breaking along smooth parallel crystal planes.
       - text: Hardness
+        rationale: |
+          You picked scratch resistance. Hardness measures resistance to surface scratching on the Mohs scale.
     explanation: |
       Luster describes how a mineral's surface reflects light, grouped mainly as metallic or non-metallic.
     approved: true
@@ -118,8 +160,14 @@ questions:
       - text: Cleavage
         correct: true
       - text: Fracture
+        rationale: |
+          You picked irregular breakage. Fracture occurs when bonds are of equal strength, yielding jagged surfaces.
       - text: Streak
+        rationale: |
+          You picked powder color. Streak is the color of pulverized mineral powder on porcelain.
       - text: Luster
+        rationale: |
+          You picked surface reflectivity. Luster is the visual appearance of reflected light off a mineral surface.
     explanation: |
       Cleavage is breaking along smooth, flat planes due to weaker bonds in that direction; fracture is breaking in a rough, irregular way with no flat planes.
     approved: true
@@ -133,8 +181,14 @@ questions:
       - text: Igneous rock
         correct: true
       - text: Sedimentary rock
+        rationale: |
+          You picked particulate accumulation rock. Sedimentary rocks form from lithified sediments or chemical precipitates.
       - text: Metamorphic rock
+        rationale: |
+          You picked heat/pressure altered rock. Metamorphic rocks form from solid-state alteration under sub-melting heat/pressure.
       - text: Mineral rock
+        rationale: |
+          You picked a redundant term. All rocks are mineral aggregates, but cooling molten rock forms igneous rock specifically.
     explanation: |
       Igneous rock forms when melted rock (magma or lava) cools and hardens.
     approved: true
@@ -148,8 +202,14 @@ questions:
       - text: It would have large, visible crystals, since slow cooling underground gives crystals more time to grow, forming a rock like granite.
         correct: true
       - text: It would look identical, since cooling speed has no effect on crystal size.
+        rationale: |
+          You ignored cooling rate crystal dynamics. Cooling rate dictates crystallization nucleation and grain growth time.
       - text: It would have no crystals at all, since underground cooling always prevents crystal formation.
+        rationale: |
+          You claimed slow cooling prevents crystallization. Slow cooling maximizes crystal growth time, creating coarse-grained textures.
       - text: It would turn into a sedimentary rock instead of an igneous rock.
+        rationale: |
+          You reclassified cooling magma as sedimentary. Molten rock cooling remains an igneous process regardless of depth.
     explanation: |
       Cooling speed determines crystal size: cooling slowly underground gives crystals more time to grow large (like granite), while cooling quickly at the surface produces small or no crystals (like basalt or obsidian).
     approved: true
@@ -163,8 +223,14 @@ questions:
       - text: Sedimentary rock
         correct: true
       - text: Igneous rock
+        rationale: |
+          You picked molten cooling rock. Igneous rock forms from cooling magma or lava.
       - text: Metamorphic rock
+        rationale: |
+          You picked solid-state altered rock. Metamorphic rock forms from heat and pressure recrystallizing existing rock.
       - text: Mineral rock
+        rationale: |
+          You picked a non-standard classification. Rocks formed by compaction/cementation are sedimentary rocks.
     explanation: |
       Sedimentary rock forms when sediment (small pieces of rock, sand, shells, or other debris) piles up in layers and gets pressed and cemented together over a long time.
     approved: true
@@ -178,8 +244,14 @@ questions:
       - text: Metamorphic rock
         correct: true
       - text: Igneous rock
+        rationale: |
+          You picked molten cooling origin. Igneous rock requires complete melting into magma/lava prior to solidification.
       - text: Sedimentary rock
+        rationale: |
+          You picked sediment deposition origin. Sedimentary rock forms from deposition, compaction, and cementation of surface debris.
       - text: Mineral rock
+        rationale: |
+          You picked a redundant term. Solid-state alteration by thermal and pressure energy yields metamorphic rock.
     explanation: |
       Metamorphic rock forms when an existing rock is changed by intense heat and pressure underground, without fully melting, rearranging its minerals into a new texture.
     approved: true
@@ -193,8 +265,14 @@ questions:
       - text: 'No: metamorphic rock forms without fully melting; heat and pressure change the rock''s minerals and texture while it stays essentially solid. A rock that fully melts and re-forms describes the igneous process instead.'
         correct: true
       - text: 'Yes: metamorphic rock always forms by completely melting and re-hardening.'
+        rationale: |
+          You confused metamorphic with igneous origins. Complete melting destroys parent rock texture, creating magma for igneous rock.
       - text: 'No: but only because metamorphic rock never involves heat or pressure at all.'
+        rationale: |
+          You denied metamorphic drivers. Heat and pressure are the primary agents of metamorphic transformation.
       - text: 'Yes: igneous and metamorphic rock form through the exact same melting process.'
+        rationale: |
+          You equated two distinct lithogenic processes. Igneous involves complete liquid melting; metamorphic involves solid-state recrystallization.
     explanation: |
       Heat and pressure change a rock's minerals and texture while it stays essentially solid: this is the metamorphic process. A choice describing "rock that melts and re-forms" describes the igneous process (via magma), not metamorphism.
     approved: true
@@ -208,8 +286,14 @@ questions:
       - text: Sedimentary
         correct: true
       - text: Igneous
+        rationale: |
+          You picked molten origin. Igneous rock requires magma/lava cooling.
       - text: Metamorphic
+        rationale: |
+          You picked solid-state alteration. Metamorphic rock requires high subsurface heat and pressure.
       - text: None of the three rock types
+        rationale: |
+          You rejected valid rock classification. Sand and shell lithification is classic sedimentary rock formation.
     explanation: |
       Sand and shell fragments compressing into layers over time is the defining process of sedimentary rock formation.
     approved: true
@@ -223,8 +307,14 @@ questions:
       - text: Metamorphic
         correct: true
       - text: Igneous
+        rationale: |
+          You picked molten origin. Igneous rock requires complete liquid melting into magma.
       - text: Sedimentary
+        rationale: |
+          You picked parent rock classification. Limestone is sedimentary, but heat/pressure alteration yields metamorphic marble.
       - text: None of the three rock types
+        rationale: |
+          You rejected valid rock classification. Non-melting thermal/pressure recrystallization defines metamorphism.
     explanation: |
       Limestone transforming into marble under heat and pressure, without melting, is the defining process of metamorphic rock formation.
     approved: true
@@ -238,8 +328,14 @@ questions:
       - text: 'No: any rock type can become any other rock type given the right process; a metamorphic rock can weather directly into sediment, or an igneous rock can be metamorphosed directly without ever becoming sedimentary first.'
         correct: true
       - text: 'Yes: every rock must pass through igneous, then sedimentary, then metamorphic, in that exact order.'
+        rationale: |
+          You enforced a rigid linear cycle. The rock cycle is a dynamic non-linear system with multiple interconnecting pathways.
       - text: 'No: but only because sedimentary rock can never become metamorphic rock.'
+        rationale: |
+          You denied sedimentary metamorphism. Sedimentary rocks (e.g., shale, limestone) frequently undergo metamorphism under heat/pressure.
       - text: 'Yes: the rock cycle has a single fixed starting point and ending point.'
+        rationale: |
+          You assigned fixed endpoints to a cyclic loop. The rock cycle is continuous without fixed start or end points.
     explanation: |
       Students sometimes memorize only one path and assume it always goes in that order. In reality, the rock cycle has no fixed sequence: any rock type can become any other rock type, and there is no required starting or ending point.
     approved: true
@@ -253,8 +349,14 @@ questions:
       - text: Granite exposed at the surface, weathering into sediment, compressing into sedimentary rock, heat and pressure transformation into marble
         correct: true
       - text: Heat and pressure transformation into marble, granite exposed at the surface, weathering into sediment, compressing into sedimentary rock
+        rationale: |
+          You placed metamorphism at the start. Granite must weather and form sedimentary limestone prior to metamorphism into marble.
       - text: Granite exposed at the surface, compressing into sedimentary rock, weathering into sediment, heat and pressure transformation into marble
+        rationale: |
+          You placed compression before weathering. Weathering into loose sediment must precede sedimentary compaction.
       - text: Weathering into sediment, granite exposed at the surface, heat and pressure transformation, compressing into sedimentary rock
+        rationale: |
+          You weathered granite before surface exposure. Surface exposure is required for atmospheric weathering to break down granite.
     explanation: |
       Granite, exposed at the surface, weathers into sediment particles; these particles compress and cement into a sedimentary rock like limestone; buried underground, heat and pressure then transform it, without melting, into marble.
     approved: true
@@ -268,8 +370,14 @@ questions:
       - text: Hardness (compared against known reference materials like a steel knife and glass) and streak (the black powder), since streak is more reliable than outer color, which can vary due to surface impurities.
         correct: true
       - text: Only the mineral's outer silvery color, since color alone is always sufficient for identification.
+        rationale: |
+          You relied solely on outer color. Visual outer color is unreliable due to surface weathering and chemical impurities.
       - text: Only luster, since hardness and streak provide no useful identifying information.
+        rationale: |
+          You dismissed hardness and streak. Hardness relative to glass/steel and powder streak provide diagnostic mineral criteria.
       - text: Cleavage and fracture, since the scenario describes breaking patterns rather than hardness or color.
+        rationale: |
+          You misidentified the diagnostic tests performed. The test used scratch comparisons (hardness) and streak plate powder (streak).
     explanation: |
       Hardness is tested by comparing scratch resistance against reference materials, and streak (the tile-powder color) is more reliable than a mineral's outer color, which can be affected by surface impurities: these are the two properties the geologist actually used here.
     approved: true
