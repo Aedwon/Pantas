@@ -17,8 +17,14 @@ questions:
       - text: 100 J
         correct: true
       - text: 25 J
+        rationale: |
+          You added force and distance ($20 + 5$). Work is the product of force and displacement: $W = Fd = 20 \times 5 = 100\text{ J}$.
       - text: 4 J
+        rationale: |
+          You divided force by distance ($\dfrac{20}{5}$). Work requires multiplying force by distance.
       - text: 15 J
+        rationale: |
+          You subtracted distance from force ($20 - 5$). Calculate work using multiplication: $W = Fd$.
     explanation: |
       $W = Fd = (20)(5) = 100$ J.
     approved: true
@@ -31,8 +37,14 @@ questions:
       - text: 50 J
         correct: true
       - text: 10 J
+        rationale: |
+          You multiplied mass and velocity without squaring ($\dfrac{1}{2} \times 4 \times 5$). Kinetic energy requires squaring velocity ($5^2 = 25$).
       - text: 100 J
+        rationale: |
+          You forgot the $\dfrac{1}{2}$ factor ($4 \times 25$). Kinetic energy formula includes $\dfrac{1}{2}$: $KE = 50\text{ J}$.
       - text: 20 J
+        rationale: |
+          You multiplied mass and velocity ($4 \times 5$). Kinetic energy uses $KE = \dfrac{1}{2}mv^2 = 50\text{ J}$.
     explanation: |
       $KE = \dfrac{1}{2}(4)(5)^2 = \dfrac{1}{2}(4)(25) = 50$ J.
     approved: true
@@ -45,8 +57,14 @@ questions:
       - text: 117.6 J
         correct: true
       - text: 12 J
+        rationale: |
+          You omitted gravity $g = 9.8\text{ m/s}^2$ ($3 \times 4$). Gravitational potential energy requires $PE = mgh = 3 \times 9.8 \times 4 = 117.6\text{ J}$.
       - text: 29.4 J
+        rationale: |
+          You omitted height ($3 \times 9.8$). Include height in potential energy: $PE = mgh = 117.6\text{ J}$.
       - text: 39.2 J
+        rationale: |
+          You omitted mass ($9.8 \times 4$). Include mass in potential energy: $PE = mgh = 117.6\text{ J}$.
     explanation: |
       $PE = mgh = (3)(9.8)(4) = 117.6$ J.
     approved: true
@@ -59,8 +77,14 @@ questions:
       - text: About 6.26 m/s
         correct: true
       - text: 19.6 m/s
+        rationale: |
+          You calculated $v^2 = 2gh = 39.2$ without taking the square root. Velocity is $v = \sqrt{39.2} \approx 6.26\text{ m/s}$.
       - text: 98 m/s
+        rationale: |
+          You reported potential energy in Joules ($5 \times 9.8 \times 2 = 98\text{ J}$) as velocity. Convert energy to speed via $v = \sqrt{2gh} \approx 6.26\text{ m/s}$.
       - text: About 3.13 m/s
+        rationale: |
+          You halved velocity or miscalculated $\sqrt{gh}$. Speed from height $h$ is $v = \sqrt{2gh} \approx 6.26\text{ m/s}$.
     explanation: |
       $PE_i = mgh = (5)(9.8)(2) = 98$ J, which all converts to kinetic energy: $98 = \dfrac{1}{2}(5)v^2 = 2.5v^2$, so $v^2 = 39.2$ and $v \approx 6.26$ m/s.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: 60 W
         correct: true
       - text: 1500 W
+        rationale: |
+          You multiplied work and time ($300 \times 5$). Power is the rate of work done: $P = \dfrac{W}{t} = \dfrac{300}{5} = 60\text{ W}$.
       - text: 5 W
+        rationale: |
+          You reported time value ($5\text{ s}$) as power. Calculate power by dividing work by time.
       - text: 295 W
+        rationale: |
+          You subtracted time from work ($300 - 5$). Power calculation requires division: $P = \dfrac{W}{t} = 60\text{ W}$.
     explanation: |
       $P = \dfrac{W}{t} = \dfrac{300}{5} = 60$ W.
     approved: true
@@ -87,8 +117,14 @@ questions:
       - text: 'No: since velocity is squared in the kinetic energy formula, doubling speed actually quadruples the kinetic energy.'
         correct: true
       - text: 'Yes: doubling speed always exactly doubles kinetic energy.'
+        rationale: |
+          You assumed a linear velocity relationship. Kinetic energy depends on $v^2$, so $(2v)^2 = 4v^2$ quadruples energy.
       - text: 'No: doubling speed actually halves the kinetic energy.'
+        rationale: |
+          You inverted speed energy dependence. Increasing speed increases kinetic energy quadratically.
       - text: 'Yes: mass and velocity affect kinetic energy in the same simple way.'
+        rationale: |
+          You treated mass and velocity symmetrically. Mass is linear in $KE$, whereas velocity is squared ($KE = \dfrac{1}{2}mv^2$).
     explanation: |
       $KE = \dfrac{1}{2}mv^2$ squares the velocity term. Doubling $v$ means $v^2$ becomes 4 times larger, so kinetic energy quadruples, not just doubles.
     approved: true
@@ -101,8 +137,14 @@ questions:
       - text: Zero work, since the box does not move (no displacement in the direction of the force).
         correct: true
       - text: A large amount of work, proportional to how long the box is held.
+        rationale: |
+          You confused physiological exertion with mechanical work. Mechanical work requires non-zero displacement ($W = Fd = 0$).
       - text: Work equal to the box's weight alone, regardless of time.
+        rationale: |
+          You reported force magnitude as work. Without displacement ($d = 0$), work remains zero.
       - text: Negative work, since the person is resisting gravity.
+        rationale: |
+          You assigned negative work without displacement. Resisting gravity while stationary involves zero displacement and zero work.
     explanation: |
       Work requires displacement in the direction of the force. Since the box is not moving at all, no work is done on it, even though real physical effort is being exerted to hold it still.
     approved: true
@@ -115,8 +157,14 @@ questions:
       - text: 'No: this simple conservation equation assumes no friction; with friction present, some mechanical energy converts to heat and is not accounted for in this equation.'
         correct: true
       - text: 'Yes: the equation applies regardless of whether friction is present.'
+        rationale: |
+          You ignored friction energy dissipation. Friction converts mechanical energy into thermal energy, breaking simple mechanical conservation.
       - text: 'No: but only because gravity does not act during sliding motion.'
+        rationale: |
+          You denied gravity during sliding. Gravity accelerates the block down the ramp, providing potential energy conversion.
       - text: 'Yes: friction has no effect on mechanical energy at all.'
+        rationale: |
+          You claimed friction does not dissipate mechanical energy. Friction does work against motion, converting mechanical energy into heat.
     explanation: |
       The equation $KE_i + PE_i = KE_f + PE_f$ only holds when no energy is lost to friction or air resistance. With friction present, some energy converts to heat, so the simple form does not directly apply.
     approved: true
@@ -129,8 +177,14 @@ questions:
       - text: 'No: power depends on the rate work is done; Machine A (faster) has higher power than Machine B, even though both did the same total work.'
         correct: true
       - text: 'Yes: power and work always match whenever the total work is equal.'
+        rationale: |
+          You equated work and power. Power is work per unit time ($P = \dfrac{W}{t}$), so faster execution yields higher power.
       - text: 'No: but only because Machine B actually did more total work.'
+        rationale: |
+          You misstated work amounts. Both machines performed identical work ($1000\text{ J}$), but at different time rates.
       - text: 'Yes: time does not affect power in any situation.'
+        rationale: |
+          You excluded time from power. Power is defined as the time rate of doing work ($P = \dfrac{W}{t}$).
     explanation: |
       Power measures how quickly work is done ($P = W/t$), not just the total amount. Machine A does the same work in less time, giving it a higher power output than Machine B.
     approved: true
@@ -143,8 +197,14 @@ questions:
       - text: 250 J
         correct: true
       - text: 150 J
+        rationale: |
+          You subtracted initial kinetic energy ($200 - 50$). Positive net work adds to initial kinetic energy: $KE_f = 50 + 200 = 250\text{ J}$.
       - text: 200 J
+        rationale: |
+          You reported work done as final kinetic energy. Final kinetic energy includes initial energy plus work done ($50 + 200 = 250\text{ J}$).
       - text: 100 J
+        rationale: |
+          You doubled initial kinetic energy or miscalculated. Use the work-energy theorem $KE_f = KE_i + W = 250\text{ J}$.
     explanation: |
       $W_{net} = KE_f - KE_i$, so $200 = KE_f - 50$, giving $KE_f = 250$ J.
     approved: true
@@ -157,8 +217,14 @@ questions:
       - text: 6 m/s
         correct: true
       - text: 18 m/s
+        rationale: |
+          You calculated $v^2 = 36$ but reported $\dfrac{36}{2} = 18$. The square root of 36 is $6\text{ m/s}$.
       - text: 36 m/s
+        rationale: |
+          You calculated $v^2 = 36$ without taking the square root. Taking $\sqrt{36}$ gives $v = 6\text{ m/s}$.
       - text: 9 m/s
+        rationale: |
+          You divided kinetic energy by mass ($72 / 4 = 18$) or miscalculated. $KE = \dfrac{1}{2}mv^2$ yields $v = 6\text{ m/s}$.
     explanation: |
       $72 = \dfrac{1}{2}(4)v^2 = 2v^2$, so $v^2 = 36$, giving $v = 6$ m/s.
     approved: true
@@ -171,8 +237,14 @@ questions:
       - text: Object A has 4 times the kinetic energy of Object B.
         correct: true
       - text: Object A has 2 times the kinetic energy of Object B.
+        rationale: |
+          You assumed kinetic energy is linearly proportional to speed. Kinetic energy depends on speed squared ($(2v)^2 = 4v^2$).
       - text: Object A has the same kinetic energy as Object B.
+        rationale: |
+          You assumed kinetic energy is speed-independent. Higher speed increases kinetic energy quadratically.
       - text: Object A has half the kinetic energy of Object B.
+        rationale: |
+          You inverted the kinetic energy ratio. Faster objects have greater kinetic energy.
     explanation: |
       Since kinetic energy depends on velocity squared, doubling the speed (with the same mass) quadruples the kinetic energy: $(2v)^2 = 4v^2$.
     approved: true
@@ -185,8 +257,14 @@ questions:
       - text: 2000 J
         correct: true
       - text: 20 J
+        rationale: |
+          You divided power by time ($\dfrac{200}{10}$). Work is power multiplied by time: $W = Pt = 200 \times 10 = 2000\text{ J}$.
       - text: 210 J
+        rationale: |
+          You added power and time ($200 + 10$). Work requires multiplication: $W = Pt$.
       - text: 190 J
+        rationale: |
+          You subtracted time from power ($200 - 10$). Calculate work using $W = Pt = 2000\text{ J}$.
     explanation: |
       Rearranging $P = \dfrac{W}{t}$ gives $W = Pt = (200)(10) = 2000$ J.
     approved: true
@@ -199,8 +277,14 @@ questions:
       - text: A mix of both kinetic and potential energy, with the total mechanical energy staying the same throughout the swing.
         correct: true
       - text: All kinetic energy, with zero potential energy.
+        rationale: |
+          You described energy at the lowest point. Partway up, the pendulum retains non-zero elevation and potential energy.
       - text: All potential energy, with zero kinetic energy.
+        rationale: |
+          You described energy at the highest point. Partway down, the pendulum possesses non-zero velocity and kinetic energy.
       - text: Zero total energy at every point of the swing.
+        rationale: |
+          You claimed mechanical energy vanishes. Total mechanical energy ($KE + PE$) remains positive and constant.
     explanation: |
       At the lowest point, all energy is kinetic; at the highest points, all energy is potential. At any point in between, the energy is a mix of both, but the total (kinetic plus potential) stays constant throughout, by conservation of energy.
     approved: true
@@ -213,8 +297,14 @@ questions:
       - text: 10 m
         correct: true
       - text: 14 m
+        rationale: |
+          You set height equal to final velocity. Solve using energy conservation: $h = \dfrac{v^2}{2g} = \dfrac{196}{19.6} = 10\text{ m}$.
       - text: 19.6 m
+        rationale: |
+          You calculated $2g$ instead of $h$. Height is $h = \dfrac{v^2}{2g} = \dfrac{196}{19.6} = 10\text{ m}$.
       - text: 137.2 m
+        rationale: |
+          You multiplied velocity by gravity. Calculate height using energy conservation $h = \dfrac{v^2}{2g} = 10\text{ m}$.
     explanation: |
       By conservation of energy, $mgh = \dfrac{1}{2}mv^2$, so $h = \dfrac{v^2}{2g} = \dfrac{14^2}{2(9.8)} = \dfrac{196}{19.6} = 10$ m.
     approved: true
