@@ -13,8 +13,14 @@ questions:
       - text: About 29.5 days
         correct: true
       - text: About 7 days
+        rationale: |
+          You picked a quarter cycle duration. 7 days is roughly the time between consecutive major phases (e.g., new moon to first quarter).
       - text: About 100 days
+        rationale: |
+          You picked too long a timeframe. A lunar month takes about 29.5 days, not over three months.
       - text: About 365 days
+        rationale: |
+          You picked Earth's orbital period around the Sun. 365 days is a solar year, whereas a synodic month is ~29.5 days.
     explanation: |
       One full cycle of Moon phases, called a synodic month, takes about 29.5 days.
     approved: true
@@ -28,8 +34,14 @@ questions:
       - text: New moon
         correct: true
       - text: Full moon
+        rationale: |
+          You picked the fully illuminated phase. At full moon, the sunlit side faces Earth directly, making the Moon bright.
       - text: First quarter
+        rationale: |
+          You picked the half-illuminated phase. At first quarter, half of the visible side is illuminated by sunlight.
       - text: Waxing gibbous
+        rationale: |
+          You picked the mostly illuminated phase. Waxing gibbous shows more than half of the sunlit face.
     explanation: |
       At new moon, the Moon's sunlit side faces away from Earth, so the Moon appears dark from Earth's view.
     approved: true
@@ -43,8 +55,14 @@ questions:
       - text: Full moon
         correct: true
       - text: New moon
+        rationale: |
+          You picked the dark phase. At new moon, the sunlit side faces away from Earth.
       - text: First quarter
+        rationale: |
+          You picked the half-lit phase. First quarter displays only 50% of the visible disc illuminated.
       - text: Waning crescent
+        rationale: |
+          You picked a sliver phase. Waning crescent shows less than half of the visible side illuminated.
     explanation: |
       At full moon, the whole sunlit side of the Moon faces Earth, so we see the Moon's entire disc lit up.
     approved: true
@@ -58,8 +76,14 @@ questions:
       - text: New moon, waxing crescent, first quarter, waxing gibbous, full moon
         correct: true
       - text: New moon, first quarter, waxing crescent, waxing gibbous, full moon
+        rationale: |
+          You placed first quarter before waxing crescent. The crescent (sliver) appears before reaching half-lit first quarter.
       - text: New moon, waxing gibbous, first quarter, waxing crescent, full moon
+        rationale: |
+          You reversed the waxing progression. The lit area grows from crescent to quarter to gibbous to full.
       - text: Full moon, waxing gibbous, first quarter, waxing crescent, new moon
+        rationale: |
+          You listed waning order starting from full moon. The question asked for waxing order starting from new moon.
     explanation: |
       Starting from new moon, the lit portion grows (waxes) in this order: new moon → waxing crescent → first quarter (half lit) → waxing gibbous → full moon.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: First quarter
         correct: true
       - text: Last quarter
+        rationale: |
+          You picked the shrinking half-lit phase. Last quarter is also half-lit, but its lit area is shrinking (waning).
       - text: Full moon
+        rationale: |
+          You picked the 100% lit phase. Full moon shows the entire disc illuminated, not half.
       - text: New moon
+        rationale: |
+          You picked the completely dark phase. New moon shows zero visible illumination.
     explanation: |
       "Growing bigger" means the phase is waxing, and exactly half lit while waxing is the first quarter phase, on the way toward full moon.
     approved: true
@@ -88,8 +118,14 @@ questions:
       - text: Last quarter
         correct: true
       - text: First quarter
+        rationale: |
+          You picked the growing half-lit phase. First quarter is half-lit and growing (waxing), while last quarter is shrinking (waning).
       - text: Full moon
+        rationale: |
+          You picked the fully lit phase. Full moon is 100% illuminated rather than 50% half-lit.
       - text: New moon
+        rationale: |
+          You picked the dark phase. New moon has no illuminated face visible from Earth.
     explanation: |
       "Shrinking smaller" means the phase is waning, and exactly half lit while waning is the last quarter phase, on the way toward new moon.
     approved: true
@@ -103,8 +139,14 @@ questions:
       - text: Waning gibbous
         correct: true
       - text: Waxing gibbous
+        rationale: |
+          You picked the growing phase. "Waxing" means growing larger toward full moon, whereas "waning" means shrinking.
       - text: Waning crescent
+        rationale: |
+          You picked the less-than-half phase. Crescent means less than 50% lit; gibbous means greater than 50% lit.
       - text: Waxing crescent
+        rationale: |
+          You picked growing and less-than-half. Shrinking and more-than-half lit is waning gibbous.
     explanation: |
       "Waning" means shrinking, and "gibbous" means more than half lit: combining the two names the phase between full moon and last quarter: waning gibbous.
     approved: true
@@ -118,8 +160,14 @@ questions:
       - text: A solar eclipse
         correct: true
       - text: A lunar eclipse
+        rationale: |
+          You picked Earth-in-middle eclipse. A lunar eclipse occurs when Earth blocks sunlight from hitting the Moon.
       - text: An annular eclipse only
+        rationale: |
+          You restricted the answer to a sub-type. Annular is a specific solar eclipse variant, but the general term is solar eclipse.
       - text: No eclipse; this alignment never occurs
+        rationale: |
+          You claimed alignment never happens. Sun-Moon-Earth alignment occurs during solar eclipse events.
     explanation: |
       A solar eclipse happens when the Moon passes directly between the Sun and Earth, blocking the Sun's light from a small part of Earth.
     approved: true
@@ -133,8 +181,14 @@ questions:
       - text: A lunar eclipse
         correct: true
       - text: A solar eclipse
+        rationale: |
+          You picked Moon-in-middle eclipse. A solar eclipse occurs when the Moon blocks sunlight from hitting Earth.
       - text: An annular eclipse only
+        rationale: |
+          You assigned annular type to lunar eclipse. Annular eclipses refer exclusively to solar eclipses.
       - text: No eclipse; this alignment never occurs
+        rationale: |
+          You claimed Earth-in-middle never aligns. Sun-Earth-Moon alignment happens regularly during lunar eclipses.
     explanation: |
       A lunar eclipse happens when Earth passes directly between the Sun and the Moon, casting Earth's shadow onto the Moon.
     approved: true
@@ -148,8 +202,14 @@ questions:
       - text: 'No: a lunar eclipse happens at full moon, when Earth passes between the Sun and Moon; a solar eclipse happens at new moon, when the Moon passes between the Sun and Earth.'
         correct: true
       - text: 'Yes: a lunar eclipse always happens at new moon.'
+        rationale: |
+          You swapped eclipse phases. Lunar eclipses require full moon alignment (Sun-Earth-Moon).
       - text: 'No: but only because lunar eclipses never actually occur.'
+        rationale: |
+          You denied lunar eclipse existence. Lunar eclipses occur multiple times worldwide each year.
       - text: 'Yes: both solar and lunar eclipses happen at the exact same phase.'
+        rationale: |
+          You placed both eclipses in one phase. Solar eclipses occur at new moon; lunar eclipses occur at full moon.
     explanation: |
       It is easy to swap these. Anchor it by remembering who blocks whom: the Moon blocks the Sun during a solar eclipse (needs new moon); Earth blocks sunlight from reaching the Moon during a lunar eclipse (needs full moon).
     approved: true
@@ -163,8 +223,14 @@ questions:
       - text: A total solar eclipse, since the viewer is in the umbra
         correct: true
       - text: A partial solar eclipse, since the viewer is in the penumbra
+        rationale: |
+          You picked penumbra shadow. Partial coverage occurs in the lighter penumbra, whereas full coverage happens in the umbra.
       - text: An annular solar eclipse, since the Moon is too far to fully cover the Sun
+        rationale: |
+          You picked ring-of-fire eclipse. Annular eclipses leave an outer ring visible; complete coverage defines a total eclipse.
       - text: A lunar eclipse, since the Moon is involved
+        rationale: |
+          You misnamed the eclipse type. When the Sun is blocked from Earth's view, it is a solar eclipse.
     explanation: |
       Viewers standing in the umbra (the Moon's darkest shadow) see the Sun completely covered: a total solar eclipse.
     approved: true
@@ -178,8 +244,14 @@ questions:
       - text: A "blood moon," a total lunar eclipse
         correct: true
       - text: A "ring of fire," an annular lunar eclipse
+        rationale: |
+          You used solar eclipse terminology. "Ring of fire" describes an annular solar eclipse, not a red total lunar eclipse.
       - text: A "blood moon," a partial lunar eclipse
+        rationale: |
+          You picked partial coverage. The entire Moon entering the umbra defines a total lunar eclipse.
       - text: A "ring of fire," a total lunar eclipse
+        rationale: |
+          You combined solar nickname with lunar type. "Ring of fire" applies to solar eclipses; red lunar eclipses are "blood moons."
     explanation: |
       When the whole Moon passes into Earth's umbra and turns reddish, it is called a "blood moon": a total lunar eclipse. ("Ring of fire" describes an annular solar eclipse instead.)
     approved: true
@@ -193,8 +265,14 @@ questions:
       - text: 'The penumbra: the lighter, partial shadow, where the Sun appears only partly covered'
         correct: true
       - text: 'The umbra: the dark, complete shadow, where the Sun appears only partly covered'
+        rationale: |
+          You defined umbra as partial. The umbra is the dark central shadow resulting in total coverage.
       - text: Both the umbra and penumbra produce identical partial coverage.
+        rationale: |
+          You equated umbra and penumbra. Umbra yields total coverage; penumbra yields partial coverage.
       - text: Neither; partial coverage only happens outside both shadow regions.
+        rationale: |
+          You placed partial view outside shadows. Outside both shadow regions, no eclipse is visible at all.
     explanation: |
       Viewers in the umbra (the dark, complete shadow) see a total eclipse. Viewers in the penumbra (the lighter, partial shadow) see only a partial eclipse: a description of "the Sun partly covered" points to the penumbra.
     approved: true
@@ -208,8 +286,14 @@ questions:
       - text: The Moon's orbital path around Earth is tilted slightly compared to the plane of Earth's orbit around the Sun, so at most new moons and full moons, the Moon passes slightly above or below the perfect alignment needed for an eclipse.
         correct: true
       - text: Eclipses actually do happen every single month, but they are simply never visible from Earth's surface.
+        rationale: |
+          You claimed monthly eclipses occur unseen. Eclipses only occur when Sun-Earth-Moon align on the orbital nodes.
       - text: The Moon only orbits Earth during certain months of the year.
+        rationale: |
+          You claimed non-continuous Moon orbit. The Moon continuously orbits Earth every ~27.3 days.
       - text: The Sun's light only reaches the Moon during specific months.
+        rationale: |
+          You claimed seasonal sunlight blockage. Sunlight strikes the Moon continuously except during brief lunar eclipses.
     explanation: |
       Because the Moon's orbit is tilted relative to Earth's orbital plane, the three bodies usually miss lining up in a perfectly straight line at new moon or full moon. Only when a new moon or full moon happens to occur very close to where the two tilted orbital planes cross does a true eclipse occur.
     approved: true
@@ -223,8 +307,14 @@ questions:
       - text: New moon; a solar eclipse
         correct: true
       - text: Full moon; a lunar eclipse
+        rationale: |
+          You picked Earth-in-middle phase and type. Moon between Sun and Earth requires new moon and causes a solar eclipse.
       - text: First quarter; a solar eclipse
+        rationale: |
+          You picked 90-degree phase. At first quarter, the Moon forms a right angle with the Sun and Earth, preventing eclipses.
       - text: Full moon; a solar eclipse
+        rationale: |
+          You paired full moon with solar eclipse. Full moon positions Earth between Sun and Moon, enabling lunar eclipses instead.
     explanation: |
       The Moon sitting between the Sun and Earth, casting its shadow on Earth, can only happen at new moon, and since the Moon's shadow falls on Earth, this is a solar eclipse.
     approved: true
@@ -238,8 +328,14 @@ questions:
       - text: 'The claim is incorrect: since Earth is between the Sun and Moon at full moon, and the whole Moon enters Earth''s umbra, this is a total lunar eclipse, not any type of solar eclipse.'
         correct: true
       - text: The claim is correct, since any eclipse involving the Moon's shadow region qualifies as an annular solar eclipse.
+        rationale: |
+          You misclassified Earth's shadow as a solar eclipse. Earth shadowing the Moon is a lunar eclipse.
       - text: The claim is correct, since annular eclipses only happen during a full moon.
+        rationale: |
+          You misstated annular eclipse phase. Annular eclipses are solar eclipses and occur only at new moon.
       - text: The event cannot be identified without knowing the exact distance between the Moon and Earth.
+        rationale: |
+          You claimed missing distance parameters. Earth's shadow covering the full moon confirms a total lunar eclipse.
     explanation: |
       Solar eclipses require the Moon to sit between the Sun and Earth, which only happens at new moon, not full moon. Since Earth is between the Sun and Moon here, with the whole Moon entering Earth's umbra, this describes a total lunar eclipse.
     approved: true

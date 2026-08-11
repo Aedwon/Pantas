@@ -17,8 +17,14 @@ questions:
       - text: Ionic
         correct: true
       - text: Covalent
+        rationale: |
+          You picked electron-sharing. Covalent bonds form between two nonmetals, whereas a metal and nonmetal transfer electrons (ionic).
       - text: Metallic
+        rationale: |
+          You picked metal-to-metal bonding. Metallic bonds involve a sea of electrons between metal atoms, not a metal-nonmetal pair.
       - text: No bond forms
+        rationale: |
+          You assumed no chemical bond forms. Sodium and chlorine react vigorously to form ionic $NaCl$.
     explanation: |
       A metal bonding with a nonmetal forms an ionic bond: the metal loses electrons and the nonmetal gains them, and the resulting charges attract.
     approved: true
@@ -31,8 +37,14 @@ questions:
       - text: Covalent
         correct: true
       - text: Ionic
+        rationale: |
+          You picked electron-transfer bonding. Ionic bonds form between metals and nonmetals; two nonmetals share electrons in covalent bonds.
       - text: Metallic
+        rationale: |
+          You picked metal bonding. Metallic bonds occur between metal atoms, whereas carbon and oxygen are both nonmetals.
       - text: No bond forms
+        rationale: |
+          You assumed no bond forms. Nonmetals readily bond by sharing electrons to achieve stable octets.
     explanation: |
       Two nonmetals bonding together form a covalent bond: instead of transferring electrons, they share them.
     approved: true
@@ -45,8 +57,14 @@ questions:
       - text: Metallic
         correct: true
       - text: Ionic
+        rationale: |
+          You picked cation-anion attraction. Ionic bonding requires both a metal and a nonmetal, not pure metal atoms.
       - text: Covalent
+        rationale: |
+          You picked shared electron pairs between nonmetals. Pure metal atoms share delocalized valence electrons in metallic bonds.
       - text: No bond forms
+        rationale: |
+          You assumed solid metal has no bonds. Cohesive metallic bonding holds copper atoms together in a solid lattice.
     explanation: |
       Metal atoms bonded to other metal atoms form metallic bonds, where outer electrons flow freely in a shared "sea of electrons."
     approved: true
@@ -59,8 +77,14 @@ questions:
       - text: Nonpolar covalent, since the difference is small (below about 0.5) and electrons are shared nearly equally.
         correct: true
       - text: Ionic, since any difference in electronegativity means electrons transfer completely.
+        rationale: |
+          You assumed complete electron transfer. Complete transfer requires a large difference ($\ge 2.0$), not a small 0.4 gap.
       - text: Polar covalent, since the difference is exactly at the ionic threshold.
+        rationale: |
+          You misidentified 0.4 as the ionic threshold. Differences below ~0.5 represent nearly equal nonpolar sharing.
       - text: Metallic, since a small electronegativity difference always indicates metallic bonding.
+        rationale: |
+          You linked electronegativity difference directly to metallic bonding. Metallic bonding depends on metal orbital overlap.
     explanation: |
       A small electronegativity difference (below about 0.5) means the electrons are shared nearly equally between the two atoms: a nonpolar covalent bond.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: Ionic, since the large difference (about 2.0 or more) means electrons transfer completely.
         correct: true
       - text: Nonpolar covalent, since electrons are always shared between two different atoms.
+        rationale: |
+          You picked equal electron sharing. A large electronegativity difference (2.5) causes full electron transfer rather than sharing.
       - text: Metallic, since a large electronegativity difference always indicates metallic bonding.
+        rationale: |
+          You misapplied metallic bonding. A large difference indicates ionic electron transfer, not metallic electron delocalization.
       - text: No bond can form when the difference is this large.
+        rationale: |
+          You claimed no bond forms. A large difference ($\ge 2.0$) produces strong ionic bonds via electrostatic attraction.
     explanation: |
       A large electronegativity difference (about 2.0 or more) means one atom pulls the electrons away completely rather than sharing them: an ionic bond.
     approved: true
@@ -87,8 +117,14 @@ questions:
       - text: Polar covalent, since electrons are shared, but unequally, at this in-between difference.
         correct: true
       - text: Ionic, since any difference above 1.0 always means a complete electron transfer.
+        rationale: |
+          You set the ionic threshold too low. Ionic bonding generally requires a difference of about 2.0 or greater.
       - text: Nonpolar covalent, since the electrons are still shared rather than transferred.
+        rationale: |
+          You assumed equal sharing. A difference of 1.2 causes significant electron pull toward the more electronegative atom.
       - text: Metallic, since 1.2 falls exactly at the metallic threshold.
+        rationale: |
+          You treated 1.2 as a metallic threshold. Electronegativity scale thresholds classify covalent vs ionic bonds.
     explanation: |
       An in-between electronegativity difference means the electrons are shared, but unevenly: a polar covalent bond, distinct from both the small-difference (nonpolar) and large-difference (ionic) cases.
     approved: true
@@ -101,8 +137,14 @@ questions:
       - text: Linear
         correct: true
       - text: Trigonal planar
+        rationale: |
+          You picked the 3-group geometry. 3 electron groups spread to 120° (trigonal planar), whereas 2 groups spread to 180° (linear).
       - text: Tetrahedral
+        rationale: |
+          You picked the 4-group 3D geometry. Tetrahedral requires 4 electron groups around the central atom.
       - text: Bent
+        rationale: |
+          You picked a lone-pair distorted shape. 2 bonding groups with no lone pairs form a straight 180° linear geometry.
     explanation: |
       With only 2 electron groups and no lone pairs to distort the arrangement, the groups spread as far apart as possible: 180° apart, a linear shape.
     approved: true
@@ -115,8 +157,14 @@ questions:
       - text: Trigonal planar
         correct: true
       - text: Linear
+        rationale: |
+          You picked the 2-group geometry. Linear requires 2 electron groups at 180°, while 3 groups form a 120° trigonal planar shape.
       - text: Tetrahedral
+        rationale: |
+          You picked the 4-group geometry. 4 electron groups form a tetrahedral shape (109.5°), not 3 groups.
       - text: Bent
+        rationale: |
+          You picked a lone-pair shape. 3 electron groups with zero lone pairs form a flat 120° trigonal planar geometry.
     explanation: |
       With 3 electron groups and no lone pairs, the groups spread out 120° apart in a flat, triangular arrangement: trigonal planar.
     approved: true
@@ -129,8 +177,14 @@ questions:
       - text: Tetrahedral
         correct: true
       - text: Trigonal planar
+        rationale: |
+          You picked the 3-group flat shape. 4 electron groups spread in 3D to 109.5° (tetrahedral), not 120° (trigonal planar).
       - text: Linear
+        rationale: |
+          You picked the 2-group straight shape. 4 electron groups spread in 3D space as a tetrahedral arrangement.
       - text: Bent
+        rationale: |
+          You picked a shape distorted by lone pairs. 4 bonding groups with zero lone pairs yield a symmetric tetrahedral shape.
     explanation: |
       With 4 electron groups and no lone pairs, the groups spread out as far apart as possible in three dimensions, about 109.5° apart: tetrahedral.
     approved: true
@@ -143,8 +197,14 @@ questions:
       - text: 'No: the 2 lone pairs still count for electron geometry, but since they are not connected to another atom, the actual molecular shape is bent, not tetrahedral.'
         correct: true
       - text: 'Yes: 4 electron groups always means a tetrahedral molecular shape.'
+        rationale: |
+          You confused electron geometry with molecular shape. Molecular shape describes only the positions of bonded atoms (bent for $H_2O$).
       - text: 'No: because water actually only has 2 total electron groups.'
+        rationale: |
+          You miscounted electron groups. Oxygen has 2 single bonding pairs plus 2 lone pairs, totaling 4 electron groups.
       - text: 'Yes: lone pairs are ignored completely in VSEPR theory.'
+        rationale: |
+          You ignored lone pair repulsion. Lone pairs exert strong repulsive forces that compress bonding angles and dictate shape.
     explanation: |
       Lone pairs count as electron groups and affect the shape, but they are not drawn as "corners" of the final molecular shape, since they are not connected to another atom. With only 2 of water's 4 positions occupied by actual atoms, the resulting shape is bent.
     approved: true
@@ -157,8 +217,14 @@ questions:
       - text: 'No: covalent bonds can be polar (unequal sharing) or nonpolar (equal sharing), depending on the electronegativity difference.'
         correct: true
       - text: 'Yes: covalent bonds, by definition, always share electrons equally.'
+        rationale: |
+          You assumed all covalent bonds are nonpolar. Unequal electronegativities pull shared electrons closer to one atom (polar covalent).
       - text: 'No: covalent bonds never share electrons at all; only ionic bonds do.'
+        rationale: |
+          You denied electron sharing in covalent bonds. Covalent bonds are defined by electron sharing; ionic bonds transfer electrons.
       - text: 'Yes: only ionic bonds can ever be unequal.'
+        rationale: |
+          You restricted unequal distribution to ionic bonds. Polar covalent bonds share electrons unequally between atoms.
     explanation: |
       Covalent bonds can be polar, like the oxygen-hydrogen bonds in water, where oxygen pulls the shared electrons closer to itself than hydrogen does. Equal sharing (nonpolar covalent) is only one case, not a universal rule.
     approved: true
@@ -171,8 +237,14 @@ questions:
       - text: Ionic
         correct: true
       - text: Covalent
+        rationale: |
+          You picked electron sharing. Metal-nonmetal bonding involves complete electron transfer, forming an ionic bond.
       - text: Metallic
+        rationale: |
+          You picked pure metal bonding. Metallic bonding occurs between metal atoms, not a metal with a nonmetal.
       - text: No bond forms
+        rationale: |
+          You assumed no reaction occurs. Potassium and bromine react to form ionic potassium bromide ($KBr$).
     explanation: |
       A metal bonding with a nonmetal always forms an ionic bond: the metal gives up electrons, and the nonmetal takes them.
     approved: true
@@ -185,8 +257,14 @@ questions:
       - text: Covalent
         correct: true
       - text: Ionic
+        rationale: |
+          You picked electron transfer. Identical nonmetal atoms have zero electronegativity difference and share electrons covalently.
       - text: Metallic
+        rationale: |
+          You picked metal bonding. Oxygen is a nonmetal, so $O_2$ forms covalent double bonds.
       - text: No bond forms
+        rationale: |
+          You assumed no bond forms. Oxygen atoms share two electron pairs to form a stable diatomic $O_2$ molecule.
     explanation: |
       Two nonmetal atoms bonding together share electrons rather than transferring them, forming a covalent bond.
     approved: true
@@ -199,8 +277,14 @@ questions:
       - text: To become more stable, usually by achieving a full outer shell of valence electrons.
         correct: true
       - text: To increase their total number of protons.
+        rationale: |
+          You confused chemical bonding with nuclear reactions. Chemical bonding involves valence electrons, leaving proton counts unchanged.
       - text: To become radioactive.
+        rationale: |
+          You linked bonding to nuclear instability. Atoms bond to achieve electron stability, not radioactive decay.
       - text: Bonding happens randomly, with no underlying reason.
+        rationale: |
+          You claimed bonding is arbitrary. Chemical bonding is driven by thermodynamic stability and filling valence shells.
     explanation: |
       Atoms bond to become more stable, most often by reaching a full outer shell of 8 valence electrons (the octet rule), whether by transferring or sharing electrons.
     approved: true
@@ -213,8 +297,14 @@ questions:
       - text: 'It will not be a perfect tetrahedral shape: the lone pair still counts as an electron group and pushes the 3 bonding groups into a different arrangement than if all 4 groups were bonding.'
         correct: true
       - text: It will be a perfect tetrahedral shape, since lone pairs never affect the final molecular shape.
+        rationale: |
+          You ignored the lone pair in molecular shape. 1 lone pair with 3 bonds creates a trigonal pyramidal shape, not a regular tetrahedron.
       - text: It will be linear, since only the bonding groups matter for molecular shape.
+        rationale: |
+          You predicted linear geometry. 4 total electron groups push bonds into 3D angles, forming a trigonal pyramid rather than a straight line.
       - text: It will be trigonal planar, since lone pairs are always ignored when counting electron groups.
+        rationale: |
+          You ignored the lone pair during group counting. Lone pairs count as electron groups and push bonds out of a flat 2D plane.
     explanation: |
       Just like water's 2 lone pairs push its 2 bonding pairs into a bent shape rather than tetrahedral, this molecule's 1 lone pair pushes its 3 bonding groups out of a perfect tetrahedral arrangement: the same principle applies whenever any of the 4 electron groups is a lone pair rather than a bond.
     approved: true

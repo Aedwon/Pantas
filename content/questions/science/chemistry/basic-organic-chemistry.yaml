@@ -17,8 +17,14 @@ questions:
       - text: Alkane
         correct: true
       - text: Alkene
+        rationale: |
+          You picked the family with double bonds. Alkenes contain at least one carbon-carbon double bond, while alkanes have only single bonds.
       - text: Alkyne
+        rationale: |
+          You picked the family with triple bonds. Alkynes contain at least one carbon-carbon triple bond, while alkanes have only single bonds.
       - text: Carboxylic acid
+        rationale: |
+          You picked a functional group containing oxygen. Carboxylic acids have a -COOH group, while hydrocarbons contain only carbon and hydrogen.
     explanation: |
       Alkanes contain only single carbon-carbon bonds and are named with the ending "-ane."
     approved: true
@@ -31,8 +37,14 @@ questions:
       - text: Alkene
         correct: true
       - text: Alkane
+        rationale: |
+          You picked the family with only single bonds. Alkanes contain no double or triple bonds.
       - text: Alkyne
+        rationale: |
+          You picked the family with a triple bond. Alkynes have triple bonds, whereas alkenes have double bonds.
       - text: Alcohol
+        rationale: |
+          You picked an oxygen-containing compound. Alcohols have an -OH group, not just carbon and hydrogen.
     explanation: |
       Alkenes contain at least one carbon-carbon double bond and are named with the ending "-ene."
     approved: true
@@ -45,8 +57,14 @@ questions:
       - text: Alkyne
         correct: true
       - text: Alkane
+        rationale: |
+          You picked the family with only single bonds. Alkanes have no triple bonds.
       - text: Alkene
+        rationale: |
+          You picked the family with a double bond. Alkenes contain double bonds, while alkynes contain triple bonds.
       - text: Amine
+        rationale: |
+          You picked a nitrogen-containing compound. Amines contain nitrogen, while hydrocarbons have only carbon and hydrogen.
     explanation: |
       Alkynes contain at least one carbon-carbon triple bond and are named with the ending "-yne."
     approved: true
@@ -59,8 +77,14 @@ questions:
       - text: Butane
         correct: true
       - text: Butene
+        rationale: |
+          You picked the 4-carbon alkene. The ending "-ene" indicates a double bond, but all bonds here are single bonds.
       - text: Butyne
+        rationale: |
+          You picked the 4-carbon alkyne. The ending "-yne" indicates a triple bond, but all bonds here are single bonds.
       - text: Propane
+        rationale: |
+          You picked the 3-carbon alkane. The prefix "prop-" means 3 carbons, while "but-" means 4 carbons.
     explanation: |
       A chain of 4 carbons uses the base "but-." Since all bonds are single (alkane), the ending is "-ane": butane.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: Propene
         correct: true
       - text: Propane
+        rationale: |
+          You picked the 3-carbon alkane. The ending "-ane" means all single bonds, but this molecule has a double bond.
       - text: Propyne
+        rationale: |
+          You picked the 3-carbon alkyne. The ending "-yne" means a triple bond, not a double bond.
       - text: Butene
+        rationale: |
+          You picked the 4-carbon alkene. The prefix "but-" means 4 carbons, while a 3-carbon chain uses "prop-".
     explanation: |
       A chain of 3 carbons uses the base "prop-." Since it contains a double bond (alkene), the ending is "-ene": propene.
     approved: true
@@ -87,8 +117,14 @@ questions:
       - text: Ethyne
         correct: true
       - text: Ethane
+        rationale: |
+          You picked the 2-carbon alkane. The ending "-ane" means only single bonds, but this molecule has a triple bond.
       - text: Ethene
+        rationale: |
+          You picked the 2-carbon alkene. The ending "-ene" means a double bond, not a triple bond.
       - text: Propyne
+        rationale: |
+          You picked the 3-carbon alkyne. The prefix "prop-" means 3 carbons, while a 2-carbon chain uses "eth-".
     explanation: |
       A chain of 2 carbons uses the base "eth-." Since it contains a triple bond (alkyne), the ending is "-yne": ethyne.
     approved: true
@@ -101,8 +137,14 @@ questions:
       - text: Saturated; it belongs to the alkane family.
         correct: true
       - text: Unsaturated; it belongs to the alkane family.
+        rationale: |
+          You confused the saturation terms. Saturated means all single bonds, so alkanes are saturated, not unsaturated.
       - text: Saturated; it belongs to the alkene family.
+        rationale: |
+          You paired saturated with alkenes. Alkenes contain double bonds, which makes them unsaturated.
       - text: Unsaturated; it belongs to the alkyne family.
+        rationale: |
+          You picked the family with triple bonds. Alkynes are unsaturated, but a molecule with no double or triple bonds is an alkane.
     explanation: |
       Having every position filled with hydrogen (no double or triple bonds using up bonding spots) describes a saturated hydrocarbon, which means only single carbon-carbon bonds: the alkane family.
     approved: true
@@ -115,8 +157,14 @@ questions:
       - text: Alcohol
         correct: true
       - text: Carboxylic acid
+        rationale: |
+          You confused the functional groups. A carboxylic acid has a -COOH group, while an alcohol has only an -OH group.
       - text: Amine
+        rationale: |
+          You picked the nitrogen group. Amines contain a nitrogen atom, while an -OH group forms an alcohol.
       - text: Alkyne
+        rationale: |
+          You picked a hydrocarbon family with a triple bond. An -OH group is an oxygen functional group, not a triple bond.
     explanation: |
       A carbon chain with an $-OH$ group attached is classified as an alcohol.
     approved: true
@@ -129,8 +177,14 @@ questions:
       - text: Carboxylic acid
         correct: true
       - text: Alcohol
+        rationale: |
+          You confused the functional groups. An alcohol has an -OH group, while a carboxyl group (-COOH) defines a carboxylic acid.
       - text: Amine
+        rationale: |
+          You picked the nitrogen functional group. Amines contain nitrogen, whereas -COOH contains carbon, oxygen, and hydrogen.
       - text: Alkene
+        rationale: |
+          You picked a hydrocarbon with a double bond. A -COOH group is a carboxyl functional group, not a carbon-carbon double bond.
     explanation: |
       A carbon chain with a $-COOH$ group attached is classified as a carboxylic acid.
     approved: true
@@ -143,8 +197,14 @@ questions:
       - text: The functional group, not the chain length, is what determines a molecule's characteristic chemical behavior.
         correct: true
       - text: They actually behave identically, since their chain lengths match.
+        rationale: |
+          You assumed chain length overrides functional groups. Attached functional groups govern how a molecule reacts chemically.
       - text: Only the number of carbon atoms determines chemical behavior, never the attached group.
+        rationale: |
+          You focused only on the carbon backbone. The functional group attached to the chain determines the chemical reactions.
       - text: Carboxylic acids and alcohols are actually the same functional group with different names.
+        rationale: |
+          You treated two distinct groups as identical. Alcohols (-OH) and carboxylic acids (-COOH) have different structures and reactivity.
     explanation: |
       Even with an identical carbon chain length, the specific functional group attached determines most of the molecule's chemical behavior: carboxylic acids are acidic and can donate a proton, while simple alcohols are not acidic in the same way.
     approved: true
@@ -157,8 +217,14 @@ questions:
       - text: 'No: "saturated" means every bonding position is already filled with hydrogen, leaving no room for any double or triple bonds.'
         correct: true
       - text: 'Yes: "saturated" specifically describes having many double bonds.'
+        rationale: |
+          You accepted the misconception. Saturated means maximum single hydrogen bonds, while double bonds make a molecule unsaturated.
       - text: 'No: "saturated" describes having many triple bonds instead.'
+        rationale: |
+          You substituted triple bonds for double bonds. Any multiple bond makes a hydrocarbon unsaturated.
       - text: 'Yes: the more double and triple bonds present, the more "saturated" a molecule is.'
+        rationale: |
+          You picked the opposite definition. Extra double or triple bonds decrease the amount of hydrogen, making it more unsaturated.
     explanation: |
       "Saturated" means the opposite of what the student assumed: every possible bonding spot already holds a hydrogen atom, so there is no room left for a double or triple bond.
     approved: true
@@ -171,8 +237,14 @@ questions:
       - text: 'No: "-ene" means a double bond (alkene); "-yne" means a triple bond (alkyne).'
         correct: true
       - text: 'Yes: "-ene" and "-yne" both refer to double bonds interchangeably.'
+        rationale: |
+          You thought the endings were interchangeable. "-ene" always means a double bond, and "-yne" always means a triple bond.
       - text: 'No: "-ene" means a triple bond, and "-yne" means a double bond.'
+        rationale: |
+          You swapped the two definitions. "-ene" belongs to double bonds (alkenes) and "-yne" belongs to triple bonds (alkynes).
       - text: 'Yes: the endings only depend on chain length, not bond type.'
+        rationale: |
+          You confused chain length prefixes with bond type suffixes. Prefixes like eth- or prop- give length; suffixes give bond type.
     explanation: |
       "-ene" specifically indicates a double bond (alkene), and "-yne" specifically indicates a triple bond (alkyne): reversing them names the wrong compound entirely.
     approved: true
@@ -185,8 +257,14 @@ questions:
       - text: 'No: IUPAC naming always requires finding the longest continuous carbon chain as the parent chain, regardless of how it was drawn.'
         correct: true
       - text: 'Yes: any chain can be chosen as the parent chain, as long as it is named consistently.'
+        rationale: |
+          You assumed parent chain choice is flexible. IUPAC rules strictly mandate choosing the longest continuous carbon chain.
       - text: 'No: the parent chain must always be exactly 4 carbons long.'
+        rationale: |
+          You set a fixed number for chain length. The parent chain length depends on the specific molecule being named.
       - text: 'Yes: the first chain drawn is always the correct parent chain.'
+        rationale: |
+          You relied on visual layout. Drawing orientation does not determine the parent chain; length does.
     explanation: |
       IUPAC naming rules require identifying the longest continuous carbon chain as the parent chain; shorter branches are instead named as attached side groups. Picking a shorter chain leads to an incorrect name.
     approved: true
@@ -199,8 +277,14 @@ questions:
       - text: Identify the full 5-carbon chain as the parent chain, since it is the longest continuous chain, and name the 2-carbon piece as an attached branch.
         correct: true
       - text: Use the 4-carbon path as the parent chain, since it was considered first.
+        rationale: |
+          You chose the shorter path because of reading order. IUPAC naming requires using the longest continuous carbon chain, which has 5 carbons.
       - text: Name the molecule using only the 2-carbon branch as the parent chain.
+        rationale: |
+          You picked the side branch as the parent chain. Side branches are named as substituents on the longer main chain.
       - text: Average the chain lengths to decide on a single combined parent chain.
+        rationale: |
+          You tried to average chain lengths. IUPAC naming never averages numbers; it identifies the single longest continuous chain.
     explanation: |
       IUPAC naming always starts by finding the longest continuous carbon chain. Here, that is the 5-carbon chain, not the shorter 4-carbon path: the 2-carbon piece becomes a named side branch instead.
     approved: true

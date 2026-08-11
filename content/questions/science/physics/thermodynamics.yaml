@@ -17,8 +17,14 @@ questions:
       - text: Conduction
         correct: true
       - text: Convection
+        rationale: |
+          You picked convection. Convection requires bulk movement of a fluid (liquid or gas), whereas pan handles heat via direct solid contact.
       - text: Radiation
+        rationale: |
+          You picked radiation. Radiation transfers heat via electromagnetic waves across space without solid contact.
       - text: Entropy
+        rationale: |
+          You picked entropy. Entropy is a thermodynamic state variable measuring disorder, not a heat transfer mechanism.
     explanation: |
       Conduction is heat transfer through direct contact between particles, typically through a solid, like a metal handle.
     approved: true
@@ -31,8 +37,14 @@ questions:
       - text: Radiation
         correct: true
       - text: Conduction
+        rationale: |
+          You picked conduction. Conduction requires a physical medium with direct particle contact, absent in vacuum.
       - text: Convection
+        rationale: |
+          You picked convection. Convection requires a fluid medium to circulate, which cannot exist across empty space.
       - text: Entropy
+        rationale: |
+          You picked entropy. Entropy measures molecular disorder, not electromagnetic heat transfer.
     explanation: |
       Radiation transfers heat through electromagnetic waves and requires no physical medium at all: exactly how sunlight warms Earth through empty space.
     approved: true
@@ -45,8 +57,14 @@ questions:
       - text: Convection
         correct: true
       - text: Conduction
+        rationale: |
+          You picked conduction. Conduction occurs via stationary molecular collisions, not mass fluid circulation.
       - text: Radiation
+        rationale: |
+          You picked radiation. Radiation is thermal emission via electromagnetic waves, not bulk air movement.
       - text: Entropy
+        rationale: |
+          You picked entropy. Entropy measures statistical disorder, not physical fluid thermal transfer.
     explanation: |
       Convection transfers heat through the movement of a fluid itself, as warmer, less dense fluid rises and cooler, denser fluid sinks.
     approved: true
@@ -59,8 +77,14 @@ questions:
       - text: The Zeroth Law
         correct: true
       - text: The First Law
+        rationale: |
+          You picked the First Law. The First Law states conservation of energy ($\Delta U = Q - W$).
       - text: The Second Law
+        rationale: |
+          You picked the Second Law. The Second Law defines entropy increase and spontaneous heat direction.
       - text: The Third Law
+        rationale: |
+          You picked the Third Law. The Third Law defines zero entropy at absolute zero temperature.
     explanation: |
       The Zeroth Law establishes this transitive property of thermal equilibrium, which is what makes thermometers work.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: The First Law
         correct: true
       - text: The Zeroth Law
+        rationale: |
+          You picked the Zeroth Law. The Zeroth Law establishes thermal equilibrium transitivity.
       - text: The Second Law
+        rationale: |
+          You picked the Second Law. The Second Law governs entropy generation and heat flow directionality.
       - text: The Third Law
+        rationale: |
+          You picked the Third Law. The Third Law defines absolute zero entropy limits.
     explanation: |
       The First Law is the law of conservation of energy applied specifically to heat and work.
     approved: true
@@ -87,8 +117,14 @@ questions:
       - text: The Second Law
         correct: true
       - text: The First Law
+        rationale: |
+          You picked the First Law. The First Law establishes energy conservation without specifying heat direction.
       - text: The Zeroth Law
+        rationale: |
+          You picked the Zeroth Law. The Zeroth Law defines temperature equality and equilibrium.
       - text: The Third Law
+        rationale: |
+          You picked the Third Law. The Third Law addresses absolute zero entropy behavior.
     explanation: |
       The Second Law describes the natural direction of spontaneous heat flow: always hot to cold, unless external work forces it the other way.
     approved: true
@@ -101,8 +137,14 @@ questions:
       - text: The Third Law
         correct: true
       - text: The First Law
+        rationale: |
+          You picked the First Law. The First Law is the law of conservation of energy.
       - text: The Second Law
+        rationale: |
+          You picked the Second Law. The Second Law states that overall system entropy increases in spontaneous processes.
       - text: The Zeroth Law
+        rationale: |
+          You picked the Zeroth Law. The Zeroth Law defines temperature measurement and thermal equilibrium.
     explanation: |
       The Third Law describes the behavior of entropy as temperature approaches absolute zero (0 Kelvin).
     approved: true
@@ -115,8 +157,14 @@ questions:
       - text: 62,790 J
         correct: true
       - text: 20,930 J
+        rationale: |
+          You omitted the mass factor ($4186 \times 5$). Multiply by mass ($3\text{ kg}$) to get $Q = 3 \times 4186 \times 5 = 62{,}790\text{ J}$.
       - text: 12,558 J
+        rationale: |
+          You multiplied mass by specific heat without temperature change ($3 \times 4186$). Use $Q = mc\Delta T = 62{,}790\text{ J}$.
       - text: 4,186 J
+        rationale: |
+          You picked specific heat capacity $c$ directly. Heat energy requires multiplying $m \cdot c \cdot \Delta T$.
     explanation: |
       $Q = mc\Delta T = (3)(4186)(5) = 62{,}790$ J.
     approved: true
@@ -129,8 +177,14 @@ questions:
       - text: 5°C
         correct: true
       - text: 10°C
+        rationale: |
+          You omitted the mass factor of 2 in denominator ($\dfrac{41860}{4186}$). Include mass: $\Delta T = \dfrac{41860}{2 \times 4186} = 5^\circ\text{C}$.
       - text: 20,930°C
+        rationale: |
+          You divided heat by mass only ($\dfrac{41860}{2}$). You must also divide by specific heat $c = 4186\text{ J/(kg}\cdot^\circ\text{C)}$.
       - text: 2.5°C
+        rationale: |
+          You doubled the denominator mass or miscalculated. $\Delta T = \dfrac{41860}{8372} = 5^\circ\text{C}$.
     explanation: |
       Rearranging $Q = mc\Delta T$: $\Delta T = \dfrac{Q}{mc} = \dfrac{41860}{(2)(4186)} = \dfrac{41860}{8372} = 5°C$.
     approved: true
@@ -143,8 +197,14 @@ questions:
       - text: 'No: the actual bulk movement of the air itself makes this convection, not conduction.'
         correct: true
       - text: 'Yes: any heat transfer through air is always conduction.'
+        rationale: |
+          You classified air heat movement as conduction. Bulk air movement transfers thermal energy by convection.
       - text: 'No: this is actually radiation, since air is a gas.'
+        rationale: |
+          You picked radiation. Air currents carry thermal energy physically (convection), not as electromagnetic rays (radiation).
       - text: 'Yes: conduction and convection are interchangeable terms.'
+        rationale: |
+          You equated conduction and convection. Conduction occurs via static contact; convection requires fluid flow.
     explanation: |
       Conduction is direct particle-to-particle contact, typically through solids, with no bulk fluid movement. Since the air itself is physically moving and circulating, this is convection.
     approved: true
@@ -157,8 +217,14 @@ questions:
       - text: 'No: the refrigerator uses electrical work (via its compressor) to force this backward flow; the second law only forbids this happening spontaneously, without work.'
         correct: true
       - text: 'Yes: moving heat from cold to hot always violates the second law, with no exceptions.'
+        rationale: |
+          You ignored work input. The Second Law allows reverse heat flow when driven by external mechanical or electrical work.
       - text: 'No: but only because refrigerators do not actually move heat at all.'
+        rationale: |
+          You claimed refrigerators do not transfer heat. Refrigerators extract heat from internal contents and reject it externally.
       - text: 'Yes: refrigerators are a well-known exception that breaks the laws of physics.'
+        rationale: |
+          You claimed refrigerators break physical laws. Work-driven heat pumps strictly comply with thermodynamic laws.
     explanation: |
       The second law forbids heat flowing spontaneously from cold to hot, but a refrigerator forces this flow using external work from its compressor: this does not violate the law, since the flow is not spontaneous.
     approved: true
@@ -171,8 +237,14 @@ questions:
       - text: 'No: a higher specific heat capacity means the substance resists temperature change, requiring more energy for the same temperature increase; a lower specific heat means faster temperature change.'
         correct: true
       - text: 'Yes: higher specific heat capacity always means faster temperature change.'
+        rationale: |
+          You equated high specific heat with rapid heating. High specific heat means high thermal inertia, slowing temperature change.
       - text: 'No: specific heat capacity has no relationship to how quickly temperature changes.'
+        rationale: |
+          You denied specific heat influence. $c$ determines energy required per degree change ($\Delta T = \dfrac{Q}{mc}$).
       - text: 'Yes: but only for substances heated by radiation.'
+        rationale: |
+          You restricted specific heat to radiation heating. Specific heat capacity governs thermal response across all heating methods.
     explanation: |
       Specific heat capacity measures resistance to temperature change. A high specific heat capacity (like water's) means a substance needs more energy to change temperature by a given amount, so it heats up and cools down more slowly, not faster.
     approved: true
@@ -185,8 +257,14 @@ questions:
       - text: 'No: mixing grams-based specific heat with a kilogram mass (without converting) throws off the final answer by a factor of 1000.'
         correct: true
       - text: 'Yes: specific heat capacity units automatically adjust for any mass unit used.'
+        rationale: |
+          You ignored unit consistency. Mixing $\text{g}$ and $\text{kg}$ introduces an uncompensated factor of 1000 error.
       - text: 'No: but only because specific heat capacity cannot be measured in J/(g·°C).'
+        rationale: |
+          You rejected $\text{J/(g}\cdot^\circ\text{C)}$ units. Specific heat is commonly expressed in both $\text{J/(g}\cdot^\circ\text{C)}$ and $\text{J/(kg}\cdot^\circ\text{C)}$.
       - text: 'Yes: grams and kilograms can always be used interchangeably in any formula.'
+        rationale: |
+          You treated grams and kilograms as equal. $\text{1 kg} = \text{1000 g}$, requiring metric conversion before calculation.
     explanation: |
       The mass units used in $Q=mc\Delta T$ must match the mass units in the specific heat capacity's own units. Mixing grams-based specific heat with a kilogram mass without converting introduces a factor-of-1000 error.
     approved: true
@@ -199,8 +277,14 @@ questions:
       - text: The coffee gradually cools down, since heat flows spontaneously from the hotter coffee to the cooler room, never the reverse without added work.
         correct: true
       - text: The coffee gradually gets hotter, drawing heat spontaneously from the cooler room air.
+        rationale: |
+          You inverted spontaneous heat flow direction. Spontaneous heat flow moves from hot coffee to cool air, not cold to hot.
       - text: The coffee's temperature stays exactly the same indefinitely.
+        rationale: |
+          You assumed perpetual thermal disequilibrium. Temperature differences drive spontaneous heat transfer until thermal equilibrium is reached.
       - text: The coffee's temperature change cannot be predicted by the second law.
+        rationale: |
+          You claimed Second Law cannot predict thermal direction. The Second Law explicitly predicts spontaneous heat flow direction.
     explanation: |
       Since the coffee is hotter than the surrounding air, heat flows spontaneously from the coffee to the room, cooling the coffee down. The reverse (coffee spontaneously heating up) would require heat flowing from cold to hot, which the second law forbids without external work.
     approved: true
@@ -213,8 +297,14 @@ questions:
       - text: The oil, since its lower specific heat capacity means the same energy input causes a larger temperature increase.
         correct: true
       - text: The water, since its higher specific heat capacity means it heats up faster.
+        rationale: |
+          You claimed higher specific heat causes faster heating. High specific heat requires more heat energy per degree rise, slowing heating.
       - text: Both reach exactly the same temperature, since the energy input and time are equal.
+        rationale: |
+          You ignored material thermal properties. Temperature rise depends on specific heat capacity ($\Delta T = \dfrac{Q}{mc}$).
       - text: Neither changes temperature, since both are liquids.
+        rationale: |
+          You claimed liquids do not change temperature when heated. Energy input increases liquid kinetic energy and temperature.
     explanation: |
       A lower specific heat capacity means less energy is needed to raise a substance's temperature by a given amount. Since oil has a lower specific heat capacity than water, the same energy input causes a greater temperature rise in the oil.
     approved: true

@@ -17,8 +17,14 @@ questions:
       - text: Exothermic
         correct: true
       - text: Endothermic
+        rationale: |
+          You picked heat-absorbing. Endothermic reactions absorb energy from surroundings, causing temperature to drop rather than rise.
       - text: 'Neither: heat is unrelated to reaction type'
+        rationale: |
+          You claimed heat release is unrelated to classification. Thermal energy exchange directly defines endothermic vs exothermic reactions.
       - text: Both at the same time
+        rationale: |
+          You combined opposite energy flows. A net release of heat defines an exothermic process, not a simultaneous dual process.
     explanation: |
       An exothermic reaction releases energy to its surroundings, making them feel warmer: exactly what happens in the hand warmer.
     approved: true
@@ -31,8 +37,14 @@ questions:
       - text: Endothermic
         correct: true
       - text: Exothermic
+        rationale: |
+          You picked heat-releasing. Exothermic reactions release energy to surroundings, making containers feel hot instead of cold.
       - text: 'Neither: cold is unrelated to reaction type'
+        rationale: |
+          You claimed temperature drops are unrelated. Temperature drops signal that the system is absorbing heat (endothermic).
       - text: Both at the same time
+        rationale: |
+          You claimed both processes occur at once. A net absorption of thermal energy is specifically endothermic.
     explanation: |
       An endothermic reaction absorbs energy from its surroundings, making them feel cooler: exactly what happens in this beaker.
     approved: true
@@ -45,8 +57,14 @@ questions:
       - text: A catalyst
         correct: true
       - text: A reactant
+        rationale: |
+          You picked a consumed starting material. Reactants are transformed into products during a reaction, whereas catalysts are regenerated.
       - text: A product
+        rationale: |
+          You picked the output substance. Products are newly formed chemical species, not rate-accelerating additives.
       - text: A solvent
+        rationale: |
+          You picked the dissolving medium. Solvents dissolve reactants but do not specifically lower reaction activation energy.
     explanation: |
       A catalyst speeds up a reaction by lowering activation energy, and unlike a reactant, it is not consumed in the process.
     approved: true
@@ -59,8 +77,14 @@ questions:
       - text: It increases the rate, since particles move faster and collide more often with more energy.
         correct: true
       - text: It decreases the rate, since heat makes particles move more slowly.
+        rationale: |
+          You claimed heat slows particles down. Higher temperature increases molecular kinetic energy, causing faster and more energetic collisions.
       - text: It has no effect on reaction rate.
+        rationale: |
+          You assumed temperature is independent of rate. Temperature directly influences collision frequency and energy, altering rate.
       - text: It only affects endothermic reactions, never exothermic ones.
+        rationale: |
+          You limited temperature effects to endothermic reactions. Higher temperature increases collision rates for both endothermic and exothermic reactions.
     explanation: |
       Higher temperature makes particles move faster, causing more frequent and more energetic collisions, which speeds up the reaction rate.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: It increases the rate, since more particles are available to collide with each other.
         correct: true
       - text: It decreases the rate, since more particles get in each other's way.
+        rationale: |
+          You assumed crowding slows reactions. More particles per unit volume increase successful collision frequency, raising the reaction rate.
       - text: It has no effect on reaction rate.
+        rationale: |
+          You assumed concentration does not affect rate. Higher reactant concentration increases collision rates and speeds up reaction kinetics.
       - text: It only affects reactions with a catalyst present.
+        rationale: |
+          You restricted concentration effects to catalyzed reactions. Concentration increases collision frequency in uncatalyzed reactions as well.
     explanation: |
       A higher concentration means more reactant particles are packed into the same space, increasing how often they collide and react.
     approved: true
@@ -87,8 +117,14 @@ questions:
       - text: The rate increases, since crushing the solid greatly increases its exposed surface area, allowing more collisions with the acid.
         correct: true
       - text: The rate decreases, since crushing the solid reduces its total mass.
+        rationale: |
+          You assumed crushing reduces mass. Crushing changes physical particle size without altering total mass, while increasing surface area.
       - text: The rate stays exactly the same, since the total amount of solid is unchanged.
+        rationale: |
+          You focused on constant mass while ignoring surface area. Powdered solids expose far more surface particles to acid collisions.
       - text: The reaction stops entirely once the solid is crushed.
+        rationale: |
+          You predicted reaction stoppage. Increasing surface area accelerates reaction rates rather than stopping them.
     explanation: |
       Crushing a solid into powder increases its total exposed surface area, even though its mass stays the same. More exposed surface means more particles available to collide with acid particles, speeding up the reaction.
     approved: true
@@ -101,8 +137,14 @@ questions:
       - text: It increases the rate, since the catalyst lowers the activation energy needed to get started.
         correct: true
       - text: It decreases the rate, since catalysts absorb energy from the reaction.
+        rationale: |
+          You claimed catalysts slow reactions down. Catalysts accelerate reactions by providing an alternate pathway with lower activation energy.
       - text: It has no effect on rate, only on the final product amount.
+        rationale: |
+          You reversed catalyst functions. Catalysts increase reaction rate but do not alter equilibrium yields or final product amounts.
       - text: It stops the reaction from happening at all.
+        rationale: |
+          You claimed catalysts inhibit reactions. Catalysts lower activation energy to speed up reactions.
     explanation: |
       A catalyst speeds up a reaction by lowering its activation energy, making it easier for reactant particles to successfully collide and transform into products.
     approved: true
@@ -115,8 +157,14 @@ questions:
       - text: 'No: whether a reaction is exothermic is independent of how fast it happens; some exothermic reactions, like iron rusting, happen very slowly.'
         correct: true
       - text: 'Yes: all exothermic reactions happen instantly.'
+        rationale: |
+          You equated energy release with speed. Exothermic reactions like rusting proceed slowly despite releasing energy overall.
       - text: 'No: exothermic reactions are always the slowest type of reaction.'
+        rationale: |
+          You claimed exothermic reactions are always slow. Combustion is exothermic and fast, showing rate and heat release are independent.
       - text: 'Yes: energy release and reaction speed always match perfectly.'
+        rationale: |
+          You assumed thermodynamic energy match kinetic rate. Overall energy change ($\Delta H$) does not determine activation energy ($E_a$).
     explanation: |
       Thermodynamics (how much energy is released or absorbed) and kinetics (how fast a reaction happens) are independent properties. Rusting iron is exothermic but proceeds very slowly.
     approved: true
@@ -129,8 +177,14 @@ questions:
       - text: 'No: a catalyst is not consumed or permanently changed by the reaction; it is regenerated and can be reused.'
         correct: true
       - text: 'Yes: catalysts are always fully converted into product.'
+        rationale: |
+          You treated catalysts as consumed reactants. Catalysts are regenerated unchanged by the end of the reaction cycle.
       - text: 'No: catalysts never interact with the reactants at all.'
+        rationale: |
+          You claimed no interaction occurs. Catalysts interact transiently with reactants to lower the activation energy barrier.
       - text: 'Yes: a catalyst becomes part of the product only in exothermic reactions.'
+        rationale: |
+          You conditioned catalyst consumption on heat flow. Catalysts remain unconsumed regardless of whether a reaction is endothermic or exothermic.
     explanation: |
       A catalyst may temporarily interact with reactants, but unlike a true reactant, it is not permanently used up: it is regenerated by the end of the reaction.
     approved: true
@@ -143,8 +197,14 @@ questions:
       - text: 'No: a catalyst only changes the reaction''s speed; it does not change the total energy released or absorbed, or the final amount of product.'
         correct: true
       - text: 'Yes: catalysts always increase the total energy released.'
+        rationale: |
+          You attributed overall energy changes to catalysts. Catalysts alter reaction pathways to lower activation energy without changing overall $\Delta H$.
       - text: 'No: but only because this particular reaction is endothermic.'
+        rationale: |
+          You restricted energy preservation to endothermic reactions. Catalysts leave net energy change unchanged in both endothermic and exothermic reactions.
       - text: 'Yes: faster reactions always release more total energy.'
+        rationale: |
+          You equated reaction speed with total energy output. Kinetic rate is independent of thermodynamic yield.
     explanation: |
       A catalyst changes only how fast a reaction reaches its result, by lowering activation energy. The overall energy change and final product amount stay exactly the same with or without it.
     approved: true
@@ -157,8 +217,14 @@ questions:
       - text: 'No: activation energy describes the initial energy barrier to start the reaction, which is separate from how much overall energy the reaction releases or absorbs.'
         correct: true
       - text: 'Yes: activation energy and overall energy release are always the same value.'
+        rationale: |
+          You confused activation energy ($E_a$) with net energy change ($\Delta H$). $E_a$ is the starting barrier; $\Delta H$ is the net energy difference.
       - text: 'No: high activation energy actually means the reaction releases no energy at all.'
+        rationale: |
+          You claimed high barriers prevent energy release. Sparks provide activation energy for combustion reactions that release vast amounts of heat.
       - text: 'Yes: reactions with high activation energy always release the most energy.'
+        rationale: |
+          You linked high barriers to high net yield. Activation energy dictates starting resistance, independent of net energy released.
     explanation: |
       Activation energy is the initial "push" needed to start a reaction: a completely separate value from the reaction's overall energy change. A reaction can have a small overall energy release but still need a high activation energy to begin.
     approved: true
@@ -171,8 +237,14 @@ questions:
       - text: 'Thermodynamics describes how much energy is exchanged; kinetics describes how fast the reaction happens: these are independent questions.'
         correct: true
       - text: Thermodynamics and kinetics both describe exactly the same property of a reaction.
+        rationale: |
+          You treated energy change and reaction speed as identical properties. Thermodynamics addresses energy equilibrium, while kinetics addresses rate.
       - text: Thermodynamics describes reaction speed; kinetics describes energy exchanged.
+        rationale: |
+          You swapped thermodynamics and kinetics definitions. Thermodynamics governs energy exchanges ($\Delta H$), while kinetics governs speeds.
       - text: Kinetics only applies to endothermic reactions, and thermodynamics only applies to exothermic ones.
+        rationale: |
+          You divided concepts by reaction heat type. Both thermodynamics and kinetics apply to every chemical reaction.
     explanation: |
       Thermodynamics concerns the energy difference between reactants and products (exothermic or endothermic). Kinetics concerns the reaction's speed, governed by activation energy, temperature, concentration, surface area, and catalysts: the two are independent of each other.
     approved: true
@@ -185,8 +257,14 @@ questions:
       - text: A reaction can release a large amount of energy overall while still having a high activation energy, making it slow to start without an initial push.
         correct: true
       - text: Paper's burning reaction must not actually be exothermic.
+        rationale: |
+          You denied that combustion is exothermic. Burning paper releases heat ($\Delta H < 0$), but requires activation energy to start.
       - text: Paper never releases energy unless it is already on fire.
+        rationale: |
+          You mistook initiation for total potential energy. Sparking provides activation energy to overcome the starting barrier.
       - text: Activation energy and overall energy release must always be equal.
+        rationale: |
+          You assumed activation energy equals net energy release. Activation energy is the hill to climb; overall release is the final elevation change.
     explanation: |
       Paper burning is strongly exothermic, but it also has a high activation energy: the ignition source (like a match) provides the initial energy push needed to overcome that barrier and start the reaction.
     approved: true
@@ -199,8 +277,14 @@ questions:
       - text: It changed the reaction rate (by lowering activation energy) but left the overall energy change and final product amount unchanged.
         correct: true
       - text: It changed the overall energy released but left the reaction rate unchanged.
+        rationale: |
+          You swapped catalyst effects. Catalysts change the reaction rate, leaving net energy release unchanged.
       - text: It changed the final product amount but left the reaction rate unchanged.
+        rationale: |
+          You claimed product yield changed while rate stayed constant. Catalysts accelerate the rate without increasing total product yield.
       - text: It changed nothing; the faster completion was a coincidence.
+        rationale: |
+          You attributed rate acceleration to coincidence. Catalysts directly lower activation energy to increase reaction speed.
     explanation: |
       The catalyst lowered the activation energy, making the reaction proceed much faster. Since the same final amount of product formed either way, the overall energy change and product amount were not affected: only the speed of getting there changed.
     approved: true

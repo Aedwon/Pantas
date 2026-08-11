@@ -17,8 +17,14 @@ questions:
       - text: 4 m/s^2
         correct: true
       - text: 100 m/s^2
+        rationale: |
+          You multiplied force and mass ($20 \times 5$). Acceleration is $a = \dfrac{F_{net}}{m} = \dfrac{20}{5} = 4\text{ m/s}^2$.
       - text: 15 m/s^2
+        rationale: |
+          You subtracted mass from force ($20 - 5$). Solve Newton's Second Law by division: $a = \dfrac{F_{net}}{m}$.
       - text: 0.25 m/s^2
+        rationale: |
+          You divided mass by force ($\dfrac{5}{20}$). Acceleration requires dividing force by mass ($a = \dfrac{F_{net}}{m}$).
     explanation: |
       $a = \dfrac{F_{net}}{m} = \dfrac{20}{5} = 4$ m/s².
     approved: true
@@ -31,8 +37,14 @@ questions:
       - text: 24 N
         correct: true
       - text: 11 N
+        rationale: |
+          You added mass and acceleration ($8 + 3$). Calculate force by multiplication: $F = ma = 8 \times 3 = 24\text{ N}$.
       - text: 2.67 N
+        rationale: |
+          You divided mass by acceleration ($\dfrac{8}{3}$). Newton's Second Law uses multiplication: $F_{net} = ma$.
       - text: 5 N
+        rationale: |
+          You subtracted acceleration from mass ($8 - 3$). Calculate force using multiplication: $F_{net} = ma = 24\text{ N}$.
     explanation: |
       $F_{net} = ma = (8)(3) = 24$ N.
     approved: true
@@ -45,8 +57,14 @@ questions:
       - text: 25 kg
         correct: true
       - text: 100 kg
+        rationale: |
+          You multiplied force and acceleration ($50 \times 2$). Mass is $m = \dfrac{F_{net}}{a} = \dfrac{50}{2} = 25\text{ kg}$.
       - text: 48 kg
+        rationale: |
+          You subtracted acceleration from force ($50 - 2$). Solve Newton's Second Law by division: $m = \dfrac{F_{net}}{a}$.
       - text: 52 kg
+        rationale: |
+          You added force and acceleration ($50 + 2$). Mass calculation requires $m = \dfrac{F_{net}}{a} = 25\text{ kg}$.
     explanation: |
       $m = \dfrac{F_{net}}{a} = \dfrac{50}{2} = 25$ kg.
     approved: true
@@ -59,8 +77,14 @@ questions:
       - text: The First Law (Law of Inertia)
         correct: true
       - text: The Second Law
+        rationale: |
+          You picked Newton's Second Law ($F = ma$). The Second Law defines force-mass-acceleration relationships.
       - text: The Third Law
+        rationale: |
+          You picked Newton's Third Law. The Third Law defines equal and opposite action-reaction pairs.
       - text: The Law of Universal Gravitation
+        rationale: |
+          You picked the gravitational law. Newton's gravitational law defines attractive force between masses.
     explanation: |
       This is Newton's First Law, also called the Law of Inertia: an object resists changes to its state of motion unless a net force acts on it.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: The Third Law
         correct: true
       - text: The First Law
+        rationale: |
+          You picked Newton's First Law. The First Law describes inertia and net-force motion persistence.
       - text: The Second Law
+        rationale: |
+          You picked Newton's Second Law. The Second Law relates net force, mass, and acceleration ($F = ma$).
       - text: The Law of Conservation of Momentum
+        rationale: |
+          You picked momentum conservation principle. Conservation of momentum is derived from Newton's Third Law, but is not the law statement itself.
     explanation: |
       This is Newton's Third Law: action and reaction forces are equal in magnitude, opposite in direction, and act on two different objects.
     approved: true
@@ -87,8 +117,14 @@ questions:
       - text: The book pushing down on the table, and the table pushing up on the book.
         correct: true
       - text: The book's weight and the normal force, both acting on the book.
+        rationale: |
+          You picked forces acting on a single body. Newton's Third Law pairs must act on two different interacting bodies.
       - text: The table's weight and the floor's normal force on the table.
+        rationale: |
+          You picked forces acting on the table alone. Action-reaction pairs act mutually between the two contacting bodies (book and table).
       - text: There is no true action-reaction pair in this scenario.
+        rationale: |
+          You denied the existence of action-reaction pairs. Every contact interaction possesses a valid Newton's Third Law pair.
     explanation: |
       True Newton's Third Law pairs act on two different objects: here, the book pushes down on the table, and the table pushes back up on the book with an equal, opposite force.
     approved: true
@@ -101,8 +137,14 @@ questions:
       - text: 200 N is the maximum static friction; 150 N is the kinetic friction.
         correct: true
       - text: 150 N is the maximum static friction; 200 N is the kinetic friction.
+        rationale: |
+          You swapped static and kinetic friction values. Static friction peak is generally higher than kinetic friction.
       - text: Both values represent kinetic friction at different speeds.
+        rationale: |
+          You classified 200 N as kinetic friction. The force to initiate motion overcomes static friction, not kinetic friction.
       - text: Both values represent static friction at different speeds.
+        rationale: |
+          You classified 150 N as static friction. Sustained constant speed motion operates against kinetic friction.
     explanation: |
       The force needed to just start the crate moving overcomes the maximum static friction (200 N). The lower force needed to keep it moving at constant speed matches the kinetic friction (150 N), which is typically less than the maximum static friction.
     approved: true
@@ -115,8 +157,14 @@ questions:
       - text: 'No: both forces act on the same object (the book), which makes them a balanced-force pair (First Law), not a Third Law action-reaction pair.'
         correct: true
       - text: 'Yes: any two equal and opposite forces are automatically a Third Law pair.'
+        rationale: |
+          You assumed equal opposite forces on one body form Third Law pairs. Action-reaction pairs must act on two distinct objects.
       - text: 'No: weight and normal force are never equal in any situation.'
+        rationale: |
+          You claimed weight and normal force are never equal. They are equal on flat horizontal surfaces without vertical acceleration.
       - text: 'Yes: but only when the book is accelerating.'
+        rationale: |
+          You linked Third Law pairing to acceleration. Third Law pairs exist independent of acceleration state.
     explanation: |
       Third Law pairs always act on two different objects. Weight and normal force both act on the same book: they happen to balance (a First Law equilibrium), which is a separate fact from Third Law pairing.
     approved: true
@@ -129,8 +177,14 @@ questions:
       - text: 'No: mass and acceleration are inversely related in Newton''s Second Law; doubling the mass halves the acceleration instead.'
         correct: true
       - text: 'Yes: doubling the mass always doubles the acceleration for the same force.'
+        rationale: |
+          You made acceleration proportional to mass. $a = \dfrac{F}{m}$ shows acceleration is inversely proportional to mass.
       - text: 'No: doubling the mass has no effect on acceleration at all.'
+        rationale: |
+          You assumed acceleration is mass-independent. Mass dictates inertia and inversely affects acceleration for a fixed force.
       - text: 'Yes: mass and acceleration are directly related.'
+        rationale: |
+          You claimed a direct mass-acceleration relation. Mass and acceleration are inversely related in Newton's Second Law.
     explanation: |
       $F_{net} = ma$ means $a = \dfrac{F_{net}}{m}$. For a fixed force, increasing mass decreases acceleration: doubling the mass halves the acceleration, it does not double it.
     approved: true
@@ -143,8 +197,14 @@ questions:
       - text: 'No: kinetic friction is roughly constant once sliding begins and can be strong enough to eventually stop the object if no other force keeps pushing it.'
         correct: true
       - text: 'Yes: kinetic friction always becomes zero once an object starts sliding.'
+        rationale: |
+          You assumed friction drops to zero. Kinetic friction persists during relative surface sliding.
       - text: 'No: but only because kinetic friction increases the longer an object slides.'
+        rationale: |
+          You claimed kinetic friction increases over time. Kinetic friction remains nearly constant regardless of sliding duration.
       - text: 'Yes: friction only matters before an object starts moving.'
+        rationale: |
+          You restricted friction to static conditions. Kinetic friction actively opposes sliding motion.
     explanation: |
       Kinetic friction continues to act on a sliding object, opposing its motion. Without a continued applied force, a sliding object will eventually decelerate to a stop due to this friction.
     approved: true
@@ -157,8 +217,14 @@ questions:
       - text: 'No: the normal force equals weight only on a horizontal surface with no other vertical forces acting; it must be recalculated in other situations, like on an incline.'
         correct: true
       - text: 'Yes: the normal force always equals $mg$, regardless of the surface or other forces.'
+        rationale: |
+          You assumed universal normal force equality. On inclines or under vertical applied forces, $F_N \neq mg$.
       - text: 'No: the normal force is always greater than weight in every situation.'
+        rationale: |
+          You claimed normal force always exceeds weight. On inclines, normal force ($mg\cos\theta$) is less than weight.
       - text: 'Yes: but only for objects that are not accelerating.'
+        rationale: |
+          You linked normal force equality strictly to zero acceleration. Geometry (like ramps) alters normal force even when static.
     explanation: |
       Normal force only equals $mg$ when the surface is horizontal and no other vertical forces are involved. On an incline, or with an additional applied force, the normal force must be found from the actual vertical force balance in that specific situation.
     approved: true
@@ -171,8 +237,14 @@ questions:
       - text: W = mg
         correct: true
       - text: W = ma
+        rationale: |
+          You picked general Newton's Second Law force formula ($F = ma$). Weight specifically uses gravitational acceleration ($W = mg$).
       - text: W = m/g
+        rationale: |
+          You divided mass by gravity. Weight requires multiplying mass by gravitational acceleration.
       - text: W = g/m
+        rationale: |
+          You divided gravity by mass. Weight calculation uses multiplication: $W = mg$.
     explanation: |
       Weight is the force of gravity pulling an object downward, calculated as mass times the acceleration due to gravity: $W = mg$.
     approved: true
@@ -185,8 +257,14 @@ questions:
       - text: 3 m/s^2
         correct: true
       - text: 5 m/s^2
+        rationale: |
+          You ignored opposing friction ($50 / 10$). Subtract friction first ($50 - 20 = 30\text{ N}$), then divide by mass ($30 / 10 = 3\text{ m/s}^2$).
       - text: 7 m/s^2
+        rationale: |
+          You added friction to applied force ($50 + 20 = 70\text{ N}$). Friction opposes motion: $F_{net} = 50 - 20 = 30\text{ N}$.
       - text: 2 m/s^2
+        rationale: |
+          You used friction force alone ($20 / 10$). Net force requires subtracting friction from applied push.
     explanation: |
       The net force is the applied force minus the opposing friction: $50 - 20 = 30$ N. Then $a = \dfrac{F_{net}}{m} = \dfrac{30}{10} = 3$ m/s².
     approved: true
@@ -199,8 +277,14 @@ questions:
       - text: Weight (pulling down) and normal force (pushing up), equal in magnitude since the box is not accelerating.
         correct: true
       - text: Only weight, since the table does not exert any force.
+        rationale: |
+          You omitted the contact normal force. The table exerts an upward normal force balancing weight.
       - text: Only normal force, since the box has no weight while resting.
+        rationale: |
+          You denied gravitational weight. Gravitational force acts downward continuously regardless of resting state.
       - text: Weight, normal force, and friction, even though the box is not sliding or being pushed.
+        rationale: |
+          You added non-existent friction. Without an applied horizontal force, static friction is zero.
     explanation: |
       With nothing else pushing or pulling the box, only weight and normal force act on it. Since the box is at rest (not accelerating), these two forces must be equal and opposite, balancing each other.
     approved: true
@@ -213,8 +297,14 @@ questions:
       - text: 'No: on an incline, the normal force is less than the full weight, since only part of the weight presses directly into the ramp''s surface.'
         correct: true
       - text: 'Yes: the normal force always equals $mg$, regardless of the surface''s angle.'
+        rationale: |
+          You assumed angle-independent normal force. On an incline, normal force is reduced to $mg\cos\theta$.
       - text: 'No: the normal force is always greater than the full weight on an incline.'
+        rationale: |
+          You claimed normal force increases on inclines. Normal force decreases as incline angle increases.
       - text: 'Yes: but only if the box is sliding down the ramp.'
+        rationale: |
+          You made normal force depend on sliding motion. Normal force depends on surface angle geometry ($mg\cos\theta$).
     explanation: |
       On an incline, weight has a component pressing into the surface and a component along the surface. Only the perpendicular component is balanced by the normal force, making it less than the box's full weight: normal force must be recalculated from the actual geometry, not assumed equal to $mg$.
     approved: true

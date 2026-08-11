@@ -17,8 +17,14 @@ questions:
       - text: 40°
         correct: true
       - text: 50°
+        rationale: |
+          You calculated the complementary angle ($90^\circ - 40^\circ$). The law of reflection states angle of reflection equals angle of incidence ($40^\circ$).
       - text: 80°
+        rationale: |
+          You doubled the incident angle ($40^\circ \times 2$). The law of reflection states $\theta_r = \theta_i = 40^\circ$.
       - text: 20°
+        rationale: |
+          You halved the incident angle ($\dfrac{40^\circ}{2}$). Reflection preserves exact incidence angle ($\theta_r = \theta_i$).
     explanation: |
       The law of reflection states the angle of reflection equals the angle of incidence, so it is also 40°.
     approved: true
@@ -31,8 +37,14 @@ questions:
       - text: 55°
         correct: true
       - text: 35°
+        rationale: |
+          You calculated the surface angle ($90^\circ - 55^\circ$). Law of reflection states angle of reflection equals angle of incidence ($55^\circ$).
       - text: 110°
+        rationale: |
+          You doubled the incident angle ($55^\circ \times 2$). Angle of reflection equals incidence angle ($\theta_r = \theta_i$).
       - text: 90°
+        rationale: |
+          You picked the surface normal angle ($90^\circ$). Angle of reflection equals the incidence angle ($55^\circ$).
     explanation: |
       The law of reflection states the angle of reflection equals the angle of incidence, so it is also 55°.
     approved: true
@@ -45,8 +57,14 @@ questions:
       - text: Converging
         correct: true
       - text: Diverging
+        rationale: |
+          You picked diverging behavior. Concave mirrors focus incoming parallel light inward to a focal point (converging).
       - text: 'Neither: mirrors do not affect light direction.'
+        rationale: |
+          You denied light reflection direction change. Curving mirror surfaces bend ray paths according to local surface normals.
       - text: It depends on the color of light.
+        rationale: |
+          You claimed color alters mirror convergence. Metallic specular reflection focuses all visible wavelengths at equal angles.
     explanation: |
       Concave mirrors bring parallel light rays together toward a focus point, making them converging mirrors.
     approved: true
@@ -59,8 +77,14 @@ questions:
       - text: Converging
         correct: true
       - text: Diverging
+        rationale: |
+          You picked diverging lens classification. Convex lenses bend light inward toward a real focus point (converging).
       - text: 'Neither: lenses do not affect light direction.'
+        rationale: |
+          You denied refraction direction change. Lenses alter light direction via boundary refraction.
       - text: It depends on the color of light.
+        rationale: |
+          You claimed color alters lens convergence type. Lens curvature dictates converging vs diverging classification.
     explanation: |
       Convex lenses (thicker in the middle) bring light rays together toward a focus point, making them converging lenses.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: Diverging
         correct: true
       - text: Converging
+        rationale: |
+          You picked converging mirror classification. Convex mirrors reflect parallel rays outward away from the focal point (diverging).
       - text: 'Neither: mirrors do not affect light direction.'
+        rationale: |
+          You denied mirror ray bending. Outwardly curved mirror surfaces scatter reflected rays outwards.
       - text: It depends on the color of light.
+        rationale: |
+          You claimed color alters reflection pattern. Surface geometry governs ray direction independently of color.
     explanation: |
       Convex mirrors spread parallel light rays apart, making them diverging mirrors.
     approved: true
@@ -87,8 +117,14 @@ questions:
       - text: Diverging
         correct: true
       - text: Converging
+        rationale: |
+          You picked converging lens classification. Concave lenses bend incoming parallel rays outward (diverging).
       - text: 'Neither: lenses do not affect light direction.'
+        rationale: |
+          You denied lens refraction effects. Concave lenses refract light rays outward to correct myopia.
       - text: It depends on the color of light.
+        rationale: |
+          You claimed color dictates convergence classification. Lens shape determines whether rays converge or diverge.
     explanation: |
       Concave lenses (thinner in the middle) spread light rays apart, making them diverging lenses.
     approved: true
@@ -101,8 +137,14 @@ questions:
       - text: The angle of incidence equals the angle of reflection.
         correct: true
       - text: The angle of incidence is always greater than the angle of reflection.
+        rationale: |
+          You claimed angle inequality. The law of reflection states $\theta_i = \theta_r$ relative to the surface normal.
       - text: Light always bends when it reflects off a surface.
+        rationale: |
+          You confused reflection with refraction bending. Bending across media interfaces is refraction, not reflection.
       - text: Light travels at the same speed in every medium.
+        rationale: |
+          You claimed constant light speed across media. Light speed changes depending on medium refractive index.
     explanation: |
       The law of reflection states that the angle at which light hits a surface (angle of incidence) equals the angle at which it bounces off (angle of reflection).
     approved: true
@@ -115,8 +157,14 @@ questions:
       - text: Refraction
         correct: true
       - text: Reflection
+        rationale: |
+          You picked reflection. Reflection is light bouncing off a boundary within the same medium.
       - text: Diffraction
+        rationale: |
+          You picked diffraction. Diffraction is light bending around obstacle edges or through narrow slits.
       - text: Convergence
+        rationale: |
+          You picked geometric ray behavior. Convergence describes rays coming together, not media-boundary bending.
     explanation: |
       Refraction is the bending of light as it crosses into a different medium, caused by a change in speed at the boundary.
     approved: true
@@ -129,8 +177,14 @@ questions:
       - text: Radio waves, visible light, X-rays, gamma rays
         correct: true
       - text: Gamma rays, X-rays, visible light, radio waves
+        rationale: |
+          You ordered from shortest wavelength (highest energy) to longest wavelength. The stem requested longest to shortest.
       - text: Visible light, radio waves, gamma rays, X-rays
+        rationale: |
+          You placed visible light before radio waves. Radio waves have much longer wavelengths than visible light.
       - text: Radio waves, gamma rays, X-rays, visible light
+        rationale: |
+          You misordered gamma rays and X-rays. Gamma rays have shorter wavelengths than X-rays.
     explanation: |
       The full electromagnetic spectrum runs (longest to shortest): radio, microwave, infrared, visible, ultraviolet, X-ray, gamma ray. From this list: radio waves, then visible light, then X-rays, then gamma rays.
     approved: true
@@ -143,8 +197,14 @@ questions:
       - text: Red
         correct: true
       - text: Violet
+        rationale: |
+          You picked the color with the shortest wavelength ($\approx 400\text{ nm}$). Red has the longest wavelength ($\approx 700\text{ nm}$).
       - text: Blue
+        rationale: |
+          You picked a short-wavelength color. Blue light ($\approx 450\text{ nm}$) is much shorter than red light.
       - text: Green
+        rationale: |
+          You picked a mid-spectrum color. Green ($\approx 550\text{ nm}$) has a shorter wavelength than red.
     explanation: |
       Red has the longest wavelength in the visible spectrum, matching the "r" at the start of the roygbiv mnemonic (ordered longest to shortest).
     approved: true
@@ -157,8 +217,14 @@ questions:
       - text: Violet
         correct: true
       - text: Red
+        rationale: |
+          You picked the color with the longest wavelength ($\approx 700\text{ nm}$). Violet has the shortest ($\approx 400\text{ nm}$).
       - text: Orange
+        rationale: |
+          You picked a long-wavelength color ($\approx 600\text{ nm}$). Violet is at the shortest wavelength end.
       - text: Yellow
+        rationale: |
+          You picked a mid-to-long wavelength color ($\approx 580\text{ nm}$). Violet has a significantly shorter wavelength.
     explanation: |
       Violet has the shortest wavelength in the visible spectrum, matching the "v" at the end of the roygbiv mnemonic (ordered longest to shortest).
     approved: true
@@ -171,8 +237,14 @@ questions:
       - text: 'No: the concave/convex rule flips for lenses; concave lenses actually diverge light, while convex lenses converge it.'
         correct: true
       - text: 'Yes: concave always means converging, for both mirrors and lenses.'
+        rationale: |
+          You assumed shape terms mean identical behavior in mirrors and lenses. Concave mirrors converge, but concave lenses diverge.
       - text: 'No: concave lenses do not affect light at all.'
+        rationale: |
+          You claimed concave lenses are inactive. Concave lenses refract passing light rays outward.
       - text: 'Yes: mirrors and lenses always behave identically for the same shape.'
+        rationale: |
+          You equated mirror reflection with lens refraction. Reflection and refraction optics invert shape convergence properties.
     explanation: |
       For mirrors, concave converges and convex diverges. For lenses, this pattern reverses: convex lenses converge, and concave lenses diverge. Always check whether the device is a mirror or a lens before applying the rule.
     approved: true
@@ -185,8 +257,14 @@ questions:
       - text: Reflection is light bouncing off a surface, staying in the same medium; refraction is light bending as it passes into a different medium.
         correct: true
       - text: Reflection is light bending into a new medium; refraction is light bouncing off a surface.
+        rationale: |
+          You reversed reflection and refraction definitions. Reflection bounces in one medium; refraction penetrates and bends in a new medium.
       - text: Reflection and refraction are just two different names for the exact same phenomenon.
+        rationale: |
+          You equated reflection and refraction. They are distinct optical phenomena involving different wave behaviors.
       - text: Refraction only happens with mirrors; reflection only happens with lenses.
+        rationale: |
+          You assigned optics backwards. Mirrors reflect light; lenses refract light.
     explanation: |
       Reflection keeps light in the same medium, simply bouncing off a surface. Refraction involves light actually crossing into a different medium and bending due to the change in speed.
     approved: true
@@ -199,8 +277,14 @@ questions:
       - text: 'No: visible light is only a tiny slice of the full electromagnetic spectrum, bordered by infrared and ultraviolet.'
         correct: true
       - text: 'Yes: visible light makes up the majority of the electromagnetic spectrum.'
+        rationale: |
+          You overrepresented visible spectrum fraction. Visible light spans only a narrow $400\text{--}700\text{ nm}$ range.
       - text: 'No: the electromagnetic spectrum consists only of visible light and nothing else.'
+        rationale: |
+          You restricted the spectrum to visible wavelengths. The spectrum includes radio, microwave, infrared, UV, X-ray, and gamma rays.
       - text: 'Yes: radio waves and X-rays are actually part of visible light.'
+        rationale: |
+          You grouped non-visible radiation into visible light. Radio waves and X-rays are invisible electromagnetic frequencies.
     explanation: |
       Visible light occupies only a narrow band of the full electromagnetic spectrum. Most electromagnetic radiation (radio waves, microwaves, infrared, ultraviolet, X-rays, and gamma rays) is invisible to human eyes.
     approved: true
@@ -213,8 +297,14 @@ questions:
       - text: 'No: red has the longest wavelength in the visible spectrum, and violet has the shortest.'
         correct: true
       - text: 'Yes: violet always has a longer wavelength than red.'
+        rationale: |
+          You assigned longer wavelength to violet. Red has the longest visible wavelength ($\approx 700\text{ nm}$); violet has shortest ($\approx 400\text{ nm}$).
       - text: 'No: red and violet actually have the exact same wavelength.'
+        rationale: |
+          You claimed red and violet wavelengths are equal. Red and violet lie at opposite ends of the visible light spectrum.
       - text: 'Yes: wavelength and energy always increase together in the same direction as this student assumes for violet.'
+        rationale: |
+          You linked energy and wavelength directly. Energy and wavelength are inversely proportional ($E = \dfrac{hc}{\lambda}$).
     explanation: |
       Red has the longest wavelength in visible light, and violet has the shortest: the opposite of what the student assumed. The roygbiv mnemonic lists colors from longest to shortest wavelength.
     approved: true

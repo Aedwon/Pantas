@@ -17,8 +17,14 @@ questions:
       - text: 20,000 kg m/s
         correct: true
       - text: 1,020 kg m/s
+        rationale: |
+          You added mass and velocity ($1000 + 20$). Momentum is the product of mass and velocity: $p = mv = 1000 \times 20 = 20{,}000\text{ kg}\cdot\text{m/s}$.
       - text: 50 kg m/s
+        rationale: |
+          You divided mass by velocity ($\dfrac{1000}{20}$). Momentum requires multiplying mass by velocity.
       - text: 980 kg m/s
+        rationale: |
+          You subtracted velocity from mass ($1000 - 20$). Use the multiplication formula $p = mv$.
     explanation: |
       $p = mv = (1000)(20) = 20{,}000$ kg·m/s.
     approved: true
@@ -31,8 +37,14 @@ questions:
       - text: 25 N
         correct: true
       - text: 5 N
+        rationale: |
+          You calculated momentum change $\Delta p = 0.5 \times 10 = 5\text{ kg}\cdot\text{m/s}$ only. Force requires dividing by time: $F = \dfrac{\Delta p}{t} = \dfrac{5}{0.2} = 25\text{ N}$.
       - text: 2 N
+        rationale: |
+          You multiplied momentum change by time ($5 \times 0.2$). Force is rate of momentum change ($F = \dfrac{\Delta p}{t}$), so divide by $t$.
       - text: 50 N
+        rationale: |
+          You divided mass by time or doubled the force. $\Delta p = 5$, so $F = \dfrac{5}{0.2} = 25\text{ N}$.
     explanation: |
       Change in momentum: $\Delta p = 0 - (0.5)(10) = -5$ kg·m/s. Force: $F = \dfrac{\Delta p}{t} = \dfrac{-5}{0.2} = -25$ N, so the magnitude is 25 N.
     approved: true
@@ -45,8 +57,14 @@ questions:
       - text: 3 m/s
         correct: true
       - text: 4 m/s
+        rationale: |
+          You assumed velocity remains unchanged after collision. Adding mass increases total inertia, reducing velocity to $3\text{ m/s}$.
       - text: 12 m/s
+        rationale: |
+          You reported total initial momentum ($3 \times 4 = 12\text{ kg}\cdot\text{m/s}$) as final velocity. Divide momentum by total mass ($4\text{ kg}$) to get $v = 3\text{ m/s}$.
       - text: 1 m/s
+        rationale: |
+          You divided total momentum by stationary mass only. Use combined mass ($3 + 1 = 4\text{ kg}$), yielding $v = 3\text{ m/s}$.
     explanation: |
       Total momentum before: $(3)(4) + (1)(0) = 12$ kg·m/s. Combined mass after: $3+1=4$ kg. So $12 = 4v$, giving $v = 3$ m/s.
     approved: true
@@ -59,8 +77,14 @@ questions:
       - text: Elastic
         correct: true
       - text: Inelastic
+        rationale: |
+          You picked inelastic collision. Inelastic collisions lose kinetic energy to heat/deformation, whereas elastic collisions conserve kinetic energy.
       - text: Perfectly inelastic
+        rationale: |
+          You picked perfectly inelastic collision. Perfectly inelastic collisions involve objects sticking together with maximum kinetic energy loss.
       - text: Not a valid collision
+        rationale: |
+          You rejected collision validity. Collisions conserving both momentum and kinetic energy are valid elastic collisions.
     explanation: |
       An elastic collision conserves both momentum and kinetic energy. Since both were measured to be conserved here, this is an elastic collision.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: Inelastic
         correct: true
       - text: Elastic
+        rationale: |
+          You picked elastic collision. Elastic collisions require complete kinetic energy conservation without thermal energy loss.
       - text: Not a valid collision
+        rationale: |
+          You rejected collision validity. Partial kinetic energy loss with momentum conservation is a standard inelastic collision.
       - text: A collision where momentum was not conserved
+        rationale: |
+          You claimed momentum was not conserved. Momentum is conserved in all isolated collisions, including inelastic ones.
     explanation: |
       An inelastic collision conserves momentum but not kinetic energy: some kinetic energy converts into other forms like heat or sound.
     approved: true
@@ -87,8 +117,14 @@ questions:
       - text: 'No: only elastic collisions conserve kinetic energy; a crash where cars crumple and stick together is a perfectly inelastic collision, which does not conserve kinetic energy.'
         correct: true
       - text: 'Yes: kinetic energy is always conserved in every type of collision.'
+        rationale: |
+          You assumed kinetic energy is always conserved. Kinetic energy is lost to acoustic and thermal deformation in inelastic crashes.
       - text: 'No: but only because momentum is also not conserved in this crash.'
+        rationale: |
+          You claimed momentum is not conserved. Momentum is conserved in all closed-system collisions regardless of elasticity.
       - text: 'Yes: as long as momentum is also conserved.'
+        rationale: |
+          You linked kinetic energy conservation directly to momentum conservation. Momentum conservation occurs in inelastic crashes without kinetic energy conservation.
     explanation: |
       Momentum is conserved in all closed-system collisions, but kinetic energy is only conserved in elastic collisions. A real-world crash where objects crumple and stick together is inelastic, so kinetic energy is not conserved.
     approved: true
@@ -101,8 +137,14 @@ questions:
       - text: 'No: the combined mass after sticking together must include both objects'' masses, even the one that started at rest.'
         correct: true
       - text: 'Yes: a stationary object''s mass does not need to be included after a collision.'
+        rationale: |
+          You omitted the stationary mass. Sticking together creates a combined system mass ($m_1 + m_2$) after impact.
       - text: 'No: only the stationary cart''s mass should be used instead.'
+        rationale: |
+          You substituted stationary mass for total mass. Both moving and resting masses contribute to final post-collision inertia.
       - text: 'Yes: mass only matters for the object that was originally moving.'
+        rationale: |
+          You ignored rest mass contribution to final momentum. Post-collision velocity depends on combined total mass.
     explanation: |
       Even though the stationary cart contributed zero momentum before the collision, its mass still becomes part of the combined moving mass afterward. Leaving it out of the "after" total is a common and costly error.
     approved: true
@@ -115,8 +157,14 @@ questions:
       - text: 'No: impulse equals force multiplied by time (or the total change in momentum), not the force value alone.'
         correct: true
       - text: 'Yes: impulse and force are the exact same quantity.'
+        rationale: |
+          You equated force and impulse. Force ($F$) is instantaneous push; impulse ($J = Ft$) is force integrated over time.
       - text: 'No: impulse only depends on time, never on force.'
+        rationale: |
+          You excluded force from impulse. Impulse depends on both force and contact time duration ($J = Ft$).
       - text: 'Yes: as long as the force value given is the average force.'
+        rationale: |
+          You omitted time from average force. Impulse requires multiplying average force by contact time duration.
     explanation: |
       Impulse ($J = Ft$) requires both the force and the time over which it acts. Reporting force alone omits the time component and does not answer what was actually asked.
     approved: true
@@ -129,8 +177,14 @@ questions:
       - text: 'No: since momentum is a vector, one cart''s momentum must be treated as negative (opposite direction) in the total.'
         correct: true
       - text: 'Yes: momentum is always added as positive values, regardless of direction.'
+        rationale: |
+          You treated momentum as a scalar. Momentum is a vector; head-on opposing movements require opposite sign assignment.
       - text: 'No: but only because one of the carts must actually be stationary.'
+        rationale: |
+          You assumed one cart must be at rest. Head-on collisions involve two active opposing velocity vectors.
       - text: 'Yes: direction only matters for velocity, not momentum.'
+        rationale: |
+          You disconnected direction from momentum. Momentum ($p = mv$) inherits velocity's directional vector property.
     explanation: |
       Momentum is a vector quantity. When two objects move toward each other, their momenta point in opposite directions, so one must be assigned a negative sign relative to the other before adding them.
     approved: true
@@ -143,8 +197,14 @@ questions:
       - text: They have exactly the same momentum, 6000 kg·m/s each.
         correct: true
       - text: The truck has more momentum, since it has more mass.
+        rationale: |
+          You judged momentum by mass alone. Truck momentum is $2000 \times 3 = 6000\text{ kg}\cdot\text{m/s}$, matching the car.
       - text: The car has more momentum, since it moves faster.
+        rationale: |
+          You judged momentum by speed alone. Car momentum is $500 \times 12 = 6000\text{ kg}\cdot\text{m/s}$, matching the truck.
       - text: Their momenta cannot be compared without knowing their directions.
+        rationale: |
+          You denied magnitude comparability. Momentum magnitudes can be compared directly regardless of directional alignment.
     explanation: |
       Truck: $p = (2000)(3) = 6000$ kg·m/s. Car: $p = (500)(12) = 6000$ kg·m/s. A heavy object moving slowly can have the same momentum as a light object moving fast.
     approved: true
@@ -157,8 +217,14 @@ questions:
       - text: 2 m/s
         correct: true
       - text: 3 m/s
+        rationale: |
+          You divided initial momentum ($12$) by stationary mass ($4$) instead of total combined mass ($2 + 4 = 6\text{ kg}$).
       - text: 6 m/s
+        rationale: |
+          You assumed initial velocity is maintained. Adding $4\text{ kg}$ stationary mass slows combined velocity to $2\text{ m/s}$.
       - text: 1.5 m/s
+        rationale: |
+          You divided by 8 kg or miscalculated. Initial momentum $12 = 6v$ gives $v = 2\text{ m/s}$.
     explanation: |
       Total momentum before: $(2)(6) + (4)(0) = 12$ kg·m/s. Combined mass: $2+4=6$ kg. So $12 = 6v$, giving $v = 2$ m/s.
     approved: true
@@ -171,8 +237,14 @@ questions:
       - text: 45 kg m/s
         correct: true
       - text: 18 kg m/s
+        rationale: |
+          You added force and time ($15 + 3$). Impulse is the product of force and time: $J = Ft = 15 \times 3 = 45\text{ N}\cdot\text{s}$.
       - text: 5 kg m/s
+        rationale: |
+          You divided force by time ($\dfrac{15}{3}$). Impulse requires multiplying force by time.
       - text: 12 kg m/s
+        rationale: |
+          You subtracted time from force ($15 - 3$). Use multiplication $J = Ft$.
     explanation: |
       $J = Ft = (15)(3) = 45$ kg·m/s (equivalently, N·s).
     approved: true
@@ -185,8 +257,14 @@ questions:
       - text: -0.4 m/s
         correct: true
       - text: 0.4 m/s
+        rationale: |
+          You dropped the negative sign. Initial momentum is $10 - 12 = -2\text{ kg}\cdot\text{m/s}$, giving $v = \dfrac{-2}{5} = -0.4\text{ m/s}$.
       - text: -2 m/s
+        rationale: |
+          You reported total net momentum ($-2\text{ kg}\cdot\text{m/s}$) as velocity. Divide by total mass ($5\text{ kg}$) to get $-0.4\text{ m/s}$.
       - text: 2.2 m/s
+        rationale: |
+          You added momentum magnitudes ($10 + 12 = 22$) without accounting for opposite directional signs.
     explanation: |
       Total momentum before: $(2)(5) + (3)(-4) = 10 - 12 = -2$ kg·m/s. Combined mass: $2+3=5$ kg. So $-2 = 5v$, giving $v = -0.4$ m/s (moving in the second cart's original direction).
     approved: true
@@ -199,8 +277,14 @@ questions:
       - text: For the same total change in momentum, a longer time reduces the average force needed, lowering the impact on the passenger's body.
         correct: true
       - text: The airbag reduces the total change in momentum the passenger experiences.
+        rationale: |
+          You claimed momentum change decreases. Total momentum change $\Delta p = m(v_f - v_i)$ is fixed by initial velocity.
       - text: The airbag has no effect on force, only on the passenger's final velocity.
+        rationale: |
+          You denied force reduction. $F = \dfrac{\Delta p}{\Delta t}$ shows increasing contact time directly reduces average force.
       - text: The airbag works by making the passenger's mass smaller during the collision.
+        rationale: |
+          You claimed mass reduction during impact. Passenger mass remains constant; impact time is extended to lower force.
     explanation: |
       Impulse ($J=Ft$) for a given momentum change is fixed; stretching out the time $t$ over which it happens reduces the force $F$ needed to produce that same change, which is exactly why airbags and padded surfaces reduce injury.
     approved: true

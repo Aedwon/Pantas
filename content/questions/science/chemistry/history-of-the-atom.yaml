@@ -17,8 +17,14 @@ questions:
       - text: John Dalton
         correct: true
       - text: J.J. Thomson
+        rationale: |
+          You picked the discoverer of electrons. Thomson proposed the plum pudding model with negative electrons inside a positive sphere.
       - text: Ernest Rutherford
+        rationale: |
+          You picked the scientist who discovered the nucleus. Rutherford proved atoms have a dense central nucleus surrounded by empty space.
       - text: Niels Bohr
+        rationale: |
+          You picked the scientist who proposed quantized energy levels. Bohr arranged electrons in fixed orbits around the nucleus.
     explanation: |
       Dalton's early model pictured atoms as tiny solid balls, like billiard balls, with nothing inside them.
     approved: true
@@ -31,8 +37,14 @@ questions:
       - text: J.J. Thomson
         correct: true
       - text: John Dalton
+        rationale: |
+          You picked the solid sphere model. Dalton thought atoms were indivisible spheres with no subatomic particles.
       - text: Ernest Rutherford
+        rationale: |
+          You picked the nuclear model. Rutherford proved the positive charge is concentrated in a central nucleus rather than spread out.
       - text: Erwin Schrödinger
+        rationale: |
+          You picked the quantum model. Schrödinger described electrons as 3D probability clouds around the nucleus.
     explanation: |
       After discovering the electron, Thomson pictured it embedded in a positive "pudding," like plums scattered through pudding.
     approved: true
@@ -45,8 +57,14 @@ questions:
       - text: Ernest Rutherford
         correct: true
       - text: J.J. Thomson
+        rationale: |
+          You picked the plum pudding model. Thomson pictured positive charge spread throughout the whole atom, not in a nucleus.
       - text: Niels Bohr
+        rationale: |
+          You picked the fixed orbital shell model. Bohr refined Rutherford's model by restricting electrons to specific energy levels.
       - text: John Dalton
+        rationale: |
+          You picked the billiard ball model. Dalton proposed indivisible atoms without subatomic particles or a nucleus.
     explanation: |
       Rutherford's gold foil experiment revealed a small, dense, positive nucleus, replacing Thomson's model with electrons orbiting this central nucleus.
     approved: true
@@ -59,8 +77,14 @@ questions:
       - text: Niels Bohr
         correct: true
       - text: Ernest Rutherford
+        rationale: |
+          You picked the original nuclear model. Rutherford discovered the nucleus, but placed electrons in general orbits without fixed energy levels.
       - text: Erwin Schrödinger
+        rationale: |
+          You picked the electron cloud model. Schrödinger used wave equations to map probability regions rather than fixed rungs.
       - text: J.J. Thomson
+        rationale: |
+          You picked the plum pudding model. Thomson had no nucleus and no energy levels in his atomic picture.
     explanation: |
       Bohr refined Rutherford's model by proposing fixed energy levels, which explained why atoms absorb and release light only at specific wavelengths.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: Erwin Schrödinger
         correct: true
       - text: Niels Bohr
+        rationale: |
+          You picked the planetary model. Bohr proposed fixed circular orbits, whereas Schrödinger replaced those paths with 3D probability clouds.
       - text: Ernest Rutherford
+        rationale: |
+          You picked the nuclear model. Rutherford discovered the nucleus but did not define quantum electron probability clouds.
       - text: John Dalton
+        rationale: |
+          You picked the earliest model. Dalton viewed atoms as featureless solid spheres long before subatomic orbitals were known.
     explanation: |
       Schrödinger's quantum mechanical model describes regions where an electron is more or less likely to be found, rather than a fixed path. This is the model chemists still use today.
     approved: true
@@ -87,8 +117,14 @@ questions:
       - text: An atom is mostly empty space.
         correct: true
       - text: An atom has no charge at all.
+        rationale: |
+          You misidentified the electrical property. Most particles passing through showed a lack of obstacles, not zero electrical charge.
       - text: An atom is a solid, indivisible sphere.
+        rationale: |
+          You chose the opposite conclusion. If atoms were solid spheres, particles would bounce back instead of passing straight through.
       - text: Electrons are scattered evenly throughout the atom.
+        rationale: |
+          You picked Thomson's model. Passing straight through proved there was no dense positive barrier blocking the path.
     explanation: |
       Since most particles encountered nothing solid in their path, this showed that atoms are mostly empty space, not solid all the way through.
     approved: true
@@ -101,8 +137,14 @@ questions:
       - text: The atom has a tiny, dense, positively charged nucleus at its center.
         correct: true
       - text: The atom has no nucleus at all.
+        rationale: |
+          You drew the opposite conclusion. Sharp backward deflections required hitting a concentrated, heavy positive mass inside the atom.
       - text: Electrons are positively charged.
+        rationale: |
+          You misidentified the subatomic charge. Electrons are negatively charged; the central nucleus contains the positive charge.
       - text: The atom is completely empty, with nothing inside it.
+        rationale: |
+          You focused on the particles that passed through. The few that bounced back proved a dense central obstacle exists.
     explanation: |
       A sharp bounce could only happen if the fired particles collided with something extremely small, dense, and positively charged: this revealed the existence of a concentrated nucleus.
     approved: true
@@ -115,8 +157,14 @@ questions:
       - text: Thomson's electrons are scattered throughout a positive material; Rutherford's electrons orbit a separate, concentrated nucleus.
         correct: true
       - text: Thomson's model has a nucleus; Rutherford's model has no nucleus.
+        rationale: |
+          You swapped the two models. Rutherford discovered the central nucleus, whereas Thomson had no nucleus in his model.
       - text: Both models describe electrons orbiting a central nucleus in the exact same way.
+        rationale: |
+          You treated the models as identical. Thomson embedded electrons in positive dough, while Rutherford separated them around a nucleus.
       - text: Thomson's model came after Rutherford's and replaced it.
+        rationale: |
+          You reversed the historical timeline. Thomson's plum pudding model came first in 1897, and Rutherford overturned it in 1911.
     explanation: |
       Thomson pictured electrons embedded throughout the positive "pudding," with no separate nucleus. Rutherford's gold foil experiment revealed a separate, concentrated nucleus that electrons orbit around, which is the key difference exams test.
     approved: true
@@ -129,8 +177,14 @@ questions:
       - text: J.J. Thomson
         correct: true
       - text: Ernest Rutherford
+        rationale: |
+          You credited the discovery of the nucleus. Rutherford discovered the dense positive nucleus using the gold foil experiment.
       - text: Niels Bohr
+        rationale: |
+          You credited the scientist who organized energy levels. Bohr built on Thomson's electron discovery to create quantized orbits.
       - text: John Dalton
+        rationale: |
+          You credited the solid sphere model. Dalton proposed indivisible atoms and was unaware of subatomic particles like electrons.
     explanation: |
       Thomson discovered the electron years before Rutherford's gold foil experiment. Rutherford's experiment revealed the nucleus, not the electron, which Thomson had already found.
     approved: true
@@ -143,8 +197,14 @@ questions:
       - text: 'No: Schrödinger''s electron cloud (quantum mechanical) model is the current accepted model.'
         correct: true
       - text: 'Yes: Bohr''s model is still the current accepted model.'
+        rationale: |
+          You accepted Bohr's model as current. Bohr's fixed orbits were updated when Schrödinger introduced 3D probability clouds.
       - text: 'No: Rutherford''s nuclear model is the current accepted model.'
+        rationale: |
+          You picked an older stepping-stone model. Rutherford's model was superseded by Bohr, which was then superseded by Schrödinger.
       - text: 'No: Dalton''s solid sphere model is the current accepted model.'
+        rationale: |
+          You picked the earliest historical model. Dalton's featureless sphere was overturned over a century ago by cathode ray experiments.
     explanation: |
       Bohr's neat, fixed-orbit picture is a useful simplification, but it was later replaced by Schrödinger's electron cloud model, which better matches experimental evidence and is still used today.
     approved: true
@@ -157,8 +217,14 @@ questions:
       - text: All particles would pass through with only slight, even deflection, since there is no concentrated dense region to bounce off of.
         correct: true
       - text: Most particles would bounce straight back, since the positive "pudding" fills the entire atom.
+        rationale: |
+          You assumed low-density positive charge would reflect particles. A diffuse positive charge lacks the density to cause sharp bounces.
       - text: All particles would be absorbed and stop completely inside the foil.
+        rationale: |
+          You predicted total absorption. Thomson's model contained no thick barrier that would trap high-energy alpha particles.
       - text: The particles would pass through only if they were negatively charged.
+        rationale: |
+          You introduced charge selectivity. Alpha particles passed through regardless of charge because atoms are mostly open space.
     explanation: |
       Since Thomson's model spreads the positive charge evenly through the whole atom, there is no small, dense region to cause a sharp bounce: only mild, even deflection would be expected. The actual sharp bounces observed proved this model wrong.
     approved: true
@@ -171,8 +237,14 @@ questions:
       - text: Why atoms absorb and release light only at specific, predictable wavelengths, not a continuous range.
         correct: true
       - text: Why atoms are mostly empty space.
+        rationale: |
+          You named Rutherford's own discovery. Rutherford proved atoms are mostly empty space in his gold foil experiment.
       - text: Why the nucleus is positively charged.
+        rationale: |
+          You credited Bohr with nuclear charge. Rutherford already established that the central nucleus holds positive charge.
       - text: Why electrons have a negative charge.
+        rationale: |
+          You named Thomson's discovery. J.J. Thomson discovered the negative charge of electrons long before Bohr's model.
     explanation: |
       Rutherford's model let electrons orbit at any distance, which could not explain why atoms only give off light at very specific amounts of energy. Bohr's fixed energy levels explained this, since jumping between levels releases only specific, predictable amounts of light energy.
     approved: true
@@ -190,8 +262,14 @@ questions:
       - text: 2, 4, 1, 5, 3
         correct: true
       - text: 2, 1, 4, 5, 3
+        rationale: |
+          You placed Rutherford before Thomson. Thomson discovered the electron (4) before Rutherford discovered the nucleus (1).
       - text: 4, 2, 1, 3, 5
+        rationale: |
+          You placed Thomson before Dalton. Dalton proposed solid spheres (2) in 1803, long before Thomson added electrons (4) in 1897.
       - text: 2, 4, 5, 1, 3
+        rationale: |
+          You placed Bohr before Rutherford. Rutherford built the nuclear model (1) first, and Bohr refined it with energy levels (5).
     explanation: |
       The order is Dalton (solid sphere) → Thomson (plum pudding) → Rutherford (nuclear) → Bohr (fixed energy levels) → Schrödinger (electron cloud). Each model was built from testing and improving on the one before it.
     approved: true
@@ -204,8 +282,14 @@ questions:
       - text: The gold foil experiment's sharp-angle bounces, which Thomson's evenly spread-out positive charge could not explain.
         correct: true
       - text: The discovery of the electron itself, which Thomson had not yet known about.
+        rationale: |
+          You misattributed electron discovery. Thomson himself discovered the electron to create the plum pudding model.
       - text: The observation that atoms absorb light only at specific wavelengths.
+        rationale: |
+          You picked spectral evidence. Line emission spectra led to Bohr's energy level model, not Rutherford's nuclear model.
       - text: The realization that atoms are made of more than one element.
+        rationale: |
+          You confused elements with atomic structure. Compounds involve different elements, which does not explain nuclear structure.
     explanation: |
       Thomson's model spreads positive charge evenly through the atom, so it predicted only mild, even deflection: never a sharp bounce. The gold foil experiment's sharp bounces could only happen if the positive charge were concentrated in one small, dense spot, which is exactly what overturned Thomson's model.
     approved: true

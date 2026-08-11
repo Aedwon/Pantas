@@ -17,8 +17,14 @@ questions:
       - text: "18"
         correct: true
       - text: "17"
+        rationale: |
+          You picked the atomic number. The atomic number gives the number of protons or electrons, not neutrons.
       - text: "35"
+        rationale: |
+          You picked the mass number. The mass number is the sum of protons and neutrons together.
       - text: "52"
+        rationale: |
+          You added the atomic number and mass number. To find neutrons, subtract atomic number from mass number.
     explanation: |
       Neutrons equal the mass number minus the atomic number: $35 - 17 = 18$.
     approved: true
@@ -31,8 +37,14 @@ questions:
       - text: "12"
         correct: true
       - text: "11"
+        rationale: |
+          You picked the proton count. The atomic number 11 tells you protons, while neutrons equal mass number minus atomic number.
       - text: "23"
+        rationale: |
+          You picked the mass number. Mass number includes both protons and neutrons.
       - text: "34"
+        rationale: |
+          You added 23 and 11. To get neutrons, subtract atomic number from mass number.
     explanation: |
       Neutrons equal the mass number minus the atomic number: $23 - 11 = 12$.
     approved: true
@@ -45,8 +57,14 @@ questions:
       - text: 'Yes: they have the same atomic number but different neutron counts, so they are isotopes.'
         correct: true
       - text: 'No: they are different elements, since they have different neutron counts.'
+        rationale: |
+          You assumed neutron counts define elements. Proton count determines the element, so both are chlorine.
       - text: 'No: isotopes must have different atomic numbers.'
+        rationale: |
+          You reversed the isotope definition. Isotopes must have the same atomic number but different mass numbers.
       - text: 'Yes: but only because they have the same mass number.'
+        rationale: |
+          You misread the mass numbers. Their mass numbers are 35 and 37, which are different, not the same.
     explanation: |
       Both atoms have 17 protons, so both are chlorine. Since they differ in neutron count (18 versus 20), they are isotopes of each other: chlorine-35 and chlorine-37.
     approved: true
@@ -59,8 +77,14 @@ questions:
       - text: 3-
         correct: true
       - text: 3+
+        rationale: |
+          You assigned a positive sign. Gaining negative electrons adds negative charge, resulting in a 3- ion.
       - text: 4-
+        rationale: |
+          You subtracted 3 gained electrons from 7 protons. The 3 gained electrons directly determine the 3- charge magnitude.
       - text: 10-
+        rationale: |
+          You confused the total electron count with charge. The atom now has 10 electrons, giving a net charge of 3-.
     explanation: |
       Charge equals protons minus electrons. After gaining 3 electrons, the atom has $7 + 3 = 10$ electrons, so its charge is $7 - 10 = -3$.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: "10"
         correct: true
       - text: "12"
+        rationale: |
+          You gave the electron count of a neutral atom. A 2+ charge means the ion lost 2 electrons.
       - text: "14"
+        rationale: |
+          You added 2 electrons instead of subtracting them. A positive charge means losing electrons.
       - text: "2"
+        rationale: |
+          You picked the net charge magnitude. The charge is 2+, meaning there are 2 fewer electrons than protons.
     explanation: |
       Electrons equal protons minus charge: $12 - 2 = 10$.
     approved: true
@@ -87,8 +117,14 @@ questions:
       - text: "10"
         correct: true
       - text: "8"
+        rationale: |
+          You subtracted 1 electron instead of adding it. A 1- charge means the ion gained 1 electron.
       - text: "9"
+        rationale: |
+          You gave the electron count for a neutral fluorine atom. A 1- charge means it has 1 extra electron.
       - text: "1"
+        rationale: |
+          You picked the net charge magnitude. A 1- charge means 1 extra electron beyond the 9 protons.
     explanation: |
       Electrons equal protons minus charge: $9 - (-1) = 10$. Gaining one electron gives the atom one more electron than protons, matching the 1- charge.
     approved: true
@@ -101,8 +137,14 @@ questions:
       - text: A cation (positively charged), because it now has more protons than electrons.
         correct: true
       - text: An anion (negatively charged), because losing something should decrease the charge.
+        rationale: |
+          You confused charge signs. Losing negative electrons removes negative charge, leaving a positive cation.
       - text: A neutral atom, since losing electrons does not affect charge.
+        rationale: |
+          You assumed electrons do not affect charge. Electrons carry negative charge, so changing their count creates an ion.
       - text: An isotope, since the neutron count changes.
+        rationale: |
+          You confused ions with isotopes. Changing electron count creates an ion, while changing neutron count creates an isotope.
     explanation: |
       Losing electrons leaves more protons than electrons, making the atom positively charged: a cation. Only the electron count changed, not the neutron count, so it is not an isotope.
     approved: true
@@ -115,8 +157,14 @@ questions:
       - text: An anion (negatively charged), because it now has more electrons than protons.
         correct: true
       - text: A cation (positively charged), because gaining something should increase the charge.
+        rationale: |
+          You treated gaining particles as gaining positive charge. Electrons are negative, so gaining them makes an anion.
       - text: A neutral atom, since electrons do not affect charge.
+        rationale: |
+          You ignored electron charge. Adding negative electrons disrupts the neutral balance, forming an anion.
       - text: An isotope, since the proton count changes.
+        rationale: |
+          You misidentified the particle. Gaining electrons changes charge to form an ion; it does not change protons or make an isotope.
     explanation: |
       Gaining electrons leaves more electrons than protons, making the atom negatively charged: an anion. Electrons are negative, so having extra of them makes the overall charge more negative, not more positive.
     approved: true
@@ -129,8 +177,14 @@ questions:
       - text: Carbon's listed atomic mass of about 12.01, since that is an average across all natural isotopes, not carbon-14's actual mass number.
         correct: true
       - text: Carbon's atomic number of 6, since that is still needed to find the proton count.
+        rationale: |
+          You picked the atomic number. The atomic number of 6 is still needed to subtract from 14 to find neutrons.
       - text: The number 14 itself, since that is the isotope's actual mass number.
+        rationale: |
+          You picked the mass number given in the name. Carbon-14 means the mass number is 14.
       - text: 'None of these: the periodic table''s atomic mass is always safe to use for any isotope calculation.'
+        rationale: |
+          You assumed the average atomic mass applies to a specific isotope. The decimal mass on the table is an average across isotopes.
     explanation: |
       The periodic table's atomic mass (about 12.01 for carbon) is a decimal average across all of carbon's natural isotopes. A specific isotope like carbon-14 has its own whole-number mass number (14), which is what should be used, not the table's average.
     approved: true
@@ -143,8 +197,14 @@ questions:
       - text: 'No: losing a proton changes the atomic number, which makes it a different element entirely, not an isotope.'
         correct: true
       - text: 'Yes: isotopes are created whenever any subatomic particle count changes.'
+        rationale: |
+          You generalized particle changes. Changing protons changes the element itself, while isotopes differ only in neutrons.
       - text: 'Yes: as long as the mass number stays the same.'
+        rationale: |
+          You ignored element identity. Changing protons changes the atomic number, creating a new element altogether.
       - text: 'No: but only because isotopes require losing a neutron instead.'
+        rationale: |
+          You restricted isotopes to losing neutrons. Isotopes can have more or fewer neutrons; losing protons is what changes elements.
     explanation: |
       Isotopes only ever differ in neutron count: protons always stay the same for a given element. Changing the proton count changes the atomic number, which means the atom becomes a completely different element, not an isotope of the original.
     approved: true
@@ -157,8 +217,14 @@ questions:
       - text: 'No: an ion by definition has an unequal number of protons and electrons; only a neutral atom has them equal.'
         correct: true
       - text: 'Yes: all atoms and ions always have equal protons and electrons.'
+        rationale: |
+          You assumed neutral balance for ions. Ions exist specifically because proton and electron counts do not match.
       - text: 'Yes: as long as the atomic number is odd.'
+        rationale: |
+          You introduced odd/even rules. Odd atomic numbers do not force ions to have equal protons and electrons.
       - text: 'No: but only because 15 protons is too many for any real ion.'
+        rationale: |
+          You questioned the existence of 15 protons. Phosphorus has 15 protons and forms real ions like phosphate.
     explanation: |
       The word "ion" already tells you the particle is charged, meaning protons and electrons are NOT equal. Assuming they match without being told a specific charge would be a mistake: always check for a stated charge before assuming equal electrons and protons.
     approved: true
@@ -171,8 +237,14 @@ questions:
       - text: 10 neutrons; yes, it is an isotope (oxygen-18), since it has the same atomic number but a different neutron count.
         correct: true
       - text: 18 neutrons; no, it is not an isotope.
+        rationale: |
+          You used the mass number as the neutron count. Neutrons equal mass number minus atomic number: $18 - 8 = 10$.
       - text: 8 neutrons; yes, it is an isotope.
+        rationale: |
+          You confused neutrons with protons. The atomic number 8 gives protons; subtracting 8 from 18 gives 10 neutrons.
       - text: 10 neutrons; no, since the mass numbers are different, they must be different elements.
+        rationale: |
+          You assumed different mass numbers mean different elements. Atomic number 8 defines the element as oxygen for both.
     explanation: |
       Neutrons equal mass number minus atomic number: $18 - 8 = 10$. Since both atoms share the same atomic number (8, oxygen), but differ in neutron count and mass number, this is oxygen-18, an isotope of the more common oxygen-16.
     approved: true
@@ -185,8 +257,14 @@ questions:
       - text: "23"
         correct: true
       - text: "29"
+        rationale: |
+          You added 3 to 26 instead of subtracting. A 3+ positive charge means losing 3 electrons from the 26 protons.
       - text: "26"
+        rationale: |
+          You gave the electron count of a neutral iron atom. A 3+ charge means it has 3 fewer electrons.
       - text: "33"
+        rationale: |
+          You added 3 to the neutron count of 30. Neutron count does not determine electron count in an ion.
     explanation: |
       The neutron count and mass number do not affect the electron calculation here. Electrons equal protons minus charge: $26 - 3 = 23$. The isotope information (30 neutrons) only affects the mass number, not the electron count.
     approved: true
@@ -199,8 +277,14 @@ questions:
       - text: They are all isotopes of hydrogen, since they share the same atomic number but differ in neutron count.
         correct: true
       - text: They are three different elements, since they have different mass numbers.
+        rationale: |
+          You let mass number dictate element identity. All three have 1 proton, so all three are hydrogen.
       - text: They are ions of each other, since they differ in particle count.
+        rationale: |
+          You confused neutrons with electrons. Varying neutron counts creates isotopes, not charged ions.
       - text: They cannot be related, since hydrogen only has one natural form.
+        rationale: |
+          You denied the existence of isotopes. Hydrogen naturally exists in these three isotopic forms.
     explanation: |
       All three have the same atomic number (1 proton), which makes them all hydrogen. Since they differ only in neutron count, they are isotopes of each other, not different elements, and not ions (their electron counts are not involved here).
     approved: true
@@ -213,8 +297,14 @@ questions:
       - text: Charge of 1+; 14 electrons.
         correct: true
       - text: Charge of 1-; 16 electrons.
+        rationale: |
+          You treated losing an electron as gaining one. Losing a negative electron leaves 14 electrons and a 1+ charge.
       - text: Charge of 1+; 16 electrons.
+        rationale: |
+          You added an electron while keeping a positive charge. Losing one electron reduces the count from 15 to 14.
       - text: Charge of 1-; 14 electrons.
+        rationale: |
+          You paired 14 electrons with a negative charge. Having 15 protons and 14 electrons leaves a net charge of 1+.
     explanation: |
       As a neutral atom, it started with 15 electrons (equal to its 15 protons). Losing one electron leaves $15 - 1 = 14$ electrons. Charge equals protons minus electrons: $15 - 14 = +1$.
     approved: true

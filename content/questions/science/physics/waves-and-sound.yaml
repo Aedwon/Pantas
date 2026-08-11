@@ -17,8 +17,14 @@ questions:
       - text: 10 m/s
         correct: true
       - text: 7 m/s
+        rationale: |
+          You added frequency and wavelength ($5 + 2$). Wave speed is the product of frequency and wavelength ($v = f\lambda = 5 \times 2 = 10\text{ m/s}$).
       - text: 2.5 m/s
+        rationale: |
+          You divided frequency by wavelength ($\dfrac{5}{2}$). Wave speed requires multiplying frequency by wavelength.
       - text: 0.4 m/s
+        rationale: |
+          You divided wavelength by frequency ($\dfrac{2}{5}$). Calculate wave speed using $v = f\lambda = 10\text{ m/s}$.
     explanation: |
       $v = f\lambda = (5)(2) = 10$ m/s.
     approved: true
@@ -31,8 +37,14 @@ questions:
       - text: 2 m
         correct: true
       - text: 0.5 m
+        rationale: |
+          You divided frequency by velocity ($\dfrac{170}{340}$). Wavelength is speed divided by frequency ($\lambda = \dfrac{v}{f} = \dfrac{340}{170} = 2\text{ m}$).
       - text: 510 m
+        rationale: |
+          You added velocity and frequency ($340 + 170$). Rearrange $v = f\lambda$ to get $\lambda = \dfrac{v}{f} = 2\text{ m}$.
       - text: 170 m
+        rationale: |
+          You reported frequency magnitude in meters. Calculate wavelength using $\lambda = \dfrac{v}{f} = 2\text{ m}$.
     explanation: |
       $\lambda = \dfrac{v}{f} = \dfrac{340}{170} = 2$ m.
     approved: true
@@ -45,8 +57,14 @@ questions:
       - text: 60 Hz
         correct: true
       - text: 1500 Hz
+        rationale: |
+          You multiplied speed by wavelength ($300 \times 5$). Frequency is speed divided by wavelength ($f = \dfrac{v}{\lambda} = \dfrac{300}{5} = 60\text{ Hz}$).
       - text: 295 Hz
+        rationale: |
+          You subtracted wavelength from speed ($300 - 5$). Frequency calculation requires division: $f = \dfrac{v}{\lambda} = 60\text{ Hz}$.
       - text: 6 Hz
+        rationale: |
+          You misplaced a decimal factor of 10 ($\dfrac{30}{5}$). $\dfrac{300}{5} = 60\text{ Hz}$.
     explanation: |
       $f = \dfrac{v}{\lambda} = \dfrac{300}{5} = 60$ Hz.
     approved: true
@@ -59,8 +77,14 @@ questions:
       - text: Mechanical, since it requires a medium (like air) to travel through.
         correct: true
       - text: Electromagnetic, since it can travel through a vacuum.
+        rationale: |
+          You classified sound as electromagnetic. Sound cannot propagate through vacuum because it requires particle collisions in a physical medium.
       - text: 'Neither: sound is not a wave at all.'
+        rationale: |
+          You denied wave nature of sound. Sound is a longitudinal pressure wave transmitting energy through matter.
       - text: Both, depending on the loudness.
+        rationale: |
+          You claimed wave category varies with volume. Sound remains a mechanical wave regardless of amplitude or loudness.
     explanation: |
       Sound requires a physical medium like air to travel: it cannot travel through a vacuum, making it a mechanical wave.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: Electromagnetic, since it requires no medium and can travel through a vacuum.
         correct: true
       - text: Mechanical, since it requires a medium like air.
+        rationale: |
+          You classified light as mechanical. Light travels across outer space vacuum without requiring any physical medium.
       - text: 'Neither: light is not a wave at all.'
+        rationale: |
+          You denied wave nature of light. Light exhibits wave properties (diffraction, interference) as an electromagnetic wave.
       - text: Both, depending on the distance traveled.
+        rationale: |
+          You made wave classification depend on distance. Light is intrinsically an electromagnetic wave regardless of path length.
     explanation: |
       Light travels through empty space with no medium needed, making it an electromagnetic wave.
     approved: true
@@ -87,8 +117,14 @@ questions:
       - text: Wavelength
         correct: true
       - text: Frequency
+        rationale: |
+          You picked frequency. Frequency measures the number of wave cycles passing a fixed point per unit time.
       - text: Amplitude
+        rationale: |
+          You picked amplitude. Amplitude measures maximum displacement from equilibrium, not spatial repeat distance.
       - text: Wave speed
+        rationale: |
+          You picked wave speed. Wave speed measures spatial distance traveled by wave crests per unit time ($v = f\lambda$).
     explanation: |
       Wavelength is the distance between two consecutive identical points on a wave, like from one crest to the next.
     approved: true
@@ -101,8 +137,14 @@ questions:
       - text: Transverse wave
         correct: true
       - text: Longitudinal wave
+        rationale: |
+          You picked longitudinal wave. Longitudinal waves feature particle motion parallel to wave propagation direction.
       - text: Mechanical wave
+        rationale: |
+          You picked broader category of mechanical wave. Transverse describes the specific orientation of particle oscillation relative to motion.
       - text: Electromagnetic wave
+        rationale: |
+          You picked electromagnetic wave. Mechanical waves like rope waves can also be transverse without being electromagnetic.
     explanation: |
       A transverse wave has particles moving perpendicular to the direction the wave travels, like light or a shaken rope.
     approved: true
@@ -115,8 +157,14 @@ questions:
       - text: Longitudinal wave
         correct: true
       - text: Transverse wave
+        rationale: |
+          You picked transverse wave. Transverse waves have particle oscillations perpendicular to direction of travel.
       - text: Electromagnetic wave
+        rationale: |
+          You picked electromagnetic wave. Electromagnetic waves are transverse oscillating electric and magnetic fields.
       - text: Standing wave
+        rationale: |
+          You picked standing wave. Standing waves are interference patterns formed by oppositely traveling waves.
     explanation: |
       A longitudinal wave has particles moving parallel to the wave's direction, creating compressions and stretches: this is how sound travels.
     approved: true
@@ -129,8 +177,14 @@ questions:
       - text: It increases (higher pitch), since the source moving toward the observer compresses the wave crests closer together.
         correct: true
       - text: It decreases (lower pitch), since the source is getting closer.
+        rationale: |
+          You inverted Doppler effect direction. Approaching sources compress wave crests, increasing observed frequency and pitch.
       - text: It stays exactly the same, since the source's actual frequency has not changed.
+        rationale: |
+          You ignored relative motion. Relative approach decreases wave arrival interval, increasing observed frequency.
       - text: It becomes impossible to hear.
+        rationale: |
+          You claimed approach silences sound. Approaching sources remain audible and sound higher in pitch due to Doppler shift.
     explanation: |
       This is the Doppler effect: a source moving toward an observer compresses the wave crests reaching them, increasing the observed frequency and pitch.
     approved: true
@@ -143,8 +197,14 @@ questions:
       - text: It decreases (lower pitch), since the source moving away stretches out the wave crests reaching the observer.
         correct: true
       - text: It increases (higher pitch), since the source is getting farther.
+        rationale: |
+          You inverted Doppler shift direction. Receding sources stretch wave crests apart, reducing observed frequency and pitch.
       - text: It stays exactly the same, since the source's actual frequency has not changed.
+        rationale: |
+          You ignored relative motion. Receding motion increases wave crest arrival intervals, dropping observed pitch.
       - text: It becomes impossible to hear.
+        rationale: |
+          You claimed receding motion causes instant silence. Receding sources remain audible with a shifted lower pitch until out of range.
     explanation: |
       This is the Doppler effect: a source moving away from an observer stretches out the wave crests reaching them, decreasing the observed frequency and pitch.
     approved: true
@@ -157,8 +217,14 @@ questions:
       - text: 'No: sound is a mechanical wave and requires a medium like air; with no matter to vibrate in a vacuum, there would be no sound at all.'
         correct: true
       - text: 'Yes: sound can travel through a vacuum just like light.'
+        rationale: |
+          You treated sound like electromagnetic radiation. Sound requires atomic/molecular medium to transmit vibration.
       - text: 'No: but only because explosions cannot happen in space at all.'
+        rationale: |
+          You denied space chemical explosions. Explosions occur in space (e.g. rocket engines), but produce no external acoustic sound waves.
       - text: 'Yes: loud sounds are always audible regardless of the medium.'
+        rationale: |
+          You assumed loudness bypasses vacuum medium requirement. Mechanical waves cannot propagate across empty space regardless of source energy.
     explanation: |
       Sound requires a physical medium to travel through, unlike electromagnetic waves such as light. With no air (or any matter) in a vacuum, there is nothing to vibrate, so no sound could actually be heard.
     approved: true
@@ -171,8 +237,14 @@ questions:
       - text: 'No: sound waves are longitudinal, with air particles compressing and stretching along the same direction the sound travels, not moving side to side.'
         correct: true
       - text: 'Yes: sound waves are transverse, like light waves.'
+        rationale: |
+          You classified sound as transverse. Fluid sound waves consist of longitudinal compression and rarefaction density oscillations.
       - text: 'No: sound waves are electromagnetic, not transverse or longitudinal.'
+        rationale: |
+          You classified sound as electromagnetic. Sound is a mechanical pressure wave, not electromagnetic radiation.
       - text: 'Yes: all mechanical waves are transverse.'
+        rationale: |
+          You claimed mechanical waves are exclusively transverse. Mechanical waves can be longitudinal (sound, P-waves) or transverse (S-waves, rope waves).
     explanation: |
       Sound is a longitudinal wave: air particles move back and forth parallel to the direction of travel, creating compressions and stretches, unlike a transverse wave's side-to-side particle motion.
     approved: true
@@ -185,8 +257,14 @@ questions:
       - text: 'No: the wave''s actual speed through the medium stays constant; only the observed frequency changes, due to the wave crests bunching together.'
         correct: true
       - text: 'Yes: the Doppler effect works by physically speeding up the sound waves.'
+        rationale: |
+          You assumed Doppler shift alters wave speed through air. Wave speed is set by medium properties ($\text{speed of sound in air}$), not source motion.
       - text: 'No: the wave''s speed actually decreases as the source approaches.'
+        rationale: |
+          You claimed wave speed drops on approach. Wave propagation speed remains constant through uniform medium.
       - text: 'Yes: pitch and wave speed are always the same thing.'
+        rationale: |
+          You equated pitch and wave speed. Pitch is determined by frequency ($f$), whereas wave speed is $v = f\lambda$.
     explanation: |
       The Doppler effect changes the observed frequency and pitch, not the actual wave speed through the medium. The wave crests simply bunch together (from the source's motion), which is perceived as a higher frequency.
     approved: true
@@ -199,8 +277,14 @@ questions:
       - text: 'No: a source moving toward an observer results in a higher observed pitch, not lower, which is why an approaching ambulance siren sounds higher, not lower.'
         correct: true
       - text: 'Yes: approaching sources always sound lower in pitch.'
+        rationale: |
+          You assigned lower pitch to approaching motion. Approaching sources bunch wave crests together, increasing frequency and pitch.
       - text: 'No: pitch does not change based on relative motion at all.'
+        rationale: |
+          You denied motion Doppler shift. Relative velocity between source and listener shifts perceived frequency.
       - text: 'Yes: but only for very quiet sounds.'
+        rationale: |
+          You made Doppler shift depend on volume. Frequency shift depends on relative velocity, independent of sound amplitude.
     explanation: |
       Reversing the Doppler direction (assuming approaching means lower pitch) contradicts everyday experience: an ambulance siren clearly rises in pitch as it approaches, not falls.
     approved: true
@@ -213,8 +297,14 @@ questions:
       - text: The pitch sounds higher than the siren's true pitch while approaching, then drops to lower than the true pitch once it has passed and is moving away.
         correct: true
       - text: The pitch sounds lower while approaching, then rises higher once it has passed.
+        rationale: |
+          You inverted approaching and receding pitch shifts. Approaching generates higher pitch; receding generates lower pitch.
       - text: The pitch stays exactly the same throughout, since the siren's true frequency never changes.
+        rationale: |
+          You ignored relative velocity effect. Relative motion shifts observed frequency despite constant emitted frequency.
       - text: The pitch becomes silent right as the ambulance passes, then returns to normal.
+        rationale: |
+          You predicted silence at passage point. Passing point transitions smoothly from higher pitch to lower pitch without silence.
     explanation: |
       While approaching, the source's motion compresses the sound waves, raising the observed pitch above the siren's true pitch. Once it passes and moves away, the waves stretch out, lowering the observed pitch below the true pitch: the classic Doppler shift pattern.
     approved: true

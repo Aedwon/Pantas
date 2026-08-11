@@ -13,8 +13,14 @@ questions:
       - text: Rotation
         correct: true
       - text: Revolution
+        rationale: |
+          You picked the orbital path around the Sun. Revolution is Earth traveling around the Sun (taking ~365.25 days).
       - text: Precession
+        rationale: |
+          You picked the axial wobble. Precession is the slow 26,000-year wobble of Earth's rotational axis.
       - text: Orbit
+        rationale: |
+          You picked the path of revolution. Orbit is the curved pathway Earth follows around the Sun.
     explanation: |
       Rotation is Earth spinning on its own axis, taking about 24 hours, and it is what causes day and night.
     approved: true
@@ -28,8 +34,14 @@ questions:
       - text: Revolution
         correct: true
       - text: Rotation
+        rationale: |
+          You picked axis spinning. Rotation is Earth spinning on its own axis every ~24 hours.
       - text: Precession
+        rationale: |
+          You picked axial wobble. Precession is the 26,000-year circular wobble of Earth's rotational axis.
       - text: Tilt
+        rationale: |
+          You picked the axis inclination angle. Axial tilt is the fixed $23.5^\circ$ angle of Earth's axis relative to its orbital plane.
     explanation: |
       Revolution is Earth traveling all the way around the Sun, taking about 365.25 days, and combined with axial tilt, it causes the seasons.
     approved: true
@@ -43,8 +55,14 @@ questions:
       - text: Precession
         correct: true
       - text: Rotation
+        rationale: |
+          You picked daily spinning. Rotation is the 24-hour spin on Earth's axis.
       - text: Revolution
+        rationale: |
+          You picked annual orbiting. Revolution is the 365.25-day trip around the Sun.
       - text: Axial tilt
+        rationale: |
+          You picked the tilt angle itself. Axial tilt is the $23.5^\circ$ angle, whereas precession is the slow wobble of that axis.
     explanation: |
       Precession is the slow, circular wobble of Earth's tilted axis, taking about 26,000 years for one full wobble.
     approved: true
@@ -58,8 +76,14 @@ questions:
       - text: About 23.5 degrees
         correct: true
       - text: About 90 degrees
+        rationale: |
+          You picked a right angle. A $90^\circ$ tilt would place the poles pointing directly at the Sun during solstices.
       - text: About 45 degrees
+        rationale: |
+          You picked a half-right angle. A $45^\circ$ tilt is significantly steeper than Earth's actual $23.5^\circ$ tilt.
       - text: About 0 degrees
+        rationale: |
+          You picked zero tilt. A $0^\circ$ tilt would eliminate seasonal variation altogether.
     explanation: |
       Earth's axis is tilted about 23.5 degrees, and this tilt, combined with revolution around the Sun, causes the seasons.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: Rotation
         correct: true
       - text: Revolution
+        rationale: |
+          You picked orbital motion. Revolution around the Sun takes 365.25 days and combines with tilt to cause seasons.
       - text: Precession
+        rationale: |
+          You picked multi-millennial wobble. Precession is a 26,000-year wobble of the rotational axis.
       - text: None of Earth's motions cause day and night.
+        rationale: |
+          You claimed no motion causes day/night. Daily rotation exposes different faces of Earth to solar light.
     explanation: |
       Rotation, Earth spinning on its axis roughly every 24 hours, causes day and night: the side facing the Sun has daytime, while the side facing away has nighttime.
     approved: true
@@ -88,8 +118,14 @@ questions:
       - text: Revolution
         correct: true
       - text: Rotation
+        rationale: |
+          You picked daily spinning. Rotation causes 24-hour day-night cycles, not annual seasons.
       - text: Precession
+        rationale: |
+          You picked axial wobble. Precession operates on a 26,000-year cycle, far too slow to cause annual seasons.
       - text: None of Earth's motions cause the seasons.
+        rationale: |
+          You claimed no motion drives seasons. Annual revolution combined with $23.5^\circ$ axial tilt creates seasonal changes.
     explanation: |
       Revolution, combined with the tilt of Earth's axis, causes the seasons, as different parts of Earth lean toward or away from the Sun at different points in the yearly orbit.
     approved: true
@@ -103,8 +139,14 @@ questions:
       - text: Precession
         correct: true
       - text: Rotation
+        rationale: |
+          You picked 24-hour spinning. Rotation causes daily star movement across the night sky without altering polar orientation.
       - text: Revolution
+        rationale: |
+          You picked annual orbital motion. Revolution changes seasonal constellation visibility, but does not alter axial orientation.
       - text: None of Earth's motions cause this shift.
+        rationale: |
+          You claimed axial direction never changes. Precession slowly shifts Earth's polar axis in a 26,000-year circle.
     explanation: |
       Precession, the slow 26,000-year wobble of Earth's tilted axis, slowly shifts which star the axis points toward: currently Polaris, the North Star.
     approved: true
@@ -118,8 +160,14 @@ questions:
       - text: 'No: this reverses the two motions; rotation (about a day) causes day and night, while revolution (about a year) combined with axial tilt causes the seasons.'
         correct: true
       - text: 'Yes: rotation and revolution can be used interchangeably for either effect.'
+        rationale: |
+          You treated rotation and revolution as synonyms. Rotation is 24-hour axis spinning; revolution is 365-day Sun orbiting.
       - text: 'No: but only because neither rotation nor revolution actually exists.'
+        rationale: |
+          You denied fundamental planetary motions. Both rotation and revolution are empirically measured celestial mechanics.
       - text: 'Yes: both terms describe the exact same motion.'
+        rationale: |
+          You equated two distinct motions. Rotation spins Earth on its internal axis; revolution orbits Earth around the external Sun.
     explanation: |
       The two words sound similar and get swapped in rushed reading. A quick check: rotation's timescale is about a day (day and night); revolution's timescale is about a year (the seasons).
     approved: true
@@ -133,8 +181,14 @@ questions:
       - text: If distance from the Sun caused the seasons, both hemispheres would experience the same season at the same time; since they experience opposite seasons, the real cause must be axial tilt, which makes each hemisphere lean toward or away from the Sun at different points in the orbit.
         correct: true
       - text: The claim is correct, since Earth's distance from the Sun does change between the Philippines' summer and Australia's summer.
+        rationale: |
+          You supported the distance fallacy. Distance variations do not cause seasons; Earth is actually closest to the Sun in January.
       - text: The opposite seasons occur because the Philippines and Australia orbit the Sun at different speeds.
+        rationale: |
+          You claimed differential orbital speeds. The entire Earth orbits the Sun as a single body at the same speed.
       - text: The opposite seasons have no relationship to Earth's tilt, distance, or orbit at all.
+        rationale: |
+          You denied astronomical causes of seasons. Seasons are directly produced by axial tilt and orbital revolution.
     explanation: |
       If distance from the Sun were the cause, both hemispheres would share the same season simultaneously. Since the Northern and Southern Hemispheres actually experience opposite seasons at the same time, axial tilt combined with revolution is the real explanation.
     approved: true
@@ -148,8 +202,14 @@ questions:
       - text: 'No: precession is a 26,000-year wobble, far too slow to explain any yearly pattern like the seasons; revolution combined with axial tilt causes the seasons instead.'
         correct: true
       - text: 'Yes: precession causes the seasons to change every year.'
+        rationale: |
+          You misassigned annual seasons to precession. Precession requires ~26,000 years for a single cycle.
       - text: 'No: but only because precession does not actually occur.'
+        rationale: |
+          You denied precession's existence. Precession is a real physical phenomenon caused by gravitational torques from the Sun and Moon.
       - text: 'Yes: precession and revolution describe the exact same yearly cycle.'
+        rationale: |
+          You equated precession with revolution. Revolution takes 1 year; precession takes 26,000 years.
     explanation: |
       Precession only becomes noticeable over many thousands of years. If a choice claims precession causes day and night, or summer and winter, it has confused the timescales: those are caused by rotation and revolution, respectively.
     approved: true
@@ -163,8 +223,14 @@ questions:
       - text: While Earth spins once on its axis, it also moves forward along its orbit around the Sun, so it must rotate a little bit extra before the Sun appears in the same spot in the sky again.
         correct: true
       - text: The distant stars move slightly closer to Earth every day, shortening the sidereal day.
+        rationale: |
+          You attributed the time difference to stellar motion. Distant stars are effectively fixed reference points.
       - text: Earth's rotation speed randomly changes by a few minutes every day.
+        rationale: |
+          You claimed random rotational speed changes. Earth's rotation rate is extremely stable day-to-day.
       - text: The solar day and sidereal day are actually always exactly the same length.
+        rationale: |
+          You denied the 4-minute discrepancy. The solar day ($24\text{ h}$) is 4 minutes longer than the sidereal day ($23\text{ h } 56\text{ m}$).
     explanation: |
       Because Earth has shifted position along its orbit while rotating, it must rotate a little extra to face the Sun in the same spot again: this extra bit makes the Sun-based (solar) day exactly 24 hours, while the sidereal day, measured against the essentially fixed distant stars, only takes about 23 hours and 56 minutes.
     approved: true
@@ -178,8 +244,14 @@ questions:
       - text: Polaris, the North Star
         correct: true
       - text: The Sun
+        rationale: |
+          You picked our central solar system star. The Sun lies in the ecliptic plane, not along Earth's rotational axis alignment.
       - text: Sirius
+        rationale: |
+          You picked the brightest night star. Sirius is located in Canis Major in the southern celestial hemisphere.
       - text: Proxima Centauri
+        rationale: |
+          You picked the nearest neighbor star. Proxima Centauri is in the southern constellation Centaurus.
     explanation: |
       Earth's axis currently points toward Polaris, the North Star, though precession will slowly shift this over thousands of years.
     approved: true
@@ -193,8 +265,14 @@ questions:
       - text: One full revolution around the Sun actually takes about 365.25 days, not exactly 365, so the extra quarter-day accumulates into one additional day roughly every four years to keep the calendar in sync.
         correct: true
       - text: Earth's rotation slows down by exactly one day every four years.
+        rationale: |
+          You claimed rapid rotational slowing. Earth's rotation rate changes by milliseconds per century, not a full day every 4 years.
       - text: Leap days are added arbitrarily and have no connection to Earth's motions.
+        rationale: |
+          You claimed leap days are arbitrary. Leap days compensate for the extra 0.25 days in Earth's orbital period.
       - text: Precession requires an extra day to be added every four years.
+        rationale: |
+          You linked leap years to precession. Leap years account for Earth's orbital revolution fraction ($365.2422\text{ days}$), not precession.
     explanation: |
       Earth's revolution takes about 365.25 days, not an even 365. The extra quarter-day per year accumulates into one full extra day approximately every four years, added as a leap day to keep the calendar aligned with Earth's actual orbit.
     approved: true
@@ -208,8 +286,14 @@ questions:
       - text: 'The pattern is explained by axial tilt combined with revolution: in December, the Southern Hemisphere leans toward the Sun (receiving more direct sunlight, causing summer) while the Northern Hemisphere leans away (causing cooler weather), regardless of Earth''s overall distance from the Sun.'
         correct: true
       - text: 'The classmate is correct: Earth''s changing distance from the Sun throughout the year is what causes this opposite-hemisphere pattern.'
+        rationale: |
+          You supported the distance error. Orbital distance variation is small ($3\%$) and affects both hemispheres equally.
       - text: This pattern is caused by precession, since it involves a change in seasonal timing.
+        rationale: |
+          You attributed annual seasons to precession. Precession operates on a 26,000-year cycle, not an annual seasonal cycle.
       - text: This pattern is caused by rotation, since day and night lengths differ between hemispheres.
+        rationale: |
+          You attributed seasons to daily rotation. Rotation creates 24-hour day-night cycles; seasonal variation comes from revolution and tilt.
     explanation: |
       The opposite-hemisphere pattern can only be explained by axial tilt combined with revolution: each hemisphere leans toward or away from the Sun at different points in the orbit, changing how directly sunlight hits it, not by any change in Earth's overall distance from the Sun.
     approved: true

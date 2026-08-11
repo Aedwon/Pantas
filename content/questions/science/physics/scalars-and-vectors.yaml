@@ -17,8 +17,14 @@ questions:
       - text: Scalar, since no direction is given.
         correct: true
       - text: Vector, since a distance is mentioned.
+        rationale: |
+          You picked vector classification. Distance (50 km) lacks directional specification, making it a scalar quantity.
       - text: 'Neither: this statement has no magnitude either.'
+        rationale: |
+          You claimed no magnitude exists. The number "50 km" represents numerical magnitude.
       - text: Both, since it describes motion.
+        rationale: |
+          You combined classifications. A quantity cannot be both scalar and vector simultaneously.
     explanation: |
       A scalar has only magnitude, no direction. Since no direction is mentioned, "50 km" alone is a scalar (distance).
     approved: true
@@ -31,8 +37,14 @@ questions:
       - text: Vector, since a direction (north) is specified.
         correct: true
       - text: Scalar, since a distance is mentioned.
+        rationale: |
+          You ignored the direction component. Including "north" converts simple distance into displacement, a vector.
       - text: 'Neither: this statement has no magnitude.'
+        rationale: |
+          You denied magnitude presence. "50 km" supplies the numerical magnitude.
       - text: Both, since it also could be considered speed.
+        rationale: |
+          You confused displacement with speed. 50 km north is displacement, not speed.
     explanation: |
       A vector has both magnitude and direction. Since "north" specifies a direction, this is a vector statement (displacement).
     approved: true
@@ -45,8 +57,14 @@ questions:
       - text: Scalar, since temperature has magnitude only, no direction.
         correct: true
       - text: Vector, since temperature can rise or fall.
+        rationale: |
+          You confused scalar sign changes with spatial direction. Numerical increase/decrease is algebraic sign, not spatial direction.
       - text: 'Neither: temperature is not a physics quantity.'
+        rationale: |
+          You denied physics classification. Temperature is a fundamental thermodynamic scalar quantity.
       - text: Both, depending on the season.
+        rationale: |
+          You claimed seasonal classification shifts. Physical quantities maintain invariant scalar/vector definitions.
     explanation: |
       Temperature has only a magnitude (how hot or cold) with no associated direction, making it a scalar.
     approved: true
@@ -59,8 +77,14 @@ questions:
       - text: The distance is a large positive number (the full circumference), while the displacement is zero, since the runner ended up exactly where they started.
         correct: true
       - text: Both the distance and the displacement are zero.
+        rationale: |
+          You set distance to zero. Distance measures total path traveled ($\pi d$), which is non-zero.
       - text: Both the distance and the displacement equal the full circumference.
+        rationale: |
+          You set displacement equal to distance. Displacement measures initial-to-final position change, which is zero.
       - text: The displacement is larger than the distance in this situation.
+        rationale: |
+          You made displacement exceed distance. Displacement magnitude can never exceed total path distance.
     explanation: |
       Distance is the total path length traveled (a scalar), which is large here. Displacement is the straight-line change in position (a vector), which is zero since the start and end points are the same.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: 10 km
         correct: true
       - text: 14 km
+        rationale: |
+          You added perpendicular components linearly ($6 + 8$). For perpendicular vectors, use $R = \sqrt{6^2 + 8^2} = 10\text{ km}$.
       - text: 2 km
+        rationale: |
+          You subtracted component magnitudes ($8 - 6$). Subtraction applies only to opposing parallel vectors.
       - text: 48 km
+        rationale: |
+          You multiplied component magnitudes ($6 \times 8$). Multiplication calculates area, not vector resultant magnitude.
     explanation: |
       The two vectors are perpendicular, so use the Pythagorean theorem: $R^2 = 6^2 + 8^2 = 36 + 64 = 100$, so $R = 10$ km.
     approved: true
@@ -87,8 +117,14 @@ questions:
       - text: 13 km
         correct: true
       - text: 17 km
+        rationale: |
+          You added perpendicular components directly ($5 + 12$). Use $R = \sqrt{5^2 + 12^2} = 13\text{ km}$.
       - text: 7 km
+        rationale: |
+          You subtracted component magnitudes ($12 - 5$). Subtraction applies to opposite $180^\circ$ vectors, not perpendicular ones.
       - text: 60 km
+        rationale: |
+          You multiplied component magnitudes ($5 \times 12$). Vector magnitude calculation requires the Pythagorean theorem.
     explanation: |
       The two vectors are perpendicular, so use the Pythagorean theorem: $R^2 = 5^2 + 12^2 = 25 + 144 = 169$, so $R = 13$ km.
     approved: true
@@ -101,8 +137,14 @@ questions:
       - text: 150 N to the left
         correct: true
       - text: 850 N to the left
+        rationale: |
+          You added opposing forces ($500 + 350$). Opposing collinear forces subtract: $500 - 350 = 150\text{ N}$.
       - text: 150 N to the right
+        rationale: |
+          You assigned net force direction to the smaller force. Net force takes the direction of the larger force (left).
       - text: 850 N to the right
+        rationale: |
+          You added opposing forces and assigned the wrong direction. Opposing forces subtract ($500 - 350 = 150\text{ N}$) toward the larger force.
     explanation: |
       Since the forces are opposite, subtract the smaller from the larger: $500 - 350 = 150$ N. The net force takes the direction of the larger force, Team A's direction (left).
     approved: true
@@ -115,8 +157,14 @@ questions:
       - text: Horizontal ≈ 17.3 N, Vertical = 10 N
         correct: true
       - text: Horizontal = 10 N, Vertical ≈ 17.3 N
+        rationale: |
+          You swapped sine and cosine components. Adjacent horizontal component uses $\cos 30^\circ$ ($20 \times \dfrac{\sqrt{3}}{2} \approx 17.3\text{ N}$).
       - text: Horizontal = 20 N, Vertical = 0 N
+        rationale: |
+          You treated the force as purely horizontal. Angled forces split into both horizontal ($F\cos\theta$) and vertical ($F\sin\theta$) components.
       - text: Horizontal = 0 N, Vertical = 20 N
+        rationale: |
+          You treated the force as purely vertical. A $30^\circ$ vector retains both non-zero horizontal and vertical components.
     explanation: |
       $V_x = 20\cos30° = 20 \times \dfrac{\sqrt{3}}{2} = 10\sqrt{3} \approx 17.3$ N. $V_y = 20\sin30° = 20 \times \dfrac{1}{2} = 10$ N.
     approved: true
@@ -129,8 +177,14 @@ questions:
       - text: Horizontal = 4 N, Vertical ≈ 6.9 N
         correct: true
       - text: Horizontal ≈ 6.9 N, Vertical = 4 N
+        rationale: |
+          You swapped horizontal and vertical components. At $60^\circ$, $F_x = 8\cos 60^\circ = 4\text{ N}$ and $F_y = 8\sin 60^\circ \approx 6.9\text{ N}$.
       - text: Horizontal = 8 N, Vertical = 0 N
+        rationale: |
+          You ignored vertical resolution. At $60^\circ$, vertical component is $8\sin 60^\circ \approx 6.9\text{ N}$.
       - text: Horizontal = 0 N, Vertical = 8 N
+        rationale: |
+          You ignored horizontal resolution. At $60^\circ$, horizontal component is $8\cos 60^\circ = 4\text{ N}$.
     explanation: |
       $V_x = 8\cos60° = 8 \times \dfrac{1}{2} = 4$ N. $V_y = 8\sin60° = 8 \times \dfrac{\sqrt{3}}{2} = 4\sqrt{3} \approx 6.9$ N.
     approved: true
@@ -143,8 +197,14 @@ questions:
       - text: 'No: since the vectors are perpendicular, not in the same direction, the Pythagorean theorem must be used instead, giving 5 km.'
         correct: true
       - text: 'Yes: 7 km is the correct combined displacement.'
+        rationale: |
+          You added perpendicular vector magnitudes linearly. Use Pythagorean theorem $R = \sqrt{3^2 + 4^2} = 5\text{ km}$.
       - text: 'No: the correct answer is 1 km, found by subtracting instead.'
+        rationale: |
+          You subtracted perpendicular vector magnitudes. Subtraction applies to opposite parallel vectors.
       - text: 'Yes: vector magnitudes can always be added directly, regardless of direction.'
+        rationale: |
+          You assumed scalar addition applies to vectors. Vector addition requires accounting for direction and geometry.
     explanation: |
       Vector magnitudes can only be added directly when the vectors point in the exact same direction. Since 3 km and 4 km here are perpendicular, the Pythagorean theorem gives the correct combined magnitude: $\sqrt{3^2+4^2} = 5$ km, not 7 km.
     approved: true
@@ -157,8 +217,14 @@ questions:
       - text: 'No: when the angle is measured from the vertical instead, the sine and cosine roles for the components swap compared to the usual convention.'
         correct: true
       - text: 'Yes: cosine always gives the horizontal component no matter how the angle is measured.'
+        rationale: |
+          You assumed fixed trig functions. Cosine yields the adjacent component; when angle is measured from vertical, vertical is adjacent.
       - text: 'No: sine and cosine are never used when the angle is measured from the vertical.'
+        rationale: |
+          You rejected trig resolution for vertical angles. Trig resolution works for any reference angle by identifying adjacent/opposite sides.
       - text: 'Yes: the components do not depend on which axis the angle is measured from.'
+        rationale: |
+          You ignored angle reference axis. Changing reference axis from horizontal to vertical swaps sine and cosine assignments.
     explanation: |
       Which trig function applies to which component depends on which side of the triangle the angle is measured from. Sketching the actual triangle and identifying the adjacent and opposite sides relative to the given angle is necessary before applying sine or cosine.
     approved: true
@@ -171,8 +237,14 @@ questions:
       - text: A scalar has magnitude only; a vector has both magnitude and direction.
         correct: true
       - text: A scalar has both magnitude and direction; a vector has magnitude only.
+        rationale: |
+          You reversed scalar and vector definitions. Scalars carry magnitude only; vectors carry magnitude and direction.
       - text: Both scalars and vectors always require a direction to be specified.
+        rationale: |
+          You assigned direction to scalars. Scalar quantities (mass, temperature) have no directional component.
       - text: Scalars and vectors are just two different names for the same kind of quantity.
+        rationale: |
+          You equated scalar and vector definitions. Scalars and vectors differ fundamentally by the presence or absence of direction.
     explanation: |
       Scalars (like mass, time, distance) carry only size. Vectors (like displacement, velocity, force) carry both size and a specific direction.
     approved: true
@@ -185,8 +257,14 @@ questions:
       - text: 0 N
         correct: true
       - text: 1600 N to the right
+        rationale: |
+          You added opposing forces without vector cancellation. Equal opposite forces subtract ($800 - 800 = 0\text{ N}$).
       - text: 1600 N to the left
+        rationale: |
+          You added opposing force magnitudes. Opposing equal vector forces cancel out completely.
       - text: 800 N in an undetermined direction
+        rationale: |
+          You failed to subtract equal opposing forces. Opposite forces of equal magnitude yield zero net force.
     explanation: |
       Since the forces are equal in magnitude but opposite in direction, subtracting gives $800 - 800 = 0$ N: the forces completely cancel out.
     approved: true
@@ -199,8 +277,14 @@ questions:
       - text: 10 units
         correct: true
       - text: 14 units
+        rationale: |
+          You added component values directly ($6 + 8$). For perpendicular components, calculate hypotenuse $\sqrt{6^2 + 8^2} = 10$.
       - text: 48 units
+        rationale: |
+          You multiplied components ($6 \times 8$). Vector magnitude uses Pythagorean sum of squares, not component product.
       - text: 2 units
+        rationale: |
+          You subtracted component values ($8 - 6$). Subtraction does not yield resultant magnitude for perpendicular components.
     explanation: |
       The horizontal and vertical components form a right triangle with the original vector as the hypotenuse: $\sqrt{6^2 + 8^2} = \sqrt{36+64} = \sqrt{100} = 10$ units.
     approved: true

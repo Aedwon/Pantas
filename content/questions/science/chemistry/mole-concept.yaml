@@ -17,8 +17,14 @@ questions:
       - text: 18 g/mol
         correct: true
       - text: 17 g/mol
+        rationale: |
+          You added 1 hydrogen atom instead of 2. Water has 2 hydrogens, so its hydrogen contribution is $2 \times 1 = 2$ g/mol.
       - text: 16 g/mol
+        rationale: |
+          You picked oxygen's atomic mass alone. You must include the mass of the 2 hydrogen atoms.
       - text: 19 g/mol
+        rationale: |
+          You counted 3 hydrogen atoms. Water has the formula $H_2O$, which contains only 2 hydrogen atoms.
     explanation: |
       Water has 2 hydrogen atoms and 1 oxygen atom. Add each atom's contribution: $(2 \times 1) + (1 \times 16) = 2 + 16 = 18$ g/mol.
     approved: true
@@ -31,8 +37,14 @@ questions:
       - text: 44 g/mol
         correct: true
       - text: 28 g/mol
+        rationale: |
+          You counted only 1 oxygen atom ($12 + 16$). Carbon dioxide has 2 oxygen atoms, contributing $2 \times 16 = 32$ g/mol.
       - text: 32 g/mol
+        rationale: |
+          You calculated the mass of the $O_2$ portion only. You must also include carbon's atomic mass of 12 g/mol.
       - text: 12 g/mol
+        rationale: |
+          You picked carbon's atomic mass alone. You left out the 2 oxygen atoms completely.
     explanation: |
       $CO_2$ has 1 carbon atom and 2 oxygen atoms. Add each atom's contribution: $12 + (2 \times 16) = 12 + 32 = 44$ g/mol.
     approved: true
@@ -45,8 +57,14 @@ questions:
       - text: 3 mol
         correct: true
       - text: 2 mol
+        rationale: |
+          You miscalculated the quotient. Dividing 54 grams by 18 g/mol gives 3 moles, not 2.
       - text: 36 mol
+        rationale: |
+          You subtracted 18 from 54. To find moles, divide mass in grams by molar mass.
       - text: 0.33 mol
+        rationale: |
+          You divided molar mass by mass ($\dfrac{18}{54}$). Moles equal mass divided by molar mass ($\dfrac{54}{18}$).
     explanation: |
       Moles equal mass divided by molar mass: $\dfrac{54 \text{ g}}{18 \text{ g/mol}} = 3$ mol.
     approved: true
@@ -59,8 +77,14 @@ questions:
       - text: 1.8066 x 10^24 molecules
         correct: true
       - text: 6.022 x 10^23 molecules
+        rationale: |
+          You gave Avogadro's number for 1 mole. For 3 moles, multiply Avogadro's number by 3.
       - text: 1.8066 x 10^23 molecules
+        rationale: |
+          You made an exponent error. Multiplying $3 \times 6.022 \times 10^{23}$ gives $1.8066 \times 10^{24}$, increasing the exponent.
       - text: 3 x 10^23 molecules
+        rationale: |
+          You multiplied 3 by $10^{23}$ without using Avogadro's constant ($6.022 \times 10^{23}$).
     explanation: |
       Multiply the number of moles by Avogadro's number: $3 \times (6.022 \times 10^{23}) = 1.8066 \times 10^{24}$ molecules.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: 1.5055 x 10^24 molecules
         correct: true
       - text: 2.5 molecules
+        rationale: |
+          You stopped after finding moles. 2.5 is the number of moles, which you must multiply by Avogadro's number to get molecules.
       - text: 6.022 x 10^23 molecules
+        rationale: |
+          You gave the number of molecules in 1 mole. 45 grams of water is 2.5 moles.
       - text: 8.1 x 10^24 molecules
+        rationale: |
+          You multiplied mass directly by Avogadro's number ($45 \times 6.022 \times 10^{23}$). Convert mass to moles first.
     explanation: |
       First convert grams to moles: $\dfrac{45 \text{ g}}{18 \text{ g/mol}} = 2.5$ mol. Then convert moles to particles: $2.5 \times (6.022 \times 10^{23}) = 1.5055 \times 10^{24}$ molecules.
     approved: true
@@ -87,8 +117,14 @@ questions:
       - text: 'No: grams and particles are never directly convertible; moles must always be the middle step.'
         correct: true
       - text: 'Yes: grams and particles can always be converted directly using Avogadro''s number alone.'
+        rationale: |
+          You assumed Avogadro's number converts grams directly. Avogadro's number connects moles to particles, not grams to particles.
       - text: 'Yes: as long as the substance is a compound, not an element.'
+        rationale: |
+          You made compound status an exception. All substances require converting grams to moles before calculating particle counts.
       - text: 'No: but only because Avogadro''s number only applies to gases.'
+        rationale: |
+          You restricted Avogadro's number to gases. Avogadro's number applies to any state of matter (solids, liquids, or gases).
     explanation: |
       Molar mass connects grams to moles, and Avogadro's number connects moles to particles: these are two different conversion factors. Skipping the mole step mixes them up and produces a badly wrong answer.
     approved: true
@@ -101,8 +137,14 @@ questions:
       - text: '18 g/mol: the student forgot to multiply hydrogen''s atomic mass by its subscript of 2.'
         correct: true
       - text: '17 g/mol: the student''s calculation is already correct.'
+        rationale: |
+          You accepted 17 g/mol as correct. Water ($H_2O$) has 2 hydrogen atoms, so hydrogen contributes 2 g/mol, making the total 18 g/mol.
       - text: '18 g/mol: the student forgot to multiply oxygen''s atomic mass by a subscript.'
+        rationale: |
+          You misidentified which subscript was missed. Oxygen has a subscript of 1 in $H_2O$, while hydrogen has a subscript of 2.
       - text: '16 g/mol: oxygen''s mass alone is the correct molar mass.'
+        rationale: |
+          You ignored hydrogen completely. Molar mass must include every atom in the chemical formula.
     explanation: |
       Water has 2 hydrogen atoms, so hydrogen's contribution must be $2 \times 1 = 2$ g/mol, not just 1 g/mol. The correct total is $2 + 16 = 18$ g/mol: always check each element's subscript before adding.
     approved: true
@@ -115,8 +157,14 @@ questions:
       - text: 'No: atomic mass describes a single atom in atomic mass units, while molar mass describes one mole of atoms in grams.'
         correct: true
       - text: 'Yes: they are identical in every way, including units.'
+        rationale: |
+          You treated atomic mass and molar mass as identical in units. Atomic mass is in amu per atom, while molar mass is in g/mol.
       - text: 'No: atomic mass is always larger than molar mass.'
+        rationale: |
+          You claimed atomic mass is numerically larger. The two quantities have identical numerical values.
       - text: 'Yes: but only for elements, never for compounds.'
+        rationale: |
+          You treated numerical equality as identical physical quantities. They have different units and describe different scales.
     explanation: |
       The numeric value transfers directly, but atomic mass (in amu) describes one tiny atom, while molar mass (in g/mol) describes an entire mole of that same substance: very different scales for different purposes.
     approved: true
@@ -129,8 +177,14 @@ questions:
       - text: 'No: using a rounded version of Avogadro''s number without instruction can throw off the final answer, especially in multi-step problems.'
         correct: true
       - text: 'Yes: Avogadro''s number is always rounded to one significant figure on exams.'
+        rationale: |
+          You assumed standard rounding to one sig fig. Exams typically expect $6.022 \times 10^{23}$ unless specified.
       - text: 'No: but only because Avogadro''s number should actually be 6.022 x 10^24.'
+        rationale: |
+          You misremembered the exponent. Avogadro's number has an exponent of $+23$, not $+24$.
       - text: 'Yes: rounding never affects the accuracy of mole calculations.'
+        rationale: |
+          You assumed rounding does not introduce error. Rounding intermediate constants changes significant figures in multi-step answers.
     explanation: |
       Unless a problem explicitly says to round, using the full value $6.022 \times 10^{23}$ keeps multi-step calculations accurate and matching the intended answer choice.
     approved: true
@@ -143,8 +197,14 @@ questions:
       - text: 58.5 g/mol
         correct: true
       - text: 35.5 g/mol
+        rationale: |
+          You picked chlorine's mass alone. You must add sodium's mass of 23 g/mol to get the compound total.
       - text: 46 g/mol
+        rationale: |
+          You doubled sodium's mass instead of adding chlorine ($23 \times 2$). NaCl contains 1 sodium and 1 chlorine.
       - text: 23 g/mol
+        rationale: |
+          You picked sodium's mass alone. You left out chlorine's contribution of 35.5 g/mol.
     explanation: |
       Add each atom's contribution: $23 + 35.5 = 58.5$ g/mol.
     approved: true
@@ -157,8 +217,14 @@ questions:
       - text: 2 mol
         correct: true
       - text: 1 mol
+        rationale: |
+          You gave the moles in 58.5 grams. 117 grams is twice 58.5 grams, so it contains 2 moles.
       - text: 58.5 mol
+        rationale: |
+          You confused moles with molar mass. Moles equal mass in grams divided by molar mass.
       - text: 0.5 mol
+        rationale: |
+          You divided molar mass by mass ($\dfrac{58.5}{117}$). Moles equal mass divided by molar mass ($\dfrac{117}{58.5}$).
     explanation: |
       Moles equal mass divided by molar mass: $\dfrac{117 \text{ g}}{58.5 \text{ g/mol}} = 2$ mol.
     approved: true
@@ -171,8 +237,14 @@ questions:
       - text: 1.2044 x 10^24 formula units
         correct: true
       - text: 2 formula units
+        rationale: |
+          You stopped at moles. 2 is the number of moles, which you must multiply by Avogadro's number to get formula units.
       - text: 6.022 x 10^23 formula units
+        rationale: |
+          You gave the formula units in 1 mole. 117 grams is 2 moles of NaCl.
       - text: 5.85 x 10^24 formula units
+        rationale: |
+          You multiplied molar mass by Avogadro's number instead of using moles ($2 \times 6.022 \times 10^{23}$).
     explanation: |
       First convert grams to moles: $\dfrac{117 \text{ g}}{58.5 \text{ g/mol}} = 2$ mol. Then convert moles to particles: $2 \times (6.022 \times 10^{23}) = 1.2044 \times 10^{24}$ formula units.
     approved: true
@@ -185,8 +257,14 @@ questions:
       - text: 180 g/mol
         correct: true
       - text: 96 g/mol
+        rationale: |
+          You calculated oxygen's contribution only ($6 \times 16$). You must also add carbon and hydrogen contributions.
       - text: 168 g/mol
+        rationale: |
+          You forgot hydrogen's contribution ($12 \times 1$). Adding carbon ($72$) and oxygen ($96$) gives 168 g/mol.
       - text: 84 g/mol
+        rationale: |
+          You added atomic masses without multiplying by subscripts ($12 + 12 + 60$). Multiply each element by its subscript.
     explanation: |
       Add each element's contribution: $(6 \times 12) + (12 \times 1) + (6 \times 16) = 72 + 12 + 96 = 180$ g/mol.
     approved: true
@@ -199,8 +277,14 @@ questions:
       - text: There is less than 1 mole present.
         correct: true
       - text: There is exactly 1 mole present.
+        rationale: |
+          You assumed 1 mole. Exactly 1 mole requires the sample mass to equal the molar mass.
       - text: There is more than 1 mole present.
+        rationale: |
+          You predicted more than 1 mole. If mass is less than molar mass, the quotient $\dfrac{\text{mass}}{\text{molar mass}}$ is less than 1.
       - text: Nothing can be concluded without doing the division.
+        rationale: |
+          You assumed division is required. Comparing numerator and denominator size shows whether the fraction is less than 1.
     explanation: |
       Moles equal mass divided by molar mass. If the mass (the numerator) is smaller than the molar mass (the denominator), the result of the division must be less than 1.
     approved: true

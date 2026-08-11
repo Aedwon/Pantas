@@ -17,8 +17,14 @@ questions:
       - text: Alpha decay
         correct: true
       - text: Beta decay
+        rationale: |
+          You picked high-speed electron emission. Beta decay emits an electron ($e^-$) or positron, whereas a helium nucleus emission is alpha decay.
       - text: Gamma decay
+        rationale: |
+          You picked electromagnetic radiation emission. Gamma decay releases pure photon energy without ejecting protons or neutrons.
       - text: Fission
+        rationale: |
+          You picked heavy nucleus splitting. Fission breaks a nucleus into two large daughter fragments, not just a helium nucleus.
     explanation: |
       A particle identical to a helium nucleus is, by definition, an alpha particle. Emitting it is alpha decay.
     approved: true
@@ -31,8 +37,14 @@ questions:
       - text: Beta decay
         correct: true
       - text: Alpha decay
+        rationale: |
+          You picked helium nucleus emission. Alpha decay ejects a 2-proton, 2-neutron particle, not a single electron from a converted neutron.
       - text: Gamma decay
+        rationale: |
+          You picked high-energy photon emission. Gamma decay emits energy waves without converting neutrons into protons.
       - text: Fusion
+        rationale: |
+          You picked the combining of light nuclei. Fusion merges separate light atoms into a heavier one, which is not radioactive decay.
     explanation: |
       Beta decay happens when a neutron transforms into a proton, ejecting an electron (the beta particle) in the process.
     approved: true
@@ -45,8 +57,14 @@ questions:
       - text: Gamma decay
         correct: true
       - text: Alpha decay
+        rationale: |
+          You picked particle decay that alters nuclear mass. Alpha decay ejects 2 protons and 2 neutrons, decreasing mass number by 4.
       - text: Beta decay
+        rationale: |
+          You picked electron emission decay. Beta decay converts a neutron to a proton, increasing atomic number by 1.
       - text: Fission
+        rationale: |
+          You picked nuclear splitting. Fission splits a heavy nucleus into smaller daughter elements, changing atomic and mass numbers.
     explanation: |
       Gamma decay releases pure energy (a gamma ray) with no change to the atomic number or mass number, usually alongside alpha or beta decay.
     approved: true
@@ -59,8 +77,14 @@ questions:
       - text: Atomic number 86, mass number 222
         correct: true
       - text: Atomic number 89, mass number 222
+        rationale: |
+          You added 1 to atomic number instead of subtracting 2. Alpha decay removes 2 protons and 2 neutrons ($88 - 2 = 86$).
       - text: Atomic number 86, mass number 226
+        rationale: |
+          You forgot to decrease the mass number by 4. Alpha particles carry 4 total nucleons ($226 - 4 = 222$).
       - text: Atomic number 90, mass number 230
+        rationale: |
+          You added 2 to atomic number and 4 to mass number. Alpha decay ejects nuclear mass, reducing both numbers.
     explanation: |
       Alpha decay decreases mass number by 4 and atomic number by 2: mass $226 - 4 = 222$; atomic number $88 - 2 = 86$. (This describes radium-226 decaying into radon-222.)
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: Atomic number 16, mass number 32
         correct: true
       - text: Atomic number 14, mass number 32
+        rationale: |
+          You subtracted 1 from atomic number. Beta decay converts a neutron to a proton, increasing atomic number ($15 + 1 = 16$).
       - text: Atomic number 16, mass number 28
+        rationale: |
+          You subtracted 4 from mass number as if in alpha decay. Beta decay emits an electron, leaving total mass number unchanged.
       - text: Atomic number 15, mass number 33
+        rationale: |
+          You added 1 to mass number instead of atomic number. Beta decay converts a neutron to a proton, raising atomic number to 16.
     explanation: |
       Beta decay increases atomic number by 1, while mass number stays essentially the same: atomic number $15 + 1 = 16$; mass number stays 32. (This describes phosphorus-32 decaying into sulfur-32.)
     approved: true
@@ -87,8 +117,14 @@ questions:
       - text: Fission
         correct: true
       - text: Fusion
+        rationale: |
+          You picked the combining of light nuclei. Fusion joins light nuclei (like hydrogen), whereas fission splits heavy nuclei.
       - text: Alpha decay
+        rationale: |
+          You picked spontaneous single-particle emission. Fission splits a heavy atom into two roughly equal main fragments.
       - text: Beta decay
+        rationale: |
+          You picked electron ejection decay. Beta decay changes a neutron into a proton within a single nucleus.
     explanation: |
       Fission is a large, heavy nucleus splitting apart into two or more smaller nuclei, releasing a large amount of energy: the process used in nuclear power plants.
     approved: true
@@ -101,8 +137,14 @@ questions:
       - text: Fusion
         correct: true
       - text: Fission
+        rationale: |
+          You picked heavy nucleus splitting. Fission splits large atoms apart, whereas solar reactions join small nuclei together.
       - text: Alpha decay
+        rationale: |
+          You picked radioactive particle emission. Solar power relies on combining hydrogen nuclei into helium (fusion).
       - text: Beta decay
+        rationale: |
+          You picked single-nucleus electron emission. The primary solar reaction combines separate nuclei together into a heavier element.
     explanation: |
       Fusion is two small, light nuclei combining to form one larger nucleus, releasing an even greater amount of energy than fission: the process that powers the Sun.
     approved: true
@@ -115,8 +157,14 @@ questions:
       - text: 'No: alpha decay decreases both the mass number (by 4) and the atomic number (by 2).'
         correct: true
       - text: 'Yes: alpha decay only ever changes atomic number.'
+        rationale: |
+          You ignored neutron loss. Alpha particles contain 2 neutrons in addition to 2 protons, reducing mass number by 4.
       - text: 'No: alpha decay only changes mass number, not atomic number.'
+        rationale: |
+          You omitted proton loss. Ejecting 2 protons decreases the atomic number by 2 as well.
       - text: 'Yes: no numbers change during alpha decay.'
+        rationale: |
+          You confused alpha decay with gamma decay. Alpha decay ejects a helium-4 nucleus, changing both numbers.
     explanation: |
       Alpha decay ejects a particle with 2 protons and 2 neutrons, so it reduces mass number by 4 and atomic number by 2: the student's calculation missed the mass number change entirely.
     approved: true
@@ -129,8 +177,14 @@ questions:
       - text: 'No: the Sun''s process, joining small nuclei together, is fusion; fission is a large nucleus splitting apart.'
         correct: true
       - text: 'Yes: fission and fusion always describe the exact same process.'
+        rationale: |
+          You treated opposite reactions as identical. Fusion combines small nuclei, while fission splits large nuclei.
       - text: 'No: the Sun''s process is actually gamma decay.'
+        rationale: |
+          You classified solar energy as pure decay. Solar energy stems from nuclear fusion of hydrogen into helium.
       - text: 'Yes: the Sun performs fission, not fusion.'
+        rationale: |
+          You assigned fission to the Sun. Solar nucleosynthesis merges hydrogen nuclei together, which is fusion.
     explanation: |
       Fission splits a large nucleus apart; fusion joins small nuclei together. The Sun combines hydrogen nuclei into helium, which is fusion, not fission.
     approved: true
@@ -143,8 +197,14 @@ questions:
       - text: 'No: gamma decay releases only energy; the element stays exactly the same before and after.'
         correct: true
       - text: 'Yes: gamma decay always transforms the nucleus into a new element.'
+        rationale: |
+          You claimed elemental transformation. Elemental identity depends on atomic number (protons), which gamma decay does not change.
       - text: 'No: but only because gamma decay does not actually involve the nucleus at all.'
+        rationale: |
+          You excluded the nucleus. Gamma decay originates within an excited nucleus relaxing to a lower energy state.
       - text: 'Yes: any radioactive decay always changes the element.'
+        rationale: |
+          You assumed all decay changes element identity. Gamma decay releases photon energy without altering proton count.
     explanation: |
       Unlike alpha and beta decay, gamma decay does not change the atomic number or mass number: it simply releases excess energy as the nucleus settles into a more stable state, with the element staying the same.
     approved: true
@@ -157,8 +217,14 @@ questions:
       - text: 'No: gamma rays are actually the most penetrating type of radiation discussed here, requiring thick lead or concrete to block.'
         correct: true
       - text: 'Yes: gamma rays are the weakest and easiest to block, stopped by ordinary paper.'
+        rationale: |
+          You assigned paper shielding to gamma rays. Alpha particles are stopped by paper; gamma rays pass through paper effortlessly.
       - text: 'No: beta particles are actually the most penetrating.'
+        rationale: |
+          You ranked beta particles as most penetrating. Beta particles are stopped by thin aluminum foil, unlike highly penetrating gamma rays.
       - text: 'Yes: "no elemental change" always means "less penetrating radiation."'
+        rationale: |
+          You linked nuclear mass change to radiation penetration. Penetration depends on charge and energy: uncharged gamma rays penetrate deepest.
     explanation: |
       "No elemental change" is unrelated to penetrating power. Gamma rays are in fact the hardest of the three to shield against, needing thick lead or concrete, unlike alpha (stopped by paper) or beta (stopped by foil).
     approved: true
@@ -171,8 +237,14 @@ questions:
       - text: Alpha (weakest) < beta < gamma (strongest)
         correct: true
       - text: Gamma (weakest) < beta < alpha (strongest)
+        rationale: |
+          You reversed the penetration ranking completely. Large alpha particles are easiest to stop, while uncharged gamma rays penetrate deepest.
       - text: Beta (weakest) < alpha < gamma (strongest)
+        rationale: |
+          You swapped alpha and beta particles. Heavy alpha particles have the lowest penetrating power and are stopped by paper.
       - text: All three have exactly the same penetrating power.
+        rationale: |
+          You assumed equal penetration. Penetration varies drastically by particle size and charge (alpha < beta < gamma).
     explanation: |
       Alpha particles are stopped by paper (weakest), beta particles need aluminum foil, and gamma rays need thick lead or concrete (strongest): an increasing order of penetrating power.
     approved: true
@@ -185,8 +257,14 @@ questions:
       - text: Atomic number 86, mass number 222
         correct: true
       - text: Atomic number 88, mass number 226
+        rationale: |
+          You calculated for only one alpha decay. Two alpha decays subtract 4 from atomic number ($90 - 4 = 86$) and 8 from mass number ($230 - 8 = 222$).
       - text: Atomic number 82, mass number 214
+        rationale: |
+          You subtracted 4 alpha decays instead of 2. Two decays reduce atomic number by 4 and mass number by 8.
       - text: Atomic number 86, mass number 230
+        rationale: |
+          You forgot to subtract mass numbers. Each alpha decay removes 4 nucleons, so two decays subtract 8 from mass number.
     explanation: |
       Each alpha decay decreases atomic number by 2 and mass number by 4. After the first: atomic number $90-2=88$, mass number $230-4=226$. After the second: atomic number $88-2=86$, mass number $226-4=222$.
     approved: true
@@ -199,8 +277,14 @@ questions:
       - text: Fusion generally releases even more energy than fission.
         correct: true
       - text: Fission generally releases even more energy than fusion.
+        rationale: |
+          You selected fission as higher energy yield. Per unit mass, nuclear fusion releases significantly more energy than fission.
       - text: Both processes always release exactly the same amount of energy.
+        rationale: |
+          You assumed equal energy output. Fusion releases substantially more energy per unit mass than fission.
       - text: Neither fission nor fusion releases any usable energy.
+        rationale: |
+          You claimed no usable energy is released. Both fission and fusion release immense amounts of nuclear binding energy.
     explanation: |
       Nuclear fusion, joining small nuclei together, releases an even greater amount of energy than fission: this is why the Sun (powered by fusion) generates such enormous energy output.
     approved: true

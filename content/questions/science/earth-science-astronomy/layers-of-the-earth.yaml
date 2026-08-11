@@ -13,8 +13,14 @@ questions:
       - text: The crust
         correct: true
       - text: The mantle
+        rationale: |
+          You picked the thick middle layer. The mantle sits beneath the crust and makes up most of Earth's volume.
       - text: The outer core
+        rationale: |
+          You picked the liquid metal layer. The outer core lies deep beneath the mantle, generating Earth's magnetic field.
       - text: The inner core
+        rationale: |
+          You picked the central solid sphere. The inner core is the dense iron-nickel center at Earth's core.
     explanation: |
       The crust is the thin, outermost, solid layer of Earth that we live on.
     approved: true
@@ -28,8 +34,14 @@ questions:
       - text: About 70 km
         correct: true
       - text: About 5 km
+        rationale: |
+          You picked oceanic crust thickness. Oceanic crust under the ocean floor is about 5 km thick, whereas continental crust averages ~70 km.
       - text: About 2,880 km
+        rationale: |
+          You picked mantle thickness. The mantle extends ~2,880 km deep, far thicker than the crust.
       - text: About 700 km
+        rationale: |
+          You picked upper mantle depth boundary. 700 km marks upper mantle transition zones, not continental crust thickness.
     explanation: |
       Continental crust, found under land, is about 70 km thick: much thicker than oceanic crust.
     approved: true
@@ -43,8 +55,14 @@ questions:
       - text: Oceanic crust is much thinner (about 5 km) than continental crust (about 70 km), making it easier to drill through.
         correct: true
       - text: Oceanic crust is thicker than continental crust, giving drillers more material to study.
+        rationale: |
+          You reversed crustal thicknesses. Oceanic crust is much thinner (5 km) than continental crust (70 km).
       - text: There is no difference in thickness between oceanic and continental crust.
+        rationale: |
+          You assumed equal crustal thickness. Continental crust (70 km) is significantly thicker than oceanic crust (5 km).
       - text: The mantle does not exist beneath the ocean floor.
+        rationale: |
+          You claimed mantle is absent under oceans. The mantle underlies both oceanic and continental crust worldwide.
     explanation: |
       Oceanic crust (about 5 km thick) is much thinner than continental crust (about 70 km thick), making the ocean floor an easier target for reaching the mantle.
     approved: true
@@ -58,8 +76,14 @@ questions:
       - text: The mantle
         correct: true
       - text: The crust
+        rationale: |
+          You picked the thin outer shell. The crust is only 5-70 km thick, representing under 1% of Earth's volume.
       - text: The outer core
+        rationale: |
+          You picked the liquid metal layer. The outer core is liquid iron/nickel, not silicate rock.
       - text: The inner core
+        rationale: |
+          You picked the solid central core. The inner core is a solid iron-nickel sphere at Earth's center.
     explanation: |
       The mantle, roughly 2,880 km thick, makes up most of Earth's volume and is made of hot, dense rock rich in iron and magnesium.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: 'No: the mantle is solid rock, but it is so hot that it can slowly flow over long periods of time, like very thick, slow-moving toffee; being solid and flowing slowly are not contradictions here.'
         correct: true
       - text: 'Yes: solid rock can never flow under any circumstances.'
+        rationale: |
+          You denied solid state plastic flow. High temperature and pressure allow solid mantle rock to undergo slow ductile flow.
       - text: 'No: but only because the mantle is actually liquid, not solid.'
+        rationale: |
+          You misidentified the mantle as liquid. High seismic velocity confirms the mantle is solid, despite its plastic flow capability.
       - text: 'Yes: the mantle only flows once it becomes a gas.'
+        rationale: |
+          You required gaseous state for flow. Solid mantle rock flows plastically under subterranean heat and pressure without gasifying.
     explanation: |
       Students think "solid" must mean "completely rigid and unmoving." The mantle's slow flow, similar to thick toffee, is exactly what drives the plates on Earth's surface: being solid and flowing slowly are not contradictions.
     approved: true
@@ -88,8 +118,14 @@ questions:
       - text: The outer core
         correct: true
       - text: The inner core
+        rationale: |
+          You picked the solid central sphere. The inner core is solid iron-nickel, whereas magnetic dynamo action occurs in the liquid outer core.
       - text: The mantle
+        rationale: |
+          You picked the silicate rock layer. The mantle is solid silicate rock, not liquid metallic conductor.
       - text: The crust
+        rationale: |
+          You picked the surface layer. The surface crust contains magnetized rocks, but does not generate the global magnetic field.
     explanation: |
       The outer core is made mostly of liquid iron and nickel; its flow around Earth's center is what generates Earth's magnetic field.
     approved: true
@@ -103,8 +139,14 @@ questions:
       - text: The inner core
         correct: true
       - text: The outer core
+        rationale: |
+          You picked the liquid core layer. The outer core is liquid iron-nickel surrounding the solid inner core.
       - text: The mantle
+        rationale: |
+          You picked the rocky middle layer. The mantle is silicate rock, not central iron-nickel alloy.
       - text: The crust
+        rationale: |
+          You picked the cool surface shell. The crust is the outermost, coolest layer of Earth.
     explanation: |
       The inner core, at Earth's very center, is made of iron and nickel and is the hottest layer, yet stays solid due to extreme pressure.
     approved: true
@@ -118,8 +160,14 @@ questions:
       - text: The inner core experiences the greatest pressure in all of Earth, since it is squeezed by the weight of every layer above it, forcing its iron and nickel atoms to stay locked in a solid arrangement despite the extreme heat.
         correct: true
       - text: The inner core is actually cooler than the outer core, which is why it stays solid.
+        rationale: |
+          You reversed internal temperature gradients. Temperature increases with depth, making the inner core hotter than the outer core.
       - text: The inner core is made of a completely different material than the outer core, which happens to have a higher melting point.
+        rationale: |
+          You posited distinct composition. Both inner and outer cores consist primarily of iron-nickel alloy.
       - text: Temperature has no effect on whether a layer is solid or liquid.
+        rationale: |
+          You denied thermal effects on state. Phase depends on the competition between temperature (kinetic energy) and pressure.
     explanation: |
       Temperature alone would suggest the hottest layer should be most likely to melt, but the inner core also experiences the greatest pressure of any layer, squeezed by the weight of everything above it: this immense pressure keeps it solid despite the extreme heat.
     approved: true
@@ -133,8 +181,14 @@ questions:
       - text: 'No: higher pressure can keep a layer solid even at extreme temperature; the inner core is solid despite being the hottest layer, due to the crushing pressure at Earth''s center.'
         correct: true
       - text: 'Yes: the hottest layer inside Earth is always liquid.'
+        rationale: |
+          You ignored pressure's effect on melting point. Overburden pressure raises the melting point above the actual temperature.
       - text: 'No: but only because the inner core is not actually the hottest layer.'
+        rationale: |
+          You denied the inner core's maximum temperature. The inner core is Earth's hottest layer (~5,400°C).
       - text: 'Yes: pressure has no effect on whether a layer is solid or liquid.'
+        rationale: |
+          You claimed pressure does not alter physical state. Extreme pressure forces iron atoms into a solid crystalline lattice.
     explanation: |
       This choice ignores the role of pressure. The inner core is hotter than the outer core, yet stays solid because of the crushing pressure at Earth's center: temperature alone does not determine whether a layer is solid or liquid.
     approved: true
@@ -148,8 +202,14 @@ questions:
       - text: Crust, mantle, outer core, inner core
         correct: true
       - text: Crust, outer core, mantle, inner core
+        rationale: |
+          You placed outer core above mantle. The mantle sits directly beneath the crust, above the outer core.
       - text: Mantle, crust, outer core, inner core
+        rationale: |
+          You put mantle above crust. The crust is the outermost surface layer.
       - text: Crust, mantle, inner core, outer core
+        rationale: |
+          You swapped inner and outer cores. The liquid outer core surrounds the solid central inner core.
     explanation: |
       From the surface inward: the crust (outermost), then the mantle, then the liquid outer core, and finally the solid inner core at the very center.
     approved: true
@@ -163,8 +223,14 @@ questions:
       - text: The mantle
         correct: true
       - text: The crust
+        rationale: |
+          You picked the thinnest layer. The crust comprises less than 1% of Earth's total volume.
       - text: The outer core
+        rationale: |
+          You picked the liquid core layer. The outer core makes up about 16% of Earth's volume, compared to the mantle's ~84%.
       - text: The inner core
+        rationale: |
+          You picked the central core sphere. The inner core makes up less than 1% of Earth's total volume.
     explanation: |
       The mantle, at roughly 2,880 km thick, makes up most of Earth's volume: by far the largest of the four layers.
     approved: true
@@ -178,8 +244,14 @@ questions:
       - text: Certain earthquake waves cannot travel through liquid material, and scientists observed these waves disappearing on the far side of the planet from certain earthquakes, forming a "shadow" region only explainable by a liquid layer inside Earth.
         correct: true
       - text: Scientists have sent underwater cameras directly into the outer core to observe it visually.
+        rationale: |
+          You claimed direct camera observation. Humans have only drilled ~12 km deep, nowhere near the 2,900 km core boundary.
       - text: The outer core's liquid state was directly measured using deep drilling equipment that reached the core.
+        rationale: |
+          You claimed direct drilling measurement. Deepest drills penetrate only 12 km, failing to reach the 2,900 km deep outer core.
       - text: Earthquake waves have no relationship to determining whether a layer is solid or liquid.
+        rationale: |
+          You denied seismic wave diagnostic utility. S-wave shadow zones are the primary empirical proof of liquid outer core.
     explanation: |
       Certain earthquake waves can only travel through solid material. When these waves disappeared in a "shadow" region on the opposite side of the planet from certain earthquakes, it revealed a liquid layer blocking them: evidence for the liquid outer core.
     approved: true
@@ -193,8 +265,14 @@ questions:
       - text: 'No: since the outer core is liquid, this wave type would be blocked and unable to pass through it, creating a shadow region where the wave does not arrive.'
         correct: true
       - text: 'Yes: this wave type can pass through any material, solid or liquid.'
+        rationale: |
+          You ignored S-wave propagation limits. Shear (S) waves require rigidity and cannot propagate through liquid.
       - text: 'Yes: since the outer core is actually solid, not liquid.'
+        rationale: |
+          You misidentified outer core state. The outer core is liquid, which blocks S-wave transmission.
       - text: 'No: but only because the outer core does not actually exist.'
+        rationale: |
+          You denied outer core existence. Seismic data confirms the outer core layer between 2,900 and 5,150 km depth.
     explanation: |
       Since this wave type cannot travel through liquid, and the outer core is liquid, the wave is blocked there: creating the shadow region that first revealed the outer core's liquid state to scientists.
     approved: true
@@ -208,8 +286,14 @@ questions:
       - text: The flow of liquid, metallic material in the outer core
         correct: true
       - text: The solid rock of the mantle
+        rationale: |
+          You attributed magnetism to silicate rock. Silicate mantle rock lacks the free electron conduction of liquid metal.
       - text: The thin crust at Earth's surface
+        rationale: |
+          You attributed global magnetic field to crust. Surface crust contains local mineral magnetization but does not generate the geodynamo.
       - text: The solid inner core alone, without any flow
+        rationale: |
+          You attributed magnetism to static solid metal. Magnetic field generation requires convective motion of conductive liquid.
     explanation: |
       Earth's magnetic field is generated by the flow of liquid iron and nickel in the outer core, moving around Earth's center.
     approved: true
@@ -223,8 +307,14 @@ questions:
       - text: 'No: crust about 70 km thick describes continental crust (found under land); oceanic crust, found under the oceans, is much thinner, only about 5 km.'
         correct: true
       - text: 'Yes: oceanic crust is always about 70 km thick.'
+        rationale: |
+          You assigned continental thickness to oceanic crust. Oceanic crust is thin (5 km); continental crust is thick (70 km).
       - text: 'No: but only because continental crust does not actually exist.'
+        rationale: |
+          You denied continental crust existence. Continental crust forms Earth's landmasses and continental shelves.
       - text: 'Yes: continental and oceanic crust are always the same thickness.'
+        rationale: |
+          You assumed equal crustal thickness. Continental crust (70 km) is ~14 times thicker than oceanic crust (5 km).
     explanation: |
       A question describing land areas versus ocean floor is testing which crust type is thicker. Continental crust (under continents) is roughly 70 km thick, while oceanic crust (under oceans) is only about 5 km thick.
     approved: true
@@ -238,8 +328,14 @@ questions:
       - text: There is a liquid layer inside Earth (the outer core) that blocks the solid-only wave entirely, while bending the path of the wave that can travel through both solid and liquid material.
         correct: true
       - text: Earth's interior must be entirely solid, since one wave type still reached the detectors.
+        rationale: |
+          You ignored S-wave extinction. Total blockage of S-waves proves the presence of a liquid layer.
       - text: Earth's interior must be entirely liquid, since one wave type failed to arrive.
+        rationale: |
+          You inferred an entirely liquid planet. P-waves and S-waves traveling through mantle confirm solid crust/mantle.
       - text: This wave pattern provides no information about Earth's interior structure.
+        rationale: |
+          You denied seismic wave diagnostics. Seismic shadow zones are the foundational evidence for Earth's interior layers.
     explanation: |
       A wave that only travels through solid material failing to reach the far side of the planet, combined with a wave that travels through both solid and liquid bending along the way, together indicate a liquid layer inside Earth: direct seismic evidence for the liquid outer core.
     approved: true
