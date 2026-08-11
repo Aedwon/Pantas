@@ -13,8 +13,14 @@ questions:
       - text: Weather
         correct: true
       - text: Climate
+        rationale: |
+          You picked the long-term pattern. Climate is the average weather measured over decades, not daily conditions.
       - text: Global warming
+        rationale: |
+          You picked a long-term temperature trend. Global warming refers to the decadal rise in average planetary temperature.
       - text: A monsoon
+        rationale: |
+          You picked a seasonal wind system. A monsoon is a seasonal prevailing wind pattern, not daily atmospheric state.
     explanation: |
       Weather is the short-term condition of the air at a specific place and time, like today's temperature, rain, or wind.
     approved: true
@@ -28,8 +34,14 @@ questions:
       - text: Climate
         correct: true
       - text: Weather
+        rationale: |
+          You picked short-term conditions. Weather describes day-to-day atmospheric conditions, whereas climate is a long-term average.
       - text: A typhoon
+        rationale: |
+          You picked a specific storm type. A typhoon is a short-term tropical cyclone event, not a long-term climate pattern.
       - text: A monsoon
+        rationale: |
+          You picked a seasonal wind pattern. While monsoons influence climate, the long-term weather average itself is climate.
     explanation: |
       Climate is the long-term average pattern of weather in a region over many years, like a personality, compared to weather's daily "mood."
     approved: true
@@ -43,8 +55,14 @@ questions:
       - text: Weather, since it describes conditions right now, at one specific time
         correct: true
       - text: Climate, since it describes a general, long-term pattern
+        rationale: |
+          You treated a current event as a long-term trend. Rain occurring "right now" is a short-term weather observation.
       - text: Both weather and climate equally
+        rationale: |
+          You combined timescales. A single rain event represents real-time weather, not multi-decade climate averages.
       - text: Neither weather nor climate
+        rationale: |
+          You claimed it fits neither category. Rain and temperature conditions fall directly under atmospheric weather.
     explanation: |
       This statement describes conditions right now, at one specific time and place: this is weather, not climate.
     approved: true
@@ -58,8 +76,14 @@ questions:
       - text: Climate, since it describes a general, long-term pattern over many years
         correct: true
       - text: Weather, since it describes conditions right now
+        rationale: |
+          You treated a general seasonal description as daily weather. Multi-year seasonal generalizations define climate.
       - text: Both weather and climate equally
+        rationale: |
+          You blurred the timescale distinction. General regional patterns over many years describe climate specifically.
       - text: Neither weather nor climate
+        rationale: |
+          You claimed no atmospheric concept applies. Regional seasonal patterns fall directly under climate classification.
     explanation: |
       This statement describes a general, long-term pattern over many years: this is climate, not weather.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: 'No: a single short-term weather event does not disprove a long-term climate trend measured over decades; weather and climate operate on very different timescales.'
         correct: true
       - text: 'Yes: any single cold week is enough to disprove long-term climate trends.'
+        rationale: |
+          You used a short-term weather anomaly to evaluate climate. Climate trends represent global averages over 30+ years.
       - text: 'No: but only because cold weather never actually occurs.'
+        rationale: |
+          You denied localized cold weather events. Cold snaps occur naturally within weather variability under global climate change.
       - text: 'Yes: weather and climate always match each other exactly, day to day.'
+        rationale: |
+          You assumed daily weather matches long-term climate. Weather fluctuates daily around long-term climate baselines.
     explanation: |
       A choice might describe "unusually cold weather this week" as proof that "the climate is not warming." But a single weather event, hot or cold, does not disprove a long-term climate trend measured over decades: weather is short-term and local, while climate is a long-term average.
     approved: true
@@ -88,8 +118,14 @@ questions:
       - text: The troposphere
         correct: true
       - text: The stratosphere
+        rationale: |
+          You picked the second layer. The stratosphere contains the ozone layer (10-50 km), above the weather-containing troposphere.
       - text: The mesosphere
+        rationale: |
+          You picked the middle cold layer. The mesosphere (50-85 km) burns up meteors and lies far above weather formation.
       - text: The thermosphere
+        rationale: |
+          You picked the high-temperature upper layer. The thermosphere (85-600 km) is the ionosphere layer where auroras occur.
     explanation: |
       The troposphere is the lowest atmospheric layer, up to about 10 km high, where almost all weather happens and where we live and breathe.
     approved: true
@@ -103,8 +139,14 @@ questions:
       - text: The stratosphere
         correct: true
       - text: The troposphere
+        rationale: |
+          You picked the ground weather layer. The troposphere contains breathable air and weather, while ozone concentrates in the stratosphere.
       - text: The mesosphere
+        rationale: |
+          You picked the meteor-burning layer. The mesosphere lies above the stratosphere (50-85 km) and lacks the main ozone layer.
       - text: The exosphere
+        rationale: |
+          You picked the outermost space boundary. The exosphere is the outermost fringe of the atmosphere where satellites orbit.
     explanation: |
       The stratosphere, from about 10 km to 50 km high, contains the ozone layer, which absorbs most of the Sun's harmful ultraviolet radiation.
     approved: true
@@ -118,8 +160,14 @@ questions:
       - text: The mesosphere
         correct: true
       - text: The stratosphere
+        rationale: |
+          You picked the ozone layer. The stratosphere warms with altitude due to UV absorption, whereas the mesosphere is the coldest layer.
       - text: The thermosphere
+        rationale: |
+          You picked the high-altitude hot layer. The thermosphere absorbs high-energy X-rays and solar radiation, reaching high temperatures.
       - text: The exosphere
+        rationale: |
+          You picked the outer space border. The exosphere gradually merges into space with extremely thin particle density.
     explanation: |
       The mesosphere, from about 50 km to 85 km high, is the coldest atmospheric layer, and it is where most meteors burn up.
     approved: true
@@ -133,8 +181,14 @@ questions:
       - text: The thermosphere
         correct: true
       - text: The troposphere
+        rationale: |
+          You picked the lowest dense layer. The troposphere cools with altitude and contains dense breathable air.
       - text: The mesosphere
+        rationale: |
+          You picked the coldest layer. The mesosphere drops to $-90°C$, unlike the high-temperature thermosphere.
       - text: The exosphere
+        rationale: |
+          You picked the satellite orbit fringe. The exosphere begins around 600 km up, above the main thermosphere layer.
     explanation: |
       The thermosphere, from about 85 km to 600 km high, has very high measured temperatures, though its air is too thin to feel warm to a person.
     approved: true
@@ -148,8 +202,14 @@ questions:
       - text: The exosphere
         correct: true
       - text: The thermosphere
+        rationale: |
+          You picked the layer beneath the exosphere. The thermosphere hosts auroras and the ISS, but the exosphere is the outermost boundary.
       - text: The mesosphere
+        rationale: |
+          You picked the middle atmosphere layer. The mesosphere sits below 85 km, far beneath satellite orbits.
       - text: The stratosphere
+        rationale: |
+          You picked the lower-middle layer. The stratosphere spans 10-50 km, hosting jet aircraft rather than satellites.
     explanation: |
       The exosphere is the outermost atmospheric layer, fading gradually into outer space, where satellites orbit.
     approved: true
@@ -163,8 +223,14 @@ questions:
       - text: Troposphere, stratosphere, mesosphere, thermosphere, exosphere
         correct: true
       - text: Troposphere, mesosphere, stratosphere, thermosphere, exosphere
+        rationale: |
+          You swapped mesosphere and stratosphere. The stratosphere (ozone layer) sits below the mesosphere (meteor layer).
       - text: Exosphere, thermosphere, mesosphere, stratosphere, troposphere
+        rationale: |
+          You reversed the order from space down to ground. The sequence from ground up starts with the troposphere.
       - text: Stratosphere, troposphere, mesosphere, exosphere, thermosphere
+        rationale: |
+          You put stratosphere below troposphere and swapped upper layers. Ground level starts at the troposphere.
     explanation: |
       From the ground up: troposphere, stratosphere, mesosphere, thermosphere, exosphere: remembered with "Tall Storms Make Thin Exits."
     approved: true
@@ -178,8 +244,14 @@ questions:
       - text: The stratosphere
         correct: true
       - text: The troposphere
+        rationale: |
+          You picked the weather layer. Commercial planes cruise above the troposphere into the calm stratosphere to avoid storms.
       - text: The mesosphere
+        rationale: |
+          You picked the meteor layer. The mesosphere sits above 50 km, far higher than commercial airliner altitudes.
       - text: The thermosphere
+        rationale: |
+          You picked the upper ionosphere layer. The thermosphere is in near-space where spacecraft orbit.
     explanation: |
       "Nearly all storm clouds below it" suggests this layer is above the troposphere (where weather happens), and "contains the ozone layer" is a direct match to the stratosphere.
     approved: true
@@ -193,8 +265,14 @@ questions:
       - text: 'No: although the thermosphere has high measured temperatures, its air is so thin that there is not enough matter to transfer that heat to a person or object, so it would not feel warm.'
         correct: true
       - text: 'Yes: anyone in the thermosphere would feel intensely warm due to its high temperature.'
+        rationale: |
+          You confused kinetic particle speed with heat transfer. Extremely low air density prevents heat transfer to skin.
       - text: 'No: but only because the thermosphere actually has a very low temperature.'
+        rationale: |
+          You claimed low kinetic temperature. Gas molecules in the thermosphere possess high kinetic energy (high temperature).
       - text: 'Yes: temperature always directly determines how warm something feels, regardless of air density.'
+        rationale: |
+          You ignored thermal density and heat transfer. Perceived warmth requires density to transfer thermal energy by conduction or convection.
     explanation: |
       Temperature measures how fast particles move, but with so few particles in the thin thermosphere, there is not enough matter to transfer that heat to a person or object: a choice describing the thermosphere as literally "warm to the touch" misunderstands this thin-air effect.
     approved: true
@@ -208,8 +286,14 @@ questions:
       - text: 'No: the ozone layer''s specific, testable job is absorbing most of the Sun''s harmful ultraviolet radiation, not producing breathable oxygen.'
         correct: true
       - text: 'Yes: the ozone layer''s main job is producing oxygen for living things to breathe.'
+        rationale: |
+          You misidentified ozone's function. Oxygen ($O_2$) is produced by photosynthesis; ozone ($O_3$) blocks solar UV radiation.
       - text: 'No: but only because the ozone layer does not exist within the stratosphere.'
+        rationale: |
+          You denied ozone location. The ozone layer is located directly within the lower stratosphere.
       - text: 'Yes: the ozone layer and oxygen production are the exact same process.'
+        rationale: |
+          You equated UV shielding with oxygen generation. Ozone absorption of UV rays is distinct from biological oxygen production.
     explanation: |
       Some choices confuse the ozone layer's protective role with unrelated atmospheric functions. Its specific, testable job is shielding Earth's surface from the Sun's most harmful UV rays, not producing oxygen.
     approved: true
@@ -223,8 +307,14 @@ questions:
       - text: Habagat
         correct: true
       - text: Amihan
+        rationale: |
+          You picked the northeast monsoon. Amihan brings cool, dry winds from the northeast (Nov–Apr), while Habagat is the wet southwest monsoon.
       - text: El Niño
+        rationale: |
+          You picked the climate anomaly. El Niño causes extended droughts, whereas Habagat is the normal rainy southwest monsoon.
       - text: La Niña
+        rationale: |
+          You picked the cooling Pacific anomaly. La Niña brings above-average rainfall, but Habagat specifically names the annual southwest monsoon.
     explanation: |
       Habagat is the southwest monsoon, roughly from June to October, bringing hot, humid weather, frequent heavy rainfall, and the most frequent destructive typhoons.
     approved: true
@@ -238,8 +328,14 @@ questions:
       - text: Amihan
         correct: true
       - text: Habagat
+        rationale: |
+          You picked the southwest monsoon. Habagat brings hot, rainy, typhoon-prone weather (June–Oct), whereas Amihan is the cool northeast monsoon.
       - text: El Niño
+        rationale: |
+          You picked the Pacific warming phenomenon. El Niño causes prolonged drought, while Amihan is the annual cool dry season monsoon.
       - text: La Niña
+        rationale: |
+          You picked the Pacific cooling phenomenon. La Niña increases rainfall, unlike the typical cool, dry winds of Amihan.
     explanation: |
       Amihan is the northeast monsoon, roughly from November to April, bringing cooler, drier weather with generally little rainfall in much of the country.
     approved: true
@@ -253,8 +349,14 @@ questions:
       - text: Habagat (southwest monsoon), roughly June through October
         correct: true
       - text: Amihan (northeast monsoon), roughly November through April
+        rationale: |
+          You picked the cool northeast monsoon. Amihan features cool, dry northeast winds from November to April.
       - text: Both Habagat and Amihan occur simultaneously
+        rationale: |
+          You claimed monsoons overlap. Habagat and Amihan alternate semi-annually based on seasonal pressure shifts.
       - text: Neither monsoon; this describes an unrelated weather pattern
+        rationale: |
+          You rejected monsoon classification. Southwest winds and rainy typhoon conditions define the Habagat monsoon.
     explanation: |
       A southwest wind with hot, humid conditions and frequent typhoons describes habagat, the southwest monsoon, running roughly from June to October.
     approved: true
@@ -268,8 +370,14 @@ questions:
       - text: 'No: cooler, drier weather with a northeast wind describes Amihan, not Habagat; Habagat is the hot, rainy, typhoon-prone southwest monsoon.'
         correct: true
       - text: 'Yes: Habagat always describes cooler, drier, northeast-wind conditions.'
+        rationale: |
+          You assigned Amihan traits to Habagat. Habagat brings warm, humid southwest winds and heavy rainfall.
       - text: 'No: but only because neither Habagat nor Amihan involves wind direction.'
+        rationale: |
+          You denied wind direction involvement. Monsoons are defined by seasonal reversals in prevailing wind directions.
       - text: 'Yes: Habagat and Amihan are simply two different names for the same season.'
+        rationale: |
+          You treated the two monsoons as identical. Habagat (SW) and Amihan (NE) represent opposite seasonal wind regimes.
     explanation: |
       These two Filipino terms are easy to confuse under time pressure. Anchor them by season type: if the description mentions frequent typhoons and humidity from the southwest, it must be Habagat; cooler, drier weather from the northeast is Amihan.
     approved: true
@@ -283,8 +391,14 @@ questions:
       - text: A typhoon
         correct: true
       - text: A monsoon
+        rationale: |
+          You picked the seasonal wind system. A monsoon is a seasonal wind pattern, whereas a typhoon is an individual storm system.
       - text: A hotspot
+        rationale: |
+          You picked a geological feature. A hotspot is a volcanic mantle plume location, not an atmospheric storm.
       - text: An eclipse
+        rationale: |
+          You picked an astronomical shadow event. An eclipse occurs when a celestial body blocks sunlight.
     explanation: |
       A typhoon is a powerful, rotating tropical storm system with very strong winds and heavy rain, most common during the Habagat season.
     approved: true
@@ -298,8 +412,14 @@ questions:
       - text: Greenhouse gases trap heat from the Sun in the atmosphere, similar to how a greenhouse traps warmth, causing a long-term rise in Earth's average temperature.
         correct: true
       - text: Greenhouse gases block sunlight from reaching Earth's surface entirely, cooling the planet.
+        rationale: |
+          You described global dimming/cooling. Greenhouse gases allow solar light in but trap outgoing infrared heat.
       - text: Greenhouse gases have no relationship to Earth's average temperature.
+        rationale: |
+          You denied the greenhouse effect. Greenhouse gases directly re-radiate infrared heat, raising global temperatures.
       - text: Greenhouse gases only affect temperature in the stratosphere, not at Earth's surface.
+        rationale: |
+          You restricted warming to upper layers. Greenhouse gas heat trapping elevates lower tropospheric and surface temperatures.
     explanation: |
       Greenhouse gases like carbon dioxide trap heat from the Sun in the atmosphere, similar to how a greenhouse traps warmth: this buildup is a major cause of global warming, the long-term rise in Earth's average temperature.
     approved: true
@@ -313,8 +433,14 @@ questions:
       - text: "\"This year's typhoon was unusually strong\" describes a weather event; \"average global temperatures have risen over the past century\" describes climate change."
         correct: true
       - text: "Both reports describe the same kind of event: a weather event."
+        rationale: |
+          You classified century-long temperature trends as weather. Multi-decade global trends represent climate change.
       - text: "Both reports describe the same kind of event: climate change."
+        rationale: |
+          You classified a single typhoon as climate change. A single storm event is a weather occurrence.
       - text: "\"This year's typhoon\" describes climate change, while the temperature report describes a weather event."
+        rationale: |
+          You swapped weather and climate descriptions. Individual storms are weather; century-long temperature shifts are climate change.
     explanation: |
       "This year's typhoon" describes a single storm at a specific time, a weather event. "Average global temperatures have risen over the past century" describes a long-term shift measured over many decades, climate change.
     approved: true
@@ -328,8 +454,14 @@ questions:
       - text: (a) Habagat, the southwest monsoon (roughly June–October); (b) no, a single typhoon is a short-term weather event, and the actual evidence for long-term climate change comes from the measured rise in average temperatures across decades, not any single storm.
         correct: true
       - text: (a) Amihan, the northeast monsoon; (b) yes, one strong typhoon is sufficient proof of long-term climate change on its own.
+        rationale: |
+          You misidentified the monsoon and used a single storm as climate proof. September SW winds are Habagat, and single storms are weather events.
       - text: (a) Habagat, the southwest monsoon; (b) yes, any single weather event, no matter how ordinary, directly proves long-term climate trends.
+        rationale: |
+          You treated single weather events as climate proof. Climate evidence relies on statistical data collected across many decades.
       - text: (a) Amihan, the northeast monsoon; (b) no, weather events and climate change are entirely unrelated concepts.
+        rationale: |
+          You misidentified the monsoon as Amihan. September southwest winds belong to Habagat (SW monsoon).
     explanation: |
       A southwest wind with hot, humid, typhoon conditions in September identifies Habagat. The typhoon itself is a short-term weather event and does not alone prove climate change; the decade-over-decade temperature rise is the actual long-term climate evidence.
     approved: true
