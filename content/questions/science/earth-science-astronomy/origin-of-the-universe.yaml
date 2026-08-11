@@ -13,8 +13,14 @@ questions:
       - text: About 13.8 billion years ago
         correct: true
       - text: About 4.6 billion years ago
+        rationale: |
+          You picked Earth's age. 4.6 billion years is the age of Earth and the Solar System, not the universe.
       - text: About 100 million years ago
+        rationale: |
+          You picked too short a timeframe. 100 million years ago corresponds to the Mesozoic era on Earth, not the universe's origin.
       - text: About 1 billion years ago
+        rationale: |
+          You picked too recent an epoch. 1 billion years ago falls during the Precambrian, long after the Big Bang.
     explanation: |
       The Big Bang theory says the universe began about 13.8 billion years ago, when it started expanding from one incredibly hot, tiny point.
     approved: true
@@ -28,8 +34,14 @@ questions:
       - text: Georges Lemaître
         correct: true
       - text: Edwin Hubble
+        rationale: |
+          You picked the observational astronomer. Edwin Hubble provided observational proof of galactic expansion in 1929, after Lemaître proposed the theory.
       - text: Arno Penzias
+        rationale: |
+          You picked a cosmic microwave background discoverer. Arno Penzias co-discovered the cosmic microwave background in 1965.
       - text: Robert Wilson
+        rationale: |
+          You picked a cosmic microwave background discoverer. Robert Wilson co-discovered the cosmic microwave background in 1965.
     explanation: |
       Georges Lemaître first proposed the Big Bang theory in 1927, two years before Hubble's observation provided strong supporting evidence.
     approved: true
@@ -43,8 +55,14 @@ questions:
       - text: Edwin Hubble
         correct: true
       - text: Georges Lemaître
+        rationale: |
+          You picked the theoretical physicist. Georges Lemaître mathematically proposed cosmic expansion in 1927 before Hubble's measurements.
       - text: Arno Penzias
+        rationale: |
+          You picked the radio astronomer. Penzias co-discovered the 3 K cosmic radiation background in 1965.
       - text: Robert Wilson
+        rationale: |
+          You picked the radio astronomer. Wilson co-discovered the 3 K cosmic radiation background in 1965.
     explanation: |
       Edwin Hubble's 1929 observation that distant galaxies are moving away from Earth, faster with distance, provided strong evidence for the Big Bang theory.
     approved: true
@@ -58,8 +76,14 @@ questions:
       - text: If everything is flying apart from each other today, then tracing this motion backward in time means everything must have been squeezed together in one place long ago.
         correct: true
       - text: It shows that galaxies are being pulled toward Earth by gravity, proving Earth is the center of the universe.
+        rationale: |
+          You misidentified expansion direction. Galaxies move away from each other everywhere, not toward Earth.
       - text: It shows that the universe has always been the same size, with no expansion at all.
+        rationale: |
+          You claimed a static universe. Hubble's redshift data demonstrates active cosmic expansion.
       - text: It proves that space itself is shrinking over time.
+        rationale: |
+          You reversed cosmic expansion. Galactic recession proves space is expanding rather than shrinking.
     explanation: |
       If distant galaxies are moving away from us today, and faster the farther they are, then running this motion backward in time implies everything was once squeezed together at a single starting point: direct evidence for an expanding universe.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: The cosmic microwave background
         correct: true
       - text: The nebular hypothesis
+        rationale: |
+          You picked solar system origin model. The nebular hypothesis describes star and planet formation from gas clouds.
       - text: Hubble's constant
+        rationale: |
+          You picked expansion rate parameter. Hubble's constant quantifies the cosmic expansion rate.
       - text: The solar wind
+        rationale: |
+          You picked solar particle stream. Solar wind consists of charged particles emitted by the Sun.
     explanation: |
       The cosmic microwave background, discovered in 1965 by Arno Penzias and Robert Wilson, is the leftover heat from the Big Bang, cooled down over billions of years.
     approved: true
@@ -88,8 +118,14 @@ questions:
       - text: 'No: the cosmic microwave background is leftover heat radiation from the hot, early universe itself; stars had not even formed yet when this radiation was released.'
         correct: true
       - text: 'Yes: the cosmic microwave background is exactly the light given off by the very first stars.'
+        rationale: |
+          You attributed radiation to stellar ignition. CMB radiation was emitted ~380,000 years post-Big Bang, long before star formation.
       - text: 'No: but only because the cosmic microwave background does not actually exist.'
+        rationale: |
+          You denied CMB existence. The CMB is an empirically mapped isotropic thermal radiation field.
       - text: 'Yes: all radiation detected from the sky comes from stars.'
+        rationale: |
+          You assumed all sky radiation is stellar. CMB radiation originates from early universe recombination.
     explanation: |
       The cosmic microwave background comes from a much earlier, hotter stage of the universe, before any stars had formed: it is the cooled-down leftover heat from the Big Bang itself, not starlight.
     approved: true
@@ -103,8 +139,14 @@ questions:
       - text: 'No: Georges Lemaître first proposed the Big Bang theory in 1927; Hubble''s 1929 observation of galaxies moving apart provided strong supporting evidence for a theory that already existed.'
         correct: true
       - text: 'Yes: Hubble was the first person to propose the Big Bang theory.'
+        rationale: |
+          You attributed theory origination to Hubble. Lemaître proposed the expanding universe model in 1927.
       - text: 'No: but only because no one proposed the Big Bang theory before 1965.'
+        rationale: |
+          You delayed theory origination to 1965. 1965 was when Penzias and Wilson discovered CMB evidence.
       - text: 'Yes: Lemaître and Hubble proposed the theory together in the same year.'
+        rationale: |
+          You merged separate independent milestones. Lemaître published theory in 1927; Hubble published observational proof in 1929.
     explanation: |
       Lemaître proposed the theory in 1927, using Einstein's equations for gravity. Hubble's contribution, two years later, was the observational evidence, not the original proposal of the theory itself.
     approved: true
@@ -118,8 +160,14 @@ questions:
       - text: 'No: the Big Bang was the expansion of space itself, happening everywhere at once; there was no empty space "outside" the expansion for matter to fly into.'
         correct: true
       - text: 'Yes: the Big Bang was exactly like a bomb exploding at a single point in pre-existing space.'
+        rationale: |
+          You treated Big Bang as localized bomb explosion. The Big Bang was the metric expansion of space itself everywhere.
       - text: 'No: but only because the Big Bang never actually happened.'
+        rationale: |
+          You denied Big Bang model. Extensive cosmological evidence supports metric cosmic expansion.
       - text: 'Yes: space existed first, and matter later expanded to fill it from one corner.'
+        rationale: |
+          You assumed pre-existing space canvas. Space and time themselves originated with the Big Bang.
     explanation: |
       Students often imagine the Big Bang like a bomb exploding at one location. In reality, space itself stretched out everywhere at once: there was no pre-existing empty space outside the expansion for matter to fly into.
     approved: true
@@ -133,8 +181,14 @@ questions:
       - text: The nebular hypothesis
         correct: true
       - text: The Big Bang theory
+        rationale: |
+          You picked universe expansion model. The Big Bang explains cosmic origin 13.8 billion years ago, not local solar system formation.
       - text: The cosmic microwave background
+        rationale: |
+          You picked early cosmic thermal radiation. CMB is leftover Big Bang radiation, not planet formation mechanics.
       - text: Hubble's law
+        rationale: |
+          You picked galactic recession law. Hubble's law relates galaxy distance to recession speed.
     explanation: |
       The nebular hypothesis explains that the Sun and planets formed from one giant, slowly spinning cloud of gas and dust called a nebula.
     approved: true
@@ -148,8 +202,14 @@ questions:
       - text: A giant cloud of gas and dust exists, the cloud collapses and spins faster, the center ignites as the Sun, planets form from clumps in the disk.
         correct: true
       - text: The center ignites as the Sun, a giant cloud of gas and dust exists, planets form from clumps, the cloud collapses and spins faster.
+        rationale: |
+          You placed Sun ignition before cloud collapse. Gravitational collapse and spin acceleration must precede solar core ignition.
       - text: Planets form from clumps in the disk, a giant cloud of gas and dust exists, the cloud collapses and spins faster, the center ignites as the Sun.
+        rationale: |
+          You placed planet clumping before cloud existence. The parent gas cloud collapse occurs prior to planetary accretion.
       - text: A giant cloud of gas and dust exists, planets form from clumps in the disk, the cloud collapses and spins faster, the center ignites as the Sun.
+        rationale: |
+          You accreted planets before disk collapse. Disk collapse and central Sun ignition precede planetary accretion.
     explanation: |
       The nebular hypothesis sequence: a giant, slowly spinning cloud of gas and dust (nebula) exists → gravity pulls it inward, causing it to collapse and spin faster → the center becomes hot and dense enough to ignite as the Sun → leftover material in the disk clumps together to form the planets.
     approved: true
@@ -163,8 +223,14 @@ questions:
       - text: 'The same principle that makes a spinning ice skater speed up when pulling their arms in applies to the shrinking cloud: as its material moves closer to the center, its spin speeds up.'
         correct: true
       - text: An outside force from a nearby star pushes the cloud to spin faster.
+        rationale: |
+          You attributed spin acceleration to external pushing forces. Angular momentum conservation drives spin acceleration internally.
       - text: The cloud only spins faster because it is losing mass to outer space.
+        rationale: |
+          You linked spin to mass loss. Shrinking radius under mass conservation accelerates rotational velocity.
       - text: The cloud's spin speed has no relationship to its size.
+        rationale: |
+          You denied angular momentum conservation. Conservation of angular momentum forces smaller spinning mass to rotate faster.
     explanation: |
       As the cloud collapses under gravity and its material moves closer to the center, it spins faster: the same principle that makes a spinning ice skater speed up when pulling their arms inward.
     approved: true
@@ -178,8 +244,14 @@ questions:
       - text: All the planets formed from clumps of material within the same flattened, spinning disk that surrounded the young Sun, so they inherited that disk's flat shape and spin direction.
         correct: true
       - text: Each planet formed completely independently, and it is a coincidence that they all orbit in the same plane.
+        rationale: |
+          You claimed coplanar orbits are coincidental. Planetary orbits inherit coplanar motion from the protoplanetary disk.
       - text: The Sun's gravity forces every planet into the same plane regardless of how or where it formed.
+        rationale: |
+          You misattributed coplanar alignment to solar gravity alone. Spherical gravity allows any orbital plane; disk origin dictates coplanarity.
       - text: The planets originally orbited in random directions, and later collisions randomly aligned them.
+        rationale: |
+          You invoked random collision alignment. Alignment stems from initial accretion within the pre-flattened disk.
     explanation: |
       As the original spinning cloud collapsed, it flattened into a wide disk. Since all the planets formed from clumps of material within that same flat, spinning disk, they ended up orbiting the Sun in nearly the same plane and direction.
     approved: true
@@ -193,8 +265,14 @@ questions:
       - text: 'No: this description matches the nebular hypothesis, which explains the formation of a solar system, not the Big Bang, which explains the origin of the entire universe.'
         correct: true
       - text: 'Yes: the Big Bang and the nebular hypothesis describe the exact same process at every scale.'
+        rationale: |
+          You equated cosmic expansion with solar system formation. Big Bang created space/matter; nebular hypothesis formed our solar system.
       - text: 'No: but only because clouds of gas and dust never collapse to form stars.'
+        rationale: |
+          You denied nebular star formation. Interstellar gas cloud collapse is the established mechanism of star formation.
       - text: 'Yes: any process involving gas, dust, and collapse is automatically the Big Bang.'
+        rationale: |
+          You grouped all cosmic collapses under Big Bang. Big Bang is metric expansion, while nebular hypothesis is gravitational gas collapse.
     explanation: |
       These are two different scales of "beginning." A spinning cloud of gas and dust collapsing into a star and planets describes the nebular hypothesis (solar system formation), not the Big Bang (the origin of the whole universe).
     approved: true
@@ -208,8 +286,14 @@ questions:
       - text: The Big Bang theory, since it explains the origin and expansion of the whole universe, including galaxies.
         correct: true
       - text: The nebular hypothesis, since it explains the motion of any object in space.
+        rationale: |
+          You applied solar system model to galaxies. Nebular hypothesis governs local star/planet formation, not cosmic galaxy expansion.
       - text: Both theories equally, since they describe identical processes.
+        rationale: |
+          You treated the two theories as identical. Big Bang operates on cosmological scales; nebular hypothesis operates on solar system scales.
       - text: Neither theory, since galaxy motion is unrelated to either theory.
+        rationale: |
+          You denied Big Bang relationship to galaxy motion. Hubble's galaxy motion data is the primary empirical proof of the Big Bang.
     explanation: |
       If a question mentions "galaxies" or "the universe," think Big Bang theory. If it mentions "planets" or "the Sun," think nebular hypothesis: the two theories explain different scales of "beginning."
     approved: true
@@ -223,8 +307,14 @@ questions:
       - text: The observation that distant galaxies are moving away faster the farther they are, since this directly shows space is still stretching apart right now, while the leftover heat is stronger evidence for a hot beginning rather than ongoing expansion.
         correct: true
       - text: The leftover heat detected in every direction of the sky, since it directly measures how fast galaxies are currently moving.
+        rationale: |
+          You misidentified CMB measurement. CMB proves an early hot dense state; galactic redshift proves current expansion rate.
       - text: Both pieces of evidence are equally irrelevant to whether the universe is still expanding.
+        rationale: |
+          You rejected observational expansion evidence. Galactic redshift and CMB are foundational pillars of Big Bang cosmology.
       - text: Neither piece of evidence relates to the Big Bang theory in any way.
+        rationale: |
+          You denied Big Bang evidence connections. Hubble expansion and CMB radiation directly validate Big Bang predictions.
     explanation: |
       The cosmic microwave background (leftover heat) is strong evidence for a hot beginning, but Hubble's observation of galaxies moving away, faster with distance, is the direct evidence that space is still expanding today.
     approved: true
