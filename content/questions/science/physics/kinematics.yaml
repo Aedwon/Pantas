@@ -17,8 +17,14 @@ questions:
       - text: Acceleration
         correct: true
       - text: Displacement
+        rationale: |
+          You picked position change. Displacement is net position change ($\Delta x$), not rate of velocity change.
       - text: Distance
+        rationale: |
+          You picked scalar path length. Distance is total scalar ground covered, unrelated to velocity change rate.
       - text: Time
+        rationale: |
+          You picked temporal duration. Time ($t$) is the independent variable, not the rate of change itself.
     explanation: |
       Acceleration is defined as the rate at which velocity itself changes over time.
     approved: true
@@ -31,8 +37,14 @@ questions:
       - text: Velocity
         correct: true
       - text: Acceleration
+        rationale: |
+          You picked velocity change rate. Acceleration ($a$) is the rate of change of velocity, not displacement.
       - text: Mass
+        rationale: |
+          You picked inertial quantity. Mass ($m$) is a measure of inertia, independent of kinematic motion rate.
       - text: Time
+        rationale: |
+          You picked temporal duration. Time ($t$) is the independent variable measuring elapsed duration.
     explanation: |
       Velocity is defined as the rate at which displacement (position) changes over time.
     approved: true
@@ -45,8 +57,14 @@ questions:
       - text: 20 m/s
         correct: true
       - text: 9 m/s
+        rationale: |
+          You added acceleration to time ($5 + 4$). Use multiplication $v = v_0 + at = 0 + 5(4) = 20\text{ m/s}$.
       - text: 1.25 m/s
+        rationale: |
+          You divided acceleration by time ($\dfrac{5}{4}$). Velocity change requires multiplying acceleration by time ($a \cdot t$).
       - text: 5 m/s
+        rationale: |
+          You took acceleration magnitude as velocity. $5\text{ m/s}^2$ is the rate per second; after $4\text{ s}$, velocity reaches $20\text{ m/s}$.
     explanation: |
       $v = v_0 + at = 0 + (5)(4) = 20$ m/s.
     approved: true
@@ -59,8 +77,14 @@ questions:
       - text: 40 m
         correct: true
       - text: 15 m
+        rationale: |
+          You calculated initial distance term ($3 \times 5$) only. You forgot the acceleration term $\dfrac{1}{2}at^2 = \dfrac{1}{2}(2)(5^2) = 25\text{ m}$.
       - text: 25 m
+        rationale: |
+          You calculated acceleration distance term ($\dfrac{1}{2}at^2$) only. You omitted initial velocity displacement $v_0t = 15\text{ m}$.
       - text: 65 m
+        rationale: |
+          You squared the sum ($v_0t + at$) or omitted $\dfrac{1}{2}$. Sum $v_0t + \dfrac{1}{2}at^2 = 15 + 25 = 40\text{ m}$.
     explanation: |
       $d = v_0t + \dfrac{1}{2}at^2 = (3)(5) + \dfrac{1}{2}(2)(5)^2 = 15 + 25 = 40$ m.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: 78.4 m
         correct: true
       - text: 39.2 m
+        rationale: |
+          You forgot to square time ($t = 4$). $\dfrac{1}{2}(9.8)(4) = 19.6$; squaring $t$ yields $\dfrac{1}{2}(9.8)(16) = 78.4\text{ m}$.
       - text: 19.6 m
+        rationale: |
+          You calculated $\dfrac{1}{2}g t$ instead of $\dfrac{1}{2}g t^2$. Distance requires $t^2 = 16\text{ s}^2$.
       - text: 156.8 m
+        rationale: |
+          You omitted the $\dfrac{1}{2}$ factor ($9.8 \times 16$). Distance from rest is $d = \dfrac{1}{2}gt^2 = 78.4\text{ m}$.
     explanation: |
       $d = 0 + \dfrac{1}{2}(9.8)(4)^2 = \dfrac{1}{2}(9.8)(16) = 78.4$ m.
     approved: true
@@ -87,8 +117,14 @@ questions:
       - text: 39.2 m/s
         correct: true
       - text: 78.4 m/s
+        rationale: |
+          You calculated fall distance in meters ($78.4\text{ m}$) instead of final velocity ($v = gt = 9.8 \times 4 = 39.2\text{ m/s}$).
       - text: 9.8 m/s
+        rationale: |
+          You picked gravitational acceleration $g$. Velocity increases by $9.8\text{ m/s}$ every second, reaching $39.2\text{ m/s}$ after $4\text{ s}$.
       - text: 4.9 m/s
+        rationale: |
+          You calculated $\dfrac{1}{2}g$. Final velocity is $v = gt = 9.8 \times 4 = 39.2\text{ m/s}$.
     explanation: |
       $v = v_0 + at = 0 + (9.8)(4) = 39.2$ m/s.
     approved: true
@@ -101,8 +137,14 @@ questions:
       - text: About 16.3 m/s
         correct: true
       - text: 125 m/s
+        rationale: |
+          You calculated $v_0^2 + 2ad = 265$ without taking the square root. Taking $\sqrt{265}$ yields $\approx 16.3\text{ m/s}$.
       - text: About 11.2 m/s
+        rationale: |
+          You calculated $\sqrt{2ad} = \sqrt{240} \approx 15.5$ or omitted $v_0^2$. Including $v_0^2 = 25$ gives $v = \sqrt{265} \approx 16.3\text{ m/s}$.
       - text: 245 m/s
+        rationale: |
+          You multiplied $v_0 \times a \times d$. Use the kinematic square relation $v^2 = v_0^2 + 2ad$.
     explanation: |
       $v^2 = v_0^2 + 2ad = 5^2 + 2(3)(40) = 25 + 240 = 265$, so $v = \sqrt{265} \approx 16.3$ m/s.
     approved: true
@@ -115,8 +157,14 @@ questions:
       - text: 'No: since time is neither given nor needed, $v^2 = v_0^2 + 2ad$ should be used instead, since it excludes time entirely.'
         correct: true
       - text: 'Yes: $v = v_0 + at$ can always be used regardless of which variables are given.'
+        rationale: |
+          You chose an equation with two unknowns ($v$ and $t$). Without time $t$, $v = v_0 + at$ cannot be solved directly.
       - text: 'No: $d = v_0t + \dfrac{1}{2}at^2$ should be used instead.'
+        rationale: |
+          You chose another equation requiring time $t$. $d = v_0t + \dfrac{1}{2}at^2$ still requires knowing $t$.
       - text: 'Yes: time can simply be assumed to equal 1 second in this case.'
+        rationale: |
+          You assumed a dummy time value. Assuming $t = 1\text{ s}$ violates the problem's physical constraints.
     explanation: |
       Each kinematic equation excludes exactly one of the five variables. Since time is absent here, the equation that excludes time ($v^2 = v_0^2 + 2ad$) is the correct choice, avoiding the need to solve for an unknown that isn't needed.
     approved: true
@@ -129,8 +177,14 @@ questions:
       - text: 'No: "dropped" means the initial velocity is already known to be 0, not an unknown to solve for.'
         correct: true
       - text: 'Yes: "dropped" gives no information about initial velocity.'
+        rationale: |
+          You ignored the term "dropped". In physics, "dropped" explicitly implies starting from rest ($v_0 = 0$).
       - text: 'No: "dropped" means the final velocity is 0, not the initial velocity.'
+        rationale: |
+          You assigned zero to final velocity. Final velocity just before impact is maximum, not zero.
       - text: 'Yes: initial velocity must always be solved for separately.'
+        rationale: |
+          You assumed initial velocity is always unknown. Verbal cues like "dropped" provide explicit numerical values ($v_0 = 0$).
     explanation: |
       Descriptive phrases like "dropped," "starts from rest," or "initially at rest" all directly tell you that $v_0 = 0$: this is given information, not an unknown.
     approved: true
@@ -143,8 +197,14 @@ questions:
       - text: 'No: if up is positive, gravity (which always pulls down) must be entered as a negative acceleration to keep the signs consistent.'
         correct: true
       - text: 'Yes: gravity should always be entered as a positive number, regardless of the chosen direction.'
+        rationale: |
+          You ignored vector sign conventions. If upward direction is positive, downward gravitational acceleration must be negative.
       - text: 'No: but only because the ball was thrown, not dropped.'
+        rationale: |
+          You tied acceleration sign to launch method. Acceleration direction depends on vector direction, not launch technique.
       - text: 'Yes: sign conventions do not matter as long as the magnitude is correct.'
+        rationale: |
+          You dismissed sign conventions. Inconsistent vector signs produce incorrect algebraic sums and wrong numerical answers.
     explanation: |
       Once "up" is chosen as positive, every quantity must follow that convention consistently. Since gravity always pulls downward, it must be negative in this setup: mixing a positive initial velocity with a positive gravity would create contradictory signs.
     approved: true
@@ -157,8 +217,14 @@ questions:
       - text: 'No: in free fall, all objects accelerate at the same rate g, regardless of mass, so both would hit the ground at the same time.'
         correct: true
       - text: 'Yes: heavier objects always fall faster in free fall.'
+        rationale: |
+          You assumed mass-dependent fall acceleration. Gravitational acceleration $g$ is independent of falling body mass.
       - text: 'No: the tennis ball would actually hit the ground first instead.'
+        rationale: |
+          You claimed lighter objects fall faster. Light and heavy objects fall at identical rates in vacuum.
       - text: 'Yes: but only if the objects are dropped from very high altitudes.'
+        rationale: |
+          You added height conditions to mass acceleration. In free fall, acceleration remains constant $g$ at all drop heights.
     explanation: |
       Mass does not appear anywhere in the free fall kinematic equations. Ignoring air resistance, a heavy bowling ball and a light tennis ball dropped together from the same height hit the ground at exactly the same time.
     approved: true
@@ -171,8 +237,14 @@ questions:
       - text: 10 m/s
         correct: true
       - text: 50 m/s
+        rationale: |
+          You added deceleration instead of subtracting ($30 + 20$). Deceleration reduces velocity: $30 + (-5)(4) = 10\text{ m/s}$.
       - text: 20 m/s
+        rationale: |
+          You calculated velocity change $at = 20\text{ m/s}$ rather than remaining velocity ($30 - 20 = 10\text{ m/s}$).
       - text: 5 m/s
+        rationale: |
+          You subtracted deceleration rate ($30 - 5 = 25$) or divided wrong. Remaining velocity is $30 - 20 = 10\text{ m/s}$.
     explanation: |
       $v = v_0 + at = 30 + (-5)(4) = 30 - 20 = 10$ m/s.
     approved: true
@@ -185,8 +257,14 @@ questions:
       - text: 5.2 m/s
         correct: true
       - text: 24.8 m/s
+        rationale: |
+          You added gravitational acceleration ($15 + 9.8$). Upward motion under gravity decelerates: $15 - 9.8 = 5.2\text{ m/s}$.
       - text: 15 m/s
+        rationale: |
+          You assumed constant velocity. Gravity constantly decelerates the upward motion at $9.8\text{ m/s}^2$.
       - text: -5.2 m/s
+        rationale: |
+          You inverted the velocity sign. At $t = 1\text{ s}$, velocity is positive ($+5.2\text{ m/s}$), meaning the ball is still ascending.
     explanation: |
       $v = v_0 + at = 15 + (-9.8)(1) = 15 - 9.8 = 5.2$ m/s. The ball is still moving upward, but has slowed down due to gravity.
     approved: true
@@ -199,8 +277,14 @@ questions:
       - text: 'Neither: both reach the ground at exactly the same time.'
         correct: true
       - text: The bowling ball, since it is heavier.
+        rationale: |
+          You assumed mass speeds up free fall. Gravitational acceleration $g$ is independent of mass.
       - text: The tennis ball, since it is lighter.
+        rationale: |
+          You assumed lower mass speeds up free fall. Mass cancels out in free fall equations.
       - text: It depends on the exact height of the drop.
+        rationale: |
+          You claimed height alters relative fall time. Drop height changes total time, but both objects fall simultaneously at every height.
     explanation: |
       In free fall, mass does not affect acceleration: every object accelerates downward at the same rate $g$, so both balls hit the ground simultaneously when dropped together from the same height.
     approved: true
