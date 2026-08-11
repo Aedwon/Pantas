@@ -13,8 +13,14 @@ questions:
       - text: Evaporation
         correct: true
       - text: Condensation
+        rationale: |
+          You picked the phase change from gas to liquid. Condensation occurs when water vapor cools into liquid cloud droplets.
       - text: Precipitation
+        rationale: |
+          You picked the falling water process. Precipitation occurs when water droplets fall from clouds as rain, snow, or hail.
       - text: Infiltration
+        rationale: |
+          You picked soil absorption. Infiltration is liquid water soaking into soil, not water liquid turning into gas.
     explanation: |
       Evaporation is when heat from the Sun turns liquid water (mostly from the oceans) into water vapor, which rises into the atmosphere.
     approved: true
@@ -28,8 +34,14 @@ questions:
       - text: Condensation
         correct: true
       - text: Evaporation
+        rationale: |
+          You picked liquid-to-gas vaporization. Evaporation occurs when solar heat turns liquid water into rising water vapor.
       - text: Precipitation
+        rationale: |
+          You picked water falling to ground. Precipitation is water falling from clouds as rain or snow.
       - text: Runoff
+        rationale: |
+          You picked surface water flow. Runoff is water flowing across land back into water bodies.
     explanation: |
       Condensation is when water vapor rises and cools, turning back into tiny liquid water droplets that form clouds: the opposite process of evaporation.
     approved: true
@@ -43,8 +55,14 @@ questions:
       - text: Precipitation
         correct: true
       - text: Evaporation
+        rationale: |
+          You picked liquid-to-vapor phase change. Evaporation converts surface water into atmospheric vapor.
       - text: Condensation
+        rationale: |
+          You picked cloud droplet formation. Condensation turns gas vapor into liquid cloud droplets, before they fall.
       - text: Infiltration
+        rationale: |
+          You picked subterranean soaking. Infiltration occurs when fallen rain soaks down into ground soil.
     explanation: |
       Precipitation is when cloud droplets combine and grow heavy enough to fall back to Earth as rain, snow, sleet, or hail.
     approved: true
@@ -58,8 +76,14 @@ questions:
       - text: Transpiration
         correct: true
       - text: Evaporation
+        rationale: |
+          You picked non-biological vaporization. Evaporation occurs from open water and soil surfaces rather than plant stomata.
       - text: Condensation
+        rationale: |
+          You picked vapor cooling into liquid. Condensation turns water vapor into liquid droplets, creating clouds.
       - text: Runoff
+        rationale: |
+          You picked overland surface flow. Runoff is liquid surface water flowing downhill into rivers and lakes.
     explanation: |
       Transpiration is when plants release water vapor into the air through their leaves; evaporation and transpiration together are sometimes called "evapotranspiration."
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: 'No: transpiration specifically refers to water vapor released from plants through their leaves, distinct from evaporation off soil or water bodies; the two are combined into the term "evapotranspiration" precisely because they are different processes.'
         correct: true
       - text: 'Yes: transpiration and evaporation are simply two different names for the exact same process.'
+        rationale: |
+          You equated plant stomatal release with physical surface evaporation. Transpiration specifically involves plant stomatal release.
       - text: 'No: but only because plants do not release any water vapor at all.'
+        rationale: |
+          You denied plant transpiration. Plants release significant water vapor through leaf stomata during photosynthesis.
       - text: 'Yes: transpiration only applies to water evaporating from soil, never from plants.'
+        rationale: |
+          You misapplied transpiration to soil. Soil water loss is evaporation; plant leaf water loss is transpiration.
     explanation: |
       Some students confuse transpiration with general evaporation from soil or water bodies. Transpiration is specifically the plant-based release of water vapor through leaves, which is why it is paired with evaporation as "evapotranspiration" when discussing total water vapor sources.
     approved: true
@@ -88,8 +118,14 @@ questions:
       - text: Water soaking into the soil is infiltration; water flowing over the surface into the river is runoff.
         correct: true
       - text: Water soaking into the soil is runoff; water flowing over the surface into the river is infiltration.
+        rationale: |
+          You swapped infiltration and runoff definitions. Infiltration is soaking downward; runoff is surface flow.
       - text: Both processes are called infiltration.
+        rationale: |
+          You called surface flow infiltration. Infiltration applies only to water entering the soil.
       - text: Both processes are called runoff.
+        rationale: |
+          You called soil soaking runoff. Runoff applies only to surface flow across land into waterways.
     explanation: |
       Water soaking slowly into the soil is infiltration (which feeds groundwater). Water flowing over the surface into a river is runoff. Both can happen to the same rainfall at the same time.
     approved: true
@@ -103,8 +139,14 @@ questions:
       - text: Infiltration
         correct: true
       - text: Runoff
+        rationale: |
+          You picked surface water flow. Runoff flows over ground into streams rather than soaking into soil.
       - text: Evaporation
+        rationale: |
+          You picked phase change to gas. Evaporation sends water into air as vapor, not into underground soil.
       - text: Transpiration
+        rationale: |
+          You picked plant water vapor release. Transpiration is water loss through plant leaves into air.
     explanation: |
       Infiltration is precipitation that soaks into the soil, feeding groundwater.
     approved: true
@@ -118,8 +160,14 @@ questions:
       - text: Runoff
         correct: true
       - text: Infiltration
+        rationale: |
+          You picked soil soaking. Infiltration refers to water absorbing downward into subterranean ground layers.
       - text: Evaporation
+        rationale: |
+          You picked atmospheric vaporization. Evaporation turns liquid water into gas vapor.
       - text: Transpiration
+        rationale: |
+          You picked plant stomatal loss. Transpiration is water vapor released from vegetation into air.
     explanation: |
       Runoff is precipitation that flows over the surface into streams, rivers, and eventually back to the ocean.
     approved: true
@@ -133,8 +181,14 @@ questions:
       - text: 'No: this describes evaporation, not condensation; condensation is the opposite process, water vapor cooling and turning back into liquid droplets.'
         correct: true
       - text: 'Yes: condensation and evaporation describe the exact same liquid-to-gas process.'
+        rationale: |
+          You treated opposite phase changes as identical. Evaporation is liquid-to-gas; condensation is gas-to-liquid.
       - text: 'No: but only because neither evaporation nor condensation actually occurs in the water cycle.'
+        rationale: |
+          You denied core water cycle processes. Both evaporation and condensation are fundamental hydrologic cycle stages.
       - text: 'Yes: condensation always describes liquid turning into gas.'
+        rationale: |
+          You reversed condensation's phase change. Liquid turning into gas is evaporation, not condensation.
     explanation: |
       These are opposite processes, and questions often swap their descriptions. If the process is warming water into vapor, it is evaporation; if it is cooling vapor into visible droplets or clouds, it is condensation.
     approved: true
@@ -148,8 +202,14 @@ questions:
       - text: Condensation
         correct: true
       - text: Evaporation
+        rationale: |
+          You picked the heating vaporization stage. Evaporation occurred initially at the ocean surface, before cloud formation.
       - text: Precipitation
+        rationale: |
+          You picked the falling rain stage. Precipitation occurs later when cloud droplets grow heavy and fall.
       - text: Infiltration
+        rationale: |
+          You picked ground soaking. Infiltration happens on land after rain falls, not in the upper atmosphere.
     explanation: |
       Water vapor (a gas) turning into liquid droplets, forming clouds, is condensation: the opposite of evaporation.
     approved: true
@@ -163,8 +223,14 @@ questions:
       - text: About 96%
         correct: true
       - text: About 50%
+        rationale: |
+          You underestimated ocean volume. Oceans hold approximately 96-97% of Earth's total water volume.
       - text: About 10%
+        rationale: |
+          You picked a very low estimate. Oceans dominate planetary water, containing over 96% of all Earth's water.
       - text: About 25%
+        rationale: |
+          You picked a quarter estimate. Oceans account for ~96% of global water, leaving ~4% for freshwater and ice.
     explanation: |
       Oceans hold about 96% of all the water on the planet, far more than lakes, rivers, or any other water source.
     approved: true
@@ -178,8 +244,14 @@ questions:
       - text: 'No: the ocean holds about 96% of Earth''s water; freshwater lakes and rivers hold only a small fraction in comparison.'
         correct: true
       - text: 'Yes: freshwater lakes and rivers hold the vast majority of Earth''s water.'
+        rationale: |
+          You overcalculated freshwater surface volumes. Lakes and rivers hold less than $0.01\%$ of Earth's total water.
       - text: 'No: but only because oceans do not actually contain any water.'
+        rationale: |
+          You denied ocean liquid content. Oceans contain ~1.3 billion cubic kilometers of saline liquid water.
       - text: 'Yes: oceans and freshwater lakes hold exactly equal amounts of water.'
+        rationale: |
+          You assumed equal distribution. Oceans hold 96% of Earth's water, vastly outsized compared to fresh lakes.
     explanation: |
       A choice suggesting that lakes or rivers are the largest water reservoir is incorrect. The vast majority of Earth's water, and nearly all of it that is liquid, is contained within the salty oceans.
     approved: true
@@ -193,8 +265,14 @@ questions:
       - text: Since evaporation depends on the amount of exposed water surface heated by the Sun, and the ocean covers the vast majority of Earth's surface (holding about 96% of all its water), the ocean's enormous surface area makes it by far the largest source of evaporation.
         correct: true
       - text: Lakes, rivers, and plants do not produce any water vapor at all.
+        rationale: |
+          You denied terrestrial evaporation. Inland waters and vegetation contribute to moisture via evapotranspiration.
       - text: The ocean is the only water source cool enough to allow evaporation to occur.
+        rationale: |
+          You linked evaporation to cool temperature. Evaporation increases with higher thermal energy input.
       - text: The amount of water vapor produced has no relationship to the surface area of the water source.
+        rationale: |
+          You ignored surface area dynamics. Exposed surface area directly dictates the rate and volume of evaporation.
     explanation: |
       Since evaporation depends on the amount of exposed water surface heated by the Sun, the ocean's enormous surface area (and the fact that it holds about 96% of Earth's water) makes it by far the largest source of water vapor, even though lakes, rivers, and plant transpiration also contribute.
     approved: true
@@ -208,8 +286,14 @@ questions:
       - text: Saline
         correct: true
       - text: Sediment
+        rationale: |
+          You picked suspended solid particles. Sediment refers to mineral or organic particles settling at the bottom.
       - text: Saturated
+        rationale: |
+          You picked chemical solution capacity limit. Saturated describes a solution holding maximum dissolved solute.
       - text: Turbid
+        rationale: |
+          You picked water clarity measure. Turbid describes cloudiness caused by suspended particle matter.
     explanation: |
       Ocean water is saline (salty), unlike most water in lakes and rivers.
     approved: true
@@ -223,8 +307,14 @@ questions:
       - text: Temperature and density
         correct: true
       - text: Salinity and color
+        rationale: |
+          You substituted water color for density. Ocean layering is governed by temperature and density variations.
       - text: Depth and sunlight only, unrelated to temperature
+        rationale: |
+          You disconnected depth from temperature. Sunlight absorption directly controls water temperature and density stratification.
       - text: Wave height and wind speed
+        rationale: |
+          You picked surface weather factors. Wind and waves affect surface mixing, but thermal density stratifies ocean layers.
     explanation: |
       Ocean water has layers based on temperature and density: warmer, sunlit water near the surface, and colder, denser water in the deep ocean, where sunlight cannot reach.
     approved: true
@@ -238,8 +328,14 @@ questions:
       - text: Ocean currents are driven by wind, differences in water density, and Earth's rotation; as they constantly move, they help redistribute heat from warmer to cooler regions around the planet.
         correct: true
       - text: Ocean currents are driven entirely by the Moon's gravity, unrelated to wind or density.
+        rationale: |
+          You attributed currents to tides. Moon gravity drives daily tides, whereas thermohaline and wind forces drive currents.
       - text: Ocean currents do not move at all; ocean water stays in a fixed position.
+        rationale: |
+          You claimed static ocean waters. Ocean water circulates globally through surface and deep thermohaline conveyor belts.
       - text: Ocean currents have no effect on the distribution of heat around the planet.
+        rationale: |
+          You denied global heat transport. Ocean currents carry tropical heat toward poles, regulating global climate.
     explanation: |
       Ocean water constantly moves in currents, driven by wind, differences in water density, and Earth's rotation, which help redistribute heat around the planet.
     approved: true
@@ -253,8 +349,14 @@ questions:
       - text: Evaporation (ocean water rising as vapor), condensation (vapor cooling into clouds), precipitation (rain falling), and both infiltration (seeping into ground) and runoff (flowing into the river) occurring together
         correct: true
       - text: Condensation, evaporation, infiltration, and precipitation, in that order
+        rationale: |
+          You placed condensation before evaporation. Evaporation of ocean water must occur before cloud condensation can happen.
       - text: Only evaporation and precipitation occur in this scenario; infiltration and runoff are unrelated concepts
+        rationale: |
+          You excluded land-stage hydrology. Rain seeping into ground (infiltration) and flowing in river (runoff) are core stages.
       - text: Runoff, precipitation, condensation, and evaporation, in that order
+        rationale: |
+          You reversed the hydrologic cycle sequence. The cycle starts with ocean solar evaporation, proceeding through atmospheric and surface steps.
     explanation: |
       This scenario traces the full cycle: evaporation (ocean water heated into vapor), condensation (vapor cooling into cloud droplets), precipitation (rain falling on the mountains), and finally infiltration and runoff occurring together, since some rain soaks into the soil while the rest flows over the surface toward the sea.
     approved: true
