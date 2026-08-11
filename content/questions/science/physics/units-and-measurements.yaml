@@ -17,8 +17,14 @@ questions:
       - text: Meter
         correct: true
       - text: Kilogram
+        rationale: |
+          You picked mass base unit. Kilogram ($\text{kg}$) is the SI base unit for mass.
       - text: Second
+        rationale: |
+          You picked time base unit. Second ($\text{s}$) is the SI base unit for time.
       - text: Kelvin
+        rationale: |
+          You picked temperature base unit. Kelvin ($\text{K}$) is the SI base unit for thermodynamic temperature.
     explanation: |
       The meter (m) is the SI base unit for length.
     approved: true
@@ -31,8 +37,14 @@ questions:
       - text: Kilogram
         correct: true
       - text: Meter
+        rationale: |
+          You picked length base unit. Meter ($\text{m}$) is the SI base unit for spatial distance.
       - text: Second
+        rationale: |
+          You picked time base unit. Second ($\text{s}$) is the SI base unit for time.
       - text: Ampere
+        rationale: |
+          You picked electric current base unit. Ampere ($\text{A}$) is the SI base unit for electric current.
     explanation: |
       The kilogram (kg) is the SI base unit for mass.
     approved: true
@@ -45,8 +57,14 @@ questions:
       - text: Second
         correct: true
       - text: Meter
+        rationale: |
+          You picked length base unit. Meter ($\text{m}$) measures length.
       - text: Kilogram
+        rationale: |
+          You picked mass base unit. Kilogram ($\text{kg}$) measures mass.
       - text: Candela
+        rationale: |
+          You picked luminous intensity base unit. Candela ($\text{cd}$) measures luminous intensity.
     explanation: |
       The second (s) is the SI base unit for time.
     approved: true
@@ -59,8 +77,14 @@ questions:
       - text: Mole
         correct: true
       - text: Kilogram
+        rationale: |
+          You picked mass base unit. Kilogram ($\text{kg}$) measures physical mass, not chemical particle quantity.
       - text: Ampere
+        rationale: |
+          You picked electric current unit. Ampere ($\text{A}$) measures electric charge flow per second.
       - text: Candela
+        rationale: |
+          You picked luminous intensity unit. Candela ($\text{cd}$) measures visible light intensity.
     explanation: |
       The mole (mol) is the SI base unit for amount of substance.
     approved: true
@@ -73,8 +97,14 @@ questions:
       - text: 3.5 m
         correct: true
       - text: 35 m
+        rationale: |
+          You divided by 10 instead of 100 ($350 / 10$). Convert centimeters to meters by dividing by 100: $\dfrac{350}{100} = 3.5\text{ m}$.
       - text: 0.35 m
+        rationale: |
+          You divided by 1000 instead of 100 ($350 / 1000$). There are 100 centimeters per meter.
       - text: 350 m
+        rationale: |
+          You assumed $1\text{ cm} = 1\text{ m}$. Centimeters are smaller by a factor of 100.
     explanation: |
       $350 \text{ cm} \times \dfrac{1 \text{ m}}{100 \text{ cm}} = 3.5$ m.
     approved: true
@@ -87,8 +117,14 @@ questions:
       - text: 5 km
         correct: true
       - text: 50 km
+        rationale: |
+          You divided by 100 instead of 1000 ($5000 / 100$). Convert meters to kilometers by dividing by 1000: $\dfrac{5000}{1000} = 5\text{ km}$.
       - text: 0.5 km
+        rationale: |
+          You divided by 10,000 instead of 1000. $1\text{ km} = 1000\text{ m}$.
       - text: 500 km
+        rationale: |
+          You divided by 10 instead of 1000. Convert meters to kilometers by dividing by 1000.
     explanation: |
       $5000 \text{ m} \times \dfrac{1 \text{ km}}{1000 \text{ m}} = 5$ km.
     approved: true
@@ -101,8 +137,14 @@ questions:
       - text: 25 m/s
         correct: true
       - text: 90 m/s
+        rationale: |
+          You kept numerical value unchanged ($90$). Multiply by $\dfrac{1000}{3600}$ to get $\dfrac{90}{3.6} = 25\text{ m/s}$.
       - text: 32.4 m/s
+        rationale: |
+          You multiplied by 3.6 instead of dividing ($90 \times 3.6$). Convert $\text{km/h}$ to $\text{m/s}$ by dividing by 3.6.
       - text: 15 m/s
+        rationale: |
+          You calculated conversion for $54\text{ km/h}$. For $90\text{ km/h}$, speed in $\text{m/s}$ is $\dfrac{90}{3.6} = 25\text{ m/s}$.
     explanation: |
       $90 \dfrac{\text{km}}{\text{h}} \times \dfrac{1000 \text{ m}}{1 \text{ km}} \times \dfrac{1 \text{ h}}{3600 \text{ s}} = \dfrac{90000}{3600} = 25$ m/s.
     approved: true
@@ -115,8 +157,14 @@ questions:
       - text: 15 m/s
         correct: true
       - text: 54 m/s
+        rationale: |
+          You kept numerical magnitude unchanged. Convert $\text{km/h}$ to $\text{m/s}$ by dividing by 3.6: $\dfrac{54}{3.6} = 15\text{ m/s}$.
       - text: 194.4 m/s
+        rationale: |
+          You multiplied by 3.6 instead of dividing ($54 \times 3.6$). Converting $\text{km/h}$ to $\text{m/s}$ requires dividing by 3.6.
       - text: 9 m/s
+        rationale: |
+          You divided by 6 or miscalculated. $\dfrac{54\text{ km/h}}{3.6} = 15\text{ m/s}$.
     explanation: |
       $54 \dfrac{\text{km}}{\text{h}} \times \dfrac{1000 \text{ m}}{1 \text{ km}} \times \dfrac{1 \text{ h}}{3600 \text{ s}} = \dfrac{54000}{3600} = 15$ m/s.
     approved: true
@@ -129,8 +177,14 @@ questions:
       - text: kg m/s^2 (newton)
         correct: true
       - text: kg/s^2
+        rationale: |
+          You omitted the length unit (meter). Force combines mass and acceleration: $\text{kg} \cdot \text{m/s}^2$.
       - text: m/s^2
+        rationale: |
+          You reported acceleration units alone. Force multiplies mass by acceleration ($\text{kg} \cdot \text{m/s}^2$).
       - text: kg m/s
+        rationale: |
+          You reported momentum units ($\text{kg}\cdot\text{m/s}$). Force requires acceleration ($\text{m/s}^2$), yielding $\text{kg}\cdot\text{m/s}^2$.
     explanation: |
       Multiplying the units directly: $kg \times \dfrac{m}{s^2} = kg \cdot m/s^2$, a combination given its own name, the newton.
     approved: true
@@ -143,8 +197,14 @@ questions:
       - text: 'No: this leaves units of cm²/m, a nonsense result, since the unwanted "cm" does not cancel.'
         correct: true
       - text: 'Yes: this arrangement correctly cancels the centimeters.'
+        rationale: |
+          You assumed centimeters cancel. Multiplying $\text{cm} \times \text{cm}$ produces $\text{cm}^2$, not unit cancellation.
       - text: 'No: but only because 250 cm cannot be converted to meters at all.'
+        rationale: |
+          You claimed metric conversion is impossible. Centimeters convert to meters by placing $\text{1 m}$ over $\text{100 cm}$.
       - text: 'Yes: any arrangement of the conversion factor gives the same correct answer.'
+        rationale: |
+          You claimed factor orientation does not matter. Inverting conversion factors inverts numerical and unit output.
     explanation: |
       The conversion factor must place the unwanted unit (cm) so it cancels: on the bottom, matching the "cm" on top of the starting value. Placing "cm" on top instead leaves a leftover, nonsense unit and a wildly incorrect number.
     approved: true
@@ -157,8 +217,14 @@ questions:
       - text: 'No: every value going into a formula must share compatible units; the distance or time must be converted first.'
         correct: true
       - text: 'Yes: formulas automatically adjust for mismatched units.'
+        rationale: |
+          You assumed formulas auto-adjust units. Physics equations require consistent base unit input to yield valid output.
       - text: 'No: but only because kilometers cannot be used in any formula.'
+        rationale: |
+          You banned kilometers from equations. Kilometers are valid provided all other terms use matching metric units.
       - text: 'Yes: as long as the final answer is rounded correctly.'
+        rationale: |
+          You claimed rounding fixes unit mismatch. Rounding cannot correct numerical errors caused by unit incompatibility.
     explanation: |
       Mixing incompatible units within the same calculation (like kilometers with seconds, without converting) produces a meaningless result. All values must be converted to a consistent unit system first.
     approved: true
@@ -171,8 +237,14 @@ questions:
       - text: 20,000 cm^2
         correct: true
       - text: 200 cm^2
+        rationale: |
+          You used linear conversion factor 100 ($2 \times 100$). Area conversion requires squaring factor: $100^2 = 10{,}000\text{ cm}^2/\text{m}^2$.
       - text: 2,000 cm^2
+        rationale: |
+          You multiplied by 1000. Square meter conversion requires multiplying by $100^2 = 10{,}000$, giving $20{,}000\text{ cm}^2$.
       - text: 20 cm^2
+        rationale: |
+          You divided or miscalculated decimal places. $2\text{ m}^2 = 2 \times 10{,}000 = 20{,}000\text{ cm}^2$.
     explanation: |
       Since area is length times length, the conversion factor must also be squared: $1 \text{ m}^2 = (100 \text{ cm})^2 = 10{,}000 \text{ cm}^2$. So $2 \text{ m}^2 = 2 \times 10{,}000 = 20{,}000 \text{ cm}^2$.
     approved: true
@@ -185,8 +257,14 @@ questions:
       - text: 3,000,000 cm^3
         correct: true
       - text: 300 cm^3
+        rationale: |
+          You used linear conversion factor 100 ($3 \times 100$). Volume conversion requires cubing factor: $100^3 = 1{,}000{,}000$.
       - text: 30,000 cm^3
+        rationale: |
+          You used area conversion factor $100^2 = 10{,}000$. Cubic conversion requires $100^3 = 1{,}000{,}000$, giving $3{,}000{,}000\text{ cm}^3$.
       - text: 300,000 cm^3
+        rationale: |
+          You multiplied by 100,000 instead of 1,000,000. $1\text{ m}^3 = 100^3\text{ cm}^3 = 1{,}000{,}000\text{ cm}^3$.
     explanation: |
       Since volume is length cubed, the conversion factor must also be cubed: $1 \text{ m}^3 = (100 \text{ cm})^3 = 1{,}000{,}000 \text{ cm}^3$. So $3 \text{ m}^3 = 3 \times 1{,}000{,}000 = 3{,}000{,}000 \text{ cm}^3$.
     approved: true
@@ -199,8 +277,14 @@ questions:
       - text: A conversion factor was likely set up backwards (upside down) somewhere in the calculation.
         correct: true
       - text: The student's numeric answer is definitely still correct, since units do not affect correctness.
+        rationale: |
+          You claimed units do not affect correctness. Inverted units indicate an inverted conversion factor and incorrect number.
       - text: Speed can be correctly expressed in either m/s or s/m interchangeably.
+        rationale: |
+          You claimed $\text{m/s}$ and $\text{s/m}$ are interchangeable. $\text{s/m}$ is slowness/pace, the reciprocal of speed.
       - text: The formula for speed does not actually involve units at all.
+        rationale: |
+          You denied physical units in speed formulas. Speed is defined as distance per time ($\text{m/s}$).
     explanation: |
       Tracking units throughout a calculation is a built-in error check. Ending up with the inverted unit (s/m instead of m/s) is a strong signal that a conversion factor was flipped upside down somewhere along the way.
     approved: true
