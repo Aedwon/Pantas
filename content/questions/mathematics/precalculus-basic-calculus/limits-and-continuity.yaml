@@ -13,8 +13,17 @@ questions:
       - text: $9$
         correct: true
       - text: $17$
+        rationale: |
+          You dropped the middle term. $3(2)^2 + 5 = 17$, but the expression
+          also has $-4x$. Include it: $12 - 8 + 5 = 9$.
       - text: $5$
+        rationale: |
+          You read off the constant term only. Direct substitution means
+          replacing every $x$ with 2, not just picking the number with no $x$.
       - text: $13$
+        rationale: |
+          You forgot to multiply $-4$ by $x$. You subtracted 4 instead of
+          $4 \times 2 = 8$. The correct calculation is $12 - 8 + 5 = 9$.
     explanation: |
       Since polynomial functions are continuous everywhere, evaluate by direct substitution:
       $3(2)^2 - 4(2) + 5 = 3(4) - 8 + 5 = 12 - 8 + 5 = 9$.
@@ -28,8 +37,17 @@ questions:
       - text: $2$
         correct: true
       - text: $3$
+        rationale: |
+          You returned the value $x$ is approaching instead of evaluating
+          the expression. Substitute $x = 3$: $(3 + 5) \div (3 + 1) = 2$.
       - text: $5$
+        rationale: |
+          You evaluated the numerator at $x = 0$, not $x = 3$. Replace $x$
+          with 3 in the whole fraction: $8 \div 4 = 2$.
       - text: $8$
+        rationale: |
+          You computed the numerator $3 + 5 = 8$ but forgot to divide by
+          the denominator $3 + 1 = 4$. The answer is $8 \div 4 = 2$.
     explanation: |
       Direct substitution works because the denominator is non-zero at $x = 3$:
       $\frac{3 + 5}{3 + 1} = \frac{8}{4} = 2$.
@@ -43,8 +61,21 @@ questions:
       - text: Both the left-hand limit $\lim_{x \to a^-} f(x)$ and the right-hand limit $\lim_{x \to a^+} f(x)$ exist and are equal to $L$.
         correct: true
       - text: The function value $f(a)$ must equal zero.
+        rationale: |
+          You mixed up the limit with the function value, and also required it
+          to be zero. A limit can equal any number $L$, and $f(a)$ does not
+          even need to be defined for the limit to exist.
       - text: The left-hand limit and right-hand limit must equal zero.
+        rationale: |
+          You confused "the two one-sided limits must be equal to each other"
+          with "they must both equal zero." They must agree, but they can
+          agree on any value $L$.
       - text: The function $f(x)$ must be a polynomial.
+        rationale: |
+          You applied a property that belongs to polynomials to limits in
+          general. Polynomials are easy to evaluate, but limits exist for
+          many non-polynomial functions. The requirement is that both
+          one-sided limits exist and equal $L$.
     explanation: |
       A two-sided limit exists and equals $L$ if and only if both one-sided limits exist and are equal to $L$: $\lim_{x \to a^-} f(x) = \lim_{x \to a^+} f(x) = L$.
 
@@ -57,8 +88,20 @@ questions:
       - text: $0$
         correct: true
       - text: $5$
+        rationale: |
+          You kept the numerator and ignored what happens to the denominator.
+          As $x$ grows without bound, $x^2 + 1$ also grows without bound,
+          so the fraction shrinks to 0.
       - text: $\infty$
+        rationale: |
+          You confused the limit of $x^2$ with the limit of the whole
+          fraction. $x^2$ grows, but it is in the denominator, which makes
+          the fraction smaller, not larger.
       - text: $1$
+        rationale: |
+          You treated $x \to \infty$ as $x = 1$. "As $x$ grows without
+          bound" is not the same as substituting $x = 1$. The denominator
+          goes to infinity, so the fraction goes to 0.
     explanation: |
       As $x \to \infty$, the denominator $x^2 + 1$ grows infinitely large while the numerator remains 5. Dividing a constant by an infinitely large quantity yields a limit of $0$.
 
@@ -71,8 +114,21 @@ questions:
       - text: $\frac{0}{0}$
         correct: true
       - text: $\frac{0}{5}$
+        rationale: |
+          You picked something with a zero numerator, but that is not the
+          same as indeterminate. $\frac{0}{5} = 0$ exactly. Indeterminate
+          forms are ones where the value cannot be determined without
+          further algebra.
       - text: $\frac{5}{0}$
+        rationale: |
+          You confused "undefined" with "indeterminate." $\frac{5}{0}$ has
+          no value at all: the denominator is zero and the numerator is not.
+          Indeterminate means more work is needed, not that no value exists.
       - text: $\frac{1}{\infty}$
+        rationale: |
+          You picked a form that is actually determined. A fixed numerator
+          divided by an infinitely large denominator gives 0, not an
+          indeterminate result.
     explanation: |
       $\frac{0}{0}$ is an indeterminate form because it does not determine a specific limit value without further algebraic simplification (such as factoring or rationalizing). $\frac{0}{5} = 0$, while $\frac{5}{0}$ is undefined / infinite.
 
@@ -85,8 +141,20 @@ questions:
       - text: $8$
         correct: true
       - text: $0$
+        rationale: |
+          You got $\frac{0}{0}$ by direct substitution and concluded the
+          answer is 0. That result signals an indeterminate form, not a
+          zero limit. Factor the numerator to cancel the shared term first.
       - text: Does not exist
+        rationale: |
+          You saw $\frac{0}{0}$ and stopped. That form does not mean the
+          limit is absent. Factor $x^2 - 16 = (x-4)(x+4)$, cancel $(x-4)$,
+          and the limit is $\lim_{x \to 4}(x + 4) = 8$.
       - text: $4$
+        rationale: |
+          You returned the value $x$ approaches instead of evaluating the
+          simplified expression. After canceling $(x-4)$, you have $x + 4$,
+          which equals $4 + 4 = 8$ at $x = 4$.
     explanation: |
       Direct substitution gives the indeterminate form $\frac{0}{0}$. Factor the numerator as a difference of squares:
       $\lim_{x \to 4} \frac{(x-4)(x+4)}{x-4} = \lim_{x \to 4} (x + 4) = 4 + 4 = 8$.
@@ -100,8 +168,19 @@ questions:
       - text: $-1$
         correct: true
       - text: $1$
+        rationale: |
+          You cancelled $(x - 2)$ correctly but then evaluated $x - 3$ at
+          $x = 2$ and dropped the negative sign: $2 - 3 = -1$, not $+1$.
       - text: $0$
+        rationale: |
+          You saw $\frac{0}{0}$ from direct substitution and said the answer
+          is 0. That form tells you to factor, not to stop. After factoring
+          and canceling, the limit is $\lim_{x \to 2}(x - 3) = -1$.
       - text: $-5$
+        rationale: |
+          You read off the coefficient of $x$ in the numerator. The $-5$ is
+          part of the quadratic, not the limit. After factoring and canceling
+          the result is $x - 3$, which gives $-1$ at $x = 2$.
     explanation: |
       Direct substitution gives $\frac{0}{0}$. Factor the quadratic numerator:
       $\lim_{x \to 2} \frac{(x-2)(x-3)}{x-2} = \lim_{x \to 2} (x - 3) = 2 - 3 = -1$.
@@ -115,8 +194,21 @@ questions:
       - text: $2$
         correct: true
       - text: $\infty$
+        rationale: |
+          You saw $x^2$ in the numerator and assumed the fraction grows
+          without bound. Both the numerator and denominator have the same
+          degree, so they grow at the same rate and the limit is a finite
+          number.
       - text: $0$
-      - text: $-\frac{1}{5}$
+        rationale: |
+          You applied the rule for when the numerator's degree is lower than
+          the denominator's. Here both have degree 2, so the limit is the
+          ratio of their leading coefficients: $6 \div 3 = 2$.
+      - text: $-\dfrac{1}{5}$
+        rationale: |
+          You took the ratio of the constant terms: $-1$ over $-5$, giving
+          $\frac{1}{5}$. The constant terms become irrelevant as $x \to
+          \infty$. Only the leading-coefficient ratio matters: $6 \div 3 = 2$.
     explanation: |
       For rational functions at infinity where the numerator and denominator have the same degree (2), the limit equals the ratio of their leading coefficients: $\frac{6}{3} = 2$.
 
@@ -125,14 +217,24 @@ questions:
     difficulty: medium
     stem: |
       Consider the piecewise function:
-      $$f(x) = \begin{cases} 2x + 1 & \text{if } x < 3 \ x^2 - 2 & \text{if } x \ge 3 \end{cases}$$
+      $$f(x) = \begin{cases} 2x + 1 & \text{if } x < 3 \\ x^2 - 2 & \text{if } x \ge 3 \end{cases}$$
       Find the right-hand limit $\lim_{x \to 3^+} f(x)$.
     choices:
       - text: $7$
         correct: true
       - text: $6$
+        rationale: |
+          You used the left-hand rule $2x + 1$ but dropped the $+1$, giving
+          $2(3) = 6$. The right-hand limit uses $x^2 - 2$: $3^2 - 2 = 7$.
       - text: $9$
+        rationale: |
+          You computed $3^2 = 9$ but forgot to subtract 2. The right-hand
+          rule is $x^2 - 2$, so the limit is $9 - 2 = 7$.
       - text: $5$
+        rationale: |
+          You evaluated the left-hand rule $2x + 1$ at $x = 2$ instead of
+          $x = 3$: $2(2) + 1 = 5$. The right-hand limit uses $x \to 3^+$
+          with the rule $x^2 - 2$, giving $7$.
     explanation: |
       For the right-hand limit $\lim_{x \to 3^+}$, $x$ approaches 3 from values greater than 3, so use the rule $f(x) = x^2 - 2$:
       $\lim_{x \to 3^+} (x^2 - 2) = 3^2 - 2 = 9 - 2 = 7$.
@@ -146,8 +248,21 @@ questions:
       - text: $f(c)$ is defined, $\lim_{x \to c} f(x)$ exists, and $\lim_{x \to c} f(x) = f(c)$.
         correct: true
       - text: $f'(c)$ exists, $f(c) = 0$, and $\lim_{x \to c} f(x) = 0$.
+        rationale: |
+          You confused continuity with differentiability. Continuity requires
+          the limit and function value to agree. Differentiability is a
+          stricter condition. Neither requires $f(c) = 0$.
       - text: $f(c)$ is positive, $\lim_{x \to c} f(x)$ is positive, and $f(c) > 0$.
+        rationale: |
+          You added a sign requirement that has nothing to do with continuity.
+          A function can be continuous at $x = c$ even if $f(c)$ is negative
+          or zero. The condition is that the limit equals $f(c)$.
       - text: $f(c)$ is defined, $f(x)$ is a polynomial, and $c \ne 0$.
+        rationale: |
+          You used the special property of polynomials as if it were the
+          general definition. Polynomials are always continuous, but
+          continuity is defined the same way for all functions, not just
+          polynomials.
     explanation: |
       A function $f(x)$ is continuous at $x = c$ if and only if three conditions hold: 1) $f(c)$ is defined, 2) the limit $\lim_{x \to c} f(x)$ exists, and 3) the limit equals the function value $\lim_{x \to c} f(x) = f(c)$.
 
@@ -160,8 +275,20 @@ questions:
       - text: $3$
         correct: true
       - text: $1$
+        rationale: |
+          You returned the value $x$ approaches rather than evaluating the
+          expression. After factoring $x^3 - 1 = (x-1)(x^2+x+1)$ and
+          canceling, the limit is $1^2 + 1 + 1 = 3$.
       - text: $0$
+        rationale: |
+          You got $\frac{0}{0}$ and stopped. That form tells you to factor.
+          Use the difference of cubes: $(x-1)(x^2+x+1)$, cancel $(x-1)$,
+          and evaluate: $1 + 1 + 1 = 3$.
       - text: $2$
+        rationale: |
+          You applied the difference-of-squares formula $x^2 - 1 = (x-1)(x+1)$
+          instead of the difference of cubes. After canceling you got $x + 1$,
+          giving 2. The numerator is $x^3 - 1$, not $x^2 - 1$.
     explanation: |
       Direct substitution gives $\frac{0}{0}$. Factor the difference of cubes $x^3 - 1 = (x - 1)(x^2 + x + 1)$:
       $\lim_{x \to 1} \frac{(x-1)(x^2+x+1)}{x-1} = \lim_{x \to 1} (x^2 + x + 1) = 1^2 + 1 + 1 = 3$.
@@ -175,8 +302,21 @@ questions:
       - text: $0$
         correct: true
       - text: $2$
+        rationale: |
+          You took the ratio of the leading coefficients $4 \div 2 = 2$ as
+          if the degrees were equal. The numerator has degree 3 and the
+          denominator has degree 4. When the denominator's degree is higher,
+          the limit is 0.
       - text: $\infty$
+        rationale: |
+          You saw $x^3$ growing in the numerator and assumed the fraction
+          grows too. The denominator has $x^4$, which grows faster. When
+          the denominator's degree exceeds the numerator's, the limit is 0.
       - text: $1$
+        rationale: |
+          You may have compared the highest-degree terms and applied the
+          rule incorrectly. The degrees are 3 and 4. The denominator grows
+          faster, so the fraction shrinks to 0.
     explanation: |
       The degree of the numerator (3) is strictly less than the degree of the denominator (4). As $x \to \infty$, the higher power in the denominator grows much faster, making the limit $0$.
 
@@ -189,8 +329,22 @@ questions:
       - text: Jump discontinuity, because the left-hand limit ($-1$) and right-hand limit ($1$) are not equal.
         correct: true
       - text: Removable discontinuity (hole), because the limit exists and equals 1.
+        rationale: |
+          You took the right-hand limit alone and called it the two-sided
+          limit. For $x < 2$, $g(x) = -1$, so the left-hand limit is $-1$.
+          The two-sided limit does not exist because the one-sided limits
+          differ, so the discontinuity is not removable.
       - text: Infinite discontinuity, because the function approaches infinity as $x \to 2$.
+        rationale: |
+          You confused $g(x) = \frac{|x-2|}{x-2}$ with $\frac{1}{x-2}$.
+          The numerator $|x - 2|$ and denominator $x - 2$ have the same
+          magnitude, so $g(x)$ equals either $1$ or $-1$. It never goes
+          to infinity.
       - text: No discontinuity, because absolute value functions are continuous everywhere.
+        rationale: |
+          You applied the continuity of $|x - 2|$ to the whole fraction.
+          Dividing by $x - 2$ creates a problem at $x = 2$ where the
+          denominator is zero. The function is not defined at $x = 2$.
     explanation: |
       For $x > 2$, $g(x) = \frac{x-2}{x-2} = 1$, so $\lim_{x \to 2^+} g(x) = 1$. For $x < 2$, $g(x) = \frac{-(x-2)}{x-2} = -1$, so $\lim_{x \to 2^-} g(x) = -1$. Since the left and right limits exist but differ, there is a jump discontinuity at $x = 2$.
 
@@ -199,13 +353,24 @@ questions:
     difficulty: hard
     stem: |
       Find the value of the constant $k$ such that the function $f(x)$ is continuous at $x = 2$:
-      $$f(x) = \begin{cases} kx^2 & \text{if } x \le 2 \ 3x + 2 & \text{if } x > 2 \end{cases}$$
+      $$f(x) = \begin{cases} kx^2 & \text{if } x \le 2 \\ 3x + 2 & \text{if } x > 2 \end{cases}$$
     choices:
       - text: $k = 2$
         correct: true
       - text: $k = 8$
+        rationale: |
+          You set $4k = 8$ correctly but skipped the division step, writing
+          $k = 8$ instead of $k = 8 \div 4 = 2$.
       - text: $k = 4$
+        rationale: |
+          You forgot to square $x = 2$ in the left-hand rule. You solved
+          $k(2) = 8$ instead of $k(2)^2 = 8$. The left-hand limit is
+          $k(4) = 8$, giving $k = 2$.
       - text: $k = 1$
+        rationale: |
+          You set the two pieces equal at the wrong value. The right-hand
+          limit at $x = 2$ is $3(2) + 2 = 8$, not 4. Setting $4k = 4$
+          gives $k = 1$, which is not the correct equation.
     explanation: |
       For $f(x)$ to be continuous at $x = 2$, the left-hand limit and right-hand limit at $x = 2$ must be equal:
       $\lim_{x \to 2^-} f(x) = k(2)^2 = 4k$, and $\lim_{x \to 2^+} f(x) = 3(2) + 2 = 8$.
