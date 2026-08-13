@@ -13,8 +13,22 @@ questions:
       - text: $4x^3$
         correct: true
       - text: $4x^4$
+        rationale: |
+          You brought the exponent down as the coefficient but did not
+          subtract 1 from it. The power rule says: multiply by $n$, then
+          reduce the exponent by 1. $4x^4$ stays at $x^4$; the result
+          must be $4x^3$.
       - text: $3x^4$
+        rationale: |
+          You wrote $n - 1 = 3$ as the coefficient instead of reducing the
+          exponent. Bring down the exponent as the multiplier first: the
+          coefficient is $n = 4$, and then the exponent drops to $n - 1 = 3$.
+          Result: $4x^3$.
       - text: $x^3$
+        rationale: |
+          You decremented the exponent correctly but forgot to multiply by
+          $n = 4$. The power rule brings the exponent down as a coefficient:
+          $\frac{d}{dx}[x^4] = 4 \cdot x^3$.
     explanation: |
       Applying the power rule $\frac{d}{dx}[x^n] = n x^{n-1}$ with $n = 4$ yields $4x^{4-1} = 4x^3$.
 
@@ -27,8 +41,20 @@ questions:
       - text: $15x^2 - 2$
         correct: true
       - text: $15x^2 - 2x$
+        rationale: |
+          You differentiated $5x^3$ correctly to $15x^2$ but left $-2x$
+          unchanged instead of differentiating it. $\frac{d}{dx}[-2x] = -2$,
+          not $-2x$.
       - text: $15x^2 - 2 + 7$
+        rationale: |
+          You correctly differentiated $5x^3$ and $-2x$, but kept the
+          constant 7 instead of differentiating it. The derivative of any
+          constant is 0, so the 7 disappears.
       - text: $5x^2 - 2$
+        rationale: |
+          You reduced the exponent on $5x^3$ to $5x^2$ without multiplying
+          by the original exponent 3. The power rule gives $5 \cdot 3 \cdot
+          x^2 = 15x^2$, not $5x^2$.
     explanation: |
       Differentiate term by term: $\frac{d}{dx}[5x^3] = 15x^2$, $\frac{d}{dx}[-2x] = -2$, and $\frac{d}{dx}[7] = 0$. Thus, $f'(x) = 15x^2 - 2$.
 
@@ -41,8 +67,19 @@ questions:
       - text: $0$
         correct: true
       - text: $12$
+        rationale: |
+          You returned the constant instead of differentiating it. The rate
+          of change of a constant function is zero because the output never
+          changes regardless of $x$.
       - text: $1$
+        rationale: |
+          You differentiated as if the function were $f(x) = x$, whose
+          derivative is 1. The function is $f(x) = 12$, a constant, and
+          its derivative is 0.
       - text: $12x$
+        rationale: |
+          You integrated instead of differentiating. $\int 12 \, dx = 12x
+          + C$, but the question asks for $\frac{d}{dx}[12] = 0$.
     explanation: |
       The rate of change of any constant function is zero, so $\frac{d}{dx}[c] = 0$ for any constant $c$.
 
@@ -55,8 +92,20 @@ questions:
       - text: $16$
         correct: true
       - text: $20$
+        rationale: |
+          You substituted $x = 2$ into the original function, not the
+          derivative. $y(2) = 3(4) + 4(2) = 20$ is the $y$-value, not the
+          slope. The slope is $y'(2) = 6(2) + 4 = 16$.
       - text: $12$
+        rationale: |
+          You differentiated $3x^2$ to $6x$ correctly but dropped the
+          $+4x$ term's derivative. $\frac{d}{dx}[4x] = 4$, so the full
+          derivative is $6x + 4$. At $x = 2$: $12 + 4 = 16$.
       - text: $10$
+        rationale: |
+          You differentiated $3x^2$ as $3x$ instead of $6x$, dropping
+          the factor of 2 from the exponent. The power rule gives
+          $\frac{d}{dx}[3x^2] = 6x$. At $x = 2$: $y' = 6(2) + 4 = 16$.
     explanation: |
       First find the derivative $y' = \frac{d}{dx}[3x^2 + 4x] = 6x + 4$.
       Evaluate at $x = 2$: $y'(2) = 6(2) + 4 = 12 + 4 = 16$.
@@ -70,8 +119,20 @@ questions:
       - text: $7$
         correct: true
       - text: $7x$
+        rationale: |
+          You returned the original function without differentiating it.
+          The derivative of $7x$ is the coefficient 7. The variable $x$
+          disappears because $\frac{d}{dx}[x] = 1$.
       - text: $0$
+        rationale: |
+          You treated $7x$ as a constant. It is not: $x$ is a variable.
+          Applying the power rule to $7x^1$ gives $7 \cdot 1 \cdot x^0
+          = 7$.
       - text: $1$
+        rationale: |
+          You differentiated $x$ to get 1 but dropped the coefficient 7.
+          The constant multiplier stays: $\frac{d}{dx}[7x] = 7 \cdot
+          \frac{d}{dx}[x] = 7 \cdot 1 = 7$.
     explanation: |
       Using the power rule on $7x^1$: $\frac{d}{dx}[7x^1] = 7 \cdot 1 \cdot x^{1-1} = 7 x^0 = 7$.
 
@@ -84,8 +145,22 @@ questions:
       - text: $\frac{1}{2\sqrt{x}}$
         correct: true
       - text: $\frac{1}{\sqrt{x}}$
+        rationale: |
+          You decremented the exponent correctly to $-1/2$ but forgot to
+          multiply by the original exponent $1/2$. The power rule gives
+          $\frac{1}{2} \cdot x^{-1/2} = \frac{1}{2\sqrt{x}}$.
       - text: $\frac{1}{2}x^{1/2}$
+        rationale: |
+          You multiplied by $1/2$ correctly but did not decrement the
+          exponent. The exponent should drop from $1/2$ to $-1/2$, not
+          stay at $1/2$. The result is $\frac{1}{2}x^{-1/2} =
+          \frac{1}{2\sqrt{x}}$.
       - text: $2\sqrt{x}$
+        rationale: |
+          You multiplied by 2 and incremented the exponent, which is the
+          wrong direction. That is integration, not differentiation.
+          Differentiation of $x^{1/2}$ gives $\frac{1}{2}x^{-1/2} =
+          \frac{1}{2\sqrt{x}}$.
     explanation: |
       Rewrite $\sqrt{x}$ as $x^{1/2}$. Apply power rule with $n = 1/2$:
       $f'(x) = \frac{1}{2} x^{(1/2) - 1} = \frac{1}{2} x^{-1/2} = \frac{1}{2\sqrt{x}}$.
@@ -99,8 +174,20 @@ questions:
       - text: $-\frac{8}{x^3}$
         correct: true
       - text: $-\frac{8}{x}$
+        rationale: |
+          You multiplied by $-2$ correctly to get $-8$ but applied the
+          wrong exponent. After differentiating $4x^{-2}$, the new exponent
+          is $-2 - 1 = -3$, giving $-8x^{-3} = -8/x^3$, not $-8/x$.
       - text: $\frac{8}{x^3}$
+        rationale: |
+          You computed the magnitude correctly but dropped the negative
+          sign. Differentiating $4x^{-2}$ gives $4 \cdot (-2) \cdot
+          x^{-3} = -8x^{-3}$. The result is negative.
       - text: $-\frac{4}{x^3}$
+        rationale: |
+          You decremented the exponent correctly to $-3$ but used $-1$
+          as the multiplier instead of $-2$. The power rule multiplies
+          by the original exponent: $4 \cdot (-2) = -8$, not $-4$.
     explanation: |
       Rewrite $\frac{4}{x^2}$ as $4x^{-2}$. Apply power rule:
       $f'(x) = 4(-2)x^{-2 - 1} = -8x^{-3} = -\frac{8}{x^3}$.
@@ -114,8 +201,20 @@ questions:
       - text: $x = 3$
         correct: true
       - text: $x = 6$
+        rationale: |
+          You read the coefficient of $x$ in $f(x)$ as the answer without
+          differentiating. Set $f'(x) = 2x - 6 = 0$ and solve: $2x = 6$,
+          so $x = 3$, not $6$.
       - text: $x = -3$
+        rationale: |
+          You set up $2x - 6 = 0$ correctly but solved it with the wrong
+          sign: $2x = -6$ gives $x = -3$. The correct step is
+          $2x = 6 \implies x = 3$.
       - text: $x = 5$
+        rationale: |
+          You used the constant term of the original function instead of
+          solving the derivative equation. Differentiate first: $f'(x) =
+          2x - 6$. Set it to zero: $x = 3$.
     explanation: |
       A horizontal tangent line has slope equal to 0, so set $f'(x) = 0$.
       $f'(x) = 2x - 6 = 0 \implies 2x = 6 \implies x = 3$.
@@ -129,8 +228,21 @@ questions:
       - text: $\frac{1}{3\sqrt[3]{x^2}}$
         correct: true
       - text: $\frac{1}{3}x^{2/3}$
+        rationale: |
+          You multiplied by $1/3$ correctly but incremented the exponent
+          instead of decrementing it. $1/3 - 1 = -2/3$, not $+2/3$.
+          The result is $\frac{1}{3}x^{-2/3} = \frac{1}{3\sqrt[3]{x^2}}$.
       - text: $3x^{2/3}$
+        rationale: |
+          You used 3 as the coefficient and wrote a positive exponent,
+          reversing both parts of the power rule. The coefficient should
+          be $1/3$, and the new exponent is $-2/3$. Result:
+          $\frac{1}{3}x^{-2/3}$.
       - text: $\frac{1}{\sqrt[3]{x^2}}$
+        rationale: |
+          You got the new exponent $-2/3$ right but forgot to multiply by
+          the original exponent $1/3$. The power rule gives $\frac{1}{3}
+          \cdot x^{-2/3} = \frac{1}{3\sqrt[3]{x^2}}$.
     explanation: |
       Rewrite $\sqrt[3]{x}$ as $x^{1/3}$. Apply power rule:
       $f'(x) = \frac{1}{3} x^{(1/3) - 1} = \frac{1}{3} x^{-2/3} = \frac{1}{3\sqrt[3]{x^2}}$.
@@ -144,8 +256,20 @@ questions:
       - text: $8x^3 + \frac{3}{x^2}$
         correct: true
       - text: $8x^3 - \frac{3}{x^2}$
+        rationale: |
+          You got the sign wrong on the second term. Differentiating
+          $-3x^{-1}$ gives $-3 \cdot (-1) \cdot x^{-2} = +3x^{-2} =
+          +3/x^2$. The two negatives cancel, making the result positive.
       - text: $8x^3 + \frac{3}{x}$
+        rationale: |
+          You differentiated $-3x^{-1}$ but kept the exponent at $-1$
+          instead of reducing it to $-2$. The power rule changes $-3x^{-1}$
+          to $-3 \cdot (-1) \cdot x^{-2} = 3/x^2$, not $3/x$.
       - text: $6x^3 + \frac{3}{x^2}$
+        rationale: |
+          You differentiated $2x^4$ and only reduced the exponent, giving
+          $2 \cdot 3 \cdot x^3 = 6x^3$. You need to bring down the original
+          exponent 4: $2 \cdot 4 \cdot x^3 = 8x^3$.
     explanation: |
       Rewrite $f(x) = 2x^4 - 3x^{-1} + 5$.
       Differentiate term by term: $\frac{d}{dx}[2x^4] = 8x^3$, $\frac{d}{dx}[-3x^{-1}] = -3(-1)x^{-2} = +3x^{-2} = \frac{3}{x^2}$, and $\frac{d}{dx}[5] = 0$.
@@ -160,8 +284,22 @@ questions:
       - text: $\frac{9}{2}$
         correct: true
       - text: $27$
+        rationale: |
+          You evaluated the original function at $x = 9$: $9^{3/2} = 27$.
+          That is the $y$-value, not the slope. The slope is the derivative
+          $y' = \frac{3}{2}\sqrt{x}$, which at $x = 9$ gives
+          $\frac{3}{2}(3) = \frac{9}{2}$.
       - text: $\frac{27}{2}$
+        rationale: |
+          You substituted $x = 9$ directly into $\frac{3}{2}x$ instead of
+          $\frac{3}{2}\sqrt{x}$. The derivative is $\frac{3}{2}x^{1/2}$,
+          so evaluate $\frac{3}{2} \cdot \sqrt{9} = \frac{3}{2} \cdot 3 =
+          \frac{9}{2}$.
       - text: $3$
+        rationale: |
+          You computed $\sqrt{9} = 3$ but forgot to multiply by the
+          coefficient $\frac{3}{2}$. The full derivative at $x = 9$ is
+          $\frac{3}{2} \cdot 3 = \frac{9}{2}$.
     explanation: |
       Apply power rule: $y' = \frac{3}{2} x^{(3/2) - 1} = \frac{3}{2} x^{1/2} = \frac{3}{2}\sqrt{x}$.
       Substitute $x = 9$: $y'(9) = \frac{3}{2}\sqrt{9} = \frac{3}{2}(3) = \frac{9}{2} = 4.5$.
@@ -175,8 +313,20 @@ questions:
       - text: $x = 2$ and $x = -2$
         correct: true
       - text: $x = 2$ only
+        rationale: |
+          You found the positive solution but forgot the negative one.
+          $x^2 - 4 = 0$ gives $x^2 = 4$, so $x = 2$ or $x = -2$.
+          Both values make the derivative zero.
       - text: $x = 4$ and $x = -4$
+        rationale: |
+          You set the derivative equal to zero correctly but made an error
+          solving $x^2 = 4$. The solutions are $x = \pm\sqrt{4} = \pm 2$,
+          not $\pm 4$.
       - text: $x = 0$
+        rationale: |
+          You found where the second derivative is zero, not the first.
+          $f''(x) = 2x = 0$ gives $x = 0$, but horizontal tangents require
+          $f'(x) = x^2 - 4 = 0$, giving $x = \pm 2$.
     explanation: |
       Set $f'(x) = 0$: $f'(x) = \frac{d}{dx}\left[\frac{1}{3}x^3 - 4x + 2\right] = x^2 - 4$.
       Setting $x^2 - 4 = 0 \implies x^2 = 4 \implies x = 2$ or $x = -2$.
@@ -190,8 +340,21 @@ questions:
       - text: $3x^2 - 2x + 3$
         correct: true
       - text: $2x$
+        rationale: |
+          You multiplied the derivatives of the two factors together:
+          $(x^2 + 3)' \cdot (x - 1)' = 2x \cdot 1 = 2x$. That is not how
+          differentiation works for products. Expand first: $x^3 - x^2 +
+          3x - 3$, then differentiate to get $3x^2 - 2x + 3$.
       - text: $3x^2 - 2x$
+        rationale: |
+          You expanded and differentiated $x^3$, $-x^2$, and $-3$ correctly
+          but dropped the $+3x$ term's derivative. $\frac{d}{dx}[3x] = 3$,
+          so the full result is $3x^2 - 2x + 3$.
       - text: $3x^2 + 2x - 3$
+        rationale: |
+          You made a sign error on the middle term. Expanding $(x^2 + 3)
+          (x - 1) = x^3 - x^2 + 3x - 3$. Differentiating $-x^2$ gives
+          $-2x$, not $+2x$.
     explanation: |
       Expand the product first: $f(x) = x^3 - x^2 + 3x - 3$.
       Now apply power rule term by term: $f'(x) = 3x^2 - 2x + 3$. (Multiplying derivatives of factors directly $2x(1) = 2x$ is a common error).
@@ -205,8 +368,20 @@ questions:
       - text: $y = 5x - 15$
         correct: true
       - text: $y = 5x - 20$
+        rationale: |
+          You wrote $y = 5(x - 4) = 5x - 20$ and stopped. You forgot to
+          add the $y$-value at $x = 4$. The point is $(4, 5)$, so the
+          tangent line is $y - 5 = 5(x - 4)$, giving $y = 5x - 15$.
       - text: $y = 8x - 15$
+        rationale: |
+          You computed the slope as $y'(4) = 2(4) = 8$, omitting the
+          $-3$ in $y' = 2x - 3$. The correct slope is $2(4) - 3 = 5$.
+          The tangent line is $y = 5x - 15$.
       - text: $y = 5x + 5$
+        rationale: |
+          You used $b = y_0 = 5$ directly as the intercept without
+          accounting for the $x$-offset. The correct form is
+          $y - 5 = 5(x - 4)$, which gives $y = 5x - 20 + 5 = 5x - 15$.
     explanation: |
       At $x = 4$, $y = 4^2 - 3(4) + 1 = 16 - 12 + 1 = 5$, giving point $(4, 5)$.
       Slope: $y' = 2x - 3 \implies y'(4) = 2(4) - 3 = 5$.
