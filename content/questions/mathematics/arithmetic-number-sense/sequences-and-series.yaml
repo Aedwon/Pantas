@@ -13,8 +13,14 @@ questions:
       - text: "$61$"
         correct: true
       - text: "$65$"
+        rationale: |
+          You evaluated 5 + 15(4) = 65, using n instead of n - 1 for the 15th term.
       - text: "$57$"
+        rationale: |
+          You evaluated 5 + 13(4) = 57, using n - 2 instead of n - 1.
       - text: "$75$"
+        rationale: |
+          You multiplied 5 by 15 directly instead of using the arithmetic sequence formula.
     explanation: |
       $a_n = a_1 + (n-1)d = 5 + 14(4) = 61$
 
@@ -27,8 +33,14 @@ questions:
       - text: "Geometric, ratio 2"
         correct: true
       - text: "Arithmetic, difference 3"
+        rationale: |
+          You assumed constant difference because 6 - 3 = 3, ignoring that 12 - 6 = 6.
       - text: "Geometric, ratio 3"
+        rationale: |
+          You identified the initial term (3) as the common ratio instead of 6 / 3 = 2.
       - text: "Harmonic, ratio 2"
+        rationale: |
+          You mislabeled the geometric sequence as a harmonic sequence.
     explanation: |
       $\frac{6}{3} = 2$, $\frac{12}{6} = 2$ consistently.
 
@@ -41,8 +53,14 @@ questions:
       - text: "$175$"
         correct: true
       - text: "$190$"
+        rationale: |
+          You calculated 5 * (4 + 34) = 190, miscalculating the 10th term as 34 instead of 31.
       - text: "$350$"
+        rationale: |
+          You forgot to divide by 2 when applying the arithmetic series sum formula.
       - text: "$135$"
+        rationale: |
+          You calculated S10 using common difference 2 instead of 3.
     explanation: |
       $S_n = \frac{n}{2}[2a_1 + (n-1)d] = 5[8 + 27] = 175$
 
@@ -55,8 +73,14 @@ questions:
       - text: "$96$"
         correct: true
       - text: "$192$"
+        rationale: |
+          You evaluated 3 * 2^6 = 192, using exponent 6 instead of n - 1 = 5.
       - text: "$13$"
+        rationale: |
+          You used the arithmetic formula a1 + (n - 1)r = 3 + 10 = 13 instead of geometric.
       - text: "$48$"
+        rationale: |
+          You evaluated 3 * 2^4 = 48, using exponent 4 instead of 5.
     explanation: |
       $a_n = a_1 r^{n-1} = 3(2^5) = 3(32) = 96$
 
@@ -69,8 +93,14 @@ questions:
       - text: "$18$"
         correct: true
       - text: "$9$"
+        rationale: |
+          You calculated 12 * (1 - 1/3) = 8 or misdivided 12 by 4/3.
       - text: "$36$"
+        rationale: |
+          You calculated 12 / (1/3) = 36, forgetting to subtract the ratio from 1 in the denominator.
       - text: "$8$"
+        rationale: |
+          You calculated 12 - 4 = 8 or misapplied the infinite geometric series formula.
     explanation: |
       $r = \frac{1}{3}$. $S_\infty = \frac{12}{1-\frac{1}{3}} = 18$
 
@@ -83,8 +113,14 @@ questions:
       - text: "$3$"
         correct: true
       - text: "$4$"
+        rationale: |
+          You reported the common difference d = 4 instead of finding the first term a1.
       - text: "$7$"
+        rationale: |
+          You calculated a2 = 11 - 4 = 7 instead of working back to the first term a1 = 3.
       - text: "$-1$"
+        rationale: |
+          You subtracted 3d (12) from 11, calculating a1 - d instead of a1.
     explanation: |
       $(a_1 + 7d) - (a_1 + 2d) = 20 \implies d = 4$
       Then $a_1 = 11 - 8 = 3$
@@ -98,8 +134,14 @@ questions:
       - text: '$16 - 8 + 4 - 2 + \dots$'
         correct: true
       - text: '$2 + 6 + 18 + 54 + \dots$'
+        rationale: |
+          You chose a geometric series with common ratio r = 3 >= 1, which diverges.
       - text: '$5 - 5 + 5 - 5 + \dots$'
+        rationale: |
+          You chose an alternating series with |r| = 1, which oscillates and diverges.
       - text: '$1 + 1.1 + 1.21 + \dots$'
+        rationale: |
+          You chose a geometric series with common ratio r = 1.1 > 1, which diverges.
     explanation: |
       First has $|r| = 0.5 < 1$. Others have $|r| \geq 1$.
 
@@ -112,8 +154,14 @@ questions:
       - text: "$605$"
         correct: true
       - text: "$200$"
+        rationale: |
+          You evaluated 5 * 3^4 = 405 or miscalculated the geometric sum formula.
       - text: "$1210$"
+        rationale: |
+          You forgot to divide by r - 1 = 2 in the geometric series formula.
       - text: "$1025$"
+        rationale: |
+          You evaluated 5 * (3^5 - 1) = 1210 - 185 or made an arithmetic error.
     explanation: |
       $S_5 = \frac{5(3^5 - 1)}{2} = \frac{5(242)}{2} = 605$
 
@@ -126,8 +174,14 @@ questions:
       - text: "$16$"
         correct: true
       - text: "$10$"
+        rationale: |
+          You selected the first arithmetic mean (10) instead of the second mean.
       - text: "$20$"
+        rationale: |
+          You assumed common difference is 8 (4, 12, 20, 28) with only 2 means inserted.
       - text: "$22$"
+        rationale: |
+          You selected the third arithmetic mean (22) instead of the second mean.
     explanation: |
       Sequence: 4, 10, 16, 22, 28. Common diff = 6.
 
@@ -140,8 +194,14 @@ questions:
       - text: "$870$"
         correct: true
       - text: "$900$"
+        rationale: |
+          You calculated 20 * (15 + 75)/2 by miscalculating row 20 as 75 seats.
       - text: "$72$"
+        rationale: |
+          You reported the number of seats in row 20 (72) instead of the total sum across all 20 rows.
       - text: "$1,740$"
+        rationale: |
+          You forgot to divide by 2 when computing the arithmetic series sum.
     explanation: |
       $a_{20} = 15 + 19(3) = 72$
       $S = 10(15 + 72) = 870$
@@ -155,8 +215,14 @@ questions:
       - text: "$4$"
         correct: true
       - text: "$2$"
+        rationale: |
+          You miscalculated the quadratic equation expansion as 6x^2 - 12x - 24 = 0.
       - text: "$-1$"
+        rationale: |
+          You reported the negative root x = -1, violating the condition x > 0.
       - text: "$3$"
+        rationale: |
+          You miscalculated the middle linear coefficient when expanding the quadratic.
     explanation: |
       $(x+5)^2 = (x-1)(7x-1)$
       $x^2 - 3x - 4 = 0 \implies x = 4$
@@ -170,8 +236,14 @@ questions:
       - text: "$70,336$"
         correct: true
       - text: "$70,434$"
+        rationale: |
+          You miscalculated total number of multiples n as 129 instead of 128.
       - text: "$69,786$"
+        rationale: |
+          You miscalculated total number of multiples n as 127 instead of 128.
       - text: "$140,672$"
+        rationale: |
+          You forgot to divide by 2 in the sum formula (128 * 1099 = 140,672).
     explanation: |
       First: 105, Last: 994, n = 128
       $S = 64(1099) = 70,336$
@@ -185,8 +257,14 @@ questions:
       - text: "$112$ m"
         correct: true
       - text: "$64$ m"
+        rationale: |
+          You calculated initial drop 16 m plus one-way rebound distance 48 m, omitting return bounces.
       - text: "$48$ m"
+        rationale: |
+          You calculated only the total upward rebound distance without including downward motion or initial drop.
       - text: "$128$ m"
+        rationale: |
+          You doubled the initial drop 16 m or miscalculated the infinite sum denominator.
     explanation: |
       Initial: 16. Rebounds sum: $\frac{12}{1-3/4} = 48$
       Total: $16 + 2(48) = 112$
@@ -200,8 +278,14 @@ questions:
       - text: "$5$"
         correct: true
       - text: '$\frac{5}{3}$'
+        rationale: |
+          You used terms 1, 2, and 3 instead of terms 1, 3, and 9 of the arithmetic sequence.
       - text: "$10$"
+        rationale: |
+          You miscalculated 4d^2 - 40d = 0 instead of 4d^2 - 20d = 0.
       - text: "$0$"
+        rationale: |
+          You chose the trivial solution d = 0 which makes all terms equal rather than non-constant.
     explanation: |
       $(5+2d)^2 = 5(5+8d)$
       $4d^2 - 20d = 0 \implies d = 5$
@@ -215,7 +299,13 @@ questions:
       - text: "$33$"
         correct: true
       - text: "$152$"
+        rationale: |
+          You reported the sum of the first 8 terms S8 (152) instead of the 8th term a8.
       - text: "$37$"
+        rationale: |
+          You evaluated 4n + 5 = 37 using a derivative shortcut with incorrect constant term.
       - text: "$131$"
+        rationale: |
+          You subtracted S6 (105) from S8 (152) or miscalculated S7.
     explanation: |
       $a_8 = S_8 - S_7 = 152 - 119 = 33$
