@@ -13,8 +13,14 @@ questions:
       - text: "$\\text{₱}1,000.00$"
         correct: true
       - text: "$\\text{₱}1,066.67$"
+        rationale: |
+          You calculated selling price assuming a 25 percent margin on selling price (800 / 0.75) instead of markup on cost.
       - text: "$\\text{₱}200.00$"
+        rationale: |
+          You reported the markup amount (P200) instead of adding it to the cost price to get the selling price.
       - text: "$\\text{₱}600.00$"
+        rationale: |
+          You subtracted the 25 percent markup from the cost price instead of adding it.
     explanation: |
       Markup: $\text{₱}800 \times 0.25 = \text{₱}200$
 
@@ -29,10 +35,16 @@ questions:
       A jeepney charges $\text{₱}13.00$ for first 4 km and $\text{₱}1.80$ per km thereafter. Mang Juan travels 11.5 km. How much is his fare?
     choices:
       - text: "$\\text{₱}26.50$"
+        rationale: |
+          You calculated 7.5 times 1.80 = 13.50 without rounding up the excess 0.5 km to a full kilometer.
       - text: "$\\text{₱}27.40$"
         correct: true
       - text: "$\\text{₱}33.70$"
+        rationale: |
+          You calculated P1.80 for all 11.5 km (rounded up to 12 km) and added it to P13.00.
       - text: "$\\text{₱}20.70$"
+        rationale: |
+          You calculated P1.80 for 11.5 km (20.70) without adding the P13 base fare or accounting for the first 4 km.
     explanation: |
       Excess distance: $11.5 - 4 = 7.5$ km
 
@@ -51,8 +63,14 @@ questions:
       - text: "$\\text{₱}900.00$"
         correct: true
       - text: "$\\text{₱}1,200.00$"
+        rationale: |
+          You calculated simple interest for a full year (12 months) instead of 9 months.
       - text: "$\\text{₱}10,800.00$"
+        rationale: |
+          You multiplied P15,000 by 9 months directly without dividing by 12 months.
       - text: "$\\text{₱}15,900.00$"
+        rationale: |
+          You calculated total repayment (principal plus interest) instead of interest alone.
     explanation: |
       Time: $\frac{9}{12} = 0.75$ years
 
@@ -67,10 +85,16 @@ questions:
       Wholesale offers 5% discount on purchases over $\text{₱}1,000$. Aling Rose buys stock tagged at $\text{₱}2,400$. How much after discount?
     choices:
       - text: "$\\text{₱}2,330.00$"
+        rationale: |
+          You subtracted a 70 pesos discount instead of calculating 5 percent of P2,400.
       - text: "$\\text{₱}2,280.00$"
         correct: true
       - text: "$\\text{₱}120.00$"
+        rationale: |
+          You reported the discount amount (P120) instead of the net price paid after discount.
       - text: "$\\text{₱}2,520.00$"
+        rationale: |
+          You added the 5 percent discount to the price instead of subtracting it.
     explanation: |
       Discount: $\text{₱}2,400 \times 0.05 = \text{₱}120$
 
@@ -83,10 +107,16 @@ questions:
       Store assistant earns $\text{₱}400$/day basic + 4% commission on weekly net profit. In 6-day week with $\text{₱}35,000$ revenue and $\text{₱}25,000$ cost, what are total earnings?
     choices:
       - text: "$\\text{₱}3,800.00$"
+        rationale: |
+          You calculated commission on total revenue P35,000 (P1,400) instead of net profit P10,000.
       - text: "$\\text{₱}2,800.00$"
         correct: true
       - text: "$\\text{₱}800.00$"
+        rationale: |
+          You calculated total earnings for 1 day instead of a 6-day work week.
       - text: "$\\text{₱}2,400.00$"
+        rationale: |
+          You reported basic weekly wage (6 days at P400) but omitted the commission earned.
     explanation: |
       Base wage: $6 \times \text{₱}400 = \text{₱}2,400$
 
@@ -103,10 +133,16 @@ questions:
       Aling Toyang sells instant noodles for $\text{₱}25/pack$, cost $\text{₱}20/pack$. What is profit margin % on selling price?
     choices:
       - text: "$25\\%$"
+        rationale: |
+          You calculated profit percentage based on cost price (markup) instead of selling price.
       - text: "$20\\%$"
         correct: true
       - text: "$80\\%$"
+        rationale: |
+          You calculated the cost price as a percentage of the selling price (20/25 = 80%).
       - text: "$5\\%$"
+        rationale: |
+          You reported the absolute profit amount (P5) as a percentage.
     explanation: |
       Profit: $\text{₱}25 - \text{₱}20 = \text{₱}5$
 
@@ -121,10 +157,16 @@ questions:
       Students get 20% jeepney discount. Route base fare $\text{₱}13$ (first 4 km), then $\text{₱}1.75$/km. Student travels 9 km, how much?
     choices:
       - text: "$\\text{₱}21.75$"
+        rationale: |
+          You calculated the regular adult fare without applying the 20 percent student discount.
       - text: "$\\text{₱}19.15$"
+        rationale: |
+          You applied 20 percent discount only to the base fare P13 or miscalculated the discount.
       - text: "$\\text{₱}17.40$"
         correct: true
       - text: "$\\text{₱}20.00$"
+        rationale: |
+          You rounded the final student fare or miscalculated the distance calculation.
     explanation: |
       Regular fare: $\text{₱}13 + (9-4) \times \text{₱}1.75 = \text{₱}13 + \text{₱}8.75 = \text{₱}21.75$
 
@@ -141,8 +183,14 @@ questions:
       - text: "$\\text{₱}53,750.00$"
         correct: true
       - text: "$\\text{₱}54,500.00$"
+        rationale: |
+          You calculated interest for 1.5 years (18 months) instead of 1.25 years (15 months).
       - text: "$\\text{₱}3,750.00$"
+        rationale: |
+          You reported the interest earned instead of total repayment (principal plus interest).
       - text: "$\\text{₱}95,000.00$"
+        rationale: |
+          You multiplied principal by 1.9 or miscalculated interest formula parameters.
     explanation: |
       Time: $\frac{15}{12} = 1.25$ years
 
@@ -157,10 +205,16 @@ questions:
       Sari-sari owner orders inventory ($\text{₱}5,000$ list price). Supplier offers successive 10% then 5% discounts. Net price?
     choices:
       - text: "$\\text{₱}4,250.00$"
+        rationale: |
+          You added the discount percentages together (10% + 5% = 15%) instead of compounding them sequentially.
       - text: "$\\text{₱}4,275.00$"
         correct: true
       - text: "$\\text{₱}4,500.00$"
+        rationale: |
+          You applied only the first 10 percent discount and omitted the additional 5 percent discount.
       - text: "$\\text{₱}725.00$"
+        rationale: |
+          You reported the total discount amount (P725) instead of the final net price paid.
     explanation: |
       After 10%: $\text{₱}5,000 \times 0.90 = \text{₱}4,500$
 
@@ -175,10 +229,16 @@ questions:
       Mang Juan bought 30 dozen eggs at $\text{₱}90/dozen$. During transport, 3 dozen broke. He wants 20% net profit on total investment. Selling price per dozen?
     choices:
       - text: "$\\text{₱}108.00$"
+        rationale: |
+          You calculated 20 percent profit on original price P90 without adjusting for 3 broken dozen eggs.
       - text: "$\\text{₱}100.00$"
+        rationale: |
+          You divided total cost P2,700 by 27 sellable dozen without adding the 20 percent target profit.
       - text: "$\\text{₱}120.00$"
         correct: true
       - text: "$\\text{₱}114.00$"
+        rationale: |
+          You divided target revenue P3,240 by all 30 original dozen eggs instead of 27 sellable dozen.
     explanation: |
       Total cost: $30 \times \text{₱}90 = \text{₱}2,700$
 
@@ -197,8 +257,14 @@ questions:
       - text: "$12\\%$"
         correct: true
       - text: "$18\\%$"
+        rationale: |
+          You calculated simple interest rate over 18 months without converting time to years (1.5 years).
       - text: "$10\\%$"
+        rationale: |
+          You divided P3,600 by P20,000 and ignored the 1.5-year duration.
       - text: "$1\\%$"
+        rationale: |
+          You miscalculated 0.12 as 1 percent instead of 12 percent.
     explanation: |
       Interest: $\text{₱}23,600 - \text{₱}20,000 = \text{₱}3,600$
 
@@ -213,10 +279,16 @@ questions:
       Soft drink agent earns: 3% on first $\text{₱}50,000$, 5% on next $\text{₱}50,000$, 8% on sales above $\text{₱}100,000$. Total sales $\text{₱}140,000$. Commission?
     choices:
       - text: "$\\text{₱}11,200.00$"
+        rationale: |
+          You applied 8 percent commission rate to the entire P140,000 sales figure.
       - text: "$\\text{₱}7,000.00$"
+        rationale: |
+          You applied 5 percent commission rate to the entire P140,000 sales figure.
       - text: "$\\text{₱}7,200.00$"
         correct: true
       - text: "$\\text{₱}8,700.00$"
+        rationale: |
+          You miscalculated tier 3 sales as P60,000 instead of P40,000.
     explanation: |
       Tier 1: $\text{₱}50,000 \times 0.03 = \text{₱}1,500$
 
@@ -233,10 +305,16 @@ questions:
       Aling Loring wants 20% net profit margin on selling price for canned goods costing $\text{₱}480$. What markup % on cost?
     choices:
       - text: "$20\\%$"
+        rationale: |
+          You assumed profit margin percentage on selling price is identical to markup percentage on cost.
       - text: "$25\\%$"
         correct: true
       - text: "$16.67\\%$"
+        rationale: |
+          You calculated 120 divided by 720 or miscalculated the markup percentage.
       - text: "$24\\%$"
+        rationale: |
+          You multiplied 20 percent by 1.2 or miscalculated the percentage conversion.
     explanation: |
       If margin = 20% of price: Cost = 0.80 × Price
 
@@ -255,8 +333,14 @@ questions:
       - text: "$\\text{₱}1,370.00$"
         correct: true
       - text: "$-\\text{₱}190.00$"
+        rationale: |
+          You calculated revenue for 8 one-way trips (120 passengers * P13 = P1,560) instead of 8 round trips.
       - text: "$\\text{₱}2,320.00$"
+        rationale: |
+          You subtracted boundary P800 but forgot to subtract fuel expense P950.
       - text: "$\\text{₱}3,120.00$"
+        rationale: |
+          You calculated total daily gross revenue but omitted both boundary and fuel expenses.
     explanation: |
       One-way trips: $8 \times 2 = 16$
 
@@ -275,10 +359,16 @@ questions:
       Tatay Mario borrowed $\text{₱}40,000$ at 9% simple annual interest. After 8 months, he paid $\text{₱}15,000$ (interest paid first, remainder to principal). Remaining principal?
     choices:
       - text: "$\\text{₱}25,000.00$"
+        rationale: |
+          You subtracted the full P15,000 payment from principal without deducting accrued interest first.
       - text: "$\\text{₱}27,400.00$"
         correct: true
       - text: "$\\text{₱}28,600.00$"
+        rationale: |
+          You calculated interest for a full year (P3,600) instead of 8 months (P2,400).
       - text: "$\\text{₱}22,600.00$"
+        rationale: |
+          You subtracted interest P2,400 and payment P15,000 from principal (40,000 - 17,400).
     explanation: |
       Accrued interest: $\text{₱}40,000 \times 0.09 \times \frac{8}{12} = \text{₱}2,400$
 
