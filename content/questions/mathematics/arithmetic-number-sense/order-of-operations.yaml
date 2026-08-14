@@ -13,8 +13,14 @@ questions:
       - text: "$12$"
         correct: true
       - text: "$3$"
+        rationale: |
+          You multiplied 3 by 2 first (6) and then divided 18 by 6, violating left-to-right evaluation.
       - text: "$8$"
+        rationale: |
+          You added 6 and 2 or miscalculated the operation.
       - text: "$6$"
+        rationale: |
+          You stopped after calculating 18 divided by 3 and forgot to multiply by 2.
     explanation: |
       To evaluate $18 \div 3 \times 2$, follow the PEMDAS/GEMDAS rules:
 
@@ -33,8 +39,14 @@ questions:
       - text: "$14$"
         correct: true
       - text: "$6$"
+        rationale: |
+          You added 5 + 4 = 9 first and then subtracted 9 from 15, violating left-to-right evaluation.
       - text: "$24$"
+        rationale: |
+          You added 15 + 5 + 4 instead of subtracting 5.
       - text: "$10$"
+        rationale: |
+          You stopped after evaluating 15 minus 5 and forgot to add 4.
     explanation: |
       To evaluate $15 - 5 + 4$, follow the order of operations:
 
@@ -53,8 +65,14 @@ questions:
       - text: "$-7$"
         correct: true
       - text: "$25$"
+        rationale: |
+          You squared -4 as (-4)^2 = 16, getting 16 + 9 = 25.
       - text: "$-25$"
+        rationale: |
+          You applied negative signs to both squared terms (-16 - 9 = -25).
       - text: "$7$"
+        rationale: |
+          You miscalculated -16 + 9 as positive 7 instead of -7.
     explanation: |
       Evaluate each exponent term separately:
 
@@ -76,8 +94,14 @@ questions:
       - text: "$100$"
         correct: true
       - text: "$400$"
+        rationale: |
+          You multiplied 4 by 5 (20) before applying the exponent, getting 20 squared = 400.
       - text: "$220$"
+        rationale: |
+          You evaluated 4 times 8 (32) and squared 3 (9) or miscalculated the steps.
       - text: "$40$"
+        rationale: |
+          You multiplied 4 by 5 (20) and then multiplied by 2 instead of squaring 5.
     explanation: |
       Follow PEMDAS/GEMDAS step by step:
 
@@ -99,8 +123,14 @@ questions:
       - text: "$2$"
         correct: true
       - text: "$\\frac{1}{2}$"
+        rationale: |
+          You multiplied 6 by 2 first (12) and divided 24 by 12 (2), then divided 2 by 4.
       - text: "$8$"
+        rationale: |
+          You stopped after computing 4 times 2 and forgot to divide by 4.
       - text: "$16$"
+        rationale: |
+          You multiplied 24 by 2 first or miscalculated the operations.
     explanation: |
       Evaluate all multiplication and division strictly from left to right:
 
@@ -125,8 +155,14 @@ questions:
       - text: "Step 1"
         correct: true
       - text: "Step 2"
+        rationale: |
+          You identified step 2 as the first error, but the addition 8 + 5 was already incorrectly performed in step 1.
       - text: "Step 3"
+        rationale: |
+          You identified step 3 as the error, but the initial misordering occurred in step 1.
       - text: "There is no error in the solution."
+        rationale: |
+          You assumed adding before subtracting is valid, but addition and subtraction must be performed left to right.
     explanation: |
       Let's evaluate $20 - 8 + 5 - 2$ using the correct order of operations:
 
@@ -146,8 +182,14 @@ questions:
       - text: "$21$"
         correct: true
       - text: "$3$"
+        rationale: |
+          You added 6 + 9 = 15 first and subtracted 12 and 15 from 30 (30 - 12 - 15 = 3).
       - text: "$15$"
+        rationale: |
+          You added 12 + 6 + 9 = 27 and subtracted from 30, or miscalculated.
       - text: "$33$"
+        rationale: |
+          You added 12 + 9 = 21 and 30 - 18 = 12 or miscalculated signs.
     explanation: |
       Evaluate addition and subtraction strictly from left to right:
 
@@ -166,8 +208,14 @@ questions:
       - text: "$35$"
         correct: true
       - text: "$19$"
+        rationale: |
+          You evaluated (-2)^2 as -4, getting 2(-4) = -8 and -8 + 18 + 9 = 19.
       - text: "$-1$"
+        rationale: |
+          You calculated -3xy as -18 instead of +18, getting 8 - 18 + 9 = -1.
       - text: "$-17$"
+        rationale: |
+          You evaluated (-2)^2 as -4 and -3xy as -18, getting -8 - 18 + 9 = -17.
     explanation: |
       Substitute $x = -2$ and $y = 3$ into $2x^2 - 3xy + y^2$:
 
@@ -191,8 +239,14 @@ questions:
       - text: "$7$"
         correct: true
       - text: "$2$"
+        rationale: |
+          You subtracted before multiplying in the denominator (10 - 3 = 7, 7 * 2 = 14), getting 28 / 14 = 2.
       - text: "$11$"
+        rationale: |
+          You evaluated the numerator as 4 + 12 = 16 or miscalculated the exponent.
       - text: "$14$"
+        rationale: |
+          You evaluated the numerator as 28 and denominator as 2 without performing division.
     explanation: |
       A fraction bar acts as a grouping symbol. Evaluate the numerator and denominator separately before dividing:
 
@@ -224,8 +278,14 @@ questions:
       - text: "Step 1"
         correct: true
       - text: "Step 2"
+        rationale: |
+          You identified step 2 as the error, but the implicit multiplication was wrongly prioritized in step 1.
       - text: "Step 3"
+        rationale: |
+          You identified step 3 as the error, but the initial misordering occurred in step 1.
       - text: "Step 4"
+        rationale: |
+          You identified step 4 as the error, but the calculations in step 4 followed from step 1's mistake.
     explanation: |
       Let's solve $36 \div 4(3) + 2^3$ correctly:
 
@@ -246,8 +306,14 @@ questions:
       - text: "$8$"
         correct: true
       - text: "$80$"
+        rationale: |
+          You squared 3 + 2 * 9 as a whole or miscalculated inside the bracket.
       - text: "$-40$"
+        rationale: |
+          You subtracted 50 from 10 or miscalculated sign handling.
       - text: "$1008$"
+        rationale: |
+          You subtracted 50 - 2 = 48 before multiplying by the bracketed value 21 (48 * 21 = 1008).
     explanation: |
       Work from the innermost grouping symbols outward:
 
@@ -275,8 +341,14 @@ questions:
       - text: "$\\text{₱}200$"
         correct: true
       - text: "$\\text{₱}300$"
+        rationale: |
+          You divided the remaining P600 by 2 siblings, omitting Marco himself.
       - text: "$\\text{₱}600$"
+        rationale: |
+          You reported the total cash box balance (P600) without dividing among the 3 people.
       - text: "$\\text{₱}180$"
+        rationale: |
+          You calculated only the revenue from juice sales (12 * 15 = P180) and ignored other terms.
     explanation: |
       Translate the problem into a single numerical expression:
       $$\text{Amount per person} = (500 + 12 \times 15 - 80) \div 3$$
@@ -303,8 +375,14 @@ questions:
       - text: "$21$"
         correct: true
       - text: "$-21$"
+        rationale: |
+          You evaluated the denominator as +1 instead of -1 (-21 / 1 = -21).
       - text: "$3$"
+        rationale: |
+          You evaluated -a^2 as +9, getting numerator 9 - 12 = -3 and ratio -3 / -1 = 3.
       - text: "$-3$"
+        rationale: |
+          You evaluated -a^2 as +9 and denominator as +1, getting -3 / 1 = -3.
     explanation: |
       Substitute $a = -3$ and $b = 2$ into the expression:
 
@@ -329,8 +407,14 @@ questions:
       - text: "$-5$"
         correct: true
       - text: "$4$"
+        rationale: |
+          You evaluated 18 / 3 * 2 as 18 / 6 = 3 in the denominator, getting -20 / -5 = 4.
       - text: "$13$"
+        rationale: |
+          You miscalculated 16 - 36 as -20 and denominator as 2, or made an arithmetic error.
       - text: "$27$"
+        rationale: |
+          You added terms in the numerator instead of subtracting (16 + 36 = 52).
     explanation: |
       Evaluate the numerator and denominator separately:
 
@@ -357,8 +441,14 @@ questions:
       - text: "$\\text{₱}181$"
         correct: true
       - text: "$\\text{₱}362$"
+        rationale: |
+          You reported the total remaining cash box balance (P362) without dividing by 2.
       - text: "$\\text{₱}6$"
+        rationale: |
+          You forgot to add the initial P350 change fund, calculating (312 + 100 - 400) / 2 = P6.
       - text: "$\\text{₱}381$"
+        rationale: |
+          You added P400 fuel expense instead of subtracting it from revenue.
     explanation: |
       Write a single expression for the driver's net income:
       $$\text{Net Income} = \frac{350 + 24 \times 13 + 10 \times 10 - 400}{2}$$
