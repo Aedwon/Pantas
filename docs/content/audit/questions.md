@@ -166,11 +166,13 @@ the free explanation still explains the correct answer in full.
 | General Information | 156 | **all** |
 | Reading Comprehension | 192 | **all** |
 | Language Proficiency | 319 | **all** |
-| Reasoning | 244 | 30 questions, the rest running |
-| Mathematics | 713 | 23 questions |
-| Science | 777 | none yet |
+| Reasoning | 244 | **all** |
+| Science | 777 | 47 of 51 files |
+| Mathematics | 713 | 30 of 46 files |
 
-**1,989 choices carry note B**, out of 8,879.
+**6,162 choices carry note B, on 2,049 questions of 2,361.** 304 are left,
+all in the last 16 Mathematics files and the last 4 Science ones.
+`python3 tools/audit/note_b_todo.py` prints them and the line to run.
 
 **The rate, measured rather than guessed:** one dispatched run authored a
 subject of 12 files in a single window; another managed two files of harder
