@@ -11,10 +11,16 @@ questions:
       Which of the following statements regarding the number $0$ is true?
     choices:
       - text: "$0$ is not divisible by any non-zero integer."
+        rationale: |
+          You assumed 0 cannot be divided, confusing 0 as a dividend with 0 as a divisor.
       - text: "$0$ is divisible by every non-zero integer."
         correct: true
       - text: "$0$ is divisible only by $10$."
+        rationale: |
+          You assumed 0 is only divisible by 10 because 0 ends in zero.
       - text: "$0$ is divisible by $0$."
+        rationale: |
+          You assumed 0 can be divided by 0, but division by 0 is mathematically undefined.
     explanation: |
       A number $a$ is divisible by a non-zero integer $b$ if there exists an integer $k$ such that $a = b \times k$. For $a = 0$, $0 = b \times 0$ holds for any $b \neq 0$. Therefore, $0$ is divisible by every non-zero integer. Note that division by zero is undefined.
 
@@ -25,10 +31,16 @@ questions:
       To test if $4,516$ is divisible by $4$, a student erroneously adds all the digits ($4 + 5 + 1 + 6 = 16$). What is the correct rule to check divisibility by $4$, and is $4,516$ divisible by $4$?
     choices:
       - text: "Check if the sum of all digits is divisible by $4$; yes, $4,516$ is divisible by $4$."
+        rationale: |
+          You incorrectly applied the digit sum rule (used for 3 and 9) to divisibility by 4.
       - text: "Check if the last two digits form a number divisible by $4$; yes, $4,516$ is divisible by $4$ because $16$ is divisible by $4$."
         correct: true
       - text: "Check if the last digit is divisible by $4$; no, $4,516$ is not divisible by $4$ because $6$ is not divisible by $4$."
+        rationale: |
+          You checked only the single last digit (6) instead of the last two digits (16).
       - text: "Check if the number is odd; no, $4,516$ is not divisible by $4$."
+        rationale: |
+          You claimed 4,516 is odd, but 4,516 is an even number.
     explanation: |
       A common mistake is adding digits to test for divisibility by $4$. The correct rule states that a number is divisible by $4$ if and only if the number formed by its last two digits is divisible by $4$. For $4,516$, the last two digits form $16$. Since $16 \div 4 = 4$, the number $4,516$ is divisible by $4$.
 
@@ -39,10 +51,16 @@ questions:
       The five-digit number $57x81$ is divisible by $9$. What is the value of the digit $x$?
     choices:
       - text: "$3$"
+        rationale: |
+          You calculated 21 + 3 = 24 and incorrectly assumed 24 is divisible by 9.
       - text: "$6$"
         correct: true
       - text: "$7$"
+        rationale: |
+          You calculated 21 + 7 = 28 or miscalculated the digit sum.
       - text: "$9$"
+        rationale: |
+          You selected 9 because the divisibility rule tests for 9, ignoring the digit sum requirement.
     explanation: |
       A number is divisible by $9$ if the sum of its digits is a multiple of $9$. Calculate the sum of the digits of $57x81$:
       $$5 + 7 + x + 8 + 1 = 21 + x$$
@@ -58,8 +76,14 @@ questions:
       - text: "$24,534$"
         correct: true
       - text: "$24,536$"
+        rationale: |
+          You picked an even number whose digit sum is 20, which is not divisible by 3.
       - text: "$24,538$"
+        rationale: |
+          You picked an even number whose digit sum is 22, which is not divisible by 3.
       - text: "$24,539$"
+        rationale: |
+          You picked an odd number, but divisibility by 6 requires an even number.
     explanation: |
       A number is divisible by $6$ if it is divisible by both $2$ and $3$.
 
@@ -78,8 +102,14 @@ questions:
       - text: "The test is flawed because $4$ and $6$ are not coprime. The correct coprime factors are $3$ and $8$."
         correct: true
       - text: "The test is flawed because $24$ is odd. The correct factors are $2$ and $12$."
+        rationale: |
+          You claimed 24 is odd, but 24 is an even integer.
       - text: "The test is valid; any number divisible by $4$ and $6$ is always divisible by $24$."
+        rationale: |
+          You assumed checking 4 and 6 works, but 12 is divisible by 4 and 6 while not divisible by 24.
       - text: "The test is flawed because $4 + 6 \\neq 24$. The correct factors are $4$ and $20$."
+        rationale: |
+          You evaluated factor pairs using addition instead of multiplication.
     explanation: |
       To determine divisibility by a composite number $N = a \times b$, the factors $a$ and $b$ must be coprime, meaning their greatest common divisor is 1. Since $\gcd(4, 6) = 2 \neq 1$, a number can be divisible by both $4$ and $6$ without being divisible by $24$. For example, $12$ is divisible by $4$ and $6$, but not by $24$. The correct coprime factors whose product is $24$ are $3$ and $8$ because $\gcd(3, 8) = 1$.
 
@@ -90,10 +120,16 @@ questions:
       Find the missing digit $d$ such that the six-digit number $73d,514$ is divisible by $11$.
     choices:
       - text: "$d = 2$"
+        rationale: |
+          You calculated 8 + 2 = 10 and miscalculated the difference with 12.
       - text: "$d = 4$"
         correct: true
       - text: "$d = 6$"
+        rationale: |
+          You added 8 + 6 = 14 and subtracted 12 to get 2 instead of 0.
       - text: "$d = 9$"
+        rationale: |
+          You picked 9 because 12 - 8 = 4 and subtracted from 13.
     explanation: |
       A number is divisible by $11$ if the difference between the sum of digits in odd positions and even positions is $0$ or a multiple of $11$.
 
@@ -112,8 +148,14 @@ questions:
       A store owner counts total earnings of $\text{₱}48,k72$, where $k$ is a missing digit. If the total amount in pesos is divisible by $8$, which of the following could be the value of $k$?
     choices:
       - text: "$k = 1$"
+        rationale: |
+          You checked 172 and miscalculated 172 divided by 8 as an integer.
       - text: "$k = 3$"
+        rationale: |
+          You checked 372 and miscalculated 372 divided by 8 as an integer.
       - text: "$k = 5$"
+        rationale: |
+          You checked 572 and miscalculated 572 divided by 8 as an integer.
       - text: "$k = 6$"
         correct: true
     explanation: |
@@ -136,8 +178,14 @@ questions:
       - text: "It finds the remainder when a number is divided by $9$ by taking the repeated sum of its digits; the remainder for $84,931$ is $7$."
         correct: true
       - text: "It finds the remainder when a number is divided by $9$ by dropping all even digits; the remainder for $84,931$ is $4$."
+        rationale: |
+          You claimed casting out nines drops even digits instead of summing all digits.
       - text: "It tests divisibility by $11$ by subtracting $9$ from each digit; the remainder for $84,931$ is $2$."
+        rationale: |
+          You confused casting out nines with the alternating sum rule for 11.
       - text: "It finds the remainder when a number is divided by $8$; the remainder for $84,931$ is $1$."
+        rationale: |
+          You confused division by 9 with division by 8.
     explanation: |
       Casting out nines relies on the property that an integer is congruent to the sum of its digits modulo $9$.
 
@@ -154,8 +202,14 @@ questions:
       Which of the following numbers is NOT a divisor of $3,960$?
     choices:
       - text: "$11$"
+        rationale: |
+          You claimed 11 is not a divisor, but (3+6) - (9+0) = 0 shows 3,960 is divisible by 11.
       - text: "$9$"
+        rationale: |
+          You claimed 9 is not a divisor, but the digit sum 3 + 9 + 6 + 0 = 18 is divisible by 9.
       - text: "$8$"
+        rationale: |
+          You claimed 8 is not a divisor, but the last three digits 960 are divisible by 8.
       - text: "$7$"
         correct: true
     explanation: |
@@ -174,8 +228,14 @@ questions:
       - text: "$a = 2, b = 2$"
         correct: true
       - text: "$a = 4, b = 9$"
+        rationale: |
+          You satisfied a + b = 13 (divisible by 9) but failed b - a = 0 (not divisible by 11).
       - text: "$a = 7, b = 6$"
+        rationale: |
+          You failed both the digit sum rule for 9 and the alternating sum rule for 11.
       - text: "$a = 5, b = 8$"
+        rationale: |
+          You satisfied a + b = 13 (divisible by 9) but failed b - a = 0 (b - a = 3).
     explanation: |
       Divisibility by $99$ requires divisibility by both $9$ and $11$ because their greatest common divisor is 1.
 
@@ -190,10 +250,16 @@ questions:
       Which of the following statements regarding composite divisibility rules is false?
     choices:
       - text: "A number is divisible by $45$ if and only if it is divisible by both $5$ and $9$."
+        rationale: |
+          You identified a true statement; 5 and 9 are coprime (gcd = 1).
       - text: "A number is divisible by $18$ if and only if it is even and its digit sum is divisible by $9$."
+        rationale: |
+          You identified a true statement; 2 and 9 are coprime (gcd = 1).
       - text: "A number is divisible by $12$ if and only if it is divisible by both $2$ and $6$."
         correct: true
       - text: "A number is divisible by $72$ if and only if it is divisible by both $8$ and $9$."
+        rationale: |
+          You identified a true statement; 8 and 9 are coprime (gcd = 1).
     explanation: |
       To form a valid composite divisibility rule by splitting $N$ into $a \times b$, $a$ and $b$ must be coprime.
 
@@ -207,8 +273,14 @@ questions:
       The five-digit number $72x4y$ is divisible by $45$. What is the maximum possible value of the product $x \times y$?
     choices:
       - text: "$0$"
+        rationale: |
+          You evaluated only the case where y = 0, missing the larger product when y = 5.
       - text: "$20$"
+        rationale: |
+          You selected x = 4 and y = 5 (product 20), which gives a digit sum of 18 but x = 4 is wrong.
       - text: "$36$"
+        rationale: |
+          You selected x = 4 and y = 9, but y must be 0 or 5 for divisibility by 5.
       - text: "$45$"
         correct: true
     explanation: |
@@ -229,10 +301,16 @@ questions:
       A jackpot prize of $\text{₱}5x3,4y6$ is evenly distributed among $88$ winners without any leftover pesos. Find the value of $x + y$.
     choices:
       - text: "$5$"
+        rationale: |
+          You selected x = 1 and y = 4 or miscalculated x = y - 2.
       - text: "$8$"
         correct: true
       - text: "$11$"
+        rationale: |
+          You added 5 + 6 without solving for the missing digits x and y.
       - text: "$14$"
+        rationale: |
+          You evaluated y = 9 and x = 5 (sum 14), but 496 is not divisible by 8.
     explanation: |
       Divisibility by $88$ requires divisibility by both $8$ and $11$.
 
@@ -250,10 +328,16 @@ questions:
       A bank security code consists of the eight-digit number $20x5432y$. If the code is known to be divisible by $72$, find the value of $x + y$.
     choices:
       - text: "$5$"
+        rationale: |
+          You miscalculated the digit sum or assumed y = 2.
       - text: "$8$"
+        rationale: |
+          You reported the value of y alone instead of x + y.
       - text: "$11$"
         correct: true
       - text: "$14$"
+        rationale: |
+          You evaluated x = 6 and y = 8 (sum 14), which makes the digit sum 30 (not divisible by 9).
     explanation: |
       Divisibility by $72$ requires divisibility by both $8$ and $9$.
 
@@ -280,8 +364,14 @@ questions:
       - text: "I and IV only"
         correct: true
       - text: "I, II, and IV only"
+        rationale: |
+          You included statement II, believing divisibility by 4 uses digit sums instead of last two digits.
       - text: "I, III, and IV only"
+        rationale: |
+          You included statement III, forgetting that 3 and 6 are not coprime.
       - text: "II and III only"
+        rationale: |
+          You selected statements II and III, both of which are false divisibility rules.
     explanation: |
       Analyzing each statement:
       - Statement I is true: $0$ is divisible by any non-zero integer $b$ because $0 = b \times 0$.

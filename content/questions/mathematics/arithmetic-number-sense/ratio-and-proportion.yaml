@@ -11,10 +11,16 @@ questions:
       A recipe for 12 pancakes requires 3 cups of flour. How many cups of flour are needed to make 20 pancakes?
     choices:
       - text: "$1.8$ cups"
+        rationale: |
+          You set up the proportion inverted as 12/3 = x/20 or miscalculated 36/20.
       - text: "$5$ cups"
         correct: true
       - text: "$8$ cups"
+        rationale: |
+          You added 5 cups to 3 cups or miscalculated the ratio.
       - text: "$11$ cups"
+        rationale: |
+          You subtracted 12 - 3 = 9 and added 2 or miscalculated the proportion.
     explanation: |
       Set up proportion: $\frac{3\text{ cups}}{12\text{ pancakes}} = \frac{x\text{ cups}}{20\text{ pancakes}}$
 
@@ -29,10 +35,16 @@ questions:
       Blue and yellow paint mix in ratio $3 : 2$. If using 12 liters of blue paint, how many liters of yellow paint?
     choices:
       - text: "$4.8$ liters"
+        rationale: |
+          You multiplied 12 by 2/5 instead of setting up the direct proportion 3/2 = 12/y.
       - text: "$8$ liters"
         correct: true
       - text: "$10$ liters"
+        rationale: |
+          You calculated 12 minus 2 or miscalculated the proportion.
       - text: "$18$ liters"
+        rationale: |
+          You reversed the ratio as 2:3, calculating 12 * 3/2 = 18 liters.
     explanation: |
       Ratio: $\frac{3}{2} = \frac{12}{y}$
 
@@ -47,10 +59,16 @@ questions:
       On a map with scale $1\text{ cm} : 15\text{ km}$, two towns are $4.5\text{ cm}$ apart. What is the actual distance?
     choices:
       - text: "$0.3$ km"
+        rationale: |
+          You divided 4.5 by 15 instead of multiplying by the scale factor 15.
       - text: "$19.5$ km"
+        rationale: |
+          You added 15 + 4.5 instead of multiplying the map distance by 15.
       - text: "$67.5$ km"
         correct: true
       - text: "$675$ km"
+        rationale: |
+          You placed the decimal point incorrectly, multiplying 45 by 15.
     explanation: |
       Each cm represents 15 km.
 
@@ -65,10 +83,16 @@ questions:
       A jeepney has male to female passengers in ratio $4 : 5$. If 15 female passengers, what is total?
     choices:
       - text: "$12$ passengers"
+        rationale: |
+          You reported only the number of male passengers (12) instead of the total passengers.
       - text: "$19$ passengers"
+        rationale: |
+          You added 15 female passengers to 4 ratio parts instead of calculating male count.
       - text: "$27$ passengers"
         correct: true
       - text: "$35$ passengers"
+        rationale: |
+          You calculated male count as 20 or miscalculated total passengers.
     explanation: |
       Ratio: $\frac{4}{5} = \frac{M}{15} \implies M = 12$
 
@@ -83,10 +107,16 @@ questions:
       A recipe uses flour, sugar, butter in ratio $5 : 3 : 2$. With 450 g sugar, what is total mass?
     choices:
       - text: "$750$ grams"
+        rationale: |
+          You calculated the sum of flour and butter (7 parts = 1050) minus sugar or miscalculated parts.
       - text: "$1,050$ grams"
+        rationale: |
+          You calculated the total mass of flour and butter (5 + 2 = 7 parts * 150 = 1050 g) excluding sugar.
       - text: "$1,500$ grams"
         correct: true
       - text: "$2,250$ grams"
+        rationale: |
+          You divided 450 by 2 parts instead of 3 parts (1 part = 225 g) before multiplying by 10.
     explanation: |
       Sugar = 3 parts, so 1 part = $450 \div 3 = 150$ g
 
@@ -101,10 +131,16 @@ questions:
       Fuel cost shared among 16 commuters by distance traveled. 10 travel 12 km each; 6 travel 20 km each. What fraction of cost for the 6 travelers?
     choices:
       - text: "$\\frac{3}{8}$"
+        rationale: |
+          You divided 6 travelers by 16 total commuters without weighting by distance traveled.
       - text: "$\\frac{1}{2}$"
         correct: true
       - text: "$\\frac{5}{8}$"
+        rationale: |
+          You calculated the cost fraction for the 10 travelers (120/240 = 1/2) but miscounted.
       - text: "$\\frac{3}{5}$"
+        rationale: |
+          You evaluated the ratio of distance 12 to 20 instead of the fraction of total cost.
     explanation: |
       Group 1: $10 \times 12 = 120$ person-km
 
@@ -119,10 +155,16 @@ questions:
       On a map with scale $1\text{ cm} : 2\text{ km}$, a park measures $3\text{ cm} \times 4\text{ cm}$. What is actual area?
     choices:
       - text: "$12$ sq km"
+        rationale: |
+          You reported the map area (3 * 4 = 12) without multiplying by the scale factor.
       - text: "$24$ sq km"
+        rationale: |
+          You multiplied map area 12 by the linear scale factor 2 instead of the area scale factor 4.
       - text: "$48$ sq km"
         correct: true
       - text: "$96$ sq km"
+        rationale: |
+          You multiplied by 8 or miscalculated actual dimensions.
     explanation: |
       Actual dimensions: $3 \times 2 = 6$ km and $4 \times 2 = 8$ km
 
@@ -137,10 +179,16 @@ questions:
       A 30-liter mixture of red and white paint is in ratio $4 : 1$. How much white paint to add for ratio $2 : 1$?
     choices:
       - text: "$3$ liters"
+        rationale: |
+          You added 3 liters white to get 24:9 = 8:3 ratio instead of 2:1.
       - text: "$6$ liters"
         correct: true
       - text: "$12$ liters"
+        rationale: |
+          You calculated total white paint needed (12 L) instead of additional white paint to add.
       - text: "$18$ liters"
+        rationale: |
+          You calculated the difference between red paint (24 L) and initial white paint (6 L).
     explanation: |
       Initial: red = 24 L, white = 6 L
 
@@ -155,10 +203,16 @@ questions:
       A recipe for 8 servings needs 600 g flour and 250 mL milk. Scaling for 36 servings, how much flour?
     choices:
       - text: "$1.125$ kg"
+        rationale: |
+          You scaled the milk volume (250 mL * 4.5 = 1125 mL = 1.125 L) instead of flour mass.
       - text: "$2.4$ kg"
+        rationale: |
+          You multiplied 600 g by 4 servings instead of the scale factor 4.5.
       - text: "$2.7$ kg"
         correct: true
       - text: "$27$ kg"
+        rationale: |
+          You forgot to convert 2,700 grams to kilograms, misplacing the decimal point by a factor of 10.
     explanation: |
       Scale factor: $\frac{36}{8} = 4.5$
 
@@ -173,10 +227,16 @@ questions:
       At 40 km/h, a jeepney trip takes 45 minutes. If speed reduces by 25%, how long?
     choices:
       - text: "$33.75$ minutes"
+        rationale: |
+          You assumed direct proportion (45 * 0.75 = 33.75), reducing time when speed decreased.
       - text: "$56.25$ minutes"
+        rationale: |
+          You added 25 percent to 45 minutes instead of using inverse proportion between speed and time.
       - text: "$60$ minutes"
         correct: true
       - text: "$75$ minutes"
+        rationale: |
+          You calculated T2 using speed 24 km/h or miscalculated inverse proportion.
     explanation: |
       Speed and time are inverse: $S_1 T_1 = S_2 T_2$
 
@@ -191,10 +251,16 @@ questions:
       Container A: 12 L with blue:yellow = $1:3$. Container B: 8 L with blue:yellow = $3:1$. After mixing, what ratio?
     choices:
       - text: "$1 : 1$"
+        rationale: |
+          You assumed the mixed ratio is 1:1 because one container is 1:3 and the other is 3:1.
       - text: "$9 : 11$"
         correct: true
       - text: "$11 : 9$"
+        rationale: |
+          You inverted the ratio, reporting yellow to blue instead of blue to yellow.
       - text: "$3 : 1$"
+        rationale: |
+          You reported the ratio of container B alone without combining with container A.
     explanation: |
       Container A: blue = 3 L, yellow = 9 L
 
@@ -209,10 +275,16 @@ questions:
       On a map with scale $1 : 250,000$, distance between terminals is $14.4\text{ cm}$. Jeepney travels at 45 km/h. How many minutes?
     choices:
       - text: "$32$ minutes"
+        rationale: |
+          You divided 36 km by 67.5 km/h or miscalculated 0.8 * 40.
       - text: "$48$ minutes"
         correct: true
       - text: "$75$ minutes"
+        rationale: |
+          You calculated 45 / 36 = 1.25 hours (75 minutes) instead of distance over speed.
       - text: "$80$ minutes"
+        rationale: |
+          You interpreted 0.8 hours as 80 minutes instead of converting 0.8 * 60 = 48 minutes.
     explanation: |
       Actual distance: $14.4 \times 250,000 = 3,600,000$ cm = 36 km
 
@@ -227,10 +299,16 @@ questions:
       Recipe for 15 servings needs 2.25 kg rice. Caterer prepares for 40 guests with 20% larger portions. How much rice?
     choices:
       - text: "$4.8$ kg"
+        rationale: |
+          You calculated 40 guests at standard portion size (40 * 0.12 = 4.8 kg) with an error.
       - text: "$6.0$ kg"
+        rationale: |
+          You calculated 40 guests at standard portion size (40 * 0.15 kg = 6.0 kg) without adding 20%.
       - text: "$7.2$ kg"
         correct: true
       - text: "$9.0$ kg"
+        rationale: |
+          You multiplied 6.0 kg by 1.5 or miscalculated portion size increase.
     explanation: |
       Standard per serving: $\frac{2.25}{15} = 0.15$ kg
 
@@ -245,10 +323,16 @@ questions:
       Three drivers share earnings in ratio where $a:b = 3:4$ and $b:c = 5:6$. Carl gets $\text{₱}720$ more than Alex. Total shared?
     choices:
       - text: "$\\text{₱}1,920$"
+        rationale: |
+          You calculated only Carl's earnings (24 * 80 = P1,920) instead of the total shared earnings.
       - text: "$\\text{₱}3,120$"
+        rationale: |
+          You calculated the sum of Alex and Carl's earnings (39 * 80 = P3,120), omitting Bob.
       - text: "$\\text{₱}4,720$"
         correct: true
       - text: "$\\text{₱}5,640$"
+        rationale: |
+          You used ratio parts 15:20:35 or miscalculated the total parts sum.
     explanation: |
       Combine: $a:b:c = 15:20:24$
 
@@ -265,10 +349,16 @@ questions:
       A 40-liter bucket has 70% yellow, 30% red paint. Remove 10 L mixture, replace with 10 L pure red. What is ratio yellow:red?
     choices:
       - text: "$\\frac{19}{21}$"
+        rationale: |
+          You inverted the ratio, reporting red to yellow (19/21) instead of yellow to red.
       - text: "$\\frac{21}{22}$"
+        rationale: |
+          You calculated red paint total as 22 L instead of 9 + 10 = 19 L.
       - text: "$\\frac{21}{19}$"
         correct: true
       - text: "$\\frac{7}{3}$"
+        rationale: |
+          You reported the initial yellow to red ratio (28/12 = 7/3) without accounting for replacement.
     explanation: |
       Initial: yellow = 28 L, red = 12 L
 

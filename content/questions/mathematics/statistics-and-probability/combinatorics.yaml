@@ -13,8 +13,14 @@ questions:
       - text: "$24$"
         correct: true
       - text: "$9$"
+        rationale: |
+          You added the number of choices (4 + 3 + 2 = 9) instead of multiplying them.
       - text: "$14$"
+        rationale: |
+          You multiplied 4 by 3 and added 2, or misapplied counting principles.
       - text: "$36$"
+        rationale: |
+          You multiplied 4 by 3 by 3 instead of 4 by 3 by 2.
     explanation: |
       By the Fundamental Counting Principle, multiply the number of choices for each independent selection component:
       
@@ -30,8 +36,14 @@ questions:
       - text: "$120$"
         correct: true
       - text: "$25$"
+        rationale: |
+          You calculated 5 squared (5^2 = 25) instead of 5 factorial (5! = 120).
       - text: "$60$"
+        rationale: |
+          You calculated 5! and divided by 2 or calculated 5 x 4 x 3.
       - text: "$5$"
+        rationale: |
+          You stated the number of books instead of finding the number of arrangements.
     explanation: |
       Because all $5$ distinct books are arranged in a specific linear sequence, use the factorial $5!$:
       
@@ -47,8 +59,14 @@ questions:
       - text: "$56$"
         correct: true
       - text: "$336$"
+        rationale: |
+          You used the permutation formula P(8, 3) instead of the combination formula C(8, 3).
       - text: "$24$"
+        rationale: |
+          You calculated 8 x 3 = 24 instead of using combinations.
       - text: "$512$"
+        rationale: |
+          You calculated 8 cubed (8^3 = 512) assuming repetition with replacement.
     explanation: |
       Since the order of selection does not matter, use the combination formula $C(n, r) = \frac{n!}{r!(n-r)!}$ with $n = 8$ and $r = 3$:
       
@@ -64,8 +82,14 @@ questions:
       - text: "$210$"
         correct: true
       - text: "$35$"
+        rationale: |
+          You used the combination formula C(7, 3) instead of the permutation formula P(7, 3).
       - text: "$5,040$"
+        rationale: |
+          You calculated 7 factorial (7! = 5040) for all 7 runners instead of just 3 places.
       - text: "$42$"
+        rationale: |
+          You calculated 7 x 6 for 2 places instead of 3 places.
     explanation: |
       Since prize placement depends on finish rank, order matters. Use the permutation formula $P(n, r) = \frac{n!}{(n-r)!}$ with $n = 7$ and $r = 3$:
       
@@ -81,8 +105,14 @@ questions:
       - text: "$10,000$"
         correct: true
       - text: "$5,040$"
+        rationale: |
+          You calculated permutations without repetition (P(10, 4) = 5040) when repetition was allowed.
       - text: "$6,561$"
+        rationale: |
+          You used 9 choices per digit (9^4 = 6561) instead of 10 choices (0 through 9).
       - text: "$40$"
+        rationale: |
+          You multiplied 10 by 4 (10 x 4 = 40) instead of raising 10 to the 4th power.
     explanation: |
       Each of the $4$ positions has $10$ available choices ($0$ through $9$) because repetition is permitted and order matters:
       
@@ -98,8 +128,14 @@ questions:
       - text: "$6,720$"
         correct: true
       - text: "$40,320$"
+        rationale: |
+          You calculated 8 factorial (8! = 40320) without dividing by 3! to account for repeating A's.
       - text: "$20,160$"
+        rationale: |
+          You divided 8! by 2! instead of 3!, undercounting the three repeating A's.
       - text: "$1,344$"
+        rationale: |
+          You divided 8! by 30 or made an arithmetic error in dividing 40,320.
     explanation: |
       The word BARANGAY consists of $8$ total letters where the letter A repeats $3$ times (B:1, A:3, R:1, N:1, G:1, Y:1).
       
@@ -117,8 +153,14 @@ questions:
       - text: "$120$"
         correct: true
       - text: "$720$"
+        rationale: |
+          You used linear permutation 6! (720) instead of circular permutation (6-1)! = 120.
       - text: "$360$"
+        rationale: |
+          You divided 6! by 2 instead of dividing by 6.
       - text: "$30$"
+        rationale: |
+          You calculated 6 x 5 = 30 instead of (6-1)! = 120.
     explanation: |
       For circular permutations of $n$ distinct items, fix one position to eliminate rotational equivalence. The number of arrangements is given by $(n-1)!$:
       
@@ -134,8 +176,14 @@ questions:
       - text: "$720$"
         correct: true
       - text: "$120$"
+        rationale: |
+          You used combinations C(10, 3) = 120 when position order matters.
       - text: "$1,000$"
+        rationale: |
+          You assumed repetition with replacement (10^3 = 1000) when one person cannot hold multiple roles.
       - text: "$30$"
+        rationale: |
+          You multiplied 10 by 3 (10 x 3 = 30) instead of multiplying 10 by 9 by 8.
     explanation: |
       Because each officer position is unique, order matters. Calculate $P(10, 3)$:
       
@@ -151,8 +199,14 @@ questions:
       - text: "$200$"
         correct: true
       - text: "$30$"
+        rationale: |
+          You added the combination counts (20 + 10 = 30) instead of multiplying them.
       - text: "$462$"
+        rationale: |
+          You calculated C(11, 5) = 462 without restricting teacher and student counts.
       - text: "$100$"
+        rationale: |
+          You miscalculated C(6, 3) as 10 instead of 20.
     explanation: |
       Calculate combinations for selecting teachers and students independently:
       
@@ -173,8 +227,14 @@ questions:
       - text: "$66$"
         correct: true
       - text: "$132$"
+        rationale: |
+          You calculated permutations P(12, 2) = 132, double-counting each handshake pair.
       - text: "$144$"
+        rationale: |
+          You calculated 12 squared (12^2 = 144) instead of combinations.
       - text: "$24$"
+        rationale: |
+          You multiplied 12 by 2 (12 x 2 = 24) instead of using combinations.
     explanation: |
       A handshake is an unordered pairing of $2$ people chosen from $12$. Use combination $C(12, 2)$:
       
@@ -190,8 +250,14 @@ questions:
       - text: "$720$"
         correct: true
       - text: "$120$"
+        rationale: |
+          You arranged the 5 blocks (5! = 120) but forgot to multiply by the internal 3! order of girls.
       - text: "$5,040$"
+        rationale: |
+          You calculated total unrestricted seating 7! (5040) without keeping the girls together.
       - text: "$144$"
+        rationale: |
+          You calculated 4! x 3! = 144, treating the boys as static or fixed.
     explanation: |
       Treat the $3$ girls as $1$ block. Combine this block with the $4$ boys to form $5$ units to arrange in a row:
       
@@ -211,8 +277,14 @@ questions:
       - text: "$45$"
         correct: true
       - text: "$40$"
+        rationale: |
+          You calculated only the case of exactly 3 seniors and forgot the 4-senior team option.
       - text: "$126$"
+        rationale: |
+          You calculated total unrestricted teams C(9, 4) = 126 without enforcing the senior minimum.
       - text: "$60$"
+        rationale: |
+          You miscalculated C(5, 3) x C(4, 1) as 15 x 4 = 60.
     explanation: |
       Break the problem into mutually exclusive cases for 'at least $3$ seniors':
       
@@ -236,8 +308,14 @@ questions:
       - text: "$1,440$"
         correct: true
       - text: "$720$"
+        rationale: |
+          You calculated 6! (720) for the block arrangements but forgot to multiply by 2! for the mayor and vice-mayor swapping seats.
       - text: "$5,040$"
+        rationale: |
+          You calculated unrestricted circular seating (8-1)! = 7! = 5040 without keeping the mayor and vice-mayor together.
       - text: "$10,080$"
+        rationale: |
+          You used linear arrangements 8! / 4 or multiplied unrestricted seating by 2.
     explanation: |
       Treat the mayor and vice-mayor as $1$ single unit block. Together with the remaining $6$ members, there are $7$ units to arrange around a circular table:
       
@@ -257,8 +335,14 @@ questions:
       - text: "$100,800$"
         correct: true
       - text: "$840$"
+        rationale: |
+          You calculated the number of performer combinations but forgot to multiply by 5! for stage slot assignments.
       - text: "$10,080$"
+        rationale: |
+          You multiplied 840 by 12 or miscalculated stage slot permutations.
       - text: "$50,400$"
+        rationale: |
+          You divided the final answer by 2 or used 5! / 2.
     explanation: |
       First, select the $5$ performers regardless of order:
       
@@ -280,8 +364,14 @@ questions:
       - text: "$480$"
         correct: true
       - text: "$240$"
+        rationale: |
+          You calculated the number of arrangements where Math and Science ARE together instead of NOT together.
       - text: "$360$"
+        rationale: |
+          You halved 6! (720 / 2 = 360) instead of subtracting the 240 together-arrangements.
       - text: "$600$"
+        rationale: |
+          You subtracted 120 (5!) instead of 5! x 2! = 240 from total arrangements.
     explanation: |
       Use complementary counting:
       
@@ -305,8 +395,14 @@ questions:
       - text: "$180$"
         correct: true
       - text: "$360$"
+        rationale: |
+          You calculated total 4-digit numbers P(6, 4) = 360 without restricting the units digit to even numbers.
       - text: "$120$"
+        rationale: |
+          You picked 2 choices for even units digits instead of 3 choices.
       - text: "$216$"
+        rationale: |
+          You calculated 3 x 6^2 x 2 or allowed digit repetition.
     explanation: |
       To form a $4$-digit even number without repetition from $\{1, 2, 3, 5, 6, 8\}$ ($6$ distinct digits):
       

@@ -11,10 +11,16 @@ questions:
       What is the prime factorization of $180$?
     choices:
       - text: "$1 \\times 2^2 \\times 3^2 \\times 5$"
+        rationale: |
+          You included 1 as a prime factor, but 1 is not a prime number.
       - text: "$2^2 \\times 9 \\times 5$"
+        rationale: |
+          You left 9 as a composite factor instead of factoring it into 3^2.
       - text: "$2^2 \\times 3^2 \\times 5$"
         correct: true
       - text: "$2^3 \\times 3 \\times 5$"
+        rationale: |
+          You calculated 8 * 3 * 5 = 120 instead of 180.
     explanation: |
       Divide $180$ by prime factors in sequence:
       - $180 \div 2 = 90$
@@ -34,10 +40,16 @@ questions:
       What is the Greatest Common Factor (GCF) of $72$ and $108$?
     choices:
       - text: "$12$"
+        rationale: |
+          You picked a common factor (12) that is smaller than the greatest common factor (36).
       - text: "$36$"
         correct: true
       - text: "$72$"
+        rationale: |
+          You reported 72, which is a factor of 72 but not a factor of 108.
       - text: "$216$"
+        rationale: |
+          You calculated the Least Common Multiple (LCM) of 72 and 108 instead of the GCF.
     explanation: |
       Find prime factorizations:
       - $72 = 2^3 \times 3^2$
@@ -56,10 +68,16 @@ questions:
       What is the Least Common Multiple (LCM) of $24$ and $36$?
     choices:
       - text: "$12$"
+        rationale: |
+          You calculated the Greatest Common Factor (GCF) of 24 and 36 instead of the LCM.
       - text: "$36$"
+        rationale: |
+          You selected 36, which is divisible by 36 but not divisible by 24.
       - text: "$72$"
         correct: true
       - text: "$864$"
+        rationale: |
+          You multiplied 24 by 36 directly without dividing by their GCF (12).
     explanation: |
       Find prime factorizations:
       - $24 = 2^3 \times 3^1$
@@ -80,8 +98,14 @@ questions:
       - text: "$2 \\times 3 \\times 5 \\times 7$"
         correct: true
       - text: "$1 \\times 2 \\times 3 \\times 5 \\times 7$"
+        rationale: |
+          You included 1 as a prime factor, but 1 is not a prime number.
       - text: "$2 \\times 15 \\times 7$"
+        rationale: |
+          You left 15 as a composite factor instead of factoring it into 3 * 5.
       - text: "$2^2 \\times 3 \\times 5 \\times 7$"
+        rationale: |
+          You evaluated 4 * 3 * 5 * 7 = 420 instead of 210.
     explanation: |
       Divide $210$ by successive primes:
       - $210 \div 2 = 105$
@@ -100,10 +124,16 @@ questions:
       A volunteer relief team in Manila has 120 canned goods, 180 packs of instant noodles, and 240 bottles of water. They want to pack these items into identical relief packs with the exact same quantities in each pack and no leftover items. What is the maximum number of relief packs they can create?
     choices:
       - text: "$30$"
+        rationale: |
+          You picked a common factor (30) that is smaller than the greatest common factor (60).
       - text: "$60$"
         correct: true
       - text: "$180$"
+        rationale: |
+          You selected 180, which is not a factor of 120 or 240.
       - text: "$720$"
+        rationale: |
+          You calculated the Least Common Multiple (LCM) of 120, 180, and 240 instead of the GCF.
     explanation: |
       This is a grouping problem, so find GCF(120, 180, 240).
 
@@ -123,10 +153,16 @@ questions:
       Two jeepneys leave a terminal at 6:00 AM. Jeepney A completes its round-trip every 15 minutes, and Jeepney B every 20 minutes. At what time will both jeepneys next arrive at the terminal simultaneously?
     choices:
       - text: "$6:05\\text{ AM}$"
+        rationale: |
+          You added the difference between 20 and 15 (5 minutes) to 6:00 AM.
       - text: "$6:35\\text{ AM}$"
+        rationale: |
+          You added 15 + 20 = 35 minutes to 6:00 AM instead of finding the LCM.
       - text: "$7:00\\text{ AM}$"
         correct: true
       - text: "$11:00\\text{ AM}$"
+        rationale: |
+          You added 15 * 20 = 300 minutes (5 hours) to 6:00 AM without dividing by GCF 5.
     explanation: |
       This is a scheduling problem, so find LCM(15, 20).
 
@@ -147,8 +183,14 @@ questions:
       - text: "$72$"
         correct: true
       - text: "$648$"
+        rationale: |
+          You included 3^4 instead of taking the lower power 3^2 (8 * 81 = 648).
       - text: "$2,520$"
+        rationale: |
+          You included 5^1 and 7^1 which are not common to both numbers.
       - text: "$453,600$"
+        rationale: |
+          You calculated the Least Common Multiple (LCM) of A and B instead of the GCF.
     explanation: |
       Common prime factors are 2 and 3. (5 and 7 are not in both.)
 
@@ -167,8 +209,14 @@ questions:
       - text: "$5$"
         correct: true
       - text: "$6$"
+        rationale: |
+          You calculated 144 / 24 = 6 or miscalculated items per box.
       - text: "$48$"
+        rationale: |
+          You reported the maximum number of boxes (48) instead of items per box.
       - text: "$120$"
+        rationale: |
+          You averaged 144 and 96 ((144 + 96) / 2 = 120) instead of finding items per box.
     explanation: |
       Find maximum number of boxes: GCF(144, 96).
 
@@ -191,8 +239,14 @@ questions:
       - text: "$3$"
         correct: true
       - text: "$4$"
+        rationale: |
+          You included the 8:00 AM departure, which was excluded by the window (8:01 AM to 5:00 PM).
       - text: "$6$"
+        rationale: |
+          You counted departures every 1.5 hours instead of using the LCM 3 hours.
       - text: "$90$"
+        rationale: |
+          You reported the GCF of the three intervals in minutes (90) or miscalculated LCM.
     explanation: |
       Find LCM(12, 18, 30).
 
@@ -216,10 +270,16 @@ questions:
       The GCF of two positive integers is 14, and their LCM is 420. If one integer is 70, what is the other?
     choices:
       - text: "$30$"
+        rationale: |
+          You divided LCM 420 by 14 instead of using the product relationship GCF * LCM = a * b.
       - text: "$84$"
         correct: true
       - text: "$210$"
+        rationale: |
+          You divided LCM 420 by 2 or miscalculated the unknown integer b.
       - text: "$406$"
+        rationale: |
+          You subtracted 14 from 420 (420 - 14 = 406) instead of using GCF * LCM = a * b.
     explanation: |
       Use the relationship: GCF$(a, b) \times$ LCM$(a, b) = a \times b$
 
@@ -236,10 +296,16 @@ questions:
       A charity foundation creates relief packages from 315 blankets (costing $\text{₱}150$ each) and 420 lanterns (costing $\text{₱}250$ each). They create the maximum number of identical packages. What is the total cost of one relief package?
     choices:
       - text: "$\\text{₱}400$"
+        rationale: |
+          You added unit costs P150 + P250 = P400 without multiplying by items per package.
       - text: "$\\text{₱}1,350$"
+        rationale: |
+          You evaluated 4 blankets and 3 lanterns (4 * 150 + 3 * 250 = P1,350) reversing item counts.
       - text: "$\\text{₱}1,450$"
         correct: true
       - text: "$\\text{₱}10,150$"
+        rationale: |
+          You multiplied 105 packages by unit cost sum or miscalculated package value.
     explanation: |
       Find maximum packages: GCF(315, 420).
 
@@ -261,10 +327,16 @@ questions:
       Jeepneys pass an intersection at intervals of 16, 24, and 40 minutes. If they pass together at 9:00 AM, at what time will they next pass together after 12:00 PM on the same day?
     choices:
       - text: "$9:08\\text{ AM}$"
+        rationale: |
+          You added GCF 8 minutes to 9:00 AM instead of finding the LCM.
       - text: "$11:00\\text{ AM}$"
+        rationale: |
+          You assumed interval is 2 hours (120 min) instead of LCM 4 hours.
       - text: "$1:00\\text{ PM}$"
         correct: true
       - text: "$5:00\\text{ PM}$"
+        rationale: |
+          You added two 4-hour cycles (8 hours) to 9:00 AM instead of the first passage after noon.
     explanation: |
       Find LCM(16, 24, 40).
 
@@ -285,10 +357,16 @@ questions:
       What is the smallest positive integer with exactly 12 positive factors, using only prime factors 2 and 3?
     choices:
       - text: "$60$"
+        rationale: |
+          You selected 60, but 60 includes prime factor 5 (2^2 * 3 * 5).
       - text: "$72$"
         correct: true
       - text: "$96$"
+        rationale: |
+          You evaluated 2^5 * 3 = 96, which has 12 factors but is larger than 72.
       - text: "$108$"
+        rationale: |
+          You evaluated 2^2 * 3^3 = 108, which has 12 factors but is larger than 72.
     explanation: |
       For $N = 2^a \times 3^b$, number of factors $= (a+1)(b+1) = 12$
 
@@ -309,8 +387,14 @@ questions:
       - text: "$2$"
         correct: true
       - text: "$3$"
+        rationale: |
+          You selected Jeepney A (3 trips) instead of Jeepney B which needs only 2 trips.
       - text: "$5$"
+        rationale: |
+          You added 3 trips from Jeepney A and 2 trips from Jeepney B together.
       - text: "$60$"
+        rationale: |
+          You reported the total number of relief packages (60) instead of the minimum trips needed.
     explanation: |
       Calculate quantities:
       - Rice bags: $36,000 \div 200 = 180$
@@ -336,10 +420,16 @@ questions:
       Jeepney X and Y depart at 5:00 AM. Jeepney X has a 45-minute round trip ($\text{₱}15$ fare, 20 passengers), while Jeepney Y has a 75-minute round trip ($\text{₱}25$ fare, 16 passengers). What is the combined fare collected by both jeepneys from 5:00 AM through their first simultaneous return to the terminal?
     choices:
       - text: "$\\text{₱}2,100$"
+        rationale: |
+          You calculated 3 trips for Jeepney X and 3 trips for Jeepney Y (3 * 300 + 3 * 400 = P2,100).
       - text: "$\\text{₱}2,400$"
+        rationale: |
+          You evaluated 4 trips for X and 3 trips for Y (1200 + 1200 = P2,400).
       - text: "$\\text{₱}2,700$"
         correct: true
       - text: "$\\text{₱}3,100$"
+        rationale: |
+          You calculated 5 trips for X and 4 trips for Y (1500 + 1600 = P3,100).
     explanation: |
       Find when both return together: LCM(45, 75).
 

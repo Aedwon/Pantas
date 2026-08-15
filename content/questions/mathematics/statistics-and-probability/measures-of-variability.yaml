@@ -13,8 +13,14 @@ questions:
       - text: $39$
         correct: true
       - text: $40$
+        rationale: |
+          You miscalculated the difference between 94 and 55.
       - text: $77.3$
+        rationale: |
+          You calculated the arithmetic mean of the examination scores instead of the range.
       - text: $94$
+        rationale: |
+          You reported the maximum score in the dataset instead of subtracting the minimum.
     explanation: |
       The range is calculated by subtracting the minimum value from the maximum value in the dataset:
 
@@ -35,8 +41,14 @@ questions:
       - text: $8^\circ\text{C}$
         correct: true
       - text: $7^\circ\text{C}$
+        rationale: |
+          You miscalculated the difference between 22 and 14.
       - text: $17^\circ\text{C}$
+        rationale: |
+          You calculated the median or mean temperature instead of finding the range.
       - text: $9^\circ\text{C}$
+        rationale: |
+          You subtracted 15 from 24 or miscalculated the range.
     explanation: |
       Identify the maximum and minimum values from the temperature dataset:
 
@@ -55,8 +67,14 @@ questions:
       - text: $8$
         correct: true
       - text: $10$
+        rationale: |
+          You divided the sum of squared deviations by N - 1 = 4 (sample variance) instead of N = 5 (population variance).
       - text: $2.83$
+        rationale: |
+          You calculated the population standard deviation sqrt(8) = 2.83 instead of population variance.
       - text: $40$
+        rationale: |
+          You calculated the sum of squared deviations but forgot to divide by N = 5.
     explanation: |
       Step 1: Calculate the population mean ($\mu$):
 
@@ -91,8 +109,14 @@ questions:
       - text: The range is the numerical difference between the highest and lowest values in a dataset.
         correct: true
       - text: The range incorporates all data points and their respective frequencies.
+        rationale: |
+          You assumed the range uses intermediate data points when it only uses the two extreme values.
       - text: The range is completely unaffected by extreme outlier values.
+        rationale: |
+          You assumed range is resistant to outliers when it is directly formed by extreme values.
       - text: The range can be negative if all numbers in the dataset are negative.
+        rationale: |
+          You assumed range can be negative when maximum minus minimum is always non-negative.
     explanation: |
       The range is defined as $\text{Maximum} - \text{Minimum}$.
 
@@ -110,8 +134,14 @@ questions:
       - text: It measures the typical or average distance of individual data points from the arithmetic mean.
         correct: true
       - text: It is the numerical difference between the highest score and the lowest score.
+        rationale: |
+          You identified the definition of the range instead of standard deviation.
       - text: It is the specific value that appears most frequently in a distribution.
+        rationale: |
+          You identified the definition of the mode instead of standard deviation.
       - text: It is the middle score when data values are arranged in numerical order.
+        rationale: |
+          You identified the definition of the median instead of standard deviation.
     explanation: |
       Standard deviation measures dispersion by quantifying how far data points typically fall from the mean.
 
@@ -129,8 +159,14 @@ questions:
       - text: Sample standard deviation is the positive square root of sample variance ($s = \sqrt{s^2}$).
         correct: true
       - text: Sample variance is the positive square root of sample standard deviation ($s^2 = \sqrt{s}$).
+        rationale: |
+          You inverted the relationship, claiming variance is the square root of standard deviation.
       - text: Sample standard deviation is always double the value of sample variance ($s = 2s^2$).
+        rationale: |
+          You assumed standard deviation is 2 times variance instead of taking the square root.
       - text: Sample variance and sample standard deviation are always numerically equal for all datasets.
+        rationale: |
+          You assumed variance and standard deviation are always equal, which is only true when variance is 0 or 1.
     explanation: |
       Standard deviation is defined as the non-negative square root of variance: $s = \sqrt{s^2}$. Conversely, variance is the square of standard deviation ($s^2 = (s)^2$).
 
@@ -143,8 +179,14 @@ questions:
       - text: $11.5$
         correct: true
       - text: $9.2$
+        rationale: |
+          You divided the sum of squared deviations by n = 5 (population variance) instead of n - 1 = 4.
       - text: $3.39$
+        rationale: |
+          You took the square root of 11.5, calculating sample standard deviation instead of variance.
       - text: $46$
+        rationale: |
+          You calculated the sum of squared deviations but forgot to divide by n - 1 = 4.
     explanation: |
       Step 1: Calculate the sample mean ($\bar{x}$) for $n = 5$:
 
@@ -181,8 +223,14 @@ questions:
       - text: $15$
         correct: true
       - text: $75$
+        rationale: |
+          You multiplied the sample variance (25) by 3 instead of multiplying standard deviation (5) by 3.
       - text: $225$
+        rationale: |
+          You calculated the new sample variance (225) instead of the new sample standard deviation.
       - text: $5$
+        rationale: |
+          You reported the original sample standard deviation without scaling by 3.
     explanation: |
       Step 1: Find the original sample standard deviation ($s$):
 
@@ -203,8 +251,14 @@ questions:
       - text: $6$
         correct: true
       - text: $36$
+        rationale: |
+          You calculated the sample variance (36) but forgot to take the positive square root for standard deviation.
       - text: $5.37$
+        rationale: |
+          You divided by n = 5 (population standard deviation sqrt(28.8) = 5.37) instead of n - 1 = 4.
       - text: $0$
+        rationale: |
+          You assumed identical distances from the mean cancel out to give a standard deviation of 0.
     explanation: |
       Step 1: Calculate the sample mean ($\bar{x}$) for $n = 5$:
 
@@ -243,8 +297,14 @@ questions:
       - text: Variance and standard deviation can never be negative values.
         correct: true
       - text: Standard deviation is expressed in squared units of the original dataset measurements.
+        rationale: |
+          You confused standard deviation units with variance units, which are squared.
       - text: Range is more resistant to extreme outliers than standard deviation.
+        rationale: |
+          You claimed range is more resistant to outliers when it is actually the most sensitive.
       - text: If all observations in a dataset are identical, the standard deviation is equal to the mean.
+        rationale: |
+          You assumed standard deviation equals the mean when identical observations yield SD = 0.
     explanation: |
       Since variance is a sum of squared differences divided by a positive integer, it is always non-negative ($s^2 \ge 0$). Consequently, standard deviation ($s = \sqrt{s^2}$) is also non-negative ($s \ge 0$).
 
@@ -262,8 +322,14 @@ questions:
       - text: $4$
         correct: true
       - text: $9$
+        rationale: |
+          You added 5 to the standard deviation 4, forgetting that adding a constant does not change spread.
       - text: $20$
+        rationale: |
+          You multiplied the standard deviation by 5 instead of adding 5.
       - text: $0$
+        rationale: |
+          You assumed adding a constant resets variability to 0.
     explanation: |
       Adding or subtracting a constant $k$ from every data point shifts the entire distribution along the axis, changing the mean by $+k$, but leaves the relative spacing between data points completely unchanged.
 
@@ -280,8 +346,14 @@ questions:
       - text: Route A has more consistent travel times than Route B because its standard deviation is smaller.
         correct: true
       - text: Route B is more predictable and consistent than Route A because its travel times have greater spread.
+        rationale: |
+          You associated a larger standard deviation with predictability instead of greater variability.
       - text: Passengers on Route A experience greater variability in travel times than passengers on Route B.
+        rationale: |
+          You claimed smaller standard deviation means greater variability.
       - text: The travel times on Route A vary four times more than the travel times on Route B.
+        rationale: |
+          You inverted the comparison, claiming Route A varies more than Route B.
     explanation: |
       A smaller standard deviation indicates that data values are closely clustered around the mean, representing lower variability and higher consistency.
 
@@ -301,8 +373,14 @@ questions:
       - text: $4$
         correct: true
       - text: $2$
+        rationale: |
+          You calculated the ratio of standard deviations sqrt(10)/sqrt(2.5) = 2 instead of the ratio of variances.
       - text: $1$
+        rationale: |
+          You assumed equal variances because both sections have the same mean score of 8.
       - text: $0.25$
+        rationale: |
+          You inverted the ratio, dividing Section Red variance by Section Blue variance (2.5 / 10 = 0.25).
     explanation: |
       Calculate sample variance for Section Red ($n = 5$):
 
@@ -333,8 +411,14 @@ questions:
       - text: $22.5$
         correct: true
       - text: $18$
+        rationale: |
+          You divided the sum of squared deviations 90 by n = 5 (population variance) instead of n - 1 = 4.
       - text: $14$
+        rationale: |
+          You reported the fifth value x = 14 instead of calculating the sample variance.
       - text: $4.74$
+        rationale: |
+          You calculated the sample standard deviation sqrt(22.5) = 4.74 instead of sample variance.
     explanation: |
       Step 1: Use the range to solve for $x$:
 
@@ -373,8 +457,14 @@ questions:
       - text: Dividing by $n - 1$ corrects for systematic underestimation and yields an unbiased estimator of the population variance $\sigma^2$ (Bessel's correction).
         correct: true
       - text: Dividing by $n - 1$ guarantees that sample variance is strictly smaller than population variance.
+        rationale: |
+          You claimed n - 1 makes the variance smaller when dividing by a smaller number actually inflates it.
       - text: Dividing by $n - 1$ is required only when the sample mean is equal to zero.
+        rationale: |
+          You assumed n - 1 applies only when the sample mean equals zero.
       - text: Dividing by $n - 1$ eliminates measurement errors present in raw sample data.
+        rationale: |
+          You assumed Bessel's correction removes physical measurement error.
     explanation: |
       When computing deviations from the sample mean $\bar{x}$ rather than the true population mean $\mu$, the sum of squared deviations is systematically smaller.
 
@@ -389,8 +479,14 @@ questions:
       - text: $\bar{x}_{\text{new}} = 105$ and $s_{\text{new}} = 20$
         correct: true
       - text: $\bar{x}_{\text{new}} = 105$ and $s_{\text{new}} = 25$
+        rationale: |
+          You added 5 to the scaled standard deviation (2 * 10 + 5 = 25), forgetting that adding a constant does not alter SD.
       - text: $\bar{x}_{\text{new}} = 100$ and $s_{\text{new}} = 20$
+        rationale: |
+          You forgot to add 5 to the transformed sample mean (2 * 50 = 100).
       - text: $\bar{x}_{\text{new}} = 105$ and $s_{\text{new}} = 10$
+        rationale: |
+          You failed to scale the standard deviation by 2 when data points were doubled.
     explanation: |
       Let each original data point be transformed according to $y = 2x + 5$.
 

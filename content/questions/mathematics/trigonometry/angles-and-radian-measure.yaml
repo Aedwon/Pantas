@@ -13,8 +13,14 @@ questions:
       - text: $\dfrac{\pi}{2}$
         correct: true
       - text: $\dfrac{\pi}{3}$
+        rationale: |
+          You converted 60 degrees (60 * pi/180) instead of 90 degrees.
       - text: $\dfrac{\pi}{4}$
+        rationale: |
+          You converted 45 degrees (45 * pi/180) instead of 90 degrees.
       - text: $\dfrac{2\pi}{3}$
+        rationale: |
+          You converted 120 degrees (120 * pi/180) instead of 90 degrees.
     explanation: |
       To convert degrees to radians, multiply by $\dfrac{\pi}{180}$.
       $$90 \times \dfrac{\pi}{180} = \dfrac{90\pi}{180} = \dfrac{\pi}{2}$$
@@ -27,8 +33,14 @@ questions:
       - text: $60$ degrees
         correct: true
       - text: $30$ degrees
+        rationale: |
+          You evaluated pi/6 radians (180/6 = 30) instead of pi/3 radians.
       - text: $45$ degrees
+        rationale: |
+          You evaluated pi/4 radians (180/4 = 45) instead of pi/3 radians.
       - text: $120$ degrees
+        rationale: |
+          You evaluated 2pi/3 radians (2 * 180/3 = 120) instead of pi/3 radians.
     explanation: |
       To convert radians to degrees, multiply by $\dfrac{180}{\pi}$. The $\pi$ cancels.
       $$\dfrac{\pi}{3} \times \dfrac{180}{\pi} = \dfrac{180}{3} = 60 \text{ degrees}$$
@@ -41,8 +53,14 @@ questions:
       - text: $\dfrac{\pi}{4}$
         correct: true
       - text: $\dfrac{\pi}{6}$
+        rationale: |
+          You converted 30 degrees (30 * pi/180) instead of 45 degrees.
       - text: $\dfrac{\pi}{3}$
+        rationale: |
+          You converted 60 degrees (60 * pi/180) instead of 45 degrees.
       - text: $\dfrac{\pi}{2}$
+        rationale: |
+          You converted 90 degrees (90 * pi/180) instead of 45 degrees.
     explanation: |
       Multiply degrees by $\dfrac{\pi}{180}$.
       $$45 \times \dfrac{\pi}{180} = \dfrac{45\pi}{180} = \dfrac{\pi}{4}$$
@@ -55,8 +73,14 @@ questions:
       - text: $30$ degrees
         correct: true
       - text: $60$ degrees
+        rationale: |
+          You evaluated pi/3 radians (180/3 = 60) instead of pi/6 radians.
       - text: $45$ degrees
+        rationale: |
+          You evaluated pi/4 radians (180/4 = 45) instead of pi/6 radians.
       - text: $15$ degrees
+        rationale: |
+          You divided 180 by 12 or halved 30 degrees.
     explanation: |
       Multiply radians by $\dfrac{180}{\pi}$.
       $$\dfrac{\pi}{6} \times \dfrac{180}{\pi} = \dfrac{180}{6} = 30 \text{ degrees}$$
@@ -69,8 +93,14 @@ questions:
       - text: $\dfrac{5\pi}{6}$
         correct: true
       - text: $\dfrac{5\pi}{12}$
+        rationale: |
+          You divided 150 by 360 instead of dividing 150 by 180.
       - text: $\dfrac{7\pi}{12}$
+        rationale: |
+          You used 210 degrees instead of 150 degrees when simplifying.
       - text: $\dfrac{2\pi}{3}$
+        rationale: |
+          You converted 120 degrees (120 * pi/180) instead of 150 degrees.
     explanation: |
       $$150 \times \dfrac{\pi}{180} = \dfrac{150\pi}{180}$$
       Simplify by dividing both by 30: $\dfrac{150}{180} = \dfrac{5}{6}$.
@@ -84,8 +114,14 @@ questions:
       - text: $135$ degrees
         correct: true
       - text: $120$ degrees
+        rationale: |
+          You evaluated 2pi/3 radians (2 * 60 = 120) instead of 3pi/4 radians.
       - text: $225$ degrees
+        rationale: |
+          You evaluated 5pi/4 radians (5 * 45 = 225) instead of 3pi/4 radians.
       - text: $67.5$ degrees
+        rationale: |
+          You halved 135 degrees (135 / 2 = 67.5).
     explanation: |
       $$\dfrac{3\pi}{4} \times \dfrac{180}{\pi} = 3 \times 45 = 135 \text{ degrees}$$
   - id: q-trigonometry-angles-and-radian-measure-0007
@@ -97,8 +133,14 @@ questions:
       - text: $10$ degrees
         correct: true
       - text: $20$ degrees
+        rationale: |
+          You subtracted 350 degrees from 370 degrees instead of 360 degrees.
       - text: $100$ degrees
+        rationale: |
+          You subtracted 270 degrees from 370 degrees instead of 360 degrees.
       - text: $370$ degrees
+        rationale: |
+          You reported the original angle without bringing it within the range 0 to 360 degrees.
     explanation: |
       Coterminal angles differ by full rotations of $360$ degrees. Subtract one turn.
       $$370 - 360 = 10 \text{ degrees}$$
@@ -112,8 +154,14 @@ questions:
       - text: One radian is approximately $57.3$ degrees.
         correct: true
       - text: Two radians equals $2$ degrees.
+        rationale: |
+          You assumed numerical values in radians and degrees are equal.
       - text: $\dfrac{\pi}{2}$ radians equals $180$ degrees.
+        rationale: |
+          You confused pi/2 radians (90 degrees) with pi radians (180 degrees).
       - text: One radian is much smaller than one degree.
+        rationale: |
+          You claimed a radian is smaller than a degree, but 1 radian is about 57.3 degrees.
     explanation: |
       The bridge between radians and degrees is $180$ degrees $= \pi$ radians. Dividing both sides by $\pi$:
       $$1 \text{ radian} = \dfrac{180}{\pi} \approx 57.3 \text{ degrees}$$
@@ -127,8 +175,14 @@ questions:
       - text: $\dfrac{5\pi}{3}$ cm
         correct: true
       - text: $\dfrac{\pi}{3}$ cm
+        rationale: |
+          You reported the central angle in radians without multiplying by the radius 5 cm.
       - text: $\dfrac{10\pi}{3}$ cm
+        rationale: |
+          You multiplied angle by diameter (10 cm) instead of radius (5 cm).
       - text: $5\pi$ cm
+        rationale: |
+          You evaluated s = r * pi (5 * pi) instead of multiplying by pi/3.
     explanation: |
       The arc length formula is $s = r\theta$, where $\theta$ must be in radians.
       $$s = 5 \times \dfrac{\pi}{3} = \dfrac{5\pi}{3} \text{ cm}$$
@@ -142,8 +196,14 @@ questions:
       - text: $-\dfrac{\pi}{6}$
         correct: true
       - text: $-\dfrac{\pi}{3}$
+        rationale: |
+          You converted -60 degrees (-60 * pi/180) instead of -30 degrees.
       - text: $\dfrac{\pi}{6}$
+        rationale: |
+          You omitted the negative sign from the given angle -30 degrees.
       - text: $\dfrac{\pi}{3}$
+        rationale: |
+          You omitted the negative sign and converted 60 degrees instead of 30 degrees.
     explanation: |
       The conversion rule works with negative angles; the sign just rides along.
       $$-30 \times \dfrac{\pi}{180} = -\dfrac{30\pi}{180} = -\dfrac{\pi}{6}$$
@@ -156,8 +216,14 @@ questions:
       - text: $210$ degrees
         correct: true
       - text: $150$ degrees
+        rationale: |
+          You took the absolute value of -150 degrees instead of adding 360 degrees.
       - text: $270$ degrees
+        rationale: |
+          You added 420 degrees or miscalculated -150 + 360.
       - text: $-150$ degrees
+        rationale: |
+          You reported the negative angle directly without adding 360 degrees to make it positive.
     explanation: |
       For a negative angle, add $360$ degrees until you land in the range $0$ to $360$.
       $$-150 + 360 = 210 \text{ degrees}$$
@@ -171,8 +237,14 @@ questions:
       - text: $430$ degrees is coterminal with $70$ degrees.
         correct: true
       - text: Any angle is coterminal with itself plus $180$ degrees.
+        rationale: |
+          You claimed adding 180 degrees yields a coterminal angle, but 360 degrees is required.
       - text: $-290$ degrees is in Quadrant II.
+        rationale: |
+          You placed -290 degrees in Quadrant II, but -290 degrees equals +70 degrees (Quadrant I).
       - text: A radian and a degree are equal in size.
+        rationale: |
+          You claimed a radian equals a degree, but 1 radian is about 57.3 degrees.
     explanation: |
       Coterminal angles differ by multiples of $360$ degrees. Check: $430 - 360 = 70$, so they are coterminal. Angles are coterminal if they differ by $360$ degrees (or $2\pi$ radians), not $180$ degrees. For $-290$ degrees: this is a $290$ degree clockwise rotation, which is the same as a $70$ degree counterclockwise rotation (since $360 - 290 = 70$), placing it in Quadrant I, not II. A radian is much larger: $1$ radian $\approx 57.3$ degrees.
   - id: q-trigonometry-angles-and-radian-measure-0013
@@ -184,8 +256,14 @@ questions:
       - text: $\dfrac{8\pi}{3}$ m
         correct: true
       - text: $\dfrac{8\pi}{60}$ m
+        rationale: |
+          You placed the degree measure 60 in the denominator instead of converting 60 degrees to pi/3.
       - text: $\dfrac{4\pi}{3}$ m
+        rationale: |
+          You used a radius of 4 meters instead of 8 meters to calculate arc length.
       - text: $480$ m
+        rationale: |
+          You multiplied radius 8 m directly by 60 degrees without converting to radians.
     explanation: |
       First, convert $60$ degrees to radians.
       $$60 \times \dfrac{\pi}{180} = \dfrac{\pi}{3} \text{ radians}$$
@@ -201,8 +279,14 @@ questions:
       - text: $\dfrac{7\pi}{4}$
         correct: true
       - text: $\dfrac{7\pi}{8}$
+        rationale: |
+          You divided by 360 instead of 180 when converting 315 degrees.
       - text: $\dfrac{5\pi}{4}$
+        rationale: |
+          You converted 225 degrees (5 * 45 = 225) instead of 315 degrees.
       - text: $\dfrac{9\pi}{4}$
+        rationale: |
+          You converted 405 degrees (9 * 45 = 405) instead of 315 degrees.
     explanation: |
       $$315 \times \dfrac{\pi}{180} = \dfrac{315\pi}{180}$$
       Divide both numerator and denominator by their GCD, which is $45$.
@@ -215,10 +299,16 @@ questions:
       Which statement is true?
     choices:
       - text: A radian is smaller than a degree.
+        rationale: |
+          You claimed a radian is smaller than a degree, but 1 radian is about 57.3 degrees.
       - text: Two radians is approximately $114.6$ degrees.
         correct: true
       - text: $\pi$ radians is less than $180$ degrees.
+        rationale: |
+          You claimed pi radians is less than 180 degrees, but pi radians equals 180 degrees exactly.
       - text: An angle measured in radians is always a smaller number than the same angle measured in degrees.
+        rationale: |
+          You claimed radian values are always smaller numbers, which fails for zero or negative angles.
     explanation: |
       A radian is much larger than a degree: $1$ radian $\approx 57.3$ degrees. Check the second statement: $2 \times \dfrac{180}{\pi} \approx 2 \times 57.3 = 114.6$ degrees. This is true. For the third: $\pi$ radians $= 180$ degrees exactly, not less. For the fourth: this is backwards. A $360$ degree angle is $2\pi \approx 6.28$ radians, a smaller number, but most angles measured in radians give smaller numbers only because a radian itself is so large.
   - id: q-trigonometry-angles-and-radian-measure-0016
@@ -228,9 +318,15 @@ questions:
       Which statement is true?
     choices:
       - text: Angles in radians are always smaller numbers than angles in degrees.
+        rationale: |
+          You claimed radian measure is always a smaller number, but for 0 radians = 0 degrees they are equal.
       - text: $1$ radian equals $1$ degree.
+        rationale: |
+          You claimed 1 radian equals 1 degree, but 1 radian is about 57.3 degrees.
       - text: An angle of $2\pi$ radians is greater than $350$ degrees.
         correct: true
       - text: The arc length formula $s = r\theta$ uses $\theta$ measured in degrees.
+        rationale: |
+          You claimed s = r theta uses degrees, but theta must be in radians.
     explanation: |
       For the first: this is sometimes true but not always, and the statement is imprecise. For the second: $1$ radian $\approx 57.3$ degrees, not $1$ degree. For the third: $2\pi \approx 6.28$ radians, and $2\pi \times \dfrac{180}{\pi} = 360$ degrees, which is greater than $350$ degrees. This is true. For the fourth: the formula requires $\theta$ in radians, not degrees.
