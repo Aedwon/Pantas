@@ -124,6 +124,7 @@ class _LengthWheelState extends State<LengthWheel> {
                 // The value commits on scroll, not only on tap: whatever sits
                 // inside the band is the value.
                 onSelectedItemChanged: (index) {
+                  if (_values[index] == widget.value) return;
                   if (!reduceMotion) unawaited(HapticFeedback.selectionClick());
                   widget.onChanged(_values[index]);
                 },
