@@ -1,0 +1,112 @@
+#!/usr/bin/env bash
+#
+# Terminal tools to control the demo state of the running dev build without touching the app.
+#
+#   tools/demo reset      Clears all user data (progress, settings, streaks).
+#   tools/demo populate   Populates faux data (streak, progress) for demonstrations.
+#   tools/demo pro        Unlocks Pro mode.
+#   tools/demo free       Locks back to Free mode.
+#
+# It talks to the Dart VM service over the port `flutter run` already forwards
+# through adb. The app keeps running, and because Riverpod watches the local 
+# database, the screen changes as you watch (though a hot restart with 'R' ensures everything updates).
+#
+# Needs the emulator/device up and one `flutter run` alive. Nothing else.
+
+set -euo pipefail
+
+cache="${TMPDIR:-/tmp}/pantas-vm-service"
+
+die() { echo "demo: $*" >&2; exit 1; }
+
+discover() {
+  local line device_port token host_port
+  line=""
+  local device_id=""
+  for device in $(adb devices | awk 'NR>1 {print $1}' | grep -E '^([0-9]+\.|emulator-)'); do
+    line="$(adb -s "$device" logcat -d -t 10000 2>/dev/null | grep -o 'Dart VM service is listening on http://127.0.0.1:[0-9]*/[^/]*/' | tail -1)" || true
+    if [ -n "$line" ]; then
+      device_id="$device"
+      break
+    fi
+  done
+  [ -n "$line" ] || die "no Dart VM service in logcat. Is 'flutter run' alive?"
+
+  device_port="$(echo "$line" | sed -E 's#.*127\.0\.0\.1:([0-9]+)/.*#\1#')"
+  token="$(echo "$line" | sed -E 's#.*127\.0\.0\.1:[0-9]+/##; s#/$##')"
+
+  if [ -n "$device_id" ]; then
+    host_port="$(adb -s "$device_id" forward --list 2>/dev/null \
+      | awk -v d="tcp:${device_port}" '$3 == d {print $2}' \
+      | cut -d: -f2 | head -1)"
+    if [ -z "$host_port" ]; then
+      host_port="$(adb -s "$device_id" forward tcp:0 "tcp:${device_port}" 2>/dev/null)"
+    fi
+  else
+    host_port="$(adb forward --list 2>/dev/null \
+      | awk -v d="tcp:${device_port}" '$3 == d {print $2}' \
+      | cut -d: -f2 | head -1)"
+    if [ -z "$host_port" ]; then
+      host_port="$(adb forward tcp:0 "tcp:${device_port}" 2>/dev/null)"
+    fi
+  fi
+  [ -n "$host_port" ] || die "could not forward the service port."
+
+  echo "http://127.0.0.1:${host_port}/${token}"
+}
+
+call() {
+  curl -s -m 5 "$1"
+}
+
+base=""
+if [ -f "$cache" ]; then
+  base="$(cat "$cache")"
+  call "${base}/getVersion" | grep -q '"result"' || base=""
+fi
+if [ -z "$base" ]; then
+  base="$(discover)"
+  echo "$base" > "$cache"
+fi
+
+isolate="$(call "${base}/getVM" | python3 -c '
+import json, sys
+try:
+    isolates = json.load(sys.stdin)["result"]["isolates"]
+except Exception:
+    sys.exit(0)
+for i in isolates:
+    if i.get("name", "").endswith("main"):
+        print(i["id"])
+        break
+else:
+    if isolates:
+        print(isolates[0]["id"])
+')"
+[ -n "$isolate" ] || die "no isolate. Is the app running?"
+
+case "${1:-}" in
+  reset)
+    echo "Resetting app data..."
+    response="$(call "${base}/ext.pantas.demo?isolateId=${isolate}&action=reset")"
+    echo "Done! Press 'R' in your flutter terminal if a screen didn't update."
+    ;;
+  populate)
+    echo "Populating faux data for demo..."
+    response="$(call "${base}/ext.pantas.demo?isolateId=${isolate}&action=populate")"
+    echo "Done! Press 'R' in your flutter terminal to ensure the whole UI catches the new state."
+    ;;
+  pro)
+    echo "Activating Pro Mode..."
+    response="$(call "${base}/ext.pantas.pro?isolateId=${isolate}&value=true")"
+    echo "Done! The paywall is now bypassed."
+    ;;
+  free)
+    echo "Switching back to Free Mode..."
+    response="$(call "${base}/ext.pantas.pro?isolateId=${isolate}&value=false")"
+    echo "Done! You're back on Free."
+    ;;
+  *)
+    die "unknown argument '${1:-}'. Use reset, populate, pro, or free."
+    ;;
+esac

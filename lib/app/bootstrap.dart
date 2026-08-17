@@ -9,6 +9,7 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/bundle/seed_installer.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/content/content_database_opener.dart';
+import 'package:pantas/core/dev/dev_demo_switch.dart';
 import 'package:pantas/core/dev/dev_pro_switch.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/platform/app_check.dart';
@@ -106,6 +107,7 @@ Future<void> _bootstrap(
   onContainerReady(container);
 
   await registerDevProSwitch(container);
+  await registerDevDemoSwitch(container);
   await _installContentSeed(container);
   await bootstrapRevenueCat(container);
 
