@@ -17,8 +17,17 @@ questions:
       - text: Genotype
         correct: true
       - text: Phenotype
+        rationale: |
+          You picked what shows on the outside. The letters describe what the
+          organism carries, not how it looks.
       - text: Allele
+        rationale: |
+          You picked one version of a gene. A genotype is the pair, not a single
+          member of it.
       - text: Pedigree
+        rationale: |
+          You picked the family chart. A pedigree traces a trait through
+          generations.
     explanation: |
       Genotype refers to the actual genetic makeup of an organism, such as the letters $Tt$.
     approved: true
@@ -31,8 +40,15 @@ questions:
       - text: Phenotype
         correct: true
       - text: Genotype
+        rationale: |
+          You picked the letters. Those are the genotype; the phenotype is what you
+          can see.
       - text: Allele
+        rationale: |
+          You picked one version of a gene, which is a piece of the genotype.
       - text: Pedigree
+        rationale: |
+          You picked the family chart rather than the trait itself.
     explanation: |
       Phenotype refers to the physical expression of a genotype, such as the trait "tall."
     approved: true
@@ -45,8 +61,15 @@ questions:
       - text: 3/4
         correct: true
       - text: 1/4
+        rationale: |
+          You gave the share that is short. Only the one box with two recessive
+          letters is short.
       - text: 1/2
+        rationale: |
+          You halved it. Three of the four boxes carry at least one dominant letter.
       - text: 4/4
+        rationale: |
+          You said all four. One box out of four comes out short.
     explanation: |
       The four possible offspring are $TT$, $Tt$, $Tt$, $tt$. Any genotype with at least one $T$ shows tall: that's 3 out of 4 boxes: $\dfrac{3}{4}$.
     approved: true
@@ -59,8 +82,16 @@ questions:
       - text: 1/4
         correct: true
       - text: 3/4
+        rationale: |
+          You gave the tall share. Three boxes are tall, and the question asks for
+          the other one.
       - text: 1/2
+        rationale: |
+          You halved it. Only one box in four has two recessive letters.
       - text: 0/4
+        rationale: |
+          You said none. Two heterozygous parents can each pass the recessive
+          letter.
     explanation: |
       Only the $tt$ genotype (no dominant allele) shows the recessive short phenotype: 1 out of 4 boxes: $\dfrac{1}{4}$.
     approved: true
@@ -73,8 +104,15 @@ questions:
       - text: Incomplete dominance
         correct: true
       - text: Codominance
+        rationale: |
+          You picked the pattern where both traits show separately. Here they blend
+          into a third colour.
       - text: Multiple alleles
+        rationale: |
+          You picked a gene with more than two versions. This is one gene with two.
       - text: Sex-linked inheritance
+        rationale: |
+          You picked inheritance tied to sex chromosomes, and nothing here is.
     explanation: |
       Pink is a genuinely new, blended color between red and white, with neither allele fully dominant: this is incomplete dominance.
     approved: true
@@ -87,8 +125,16 @@ questions:
       - text: Codominance
         correct: true
       - text: Incomplete dominance
+        rationale: |
+          You picked blending. Blending would give one in-between type; here both
+          types show at once.
       - text: Simple dominant-recessive inheritance
+        rationale: |
+          You picked plain dominance, where one version hides the other. Neither is
+          hidden here.
       - text: Sex-linked inheritance
+        rationale: |
+          You picked inheritance tied to sex chromosomes, and blood type is not.
     explanation: |
       Both the A and B traits are fully expressed side by side, without blending into a new "in-between" type: this is codominance.
     approved: true
@@ -101,8 +147,15 @@ questions:
       - text: Thymine
         correct: true
       - text: Cytosine
+        rationale: |
+          You paired it with the base that pairs with guanine instead.
       - text: Guanine
+        rationale: |
+          You paired it with guanine, which pairs with cytosine.
       - text: Uracil
+        rationale: |
+          You used the RNA base. Uracil appears in RNA, and this question is about
+          DNA.
     explanation: |
       In DNA, adenine (A) pairs specifically with thymine (T), while cytosine (C) pairs with guanine (G).
     approved: true
@@ -115,8 +168,15 @@ questions:
       - text: Uracil
         correct: true
       - text: Guanine
+        rationale: |
+          You picked a base that appears in both DNA and RNA unchanged.
       - text: Cytosine
+        rationale: |
+          You picked a base that appears in both unchanged.
       - text: Adenine
+        rationale: |
+          You picked the base that pairs with thymine rather than the one that
+          replaces it.
     explanation: |
       RNA uses uracil (U) in place of thymine (T); adenine in the DNA template pairs with uracil in the mRNA copy.
     approved: true
@@ -133,8 +193,15 @@ questions:
       - text: 2, 3, 1, 4
         correct: true
       - text: 2, 1, 3, 4
+        rationale: |
+          You put translation before transcription. The message has to be written
+          before it can be read.
       - text: 4, 3, 1, 2
+        rationale: |
+          You ran the sequence backwards, ending where it starts.
       - text: 2, 3, 4, 1
+        rationale: |
+          You put the protein before the step that builds it.
     explanation: |
       The central dogma flows: DNA → (transcription) → mRNA → (translation) → protein.
     approved: true
@@ -147,8 +214,16 @@ questions:
       - text: 'Recessive: both unaffected parents must be silent carriers, since a dominant trait would require at least one parent to show it themselves.'
         correct: true
       - text: 'Dominant: the child inheriting the trait means at least one parent must be a hidden dominant carrier.'
+        rationale: |
+          You called it dominant. A dominant trait shows in anyone carrying it, so
+          at least one parent would show it.
       - text: It could be equally either, with no way to distinguish from this pattern.
+        rationale: |
+          You said it cannot be told apart. Two unaffected parents with an affected
+          child is the recessive pattern.
       - text: Sex-linked, regardless of whether it is dominant or recessive.
+        rationale: |
+          You called it sex-linked. Nothing here points at the sex chromosomes.
     explanation: |
       If the trait were dominant, it would show in at least one parent, since a dominant allele always shows its effect with just one copy. Since neither parent shows it, both must silently carry one recessive allele, and the child inherited both.
     approved: true
@@ -161,8 +236,15 @@ questions:
       - text: 'No: "$Tt$" is the genotype; the phenotype is the physical trait, "tall."'
         correct: true
       - text: 'Yes: genotype and phenotype are the same thing.'
+        rationale: |
+          You treated the two words as one. The letters are the genotype and the
+          visible trait is the phenotype.
       - text: 'No: the phenotype should be "$TT$" instead.'
+        rationale: |
+          You changed the letters. Neither letter pair is a phenotype.
       - text: 'Yes: phenotype always refers to the letter combination.'
+        rationale: |
+          You said a phenotype is a letter combination. It is what you can see.
     explanation: |
       Genotype is the genetic makeup (the letters, $Tt$). Phenotype is the physical expression (the word "tall"). The question asked for phenotype, so the answer should be "tall," not "$Tt$."
     approved: true
@@ -175,8 +257,17 @@ questions:
       - text: 'No: incomplete dominance blends the two traits into something new; codominance shows both traits fully, side by side, without blending.'
         correct: true
       - text: 'Yes: incomplete dominance and codominance always describe the same outcome.'
+        rationale: |
+          You said the two are the same. One blends the traits and the other shows
+          both at once.
       - text: 'No: incomplete dominance only applies to blood type, and codominance only applies to flowers.'
+        rationale: |
+          You tied one of them to blood type only. Codominance covers more than
+          that, and blending is a separate pattern.
       - text: 'Yes: both terms mean one allele is completely masked by the other.'
+        rationale: |
+          You described plain dominance, where one version hides the other. Neither
+          of these two does that.
     explanation: |
       Pink flowers (a genuinely blended new color) show incomplete dominance. Blood type AB (both A and B markers fully present, unblended) shows codominance: a real distinction between blending and full side-by-side expression.
     approved: true
@@ -189,8 +280,14 @@ questions:
       - text: 'No: mRNA uses uracil in place of thymine; a correct mRNA sequence should never include thymine.'
         correct: true
       - text: 'Yes: mRNA and DNA both use thymine identically.'
+        rationale: |
+          You said both use thymine. RNA swaps thymine for uracil.
       - text: 'No: but only because mRNA never contains adenine either.'
+        rationale: |
+          You said RNA has no adenine. It does: adenine is in both.
       - text: 'Yes: uracil and thymine are interchangeable in every context.'
+        rationale: |
+          You called them interchangeable. Each belongs to one of the two molecules.
     explanation: |
       RNA substitutes uracil (U) wherever DNA would use thymine (T). An mRNA sequence containing thymine is incorrect.
     approved: true
@@ -203,8 +300,17 @@ questions:
       - text: 'No: this pattern (unaffected parents, affected child) is only possible for a recessive trait, ruling out a dominant explanation.'
         correct: true
       - text: 'Yes: dominant traits can appear in a child even if neither parent shows them.'
+        rationale: |
+          You said a dominant trait can skip both parents. It cannot: anyone
+          carrying it shows it.
       - text: 'No: but only because pedigrees cannot show recessive traits at all.'
+        rationale: |
+          You said a pedigree cannot show a recessive trait. This is exactly the
+          pattern that does.
       - text: 'Yes: this pattern is equally consistent with either dominant or recessive traits.'
+        rationale: |
+          You said the pattern fits either. Unaffected parents with an affected
+          child rules dominance out.
     explanation: |
       A dominant trait always shows in at least one parent carrying it, since one copy is enough to display it. Two unaffected parents producing an affected child is only possible if the trait is recessive.
     approved: true
@@ -217,8 +323,16 @@ questions:
       - text: 1/2
         correct: true
       - text: 3/4
+        rationale: |
+          You used the cross between two heterozygous parents. One parent here
+          carries no dominant letter at all.
       - text: 1/4
+        rationale: |
+          You quartered it. Half the boxes carry the dominant letter in this cross.
       - text: "1"
+        rationale: |
+          You said all of them. The recessive parent passes a recessive letter every
+          time.
     explanation: |
       The offspring genotypes are $Aa$, $Aa$, $aa$, $aa$: 2 out of 4 show the dominant phenotype (having at least one $A$): $\dfrac{2}{4} = \dfrac{1}{2}$.
     approved: true
