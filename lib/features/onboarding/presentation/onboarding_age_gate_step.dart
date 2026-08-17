@@ -75,7 +75,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
             ),
             const SizedBox(height: 24),
             Expanded(
-              child: CupertinoPicker(
+              child: CupertinoPicker.builder(
                 itemExtent: 32,
                 scrollController:
                     FixedExtentScrollController(initialItem: initialIndex),
@@ -83,7 +83,8 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep> {
                   _selectedYear = years[i];
                   _yearSelected = true;
                 }),
-                children: [for (final y in years) Center(child: Text('$y'))],
+                childCount: years.length,
+                itemBuilder: (context, i) => Center(child: Text('${years[i]}')),
               ),
             ),
             BoardButton(
