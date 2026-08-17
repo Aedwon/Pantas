@@ -116,92 +116,128 @@ Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async 
         .get();
     final subjectIds = subjects.map((s) => s.id).toList();
 
-    List<String> topicIds = [];
     if (subjectIds.isNotEmpty) {
       final topics = await (contentDb.select(contentDb.contentTopics)
             ..where((t) => t.subjectId.isIn(subjectIds)))
           .get();
-      topicIds = topics.map((t) => t.id).toList();
-    }
+      final topicIds = topics.map((t) => t.id).toList();
 
-    if (topicIds.isNotEmpty) {
-      // Grab some lessons to mark as complete
       final lessons = await (contentDb.select(contentDb.contentLessons)
-            ..where((t) => t.topicId.isIn(topicIds))
-            ..limit(5))
+            ..where((l) => l.topicId.isIn(topicIds)))
           .get();
-      for (final lesson in lessons) {
+
+      final questions = await (contentDb.select(contentDb.contentQuestions)
+            ..where((q) => q.topicId.isIn(topicIds)))
+          .get();
+          
+      final choicesRows = await (contentDb.select(contentDb.contentChoices)
+            ..where((c) => c.isActive.equals(true)))
+          .get();
+      
+      final choicesByQuestion = <String, List<ContentChoiceRow>>{};
+      for (final c in choicesRows) {
+        choicesByQuestion.putIfAbsent(c.questionId, () => []).add(c);
+      }
+      
+      final correctIndexByQuestion = <String, int>{};
+      final correctChoiceIdByQuestion = <String, String>{};
+      final wrongChoiceIdByQuestion = <String, String>{};
+
+      for (final entry in choicesByQuestion.entries) {
+        final sorted = entry.value..sort((a, b) => a.ordering.compareTo(b.ordering));
+        for (int i = 0; i < sorted.length; i++) {
+          if (sorted[i].isCorrect) {
+            correctIndexByQuestion[entry.key] = i;
+            correctChoiceIdByQuestion[entry.key] = sorted[i].id;
+          } else {
+            wrongChoiceIdByQuestion[entry.key] = sorted[i].id;
+          }
+        }
+      }
+
+      final rng = Random();
+
+      // 1. Lesson Progress
+      // Distribute lesson reads over the last 60 days
+      for (int i = 0; i < lessons.length; i++) {
+        // ~80% completion
+        if (rng.nextDouble() < 0.2) continue; 
+        
+        final daysAgo = 60 - rng.nextInt(60);
         await db.into(db.lessonProgressLocal).insertOnConflictUpdate(
           LessonProgressLocalCompanion.insert(
-            lessonId: lesson.id,
-            readAt: now.subtract(const Duration(days: 1)),
+            lessonId: lessons[i].id,
+            readAt: now.subtract(Duration(days: daysAgo)),
           ),
         );
       }
 
-      // Grab some questions to mark as attempted
-      final questions = await (contentDb.select(contentDb.contentQuestions)
-            ..where((t) => t.topicId.isIn(topicIds))
-            ..limit(100))
-          .get();
-      final rng = Random();
+      // 2. Review States (Spaced Repetition)
       for (final q in questions) {
+        if (rng.nextDouble() < 0.3) continue; // 70% of questions are in review
+        
+        final isMature = rng.nextDouble() > 0.5;
         await db.into(db.reviewStateLocal).insertOnConflictUpdate(
           ReviewStateLocalCompanion.insert(
             questionId: q.id,
             questionVersion: q.version,
             stage: 'review',
-            stability: 0.5 + (rng.nextDouble() * 0.5),
-            difficulty: 0.5,
-            due: now.subtract(Duration(hours: rng.nextInt(24))),
-            lastReview: now.subtract(Duration(days: 1 + rng.nextInt(3))),
-            reps: 2 + rng.nextInt(3),
-            lapses: 0,
-            elapsedDays: 0.0,
-            scheduledDays: 0.0,
+            stability: isMature ? 5.0 + rng.nextDouble() * 20.0 : 0.5 + rng.nextDouble() * 2.0,
+            difficulty: 0.2 + rng.nextDouble() * 0.6,
+            due: now.subtract(Duration(hours: rng.nextInt(72))),
+            lastReview: now.subtract(Duration(days: 1 + rng.nextInt(10))),
+            reps: isMature ? 5 + rng.nextInt(10) : 1 + rng.nextInt(3),
+            lapses: rng.nextInt(2),
+            elapsedDays: isMature ? 10.0 + rng.nextDouble() * 10 : 2.0,
+            scheduledDays: isMature ? 20.0 : 3.0,
           ),
         );
       }
 
-      final topicScores = [
-        for (final id in topicIds)
-          {
-            'topicId': id,
-            'correct': 6 + rng.nextInt(5),
-            'total': 10,
-          }
-      ];
-      await db.into(db.assessmentResultsLocal).insertOnConflictUpdate(
-        AssessmentResultsLocalCompanion.insert(
-          examId: examId,
-          completedAt: now.subtract(const Duration(days: 2)),
-          topicScoresJson: jsonEncode(topicScores),
-        ),
-      );
-      
-      // Ensure we have enough questions to distribute
-      final questionIds = questions.map((q) => q.id).toList();
-      final mockQ1 = questionIds.isNotEmpty ? questionIds[0] : 'q_1';
-      final mockQ2 = questionIds.length > 1 ? questionIds[1] : 'q_2';
-
-      // Generate 14 quiz attempts over the last 14 days
-      for (int i = 0; i < 14; i++) {
-        final daysAgo = 14 - i;
-        final attemptDate = now.subtract(Duration(days: daysAgo, hours: 2));
+      // 3. Quiz Attempts (120 quizzes over 60 days)
+      for (int i = 0; i < 120; i++) {
+        final daysAgo = 60 - (i / 2).floor(); 
+        final attemptDate = now.subtract(Duration(days: daysAgo, hours: rng.nextInt(12) + 8)); // 8am to 8pm
         
-        final attemptItems = List.generate(2, (j) {
-          final isCorrect = rng.nextDouble() > 0.3; // 70% accuracy
-          final responseMs = isCorrect ? 8000 + rng.nextInt(5000) : 15000 + rng.nextInt(10000); 
-          final qId = (j == 0) ? mockQ1 : mockQ2;
-          return {
-            'questionId': qId,
-            'questionVersion': 1,
-            'chosenChoiceId': isCorrect ? 'c_1' : 'c_2',
-            'correctChoiceId': 'c_1', // Using fake choices, attempt reader doesn't check correctIndex for quizzes, just checks chosenChoiceId == correctChoiceId!
-            'responseMs': responseMs,
-          };
-        });
+        // Progress from 40% accuracy to 85% accuracy
+        final progressRatio = 1.0 - (daysAgo / 60.0); // 0.0 at day 60, 1.0 at day 0
+        final targetAccuracy = 0.40 + (0.45 * progressRatio);
+        
+        // Speed progresses from 20s to 8s
+        final targetSpeedMs = 20000 - (12000 * progressRatio).round();
 
+        // Pick a random topic for this session
+        final topic = topics[rng.nextInt(topics.length)];
+        final topicQuestions = questions.where((q) => q.topicId == topic.id).toList();
+        if (topicQuestions.isEmpty) continue;
+        
+        topicQuestions.shuffle(rng);
+        final sessionQuestions = topicQuestions.take(10).toList(); // Up to 10 questions
+
+        int correctCount = 0;
+        final attemptItems = <Map<String, dynamic>>[];
+        
+        for (final q in sessionQuestions) {
+          final isCorrect = rng.nextDouble() < targetAccuracy;
+          if (isCorrect) correctCount++;
+          
+          // Speed varies randomly around target speed
+          final responseMs = (targetSpeedMs * (0.8 + rng.nextDouble() * 0.4)).round();
+          
+          final correctId = correctChoiceIdByQuestion[q.id] ?? 'c_1';
+          final wrongId = wrongChoiceIdByQuestion[q.id] ?? 'c_2';
+          
+          attemptItems.add({
+            'questionId': q.id,
+            'questionVersion': q.version,
+            'chosenChoiceId': isCorrect ? correctId : wrongId,
+            'correctChoiceId': correctId,
+            'responseMs': responseMs,
+          });
+        }
+
+        final sessionId = 'fake_quiz_session_$i';
+        
         await db.into(db.attemptsLocal).insertOnConflictUpdate(
           AttemptsLocalCompanion.insert(
             id: 'fake_attempt_$i',
@@ -215,48 +251,92 @@ Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async 
         
         await db.into(db.quizSessions).insertOnConflictUpdate(
           QuizSessionsCompanion.insert(
-            id: 'fake_quiz_session_$i',
+            id: sessionId,
             userId: 'local',
             examId: examId,
             origin: 'today_topic',
-            questionIdsJson: '[]',
+            questionIdsJson: jsonEncode(sessionQuestions.map((q) => q.id).toList()),
             startedAt: attemptDate,
             completedAt: Value(attemptDate.add(const Duration(minutes: 10))),
-            currentIndex: const Value(2),
-            correctCount: const Value(1),
+            currentIndex: Value(sessionQuestions.length),
+            correctCount: Value(correctCount),
           ),
         );
       }
 
-      // Generate 2 MockAttempts
-      for (int i = 0; i < 2; i++) {
-        final daysAgo = 10 - (i * 5); // 10 days ago, 5 days ago
-        final attemptDate = now.subtract(Duration(days: daysAgo));
+      // 4. Mock Exams (4 mocks evenly spaced: 45, 30, 15, 1 days ago)
+      final mockIntervals = [45, 30, 15, 1];
+      for (int i = 0; i < mockIntervals.length; i++) {
+        final daysAgo = mockIntervals[i];
+        final attemptDate = now.subtract(Duration(days: daysAgo, hours: 9)); // 9 AM mock
         
-        // Mock payload JSONs
-        final sampledQuestions = [
-          {
-            'sectionId': 'sec_1',
-            'name': 'Section 1',
-            'questionIds': [mockQ1, mockQ2],
+        final progressRatio = 1.0 - (daysAgo / 60.0);
+        final targetAccuracy = 0.45 + (0.37 * progressRatio); // 45% -> 82%
+        
+        final sampledQuestions = <Map<String, dynamic>>[];
+        final mockAnswers = <String, Map<String, dynamic>>{};
+        final sectionResults = <Map<String, dynamic>>[];
+        
+        int totalRawScore = 0;
+        int totalQuestions = 0;
+        int totalElapsedSeconds = 0;
+        
+        for (int s = 0; s < subjects.length; s++) {
+          final subject = subjects[s];
+          final subjectTopics = topics.where((t) => t.subjectId == subject.id).map((t) => t.id).toSet();
+          final subjectQs = questions.where((q) => subjectTopics.contains(q.topicId)).toList();
+          
+          if (subjectQs.isEmpty) continue;
+          
+          // Take up to 20 questions per subject
+          subjectQs.shuffle(rng);
+          final sectionQs = subjectQs.take(20).toList();
+          
+          sampledQuestions.add({
+            'sectionId': 'sec_$s',
+            'name': subject.name,
+            'questionIds': sectionQs.map((q) => q.id).toList(),
+          });
+          
+          int secCorrect = 0;
+          int secElapsed = 0;
+          
+          for (final q in sectionQs) {
+            totalQuestions++;
+            // First half vs second half stamina diff
+            final isFirstHalf = totalQuestions < (subjects.length * 10);
+            final staminaMod = isFirstHalf ? 0.05 : -0.05;
+            final isCorrect = rng.nextDouble() < (targetAccuracy + staminaMod);
+            
+            if (isCorrect) {
+              secCorrect++;
+              totalRawScore++;
+            }
+            
+            final correctIdx = correctIndexByQuestion[q.id] ?? 0;
+            final wrongIdx = (correctIdx == 0) ? 1 : 0;
+            final selectedIdx = isCorrect ? correctIdx : wrongIdx;
+            
+            final qTime = 15 + rng.nextInt(30);
+            secElapsed += qTime;
+            
+            mockAnswers[q.id] = {
+              'selectedIndex': selectedIdx,
+              'atSec': secElapsed + totalElapsedSeconds,
+            };
           }
-        ];
-        
-        final mockAnswers = {
-          mockQ1: {'selectedIndex': 0, 'atSec': 30},
-          mockQ2: {'selectedIndex': 1, 'atSec': 45}, 
-        };
-
-        final sectionResults = [
-          {
-            'sectionId': 'sec_1',
-            'name': 'Section 1',
-            'correct': 1,
-            'total': 2,
+          
+          sectionResults.add({
+            'sectionId': 'sec_$s',
+            'name': subject.name,
+            'correct': secCorrect,
+            'total': sectionQs.length,
             'retiredCount': 0,
-            'timeSeconds': 120,
-          }
-        ];
+            'timeSeconds': secElapsed,
+          });
+          
+          totalElapsedSeconds += secElapsed;
+        }
 
         await db.into(db.mockAttempts).insertOnConflictUpdate(
           MockAttemptsCompanion.insert(
@@ -269,14 +349,14 @@ Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async 
             status: 'completed',
             strictMode: true,
             sampledQuestionsJson: jsonEncode(sampledQuestions),
-            elapsedSeconds: const Value(7200),
-            scoreRaw: Value(65 + (i * 10)),
-            scoreTotal: const Value(100),
+            elapsedSeconds: Value(totalElapsedSeconds),
+            scoreRaw: Value(totalRawScore),
+            scoreTotal: Value(totalQuestions),
             answersJson: Value(jsonEncode(mockAnswers)),
             sectionResultsJson: Value(jsonEncode(sectionResults)),
             startedAt: attemptDate,
             lastFlushedAt: attemptDate,
-            submittedAt: Value(attemptDate.add(const Duration(hours: 2))),
+            submittedAt: Value(attemptDate.add(Duration(seconds: totalElapsedSeconds))),
             updatedAt: attemptDate,
           ),
         );
