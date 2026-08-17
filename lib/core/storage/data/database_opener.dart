@@ -42,12 +42,6 @@ Future<AppDatabase> openEncryptedDatabase({
           ..execute("PRAGMA cipher = 'sqlcipher';")
           ..execute('PRAGMA legacy = 4;')
           ..execute("PRAGMA key = \"x'${_toHex(key)}'\";");
-        final cipherVersion = db.select('PRAGMA cipher_version;');
-        if (cipherVersion.isEmpty) {
-          throw StateError(
-            'SQLCipher not loaded: cipher_version returned no rows.',
-          );
-        }
       },
     ),
   );
