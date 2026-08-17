@@ -166,6 +166,25 @@ Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async 
 
       final rng = Random();
 
+      // 0. Assessment Result
+      // Insert a faux assessment result so the Home tab thinks we took it.
+      final topicScores = <Map<String, dynamic>>[];
+      for (var i = 0; i < topics.length && i < 5; i++) {
+        topicScores.add({
+          'topicId': topics[i].id,
+          'correct': 3 + rng.nextInt(3), // 3 to 5
+          'total': 5,
+        });
+      }
+      
+      await db.into(db.assessmentResultsLocal).insertOnConflictUpdate(
+        AssessmentResultsLocalCompanion.insert(
+          examId: examId,
+          completedAt: now.subtract(const Duration(days: 60)),
+          topicScoresJson: jsonEncode(topicScores),
+        ),
+      );
+
       // 1. Lesson Progress
       // Distribute lesson reads over the last 60 days
       for (int i = 0; i < lessons.length; i++) {

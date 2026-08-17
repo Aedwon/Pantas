@@ -23,14 +23,14 @@ discover() {
   local line device_port token host_port
   line=""
   local device_id=""
-  for device in $(adb devices | awk 'NR>1 {print $1}' | grep -E '^([0-9]+\.|emulator-)'); do
+  for device in $(adb devices | awk 'NR>1 {print $1}' | grep -E '^([0-9]+\.|emulator-|[a-zA-Z0-9]{6,16}$)'); do
     line="$(adb -s "$device" logcat -d -t 10000 2>/dev/null | grep -o 'Dart VM service is listening on http://127.0.0.1:[0-9]*/[^/]*/' | tail -1)" || true
     if [ -n "$line" ]; then
       device_id="$device"
       break
     fi
   done
-  [ -n "$line" ] || die "no Dart VM service in logcat. Is 'flutter run' alive?"
+  [ -n "$line" ] || return 1
 
   device_port="$(echo "$line" | sed -E 's#.*127\.0\.0\.1:([0-9]+)/.*#\1#')"
   token="$(echo "$line" | sed -E 's#.*127\.0\.0\.1:[0-9]+/##; s#/$##')"
@@ -59,14 +59,26 @@ call() {
   curl -s -m 5 "$1"
 }
 
-base=""
-if [ -f "$cache" ]; then
+base="${VM_SERVICE_URI:-}"
+# Strip any trailing slash provided by the user
+base="$(echo "$base" | sed -E 's#/$##')"
+if [ -z "$base" ] && [ -f "$cache" ]; then
   base="$(cat "$cache")"
   call "${base}/getVersion" | grep -q '"result"' || base=""
 fi
 if [ -z "$base" ]; then
-  base="$(discover)"
-  echo "$base" > "$cache"
+  base="$(discover || echo "")"
+  if [ -n "$base" ]; then
+    echo "$base" > "$cache"
+  fi
+fi
+
+if [ -z "$base" ]; then
+  die "Could not find the Dart VM service URL in logcat.
+Android sometimes hides this in newer versions.
+To fix this, copy the 'A Dart VM Service on ... is available at: http://...' line from your flutter terminal and run:
+export VM_SERVICE_URI=\"http://127.0.0.1:YOUR_PORT/YOUR_TOKEN/\"
+Then try again."
 fi
 
 isolate="$(call "${base}/getVM" | python3 -c '
