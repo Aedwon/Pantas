@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "contentVersion": 2026081303,
-  "generatedAt": "2026-08-13T03:38:16.807413Z",
+  "generatedAt": "2026-08-13T03:49:28.118647Z",
   "exams": [
     {
       "id": "exam_cse_pro",
@@ -74425,19 +74425,22 @@
           "id": "q-biology-ecology-0001_b",
           "label": "B",
           "text": "A biome",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the larger grouping. A biome gathers many ecosystems that share\na climate. One pond is a single ecosystem."
         },
         {
           "id": "q-biology-ecology-0001_c",
           "label": "C",
           "text": "A food web",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a feeding diagram. A food web shows who eats whom, not the\nwhole place including its water and mud."
         },
         {
           "id": "q-biology-ecology-0001_d",
           "label": "D",
           "text": "A trophic level",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked one step in a feeding chain. A trophic level is a position, not\na place."
         }
       ],
       "explanation": "An ecosystem is a community of living things interacting with each other and their non-living environment in a specific area, like a pond."
@@ -74466,19 +74469,22 @@
           "id": "q-biology-ecology-0002_b",
           "label": "B",
           "text": "An ecosystem",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the smaller unit. An ecosystem is one place and its living\nthings. A biome gathers many of those under one climate."
         },
         {
           "id": "q-biology-ecology-0002_c",
           "label": "C",
           "text": "A food chain",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a feeding sequence. A food chain runs through organisms, not\nacross climates."
         },
         {
           "id": "q-biology-ecology-0002_d",
           "label": "D",
           "text": "A biogeochemical cycle",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a chemical route. A cycle moves an element around, and it is\nnot a grouping of places."
         }
       ],
       "explanation": "A biome is a much larger-scale grouping of ecosystems that share a similar climate and similar plant and animal life, like a desert, rainforest, grassland, or tundra."
@@ -74507,19 +74513,22 @@
           "id": "q-biology-ecology-0003_b",
           "label": "B",
           "text": "Grass, frog, grasshopper, hawk",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You put the frog before the grasshopper. The frog eats the grasshopper, so\nit comes after it."
         },
         {
           "id": "q-biology-ecology-0003_c",
           "label": "C",
           "text": "Hawk, frog, grasshopper, grass",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You ran the chain backwards. It starts with the producer and ends with the\ntop predator."
         },
         {
           "id": "q-biology-ecology-0003_d",
           "label": "D",
           "text": "Grasshopper, grass, frog, hawk",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You started with the grasshopper. Nothing eats grass before the\ngrasshopper does, so grass is first."
         }
       ],
       "explanation": "Grass (producer) is eaten by the grasshopper (primary consumer), which is eaten by the frog (secondary consumer), which is eaten by the hawk (tertiary consumer)."
@@ -74548,19 +74557,22 @@
           "id": "q-biology-ecology-0004_b",
           "label": "B",
           "text": "Primary consumer, the second trophic level",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the level above. A primary consumer eats the producer, and the\ngrass is what gets eaten."
         },
         {
           "id": "q-biology-ecology-0004_c",
           "label": "C",
           "text": "Secondary consumer, the third trophic level",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You counted two levels too far. The grass has nothing below it in this\nchain."
         },
         {
           "id": "q-biology-ecology-0004_d",
           "label": "D",
           "text": "Tertiary consumer, the fourth trophic level",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the top of the chain. The grass is at the bottom, where the\nenergy enters."
         }
       ],
       "explanation": "Grass makes its own food through photosynthesis, making it the producer, the first trophic level in the chain."
@@ -74589,19 +74601,22 @@
           "id": "q-biology-ecology-0005_b",
           "label": "B",
           "text": "Producer, the first trophic level",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the bottom of the chain. The frog eats other animals, so it\ncannot be the producer."
         },
         {
           "id": "q-biology-ecology-0005_c",
           "label": "C",
           "text": "Primary consumer, the second trophic level",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You counted one level too low. The grasshopper is the primary consumer,\nand the frog eats it."
         },
         {
           "id": "q-biology-ecology-0005_d",
           "label": "D",
           "text": "Tertiary consumer, the fourth trophic level",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the top. The hawk eats the frog, so the frog is one level\nbelow."
         }
       ],
       "explanation": "The frog eats the grasshopper (a primary consumer), making the frog a secondary consumer, the third trophic level."
@@ -74630,19 +74645,22 @@
           "id": "q-biology-ecology-0006_b",
           "label": "B",
           "text": "Secondary consumer, the third trophic level",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You counted one level too low. The frog is the secondary consumer, and the\nhawk eats the frog."
         },
         {
           "id": "q-biology-ecology-0006_c",
           "label": "C",
           "text": "Primary consumer, the second trophic level",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You counted two levels too low. The grasshopper holds that place."
         },
         {
           "id": "q-biology-ecology-0006_d",
           "label": "D",
           "text": "Producer, the first trophic level",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the bottom. The hawk makes no food of its own."
         }
       ],
       "explanation": "The hawk eats the frog (a secondary consumer), and since nothing eats the hawk in this chain, it is the tertiary consumer, the top trophic level."
@@ -74671,19 +74689,22 @@
           "id": "q-biology-ecology-0007_b",
           "label": "B",
           "text": "100 kilocalories",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You applied the ten per cent rule twice. One step up takes one tenth, so\nit is 1,000."
         },
         {
           "id": "q-biology-ecology-0007_c",
           "label": "C",
           "text": "5,000 kilocalories",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You halved the energy. The rule passes on a tenth, not a half."
         },
         {
           "id": "q-biology-ecology-0007_d",
           "label": "D",
           "text": "9,000 kilocalories",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You gave what is lost rather than what passes on. Nine tenths is lost, and\none tenth arrives."
         }
       ],
       "explanation": "The 10% rule means only 10% of energy passes to the next level: $10{,}000 \\times 0.10 = 1{,}000$ kilocalories."
@@ -74712,19 +74733,22 @@
           "id": "q-biology-ecology-0008_b",
           "label": "B",
           "text": "1,000 kilocalories",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You stopped after one step. Two steps up means a tenth of a tenth."
         },
         {
           "id": "q-biology-ecology-0008_c",
           "label": "C",
           "text": "1 kilocalorie",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You applied the rule three times. There are only two steps here."
         },
         {
           "id": "q-biology-ecology-0008_d",
           "label": "D",
           "text": "9,900 kilocalories",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You gave the energy lost rather than the energy that arrives."
         }
       ],
       "explanation": "Apply the 10% rule one level at a time: $10{,}000 \\times 0.10 = 1{,}000$ kilocalories reach the primary consumers, then $1{,}000 \\times 0.10 = 100$ kilocalories reach the secondary consumers. Multiplying by 10% only once and skipping straight to the secondary consumers is a common mistake."
@@ -74753,19 +74777,22 @@
           "id": "q-biology-ecology-0009_b",
           "label": "B",
           "text": "A food chain, since food chains always include more than four organisms.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You called it a chain. A chain is a single line, and this diagram has\nanimals eating more than one thing each."
         },
         {
           "id": "q-biology-ecology-0009_c",
           "label": "C",
           "text": "Neither: this diagram does not describe feeding relationships.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said it shows no feeding at all, and every arrow in it is one animal\neating another."
         },
         {
           "id": "q-biology-ecology-0009_d",
           "label": "D",
           "text": "A biogeochemical cycle, since energy is moving between organisms.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a chemical cycle. Those move an element around; this moves food\nbetween animals."
         }
       ],
       "explanation": "A food chain is a single, straight-line sequence. Once multiple predators share prey, or one predator eats several prey types, the diagram is showing a food web: the more realistic, interconnected picture."
@@ -74794,19 +74821,22 @@
           "id": "q-biology-ecology-0010_b",
           "label": "B",
           "text": "The nitrogen cycle",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the cycle that runs through proteins and the air's nitrogen\ngas, not through carbon dioxide."
         },
         {
           "id": "q-biology-ecology-0010_c",
           "label": "C",
           "text": "The phosphorus cycle",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the cycle with no gas stage at all. Phosphorus stays in rock,\nsoil and water."
         },
         {
           "id": "q-biology-ecology-0010_d",
           "label": "D",
           "text": "The water cycle",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the cycle that moves water rather than carbon."
         }
       ],
       "explanation": "The carbon cycle moves carbon between the atmosphere, living things, and long-term storage such as fossil fuels."
@@ -74835,19 +74865,22 @@
           "id": "q-biology-ecology-0011_b",
           "label": "B",
           "text": "Photosynthesis",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the process that makes food from light. It uses carbon dioxide,\nnot nitrogen gas."
         },
         {
           "id": "q-biology-ecology-0011_c",
           "label": "C",
           "text": "Cellular respiration",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the process that releases energy from food. It has nothing to\ndo with nitrogen."
         },
         {
           "id": "q-biology-ecology-0011_d",
           "label": "D",
           "text": "Transpiration",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked water leaving a plant's leaves."
         }
       ],
       "explanation": "Nitrogen fixation is carried out mainly by certain bacteria, converting atmospheric nitrogen gas into a usable form, like ammonia or nitrates, that plants can absorb."
@@ -74876,19 +74909,22 @@
           "id": "q-biology-ecology-0012_b",
           "label": "B",
           "text": "Plants can already absorb nitrogen gas directly from the air without any bacterial help.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said plants can use it straight from the air, and the question begins\nfrom the fact that they cannot."
         },
         {
           "id": "q-biology-ecology-0012_c",
           "label": "C",
           "text": "Nitrogen fixation removes nitrogen from the atmosphere permanently, so it never returns to plants or animals.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said fixation removes it permanently. It converts nitrogen into a\nusable form, and the cycle returns it."
         },
         {
           "id": "q-biology-ecology-0012_d",
           "label": "D",
           "text": "Nitrogen gas is toxic to bacteria, so fixation exists only to protect the bacteria themselves.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You called the gas toxic. It is unreactive rather than poisonous, and that\nis exactly the problem."
         }
       ],
       "explanation": "Nitrogen gas is too chemically stable for most living things to use directly. Nitrogen-fixing bacteria convert it into usable forms like ammonia or nitrates, which plants absorb through their roots and pass up the food chain."
@@ -74917,19 +74953,22 @@
           "id": "q-biology-ecology-0013_b",
           "label": "B",
           "text": "Yes: phosphorus evaporates into the atmosphere just like water does.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You accepted the evaporation step. Phosphorus has no gas stage: it moves\nthrough rock, soil and water instead."
         },
         {
           "id": "q-biology-ecology-0013_c",
           "label": "C",
           "text": "No: but only because phosphorus does not exist in rocks or soil at all.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said it is not in rocks, and rock is where most of it sits."
         },
         {
           "id": "q-biology-ecology-0013_d",
           "label": "D",
           "text": "Yes: all biogeochemical cycles include an atmospheric gas phase.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said every cycle has a gas stage. Phosphorus is the one that does not."
         }
       ],
       "explanation": "The phosphorus cycle is the exception among the major biogeochemical cycles: it has almost no gas phase, moving mainly through rock, soil, and water rather than the atmosphere."
@@ -74958,19 +74997,22 @@
           "id": "q-biology-ecology-0014_b",
           "label": "B",
           "text": "Commensalism",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the one where only one side gains. Both gain here: the bee gets\nfood and the flower gets pollinated."
         },
         {
           "id": "q-biology-ecology-0014_c",
           "label": "C",
           "text": "Parasitism",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the one where a side is harmed. Neither is harmed here."
         },
         {
           "id": "q-biology-ecology-0014_d",
           "label": "D",
           "text": "Competition",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the one where both want the same resource. These two are\ntrading, not competing."
         }
       ],
       "explanation": "Mutualism describes a relationship where both species benefit: here, the bee gets nectar and the flower gets pollinated."
@@ -74999,19 +75041,22 @@
           "id": "q-biology-ecology-0015_b",
           "label": "B",
           "text": "Mutualism",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the one where both gain. The tree gains nothing from the nest."
         },
         {
           "id": "q-biology-ecology-0015_c",
           "label": "C",
           "text": "Parasitism",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the one where a side is harmed. The tree is not harmed."
         },
         {
           "id": "q-biology-ecology-0015_d",
           "label": "D",
           "text": "Competition",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the one where both want the same thing. The bird wants shelter,\nand the tree is not after it."
         }
       ],
       "explanation": "Commensalism describes a relationship where one species benefits (the bird gains shelter) while the other is unaffected (the tree is neither helped nor harmed)."
@@ -75040,19 +75085,22 @@
           "id": "q-biology-ecology-0016_b",
           "label": "B",
           "text": "Mutualism",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the one where both gain. The person gains nothing from being\nbitten."
         },
         {
           "id": "q-biology-ecology-0016_c",
           "label": "C",
           "text": "Commensalism",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the one where nobody is harmed. The bite harms the person."
         },
         {
           "id": "q-biology-ecology-0016_d",
           "label": "D",
           "text": "Competition",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the one where both want the same resource. Here one is the\nresource."
         }
       ],
       "explanation": "Parasitism describes a relationship where the parasite (the mosquito) benefits, while the host (the human) is harmed."
@@ -75081,19 +75129,22 @@
           "id": "q-biology-ecology-0017_b",
           "label": "B",
           "text": "Yes: any relationship where one species benefits from another is automatically mutualism.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You called it mutualism because one side gains. Both sides have to gain,\nand the shark gains nothing measurable."
         },
         {
           "id": "q-biology-ecology-0017_c",
           "label": "C",
           "text": "No: this is actually parasitism, since the remora is taking food scraps from the shark.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You called it parasitism. The remora takes leftovers rather than anything\nthe shark still needs."
         },
         {
           "id": "q-biology-ecology-0017_d",
           "label": "D",
           "text": "Yes: since the shark tolerates the remora, both species must be benefiting equally.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You read tolerance as benefit. Being unbothered is not the same as\ngaining."
         }
       ],
       "explanation": "Students often assume any close relationship where one species clearly benefits must be mutualism. But since the shark receives no measurable benefit and is simply unaffected, this relationship is commensalism, not mutualism."
@@ -75122,19 +75173,22 @@
           "id": "q-biology-ecology-0018_b",
           "label": "B",
           "text": "Exactly 10,000 kilocalories remain, since the 10% rule is applied only once regardless of how many levels are crossed.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You applied the ten per cent rule once. Three steps up means a tenth of a\ntenth of a tenth."
         },
         {
           "id": "q-biology-ecology-0018_c",
           "label": "C",
           "text": "All 100,000 kilocalories remain, since energy is never lost between trophic levels.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said nothing is lost. Most of the energy is lost as heat at every\nstep, which is why the chain is short."
         },
         {
           "id": "q-biology-ecology-0018_d",
           "label": "D",
           "text": "The energy increases at each level, since predators are more efficient than producers.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said energy grows upward. Nothing at a higher level can hold more\nenergy than the level feeding it."
         }
       ],
       "explanation": "Applying the 10% rule three times in a row (once per level crossed) gives $100{,}000 \\times 0.10 \\times 0.10 \\times 0.10 = 100$ kilocalories. This dramatic, repeated energy loss is exactly why energy pyramids narrow sharply at higher levels and why food chains rarely have more than four or five levels."
@@ -75163,19 +75217,22 @@
           "id": "q-biology-evolution-0001_b",
           "label": "B",
           "text": "Gregor Mendel",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the one who worked out how traits pass from parent to child,\nnot how species change over time."
         },
         {
           "id": "q-biology-evolution-0001_c",
           "label": "C",
           "text": "Carl Linnaeus",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the one who built the naming system for organisms."
         },
         {
           "id": "q-biology-evolution-0001_d",
           "label": "D",
           "text": "Louis Pasteur",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the one who showed that germs cause disease."
         }
       ],
       "explanation": "Charles Darwin proposed natural selection in 1859, describing evolution as \"descent with modification.\""
@@ -75204,19 +75261,22 @@
           "id": "q-biology-evolution-0002_b",
           "label": "B",
           "text": "Species descend from more advanced ancestors and become simpler over time.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You added a direction. Descent with modification says species change, not\nthat they climb towards better."
         },
         {
           "id": "q-biology-evolution-0002_c",
           "label": "C",
           "text": "Species never change once they first appear.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said species never change, and the phrase is about change."
         },
         {
           "id": "q-biology-evolution-0002_d",
           "label": "D",
           "text": "Species always modify themselves intentionally to survive.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You made the change deliberate. Nothing chooses its own traits."
         }
       ],
       "explanation": "\"Descent with modification\" captures both halves of evolution: organisms are descended from common ancestors (descent), yet gradually change across generations (modification)."
@@ -75245,19 +75305,22 @@
           "id": "q-biology-evolution-0003_b",
           "label": "B",
           "text": "Limited resources, Variation, Advantage, Inheritance",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You put scarcity first. The differences have to exist before scarcity can\nfavour any of them."
         },
         {
           "id": "q-biology-evolution-0003_c",
           "label": "C",
           "text": "Variation, Advantage, Limited resources, Inheritance",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You put the advantage before the scarcity that creates it. A trait only\nhelps when something is in short supply."
         },
         {
           "id": "q-biology-evolution-0003_d",
           "label": "D",
           "text": "Inheritance, Variation, Advantage, Limited resources",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You put inheritance first. A trait is inherited after it has been\nfavoured, not before."
         }
       ],
       "explanation": "The chain runs: Variation (individuals naturally differ) → Limited resources (not everyone survives) → Advantage (better-suited individuals survive and reproduce more) → Inheritance (the advantageous trait is passed on)."
@@ -75286,19 +75349,22 @@
           "id": "q-biology-evolution-0004_b",
           "label": "B",
           "text": "The pesticide directly changed the insects' genes to make them resistant.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You made the pesticide change the insects. It kills the ones without the\ntrait; it does not write the trait."
         },
         {
           "id": "q-biology-evolution-0004_c",
           "label": "C",
           "text": "Non-resistant insects individually developed resistance during their lifetimes after repeated exposure.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You had individuals develop resistance in their own lifetime. An insect\ncannot become resistant by being sprayed."
         },
         {
           "id": "q-biology-evolution-0004_d",
           "label": "D",
           "text": "Resistance is not heritable, so its increase across generations is due to random chance alone.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said the trait is not passed on. It has to be, or the population could\nnot shift."
         }
       ],
       "explanation": "Resistance already existed as natural variation before the pesticide was used. The pesticide killed off non-resistant insects, so resistant ones survived, reproduced, and passed the heritable trait on: making resistance more common each generation."
@@ -75327,19 +75393,22 @@
           "id": "q-biology-evolution-0005_b",
           "label": "B",
           "text": "Natural selection",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the process that shifts traits within a species. A new species\nis the outcome, not the mechanism."
         },
         {
           "id": "q-biology-evolution-0005_c",
           "label": "C",
           "text": "Inheritance",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the passing of traits to offspring."
         },
         {
           "id": "q-biology-evolution-0005_d",
           "label": "D",
           "text": "Variation",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the differences between individuals, which is where selection\nstarts rather than where it ends."
         }
       ],
       "explanation": "Speciation is the formation of a new species, often beginning when a population becomes geographically separated into two non-interbreeding groups."
@@ -75368,19 +75437,22 @@
           "id": "q-biology-evolution-0006_b",
           "label": "B",
           "text": "Geographic separation directly and instantly creates a new species with no other steps required.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You made separation itself the cause. Separation only allows the two\ngroups to drift apart under different pressures."
         },
         {
           "id": "q-biology-evolution-0006_c",
           "label": "C",
           "text": "Separated groups always evolve in exactly the same way, so they never become distinct species.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You had them evolve identically. Different places apply different\npressures."
         },
         {
           "id": "q-biology-evolution-0006_d",
           "label": "D",
           "text": "Geographic separation prevents natural selection from acting on either group.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said separation stops selection. Each side still faces its own."
         }
       ],
       "explanation": "Once isolated, each group experiences different environmental pressures, so natural selection favors different traits in each. Given enough generations, the accumulated genetic differences become too great for successful interbreeding, resulting in two separate species."
@@ -75409,19 +75481,22 @@
           "id": "q-biology-evolution-0007_b",
           "label": "B",
           "text": "Inheritance of acquired traits within a single lifetime",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked traits gained in one lifetime. A beak shape is inherited, not\nacquired by trying."
         },
         {
           "id": "q-biology-evolution-0007_c",
           "label": "C",
           "text": "Natural selection with no variation involved",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said there was no variation. The beaks differed to begin with, which\nis what selection worked on."
         },
         {
           "id": "q-biology-evolution-0007_d",
           "label": "D",
           "text": "A population with no environmental pressures",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said there were no pressures. Different food on each island is the\npressure."
         }
       ],
       "explanation": "The finches became geographically separated across islands, faced different food-source pressures, and evolved different beak shapes until they became distinct species: a textbook case of speciation through geographic separation."
@@ -75450,19 +75525,22 @@
           "id": "q-biology-evolution-0008_b",
           "label": "B",
           "text": "Nothing is wrong: traits gained through use during an individual's life are always passed to its offspring.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You accepted the stretching. A neck stretched in one lifetime is not\nwritten back into the offspring."
         },
         {
           "id": "q-biology-evolution-0008_c",
           "label": "C",
           "text": "The reasoning is wrong only because giraffes cannot stretch their necks at all.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You made it about reaching. The reach is not the error; passing on a\nstretch is."
         },
         {
           "id": "q-biology-evolution-0008_d",
           "label": "D",
           "text": "The reasoning is wrong only because giraffes do not have offspring.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You made it about diet. What giraffes eat is not the flaw in the\nreasoning."
         }
       ],
       "explanation": "This is the \"use it or lose it\" misconception. What actually happens: some giraffes were naturally born with slightly longer necks (variation), which gave them an advantage in a food-scarce environment, and this heritable trait spread through survival and reproduction, not through stretching during an individual's lifetime."
@@ -75491,19 +75569,22 @@
           "id": "q-biology-evolution-0009_b",
           "label": "B",
           "text": "Yes: fitness always refers to raw physical strength or size.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You read fitness as strength. It means suited to the surroundings, and\nsometimes that means small or well hidden."
         },
         {
           "id": "q-biology-evolution-0009_c",
           "label": "C",
           "text": "No: fitness actually refers only to intelligence, never physical traits.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You read fitness as intelligence. It is about fit to the environment,\nwhatever that takes."
         },
         {
           "id": "q-biology-evolution-0009_d",
           "label": "D",
           "text": "Yes: the largest individual in a population is always the fittest.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You read fitness as size. The largest animal often needs the most food,\nwhich can be a disadvantage."
         }
       ],
       "explanation": "\"Fittest\" means best suited to reproductive success in a specific environment. A tiny, camouflaged insect may be more fit than a larger, more visible one if camouflage helps it survive and reproduce better."
@@ -75532,19 +75613,22 @@
           "id": "q-biology-evolution-0010_b",
           "label": "B",
           "text": "Yes: evolution always moves species toward a more advanced, ideal form.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You gave evolution a destination. It has none; it only tracks whatever\nsurvives now."
         },
         {
           "id": "q-biology-evolution-0010_c",
           "label": "C",
           "text": "No: but only because evolution never changes populations at all.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said populations never change, and they do."
         },
         {
           "id": "q-biology-evolution-0010_d",
           "label": "D",
           "text": "Yes: organisms actively choose which traits to evolve toward.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You let organisms choose their traits. Nothing chooses."
         }
       ],
       "explanation": "Natural selection has no foresight or goal. It simply reflects which existing traits happened to help individuals survive and reproduce in their specific environment at the time: there is no \"better\" or \"more advanced\" direction it aims toward."
@@ -75573,19 +75657,22 @@
           "id": "q-biology-evolution-0011_b",
           "label": "B",
           "text": "Yes: the pesticide directly created the resistant trait in response to the insects' need to survive.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You had the pesticide create the trait. It was already there in a few\ninsects before any spraying."
         },
         {
           "id": "q-biology-evolution-0011_c",
           "label": "C",
           "text": "No: but only because pesticides cannot affect insect populations at all.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said pesticides cannot affect insects, and they plainly do: they kill\nthe ones without the trait."
         },
         {
           "id": "q-biology-evolution-0011_d",
           "label": "D",
           "text": "Yes: natural selection requires an environmental pressure to first generate new traits.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said selection needs a pressure to create the variation. The pressure\nsorts variation that already exists."
         }
       ],
       "explanation": "Natural selection acts on variation that already exists in a population: it does not generate new traits in direct response to an environmental pressure. The pesticide-resistant trait existed before the pesticide was introduced; the pesticide simply favored the insects that already had it."
@@ -75614,19 +75701,22 @@
           "id": "q-biology-evolution-0012_b",
           "label": "B",
           "text": "They are unrelated processes that never occur together.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You separated them completely. Selection is the process that pushes two\ngroups far enough apart to become species."
         },
         {
           "id": "q-biology-evolution-0012_c",
           "label": "C",
           "text": "Speciation always happens first, causing natural selection to begin afterward.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You put speciation first. The split follows the sorting, not the other way\nround."
         },
         {
           "id": "q-biology-evolution-0012_d",
           "label": "D",
           "text": "Natural selection and speciation are simply two different names for the exact same single-generation process.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You called them the same thing. One is the mechanism and one is the\noutcome."
         }
       ],
       "explanation": "Natural selection is the generation-by-generation mechanism that shifts a population's traits. When two separated groups experience different selective pressures long enough, their accumulated differences can result in speciation: the two groups becoming distinct species."
@@ -75655,19 +75745,22 @@
           "id": "q-biology-evolution-0013_b",
           "label": "B",
           "text": "It must be gained through effort or use during an individual's lifetime.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a trait gained by effort. Something learned or built in one\nlifetime is not passed on."
         },
         {
           "id": "q-biology-evolution-0013_c",
           "label": "C",
           "text": "It must make the individual larger than average.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked size. Bigger is not automatically better suited."
         },
         {
           "id": "q-biology-evolution-0013_d",
           "label": "D",
           "text": "It must appear only after an environmental pressure begins.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You had the trait appear after the pressure. It has to be there first for\nthe pressure to act on."
         }
       ],
       "explanation": "A trait spreads through a population only if it is heritable. If a proposed answer skips heredity (does not mention the trait being passed on), it is describing something other than natural selection."
@@ -75696,19 +75789,22 @@
           "id": "q-biology-evolution-0014_b",
           "label": "B",
           "text": "Both groups will evolve in exactly the same way, since they came from the same original population.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You had both sides change identically. The two riverbanks are different\nplaces with different pressures."
         },
         {
           "id": "q-biology-evolution-0014_c",
           "label": "C",
           "text": "Neither group will experience any further evolution, since the split already occurred.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You froze both groups. Each still faces selection where it stands."
         },
         {
           "id": "q-biology-evolution-0014_d",
           "label": "D",
           "text": "The two groups will automatically merge back into one species once the river dries up, regardless of how many generations have passed.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You had them merge. The river is what stops them meeting."
         }
       ],
       "explanation": "This is speciation through geographic separation: different environmental pressures (rocky vs. sandy terrain) drive different adaptations in each isolated group, and enough accumulated genetic difference over time can make the two groups unable to interbreed: forming separate species."
@@ -75737,19 +75833,22 @@
           "id": "q-biology-genetics-and-heredity-0001_b",
           "label": "B",
           "text": "Phenotype",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked what shows on the outside. The letters describe what the\norganism carries, not how it looks."
         },
         {
           "id": "q-biology-genetics-and-heredity-0001_c",
           "label": "C",
           "text": "Allele",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked one version of a gene. A genotype is the pair, not a single\nmember of it."
         },
         {
           "id": "q-biology-genetics-and-heredity-0001_d",
           "label": "D",
           "text": "Pedigree",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the family chart. A pedigree traces a trait through\ngenerations."
         }
       ],
       "explanation": "Genotype refers to the actual genetic makeup of an organism, such as the letters $Tt$."
@@ -75778,19 +75877,22 @@
           "id": "q-biology-genetics-and-heredity-0002_b",
           "label": "B",
           "text": "Genotype",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the letters. Those are the genotype; the phenotype is what you\ncan see."
         },
         {
           "id": "q-biology-genetics-and-heredity-0002_c",
           "label": "C",
           "text": "Allele",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked one version of a gene, which is a piece of the genotype."
         },
         {
           "id": "q-biology-genetics-and-heredity-0002_d",
           "label": "D",
           "text": "Pedigree",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the family chart rather than the trait itself."
         }
       ],
       "explanation": "Phenotype refers to the physical expression of a genotype, such as the trait \"tall.\""
@@ -75819,19 +75921,22 @@
           "id": "q-biology-genetics-and-heredity-0003_b",
           "label": "B",
           "text": "1/4",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You gave the share that is short. Only the one box with two recessive\nletters is short."
         },
         {
           "id": "q-biology-genetics-and-heredity-0003_c",
           "label": "C",
           "text": "1/2",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You halved it. Three of the four boxes carry at least one dominant letter."
         },
         {
           "id": "q-biology-genetics-and-heredity-0003_d",
           "label": "D",
           "text": "4/4",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said all four. One box out of four comes out short."
         }
       ],
       "explanation": "The four possible offspring are $TT$, $Tt$, $Tt$, $tt$. Any genotype with at least one $T$ shows tall: that's 3 out of 4 boxes: $\\dfrac{3}{4}$."
@@ -75860,19 +75965,22 @@
           "id": "q-biology-genetics-and-heredity-0004_b",
           "label": "B",
           "text": "3/4",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You gave the tall share. Three boxes are tall, and the question asks for\nthe other one."
         },
         {
           "id": "q-biology-genetics-and-heredity-0004_c",
           "label": "C",
           "text": "1/2",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You halved it. Only one box in four has two recessive letters."
         },
         {
           "id": "q-biology-genetics-and-heredity-0004_d",
           "label": "D",
           "text": "0/4",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said none. Two heterozygous parents can each pass the recessive\nletter."
         }
       ],
       "explanation": "Only the $tt$ genotype (no dominant allele) shows the recessive short phenotype: 1 out of 4 boxes: $\\dfrac{1}{4}$."
@@ -75901,19 +76009,22 @@
           "id": "q-biology-genetics-and-heredity-0005_b",
           "label": "B",
           "text": "Codominance",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the pattern where both traits show separately. Here they blend\ninto a third colour."
         },
         {
           "id": "q-biology-genetics-and-heredity-0005_c",
           "label": "C",
           "text": "Multiple alleles",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a gene with more than two versions. This is one gene with two."
         },
         {
           "id": "q-biology-genetics-and-heredity-0005_d",
           "label": "D",
           "text": "Sex-linked inheritance",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked inheritance tied to sex chromosomes, and nothing here is."
         }
       ],
       "explanation": "Pink is a genuinely new, blended color between red and white, with neither allele fully dominant: this is incomplete dominance."
@@ -75942,19 +76053,22 @@
           "id": "q-biology-genetics-and-heredity-0006_b",
           "label": "B",
           "text": "Incomplete dominance",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked blending. Blending would give one in-between type; here both\ntypes show at once."
         },
         {
           "id": "q-biology-genetics-and-heredity-0006_c",
           "label": "C",
           "text": "Simple dominant-recessive inheritance",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked plain dominance, where one version hides the other. Neither is\nhidden here."
         },
         {
           "id": "q-biology-genetics-and-heredity-0006_d",
           "label": "D",
           "text": "Sex-linked inheritance",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked inheritance tied to sex chromosomes, and blood type is not."
         }
       ],
       "explanation": "Both the A and B traits are fully expressed side by side, without blending into a new \"in-between\" type: this is codominance."
@@ -75983,19 +76097,22 @@
           "id": "q-biology-genetics-and-heredity-0007_b",
           "label": "B",
           "text": "Cytosine",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You paired it with the base that pairs with guanine instead."
         },
         {
           "id": "q-biology-genetics-and-heredity-0007_c",
           "label": "C",
           "text": "Guanine",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You paired it with guanine, which pairs with cytosine."
         },
         {
           "id": "q-biology-genetics-and-heredity-0007_d",
           "label": "D",
           "text": "Uracil",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You used the RNA base. Uracil appears in RNA, and this question is about\nDNA."
         }
       ],
       "explanation": "In DNA, adenine (A) pairs specifically with thymine (T), while cytosine (C) pairs with guanine (G)."
@@ -76024,19 +76141,22 @@
           "id": "q-biology-genetics-and-heredity-0008_b",
           "label": "B",
           "text": "Guanine",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a base that appears in both DNA and RNA unchanged."
         },
         {
           "id": "q-biology-genetics-and-heredity-0008_c",
           "label": "C",
           "text": "Cytosine",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a base that appears in both unchanged."
         },
         {
           "id": "q-biology-genetics-and-heredity-0008_d",
           "label": "D",
           "text": "Adenine",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the base that pairs with thymine rather than the one that\nreplaces it."
         }
       ],
       "explanation": "RNA uses uracil (U) in place of thymine (T); adenine in the DNA template pairs with uracil in the mRNA copy."
@@ -76065,19 +76185,22 @@
           "id": "q-biology-genetics-and-heredity-0009_b",
           "label": "B",
           "text": "2, 1, 3, 4",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You put translation before transcription. The message has to be written\nbefore it can be read."
         },
         {
           "id": "q-biology-genetics-and-heredity-0009_c",
           "label": "C",
           "text": "4, 3, 1, 2",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You ran the sequence backwards, ending where it starts."
         },
         {
           "id": "q-biology-genetics-and-heredity-0009_d",
           "label": "D",
           "text": "2, 3, 4, 1",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You put the protein before the step that builds it."
         }
       ],
       "explanation": "The central dogma flows: DNA → (transcription) → mRNA → (translation) → protein."
@@ -76106,19 +76229,22 @@
           "id": "q-biology-genetics-and-heredity-0010_b",
           "label": "B",
           "text": "Dominant: the child inheriting the trait means at least one parent must be a hidden dominant carrier.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You called it dominant. A dominant trait shows in anyone carrying it, so\nat least one parent would show it."
         },
         {
           "id": "q-biology-genetics-and-heredity-0010_c",
           "label": "C",
           "text": "It could be equally either, with no way to distinguish from this pattern.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said it cannot be told apart. Two unaffected parents with an affected\nchild is the recessive pattern."
         },
         {
           "id": "q-biology-genetics-and-heredity-0010_d",
           "label": "D",
           "text": "Sex-linked, regardless of whether it is dominant or recessive.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You called it sex-linked. Nothing here points at the sex chromosomes."
         }
       ],
       "explanation": "If the trait were dominant, it would show in at least one parent, since a dominant allele always shows its effect with just one copy. Since neither parent shows it, both must silently carry one recessive allele, and the child inherited both."
@@ -76147,19 +76273,22 @@
           "id": "q-biology-genetics-and-heredity-0011_b",
           "label": "B",
           "text": "Yes: genotype and phenotype are the same thing.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You treated the two words as one. The letters are the genotype and the\nvisible trait is the phenotype."
         },
         {
           "id": "q-biology-genetics-and-heredity-0011_c",
           "label": "C",
           "text": "No: the phenotype should be \"$TT$\" instead.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You changed the letters. Neither letter pair is a phenotype."
         },
         {
           "id": "q-biology-genetics-and-heredity-0011_d",
           "label": "D",
           "text": "Yes: phenotype always refers to the letter combination.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said a phenotype is a letter combination. It is what you can see."
         }
       ],
       "explanation": "Genotype is the genetic makeup (the letters, $Tt$). Phenotype is the physical expression (the word \"tall\"). The question asked for phenotype, so the answer should be \"tall,\" not \"$Tt$.\""
@@ -76188,19 +76317,22 @@
           "id": "q-biology-genetics-and-heredity-0012_b",
           "label": "B",
           "text": "Yes: incomplete dominance and codominance always describe the same outcome.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said the two are the same. One blends the traits and the other shows\nboth at once."
         },
         {
           "id": "q-biology-genetics-and-heredity-0012_c",
           "label": "C",
           "text": "No: incomplete dominance only applies to blood type, and codominance only applies to flowers.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You tied one of them to blood type only. Codominance covers more than\nthat, and blending is a separate pattern."
         },
         {
           "id": "q-biology-genetics-and-heredity-0012_d",
           "label": "D",
           "text": "Yes: both terms mean one allele is completely masked by the other.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You described plain dominance, where one version hides the other. Neither\nof these two does that."
         }
       ],
       "explanation": "Pink flowers (a genuinely blended new color) show incomplete dominance. Blood type AB (both A and B markers fully present, unblended) shows codominance: a real distinction between blending and full side-by-side expression."
@@ -76229,19 +76361,22 @@
           "id": "q-biology-genetics-and-heredity-0013_b",
           "label": "B",
           "text": "Yes: mRNA and DNA both use thymine identically.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said both use thymine. RNA swaps thymine for uracil."
         },
         {
           "id": "q-biology-genetics-and-heredity-0013_c",
           "label": "C",
           "text": "No: but only because mRNA never contains adenine either.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said RNA has no adenine. It does: adenine is in both."
         },
         {
           "id": "q-biology-genetics-and-heredity-0013_d",
           "label": "D",
           "text": "Yes: uracil and thymine are interchangeable in every context.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You called them interchangeable. Each belongs to one of the two molecules."
         }
       ],
       "explanation": "RNA substitutes uracil (U) wherever DNA would use thymine (T). An mRNA sequence containing thymine is incorrect."
@@ -76270,19 +76405,22 @@
           "id": "q-biology-genetics-and-heredity-0014_b",
           "label": "B",
           "text": "Yes: dominant traits can appear in a child even if neither parent shows them.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said a dominant trait can skip both parents. It cannot: anyone\ncarrying it shows it."
         },
         {
           "id": "q-biology-genetics-and-heredity-0014_c",
           "label": "C",
           "text": "No: but only because pedigrees cannot show recessive traits at all.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said a pedigree cannot show a recessive trait. This is exactly the\npattern that does."
         },
         {
           "id": "q-biology-genetics-and-heredity-0014_d",
           "label": "D",
           "text": "Yes: this pattern is equally consistent with either dominant or recessive traits.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said the pattern fits either. Unaffected parents with an affected\nchild rules dominance out."
         }
       ],
       "explanation": "A dominant trait always shows in at least one parent carrying it, since one copy is enough to display it. Two unaffected parents producing an affected child is only possible if the trait is recessive."
@@ -76311,19 +76449,22 @@
           "id": "q-biology-genetics-and-heredity-0015_b",
           "label": "B",
           "text": "3/4",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You used the cross between two heterozygous parents. One parent here\ncarries no dominant letter at all."
         },
         {
           "id": "q-biology-genetics-and-heredity-0015_c",
           "label": "C",
           "text": "1/4",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You quartered it. Half the boxes carry the dominant letter in this cross."
         },
         {
           "id": "q-biology-genetics-and-heredity-0015_d",
           "label": "D",
           "text": "1",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said all of them. The recessive parent passes a recessive letter every\ntime."
         }
       ],
       "explanation": "The offspring genotypes are $Aa$, $Aa$, $aa$, $aa$: 2 out of 4 show the dominant phenotype (having at least one $A$): $\\dfrac{2}{4} = \\dfrac{1}{2}$."
@@ -77012,19 +77153,22 @@
           "id": "q-biology-taxonomy-and-classification-0001_b",
           "label": "B",
           "text": "Kingdom, Domain, Phylum, Class, Order, Family, Genus, Species",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You put Kingdom above Domain. Domain is the widest of them all, and\nKingdom sits inside it."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0001_c",
           "label": "C",
           "text": "Domain, Kingdom, Class, Phylum, Order, Family, Genus, Species",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You swapped Class and Phylum. Phylum is the wider of the two."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0001_d",
           "label": "D",
           "text": "Species, Genus, Family, Order, Class, Phylum, Kingdom, Domain",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You ran the list backwards, starting at the narrowest rank and\nending at the widest."
         }
       ],
       "explanation": "The fixed hierarchy, broadest to most specific, is: Domain, Kingdom, Phylum, Class, Order, Family, Genus, Species (remembered as \"Dear King Philip Came Over For Good Soup\")."
@@ -77053,19 +77197,22 @@
           "id": "q-biology-taxonomy-and-classification-0002_b",
           "label": "B",
           "text": "Animalia, Plantae, and Fungi",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You named kingdoms. Those sit inside one domain rather than being domains\nthemselves."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0002_c",
           "label": "C",
           "text": "Bacteria, Protista, and Animalia",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You mixed a domain with two groups that are not domains."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0002_d",
           "label": "D",
           "text": "Eukarya, Kingdom, and Phylum",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You mixed one real domain with two rank names. Kingdom and Phylum are\nlevels in the list, not groups of organisms."
         }
       ],
       "explanation": "The three domains are Bacteria, Archaea (both simple cells without a nucleus), and Eukarya (cells with a nucleus, including plants, animals, fungi, and protists)."
@@ -77094,19 +77241,22 @@
           "id": "q-biology-taxonomy-and-classification-0003_b",
           "label": "B",
           "text": "Bacteria, Archaea, Animalia, and Plantae",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You included two domains. Those sit above kingdom, not inside Eukarya."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0003_c",
           "label": "C",
           "text": "Domain, Phylum, Class, and Order",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You listed rank names instead of the kingdoms themselves."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0003_d",
           "label": "D",
           "text": "Genus, Species, Family, and Order",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You listed ranks again, and these ones sit below kingdom."
         }
       ],
       "explanation": "Within Eukarya, life is commonly organized into Animalia (animals), Plantae (plants), Fungi (fungi), and Protista (mostly single-celled organisms)."
@@ -77135,19 +77285,22 @@
           "id": "q-biology-taxonomy-and-classification-0004_b",
           "label": "B",
           "text": "\"leo\" is the genus; \"Panthera\" is the species name.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You have the two the wrong way round. The genus comes first and starts\nwith a capital."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0004_c",
           "label": "C",
           "text": "Both words together form the genus name only.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You made both words the genus. The first word alone is the genus."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0004_d",
           "label": "D",
           "text": "Both words together form the species name only.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You made both words the species name. The second word alone is the\nspecies."
         }
       ],
       "explanation": "The first word, capitalized, is the genus (*Panthera*, shared with other big cats). The second word, lowercase, is the specific species name (*leo*)."
@@ -77176,19 +77329,22 @@
           "id": "q-biology-taxonomy-and-classification-0005_b",
           "label": "B",
           "text": "Charles Darwin",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the one who explained how species change over time."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0005_c",
           "label": "C",
           "text": "Gregor Mendel",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the one who worked out how traits pass from parent to child."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0005_d",
           "label": "D",
           "text": "Louis Pasteur",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the one who showed that germs cause disease."
         }
       ],
       "explanation": "Carl Linnaeus created binomial nomenclature, the two-part naming system still used for species today."
@@ -77217,19 +77373,22 @@
           "id": "q-biology-taxonomy-and-classification-0006_b",
           "label": "B",
           "text": "Scientific names are always shorter and easier to pronounce than common names.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You made it about length. A scientific name can be longer; what matters is\nthat it means one thing everywhere."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0006_c",
           "label": "C",
           "text": "Common names are not allowed to be used in any scientific writing.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said common names are banned. They are used all the time, just not as\nthe precise label."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0006_d",
           "label": "D",
           "text": "Scientific names change depending on the region, just like common names.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said scientific names vary by region. That is the problem they exist\nto solve."
         }
       ],
       "explanation": "Common names vary by region and language, causing confusion. A standardized scientific name, following binomial nomenclature, ensures scientists everywhere know exactly which organism is being discussed."
@@ -77258,19 +77417,22 @@
           "id": "q-biology-taxonomy-and-classification-0007_b",
           "label": "B",
           "text": "Yes: Kingdom is broader than Domain.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You put Kingdom above Domain. Domain is the widest rank there is."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0007_c",
           "label": "C",
           "text": "No: Phylum should actually come before both Kingdom and Domain.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You moved Phylum to the top. It sits below both."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0007_d",
           "label": "D",
           "text": "Yes: the order of Domain and Kingdom does not matter.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said the order does not matter. The whole point of the list is that it\nruns widest to narrowest."
         }
       ],
       "explanation": "Domain is the broadest classification rank, always placed first, with Kingdom nested inside it: reversing this order is a common mistake."
@@ -77299,19 +77461,22 @@
           "id": "q-biology-taxonomy-and-classification-0008_b",
           "label": "B",
           "text": "Yes: both the genus and species names should always be capitalized.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You capitalised both. Only the genus takes a capital; the species stays\nlowercase."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0008_c",
           "label": "C",
           "text": "No: neither word should ever be capitalized.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You lowercased both. The genus keeps its capital."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0008_d",
           "label": "D",
           "text": "Yes: capitalization rules do not apply to scientific names.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said the rules do not apply. They are the rules that make the name\nrecognisable."
         }
       ],
       "explanation": "Binomial nomenclature capitalizes only the genus name; the species name is always lowercase. \"*Homo Sapiens*\" incorrectly capitalizes both words."
@@ -77340,19 +77505,22 @@
           "id": "q-biology-taxonomy-and-classification-0009_b",
           "label": "B",
           "text": "Yes: Kingdom remains the broadest rank in every classification system.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You kept Kingdom at the top. Domain sits above it, and each domain holds\nseveral kingdoms."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0009_c",
           "label": "C",
           "text": "No: but only because kingdoms no longer exist in modern taxonomy.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said kingdoms no longer exist. They do; they simply are not the widest\nrank any more."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0009_d",
           "label": "D",
           "text": "Yes: Domain and Kingdom refer to the exact same level of classification.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You made the two the same rank. Domain is one level wider."
         }
       ],
       "explanation": "In the modern three-domain system, each domain contains multiple kingdoms (Eukarya contains Animalia, Plantae, Fungi, and Protista), making Domain the broader rank."
@@ -77381,19 +77549,22 @@
           "id": "q-biology-taxonomy-and-classification-0010_b",
           "label": "B",
           "text": "Lowercase and italicized",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You lowercased the genus. It takes a capital."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0010_c",
           "label": "C",
           "text": "Capitalized, not italicized",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You dropped the italics. Both parts of the name are italicised."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0010_d",
           "label": "D",
           "text": "All uppercase letters",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You used all capitals. Only the first letter of the genus is capitalised."
         }
       ],
       "explanation": "The genus name is capitalized and, along with the species name, written in italics (or underlined by hand)."
@@ -77422,19 +77593,22 @@
           "id": "q-biology-taxonomy-and-classification-0011_b",
           "label": "B",
           "text": "Capitalized and italicized",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You capitalised the species. That capital belongs to the genus only."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0011_c",
           "label": "C",
           "text": "Lowercase, not italicized",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You dropped the italics. Both parts are italicised."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0011_d",
           "label": "D",
           "text": "All uppercase letters",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You used all capitals. The species name is lowercase throughout."
         }
       ],
       "explanation": "The species name is always lowercase, written in italics alongside the capitalized genus name."
@@ -77463,19 +77637,22 @@
           "id": "q-biology-taxonomy-and-classification-0012_b",
           "label": "B",
           "text": "Bacteria",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a domain whose cells have no nucleus."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0012_c",
           "label": "C",
           "text": "Archaea",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked the other domain without a nucleus."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0012_d",
           "label": "D",
           "text": "Protista",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You picked a kingdom rather than a domain, and it sits inside the one with\nnuclei."
         }
       ],
       "explanation": "Eukarya includes all organisms whose cells have a nucleus, including plants, animals, fungi, and protists. Bacteria and Archaea are both made of simple cells without a nucleus."
@@ -77504,19 +77681,22 @@
           "id": "q-biology-taxonomy-and-classification-0013_b",
           "label": "B",
           "text": "A and C are more closely related, since kingdom is a more important rank than genus.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You read a wider shared rank as closer. Sharing a kingdom is the loosest\nkind of relation there is."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0013_c",
           "label": "C",
           "text": "Both pairs are equally related, since rank sharing does not indicate relatedness.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You made every shared rank count the same. The narrower the shared rank,\nthe closer the relationship."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0013_d",
           "label": "D",
           "text": "Relatedness cannot be determined from shared classification ranks.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said it cannot be told. The shared rank is exactly what tells you."
         }
       ],
       "explanation": "The more classification ranks two organisms share, the more closely related they are. Sharing the same genus (a much more specific rank) indicates closer relatedness than only sharing the same kingdom (a much broader rank)."
@@ -77545,19 +77725,22 @@
           "id": "q-biology-taxonomy-and-classification-0014_b",
           "label": "B",
           "text": "They must be the exact same species, since they share a name.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You made them one species. They share the genus and differ in the species\nname, which is what makes them two."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0014_c",
           "label": "C",
           "text": "They are unrelated, since their species names (\"tigris\" and \"leo\") are different.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You read different species names as unrelated. The shared genus is the\nrelation."
         },
         {
           "id": "q-biology-taxonomy-and-classification-0014_d",
           "label": "D",
           "text": "Nothing can be concluded from their scientific names.",
-          "isCorrect": false
+          "isCorrect": false,
+          "rationale": "You said the names say nothing. The first word says they belong to the\nsame close group."
         }
       ],
       "explanation": "Since both species share the genus *Panthera*, they are closely related big cats: sharing a genus indicates a much closer relationship than organisms that only share a broader rank."

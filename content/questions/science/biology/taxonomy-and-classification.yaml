@@ -13,8 +13,16 @@ questions:
       - text: Domain, Kingdom, Phylum, Class, Order, Family, Genus, Species
         correct: true
       - text: Kingdom, Domain, Phylum, Class, Order, Family, Genus, Species
+        rationale: |
+          You put Kingdom above Domain. Domain is the widest of them all, and
+          Kingdom sits inside it.
       - text: Domain, Kingdom, Class, Phylum, Order, Family, Genus, Species
+        rationale: |
+          You swapped Class and Phylum. Phylum is the wider of the two.
       - text: Species, Genus, Family, Order, Class, Phylum, Kingdom, Domain
+        rationale: |
+          You ran the list backwards, starting at the narrowest rank and
+          ending at the widest.
     explanation: |
       The fixed hierarchy, broadest to most specific, is: Domain, Kingdom, Phylum, Class, Order, Family, Genus, Species (remembered as "Dear King Philip Came Over For Good Soup").
     approved: true
@@ -28,8 +36,16 @@ questions:
       - text: Bacteria, Archaea, and Eukarya
         correct: true
       - text: Animalia, Plantae, and Fungi
+        rationale: |
+          You named kingdoms. Those sit inside one domain rather than being domains
+          themselves.
       - text: Bacteria, Protista, and Animalia
+        rationale: |
+          You mixed a domain with two groups that are not domains.
       - text: Eukarya, Kingdom, and Phylum
+        rationale: |
+          You mixed one real domain with two rank names. Kingdom and Phylum are
+          levels in the list, not groups of organisms.
     explanation: |
       The three domains are Bacteria, Archaea (both simple cells without a nucleus), and Eukarya (cells with a nucleus, including plants, animals, fungi, and protists).
     approved: true
@@ -43,8 +59,14 @@ questions:
       - text: Animalia, Plantae, Fungi, and Protista
         correct: true
       - text: Bacteria, Archaea, Animalia, and Plantae
+        rationale: |
+          You included two domains. Those sit above kingdom, not inside Eukarya.
       - text: Domain, Phylum, Class, and Order
+        rationale: |
+          You listed rank names instead of the kingdoms themselves.
       - text: Genus, Species, Family, and Order
+        rationale: |
+          You listed ranks again, and these ones sit below kingdom.
     explanation: |
       Within Eukarya, life is commonly organized into Animalia (animals), Plantae (plants), Fungi (fungi), and Protista (mostly single-celled organisms).
     approved: true
@@ -58,8 +80,16 @@ questions:
       - text: "\"Panthera\" is the genus; \"leo\" is the species name."
         correct: true
       - text: "\"leo\" is the genus; \"Panthera\" is the species name."
+        rationale: |
+          You have the two the wrong way round. The genus comes first and starts
+          with a capital.
       - text: Both words together form the genus name only.
+        rationale: |
+          You made both words the genus. The first word alone is the genus.
       - text: Both words together form the species name only.
+        rationale: |
+          You made both words the species name. The second word alone is the
+          species.
     explanation: |
       The first word, capitalized, is the genus (*Panthera*, shared with other big cats). The second word, lowercase, is the specific species name (*leo*).
     approved: true
@@ -73,10 +103,16 @@ questions:
       - text: Carl Linnaeus
         correct: true
       - text: Charles Darwin
+        rationale: |
+          You picked the one who explained how species change over time.
         correct: false
       - text: Gregor Mendel
+        rationale: |
+          You picked the one who worked out how traits pass from parent to child.
         correct: false
       - text: Louis Pasteur
+        rationale: |
+          You picked the one who showed that germs cause disease.
         correct: false
     explanation: |
       Carl Linnaeus created binomial nomenclature, the two-part naming system still used for species today.
@@ -91,8 +127,17 @@ questions:
       - text: A scientific name is standardized worldwide, so it always refers to the exact same species, avoiding the confusion that varying common names create.
         correct: true
       - text: Scientific names are always shorter and easier to pronounce than common names.
+        rationale: |
+          You made it about length. A scientific name can be longer; what matters is
+          that it means one thing everywhere.
       - text: Common names are not allowed to be used in any scientific writing.
+        rationale: |
+          You said common names are banned. They are used all the time, just not as
+          the precise label.
       - text: Scientific names change depending on the region, just like common names.
+        rationale: |
+          You said scientific names vary by region. That is the problem they exist
+          to solve.
     explanation: |
       Common names vary by region and language, causing confusion. A standardized scientific name, following binomial nomenclature, ensures scientists everywhere know exactly which organism is being discussed.
     approved: true
@@ -106,8 +151,15 @@ questions:
       - text: 'No: Domain is the broadest rank and always comes first; Kingdom comes after Domain.'
         correct: true
       - text: 'Yes: Kingdom is broader than Domain.'
+        rationale: |
+          You put Kingdom above Domain. Domain is the widest rank there is.
       - text: 'No: Phylum should actually come before both Kingdom and Domain.'
+        rationale: |
+          You moved Phylum to the top. It sits below both.
       - text: 'Yes: the order of Domain and Kingdom does not matter.'
+        rationale: |
+          You said the order does not matter. The whole point of the list is that it
+          runs widest to narrowest.
     explanation: |
       Domain is the broadest classification rank, always placed first, with Kingdom nested inside it: reversing this order is a common mistake.
     approved: true
@@ -121,8 +173,16 @@ questions:
       - text: 'No: only the genus name is capitalized; the species name is always lowercase, so it should be "*Homo sapiens*."'
         correct: true
       - text: 'Yes: both the genus and species names should always be capitalized.'
+        rationale: |
+          You capitalised both. Only the genus takes a capital; the species stays
+          lowercase.
       - text: 'No: neither word should ever be capitalized.'
+        rationale: |
+          You lowercased both. The genus keeps its capital.
       - text: 'Yes: capitalization rules do not apply to scientific names.'
+        rationale: |
+          You said the rules do not apply. They are the rules that make the name
+          recognisable.
     explanation: |
       Binomial nomenclature capitalizes only the genus name; the species name is always lowercase. "*Homo Sapiens*" incorrectly capitalizes both words.
     approved: true
@@ -136,8 +196,16 @@ questions:
       - text: 'No: Domain is broader than Kingdom; each domain (like Eukarya) contains multiple kingdoms within it.'
         correct: true
       - text: 'Yes: Kingdom remains the broadest rank in every classification system.'
+        rationale: |
+          You kept Kingdom at the top. Domain sits above it, and each domain holds
+          several kingdoms.
       - text: 'No: but only because kingdoms no longer exist in modern taxonomy.'
+        rationale: |
+          You said kingdoms no longer exist. They do; they simply are not the widest
+          rank any more.
       - text: 'Yes: Domain and Kingdom refer to the exact same level of classification.'
+        rationale: |
+          You made the two the same rank. Domain is one level wider.
     explanation: |
       In the modern three-domain system, each domain contains multiple kingdoms (Eukarya contains Animalia, Plantae, Fungi, and Protista), making Domain the broader rank.
     approved: true
@@ -151,8 +219,14 @@ questions:
       - text: Capitalized and italicized
         correct: true
       - text: Lowercase and italicized
+        rationale: |
+          You lowercased the genus. It takes a capital.
       - text: Capitalized, not italicized
+        rationale: |
+          You dropped the italics. Both parts of the name are italicised.
       - text: All uppercase letters
+        rationale: |
+          You used all capitals. Only the first letter of the genus is capitalised.
     explanation: |
       The genus name is capitalized and, along with the species name, written in italics (or underlined by hand).
     approved: true
@@ -166,8 +240,14 @@ questions:
       - text: Lowercase and italicized
         correct: true
       - text: Capitalized and italicized
+        rationale: |
+          You capitalised the species. That capital belongs to the genus only.
       - text: Lowercase, not italicized
+        rationale: |
+          You dropped the italics. Both parts are italicised.
       - text: All uppercase letters
+        rationale: |
+          You used all capitals. The species name is lowercase throughout.
     explanation: |
       The species name is always lowercase, written in italics alongside the capitalized genus name.
     approved: true
@@ -181,8 +261,15 @@ questions:
       - text: Eukarya
         correct: true
       - text: Bacteria
+        rationale: |
+          You picked a domain whose cells have no nucleus.
       - text: Archaea
+        rationale: |
+          You picked the other domain without a nucleus.
       - text: Protista
+        rationale: |
+          You picked a kingdom rather than a domain, and it sits inside the one with
+          nuclei.
     explanation: |
       Eukarya includes all organisms whose cells have a nucleus, including plants, animals, fungi, and protists. Bacteria and Archaea are both made of simple cells without a nucleus.
     approved: true
@@ -196,8 +283,16 @@ questions:
       - text: A and B are more closely related, since sharing more specific ranks (like genus) indicates a closer relationship than only sharing a broad rank (like kingdom).
         correct: true
       - text: A and C are more closely related, since kingdom is a more important rank than genus.
+        rationale: |
+          You read a wider shared rank as closer. Sharing a kingdom is the loosest
+          kind of relation there is.
       - text: Both pairs are equally related, since rank sharing does not indicate relatedness.
+        rationale: |
+          You made every shared rank count the same. The narrower the shared rank,
+          the closer the relationship.
       - text: Relatedness cannot be determined from shared classification ranks.
+        rationale: |
+          You said it cannot be told. The shared rank is exactly what tells you.
     explanation: |
       The more classification ranks two organisms share, the more closely related they are. Sharing the same genus (a much more specific rank) indicates closer relatedness than only sharing the same kingdom (a much broader rank).
     approved: true
@@ -211,8 +306,17 @@ questions:
       - text: They share the same genus (Panthera), meaning they are closely related, more so than species that only share a broader rank like kingdom or phylum.
         correct: true
       - text: They must be the exact same species, since they share a name.
+        rationale: |
+          You made them one species. They share the genus and differ in the species
+          name, which is what makes them two.
       - text: They are unrelated, since their species names ("tigris" and "leo") are different.
+        rationale: |
+          You read different species names as unrelated. The shared genus is the
+          relation.
       - text: Nothing can be concluded from their scientific names.
+        rationale: |
+          You said the names say nothing. The first word says they belong to the
+          same close group.
     explanation: |
       Since both species share the genus *Panthera*, they are closely related big cats: sharing a genus indicates a much closer relationship than organisms that only share a broader rank.
     approved: true
