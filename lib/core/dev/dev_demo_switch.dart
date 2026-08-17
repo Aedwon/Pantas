@@ -162,6 +162,7 @@ Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async 
           ),
         );
       }
+
       final topicScores = [
         for (final id in topicIds)
           {
@@ -178,19 +179,25 @@ Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async 
         ),
       );
       
+      // Ensure we have enough questions to distribute
+      final questionIds = questions.map((q) => q.id).toList();
+      final mockQ1 = questionIds.isNotEmpty ? questionIds[0] : 'q_1';
+      final mockQ2 = questionIds.length > 1 ? questionIds[1] : 'q_2';
+
       // Generate 14 quiz attempts over the last 14 days
       for (int i = 0; i < 14; i++) {
         final daysAgo = 14 - i;
         final attemptDate = now.subtract(Duration(days: daysAgo, hours: 2));
         
-        final attemptItems = List.generate(10, (j) {
+        final attemptItems = List.generate(2, (j) {
           final isCorrect = rng.nextDouble() > 0.3; // 70% accuracy
           final responseMs = isCorrect ? 8000 + rng.nextInt(5000) : 15000 + rng.nextInt(10000); 
+          final qId = (j == 0) ? mockQ1 : mockQ2;
           return {
-            'questionId': 'q_mock_${i}_$j',
+            'questionId': qId,
             'questionVersion': 1,
             'chosenChoiceId': isCorrect ? 'c_1' : 'c_2',
-            'correctChoiceId': 'c_1',
+            'correctChoiceId': 'c_1', // Using fake choices, attempt reader doesn't check correctIndex for quizzes, just checks chosenChoiceId == correctChoiceId!
             'responseMs': responseMs,
           };
         });
@@ -215,6 +222,8 @@ Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async 
             questionIdsJson: '[]',
             startedAt: attemptDate,
             completedAt: Value(attemptDate.add(const Duration(minutes: 10))),
+            currentIndex: const Value(2),
+            correctCount: const Value(1),
           ),
         );
       }
@@ -224,6 +233,31 @@ Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async 
         final daysAgo = 10 - (i * 5); // 10 days ago, 5 days ago
         final attemptDate = now.subtract(Duration(days: daysAgo));
         
+        // Mock payload JSONs
+        final sampledQuestions = [
+          {
+            'sectionId': 'sec_1',
+            'name': 'Section 1',
+            'questionIds': [mockQ1, mockQ2],
+          }
+        ];
+        
+        final mockAnswers = {
+          mockQ1: {'selectedIndex': 0, 'atSec': 30},
+          mockQ2: {'selectedIndex': 1, 'atSec': 45}, 
+        };
+
+        final sectionResults = [
+          {
+            'sectionId': 'sec_1',
+            'name': 'Section 1',
+            'correct': 1,
+            'total': 2,
+            'retiredCount': 0,
+            'timeSeconds': 120,
+          }
+        ];
+
         await db.into(db.mockAttempts).insertOnConflictUpdate(
           MockAttemptsCompanion.insert(
             id: 'fake_mock_$i',
@@ -234,11 +268,12 @@ Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async 
             durationMinutes: 180,
             status: 'completed',
             strictMode: true,
-            sampledQuestionsJson: '[]',
-            elapsedSeconds: const Value(7200), // 2 hours
-            scoreRaw: Value(65 + (i * 10)), // 65, 75
+            sampledQuestionsJson: jsonEncode(sampledQuestions),
+            elapsedSeconds: const Value(7200),
+            scoreRaw: Value(65 + (i * 10)),
             scoreTotal: const Value(100),
-            answersJson: const Value('{"fake": "data"}'),
+            answersJson: Value(jsonEncode(mockAnswers)),
+            sectionResultsJson: Value(jsonEncode(sectionResults)),
             startedAt: attemptDate,
             lastFlushedAt: attemptDate,
             submittedAt: Value(attemptDate.add(const Duration(hours: 2))),
