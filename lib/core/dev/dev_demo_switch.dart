@@ -64,10 +64,19 @@ Future<void> _resetData(AppDatabase db, {bool clearPrefs = true}) async {
 }
 
 Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async {
-  final currentExamIdRow = await (db.select(db.appPreferencesLocal)
+  final currentExamIdRow = await (db.select(db.devicePrefs)
         ..where((t) => t.key.equals('selected_exam_id')))
       .getSingleOrNull();
-  final examId = currentExamIdRow?.value ?? 'exam_cse_pro';
+  
+  String? legacyExamId;
+  if (currentExamIdRow == null) {
+    final legacyRow = await (db.select(db.appPreferencesLocal)
+          ..where((t) => t.key.equals('selected_exam_id')))
+        .getSingleOrNull();
+    legacyExamId = legacyRow?.value;
+  }
+
+  final examId = currentExamIdRow?.value ?? legacyExamId ?? 'exam_cse_pro';
 
   await _resetData(db, clearPrefs: false);
 
@@ -75,14 +84,14 @@ Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async 
   
   await db.transaction(() async {
     // Pass the age gate and setup an exam
-    await db.into(db.appPreferencesLocal).insertOnConflictUpdate(
-      const AppPreferencesLocalCompanion(
+    await db.into(db.devicePrefs).insertOnConflictUpdate(
+      const DevicePrefsCompanion(
         key: Value('passed_age_gate'),
         value: Value('true'),
       ),
     );
-    await db.into(db.appPreferencesLocal).insertOnConflictUpdate(
-      AppPreferencesLocalCompanion(
+    await db.into(db.devicePrefs).insertOnConflictUpdate(
+      DevicePrefsCompanion(
         key: const Value('selected_exam_id'),
         value: Value(examId),
       ),
