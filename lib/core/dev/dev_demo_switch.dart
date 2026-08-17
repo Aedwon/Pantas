@@ -64,6 +64,7 @@ Future<void> _resetData(AppDatabase db, {bool clearPrefs = true}) async {
 }
 
 Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async {
+  print('DEMO: _populateFauxData CALLED!');
   final currentExamIdRow = await (db.select(db.devicePrefs)
         ..where((t) => t.key.equals('selected_exam_id')))
       .getSingleOrNull();
@@ -76,7 +77,16 @@ Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async 
     legacyExamId = legacyRow?.value;
   }
 
-  final examId = currentExamIdRow?.value ?? legacyExamId ?? 'exam_cse_pro';
+  String fallbackExamId = 'exam_cse_pro';
+  final activeExams = await (contentDb.select(contentDb.contentExams)
+        ..where((e) => e.isActive.equals(true)))
+      .get();
+  if (activeExams.isNotEmpty) {
+    fallbackExamId = activeExams.first.id;
+  }
+
+  final examId = currentExamIdRow?.value ?? legacyExamId ?? fallbackExamId;
+  print('DEMO: Generating data for examId = $examId');
 
   await _resetData(db, clearPrefs: false);
 
@@ -167,6 +177,7 @@ Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async 
       final rng = Random();
 
       // 0. Assessment Result
+      print('DEMO: Injecting faux assessment result for exam $examId with topics: ${topics.length}');
       // Insert a faux assessment result so the Home tab thinks we took it.
       final topicScores = <Map<String, dynamic>>[];
       for (var i = 0; i < topics.length && i < 5; i++) {
@@ -177,13 +188,20 @@ Future<void> _populateFauxData(AppDatabase db, ContentDatabase contentDb) async 
         });
       }
       
-      await db.into(db.assessmentResultsLocal).insertOnConflictUpdate(
-        AssessmentResultsLocalCompanion.insert(
-          examId: examId,
-          completedAt: now.subtract(const Duration(days: 60)),
-          topicScoresJson: jsonEncode(topicScores),
-        ),
-      );
+      print('DEMO: topicScoresJson = ${jsonEncode(topicScores)}');
+      
+      try {
+        await db.into(db.assessmentResultsLocal).insertOnConflictUpdate(
+          AssessmentResultsLocalCompanion.insert(
+            examId: examId,
+            completedAt: now.subtract(const Duration(days: 60)),
+            topicScoresJson: jsonEncode(topicScores),
+          ),
+        );
+        print('DEMO: Inserted assessment result successfully!');
+      } catch (e, stack) {
+        print('DEMO ERROR: Failed to insert assessment result: $e\n$stack');
+      }
 
       // 1. Lesson Progress
       // Distribute lesson reads over the last 60 days
