@@ -71,7 +71,7 @@
       "name": "Ateneo College Entrance Test",
       "shortName": "ACET",
       "language": "en",
-      "isActive": false,
+      "isActive": true,
       "subjects": []
     },
     {
@@ -80,7 +80,7 @@
       "name": "De La Salle University College Admission Test",
       "shortName": "DLSUCET",
       "language": "en",
-      "isActive": false,
+      "isActive": true,
       "subjects": []
     },
     {
@@ -89,7 +89,7 @@
       "name": "UST Entrance Test",
       "shortName": "USTET",
       "language": "en",
-      "isActive": false,
+      "isActive": true,
       "subjects": []
     },
     {
@@ -98,7 +98,7 @@
       "name": "PUP College Entrance Test",
       "shortName": "PUPCET",
       "language": "en",
-      "isActive": false,
+      "isActive": true,
       "subjects": []
     },
     {
@@ -107,7 +107,7 @@
       "name": "Civil Service Examination: Subprofessional",
       "shortName": "CSE Sub",
       "language": "en",
-      "isActive": false,
+      "isActive": true,
       "subjects": []
     }
   ],
