@@ -15,7 +15,7 @@ isActive: true
 
 A **transversal** is a line that cuts across two or more lines. When a transversal cuts two parallel lines, it creates eight angles with beautiful rules.
 
-<!-- ILLUSTRATION: two horizontal parallel lines cut by a slanted transversal, with the eight angles numbered 1 to 8 (1-4 at the top intersection, 5-8 at the bottom) -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "transversal", "labels": ["1", "2", "3", "4", "5", "6", "7", "8"], "semanticsLabel": "Two parallel lines cut by a transversal with angles 1 through 4 at top intersection and 5 through 8 at bottom intersection."} -->
 
 The equal pairs:
 
@@ -38,7 +38,7 @@ These rules also work in reverse. If a transversal makes equal corresponding ang
 
 Lines $l$ and $m$ are parallel, cut by a transversal. One angle at the top crossing measures $65^\circ$. Find the measures of its linear pair neighbor, its corresponding angle, and its same-side interior angle.
 
-<!-- ILLUSTRATION: two parallel lines l and m cut by a transversal, with the eight angles formed; one top-crossing angle marked 65° and its linear pair, corresponding, and same-side interior angles highlighted -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "transversal", "labels": ["Line l", "Line m", "65°", "Linear pair: 115°", "Corresponding: 65°", "Same-side int: 115°"], "semanticsLabel": "Parallel lines l and m cut by a transversal with top angle 65 degrees and its linear pair, corresponding, and same-side interior angles."} -->
 
 
 **Solution:**
@@ -56,7 +56,7 @@ $$180 - 65 = 115$$
 
 Lines $p$ and $q$ are parallel. A transversal makes corresponding angles of $(2x + 30)^\circ$ and $(3x - 10)^\circ$. Find the measure of the angles.
 
-<!-- ILLUSTRATION: two parallel lines p and q cut by a transversal, with a corresponding-angle pair (same corner position at each crossing) marked (2x+30)° and (3x-10)° -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "transversal", "labels": ["Line p", "Line q", "Corresponding: (2x + 30)°", "Corresponding: (3x - 10)°"], "semanticsLabel": "Parallel lines p and q cut by a transversal with corresponding angles labeled 2x plus 30 degrees and 3x minus 10 degrees."} -->
 
 
 **Solution:**
@@ -77,7 +77,7 @@ $$40 = x$$
 
 Lines $a$ and $b$ are parallel. Two same-side interior angles measure $(3x + 20)^\circ$ and $(2x - 15)^\circ$. Find both angles.
 
-<!-- ILLUSTRATION: two parallel lines a and b cut by a transversal, with the two interior angles on the same side of the transversal marked (3x+20)° and (2x-15)°, noting they sum to 180° -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "transversal", "labels": ["Line a", "Line b", "(3x + 20)°", "(2x - 15)°", "Sum = 180°"], "semanticsLabel": "Parallel lines a and b with same-side interior angles labeled 3x plus 20 degrees and 2x minus 15 degrees summing to 180 degrees."} -->
 
 
 **Solution:**
@@ -104,7 +104,7 @@ $$x = 35$$
 
 Lines $l$ and $m$ are parallel. An alternate interior angle pair measures $(4x)^\circ$ and $(3x + 18)^\circ$. Solve for $x$.
 
-<!-- ILLUSTRATION: two parallel lines l and m cut by a transversal, with the alternate interior angles (interior, opposite sides of the transversal) marked (4x)° and (3x+18)°, noting they are equal -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "transversal", "labels": ["Line l", "Line m", "Alt interior: (4x)°", "Alt interior: (3x + 18)°"], "semanticsLabel": "Parallel lines l and m cut by a transversal with equal alternate interior angles labeled 4x degrees and 3x plus 18 degrees."} -->
 
 
 **Solution:**
@@ -124,13 +124,13 @@ $$x = 18$$
 
 Lines $l$ and $m$ are parallel. Point $P$ sits between them. A segment from line $l$ to $P$ makes a $30^\circ$ angle with $l$, and a segment from $P$ to line $m$ makes a $40^\circ$ angle with $m$. Find the angle at $P$ between the two segments.
 
-<!-- ILLUSTRATION: two parallel lines l (top) and m (bottom) with point P between them; a segment from l to P makes 30° with l, a segment from P to m makes 40° with m, forming a zigzag; a dashed line through P parallel to l and m splits the angle at P into 30° and 40° -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "parallel-zigzag", "labels": ["Line l", "Line m", "Point P", "30°", "40°", "Angle P = 30° + 40° = 70°"], "semanticsLabel": "Zigzag between parallel lines l and m with segments meeting at point P forming angles of 30 and 40 degrees with a parallel helper line."} -->
 
 
 **Solution:**
 This is a classic CET figure. The trick: draw a helper line through $P$ parallel to both lines.
 
-<!-- ILLUSTRATION: two horizontal parallel lines with point P between them, segments from each line meeting at P forming an angle, plus a dashed helper line through P parallel to both -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "parallel-zigzag", "labels": ["Top Line", "Bottom Line", "Point P", "Helper Line through P"], "semanticsLabel": "Two parallel lines with point P between them and a dashed helper line parallel to both splitting the vertex angle."} -->
 
 1. The helper line splits the angle at $P$ into two smaller angles.
 2. The upper part and the $30^\circ$ angle are alternate interior angles (a letter Z with line $l$). So the upper part is $30^\circ$.

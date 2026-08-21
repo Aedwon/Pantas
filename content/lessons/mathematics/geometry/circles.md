@@ -19,7 +19,7 @@ The parts, from the inside out:
 - **Secant**: a line that cuts through the circle at two points (a chord that keeps going).
 - **Tangent**: a line that touches the circle at exactly one point. A tangent is always perpendicular to the radius at the touching point.
 
-<!-- ILLUSTRATION: circle with labeled radius, diameter, chord, secant line crossing through, and tangent line touching at one point with a square mark against the radius -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "circle-elements", "labels": ["Radius", "Diameter", "Chord", "Secant", "Tangent", "Center O"], "semanticsLabel": "Circle showing center O, radius, diameter, chord, secant line crossing through, and tangent line perpendicular to the radius."} -->
 
 - **Arc**: a piece of the circle's edge, measured in degrees. The whole circle is $360^\circ$.
 - **Sector**: a pizza-slice region between two radii.
@@ -35,7 +35,7 @@ The two angle rules that CETs test most:
 - A **central angle** (vertex at the center) equals its intercepted arc.
 - An **inscribed angle** (vertex on the circle) equals half its intercepted arc.
 
-<!-- ILLUSTRATION: one circle showing a central angle of 80 degrees and an inscribed angle of 40 degrees intercepting the same arc -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "circle-inscribed-central", "labels": ["Central: 80°", "Inscribed: 40°", "Arc = 80°"], "semanticsLabel": "Circle showing a central angle of 80 degrees and an inscribed angle of 40 degrees intercepting the same 80 degree arc."} -->
 
 A famous special case: an angle inscribed in a semicircle is always $90^\circ$. If one side of an inscribed triangle is a diameter, that triangle is a right triangle.
 
@@ -47,7 +47,7 @@ Arcs and sectors are just fractions of the circle. An arc of $60^\circ$ is $\dfr
 
 A circle has a radius of $7$ cm. Find its circumference and area in terms of $\pi$.
 
-<!-- ILLUSTRATION: a circle with a radius of 7 cm drawn from the center to the edge and labeled -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "circle", "labels": ["r = 7 cm", "Center O"], "semanticsLabel": "Circle with center O and radius labeled r equals 7 cm."} -->
 
 
 **Solution:**
@@ -67,7 +67,7 @@ $$A = \pi (7)^2 = 49\pi \text{ cm}^2$$
 
 A circle has radius $6$. A central angle measures $60^\circ$. Find the arc length and the area of the sector.
 
-<!-- ILLUSTRATION: a circle of radius 6 with a 60° central angle drawn from the center, the intercepted arc and the pie-slice sector shaded -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "circle-sector", "labels": ["r = 6", "60°", "Sector", "Arc length s"], "semanticsLabel": "Circle of radius 6 with a 60 degree central angle and shaded sector."} -->
 
 
 **Solution:**
@@ -95,7 +95,7 @@ $$\dfrac{36\pi}{6} = 6\pi$$
 
 An inscribed angle intercepts an arc of $100^\circ$. Find the inscribed angle. Then: a central angle intercepting the same arc would measure how much?
 
-<!-- ILLUSTRATION: a circle with an inscribed angle (vertex on the circle) and a central angle (vertex at the center) both intercepting the same 100° arc; the inscribed angle is 50°, the central angle is 100° -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "circle-inscribed-central", "labels": ["Central: 100°", "Inscribed: 50°", "Arc = 100°"], "semanticsLabel": "Circle with central angle 100 degrees and inscribed angle 50 degrees intercepting the same 100 degree arc."} -->
 
 
 **Solution:**
@@ -112,13 +112,13 @@ $$\dfrac{100}{2} = 50$$
 
 Triangle $ABC$ is inscribed in a circle, and side $AB$ is a diameter of length $10$. If $AC = 6$, find $BC$.
 
-<!-- ILLUSTRATION: a circle with triangle ABC inscribed, side AB as a diameter (length 10) through the center, the angle at C marked as a right angle (Thales' theorem), AC labeled 6 and BC labeled "?" -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "circle-inscribed-triangle", "labels": ["A", "B", "C", "Diameter AB = 10", "AC = 6", "BC = ?", "90° at C"], "semanticsLabel": "Circle with inscribed right triangle ABC where diameter AB is 10, side AC is 6, and side BC is marked with a question mark."} -->
 
 
 **Solution:**
 An angle inscribed in a semicircle is $90^\circ$, so angle $C$ is a right angle and $AB$ is the hypotenuse.
 
-<!-- ILLUSTRATION: circle with horizontal diameter AB of length 10, point C on the upper arc, triangle ABC drawn with right angle marked at C, AC labeled 6 -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "circle-inscribed-triangle", "labels": ["A", "B", "C", "AB = 10", "AC = 6", "90° at C"], "semanticsLabel": "Circle with diameter AB of length 10 and inscribed triangle ABC with right angle at C on the upper arc and AC equal to 6."} -->
 
 1. Apply the Pythagorean theorem with hypotenuse $10$.
 
@@ -142,13 +142,13 @@ $$BC = 8$$
 
 From a point $P$ outside a circle, the distance to the center is $13$ and the radius is $5$. How long is the tangent segment from $P$ to the circle?
 
-<!-- ILLUSTRATION: a circle with center O and radius 5 to the tangent point T, external point P with PO = 13, and the tangent PT meeting the radius at T with a right angle; PT labeled "?" -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "circle-tangent", "labels": ["Center O", "Point P", "Point T", "OT = 5", "OP = 13", "PT = ?", "90° at T"], "semanticsLabel": "Circle with center O, external point P at distance 13, radius OT equal to 5, and tangent PT labeled with a question mark meeting radius at a right angle."} -->
 
 
 **Solution:**
 The radius to the tangent point is perpendicular to the tangent. That builds a right triangle: radius $5$, tangent $t$, and hypotenuse $13$ (center to $P$).
 
-<!-- ILLUSTRATION: circle with center O, external point P, tangent segment from P touching the circle at T, radius OT drawn with a right angle mark at T, OP labeled 13 and OT labeled 5 -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "circle-tangent", "labels": ["Center O", "Point P", "Point T", "OT = 5", "OP = 13", "PT = t", "90° at T"], "semanticsLabel": "Circle with center O, external point P, tangent PT, and radius OT equal to 5 forming a right triangle with hypotenuse OP equal to 13."} -->
 
 1. Apply the Pythagorean theorem. The center-to-point distance is the hypotenuse.
 

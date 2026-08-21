@@ -19,7 +19,7 @@ Cosine is the $x$-coordinate. Sine is the $y$-coordinate. Tangent is their ratio
 
 $$\tan \theta = \dfrac{\sin \theta}{\cos \theta}$$
 
-<!-- ILLUSTRATION: unit circle with an angle theta drawn from the positive x-axis, the intersection point labeled (cos theta, sin theta) with dashed lines to both axes -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["θ", "P(cos θ, sin θ)", "x = cos θ", "y = sin θ", "r = 1"], "semanticsLabel": "Unit circle with angle theta from positive x-axis and intersection point labeled cos theta comma sin theta."} -->
 
 The exact values for the first-quadrant standard angles must live in your memory:
 
@@ -33,7 +33,7 @@ For angles beyond $90^\circ$, use two tools:
 
 **Tool 2, the quadrant signs**: the quadrant decides the sign. Since cosine is $x$ and sine is $y$, just picture where the point sits. Quadrant I: all positive. Quadrant II: only sine positive. Quadrant III: only tangent positive. Quadrant IV: only cosine positive.
 
-<!-- ILLUSTRATION: unit circle divided into four quadrants labeled with which functions are positive in each: All, Sine, Tangent, Cosine -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle-quadrants", "labels": ["Q I: All (+)", "Q II: Sine (+)", "Q III: Tangent (+)", "Q IV: Cosine (+)"], "semanticsLabel": "Unit circle divided into four quadrants showing which trigonometric functions are positive: All, Sine, Tangent, and Cosine."} -->
 
 ## Mnemonics & Memory Aids
 
@@ -51,7 +51,7 @@ For the sine values of $0^\circ, 30^\circ, 45^\circ, 60^\circ, 90^\circ$, use th
 
 Find the exact value of $\cos 120^\circ$.
 
-<!-- ILLUSTRATION: a unit circle with the terminal ray at 120° in Quadrant II, its 60° reference angle to the negative x-axis marked, and the point (-1/2, √3/2) labeled -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["120°", "Reference angle: 60°", "(-1/2, √3/2)", "Quadrant II"], "semanticsLabel": "Unit circle with terminal ray at 120 degrees in Quadrant II, 60 degree reference angle, and coordinates negative 1 half comma square root 3 over 2."} -->
 
 
 **Solution:**
@@ -70,7 +70,7 @@ $$\cos 120^\circ = -\dfrac{1}{2}$$
 
 Find the exact value of $\sin 225^\circ$.
 
-<!-- ILLUSTRATION: a unit circle with the terminal ray at 225° in Quadrant III, its 45° reference angle marked, and the point (-√2/2, -√2/2) labeled -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["225°", "Reference angle: 45°", "(-√2/2, -√2/2)", "Quadrant III"], "semanticsLabel": "Unit circle with terminal ray at 225 degrees in Quadrant III, 45 degree reference angle, and coordinates negative root 2 over 2 comma negative root 2 over 2."} -->
 
 
 **Solution:**
@@ -89,7 +89,7 @@ $$\sin 225^\circ = -\dfrac{\sqrt{2}}{2}$$
 
 Find the exact value of $\tan 300^\circ$.
 
-<!-- ILLUSTRATION: a unit circle with the terminal ray at 300° in Quadrant IV, its 60° reference angle marked, and the point (1/2, -√3/2) labeled -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["300°", "Reference angle: 60°", "(1/2, -√3/2)", "Quadrant IV"], "semanticsLabel": "Unit circle with terminal ray at 300 degrees in Quadrant IV, 60 degree reference angle, and coordinates 1 half comma negative root 3 over 2."} -->
 
 
 **Solution:**
@@ -108,7 +108,7 @@ $$\tan 300^\circ = -\sqrt{3}$$
 
 Find $\sin(-30^\circ)$, $\cos 180^\circ$, and $\sin 90^\circ$.
 
-<!-- ILLUSTRATION: a unit circle marking three positions: -30° (below the positive x-axis), 180° (point (-1, 0)), and 90° (point (0, 1)) -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["-30° (330°)", "180°: (-1, 0)", "90°: (0, 1)"], "semanticsLabel": "Unit circle marking positions negative 30 degrees, 180 degrees at negative 1 comma 0, and 90 degrees at 0 comma 1."} -->
 
 
 **Solution:**
@@ -130,7 +130,7 @@ $$\sin 90^\circ = 1$$
 
 Evaluate $\sin 150^\circ + \cos 300^\circ$.
 
-<!-- ILLUSTRATION: a unit circle marking 150° in Quadrant II (sin = 1/2) and 300° in Quadrant IV (cos = 1/2), so the sum is 1 -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["150° (sin = 1/2)", "300° (cos = 1/2)", "Sum = 1"], "semanticsLabel": "Unit circle marking 150 degrees in Quadrant II with sine 1 half and 300 degrees in Quadrant IV with cosine 1 half."} -->
 
 
 **Solution:**

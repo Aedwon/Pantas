@@ -17,7 +17,7 @@ The classic word problems use two special angles, both measured from the horizon
 
 **Angle of depression**: you look down from a high place. The angle opens downward from your horizontal line of sight to the object (a boat seen from a cliff).
 
-<!-- ILLUSTRATION: observer on the ground looking up at a bird with the elevation angle marked from the horizontal, and an observer on a cliff looking down at a boat with the depression angle marked from the horizontal -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "elevation-depression", "labels": ["Angle of Elevation (up from horizontal)", "Angle of Depression (down from horizontal)"], "semanticsLabel": "Diagram illustrating angle of elevation looking up from ground horizontal and angle of depression looking down from cliff horizontal."} -->
 
 Here is the key connection: the angle of depression from the top equals the angle of elevation from the bottom. They are alternate interior angles between two horizontal (parallel) lines. So you can always move the angle down into the triangle at the ground.
 
@@ -32,7 +32,7 @@ Picking the ratio is mechanical:
 
 From a point $30$ meters from the base of a tree, the angle of elevation of the treetop is $60^\circ$. How tall is the tree?
 
-<!-- ILLUSTRATION: a right triangle with a 30 m horizontal ground distance from an observer to a tree, the 60° angle of elevation at the observer, and the tree height marked "?" -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["Observer", "Tree height = ?", "Ground = 30 m", "Elevation = 60°", "90°"], "semanticsLabel": "Right triangle showing observer 30 meters from tree with 60 degree elevation angle and tree height marked with a question mark."} -->
 
 
 **Solution:**
@@ -56,7 +56,7 @@ $$h = 30\sqrt{3}$$
 
 A $10$-meter ladder leans against a wall, with its foot $5$ meters from the wall. What angle does the ladder make with the ground?
 
-<!-- ILLUSTRATION: a right triangle with a 10 m ladder as the hypotenuse against a wall, the foot 5 m from the wall along the ground, the angle with the ground marked "?" -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["Ladder = 10 m", "Ground distance = 5 m", "Angle with ground = ?", "90°"], "semanticsLabel": "Right triangle showing 10 meter ladder against wall with foot 5 meters from base and ground angle marked with a question mark."} -->
 
 
 **Solution:**
@@ -76,13 +76,13 @@ $$\theta = 60^\circ$$
 
 From the top of a $50$-meter lighthouse, the angle of depression of a boat is $30^\circ$. How far is the boat from the base of the lighthouse?
 
-<!-- ILLUSTRATION: a 50 m lighthouse with a horizontal line at the top, the 30° angle of depression down to a boat, and the horizontal distance from the base to the boat marked "?" -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "elevation-depression", "labels": ["Lighthouse = 50 m", "Depression = 30°", "Boat distance = ?", "90°"], "semanticsLabel": "Lighthouse of height 50 meters with 30 degree angle of depression to a boat and unknown horizontal distance marked with a question mark."} -->
 
 
 **Solution:**
 Slide the depression angle down: the angle of elevation at the boat is also $30^\circ$. Now it is a tangent problem.
 
-<!-- ILLUSTRATION: lighthouse of height 50 with a horizontal dashed line at the top, depression angle 30 degrees to a boat, and the equal elevation angle marked at the boat -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "elevation-depression", "labels": ["Height = 50 m", "Top depression = 30°", "Boat elevation = 30°", "Distance d"], "semanticsLabel": "Diagram showing 50 meter lighthouse with 30 degree angle of depression matching the 30 degree angle of elevation at the boat."} -->
 
 1. Set up the tangent from the boat's position.
 
@@ -102,7 +102,7 @@ $$d = 50\sqrt{3}$$
 
 In right triangle $ABC$, the right angle is at $C$, angle $A = 35^\circ$, and the hypotenuse is $40$. Find angle $B$ (exactly) and describe how to get sides $a$ and $b$.
 
-<!-- ILLUSTRATION: right triangle ABC with the right angle at C, angle A = 35°, hypotenuse AB = 40, and sides a (opposite A) and b (opposite B) marked -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["A = 35°", "B = 55°", "C = 90°", "Hypotenuse c = 40", "Side a", "Side b"], "semanticsLabel": "Right triangle ABC with right angle at C, angle A equal to 35 degrees, angle B equal to 55 degrees, hypotenuse 40, and legs a and b."} -->
 
 
 **Solution:**
@@ -126,13 +126,13 @@ $$b = 40 \cos 35^\circ$$
 
 From point $A$ on level ground, the angle of elevation of the top of a building is $30^\circ$. After walking $100$ meters straight toward the building to point $B$, the angle of elevation becomes $60^\circ$. Find the height of the building.
 
-<!-- ILLUSTRATION: a building of height "?" with two observation points on the ground; point A farther away with a 30° angle of elevation, point B 100 m closer with a 60° angle of elevation -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "two-triangles-elevation", "labels": ["Point A: 30°", "Point B: 60°", "Distance AB = 100 m", "Building height = ?"], "semanticsLabel": "Diagram of two observation points A and B on ground with 30 and 60 degree elevation angles to a building 100 meters apart."} -->
 
 
 **Solution:**
 Two triangles share the same height. Let $x$ be the distance from $B$ to the building.
 
-<!-- ILLUSTRATION: building with two observers on the same side, far point A with 30 degree elevation, near point B with 60 degree elevation, distance 100 between A and B, distance x from B to the base -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "two-triangles-elevation", "labels": ["Point A (30°)", "Point B (60°)", "AB = 100", "Base distance = x", "Height = h"], "semanticsLabel": "Building with two observers A and B on same side showing elevation angles 30 and 60 degrees, separation 100, and distance x to base."} -->
 
 1. From point $B$:
 

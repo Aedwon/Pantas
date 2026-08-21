@@ -19,7 +19,7 @@ $$d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$
 
 This is secretly the Pythagorean theorem. The horizontal change and vertical change are the legs, and the distance is the hypotenuse.
 
-<!-- ILLUSTRATION: two points on a grid joined by a slanted segment, with a dashed horizontal leg and dashed vertical leg forming a right triangle -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "coordinate-geometry", "labels": ["(x1, y1)", "(x2, y2)", "dx = x2 - x1", "dy = y2 - y1", "Distance d"], "semanticsLabel": "Grid diagram showing two points joined by a segment forming a right triangle with horizontal and vertical distance legs."} -->
 
 The **midpoint** is the average of the coordinates:
 
@@ -52,7 +52,7 @@ To graph or compare lines fast, get them into $y = mx + b$ and read off $m$ and 
 
 Find the distance between $(-3, 4)$ and $(5, -2)$.
 
-<!-- ILLUSTRATION: a coordinate plane plotting (-3, 4) and (5, -2), the segment between them as the hypotenuse of a right triangle with horizontal leg 8 and vertical leg 6 -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "coordinate-geometry", "labels": ["(-3, 4)", "(5, -2)", "run = 8", "rise = 6", "d = ?"], "semanticsLabel": "Coordinate plane with points at negative 3 comma 4 and 5 comma negative 2 forming a right triangle with legs 8 and 6."} -->
 
 
 **Solution:**
@@ -80,7 +80,7 @@ $$d = \sqrt{100} = 10$$
 
 Find the midpoint of the segment joining $(2, -3)$ and $(-4, 7)$.
 
-<!-- ILLUSTRATION: a coordinate plane with points (2, -3) and (-4, 7) joined by a segment, its midpoint (-1, 2) marked in the middle -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "coordinate-geometry", "labels": ["(2, -3)", "(-4, 7)", "Midpoint (-1, 2)"], "semanticsLabel": "Coordinate plane showing segment connecting 2 comma negative 3 and negative 4 comma 7 with midpoint at negative 1 comma 2."} -->
 
 
 **Solution:**
@@ -100,7 +100,7 @@ $$\dfrac{-3 + 7}{2} = \dfrac{4}{2} = 2$$
 
 Find the equation of the line through $(1, 2)$ and $(4, 11)$ in slope-intercept form.
 
-<!-- ILLUSTRATION: a coordinate plane with points (1, 2) and (4, 11) and the line through them drawn, showing the rise and run between the points -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "coordinate-geometry", "labels": ["(1, 2)", "(4, 11)", "run = 3", "rise = 9", "slope m = 3"], "semanticsLabel": "Coordinate plane with points 1 comma 2 and 4 comma 11 showing rise of 9 and run of 3 along the line."} -->
 
 
 **Solution:**
@@ -125,7 +125,7 @@ $$b = -1$$
 
 Find the equation of the line perpendicular to $y = 2x + 3$ that passes through $(4, 1)$.
 
-<!-- ILLUSTRATION: a coordinate plane with the line y = 2x + 3 and a second line through (4, 1) crossing it at a right angle, showing the negative-reciprocal slope -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "coordinate-geometry", "labels": ["y = 2x + 3", "(4, 1)", "m1 = 2", "m2 = -1/2", "90°"], "semanticsLabel": "Coordinate plane with line y equals 2x plus 3 and perpendicular line through 4 comma 1 intersecting at a right angle."} -->
 
 
 **Solution:**
@@ -153,7 +153,7 @@ $$y = -\dfrac{1}{2}x + 3$$
 
 $M(3, -1)$ is the midpoint of segment $AB$. If $A$ is $(7, 4)$, find the coordinates of $B$.
 
-<!-- ILLUSTRATION: a coordinate plane with A(7, 4) and midpoint M(3, -1) marked, and B at (-1, -6) as the reflection of A across M -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "coordinate-geometry", "labels": ["A(7, 4)", "M(3, -1)", "B(-1, -6)"], "semanticsLabel": "Coordinate plane showing point A at 7 comma 4, midpoint M at 3 comma negative 1, and endpoint B at negative 1 comma negative 6."} -->
 
 
 **Solution:**

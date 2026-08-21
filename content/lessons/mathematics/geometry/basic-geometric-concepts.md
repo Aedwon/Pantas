@@ -21,7 +21,7 @@ A **ray** starts at one endpoint and goes on forever in one direction, like a la
 
 A **plane** is a flat surface that extends forever, like an endless tabletop. Points on the same line are **collinear**. Points on the same plane are **coplanar**.
 
-<!-- ILLUSTRATION: labeled diagram showing a point A, a line through A and B with arrows both ways, a segment CD, a ray EF, and a flat plane drawn as a parallelogram -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "basic-concepts", "labels": ["Point A", "Line AB", "Segment CD", "Ray EF", "Plane P"], "semanticsLabel": "Diagram of basic geometric elements showing point A, line AB with arrows at both ends, segment CD with endpoints, ray EF starting at E, and a flat plane drawn as a parallelogram."} -->
 
 An **angle** is formed by two rays that share an endpoint called the **vertex**. We measure angles in degrees.
 
@@ -31,7 +31,7 @@ An **angle** is formed by two rays that share an endpoint called the **vertex**.
 - **Straight angle**: exactly $180^\circ$. It looks like a line.
 - **Reflex angle**: bigger than $180^\circ$ but less than $360^\circ$.
 
-<!-- ILLUSTRATION: five small angles side by side labeled acute, right (with square corner mark), obtuse, straight, reflex -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "angle-gallery", "labels": ["Acute (<90°)", "Right (90°)", "Obtuse (>90°)", "Straight (180°)", "Reflex (>180°)"], "semanticsLabel": "Five angle types side by side showing acute, right with a square mark, obtuse, straight, and reflex angles."} -->
 
 Angles also come in important pairs.
 
@@ -41,7 +41,7 @@ Angles also come in important pairs.
 
 **Vertical angles** are the opposite angles formed when two lines cross, like the top and bottom of the letter X. Vertical angles are always equal.
 
-<!-- ILLUSTRATION: two lines crossing in an X, with the two pairs of vertical angles marked equal and one linear pair shaded -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "vertical-angles", "labels": ["Vertical Pair 1", "Vertical Pair 2", "Linear Pair (180°)"], "semanticsLabel": "Two lines crossing in an X with opposite vertical angle pairs marked equal and an adjacent linear pair."} -->
 
 An **angle bisector** is a ray that cuts an angle into two equal parts.
 
@@ -63,7 +63,7 @@ Or remember the shapes:
 
 An angle measures $24^\circ$ more than its complement. Find the angle.
 
-<!-- ILLUSTRATION: a right angle split by one ray into two parts, one marked x and the other its complement, with a note that the two differ by 24° -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "complementary-angles", "labels": ["x", "90° - x", "Diff = 24°"], "semanticsLabel": "A right angle split by a ray into two complementary angles x and 90 minus x that differ by 24 degrees."} -->
 
 
 **Solution:**
@@ -90,7 +90,7 @@ $$x = 33$$
 
 Two supplementary angles are in the ratio $2 : 3$. Find the two angles.
 
-<!-- ILLUSTRATION: a straight line split by one ray into two angles marked 2x and 3x, summing to 180° -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "supplementary-angles", "labels": ["2x", "3x", "Sum = 180°"], "semanticsLabel": "A straight line split by a ray into two supplementary angles labeled 2x and 3x summing to 180 degrees."} -->
 
 
 **Solution:**
@@ -114,7 +114,7 @@ $$x = 36$$
 
 Two lines intersect. One pair of vertical angles measures $(3x + 10)^\circ$ and $(5x - 20)^\circ$. Find the measure of these angles.
 
-<!-- ILLUSTRATION: two lines crossing to form an X, with the opposite (vertical) angle pair marked (3x+10)° and (5x-20)° -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "vertical-angles", "labels": ["(3x + 10)°", "(5x - 20)°"], "semanticsLabel": "Two intersecting lines forming an X with opposite vertical angles labeled 3x plus 10 degrees and 5x minus 20 degrees."} -->
 
 
 **Solution:**
@@ -139,13 +139,13 @@ $$x = 15$$
 
 Point $M$ is the midpoint of $\overline{AB}$. If $AM = 2x + 3$ and $MB = 3x - 7$, find the length of $\overline{AB}$.
 
-<!-- ILLUSTRATION: a segment AB with midpoint M, left part AM labeled (2x+3) and right part MB labeled (3x-7) -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "segment-midpoint", "labels": ["A", "M", "B", "2x + 3", "3x - 7"], "semanticsLabel": "Line segment AB with midpoint M dividing it into equal halves AM labeled 2x plus 3 and MB labeled 3x minus 7."} -->
 
 
 **Solution:**
 A midpoint makes the two halves equal.
 
-<!-- ILLUSTRATION: segment AB with midpoint M, left half labeled 2x + 3 and right half labeled 3x - 7 -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "segment-midpoint", "labels": ["A", "M", "B", "2x + 3", "3x - 7"], "semanticsLabel": "Segment AB with midpoint M showing left half 2x plus 3 equal to right half 3x minus 7."} -->
 
 1. Set the two halves equal.
 
@@ -166,7 +166,7 @@ $$AB = 23 + 23 = 46$$
 
 Three angles sit side by side on a straight line. They measure $(2x)^\circ$, $(3x + 10)^\circ$, and $(x + 20)^\circ$. Find the measure of the largest angle.
 
-<!-- ILLUSTRATION: a straight line with two rays from a point splitting the 180° into three adjacent angles marked (2x)°, (3x+10)°, (x+20)° -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "angles-on-line", "labels": ["(2x)°", "(3x + 10)°", "(x + 20)°", "180°"], "semanticsLabel": "A straight line with two rays creating three adjacent angles labeled 2x degrees, 3x plus 10 degrees, and x plus 20 degrees summing to 180 degrees."} -->
 
 
 **Solution:**

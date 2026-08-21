@@ -19,7 +19,7 @@ The **Triangle Inequality Theorem**: the sum of any two sides must be greater th
 
 The **Exterior Angle Theorem**: extend one side of a triangle and you create an exterior angle. That exterior angle equals the sum of the two remote interior angles (the two angles far from it).
 
-<!-- ILLUSTRATION: triangle with one side extended, exterior angle marked, and the two remote interior angles shaded to show they add up to it -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "triangle-exterior", "labels": ["Remote Interior 1", "Remote Interior 2", "Exterior Angle = Sum"], "semanticsLabel": "Triangle with base extended showing exterior angle equal to the sum of two remote interior angles."} -->
 
 Also useful: the longest side is always across from the biggest angle, and the shortest side is across from the smallest angle.
 
@@ -60,7 +60,7 @@ Two **special right triangles** appear on every CET:
 
 The angles of a triangle are in the ratio $1 : 2 : 3$. Find the angles and classify the triangle.
 
-<!-- ILLUSTRATION: a triangle with its three interior angles labeled x, 2x, 3x; the 3x angle is a right angle (small square), making it a right triangle -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle", "labels": ["x", "2x", "3x (90°)", "Sum = 180°"], "semanticsLabel": "Right triangle with interior angles in ratio 1 to 2 to 3 labeled x, 2x, and 3x with a right angle square."} -->
 
 
 **Solution:**
@@ -83,7 +83,7 @@ $$x = 30$$
 
 Two sides of a triangle measure $5$ and $9$. How many integer lengths are possible for the third side?
 
-<!-- ILLUSTRATION: a triangle with two sides labeled 5 and 9 and the third side labeled "?", with a number line showing the valid range 4 < third side < 14 -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "triangle", "labels": ["Side a = 5", "Side b = 9", "Side c = ?", "4 < c < 14"], "semanticsLabel": "Triangle with sides 5 and 9 and unknown third side bounded between 4 and 14."} -->
 
 
 **Solution:**
@@ -104,7 +104,7 @@ $$s > 9 - 5 = 4$$
 
 An exterior angle of a triangle measures $110^\circ$. One of the remote interior angles is $45^\circ$. Find the other remote interior angle.
 
-<!-- ILLUSTRATION: a triangle with one side extended to form an exterior angle marked 110°, one remote interior angle marked 45°, and the other remote interior angle marked "?" -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "triangle-exterior", "labels": ["45°", "?", "Exterior = 110°"], "semanticsLabel": "Triangle with extended side showing exterior angle 110 degrees, one remote interior angle 45 degrees, and the other marked with a question mark."} -->
 
 
 **Solution:**
@@ -124,13 +124,13 @@ $$x = 65$$
 
 A $1.5$-meter tall student casts a $2$-meter shadow. At the same time, a tree casts a $12$-meter shadow. How tall is the tree?
 
-<!-- ILLUSTRATION: two similar right triangles side by side: a 1.5 m student with a 2 m shadow, and a taller tree of height "?" with a 12 m shadow, sun rays at the same angle -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "similar-triangles", "labels": ["Student: h = 1.5 m", "Shadow = 2 m", "Tree: H = ?", "Shadow = 12 m", "Sun ray θ"], "semanticsLabel": "Two similar right triangles showing student height 1.5 meters with 2 meter shadow and tree height question mark with 12 meter shadow."} -->
 
 
 **Solution:**
 The sun's rays make similar triangles, so heights and shadows are proportional.
 
-<!-- ILLUSTRATION: side-by-side similar right triangles, small one of a student with height 1.5 and shadow 2, large one of a tree with height h and shadow 12, sun rays as matching hypotenuses -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "similar-triangles", "labels": ["Student: 1.5", "Shadow: 2", "Tree: h", "Shadow: 12", "1.5 / 2 = h / 12"], "semanticsLabel": "Similar right triangles for student and tree with matching sun ray angles and proportional height to shadow ratio."} -->
 
 1. Set up the proportion: height over shadow equals height over shadow.
 
@@ -150,7 +150,7 @@ $$h = 9$$
 
 A ladder $15$ feet long leans against a wall. Its foot is $9$ feet from the base of the wall. How high up the wall does the ladder reach?
 
-<!-- ILLUSTRATION: a right triangle formed by a wall and ground; the ladder (hypotenuse) is 15 ft, the base is 9 ft, the height up the wall is "?", with a right-angle mark at the wall-ground corner -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle", "labels": ["Ladder = 15 ft", "Base = 9 ft", "Height = ?", "90° wall corner"], "semanticsLabel": "Right triangle formed by wall and ground with 15 foot ladder hypotenuse, 9 foot base, and height marked with a question mark."} -->
 
 
 **Solution:**
@@ -178,7 +178,7 @@ $$h = 12$$
 
 Find the missing sides: (a) a $45^\circ$-$45^\circ$-$90^\circ$ triangle with a leg of $5$; (b) a $30^\circ$-$60^\circ$-$90^\circ$ triangle with a hypotenuse of $12$.
 
-<!-- ILLUSTRATION: two special right triangles: (a) a 45-45-90 triangle with legs 5 and hypotenuse 5√2; (b) a 30-60-90 triangle with hypotenuse 12, showing the short leg 6 and long leg 6√3 -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "special-right-triangles", "labels": ["45°-45°-90°: legs 5, hyp 5√2", "30°-60°-90°: hyp 12, short 6, long 6√3"], "semanticsLabel": "Two special right triangles showing a 45-45-90 triangle with legs 5 and a 30-60-90 triangle with hypotenuse 12."} -->
 
 
 **Solution:**

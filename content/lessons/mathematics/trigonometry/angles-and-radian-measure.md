@@ -15,7 +15,7 @@ You know degrees: a full circle is $360^\circ$, a straight line is $180^\circ$, 
 
 A **radian** measures angles using the circle itself. One radian is the angle you get when the arc is exactly as long as the radius. Wrap the radius along the edge of the circle: the angle it covers is $1$ radian.
 
-<!-- ILLUSTRATION: circle with radius r, an arc of the same length r marked along the edge, and the central angle labeled 1 radian -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "circle-arc", "labels": ["Radius r", "Arc length = r", "Central Angle = 1 rad"], "semanticsLabel": "Circle showing radius r, an arc of length r along the edge, and central angle 1 radian."} -->
 
 The bridge between the two languages:
 
@@ -91,7 +91,7 @@ $$-45^\circ = -\dfrac{\pi}{4}$$
 
 Find the angle between $0^\circ$ and $360^\circ$ that is coterminal with $400^\circ$, and the one coterminal with $-120^\circ$.
 
-<!-- ILLUSTRATION: two coordinate planes; one showing 400° wrapping past 360° to land at 40°, the other showing -120° measured clockwise landing at 240° -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "coterminal-angles", "labels": ["400° = 360° + 40°", "-120° = 240°"], "semanticsLabel": "Two coordinate planes showing 400 degrees landing at 40 degrees and negative 120 degrees measured clockwise landing at 240 degrees."} -->
 
 
 **Solution:**
@@ -112,7 +112,7 @@ $$-120 + 360 = 240$$
 
 A circle has a radius of $10$ cm. Find the length of the arc cut off by a central angle of $\dfrac{\pi}{5}$ radians. Then find the arc for a $72^\circ$ central angle.
 
-<!-- ILLUSTRATION: a circle of radius 10 cm with a central angle of π/5 radians (= 72°) and the intercepted arc highlighted -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "circle-arc", "labels": ["r = 10 cm", "θ = π/5 rad (72°)", "Arc s = rθ = 2π cm"], "semanticsLabel": "Circle of radius 10 cm with highlighted arc for central angle of pi over 5 radians or 72 degrees."} -->
 
 
 **Solution:**

@@ -15,7 +15,7 @@ Trigonometry starts with a right triangle and one chosen acute angle $\theta$. T
 - **Opposite**: the side across from $\theta$.
 - **Adjacent**: the side next to $\theta$ (not the hypotenuse).
 
-<!-- ILLUSTRATION: right triangle with acute angle theta marked, sides labeled opposite, adjacent, and hypotenuse relative to theta -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["θ", "Opposite", "Adjacent", "Hypotenuse", "90°"], "semanticsLabel": "Right triangle with acute angle theta, opposite side, adjacent side, and hypotenuse labeled relative to theta."} -->
 
 The three main ratios:
 
@@ -49,7 +49,7 @@ For the reciprocals, match them by avoiding the same first letter: **s**in pairs
 
 A right triangle has legs $3$ and $4$ and hypotenuse $5$. If $\theta$ is the angle opposite the side of length $3$, find $\sin \theta$, $\cos \theta$, and $\tan \theta$.
 
-<!-- ILLUSTRATION: a right triangle with legs 3 (opposite θ) and 4 (adjacent to θ) and hypotenuse 5, with angle θ marked at the vertex opposite the side of length 3 -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["θ", "Opposite = 3", "Adjacent = 4", "Hypotenuse = 5", "90°"], "semanticsLabel": "Right triangle with angle theta opposite side 3, adjacent side 4, and hypotenuse 5."} -->
 
 
 **Solution:**
@@ -71,7 +71,7 @@ $$\tan \theta = \dfrac{3}{4}$$
 
 If $\sin \theta = \dfrac{5}{13}$ and $\theta$ is acute, find $\cos \theta$ and $\tan \theta$.
 
-<!-- ILLUSTRATION: a right triangle with the side opposite θ = 5 and hypotenuse = 13, the adjacent side computed as 12 by the Pythagorean theorem -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["θ", "Opposite = 5", "Hypotenuse = 13", "Adjacent = 12", "90°"], "semanticsLabel": "Right triangle with angle theta, opposite side 5, hypotenuse 13, and adjacent side 12."} -->
 
 
 **Solution:**
@@ -95,7 +95,7 @@ $$\cos \theta = \dfrac{12}{13} \qquad \tan \theta = \dfrac{5}{12}$$
 
 In a right triangle, the hypotenuse is $20$ and one acute angle measures $30^\circ$. Find the side opposite the $30^\circ$ angle.
 
-<!-- ILLUSTRATION: a right triangle with hypotenuse 20, one acute angle marked 30°, and the side opposite the 30° angle marked "?" -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["30°", "Hypotenuse = 20", "Opposite = ?", "90°"], "semanticsLabel": "Right triangle with 30 degree angle, hypotenuse 20, and opposite side labeled with a question mark."} -->
 
 
 **Solution:**
@@ -119,7 +119,7 @@ $$x = 10$$
 
 Using the triangle from Example $1$ (opposite $3$, adjacent $4$, hypotenuse $5$), find $\csc \theta$, $\sec \theta$, and $\cot \theta$.
 
-<!-- ILLUSTRATION: the same 3-4-5 right triangle from Example 1, with θ opposite the side of length 3, used to read the reciprocal ratios -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["θ", "Opp = 3", "Adj = 4", "Hyp = 5", "Reciprocal Ratios"], "semanticsLabel": "Right triangle with sides 3, 4, and 5 with angle theta for reading reciprocal trigonometric ratios."} -->
 
 
 **Solution:**
@@ -141,7 +141,7 @@ $$\cot \theta = \dfrac{4}{3}$$
 
 In a right triangle, $\tan \theta = \dfrac{3}{4}$ and the hypotenuse measures $20$. Find the two legs and the value of $\sin \theta$.
 
-<!-- ILLUSTRATION: a right triangle where tan θ = 3/4 (opposite 3k, adjacent 4k) with hypotenuse 20, scaling to legs 12 and 16 -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["θ", "Opp = 3k = 12", "Adj = 4k = 16", "Hyp = 5k = 20", "90°"], "semanticsLabel": "Right triangle where tangent theta is 3 over 4 with hypotenuse 20 scaled to legs 12 and 16."} -->
 
 
 **Solution:**
