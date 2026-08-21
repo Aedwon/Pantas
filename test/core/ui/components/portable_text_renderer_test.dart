@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/portable_text_renderer.dart';
+import 'package:pantas/core/ui/figures/gear_train_figure.dart';
+import 'package:pantas/core/ui/figures/lesson_figure_widget.dart';
 
 import '../../../helpers/pump_app.dart';
 
@@ -325,6 +327,81 @@ void main() {
       );
 
       expect(find.byType(CachedNetworkImage), findsOneWidget);
+    });
+  });
+
+  group('lesson figure and table blocks', () {
+    testWidgets('dispatches figureSpec through the lesson wrapper', (
+      tester,
+    ) async {
+      await tester.pumpApp(
+        const PortableTextRenderer(
+          blocks: [
+            {
+              '_type': 'figureSpec',
+              'spec': {
+                'kind': 'gear-train',
+                'gears': 3,
+                'firstTurns': 'clockwise',
+              },
+              'semanticsLabel': 'Three meshed gears.',
+            },
+          ],
+        ),
+      );
+
+      expect(find.byType(LessonFigureWidget), findsOneWidget);
+      expect(find.byType(GearTrainFigure), findsOneWidget);
+    });
+
+    testWidgets('renders a table with rules and horizontal scrolling', (
+      tester,
+    ) async {
+      await tester.pumpApp(
+        const PortableTextRenderer(
+          blocks: [
+            {
+              '_type': 'table',
+              'rows': [
+                ['P', 'Q', 'P and Q'],
+                ['T', 'T', 'T'],
+                ['T', 'F', 'F'],
+              ],
+            },
+          ],
+        ),
+      );
+
+      expect(find.byType(Table), findsOneWidget);
+      expect(
+        find.byWidgetPredicate(
+          (widget) =>
+              widget is SingleChildScrollView &&
+              widget.scrollDirection == Axis.horizontal,
+        ),
+        findsOneWidget,
+      );
+      expect(find.text('P and Q'), findsOneWidget);
+      expect(find.text('F'), findsNWidgets(2));
+    });
+
+    testWidgets('a bad figureSpec uses lesson failure copy', (tester) async {
+      await tester.pumpApp(
+        const PortableTextRenderer(
+          blocks: [
+            {
+              '_type': 'figureSpec',
+              'spec': {'kind': 'gear-train', 'gears': 1},
+              'semanticsLabel': 'Broken figure.',
+            },
+          ],
+        ),
+      );
+
+      expect(
+        find.text('This lesson needs a diagram that has not been drawn yet.'),
+        findsOneWidget,
+      );
     });
   });
 

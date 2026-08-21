@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:pantas/core/ui/components/inline_math_text.dart';
+import 'package:pantas/core/ui/figures/lesson_figure_widget.dart';
 import 'package:pantas/core/ui/theme/app_dimensions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
@@ -31,19 +32,22 @@ class PortableTextRenderer extends StatelessWidget {
           'marks': <String>[],
         });
       }
-      if (match.group(1) != null) {
+      final strong = match.group(1);
+      final starEmphasis = match.group(2);
+      final underscoreEmphasis = match.group(3);
+      if (strong != null) {
         children.add({
-          'text': match.group(1)!,
+          'text': strong,
           'marks': <String>['strong'],
         });
-      } else if (match.group(2) != null) {
+      } else if (starEmphasis != null) {
         children.add({
-          'text': match.group(2)!,
+          'text': starEmphasis,
           'marks': <String>['em'],
         });
-      } else if (match.group(3) != null) {
+      } else if (underscoreEmphasis != null) {
         children.add({
-          'text': match.group(3)!,
+          'text': underscoreEmphasis,
           'marks': <String>['em'],
         });
       }
@@ -121,8 +125,103 @@ class PortableTextRenderer extends StatelessWidget {
         _BlockRenderer(block: block, maxLines: maxLines, isFirst: isFirst),
       'latex' => _LatexBlockRenderer(block: block),
       'image' => _ImageBlockRenderer(block: block),
+      'figureSpec' => _FigureSpecBlockRenderer(block: block),
+      'table' => _TableBlockRenderer(block: block),
       _ => _UnknownBlockPlaceholder(blockType: type),
     };
+  }
+}
+
+class _FigureSpecBlockRenderer extends StatelessWidget {
+  const _FigureSpecBlockRenderer({required this.block});
+
+  final Map<String, dynamic> block;
+
+  @override
+  Widget build(BuildContext context) {
+    final rawSpec = block['spec'];
+    if (rawSpec is! Map) {
+      return const _UnknownBlockPlaceholder(blockType: 'figureSpec');
+    }
+    final spec = <String, Object?>{};
+    for (final entry in rawSpec.entries) {
+      if (entry.key is! String) {
+        return const _UnknownBlockPlaceholder(blockType: 'figureSpec');
+      }
+      spec[entry.key as String] = entry.value;
+    }
+    final semanticsLabel = block['semanticsLabel'];
+    return LessonFigureWidget(
+      spec: spec,
+      semanticsLabel: semanticsLabel is String ? semanticsLabel : '',
+    );
+  }
+}
+
+class _TableBlockRenderer extends StatelessWidget {
+  const _TableBlockRenderer({required this.block});
+
+  final Map<String, dynamic> block;
+
+  @override
+  Widget build(BuildContext context) {
+    final rawRows = block['rows'];
+    if (rawRows is! List || rawRows.isEmpty) {
+      return const _UnknownBlockPlaceholder(blockType: 'table');
+    }
+
+    final rows = <List<String>>[];
+    int? width;
+    for (final rawRow in rawRows) {
+      if (rawRow is! List || rawRow.isEmpty) {
+        return const _UnknownBlockPlaceholder(blockType: 'table');
+      }
+      final row = <String>[];
+      for (final cell in rawRow) {
+        if (cell is! String) {
+          return const _UnknownBlockPlaceholder(blockType: 'table');
+        }
+        row.add(cell);
+      }
+      width ??= row.length;
+      if (row.length != width) {
+        return const _UnknownBlockPlaceholder(blockType: 'table');
+      }
+      rows.add(row);
+    }
+
+    final colors = context.colors;
+    final bodyStyle = context.textStyles.bodySmall.copyWith(color: colors.ink);
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Table(
+          defaultColumnWidth: const IntrinsicColumnWidth(),
+          border: TableBorder.all(color: colors.rule),
+          children: [
+            for (var rowIndex = 0; rowIndex < rows.length; rowIndex++)
+              TableRow(
+                children: [
+                  for (final cell in rows[rowIndex])
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 8,
+                      ),
+                      child: Text(
+                        cell,
+                        style: rowIndex == 0
+                            ? bodyStyle.copyWith(fontWeight: FontWeight.w700)
+                            : bodyStyle,
+                      ),
+                    ),
+                ],
+              ),
+          ],
+        ),
+      ),
+    );
   }
 }
 

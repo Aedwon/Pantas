@@ -1,9 +1,13 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/figures/chart_figure.dart';
+import 'package:pantas/core/ui/figures/concept_diagram_figure.dart';
+import 'package:pantas/core/ui/figures/coordinate_graph_figure.dart';
 import 'package:pantas/core/ui/figures/cube_net_figure.dart';
 import 'package:pantas/core/ui/figures/figure_matrix_figure.dart';
 import 'package:pantas/core/ui/figures/figure_series_figure.dart';
 import 'package:pantas/core/ui/figures/fluid_vessel_figure.dart';
 import 'package:pantas/core/ui/figures/gear_train_figure.dart';
+import 'package:pantas/core/ui/figures/geometry_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/lever_balance_figure.dart';
 import 'package:pantas/core/ui/figures/paper_fold_figure.dart';
 import 'package:pantas/core/ui/figures/pulley_system_figure.dart';
@@ -34,6 +38,38 @@ void main() {
     );
     expect(figure.gears, 3);
     expect(figure.firstTurnsClockwise, isTrue);
+  });
+
+  testWidgets('the question wrapper reaches all four new registry kinds', (
+    tester,
+  ) async {
+    const cases = <(String, Type)>[
+      (
+        '{"kind":"coordinate-graph","type":"parabola",'
+            '"formula":"y=x^2","points":[[0,0],[1,1]]}',
+        CoordinateGraphFigure,
+      ),
+      (
+        '{"kind":"geometry-diagram","type":"triangle",'
+            '"labels":["A","B","C"]}',
+        GeometryDiagramFigure,
+      ),
+      (
+        '{"kind":"chart","type":"bar","labels":["A","B"],'
+            '"values":[1,2]}',
+        ChartFigure,
+      ),
+      (
+        '{"kind":"concept-diagram","type":"sequence",'
+            '"nodes":["A","B"],"edges":[[0,1]]}',
+        ConceptDiagramFigure,
+      ),
+    ];
+
+    for (final entry in cases) {
+      await tester.pumpApp(QuestionFigure(specJson: entry.$1));
+      expect(find.byType(entry.$2), findsOneWidget);
+    }
   });
 
   testWidgets('tooth counts size the gears and are never printed',
@@ -290,6 +326,13 @@ void main() {
           '[[0,0],[0,0]]}',
       'a net cell that is not a pair': '{"kind":"cube-net","cells":'
           '[[0,0,1],[1,1]]}',
+      'a coordinate graph with no type': '{"kind":"coordinate-graph"}',
+      'a geometry diagram with no labels': '{"kind":"geometry-diagram",'
+          '"type":"triangle"}',
+      'a chart with mismatched values': '{"kind":"chart","type":"bar",'
+          '"labels":["A"],"values":[1,2]}',
+      'a concept edge outside its nodes': '{"kind":"concept-diagram",'
+          '"type":"sequence","nodes":["A","B"],"edges":[[0,2]]}',
     };
 
     for (final entry in bad.entries) {
@@ -306,6 +349,10 @@ void main() {
         expect(find.byType(FigureMatrixFigure), findsNothing);
         expect(find.byType(PaperFoldFigure), findsNothing);
         expect(find.byType(CubeNetFigure), findsNothing);
+        expect(find.byType(CoordinateGraphFigure), findsNothing);
+        expect(find.byType(GeometryDiagramFigure), findsNothing);
+        expect(find.byType(ChartFigure), findsNothing);
+        expect(find.byType(ConceptDiagramFigure), findsNothing);
         expect(
           find.textContaining('has not been drawn yet'),
           findsOneWidget,

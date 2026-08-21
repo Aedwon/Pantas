@@ -1,17 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/figures/cube_net_figure.dart';
-import 'package:pantas/core/ui/figures/figure_matrix_figure.dart';
-import 'package:pantas/core/ui/figures/figure_series_figure.dart';
-import 'package:pantas/core/ui/figures/fluid_vessel_figure.dart';
-import 'package:pantas/core/ui/figures/gear_train_figure.dart';
-import 'package:pantas/core/ui/figures/lever_balance_figure.dart';
-import 'package:pantas/core/ui/figures/paper_fold_figure.dart';
-import 'package:pantas/core/ui/figures/pulley_system_figure.dart';
-import 'package:pantas/core/ui/figures/shape_row_figure.dart';
-import 'package:pantas/core/ui/figures/spring_scale_figure.dart';
-import 'package:pantas/core/ui/figures/stability_shape_figure.dart';
+import 'package:pantas/core/ui/figures/figure_registry.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
 /// A question's diagram, drawn from the spec in its own content file.
@@ -51,42 +41,13 @@ class QuestionFigure extends StatelessWidget {
       return const _MissingFigure(reason: 'spec has no kind');
     }
 
-    final figure = _build(kind, spec);
+    final figure = FigureRegistry.build(spec);
     if (figure == null) return _MissingFigure(reason: 'no painter for $kind');
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12),
       child: figure,
     );
-  }
-
-  Widget? _build(String kind, Map<String, Object?> spec) {
-    switch (kind) {
-      case GearTrainFigure.kind:
-        return GearTrainFigure.fromSpec(spec);
-      case SpringScaleFigure.kind:
-        return SpringScaleFigure.fromSpec(spec);
-      case LeverBalanceFigure.kind:
-        return LeverBalanceFigure.fromSpec(spec);
-      case PulleySystemFigure.kind:
-        return PulleySystemFigure.fromSpec(spec);
-      case StabilityShapeFigure.kind:
-        return StabilityShapeFigure.fromSpec(spec);
-      case FluidVesselFigure.kind:
-        return FluidVesselFigure.fromSpec(spec);
-      case ShapeRowFigure.kind:
-        return ShapeRowFigure.fromSpec(spec);
-      case FigureSeriesFigure.kind:
-        return FigureSeriesFigure.fromSpec(spec);
-      case FigureMatrixFigure.kind:
-        return FigureMatrixFigure.fromSpec(spec);
-      case PaperFoldFigure.kind:
-        return PaperFoldFigure.fromSpec(spec);
-      case CubeNetFigure.kind:
-        return CubeNetFigure.fromSpec(spec);
-      default:
-        return null;
-    }
   }
 }
 
