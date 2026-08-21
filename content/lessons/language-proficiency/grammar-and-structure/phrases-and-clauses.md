@@ -17,7 +17,10 @@ An **independent clause** has a subject and a verb and expresses a complete thou
 
 A **dependent clause** (also called a subordinate clause) also has a subject and a verb, but it does not express a complete thought on its own. It depends on an independent clause to make sense. Dependent clauses usually begin with a word like *because*, *although*, *when*, *if*, *since*, or *while*: "Because the rain stopped" has a subject (rain) and a verb (stopped), but it leaves you asking "...then what?" It cannot stand alone.
 
-<!-- ILLUSTRATION: two labeled sentence strips side by side, one showing "The rain stopped." marked as a complete independent clause, and one showing "Because the rain stopped," marked as an incomplete dependent clause with a connecting arrow to a missing second half -->
+| Clause Type | Example | Expresses Complete Thought? | Standalone Status |
+| --- | --- | --- | --- |
+| **Independent clause** | The rain stopped. | Yes | Complete sentence |
+| **Dependent clause** | Because the rain stopped, | No (needs an independent clause) | Incomplete (fragment) |
 
 Combining an independent clause with a dependent clause makes a complete, correct sentence: "*Because the rain stopped*, we went outside." The dependent clause borrows the independent clause's completeness.
 

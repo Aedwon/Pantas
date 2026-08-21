@@ -19,7 +19,6 @@ A strong title should be:
 
 Think of choosing a title as finding the "just right" fit: not too narrow (missing parts of the passage), not too broad (could apply to many different passages), but matching the passage's actual main idea precisely.
 
-<!-- ILLUSTRATION: three overlapping circles labeled "too narrow," "just right," and "too broad," with the "just right" circle exactly matching the outline of a sample passage's content -->
 
 ## Examples
 

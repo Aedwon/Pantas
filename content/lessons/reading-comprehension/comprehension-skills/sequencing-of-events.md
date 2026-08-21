@@ -19,7 +19,12 @@ Three tools help determine the true sequence.
 
 **Logical cause-and-effect** also implies order: a cause must happen before its effect, even if the passage mentions the effect first and explains the cause afterward.
 
-<!-- ILLUSTRATION: a passage with sentences appearing in a scrambled order (labeled with random letters A, B, C, D) being rearranged along a timeline arrow into their correct chronological order 1, 2, 3, 4 -->
+| Scrambled Labels | Rearrangement by Time Clues | Chronological Sequence |
+| --- | --- | --- |
+| Random labels (A, B, C, D) | Earliest event | 1 (First) |
+| Random labels (A, B, C, D) | Second event | 2 (Second) |
+| Random labels (A, B, C, D) | Third event | 3 (Third) |
+| Random labels (A, B, C, D) | Latest event | 4 (Fourth) |
 
 ## Examples
 

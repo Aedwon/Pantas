@@ -21,7 +21,12 @@ isActive: true
 
 **Tone** is the poet's attitude toward the subject (playful, somber, angry, hopeful), often revealed through word choice and imagery rather than stated directly.
 
-<!-- ILLUSTRATION: a four-line poem stanza with the last word of each line highlighted and labeled A, B, A, B to show a rhyme scheme pattern, alongside small icons representing the five senses connected to an imagery-rich line -->
+| Stanza Line | Rhyme Scheme Label | Imagery Appeal |
+| --- | --- | --- |
+| Line 1 | **A** | Five senses: sight, sound, smell, taste, touch |
+| Line 2 | **B** | Five senses: sight, sound, smell, taste, touch |
+| Line 3 | **A** (rhymes with line 1) | Five senses: sight, sound, smell, taste, touch |
+| Line 4 | **B** (rhymes with line 2) | Five senses: sight, sound, smell, taste, touch |
 
 Poetry rarely states its meaning directly: readers must infer the poem's message from its images, figurative language, and tone, much like inferring a theme in a short story.
 

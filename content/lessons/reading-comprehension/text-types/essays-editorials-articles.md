@@ -17,7 +17,6 @@ An **editorial** is an opinion piece, usually written by a newspaper's editorial
 
 An **article** (specifically a news article) aims to report facts as objectively as possible, answering the basic questions of who, what, when, where, why, and how. A well-written news article avoids inserting the writer's personal opinion, unlike an editorial.
 
-<!-- ILLUSTRATION: three side-by-side document icons labeled essay, editorial, and news article, each with a small tag showing its main goal: "explore an idea," "persuade with opinion," and "report facts" -->
 
 The key distinguishing question: is the writer mainly exploring an idea (essay), persuading with an opinion (editorial), or reporting facts (article)?
 

@@ -17,7 +17,6 @@ Two reading techniques help you handle these questions efficiently, especially u
 
 **Scanning** means searching quickly through a passage for a specific piece of information (a name, number, date, or keyword) without reading everything around it. Scanning is useful after you know exactly what detail a question is asking for, letting your eyes jump straight to the relevant section.
 
-<!-- ILLUSTRATION: two contrasting reading patterns over the same paragraph, one showing eyes moving in wide zigzags across the whole passage (skimming) and one showing eyes moving in a narrow, direct line straight to one highlighted word (scanning) -->
 
 The key skill for detail questions: identify the exact keyword or phrase from the question (a name, number, or unique term), then scan the passage for that keyword, rather than re-reading the entire passage from the beginning.
 

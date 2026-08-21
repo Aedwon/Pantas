@@ -19,7 +19,12 @@ isActive: true
 
 **if...then** (conditional, symbol $\rightarrow$): "$P \rightarrow Q$" (read "if $P$ then $Q$") is false only in the one case where $P$ is true but $Q$ is false. In every other case (including when $P$ is false), the conditional is considered true.
 
-<!-- ILLUSTRATION: four small truth tables side by side for NOT, AND, OR, and IF-THEN, each showing all combinations of T and F for P and Q with the resulting truth value in the final column -->
+| $P$ | $Q$ | NOT ($\neg P$) | AND ($P \land Q$) | OR ($P \lor Q$) | IF...THEN ($P \rightarrow Q$) |
+| --- | --- | --- | --- | --- | --- |
+| T | T | F | T | T | T |
+| T | F | F | F | T | F |
+| F | T | T | F | T | T |
+| F | F | T | F | F | T |
 
 The conditional's truth table often surprises students: "$P \rightarrow Q$" is true whenever $P$ is false, no matter what $Q$ is. This reflects the idea that a conditional promise is only broken when the condition happens ($P$ is true) but the promised result does not ($Q$ is false); if the condition never happens, the promise cannot be broken.
 

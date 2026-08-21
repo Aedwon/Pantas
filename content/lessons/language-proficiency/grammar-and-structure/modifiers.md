@@ -19,7 +19,10 @@ A **dangling modifier** is a modifier that has nothing logical to describe at al
 
 "*Walking down the street*, the trees looked beautiful.": this sentence says the trees were walking down the street, since "walking down the street" has nothing else to logically attach to. The sentence never states who was walking.
 
-<!-- ILLUSTRATION: two side-by-side sentence diagrams, one showing a modifier phrase with an arrow pointing to the wrong word far away (misplaced), and one showing a modifier phrase with an arrow pointing to nothing, a large question mark where the intended subject should be (dangling) -->
+| Error Type | Example Sentence | Issue / Intended Target |
+| --- | --- | --- |
+| **Misplaced modifier** | The waiter served the pasta to the customer *covered in cheese*. | Points to the wrong word (*customer* instead of *pasta*). |
+| **Dangling modifier** | *Walking down the street*, the trees looked beautiful. | Points to nothing (intended subject is missing). |
 
 ## Examples
 

@@ -18,7 +18,12 @@ Four common types of context clues appear across passages:
 - **Contrast clue**: a nearby idea is the opposite of the unfamiliar word, helping you infer its meaning by elimination. ("Unlike her *gregarious* brother, who loved parties and made friends easily, she preferred quiet evenings alone.")
 - **Cause-and-effect clue**: the result described elsewhere in the passage reveals what the word likely means. ("His *negligence* led to the machine breaking down within a week, since he had skipped every scheduled maintenance check.")
 
-<!-- ILLUSTRATION: a full passage with several sentences highlighted in different colors, arrows connecting each highlighted clue back to one unfamiliar word in the middle of the passage, showing how clues scattered across a passage combine to reveal meaning -->
+| Clue Type | How It Works | Passage Clue Example | Inferred Meaning |
+| --- | --- | --- | --- |
+| **Definition / Explanation** | Describes the meaning directly in nearby sentences | "Crops withered, rivers ran dry... months without rainfall." | *Drought* = prolonged lack of rain |
+| **Example** | Lists concrete items representing the word | "Ancient pottery, tarnished coins, and a weathered tablet." | *Artifacts* = historical objects |
+| **Contrast** | Shows an opposite behavior or quality | "Unlike her *gregarious* brother who loved parties, she preferred quiet evenings." | *Gregarious* = sociable / outgoing |
+| **Cause and effect** | Shows the result of the unfamiliar word | "His *negligence* led to the machine breaking down within a week." | *Negligence* = failure to take proper care |
 
 The key skill is not stopping at the same sentence as the unfamiliar word: scan both before and after it within the passage for supporting clues.
 

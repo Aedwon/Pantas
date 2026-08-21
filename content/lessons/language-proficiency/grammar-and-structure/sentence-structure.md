@@ -19,7 +19,12 @@ A **complex sentence** has one independent clause plus at least one dependent cl
 
 A **compound-complex sentence** combines both structures: it has two or more independent clauses and at least one dependent clause. "*Because the dog barked*, the cat ran, and it hid under the bed." Here, "Because the dog barked" is dependent, while "the cat ran" and "it hid under the bed" are two independent clauses joined by "and."
 
-<!-- ILLUSTRATION: four labeled sentence diagrams, a single box for simple, two connected boxes for compound, one small box attached to one large box for complex, and one small box attached to two connected large boxes for compound-complex -->
+| Sentence Type | Clause Structure | Example |
+| --- | --- | --- |
+| **Simple** | 1 independent clause | The dog barked. |
+| **Compound** | 2+ independent clauses | The dog barked, and the cat ran. |
+| **Complex** | 1 independent + 1+ dependent clauses | Because the dog barked, the cat ran. |
+| **Compound-complex** | 2+ independent + 1+ dependent clauses | Because the dog barked, the cat ran, and it hid under the bed. |
 
 ### Sa Filipino: Uri ng Pangungusap Ayon sa Kayarian
 

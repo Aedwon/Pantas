@@ -19,7 +19,11 @@ A **syllogism** is a specific deductive argument form with two statements (**pre
 
 A syllogism is **valid** when the conclusion correctly follows from the premises, based purely on logical structure, regardless of whether the premises happen to be true in the real world. A syllogism is **sound** when it is both valid and its premises are actually true.
 
-<!-- ILLUSTRATION: two overlapping circles diagram (a simple Venn-style illustration) showing "birds" as a larger circle and "sparrows" as a smaller circle fully contained inside it, illustrating how "all sparrows are birds" logically guarantees sparrows share bird properties -->
+| Step in Syllogism | Statement | Category Relationship |
+| --- | --- | --- |
+| **Major premise** | All birds have feathers. | "Birds" defines the broad category with the trait. |
+| **Minor premise** | A sparrow is a bird. | "Sparrows" is a smaller group entirely inside "Birds." |
+| **Deductive conclusion** | Therefore, a sparrow has feathers. | Guaranteed true because Sparrows $\subseteq$ Birds. |
 
 Two classic invalid patterns to watch for:
 

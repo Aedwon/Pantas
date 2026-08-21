@@ -22,7 +22,11 @@ Two tools solve almost every sentence completion question.
 
 For sentences with two blanks, solve the easier blank first (whichever one has clearer context clues), which often narrows down the answer choices enough to make the second blank obvious.
 
-<!-- ILLUSTRATION: a sentence with a blank, with arrows pointing from surrounding signal words like "although" and "because" toward the blank, showing how the tone of nearby words hints at the missing word's meaning -->
+| Signal / Context Clue | Relationship to Blank | Effect on Missing Word |
+| --- | --- | --- |
+| ***because*** | Cause and effect | Hints at a matching result (same direction/tone) |
+| ***although*** | Contrast | Hints at an opposite or contrasting meaning |
+| **Nearby signal words** | Tone and context | Tone of surrounding words hints at the missing word |
 
 ## Examples
 
