@@ -64,11 +64,13 @@ class CoordinateGraphFigure extends StatelessWidget {
     final type = spec['type'];
     if (type is! String || !_types.contains(type)) return null;
 
-    final formula = spec['formula'];
-    if (formula != null && formula is! String) return null;
+    final rawFormula = spec['formula'];
+    if (rawFormula != null && rawFormula is! String) return null;
+    final formula = rawFormula as String?;
 
-    final shaded = spec['shaded'];
-    if (shaded != null && shaded is! String) return null;
+    final rawShaded = spec['shaded'];
+    if (rawShaded != null && rawShaded is! String) return null;
+    final shaded = rawShaded as String?;
 
     final rawRadius = spec['radius'];
     final double? radius;
@@ -135,8 +137,11 @@ class CoordinateGraphFigure extends StatelessWidget {
       }
     }
 
-    final initialVelocity = spec['initialVelocity'];
-    if (initialVelocity != null && initialVelocity is! String) return null;
+    final rawInitialVelocity = spec['initialVelocity'];
+    if (rawInitialVelocity != null && rawInitialVelocity is! String) {
+      return null;
+    }
+    final initialVelocity = rawInitialVelocity as String?;
 
     final rawLabels = spec['labels'];
     Map<String, String>? labels;
@@ -149,8 +154,9 @@ class CoordinateGraphFigure extends StatelessWidget {
       }
     }
 
-    final velocityVectors = spec['velocityVectors'];
-    if (velocityVectors != null && velocityVectors is! bool) return null;
+    final rawVelocityVectors = spec['velocityVectors'];
+    if (rawVelocityVectors != null && rawVelocityVectors is! bool) return null;
+    final velocityVectors = rawVelocityVectors as bool?;
 
     final rawPoints = spec['points'];
     final points = <Offset>[];
@@ -167,20 +173,105 @@ class CoordinateGraphFigure extends StatelessWidget {
       }
     }
 
+    switch (type) {
+      case 'circle':
+        if (radius == null || radius <= 0 || points.isEmpty) return null;
+      case 'ellipse':
+        if (formula == null || formula.trim().isEmpty || points.isEmpty) {
+          return null;
+        }
+      case 'hyperbola':
+        if (formula == null ||
+            formula.trim().isEmpty ||
+            points.isEmpty ||
+            asymptoteSlopes == null ||
+            asymptoteSlopes.length != 2) {
+          return null;
+        }
+      case 'integral-area':
+        if (formula == null || formula.trim().isEmpty || points.length < 2) {
+          return null;
+        }
+      case 'linear-inequality':
+        if (formula == null ||
+            formula.trim().isEmpty ||
+            points.length < 2 ||
+            (shaded != 'above' && shaded != 'below')) {
+          return null;
+        }
+      case 'limit-hole':
+        if (formula == null ||
+            formula.trim().isEmpty ||
+            (hole == null && points.isEmpty)) {
+          return null;
+        }
+      case 'piecewise':
+        if (formula == null || formula.trim().isEmpty || points.isEmpty) {
+          return null;
+        }
+      case 'system':
+        if (formula == null || formula.trim().isEmpty || points.isEmpty) {
+          return null;
+        }
+      case 'rational':
+        if (formula == null || formula.trim().isEmpty) return null;
+        final rawAsym = spec['asymptotes'];
+        if (rawAsym is! Map && rawAsym is! List) return null;
+      case 'function-gallery':
+        if (functions != null) {
+          if (functions.isEmpty) return null;
+          for (final f in functions) {
+            if (f.trim().isEmpty) return null;
+          }
+        }
+      case 'conic-gallery':
+        if (conics != null) {
+          if (conics.isEmpty) return null;
+          for (final c in conics) {
+            if (c.trim().isEmpty) return null;
+          }
+        }
+      case 'limits-gallery':
+        if (discontinuities != null) {
+          if (discontinuities.isEmpty) return null;
+          for (final d in discontinuities) {
+            if (d.trim().isEmpty) return null;
+          }
+        }
+      case 'projectile-motion':
+        if (spec['path'] != 'parabola' || velocityVectors != true) {
+          return null;
+        }
+      case 'horizontal-projectile':
+        if (initialVelocity == null ||
+            initialVelocity.trim().isEmpty ||
+            labels == null ||
+            !labels.containsKey('height') ||
+            !labels.containsKey('distance') ||
+            labels['height']!.trim().isEmpty ||
+            labels['distance']!.trim().isEmpty) {
+          return null;
+        }
+      case 'vertical-line-test':
+        break;
+      case 'line' || 'parabola' || 'cubic' || 'axes':
+        if (points.isEmpty) return null;
+    }
+
     return CoordinateGraphFigure(
       type: type,
-      formula: formula as String?,
+      formula: formula,
       points: points,
-      shaded: shaded as String?,
+      shaded: shaded,
       radius: radius,
       hole: hole,
       asymptoteSlopes: asymptoteSlopes,
       functions: functions,
       conics: conics,
       discontinuities: discontinuities,
-      initialVelocity: initialVelocity as String?,
+      initialVelocity: initialVelocity,
       labels: labels,
-      velocityVectors: velocityVectors as bool?,
+      velocityVectors: velocityVectors,
     );
   }
 
