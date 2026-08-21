@@ -19,7 +19,7 @@ $$S = (n - 2) \times 180^\circ$$
 
 Why $n - 2$? Because you can slice any polygon into $n - 2$ triangles from one corner, and each triangle carries $180^\circ$.
 
-<!-- ILLUSTRATION: hexagon with diagonals drawn from one vertex, splitting it into 4 shaded triangles -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "polygon-triangulation", "labels": ["Hexagon (n = 6)", "4 Triangles", "(6 - 2) × 180° = 720°"], "semanticsLabel": "Hexagon with diagonals drawn from one vertex dividing it into 4 triangles."} -->
 
 The sum of the exterior angles (one at each vertex) is always:
 
@@ -37,7 +37,7 @@ For a regular polygon, divide either sum by $n$ to get each single angle.
 - **Square**: rectangle and rhombus at once. It has every property above.
 - **Trapezoid**: exactly one pair of parallel sides. Not a parallelogram.
 
-<!-- ILLUSTRATION: quadrilateral family tree, parallelogram branching to rectangle and rhombus, both merging into square, with trapezoid on a separate branch -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "quadrilateral-tree", "labels": ["Quadrilateral", "Trapezoid", "Parallelogram", "Rectangle", "Rhombus", "Square"], "semanticsLabel": "Hierarchy diagram showing parallelogram branching into rectangle and rhombus, merging into square, with trapezoid separate."} -->
 
 CETs love two question types here: plug into the angle formulas (forward or backward), and true-or-false property statements like "the diagonals of a rectangle are perpendicular" (false; that is the rhombus).
 
@@ -47,7 +47,7 @@ CETs love two question types here: plug into the angle formulas (forward or back
 
 Find the sum of the interior angles of a hexagon.
 
-<!-- ILLUSTRATION: a regular hexagon with its six interior angles marked, and a dashed triangulation from one vertex splitting it into 4 triangles -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "polygon-triangulation", "labels": ["Hexagon", "6 Interior Angles", "4 Triangles", "Sum = 720°"], "semanticsLabel": "Regular hexagon with six interior angles and dashed lines splitting it into 4 triangles."} -->
 
 
 **Solution:**
@@ -67,7 +67,7 @@ $$S = 4 \times 180 = 720$$
 
 Find the measure of each interior angle of a regular octagon.
 
-<!-- ILLUSTRATION: a regular octagon with one interior angle highlighted and labeled with a question mark -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "polygon", "labels": ["Regular Octagon (n = 8)", "Each angle = ?"], "semanticsLabel": "Regular octagon with one interior angle highlighted with a question mark."} -->
 
 
 **Solution:**
@@ -87,7 +87,7 @@ $$\dfrac{1080}{8} = 135$$
 
 The interior angles of a polygon add up to $1440^\circ$. How many sides does it have?
 
-<!-- ILLUSTRATION: an unknown regular polygon labeled "interior angles sum = 1440°, sides = ?" -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "polygon", "labels": ["Regular n-gon", "Sum = 1440°", "Sides n = ?"], "semanticsLabel": "Regular polygon labeled with interior angle sum 1440 degrees and unknown number of sides n."} -->
 
 
 **Solution:**
@@ -111,7 +111,7 @@ $$n = 10$$
 
 Each exterior angle of a regular polygon measures $24^\circ$. How many sides does the polygon have?
 
-<!-- ILLUSTRATION: a regular polygon with one side extended to show an exterior angle marked 24°, and a small note that all exterior angles sum to 360° -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "polygon-exterior", "labels": ["Exterior angle = 24°", "Sum of exterior = 360°", "Sides = 360° / 24°"], "semanticsLabel": "Regular polygon with one side extended to show an exterior angle of 24 degrees."} -->
 
 
 **Solution:**
@@ -128,7 +128,7 @@ $$n = \dfrac{360}{24} = 15$$
 
 In parallelogram $ABCD$, opposite angles $A$ and $C$ measure $(3x + 10)^\circ$ and $(5x - 30)^\circ$. Find the measure of angle $B$.
 
-<!-- ILLUSTRATION: a parallelogram ABCD with vertices labeled, angle A marked (3x+10)° and opposite angle C marked (5x-30)°, angle B marked with a question mark -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "parallelogram", "labels": ["A", "B", "C", "D", "Angle A: (3x + 10)°", "Angle C: (5x - 30)°", "Angle B: ?"], "semanticsLabel": "Parallelogram ABCD with opposite angles A labeled 3x plus 10 degrees and C labeled 5x minus 30 degrees, and angle B marked with a question mark."} -->
 
 
 **Solution:**
@@ -155,7 +155,7 @@ $$180 - 70 = 110$$
 
 The four angles of a quadrilateral are in the ratio $1 : 2 : 3 : 4$. Find the largest angle.
 
-<!-- ILLUSTRATION: a general quadrilateral with its four interior angles labeled x, 2x, 3x, 4x -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "quadrilateral", "labels": ["x", "2x", "3x", "4x", "Sum = 360°"], "semanticsLabel": "Four-sided quadrilateral with interior angles labeled x, 2x, 3x, and 4x."} -->
 
 
 **Solution:**

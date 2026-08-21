@@ -22,7 +22,7 @@ Measurement questions are formula questions. Know the formula, plug in carefully
 - **Trapezoid** with parallel bases $b_1$ and $b_2$: area $\dfrac{1}{2}(b_1 + b_2)h$. Average the bases, times the height.
 - **Circle** with radius $r$: circumference $2\pi r$, area $\pi r^2$.
 
-<!-- ILLUSTRATION: row of labeled figures, square, rectangle, triangle with dashed height, parallelogram with dashed height, trapezoid with both bases marked, circle with radius -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "shape-gallery", "labels": ["Square: s²", "Rectangle: lw", "Triangle: ½bh", "Parallelogram: bh", "Trapezoid: ½(b1+b2)h", "Circle: πr²"], "semanticsLabel": "Row of geometric shapes showing area formulas for square, rectangle, triangle, parallelogram, trapezoid, and circle."} -->
 
 ### Surface Area and Volume of 3D Solids
 
@@ -41,7 +41,7 @@ The pattern to remember: pointy solids (cone, pyramid) take $\dfrac{1}{3}$ of th
 
 A rectangle has a perimeter of $26$ cm and a length of $8$ cm. Find its area.
 
-<!-- ILLUSTRATION: a rectangle with length labeled 8 cm and width labeled "?", note perimeter = 26 cm -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "rectangle", "labels": ["Length = 8 cm", "Width = ?", "Perimeter = 26 cm"], "semanticsLabel": "Rectangle with length 8 cm, width marked with a question mark, and perimeter 26 cm."} -->
 
 
 **Solution:**
@@ -69,7 +69,7 @@ $$A = 8 \times 5 = 40 \text{ cm}^2$$
 
 A trapezoid has parallel bases of $8$ cm and $12$ cm and a height of $5$ cm. Find its area.
 
-<!-- ILLUSTRATION: a trapezoid with parallel bases labeled 8 cm (top) and 12 cm (bottom) and a vertical height of 5 cm drawn with a right-angle mark -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "trapezoid", "labels": ["b1 = 8 cm", "b2 = 12 cm", "h = 5 cm", "90°"], "semanticsLabel": "Trapezoid with parallel top base 8 cm, bottom base 12 cm, and height 5 cm marked with a right angle."} -->
 
 
 **Solution:**
@@ -93,13 +93,13 @@ $$A = 10 \times 5 = 50 \text{ cm}^2$$
 
 A circle is inscribed in a square with side $10$, touching all four sides. Find the area of the region inside the square but outside the circle. Give the answer in terms of $\pi$.
 
-<!-- ILLUSTRATION: a square of side 10 with an inscribed circle touching all four sides; the four corner regions between the circle and square are shaded as the target area -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "inscribed-circle-square", "labels": ["Square side = 10", "Circle radius = 5", "Shaded corners"], "semanticsLabel": "Square with side length 10 containing an inscribed circle with shaded corner regions."} -->
 
 
 **Solution:**
 Shaded-region problems are subtraction problems: big area minus small area.
 
-<!-- ILLUSTRATION: square with side 10 containing an inscribed circle touching all four sides, region between them shaded -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "inscribed-circle-square", "labels": ["Side = 10", "Radius = 5", "Shaded region = Area(square) - Area(circle)"], "semanticsLabel": "Square of side 10 and inscribed circle with shaded region between them."} -->
 
 1. The square's area.
 
@@ -120,7 +120,7 @@ $$A = 100 - 25\pi$$
 
 A closed rectangular box measures $5$ cm by $4$ cm by $3$ cm. Find its volume and its total surface area.
 
-<!-- ILLUSTRATION: a 3D rectangular box with edges labeled length 5 cm, width 4 cm, height 3 cm -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "3d-box", "labels": ["Length = 5 cm", "Width = 4 cm", "Height = 3 cm"], "semanticsLabel": "Three-dimensional rectangular box with dimensions length 5 cm, width 4 cm, and height 3 cm."} -->
 
 
 **Solution:**
@@ -145,7 +145,7 @@ $$SA = 2(47) = 94 \text{ cm}^2$$
 
 A cylinder has a radius of $3$ cm and a height of $10$ cm. Find its volume and surface area in terms of $\pi$.
 
-<!-- ILLUSTRATION: a 3D cylinder with radius 3 cm marked on the top circle and height 10 cm marked on the side -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "3d-cylinder", "labels": ["r = 3 cm", "h = 10 cm"], "semanticsLabel": "Three-dimensional cylinder with circular top radius 3 cm and height 10 cm."} -->
 
 
 **Solution:**
@@ -171,7 +171,7 @@ $$SA = 18\pi + 60\pi = 78\pi \text{ cm}^2$$
 
 A cone has a radius of $6$ cm and a height of $8$ cm. Find its volume in terms of $\pi$, and find its slant height.
 
-<!-- ILLUSTRATION: a 3D cone with base radius 6 cm, vertical height 8 cm (right-angle mark at the center), and the slant height drawn along the side as the hypotenuse -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "3d-cone", "labels": ["Radius r = 6 cm", "Height h = 8 cm", "Slant height l = ?", "90°"], "semanticsLabel": "Three-dimensional cone with base radius 6 cm, vertical height 8 cm, and slant height hypotenuse."} -->
 
 
 **Solution:**

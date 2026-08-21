@@ -31,7 +31,7 @@ CETs test three skills: evaluating simple inverses, respecting the principal ran
 
 Evaluate $\arcsin\left(\dfrac{1}{2}\right)$ and $\arctan(1)$.
 
-<!-- ILLUSTRATION: a unit circle marking the angle 30° (where sine = 1/2) and 45° (where tangent = 1), both within the principal ranges of arcsin and arctan -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["30° (sin = 1/2)", "45° (tan = 1)", "Quadrant I"], "semanticsLabel": "Unit circle marking angles 30 degrees and 45 degrees in Quadrant I within arcsine and arctangent principal ranges."} -->
 
 
 **Solution:**
@@ -51,7 +51,7 @@ $$\arctan(1) = 45^\circ$$
 
 Evaluate $\arccos\left(-\dfrac{1}{2}\right)$.
 
-<!-- ILLUSTRATION: a unit circle marking 120° in Quadrant II (where cosine = -1/2), within arccosine's principal range [0°, 180°] -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["120° in Q II", "cos = -1/2", "arccos range [0°, 180°]"], "semanticsLabel": "Unit circle marking 120 degrees in Quadrant II where cosine equals negative 1 half within arccosine principal range."} -->
 
 
 **Solution:**
@@ -72,7 +72,7 @@ $$\arccos\left(-\dfrac{1}{2}\right) = 120^\circ$$
 
 Evaluate $\arctan(-\sqrt{3})$.
 
-<!-- ILLUSTRATION: a unit circle marking -60° in Quadrant IV (where tangent = -√3), within arctangent's principal range (-90°, 90°) -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["-60° in Q IV", "tan = -√3", "arctan range (-90°, 90°)"], "semanticsLabel": "Unit circle marking negative 60 degrees in Quadrant IV where tangent equals negative square root of 3 within arctangent principal range."} -->
 
 
 **Solution:**
@@ -89,13 +89,13 @@ $$\arctan(-\sqrt{3}) = -60^\circ$$
 
 Evaluate $\sin\left(\arccos \dfrac{3}{5}\right)$.
 
-<!-- ILLUSTRATION: a right triangle where the angle has cosine 3/5 (adjacent 3, hypotenuse 5), the opposite side computed as 4, so its sine is 4/5 -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["θ = arccos(3/5)", "Adjacent = 3", "Hypotenuse = 5", "Opposite = 4", "sin θ = 4/5"], "semanticsLabel": "Right triangle for angle theta with adjacent side 3, hypotenuse 5, and opposite side 4 giving sine 4 fifths."} -->
 
 
 **Solution:**
 Name the inside first: let $\theta = \arccos \dfrac{3}{5}$, an acute angle whose cosine is $\dfrac{3}{5}$. Now find its sine by building the triangle.
 
-<!-- ILLUSTRATION: right triangle with acute angle theta, adjacent 3, hypotenuse 5, opposite side labeled 4 -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["θ", "Adjacent = 3", "Hypotenuse = 5", "Opposite = 4", "90°"], "semanticsLabel": "Right triangle with angle theta, adjacent side 3, hypotenuse 5, and opposite side 4."} -->
 
 1. Cosine is adjacent over hypotenuse: adjacent $3$, hypotenuse $5$.
 2. Find the opposite side with the Pythagorean theorem.
@@ -112,7 +112,7 @@ $$\sin \theta = \dfrac{4}{5}$$
 
 Evaluate $\tan\left(\arcsin \dfrac{5}{13}\right)$.
 
-<!-- ILLUSTRATION: a right triangle where the angle has sine 5/13 (opposite 5, hypotenuse 13), the adjacent side computed as 12, so its tangent is 5/12 -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["θ = arcsin(5/13)", "Opposite = 5", "Hypotenuse = 13", "Adjacent = 12", "tan θ = 5/12"], "semanticsLabel": "Right triangle for angle theta with opposite side 5, hypotenuse 13, and adjacent side 12 giving tangent 5 twelfths."} -->
 
 
 **Solution:**

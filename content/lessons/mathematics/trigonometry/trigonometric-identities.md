@@ -39,7 +39,7 @@ The main strategy for simplifying: convert everything to sines and cosines, then
 
 If $\sin \theta = \dfrac{3}{5}$ and $\theta$ is acute, find $\cos \theta$ using an identity.
 
-<!-- ILLUSTRATION: a right triangle with opposite 3 and hypotenuse 5 (so sin θ = 3/5), the adjacent side 4 giving cos θ = 4/5, confirming the Pythagorean identity -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["θ", "Opposite = 3", "Adjacent = 4", "Hypotenuse = 5", "sin²θ + cos²θ = 1"], "semanticsLabel": "Right triangle with opposite 3, adjacent 4, and hypotenuse 5 confirming the Pythagorean identity."} -->
 
 
 **Solution:**
@@ -120,7 +120,7 @@ $$\cos \theta$$
 
 If $\tan \theta = 2$ and $\theta$ is acute, find $\sec \theta$ and $\cos \theta$.
 
-<!-- ILLUSTRATION: a right triangle with opposite side 2 and adjacent side 1 (so tan θ = 2), the hypotenuse computed as √5, giving sec θ = √5 and cos θ = 1/√5 -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["θ", "Opposite = 2", "Adjacent = 1", "Hypotenuse = √5", "1 + tan²θ = sec²θ"], "semanticsLabel": "Right triangle with opposite 2, adjacent 1, and hypotenuse square root of 5 verifying tangent and secant identity."} -->
 
 
 **Solution:**

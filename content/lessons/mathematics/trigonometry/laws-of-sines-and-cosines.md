@@ -36,7 +36,7 @@ Memory hook: the Law of Sines needs a matched pair (a side with its opposite ang
 
 In triangle $ABC$, angle $A = 30^\circ$, angle $B = 45^\circ$, and side $a = 10$. Find side $b$.
 
-<!-- ILLUSTRATION: a triangle ABC with angle A = 30°, angle B = 45°, side a = 10 opposite A, and side b opposite B marked "?" -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "triangle", "labels": ["A = 30°", "B = 45°", "a = 10", "b = ?", "C"], "semanticsLabel": "Triangle ABC with angle A equal to 30 degrees, angle B equal to 45 degrees, opposite side a equal to 10, and side b marked with a question mark."} -->
 
 
 **Solution:**
@@ -60,7 +60,7 @@ $$b = 20 \times \dfrac{\sqrt{2}}{2} = 10\sqrt{2}$$
 
 In the same triangle (angles $30^\circ$ and $45^\circ$), find angle $C$ and state which side is longest.
 
-<!-- ILLUSTRATION: triangle ABC with angles A = 30°, B = 45°, and C = 105° marked; side c (opposite the largest angle C) highlighted as the longest -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "triangle", "labels": ["A = 30°", "B = 45°", "C = 105°", "Longest side c"], "semanticsLabel": "Triangle ABC with angles 30, 45, and 105 degrees, showing side c opposite the 105 degree angle as the longest side."} -->
 
 
 **Solution:**
@@ -77,7 +77,7 @@ $$C = 180 - 30 - 45 = 105^\circ$$
 
 Two sides of a triangle measure $5$ and $8$, and the angle between them is $60^\circ$. Find the third side.
 
-<!-- ILLUSTRATION: a triangle with two sides 5 and 8 meeting at a 60° included angle, the third side (opposite the 60°) marked "?" -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "triangle", "labels": ["Side = 5", "Side = 8", "Included angle = 60°", "Third side c = ?"], "semanticsLabel": "Triangle with sides 5 and 8 meeting at a 60 degree included angle and opposite side marked with a question mark."} -->
 
 
 **Solution:**
@@ -103,7 +103,7 @@ $$c = 7$$
 
 A triangle has sides $3$, $5$, and $7$. Find its largest angle.
 
-<!-- ILLUSTRATION: a triangle with sides 3, 5, and 7; the angle opposite the longest side (7) marked "?" as the largest angle -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "triangle", "labels": ["Side a = 3", "Side b = 5", "Side c = 7", "Largest angle C = ?"], "semanticsLabel": "Triangle with sides 3, 5, and 7 with the largest angle opposite side 7 marked with a question mark."} -->
 
 
 **Solution:**
@@ -137,13 +137,13 @@ $$C = 120^\circ$$
 
 Two ships leave the same port at the same time. After one hour, ship $X$ has sailed $3$ km and ship $Y$ has sailed $8$ km, and the angle between their paths is $60^\circ$. How far apart are the ships?
 
-<!-- ILLUSTRATION: a port point with two paths diverging at a 60° angle; ship X's path 3 km and ship Y's path 8 km, the dashed distance between the two ships marked "?" -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "triangle", "labels": ["Port", "Ship X (3 km)", "Ship Y (8 km)", "Angle = 60°", "Distance d = ?"], "semanticsLabel": "Diagram of two ships leaving a port at a 60 degree angle, sailing 3 km and 8 km, with dashed distance between them marked with a question mark."} -->
 
 
 **Solution:**
 The port and the two ships form a triangle: two sides and the included angle. Law of Cosines.
 
-<!-- ILLUSTRATION: port point with two ship paths spreading at 60 degrees, lengths 3 and 8, dashed segment d connecting the two ships -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "triangle", "labels": ["Port", "Path 3 km", "Path 8 km", "60°", "Distance d"], "semanticsLabel": "Triangle formed by port and two ship paths of lengths 3 and 8 spreading at 60 degrees with dashed segment d."} -->
 
 1. Set up.
 
