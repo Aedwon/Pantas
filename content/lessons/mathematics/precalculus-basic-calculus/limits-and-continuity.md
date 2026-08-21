@@ -31,7 +31,7 @@ A function is **continuous** at $x = a$ when you can draw through it without lif
 
 Break any one and you have a discontinuity: a hole, a jump, or a vertical asymptote.
 
-<!-- ILLUSTRATION: three mini-graphs showing a hole (removable), a jump between two pieces, and a vertical asymptote -->
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "limits-gallery", "discontinuities": ["hole", "jump", "vertical-asymptote"], "semanticsLabel": "Three mini graphs showing a removable hole, a jump between pieces, and a vertical asymptote."} -->
 
 ## Examples
 
@@ -52,7 +52,7 @@ $$3(2) + 1 = 7$$
 
 Evaluate $\lim_{x \to 3} \dfrac{x^2 - 9}{x - 3}$.
 
-<!-- ILLUSTRATION: the graph of the line y = x + 3 with an open circle (hole) at the point (3, 6), showing the limit approaches 6 even though the function is undefined at x = 3 -->
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "limit-hole", "formula": "y = x + 3", "hole": [3, 6], "points": [[3, 6]], "semanticsLabel": "A graph of y = x + 3 with an open circle hole at (3, 6)."} -->
 
 
 **Solution:**
@@ -108,7 +108,7 @@ $$\dfrac{3}{1} = 3$$
 
 A function is defined as $f(x) = x^2 + 1$ for $x < 1$, and $f(x) = x + k$ for $x \geq 1$. Find the value of $k$ that makes $f$ continuous at $x = 1$.
 
-<!-- ILLUSTRATION: a piecewise graph with the parabola piece x²+1 for x < 1 and the line piece x+k for x ≥ 1 meeting exactly at x = 1 (no gap) when k = 1 -->
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "piecewise", "formula": "x^2+1 for x<1, x+1 for x>=1", "points": [[1, 2]], "semanticsLabel": "A continuous piecewise graph of a parabola and a line meeting at x = 1."} -->
 
 
 **Solution:**

@@ -38,7 +38,7 @@ $$56 \times 1,000 = 56,000$$
 
 ### #2: Finding Differences Between Chart Categories
 
-<!-- ILLUSTRATION: a simple two-bar vertical bar chart, y-axis "Units produced" from 0 to 500 in steps of 100; bar 1 labelled "Factory A" at 450; bar 2 labelled "Factory B" at 320; each bar labelled with its value at the top -->
+<!-- FIGURE: {"kind": "chart", "type": "bar", "labels": ["Factory A", "Factory B"], "values": [450, 320], "yAxis": {"label": "Units produced", "min": 0, "max": 500, "step": 100}, "semanticsLabel": "A bar chart showing Units produced with Factory A at 450 and Factory B at 320."} -->
 
 A bar chart shows production output for two factories. Factory A produced $450$ units and Factory B produced $320$ units. How many more units did Factory A produce than Factory B?
 

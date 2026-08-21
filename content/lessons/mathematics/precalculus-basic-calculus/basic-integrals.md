@@ -29,7 +29,7 @@ $$\int_a^b f(x) \, dx = F(b) - F(a)$$
 
 where $F$ is any antiderivative. This recipe (antidifferentiate, plug in the top limit, subtract the bottom limit) is the **Fundamental Theorem of Calculus**. The $C$ cancels in the subtraction, so definite integrals need no $+ C$.
 
-<!-- ILLUSTRATION: curve above the x-axis with the region between x = a and x = b shaded, labeled as the definite integral -->
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "integral-area", "formula": "Area from x = a to x = b", "points": [[1, 0], [4, 0]], "semanticsLabel": "A graph showing the shaded area under a curve between x = a and x = b representing a definite integral."} -->
 
 ## Examples
 

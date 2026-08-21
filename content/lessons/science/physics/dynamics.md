@@ -85,7 +85,7 @@ Match each force value to the type of friction it overcomes.
 
 A box sits at rest on a flat, horizontal table. Identify and describe the forces that should appear on its free body diagram.
 
-<!-- ILLUSTRATION: a free body diagram of a box with a downward weight (gravity) arrow and an equal upward normal force arrow, both labeled -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "free-body", "forces": [{"label": "Normal Force (Fn)", "direction": "up"}, {"label": "Weight (Fg)", "direction": "down"}], "semanticsLabel": "A free body diagram of a box with an upward normal force arrow and an equal downward gravity arrow."} -->
 
 
 **Solution:**

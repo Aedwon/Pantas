@@ -19,7 +19,7 @@ If one task can be done in $m$ ways and a second task in $n$ ways, the two toget
 
 Choosing a shirt ($4$ options) and pants ($3$ options) gives $4 \times 3 = 12$ outfits. Every branch of the first choice sprouts all the branches of the second.
 
-<!-- ILLUSTRATION: tree diagram with 4 shirt branches each splitting into 3 pants branches, 12 leaf outfits -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "tree", "root": "Outfits", "branches": [{"name": "Shirt 1", "leaves": 3}, {"name": "Shirt 2", "leaves": 3}, {"name": "Shirt 3", "leaves": 3}, {"name": "Shirt 4", "leaves": 3}], "totalLeaves": 12, "semanticsLabel": "A tree diagram with 4 shirt branches each splitting into 3 pants branches for a total of 12 leaf outfits."} -->
 
 ### Permutations
 

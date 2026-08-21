@@ -23,7 +23,7 @@ Numbers belong to different groups. Think of them as boxes inside bigger boxes.
 
 Put all rational and irrational numbers together. You get the **Real numbers**. This is the biggest box of normal numbers.
 
-<!-- ILLUSTRATION: nested boxes diagram, smallest box labeled Natural Numbers inside a bigger box labeled Whole Numbers inside a bigger box labeled Integers inside a bigger box labeled Rational Numbers, with a separate Irrational Numbers box, both joined together inside the biggest outer box labeled Real Numbers -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "nested-boxes", "boxes": ["Natural Numbers", "Whole Numbers", "Integers", "Rational Numbers", "Irrational Numbers", "Real Numbers"], "semanticsLabel": "A nested boxes diagram showing Natural Numbers inside Whole Numbers, Integers, Rational Numbers, with Irrational Numbers beside them inside Real Numbers."} -->
 
 But what happens if you take the square root of a negative number? There is no real number for $\sqrt{-1}$.
 

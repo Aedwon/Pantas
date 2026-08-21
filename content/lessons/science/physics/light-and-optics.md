@@ -15,7 +15,7 @@ isActive: true
 
 The **law of reflection**: the **angle of incidence** (the angle at which light hits a surface, measured from an imaginary line called the **normal**, perpendicular to the surface) equals the **angle of reflection** (the angle at which it bounces off).
 
-<!-- ILLUSTRATION: flat mirror surface with a dashed vertical normal line, an incoming light ray hitting the surface at an angle labeled angle of incidence, and an outgoing light ray leaving at an equal angle labeled angle of reflection -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "ray-reflection", "labels": ["Incident ray", "Normal line", "Reflected ray"], "angles": ["Angle of incidence", "Angle of reflection"], "semanticsLabel": "A flat mirror with a normal line showing an incoming incident ray and an outgoing reflected ray at equal angles."} -->
 
 ### Refraction
 
@@ -41,7 +41,7 @@ The **electromagnetic spectrum** organizes all types of electromagnetic waves by
 
 A light ray hits a flat mirror at an angle of incidence of $40°$ (measured from the normal). Find the angle of reflection.
 
-<!-- ILLUSTRATION: a flat mirror with a dashed normal line perpendicular to it; an incoming ray at 40° from the normal and the reflected ray at 40° on the other side of the normal -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "ray-reflection", "incidentAngle": 40, "reflectedAngle": 40, "labels": ["40°", "40°"], "semanticsLabel": "A light ray striking a flat mirror at 40 degrees from the normal line and reflecting off at 40 degrees."} -->
 
 
 **Solution:**

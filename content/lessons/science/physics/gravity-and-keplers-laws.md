@@ -17,7 +17,7 @@ $$F = G\dfrac{m_1 m_2}{r^2}$$
 
 where $m_1$ and $m_2$ are the two masses, $r$ is the distance between their centers, and $G$ is the universal gravitational constant. Notice the force depends on $r^2$ in the denominator: this is an **inverse-square law**, meaning gravity weakens very quickly as distance increases. Double the distance, and the force drops to one-quarter its original strength (since $2^2 = 4$).
 
-<!-- ILLUSTRATION: two spheres of different sizes separated by a distance r, with arrows showing the mutual attractive force pulling them together, and a smaller inset showing the same two spheres at double the distance with a much smaller force arrow -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "gravitational-force", "masses": ["m1", "m2"], "distance": "r", "comparison": "2r (F/4)", "semanticsLabel": "Two spheres separated by distance r with inward gravity arrows, and a comparison at distance 2r with one fourth the force."} -->
 
 ### Kepler's Three Laws
 

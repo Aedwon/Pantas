@@ -19,7 +19,7 @@ So $\{(1, 2), (2, 3), (3, 3)\}$ is a function. Two different inputs may share an
 
 On a graph, use the **vertical line test**. If any vertical line crosses the graph more than once, it is not a function.
 
-<!-- ILLUSTRATION: side-by-side graphs, a parabola opening up passing the vertical line test, and a sideways parabola failing it with a dashed vertical line hitting it twice -->
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "vertical-line-test", "semanticsLabel": "Two graphs comparing a vertical line test on a regular parabola and a sideways parabola."} -->
 
 ### Domain and Range
 
