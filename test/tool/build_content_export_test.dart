@@ -45,6 +45,18 @@ void main() {
       }),
     );
 
+    // Setup content/illustrations/assets.json
+    final illusDir = Directory('${tempDir.path}/content/illustrations')
+      ..createSync(recursive: true);
+    File('${illusDir.path}/assets.json').writeAsStringSync(
+      jsonEncode({
+        'mathematics/algebra/01-intro#1': {
+          'url': 'https://cdn.sanity.io/images/demo.png',
+          'alt': 'Coordinate axis diagram',
+        },
+      }),
+    );
+
     // Setup content/lessons
     final lessonsDir =
         Directory('${tempDir.path}/content/lessons/mathematics/algebra')
@@ -61,6 +73,15 @@ ordering: 1
 ---
 # Hello
 This is a lesson.
+
+<!-- FIGURE: {"kind": "coordinate-graph", "formula": "y=x^2", "semanticsLabel": "Graph of y equals x squared"} -->
+
+| x | y |
+|---|---|
+| 1 | 1 |
+| 2 | 4 |
+
+<!-- ILLUSTRATION: coordinate axis diagram -->
 ''');
 
     // Setup content/questions
@@ -132,7 +153,24 @@ questions:
       parseQuestion(doc as Map<String, Object?>);
     }
     for (final doc in output['lesson'] as List) {
-      parseLesson(doc as Map<String, Object?>);
+      final companion = parseLesson(doc as Map<String, Object?>);
+      final bodyBlocks = (jsonDecode(companion.bodyJson.value) as List)
+          .cast<Map<String, dynamic>>();
+      expect(
+        bodyBlocks.any((b) => b['_type'] == 'figureSpec'),
+        isTrue,
+        reason: 'figureSpec block should survive parseLesson and JSON encoding',
+      );
+      expect(
+        bodyBlocks.any((b) => b['_type'] == 'table'),
+        isTrue,
+        reason: 'table block should survive parseLesson and JSON encoding',
+      );
+      expect(
+        bodyBlocks.any((b) => b['_type'] == 'image'),
+        isTrue,
+        reason: 'image block should survive parseLesson and JSON encoding',
+      );
     }
   });
 }
