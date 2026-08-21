@@ -49,4 +49,20 @@ void main() {
       expect(lessonIds, contains(q['lessonId']), reason: '${q['id']}');
     }
   });
+
+  test('all seven generated exams in assets/seed/v1.json are active', () {
+    final file = File('assets/seed/v1.json');
+    expect(file.existsSync(), isTrue);
+
+    final json = jsonDecode(file.readAsStringSync()) as Map<String, dynamic>;
+    final exams = (json['exams'] as List).cast<Map<String, dynamic>>();
+    expect(exams.length, 7);
+    for (final exam in exams) {
+      expect(
+        exam['isActive'],
+        isTrue,
+        reason: '${exam['id']} should be active',
+      );
+    }
+  });
 }

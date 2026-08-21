@@ -114,7 +114,13 @@ questions:
     expect(output, containsPair('lesson', isA<List<Object?>>()));
 
     for (final doc in output['exam'] as List) {
-      parseExam(doc as Map<String, Object?>);
+      final exam = doc as Map<String, Object?>;
+      expect(
+        exam['isActive'],
+        isTrue,
+        reason: '${exam['_id']} should be active',
+      );
+      parseExam(exam);
     }
     for (final doc in output['subject'] as List) {
       parseSubject(doc as Map<String, Object?>);

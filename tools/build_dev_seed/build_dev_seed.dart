@@ -18,10 +18,8 @@ const _keepExamId = 'exam_cse_pro';
 
 // The post-launch expansion roster from the foundation spec §1.2, carried in
 // the dev seed so exam-list surfaces have realistic data to hold. They ship
-// `isActive: false` because nothing is authored behind them: selecting one
-// would land on an app with no subjects, topics, questions, or lessons. This
-// mirrors production, where an exam goes active only when its content pack
-// does. Flip an entry to `true` to see it in the onboarding picker.
+// `isActive: true` so all built-in exams are available in the onboarding
+// picker.
 const _rosterExams = <Map<String, Object?>>[
   {
     'id': 'exam_acet',
@@ -29,7 +27,7 @@ const _rosterExams = <Map<String, Object?>>[
     'name': 'Ateneo College Entrance Test',
     'shortName': 'ACET',
     'language': 'en',
-    'isActive': false,
+    'isActive': true,
     'subjects': <Map<String, Object?>>[],
   },
   {
@@ -38,7 +36,7 @@ const _rosterExams = <Map<String, Object?>>[
     'name': 'De La Salle University College Admission Test',
     'shortName': 'DLSUCET',
     'language': 'en',
-    'isActive': false,
+    'isActive': true,
     'subjects': <Map<String, Object?>>[],
   },
   {
@@ -47,7 +45,7 @@ const _rosterExams = <Map<String, Object?>>[
     'name': 'UST Entrance Test',
     'shortName': 'USTET',
     'language': 'en',
-    'isActive': false,
+    'isActive': true,
     'subjects': <Map<String, Object?>>[],
   },
   {
@@ -56,7 +54,7 @@ const _rosterExams = <Map<String, Object?>>[
     'name': 'PUP College Entrance Test',
     'shortName': 'PUPCET',
     'language': 'en',
-    'isActive': false,
+    'isActive': true,
     'subjects': <Map<String, Object?>>[],
   },
   {
@@ -65,7 +63,7 @@ const _rosterExams = <Map<String, Object?>>[
     'name': 'Civil Service Examination: Subprofessional',
     'shortName': 'CSE Sub',
     'language': 'en',
-    'isActive': false,
+    'isActive': true,
     'subjects': <Map<String, Object?>>[],
   },
 ];

@@ -8,6 +8,10 @@ import 'package:yaml/yaml.dart';
 const _examId = 'exam_upcat';
 const _keepExamId = 'exam_cse_pro';
 
+// The post-launch expansion roster from the foundation spec §1.2, carried in
+// the export so exam-list surfaces have realistic data to hold. They ship
+// `isActive: true` so all built-in exams are available in the onboarding
+// picker.
 const _rosterExams = <Map<String, Object?>>[
   {
     'id': 'exam_acet',
@@ -15,7 +19,7 @@ const _rosterExams = <Map<String, Object?>>[
     'name': 'Ateneo College Entrance Test',
     'shortName': 'ACET',
     'language': 'en',
-    'isActive': false,
+    'isActive': true,
   },
   {
     'id': 'exam_dlsucet',
@@ -23,7 +27,7 @@ const _rosterExams = <Map<String, Object?>>[
     'name': 'De La Salle University College Admission Test',
     'shortName': 'DLSUCET',
     'language': 'en',
-    'isActive': false,
+    'isActive': true,
   },
   {
     'id': 'exam_ustet',
@@ -31,7 +35,7 @@ const _rosterExams = <Map<String, Object?>>[
     'name': 'UST Entrance Test',
     'shortName': 'USTET',
     'language': 'en',
-    'isActive': false,
+    'isActive': true,
   },
   {
     'id': 'exam_pupcet',
@@ -39,7 +43,7 @@ const _rosterExams = <Map<String, Object?>>[
     'name': 'PUP College Entrance Test',
     'shortName': 'PUPCET',
     'language': 'en',
-    'isActive': false,
+    'isActive': true,
   },
   {
     'id': 'exam_cse_sub',
@@ -47,7 +51,7 @@ const _rosterExams = <Map<String, Object?>>[
     'name': 'Civil Service Examination: Subprofessional',
     'shortName': 'CSE Sub',
     'language': 'en',
-    'isActive': false,
+    'isActive': true,
   },
 ];
 
