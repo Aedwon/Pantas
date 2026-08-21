@@ -13,8 +13,14 @@ questions:
       - text: $(3, 4)$
         correct: true
       - text: $(2, 3)$
+        rationale: |
+          You used numbers that fit $y = x + 1$, but you did not check the second equation. For this pair, $x + y = 5$, not 7.
       - text: $(4, 5)$
+        rationale: |
+          You may have added 1 to $x$ correctly and stopped there. A solution has to satisfy both equations, and $4 + 5 = 9$.
       - text: $(1, 2)$
+        rationale: |
+          You found a pair that fits $y = x + 1$, but one equation is not enough. It fails the sum condition because $1 + 2 = 3$.
     explanation: |
       Substitute $y = x + 1$ into $x + y = 7$: $x + (x + 1) = 7$, so $2x = 6$ and $x = 3$. Then $y = 4$.
 
@@ -27,8 +33,14 @@ questions:
       - text: $(3, 2)$
         correct: true
       - text: $(2, 3)$
+        rationale: |
+          You may have swapped the solved values after elimination. Check both equations: $(2, 3)$ makes the first one 13, not 12.
       - text: $(1, 4)$
+        rationale: |
+          You found a pair of numbers, but they do not satisfy both equations. In the second equation, $4(1) - 3(4) = -8$, not 6.
       - text: $(4, 1)$
+        rationale: |
+          You likely got $x$ from $6x = 18$ wrong or guessed from one equation. This pair gives $2(4) + 3(1) = 11$.
     explanation: |
       Add the equations: $(2x + 3y) + (4x - 3y) = 12 + 6$. The $y$ terms cancel: $6x = 18$, so $x = 3$. Substitute: $2(3) + 3y = 12$ gives $y = 2$.
 
@@ -41,8 +53,14 @@ questions:
       - text: $(4, 2)$
         correct: true
       - text: $(2, 4)$
+        rationale: |
+          You swapped the correct values after solving. Ordered pairs must keep $x$ first and $y$ second.
       - text: $(3, 3)$
+        rationale: |
+          You may have guessed equal values, but they do not fit the first equation. $3(3) + 2(3) = 15$, not 16.
       - text: $(5, 1)$
+        rationale: |
+          You may have picked a pair that looks close from the first equation, but it fails the second. $2(5) + 5(1) = 15$, not 18.
     explanation: |
       Multiply the first by 5 and the second by 2 to get $15x + 10y = 80$ and $4x + 10y = 36$. Subtract: $11x = 44$, so $x = 4$. Then $y = 2$.
 
@@ -55,8 +73,14 @@ questions:
       - text: $30$
         correct: true
       - text: $20$
+        rationale: |
+          You treated the extra money as if each adult ticket added P60. Compared with a child ticket, each adult adds only P40.
       - text: $35$
+        rationale: |
+          You used too many adult tickets. If 35 were adults, the sales would be P4400, not P4200.
       - text: $25$
+        rationale: |
+          You may have split the tickets too evenly instead of using the price difference. Twenty-five adult tickets would total only P4000.
     explanation: |
       Let $a$ be adult tickets and $c$ be child tickets. Write: $a + c = 50$ and $100a + 60c = 4200$. From the first, $c = 50 - a$. Substitute: $100a + 60(50 - a) = 4200$, giving $40a = 1200$, so $a = 30$.
 
@@ -69,8 +93,14 @@ questions:
       - text: No solution
         correct: true
       - text: Infinite solutions
+        rationale: |
+          You saw matching left sides and assumed matching lines. But the constants are different, so the lines are parallel and never meet.
       - text: $(1, 3)$
+        rationale: |
+          You found a pair that satisfies the first equation, but it cannot satisfy the second too. The same left side would have to equal both 5 and 9.
       - text: $(2, 1)$
+        rationale: |
+          You found a point that works for $2x + y = 5$, but the second equation still says $2x + y = 9$. One point cannot make both true.
     explanation: |
       Subtracting the first equation from the second gives $0 = 4$, which is false. The equations have no common solution, so the lines are parallel.
 
@@ -83,8 +113,14 @@ questions:
       - text: Infinite solutions
         correct: true
       - text: No solution
+        rationale: |
+          You noticed two equations, but you missed that one is just double the other. They describe the same line, so every point on it works.
       - text: $(1, 3)$
+        rationale: |
+          You treated the system like it had one ordered-pair answer. This system has infinitely many solutions, not just one point.
       - text: $(2, 1)$
+        rationale: |
+          You picked one point without seeing the bigger pattern. Many points satisfy both equations because the two equations are the same line.
     explanation: |
       Multiply the first equation by 2: $4x + 2y = 10$. This is exactly the second equation, so they describe the same line. There are infinitely many solutions.
 
@@ -97,8 +133,14 @@ questions:
       - text: $2$
         correct: true
       - text: $0$
+        rationale: |
+          You may have thought a line and a parabola miss each other here. But the equation becomes a quadratic with two real roots.
       - text: $1$
+        rationale: |
+          You may have expected a tangent case. Here the factorization gives two different $x$-values, so there are two intersections.
       - text: Infinite
+        rationale: |
+          You treated the graphs as if they lay on top of each other. Solving gives two specific crossing points, not endlessly many.
     explanation: |
       Set $x^2 - 4 = 3x - 6$ to get $x^2 - 3x + 2 = 0$. This factors as $(x-1)(x-2) = 0$, giving $x = 1$ or $x = 2$. Two values of $x$ means the line crosses the parabola at two points.
 
@@ -111,8 +153,14 @@ questions:
       - text: $50$
         correct: true
       - text: $40$
+        rationale: |
+          You kept too much of the 60% alloy. With 40 kg of A and 60 kg of B, the mix has 44 kg of copper, not 40 kg.
       - text: $60$
+        rationale: |
+          You used too much of the 20% alloy. With 60 kg of A and 40 kg of B, the mix has only 36 kg of copper.
       - text: $30$
+        rationale: |
+          You chose far too little of the weaker alloy. With 30 kg of A and 70 kg of B, the copper total becomes 48 kg.
     explanation: |
       Let $a$ be kg of A and $b$ be kg of B. Write: $a + b = 100$ and $0.2a + 0.6b = 40$. From the first, $b = 100 - a$. Substitute: $0.2a + 0.6(100 - a) = 40$, which gives $a = 50$.
 
@@ -130,8 +178,14 @@ questions:
       - text: When subtracting, the $10y$ terms should cancel to give $0$, not add to $20y$.
         correct: true
       - text: There is no error.
+        rationale: |
+          You forgot that subtracting changes the sign of every term in the second expression. The second $10y$ should become $-10y$.
       - text: The subtraction on the right should be $80 + 36 = 116$.
+        rationale: |
+          You changed subtraction into addition on the right side. Only the second equation is being subtracted, so $80 - 36$ is correct.
       - text: The $x$ terms should combine to give $20x$.
+        rationale: |
+          You added $15x$ and $4x$ even though the second expression is being subtracted. The $x$-terms should become $15x - 4x = 11x$.
     explanation: |
       When subtracting, we must subtract every term. The $+10y$ becomes $-10y$, so $+10y - 10y = 0$, not $+20y$. The correct step is $11x = 44$.
 
@@ -144,8 +198,14 @@ questions:
       - text: Substitution, because $y$ is already isolated.
         correct: true
       - text: Elimination, because the coefficients match.
+        rationale: |
+          You picked elimination, but the coefficients do not cancel nicely yet. One variable is already alone, so substitution is shorter.
       - text: Graphing, because the system is linear.
+        rationale: |
+          You picked a method that can work, but it is not the best one for an exact answer here. The isolated $y$ makes substitution faster.
       - text: Cannot be determined.
+        rationale: |
+          You already have enough information from the form of the equations. When one variable is isolated, substitution is usually best.
     explanation: |
       The first equation already has $y$ isolated as $y = 3x + 1$. Substitution is fastest: plug this expression into the second equation.
 
@@ -158,8 +218,14 @@ questions:
       - text: $6$
         correct: true
       - text: $4$
+        rationale: |
+          You may have used the total items but not the total cost. Four notebooks and six pens cost only P220.
       - text: $5$
+        rationale: |
+          You guessed the middle value instead of using the price gap. Five notebooks and five pens cost P250, not P280.
       - text: $7$
+        rationale: |
+          You used too many notebooks. Seven notebooks and three pens cost P310.
     explanation: |
       Let $n$ be notebooks and $p$ be pens. Write: $n + p = 10$ and $40n + 10p = 280$. From the first, $p = 10 - n$. Substitute: $40n + 10(10 - n) = 280$, giving $30n = 180$, so $n = 6$.
 
@@ -171,9 +237,20 @@ questions:
     choices:
       - text: $3$
         correct: true
-      - text: $2$
-      - text: $4$
-      - text: $1$
+      - text: $6$
+        rationale: |
+          You used $y = 9 - x$ after finding $x = 3$. The first equation is
+          $2x + y = 9$, so you must subtract $2x$: $y = 9 - 2(3) = 3$.
+      - text: $-3$
+        rationale: |
+          You moved $2x$ to the other side but changed the equation to
+          $y = 2x - 9$. It should be $y = 9 - 2x$. With $x = 3$, that gives
+          $y = 3$.
+      - text: $0$
+        rationale: |
+          You subtracted the two equations, got $x - y = 0$, and concluded
+          that $y$ is 0. That equation means $x = y$. Solving either original
+          equation gives $x = y = 3$.
     explanation: |
       From the first equation, $y = 9 - 2x$. Substitute into the second: $x + 2(9 - 2x) = 9$, giving $x + 18 - 4x = 9$, so $-3x = -9$ and $x = 3$. Then $y = 9 - 2(3) = 3$.
 
@@ -186,8 +263,14 @@ questions:
       - text: $4$
         correct: true
       - text: $5$
+        rationale: |
+          You may have added the right sides and forgotten to divide the whole equation by 4. $4x + 4y = 16$ means $x + y = 4$.
       - text: $6$
+        rationale: |
+          You added the equations but treated 16 as if it were already $x + y$. Both variables were multiplied by 4 first.
       - text: $8$
+        rationale: |
+          You doubled the final value. After adding the equations, divide both sides by 4, not 2.
     explanation: |
       Add the two equations: $(3x + y) + (x + 3y) = 10 + 6$, giving $4x + 4y = 16$. Divide by 4: $x + y = 4$.
 
@@ -200,8 +283,14 @@ questions:
       - text: $(3, 1)$
         correct: true
       - text: $(2, 3)$
+        rationale: |
+          You found a pair that makes the first equation true, but it fails the second because $2 - 3 = -1$, not 2.
       - text: $(1, 5)$
+        rationale: |
+          You may have focused on the sum equation only. It fails $x - y = 2$ because $1 - 5 = -4$.
       - text: $(4, 0)$
+        rationale: |
+          You found a pair that misses the first equation. $2(4) + 0 = 8$, not 7.
     explanation: |
       Test $(3, 1)$: $2(3) + 1 = 7$ ✓ and $3 - 1 = 2$ ✓. This ordered pair satisfies both equations.
 
@@ -214,8 +303,14 @@ questions:
       - text: $(2, 1)$
         correct: true
       - text: $(1, 4)$
+        rationale: |
+          You found a pair that fits the first equation, but the second one fails. $1 - 4 = -3$, not 1.
       - text: $(3, -2)$
+        rationale: |
+          You may have guessed a pair that keeps the first equation at 7. But $3 - (-2) = 5$, so the second equation is not satisfied.
       - text: $(0, 7)$
+        rationale: |
+          You found a pair that only fits the first equation. It fails the second because $0 - 7$ is not 1.
     explanation: |
       Add the equations: $(3x + y) + (x - y) = 7 + 1$. The $y$ terms cancel: $4x = 8$, so $x = 2$. Then $y = 1$.
 
@@ -228,8 +323,14 @@ questions:
       - text: $(2, -1)$
         correct: true
       - text: $(1, -3)$
+        rationale: |
+          You may have substituted into the second equation but failed to double the whole expression $2x - 5$. The second equation becomes $3x + 2(2x - 5)$.
       - text: $(3, 1)$
+        rationale: |
+          You may have forgotten to add 10 before dividing by 7. From $7x - 10 = 4$, you must get $7x = 14$.
       - text: $(0, -5)$
+        rationale: |
+          You used $y = 2x - 5$ with $x = 0$ and skipped the second equation. A solution must satisfy both.
     explanation: |
       Substitute $y = 2x - 5$ into the second equation: $3x + 2(2x - 5) = 4$. This gives $7x - 10 = 4$, so $7x = 14$ and $x = 2$. Then $y = -1$.
 
@@ -242,8 +343,14 @@ questions:
       - text: $2$
         correct: true
       - text: $1$
+        rationale: |
+          You may have expected the line to touch the parabola once. But $x^2 = x$ gives two different solutions, $x = 0$ and $x = 1$.
       - text: $0$
+        rationale: |
+          You may have thought there was no crossing point. But both graphs meet at $(0, 0)$ and again at $(1, 1)$.
       - text: Infinite
+        rationale: |
+          You treated the graphs as if they lay on top of each other. Solving the equation gives two shared points, not infinitely many.
     explanation: |
       Set $x^2 = x$, giving $x^2 - x = 0$ or $x(x - 1) = 0$. So $x = 0$ or $x = 1$. Two values of $x$ give two solutions.
 
@@ -256,7 +363,13 @@ questions:
       - text: $15$
         correct: true
       - text: $10$
+        rationale: |
+          You solved only for the upstream speed. Here, 10 is $v - c$, not the barge's own speed $v$.
       - text: $20$
+        rationale: |
+          You took the downstream speed as the boat speed. But 20 is $v + c$, which includes the current.
       - text: $12$
+        rationale: |
+          You may have averaged the rates directly. This problem needs two equations, one for $v - c$ and one for $v + c$.
     explanation: |
       Set up two equations: $80 = 8(v - c)$ giving $v - c = 10$, and $100 = 5(v + c)$ giving $v + c = 20$. Add these: $2v = 30$, so $v = 15$ km/h.

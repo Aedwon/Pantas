@@ -21,9 +21,18 @@ questions:
     choices:
       - text: '$38,000$'
         correct: true
-      - text: '$40,000$'
-      - text: '$45,000$'
-      - text: '$59,000$'
+      - text: '$27,000$'
+        rationale: |
+          You added January and February Paper but left out March Paper.
+          Include all three months: $12{,}000 + 15{,}000 + 11{,}000$.
+      - text: '$26,000$'
+        rationale: |
+          You added February and March Paper but left out January Paper.
+          January adds another $12{,}000$ to the Paper total.
+      - text: '$46,000$'
+        rationale: |
+          You used March Ink $19{,}000$ instead of March Paper $11{,}000$.
+          Stay in the Paper column for every month.
     explanation: |
       Summing Paper expenditures across the three months:
       $$\text{Total} = 12000 + 15000 + 11000 = 38000\text{ PHP}$$
@@ -36,9 +45,18 @@ questions:
     choices:
       - text: '$45,000$'
         correct: true
-      - text: '$35,000$'
-      - text: '$50,000$'
-      - text: '$55,000$'
+      - text: '$37,000$'
+        rationale: |
+          You added February Paper and Ink but left out Furniture. Add the
+          February Furniture amount of $8{,}000$.
+      - text: '$30,000$'
+        rationale: |
+          You added February Ink and Furniture but left out Paper. Add the
+          February Paper amount of $15{,}000$.
+      - text: '$23,000$'
+        rationale: |
+          You added February Paper and Furniture but left out Ink. Add the
+          February Ink amount of $22{,}000$.
     explanation: |
       Summing all categories for February:
       $$\text{Total} = 15000 + 22000 + 8000 = 45000\text{ PHP}$$
@@ -60,8 +78,14 @@ questions:
       - text: Region B
         correct: true
       - text: Region A
+        rationale: |
+          You may have focused on one crop, but you need the total across all three crops. Region A totals 1,350, which is less than Region B.
       - text: Region C
+        rationale: |
+          You may have noticed Region C leads in corn, but the question asks for the full row total. Region C totals 1,290.
       - text: All equal
+        rationale: |
+          You treated the rows as balanced without adding them. The totals are different, and Region B is highest.
     explanation: |
       Calculate total yield per region:
       $$\text{Region A} = 450 + 300 + 600 = 1350$$
@@ -77,9 +101,18 @@ questions:
     choices:
       - text: '$990\text{ metric tons}$'
         correct: true
-      - text: '$1,050\text{ metric tons}$'
+      - text: '$580\text{ metric tons}$'
+        rationale: |
+          You added Corn for Regions A and B but left out Region C. Region C
+          contributes another 410 metric tons.
       - text: '$1,350\text{ metric tons}$'
-      - text: '$1,850\text{ metric tons}$'
+        rationale: |
+          You used the total for Region A instead of the Corn column. Region
+          A has $450 + 300 + 600 = 1{,}350$ metric tons.
+      - text: '$690\text{ metric tons}$'
+        rationale: |
+          You added Corn for Regions B and C but left out Region A. Region A
+          contributes another 300 metric tons.
     explanation: |
       Summing Corn yields:
       $$\text{Total Corn} = 300 + 280 + 410 = 990\text{ metric tons}$$
@@ -101,9 +134,18 @@ questions:
     choices:
       - text: '$45\text{ million PHP}$'
         correct: true
-      - text: '$38\text{ million PHP}$'
+      - text: '$36\text{ million PHP}$'
+        rationale: |
+          You added Q4 Tax and Property but left out Licenses. Add the Q4
+          Licenses amount of 9 million PHP.
       - text: '$30\text{ million PHP}$'
-      - text: '$52\text{ million PHP}$'
+        rationale: |
+          You added only Q4 Tax and Licenses. The missing Q4 Property value is
+          15 million PHP.
+      - text: '$24\text{ million PHP}$'
+        rationale: |
+          You added Q4 Licenses and Property but left out Tax. Add the Q4 Tax
+          amount of 21 million PHP.
     explanation: |
       Summing revenue streams for Q4:
       $$\text{Total Q4} = 21 + 9 + 15 = 45\text{ million PHP}$$
@@ -117,8 +159,17 @@ questions:
       - text: '$7\text{ million PHP}$'
         correct: true
       - text: '$5\text{ million PHP}$'
-      - text: '$8\text{ million PHP}$'
-      - text: '$11\text{ million PHP}$'
+        rationale: |
+          You compared Property revenue instead of Tax revenue. Property rose
+          from 10 to 15, but Tax rose from 14 to 21.
+      - text: '$3\text{ million PHP}$'
+        rationale: |
+          You compared Licenses instead of Tax. Licenses rose from 6 to 9,
+          while Tax rose from 14 to 21.
+      - text: '$35\text{ million PHP}$'
+        rationale: |
+          You added Q1 and Q4 Tax revenue instead of finding how much Q4
+          exceeded Q1. Subtract $21 - 14$ rather than add them.
     explanation: |
       Subtract Q1 Tax revenue from Q4 Tax revenue:
       $$\text{Difference} = 21 - 14 = 7\text{ million PHP}$$
@@ -139,9 +190,18 @@ questions:
     choices:
       - text: '$3,200$'
         correct: true
-      - text: '$2,650$'
-      - text: '$3,500$'
+      - text: '$2,450$'
+        rationale: |
+          You added female applicants in Manila and Cebu but left out Davao.
+          Add Davao's 750 female applicants.
+      - text: '$1,700$'
+        rationale: |
+          You added female applicants in Cebu and Davao but left out Manila.
+          Manila adds 1,500 female applicants.
       - text: '$5,850$'
+        rationale: |
+          You added every applicant in the table. $5{,}850$ is the grand total
+          of male and female applicants across all three centers.
     explanation: |
       Summing female applicants:
       $$\text{Total Female} = 1500 + 950 + 750 = 3200$$
@@ -154,9 +214,18 @@ questions:
     choices:
       - text: '$1,300$'
         correct: true
-      - text: '$1,100$'
-      - text: '$1,450$'
-      - text: '$1,750$'
+      - text: '$550$'
+        rationale: |
+          You compared only male applicants: $1{,}200 - 650 = 550$. The
+          question asks for all applicants at both centers.
+      - text: '$750$'
+        rationale: |
+          You compared only female applicants: $1{,}500 - 750 = 750$. Include
+          both male and female applicants before subtracting.
+      - text: '$4,100$'
+        rationale: |
+          You added the Manila and Davao totals. The question asks how many
+          more attended Manila, so subtract $2{,}700 - 1{,}400$.
     explanation: |
       Calculate totals for Manila and Davao:
       $$\text{Manila} = 1200 + 1500 = 2700$$
@@ -179,9 +248,18 @@ questions:
     choices:
       - text: '$900$'
         correct: true
-      - text: '$800$'
-      - text: '$980$'
+      - text: '$560$'
+        rationale: |
+          You added April and May Non-Fiction but left out June. Add June's
+          340 Non-Fiction books.
+      - text: '$650$'
+        rationale: |
+          You added May and June Non-Fiction but left out April. Add April's
+          250 Non-Fiction books.
       - text: '$1,400$'
+        rationale: |
+          You totaled the Fiction column instead of Non-Fiction. Use 250,
+          310, and 340 from the Non-Fiction column.
     explanation: |
       Summing Non-Fiction circulation:
       $$\text{Total} = 250 + 310 + 340 = 900$$
@@ -194,9 +272,18 @@ questions:
     choices:
       - text: '$1,060$'
         correct: true
-      - text: '$980$'
-      - text: '$1,120$'
-      - text: '$1,250$'
+      - text: '$860$'
+        rationale: |
+          You added June Fiction and Non-Fiction but left out Reference. Add
+          the June Reference count of 200.
+      - text: '$720$'
+        rationale: |
+          You added June Fiction and Reference but left out Non-Fiction. Add
+          the June Non-Fiction count of 340.
+      - text: '$540$'
+        rationale: |
+          You added June Non-Fiction and Reference but left out Fiction. Add
+          the June Fiction count of 520.
     explanation: |
       Summing all categories for June:
       $$\text{June Total} = 520 + 340 + 200 = 1060$$
@@ -218,8 +305,16 @@ questions:
       - text: '$135$'
         correct: true
       - text: '$100$'
+        rationale: |
+          You added Afternoon Medical and Afternoon Surgical, but left out
+          Afternoon Pediatric $35$.
       - text: '$120$'
-      - text: '$150$'
+        rationale: |
+          You used Morning Medical $45$ instead of Afternoon Medical $60$.
+      - text: '$95$'
+        rationale: |
+          You added Afternoon Medical and Pediatric but left out Surgical.
+          Add the Afternoon Surgical count of 40.
     explanation: |
       Summing Afternoon shift admissions:
       $$\text{Total} = 60 + 40 + 35 = 135$$
@@ -232,9 +327,18 @@ questions:
     choices:
       - text: '$90$'
         correct: true
-      - text: '$80$'
-      - text: '$95$'
+      - text: '$70$'
+        rationale: |
+          You added Morning and Afternoon Surgical but left out Night. Add the
+          Night Surgical count of 20.
+      - text: '$60$'
+        rationale: |
+          You added Afternoon and Night Surgical but left out Morning. Add the
+          Morning Surgical count of 30.
       - text: '$140$'
+        rationale: |
+          You totaled the Medical column instead of Surgical. Use 30, 40, and
+          20 from the Surgical column.
     explanation: |
       Summing Surgical admissions:
       $$\text{Total Surgical} = 30 + 40 + 20 = 90$$

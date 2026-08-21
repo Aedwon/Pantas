@@ -20,10 +20,20 @@ questions:
         correct: true
       - text: '$145^\circ$'
         correct: false
+        rationale: |
+          You used supplementary ($180^\circ$) instead of
+          complementary ($90^\circ$). Complementary angles add to
+          $90^\circ$: $90 - 35 = 55$.
       - text: '$35^\circ$'
         correct: false
+        rationale: |
+          You assumed the two angles are equal. Complementary means
+          they add to $90^\circ$, not that they match.
       - text: '$325^\circ$'
         correct: false
+        rationale: |
+          You subtracted from $360^\circ$ instead of $90^\circ$.
+          Complementary angles add to $90^\circ$, not $360^\circ$.
     explanation: |
       Complementary angles are two angles whose sum is equal to $90^\circ$.
 
@@ -43,10 +53,20 @@ questions:
         correct: true
       - text: '$22^\circ$'
         correct: false
+        rationale: |
+          You subtracted from $90^\circ$ instead of $180^\circ$.
+          A linear pair is supplementary, not complementary.
       - text: '$112^\circ$'
         correct: false
+        rationale: |
+          You assumed the two angles are equal. A linear pair adds
+          to $180^\circ$: $180 - 112 = 68$.
       - text: '$78^\circ$'
         correct: false
+        rationale: |
+          You subtracted $112$ from $190$ or miscomputed
+          $180 - 112$. The correct subtraction is
+          $180 - 112 = 68$.
     explanation: |
       Angles that form a linear pair are supplementary, meaning their sum is $180^\circ$.
 
@@ -66,10 +86,21 @@ questions:
         correct: true
       - text: '$\angle BPD = 132^\circ$ because vertical angles are supplementary.'
         correct: false
+        rationale: |
+          You treated vertical angles as supplementary. Vertical
+          angles are equal, not supplementary. The adjacent angles
+          are the ones that add to $180^\circ$.
       - text: '$\angle BPD = 42^\circ$ because vertical angles are complementary.'
         correct: false
+        rationale: |
+          You subtracted from $90^\circ$. Vertical angles are
+          equal, and there is no complementary rule for them.
       - text: '$\angle BPD = 180^\circ$ because vertical angles form a straight line.'
         correct: false
+        rationale: |
+          You confused vertical angles with a linear pair. Vertical
+          angles are the opposite pair at an intersection. They are
+          equal, not supplementary.
     explanation: |
       Vertical angles are opposite angles formed by two intersecting lines.
 
@@ -88,10 +119,20 @@ questions:
         correct: true
       - text: "A ray extends infinitely in both directions, whereas a line segment has one endpoint."
         correct: false
+        rationale: |
+          You described a line, not a ray. A line extends in both
+          directions. A ray starts at one point and goes one way.
       - text: "A line segment has fixed length, whereas a ray has no endpoints."
         correct: false
+        rationale: |
+          You said a ray has no endpoints. A ray has one endpoint
+          where it starts. A line is the one with no endpoints.
       - text: "A ray can be measured in length, whereas a line segment cannot."
         correct: false
+        rationale: |
+          You swapped the two. A line segment has a measurable
+          length because it has two endpoints. A ray extends
+          forever and cannot be measured.
     explanation: |
       By standard geometric definitions:
       - A line segment is bounded by two distinct endpoints and has a measurable length.
@@ -108,10 +149,22 @@ questions:
         correct: true
       - text: '$14^\circ$'
         correct: false
+        rationale: |
+          You halved the $28^\circ$ again. The bisector already
+          split the angle in half. $28^\circ$ is one half, so
+          the full angle is $28 + 28 = 56$.
       - text: '$28^\circ$'
         correct: false
+        rationale: |
+          You used the half-angle as the whole angle. A bisector
+          cuts the angle into two equal parts, so the full angle
+          is $2 \times 28 = 56$.
       - text: '$62^\circ$'
         correct: false
+        rationale: |
+          You subtracted from $90^\circ$: $90 - 28 = 62$. The
+          question asks for the full bisected angle, not the
+          complement.
     explanation: |
       An angle bisector divides an angle into two congruent (equal) halves.
 
@@ -130,10 +183,20 @@ questions:
         correct: true
       - text: "The length of $AB$ is $22$."
         correct: false
+        rationale: |
+          You found $AM = 22$ and stopped. That is half the
+          segment. The full length is $AM + MB = 22 + 22 = 44$.
       - text: "The length of $AB$ is $6$."
         correct: false
+        rationale: |
+          You used $x = 6$ as the length. $x$ is the variable
+          you solved for, not the segment length. Plug it back
+          in: $AM = 3(6) + 4 = 22$.
       - text: "The length of $AB$ is $12$."
         correct: false
+        rationale: |
+          You used $2x = 12$ as the total length. The total is
+          $AM + MB = 22 + 22 = 44$, not $2x$.
     explanation: |
       Because $M$ is the midpoint of $AB$, the two sub-segments $AM$ and $MB$ are equal in length.
 
@@ -154,10 +217,21 @@ questions:
         correct: true
       - text: 'The larger angle measures $35^\circ$.'
         correct: false
+        rationale: |
+          You gave the smaller angle. The question asks for the
+          larger one, which is $2(35) - 15 = 55^\circ$.
       - text: 'The larger angle measures $115^\circ$.'
         correct: false
+        rationale: |
+          You used supplementary ($180^\circ$) instead of
+          complementary ($90^\circ$). With $180^\circ$ the equation
+          gives $x = 65$ and $2(65) - 15 = 115$.
       - text: 'The larger angle measures $75^\circ$.'
         correct: false
+        rationale: |
+          You set up the equation with $+15$ instead of $-15$,
+          or misapplied the relationship. The correct larger
+          angle is $2(35) - 15 = 55^\circ$.
     explanation: |
       Let $x$ be the measure of the smaller angle. The larger angle is $2x - 15$.
 
@@ -178,16 +252,28 @@ questions:
         correct: true
       - text: "The angle is strictly acute for all allowed values of $x$."
         correct: false
+        rationale: |
+          You checked only one part of the interval. At $x = 31$,
+          the angle is $83^\circ$ and acute, but later values do
+          not stay acute.
       - text: "The angle is strictly obtuse for all allowed values of $x$."
         correct: false
+        rationale: |
+          You checked only one part of the interval. At $x = 59$,
+          the angle is $167^\circ$ and obtuse, but smaller allowed
+          values do not stay obtuse.
       - text: "The angle becomes a reflex angle when $x > 50$."
         correct: false
+        rationale: |
+          You assumed the angle passes $180^\circ$ inside the
+          interval. Even at $x = 59$, the angle is only
+          $3(59) - 10 = 167^\circ$, which is still obtuse.
     explanation: |
       Evaluate the range of angle values as $x$ increases from $30$ to $60$:
 
       1. Lower bound ($x \to 30$): $3(30) - 10 = 80^\circ$ (acute).
       2. Upper bound ($x \to 60$): $3(60) - 10 = 170^\circ$ (obtuse).
-      3. At $x = 33.33$, $3(33.33) - 10 = 90^\circ$ (right angle).
+      3. At $x = \dfrac{100}{3}$, $3\left(\dfrac{100}{3}\right) - 10 = 90^\circ$ (right angle).
       4. A reflex angle requires a measure greater than $180^\circ$. Since $80^\circ < \text{angle} < 170^\circ$, it is never reflex.
 
   - id: q-geometry-basic-geometric-concepts-0009
@@ -200,10 +286,22 @@ questions:
         correct: true
       - text: 'An adjacent angle measures $82^\circ$.'
         correct: false
+        rationale: |
+          You gave the vertical angle, not the adjacent one. The
+          vertical angle is $82^\circ$, but the adjacent angle is
+          supplementary: $180 - 82 = 98^\circ$.
       - text: 'An adjacent angle measures $8^\circ$.'
         correct: false
+        rationale: |
+          You subtracted from $90^\circ$: $90 - 82 = 8$. Adjacent
+          angles on intersecting lines are supplementary, so
+          subtract from $180^\circ$.
       - text: 'An adjacent angle measures $16^\circ$.'
         correct: false
+        rationale: |
+          You used $x = 16$ as the angle. $x$ is the variable you
+          solved for. The angle is $4(16) + 18 = 82^\circ$, and
+          the adjacent angle is $180 - 82 = 98^\circ$.
     explanation: |
       1. Vertical angles are equal: $4x + 18 = 6x - 14 \implies 2x = 32 \implies x = 16$.
       2. Find the vertical angle measure: $4(16) + 18 = 64 + 18 = 82^\circ$.
@@ -222,10 +320,22 @@ questions:
         correct: true
       - text: '$\angle BOC = 25^\circ$'
         correct: false
+        rationale: |
+          You used $x = 25$ as the angle. $x$ is the variable,
+          not the angle. Plug it into $3x + 10$:
+          $3(25) + 10 = 85^\circ$.
       - text: '$\angle BOC = 50^\circ$'
         correct: false
+        rationale: |
+          You computed $\angle AOB = 2(25) = 50^\circ$ instead
+          of $\angle BOC$. The question asks for $\angle BOC$,
+          which is $3(25) + 10 = 85^\circ$.
       - text: '$\angle BOC = 45^\circ$'
         correct: false
+        rationale: |
+          You computed $\angle COD = 25 + 20 = 45^\circ$ instead
+          of $\angle BOC$. The question asks for $\angle BOC$,
+          which is $3(25) + 10 = 85^\circ$.
     explanation: |
       Angles lying on a straight line sum to $180^\circ$.
 
@@ -246,10 +356,21 @@ questions:
         correct: true
       - text: "Ray $OX$ and Ray $OY$ are parallel to each other."
         correct: false
+        rationale: |
+          You assumed the bisectors go in the same direction. They
+          split angles that add to $180^\circ$, so the bisectors
+          meet at $90^\circ$, not $0^\circ$.
       - text: 'Ray $OX$ and Ray $OY$ form a straight angle of $180^\circ$.'
         correct: false
+        rationale: |
+          You assumed the bisectors lie on a straight line. The
+          half-angles add to $90^\circ$, not $180^\circ$.
       - text: 'Ray $OX$ and Ray $OY$ form an angle of $45^\circ$.'
         correct: false
+        rationale: |
+          You halved the $90^\circ$ again. The bisectors already
+          account for halving. Their angle is $a + b = 90^\circ$,
+          not $45^\circ$.
     explanation: |
       Let $\angle AOC = 2a$ and $\angle BOC = 2b$.
 
@@ -270,10 +391,22 @@ questions:
         correct: true
       - text: 'The angle measures $30^\circ$, which is an acute angle.'
         correct: false
+        rationale: |
+          You found $x = 60$ correctly but then gave its
+          complement $90 - 60 = 30$ instead of the angle itself.
+          The question asks for the angle, which is $60^\circ$.
       - text: 'The angle measures $45^\circ$, which is an acute angle.'
         correct: false
+        rationale: |
+          You used $180 - x = 3(90 - x)$ (three times) instead of
+          four times. That gives $x = 45$. The problem says four
+          times, which gives $x = 60$.
       - text: 'The angle measures $120^\circ$, which is an obtuse angle.'
         correct: false
+        rationale: |
+          You found the supplement of $60^\circ$:
+          $180 - 60 = 120$. The question asks for the angle
+          itself, which is $60^\circ$.
     explanation: |
       Let $x$ be the measure of the angle.
       - Complement $= 90 - x$
@@ -296,10 +429,21 @@ questions:
         correct: true
       - text: 'The length of $BC$ is $18\text{ cm}$.'
         correct: false
+        rationale: |
+          You assumed $B$ is the midpoint of the whole segment
+          $AD$: $36/2 = 18$. $B$ is the midpoint of $AC$ only,
+          not of $AD$.
       - text: 'The length of $BC$ is $9\text{ cm}$.'
         correct: false
+        rationale: |
+          You divided $36$ by $4$, assuming four equal parts.
+          There are three equal parts ($AB = BC = CD$), so
+          each part is $36/3 = 12$.
       - text: 'The length of $BC$ is $24\text{ cm}$.'
         correct: false
+        rationale: |
+          You used $2x = 24$ instead of $x = 12$. $BC = x$, one
+          of the three equal parts, so $BC = 12$.
     explanation: |
       Let the length of segment $AB$ be $x$.
 
@@ -321,10 +465,22 @@ questions:
         correct: true
       - text: 'The measure of $\angle AOB$ is $60^\circ$.'
         correct: false
+        rationale: |
+          You computed $\angle BOC = 2(22.5) + 15 = 60^\circ$
+          instead of $\angle AOB$. The question asks for
+          $\angle AOB = 4(22.5) - 5 = 85^\circ$.
       - text: 'The measure of $\angle AOB$ is $215^\circ$.'
         correct: false
+        rationale: |
+          You computed the reflex angle $\angle COA =
+          10(22.5) - 10 = 215^\circ$ instead of $\angle AOB$.
+          The question asks for $\angle AOB$.
       - text: 'The measure of $\angle AOB$ is $22.5^\circ$.'
         correct: false
+        rationale: |
+          You used $x = 22.5$ as the angle measure. $x$ is the
+          variable, not the angle. Plug it in:
+          $4(22.5) - 5 = 85^\circ$.
     explanation: |
       The sum of angles around a single point is $360^\circ$.
 
@@ -345,10 +501,20 @@ questions:
         correct: true
       - text: 'The measure of Angle $R$ is $50^\circ$.'
         correct: false
+        rationale: |
+          You stopped at $Q = 50^\circ$ and reported it as $R$.
+          One more step: $R$ is the complement of $Q$, so
+          $R = 90 - 50 = 40^\circ$.
       - text: 'The measure of Angle $R$ is $130^\circ$.'
         correct: false
+        rationale: |
+          You used $P = 130^\circ$ as $R$. $P$ is the supplement
+          of $Q$, but $R$ is the complement: $R = 90 - 50 = 40$.
       - text: 'The measure of Angle $R$ is $140^\circ$.'
         correct: false
+        rationale: |
+          You found the supplement of $R$ instead of $R$ itself.
+          $R = 90 - 50 = 40$, not $180 - 40 = 140$.
     explanation: |
       1. Since $P$ and $Q$ are supplementary: $P + Q = 180$.
       2. Express $P$ in terms of $Q$: $P = 3Q - 20$.

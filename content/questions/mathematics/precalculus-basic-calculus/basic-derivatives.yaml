@@ -28,7 +28,7 @@ questions:
         rationale: |
           You decremented the exponent correctly but forgot to multiply by
           $n = 4$. The power rule brings the exponent down as a coefficient:
-          $\frac{d}{dx}[x^4] = 4 \cdot x^3$.
+          $\dfrac{d}{dx}[x^4] = 4 \cdot x^3$.
     explanation: |
       Applying the power rule $\frac{d}{dx}[x^n] = n x^{n-1}$ with $n = 4$ yields $4x^{4-1} = 4x^3$.
 
@@ -43,7 +43,7 @@ questions:
       - text: $15x^2 - 2x$
         rationale: |
           You differentiated $5x^3$ correctly to $15x^2$ but left $-2x$
-          unchanged instead of differentiating it. $\frac{d}{dx}[-2x] = -2$,
+          unchanged instead of differentiating it. $\dfrac{d}{dx}[-2x] = -2$,
           not $-2x$.
       - text: $15x^2 - 2 + 7$
         rationale: |
@@ -79,7 +79,7 @@ questions:
       - text: $12x$
         rationale: |
           You integrated instead of differentiating. $\int 12 \, dx = 12x
-          + C$, but the question asks for $\frac{d}{dx}[12] = 0$.
+          + C$, but the question asks for $\dfrac{d}{dx}[12] = 0$.
     explanation: |
       The rate of change of any constant function is zero, so $\frac{d}{dx}[c] = 0$ for any constant $c$.
 
@@ -99,13 +99,13 @@ questions:
       - text: $12$
         rationale: |
           You differentiated $3x^2$ to $6x$ correctly but dropped the
-          $+4x$ term's derivative. $\frac{d}{dx}[4x] = 4$, so the full
+          $+4x$ term's derivative. $\dfrac{d}{dx}[4x] = 4$, so the full
           derivative is $6x + 4$. At $x = 2$: $12 + 4 = 16$.
       - text: $10$
         rationale: |
           You differentiated $3x^2$ as $3x$ instead of $6x$, dropping
           the factor of 2 from the exponent. The power rule gives
-          $\frac{d}{dx}[3x^2] = 6x$. At $x = 2$: $y' = 6(2) + 4 = 16$.
+          $\dfrac{d}{dx}[3x^2] = 6x$. At $x = 2$: $y' = 6(2) + 4 = 16$.
     explanation: |
       First find the derivative $y' = \frac{d}{dx}[3x^2 + 4x] = 6x + 4$.
       Evaluate at $x = 2$: $y'(2) = 6(2) + 4 = 12 + 4 = 16$.
@@ -122,7 +122,7 @@ questions:
         rationale: |
           You returned the original function without differentiating it.
           The derivative of $7x$ is the coefficient 7. The variable $x$
-          disappears because $\frac{d}{dx}[x] = 1$.
+          disappears because $\dfrac{d}{dx}[x] = 1$.
       - text: $0$
         rationale: |
           You treated $7x$ as a constant. It is not: $x$ is a variable.
@@ -131,8 +131,8 @@ questions:
       - text: $1$
         rationale: |
           You differentiated $x$ to get 1 but dropped the coefficient 7.
-          The constant multiplier stays: $\frac{d}{dx}[7x] = 7 \cdot
-          \frac{d}{dx}[x] = 7 \cdot 1 = 7$.
+          The constant multiplier stays: $\dfrac{d}{dx}[7x] = 7 \cdot
+          \dfrac{d}{dx}[x] = 7 \cdot 1 = 7$.
     explanation: |
       Using the power rule on $7x^1$: $\frac{d}{dx}[7x^1] = 7 \cdot 1 \cdot x^{1-1} = 7 x^0 = 7$.
 
@@ -148,19 +148,19 @@ questions:
         rationale: |
           You decremented the exponent correctly to $-1/2$ but forgot to
           multiply by the original exponent $1/2$. The power rule gives
-          $\frac{1}{2} \cdot x^{-1/2} = \frac{1}{2\sqrt{x}}$.
+          $\dfrac{1}{2} \cdot x^{-1/2} = \dfrac{1}{2\sqrt{x}}$.
       - text: $\frac{1}{2}x^{1/2}$
         rationale: |
           You multiplied by $1/2$ correctly but did not decrement the
           exponent. The exponent should drop from $1/2$ to $-1/2$, not
-          stay at $1/2$. The result is $\frac{1}{2}x^{-1/2} =
-          \frac{1}{2\sqrt{x}}$.
+          stay at $1/2$. The result is $\dfrac{1}{2}x^{-1/2} =
+          \dfrac{1}{2\sqrt{x}}$.
       - text: $2\sqrt{x}$
         rationale: |
           You multiplied by 2 and incremented the exponent, which is the
           wrong direction. That is integration, not differentiation.
-          Differentiation of $x^{1/2}$ gives $\frac{1}{2}x^{-1/2} =
-          \frac{1}{2\sqrt{x}}$.
+          Differentiation of $x^{1/2}$ gives $\dfrac{1}{2}x^{-1/2} =
+          \dfrac{1}{2\sqrt{x}}$.
     explanation: |
       Rewrite $\sqrt{x}$ as $x^{1/2}$. Apply power rule with $n = 1/2$:
       $f'(x) = \frac{1}{2} x^{(1/2) - 1} = \frac{1}{2} x^{-1/2} = \frac{1}{2\sqrt{x}}$.
@@ -231,18 +231,18 @@ questions:
         rationale: |
           You multiplied by $1/3$ correctly but incremented the exponent
           instead of decrementing it. $1/3 - 1 = -2/3$, not $+2/3$.
-          The result is $\frac{1}{3}x^{-2/3} = \frac{1}{3\sqrt[3]{x^2}}$.
+          The result is $\dfrac{1}{3}x^{-2/3} = \dfrac{1}{3\sqrt[3]{x^2}}$.
       - text: $3x^{2/3}$
         rationale: |
           You used 3 as the coefficient and wrote a positive exponent,
           reversing both parts of the power rule. The coefficient should
           be $1/3$, and the new exponent is $-2/3$. Result:
-          $\frac{1}{3}x^{-2/3}$.
+          $\dfrac{1}{3}x^{-2/3}$.
       - text: $\frac{1}{\sqrt[3]{x^2}}$
         rationale: |
           You got the new exponent $-2/3$ right but forgot to multiply by
-          the original exponent $1/3$. The power rule gives $\frac{1}{3}
-          \cdot x^{-2/3} = \frac{1}{3\sqrt[3]{x^2}}$.
+          the original exponent $1/3$. The power rule gives $\dfrac{1}{3}
+          \cdot x^{-2/3} = \dfrac{1}{3\sqrt[3]{x^2}}$.
     explanation: |
       Rewrite $\sqrt[3]{x}$ as $x^{1/3}$. Apply power rule:
       $f'(x) = \frac{1}{3} x^{(1/3) - 1} = \frac{1}{3} x^{-2/3} = \frac{1}{3\sqrt[3]{x^2}}$.
@@ -287,19 +287,19 @@ questions:
         rationale: |
           You evaluated the original function at $x = 9$: $9^{3/2} = 27$.
           That is the $y$-value, not the slope. The slope is the derivative
-          $y' = \frac{3}{2}\sqrt{x}$, which at $x = 9$ gives
-          $\frac{3}{2}(3) = \frac{9}{2}$.
+          $y' = \dfrac{3}{2}\sqrt{x}$, which at $x = 9$ gives
+          $\dfrac{3}{2}(3) = \dfrac{9}{2}$.
       - text: $\frac{27}{2}$
         rationale: |
-          You substituted $x = 9$ directly into $\frac{3}{2}x$ instead of
-          $\frac{3}{2}\sqrt{x}$. The derivative is $\frac{3}{2}x^{1/2}$,
-          so evaluate $\frac{3}{2} \cdot \sqrt{9} = \frac{3}{2} \cdot 3 =
-          \frac{9}{2}$.
+          You substituted $x = 9$ directly into $\dfrac{3}{2}x$ instead of
+          $\dfrac{3}{2}\sqrt{x}$. The derivative is $\dfrac{3}{2}x^{1/2}$,
+          so evaluate $\dfrac{3}{2} \cdot \sqrt{9} = \dfrac{3}{2} \cdot 3 =
+          \dfrac{9}{2}$.
       - text: $3$
         rationale: |
           You computed $\sqrt{9} = 3$ but forgot to multiply by the
-          coefficient $\frac{3}{2}$. The full derivative at $x = 9$ is
-          $\frac{3}{2} \cdot 3 = \frac{9}{2}$.
+          coefficient $\dfrac{3}{2}$. The full derivative at $x = 9$ is
+          $\dfrac{3}{2} \cdot 3 = \dfrac{9}{2}$.
     explanation: |
       Apply power rule: $y' = \frac{3}{2} x^{(3/2) - 1} = \frac{3}{2} x^{1/2} = \frac{3}{2}\sqrt{x}$.
       Substitute $x = 9$: $y'(9) = \frac{3}{2}\sqrt{9} = \frac{3}{2}(3) = \frac{9}{2} = 4.5$.
@@ -348,7 +348,7 @@ questions:
       - text: $3x^2 - 2x$
         rationale: |
           You expanded and differentiated $x^3$, $-x^2$, and $-3$ correctly
-          but dropped the $+3x$ term's derivative. $\frac{d}{dx}[3x] = 3$,
+          but dropped the $+3x$ term's derivative. $\dfrac{d}{dx}[3x] = 3$,
           so the full result is $3x^2 - 2x + 3$.
       - text: $3x^2 + 2x - 3$
         rationale: |

@@ -20,10 +20,16 @@ questions:
         correct: true
       - text: '$84^\circ$'
         correct: false
+        rationale: |
+          You used the central angle rule. An inscribed angle over the same arc is only half as large.
       - text: '$168^\circ$'
         correct: false
+        rationale: |
+          You doubled the arc measure instead of halving it. Inscribed angles are smaller than the intercepted arc.
       - text: '$96^\circ$'
         correct: false
+        rationale: |
+          You moved away from the arc measure without using the inscribed-angle rule. The key step is to take half of 84.
     explanation: |
       An inscribed angle is equal to half the measure of its intercepted arc.
 
@@ -42,10 +48,16 @@ questions:
         correct: true
       - text: '$196\pi\text{ cm}^2$'
         correct: false
+        rationale: |
+          You used the diameter as the radius. For area, you must halve 14 first, then square the radius 7.
       - text: '$14\pi\text{ cm}^2$'
         correct: false
+        rationale: |
+          You forgot to square the radius. Area uses $\pi r^2$, not just $\pi r$.
       - text: '$28\pi\text{ cm}^2$'
         correct: false
+        rationale: |
+          You mixed the area formula with the circumference formula. The circle's area comes from squaring the radius.
     explanation: |
       1. Calculate the radius $r$ from diameter $d$: $r = \frac{d}{2} = \frac{14}{2} = 7\text{ cm}$.
       2. Apply area formula $A = \pi r^2$:
@@ -63,10 +75,16 @@ questions:
         correct: true
       - text: '$35^\circ$'
         correct: false
+        rationale: |
+          You reused the given angle and skipped the right angle from the diameter. The triangle still has to total 180 degrees.
       - text: '$90^\circ$'
         correct: false
+        rationale: |
+          You found the angle at $C$, not the angle at $B$. The right angle is opposite the diameter.
       - text: '$145^\circ$'
         correct: false
+        rationale: |
+          You subtracted only once from 180 without accounting for the right angle correctly. First use $\angle C = 90^\circ$.
     explanation: |
       By Thales's Theorem, an angle inscribed in a semicircle is always a right angle ($90^\circ$).
 
@@ -84,10 +102,16 @@ questions:
         correct: true
       - text: '$36\pi\text{ cm}$'
         correct: false
+        rationale: |
+          You repeated the area instead of converting it into a radius first. Circumference needs $2\pi r$, not $\pi r^2$.
       - text: '$6\pi\text{ cm}$'
         correct: false
+        rationale: |
+          You used the radius once but left out the factor of 2. Circumference is twice $\pi r$.
       - text: '$24\pi\text{ cm}$'
         correct: false
+        rationale: |
+          You doubled too much after finding the radius. With $r = 6$, the circumference is $2\pi(6)$.
     explanation: |
       1. Find radius $r$ from area $A = \pi r^2$:
          $$\pi r^2 = 36\pi \implies r^2 = 36 \implies r = 6\text{ cm}$$
@@ -98,20 +122,26 @@ questions:
     type: direct-computation
     difficulty: easy
     stem: |
-      A tangent line segment $PT$ touches a circle at point $T$. The circle has radius $OP = 5\text{ cm}$ (center $O$), and segment $OT = 13\text{ cm}$ connects center $O$ to external point $T$. What is the length of tangent segment $PT$?
+      A tangent line segment $PT$ touches a circle at point $T$. The circle has center $O$ and radius $OT = 5\text{ cm}$. Segment $OP = 13\text{ cm}$ connects the center to external point $P$. What is the length of tangent segment $PT$?
     choices:
       - text: '$12\text{ cm}$'
         correct: true
       - text: '$18\text{ cm}$'
         correct: false
+        rationale: |
+          You added the side lengths instead of using the right triangle. The tangent, radius, and center-to-point segment follow the Pythagorean theorem.
       - text: '$8\text{ cm}$'
         correct: false
+        rationale: |
+          You subtracted the given lengths instead of solving from squares. The right-triangle relationship is $5^2 + PT^2 = 13^2$.
       - text: '$\sqrt{194}\text{ cm}$'
         correct: false
+        rationale: |
+          You added the squares instead of subtracting to isolate the tangent length. First find $PT^2 = 13^2 - 5^2$.
     explanation: |
       A tangent line is perpendicular to the radius at the point of tangency, forming right $\triangle OPT$.
 
-      1. Apply Pythagorean theorem: $OP^2 + PT^2 = OT^2 \implies 5^2 + PT^2 = 13^2$.
+      1. Apply the Pythagorean theorem: $OT^2 + PT^2 = OP^2 \implies 5^2 + PT^2 = 13^2$.
       2. $25 + PT^2 = 169 \implies PT^2 = 144$.
       3. Take square root: $PT = \sqrt{144} = 12\text{ cm}$.
 
@@ -125,10 +155,16 @@ questions:
         correct: true
       - text: '$24\pi\text{ cm}$'
         correct: false
+        rationale: |
+          You used the whole circumference and ignored that 60 degrees is only one sixth of the circle.
       - text: '$8\pi\text{ cm}$'
         correct: false
+        rationale: |
+          You treated 60 degrees like one third of a full circle. The correct fraction is $\dfrac{60}{360} = \dfrac{1}{6}$.
       - text: '$2\pi\text{ cm}$'
         correct: false
+        rationale: |
+          You reduced the arc too much. One sixth of the full circumference $24\pi$ is $4\pi$, not $2\pi$.
     explanation: |
       1. Arc length formula: $L = \frac{\theta}{360^\circ} \times 2\pi r$.
       2. Substitute values: $L = \frac{60^\circ}{360^\circ} \times 2\pi (12) = \frac{1}{6} \times 24\pi = 4\pi\text{ cm}$.
@@ -145,10 +181,16 @@ questions:
         correct: true
       - text: '$4\pi\text{ cm}^2$'
         correct: false
+        rationale: |
+          You found the arc length idea instead of the sector area. Sector area uses part of $\pi r^2$.
       - text: '$64\pi\text{ cm}^2$'
         correct: false
+        rationale: |
+          You used the area of the full circle and skipped the 90-degree sector fraction.
       - text: '$32\pi\text{ cm}^2$'
         correct: false
+        rationale: |
+          You took half of the circle instead of one fourth. A 90-degree sector is one quarter of 360 degrees.
     explanation: |
       1. Sector area formula: $A = \frac{\theta}{360^\circ} \times \pi r^2$.
       2. Substitute values: $A = \frac{90^\circ}{360^\circ} \times \pi (8^2) = \frac{1}{4} \times 64\pi = 16\pi\text{ cm}^2$.
@@ -165,10 +207,16 @@ questions:
         correct: true
       - text: '$100^\circ$'
         correct: false
+        rationale: |
+          You found $\angle A$ instead of $\angle C$. The question asks for the opposite angle after solving the supplementary pair.
       - text: '$20^\circ$'
         correct: false
+        rationale: |
+          You reported the value of $x$ instead of the measure of $\angle C$. You still have to substitute $x$ back in.
       - text: '$10^\circ$'
         correct: false
+        rationale: |
+          You likely set the opposite angles equal instead of making them add to 180 degrees. Inscribed quadrilateral opposites are supplementary.
     explanation: |
       Opposite angles in an inscribed quadrilateral are supplementary ($180^\circ$).
 
@@ -189,10 +237,16 @@ questions:
         correct: true
       - text: '$10^\circ$'
         correct: false
+        rationale: |
+          You used the outside-angle circle rule. For chords intersecting inside the circle, you add the intercepted arcs and then halve.
       - text: '$120^\circ$'
         correct: false
+        rationale: |
+          You added the arcs but forgot to take half. The angle inside the circle is half the arc sum.
       - text: '$35^\circ$'
         correct: false
+        rationale: |
+          You halved only one intercepted arc. This angle depends on both arcs, 70 degrees and 50 degrees.
     explanation: |
       The measure of an angle formed by two chords intersecting inside a circle is half the sum of the intercepted arcs.
 
@@ -211,10 +265,16 @@ questions:
         correct: true
       - text: '$75^\circ$'
         correct: false
+        rationale: |
+          You used the inside-chords formula and added the arcs. An exterior secant angle uses half the difference.
       - text: '$70^\circ$'
         correct: false
+        rationale: |
+          You subtracted the arcs but forgot to divide by 2. The secant angle outside the circle is half of 70 degrees.
       - text: '$150^\circ$'
         correct: false
+        rationale: |
+          You treated the intercepted arcs like a direct angle total. For two secants outside a circle, you subtract first, then halve.
     explanation: |
       The measure of an angle formed by two secants intersecting outside a circle is half the difference of the intercepted arcs.
 
@@ -233,10 +293,16 @@ questions:
         correct: true
       - text: '$12\text{ cm}$'
         correct: false
+        rationale: |
+          You found half the chord and stopped there. The question asks for the full chord length, so you must double 12.
       - text: '$18\text{ cm}$'
         correct: false
+        rationale: |
+          You did not use the 5-12-13 right triangle cleanly. The half-chord is 12, so the whole chord is 24.
       - text: '$8\text{ cm}$'
         correct: false
+        rationale: |
+          You subtracted the radii instead of solving for the half-chord with the right triangle. The tangent point creates a perpendicular distance.
     explanation: |
       1. The radius of the smaller circle ($5\text{ cm}$) is perpendicular to the tangent chord of the larger circle, bisecting the chord.
       2. A right triangle is formed by the radius of the smaller circle ($5$), half the chord ($x$), and the radius of the larger circle ($13$).
@@ -255,10 +321,16 @@ questions:
         correct: true
       - text: '$2\sqrt{5}\text{ cm}$'
         correct: false
+        rationale: |
+          You multiplied the external part by the inside part only. The tangent-secant rule uses the whole secant length, 4 times 9.
       - text: '$4.5\text{ cm}$'
         correct: false
+        rationale: |
+          You averaged the secant parts instead of using the power theorem. First find the whole secant length, then take the square root.
       - text: '$9\text{ cm}$'
         correct: false
+        rationale: |
+          You used the whole secant length as the tangent length. The theorem gives $PT^2$, so you still have to take the square root.
     explanation: |
       By the Tangent-Secant Power Theorem:
       $$PT^2 = PA \times PB$$
@@ -279,10 +351,16 @@ questions:
         correct: true
       - text: '$36\pi - 36\text{ cm}^2$'
         correct: false
+        rationale: |
+          You made the square too small. An inscribed square with diagonal 12 has area 72, not 36.
       - text: '$36\pi - 144\text{ cm}^2$'
         correct: false
+        rationale: |
+          You used the square's diagonal as if it were a side. The diagonal is 12, but the square's area is half of $12^2$.
       - text: '$72 - 36\pi\text{ cm}^2$'
         correct: false
+        rationale: |
+          You reversed the subtraction. The shaded region is circle area minus square area, so it must stay positive.
     explanation: |
       1. Circle Area $= \pi r^2 = \pi (6^2) = 36\pi\text{ cm}^2$.
       2. The diagonal $d$ of the inscribed square equals the diameter of the circle: $d = 2r = 12\text{ cm}$.
@@ -299,10 +377,16 @@ questions:
         correct: true
       - text: '$70^\circ$'
         correct: false
+        rationale: |
+          You found the inscribed angle and stopped there. The central angle over the same arc is twice as large.
       - text: '$30^\circ$'
         correct: false
+        rationale: |
+          You reported the value of $x$ instead of the central angle. After solving for $x$, you still need $5x - 10$.
       - text: '$110^\circ$'
         correct: false
+        rationale: |
+          You solved the relation partway but substituted back incorrectly. The same arc gives a central angle double the inscribed angle.
     explanation: |
       A central angle is twice the measure of an inscribed angle standing on the same arc.
 
@@ -323,10 +407,16 @@ questions:
         correct: true
       - text: '$9\sqrt{3}\text{ cm}$'
         correct: false
+        rationale: |
+          You found the tangent length instead of the distance from $P$ to the center. The question asks for $OP$, not $PA$.
       - text: '$9\text{ cm}$'
         correct: false
+        rationale: |
+          You used the radius only. The segment from the center to the external point is longer than the radius.
       - text: '$36\text{ cm}$'
         correct: false
+        rationale: |
+          You doubled too far after using the 30-degree triangle. In this right triangle, the hypotenuse is only twice the radius.
     explanation: |
       1. Segment $OP$ bisects angle $\angle APB$, so $\angle APO = \frac{60^\circ}{2} = 30^\circ$.
       2. Radius $OA$ is perpendicular to tangent $PA$, forming right $\triangle OAP$ with right angle at $A$.

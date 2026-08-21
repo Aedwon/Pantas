@@ -20,10 +20,16 @@ questions:
         correct: true
       - text: '$120\text{ m}$'
         correct: false
+        rationale: |
+          You found the area, not the fence length. Perimeter adds the outside edges, while area multiplies length by width.
       - text: '$23\text{ m}$'
         correct: false
+        rationale: |
+          You added the length and width once and stopped. A rectangle has two lengths and two widths around it.
       - text: '$60\text{ m}$'
         correct: false
+        rationale: |
+          You doubled the wrong total. The perimeter comes from $2(15 + 8)$, not from doubling one side pair incorrectly.
     explanation: |
       The perimeter of a rectangle is given by $P = 2(l + w)$.
 
@@ -41,10 +47,16 @@ questions:
         correct: true
       - text: '$125\text{ cm}^3$'
         correct: false
+        rationale: |
+          You calculated volume instead of surface area. Surface area counts all six faces of the cube.
       - text: '$100\text{ cm}^2$'
         correct: false
+        rationale: |
+          You counted only four faces or stopped too early. A cube has six square faces, not four.
       - text: '$30\text{ cm}^2$'
         correct: false
+        rationale: |
+          You multiplied the edge by 6 without squaring it first. Each face has area $5^2$, not 5.
     explanation: |
       A cube has $6$ identical square faces.
 
@@ -63,10 +75,19 @@ questions:
         correct: true
       - text: '$30\pi\text{ m}^3$'
         correct: false
+        rationale: |
+          You used the cone formula with a one-third factor. A cylinder uses the full base area times height.
       - text: '$60\pi\text{ m}^3$'
         correct: false
+        rationale: |
+          You used the diameter 6 in $\pi rh$ instead of squaring the radius.
+          That gives $\pi(6)(10) = 60\pi$, but the cylinder formula is
+          $\pi(3^2)(10) = 90\pi$.
       - text: '$300\pi\text{ m}^3$'
         correct: false
+        rationale: |
+          You squared the height instead of the radius, using $\pi(3)(10^2)$.
+          The correct setup is $\pi(3^2)(10)$.
     explanation: |
       Volume of a cylinder is $V = \pi r^2 h$.
 
@@ -84,10 +105,16 @@ questions:
         correct: true
       - text: '$252\pi\text{ cm}^3$'
         correct: false
+        rationale: |
+          You forgot the one-third factor in the cone formula. Without that division, you get the cylinder-like value.
       - text: '$42\pi\text{ cm}^3$'
         correct: false
+        rationale: |
+          You divided too much after setting up the cone volume. The factor of one third should be used only once.
       - text: '$126\pi\text{ cm}^3$'
         correct: false
+        rationale: |
+          You kept only half of the full product instead of one third. A cone's volume is one third of $\pi r^2 h$.
     explanation: |
       Volume of a cone is $V = \frac{1}{3}\pi r^2 h$.
 
@@ -105,10 +132,16 @@ questions:
         correct: true
       - text: '$288\pi\text{ cm}^2$'
         correct: false
+        rationale: |
+          You used the sphere volume computation instead of surface area. Surface area uses $4\pi r^2$, not $\dfrac{4}{3}\pi r^3$.
       - text: '$36\pi\text{ cm}^2$'
         correct: false
+        rationale: |
+          You used only $r^2$ and left out the factor of 4. A sphere has four great-circle areas in its formula.
       - text: '$72\pi\text{ cm}^2$'
         correct: false
+        rationale: |
+          You included only half of the needed surface-area factor. The correct multiplier on $r^2$ is 4, not 2.
     explanation: |
       Surface area of a sphere is $SA = 4\pi r^2$.
 
@@ -126,10 +159,16 @@ questions:
         correct: true
       - text: '$70\text{ cm}^2$'
         correct: false
+        rationale: |
+          You used the slant side 5 as the height. Trapezoid area needs the perpendicular height, which is 4.
       - text: '$112\text{ cm}^2$'
         correct: false
+        rationale: |
+          You forgot to divide the sum of the bases by 2 before multiplying by the height.
       - text: '$28\text{ cm}^2$'
         correct: false
+        rationale: |
+          You found the average of the bases but did not multiply by the height. Area needs both steps.
     explanation: |
       Area of a trapezoid is $A = \frac{b_1 + b_2}{2} \times h$.
 
@@ -147,10 +186,16 @@ questions:
         correct: true
       - text: '$96 + 16\pi\text{ cm}^2$'
         correct: false
+        rationale: |
+          You used the area of a full circle instead of a semicircle. Only half of the circle is attached to the rectangle.
       - text: '$96 + 32\pi\text{ cm}^2$'
         correct: false
+        rationale: |
+          You treated the diameter 8 as if it were the radius. The semicircle's radius is only 4.
       - text: '$104\pi\text{ cm}^2$'
         correct: false
+        rationale: |
+          You combined the parts as if both were circular. The rectangle contributes 96 square centimeters by itself.
     explanation: |
       1. Rectangle area $= l \times w = 12 \times 8 = 96\text{ cm}^2$.
       2. Semicircle diameter $= 8\text{ cm} \implies \text{radius } r = 4\text{ cm}$.
@@ -169,10 +214,16 @@ questions:
         correct: true
       - text: '$100 - 100\pi\text{ cm}^2$'
         correct: false
+        rationale: |
+          You used the diameter 10 as the radius. The punched circle has radius 5, so its area is $25\pi$.
       - text: '$25\pi - 100\text{ cm}^2$'
         correct: false
+        rationale: |
+          You reversed the subtraction. The remaining metal is square area minus circle area.
       - text: '$100 - 10\pi\text{ cm}^2$'
         correct: false
+        rationale: |
+          You forgot to square the radius. Circle area is $\pi r^2$, so 5 becomes 25 after squaring.
     explanation: |
       1. Square area $= s^2 = 10^2 = 100\text{ cm}^2$.
       2. The maximum circle diameter equals the square side length ($10\text{ cm}$), so radius $r = 5\text{ cm}$.
@@ -189,10 +240,16 @@ questions:
         correct: true
       - text: '$120\text{ cm}^3$'
         correct: false
+        rationale: |
+          You found the volume instead of the total surface area. Surface area adds the areas of all outer faces.
       - text: '$79\text{ cm}^2$'
         correct: false
+        rationale: |
+          You added the three pair areas once and forgot the matching opposite faces. A prism has two of each face.
       - text: '$160\text{ cm}^2$'
         correct: false
+        rationale: |
+          You were close, but the pair areas add to 79, not 80. Doubling 79 gives 158.
     explanation: |
       Surface area of a rectangular prism is $SA = 2(lw + lh + wh)$.
 
@@ -212,10 +269,16 @@ questions:
         correct: true
       - text: '$324\text{ m}^3$'
         correct: false
+        rationale: |
+          You forgot the one-third factor for a pyramid. Without it, you get the full prism-style volume.
       - text: '$54\text{ m}^3$'
         correct: false
+        rationale: |
+          You divided too much after using the pyramid formula. The one-third factor should be applied only once.
       - text: '$162\text{ m}^3$'
         correct: false
+        rationale: |
+          You reduced the base-height product by one half instead of one third. Pyramids use a factor of one third.
     explanation: |
       Volume of a pyramid is $V = \frac{1}{3} \times \text{Base Area} \times h$.
 
@@ -234,10 +297,16 @@ questions:
         correct: true
       - text: '$65\pi\text{ cm}^2$'
         correct: false
+        rationale: |
+          You found only the lateral area and left out the circular base. Total surface area includes both parts.
       - text: '$85\pi\text{ cm}^2$'
         correct: false
+        rationale: |
+          You used the perpendicular height 12 instead of the slant height 13 in the lateral-area formula.
       - text: '$100\pi\text{ cm}^2$'
         correct: false
+        rationale: |
+          You added too much after finding the parts. The base is $25\pi$ and the lateral area is $65\pi$.
     explanation: |
       1. Calculate slant height $l = \sqrt{r^2 + h^2} = \sqrt{5^2 + 12^2} = \sqrt{25 + 144} = 13\text{ cm}$.
       2. Base area $= \pi r^2 = \pi (5^2) = 25\pi\text{ cm}^2$.
@@ -256,10 +325,16 @@ questions:
         correct: true
       - text: '$3\text{ cm}$'
         correct: false
+        rationale: |
+          You used the radius again instead of solving from equal volumes. The new cylinder keeps the same volume, not the same height as the radius.
       - text: '$12\text{ cm}$'
         correct: false
+        rationale: |
+          You made the cylinder too tall by not dividing by the whole base area $9\pi$. The volume balance gives $h = 4$.
       - text: '$6\text{ cm}$'
         correct: false
+        rationale: |
+          You likely divided by 6 instead of 9 after setting up the cylinder volume. Its base area is $\pi(3^2) = 9\pi$.
     explanation: |
       By conservation of volume: $\text{Sphere Volume} = \text{Cylinder Volume}$.
 
@@ -277,10 +352,16 @@ questions:
         correct: true
       - text: '$108\pi\text{ m}^3$'
         correct: false
+        rationale: |
+          You added the volume of a full sphere on top instead of a hemisphere. The top part is only half a sphere.
       - text: '$72\pi\text{ m}^3$'
         correct: false
+        rationale: |
+          You counted only the cylinder and ignored the hemispherical top.
       - text: '$126\pi\text{ m}^3$'
         correct: false
+        rationale: |
+          You made the top part too large. The hemisphere contributes $18\pi$, not a bigger amount.
     explanation: |
       1. Cylinder Volume $= \pi r^2 h = \pi (3^2)(8) = 72\pi\text{ m}^3$.
       2. Hemisphere Volume $= \frac{1}{2} \times \left(\frac{4}{3}\pi r^3\right) = \frac{2}{3}\pi (3^3) = \frac{2}{3}\pi (27) = 18\pi\text{ m}^3$.
@@ -298,10 +379,16 @@ questions:
         correct: true
       - text: '$36\text{ cm}^2$'
         correct: false
+        rationale: |
+          You made the inner square too small by treating its side like 6. The midpoint square has area 72.
       - text: '$108\text{ cm}^2$'
         correct: false
+        rationale: |
+          You subtracted the wrong inner area from 144. The smaller square does not have area 36.
       - text: '$96\text{ cm}^2$'
         correct: false
+        rationale: |
+          You overestimated the region outside the small square. The inner square covers half of the big square's area.
     explanation: |
       1. Large Square Area $= 12^2 = 144\text{ cm}^2$.
       2. Midpoint leg lengths $= 6\text{ cm}$. Side of small square $= \sqrt{6^2 + 6^2} = \sqrt{72}\text{ cm}$.
@@ -318,10 +405,16 @@ questions:
         correct: true
       - text: "The surface area increases by a factor of $3$, and the volume increases by a factor of $9$."
         correct: false
+        rationale: |
+          You scaled area and volume too weakly. Surface area follows the square of the scale factor, and volume follows the cube.
       - text: "The surface area increases by a factor of $6$, and the volume increases by a factor of $9$."
         correct: false
+        rationale: |
+          You mixed multiplication with scaling rules. Area grows by $3^2$, and volume grows by $3^3$.
       - text: "The surface area increases by a factor of $27$, and the volume increases by a factor of $9$."
         correct: false
+        rationale: |
+          You swapped the area and volume scale factors. The square rule belongs to area, and the cube rule belongs to volume.
     explanation: |
       When linear dimensions are scaled by factor $k$:
       - Area scales by $k^2 = 3^2 = 9$.

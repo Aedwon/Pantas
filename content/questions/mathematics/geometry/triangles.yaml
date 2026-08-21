@@ -20,10 +20,24 @@ questions:
         correct: true
       - text: '$120^\circ$'
         correct: false
+        rationale: |
+          You added the two known angles but forgot to subtract from
+          $180^\circ$. $55^\circ + 65^\circ = 120^\circ$ is the combined
+          measure of $\angle A$ and $\angle B$. Subtract: $180^\circ -
+          120^\circ = 60^\circ$.
       - text: '$30^\circ$'
         correct: false
+        rationale: |
+          You subtracted from $90^\circ$ instead of $180^\circ$. The three
+          angles of any triangle sum to $180^\circ$, not $90^\circ$.
+          $180^\circ - 55^\circ - 65^\circ = 60^\circ$.
       - text: '$70^\circ$'
         correct: false
+        rationale: |
+          You used $55^\circ$ twice instead of $65^\circ$. $180^\circ -
+          55^\circ - 55^\circ = 70^\circ$, but $\angle B$ is $65^\circ$,
+          not $55^\circ$. The correct sum is $180^\circ - 120^\circ =
+          60^\circ$.
     explanation: |
       The sum of interior angles in any triangle is $180^\circ$.
 
@@ -43,10 +57,23 @@ questions:
         correct: true
       - text: '$5\text{ cm}, 7\text{ cm}, 10\text{ cm}$'
         correct: false
+        rationale: |
+          You picked a valid set. $5 + 7 = 12 > 10$, so these three lengths
+          do form a triangle. The set that fails is $6, 8, 14$ because
+          $6 + 8 = 14$, which is not strictly greater than 14.
       - text: '$4\text{ cm}, 9\text{ cm}, 11\text{ cm}$'
         correct: false
+        rationale: |
+          You picked a valid set. $4 + 9 = 13 > 11$, so these three lengths
+          do form a triangle. The set that fails is $6, 8, 14$ because
+          $6 + 8 = 14$, which equals the third side and is not strictly
+          greater.
       - text: '$7\text{ cm}, 24\text{ cm}, 25\text{ cm}$'
         correct: false
+        rationale: |
+          You picked a valid set. $7 + 24 = 31 > 25$, so these three
+          lengths do form a triangle. The set that fails is $6, 8, 14$
+          where $6 + 8 = 14$, not greater.
     explanation: |
       The Triangle Inequality Theorem states that the sum of the lengths of any two sides of a triangle must be strictly greater than the length of the third side.
 
@@ -67,10 +94,25 @@ questions:
         correct: true
       - text: '$55^\circ$'
         correct: false
+        rationale: |
+          You returned the given remote interior angle. The question asks
+          for the other one. By the Exterior Angle Theorem: $125^\circ =
+          55^\circ + \text{Remote}_2$, so $\text{Remote}_2 = 125^\circ
+          - 55^\circ = 70^\circ$.
       - text: '$180^\circ$'
         correct: false
+        rationale: |
+          You added the exterior angle and the given remote interior angle:
+          $125^\circ + 55^\circ = 180^\circ$. That is not the theorem.
+          The Exterior Angle Theorem says the exterior angle equals the
+          sum of the two remote interior angles: $125^\circ = 55^\circ +
+          70^\circ$.
       - text: '$125^\circ$'
         correct: false
+        rationale: |
+          You returned the exterior angle instead of using it to find the
+          missing remote interior angle. Subtract the given remote angle:
+          $125^\circ - 55^\circ = 70^\circ$.
     explanation: |
       By the Exterior Angle Theorem, an exterior angle of a triangle is equal to the sum of its two remote interior angles.
 
@@ -90,10 +132,23 @@ questions:
         correct: true
       - text: "SSS (Side-Side-Side)"
         correct: false
+        rationale: |
+          You picked a valid criterion. SSS is a valid congruence test:
+          if all three sides of one triangle equal all three sides of
+          another, the triangles are congruent. SSA is the one that fails.
       - text: "SAS (Side-Angle-Side)"
         correct: false
+        rationale: |
+          You picked a valid criterion. SAS is valid: two sides and the
+          included angle determine a unique triangle. SSA is invalid
+          because the angle is not between the two known sides, which
+          allows two different triangles.
       - text: "AAS (Angle-Angle-Side)"
         correct: false
+        rationale: |
+          You picked a valid criterion. AAS is valid: two angles fix the
+          shape, and the known non-included side pins the size. The invalid
+          one is SSA, not AAS.
     explanation: |
       - SSS, SAS, ASA, AAS, and HL (Hypotenuse-Leg) are valid triangle congruence criteria.
       - SSA (Side-Side-Angle) and AAA (Angle-Angle-Angle) are NOT valid congruence criteria. SSA is ambiguous and can form two different triangles, while AAA only proves similarity, not congruence.
@@ -108,10 +163,23 @@ questions:
         correct: true
       - text: '$21\text{ cm}$'
         correct: false
+        rationale: |
+          You added the two legs directly: $9 + 12 = 21$. The Pythagorean
+          theorem requires squaring them first, then taking the square root:
+          $\sqrt{9^2 + 12^2} = \sqrt{81 + 144} = \sqrt{225} = 15$.
       - text: '$10.5\text{ cm}$'
         correct: false
+        rationale: |
+          You averaged the two legs: $(9 + 12) / 2 = 10.5$. The hypotenuse
+          is found with $c = \sqrt{a^2 + b^2}$, not the average.
+          $\sqrt{81 + 144} = \sqrt{225} = 15$.
       - text: '$\sqrt{63}\text{ cm}$'
         correct: false
+        rationale: |
+          You subtracted instead of adding the squares: $\sqrt{12^2 - 9^2}
+          = \sqrt{144 - 81} = \sqrt{63}$. That gives a leg when the
+          hypotenuse is known. Here both legs are known, so add:
+          $\sqrt{81 + 144} = 15$.
     explanation: |
       Apply the Pythagorean theorem $a^2 + b^2 = c^2$:
 
@@ -131,10 +199,23 @@ questions:
         correct: true
       - text: '$30\sqrt{2}\text{ cm}$'
         correct: false
+        rationale: |
+          You treated all three sides as $10\sqrt{2}$ and added them. Only
+          the hypotenuse is $10\sqrt{2}$. The two legs are each $10$ (divide
+          hypotenuse by $\sqrt{2}$). Perimeter $= 10 + 10 + 10\sqrt{2} =
+          20 + 10\sqrt{2}$.
       - text: '$30\text{ cm}$'
         correct: false
+        rationale: |
+          You replaced the hypotenuse with 10 and added $10 + 10 + 10 =
+          30$, dropping the $\sqrt{2}$. The hypotenuse stays $10\sqrt{2}$.
+          Perimeter $= 10 + 10 + 10\sqrt{2} = 20 + 10\sqrt{2}$.
       - text: '$10 + 10\sqrt{2}\text{ cm}$'
         correct: false
+        rationale: |
+          You counted only one leg instead of two. Both legs are $10$, so
+          the perimeter includes $10 + 10 = 20$ from the legs, plus
+          $10\sqrt{2}$ for the hypotenuse.
     explanation: |
       In a $45^\circ-45^\circ-90^\circ$ triangle, $\text{hypotenuse} = \text{leg} \times \sqrt{2}$.
 
@@ -154,10 +235,24 @@ questions:
         correct: true
       - text: '$8\text{ cm}$'
         correct: false
+        rationale: |
+          You found the short leg (opposite $30^\circ$): $16/2 = 8$. But
+          the question asks for the side opposite $60^\circ$, which is the
+          long leg. Multiply the short leg by $\sqrt{3}$: $8\sqrt{3}$.
       - text: '$16\sqrt{3}\text{ cm}$'
         correct: false
+        rationale: |
+          You multiplied the full hypotenuse by $\sqrt{3}$ instead of the
+          short leg. In a $30^\circ-60^\circ-90^\circ$ triangle, the long
+          leg is $\text{short leg} \times \sqrt{3}$. The short leg is
+          $16/2 = 8$, giving $8\sqrt{3}$.
       - text: '$\frac{16}{\sqrt{3}}\text{ cm}$'
         correct: false
+        rationale: |
+          You divided the hypotenuse by $\sqrt{3}$, which gives neither
+          the short leg nor the long leg. The long leg (opposite $60^\circ$)
+          is $\text{short leg} \times \sqrt{3} = (16/2) \times \sqrt{3} =
+          8\sqrt{3}$.
     explanation: |
       In a $30^\circ-60^\circ-90^\circ$ triangle:
       - $\text{Short leg (opposite } 30^\circ) = \frac{\text{hypotenuse}}{2} = \frac{16}{2} = 8\text{ cm}$.
@@ -178,10 +273,24 @@ questions:
         correct: true
       - text: 'The perimeter of $\triangle DEF$ is $27\text{ cm}$.'
         correct: false
+        rationale: |
+          You matched $DE$ with $BC$ instead of $AB$. The triangles are
+          named so that $A \leftrightarrow D$, $B \leftrightarrow E$,
+          $C \leftrightarrow F$, meaning $DE$ corresponds to $AB = 6$.
+          Scale factor $= 9/6 = 1.5$. Perimeter $= 1.5 \times 24 = 36$.
       - text: 'The perimeter of $\triangle DEF$ is $54\text{ cm}$.'
         correct: false
+        rationale: |
+          You squared the scale factor before applying it to the perimeter.
+          Squaring ($1.5^2 = 2.25$) applies to areas, not perimeters.
+          For perimeters, multiply by the linear scale factor: $1.5 \times
+          24 = 36$.
       - text: 'The perimeter of $\triangle DEF$ is $24\text{ cm}$.'
         correct: false
+        rationale: |
+          You returned the perimeter of $\triangle ABC$ without scaling.
+          $P_{ABC} = 6 + 8 + 10 = 24$. The scale factor is $9/6 = 1.5$,
+          so $P_{DEF} = 1.5 \times 24 = 36$.
     explanation: |
       1. Calculate perimeter of $\triangle ABC$: $P_{ABC} = 6 + 8 + 10 = 24\text{ cm}$.
       2. Find scale factor between corresponding sides $DE$ and $AB$:
@@ -201,10 +310,23 @@ questions:
         correct: true
       - text: '$45^\circ$'
         correct: false
+        rationale: |
+          You computed the middle angle. With $x = 15^\circ$: $3x = 45^\circ$
+          is the second-largest angle. The largest is the one with ratio 7:
+          $7 \times 15^\circ = 105^\circ$.
       - text: '$30^\circ$'
         correct: false
+        rationale: |
+          You computed the smallest angle. With $x = 15^\circ$: $2x =
+          30^\circ$ is the smallest. The largest angle uses ratio 7:
+          $7 \times 15^\circ = 105^\circ$.
       - text: '$70^\circ$'
         correct: false
+        rationale: |
+          You used $x = 10^\circ$ instead of $x = 15^\circ$. The sum of
+          the ratios is $2 + 3 + 7 = 12$, so $12x = 180^\circ$ gives
+          $x = 15^\circ$. The largest angle is $7 \times 15^\circ =
+          105^\circ$.
     explanation: |
       1. Let the three angles be $2x$, $3x$, and $7x$.
       2. Sum of angles in a triangle: $2x + 3x + 7x = 180^\circ \implies 12x = 180^\circ \implies x = 15^\circ$.
@@ -225,10 +347,19 @@ questions:
         correct: true
       - text: "$8$"
         correct: false
+        rationale: |
+          You found $x = 8$ but stopped. That is the length of the longer
+          leg, not the hypotenuse. The hypotenuse is $x + 2 = 8 + 2 = 10$.
       - text: "$6$"
         correct: false
+        rationale: |
+          You computed the shorter leg $x - 2 = 8 - 2 = 6$. The question
+          asks for the hypotenuse, which is $x + 2 = 8 + 2 = 10$.
       - text: "$14$"
         correct: false
+        rationale: |
+          You added the two legs $x + (x - 2) = 8 + 6 = 14$ instead of
+          reporting the hypotenuse. The hypotenuse is $x + 2 = 8 + 2 = 10$.
     explanation: |
       Apply Pythagorean theorem $(a^2 + b^2 = c^2)$:
 
@@ -250,10 +381,23 @@ questions:
         correct: true
       - text: '$100^\circ$'
         correct: false
+        rationale: |
+          You found the exterior angle $\angle ACD = 100^\circ$ correctly
+          but returned it instead of the interior angle. $\angle ACB$ and
+          $\angle ACD$ form a linear pair: $180^\circ - 100^\circ = 80^\circ$.
       - text: '$55^\circ$'
         correct: false
+        rationale: |
+          You computed $\angle A$ at $x = 15$: $3(15) + 10 = 55^\circ$.
+          That is one of the remote interior angles, not $\angle ACB$.
+          First find the exterior angle ($100^\circ$), then subtract from
+          $180^\circ$ to get $80^\circ$.
       - text: '$45^\circ$'
         correct: false
+        rationale: |
+          You computed $\angle B$ at $x = 15$: $2(15) + 15 = 45^\circ$.
+          That is the other remote interior angle, not $\angle ACB$.
+          The interior angle at $C$ is $180^\circ - 100^\circ = 80^\circ$.
     explanation: |
       1. By Exterior Angle Theorem: $\angle ACD = \angle A + \angle B$.
       2. Set up equation: $7x - 5 = (3x + 10) + (2x + 15)$.
@@ -274,10 +418,23 @@ questions:
         correct: true
       - text: '$4 \le s \le 18$'
         correct: false
+        rationale: |
+          You used non-strict inequalities. When $s = 4$ or $s = 18$, the
+          three sides form a degenerate triangle (a straight line with no
+          area). The triangle inequality requires strict inequalities:
+          $4 < s < 18$.
       - text: "$7 < s < 11$"
         correct: false
+        rationale: |
+          You listed the range between the two given sides instead of
+          applying the Triangle Inequality Theorem. The lower bound is
+          $|11 - 7| = 4$ and the upper bound is $11 + 7 = 18$.
       - text: "$0 < s < 18$"
         correct: false
+        rationale: |
+          You applied the upper bound correctly ($s < 18$) but forgot the
+          lower bound. By the triangle inequality, $s > |11 - 7| = 4$.
+          Any side of length 4 or less cannot close the triangle.
     explanation: |
       By the Triangle Inequality Theorem:
       - Lower bound: $|11 - 7| = 4$
@@ -296,10 +453,23 @@ questions:
         correct: true
       - text: '$6.5\text{ cm}$'
         correct: false
+        rationale: |
+          You took the arithmetic mean: $(4 + 9) / 2 = 6.5$. The Geometric
+          Mean Theorem says to use the geometric mean, not the arithmetic
+          mean: $CD = \sqrt{AD \times DB} = \sqrt{4 \times 9} = \sqrt{36}
+          = 6$.
       - text: '$13\text{ cm}$'
         correct: false
+        rationale: |
+          You added the two segments: $4 + 9 = 13$. The altitude is found
+          by multiplying them and taking the square root: $\sqrt{4 \times
+          9} = \sqrt{36} = 6$.
       - text: '$36\text{ cm}$'
         correct: false
+        rationale: |
+          You computed $4 \times 9 = 36$ but forgot to take the square
+          root. The Geometric Mean Theorem gives $CD = \sqrt{AD \times DB}
+          = \sqrt{36} = 6$.
     explanation: |
       By the Geometric Mean Theorem (Altitude Rule) in right triangles:
       $$CD = \sqrt{AD \times DB}$$
@@ -319,10 +489,25 @@ questions:
         correct: true
       - text: '$\frac{\sqrt{3}}{\sqrt{2}}$'
         correct: false
+        rationale: |
+          You used the long leg of Triangle 1 ($6\sqrt{3}$) as the
+          hypotenuse. The hypotenuse of a $30^\circ-60^\circ-90^\circ$
+          triangle is twice the short leg: $2 \times 6 = 12$. Then
+          $12 / (6\sqrt{2}) = \sqrt{2}$.
       - text: "$2$"
         correct: false
+        rationale: |
+          You divided the hypotenuse of Triangle 1 by the leg length $6$
+          instead of the hypotenuse of Triangle 2. Hyp$_1 = 12$ and
+          Hyp$_2 = 6\sqrt{2}$. The ratio is $12 / (6\sqrt{2}) = 2/\sqrt{2}
+          = \sqrt{2}$.
       - text: '$\frac{2}{\sqrt{3}}$'
         correct: false
+        rationale: |
+          You divided the hypotenuse of Triangle 1 ($12$) by the long
+          leg of Triangle 1 ($6\sqrt{3}$): $12 / (6\sqrt{3}) = 2/\sqrt{3}$.
+          The denominator should be the hypotenuse of Triangle 2, which
+          is $6\sqrt{2}$.
     explanation: |
       1. Triangle 1 ($30^\circ-60^\circ-90^\circ$): Short leg $= 6\text{ cm}$.
          $$\text{Hypotenuse}_1 = 2 \times 6 = 12\text{ cm}$$
@@ -341,10 +526,24 @@ questions:
         correct: true
       - text: '$18\text{ cm}$'
         correct: false
+        rationale: |
+          You applied the area ratio directly without taking the square
+          root. $(72/32) \times 8 = 2.25 \times 8 = 18$. Area ratios equal
+          the square of the side ratio, so take the square root first:
+          $\sqrt{72/32} = 1.5$. Then $PQ = 1.5 \times 8 = 12$.
       - text: '$16\text{ cm}$'
         correct: false
+        rationale: |
+          You doubled $AB$ instead of scaling by the correct factor. The
+          linear scale factor is $\sqrt{72/32} = \sqrt{9/4} = 3/2 = 1.5$.
+          So $PQ = 1.5 \times 8 = 12$, not $2 \times 8 = 16$.
       - text: '$9.6\text{ cm}$'
         correct: false
+        rationale: |
+          You set up the area ratio inverted: $(32/72) = (PQ/8)^2$, giving
+          a scale factor less than 1. Since $\triangle PQR$ has a larger
+          area, $PQ$ must be larger than $AB$. The correct ratio is
+          $(72/32) = (PQ/8)^2$, giving $PQ = 12$.
     explanation: |
       1. The ratio of areas of similar triangles is equal to the square of the ratio of corresponding side lengths:
          $$\frac{\text{Area}_{PQR}}{\text{Area}_{ABC}} = \left(\frac{PQ}{AB}\right)^2 \implies \frac{72}{32} = \left(\frac{PQ}{8}\right)^2$$

@@ -224,19 +224,19 @@ questions:
         correct: true
       - text: $y = \pm \frac{3}{4}x$
         rationale: |
-          You flipped the ratio. For a horizontal hyperbola $\frac{x^2}{a^2}
-          - \frac{y^2}{b^2} = 1$, the asymptotes are $y = \pm \frac{b}{a}x$.
-          Here $a = 3$ and $b = 4$, so the slope is $\frac{4}{3}$, not
-          $\frac{3}{4}$.
+          You flipped the ratio. For a horizontal hyperbola $\dfrac{x^2}{a^2}
+          - \dfrac{y^2}{b^2} = 1$, the asymptotes are $y = \pm \dfrac{b}{a}x$.
+          Here $a = 3$ and $b = 4$, so the slope is $\dfrac{4}{3}$, not
+          $\dfrac{3}{4}$.
       - text: $y = \pm \frac{16}{9}x$
         rationale: |
-          You used $\frac{b^2}{a^2}$ instead of $\frac{b}{a}$. The asymptote
+          You used $\dfrac{b^2}{a^2}$ instead of $\dfrac{b}{a}$. The asymptote
           slope is the ratio of $b$ to $a$, not their squares. Take square
-          roots first: $a = 3$, $b = 4$, giving slope $\frac{4}{3}$.
+          roots first: $a = 3$, $b = 4$, giving slope $\dfrac{4}{3}$.
       - text: $y = \pm \frac{9}{16}x$
         rationale: |
-          You used $\frac{a^2}{b^2}$ and inverted it. The asymptote slope
-          for a horizontal hyperbola is $\frac{b}{a} = \frac{4}{3}$.
+          You used $\dfrac{a^2}{b^2}$ and inverted it. The asymptote slope
+          for a horizontal hyperbola is $\dfrac{b}{a} = \dfrac{4}{3}$.
           Here $a^2 = 9$ and $b^2 = 16$, so $a = 3$ and $b = 4$.
     explanation: |
       For a horizontal hyperbola centered at $(0,0)$, $a^2 = 9 \implies a = 3$ and $b^2 = 16 \implies b = 4$.

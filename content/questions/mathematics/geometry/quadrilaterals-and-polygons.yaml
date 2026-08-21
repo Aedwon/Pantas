@@ -20,10 +20,16 @@ questions:
         correct: true
       - text: '$1440^\circ$'
         correct: false
+        rationale: |
+          You used $n \times 180$ and forgot the "$n - 2$" part of the interior-angle-sum formula.
       - text: '$900^\circ$'
         correct: false
+        rationale: |
+          You used the wrong multiplier with 180 degrees. For an octagon, the formula gives $(8 - 2) \times 180$.
       - text: '$135^\circ$'
         correct: false
+        rationale: |
+          You found a single interior angle idea, not the sum of all eight interior angles.
     explanation: |
       The sum of interior angles $S$ of an $n$-sided convex polygon is given by:
       $$S = (n - 2) \times 180^\circ$$
@@ -42,10 +48,16 @@ questions:
         correct: true
       - text: '$2340^\circ$'
         correct: false
+        rationale: |
+          You used the interior-angle-sum formula. The sum of one exterior angle at each vertex is always 360 degrees.
       - text: '$24^\circ$'
         correct: false
+        rationale: |
+          You found one exterior angle of a regular 15-gon, not the total of all exterior angles.
       - text: '$5400^\circ$'
         correct: false
+        rationale: |
+          You multiplied far beyond what the question asks. Exterior angles around a polygon make one full turn.
     explanation: |
       The sum of the exterior angles of ANY convex polygon (one per vertex) is ALWAYS $360^\circ$, regardless of the number of sides.
 
@@ -61,10 +73,16 @@ questions:
         correct: true
       - text: '$72^\circ$'
         correct: false
+        rationale: |
+          You treated consecutive angles like opposite angles. In a parallelogram, consecutive angles are supplementary.
       - text: '$18^\circ$'
         correct: false
+        rationale: |
+          You subtracted from the wrong total. Consecutive angles in a parallelogram must add to 180 degrees.
       - text: '$288^\circ$'
         correct: false
+        rationale: |
+          You used a full-turn idea instead of the supplementary-angle rule. The partner angle is less than 180 degrees here.
     explanation: |
       In a parallelogram, consecutive angles are supplementary (their sum is $180^\circ$).
 
@@ -84,10 +102,16 @@ questions:
         correct: true
       - text: '$26\text{ cm}$'
         correct: false
+        rationale: |
+          You divided the perimeter by 2 instead of 4. A rhombus has four equal sides.
       - text: '$169\text{ cm}$'
         correct: false
+        rationale: |
+          You squared the side idea instead of just finding one side length from the perimeter.
       - text: '$52\text{ cm}$'
         correct: false
+        rationale: |
+          You repeated the full perimeter. The question asks for one side, not all four sides together.
     explanation: |
       A rhombus is a parallelogram with four equal (congruent) sides.
 
@@ -104,10 +128,16 @@ questions:
         correct: true
       - text: "$16$"
         correct: false
+        rationale: |
+          You found $2x$ instead of $x$. After solving $2x = 16$, you still need to divide by 2.
       - text: "$4$"
         correct: false
+        rationale: |
+          You likely moved the constants incorrectly. Setting the diagonals equal should lead to $2x = 16$.
       - text: "$38$"
         correct: false
+        rationale: |
+          You treated the diagonal expression like the value of $x$. The problem asks for the variable, not the diagonal length.
     explanation: |
       In any rectangle, the diagonals are equal in length.
 
@@ -125,10 +155,16 @@ questions:
         correct: true
       - text: "$8$"
         correct: false
+        rationale: |
+          You used the interior-angle formula directly as a side count. First convert 144 degrees to the exterior angle.
       - text: "$12$"
         correct: false
+        rationale: |
+          You made the exterior angle too small or divided incorrectly. A 144-degree interior angle leaves a 36-degree exterior angle.
       - text: "$5$"
         correct: false
+        rationale: |
+          You confused the exterior angle with the number of sides. A pentagon would have much larger interior angles than 144 degrees.
     explanation: |
       1. Calculate the measure of each exterior angle:
          $$\text{Exterior Angle} = 180^\circ - 144^\circ = 36^\circ$$
@@ -145,10 +181,16 @@ questions:
         correct: true
       - text: '$40\text{ cm}$'
         correct: false
+        rationale: |
+          You added the two bases but forgot to divide by 2. A trapezoid's median is the average of the bases.
       - text: '$12\text{ cm}$'
         correct: false
+        rationale: |
+          You used the difference between the bases instead of their average. The midsegment lies between the two base lengths.
       - text: '$10\text{ cm}$'
         correct: false
+        rationale: |
+          You took half of the shorter base instead of averaging both parallel sides.
     explanation: |
       The median (midsegment) of a trapezoid is parallel to the bases and its length is the average of the two bases.
 
@@ -167,10 +209,16 @@ questions:
         correct: true
       - text: '$20\text{ cm}$'
         correct: false
+        rationale: |
+          You found two side lengths together or stopped too early. The rhombus perimeter needs all four equal sides.
       - text: '$28\text{ cm}$'
         correct: false
+        rationale: |
+          You used the diagonals without first halving them into a right triangle. The side length comes from 6, 8, and 10.
       - text: '$10\text{ cm}$'
         correct: false
+        rationale: |
+          You found the side length of the rhombus but forgot the question asks for the perimeter.
     explanation: |
       1. The diagonals of a rhombus are perpendicular bisectors of each other.
       2. They split the rhombus into four congruent right triangles with legs equal to half the diagonals:
@@ -191,10 +239,16 @@ questions:
         correct: true
       - text: '$102^\circ$'
         correct: false
+        rationale: |
+          You found the opposite angle value, but the question asks for the consecutive angle next to it.
       - text: '$18^\circ$'
         correct: false
+        rationale: |
+          You reported the value of $x$ instead of the angle measure. You still need to compute the angle and then its supplement.
       - text: '$12^\circ$'
         correct: false
+        rationale: |
+          You used the constant term instead of solving the angle relationship. Opposite angles in a parallelogram are equal first.
     explanation: |
       1. Opposite angles in a parallelogram are equal:
          $$5x + 12 = 3x + 48 \implies 2x = 36 \implies x = 18$$
@@ -214,10 +268,16 @@ questions:
         correct: true
       - text: '$112^\circ$'
         correct: false
+        rationale: |
+          You found one of the angles correctly, but it is not the largest one. You need to compare all four evaluated angles.
       - text: '$34^\circ$'
         correct: false
+        rationale: |
+          You reported the value of $x$ instead of substituting it back into the angle expressions.
       - text: '$136^\circ$'
         correct: false
+        rationale: |
+          You made an arithmetic slip when evaluating the largest angle. For $4x - 15$, use $x = 34$ carefully.
     explanation: |
       The interior angles of any quadrilateral sum to $360^\circ$.
 
@@ -240,10 +300,16 @@ questions:
         correct: true
       - text: "$108$"
         correct: false
+        rationale: |
+          You forgot to divide by 2 in the diagonal formula. Each diagonal would be counted twice otherwise.
       - text: "$12$"
         correct: false
+        rationale: |
+          You found the number of sides, not the number of diagonals. The problem asks for the diagonals after finding $n$.
       - text: "$66$"
         correct: false
+        rationale: |
+          You likely used the wrong counting formula. Not every pair of vertices makes a diagonal because sides are excluded.
     explanation: |
       1. Find the number of sides $n$ using interior angle sum formula:
          $$(n - 2) \times 180^\circ = 1800^\circ \implies n - 2 = 10 \implies n = 12 \text{ sides}$$
@@ -262,10 +328,16 @@ questions:
         correct: true
       - text: '$65^\circ$'
         correct: false
+        rationale: |
+          You used the base angle and stopped. The diagonal bisector and the triangle angle sum both still matter.
       - text: '$32.5^\circ$'
         correct: false
+        rationale: |
+          You bisected the 65-degree angle instead of the 115-degree angle at $A$.
       - text: '$115^\circ$'
         correct: false
+        rationale: |
+          You found $\angle BAD$ but the question asks for $\angle ACD$ inside triangle $ACD$.
     explanation: |
       1. Base angles of an isosceles trapezoid are equal: $\angle BCD = \angle ADC = 65^\circ$.
       2. Consecutive angle $\angle BAD = 180^\circ - 65^\circ = 115^\circ$.
@@ -283,10 +355,16 @@ questions:
         correct: true
       - text: '$144\text{ cm}^2$'
         correct: false
+        rationale: |
+          You squared the diagonal as if it were a side. In a square, the diagonal is longer than the side by a factor of $\sqrt{2}$.
       - text: '$36\text{ cm}^2$'
         correct: false
+        rationale: |
+          You made the side too short before squaring. The area formula from the diagonal is $\dfrac{d^2}{2}$.
       - text: '$288\text{ cm}^2$'
         correct: false
+        rationale: |
+          You doubled instead of halving after squaring the diagonal. The square's area is half of $d^2$.
     explanation: |
       For a square with side $s$ and diagonal $d$, $d = s\sqrt{2} \implies s = \frac{d}{\sqrt{2}}$.
 
@@ -307,10 +385,16 @@ questions:
         correct: true
       - text: "$7$"
         correct: false
+        rationale: |
+          You used the first part of the ratio as if it were the side count. You still need to find the exterior angle and divide 360 by it.
       - text: "$14$"
         correct: false
+        rationale: |
+          You doubled the interior part of the ratio instead of using the exterior angle to count sides.
       - text: "$18$"
         correct: false
+        rationale: |
+          You made the exterior angle too small. Once the ratio gives 40 degrees outside, the polygon has 9 sides.
     explanation: |
       An interior angle and an exterior angle at the same vertex form a linear pair ($180^\circ$).
 
@@ -328,10 +412,16 @@ questions:
         correct: true
       - text: '$55^\circ$'
         correct: false
+        rationale: |
+          You halved the given angle at $B$ instead of first finding angle $C$. The diagonal bisects angle $C$, not angle $B$.
       - text: '$70^\circ$'
         correct: false
+        rationale: |
+          You found angle $C$ correctly but forgot that diagonal $AC$ bisects it into two equal parts.
       - text: '$110^\circ$'
         correct: false
+        rationale: |
+          You repeated the given angle at $B$. The asked angle is at $C$ and comes after using a supplement and a bisector.
     explanation: |
       1. Consecutive angles in a rhombus are supplementary:
          $$\angle C = 180^\circ - \angle B = 180^\circ - 110^\circ = 70^\circ$$

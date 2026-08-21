@@ -13,8 +13,14 @@ questions:
       - text: $6\sqrt{2}$
         correct: true
       - text: $8\sqrt{9}$
+        rationale: |
+          You pulled numbers out of the root without checking the product. $8\sqrt{9}$ means $8 \times 3$, not $\sqrt{72}$ simplified.
       - text: $2\sqrt{36}$
+        rationale: |
+          You split $72$ into factors, but you kept the perfect square under the root. $\sqrt{36}$ should come out as $6$ first.
       - text: $72$
+        rationale: |
+          You dropped the root sign and treated the radicand as the answer. A square root asks for the number whose square is $72$.
     explanation: |
       Factor $72 = 36 \times 2$. Take out the perfect square: $\sqrt{36 \times 2} = \sqrt{36} \times \sqrt{2} = 6\sqrt{2}$.
 
@@ -27,8 +33,14 @@ questions:
       - text: $5\sqrt{2}$
         correct: true
       - text: $2\sqrt{25}$
+        rationale: |
+          You found the factor pair $2 \times 25$, but you left the perfect square inside. $\sqrt{25}$ should become $5$.
       - text: $\sqrt{49}$
+        rationale: |
+          You used a nearby perfect square instead of factoring $50$ exactly. The number inside the root must still be $50$.
       - text: $7\sqrt{2}$
+        rationale: |
+          You treated $\sqrt{50}$ like $\sqrt{49 \times 2}$. But $49 \times 2$ is $98$, not $50$.
     explanation: |
       Factor $50 = 25 \times 2$. So $\sqrt{50} = \sqrt{25} \times \sqrt{2} = 5\sqrt{2}$.
 
@@ -41,8 +53,16 @@ questions:
       - text: $3\sqrt{5}$
         correct: true
       - text: $2\sqrt{5}$
+        rationale: |
+          You simplified both radicals, but you subtracted the coefficients wrong. $6\sqrt{5} - 3\sqrt{5}$ leaves $3\sqrt{5}$, not $2\sqrt{5}$.
       - text: $-2\sqrt{5}$
+        rationale: |
+          You reversed the subtraction after simplifying. The larger like term is $6\sqrt{5}$, so the result stays positive.
       - text: $\sqrt{25}$
+        rationale: |
+          You subtracted 20 from 45 under one root and ignored the outside 3.
+          But $3\sqrt{20}$ becomes $6\sqrt{5}$ first, so the subtraction is
+          between coefficients: $6\sqrt{5} - 3\sqrt{5}$.
     explanation: |
       Simplify each radical. $3\sqrt{20} = 3 \times 2\sqrt{5} = 6\sqrt{5}$ and $\sqrt{45} = 3\sqrt{5}$. Then $6\sqrt{5} - 3\sqrt{5} = 3\sqrt{5}$.
 
@@ -55,8 +75,14 @@ questions:
       - text: You cannot add the insides of roots. The correct answer is $3 + 4 = 7$.
         correct: true
       - text: There is no error.
+        rationale: |
+          You treated $\sqrt{a} + \sqrt{b}$ as $\sqrt{a+b}$. That shortcut does not work for ordinary addition of radicals.
       - text: The answer should be $\sqrt{144}$.
+        rationale: |
+          You multiplied the radicands or the roots instead of adding the simplified values. This expression is $3 + 4$, not a product.
       - text: Only one radical should be simplified.
+        rationale: |
+          You may have thought only one term changes under a root. Both radicals simplify on their own before you add them.
     explanation: |
       Each radical must be simplified separately. $\sqrt{9} = 3$ and $\sqrt{16} = 4$, so the sum is $7$. Never add the radicands.
 
@@ -68,9 +94,19 @@ questions:
     choices:
       - text: $\sqrt{5}$
         correct: true
-      - text: $\dfrac{5\sqrt{5}}{5}$
+      - text: $5\sqrt{5}$
+        rationale: |
+          You multiplied the numerator by $\sqrt{5}$ but forgot to multiply
+          the denominator. You must multiply both parts by $\sqrt{5}$ so the
+          denominator becomes 5, then simplify.
       - text: $\dfrac{\sqrt{5}}{5}$
+        rationale: |
+          You dropped the original 5 from the numerator. Rationalizing gives
+          $\dfrac{5\sqrt{5}}{5}$. Canceling the common 5 leaves $\sqrt{5}$,
+          not $\dfrac{\sqrt{5}}{5}$.
       - text: $5$
+        rationale: |
+          You canceled the radicals as if $\dfrac{5}{\sqrt{5}}$ were the same as $\dfrac{5}{5}$. The root does not disappear until you multiply top and bottom.
     explanation: |
       Multiply top and bottom by $\sqrt{5}$: $\dfrac{5}{\sqrt{5}} \times \dfrac{\sqrt{5}}{\sqrt{5}} = \dfrac{5\sqrt{5}}{5} = \sqrt{5}$.
 
@@ -82,9 +118,17 @@ questions:
     choices:
       - text: $2\sqrt{5}$
         correct: true
-      - text: $\dfrac{10\sqrt{5}}{5}$
+      - text: $2$
+        rationale: |
+          You treated $\sqrt{5}$ as 5 and divided $10 \div 5$. A square root
+          is not the number inside it. Rationalize first to get
+          $\dfrac{10\sqrt{5}}{5} = 2\sqrt{5}$.
       - text: $\dfrac{\sqrt{50}}{5}$
+        rationale: |
+          You multiplied by $\sqrt{5}$, but you left the numerator under a new root. $10\sqrt{5}$ is not the same as $\sqrt{50}$.
       - text: $10\sqrt{5}$
+        rationale: |
+          You multiplied the numerator by $\sqrt{5}$ but forgot to multiply the denominator too. Rationalizing must keep the fraction equivalent.
     explanation: |
       Multiply top and bottom by $\sqrt{5}$: $\dfrac{10}{\sqrt{5}} \times \dfrac{\sqrt{5}}{\sqrt{5}} = \dfrac{10\sqrt{5}}{5} = 2\sqrt{5}$.
 
@@ -97,8 +141,18 @@ questions:
       - text: $3 + \sqrt{5}$
         correct: true
       - text: $\dfrac{4}{3} - \sqrt{5}$
-      - text: $\dfrac{12 + 4\sqrt{5}}{4}$
-      - text: $-1 + \sqrt{5}$
+        rationale: |
+          You split the denominator into separate parts and tried to simplify each one. Fractions with binomials do not work term by term like that.
+      - text: $3 - \sqrt{5}$
+        rationale: |
+          You kept the minus sign from the denominator after rationalizing.
+          The conjugate changes that sign, so dividing $12 + 4\sqrt{5}$ by 4
+          gives $3 + \sqrt{5}$.
+      - text: $3 + 4\sqrt{5}$
+        rationale: |
+          You divided 12 by 4 but did not divide $4\sqrt{5}$ by 4. The
+          denominator divides both terms, so the result is $3 + \sqrt{5}$,
+          not $3 + 4\sqrt{5}$.
     explanation: |
       Multiply by conjugate: $\dfrac{4}{3 - \sqrt{5}} \times \dfrac{3 + \sqrt{5}}{3 + \sqrt{5}} = \dfrac{4(3 + \sqrt{5})}{9 - 5} = \dfrac{12 + 4\sqrt{5}}{4} = 3 + \sqrt{5}$.
 
@@ -111,8 +165,14 @@ questions:
       - text: $6xy^2\sqrt{2x}$
         correct: true
       - text: $6x^2y^2\sqrt{2}$
+        rationale: |
+          You took all three $x$ factors out of the root. Only pairs leave the radical, so one $x$ must stay inside with the 2.
       - text: $36xy^2\sqrt{x}$
+        rationale: |
+          You treated the square root of 72 like 36. Only $\sqrt{36}$ comes out as 6, so the coefficient should not become 36.
       - text: $12xy^2\sqrt{6}$
+        rationale: |
+          You pulled out too much from 72 and lost the leftover $x$ inside the root. After taking out pairs, the inside is $2x$, not 6.
     explanation: |
       Factor: $72 = 36 \times 2$, $x^3 = x^2 \times x$, $y^4 = y^4$. Take out pairs: $\sqrt{36 \times 2 \times x^2 \times x \times y^4} = 6 \times x \times y^2 \times \sqrt{2x} = 6xy^2\sqrt{2x}$.
 
@@ -125,8 +185,14 @@ questions:
       - text: $5$
         correct: true
       - text: $\pm 5$
+        rationale: |
+          You mixed up solving $x^2 = 25$ with evaluating $\sqrt{25}$. The radical symbol means the principal, non-negative root only.
       - text: $-5$
+        rationale: |
+          You chose the negative root, but $\sqrt{\ }$ names the principal root. For 25, that value is positive 5.
       - text: Cannot be determined.
+        rationale: |
+          You may have thought every square has two roots here. But the symbol $\sqrt{25}$ already tells you to take the positive one.
     explanation: |
       The square root symbol $\sqrt{\ }$ always gives the non-negative answer. So $\sqrt{25} = 5$ only.
 
@@ -139,8 +205,14 @@ questions:
       - text: $5\sqrt{2}$
         correct: true
       - text: $\sqrt{26}$
+        rationale: |
+          You added the numbers inside the roots before simplifying. Radicals only combine after they have the same simplified root part.
       - text: $3\sqrt{2}$
+        rationale: |
+          You simplified both radicals, but you left out the $2\sqrt{2}$ from $\sqrt{8}$. Both like terms must be added.
       - text: $6\sqrt{2}$
+        rationale: |
+          You added the coefficients as if they were 3 and 3. But $\sqrt{8}$ becomes $2\sqrt{2}$, so the sum is 5, not 6.
     explanation: |
       $\sqrt{18} = 3\sqrt{2}$ and $\sqrt{8} = 2\sqrt{2}$. Adding: $3\sqrt{2} + 2\sqrt{2} = 5\sqrt{2}$.
 
@@ -152,9 +224,17 @@ questions:
     choices:
       - text: $-1$
         correct: true
-      - text: $3 - 4$
+      - text: $-4$
+        rationale: |
+          You kept only the $-2^2$ part of the difference of squares. The
+          first product is $(\sqrt{3})^2 = 3$, so the full result is
+          $3 - 4 = -1$.
       - text: $\sqrt{3} - 4$
+        rationale: |
+          You squared only one term and left the other root unchanged. In a conjugate product, $(\sqrt{3})^2$ becomes 3.
       - text: $1$
+        rationale: |
+          You used difference of squares but dropped the sign. Since $3 - 4$ is negative, the product is $-1$.
     explanation: |
       This is conjugate multiplication. Use difference of squares: $(\sqrt{3})^2 - 2^2 = 3 - 4 = -1$.
 
@@ -167,8 +247,14 @@ questions:
       - text: For cube roots, you need groups of three, not two. Multiply by $\dfrac{\sqrt[3]{x^2}}{\sqrt[3]{x^2}}$ instead.
         correct: true
       - text: The answer is correct.
+        rationale: |
+          You counted two copies of $x$ under the cube root and treated that as enough. Cube roots only simplify when you have groups of three.
       - text: Cube roots cannot be rationalized.
+        rationale: |
+          You may have remembered the square-root trick and thought it fails here. Cube-root denominators can be rationalized, but the factor is different.
       - text: The denominator should be $x^2$.
+        rationale: |
+          You pushed the missing factor all the way outside the root. The extra $x$ must stay inside as $\sqrt[3]{x^2}$ before multiplying.
     explanation: |
       Cube root needs three identical factors to simplify. Multiplying by just $\sqrt[3]{x}$ gives two. You need $\sqrt[3]{x^2}$ to get three $x$s total inside.
 
@@ -181,8 +267,14 @@ questions:
       - text: $2\sqrt{3}$
         correct: true
       - text: $\sqrt{3}$
+        rationale: |
+          You simplified the radicals, but you combined the like terms as if $4 - 3 + 1 = 1$. The last $\sqrt{3}$ term still adds back in.
       - text: $3\sqrt{3}$
+        rationale: |
+          You added all the coefficients after simplifying and ignored the subtraction. One term is being taken away, not added.
       - text: $0$
+        rationale: |
+          You canceled the positive and negative terms too early. After $4\sqrt{3} - 3\sqrt{3}$, one $\sqrt{3}$ is still left.
     explanation: |
       $2\sqrt{12} = 2 \times 2\sqrt{3} = 4\sqrt{3}$, $\sqrt{27} = 3\sqrt{3}$, so $4\sqrt{3} - 3\sqrt{3} + \sqrt{3} = 2\sqrt{3}$.
 
@@ -195,8 +287,14 @@ questions:
       - text: $10$
         correct: true
       - text: $50$
+        rationale: |
+          You divided 100 by 2 instead of taking its square root. A square root asks what number times itself gives 100.
       - text: $\sqrt{10}$
+        rationale: |
+          You treated 100 as if only one zero could come out. But 100 is a perfect square, so the radical simplifies all the way to an integer.
       - text: $100$
+        rationale: |
+          You copied the number inside the root without simplifying. The radical changes the value.
     explanation: |
       $\sqrt{100} = 10$ because $10 \times 10 = 100$.
 
@@ -208,9 +306,17 @@ questions:
     choices:
       - text: $\sqrt{3}$
         correct: true
-      - text: $\dfrac{3\sqrt{3}}{3}$
+      - text: $3$
+        rationale: |
+          You canceled $\sqrt{3}$ as if it were 1. To remove the radical
+          below, multiply top and bottom by $\sqrt{3}$. The result simplifies
+          to $\sqrt{3}$, not 3.
       - text: $3\sqrt{3}$
+        rationale: |
+          You multiplied the numerator by $\sqrt{3}$ but forgot to divide by the new denominator of 3. Both parts of the fraction change.
       - text: $\dfrac{\sqrt{3}}{3}$
+        rationale: |
+          You divided by 3 but lost the original numerator of 3. That cancellation should leave $\sqrt{3}$, not another factor of 3 in the denominator.
     explanation: |
       $\dfrac{3}{\sqrt{3}} \times \dfrac{\sqrt{3}}{\sqrt{3}} = \dfrac{3\sqrt{3}}{3} = \sqrt{3}$.
 
@@ -223,8 +329,14 @@ questions:
       - text: $10x\sqrt{2y}$
         correct: true
       - text: $10\sqrt{2xy}$
+        rationale: |
+          You moved the $x$ outside the radical and also kept it inside. Once $x^2$ leaves as $x$, it should not stay under the root.
       - text: $20\sqrt{5y}$
+        rationale: |
+          You split 200 as if the outside factor were 20. The largest square factor is 100, so only 10 comes out.
       - text: $100x\sqrt{y}$
+        rationale: |
+          You took the whole 100 outside as if the root were not there. $\sqrt{100}$ is 10, not 100.
     explanation: |
       $200 = 100 \times 2$ and $x^2$ is a perfect square. So $\sqrt{200x^2y} = 10x\sqrt{2y}$.
 
@@ -237,8 +349,14 @@ questions:
       - text: The result should be $x^2 - y$, not $x^2 + y$.
         correct: true
       - text: There is no error.
+        rationale: |
+          You treated conjugates like ordinary binomials with a plus at the end. The middle terms cancel, and $(\sqrt{y})^2$ is subtracted.
       - text: It should equal $(x + \sqrt{y})^2$.
+        rationale: |
+          You ignored the second factor and replaced it with a repeat. Squaring a binomial is not the same as multiplying conjugates.
       - text: Conjugates cannot be multiplied this way.
+        rationale: |
+          You may have doubted the shortcut, but conjugates are made for this. Their product is a difference of squares.
     explanation: |
       This is conjugate multiplication: $(x + \sqrt{y})(x - \sqrt{y}) = x^2 - (\sqrt{y})^2 = x^2 - y$.
 
@@ -251,7 +369,15 @@ questions:
       - text: $2 - \sqrt{2}$
         correct: true
       - text: $\dfrac{2(2 + \sqrt{2})}{2}$
+        rationale: |
+          You changed the numerator but did not multiply the full denominator
+          by the same factor. To keep the fraction equal, the conjugate must
+          multiply both top and bottom.
       - text: $\dfrac{2}{2}$
+        rationale: |
+          You treated $2 + \sqrt{2}$ as if it were just 2 and canceled too much. The radical term must be removed with a conjugate first.
       - text: $1 + \sqrt{2}$
+        rationale: |
+          You used the conjugate idea, but the simplification went off. After multiplying by $2 - \sqrt{2}$, the numerator stays $4 - 2\sqrt{2}$.
     explanation: |
       Multiply by conjugate: $\dfrac{2}{2 + \sqrt{2}} \times \dfrac{2 - \sqrt{2}}{2 - \sqrt{2}} = \dfrac{2(2 - \sqrt{2})}{4 - 2} = \dfrac{4 - 2\sqrt{2}}{2} = 2 - \sqrt{2}$.

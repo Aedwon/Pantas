@@ -15,10 +15,16 @@ questions:
         correct: true
       - text: 'They intersect to form right angles.'
         correct: false
+        rationale: |
+          You picked the conclusion. In an "if P, then Q" statement, the hypothesis is the part right after "if."
       - text: 'Two lines are parallel.'
         correct: false
+        rationale: |
+          You chose a statement that does not appear in the conditional at all. The hypothesis must come from the original sentence.
       - text: 'They do not intersect.'
         correct: false
+        rationale: |
+          You chose a statement that conflicts with the original conditional. Perpendicular lines do intersect.
     explanation: |
       In a conditional statement of the form "If P, then Q", the clause P following "If" is the hypothesis, and the clause Q following "then" is the conclusion.
 
@@ -35,10 +41,16 @@ questions:
         correct: true
       - text: 'If a triangle is not equilateral, then all of its interior angles do not measure 60°.'
         correct: false
+        rationale: |
+          You wrote the inverse, not the converse. The converse swaps the two parts without adding "not."
       - text: 'If all interior angles of a triangle do not measure 60°, then the triangle is not equilateral.'
         correct: false
+        rationale: |
+          You changed both statements to negatives. That makes an inverse-style statement, not the converse.
       - text: 'A triangle is equilateral if and only if all of its interior angles measure 60°.'
         correct: false
+        rationale: |
+          You made the statement stronger than a converse. A biconditional includes both directions, not just the swapped one.
     explanation: |
       The converse of a conditional statement "If P, then Q" is formed by swapping the hypothesis P and conclusion Q to yield "If Q, then P".
 
@@ -55,10 +67,16 @@ questions:
         correct: true
       - text: 'A conditional statement is true only when its converse is also true.'
         correct: false
+        rationale: |
+          You treated the converse as automatically linked to the original statement. A true statement can still have a false converse.
       - text: 'The contrapositive is formed by negating both parts without swapping them.'
         correct: false
+        rationale: |
+          You described the inverse. The contrapositive must both negate and swap the hypothesis and conclusion.
       - text: 'If a conditional statement is true, its inverse must also be true.'
         correct: false
+        rationale: |
+          You gave the inverse the same status as the contrapositive. The inverse is not guaranteed to match the original statement.
     explanation: |
       A conditional statement and its contrapositive are logically equivalent. If a conditional statement is true, its contrapositive is guaranteed to be true in every case, and vice versa.
 
@@ -72,10 +90,16 @@ questions:
         correct: true
       - text: 'A single example of a square that does not have four equal sides.'
         correct: false
+        rationale: |
+          You attacked the wrong part. To disprove "If P, then Q," you need a case where P is true and Q is false.
       - text: 'Multiple examples showing quadrilaterals with unequal side lengths.'
         correct: false
+        rationale: |
+          You chose examples where the hypothesis already fails. Those cannot disprove the original conditional statement.
       - text: 'Proof that all quadrilaterals with four equal sides are rectangles.'
         correct: false
+        rationale: |
+          You tried to prove a different claim instead of disproving the given one. A single counterexample is enough here.
     explanation: |
       To disprove a conditional statement "If P, then Q" with a counterexample, you must provide a case where hypothesis P is true, but conclusion Q is false.
 
@@ -94,10 +118,16 @@ questions:
         correct: true
       - text: 'If a polygon has 6 sides, then it is a regular hexagon.'
         correct: false
+        rationale: |
+          You reversed the direction of the chain. The Law of Syllogism keeps the first hypothesis and the last conclusion.
       - text: 'If the sum of interior angles is not 720°, then it is not a regular hexagon.'
         correct: false
+        rationale: |
+          You gave a contrapositive-style statement instead of the direct syllogism result. The chain should stay in "if P, then R" form.
       - text: 'If a polygon is not a regular hexagon, then it does not have 6 sides.'
         correct: false
+        rationale: |
+          You negated the statement instead of chaining it. A polygon can have 6 sides without being a regular hexagon.
     explanation: |
       The Law of Syllogism states that if "If P, then Q" and "If Q, then R" are both true statements, then "If P, then R" is also a logically valid true statement.
 
@@ -116,10 +146,16 @@ questions:
         correct: true
       - text: 'If two angles are not supplementary, then they do not form a linear pair.'
         correct: false
+        rationale: |
+          You swapped the parts and negated them. That makes the contrapositive, not the inverse.
       - text: 'If two angles are supplementary, then they form a linear pair.'
         correct: false
+        rationale: |
+          You wrote the converse. Supplementary angles do not always sit next to each other as a linear pair.
       - text: 'Two angles form a linear pair if and only if they are supplementary.'
         correct: false
+        rationale: |
+          You turned one direction into a two-way claim. A biconditional is stronger than the inverse.
     explanation: |
       The inverse of a conditional statement "If P, then Q" negates both the hypothesis and the conclusion without changing their order to form "If not P, then not Q".
 
@@ -136,10 +172,16 @@ questions:
         correct: true
       - text: 'A biconditional statement is true if the conditional statement is true, regardless of the converse.'
         correct: false
+        rationale: |
+          You ignored half of the biconditional. "If and only if" needs both directions to be true.
       - text: 'A biconditional statement is logically equivalent to the inverse statement alone.'
         correct: false
+        rationale: |
+          You reduced the biconditional to one different statement. A biconditional combines the conditional and its converse.
       - text: 'A biconditional statement is false whenever P and Q are both false.'
         correct: false
+        rationale: |
+          You used the wrong truth rule. A biconditional is true when P and Q have the same truth value, even if both are false.
     explanation: |
       A biconditional statement "P if and only if Q" (written P ↔ Q) combines a conditional statement (P → Q) and its converse (Q → P). It is true if and only if both P → Q and Q → P are true (meaning P and Q have identical truth values).
 
@@ -153,10 +195,16 @@ questions:
         correct: true
       - text: 'Two angles measuring 45° and 135°.'
         correct: false
+        rationale: |
+          You found supplementary angles, but this pair does not break the claim. One angle is obtuse, so the conclusion still holds.
       - text: 'Two angles measuring 30° and 60°.'
         correct: false
+        rationale: |
+          You picked a pair that does not even satisfy the hypothesis. A counterexample must still add up to 180 degrees.
       - text: 'Two angles measuring 100° and 80°.'
         correct: false
+        rationale: |
+          You chose a supplementary pair, but it is not a counterexample. One angle is obtuse, so the conclusion stays true.
     explanation: |
       A counterexample to a conditional statement "If P, then Q" must satisfy the hypothesis P (the two angles are supplementary, so their sum is 180°) while failing the conclusion Q (neither angle is obtuse).
 
@@ -174,10 +222,16 @@ questions:
         correct: true
       - text: 'The original conditional statement, "If P, then Q".'
         correct: false
+        rationale: |
+          You treated the inverse as if it matched the original statement. The inverse is logically linked to a different form.
       - text: 'The contrapositive statement, "If not Q, then not P".'
         correct: false
+        rationale: |
+          You chose the statement equivalent to the original conditional, not the one equivalent to the inverse.
       - text: 'The biconditional statement, "P if and only if Q".'
         correct: false
+        rationale: |
+          You strengthened the statement too much. Logical equivalence here is between the inverse and the converse only.
     explanation: |
       The contrapositive of any statement "If A, then B" is "If not B, then not A", and every statement is logically equivalent to its contrapositive.
 
@@ -200,10 +254,16 @@ questions:
         correct: true
       - text: 'If angle A is congruent to angle B, then line m is parallel to line n.'
         correct: false
+        rationale: |
+          You reversed the whole chain. The premises let you move forward from parallel lines to congruent angles, not backward.
       - text: 'If line m is not parallel to line n, then angle A is not congruent to angle B.'
         correct: false
+        rationale: |
+          You negated both ends instead of following the syllogism. The chain keeps the given direction of the premises.
       - text: 'If triangle ABC is isosceles, then line m is parallel to line n.'
         correct: false
+        rationale: |
+          You flipped a middle step into a backward claim. Syllogism links the first premise to the last conclusion in order.
     explanation: |
       By extending the Law of Syllogism across multiple conditional premises (P → Q, Q → R, R → S), we can directly link the initial hypothesis P to the final conclusion S (P → S).
 
@@ -221,10 +281,18 @@ questions:
         correct: true
       - text: 'When P is false and Q is true.'
         correct: false
+        rationale: |
+          You thought a false hypothesis makes the whole statement false.
+          If the hypothesis is false, the rule is not broken. That still
+          counts as true.
       - text: 'When P is false and Q is false.'
         correct: false
+        rationale: |
+          You treated every false conclusion as a failure. A conditional is still true when the hypothesis never happens.
       - text: 'When P is true and Q is true.'
         correct: false
+        rationale: |
+          You chose the case where the promise is kept. A true hypothesis followed by a true conclusion makes the conditional true.
     explanation: |
       In formal logic, a conditional statement "If P, then Q" (P → Q) promises that whenever P occurs, Q will follow.
 
@@ -242,10 +310,16 @@ questions:
         correct: true
       - text: 'It is true; all parallelograms with perpendicular diagonals are rectangles.'
         correct: false
+        rationale: |
+          You treated perpendicular diagonals as a rectangle test. A rhombus can have perpendicular diagonals without being a rectangle.
       - text: 'It is false; diagonals of a rectangle are never equal in length.'
         correct: false
+        rationale: |
+          You used a false geometry fact. Rectangle diagonals are equal in length, so that is not the reason this biconditional fails.
       - text: 'It is true; the statement is the standard geometric definition of a rectangle.'
         correct: false
+        rationale: |
+          You treated a non-definition as a definition. Perpendicular diagonals are not the usual condition that identifies rectangles.
     explanation: |
       A biconditional statement "P if and only if Q" requires both directions to be true:
       1. "If a parallelogram is a rectangle, then its diagonals are perpendicular" (False, rectangle diagonals are equal, not necessarily perpendicular).
@@ -263,10 +337,16 @@ questions:
         correct: true
       - text: 'If triangle T is not right-angled, then it does not have two acute angles.'
         correct: false
+        rationale: |
+          You wrote an inverse-style conditional. The negation of "if P, then Q" is not another conditional statement.
       - text: 'Triangle T is not right-angled AND it has two acute angles.'
         correct: false
+        rationale: |
+          You negated the wrong part. To negate a conditional, you keep P true and make Q false.
       - text: 'If triangle T does not have two acute angles, then it is not right-angled.'
         correct: false
+        rationale: |
+          You wrote the contrapositive. The contrapositive is equivalent to the original statement, not its negation.
     explanation: |
       The logical negation of a conditional statement "If P, then Q" (P → Q) is "P AND not Q" (P ∧ ¬Q).
 
@@ -288,10 +368,16 @@ questions:
         correct: true
       - text: 'It is a valid application of the Law of Detachment.'
         correct: false
+        rationale: |
+          You used the wrong rule. Law of Detachment needs P and P → Q, but this argument gives Q and P → Q.
       - text: 'It is a valid application of the Law of Syllogism.'
         correct: false
+        rationale: |
+          You chose a rule that needs two chained conditionals. This argument has only one conditional and then its conclusion.
       - text: 'It is invalid because squares do not have congruent diagonals.'
         correct: false
+        rationale: |
+          You blamed a false geometry fact instead of the logic form. Squares do have congruent diagonals.
     explanation: |
       The argument has the logical form:
       - P → Q
@@ -310,10 +396,16 @@ questions:
         correct: true
       - text: 'They are identical statements expressing the exact same syntactic form.'
         correct: false
+        rationale: |
+          You treated matching truth value as matching wording. The converse and inverse are different sentences even though they are equivalent.
       - text: 'They are logical negations of each other, having opposite truth values in all cases.'
         correct: false
+        rationale: |
+          You confused equivalence with negation. These two statements rise and fall together instead of always opposing each other.
       - text: 'They have no logical connection and have completely independent truth values.'
         correct: false
+        rationale: |
+          You missed the contrapositive link. The converse becomes the inverse when you negate and swap it.
     explanation: |
       Let the original statement be "If P, then Q" (P → Q).
       - Converse: "If Q, then P" (Q → P).

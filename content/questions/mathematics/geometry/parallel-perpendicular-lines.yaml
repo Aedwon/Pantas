@@ -20,10 +20,16 @@ questions:
         correct: true
       - text: '$112^\circ$'
         correct: false
+        rationale: |
+          You treated alternate interior angles like a supplementary pair. These two angles are equal, not a 180-degree pair.
       - text: '$22^\circ$'
         correct: false
+        rationale: |
+          You subtracted from the wrong benchmark. The alternate interior partner keeps the same measure as 68 degrees.
       - text: '$136^\circ$'
         correct: false
+        rationale: |
+          You doubled the given angle instead of matching it. Alternate interior angles stay congruent.
     explanation: |
       When two parallel lines are cut by a transversal, alternate interior angles are equal in measure.
 
@@ -42,10 +48,16 @@ questions:
         correct: true
       - text: '$115^\circ$'
         correct: false
+        rationale: |
+          You treated same-side interior angles like corresponding angles. They are supplementary, not equal.
       - text: '$25^\circ$'
         correct: false
+        rationale: |
+          You subtracted incorrectly from 180 degrees. The missing angle is $180 - 115$.
       - text: '$75^\circ$'
         correct: false
+        rationale: |
+          You made the supplement too large. Same-side interior angles must add to exactly 180 degrees.
     explanation: |
       Same-side interior angles formed by parallel lines cut by a transversal are supplementary (their sum is $180^\circ$).
 
@@ -65,10 +77,16 @@ questions:
         correct: true
       - text: "$25$"
         correct: false
+        rationale: |
+          You made the corresponding angles add to 180 degrees. Corresponding angles on parallel lines are equal, not supplementary.
       - text: "$20$"
         correct: false
+        rationale: |
+          You may have moved the 10 incorrectly. After $4x + 10 = 70$, you need $4x = 60$.
       - text: "$10$"
         correct: false
+        rationale: |
+          You stopped too early in solving the equation. After subtracting 10, you still have to divide by 4.
     explanation: |
       Corresponding angles formed by parallel lines are equal.
 
@@ -88,10 +106,16 @@ questions:
         correct: true
       - text: '$45^\circ$'
         correct: false
+        rationale: |
+          You halved a right angle for no reason. A line perpendicular to one of two parallel lines stays perpendicular to the other.
       - text: '$180^\circ$'
         correct: false
+        rationale: |
+          You used a straight angle instead of the angle formed by perpendicular lines. Perpendicular lines meet at 90 degrees.
       - text: '$0^\circ$'
         correct: false
+        rationale: |
+          You treated the lines as if they overlapped. Parallel lines and a perpendicular transversal still form right angles.
     explanation: |
       Perpendicularity propagates across parallel lines.
 
@@ -109,10 +133,16 @@ questions:
         correct: true
       - text: "$23$"
         correct: false
+        rationale: |
+          You made alternate exterior angles supplementary. On parallel lines, alternate exterior angles are equal.
       - text: "$9$"
         correct: false
+        rationale: |
+          You stopped after reaching $2x = 18$ in effect. The equation gives $2x = 36$, so you still need the full division.
       - text: "$36$"
         correct: false
+        rationale: |
+          You found $2x$ instead of $x$. After isolating $2x = 36$, divide by 2.
     explanation: |
       Alternate exterior angles formed by parallel lines are equal.
 
@@ -133,10 +163,16 @@ questions:
         correct: true
       - text: '$76^\circ$'
         correct: false
+        rationale: |
+          You found the smaller same-side interior angle. The question asks for the larger one after you compute both.
       - text: '$17^\circ$'
         correct: false
+        rationale: |
+          You reported the value of $x$ instead of the angle measure. You still have to substitute $x$ into the angle expression.
       - text: '$98^\circ$'
         correct: false
+        rationale: |
+          You made an arithmetic slip after finding $x = 17$. The larger angle is $7(17) - 15$.
     explanation: |
       Same-side interior angles are supplementary ($180^\circ$).
 
@@ -158,10 +194,16 @@ questions:
         correct: true
       - text: '$10^\circ$'
         correct: false
+        rationale: |
+          You subtracted the two given angles instead of combining the two parts at point $P$. Both alternate interior pieces add together.
       - text: '$100^\circ$'
         correct: false
+        rationale: |
+          You found the supplement of the interior angle, not the interior angle opening to the left.
       - text: '$160^\circ$'
         correct: false
+        rationale: |
+          You doubled what should have been added once. The angle at $P$ is 35 degrees plus 45 degrees.
     explanation: |
       1. Draw an auxiliary line through point $P$ that is parallel to both $L_1$ and $L_2$.
       2. This auxiliary line divides the angle at $P$ into two smaller angles.
@@ -181,10 +223,16 @@ questions:
         correct: true
       - text: "$21.25$"
         correct: false
+        rationale: |
+          You treated corresponding angles as if they must add to 180 degrees. For the lines to be parallel, they must be equal.
       - text: "$10$"
         correct: false
+        rationale: |
+          You moved the constants or coefficients incorrectly. After $3x + 25 = 5x - 15$, you should get $2x = 40$.
       - text: "$40$"
         correct: false
+        rationale: |
+          You found $2x$ instead of $x$. Once the equation becomes $2x = 40$, divide by 2.
     explanation: |
       By the Corresponding Angles Postulate Converse, lines are parallel if and only if corresponding angles are equal.
 
@@ -205,10 +253,16 @@ questions:
         correct: true
       - text: '$110^\circ$'
         correct: false
+        rationale: |
+          You found the full angle $\angle BEF$ and forgot that ray $EG$ bisects it into two equal parts.
       - text: '$35^\circ$'
         correct: false
+        rationale: |
+          You took the supplement first and then bisected the wrong angle. The alternate interior angle is already 110 degrees.
       - text: '$70^\circ$'
         correct: false
+        rationale: |
+          You changed the angle before bisecting. Once you match $\angle BEF$ to 110 degrees, the bisector gives 55 degrees.
     explanation: |
       1. $\angle CFE$ and $\angle BEF$ are alternate interior angles along parallel lines $AB \parallel CD$, so $\angle BEF = \angle CFE = 110^\circ$.
       2. Ray $EG$ bisects $\angle BEF$, dividing it into two equal angles.
@@ -226,10 +280,16 @@ questions:
         correct: true
       - text: '$130^\circ$'
         correct: false
+        rationale: |
+          You found the larger same-side exterior angle. The question asks for the smaller one.
       - text: '$16^\circ$'
         correct: false
+        rationale: |
+          You reported the value of $x$ instead of the angle measure. You still need to substitute into the angle expressions.
       - text: '$40^\circ$'
         correct: false
+        rationale: |
+          You made an arithmetic error after solving for $x = 16$. The smaller angle is $3(16) + 2$.
     explanation: |
       Same-side exterior angles formed by parallel lines are supplementary.
 
@@ -251,10 +311,16 @@ questions:
         correct: true
       - text: '$110^\circ$'
         correct: false
+        rationale: |
+          You found the obtuse interior angle, but the question asks for the acute one.
       - text: '$20^\circ$'
         correct: false
+        rationale: |
+          You reported the value of $x$ instead of the acute angle. You still have to evaluate the angle expressions.
       - text: '$80^\circ$'
         correct: false
+        rationale: |
+          You solved the supplementary pair incorrectly. The two consecutive angles must add to 180 degrees.
     explanation: |
       Consecutive interior angles along parallel lines are same-side interior angles, so they are supplementary ($180^\circ$).
 
@@ -276,10 +342,16 @@ questions:
         correct: true
       - text: '$35^\circ$'
         correct: false
+        rationale: |
+          You found the acute angle between the transversals. The question asks for the obtuse angle at the same intersection.
       - text: '$115^\circ$'
         correct: false
+        rationale: |
+          You changed only one part of the angle relationship. First find the 35-degree acute angle, then take its supplement.
       - text: '$65^\circ$'
         correct: false
+        rationale: |
+          You used one given angle instead of the angle between the two transversals. Their intersection depends on both 40 degrees and 75 degrees.
     explanation: |
       1. Calculate the acute angle formed between $T_1$ and $T_2$ at their intersection:
          $$\text{Acute Angle} = 75^\circ - 40^\circ = 35^\circ$$
@@ -298,10 +370,16 @@ questions:
         correct: true
       - text: '$32^\circ$'
         correct: false
+        rationale: |
+          You used $\angle BAC$ directly, but that angle is with the perpendicular segment, not with the parallel line.
       - text: '$122^\circ$'
         correct: false
+        rationale: |
+          You took the obtuse supplement instead of the acute angle the ray makes with $L_2$.
       - text: '$148^\circ$'
         correct: false
+        rationale: |
+          You added the wrong supplement. First find the complement of 32 degrees with the perpendicular line.
     explanation: |
       1. Since $AB \perp L_1$ and $L_1 \parallel L_2$, $AB$ is also perpendicular to $L_2$ ($\angle ABO = 90^\circ$).
       2. The angle ray $AC$ makes with line $L_1$ at point $A$ is $90^\circ - \angle BAC = 90^\circ - 32^\circ = 58^\circ$.
@@ -319,10 +397,16 @@ questions:
         correct: true
       - text: '$37.5^\circ$'
         correct: false
+        rationale: |
+          You bisected the 75-degree angle itself. The ray bisects the adjacent supplementary angle, not the original one.
       - text: '$105^\circ$'
         correct: false
+        rationale: |
+          You found the supplementary angle but forgot to bisect it. Ray $BD$ splits that angle into two equal parts.
       - text: '$75^\circ$'
         correct: false
+        rationale: |
+          You stopped before using the supplement and the bisector. The asked angle comes after both steps.
     explanation: |
       1. Alternate interior angles are equal: $3x + 15 = 5x - 25 \implies 2x = 40 \implies x = 20$.
       2. Calculate angle measure: $3(20) + 15 = 75^\circ$.
@@ -342,10 +426,16 @@ questions:
         correct: true
       - text: '$65^\circ$'
         correct: false
+        rationale: |
+          You used only one of the two alternate interior pieces. The left-facing angle at $P$ is made from both parts together.
       - text: '$15^\circ$'
         correct: false
+        rationale: |
+          You subtracted the angles instead of adding the two pieces that meet at point $P$.
       - text: '$130^\circ$'
         correct: false
+        rationale: |
+          You made the angle too large by adding the wrong relationship. The two parts at $P$ are 50 degrees and 65 degrees.
     explanation: |
       1. Draw an auxiliary line through point $P$ parallel to both $L_1$ and $L_2$.
       2. By alternate interior angles, the upper part of $\angle T_1 P T_2$ equals $50^\circ$.

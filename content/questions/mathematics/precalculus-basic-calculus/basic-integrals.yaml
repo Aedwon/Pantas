@@ -14,19 +14,19 @@ questions:
         correct: true
       - text: $3x^2 + C$
         rationale: |
-          You differentiated instead of integrated. $\frac{d}{dx}(x^3) = 3x^2$,
+          You differentiated instead of integrated. $\dfrac{d}{dx}(x^3) = 3x^2$,
           but the question asks for the antiderivative. Apply the power rule:
           raise the exponent by 1 and divide by the new exponent.
       - text: $\frac{x^3}{3} + C$
         rationale: |
           You divided by the original exponent instead of the new one.
           The power rule says: add 1 to the exponent first, then divide
-          by that new value. $n = 3$, so the result is $\frac{x^4}{4} + C$.
+          by that new value. $n = 3$, so the result is $\dfrac{x^4}{4} + C$.
       - text: $4x^4 + C$
         rationale: |
           You multiplied by $(n + 1) = 4$ instead of dividing by it.
-          The power rule divides: $\int x^3 \, dx = \frac{x^{3+1}}{3+1} + C
-          = \frac{x^4}{4} + C$.
+          The power rule divides: $\int x^3 \, dx = \dfrac{x^{3+1}}{3+1} + C
+          = \dfrac{x^4}{4} + C$.
     explanation: |
       Using the power rule for integration $\int x^n \, dx = \frac{x^{n+1}}{n+1} + C$ with $n = 3$:
       $\int x^3 \, dx = \frac{x^{3+1}}{3+1} + C = \frac{x^4}{4} + C$.
@@ -41,13 +41,13 @@ questions:
         correct: true
       - text: $12x + C$
         rationale: |
-          You differentiated instead of integrating. $\frac{d}{dx}(6x^2) = 12x$,
+          You differentiated instead of integrating. $\dfrac{d}{dx}(6x^2) = 12x$,
           but the question asks for the antiderivative. Apply the power rule:
-          $6 \cdot \frac{x^3}{3} = 2x^3$.
+          $6 \cdot \dfrac{x^3}{3} = 2x^3$.
       - text: $6x^3 + C$
         rationale: |
           You raised the exponent correctly to 3 but forgot to divide by 3.
-          The power rule divides by the new exponent: $6 \cdot \frac{x^3}{3}
+          The power rule divides by the new exponent: $6 \cdot \dfrac{x^3}{3}
           = 2x^3 + C$.
       - text: $3x^3 + C$
         rationale: |
@@ -67,7 +67,7 @@ questions:
         correct: true
       - text: $0$
         rationale: |
-          You differentiated instead of integrating. $\frac{d}{dx}(5) = 0$,
+          You differentiated instead of integrating. $\dfrac{d}{dx}(5) = 0$,
           but the integral of a constant is the constant times $x$:
           $\int 5 \, dx = 5x + C$.
       - text: $5 + C$
@@ -122,19 +122,19 @@ questions:
       - text: $\frac{x^0}{0} + C$
         rationale: |
           You tried to apply the power rule with $n = -1$. That gives
-          $\frac{x^{-1+1}}{-1+1} = \frac{x^0}{0}$, which is division by
+          $\dfrac{x^{-1+1}}{-1+1} = \dfrac{x^0}{0}$, which is division by
           zero. The power rule does not work here. The integral of $1/x$
           is $\ln|x| + C$ by definition.
       - text: $-\frac{1}{x^2} + C$
         rationale: |
           You differentiated $1/x$ instead of integrating it.
-          $\frac{d}{dx}(1/x) = -1/x^2$, but the question asks for the
+          $\dfrac{d}{dx}(1/x) = -1/x^2$, but the question asks for the
           antiderivative: $\int 1/x \, dx = \ln|x| + C$.
       - text: $1 + C$
         rationale: |
           You treated $1/x$ as a constant or applied an undefined rule.
           The antiderivative of $1/x$ is not 1. It is $\ln|x| + C$,
-          which you can verify by differentiating: $\frac{d}{dx}(\ln|x|)
+          which you can verify by differentiating: $\dfrac{d}{dx}(\ln|x|)
           = 1/x$.
     explanation: |
       The power rule cannot be used when $n = -1$ because it leads to division by zero. By definition, $\int \frac{1}{x} \, dx = \ln|x| + C$.
@@ -149,14 +149,14 @@ questions:
         correct: true
       - text: $6x - 4 + C$
         rationale: |
-          You differentiated instead of integrating. $\frac{d}{dx}(3x^2
+          You differentiated instead of integrating. $\dfrac{d}{dx}(3x^2
           - 4x + 5) = 6x - 4$. The antiderivative requires raising each
           exponent by 1 and dividing by the new exponent.
       - text: $x^3 - 4x^2 + 5x + C$
         rationale: |
           You integrated $3x^2$ correctly to $x^3$ but applied the power
           rule to $-4x$ without dividing by the new exponent. $\int -4x
-          \, dx = -4 \cdot \frac{x^2}{2} = -2x^2$, not $-4x^2$.
+          \, dx = -4 \cdot \dfrac{x^2}{2} = -2x^2$, not $-4x^2$.
       - text: $x^3 - 2x^2 + 5 + C$
         rationale: |
           You integrated $3x^2$ and $-4x$ correctly but dropped the $x$
@@ -178,18 +178,18 @@ questions:
       - text: $\frac{1}{2\sqrt{x}} + C$
         rationale: |
           You differentiated $\sqrt{x}$ instead of integrating it.
-          $\frac{d}{dx}(\sqrt{x}) = \frac{1}{2\sqrt{x}}$. The integral
+          $\dfrac{d}{dx}(\sqrt{x}) = \dfrac{1}{2\sqrt{x}}$. The integral
           raises the exponent from $1/2$ to $3/2$ and divides by $3/2$.
       - text: $\frac{3}{2}x^{3/2} + C$
         rationale: |
           You multiplied by the new exponent $3/2$ instead of dividing by
-          it. The power rule says divide: $\frac{x^{3/2}}{3/2} = \frac{2}{3}
-          x^{3/2}$, not $\frac{3}{2}x^{3/2}$.
+          it. The power rule says divide: $\dfrac{x^{3/2}}{3/2} = \dfrac{2}{3}
+          x^{3/2}$, not $\dfrac{3}{2}x^{3/2}$.
       - text: $\frac{2}{3}x^{1/2} + C$
         rationale: |
           You computed the coefficient $2/3$ correctly but did not raise
           the exponent. After integrating $x^{1/2}$, the new exponent is
-          $1/2 + 1 = 3/2$. The answer is $\frac{2}{3}x^{3/2} + C$.
+          $1/2 + 1 = 3/2$. The answer is $\dfrac{2}{3}x^{3/2} + C$.
     explanation: |
       Rewrite $\sqrt{x}$ as $x^{1/2}$. Apply power rule:
       $\int x^{1/2} \, dx = \frac{x^{(1/2)+1}}{(1/2)+1} + C = \frac{x^{3/2}}{3/2} + C = \frac{2}{3}x^{3/2} + C$.
@@ -205,7 +205,7 @@ questions:
       - text: $-\frac{3}{x^4} + C$
         rationale: |
           You differentiated $x^{-3}$ instead of integrating it.
-          $\frac{d}{dx}(x^{-3}) = -3x^{-4} = -3/x^4$. To integrate, add
+          $\dfrac{d}{dx}(x^{-3}) = -3x^{-4} = -3/x^4$. To integrate, add
           1 to the exponent and divide: $x^{-2}/(-2) = -1/(2x^2) + C$.
       - text: $\frac{1}{2x^2} + C$
         rationale: |
@@ -261,19 +261,19 @@ questions:
       - text: $8$
         rationale: |
           You computed $4^{3/2} = 8$ but forgot to multiply by the
-          coefficient $\frac{2}{3}$. The antiderivative is $F(x) =
-          \frac{2}{3}x^{3/2}$, so $F(4) = \frac{2}{3} \times 8 =
-          \frac{16}{3}$.
+          coefficient $\dfrac{2}{3}$. The antiderivative is $F(x) =
+          \dfrac{2}{3}x^{3/2}$, so $F(4) = \dfrac{2}{3} \times 8 =
+          \dfrac{16}{3}$.
       - text: $\frac{8}{3}$
         rationale: |
           You used $4^1 = 4$ instead of $4^{3/2} = 8$. You forgot to
           raise 4 to the power $3/2$. $4^{3/2} = (\sqrt{4})^3 = 2^3 = 8$,
-          giving $F(4) = \frac{2}{3}(8) = \frac{16}{3}$.
+          giving $F(4) = \dfrac{2}{3}(8) = \dfrac{16}{3}$.
       - text: $4$
         rationale: |
           You returned the upper limit of integration without computing
-          the integral. Integrate $\sqrt{x}$ to get $\frac{2}{3}x^{3/2}$,
-          then evaluate at $x = 4$: $\frac{2}{3}(8) = \frac{16}{3}$.
+          the integral. Integrate $\sqrt{x}$ to get $\dfrac{2}{3}x^{3/2}$,
+          then evaluate at $x = 4$: $\dfrac{2}{3}(8) = \dfrac{16}{3}$.
     explanation: |
       Antiderivative is $F(x) = \frac{2}{3}x^{3/2}$.
       Evaluate at $x = 4$: $F(4) = \frac{2}{3}(4^{3/2}) = \frac{2}{3}(8) = \frac{16}{3}$.
@@ -287,16 +287,20 @@ questions:
     choices:
       - text: $\frac{x^3}{3} + 2x^2 + 4x + C$
         correct: true
-      - text: $\frac{(x+2)^3}{3} + C$
+      - text: $\dfrac{x^3}{3} + 2x^2 + 4 + C$
+        rationale: |
+          You integrated $x^2$ and $4x$ correctly but left the constant 4
+          unchanged. The integral of 4 is $4x$, so the last term must be
+          $4x$, not 4.
       - text: $\frac{x^3}{3} + 4x^2 + 4x + C$
         rationale: |
           You integrated $4x$ as $4x^2$ instead of $2x^2$. After expanding
           $(x+2)^2 = x^2 + 4x + 4$, the integral of $4x$ is $4 \cdot
-          \frac{x^2}{2} = 2x^2$, not $4x^2$.
+          \dfrac{x^2}{2} = 2x^2$, not $4x^2$.
       - text: $2x + 4 + C$
         rationale: |
           You differentiated $(x + 2)^2$ instead of integrating it.
-          $\frac{d}{dx}[(x+2)^2] = 2(x+2) = 2x + 4$. Expand first, then
+          $\dfrac{d}{dx}[(x+2)^2] = 2(x+2) = 2x + 4$. Expand first, then
           integrate each term.
     explanation: |
       Expand $(x + 2)^2 = x^2 + 4x + 4$.
@@ -314,12 +318,12 @@ questions:
         rationale: |
           You evaluated $F(1) - F(3)$ instead of $F(3) - F(1)$. The
           definite integral is always upper minus lower: $F(3) - F(1) =
-          0 - (-\frac{2}{3}) = \frac{2}{3}$.
+          0 - (-\dfrac{2}{3}) = \dfrac{2}{3}$.
       - text: $0$
         rationale: |
           You computed $F(3) = 0$ and stopped. You still need to subtract
-          $F(1) = \frac{1}{3} - 1 = -\frac{2}{3}$. The result is
-          $0 - (-\frac{2}{3}) = \frac{2}{3}$.
+          $F(1) = \dfrac{1}{3} - 1 = -\dfrac{2}{3}$. The result is
+          $0 - (-\dfrac{2}{3}) = \dfrac{2}{3}$.
       - text: $2$
         rationale: |
           You added the integrand values at the endpoints instead of
@@ -343,18 +347,18 @@ questions:
       - text: $x + \frac{3}{x} + C$
         rationale: |
           You got the right terms but dropped the negative sign on the
-          second one. $\int 3x^{-2} \, dx = 3 \cdot \frac{x^{-1}}{-1} =
-          -\frac{3}{x}$. The result is negative, not positive.
+          second one. $\int 3x^{-2} \, dx = 3 \cdot \dfrac{x^{-1}}{-1} =
+          -\dfrac{3}{x}$. The result is negative, not positive.
       - text: $\frac{x^3/3 + 3x}{x^3/3} + C$
         rationale: |
           You integrated the numerator and denominator separately, which
           is not a valid rule for integrals. Split the fraction first:
-          $\frac{x^2 + 3}{x^2} = 1 + 3x^{-2}$, then integrate each term.
+          $\dfrac{x^2 + 3}{x^2} = 1 + 3x^{-2}$, then integrate each term.
       - text: $x - 3x^2 + C$
         rationale: |
           You integrated $3x^{-2}$ and raised the exponent correctly to
           $-1$, but then wrote $x^2$ instead of $x^{-1}$. The result
-          should be $-\frac{3}{x}$, not $-3x^2$.
+          should be $-\dfrac{3}{x}$, not $-3x^2$.
     explanation: |
       Split the fraction: $\frac{x^2 + 3}{x^2} = \frac{x^2}{x^2} + \frac{3}{x^2} = 1 + 3x^{-2}$.
       Integrate term by term: $\int (1 + 3x^{-2}) \, dx = x + 3\left(\frac{x^{-1}}{-1}\right) + C = x - \frac{3}{x} + C$.
