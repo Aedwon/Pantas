@@ -17,7 +17,7 @@ A **vector** has both magnitude and direction: displacement, velocity, accelerat
 
 Vectors are drawn as arrows: the arrow length represents magnitude, and the arrow direction represents the direction of the quantity.
 
-<!-- ILLUSTRATION: two arrows of different lengths pointing in different directions, one labeled 5 N east and a longer one labeled 8 N northeast, showing how arrow length represents magnitude and arrow direction represents direction -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "vector-diagram", "vectors": [{"label": "5 N East", "angle": 0, "magnitude": 5}, {"label": "8 N Northeast", "angle": 45, "magnitude": 8}], "semanticsLabel": "Two vector arrows comparing a 5 N force pointing east and an 8 N force pointing northeast."} -->
 
 ### Adding Vectors
 
@@ -50,7 +50,7 @@ Check whether a direction is specified.
 
 A hiker walks $3 \text{ km}$ east, then $4 \text{ km}$ north. Find the magnitude of the hiker's total displacement.
 
-<!-- ILLUSTRATION: a right triangle of vectors: 3 km east arrow, then 4 km north arrow, with the resultant displacement drawn from start to end as the 5 km hypotenuse -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "vector-addition", "components": [{"label": "3 km East", "dx": 3, "dy": 0}, {"label": "4 km North", "dx": 0, "dy": 4}], "resultant": {"label": "5 km Resultant", "dx": 3, "dy": 4}, "semanticsLabel": "A vector addition right triangle with 3 km east, 4 km north, and a 5 km resultant hypotenuse."} -->
 
 
 **Solution:**
@@ -74,7 +74,7 @@ $$R = 5 \text{ km}$$
 
 A force of $10 \text{ N}$ is applied at an angle of $30°$ above the horizontal. Find its horizontal and vertical components.
 
-<!-- ILLUSTRATION: a 10 N force vector at 30° above the horizontal, with dashed lines dropping to its horizontal component (10cos30°) and vertical component (10sin30°) forming a right triangle -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "vector-components", "magnitude": 10, "angle": 30, "unit": "N", "components": {"horizontal": "10 cos 30°", "vertical": "10 sin 30°"}, "semanticsLabel": "A 10 N force vector at 30 degrees above the horizontal resolved into horizontal and vertical components."} -->
 
 
 **Solution:**
@@ -94,7 +94,7 @@ $$V_y = 10 \sin 30° = 10 \times \dfrac{1}{2} = 5 \text{ N}$$
 
 Two tug-of-war teams pull on a rope. Team A pulls with $600 \text{ N}$ to the left; Team B pulls with $450 \text{ N}$ to the right. Find the net force and its direction.
 
-<!-- ILLUSTRATION: a rope with a 600 N arrow pointing left (Team A) and a 450 N arrow pointing right (Team B), and a net 150 N arrow pointing left -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "tug-of-war", "forces": [{"label": "Team A (600 N)", "direction": "left", "magnitude": 600}, {"label": "Team B (450 N)", "direction": "right", "magnitude": 450}], "netForce": {"label": "Net Force (150 N)", "direction": "left"}, "semanticsLabel": "A tug-of-war diagram with 600 N pulling left, 450 N pulling right, and a net force of 150 N to the left."} -->
 
 
 **Solution:**

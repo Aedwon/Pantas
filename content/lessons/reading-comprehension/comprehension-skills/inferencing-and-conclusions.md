@@ -17,7 +17,7 @@ A good inference must be:
 - **Logical**: the conclusion must reasonably follow from the given clues, not just be loosely related.
 - **The most reasonable option**, when several answer choices seem possible: the correct inference is the one best supported by the text, even if other options are not technically impossible.
 
-<!-- ILLUSTRATION: a magnifying glass hovering over a few clue phrases in a paragraph, with dotted lines connecting them to a conclusion bubble below, representing how scattered clues combine into one inference -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "inference", "clues": ["Clue phrase 1", "Clue phrase 2", "Clue phrase 3"], "conclusion": "Inference / Conclusion", "semanticsLabel": "A diagram showing three clue phrases connecting with arrows to form one conclusion."} -->
 
 Inference questions often use phrasing like "the passage suggests," "it can be inferred that," "the author implies," or "which conclusion is best supported."
 

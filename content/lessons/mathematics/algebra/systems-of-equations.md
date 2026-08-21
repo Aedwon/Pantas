@@ -21,7 +21,7 @@ There are three main ways to solve a system.
 
 **Graphing** means drawing both equations as lines. The solution is the point where the lines cross.
 
-<!-- ILLUSTRATION: two straight lines crossing at a single labeled point (3, 4) on a coordinate plane -->
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "system", "points": [[3, 4]], "formula": "Crossing at (3, 4)", "semanticsLabel": "A coordinate graph with two lines intersecting at the point (3, 4)."} -->
 
 A system of two lines can have three outcomes:
 
@@ -186,7 +186,7 @@ $$x = 2: \quad y = 3(2) - 6 = 0$$
 
 5. There are two solutions: $(1, -3)$ and $(2, 0)$. The line cuts through the parabola twice.
 
-<!-- ILLUSTRATION: parabola y = x^2 - 4 crossed by the line y = 3x - 6 at labeled points (1, -3) and (2, 0) -->
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "system", "points": [[1, -3], [2, 0]], "formula": "y = x^2 - 4 and y = 3x - 6", "semanticsLabel": "A coordinate graph of a parabola and a line intersecting at (1, -3) and (2, 0)."} -->
 
 ## Speed Tricks & Shortcuts
 

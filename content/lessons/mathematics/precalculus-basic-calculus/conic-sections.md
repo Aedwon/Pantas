@@ -11,7 +11,7 @@ isActive: true
 
 Slice a cone with a flat blade and the cut edge draws one of four curves: a **circle**, an **ellipse**, a **parabola**, or a **hyperbola**. These are the conic sections.
 
-<!-- ILLUSTRATION: double cone sliced four ways, horizontal cut giving a circle, tilted cut an ellipse, cut parallel to the side a parabola, vertical cut through both cones a hyperbola -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "conic-sections", "sections": ["circle", "ellipse", "parabola", "hyperbola"], "semanticsLabel": "A diagram of a double cone sliced four ways to produce a circle, an ellipse, a parabola, and a hyperbola."} -->
 
 Each has a standard equation centered at $(h, k)$:
 
@@ -41,7 +41,7 @@ Fast identification from a general equation $Ax^2 + By^2 + \ldots = C$: only one
 
 Identify each conic: (a) $3x^2 + 3y^2 = 27$, (b) $y = 2x^2 - 8x + 1$, (c) $4x^2 + 9y^2 = 36$, (d) $x^2 - y^2 = 16$.
 
-<!-- ILLUSTRATION: the four conic shapes labeled (a circle, a parabola, an ellipse, and a hyperbola) for visual reference -->
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "conic-gallery", "conics": ["circle", "parabola", "ellipse", "hyperbola"], "semanticsLabel": "A visual guide showing the four conic section curves: circle, parabola, ellipse, and hyperbola."} -->
 
 
 **Solution:**
@@ -56,7 +56,7 @@ Apply the coefficient test.
 
 Find the center and radius of the circle $x^2 + y^2 - 6x + 4y - 12 = 0$.
 
-<!-- ILLUSTRATION: a coordinate plane with a circle centered at (3, -2) and radius 5 drawn -->
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "circle", "formula": "(x-3)^2 + (y+2)^2 = 25", "points": [[3, -2]], "radius": 5, "semanticsLabel": "A circle on a coordinate plane centered at (3, -2) with a radius of 5."} -->
 
 
 **Solution:**
@@ -109,7 +109,7 @@ $$c^2 = 25 - 9 = 16 \quad \Rightarrow \quad c = 4$$
 
 5. The foci are $(-4, 0)$ and $(4, 0)$, on the major axis.
 
-<!-- ILLUSTRATION: ellipse centered at origin, wider than tall, vertices at plus and minus 5 on the x-axis, co-vertices at plus and minus 3 on the y-axis, foci marked at plus and minus 4 -->
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "ellipse", "formula": "x^2/25 + y^2/9 = 1", "points": [[-5, 0], [5, 0], [0, -3], [0, 3], [-4, 0], [4, 0]], "semanticsLabel": "An ellipse centered at the origin with vertices at plus or minus 5, co-vertices at plus or minus 3, and foci at plus or minus 4."} -->
 
 ### #5: Features of a Hyperbola
 
@@ -124,7 +124,7 @@ The positive term has $x$, so the branches open left and right.
 
 $$y = \dfrac{3}{4}x \qquad y = -\dfrac{3}{4}x$$
 
-<!-- ILLUSTRATION: hyperbola opening left and right with vertices at plus and minus 4, dashed asymptote lines through the origin with slopes 3/4 and -3/4 -->
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "hyperbola", "formula": "x^2/16 - y^2/9 = 1", "points": [[-4, 0], [4, 0]], "asymptoteSlopes": [0.75, -0.75], "semanticsLabel": "A hyperbola opening left and right with vertices at plus or minus 4 and dashed asymptotes through the origin."} -->
 
 ## Speed Tricks & Shortcuts
 

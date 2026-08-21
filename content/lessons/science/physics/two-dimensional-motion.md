@@ -21,7 +21,7 @@ $$x = v_x t$$
 
 $$v_y = v_{y0} - gt \qquad y = v_{y0}t - \dfrac{1}{2}gt^2$$
 
-<!-- ILLUSTRATION: parabolic path of a projectile launched at an angle, with the horizontal velocity component shown as constant-length arrows at several points along the path, and the vertical velocity component shown shrinking to zero at the peak then growing downward -->
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "projectile-motion", "path": "parabola", "velocityVectors": true, "semanticsLabel": "A parabolic projectile path showing constant horizontal velocity arrows and vertical velocity shrinking at the peak."} -->
 
 For a projectile launched at an angle $\theta$ with initial speed $v_0$, split the initial velocity into components first:
 
@@ -41,7 +41,7 @@ This constantly changing direction means the object is accelerating, even at con
 
 A ball rolls off a table with a horizontal velocity of $3 \text{ m/s}$ and takes $0.5$ seconds to hit the floor. Find the horizontal distance it travels, and the height of the table (use $g = 9.8 \text{ m/s}^2$).
 
-<!-- ILLUSTRATION: a ball leaving a table edge horizontally at 3 m/s, following a curved projectile path to the floor, with the table height and horizontal distance both marked "?" -->
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "horizontal-projectile", "initialVelocity": "3 m/s", "labels": {"height": "?", "distance": "?"}, "semanticsLabel": "A ball rolling off a table at 3 m/s following a curved path to the floor with height and distance marked with question marks."} -->
 
 
 **Solution:**
@@ -65,7 +65,7 @@ $$y = 1.225 \text{ m}$$
 
 A projectile is launched at $20 \text{ m/s}$ at an angle of $30°$ above the horizontal. Find its initial horizontal and vertical velocity components.
 
-<!-- ILLUSTRATION: a 20 m/s launch velocity vector at 30° above the horizontal, resolved into its horizontal component (20cos30°) and vertical component (20sin30°) as a right triangle -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "vector-components", "magnitude": 20, "angle": 30, "unit": "m/s", "components": {"horizontal": "20 cos 30°", "vertical": "20 sin 30°"}, "semanticsLabel": "A 20 m/s launch velocity vector at 30 degrees resolved into horizontal and vertical components as a right triangle."} -->
 
 
 **Solution:**
@@ -100,7 +100,7 @@ $$t = \dfrac{10}{9.8} \approx 1.02 \text{ s}$$
 
 A satellite moves at a constant speed in a perfectly circular orbit around Earth. Explain why the satellite is still considered to be accelerating, even though its speed never changes.
 
-<!-- ILLUSTRATION: a satellite in a circular orbit around Earth with its velocity arrow tangent to the circle and a centripetal acceleration arrow pointing inward toward Earth, showing the direction keeps changing -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "circular-orbit", "body": "Earth", "orbiting": "Satellite", "vectors": {"velocity": "Tangent velocity (v)", "acceleration": "Centripetal acceleration (ac)"}, "semanticsLabel": "A satellite in circular orbit around Earth with a tangent velocity arrow and an inward centripetal acceleration arrow."} -->
 
 
 **Solution:**

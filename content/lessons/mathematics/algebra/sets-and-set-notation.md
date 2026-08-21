@@ -64,7 +64,7 @@ Let the universal set $U = \{ 1, 2, 3, 4, 5, 6 \}$. If $A = \{ 1, 2, 3 \}$ and $
 
 In a class of $40$ students, $25$ students are enrolled in Chemistry, $18$ are enrolled in Physics, and $8$ are enrolled in both subjects. How many students are enrolled in neither Chemistry nor Physics?
 
-<!-- ILLUSTRATION: a two-circle Venn diagram (Chemistry and Physics) inside a box of 40; overlap 8, Chemistry-only 17, Physics-only 10, and 5 outside both circles -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "venn", "sets": ["Chemistry", "Physics"], "regions": {"left": "17", "overlap": "8", "right": "10", "outside": "5", "total": "40"}, "semanticsLabel": "A two-circle Venn diagram showing 17 in Chemistry only, 8 in both, 10 in Physics only, and 5 outside."} -->
 
 
 **Solution:**
@@ -97,7 +97,7 @@ $$40 - 35 = 5$$
 
 A survey of $100$ college applicants revealed the following preferences for their degree programs: $45$ preferred Engineering, $40$ preferred Business, and $35$ preferred Computer Science. Furthermore, $15$ preferred both Engineering and Business, $10$ preferred both Business and Computer Science, $12$ preferred both Engineering and Computer Science, and $5$ preferred all three programs. How many applicants preferred exactly one degree program?
 
-<!-- ILLUSTRATION: a three-circle Venn diagram (Engineering, Business, Computer Science) with the center (all three) 5, the pairwise-only overlaps computed as 10, 5, and 7, and each single-only region filled -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "venn", "sets": ["Engineering", "Business", "Computer Science"], "center": "5", "overlaps": {"ab": "10", "bc": "5", "ca": "7"}, "singleRegions": {"a": "filled", "b": "filled", "c": "filled"}, "semanticsLabel": "A three-circle Venn diagram showing overlaps of Engineering, Business, and Computer Science with 5 in the center."} -->
 
 
 **Solution:**

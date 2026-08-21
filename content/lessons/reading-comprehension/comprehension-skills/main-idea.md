@@ -17,7 +17,7 @@ Sometimes a paragraph does not state its main idea directly: it is left implied,
 
 In Filipino, this concept is called the **paksa ng talata** (the topic/main idea of the paragraph).
 
-<!-- ILLUSTRATION: a paragraph diagram with one sentence at the top labeled "topic sentence / main idea" and three arrows pointing up from supporting-detail sentences below it, showing how details all connect back to and support the main idea -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "main-idea", "mainIdea": "Topic sentence / Main idea", "details": ["Supporting detail 1", "Supporting detail 2", "Supporting detail 3"], "semanticsLabel": "A diagram with a topic sentence at the top and three supporting detail sentences pointing up to support it."} -->
 
 The main idea should be broad enough to cover everything in the paragraph, but not so broad that it goes beyond what the paragraph actually discusses. A common mistake is confusing the main idea with just one supporting detail (too narrow) or with the general topic alone, without the point being made about that topic (too vague).
 

@@ -25,7 +25,7 @@ Functions come in families. Each family has its own equation shape and its own g
 
 **Piecewise**: a function built from pieces, with a different rule for different parts of the domain. Read the conditions to know which rule to use.
 
-<!-- ILLUSTRATION: mini-gallery of seven small labeled graphs, straight line, parabola, rational curve with asymptotes, V-shape, exponential growth curve, logarithmic curve, and a two-piece piecewise graph -->
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "function-gallery", "functions": ["linear", "quadratic", "rational", "absolute-value", "exponential", "logarithmic", "piecewise"], "semanticsLabel": "A gallery showing graphs of linear, quadratic, rational, absolute value, exponential, logarithmic, and piecewise functions."} -->
 
 CETs test this topic in two ways: matching an equation to its graph shape, and solving one equation from each family. Learn the shapes and you earn easy points.
 
@@ -82,7 +82,7 @@ $$y = \dfrac{1}{1} = 1$$
 
 3. The vertical asymptote is $x = 2$ and the horizontal asymptote is $y = 1$.
 
-<!-- ILLUSTRATION: graph of (x+1)/(x-2) with dashed vertical asymptote at x = 2 and dashed horizontal asymptote at y = 1 -->
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "rational", "formula": "y = (x+1)/(x-2)", "asymptotes": [{"axis": "x", "value": 2}, {"axis": "y", "value": 1}], "semanticsLabel": "A rational function graph with a vertical asymptote at x = 2 and a horizontal asymptote at y = 1."} -->
 
 ### #4: Solving an Absolute Value Equation
 

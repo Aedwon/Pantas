@@ -19,7 +19,7 @@ $$\text{sector angle} = \text{percent} \times 360^\circ$$
 
 A sector of $90^\circ$ is a quarter of the pie; $180^\circ$ is half.
 
-<!-- ILLUSTRATION: pie chart of a monthly budget with four labeled sectors, food 90 degrees, rent 126 degrees, transport 72 degrees, savings 72 degrees -->
+<!-- FIGURE: {"kind": "chart", "type": "pie", "labels": ["Food (90°)", "Rent (126°)", "Transport (72°)", "Savings (72°)"], "values": [90, 126, 72, 72], "semanticsLabel": "A pie chart of a monthly budget with food at 90 degrees, rent at 126 degrees, transport at 72 degrees, and savings at 72 degrees."} -->
 
 **Bar graphs** compare amounts across categories with bar heights. Read the height of each bar against the axis scale. Watch the scale: each gridline might mean $5$, $10$, or $500$.
 
@@ -29,7 +29,7 @@ A sector of $90^\circ$ is a quarter of the pie; $180^\circ$ is half.
 - Dots falling to the right: **negative correlation** (more absences, lower grades).
 - A shapeless cloud: **no correlation**.
 
-<!-- ILLUSTRATION: three small scatter plots side by side showing an upward trend, a downward trend, and a random cloud -->
+<!-- FIGURE: {"kind": "chart", "type": "scatter", "plots": ["upward", "downward", "random"], "semanticsLabel": "Three scatter plots side by side showing an upward trend, a downward trend, and a random cloud of points."} -->
 
 Correlation is not causation: ice cream sales and drowning rise together because of summer, not because ice cream causes drowning. CETs test that exact idea in words.
 
@@ -39,7 +39,7 @@ Correlation is not causation: ice cream sales and drowning rise together because
 
 A family's monthly budget of $12{,}000$ pesos is shown in a pie chart. The food sector has a central angle of $90^\circ$. How much goes to food?
 
-<!-- ILLUSTRATION: a pie chart of a monthly budget with the food sector marked as a 90° slice (one quarter of the circle) -->
+<!-- FIGURE: {"kind": "chart", "type": "pie", "labels": ["Food (90°)", "Other (270°)"], "values": [90, 270], "semanticsLabel": "A pie chart of a monthly budget with the food sector marked as a 90-degree slice."} -->
 
 
 **Solution:**
@@ -59,7 +59,7 @@ $$\dfrac{1}{4} \times 12000 = 3000$$
 
 A survey shows $35\%$ of students walk to school. In a pie chart of the survey, what central angle represents the walkers?
 
-<!-- ILLUSTRATION: a pie chart with the "walkers" sector labeled 35% and its central angle marked "?" (out of 360°) -->
+<!-- FIGURE: {"kind": "chart", "type": "pie", "labels": ["Walkers (35%, ?°)", "Other (65%)"], "values": [35, 65], "semanticsLabel": "A pie chart with the walkers sector labeled 35 percent and its central angle marked with a question mark."} -->
 
 
 **Solution:**
@@ -75,7 +75,7 @@ $$0.35 \times 360 = 126$$
 
 A bar graph shows a store's weekly sales: Monday $40$, Tuesday $55$, Wednesday $35$, Thursday $60$, Friday $85$ (in thousands of pesos). By how much do Friday's sales exceed the average of the other four days?
 
-<!-- ILLUSTRATION: a bar graph of weekly sales (thousands of pesos) with bars Mon 40, Tue 55, Wed 35, Thu 60, Fri 85; a y-axis starting at 0 -->
+<!-- FIGURE: {"kind": "chart", "type": "bar", "labels": ["Mon", "Tue", "Wed", "Thu", "Fri"], "values": [40, 55, 35, 60, 85], "yAxis": {"label": "Sales (thousands of pesos)", "min": 0}, "semanticsLabel": "A bar graph of weekly sales with bars for Monday at 40, Tuesday at 55, Wednesday at 35, Thursday at 60, and Friday at 85."} -->
 
 
 **Solution:**
@@ -95,7 +95,7 @@ $$85 - 47.5 = 37.5$$
 
 A scatter plot pairs each student's hours of sleep with their mistake count on a quiz. The dots slope downward from upper left to lower right. What correlation is shown, and what does it mean?
 
-<!-- ILLUSTRATION: a scatter plot with hours of sleep on the x-axis and mistake count on the y-axis, dots trending downward from upper-left to lower-right (negative correlation) -->
+<!-- FIGURE: {"kind": "chart", "type": "scatter", "trend": "downward", "xLabel": "Hours of sleep", "yLabel": "Mistakes", "semanticsLabel": "A scatter plot showing hours of sleep against mistakes with points trending downward from left to right."} -->
 
 
 **Solution:**
@@ -109,7 +109,7 @@ Downward drift means the two variables move in opposite directions.
 
 A bar graph shows a school's enrollment: $1{,}500$ students in $2023$ and $1{,}800$ students in $2024$. Find the percent increase.
 
-<!-- ILLUSTRATION: a bar graph with two bars, 2023 enrollment 1,500 and 2024 enrollment 1,800, y-axis starting at 0 -->
+<!-- FIGURE: {"kind": "chart", "type": "bar", "labels": ["2023", "2024"], "values": [1500, 1800], "yAxis": {"label": "Enrollment", "min": 0}, "semanticsLabel": "A bar graph comparing 2023 enrollment of 1,500 with 2024 enrollment of 1,800 on a zero-based axis."} -->
 
 
 **Solution:**

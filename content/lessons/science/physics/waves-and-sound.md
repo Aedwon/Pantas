@@ -23,7 +23,7 @@ A **wave** carries energy from one place to another without the medium itself tr
 
 $$v = f\lambda$$
 
-<!-- ILLUSTRATION: a labeled wave diagram showing wavelength as the distance between two crests, amplitude as the height from the resting line to a crest, and an arrow showing the wave's direction of travel -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "wave", "labels": {"wavelength": "Wavelength (λ)", "amplitude": "Amplitude (A)", "direction": "Wave travel direction"}, "semanticsLabel": "A transverse wave diagram with labeled wavelength between crests, amplitude from rest line, and direction arrow."} -->
 
 ### Mechanical vs. Electromagnetic Waves
 
@@ -43,7 +43,7 @@ The **Doppler effect** is the change in a wave's observed frequency (and pitch, 
 
 A wave has a frequency of $5 \text{ Hz}$ and a wavelength of $2 \text{ m}$. Find its speed.
 
-<!-- ILLUSTRATION: a transverse wave with one full wavelength labeled 2 m (crest to crest) and a note that 5 such waves pass each second (5 Hz) -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "wave", "labels": {"wavelength": "2 m", "frequency": "5 Hz"}, "semanticsLabel": "A transverse wave diagram with a 2 m wavelength and frequency of 5 Hz."} -->
 
 
 **Solution:**
@@ -61,7 +61,7 @@ $$v = 10 \text{ m/s}$$
 
 A sound wave travels at $340 \text{ m/s}$ with a frequency of $170 \text{ Hz}$. Find its wavelength.
 
-<!-- ILLUSTRATION: a wave with its wavelength (one full cycle) marked "?", labeled with speed 340 m/s and frequency 170 Hz -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "wave", "labels": {"wavelength": "?", "speed": "340 m/s", "frequency": "170 Hz"}, "semanticsLabel": "A sound wave diagram with wavelength marked as a question mark, speed 340 m/s, and frequency 170 Hz."} -->
 
 
 **Solution:**

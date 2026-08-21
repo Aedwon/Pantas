@@ -52,7 +52,7 @@ An editorial cartoon shows a large boulder labeled "taxes" rolling toward a smal
 
 A bar graph shows monthly sales for a store: January at $50$, February at $70$, March at $60$, and April at $90$ (in thousands of pesos). Which month had the second-highest sales?
 
-<!-- ILLUSTRATION: a bar graph of monthly sales (thousands of pesos) with bars January 50, February 70, March 60, April 90; the y-axis starts at 0; February is the second-highest -->
+<!-- FIGURE: {"kind": "chart", "type": "bar", "labels": ["January", "February", "March", "April"], "values": [50, 70, 60, 90], "yAxis": {"label": "Sales (thousands of pesos)", "min": 0}, "semanticsLabel": "A bar graph of monthly sales with bars for January at 50, February at 70, March at 60, and April at 90."} -->
 
 
 **Solution:**
@@ -65,7 +65,7 @@ A bar graph shows monthly sales for a store: January at $50$, February at $70$, 
 
 A bar graph's vertical axis starts at $80$ instead of $0$, making a bar for $85$ appear almost five times taller than a bar for $81$. Explain why this visual impression is misleading.
 
-<!-- ILLUSTRATION: a bar graph whose y-axis starts at 80 (not 0); a bar at 85 towers over a bar at 81, exaggerating a tiny real difference; a small inset shows the same bars on a 0-based axis looking nearly equal -->
+<!-- FIGURE: {"kind": "chart", "type": "bar", "labels": ["Brand A", "Brand B"], "values": [85, 81], "yMin": 80, "compareZero": true, "semanticsLabel": "A bar graph starting at 80 comparing bars of 85 and 81, alongside a comparison starting at zero."} -->
 
 
 **Solution:**
