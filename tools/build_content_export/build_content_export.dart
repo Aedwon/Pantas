@@ -4,6 +4,9 @@ import 'dart:io';
 import 'package:crypto/crypto.dart';
 import 'package:yaml/yaml.dart';
 
+import '../content/lesson_asset_map.dart';
+import '../content/markdown_portable_text.dart';
+
 // Copying some constants and logic from build_dev_seed.dart
 const _examId = 'exam_upcat';
 const _keepExamId = 'exam_cse_pro';
@@ -364,9 +367,7 @@ List<Map<String, Object?>> buildQuestions(
       // A figure the app draws itself is not pending. Only the ones still
       // waiting on a hand-drawn picture are held back.
       final drawnSpec = question['figureSpec'];
-      if (figure != null &&
-          '$figure'.trim().isNotEmpty &&
-          drawnSpec == null) {
+      if (figure != null && '$figure'.trim().isNotEmpty && drawnSpec == null) {
         skippedFigures++;
         continue;
       }
@@ -415,8 +416,13 @@ List<Map<String, Object?>> buildQuestions(
 
 List<Map<String, Object?>> buildLessons(
   Map<String, String> topicIdBySlug,
-  String root,
-) {
+  String root, {
+  LessonAssetMap? assets,
+}) {
+  final assetMap = assets ??
+      LessonAssetMap.fromJsonFile(
+        File('$root/content/illustrations/assets.json'),
+      );
   final lessons = <Map<String, Object?>>[];
 
   final nextOrdering = <String, int>{};
@@ -447,6 +453,8 @@ List<Map<String, Object?>> buildLessons(
     final fallback = (nextOrdering[topicId] ?? 0) + 1;
     nextOrdering[topicId] = fallback;
 
+    final identity = LessonIdentity.fromPath(file.path);
+
     lessons.add({
       '_id': front['_id'] as String,
       '_updatedAt': updatedAt,
@@ -458,7 +466,11 @@ List<Map<String, Object?>> buildLessons(
       'summary': front['summary'] as String,
       'estimatedMinutes': front['estimatedMinutes'] as int,
       'ordering': front['ordering'] as int? ?? fallback,
-      'body': _markdownToPortableText(source.substring(match.end)),
+      'body': markdownToPortableText(
+        source.substring(match.end),
+        lesson: identity,
+        assets: assetMap,
+      ),
     });
   }
 
@@ -479,141 +491,6 @@ List<Map<String, Object?>> _textToPortableText(String text) {
       ],
     }
   ];
-}
-
-List<Map<String, Object?>> _markdownToPortableText(String body) {
-  final blocks = <Map<String, Object?>>[];
-  final paragraph = <String>[];
-  final quote = <String>[];
-
-  void flushParagraph() {
-    if (paragraph.isEmpty) return;
-    blocks.add(_textBlock(paragraph.join(' '), 'normal'));
-    paragraph.clear();
-  }
-
-  void flushQuote() {
-    if (quote.isEmpty) return;
-    blocks.add(_textBlock(quote.join(' '), 'blockquote'));
-    quote.clear();
-  }
-
-  void flushAll() {
-    flushParagraph();
-    flushQuote();
-  }
-
-  final heading = RegExp(r'^(#{1,6})\s+(.*)$');
-  final bullet = RegExp(r'^(\s*)[-*+]\s+(.*)$');
-  final numbered = RegExp(r'^(\s*)\d+\.\s+(.*)$');
-  final displayMath = RegExp(r'^\$\$(.*)\$\$$');
-
-  for (final line in body.split('\n')) {
-    final trimmed = line.trim();
-
-    if (trimmed.isEmpty) {
-      flushAll();
-      continue;
-    }
-    if (trimmed.startsWith('<!--')) {
-      flushAll();
-      continue;
-    }
-
-    final math = displayMath.firstMatch(trimmed);
-    if (math != null) {
-      flushAll();
-      blocks.add({'_type': 'latex', 'body': math.group(1)!.trim()});
-      continue;
-    }
-
-    final headingMatch = heading.firstMatch(trimmed);
-    if (headingMatch != null) {
-      flushAll();
-      blocks.add(
-        _textBlock(headingMatch.group(2)!, 'h${headingMatch.group(1)!.length}'),
-      );
-      continue;
-    }
-
-    if (trimmed.startsWith('>')) {
-      flushParagraph();
-      quote.add(trimmed.replaceFirst(RegExp(r'^>\s*'), ''));
-      continue;
-    }
-
-    final bulletMatch = bullet.firstMatch(line);
-    if (bulletMatch != null) {
-      flushAll();
-      blocks.add(
-        _textBlock(bulletMatch.group(2)!, 'normal')
-          ..['listItem'] = 'bullet'
-          ..['level'] = _indentLevel(bulletMatch.group(1)!),
-      );
-      continue;
-    }
-
-    final numberedMatch = numbered.firstMatch(line);
-    if (numberedMatch != null) {
-      flushAll();
-      blocks.add(
-        _textBlock(numberedMatch.group(2)!, 'normal')
-          ..['listItem'] = 'number'
-          ..['level'] = _indentLevel(numberedMatch.group(1)!),
-      );
-      continue;
-    }
-
-    flushQuote();
-    paragraph.add(trimmed);
-  }
-
-  flushAll();
-  return blocks;
-}
-
-int _indentLevel(String indent) => indent.length ~/ 2 + 1;
-
-Map<String, Object?> _textBlock(String text, String style) => {
-      '_type': 'block',
-      'style': style,
-      'children': _inlineSpans(text),
-    };
-
-final _inline = RegExp(r'\$([^$]+)\$|\*\*(.+?)\*\*|\*(.+?)\*');
-
-List<Map<String, Object?>> _inlineSpans(String text) {
-  final spans = <Map<String, Object?>>[];
-  var cursor = 0;
-
-  void addPlain(String value) {
-    if (value.isEmpty) return;
-    spans.add({'_type': 'span', 'text': value, 'marks': <String>[]});
-  }
-
-  for (final match in _inline.allMatches(text)) {
-    addPlain(text.substring(cursor, match.start));
-    final value = match.group(1) != null
-        ? match.group(1)!
-        : match.group(2) != null
-            ? match.group(2)!
-            : match.group(3)!;
-    final mark = match.group(1) != null
-        ? 'latex'
-        : match.group(2) != null
-            ? 'strong'
-            : 'em';
-    spans.add({
-      '_type': 'span',
-      'text': mark == 'latex' ? value.trim() : value,
-      'marks': [mark],
-    });
-    cursor = match.end;
-  }
-  addPlain(text.substring(cursor));
-
-  if (spans.isEmpty) addPlain('');
-  return spans;
 }
 
 List<File> _filesUnder(String root, String extension) =>

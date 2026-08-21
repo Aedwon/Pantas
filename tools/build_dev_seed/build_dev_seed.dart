@@ -13,6 +13,9 @@ import 'dart:io';
 
 import 'package:yaml/yaml.dart';
 
+import '../content/lesson_asset_map.dart';
+import '../content/markdown_portable_text.dart';
+
 const _examId = 'exam_upcat';
 const _keepExamId = 'exam_cse_pro';
 
@@ -288,9 +291,7 @@ List<Map<String, Object?>> buildQuestions(Map<String, String> topicIdBySlug) {
       // A figure the app draws itself is not pending. Only the ones still
       // waiting on a hand-drawn picture are held back.
       final drawnSpec = question['figureSpec'];
-      if (figure != null &&
-          '$figure'.trim().isNotEmpty &&
-          drawnSpec == null) {
+      if (figure != null && '$figure'.trim().isNotEmpty && drawnSpec == null) {
         skippedFigures++;
         continue;
       }
@@ -335,7 +336,15 @@ List<Map<String, Object?>> buildQuestions(Map<String, String> topicIdBySlug) {
 
 // --- lessons -----------------------------------------------------------
 
-List<Map<String, Object?>> buildLessons(Map<String, String> topicIdBySlug) {
+List<Map<String, Object?>> buildLessons(
+  Map<String, String> topicIdBySlug, [
+  String root = '.',
+  LessonAssetMap? assets,
+]) {
+  final assetMap = assets ??
+      LessonAssetMap.fromJsonFile(
+        File('$root/content/illustrations/assets.json'),
+      );
   final lessons = <Map<String, Object?>>[];
 
   // Not one lesson file carries `ordering:` yet. Numbering each topic's files
@@ -343,7 +352,7 @@ List<Map<String, Object?>> buildLessons(Map<String, String> topicIdBySlug) {
   // `ordering:` overrides it wherever the editorial pass has run.
   final nextOrdering = <String, int>{};
 
-  for (final file in _filesUnder('content/lessons', '.md')) {
+  for (final file in _filesUnder('$root/content/lessons', '.md')) {
     final source = file.readAsStringSync();
     final match =
         RegExp(r'^---\n(.*?)\n---\n', dotAll: true).firstMatch(source);
@@ -366,6 +375,14 @@ List<Map<String, Object?>> buildLessons(Map<String, String> topicIdBySlug) {
     final fallback = (nextOrdering[topicId] ?? 0) + 1;
     nextOrdering[topicId] = fallback;
 
+    final identity = LessonIdentity.fromPath(file.path);
+
+    final bodyJson = markdownToPortableText(
+      source.substring(match.end),
+      lesson: identity,
+      assets: assetMap,
+    );
+
     lessons.add({
       'id': front['_id'] as String,
       'topicId': topicId,
@@ -373,151 +390,11 @@ List<Map<String, Object?>> buildLessons(Map<String, String> topicIdBySlug) {
       'summary': front['summary'] as String,
       'estimatedMinutes': front['estimatedMinutes'] as int,
       'ordering': front['ordering'] as int? ?? fallback,
-      'bodyJson': _markdownToPortableText(source.substring(match.end)),
+      'bodyJson': bodyJson,
     });
   }
 
   return lessons;
-}
-
-/// Converts the lesson markdown subset the corpus uses into the Portable Text
-/// blocks `PortableTextRenderer` understands.
-///
-/// Named in backticks, not as a doc link. A link needs the import, the import
-/// pulls Flutter into a `dart run` command-line tool, and the compiler's FFI
-/// pass then crashes with "type 'InvalidType' is not a subtype of type
-/// 'FunctionType'". The generator could not build at all from 10 August until
-/// 11 August, and nothing noticed because nothing regenerated the seed.
-List<Map<String, Object?>> _markdownToPortableText(String body) {
-  final blocks = <Map<String, Object?>>[];
-  final paragraph = <String>[];
-  final quote = <String>[];
-
-  void flushParagraph() {
-    if (paragraph.isEmpty) return;
-    blocks.add(_textBlock(paragraph.join(' '), 'normal'));
-    paragraph.clear();
-  }
-
-  void flushQuote() {
-    if (quote.isEmpty) return;
-    blocks.add(_textBlock(quote.join(' '), 'blockquote'));
-    quote.clear();
-  }
-
-  void flushAll() {
-    flushParagraph();
-    flushQuote();
-  }
-
-  final heading = RegExp(r'^(#{1,6})\s+(.*)$');
-  final bullet = RegExp(r'^(\s*)[-*+]\s+(.*)$');
-  final numbered = RegExp(r'^(\s*)\d+\.\s+(.*)$');
-  final displayMath = RegExp(r'^\$\$(.*)\$\$$');
-
-  for (final line in body.split('\n')) {
-    final trimmed = line.trim();
-
-    if (trimmed.isEmpty) {
-      flushAll();
-      continue;
-    }
-    // Illustration placeholders mark art that has not been drawn yet.
-    if (trimmed.startsWith('<!--')) {
-      flushAll();
-      continue;
-    }
-
-    final math = displayMath.firstMatch(trimmed);
-    if (math != null) {
-      flushAll();
-      blocks.add({'_type': 'latex', 'body': math.group(1)!.trim()});
-      continue;
-    }
-
-    final headingMatch = heading.firstMatch(trimmed);
-    if (headingMatch != null) {
-      flushAll();
-      blocks.add(
-        _textBlock(headingMatch.group(2)!, 'h${headingMatch.group(1)!.length}'),
-      );
-      continue;
-    }
-
-    if (trimmed.startsWith('>')) {
-      flushParagraph();
-      quote.add(trimmed.replaceFirst(RegExp(r'^>\s*'), ''));
-      continue;
-    }
-
-    final bulletMatch = bullet.firstMatch(line);
-    if (bulletMatch != null) {
-      flushAll();
-      blocks.add(
-        _textBlock(bulletMatch.group(2)!, 'normal')
-          ..['listItem'] = 'bullet'
-          ..['level'] = _indentLevel(bulletMatch.group(1)!),
-      );
-      continue;
-    }
-
-    final numberedMatch = numbered.firstMatch(line);
-    if (numberedMatch != null) {
-      flushAll();
-      blocks.add(
-        _textBlock(numberedMatch.group(2)!, 'normal')
-          ..['listItem'] = 'number'
-          ..['level'] = _indentLevel(numberedMatch.group(1)!),
-      );
-      continue;
-    }
-
-    flushQuote();
-    paragraph.add(trimmed);
-  }
-
-  flushAll();
-  return blocks;
-}
-
-int _indentLevel(String indent) => indent.length ~/ 2 + 1;
-
-Map<String, Object?> _textBlock(String text, String style) => {
-      '_type': 'block',
-      'style': style,
-      'children': _inlineSpans(text),
-    };
-
-/// Splits `$math$`, `**strong**` and `*em*` out of a line into marked spans.
-final _inline = RegExp(r'\$([^$]+)\$|\*\*(.+?)\*\*|\*(.+?)\*');
-
-List<Map<String, Object?>> _inlineSpans(String text) {
-  final spans = <Map<String, Object?>>[];
-  var cursor = 0;
-
-  void addPlain(String value) {
-    if (value.isEmpty) return;
-    spans.add({'_type': 'span', 'text': value, 'marks': <String>[]});
-  }
-
-  for (final match in _inline.allMatches(text)) {
-    addPlain(text.substring(cursor, match.start));
-    final (value, mark) = switch (match) {
-      _ when match.group(1) != null => (match.group(1)!, 'latex'),
-      _ when match.group(2) != null => (match.group(2)!, 'strong'),
-      _ => (match.group(3)!, 'em'),
-    };
-    spans.add({
-      '_type': 'span',
-      'text': mark == 'latex' ? value.trim() : value,
-      'marks': [mark],
-    });
-    cursor = match.end;
-  }
-  addPlain(text.substring(cursor));
-
-  if (spans.isEmpty) addPlain('');
-  return spans;
 }
 
 // --- shared ------------------------------------------------------------
@@ -527,7 +404,6 @@ List<File> _filesUnder(String root, String extension) =>
       return file.path.endsWith(extension);
     }).toList()
       ..sort((a, b) => a.path.compareTo(b.path));
-
 
 /// YAML maps are not JSON encodable on their own. This turns one into a
 /// plain map so the figure spec can be stored as text.
