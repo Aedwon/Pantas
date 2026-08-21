@@ -23,7 +23,10 @@ The **Law of Independent Assortment**: alleles for different genes separate inde
 
 A **Punnett square** is a grid tool used to predict the possible genotypes (and their probabilities) of offspring, based on the parents' genotypes.
 
-<!-- ILLUSTRATION: a 2x2 Punnett square grid showing parent alleles Tt crossed with Tt along the top and side, filled in with TT, Tt, Tt, tt in the four boxes -->
+| | $T$ | $t$ |
+| --- | --- | --- |
+| **$T$** | $TT$ | $Tt$ |
+| **$t$** | $Tt$ | $tt$ |
 
 ### Non-Mendelian Genetics
 
@@ -57,7 +60,10 @@ A **pedigree** is a chart showing how a trait has passed through a family across
 
 A pea plant heterozygous for height ($Tt$, where $T$ = tall is dominant and $t$ = short is recessive) is crossed with another heterozygous plant ($Tt$). What fraction of the offspring are expected to be tall?
 
-<!-- ILLUSTRATION: a 2x2 Punnett square with T and t along the top and side, the four cells filled TT, Tt, Tt, tt; three tall (has a T) to one short -->
+| | $T$ | $t$ |
+| --- | --- | --- |
+| **$T$** | $TT$ (tall) | $Tt$ (tall) |
+| **$t$** | $Tt$ (tall) | $tt$ (short) |
 
 
 **Solution:**
@@ -82,7 +88,7 @@ Check whether the traits blend together or appear separately, side by side.
 
 Explain, in order, the two main steps that convert the genetic instructions stored in DNA into an actual protein.
 
-<!-- ILLUSTRATION: a flow diagram DNA → (transcription) → mRNA → (translation) → protein, with the two steps labeled -->
+$$\text{DNA} \xrightarrow{\text{transcription}} \text{mRNA} \xrightarrow{\text{translation}} \text{protein}$$
 
 
 **Solution:**

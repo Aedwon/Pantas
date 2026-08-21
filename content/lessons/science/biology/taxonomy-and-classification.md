@@ -19,7 +19,14 @@ Living things are sorted into a hierarchy of ranks, from the broadest group down
 
 Each rank contains one or more of the rank below it. A domain contains many kingdoms; a kingdom contains many phyla; and so on, all the way down to species, the most specific rank.
 
-<!-- ILLUSTRATION: nested set of labeled boxes shrinking inward, from largest to smallest: Domain, Kingdom, Phylum, Class, Order, Family, Genus, Species, with a small icon of a single organism inside the innermost "Species" box -->
+- **Domain** (broadest)
+  - **Kingdom**
+    - **Phylum**
+      - **Class**
+        - **Order**
+          - **Family**
+            - **Genus**
+              - **Species** (most specific)
 
 The three **domains** are the broadest groupings: **Bacteria**, **Archaea** (both made of simple cells without a nucleus), and **Eukarya** (organisms whose cells do have a nucleus, including all plants, animals, fungi, and protists).
 

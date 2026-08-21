@@ -17,8 +17,6 @@ In most real reactions, you do not have the perfect amount of each reactant. The
 
 To find the limiting reactant, calculate how much product each reactant could make on its own (assuming unlimited amounts of the other); whichever reactant produces the smaller amount of product is the limiting one.
 
-<!-- ILLUSTRATION: assembly line making bicycles from wheels and frames, showing 10 wheels and 3 frames, with only 3 bicycles possible (frames run out first), wheels left over labeled "excess" -->
-
 ### Percent Yield
 
 The **theoretical yield** is the maximum amount of product the balanced equation predicts, calculated from the limiting reactant. The **actual yield** is the amount actually collected in real life (usually less, due to losses or side reactions). **Percent yield** compares the two:

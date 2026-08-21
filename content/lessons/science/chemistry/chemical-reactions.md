@@ -25,7 +25,13 @@ You balance an equation by adjusting **coefficients** (the big numbers placed in
 - **Double replacement**: two compounds swap partners, exchanging their positive and negative parts. $AB + CD \rightarrow AD + CB$.
 - **Combustion**: a substance (usually containing carbon and hydrogen) reacts with oxygen, releasing energy, usually producing carbon dioxide and water.
 
-<!-- ILLUSTRATION: five small labeled diagrams showing the reactant-to-product pattern for synthesis, decomposition, single replacement, double replacement, and combustion, using simple letter blocks A, B, C, D -->
+| Reaction Type | General Pattern | Example |
+| --- | --- | --- |
+| Synthesis (combination) | $A + B \rightarrow AB$ | $2\text{H}_2 + \text{O}_2 \rightarrow 2\text{H}_2\text{O}$ |
+| Decomposition | $AB \rightarrow A + B$ | $2\text{H}_2\text{O}_2 \rightarrow 2\text{H}_2\text{O} + \text{O}_2$ |
+| Single replacement | $A + BC \rightarrow AC + B$ | $\text{Zn} + 2\text{HCl} \rightarrow \text{ZnCl}_2 + \text{H}_2$ |
+| Double replacement | $AB + CD \rightarrow AD + CB$ | $\text{AgNO}_3 + \text{NaCl} \rightarrow \text{AgCl} + \text{NaNO}_3$ |
+| Combustion | $\text{Hydrocarbon} + \text{O}_2 \rightarrow \text{CO}_2 + \text{H}_2\text{O}$ | $\text{CH}_4 + 2\text{O}_2 \rightarrow \text{CO}_2 + 2\text{H}_2\text{O}$ |
 
 ## Examples
 

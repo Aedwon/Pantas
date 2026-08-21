@@ -25,8 +25,6 @@ Biology is the study of life. But what actually counts as "alive"? Scientists ag
 
 **Adaptation (through evolution)**: over many generations, living things gradually change traits that help them survive and reproduce better in their environment.
 
-<!-- ILLUSTRATION: seven small icons arranged in a circle, each representing one characteristic of life: a cell, a gear for metabolism, a thermometer for homeostasis, a growing sprout, offspring for reproduction, a hand pulling away from heat, and a changing silhouette for adaptation -->
-
 A thing is generally considered alive only if it shows all of these characteristics together, not just one. This is exactly why viruses are such a tricky, popular exam topic.
 
 ## Examples

@@ -19,8 +19,6 @@ $$1 \text{ mole} = 6.022 \times 10^{23} \text{ particles}$$
 
 This number is called **Avogadro's number**. It applies to atoms, molecules, ions, or any other particle you are counting: one mole of water molecules and one mole of table salt formula units both contain exactly $6.022 \times 10^{23}$ particles, even though they weigh completely different amounts.
 
-<!-- ILLUSTRATION: balance scale showing one mole of carbon (12 grams) balancing against one mole of a different, heavier element, with both sides labeled as containing 6.022 x 10^23 atoms despite the different masses -->
-
 ### Molar Mass
 
 **Molar mass** is the mass of one mole of a substance, in grams per mole ($\text{g/mol}$).

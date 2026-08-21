@@ -19,7 +19,11 @@ A **hydrocarbon** is a compound made of only carbon and hydrogen atoms. The thre
 - **Alkenes**: contain at least one carbon-carbon double bond ($C=C$). "Unsaturated." Named with the ending **-ene** (like ethene, propene).
 - **Alkynes**: contain at least one carbon-carbon triple bond ($C \equiv C$). Also unsaturated. Named with the ending **-yne** (like ethyne, propyne).
 
-<!-- ILLUSTRATION: three simple two-carbon molecules side by side, ethane with a single bond between carbons, ethene with a double bond, and ethyne with a triple bond, each carbon shown with its attached hydrogens -->
+| Hydrocarbon | Family | Formula | Structure | Bond Type |
+| --- | --- | --- | --- | --- |
+| Ethane | Alkane (saturated) | $\text{C}_2\text{H}_6$ | $\text{CH}_3-\text{CH}_3$ | Single bond ($\text{C}-\text{C}$) |
+| Ethene | Alkene (unsaturated) | $\text{C}_2\text{H}_4$ | $\text{CH}_2=\text{CH}_2$ | Double bond ($\text{C}=\text{C}$) |
+| Ethyne | Alkyne (unsaturated) | $\text{C}_2\text{H}_2$ | $\text{CH}\equiv\text{CH}$ | Triple bond ($\text{C}\equiv\text{C}$) |
 
 ### Functional Groups
 

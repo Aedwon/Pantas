@@ -25,7 +25,15 @@ Scientists worldwide use the **International System of Units (SI)**, built from 
 
 Every other unit in physics (like speed in $m/s$, or force in $kg \cdot m/s^2$, called a newton) is a combination of these seven base units.
 
-<!-- ILLUSTRATION: seven labeled icons representing the base quantities, a ruler for length, a weight for mass, a clock for time, a battery/current symbol for electric current, a thermometer for temperature, a flask for amount of substance, and a light bulb for luminous intensity -->
+| Base Quantity | SI Unit | Symbol |
+| --- | --- | --- |
+| Length | meter | $\text{m}$ |
+| Mass | kilogram | $\text{kg}$ |
+| Time | second | $\text{s}$ |
+| Electric current | ampere | $\text{A}$ |
+| Temperature | kelvin | $\text{K}$ |
+| Amount of substance | mole | $\text{mol}$ |
+| Luminous intensity | candela | $\text{cd}$ |
 
 ### Dimensional Analysis
 
