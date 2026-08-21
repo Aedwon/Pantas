@@ -27,7 +27,12 @@ $$1 = \text{mono-} \quad 2 = \text{di-} \quad 3 = \text{tri-} \quad 4 = \text{te
 
 The first element keeps its normal name (usually skipping "mono-" for just one atom); the second element's ending changes to "-ide," and always gets a prefix, even if there is only $1$ atom. For example, $CO$ is carbon MONoxide (mono- is used here specifically because leaving it out could be confused with a different compound, $CO_2$), and $CO_2$ is carbon DIoxide.
 
-<!-- ILLUSTRATION: side-by-side comparison chart, one column showing ionic naming (cation + anion-ide, with Roman numerals for variable-charge metals) and one column showing covalent naming (prefix + element + prefix + element-ide) -->
+| Ionic Naming | Covalent Naming |
+| --- | --- |
+| Metal + nonmetal | Nonmetal + nonmetal |
+| Cation name + anion root with *-ide* | (Prefix) + first element + prefix + second element root with *-ide* |
+| Roman numerals indicate variable charge: $\text{Fe}^{3+} \rightarrow \text{iron (III)}$ | Greek prefixes indicate atom counts: $1 = \text{mono-}$, $2 = \text{di-}$, etc. |
+| Example: $\text{FeCl}_3 \rightarrow \text{iron (III) chloride}$ | Example: $\text{CO}_2 \rightarrow \text{carbon dioxide}$ |
 
 ## Examples
 

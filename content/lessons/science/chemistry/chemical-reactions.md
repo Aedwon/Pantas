@@ -25,7 +25,13 @@ You balance an equation by adjusting **coefficients** (the big numbers placed in
 - **Double replacement**: two compounds swap partners, exchanging their positive and negative parts. $AB + CD \rightarrow AD + CB$.
 - **Combustion**: a substance (usually containing carbon and hydrogen) reacts with oxygen, releasing energy, usually producing carbon dioxide and water.
 
-<!-- ILLUSTRATION: five small labeled diagrams showing the reactant-to-product pattern for synthesis, decomposition, single replacement, double replacement, and combustion, using simple letter blocks A, B, C, D -->
+| Reaction Type | General Pattern |
+| --- | --- |
+| Synthesis (combination) | $A + B \rightarrow AB$ |
+| Decomposition | $AB \rightarrow A + B$ |
+| Single replacement | $A + BC \rightarrow AC + B$ |
+| Double replacement | $AB + CD \rightarrow AD + CB$ |
+| Combustion | $\text{substance} + \text{oxygen} \rightarrow \text{carbon dioxide} + \text{water}$ |
 
 ## Examples
 
