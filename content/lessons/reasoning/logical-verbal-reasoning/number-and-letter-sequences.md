@@ -21,13 +21,12 @@ Common number sequence patterns:
 
 For letter sequences, convert letters to their alphabet position numbers ($A=1, B=2, \ldots Z=26$) to reveal a hidden number pattern, then convert back to letters.
 
-| Step | Term Value | Difference |
+| Term Position | Term Value | Gap from Previous Term |
 | --- | --- | --- |
 | 1st term | $2$ | (start) |
 | 2nd term | $5$ | $+3$ |
 | 3rd term | $8$ | $+3$ |
 | 4th term | $11$ | $+3$ |
-| 5th term | $14$ | $+3$ |
 
 ## Examples
 

@@ -21,12 +21,12 @@ isActive: true
 
 **Tone** is the poet's attitude toward the subject (playful, somber, angry, hopeful), often revealed through word choice and imagery rather than stated directly.
 
-| Line | Sample Stanza Line | Ending Sound | Rhyme Label |
-| --- | --- | --- | --- |
-| **Line 1** | The moon shines bright above the **bay** | *-ay* sound | **A** |
-| **Line 2** | The stars begin to gently **glow** | *-ow* sound | **B** |
-| **Line 3** | The waves roll in and drift **away** | *-ay* sound (rhymes with line 1) | **A** |
-| **Line 4** | While quiet winds begin to **blow** | *-ow* sound (rhymes with line 2) | **B** |
+| Stanza Line | Rhyme Scheme Label | Imagery Appeal |
+| --- | --- | --- |
+| Line 1 | **A** | Five senses: sight, sound, smell, taste, touch |
+| Line 2 | **B** | Five senses: sight, sound, smell, taste, touch |
+| Line 3 | **A** (rhymes with line 1) | Five senses: sight, sound, smell, taste, touch |
+| Line 4 | **B** (rhymes with line 2) | Five senses: sight, sound, smell, taste, touch |
 
 Poetry rarely states its meaning directly: readers must infer the poem's message from its images, figurative language, and tone, much like inferring a theme in a short story.
 
