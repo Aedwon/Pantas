@@ -105,14 +105,22 @@ List<Map<String, Object?>> markdownToPortableText(
     final illusMatch = illustrationRegex.firstMatch(trimmed);
     if (illusMatch != null) {
       flushAll();
-      illustrationSeq++;
-      final entry = assets.lookup(lesson, illustrationSeq);
-      if (entry == null) {
+      if (!assets.isConfigured) {
+        i++;
+        continue;
+      }
+      final orderedEntries = assets.orderedEntriesFor(lesson);
+      if (illustrationSeq >= orderedEntries.length) {
+        final expectedKey = orderedEntries.isEmpty
+            ? lesson.assetKey(illustrationSeq + 1)
+            : '${lesson.assetKeyPrefix}#slot-${illustrationSeq + 1}';
         throw FormatException(
           'Missing asset-map entry for '
-          '"${lesson.assetKey(illustrationSeq)}" at ${lesson.path}:$lineNumber',
+          '"$expectedKey" at ${lesson.path}:$lineNumber',
         );
       }
+      final entry = orderedEntries[illustrationSeq].value;
+      illustrationSeq++;
       final desc = illusMatch.group(1)!.trim();
       blocks.add({
         '_type': 'image',

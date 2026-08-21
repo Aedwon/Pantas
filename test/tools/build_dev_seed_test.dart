@@ -65,4 +65,89 @@ void main() {
       );
     }
   });
+
+  test(
+    'buildLessons propagates FormatException on malformed FIGURE JSON '
+    'instead of returning empty body',
+    () {
+      final tempDir =
+          Directory.systemTemp.createTempSync('build_dev_seed_malformed_test');
+      addTearDown(() => tempDir.deleteSync(recursive: true));
+
+      final lessonsDir =
+          Directory('${tempDir.path}/content/lessons/mathematics/algebra')
+            ..createSync(recursive: true);
+      File('${lessonsDir.path}/linear-equations.md').writeAsStringSync('''
+---
+_id: lesson-algebra-linear-equations
+isActive: true
+topic: topic-algebra
+title: Linear Equations
+summary: Basics
+estimatedMinutes: 5
+ordering: 1
+---
+# Header
+<!-- FIGURE: {invalid-json-here} -->
+Paragraph text.
+''');
+
+      final topicIdBySlug = {'algebra': 'topic_upcat_algebra'};
+
+      expect(
+        () => buildLessons(topicIdBySlug, tempDir.path),
+        throwsA(
+          isA<FormatException>().having(
+            (e) => e.message,
+            'message',
+            allOf(
+              contains(
+                'content/lessons/mathematics/algebra/linear-equations.md',
+              ),
+              contains(':2:'),
+            ),
+          ),
+        ),
+      );
+    },
+  );
+
+  test(
+    'buildLessons with absent assets.json ignores legacy ILLUSTRATION '
+    'markers and preserves text',
+    () {
+      final tempDir =
+          Directory.systemTemp.createTempSync('build_dev_seed_no_assets_test');
+      addTearDown(() => tempDir.deleteSync(recursive: true));
+
+      final lessonsDir =
+          Directory('${tempDir.path}/content/lessons/mathematics/algebra')
+            ..createSync(recursive: true);
+      File('${lessonsDir.path}/linear-equations.md').writeAsStringSync('''
+---
+_id: lesson-algebra-linear-equations
+isActive: true
+topic: topic-algebra
+title: Linear Equations
+summary: Basics
+estimatedMinutes: 5
+ordering: 1
+---
+# Header
+<!-- ILLUSTRATION: unconfigured placeholder -->
+Paragraph text after.
+''');
+
+      final topicIdBySlug = {'algebra': 'topic_upcat_algebra'};
+
+      final lessons = buildLessons(topicIdBySlug, tempDir.path);
+      expect(lessons.length, 1);
+      final body =
+          (lessons.single['bodyJson']! as List).cast<Map<String, dynamic>>();
+      expect(body, isNotEmpty);
+      expect(body.length, 2);
+      expect(body[0]['_type'], 'block');
+      expect(body[1]['_type'], 'block');
+    },
+  );
 }

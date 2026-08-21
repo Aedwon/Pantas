@@ -79,9 +79,19 @@ class LessonAssetEntry {
 
 /// Lookup map for lesson illustration assets.
 class LessonAssetMap {
-  const LessonAssetMap(this._entries);
+  const LessonAssetMap(this._entries) : isConfigured = true;
 
-  const LessonAssetMap.empty() : _entries = const {};
+  const LessonAssetMap.empty()
+      : _entries = const {},
+        isConfigured = true;
+
+  const LessonAssetMap.unconfigured()
+      : _entries = const {},
+        isConfigured = false;
+
+  const LessonAssetMap.disabled()
+      : _entries = const {},
+        isConfigured = false;
 
   factory LessonAssetMap.fromMap(Map<String, Object?> map) {
     final entries = <String, LessonAssetEntry>{};
@@ -106,16 +116,39 @@ class LessonAssetMap {
   }
 
   factory LessonAssetMap.fromJsonFile(File file) {
-    if (!file.existsSync()) return const LessonAssetMap.empty();
+    if (!file.existsSync()) return const LessonAssetMap.unconfigured();
     return LessonAssetMap.fromJsonString(file.readAsStringSync());
   }
 
   final Map<String, LessonAssetEntry> _entries;
+  final bool isConfigured;
+
+  bool get isUnconfigured => !isConfigured;
+  bool get isDisabled => !isConfigured;
 
   LessonAssetEntry? get(String key) => _entries[key];
 
   LessonAssetEntry? lookup(LessonIdentity lesson, int seq) =>
       get(lesson.assetKey(seq));
+
+  /// Returns all entries for [lesson] sorted by sequence number ascending.
+  List<MapEntry<int, LessonAssetEntry>> orderedEntriesFor(
+    LessonIdentity lesson,
+  ) {
+    final prefix = '${lesson.assetKeyPrefix}#';
+    final results = <MapEntry<int, LessonAssetEntry>>[];
+    for (final entry in _entries.entries) {
+      if (entry.key.startsWith(prefix)) {
+        final seqStr = entry.key.substring(prefix.length);
+        final seq = int.tryParse(seqStr);
+        if (seq != null) {
+          results.add(MapEntry(seq, entry.value));
+        }
+      }
+    }
+    results.sort((a, b) => a.key.compareTo(b.key));
+    return results;
+  }
 
   bool contains(String key) => _entries.containsKey(key);
 

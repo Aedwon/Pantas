@@ -377,16 +377,11 @@ List<Map<String, Object?>> buildLessons(
 
     final identity = LessonIdentity.fromPath(file.path);
 
-    var bodyJson = const <Map<String, Object?>>[];
-    try {
-      bodyJson = markdownToPortableText(
-        source.substring(match.end),
-        lesson: identity,
-        assets: assetMap,
-      );
-    } on FormatException {
-      bodyJson = const [];
-    }
+    final bodyJson = markdownToPortableText(
+      source.substring(match.end),
+      lesson: identity,
+      assets: assetMap,
+    );
 
     lessons.add({
       'id': front['_id'] as String,

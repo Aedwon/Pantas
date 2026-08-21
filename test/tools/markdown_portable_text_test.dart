@@ -319,5 +319,139 @@ Paragraph after.
       expect(children0[0]['text'], 'Paragraph before.');
       expect(children1[0]['text'], 'Paragraph after.');
     });
+
+    test(
+      'resolves sparse image markers in numeric order of keys '
+      '(e.g. keys #2 and #4)',
+      () {
+        const gravityLesson = LessonIdentity(
+          path: 'content/lessons/science/physics/gravity-and-keplers-laws.md',
+          subject: 'science',
+          topic: 'physics',
+          lesson: 'gravity-and-keplers-laws',
+        );
+
+        final assets = LessonAssetMap.fromMap({
+          'science/physics/gravity-and-keplers-laws#2': {
+            'url': 'https://cdn.sanity.io/images/gravity_2.png',
+            'alt': 'Kepler first law orbit',
+          },
+          'science/physics/gravity-and-keplers-laws#4': {
+            'url': 'https://cdn.sanity.io/images/gravity_4.png',
+            'alt': 'Kepler third law period-distance graph',
+          },
+        });
+
+        const markdown = '''
+Intro text for Kepler.
+
+<!-- ILLUSTRATION: Elliptical orbit diagram -->
+
+Middle text describing the laws.
+
+<!-- ILLUSTRATION: Harmonic law chart -->
+
+Conclusion text.
+''';
+
+        final blocks = markdownToPortableText(
+          markdown,
+          lesson: gravityLesson,
+          assets: assets,
+        );
+
+        expect(blocks.length, 5);
+        expect(blocks[0]['_type'], 'block');
+        expect(blocks[1], {
+          '_type': 'image',
+          'asset': {'url': 'https://cdn.sanity.io/images/gravity_2.png'},
+          'alt': 'Kepler first law orbit',
+        });
+        expect(blocks[2]['_type'], 'block');
+        expect(blocks[3], {
+          '_type': 'image',
+          'asset': {'url': 'https://cdn.sanity.io/images/gravity_4.png'},
+          'alt': 'Kepler third law period-distance graph',
+        });
+        expect(blocks[4]['_type'], 'block');
+      },
+    );
+
+    test(
+      'throws FormatException with lesson path and line when markers exceed '
+      'available sparse keys',
+      () {
+        const gravityLesson = LessonIdentity(
+          path: 'content/lessons/science/physics/gravity-and-keplers-laws.md',
+          subject: 'science',
+          topic: 'physics',
+          lesson: 'gravity-and-keplers-laws',
+        );
+
+        final assets = LessonAssetMap.fromMap({
+          'science/physics/gravity-and-keplers-laws#2': {
+            'url': 'https://cdn.sanity.io/images/gravity_2.png',
+            'alt': 'Kepler first law orbit',
+          },
+          'science/physics/gravity-and-keplers-laws#4': {
+            'url': 'https://cdn.sanity.io/images/gravity_4.png',
+            'alt': 'Kepler third law period-distance graph',
+          },
+        });
+
+        const markdown = '''
+<!-- ILLUSTRATION: Marker 1 -->
+<!-- ILLUSTRATION: Marker 2 -->
+<!-- ILLUSTRATION: Marker 3 -->
+''';
+
+        expect(
+          () => markdownToPortableText(
+            markdown,
+            lesson: gravityLesson,
+            assets: assets,
+          ),
+          throwsA(
+            isA<FormatException>().having(
+              (e) => e.message,
+              'message',
+              allOf(
+                contains(gravityLesson.path),
+                contains('3'),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+
+    test(
+      'unconfigured or disabled LessonAssetMap ignores ILLUSTRATION '
+      'markers and preserves text',
+      () {
+        const markdown = '''
+First paragraph.
+
+<!-- ILLUSTRATION: pending diagram -->
+
+Second paragraph.
+''';
+        final blocks = markdownToPortableText(
+          markdown,
+          lesson: lesson,
+          assets: const LessonAssetMap.unconfigured(),
+        );
+
+        expect(blocks.length, 2);
+        expect(blocks[0]['_type'], 'block');
+        expect(blocks[1]['_type'], 'block');
+        final raw0 = blocks[0]['children']! as List;
+        final raw1 = blocks[1]['children']! as List;
+        final children0 = raw0.cast<Map<String, dynamic>>();
+        final children1 = raw1.cast<Map<String, dynamic>>();
+        expect(children0[0]['text'], 'First paragraph.');
+        expect(children1[0]['text'], 'Second paragraph.');
+      },
+    );
   });
 }
