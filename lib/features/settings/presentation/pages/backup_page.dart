@@ -36,7 +36,7 @@ class BackupPage extends ConsumerWidget {
       body: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const SettingsBar(title: 'Backup'),
+          const SettingsBar(title: 'Backup', backLabel: 'Settings'),
           const SizedBox(height: 16),
           Text(
             backupValue,

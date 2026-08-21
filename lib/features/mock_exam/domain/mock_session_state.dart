@@ -54,9 +54,10 @@ class MockSessionPaused extends MockSessionState {
 }
 
 class MockSessionSubmitted extends MockSessionState {
-  const MockSessionSubmitted(this.reason);
+  const MockSessionSubmitted(this.reason, this.snapshot);
 
   final MockSubmitReason reason;
+  final MockSessionInProgress snapshot;
 }
 
 class MockSessionForfeited extends MockSessionState {

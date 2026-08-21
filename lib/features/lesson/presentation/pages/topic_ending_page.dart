@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/ui/components/back_chevron.dart';
 import 'package:pantas/core/ui/components/faint_bars.dart';
 import 'package:pantas/core/ui/components/ink_table_row.dart';
 import 'package:pantas/core/ui/theme/app_dimensions.dart';
@@ -138,7 +139,7 @@ class _TopicEndingView extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 4),
               alignment: Alignment.centerLeft,
               child: IconButton(
-                icon: const Icon(Icons.arrow_back),
+                icon: const BackChevron(),
                 onPressed: () {
                   if (context.canPop()) {
                     context.pop();

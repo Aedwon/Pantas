@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/ink_chevron.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
 /// One row of the Settings ledger: a title, then a right-aligned value or a
@@ -31,7 +32,7 @@ class SettingsValueRow extends StatelessWidget {
 
   static const double contentHeight = 38;
   static const double tapHeight = 44;
-  static const double chevronColumnWidth = 11;
+  static const double chevronColumnWidth = 14;
 
   @override
   Widget build(BuildContext context) {
@@ -65,10 +66,9 @@ class SettingsValueRow extends StatelessWidget {
           SizedBox(
             width: chevronColumnWidth,
             child: showChevron
-                ? Text(
-                    '›',
-                    textAlign: TextAlign.right,
-                    style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+                ? const Align(
+                    alignment: Alignment.centerRight,
+                    child: InkChevron(size: 14),
                   )
                 : null,
           ),

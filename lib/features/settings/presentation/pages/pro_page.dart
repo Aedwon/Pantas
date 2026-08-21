@@ -34,7 +34,7 @@ class ProPage extends ConsumerWidget {
       body: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const SettingsBar(title: 'Pro'),
+          const SettingsBar(title: 'Pro', backLabel: 'Settings'),
           SettingsGroup(
             title: 'Current plan',
             isFirst: true,

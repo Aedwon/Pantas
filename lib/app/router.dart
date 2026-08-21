@@ -25,6 +25,9 @@ import 'package:pantas/features/notifications/application/notifications_provider
 import 'package:pantas/features/notifications/presentation/permission_rationale_page.dart';
 import 'package:pantas/features/onboarding/onboarding.dart';
 import 'package:pantas/features/paywall/paywall.dart';
+import 'package:pantas/features/mock_exam/presentation/pages/mock_start_route.dart';
+import 'package:pantas/features/mock_exam/presentation/pages/mock_results_route.dart';
+import 'package:pantas/features/mock_exam/presentation/pages/mock_review_page.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.dart';
 import 'package:pantas/features/progress/presentation/pages/how_you_work_page.dart';
 import 'package:pantas/features/progress/presentation/pages/your_record_page.dart';
@@ -201,7 +204,7 @@ List<RouteBase> buildAppRoutes(Ref ref) {
                       onResume: () => context.push('/quiz/resume/$examId'),
                       onViewResults: () {
                         if (lastAttempt != null) {
-                          context.push('/quiz/results/${lastAttempt.id}');
+                          context.push('/mock/results/${lastAttempt.id}');
                         }
                       },
                     ),
@@ -336,8 +339,19 @@ List<RouteBase> buildAppRoutes(Ref ref) {
         return MockSetupRoute(
           examId: examId,
           onStart: (blueprintId) {
-            context.push('/quiz/mock/start?blueprintId=$blueprintId');
+            context.push('/quiz/mock/start?examId=$examId&blueprintId=$blueprintId');
           },
+        );
+      },
+    ),
+    GoRoute(
+      path: '/quiz/mock/start',
+      builder: (_, state) {
+        final examId = state.uri.queryParameters['examId']!;
+        final blueprintId = state.uri.queryParameters['blueprintId']!;
+        return MockStartRoute(
+          examId: examId,
+          blueprintId: blueprintId,
         );
       },
     ),
@@ -387,6 +401,14 @@ List<RouteBase> buildAppRoutes(Ref ref) {
         return QuizResultsPage(
           attemptId: attemptId,
           proIsActive: proIsActive,
+        );
+      },
+    ),
+    GoRoute(
+      path: '/mock/results/:attemptId',
+      builder: (_, state) {
+        return MockResultsRoute(
+          attemptId: state.pathParameters['attemptId']!,
         );
       },
     ),

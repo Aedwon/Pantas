@@ -1,9 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/components/answer_row.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/ui/components/confirmation_dialog.dart';
+import 'package:pantas/core/ui/components/question_card.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/domain/part_clock.dart';
 import 'package:pantas/features/mock_exam/presentation/clock_rule.dart';
@@ -127,16 +129,15 @@ class _MockSessionPageState extends State<MockSessionPage> {
   }
 
   void _confirmEndPartEarly(BuildContext context) {
-    final partNum = widget.currentPartNumber;
     showAppConfirmationDialog(
       context: context,
-      title: 'End Part $partNum now?',
-      body: 'Ending now closes Part $partNum for good. The time you have '
-          'left does not carry over.',
+      title: 'End Part ${widget.currentPartNumber} now?',
+      body: 'You have ${widget.remainingInPart.inMinutes} minutes left in '
+          'this part. If you end it early, this time does not carry over.',
       cancelLabel: 'Keep going',
       confirmLabel: 'End part',
       onCancel: () {},
-      onConfirm: () => widget.onEndPartEarly?.call(),
+      onConfirm: widget.onEndPartEarly ?? () {},
     );
   }
 
@@ -192,20 +193,10 @@ class _MockSessionPageState extends State<MockSessionPage> {
             ListView(
               padding: const EdgeInsets.fromLTRB(20, 24, 20, 96),
               children: [
-                Text(
-                  widget.state.currentQuestionId,
-                  style: textStyles.headlineMedium,
-                ),
-                const SizedBox(height: 20),
-                AnswerRow(
-                  letter: 'A',
-                  text: 'Choice A',
-                  onTap: () => widget.onAnswer(0),
-                ),
-                AnswerRow(
-                  letter: 'B',
-                  text: 'Choice B',
-                  onTap: () => widget.onAnswer(1),
+                _QuestionBody(
+                  questionId: widget.state.currentQuestionId,
+                  selectedIndex: widget.state.answers[widget.state.currentQuestionId]?.selectedIndex,
+                  onAnswer: widget.onAnswer,
                 ),
               ],
             ),
@@ -257,12 +248,22 @@ class _MockSessionPageState extends State<MockSessionPage> {
   Future<void> _confirmLeave(BuildContext context) {
     return showDialog<void>(
       context: context,
-      builder: (context) => AlertDialog(
+      builder: (dialogContext) => AlertDialog(
         title: const Text('Leave mock?'),
         content: const Text('The clock keeps running.'),
         actions: [
           TextButton(
-            onPressed: () => Navigator.of(context).pop(),
+            onPressed: () {
+              Navigator.of(dialogContext).pop();
+              Navigator.of(context).pop();
+            },
+            child: Text(
+              'Leave',
+              style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
+            ),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(),
             child: const Text('Stay'),
           ),
         ],
@@ -277,3 +278,51 @@ class _MockSessionPageState extends State<MockSessionPage> {
         '${secs.toString().padLeft(2, '0')}';
   }
 }
+
+class _QuestionBody extends ConsumerWidget {
+  const _QuestionBody({
+    required this.questionId,
+    required this.selectedIndex,
+    required this.onAnswer,
+  });
+
+  final String questionId;
+  final int? selectedIndex;
+  final ValueChanged<int> onAnswer;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final hydratedAsync = ref.watch(hydratedMockQuestionProvider(questionId));
+    
+    return hydratedAsync.when(
+      data: (hydrated) {
+        if (hydrated == null) {
+          return const Center(child: Text('Question not found'));
+        }
+        
+        final choiceId = selectedIndex != null && selectedIndex! < hydrated.question.choices.length
+            ? hydrated.question.choices[selectedIndex!].id
+            : null;
+
+        return QuestionCard(
+          key: ValueKey(hydrated.question.id),
+          question: hydrated.question,
+          passage: hydrated.passage,
+          chosenChoiceId: choiceId,
+          onAnswer: (cid) {
+            final index = hydrated.question.choices.indexWhere((c) => c.id == cid);
+            if (index >= 0) onAnswer(index);
+          },
+        );
+      },
+      loading: () => const Center(
+        child: Padding(
+          padding: EdgeInsets.all(40),
+          child: CircularProgressIndicator(),
+        ),
+      ),
+      error: (e, st) => Center(child: Text('Error: $e')),
+    );
+  }
+}
+

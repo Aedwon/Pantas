@@ -1,4 +1,4 @@
-package com.aedwon.cse_cet_reviewer
+package com.aedwon.pantas
 
 import io.flutter.embedding.android.FlutterActivity
 

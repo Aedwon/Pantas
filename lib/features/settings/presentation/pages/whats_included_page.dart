@@ -89,7 +89,7 @@ class WhatsIncludedPage extends ConsumerWidget {
       body: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const SettingsBar(title: "What's included"),
+          const SettingsBar(title: "What's included", backLabel: 'Exam'),
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 12, 20, 16),
             child: Text(

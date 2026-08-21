@@ -3,6 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/application/mock_session_controller.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.dart';
 
 class SessionHost extends StatefulWidget {
@@ -70,11 +72,16 @@ void main() {
     required bool strictMode,
     required bool atLastItemOfPart,
   }) {
-    return MaterialApp(
-      theme: buildLightTheme(),
-      home: SessionHost(
-        strictMode: strictMode,
-        atLastItemOfPart: atLastItemOfPart,
+    return ProviderScope(
+      overrides: [
+        hydratedMockQuestionProvider.overrideWith((ref, id) => null),
+      ],
+      child: MaterialApp(
+        theme: buildLightTheme(),
+        home: SessionHost(
+          strictMode: strictMode,
+          atLastItemOfPart: atLastItemOfPart,
+        ),
       ),
     );
   }

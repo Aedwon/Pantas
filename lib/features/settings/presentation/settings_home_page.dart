@@ -50,7 +50,7 @@ class _SettingsHomePageState extends ConsumerState<SettingsHomePage> {
       body: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const SettingsBar(title: 'Settings'),
+          const SettingsBar(title: 'Settings', backLabel: 'Home'),
           SettingsGroup(
             title: 'You',
             isFirst: true,

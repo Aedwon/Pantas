@@ -34,7 +34,7 @@ class ExamPage extends ConsumerWidget {
       body: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const SettingsBar(title: 'Exam'),
+          const SettingsBar(title: 'Exam', backLabel: 'Settings'),
           SettingsGroup(
             title: activeExamName,
             isFirst: true,

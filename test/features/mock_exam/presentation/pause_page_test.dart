@@ -5,6 +5,8 @@ import 'package:pantas/core/ui/components/board_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/presentation/pause_page.dart';
 
 class MockSessionPageHost extends StatefulWidget {
@@ -118,11 +120,16 @@ void main() {
     required bool pauseWarningSeen,
     required bool strictMode,
   }) {
-    return MaterialApp(
-      theme: buildLightTheme(),
-      home: MockSessionPageHost(
-        pauseWarningSeen: pauseWarningSeen,
-        strictMode: strictMode,
+    return ProviderScope(
+      overrides: [
+        hydratedMockQuestionProvider.overrideWith((ref, id) => null),
+      ],
+      child: MaterialApp(
+        theme: buildLightTheme(),
+        home: MockSessionPageHost(
+          pauseWarningSeen: pauseWarningSeen,
+          strictMode: strictMode,
+        ),
       ),
     );
   }

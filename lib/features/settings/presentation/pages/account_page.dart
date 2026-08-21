@@ -30,7 +30,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
       body: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const SettingsBar(title: 'Account'),
+          const SettingsBar(title: 'Account', backLabel: 'Settings'),
           const SizedBox(height: 16),
           if (user == null && isAnonymous) ...[
             Text(

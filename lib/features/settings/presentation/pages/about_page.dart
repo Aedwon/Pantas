@@ -51,7 +51,7 @@ class AboutPage extends ConsumerWidget {
       body: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const SettingsBar(title: 'About'),
+          const SettingsBar(title: 'About', backLabel: 'Settings'),
           const SizedBox(height: 16),
           Text('Pantas', style: styles.displaySmall),
           const SizedBox(height: 4),

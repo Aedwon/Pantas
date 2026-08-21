@@ -50,12 +50,18 @@ call() {
   curl -s -m 5 "$1"
 }
 
-base=""
-if [ -f "$cache" ]; then
+base="${VM_SERVICE_URI:-}"
+# Strip any trailing slash provided by the user
+base="$(echo "$base" | sed -E 's#/$##')"
+
+if [ -n "$base" ]; then
+  call "${base}/getVersion" | grep -q '"result"' || die "The provided VM_SERVICE_URI ($base) is unreachable. Unset it to auto-discover, or provide a correct one."
+elif [ -f "$cache" ]; then
   base="$(cat "$cache")"
   # A cached URI goes stale every time `flutter run` restarts.
   call "${base}/getVersion" | grep -q '"result"' || base=""
 fi
+
 if [ -z "$base" ]; then
   base="$(discover)"
   echo "$base" > "$cache"
@@ -75,7 +81,7 @@ for i in isolates:
 else:
     if isolates:
         print(isolates[0]["id"])
-')"
+' || true)"
 [ -n "$isolate" ] || die "no isolate. Is the app running?"
 
 case "${1:-report}" in

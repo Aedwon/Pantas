@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# Launches the Pantas Demo Control Web UI.
+#
+set -euo pipefail
+
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+python3 "${DIR}/dashboard.py"

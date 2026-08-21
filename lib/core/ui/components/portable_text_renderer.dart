@@ -22,7 +22,7 @@ class PortableTextRenderer extends StatelessWidget {
 
   static List<Map<String, dynamic>> _parseTextToBlocks(String text) {
     final children = <Map<String, dynamic>>[];
-    final regex = RegExp(r'\$(.*?)\$');
+    final regex = RegExp(r'\*\*(.*?)\*\*|\*(.*?)\*|(?<!_)_([^_]+?)_(?!_)');
     var lastMatchEnd = 0;
     for (final match in regex.allMatches(text)) {
       if (match.start > lastMatchEnd) {
@@ -31,11 +31,22 @@ class PortableTextRenderer extends StatelessWidget {
           'marks': <String>[],
         });
       }
-      final latex = match.group(1) ?? '';
-      children.add({
-        'text': latex,
-        'marks': <String>['latex'],
-      });
+      if (match.group(1) != null) {
+        children.add({
+          'text': match.group(1)!,
+          'marks': <String>['strong'],
+        });
+      } else if (match.group(2) != null) {
+        children.add({
+          'text': match.group(2)!,
+          'marks': <String>['em'],
+        });
+      } else if (match.group(3) != null) {
+        children.add({
+          'text': match.group(3)!,
+          'marks': <String>['em'],
+        });
+      }
       lastMatchEnd = match.end;
     }
     if (lastMatchEnd < text.length) {

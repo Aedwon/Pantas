@@ -17,7 +17,7 @@ class NotBuiltYetPage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SettingsBar(title: title),
+          SettingsBar(title: title, backLabel: 'Settings'),
           const SizedBox(height: 24),
           Text(
             'This screen is not built yet.',

@@ -5,10 +5,9 @@ import 'dart:math';
 import 'package:drift/drift.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/content/content_database.dart';
-import 'package:pantas/core/content/content.dart';
 
 /// A debug-only service extension that allows the `tools/demo` bash script
 /// to reset the database and populate it with faux data.
@@ -26,8 +25,10 @@ Future<void> registerDevDemoSwitch(ProviderContainer container) async {
       await _populateFauxData(db, contentDb);
     }
     
-    // Invalidate app preferences so the app realizes it needs to re-read
-    container.invalidate(appPreferencesRepositoryProvider);
+    // Invalidate all providers so memory caches clear immediately
+    for (final element in container.getAllProviderElements()) {
+      element.invalidateSelf();
+    }
     
     return developer.ServiceExtensionResponse.result(
       jsonEncode({'status': 'ok', 'action': action}),

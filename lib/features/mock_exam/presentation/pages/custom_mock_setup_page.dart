@@ -7,6 +7,7 @@ import 'package:pantas/core/ui/components/board_button.dart';
 import 'package:pantas/core/ui/components/settings_switch.dart';
 import 'package:pantas/core/ui/components/settings_value_row.dart';
 import 'package:pantas/core/ui/theme/app_dimensions.dart';
+import 'package:pantas/core/ui/components/ink_chevron.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/domain/corpus_ceiling.dart';
 import 'package:pantas/features/mock_exam/domain/custom_blueprint.dart';
@@ -272,10 +273,7 @@ class _ValueRow extends StatelessWidget {
             ),
             if (onTap != null) ...[
               const SizedBox(width: 8),
-              Text(
-                '›',
-                style: styles.bodyMedium.copyWith(color: colors.inkMuted),
-              ),
+              const InkChevron(size: 14),
             ],
           ],
         ),
@@ -317,9 +315,9 @@ class _BreakdownToggle extends StatelessWidget {
                 style: styles.bodyMedium,
               ),
             ),
-            Text(
-              isOpen ? '‹' : '›',
-              style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+            InkChevron(
+              pointsDown: isOpen,
+              size: 14,
             ),
           ],
         ),

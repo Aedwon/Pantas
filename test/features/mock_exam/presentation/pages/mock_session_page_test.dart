@@ -3,6 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_floating_bar.dart';
 
 void main() {
@@ -34,21 +36,26 @@ void main() {
     VoidCallback? onNext,
     VoidCallback? onGrid,
   }) {
-    return MaterialApp(
-      theme: buildLightTheme(),
-      home: MockSessionPage(
-        state: state,
-        remainingInPart: remainingInPart,
-        partPosition: partPosition,
-        partTotal: partTotal,
-        canGoPrevious: canGoPrevious,
-        canGoNext: canGoNext,
-        onPrevious: onPrevious ?? () {},
-        onNext: onNext ?? () {},
-        onAnswer: (_) {},
-        onToggleFlag: () {},
-        onPause: () {},
-        onShowNavigator: onGrid ?? () {},
+    return ProviderScope(
+      overrides: [
+        hydratedMockQuestionProvider.overrideWith((ref, id) => null),
+      ],
+      child: MaterialApp(
+        theme: buildLightTheme(),
+        home: MockSessionPage(
+          state: state,
+          remainingInPart: remainingInPart,
+          partPosition: partPosition,
+          partTotal: partTotal,
+          canGoPrevious: canGoPrevious,
+          canGoNext: canGoNext,
+          onPrevious: onPrevious ?? () {},
+          onNext: onNext ?? () {},
+          onAnswer: (_) {},
+          onToggleFlag: () {},
+          onPause: () {},
+          onShowNavigator: onGrid ?? () {},
+        ),
       ),
     );
   }

@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/answer_reveal.dart';
+import 'package:pantas/core/ui/components/back_chevron.dart';
 import 'package:pantas/core/ui/components/board_button.dart';
 import 'package:pantas/core/ui/components/confirmation_dialog.dart';
 import 'package:pantas/core/ui/components/error_banner.dart';
@@ -103,7 +104,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
               )
             : IconButton(
                 tooltip: 'Back',
-                icon: Icon(Icons.arrow_back, size: 17, color: colors.inkMuted),
+                icon: BackChevron(color: colors.inkMuted),
                 onPressed: () => _leave(context),
               ),
         actions: [

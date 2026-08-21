@@ -111,8 +111,13 @@ class MockSessionController {
   /// What is left of the open part, or of the exam when the parts are not
   /// timed separately.
   Duration get remainingInPart {
-    final current = _state;
-    if (current is! MockSessionInProgress) return Duration.zero;
+    final current = switch (_state) {
+      MockSessionInProgress inProgress => inProgress,
+      MockSessionPaused paused => paused.snapshot,
+      MockSessionSubmitted submitted => submitted.snapshot,
+      _ => null,
+    };
+    if (current == null) return Duration.zero;
     final minutes = currentPart.minutes;
     if (minutes == null) {
       return Duration(seconds: current.remainingSeconds);
@@ -243,7 +248,8 @@ class MockSessionController {
   }
 
   void _submit(MockSubmitReason reason) {
-    _state = MockSessionSubmitted(reason);
+    final snapshot = _state as MockSessionInProgress;
+    _state = MockSessionSubmitted(reason, snapshot);
     _telemetry.log(TelemetryEvent.mockCompleted);
     _onSubmit?.call(reason);
   }

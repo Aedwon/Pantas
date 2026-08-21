@@ -26,7 +26,7 @@ class ChangeExamPage extends ConsumerWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const SettingsBar(title: 'Change exam'),
+          const SettingsBar(title: 'Change exam', backLabel: 'Exam'),
           Expanded(
             child: examsAsync.when(
               loading: () => const FaintBars(),
