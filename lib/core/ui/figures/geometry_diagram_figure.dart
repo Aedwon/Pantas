@@ -92,7 +92,6 @@ class GeometryDiagramFigure extends StatelessWidget {
             labels: labels,
             ink: colors.ink,
             faint: colors.ruleFaint,
-            board: colors.board,
             labelStyle: context.textStyles.bodySmall.copyWith(
               color: colors.ink,
             ),
@@ -109,7 +108,6 @@ class _GeometryDiagramPainter extends CustomPainter {
     required this.labels,
     required this.ink,
     required this.faint,
-    required this.board,
     required this.labelStyle,
   });
 
@@ -117,7 +115,6 @@ class _GeometryDiagramPainter extends CustomPainter {
   final List<String> labels;
   final Color ink;
   final Color faint;
-  final Color board;
   final TextStyle labelStyle;
 
   @override
