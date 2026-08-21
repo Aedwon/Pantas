@@ -509,4 +509,37 @@ void main() {
       );
     }
   });
+
+  testWidgets(
+    'recognized geometry type with missing or empty labels shows '
+    'missing figure state',
+    (tester) async {
+      const invalidSpecs = <Map<String, Object?>>[
+        {'kind': 'geometry-diagram', 'type': 'triangle'},
+        {'kind': 'geometry-diagram', 'type': 'triangle', 'labels': <String>[]},
+        {
+          'kind': 'geometry-diagram',
+          'type': 'triangle',
+          'labels': ['   '],
+        },
+      ];
+
+      for (final spec in invalidSpecs) {
+        await tester.pumpApp(
+          LessonFigureWidget(
+            spec: spec,
+            semanticsLabel: 'Invalid geometry spec.',
+          ),
+        );
+
+        expect(
+          find.text(
+            'This lesson needs a diagram that has not been drawn yet.',
+          ),
+          findsOneWidget,
+        );
+        expect(find.byType(GeometryDiagramFigure), findsNothing);
+      }
+    },
+  );
 }
