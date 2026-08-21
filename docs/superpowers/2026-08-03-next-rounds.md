@@ -1,3 +1,7 @@
+> **Superseded.** These prompts describe the 3 August tree. The current state
+> and next work are in `2026-08-13-handover-checkpoint.md`, updated 22 August.
+> Do not paste a prompt below without checking its plan and the current tree.
+
 # Next rounds: prompts to paste after a clear
 
 **Created 3 August 2026.** Every remaining piece of work that needs a session, written as a

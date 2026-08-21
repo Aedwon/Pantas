@@ -24,6 +24,32 @@ invention is more expensive than a question, because it looks finished.
 **Do not edit the spec or the plan while implementing.** If they need to change,
 that is a decision, and decisions are recorded before code changes.
 
+### Model routing
+
+**Codex owns the high-level work.** It triages requests, writes and checks designs,
+rules on ambiguity, handles integration and merge conflicts, and runs final
+verification.
+
+**Use Gemini to conserve Codex usage when the work is already decided:**
+
+- `gemini-3.7-flash-high` is the default implementor for settled plan steps,
+  mechanical code changes, test scaffolding, content batches and seed rebuilds.
+- `gemini-3.1-pro-high` handles settled work where a wrong result is expensive to
+  detect, including schema migrations, sync, entitlement and verification of
+  Flash work.
+- Keep architecture, security-sensitive work, unresolved requirements, conflict
+  rulings and final acceptance with Codex.
+
+Before a Gemini wave, ask Aedwon how much quota remains unless he reported it
+recently. `agy` cannot read the quota. State which model will run and why. Below
+roughly 25% remaining, do not start a plan that may be left unfinished. Codex
+must inspect every result and run the relevant checks before accepting it.
+
+Run two Gemini implementors at a time by default when their work is independent
+and isolated in separate worktrees. Use one when tasks share files, depend on
+each other, or Gemini has less than roughly 25% remaining. Use three only for
+short, isolated tasks when quota is plentiful.
+
 ---
 
 ## Build, run, test
@@ -235,8 +261,8 @@ Things that are not obvious from the code and have cost time:
   of `pubspec.yaml` and installed from `bootstrap`.
   To build the `v1.json` asset: `dart run tools/build_dev_seed/build_dev_seed.dart`
   To build the `content.db` asset: `mkdir -p build && dart run tools/build_content_export/build_content_export.dart build/export.json && dart run tools/build_content_seed/seed_writer.dart build/export.json assets/seed/content.db`
-- **No blueprints exist.** `content_mock_blueprints` has zero rows, so
-  `mockBlueprintsProvider` is empty and mock exams cannot run.
+- **One blueprint exists.** `content_mock_blueprints` contains the UPCAT paper.
+  The other six exams have no published blueprint.
 - **Questions have no `lessonId`.** They carry `topicId` only. Anything needing
   lesson-level question data is blocked until that tagging lands.
 - **Navigation:** use `context.push` for destinations outside the tab shell.
@@ -247,6 +273,17 @@ Things that are not obvious from the code and have cost time:
 ---
 
 ## Commits
+
+### Default branch completion
+
+After implementation is complete and the relevant gates pass, merge the feature
+branch into local `main` by default. Do not present the branch-completion menu or
+ask which option Aedwon wants. Never push unless he explicitly asks.
+
+Do not merge when verification fails, review has unresolved findings, the work
+is incomplete or exploratory, the target branch is unclear, a conflict needs a
+decision, or the merge would overlap unrelated uncommitted work. Report the
+specific blocker and wait.
 
 - Explain **why**, not just what. The diff already says what.
 - **No AI attribution.** Do not add `Co-Authored-By` trailers, "Generated with"

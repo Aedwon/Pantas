@@ -329,9 +329,9 @@ Flash runs produced good work and six self-reports that were each wrong about so
 
 | Tier | Model | Does |
 |---|---|---|
-| 1 | Claude | Design, spec authorship, conflict rulings, merge decisions, anything where being wrong is expensive and hard to detect. |
-| 2 | Gemini 3.1 Pro | **Verifies tier 3.** Also implements the high-blast-radius plans: schema migrations, sync, entitlement. |
-| 3 | Gemini 3.6 Flash | Bulk generation. Content authoring, widget assembly, tests against a settled spec. |
+| 1 | Codex | Triage, design, spec authorship, conflict rulings, integration, final verification and anything where being wrong is expensive and hard to detect. |
+| 2 | Gemini 3.1 Pro High | **Verifies tier 3.** Also implements settled high-blast-radius plans: schema migrations, sync and entitlement. |
+| 3 | Gemini 3.7 Flash High | Bulk implementation. Content authoring, widget assembly, test scaffolding and mechanical work against a settled plan. |
 
 ### Why an agent can verify another agent
 

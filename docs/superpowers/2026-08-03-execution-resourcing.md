@@ -1,5 +1,11 @@
 # Execution resourcing: who runs what, and the road to beta
 
+> **Routing updated 22 August 2026.** Codex now owns triage, design,
+> integration and final verification. The current Antigravity defaults are
+> Gemini 3.7 Flash High for settled bulk implementation and Gemini 3.1 Pro High
+> for settled high-risk implementation and Flash verification. Older model names
+> below record the original 3 August decision.
+
 **Created 3 August 2026**, answering a direct question from Aedwon: given a Claude Pro
 subscription at 44% of the week with the session near its cap, and a Google AI Pro
 subscription covering Gemini 3.6 Flash and 3.1 Pro through the Antigravity quota, which model

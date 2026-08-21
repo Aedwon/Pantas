@@ -1,5 +1,6 @@
-> **Superseded 13 August 2026 by `2026-08-13-handover-checkpoint.md`.** Kept
-> for its history. Do not work from this list.
+> **Superseded 13 August 2026 by `2026-08-13-handover-checkpoint.md`. Updated
+> there again on 22 August.** Kept for its history. Do not use the counts,
+> unchecked items, or execution order below as current state.
 
 # Work checkpoint, 2 August 2026
 

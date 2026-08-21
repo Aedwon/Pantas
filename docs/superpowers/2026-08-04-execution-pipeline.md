@@ -1,3 +1,8 @@
+> **Historical dispatch record.** The current state and recommended order are
+> in `2026-08-13-handover-checkpoint.md`, updated 22 August. Keep the dispatch
+> rules below. Do not use its old queue, counts, or branch state. The model table
+> and quota rules were updated 22 August.
+
 # The execution pipeline
 
 **The single document a dispatcher reads before sending anything to an implementor.**
@@ -19,9 +24,9 @@ verifier tier. `2026-08-03-execution-resourcing.md` says who runs what and sizes
 
 | Tier | Model | Work |
 |---|---|---|
-| **C** | Claude | Design rounds, specs, conflict rulings, merge decisions, the money path. |
-| **P** | Gemini 3.1 Pro | **Verifies F.** Implements schema, sync and entitlement. |
-| **F** | Gemini 3.6 Flash | Bulk generation and assembly. |
+| **C** | Codex | Triage, design, specs, conflict rulings, integration and final verification. |
+| **P** | Gemini 3.1 Pro High | **Verifies F.** Implements settled schema, sync and entitlement work. |
+| **F** | Gemini 3.7 Flash High | Settled bulk implementation, content, tests and mechanical work. |
 
 **Every item below carries its tier.** A verifier reports evidence and never fixes what it
 finds: `SUBAGENTS.md` Part 7b.
@@ -60,6 +65,10 @@ Report what you completed and any findings.
 assumed. The only signals are Aedwon's reading of it and an error back from the CLI.
 
 - **Ask him for headroom before each wave.**
+- **State the selected Gemini model and why before dispatch.** Use Flash High by default.
+  Use Pro High only when the cost of a subtle mistake justifies it.
+- **Run two implementors at a time by default.** Drop to one for coupled work or below roughly
+  a quarter remaining. Use three only for short, isolated tasks when quota is plentiful.
 - **Below roughly a quarter left, do not start a plan with unfinished tasks.** A run that dies
   mid-task strands its work, which is what cost most of 4 August.
 - **When headroom is thin, do the zero-Gemini work instead:** verify and merge finished
@@ -169,8 +178,9 @@ merged. Delete them or ignore them.
 
 ### First, two things a new session must know
 
-1. **Ask for Gemini headroom and re-authorize the skip-permissions flag** before dispatching
-   anything. Both are per session and neither can be read programmatically.
+1. **Ask for Gemini headroom and state the selected model before dispatching anything.**
+   Headroom cannot be read programmatically. Re-authorize the skip-permissions flag when the
+   isolated run requires it.
 2. **While Aedwon is testing on the emulator, every change ends: gates, commit, push, hot
    restart.** He asked for that explicitly. Hot restart is `kill -USR2 <pid>` where the pid is
    `pgrep -f "flutter_tools.snapshot run"`. **Never restart onto a red suite.**

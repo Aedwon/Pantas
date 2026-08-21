@@ -1,5 +1,10 @@
 # Pantas: everything that is left, 13 August 2026
 
+> **Updated 22 August 2026.** The continuation checkpoint below records the
+> repository state after the August 17 and 21 work. It supersedes older counts
+> and status claims in this file. The original handover remains below for its
+> history.
+
 **This is the handover document.** Aedwon's Claude subscription ends tomorrow, so
 this exists to be read cold by him or by whoever picks the project up next.
 
@@ -13,17 +18,71 @@ right and the older line is marked stale in place.
 
 ---
 
+## Continuation checkpoint, 22 August 2026
+
+### Current state
+
+| | |
+|---|---|
+| Branch | Local `main` at `35685020`, six commits ahead of `origin/main`; checkpoint and routing documents remain uncommitted |
+| Current gates | **2,316 tests pass.** Targeted analysis is clean. Full analysis has the same 106 pre-existing demo and mock issues as `origin/main`. Layering and attribution pass. Six pre-existing files fail the format check |
+| Shipping seed | **2,361 questions, 161 lessons**, 26 topics, 32 passages, 7 exams, 1 UPCAT mock blueprint |
+| Authored corpus | **2,369 questions.** Eight do not enter the shipping seed |
+| Note B | **All six subjects complete. Zero wrong choices are missing Note B** |
+| Lesson illustrations | **279 worklist rows, all `todo`.** `content/illustrations/` does not exist |
+
+### Execution routing
+
+Codex owns triage, design, integration and final verification. Use Gemini 3.7
+Flash High for settled bulk implementation. Use Gemini 3.1 Pro High for settled
+high-risk implementation and independent Flash verification. Ask Aedwon for the
+remaining Gemini quota before each wave because `agy` cannot read it. Run two
+independent Gemini implementors at a time by default. Drop to one for coupled
+work or when less than roughly 25% remains.
+
+The six local commits finish Mathematics Note B, repair 38 invalid or equivalent
+wrong choices, add completeness coverage, rebuild both shipping seeds, and make
+all seven exams stay active after future seed rebuilds. The seeds contain 2,361
+questions, 161 lessons and 7,071 wrong-choice rationales.
+
+### Worktrees and saved work
+
+- `wt-m8` is merged, clean and even with local `main`.
+- `wt-m7` is stale and unmerged. Its uncommitted basic-geometric-concepts draft
+  overlaps Mathematics work now complete on `main`.
+- `wt-s4` is 98 commits behind and its branch is merged. Its uncommitted edit
+  rewrites the 42 rationales in characteristics of life, which is complete on
+  `main`.
+- `wt-m4` and `wt-noteb-rsn2` are merged and stale.
+- `.claude/worktrees/nb-s3` is an unregistered leftover copy of cell biology.
+  It overlaps work already on `main`.
+- `track-a-salvage` is now merged and has no attached worktree. Two stashes
+  remain, dated 11 and 18 August.
+
+Do not delete or clean `wt-m7`, `wt-s4`, the unregistered `nb-s3` copy, or either
+stash until their uncommitted contents have been reviewed.
+
+### Recommended order
+
+1. Decide whether to commit and push the checkpoint and routing documents.
+2. Write an implementation plan for the approved lesson illustration reduction
+   spec. Then work through the 279-item list.
+3. Wire Firebase startup when Aedwon releases the reserved task.
+4. Finish Android signing and internal-track setup.
+
+---
+
 ## Part 1: Where the build actually is
 
 | | |
 |---|---|
-| Branch | `main`, pushed, 1,371 commits |
-| Tests | **2,268 passing** |
-| Analyzer | clean |
+| Branch | `main`, pushed, as of 13 August |
+| Tests | **2,268 passing on the 13 August head** |
+| Analyzer | clean on the 13 August head |
 | `check_layering` | OK |
 | `check_no_ai_attribution` | OK |
-| Corpus in the seed | **2,216 questions, 161 lessons**, 26 topics, 32 passages, 7 exams, 1 mock blueprint |
-| Parked, not in the seed | **155 questions waiting on figures** |
+| Corpus in the seed | **2,216 questions, 161 lessons**, 26 topics, 32 passages, 7 exams, 1 mock blueprint, as of 13 August |
+| Parked, not in the seed | **155 questions waiting on figures, as of the first 13 August count** |
 
 **The app runs on the Android emulator and on a physical Android phone.** There is
 no Apple developer account, so nothing iOS ships and nothing iOS needs doing.
@@ -149,20 +208,9 @@ and it is the only correctness evidence this project has.
 
 ### Note B, where it stands
 
-**Run `python3 tools/audit/note_b_todo.py` for the live count and the next
-dispatch line.** As of the end of 13 August: **four subjects complete, 1,315
-questions still without a note, all in Mathematics and Science.** Gemini's quota
-ran out with 87 files left, which is the only reason it is not finished.
-
-
-| Subject | Questions | With note B |
-|---|---|---|
-| General Information | 156 | **all** |
-| Reading Comprehension | 192 | **all** |
-| Language Proficiency | 319 | in progress |
-| Reasoning | 244 | 90 |
-| Mathematics | 713 | 69 |
-| Science | 777 | 0 |
+**Completed 22 August.** `python3 tools/audit/note_b_todo.py` reports zero.
+General Information, Reading Comprehension, Language Proficiency, Reasoning,
+Mathematics and Science are complete. All wrong choices carry Note B.
 
 **Measured rate:** a dispatched run does a mechanical subject in one window and
 two files of hard material in the same time. **One note in twenty had a wrong
@@ -204,7 +252,9 @@ they needed one or not.
 | **Never needed a figure** | 51 questions whose stems state everything: a ladder with its legs spread, a lever whose distances are in the sentence, a line through two named points. The tag alone kept them out |
 | **Still parked** | 64. All but one are the four abstract puzzle families: figure series, matrices, paper folding, 3D rotation |
 
-**The seed carries 2,307 questions, up from 2,216 this morning.**
+**Updated 22 August.** The authored corpus carries 2,369 questions and both
+shipping assets carry 2,361. Eight authored questions remain outside the seed.
+This checkpoint pass counted the gap but did not re-audit the eight questions.
 
 `specs/2026-08-13-drawn-figures-design.md` has the argument and the rules a
 painter follows. The order of work at the end of it is still right, and the
@@ -212,9 +262,10 @@ four families left are the four it warned would be hardest.
 
 ### The lesson illustrations, which are a different problem
 
-`content/illustrations/` is empty. The workflow is decided: hand-made in Canva,
-PowerPoint or Illustrator, never AI-generated, then through the Illustration
-Studio. **Nobody has drawn one.**
+`content/illustrations/` is empty. The 22 August worklist has 279 rows and every
+one is still `todo`. The approved reduction spec assigns 189 to code painters,
+56 to open educational assets, 23 to native Markdown or LaTeX, 8 to cuts, and 3
+to founder-drawn assets. It has no implementation plan yet.
 
 ### One mock blueprint
 
@@ -231,8 +282,9 @@ blocked until that tagging exists.
 
 ## Part 5: Code that is written and not reachable
 
-- **The mock results screen is built and mounted nowhere.** Nothing constructs
-  it, so the review popup has no place to fire after a mock.
+- ~~**The mock results screen is built and mounted nowhere.**~~ **Closed by
+  `44dfb1ad` on 21 August.** `/mock/results/:attemptId` now constructs it, and
+  the mock panel opens that route for the last attempt.
 - **`QuizResultsPage` has no caller.** It is routed and tested and nothing links
   to it. **Nothing in the app lists past attempts**, so a finished attempt cannot
   be opened again. Either past attempts get a list, which is a feature, or the
@@ -302,12 +354,11 @@ All Aedwon's, all outside the repository:
 - **Two content paths exist.** The app ships `assets/seed/v1.json` into the user
   database; the Sanity stack writes `content.db`. Know which one you are looking
   at.
-- ~~**25 git worktrees and 54 branches**~~ **Cleaned up 13 August.** 26 merged
-  worktrees removed and 57 merged branches deleted. What is left is `main`, the
-  worktrees of whatever is running, and **`track-a-salvage`**, which is not
-  merged and dates from 10 August. It carries a custom-track storage migration
-  and its own test. **Nobody has decided whether the content work that merged on
-  11 August superseded it.** That decision is still open.
+- ~~**25 git worktrees and 54 branches**~~ **Cleaned up 13 August.** **Updated
+  22 August:** `wt-m8` is merged and clean. `wt-m7` is stale and overlaps the
+  completed Mathematics work. `wt-s4` still has an uncommitted Science edit.
+  An unregistered `nb-s3` directory and two stashes also remain. The
+  continuation checkpoint gives the exact state.
 
 ---
 
