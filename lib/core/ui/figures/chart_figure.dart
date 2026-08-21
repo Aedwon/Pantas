@@ -47,16 +47,33 @@ class ChartFigure extends StatelessWidget {
         if (rawPlots is! List || rawPlots.isEmpty) return null;
         plots = <String>[];
         for (final p in rawPlots) {
-          if (p is! String) return null;
+          if (p is! String ||
+              (p != 'upward' &&
+                  p != 'downward' &&
+                  p != 'none' &&
+                  p != 'random')) {
+            return null;
+          }
           plots.add(p);
         }
       }
       final trend = spec['trend'];
-      if (trend != null && trend is! String) return null;
+      if (trend != null &&
+          (trend is! String ||
+              (trend != 'upward' &&
+                  trend != 'downward' &&
+                  trend != 'none' &&
+                  trend != 'random'))) {
+        return null;
+      }
       final xLabel = spec['xLabel'];
-      if (xLabel != null && xLabel is! String) return null;
+      if (xLabel != null && (xLabel is! String || xLabel.trim().isEmpty)) {
+        return null;
+      }
       final yLabel = spec['yLabel'];
-      if (yLabel != null && yLabel is! String) return null;
+      if (yLabel != null && (yLabel is! String || yLabel.trim().isEmpty)) {
+        return null;
+      }
 
       final rawPoints = spec['points'];
       final points = <Offset>[];
@@ -71,8 +88,12 @@ class ChartFigure extends StatelessWidget {
         }
       }
 
-      if (plots == null && trend == null && points.isEmpty) {
-        return null;
+      if (plots == null) {
+        if (trend == null ||
+            xLabel == null ||
+            yLabel == null && points.isEmpty) {
+          return null;
+        }
       }
 
       return ChartFigure(
@@ -103,6 +124,7 @@ class ChartFigure extends StatelessWidget {
         return null;
       }
       if (value is! num || !value.isFinite) return null;
+      if (type == 'pie' && value <= 0) return null;
       labels.add(label);
       values.add(value.toDouble());
     }
@@ -111,6 +133,14 @@ class ChartFigure extends StatelessWidget {
     Map<String, Object?>? yAxis;
     if (rawYAxis != null) {
       if (rawYAxis is! Map) return null;
+      final yLabel = rawYAxis['label'];
+      if (yLabel != null && (yLabel is! String || yLabel.trim().isEmpty)) {
+        return null;
+      }
+      final yAxisMin = rawYAxis['min'];
+      if (yAxisMin != null && (yAxisMin is! num || !yAxisMin.isFinite)) {
+        return null;
+      }
       yAxis = rawYAxis.cast<String, Object?>();
     }
 
@@ -123,8 +153,9 @@ class ChartFigure extends StatelessWidget {
       yMin = null;
     }
 
-    final compareZero = spec['compareZero'];
-    if (compareZero != null && compareZero is! bool) return null;
+    final rawCompareZero = spec['compareZero'];
+    if (rawCompareZero != null && rawCompareZero is! bool) return null;
+    final compareZero = rawCompareZero as bool?;
 
     return ChartFigure(
       type: type,
@@ -132,7 +163,7 @@ class ChartFigure extends StatelessWidget {
       values: values,
       yAxis: yAxis,
       yMin: yMin,
-      compareZero: compareZero as bool?,
+      compareZero: compareZero,
     );
   }
 

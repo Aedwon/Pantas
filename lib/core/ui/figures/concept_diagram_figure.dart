@@ -33,15 +33,18 @@ class ConceptDiagramFigure extends StatelessWidget {
     this.reflectedAngle,
     this.labels,
     this.angles,
-    this.vectors,
-    this.components,
+    this.vectorItems,
+    this.additionComponents,
     this.resultant,
     this.magnitude,
     this.angle,
     this.unit,
+    this.componentMap,
     this.netForce,
     this.body,
     this.orbiting,
+    this.orbitVectors,
+    this.waveLabels,
     this.wavelength,
     this.frequency,
     this.speed,
@@ -74,10 +77,10 @@ class ConceptDiagramFigure extends StatelessWidget {
   final List<String> nodes;
   final List<(int, int)> edges;
   final List<String>? sets;
-  final Map<String, Object?>? regions;
+  final Map<String, String>? regions;
   final String? center;
-  final Map<String, Object?>? overlaps;
-  final Map<String, Object?>? singleRegions;
+  final Map<String, String>? overlaps;
+  final Map<String, String>? singleRegions;
   final List<String>? boxes;
   final List<String>? sections;
   final String? root;
@@ -93,17 +96,20 @@ class ConceptDiagramFigure extends StatelessWidget {
   final String? comparison;
   final double? incidentAngle;
   final double? reflectedAngle;
-  final Object? labels;
+  final List<String>? labels;
   final List<String>? angles;
-  final Object? vectors;
-  final Object? components;
+  final List<Map<String, Object?>>? vectorItems;
+  final List<Map<String, Object?>>? additionComponents;
   final Map<String, Object?>? resultant;
   final double? magnitude;
   final double? angle;
   final String? unit;
-  final Map<String, Object?>? netForce;
+  final Map<String, String>? componentMap;
+  final Map<String, String>? netForce;
   final String? body;
   final String? orbiting;
+  final Map<String, String>? orbitVectors;
+  final Map<String, String>? waveLabels;
   final String? wavelength;
   final String? frequency;
   final String? speed;
@@ -114,36 +120,62 @@ class ConceptDiagramFigure extends StatelessWidget {
 
     if (type == 'venn') {
       final rawSets = spec['sets'];
-      List<String>? sets;
-      if (rawSets != null) {
-        if (rawSets is! List) return null;
-        sets = <String>[];
-        for (final s in rawSets) {
-          if (s is! String) return null;
-          sets.add(s);
-        }
+      if (rawSets is! List || (rawSets.length != 2 && rawSets.length != 3)) {
+        return null;
       }
-      final rawRegions = spec['regions'];
-      Map<String, Object?>? regions;
-      if (rawRegions != null) {
+      final sets = <String>[];
+      for (final s in rawSets) {
+        if (s is! String || s.trim().isEmpty) return null;
+        sets.add(s);
+      }
+
+      if (sets.length == 2) {
+        final rawRegions = spec['regions'];
         if (rawRegions is! Map) return null;
-        regions = rawRegions.cast<String, Object?>();
-      }
-      final center = spec['center'];
-      if (center != null && center is! String) return null;
-      final rawOverlaps = spec['overlaps'];
-      Map<String, Object?>? overlaps;
-      if (rawOverlaps != null) {
+        final regions = <String, String>{};
+        for (final k in ['left', 'overlap', 'right', 'outside', 'total']) {
+          final val = rawRegions[k];
+          if (val == null) return null;
+          final str = val.toString().trim();
+          if (str.isEmpty) return null;
+          regions[k] = str;
+        }
+        return ConceptDiagramFigure(
+          type: type,
+          sets: sets,
+          regions: regions,
+        );
+      } else {
+        final center = spec['center'];
+        if (center is! String || center.trim().isEmpty) return null;
+        final rawOverlaps = spec['overlaps'];
         if (rawOverlaps is! Map) return null;
-        overlaps = rawOverlaps.cast<String, Object?>();
+        final overlaps = <String, String>{};
+        for (final k in ['ab', 'bc', 'ca']) {
+          final val = rawOverlaps[k];
+          if (val == null) return null;
+          final str = val.toString().trim();
+          if (str.isEmpty) return null;
+          overlaps[k] = str;
+        }
+        Map<String, String>? singleRegions;
+        final rawSingle = spec['singleRegions'];
+        if (rawSingle is Map) {
+          singleRegions = <String, String>{};
+          for (final entry in rawSingle.entries) {
+            if (entry.key is String && entry.value != null) {
+              singleRegions[entry.key as String] = entry.value.toString();
+            }
+          }
+        }
+        return ConceptDiagramFigure(
+          type: type,
+          sets: sets,
+          center: center,
+          overlaps: overlaps,
+          singleRegions: singleRegions,
+        );
       }
-      return ConceptDiagramFigure(
-        type: type,
-        sets: sets,
-        regions: regions,
-        center: center as String?,
-        overlaps: overlaps,
-      );
     }
 
     if (type == 'nested-boxes') {
@@ -151,7 +183,7 @@ class ConceptDiagramFigure extends StatelessWidget {
       if (rawBoxes is! List || rawBoxes.isEmpty) return null;
       final boxes = <String>[];
       for (final b in rawBoxes) {
-        if (b is! String) return null;
+        if (b is! String || b.trim().isEmpty) return null;
         boxes.add(b);
       }
       return ConceptDiagramFigure(type: type, boxes: boxes);
@@ -162,7 +194,7 @@ class ConceptDiagramFigure extends StatelessWidget {
       if (rawSections is! List || rawSections.isEmpty) return null;
       final sections = <String>[];
       for (final s in rawSections) {
-        if (s is! String) return null;
+        if (s is! String || s.trim().isEmpty) return null;
         sections.add(s);
       }
       return ConceptDiagramFigure(type: type, sections: sections);
@@ -170,21 +202,34 @@ class ConceptDiagramFigure extends StatelessWidget {
 
     if (type == 'tree') {
       final root = spec['root'];
-      if (root != null && root is! String) return null;
+      if (root is! String || root.trim().isEmpty) return null;
       final rawBranches = spec['branches'];
-      if (rawBranches is! List) return null;
+      if (rawBranches is! List || rawBranches.isEmpty) return null;
       final branches = <Map<String, Object?>>[];
       for (final b in rawBranches) {
         if (b is! Map) return null;
+        final name = b['name'];
+        if (name is! String || name.trim().isEmpty) return null;
+        final leaves = b['leaves'];
+        if (leaves is int) {
+          if (leaves <= 0) return null;
+        } else if (leaves is List) {
+          if (leaves.isEmpty) return null;
+          for (final l in leaves) {
+            if (l is! String || l.trim().isEmpty) return null;
+          }
+        } else {
+          return null;
+        }
         branches.add(b.cast<String, Object?>());
       }
       final totalLeaves = spec['totalLeaves'];
-      if (totalLeaves != null && totalLeaves is! int) return null;
+      if (totalLeaves is! int || totalLeaves <= 0) return null;
       return ConceptDiagramFigure(
         type: type,
-        root: root as String?,
+        root: root,
         branches: branches,
-        totalLeaves: totalLeaves as int?,
+        totalLeaves: totalLeaves,
       );
     }
 
@@ -193,49 +238,79 @@ class ConceptDiagramFigure extends StatelessWidget {
       if (rawClues is! List || rawClues.isEmpty) return null;
       final clues = <String>[];
       for (final c in rawClues) {
-        if (c is! String) return null;
+        if (c is! String || c.trim().isEmpty) return null;
         clues.add(c);
       }
       final conclusion = spec['conclusion'];
-      if (conclusion != null && conclusion is! String) return null;
+      if (conclusion is! String || conclusion.trim().isEmpty) return null;
       return ConceptDiagramFigure(
         type: type,
         clues: clues,
-        conclusion: conclusion as String?,
+        conclusion: conclusion,
       );
     }
 
     if (type == 'main-idea') {
       final mainIdea = spec['mainIdea'];
-      if (mainIdea != null && mainIdea is! String) return null;
+      if (mainIdea is! String || mainIdea.trim().isEmpty) return null;
       final rawDetails = spec['details'];
       if (rawDetails is! List || rawDetails.isEmpty) return null;
       final details = <String>[];
       for (final d in rawDetails) {
-        if (d is! String) return null;
+        if (d is! String || d.trim().isEmpty) return null;
         details.add(d);
       }
       return ConceptDiagramFigure(
         type: type,
-        mainIdea: mainIdea as String?,
+        mainIdea: mainIdea,
         details: details,
       );
     }
 
-    if (type == 'free-body' || type == 'tug-of-war') {
+    if (type == 'free-body') {
       final rawForces = spec['forces'];
       if (rawForces is! List || rawForces.isEmpty) return null;
       final forces = <Map<String, Object?>>[];
       for (final f in rawForces) {
         if (f is! Map) return null;
+        final label = f['label'];
+        if (label is! String || label.trim().isEmpty) return null;
+        final dir = f['direction'];
+        if (dir != 'up' && dir != 'down' && dir != 'left' && dir != 'right') {
+          return null;
+        }
+        forces.add(f.cast<String, Object?>());
+      }
+      return ConceptDiagramFigure(
+        type: type,
+        forces: forces,
+      );
+    }
+
+    if (type == 'tug-of-war') {
+      final rawForces = spec['forces'];
+      if (rawForces is! List || rawForces.length < 2) return null;
+      final forces = <Map<String, Object?>>[];
+      for (final f in rawForces) {
+        if (f is! Map) return null;
+        final label = f['label'];
+        if (label is! String || label.trim().isEmpty) return null;
+        final dir = f['direction'];
+        if (dir != 'left' && dir != 'right') return null;
+        final mag = f['magnitude'];
+        if (mag is! num || !mag.isFinite || mag <= 0) return null;
         forces.add(f.cast<String, Object?>());
       }
       final rawNet = spec['netForce'];
-      Map<String, Object?>? netForce;
-      if (rawNet != null) {
-        if (rawNet is! Map) return null;
-        netForce = rawNet.cast<String, Object?>();
-      }
+      if (rawNet is! Map) return null;
+      final netLabel = rawNet['label'];
+      if (netLabel is! String || netLabel.trim().isEmpty) return null;
+      final netDir = rawNet['direction'];
+      if (netDir != 'left' && netDir != 'right') return null;
+      final netForce = <String, String>{
+        'label': netLabel,
+        'direction': netDir as String,
+      };
       return ConceptDiagramFigure(
         type: type,
         forces: forces,
@@ -245,60 +320,118 @@ class ConceptDiagramFigure extends StatelessWidget {
 
     if (type == 'gravitational-force') {
       final rawMasses = spec['masses'];
-      if (rawMasses is! List) return null;
+      if (rawMasses is! List || rawMasses.length != 2) return null;
       final masses = <String>[];
       for (final m in rawMasses) {
-        if (m is! String) return null;
+        if (m is! String || m.trim().isEmpty) return null;
         masses.add(m);
       }
       final distance = spec['distance'];
-      if (distance != null && distance is! String) return null;
+      if (distance is! String || distance.trim().isEmpty) return null;
       final comparison = spec['comparison'];
-      if (comparison != null && comparison is! String) return null;
+      if (comparison is! String || comparison.trim().isEmpty) return null;
       return ConceptDiagramFigure(
         type: type,
         masses: masses,
-        distance: distance as String?,
-        comparison: comparison as String?,
+        distance: distance,
+        comparison: comparison,
       );
     }
 
     if (type == 'ray-reflection') {
       final rawLabels = spec['labels'];
-      final rawAngles = spec['angles'];
-      List<String>? angles;
-      if (rawAngles != null) {
-        if (rawAngles is! List) return null;
-        angles = <String>[];
-        for (final a in rawAngles) {
-          if (a is! String) return null;
-          angles.add(a);
-        }
+      if (rawLabels is! List || rawLabels.isEmpty) return null;
+      final labels = <String>[];
+      for (final l in rawLabels) {
+        if (l is! String || l.trim().isEmpty) return null;
+        labels.add(l);
       }
+
       final incidentAngle = spec['incidentAngle'];
       final reflectedAngle = spec['reflectedAngle'];
-      return ConceptDiagramFigure(
-        type: type,
-        labels: rawLabels,
-        angles: angles,
-        incidentAngle: (incidentAngle as num?)?.toDouble(),
-        reflectedAngle: (reflectedAngle as num?)?.toDouble(),
-      );
+      if (incidentAngle != null || reflectedAngle != null) {
+        if (incidentAngle is! num ||
+            reflectedAngle is! num ||
+            !incidentAngle.isFinite ||
+            !reflectedAngle.isFinite ||
+            incidentAngle <= 0 ||
+            incidentAngle >= 90 ||
+            reflectedAngle <= 0 ||
+            reflectedAngle >= 90 ||
+            labels.length != 2) {
+          return null;
+        }
+        return ConceptDiagramFigure(
+          type: type,
+          labels: labels,
+          incidentAngle: incidentAngle.toDouble(),
+          reflectedAngle: reflectedAngle.toDouble(),
+        );
+      } else {
+        final rawAngles = spec['angles'];
+        if (rawAngles is! List || rawAngles.length != 2 || labels.length != 3) {
+          return null;
+        }
+        final angles = <String>[];
+        for (final a in rawAngles) {
+          if (a is! String || a.trim().isEmpty) return null;
+          angles.add(a);
+        }
+        return ConceptDiagramFigure(
+          type: type,
+          labels: labels,
+          angles: angles,
+        );
+      }
     }
 
     if (type == 'vector-diagram') {
       final rawVectors = spec['vectors'];
-      if (rawVectors == null) return null;
-      return ConceptDiagramFigure(type: type, vectors: rawVectors);
+      if (rawVectors is! List || rawVectors.isEmpty) return null;
+      final vectors = <Map<String, Object?>>[];
+      for (final v in rawVectors) {
+        if (v is! Map) return null;
+        final label = v['label'];
+        if (label is! String || label.trim().isEmpty) return null;
+        final angle = v['angle'];
+        if (angle is! num || !angle.isFinite) return null;
+        final mag = v['magnitude'];
+        if (mag is! num || !mag.isFinite || mag <= 0) return null;
+        vectors.add(v.cast<String, Object?>());
+      }
+      return ConceptDiagramFigure(
+        type: type,
+        vectorItems: vectors,
+      );
     }
 
     if (type == 'vector-addition') {
       final rawComponents = spec['components'];
+      if (rawComponents is! List || rawComponents.length < 2) return null;
+      final components = <Map<String, Object?>>[];
+      for (final c in rawComponents) {
+        if (c is! Map) return null;
+        final label = c['label'];
+        if (label is! String || label.trim().isEmpty) return null;
+        final dx = c['dx'];
+        final dy = c['dy'];
+        if (dx is! num || dy is! num || !dx.isFinite || !dy.isFinite) {
+          return null;
+        }
+        components.add(c.cast<String, Object?>());
+      }
       final rawResultant = spec['resultant'];
-      if (rawComponents == null || rawResultant is! Map) return null;
+      if (rawResultant is! Map) return null;
+      final resLabel = rawResultant['label'];
+      if (resLabel is! String || resLabel.trim().isEmpty) return null;
+      final rdx = rawResultant['dx'];
+      final rdy = rawResultant['dy'];
+      if (rdx is! num || rdy is! num || !rdx.isFinite || !rdy.isFinite) {
+        return null;
+      }
       return ConceptDiagramFigure(
         type: type,
-        components: rawComponents,
+        additionComponents: components,
         resultant: rawResultant.cast<String, Object?>(),
       );
     }
@@ -308,15 +441,35 @@ class ConceptDiagramFigure extends StatelessWidget {
       final angle = spec['angle'];
       final unit = spec['unit'];
       final rawComponents = spec['components'];
-      if (magnitude is! num || angle is! num || rawComponents == null) {
+      if (magnitude is! num ||
+          !magnitude.isFinite ||
+          magnitude <= 0 ||
+          angle is! num ||
+          !angle.isFinite ||
+          angle < 0 ||
+          angle > 360 ||
+          unit is! String ||
+          unit.trim().isEmpty ||
+          rawComponents is! Map) {
+        return null;
+      }
+      final h = rawComponents['horizontal'];
+      final v = rawComponents['vertical'];
+      if (h is! String ||
+          v is! String ||
+          h.trim().isEmpty ||
+          v.trim().isEmpty) {
         return null;
       }
       return ConceptDiagramFigure(
         type: type,
         magnitude: magnitude.toDouble(),
         angle: angle.toDouble(),
-        unit: unit as String?,
-        components: rawComponents,
+        unit: unit,
+        componentMap: {
+          'horizontal': h,
+          'vertical': v,
+        },
       );
     }
 
@@ -324,24 +477,62 @@ class ConceptDiagramFigure extends StatelessWidget {
       final body = spec['body'];
       final orbiting = spec['orbiting'];
       final rawVectors = spec['vectors'];
-      if (body != null && body is! String) return null;
-      if (orbiting != null && orbiting is! String) return null;
+      if (body is! String ||
+          body.trim().isEmpty ||
+          orbiting is! String ||
+          orbiting.trim().isEmpty ||
+          rawVectors is! Map) {
+        return null;
+      }
+      final vel = rawVectors['velocity'];
+      final acc = rawVectors['acceleration'];
+      if (vel is! String ||
+          acc is! String ||
+          vel.trim().isEmpty ||
+          acc.trim().isEmpty) {
+        return null;
+      }
       return ConceptDiagramFigure(
         type: type,
-        body: body as String?,
-        orbiting: orbiting as String?,
-        vectors: rawVectors,
+        body: body,
+        orbiting: orbiting,
+        orbitVectors: {
+          'velocity': vel,
+          'acceleration': acc,
+        },
       );
     }
 
     if (type == 'wave') {
       final rawLabels = spec['labels'];
+      if (rawLabels is! Map || rawLabels.isEmpty) return null;
+      final waveLabels = <String, String>{};
+      for (final entry in rawLabels.entries) {
+        if (entry.key is! String ||
+            entry.value is! String ||
+            (entry.key as String).trim().isEmpty ||
+            (entry.value as String).trim().isEmpty) {
+          return null;
+        }
+        waveLabels[entry.key as String] = entry.value as String;
+      }
       final wavelength = spec['wavelength'];
+      if (wavelength != null &&
+          (wavelength is! String || wavelength.trim().isEmpty)) {
+        return null;
+      }
       final frequency = spec['frequency'];
+      if (frequency != null &&
+          (frequency is! String || frequency.trim().isEmpty)) {
+        return null;
+      }
       final speed = spec['speed'];
+      if (speed != null && (speed is! String || speed.trim().isEmpty)) {
+        return null;
+      }
       return ConceptDiagramFigure(
         type: type,
-        labels: rawLabels,
+        waveLabels: waveLabels,
         wavelength: wavelength as String?,
         frequency: frequency as String?,
         speed: speed as String?,
@@ -380,7 +571,12 @@ class ConceptDiagramFigure extends StatelessWidget {
       }
       edges.add((from, to));
     }
-    return ConceptDiagramFigure(type: type, nodes: nodes, edges: edges);
+
+    return ConceptDiagramFigure(
+      type: type,
+      nodes: nodes,
+      edges: edges,
+    );
   }
 
   @override
@@ -389,7 +585,7 @@ class ConceptDiagramFigure extends StatelessWidget {
     return Semantics(
       label: 'A $type diagram.',
       child: SizedBox(
-        height: 200,
+        height: 220,
         child: CustomPaint(
           size: Size.infinite,
           painter: _ConceptDiagramPainter(
@@ -418,15 +614,18 @@ class ConceptDiagramFigure extends StatelessWidget {
             reflectedAngle: reflectedAngle,
             labels: labels,
             angles: angles,
-            vectors: vectors,
-            components: components,
+            vectorItems: vectorItems,
+            additionComponents: additionComponents,
             resultant: resultant,
             magnitude: magnitude,
             angle: angle,
             unit: unit,
+            componentMap: componentMap,
             netForce: netForce,
             body: body,
             orbiting: orbiting,
+            orbitVectors: orbitVectors,
+            waveLabels: waveLabels,
             wavelength: wavelength,
             frequency: frequency,
             speed: speed,
@@ -474,15 +673,18 @@ class _ConceptDiagramPainter extends CustomPainter {
     this.reflectedAngle,
     this.labels,
     this.angles,
-    this.vectors,
-    this.components,
+    this.vectorItems,
+    this.additionComponents,
     this.resultant,
     this.magnitude,
     this.angle,
     this.unit,
+    this.componentMap,
     this.netForce,
     this.body,
     this.orbiting,
+    this.orbitVectors,
+    this.waveLabels,
     this.wavelength,
     this.frequency,
     this.speed,
@@ -492,10 +694,10 @@ class _ConceptDiagramPainter extends CustomPainter {
   final List<String> nodes;
   final List<(int, int)> edges;
   final List<String>? sets;
-  final Map<String, Object?>? regions;
+  final Map<String, String>? regions;
   final String? center;
-  final Map<String, Object?>? overlaps;
-  final Map<String, Object?>? singleRegions;
+  final Map<String, String>? overlaps;
+  final Map<String, String>? singleRegions;
   final List<String>? boxes;
   final List<String>? sections;
   final String? root;
@@ -511,21 +713,23 @@ class _ConceptDiagramPainter extends CustomPainter {
   final String? comparison;
   final double? incidentAngle;
   final double? reflectedAngle;
-  final Object? labels;
+  final List<String>? labels;
   final List<String>? angles;
-  final Object? vectors;
-  final Object? components;
+  final List<Map<String, Object?>>? vectorItems;
+  final List<Map<String, Object?>>? additionComponents;
   final Map<String, Object?>? resultant;
   final double? magnitude;
   final double? angle;
   final String? unit;
-  final Map<String, Object?>? netForce;
+  final Map<String, String>? componentMap;
+  final Map<String, String>? netForce;
   final String? body;
   final String? orbiting;
+  final Map<String, String>? orbitVectors;
+  final Map<String, String>? waveLabels;
   final String? wavelength;
   final String? frequency;
   final String? speed;
-
   final Color ink;
   final Color faint;
   final Color background;
@@ -534,82 +738,81 @@ class _ConceptDiagramPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     switch (type) {
+      case 'venn':
+        _drawVenn(canvas, size);
       case 'nested-boxes':
         _drawNestedBoxes(canvas, size);
-        return;
       case 'conic-sections':
         _drawConicSections(canvas, size);
-        return;
       case 'tree':
         _drawTree(canvas, size);
-        return;
       case 'inference':
         _drawInference(canvas, size);
-        return;
       case 'main-idea':
         _drawMainIdea(canvas, size);
-        return;
       case 'free-body':
         _drawFreeBody(canvas, size);
-        return;
       case 'gravitational-force':
         _drawGravitationalForce(canvas, size);
-        return;
       case 'ray-reflection':
         _drawRayReflection(canvas, size);
-        return;
       case 'vector-diagram':
         _drawVectorDiagram(canvas, size);
-        return;
       case 'vector-addition':
         _drawVectorAddition(canvas, size);
-        return;
       case 'vector-components':
         _drawVectorComponents(canvas, size);
-        return;
       case 'tug-of-war':
         _drawTugOfWar(canvas, size);
-        return;
       case 'circular-orbit':
         _drawCircularOrbit(canvas, size);
-        return;
       case 'wave':
         _drawWave(canvas, size);
-        return;
-      case 'venn':
-        _drawVennDiagram(canvas, size);
-        return;
+      default:
+        _drawDefaultSequence(canvas, size);
     }
+  }
 
+  void _drawDefaultSequence(Canvas canvas, Size size) {
+    if (nodes.isEmpty) return;
+
+    final centers =
+        type == 'hierarchy' ? _hierarchyCenters(size) : _rowCenters(size);
+    final count = math.min(nodes.length, centers.length);
     final stroke = Paint()
       ..color = ink
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 1.1;
-    final faintStroke = Paint()
-      ..color = faint
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1;
-    final centers =
-        type == 'hierarchy' ? _hierarchyCenters(size) : _rowCenters(size);
+      ..strokeWidth = 1.2;
+    final fill = Paint()
+      ..color = background
+      ..style = PaintingStyle.fill;
 
     for (final edge in edges) {
+      if (edge.$1 >= count || edge.$2 >= count) continue;
       final from = centers[edge.$1];
       final to = centers[edge.$2];
-      canvas.drawLine(from, to, faintStroke);
-      _drawArrowHead(canvas, from, to, faintStroke);
+      canvas.drawLine(from, to, stroke);
+      _drawArrowHead(canvas, from, to, stroke);
     }
 
-    for (var i = 0; i < nodes.length; i++) {
+    const boxWidth = 72.0;
+    const boxHeight = 36.0;
+    for (var i = 0; i < count; i++) {
       final center = centers[i];
-      final nodeBounds = Rect.fromCenter(center: center, width: 78, height: 42);
-      canvas.drawRect(nodeBounds, stroke);
+      final rect = Rect.fromCenter(
+        center: center,
+        width: boxWidth,
+        height: boxHeight,
+      );
+      canvas
+        ..drawRect(rect, fill)
+        ..drawRect(rect, stroke);
+
       final painter = TextPainter(
         text: TextSpan(text: nodes[i], style: labelStyle),
         textAlign: TextAlign.center,
         textDirection: TextDirection.ltr,
-        maxLines: 2,
-        ellipsis: '…',
-      )..layout(maxWidth: nodeBounds.width - 8);
+      )..layout(maxWidth: boxWidth - 8);
       painter.paint(
         canvas,
         Offset(
@@ -620,7 +823,7 @@ class _ConceptDiagramPainter extends CustomPainter {
     }
   }
 
-  void _drawVennDiagram(Canvas canvas, Size size) {
+  void _drawVenn(Canvas canvas, Size size) {
     final stroke = Paint()
       ..color = ink
       ..style = PaintingStyle.stroke
@@ -654,21 +857,21 @@ class _ConceptDiagramPainter extends CustomPainter {
       _drawText(canvas, sets![2], Offset(cC.dx - 40, cC.dy + 45));
 
       _drawText(canvas, center ?? '5', Offset(c.dx - 4, c.dy - 6));
-      _drawText(canvas, '10', Offset(c.dx - 4, cA.dy - 10));
-      _drawText(canvas, '5', Offset(c.dx + 16, c.dy + 12));
-      _drawText(canvas, '7', Offset(c.dx - 24, c.dy + 12));
+      _drawText(canvas, overlaps?['ab'] ?? '10', Offset(c.dx - 4, cA.dy - 10));
+      _drawText(canvas, overlaps?['bc'] ?? '5', Offset(c.dx + 16, c.dy + 12));
+      _drawText(canvas, overlaps?['ca'] ?? '7', Offset(c.dx - 24, c.dy + 12));
       return;
     }
 
     // 2-circle Venn
     _drawText(
       canvas,
-      'Total = 40',
+      'Total = ${regions?['total'] ?? '40'}',
       Offset(outerBox.left + 8, outerBox.top + 6),
     );
     _drawText(
       canvas,
-      'Outside: 5',
+      'Outside: ${regions?['outside'] ?? '5'}',
       Offset(outerBox.right - 70, outerBox.bottom - 20),
     );
 
@@ -691,9 +894,13 @@ class _ConceptDiagramPainter extends CustomPainter {
       Offset(c2.dx - 10, c2.dy - 74),
     );
 
-    _drawText(canvas, '17', Offset(c1.dx - 28, cy - 8));
-    _drawText(canvas, '8', Offset(outerBox.center.dx - 4, cy - 8));
-    _drawText(canvas, '10', Offset(c2.dx + 16, cy - 8));
+    _drawText(canvas, regions?['left'] ?? '17', Offset(c1.dx - 28, cy - 8));
+    _drawText(
+      canvas,
+      regions?['overlap'] ?? '8',
+      Offset(outerBox.center.dx - 4, cy - 8),
+    );
+    _drawText(canvas, regions?['right'] ?? '10', Offset(c2.dx + 16, cy - 8));
   }
 
   void _drawNestedBoxes(Canvas canvas, Size size) {
@@ -702,7 +909,6 @@ class _ConceptDiagramPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.2;
 
-    // Outer box: Real Numbers
     final realBox = Rect.fromLTWH(16, 12, size.width - 32, size.height - 24);
     canvas.drawRect(realBox, stroke);
     _drawText(
@@ -711,7 +917,6 @@ class _ConceptDiagramPainter extends CustomPainter {
       Offset(realBox.left + 8, realBox.top + 6),
     );
 
-    // Right inner box: Irrational Numbers
     final irratBox = Rect.fromLTWH(size.width - 140, 42, 112, size.height - 66);
     canvas.drawRect(irratBox, stroke);
     _drawText(
@@ -720,7 +925,6 @@ class _ConceptDiagramPainter extends CustomPainter {
       Offset(irratBox.left + 6, irratBox.top + 8),
     );
 
-    // Left nested boxes: Rational -> Integers -> Whole -> Natural
     final ratBox = Rect.fromLTWH(28, 42, size.width - 180, size.height - 66);
     canvas.drawRect(ratBox, stroke);
     _drawText(
@@ -765,7 +969,6 @@ class _ConceptDiagramPainter extends CustomPainter {
     final cx = size.width * 0.4;
     final cy = size.height / 2;
 
-    // Upper cone
     final topApex = Offset(cx, cy);
     canvas
       ..drawLine(topApex, Offset(cx - 50, cy - 80), stroke)
@@ -802,21 +1005,18 @@ class _ConceptDiagramPainter extends CustomPainter {
       Offset(cx + 65, cy - 56),
     );
 
-    // Ellipse: tilted
     _drawText(
       canvas,
       'Ellipse (tilted cut)',
       Offset(cx + 65, cy - 30),
     );
 
-    // Parabola: parallel to slope
     _drawText(
       canvas,
       'Parabola (parallel cut)',
       Offset(cx + 65, cy + 20),
     );
 
-    // Hyperbola: vertical through both
     _drawText(
       canvas,
       'Hyperbola (vertical cut)',
@@ -845,7 +1045,10 @@ class _ConceptDiagramPainter extends CustomPainter {
         Offset(branchX - 10, by),
         stroke,
       );
-      _drawText(canvas, 'Shirt ${i + 1}', Offset(branchX, by - 7));
+      final bName = branches != null && i < branches!.length
+          ? (branches![i]['name'] as String? ?? 'Shirt ${i + 1}')
+          : 'Shirt ${i + 1}';
+      _drawText(canvas, bName, Offset(branchX, by - 7));
 
       for (var j = 0; j < 3; j++) {
         final ly = by - 12 + j * 12;
@@ -907,7 +1110,6 @@ class _ConceptDiagramPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1;
 
-    // Top: Topic Sentence / Main Idea
     final mainBox = Rect.fromCenter(
       center: Offset(size.width / 2, 40),
       width: size.width - 48,
@@ -920,7 +1122,6 @@ class _ConceptDiagramPainter extends CustomPainter {
       Offset(mainBox.left + 16, mainBox.top + 14),
     );
 
-    // Bottom: Supporting details
     final detailItems = details ??
         ['Supporting detail 1', 'Supporting detail 2', 'Supporting detail 3'];
     final slotW = size.width / detailItems.length;
@@ -954,7 +1155,6 @@ class _ConceptDiagramPainter extends CustomPainter {
       ..drawRect(box, stroke);
     _drawText(canvas, 'Box (m)', Offset(center.dx - 20, center.dy - 6));
 
-    // Normal force arrow UP
     _drawArrow(
       canvas,
       Offset(center.dx, box.top),
@@ -967,7 +1167,6 @@ class _ConceptDiagramPainter extends CustomPainter {
       Offset(center.dx + 8, box.top - 50),
     );
 
-    // Gravity force arrow DOWN
     _drawArrow(
       canvas,
       Offset(center.dx, box.bottom),
@@ -991,7 +1190,6 @@ class _ConceptDiagramPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1;
 
-    // Main interaction at distance r
     final y1 = size.height * 0.38;
     final s1 = Offset(70, y1);
     final s2 = Offset(210, y1);
@@ -1009,14 +1207,12 @@ class _ConceptDiagramPainter extends CustomPainter {
       Offset(s2.dx - 8, s2.dy - 6),
     );
 
-    // Attractive force arrows
     _drawArrow(canvas, s1, Offset(s1.dx + 40, y1), stroke);
     _drawText(canvas, 'F', Offset(s1.dx + 20, y1 - 18));
 
     _drawArrow(canvas, s2, Offset(s2.dx - 40, y1), stroke);
     _drawText(canvas, 'F', Offset(s2.dx - 30, y1 - 18));
 
-    // Distance r
     _drawDashedLine(
       canvas,
       Offset(s1.dx, y1 + 32),
@@ -1025,11 +1221,10 @@ class _ConceptDiagramPainter extends CustomPainter {
     );
     _drawText(
       canvas,
-      'distance = r',
+      'distance = ${distance ?? 'r'}',
       Offset((s1.dx + s2.dx) / 2 - 28, y1 + 36),
     );
 
-    // Inset comparison box: distance 2r -> F/4
     final inset = Rect.fromLTWH(size.width - 150, 16, 134, size.height - 32);
     canvas.drawRect(inset, faintStroke);
     _drawText(
@@ -1075,13 +1270,11 @@ class _ConceptDiagramPainter extends CustomPainter {
     final mirrorRight = size.width - 40;
     final center = Offset(size.width / 2, mirrorY);
 
-    // Flat mirror surface
     canvas.drawLine(
       Offset(mirrorLeft, mirrorY),
       Offset(mirrorRight, mirrorY),
       stroke,
     );
-    // Hash marks under mirror
     for (var x = mirrorLeft; x <= mirrorRight; x += 10) {
       canvas.drawLine(
         Offset(x, mirrorY),
@@ -1091,33 +1284,33 @@ class _ConceptDiagramPainter extends CustomPainter {
     }
     _drawText(canvas, 'Flat mirror', Offset(mirrorLeft, mirrorY + 12));
 
-    // Normal line
     _drawDashedLine(canvas, Offset(center.dx, 20), center, faintStroke);
     _drawText(canvas, 'Normal line', Offset(center.dx + 4, 22));
 
-    // Incident ray
     final incStart = Offset(center.dx - 90, 45);
     _drawArrow(canvas, incStart, center, stroke);
     _drawText(
       canvas,
       incidentAngle != null
           ? '${incidentAngle!.toInt()}°'
-          : 'Angle of incidence (θi)',
+          : (labels != null && labels!.isNotEmpty
+              ? labels![0]
+              : 'Angle of incidence (θi)'),
       Offset(center.dx - 80, mirrorY - 60),
     );
 
-    // Reflected ray
     final refEnd = Offset(center.dx + 90, 45);
     _drawArrow(canvas, center, refEnd, stroke);
     _drawText(
       canvas,
       reflectedAngle != null
           ? '${reflectedAngle!.toInt()}°'
-          : 'Angle of reflection (θr)',
+          : (labels != null && labels!.length > 2
+              ? labels![2]
+              : 'Angle of reflection (θr)'),
       Offset(center.dx + 16, mirrorY - 60),
     );
 
-    // Angle arcs
     canvas
       ..drawArc(
         Rect.fromCircle(center: center, radius: 28),
@@ -1143,21 +1336,25 @@ class _ConceptDiagramPainter extends CustomPainter {
 
     final origin = Offset(60, size.height - 50);
 
-    // Vector 1: 5 N East
     final v1End = Offset(origin.dx + 90, origin.dy);
     _drawArrow(canvas, origin, v1End, stroke);
+    final l1 = vectorItems != null && vectorItems!.isNotEmpty
+        ? (vectorItems![0]['label'] as String? ?? '5 N East')
+        : '5 N East';
     _drawText(
       canvas,
-      '5 N East (magnitude = 5)',
+      l1,
       Offset(origin.dx + 10, origin.dy + 8),
     );
 
-    // Vector 2: 8 N Northeast
     final v2End = Offset(origin.dx + 140, origin.dy - 100);
     _drawArrow(canvas, origin, v2End, stroke);
+    final l2 = vectorItems != null && vectorItems!.length > 1
+        ? (vectorItems![1]['label'] as String? ?? '8 N Northeast')
+        : '8 N Northeast';
     _drawText(
       canvas,
-      '8 N Northeast (magnitude = 8)',
+      l2,
       Offset(v2End.dx - 30, v2End.dy - 16),
     );
   }
@@ -1176,33 +1373,38 @@ class _ConceptDiagramPainter extends CustomPainter {
     final corner = Offset(start.dx + 140, start.dy);
     final tip = Offset(corner.dx, corner.dy - 110);
 
-    // Component 1: 3 km East
+    final l1 = additionComponents != null && additionComponents!.isNotEmpty
+        ? (additionComponents![0]['label'] as String? ?? '3 km East')
+        : '3 km East';
     _drawArrow(canvas, start, corner, stroke);
     _drawText(
       canvas,
-      '3 km East',
+      l1,
       Offset((start.dx + corner.dx) / 2 - 20, start.dy + 8),
     );
 
-    // Component 2: 4 km North
+    final l2 = additionComponents != null && additionComponents!.length > 1
+        ? (additionComponents![1]['label'] as String? ?? '4 km North')
+        : '4 km North';
     _drawArrow(canvas, corner, tip, stroke);
     _drawText(
       canvas,
-      '4 km North',
+      l2,
       Offset(corner.dx + 8, (corner.dy + tip.dy) / 2),
     );
 
-    // Right angle mark
     canvas.drawRect(
       Rect.fromLTWH(corner.dx - 12, corner.dy - 12, 12, 12),
       faintStroke,
     );
 
-    // Resultant 5 km hypotenuse
+    final resLabel = resultant != null
+        ? (resultant!['label'] as String? ?? 'Resultant = 5 km')
+        : 'Resultant = 5 km';
     _drawArrow(canvas, start, tip, stroke);
     _drawText(
       canvas,
-      'Resultant = 5 km',
+      resLabel,
       Offset((start.dx + tip.dx) / 2 - 55, (start.dy + tip.dy) / 2 - 14),
     );
   }
@@ -1229,7 +1431,6 @@ class _ConceptDiagramPainter extends CustomPainter {
     );
     final corner = Offset(tip.dx, origin.dy);
 
-    // Main vector
     _drawArrow(canvas, origin, tip, stroke);
     _drawText(
       canvas,
@@ -1237,23 +1438,24 @@ class _ConceptDiagramPainter extends CustomPainter {
       Offset((origin.dx + tip.dx) / 2 - 20, (origin.dy + tip.dy) / 2 - 18),
     );
 
-    // Horizontal component
+    final hText =
+        componentMap?['horizontal'] ?? '${mag.toInt()} cos(${deg.toInt()}°)';
     _drawArrow(canvas, origin, corner, stroke);
     _drawText(
       canvas,
-      '${mag.toInt()} cos(${deg.toInt()}°)',
+      hText,
       Offset((origin.dx + corner.dx) / 2 - 25, origin.dy + 8),
     );
 
-    // Vertical dashed drop line
+    final vText =
+        componentMap?['vertical'] ?? '${mag.toInt()} sin(${deg.toInt()}°)';
     _drawDashedLine(canvas, tip, corner, faintStroke);
     _drawText(
       canvas,
-      '${mag.toInt()} sin(${deg.toInt()}°)',
+      vText,
       Offset(corner.dx + 8, (tip.dy + corner.dy) / 2),
     );
 
-    // Angle arc
     canvas.drawArc(
       Rect.fromCircle(center: origin, radius: 30),
       -rad,
@@ -1277,25 +1479,28 @@ class _ConceptDiagramPainter extends CustomPainter {
     final cy = size.height * 0.4;
     final cx = size.width / 2;
 
-    // Rope
     canvas
       ..drawLine(Offset(40, cy), Offset(size.width - 40, cy), stroke)
       ..drawCircle(Offset(cx, cy), 5, Paint()..color = ink);
 
-    // Team A pulling left (600 N)
+    final lA = forces != null && forces!.isNotEmpty
+        ? (forces![0]['label'] as String? ?? 'Team A: 600 N (Left)')
+        : 'Team A: 600 N (Left)';
     _drawArrow(canvas, Offset(cx, cy), Offset(cx - 110, cy), stroke);
-    _drawText(canvas, 'Team A: 600 N (Left)', Offset(cx - 130, cy - 22));
+    _drawText(canvas, lA, Offset(cx - 130, cy - 22));
 
-    // Team B pulling right (450 N)
+    final lB = forces != null && forces!.length > 1
+        ? (forces![1]['label'] as String? ?? 'Team B: 450 N (Right)')
+        : 'Team B: 450 N (Right)';
     _drawArrow(canvas, Offset(cx, cy), Offset(cx + 80, cy), stroke);
-    _drawText(canvas, 'Team B: 450 N (Right)', Offset(cx + 20, cy - 22));
+    _drawText(canvas, lB, Offset(cx + 20, cy - 22));
 
-    // Net force arrow below
     final netY = cy + 45;
+    final netText = netForce?['label'] ?? 'Net Force = 150 N to the Left';
     _drawArrow(canvas, Offset(cx, netY), Offset(cx - 50, netY), stroke);
     _drawText(
       canvas,
-      'Net Force = 150 N to the Left',
+      netText,
       Offset(cx - 100, netY + 8),
     );
   }
@@ -1311,15 +1516,12 @@ class _ConceptDiagramPainter extends CustomPainter {
       ..strokeWidth = 1;
 
     final center = size.center(Offset.zero);
-    // Earth
     canvas.drawCircle(center, 32, stroke);
     _drawText(canvas, body ?? 'Earth', Offset(center.dx - 14, center.dy - 6));
 
-    // Orbit path
     const r = 70.0;
     canvas.drawCircle(center, r, faintStroke);
 
-    // Satellite at top
     final satPos = Offset(center.dx, center.dy - r);
     canvas.drawRect(
       Rect.fromCenter(center: satPos, width: 12, height: 12),
@@ -1331,13 +1533,19 @@ class _ConceptDiagramPainter extends CustomPainter {
       Offset(satPos.dx + 10, satPos.dy - 12),
     );
 
-    // Velocity arrow tangent (pointing left)
     _drawArrow(canvas, satPos, Offset(satPos.dx - 55, satPos.dy), stroke);
-    _drawText(canvas, 'v (tangent)', Offset(satPos.dx - 65, satPos.dy - 16));
+    _drawText(
+      canvas,
+      orbitVectors?['velocity'] ?? 'v (tangent)',
+      Offset(satPos.dx - 65, satPos.dy - 16),
+    );
 
-    // Centripetal acceleration arrow inward toward Earth
     _drawArrow(canvas, satPos, Offset(satPos.dx, satPos.dy + 40), stroke);
-    _drawText(canvas, 'ac (inward)', Offset(satPos.dx + 6, satPos.dy + 15));
+    _drawText(
+      canvas,
+      orbitVectors?['acceleration'] ?? 'ac (inward)',
+      Offset(satPos.dx + 6, satPos.dy + 15),
+    );
   }
 
   void _drawWave(Canvas canvas, Size size) {
@@ -1351,11 +1559,9 @@ class _ConceptDiagramPainter extends CustomPainter {
       ..strokeWidth = 1;
 
     final cy = size.height * 0.52;
-    // Resting line
     canvas.drawLine(Offset(20, cy), Offset(size.width - 20, cy), faintStroke);
     _drawText(canvas, 'Resting line', Offset(24, cy + 4));
 
-    // Sine wave
     final path = Path();
     const wavelengthPx = 140.0;
     const ampPx = 36.0;
@@ -1370,7 +1576,6 @@ class _ConceptDiagramPainter extends CustomPainter {
     }
     canvas.drawPath(path, stroke);
 
-    // Wavelength measurement (crest to crest)
     final crest1 = Offset(40 + wavelengthPx / 4, cy - ampPx);
     final crest2 = Offset(crest1.dx + wavelengthPx, cy - ampPx);
     final dimY = crest1.dy - 14;
@@ -1391,15 +1596,14 @@ class _ConceptDiagramPainter extends CustomPainter {
       Offset(crest2.dx, dimY),
       faintStroke,
     );
-    final waveLabel =
-        wavelength != null ? 'Wavelength = $wavelength' : 'Wavelength (λ)';
+    final waveLabel = waveLabels?['wavelength'] ??
+        (wavelength != null ? 'Wavelength = $wavelength' : 'Wavelength (λ)');
     _drawText(
       canvas,
       waveLabel,
       Offset((crest1.dx + crest2.dx) / 2 - 40, dimY - 14),
     );
 
-    // Amplitude measurement
     final ampX = crest1.dx + wavelengthPx / 2;
     _drawDashedLine(
       canvas,
@@ -1407,12 +1611,18 @@ class _ConceptDiagramPainter extends CustomPainter {
       Offset(ampX, cy + ampPx),
       faintStroke,
     );
-    _drawText(canvas, 'Amplitude (A)', Offset(ampX + 6, cy + 12));
+    final ampLabel = waveLabels?['amplitude'] ?? 'Amplitude (A)';
+    _drawText(canvas, ampLabel, Offset(ampX + 6, cy + 12));
 
-    // Wave direction / frequency / speed info
     final info = [
-      if (frequency != null) 'Frequency: $frequency',
-      if (speed != null) 'Speed: $speed',
+      if (waveLabels?['frequency'] != null)
+        'Frequency: ${waveLabels!['frequency']}'
+      else if (frequency != null)
+        'Frequency: $frequency',
+      if (waveLabels?['speed'] != null)
+        'Speed: ${waveLabels!['speed']}'
+      else if (speed != null)
+        'Speed: $speed',
     ].join('   ');
     if (info.isNotEmpty) {
       _drawText(canvas, info, Offset(size.width / 2 - 50, size.height - 20));
@@ -1423,7 +1633,8 @@ class _ConceptDiagramPainter extends CustomPainter {
         Offset(size.width - 30, 20),
         stroke,
       );
-      _drawText(canvas, 'Travel direction', Offset(size.width - 100, 6));
+      final dirLabel = waveLabels?['direction'] ?? 'Travel direction';
+      _drawText(canvas, dirLabel, Offset(size.width - 100, 6));
     }
   }
 
@@ -1499,6 +1710,7 @@ class _ConceptDiagramPainter extends CustomPainter {
       !mapEquals(oldDelegate.regions, regions) ||
       oldDelegate.center != center ||
       !mapEquals(oldDelegate.overlaps, overlaps) ||
+      !mapEquals(oldDelegate.singleRegions, singleRegions) ||
       !listEquals(oldDelegate.boxes, boxes) ||
       !listEquals(oldDelegate.sections, sections) ||
       oldDelegate.root != root ||
@@ -1514,11 +1726,20 @@ class _ConceptDiagramPainter extends CustomPainter {
       oldDelegate.comparison != comparison ||
       oldDelegate.incidentAngle != incidentAngle ||
       oldDelegate.reflectedAngle != reflectedAngle ||
+      !listEquals(oldDelegate.labels, labels) ||
+      !listEquals(oldDelegate.angles, angles) ||
+      !listEquals(oldDelegate.vectorItems, vectorItems) ||
+      !listEquals(oldDelegate.additionComponents, additionComponents) ||
+      !mapEquals(oldDelegate.resultant, resultant) ||
       oldDelegate.magnitude != magnitude ||
       oldDelegate.angle != angle ||
       oldDelegate.unit != unit ||
+      !mapEquals(oldDelegate.componentMap, componentMap) ||
+      !mapEquals(oldDelegate.netForce, netForce) ||
       oldDelegate.body != body ||
       oldDelegate.orbiting != orbiting ||
+      !mapEquals(oldDelegate.orbitVectors, orbitVectors) ||
+      !mapEquals(oldDelegate.waveLabels, waveLabels) ||
       oldDelegate.wavelength != wavelength ||
       oldDelegate.frequency != frequency ||
       oldDelegate.speed != speed ||

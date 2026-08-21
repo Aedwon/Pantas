@@ -908,6 +908,474 @@ void main() {
     }
   });
 
+  testWidgets('invalid and incomplete lesson figure specs show missing box', (
+    tester,
+  ) async {
+    const invalidCases = <Map<String, Object?>>[
+      {
+        'kind': 'coordinate-graph',
+        'type': 'circle',
+        'points': [
+          [0, 0],
+        ],
+      },
+      {
+        'kind': 'coordinate-graph',
+        'type': 'circle',
+        'radius': -5,
+        'points': [
+          [0, 0],
+        ],
+      },
+      {
+        'kind': 'coordinate-graph',
+        'type': 'circle',
+        'radius': 5,
+        'points': [],
+      },
+      {
+        'kind': 'coordinate-graph',
+        'type': 'ellipse',
+        'points': [
+          [0, 0],
+        ],
+      },
+      {
+        'kind': 'coordinate-graph',
+        'type': 'hyperbola',
+        'formula': 'x^2 - y^2 = 1',
+        'points': [
+          [0, 0],
+        ],
+      },
+      {
+        'kind': 'coordinate-graph',
+        'type': 'hyperbola',
+        'formula': 'x^2 - y^2 = 1',
+        'points': [
+          [0, 0],
+        ],
+        'asymptoteSlopes': [1.0],
+      },
+      {
+        'kind': 'coordinate-graph',
+        'type': 'integral-area',
+        'formula': 'y = x^2',
+      },
+      {
+        'kind': 'coordinate-graph',
+        'type': 'integral-area',
+        'formula': 'y = x^2',
+        'points': [
+          [1, 0],
+        ],
+      },
+      {
+        'kind': 'coordinate-graph',
+        'type': 'linear-inequality',
+        'formula': 'y < x',
+        'points': [
+          [0, 0],
+          [1, 1],
+        ],
+        'shaded': 'sideways',
+      },
+      {
+        'kind': 'coordinate-graph',
+        'type': 'linear-inequality',
+        'formula': 'y < x',
+        'points': [
+          [0, 0],
+          [1, 1],
+        ],
+      },
+      {
+        'kind': 'coordinate-graph',
+        'type': 'limit-hole',
+        'formula': 'y = (x^2-1)/(x-1)',
+      },
+      {
+        'kind': 'coordinate-graph',
+        'type': 'piecewise',
+        'points': [
+          [0, 1],
+        ],
+      },
+      {
+        'kind': 'coordinate-graph',
+        'type': 'system',
+        'formula': 'y = x',
+        'points': [],
+      },
+      {
+        'kind': 'coordinate-graph',
+        'type': 'rational',
+        'formula': 'y = 1/x',
+      },
+      {
+        'kind': 'coordinate-graph',
+        'type': 'rational',
+        'formula': 'y = 1/x',
+        'asymptotes': 'none',
+      },
+      {
+        'kind': 'coordinate-graph',
+        'type': 'function-gallery',
+        'functions': [
+          '',
+        ],
+      },
+      {
+        'kind': 'coordinate-graph',
+        'type': 'conic-gallery',
+        'conics': [],
+      },
+      {
+        'kind': 'coordinate-graph',
+        'type': 'limits-gallery',
+        'discontinuities': [123],
+      },
+      {
+        'kind': 'coordinate-graph',
+        'type': 'projectile-motion',
+        'path': 'circle',
+        'velocityVectors': true,
+      },
+      {
+        'kind': 'coordinate-graph',
+        'type': 'projectile-motion',
+        'path': 'parabola',
+      },
+      {
+        'kind': 'coordinate-graph',
+        'type': 'horizontal-projectile',
+        'labels': {
+          'height': '?',
+          'distance': '?',
+        },
+      },
+      {
+        'kind': 'coordinate-graph',
+        'type': 'horizontal-projectile',
+        'initialVelocity': '3 m/s',
+        'labels': {
+          'height': '?',
+        },
+      },
+      {
+        'kind': 'chart',
+        'type': 'bar',
+        'labels': [
+          'A',
+          'B',
+        ],
+        'values': [10],
+      },
+      {
+        'kind': 'chart',
+        'type': 'bar',
+        'labels': [
+          'A',
+        ],
+        'values': [
+          'ten',
+        ],
+      },
+      {
+        'kind': 'chart',
+        'type': 'bar',
+        'labels': [
+          'A',
+        ],
+        'values': [10],
+        'yAxis': {
+          'min': 'zero',
+        },
+      },
+      {
+        'kind': 'chart',
+        'type': 'pie',
+        'labels': [
+          'A',
+          'B',
+        ],
+        'values': [10, -5],
+      },
+      {
+        'kind': 'chart',
+        'type': 'pie',
+        'labels': [
+          'A',
+          'B',
+        ],
+        'values': [10, 0],
+      },
+      {
+        'kind': 'chart',
+        'type': 'pie',
+        'labels': [],
+        'values': [],
+      },
+      {
+        'kind': 'chart',
+        'type': 'scatter',
+        'plots': [
+          'sideways',
+        ],
+      },
+      {
+        'kind': 'chart',
+        'type': 'scatter',
+        'trend': 'invalid',
+      },
+      {
+        'kind': 'chart',
+        'type': 'scatter',
+        'trend': 'upward',
+        'xLabel': '',
+        'yLabel': 'Y',
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'venn',
+        'sets': [
+          'A',
+          'B',
+        ],
+        'regions': {
+          'left': '1',
+          'overlap': '2',
+        },
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'venn',
+        'sets': [
+          'A',
+          'B',
+          'C',
+        ],
+        'overlaps': {
+          'ab': '1',
+          'bc': '2',
+          'ca': '3',
+        },
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'nested-boxes',
+        'boxes': [],
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'conic-sections',
+        'sections': [],
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'tree',
+        'branches': [
+          {
+            'name': 'B1',
+            'leaves': [
+              'L1',
+            ],
+          },
+        ],
+        'totalLeaves': 1,
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'tree',
+        'root': 'R',
+        'branches': [
+          {
+            'name': 'B1',
+            'leaves': [
+              'L1',
+            ],
+          },
+        ],
+        'totalLeaves': 0,
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'inference',
+        'clues': [
+          'C1',
+        ],
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'inference',
+        'clues': [],
+        'conclusion': 'C',
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'main-idea',
+        'details': [
+          'D1',
+        ],
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'main-idea',
+        'mainIdea': 'M',
+        'details': [],
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'free-body',
+        'forces': [
+          {
+            'label': 'F1',
+            'direction': 'diagonal',
+          },
+        ],
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'free-body',
+        'forces': [],
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'gravitational-force',
+        'masses': [
+          'm1',
+        ],
+        'distance': 'r',
+        'comparison': '2r',
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'gravitational-force',
+        'masses': [
+          'm1',
+          'm2',
+        ],
+        'distance': 'r',
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'ray-reflection',
+        'labels': [
+          'R1',
+          'N',
+          'R2',
+        ],
+        'angles': [
+          'A1',
+        ],
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'ray-reflection',
+        'incidentAngle': 0,
+        'reflectedAngle': 0,
+        'labels': [
+          '0',
+          '0',
+        ],
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'vector-diagram',
+        'vectors': [
+          {
+            'label': 'V1',
+            'angle': 0,
+            'magnitude': -5,
+          },
+        ],
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'vector-addition',
+        'components': [
+          {
+            'label': 'C1',
+            'dx': 1,
+            'dy': 0,
+          },
+        ],
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'vector-components',
+        'magnitude': -10,
+        'angle': 30,
+        'unit': 'N',
+        'components': {
+          'horizontal': 'H',
+          'vertical': 'V',
+        },
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'vector-components',
+        'magnitude': 10,
+        'angle': 30,
+        'components': {
+          'horizontal': 'H',
+          'vertical': 'V',
+        },
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'tug-of-war',
+        'forces': [
+          {
+            'label': 'F1',
+            'direction': 'left',
+            'magnitude': 100,
+          },
+        ],
+        'netForce': {
+          'label': 'Net',
+          'direction': 'up',
+        },
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'circular-orbit',
+        'body': 'Earth',
+        'orbiting': 'Satellite',
+        'vectors': {
+          'velocity': 'v',
+        },
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'wave',
+      },
+      {
+        'kind': 'concept-diagram',
+        'type': 'wave',
+        'labels': {},
+      },
+    ];
+
+    for (final spec in invalidCases) {
+      await tester.pumpApp(
+        LessonFigureWidget(
+          spec: spec,
+          semanticsLabel: 'Malformed spec test',
+        ),
+      );
+
+      expect(
+        find.text('This lesson needs a diagram that has not been drawn yet.'),
+        findsOneWidget,
+        reason: 'Spec failed to reject: $spec',
+      );
+      expect(find.byType(CoordinateGraphFigure), findsNothing);
+      expect(find.byType(ChartFigure), findsNothing);
+      expect(find.byType(ConceptDiagramFigure), findsNothing);
+    }
+  });
+
   testWidgets('a bad lesson spec uses lesson failure copy', (tester) async {
     await tester.pumpApp(
       const LessonFigureWidget(
