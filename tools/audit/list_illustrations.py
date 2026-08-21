@@ -12,6 +12,7 @@ import re
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 LESSONS = os.path.join(ROOT, "content", "lessons")
 OUT = os.path.join(ROOT, "docs", "content", "illustrations", "worklist.tsv")
+STRATEGY = os.path.join(ROOT, "docs", "content", "illustrations", "strategy.tsv")
 
 MARKER = re.compile(r"<!--\s*ILLUSTRATION:\s*(.*?)\s*-->")
 STOPWORDS = {"a", "an", "the", "of", "with", "and", "showing", "labeled",
@@ -72,6 +73,19 @@ def main():
         by_subject[r[0]] = by_subject.get(r[0], 0) + 1
     for s, n in sorted(by_subject.items(), key=lambda kv: -kv[1]):
         print(f"  {s}: {n}")
+    if os.path.isfile(STRATEGY):
+        strat_counts = {}
+        with open(STRATEGY, encoding="utf-8") as f:
+            header = f.readline().strip().split("\t")
+            strat_idx = header.index("strategy") if "strategy" in header else 6
+            for line in f:
+                parts = line.strip().split("\t")
+                if len(parts) > strat_idx:
+                    s = parts[strat_idx]
+                    strat_counts[s] = strat_counts.get(s, 0) + 1
+        print(f"  strategy: code={strat_counts.get('code', 0)} open={strat_counts.get('open', 0)} "
+              f"native={strat_counts.get('native', 0)} cut={strat_counts.get('cut', 0)} "
+              f"founder={strat_counts.get('founder', 0)}")
 
 
 if __name__ == "__main__":
