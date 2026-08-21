@@ -155,13 +155,25 @@ def check_complete(strategy_path: str, worklist_path: str, lessons_dir: str, ill
     inv = check_inventory(strategy_path, worklist_path)
     strategy_by_key = {r["key"]: r for r in inv["rows"]}
 
+    strategy_by_lesson = {}
+    for r in inv["rows"]:
+        lesson_key = (
+            f"{r['subject']}/{r['topic']}/{r['lesson']}"
+            if r["topic"]
+            else f"{r['subject']}/{r['lesson']}"
+        )
+        strategy_by_lesson.setdefault(lesson_key, []).append(r)
+
     if not os.path.isdir(lessons_dir):
         sys.stderr.write(f"Error: lessons directory not found: {lessons_dir}\n")
         sys.exit(1)
 
-    figure_markers = []
-    illustration_markers = []
+    lesson_figures = {}
+    lesson_illustrations = {}
+    all_figure_markers = []
+    all_illustration_markers = []
     unrecognized_kinds = []
+    json_errors = []
 
     for dirpath, _, filenames in os.walk(lessons_dir):
         for fn in sorted(filenames):
@@ -173,6 +185,7 @@ def check_complete(strategy_path: str, worklist_path: str, lessons_dir: str, ill
             subject = parts[0]
             topic = parts[1] if len(parts) > 2 else ""
             lesson = os.path.splitext(parts[-1])[0]
+            lesson_key = f"{subject}/{topic}/{lesson}" if topic else f"{subject}/{lesson}"
 
             with open(path, "r", encoding="utf-8") as f:
                 content = f.read()
@@ -184,55 +197,117 @@ def check_complete(strategy_path: str, worklist_path: str, lessons_dir: str, ill
                     try:
                         spec = json.loads(raw_json)
                     except Exception as e:
-                        sys.stderr.write(f"Error: invalid FIGURE JSON at {path}:{lineno}: {e}\n")
-                        sys.exit(1)
+                        json_errors.append((path, lineno, str(e)))
+                        continue
 
                     kind = spec.get("kind")
                     if not kind or kind not in KNOWN_FIGURE_KINDS:
                         unrecognized_kinds.append((path, lineno, kind))
-                    figure_markers.append((subject, topic, lesson, path, lineno, spec))
+                    lesson_figures.setdefault(lesson_key, []).append((lineno, spec))
+                    all_figure_markers.append((subject, topic, lesson, path, lineno, spec))
 
                 i_match = ILLUSTRATION_MARKER.search(line)
                 if i_match:
-                    desc = i_match.group(1)
-                    illustration_markers.append((subject, topic, lesson, path, lineno, desc))
+                    desc = i_match.group(1).strip()
+                    lesson_illustrations.setdefault(lesson_key, []).append((lineno, desc))
+                    all_illustration_markers.append((subject, topic, lesson, path, lineno, desc))
+
+    if json_errors:
+        for path, lineno, err in json_errors:
+            sys.stderr.write(f"Error: invalid FIGURE JSON at {path}:{lineno}: {err}\n")
+        sys.exit(1)
 
     if unrecognized_kinds:
         for path, lineno, kind in unrecognized_kinds:
             sys.stderr.write(f"Error: unrecognized figure kind '{kind}' at {path}:{lineno}\n")
         sys.exit(1)
 
-    # Check FIGURE markers total
-    if len(figure_markers) != EXPECTED_TOTALS["code"]:
-        sys.stderr.write(
+    errors = []
+
+    # Check global FIGURE markers total
+    if len(all_figure_markers) != EXPECTED_TOTALS["code"]:
+        errors.append(
             f"Error: expected {EXPECTED_TOTALS['code']} valid FIGURE markers, "
-            f"found {len(figure_markers)}\n"
+            f"found {len(all_figure_markers)}"
         )
-        sys.exit(1)
 
-    # Check ILLUSTRATION markers total (56 open + 3 founder = 59)
+    # Check global ILLUSTRATION markers total (56 open + 3 founder = 59)
     expected_illustrations = EXPECTED_TOTALS["open"] + EXPECTED_TOTALS["founder"]
-    if len(illustration_markers) != expected_illustrations:
-        sys.stderr.write(
+    if len(all_illustration_markers) != expected_illustrations:
+        errors.append(
             f"Error: expected {expected_illustrations} remaining ILLUSTRATION markers, "
-            f"found {len(illustration_markers)}\n"
+            f"found {len(all_illustration_markers)}"
         )
+
+    # Lesson-level validation
+    all_lesson_keys = sorted(
+        set(strategy_by_lesson.keys())
+        | set(lesson_figures.keys())
+        | set(lesson_illustrations.keys())
+    )
+
+    for lk in all_lesson_keys:
+        rows = strategy_by_lesson.get(lk, [])
+        planned_code = [r for r in rows if r["strategy"] == "code"]
+        planned_open_founder = [r for r in rows if r["strategy"] in ("open", "founder")]
+        planned_native_cut = [r for r in rows if r["strategy"] in ("native", "cut")]
+
+        actual_figs = lesson_figures.get(lk, [])
+        actual_illus = lesson_illustrations.get(lk, [])
+        actual_illus_descs = [desc for _, desc in actual_illus]
+
+        # 1. Lesson-level FIGURE count
+        if len(actual_figs) != len(planned_code):
+            errors.append(
+                f"Error in {lk}: expected {len(planned_code)} code FIGURE markers, "
+                f"found {len(actual_figs)}"
+            )
+
+        # 2. Native or cut markers remaining
+        native_cut_descs = {r["description"].strip() for r in planned_native_cut}
+        for desc in actual_illus_descs:
+            if desc in native_cut_descs:
+                errors.append(
+                    f"Error in {lk}: native/cut illustration marker remained: {desc}"
+                )
+
+        # 3. Unexpected illustration markers
+        open_founder_descs = [r["description"].strip() for r in planned_open_founder]
+        open_founder_set = set(open_founder_descs)
+        for desc in actual_illus_descs:
+            if desc not in open_founder_set and desc not in native_cut_descs:
+                errors.append(
+                    f"Error in {lk}: unexpected illustration marker: {desc}"
+                )
+
+        # 4. Missing open or founder markers
+        for exp_desc in open_founder_descs:
+            if exp_desc not in actual_illus_descs:
+                errors.append(
+                    f"Error in {lk}: missing planned open/founder illustration marker: {exp_desc}"
+                )
+
+    if errors:
+        for err in errors:
+            sys.stderr.write(f"{err}\n")
         sys.exit(1)
 
-    # Check PNG assets exist for all open and founder rows
+    # Check exact PNG assets exist for all open and founder rows
     missing_pngs = []
     for r in inv["rows"]:
         if r["strategy"] in ("open", "founder"):
-            target = os.path.join(ROOT, r["target_file"])
-            # Match any NN-*.png in the target directory
-            target_dir = os.path.dirname(target)
-            seq_num = int(r["seq"])
-            slot = glob.glob(os.path.join(target_dir, f"{seq_num:02d}-*.png"))
-            if not slot:
+            target_rel = r["target_file"]
+            if target_rel.startswith("content/illustrations/"):
+                subpath = os.path.relpath(target_rel, "content/illustrations")
+                target_path = os.path.join(illustrations_dir, subpath)
+            else:
+                target_path = os.path.join(illustrations_dir, target_rel)
+
+            if not os.path.isfile(target_path):
                 missing_pngs.append(r["target_file"])
 
     if missing_pngs:
-        sys.stderr.write(f"Error: {len(missing_pngs)} missing PNG slots:\n")
+        sys.stderr.write(f"Error: {len(missing_pngs)} missing PNG targets:\n")
         for p in missing_pngs[:10]:
             sys.stderr.write(f"  {p}\n")
         sys.exit(1)
