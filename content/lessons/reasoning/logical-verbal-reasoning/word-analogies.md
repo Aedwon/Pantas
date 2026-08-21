@@ -24,7 +24,9 @@ Common analogy relationship types:
 - **Degree**: *warm : hot* (a difference in intensity of the same quality)
 - **Worker to tool**: *carpenter : hammer* (a worker and the tool they use)
 
-<!-- ILLUSTRATION: a simple diagram showing "puppy" with an arrow labeled "is a baby" pointing to "dog," matched beside "kitten" with the same arrow labeled "is a baby" pointing to "cat," illustrating the shared relationship pattern -->
+| First Pair | Shared Relationship Pattern | Second Pair |
+| --- | --- | --- |
+| **Puppy $\to$ Dog** | "is a baby" (a puppy is a baby dog) | **Kitten $\to$ Cat** (a kitten is a baby cat) |
 
 A **double analogy** extends this to involve relationships in both directions or two separate paired relationships within a single question, requiring you to check that the connecting logic holds consistently across all four (or more) words.
 

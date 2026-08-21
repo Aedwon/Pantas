@@ -22,7 +22,11 @@ Two tools solve almost every sentence completion question.
 
 For sentences with two blanks, solve the easier blank first (whichever one has clearer context clues), which often narrows down the answer choices enough to make the second blank obvious.
 
-<!-- ILLUSTRATION: a sentence with a blank, with arrows pointing from surrounding signal words like "although" and "because" toward the blank, showing how the tone of nearby words hints at the missing word's meaning -->
+| Signal Word Type | Key Examples | Expected Blank Meaning | Sample Sentence |
+| --- | --- | --- | --- |
+| **Cause and effect** | *because*, *since*, *therefore* | Logical result of nearby facts | *Because* the bridge was damaged, it was **unsafe**. |
+| **Contrast** | *although*, *but*, *however* | Opposite of nearby clue | *Although* it rained, the event was **successful**. |
+| **Continuation** | *and*, *moreover*, *similarly* | Same tone / reinforcing idea | The task was difficult *and* **exhausting**. |
 
 ## Examples
 

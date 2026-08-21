@@ -19,7 +19,10 @@ Parallelism especially matters with **correlative conjunctions**, word pairs tha
 
 "She wanted *not only* to travel *but also* to save money." Both halves use "to + verb." "She wanted *not only* traveling *but also* to save money" breaks this matching pattern.
 
-<!-- ILLUSTRATION: a sentence with three list items shown as matching-shaped blocks (all rounded, representing the same "-ing" form) versus a sentence with three list items shown as mismatched shapes (one round, one square, one triangle), representing broken parallelism -->
+| Structure | Example Sentence | Grammatical Forms |
+| --- | --- | --- |
+| **Parallel** | She likes *swimming*, *hiking*, and *reading*. | Matching `-ing` forms (all gerunds) |
+| **Not parallel** | She likes *swimming*, *to hike*, and *reading*. | Mismatched forms (`-ing`, `to + verb`, `-ing`) |
 
 ## Examples
 

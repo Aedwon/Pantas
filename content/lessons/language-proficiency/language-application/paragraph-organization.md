@@ -19,7 +19,12 @@ isActive: true
 
 **Look for cause-and-effect chains.** A sentence describing a result must come after the sentence describing its cause.
 
-<!-- ILLUSTRATION: four scrambled sentence cards being rearranged by an arrow into a straight, ordered line, with the topic sentence card highlighted at the front and pronoun-referring cards shown connected by dotted lines back to their antecedent cards -->
+| Order | Sentence Type | Logical Connection |
+| --- | --- | --- |
+| **1** | **Topic sentence** | Introduces main noun (no prior references needed) |
+| **2** | **Supporting detail** | Adds context; establishes antecedents |
+| **3** | **Connecting sentence** | Pronouns (*it*, *this*, *they*) link back to antecedents in sentence 2 |
+| **4** | **Result or conclusion** | Cause-and-effect outcome or concluding transition |
 
 ## Examples
 

@@ -32,7 +32,6 @@ Some passages combine purposes, but usually one purpose dominates.
 - **Third person limited**: the narrator is outside the story, using "he/she/they," but only reveals the thoughts and feelings of one character.
 - **Third person omniscient**: the narrator is outside the story and can reveal the thoughts and feelings of multiple (or all) characters.
 
-<!-- ILLUSTRATION: three narrator icons, one labeled "I" inside a story bubble (first person), one labeled "he/she" watching one character's thoughts through a small window (third limited), and one labeled "he/she" watching all characters' thoughts through several windows at once (third omniscient) -->
 
 ## Examples
 

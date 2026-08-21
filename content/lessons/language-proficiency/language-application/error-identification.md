@@ -22,7 +22,6 @@ The most efficient approach is a checklist scan, since most exam errors fall int
 
 Run through this checklist quickly rather than reading the sentence only once for "general wrongness." Errors are often subtle and easy to miss on a casual read, but jump out once you check for a specific rule.
 
-<!-- ILLUSTRATION: a short checklist card listing the six error categories with a small magnifying glass icon, next to a sample sentence with one word underlined in red as the error -->
 
 ## Examples
 

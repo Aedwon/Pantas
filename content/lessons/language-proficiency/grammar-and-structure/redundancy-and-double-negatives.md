@@ -25,7 +25,9 @@ A **double negative** uses two negative words in the same clause, which in stand
 
 Common negative words to watch for: *not*, *no*, *none*, *never*, *nothing*, *nobody*, *hardly*, *barely*, *scarcely*. Using two of these in the same clause creates a double negative.
 
-<!-- ILLUSTRATION: a simple math-style equation showing "negative x negative = positive" next to the sentence "I don't have no money" with an arrow showing it grammatically means "I have money" -->
+| Rule | Sentence | Grammatical Meaning | Correct Form |
+| --- | --- | --- | --- |
+| $\text{negative} \times \text{negative} = \text{positive}$ | I *don't* have *no* money. | I have money. | I *don't* have *any* money. |
 
 ## Examples
 

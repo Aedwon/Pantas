@@ -19,7 +19,12 @@ Three tools help determine the true sequence.
 
 **Logical cause-and-effect** also implies order: a cause must happen before its effect, even if the passage mentions the effect first and explains the cause afterward.
 
-<!-- ILLUSTRATION: a passage with sentences appearing in a scrambled order (labeled with random letters A, B, C, D) being rearranged along a timeline arrow into their correct chronological order 1, 2, 3, 4 -->
+| Chronological Order | Scrambled Sentence | Sequencing Clue |
+| --- | --- | --- |
+| **1 (First)** | Sentence B | Past perfect tense ("had done") or initial cause |
+| **2 (Second)** | Sentence D | Intermediate transition word (*then*, *next*) |
+| **3 (Third)** | Sentence A | Resulting main action |
+| **4 (Fourth)** | Sentence C | Concluding time-signal word (*finally*, *afterward*) |
 
 ## Examples
 

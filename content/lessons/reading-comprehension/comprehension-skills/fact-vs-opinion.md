@@ -15,7 +15,12 @@ An **opinion** is a statement that expresses a belief, judgment, or preference, 
 
 The tricky part: opinions are often phrased confidently, using language that sounds factual. Watch for judgment words that signal an opinion, even in an otherwise fact-like sentence: *best*, *worst*, *should*, *beautiful*, *terrible*, *most important*, *clearly the right choice*.
 
-<!-- ILLUSTRATION: a simple two-column sorting chart, one column labeled FACT with a checkmark and a small icon of a scale/ruler (measurable), and one column labeled OPINION with a thought-bubble icon representing personal judgment -->
+| Fact (Verifiable & Measurable) | Opinion (Personal Judgment) |
+| --- | --- |
+| Can be proven true or false by evidence or records. | Expresses a personal belief, preference, or value judgment. |
+| Objective; does not depend on perspective. | Subjective; reasonable people can disagree. |
+| Contains testable data, dates, or measurements. | Contains signal words: *best*, *worst*, *beautiful*, *should*. |
+| Example: "Water boils at $100^\circ\text{C}$ at sea level." | Example: "Summer is the best season." |
 
 A single sentence can also mix fact and opinion. "The bridge, which took five years to build, is a stunning achievement" contains a fact (five years to build) and an opinion (a "stunning achievement" is a judgment).
 
