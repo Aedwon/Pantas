@@ -206,14 +206,17 @@ class _PhysicsMechanicsPainter extends CustomPainter {
   }
 
   void _paintKeplerEqualAreas(Canvas canvas, Size size) {
+    final orbitWidth = size.width * 0.72;
+    final orbitHeight = math.min(size.height * 0.54, orbitWidth * 0.62);
     final orbitRect = Rect.fromCenter(
       center: Offset(size.width * 0.50, size.height * 0.47),
-      width: size.width * 0.72,
-      height: size.height * 0.54,
+      width: orbitWidth,
+      height: orbitHeight,
     );
     final a = orbitRect.width / 2;
     final b = orbitRect.height / 2;
-    final c = a * 0.55;
+    final c = math.sqrt(a * a - b * b);
+    final eccentricity = c / a;
     final sun = Offset(orbitRect.center.dx - c, orbitRect.center.dy);
     final orbitPaint = Paint()
       ..color = ink
@@ -230,7 +233,7 @@ class _PhysicsMechanicsPainter extends CustomPainter {
     canvas.drawOval(orbitRect, orbitPaint);
 
     const nearHalfSpan = 0.80;
-    const farHalfSpan = 0.263;
+    final farHalfSpan = _equalAreaFarHalfSpan(eccentricity, nearHalfSpan);
     final nearStartAngle = math.pi - nearHalfSpan;
     final nearEndAngle = math.pi + nearHalfSpan;
     final farStartAngle = -farHalfSpan;
@@ -269,12 +272,17 @@ class _PhysicsMechanicsPainter extends CustomPainter {
   }
 
   void _paintOrbitalSpeed(Canvas canvas, Size size) {
+    final orbitWidth = size.width * 0.74;
+    final orbitHeight = math.min(118.0, orbitWidth * 0.62);
     final orbitRect = Rect.fromCenter(
       center: Offset(size.width * 0.50, 103),
-      width: size.width * 0.74,
-      height: 118,
+      width: orbitWidth,
+      height: orbitHeight,
     );
-    final sun = Offset(orbitRect.center.dx - orbitRect.width * 0.27, orbitRect.center.dy);
+    final a = orbitRect.width / 2;
+    final b = orbitRect.height / 2;
+    final c = math.sqrt(a * a - b * b);
+    final sun = Offset(orbitRect.center.dx - c, orbitRect.center.dy);
     canvas
       ..drawOval(orbitRect, _stroke)
       ..drawCircle(sun, 8, Paint()..color = board);
@@ -386,6 +394,22 @@ class _PhysicsMechanicsPainter extends CustomPainter {
     _label(canvas, label, Offset(origin.dx - 8, origin.dy - 20), 42, style: mutedStyle, align: TextAlign.center);
     _label(canvas, peLabel, Offset(origin.dx - 13, rect.bottom + 5), 52, style: mutedStyle, align: TextAlign.center);
     _label(canvas, keLabel, Offset(origin.dx - 13, rect.bottom + 23), 52, style: mutedStyle, align: TextAlign.center);
+  }
+
+  double _equalAreaFarHalfSpan(double eccentricity, double nearHalfSpan) {
+    final target = nearHalfSpan - eccentricity * math.sin(nearHalfSpan);
+    var low = 0.0;
+    var high = nearHalfSpan;
+    for (var i = 0; i < 32; i++) {
+      final mid = (low + high) / 2;
+      final sweptAreaTerm = mid + eccentricity * math.sin(mid);
+      if (sweptAreaTerm < target) {
+        low = mid;
+      } else {
+        high = mid;
+      }
+    }
+    return (low + high) / 2;
   }
 
   Offset _ellipsePoint(Rect rect, double angle) {
