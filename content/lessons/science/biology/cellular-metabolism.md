@@ -27,7 +27,7 @@ $$C_6H_{12}O_6 + 6O_2 \rightarrow 6CO_2 + 6H_2O + \text{ATP (energy)}$$
 
 In words: glucose and oxygen are broken down to produce carbon dioxide, water, and usable energy (ATP).
 
-<!-- ILLUSTRATION: cycle diagram showing a plant chloroplast producing glucose and oxygen from carbon dioxide, water, and sunlight, with an arrow to a mitochondrion (in the same plant cell or another organism) using that glucose and oxygen to produce carbon dioxide, water, and ATP, and an arrow looping back -->
+<!-- FIGURE: {"kind":"biology-diagram","type":"photosynthesis-respiration-cycle","illustrationKey":"science/biology/cellular-metabolism#1","photosynthesis":{"organelle":"chloroplast","inputs":["carbon dioxide","water","sunlight"],"outputs":["glucose","oxygen"]},"respiration":{"organelle":"mitochondrion","inputs":["glucose","oxygen"],"outputs":["carbon dioxide","water","ATP"]},"loopsBack":true} -->
 
 Notice that these two equations are essentially opposites of each other. The products of photosynthesis (glucose and oxygen) are exactly the raw materials (reactants) that cellular respiration needs. And the products of cellular respiration (carbon dioxide and water) are exactly what photosynthesis needs as raw materials. This is why plants and animals form such a tightly connected cycle: plants release the oxygen that animals breathe in, and animals (and plants themselves) release the carbon dioxide that plants use to make food.
 
@@ -50,7 +50,7 @@ Recall the full photosynthesis equation and check what is balanced.
 
 A student examines two different organelles under a microscope: one green and disc-shaped, the other bean-shaped with folded inner membranes. Identify which organelle performs photosynthesis and which performs cellular respiration.
 
-<!-- ILLUSTRATION: two organelles side by side: a green disc-shaped chloroplast (photosynthesis) and a bean-shaped mitochondrion with folded inner membranes/cristae (cellular respiration) -->
+<!-- FIGURE: {"kind":"biology-diagram","type":"organelle-comparison","illustrationKey":"science/biology/cellular-metabolism#2","organelles":[{"name":"chloroplast","shape":"disc","appearance":"green","process":"photosynthesis"},{"name":"mitochondrion","shape":"bean","appearance":"folded inner membranes/cristae","process":"cellular respiration"}]} -->
 
 
 **Solution:**
