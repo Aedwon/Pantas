@@ -129,11 +129,11 @@ Future<ReviewPreviewManifest> renderReviewPreviews({
   required WidgetTester tester,
 }) async {
   final specs = findReviewFigureSpecs(repositoryRoot);
-  await outputRoot.create(recursive: true);
+  outputRoot.createSync(recursive: true);
   final lightDir = Directory(p.join(outputRoot.path, 'light'));
   final darkDir = Directory(p.join(outputRoot.path, 'dark'));
-  await lightDir.create(recursive: true);
-  await darkDir.create(recursive: true);
+  lightDir.createSync(recursive: true);
+  darkDir.createSync(recursive: true);
 
   await tester.binding.setSurfaceSize(const Size(390, 900));
 
@@ -159,11 +159,11 @@ Future<ReviewPreviewManifest> renderReviewPreviews({
         throw StateError('Preview width for $key was not $reviewPreviewWidth.');
       }
 
-      await File(p.join(outputRoot.path, lightRelativePath)).writeAsBytes(
+      File(p.join(outputRoot.path, lightRelativePath)).writeAsBytesSync(
         light.bytes,
         flush: true,
       );
-      await File(p.join(outputRoot.path, darkRelativePath)).writeAsBytes(
+      File(p.join(outputRoot.path, darkRelativePath)).writeAsBytesSync(
         dark.bytes,
         flush: true,
       );
@@ -186,7 +186,7 @@ Future<ReviewPreviewManifest> renderReviewPreviews({
 
   final manifest = ReviewPreviewManifest(List.unmodifiable(entries));
   final manifestFile = File(p.join(outputRoot.path, 'manifest.json'));
-  await manifestFile.writeAsString(
+  manifestFile.writeAsStringSync(
     '${const JsonEncoder.withIndent('  ').convert(manifest.toJson())}\n',
     flush: true,
   );
@@ -282,9 +282,7 @@ Future<_RenderedPreview> _renderOne({
     ),
   );
   await tester.pump();
-  for (var frame = 0;
-      frame < 10 && tester.binding.hasScheduledFrame;
-      frame++) {
+  for (var frame = 0; frame < 10 && tester.binding.hasScheduledFrame; frame++) {
     await tester.pump(const Duration(milliseconds: 16));
   }
   final exception = tester.takeException();
