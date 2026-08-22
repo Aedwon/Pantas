@@ -19,7 +19,7 @@ isActive: true
 
 **Ground tissue** makes up most of a plant's body, filling the space between dermal and vascular tissue. It handles photosynthesis, storage, and support.
 
-<!-- ILLUSTRATION: cross-section of a plant stem showing an outer ring labeled dermal tissue, a middle ring of xylem and phloem bundles labeled vascular tissue, and the surrounding filler labeled ground tissue -->
+<!-- FIGURE: {"kind":"biology-diagram","type":"stem-tissues","illustrationKey":"science/biology/botany#1","outer":"dermal tissue","vascular":{"label":"vascular tissue","components":["xylem","phloem"]},"ground":"ground tissue"} -->
 
 ### Tropisms
 

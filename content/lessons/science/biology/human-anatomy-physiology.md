@@ -23,7 +23,7 @@ Brings in oxygen and removes carbon dioxide. Path: **nose/mouth** → **pharynx*
 
 Transports blood, oxygen, nutrients, and waste throughout the body. The **heart** has four chambers: two upper **atria** and two lower **ventricles**. **Arteries** carry blood away from the heart; **veins** carry blood back to the heart; **capillaries** are the tiny vessels where exchange with body tissues actually happens. **Pulmonary circulation** moves blood between the heart and lungs (to pick up oxygen); **systemic circulation** moves blood between the heart and the rest of the body (to deliver that oxygen).
 
-<!-- ILLUSTRATION: simplified heart diagram with four labeled chambers, two atria on top and two ventricles below, arrows showing blood flow to the lungs (pulmonary) and to the body (systemic) -->
+<!-- FIGURE: {"kind":"biology-diagram","type":"heart-circulation","illustrationKey":"science/biology/human-anatomy-physiology#1","layout":"atria-above-ventricles","chambers":["atrium","atrium","ventricle","ventricle"],"flows":[{"label":"pulmonary","destination":"lungs"},{"label":"systemic","destination":"body"}]} -->
 
 ### Nervous System
 

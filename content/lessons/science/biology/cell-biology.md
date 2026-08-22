@@ -23,7 +23,7 @@ The **endoplasmic reticulum (ER)** is a network of passages inside the cell. The
 
 The **Golgi apparatus** acts like a packaging and shipping center: it modifies, sorts, and packages proteins and other materials, then sends them where they need to go, inside or outside the cell.
 
-<!-- ILLUSTRATION: labeled diagram of a generalized cell showing the nucleus, mitochondria, ribosomes, rough and smooth endoplasmic reticulum, and Golgi apparatus, with small arrows suggesting the flow of a protein from ribosome through ER to Golgi -->
+<!-- FIGURE: {"kind":"biology-diagram","type":"cell-protein-flow","illustrationKey":"science/biology/cell-biology#1","labels":["nucleus","mitochondria","ribosomes","rough ER","smooth ER","Golgi apparatus"],"proteinFlow":["ribosomes","rough ER","Golgi apparatus"]} -->
 
 ### Plant vs. Animal Cells
 

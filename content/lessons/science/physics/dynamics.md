@@ -23,7 +23,7 @@ A bigger net force causes more acceleration; a bigger mass causes less accelerat
 
 **Third Law**: for every action force, there is an equal and opposite reaction force. Crucially, these two forces act on two different objects, which is why they do not cancel each other out.
 
-<!-- ILLUSTRATION: two figures, one showing a book resting motionless on a table with balanced forces (first law), one showing a hand pushing a cart with force arrow and resulting acceleration arrow (second law), and one showing a swimmer pushing water backward with an equal arrow showing water pushing the swimmer forward (third law) -->
+<!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"newton-laws","illustrationKey":"science/physics/dynamics#1","laws":[{"label":"first law","scene":"book motionless on table","relationship":"balanced forces"},{"label":"second law","scene":"hand pushing cart","relationship":"force arrow and acceleration arrow"},{"label":"third law","scene":"swimmer pushes water backward","relationship":"water pushes swimmer forward equally"}]} -->
 
 ### Force, Friction, Tension, and Normal Force
 

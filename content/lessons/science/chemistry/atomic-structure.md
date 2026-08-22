@@ -17,7 +17,7 @@ Every atom is built from three **subatomic particles**.
 
 Protons and neutrons have roughly the same mass (about $1$ atomic mass unit each) and together make up nearly all of an atom's mass, since electrons are thousands of times lighter and contribute very little mass.
 
-<!-- ILLUSTRATION: simple atom diagram showing a dense central nucleus made of protons (labeled +) and neutrons (labeled neutral), surrounded by orbiting electrons (labeled -) -->
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"atom-particles","illustrationKey":"science/chemistry/atomic-structure#1","nucleus":["proton (+)","neutron (neutral)"],"orbiting":["electron (-)"]} -->
 
 The **atomic number** equals the number of protons in an atom. This number defines which element the atom is: every atom of a given element has the same atomic number, and no two different elements share the same atomic number.
 

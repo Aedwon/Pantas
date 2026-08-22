@@ -23,7 +23,7 @@ Speeches also frequently use specific rhetorical devices to make ideas memorable
 - **Rhetorical question**: a question asked for effect, not expecting a literal answer ("Are we truly willing to accept this?").
 - **Parallelism**: repeating a grammatical structure across phrases for rhythm and emphasis ("Government of the people, by the people, for the people").
 
-<!-- ILLUSTRATION: a podium with three labeled arrows pointing outward toward an audience, labeled ethos (credibility), pathos (emotion), and logos (logic) -->
+<!-- FIGURE: {"kind":"reading-diagram","type":"rhetorical-appeals","illustrationKey":"reading-comprehension/text-types/speeches#1","source":"podium","target":"audience","appeals":[{"label":"ethos","meaning":"credibility"},{"label":"pathos","meaning":"emotion"},{"label":"logos","meaning":"logic"}]} -->
 
 ## Examples
 

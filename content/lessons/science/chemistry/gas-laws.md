@@ -27,7 +27,7 @@ $$\dfrac{P_1}{T_1} = \dfrac{P_2}{T_2}$$
 
 $$\dfrac{V_1}{n_1} = \dfrac{V_2}{n_2}$$
 
-<!-- ILLUSTRATION: four small pistons or containers side by side, each showing one gas law in action: a piston being compressed (Boyle's), a balloon expanding when heated (Charles's), a sealed rigid can with rising pressure gauge when heated (Gay-Lussac's), and a container growing larger as more gas particles are added (Avogadro's) -->
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"gas-laws-gallery","illustrationKey":"science/chemistry/gas-laws#1","laws":[{"label":"Boyle's","scene":"piston compressed"},{"label":"Charles's","scene":"balloon expands when heated"},{"label":"Gay-Lussac's","scene":"sealed rigid can, pressure rises when heated"},{"label":"Avogadro's","scene":"container grows as more gas particles are added"}]} -->
 
 **Combined Gas Law**: merges Boyle's, Charles's, and Gay-Lussac's laws into one formula, useful when pressure, volume, and temperature all change at once (with the amount of gas staying fixed):
 

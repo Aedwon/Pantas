@@ -15,7 +15,7 @@ Our picture of the atom did not appear all at once. It was built up over more th
 
 **J.J. Thomson (1897–1904)**: discovered the **electron**, a tiny negatively charged particle, proving atoms are not indivisible after all. He proposed the "**plum pudding model**": a positively charged "pudding," with negative electrons embedded inside it, like plums scattered through pudding.
 
-<!-- ILLUSTRATION: four small diagrams in a row showing Dalton's solid sphere, Thomson's plum pudding model with embedded electrons, Rutherford's nuclear model with electrons orbiting a tiny dense nucleus, and a modern electron cloud model around a nucleus -->
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"atomic-models","illustrationKey":"science/chemistry/history-of-the-atom#1","models":[{"label":"Dalton","model":"solid sphere"},{"label":"Thomson","model":"plum pudding with embedded electrons"},{"label":"Rutherford","model":"electrons orbiting a tiny dense nucleus"},{"label":"modern","model":"electron cloud around a nucleus"}]} -->
 
 **Ernest Rutherford (1911)**: performed the famous **gold foil experiment**, firing tiny particles at a thin sheet of gold. Most particles passed straight through, but a few bounced back sharply. This surprising result showed that an atom is mostly empty space, with a tiny, dense, positively charged **nucleus** at its center. Rutherford's model replaced Thomson's: electrons now orbited around this small central nucleus, more like planets around a distant sun.
 

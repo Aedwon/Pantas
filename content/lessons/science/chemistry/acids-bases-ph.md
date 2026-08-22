@@ -23,7 +23,7 @@ The **pH scale** measures how acidic or basic a solution is, running from $0$ to
 - $pH$ equal to $7$: Neutral (like pure water).
 - $pH$ greater than $7$: Basic (or alkaline). The higher the number, the more basic.
 
-<!-- ILLUSTRATION: horizontal pH scale numbered 0 to 14, colored gradient from red (acidic, low numbers) through green (neutral, 7) to blue/purple (basic, high numbers), with common examples marked: lemon juice near 2, pure water at 7, soap near 10 -->
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"ph-scale","illustrationKey":"science/chemistry/acids-bases-ph#1","min":0,"max":14,"neutral":7,"regions":["acidic","neutral","basic"],"examples":[{"label":"lemon juice","ph":2},{"label":"pure water","ph":7},{"label":"soap","ph":10}]} -->
 
 Each whole step on the pH scale represents a ten-times change in acidity, since the scale is based on powers of $10$. A solution with $pH = 3$ is $10$ times more acidic than one with $pH = 4$, and $100$ times more acidic than one with $pH = 5$.
 

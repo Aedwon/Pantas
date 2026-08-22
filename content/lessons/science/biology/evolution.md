@@ -22,7 +22,7 @@ Natural selection works through a repeatable chain of reasoning:
 
 Repeated over many generations, this process gradually shifts the population's traits to better match its environment. Importantly, natural selection does not make an individual organism change during its own lifetime; it changes which traits become more or less common across generations, based on differences in survival and reproduction.
 
-<!-- ILLUSTRATION: three generations of a bird population shown left to right, with beak sizes gradually shifting toward a shape that better matches an available food source, and individuals with the less-suited beak shape becoming rarer over time -->
+<!-- FIGURE: {"kind":"biology-diagram","type":"natural-selection-generations","illustrationKey":"science/biology/evolution#1","generations":3,"trait":"beak shape","selection":"better match to available food becomes more common","lessSuited":"rarer over time"} -->
 
 ### Speciation
 

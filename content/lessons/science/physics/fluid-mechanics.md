@@ -29,7 +29,7 @@ Pressure in a fluid acts equally in all directions, and increases with depth, si
 
 This explains floating and sinking: if an object's own weight is less than the weight of the fluid it would displace (meaning the object is less dense than the fluid), the buoyant force is strong enough to make it float. If the object's weight is more than the fluid it displaces (denser than the fluid), it sinks.
 
-<!-- ILLUSTRATION: two objects submerged in water, one less dense than water shown floating with a buoyant force arrow equal to its weight arrow, and one denser than water shown sinking with a buoyant force arrow smaller than its weight arrow -->
+<!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"buoyancy-comparison","illustrationKey":"science/physics/fluid-mechanics#1","cases":[{"state":"floating","density":"less dense than water","buoyantForce":"equal to weight"},{"state":"sinking","density":"denser than water","buoyantForce":"smaller than weight"}]} -->
 
 ### Bernoulli's Principle
 

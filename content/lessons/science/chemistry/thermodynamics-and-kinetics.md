@@ -17,7 +17,7 @@ An **exothermic** reaction releases energy (usually as heat) to its surroundings
 
 An **endothermic** reaction absorbs energy from its surroundings; the products end up with more energy than the reactants started with. The surroundings feel cooler. Example: an instant cold pack activating.
 
-<!-- ILLUSTRATION: two energy diagrams side by side, one showing reactants starting high and products ending lower with released energy arrow (exothermic), the other showing reactants starting low and products ending higher with absorbed energy arrow (endothermic) -->
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"reaction-energy","illustrationKey":"science/chemistry/thermodynamics-and-kinetics#1","profiles":[{"label":"exothermic","reactants":"high","products":"lower","energy":"released"},{"label":"endothermic","reactants":"low","products":"higher","energy":"absorbed"}]} -->
 
 ### Activation Energy
 

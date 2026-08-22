@@ -21,7 +21,7 @@ $$J = Ft = \Delta p = mv_f - mv_i$$
 
 This means the same impulse (change in momentum) can be delivered by a large force over a short time (like a punch), or a small force over a longer time (like a gentle, sustained push): this is why airbags and padded surfaces reduce injury: they extend the time of impact, reducing the force needed to produce the same change in momentum.
 
-<!-- ILLUSTRATION: two scenarios showing the same total impulse, one showing a hand hitting a hard surface with a large force over a very short time, the other showing a hand hitting an airbag with a smaller force spread over a longer time -->
+<!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"impulse-duration","illustrationKey":"science/physics/momentum-and-impulse#1","impulse":"same","cases":[{"surface":"hard surface","force":"large","time":"very short"},{"surface":"airbag","force":"smaller","time":"longer"}]} -->
 
 ### Conservation of Momentum
 
