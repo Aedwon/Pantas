@@ -41,7 +41,9 @@ class EarthScienceDiagramFigure extends StatelessWidget {
     final type = spec['type'];
     final illustrationKey = spec['illustrationKey'];
     if (type is! String || !_types.contains(type)) return null;
-    if (illustrationKey is! String || illustrationKey.trim().isEmpty) return null;
+    if (illustrationKey is! String || illustrationKey.trim().isEmpty) {
+      return null;
+    }
 
     final valid = switch (type) {
       'seasonal-orbit' => _validSeasonalOrbit(spec),
@@ -518,7 +520,12 @@ class _EarthSciencePainter extends CustomPainter {
       Offset(panelWidth * 2.5, 105),
     ];
     _earthWithAxis(canvas, centers[0], 25);
-    _arcArrow(canvas, Rect.fromCircle(center: centers[0], radius: 38), -.8, 4.5);
+    _arcArrow(
+      canvas,
+      Rect.fromCircle(center: centers[0], radius: 38),
+      -.8,
+      4.5,
+    );
     _text(canvas, 'rotation', centers[0] + const Offset(0, 54));
     _text(
       canvas,
@@ -640,7 +647,6 @@ class _EarthSciencePainter extends CustomPainter {
       canvas,
       'distant stars',
       Offset(size.width / 2, 4),
-      maxWidth: 100,
       mutedText: true,
     );
     _arcArrow(canvas, Rect.fromCircle(center: b, radius: 31), -.45, 4.9);
@@ -692,20 +698,21 @@ class _EarthSciencePainter extends CustomPainter {
       Offset(size.width * .72, 183),
       maxWidth: 90,
     );
-    canvas.drawArc(
-      Rect.fromLTWH(35, 28, size.width - 70, 110),
-      math.pi,
-      math.pi,
-      false,
-      _faintStroke,
-    );
-    canvas.drawArc(
-      Rect.fromLTWH(50, 42, size.width - 100, 82),
-      math.pi,
-      math.pi,
-      false,
-      _faintStroke,
-    );
+    canvas
+      ..drawArc(
+        Rect.fromLTWH(35, 28, size.width - 70, 110),
+        math.pi,
+        math.pi,
+        false,
+        _faintStroke,
+      )
+      ..drawArc(
+        Rect.fromLTWH(50, 42, size.width - 100, 82),
+        math.pi,
+        math.pi,
+        false,
+        _faintStroke,
+      );
     _text(
       canvas,
       'atmosphere',
@@ -799,8 +806,8 @@ class _EarthSciencePainter extends CustomPainter {
     final labels = fractions.length == 4
         ? const ['1', '1/2', '1/4', '1/8']
         : const ['100%', '50%', '25%'];
-    final barWidth = math.min(
-      78.0,
+    final barWidth = math.min<double>(
+      78,
       (size.width - 42) / fractions.length - 10,
     );
     for (var i = 0; i < fractions.length; i++) {
@@ -808,11 +815,12 @@ class _EarthSciencePainter extends CustomPainter {
       final rect = Rect.fromLTWH(x, 85, barWidth, 74);
       canvas.drawRect(rect, _faintStroke);
       final parentRect = Rect.fromLTWH(x, 85, barWidth * fractions[i], 74);
-      canvas.drawRect(
-        parentRect,
-        Paint()..color = ink.withValues(alpha: .16),
-      );
-      canvas.drawRect(parentRect, _stroke);
+      canvas
+        ..drawRect(
+          parentRect,
+          Paint()..color = ink.withValues(alpha: .16),
+        )
+        ..drawRect(parentRect, _stroke);
       _text(
         canvas,
         labels[i],
@@ -898,18 +906,21 @@ class _EarthSciencePainter extends CustomPainter {
   }
 
   void _drawComet(Canvas canvas, Size size) {
-    final sun = Offset(size.width / 2, 132);
-    _sun(canvas, sun, 23);
     final orbit = Rect.fromCenter(
-      center: sun,
+      center: Offset(size.width / 2, 132),
       width: size.width * .72,
       height: 175,
     );
+    final a = orbit.width / 2;
+    final b = orbit.height / 2;
+    final c = math.sqrt(a * a - b * b);
+    final sun = Offset(orbit.center.dx - c, orbit.center.dy);
     canvas.drawOval(orbit, _faintStroke);
     final positions = <Offset>[
-      Offset(orbit.left + 30, sun.dy - 47),
-      Offset(orbit.right - 28, sun.dy + 50),
+      _ellipsePoint(orbit, math.pi * .74),
+      _ellipsePoint(orbit, math.pi * 1.84),
     ];
+    _sun(canvas, sun, 23);
     for (final p in positions) {
       canvas.drawCircle(p, 7, _stroke);
       final outward = p - sun;
@@ -928,11 +939,19 @@ class _EarthSciencePainter extends CustomPainter {
     }
   }
 
+  Offset _ellipsePoint(Rect ellipse, double angle) {
+    return Offset(
+      ellipse.center.dx + ellipse.width / 2 * math.cos(angle),
+      ellipse.center.dy + ellipse.height / 2 * math.sin(angle),
+    );
+  }
+
   void _drawSeismicCore(Canvas canvas, Size size) {
     final center = Offset(size.width / 2, 126);
-    canvas.drawCircle(center, 92, _stroke);
-    canvas.drawCircle(center, 58, _faintStroke);
-    canvas.drawCircle(center, 28, _faintStroke);
+    canvas
+      ..drawCircle(center, 92, _stroke)
+      ..drawCircle(center, 58, _faintStroke)
+      ..drawCircle(center, 28, _faintStroke);
     _text(
       canvas,
       'liquid outer core',
@@ -981,17 +1000,18 @@ class _EarthSciencePainter extends CustomPainter {
         sEnd.dx,
         sEnd.dy,
       );
-    canvas.drawPath(sPath, _stroke);
-    canvas.drawLine(
-      sEnd + const Offset(-5, -5),
-      sEnd + const Offset(5, 5),
-      _stroke,
-    );
-    canvas.drawLine(
-      sEnd + const Offset(-5, 5),
-      sEnd + const Offset(5, -5),
-      _stroke,
-    );
+    canvas
+      ..drawPath(sPath, _stroke)
+      ..drawLine(
+        sEnd + const Offset(-5, -5),
+        sEnd + const Offset(5, 5),
+        _stroke,
+      )
+      ..drawLine(
+        sEnd + const Offset(-5, 5),
+        sEnd + const Offset(5, -5),
+        _stroke,
+      );
     _text(
       canvas,
       'S stops',
@@ -1184,24 +1204,25 @@ class _EarthSciencePainter extends CustomPainter {
     );
     final midY = rect.center.dy;
     if (name == 'divergent') {
-      canvas.drawRect(
-        Rect.fromLTWH(
-          rect.left + 8,
-          midY - 12,
-          rect.width * .42,
-          34,
-        ),
-        _stroke,
-      );
-      canvas.drawRect(
-        Rect.fromLTWH(
-          rect.center.dx + 5,
-          midY - 12,
-          rect.width * .42,
-          34,
-        ),
-        _stroke,
-      );
+      canvas
+        ..drawRect(
+          Rect.fromLTWH(
+            rect.left + 8,
+            midY - 12,
+            rect.width * .42,
+            34,
+          ),
+          _stroke,
+        )
+        ..drawRect(
+          Rect.fromLTWH(
+            rect.center.dx + 5,
+            midY - 12,
+            rect.width * .42,
+            34,
+          ),
+          _stroke,
+        );
       _arrow(
         canvas,
         Offset(rect.center.dx - 8, midY - 29),
@@ -1233,16 +1254,17 @@ class _EarthSciencePainter extends CustomPainter {
         ..lineTo(rect.center.dx - 8, midY + 16)
         ..lineTo(rect.left + 8, midY + 16)
         ..close();
-      canvas.drawPath(leftPlate, _stroke);
-      canvas.drawRect(
-        Rect.fromLTWH(
-          rect.center.dx - 2,
-          midY - 10,
-          rect.width * .47,
-          27,
-        ),
-        _stroke,
-      );
+      canvas
+        ..drawPath(leftPlate, _stroke)
+        ..drawRect(
+          Rect.fromLTWH(
+            rect.center.dx - 2,
+            midY - 10,
+            rect.width * .47,
+            27,
+          ),
+          _stroke,
+        );
       _arrow(
         canvas,
         Offset(rect.left + 15, midY - 29),
@@ -1261,39 +1283,43 @@ class _EarthSciencePainter extends CustomPainter {
         mutedText: true,
       );
     } else {
-      canvas.drawRect(
-        Rect.fromLTWH(
-          rect.left + 10,
-          midY - 30,
-          rect.width * .38,
-          72,
-        ),
-        _stroke,
-      );
-      canvas.drawRect(
-        Rect.fromLTWH(
-          rect.center.dx + 4,
-          midY - 30,
-          rect.width * .38,
-          72,
-        ),
-        _stroke,
+      const gap = 5.0;
+      canvas
+        ..drawRect(
+          Rect.fromLTWH(
+            rect.left + 10,
+            rect.top + 23,
+            rect.width - 20,
+            midY - rect.top - 23 - gap,
+          ),
+          _stroke,
+        )
+        ..drawRect(
+          Rect.fromLTWH(
+            rect.left + 10,
+            midY + gap,
+            rect.width - 20,
+            rect.bottom - midY - gap - 23,
+          ),
+          _stroke,
+        );
+      _arrow(
+        canvas,
+        Offset(rect.right - 18, midY - 22),
+        Offset(rect.left + 20, midY - 22),
       );
       _arrow(
         canvas,
-        Offset(rect.left + 19, midY - 43),
-        Offset(rect.center.dx - 12, midY - 43),
+        Offset(rect.left + 20, midY + 22),
+        Offset(rect.right - 18, midY + 22),
       );
-      _arrow(
+      _dashedLine(
         canvas,
-        Offset(rect.right - 19, midY + 55),
-        Offset(rect.center.dx + 12, midY + 55),
+        Offset(rect.left + 8, midY),
+        Offset(rect.right - 8, midY),
       );
-      canvas.drawLine(
-        Offset(rect.center.dx, midY - 35),
-        Offset(rect.center.dx, midY + 47),
-        _faintStroke,
-      );
+      _star(canvas, Offset(rect.center.dx - 25, midY), 5);
+      _star(canvas, Offset(rect.center.dx + 25, midY), 5);
       _text(
         canvas,
         'slide past',
@@ -1305,34 +1331,34 @@ class _EarthSciencePainter extends CustomPainter {
   }
 
   void _drawTransform(Canvas canvas, Size size) {
-    final faultX = size.width / 2;
-    final left = Rect.fromLTWH(36, 62, faultX - 43, 132);
-    final right = Rect.fromLTWH(
-      faultX + 7,
-      62,
-      size.width - faultX - 43,
-      132,
-    );
-    canvas.drawRect(left, _stroke);
-    canvas.drawRect(right, _stroke);
-    _dashedLine(canvas, Offset(faultX, 42), Offset(faultX, 214));
-    _arrow(
+    const faultY = 128.5;
+    final top = Rect.fromLTWH(36, 55, size.width - 72, 65);
+    final bottom = Rect.fromLTWH(36, 136, size.width - 72, 65);
+    canvas
+      ..drawRect(top, _stroke)
+      ..drawRect(bottom, _stroke);
+    _dashedLine(
       canvas,
-      Offset(left.center.dx, 43),
-      Offset(left.center.dx - 58, 43),
+      const Offset(38, faultY),
+      Offset(size.width - 38, faultY),
     );
     _arrow(
       canvas,
-      Offset(right.center.dx, 213),
-      Offset(right.center.dx + 58, 213),
+      Offset(top.right - 55, top.center.dy),
+      Offset(top.left + 55, top.center.dy),
     );
-    for (final y in [89.0, 127.0, 168.0]) {
-      _star(canvas, Offset(faultX, y), 7);
+    _arrow(
+      canvas,
+      Offset(bottom.left + 55, bottom.center.dy),
+      Offset(bottom.right - 55, bottom.center.dy),
+    );
+    for (final x in [130.0, 195.0, 260.0]) {
+      _star(canvas, Offset(x, faultY), 7);
     }
     _text(
       canvas,
       'fault line',
-      Offset(faultX + 39, 112),
+      Offset(size.width - 67, faultY - 25),
       maxWidth: 66,
       mutedText: true,
     );
@@ -1527,52 +1553,55 @@ class _EarthSciencePainter extends CustomPainter {
   }
 
   void _earth(Canvas canvas, Offset center, double radius) {
-    canvas.drawCircle(center, radius, _fill);
-    canvas.drawCircle(center, radius, _stroke);
-    canvas.drawArc(
-      Rect.fromCircle(center: center, radius: radius * .62),
-      -.8,
-      1.7,
-      false,
-      _faintStroke,
-    );
-    canvas.drawLine(
-      center + Offset(-radius * .8, 0),
-      center + Offset(radius * .8, 0),
-      _faintStroke,
-    );
+    canvas
+      ..drawCircle(center, radius, _fill)
+      ..drawCircle(center, radius, _stroke)
+      ..drawArc(
+        Rect.fromCircle(center: center, radius: radius * .62),
+        -.8,
+        1.7,
+        false,
+        _faintStroke,
+      )
+      ..drawLine(
+        center + Offset(-radius * .8, 0),
+        center + Offset(radius * .8, 0),
+        _faintStroke,
+      );
   }
 
   void _sun(Canvas canvas, Offset center, double radius) {
-    canvas.drawCircle(center, radius, _fill);
-    canvas.drawCircle(center, radius, _stroke);
+    canvas
+      ..drawCircle(center, radius, _fill)
+      ..drawCircle(center, radius, _stroke);
     for (var i = 0; i < 8; i++) {
       final angle = i * math.pi / 4;
-      final a = center +
-          Offset(math.cos(angle), math.sin(angle)) * (radius + 4);
-      final b = center +
-          Offset(math.cos(angle), math.sin(angle)) * (radius + 11);
+      final a =
+          center + Offset(math.cos(angle), math.sin(angle)) * (radius + 4);
+      final b =
+          center + Offset(math.cos(angle), math.sin(angle)) * (radius + 11);
       canvas.drawLine(a, b, _faintStroke);
     }
   }
 
   void _moonOrbital(Canvas canvas, Offset center, double radius) {
-    canvas.save();
-    canvas.clipPath(
-      Path()..addOval(Rect.fromCircle(center: center, radius: radius)),
-    );
-    canvas.drawCircle(center, radius, _fill);
-    canvas.drawRect(
-      Rect.fromLTRB(
-        center.dx,
-        center.dy - radius,
-        center.dx + radius,
-        center.dy + radius,
-      ),
-      Paint()..color = ink.withValues(alpha: .18),
-    );
-    canvas.restore();
-    canvas.drawCircle(center, radius, _stroke);
+    canvas
+      ..save()
+      ..clipPath(
+        Path()..addOval(Rect.fromCircle(center: center, radius: radius)),
+      )
+      ..drawCircle(center, radius, _fill)
+      ..drawRect(
+        Rect.fromLTRB(
+          center.dx,
+          center.dy - radius,
+          center.dx + radius,
+          center.dy + radius,
+        ),
+        Paint()..color = ink.withValues(alpha: .18),
+      )
+      ..restore()
+      ..drawCircle(center, radius, _stroke);
   }
 
   void _phaseIcon(Canvas canvas, Offset center, double radius, int phase) {
@@ -1617,38 +1646,40 @@ class _EarthSciencePainter extends CustomPainter {
   }
 
   void _tree(Canvas canvas, Offset base) {
-    canvas.drawLine(base, base + const Offset(0, -32), _stroke);
-    canvas.drawCircle(
-      base + const Offset(0, -43),
-      15,
-      _faintStroke,
-    );
+    canvas
+      ..drawLine(base, base + const Offset(0, -32), _stroke)
+      ..drawCircle(
+        base + const Offset(0, -43),
+        15,
+        _faintStroke,
+      );
   }
 
   void _animal(Canvas canvas, Offset base) {
-    canvas.drawOval(
-      Rect.fromCenter(
-        center: base + const Offset(0, -12),
-        width: 28,
-        height: 14,
-      ),
-      _stroke,
-    );
-    canvas.drawCircle(
-      base + const Offset(17, -18),
-      6,
-      _stroke,
-    );
-    canvas.drawLine(
-      base + const Offset(-7, -5),
-      base + const Offset(-7, 3),
-      _stroke,
-    );
-    canvas.drawLine(
-      base + const Offset(7, -5),
-      base + const Offset(7, 3),
-      _stroke,
-    );
+    canvas
+      ..drawOval(
+        Rect.fromCenter(
+          center: base + const Offset(0, -12),
+          width: 28,
+          height: 14,
+        ),
+        _stroke,
+      )
+      ..drawCircle(
+        base + const Offset(17, -18),
+        6,
+        _stroke,
+      )
+      ..drawLine(
+        base + const Offset(-7, -5),
+        base + const Offset(-7, 3),
+        _stroke,
+      )
+      ..drawLine(
+        base + const Offset(7, -5),
+        base + const Offset(7, 3),
+        _stroke,
+      );
   }
 
   void _cloud(Canvas canvas, Offset center) {
@@ -1700,19 +1731,20 @@ class _EarthSciencePainter extends CustomPainter {
   }
 
   void _arrow(Canvas canvas, Offset from, Offset to) {
-    canvas.drawLine(from, to, _stroke);
     final angle = math.atan2(to.dy - from.dy, to.dx - from.dx);
     const head = 7.0;
-    canvas.drawLine(
-      to,
-      to - Offset(math.cos(angle - .55), math.sin(angle - .55)) * head,
-      _stroke,
-    );
-    canvas.drawLine(
-      to,
-      to - Offset(math.cos(angle + .55), math.sin(angle + .55)) * head,
-      _stroke,
-    );
+    canvas
+      ..drawLine(from, to, _stroke)
+      ..drawLine(
+        to,
+        to - Offset(math.cos(angle - .55), math.sin(angle - .55)) * head,
+        _stroke,
+      )
+      ..drawLine(
+        to,
+        to - Offset(math.cos(angle + .55), math.sin(angle + .55)) * head,
+        _stroke,
+      );
   }
 
   void _arcArrow(Canvas canvas, Rect rect, double start, double sweep) {
@@ -1724,16 +1756,17 @@ class _EarthSciencePainter extends CustomPainter {
       center.dy + math.sin(end) * rect.height / 2,
     );
     final tangent = end + (sweep >= 0 ? math.pi / 2 : -math.pi / 2);
-    canvas.drawLine(
-      p,
-      p - Offset(math.cos(tangent - .55), math.sin(tangent - .55)) * 7,
-      _stroke,
-    );
-    canvas.drawLine(
-      p,
-      p - Offset(math.cos(tangent + .55), math.sin(tangent + .55)) * 7,
-      _stroke,
-    );
+    canvas
+      ..drawLine(
+        p,
+        p - Offset(math.cos(tangent - .55), math.sin(tangent - .55)) * 7,
+        _stroke,
+      )
+      ..drawLine(
+        p,
+        p - Offset(math.cos(tangent + .55), math.sin(tangent + .55)) * 7,
+        _stroke,
+      );
   }
 
   void _dashedLine(Canvas canvas, Offset from, Offset to) {

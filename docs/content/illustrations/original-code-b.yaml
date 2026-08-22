@@ -35,19 +35,19 @@ figures:
         url: "https://science.nasa.gov/moon/moon-phases/"
   - key: science/earth-science-astronomy/fossils-and-geologic-time#1
     references:
-      - title: "Geologic Time: Radiometric Time Scale"
-        publisher: "U.S. Geological Survey"
-        url: "https://pubs.usgs.gov/gip/geotime/radiometric.html"
+      - title: "Radiation Protection and the NRC"
+        publisher: "U.S. Nuclear Regulatory Commission"
+        url: "https://www.nrc.gov/sites/default/files/doc_library/cdn/legacy/reading-rm/doc-collections/nuregs/brochures/br0322/r1/br0322r1.pdf"
   - key: science/earth-science-astronomy/fossils-and-geologic-time#2
     references:
-      - title: "Geologic Time: Relative Time Scale"
-        publisher: "U.S. Geological Survey"
-        url: "https://pubs.usgs.gov/gip/geotime/relative.html"
+      - title: "Geologic Principles: Superposition and Original Horizontality"
+        publisher: "National Park Service"
+        url: "https://www.nps.gov/articles/geologic-principles-superposition-and-original-horizontality.htm"
   - key: science/earth-science-astronomy/fossils-and-geologic-time#3
     references:
-      - title: "Geologic Time: Radiometric Time Scale"
-        publisher: "U.S. Geological Survey"
-        url: "https://pubs.usgs.gov/gip/geotime/radiometric.html"
+      - title: "Radiation Protection and the NRC"
+        publisher: "U.S. Nuclear Regulatory Commission"
+        url: "https://www.nrc.gov/sites/default/files/doc_library/cdn/legacy/reading-rm/doc-collections/nuregs/brochures/br0322/r1/br0322r1.pdf"
   - key: science/earth-science-astronomy/heavenly-bodies#1
     references:
       - title: "Comet Facts"
@@ -70,14 +70,14 @@ figures:
         url: "https://spaceplace.nasa.gov/solar-system-formation/en/"
   - key: science/earth-science-astronomy/plate-tectonics#1
     references:
-      - title: "This Dynamic Planet"
-        publisher: "U.S. Geological Survey"
-        url: "https://pubs.usgs.gov/pdf/planet.pdf"
+      - title: "What are the different types of plate tectonic boundaries?"
+        publisher: "NOAA Ocean Exploration"
+        url: "https://oceanexplorer.noaa.gov/ocean-fact/plate-boundaries/"
   - key: science/earth-science-astronomy/plate-tectonics#2
     references:
-      - title: "This Dynamic Planet"
-        publisher: "U.S. Geological Survey"
-        url: "https://pubs.usgs.gov/pdf/planet.pdf"
+      - title: "What are the different types of plate tectonic boundaries?"
+        publisher: "NOAA Ocean Exploration"
+        url: "https://oceanexplorer.noaa.gov/ocean-fact/plate-boundaries/"
   - key: science/earth-science-astronomy/plate-tectonics#3
     references:
       - title: "The Science of Earthquakes"
@@ -90,9 +90,9 @@ figures:
         url: "https://www.usgs.gov/special-topics/water-science-school/water-cycle"
   - key: science/earth-science-astronomy/weather-and-climate#1
     references:
-      - title: "Layers of the Atmosphere"
-        publisher: "NOAA Chemical Sciences Laboratory"
-        url: "https://csl.noaa.gov/news/2020/Layers-of-the-Atmosphere.pdf"
+      - title: "Earth's Atmosphere: A Multi-layered Cake"
+        publisher: "NASA Science"
+        url: "https://science.nasa.gov/earth/earth-atmosphere/earths-atmosphere-a-multi-layered-cake/"
   - key: science/physics/electricity-and-magnetism#1
     references:
       - title: "18.3 Electric Field"

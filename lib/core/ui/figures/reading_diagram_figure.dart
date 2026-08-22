@@ -82,10 +82,8 @@ class _ReadingDiagramPainter extends CustomPainter {
     switch (type) {
       case 'plot-arc':
         _paintPlotArc(canvas, size);
-        break;
       case 'rhetorical-appeals':
         _paintRhetoricalAppeals(canvas, size);
-        break;
     }
   }
 
@@ -126,9 +124,7 @@ class _ReadingDiagramPainter extends CustomPainter {
     for (var i = 0; i < points.length; i++) {
       canvas.drawCircle(points[i], 4, point);
       final width = i == 1 ? 88.0 : 72.0;
-      final x = (points[i].dx - width / 2)
-          .clamp(2.0, size.width - width - 2)
-          .toDouble();
+      final x = (points[i].dx - width / 2).clamp(2.0, size.width - width - 2);
       _label(
         canvas,
         stages[i],
@@ -217,7 +213,7 @@ class _ReadingDiagramPainter extends CustomPainter {
         label,
         Offset(ends[i].dx - 78, ends[i].dy - 28),
         maxWidth: 150,
-        style: i == 0 ? labelStyle.copyWith(color: board) : labelStyle,
+        style: labelStyle,
         align: TextAlign.center,
       );
       canvas.drawLine(
@@ -256,13 +252,14 @@ class _ReadingDiagramPainter extends CustomPainter {
     required TextStyle style,
     TextAlign align = TextAlign.left,
   }) {
-    final painter = TextPainter(
+    TextPainter(
       text: TextSpan(text: text, style: style),
       textDirection: TextDirection.ltr,
       textAlign: align,
       maxLines: 2,
-    )..layout(maxWidth: maxWidth);
-    painter.paint(canvas, offset);
+    )
+      ..layout(maxWidth: maxWidth)
+      ..paint(canvas, offset);
   }
 
   @override
