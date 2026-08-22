@@ -1,10 +1,16 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/figures/biology_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/chart_figure.dart';
+import 'package:pantas/core/ui/figures/chemistry_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/concept_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/coordinate_graph_figure.dart';
+import 'package:pantas/core/ui/figures/earth_science_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/gear_train_figure.dart';
 import 'package:pantas/core/ui/figures/geometry_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/lesson_figure_widget.dart';
+import 'package:pantas/core/ui/figures/physics_energy_diagram_figure.dart';
+import 'package:pantas/core/ui/figures/physics_mechanics_diagram_figure.dart';
+import 'package:pantas/core/ui/figures/reading_diagram_figure.dart';
 
 import '../../../helpers/pump_app.dart';
 
@@ -83,6 +89,125 @@ void main() {
       );
       expect(find.byType(entry.$3), findsOneWidget);
     }
+  });
+
+  testWidgets('all six original lesson figure kinds resolve', (tester) async {
+    const cases = <(Map<String, Object?>, Type)>[
+      (
+        {
+          'kind': 'reading-diagram',
+          'type': 'plot-arc',
+          'illustrationKey':
+              'reading-comprehension/text-types/short-stories-and-novels#1',
+          'shape': 'rise-peak-fall',
+          'stages': [
+            'introduction',
+            'rising action',
+            'climax',
+            'resolution',
+          ],
+        },
+        ReadingDiagramFigure,
+      ),
+      (
+        {
+          'kind': 'biology-diagram',
+          'type': 'stem-tissues',
+          'illustrationKey': 'science/biology/botany#1',
+          'outer': 'dermal tissue',
+          'vascular': {
+            'label': 'vascular tissue',
+            'components': ['xylem', 'phloem'],
+          },
+          'ground': 'ground tissue',
+        },
+        BiologyDiagramFigure,
+      ),
+      (
+        {
+          'kind': 'chemistry-diagram',
+          'type': 'atom-particles',
+          'illustrationKey': 'science/chemistry/atomic-structure#1',
+          'nucleus': ['proton (+)', 'neutron (neutral)'],
+          'orbiting': ['electron (-)'],
+        },
+        ChemistryDiagramFigure,
+      ),
+      (
+        {
+          'kind': 'earth-science-diagram',
+          'type': 'seasonal-orbit',
+          'illustrationKey':
+              'science/earth-science-astronomy/earths-motions#1',
+          'earthPositions': 4,
+          'axisDirection': 'constant',
+          'hemisphereTilt': ['toward Sun', 'away from Sun'],
+        },
+        EarthScienceDiagramFigure,
+      ),
+      (
+        {
+          'kind': 'physics-mechanics-diagram',
+          'type': 'accelerated-motion',
+          'illustrationKey': 'science/physics/kinematics#1',
+          'path': 'straight road',
+          'moments': 3,
+          'velocityTrend': 'increasing',
+          'acceleration': 'constant',
+        },
+        PhysicsMechanicsDiagramFigure,
+      ),
+      (
+        {
+          'kind': 'physics-energy-diagram',
+          'type': 'lens-comparison',
+          'illustrationKey': 'science/physics/light-and-optics#2',
+          'convexBehavior': 'parallel rays bend inward to one focus point',
+          'concaveBehavior': 'parallel rays spread outward',
+        },
+        PhysicsEnergyDiagramFigure,
+      ),
+    ];
+
+    for (final entry in cases) {
+      await tester.pumpApp(
+        LessonFigureWidget(
+          spec: entry.$1,
+          semanticsLabel: 'Original lesson figure.',
+        ),
+      );
+      expect(
+        find.byType(entry.$2),
+        findsOneWidget,
+        reason: 'Failed to resolve ${entry.$1['kind']}',
+      );
+      expect(
+        find.text('This lesson needs a diagram that has not been drawn yet.'),
+        findsNothing,
+      );
+    }
+  });
+
+  testWidgets('unknown lesson figure kind keeps the missing figure behavior', (
+    tester,
+  ) async {
+    await tester.pumpApp(
+      const LessonFigureWidget(
+        spec: {'kind': 'unknown-lesson-figure'},
+        semanticsLabel: 'Unknown lesson figure.',
+      ),
+    );
+
+    expect(
+      find.text('This lesson needs a diagram that has not been drawn yet.'),
+      findsOneWidget,
+    );
+    expect(find.byType(ReadingDiagramFigure), findsNothing);
+    expect(find.byType(BiologyDiagramFigure), findsNothing);
+    expect(find.byType(ChemistryDiagramFigure), findsNothing);
+    expect(find.byType(EarthScienceDiagramFigure), findsNothing);
+    expect(find.byType(PhysicsMechanicsDiagramFigure), findsNothing);
+    expect(find.byType(PhysicsEnergyDiagramFigure), findsNothing);
   });
 
   testWidgets('Worker B owned 46 lesson figures resolve to expected painters', (
