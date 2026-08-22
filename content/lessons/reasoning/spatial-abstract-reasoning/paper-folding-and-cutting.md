@@ -13,7 +13,7 @@ isActive: true
 
 The core rule: each fold creates a mirror line (a line of symmetry). When you cut through several layers of folded paper at once, unfolding reflects that cut across every fold line it passed through, multiplying the single cut into a symmetric pattern of holes.
 
-<!-- ILLUSTRATION: a square piece of paper folded in half vertically then in half again horizontally, shown with a single triangular notch cut near the folded corner, then unfolded to reveal four symmetric notches, one in each quadrant of the fully opened square, mirrored across both fold lines -->
+<!-- FIGURE: {"kind": "paper-fold", "folds": ["vertical", "horizontal"], "cut": "notch", "at": "corner", "semanticsLabel": "A square of paper folded twice with a triangular notch cut near the corner."} -->
 
 **Counting the holes**: each fold doubles the number of layers the cut passes through. If the paper is folded $2$ times before cutting, the cut passes through $4$ layers, so unfolding reveals $4$ copies of that same cut, positioned symmetrically according to each fold. In general, folding $n$ times (where each fold is a distinct fold onto a new layer) creates $2^n$ layers, and one cut anywhere through all the layers produces $2^n$ holes when fully unfolded (as long as the cut passes through every layer).
 
@@ -25,7 +25,7 @@ The core rule: each fold creates a mirror line (a line of symmetry). When you cu
 
 A square paper is folded exactly in half (vertically, left side onto right side). A small triangular notch is cut out of the folded edge, at the midpoint of the folded (right) edge. When unfolded, how many notches appear, and where?
 
-<!-- ILLUSTRATION: a square folded left-onto-right, a triangular notch cut at the midpoint of the folded edge, then the unfolded square showing a single diamond-shaped hole centered on the fold line -->
+<!-- FIGURE: {"kind": "paper-fold", "folds": ["vertical"], "cut": "notch", "at": "on-fold", "semanticsLabel": "A square of paper folded vertically in half with a notch cut on the folded edge."} -->
 
 
 **Solution:**
@@ -37,7 +37,7 @@ A square paper is folded exactly in half (vertically, left side onto right side)
 
 A square paper is folded in half vertically, then folded in half again horizontally (so it is now folded into a smaller quarter-square). A small circular hole is cut near the corner where all the folded edges meet (the very center of the original square, once unfolded). How many holes appear when fully unfolded, and where?
 
-<!-- ILLUSTRATION: a square folded in half twice into a quarter-square, a circular hole cut at the all-folds corner, then the unfolded square showing a single hole at the exact center -->
+<!-- FIGURE: {"kind": "paper-fold", "folds": ["vertical", "horizontal"], "cut": "hole", "at": "corner", "semanticsLabel": "A square of paper folded twice into a quarter-square with a hole cut at the corner."} -->
 
 
 **Solution:**
@@ -49,7 +49,7 @@ A square paper is folded in half vertically, then folded in half again horizonta
 
 Using the same two-fold setup as Example 2 (folded into a quarter-square), a notch is cut this time along the outer edge of the folded paper (far from the center), rather than near the center corner. Where will the resulting holes appear when unfolded?
 
-<!-- ILLUSTRATION: a square folded into a quarter-square with a notch cut on the outer edge (away from the center), then the unfolded square showing four notches, one along each outer edge/corner region, symmetric about both fold lines -->
+<!-- FIGURE: {"kind": "paper-fold", "folds": ["vertical", "horizontal"], "cut": "notch", "at": "edge", "semanticsLabel": "A square of paper folded twice into a quarter-square with a notch cut on the outer edge."} -->
 
 
 **Solution:**
@@ -61,7 +61,7 @@ Using the same two-fold setup as Example 2 (folded into a quarter-square), a not
 
 A rectangular paper is folded in half three separate times (each fold halving it again). A cut is made through all the layers at once. How many holes appear when fully unfolded?
 
-<!-- ILLUSTRATION: a rectangle folded in half three times (8 layers) with one cut through all layers, then the unfolded rectangle showing 8 evenly spaced holes -->
+<!-- FIGURE: {"kind": "paper-fold", "folds": ["vertical", "horizontal", "vertical"], "cut": "hole", "at": "interior", "semanticsLabel": "A piece of paper folded three times with a hole cut through the center."} -->
 
 
 **Solution:**

@@ -19,7 +19,7 @@ Since the rule is not stated, approach this systematically by checking figures a
 - **Curved vs. straight lines**: are most figures made entirely of straight lines (or entirely of curves), while one mixes both or uses the opposite type?
 - **Shading pattern**: do most figures share a similar shading rule (like "always exactly one shaded part"), while one breaks it?
 
-<!-- ILLUSTRATION: a row of five shapes, four of them being different quadrilaterals (square, rectangle, rhombus, parallelogram, all four-sided and symmetric) and one being a five-sided pentagon, with the pentagon marked as the odd-one-out due to its different side count -->
+<!-- FIGURE: {"kind": "shape-row", "shapes": [{"form": "square"}, {"form": "rectangle"}, {"form": "rhombus"}, {"form": "pentagon"}], "semanticsLabel": "A row of four shapes: a square, a rectangle, a rhombus, and a pentagon."} -->
 
 The correct approach is to find the rule that makes four (or however many) figures belong to one consistent group, leaving exactly one figure that clearly does not fit that same rule.
 
@@ -29,7 +29,7 @@ The correct approach is to find the rule that makes four (or however many) figur
 
 Four figures are shown: a square, a rectangle, a rhombus, and a triangle. Which one does not belong, and why?
 
-<!-- ILLUSTRATION: four labeled figures side by side, a square, a rectangle, a rhombus (all four-sided), and a triangle (three-sided); the triangle is the odd one out -->
+<!-- FIGURE: {"kind": "shape-row", "shapes": [{"form": "square"}, {"form": "rectangle"}, {"form": "rhombus"}, {"form": "triangle"}], "semanticsLabel": "A row of four shapes: a square, a rectangle, a rhombus, and a triangle."} -->
 
 
 **Solution:**
@@ -41,7 +41,7 @@ Four figures are shown: a square, a rectangle, a rhombus, and a triangle. Which 
 
 Four figures are shown: a perfect circle, a square, an equilateral triangle, and an irregular, lopsided blob shape with no matching sides. Which one does not belong?
 
-<!-- ILLUSTRATION: four figures, a circle, a square, an equilateral triangle (all symmetric), and an irregular lopsided blob (no symmetry); the blob is the odd one out -->
+<!-- FIGURE: {"kind": "shape-row", "shapes": [{"form": "circle"}, {"form": "square"}, {"form": "triangle"}, {"form": "blob"}], "semanticsLabel": "A row of four shapes: a circle, a square, a triangle, and an irregular blob."} -->
 
 
 **Solution:**
@@ -53,7 +53,7 @@ Four figures are shown: a perfect circle, a square, an equilateral triangle, and
 
 Four figures are shown, each a circle with straight lines drawn through it: one circle with $1$ line through the center (creating $2$ regions), one with $2$ lines through the center (creating $4$ regions), one with $3$ lines through the center (creating $6$ regions), and one with $2$ lines not through the center, creating $3$ uneven regions. Which one does not belong?
 
-<!-- ILLUSTRATION: four circles cut by straight lines, one with 1 line through the center (2 regions), one with 2 lines through the center (4 regions), one with 3 lines through the center (6 regions), and one with 2 off-center lines (3 uneven regions); the last is the odd one out (odd region count / lines not through the center) -->
+<!-- FIGURE: {"kind": "shape-row", "shapes": [{"form": "circle", "lines": 1}, {"form": "circle", "lines": 2}, {"form": "circle", "lines": 3}, {"form": "circle", "lines": 2, "through": "off"}], "semanticsLabel": "Four circles cut by lines, three through the center and one off center."} -->
 
 
 **Solution:**
@@ -65,7 +65,7 @@ Four figures are shown, each a circle with straight lines drawn through it: one 
 
 Four figures are shown, each a different shape, but each one contains exactly one small shaded (black) dot somewhere inside it. A fifth figure contains two small shaded dots inside it. Which one does not belong?
 
-<!-- ILLUSTRATION: five different outer shapes, four containing exactly one small black dot inside and one containing two black dots; the figure with two dots is the odd one out -->
+<!-- FIGURE: {"kind": "shape-row", "shapes": [{"form": "square", "dots": 1}, {"form": "triangle", "dots": 1}, {"form": "circle", "dots": 1}, {"form": "pentagon", "dots": 1}, {"form": "hexagon", "dots": 2}], "semanticsLabel": "Five shapes with dots inside, four with one dot and one with two dots."} -->
 
 
 **Solution:**
