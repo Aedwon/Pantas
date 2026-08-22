@@ -1,8 +1,11 @@
 import 'package:flutter/widgets.dart';
+import 'package:pantas/core/ui/figures/biology_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/chart_figure.dart';
+import 'package:pantas/core/ui/figures/chemistry_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/concept_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/coordinate_graph_figure.dart';
 import 'package:pantas/core/ui/figures/cube_net_figure.dart';
+import 'package:pantas/core/ui/figures/earth_science_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/figure_matrix_figure.dart';
 import 'package:pantas/core/ui/figures/figure_series_figure.dart';
 import 'package:pantas/core/ui/figures/fluid_vessel_figure.dart';
@@ -10,7 +13,10 @@ import 'package:pantas/core/ui/figures/gear_train_figure.dart';
 import 'package:pantas/core/ui/figures/geometry_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/lever_balance_figure.dart';
 import 'package:pantas/core/ui/figures/paper_fold_figure.dart';
+import 'package:pantas/core/ui/figures/physics_energy_diagram_figure.dart';
+import 'package:pantas/core/ui/figures/physics_mechanics_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/pulley_system_figure.dart';
+import 'package:pantas/core/ui/figures/reading_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/shape_row_figure.dart';
 import 'package:pantas/core/ui/figures/spring_scale_figure.dart';
 import 'package:pantas/core/ui/figures/stability_shape_figure.dart';
@@ -34,6 +40,13 @@ abstract final class FigureRegistry {
       GeometryDiagramFigure.kind => GeometryDiagramFigure.fromSpec(spec),
       ChartFigure.kind => ChartFigure.fromSpec(spec),
       ConceptDiagramFigure.kind => ConceptDiagramFigure.fromSpec(spec),
+      ReadingDiagramFigure.kind => ReadingDiagramFigure.fromSpec(spec),
+      BiologyDiagramFigure.kind => BiologyDiagramFigure.fromSpec(spec),
+      ChemistryDiagramFigure.kind => ChemistryDiagramFigure.fromSpec(spec),
+      EarthScienceDiagramFigure.kind => EarthScienceDiagramFigure.fromSpec(spec),
+      PhysicsMechanicsDiagramFigure.kind =>
+        PhysicsMechanicsDiagramFigure.fromSpec(spec),
+      PhysicsEnergyDiagramFigure.kind => PhysicsEnergyDiagramFigure.fromSpec(spec),
       _ => null,
     };
   }
