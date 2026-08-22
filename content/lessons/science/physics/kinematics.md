@@ -27,7 +27,7 @@ $$d = \dfrac{(v_0 + v)}{2} t$$
 
 Each equation uses only $4$ of the $5$ total variables ($v_0, v, a, t, d$), so you can pick whichever equation already contains the values you know and the one you want to find.
 
-<!-- ILLUSTRATION: a car shown at three moments along a straight road, with arrows and labels showing increasing velocity vectors and a curved arrow indicating constant acceleration -->
+<!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"accelerated-motion","illustrationKey":"science/physics/kinematics#1","path":"straight road","moments":3,"velocityTrend":"increasing","acceleration":"constant"} -->
 
 ### Free Fall Equations
 
