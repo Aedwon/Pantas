@@ -193,6 +193,45 @@ void main() {
     );
   });
 
+  test('rejects non-Commons Wikimedia pages and upload paths', () async {
+    Future<AssetUploadResult> run(OpenAssetRecord record) => synchronizeAssets(
+          assetMapFile: File(
+            '${tempDir.path}/content/illustrations/assets.json',
+          ),
+          dryRun: true,
+          records: [record],
+          repositoryRoot: tempDir,
+          strategy: _strategy,
+          uploader: _MemoryUploader(),
+        );
+
+    expect(
+      () => run(
+        _record(
+          digest,
+          sourcePage: Uri.parse(
+            'https://meta.wikimedia.org/wiki/File:Cell.svg',
+          ),
+        ),
+      ),
+      throwsA(isA<AssetManifestException>()),
+    );
+    expect(
+      () => run(
+        _record(
+          digest,
+          directUrl: Uri.parse(
+            'https://upload.wikimedia.org/wikipedia/en/1/12/Cell.svg',
+          ),
+          sourcePage: Uri.parse(
+            'https://commons.wikimedia.org/wiki/File:Cell.svg',
+          ),
+        ),
+      ),
+      throwsA(isA<AssetManifestException>()),
+    );
+  });
+
   test('loads the frozen YAML and strategy TSV contracts', () {
     final manifest = File('${tempDir.path}/open-a.yaml')..writeAsStringSync('''
 version: 1
@@ -277,18 +316,21 @@ const _zeroDigest =
 
 OpenAssetRecord _record(
   String digest, {
+  Uri? directUrl,
   String key = 'science/biology/cells#1',
   String license = 'CC BY 4.0',
+  Uri? sourcePage,
   String target = 'content/illustrations/diagram.png',
 }) =>
     OpenAssetRecord(
       creator: 'OpenStax',
       credit: 'OpenStax, CC BY 4.0.',
-      directUrl: Uri.parse('https://openstax.org/image.png'),
+      directUrl: directUrl ?? Uri.parse('https://openstax.org/image.png'),
       key: key,
       license: license,
       sha256: digest,
-      sourcePage: Uri.parse('https://openstax.org/books/biology/pages/1'),
+      sourcePage:
+          sourcePage ?? Uri.parse('https://openstax.org/books/biology/pages/1'),
       target: target,
     );
 

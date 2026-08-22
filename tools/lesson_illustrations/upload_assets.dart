@@ -381,13 +381,18 @@ void _validateRecord(OpenAssetRecord record) {
 
 bool _isApprovedSourcePage(Uri uri) {
   final host = uri.host.toLowerCase();
+  if (host == 'commons.wikimedia.org') return true;
+  if (host == 'upload.wikimedia.org') {
+    return uri.pathSegments.length >= 2 &&
+        uri.pathSegments[0] == 'wikipedia' &&
+        uri.pathSegments[1] == 'commons';
+  }
   const roots = <String>[
     'openstax.org',
     'rice.edu',
     'usgs.gov',
     'nasa.gov',
     'noaa.gov',
-    'wikimedia.org',
   ];
   return roots.any((root) => host == root || host.endsWith('.$root'));
 }
