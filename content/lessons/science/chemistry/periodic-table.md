@@ -17,7 +17,7 @@ The vertical columns are called **groups** (or **families**), numbered $1$ throu
 
 Elements are also classified into three broad categories: **metals** (left and center of the table; shiny, good conductors, tend to lose electrons), **nonmetals** (right side; poor conductors, tend to gain electrons), and **metalloids** (the staircase boundary between them; properties in between, useful in electronics).
 
-<!-- ILLUSTRATION: outline of the periodic table with the left/center region shaded and labeled metals, the far-right region shaded differently and labeled nonmetals, and a thin staircase-shaped strip between them labeled metalloids -->
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"periodic-regions","illustrationKey":"science/chemistry/periodic-table#1","regions":[{"label":"metals","location":"left and center"},{"label":"nonmetals","location":"far right"},{"label":"metalloids","location":"staircase boundary"}]} -->
 
 ### Periodic Trends (Electronegativity, Ionization Energy, Atomic Radius, Electron Affinity)
 
