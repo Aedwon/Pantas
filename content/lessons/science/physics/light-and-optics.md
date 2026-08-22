@@ -29,7 +29,7 @@ The **law of reflection**: the **angle of incidence** (the angle at which light 
 
 Lenses work through refraction rather than reflection. A **convex lens** (thicker in the middle) is converging, bending light rays together toward a focus point (used in magnifying glasses and to correct farsightedness). A **concave lens** (thinner in the middle) is diverging, spreading light rays apart (used to correct nearsightedness).
 
-<!-- ILLUSTRATION: side-by-side comparison of a convex lens bending parallel light rays inward to a single focus point, and a concave lens spreading parallel light rays outward -->
+<!-- FIGURE: {"kind":"physics-energy-diagram","type":"lens-comparison","illustrationKey":"science/physics/light-and-optics#2","convexBehavior":"parallel rays bend inward to one focus point","concaveBehavior":"parallel rays spread outward"} -->
 
 ### The Electromagnetic Spectrum
 
