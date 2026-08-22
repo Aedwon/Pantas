@@ -294,20 +294,35 @@ Future<_RenderedPreview> _renderOne({
   if (renderObject is! RenderRepaintBoundary) {
     throw StateError('Review preview did not produce a RepaintBoundary.');
   }
-  final image = await renderObject.toImage();
-  final data = await image.toByteData(format: ui.ImageByteFormat.png);
-  if (data == null) {
-    image.dispose();
-    throw StateError('Review preview PNG encoding failed.');
+
+  final rendered = await tester.runAsync<_RenderedPreview>(() async {
+    final image = await renderObject.toImage();
+    try {
+      final data = await image.toByteData(format: ui.ImageByteFormat.png);
+      if (data == null) {
+        throw StateError('Review preview PNG encoding failed.');
+      }
+      final bytes = data.buffer.asUint8List(
+        data.offsetInBytes,
+        data.lengthInBytes,
+      );
+      return _RenderedPreview(
+        bytes: Uint8List.fromList(bytes),
+        width: image.width,
+        height: image.height,
+      );
+    } finally {
+      image.dispose();
+    }
+  });
+  if (rendered == null) {
+    final asyncException = tester.takeException();
+    throw StateError(
+      'Review preview raster capture failed: '
+      '${asyncException ?? 'unknown async error'}',
+    );
   }
-  final bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
-  final result = _RenderedPreview(
-    bytes: Uint8List.fromList(bytes),
-    width: image.width,
-    height: image.height,
-  );
-  image.dispose();
-  return result;
+  return rendered;
 }
 
 String _previewStem(String key) =>
