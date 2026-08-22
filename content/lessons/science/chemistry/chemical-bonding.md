@@ -19,7 +19,7 @@ Atoms bond together to become more stable, usually by achieving a full outer she
 
 **Metallic bonds** form between metal atoms. The outer electrons are not tied to any single atom; instead, they flow freely through a "sea of electrons" shared among all the metal atoms, which is why metals conduct electricity so well.
 
-<!-- ILLUSTRATION: three small diagrams side by side, an ionic bond showing an electron transferring from a metal atom to a nonmetal atom with a plus and minus charge resulting, a covalent bond showing two nonmetal atoms sharing a pair of electrons between them, and a metallic bond showing a grid of metal atoms surrounded by a shaded "sea" of free-moving electrons -->
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"bond-types","illustrationKey":"science/chemistry/chemical-bonding#1","bondTypes":[{"label":"ionic","participants":["metal","nonmetal"],"electronAction":"transfer","result":"positive and negative ions"},{"label":"covalent","participants":["nonmetal","nonmetal"],"electronAction":"share a pair of electrons"},{"label":"metallic","participants":["metal atoms"],"electronAction":"sea of free-moving electrons"}]} -->
 
 The type of bond can be predicted by the difference in electronegativity ($\Delta EN$) between the two atoms: a large difference (roughly $2.0$ or more) means electrons transfer completely (ionic); a small difference (below about $0.5$) means electrons are shared nearly equally (nonpolar covalent); an in-between difference means electrons are shared unequally (polar covalent).
 
@@ -73,7 +73,7 @@ Water ($H_2O$) has $4$ total electron groups around its central oxygen atom ($2$
 **Solution:**
 Recall that VSEPR counts all electron groups, including lone pairs, but the final shape only describes where the atoms sit.
 
-1. With $4$ total electron groups, the electron arrangement around oxygen is still roughly tetrahedral, spreading all $4$ groups apart as far as possible.
+1. With $4$ total electron groups, the electron arrangement around oxygen is still roughly tetrahedral, spreading all $4$ groups apart as far apart as possible.
 2. However, $2$ of those $4$ groups are lone pairs (not connected to another atom), so they do not count as "corners" when we describe the shape formed by the atoms themselves.
 3. With only $2$ of the $4$ positions occupied by actual hydrogen atoms, and the $2$ lone pairs pushing those hydrogens closer together, the resulting molecular shape (based on atom positions only) is bent, not tetrahedral or linear.
 
