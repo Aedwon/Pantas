@@ -18,6 +18,7 @@ class PulleySystemFigure extends StatelessWidget {
   const PulleySystemFigure({
     required this.fixed,
     required this.movable,
+    required this.comparison,
     super.key,
   });
 
@@ -25,6 +26,7 @@ class PulleySystemFigure extends StatelessWidget {
 
   final int fixed;
   final int movable;
+  final bool comparison;
 
   /// Null when the spec cannot be read.
   static PulleySystemFigure? fromSpec(Map<String, Object?> spec) {
@@ -33,17 +35,28 @@ class PulleySystemFigure extends StatelessWidget {
     if (fixed is! int || movable is! int) return null;
     if (fixed < 0 || movable < 0 || fixed + movable < 1) return null;
     if (fixed > 3 || movable > 4) return null;
-    return PulleySystemFigure(fixed: fixed, movable: movable);
+    final comparison = spec['comparison'] ?? false;
+    if (comparison is! bool) return null;
+    if (comparison && (fixed != 1 || movable != 1)) return null;
+    return PulleySystemFigure(
+      fixed: fixed,
+      movable: movable,
+      comparison: comparison,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final description = movable == 0
-        ? 'A fixed pulley hanging from a beam, with a load on one end of the '
-            'rope and a hand pulling the other.'
-        : '$movable movable ${movable == 1 ? 'pulley' : 'pulleys'} carrying '
-            'the load, with the rope running up to the beam.';
+    final description = comparison
+        ? 'A fixed pulley beside a separate movable pulley setup.'
+        : movable == 0
+            ? 'A fixed pulley hanging from a beam, with a load on one end '
+                'of the '
+                'rope and a hand pulling the other.'
+            : '$movable movable '
+                '${movable == 1 ? 'pulley' : 'pulleys'} carrying '
+                'the load, with the rope running up to the beam.';
     return Semantics(
       label: description,
       child: SizedBox(
@@ -52,6 +65,7 @@ class PulleySystemFigure extends StatelessWidget {
           painter: _PulleyPainter(
             fixed: fixed,
             movable: movable,
+            comparison: comparison,
             ink: colors.ink,
           ),
           size: Size.infinite,
@@ -65,15 +79,36 @@ class _PulleyPainter extends CustomPainter {
   _PulleyPainter({
     required this.fixed,
     required this.movable,
+    required this.comparison,
     required this.ink,
   });
 
   final int fixed;
   final int movable;
+  final bool comparison;
   final Color ink;
 
   @override
   void paint(Canvas canvas, Size size) {
+    if (comparison) {
+      final half = Size(size.width / 2, size.height);
+      _paintSystem(canvas, half, fixed: 1, movable: 0);
+      canvas
+        ..save()
+        ..translate(half.width, 0);
+      _paintSystem(canvas, half, fixed: 0, movable: 1);
+      canvas.restore();
+      return;
+    }
+    _paintSystem(canvas, size, fixed: fixed, movable: movable);
+  }
+
+  void _paintSystem(
+    Canvas canvas,
+    Size size, {
+    required int fixed,
+    required int movable,
+  }) {
     final hairline = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1
@@ -90,10 +125,9 @@ class _PulleyPainter extends CustomPainter {
     );
 
     // Fixed pulleys hang from the beam, side by side.
-    final fixedCount = fixed == 0 ? 1 : fixed;
     const spread = radius * 2.6;
-    final firstX = centreX - spread * (fixedCount - 1) / 2;
-    for (var i = 0; i < fixedCount; i++) {
+    final firstX = centreX - spread * (fixed - 1) / 2;
+    for (var i = 0; i < fixed; i++) {
       final x = firstX + spread * i;
       canvas
         ..drawLine(Offset(x, beamY), Offset(x, beamY + 10), hairline)
@@ -131,5 +165,8 @@ class _PulleyPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_PulleyPainter old) =>
-      old.fixed != fixed || old.movable != movable || old.ink != ink;
+      old.fixed != fixed ||
+      old.movable != movable ||
+      old.comparison != comparison ||
+      old.ink != ink;
 }

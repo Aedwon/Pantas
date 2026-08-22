@@ -17,7 +17,7 @@ A **net** is a flat, unfolded pattern of connected squares that can be folded up
 
 Key rule for checking which faces end up opposite each other once folded: in a net, two squares are opposite faces on the finished cube if there is exactly one square directly between them in a straight line (in either the row or column direction) or if they are the two squares that "wrap around" to meet at ends of an L-shaped or zigzag arrangement of 4 squares in a row. The safest method is to mentally fold the net step by step: pick one square as the fixed "bottom," then fold each connected neighboring square up to become a side, tracking which square lands on top.
 
-<!-- ILLUSTRATION: a cross-shaped (plus-sign) cube net made of 6 squares, with the center square labeled "bottom," the four squares directly connected to it labeled as the four sides, and the square at the far end of the vertical arm labeled "top," folded into a 3D cube alongside the flat net for comparison -->
+<!-- FIGURE: {"kind": "cube-net", "cells": [[0, 1], [1, 0], [1, 1], [1, 2], [2, 1], [3, 1]], "labels": ["side", "side", "bottom", "side", "side", "top"], "showFolded": true, "semanticsLabel": "A cross-shaped cube net with the bottom, four sides, and top labeled, beside the folded cube."} -->
 
 ### Shadow Casting
 
@@ -29,7 +29,7 @@ A **shadow** is the 2D silhouette (outline) a 3D object casts when light shines 
 
 A cross-shaped (plus-sign) net has one central square, with four squares attached to its four sides (up, down, left, right), and one more square attached to the far end of the "up" arm (making a vertical line of $3$ squares: the top square, then the center square, then the bottom square, with two more squares attached to the center square's left and right sides). If the center square becomes the bottom of the cube once folded, which square becomes the top?
 
-<!-- ILLUSTRATION: a cross-shaped (plus-sign) cube net of 6 squares, with the center square labeled "bottom"; the answer marks the square at the far end of the vertical arm (opposite the center) as the top -->
+<!-- FIGURE: {"kind": "cube-net", "cells": [[0, 1], [1, 0], [1, 1], [1, 2], [2, 1], [3, 1]], "labels": ["side", "side", "bottom", "side", "side", "top"], "semanticsLabel": "A cross-shaped cube net with the center labeled bottom and the far end of the vertical arm labeled top."} -->
 
 
 **Solution:**
@@ -41,7 +41,7 @@ A cross-shaped (plus-sign) net has one central square, with four squares attache
 
 A flat pattern has $6$ squares arranged with $4$ in a straight horizontal row, and $2$ more squares both attached to the top of the same square (the second square in the row), stacked directly on top of each other. Does this net fold into a valid cube?
 
-<!-- ILLUSTRATION: a flat pattern of 6 squares: 4 in a horizontal row, plus 2 squares stacked directly above the same square in the row; two faces overlap when folded, so it is NOT a valid cube net -->
+<!-- FIGURE: {"kind": "cube-net", "cells": [[0, 1], [1, 1], [2, 0], [2, 1], [2, 2], [2, 3]], "semanticsLabel": "A flat pattern of six squares with four in a row and two stacked directly above the second square."} -->
 
 
 **Solution:**
@@ -53,7 +53,7 @@ A flat pattern has $6$ squares arranged with $4$ in a straight horizontal row, a
 
 A solid cylinder (like a can) stands upright, with light shining straight down from directly above it. What shape is the shadow cast on the ground?
 
-<!-- ILLUSTRATION: an upright cylinder with light rays coming straight down from above, casting a circular shadow on the ground -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "cylinder-shadow-above", "labels": ["Light from above", "Circular shadow"], "semanticsLabel": "An upright cylinder with light shining from above, casting a circular shadow on the ground."} -->
 
 
 **Solution:**
@@ -65,7 +65,7 @@ A solid cylinder (like a can) stands upright, with light shining straight down f
 
 The same cylinder now has light shining from directly the side (horizontally), rather than from above. What shape is the shadow cast on a wall behind it?
 
-<!-- ILLUSTRATION: an upright cylinder with light rays coming horizontally from the side, casting a rectangular shadow on the wall behind it -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "cylinder-shadow-side", "labels": ["Light from side", "Rectangular shadow"], "semanticsLabel": "An upright cylinder with light shining from the side, casting a rectangular shadow on the wall."} -->
 
 
 **Solution:**

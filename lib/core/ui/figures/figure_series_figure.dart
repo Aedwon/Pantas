@@ -135,7 +135,25 @@ class FigureSeriesFigure extends StatelessWidget {
       if (edgeLines is! int || edgeLines < 0 || edgeLines > 5) return null;
 
       final line = entry['line'];
-      if (line != null && line is! num) return null;
+      final rawLines = entry['lines'];
+      if (line != null && rawLines != null) return null;
+      final lineDegrees = <double>[];
+      if (line != null) {
+        if (line is! num || !line.toDouble().isFinite) return null;
+        lineDegrees.add(line.toDouble());
+      }
+      if (rawLines != null) {
+        if (rawLines is! List || rawLines.isEmpty || rawLines.length > 4) {
+          return null;
+        }
+        for (final value in rawLines) {
+          if (value is! num || !value.toDouble().isFinite) return null;
+          lineDegrees.add(value.toDouble());
+        }
+      }
+
+      final rotation = entry['rotation'] ?? 0;
+      if (rotation is! num || !rotation.toDouble().isFinite) return null;
 
       final arrow = entry['arrow'];
       if (arrow != null && (arrow is! String || !arrows.containsKey(arrow))) {
@@ -149,7 +167,8 @@ class FigureSeriesFigure extends StatelessWidget {
         dotCorner: dot as String?,
         dots: dots,
         edgeLines: edgeLines,
-        lineDegrees: (line as num?)?.toDouble(),
+        allLineDegrees: lineDegrees,
+        rotationDegrees: rotation.toDouble(),
         arrowDegrees: arrow == null ? null : arrows[arrow],
       );
     }
@@ -187,8 +206,9 @@ class SeriesItem {
     required this.fill,
     required this.dots,
     required this.edgeLines,
+    required this.allLineDegrees,
+    required this.rotationDegrees,
     this.dotCorner,
-    this.lineDegrees,
     this.arrowDegrees,
   });
 
@@ -198,8 +218,12 @@ class SeriesItem {
   final String? dotCorner;
   final int dots;
   final int edgeLines;
-  final double? lineDegrees;
+  final List<double> allLineDegrees;
+  final double rotationDegrees;
   final double? arrowDegrees;
+
+  double? get lineDegrees =>
+      allLineDegrees.isEmpty ? null : allLineDegrees.first;
 }
 
 class _SeriesPainter extends CustomPainter {
@@ -276,6 +300,14 @@ class _SeriesPainter extends CustomPainter {
     final r = baseRadius * item.scale;
     final path = _formPath(item.form, centre, r);
 
+    canvas.save();
+    if (item.rotationDegrees != 0) {
+      canvas
+        ..translate(centre.dx, centre.dy)
+        ..rotate(item.rotationDegrees * math.pi / 180)
+        ..translate(-centre.dx, -centre.dy);
+    }
+
     if (item.fill >= 1) {
       canvas.drawPath(path, solid);
     } else if (item.fill > 0) {
@@ -297,8 +329,7 @@ class _SeriesPainter extends CustomPainter {
     }
     canvas.drawPath(path, stroke);
 
-    final line = item.lineDegrees;
-    if (line != null) {
+    for (final line in item.allLineDegrees) {
       final angle = (line - 90) * math.pi / 180;
       canvas.drawLine(
         centre,
@@ -357,6 +388,7 @@ class _SeriesPainter extends CustomPainter {
         );
       }
     }
+    canvas.restore();
   }
 
   Path _formPath(String form, Offset centre, double r) {
@@ -406,5 +438,9 @@ class _SeriesPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_SeriesPainter old) =>
-      old.ink != ink || old.items.length != items.length || old.blank != blank;
+      old.ink != ink ||
+      old.faint != faint ||
+      old.markStyle != markStyle ||
+      old.items != items ||
+      old.blank != blank;
 }
